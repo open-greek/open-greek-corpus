@@ -1,0 +1,1616 @@
+{
+ "_meta": {
+  "description": "Per-work source-precedence overrides applied on top of sourcing_map.csv best_source. Ladder: open_corpus > byzantium_gr (clean PD Bonn transcription) > migne_cgpg (CC-BY Migne OCR) > pd_edition (own OCR). TLG text is never a served source. open_corpus overrides record works served from the Galenus Verbatim CC BY-SA TEI editions, which the sourcing map predates. See README 'Source precedence'.",
+  "generated_by": "scripts/build_source_overrides.py",
+  "generated_from": [
+   "data/pd_research/byzantium_sweep.json",
+   "data/pd_research/cgpg_coverage.json",
+   "data/inventory/sourcing_map.csv",
+   "data/corpus_editions.json (galenus_verbatim works)"
+  ],
+  "as_of": "2026-06-28",
+  "count": 107,
+  "by_source": {
+   "open_corpus": 23,
+   "migne_cgpg": 62,
+   "byzantium_gr": 19,
+   "migne_pd": 3
+  }
+ },
+ "overrides": [
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "088",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "GALENUS",
+   "title": "In Hippocratis prorrheticum i commentaria iii",
+   "word_count": 47475,
+   "slug": "galenus.in-hippocratis-prorrheticum-i-commentaria-iii",
+   "edition": "1st1K-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (1st1K-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "090",
+   "source": "open_corpus",
+   "over": "locked",
+   "author": "GALENUS",
+   "title": "In Hippocratis librum iii epidemiarum commentarii iii",
+   "word_count": 42913,
+   "slug": "galenus.in-hippocratis-librum-iii-epidemiarum-commentarii-iii",
+   "edition": "1st1K-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (1st1K-grc1), the only open Greek source for this work; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "091",
+   "source": "open_corpus",
+   "over": "locked",
+   "author": "GALENUS",
+   "title": "In Hippocratis librum vi epidemiarum commentarii vi",
+   "word_count": 79741,
+   "slug": "galenus.in-hippocratis-librum-vi-epidemiarum-commentarii-vi",
+   "edition": "1st1K-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (1st1K-grc1), the only open Greek source for this work; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "104",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "GALENUS",
+   "title": "De libris propriis liber",
+   "word_count": 6514,
+   "slug": "galenus.de-libris-propriis-liber",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "105",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "GALENUS",
+   "title": "De ordine librorum suorum ad Eugenianum",
+   "word_count": 2051,
+   "slug": "galenus.de-ordine-librorum-suorum-ad-eugenianum",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "106",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "GALENUS",
+   "title": "Linguarum seu dictionum exoletarum Hippocratis explicatio",
+   "word_count": 9956,
+   "slug": "galenus.linguarum-seu-dictionum-exoletarum-hippocratis-explicatio",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "111",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "GALENUS",
+   "title": "Quod qualitates incorporeae sint",
+   "word_count": 3371,
+   "slug": "galenus.quod-qualitates-incorporeae-sint",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0057",
+   "work_id": "115",
+   "source": "open_corpus",
+   "over": "locked",
+   "author": "GALENUS",
+   "title": "Quomodo morborum simulantes sint deprehendendi",
+   "word_count": 871,
+   "slug": "galenus.quomodo-morborum-simulantes-sint-deprehendendi",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "002",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "An animal sit quod est in utero",
+   "word_count": 3827,
+   "slug": "pseudo-galenus.animal-sit-quod-est-in-utero",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "009",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De humoribus liber",
+   "word_count": 1746,
+   "slug": "pseudo-galenus.de-humoribus-liber",
+   "edition": "verbatim-grc2",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc2), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "022",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De ponderibus et mensuris",
+   "word_count": 3942,
+   "slug": "pseudo-galenus.de-ponderibus-et-mensuris",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "023",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "Praesagitio omnino vera expertaque",
+   "word_count": 913,
+   "slug": "pseudo-galenus.praesagitio-omnino-vera-expertaque",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "024",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "Prognostica de decubitu ex mathematica scientia",
+   "word_count": 6880,
+   "slug": "pseudo-galenus.prognostica-de-decubitu-ex-mathematica-scientia",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "026",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De pulsibus ad Antonium disciplinae studiosum ac philosophum",
+   "word_count": 2120,
+   "slug": "pseudo-galenus.de-pulsibus-ad-antonium-disciplinae-studiosum-ac-philosophum",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "031",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De succedaneis liber",
+   "word_count": 2218,
+   "slug": "pseudo-galenus.de-succedaneis-liber",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "033",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De urinis",
+   "word_count": 3983,
+   "slug": "pseudo-galenus.de-urinis",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "034",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De urinis compendium",
+   "word_count": 976,
+   "slug": "pseudo-galenus.de-urinis-compendium",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "035",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De urinis ex Hippocrate, Galeno et aliis quibusdam",
+   "word_count": 3096,
+   "slug": "pseudo-galenus.de-urinis-ex-hippocrate-galeno-et-aliis-quibusdam",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "036",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De venae sectione",
+   "word_count": 1315,
+   "slug": "pseudo-galenus.de-venae-sectione",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "037",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De victus ratione in morbis acutis ex Hippocratis sententia liber",
+   "word_count": 5711,
+   "slug": "pseudo-galenus.de-victus-ratione-in-morbis-acutis-ex-hippocratis-sententia-liber",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "041",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "Definitiones medicae",
+   "word_count": 15715,
+   "slug": "pseudo-galenus.definitiones-medicae",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "042",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De historia philosophica",
+   "word_count": 11549,
+   "slug": "pseudo-galenus.de-historia-philosophica",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0530",
+   "work_id": "045",
+   "source": "open_corpus",
+   "over": "pd_edition",
+   "author": "Pseudo-GALENUS",
+   "title": "De affectuum renibus insidentium dignotione et curatione liber",
+   "word_count": 8517,
+   "slug": "pseudo-galenus.de-affectuum-renibus-insidentium-dignotione-et-curatione-liber",
+   "edition": "verbatim-grc1",
+   "reason": "Galenus Verbatim (Sorbonne) CC BY-SA TEI edition (verbatim-grc1), the only open Greek source for this work; a ready CC BY-SA edition beats OCRing a PD edition ourselves",
+   "evidence": [
+    "corpus_editions.json",
+    "sources/galenus_verbatim"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Oratio ad gentiles",
+   "word_count": 1090,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "002",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Cohortatio ad gentiles",
+   "word_count": 11276,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "003",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "De monarchia",
+   "word_count": 1955,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "005",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "De resurrectione",
+   "word_count": 3519,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "006",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Expositio rectae fidei",
+   "word_count": 5981,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "007",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Epistula ad Zenam et Serenum",
+   "word_count": 3597,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "008",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Confutatio dogmatum quorundam Aristotelicorum",
+   "word_count": 16818,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "009",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Quaestiones et responsiones ad orthodoxos",
+   "word_count": 29353,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "010",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Quaestiones Christianorum ad gentiles",
+   "word_count": 12757,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "011",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Quaestiones gentilium ad Christianos",
+   "word_count": 5415,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0646",
+   "work_id": "012",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-JUSTINUS MARTYR",
+   "title": "Fragmenta",
+   "word_count": 560,
+   "pg_volume": "PG006",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG006); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0723",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "LEO",
+   "title": "De natura hominum synopsis",
+   "word_count": 7038,
+   "pg_volume": "PG107",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG107); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg0723",
+   "work_id": "002",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "LEO",
+   "title": "",
+   "word_count": 10463,
+   "pg_volume": "PG107",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG107); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg1495",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "MELITO",
+   "title": "De pascha (P. Beatty `8 %7 P. Bodmer 13 %7 P. Oxy",
+   "word_count": 4499,
+   "pg_volume": "PG005",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG005); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg1495",
+   "work_id": "003",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "MELITO",
+   "title": "Fragmenta",
+   "word_count": 1553,
+   "pg_volume": "PG005",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG005); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2057",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "SOCRATES Scholasticus",
+   "title": "Historia ecclesiastica",
+   "word_count": 104077,
+   "pg_volume": "PG067",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG067); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2702",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "Michael PSELLUS",
+   "title": "Chronographia",
+   "word_count": 78479,
+   "urls": [
+    "https://byzantium.gr/keimena/psellos.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2798",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Pseudo-DIONYSIUS AREOPAGITA",
+   "title": "De caelesti hierarchia",
+   "word_count": 11488,
+   "pg_volume": "PG003",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG003); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2798",
+   "work_id": "002",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Pseudo-DIONYSIUS AREOPAGITA",
+   "title": "De ecclesiastica hierarchia",
+   "word_count": 16400,
+   "pg_volume": "PG003",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG003); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2798",
+   "work_id": "004",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Pseudo-DIONYSIUS AREOPAGITA",
+   "title": "De divinis nominibus",
+   "word_count": 24104,
+   "pg_volume": "PG003",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG003); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2798",
+   "work_id": "005",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Pseudo-DIONYSIUS AREOPAGITA",
+   "title": "De mystica theologia",
+   "word_count": 1350,
+   "pg_volume": "PG003",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG003); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2798",
+   "work_id": "006",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Pseudo-DIONYSIUS AREOPAGITA",
+   "title": "Epistulae",
+   "word_count": 6668,
+   "pg_volume": "PG003",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG003); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2860",
+   "work_id": "001",
+   "source": "migne_pd",
+   "over": "migne_cgpg",
+   "author": "ALEXANDER",
+   "title": "Inventio crucis (fort. auctore Alexandro alio)",
+   "word_count": 10473,
+   "mpg_vols": "87",
+   "reason": "sourcing_map says migne_cgpg (mpg_vols 87) but no CGPG-covered volume contains it; CGPG never OCR'd that volume, so it falls back to Migne PD (our own OCR needed)",
+   "evidence": [
+    "cgpg_coverage.json",
+    "sourcing_map.csv"
+   ]
+  },
+  {
+   "tlg_id": "tlg2860",
+   "work_id": "002",
+   "source": "migne_pd",
+   "over": "migne_cgpg",
+   "author": "ALEXANDER",
+   "title": "Inventio crucis (epitome prioris libelli)",
+   "word_count": 2138,
+   "mpg_vols": "87",
+   "reason": "sourcing_map says migne_cgpg (mpg_vols 87) but no CGPG-covered volume contains it; CGPG never OCR'd that volume, so it falls back to Migne PD (our own OCR needed)",
+   "evidence": [
+    "cgpg_coverage.json",
+    "sourcing_map.csv"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "003",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam i ad Corinthios (in catenis)",
+   "word_count": 3021,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "004",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
+   "word_count": 433,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "005",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ad Galatas (in catenis)",
+   "word_count": 464,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "006",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
+   "word_count": 920,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "007",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
+   "word_count": 330,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "008",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ad Colossenses (in catenis)",
+   "word_count": 554,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "009",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam i ad Thessalonicenses (in catenis)",
+   "word_count": 337,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "010",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ii ad Thessalonicenses (in catenis)",
+   "word_count": 212,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "011",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam i ad Timotheum (in catenis)",
+   "word_count": 499,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "012",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ii ad Timotheum (in catenis)",
+   "word_count": 193,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "013",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ad Titum (in catenis)",
+   "word_count": 126,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "014",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmentum in epistulam ad Philemonem (in catenis)",
+   "word_count": 16,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2866",
+   "work_id": "015",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "OECUMENIUS",
+   "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
+   "word_count": 1746,
+   "pg_volume": "PG118",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2934",
+   "work_id": "018",
+   "source": "migne_pd",
+   "over": "migne_cgpg",
+   "author": "JOANNES DAMASCENUS",
+   "title": "Sacra parallela (recensiones secundum alphabeti litteras dispositae,",
+   "word_count": 176720,
+   "mpg_vols": "9/95/96",
+   "reason": "sourcing_map says migne_cgpg (mpg_vols 9/95/96) but no CGPG-covered volume contains it; CGPG never OCR'd that volume, so it falls back to Migne PD (our own OCR needed)",
+   "evidence": [
+    "cgpg_coverage.json",
+    "sourcing_map.csv"
+   ]
+  },
+  {
+   "tlg_id": "tlg3015",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Joannes CAMENIATES",
+   "title": "De expugnatione Thessalonicae",
+   "word_count": 23382,
+   "pg_volume": "PG109",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG109); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3018",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Georgius CEDRENUS",
+   "title": "Compendium historiarum",
+   "word_count": 303447,
+   "pg_volume": "PG122",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG122); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3023",
+   "work_id": "008",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "Constantine VII, De administrando imperio",
+   "also_in_cgpg": "PG113",
+   "pages": [
+    "https://byzantium.gr/keimena/porfyrogen-administrato.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; preferred over CGPG Migne OCR (PG113); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3023",
+   "work_id": "009",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "Constantine VII, De thematibus",
+   "also_in_cgpg": "PG113",
+   "pages": [
+    "https://byzantium.gr/keimena/porfyrogen-thematibus.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; preferred over CGPG Migne OCR (PG113); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3023",
+   "work_id": "010",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+   "title": "De cerimoniis aulae Byzantinae (lib. 1.84%19`2.56)",
+   "word_count": 76649,
+   "urls": [
+    "https://byzantium.gr/keimena/porfyrogen-ceremonis.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3023",
+   "work_id": "011",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+   "title": "De cerimoniis aulae Byzantinae (lib. 1.1%19`92)",
+   "word_count": 78092,
+   "pg_volume": "PG112",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG112); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3040",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Josephus GENESIUS",
+   "title": "*BASILEI=AI",
+   "word_count": 23339,
+   "pg_volume": "PG109",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG109); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3047",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Michael GLYCAS",
+   "title": "Annales",
+   "word_count": 118624,
+   "pg_volume": "PG158",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG158); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3047",
+   "work_id": "002",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Michael GLYCAS",
+   "title": "Annales (lectiones variae)",
+   "word_count": 1521,
+   "pg_volume": "PG158",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG158); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3063",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "John Skylitzes, Synopsis Historiarum",
+   "also_in_cgpg": "PG122",
+   "pages": [
+    "https://byzantium.gr/keimena/skylitzes.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; preferred over CGPG Migne OCR (PG122); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3064",
+   "work_id": "002",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "Scylitzes Continuatus, Continuatio",
+   "pages": [
+    "https://byzantium.gr/keimena/skylitzes0.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3069",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "LEO Diaconus",
+   "title": "Historia",
+   "word_count": 34643,
+   "urls": [
+    "https://byzantium.gr/keimena/diakonos.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3070",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "SYMEON LOGOTHETES",
+   "title": "Chronicon (sub nomine Leonis Grammatici vel Theodosii Melisseni vel",
+   "word_count": 62203,
+   "pg_volume": "PG109",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG109); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3079",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "MICHAEL ATTALIATES",
+   "title": "Historia",
+   "word_count": 61983,
+   "urls": [
+    "https://byzantium.gr/keimena/attaleiates.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3094",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "Niketas Choniates, Historia (Chronike Diegesis)",
+   "also_in_cgpg": "PG139",
+   "pages": [
+    "https://byzantium.gr/keimena/choniatis.php",
+    "https://byzantium.gr/keimena/xoniates2.php",
+    "https://byzantium.gr/keimena/xoniates3.php",
+    "https://byzantium.gr/keimena/xoniates4.php",
+    "https://byzantium.gr/keimena/xoniates5.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; preferred over CGPG Migne OCR (PG139); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3125",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "THEODOSIUS Diaconus",
+   "title": "De Creta capta",
+   "word_count": 6080,
+   "pg_volume": "PG113",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG113); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3130",
+   "work_id": "003",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "THEOPHYLACTUS SIMOCATTA",
+   "title": "Historiae",
+   "word_count": 65428,
+   "urls": [
+    "https://byzantium.gr/keimena/simocatis.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3135",
+   "work_id": "002",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Joannes ZONARAS",
+   "title": "Epitome historiarum (lib. 13%19`18)",
+   "word_count": 118917,
+   "pg_volume": "PG134",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG134); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3135",
+   "work_id": "003",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Joannes ZONARAS",
+   "title": "Epitome historiarum (lib. 12, clausula varia) [Dub.]",
+   "word_count": 648,
+   "pg_volume": "PG134",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG134); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3139",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "Laonicus CHALCOCONDYLES",
+   "title": "Historiae",
+   "word_count": 106746,
+   "urls": [
+    "https://byzantium.gr/keimena/laonikos.php",
+    "https://byzantium.gr/keimena/laonikos2.php",
+    "https://byzantium.gr/keimena/laonikos3.php",
+    "https://byzantium.gr/keimena/laonikos4.php",
+    "https://byzantium.gr/keimena/laonikos5.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3140",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "JOEL",
+   "title": "Chronographia compendiaria",
+   "word_count": 12994,
+   "pg_volume": "PG139",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG139); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3141",
+   "work_id": "002",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "Georgius ACROPOLITES",
+   "title": "Annales",
+   "word_count": 39604,
+   "urls": [
+    "https://byzantium.gr/keimena/akropolitis.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3141",
+   "work_id": "010",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "Georgius ACROPOLITES",
+   "title": "Contra Latinos",
+   "word_count": 10561,
+   "urls": [
+    "https://byzantium.gr/keimena/akropolitis-latinos.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3142",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "George Pachymeres, Syngraphikai Historiai - De Michaele Palaeologo (books 1-6)",
+   "pages": [
+    "https://byzantium.gr/keimena/pachymeris.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3143",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "George Sphrantzes, Chronicon (Minus)",
+   "pages": [
+    "https://byzantium.gr/keimena/sfrantzes.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3146",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "DUCAS",
+   "title": "Historia Turcobyzantina",
+   "word_count": 70405,
+   "pg_volume": "PG157",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG157); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3159",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "BARLAAM",
+   "title": "Paraphrasis in Euclidis elementorum librum secundum",
+   "word_count": 3416,
+   "pg_volume": "PG151",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG151); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3168",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "Pseudo-CODINUS",
+   "title": "De officiis (%6 officia palatii Constantinopoleos)",
+   "word_count": 19183,
+   "pg_volume": "PG157",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG157); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3168",
+   "work_id": "005",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-CODINUS",
+   "title": "Patria Constantinopoleos",
+   "word_count": 23058,
+   "pg_volume": "PG157",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG157); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3168",
+   "work_id": "006",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-CODINUS",
+   "title": "Patria Constantinopoleos (variae lectiones)",
+   "word_count": 2612,
+   "pg_volume": "PG157",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG157); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3168",
+   "work_id": "007",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "Pseudo-CODINUS",
+   "title": "Patria Constantinopoleos (ordo et tituli paragraphorum, quem",
+   "word_count": 2775,
+   "pg_volume": "PG157",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG157); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg3169",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "JOANNES VI CANTACUZENUS",
+   "title": "Historiae",
+   "word_count": 316346,
+   "urls": [
+    "https://byzantium.gr/keimena/kantakouzen1.php",
+    "https://byzantium.gr/keimena/kantakouzen2.php",
+    "https://byzantium.gr/keimena/kantakouzen3.php",
+    "https://byzantium.gr/keimena/kantakouzen4.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4029",
+   "work_id": "003",
+   "source": "byzantium_gr",
+   "over": "locked",
+   "title": "Procopius, De aedificiis (Buildings)",
+   "pages": [
+    "https://byzantium.gr/keimena/ktismaton.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "014",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam ad Romanos (in catenis)",
+   "word_count": 25607,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "015",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam I ad Corinthios (in catenis)",
+   "word_count": 12896,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "016",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
+   "word_count": 7048,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "017",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam ad Galatas (in catenis)",
+   "word_count": 1826,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "018",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
+   "word_count": 3489,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "019",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
+   "word_count": 2931,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "026",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
+   "word_count": 4627,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "027",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Commentarii in Joannem (in catenis)",
+   "word_count": 15403,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4040",
+   "work_id": "028",
+   "source": "migne_cgpg",
+   "over": "locked",
+   "author": "PHOTIUS",
+   "title": "Commentarii in Matthaeum (in catenis)",
+   "word_count": 18327,
+   "pg_volume": "PG101",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4046",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "THEOPHANES CONFESSOR",
+   "title": "Chronographia",
+   "word_count": 135313,
+   "urls": [
+    "https://byzantium.gr/keimena/theofanis1.php",
+    "https://byzantium.gr/keimena/theofanis2.php",
+    "https://byzantium.gr/keimena/theofanis3.php",
+    "https://byzantium.gr/keimena/theofanis4.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4090",
+   "work_id": "002",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "CYRILLUS",
+   "title": "Commentarii in Joannem",
+   "word_count": 400935,
+   "pg_volume": "PG073",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG073); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4145",
+   "work_id": "001",
+   "source": "byzantium_gr",
+   "over": "pd_edition",
+   "author": "NICEPHORUS GREGORAS",
+   "title": "Historia Romana",
+   "word_count": 353799,
+   "urls": [
+    "https://byzantium.gr/keimena/grigoras11.php",
+    "https://byzantium.gr/keimena/grigoras22.php",
+    "https://byzantium.gr/keimena/grigoras33.php",
+    "https://byzantium.gr/keimena/grigoras44.php",
+    "https://byzantium.gr/keimena/grigoras55.php",
+    "https://byzantium.gr/keimena/grigoras66.php",
+    "https://byzantium.gr/keimena/grigoras77.php",
+    "https://byzantium.gr/keimena/grigoras88.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
+   "evidence": [
+    "byzantium_sweep.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg4153",
+   "work_id": "001",
+   "source": "migne_cgpg",
+   "over": "pd_edition",
+   "author": "THEOPHANES CONTINUATUS",
+   "title": "Chronographia (lib. 1%19`6)",
+   "word_count": 98591,
+   "pg_volume": "PG109",
+   "reason": "CC-BY CGPG OCR of PD Migne (PG109); ready CC-BY text beats OCRing a PD edition ourselves",
+   "evidence": [
+    "cgpg_coverage.json"
+   ]
+  }
+ ]
+}

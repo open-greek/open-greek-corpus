@@ -1,0 +1,902 @@
+{
+ "_meta": {
+  "purpose": "source-scan + model + alignment provenance for the gen1->Qwen3.6 re-OCR campaign",
+  "generated": "2026-07-08"
+ },
+ "editions": [
+  {
+   "base": "aelian_heraclid_tauchnitz_1829",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/aelianivariahis00aeligoog/aelianivariahis00aeligoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 7
+  },
+  {
+   "base": "alexander_aetolus_meineke",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/analectaalexand00meingoog/analectaalexand00meingoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "andronicus_mullach_fpg3",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentaphiloso03mulluoft/fragmentaphiloso03mulluoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "anthemius_dupuy_1777",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_AVwOAAAAQAAJ/bub_gb_AVwOAAAAQAAJ.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "antigonus_keller_rnsgm1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/rerumnaturaliums01kell/rerumnaturaliums01kell.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "antistius_ap_duebner_v2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epigrammatumant02couggoog/epigrammatumant02couggoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "antonius_diogenes_hercher",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/erotiknlognsyng01hercgoog/erotiknlognsyng01hercgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "aphthonius_progymnasmata",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/aphthonii-progymnasmata-rabe/Rhetores%20Graeci%20vol.%20X.%20Aphthonius.%20Progymnasmata%2C%20ed.%20Rabe%2C%20H.%20%5BBT%5D%2C%20Leipzig%2C%20Teubner%2C%201925.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08"
+  },
+  {
+   "base": "apollonius_parad_keller_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/rerumnaturalium00kellgoog/rerumnaturalium00kellgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "archedemus_svf3",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/stoicorumveterum0003arni/stoicorumveterum0003arni.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "archestratus_brandt",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/corpusculumpoesi01lipsuoft/corpusculumpoesi01lipsuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "archytas_mullach_fpg2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentaphiloso02mulluoft/fragmentaphiloso02mulluoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "aristarchus_ludwich",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/aristarchshomer00gramgoog/aristarchshomer00gramgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "aristophanes_byzantii_nauck",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_dzwTAAAAYAAJ/bub_gb_dzwTAAAAYAAJ.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "berthelot_alchimistes_grec",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/collectiondesanc23bert/collectiondesanc23bert.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "callimachea_schneider_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/callimachea01callgoog/callimachea01callgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "choeroboscus_hilgard_gg4",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/GrammaticiGraeciVolume4/Theod-et-al-grammatici.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "choricius_boissonade",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/choriciigazaeio00boisgoog/choriciigazaeio00boisgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "clearchus_soli_fhg2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentahistori02mueluoft/fragmentahistori02mueluoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "cornutus_lang",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/cornutitheologia00cornuoft/cornutitheologia00cornuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "damianus_schoene",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/damianosschrift00heligoog/damianosschrift00heligoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "demochares_fhg2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/cuafragmentahist02mull/cuafragmentahist02mull.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "didymus_schmidt",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/didymichalcente00schmgoog/didymichalcente00schmgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "dindorf_aristides_v2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/aristidesvolii00dind/aristidesvolii00dind.pdf",
+   "columns": 1,
+   "campaign": "reocr-batch2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "diogenes_oenoanda_william",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentaordinav00dioguoft/fragmentaordinav00dioguoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 1
+  },
+  {
+   "base": "dosiadas_ap_cougny_v3",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epigrammatumanth03grotuoft/epigrammatumanth03grotuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "empedocles_diels_ppf",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/poetarumphilosop00diel/poetarumphilosop00diel.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "epigonus_ap_cougny_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epigrammatumant01couggoog/epigrammatumant01couggoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "eratosthenes_bernhardy",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/eratosthenica00berngoog/eratosthenica00berngoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "erotianus_nachmanson_1918",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/erotianivocumhip00erotuoft/erotianivocumhip00erotuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "eudemus_spengel_1866",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_YzRPAAAAYAAJ/bub_gb_YzRPAAAAYAAJ.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "fhg_vol3_mueller_diocles_rhodius",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentahistori03mueluoft/fragmentahistori03mueluoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "geoponica_beckh",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/geoponicasivede00bassgoog/geoponicasivede00bassgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "gorgias_diels_vorsokr2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/h2diefragmented02diel/h2diefragmented02diel.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "helladius_chrestomathia_photius_bekker_v2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+   "columns": 1,
+   "campaign": "reocr-batch2-2026-07-08"
+  },
+  {
+   "base": "heron_definitiones_teubner4",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/heronisalexandri0004hero/heronisalexandri0004hero.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "hesiod_rzach",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_y3g7AQAAMAAJ/bub_gb_y3g7AQAAMAAJ.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "offset-0",
+   "content_offset": 0
+  },
+  {
+   "base": "hesychius_schmidt_lexicon",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/hesychiialexand00schmgoog/hesychiialexand00schmgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "hierocl_aureum_mullach_fpg1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentaphilo01mull/fragmentaphilo01mull.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "himerius_dubner_didot",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "gallica.bnf.fr/ark:/12148/bpt6k62357919 (IIIF f550-670)",
+   "columns": 2,
+   "campaign": "reocr-batch2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "horapollo_leemans",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/horapollinisnil01leemgoog/horapollinisnil01leemgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": -3
+  },
+  {
+   "base": "isidorus_scholasticus_anthol_didot",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epigrammatumant00couggoog/epigrammatumant00couggoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "joannes_geometres_pg106",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bim_early-english-books-1641-1700_1863_106/bim_early-english-books-1641-1700_1863_106.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "lexicon_sabbaiticum_papadopulos",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/lexicon-sabbaiticum-athanasios-papadopulos-kerameus/lexicon%20sabbaiticum%20Athanasios%20Papadopulos%20Kerameus.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "libanius_declamationes_v5",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/operarecensuitri05libauoft/operarecensuitri05libauoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "libanius_orationes_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/libaniiopera00foergoog/libaniiopera00foergoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "limenius_delphic_fairbanks",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/astudygreekpanw00fairgoog/astudygreekpanw00fairgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "lydus_mensibus_wuensch",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/ioannislaurenti02wuengoog/ioannislaurenti02wuengoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "macedonius_consul_anthgraeca_didot1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epigrammatumant01couggoog/epigrammatumant01couggoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": "monotonic"
+  },
+  {
+   "base": "mansi_ephesus_t5",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/sacrorumconcilio0005joan/sacrorumconcilio0005joan.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "mantissa_proverbiorum_paroemiogr2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/corpusparoemiogr02leutuoft/corpusparoemiogr02leutuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "menander_protector_dindorf_hgm",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_VX2P_CtKJmQC/bub_gb_VX2P_CtKJmQC.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "metrodorus_koerte",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/metrodoriepicure00metruoft/metrodoriepicure00metruoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "moeris_koch1830",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/moeridisatticis00fiscgoog/moeridisatticis00fiscgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "musaeus_dilthey_1874",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/musaeigrammatic00musagoog/musaeigrammatic00musagoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "nauck_tgf_1889",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/tragicorumgraeco00naucuoft/tragicorumgraeco00naucuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "nechepso_petosiris_riess",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_3FAPAQAAMAAJ/bub_gb_3FAPAQAAMAAJ.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "oribasius_v5",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/BIUSante_34860x05/BIUSante_34860x05.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "oribasius_v6",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/BIUSante_34860x06/BIUSante_34860x06.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08"
+  },
+  {
+   "base": "panyassis_kinkel_egf",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epicorumgraecor01kinkgoog/epicorumgraecor01kinkgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "paulsilent_descriptio_bekker",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/descriptiossoph00silegoog/descriptiossoph00silegoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "paulus_aegineta_heiberg_cmg9",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/b31359292_0001/b31359292_0001.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "pg031",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/patrologiae_cursus_completus_gr_vol_031/patrologiae_cursus_completus_gr_vol_031.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "pg57",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/patrologiae_cursus_completus_gr_vol_057_chrysostom_matthew/patrologiae_cursus_completus_gr_vol_057_chrysostom_matthew.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "philetas_bach_1829",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/philetaecoiherm00lenngoog/philetaecoiherm00lenngoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "photius_lexicon_naber",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/photiipatriarch00nabegoog/photiipatriarch00nabegoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "pindar_scholia_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/scholiaveterainp01drac/scholiaveterainp01drac.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "platonius_duebner_scholaristoph1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/scholiagraecain01dbgoog/scholiagraecain01dbgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "priscianus_lydus_bywater",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/supplementumari01arisgoog/supplementumari01arisgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "priscus_dindorf_hgm1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/historicigraecim01dinduoft/historicigraecim01dinduoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "proclus_timaeus_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/diehl-procli-diadochi-in-platonis-timaevm-commentaria-gr-lat-t.-1-1903/Diehl%20-%20Procli%20Diadochi%20in%20Platonis%20Timaevm%20commentaria%2C%20%5Bgr-lat%5D%2C%20t.1%2C%201903.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "protagoras_diels_vs1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/diefragmenteder01dielgoog/diefragmenteder01dielgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "ptolemaeus_gramm_valckenaer_ammonius",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/dedifferentiaadf00ammouoft/dedifferentiaadf00ammouoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "rhinthon_kaibel_cgf_1899",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/comicorumgraecor11kaib/comicorumgraecor11kaib.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 9
+  },
+  {
+   "base": "schol_aeschin_dindorf",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/scholiagraecaina00dinduoft/scholiagraecaina00dinduoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "schol_aratum_maass",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/Maass1898/Maass_1898.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "scholia_apollonius_schaefer",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/bub_gb_oBI-AAAAcAAJ/bub_gb_oBI-AAAAcAAJ.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "scholia_aristidem_frommel1826",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/scholiainaeliia00unkngoog/scholiainaeliia00unkngoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "scholia_demosthenem_dindorf_v8",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/operaexrecension08demouoft/operaexrecension08demouoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "scholia_hesiod_gaisford",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/poetaeminoresgra02gais/poetaeminoresgra02gais.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "scholia_oppianum_bussemaker_didot",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/scholiaintheocri00buss/scholiaintheocri00buss.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "scholia_platonem_zurich",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/platonisoperaom03wincgoog/platonisoperaom03wincgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "secundus_mullach_fpg1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentaphilos01mullgoog/fragmentaphilos01mullgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "socrates_hist_fhg4",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/fragmentahistori04mueluoft/fragmentahistori04mueluoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": -4
+  },
+  {
+   "base": "sopater_kaibel_cgf",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/comicorvmgraeco00kaibgoog/comicorvmgraeco00kaibgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": -6
+  },
+  {
+   "base": "sosylus_bilabel_papyrus1922",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/diekleinerenhist00bila/diekleinerenhist00bila.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "stephanus_byz_meineke_1849",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/stephanibyzanti00meingoog/stephanibyzanti00meingoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "suetonius_reliquiae_reifferscheid",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/csuetonitranqui00unkngoog/csuetonitranqui00unkngoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "theognostus_canones_cramer",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/anecdotagrcaeco00fragoog/anecdotagrcaeco00fragoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "thomas_patricius_anthol_dubner_v3",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/epigrammatumanth03grotuoft/epigrammatumanth03grotuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "timosthenes_ggm1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/geographigraeci00mueluoft/geographigraeci00mueluoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "timotheus_defluviis_ggm2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/geographigraeci02mlgoog/geographigraeci02mlgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "timotheus_perser_wilamowitz",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/dieperser00moegoog/dieperser00moegoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "tzetzes_historiae_kiessling",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/historiarumvari00kiesgoog/historiarumvari00kiesgoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "walz_rhetores_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/rhetoresgraeciem01walzuoft/rhetoresgraeciem01walzuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "walz_rhetores_v4",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/rhetoresgraeciem04walzuoft/rhetoresgraeciem04walzuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "walz_rhetores_v5",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/rhetoresgraeciem05walzuoft/rhetoresgraeciem05walzuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "walz_rhetores_v7pt2",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/p2rhetoresgraeci07walzuoft/p2rhetoresgraeci07walzuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "walz_rhetores_v9",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/rhetoresgraeciem09walzuoft/rhetoresgraeciem09walzuoft.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  },
+  {
+   "base": "zonaras_lexicon_v1",
+   "model": "Qwen3.6-27B-FP8",
+   "source_url": "https://archive.org/download/lexiconextribus00albegoog/lexiconextribus00albegoog.pdf",
+   "columns": 2,
+   "campaign": "reocr-phase2-2026-07-08",
+   "align_method": "content-offset",
+   "content_offset": 0
+  }
+ ]
+}
