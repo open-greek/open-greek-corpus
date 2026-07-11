@@ -1,0 +1,57 @@
+[
+  {
+    "tlg": "tlg4083.003",
+    "work": "Eustathius of Thessalonica, Commentarii ad Homeri Odysseam",
+    "status": "scan",
+    "url": "https://archive.org/details/commentariiadhom01eust (vol 1); https://archive.org/details/commentariiadhom02eust (vol 2)",
+    "format": "PD page-image scan with Tesseract (-l lat+grc) OCR text layer (DjVu txt / hOCR / EPUB / PDF); also Google Books id DayRKANZAW0C",
+    "edition": "Stallbaum, Leipzig 1825-26 (the target PD edition)",
+    "license": "PD (scans/OCR). The only clean modern digital edition is Cullhed-Olson via Brill Scholarly Editions, which is commercial/subscription, not open.",
+    "completeness": "full - both volumes (rhapsodies alpha-omega) present as separate Archive.org items",
+    "notes": "No openly-licensed curated digital running text. Absent from First1KGreek/OGL (no tlg4083 dir, GitHub 404), Scaife/Perseus catalog (404), Greek Wikisource, and Bibliotheca Augustana. Only PD digital form is image scans with moderate polytonic OCR: body text mostly recognizable but systematic errors (Kappa->Chi e.g. Kirchen for Kirken, sigma final/medial confusion, accent/breathing mistakes) and badly garbled front matter / Latin-Greek mixing. ~566K words; would need heavy OCR correction. Not drop-in usable."
+  },
+  {
+    "tlg": "tlg2037.001",
+    "work": "Joannes Stobaeus, Anthologium",
+    "status": "scan",
+    "url": "https://archive.org/details/ioannisstobaeia00hensgoog",
+    "format": "PD page-image scan with Tesseract (-l lat+grc) OCR text layer (DjVu .txt / hOCR / searchable PDF); also Google Books",
+    "edition": "Wachsmuth-Hense, Teubner, Berlin 1884-1912 (5 vols; public domain)",
+    "license": "PD",
+    "completeness": "full set scanned across multiple archive.org/Google Books items (Wachsmuth Eclogae 1-2, Hense Florilegium 3-4/5), but split across volumes; no single clean text",
+    "notes": "No TEI/open digital edition. First1KGreek has no tlg2037 (404), Scaife 404, Perseus Catalog is metadata-only pointing to scans, no Wikisource running text, not in Bibliotheca Augustana. Only digital text is the Tesseract OCR layer on PD scans. Polytonic but mediocre quality (e.g. bibleon for biblion, garbled Aphrodites); needs heavy correction before ingest."
+  },
+  {
+    "tlg": "tlg4099.001",
+    "work": "Etymologicum Magnum",
+    "status": "scan",
+    "url": "https://archive.org/details/etymologikontome00etymuoft",
+    "format": "PDF/JP2 page images + Tesseract Greek OCR full-text layer (plain text / hOCR downloadable)",
+    "edition": "archive.org PD scan is Sylburg 1816 (Leipzig), NOT the target Gaisford 1848; Gaisford 1848 is image-only on BSB digitale-sammlungen (bsb10209806). A clean UTF-8 running text from Gaisford TLG Beta Code exists at github.com/proteusx/Etymologicum-Magnum but is TLG-CD-ROM-derived (licensed) and EXCLUDED.",
+    "license": "PD for the page scans (1816/1848); proteusx UTF-8 text is unlicensed and TLG-derived (excluded)",
+    "completeness": "full (scans); ~10,000 lemmata in the excluded TLG-derived text",
+    "notes": "No openly-licensed extractable running text confirmed. Not in First1KGreek (no tlg4099 dir) or Scaife/Perseus (404). Greek Wikisource has no running-text page. Only usable free text is the archive.org Tesseract Greek OCR layer over the Sylburg 1816 edition; polytonic OCR quality poor, heavy correction needed. Ingesting without OCR not possible from a free, properly-licensed source."
+  },
+  {
+    "tlg": "tlg3136.001",
+    "work": "Pseudo-Zonaras, Lexicon",
+    "status": "scan",
+    "url": "https://archive.org/details/lexiconextribus00albegoog",
+    "format": "page-image scan (PDF/DjVu) with low-quality Tesseract OCR text layer (DjVu txt ~4MB, hOCR, plain text)",
+    "edition": "Tittmann (J.A.H.), Iohannis Zonarae Lexicon ex tribus codicibus manuscriptis, 2 vols., Leipzig: Crusius, 1808 (Google-digitized from NYPL)",
+    "license": "PD (1808 edition); Internet Archive scan public domain",
+    "completeness": "full (both volumes scanned)",
+    "notes": "No clean digital running text anywhere. First1KGreek/Scaife (tlg3136 dir + CTS URN) return 404; not in Perseus Catalog as a text edition; absent from Greek/multilingual Wikisource and Bibliotheca Augustana (which only has the Epitome historiarum). The proteusx GoldenDict Zonaras repo exists but is derived from the LICENSED TLG CDROM Beta Code, so EXCLUDED. Only PD digital source is the scan; polytonic Greek OCR severely degraded (garbled accents/breathings, character substitutions per Perseus DVE OCR summary); needs re-OCR."
+  },
+  {
+    "tlg": "tlg4036.010",
+    "work": "Proclus, In Platonis Timaeum commentaria",
+    "status": "scan",
+    "url": "https://archive.org/details/diehl-procli-diadochi-in-platonis-timaevm-commentaria-gr-lat-t.-1-1903",
+    "format": "Internet Archive djvu.txt OCR text layer (Tesseract -l grc+lat); page-image scan with extractable text",
+    "edition": "Diehl, Teubner, Leipzig (T.1 1903, T.2 1904, T.3 1906)",
+    "license": "PD",
+    "completeness": "full (all 3 volumes present as separate IA items: gr-lat t.1/t.2/t.3, each with a djvu.txt)",
+    "notes": "Not in First1KGreek/Scaife (data/tlg4036 holds only tlg001; tlg010 URN 404s), Perseus, Greek Wikisource (red link), or Bibliotheca Augustana (links out to Google Books only). Only available digital text is OCR off the PD scan. Running-text body OCR is good polytonic (accents/breathings/iota subscript mostly correct, occasional errors like hoti->hote, dioti->diote); the apparatus criticus in smaller type is badly garbled. Usable as an OCR starting point but requires cleanup. Newer Van Riel OCT (5 vols) is in copyright."
+  }
+]
