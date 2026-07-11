@@ -1,0 +1,35 @@
+[
+  {
+    "tlg": "tlg4145.001",
+    "work": "Nicephorus Gregoras, Historia Romana (Rhomaike Historia)",
+    "status": "text",
+    "url": "https://byzantium.gr/keimena/grigoras11.php (sections grigoras1/11/22/33/44/55/66/77/88 cover all 37 books)",
+    "format": "HTML running text, original polytonic Greek, one page per book-group; no markup beyond HTML. Would need scraping + cleanup.",
+    "edition": "Original Greek of the Bonn/CSHB text (Schopen vols 1-2 1829-30, Bekker vol 3 1855); presented as a plain digital transcription, no critical apparatus.",
+    "license": "Underlying 19th-c. Bonn edition is public domain. byzantium.gr itself carries NO explicit open-license notice (default all-rights-reserved on the site's presentation), but the Greek text content is PD. Treat as PD-text-on-an-unlicensed-site; verify against the PD scan before ingest.",
+    "completeness": "Complete: title page states 'ΛΟΓΟΙ ΛΖ' (37 books), and the section pages collectively span the full work (books 1-37, events 1204-1358).",
+    "notes": "Best clean-text option, avoids OCR. Confirmed original polytonic Byzantine Greek (e.g. opening of bk 30: 'Ἀλλ' ὦ φίλων ἄριστε Ἀγαθόνικε...'), not a modern translation. NOT in First1KGreek/Perseus/Scaife (tlg4145 dir returns 404). PD scan fallback if a verified edition text is needed: archive.org nicephorigregor01bekkgoog / byzantinahistor00bekkgoog / bub_gb_NLBEBVNpRq0C (vol III) - these have only raw uncorrected djvu OCR text layers."
+  },
+  {
+    "tlg": "tlg3169.001",
+    "work": "John VI Cantacuzenus, Historiae",
+    "status": "text",
+    "url": "https://byzantium.gr/keimena/kantakouzen1.php , kantakouzen2.php , kantakouzen3.php , kantakouzen4.php",
+    "format": "HTML running text, original polytonic Greek, one page per book (4 pages = 4 books). Scrape + cleanup needed.",
+    "edition": "Original Greek of the Bonn/CSHB text (Schopen, 3 vols, 1828-32; the work is in 4 books). Plain digital transcription, no apparatus.",
+    "license": "Underlying Bonn edition is public domain. byzantium.gr has no explicit open-license notice; the Greek text content is PD. Same caveat as Gregoras: PD text on an unlicensed site, verify against the PD scan.",
+    "completeness": "Complete: all 4 books (Ἱστορίαι, Ἱστορία Β/Γ/Δ) present as four pages.",
+    "notes": "Clean-text option, avoids OCR. Confirmed original polytonic Greek (Bonn edition tradition), not a translation. NOT in First1KGreek/Perseus/Scaife (tlg3169 dir 404). PD scans on archive.org/Wikimedia Commons (CSHB Cantacuzenus I 1828 / II 1831 / III 1832) exist as image volumes if a verified-edition text is required."
+  },
+  {
+    "tlg": "tlg3018.001",
+    "work": "Georgius Cedrenus, Compendium historiarum (Synopsis Historion)",
+    "status": "scan",
+    "url": "https://archive.org/details/georgiuscedrenu00scylgoog (Bonn 1838 vol I) ; second vol: archive.org GeorgiusCedrenusCompendiumHistoriarumTomusAlterGRLT ; also documentacatholicaomnia.eu CSHB Bekkeri Editio PDF",
+    "format": "Page-image PDF/scans. Internet Archive items expose a 'full text' djvu.txt layer, but it is raw uncorrected polytonic-Greek OCR.",
+    "edition": "Bonn/CSHB, Bekker 1838-39 (2 vols). Older Xylander/Goar/Fabrot edition scans also exist (archive.org bub_gb_YK12VSjdJPYC).",
+    "license": "Public domain (19th-c. and earlier editions). No license obstacle; the obstacle is text quality.",
+    "completeness": "Full work available only as scans (both Bonn volumes present). No clean digital Greek text found.",
+    "notes": "NO clean openly-licensed Greek text exists. Not on byzantium.gr (Kedrenos absent from its author list), not in First1KGreek/Perseus/Scaife (tlg3018 dir 404), no Greek Wikisource text (en.wikisource Author page is bibliographic only). The archive.org djvu.txt OCR is poor: ~20-30% of character sequences corrupted (e.g. 'ἔργα'->'čoya', 'εἰκοσίδυο'->'slľxociðúo', systematic accent/letter confusion) - would require full re-OCR or heavy correction. This is the OCR target of the cluster."
+  }
+]

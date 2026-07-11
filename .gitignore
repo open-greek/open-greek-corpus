@@ -1,0 +1,41 @@
+# Cloned open corpora (fetch via the README commands; not re-hosted here)
+sources/*
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Large regenerable intermediate (the per-form lexicon; the per-lemma
+# frequency table in data/ is the committed deliverable)
+data/public_lexicon.tsv
+
+# The locus-keyed passage text (data/corpus, ~940 MB) is now tracked: it is the
+# corpus deliverable, and versioning it gives a native audit trail plus trivial
+# recovery. "Regenerable from sources" was too fragile in practice (a cross-repo,
+# multi-script rebuild), and no single file approaches GitHub's 100 MB limit.
+
+# Cached byzantium.gr pages (re-fetched on demand by build_byzantium_gr_corpus.py)
+data/cache/
+
+# OCR cleanup (correctors, overlay, raw, records) lives in the greek-ocr repo; it
+# delivers the corrected OCR text into data/corpus and a read-only audit mirror of
+# the applied fixes into data/corrections_log/. The mirror names the AI correctors,
+# so keep it local rather than in this public repo.
+data/corrections_log/
+
+# Local coordination registry of works needing a PD source / OCR / cleanup. Written
+# by several local producers (merged, not overwritten - see scripts/needs_registry.py)
+# and consumed by the OCR pipeline; a working queue, not a published artifact.
+data/needs_*.json
+
+# OS / editor / agent noise
+.DS_Store
+.claude/
+
+# merged-in Byzantine vernacular corpus (small, canonical home now here)
+!sources/byzantine/
+
+# Transient forms list for remote GPU lemmatization (build_work_lemma_counts --emit-missing)
+data/missing_forms.tsv
+data/lemma_map.tsv

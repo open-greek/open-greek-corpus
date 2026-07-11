@@ -1,0 +1,1599 @@
+{
+  "_meta": {
+    "generated": "2026-06-28",
+    "description": "Maps the 34 calfa-co Patrologia Graeca (CGPG) OCR volumes on disk to TLG works and quantifies how much of cog's reachable_not_ingested gap they recover. Gap word_count is TLG-token based (authoritative gap figure); ocr_word_count is CGPG OCR tokens (~94.6% accurate), not directly comparable.",
+    "inputs": [
+      "data/coverage_report.json gap_list",
+      "data/inventory/sourcing_map.csv",
+      "data/inventory/work_inventory.json",
+      "data/pd_research/byzantium_sweep.json",
+      "sources/cgpg"
+    ],
+    "gap_definition": "sourcing_map best_source in {pd_edition,migne_pd,migne_cgpg} == coverage_report reachable_not_ingested",
+    "byzantium_caveat": "Several historians the request flagged as byzantium-overlap (Cedrenus PG121/122, Zonaras PG134, Choniates PG139, Theophanes Continuatus PG109, Constantine VII De them./De admin. PG113) are NOT in byzantium_sweep.json; CGPG is their best/only running-text source, so they are counted NET-NEW. Only Gregoras(PG148), Cantacuzenus(PG153), Psellus Chronographia(PG122) and Constantine VII De ceremoniis(PG112) actually overlap the sweep."
+  },
+  "totals": {
+    "gross_cgpg_ocr_words": 6916635,
+    "net_new_gap_words_recovered": 1574670,
+    "gap_words_all_attributed_incl_byzantium_overlap": 2399943,
+    "gap_works_covered": 28,
+    "byzantium_overlap_gap_words": 825273,
+    "locked_works_unlocked_by_cgpg": 41,
+    "locked_words_unlocked_by_cgpg": 738568,
+    "beyond_inventory_volumes": [
+      "PG123",
+      "PG124",
+      "PG125",
+      "PG126",
+      "PG146",
+      "PG155"
+    ],
+    "beyond_inventory_ocr_words": 1453709
+  },
+  "volumes": [
+    {
+      "volume": "PG003",
+      "era": "Pre-Nicene",
+      "desc": "Pseudo-Dionysius Areopagita v1",
+      "ocr_word_count": 162374,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2798",
+          "work": "004",
+          "author": "Pseudo-DIONYSIUS AREOPAGITA",
+          "title": "De divinis nominibus",
+          "word_count": 24104,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2798",
+          "work": "002",
+          "author": "Pseudo-DIONYSIUS AREOPAGITA",
+          "title": "De ecclesiastica hierarchia",
+          "word_count": 16400,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2798",
+          "work": "001",
+          "author": "Pseudo-DIONYSIUS AREOPAGITA",
+          "title": "De caelesti hierarchia",
+          "word_count": 11488,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2798",
+          "work": "006",
+          "author": "Pseudo-DIONYSIUS AREOPAGITA",
+          "title": "Epistulae",
+          "word_count": 6668,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2798",
+          "work": "005",
+          "author": "Pseudo-DIONYSIUS AREOPAGITA",
+          "title": "De mystica theologia",
+          "word_count": 1350,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG005",
+      "era": "Pre-Nicene",
+      "desc": "Ignatius, Polycarp, Melito, 2nd-c. popes",
+      "ocr_word_count": 49330,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock",
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg1443",
+          "work": "001",
+          "author": "IGNATIUS",
+          "title": "Epistulae vii genuinae (recensio media)",
+          "word_count": 8105,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg1443",
+          "work": "002",
+          "author": "IGNATIUS",
+          "title": "Epistulae interpolatae et epistulae suppositiciae (recensio longior)",
+          "word_count": 20125,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg1622",
+          "work": "001",
+          "author": "POLYCARPUS",
+          "title": "Epistula ad Philippenses",
+          "word_count": 1184,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg1484",
+          "work": "001",
+          "author": "MARTYRIUM POLYCARPI",
+          "title": "Epistula ecclesiae Smyrnensis de martyrio sancti Polycarpi",
+          "word_count": 2718,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg1495",
+          "work": "001",
+          "author": "MELITO",
+          "title": "De pascha (P. Beatty `8 %7 P. Bodmer 13 %7 P. Oxy",
+          "word_count": 4499,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg1495",
+          "work": "003",
+          "author": "MELITO",
+          "title": "Fragmenta",
+          "word_count": 1553,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg1271",
+          "work": "001",
+          "author": "CLEMENS ROMANUS et CLEMENTINA",
+          "title": "Epistula i ad Corinthios",
+          "word_count": 10302,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG006",
+      "era": "Pre-Nicene",
+      "desc": "Justin, Tatian, Athenagoras, Theophilus, Hermias",
+      "ocr_word_count": 217741,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap",
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg0645",
+          "work": "003",
+          "author": "JUSTINUS MARTYR",
+          "title": "Dialogus cum Tryphone",
+          "word_count": 53732,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0645",
+          "work": "001",
+          "author": "JUSTINUS MARTYR",
+          "title": "Apologia",
+          "word_count": 15239,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0645",
+          "work": "002",
+          "author": "JUSTINUS MARTYR",
+          "title": "Apologia secunda",
+          "word_count": 3504,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "009",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Quaestiones et responsiones ad orthodoxos",
+          "word_count": 29353,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "008",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Confutatio dogmatum quorundam Aristotelicorum",
+          "word_count": 16818,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "010",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Quaestiones Christianorum ad gentiles",
+          "word_count": 12757,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "002",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Cohortatio ad gentiles",
+          "word_count": 11276,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "006",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Expositio rectae fidei",
+          "word_count": 5981,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "011",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Quaestiones gentilium ad Christianos",
+          "word_count": 5415,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "007",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Epistula ad Zenam et Serenum",
+          "word_count": 3597,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "005",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "De resurrectione",
+          "word_count": 3519,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "003",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "De monarchia",
+          "word_count": 1955,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "001",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Oratio ad gentiles",
+          "word_count": 1090,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0646",
+          "work": "012",
+          "author": "Pseudo-JUSTINUS MARTYR",
+          "title": "Fragmenta",
+          "word_count": 560,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg1766",
+          "work": "001",
+          "author": "TATIANUS",
+          "title": "Oratio ad Graecos",
+          "word_count": 10694,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg1205",
+          "work": "001",
+          "author": "ATHENAGORAS",
+          "title": "Legatio sive Supplicatio pro Christianis",
+          "word_count": 11646,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg1725",
+          "work": "001",
+          "author": "THEOPHILUS",
+          "title": "Ad Autolycum",
+          "word_count": 21963,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG008",
+      "era": "Pre-Nicene",
+      "desc": "Clement of Alexandria v1",
+      "ocr_word_count": 172065,
+      "primary_class": "redundant_open",
+      "classes": [
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg0555",
+          "work": "001",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Protrepticus",
+          "word_count": 23716,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg0555",
+          "work": "002",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Paedagogus",
+          "word_count": 57864,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg0555",
+          "work": "004",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Stromata",
+          "word_count": 166077,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG009",
+      "era": "Pre-Nicene",
+      "desc": "Clement of Alexandria v2",
+      "ocr_word_count": 105059,
+      "primary_class": "redundant_open",
+      "classes": [
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg0555",
+          "work": "004",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Stromata",
+          "word_count": 166077,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg0555",
+          "work": "006",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Quis dives salvetur",
+          "word_count": 9411,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg0555",
+          "work": "007",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Excerpta ex Theodoto",
+          "word_count": 7691,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg0555",
+          "work": "005",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Eclogae propheticae",
+          "word_count": 5098,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg0555",
+          "work": "008",
+          "author": "CLEMENS ALEXANDRINUS",
+          "title": "Fragmenta",
+          "word_count": 5959,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG016_3",
+      "era": "Pre-Nicene",
+      "desc": "Origen Hexapla frgs; Hippolytus Refutatio",
+      "ocr_word_count": 71811,
+      "primary_class": "redundant_open",
+      "classes": [
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2115",
+          "work": "060",
+          "author": "HIPPOLYTUS",
+          "title": "Refutatio omnium haeresium (%6 Philosophumena)",
+          "word_count": 73974,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Origen Hexapla fragments: dispersed, no single TLG work id"
+      ]
+    },
+    {
+      "volume": "PG021",
+      "era": "4th c.",
+      "desc": "Eusebius Praeparatio Evangelica",
+      "ocr_word_count": 241336,
+      "primary_class": "redundant_open",
+      "classes": [
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2018",
+          "work": "001",
+          "author": "EUSEBIUS",
+          "title": "Praeparatio evangelica",
+          "word_count": 241486,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG042",
+      "era": "4th c.",
+      "desc": "Epiphanius Panarion (contd), Anacephalaeosis",
+      "ocr_word_count": 165985,
+      "primary_class": "redundant_open",
+      "classes": [
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2021",
+          "work": "002",
+          "author": "EPIPHANIUS",
+          "title": "Panarion (%6 Adversus haereses)",
+          "word_count": 351979,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg2021",
+          "work": "003",
+          "author": "EPIPHANIUS",
+          "title": "Anacephalaeosis [Sp.]",
+          "word_count": 4529,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG067",
+      "era": "5th c.",
+      "desc": "Socrates Scholasticus + Sozomen HE",
+      "ocr_word_count": 225882,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap",
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2057",
+          "work": "001",
+          "author": "SOCRATES Scholasticus",
+          "title": "Historia ecclesiastica",
+          "word_count": 104077,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg2048",
+          "work": "001",
+          "author": "Salaminius Hermias SOZOMENUS",
+          "title": "Historia ecclesiastica",
+          "word_count": 110642,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG071",
+      "era": "5th c.",
+      "desc": "Cyril of Alexandria v4 (minor prophets)",
+      "ocr_word_count": 214741,
+      "primary_class": "redundant_open",
+      "classes": [
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg4090",
+          "work": "001",
+          "author": "CYRILLUS",
+          "title": "Commentarius in xii prophetas minores",
+          "word_count": 310043,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG073",
+      "era": "5th c.",
+      "desc": "Cyril of Alexandria v6 (Commentary on John)",
+      "ocr_word_count": 233133,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg4090",
+          "work": "002",
+          "author": "CYRILLUS",
+          "title": "Commentarii in Joannem",
+          "word_count": 400935,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG087_1",
+      "era": "6th c.",
+      "desc": "Procopius of Gaza v1 (OT catenae)",
+      "ocr_word_count": 212541,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2598",
+          "work": "004",
+          "author": "PROCOPIUS",
+          "title": "Commentarii in Isaiam",
+          "word_count": 178350,
+          "best_source": "migne_cgpg",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "unknown"
+        },
+        {
+          "tlg": "tlg2598",
+          "work": "002",
+          "author": "PROCOPIUS",
+          "title": "Catena in Canticum canticorum",
+          "word_count": 42715,
+          "best_source": "migne_cgpg",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "unknown"
+        },
+        {
+          "tlg": "tlg2598",
+          "work": "012",
+          "author": "PROCOPIUS",
+          "title": "Refutatio Procli (fragmentum e cod. Vat. gr. 1096)",
+          "word_count": 419,
+          "best_source": "migne_cgpg",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG101",
+      "era": "9th c.",
+      "desc": "Photius (Amphilochia, NT commentary)",
+      "ocr_word_count": 237157,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock"
+      ],
+      "works": [
+        {
+          "tlg": "tlg4040",
+          "work": "014",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam ad Romanos (in catenis)",
+          "word_count": 25607,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "028",
+          "author": "PHOTIUS",
+          "title": "Commentarii in Matthaeum (in catenis)",
+          "word_count": 18327,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "027",
+          "author": "PHOTIUS",
+          "title": "Commentarii in Joannem (in catenis)",
+          "word_count": 15403,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "015",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam I ad Corinthios (in catenis)",
+          "word_count": 12896,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "016",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
+          "word_count": 7048,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "026",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
+          "word_count": 4627,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "018",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
+          "word_count": 3489,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "019",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
+          "word_count": 2931,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg4040",
+          "work": "017",
+          "author": "PHOTIUS",
+          "title": "Fragmenta in epistulam ad Galatas (in catenis)",
+          "word_count": 1826,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Photius Amphilochia/Quaestiones proper not a discrete work in 1999 TLG-E; NT catena commentary fragments are the matchable works"
+      ]
+    },
+    {
+      "volume": "PG107",
+      "era": "9th-10th c.",
+      "desc": "Leo VI the Wise (homilies, Tactica)",
+      "ocr_word_count": 200278,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock",
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg0723",
+          "work": "002",
+          "author": "LEO",
+          "title": "",
+          "word_count": 10463,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg0723",
+          "work": "001",
+          "author": "LEO",
+          "title": "De natura hominum synopsis",
+          "word_count": 7038,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Leo VI Tactica not separately in canon"
+      ]
+    },
+    {
+      "volume": "PG109",
+      "era": "10th c.",
+      "desc": "Theophanes Cont.; Cameniates; Symeon Logothete; Genesius",
+      "ocr_word_count": 213141,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock",
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg4153",
+          "work": "001",
+          "author": "THEOPHANES CONTINUATUS",
+          "title": "Chronographia (lib. 1%19`6)",
+          "word_count": 98591,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3015",
+          "work": "001",
+          "author": "Joannes CAMENIATES",
+          "title": "De expugnatione Thessalonicae",
+          "word_count": 23382,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg3070",
+          "work": "001",
+          "author": "SYMEON LOGOTHETES",
+          "title": "Chronicon (sub nomine Leonis Grammatici vel Theodosii Melisseni vel",
+          "word_count": 62203,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3040",
+          "work": "001",
+          "author": "Josephus GENESIUS",
+          "title": "*BASILEI=AI",
+          "word_count": 23339,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG112",
+      "era": "10th c.",
+      "desc": "Constantine VII v1 De ceremoniis",
+      "ocr_word_count": 152903,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "byzantium_overlap",
+        "locked_unlock"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3023",
+          "work": "010",
+          "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+          "title": "De cerimoniis aulae Byzantinae (lib. 1.84%19`2.56)",
+          "word_count": 76649,
+          "best_source": "pd_edition",
+          "status": "byzantium",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3023",
+          "work": "011",
+          "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+          "title": "De cerimoniis aulae Byzantinae (lib. 1.1%19`92)",
+          "word_count": 78092,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG113",
+      "era": "10th c.",
+      "desc": "Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac.",
+      "ocr_word_count": 149085,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3023",
+          "work": "008",
+          "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+          "title": "De administrando imperio",
+          "word_count": 40495,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg3023",
+          "work": "009",
+          "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+          "title": "De thematibus",
+          "word_count": 9702,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg3125",
+          "work": "001",
+          "author": "THEODOSIUS Diaconus",
+          "title": "De Creta capta",
+          "word_count": 6080,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Vita Basilii = 3023 X08 / overlaps Theoph.Cont. bk5"
+      ]
+    },
+    {
+      "volume": "PG118",
+      "era": "10th c.",
+      "desc": "Oecumenius (catenae on Acts, Pauline & Catholic epistles)",
+      "ocr_word_count": 273205,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock"
+      ],
+      "works": [
+        {
+          "tlg": "tlg2866",
+          "work": "003",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam i ad Corinthios (in catenis)",
+          "word_count": 3021,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "015",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
+          "word_count": 1746,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "006",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
+          "word_count": 920,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "008",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ad Colossenses (in catenis)",
+          "word_count": 554,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "011",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam i ad Timotheum (in catenis)",
+          "word_count": 499,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "005",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ad Galatas (in catenis)",
+          "word_count": 464,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "004",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
+          "word_count": 433,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "009",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam i ad Thessalonicenses (in catenis)",
+          "word_count": 337,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "007",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
+          "word_count": 330,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "010",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ii ad Thessalonicenses (in catenis)",
+          "word_count": 212,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "012",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ii ad Timotheum (in catenis)",
+          "word_count": 193,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "013",
+          "author": "OECUMENIUS",
+          "title": "Fragmenta in epistulam ad Titum (in catenis)",
+          "word_count": 126,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2866",
+          "work": "014",
+          "author": "OECUMENIUS",
+          "title": "Fragmentum in epistulam ad Philemonem (in catenis)",
+          "word_count": 16,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG121",
+      "era": "11th c.",
+      "desc": "George Cedrenus v1 Compendium",
+      "ocr_word_count": 224621,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3018",
+          "work": "001",
+          "author": "Georgius CEDRENUS",
+          "title": "Compendium historiarum",
+          "word_count": 303447,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG122",
+      "era": "11th c.",
+      "desc": "Cedrenus v2; Scylitzes; Psellus",
+      "ocr_word_count": 228769,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "byzantium_overlap",
+        "locked_unlock",
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3018",
+          "work": "001",
+          "author": "Georgius CEDRENUS",
+          "title": "Compendium historiarum",
+          "word_count": 303447,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3063",
+          "work": "001",
+          "author": "JOANNES SCYLITZES",
+          "title": "Synopsis historiarum",
+          "word_count": 126710,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg2702",
+          "work": "001",
+          "author": "Michael PSELLUS",
+          "title": "Chronographia",
+          "word_count": 78479,
+          "best_source": "pd_edition",
+          "status": "byzantium",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": [
+        "Cedrenus 3018.001 counted once at PG121"
+      ]
+    },
+    {
+      "volume": "PG123",
+      "era": "11th-12th c.",
+      "desc": "Theophylact of Ohrid v1",
+      "ocr_word_count": 262335,
+      "primary_class": "beyond_inventory",
+      "classes": [
+        "beyond_inventory"
+      ],
+      "works": [],
+      "notes": [
+        "Theophylact of Ohrid absent from 1999 TLG-E canon: beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG124",
+      "era": "11th-12th c.",
+      "desc": "Theophylact of Ohrid v2",
+      "ocr_word_count": 268101,
+      "primary_class": "beyond_inventory",
+      "classes": [
+        "beyond_inventory"
+      ],
+      "works": [],
+      "notes": [
+        "beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG125",
+      "era": "11th-12th c.",
+      "desc": "Theophylact of Ohrid v3",
+      "ocr_word_count": 243771,
+      "primary_class": "beyond_inventory",
+      "classes": [
+        "beyond_inventory"
+      ],
+      "works": [],
+      "notes": [
+        "beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG126",
+      "era": "11th-12th c.",
+      "desc": "Theophylact of Ohrid v4",
+      "ocr_word_count": 230559,
+      "primary_class": "beyond_inventory",
+      "classes": [
+        "beyond_inventory"
+      ],
+      "works": [],
+      "notes": [
+        "beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG134",
+      "era": "12th c.",
+      "desc": "John Zonaras v1 Annales",
+      "ocr_word_count": 293184,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap",
+        "redundant_open"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3135",
+          "work": "002",
+          "author": "Joannes ZONARAS",
+          "title": "Epitome historiarum (lib. 13%19`18)",
+          "word_count": 118917,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3135",
+          "work": "003",
+          "author": "Joannes ZONARAS",
+          "title": "Epitome historiarum (lib. 12, clausula varia) [Dub.]",
+          "word_count": 648,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3135",
+          "work": "001",
+          "author": "Joannes ZONARAS",
+          "title": "Epitome historiarum (lib. 1%19`12)",
+          "word_count": 240589,
+          "best_source": "open_corpus",
+          "status": "open_corpus",
+          "in_gap": false,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": [
+        "Zonaras 3135.001 (lib1-12) already open_corpus; 002 lib13-18 is the gap"
+      ]
+    },
+    {
+      "volume": "PG139",
+      "era": "12th-13th c.",
+      "desc": "Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus",
+      "ocr_word_count": 205247,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock",
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3140",
+          "work": "001",
+          "author": "JOEL",
+          "title": "Chronographia compendiaria",
+          "word_count": 12994,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3094",
+          "work": "001",
+          "author": "NICETAS CHONIATES",
+          "title": "Historia (%6 *XRONIKH\\ DIH/GHSIS)",
+          "word_count": 163659,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Isidore of Thessalonica, Nicetas of Maroneia, John of Citrus absent from canon: beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG146",
+      "era": "14th c.",
+      "desc": "Nicephorus Callistus Xanthopoulos HE 8-14",
+      "ocr_word_count": 244326,
+      "primary_class": "beyond_inventory",
+      "classes": [
+        "beyond_inventory"
+      ],
+      "works": [],
+      "notes": [
+        "Nicephorus Callistus Xanthopoulos absent from 1999 TLG-E canon: beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG148",
+      "era": "14th c.",
+      "desc": "Nicephorus Gregoras Historia Romana 1-24",
+      "ocr_word_count": 238598,
+      "primary_class": "byzantium_overlap",
+      "classes": [
+        "byzantium_overlap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg4145",
+          "work": "001",
+          "author": "NICEPHORUS GREGORAS",
+          "title": "Historia Romana",
+          "word_count": 353799,
+          "best_source": "pd_edition",
+          "status": "byzantium",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG151",
+      "era": "14th c.",
+      "desc": "Gregory Palamas v2; Acindynus; Barlaam",
+      "ocr_word_count": 405566,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3159",
+          "work": "001",
+          "author": "BARLAAM",
+          "title": "Paraphrasis in Euclidis elementorum librum secundum",
+          "word_count": 3416,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Gregory Palamas and Gregory Acindynus absent from canon: beyond inventory (Barlaam 3159 in canon is only the Euclid paraphrase)"
+      ]
+    },
+    {
+      "volume": "PG153",
+      "era": "14th c.",
+      "desc": "John VI Cantacuzenus Historiae",
+      "ocr_word_count": 237997,
+      "primary_class": "byzantium_overlap",
+      "classes": [
+        "byzantium_overlap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3169",
+          "work": "001",
+          "author": "JOANNES VI CANTACUZENUS",
+          "title": "Historiae",
+          "word_count": 316346,
+          "best_source": "pd_edition",
+          "status": "byzantium",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "volume": "PG155",
+      "era": "15th c.",
+      "desc": "Symeon of Thessalonica",
+      "ocr_word_count": 204617,
+      "primary_class": "beyond_inventory",
+      "classes": [
+        "beyond_inventory"
+      ],
+      "works": [],
+      "notes": [
+        "Symeon of Thessalonica absent from 1999 TLG-E canon: beyond inventory"
+      ]
+    },
+    {
+      "volume": "PG157",
+      "era": "15th c.",
+      "desc": "George Codinus; Ducas; Chronicon breve",
+      "ocr_word_count": 129302,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "locked_unlock",
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3168",
+          "work": "005",
+          "author": "Pseudo-CODINUS",
+          "title": "Patria Constantinopoleos",
+          "word_count": 23058,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3168",
+          "work": "007",
+          "author": "Pseudo-CODINUS",
+          "title": "Patria Constantinopoleos (ordo et tituli paragraphorum, quem",
+          "word_count": 2775,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3168",
+          "work": "006",
+          "author": "Pseudo-CODINUS",
+          "title": "Patria Constantinopoleos (variae lectiones)",
+          "word_count": 2612,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3168",
+          "work": "001",
+          "author": "Pseudo-CODINUS",
+          "title": "De officiis (%6 officia palatii Constantinopoleos)",
+          "word_count": 19183,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        },
+        {
+          "tlg": "tlg3146",
+          "work": "001",
+          "author": "DUCAS",
+          "title": "Historia Turcobyzantina",
+          "word_count": 70405,
+          "best_source": "locked",
+          "status": "locked",
+          "in_gap": false,
+          "pd_status": "in_copyright"
+        }
+      ],
+      "notes": [
+        "Chronicon breve unmatched"
+      ]
+    },
+    {
+      "volume": "PG158",
+      "era": "12th c.",
+      "desc": "Michael Glycas Annales, Letters",
+      "ocr_word_count": 201875,
+      "primary_class": "net_new_patristic",
+      "classes": [
+        "net_new_gap"
+      ],
+      "works": [
+        {
+          "tlg": "tlg3047",
+          "work": "001",
+          "author": "Michael GLYCAS",
+          "title": "Annales",
+          "word_count": 118624,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        },
+        {
+          "tlg": "tlg3047",
+          "work": "002",
+          "author": "Michael GLYCAS",
+          "title": "Annales (lectiones variae)",
+          "word_count": 1521,
+          "best_source": "pd_edition",
+          "status": "gap",
+          "in_gap": true,
+          "pd_status": "pd_us"
+        }
+      ],
+      "notes": []
+    }
+  ]
+}

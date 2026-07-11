@@ -1,0 +1,57 @@
+[
+  {
+    "tlg": "tlg0722.001",
+    "work": "Oribasius, Collectiones medicae (ed. Raeder, CMG VI, Leipzig/Berlin 1928-33)",
+    "status": "scan",
+    "url": "https://cmg.bbaw.de/epubl/online/editionen.html",
+    "format": "Scanned page images / facsimile (DFG-Viewer); also Google-digitized PDFs with OCR on archive.org (e.g. https://archive.org/details/corpusmedicorumg0802deut)",
+    "edition": "Raeder, Oribasii collectionum medicarum reliquiae = CMG VI 1,1 (libri I-VIII), VI 1,2 (IX-XVI), VI 2,1 (XXIV-XXV, XLIII-XLVIII), VI 2,2 (XLIX-L)",
+    "license": "Public domain (Raeder 1928-33); CMG online editions are free to consult. Underlying running text not openly released.",
+    "completeness": "All four Raeder/CMG VI volumes are online as page images, covering the surviving books. No clean digital running text.",
+    "notes": "NOT in First1KGreek (no data/tlg0722) nor PerseusDL/canonical-greekLit; not on Scaife (library URL 404s). Not on Greek Wikisource. The CMG.bbaw.de online editions and archive.org give the exact Raeder edition but only as scanned facsimiles/PDF, so ingestion needs OCR of dense polytonic Greek with critical apparatus (expect mediocre OCR). No open clean Greek text exists; TLG (licensed) is the only keyed digital text."
+  },
+  {
+    "tlg": "tlg2200.004",
+    "work": "Libanius, Orationes (ed. Foerster, Teubner, Leipzig 1903-15)",
+    "status": "text",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek/tree/master/data/tlg2200/tlg004 (reader: https://scaife.perseus.org/library/urn:cts:greekLit:tlg2200.tlg004/)",
+    "format": "EpiDoc/TEI XML, one file per oration (tlg2200.tlg004NN.opp-grc1.xml), NFC polytonic Greek",
+    "edition": "Richard Foerster (Teubner); teiHeader names <editor>Richard Foerster</editor>, produced by Open Greek and Latin / Leipzig",
+    "license": "First1KGreek / OGL: CC BY-SA 4.0 (free, openly licensed)",
+    "completeness": "Complete: orations tlg00401 through tlg00464 present = all 64 orations of Foerster's edition. Verified Greek running text in Oratio I.",
+    "notes": "Directly ingestible. This is the cleanest open source; matches the target edition exactly. Each oration is its own XML <div>. Also surfaced via Scaife/Perseus."
+  },
+  {
+    "tlg": "tlg2200.005",
+    "work": "Libanius, Declamationes (ed. Foerster, Teubner, Leipzig 1909-11)",
+    "status": "text",
+    "url": "https://github.com/OpenGreekAndLatin/First1KGreek/tree/master/data/tlg2200/tlg005",
+    "format": "EpiDoc/TEI XML, one file per declamation (tlg2200.tlg005NN.opp-grc1.xml), NFC polytonic Greek",
+    "edition": "Richard Foerster (Teubner), same OGL/Leipzig digitization as the Orationes",
+    "license": "First1KGreek / OGL: CC BY-SA 4.0",
+    "completeness": "Complete: declamations tlg00501 through tlg00551 present = all 51 declamations of Foerster's edition.",
+    "notes": "Directly ingestible alongside the Orationes; same repository folder tree and encoding."
+  },
+  {
+    "tlg": "tlg2734.013",
+    "work": "Justinian, Novellae (ed. Schoell-Kroll, Corpus Iuris Civilis vol. 3, Berlin 1895)",
+    "status": "scan",
+    "url": "https://archive.org/details/corpusiuriscivi00krolgoog (Schoell-Kroll CIC vol. 3, Greek text + Latin apparatus)",
+    "format": "Google-digitized page images + PDF with OCR (polytonic Greek mixed with Latin headings/apparatus)",
+    "edition": "Schoell-Kroll, CIC vol. 3, 1895 (the Greek collection of 168 Novels)",
+    "license": "Public domain (1895). Scan openly downloadable on archive.org.",
+    "completeness": "Full edition as scan only. No clean open Greek running text found.",
+    "notes": "IMPORTANT: the droitromain Roman Law Library (droitromain.univ-grenoble-alpes.fr/Corpus/Novellae.htm and the per-Novel Nov*.htm pages) serve the LATIN Authenticum, NOT the Greek - verified Nov01/Nov08/Nov17/Nov123 contain zero Greek codepoints and read 'Imp. Iustinianus Aug...' / 'Omnes nobis dies ac noctes...'. Despite being labelled 'Schoell & Kroll', the body is Latin. So droitromain is NOT a Greek source. Not in First1KGreek (no data/tlg2734) nor canonical-greekLit. Not on Greek Wikisource. The Annotated Justinian Code (uwyo.edu/lawlib/blume-justinian) is an English translation, not Greek. Only viable open source is the Schoell-Kroll scan -> needs OCR of mixed Greek/Latin (poor quality expected). TLG (licensed) is the only keyed clean text."
+  },
+  {
+    "tlg": "tlg5000.001",
+    "work": "Concilium universale Ephesenum (431), Acta Graeca (ed. Schwartz, ACO I, Berlin 1922-30/1927)",
+    "status": "scan",
+    "url": "https://archive.org/details/collectio-vaticana-1-32-acta-conciliorum-oecumenicorum-1-1-1 (ACO I.1.1 Collectio Vaticana 1-32); broader set via HathiTrust https://catalog.hathitrust.org/Record/011258447",
+    "format": "Scanned page images with Tesseract 5.3.0 OCR (Ancient Greek, full-text/hocr/PDF downloads). OCR detected-lang confidence high but it is 1920s critical-edition Greek - expect noisy output.",
+    "edition": "Eduard Schwartz, Acta Conciliorum Oecumenicorum, tomus 1 (Concilium Universale Ephesenum), Acta Graeca, multiple collectiones (Vaticana, Seguierana, Atheniensis, etc.)",
+    "license": "Borderline US-PD: Schwartz volumes 1922-1930 are PD via the 96-year rule (the 1927/earlier parts now PD). Internet Archive hosts them openly.",
+    "completeness": "Only partial open coverage and only as scans: the archive.org item is one collection (Collectio Vaticana 1-32) with OCR; the full Acta Graeca spans several ACO I.1.x fascicles. No clean digital running text exists.",
+    "notes": "NOT in First1KGreek (no data/tlg5000) nor canonical-greekLit. Greek Wikisource only has the short Canons of the 3rd Ecumenical Council, not the Acts. De Gruyter sells the modern text. TLG is licensed (excluded). Best open path is OCR of the Schwartz ACO scans on archive.org/HathiTrust, with substantial cleanup needed; check PD status per fascicle by year."
+  }
+]
