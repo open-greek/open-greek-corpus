@@ -1,0 +1,351 @@
+{
+  "id": "cunliffe-appendix",
+  "title": "Cunliffe's Homeric grammatical appendix (conditional / relative sentence table)",
+  "kind": "reference",
+  "status": "reference material - NOT a served text work",
+  "not_served_note": "This is reference / bonus material, not part of the served running-text corpus. It is a lexicon-grammatical reference table, not a text edition, so it does NOT enter the source-precedence ladder, is NOT assigned a served work-id, and is NOT listed in corpus_editions.json or the work-id registry. It lives under data/reference/, entirely separate from data/corpus/.",
+  "provenance": {
+    "author": "Richard John Cunliffe",
+    "work": "A Lexicon of the Homeric Dialect",
+    "year": 1924,
+    "public_domain": true,
+    "appendix_title": "TABLE of the Uses of εἰ (αἴ), ἤν in Protasis with the accompanying Apodoses and of the corresponding Relative and Conditional Relative Sentences with Future, Subjunctive and Optative.",
+    "scan_item": "mdp.39015005687283",
+    "scan_source": "archive.org (University of Michigan copy)",
+    "scan_url": "https://archive.org/details/mdp.39015005687283",
+    "iiif_image_endpoint": "https://iiif.archive.org/iiif/mdp.39015005687283${LEAF}/full/full/0/default.jpg",
+    "printed_pages": "431-452",
+    "scan_leaves": "447-468",
+    "page_count": 22,
+    "ocr_model": "Qwen3.6-27B, 8-bit MLX (Apple Silicon)",
+    "note": "First known machine-readable copy of the appendix body. Digital editions (Perseus/Scaife, Logeion, ATLAS/exploreHomer, jtauber's cunliffe) reproduce only the pointers into the table, not the table itself; the pre-existing Google OCR of the scan renders the polytonic Greek unusably."
+  },
+  "license": {
+    "underlying_text": "Public domain (1924 publication).",
+    "derived_dataset": "CC BY-SA 4.0 (matching the corpus). The structured/OCR'd dataset is the corpus maintainers' to license; the underlying text is public domain."
+  },
+  "code_legend": {
+    "description": "A construction code such as III.B.a.1 decomposes by level.",
+    "roman_I_II_III": "Logical type of the εἰ-clause. I = citing a fact in corroboration; II = introducing one of two opposed clauses ('even if'); III = the protasis of a conditional sentence.",
+    "capital_A_to_D": "Kind of supposition. A = Simple, B = General, C = Contrary to Fact, D = Future.",
+    "lowercase_a_b": "Time reference. a = Present, b = Past.",
+    "number": "The specific verb construction (mood/tense combination) in that cell.",
+    "note": "(D) Future Suppositions is the largest section and is a long numbered enumeration, hence citations like '(D) (56)'."
+  },
+  "citation_scheme": {
+    "iliad_books": "CAPITAL Greek letters Α-Ω = Iliad books 1-24.",
+    "odyssey_books": "lowercase Greek letters α-ω = Odyssey books 1-24.",
+    "line": "Followed by a line number, e.g. Α 39 = Iliad 1.39.",
+    "double_protasis": "A leading asterisk (*) marks a double protasis.",
+    "bare_number": "A bare number continues the previous book (Ν 111, 316 = 13.111 and 13.316).",
+    "resolution_status": "All citations are resolved to {corpus, book, line} in the dataset."
+  },
+  "totals": {
+    "cells": 153,
+    "examples": 292,
+    "resolved_citations": 1209,
+    "unparsed_citation_strings": 0
+  },
+  "qa": {
+    "method": "Extracted Iliad citations were cross-validated against an independent Homeric dependency treebank: does the cited introducing word occur at the line the table cites?",
+    "iliad_confirmation_rate_approx": "~95%",
+    "per_word": {
+      "εἰ": "84/85 (99%)",
+      "ὄφρα": "10/10 (100%)",
+      "ἐπήν": "6/6 (100%)",
+      "ὅς": "42/43 (98%)",
+      "ἐπεί": "23/24 (96%)",
+      "ὅτε": "34/41 (83%)",
+      "εὖτε/ὅθι/ὅστις/ὁπότε": "100%"
+    }
+  },
+  "review_queue_resolution": {
+    "method": "Every citation flagged by the treebank cross-check was independently re-verified against our own served Iliad text (data/corpus/homerus-epic.ilias.jsonl, Perseus grc2 edition) by reading the cited line and its neighbors. This is a second, fully independent source from the treebank used in the original QA.",
+    "served_text_used": [
+      "homerus-epic.ilias",
+      "homerus-epic.odyssea"
+    ],
+    "date": "2026-07-11",
+    "outcome_summary": "All 10 reviewed citations confirmed against the served Iliad. 0 line-number corrections applied; 0 still flagged. The treebank could not confirm them because of elision (ὅτʼ / ὅθʼ for ὅτε), differing syntactic tagging (εἰ, ἐπεί, ὡς), or lemma-grouping of a Cf. pointer (ὅς 9.140) - none was an OCR line-number error. The known false alarm ὅτε 2.395 was not re-checked (treebank scope-gate artifact, per the handoff).",
+    "corrections_applied": [],
+    "still_flagged": [],
+    "items": [
+      {
+        "cited_ref": "il 21.556",
+        "word": "εἰ",
+        "location": "example (code III.D.38)",
+        "served_locus": "homerus-epic.ilias 21.556",
+        "served_text": "εἰ δʼ ἂν ἐγὼ τούτους μὲν ὑποκλονέεσθαι ἐάσω",
+        "table_protasis": "εἰ δ' ἂν τούτους ὑποκλονέεσθαι ἐάσω",
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "The word εἰ and essentially the whole protasis are present at the cited line in our served Iliad. Not an OCR error; the treebank simply did not tag this εἰ δ' ἄν as a conditional protasis."
+      },
+      {
+        "cited_ref": "il 17.658",
+        "word": "ἐπεί",
+        "location": "example (code II.B.a.2)",
+        "served_locus": "homerus-epic.ilias 17.658",
+        "served_text": "ὅς τʼ ἐπεὶ ἄρ κε κάμῃσι κύνας τʼ ἄνδρας τʼ ἐρεθίζων,",
+        "table_protasis": "ἐπεί κε κάμῃσιν",
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ἐπεὶ ... κε κάμῃσι is present at the cited line; the apodosis ἰθύει follows at 17.661. Treebank tagging difference, not an OCR error."
+      },
+      {
+        "cited_ref": "il 9.140",
+        "word": "ὅς",
+        "location": "cf-reference (code III.D.26)",
+        "served_locus": "homerus-epic.ilias 9.140",
+        "served_text": "αἴ κε μετʼ Ἀργείην Ἑλένην κάλλισται ἔωσιν.",
+        "table_protasis": null,
+        "verdict": "confirmed_line_word_label_caveat",
+        "corrected_ref": null,
+        "evidence": "9.140 is a valid conditional-relative line in our served Iliad (αἴ κε ... ἔωσιν, subjunctive). It is a Cf. pointer grouped under the relative-pronoun lemma ὅς; the relative pronoun itself (ὅς) sits three lines later at 9.143. The parallel citation in the same cf-list, ὅς 9.282, lands on the exactly parallel αἵ-κε line (served 9.282 = 'αἵ κε μετʼ Ἀργείην...'), with its ὅς likewise at 9.285. Two parallel citations both landing on the αἴ/αἵ-κε line rules out a random digit misread. The line number is correct; only the ὅς word-label is a cf-grouping artifact. No line correction applied."
+      },
+      {
+        "cited_ref": "il 4.53",
+        "word": "ὅτε",
+        "location": "cf-reference",
+        "served_locus": "homerus-epic.ilias 4.53",
+        "served_text": "τὰς διαπέρσαι ὅτʼ ἄν τοι ἀπέχθωνται περὶ κῆρι·",
+        "table_protasis": null,
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ὅτε is present in elided form ὅτʼ at the cited line. The treebank cross-check missed it because it matched whole tokens and ὅτʼ is elided."
+      },
+      {
+        "cited_ref": "il 6.524",
+        "word": "ὅτε",
+        "location": "cf-reference",
+        "served_locus": "homerus-epic.ilias 6.524",
+        "served_text": "ἄχνυται ἐν θυμῷ, ὅθʼ ὑπὲρ σέθεν αἴσχεʼ ἀκούω",
+        "table_protasis": null,
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ὅτε is present as the elided, aspirated form ὅθʼ (ὅτε elided before the rough breathing of ὑπέρ) at the cited line. Missed by the whole-token treebank check."
+      },
+      {
+        "cited_ref": "il 7.335",
+        "word": "ὅτε",
+        "location": "example (code III.D.37)",
+        "served_locus": "homerus-epic.ilias 7.335",
+        "served_text": "οἴκαδʼ ἄγῃ ὅτʼ ἂν αὖτε νεώμεθα πατρίδα γαῖαν.",
+        "table_protasis": "ὅτ' ἂν νεώμεθα",
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ὅτʼ ἂν ... νεώμεθα is present verbatim at the cited line (elided ὅτʼ)."
+      },
+      {
+        "cited_ref": "il 9.101",
+        "word": "ὅτε",
+        "location": "example (code III.B.a.3)",
+        "served_locus": "homerus-epic.ilias 9.101",
+        "served_text": "κρηῆναι δὲ καὶ ἄλλῳ, ὅτʼ ἄν τινα θυμὸς ἀνώγῃ",
+        "table_protasis": "ὅτ' ἄν τινα θυμὸς ἀνώγῃ",
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "Exact match: ὅτʼ ἄν τινα θυμὸς ἀνώγῃ is present at the cited line (elided ὅτʼ)."
+      },
+      {
+        "cited_ref": "il 10.14",
+        "word": "ὅτε",
+        "location": "example (code III.B.b.1)",
+        "served_locus": "homerus-epic.ilias 10.14",
+        "served_text": "αὐτὰρ ὅτʼ ἐς νῆάς τε ἴδοι καὶ λαὸν Ἀχαιῶν,",
+        "table_protasis": "ὅτ' ἐς νῆας ἴδοι",
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ὅτʼ ἐς νῆας ... ἴδοι is present at the cited line (elided ὅτʼ)."
+      },
+      {
+        "cited_ref": "il 12.286",
+        "word": "ὅτε",
+        "location": "cf-reference",
+        "served_locus": "homerus-epic.ilias 12.286",
+        "served_text": "εἴλυται καθύπερθʼ, ὅτʼ ἐπιβρίσῃ Διὸς ὄμβρος·",
+        "table_protasis": null,
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ὅτε is present in elided form ὅτʼ at the cited line."
+      },
+      {
+        "cited_ref": "il 9.26",
+        "word": "ὡς",
+        "location": "cf/example (code III.D.35)",
+        "served_locus": "homerus-epic.ilias 9.26",
+        "served_text": "ἀλλʼ ἄγεθʼ ὡς ἂν ἐγὼ εἴπω πειθώμεθα πάντες·",
+        "table_protasis": null,
+        "verdict": "confirmed",
+        "corrected_ref": null,
+        "evidence": "ὡς is present at the cited line (ὡς ἂν ἐγὼ εἴπω, a conditional-relative 'as I shall bid'). Treebank tagged it as a comparative adverb rather than a conditional word; not an OCR error."
+      }
+    ]
+  },
+  "known_minor_ocr_slips": {
+    "note": "Minor accent slips seen on sanity pages; the Greek is otherwise faithful. Left as-is (known-minor), not corrected.",
+    "examples": [
+      "αἰ for αἴ (visible in the leaf_447 title line 'εἰ (αἰ)')",
+      "μάλ'α for μάλα"
+    ]
+  },
+  "files": [
+    {
+      "path": "cunliffe_appendix.json",
+      "bytes": 258855,
+      "sha256": "83b080a30e34fb32e79abb51dfc7a05fe43671867d2098f1e9eb18ede02870b9",
+      "description": "Primary structured dataset: 153 construction cells. Each cell has code, protasis_mood, apodosis_mood, heading, examples[], cf_refs[], page, leaf. Each example has kind (conditional/relative/conditional_relative), intro_word, protasis, apodosis, english, and refs[] with {corpus: il|od, book, line, ref, double_protasis}."
+    },
+    {
+      "path": "cunliffe_appendix_refs.json",
+      "bytes": 78822,
+      "sha256": "942a51d2d420abbe1408ee2ccd65af1aa9f9ecb33c389d6bdb7e88d7c62d6f4c",
+      "description": "Per-introducing-word citation index: word -> construction code -> {il:[refs], od:[refs], examples[]}. Answers what a lexicon cross-reference such as 'see Table at end III.B.a' actually cites."
+    },
+    {
+      "path": "structured_pages.json",
+      "bytes": 121632,
+      "sha256": "b5972f3391e07cccff06484694969efce1b7730c6098b5ea6513d0e40e4d469f",
+      "description": "Intermediate per-page structured cells produced before the final merge into cunliffe_appendix.json. Retained for provenance/reproducibility; the two files above are the authoritative outputs."
+    },
+    {
+      "path": "validation_report.txt",
+      "bytes": 5628,
+      "sha256": "c56223bf44946f2c7ba282d53230e6428c6d5e6e5c05c594eb84df856aae6645",
+      "description": "QA summary: per-word counts, the independent cross-check of Iliad citations, and the original review queue."
+    },
+    {
+      "path": "leaves/leaf_447.md",
+      "bytes": 3151,
+      "sha256": "c9a1897c00a30c7143c18ecbbdddf7949bc1d77c190d12dad39daea6dfaf43ba",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 447 = printed page 431. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_448.md",
+      "bytes": 2528,
+      "sha256": "60c9dbe639426f0bd90f8126e98c3b050cc7da25cab477daa023ad9126a020bd",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 448 = printed page 432. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_449.md",
+      "bytes": 11708,
+      "sha256": "3559b2fe5f1cfc01cbbe675d68984dc3ac9fd1763f685aa9b87895d9a2078b9b",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 449 = printed page 433. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_450.md",
+      "bytes": 4007,
+      "sha256": "a8d0a2fe62a8121c141e2c372e553396f785af3e65d23bb12e0b52ed452e2780",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 450 = printed page 434. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_451.md",
+      "bytes": 2928,
+      "sha256": "63d325ce9a6826c42e4c6d841f5648b190eb56bbfe84eaa4b0e9d98c7d2f223b",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 451 = printed page 435. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_452.md",
+      "bytes": 2350,
+      "sha256": "e7eb62ae02f7e2ec41bf6611b06fc87e3d69d65bbfab1d1afceba0d024083a8e",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 452 = printed page 436. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_453.md",
+      "bytes": 2518,
+      "sha256": "e04a94db043147dc81fe82ff82c9d43f3ae8a4f0788c67b61a37b9cbfc8cfd95",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 453 = printed page 437. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_454.md",
+      "bytes": 3238,
+      "sha256": "546f06028d70afaee4a7ba40e5a5f77eaaa7587f9249a5015a9ad75e76f704a3",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 454 = printed page 438. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_455.md",
+      "bytes": 2810,
+      "sha256": "0d0a71434d200c8a53721244b5d3f21196fbcc57756321543d6ec2b292573588",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 455 = printed page 439. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_456.md",
+      "bytes": 2903,
+      "sha256": "4d870bc2b805eff7acd7634101356770329bfa145377393e052544d4270f824e",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 456 = printed page 440. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_457.md",
+      "bytes": 2202,
+      "sha256": "3ed13a8927ba8f61befda7409a227825ecd58d6ab389d40c867f76f977d91e99",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 457 = printed page 441. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_458.md",
+      "bytes": 3319,
+      "sha256": "42f9f6db7bd9778d03731e870fecc04fdc3178a755e65010d7abeae323fe39bb",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 458 = printed page 442. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_459.md",
+      "bytes": 1208,
+      "sha256": "51cc4952e78eeb61729af883bc8dddc4fbf963bdf9a39bd0d61de1034e2e7801",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 459 = printed page 443. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_460.md",
+      "bytes": 320,
+      "sha256": "ea37079a64b735169c4ee5ea93d55ea3a3bc55f804c534ae26791b52225b133f",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 460 = printed page 444. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_461.md",
+      "bytes": 2195,
+      "sha256": "82adfacc03477190c1799d21216b588c1bc9b20abf82d2d8e83bce6c298364a9",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 461 = printed page 445. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_462.md",
+      "bytes": 2788,
+      "sha256": "78c3ec61f06584d54080d6a0af81a8f14b136c6efb5dafa28d8f4badece8a37e",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 462 = printed page 446. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_463.md",
+      "bytes": 239,
+      "sha256": "d545b1722c03b84b3576fc5f4cea81a0cd1b1e5441123a9dde483f2d356f6d7c",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 463 = printed page 447. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_464.md",
+      "bytes": 195,
+      "sha256": "c04a550bb644262a900f9ec87fbb48fbad0b3d0988c3a6ba5cc43ab540c7f43b",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 464 = printed page 448. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_465.md",
+      "bytes": 242,
+      "sha256": "8c9c25a5c63aa6d93adba4f341b56be69a8748e00a227584e6d793e7a46473c6",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 465 = printed page 449. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_466.md",
+      "bytes": 435,
+      "sha256": "7d8737e99e7363ad9f1eba5bebf44886d4b75e16b0baa6b4c23a0dc1cd9c3bc9",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 466 = printed page 450. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_467.md",
+      "bytes": 186,
+      "sha256": "1abe8d6e08b90743b3097246e0cbb679a5e9459388c1d5c7c3dd422b0f228f9b",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 467 = printed page 451. The primary transcription; the structured JSON is derived from these."
+    },
+    {
+      "path": "leaves/leaf_468.md",
+      "bytes": 215,
+      "sha256": "03fc421087ac66b634336f5e09b7f152ef12b03fa24ba369d48d070d4b00c50a",
+      "description": "Raw per-page OCR (Markdown) of scan leaf 468 = printed page 452. The primary transcription; the structured JSON is derived from these."
+    }
+  ],
+  "generated": "2026-07-11"
+}
