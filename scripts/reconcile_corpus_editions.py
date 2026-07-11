@@ -20,12 +20,24 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 CORPUS = REPO / "data" / "corpus"
 CE = REPO / "data" / "corpus_editions.json"
+WORK_IDS = REPO / "data" / "work_ids.json"
 _GK = re.compile(r"[Ͱ-Ͽἀ-῿]")
+
+
+def _load_work_ids() -> dict:
+    """Map served slug -> opaque ogc id from the persistent ledger, if present.
+    A brand-new work not yet minted simply gets no id here until
+    build_id_registry.py runs; re-running this reconcile then fills it in."""
+    if not WORK_IDS.exists():
+        return {}
+    works = json.loads(WORK_IDS.read_text(encoding="utf-8")).get("works", {})
+    return {e["slug"]: i for i, e in works.items() if e.get("status") == "served"}
 
 
 def main() -> None:
     from collections import defaultdict
 
+    slug_to_id = _load_work_ids()
     ce = {}
     for fp in sorted(CORPUS.glob("*.jsonl")):
         n_pass = n_tok = 0
@@ -50,8 +62,15 @@ def main() -> None:
             # dominant edition = most Greek tokens; ties break on first-seen (dict order)
             edition = max(by_ed_tok, key=lambda e: by_ed_tok[e])
             source, license_ = ed_meta[edition]
-            ce[fp.name[:-6]] = {"edition": edition, "license": license_, "source": source,
-                                "n_passages": n_pass, "n_tokens": n_tok}
+            slug = fp.name[:-6]
+            row = {"edition": edition, "license": license_, "source": source,
+                   "n_passages": n_pass, "n_tokens": n_tok}
+            # The opaque work id (from the ledger) is the canonical anchor; keep
+            # it alongside the derived edition metadata so consumers of this file
+            # get the stable id without a second join.
+            if slug in slug_to_id:
+                row["id"] = slug_to_id[slug]
+            ce[slug] = row
     CE.write_text(json.dumps(ce, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
     print(f"reconciled corpus_editions: {len(ce)} works, "
           f"{sum(m['n_tokens'] for m in ce.values()):,} tokens")
