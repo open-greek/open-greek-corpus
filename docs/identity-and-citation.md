@@ -49,10 +49,20 @@ That is the empirical reason to keep it, as an alias.
 
 ### Work and author identity
 
-- Primary key: the cog slug (`author.work`). Already 100%. Human-readable,
-  cog-governed, edition-independent. Immutable once minted; a corrected slug
-  becomes a redirect, never silently reused (`source_identity.py` already enforces
-  alias-conflict immutability).
+- Primary key: an opaque, immutable, cog-minted id, `ogc<NNNNNN>` for a
+  work-unit and `oga<NNNNNN>` for an author (Wikidata's move, applied to our own
+  namespace). The slug (`author.work`) is demoted from key to a human-readable,
+  resolvable *alias* of that id: still the filename and handle, but no longer the
+  identity. This split is what lets a re-attribution change the slug without
+  losing identity - the id stays put and the old slug becomes a `former_slug`
+  redirect. The ledgers, the WEMI leveling, the rename mechanism, and the
+  reader-facing index are documented in `opaque-identifiers.md`; the builder is
+  `scripts/build_id_registry.py`.
+- The slug stays 100% covered, human-readable, cog-governed, edition-independent,
+  and immutable-by-policy (a rename appends the old slug to the id's
+  `former_slugs`; `source_identity.py` also enforces alias-conflict immutability
+  on the crosswalk side). It is now an alias of the opaque id rather than the key
+  itself.
 - Author anchor: Wikidata QID, with VIAF/GND/ISNI alongside. Authors are where
   open universal authorities have real coverage, so anchor there.
 - Work crosswalk, not work anchor: there is no open universal work-level id, so
@@ -97,7 +107,13 @@ rather than CTS, which would force CTS/TLG URNs back in as the required id.[4]
 ## Migration path
 
 - Phase 0 (done): slug is the key; TLG lives as the `cts` alias; author
-  authorities populated.
+  authorities populated. Superseded by the opaque-id layer (below): the slug is
+  now an alias of an `ogc`/`oga` id, not the key.
+- Phase 0b (done): opaque, immutable `ogc`/`oga` ids minted for every served
+  work-unit and author (`build_id_registry.py` -> `work_ids.json` /
+  `author_ids.json`), WEMI-leveled outward anchors and a redirect layer exposed
+  in `work_index.json`, and a single id-preserving rename tool
+  (`rename_work.py`). See `opaque-identifiers.md`.
 - Phase 1 (in progress): the crosswalk report (`build_crosswalk_report.py`).
   Then enrich: fill work-level Wikidata QIDs via the author link (~5,600 works
   are reachable that way), add `trismegistos`/`perseus`/`iowa` namespaces.

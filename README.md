@@ -108,6 +108,18 @@ scripts/
                             anon-ocr / anon-cogPG pseudo-authors
   build_coverage_report.py  sourcing_map + overrides + corpus -> coverage_report.json
   build_crosswalk_report.py registry -> crosswalk_report.json (id-linkage completeness)
+  build_id_registry.py      mint/maintain the opaque ogc/oga id ledgers
+                            (work_ids.json / author_ids.json), append-only and
+                            idempotent; replays the rename seed so ids survive
+                            re-attribution (--check-stable asserts a no-op re-run)
+  build_work_index.py       ledgers + crosswalk + registry + corpus_editions ->
+                            work_index.json (reader-facing WEMI join + redirects)
+  rename_work.py            the ONE id-preserving way to rename a work's slug
+                            (moves file + rows + crosswalk/registry keys, records
+                            the rename, re-derives the ledger); see
+                            docs/opaque-identifiers.md
+  validate_id_layer.py      assert every id-layer invariant (coverage, append-only,
+                            anchor round-trip, variant pairs, redirects)
   normalize_edition_strings.py  collapse stacked qwen36 edition-tag repeats
                             (re-swap artifacts) across data/corpus[_secondary]/ +
                             ocr_works.json + ocr_edition_sources.json; dry-run by
@@ -116,13 +128,22 @@ scripts/
   (OCR recognition, ingest and correction happen upstream and deliver text here)
 docs/
   identity-and-citation.md  how cog identifies works/authors + cites passages
+  opaque-identifiers.md     the ogc/oga id model, WEMI leveling, rename/redirect
+                            layer, and the work_index.json schema a consumer needs
 sources/                    cloned open corpora (gitignored; fetch with the commands below)
 data/
   corpus/<work>.jsonl       one JSON record per citable passage (locus + text;
                             optional bekker[], text_lines[] - see record shape below)
   bekker_concordance.json   tlg0086 locus -> Bekker pages for works whose TEI has
                             no inline milestones (GLAUX + el.wikisource, CC BY-SA)
-  corpus_editions.json      per work: winning edition/source/license, passages, tokens
+  work_ids.json             opaque ogc work-id ledger: id -> slug, former_slugs, status
+  author_ids.json           opaque oga author-id ledger: id -> slug, former_slugs, status
+  work_id_aliases.json      curated rename seed (former slug -> current); the source
+                            of truth for renames, replayed by build_id_registry.py
+  work_index.json           reader-facing WEMI join: per work the ogc id, slug,
+                            former slugs, CTS/TLG/Wikidata anchors, author (oga +
+                            authorities), edition/source/tokens, plus a redirects map
+  corpus_editions.json      per work: opaque id, winning edition/source/license, passages, tokens
   public_lexicon.tsv        form <TAB> count over the whole ingested corpus
   coverage.json             per work urn: source, license, tokens, passages
   public_lemma_frequency.tsv  lemma <TAB> corpus token count (the headline artifact)
@@ -139,16 +160,35 @@ data/
 
 ## Identity and citation
 
-Works and authors are keyed by our own `author.work` slug (`homerus.ilias`;
-namespace `cog`), not by TLG number. External identifiers (TLG/CTS, Wikidata QID,
-VIAF/GND/ISNI, Trismegistos) are kept as crosswalk aliases, so nothing is
-anchored to the proprietary TLG Canon. The TLG/CTS crosswalk lives in
-`data/tlg_crosswalk.tsv` and in each work's `cts` field in
-`corpus_editions.json`, so joins against citation and lexicon data still work.
-`build_crosswalk_report.py` reports how complete the crosswalk is and where
-enrichment is cheapest (e.g. the author has a Wikidata QID but the work doesn't).
-Why TLG numbers are kept as aliases rather than dropped:
-`docs/identity-and-citation.md`.
+Every served work-unit and author carries an opaque, immutable, cog-minted id -
+`ogc<NNNNNN>` for a work, `oga<NNNNNN>` for an author (Wikidata's Q-number move,
+in our own namespace). The `author.work` slug (`homerus.ilias`) is demoted from
+primary key to a human-readable, resolvable *alias* of that id: still the
+filename and handle, no longer the identity. That split is what lets a
+re-attribution change the slug without losing identity - the id stays put and the
+old slug becomes a `former_slug` redirect (the data-side of a 301). The ledgers
+are `data/work_ids.json` / `data/author_ids.json`, built idempotently and
+append-only by `scripts/build_id_registry.py`; the reader-facing WEMI-leveled
+join (id, slug, former slugs, CTS/TLG/Wikidata anchors, author authorities,
+edition, source, tokens) is `data/work_index.json` via
+`scripts/build_work_index.py`; renames go through the one id-preserving tool
+`scripts/rename_work.py`; `scripts/validate_id_layer.py` checks every invariant.
+Full model, WEMI leveling, and the index schema a consumer needs:
+`docs/opaque-identifiers.md`.
+
+External identifiers (TLG/CTS, Wikidata QID, VIAF/GND/ISNI, Trismegistos) are
+kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
+proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
+(the only external id with ~100% work coverage), and the opaque `ogc` id sits
+one level finer at the Expression, so the 4 TLG variant-edition pairs are two
+distinct `ogc` ids sharing one TLG anchor. 390 served works have no external id
+at all (the exceed-TLG material) and rely on the `ogc` id alone. The TLG/CTS
+crosswalk lives in `data/tlg_crosswalk.tsv` and in each work's `cts` field in
+`corpus_editions.json` (which now also carries the `ogc` `id`), so joins against
+citation and lexicon data still work. `build_crosswalk_report.py` reports how
+complete the crosswalk is and where enrichment is cheapest (e.g. the author has a
+Wikidata QID but the work doesn't). Why TLG numbers are kept as aliases rather
+than dropped: `docs/identity-and-citation.md`.
 
 Canon titles stored in beta-code (`*AI)GU/PTIOS`) are decoded to Unicode at
 registry build (`Αἰγύπτιος`), including Greek glosses inside Latin titles

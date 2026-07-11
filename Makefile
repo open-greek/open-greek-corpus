@@ -40,8 +40,15 @@ INGESTERS := scripts/build_corpus_loci.py scripts/build_byzantine_vernacular_cor
              scripts/build_byzantium_gr_corpus.py
 SWEEPS    := data/pd_research/byzantium_sweep.json data/pd_research/cgpg_coverage.json
 
-.PHONY: all yardstick sourcing ingest clean
+.PHONY: all yardstick sourcing ingest ids clean
 all: yardstick sourcing
+
+# Just the opaque-id layer: ledgers -> corpus_editions id injection -> WEMI index.
+ids:
+	$(PY) scripts/build_id_registry.py
+	$(PY) scripts/reconcile_corpus_editions.py
+	$(PY) scripts/build_work_index.py
+	$(PY) scripts/validate_id_layer.py
 
 # 1. Ingest this repo's open TEI + transcription sources into data/corpus/*.jsonl,
 #    then DERIVE corpus_editions.json from the whole corpus (TEI + the OCR works
@@ -49,11 +56,14 @@ all: yardstick sourcing
 #    the shared file, is race-safe: two writers (this build + a greek-ocr delivery)
 #    can't drop each other's rows, because the per-work jsonl files never collide.
 ingest: $(CORPUS_EDITIONS)
-$(CORPUS_EDITIONS): $(INGESTERS) scripts/reconcile_corpus_editions.py
+$(CORPUS_EDITIONS): $(INGESTERS) scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/work_id_aliases.json
 	$(PY) scripts/build_corpus_loci.py
 	$(PY) scripts/build_byzantine_vernacular_corpus.py
 	$(PY) scripts/build_byzantium_gr_corpus.py   # cache-first; fetches missing pages
-	$(PY) scripts/reconcile_corpus_editions.py   # corpus_editions := data/corpus (race-safe)
+	$(PY) scripts/build_id_registry.py           # mint/maintain the ogc/oga id ledgers (reads the corpus dir)
+	$(PY) scripts/reconcile_corpus_editions.py   # corpus_editions := data/corpus (race-safe; injects the ogc id)
+	$(PY) scripts/build_work_index.py            # work_index.json: reader-facing WEMI join + redirects
+	$(PY) scripts/validate_id_layer.py           # assert the id-layer invariants
 
 # 2. Yardstick: roll the whole corpus (TEI + the delivered, already-corrected OCR)
 #    up into the lexicon + coverage, then per-lemma frequency. The OCR text arrives

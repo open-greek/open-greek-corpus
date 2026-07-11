@@ -1,0 +1,32 @@
+{
+ "_meta": {
+  "description": "Curated, reproducible seed of historical work-slug renames (the data-side of a 301 redirect). Each entry records a 1:1 rename where the OLD slug was retired and its text now serves under the NEW slug. build_id_registry.py replays these against the persistent ledger data/work_ids.json: the work keeps its opaque ogc id and the old slug is appended to that id's former_slugs, so a citation of the old slug still resolves to the same work. This file is the single source of truth for renames; rename_work.py appends to it and re-runs the builder. Only clean 1:1 renames belong here. Catch-all dissolves (one slug fanned out into many per-author works, e.g. the SVF1/SVF3 Arnim volumes) are NOT renames: the retired catch-all has no single successor, so its id is tombstoned by the builder rather than redirected.",
+  "used_by": "scripts/build_id_registry.py",
+  "schema": {
+   "from": "retired (old) work slug, no longer served",
+   "to": "current (new) work slug, served",
+   "source": "evidence / script or audit trail that performed the rename",
+   "note": "human explanation"
+  }
+ },
+ "renames": [
+  {
+   "from": "thomas-patricius-anthol-dubner-v3",
+   "to": "cougny-appendix-nova.didot-anthologia-v3",
+   "source": "scripts/rescope_cougny_appendix.py",
+   "note": "IA epigrammatumanth03grotuoft is Cougny's Didot Anthologia vol. III (Appendix nova), not a Thomas Patricius / Dubner work; the fabricated tlg4049.tlg001 claim was dropped."
+  },
+  {
+   "from": "choerilus.tituli-p-oxy-11-1399",
+   "to": "choerilus.fragmenta-epica",
+   "source": "upstream OCR-pipeline rescope (rescope_choerilus_samius)",
+   "note": "Re-scoped to the epic fragments of Choerilus Samius."
+  },
+  {
+   "from": "flavius-justinianus-imperator.contra-monophysitas",
+   "to": "flavius-justinianus-imperator.novellae",
+   "source": "upstream OCR-pipeline rescope (rescope_justinian_novellae)",
+   "note": "Re-scoped to Justinian's Novellae."
+  }
+ ]
+}
