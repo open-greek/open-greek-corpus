@@ -5,22 +5,22 @@
     "source_overrides_applied": 107,
     "ingested_via_cgpg_volume": 63,
     "pct_ingested": 68.85,
-    "pct_ingested_actual": 62.73,
-    "ingested_words_actual": 47031053,
-    "ingested_complete_works": 2876,
-    "ingested_partial_works": 105,
+    "pct_ingested_actual": 62.72,
+    "ingested_words_actual": 47024135,
+    "ingested_complete_works": 2874,
+    "ingested_partial_works": 106,
     "pct_reachable_not_ingested": 15.54,
     "pct_locked": 14.03,
     "pct_duplicate": 1.58
   },
   "buckets": {
     "ingested": {
-      "works": 2981,
-      "word_count": 51619730
+      "works": 2980,
+      "word_count": 51619718
     },
     "reachable_not_ingested": {
-      "works": 1611,
-      "word_count": 11654654
+      "works": 1612,
+      "word_count": 11654666
     },
     "locked": {
       "works": 2211,
@@ -31,18 +31,18 @@
       "word_count": 1184193
     },
     "ingested_complete": {
-      "works": 2876,
-      "word_count": 49125225
+      "works": 2874,
+      "word_count": 49122369
     },
     "ingested_partial": {
-      "works": 105,
-      "word_count": 2494505
+      "works": 106,
+      "word_count": 2497349
     }
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1203,
-      "word_count": 10513958
+      "works": 1204,
+      "word_count": 10513970
     },
     "migne_pd": {
       "works": 408,
@@ -12031,6 +12031,14 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg0396",
+      "work_id": "001",
+      "author": "EUPHANES",
+      "title": "Fragmentum",
+      "word_count": 12,
+      "best_source": "pd_edition"
+    },
+    {
       "tlg_id": "tlg0428",
       "work_id": "003",
       "author": "CANTHARUS",
@@ -13528,6 +13536,17 @@
       "missing_words": 2840
     },
     {
+      "tlg_id": "tlg0608",
+      "work_id": "001",
+      "author": "SATYRUS",
+      "title": "Vita Euripidis (P. Oxy. 9.1176)",
+      "word_count": 2844,
+      "ingested_tokens": 449,
+      "coverage_ratio": 0.158,
+      "source": "ocr",
+      "missing_words": 2395
+    },
+    {
       "tlg_id": "tlg1152",
       "work_id": "005",
       "author": "APION",
@@ -14101,8 +14120,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 703,
-    "n_tokens": 12269634,
+    "works": 702,
+    "n_tokens": 11863352,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -14151,14 +14170,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 605,
         "n_tokens": 256291
-      },
-      {
-        "key": "ocr.pg048",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 2880,
-        "n_tokens": 242449
       },
       {
         "key": "cogPG.PG146",
@@ -14241,14 +14252,6 @@
         "n_tokens": 207880
       },
       {
-        "key": "ocr.pg036",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 7771,
-        "n_tokens": 207514
-      },
-      {
         "key": "cogPG.PG139",
         "edition": "cgpg",
         "source": "cgpg",
@@ -14285,8 +14288,8 @@
         "edition": "qwen36-timotheus_defluviis_ggm2",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 7124,
-        "n_tokens": 182155
+        "n_passages": 7108,
+        "n_tokens": 182049
       },
       {
         "key": "ocr.walz_rhetores_v2",
@@ -14325,16 +14328,8 @@
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 6049,
-        "n_tokens": 156401
-      },
-      {
-        "key": "secundus-mullach-fpg1",
-        "edition": "qwen36-secundus_mullach_fpg1",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 8162,
-        "n_tokens": 155376
+        "n_passages": 5769,
+        "n_tokens": 154128
       },
       {
         "key": "ocr.walz_rhetores_v8",
@@ -14343,6 +14338,14 @@
         "license": "PD",
         "n_passages": 5861,
         "n_tokens": 153408
+      },
+      {
+        "key": "secundus-mullach-fpg1",
+        "edition": "qwen36-secundus_mullach_fpg1",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 7711,
+        "n_tokens": 151999
       },
       {
         "key": "ocr.walz_rhetores_v3",
@@ -14429,24 +14432,24 @@
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 5302,
-        "n_tokens": 114007
+        "n_passages": 5228,
+        "n_tokens": 111385
       },
       {
         "key": "timosthenes-ggm1",
         "edition": "qwen36-timosthenes_ggm1",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 5713,
-        "n_tokens": 106723
+        "n_passages": 5685,
+        "n_tokens": 106538
       },
       {
         "key": "isidorus-scholasticus-anthol-didot",
         "edition": "qwen36-isidorus_scholasticus_anthol_didot",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 18624,
-        "n_tokens": 106257
+        "n_passages": 18477,
+        "n_tokens": 105300
       },
       {
         "key": "joannes-tzetzes.tzetzes-historiae-kiessling",
@@ -14477,8 +14480,8 @@
         "edition": "qwen36-fhg_vol3_mueller_diocles_rhodius",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 3899,
-        "n_tokens": 94120
+        "n_passages": 3745,
+        "n_tokens": 89179
       },
       {
         "key": "cogByz.erotokritos",
@@ -14489,12 +14492,20 @@
         "n_tokens": 83543
       },
       {
+        "key": "ocr.pg036",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 3507,
+        "n_tokens": 82853
+      },
+      {
         "key": "epigonus-ap-cougny-v1",
         "edition": "qwen36-epigonus_ap_cougny_v1",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 12856,
-        "n_tokens": 80551
+        "n_passages": 12742,
+        "n_tokens": 79807
       },
       {
         "key": "scholia-in-euripidem.scholia-in-euripidis-hecubam-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma",
@@ -14569,14 +14580,6 @@
         "n_tokens": 62631
       },
       {
-        "key": "zosimus-history.historia-nova",
-        "edition": "1st1K-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1071,
-        "n_tokens": 62216
-      },
-      {
         "key": "hesychius-of-jerusalem.commentarius-magnus-in-psalmos",
         "edition": "pta-grc1",
         "source": "pta",
@@ -14613,8 +14616,8 @@
         "edition": "qwen36-socrates_hist_fhg4",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 2593,
-        "n_tokens": 51727
+        "n_passages": 2591,
+        "n_tokens": 51713
       },
       {
         "key": "gelasius.historia-ecclesiastica",
@@ -14653,8 +14656,8 @@
         "edition": "qwen36-aristobulus_fhg3",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 1606,
-        "n_tokens": 39572
+        "n_passages": 1602,
+        "n_tokens": 39545
       },
       {
         "key": "symmachus.fragmenta",
@@ -14679,6 +14682,14 @@
         "license": "PD",
         "n_passages": 1638,
         "n_tokens": 38645
+      },
+      {
+        "key": "ocr.pg048",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 498,
+        "n_tokens": 38290
       },
       {
         "key": "mullach-fpg2.paratexta",
