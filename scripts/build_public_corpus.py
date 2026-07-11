@@ -25,6 +25,7 @@ Outputs (under data/):
 
 from __future__ import annotations
 
+import hashlib
 import json
 import re
 import sys
@@ -128,24 +129,105 @@ def main() -> None:
     print(f"rolling up {len(files)} ingested works in data/corpus/ ...",
           file=sys.stderr)
 
+    # Yardstick dedup: a frequency yardstick must not count the same text twice.
+    # Two duplication modes are excluded from the LEXICON (coverage.json still
+    # lists every work, marked): (1) DUPLICATE-EDITION - several primary works
+    # crosswalk to the same TLG id (variant editions / different fragment scopes
+    # of one canonical work); count only the token-fullest. (2) SUBSET-WORK - a
+    # smaller work whose substantial rows are (near-)entirely byte-contained in a
+    # larger one (a canonical sub-collection like the theological letters inside
+    # the full letters, under a DIFFERENT work id so (1) misses it); count only
+    # the superset. Cross-work formulaic overlap (repeated epic verses, parallel
+    # gnomologia) is NOT a subset and is left counted - those are real, distinct
+    # attestations. One hash pre-pass over all rows drives both.
+    lex_excluded: dict[str, str] = {}    # excluded work stem -> kept work stem
+    SUBSET_MIN, SUBSET_HASHES = 0.95, 20     # >=95% contained, >=20 rows to judge
+    work_hashes: dict[str, set] = {}
+    work_gk: dict[str, int] = {}
+    for fp in files:
+        hs, gk = set(), 0
+        for line in fp.open(encoding="utf-8"):
+            line = line.strip()
+            if not line:
+                continue
+            t = json.loads(line).get("text", "")
+            gk += len(_GK.findall(t))
+            if len(t) >= 40 and _GK.search(t):
+                hs.add(hashlib.md5(t.encode("utf-8")).digest())
+        work_hashes[fp.stem], work_gk[fp.stem] = hs, gk
+
+    cw_path = DATA / "tlg_crosswalk.json"
+    if cw_path.exists():
+        cw = json.loads(cw_path.read_text(encoding="utf-8"))
+        by_tlg = defaultdict(list)
+        for slug, e in cw.items():
+            t = e.get("tlg") if isinstance(e, dict) else e
+            if t and (CORPUS / f"{slug}.jsonl").exists():
+                by_tlg[str(t)].append(slug)
+        for t, slugs in by_tlg.items():
+            if len(slugs) < 2:
+                continue
+            for stem in sorted(slugs, key=lambda s: work_gk.get(s, 0),
+                               reverse=True)[1:]:
+                lex_excluded[stem] = max(slugs, key=lambda s: work_gk.get(s, 0))
+
+    # subset detection: only among works that share >=1 substantial row (cheap
+    # candidate gate via an inverted hash index), then the containment test.
+    hash_index: dict = defaultdict(list)
+    for stem, hs in work_hashes.items():
+        for h in hs:
+            hash_index[h].append(stem)
+    candidates: set = set()
+    for stems in hash_index.values():
+        if len(stems) > 1:
+            for a in stems:
+                for b in stems:
+                    if a != b:
+                        candidates.add(tuple(sorted((a, b))))
+    for a, b in candidates:
+        big, small = (a, b) if work_gk.get(a, 0) >= work_gk.get(b, 0) else (b, a)
+        hs, hb = work_hashes[small], work_hashes[big]
+        if small in lex_excluded or len(hs) < SUBSET_HASHES:
+            continue
+        if len(hs & hb) / len(hs) >= SUBSET_MIN:
+            lex_excluded[small] = big
+    if lex_excluded:
+        print(f"  lexicon dedup: {len(lex_excluded)} duplicate-edition / subset "
+              f"works counted via their fuller siblings only", file=sys.stderr)
+
     lex: Counter[str] = Counter()
     coverage: dict[str, dict] = {}      # work urn -> {source, license, tokens, passages}
     for i, fp in enumerate(files):
+        # An excluded work still contributes its rows that the keeper does NOT
+        # carry (unique fragments of a variant edition), just not the shared
+        # ones - so each distinct served text is counted exactly once without
+        # dropping real coverage. A 100%-subset work (gregorius) contributes
+        # nothing; a byte-different variant edition keeps its unique lines.
+        keeper = lex_excluded.get(fp.stem)
+        keeper_hashes = work_hashes.get(keeper, set()) if keeper else None
+        excluded_shared = 0
         with fp.open(encoding="utf-8") as f:
             for line in f:
                 line = line.strip()
                 if not line:
                     continue
                 rec = json.loads(line)
-                toks = [unicodedata.normalize("NFC", t)
-                        for t in _GK.findall(rec.get("text", ""))]
-                lex.update(toks)
+                text = rec.get("text", "")
+                toks = [unicodedata.normalize("NFC", t) for t in _GK.findall(text)]
+                if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
+                        and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
+                    excluded_shared += 1          # shared with keeper: don't recount
+                else:
+                    lex.update(toks)
                 key = rec.get("urn") or fp.stem
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
                           "license": rec.get("license"), "tokens": 0, "passages": 0})
                 cov["tokens"] += len(toks)
                 cov["passages"] += 1
+        if keeper and fp.stem in coverage:
+            coverage[fp.stem]["lexicon_dedup"] = {
+                "keeper": keeper, "shared_rows_not_recounted": excluded_shared}
         if i % 300 == 0:
             print(f"  {i}/{len(files)}", file=sys.stderr)
 
