@@ -4,23 +4,23 @@
     "total_words": 74975998,
     "source_overrides_applied": 107,
     "ingested_via_cgpg_volume": 63,
-    "pct_ingested": 68.82,
-    "pct_ingested_actual": 62.71,
-    "ingested_words_actual": 47015630,
-    "ingested_complete_works": 2869,
-    "ingested_partial_works": 106,
-    "pct_reachable_not_ingested": 15.57,
+    "pct_ingested": 68.85,
+    "pct_ingested_actual": 62.73,
+    "ingested_words_actual": 47031053,
+    "ingested_complete_works": 2876,
+    "ingested_partial_works": 105,
+    "pct_reachable_not_ingested": 15.54,
     "pct_locked": 14.03,
     "pct_duplicate": 1.58
   },
   "buckets": {
     "ingested": {
-      "works": 2975,
-      "word_count": 51598034
+      "works": 2981,
+      "word_count": 51619730
     },
     "reachable_not_ingested": {
-      "works": 1617,
-      "word_count": 11676350
+      "works": 1611,
+      "word_count": 11654654
     },
     "locked": {
       "works": 2211,
@@ -31,18 +31,18 @@
       "word_count": 1184193
     },
     "ingested_complete": {
-      "works": 2869,
-      "word_count": 49101123
+      "works": 2876,
+      "word_count": 49125225
     },
     "ingested_partial": {
-      "works": 106,
-      "word_count": 2496911
+      "works": 105,
+      "word_count": 2494505
     }
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1209,
-      "word_count": 10535654
+      "works": 1203,
+      "word_count": 10513958
     },
     "migne_pd": {
       "works": 408,
@@ -1040,14 +1040,6 @@
       "author": "STEPHANUS",
       "title": "In artem rhetoricam commentaria",
       "word_count": 21109,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg0635",
-      "work_id": "001",
-      "author": "ZENO",
-      "title": "Testimonia et fragmenta",
-      "word_count": 21016,
       "best_source": "pd_edition"
     },
     {
@@ -8591,14 +8583,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg1293",
-      "work_id": "001",
-      "author": "CRINIS",
-      "title": "Fragmenta",
-      "word_count": 316,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg1374",
       "work_id": "001",
       "author": "EVANGELIUM SECUNDUM HEBRAEOS",
@@ -9162,14 +9146,6 @@
       "tlg_id": "tlg0403",
       "work_id": "002",
       "author": "AMIPSIAS",
-      "title": "Fragmenta",
-      "word_count": 219,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg2294",
-      "work_id": "001",
-      "author": "ZENO",
       "title": "Fragmenta",
       "word_count": 219,
       "best_source": "pd_edition"
@@ -10735,14 +10711,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg2399",
-      "work_id": "001",
-      "author": "EUDROMUS",
-      "title": "Fragmenta",
-      "word_count": 76,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg4319",
       "work_id": "053",
       "author": "ZOSIMUS",
@@ -11343,14 +11311,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg2398",
-      "work_id": "001",
-      "author": "BASILIDES",
-      "title": "Fragmentum",
-      "word_count": 40,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg0414",
       "work_id": "002",
       "author": "APOLLOPHANES",
@@ -11572,14 +11532,6 @@
       "author": "Marcus Antonius POLEMON",
       "title": "Fragmentum physiognomonicum",
       "word_count": 30,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg2287",
-      "work_id": "001",
-      "author": "FRAGMENTUM STOICUM",
-      "title": "Fragmentum",
-      "word_count": 29,
       "best_source": "pd_edition"
     },
     {
@@ -13609,17 +13561,6 @@
       "missing_words": 2068
     },
     {
-      "tlg_id": "tlg1574",
-      "work_id": "001",
-      "author": "PERSAEUS",
-      "title": "Fragmenta",
-      "word_count": 2005,
-      "ingested_tokens": 113,
-      "coverage_ratio": 0.056,
-      "source": "dfhg",
-      "missing_words": 1892
-    },
-    {
       "tlg_id": "tlg0552",
       "work_id": "013",
       "author": "ARCHIMEDES",
@@ -13774,17 +13715,6 @@
       "missing_words": 539
     },
     {
-      "tlg_id": "tlg2185",
-      "work_id": "001",
-      "author": "DIONYSIUS *METAQÉMENOS",
-      "title": "Fragmenta",
-      "word_count": 1000,
-      "ingested_tokens": 496,
-      "coverage_ratio": 0.496,
-      "source": "ocr",
-      "missing_words": 504
-    },
-    {
       "tlg_id": "tlg0201",
       "work_id": "001",
       "author": "ISYLLUS",
@@ -13849,6 +13779,17 @@
       "coverage_ratio": 0.083,
       "source": "dfhg",
       "missing_words": 408
+    },
+    {
+      "tlg_id": "tlg2169",
+      "work_id": "001",
+      "author": "HERILLUS",
+      "title": "Fragmenta",
+      "word_count": 599,
+      "ingested_tokens": 209,
+      "coverage_ratio": 0.349,
+      "source": "ocr",
+      "missing_words": 390
     },
     {
       "tlg_id": "tlg2196",
@@ -14160,8 +14101,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 700,
-    "n_tokens": 12296409,
+    "works": 703,
+    "n_tokens": 12269634,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -14512,8 +14453,8 @@
         "edition": "qwen36-tzetzes_historiae_kiessling",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 16190,
-        "n_tokens": 103900
+        "n_passages": 16197,
+        "n_tokens": 103931
       },
       {
         "key": "socrates-scholasticus.historia-ecclesiastica-2",
@@ -14708,20 +14649,20 @@
         "n_tokens": 40852
       },
       {
-        "key": "symmachus.fragmenta",
-        "edition": "qwen36-field-hexapla-greek",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 8976,
-        "n_tokens": 39768
-      },
-      {
         "key": "aristobulus.fhg3",
         "edition": "qwen36-aristobulus_fhg3",
         "source": "ocr",
         "license": "PD",
         "n_passages": 1606,
         "n_tokens": 39572
+      },
+      {
+        "key": "symmachus.fragmenta",
+        "edition": "qwen36-field-hexapla-greek",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 8974,
+        "n_tokens": 39309
       },
       {
         "key": "didymus.schmidt",
@@ -14828,14 +14769,6 @@
         "n_tokens": 26788
       },
       {
-        "key": "persaeus-svf1-arnim",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 1535,
-        "n_tokens": 26297
-      },
-      {
         "key": "scholia-in-euripidem.scholia-in-euripidis-hippolytum",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -14889,7 +14822,7 @@
         "source": "ocr",
         "license": "PD",
         "n_passages": 5520,
-        "n_tokens": 23414
+        "n_tokens": 23151
       },
       {
         "key": "lucius-annaeus-cornutus.cornutus-lang",
@@ -14980,14 +14913,6 @@
         "n_tokens": 16659
       },
       {
-        "key": "aquila.fragmenta",
-        "edition": "qwen36-field-hexapla-greek",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 4381,
-        "n_tokens": 16549
-      },
-      {
         "key": "libanius.oratio-11",
         "edition": "opp-grc1",
         "source": "first1k",
@@ -15002,6 +14927,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 129,
         "n_tokens": 14788
+      },
+      {
+        "key": "aquila.fragmenta",
+        "edition": "qwen36-field-hexapla-greek",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 3819,
+        "n_tokens": 14656
       },
       {
         "key": "tlg0007.tlg084a",
@@ -16828,6 +16761,14 @@
         "n_tokens": 1844
       },
       {
+        "key": "hexapla-anonymi.lectiones",
+        "edition": "qwen36-field-hexapla-greek",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 562,
+        "n_tokens": 1821
+      },
+      {
         "key": "eusebius-of-caesarea.prologi-varii",
         "edition": "pta-grcBibex",
         "source": "pta",
@@ -18436,6 +18377,14 @@
         "n_tokens": 114
       },
       {
+        "key": "persaeus-cittiensis.fragmenta",
+        "edition": "dfhg",
+        "source": "dfhg",
+        "license": "CC-BY-SA-4.0",
+        "n_passages": 2,
+        "n_tokens": 113
+      },
+      {
         "key": "timagetus.fragmenta-fhg4",
         "edition": "dfhg",
         "source": "dfhg",
@@ -18522,6 +18471,14 @@
         "license": "PD",
         "n_passages": 20,
         "n_tokens": 96
+      },
+      {
+        "key": "arnim-svf1-1905.paratexta",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 3,
+        "n_tokens": 95
       },
       {
         "key": "nicias.fragmenta",
@@ -18689,6 +18646,14 @@
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 1,
+        "n_tokens": 77
+      },
+      {
+        "key": "arnim-svf3-1903.paratexta",
+        "edition": "qwen36-archedemus_svf3",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 25,
         "n_tokens": 77
       },
       {

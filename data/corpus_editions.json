@@ -2053,8 +2053,8 @@
 "apollodorus-philosophy.fragmenta": {
 "edition": "migne-ocr-qwen36",
 "license": "PD",
-"n_passages": 3018,
-"n_tokens": 62409,
+"n_passages": 39,
+"n_tokens": 715,
 "source": "ocr"
 },
 "apollodorus.fragmenta": {
@@ -2158,8 +2158,8 @@
 "apollophanes.fragmenta": {
 "edition": "qwen36-persaeus_svf1_arnim-ocr",
 "license": "PD",
-"n_passages": 24,
-"n_tokens": 187,
+"n_passages": 14,
+"n_tokens": 107,
 "source": "ocr"
 },
 "apollothemis.fragmenta": {
@@ -2284,8 +2284,8 @@
 "aquila.fragmenta": {
 "edition": "qwen36-field-hexapla-greek",
 "license": "PD",
-"n_passages": 4381,
-"n_tokens": 16549,
+"n_passages": 3819,
+"n_tokens": 14656,
 "source": "ocr"
 },
 "araros.fragmenta": {
@@ -2326,8 +2326,8 @@
 "archedemus.fragmenta": {
 "edition": "qwen36-archedemus_svf3",
 "license": "PD",
-"n_passages": 3476,
-"n_tokens": 64175,
+"n_passages": 23,
+"n_tokens": 610,
 "source": "ocr"
 },
 "archedicus.fragmenta": {
@@ -3289,6 +3289,20 @@
 "n_tokens": 153,
 "source": "dfhg"
 },
+"arnim-svf1-1905.paratexta": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 3,
+"n_tokens": 95,
+"source": "ocr"
+},
+"arnim-svf3-1903.paratexta": {
+"edition": "qwen36-archedemus_svf3",
+"license": "PD",
+"n_passages": 25,
+"n_tokens": 77,
+"source": "ocr"
+},
 "arrianus-nicomedensis.fragmenta": {
 "edition": "dfhg",
 "license": "CC-BY-SA-4.0",
@@ -4184,6 +4198,13 @@
 "n_passages": 194,
 "n_tokens": 6715,
 "source": "first1k"
+},
+"basilides.fragmentum": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 1,
+"n_tokens": 33,
+"source": "ocr"
 },
 "basilis.fragmenta": {
 "edition": "dfhg",
@@ -6348,6 +6369,13 @@
 "n_tokens": 241,
 "source": "dfhg"
 },
+"crinis.fragmenta": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 6,
+"n_tokens": 281,
+"source": "ocr"
+},
 "critias-atheniensis.fragmenta": {
 "edition": "dfhg",
 "license": "CC-BY-SA-4.0",
@@ -8003,8 +8031,8 @@
 "dionysius-metaqemenos.fragmenta": {
 "edition": "qwen36-persaeus_svf1_arnim-ocr",
 "license": "PD",
-"n_passages": 72,
-"n_tokens": 496,
+"n_passages": 73,
+"n_tokens": 504,
 "source": "ocr"
 },
 "dionysius-milesius.fragmenta": {
@@ -8789,6 +8817,13 @@
 "license": "PD",
 "n_passages": 2,
 "n_tokens": 79,
+"source": "ocr"
+},
+"eudromus.fragmenta": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 2,
+"n_tokens": 67,
 "source": "ocr"
 },
 "euelpis-carystius.fragmenta": {
@@ -9923,6 +9958,13 @@
 "license": "PD",
 "n_passages": 4,
 "n_tokens": 292,
+"source": "ocr"
+},
+"fragmentum-stoicum.fragmentum": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 3,
+"n_tokens": 21,
 "source": "ocr"
 },
 "gaius-musonius-rufus.dissertationum-lucio-digestarum-reliquiae": {
@@ -11853,8 +11895,8 @@
 "herillus.fragmenta": {
 "edition": "qwen36-persaeus_svf1_arnim-ocr",
 "license": "PD",
-"n_passages": 37,
-"n_tokens": 392,
+"n_passages": 7,
+"n_tokens": 209,
 "source": "ocr"
 },
 "hermaeus-hermeas.fragmenta": {
@@ -12150,6 +12192,13 @@
 "n_passages": 85,
 "n_tokens": 61759,
 "source": "pta"
+},
+"hexapla-anonymi.lectiones": {
+"edition": "qwen36-field-hexapla-greek",
+"license": "PD",
+"n_passages": 562,
+"n_tokens": 1821,
+"source": "ocr"
 },
 "hicesius.fragmenta": {
 "edition": "dfhg",
@@ -14856,8 +14905,8 @@
 "joannes-tzetzes.tzetzes-historiae-kiessling": {
 "edition": "qwen36-tzetzes_historiae_kiessling",
 "license": "PD",
-"n_passages": 16190,
-"n_tokens": 103900,
+"n_passages": 16197,
+"n_tokens": 103931,
 "source": "ocr"
 },
 "joannes-vi-cantacuzenus.historiae": {
@@ -17306,8 +17355,8 @@
 "moeris.lexicon-atticum": {
 "edition": "qwen36-moeris_koch1830",
 "license": "PD",
-"n_passages": 6873,
-"n_tokens": 44515,
+"n_passages": 6893,
+"n_tokens": 44632,
 "source": "ocr"
 },
 "molpis-laco.fragmenta": {
@@ -18892,11 +18941,11 @@
 "n_tokens": 113,
 "source": "dfhg"
 },
-"persaeus-svf1-arnim": {
+"persaeus.fragmenta": {
 "edition": "migne-ocr-qwen36",
 "license": "PD",
-"n_passages": 1535,
-"n_tokens": 26297,
+"n_passages": 53,
+"n_tokens": 1637,
 "source": "ocr"
 },
 "petron.testimonium": {
@@ -23522,8 +23571,8 @@
 "sphaerus.fragmenta": {
 "edition": "qwen36-persaeus_svf1_arnim-ocr",
 "license": "PD",
-"n_passages": 70,
-"n_tokens": 612,
+"n_passages": 53,
+"n_tokens": 563,
 "source": "ocr"
 },
 "staphylus-naucratita.fragmenta": {
@@ -23634,8 +23683,8 @@
 "symmachus.fragmenta": {
 "edition": "qwen36-field-hexapla-greek",
 "license": "PD",
-"n_passages": 8976,
-"n_tokens": 39768,
+"n_passages": 8974,
+"n_tokens": 39309,
 "source": "ocr"
 },
 "synesius-philosophy.epistulae": {
@@ -24160,7 +24209,7 @@
 "edition": "qwen36-field-hexapla-greek",
 "license": "PD",
 "n_passages": 5520,
-"n_tokens": 23414,
+"n_tokens": 23151,
 "source": "ocr"
 },
 "theognetus.fragmenta": {
@@ -25220,6 +25269,13 @@
 "n_tokens": 35,
 "source": "dfhg"
 },
+"zeno-citieus.testimonia-et-fragmenta": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 629,
+"n_tokens": 13999,
+"source": "ocr"
+},
 "zeno-philosophy.testimonia": {
 "edition": "migne-ocr-qwen36",
 "license": "PD",
@@ -25233,6 +25289,13 @@
 "n_passages": 3,
 "n_tokens": 3144,
 "source": "dfhg"
+},
+"zeno-tarsensis.fragmenta": {
+"edition": "migne-ocr-qwen36",
+"license": "PD",
+"n_passages": 1,
+"n_tokens": 153,
+"source": "ocr"
 },
 "zenobius-sophista.epitome-collectionum-lucilli-tarrhaei-et-didymi": {
 "edition": "1st1K-grc1",

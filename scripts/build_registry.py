@@ -25,6 +25,12 @@ work. The TLG number is a join key only, never a text source.
 
 Writes data/source_registry.json. Idempotent. Wikidata QIDs remain an enrichment
 pass (no clean crosswalk yet); absent aliases are the honest default.
+
+Whole-volume corpus keys (ocr.*, cogPG.*: Migne volumes, Walz's Rhetores
+Graeci, Mansi conciliar acta, edition remainders) are re-attributed to their
+real authors via the curated data/pseudo_author_attributions.json (per-volume
+evidence inside), instead of the anon-ocr / anon-cogPG pseudo-authors the
+slug-prefix fallback used to mint.
 """
 
 from __future__ import annotations
@@ -212,6 +218,12 @@ AUTHORITY = REPO / "data" / "author_authority.json"
 # author's tlgNNNN -> [{qid, label, genres[], langs[]}]. Matched to Canon works
 # by normalized title within the author. Graceful no-op when absent.
 WORK_AUTHORITY = REPO / "data" / "work_authority.json"
+# Curated author attributions for whole-volume / anthology corpus keys
+# (ocr.*, cogPG.*) that the ingested-works pass would otherwise file under a
+# pseudo-author minted from the slug prefix (anon-ocr, anon-cogPG). Keyed by
+# the corpus_editions slug; verified against the served rows and the standard
+# volume bibliography (see the file's _meta). Graceful no-op when absent.
+PSEUDO_ATTRIB = REPO / "data" / "pseudo_author_attributions.json"
 
 
 def _norm_title(s: str) -> str:
@@ -414,6 +426,15 @@ def build() -> Registry:
                     if rc["qid"] not in {x["qid"] for x in lst}:
                         lst.append(rc)
             work_auth[tlg] = by_title
+    # curated re-attributions for ocr.* / cogPG.* whole-volume corpus keys:
+    # {corpus slug -> work record} + {author slug -> author record}. Absent
+    # file -> empty maps -> the old anon-<prefix> fallback (build still succeeds).
+    attrib_authors: dict = {}
+    attrib_works: dict = {}
+    if PSEUDO_ATTRIB.exists():
+        _att = json.loads(PSEUDO_ATTRIB.read_text(encoding="utf-8"))
+        attrib_authors = _att.get("authors", {})
+        attrib_works = _att.get("works", {})
     open_eds, ed_meta = load_open_editions()
     # which edition F1 actually ingested per work (the dedup winner), so the
     # default points at the text we really have in hand, not just the first
@@ -581,6 +602,7 @@ def build() -> Registry:
             by_key.add(w.aliases["cts"].split("greekLit:")[-1])
     names = _first1k_catalog_names()
     n_added = 0
+    n_attributed = 0
     for work_cts, win in sorted(ingested.items()):
         if work_cts in by_key or work_cts.startswith("cogByz."):
             continue  # cogByz.* are minted by the Byzantine pass below
@@ -588,13 +610,28 @@ def build() -> Registry:
         group, title = names.get(work_cts, ("", ""))
         anum = tg[3:] if tg.startswith("tlg") else ""
         author_slug = slug_by_anum.get(anum)
-        if not author_slug:
+        att = attrib_works.get(work_cts)
+        if att:
+            # curated attribution: file the volume under its real author (reuse
+            # the canon author entry when present; mint_author is idempotent and
+            # unions aliases), or under a documented collective label. Never the
+            # anon-<prefix> pseudo-author.
+            a_slug = att["author"]
+            a_rec = attrib_authors.get(a_slug, {})
+            a_name = (reg.authors[a_slug].name if a_slug in reg.authors
+                      else a_rec.get("name", a_slug))
+            author_slug = reg.mint_author(a_name, slug=a_slug,
+                                          aliases=a_rec.get("aliases") or {})
+            title = att["title"]
+            n_attributed += 1
+        elif not author_slug:
             a_base = normalize_slug(group) or f"anon-{tg}"
             try:
                 author_slug = reg.mint_author(group or a_base, slug=a_base)
             except IdentityError:
                 author_slug = reg.mint_author(group or a_base, slug=f"{a_base}-{tg}")
-        base_ws = f"{author_slug}.{normalize_slug(title) or work_cts.replace('.', '-')}"
+        base_ws = (att.get("slug") if att else None) or \
+            f"{author_slug}.{normalize_slug(title) or work_cts.replace('.', '-')}"
         # a fresh slug (never merge into a canon twin that shares a title); the
         # distinct CTS work id keeps them apart, remap reconciles them later.
         ws, n = base_ws, 1
@@ -604,6 +641,14 @@ def build() -> Registry:
         work_slug = reg.mint_work(author_slug, title or work_cts, slug=ws,
                                   aliases={"cts": f"urn:cts:greekLit:{work_cts}"})
         reg.works[work_slug].best_source = "open_corpus"
+        if att:
+            att_tags = att.get("tags") or {}
+            c = att_tags.get("century")
+            if c:
+                reg.add_tag(work_slug, "century", c)
+                reg.add_tag(work_slug, "era", era_for_century(c))
+            for g in att_tags.get("genre", []):
+                reg.add_tag(work_slug, "genre", g)
         for provider, version, urn in open_eds.get(work_cts, []):
             label = PROVIDER_LABELS.get(provider, provider)
             reg.mint_edition(work_slug, version, f"{label} ({version})",
@@ -614,6 +659,9 @@ def build() -> Registry:
         n_added += 1
     print(f"  + {n_added} ingested works not in the canon numbering "
           f"(non-TLG + CTS-renumbered; remap TODO)", file=sys.stderr)
+    print(f"  + {n_attributed} whole-volume corpus keys re-attributed via "
+          f"data/pseudo_author_attributions.json (no anon-ocr/anon-cogPG)",
+          file=sys.stderr)
 
     # --- Byzantine vernacular works (merged-in `byzantine_vernacular` source) -------------
     # Open PD/CC-BY-SA medieval vernacular, no TLG/CTS id; cog-native key.
