@@ -630,7 +630,11 @@ def build() -> Registry:
                 author_slug = reg.mint_author(group or a_base, slug=a_base)
             except IdentityError:
                 author_slug = reg.mint_author(group or a_base, slug=f"{a_base}-{tg}")
-        base_ws = (att.get("slug") if att else None) or \
+        # curated whole-volume works are keyed by their SERVED corpus key: the
+        # reader resolves works[<corpus_editions slug>] directly (registry ->
+        # crosswalk -> slug-prefix fallback), so a pretty re-slug would land the
+        # whole set back on the pseudo-author. att["slug"] stays as documentation.
+        base_ws = (work_cts if att else None) or \
             f"{author_slug}.{normalize_slug(title) or work_cts.replace('.', '-')}"
         # a fresh slug (never merge into a canon twin that shares a title); the
         # distinct CTS work id keeps them apart, remap reconciles them later.
