@@ -43,6 +43,22 @@ def main() -> None:
     prov = _load("corrections_log/provenance.json") or {}
     corrected = set(prov.get("corrected_works", []))
     auto_corrected = set(prov.get("auto_corrected_works", []))
+    # Authoritative edit status comes from the rows' own `corrections` stamps
+    # (every edit method - confusion, dehyphenation, freq, ... - stamps the row),
+    # so a work edited by a tool that bypassed the corrections-log overlay is
+    # still marked. Manual methods (llm/agent) promote a work to "manual".
+    MANUAL_TAGS = {"llm", "agent", "manual"}
+    corpus_dir = DATA / "corpus"
+    if corpus_dir.is_dir():
+        for fp in corpus_dir.glob("*.jsonl"):
+            tags: set = set()
+            for line in fp.read_text(encoding="utf-8").splitlines():
+                if '"corrections"' in line:
+                    tags.update(json.loads(line).get("corrections", []))
+            if not tags:
+                continue
+            urn = fp.stem
+            (corrected if tags & MANUAL_TAGS else auto_corrected).add(urn)
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
         # a linked source label; drop the domain parentheticals (roger-pearse.com,
