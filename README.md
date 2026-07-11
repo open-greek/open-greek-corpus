@@ -366,6 +366,20 @@ stigma/koppa/sampi letterforms). Passing rows displace via
 `displace_to_secondary.py --loci` and append their evidence to
 `data/dfhg_dedup_shed.json`.
 
+### Reference material (`data/reference/`)
+
+Alongside the served text corpus we keep a small amount of structured reference
+material that is not running Greek text and so is not a served work (not in the
+precedence ladder, not in the lexicon/frequency/coverage rollups, and it gets no
+work id). First entry: Cunliffe's grammatical appendix, the conditional /
+relative-sentence construction table at the end of Cunliffe's *A Lexicon of the
+Homeric Dialect* (1924), which his lexicon entries cross-reference ("see Table
+at end III.B.a") but which no digital edition reproduces. OCR'd from the
+public-domain 1924 edition (archive.org `mdp.39015005687283`) and structured by
+construction code, with every Homeric citation resolved (153 cells, 292
+examples, 1,209 citations, cross-checked against the served Iliad). See
+`data/reference/cunliffe-appendix/`.
+
 `scripts/dissolve_pelagius_caag3.py` (2026-07-10) dissolved the pelagius
 livraison-3 catch-all: the slug had served ALL of Berthelot-Ruelle, Collection
 des anciens alchimistes grecs (texte grec, 1888) printed pp. 253-459, but only
