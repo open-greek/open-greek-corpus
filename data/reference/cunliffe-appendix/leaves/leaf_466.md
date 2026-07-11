@@ -1,0 +1,3 @@
+Since the provided image is a blank page (containing only library stamps, barcodes, and digitization watermarks) and does not contain the grammatical appendix text from Cunliffe's *A Lexicon of the Homeric Dialect*, I cannot transcribe the requested content.
+
+If you have an image of the actual page containing the Greek conditional/relative constructions, please upload it, and I will transcribe it faithfully according to your rules.

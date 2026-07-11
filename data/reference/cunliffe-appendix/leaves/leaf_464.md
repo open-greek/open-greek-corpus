@@ -1,0 +1,1 @@
+The provided image is a blank page containing only digitization metadata (watermarks, URLs, and source attribution) and no content from the book itself. Therefore, there is no text to transcribe.
