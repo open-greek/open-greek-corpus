@@ -42,6 +42,7 @@ def main() -> None:
     srcs = _load("inventory/ocr_edition_sources.json") or {}
     prov = _load("corrections_log/provenance.json") or {}
     corrected = set(prov.get("corrected_works", []))
+    auto_corrected = set(prov.get("auto_corrected_works", []))
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
         # a linked source label; drop the domain parentheticals (roger-pearse.com,
@@ -70,7 +71,9 @@ def main() -> None:
             w = ocr.get(urn, {})
             desc = " — ".join(p for p in (w.get("author", ""), w.get("title", "")) if p)
             name = urn
-        status = "manual" if urn in corrected else "raw OCR"
+        status = ("manual" if urn in corrected
+                  else "auto-corrected" if urn in auto_corrected
+                  else "raw OCR")
         dl = downloaded_from(urn, m.get("edition", ""), src)
         # A per-edition "model" in ocr_edition_sources.json overrides the source
         # default, so newer-model OCR (e.g. Qwen3.6-27B) isn't mislabeled with the
@@ -80,8 +83,11 @@ def main() -> None:
         rows.append((name, desc, dl, model, f"{m.get('n_tokens', 0):,}", status))
 
     n_corr = sum(1 for r in rows if r[5] == "manual")
+    n_auto = sum(1 for r in rows if r[5] == "auto-corrected")
     head = (f"{len(rows)} OCR'd works/volumes: {n_corr} manually corrected, "
-            f"{len(rows) - n_corr} still raw OCR (correction pending). Works are named by "
+            f"{n_auto} auto-corrected (deterministic glyph-confusion / frequency "
+            f"passes; edited but not hand-reviewed), "
+            f"{len(rows) - n_corr - n_auto} still raw OCR. Works are named by "
             f"their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.\n\n")
     table = ["| Work (slug) | Content | Downloaded | OCR model | Words | Correction |",
              "|---|---|---|---|--:|---|"]
@@ -94,7 +100,8 @@ def main() -> None:
         raise SystemExit("README is missing the OCR-PROVENANCE markers")
     out = text[:text.index(START)] + block + text[text.index(END) + len(END):]
     README.write_text(out, encoding="utf-8")
-    print(f"provenance: {len(rows)} OCR works ({n_corr} corrected) -> README")
+    print(f"provenance: {len(rows)} OCR works ({n_corr} manual, {n_auto} "
+          f"auto-corrected) -> README")
 
 
 if __name__ == "__main__":

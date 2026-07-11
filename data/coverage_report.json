@@ -6,7 +6,7 @@
     "ingested_via_cgpg_volume": 63,
     "pct_ingested": 68.85,
     "pct_ingested_actual": 62.72,
-    "ingested_words_actual": 47024135,
+    "ingested_words_actual": 47022207,
     "ingested_complete_works": 2874,
     "ingested_partial_works": 106,
     "pct_reachable_not_ingested": 15.54,
@@ -14121,7 +14121,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 702,
-    "n_tokens": 11863352,
+    "n_tokens": 11855794,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -14288,8 +14288,8 @@
         "edition": "qwen36-timotheus_defluviis_ggm2",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 7108,
-        "n_tokens": 182049
+        "n_passages": 7104,
+        "n_tokens": 181911
       },
       {
         "key": "ocr.walz_rhetores_v2",
@@ -14424,8 +14424,8 @@
         "edition": "qwen36-antonius_diogenes_hercher",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 3300,
-        "n_tokens": 115363
+        "n_passages": 3256,
+        "n_tokens": 114594
       },
       {
         "key": "demochares.fhg2",
@@ -14436,20 +14436,20 @@
         "n_tokens": 111385
       },
       {
-        "key": "timosthenes-ggm1",
-        "edition": "qwen36-timosthenes_ggm1",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 5685,
-        "n_tokens": 106538
-      },
-      {
         "key": "isidorus-scholasticus-anthol-didot",
         "edition": "qwen36-isidorus_scholasticus_anthol_didot",
         "source": "ocr",
         "license": "PD",
         "n_passages": 18477,
         "n_tokens": 105300
+      },
+      {
+        "key": "timosthenes-ggm1",
+        "edition": "qwen36-timosthenes_ggm1",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 5640,
+        "n_tokens": 104827
       },
       {
         "key": "joannes-tzetzes.tzetzes-historiae-kiessling",
@@ -14504,8 +14504,8 @@
         "edition": "qwen36-epigonus_ap_cougny_v1",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 12742,
-        "n_tokens": 79807
+        "n_passages": 12738,
+        "n_tokens": 79236
       },
       {
         "key": "scholia-in-euripidem.scholia-in-euripidis-hecubam-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma",
@@ -14592,8 +14592,8 @@
         "edition": "qwen36-ptolemaeus_gramm_valckenaer_ammonius",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 6368,
-        "n_tokens": 57132
+        "n_passages": 6137,
+        "n_tokens": 55290
       },
       {
         "key": "critobulus.fragmenta",
@@ -14868,20 +14868,20 @@
         "n_tokens": 21220
       },
       {
-        "key": "callimachus.callimachea-schneider-v1",
-        "edition": "qwen36-callimachea_schneider_v1",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 2526,
-        "n_tokens": 20522
-      },
-      {
         "key": "aristoteles.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 427,
         "n_tokens": 19449
+      },
+      {
+        "key": "callimachus.callimachea-schneider-v1",
+        "edition": "qwen36-callimachea_schneider_v1",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2394,
+        "n_tokens": 18251
       },
       {
         "key": "agathange.fragmenta",
@@ -17404,14 +17404,6 @@
         "n_tokens": 565
       },
       {
-        "key": "dindorf-hgm2.paratexta",
-        "edition": "qwen36-menander_protector_dindorf_hgm",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 50,
-        "n_tokens": 562
-      },
-      {
         "key": "pseudo-polemon.physiognomonica-2",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -17730,6 +17722,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 5,
         "n_tokens": 308
+      },
+      {
+        "key": "dindorf-hgm2.paratexta",
+        "edition": "qwen36-menander_protector_dindorf_hgm",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 31,
+        "n_tokens": 306
       },
       {
         "key": "monimus-cynicus.fragmenta",
