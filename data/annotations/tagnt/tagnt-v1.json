@@ -1,0 +1,32 @@
+{
+ "release_id": "tagnt-v1",
+ "content_hash": "sha256:09fe7a9f3939c564a83b428dab08d25911f573c067fc14a024150b5f5512fed8",
+ "pin_line": "cog export tagnt-v1, sha256:09fe7a9f3939c564a83b428dab08d25911f573c067fc14a024150b5f5512fed8",
+ "storage": {
+  "hf_dataset_repo": "ciscoriordan/open-greek-corpus-annotation-exports",
+  "repo_type": "dataset",
+  "path_in_repo": "tagnt-v1/",
+  "url": "https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports/tree/main/tagnt-v1",
+  "payload": "works/<work_id>.jsonl.gz per exported NT book, plus manifest.json",
+  "note": "docs/annotation-export-contract.md, 'Storage': export payloads live on the Hub; git tracks the exporter script and this pointer stub only. Regenerate locally with scripts/export_tagnt_annotations.py, publish with scripts/upload_annotation_export.py."
+ },
+ "counts": {
+  "works_exported": 27,
+  "tokens": 142096,
+  "tokens_with_meaning_variants": 3866,
+  "tokens_with_spelling_variants": 2424
+ },
+ "generated_by": "scripts/export_tagnt_annotations.py",
+ "generated_at": "2026-07-12T20:59:18Z",
+ "contract": "docs/annotation-export-contract.md",
+ "attribution": "STEP Bible -> https://www.STEPBible.org",
+ "upstream_pin": {
+  "source": "STEPBible TAGNT (Translators Amalgamated Greek New Testament)",
+  "github": "https://github.com/STEPBible/STEPBible-Data",
+  "git_commit": "b86d26cdb1f51729e73b5b4eb7f7ccadc5dfba39",
+  "commit_date": "2026-06-09",
+  "retained_clone": "~/Documents/STEPBible-Data",
+  "license_upstream": "CC BY 4.0",
+  "note": "cog pins the upstream (git SHA + retained clone); consumers pin only pin_line (docs/pinning-discipline.md)"
+ }
+}
