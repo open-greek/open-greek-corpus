@@ -104,7 +104,7 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 | tier | source | scope and per-source note | status |
 |---|---|---|---|
 | 1a | OGA annotations | Full source: 1,998 works / 40.05M tokens (a superset of the 718-work / 16.25M-token dilemma-blocking subset). Highest value; blocks dilemma Phase 2. | built (`oga-v1`) |
-| 1b | PTNK | preserve the UD (Universal Dependencies) train / dev / test split | queued |
+| 1b | PTNK | preserve the UD (Universal Dependencies) train / dev / test split | built (`ptnk-v1`) |
 | 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | queued |
 | 1d | TAGNT | word-level annotation | queued |
 | 1e | GLAUx + Diorisis | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked GLAUx works (tier 1), tag the 40 Gorman-credited works `provenance=gorman`. | queued |
