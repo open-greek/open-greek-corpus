@@ -231,6 +231,12 @@ PSEUDO_ATTRIB = REPO / "data" / "pseudo_author_attributions.json"
 # OGA_DATING_REPORT.
 OGA_DATING = REPO / "data" / "oga_dating.json"
 OGA_DATING_REPORT = REPO / "data" / "oga_dating_report.json"
+# Curated adjudication of the genuine (|delta| >= 2 centuries) OGA-vs-cog dating
+# divergences (data/oga_dating_adjudication.json). Per work: decision a (keep cog,
+# reject OGA), b (take OGA's chosen_century), or c (disputed, keep both). Absent
+# file -> no adjudication (graceful no-op): every conflict falls back to the
+# fill-gaps/flag-conflict behavior, which is exactly the reverse operation.
+OGA_DATING_ADJUDICATION = REPO / "data" / "oga_dating_adjudication.json"
 
 
 def _norm_title(s: str) -> str:
@@ -394,18 +400,43 @@ def _truthy(v: str) -> bool:
     return str(v).strip().lower() in ("true", "1", "yes")
 
 
+def _set_century(reg: Registry, slug: str, century: int) -> None:
+    """Replace a work's century/era tags with a single chosen century (+ its era).
+    Used only to APPLY an adjudicated (b) decision; add_tag re-sorts the tag list."""
+    w = reg.works[slug]
+    w.tags = [t for t in w.tags
+              if not (t.startswith("century:") or t.startswith("era:"))]
+    reg.add_tag(slug, "century", century)
+    reg.add_tag(slug, "era", era_for_century(century))
+
+
 def apply_oga_dating(reg: Registry) -> None:
-    """FILL missing century/era tags from OGA's per-work dating, and flag (never
-    overwrite) a per-work disagreement. Reads the committed data/oga_dating.json
-    (produced by scripts/ingest_oga_metadata.py from the pinned OGA chronology);
-    writes the audit to data/oga_dating_report.json. Policy per the task and the
-    Multi-Source Data rule: fill gaps, keep an existing century tag on conflict,
-    and record BOTH readings in the report rather than silently overwriting."""
+    """FILL missing century/era tags from OGA's per-work dating, and resolve a
+    per-work disagreement via the curated adjudication file (or flag it when
+    unadjudicated). Reads the committed data/oga_dating.json (produced by
+    scripts/ingest_oga_metadata.py from the pinned OGA chronology) and the curated
+    data/oga_dating_adjudication.json; writes the audit to
+    data/oga_dating_report.json.
+
+    Policy (task + Multi-Source Data rule): fill gaps, never clobber a tag on an
+    UNADJUDICATED conflict (keep the existing century, record both readings). For a
+    conflict the adjudication file rules on, apply the decision: (a) keep cog and
+    mark the OGA reading adjudicated-rejected (no longer an open conflict); (b) set
+    century/era to OGA's chosen_century; (c) keep cog but record both readings as
+    adjudicated=disputed. Removing the adjudication file restores the old
+    flag-conflict behavior (reversible); removing data/oga_dating.json drops all
+    OGA dating (fully reverse)."""
     if not OGA_DATING.exists():
         print("  ! data/oga_dating.json absent; no OGA dating applied "
               "(run scripts/ingest_oga_metadata.py)", file=sys.stderr)
         return
     od = json.loads(OGA_DATING.read_text(encoding="utf-8"))
+    # curated adjudication of the |delta| >= 2 conflicts, keyed by cog slug. Absent
+    # file -> empty -> every conflict is flagged (the reverse operation).
+    adj = {}
+    if OGA_DATING_ADJUDICATION.exists():
+        adj = json.loads(OGA_DATING_ADJUDICATION.read_text(
+            encoding="utf-8")).get("decisions", {})
     # index registry works by their CTS-URN tail (the OGA key), churn-proof.
     by_cts = {}
     for slug, w in reg.works.items():
@@ -413,7 +444,8 @@ def apply_oga_dating(reg: Registry) -> None:
         if cts:
             by_cts.setdefault(cts.split(":")[-1], slug)
 
-    filled, agreed, conflicts, no_home = [], [], [], []
+    filled, agreed, conflicts, no_home, adjudicated = [], [], [], [], []
+    adj_seen = set()
     for urn, e in sorted(od.get("works", {}).items()):
         c = e.get("century")
         if c is None:
@@ -437,9 +469,46 @@ def apply_oga_dating(reg: Registry) -> None:
                            "era": era_for_century(c)})
         elif c in existing:
             agreed.append(slug)
+        elif slug in adj:
+            # a curated verdict on this genuine divergence; apply it and record
+            # the adjudication rather than leaving it an open conflict.
+            d = adj[slug]
+            adj_seen.add(slug)
+            dec = d["decision"]
+            rec = {"urn": urn, "slug": slug, "decision": dec,
+                   "cog_century": existing,
+                   "oga_century": c, "oga_era": era_for_century(c),
+                   "oga_date_label": e.get("date_label"),
+                   "oga_estimated": e.get("estimated_work_date"),
+                   "delta": min(abs(c - x) for x in existing),
+                   "basis": d.get("basis", "")}
+            if dec == "a":                       # cog correct, OGA rejected
+                rec["applied"] = "cog"
+                rec["registry_century"] = existing
+                rec["oga_status"] = "adjudicated-rejected"
+            elif dec == "b":                     # OGA correct, cog updated
+                chosen = d["chosen_century"]
+                _set_century(reg, slug, chosen)
+                rec["applied"] = "oga"
+                rec["chosen_century"] = chosen
+                rec["chosen_era"] = era_for_century(chosen)
+                rec["registry_century"] = [chosen]
+                rec["cog_status"] = "adjudicated-superseded"
+            elif dec == "c":                     # disputed, keep both readings
+                rec["applied"] = "cog"
+                rec["adjudicated"] = "disputed"
+                rec["readings"] = [
+                    {"century": existing, "era": era_for_century(existing[0]),
+                     "source": "cog"},
+                    {"century": c, "era": era_for_century(c), "source": "oga"}]
+                rec["registry_century"] = existing
+            else:
+                raise ValueError(
+                    f"oga_dating_adjudication: unknown decision {dec!r} for {slug}")
+            adjudicated.append(rec)
         else:
-            # keep the existing tag; record both readings for review. Most of
-            # these are an author-floruit century vs a per-work composition
+            # unadjudicated: keep the existing tag; record both readings for review.
+            # Most of these are an author-floruit century vs a per-work composition
             # century that straddle a century boundary (|delta| == 1).
             conflicts.append({"urn": urn, "slug": slug,
                               "existing_century": existing,
@@ -447,38 +516,58 @@ def apply_oga_dating(reg: Registry) -> None:
                               "oga_date_label": e.get("date_label"),
                               "oga_estimated": e.get("estimated_work_date"),
                               "delta": min(abs(c - x) for x in existing)})
+    # a curated decision whose slug was not seen as a live conflict is stale (a
+    # slug rename or an upstream date change); surface it, don't silently drop it.
+    stale = sorted(set(adj) - adj_seen)
+    if stale:
+        print(f"  ! {len(stale)} adjudication entr{'y' if len(stale)==1 else 'ies'} "
+              f"did not match a live conflict (stale slug or changed OGA date): "
+              f"{stale}", file=sys.stderr)
     from collections import Counter
     delta_hist = dict(sorted(Counter(x["delta"] for x in conflicts).items()))
+    adj_counts = dict(sorted(Counter(x["decision"] for x in adjudicated).items()))
     report = {
         "_meta": {
             "description": "Audit of OGA (Opera Graeca Adnotata v0.2.0) dating "
                            "applied to source_registry.json century/era tags. "
                            "`filled` = a work that had no century tag and got the "
-                           "OGA one; `conflicts` = OGA disagrees with an existing "
-                           "tag (existing kept, both readings recorded, NOT "
-                           "overwritten). Reverse by re-running build_registry.py "
-                           "after removing data/oga_dating.json.",
+                           "OGA one; `conflicts` = an UNADJUDICATED disagreement "
+                           "(existing tag kept, both readings recorded, NOT "
+                           "overwritten); `adjudicated` = a genuine (|delta| >= 2) "
+                           "divergence resolved by the curated "
+                           "data/oga_dating_adjudication.json (decision a = cog "
+                           "kept / OGA rejected, b = cog updated to OGA, c = "
+                           "disputed / both readings kept). Reverse by re-running "
+                           "build_registry.py after removing "
+                           "data/oga_dating_adjudication.json (restores the flag) "
+                           "or data/oga_dating.json (drops OGA dating).",
             "source": "Opera Graeca Adnotata v0.2.0",
             "version_doi": "10.5281/zenodo.14206061",
             "license": "CC-BY-SA-4.0",
             "generated_by": "scripts/build_registry.py",
-            "policy": "fill gaps, never clobber; flag conflicts (Multi-Source Data)",
+            "adjudication": "data/oga_dating_adjudication.json",
+            "policy": "fill gaps, never clobber; adjudicate genuine divergences, "
+                      "flag the rest (Multi-Source Data)",
             "counts": {
                 "filled": len(filled), "agreed": len(agreed),
                 "conflicts": len(conflicts),
+                "adjudicated": len(adjudicated),
+                "adjudicated_by_decision": adj_counts,
                 "resolved_no_registry_home": len(no_home),
                 "conflict_delta_century_histogram": delta_hist,
             },
         },
         "filled": filled,
+        "adjudicated": adjudicated,
         "conflicts": conflicts,
         "resolved_no_registry_home": sorted(no_home),
     }
     OGA_DATING_REPORT.write_text(
         json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"  + OGA dating: {len(filled)} filled, {len(agreed)} agreed, "
-          f"{len(conflicts)} conflicts flagged, {len(no_home)} resolved w/o a "
-          f"registry home (audit: data/oga_dating_report.json)", file=sys.stderr)
+          f"{len(adjudicated)} adjudicated {adj_counts}, {len(conflicts)} "
+          f"conflicts flagged, {len(no_home)} resolved w/o a registry home "
+          f"(audit: data/oga_dating_report.json)", file=sys.stderr)
 
 
 def build() -> Registry:

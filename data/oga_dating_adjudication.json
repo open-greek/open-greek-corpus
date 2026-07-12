@@ -1,0 +1,383 @@
+{
+ "_meta": {
+  "description": "Curated adjudication of the genuine (|delta| >= 2 centuries) divergences between OGA (Opera Graeca Adnotata v0.2.0) per-work dating and cog's existing century/era tags. Each work is judged on the actual author + work: decision 'a' = cog tag correct / OGA reading rejected (OGA dated a different work under a shared name, mis-parsed the date, or dated by the purported author's floruit); 'b' = OGA correct, update cog to OGA's century/era (a coarse author-floruit was wrong for this work - a pseudonymous or demonstrably later composition); 'c' = genuinely disputed, keep BOTH readings (Multi-Source Data). build_registry.py consumes this: 'b' sets century/era to chosen_century, 'a' keeps cog and marks the OGA reading adjudicated-rejected, 'c' keeps cog and records both readings as adjudicated=disputed. Removing this file and rebuilding restores the prior fill-gaps/flag-conflict behavior.",
+  "applies_to": "conflicts in data/oga_dating_report.json with |delta| >= 2",
+  "oga_version": "Opera Graeca Adnotata v0.2.0",
+  "oga_version_doi": "10.5281/zenodo.14206061",
+  "consumed_by": "scripts/build_registry.py (apply_oga_dating)",
+  "decision_key": {
+   "a": "cog correct, OGA rejected",
+   "b": "OGA correct, cog updated to chosen_century",
+   "c": "disputed, both readings kept"
+  },
+  "counts": {
+   "a": 10,
+   "b": 10,
+   "c": 19,
+   "total": 39
+  }
+ },
+ "decisions": {
+  "agathemerus.geographiae-informatio": {
+   "urn": "tlg0090.tlg001",
+   "decision": "c",
+   "cog_century": [
+    3
+   ],
+   "oga_century": 1,
+   "basis": "Agathemerus's date is disputed: Diller (OGA's source) argues 1st-2nd c CE, while others place him in the 3rd c CE (post-Ptolemy). Keep both."
+  },
+  "agathodaemon.agaqodai-mwn-ei-s-n-xrhsmo-n-orfe-ws-sunagwgh-kai": {
+   "urn": "tlg4086.tlg002",
+   "decision": "c",
+   "cog_century": [
+    1
+   ],
+   "oga_century": 3,
+   "basis": "Pseudonymous alchemical / Orphic-oracle commentary under Agathodaemon's name; date uncertain within the Imperial-to-late-antique range (OGA ~300 CE, cog 1st c CE). Keep both."
+  },
+  "agathodaemon.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol": {
+   "urn": "tlg4086.tlg001",
+   "decision": "c",
+   "cog_century": [
+    1
+   ],
+   "oga_century": 3,
+   "basis": "The alchemical texts under Agathodaemon's name are a pseudonymous late-antique corpus; the precise century is uncertain (OGA ~300 CE from Wikipedia; cog 1st c CE). Both stay within the Imperial era; keep both."
+  },
+  "anacharsidis-epistulae.epistulae": {
+   "urn": "tlg0037.tlg001",
+   "decision": "b",
+   "cog_century": [
+    -6
+   ],
+   "oga_century": -1,
+   "chosen_century": -1,
+   "basis": "The Letters of Anacharsis are Cynic epistolary pseudepigrapha, not by the 6th-c BCE Scythian sage. Composed in the Hellenistic period (OGA ~1st c BCE; some argue 3rd c BCE). cog's -6 is the named author's floruit."
+  },
+  "anonymi-de-terrae-motibus.de-terrae-motibus": {
+   "urn": "tlg2972.tlg001",
+   "decision": "c",
+   "cog_century": [
+    11
+   ],
+   "oga_century": 6,
+   "basis": "Anonymous treatise on earthquakes; OGA's temporary 6th-c date links it to a late-antique author (Brill 'Iohannes'), while cog tags it 11th c (Byzantine). Uncertain; keep both."
+  },
+  "anonymi-exegesis-in-hesiodi-theogoniam.exegesis-in-hesiodi-theogoniam": {
+   "urn": "tlg3156.tlg001",
+   "decision": "c",
+   "cog_century": [
+    15
+   ],
+   "oga_century": 3,
+   "basis": "The anonymous Exegesis on Hesiod's Theogony cannot be dated with confidence; OGA gives a temporary broad 2nd-6th c CE range, cog tags it 15th c (Byzantine, possibly a manuscript date). Keep both."
+  },
+  "anonymus-ad-avircium-marcellum-contra-cataphrygas.ad-avircium-marcellum-contra-cataphrygas": {
+   "urn": "tlg1131.tlg001",
+   "decision": "a",
+   "cog_century": [
+    2
+   ],
+   "oga_century": 4,
+   "basis": "The anti-Montanist tract to Avircius Marcellus, quoted by Eusebius (HE 5.16), was composed c. 193 CE (late 2nd c). OGA's 4th-c value is the midpoint of an over-broad 165-550 CE range; cog's 2nd c is correct."
+  },
+  "antiochi-regis-epistulae.epistulae": {
+   "urn": "tlg0044.tlg001",
+   "decision": "c",
+   "cog_century": [
+    -3
+   ],
+   "oga_century": -1,
+   "basis": "Royal letters attributed to a Seleucid Antiochus; the identification (and thus century) is uncertain. OGA's -1 and cog's -3 both fall within the Seleucid range, and OGA gives no source. Keep both."
+  },
+  "aristonicus-grammar.de-signis-odysseae": {
+   "urn": "tlg1194.tlg001",
+   "decision": "c",
+   "cog_century": [
+    1
+   ],
+   "oga_century": -1,
+   "basis": "Aristonicus of Alexandria flourished under Augustus (27 BCE-14 CE); the reign straddles the era boundary, so OGA's 1st c BCE and cog's 1st c CE are both defensible. Keep both."
+  },
+  "artaxerxis-epistulae.epistulae": {
+   "urn": "tlg0045.tlg001",
+   "decision": "b",
+   "cog_century": [
+    -5
+   ],
+   "oga_century": 3,
+   "chosen_century": 3,
+   "basis": "The Letters of Artaxerxes are a post-classical pseudepigraphic collection, not by the Persian king; cog's -5 is the king's floruit. OGA's Imperial date is uncertain (no source) but directionally correct."
+  },
+  "aspasius.in-ethica-nichomachea-commentaria": {
+   "urn": "tlg0615.tlg001",
+   "decision": "a",
+   "cog_century": [
+    2
+   ],
+   "oga_century": -1,
+   "basis": "Aspasius, the earliest surviving Greek commentator on the Nicomachean Ethics, flourished c. 100-150 CE (2nd c CE). OGA flipped its own cited source (Sharples, 'Aspasius, c. 100-50 CE') from CE to BCE. cog's imperial tag is correct."
+  },
+  "callistratus-soph.statuarum-descriptiones": {
+   "urn": "tlg4091.tlg001",
+   "decision": "c",
+   "cog_century": [
+    10
+   ],
+   "oga_century": -2,
+   "basis": "Callistratus the sophist (Ekphraseis / Statuarum descriptiones), in the tradition of Philostratus, is dated by consensus to ~3rd-4th c CE. Both tags here are off: cog's 10th c (Byzantine) and OGA's temporary, unsourced 2nd c BCE. Keep both readings and flag for correction."
+  },
+  "certamen-homeri-et-hesiodi.certamen-homeri-et-hesiodi": {
+   "urn": "tlg1252.tlg002",
+   "decision": "b",
+   "cog_century": [
+    -3
+   ],
+   "oga_century": 2,
+   "chosen_century": 2,
+   "basis": "The extant Certamen is an Antonine-period (2nd c CE) compilation (West), though it reworks 4th-c BCE material (Alcidamas). cog's Hellenistic tag reflects the source stratum, not the extant work."
+  },
+  "chionis-epistulae.epistulae": {
+   "urn": "tlg0041.tlg001",
+   "decision": "b",
+   "cog_century": [
+    -4
+   ],
+   "oga_century": 1,
+   "chosen_century": 1,
+   "basis": "The Letters of Chion of Heraclea form an epistolary novel composed in the 1st c CE (Brill's New Pauly), not by the 4th-c BCE tyrannicide. cog's -4 is the named author's floruit."
+  },
+  "cleomedes.de-motu-circulari-corporum-caelestium": {
+   "urn": "tlg1272.tlg001",
+   "decision": "c",
+   "cog_century": [
+    -1
+   ],
+   "oga_century": 1,
+   "basis": "Cleomedes' date is highly disputed (1st c BCE to 4th c CE); Bowen & Todd favor ~2nd c CE. cog's 1st c BCE and OGA's Imperial reading are both defensible; keep both."
+  },
+  "cleonides.introductio-harmonica": {
+   "urn": "tlg0361.tlg001",
+   "decision": "c",
+   "cog_century": [
+    -3
+   ],
+   "oga_century": -1,
+   "basis": "Cleonides' harmonic Introductio (Aristoxenian tradition) cannot be dated with confidence; OGA argues 1st c BCE from internal evidence, others place it later in the Imperial period. Keep both."
+  },
+  "comarius.de-lapide-philosophorum-e-cod-paris-b-n-gr-2327-fol-74r": {
+   "urn": "tlg2632.tlg001",
+   "decision": "c",
+   "cog_century": [
+    1
+   ],
+   "oga_century": 3,
+   "basis": "The alchemical dialogue of Comarius (teacher of Cleopatra the alchemist) is dated variously across the 1st-3rd c CE. cog's 1st c and OGA's 3rd c are both defensible; keep both."
+  },
+  "demetrius-rhetoric.de-elocutione": {
+   "urn": "tlg0613.tlg001",
+   "decision": "a",
+   "cog_century": [
+    -1
+   ],
+   "oga_century": -4,
+   "basis": "Authorship of De elocutione by Demetrius of Phaleron is rejected; it is dated ~2nd-1st c BCE (some 1st c CE). cog's 1st c BCE is a defensible modern dating; OGA's -4 is a temporary placeholder from the discredited attribution."
+  },
+  "dionysius-geography.descriptio-graeciae": {
+   "urn": "tlg0069.tlg001",
+   "decision": "b",
+   "cog_century": [
+    2
+   ],
+   "oga_century": -1,
+   "chosen_century": -1,
+   "basis": "Dionysius son of Calliphon's verse periegesis is dated to the early 1st c BCE (Sullan era, Brill's New Pauly; Marcotte late-2nd/1st c BCE). cog's imperial floruit tag is too late."
+  },
+  "euripidis-epistulae.epistulae": {
+   "urn": "tlg1367.tlg001",
+   "decision": "a",
+   "cog_century": [
+    2
+   ],
+   "oga_century": -5,
+   "basis": "The Letters of Euripides are Imperial-era pseudepigrapha, not by the 5th-c BCE tragedian. cog's imperial tag is correct; OGA's -5 dates by Euripides' floruit."
+  },
+  "hippocrates-et-corpus-hippocraticum.de-corde": {
+   "urn": "tlg0627.tlg045",
+   "decision": "b",
+   "cog_century": [
+    -5
+   ],
+   "oga_century": -2,
+   "chosen_century": -2,
+   "basis": "De corde is one of the latest treatises in the Hippocratic Corpus, dated to the Hellenistic period (late 4th-3rd c BCE; Fowler 2023), not the 5th-c BCE Hippocratic floruit that cog's tag assumes."
+  },
+  "hymni-homerici.in-martem": {
+   "urn": "tlg0013.tlg008",
+   "decision": "b",
+   "cog_century": [
+    -6
+   ],
+   "oga_century": 4,
+   "chosen_century": 4,
+   "basis": "Homeric Hymn 8 (to Ares) is the collection's late intruder: an astrological/Neoplatonic hymn commonly attributed to Proclus (5th c CE) and dated to late antiquity (West; Faulkner 2011). The collection-wide archaic tag is wrong for this hymn; OGA's late-antique date is correct."
+  },
+  "iamblichus-scr-erot.babyloniaca": {
+   "urn": "tlg1441.tlg001",
+   "decision": "a",
+   "cog_century": [
+    2
+   ],
+   "oga_century": 4,
+   "basis": "Iamblichus the novelist (Babyloniaca) flourished in the 2nd c CE (the Parthian war of L. Verus). OGA's 306-337 CE (Cameron) is the date of the Neoplatonic philosopher Iamblichus, a homonym confusion. cog's 2nd c is correct."
+  },
+  "manetho-astrology.apotelesmatica": {
+   "urn": "tlg2583.tlg001",
+   "decision": "c",
+   "cog_century": [
+    3
+   ],
+   "oga_century": 1,
+   "basis": "The pseudo-Manetho Apotelesmatica is composite: an embedded horoscope fixes one book to 80 CE (OGA), while other books are later (2nd-5th c CE; cog's 3rd c). Both readings are partial; keep both."
+  },
+  "marcus-diaconus.vita-porphyrii-episcopi-gazensis": {
+   "urn": "tlg2806.tlg001",
+   "decision": "a",
+   "cog_century": [
+    5
+   ],
+   "oga_century": 3,
+   "basis": "The Life of Porphyry of Gaza (bishop d. c. 420 CE) narrates early-5th-c events and cannot predate its subject. cog's 5th-c tag is correct; OGA's temporary 3rd-c date is incoherent."
+  },
+  "maximus-astrology.peri-katarxw-n": {
+   "urn": "tlg1487.tlg001",
+   "decision": "c",
+   "cog_century": [
+    2
+   ],
+   "oga_century": 4,
+   "basis": "The astrological poem Peri katarchon attributed to Maximus is variously dated 2nd-3rd c CE or identified with Maximus of Ephesus (4th c CE). Keep both."
+  },
+  "maximus-astrology.peri-katarxw-n-epitome": {
+   "urn": "tlg1487.tlg002",
+   "decision": "c",
+   "cog_century": [
+    2
+   ],
+   "oga_century": 4,
+   "basis": "Epitome of the astrological Peri katarchon; the original's date is disputed (2nd-3rd c CE vs 4th c CE). Keep both."
+  },
+  "mithridatis-epistula.epistula": {
+   "urn": "tlg0039.tlg001",
+   "decision": "c",
+   "cog_century": [
+    -1
+   ],
+   "oga_century": 1,
+   "basis": "A literary letter of Mithridates VI (d. 63 BCE). Datable to the king's era / 1st c BCE (cog) or as an Imperial rhetorical composition (OGA, 1st-2nd c CE); both defensible, keep both."
+  },
+  "myia.epistula-ad-phyllidem": {
+   "urn": "tlg0509.tlg001",
+   "decision": "b",
+   "cog_century": [
+    -6
+   ],
+   "oga_century": -2,
+   "chosen_century": -2,
+   "basis": "Myia's letter to Phyllis is one of the pseudo-Pythagorean women's letters, composed in the Hellenistic period (3rd-2nd c BCE; Plant). cog's -6 is the legendary Myia's floruit."
+  },
+  "oracula-sibyllina.fragmenta": {
+   "urn": "tlg1551.tlg002",
+   "decision": "c",
+   "cog_century": [
+    -2
+   ],
+   "oga_century": 2,
+   "basis": "Fragments of the composite Sibylline Oracles (2nd c BCE core to later Imperial layers). cog's -2 marks the earliest stratum; keep both readings for a composite work. (OGA's cited source is the Chaldean Oracles.)"
+  },
+  "oracula-sibyllina.oracula": {
+   "urn": "tlg1551.tlg001",
+   "decision": "c",
+   "cog_century": [
+    -2
+   ],
+   "oga_century": 2,
+   "basis": "The Sibylline Oracles are a composite corpus spanning a Hellenistic-Jewish core (2nd c BCE) to Christian additions (through the 7th c CE). cog's -2 marks the earliest stratum; OGA's Imperial value fits later layers (though OGA's cited source is actually the Chaldean Oracles). Keep both."
+  },
+  "periplus-hannonis.periplus-hannonis": {
+   "urn": "tlg0064.tlg001",
+   "decision": "c",
+   "cog_century": [
+    -5
+   ],
+   "oga_century": -3,
+   "basis": "The date of the Greek Periplus of Hanno (a translation of a Punic original) is debated across the 5th-1st c BCE (per OGA's own comment). cog's -5 and OGA's -3 both fall within that range; keep both."
+  },
+  "periplus-ponti-euxini.anonymi-arriani-ut-fertur-periplus-ponti-euxini": {
+   "urn": "tlg0075.tlg001",
+   "decision": "a",
+   "cog_century": [
+    6
+   ],
+   "oga_century": 2,
+   "basis": "The anonymous Periplus Ponti Euxini ('of Arrian, as is claimed') is a 6th-c CE compilation drawing on sources through Justinian. cog's late-antique tag is correct; OGA's 145-146 CE is the date of Arrian's genuine periplus, a conflation of two works under the shared name."
+  },
+  "phalaridis-epistulae.epistulae": {
+   "urn": "tlg0053.tlg001",
+   "decision": "a",
+   "cog_century": [
+    2
+   ],
+   "oga_century": -6,
+   "basis": "Bentley (1699) proved the Letters of Phalaris are an Imperial-era sophistic forgery (~2nd c CE), not by the 6th-c BCE tyrant of Acragas. cog's imperial tag is correct; OGA dated by the tyrant's floruit (its own comment calls the work spurious)."
+  },
+  "pseudo-dioscorides.de-lapidibus": {
+   "urn": "tlg1118.tlg003",
+   "decision": "a",
+   "cog_century": [
+    1
+   ],
+   "oga_century": -1,
+   "basis": "A pseudo-Dioscoridean lapidary must postdate Dioscorides (fl. 1st c CE). OGA's temporary 48 BCE predates him and is incoherent; cog's imperial tag is the better floor."
+  },
+  "pseudo-polemon.physiognomonica": {
+   "urn": "tlg2233.tlg001",
+   "decision": "c",
+   "cog_century": [
+    4
+   ],
+   "oga_century": 2,
+   "basis": "The transmitted text is Adamantius's 4th-c CE epitome (cog) of Polemon's 2nd-c CE Physiognomonica (OGA); both dates are valid for different layers of the work. Keep both."
+  },
+  "scylax.periplus-scylacis": {
+   "urn": "tlg0065.tlg001",
+   "decision": "b",
+   "cog_century": [
+    -6
+   ],
+   "oga_century": -4,
+   "chosen_century": -4,
+   "basis": "The extant Periplous is Pseudo-Scylax, dated 338-337 BCE (Shipley, from the Messenian cities removed from Sparta after Chaeronea), not by the 6th-c BCE Scylax of Caryanda that cog's -6 floruit assumes."
+  },
+  "seniores-alexandrini.fragmenta": {
+   "urn": "tlg1664.tlg001",
+   "decision": "a",
+   "cog_century": [
+    2
+   ],
+   "oga_century": 5,
+   "basis": "OGA's 4th-6th c CE date is an unsourced temporary author-life placeholder, not a researched composition date. Keep cog's existing tag pending firmer evidence."
+  },
+  "strabo.geographica": {
+   "urn": "tlg0099.tlg001",
+   "decision": "b",
+   "cog_century": [
+    -1
+   ],
+   "oga_century": 1,
+   "chosen_century": 1,
+   "basis": "Strabo composed and revised the Geography c. 18-24 CE (Dueck 1999); it is an early-imperial work despite Strabo's 1st-c-BCE birth. cog's Hellenistic tag reflects his floruit, not the work's composition."
+  }
+ }
+}

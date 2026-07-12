@@ -95,8 +95,10 @@ $(OVERRIDES): scripts/build_source_overrides.py $(SWEEPS) data/inventory/sourcin
 #    overrides (via scripts/source_precedence.py) so they agree.
 sourcing: $(REGISTRY) $(COVERAGE_REPORT) $(CROSSWALK_REPORT)
 # data/oga_dating.json is a committed input (regenerated out-of-band by
-# `make oga-metadata`); a change to it re-applies the OGA dating tags.
-$(REGISTRY): $(OVERRIDES) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json
+# `make oga-metadata`); a change to it re-applies the OGA dating tags. The curated
+# data/oga_dating_adjudication.json resolves the genuine (|delta| >= 2) OGA-vs-cog
+# divergences; a change to it re-applies those decisions.
+$(REGISTRY): $(OVERRIDES) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json
 	$(PY) scripts/build_registry.py
 $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_report.py scripts/source_precedence.py
 	$(PY) scripts/build_coverage_report.py
