@@ -9,10 +9,10 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3619,
+   "works": 3618,
    "with_external_anchor": 3241,
-   "no_external_anchor": 378,
-   "redirects": 3
+   "no_external_anchor": 377,
+   "redirects": 4
   }
  },
  "works": {
@@ -6812,8 +6812,8 @@
     "edition": "perseus-grc7",
     "source": "perseus",
     "license": "CC-BY-SA-4.0",
-    "n_passages": 21080,
-    "n_tokens": 132064
+    "n_passages": 21066,
+    "n_tokens": 131990
    }
   },
   "antidotus.fragmenta": {
@@ -50943,25 +50943,6 @@
     "n_tokens": 17097
    }
   },
-  "jacobs-anthologia-graeca-t13.index-graecitatis": {
-   "id": "ogc001940",
-   "slug": "jacobs-anthologia-graeca-t13.index-graecitatis",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga000770",
-    "slug": "jacobs-anthologia-graeca-t13",
-    "name": "jacobs-anthologia-graeca-t13"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "qwen36-claudianus_epigr_anthologia_graeca",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 527,
-    "n_tokens": 74987
-   }
-  },
   "joannes-antiochenus.fragmenta": {
    "id": "ogc001941",
    "slug": "joannes-antiochenus.fragmenta",
@@ -66048,11 +66029,11 @@
     "tlg": "tlg4082.tlg001"
    },
    "manifestation": {
-    "edition": "qwen36-musaeus_dilthey_1874",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 1868,
-    "n_tokens": 4821
+    "edition": "wikisource-musaeus-hero-leander",
+    "source": "wikisource",
+    "license": "PD (ancient poem); Wikisource transcription CC BY-SA 4.0",
+    "n_passages": 341,
+    "n_tokens": 2175
    }
   },
   "musaeus-philosophy.fragmenta": {
@@ -71188,15 +71169,23 @@
     "n_tokens": 217209
    }
   },
-  "pausanias.attikw-n-o-noma-twn-sunagwgh": {
+  "pausanias-attic.attikw-n-o-noma-twn-sunagwgh": {
    "id": "ogc002693",
-   "slug": "pausanias.attikw-n-o-noma-twn-sunagwgh",
-   "former_slugs": [],
-   "title": "",
+   "slug": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
+   "former_slugs": [
+    "pausanias.attikw-n-o-noma-twn-sunagwgh"
+   ],
+   "title": "Ἀττικῶν ὀνομάτων συναγωγή",
    "author": {
-    "id": "oga001006",
-    "slug": "pausanias",
-    "name": "pausanias"
+    "id": "oga001419",
+    "slug": "pausanias-attic",
+    "name": "Pausanias",
+    "authorities": {
+     "wikidata": "Q102315106",
+     "viaf": "257167803128617771333",
+     "gnd": "102401934",
+     "isni": "0000000083438147"
+    }
    },
    "work_anchors": {
     "cts": "urn:cts:greekLit:tlg1569.tlg001",
@@ -74117,35 +74106,6 @@
     "license": "PD",
     "n_passages": 2749,
     "n_tokens": 27870
-   }
-  },
-  "photius.bibliotheca": {
-   "id": "ogc002810",
-   "slug": "photius.bibliotheca",
-   "former_slugs": [],
-   "title": "Bibliotheca",
-   "author": {
-    "id": "oga001078",
-    "slug": "photius",
-    "name": "Photius",
-    "authorities": {
-     "wikidata": "Q243187",
-     "viaf": "263386225",
-     "gnd": "118594095",
-     "isni": "0000000079708327"
-    }
-   },
-   "work_anchors": {
-    "cts": "urn:cts:greekLit:tlg4040.tlg001",
-    "tlg": "tlg4040.tlg001",
-    "wikidata": "Q2593363"
-   },
-   "manifestation": {
-    "edition": "qwen36-photius_lexicon_naber",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 16004,
-    "n_tokens": 88299
    }
   },
   "photius.fragmenta": {
@@ -94576,11 +94536,40 @@
     "n_passages": 1071,
     "n_tokens": 62216
    }
+  },
+  "photius.lexicon": {
+   "id": "ogc003620",
+   "slug": "photius.lexicon",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001078",
+    "slug": "photius",
+    "name": "Photius",
+    "authorities": {
+     "wikidata": "Q243187",
+     "viaf": "263386225",
+     "gnd": "118594095",
+     "isni": "0000000079708327"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4040.tlg029",
+    "tlg": "tlg4040.tlg029"
+   },
+   "manifestation": {
+    "edition": "qwen36-photius_lexicon_naber",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 16004,
+    "n_tokens": 88299
+   }
   }
  },
  "redirects": {
   "choerilus.tituli-p-oxy-11-1399": "choerilus.fragmenta-epica",
   "flavius-justinianus-imperator.contra-monophysitas": "flavius-justinianus-imperator.novellae",
+  "pausanias.attikw-n-o-noma-twn-sunagwgh": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
   "thomas-patricius-anthol-dubner-v3": "cougny-appendix-nova.didot-anthologia-v3"
  }
 }

@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "change": "drop served work (broken OCR of a word-index, redundant)",
+    "work": "jacobs-anthologia-graeca-t13.index-graecitatis",
+    "tlg": null,
+    "applied_by": "scripts/drop_jacobs_index_graecitatis.py",
+    "date": "2026-07-12",
+    "reversible": "restore jacobs-anthologia-graeca-t13.index-graecitatis.dropped-ocr.jsonl (in this directory) to data/corpus/jacobs-anthologia-graeca-t13.index-graecitatis.jsonl and re-add the crosswalk entry"
+  },
+  "old": {
+    "edition": "qwen36-claudianus_epigr_anthologia_graeca",
+    "rows": 527,
+    "greek_chars": 401091,
+    "sha256": "e18326ff2cf98fc5c743bc2e44401e2cba5343bcbdb1a7fb61f180af9f6a49c3",
+    "archived_to": "data/corpus_changes/jacobs-anthologia-graeca-t13.index-graecitatis.dropped-ocr.jsonl"
+  },
+  "evidence": "Broken redo OCR (bleed 0.82) of Jacobs, Anthologia Graeca Tom. XIII, the 'Index graecitatis et animadversiones' apparatus (Leipzig 1814): word index, garbled book table-of-contents, Brunck collation notes in stray <note> tags. No TLG urn, no independent corpus value. The Anthologia Graeca poems it indexes are already served cleanly as anthologia-graeca.anthologia-graeca (tlg7000.tlg001, Perseus, CC BY-SA 4.0, ~21k passages).",
+  "source": "re-OCR worklist audit (drop verdict); Perseus tlg7000 coverage check"
+}

@@ -5,9 +5,9 @@
   "generated_by": "scripts/build_id_registry.py",
   "policy": "opaque, immutable, append-only, never reused, never derived from mutable data",
   "counts": {
-   "active": 3619,
-   "retired": 0,
-   "next": 3620
+   "active": 3618,
+   "retired": 2,
+   "next": 3621
   }
  },
  "works": {
@@ -9715,7 +9715,7 @@
   "ogc001940": {
    "slug": "jacobs-anthologia-graeca-t13.index-graecitatis",
    "former_slugs": [],
-   "status": "served"
+   "status": "retired"
   },
   "ogc001941": {
    "slug": "joannes-antiochenus.fragmenta",
@@ -13478,8 +13478,10 @@
    "status": "served"
   },
   "ogc002693": {
-   "slug": "pausanias.attikw-n-o-noma-twn-sunagwgh",
-   "former_slugs": [],
+   "slug": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
+   "former_slugs": [
+    "pausanias.attikw-n-o-noma-twn-sunagwgh"
+   ],
    "status": "served"
   },
   "ogc002694": {
@@ -14065,7 +14067,7 @@
   "ogc002810": {
    "slug": "photius.bibliotheca",
    "former_slugs": [],
-   "status": "served"
+   "status": "retired"
   },
   "ogc002811": {
    "slug": "photius.fragmenta",
@@ -18109,6 +18111,11 @@
   },
   "ogc003619": {
    "slug": "zosimus-history.historia-nova",
+   "former_slugs": [],
+   "status": "served"
+  },
+  "ogc003620": {
+   "slug": "photius.lexicon",
    "former_slugs": [],
    "status": "served"
   }

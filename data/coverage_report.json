@@ -4,19 +4,19 @@
     "total_words": 74975998,
     "source_overrides_applied": 107,
     "ingested_via_cgpg_volume": 63,
-    "pct_ingested": 68.85,
-    "pct_ingested_actual": 62.7,
-    "ingested_words_actual": 47007709,
-    "ingested_complete_works": 2873,
-    "ingested_partial_works": 107,
+    "pct_ingested": 68.45,
+    "pct_ingested_actual": 62.66,
+    "ingested_words_actual": 46976288,
+    "ingested_complete_works": 2874,
+    "ingested_partial_works": 106,
     "pct_reachable_not_ingested": 15.54,
-    "pct_locked": 14.03,
+    "pct_locked": 14.43,
     "pct_duplicate": 1.58
   },
   "buckets": {
     "ingested": {
       "works": 2980,
-      "word_count": 51619718
+      "word_count": 51318634
     },
     "reachable_not_ingested": {
       "works": 1612,
@@ -24,19 +24,19 @@
     },
     "locked": {
       "works": 2211,
-      "word_count": 10517421
+      "word_count": 10818505
     },
     "duplicate": {
       "works": 406,
       "word_count": 1184193
     },
     "ingested_complete": {
-      "works": 2873,
-      "word_count": 49121369
+      "works": 2874,
+      "word_count": 49180967
     },
     "ingested_partial": {
-      "works": 107,
-      "word_count": 2498349
+      "works": 106,
+      "word_count": 2137667
     }
   },
   "reachable_not_ingested_by_source": {
@@ -12953,17 +12953,6 @@
   ],
   "partial_ingestions": [
     {
-      "tlg_id": "tlg4040",
-      "work_id": "001",
-      "author": "PHOTIUS",
-      "title": "Bibliotheca",
-      "word_count": 360682,
-      "ingested_tokens": 88299,
-      "coverage_ratio": 0.245,
-      "source": "ocr",
-      "missing_words": 272383
-    },
-    {
       "tlg_id": "tlg4090",
       "work_id": "002",
       "author": "CYRILLUS",
@@ -14131,8 +14120,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 702,
-    "n_tokens": 11844255,
+    "works": 701,
+    "n_tokens": 11769268,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -14525,14 +14514,6 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 1278,
         "n_tokens": 76517
-      },
-      {
-        "key": "jacobs-anthologia-graeca-t13.index-graecitatis",
-        "edition": "qwen36-claudianus_epigr_anthologia_graeca",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 527,
-        "n_tokens": 74987
       },
       {
         "key": "scholia-in-euripidem.scholia-in-euripidis-phoenissas-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma",

@@ -1,0 +1,25 @@
+{
+  "_meta": {
+    "change": "reattribute mis-keyed served work (Bibliotheca -> Lexicon)",
+    "applied_by": "scripts/reattribute_photius_lexicon.py",
+    "date": "2026-07-12",
+    "reversible": "move data/corpus/photius.lexicon.jsonl back and drop the crosswalk entry"
+  },
+  "old": {
+    "slug": "photius.bibliotheca",
+    "cts": "urn:cts:greekLit:tlg4040.tlg001",
+    "claimed_work": "Bibliotheca",
+    "edition": "qwen36-photius_lexicon_naber",
+    "rows": 16004,
+    "sha256": "4bc77bf4baae76f731cf0463cca2dd4298ddf5914976023c1583872426236bfa"
+  },
+  "new": {
+    "slug": "photius.lexicon",
+    "cts": "urn:cts:greekLit:tlg4040.tlg029",
+    "work": "Lexicon (Λέξεων Συναγωγή)",
+    "edition": "qwen36-photius_lexicon_naber"
+  },
+  "evidence": "The served rows are the Naber Photius Lexicon (alphabetical entries), not the codex-by-codex Bibliotheca. Photius = tlg4040 (TLG canon); Bibliotheca = tlg4040.tlg001, Lexicon = tlg4040.tlg029 (Α-Δ, Theodoridis) + tlg4040.tlg030 (Ε-Ω, Porson). The complete-alphabet Naber edition is mapped to the primary Lexicon work-id tlg029; a later re-OCR may split it onto tlg029/tlg030.",
+  "provenance_note": "Naber (Leiden 1864-65) and Porson (Cambridge 1822) predate the 1959 Zavorda codex (Cod. 95); the open Lexicon text is therefore inherently incomplete vs the modern complete edition (Theodoridis, De Gruyter, copyrighted). Best OPEN version only.",
+  "source": "tlg_canon.json (tlg4040 works); re-OCR worklist reattribute verdict"
+}

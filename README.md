@@ -23,7 +23,7 @@ Byzantine literary Greek.
 | [PTA](https://github.com/PatristicTextArchive/pta_data) | CC BY-SA / CC BY, per file | Patristic Text Archive (BBAW): critical patristic TEI incl. the Severian of Gabala corpus (`pta`); pta ids resolve via `scripts/build_pta_crosswalk.py`, the single BY-NC-SA file is excluded |
 | [DFHG](https://dfhg-project.org) | CC BY-SA 4.0 | Mueller's Fragmenta Historicorum Graecorum vols 1-5 as corrected transcription (Berti/Leipzig), superseding our FHG OCR (`dfhg`); ingested by `scripts/ingest_dfhg.py`; the held-back specials (Diodorus' fragmentary books, homonym collisions) are resolved by `scripts/ingest_dfhg_specials.py`, and the carve slugs get TLG urns from the constrained canon pass `scripts/build_dfhg_canon_pass.py` (audit trail in `data/dfhg_canon_pass.json`) |
 | [SAWS](https://ancientwisdoms.ac.uk) | CC BY 4.0 (2025 KCL figshare deposit, doi:10.18742/28259054.v1; supersedes the project's 2013 in-file CC BY-NC-SA notices) | Sharing Ancient Wisdoms born-digital editions (`saws`): Roueche's Kekaumenos, the Searby et al. Apophthegmata et gnomae secundum alphabetum, and diplomatic transcriptions of the Gnomologium Vaticanum (Vat. gr. 743) and Corpus Parisinum VI (Par. gr. 1168 + Bodl. Digby 6); ingested by `scripts/ingest_saws.py` (which re-verifies the deposit license against the figshare API on every fetch) |
-| [Greek Wikisource](https://el.wikisource.org) | PD base text; contributor layer CC BY-SA 4.0 | Proclus, Institutio physica (tlg4036.tlg006): the proofread-page transcription of Ritzenfeld's Teubner 1912 edition (the TLG edition), ingested per DjVu page by `scripts/ingest_proclus_institutiones.py` (which also ingests the Institutio theologica, tlg4036.tlg005, from our Qwen3.6 OCR of the Didot 1855 Creuzer-Moser text - no clean open digital text exists - and writes a same-edition 29-page OCR witness of the physica to `corpus_secondary` with per-page agreement stats). Also serves the Septuagint Ecclesiastes (`septuaginta.ecclesiastes`, tlg0527.tlg030): the verse-keyed el.wikisource LXX transcription, ingested by `scripts/ingest_wikisource_ecclesiastes.py`. Ecclesiastes is the one LXX book absent from First1K (an empty `__cts__` stub upstream), and the Wikisource text is an ecclesiastical-recension LXX (Δαβίδ), so it differs orthographically from the First1K Swete siblings (Δαυείδ) |
+| [Greek Wikisource](https://el.wikisource.org) | PD base text; contributor layer CC BY-SA 4.0 | Proclus, Institutio physica (tlg4036.tlg006): the proofread-page transcription of Ritzenfeld's Teubner 1912 edition (the TLG edition), ingested per DjVu page by `scripts/ingest_proclus_institutiones.py` (which also ingests the Institutio theologica, tlg4036.tlg005, from our Qwen3.6 OCR of the Didot 1855 Creuzer-Moser text - no clean open digital text exists - and writes a same-edition 29-page OCR witness of the physica to `corpus_secondary` with per-page agreement stats). Also serves the Septuagint Ecclesiastes (`septuaginta.ecclesiastes`, tlg0527.tlg030): the verse-keyed el.wikisource LXX transcription, ingested by `scripts/ingest_wikisource_ecclesiastes.py`. Ecclesiastes is the one LXX book absent from First1K (an empty `__cts__` stub upstream), and the Wikisource text is an ecclesiastical-recension LXX (Δαβίδ), so it differs orthographically from the First1K Swete siblings (Δαυείδ). Also serves Musaeus Grammaticus, Hero and Leander (`musaeus-grammaticus.hero-et-leander`, tlg4082.tlg001): the complete continuous-verse transcription, ingested by `scripts/ingest_musaeus_hero_leander.py`, replacing a broken redo OCR of Dilthey 1874 (the page names no printed edition, so it is the PD ancient poem, not a claim on Dilthey/Kost/Livrea) |
 | our OCR of PD editions | PD | Migne PG and classical editions OCR'd from public-domain scans (`ocr`); per-work download links in the OCR provenance table below |
 | [Opera Graeca Adnotata](https://doi.org/10.5281/zenodo.14206061) | CC BY-SA 4.0 | metadata only, no text (the OGA texts are the Perseus / First1KGreek / PTA editions above): per-work composition dating and the PTA/TLG duplicate map, ingested by `scripts/ingest_oga_metadata.py`; pinned by version DOI in `sources/oga/manifest.json` |
 
@@ -173,6 +173,10 @@ data/
   author_ids.json           opaque oga author-id ledger: id -> slug, former_slugs, status
   work_id_aliases.json      curated rename seed (former slug -> current); the source
                             of truth for renames, replayed by build_id_registry.py
+  corpus_changes/           audit trail for editorial changes to the served corpus
+                            (source swaps, drops, re-attributions): per change a JSON
+                            with old/new + evidence + date + the script that applied it,
+                            and the replaced/dropped rows archived verbatim (reversible)
   work_index.json           reader-facing WEMI join: per work the ogc id, slug,
                             former slugs, CTS/TLG/Wikidata anchors, author (oga +
                             authorities), edition/source/tokens, plus a redirects map
@@ -479,7 +483,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1117 OCR'd works/volumes: 34 manually corrected, 796 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 287 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1115 OCR'd works/volumes: 34 manually corrected, 794 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 287 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1126,7 +1130,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | isidorus-scholasticus-anthol-didot |  | qwen36-isidorus_scholasticus_anthol_didot | Qwen3.6-27B | 105,271 | auto-corrected |
 | isyllus.fragmenta-ig-4-950 |  | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 72 | manual |
 | jacobs-anthologia-graeca-t13.appendix-epigrammatum |  | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 17,097 | auto-corrected |
-| jacobs-anthologia-graeca-t13.index-graecitatis |  | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 74,987 | auto-corrected |
 | joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,260 | raw OCR |
 | joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1 | 422 ΠΡΟΣ ΔΗΜΗΤΡΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,510 | auto-corrected |
 | joannes-chrysostomus.ad-eos-qui-scandalizati-sunt | ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,030 | auto-corrected |
@@ -1342,7 +1345,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | moschion.fragmenta | ΘΕΜΙΣΤΟΚΛΗΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 491 | raw OCR |
 | moses.eu-poi-kai-eu-tuxi-tou-ktisame-nou-kai-e-pituxi-kama-tou-kai |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,735 | auto-corrected |
 | mullach-fpg2.paratexta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 37,442 | auto-corrected |
-| musaeus-grammaticus.hero-et-leander |  | qwen36-musaeus_dilthey_1874 | Qwen3.6-27B | 4,821 | auto-corrected |
 | musaeus-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 834 | auto-corrected |
 | myron.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 369 | auto-corrected |
 | myrtilus.fragmenta | MYRTILUS — Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 139 | raw OCR |
@@ -1382,7 +1384,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | patrocles.fragmenta |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 131 | auto-corrected |
 | paulus-medicine.epitomae-medicae-libri-septem |  | qwen36-paulus_aegineta_heiberg_cmg9 | Qwen3.6-27B | 118,783 | auto-corrected |
 | paulus-silentiarius.descriptio-sanctae-sophiae |  | qwen36-paulsilent_descriptio_bekker | Qwen3.6-27B | 45,091 | auto-corrected |
-| pausanias.attikw-n-o-noma-twn-sunagwgh |  | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 19,724 | auto-corrected |
+| pausanias-attic.attikw-n-o-noma-twn-sunagwgh |  | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 19,724 | auto-corrected |
 | pelagius.pelagi-ou-filoso-fou-peri-th-s-qei-as-tau-ths-kai-i-era-s-te-xnhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 2,274 | auto-corrected |
 | pempelus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 227 | raw OCR |
 | perictione.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 1,242 | auto-corrected |
@@ -1428,7 +1430,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | phoebammon.de-figuris-fort-auctore-phoebammone-alio |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 120,800 | auto-corrected |
 | phoenicides.fragmenta | PHOENICIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
 | phoenix.fragmenta |  | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 27,870 | auto-corrected |
-| photius.bibliotheca |  | qwen36-photius_lexicon_naber | Qwen3.6-27B | 88,299 | auto-corrected |
+| photius.lexicon |  | qwen36-photius_lexicon_naber | Qwen3.6-27B | 88,299 | auto-corrected |
 | phrynichus-comedy.fragmenta | ΦΡΤΝΙΧΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,669 | auto-corrected |
 | phrynichus-tragedy.fragmenta | ΑΙΓΥΠΤΙΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 642 | raw OCR |
 | pigres.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 623 | raw OCR |
