@@ -6,7 +6,7 @@ free counterpart to the subscription corpora, with every ancient Greek work
 available one way or the other.
 
 Companion repo:
-[byzantine-vernacular-corpus](https://github.com/ciscoriordan/byzantine-vernacular-corpus)
+[byzantine-vernacular-corpus](https://github.com/open-greek/byzantine-vernacular-corpus)
 covers the Byzantine vernacular; this one covers Homer through Byzantine
 literary Greek.
 
