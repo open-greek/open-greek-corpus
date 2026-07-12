@@ -51,7 +51,7 @@ import json
 import re
 import sys
 import unicodedata
-from collections import Counter, defaultdict
+from collections import defaultdict
 from pathlib import Path
 
 import lxml.etree as ET
@@ -509,7 +509,9 @@ def main() -> None:
     # and merge in any other edition whose top-level loci (books) are DISJOINT
     # from what is already covered, so complementary part-editions are unioned but
     # two editions of the same book never double-count (the smaller is dropped, as
-    # keep-max did). A single-edition work is byte-identical to the old output.
+    # keep-max did). A single-edition work with unique loci is byte-identical to the
+    # old output; one that repeats a locus (a re-presented passage) loses only the
+    # repeat, via the per-locus dedup below.
     CORPUS.mkdir(parents=True, exist_ok=True)
     keep_list = (json.loads(NON_TEI_KEEP.read_text(encoding="utf-8"))
                  if NON_TEI_KEEP.exists() else {})
@@ -616,6 +618,34 @@ def main() -> None:
                 emitted_chars += sum(len(t) for t in _GK.findall(text))
                 records.append((parts, text, bekker, lines, source, lic, edition))
 
+        # Collapse exact-locus duplicates so the corpus stays strictly locus-keyed:
+        # one citation ref -> one row. A locus can repeat two ways, both handled here:
+        #   - within one edition the SAME passage is presented twice under one @n -
+        #     the Simmias figure poems in AG book 15 encode each verse line twice,
+        #     once in shape order directly under the div and once reordered inside a
+        #     <quote> "to be read thus"; nested scholia and shared apparatus sigla
+        #     collide the same way;
+        #   - across the disjoint part-editions we union (Diodorus, the Anthologia
+        #     Graeca), a locus in a shared book could in principle land in two frags.
+        # Keep the FIRST occurrence per locus - document order within a fragment,
+        # citation/book order across fragments (frags are book-sorted) - so the kept
+        # row is the primary presentation / precedence winner, and drop the rest.
+        # Only true same-locus collisions collapse: DISTINCT loci are never touched,
+        # so a legitimately unioned work keeps every row. emitted_chars above is the
+        # PRE-dedup total on purpose - every body char DID get assigned a locus; we
+        # only drop a repeat presentation of one, so the dropped-chars diagnostic
+        # stays honest and no spurious dropped_chars appears for a deduped work.
+        seen_loci: set = set()
+        deduped = []
+        for rec in records:
+            locus = ".".join(rec[0])
+            if locus in seen_loci:
+                continue
+            seen_loci.add(locus)
+            deduped.append(rec)
+        n_collapsed = len(records) - len(deduped)
+        records = deduped
+
         foreign = _served_foreign(key)
         if foreign is not None:
             served_src, served_tok = foreign
@@ -690,22 +720,23 @@ def main() -> None:
         }
         if len(merged_eds) > 1:
             editions[key]["merged_editions"] = merged_eds
-        # Report the two ways a work's citation structure can fail us:
-        #   dropped_chars  Greek characters in the body(ies) that no passage
-        #                  emitted - text under no numbered div and in no verse
-        #                  line, so we could not assign it a locus (measured in
-        #                  characters, as the running-text join differs from
-        #                  body_text's spacing)
-        #   dup_loci       the @n hierarchy is not a unique citation (deeply
-        #                  nested scholia / shared apparatus sigla) so two
-        #                  passages collide on one locus
+        # Report the ways a work's citation structure can fail us:
+        #   dropped_chars       Greek characters in the body(ies) that no passage
+        #                       emitted - text under no numbered div and in no verse
+        #                       line, so we could not assign it a locus (measured in
+        #                       characters, as the running-text join differs from
+        #                       body_text's spacing)
+        #   collapsed_dup_loci  passages that shared a locus with an earlier row and
+        #                       were dropped by the locus-dedup above, i.e. the @n
+        #                       hierarchy is not a unique citation (a re-presented
+        #                       figure poem, deeply nested scholia, shared apparatus
+        #                       sigla). The written file has one row per locus
+        #                       regardless; this records how many repeats collapsed.
         bad: dict[str, int] = {}
         if emitted_chars < body_chars_total:
             bad["dropped_chars"] = body_chars_total - emitted_chars
-        seen = Counter(".".join(r[0]) for r in records)
-        n_dup = sum(c - 1 for c in seen.values() if c > 1)
-        if n_dup:
-            bad["dup_loci"] = n_dup
+        if n_collapsed:
+            bad["collapsed_dup_loci"] = n_collapsed
         if bad:
             warnings[key] = {"edition": primary_edition, **bad}
 
