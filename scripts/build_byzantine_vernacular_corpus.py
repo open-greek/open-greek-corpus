@@ -1,5 +1,5 @@
-"""Import the Byzantine vernacular texts (merged in from the now-deprecated
-byzantine-vernacular-corpus) as the `byzantine_vernacular` source of the open corpus.
+"""Import the Byzantine and early modern vernacular texts (merged in from the
+byzantine-early-modern-corpus repo) as the `byzantine_vernacular` source of the open corpus.
 
 These are open (PD / CC BY-SA) plain-text vernacular verse/prose with no TLG/CTS
 id, so they key in a cog-native CTS namespace (urn:cts:cogGreek:cogByz.<stem>)
