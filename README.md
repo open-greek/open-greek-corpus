@@ -129,6 +129,15 @@ docs/
   identity-and-citation.md  how cog identifies works/authors + cites passages
   opaque-identifiers.md     the ogc/oga id model, WEMI leveling, rename/redirect
                             layer, and the work_index.json schema a consumer needs
+  source-policy.md          governance for external annotation corpora: openly-
+                            licensed only, the PROIEL three-tier rule, and the
+                            Gorman tag-don't-delete rule
+  annotation-export-contract.md  cog's role as the annotation standardization
+                            layer: the CTS-URN-keyed token record schema, encoding
+                            guarantees, versioning, and the consumption worklists
+  pinning-discipline.md     one owner per fact: cog pins upstreams (version DOI +
+                            checksums / commit SHA + clone), consumers pin cog
+                            (export vN + hash)
 sources/                    cloned open corpora (gitignored; fetch with the commands below)
 data/
   corpus/<work>.jsonl       one JSON record per citable passage (locus + text;
