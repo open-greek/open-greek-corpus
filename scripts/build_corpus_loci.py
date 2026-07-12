@@ -48,6 +48,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
 import unicodedata
@@ -150,6 +151,36 @@ BEKKER_CONCORD = DATA / "bekker_concordance.json"
 MERGE_OVERLAP_MAX = 0.10
 _SHINGLE_N = 5
 _GK_LETTER = re.compile(r"[Ͱ-Ͽἀ-῿]")
+
+# Delimiter that separates a base citation from a disambiguation tag when two
+# DISTINCT readings share one locus (see the collision resolution in main). It is
+# guaranteed absent from every native locus, so a consumer recovers the base
+# citation by splitting a served locus on it: "1.66.68.90~RV".split("~")[0].
+DUP_LOCUS_SEP = "~"
+
+# Recension sigla that appear as an in-text prefix and identify a DISTINCT witness
+# sharing another reading's locus - used as the MEANINGFUL disambiguation tag so a
+# variant reads as e.g. "1.66.68.90~RV" rather than an opaque ordinal. "RV" is
+# Wellmann's alphabetical recension of Dioscorides (codices RV), printed inline as
+# "<chapter-no> RV: ...". Extend this list as other structured recension markers
+# turn up; anything unmatched falls back to a stable ordinal tag.
+_RECENSION_RE = re.compile(r"^\s*\d*\s*(RV)\s*:")
+
+
+def _recension_tag(text: str) -> str | None:
+    """The recension siglum a reading carries as an in-text prefix, else None."""
+    m = _RECENSION_RE.match(text)
+    return m.group(1) if m else None
+
+
+def _atomic_write_text(path: Path, text: str) -> None:
+    """Write text to path atomically: fill a sibling temp file then os.replace it
+    (an atomic rename on the same filesystem), so a concurrent reader - a gold
+    annotation pass reads data/corpus/ while this ingest rewrites it - never sees a
+    half-written file."""
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, path)
 
 
 def _book_sort_key(books: set[str]):
@@ -548,6 +579,7 @@ def main() -> None:
 
     editions: dict[str, dict] = {}
     warnings: dict[str, dict] = {}
+    disambiguations: dict[str, dict] = {}   # work -> {base_locus: {basis, loci}}
     total_passages = 0
     for key in sorted(cands):
         if key in keep_list:
@@ -618,39 +650,98 @@ def main() -> None:
                 emitted_chars += sum(len(t) for t in _GK.findall(text))
                 records.append((parts, text, bekker, lines, source, lic, edition))
 
-        # Collapse exact-locus duplicates so the corpus stays strictly locus-keyed:
-        # one citation ref -> one row. A locus can repeat two ways, both handled here:
-        #   - within one edition the SAME passage is presented twice under one @n -
-        #     the Simmias figure poems in AG book 15 encode each verse line twice,
-        #     once in shape order directly under the div and once reordered inside a
-        #     <quote> "to be read thus"; nested scholia and shared apparatus sigla
-        #     collide the same way;
-        #   - across the disjoint part-editions we union (Diodorus, the Anthologia
-        #     Graeca), a locus in a shared book could in principle land in two frags.
-        # Keep the FIRST occurrence per locus - document order within a fragment,
-        # citation/book order across fragments (frags are book-sorted) - so the kept
-        # row is the primary presentation / precedence winner, and drop the rest.
-        # Only true same-locus collisions collapse: DISTINCT loci are never touched,
-        # so a legitimately unioned work keeps every row. emitted_chars above is the
-        # PRE-dedup total on purpose - every body char DID get assigned a locus; we
-        # only drop a repeat presentation of one, so the dropped-chars diagnostic
-        # stays honest and no spurious dropped_chars appears for a deduped work.
-        seen_loci: set = set()
-        deduped = []
-        for rec in records:
-            locus = ".".join(rec[0])
-            if locus in seen_loci:
+        # Resolve same-locus collisions so the corpus stays strictly locus-keyed
+        # (one served locus -> one row) WITHOUT ever discarding a distinct reading.
+        # A locus repeats two ways, classified per colliding group by whether the
+        # colliding rows carry the same text:
+        #   EXACT  - byte-identical text (after whitespace-normalizing the already
+        #            NFC text) presented twice under one @n. The Simmias figure poems
+        #            in AG book 15 encode each verse line once in shape order under
+        #            the div and again, reordered, inside a <quote> "to be read
+        #            thus"; nested scholia and shared apparatus sigla collide the
+        #            same way. Collapse to the FIRST occurrence and drop the repeats
+        #            (counted as collapsed_dup_loci) - the dropped row added nothing.
+        #   DISTINCT - different text under one citation. This is a real second
+        #            reading, never a repeat: a manuscript recension (Dioscorides'
+        #            RV alphabetical redaction printed beside the vulgate chapter),
+        #            an antilabe / extra-metrical half-line the every-fifth-line @n
+        #            numbering could not separate from the next numbered verse, or a
+        #            nested-chapter section number that resolves onto an earlier
+        #            chain. Multi-Source rule: keep BOTH. The first occurrence keeps
+        #            the bare citation; each later distinct reading is disambiguated
+        #            to base + DUP_LOCUS_SEP + tag, tag being a MEANINGFUL recension
+        #            siglum when the text carries one (RV) and otherwise a stable
+        #            1-based ordinal in emission order. Deterministic (emission order
+        #            is fixed) and recorded in data/corpus_loci_disambiguated.json.
+        # Emission order is preserved: only exact repeats are dropped and only the
+        # later distinct readings are relocated; every other row is byte-identical.
+        # emitted_chars above stays the PRE-resolution total on purpose - every body
+        # char got a locus, so the dropped-chars diagnostic stays honest.
+        idx_by_locus: dict[str, list[int]] = defaultdict(list)
+        for i, rec in enumerate(records):
+            idx_by_locus[".".join(rec[0])].append(i)
+        final_locus: list = [None] * len(records)   # per-row served locus, None=drop
+        base_of: list = [None] * len(records)        # disambiguated rows: base citation
+        witness_of: list = [None] * len(records)     # disambiguated rows: recension tag
+        n_collapsed = 0
+        disamb_map: dict[str, dict] = {}
+        for base, idxs in idx_by_locus.items():
+            if len(idxs) == 1:
+                final_locus[idxs[0]] = base
                 continue
-            seen_loci.add(locus)
-            deduped.append(rec)
-        n_collapsed = len(records) - len(deduped)
-        records = deduped
+            # Collapse exact-text repeats, keeping the first (lowest-index) copy.
+            seen_text: dict[str, bool] = {}
+            distinct_idxs: list[int] = []
+            for i in idxs:
+                t = " ".join(records[i][1].split())
+                if t in seen_text:
+                    n_collapsed += 1
+                    continue                          # exact repeat -> drop (locus None)
+                seen_text[t] = True
+                distinct_idxs.append(i)
+            if len(distinct_idxs) == 1:
+                final_locus[distinct_idxs[0]] = base
+                continue
+            # DISTINCT collision -> disambiguate, keep every reading in place.
+            used_tags: set = set()
+            loci_made: list[str] = []
+            kinds: set = set()
+            ordinal = 2
+            for rank, i in enumerate(distinct_idxs):
+                if rank == 0:
+                    final_locus[i] = base                 # first keeps the bare citation
+                    loci_made.append(base)
+                    continue
+                tag = _recension_tag(records[i][1])
+                if tag and tag not in used_tags:
+                    witness_of[i] = tag                   # meaningful recension basis
+                    kinds.add("recension")
+                else:
+                    tag = str(ordinal); ordinal += 1
+                    kinds.add("ordinal")
+                while tag in used_tags:                    # guarantee uniqueness
+                    tag = str(ordinal); ordinal += 1; kinds.add("ordinal")
+                used_tags.add(tag)
+                nl = f"{base}{DUP_LOCUS_SEP}{tag}"
+                final_locus[i] = nl
+                base_of[i] = base
+                loci_made.append(nl)
+            disamb_map[base] = {
+                "basis": ("recension" if kinds == {"recension"}
+                          else "mixed" if "recension" in kinds else "ordinal"),
+                "loci": loci_made,
+            }
+        records = [(final_locus[i], text, bekker, lines, source, lic, edition,
+                    base_of[i], witness_of[i])
+                   for i, (parts, text, bekker, lines, source, lic, edition)
+                   in enumerate(records) if final_locus[i] is not None]
+        n_disambiguated = sum(len(v["loci"]) - 1 for v in disamb_map.values())
 
         foreign = _served_foreign(key)
         if foreign is not None:
             served_src, served_tok = foreign
-            new_tok = sum(1 for _p, text, _b, _l, _s, _lic, _e in records
-                          for t in text.split() if _GK.search(t))
+            new_tok = sum(1 for r in records
+                          for t in r[1].split() if _GK.search(t))
             if served_tok >= NON_TEI_KEEP_RATIO * new_tok:
                 skips["clobber_guard"][key] = {
                     "kept_source": served_src, "kept_tokens": served_tok,
@@ -686,30 +777,42 @@ def main() -> None:
                   file=sys.stderr)
 
         concord_work = bekker_concord.get(key, {})   # {} for non-tlg0086 works
-        out_path = CORPUS / f"{key}.jsonl"
-        with out_path.open("w", encoding="utf-8") as f:
-            for parts, text, bekker, lines, source, lic, edition in records:
-                locus = ".".join(parts)
-                rec = {
-                    "urn": key,
-                    "edition": edition,
-                    "locus": locus,
-                    "source": source,
-                    "license": lic,
-                    "text": text,
-                }
-                # Bekker pages: the milestone-derived set when this row has one,
-                # else the concordance's pages for this locus (fills the works
-                # whose TEI has no milestones; never overrides a milestone row).
-                pages = bekker if bekker else concord_work.get(locus)
-                if pages:                        # additive, page-level Bekker loci;
-                    rec["bekker"] = pages        # omitted when neither source has any
-                # text_lines: the passage's printed/verse lines, emitted only when
-                # there are >=2 and they concatenate back to `text` exactly (the
-                # invariant that keeps it a pure segmentation, never a rewrite).
-                if len(lines) >= 2 and " ".join(lines) == text:
-                    rec["text_lines"] = lines
-                f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+        out_lines: list[str] = []
+        for (locus, text, bekker, lines, source, lic, edition,
+             base_locus, witness) in records:
+            rec = {
+                "urn": key,
+                "edition": edition,
+                "locus": locus,
+                "source": source,
+                "license": lic,
+                "text": text,
+            }
+            # A disambiguated reading (a DISTINCT second reading that shared this
+            # citation) carries its base citation, and the recension siglum when the
+            # disambiguation was by witness rather than a bare ordinal - both
+            # additive, absent from every non-colliding row.
+            if base_locus is not None:
+                rec["base_locus"] = base_locus
+                if witness is not None:
+                    rec["witness"] = witness
+            # Bekker pages: the milestone-derived set when this row has one,
+            # else the concordance's pages for this locus (fills the works
+            # whose TEI has no milestones; never overrides a milestone row). A
+            # disambiguated row looks the concordance up by its base citation.
+            pages = bekker if bekker else concord_work.get(base_locus or locus)
+            if pages:                        # additive, page-level Bekker loci;
+                rec["bekker"] = pages        # omitted when neither source has any
+            # text_lines: the passage's printed/verse lines, emitted only when
+            # there are >=2 and they concatenate back to `text` exactly (the
+            # invariant that keeps it a pure segmentation, never a rewrite).
+            if len(lines) >= 2 and " ".join(lines) == text:
+                rec["text_lines"] = lines
+            out_lines.append(json.dumps(rec, ensure_ascii=False))
+        _atomic_write_text(CORPUS / f"{key}.jsonl",
+                           "".join(line + "\n" for line in out_lines))
+        if disamb_map:
+            disambiguations[key] = disamb_map
         total_passages += len(records)
         editions[key] = {
             "edition": primary_edition,
@@ -720,23 +823,31 @@ def main() -> None:
         }
         if len(merged_eds) > 1:
             editions[key]["merged_editions"] = merged_eds
-        # Report the ways a work's citation structure can fail us:
-        #   dropped_chars       Greek characters in the body(ies) that no passage
-        #                       emitted - text under no numbered div and in no verse
-        #                       line, so we could not assign it a locus (measured in
-        #                       characters, as the running-text join differs from
-        #                       body_text's spacing)
-        #   collapsed_dup_loci  passages that shared a locus with an earlier row and
-        #                       were dropped by the locus-dedup above, i.e. the @n
-        #                       hierarchy is not a unique citation (a re-presented
-        #                       figure poem, deeply nested scholia, shared apparatus
-        #                       sigla). The written file has one row per locus
-        #                       regardless; this records how many repeats collapsed.
+        # Report the ways a work's citation structure can fail us. Both dup fields
+        # describe a RESOLVED condition - the written file always has one row per
+        # served locus - and are mutually exclusive per collision (exact vs
+        # distinct):
+        #   dropped_chars           Greek characters in the body(ies) that no passage
+        #                           emitted - text under no numbered div and in no
+        #                           verse line, so we could not assign it a locus
+        #                           (measured in characters, as the running-text join
+        #                           differs from body_text's spacing)
+        #   collapsed_dup_loci      exact repeats of a passage that shared a locus and
+        #                           were dropped (a re-presented figure poem, nested
+        #                           scholia, shared apparatus sigla); count of drops.
+        #   disambiguated_dup_loci  DISTINCT readings that shared a locus and were
+        #                           relocated to base~tag so both survive (a manuscript
+        #                           recension, an antilabe half-line, a nested-chapter
+        #                           section clash); count of relocated readings. The
+        #                           base -> [loci] + basis map is in
+        #                           data/corpus_loci_disambiguated.json.
         bad: dict[str, int] = {}
         if emitted_chars < body_chars_total:
             bad["dropped_chars"] = body_chars_total - emitted_chars
         if n_collapsed:
             bad["collapsed_dup_loci"] = n_collapsed
+        if n_disambiguated:
+            bad["disambiguated_dup_loci"] = n_disambiguated
         if bad:
             warnings[key] = {"edition": primary_edition, **bad}
 
@@ -750,8 +861,8 @@ def main() -> None:
     merged = {k: v for k, v in existing.items()
               if v.get("source") not in OWN_SOURCES or k not in scanned}
     merged.update(editions)
-    ce_path.write_text(
-        json.dumps(merged, ensure_ascii=False, indent=0, sort_keys=True))
+    _atomic_write_text(
+        ce_path, json.dumps(merged, ensure_ascii=False, indent=0, sort_keys=True))
     # works available ONLY under NC/unknown (no clean winner) -> PD/OCR track.
     # needs_pd_or_ocr.json is a SHARED registry that other local producers also
     # write, so MERGE (replace only our own "build_corpus_loci" records, preserve
@@ -778,11 +889,16 @@ def main() -> None:
         empty = not (any(mine.values()) if nest else mine)
         if empty and not path.exists():
             return
-        path.write_text(json.dumps(mine, ensure_ascii=False, indent=1,
-                                   sort_keys=True))
+        _atomic_write_text(path, json.dumps(mine, ensure_ascii=False, indent=1,
+                                            sort_keys=True))
 
     if warnings or args.only:
         _report(DATA / "corpus_loci_warnings.json", warnings, nest=False)
+    # Durable audit of the distinct same-locus readings we disambiguated (base
+    # citation -> the loci it became + the basis), so the split is reversible and a
+    # downstream consumer can re-key its per-locus annotations onto the new loci.
+    if disambiguations or args.only:
+        _report(DATA / "corpus_loci_disambiguated.json", disambiguations, nest=False)
     # Run diagnostics for the non-TEI protections (the durable record is the
     # keep-list itself).
     if any(skips.values()) or args.only:

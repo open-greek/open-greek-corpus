@@ -154,6 +154,8 @@ data/
   cgpg_works.json           CGPG Migne volume -> TLG works it covers
   byzantium_gr_works.json   byzantium.gr works ingested (per TLG work)
   corpus_loci_warnings.json works whose citation structure is not fully clean
+  corpus_loci_disambiguated.json distinct readings that shared a locus, and the
+                            loci they were split to (base -> [loci] + basis)
   crosswalk_report.json     per-namespace id-linkage coverage + enrichment targets
 ```
 
@@ -240,9 +242,17 @@ passage in `data/corpus/<work>.jsonl`, keyed by the dotted ref from the `div@n`
 fifth line are interpolated; text between numbered units lands at the next
 coarser locus rather than being dropped. The winning CTS edition per work goes
 to `corpus_editions.json`. `build_byzantine_vernacular_corpus.py` does the same
-for the Byzantine and early modern texts. Works whose `@n` structure can't produce clean unique
-loci are listed in `corpus_loci_warnings.json` instead of being emitted with
-garbage.
+for the Byzantine and early modern texts. Text whose `@n` structure can't produce
+a locus at all is listed in `corpus_loci_warnings.json` instead of being emitted
+with garbage. When two passages resolve to the SAME locus the collision is
+resolved by content, never dropped blindly: byte-identical repeats (a
+re-presented figure poem, shared apparatus sigla) collapse to one row
+(`collapsed_dup_loci`), while DISTINCT readings sharing a locus (a manuscript
+recension like Dioscorides' RV redaction, an antilabe half-line, a nested-chapter
+section clash) are kept as separate rows, the later one relocated to
+`locus~tag` - `tag` a recension siglum where the text carries one, else a stable
+ordinal - so no reading is lost (`disambiguated_dup_loci`; the base ->
+[loci] + basis map is `corpus_loci_disambiguated.json`).
 
 Each record is `{urn, edition, locus, source, license, text}` plus, when
 applicable, these additive optional fields (none affects locus keying):
@@ -275,6 +285,11 @@ applicable, these additive optional fields (none affects locus keying):
   asserted at emit; omitted otherwise), so `text` stays the flat citable string
   while the physical line structure is recoverable. Omitted when a passage is a
   single line.
+- `base_locus`, `witness` - present on a row whose locus was disambiguated
+  because a DISTINCT reading shared its citation. `base_locus` is the shared base
+  citation (the served `locus` is `base_locus~tag`); `witness` is the recension
+  siglum (e.g. `RV`) when the split was by witness rather than a bare ordinal.
+  Split on `~` to recover the base citation; a non-colliding row has neither field.
 - `ocr_dpi` - provenance on OCR-delivered rows (`source: ocr`), set by the OCR
   ingest, not by `build_corpus_loci.py`.
 - `rank: "secondary"`, `secondary_reason` - present in
