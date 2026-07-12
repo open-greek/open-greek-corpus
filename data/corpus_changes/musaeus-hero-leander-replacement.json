@@ -1,0 +1,31 @@
+{
+  "_meta": {
+    "change": "replace served text (source swap: broken OCR -> Greek Wikisource)",
+    "work": "musaeus-grammaticus.hero-et-leander",
+    "tlg": "tlg4082.tlg001",
+    "applied_by": "scripts/ingest_musaeus_hero_leander.py",
+    "date": "2026-07-12",
+    "reversible": "re-run the ocr pipeline, or restore the archived jsonl in this directory, to reinstate the pre-replacement served text"
+  },
+  "old": {
+    "edition": "qwen36-musaeus_dilthey_1874",
+    "rows": 1868,
+    "tokens": 4821,
+    "sha256": "0018465e6fe2bf522b17ae7adf48413f4a92b8d7c5904115401c4ccd18ce90a6",
+    "archived_to": "data/corpus_changes/musaeus-grammaticus.hero-et-leander.pre-wikisource-ocr.jsonl"
+  },
+  "new": {
+    "edition": "wikisource-musaeus-hero-leander",
+    "source": "wikisource",
+    "license": "PD (ancient poem); Wikisource transcription CC BY-SA 4.0",
+    "lines": 341,
+    "tokens": 2175,
+    "numbered": "1..343",
+    "missing_lines": [
+      331,
+      332
+    ]
+  },
+  "evidence": "The previous served edition qwen36-musaeus_dilthey_1874 was a broken redo OCR of Dilthey 1874 (1868 rows of unrelated prose, incl. a Passion narrative naming Pilate; ~4.8k Greek tokens; flagged for ocr_cleanup). The complete poem is on Greek Wikisource as continuous verse; incipit and explicit match the standard text. Wikisource page names no printed edition; same public-domain ancient poem, not tied to Dilthey 1874 / Kost 1971 / Livrea 1982.",
+  "source": "https://el.wikisource.org/wiki/%CE%A4%CE%B1%20%CE%BA%CE%B1%CE%B8%27%20%CE%97%CF%81%CF%8E%20%CE%BA%CE%B1%CE%B9%20%CE%9B%CE%AD%CE%B1%CE%BD%CE%B4%CF%81%CE%BF%CE%BD"
+}

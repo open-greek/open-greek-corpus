@@ -1,22 +1,22 @@
 {
   "headline": {
-    "works": 10079,
-    "authors": 2733,
-    "editions": 8919,
-    "pct_works_with_canonical_locus": 39.8,
-    "pct_works_with_logical_served_locus": 10.5,
-    "pct_works_with_work_qid": 4.8,
-    "pct_works_with_author_qid": 59.5,
-    "pct_authors_with_wikidata": 51.2
+    "works": 10785,
+    "authors": 3230,
+    "editions": 8938,
+    "pct_works_with_canonical_locus": 37.2,
+    "pct_works_with_logical_served_locus": 9.8,
+    "pct_works_with_work_qid": 4.5,
+    "pct_works_with_author_qid": 55.8,
+    "pct_authors_with_wikidata": 43.5
   },
   "work_aliases": {
     "cts": {
-      "count": 10079,
+      "count": 10785,
       "pct": 100.0
     },
     "wikidata": {
       "count": 488,
-      "pct": 4.8
+      "pct": 4.5
     },
     "trismegistos": {
       "count": 0,
@@ -33,20 +33,20 @@
   },
   "author_aliases": {
     "wikidata": {
-      "count": 1399,
-      "pct": 51.2
+      "count": 1404,
+      "pct": 43.5
     },
     "viaf": {
       "count": 1355,
-      "pct": 49.6
+      "pct": 42.0
     },
     "gnd": {
       "count": 1333,
-      "pct": 48.8
+      "pct": 41.3
     },
     "isni": {
       "count": 757,
-      "pct": 27.7
+      "pct": 23.4
     },
     "trismegistos": {
       "count": 0,
@@ -55,8 +55,8 @@
   },
   "edition_aliases": {
     "cts": {
-      "count": 1741,
-      "pct": 19.5
+      "count": 1760,
+      "pct": 19.7
     },
     "hathitrust": {
       "count": 0,
@@ -81,15 +81,15 @@
   },
   "canonical_locus": {
     "works_with_logical_locus": 4015,
-    "pct": 39.8,
-    "works_only_physical_or_none": 3163,
+    "pct": 37.2,
+    "works_only_physical_or_none": 3178,
     "by_scheme": {
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
       "page.line": 976,
       "line": 774,
-      "(none)": 600,
+      "(none)": 619,
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
       "book.chapter.section.line": 151,
@@ -343,7 +343,7 @@
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
     "works_with_logical_served_locus": 1062,
-    "pct": 10.5,
+    "pct": 9.8,
     "served_logical_depth_distribution": {
       "1": 139,
       "2": 540,
@@ -409,7 +409,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 8444,
+      "count": 9150,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -468,7 +468,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5505,
+      "count": 5535,
       "examples": [
         {
           "work": "abydenus.fragmenta",
@@ -773,7 +773,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1334,
+      "count": 1826,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -792,7 +792,8 @@
         "amelii-epistula",
         "amphiarai-exilium",
         "anaxion",
-        "anon-2septem-sapientes-2",
+        "anon-abas",
+        "anon-abron-vel-habron-batiensis",
         "anon-abydenus",
         "anon-acesander",
         "anon-achaeus",
@@ -806,30 +807,29 @@
         "anon-adrianus",
         "anon-aelius-aristides",
         "anon-aelius-dionysius",
+        "anon-aelius-dius",
+        "anon-aelius-harpocration",
         "anon-aelius-herodianus-et-pseudo-herodianus",
         "anon-aelius-theon",
         "anon-aeneas-philosophy",
         "anon-aeneas-tactics",
+        "anon-aenesidemus",
         "anon-aeschines",
         "anon-aeschines-socraticus",
         "anon-aeschylus-tragedy",
         "anon-aesopus-et-aesopica",
+        "anon-aethlius-samius",
         "anon-agaclytus",
+        "anon-agathange",
         "anon-agatharchides-geography",
+        "anon-agatharchides-samius",
         "anon-agathemerus",
-        "anon-agathias-scholasticus",
-        "anon-agathocles",
-        "anon-agathodaemon",
-        "anon-agathon-history",
-        "anon-agathon-tragedy",
-        "anon-aglais",
-        "anon-albinus",
-        "anon-alcaeus-comedy"
+        "anon-agathias-scholasticus"
       ]
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3163,
+      "count": 3178,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "acesander.fragmenta",
