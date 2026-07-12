@@ -105,7 +105,7 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 |---|---|---|---|
 | 1a | OGA annotations | Full source: 1,998 works / 40.05M tokens (a superset of the 718-work / 16.25M-token dilemma-blocking subset). Highest value; blocks dilemma Phase 2. | built (`oga-v1`) |
 | 1b | PTNK | preserve the UD (Universal Dependencies) train / dev / test split | built (`ptnk-v1`) |
-| 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | queued |
+| 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | built (`pedalion-v1`) |
 | 1d | TAGNT | word-level annotation | built (`tagnt-v1`) |
 | 1e | GLAUx + Diorisis | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked GLAUx works (tier 1), tag the 40 Gorman-credited works `provenance=gorman`. | queued |
 
@@ -127,6 +127,25 @@ tier-1 PROIEL data and not Gorman-derived). The one NonCommercial file, `pta0036
 TEI licences. dilemma Phase 2 pins:
 
     cog export oga-v1, sha256:52e7e350692a3af1e391552db023dde00c5a7b1d655b146991d4dcae75e5db37
+
+#### Built: Pedalion export `pedalion-v1`
+
+Item 1c's payload lives on the Hub under `pedalion-v1/` (per-work
+`works/<work_key>.jsonl.gz` plus `manifest.json` and `pedalion_scope_audit.json`);
+the git-tracked pointer stub is `data/annotations/pedalion/pedalion-v1.json`. It is
+produced reproducibly by `scripts/export_pedalion_annotations.py` from the retained
+Pedalion clone (source commit `112c106b`, CC BY-SA 4.0, verified from
+`TREEBANK_LICENSE` at run time). Scope: 123 works / 80,840 tokens (6,417 sentences) =
+8 literary works GLAUx does not subsume, the three Pedalion example-sentence
+collections, and 112 papyri (per Trismegistos id). Every token is `analysis=manual`.
+The per-token ref prefix drives the source policy: `PRO1`/`PRO2` (tier-1 PROIEL,
+937 tokens) dropped; `GORMAN` (1,872 tokens) kept as `provenance_tag=gorman`;
+`Leuven`/`PER`/`HARR` (78,968 tokens) kept as `provenance_tag=pedalion` with the
+ref prefix in `ref_provenance`. The Menander Dyskolos file (1958 Bodmer edition) is
+excluded on edition-rights grounds, and the literary scope (works not already in
+GLAUx) is re-verified against GLAUx's `metadata.txt` at run time. dilemma pins:
+
+    cog export pedalion-v1, sha256:ec549294330f0dafdc826fd7e44ec6eaa176cb4d76a5f542003b8d75c370edea
 
 ### Text-source watchlist
 

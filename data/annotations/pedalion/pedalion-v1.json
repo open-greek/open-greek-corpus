@@ -1,0 +1,38 @@
+{
+ "release_id": "pedalion-v1",
+ "content_hash": "sha256:ec549294330f0dafdc826fd7e44ec6eaa176cb4d76a5f542003b8d75c370edea",
+ "pin_line": "cog export pedalion-v1, sha256:ec549294330f0dafdc826fd7e44ec6eaa176cb4d76a5f542003b8d75c370edea",
+ "storage": {
+  "hf_dataset_repo": "ciscoriordan/open-greek-corpus-annotation-exports",
+  "repo_type": "dataset",
+  "path_in_repo": "pedalion-v1/",
+  "url": "https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports/tree/main/pedalion-v1",
+  "payload": "works/<work_key>.jsonl.gz per exported work, plus manifest.json and pedalion_scope_audit.json",
+  "note": "docs/annotation-export-contract.md, 'Storage': export payloads live on the Hub; git tracks the exporter script and this pointer stub only. Regenerate locally with scripts/export_pedalion_annotations.py, publish with scripts/upload_annotation_export.py."
+ },
+ "counts": {
+  "works_exported": 123,
+  "tokens": 80840,
+  "sentences": 6417,
+  "artificial_nodes": 1312,
+  "provenance_tokens": {
+   "pedalion": 78968,
+   "gorman": 1872
+  },
+  "ref_provenance_tokens": {
+   "GORMAN": 1872,
+   "HARR": 140,
+   "Leuven": 76105,
+   "PER": 2723
+  }
+ },
+ "generated_by": "scripts/export_pedalion_annotations.py",
+ "generated_at": "2026-07-12T21:05:10Z",
+ "contract": "docs/annotation-export-contract.md",
+ "upstream_pin": {
+  "source": "Pedalion Trees @ 112c106b86b865ddde4be7e5f3e409d9c42689f9",
+  "repo": "https://github.com/perseids-publications/pedalion-trees",
+  "commit": "112c106b86b865ddde4be7e5f3e409d9c42689f9",
+  "note": "cog pins the upstream; consumers pin only pin_line (docs/pinning-discipline.md)"
+ }
+}
