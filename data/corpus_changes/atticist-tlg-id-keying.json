@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "change": "confirm/correct the atticist author+work TLG ids and reconcile the served Pausanias Atticista work to the registry slug",
+    "date": "2026-07-12",
+    "applied_by": "scripts/rename_work.py (Pausanias rename, recorded in data/work_id_aliases.json); ids verified against the TLG-E canon (tlg_canon.json)",
+    "reversible": "the Pausanias rename is reversible via data/work_id_aliases.json (remove the renames entry and rebuild the id ledger)"
+  },
+  "authors": [
+    {
+      "author": "Aelius Dionysius",
+      "correct_tlg": "tlg1323",
+      "wrong_prior_tlg": "tlg1319",
+      "evidence": "tlg_canon.json author tlg1323 = 'Aelius DIONYSIUS' (Attic lexicographer, A.D. 2); tlg1319 = 'DIOGENES' (Apolloniates) - not the atticist."
+    },
+    {
+      "author": "Pausanias Atticista",
+      "correct_tlg": "tlg1569",
+      "wrong_prior_tlg": "tlg1553",
+      "evidence": "tlg_canon.json author tlg1569 = 'PAUSANIAS' epithet Attic (A.D. 2); tlg1553 = 'PALAEPHATUS' - a red herring, not the atticist."
+    }
+  ],
+  "works": [
+    {
+      "slug": "aelius-dionysius.attika-o-no-mata",
+      "work": "Ἀττικὰ ὀνόματα",
+      "cts": "urn:cts:greekLit:tlg1323.tlg001",
+      "status": "already correctly keyed (tlg1323.tlg001) in source_registry.json and tlg_crosswalk.json; confirmed, no change needed"
+    },
+    {
+      "slug_old": "pausanias.attikw-n-o-noma-twn-sunagwgh",
+      "slug_new": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
+      "work": "Ἀττικῶν ὀνομάτων συναγωγή",
+      "cts": "urn:cts:greekLit:tlg1569.tlg001",
+      "change": "renamed to the registry's disambiguated slug (author pausanias-attic, from the TLG 'Attic' epithet) so the served OCR reconciles to the canon work tlg1569.tlg001 and is no longer conflated under the bare 'pausanias' author slug (shared with the historian tlg2573). The tlg1569.tlg001 keying was already correct in the crosswalk; only the ambiguous author slug is fixed.",
+      "ogc_id": "ogc002693 (preserved across the rename; old slug redirects)"
+    }
+  ],
+  "note": "Both works are also in the re-OCR bucket (Schwabe 1890, ailioudionysiouk00dionuoft). Only the ids/keying are fixed here; the OCR is queued for the fleet. The served aelius-dionysius edition label 'migne-ocr-qwen36' is a delivery-side artifact (the text is Schwabe 1890, not Migne) and is left to the greek-ocr re-OCR to correct.",
+  "source": "TLG-E canon (tlg_canon.json: authors tlg1323, tlg1569, tlg1319, tlg1553); re-OCR worklist atticist entry"
+}
