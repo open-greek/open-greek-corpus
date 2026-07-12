@@ -141,20 +141,9 @@ _APOSTROPHES = {
 _APOS_TABLE = {ord(c): "’" for c in _APOSTROPHES}
 
 
-def _normalize_sigma(s: str) -> str:
-    """Map lunate sigma to standard sigma and enforce final/medial position."""
-    if not any(c in s for c in ("ϲ", "Ϲ", "σ", "ς")):
-        return s
-    s = s.replace("ϲ", "σ").replace("Ϲ", "Σ")
-    if "σ" not in s and "ς" not in s:
-        return s
-    chars = list(s)
-    n = len(chars)
-    for i, ch in enumerate(chars):
-        if ch in ("σ", "ς"):
-            following_letter = any(chars[j].isalpha() for j in range(i + 1, n))
-            chars[i] = "σ" if following_letter else "ς"
-    return "".join(chars)
+# Canonical sigma normalization is shared across all exporters (see
+# scripts/annotation_encoding.py). Import it so every exporter stays in sync.
+from annotation_encoding import normalize_sigma as _normalize_sigma
 
 
 def normalize(text):
