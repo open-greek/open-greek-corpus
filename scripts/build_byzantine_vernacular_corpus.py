@@ -78,7 +78,11 @@ AUTHORS = {
     "apokopos": ("bergadis", "Bergadis", "Μπεργαδής"),
     "apokopos_bergadi": ("bergadis", "Bergadis", "Μπεργαδής"),
     "erotokritos": ("vitsentzos-kornaros", "Vitsentzos Kornaros", "Βιτσέντζος Κορνάρος"),
-    "ptochoprodromika": ("ptochoprodromos", "Ptochoprodromos", "Πτωχοπρόδρομος"),
+    # The Ptochoprodromika are traditionally attributed to the 12th-c. court poet
+    # Theodore Prodromos (authorship debated; the "Ptochoprodromos" persona is a
+    # literary mask). File them under Theodore Prodromos rather than a bare
+    # "Ptochoprodromos" author slug.
+    "ptochoprodromika": ("theodore-prodromos", "Theodore Prodromos", "Θεόδωρος Πρόδρομος"),
 }
 _GENRE_WORDS = {
     "epic": "epic", "satire": "satire", "chronicle": "chronicle",
