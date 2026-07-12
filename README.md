@@ -6,9 +6,9 @@ free counterpart to the subscription corpora, with every ancient Greek work
 available one way or the other.
 
 Companion repo:
-[byzantine-vernacular-corpus](https://github.com/open-greek/byzantine-vernacular-corpus)
-covers the Byzantine vernacular; this one covers Homer through Byzantine
-literary Greek.
+[byzantine-early-modern-corpus](https://github.com/open-greek/byzantine-early-modern-corpus)
+covers Byzantine and early modern vernacular Greek; this one covers Homer through
+Byzantine literary Greek.
 
 ## Sources
 
@@ -17,7 +17,7 @@ literary Greek.
 | [First1KGreek](https://github.com/OpenGreekAndLatin/First1KGreek) | CC BY-SA 4.0 | first-millennium Greek TEI editions |
 | [Perseus canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit) | CC BY-SA 4.0 | the classical canon, TEI |
 | [Galenus Verbatim](https://github.com/galenus-verbatim/galenus_cts) | CC BY-SA 4.0 | Galen and pseudo-Galen TEI (Sorbonne): verified Kuehn transcriptions plus revised First1K files (`galenus_verbatim`) |
-| Byzantine vernacular | PD / CC BY-SA | late vernacular verse/prose (`byzantine_vernacular`) |
+| Byzantine and early modern | PD / CC BY-SA | late vernacular verse/prose, 12th-17th c. (`byzantine_vernacular`) |
 | [byzantium.gr](https://byzantium.gr) | PD (Bonn/CSHB editions) | Byzantine historians, clean polytonic transcriptions (`byzantium_gr`) |
 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`) |
 | [PTA](https://github.com/PatristicTextArchive/pta_data) | CC BY-SA / CC BY, per file | Patristic Text Archive (BBAW): critical patristic TEI incl. the Severian of Gabala corpus (`pta`); pta ids resolve via `scripts/build_pta_crosswalk.py`, the single BY-NC-SA file is excluded |
@@ -83,7 +83,7 @@ scripts/
                             data/bekker_concordance.json (Bekker pages for
                             tlg0086 works whose TEI lacks milestones;
                             content-aligned, consumed by the ingest)
-  build_byzantine_vernacular_corpus.py  Byzantine vernacular -> locus-keyed passages (ingest)
+  build_byzantine_vernacular_corpus.py  Byzantine and early modern -> locus-keyed passages (ingest)
   build_byzantium_gr_corpus.py byzantium.gr historians -> per-work passages (ingest)
   build_public_corpus.py    data/corpus/*.jsonl -> form lexicon + coverage (yardstick)
   build_lemma_frequency.py  lexicon -> per-lemma corpus frequency (via Dilemma)
@@ -242,7 +242,7 @@ passage in `data/corpus/<work>.jsonl`, keyed by the dotted ref from the `div@n`
 fifth line are interpolated; text between numbered units lands at the next
 coarser locus rather than being dropped. The winning CTS edition per work goes
 to `corpus_editions.json`. `build_byzantine_vernacular_corpus.py` does the same
-for the vernacular texts. Works whose `@n` structure can't produce clean unique
+for the Byzantine and early modern texts. Works whose `@n` structure can't produce clean unique
 loci are listed in `corpus_loci_warnings.json` instead of being emitted with
 garbage.
 
