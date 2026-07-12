@@ -1,0 +1,41 @@
+{
+ "release_id": "ptnk-v1",
+ "content_hash": "sha256:66f7b7f2cd808d4cc0bfcbb0272be36a00ec23da74f9ba47ab6b4549ad64435e",
+ "pin_line": "cog export ptnk-v1, sha256:66f7b7f2cd808d4cc0bfcbb0272be36a00ec23da74f9ba47ab6b4549ad64435e",
+ "storage": {
+  "hf_dataset_repo": "ciscoriordan/open-greek-corpus-annotation-exports",
+  "repo_type": "dataset",
+  "path_in_repo": "ptnk-v1/",
+  "url": "https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports/tree/main/ptnk-v1",
+  "payload": "works/<work_id>.jsonl.gz per exported work, plus manifest.json",
+  "note": "docs/annotation-export-contract.md, 'Storage': export payloads live on the Hub; git tracks the exporter script and this pointer stub only. Regenerate locally with scripts/export_ptnk_annotations.py, publish with scripts/upload_annotation_export.py."
+ },
+ "counts": {
+  "works_exported": 2,
+  "tokens": 39519,
+  "words": 39509,
+  "multiword_ranges": 10,
+  "sentences": 1576,
+  "tokens_missing_locus": 0,
+  "split_tokens": {
+   "train": 18445,
+   "dev": 10723,
+   "test": 10351
+  },
+  "split_sentences": {
+   "train": 727,
+   "dev": 439,
+   "test": 410
+  }
+ },
+ "generated_by": "scripts/export_ptnk_annotations.py",
+ "generated_at": "2026-07-12T20:50:42Z",
+ "contract": "docs/annotation-export-contract.md",
+ "upstream_pin": {
+  "source": "UD_Ancient_Greek-PTNK (UD (manual native; MISC Ref present, i.e. >= v2.17))",
+  "github": "https://github.com/UniversalDependencies/UD_Ancient_Greek-PTNK",
+  "commit": "818fb315ff1f6cd95b6e7fa90f3707488d2b010d",
+  "retained_clone": "~/Documents/ud_ptnk",
+  "note": "cog pins the upstream; consumers pin only pin_line (docs/pinning-discipline.md)"
+ }
+}
