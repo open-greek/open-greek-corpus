@@ -39,6 +39,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import unicodedata
 import urllib.parse
@@ -47,7 +48,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 COG = Path(__file__).resolve().parent.parent
-GO = Path("/Users/cisco/Documents/greek-ocr")
+GO = Path(os.environ.get("GREEK_OCR_DIR", Path.home() / "Documents" / "greek-ocr"))
 ED = GO / "runs" / "editions"
 CORPUS = COG / "data" / "corpus"
 SECONDARY = COG / "data" / "corpus_secondary"
