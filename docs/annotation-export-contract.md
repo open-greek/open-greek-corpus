@@ -69,6 +69,30 @@ Every export carries a release id and a content hash. Consumers pin the pair,
 whenever exported content changes; the content hash lets a consumer detect drift
 without having to trust the release id alone.
 
+## Storage
+
+Export payloads live on the Hugging Face Hub, not in git. The dataset repo is
+`ciscoriordan/open-greek-corpus-annotation-exports`; each release is a
+subdirectory named by its release id (`oga-v1/`, and as further queue items are
+built, `ptnk-v1/` and so on) holding the per-work `works/*.jsonl.gz` files, the
+release `manifest.json`, and any license audit. This applies to every queue
+item, 1a through 1e.
+
+git tracks the recipe and the pointer, never the payload:
+
+- the exporter script (for 1a, `scripts/export_oga_annotations.py`) and the
+  upload script, `scripts/upload_annotation_export.py`;
+- a per-release pointer stub at `data/annotations/<source>/<release>.json`
+  recording the release id, content hash, HF dataset repo and path in repo, and
+  the upstream pin. The exporter writes the stub; the payload directory next to
+  it is gitignored.
+
+Consumers (dilemma and others) fetch the payload from the HF dataset repo by the
+pinned release id and verify the content hash against their pin. The hash is
+computed over the uncompressed per-work payloads, so it is independent of gzip
+framing and of where the bytes are hosted; moving a payload between hosts never
+changes its identity or invalidates an existing pin.
+
 ## Consumption-order worklists
 
 Two queues live here on purpose, so both roadmaps sit in one place: the
@@ -87,9 +111,12 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 
 #### Built: OGA export `oga-v1`
 
-Item 1a is built at `data/annotations/oga/oga-v1/` (per-work `works/<cts-work-id>.jsonl.gz`
-plus `manifest.json` and `pta_license_audit.json`), produced reproducibly by
-`scripts/export_oga_annotations.py` from the retained OGA v0.2.0 clone. It exports the
+Item 1a's payload lives on the Hub per "Storage" above, at
+`ciscoriordan/open-greek-corpus-annotation-exports` under `oga-v1/` (per-work
+`works/<cts-work-id>.jsonl.gz` plus `manifest.json` and `pta_license_audit.json`);
+the git-tracked pointer stub is `data/annotations/oga/oga-v1.json`. The payload is
+produced reproducibly by `scripts/export_oga_annotations.py` from the retained
+OGA v0.2.0 clone. It exports the
 whole source: 1,998 works / 40,051,080 tokens (2,232,948 sentences), which is a superset of
 the 718-work dilemma-blocking subset. Encoding is normalized per this contract (NFC;
 elision apostrophes -> U+2019; standard final/medial sigma); lemmas are verbatim (homograph
