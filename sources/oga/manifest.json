@@ -1,0 +1,31 @@
+{
+ "source": "Opera Graeca Adnotata (OGA)",
+ "role": "metadata-only (work dating + PTA/TLG duplicate map); no text ingested - the OGA texts are the Perseus / First1KGreek / PTA editions cog already holds",
+ "version": "v0.2.0",
+ "version_doi": "10.5281/zenodo.14206061",
+ "concept_doi_note": "The concept DOI floats to the latest release and is deliberately NOT used as the pin (see docs/pinning-discipline.md); pin the version DOI.",
+ "license": "CC-BY-SA-4.0",
+ "author": "Giuseppe G. A. Celano, Universitat Leipzig (NLP)",
+ "citation": "Giuseppe G. A. Celano. 2024. Opera Graeca Adnotata (v0.2.0). Zenodo. https://doi.org/10.5281/zenodo.14206061",
+ "upstream": {
+  "zenodo": "https://doi.org/10.5281/zenodo.14206061",
+  "github": "https://github.com/OperaGraecaAdnotata/OGA"
+ },
+ "retained_clone": "$OGA_ROOT (default ~/Documents/oga); the versioned tree is opera_graeca_adnotata_v0.2.0/",
+ "ingested_files": {
+  "urn_cts/texts/duplicates_tlg_pta.xml": {
+   "sha256": "5f7cf7d37c2d8232c894bbba1adbe203735a3c4935d1b97ea3e074a0cbd2b73d",
+   "bytes": 7496
+  },
+  "work_chronology/texts/chronology_greek_works_plus_date_label.xml": {
+   "sha256": "8a6e9361613d19f0459265fed1ebe5a719e5bab8f3e35cc911ee8ef730897ff1",
+   "bytes": 1829938
+  }
+ },
+ "derived_outputs": [
+  "data/oga_dating.json",
+  "data/oga_duplicates_tlg_pta.json",
+  "data/oga_dating_report.json (written by build_registry.py)"
+ ],
+ "generated_by": "scripts/ingest_oga_metadata.py"
+}

@@ -36,6 +36,10 @@ data/needs_*.json
 # merged-in Byzantine vernacular corpus (small, canonical home now here)
 !sources/byzantine/
 
+# OGA source pin: the per-source manifest only (no vendored OGA data; the retained
+# OGA clone lives at $OGA_ROOT, see docs/pinning-discipline.md)
+!sources/oga/
+
 # Transient forms list for remote GPU lemmatization (build_work_lemma_counts --emit-missing)
 data/missing_forms.tsv
 data/lemma_map.tsv
