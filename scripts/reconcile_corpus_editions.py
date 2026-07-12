@@ -14,6 +14,7 @@ Run this after any ingest (or delivery) instead of trusting incremental updates.
 from __future__ import annotations
 
 import json
+import os
 import re
 from pathlib import Path
 
@@ -71,7 +72,11 @@ def main() -> None:
             if slug in slug_to_id:
                 row["id"] = slug_to_id[slug]
             ce[slug] = row
-    CE.write_text(json.dumps(ce, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
+    # Atomic write (temp + rename) so a concurrent reader - a gold annotation pass
+    # reads this file while an ingest reconciles it - never sees a half-written file.
+    _tmp = CE.with_name(CE.name + ".tmp")
+    _tmp.write_text(json.dumps(ce, ensure_ascii=False, indent=0, sort_keys=True), encoding="utf-8")
+    os.replace(_tmp, CE)
     print(f"reconciled corpus_editions: {len(ce)} works, "
           f"{sum(m['n_tokens'] for m in ce.values()):,} tokens")
 
