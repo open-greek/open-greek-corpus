@@ -1,0 +1,921 @@
+{
+ "_meta": {
+  "description": "OGA PTA<->TLG duplicate-work map: pairs where OGA holds one work under both a PTA and a TLG CTS-URN. A reference for corpus dedup review, NOT an instruction to merge. `same-slug` pairs are already deduped (the PTA edition contests the TLG key via build_pta_crosswalk.py); `live-duplicate` pairs are served under two distinct slugs and are the candidates for review.",
+  "source": "Opera Graeca Adnotata v0.2.0",
+  "source_file": "urn_cts/texts/duplicates_tlg_pta.xml",
+  "version_doi": "10.5281/zenodo.14206061",
+  "license": "CC-BY-SA-4.0",
+  "generated_by": "scripts/ingest_oga_metadata.py",
+  "counts": {
+   "pairs": 90,
+   "by_status": {
+    "one-side-served": 79,
+    "same-slug": 11
+   },
+   "live_duplicates": 0
+  }
+ },
+ "pairs": [
+  {
+   "tlg": "tlg0031.tlg001",
+   "pta": "pta9999.pta063",
+   "tlg_slug": "novum-testamentum.evangelium-secundum-matthaeum",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg002",
+   "pta": "pta9999.pta064",
+   "tlg_slug": "novum-testamentum.evangelium-secundum-marcum",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg003",
+   "pta": "pta9999.pta065",
+   "tlg_slug": "novum-testamentum.evangelium-secundum-lucam",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg004",
+   "pta": "pta9999.pta066",
+   "tlg_slug": "novum-testamentum.evangelium-secundum-joannem",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg005",
+   "pta": "pta9999.pta067",
+   "tlg_slug": "novum-testamentum.acta-apostolorum",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg006",
+   "pta": "pta9999.pta068",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-romanos",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg007",
+   "pta": "pta9999.pta069",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-corinthios-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg008",
+   "pta": "pta9999.pta070",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-corinthios-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg009",
+   "pta": "pta9999.pta071",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-galatas",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg010",
+   "pta": "pta9999.pta072",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-ephesios",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg011",
+   "pta": "pta9999.pta073",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-philippenses",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg012",
+   "pta": "pta9999.pta074",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-colossenses",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg013",
+   "pta": "pta9999.pta075",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-thessalonicenses-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg014",
+   "pta": "pta9999.pta076",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-thessalonicenses-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg015",
+   "pta": "pta9999.pta077",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-timotheum-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg016",
+   "pta": "pta9999.pta078",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-timotheum-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg017",
+   "pta": "pta9999.pta079",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-titum",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg018",
+   "pta": "pta9999.pta080",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-philemonem",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg019",
+   "pta": "pta9999.pta081",
+   "tlg_slug": "novum-testamentum.epistula-pauli-ad-hebraeos",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg020",
+   "pta": "pta9999.pta082",
+   "tlg_slug": "novum-testamentum.epistula-jacobi",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg021",
+   "pta": "pta9999.pta083",
+   "tlg_slug": "novum-testamentum.epistula-petri-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg022",
+   "pta": "pta9999.pta084",
+   "tlg_slug": "novum-testamentum.epistula-petri-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg023",
+   "pta": "pta9999.pta085",
+   "tlg_slug": "novum-testamentum.epistula-joannis-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg024",
+   "pta": "pta9999.pta086",
+   "tlg_slug": "novum-testamentum.epistula-joannis-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg025",
+   "pta": "pta9999.pta087",
+   "tlg_slug": "novum-testamentum.epistula-joannis-iii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg026",
+   "pta": "pta9999.pta088",
+   "tlg_slug": "novum-testamentum.epistula-juda",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0031.tlg027",
+   "pta": "pta9999.pta089",
+   "tlg_slug": "novum-testamentum.apocalypsis-joannis",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg001",
+   "pta": "pta9999.pta001",
+   "tlg_slug": "septuaginta.genesis",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg002",
+   "pta": "pta9999.pta002",
+   "tlg_slug": "septuaginta.exodus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg003",
+   "pta": "pta9999.pta003",
+   "tlg_slug": "septuaginta.leviticus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg004",
+   "pta": "pta9999.pta004",
+   "tlg_slug": "septuaginta.numeri",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg005",
+   "pta": "pta9999.pta005",
+   "tlg_slug": "septuaginta.deuteronomium",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg006",
+   "pta": "pta9999.pta006",
+   "tlg_slug": "septuaginta.josue-cod-vaticanus-cod-alexandrinus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg008",
+   "pta": "pta9999.pta007",
+   "tlg_slug": "septuaginta.judices-cod-alexandrinus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg010",
+   "pta": "pta9999.pta008",
+   "tlg_slug": "septuaginta.ruth",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg011",
+   "pta": "pta9999.pta009",
+   "tlg_slug": "septuaginta.regnorum-i-samuelis-i-in-textu-masoretico",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg012",
+   "pta": "pta9999.pta010",
+   "tlg_slug": "septuaginta.regnorum-ii-samuelis-ii-in-textu-masoretico",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg013",
+   "pta": "pta9999.pta011",
+   "tlg_slug": "septuaginta.regnorum-iii-regum-i-in-textu-masoretico",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg014",
+   "pta": "pta9999.pta012",
+   "tlg_slug": "septuaginta.regnorum-iv-regum-ii-in-textu-masoretico",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg015",
+   "pta": "pta9999.pta013",
+   "tlg_slug": "septuaginta.paralipomenon-i-sive-chronicon-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg016",
+   "pta": "pta9999.pta014",
+   "tlg_slug": "septuaginta.paralipomenon-ii-sive-chronicon-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg017",
+   "pta": "pta9999.pta016",
+   "tlg_slug": "septuaginta.esdras-i-liber-apocryphus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg018",
+   "pta": "pta9999.pta017",
+   "tlg_slug": "septuaginta.esdras-ii-ezra-et-nehemias-in-textu-masoretico",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg019",
+   "pta": "pta9999.pta020",
+   "tlg_slug": "septuaginta.esther",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg020",
+   "pta": "pta9999.pta021",
+   "tlg_slug": "septuaginta.judith",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg021",
+   "pta": "pta9999.pta022",
+   "tlg_slug": "septuaginta.tobias-cod-vaticanus-cod-alexandrinus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg023",
+   "pta": "pta9999.pta023",
+   "tlg_slug": "septuaginta.machabaeorum-i",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg024",
+   "pta": "pta9999.pta024",
+   "tlg_slug": "septuaginta.machabaeorum-ii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg025",
+   "pta": "pta9999.pta025",
+   "tlg_slug": "septuaginta.machabaeorum-iii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg026",
+   "pta": "pta9999.pta026",
+   "tlg_slug": "septuaginta.machabaeorum-iv",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg027",
+   "pta": "pta9999.pta031",
+   "tlg_slug": "septuaginta.psalmi",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg028",
+   "pta": "pta9999.pta032",
+   "tlg_slug": "septuaginta.odae",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg029",
+   "pta": "pta9999.pta033",
+   "tlg_slug": "septuaginta.proverbia",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg031",
+   "pta": "pta9999.pta035",
+   "tlg_slug": "septuaginta.canticum",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg032",
+   "pta": "pta9999.pta036",
+   "tlg_slug": "septuaginta.job",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg033",
+   "pta": "pta9999.pta037",
+   "tlg_slug": "septuaginta.sapientia-salomonis",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg034",
+   "pta": "pta9999.pta038",
+   "tlg_slug": "septuaginta.ecclesiasticus-sive-siracides-sapientia-jesu-filii",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg035",
+   "pta": "pta9999.pta039",
+   "tlg_slug": "septuaginta.psalmi-salomonis",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg036",
+   "pta": "pta9999.pta040",
+   "tlg_slug": "septuaginta.osee",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg037",
+   "pta": "pta9999.pta041",
+   "tlg_slug": "septuaginta.amos",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg038",
+   "pta": "pta9999.pta042",
+   "tlg_slug": "septuaginta.michaeas",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg039",
+   "pta": "pta9999.pta043",
+   "tlg_slug": "septuaginta.joel",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg040",
+   "pta": "pta9999.pta044",
+   "tlg_slug": "septuaginta.abdias",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg041",
+   "pta": "pta9999.pta045",
+   "tlg_slug": "septuaginta.jonas",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg042",
+   "pta": "pta9999.pta046",
+   "tlg_slug": "septuaginta.nahum",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg043",
+   "pta": "pta9999.pta047",
+   "tlg_slug": "septuaginta.habacuc",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg044",
+   "pta": "pta9999.pta048",
+   "tlg_slug": "septuaginta.sophonias",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg045",
+   "pta": "pta9999.pta049",
+   "tlg_slug": "septuaginta.aggaeus",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg046",
+   "pta": "pta9999.pta050",
+   "tlg_slug": "septuaginta.zacharias",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg047",
+   "pta": "pta9999.pta051",
+   "tlg_slug": "septuaginta.malachias",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg048",
+   "pta": "pta9999.pta052",
+   "tlg_slug": "septuaginta.isaias",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg049",
+   "pta": "pta9999.pta053",
+   "tlg_slug": "septuaginta.jeremias",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg050",
+   "pta": "pta9999.pta054",
+   "tlg_slug": "septuaginta.baruch",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg051",
+   "pta": "pta9999.pta055",
+   "tlg_slug": "septuaginta.threni-seu-lamentationes",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg052",
+   "pta": "pta9999.pta056",
+   "tlg_slug": "septuaginta.epistula-jeremiae",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg053",
+   "pta": "pta9999.pta059",
+   "tlg_slug": "septuaginta.ezechiel",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg055",
+   "pta": "pta9999.pta060",
+   "tlg_slug": "septuaginta.susanna-theodotionis-versio",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg057",
+   "pta": "pta9999.pta061",
+   "tlg_slug": "septuaginta.daniel-theodotionis-versio",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg0527.tlg059",
+   "pta": "pta9999.pta062",
+   "tlg_slug": "septuaginta.bel-et-draco-theodotionis-versio",
+   "tlg_served": true,
+   "pta_slug": null,
+   "pta_served": false,
+   "same_slug": false,
+   "status": "one-side-served"
+  },
+  {
+   "tlg": "tlg1419.tlg001",
+   "pta": "pta0038.pta001",
+   "tlg_slug": "hermas.pastor",
+   "tlg_served": true,
+   "pta_slug": "hermas.pastor",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2018.tlg007",
+   "pta": "pta0003.pta007",
+   "tlg_slug": "eusebius-scr-eccl.contra-marcellum",
+   "tlg_served": true,
+   "pta_slug": "eusebius-scr-eccl.contra-marcellum",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2018.tlg009",
+   "pta": "pta0003.pta009",
+   "tlg_slug": "eusebius-scr-eccl.de-ecclesiastica-theologia",
+   "tlg_served": true,
+   "pta_slug": "eusebius-scr-eccl.de-ecclesiastica-theologia",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2035.tlg002",
+   "pta": "pta0022.pta002",
+   "tlg_slug": "athanasius-theology.de-incarnatione-verbi",
+   "tlg_served": true,
+   "pta_slug": "athanasius-theology.de-incarnatione-verbi",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2035.tlg003",
+   "pta": "pta0022.pta003",
+   "tlg_slug": "athanasius-theology.de-decretis-nicaenae-synodi",
+   "tlg_served": true,
+   "pta_slug": "athanasius-theology.de-decretis-nicaenae-synodi",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2041.tlg001",
+   "pta": "pta0023.pta001",
+   "tlg_slug": "marcellus-theology.fragmenta",
+   "tlg_served": true,
+   "pta_slug": "marcellus-theology.fragmenta",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2042.tlg007",
+   "pta": "pta0007.pta007",
+   "tlg_slug": "origenes.exhortatio-ad-martyrium",
+   "tlg_served": true,
+   "pta_slug": "origenes.exhortatio-ad-martyrium",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2042.tlg008",
+   "pta": "pta0007.pta008",
+   "tlg_slug": "origenes.de-oratione",
+   "tlg_served": true,
+   "pta_slug": "origenes.de-oratione",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2048.tlg001",
+   "pta": "pta0012.pta001",
+   "tlg_slug": "salaminius-hermias-sozomenus.historia-ecclesiastica",
+   "tlg_served": true,
+   "pta_slug": "salaminius-hermias-sozomenus.historia-ecclesiastica",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg2768.tlg001",
+   "pta": "pta0036.pta001",
+   "tlg_slug": "gelasius.historia-ecclesiastica",
+   "tlg_served": true,
+   "pta_slug": "gelasius.historia-ecclesiastica",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  },
+  {
+   "tlg": "tlg4089.tlg003",
+   "pta": "pta0004.pta003",
+   "tlg_slug": "theodoretus.historia-ecclesiastica",
+   "tlg_served": true,
+   "pta_slug": "theodoretus.historia-ecclesiastica",
+   "pta_served": true,
+   "same_slug": true,
+   "status": "same-slug"
+  }
+ ],
+ "live_duplicates": []
+}
