@@ -114,6 +114,13 @@ scripts/
                             map (data/oga_duplicates_tlg_pta.json), and the source
                             pin (sources/oga/manifest.json). Reads $OGA_ROOT
                             (default ~/Documents/oga); run after `make ids`
+  export_oga_annotations.py OGA v0.2.0 clone -> the standardized annotation-export
+                            payload (queue item 1a) + the git-tracked pointer stub
+                            data/annotations/oga/<release>.json; the payload dir is
+                            gitignored (docs/annotation-export-contract.md, "Storage")
+  upload_annotation_export.py  publish an export release dir to the HF dataset repo
+                            ciscoriordan/open-greek-corpus-annotation-exports under
+                            <release-id>/ (Hub API, verified file list; never git-LFS)
   build_coverage_report.py  sourcing_map + overrides + corpus -> coverage_report.json
   build_crosswalk_report.py registry -> crosswalk_report.json (id-linkage completeness)
   build_id_registry.py      mint/maintain the opaque ogc/oga id ledgers
@@ -151,12 +158,15 @@ sources/                    cloned open corpora (gitignored; fetch with the comm
 data/
   corpus/<work>.jsonl       one JSON record per citable passage (locus + text;
                             optional bekker[], text_lines[] - see record shape below)
-  annotations/oga/oga-v1/   standardized OGA annotation export (queue item 1a): per-work
-                            works/<cts-id>.jsonl.gz token records (form, lemma, native
-                            pos/morph, head, deprel, locus, sentence_id, analysis,
-                            provenance) + manifest.json (release id, content hash, pin) +
-                            pta_license_audit.json; built by export_oga_annotations.py per
-                            docs/annotation-export-contract.md
+  annotations/oga/oga-v1.json  pointer stub for the standardized OGA annotation
+                            export (queue item 1a): release id, content hash, pin
+                            line, HF location, upstream pin. The payload (per-work
+                            works/<cts-id>.jsonl.gz token records + manifest.json +
+                            pta_license_audit.json) lives on the HF dataset repo
+                            ciscoriordan/open-greek-corpus-annotation-exports under
+                            oga-v1/, never in git (docs/annotation-export-contract.md,
+                            "Storage"); built by export_oga_annotations.py, published
+                            by upload_annotation_export.py
   bekker_concordance.json   tlg0086 locus -> Bekker pages for works whose TEI has
                             no inline milestones (GLAUX + el.wikisource, CC BY-SA)
   work_ids.json             opaque ogc work-id ledger: id -> slug, former_slugs, status

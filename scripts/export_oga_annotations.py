@@ -33,6 +33,11 @@ Provenance/policy (docs/source-policy.md):
 The export is deterministic: gzip is written with mtime=0 and the content hash is
 computed over the uncompressed per-work payloads, so re-running on unchanged input
 reproduces byte-identical files and the same content_hash.
+
+Storage (docs/annotation-export-contract.md, "Storage"): the payload this writes
+is NOT committed to git. It is uploaded to the Hugging Face dataset repo with
+scripts/upload_annotation_export.py; git tracks this exporter plus the pointer
+stub written next to the release dir (data/annotations/oga/<release_id>.json).
 """
 from __future__ import annotations
 
@@ -50,6 +55,45 @@ import sys
 import unicodedata
 import zipfile
 from pathlib import Path
+
+# The HF dataset repo that holds export payloads (see the module docstring and
+# docs/annotation-export-contract.md, "Storage"); the release id is the path in
+# the repo. scripts/upload_annotation_export.py shares this default.
+HF_EXPORTS_REPO = "ciscoriordan/open-greek-corpus-annotation-exports"
+
+
+def make_pointer_stub(manifest: dict, hf_repo: str) -> dict:
+    """The small git-tracked pointer for a release: identity + where the payload
+    lives on the Hub. git holds the recipe and this pointer; HF holds the payload."""
+    exp = manifest["export"]
+    release_id = exp["release_id"]
+    return {
+        "release_id": release_id,
+        "content_hash": exp["content_hash"],
+        "pin_line": exp["pin_line"],
+        "storage": {
+            "hf_dataset_repo": hf_repo,
+            "repo_type": "dataset",
+            "path_in_repo": f"{release_id}/",
+            "url": f"https://huggingface.co/datasets/{hf_repo}/tree/main/{release_id}",
+            "payload": ("works/<work_id>.jsonl.gz per exported work, plus manifest.json "
+                        "and pta_license_audit.json"),
+            "note": ("docs/annotation-export-contract.md, 'Storage': export payloads live on "
+                     "the Hub; git tracks the exporter script and this pointer stub only. "
+                     "Regenerate locally with scripts/export_oga_annotations.py, publish with "
+                     "scripts/upload_annotation_export.py."),
+        },
+        "counts": exp["counts"],
+        "generated_by": exp["generated_by"],
+        "generated_at": exp["generated_at"],
+        "contract": exp["contract"],
+        "upstream_pin": {
+            "source": f"{manifest['source']['name']} {manifest['source']['version']}",
+            "version_doi": manifest["source"]["version_doi"],
+            "note": "cog pins the upstream; consumers pin only pin_line (docs/pinning-discipline.md)",
+        },
+    }
+
 
 # --- cog-owned encoding normalization -------------------------------------
 
@@ -288,6 +332,8 @@ def main():
     ap.add_argument("--release-id", default="oga-v1", help="cog export release id (default oga-v1)")
     ap.add_argument("--limit", type=int, default=None, help="export only the first N works (smoke test)")
     ap.add_argument("--works", nargs="*", default=None, help="export only these work ids (smoke test)")
+    ap.add_argument("--hf-repo", default=HF_EXPORTS_REPO,
+                    help="HF dataset repo the pointer stub records as the payload home")
     args = ap.parse_args()
 
     oga_root = Path(args.oga_root)
@@ -480,6 +526,15 @@ def main():
     with open(out_dir / "pta_license_audit.json", "w", encoding="utf-8") as fh:
         json.dump({"version_doi": "10.5281/zenodo.14206061", "works": pta_audit}, fh, ensure_ascii=False, indent=1)
         fh.write("\n")
+
+    # The git-tracked pointer stub, written next to the (gitignored) release dir.
+    # Skipped for smoke tests, whose partial hash must never overwrite the pin.
+    if not args.limit and not args.works:
+        stub_path = out_dir.parent / f"{args.release_id}.json"
+        with open(stub_path, "w", encoding="utf-8") as fh:
+            json.dump(make_pointer_stub(manifest, args.hf_repo), fh, ensure_ascii=False, indent=1)
+            fh.write("\n")
+        print(f"[oga-export] pointer stub -> {stub_path}", flush=True)
 
     print(f"[oga-export] wrote {len(works)} works, {total_tokens:,} tokens to {out_dir}", flush=True)
     print(f"[oga-export] excluded {len(excluded)} works; content_hash = {content_hash}", flush=True)
