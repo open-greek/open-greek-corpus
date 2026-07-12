@@ -154,27 +154,9 @@ _APOSTROPHES = {"ʼ", "'", "‘", "’"}
 _APOS_TABLE = {ord(c): "’" for c in _APOSTROPHES}
 
 
-def _normalize_sigma(s: str) -> str:
-    """Lunate sigma -> standard sigma, then enforce final/medial position per WORD.
-
-    A sigma is final (ς) when it ends a word (nothing, or a non-letter, follows it)
-    and medial (σ) when a letter follows directly. The check is local so multi-word
-    / multi-form strings ("Ζεύς, Δίς"; "δέκα καὶ ὀκτὼ") keep each word's word-final
-    sigma; a whole-string "any following letter" test would wrongly medialize the
-    final ς of an earlier word.
-    """
-    if not any(c in s for c in ("ϲ", "Ϲ", "σ", "ς")):
-        return s
-    s = s.replace("ϲ", "σ").replace("Ϲ", "Σ")
-    if "σ" not in s and "ς" not in s:
-        return s
-    chars = list(s)
-    n = len(chars)
-    for i, ch in enumerate(chars):
-        if ch in ("σ", "ς"):
-            following_letter = (i + 1 < n) and chars[i + 1].isalpha()
-            chars[i] = "σ" if following_letter else "ς"
-    return "".join(chars)
+# Canonical sigma normalization is shared across all exporters (see
+# scripts/annotation_encoding.py). Import it so every exporter stays in sync.
+from annotation_encoding import normalize_sigma as _normalize_sigma
 
 
 def norm_form(text):
