@@ -43,3 +43,10 @@ data/needs_*.json
 # Transient forms list for remote GPU lemmatization (build_work_lemma_counts --emit-missing)
 data/missing_forms.tsv
 data/lemma_map.tsv
+
+# Annotation-export payloads (works/*.jsonl.gz + manifest + license audit) live on
+# the HF dataset repo, never in git (docs/annotation-export-contract.md, "Storage").
+# git keeps only the exporter and upload scripts and the per-release pointer stub
+# (data/annotations/<source>/<release>.json); the stub stays tracked because this
+# pattern matches directories only.
+data/annotations/*/*/
