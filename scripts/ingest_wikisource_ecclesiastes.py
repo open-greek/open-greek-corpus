@@ -61,6 +61,13 @@ SLUG = "septuaginta.ecclesiastes"
 EDITION = "wikisource-lxx-ecclesiastes"
 SOURCE = "wikisource"
 LICENSE = "PD (ancient LXX text); Wikisource transcription CC BY-SA 4.0"
+SECONDARY = COG / "data" / "corpus_secondary" / f"{SLUG}.jsonl"
+# The whole-volume Swete OCR placeholder for this book was demoted to secondary
+# rank earlier; keep its audit note pointing at the CURRENT served source so it
+# does not go stale when the primary source changes.
+DISPLACE_REASON = ("whole-volume Swete vol.2 placeholder: 12 books served from "
+                   "first1k under their own slugs, Ecclesiastes now served from "
+                   "the Greek Wikisource transcription")
 PAGE_TITLE = "Εκκλησιαστής"
 PAGE_URL = "https://el.wikisource.org/wiki/" + urllib.parse.quote(PAGE_TITLE)
 
@@ -139,6 +146,16 @@ def main() -> None:
             }, ensure_ascii=False) + "\n")
     print(f"wrote {len(verses)} verse records -> {dst.relative_to(COG)} "
           f"(edition {EDITION}); now run `make ids` and `make sourcing`")
+    # Keep the demoted whole-volume placeholder's audit note current (it named the
+    # now-retired digital Swete transcription).
+    if SECONDARY.exists():
+        rows = [json.loads(l) for l in SECONDARY.read_text(encoding="utf-8").splitlines() if l.strip()]
+        for r in rows:
+            r["secondary_reason"] = DISPLACE_REASON
+        with SECONDARY.open("w", encoding="utf-8") as f:
+            for r in rows:
+                f.write(json.dumps(r, ensure_ascii=False) + "\n")
+        print(f"refreshed secondary_reason on {len(rows)} rows -> {SECONDARY.relative_to(COG)}")
 
 
 if __name__ == "__main__":

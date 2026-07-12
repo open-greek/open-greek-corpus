@@ -687,7 +687,7 @@ def build() -> Registry:
             reg.works[work_slug].best_source = "open_corpus"
             licl = w["license"].lower()
             lic = "CC0/PD" if (licl.startswith("public domain")
-                               and "cc by" not in licl) else "CC-BY-SA-3.0"
+                               and "cc by" not in licl) else "CC-BY-SA-4.0"
             reg.mint_edition(work_slug, w["edition"], w["title_el"] or w["title"],
                              provider="byzantine_vernacular", scheme=w.get("scheme", "line"),
                              servable=True, license=lic, make_default=True)
