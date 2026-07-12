@@ -25,6 +25,7 @@ Byzantine literary Greek.
 | [SAWS](https://ancientwisdoms.ac.uk) | CC BY 4.0 (2025 KCL figshare deposit, doi:10.18742/28259054.v1; supersedes the project's 2013 in-file CC BY-NC-SA notices) | Sharing Ancient Wisdoms born-digital editions (`saws`): Roueche's Kekaumenos, the Searby et al. Apophthegmata et gnomae secundum alphabetum, and diplomatic transcriptions of the Gnomologium Vaticanum (Vat. gr. 743) and Corpus Parisinum VI (Par. gr. 1168 + Bodl. Digby 6); ingested by `scripts/ingest_saws.py` (which re-verifies the deposit license against the figshare API on every fetch) |
 | [Greek Wikisource](https://el.wikisource.org) | PD base text; contributor layer CC BY-SA 4.0 | Proclus, Institutio physica (tlg4036.tlg006): the proofread-page transcription of Ritzenfeld's Teubner 1912 edition (the TLG edition), ingested per DjVu page by `scripts/ingest_proclus_institutiones.py` (which also ingests the Institutio theologica, tlg4036.tlg005, from our Qwen3.6 OCR of the Didot 1855 Creuzer-Moser text - no clean open digital text exists - and writes a same-edition 29-page OCR witness of the physica to `corpus_secondary` with per-page agreement stats). Also serves the Septuagint Ecclesiastes (`septuaginta.ecclesiastes`, tlg0527.tlg030): the verse-keyed el.wikisource LXX transcription, ingested by `scripts/ingest_wikisource_ecclesiastes.py`. Ecclesiastes is the one LXX book absent from First1K (an empty `__cts__` stub upstream), and the Wikisource text is an ecclesiastical-recension LXX (Δαβίδ), so it differs orthographically from the First1K Swete siblings (Δαυείδ) |
 | our OCR of PD editions | PD | Migne PG and classical editions OCR'd from public-domain scans (`ocr`); per-work download links in the OCR provenance table below |
+| [Opera Graeca Adnotata](https://doi.org/10.5281/zenodo.14206061) | CC BY-SA 4.0 | metadata only, no text (the OGA texts are the Perseus / First1KGreek / PTA editions above): per-work composition dating and the PTA/TLG duplicate map, ingested by `scripts/ingest_oga_metadata.py`; pinned by version DOI in `sources/oga/manifest.json` |
 
 No non-commercial (CC BY-NC-SA) texts. A work only available under NC counts as
 a gap and gets sourced from a public-domain edition instead
@@ -104,7 +105,15 @@ scripts/
                             remainders) are filed under their real authors via
                             the curated data/pseudo_author_attributions.json
                             (per-volume evidence inside), never under the old
-                            anon-ocr / anon-cogPG pseudo-authors
+                            anon-ocr / anon-cogPG pseudo-authors. Also applies
+                            OGA dating (data/oga_dating.json): fills a missing
+                            century/era tag, flags conflicts, audit in
+                            data/oga_dating_report.json
+  ingest_oga_metadata.py    Opera Graeca Adnotata v0.2.0 metadata -> per-work
+                            dating (data/oga_dating.json), the PTA/TLG duplicate
+                            map (data/oga_duplicates_tlg_pta.json), and the source
+                            pin (sources/oga/manifest.json). Reads $OGA_ROOT
+                            (default ~/Documents/oga); run after `make ids`
   build_coverage_report.py  sourcing_map + overrides + corpus -> coverage_report.json
   build_crosswalk_report.py registry -> crosswalk_report.json (id-linkage completeness)
   build_id_registry.py      mint/maintain the opaque ogc/oga id ledgers
@@ -158,6 +167,14 @@ data/
   source_overrides.json     per-work source-precedence exceptions (+ reason)
   non_tei_authoritative.json  works a TEI rebuild must never overwrite (a served
                             OCR/other delivery beats a fragmentary TEI copy)
+  oga_dating.json           OGA per-work composition dating (CTS-URN -> ISO date +
+                            date-label) resolved to cog slugs, with a derived
+                            signed century + era; feeds build_registry.py
+  oga_dating_report.json    audit of the OGA dating applied to the registry:
+                            filled / agreed / conflicts (both readings kept)
+  oga_duplicates_tlg_pta.json  OGA PTA<->TLG duplicate-work map, each side resolved
+                            to a cog slug and flagged (same-slug / live-duplicate /
+                            one-side / neither); a dedup reference, not a merge order
   corpus_loci_skips.json    ingest-run diagnostics: keep-list skips, clobber-guard
                             skips, foreign works a TEI edition replaced
   cgpg_works.json           CGPG Migne volume -> TLG works it covers

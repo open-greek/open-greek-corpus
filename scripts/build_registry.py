@@ -224,6 +224,13 @@ WORK_AUTHORITY = REPO / "data" / "work_authority.json"
 # the corpus_editions slug; verified against the served rows and the standard
 # volume bibliography (see the file's _meta). Graceful no-op when absent.
 PSEUDO_ATTRIB = REPO / "data" / "pseudo_author_attributions.json"
+# OGA (Opera Graeca Adnotata v0.2.0) per-work composition dating, resolved to cog
+# slugs by scripts/ingest_oga_metadata.py (version DOI 10.5281/zenodo.14206061,
+# CC BY-SA 4.0). Committed, so this build applies it without the OGA clone. Absent
+# file -> no dating tags (graceful no-op). The applied audit is written to
+# OGA_DATING_REPORT.
+OGA_DATING = REPO / "data" / "oga_dating.json"
+OGA_DATING_REPORT = REPO / "data" / "oga_dating_report.json"
 
 
 def _norm_title(s: str) -> str:
@@ -385,6 +392,93 @@ def _edition_slug(work: dict) -> str:
 
 def _truthy(v: str) -> bool:
     return str(v).strip().lower() in ("true", "1", "yes")
+
+
+def apply_oga_dating(reg: Registry) -> None:
+    """FILL missing century/era tags from OGA's per-work dating, and flag (never
+    overwrite) a per-work disagreement. Reads the committed data/oga_dating.json
+    (produced by scripts/ingest_oga_metadata.py from the pinned OGA chronology);
+    writes the audit to data/oga_dating_report.json. Policy per the task and the
+    Multi-Source Data rule: fill gaps, keep an existing century tag on conflict,
+    and record BOTH readings in the report rather than silently overwriting."""
+    if not OGA_DATING.exists():
+        print("  ! data/oga_dating.json absent; no OGA dating applied "
+              "(run scripts/ingest_oga_metadata.py)", file=sys.stderr)
+        return
+    od = json.loads(OGA_DATING.read_text(encoding="utf-8"))
+    # index registry works by their CTS-URN tail (the OGA key), churn-proof.
+    by_cts = {}
+    for slug, w in reg.works.items():
+        cts = w.aliases.get("cts")
+        if cts:
+            by_cts.setdefault(cts.split(":")[-1], slug)
+
+    filled, agreed, conflicts, no_home = [], [], [], []
+    for urn, e in sorted(od.get("works", {}).items()):
+        c = e.get("century")
+        if c is None:
+            continue
+        # match by the registry work's own CTS alias first (survives slug
+        # renames), else by the slug the ingester resolved (covers pta / renumbered
+        # works whose registry alias is a synthetic slug-form CTS).
+        slug = by_cts.get(urn)
+        if slug is None:
+            cog = e.get("cog_slug")
+            slug = cog if cog in reg.works else None
+        if slug is None:
+            no_home.append(urn)
+            continue
+        existing = sorted(int(t.split(":")[1]) for t in reg.works[slug].tags
+                          if t.startswith("century:"))
+        if not existing:
+            reg.add_tag(slug, "century", c)
+            reg.add_tag(slug, "era", era_for_century(c))
+            filled.append({"urn": urn, "slug": slug, "century": c,
+                           "era": era_for_century(c)})
+        elif c in existing:
+            agreed.append(slug)
+        else:
+            # keep the existing tag; record both readings for review. Most of
+            # these are an author-floruit century vs a per-work composition
+            # century that straddle a century boundary (|delta| == 1).
+            conflicts.append({"urn": urn, "slug": slug,
+                              "existing_century": existing,
+                              "oga_century": c, "oga_era": era_for_century(c),
+                              "oga_date_label": e.get("date_label"),
+                              "oga_estimated": e.get("estimated_work_date"),
+                              "delta": min(abs(c - x) for x in existing)})
+    from collections import Counter
+    delta_hist = dict(sorted(Counter(x["delta"] for x in conflicts).items()))
+    report = {
+        "_meta": {
+            "description": "Audit of OGA (Opera Graeca Adnotata v0.2.0) dating "
+                           "applied to source_registry.json century/era tags. "
+                           "`filled` = a work that had no century tag and got the "
+                           "OGA one; `conflicts` = OGA disagrees with an existing "
+                           "tag (existing kept, both readings recorded, NOT "
+                           "overwritten). Reverse by re-running build_registry.py "
+                           "after removing data/oga_dating.json.",
+            "source": "Opera Graeca Adnotata v0.2.0",
+            "version_doi": "10.5281/zenodo.14206061",
+            "license": "CC-BY-SA-4.0",
+            "generated_by": "scripts/build_registry.py",
+            "policy": "fill gaps, never clobber; flag conflicts (Multi-Source Data)",
+            "counts": {
+                "filled": len(filled), "agreed": len(agreed),
+                "conflicts": len(conflicts),
+                "resolved_no_registry_home": len(no_home),
+                "conflict_delta_century_histogram": delta_hist,
+            },
+        },
+        "filled": filled,
+        "conflicts": conflicts,
+        "resolved_no_registry_home": sorted(no_home),
+    }
+    OGA_DATING_REPORT.write_text(
+        json.dumps(report, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"  + OGA dating: {len(filled)} filled, {len(agreed)} agreed, "
+          f"{len(conflicts)} conflicts flagged, {len(no_home)} resolved w/o a "
+          f"registry home (audit: data/oga_dating_report.json)", file=sys.stderr)
 
 
 def build() -> Registry:
@@ -717,6 +811,11 @@ def build() -> Registry:
         n_work_qid += 1
     print(f"  + {n_work_qid} works matched to a Wikidata QID (work-level)",
           file=sys.stderr)
+
+    # OGA per-work composition dating: fill missing century/era tags, flag
+    # conflicts. Runs last, after every work (canon + ingested + Byzantine) is
+    # minted, so it can tag any of them.
+    apply_oga_dating(reg)
 
     print(f"  + {n_authority} authors gained external authority aliases "
           f"(wikidata/viaf/gnd/isni){' [author_authority.json absent]' if not authority else ''}",

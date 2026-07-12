@@ -1,0 +1,7133 @@
+{
+ "_meta": {
+  "description": "Audit of OGA (Opera Graeca Adnotata v0.2.0) dating applied to source_registry.json century/era tags. `filled` = a work that had no century tag and got the OGA one; `conflicts` = OGA disagrees with an existing tag (existing kept, both readings recorded, NOT overwritten). Reverse by re-running build_registry.py after removing data/oga_dating.json.",
+  "source": "Opera Graeca Adnotata v0.2.0",
+  "version_doi": "10.5281/zenodo.14206061",
+  "license": "CC-BY-SA-4.0",
+  "generated_by": "scripts/build_registry.py",
+  "policy": "fill gaps, never clobber; flag conflicts (Multi-Source Data)",
+  "counts": {
+   "filled": 126,
+   "agreed": 996,
+   "conflicts": 505,
+   "resolved_no_registry_home": 284,
+   "conflict_delta_century_histogram": {
+    "1": 466,
+    "2": 20,
+    "3": 5,
+    "4": 4,
+    "5": 4,
+    "7": 1,
+    "8": 2,
+    "10": 1,
+    "12": 2
+   }
+  }
+ },
+ "filled": [
+  {
+   "urn": "tlg0007.tlg082a",
+   "slug": "plutarchus.tlg0007-tlg082a",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg0007.tlg082b",
+   "slug": "plutarchus.tlg0007-tlg082b",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg0007.tlg084a",
+   "slug": "plutarchus.tlg0007-tlg084a",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg0007.tlg084b",
+   "slug": "plutarchus.tlg0007-tlg084b",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg0055.tlg001",
+   "slug": "themistoclis-epistulae.epistulae",
+   "century": -5,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg0087.tlg009a",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.tlg0087-tlg009a",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg0092.tlg001",
+   "slug": "anonymi-geographiae-expositio-compendiaria.geographiae-expositio-compendiaria",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg0527.tlg001",
+   "slug": "septuaginta.genesis",
+   "century": -3,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg002",
+   "slug": "septuaginta.exodus",
+   "century": -3,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg003",
+   "slug": "septuaginta.leviticus",
+   "century": -3,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg004",
+   "slug": "septuaginta.numeri",
+   "century": -3,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg005",
+   "slug": "septuaginta.deuteronomium",
+   "century": -3,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg006",
+   "slug": "septuaginta.josue-cod-vaticanus-cod-alexandrinus",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg008",
+   "slug": "septuaginta.judices-cod-alexandrinus",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg010",
+   "slug": "septuaginta.ruth",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg011",
+   "slug": "septuaginta.regnorum-i-samuelis-i-in-textu-masoretico",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg012",
+   "slug": "septuaginta.regnorum-ii-samuelis-ii-in-textu-masoretico",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg013",
+   "slug": "septuaginta.regnorum-iii-regum-i-in-textu-masoretico",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg014",
+   "slug": "septuaginta.regnorum-iv-regum-ii-in-textu-masoretico",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg015",
+   "slug": "septuaginta.paralipomenon-i-sive-chronicon-i",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg016",
+   "slug": "septuaginta.paralipomenon-ii-sive-chronicon-ii",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg017",
+   "slug": "septuaginta.esdras-i-liber-apocryphus",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg018",
+   "slug": "septuaginta.esdras-ii-ezra-et-nehemias-in-textu-masoretico",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg019",
+   "slug": "septuaginta.esther",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg020",
+   "slug": "septuaginta.judith",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg021",
+   "slug": "septuaginta.tobias-cod-vaticanus-cod-alexandrinus",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg023",
+   "slug": "septuaginta.machabaeorum-i",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg024",
+   "slug": "septuaginta.machabaeorum-ii",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg025",
+   "slug": "septuaginta.machabaeorum-iii",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg026",
+   "slug": "septuaginta.machabaeorum-iv",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg027",
+   "slug": "septuaginta.psalmi",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg028",
+   "slug": "septuaginta.odae",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg029",
+   "slug": "septuaginta.proverbia",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg031",
+   "slug": "septuaginta.canticum",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg032",
+   "slug": "septuaginta.job",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg033",
+   "slug": "septuaginta.sapientia-salomonis",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg034",
+   "slug": "septuaginta.ecclesiasticus-sive-siracides-sapientia-jesu-filii",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg035",
+   "slug": "septuaginta.psalmi-salomonis",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg036",
+   "slug": "septuaginta.osee",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg037",
+   "slug": "septuaginta.amos",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg038",
+   "slug": "septuaginta.michaeas",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg039",
+   "slug": "septuaginta.joel",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg040",
+   "slug": "septuaginta.abdias",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg041",
+   "slug": "septuaginta.jonas",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg042",
+   "slug": "septuaginta.nahum",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg043",
+   "slug": "septuaginta.habacuc",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg044",
+   "slug": "septuaginta.sophonias",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg045",
+   "slug": "septuaginta.aggaeus",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg046",
+   "slug": "septuaginta.zacharias",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg047",
+   "slug": "septuaginta.malachias",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg048",
+   "slug": "septuaginta.isaias",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg049",
+   "slug": "septuaginta.jeremias",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg050",
+   "slug": "septuaginta.baruch",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg051",
+   "slug": "septuaginta.threni-seu-lamentationes",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg052",
+   "slug": "septuaginta.epistula-jeremiae",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg053",
+   "slug": "septuaginta.ezechiel",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg054",
+   "slug": "septuaginta.susanna-translatio-graeca",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg055",
+   "slug": "septuaginta.susanna-theodotionis-versio",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg056",
+   "slug": "septuaginta.daniel-translatio-graeca",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg057",
+   "slug": "septuaginta.daniel-theodotionis-versio",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg058",
+   "slug": "septuaginta.bel-et-draco-translatio-graeca",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0527.tlg059",
+   "slug": "septuaginta.bel-et-draco-theodotionis-versio",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0579.tlg010",
+   "slug": "orphica.fragmenta-2",
+   "century": -5,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg0623.tlg001",
+   "slug": "cratetis-epistulae.epistulae",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg0627.tlg024a",
+   "slug": "hippocrates-et-corpus-hippocraticum.tlg0627-tlg024a",
+   "century": -5,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg0627.tlg024b",
+   "slug": "hippocrates-et-corpus-hippocraticum.tlg0627-tlg024b",
+   "century": -5,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg0636.tlg001",
+   "slug": "socratis-epistulae.epistulae",
+   "century": -5,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg0637.tlg001",
+   "slug": "socraticorum-epistulae.epistulae",
+   "century": -5,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg1129.tlg001",
+   "slug": "anonymi-de-barbarismo-et-soloecismo.de-barbarismo-et-soloecismo",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg1325.tlg001",
+   "slug": "diogenis-sinopensis-epistulae.epistulae",
+   "century": -4,
+   "era": "classical"
+  },
+  {
+   "urn": "tlg1681.tlg001",
+   "slug": "solonis-epistulae.epistulae",
+   "century": -6,
+   "era": "archaic"
+  },
+  {
+   "urn": "tlg1749.tlg001",
+   "slug": "vitae-hesiodi-particula.vitae-hesiodi-particula",
+   "century": -8,
+   "era": "archaic"
+  },
+  {
+   "urn": "tlg1750.tlg001",
+   "slug": "vitae-prophetarum.de-prophetarum-vita-et-obitu-dorothei-recensio",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg1750.tlg002",
+   "slug": "vitae-prophetarum.de-prophetarum-vita-et-obitu-recensio-anonyma",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg1750.tlg003",
+   "slug": "vitae-prophetarum.de-prophetarum-vita-et-obitu-recensio-scholiis-hesychii-aliorumque",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg1750.tlg004",
+   "slug": "vitae-prophetarum.index-apostolorum-discipulorumque-domini-textus-pseudodorothei",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg1765.tlg003",
+   "slug": "vitae-aesopi.vita-pl-vel-accursiana-sub-auctore-maximo-planude-recensio-1",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg1765.tlg004",
+   "slug": "vitae-aesopi.vita-fort-auctore-aphthonio",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg1765.tlg005",
+   "slug": "vitae-aesopi.bibli-on-muqiko-n-tou-ai-sw-pou-ei-koni-zon-po-tw-n-lo-gwn",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg1801.tlg001",
+   "slug": "parodica-anonyma.incertorum-fragmenta",
+   "century": -8,
+   "era": "archaic"
+  },
+  {
+   "urn": "tlg1805.tlg001",
+   "slug": "vitae-homeri.vita-herodotea",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg002",
+   "slug": "vitae-homeri.plutarchi-vita",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg003",
+   "slug": "vitae-homeri.vita-proculea-e-chrestomathia",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg004",
+   "slug": "vitae-homeri.vita-quarta",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg005",
+   "slug": "vitae-homeri.vita-quinta",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg006",
+   "slug": "vitae-homeri.vita-sexta",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg007",
+   "slug": "vitae-homeri.vita-septima-eustathii-vita-od-1713-17",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg008",
+   "slug": "vitae-homeri.tzetzae-vita-chil-13-626-665",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg009",
+   "slug": "vitae-homeri.eustathii-vita-il-4-17",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg1805.tlg010",
+   "slug": "vitae-homeri.sudae-vita",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg2655.tlg002",
+   "slug": "damigeron-magus.de-lapidibus-e-codd-vat-gr-578-ambros-95-sup",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg2948.tlg001",
+   "slug": "acta-philippi.acta-philippi",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg2949.tlg001",
+   "slug": "acta-barnabae.acta-barnabae",
+   "century": 2,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg4026.tlg001",
+   "slug": "anonymi-in-aristotelis-artem-rhetoricam.in-aristotelis-artem-rhetoricam-commentarium",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg4026.tlg002",
+   "slug": "anonymi-in-aristotelis-artem-rhetoricam.fragmentum-commentarii-in-aristotelis-rhetorica",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg4026.tlg003",
+   "slug": "anonymi-in-aristotelis-artem-rhetoricam.fragmentum-paraphrasis-in-aristotelis-rhetorica",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg4027.tlg001",
+   "slug": "anonymi-in-aristotelis-categorias.paraphrasis-categoriarum",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg4033.tlg003",
+   "slug": "anonymi-in-aristotelis-ethica-nicomachea.in-ethica-nicomachea-paraphrasis-pseudepigraphum-olim-constantino",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg4037.tlg001",
+   "slug": "anonymi-paradoxographi.de-incredibilibus-excerpta-vaticana",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg4170.tlg001a",
+   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001a",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg4170.tlg001b",
+   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001b",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg4170.tlg001c",
+   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001c",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg4170.tlg001d",
+   "slug": "vitae-pindari-et-varia-de-pindaro.tlg4170-tlg001d",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg4174.tlg001",
+   "slug": "paraphrases-in-dionysium-periegetam.in-dionysii-periegetae-orbis-descriptionem",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg4193.tlg012",
+   "slug": "anonymi-in-aristotelis-sophisticos-elenchos.in-aristotelis-sophisticos-elenchos-paraphrasis",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg5019.tlg001",
+   "slug": "scholia-in-dionysium-periegetam.scholia-in-dionysii-periegetae-orbis-descriptionem-scholia-vetera",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg5019.tlg002",
+   "slug": "scholia-in-dionysium-periegetam.scholia-in-dionysii-periegetae-orbis-descriptionem-scholia-vetera-2",
+   "century": 1,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg5022.tlg002",
+   "slug": "scholia-in-euclidem.scholia-in-euclidis-data-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5022.tlg003",
+   "slug": "scholia-in-euclidem.scholia-in-euclidis-optica-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5022.tlg004",
+   "slug": "scholia-in-euclidem.scholia-in-opticorum-recensionem-theonis-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5022.tlg005",
+   "slug": "scholia-in-euclidem.scholia-in-euclidis-catoptrica-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5022.tlg006",
+   "slug": "scholia-in-euclidem.scholia-in-euclidis-phaenomena-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5022.tlg007",
+   "slug": "scholia-in-euclidem.scholia-in-euclidis-data-et-catoptrica-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5023.tlg001",
+   "slug": "scholia-in-euripidem.scholia-in-euripidem-scholia-vetera",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5026.tlg001",
+   "slug": "scholia-in-homerum.scholia-in-iliadem-scholia-vetera",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5026.tlg007",
+   "slug": "scholia-in-homerum.scholia-in-odysseam-scholia-vetera",
+   "century": -1,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5029.tlg001",
+   "slug": "scholia-in-lucianum.scholia-in-lucianum-scholia-vetera-et-recentiora-arethae",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg5031.tlg001",
+   "slug": "scholia-in-nicandrum.scholia-et-glossae-in-nicandri-theriaca-scholia-vetera-et",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5031.tlg002",
+   "slug": "scholia-in-nicandrum.scholia-et-glossae-in-nicandri-alexipharmaca-scholia-vetera-et",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5034.tlg001a",
+   "slug": "scholia-in-pindarum.tlg5034-tlg001a",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5034.tlg001b",
+   "slug": "scholia-in-pindarum.tlg5034-tlg001b",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5034.tlg001c",
+   "slug": "scholia-in-pindarum.tlg5034-tlg001c",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5034.tlg001d",
+   "slug": "scholia-in-pindarum.tlg5034-tlg001d",
+   "century": -2,
+   "era": "hellenistic"
+  },
+  {
+   "urn": "tlg5037.tlg004",
+   "slug": "scholia-in-sophoclem.scholia-in-sophoclem-scholia-vetera",
+   "century": 4,
+   "era": "late-antique"
+  },
+  {
+   "urn": "tlg9004.tlg001",
+   "slug": "anonymi-in-aristotelis-librum-alterum-analyticorum-posteriorum.anonymi-in-analyticorum-posteriorum-librum-alterum-commentarium",
+   "century": 12,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg9007.tlg001",
+   "slug": "appendix-proverbiorum.appendix-proverbiorum",
+   "century": 13,
+   "era": "byzantine"
+  }
+ ],
+ "conflicts": [
+  {
+   "urn": "pta0001.pta040",
+   "slug": "severianus.de-caeco-et-zacchaeo-olim-sub-auctore-joanne-chrysostomo",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "pta0001.pta041",
+   "slug": "severianus.in-illud-quando-ipsi-subiciet-omnia-olim-sub-auctore-joanne",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "pta0001.pta044",
+   "slug": "severianus.in-genesim-sermo-1-olim-sub-auctore-joanne-chrysostomo",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "pta0001.pta049",
+   "slug": "severianus.de-tribus-pueris-olim-sub-auctore-joanne-chrysostomo",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "pta0001.pta050",
+   "slug": "severianus.de-caeco-nato-olim-sub-auctore-joanne-chrysostomo",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "pta0003.pta017",
+   "slug": "eusebius-scr-eccl.commentarius-in-isaiam",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0005.tlg001",
+   "slug": "theocritus-bucolic.idyllia",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "300 BC- 260 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0005.tlg002",
+   "slug": "theocritus-bucolic.epigrammata",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "300 BC- 260 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0005.tlg003",
+   "slug": "theocritus-bucolic.syrinx",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "300 BC- 260 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg001",
+   "slug": "plutarchus.theseus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg002",
+   "slug": "plutarchus.romulus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg003",
+   "slug": "plutarchus.comparatio-thesei-et-romuli",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "None",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg004",
+   "slug": "plutarchus.lycurgus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg005",
+   "slug": "plutarchus.numa",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg006",
+   "slug": "plutarchus.comparatio-lycurgi-et-numae",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg007",
+   "slug": "plutarchus.solon",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg008",
+   "slug": "plutarchus.publicola",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg009",
+   "slug": "plutarchus.comparatio-solonis-et-publicolae",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg010",
+   "slug": "plutarchus.themistocles",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg011",
+   "slug": "plutarchus.camillus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg012",
+   "slug": "plutarchus.pericles",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg013",
+   "slug": "plutarchus.fabius-maximus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg014",
+   "slug": "plutarchus.comparatio-periclis-et-fabii-maximi",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg015",
+   "slug": "plutarchus.alcibiades",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg016",
+   "slug": "plutarchus.marcius-coriolanus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg017",
+   "slug": "plutarchus.comparatio-alcibiadis-et-marcii-coriolani",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg018",
+   "slug": "plutarchus.timoleon",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg019",
+   "slug": "plutarchus.aemilius-paullus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg020",
+   "slug": "plutarchus.comparatio-aemilii-paulli-et-timoleontis",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg021",
+   "slug": "plutarchus.pelopidas",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg022",
+   "slug": "plutarchus.marcellus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg023",
+   "slug": "plutarchus.comparatio-pelopidae-et-marcelli",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg024",
+   "slug": "plutarchus.aristides",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg025",
+   "slug": "plutarchus.cato-maior",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg026",
+   "slug": "plutarchus.comparatio-aristidis-et-catonis",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg030",
+   "slug": "plutarchus.pyrrhus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg031",
+   "slug": "plutarchus.marius",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg032",
+   "slug": "plutarchus.lysander",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "104 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg033",
+   "slug": "plutarchus.sulla",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "104 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg034",
+   "slug": "plutarchus.comparatio-lysandri-et-sullae",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "104 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg035",
+   "slug": "plutarchus.cimon",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg036",
+   "slug": "plutarchus.lucullus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg037",
+   "slug": "plutarchus.comparatio-cimonis-et-luculli",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg038",
+   "slug": "plutarchus.nicias",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg039",
+   "slug": "plutarchus.crassus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg040",
+   "slug": "plutarchus.comparatio-niciae-et-crassi",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg041",
+   "slug": "plutarchus.eumenes",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg042",
+   "slug": "plutarchus.sertorius",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg043",
+   "slug": "plutarchus.comparatio-eumenis-et-sertorii",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg044",
+   "slug": "plutarchus.agesilaus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg045",
+   "slug": "plutarchus.pompeius",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg046",
+   "slug": "plutarchus.comparatio-agesilai-et-pompeii",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg047",
+   "slug": "plutarchus.alexander",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg048",
+   "slug": "plutarchus.caesar",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg049",
+   "slug": "plutarchus.phocion",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg050",
+   "slug": "plutarchus.cato-minor",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg051",
+   "slug": "plutarchus.agis-et-cleomenes",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg052",
+   "slug": "plutarchus.tiberius-et-gaius-gracchus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg053",
+   "slug": "plutarchus.comparatio-agidis-et-cleomenis-cum-tiberio-et-gaio-graccho",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg054",
+   "slug": "plutarchus.demosthenes",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg055",
+   "slug": "plutarchus.cicero",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg056",
+   "slug": "plutarchus.comparatio-demosthenis-et-ciceronis",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg060",
+   "slug": "plutarchus.dion",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "99 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg061",
+   "slug": "plutarchus.brutus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "99 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg062",
+   "slug": "plutarchus.comparatio-dionis-et-bruti",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "99 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg064",
+   "slug": "plutarchus.artaxerxes",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg067",
+   "slug": "plutarchus.de-liberis-educandis-sp-1a-14c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg068",
+   "slug": "plutarchus.quomodo-adolescens-poetas-audire-debeat-14d-37b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg069",
+   "slug": "plutarchus.de-recta-ratione-audiendi-37b-48d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg070",
+   "slug": "plutarchus.quomodo-adulator-ab-amico-internoscatur-48e-74e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg071",
+   "slug": "plutarchus.quomodo-quis-suos-in-virtute-sentiat-profectus-75a-86a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg072",
+   "slug": "plutarchus.de-capienda-ex-inimicis-utilitate-86b-92f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg073",
+   "slug": "plutarchus.de-amicorum-multitudine-93a-97b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg074",
+   "slug": "plutarchus.de-fortuna-97c-100a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg075",
+   "slug": "plutarchus.de-virtute-et-vitio-100b-101e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg076",
+   "slug": "plutarchus.consolatio-ad-apollonium-sp-101f-122a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg079",
+   "slug": "plutarchus.septem-sapientium-convivium-146b-164d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg080",
+   "slug": "plutarchus.de-superstitione-164e-171f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg081",
+   "slug": "plutarchus.regum-et-imperatorum-apophthegmata-sp-172b-208a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg082",
+   "slug": "plutarchus.apophthegmata-laconica-sp-208b-242d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg083",
+   "slug": "plutarchus.mulierum-virtutes-242e-263c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "115 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg085",
+   "slug": "plutarchus.parallela-minora-sp-305a-316b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg087",
+   "slug": "plutarchus.de-alexandri-magni-fortuna-aut-virtute-326d-345b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg089",
+   "slug": "plutarchus.de-iside-et-osiride-351c-384c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "115 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg090",
+   "slug": "plutarchus.de-e-apud-delphos-384d-394c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg091",
+   "slug": "plutarchus.de-pythiae-oraculis-394d-409d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg092",
+   "slug": "plutarchus.de-defectu-oraculorum-409e-438d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg093",
+   "slug": "plutarchus.virtus-doceri-possit-439a-440c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg094",
+   "slug": "plutarchus.de-virtute-morali-440d-452d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg096",
+   "slug": "plutarchus.de-tranquillitate-animi-464e-477f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "107 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg098",
+   "slug": "plutarchus.de-amore-prolis-493a-497e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg099",
+   "slug": "plutarchus.vitiositas-ad-infelicitatem-sufficiat-498a-500a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg100",
+   "slug": "plutarchus.animine-corporis-affectiones-sint-peiores-500b-502a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg102",
+   "slug": "plutarchus.de-curiositate-515b-523b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg103",
+   "slug": "plutarchus.de-cupiditate-divitiarum-523c-528b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg104",
+   "slug": "plutarchus.de-vitioso-pudore-528c-536d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg105",
+   "slug": "plutarchus.de-invidia-et-odio-536e-538e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg106",
+   "slug": "plutarchus.de-laude-ipsius-539a-547f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg107",
+   "slug": "plutarchus.de-sera-numinis-vindicta-548a-568a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg108",
+   "slug": "plutarchus.de-fato-sp-568b-574f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg109",
+   "slug": "plutarchus.de-genio-socratis-575a-598f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg110",
+   "slug": "plutarchus.de-exilio-599a-607f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg112",
+   "slug": "plutarchus.quaestiones-convivales-612c-748d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "99 AD - 116 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg113",
+   "slug": "plutarchus.amatorius-748e-771e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg114",
+   "slug": "plutarchus.amatoriae-narrationes-sp-771e-775e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg115",
+   "slug": "plutarchus.maxime-cum-principibus-philosopho-esse-disserendum-776a-779c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg116",
+   "slug": "plutarchus.ad-principem-ineruditum-779d-782f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg117",
+   "slug": "plutarchus.seni-respublica-gerenda-sit-783b-797f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg118",
+   "slug": "plutarchus.praecepta-gerendae-reipublicae-798a-825f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 114 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg119",
+   "slug": "plutarchus.de-unius-in-republica-dominatione-populari-statu-et-paucorum",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg120",
+   "slug": "plutarchus.de-vitando-aere-alieno-827d-832a",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg121",
+   "slug": "plutarchus.vitae-decem-oratorum-sp-832b-852e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg122",
+   "slug": "plutarchus.comparationis-aristophanis-et-menandri-compendium-853a-854d",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg123",
+   "slug": "plutarchus.de-herodoti-malignitate-854e-874c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg125",
+   "slug": "plutarchus.aetia-physica-911c-919e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg126",
+   "slug": "plutarchus.de-facie-in-orbe-lunae-920b-945e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg127",
+   "slug": "plutarchus.de-primo-frigido-945f-955c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "107 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg128",
+   "slug": "plutarchus.aquane-ignis-sit-utilior-sp-955d-958e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg130",
+   "slug": "plutarchus.bruta-animalia-ratione-uti-985d-992e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg131",
+   "slug": "plutarchus.de-esu-carnium-i-993a-996c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg132",
+   "slug": "plutarchus.de-esu-carnium-ii-996d-999b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg133",
+   "slug": "plutarchus.platonicae-quaestiones-999c-1011e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg134",
+   "slug": "plutarchus.de-animae-procreatione-in-timaeo-1012b-1030c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg135",
+   "slug": "plutarchus.epitome-libri-de-animae-procreatione-in-timaeo-1030d-1032f",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg136",
+   "slug": "plutarchus.de-stoicorum-repugnantiis-1033a-1057b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg137",
+   "slug": "plutarchus.stoicos-absurdiora-poetis-dicere-1057c-1058e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg138",
+   "slug": "plutarchus.de-communibus-notitiis-adversus-stoicos-1058e-1086b",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD - 120 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg139",
+   "slug": "plutarchus.non-posse-suaviter-vivi-secundum-epicurum-1086c-1107c",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg140",
+   "slug": "plutarchus.adversus-colotem-1107d-1127e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg141",
+   "slug": "plutarchus.de-latenter-vivendo-1128a-1130e",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg146",
+   "slug": "plutarchus.paroimi-ai-ai-s-alecandrei-s-e-xrw-nto",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0007.tlg147",
+   "slug": "plutarchus.eklogh-peri-tw-n-duna-twn",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "96 AD -125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0010.tlg001",
+   "slug": "isocrates.in-euthynum-orat-21",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2",
+   "oga_estimated": "403 BC - 402 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0010.tlg002",
+   "slug": "isocrates.in-callimachum-orat-18",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2",
+   "oga_estimated": "402 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0011.tlg007",
+   "slug": "sophocles.oedipus-coloneus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2",
+   "oga_estimated": "401 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg001",
+   "slug": "hymni-homerici.fragmenta-hymni-in-bacchum",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -7,
+   "oga_era": "archaic",
+   "oga_date_label": "m7_1",
+   "oga_estimated": "699 BC - 650 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg004",
+   "slug": "hymni-homerici.in-mercurium",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -7,
+   "oga_era": "archaic",
+   "oga_date_label": "m7_2",
+   "oga_estimated": "624 BC - 599 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg005",
+   "slug": "hymni-homerici.in-venerem",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -7,
+   "oga_era": "archaic",
+   "oga_date_label": "m7_2",
+   "oga_estimated": "649 BC - 574 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg007",
+   "slug": "hymni-homerici.in-bacchum",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m6_2/m5_1",
+   "oga_estimated": "524 BC - 474 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg008",
+   "slug": "hymni-homerici.in-martem",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p3_2/p4_1/p4_2/p5_1/p5_2",
+   "oga_estimated": "201 AD - 500 AD",
+   "delta": 10
+  },
+  {
+   "urn": "tlg0013.tlg019",
+   "slug": "hymni-homerici.in-pana",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_1",
+   "oga_estimated": "c. 500 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg020",
+   "slug": "hymni-homerici.in-volcanum",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_1",
+   "oga_estimated": "449 BC - 400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg031",
+   "slug": "hymni-homerici.in-solem",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_1",
+   "oga_estimated": "500 BC - 400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0013.tlg032",
+   "slug": "hymni-homerici.in-lunam",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_1",
+   "oga_estimated": "500 BC - 400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg001",
+   "slug": "isaeus.de-cleonymo",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "355 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg002",
+   "slug": "isaeus.de-menecle",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "354 BC - 353 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg003",
+   "slug": "isaeus.de-pyrrho",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "389 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg004",
+   "slug": "isaeus.de-nicostrato",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_2",
+   "oga_estimated": "350 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg005",
+   "slug": "isaeus.de-dicaeogene",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "389 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg006",
+   "slug": "isaeus.de-philoctemone",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "365 BC- 363 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg007",
+   "slug": "isaeus.de-apollodoro",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "354 BC - 349 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg008",
+   "slug": "isaeus.de-cirone",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "383 BC - 365 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg009",
+   "slug": "isaeus.de-astyphilo",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "366 BC - 365 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg010",
+   "slug": "isaeus.de-aristarcho",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "378 BC - 371 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg011",
+   "slug": "isaeus.de-hagnia",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "359 BC - 357 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0017.tlg012",
+   "slug": "isaeus.pro-euphileto",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_2",
+   "oga_estimated": "344 BC -343 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0019.tlg010",
+   "slug": "aristophanes-comedy.ecclesiazusae",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "393 BC - 391 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0019.tlg011",
+   "slug": "aristophanes-comedy.plutus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "388 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0022.tlg002",
+   "slug": "nicander-epic.alexipharmaca",
+   "existing_century": [
+    -3
+   ],
+   "oga_century": -2,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_2/m2_1",
+   "oga_estimated": "225 BC-175 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0027.tlg001",
+   "slug": "andocides.de-mysteriis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC - 399 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0027.tlg003",
+   "slug": "andocides.de-pace",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "391 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0031.tlg015",
+   "slug": "novum-testamentum.epistula-pauli-ad-timotheum-i",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "75 AD - 155 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0031.tlg016",
+   "slug": "novum-testamentum.epistula-pauli-ad-timotheum-ii",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "90 AD - 140 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0031.tlg020",
+   "slug": "novum-testamentum.epistula-jacobi",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2/p2_1/p2_2/p3_1/p3_2/p4_1/p4_2",
+   "oga_estimated": "1st-4th Centuries AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0031.tlg021",
+   "slug": "novum-testamentum.epistula-petri-i",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2/p2_1/p2_2/p3_1/p3_2/p4_1/p4_2",
+   "oga_estimated": "1st-4th Centuries AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0031.tlg022",
+   "slug": "novum-testamentum.epistula-petri-ii",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "60 AD - 150 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0031.tlg023",
+   "slug": "novum-testamentum.epistula-joannis-i",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "95 AD - 110 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0036.tlg001",
+   "slug": "bion-bucolic.epitaphius-adonis",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m2_2/m1_1",
+   "oga_estimated": "125 BC- 75 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0036.tlg002",
+   "slug": "bion-bucolic.epithalamium-achillis-et-deidameiae-sp",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m2_2/m1_1",
+   "oga_estimated": "125 BC- 75 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0036.tlg003",
+   "slug": "bion-bucolic.fragmenta",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m2_2/m1_1",
+   "oga_estimated": "125 BC- 75 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0037.tlg001",
+   "slug": "anacharsidis-epistulae.epistulae",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1",
+   "oga_estimated": "100 BC - 75 BC",
+   "delta": 5
+  },
+  {
+   "urn": "tlg0039.tlg001",
+   "slug": "mithridatis-epistula.epistula",
+   "existing_century": [
+    -1
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2/p2_1/p2_2",
+   "oga_estimated": "1 AD - 200 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0041.tlg001",
+   "slug": "chionis-epistulae.epistulae",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "1st Century AD",
+   "delta": 5
+  },
+  {
+   "urn": "tlg0044.tlg001",
+   "slug": "antiochi-regis-epistulae.epistulae",
+   "existing_century": [
+    -3
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1",
+   "oga_estimated": "None",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0045.tlg001",
+   "slug": "artaxerxis-epistulae.epistulae",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1/p2_2/p3_1/p3_2/p4_1/p4_2",
+   "oga_estimated": "None",
+   "delta": 8
+  },
+  {
+   "urn": "tlg0053.tlg001",
+   "slug": "phalaridis-epistulae.epistulae",
+   "existing_century": [
+    2
+   ],
+   "oga_century": -6,
+   "oga_era": "archaic",
+   "oga_date_label": "m6_1",
+   "oga_estimated": "570 BC-555 BC",
+   "delta": 8
+  },
+  {
+   "urn": "tlg0057.tlg001",
+   "slug": "galenus.adhortatio-ad-artes-addiscendas",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg002",
+   "slug": "galenus.de-optima-doctrina",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg003",
+   "slug": "galenus.quod-optimus-medicus-sit-quoque-philosophus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg004",
+   "slug": "galenus.de-sectis-ad-eos-qui-introducuntur",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg006",
+   "slug": "galenus.de-constitutione-artis-medicae-ad-patrophilum",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg008",
+   "slug": "galenus.de-elementis-ex-hippocrate-libri-ii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg009",
+   "slug": "galenus.de-temperamentis-libri-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 176 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg010",
+   "slug": "galenus.de-naturalibus-facultatibus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg011",
+   "slug": "galenus.de-anatomicis-administrationibus-libri-ix",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg012",
+   "slug": "galenus.de-ossibus-ad-tirones",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "162 AD - 166 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg013",
+   "slug": "galenus.de-venarum-arteriarumque-dissectione",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg014",
+   "slug": "galenus.de-nervorum-dissectione",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg015",
+   "slug": "galenus.de-instrumento-odoratus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg016",
+   "slug": "galenus.de-uteri-dissectione",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg017",
+   "slug": "galenus.de-usu-partium",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "162 AD - 166 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg018",
+   "slug": "galenus.de-motu-musculorum-libri-ii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg019",
+   "slug": "galenus.de-victu-attenuante",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg020",
+   "slug": "galenus.de-utilitate-respirationis-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg021",
+   "slug": "galenus.de-semine-libri-ii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg022",
+   "slug": "galenus.de-foetuum-formatione-libellus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg023",
+   "slug": "galenus.in-arteriis-natura-sanguis-contineatur",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg024",
+   "slug": "galenus.de-optima-corporis-nostri-constitutione",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg025",
+   "slug": "galenus.de-bono-habitu-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg027",
+   "slug": "galenus.quod-animi-mores-corporis-temperamenta-sequantur",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg028",
+   "slug": "galenus.de-propriorum-animi-cuiuslibet-affectuum-dignotione-et-curatione",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg029",
+   "slug": "galenus.de-animi-cuiuslibet-peccatorum-dignotione-et-curatione-de",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg030",
+   "slug": "galenus.de-atra-bile",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg031",
+   "slug": "galenus.de-usu-pulsuum",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "162 AD - 166 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg032",
+   "slug": "galenus.de-placitis-hippocratis-et-platonis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg033",
+   "slug": "galenus.thrasybulus-sive-utrum-medicinae-sit-gymnasticae-hygieine",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg034",
+   "slug": "galenus.de-parvae-pilae-exercitio",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg035",
+   "slug": "galenus.de-venereis-ap-oribasium",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg036",
+   "slug": "galenus.de-sanitate-tuenda-libri-vi",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg037",
+   "slug": "galenus.de-alimentorum-facultatibus-libri-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "180 AD - 192 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg038",
+   "slug": "galenus.de-rebus-boni-malique-suci",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg039",
+   "slug": "galenus.de-ptisana",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg040",
+   "slug": "galenus.de-dignotione-ex-insomniis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg041",
+   "slug": "galenus.de-morborum-differentiis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg042",
+   "slug": "galenus.de-causis-morborum-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg043",
+   "slug": "galenus.de-symptomatum-differentiis-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg044",
+   "slug": "galenus.de-symptomatum-causis-libri-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg045",
+   "slug": "galenus.de-differentiis-febrium-libri-ii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg046",
+   "slug": "galenus.de-morborum-temporibus-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg047",
+   "slug": "galenus.de-totius-morbi-temporibus-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg048",
+   "slug": "galenus.de-typis-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg049",
+   "slug": "galenus.adversus-eos-qui-de-typis-scripserunt-vel-de-circuitibus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg050",
+   "slug": "galenus.de-plenitudine-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg051",
+   "slug": "galenus.de-tremore-palpitatione-convulsione-et-rigore-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg052",
+   "slug": "galenus.de-comate-secundum-hippocratem-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg053",
+   "slug": "galenus.de-marcore-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg054",
+   "slug": "galenus.de-tumoribus-praeter-naturam",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg055",
+   "slug": "galenus.de-inaequali-intemperie-liber",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg056",
+   "slug": "galenus.de-difficultate-respirationis-libri-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg057",
+   "slug": "galenus.de-locis-affectis-libri-vi",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg058",
+   "slug": "galenus.de-pulsibus-libellus-ad-tirones",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg059",
+   "slug": "galenus.de-differentia-pulsuum-libri-iv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg060",
+   "slug": "galenus.de-dignoscendis-pulsibus-libri-iv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg061",
+   "slug": "galenus.de-causis-pulsuum-libri-iv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg062",
+   "slug": "galenus.de-praesagitione-ex-pulsibus-libri-iv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg063",
+   "slug": "galenus.synopsis-librorum-suorum-de-pulsibus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg064",
+   "slug": "galenus.de-crisibus-libri-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg065",
+   "slug": "galenus.de-diebus-decretoriis-libri-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg066",
+   "slug": "galenus.de-methodo-medendi-libri-xiv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg067",
+   "slug": "galenus.ad-glauconem-de-medendi-methodo-libri-ii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg068",
+   "slug": "galenus.de-venae-sectione-adversus-erasistratum",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg069",
+   "slug": "galenus.de-venae-sectione-adversus-erasistrateos-romae-degentes",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "162 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg070",
+   "slug": "galenus.de-curandi-ratione-per-venae-sectionem",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg071",
+   "slug": "galenus.de-hirundinibus-revulsione-cucurbitula-incisione-et",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg072",
+   "slug": "galenus.de-purgantium-medicamentorum-facultate",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg073",
+   "slug": "galenus.quos-quibus-catharticis-medicamentis-et-quando-purgare-oporteat-ap",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg074",
+   "slug": "galenus.pro-puero-epileptico-consilium",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg075",
+   "slug": "galenus.de-simplicium-medicamentorum-temperamentis-ac-facultatibus-libri-xi",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg076",
+   "slug": "galenus.de-compositione-medicamentorum-secundum-locos-libri-x",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "169 AD - 175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg077",
+   "slug": "galenus.de-compositione-medicamentorum-per-genera-libri-vii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg078",
+   "slug": "galenus.de-antidotis-libri-ii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg081",
+   "slug": "galenus.institutio-logica",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg082",
+   "slug": "galenus.de-sophismatis-seu-captionibus-penes-dictionem",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg083",
+   "slug": "galenus.de-praenotione-ad-posthumum-epigenem",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg084",
+   "slug": "galenus.de-substantia-facultatum-naturalium-fragmentum-de-propriis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg085",
+   "slug": "galenus.in-hippocratis-de-natura-hominis-librum-commentarii-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "180 AD - 192 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg087",
+   "slug": "galenus.in-hippocratis-de-victu-acutorum-commentaria-iv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg089",
+   "slug": "galenus.in-hippocratis-librum-primum-epidemiarum-commentarii-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "176 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg092",
+   "slug": "galenus.in-hippocratis-aphorismos-commentarii-vii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg093",
+   "slug": "galenus.adversus-lycum-libellus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg094",
+   "slug": "galenus.adversus-ea-quae-juliano-in-hippocratis-aphorismos-enuntiata-sunt",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg095",
+   "slug": "galenus.in-hippocratis-librum-de-articulis-et-galeni-in-eum-commentarii-iv",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg096",
+   "slug": "galenus.de-humero-iis-modis-prolapso-quos-hippocrates-non-vidit",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg099",
+   "slug": "galenus.in-hippocratis-prognosticum-commentaria-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg100",
+   "slug": "galenus.in-hippocratis-librum-de-fracturis-commentarii-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "175 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg101",
+   "slug": "galenus.in-hippocratis-librum-de-officina-medici-commentarii-iii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg102",
+   "slug": "galenus.de-musculorum-dissectione-ad-tirones",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg103",
+   "slug": "galenus.de-consuetudinibus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg107",
+   "slug": "galenus.de-experientia-medica",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0057.tlg114",
+   "slug": "galenus.de-causis-respirationis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "129 AD-216 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg001",
+   "slug": "pseudo-lucianus.asinus",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg002",
+   "slug": "pseudo-lucianus.amores",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg003",
+   "slug": "pseudo-lucianus.demosthenis-encomium",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg004",
+   "slug": "pseudo-lucianus.halcyon",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg005",
+   "slug": "pseudo-lucianus.ocypus",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg006",
+   "slug": "pseudo-lucianus.cynicus",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg007",
+   "slug": "pseudo-lucianus.philopatris",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0061.tlg008",
+   "slug": "pseudo-lucianus.charidemus",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0064.tlg001",
+   "slug": "periplus-hannonis.periplus-hannonis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m5_1/m5_2/m4_1/m4_2/m3_1/m3_2/m2_1/m2_2/m1_1",
+   "oga_estimated": "499 BC - 1 BC",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0065.tlg001",
+   "slug": "scylax.periplus-scylacis",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_2",
+   "oga_estimated": "338 BC -337 BC",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0066.tlg001",
+   "slug": "dicaearchus.fragmenta",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "299 BC- 200 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0068.tlg001",
+   "slug": "pseudo-scymnus.ad-nicomedem-regem-vv-1-980-sub-titulo-orbis",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1",
+   "oga_estimated": "100 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0069.tlg001",
+   "slug": "dionysius-geography.descriptio-graeciae",
+   "existing_century": [
+    2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1",
+   "oga_estimated": "88 BC-78 BC",
+   "delta": 3
+  },
+  {
+   "urn": "tlg0075.tlg001",
+   "slug": "periplus-ponti-euxini.anonymi-arriani-ut-fertur-periplus-ponti-euxini",
+   "existing_century": [
+    6
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "145 AD-146 AD",
+   "delta": 4
+  },
+  {
+   "urn": "tlg0077.tlg001",
+   "slug": "periplus-maris-magni.stadiasmus-sive-periplus-maris-magni",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p4_2",
+   "oga_estimated": "350 AD-400 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0084.tlg001",
+   "slug": "dionysius-periegesis.orbis-descriptio",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "100 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg001",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.de-prosodia-catholica",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg002",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.de-enclisi-epitome-ap-arcadium",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg004",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-dixro-nwn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg005",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-pneuma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg006",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-attikh-s-prosw-di-as",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg007",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-iliakh-s-prosw-di-as",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg008",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-odusseiakh-s-prosw-di-as",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg009",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-paqw-n",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg010",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-sunta-cews-tw-n-stoixei-wn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg011",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-o-rqografi-as",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg012",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-o-noma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg013",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-kli-sews-o-noma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg014",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.ei-s-peri-genw-n-apollwni-ou-u-po-mnhma",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg015",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.mono-biblon-peri-tou-u-dwr",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg016",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-tou-zw-s",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg017",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-suzugiw-n",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg018",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.mono-biblon-peri-tou-mh-pa-nta-ta-r-h-mata-kli-nesqai-ei-s",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg019",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-metoxw-n",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg020",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.mono-biblon-peri-tou-h-n",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg021",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-r-hma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg022",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-tw-n-ei-s-mi",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg023",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-ntwnumiw-n",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg024",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-e-pirrhma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg025",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.de-figuris-peri-sxhma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg026",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-parwnu-mwn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg027",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-r-hmatikw-n-o-noma-twn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg028",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-monosulla-bwn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg029",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-ga-mou-kai-sumbiw-sews",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg030",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.sumpo-sion",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg031",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.prota-seis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg032",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.ei-s-th-n-apollwni-ou-ei-sagwgh-n",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "101 AD- 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0087.tlg033",
+   "slug": "aelius-herodianus-et-pseudo-herodianus.peri-monh-rous-le-cews",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "100 AD - 200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0090.tlg001",
+   "slug": "agathemerus.geographiae-informatio",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2/p2_1/p2_2",
+   "oga_estimated": "1st-2nd century AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0099.tlg001",
+   "slug": "strabo.geographica",
+   "existing_century": [
+    -1
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_1",
+   "oga_estimated": "18-24 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0361.tlg001",
+   "slug": "cleonides.introductio-harmonica",
+   "existing_century": [
+    -3
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1/m1_2",
+   "oga_estimated": "1st Century BC",
+   "delta": 2
+  },
+  {
+   "urn": "tlg0509.tlg001",
+   "slug": "myia.epistula-ad-phyllidem",
+   "existing_century": [
+    -6
+   ],
+   "oga_century": -2,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1/m3_2/m2_1",
+   "oga_estimated": "3rd-2nd Century BC",
+   "delta": 4
+  },
+  {
+   "urn": "tlg0530.tlg005",
+   "slug": "pseudo-galenus.de-fasciis-liber",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD (201 AD-300 AD)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0530.tlg006",
+   "slug": "pseudo-galenus.ad-gaurum-quomodo-animetur-fetus",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD (201 AD-300 AD)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0530.tlg012",
+   "slug": "pseudo-galenus.introductio-seu-medicus",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD (201 AD-300 AD)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0530.tlg029",
+   "slug": "pseudo-galenus.de-remediis-parabilibus-libri-iii",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD (201 AD-300 AD)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0530.tlg032",
+   "slug": "pseudo-galenus.de-theriaca-ad-pamphilianum",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD (201 AD-300 AD)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0530.tlg043",
+   "slug": "pseudo-galenus.de-optima-secta-ad-thrasybulum-liber",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD (201 AD-300 AD)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0532.tlg001",
+   "slug": "achilles-tatius-scr-erot.leucippe-et-clitophon",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0537.tlg010",
+   "slug": "epicurus.epistula-ad-herodotum",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "311 BC-271 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0537.tlg011",
+   "slug": "epicurus.epistula-ad-pythoclem",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "311 BC-271 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0537.tlg012",
+   "slug": "epicurus.epistula-ad-menoeceum",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "311 BC-271 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0537.tlg013",
+   "slug": "epicurus.ratae-sententiae",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "311 BC-271 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0537.tlg014",
+   "slug": "epicurus.gnomologium-vaticanum-epicureum",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1",
+   "oga_estimated": "311 BC-271 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg002",
+   "slug": "lysias.epitaphius-sp",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "c. 394 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg003",
+   "slug": "lysias.contra-simonem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "c. 394 BC - 380 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg004",
+   "slug": "lysias.peri-trau-matos-e-k-pronoi-as-u-pe-r-ou-kai-pro-s-o-n",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "399 BC-380 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg005",
+   "slug": "lysias.pro-callia",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "399 BC-380 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg006",
+   "slug": "lysias.in-andocidem-sp",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "399 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg007",
+   "slug": "lysias.areopagiticus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "395 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg008",
+   "slug": "lysias.kathgori-pro-s-tou-s-sunousiasta-s-kakologiw-n-sp",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "399 BC-380 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg009",
+   "slug": "lysias.pro-milite-sp",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "394 BC - 387 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg010",
+   "slug": "lysias.in-theomnestum-1",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "384 BC - 383 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg011",
+   "slug": "lysias.in-theomnestum-2-sp",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "384 BC - 383 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg013",
+   "slug": "lysias.in-agoratum",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC - 398 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg014",
+   "slug": "lysias.in-alcibiadem-1",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "395 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg015",
+   "slug": "lysias.in-alcibiadem-2",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "395 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg016",
+   "slug": "lysias.pro-mantitheo",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "392 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg017",
+   "slug": "lysias.pro-s-dhmo-sion-peri-tw-n-era-twnos-xrhma-twn",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "397 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg018",
+   "slug": "lysias.peri-th-s-dhmeu-sews-tw-n-tou-niki-ou-delfou",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "396 BC - 385 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg019",
+   "slug": "lysias.upe-r-tw-n-aristofa-nous-xrhma-twn-pro-s-dhmo-sion",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "387 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg022",
+   "slug": "lysias.kata-tw-n-sitopwlw-n",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "390 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg023",
+   "slug": "lysias.in-pancleonem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC - 399 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg025",
+   "slug": "lysias.dh-mou-katalu-sews-pologi",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2",
+   "oga_estimated": "402 BC - 400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg026",
+   "slug": "lysias.peri-th-s-eu-ndrou-dokimasi-as",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "382 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg027",
+   "slug": "lysias.in-epicratem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "c. 390 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg028",
+   "slug": "lysias.in-ergoclem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "389 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg029",
+   "slug": "lysias.in-philocratem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "389 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg030",
+   "slug": "lysias.in-nicomachum",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "399 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg031",
+   "slug": "lysias.in-philonem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2/m4_1",
+   "oga_estimated": "405 BC - 395 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg032",
+   "slug": "lysias.in-diogitonem",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0540.tlg033",
+   "slug": "lysias.olympiacus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "388 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0550.tlg001",
+   "slug": "apollonius-geom.conica",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -3,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_2",
+   "oga_estimated": "240 BC - 190 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0554.tlg001",
+   "slug": "chariton.de-chaerea-et-callirhoe",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2/p2_1",
+   "oga_estimated": "75 AD - 125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0555.tlg006",
+   "slug": "clemens-alexandrinus.quis-dives-salvetur",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_1",
+   "oga_estimated": "203 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0556.tlg001",
+   "slug": "asclepiodotus.tactica",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1/m1_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0557.tlg001",
+   "slug": "epictetus.dissertationes-ab-arriano-digestae",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "108 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0557.tlg002",
+   "slug": "epictetus.enchiridion",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "125 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0564.tlg001",
+   "slug": "rufus-medicine.de-renum-et-vesicae-morbis",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "50 AD - 100 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0580.tlg001",
+   "slug": "paradoxographus-florentinus.mirabilia-de-aquis",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_1",
+   "oga_estimated": "1 AD-50 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0592.tlg001",
+   "slug": "hermogenes.progymnasmata-dub",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "161 AD - 180 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0592.tlg002",
+   "slug": "hermogenes.peri-sta-sewn",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "161 AD - 180 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0592.tlg003",
+   "slug": "hermogenes.peri-eu-re-sews-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "161 AD - 180 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0592.tlg004",
+   "slug": "hermogenes.peri-i-dew-n-lo-gou",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "161 AD - 180 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0592.tlg005",
+   "slug": "hermogenes.peri-meqo-dou-deino-thtos-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "161 AD - 180 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0613.tlg001",
+   "slug": "demetrius-rhetoric.de-elocutione",
+   "existing_century": [
+    -1
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_2",
+   "oga_estimated": "",
+   "delta": 3
+  },
+  {
+   "urn": "tlg0615.tlg001",
+   "slug": "aspasius.in-ethica-nichomachea-commentaria",
+   "existing_century": [
+    2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1",
+   "oga_estimated": "100 BC - 50 BC",
+   "delta": 3
+  },
+  {
+   "urn": "tlg0627.tlg001",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-prisca-medicina",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg002",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-ae-re-aquis-et-locis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg003",
+   "slug": "hippocrates-et-corpus-hippocraticum.prognosticon",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg004",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-diaeta-in-morbis-acutis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg007",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-capitis-vulneribus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg008",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-officina-medici",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg009",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-fracturis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "None",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg010",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-articulis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg012",
+   "slug": "hippocrates-et-corpus-hippocraticum.aphorismi",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg014",
+   "slug": "hippocrates-et-corpus-hippocraticum.lex",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg027",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-morbo-sacro",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg028",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-ulceribus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg029",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-haemorrhoidibus",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg030",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-fistulis",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0627.tlg045",
+   "slug": "hippocrates-et-corpus-hippocraticum.de-corde",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -2,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m3_1/m3_2/m2_1/m2_2/m1_1",
+   "oga_estimated": "323 BC - 33 BC",
+   "delta": 3
+  },
+  {
+   "urn": "tlg0633.tlg001",
+   "slug": "lysis.epistula-ad-hipparchum",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m4_1",
+   "oga_estimated": "400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0638.tlg001",
+   "slug": "flavius-philostratus.vita-apollonii",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0638.tlg003",
+   "slug": "flavius-philostratus.vitae-sophistarum",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0638.tlg004",
+   "slug": "flavius-philostratus.heroicus",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0638.tlg005",
+   "slug": "flavius-philostratus.nero",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0638.tlg006",
+   "slug": "flavius-philostratus.epistulae-et-dialexeis",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0640.tlg001",
+   "slug": "alciphron.epistulae",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "201 AD - 300 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0646.tlg004",
+   "slug": "pseudo-justinus-martyr.epistula-ad-diognetum",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "165 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0647.tlg001",
+   "slug": "triphiodorus.alwsis-ili-ou",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "201 AD - 300 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0657.tlg001",
+   "slug": "crateuas.fragmenta",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_1",
+   "oga_estimated": "1st Century BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0719.tlg001",
+   "slug": "aretaeus.de-causis-et-signis-acutorum-morborum-lib-1",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0719.tlg003",
+   "slug": "aretaeus.de-curatione-acutorum-morborum-libri-duo",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0719.tlg004",
+   "slug": "aretaeus.de-curatione-diuturnorum-morborum-libri-duo",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg001",
+   "slug": "alexander-philosophy.de-mixtione",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg003",
+   "slug": "alexander-philosophy.de-febribus-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg004",
+   "slug": "alexander-philosophy.in-aristotelis-metaphysica-commentaria",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg005",
+   "slug": "alexander-philosophy.in-aristotelis-analyticorum-priorum-librum-i-commentarium",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg006",
+   "slug": "alexander-philosophy.in-aristotelis-topicorum-libros-octo-commentaria",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg007",
+   "slug": "alexander-philosophy.in-librum-de-sensu-commentarium",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg008",
+   "slug": "alexander-philosophy.in-aristotelis-meteorologicorum-libros-commentaria",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg010",
+   "slug": "alexander-philosophy.de-anima",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg011",
+   "slug": "alexander-philosophy.de-anima-libri-mantissa-de-anima-liber-alter-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg012",
+   "slug": "alexander-philosophy.apori-ai-kai-lu-seis-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg013",
+   "slug": "alexander-philosophy.hqika-problh-mata-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlg014",
+   "slug": "alexander-philosophy.de-fato",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0732.tlgX01",
+   "slug": "alexander-philosophy.in-aristotelis-sophisticos-elenchos-commentarius-sp",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg0751.tlg005",
+   "slug": "pseudo-hippocrates.ermhnei-peri-e-nergw-n-li-qwn",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m5_1/m5_2/m4_1",
+   "oga_estimated": "500 BC-300 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1118.tlg003",
+   "slug": "pseudo-dioscorides.de-lapidibus",
+   "existing_century": [
+    1
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_2",
+   "oga_estimated": "48 BC",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1131.tlg001",
+   "slug": "anonymus-ad-avircium-marcellum-contra-cataphrygas.ad-avircium-marcellum-contra-cataphrygas",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p3_1/p3_2/p4_1/p4_2/p5_1/p5_2/p6_1",
+   "oga_estimated": "165 AD-550 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1134.tlg001",
+   "slug": "anonymus-iamblichi.fragmenta",
+   "existing_century": [
+    -5
+   ],
+   "oga_century": -4,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2/m4_1",
+   "oga_estimated": "425 BC - 375 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1194.tlg001",
+   "slug": "aristonicus-grammar.de-signis-odysseae",
+   "existing_century": [
+    1
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m1_2",
+   "oga_estimated": "27 BC - 14 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1216.tlg001",
+   "slug": "barnabae-epistula.barnabae-epistula",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "130 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1252.tlg002",
+   "slug": "certamen-homeri-et-hesiodi.certamen-homeri-et-hesiodi",
+   "existing_century": [
+    -3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "138 AD - 161 AD",
+   "delta": 5
+  },
+  {
+   "urn": "tlg1272.tlg001",
+   "slug": "cleomedes.de-motu-circulari-corporum-caelestium",
+   "existing_century": [
+    -1
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "m1_1/m1_2/p1_2/p2_1/p2_2",
+   "oga_estimated": "135 BC-200 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1309.tlg001",
+   "slug": "dialexeis-dissoi-logoi.fragmenta",
+   "existing_century": [
+    -4
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_1",
+   "oga_estimated": "500 BC-400 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1311.tlg001",
+   "slug": "didache-xii-apostolorum.didaxai-tw-n-postolw-n",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "1st century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1347.tlg004",
+   "slug": "epimenides.fragmenta-2",
+   "existing_century": [
+    -7
+   ],
+   "oga_century": -6,
+   "oga_era": "archaic",
+   "oga_date_label": "m6_1",
+   "oga_estimated": "6th century BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1367.tlg001",
+   "slug": "euripidis-epistulae.epistulae",
+   "existing_century": [
+    2
+   ],
+   "oga_century": -5,
+   "oga_era": "classical",
+   "oga_date_label": "m5_2",
+   "oga_estimated": "485 BC-406 BC",
+   "delta": 7
+  },
+  {
+   "urn": "tlg1416.tlg007",
+   "slug": "h-eren-n-ius-philo.de-diversis-verborum-significationibus-peri-diafo-rous-2",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "117 AD - 138 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1441.tlg001",
+   "slug": "iamblichus-scr-erot.babyloniaca",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p4_1",
+   "oga_estimated": "306 AD - 337 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1443.tlg001",
+   "slug": "ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "113 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1443.tlg002",
+   "slug": "ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "113 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1463.tlg001",
+   "slug": "liber-enoch.apocalypsis-enochi",
+   "existing_century": [
+    -1
+   ],
+   "oga_century": -2,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m2_1",
+   "oga_estimated": "170 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1487.tlg001",
+   "slug": "maximus-astrology.peri-katarxw-n",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p4_2/p5_1/p5_2",
+   "oga_estimated": "4th-5th Centuries AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1487.tlg002",
+   "slug": "maximus-astrology.peri-katarxw-n-epitome",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p4_2/p5_1/p5_2",
+   "oga_estimated": "4th-5th Centuries AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg1551.tlg001",
+   "slug": "oracula-sibyllina.oracula",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 4
+  },
+  {
+   "urn": "tlg1551.tlg002",
+   "slug": "oracula-sibyllina.fragmenta",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1",
+   "oga_estimated": "175 AD - 225 AD",
+   "delta": 4
+  },
+  {
+   "urn": "tlg1600.tlg001",
+   "slug": "philostratus-major-soph.imagines",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "190 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg1664.tlg001",
+   "slug": "seniores-alexandrini.fragmenta",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p4_2/p5_1/p5_2/p6_1/p6_2",
+   "oga_estimated": "",
+   "delta": 3
+  },
+  {
+   "urn": "tlg1719.tlg001",
+   "slug": "theodosius-astronomy.sphaerica",
+   "existing_century": [
+    -2
+   ],
+   "oga_century": -1,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m2_1/m2_2/m1_1",
+   "oga_estimated": "200 BC - 1 BC",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2018.tlg002",
+   "slug": "eusebius-scr-eccl.historia-ecclesiastica",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "280 AD-313 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2018.tlg011",
+   "slug": "eusebius-scr-eccl.onomasticon",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "293 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2140.tlg001",
+   "slug": "iamblichus-alchemy.fragmenta-alchemica-e-cod-paris-b-n-gr-2327-fol-266r",
+   "existing_century": [
+    2
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "240 AD-325 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2233.tlg001",
+   "slug": "pseudo-polemon.physiognomonica",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_1",
+   "oga_estimated": "90 AD-146 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg2583.tlg001",
+   "slug": "manetho-astrology.apotelesmatica",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 1,
+   "oga_era": "imperial",
+   "oga_date_label": "p1_2",
+   "oga_estimated": "80 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg2586.tlg001",
+   "slug": "menander-rhetoric.diai-resis-tw-n-e-pideiktikw-n-olim-sub-auctore-genethlio",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "275 AD-300 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2586.tlg002",
+   "slug": "menander-rhetoric.peri-e-pideiktikw-n",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "275 AD-300 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2632.tlg001",
+   "slug": "comarius.de-lapide-philosophorum-e-cod-paris-b-n-gr-2327-fol-74r",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg2640.tlg001",
+   "slug": "eusebius-philosophy.fragmenta",
+   "existing_century": [
+    3
+   ],
+   "oga_century": 4,
+   "oga_era": "late-antique",
+   "oga_date_label": "p4_2",
+   "oga_estimated": "4th Century AD (301-400)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2806.tlg001",
+   "slug": "marcus-diaconus.vita-porphyrii-episcopi-gazensis",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p3_2",
+   "oga_estimated": "3rd Century AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg2970.tlg001",
+   "slug": "severus-philosophy.peri-yuxh-s-fragmentum",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 2,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2",
+   "oga_estimated": "2nd Century AD (101-200)",
+   "delta": 1
+  },
+  {
+   "urn": "tlg2972.tlg001",
+   "slug": "anonymi-de-terrae-motibus.de-terrae-motibus",
+   "existing_century": [
+    11
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "490 AD-570 AD",
+   "delta": 5
+  },
+  {
+   "urn": "tlg3135.tlg001",
+   "slug": "joannes-zonaras.epitome-historiarum-lib-1-12",
+   "existing_century": [
+    12
+   ],
+   "oga_century": 11,
+   "oga_era": "byzantine",
+   "oga_date_label": "p11_2",
+   "oga_estimated": "1081-1118",
+   "delta": 1
+  },
+  {
+   "urn": "tlg3156.tlg001",
+   "slug": "anonymi-exegesis-in-hesiodi-theogoniam.exegesis-in-hesiodi-theogoniam",
+   "existing_century": [
+    15
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p2_2/p3_1/p3_2/p4_1/p4_2/p5_1/p5_2",
+   "oga_estimated": "2nd-6th Centuries AD",
+   "delta": 12
+  },
+  {
+   "urn": "tlg4003.tlg001",
+   "slug": "marcianus.periplus-maris-exteri",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1/p5_2",
+   "oga_estimated": "400 AD-530 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4003.tlg002",
+   "slug": "marcianus.menippi-periplus-maris-interni-epitome-marciani",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1/p5_2",
+   "oga_estimated": "400 AD-530 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4003.tlg003",
+   "slug": "marcianus.artemidori-geographia-epitome-marciani",
+   "existing_century": [
+    4
+   ],
+   "oga_century": 5,
+   "oga_era": "late-antique",
+   "oga_date_label": "p5_1/p5_2",
+   "oga_estimated": "400 AD-530 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4016.tlg001",
+   "slug": "ammonius-philosophy.in-porphyrii-isagogen-sive-quinque-voces",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "500 AD-525 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4016.tlg002",
+   "slug": "ammonius-philosophy.in-aristotelis-categorias-commentarius",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "500 AD-525 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4016.tlg003",
+   "slug": "ammonius-philosophy.in-aristotelis-librum-de-interpretatione-commentarius",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "500 AD-525 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4016.tlg004",
+   "slug": "ammonius-philosophy.in-aristotelis-analyticorum-priorum-librum-i-commentarium",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "500 AD-525 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4016.tlg005",
+   "slug": "ammonius-philosophy.in-aristotelis-analytica-priora-sp",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "500 AD-525 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4030.tlg001",
+   "slug": "sophonias.in-aristotelis-libros-de-anima-paraphrasis",
+   "existing_century": [
+    13
+   ],
+   "oga_century": 14,
+   "oga_era": "byzantine",
+   "oga_date_label": "p14_2",
+   "oga_estimated": "1351 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4034.tlg002",
+   "slug": "michael.in-parva-naturalia-commentaria",
+   "existing_century": [
+    11
+   ],
+   "oga_century": 12,
+   "oga_era": "byzantine",
+   "oga_date_label": "p12_2",
+   "oga_estimated": "1101-1200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4034.tlg003",
+   "slug": "michael.in-libros-de-partibus-animalium-commentaria",
+   "existing_century": [
+    11
+   ],
+   "oga_century": 12,
+   "oga_era": "byzantine",
+   "oga_date_label": "p12_2",
+   "oga_estimated": "1101-1200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4034.tlg004",
+   "slug": "michael.in-libros-de-animalium-motione-commentarium",
+   "existing_century": [
+    11
+   ],
+   "oga_century": 12,
+   "oga_era": "byzantine",
+   "oga_date_label": "p12_2",
+   "oga_estimated": "1101-1200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4034.tlg005",
+   "slug": "michael.in-librum-de-animalium-incessu-commentarium",
+   "existing_century": [
+    11
+   ],
+   "oga_century": 12,
+   "oga_era": "byzantine",
+   "oga_date_label": "p12_2",
+   "oga_estimated": "1101-1200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4034.tlg006",
+   "slug": "michael.in-librum-quintum-ethicorum-nicomacheorum-commentarium",
+   "existing_century": [
+    11
+   ],
+   "oga_century": 12,
+   "oga_era": "byzantine",
+   "oga_date_label": "p12_2",
+   "oga_estimated": "1101-1200 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4084.tlg001",
+   "slug": "zosimus-history.historia-nova",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_1",
+   "oga_estimated": "498 AD-518 AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4086.tlg001",
+   "slug": "agathodaemon.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p4_1",
+   "oga_estimated": "300 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg4086.tlg002",
+   "slug": "agathodaemon.agaqodai-mwn-ei-s-n-xrhsmo-n-orfe-ws-sunagwgh-kai",
+   "existing_century": [
+    1
+   ],
+   "oga_century": 3,
+   "oga_era": "imperial",
+   "oga_date_label": "p4_1",
+   "oga_estimated": "300 AD",
+   "delta": 2
+  },
+  {
+   "urn": "tlg4091.tlg001",
+   "slug": "callistratus-soph.statuarum-descriptiones",
+   "existing_century": [
+    10
+   ],
+   "oga_century": -2,
+   "oga_era": "hellenistic",
+   "oga_date_label": "m2_1",
+   "oga_estimated": "",
+   "delta": 12
+  },
+  {
+   "urn": "tlg4102.tlg001",
+   "slug": "catenae-novum-testamentum.catena-in-matthaeum-catena-integra-e-cod-paris-coislin-gr-23",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg002",
+   "slug": "catenae-novum-testamentum.catena-in-marcum-recensio-ii-e-codd-oxon-bodl-laud-33",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg003",
+   "slug": "catenae-novum-testamentum.supplementum-et-varietas-lectionis-ad-commentarium-chrysostomi-in",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg004",
+   "slug": "catenae-novum-testamentum.catena-in-lucam-typus-b-e-codd-paris-coislin-23-oxon-bodl",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg005",
+   "slug": "catenae-novum-testamentum.catena-in-joannem-catena-integra-e-codd-paris-coislin-23",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg006",
+   "slug": "catenae-novum-testamentum.supplementum-et-varietas-lectionis-ad-catenam-in-evangelium-sancti",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg007",
+   "slug": "catenae-novum-testamentum.supplementum-et-varietas-lectionis-ad-catenam-in-evangelium-sancti-2",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg008",
+   "slug": "catenae-novum-testamentum.catena-in-acta-catena-andreae-e-cod-oxon-coll-nov-58",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg010",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-romanos-typus-vaticanus-e-cod-oxon-bodl",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg011",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-romanos-typus-monacensis-e-cod-monac-gr",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg012",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-i-ad-corinthios-typus-vaticanus-e-cod-paris",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg013",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ii-ad-corinthios-catena-pseudooecumenii-e",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg019",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-galatas-typus-parisinus-e-cod-coislin",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg020",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-ephesios-typus-parisinus-e-cod-coislin",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg021",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-philippenses-typus-parisinus-e-cod",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg022",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-colossenses-typus-parisinus-e-cod",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg023",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-i-ad-thessalonicenses-typus-parisinus-e-cod",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg024",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ii-ad-thessalonicenses-typus-parisinus-e-cod",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg034",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-i-ad-timotheum-e-cod-paris-coislin-204",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg035",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ii-ad-timotheum-e-cod-paris-coislin-204",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg036",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-titum-e-cod-paris-coislin-204",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg037",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-philemonem-e-cod-paris-coislin-204",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg038",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-ad-hebraeos-e-cod-paris-coislin-204",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg040",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-jacobi-catena-andreae-e-cod-oxon-coll-nov",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg041",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-petri-i-catena-andreae-e-cod-oxon-coll",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg042",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-petri-ii-catena-andreae-e-cod-oxon-coll",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg043",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-joannis-i-catena-andreae-e-cod-oxon-coll",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg044",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-joannis-ii-catena-andreae-e-cod-oxon-coll",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg045",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-joannis-iii-catena-andreae-e-cod-oxon-coll",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg4102.tlg046",
+   "slug": "catenae-novum-testamentum.catena-in-epistulam-juda-catena-andreae-e-cod-oxon-coll-nov",
+   "existing_century": [
+    5
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p6_2",
+   "oga_estimated": "6th century AD",
+   "delta": 1
+  },
+  {
+   "urn": "tlg9019.tlg001",
+   "slug": "stephanus-philosophy.in-aristotelis-librum-de-interpretatione-commentarium",
+   "existing_century": [
+    7
+   ],
+   "oga_century": 6,
+   "oga_era": "late-antique",
+   "oga_date_label": "p7_1",
+   "oga_estimated": "600 AD",
+   "delta": 1
+  }
+ ],
+ "resolved_no_registry_home": [
+  "ggm0001.ggm001",
+  "ogl0001.ogl001",
+  "pta0001.pta001",
+  "pta0001.pta002",
+  "pta0001.pta003",
+  "pta0001.pta004",
+  "pta0001.pta005",
+  "pta0001.pta006",
+  "pta0001.pta007",
+  "pta0001.pta008",
+  "pta0001.pta009",
+  "pta0001.pta010",
+  "pta0001.pta011",
+  "pta0001.pta012",
+  "pta0001.pta013",
+  "pta0001.pta014",
+  "pta0001.pta015",
+  "pta0001.pta016",
+  "pta0001.pta017",
+  "pta0001.pta018",
+  "pta0001.pta019",
+  "pta0001.pta020",
+  "pta0001.pta021",
+  "pta0001.pta022",
+  "pta0001.pta023",
+  "pta0001.pta024",
+  "pta0001.pta025",
+  "pta0001.pta026",
+  "pta0001.pta027",
+  "pta0001.pta028",
+  "pta0001.pta029",
+  "pta0001.pta030",
+  "pta0001.pta031",
+  "pta0001.pta032",
+  "pta0001.pta033",
+  "pta0001.pta034",
+  "pta0001.pta036",
+  "pta0001.pta037",
+  "pta0001.pta038",
+  "pta0001.pta042",
+  "pta0001.pta043",
+  "pta0001.pta045",
+  "pta0001.pta046",
+  "pta0001.pta047",
+  "pta0001.pta048",
+  "pta0001.pta051",
+  "pta0001.pta052",
+  "pta0001.pta053",
+  "pta0001.pta054",
+  "pta0001.pta055",
+  "pta0001.pta056",
+  "pta0001.pta057",
+  "pta0001.pta058",
+  "pta0001.pta059",
+  "pta0001.pta060",
+  "pta0001.pta061",
+  "pta0001.pta062",
+  "pta0006.pta001",
+  "pta0022.pta010",
+  "pta0022.pta011",
+  "pta0022.pta012",
+  "pta0022.pta013",
+  "pta0022.pta014",
+  "pta0022.pta015",
+  "pta0022.pta016",
+  "pta0022.pta017",
+  "pta0030.pta016",
+  "pta0037.pta001",
+  "pta0039.pta001",
+  "pta0040.pta001",
+  "pta0041.pta001",
+  "pta0100.pta001",
+  "pta0100.pta002",
+  "pta0100.pta003",
+  "pta0100.pta004",
+  "pta0100.pta005",
+  "pta0100.pta006",
+  "pta0100.pta007",
+  "pta0100.pta008",
+  "pta0100.pta009",
+  "pta0100.pta010",
+  "pta9999.pta034",
+  "stoa0033a.tlg028",
+  "stoa0033a.tlg043",
+  "stoa0121.stoa001",
+  "stoa0146d.stoa001",
+  "tlg0006.tlg001",
+  "tlg0006.tlg002",
+  "tlg0006.tlg003",
+  "tlg0006.tlg004",
+  "tlg0006.tlg005",
+  "tlg0006.tlg006",
+  "tlg0006.tlg007",
+  "tlg0006.tlg008",
+  "tlg0006.tlg009",
+  "tlg0006.tlg010",
+  "tlg0006.tlg011",
+  "tlg0006.tlg012",
+  "tlg0006.tlg013",
+  "tlg0006.tlg014",
+  "tlg0006.tlg015",
+  "tlg0006.tlg016",
+  "tlg0006.tlg017",
+  "tlg0006.tlg018",
+  "tlg0006.tlg019",
+  "tlg0032.tlg005",
+  "tlg0057.tlg086",
+  "tlg0070.tlg001",
+  "tlg0081.tlg014",
+  "tlg0086.tlg039",
+  "tlg0093.ogl001",
+  "tlg0093.ogl002",
+  "tlg0093.tlg010x01",
+  "tlg0093.tlg010x02",
+  "tlg0093.tlg010x03",
+  "tlg0093.tlg010x04",
+  "tlg0093.tlg010x05",
+  "tlg0093.tlg010x06",
+  "tlg0093.tlg010x07",
+  "tlg0093.tlg010x08",
+  "tlg0093.tlg010x09",
+  "tlg0099.tlg004",
+  "tlg0199.tlg001",
+  "tlg0199.tlg002",
+  "tlg0358.tlg005",
+  "tlg0362.tlg001",
+  "tlg0548.tlg002",
+  "tlg0575.tlg001",
+  "tlg0575.tlg002",
+  "tlg0591.1st1K001",
+  "tlg0591.1st1K002",
+  "tlg0593.1st1K001",
+  "tlg0593.1st1K002",
+  "tlg0610.perseus002",
+  "tlg0643.opp003",
+  "tlg0751.tlg034",
+  "tlg1126.tlg003",
+  "tlg1188.tlg002",
+  "tlg1409.opp003",
+  "tlg1447.tlg009",
+  "tlg1595.tlg221",
+  "tlg1595.tlg370",
+  "tlg1669.tlg004",
+  "tlg1699.tlg005",
+  "tlg1802.tlg001",
+  "tlg2022.tlg011",
+  "tlg2035.tlg130",
+  "tlg2035.tlg131",
+  "tlg2035.tlg132",
+  "tlg2057.tlg002",
+  "tlg2135.tlg001",
+  "tlg2136.tlg001",
+  "tlg2137.tlg001",
+  "tlg2138.tlg001",
+  "tlg2139.tlg001",
+  "tlg2189.tlg003",
+  "tlg2200.tlg00401",
+  "tlg2200.tlg00402",
+  "tlg2200.tlg00403",
+  "tlg2200.tlg00404",
+  "tlg2200.tlg00405",
+  "tlg2200.tlg00406",
+  "tlg2200.tlg00407",
+  "tlg2200.tlg00408",
+  "tlg2200.tlg00409",
+  "tlg2200.tlg00410",
+  "tlg2200.tlg00411",
+  "tlg2200.tlg00426",
+  "tlg2200.tlg00427",
+  "tlg2200.tlg00428",
+  "tlg2200.tlg00429",
+  "tlg2200.tlg00430",
+  "tlg2200.tlg00431",
+  "tlg2200.tlg00432",
+  "tlg2200.tlg00433",
+  "tlg2200.tlg00434",
+  "tlg2200.tlg00435",
+  "tlg2200.tlg00436",
+  "tlg2200.tlg00437",
+  "tlg2200.tlg00438",
+  "tlg2200.tlg00439",
+  "tlg2200.tlg00440",
+  "tlg2200.tlg00441",
+  "tlg2200.tlg00442",
+  "tlg2200.tlg00443",
+  "tlg2200.tlg00444",
+  "tlg2200.tlg00445",
+  "tlg2200.tlg00446",
+  "tlg2200.tlg00447",
+  "tlg2200.tlg00448",
+  "tlg2200.tlg00449",
+  "tlg2200.tlg00450",
+  "tlg2200.tlg00451",
+  "tlg2200.tlg00452",
+  "tlg2200.tlg00453",
+  "tlg2200.tlg00454",
+  "tlg2200.tlg00455",
+  "tlg2200.tlg00456",
+  "tlg2200.tlg00457",
+  "tlg2200.tlg00458",
+  "tlg2200.tlg00459",
+  "tlg2200.tlg00460",
+  "tlg2200.tlg00461",
+  "tlg2200.tlg00462",
+  "tlg2200.tlg00463",
+  "tlg2200.tlg00464",
+  "tlg2200.tlg00501",
+  "tlg2200.tlg00502",
+  "tlg2200.tlg00503",
+  "tlg2200.tlg00504",
+  "tlg2200.tlg00505",
+  "tlg2200.tlg00506",
+  "tlg2200.tlg00507",
+  "tlg2200.tlg00508",
+  "tlg2200.tlg00509",
+  "tlg2200.tlg00510",
+  "tlg2200.tlg00511",
+  "tlg2200.tlg00512",
+  "tlg2200.tlg00513",
+  "tlg2200.tlg00514",
+  "tlg2200.tlg00515",
+  "tlg2200.tlg00516",
+  "tlg2200.tlg00517",
+  "tlg2200.tlg00518",
+  "tlg2200.tlg00519",
+  "tlg2200.tlg00520",
+  "tlg2200.tlg00521",
+  "tlg2200.tlg00522",
+  "tlg2200.tlg00523",
+  "tlg2200.tlg00524",
+  "tlg2200.tlg00525",
+  "tlg2200.tlg00526",
+  "tlg2200.tlg00527",
+  "tlg2200.tlg00528",
+  "tlg2200.tlg00529",
+  "tlg2200.tlg00530",
+  "tlg2200.tlg00531",
+  "tlg2200.tlg00532",
+  "tlg2200.tlg00533",
+  "tlg2200.tlg00534",
+  "tlg2200.tlg00535",
+  "tlg2200.tlg00536",
+  "tlg2200.tlg00537",
+  "tlg2200.tlg00538",
+  "tlg2200.tlg00539",
+  "tlg2200.tlg00540",
+  "tlg2200.tlg00541",
+  "tlg2200.tlg00542",
+  "tlg2200.tlg00543",
+  "tlg2200.tlg00544",
+  "tlg2200.tlg00545",
+  "tlg2200.tlg00546",
+  "tlg2200.tlg00547",
+  "tlg2200.tlg00548",
+  "tlg2200.tlg00549",
+  "tlg2200.tlg00550",
+  "tlg2200.tlg00551",
+  "tlg2233.tlg002",
+  "tlg2768.tlg001",
+  "tlg2959.tlg001",
+  "tlg2959.tlg002",
+  "tlg2959.tlg005",
+  "tlg2959.tlg006",
+  "tlg2959.tlg007",
+  "tlg2959.tlg008",
+  "tlg2959.tlg010",
+  "tlg3118.tlg001",
+  "tlg3118.tlg002",
+  "tlg3129.ogl001",
+  "tlg3135.tlg011",
+  "tlg3135.tlg012",
+  "tlg4024.tlg002",
+  "tlg4102.tlgX01",
+  "tlg4102.tlgX02",
+  "tlg4102.tlgX03",
+  "tlg5023.tlg010",
+  "tlg5023.tlg011",
+  "tlg5023.tlg012",
+  "tlg5023.tlg013",
+  "tlg5023.tlg014",
+  "tlg5023.tlg015",
+  "tlg5023.tlg016",
+  "tlg9006.tlg011",
+  "tlg9006.tlg016"
+ ]
+}

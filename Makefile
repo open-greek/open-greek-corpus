@@ -40,8 +40,16 @@ INGESTERS := scripts/build_corpus_loci.py scripts/build_byzantine_vernacular_cor
              scripts/build_byzantium_gr_corpus.py
 SWEEPS    := data/pd_research/byzantium_sweep.json data/pd_research/cgpg_coverage.json
 
-.PHONY: all yardstick sourcing ingest ids clean
+.PHONY: all yardstick sourcing ingest ids clean oga-metadata
 all: yardstick sourcing
+
+# OGA (Opera Graeca Adnotata v0.2.0) metadata: per-work dating + the PTA/TLG
+# duplicate map + the source pin. Reads the retained OGA clone ($OGA_ROOT, default
+# ~/Documents/oga) and the id layer, so run it AFTER `make ids`. Its committed
+# outputs (data/oga_dating.json etc.) feed build_registry.py; it is deliberately
+# NOT in the auto DAG (it depends on the crosswalks the registry helps build).
+oga-metadata:
+	$(PY) scripts/ingest_oga_metadata.py
 
 # Just the opaque-id layer: ledgers -> corpus_editions id injection -> WEMI index.
 ids:
@@ -86,7 +94,9 @@ $(OVERRIDES): scripts/build_source_overrides.py $(SWEEPS) data/inventory/sourcin
 # 4. Sourcing verdict + gap: registry and coverage report both apply the
 #    overrides (via scripts/source_precedence.py) so they agree.
 sourcing: $(REGISTRY) $(COVERAGE_REPORT) $(CROSSWALK_REPORT)
-$(REGISTRY): $(OVERRIDES) scripts/build_registry.py scripts/source_precedence.py
+# data/oga_dating.json is a committed input (regenerated out-of-band by
+# `make oga-metadata`); a change to it re-applies the OGA dating tags.
+$(REGISTRY): $(OVERRIDES) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json
 	$(PY) scripts/build_registry.py
 $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_report.py scripts/source_precedence.py
 	$(PY) scripts/build_coverage_report.py
