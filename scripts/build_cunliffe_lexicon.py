@@ -47,6 +47,8 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 OUT_DIR = REPO_ROOT / "data" / "reference" / "cunliffe-lexicon"
+CHANGES_DIR = OUT_DIR / "changes"
+CORRECTIONS_FILE = CHANGES_DIR / "citation_corrections.json"
 
 # CTS work-id -> corpus tag used across COG reference citations.
 WORK_CORPUS = {"tlg0012.tlg001": "il", "tlg0012.tlg002": "od"}
@@ -155,6 +157,60 @@ def _max_depth(senses: list[dict]) -> int:
     return 1 + max(_max_depth(s.get("subsenses", [])) for s in senses)
 
 
+def apply_corrections(entries: list[dict]) -> list[dict]:
+    """Apply auditable citation overrides from changes/citation_corrections.json.
+
+    Each correction is matched by headword plus a citation's recorded upstream
+    fields (quote + CTS URN + book/line), so it targets exactly one upstream
+    citation; the matched citation's fields are replaced with the 'corrected'
+    values and tagged with the correction id (citation['correction']). The match
+    is verified against the full recorded 'original', so if the upstream text ever
+    shifts the target out from under a correction the build FAILS LOUDLY rather
+    than silently leaving the correction unapplied. Removing a correction (or this
+    whole file) and rebuilding restores the upstream value verbatim; the dataset
+    is thus a faithful copy of the source plus a transparent, reversible overlay.
+    """
+    if not CORRECTIONS_FILE.exists():
+        return []
+    doc = json.loads(CORRECTIONS_FILE.read_text(encoding="utf-8"))
+    by_headword: dict[str, list[dict]] = {}
+    for e in entries:
+        by_headword.setdefault(e["headword"], []).append(e)
+    applied: list[dict] = []
+    for corr in doc.get("corrections", []):
+        tgt = corr["target"]
+        match = tgt.get("match", {})
+        original = corr["original"]
+        corrected = corr["corrected"]
+        found = None
+        for e in by_headword.get(tgt["headword"], []):
+            for c in _iter_citations(e["senses"]):
+                if all(c.get(k) == v for k, v in match.items()) and \
+                   all(c.get(k) == v for k, v in original.items()):
+                    found = c
+                    break
+            if found is not None:
+                break
+        if found is None:
+            raise SystemExit(
+                f"citation correction {corr['id']!r} matched no upstream citation "
+                f"for headword {tgt['headword']!r} (the upstream may have changed); "
+                f"refusing to build with a silently-unapplied correction.")
+        for k, v in corrected.items():
+            found[k] = v
+        found["correction"] = corr["id"]
+        applied.append({
+            "id": corr["id"],
+            "headword": tgt["headword"],
+            "from": original.get("ref"),
+            "to": corrected.get("ref"),
+            "evidence": corr.get("evidence"),
+            "source": corr.get("source"),
+            "date": corr.get("date"),
+        })
+    return applied
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--lex", type=Path, required=True,
@@ -168,6 +224,10 @@ def main() -> None:
     data = json.loads(args.lex.read_text(encoding="utf-8"))
     raw_entries = data.get("entries", [])
     entries = [convert_entry(i + 1, e) for i, e in enumerate(raw_entries)]
+
+    # Apply the auditable citation overlay AFTER faithfully ingesting the upstream,
+    # so stats below reflect the corrected, served dataset.
+    corrections_applied = apply_corrections(entries)
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
@@ -293,11 +353,23 @@ def main() -> None:
             "exists at archive.org item 'CunliffeHomericLexicon' (file cunliffe.html); it is "
             "a markup-stripped export of this same Perseus text, useful only as a cross-check, "
             "not as a source."),
+        "corrections": {
+            "note": (
+                "Auditable, reversible overrides applied from changes/citation_corrections.json "
+                "after the upstream is ingested faithfully. Each corrected citation is tagged in "
+                "the data with its correction id (citation['correction']). Remove a correction "
+                "(or the file) and rebuild to restore the upstream value verbatim; each "
+                "correction records the upstream 'original' in full."),
+            "applied": corrections_applied,
+        },
         "stats": stats,
         "files": {},
         "generated": now,
     }
-    for fname in ["cunliffe_lexicon.json", "cunliffe_lexicon_index.json"]:
+    tracked_files = ["cunliffe_lexicon.json", "cunliffe_lexicon_index.json"]
+    if CORRECTIONS_FILE.exists():
+        tracked_files.append("changes/citation_corrections.json")
+    for fname in tracked_files:
         p = OUT_DIR / fname
         manifest["files"][fname] = {"bytes": p.stat().st_size, "sha256": sha256_of(p)}
 
@@ -314,6 +386,10 @@ def main() -> None:
     print(f"citations total:           {cit_total}")
     print(f"  resolved to book+line:   {cit_resolved}  ({cit_resolved/cit_total:.2%})")
     print(f"  Iliad / Odyssey:         {il} / {od}")
+    print(f"citation corrections:      {len(corrections_applied)} applied"
+          + (" (" + ", ".join(f"{c['id']}: {c['from']}->{c['to']}"
+                              for c in corrections_applied) + ")"
+             if corrections_applied else ""))
     print(f"wrote -> {OUT_DIR}")
 
 
