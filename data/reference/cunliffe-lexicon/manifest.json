@@ -36,6 +36,20 @@
     "marker_note": "Cunliffe's leading † (word attested only in inflected forms) and * (reconstructed / assumed form) are preserved as boolean flags and in headword_raw, following Cunliffe's TEI; a later Beyond-Translation extraction dropped these from the headword."
   },
   "cross_check": "An independent flattened plain-text transcription of the same 1924 lexicon exists at archive.org item 'CunliffeHomericLexicon' (file cunliffe.html); it is a markup-stripped export of this same Perseus text, useful only as a cross-check, not as a source.",
+  "corrections": {
+    "note": "Auditable, reversible overrides applied from changes/citation_corrections.json after the upstream is ingested faithfully. Each corrected citation is tagged in the data with its correction id (citation['correction']). Remove a correction (or the file) and rebuild to restore the upstream value verbatim; each correction records the upstream 'original' in full.",
+    "applied": [
+      {
+        "id": "cunliffe-lex-cite-0001",
+        "headword": "ἀάατος",
+        "from": "Il. 18.271",
+        "to": "Il. 14.271",
+        "evidence": "The phrase ἀάατον Στυγὸς ὕδωρ is Iliad 14.271 (ἄγρει νῦν μοι ὄμοσσον ἀάατον Στυγὸς ὕδωρ, Hypnos to Hera in the Dios Apate). Cunliffe's printed citation is book Ξ (= Iliad 14), preserved verbatim in the independent archive.org 'CunliffeHomericLexicon' flat-text transcription. The Perseus / Scaife-Viewer TEI mis-encoded the book number as 18.",
+        "source": "Homer, Iliad 14.271; cross-checked against the archive.org CunliffeHomericLexicon flat text (book Ξ = 14).",
+        "date": "2026-07-12"
+      }
+    ]
+  },
   "stats": {
     "entries": 9783,
     "with_headword": 9783,
@@ -53,13 +67,17 @@
   },
   "files": {
     "cunliffe_lexicon.json": {
-      "bytes": 22653230,
-      "sha256": "46825c1672d6f7df43593ae07bca2604c44ae0812d67bcc0a2dd04198ae151bd"
+      "bytes": 22653276,
+      "sha256": "53d91ed2ce5c349379398df5fb504d53bc70603dd8f1bbc44b475650b783483d"
     },
     "cunliffe_lexicon_index.json": {
       "bytes": 434852,
       "sha256": "22dd517c2cd101685fb6c17a7029c0838b6f40b9ae1df071e4681b5f90681ca6"
+    },
+    "changes/citation_corrections.json": {
+      "bytes": 2065,
+      "sha256": "792afb9ceb74ad34c864fdb15249153a38191533c3257673b79c633fb1bb3253"
     }
   },
-  "generated": "2026-07-12T21:58:20Z"
+  "generated": "2026-07-12T22:07:59Z"
 }

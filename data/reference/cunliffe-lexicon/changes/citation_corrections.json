@@ -1,0 +1,37 @@
+{
+  "dataset": "cunliffe-lexicon",
+  "description": "Auditable overrides for known errors in the upstream Perseus / Scaife-Viewer encoding of Cunliffe's Homer citations. scripts/build_cunliffe_lexicon.py applies these after ingesting the upstream ATLAS JSON, tagging each corrected citation with its correction id (citation['correction']). Reversible: delete a correction here (or this whole file) and rebuild to restore the upstream value verbatim; each correction records the upstream 'original' in full. A correction that no longer matches the upstream (e.g. the upstream fixed or moved it) makes the build fail loudly rather than silently skip.",
+  "corrections": [
+    {
+      "id": "cunliffe-lex-cite-0001",
+      "field": "citation",
+      "target": {
+        "headword": "ἀάατος",
+        "sense_path": [0],
+        "citation_index": 0,
+        "match": {
+          "quote": "ἆάατον στυγὸς ὕδωρ",
+          "cts_urn": "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:18.271"
+        }
+      },
+      "original": {
+        "ref": "Il. 18.271",
+        "corpus": "il",
+        "book": 18,
+        "line": 271,
+        "cts_urn": "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:18.271"
+      },
+      "corrected": {
+        "ref": "Il. 14.271",
+        "corpus": "il",
+        "book": 14,
+        "line": 271,
+        "cts_urn": "urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:14.271"
+      },
+      "evidence": "The phrase ἀάατον Στυγὸς ὕδωρ is Iliad 14.271 (ἄγρει νῦν μοι ὄμοσσον ἀάατον Στυγὸς ὕδωρ, Hypnos to Hera in the Dios Apate). Cunliffe's printed citation is book Ξ (= Iliad 14), preserved verbatim in the independent archive.org 'CunliffeHomericLexicon' flat-text transcription. The Perseus / Scaife-Viewer TEI mis-encoded the book number as 18.",
+      "source": "Homer, Iliad 14.271; cross-checked against the archive.org CunliffeHomericLexicon flat text (book Ξ = 14).",
+      "date": "2026-07-12",
+      "applied_by": "scripts/build_cunliffe_lexicon.py"
+    }
+  ]
+}
