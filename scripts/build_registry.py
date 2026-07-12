@@ -668,19 +668,21 @@ def build() -> Registry:
           file=sys.stderr)
 
     # --- Byzantine vernacular works (merged-in `byzantine_vernacular` source) -------------
-    # Open PD/CC-BY-SA medieval vernacular, no TLG/CTS id; cog-native key.
+    # Open PD/CC-BY-SA medieval and early-modern vernacular verse, no TLG/CTS id;
+    # cog-native key. Key each work by its SERVED corpus slug (cogByz.<stem>), NOT
+    # by author.title: the id ledger (build_id_registry) and the reader-facing
+    # manifest (build_work_index) resolve a served work-unit by its corpus-file
+    # slug, so an author.title key leaves all of them unresolved under a junk
+    # "cogByz" pseudo-author with humanized underscore titles. This mirrors how
+    # the whole-volume ocr.*/cogPG.* corpus keys stay their own work slug (with an
+    # explicit `author`), which is what author_slug_for reads.
     bw = REPO / "data" / "byzantine_vernacular_works.json"
     n_byz = 0
     if bw.exists():
         for w in json.loads(bw.read_text(encoding="utf-8")):
             author_slug = reg.mint_author(w["author_name"], slug=w["author_slug"])
-            base_ws = f"{author_slug}.{normalize_slug(w['title'])}"
-            ws, n = base_ws, 1
-            while ws in reg.works:
-                n += 1
-                ws = f"{base_ws}-{n}"
             work_slug = reg.mint_work(
-                author_slug, w["title"], slug=ws,
+                author_slug, w["title"], slug=w["key"],
                 aliases={"cts": f"urn:cts:cogGreek:{w['key']}"})
             reg.works[work_slug].best_source = "open_corpus"
             licl = w["license"].lower()

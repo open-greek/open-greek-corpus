@@ -3368,10 +3368,6 @@
    "name": "anon-eunicus",
    "aliases": {}
   },
-  "anon-euphanes": {
-   "name": "anon-euphanes",
-   "aliases": {}
-  },
   "anon-euphantus-olynthius": {
    "name": "anon-euphantus-olynthius",
    "aliases": {}
@@ -16689,10 +16685,6 @@
    "name": "Pseudo-Zonaras",
    "aliases": {}
   },
-  "ptochoprodromos": {
-   "name": "Ptochoprodromos",
-   "aliases": {}
-  },
   "ptolemaei-ii-philadelphi-et-eleazari-epistulae": {
    "name": "Ptolemaei Ii Philadelphi Et Eleazari Epistulae",
    "aliases": {
@@ -18132,6 +18124,10 @@
     "gnd": "102407428",
     "isni": "0000000010803369"
    }
+  },
+  "theodore-prodromos": {
+   "name": "Theodore Prodromos",
+   "aliases": {}
   },
   "theodoretus": {
    "name": "Theodoretus",
@@ -46573,17 +46569,6 @@
    "tags": [],
    "editions": {}
   },
-  "anon-euphanes.euphanes-fragmentum": {
-   "author": "anon-euphanes",
-   "title": "euphanes.fragmentum",
-   "aliases": {
-    "cts": "urn:cts:greekLit:euphanes.fragmentum"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
   "anon-euphantus-olynthius.euphantus-olynthius-fragmenta": {
    "author": "anon-euphantus-olynthius",
    "title": "euphantus-olynthius.fragmenta",
@@ -71928,17 +71913,6 @@
    "tags": [],
    "editions": {}
   },
-  "anon-zosimus-history.zosimus-history-hist-nova-mendelssohn": {
-   "author": "anon-zosimus-history",
-   "title": "zosimus-history.hist-nova-mendelssohn",
-   "aliases": {
-    "cts": "urn:cts:greekLit:zosimus-history.hist-nova-mendelssohn"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
   "anon-zosimus-history.zosimus-history-historia-nova": {
    "author": "anon-zosimus-history",
    "title": "zosimus-history.historia-nova",
@@ -76048,232 +76022,6 @@
      "source": "",
      "servable": false,
      "license": "",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.chronicle-moreas": {
-   "author": "anonymous",
-   "title": "Chronicle of Moreas",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.chronikon_tou_moreos"
-   },
-   "default_edition": "anonymous.chronicle-moreas.kalonaros-1940",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:14",
-    "era:byzantine",
-    "genre:chronicle",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.chronicle-moreas.kalonaros-1940": {
-     "name": "Χρονικόν του Μορέως",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC0/PD",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.death-digenes-folk-ballads": {
-   "author": "anonymous",
-   "title": "Death of Digenes (folk ballads)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.digenes_death"
-   },
-   "default_edition": "anonymous.death-digenes-folk-ballads.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "era:byzantine",
-    "genre:folk-poetry",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.death-digenes-folk-ballads.wikisource": {
-     "name": "Ο θάνατος του Διγενή / Ο Διγενής ψυχομαχεί",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.digenes-akritas-escorial-manuscript-excerpt": {
-   "author": "anonymous",
-   "title": "Digenes Akritas (Escorial manuscript, excerpt)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.digenes_akritas_escorial"
-   },
-   "default_edition": "anonymous.digenes-akritas-escorial-manuscript-excerpt.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:12",
-    "era:byzantine",
-    "genre:epic",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.digenes-akritas-escorial-manuscript-excerpt.wikisource": {
-     "name": "Διγενής Ακρίτας (χειρόγραφο Εσκοριάλ)",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.paidiophrastos-diegesis-tale-quadrupeds": {
-   "author": "anonymous",
-   "title": "Paidiophrastos Diegesis (Tale of the Quadrupeds)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.paidiophrastos"
-   },
-   "default_edition": "anonymous.paidiophrastos-diegesis-tale-quadrupeds.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:15",
-    "era:byzantine",
-    "genre:beast-poetry",
-    "genre:fable",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.paidiophrastos-diegesis-tale-quadrupeds.wikisource": {
-     "name": "Διήγησις παιδιόφραστος των τετραπόδων ζώων",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.peri-gerontos-about-old-man-marrying-girl": {
-   "author": "anonymous",
-   "title": "Peri Gerontos (About the Old Man Marrying a Girl)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.peri_gerontos"
-   },
-   "default_edition": "anonymous.peri-gerontos-about-old-man-marrying-girl.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:15",
-    "era:byzantine",
-    "genre:satire",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.peri-gerontos-about-old-man-marrying-girl.wikisource": {
-     "name": "Περί γέροντος να μην πάρη κορίτσι",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.porikologos-fruit-parliament-two-versions": {
-   "author": "anonymous",
-   "title": "Porikologos (Fruit Parliament, two versions)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.porikologos"
-   },
-   "default_edition": "anonymous.porikologos-fruit-parliament-two-versions.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:15",
-    "era:byzantine",
-    "genre:satire",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.porikologos-fruit-parliament-two-versions.wikisource": {
-     "name": "Πωρικολόγος",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.poulologos-bird-parliament": {
-   "author": "anonymous",
-   "title": "Poulologos (Bird Parliament)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.poulologos"
-   },
-   "default_edition": "anonymous.poulologos-bird-parliament.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:14",
-    "era:byzantine",
-    "genre:beast-poetry",
-    "genre:satire",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.poulologos-bird-parliament.wikisource": {
-     "name": "Πουλολόγος",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "anonymous.tale-donkey-wolf-and-fox": {
-   "author": "anonymous",
-   "title": "Tale of the Donkey, Wolf, and Fox",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.gadarou_lykou_aloupous"
-   },
-   "default_edition": "anonymous.tale-donkey-wolf-and-fox.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:15",
-    "era:byzantine",
-    "genre:beast-poetry",
-    "genre:fable",
-    "register:vernacular"
-   ],
-   "editions": {
-    "anonymous.tale-donkey-wolf-and-fox.wikisource": {
-     "name": "Γαδάρου, λύκου κι αλουπούς διήγησις ωραία",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
      "aliases": {}
     }
    }
@@ -98944,64 +98692,6 @@
     }
    }
   },
-  "bergadis.apokopos": {
-   "author": "bergadis",
-   "title": "Apokopos",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.apokopos"
-   },
-   "default_edition": "bergadis.apokopos.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:15",
-    "dialect:cretan",
-    "era:byzantine",
-    "genre:narrative-poem",
-    "register:vernacular"
-   ],
-   "editions": {
-    "bergadis.apokopos.wikisource": {
-     "name": "Απόκοπος",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
-  "bergadis.apokopos-bergadis-edition-from-wagner": {
-   "author": "bergadis",
-   "title": "Apokopos (Bergadis edition from Wagner)",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.apokopos_bergadi"
-   },
-   "default_edition": "bergadis.apokopos-bergadis-edition-from-wagner.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:15",
-    "dialect:cretan",
-    "era:byzantine",
-    "genre:narrative-poem",
-    "register:vernacular"
-   ],
-   "editions": {
-    "bergadis.apokopos-bergadis-edition-from-wagner.wikisource": {
-     "name": "Απόκοπος του Μπεργαδή",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
   "beros-s-us.fragmenta": {
    "author": "beros-s-us",
    "title": "Fragmenta",
@@ -108497,6 +108187,347 @@
      "source": "",
      "servable": false,
      "license": "",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.apokopos": {
+   "author": "bergadis",
+   "title": "Apokopos (Legrand 1870 edition)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.apokopos"
+   },
+   "default_edition": "cogByz.apokopos.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:15",
+    "dialect:cretan",
+    "era:byzantine",
+    "genre:narrative-poem",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.apokopos.wikisource": {
+     "name": "Απόκοπος",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.apokopos_bergadi": {
+   "author": "bergadis",
+   "title": "Apokopos (Legrand 1881 edition)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.apokopos_bergadi"
+   },
+   "default_edition": "cogByz.apokopos_bergadi.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:15",
+    "dialect:cretan",
+    "era:byzantine",
+    "genre:narrative-poem",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.apokopos_bergadi.wikisource": {
+     "name": "Απόκοπος του Μπεργαδή",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.chronikon_tou_moreos": {
+   "author": "anonymous",
+   "title": "Chronicle of the Morea",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.chronikon_tou_moreos"
+   },
+   "default_edition": "cogByz.chronikon_tou_moreos.kalonaros-1940",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:14",
+    "era:byzantine",
+    "genre:chronicle",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.chronikon_tou_moreos.kalonaros-1940": {
+     "name": "Χρονικόν του Μορέως",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC0/PD",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.digenes_akritas_escorial": {
+   "author": "anonymous",
+   "title": "Digenes Akritas (Escorial manuscript, excerpt)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.digenes_akritas_escorial"
+   },
+   "default_edition": "cogByz.digenes_akritas_escorial.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:12",
+    "era:byzantine",
+    "genre:epic",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.digenes_akritas_escorial.wikisource": {
+     "name": "Διγενής Ακρίτας (χειρόγραφο Εσκοριάλ)",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.digenes_death": {
+   "author": "anonymous",
+   "title": "Death of Digenes (folk ballads)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.digenes_death"
+   },
+   "default_edition": "cogByz.digenes_death.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "era:byzantine",
+    "genre:folk-poetry",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.digenes_death.wikisource": {
+     "name": "Ο θάνατος του Διγενή / Ο Διγενής ψυχομαχεί",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.erotokritos": {
+   "author": "vitsentzos-kornaros",
+   "title": "Erotokritos",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.erotokritos"
+   },
+   "default_edition": "cogByz.erotokritos.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:17",
+    "dialect:cretan",
+    "era:early-modern",
+    "genre:romance",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.erotokritos.wikisource": {
+     "name": "Ερωτόκριτος",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.gadarou_lykou_aloupous": {
+   "author": "anonymous",
+   "title": "Tale of the Donkey, Wolf, and Fox",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.gadarou_lykou_aloupous"
+   },
+   "default_edition": "cogByz.gadarou_lykou_aloupous.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:16",
+    "era:early-modern",
+    "genre:beast-poetry",
+    "genre:fable",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.gadarou_lykou_aloupous.wikisource": {
+     "name": "Γαδάρου, λύκου κι αλουπούς διήγησις ωραία",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.paidiophrastos": {
+   "author": "anonymous",
+   "title": "Paidiophrastos Diegesis (Tale of the Quadrupeds)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.paidiophrastos"
+   },
+   "default_edition": "cogByz.paidiophrastos.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:15",
+    "era:byzantine",
+    "genre:beast-poetry",
+    "genre:fable",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.paidiophrastos.wikisource": {
+     "name": "Διήγησις παιδιόφραστος των τετραπόδων ζώων",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.peri_gerontos": {
+   "author": "anonymous",
+   "title": "Peri Gerontos (About the Old Man Marrying a Girl)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.peri_gerontos"
+   },
+   "default_edition": "cogByz.peri_gerontos.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:15",
+    "era:byzantine",
+    "genre:satire",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.peri_gerontos.wikisource": {
+     "name": "Περί γέροντος να μην πάρη κορίτσι",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.porikologos": {
+   "author": "anonymous",
+   "title": "Porikologos (Fruit Parliament, two versions)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.porikologos"
+   },
+   "default_edition": "cogByz.porikologos.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:15",
+    "era:byzantine",
+    "genre:satire",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.porikologos.wikisource": {
+     "name": "Πωρικολόγος",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.poulologos": {
+   "author": "anonymous",
+   "title": "Poulologos (Bird Parliament)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.poulologos"
+   },
+   "default_edition": "cogByz.poulologos.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:14",
+    "era:byzantine",
+    "genre:beast-poetry",
+    "genre:satire",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.poulologos.wikisource": {
+     "name": "Πουλολόγος",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
+     "aliases": {}
+    }
+   }
+  },
+  "cogByz.ptochoprodromika": {
+   "author": "theodore-prodromos",
+   "title": "Ptochoprodromika (selection)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:cogByz.ptochoprodromika"
+   },
+   "default_edition": "cogByz.ptochoprodromika.wikisource",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:12",
+    "era:byzantine",
+    "genre:satire",
+    "register:vernacular"
+   ],
+   "editions": {
+    "cogByz.ptochoprodromika.wikisource": {
+     "name": "Πτωχοπροδρομικά",
+     "provider": "byzantine_vernacular",
+     "scheme": "line",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-3.0",
      "aliases": {}
     }
    }
@@ -246807,34 +246838,6 @@
     }
    }
   },
-  "ptochoprodromos.ptochoprodromika": {
-   "author": "ptochoprodromos",
-   "title": "Ptochoprodromika",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.ptochoprodromika"
-   },
-   "default_edition": "ptochoprodromos.ptochoprodromika.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:12",
-    "era:byzantine",
-    "genre:satire",
-    "register:vernacular"
-   ],
-   "editions": {
-    "ptochoprodromos.ptochoprodromika.wikisource": {
-     "name": "Πτωχοπροδρομικά",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
-     "aliases": {}
-    }
-   }
-  },
   "ptolemaei-ii-philadelphi-et-eleazari-epistulae.epistulae": {
    "author": "ptolemaei-ii-philadelphi-et-eleazari-epistulae",
    "title": "Epistulae",
@@ -273955,35 +273958,6 @@
      "source": "",
      "servable": false,
      "license": "",
-     "aliases": {}
-    }
-   }
-  },
-  "vitsentzos-kornaros.erotokritos": {
-   "author": "vitsentzos-kornaros",
-   "title": "Erotokritos",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogByz.erotokritos"
-   },
-   "default_edition": "vitsentzos-kornaros.erotokritos.wikisource",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:17",
-    "dialect:cretan",
-    "era:early-modern",
-    "genre:romance",
-    "register:vernacular"
-   ],
-   "editions": {
-    "vitsentzos-kornaros.erotokritos.wikisource": {
-     "name": "Ερωτόκριτος",
-     "provider": "byzantine_vernacular",
-     "scheme": "line",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-SA-3.0",
      "aliases": {}
     }
    }
