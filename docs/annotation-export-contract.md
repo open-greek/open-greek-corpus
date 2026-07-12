@@ -79,11 +79,27 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 
 | tier | source | scope and per-source note | status |
 |---|---|---|---|
-| 1a | OGA annotations | 718 works / 16.25M tokens. Highest value; blocks dilemma Phase 2. | next |
+| 1a | OGA annotations | Full source: 1,998 works / 40.05M tokens (a superset of the 718-work / 16.25M-token dilemma-blocking subset). Highest value; blocks dilemma Phase 2. | built (`oga-v1`) |
 | 1b | PTNK | preserve the UD (Universal Dependencies) train / dev / test split | queued |
 | 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | queued |
 | 1d | TAGNT | word-level annotation | queued |
 | 1e | GLAUx + Diorisis | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked GLAUx works (tier 1), tag the 40 Gorman-credited works `provenance=gorman`. | queued |
+
+#### Built: OGA export `oga-v1`
+
+Item 1a is built at `data/annotations/oga/oga-v1/` (per-work `works/<cts-work-id>.jsonl.gz`
+plus `manifest.json` and `pta_license_audit.json`), produced reproducibly by
+`scripts/export_oga_annotations.py` from the retained OGA v0.2.0 clone. It exports the
+whole source: 1,998 works / 40,051,080 tokens (2,232,948 sentences), which is a superset of
+the 718-work dilemma-blocking subset. Encoding is normalized per this contract (NFC;
+elision apostrophes -> U+2019; standard final/medial sigma); lemmas are verbatim (homograph
+digits, Koine headwords). Every token is `analysis=auto`, `provenance_tag=oga` (OGA's whole
+layer is Trankit/GreTa model output; tier-2 PROIEL-model output under `source-policy.md`, not
+tier-1 PROIEL data and not Gorman-derived). The one NonCommercial file, `pta0036.pta001.pta-grc1`
+(CC BY-NC-SA 3.0), is excluded; the exclusion is re-derived at run time from the PTA per-file
+TEI licences. dilemma Phase 2 pins:
+
+    cog export oga-v1, sha256:52e7e350692a3af1e391552db023dde00c5a7b1d655b146991d4dcae75e5db37
 
 ### Text-source watchlist
 

@@ -151,6 +151,12 @@ sources/                    cloned open corpora (gitignored; fetch with the comm
 data/
   corpus/<work>.jsonl       one JSON record per citable passage (locus + text;
                             optional bekker[], text_lines[] - see record shape below)
+  annotations/oga/oga-v1/   standardized OGA annotation export (queue item 1a): per-work
+                            works/<cts-id>.jsonl.gz token records (form, lemma, native
+                            pos/morph, head, deprel, locus, sentence_id, analysis,
+                            provenance) + manifest.json (release id, content hash, pin) +
+                            pta_license_audit.json; built by export_oga_annotations.py per
+                            docs/annotation-export-contract.md
   bekker_concordance.json   tlg0086 locus -> Bekker pages for works whose TEI has
                             no inline milestones (GLAUX + el.wikisource, CC BY-SA)
   work_ids.json             opaque ogc work-id ledger: id -> slug, former_slugs, status
