@@ -1,0 +1,65 @@
+{
+  "id": "cunliffe-lexicon",
+  "title": "Cunliffe, A Lexicon of the Homeric Dialect (structured, Perseus/Scaife)",
+  "kind": "reference",
+  "status": "reference material - NOT a served text work",
+  "not_served_note": "This is reference / bonus material, not part of the served running-text corpus. It is a lexicon (reference), not a text edition, so it does NOT enter the source-precedence ladder, is NOT assigned a served work-id, and is NOT listed in corpus_editions.json or the work-id registry. It lives under data/reference/, entirely separate from data/corpus/.",
+  "complements": "data/reference/cunliffe-appendix/ holds Cunliffe's grammatical appendix (the conditional / relative-sentence table, OCR'd separately). This directory holds the main lexicon body. Cunliffe's companion index of Homeric proper and place names is a later work still under US copyright (public domain from 2027) and is not included here.",
+  "provenance": {
+    "author": "Richard John Cunliffe",
+    "work": "A Lexicon of the Homeric Dialect",
+    "year": 1924,
+    "original_publisher": "London: Blackie and Son",
+    "public_domain_text": true,
+    "digital_encoding": "TEI EpiDoc by the Perseus Digital Library (Perseus Project, Tufts University), edited by Gregory Crane, with many corrections by Helma Dik.",
+    "restructured_by": "Scaife-Viewer 'Beyond Translation' project (ATLAS citable JSON, with Homer citations linked to canonical CTS URNs).",
+    "tei_source_repo": "https://github.com/gregorycrane/Homerica",
+    "atlas_source_repo": "https://github.com/scaife-viewer/beyond-translation-site",
+    "atlas_source_file": "backend/data/annotations/dictionaries/cunliffe-1-lex.json",
+    "atlas_source_sha256": "a7a2da0ef92342ebdcde4e5ca63b9cd135c83266ff6e181553cd7195803c12e1",
+    "atlas_source_label": "Cunliffe (Lex Entries)",
+    "atlas_source_urn": "urn:cite2:scaife-viewer:dictionaries.v1:cunliffe-lex"
+  },
+  "license": {
+    "underlying_text": "Public domain (Cunliffe 1924; US public domain since 2020).",
+    "digital_encoding_and_corrections": "Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), the license under which the Perseus Digital Library releases its TEI text corpora and lexica (cf. PerseusDL/canonical-greekLit and PerseusDL/lexica, both CC BY-SA 4.0). The 1924 text is public domain; the TEI encoding and Helma Dik's corrections are the licensed derived scholarly layer.",
+    "share_alike": "CC BY-SA 4.0 requires attribution (Perseus Digital Library / Tufts University; ed. Gregory Crane; corrections Helma Dik; ATLAS structuring by the Scaife-Viewer Beyond Translation project) and share-alike on derivatives. This is compatible with COG's own CC BY-SA 4.0 license.",
+    "derived_dataset": "CC BY-SA 4.0 (matching the corpus)."
+  },
+  "citation_scheme": {
+    "cts_urns": "Each citation carries its canonical CTS URN (urn:cts:greekLit:tlg0012.tlg001.perseus-grc2:BOOK.LINE for the Iliad, tlg0012.tlg002 for the Odyssey).",
+    "derived": "Alongside each citation we add {corpus: il|od, book, line} parsed from the CTS URN, matching the cunliffe-appendix citation format."
+  },
+  "structure": {
+    "entry": "headword (Greek verbatim, digamma/metrical marks preserved), headword_raw (with any leading † / * marker), dagger/asterisk flags, content_html + content_text (inflection / etymology / cross-references as encoded by Perseus), senses[], source_urn.",
+    "sense": "label, definition, citations[], optional subsenses[] (nested to depth 6), source_urn.",
+    "marker_note": "Cunliffe's leading † (word attested only in inflected forms) and * (reconstructed / assumed form) are preserved as boolean flags and in headword_raw, following Cunliffe's TEI; a later Beyond-Translation extraction dropped these from the headword."
+  },
+  "cross_check": "An independent flattened plain-text transcription of the same 1924 lexicon exists at archive.org item 'CunliffeHomericLexicon' (file cunliffe.html); it is a markup-stripped export of this same Perseus text, useful only as a cross-check, not as a source.",
+  "stats": {
+    "entries": 9783,
+    "with_headword": 9783,
+    "with_senses": 5228,
+    "with_content_block": 9693,
+    "dagger_marked": 745,
+    "asterisk_marked": 1,
+    "senses_total_incl_subsenses": 19925,
+    "max_sense_depth": 6,
+    "citations_total": 67792,
+    "citations_resolved_to_book_line": 67790,
+    "citation_resolution_rate": 0.99997,
+    "iliad_citations": 36012,
+    "odyssey_citations": 31778
+  },
+  "files": {
+    "cunliffe_lexicon.json": {
+      "bytes": 22653230,
+      "sha256": "46825c1672d6f7df43593ae07bca2604c44ae0812d67bcc0a2dd04198ae151bd"
+    },
+    "cunliffe_lexicon_index.json": {
+      "bytes": 434852,
+      "sha256": "22dd517c2cd101685fb6c17a7029c0838b6f40b9ae1df071e4681b5f90681ca6"
+    }
+  },
+  "generated": "2026-07-12T21:58:20Z"
+}
