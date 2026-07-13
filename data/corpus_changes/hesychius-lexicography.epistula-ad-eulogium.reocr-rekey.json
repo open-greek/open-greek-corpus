@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "re-key: this slug served the ENTIRE mis-keyed lexicon; corrected to serve only the real Epistula ad Eulogium, with the lexicon body split into 2 new correctly-keyed works",
+    "work": "hesychius-lexicography.epistula-ad-eulogium",
+    "cts": "urn:cts:greekLit:tlg4085.tlg001",
+    "id": "ogc001740",
+    "run_slug": "hesychius_masked",
+    "applied_by": "staged Hesychius re-OCR ingest + make ids",
+    "date": "2026-07-12",
+    "reversible": "git revert the ingest commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/hesychius-lexicography.epistula-ad-eulogium.jsonl') and confirm its sha256 equals old.sha256 below, then delete the 2 new split files and revert the crosswalk + id-layer and re-run 'make ids'. The pre-ingest served text (the whole mis-keyed lexicon) is also archived offline as REPLACED.hesychius-lexicography.epistula-ad-eulogium.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "qwen36-hesychius_schmidt_lexicon (MIS-KEYED whole lexicon A-W served under the epistula urn)",
+    "rows": 54609,
+    "greek_chars": 1829455,
+    "sha256": "9f9059c405c68294580fc0e5d882a4470bd8def0f20bb4deed93ccce5d15c488"
+  },
+  "new": {
+    "edition": "qwen36-hesychius_schmidt_masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops) of the PD Schmidt edition (archive.org hesychiialexand00schmgoog)",
+    "rows": 3,
+    "greek_chars": 3112,
+    "sha256": "71f7f5af49a14ee6aa3401a90ee51e8f0037f8d38249b95f94760d3bd873eb63",
+    "note": "now serves ONLY the real 3-entry Epistula ad Eulogium; the lexicon body moved to hesychius-lexicography.lexicon-o (ogc003621, tlg4085.tlg002) and hesychius-lexicography.lexicon-p-w (ogc003622, tlg4085.tlg003)"
+  },
+  "evidence": "STRUCTURAL re-key of a mis-keyed work: tlg4085.tlg001 (Epistula ad Eulogium) was serving the entire Hesychius lexicon. The lexicon proper was carved into 2 correctly-keyed new works and re-OCR'd keep-better from the PD Schmidt scan. keep-better vs prior served lexicon OCR (VALIDATION.json MASKED vs SERVED headword recall): alpha 45.4 vs 33.6; iota 42.3 vs 31.5; sigma 59.9 vs 37.8; omega 40.7 vs 9.2; 2146 dropped headwords recovered across the 4 sampled letters. PD Schmidt source, no copyright.",
+  "provenance": "data/ocr_provenance/hesychius-lexicography.epistula-ad-eulogium.json",
+  "source": "flagship Hesychius masked re-OCR (PD Schmidt edition, archive.org hesychiialexand00schmgoog) + structural re-key, VALIDATION.json + audit_trail.json, 2026-07-12"
+}
