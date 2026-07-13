@@ -473,14 +473,14 @@ slugs; Zeno Tarsensis (tlg2294.001), Basilides (tlg2398.001), Eudromus
 (tlg2399.001) and Crinis (tlg1293.001) became new canon-verified primaries;
 each zone's other-scan read is a same-print twin witness in corpus_secondary
 (the dissolve_diels.py twin model); the Vol. II conspectus back matter went
-to arnim-svf3-1903.paratexta. Audit + full row backups:
-greek-ocr data/corrections/svf3_catchall_dissolve/.
+to arnim-svf3-1903.paratexta. Audit + full row backups live in the upstream
+OCR pipeline's data/corrections/svf3_catchall_dissolve/.
 
 After a work is renamed, re-scoped, or dissolved, run
 `scripts/rekey_corrections_log.py --write`: it re-keys the read-only
 `data/corrections_log/` audit mirror to the works now serving each row's page
-locus (the upstream correction store lives in the greek-ocr repo and is not
-touched), so the audit linkage follows the rename. Page stems that boundary
+locus (the upstream correction store lives in the separate OCR pipeline
+repository and is not touched), so the audit linkage follows the rename. Page stems that boundary
 splits left served by more than one work are adjudicated by a content
 tiebreak (the correction's corrected/original text matched letter-boundary
 against each candidate's rows at the exact locus, then anywhere on the stem,

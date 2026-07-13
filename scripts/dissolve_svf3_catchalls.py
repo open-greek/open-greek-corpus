@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Dissolve the two SVF vol. 3 volume-scope catch-alls into per-author works.
 
-Diagnosis (2026-07-10, session e0a83cbd; precedents: scripts/dissolve_pelagius_caag3.py,
-greek-ocr dissolve_diels.py twin-scan model, greek-ocr dissolve_hgm1.py)
+Diagnosis (2026-07-10; precedents: scripts/dissolve_pelagius_caag3.py, the upstream
+OCR pipeline's dissolve_diels.py twin-scan model and its dissolve_hgm1.py)
 --------------------------------------------------------------------------------
 von Arnim, Stoicorum Veterum Fragmenta vol. 3 (Teubner 1903) was OCR'd TWICE and
 each run was served WHOLE under a single successor's slug:
@@ -84,8 +84,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+import tempfile
 import unicodedata
 from collections import defaultdict
 from pathlib import Path
@@ -97,9 +99,10 @@ CW_PATH = REPO / "data" / "tlg_crosswalk.json"
 TSV_PATH = REPO / "data" / "tlg_crosswalk.tsv"
 REG_PATH = REPO / "data" / "source_registry.json"
 CANON = Path.home() / "Documents/tlge-tools/data/tlg_canon.json"
-AUDIT_DIR = Path.home() / "Documents/greek-ocr/data/corrections/svf3_catchall_dissolve"
-SCRATCH = Path("/private/tmp/claude-501/-Users-cisco-Documents-greek-ocr/"
-               "e0a83cbd-1aed-4a76-a35a-2908a4934e9a/scratchpad")
+# Row backups + audit go to the upstream OCR pipeline's correction store (set OCR_PIPELINE_DIR).
+AUDIT_DIR = (Path(os.environ.get("OCR_PIPELINE_DIR", Path.home() / "Documents" / "ocr-pipeline"))
+             / "data" / "corrections" / "svf3_catchall_dissolve")
+SCRATCH = Path(os.environ.get("SCRATCH_DIR") or tempfile.gettempdir())
 
 SCANS = {
     "A": {"base": "apollodorus_seleuc_svf3",

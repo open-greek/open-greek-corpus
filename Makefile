@@ -5,7 +5,7 @@
 # open/PD source. The chain is therefore:
 #
 #   ingest  -> data/corpus/*.jsonl + corpus_editions.json   (TEI/transcription works;
-#              the OCR works arrive already-corrected from the greek-ocr pipeline)
+#              the OCR works arrive already-corrected from the upstream OCR pipeline)
 #   roll up -> public_lexicon.tsv + coverage.json           (the yardstick)
 #           -> public_lemma_frequency.tsv                    (per-lemma counts)
 #   source  -> source_overrides.json                         (precedence overrides)
@@ -35,7 +35,7 @@ CROSSWALK_REPORT := data/crosswalk_report.json
 
 # Only this repo's own (non-OCR) ingesters. The OCR text - calfa-co Patrologia
 # Graeca and our own Migne/edition OCR - is produced, cleaned, and DELIVERED
-# into data/corpus by the greek-ocr repo's pipeline; this repo just rolls it up.
+# into data/corpus by the upstream OCR pipeline; this repo just rolls it up.
 INGESTERS := scripts/build_corpus_loci.py scripts/build_byzantine_vernacular_corpus.py \
              scripts/build_byzantium_gr_corpus.py
 SWEEPS    := data/pd_research/byzantium_sweep.json data/pd_research/cgpg_coverage.json
@@ -60,9 +60,10 @@ ids:
 
 # 1. Ingest this repo's open TEI + transcription sources into data/corpus/*.jsonl,
 #    then DERIVE corpus_editions.json from the whole corpus (TEI + the OCR works
-#    greek-ocr delivered). Deriving it, rather than each ingester read-modify-writing
-#    the shared file, is race-safe: two writers (this build + a greek-ocr delivery)
-#    can't drop each other's rows, because the per-work jsonl files never collide.
+#    the upstream OCR pipeline delivered). Deriving it, rather than each ingester
+#    read-modify-writing the shared file, is race-safe: two writers (this build +
+#    an upstream OCR delivery) can't drop each other's rows, because the per-work
+#    jsonl files never collide.
 ingest: $(CORPUS_EDITIONS)
 $(CORPUS_EDITIONS): $(INGESTERS) scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/work_id_aliases.json
 	$(PY) scripts/build_corpus_loci.py
@@ -75,7 +76,7 @@ $(CORPUS_EDITIONS): $(INGESTERS) scripts/reconcile_corpus_editions.py scripts/bu
 
 # 2. Yardstick: roll the whole corpus (TEI + the delivered, already-corrected OCR)
 #    up into the lexicon + coverage, then per-lemma frequency. The OCR text arrives
-#    clean from greek-ocr, so there is no correction step here.
+#    clean from the upstream OCR pipeline, so there is no correction step here.
 yardstick: $(LEMMA_FREQ)
 $(LEXICON): $(CORPUS_EDITIONS) scripts/build_public_corpus.py
 	$(PY) scripts/build_public_corpus.py
@@ -83,8 +84,8 @@ $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_lemma_frequency.py --min-count $(MIN_COUNT)
 
 # The whole OCR pipeline - ingesting the OCR output, cleaning it, and
-# applying the corrections - lives in the greek-ocr repo. It DELIVERS the corrected
-# OCR text into data/corpus here, with a read-only audit mirror in
+# applying the corrections - lives in a separate upstream repository. It DELIVERS
+# the corrected OCR text into data/corpus here, with a read-only audit mirror in
 # data/corrections_log/. This repo holds only that output and rolls it up.
 
 # 3. Source-precedence overrides, regenerated from the coverage sweeps.

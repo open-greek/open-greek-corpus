@@ -23,7 +23,7 @@ Bekker pagination for these works:
              parsed HTML.
   bekker1831 raw per-page OCR of the Bekker 1831 edition itself (IA scans
              aristotelisopera01/02arisuoft, Qwen3.6-27B, 2026-07-09; see
-             greek-ocr runs/editions/bekker1831_*_raw and their _manifest.json).
+             the upstream OCR pipeline's runs/editions/bekker1831_*_raw and their _manifest.json).
              One printed page = one Bekker number, columns a/b within it. Used
              for the 8 works neither GLAUX nor el.wikisource covers: the Parva
              Naturalia minus De divinatione/De respiratione, De spiritu, and
@@ -635,9 +635,11 @@ def main():
     ap.add_argument("--glaux", default=str(Path.home() / "Documents" / "glaux"),
                     help="local GLAUX clone (xml/<id>.xml)")
     ap.add_argument("--bekker1831",
-                    default=str(Path.home() / "Documents" / "greek-ocr" / "runs"
-                                / "editions"),
-                    help="dir holding the bekker1831_*_raw OCR run dirs")
+                    default=str(Path(os.environ.get("OCR_PIPELINE_DIR",
+                                     Path.home() / "Documents" / "ocr-pipeline"))
+                                / "runs" / "editions"),
+                    help="dir holding the bekker1831_*_raw OCR run dirs "
+                         "(defaults under $OCR_PIPELINE_DIR)")
     args = ap.parse_args()
     cache = Path(args.cache)
     glaux = Path(args.glaux)

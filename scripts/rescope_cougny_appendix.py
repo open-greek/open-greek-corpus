@@ -13,7 +13,7 @@ is absent from the current TLG canon - a fabricated urn).
 
 The work stays PRIMARY: Cougny's appendix collection has no open digital
 edition (Perseus AP covers only the Palatine/Planudean books). Following the
-jacobs-anthologia-graeca-t13 precedent (greek-ocr rescope_jacobs.py) this
+jacobs-anthologia-graeca-t13 precedent (the upstream OCR pipeline's rescope_jacobs.py) this
 script gives it an honest edition-scoped identity:
 
   1. renames the served work (file + per-row urn) to
