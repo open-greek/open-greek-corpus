@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "scholia-in-platonem.scholia-in-platonem-scholia-vetera",
+    "cts": "urn:cts:greekLit:tlg5035.tlg001",
+    "run_slug": "scholia_platonem_zurich",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/scholia-in-platonem.scholia-in-platonem-scholia-vetera.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.scholia-in-platonem.scholia-in-platonem-scholia-vetera.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 8998,
+    "greek_chars": 852263,
+    "sha256": "189da10b73896d635e0219afb2d703b8a65f1ef524aed323f90082848e832589"
+  },
+  "new": {
+    "edition": "qwen36-scholia_platonem_zurich-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 27566,
+    "greek_chars": 813559,
+    "sha256": "85a9906ff9b2d0b980a218b7e4fcbc926f5ee1df308a72d2aaa29ed2266c5586"
+  },
+  "evidence": "keep-better: Greek 95% of served | greek_ratio=0.955 (masked/served); masked_greek_chars=813559 vs served_greek_chars=852263; unique_greek_words 38416 vs 35255. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/scholia-in-platonem.scholia-in-platonem-scholia-vetera.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

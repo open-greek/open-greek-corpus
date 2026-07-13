@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "timaeus-sophista.lexicon-platonicum",
+    "cts": "urn:cts:greekLit:tlg2602.tlg001",
+    "run_slug": "timaeus_lex_platon_ruhnken",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/timaeus-sophista.lexicon-platonicum.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.timaeus-sophista.lexicon-platonicum.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 1835,
+    "greek_chars": 106221,
+    "sha256": "7173e81785511d9fa55f286a720b0c8595a91a5cee12bd4be4c7ee3577d20006"
+  },
+  "new": {
+    "edition": "qwen36-timaeus_lex_platon_ruhnken-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 4572,
+    "greek_chars": 166731,
+    "sha256": "aca80fe5dc2ec0cb173639236a258dcc8ff67f77a6913be10023756d90a97834",
+    "headwords_gain": 1358
+  },
+  "evidence": "keep-better: headword recall +1358; Greek 157% of served (apparatus/heads stripped) | greek_ratio=1.57 (masked/served); masked_greek_chars=166731 vs served_greek_chars=106221; unique_greek_words 14651 vs 9445; headword_gain=+1358. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/timaeus-sophista.lexicon-platonicum.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

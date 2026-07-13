@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera",
+    "cts": "urn:cts:greekLit:tlg5025.tlg001",
+    "run_slug": "scholia_hesiod_gaisford",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better-likely",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 11388,
+    "greek_chars": 870455,
+    "sha256": "7bf0785d400a467c0dacd312693e77159780cdfe742793635fdcd28472d34558"
+  },
+  "new": {
+    "edition": "qwen36-scholia_hesiod_gaisford-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 25881,
+    "greek_chars": 813660,
+    "sha256": "861accd503bfe01112e6fb75ee05503151a502d40ee95bf0c950137db786ae52"
+  },
+  "evidence": "keep-better-likely: Greek 93% of served - consistent with apparatus/head removal; spot-check | greek_ratio=0.935 (masked/served); masked_greek_chars=813660 vs served_greek_chars=870455; unique_greek_words 44478 vs 42651. keep_better validated by bucket VALIDATION.json (tier=keep-better-likely).",
+  "provenance": "data/ocr_provenance/scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}
