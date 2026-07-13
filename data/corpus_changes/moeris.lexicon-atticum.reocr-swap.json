@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "moeris.lexicon-atticum",
+    "cts": "urn:cts:greekLit:tlg1515.tlg001",
+    "run_slug": "moeris_koch1830",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/moeris.lexicon-atticum.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.moeris.lexicon-atticum.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 6844,
+    "greek_chars": 247704,
+    "sha256": "a0c748e5ae82e31267e2a72a0906fe928713a0f371cd3c3e473657fe75bd9697"
+  },
+  "new": {
+    "edition": "qwen36-moeris_koch1830-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 11959,
+    "greek_chars": 309678,
+    "sha256": "c4241f97f6389e199697e6ac8643eaaeb46a0e452c4ff2b08bd61cc5f732b2ea",
+    "headwords_gain": 2106
+  },
+  "evidence": "keep-better: headword recall +2106; Greek 125% of served (apparatus/heads stripped) | greek_ratio=1.25 (masked/served); masked_greek_chars=309678 vs served_greek_chars=247704; unique_greek_words 23119 vs 18546; headword_gain=+2106. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/moeris.lexicon-atticum.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

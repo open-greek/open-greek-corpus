@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
+    "cts": "urn:cts:greekLit:tlg5014.tlg001",
+    "run_slug": "scholia_aristoph_dubner",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 20557,
+    "greek_chars": 1768933,
+    "sha256": "b32655dfbebbe14a74b5b4fa62f2d56bbe3058ec5573ca604ac61277116381ef"
+  },
+  "new": {
+    "edition": "qwen36-scholia_aristoph_dubner-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 24985,
+    "greek_chars": 1827731,
+    "sha256": "6b0b8a65cba576408a63d346939ef921eadc9b6718d0160ab15a52b1b04ef9a1"
+  },
+  "evidence": "keep-better: Greek 103% of served | greek_ratio=1.033 (masked/served); masked_greek_chars=1827731 vs served_greek_chars=1768933; unique_greek_words 74788 vs 80891. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

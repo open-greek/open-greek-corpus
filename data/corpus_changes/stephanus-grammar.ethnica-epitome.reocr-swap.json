@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "stephanus-grammar.ethnica-epitome",
+    "cts": "urn:cts:greekLit:tlg4028.tlg001",
+    "run_slug": "stephanus_byz_meineke_1849",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/stephanus-grammar.ethnica-epitome.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.stephanus-grammar.ethnica-epitome.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 14016,
+    "greek_chars": 836703,
+    "sha256": "6df8354a1e083f991724712576e79b3ac1de96ccf369ee194065fb2b07ed5f58"
+  },
+  "new": {
+    "edition": "qwen36-stephanus_byz_meineke_1849-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 25032,
+    "greek_chars": 758448,
+    "sha256": "78d1471f206c9b7bc35c68cacabd68647ff9b16643832896cc3b9361ef233a2e",
+    "headwords_gain": 3083
+  },
+  "evidence": "keep-better: headword recall +3083; Greek 90% of served (apparatus/heads stripped) | greek_ratio=0.906 (masked/served); masked_greek_chars=758448 vs served_greek_chars=836703; unique_greek_words 42826 vs 43385; headword_gain=+3083. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/stephanus-grammar.ethnica-epitome.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

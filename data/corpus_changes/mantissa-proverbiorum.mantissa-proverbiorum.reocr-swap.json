@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "mantissa-proverbiorum.mantissa-proverbiorum",
+    "cts": "urn:cts:greekLit:tlg0200.tlg001",
+    "run_slug": "mantissa_proverbiorum_paroemiogr2",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/mantissa-proverbiorum.mantissa-proverbiorum.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.mantissa-proverbiorum.mantissa-proverbiorum.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 17960,
+    "greek_chars": 891622,
+    "sha256": "a482bb82c1145b8405782a3f269e91c914a64164ed66586dae9c563c8109c93e"
+  },
+  "new": {
+    "edition": "qwen36-mantissa_proverbiorum_paroemiogr2-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 36078,
+    "greek_chars": 820814,
+    "sha256": "75f47b4b06ea58c09045a180cf4de5e9ed8d77cf10655c936e7a86e99c1c9add",
+    "headwords_gain": 6158
+  },
+  "evidence": "keep-better: headword recall +6158; Greek 92% of served (apparatus/heads stripped) | greek_ratio=0.921 (masked/served); masked_greek_chars=820814 vs served_greek_chars=891622; unique_greek_words 47246 vs 47238; headword_gain=+6158. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/mantissa-proverbiorum.mantissa-proverbiorum.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

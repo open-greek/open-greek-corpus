@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
+    "cts": "urn:cts:greekLit:tlg5008.tlg001",
+    "run_slug": "scholia_aristidem_frommel1826",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 7044,
+    "greek_chars": 554449,
+    "sha256": "cbba6d0414bdddea53940893a900f6e0de4594ef0a20bd17548ac9f8243c9ad3"
+  },
+  "new": {
+    "edition": "qwen36-scholia_aristidem_frommel1826-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 20918,
+    "greek_chars": 564768,
+    "sha256": "cb019ffefc0c2ffe77488faf9d6f6544445971500fb0a64ee82750bd522c179f"
+  },
+  "evidence": "keep-better: Greek 101% of served | greek_ratio=1.019 (masked/served); masked_greek_chars=564768 vs served_greek_chars=554449; unique_greek_words 27686 vs 23787. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}
