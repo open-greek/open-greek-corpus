@@ -27,7 +27,10 @@ END = "<!-- OCR-PROVENANCE:END -->"
 # Qwen3.6-27B (verified by per-family containment probes against the run dirs);
 # editions read by something else carry a per-edition "model" override in
 # data/inventory/ocr_edition_sources.json, which takes precedence below.
-OCR_MODEL = {"cgpg": "calfa-co", "ocr": "Qwen3.6-27B"}
+# "ocr-masked" is the dense-class re-OCR fleet (geometric-column-mask pipeline,
+# FP8 serving); those works carry a per-work record in data/ocr_provenance/ that
+# supplies the exact model, source scan, render DPI, and column geometry.
+OCR_MODEL = {"cgpg": "calfa-co", "ocr": "Qwen3.6-27B", "ocr-masked": "Qwen3.6-27B-FP8"}
 
 
 def _load(name: str):
@@ -35,11 +38,44 @@ def _load(name: str):
     return json.loads(fp.read_text(encoding="utf-8")) if fp.exists() else None
 
 
+def _load_provenance() -> dict:
+    """Per-work provenance for the masked-column re-OCR runs (model, source scan,
+    render DPI, column geometry). Keyed by urn; one record per re-OCR'd work."""
+    out: dict = {}
+    pdir = DATA / "ocr_provenance"
+    if pdir.is_dir():
+        for fp in pdir.glob("*.json"):
+            rec = json.loads(fp.read_text(encoding="utf-8"))
+            out[rec.get("urn") or fp.stem] = rec
+    return out
+
+
+def masked_source(rec: dict) -> str | None:
+    """Linked scan source for a masked re-OCR work, from its provenance record."""
+    ss = rec.get("source_scan", {})
+    pid = ss.get("public_id")
+    if ss.get("source") == "archive.org" and pid:
+        return f"[archive.org](https://archive.org/details/{pid})"
+    return None
+
+
+def masked_model(rec: dict) -> str:
+    """OCR model label plus a masked-column-pipeline note (columns + render DPI)."""
+    model = (rec.get("model") or "").split("/")[-1] or OCR_MODEL["ocr-masked"]
+    cols = rec.get("layout_handling", {}).get("columns")
+    dpi = rec.get("render_dpi")
+    note = f"masked {cols}-col pipeline" if cols else "masked-column pipeline"
+    if dpi:
+        note += f", {dpi} dpi"
+    return f"{model} ({note})"
+
+
 def main() -> None:
     ce = _load("corpus_editions.json") or {}
     cgpg = {w["urn"]: w for w in (_load("cgpg_works.json") or [])}
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
+    prov_recs = _load_provenance()
     prov = _load("corrections_log/provenance.json") or {}
     corrected = set(prov.get("corrected_works", []))
     auto_corrected = set(prov.get("auto_corrected_works", []))
@@ -90,12 +126,20 @@ def main() -> None:
         status = ("manual" if urn in corrected
                   else "auto-corrected" if urn in auto_corrected
                   else "raw OCR")
-        dl = downloaded_from(urn, m.get("edition", ""), src)
-        # A per-edition "model" in ocr_edition_sources.json overrides the source
-        # default, so newer-model OCR (e.g. Qwen3.6-27B) isn't mislabeled with the
-        # older campaign model.
-        ed = srcs.get(m.get("edition", ""), {})
-        model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
+        # Masked-column re-OCR works carry their own provenance record (model,
+        # source scan, render DPI, column geometry); prefer it over the generic
+        # per-source defaults so the table shows the FP8 masked-pipeline run.
+        rec = prov_recs.get(urn) if src == "ocr-masked" else None
+        if rec:
+            dl = masked_source(rec) or downloaded_from(urn, m.get("edition", ""), src)
+            model = masked_model(rec)
+        else:
+            dl = downloaded_from(urn, m.get("edition", ""), src)
+            # A per-edition "model" in ocr_edition_sources.json overrides the source
+            # default, so newer-model OCR (e.g. Qwen3.6-27B) isn't mislabeled with the
+            # older campaign model.
+            ed = srcs.get(m.get("edition", ""), {})
+            model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
         rows.append((name, desc, dl, model, f"{m.get('n_tokens', 0):,}", status))
 
     n_corr = sum(1 for r in rows if r[5] == "manual")
