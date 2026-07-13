@@ -1,19 +1,22 @@
 {
   "_meta": {
-    "change": "HELD - not ingested (ambiguous split; served text left unchanged)",
-    "work": "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
-    "cts": "urn:cts:greekLit:tlg5032.tlg001",
+    "change": "RESOLVED (4-way canonical carve) with a narrowed residual flag",
     "run_slug": "scholia_oppianum_bussemaker_didot",
-    "applied_by": "scripts/ingest_held_reocr.py",
-    "date": "2026-07-12",
-    "status": "flagged-for-manual-followup"
+    "applied_by": "scripts/ingest_bespoke_keying.py",
+    "date": "2026-07-13",
+    "status": "resolved-except-tail"
   },
-  "served_left_unchanged": true,
-  "shared_scan_secondary_works": [
-    "scholia-in-theocritum.scholia-vetera-et-recentiora (tlg5038.tlg001)"
-  ],
-  "reason_held": "the scan (archive.org scholiaintheocri00buss) is THREE works, not two: Theocritus scholia (pp.13-192), then Nicander (Life of Nicander 'ΓΕΝΟΣ ΝΙΚΑΝΔΡΟΥ' at p.195), then Oppian. The served scholia-in-oppianum (pp.193-692) conflates Nicander + Oppian - TLG Oppian Cynegetica scholia (tlg5032.tlg001) is only ~6088 words yet the served file has 8459 rows. A clean 2-way carve would perpetuate the Nicander mis-key.",
-  "recommendation": "manual: 3-way split at pp.192/193 (Theocritus) and the Nicander/Oppian boundary; register a Nicander-scholia work (tlg5030) and key the middle section to it.",
-  "masked_reocr_available": "yes - staged, keep-better vs served, but keyed as one combined jsonl; do NOT ingest until the split is resolved.",
-  "source": "held-works local-keying review, 2026-07-12"
+  "resolved": {
+    "scholia-in-theocritum.scholia-vetera-et-recentiora (tlg5038.tlg001)": "pp.10-192, replaced served (keep-better)",
+    "scholia-in-nicandrum (tlg5031.tlg001/002)": "pp.195-264 DROPPED - already served from First1K TEI",
+    "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora (tlg5032.tlg001)": "pp.265-281, now clean Cynegetica-only",
+    "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora (tlg5032.tlg002)": "pp.282-385, NEW work registered"
+  },
+  "residual_flag": {
+    "work": "ocr.oppian_bussemaker_paraphrases",
+    "reason": "pp.386-692 interleave Eutecnius' Halieutica paraphrase (tlg0752.tlg005), Cynegetica paraphrase (tlg0752.tlg003), the Oppian poem (already served under oppianus-* urns) and a final alphabetic index; a canonical per-work carve needs a bespoke pass. Held under the holding id ocr.oppian_bussemaker_paraphrases so the Greek is preserved without mis-keying.",
+    "recommendation": "manual: split pp.386-391 (Halieutica paraphrase) / pp.392-~684 (Cynegetica paraphrase + poem) / pp.~685-692 (index); dedup the poem against oppianus-apamensis.cynegetica."
+  },
+  "correction_of_prior_flag": "the earlier flag guessed a new Nicander work at tlg5030; tlg5030 is SCHOLIA IN LYCOPHRONEM. Nicander scholia are tlg5031 and already served, so no Nicander work is minted; the new work is Oppian Halieutica scholia tlg5032.tlg002.",
+  "source": "bespoke keying follow-up, 2026-07-13"
 }

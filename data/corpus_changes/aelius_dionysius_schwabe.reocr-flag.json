@@ -1,19 +1,24 @@
 {
   "_meta": {
-    "change": "HELD - not ingested (ambiguous split; served text left unchanged)",
+    "change": "HELD - not ingested (interleaved atticist series; per-fragment attribution unrecoverable from OCR)",
     "work": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
     "cts": "urn:cts:greekLit:tlg1569.tlg001",
     "run_slug": "aelius_dionysius_schwabe",
-    "applied_by": "scripts/ingest_held_reocr.py",
-    "date": "2026-07-12",
+    "applied_by": "scripts/ingest_bespoke_keying.py",
+    "date": "2026-07-13",
     "status": "flagged-for-manual-followup"
   },
   "served_left_unchanged": true,
   "shared_scan_secondary_works": [
     "aelius-dionysius.attika-o-no-mata (tlg1323.tlg001)"
   ],
-  "reason_held": "shared-scan split not reproducible: the served pausanias-attic (qwen36-aelius_dionysius_schwabe-ocr, pp.97-236) and aelius-dionysius (migne-ocr-qwen36 but with Schwabe loci, pp.5-296) files are two OVERLAPPING OCR passes of the same pages - 727 shared loci, 676 of them with DIFFERING text - not a clean content partition. A page-range split of the masked re-OCR would mis-key fragments.",
-  "recommendation": "manual: reconstruct Schwabe's per-fragment Ael.D./Paus. attribution (or use Erbse 1950) before carving; also reconcile the mislabeled aelius migne-ocr-qwen36 edition.",
-  "masked_reocr_available": "yes - staged, keep-better vs served, but keyed as one combined jsonl; do NOT ingest until the split is resolved.",
-  "source": "held-works local-keying review, 2026-07-12"
+  "conclusive_evidence_this_pass": [
+    "Schwabe 1890 prints both atticists as ONE interleaved alphabetical series: fragment numbers run monotonically 1..451 across the whole fragment section (scan pp.99-276) with no reset.",
+    "No mid-book Pausanias section header exists (searched both the whole-book served OCR and the masked re-OCR); the only 'ΠΑΥΣΑΝΙΟΥ' header is on the shared title page (p5).",
+    "Both 'Αἴλιος Διονύσιος' (~100x) and 'Παυσανίας' (~117x) are cited across the ENTIRE range, early and late - the two authors are not front/back partitioned."
+  ],
+  "why_not_resolved": "A page-range carve cannot separate the two authors, and the OCR does not carry a reliable per-fragment siglum. Collapsing both to one urn would mis-attribute a real TLG author; a heuristic split would mis-key. The double-coverage is intrinsic to this un-splittable interleaving.",
+  "recommendation": "manual: apply Erbse 1950 (Untersuchungen zu den attizistischen Lexika) per-fragment Ael.D./Paus. attribution to the numbered Schwabe fragments, then carve; also reconcile the mislabeled aelius 'migne-ocr-qwen36' whole-book edition.",
+  "masked_reocr_available": "yes - staged (keep-better vs served), keyed as one combined jsonl; do NOT ingest until the per-fragment attribution is resolved.",
+  "source": "bespoke keying follow-up, 2026-07-13"
 }

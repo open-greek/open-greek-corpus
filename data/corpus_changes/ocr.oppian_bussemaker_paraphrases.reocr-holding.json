@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "preserve the paraphrase/index tail under a holding id (canonical split flagged)",
+    "work": "ocr.oppian_bussemaker_paraphrases",
+    "cts": null,
+    "run_slug": "scholia_oppianum_bussemaker_didot",
+    "applied_by": "scripts/ingest_bespoke_keying.py",
+    "date": "2026-07-13",
+    "carved_pages": "386-692",
+    "shared_scan": "Bussemaker Didot scholia scan (public scholiaintheocri00buss): Theocritus scholia pp.10-192 | Nicander scholia pp.195-264 (dropped, served via First1K) | Oppian Cynegetica scholia pp.265-281 | Oppian Halieutica scholia pp.282-385 | Eutecnius paraphrases+poem+index pp.386-692",
+    "reversible": "git revert the ingest commit, or restore data/corpus/ocr.oppian_bussemaker_paraphrases.jsonl from the parent commit; the pre-ingest served text (when replaced) is archived offline as REPLACED.*.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": null,
+    "rows": 0,
+    "greek_chars": 0,
+    "sha256": null
+  },
+  "new": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 2025,
+    "greek_chars": 138679,
+    "sha256": "a967b3ee3f7d5c015926002212a17982969d6bb266814b4d16460aad0cb8affa"
+  },
+  "evidence": "carved pp.386-692 of the Bussemaker scan; rows 0->2025, greek 0->138679. holding id; canonical Eutecnius/poem/index split flagged.",
+  "source_masked_jsonl_sha256": "61c684d845d45aff78eb8e30cf210f957a286303499cd73479cb4c8d0ca2919f",
+  "provenance": "data/ocr_provenance/ocr.oppian_bussemaker_paraphrases.json"
+}
