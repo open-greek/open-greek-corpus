@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "photius.lexicon",
+    "cts": "urn:cts:greekLit:tlg4040.tlg029",
+    "run_slug": "photius_lexicon_naber",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the ingest commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/photius.lexicon.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.photius.lexicon.jsonl in the OCR staging area.",
+    "provenance_note": "Naber Photius Lexicon (mis-keyed as photius.bibliotheca in the worklist). Reconciles commit f87a7ec, which reattributed the served text photius.bibliotheca -> photius.lexicon (tlg4040.tlg029). NOT double-keyed to the Bibliotheca. Structurally incomplete vs the copyrighted Theodoridis edition (predates the 1959 Zavorda codex); best OPEN version only.",
+    "headword_gain": 3913
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 16004,
+    "greek_chars": 514343,
+    "sha256": "3080af76dbeb0a0aaf7ad72abfd1e6f4dfba0f58701b84b59f8177f6eae182a8"
+  },
+  "new": {
+    "edition": "qwen36-photius_lexicon_naber-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 26371,
+    "greek_chars": 569923,
+    "sha256": "854165ed6013a7913cab4883d4f046931e0f09b318eb9953b89d65f07817c7b4"
+  },
+  "evidence": "keep-better: headword recall +3913; Greek 110% of served (apparatus/heads stripped) | greek_ratio=1.1081 (masked/served); masked_greek_chars=569923 vs served_greek_chars=514343; rows 16004->26371.",
+  "provenance": "data/ocr_provenance/photius.lexicon.json",
+  "source": "held-works local-keying ingest (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

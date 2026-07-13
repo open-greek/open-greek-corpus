@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "change": "HELD - not ingested (ambiguous split; served text left unchanged)",
+    "work": "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
+    "cts": "urn:cts:greekLit:tlg5032.tlg001",
+    "run_slug": "scholia_oppianum_bussemaker_didot",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "status": "flagged-for-manual-followup"
+  },
+  "served_left_unchanged": true,
+  "shared_scan_secondary_works": [
+    "scholia-in-theocritum.scholia-vetera-et-recentiora (tlg5038.tlg001)"
+  ],
+  "reason_held": "the scan (archive.org scholiaintheocri00buss) is THREE works, not two: Theocritus scholia (pp.13-192), then Nicander (Life of Nicander 'ΓΕΝΟΣ ΝΙΚΑΝΔΡΟΥ' at p.195), then Oppian. The served scholia-in-oppianum (pp.193-692) conflates Nicander + Oppian - TLG Oppian Cynegetica scholia (tlg5032.tlg001) is only ~6088 words yet the served file has 8459 rows. A clean 2-way carve would perpetuate the Nicander mis-key.",
+  "recommendation": "manual: 3-way split at pp.192/193 (Theocritus) and the Nicander/Oppian boundary; register a Nicander-scholia work (tlg5030) and key the middle section to it.",
+  "masked_reocr_available": "yes - staged, keep-better vs served, but keyed as one combined jsonl; do NOT ingest until the split is resolved.",
+  "source": "held-works local-keying review, 2026-07-12"
+}

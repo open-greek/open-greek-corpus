@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "change": "HELD - not ingested (ambiguous split; served text left unchanged)",
+    "work": "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
+    "cts": "urn:cts:greekLit:tlg5017.tlg001",
+    "run_slug": "scholia_demosthenem_dindorf_v8",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "status": "flagged-for-manual-followup"
+  },
+  "served_left_unchanged": true,
+  "shared_scan_secondary_works": [
+    "ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas (tlg2604.tlg001)"
+  ],
+  "reason_held": "Ulpian's prolegomena are printed scattered before each speech, not as one block. The served ulpianus file (pp.53-69, 679 rows) is 94% duplicated inside scholia-in-demosthenem (636 of 679 loci shared) - so Ulpian is under-captured and the scholia file over-captured. A single page-range carve cannot recover the correct partition.",
+  "recommendation": "manual: identify every Ulpian prolegomenon/hypothesis block (Olynthiacs + each Philippic) and carve per block.",
+  "masked_reocr_available": "yes - staged, keep-better vs served, but keyed as one combined jsonl; do NOT ingest until the split is resolved.",
+  "source": "held-works local-keying review, 2026-07-12"
+}

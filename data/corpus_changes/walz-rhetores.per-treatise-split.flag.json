@@ -1,0 +1,19 @@
+{
+  "_meta": {
+    "change": "DEFERRED - per-treatise canonical TLG split of the Walz Rhetores Graeci volumes",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "status": "flagged-for-manual-followup"
+  },
+  "holding_ids_swapped_keep_better": [
+    "ocr.walz_rhetores_v1",
+    "ocr.walz_rhetores_v4",
+    "ocr.walz_rhetores_v5",
+    "ocr.walz_rhetores_v7pt2",
+    "ocr.walz_rhetores_v9"
+  ],
+  "reason_deferred": "Each Walz Rhetores Graeci volume is a bound anthology of many distinct rhetorical treatises (prolegomena, Anonymi, Sopater, Marcellinus, Syrianus, Maximus Planudes, etc.). The masked re-OCR was staged as one jsonl per volume under the existing ocr.walz_* holding id, with no per-treatise boundary recorded. A canonical per-treatise TLG split needs each volume's TOC matched to tlg_canon; forcing it now would risk mis-keys.",
+  "recommendation": "manual: build a per-volume TOC (page ranges) from Walz's Rhetores Graeci and match each treatise to its TLG urn, then carve and key.",
+  "note": "The keep-better OCR text is already improved under the holding ids; only the canonical split remains.",
+  "source": "held-works local-keying review, 2026-07-12"
+}
