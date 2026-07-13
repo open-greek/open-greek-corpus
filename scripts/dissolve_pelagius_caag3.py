@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Dissolve the pelagius CAAG livraison-3 catch-all into per-work slugs.
 
-Diagnosis (2026-07-10, session e0a83cbd; precedents: greek-ocr dissolve_hgm1.py,
+Diagnosis (2026-07-10; precedents: the upstream OCR pipeline's dissolve_hgm1.py,
 scripts/rescope_cougny_appendix.py, scripts/displace_to_secondary.py)
 --------------------------------------------------------------------------------
 After the 2026-07-10 double-serve displacement (scan pages 0013-0180 -> zosimus
@@ -20,7 +20,7 @@ The TLG canon (~/Documents/tlge-tools/data/tlg_canon.json) cites CAAG vol. 2 by
 printed page for every one of these works, giving an authoritative zone map;
 every zone boundary below was additionally verified against the corpus rows'
 own section heads (quoted in the ZONES table) and, where the older OCR pass is
-garbled, against the fresh full-page reads in greek-ocr
+garbled, against the fresh full-page reads in the upstream OCR pipeline's
 runs/editions/berthelot_alchimistes_grec_out (evidence quoted in
 scratchpad pelagius_dissolve_report.md).
 
@@ -68,8 +68,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import re
 import sys
+import tempfile
 import unicodedata
 from collections import defaultdict
 from pathlib import Path
@@ -81,8 +83,7 @@ CW_PATH = REPO / "data" / "tlg_crosswalk.json"
 TSV_PATH = REPO / "data" / "tlg_crosswalk.tsv"
 REG_PATH = REPO / "data" / "source_registry.json"
 CANON = Path.home() / "Documents/tlge-tools/data/tlg_canon.json"
-SCRATCH = Path("/private/tmp/claude-501/-Users-cisco-Documents-greek-ocr/"
-               "e0a83cbd-1aed-4a76-a35a-2908a4934e9a/scratchpad")
+SCRATCH = Path(os.environ.get("SCRATCH_DIR") or tempfile.gettempdir())
 
 OLD = "pelagius.pelagi-ou-filoso-fou-peri-th-s-qei-as-tau-ths-kai-i-era-s-te-xnhs"
 BASE = "berthelot_alchimistes_grec"

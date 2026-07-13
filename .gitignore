@@ -18,8 +18,8 @@ data/public_lexicon.tsv
 # Cached byzantium.gr pages (re-fetched on demand by build_byzantium_gr_corpus.py)
 data/cache/
 
-# OCR cleanup (correctors, overlay, raw, records) lives in the greek-ocr repo; it
-# delivers the corrected OCR text into data/corpus and a read-only audit mirror of
+# OCR cleanup (correctors, overlay, raw, records) lives in the upstream OCR
+# pipeline; it delivers the corrected OCR text into data/corpus and a read-only audit mirror of
 # the applied fixes into data/corrections_log/. The mirror names the AI correctors,
 # so keep it local rather than in this public repo.
 data/corrections_log/

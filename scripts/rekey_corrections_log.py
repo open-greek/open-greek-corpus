@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """Re-key data/corrections_log/applied.jsonl rows to the works that serve their loci.
 
-The corrections log is a read-only audit mirror written by the greek-ocr pipeline
+The corrections log is a read-only audit mirror written by the upstream OCR pipeline
 (apply_corrections.py). When a COG work is renamed / re-scoped / dissolved (e.g.
 thomas-patricius-anthol-dubner-v3 -> cougny-appendix-nova.didot-anthologia-v3, or the
 Hercher Epistolographi catch-all rows moving to per-author works), the mirror's `urn`
 keys go stale while the row loci (page stems) stay valid. This script restores the
-audit linkage COG-side, without touching the greek-ocr store (read-only upstream):
+audit linkage COG-side, without touching the upstream correction store (read-only):
 
   1. for every mirror row whose locus looks page-keyed (<base>_<NNNN>.<line>), find
      the work now serving that locus in data/corpus (preferred) or
@@ -32,7 +32,7 @@ Rows whose loci are not page-keyed (Migne cogPG.* rows keyed by bare column loci
 or whose loci no longer resolve anywhere (text later dropped/superseded) are left
 unchanged - they document history and the next upstream mirror regeneration
 supersedes them. Note the tlg4049.tlg001 (Cougny) rows this was written for are
-also marked `retired` in the greek-ocr store (superseded by the 2026-07 qwen36
+also marked `retired` in the upstream correction store (superseded by the 2026-07 qwen36
 re-OCR), so they will drop out of the mirror at the next apply_corrections run;
 until then the re-key keeps their audit linkage consistent with the rename.
 

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 """Ingest Proclus, Institutio theologica (tlg4036.tlg005) + Institutio physica
-(tlg4036.tlg006) - the 2026-07-10 net-new additions (see greek-ocr final run).
+(tlg4036.tlg006) - the 2026-07-10 net-new additions (see the upstream OCR pipeline's final run).
 
 Institutio theologica: NO clean open digital text exists (the eulogikon "CC0" dump is
 provenance-laundered Dodds 1963 and was rejected; see proclus_sourcing notes). Source =
 fresh Qwen3.6-27B OCR of the Didot 1855 volume (Plotini Enneades... accedunt Porphyrii
 et Procli Institutiones, ed. Creuzer/Moser; archive.org pltinoscummarsi00dbgoog, IA
 leaves n57-n123 = printed LI-CXVII, Greek LEFT column of the two-column Greek|Latin
-layout), OCR'd at dpi 400 / max-side 3500 into greek-ocr runs/editions/
+layout), OCR'd at dpi 400 / max-side 3500 into the upstream OCR pipeline's runs/editions/
 proclus_didot_et_out (client pages 58-124 = leaf+1). Loci = proposition numbers: the
 print numbers each proposition with Greek numerals (Αʹ..ΣΙΑʹ) = TLG Section 1-211;
 front matter before prop 1 = locus "t".
@@ -23,7 +23,7 @@ Book.section per the TLG cit scheme: "{book}.horoi" for the definition block,
 
 Verification witness (multi-source rule): a fresh 29-page Qwen3.6-27B OCR pass over
 the SAME edition's scan (archive.org ritzenfeld-institutio-physica-gr-lat-1912, IA
-leaf = DjVu page - 1; greek-ocr runs/editions/ritzenfeld_phys_out, client page = DjVu
+leaf = DjVu page - 1; the upstream OCR pipeline's runs/editions/ritzenfeld_phys_out, client page = DjVu
 page) is diffed per page against the wikisource text (same edition, ROVER-valid) and
 written to data/corpus_secondary/ as a rank=secondary witness. Agreement stats are
 printed and saved with the audit.
@@ -48,7 +48,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 COG = Path(__file__).resolve().parent.parent
-GO = Path(os.environ.get("GREEK_OCR_DIR", Path.home() / "Documents" / "greek-ocr"))
+GO = Path(os.environ.get("OCR_PIPELINE_DIR", Path.home() / "Documents" / "ocr-pipeline"))
 ED = GO / "runs" / "editions"
 CORPUS = COG / "data" / "corpus"
 SECONDARY = COG / "data" / "corpus_secondary"
