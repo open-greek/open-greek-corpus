@@ -1,0 +1,40 @@
+{
+  "_meta": {
+    "change": "add coverage (masked re-OCR keep-better): install Diehl Teubner vols 2-3, replacing the near-empty served v2/v3 stubs; keep vol.1",
+    "work": "proclus.in-platonis-timaeum-commentaria",
+    "cts": "urn:cts:greekLit:tlg4036.tlg010",
+    "id": "ogc003048",
+    "run_slug": "proclus_timaeus_v2 + proclus_timaeus_v3",
+    "applied_by": "scripts/ingest_held_reocr_batch2.py",
+    "date": "2026-07-13",
+    "tier": "keep-better",
+    "coverage_addition": true,
+    "reversible": "git revert the ingest commit, or restore data/corpus/proclus.in-platonis-timaeum-commentaria.jsonl from the parent commit ('git checkout <parent> -- ...') and confirm its sha256 equals old.sha256 below. The pre-ingest served file is archived offline as REPLACED.proclus.in-platonis-timaeum-commentaria.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "qwen36-proclus_timaeus_v1 (vol.1) + near-empty qwen36-proclus_timaeus_v2/v3 stubs",
+    "rows": 12896,
+    "greek_chars": 1715511,
+    "sha256": "c95024776a35c9774e76e84d4468cd36dcbf1ead516abfd52920d3a09113f815",
+    "note": "v2 stub 186 rows / 8910 Greek and v3 stub 152 rows / 2082 Greek were replaced; the 12558-row vol.1 was kept unchanged."
+  },
+  "new": {
+    "edition": "qwen36-proclus_timaeus_v2-singlecol + qwen36-proclus_timaeus_v3-singlecol (added); qwen36-proclus_timaeus_v1 kept",
+    "source": "geometric single-column re-OCR (Qwen3.6-27B-FP8, whole body one crop; running head + page number dropped; bottom apparatus inline) of Diehl Teubner vol.2 (books II-III) and vol.3 (books IV-V)",
+    "rows": 16436,
+    "greek_chars": 2662425,
+    "sha256": "dd23ac72b42106dfffdfe70669453ffc683e212a49866d5a0f835ae27c91e865",
+    "coverage_detail": {
+      "v2_rows": 1698,
+      "v2_greek_added": 450477,
+      "v3_rows": 2180,
+      "v3_greek_added": 507429,
+      "served_v2_stub_greek": 8910,
+      "served_v3_stub_greek": 2082,
+      "kept": "qwen36-proclus_timaeus_v1 (vol.1) untouched"
+    }
+  },
+  "evidence": "keep-better: fresh coverage - 957906 Greek chars added (Diehl vol.2 books II-III +450477, vol.3 books IV-V +507429) replacing 10992-char stubs, for full 3-volume coverage. Single-column crops read as complete lines (mean 265.3 / 232.8 Greek chars/line) vs the truncated stubs.",
+  "provenance": "data/ocr_provenance/proclus.in-platonis-timaeum-commentaria.json",
+  "source": "held-works batch-2 coverage ingest (VALIDATION.json + audit_trail.json), 2026-07-13"
+}

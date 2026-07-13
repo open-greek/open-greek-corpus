@@ -1,0 +1,34 @@
+{
+  "_meta": {
+    "change": "re-key + keep-better swap: replace the garbage full-page redo (helladius-chrestomathia-photius-bekker-v2) with the coherent geometric 2-col re-OCR, correctly keyed as photius.bibliotheca",
+    "work": "photius.bibliotheca",
+    "cts": "urn:cts:greekLit:tlg4040.tlg001",
+    "id": "ogc002810",
+    "former_urn": "helladius-chrestomathia-photius-bekker-v2",
+    "run_slug": "helladius_chrestomathia_photius_bekker_v2",
+    "applied_by": "scripts/ingest_held_reocr_batch2.py",
+    "date": "2026-07-13",
+    "tier": "keep-better",
+    "reconciliation": "photius.bibliotheca (Bibliotheca, tlg4040.tlg001) is DISTINCT from photius.lexicon (Naber Lexicon, tlg4040.tlg029, commits f87a7ec/02641c2). No collision: separate corpus files and work-ids. make ids revives the Bibliotheca's own tombstoned id ogc002810 (retired -> served) and retires the helladius id ogc001680 (served -> retired); no new id is minted.",
+    "reversible": "git revert the ingest commit; or restore data/corpus/helladius-chrestomathia-photius-bekker-v2.jsonl and delete data/corpus/photius.bibliotheca.jsonl from the parent commit ('git checkout <parent> -- ...'), then re-run 'make ids' (ogc002810 re-retires, ogc001680 revives). The pre-ingest garbage text is archived offline as DEPRECATED.helladius-chrestomathia-photius-bekker-v2.jsonl in the OCR staging area; the new text carries per-line loci."
+  },
+  "old": {
+    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2 (served full-page redo, GARBAGE)",
+    "urn": "helladius-chrestomathia-photius-bekker-v2",
+    "rows": 577,
+    "greek_chars": 1797580,
+    "sha256": "8055745879f716470cd93effd55f1fd98057af7cc8d9ddad86581ed63baffcd2",
+    "note": "50% of loci start with a bled Bekker column number; the 1797580-char Greek volume is inflated by duplicated columns + Latin/apparatus bleed."
+  },
+  "new": {
+    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+    "urn": "photius.bibliotheca",
+    "source": "geometric 2-col masked re-OCR (Qwen3.6-27B-FP8, L/R + separate bottom-apparatus crops) of Photius Bibliotheca vol.2 (Bekker 1825, archive.org bub_gb_NsiGxvHyQY0C)",
+    "rows": 4347,
+    "greek_chars": 759002,
+    "sha256": "63f00a7dbeb48feae946f6717d8883d73e81c7a40c16127e6fb545ca2089a509"
+  },
+  "evidence": "keep-better (winner=geo): the coherent 2-col re-OCR reads cleanly (174.6 Greek chars/line, 9% digit-start lines, 2% bare-diacritic) where the served full-page redo is garbage (50% column-number-led rows, 1797580 Greek inflated from duplicated columns). Correctly re-keyed to the canonical Bibliotheca urn. FOLLOW-UP (noted, not done here): extract codex 279 -> Helladius; source Bekker vol.1 for codd. 1-165.",
+  "provenance": "data/ocr_provenance/photius.bibliotheca.json",
+  "source": "held-works batch-2 re-key ingest (VALIDATION.json + audit_trail.json), 2026-07-13"
+}

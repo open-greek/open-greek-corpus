@@ -1095,7 +1095,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | hegemon-parodius.fragmentum | ἈΤΣΙΠΠΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
 | hegesippus.fragmenta | HEGESIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 164 | raw OCR |
 | heliodorus.fragmenta | Fragmenta | qwen36-staphylus_fhg4 | Qwen3.6-27B | 157 | raw OCR |
-| helladius-chrestomathia-photius-bekker-v2 |  | qwen36-helladius_chrestomathia_photius_bekker_v2 | Qwen3.6-27B | 357,249 | auto-corrected |
 | hellanicus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 959 | auto-corrected |
 | heniochus.fragmenta | ΠΟΛΤΙΠΡΑΓΜΩΝ | kock-caf2-ocr-frag | Qwen3.6-27B | 76 | raw OCR |
 | heraclides-comedy.fragmentum | ΑΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | [Kock, Comicorum Atticorum Fragmenta II](https://archive.org/search?query=Comicorum+Atticorum+Fragmenta+Kock) | Qwen3.6-27B | 130 | raw OCR |
@@ -1446,6 +1445,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | phoebammon.de-figuris-fort-auctore-phoebammone-alio |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 120,800 | auto-corrected |
 | phoenicides.fragmenta | PHOENICIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
 | phoenix.fragmenta |  | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 27,870 | auto-corrected |
+| photius.bibliotheca |  | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 153,418 | auto-corrected |
 | photius.lexicon |  | [archive.org](https://archive.org/details/photiipatriarch00nabegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 102,580 | raw OCR |
 | phrynichus-comedy.fragmenta | ΦΡΤΝΙΧΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,669 | auto-corrected |
 | phrynichus-tragedy.fragmenta | ΑΙΓΥΠΤΙΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 642 | raw OCR |
@@ -1467,7 +1467,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | praxilla.fragmenta | PRAXILLA — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 228 | raw OCR |
 | priscianus.metaphrasis-in-theophrastum |  | qwen36-priscianus_lydus_bywater | Qwen3.6-27B | 108,391 | auto-corrected |
 | priscus-history.testimonia |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 157 | auto-corrected |
-| proclus.in-platonis-timaeum-commentaria |  | qwen36-proclus_timaeus_v1 | Qwen3.6-27B | 354,308 | manual |
+| proclus.in-platonis-timaeum-commentaria |  | qwen36-proclus_timaeus_v1 | Qwen3.6-27B | 551,839 | manual |
 | proclus.institutio-theologica |  | qwen36-proclus_didot_et-1855 | Qwen3.6-27B | 29,018 | auto-corrected |
 | procopius-rhetoric.epistulae-1-166 |  | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 24,009 | auto-corrected |
 | prodicus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,708 | auto-corrected |
@@ -1486,7 +1486,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | satyrus.vita-euripidis-p-oxy-9-1176 | Vita Euripidis (P. Oxy. 9.1176) | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 449 | raw OCR |
 | scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera |  | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 117,366 | auto-corrected |
 | scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera |  | qwen36-schol_aeschin_dindorf | Qwen3.6-27B | 31,648 | auto-corrected |
-| scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera |  | qwen36-scholia_aeschylum_depauw_stanley | Qwen3.6-27B | 130,144 | auto-corrected |
+| scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera |  | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 116,896 | auto-corrected |
 | scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera |  | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 120,106 | auto-corrected |
 | scholia-in-aratum.scholia-in-aratum-scholia-vetera |  | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 156,497 | auto-corrected |
 | scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii |  | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 350,911 | auto-corrected |

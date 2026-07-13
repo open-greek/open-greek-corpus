@@ -13431,14 +13431,6 @@
 "n_tokens": 157,
 "source": "ocr"
 },
-"helladius-chrestomathia-photius-bekker-v2": {
-"edition": "qwen36-helladius_chrestomathia_photius_bekker_v2",
-"id": "ogc001680",
-"license": "PD",
-"n_passages": 577,
-"n_tokens": 357249,
-"source": "ocr"
-},
 "hellanicus.fragmenta": {
 "edition": "qwen36-socrates_hist_fhg4",
 "id": "ogc001681",
@@ -22479,6 +22471,14 @@
 "n_tokens": 27870,
 "source": "ocr"
 },
+"photius.bibliotheca": {
+"edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+"id": "ogc002810",
+"license": "PD",
+"n_passages": 4347,
+"n_tokens": 153418,
+"source": "ocr-masked"
+},
 "photius.fragmenta": {
 "edition": "dfhg",
 "id": "ogc002811",
@@ -24387,8 +24387,8 @@
 "edition": "qwen36-proclus_timaeus_v1",
 "id": "ogc003048",
 "license": "PD",
-"n_passages": 12896,
-"n_tokens": 354308,
+"n_passages": 16436,
+"n_tokens": 551839,
 "source": "ocr"
 },
 "proclus.institutio-physica": {
@@ -25120,12 +25120,12 @@
 "source": "ocr"
 },
 "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera": {
-"edition": "qwen36-scholia_aeschylum_depauw_stanley",
+"edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
 "id": "ogc003140",
 "license": "PD",
-"n_passages": 25115,
-"n_tokens": 130144,
-"source": "ocr"
+"n_passages": 11414,
+"n_tokens": 116896,
+"source": "ocr-masked"
 },
 "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera": {
 "edition": "qwen36-scholia_apollonius_schaefer-masked",

@@ -43925,28 +43925,6 @@
     "n_tokens": 157
    }
   },
-  "helladius-chrestomathia-photius-bekker-v2": {
-   "id": "ogc001680",
-   "slug": "helladius-chrestomathia-photius-bekker-v2",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga000674",
-    "slug": "helladius-chrestomathia-photius-bekker-v2",
-    "name": "helladius-chrestomathia-photius-bekker-v2"
-   },
-   "work_anchors": {
-    "cts": "urn:cts:greekLit:tlg1401.tlg001",
-    "tlg": "tlg1401.tlg001"
-   },
-   "manifestation": {
-    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 577,
-    "n_tokens": 357249
-   }
-  },
   "hellanicus.fragmenta": {
    "id": "ogc001681",
    "slug": "hellanicus.fragmenta",
@@ -74108,6 +74086,35 @@
     "n_tokens": 27870
    }
   },
+  "photius.bibliotheca": {
+   "id": "ogc002810",
+   "slug": "photius.bibliotheca",
+   "former_slugs": [],
+   "title": "Bibliotheca",
+   "author": {
+    "id": "oga001078",
+    "slug": "photius",
+    "name": "Photius",
+    "authorities": {
+     "wikidata": "Q243187",
+     "viaf": "263386225",
+     "gnd": "118594095",
+     "isni": "0000000079708327"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4040.tlg001",
+    "tlg": "tlg4040.tlg001",
+    "wikidata": "Q2593363"
+   },
+   "manifestation": {
+    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+    "source": "ocr-masked",
+    "license": "PD",
+    "n_passages": 4347,
+    "n_tokens": 153418
+   }
+  },
   "photius.fragmenta": {
    "id": "ogc002811",
    "slug": "photius.fragmenta",
@@ -80683,8 +80690,8 @@
     "edition": "qwen36-proclus_timaeus_v1",
     "source": "ocr",
     "license": "PD",
-    "n_passages": 12896,
-    "n_tokens": 354308
+    "n_passages": 16436,
+    "n_tokens": 551839
    }
   },
   "proclus.institutio-physica": {
@@ -83073,11 +83080,11 @@
     "tlg": "tlg5010.tlg001"
    },
    "manifestation": {
-    "edition": "qwen36-scholia_aeschylum_depauw_stanley",
-    "source": "ocr",
+    "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
+    "source": "ocr-masked",
     "license": "PD",
-    "n_passages": 25115,
-    "n_tokens": 130144
+    "n_passages": 11414,
+    "n_tokens": 116896
    }
   },
   "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera": {

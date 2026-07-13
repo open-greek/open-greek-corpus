@@ -1,0 +1,17 @@
+{
+  "_meta": {
+    "change": "HELD-DECIDED - not ingested (lateral swap; served text left unchanged)",
+    "work": "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
+    "cts": "urn:cts:greekLit:tlg5009.tlg001",
+    "run_slug": "schol_aeschin_dindorf",
+    "applied_by": "scripts/ingest_held_reocr_batch2.py",
+    "date": "2026-07-13",
+    "status": "reviewed-not-swapped"
+  },
+  "served_left_unchanged": true,
+  "served_sha256": "96c5280502ac1e6f5bb50871329bcf92bd0a52bdd60f378ff7f6fccedebacab1",
+  "decision": "The served text is already an adequate full-page redo; the single-column candidate is near-identical in quality and volume (candidate Greek 170532 vs served 171125, mean line 56.1 vs 55.4, matched digit-start and bare-diacritic fractions). A swap would be lateral and buys nothing, so the served file is retained.",
+  "candidate_available": "yes - staged and keep-better vs the truncated 2-col re-OCR, but not vs the served full-page redo; do not swap.",
+  "followup": "The shared Dindorf 1852 scan also holds the Isocrates scholia; carve those out separately if/when needed.",
+  "source": "held-works batch-2 review, 2026-07-13"
+}
