@@ -43,6 +43,50 @@
   "pages_per_hr": 1458.1,
   "masker": "geometric-projection"
  },
- "date": "2026-07-12",
- "note": "Derived reproducibly from run params + _timing.json + a measured sample crop. Metadata only; text replacements are staged for review."
+ "date": "2026-07-13",
+ "note": "3-volume work (Diehl Teubner I-III). Vol.1 was masked 2-col re-OCR; vols 2-3 are the single-column coverage add (batch-2 held ingest, 2026-07-13), replacing near-empty stubs. See the `volumes` array for per-volume run params. Metadata only; derived reproducibly from run params + _timing.json.",
+ "volumes": [
+  {
+   "volume": "vol.1 (books I; Diehl Teubner t.1, 1903)",
+   "edition": "qwen36-proclus_timaeus_v1-masked",
+   "run_slug": "proclus_timaeus_v1",
+   "source_scan": {
+    "public_id": "diehl-procli-diadochi-in-platonis-timaevm-commentaria-gr-lat-t.-1-1903",
+    "source": "archive.org",
+    "pages_ocr": 529
+   },
+   "render_dpi": 430,
+   "layout_columns": 2,
+   "layout_method": "geometric-column-mask",
+   "throughput_pages_per_hr": 1458.1
+  },
+  {
+   "volume": "vol.2 (books II-III; Diehl Teubner t.2, 1904)",
+   "edition": "qwen36-proclus_timaeus_v2-singlecol",
+   "run_slug": "proclus_timaeus_v2",
+   "source_scan": {
+    "public_id": "diehl-procli-diadochi-in-platonis-timaevm-commentaria-gr-lat-t.-2-1904",
+    "source": "archive.org",
+    "pages_ocr": 320
+   },
+   "render_dpi": 350,
+   "layout_columns": 1,
+   "layout_method": "geometric single-column crop (running head + page number dropped via ink-projection; NO left/right split - the whole body is one crop; bottom apparatus kept inline)",
+   "throughput_pages_per_hr": 716.4
+  },
+  {
+   "volume": "vol.3 (books IV-V; Diehl Teubner t.3, 1906)",
+   "edition": "qwen36-proclus_timaeus_v3-singlecol",
+   "run_slug": "proclus_timaeus_v3",
+   "source_scan": {
+    "public_id": "diehl-procli-diadochi-in-platonis-timaevm-commentaria-gr-lat-t.-3-1906",
+    "source": "archive.org",
+    "pages_ocr": 362
+   },
+   "render_dpi": 350,
+   "layout_columns": 1,
+   "layout_method": "geometric single-column crop (running head + page number dropped via ink-projection; NO left/right split - the whole body is one crop; bottom apparatus kept inline)",
+   "throughput_pages_per_hr": 772.1
+  }
+ ]
 }
