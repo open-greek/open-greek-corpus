@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "new work: Hesychius lexicon P-W carved from the re-keyed whole-lexicon, masked re-OCR (keep-better)",
+    "work": "hesychius-lexicography.lexicon-p-w",
+    "cts": "urn:cts:greekLit:tlg4085.tlg003",
+    "id": "ogc003622",
+    "run_slug": "hesychius_masked",
+    "applied_by": "staged Hesychius re-OCR ingest + make ids",
+    "date": "2026-07-12",
+    "reversible": "git revert the ingest commit, or delete data/corpus/hesychius-lexicography.lexicon-p-w.jsonl and revert the crosswalk + id-layer, then re-run 'make ids' (the ogc003622 id is tombstoned, never recycled)."
+  },
+  "old": {
+    "edition": "none (new work-unit; no prior served text under this slug)",
+    "note": "the P-W content was previously part of the whole lexicon mis-keyed under hesychius-lexicography.epistula-ad-eulogium (tlg4085.tlg001)",
+    "rows": 0,
+    "greek_chars": 0,
+    "sha256": null
+  },
+  "new": {
+    "edition": "qwen36-hesychius_schmidt_masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops) of the PD Schmidt edition (archive.org hesychiialexand00schmgoog), 613 pages",
+    "rows": 12715,
+    "greek_chars": 338000,
+    "sha256": "b46675fcc6ed855f5df9e2465623d39f3aa7c80cdc66612949fba70004203a88"
+  },
+  "evidence": "keep-better vs prior served lexicon OCR (VALIDATION.json MASKED vs SERVED headword recall): alpha 45.4 vs 33.6; iota 42.3 vs 31.5; sigma 59.9 vs 37.8; omega 40.7 vs 9.2; 2146 dropped headwords recovered across the 4 sampled letters. PD Schmidt source, no copyright.",
+  "provenance": "data/ocr_provenance/hesychius-lexicography.lexicon-p-w.json",
+  "source": "flagship Hesychius masked re-OCR (PD Schmidt edition, archive.org hesychiialexand00schmgoog) + structural re-key, VALIDATION.json + audit_trail.json, 2026-07-12"
+}
