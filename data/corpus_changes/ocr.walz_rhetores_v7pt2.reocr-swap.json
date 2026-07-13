@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "ocr.walz_rhetores_v7pt2",
+    "cts": "n/a (holding id; per-treatise canonical TLG split deferred)",
+    "run_slug": "walz_rhetores_v7pt2",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the ingest commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/ocr.walz_rhetores_v7pt2.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.ocr.walz_rhetores_v7pt2.jsonl in the OCR staging area.",
+    "per_treatise_split": "DEFERRED + flagged: this Walz Rhetores Graeci volume bundles many rhetorical treatises under the ocr.walz_* holding id; the staging carries no per-treatise boundary, so a canonical TLG split is left for manual follow-up. This swap only improves the OCR text under the same holding id.",
+    "flag": "data/corpus_changes/walz-rhetores.per-treatise-split.flag.json"
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 8777,
+    "greek_chars": 801682,
+    "sha256": "bb64cdced764695ece11626094372547c732988d76ece8144e86136666cdd767"
+  },
+  "new": {
+    "edition": "qwen36-walz_rhetores_v7pt2-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 25170,
+    "greek_chars": 772484,
+    "sha256": "97a67f627bc27627ffec0bdd6069ed55238f07cf1e7ce04ca1583a6718c96cfb"
+  },
+  "evidence": "keep-better: Greek 96% of served | greek_ratio=0.9636 (masked/served); masked_greek_chars=772484 vs served_greek_chars=801682; rows 8777->25170.",
+  "provenance": "data/ocr_provenance/ocr.walz_rhetores_v7pt2.json",
+  "source": "held-works local-keying ingest (VALIDATION.json + audit_trail.json), 2026-07-12"
+}
