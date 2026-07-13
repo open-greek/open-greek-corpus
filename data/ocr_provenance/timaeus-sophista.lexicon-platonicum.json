@@ -1,0 +1,48 @@
+{
+ "urn": "timaeus-sophista.lexicon-platonicum",
+ "cts": "urn:cts:greekLit:tlg2602.tlg001",
+ "edition": "qwen36-timaeus_lex_platon_ruhnken-masked",
+ "run_slug": "timaeus_lex_platon_ruhnken",
+ "source_scan": {
+  "public_id": "timaiousophistou00tima",
+  "source": "archive.org",
+  "pages_ocr": 332
+ },
+ "model": "Qwen/Qwen3.6-27B-FP8",
+ "serving_stack": {
+  "engine": "vLLM",
+  "images": {
+   "Ada (sm_89)": "vllm/vllm-openai:v0.24.0",
+   "Blackwell RTX PRO 6000 (sm_120)": "vllm/vllm-openai:latest"
+  },
+  "quantization": "fp8 (block-128; vision tower + embeddings bf16)",
+  "flags": "--max-model-len 16384 --max-num-seqs 16 (Ada) / 48 (Blackwell) --gpu-memory-utilization 0.92 --reasoning-parser qwen3 --default-chat-template-kwargs {enable_thinking:false}"
+ },
+ "render_dpi": 430,
+ "native_dpi": "see source scan",
+ "render_is_native": false,
+ "image_resolution": {
+  "client_max_side": 6000,
+  "jpeg_quality": 92,
+  "model_max_pixels": "16.78 MP (16384 visual tokens @ 32x32 px/token)"
+ },
+ "layout_handling": {
+  "method": "geometric-column-mask",
+  "columns": 2,
+  "running_head_excluded": true,
+  "apparatus": "cropped and OCR'd SEPARATELY (bottom COD./HES. block), stored out-of-line so gloss/line numbers cannot bleed into lemmas",
+  "column_split": "central gutter = min-ink column via vertical ink projection",
+  "margins": "text margins via ink projection; degenerate/near-blank crops skipped"
+ },
+ "prompt_specials": {
+  "diacritic_awareness_clause": "Sperrsatz diacritic-awareness clause: transcribe entry-initial breathing/accent/iota-subscript exactly; ᾠ/ᾤ/ᾦ is one letter, not φ",
+  "omega_iota_subscript_handler": "entry-initial ᾠ->φ corrector: φδ- and exact ᾠ-stem matches auto-corrected (audited), ambiguous φ-initials in omega context flagged for review",
+  "printed_page_capture": "printed page/column number captured as <pg>N</pg>"
+ },
+ "throughput": {
+  "pages_per_hr": 1401.7,
+  "masker": "geometric-projection"
+ },
+ "date": "2026-07-12",
+ "note": "Derived reproducibly from run params + _timing.json + a measured sample crop. Metadata only; text replacements are staged for review."
+}
