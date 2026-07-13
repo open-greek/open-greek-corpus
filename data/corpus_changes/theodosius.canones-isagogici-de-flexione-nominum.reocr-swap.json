@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap; carved from the shared Grammatici Graeci IV scan by printed-page boundary)",
+    "work": "theodosius.canones-isagogici-de-flexione-nominum",
+    "cts": "urn:cts:greekLit:tlg2020.tlg001",
+    "run_slug": "choeroboscus_hilgard_gg4",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the ingest commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/theodosius.canones-isagogici-de-flexione-nominum.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.theodosius.canones-isagogici-de-flexione-nominum.jsonl in the OCR staging area.",
+    "carved_pages": "14-53",
+    "shared_scan": "Hilgard Grammatici Graeci IV: Theodosius nominal canons (pp.14-53) + verbal canons (pp.54-110) + Choeroboscus prolegomena/scholia (pp.114+); front matter pp.<=13 dropped as editorial."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 2303,
+    "greek_chars": 64945,
+    "sha256": "fb7a552e9b869e9971335a4e32ec07042598f7fdeb10ad9e4e60e9d2768f528c"
+  },
+  "new": {
+    "edition": "qwen36-choeroboscus_hilgard_gg4-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 2095,
+    "greek_chars": 63039,
+    "sha256": "36133fcb74feb4da8f21f755e19c115b799d6f8372f5b41fee4a3f4a3f1ade67"
+  },
+  "evidence": "keep-better: Greek 97% of served (carved pp.14-53 of the GG IV scan) | greek_ratio=0.9707 (masked/served); masked_greek_chars=63039 vs served_greek_chars=64945; rows 2303->2095.",
+  "provenance": "data/ocr_provenance/theodosius.canones-isagogici-de-flexione-nominum.json",
+  "source": "held-works local-keying ingest (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

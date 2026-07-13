@@ -492,7 +492,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1117 OCR'd works/volumes: 34 manually corrected, 794 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 289 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1122 OCR'd works/volumes: 39 manually corrected, 793 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 290 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -985,7 +985,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth |  | qwen36-suetonius_reliquiae_reifferscheid | Qwen3.6-27B | 11,460 | auto-corrected |
 | geoponica.geoponica |  | qwen36-geoponica_beckh | Qwen3.6-27B | 123,977 | auto-corrected |
 | georgius-cedrenus.compendium-historiarum |  | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 220,540 | manual |
-| georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de |  | qwen36-choeroboscus_hilgard_gg4 | Qwen3.6-27B | 129,845 | auto-corrected |
+| georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 142,225 | auto-corrected |
 | georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior | ΠΡΟΟΙΜΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 239,480 | auto-corrected |
 | gorgias-rhetoric.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 979 | auto-corrected |
 | gorgias-rhetoric.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,879 | auto-corrected |
@@ -1378,6 +1378,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicostratus.fragmenta | ΝΙΚΟΣΤΡΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 966 | auto-corrected |
 | nonnosus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 880 | raw OCR |
 | ocellus.de-universi-natura-sp |  | qwen36-hierocl_aureum_mullach_fpg1-ocr | Qwen3.6-27B | 5,416 | auto-corrected |
+| ocr.walz_rhetores_v1 |  | [archive.org](https://archive.org/details/rhetoresgraeciem01walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 142,191 | manual |
+| ocr.walz_rhetores_v4 |  | [archive.org](https://archive.org/details/rhetoresgraeciem04walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 226,107 | manual |
+| ocr.walz_rhetores_v5 |  | [archive.org](https://archive.org/details/rhetoresgraeciem05walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,587 | manual |
+| ocr.walz_rhetores_v7pt2 |  | [archive.org](https://archive.org/details/p2rhetoresgraeci07walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 163,069 | manual |
+| ocr.walz_rhetores_v9 |  | [archive.org](https://archive.org/details/rhetoresgraeciem09walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 135,196 | manual |
 | oenopides.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,449 | auto-corrected |
 | onatas.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 425 | auto-corrected |
 | ophelio.fragmenta | Ὠ Φ Ε Λ Ι Ὦ Ν | kock-caf2-ocr-frag | Qwen3.6-27B | 130 | auto-corrected |
@@ -1441,7 +1446,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | phoebammon.de-figuris-fort-auctore-phoebammone-alio |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 120,800 | auto-corrected |
 | phoenicides.fragmenta | PHOENICIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
 | phoenix.fragmenta |  | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 27,870 | auto-corrected |
-| photius.lexicon |  | qwen36-photius_lexicon_naber | Qwen3.6-27B | 88,299 | auto-corrected |
+| photius.lexicon |  | [archive.org](https://archive.org/details/photiipatriarch00nabegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 102,580 | raw OCR |
 | phrynichus-comedy.fragmenta | ΦΡΤΝΙΧΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,669 | auto-corrected |
 | phrynichus-tragedy.fragmenta | ΑΙΓΥΠΤΙΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 642 | raw OCR |
 | pigres.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 623 | raw OCR |
@@ -1552,8 +1557,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | theodoretus.quaestiones-in-libros-regnorum-et-paralipomenon | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 58,179 | auto-corrected |
 | theodoretus.quaestiones-in-octateuchum | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ, ΕΠΙΣΚΟΠΟΥ ΚΥΡΟΥ, ΤΑ ΑΠΟΡΑ ΤΗΣ ΘΕΙΑΣ ΓΡΑΦΗΣ. ΚΑΤ' ΕΚΛΟΓΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 66,557 | auto-corrected |
 | theodorus-mathematics.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 351 | raw OCR |
-| theodosius.canones-isagogici-de-flexione-nominum |  | qwen36-choeroboscus_hilgard_gg4-ocr | Qwen3.6-27B | 14,601 | auto-corrected |
-| theodosius.canones-isagogici-de-flexione-verborum |  | qwen36-choeroboscus_hilgard_gg4-ocr | Qwen3.6-27B | 17,910 | auto-corrected |
+| theodosius.canones-isagogici-de-flexione-nominum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 14,109 | auto-corrected |
+| theodosius.canones-isagogici-de-flexione-verborum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 16,797 | auto-corrected |
 | theodotion.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 23,151 | auto-corrected |
 | theognetus.fragmenta | THEOGNETUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 135 | raw OCR |
 | theognis-elegy.elegiae |  | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 3,233 | auto-corrected |

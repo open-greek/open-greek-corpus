@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap; carved from the shared Grammatici Graeci IV scan by printed-page boundary)",
+    "work": "georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de",
+    "cts": "urn:cts:greekLit:tlg4093.tlg001",
+    "run_slug": "choeroboscus_hilgard_gg4",
+    "applied_by": "scripts/ingest_held_reocr.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the ingest commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de.jsonl in the OCR staging area.",
+    "carved_pages": "114-end",
+    "shared_scan": "Hilgard Grammatici Graeci IV: Theodosius nominal canons (pp.14-53) + verbal canons (pp.54-110) + Choeroboscus prolegomena/scholia (pp.114+); front matter pp.<=13 dropped as editorial."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 2368,
+    "greek_chars": 619521,
+    "sha256": "d203c05f0c2004f1c567cf01b274b334d43dafdf73cf21e5aa9938d96f4b6a11"
+  },
+  "new": {
+    "edition": "qwen36-choeroboscus_hilgard_gg4-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 12422,
+    "greek_chars": 653184,
+    "sha256": "eea1d967ca3545b4e8674ea8e9b4b492b5c1c84960bb81240d97ec3fc92d93f4"
+  },
+  "evidence": "keep-better: Greek 105% of served (carved pp.114-end of the GG IV scan) | greek_ratio=1.0543 (masked/served); masked_greek_chars=653184 vs served_greek_chars=619521; rows 2368->12422.",
+  "provenance": "data/ocr_provenance/georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de.json",
+  "source": "held-works local-keying ingest (VALIDATION.json + audit_trail.json), 2026-07-12"
+}
