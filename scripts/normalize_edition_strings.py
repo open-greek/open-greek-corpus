@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """Collapse stacked qwen36 edition-tag artifacts corpus-wide.
 
-Each page-level re-swap in the greek-ocr pipeline used to PREPEND another
+Each page-level re-swap in the upstream OCR pipeline used to PREPEND another
 "qwen36-" (or, in reingest_pg, APPEND another "-qwen36") to a work's edition
 string instead of recognizing the tag it had already applied, producing labels
 like "qwen36-qwen36-qwen36-tzetzes_historiae_kiessling". The generators were
-fixed (greek-ocr ba84169 + the 2026-07-10 follow-ups in swap_boundary_offset0
+fixed (upstream OCR pipeline commit ba84169 + the 2026-07-10 follow-ups in swap_boundary_offset0
 and reingest_pg); this script repairs the strings already in the corpus.
 
 Malformed classes (the 2026-07-10 inventory found no other duplicate-marker

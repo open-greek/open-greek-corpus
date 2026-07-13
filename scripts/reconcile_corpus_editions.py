@@ -4,7 +4,7 @@
 corpus_editions is DERIVED metadata - one row per work (edition / source / license,
 passage count, token count). Deriving it from data/corpus/*.jsonl, the source of truth,
 rather than having every ingester read-modify-write the shared file, avoids losing rows
-when two writers race: this repo's own ingest and the greek-ocr repo's OCR delivery both
+when two writers race: this repo's own ingest and the upstream OCR pipeline's delivery both
 touch it, and an interleaved write silently dropped ~90 delivered OCR works (~15M tokens).
 Run this after any ingest (or delivery) instead of trusting incremental updates.
 
