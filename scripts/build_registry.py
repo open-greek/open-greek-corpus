@@ -151,6 +151,23 @@ _BETA_GREEK = re.compile(r"\*[A-Za-z()/\\=]|[A-Za-z][/\\=]|[/\\=][A-Za-z]")
 _BETA_TOKEN = re.compile(r"[/\\=*]")
 
 
+def _decode_beta_range(tok: str) -> str:
+    """Decode a beta-code range token like `(*A_*O)` or `(A)NA/BLHSIS_BW/TORES)`.
+
+    `_` is TLG's range separator and becomes a plain hyphen `-`. The literal
+    wrapping parentheses are peeled off before conversion: fed a `)`/`(` glued to
+    a vowel the betacode converter reads it as a breathing, eating the paren and
+    leaving a stray diacritic (`*W)` -> `Ὠ`, dropping the close paren). Each side
+    is converted on its own so a bare capital stays bare (`*O` -> `Ο`, not `Ὀ`)."""
+    lead = trail = ""
+    if tok.startswith("("):
+        lead, tok = "(", tok[1:]
+    if tok.endswith(")"):
+        trail, tok = ")", tok[:-1]
+    sides = tok.split("_", 1)
+    return lead + "-".join(_betacode_conv.beta_to_uni(s) for s in sides) + trail
+
+
 def decode_betacode_title(raw: str) -> str | None:
     """Decode the beta-code Greek tokens of a Canon work title to Unicode Greek
     (`*AI)GU/PTIOS` -> `Αἰγύπτιος`; `De Figuris (Peri\\ Sxhma/Twn)` -> `De Figuris
@@ -163,7 +180,10 @@ def decode_betacode_title(raw: str) -> str | None:
     s = re.sub(r"[\[\]{}]2|[{}]|#\d+|%\d*|`", "", raw)
     toks, changed = [], False
     for tok in s.split(" "):
-        if _BETA_TOKEN.search(tok):
+        if "_" in tok:                       # beta-code range: `*A_*O`, `word_word`
+            toks.append(_decode_beta_range(tok))
+            changed = True
+        elif _BETA_TOKEN.search(tok):
             toks.append(_betacode_conv.beta_to_uni(tok))
             changed = True
         else:
