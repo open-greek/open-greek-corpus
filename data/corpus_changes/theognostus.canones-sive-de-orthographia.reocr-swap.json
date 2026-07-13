@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "theognostus.canones-sive-de-orthographia",
+    "cts": "urn:cts:greekLit:tlg3128.tlg001",
+    "run_slug": "theognostus_canones_cramer",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/theognostus.canones-sive-de-orthographia.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.theognostus.canones-sive-de-orthographia.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 11104,
+    "greek_chars": 733471,
+    "sha256": "2e8a047cca6c6a8aef512cd02b42cdcec69ce5f627e01a43c997df87f7522e6d"
+  },
+  "new": {
+    "edition": "qwen36-theognostus_canones_cramer-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 25726,
+    "greek_chars": 683414,
+    "sha256": "f8e01ab809e664a38f9a62c3d83b07f550cbfb9ab09a54753446f4a738ce99ff",
+    "headwords_gain": 3184
+  },
+  "evidence": "keep-better: headword recall +3184; Greek 93% of served (apparatus/heads stripped) | greek_ratio=0.932 (masked/served); masked_greek_chars=683414 vs served_greek_chars=733471; unique_greek_words 35016 vs 34948; headword_gain=+3184. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/theognostus.canones-sive-de-orthographia.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

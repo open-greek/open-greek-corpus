@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "apollonius-soph.lexicon-homericum",
+    "cts": "urn:cts:greekLit:tlg1168.tlg001",
+    "run_slug": "apollonius_sophista_bekker",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/apollonius-soph.lexicon-homericum.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.apollonius-soph.lexicon-homericum.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 4951,
+    "greek_chars": 230899,
+    "sha256": "12d805b33f5b74ce48ed99b0658679b90017cd573e51573bb6268c2f1069b44c"
+  },
+  "new": {
+    "edition": "qwen36-apollonius_sophista_bekker-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 10468,
+    "greek_chars": 231209,
+    "sha256": "ddb0cf20b37cbd0da64244561696dffa483250e8f9f7b2103c079fc7289cfb8b",
+    "headwords_gain": 2243
+  },
+  "evidence": "keep-better: headword recall +2243; Greek 100% of served (apparatus/heads stripped) | greek_ratio=1.001 (masked/served); masked_greek_chars=231209 vs served_greek_chars=230899; unique_greek_words 19889 vs 19231; headword_gain=+2243. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/apollonius-soph.lexicon-homericum.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

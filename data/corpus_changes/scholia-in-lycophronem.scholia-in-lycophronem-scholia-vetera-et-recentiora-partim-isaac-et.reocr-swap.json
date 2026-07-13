@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et",
+    "cts": "urn:cts:greekLit:tlg5030.tlg001",
+    "run_slug": "schol_lycophron_scheer2",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 6144,
+    "greek_chars": 513659,
+    "sha256": "380b3d2a72db91c749c7bb094cbcf0b0c43dfc8cd406dbb18b3af8865c80e250"
+  },
+  "new": {
+    "edition": "qwen36-schol_lycophron_scheer2-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 16836,
+    "greek_chars": 505630,
+    "sha256": "6544a96eac653159b48be4aae0a77a89fa9345a8a3038de573ea9c6e58e120bc"
+  },
+  "evidence": "keep-better: Greek 98% of served | greek_ratio=0.984 (masked/served); masked_greek_chars=505630 vs served_greek_chars=513659; unique_greek_words 29380 vs 26936. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

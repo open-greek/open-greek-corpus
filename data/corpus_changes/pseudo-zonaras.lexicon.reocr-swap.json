@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "pseudo-zonaras.lexicon",
+    "cts": "urn:cts:greekLit:tlg3136.tlg001",
+    "run_slug": "zonaras_lexicon_v1",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/pseudo-zonaras.lexicon.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.pseudo-zonaras.lexicon.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 19522,
+    "greek_chars": 850008,
+    "sha256": "bd118ff704936181e5e1a53614dfd40c13090a1ce195fd733e60a3275c5eb3b6"
+  },
+  "new": {
+    "edition": "qwen36-zonaras_lexicon_v1-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 21035,
+    "greek_chars": 876275,
+    "sha256": "116ba64aa21e8df78cc90875922a6a19075c90dca35f85ff0f35743272e30180",
+    "headwords_gain": 985
+  },
+  "evidence": "keep-better: headword recall +985; Greek 103% of served (apparatus/heads stripped) | greek_ratio=1.031 (masked/served); masked_greek_chars=876275 vs served_greek_chars=850008; unique_greek_words 57480 vs 57861; headword_gain=+985. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/pseudo-zonaras.lexicon.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}

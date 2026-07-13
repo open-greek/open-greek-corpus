@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "dositheus-magister.ars-grammatica",
+    "cts": "urn:cts:greekLit:tlg4096.tlg001",
+    "run_slug": "dositheus_ars_tolkiehn",
+    "applied_by": "scripts/record_reocr_ingest_audit.py",
+    "date": "2026-07-12",
+    "tier": "keep-better",
+    "reversible": "git revert the swap commit, or restore the file from the parent commit ('git checkout <parent> -- data/corpus/dositheus-magister.ars-grammatica.jsonl') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is also archived offline as REPLACED.dositheus-magister.ars-grammatica.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 406,
+    "greek_chars": 32750,
+    "sha256": "8c4ee85d1da4a0dce488fe05f00f53e5ef09a73df804762a8846607731caf4fc"
+  },
+  "new": {
+    "edition": "qwen36-dositheus_ars_tolkiehn-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 1451,
+    "greek_chars": 33804,
+    "sha256": "4a789f22eb1e5b8f12959f083c09c0465b4ae10cbc484274e30847856e0935ac"
+  },
+  "evidence": "keep-better: Greek 103% of served | greek_ratio=1.032 (masked/served); masked_greek_chars=33804 vs served_greek_chars=32750; unique_greek_words 2826 vs 2598. keep_better validated by bucket VALIDATION.json (tier=keep-better).",
+  "provenance": "data/ocr_provenance/dositheus-magister.ars-grammatica.json",
+  "source": "dense-class re-OCR fleet keep-better validation (VALIDATION.json + audit_trail.json), 2026-07-12"
+}
