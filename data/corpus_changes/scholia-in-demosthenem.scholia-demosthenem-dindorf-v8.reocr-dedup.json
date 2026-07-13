@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "dedup: remove the Ulpian Olynthiac+Philippic prolegomena block (printed pp.53-69) from scholia-in-demosthenem so it lives only under ulpianus",
+    "work": "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
+    "cts": "urn:cts:greekLit:tlg5017.tlg001",
+    "applied_by": "scripts/ingest_bespoke_keying.py",
+    "date": "2026-07-13",
+    "reversible": "git revert the ingest commit or restore from the parent commit; the pre-dedup file is archived offline as REPLACED.*.jsonl in staging."
+  },
+  "old": {
+    "rows": 8670,
+    "greek_chars": 607520,
+    "sha256": "9aefb90ce715d1d9ac73729f2924192d720e4b8174950af10da5d66d809f3534"
+  },
+  "new": {
+    "rows": 8003,
+    "greek_chars": 581347,
+    "sha256": "ef3f12f28447faff52a443e6cbd84b868168cc3f0539065a6f7f1ac6d5cd4d12"
+  },
+  "removed_rows": 667,
+  "moved_to": {
+    "work": "ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas",
+    "cts": "urn:cts:greekLit:tlg2604.tlg001",
+    "note": "the removed pp.53-69 block is Ulpian's prolegomena; the served ulpianus file already holds it (679 rows / 27053 greek), so no content is lost - only the double-coverage is removed. ulpianus is left on its served OCR (27053 greek on these pages) which is richer than the masked re-OCR (23072)."
+  },
+  "evidence": "Ulpian header 'ΟΥΛΠΙΑΝΟΥ ...' at p53; the Life of Demosthenes / scholia proper begin p70 ('ΒΙΟΣ ΔΗΜΟΣΘΕΝΟΥΣ'). 667 rows removed from the scholia file.",
+  "source": "bespoke keying follow-up, 2026-07-13"
+}

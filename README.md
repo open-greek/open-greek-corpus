@@ -492,7 +492,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1122 OCR'd works/volumes: 39 manually corrected, 793 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 290 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1124 OCR'd works/volumes: 39 manually corrected, 793 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 292 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1377,6 +1377,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicostratus.fragmenta | ΝΙΚΟΣΤΡΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 966 | auto-corrected |
 | nonnosus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 880 | raw OCR |
 | ocellus.de-universi-natura-sp |  | qwen36-hierocl_aureum_mullach_fpg1-ocr | Qwen3.6-27B | 5,416 | auto-corrected |
+| ocr.oppian_bussemaker_paraphrases |  | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 26,686 | raw OCR |
 | ocr.walz_rhetores_v1 |  | [archive.org](https://archive.org/details/rhetoresgraeciem01walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 142,191 | manual |
 | ocr.walz_rhetores_v4 |  | [archive.org](https://archive.org/details/rhetoresgraeciem04walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 226,107 | manual |
 | ocr.walz_rhetores_v5 |  | [archive.org](https://archive.org/details/rhetoresgraeciem05walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,587 | manual |
@@ -1491,12 +1492,13 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | scholia-in-aratum.scholia-in-aratum-scholia-vetera |  | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 156,497 | auto-corrected |
 | scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii |  | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 350,911 | auto-corrected |
 | scholia-in-callimachum.schol-callim-schneider |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,499 | auto-corrected |
-| scholia-in-demosthenem.scholia-demosthenem-dindorf-v8 |  | qwen36-scholia_demosthenem_dindorf_v8 | Qwen3.6-27B | 114,112 | auto-corrected |
+| scholia-in-demosthenem.scholia-demosthenem-dindorf-v8 |  | qwen36-scholia_demosthenem_dindorf_v8 | Qwen3.6-27B | 109,085 | auto-corrected |
 | scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera |  | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,207 | auto-corrected |
 | scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et |  | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,086 | auto-corrected |
-| scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora |  | qwen36-scholia_oppianum_bussemaker_didot | Qwen3.6-27B | 153,045 | auto-corrected |
+| scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 5,989 | auto-corrected |
+| scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora |  | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 64,785 | raw OCR |
 | scholia-in-platonem.scholia-in-platonem-scholia-vetera |  | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,306 | auto-corrected |
-| scholia-in-theocritum.scholia-vetera-et-recentiora |  | qwen36-scholia_oppianum_bussemaker_didot-ocr | Qwen3.6-27B | 89,370 | auto-corrected |
+| scholia-in-theocritum.scholia-vetera-et-recentiora |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 92,305 | auto-corrected |
 | scythinus-poet-phil.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 315 | auto-corrected |
 | scythinus-poet-phil.testimonia |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 249 | raw OCR |
 | scythinus.peri-physios |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 44 | raw OCR |

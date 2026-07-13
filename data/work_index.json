@@ -9,9 +9,9 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3620,
-   "with_external_anchor": 3243,
-   "no_external_anchor": 377,
+   "works": 3622,
+   "with_external_anchor": 3244,
+   "no_external_anchor": 378,
    "redirects": 4
   }
  },
@@ -83193,8 +83193,8 @@
     "edition": "qwen36-scholia_demosthenem_dindorf_v8",
     "source": "ocr",
     "license": "PD",
-    "n_passages": 8670,
-    "n_tokens": 114112
+    "n_passages": 8003,
+    "n_tokens": 109085
    }
   },
   "scholia-in-dionysium-periegetam.scholia-in-dionysii-periegetae-orbis-descriptionem-scholia-vetera": {
@@ -83746,11 +83746,11 @@
     "tlg": "tlg5032.tlg001"
    },
    "manifestation": {
-    "edition": "qwen36-scholia_oppianum_bussemaker_didot",
-    "source": "ocr",
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "source": "ocr-masked",
     "license": "PD",
-    "n_passages": 8459,
-    "n_tokens": 153045
+    "n_passages": 1415,
+    "n_tokens": 5989
    }
   },
   "scholia-in-platonem.scholia-in-platonem-scholia-vetera": {
@@ -83812,11 +83812,11 @@
     "tlg": "tlg5038.tlg001"
    },
    "manifestation": {
-    "edition": "qwen36-scholia_oppianum_bussemaker_didot-ocr",
-    "source": "ocr",
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "source": "ocr-masked",
     "license": "PD",
-    "n_passages": 4898,
-    "n_tokens": 89370
+    "n_passages": 5527,
+    "n_tokens": 92305
    }
   },
   "scylax.periplus-scylacis": {
@@ -94626,6 +94626,47 @@
     "license": "PD",
     "n_passages": 12715,
     "n_tokens": 56840
+   }
+  },
+  "ocr.oppian_bussemaker_paraphrases": {
+   "id": "ogc003623",
+   "slug": "ocr.oppian_bussemaker_paraphrases",
+   "former_slugs": [],
+   "title": "Oppian Halieutica/Cynegetica paraphrases + index (Bussemaker Didot tail, unsplit)",
+   "author": {
+    "id": "oga001420",
+    "slug": "oppian-bussemaker-paraphrases",
+    "name": "Oppian paraphrases (Bussemaker Didot)"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "source": "ocr-masked",
+    "license": "PD",
+    "n_passages": 2025,
+    "n_tokens": 26686
+   }
+  },
+  "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora": {
+   "id": "ogc003624",
+   "slug": "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora",
+   "former_slugs": [],
+   "title": "Scholia Et Glossae In Halieutica (Scholia Vetera Et Recentiora)",
+   "author": {
+    "id": "oga001193",
+    "slug": "scholia-in-oppianum",
+    "name": "Scholia In Oppianum"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg5032.tlg002",
+    "tlg": "tlg5032.tlg002"
+   },
+   "manifestation": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "source": "ocr-masked",
+    "license": "PD",
+    "n_passages": 4727,
+    "n_tokens": 64785
    }
   }
  },

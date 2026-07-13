@@ -20647,6 +20647,14 @@
 "n_tokens": 62453,
 "source": "ocr"
 },
+"ocr.oppian_bussemaker_paraphrases": {
+"edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+"id": "ogc003623",
+"license": "PD",
+"n_passages": 2025,
+"n_tokens": 26686,
+"source": "ocr-masked"
+},
 "ocr.oribasius_v3": {
 "edition": "migne-ocr-qwen36",
 "id": "ogc002582",
@@ -25163,8 +25171,8 @@
 "edition": "qwen36-scholia_demosthenem_dindorf_v8",
 "id": "ogc003145",
 "license": "PD",
-"n_passages": 8670,
-"n_tokens": 114112,
+"n_passages": 8003,
+"n_tokens": 109085,
 "source": "ocr"
 },
 "scholia-in-dionysium-periegetam.scholia-in-dionysii-periegetae-orbis-descriptionem-scholia-vetera": {
@@ -25360,12 +25368,20 @@
 "source": "first1k"
 },
 "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora": {
-"edition": "qwen36-scholia_oppianum_bussemaker_didot",
+"edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
 "id": "ogc003170",
 "license": "PD",
-"n_passages": 8459,
-"n_tokens": 153045,
-"source": "ocr"
+"n_passages": 1415,
+"n_tokens": 5989,
+"source": "ocr-masked"
+},
+"scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora": {
+"edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+"id": "ogc003624",
+"license": "PD",
+"n_passages": 4727,
+"n_tokens": 64785,
+"source": "ocr-masked"
 },
 "scholia-in-platonem.scholia-in-platonem-scholia-vetera": {
 "edition": "qwen36-scholia_platonem_zurich-masked",
@@ -25384,12 +25400,12 @@
 "source": "first1k"
 },
 "scholia-in-theocritum.scholia-vetera-et-recentiora": {
-"edition": "qwen36-scholia_oppianum_bussemaker_didot-ocr",
+"edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
 "id": "ogc003173",
 "license": "PD",
-"n_passages": 4898,
-"n_tokens": 89370,
-"source": "ocr"
+"n_passages": 5527,
+"n_tokens": 92305,
+"source": "ocr-masked"
 },
 "scylax.periplus-scylacis": {
 "edition": "1st1K-grc1",
