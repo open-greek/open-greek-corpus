@@ -2448,12 +2448,12 @@
 "source": "perseus"
 },
 "apollonius-soph.lexicon-homericum": {
-"edition": "qwen36-apollonius_sophista_bekker",
+"edition": "qwen36-apollonius_sophista_bekker-masked",
 "id": "ogc000307",
 "license": "PD",
-"n_passages": 4951,
-"n_tokens": 44552,
-"source": "ocr"
+"n_passages": 10468,
+"n_tokens": 47144,
+"source": "ocr-masked"
 },
 "apollophanes-comedy.fragmenta": {
 "edition": "kock-caf1-ocr-frag",
@@ -9488,12 +9488,12 @@
 "source": "dfhg"
 },
 "dositheus-magister.ars-grammatica": {
-"edition": "qwen36-dositheus_ars_tolkiehn",
+"edition": "qwen36-dositheus_ars_tolkiehn-masked",
 "id": "ogc001187",
 "license": "PD",
-"n_passages": 406,
-"n_tokens": 5695,
-"source": "ocr"
+"n_passages": 1451,
+"n_tokens": 6479,
+"source": "ocr-masked"
 },
 "dositheus.fragmenta": {
 "edition": "dfhg",
@@ -13912,12 +13912,28 @@
 "source": "dfhg"
 },
 "hesychius-lexicography.epistula-ad-eulogium": {
-"edition": "qwen36-hesychius_schmidt_lexicon",
+"edition": "qwen36-hesychius_schmidt_masked",
 "id": "ogc001740",
 "license": "PD",
-"n_passages": 54609,
-"n_tokens": 302170,
-"source": "ocr"
+"n_passages": 3,
+"n_tokens": 571,
+"source": "ocr-masked"
+},
+"hesychius-lexicography.lexicon-o": {
+"edition": "qwen36-hesychius_schmidt_masked",
+"id": "ogc003621",
+"license": "PD",
+"n_passages": 32456,
+"n_tokens": 146215,
+"source": "ocr-masked"
+},
+"hesychius-lexicography.lexicon-p-w": {
+"edition": "qwen36-hesychius_schmidt_masked",
+"id": "ogc003622",
+"license": "PD",
+"n_passages": 12715,
+"n_tokens": 56840,
+"source": "ocr-masked"
 },
 "hesychius-of-jerusalem.commentarius-magnus-in-psalmos": {
 "edition": "pta-grc1",
@@ -17240,12 +17256,12 @@
 "source": "ocr"
 },
 "lexicon-sabbaiticum.lexicon-sabbaiticum-e-cod-sabbaitico-137": {
-"edition": "qwen36-lexicon_sabbaiticum_papadopulos",
+"edition": "qwen36-lexicon_sabbaiticum_papadopulos-masked",
 "id": "ogc002157",
 "license": "PD",
-"n_passages": 385,
-"n_tokens": 4978,
-"source": "ocr"
+"n_passages": 715,
+"n_tokens": 5085,
+"source": "ocr-masked"
 },
 "libanius.characteres-epistolici-sp": {
 "edition": "1st1K-grc1",
@@ -19168,12 +19184,12 @@
 "source": "ocr"
 },
 "mantissa-proverbiorum.mantissa-proverbiorum": {
-"edition": "qwen36-mantissa_proverbiorum_paroemiogr2",
+"edition": "qwen36-mantissa_proverbiorum_paroemiogr2-masked",
 "id": "ogc002398",
 "license": "PD",
-"n_passages": 17960,
-"n_tokens": 172511,
-"source": "ocr"
+"n_passages": 36078,
+"n_tokens": 167247,
+"source": "ocr-masked"
 },
 "marcellinus.vita-thucydidis": {
 "edition": "migne-ocr-qwen36",
@@ -19816,12 +19832,12 @@
 "source": "ocr"
 },
 "moeris.lexicon-atticum": {
-"edition": "qwen36-moeris_koch1830",
+"edition": "qwen36-moeris_koch1830-masked",
 "id": "ogc002479",
 "license": "PD",
-"n_passages": 6844,
-"n_tokens": 44393,
-"source": "ocr"
+"n_passages": 11959,
+"n_tokens": 57621,
+"source": "ocr-masked"
 },
 "molpis-laco.fragmenta": {
 "edition": "dfhg",
@@ -24840,12 +24856,12 @@
 "source": "first1k"
 },
 "pseudo-zonaras.lexicon": {
-"edition": "qwen36-zonaras_lexicon_v1",
+"edition": "qwen36-zonaras_lexicon_v1-masked",
 "id": "ogc003107",
 "license": "PD",
-"n_passages": 19522,
-"n_tokens": 159007,
-"source": "ocr"
+"n_passages": 21035,
+"n_tokens": 163286,
+"source": "ocr-masked"
 },
 "ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius": {
 "edition": "qwen36-ptolemaeus_gramm_valckenaer_ammonius",
@@ -25088,12 +25104,12 @@
 "source": "dfhg"
 },
 "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera": {
-"edition": "qwen36-scholia_aristidem_frommel1826",
+"edition": "qwen36-scholia_aristidem_frommel1826-masked",
 "id": "ogc003138",
 "license": "PD",
-"n_passages": 7044,
-"n_tokens": 108885,
-"source": "ocr"
+"n_passages": 20918,
+"n_tokens": 117366,
+"source": "ocr-masked"
 },
 "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera": {
 "edition": "qwen36-schol_aeschin_dindorf",
@@ -25112,28 +25128,28 @@
 "source": "ocr"
 },
 "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera": {
-"edition": "qwen36-scholia_apollonius_schaefer",
+"edition": "qwen36-scholia_apollonius_schaefer-masked",
 "id": "ogc003141",
 "license": "PD",
-"n_passages": 12432,
-"n_tokens": 120719,
-"source": "ocr"
+"n_passages": 25183,
+"n_tokens": 120106,
+"source": "ocr-masked"
 },
 "scholia-in-aratum.scholia-in-aratum-scholia-vetera": {
-"edition": "qwen36-schol_aratum_maass",
+"edition": "qwen36-schol_aratum_maass-masked",
 "id": "ogc003142",
 "license": "PD",
-"n_passages": 9691,
-"n_tokens": 148640,
-"source": "ocr"
+"n_passages": 22628,
+"n_tokens": 156497,
+"source": "ocr-masked"
 },
 "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii": {
-"edition": "qwen36-scholia_aristoph_dubner",
+"edition": "qwen36-scholia_aristoph_dubner-masked",
 "id": "ogc003143",
 "license": "PD",
-"n_passages": 20557,
-"n_tokens": 338800,
-"source": "ocr"
+"n_passages": 24985,
+"n_tokens": 350911,
+"source": "ocr-masked"
 },
 "scholia-in-callimachum.schol-callim-schneider": {
 "edition": "migne-ocr-qwen36",
@@ -25280,12 +25296,12 @@
 "source": "first1k"
 },
 "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera": {
-"edition": "qwen36-scholia_hesiod_gaisford",
+"edition": "qwen36-scholia_hesiod_gaisford-masked",
 "id": "ogc003162",
 "license": "PD",
-"n_passages": 11388,
-"n_tokens": 176281,
-"source": "ocr"
+"n_passages": 25881,
+"n_tokens": 174207,
+"source": "ocr-masked"
 },
 "scholia-in-homerum.scholia-in-iliadem-scholia-vetera": {
 "edition": "1st1K-grc1",
@@ -25320,12 +25336,12 @@
 "source": "first1k"
 },
 "scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et": {
-"edition": "qwen36-schol_lycophron_scheer2",
+"edition": "qwen36-schol_lycophron_scheer2-masked",
 "id": "ogc003167",
 "license": "PD",
-"n_passages": 6144,
-"n_tokens": 101886,
-"source": "ocr"
+"n_passages": 16836,
+"n_tokens": 107086,
+"source": "ocr-masked"
 },
 "scholia-in-nicandrum.scholia-et-glossae-in-nicandri-alexipharmaca-scholia-vetera-et": {
 "edition": "1st1K-grc1",
@@ -25352,12 +25368,12 @@
 "source": "ocr"
 },
 "scholia-in-platonem.scholia-in-platonem-scholia-vetera": {
-"edition": "qwen36-scholia_platonem_zurich",
+"edition": "qwen36-scholia_platonem_zurich-masked",
 "id": "ogc003171",
 "license": "PD",
-"n_passages": 8998,
-"n_tokens": 174617,
-"source": "ocr"
+"n_passages": 27566,
+"n_tokens": 177306,
+"source": "ocr-masked"
 },
 "scholia-in-sophoclem.scholia-in-sophoclem-scholia-vetera": {
 "edition": "1st1K-grc1",
@@ -26936,12 +26952,12 @@
 "source": "dfhg"
 },
 "stephanus-grammar.ethnica-epitome": {
-"edition": "qwen36-stephanus_byz_meineke_1849",
+"edition": "qwen36-stephanus_byz_meineke_1849-masked",
 "id": "ogc003369",
 "license": "PD",
-"n_passages": 14016,
-"n_tokens": 152131,
-"source": "ocr"
+"n_passages": 25032,
+"n_tokens": 144357,
+"source": "ocr-masked"
 },
 "stephanus-philosophy.in-aristotelis-librum-de-interpretatione-commentarium": {
 "edition": "1st1K-grc1",
@@ -27696,12 +27712,12 @@
 "source": "dfhg"
 },
 "theognostus.canones-sive-de-orthographia": {
-"edition": "qwen36-theognostus_canones_cramer",
+"edition": "qwen36-theognostus_canones_cramer-masked",
 "id": "ogc003464",
 "license": "PD",
-"n_passages": 11104,
-"n_tokens": 152112,
-"source": "ocr"
+"n_passages": 25726,
+"n_tokens": 150388,
+"source": "ocr-masked"
 },
 "theolytus-methymnaeus.fragmenta": {
 "edition": "dfhg",
@@ -27952,12 +27968,12 @@
 "source": "ocr"
 },
 "timaeus-sophista.lexicon-platonicum": {
-"edition": "qwen36-timaeus_lex_platon_ruhnken",
+"edition": "qwen36-timaeus_lex_platon_ruhnken-masked",
 "id": "ogc003496",
 "license": "PD",
-"n_passages": 1835,
-"n_tokens": 21165,
-"source": "ocr"
+"n_passages": 4572,
+"n_tokens": 33929,
+"source": "ocr-masked"
 },
 "timaeus.fragmenta": {
 "edition": "dfhg",
