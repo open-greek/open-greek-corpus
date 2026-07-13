@@ -63,6 +63,15 @@ def main() -> None:
             # dominant edition = most Greek tokens; ties break on first-seen (dict order)
             edition = max(by_ed_tok, key=lambda e: by_ed_tok[e])
             source, license_ = ed_meta[edition]
+            # "ocr-masked" (the geometric-column-mask re-OCR fleet) is OGC's own OCR,
+            # not a separate source: fold it into "ocr" so the reader's OGC-OCR bucket
+            # counts it. The masked-pipeline detail is preserved in the edition slug
+            # (qwen36-*-masked / -singlecol) + data/ocr_provenance/. Defensive: the
+            # existing rows were already folded by fold_ocr_masked_source.py, but this
+            # keeps corpus_editions correct if the upstream pipeline re-delivers a
+            # masked work still tagged "ocr-masked".
+            if source == "ocr-masked":
+                source = "ocr"
             slug = fp.name[:-6]
             row = {"edition": edition, "license": license_, "source": source,
                    "n_passages": n_pass, "n_tokens": n_tok}
