@@ -1,0 +1,30 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap)",
+    "work": "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera",
+    "cts": "urn:cts:greekLit:tlg5010.tlg001",
+    "id": "ogc003140",
+    "run_slug": "scholia_aeschylum_depauw_stanley",
+    "applied_by": "scripts/ingest_held_reocr_batch2.py",
+    "date": "2026-07-13",
+    "tier": "keep-better",
+    "reversible": "git revert the ingest commit, or restore data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl from the parent commit ('git checkout <parent> -- ...') and confirm its sha256 equals old.sha256 below. The pre-ingest served text is archived offline as REPLACED.scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "qwen36-scholia_aeschylum_depauw_stanley (served, fragmented)",
+    "rows": 25115,
+    "greek_chars": 591090,
+    "sha256": "92c126ddce2e8d2ee221918b46a59c67dc3406d70ea745483bf17c8fb0eed2a1",
+    "note": "25115 fragmented rows (mean 23.5 Greek chars/line) with mid-word line breaks, dropped accents, and un-accented broken blocks; its higher raw Greek (591090) and unique-word (50269) totals are OCR-garbage inflation."
+  },
+  "new": {
+    "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
+    "source": "geometric single-column re-OCR (Qwen3.6-27B-FP8, whole body one crop) of De Pauw/Stanley 1745 (archive.org bub_gb_aw-IxD1dCOwC)",
+    "rows": 11414,
+    "greek_chars": 563485,
+    "sha256": "ee57141fd5c007cf7789359e10f656fbfbb019b55e1a2f58ee60ad6b5811224b"
+  },
+  "evidence": "keep-better: clean, accented, coherent single-column scholia (11414 rows, mean 49.4 Greek chars/line, bare-diacritic 2.6%) vs the fragmented served OCR (25115 rows, mean 23.5, bare-diacritic 6.6%). The served file's larger raw volume is fragmentation inflation, not real text; 1745 archaic typeface caps the OCR ceiling for any method.",
+  "provenance": "data/ocr_provenance/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.json",
+  "source": "held-works batch-2 keep-better ingest (VALIDATION.json + audit_trail.json), 2026-07-13"
+}

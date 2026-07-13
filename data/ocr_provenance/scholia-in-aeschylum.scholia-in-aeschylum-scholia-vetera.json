@@ -1,7 +1,7 @@
 {
  "urn": "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera",
  "cts": "urn:cts:greekLit:tlg5010.tlg001",
- "edition": "qwen36-scholia_aeschylum_depauw_stanley-masked",
+ "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
  "run_slug": "scholia_aeschylum_depauw_stanley",
  "source_scan": {
   "public_id": "bub_gb_aw-IxD1dCOwC",
@@ -18,7 +18,7 @@
   "quantization": "fp8 (block-128; vision tower + embeddings bf16)",
   "flags": "--max-model-len 16384 --max-num-seqs 16 (Ada) / 48 (Blackwell) --gpu-memory-utilization 0.92 --reasoning-parser qwen3 --default-chat-template-kwargs {enable_thinking:false}"
  },
- "render_dpi": 430,
+ "render_dpi": 350,
  "native_dpi": "see source scan",
  "render_is_native": false,
  "image_resolution": {
@@ -27,11 +27,11 @@
   "model_max_pixels": "16.78 MP (16384 visual tokens @ 32x32 px/token)"
  },
  "layout_handling": {
-  "method": "geometric-column-mask",
-  "columns": 2,
+  "method": "geometric single-column crop (running head + page number dropped via ink-projection; NO left/right split - the whole body is one crop; bottom apparatus kept inline)",
+  "columns": 1,
   "running_head_excluded": true,
-  "apparatus": "cropped and OCR'd SEPARATELY (bottom COD./HES. block), stored out-of-line so gloss/line numbers cannot bleed into lemmas",
-  "column_split": "central gutter = min-ink column via vertical ink projection",
+  "apparatus": "kept inline (single main column OCR'd whole; Latin/sigla stripped by greek_only)",
+  "column_split": "none - single central column OCR'd as one crop (splitting a single column on a spurious gutter is what mangled these under the 2-col masker)",
   "margins": "text margins via ink projection; degenerate/near-blank crops skipped"
  },
  "prompt_specials": {
@@ -40,9 +40,9 @@
   "printed_page_capture": "printed page/column number captured as <pg>N</pg>"
  },
  "throughput": {
-  "pages_per_hr": 1137.2,
+  "pages_per_hr": 511.1,
   "masker": "geometric-projection"
  },
- "date": "2026-07-12",
+ "date": "2026-07-13",
  "note": "Derived reproducibly from run params + _timing.json + a measured sample crop. Metadata only; text replacements are staged for review."
 }
