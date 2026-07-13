@@ -27,10 +27,13 @@ END = "<!-- OCR-PROVENANCE:END -->"
 # Qwen3.6-27B (verified by per-family containment probes against the run dirs);
 # editions read by something else carry a per-edition "model" override in
 # data/inventory/ocr_edition_sources.json, which takes precedence below.
-# "ocr-masked" is the dense-class re-OCR fleet (geometric-column-mask pipeline,
-# FP8 serving); those works carry a per-work record in data/ocr_provenance/ that
-# supplies the exact model, source scan, render DPI, and column geometry.
-OCR_MODEL = {"cgpg": "calfa-co", "ocr": "Qwen3.6-27B", "ocr-masked": "Qwen3.6-27B-FP8"}
+# The masked-column re-OCR fleet (geometric-column-mask pipeline, FP8 serving) is
+# OGC's own OCR and folds into source "ocr"; a masked work is recognized by its
+# edition slug (qwen36-*-masked / -singlecol) or its per-work data/ocr_provenance/
+# record, which supplies the exact model, source scan, render DPI, and column
+# geometry. MASKED_MODEL is the default label for a masked work lacking that record.
+OCR_MODEL = {"cgpg": "calfa-co", "ocr": "Qwen3.6-27B"}
+MASKED_MODEL = "Qwen3.6-27B-FP8"
 
 
 def _load(name: str):
@@ -61,13 +64,25 @@ def masked_source(rec: dict) -> str | None:
 
 def masked_model(rec: dict) -> str:
     """OCR model label plus a masked-column-pipeline note (columns + render DPI)."""
-    model = (rec.get("model") or "").split("/")[-1] or OCR_MODEL["ocr-masked"]
+    model = (rec.get("model") or "").split("/")[-1] or MASKED_MODEL
     cols = rec.get("layout_handling", {}).get("columns")
     dpi = rec.get("render_dpi")
     note = f"masked {cols}-col pipeline" if cols else "masked-column pipeline"
     if dpi:
         note += f", {dpi} dpi"
     return f"{model} ({note})"
+
+
+def is_masked(edition: str, urn: str, prov_recs: dict) -> bool:
+    """Whether a work's served (dominant) edition is a masked-column re-OCR run.
+    Now that "ocr-masked" is folded into "ocr", the pipeline is recognized from the
+    edition slug (qwen36-*-masked / *_masked, and the -singlecol masked variant,
+    which matches its own per-work provenance record) rather than the source field."""
+    ed = edition or ""
+    if "-masked" in ed or "_masked" in ed:
+        return True
+    rec = prov_recs.get(urn)
+    return bool(rec and (rec.get("edition") or "") == ed)
 
 
 def main() -> None:
@@ -114,7 +129,8 @@ def main() -> None:
         src = m.get("source")
         if src not in OCR_MODEL:
             continue
-        if src == "ocr" and urn.startswith("ocr."):
+        masked = is_masked(m.get("edition", ""), urn, prov_recs)
+        if src == "ocr" and urn.startswith("ocr.") and not masked:
             continue          # ocr.* placeholder delivery pending per-work splitting
         if src == "cgpg":
             desc = cgpg.get(urn, {}).get("desc", "")
@@ -128,11 +144,15 @@ def main() -> None:
                   else "raw OCR")
         # Masked-column re-OCR works carry their own provenance record (model,
         # source scan, render DPI, column geometry); prefer it over the generic
-        # per-source defaults so the table shows the FP8 masked-pipeline run.
-        rec = prov_recs.get(urn) if src == "ocr-masked" else None
+        # per-source defaults so the table shows the FP8 masked-pipeline run. A masked
+        # work lacking a provenance record still gets the FP8 masked-model label.
+        rec = prov_recs.get(urn) if masked else None
         if rec:
             dl = masked_source(rec) or downloaded_from(urn, m.get("edition", ""), src)
             model = masked_model(rec)
+        elif masked:
+            dl = downloaded_from(urn, m.get("edition", ""), src)
+            model = MASKED_MODEL
         else:
             dl = downloaded_from(urn, m.get("edition", ""), src)
             # A per-edition "model" in ocr_edition_sources.json overrides the source
