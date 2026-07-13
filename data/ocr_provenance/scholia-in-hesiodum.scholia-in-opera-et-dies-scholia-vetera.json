@@ -1,12 +1,12 @@
 {
- "urn": "pausanias.attikw-n-o-noma-twn-sunagwgh",
- "cts": "urn:cts:greekLit:tlg1323 (Aelius Dionysius) + tlg1569 (Pausanias Atticista)",
- "edition": "qwen36-aelius_dionysius_schwabe-masked",
- "run_slug": "aelius_dionysius_schwabe",
+ "urn": "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera",
+ "cts": "urn:cts:greekLit:tlg5025.tlg001",
+ "edition": "qwen36-scholia_hesiod_gaisford-masked",
+ "run_slug": "scholia_hesiod_gaisford",
  "source_scan": {
-  "public_id": "ailioudionysiouk00dionuoft",
+  "public_id": "poetaeminoresgra02gais",
   "source": "archive.org",
-  "pages_ocr": 302
+  "pages_ocr": 676
  },
  "model": "Qwen/Qwen3.6-27B-FP8",
  "serving_stack": {
@@ -36,11 +36,11 @@
  },
  "prompt_specials": {
   "diacritic_awareness_clause": "Sperrsatz diacritic-awareness clause: transcribe entry-initial breathing/accent/iota-subscript exactly; ᾠ/ᾤ/ᾦ is one letter, not φ",
-  "omega_iota_subscript_handler": "entry-initial ᾠ->φ corrector: φδ- and exact ᾠ-stem matches auto-corrected (audited), ambiguous φ-initials in omega context flagged for review",
+  "omega_iota_subscript_handler": "n/a (not an omega lexicon)",
   "printed_page_capture": "printed page/column number captured as <pg>N</pg>"
  },
  "throughput": {
-  "pages_per_hr": 1405.7,
+  "pages_per_hr": 1470.7,
   "masker": "geometric-projection"
  },
  "date": "2026-07-12",
