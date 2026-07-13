@@ -1,0 +1,29 @@
+{
+  "_meta": {
+    "change": "replace served text (masked re-OCR keep-better swap; carved from the shared Bussemaker Didot scan by printed-section boundary)",
+    "work": "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
+    "cts": "urn:cts:greekLit:tlg5032.tlg001",
+    "run_slug": "scholia_oppianum_bussemaker_didot",
+    "applied_by": "scripts/ingest_bespoke_keying.py",
+    "date": "2026-07-13",
+    "carved_pages": "265-281",
+    "shared_scan": "Bussemaker Didot scholia scan (public scholiaintheocri00buss): Theocritus scholia pp.10-192 | Nicander scholia pp.195-264 (dropped, served via First1K) | Oppian Cynegetica scholia pp.265-281 | Oppian Halieutica scholia pp.282-385 | Eutecnius paraphrases+poem+index pp.386-692",
+    "reversible": "git revert the ingest commit, or restore data/corpus/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl from the parent commit; the pre-ingest served text (when replaced) is archived offline as REPLACED.*.jsonl in the OCR staging area."
+  },
+  "old": {
+    "edition": "served corpus text (pre re-OCR)",
+    "rows": 8459,
+    "greek_chars": 826019,
+    "sha256": "63950330ec6758729160534be585047ab621223c9c58ef4dd24ba30e8d963da1"
+  },
+  "new": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "source": "masked-column re-OCR (Qwen3.6-27B-FP8, geometric L/R + apparatus crops)",
+    "rows": 1415,
+    "greek_chars": 38487,
+    "sha256": "cc2035def8ef010c0bb562d6c11b741de16b6a09187eb1fd359f38107d82bcae"
+  },
+  "evidence": "carved pp.265-281 of the Bussemaker scan; rows 8459->1415, greek 826019->38487. clean Cynegetica-only after de-conflation.",
+  "source_masked_jsonl_sha256": "61c684d845d45aff78eb8e30cf210f957a286303499cd73479cb4c8d0ca2919f",
+  "provenance": "data/ocr_provenance/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.json"
+}
