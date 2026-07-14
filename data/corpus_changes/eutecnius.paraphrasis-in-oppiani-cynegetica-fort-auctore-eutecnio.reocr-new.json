@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "change": "register NEW work carved from the Bussemaker Didot paraphrase tail and re-keyed from the raw single-column Qwen3.6-27B OCR",
+    "work": "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio",
+    "cts": "urn:cts:greekLit:tlg0752.tlg003",
+    "tlg": "tlg0752.tlg003",
+    "carved_from": "ocr.oppian_bussemaker_paraphrases",
+    "carved_pages": "392-397",
+    "author_minted": "existing canon author EUTECNIUS (tlg0752)",
+    "applied_by": "scripts/deinterleave_oppian_bussemaker.py",
+    "date": "2026-07-14",
+    "reversible": "git revert the ingest commit, or restore data/corpus_changes/ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl (the verbatim pre-change holding, all 5 components) to data/corpus/ and re-run the id build."
+  },
+  "old": {
+    "edition": null,
+    "rows": 0,
+    "greek_chars": 0,
+    "sha256": null
+  },
+  "new": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot",
+    "source": "raw single-column re-OCR (Qwen3.6-27B-FP8, full page)",
+    "rows": 45,
+    "greek_chars": 21289,
+    "sha256": "943d6f4481d8fa472345fa18a38b3bdf302b58fcf20897b23731755c34c61821"
+  },
+  "supersedes_masked": {
+    "rows": 276,
+    "greek_chars": 21316,
+    "de_truncation_greek_delta": -27,
+    "note": "the 2-column masker fragmented/truncated these single-column prose pages; the raw single-column run restores the lost Greek (delta is de-truncation, not new content)."
+  },
+  "running_head_lines_dropped": 0,
+  "title": "Paraphrasis in Oppiani cynegetica (fort. auctore Eutecnio)",
+  "registry": "canon work already in data/inventory (best_source pd_edition); this delivery serves it as OCR. Slug/author/CTS resolve through the existing source_registry entry; a tlg_crosswalk row adds the bare-TLG Work anchor.",
+  "evidence": "printed section header on p.392; exact-edition match to TLG canon tlg0752.tlg003 (editor Bussemaker, U.C., Didot 1849 / e cod. Paris. gr. 2735).",
+  "provenance": "data/ocr_provenance/eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio.json",
+  "source": "Bussemaker Didot de-interleave, 2026-07-14"
+}

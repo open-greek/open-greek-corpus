@@ -4,45 +4,45 @@
     "total_words": 74975998,
     "source_overrides_applied": 107,
     "ingested_via_cgpg_volume": 63,
-    "pct_ingested": 68.45,
-    "pct_ingested_actual": 62.66,
-    "ingested_words_actual": 46976288,
-    "ingested_complete_works": 2874,
-    "ingested_partial_works": 106,
-    "pct_reachable_not_ingested": 15.54,
-    "pct_locked": 14.43,
+    "pct_ingested": 69.45,
+    "pct_ingested_actual": 63.25,
+    "ingested_words_actual": 47419938,
+    "ingested_complete_works": 2878,
+    "ingested_partial_works": 108,
+    "pct_reachable_not_ingested": 15.34,
+    "pct_locked": 13.63,
     "pct_duplicate": 1.58
   },
   "buckets": {
     "ingested": {
-      "works": 2980,
-      "word_count": 51318634
+      "works": 2986,
+      "word_count": 52068235
     },
     "reachable_not_ingested": {
-      "works": 1612,
-      "word_count": 11654666
+      "works": 1608,
+      "word_count": 11501008
     },
     "locked": {
-      "works": 2211,
-      "word_count": 10818505
+      "works": 2209,
+      "word_count": 10222562
     },
     "duplicate": {
       "works": 406,
       "word_count": 1184193
     },
     "ingested_complete": {
-      "works": 2874,
-      "word_count": 49180967
+      "works": 2878,
+      "word_count": 49556086
     },
     "ingested_partial": {
-      "works": 106,
-      "word_count": 2137667
+      "works": 108,
+      "word_count": 2512149
     }
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1204,
-      "word_count": 10513970
+      "works": 1200,
+      "word_count": 10360312
     },
     "migne_pd": {
       "works": 408,
@@ -368,22 +368,6 @@
       "author": "LIBANIUS",
       "title": "Progymnasmata",
       "word_count": 69308,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg5032",
-      "work_id": "002",
-      "author": "SCHOLIA IN OPPIANUM",
-      "title": "Scholia et glossae in halieutica (scholia vetera et recentiora)",
-      "word_count": 67663,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg4085",
-      "work_id": "003",
-      "author": "HESYCHIUS",
-      "title": "Lexicon (*P_*W)",
-      "word_count": 67413,
       "best_source": "pd_edition"
     },
     {
@@ -1312,14 +1296,6 @@
       "author": "ORIGENES",
       "title": "Commentarii in epistulam ad Romanos (I.1%19XII.21) (in catenis)",
       "word_count": 13938,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg0752",
-      "work_id": "003",
-      "author": "EUTECNIUS",
-      "title": "Paraphrasis in Oppiani cynegetica (fort. auctore Eutecnio)",
-      "word_count": 13800,
       "best_source": "pd_edition"
     },
     {
@@ -2618,14 +2594,6 @@
       "author": "DURIS",
       "title": "Fragmenta",
       "word_count": 4802,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg4171",
-      "work_id": "001",
-      "author": "ANONYMI IN OPPIANI OPERA",
-      "title": "In Oppiani halieutica exegesis (e cod. Paris. gr. 2735)",
-      "word_count": 4782,
       "best_source": "pd_edition"
     },
     {
@@ -12964,6 +12932,17 @@
       "missing_words": 222396
     },
     {
+      "tlg_id": "tlg4040",
+      "work_id": "001",
+      "author": "PHOTIUS",
+      "title": "Bibliotheca",
+      "word_count": 360682,
+      "ingested_tokens": 153418,
+      "coverage_ratio": 0.425,
+      "source": "ocr",
+      "missing_words": 207264
+    },
+    {
       "tlg_id": "tlg2062",
       "work_id": "112",
       "author": "JOANNES CHRYSOSTOMUS",
@@ -13206,15 +13185,26 @@
       "missing_words": 12950
     },
     {
+      "tlg_id": "tlg0752",
+      "work_id": "003",
+      "author": "EUTECNIUS",
+      "title": "Paraphrasis in Oppiani cynegetica (fort. auctore Eutecnio)",
+      "word_count": 13800,
+      "ingested_tokens": 3962,
+      "coverage_ratio": 0.287,
+      "source": "ocr",
+      "missing_words": 9838
+    },
+    {
       "tlg_id": "tlg4096",
       "work_id": "001",
       "author": "DOSITHEUS Magister",
       "title": "Ars grammatica",
       "word_count": 15807,
-      "ingested_tokens": 5695,
-      "coverage_ratio": 0.36,
+      "ingested_tokens": 6479,
+      "coverage_ratio": 0.41,
       "source": "ocr",
-      "missing_words": 10112
+      "missing_words": 9328
     },
     {
       "tlg_id": "tlg1177",
@@ -14120,8 +14110,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 701,
-    "n_tokens": 11769268,
+    "works": 700,
+    "n_tokens": 11454999,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -14130,14 +14120,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 617,
         "n_tokens": 399517
-      },
-      {
-        "key": "helladius-chrestomathia-photius-bekker-v2",
-        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 577,
-        "n_tokens": 357249
       },
       {
         "key": "cogPG.PG134",
@@ -14196,6 +14178,14 @@
         "n_tokens": 232210
       },
       {
+        "key": "ocr.walz_rhetores_v4",
+        "edition": "qwen36-walz_rhetores_v4-masked",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 35014,
+        "n_tokens": 226107
+      },
+      {
         "key": "cogPG.PG126",
         "edition": "cgpg",
         "source": "cgpg",
@@ -14218,14 +14208,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 799,
         "n_tokens": 220457
-      },
-      {
-        "key": "ocr.walz_rhetores_v4",
-        "edition": "qwen36-walz_rhetores_v4",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 6294,
-        "n_tokens": 216592
       },
       {
         "key": "cogPG.PG006",
@@ -14309,11 +14291,11 @@
       },
       {
         "key": "ocr.walz_rhetores_v7pt2",
-        "edition": "qwen36-walz_rhetores_v7pt2",
+        "edition": "qwen36-walz_rhetores_v7pt2-masked",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 8777,
-        "n_tokens": 160653
+        "n_passages": 25170,
+        "n_tokens": 163069
       },
       {
         "key": "cogPG.PG003",
@@ -14322,6 +14304,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 459,
         "n_tokens": 160098
+      },
+      {
+        "key": "ocr.walz_rhetores_v5",
+        "edition": "qwen36-walz_rhetores_v5-masked",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 24559,
+        "n_tokens": 157587
       },
       {
         "key": "zonaeus-walz-rg8",
@@ -14356,14 +14346,6 @@
         "n_tokens": 151404
       },
       {
-        "key": "ocr.walz_rhetores_v5",
-        "edition": "qwen36-walz_rhetores_v5",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 4956,
-        "n_tokens": 149237
-      },
-      {
         "key": "cogPG.PG112",
         "edition": "cgpg",
         "source": "cgpg",
@@ -14389,11 +14371,19 @@
       },
       {
         "key": "ocr.walz_rhetores_v1",
-        "edition": "qwen36-walz_rhetores_v1",
+        "edition": "qwen36-walz_rhetores_v1-masked",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 3943,
-        "n_tokens": 129630
+        "n_passages": 25084,
+        "n_tokens": 142191
+      },
+      {
+        "key": "ocr.walz_rhetores_v9",
+        "edition": "qwen36-walz_rhetores_v9-masked",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 25120,
+        "n_tokens": 135196
       },
       {
         "key": "ocr.mansi_ephesus_t4",
@@ -14402,14 +14392,6 @@
         "license": "PD",
         "n_passages": 4971,
         "n_tokens": 128249
-      },
-      {
-        "key": "ocr.walz_rhetores_v9",
-        "edition": "qwen36-walz_rhetores_v9",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 9164,
-        "n_tokens": 125058
       },
       {
         "key": "cogPG.PG157",

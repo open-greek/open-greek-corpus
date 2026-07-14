@@ -9,9 +9,9 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3622,
-   "with_external_anchor": 3244,
-   "no_external_anchor": 378,
+   "works": 3623,
+   "with_external_anchor": 3246,
+   "no_external_anchor": 377,
    "redirects": 4
   }
  },
@@ -94628,25 +94628,6 @@
     "n_tokens": 56840
    }
   },
-  "ocr.oppian_bussemaker_paraphrases": {
-   "id": "ogc003623",
-   "slug": "ocr.oppian_bussemaker_paraphrases",
-   "former_slugs": [],
-   "title": "Oppian Halieutica/Cynegetica paraphrases + index (Bussemaker Didot tail, unsplit)",
-   "author": {
-    "id": "oga001420",
-    "slug": "oppian-bussemaker-paraphrases",
-    "name": "Oppian paraphrases (Bussemaker Didot)"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 2025,
-    "n_tokens": 26686
-   }
-  },
   "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora": {
    "id": "ogc003624",
    "slug": "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora",
@@ -94665,8 +94646,58 @@
     "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
     "source": "ocr",
     "license": "PD",
-    "n_passages": 4727,
-    "n_tokens": 64785
+    "n_passages": 4763,
+    "n_tokens": 64951
+   }
+  },
+  "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735": {
+   "id": "ogc003625",
+   "slug": "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735",
+   "former_slugs": [],
+   "title": "In Oppiani Halieutica Exegesis (E Cod. Paris. Gr. 2735)",
+   "author": {
+    "id": "oga001421",
+    "slug": "anonymi-in-oppiani-opera",
+    "name": "Anonymi In Oppiani Opera"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4171.tlg001",
+    "tlg": "tlg4171.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 16,
+    "n_tokens": 4653
+   }
+  },
+  "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio": {
+   "id": "ogc003626",
+   "slug": "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio",
+   "former_slugs": [],
+   "title": "Paraphrasis In Oppiani Cynegetica (Fort. Auctore Eutecnio)",
+   "author": {
+    "id": "oga001422",
+    "slug": "eutecnius",
+    "name": "Eutecnius",
+    "authorities": {
+     "wikidata": "Q110263698",
+     "viaf": "267903182",
+     "gnd": "100940951",
+     "isni": "000000038323631X"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0752.tlg003",
+    "tlg": "tlg0752.tlg003"
+   },
+   "manifestation": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 45,
+    "n_tokens": 3962
    }
   }
  },
