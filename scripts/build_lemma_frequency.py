@@ -44,10 +44,11 @@ def main() -> None:
                          "misses the O(1) lookup -> the slow transformer; dropping "
                          "them barely moves any lemma's total. Use 1 for full "
                          "(slow) coverage.")
+    ap.add_argument("--no-cache", action="store_true",
+                    help="ignore and do not update the persistent form->lemma "
+                         "cache (force a full from-scratch lemmatization)")
     args = ap.parse_args()
     LEXICON, OUT = args.lexicon, args.out
-    from dilemma import Dilemma  # noqa: PLC0415
-    d = Dilemma(lang="grc")
 
     forms, counts = [], []
     n_total = n_skipped = 0
@@ -60,23 +61,52 @@ def main() -> None:
                 continue
             forms.append(form)
             counts.append(int(c))
+
+    # Persistent form -> lemma cache. Lemmatization is type-wise and
+    # deterministic per Dilemma version, so a form's lemma never changes once
+    # computed. Caching it means a corpus regenerate only pays the (slow,
+    # transformer-tail) lemmatization for forms it has never seen, turning the
+    # ~40-min full pass into seconds on a mostly-unchanged corpus. Append-only,
+    # so no form is ever recomputed. DELETE data/cache/lemma_cache.tsv after a
+    # Dilemma upgrade to rebuild it against the new model.
+    CACHE = DATA / "cache" / "lemma_cache.tsv"
+    cache: dict[str, str] = {}
+    if not args.no_cache and CACHE.exists():
+        for line in CACHE.read_text().splitlines():
+            f, sep, lem = line.partition("\t")
+            if sep:
+                cache[f] = lem
+    misses = [f for f in forms if f not in cache]
     print(f"lemmatizing {len(forms):,} distinct forms "
-          f"(skipped {n_skipped:,} rarer than {args.min_count} of {n_total:,}) ...",
+          f"(skipped {n_skipped:,} rarer than {args.min_count} of {n_total:,}); "
+          f"cache: {len(forms) - len(misses):,} hit / {len(misses):,} to compute",
           file=sys.stderr)
+
+    if misses:
+        from dilemma import Dilemma  # noqa: PLC0415
+        d = Dilemma(lang="grc")
+        CH = 50000
+        for i in range(0, len(misses), CH):
+            chunk = misses[i:i + CH]
+            lemmas = d.lemmatize_batch(chunk)
+            for f, lemma in zip(chunk, lemmas):
+                cache[f] = (lemma or "").strip()
+            if (i // CH) % 5 == 0:
+                print(f"  {i + len(chunk):,}/{len(misses):,} new forms",
+                      file=sys.stderr)
+        if not args.no_cache:
+            CACHE.parent.mkdir(parents=True, exist_ok=True)
+            with CACHE.open("a", encoding="utf-8") as cf:  # append the new forms
+                for f in misses:
+                    cf.write(f"{f}\t{cache[f]}\n")
 
     lemma_freq: Counter[str] = Counter()
     form_tokens = 0
-    CH = 50000
-    for i in range(0, len(forms), CH):
-        chunk = forms[i:i + CH]
-        lemmas = d.lemmatize_batch(chunk)
-        for lemma, cnt in zip(lemmas, counts[i:i + CH]):
-            lem = (lemma or "").strip()
-            if lem:
-                lemma_freq[lem] += cnt
-                form_tokens += cnt
-        if (i // CH) % 5 == 0:
-            print(f"  {i + len(chunk):,}/{len(forms):,} forms", file=sys.stderr)
+    for f, cnt in zip(forms, counts):
+        lem = cache.get(f, "")
+        if lem:
+            lemma_freq[lem] += cnt
+            form_tokens += cnt
 
     items = lemma_freq.most_common()
     with OUT.open("w") as f:
