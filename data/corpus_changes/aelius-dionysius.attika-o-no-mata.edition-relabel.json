@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "change": "relabel served edition tag off the delivery-side Migne mislabel to the Schwabe run family (pure relabel; no row text/locus/urn/source/license changed)",
+    "work": "aelius-dionysius.attika-o-no-mata",
+    "cts": "urn:cts:greekLit:tlg1323.tlg001",
+    "run_slug": "aelius_dionysius_schwabe",
+    "applied_by": "scripts/relabel_aelius_dionysius_schwabe_edition.py --apply",
+    "date": "2026-07-14",
+    "reversible": "apply the inverse mapping (NEW->OLD) to the same file + ocr_works entry, or git-revert the commit / restore the file from the parent commit ('git checkout <parent> -- data/corpus/aelius-dionysius.attika-o-no-mata.jsonl') and confirm its sha256 equals old.sha256 (d3ea4e6765f89ba86c8da4fd953b338ad804ad8123755fd92ed2406e482630dc)."
+  },
+  "old": {
+    "edition": "migne-ocr-qwen36",
+    "rows": 2050,
+    "greek_chars": 162895,
+    "sha256": "d3ea4e6765f89ba86c8da4fd953b338ad804ad8123755fd92ed2406e482630dc"
+  },
+  "new": {
+    "edition": "qwen36-aelius_dionysius_schwabe-ocr",
+    "rows": 2050,
+    "greek_chars": 162895,
+    "sha256": "081e25b1d5f7cfe66ca8ca1d85fe94bf64bc403e0081e376e76cc569ce8a91b2",
+    "rows_relabeled": 2050
+  },
+  "inverse_mapping": {
+    "qwen36-aelius_dionysius_schwabe-ocr": "migne-ocr-qwen36"
+  },
+  "also_synced": {
+    "data/ocr_works.json": "1 entry (urn aelius-dionysius.attika-o-no-mata) edition migne-ocr-qwen36 -> qwen36-aelius_dionysius_schwabe-ocr"
+  },
+  "text_swapped": false,
+  "evidence": "Every row locus carries the 'aelius_dionysius_schwabe_' run prefix; provenance run_slug='aelius_dionysius_schwabe' (data/ocr_provenance/aelius-dionysius.attika-o-no-mata.json); source scan is Schwabe 1890 (archive.org ailioudionysiouk00dionuoft), an atticist lexicon, not Migne; the sibling atticist served work pausanias-attic.attikw-n-o-noma-twn-sunagwgh (tlg1569.tlg001) from the same run is already tagged 'qwen36-aelius_dionysius_schwabe-ocr'. The Migne mislabel was flagged in data/corpus_changes/atticist-tlg-id-keying.json ('the text is Schwabe 1890, not Migne').",
+  "not_done_blocked": "The 676-shared-loci de-dup between the two atticists and the held Schwabe re-OCR text swap are NOT done here: they need Erbse 1950 per-fragment attribution (external). See data/corpus_changes/aelius_dionysius_schwabe.reocr-flag.json.",
+  "provenance": "data/ocr_provenance/aelius-dionysius.attika-o-no-mata.json",
+  "source": "edition-tag reconciliation vs served-sibling + locus/provenance evidence, 2026-07-14",
+  "regenerate_after": [
+    "scripts/reconcile_corpus_editions.py",
+    "scripts/build_coverage_report.py (make sourcing / make all)"
+  ]
+}
