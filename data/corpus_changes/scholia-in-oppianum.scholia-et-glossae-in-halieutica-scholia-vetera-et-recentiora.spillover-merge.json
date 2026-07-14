@@ -1,0 +1,28 @@
+{
+  "_meta": {
+    "change": "merge the 36 spillover Halieutica-scholia glosses (Hal. Bk5 vv.643-680, printed p.386) that ran one page past the served Halieutica-scholia work into it",
+    "work": "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora",
+    "cts": "urn:cts:greekLit:tlg5032.tlg002",
+    "carved_from": "ocr.oppian_bussemaker_paraphrases",
+    "carved_pages": "386 (rows before the exegesis header)",
+    "applied_by": "scripts/deinterleave_oppian_bussemaker.py",
+    "date": "2026-07-14",
+    "reversible": "git revert the ingest commit, or restore data/corpus_changes/ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl (the verbatim pre-change holding, all 5 components) to data/corpus/ and re-run the id build."
+  },
+  "old": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "rows": 4727,
+    "greek_chars": 370284,
+    "sha256": "0152448898916aff35162240c80c2c9796de035e6e53970badbf51e4441c5ec0"
+  },
+  "new": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "rows": 4763,
+    "greek_chars": 371422,
+    "sha256": "de9005f2456fcc4dd99f7a6010599945a1adf42448bb873a63665edf77611f4f"
+  },
+  "merged_rows": 36,
+  "merged_greek_chars": 1138,
+  "evidence": "the served work spanned pp.282-385 with 0 rows on p.386; the 36 word-glosses on p.386 (vv.643-680) are the genuine continuation, not a duplicate. Rows kept on their masked edition (same source as the rest of the work).",
+  "source": "Bussemaker Didot de-interleave, 2026-07-14"
+}

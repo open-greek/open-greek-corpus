@@ -1,0 +1,39 @@
+{
+  "_meta": {
+    "change": "register NEW work carved from the Bussemaker Didot paraphrase tail and re-keyed from the raw single-column Qwen3.6-27B OCR",
+    "work": "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735",
+    "cts": "urn:cts:greekLit:tlg4171.tlg001",
+    "tlg": "tlg4171.tlg001",
+    "carved_from": "ocr.oppian_bussemaker_paraphrases",
+    "carved_pages": "386(from exegesis header)-391",
+    "author_minted": "anonymi-in-oppiani-opera (tlg4171)",
+    "applied_by": "scripts/deinterleave_oppian_bussemaker.py",
+    "date": "2026-07-14",
+    "reversible": "git revert the ingest commit, or restore data/corpus_changes/ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl (the verbatim pre-change holding, all 5 components) to data/corpus/ and re-run the id build."
+  },
+  "old": {
+    "edition": null,
+    "rows": 0,
+    "greek_chars": 0,
+    "sha256": null
+  },
+  "new": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot",
+    "source": "raw single-column re-OCR (Qwen3.6-27B-FP8, full page)",
+    "rows": 16,
+    "greek_chars": 23595,
+    "sha256": "19e78c0210a1e78c3e9fec5e3650bb622620ce14132a36cf8273a8cb943ca694"
+  },
+  "supersedes_masked": {
+    "rows": 112,
+    "greek_chars": 23020,
+    "de_truncation_greek_delta": 575,
+    "note": "the 2-column masker fragmented/truncated these single-column prose pages; the raw single-column run restores the lost Greek (delta is de-truncation, not new content)."
+  },
+  "running_head_lines_dropped": 1,
+  "title": "In Oppiani halieutica exegesis (e cod. Paris. gr. 2735)",
+  "registry": "canon work already in data/inventory (best_source pd_edition); this delivery serves it as OCR. Slug/author/CTS resolve through the existing source_registry entry; a tlg_crosswalk row adds the bare-TLG Work anchor.",
+  "evidence": "printed section header on p.386; exact-edition match to TLG canon tlg4171.tlg001 (editor Bussemaker, U.C., Didot 1849 / e cod. Paris. gr. 2735).",
+  "provenance": "data/ocr_provenance/anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735.json",
+  "source": "Bussemaker Didot de-interleave, 2026-07-14"
+}

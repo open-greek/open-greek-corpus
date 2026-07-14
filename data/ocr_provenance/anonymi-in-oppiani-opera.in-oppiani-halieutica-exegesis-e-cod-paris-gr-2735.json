@@ -1,0 +1,49 @@
+{
+  "urn": "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735",
+  "cts": "urn:cts:greekLit:tlg4171.tlg001",
+  "edition": "qwen36-scholia_oppianum_bussemaker_didot",
+  "run_slug": "scholia_oppianum_bussemaker_didot",
+  "source_scan": {
+    "public_id": "scholiaintheocri00buss",
+    "source": "archive.org",
+    "pages_ocr": 698
+  },
+  "carved_pages": "386(from exegesis header)-391",
+  "model": "Qwen/Qwen3.6-27B-FP8",
+  "serving_stack": {
+    "engine": "vLLM",
+    "images": {
+      "Ada (sm_89)": "vllm/vllm-openai:v0.24.0",
+      "Blackwell RTX PRO 6000 (sm_120)": "vllm/vllm-openai:latest"
+    },
+    "quantization": "fp8 (block-128; vision tower + embeddings bf16)",
+    "flags": "--max-model-len 16384 --max-num-seqs 16 (Ada) / 48 (Blackwell) --gpu-memory-utilization 0.92 --reasoning-parser qwen3 --default-chat-template-kwargs {enable_thinking:false}"
+  },
+  "render_dpi": 430,
+  "native_dpi": "see source scan",
+  "render_is_native": false,
+  "image_resolution": {
+    "client_max_side": 6000,
+    "jpeg_quality": 92,
+    "model_max_pixels": "16.78 MP (16384 visual tokens @ 32x32 px/token)"
+  },
+  "layout_handling": {
+    "method": "single-column (full page, no geometric mask)",
+    "columns": 1,
+    "running_head_excluded": true,
+    "running_head_rule": "short ALL-CAPS work-abbreviation + roman-numeral book refs (e.g. 'ΑΛΙΕΥΤ. IV - V.') dropped; title and book-division headers kept",
+    "apparatus": "the volume's Latin adnotationes and the alphabetic indices (pp.399-692) are NOT part of this work; dropped, archived in data/corpus_changes/ (see the de-interleave record)",
+    "marginal_line_numbers": "printed marginal line-numbers left inline as OCR'd"
+  },
+  "prompt_specials": {
+    "printed_page_capture": "printed page/column number captured as <pg>N</pg> in the .md source; .grc.txt is the running text"
+  },
+  "keying": {
+    "scheme": "scholia_oppianum_bussemaker_didot_<page>.<idx>",
+    "unit": "one row per printed paragraph/line of the raw single-column .grc.txt",
+    "row_span": "scholia_oppianum_bussemaker_didot_0386.N .. _0391.N (16 rows)"
+  },
+  "reocr_note": "Re-keyed from the COMPLETE raw single-column Qwen3.6-27B run to de-truncate the prose that the 2-column geometric masker had fragmented; the CLLG/Qwen3-VL base run was NOT used (project rule).",
+  "date": "2026-07-14",
+  "note": "Derived reproducibly from run params + _timing.json. Metadata only."
+}

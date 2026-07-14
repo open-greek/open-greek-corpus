@@ -1,0 +1,67 @@
+{
+  "_meta": {
+    "change": "RESOLVED: de-interleave the pp.386-692 Bussemaker Didot tail into canonical works; retire the holding id and its placeholder pseudo-author",
+    "work": "ocr.oppian_bussemaker_paraphrases",
+    "retired_ids": {
+      "work": "ogc003623",
+      "author": "oga001420"
+    },
+    "run_slug": "scholia_oppianum_bussemaker_didot",
+    "applied_by": "scripts/deinterleave_oppian_bussemaker.py",
+    "date": "2026-07-14",
+    "status": "resolved",
+    "archived_full_holding": "data/corpus_changes/ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl",
+    "reversible": "git revert the ingest commit, or restore data/corpus_changes/ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl (the verbatim pre-change holding, all 5 components) to data/corpus/ and re-run the id build."
+  },
+  "old_holding": {
+    "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked",
+    "rows": 2025,
+    "greek_chars": 138679,
+    "sha256": "21bce909b5463a8d03a92e887aed6708c08417b3a8cbffc27a93918ad6730ee1"
+  },
+  "disposition": {
+    "(1) p.386 rows 1-36 - Halieutica scholia spillover (Bk5 vv.643-680)": {
+      "action": "merged",
+      "into": "scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora",
+      "cts": "urn:cts:greekLit:tlg5032.tlg002",
+      "rows": 36,
+      "greek_chars": 1138,
+      "edition": "qwen36-scholia_oppianum_bussemaker_didot-masked"
+    },
+    "(2) p.386(hdr)-391 - Halieutica exegesis 'ΟΠΠΙΑΝΟΥ ΑΛΙΕΥΤΙΚΩΝ ΕΞΗΓΗΣΙΣ' (5 books)": {
+      "action": "new-work (re-keyed from raw single-col)",
+      "into": "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735",
+      "cts": "urn:cts:greekLit:tlg4171.tlg001",
+      "tlg": "tlg4171.tlg001",
+      "rows": 16,
+      "greek_chars": 23595,
+      "masked_rows": 112,
+      "masked_greek_chars": 23020
+    },
+    "(3) p.392-397 - Cynegetica paraphrase 'ΕΥΤΕΚΝΙΟΥ ΠΑΡΑΦΡΑΣΙΣ ... ΚΥΝΗΓΕΤΙΚΑ' (Bk1)": {
+      "action": "new-work (re-keyed from raw single-col)",
+      "into": "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio",
+      "cts": "urn:cts:greekLit:tlg0752.tlg003",
+      "tlg": "tlg0752.tlg003",
+      "rows": 45,
+      "greek_chars": 21289,
+      "masked_rows": 276,
+      "masked_greek_chars": 21316
+    },
+    "(4) p.399-~471 - Bussemaker ADNOTATIONES (19th-c Latin+Greek critical apparatus)": {
+      "action": "dropped (non-primary editorial matter)",
+      "recoverable_from": "ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl"
+    },
+    "(5) p.475-692 - INDICES (alphabetic, dotted leaders)": {
+      "action": "dropped (non-primary editorial matter)",
+      "recoverable_from": "ocr.oppian_bussemaker_paraphrases.de-interleaved-original.jsonl"
+    }
+  },
+  "dropped_total": {
+    "pages": "399-692",
+    "rows": 1601,
+    "greek_chars": 93205
+  },
+  "corrects_prior_flag": "ingest_bespoke_keying.py flagged the tail as 'Eutecnius Halieutica paraphrase (tlg0752.tlg005) + Cynegetica paraphrase (tlg0752.tlg003) + the Oppian poem + an index, interleaved'. Page-by-page recon found NO duplicate Oppian poem and five SEQUENTIAL components; the Halieutica prose is the ANONYMOUS exegesis tlg4171.tlg001 (not Eutecnius' tlg0752.tlg005), and only the Cynegetica paraphrase is Eutecnius (tlg0752.tlg003).",
+  "source": "Bussemaker Didot de-interleave, 2026-07-14"
+}
