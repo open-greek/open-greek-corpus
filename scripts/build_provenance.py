@@ -77,12 +77,19 @@ def is_masked(edition: str, urn: str, prov_recs: dict) -> bool:
     """Whether a work's served (dominant) edition is a masked-column re-OCR run.
     Now that "ocr-masked" is folded into "ocr", the pipeline is recognized from the
     edition slug (qwen36-*-masked / *_masked, and the -singlecol masked variant,
-    which matches its own per-work provenance record) rather than the source field."""
+    which matches its own per-work provenance record) rather than the source field.
+    A work may ALSO carry a per-work provenance record for a NON-masked delivery
+    (e.g. a full-page Migne PG redo whose Greek column is kept without a geometric
+    crop): recognize the masked pipeline from the record's own geometric mask/crop
+    method, not merely from a provenance record existing for the work."""
     ed = edition or ""
-    if "-masked" in ed or "_masked" in ed:
+    if "-masked" in ed or "_masked" in ed or "-singlecol" in ed:
         return True
     rec = prov_recs.get(urn)
-    return bool(rec and (rec.get("edition") or "") == ed)
+    if not rec or (rec.get("edition") or "") != ed:
+        return False
+    method = (rec.get("layout_handling", {}).get("method") or "").lower()
+    return any(k in method for k in ("geometric", "mask", "crop"))
 
 
 def main() -> None:
