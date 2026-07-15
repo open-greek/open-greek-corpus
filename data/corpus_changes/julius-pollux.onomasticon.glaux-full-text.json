@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "change": "replace served text (source swap: First1K sample -> GLAUx full text)",
+    "work": "julius-pollux.onomasticon",
+    "tlg": "tlg0542.tlg001",
+    "cts": "urn:cts:greekLit:tlg0542.tlg001",
+    "applied_by": "scripts/ingest_glaux_pollux.py",
+    "date": "2026-07-15",
+    "reversible": "restore the archived stub jsonl in this directory and remove the julius-pollux.onomasticon entry from data/non_tei_authoritative.json to reinstate the pre-replacement served text; re-run scripts/ingest_glaux_pollux.py to regenerate the GLAUx text."
+  },
+  "old": {
+    "edition": "1st1K-grc1",
+    "source": "first1k",
+    "rows": 2,
+    "loci": [
+      "2.157",
+      "2.158"
+    ],
+    "tokens": 111,
+    "sha256": "231c8630bf74b43e288a862b82643ab97446f3ef37f305dfb337abb363ba5811",
+    "archived_to": "data/corpus_changes/julius-pollux.onomasticon.pre-glaux-stub.jsonl"
+  },
+  "new": {
+    "edition": "glaux-0542-001",
+    "source": "glaux",
+    "license": "PD (ancient text); GLAUx corpus CC BY-SA 4.0",
+    "books": 10,
+    "sections": 1908,
+    "tokens": 115254,
+    "incipit": "Ἰούλιος Πολυδεύκης Κομμόδῳ Καίσαρι χαίρειν. ὦ παῖ πατρὸς ἀγαθοῦ, πατρῷόν ἐστί σοι κτῆμα κατ’ ἴσον βασιλεία τε καὶ σοφία.",
+    "explicit": "ῆρας ὀκτὼ δὲ χύτρας δύο τρυβλίω, κνέφαλλα δέκα, θέρμαυστριν, ἓξ θρόνους, χύτραν, κάννας ἑκατόν, κόρημα, κιβωτόν, λύχνον."
+  },
+  "provenance": {
+    "source": "GLAUx corpus (automatically annotated Ancient Greek)",
+    "repo": "github.com/alekkeersmaekers/glaux",
+    "commit": "b077d8f6ff429a5c7245954bc16bb7d1d7948823",
+    "glaux_text_id": "0542-001",
+    "url": "https://github.com/alekkeersmaekers/glaux/blob/master/xml/0542-001.xml",
+    "source_format": "TEI treebank XML (ordered <word> surface forms)",
+    "reference_parser": "open-greek-corpus-annotations/scripts/build_gold_glaux.py load_glaux_tokens",
+    "method": "running text reconstructed per locus from GLAUx <word> surface forms (NFC) in document order, keyed by div_book/div_section; rows emitted in numeric (book, section) order; artificial (elliptic) tokens and the 'G?' illegibility placeholder dropped",
+    "reconstruction_checks": {
+      "div_section_matches_div_book": true,
+      "unique_loci": 1908,
+      "all_sections_contiguous": true,
+      "gap_placeholders_dropped": 11,
+      "doc_order_note": "book 6 serializes 6.146-148 after 6.149-150 in the GLAUx document; numeric order is the correct reading/citation order (content confirms it)"
+    },
+    "license_note": "ancient text is public domain; GLAUx corpus distributed CC BY-SA 4.0 (repo README). GLAUx metadata.txt SOURCE_LICENSE for this text is 'NA' (unspecified), which is not NonCommercial, so admissible under OGC policy.",
+    "date": "2026-07-15"
+  },
+  "evidence": "The previously served edition 1st1K-grc1 is the First1KGreek TEI file tlg0542.tlg001.1st1K-grc1.xml, a 4.6 KB sample holding only sections 2.157-2.158 (111 Greek tokens). No open TEI of the complete Onomasticon exists. GLAUx xml/0542-001.xml carries all ten books (1,908 sections, ~115k Greek word tokens); the reconstructed incipit is the Commodus dedication (Ἰούλιος Πολυδεύκης Κομμόδῳ Καίσαρι χαίρειν) and orthography uses normal σ/ς.",
+  "source_url": "https://github.com/alekkeersmaekers/glaux/blob/master/xml/0542-001.xml"
+}

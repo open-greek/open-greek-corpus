@@ -1,8 +1,14 @@
 {
+ "julius-pollux.onomasticon": {
+  "as_of": "2026-07-15",
+  "kept_edition": "glaux-0542-001",
+  "kept_source": "glaux",
+  "reason": "Full 10-book Onomasticon (~115k Greek tokens, 1,908 sections) reconstructed from the GLAUx surface text. first1k tlg0542.tlg001.1st1K-grc1.xml is a 2-section sample (111 tokens); keep the GLAUx text primary."
+ },
  "philodemus.volumina-rhetorica": {
-  "kept_source": "ocr",
+  "as_of": "2026-07-08",
   "kept_edition": "sudhaus-volrhet1-1892",
-  "reason": "Complete Sudhaus 1892 OCR delivery (~76k Greek word tokens); first1k tlg1595.tlg370.1st1K-grc1.xml is a ~9.7k-token fragment. Keep the OCR primary until the TEI edition is materially complete.",
-  "as_of": "2026-07-08"
+  "kept_source": "ocr",
+  "reason": "Complete Sudhaus 1892 OCR delivery (~76k Greek word tokens); first1k tlg1595.tlg370.1st1K-grc1.xml is a ~9.7k-token fragment. Keep the OCR primary until the TEI edition is materially complete."
  }
 }
