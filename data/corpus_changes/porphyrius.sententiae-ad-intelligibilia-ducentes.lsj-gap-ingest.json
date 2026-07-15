@@ -1,0 +1,26 @@
+{
+ "_meta": {
+  "change": "serve LSJ-gap work",
+  "work": "porphyrius.sententiae-ad-intelligibilia-ducentes",
+  "tlg": "tlg2034.tlg008",
+  "cts": "urn:cts:greekLit:tlg2034.tlg008",
+  "applied_by": "scripts/ingest_lsj_gap_batch.py",
+  "date": "2026-07-15",
+  "reversible": "delete data/corpus/porphyrius.sententiae-ad-intelligibilia-ducentes.jsonl and the porphyrius.sententiae-ad-intelligibilia-ducentes entry in data/non_tei_authoritative.json"
+ },
+ "new": {
+  "edition": "glaux-2034-008",
+  "source": "glaux",
+  "license": "PD (ancient text); GLAUx corpus CC BY-SA 4.0",
+  "loci": 44,
+  "tokens": 7712,
+  "incipit": "πᾶν μὲν σῶμα ἐν τόπῳ, οὐδὲν δὲ τῶν καθ’ αὑτὰ ἀσωμάτων ᾗ τοιοῦτον ἐν τόπῳ."
+ },
+ "provenance": {
+  "source": "glaux",
+  "glaux_id": "2034-008",
+  "repo": "github.com/alekkeersmaekers/glaux",
+  "method": "running text per locus from GLAUx <word> surface forms (NFC) grouped by div_sententia, numeric order; artificial + 'G?' tokens dropped",
+  "dropped_gap": 3
+ }
+}
