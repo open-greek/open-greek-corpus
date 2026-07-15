@@ -1,0 +1,26 @@
+{
+ "_meta": {
+  "change": "serve LSJ-gap work",
+  "work": "porphyrius.de-antro-nympharum",
+  "tlg": "tlg2034.tlg004",
+  "cts": "urn:cts:greekLit:tlg2034.tlg004",
+  "applied_by": "scripts/ingest_lsj_gap_batch.py",
+  "date": "2026-07-15",
+  "reversible": "delete data/corpus/porphyrius.de-antro-nympharum.jsonl and the porphyrius.de-antro-nympharum entry in data/non_tei_authoritative.json"
+ },
+ "new": {
+  "edition": "glaux-2034-004",
+  "source": "glaux",
+  "license": "PD (ancient text); GLAUx corpus CC BY-SA 4.0",
+  "loci": 36,
+  "tokens": 4939,
+  "incipit": "ὅτι ποτὲ Ὁμήρῳ αἰνίττεται τὸ ἐν Ἰθάκῃ ἄντρον, ὃ διὰ τῶν ἐπῶν τούτων διαγράφει λέγων· \"αὐτὰρ ἐπὶ κρατὸς λιμένος τανύφυλλο"
+ },
+ "provenance": {
+  "source": "glaux",
+  "glaux_id": "2034-004",
+  "repo": "github.com/alekkeersmaekers/glaux",
+  "method": "running text per locus from GLAUx <word> surface forms (NFC) grouped by div_section, numeric order; artificial + 'G?' tokens dropped",
+  "dropped_gap": 0
+ }
+}

@@ -1,0 +1,29 @@
+{
+ "_meta": {
+  "change": "serve LSJ-gap work",
+  "work": "scholia-in-pindarum.scholia-in-pindarum-scholia-vetera",
+  "tlg": "tlg5034.tlg001",
+  "cts": "urn:cts:greekLit:tlg5034.tlg001",
+  "applied_by": "scripts/ingest_lsj_gap_batch.py",
+  "date": "2026-07-15",
+  "reversible": "delete data/corpus/scholia-in-pindarum.scholia-in-pindarum-scholia-vetera.jsonl and the scholia-in-pindarum.scholia-in-pindarum-scholia-vetera entry in data/non_tei_authoritative.json; restore the archived orphan jsonl files"
+ },
+ "new": {
+  "edition": "perseus-grc1-consolidated",
+  "source": "first1k",
+  "license": "PD (ancient text); First1KGreek/Perseus CC BY-SA 4.0",
+  "loci": 4687,
+  "tokens": 168687,
+  "incipit": "Πινδάρου ἐπίνικοι Ὀλυμπιονίκαις. Ἱέρωνι Συρακουσίῳ κέλητι. Τῶν ἐν τοῖς ἐπινίκοις τοῖς ὑπὸ Πινδάρου γεγραμμένοις εἰς τοὺς"
+ },
+ "provenance": {
+  "source": "first1k",
+  "consolidated_from": [
+   "tlg5034.tlg001a.jsonl",
+   "tlg5034.tlg001b.jsonl",
+   "tlg5034.tlg001c.jsonl",
+   "tlg5034.tlg001d.jsonl"
+  ],
+  "method": "four First1K Pindar-scholia work files (Olympian/Pythian/Nemean/Isthmian) merged; loci prefixed O./P./N./I. to keep books distinct"
+ }
+}

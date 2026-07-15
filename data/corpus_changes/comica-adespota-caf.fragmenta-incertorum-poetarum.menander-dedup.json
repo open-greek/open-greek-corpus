@@ -1,0 +1,32 @@
+{
+ "_meta": {
+  "change": "split Menander out of the caf3 whole-volume blob + fix internal inflation",
+  "work": "comica-adespota-caf.fragmenta-incertorum-poetarum",
+  "tlg": "tlg0408.tlg001",
+  "date": "2026-07-15",
+  "applied_by": "manual build_ocr_corpus (LSJ-gap Menander split)",
+  "reversible": "restore data/corpus_changes/comica-adespota-caf.fragmenta-incertorum-poetarum.pre-menander-dedup.jsonl"
+ },
+ "before": {
+  "rows": 1320,
+  "greek_tokens": 101115,
+  "note": "whole caf3 vol III incl. Menander; ~19k internal inflation (double-counted content)"
+ },
+ "after": {
+  "rows": 5727,
+  "greek_tokens": 54500,
+  "note": "rebuilt from caf3 redo pages EXCLUDING Menander (0023-0291); page-keyed loci"
+ },
+ "menander_split_to": {
+  "work": "menander-comedy.fragmenta-2",
+  "tlg": "tlg0541.tlg039",
+  "rows": 3413,
+  "greek_tokens": 27049
+ },
+ "conservation": {
+  "whole_caf3_redo_run_greek": 82738,
+  "after_tlg0408_plus_menander": 81549,
+  "note": "matches the run; old blob 101115 was inflated. No Greek lost."
+ },
+ "residual": "tlg0408 still lumps the New-Comedy minores + Comparatio Men/Philist + adespota; the 3 pre-split tiny poets (archedicus/lynceus/poliochus) remain duplicated (~9 recs). Full per-poet segmentation still pending (needs_ocr_cleanup flag kept)."
+}
