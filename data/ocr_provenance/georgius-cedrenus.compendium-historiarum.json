@@ -1,0 +1,34 @@
+{
+  "urn": "georgius-cedrenus.compendium-historiarum",
+  "cts": "urn:cts:greekLit:tlg3018.tlg001",
+  "edition": "cgpg",
+  "source": "calfa-co Patrologia Graeca (CC-BY OCR of public-domain Migne PG)",
+  "coverage_note": "Two-volume delivery for one work (George Cedrenus, Compendium historiarum, tlg3018.tlg001). The PG121 half (creation -> 913, loci 19-590) was delivered by the upstream CGPG pipeline. THIS record documents the PG122 half (913 -> 1057, loci PG122.12..PG122.189) split out of the raw cogPG.PG122 volume dump and appended by scripts/split_cedrenus_pg122.py. The PG121 half's served bytes are unchanged; the PG122 rows are appended after them.",
+  "source_scan": {
+    "edition_printed": "Migne, Patrologia Graeca, tomus 122 (George Cedrenus, Compendium historiarum vol. 2 = Bonn/CSHB Bekker 1839)",
+    "source": "calfa-co Patrologia Graeca OCR of the public-domain Migne scan",
+    "source_url": "https://github.com/calfa-co/Patrologia-Graeca",
+    "volume_loci_kept": "12-189 (of the PG122 dump's 12-679)"
+  },
+  "model": "calfa-co",
+  "layout_handling": {
+    "method": "Migne two-column page, Greek text with facing Latin translation; the CGPG OCR keeps the Greek column",
+    "columns": 2,
+    "provenance": "text taken verbatim from the delivered cogPG.PG122 rows; no re-OCR was performed by this split"
+  },
+  "segmentation": "one served record per calfa-co page of the PG122 volume; the volume's bare page locus N is re-keyed 'PG122.N' so the two Migne tomes (PG121 bare loci 19-590, PG122 'PG122.*') do not collide within the work.",
+  "work_boundary": {
+    "span": "913 CE (death of Alexander) -> 1057 CE (coronation of Isaac I Komnenos), the extent of the Skylitzes/Cedrenus recension",
+    "start": "loc 12: 'ἀποθανόντος Ἀλεξάνδρου...' (opens Cedrenus vol. 2 at 913)",
+    "end": "loc 189: Isaac Komnenos crowned ('...βασιλεὺς αὐτοκράτωρ Ῥωμαίων ἀναγορεύεται')",
+    "excluded_after_1057": "loci 190-243 are the Scylitzes continuatus (incipit loc 190 '...αὐτίκα τῷ βασιλικῷ νομίσματι σπαθηφόρος διαχαράττεται...', verbatim = scylitzes-continuatus.continuatio-scylitzae / tlg3064.tlg002 skylitzes0.1), already served by byzantium.gr; loci 275-679 are a Psellus metrical Song-of-Songs commentary. Both remain in cogPG.PG122 and are NOT folded here."
+  },
+  "skylitzes_overlap": "For 811-1057, Cedrenus' Compendium historiarum reproduces Ioannes Skylitzes' Synopsis historiarum (tlg3063.tlg001) near-verbatim. byzantium.gr's Skylitzes (joannes-scylitzes.synopsis-historiarum) covers only through 912, so this PG122 Cedrenus span fills the 913-1057 gap in the Skylitzes-recension content. It is served under the accurate Cedrenus attribution, not relabeled as Skylitzes.",
+  "counts": {
+    "rows": 178,
+    "greek_chars": 396499,
+    "tokens": 71205
+  },
+  "date": "2026-07-14",
+  "note": "Derived reproducibly by scripts/split_cedrenus_pg122.py from the in-repo cogPG.PG122 dump. Re-running the script reproduces these rows."
+}
