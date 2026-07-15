@@ -1,0 +1,40 @@
+{
+  "urn": "joannes-chrysostomus.in-genesim-homiliae-1-67",
+  "cts": "urn:cts:greekLit:tlg2062.tlg112",
+  "edition": "migne-ocr-qwen36",
+  "run_slug": "pg053_redo",
+  "coverage_note": "Two-part OCR delivery for one work. THIS record documents the PG53 half (homilies 1-41, loci pg053_0023..pg053_0387) added by scripts/ingest_chrysostom_ingenesim_pg53.py. The PG54 half (homilies 42-67, loci pg054_0011..pg054_0206) was delivered earlier under the same edition tag; its served bytes are unchanged by this ingest.",
+  "source_scan": {
+    "edition_printed": "Migne, Patrologia Graeca, tomus LIII (Chrysostom, Homiliae in Genesin 1-41), reprint Paris",
+    "source": "Google Books scan (public domain)",
+    "pages_in_run": 397,
+    "body_pages_keyed": "23-387"
+  },
+  "model": "Qwen/Qwen3.6-27B-FP8",
+  "serving_stack": {
+    "engine": "vLLM",
+    "quantization": "fp8",
+    "reasoning": "thinking disabled"
+  },
+  "layout_handling": {
+    "method": "Migne two-column page, Greek text with facing Latin translation; the run's Greek-paragraph extraction (*.grc.txt) keeps the Greek and drops the Latin translation column",
+    "columns": 2,
+    "running_head_excluded": true,
+    "apparatus": "editorial apparatus/variant notes not carried into the served Greek lines",
+    "front_matter": "pages < 23 (Google notice, title, ELENCHUS/MONITUM, synoptic index) dropped",
+    "back_matter": "pages > 387 (back index; the tome ends 'FINIS TOMI QUINQUAGESIMI TERTII' on p.{BODY_HI}) dropped"
+  },
+  "segmentation": "one served record per non-empty Greek line of pgNNN_PAGE.grc.txt, keyed pgNNN_PAGE.k (k 1-indexed within the page); stray OCR markup tags stripped. Same shape as the delivered PG54 half.",
+  "work_boundary": {
+    "homilies": "1-41 (this PG53 half) + 42-67 (existing PG54 half) = 1-67",
+    "seam_evidence": "PG53 last homily header ΟΜΙΛΙΑ ΜΑʹ / HOMILIA XLI (p.375-386), tome ends 'FINIS TOMI QUINQUAGESIMI TERTII' (p.387); PG54 opens on homily 42 (Gen 18:16 'Ἐξαναστῶντες δὲ οἱ ἄνδρες'). No overlap, no gap.",
+    "sermones_not_included": "In Genesim SERMONES (tlg2062.tlg113) are not in this tome; they sit in PG54 p.207+, served separately."
+  },
+  "counts": {
+    "rows": 1021,
+    "greek_chars": 889510,
+    "tokens": 172107
+  },
+  "date": "2026-07-14",
+  "note": "Derived reproducibly by scripts/ingest_chrysostom_ingenesim_pg53.py from the Qwen3.6-27B-FP8 redo of PG 53. Re-running the script on the same run reproduces these rows."
+}

@@ -1,0 +1,36 @@
+{
+  "_meta": {
+    "change": "extend served text (append PG53 homilies 1-41 to the existing PG54 homilies 42-67, so the work is homilies 1-67)",
+    "work": "joannes-chrysostomus.in-genesim-homiliae-1-67",
+    "cts": "urn:cts:greekLit:tlg2062.tlg112",
+    "run_slug": "pg053_redo",
+    "applied_by": "scripts/ingest_chrysostom_ingenesim_pg53.py",
+    "date": "2026-07-14",
+    "model_note": "Taken from the Qwen3.6-27B-FP8 redo of PG 53 (matches the served PG54 edition migne-ocr-qwen36). The older CLLG/Qwen3VL-8B pass of this tome was deliberately not used.",
+    "reversible": "The PG54 half is byte-unchanged: the new pg053_* records are prepended to the untouched pg054_* records. To revert, drop every row whose locus starts 'pg053_' from data/corpus/joannes-chrysostomus.in-genesim-homiliae-1-67.jsonl (equivalently: git revert the ingest commit, or restore the file from the parent commit and confirm its sha256 equals old.sha256 below)."
+  },
+  "old": {
+    "edition": "migne-ocr-qwen36",
+    "scope": "PG54 half only (homilies 42-67)",
+    "rows": 912,
+    "greek_chars": 481398,
+    "sha256": "292e94a3e32a1d84ad248456cceed924013c8768b45ef333bbf365fbefde6dae"
+  },
+  "added": {
+    "edition": "migne-ocr-qwen36",
+    "scope": "PG53 half (homilies 1-41)",
+    "source": "Qwen3.6-27B-FP8 redo of Migne PG 53, body pages 23-387",
+    "locus_prefix": "pg053_",
+    "rows": 1021,
+    "greek_chars": 889510,
+    "tokens": 172107
+  },
+  "new": {
+    "scope": "homilies 1-67 (PG53 + PG54)",
+    "rows": 1933,
+    "sha256": "d603bfd63e8b8cb38cbfb9d9d7943c46dfa9a7b891cf6c9f70f34062d51e9cbe"
+  },
+  "evidence": "Seam verified: PG53 ends 'FINIS TOMI QUINQUAGESIMI TERTII' after homily 41 (ΟΜΙΛΙΑ ΜΑʹ, p.375-387); PG54 opens on homily 42 (Gen 18:16, served p.11). No pg053_* locus previously present; no other served work holds pg053 loci. Sermones in Genesim (tlg2062.tlg113) not in this tome.",
+  "provenance": "data/ocr_provenance/joannes-chrysostomus.in-genesim-homiliae-1-67.json",
+  "source": "PG53 In Genesim homilies 1-41 keying, 2026-07-14"
+}
