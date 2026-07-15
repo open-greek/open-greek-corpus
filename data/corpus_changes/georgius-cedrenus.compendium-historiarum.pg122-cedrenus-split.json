@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "change": "split the Cedrenus v2 (913-1057) span out of the raw cogPG.PG122 volume dump and serve it under the canonical Cedrenus work",
+    "moved_from": "cogPG.PG122",
+    "moved_to": "georgius-cedrenus.compendium-historiarum",
+    "cts": "urn:cts:greekLit:tlg3018.tlg001",
+    "applied_by": "scripts/split_cedrenus_pg122.py",
+    "date": "2026-07-14",
+    "attribution_decision": "Served as the Cedrenus work (tlg3018.tlg001), the accurate label: the text IS Cedrenus' Compendium historiarum vol. 2 (Migne PG122 / Bonn Bekker). For 811-1057 it is verbatim-equivalent to Skylitzes' Synopsis historiarum (tlg3063.tlg001); byzantium.gr's Skylitzes stops at 912, so this fills the 913-1057 gap without relabeling Cedrenus as Skylitzes. The post-1057 Scylitzes continuatus and the Psellus Song-of-Songs commentary in the same volume are excluded (the continuatus is already served by byzantium.gr, tlg3064.tlg002).",
+    "reversible": "The PG121 half is byte-unchanged: the moved rows are appended to it with loci 'PG122.<page>'. To revert: drop every data/corpus/georgius-cedrenus.compendium-historiarum.jsonl row whose locus starts 'PG122.' and re-insert it into data/corpus/cogPG.PG122.jsonl with locus = locus without the 'PG122.' prefix (page order 12..189), then restore data/cgpg_works.json's PG122 entry. Equivalently: git revert the commit, or restore both files from the parent commit and confirm their sha256 equal old.*.sha256 below. Every moved row is byte-identical in text; only urn and locus changed."
+  },
+  "boundary_evidence": {
+    "first_moved_loc12": "ἀποθανόντος Ἀλεξάνδρου",
+    "last_moved_loc189": "ἀναγορεύεται",
+    "first_residual_loc190": "αὐτίκα τῷ βασιλικῷ νομίσματι (= byzantium.gr scylitzes-continuatus skylitzes0.1)"
+  },
+  "old": {
+    "cogPG.PG122": {
+      "rows": 590,
+      "greek_tokens": 224974,
+      "sha256": "5deaf01093d2f65181a8be0165e4e7dee89beb8eb56cc984dfb9d16b32024ebf"
+    },
+    "georgius-cedrenus.compendium-historiarum": {
+      "rows": 572,
+      "greek_tokens": 220540,
+      "sha256": "2b8d72a9dbad06be25275fa24d9c46e88d2bc996e96af5cff747fffe1d7d7ec4"
+    }
+  },
+  "moved": {
+    "rows": 178,
+    "greek_chars": 396499,
+    "greek_tokens": 71205,
+    "volume_loci": "12-189",
+    "locus_map": "cogPG.PG122 locus N -> georgius-cedrenus.compendium-historiarum locus 'PG122.N' for N in 12..189 (Migne PG122 pages)"
+  },
+  "new": {
+    "cogPG.PG122": {
+      "rows": 412,
+      "greek_tokens": 153769,
+      "scope": "residual: Scylitzes continuatus (190-243) + Psellus Song-of-Songs commentary (275-679)",
+      "sha256": "6a5240ce9ccc4f5a9c7f025176541f2c4b09b26eb251b838bb6d333c763780cf"
+    },
+    "georgius-cedrenus.compendium-historiarum": {
+      "rows": 750,
+      "greek_tokens": 291745,
+      "scope": "PG121 (creation-913) + PG122 (913-1057)",
+      "sha256": "f075f3413570f6ac9b54e5d6c2e9e98b8d84e10083eeee139b5b4bee298bb198"
+    }
+  },
+  "corrections_mirror_note": "data/corrections_log/applied.jsonl keys the moved span's corrections by bare column locus under cogPG.PG122; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical, superseded on the next upstream mirror regeneration). The locus map above makes the linkage reconstructable.",
+  "cgpg_works_update": "data/cgpg_works.json PG122 entry: works cleared (Cedrenus now served directly via its own key), desc + n_passages/n_tokens set to the residual.",
+  "provenance": "data/ocr_provenance/georgius-cedrenus.compendium-historiarum.json",
+  "source": "Cedrenus PG122 (913-1057) split, 2026-07-14"
+}
