@@ -108,7 +108,7 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 | 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | built (`pedalion-v1`) |
 | 1d | TAGNT | word-level annotation | built (`tagnt-v1`) |
 | 1e | GLAUx | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked works (tier 1), exclude NC and unclear source licenses, tag the Gorman-credited works' manual sentences `provenance=gorman`. | built (`glaux-v1`) |
-| 1e | Diorisis | the other half of item 1e; carry its per-sentence annotation with the same policy screens. | queued |
+| 1e | Diorisis | the other half of item 1e; carry its per-sentence annotation with the same policy screens. | built (`diorisis-v1`) |
 
 #### Built: OGA export `oga-v1`
 
@@ -195,6 +195,33 @@ above):
 
 Watchlist, not yet endorsed, track for maturity and license: Codex Alexandrinus,
 TAGOT, CNTR.
+
+
+#### Built: Diorisis export `diorisis-v1`
+
+Item 1e's Diorisis half. The payload lives on the Hub per "Storage" above,
+under `diorisis-v1/` (per-work `works/<cts-work-id>.jsonl.gz` plus
+`manifest.json` and `diorisis_scope_audit.json`); the git-tracked pointer stub
+is `data/annotations/diorisis/diorisis-v1.json`. It is produced reproducibly by
+`scripts/export_diorisis_annotations.py` from the retained figshare copy
+(version DOI 10.6084/m9.figshare.6187256.v1, Diorisis.zip 194,443,428 bytes,
+sha256 fb32b7ff...19b65; figshare record CC BY 4.0, all 820 per-file TEI
+licenses CC BY-SA 3.0 US, re-derived at run time). Scope: the whole corpus,
+812 CTS works from 820 files (Plutarch letter-suffix parts and same-id volume
+splits merged like glaux-v1, with a per-token `doc` field), 10,206,421 tokens,
+538,011 sentences. Lemma + POS/morphology only, no dependency syntax: records
+omit head/deprel entirely, and `morph` carries the source's surviving Morpheus
+readings as a list (1,972,702 tokens keep several; 153,593 are unanalyzed,
+lemma_id='unknown'). Work ids are the headers' own greekLit CTS ids (752
+verified against their embedded Perseus refs; Euripides keeps greekLit
+numbering, matching glaux-v1). Loci are the per-sentence location strings
+verbatim (33,745 sentences have none). Forms are converted from the source's
+Beta Code and normalized per this contract; the Diorisis lexicon id carries
+homograph identity. Every sentence is analysis=auto, provenance_tag=diorisis:
+tier 3 under `source-policy.md` (non-PROIEL automatic annotation), not
+Gorman-derived. dilemma pins:
+
+    cog export diorisis-v1, sha256:61f1b8b251cd626155d7cb1612f5bb7764c214894b800d29f04a6e00407a931a
 
 ## Forward-looking: a cog-side annotation runner (not implemented)
 

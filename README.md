@@ -131,6 +131,12 @@ scripts/
                             data/annotations/glaux/<release>.json; drops the 25 PROIEL
                             works, excludes NC and unclear source licenses, tags Gorman
                             manual sentences provenance=gorman (docs/source-policy.md)
+  export_diorisis_annotations.py  retained Diorisis figshare copy (pinned zip) ->
+                            the standardized annotation-export payload (queue item
+                            1e, Diorisis half) + the pointer stub
+                            data/annotations/diorisis/<release>.json; Beta Code ->
+                            Unicode, lemma+morphology only (no head/deprel), every
+                            sentence analysis=auto (docs/source-policy.md tier 3)
   upload_annotation_export.py  publish an export release dir to the HF dataset repo
                             ciscoriordan/open-greek-corpus-annotation-exports under
                             <release-id>/ (Hub API, verified file list; never git-LFS)
