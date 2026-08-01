@@ -105,7 +105,7 @@ $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_repor
 	$(PY) scripts/build_coverage_report.py
 # Crosswalk completeness: how well each work/author/edition is linked to external
 # identifier systems, and which works lack an edition-independent logical locus.
-$(CROSSWALK_REPORT): $(REGISTRY) scripts/build_crosswalk_report.py source_identity.py
+$(CROSSWALK_REPORT): $(REGISTRY) $(CORPUS_EDITIONS) data/work_index.json scripts/build_crosswalk_report.py source_identity.py
 	$(PY) scripts/build_crosswalk_report.py
 
 clean:

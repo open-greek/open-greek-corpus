@@ -211,7 +211,9 @@ data/
   corpus_loci_warnings.json works whose citation structure is not fully clean
   corpus_loci_disambiguated.json distinct readings that shared a locus, and the
                             loci they were split to (base -> [loci] + basis)
-  crosswalk_report.json     per-namespace id-linkage coverage + enrichment targets
+  crosswalk_report.json     per-namespace id-linkage coverage + enrichment targets,
+                            both registry-wide and over the served set (the honest
+                            denominators: served works joined to work_index anchors)
 ```
 
 ## Identity and citation

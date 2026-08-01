@@ -11,9 +11,20 @@ identifier namespace, how much of the registry is linked, and surfaces the
 cheapest enrichment targets (e.g. works whose AUTHOR already has a Wikidata QID
 but the work does not).
 
+The registry-wide view alone is misleading in both directions: the registry
+holds ~7,900 inventory works cog does not serve (diluting every percentage),
+while ~800 served works (DFHG fragment collections, per-part OCR files) are not
+registry keys at all and would otherwise be invisible to enrichment. The
+served_set section therefore recomputes the same measures over what cog
+actually serves, joining data/corpus_editions.json against data/work_index.json
+(which covers every served work) and the registry (for scheme info).
+
 Input (read-only):
   data/source_registry.json   - authors + works + editions, each with an
                                 `aliases` map and editions carrying a `scheme`
+  data/corpus_editions.json   - the served set (slug -> edition/source/tokens)
+  data/work_index.json        - per served work: external anchors + author
+                                authorities (covers works absent from the registry)
 
 Output:
   data/crosswalk_report.json  - machine-readable completeness report
@@ -31,6 +42,8 @@ sys.path.insert(0, REPO)
 from source_identity import scheme_depth, scheme_levels  # noqa: E402
 
 REGISTRY = os.path.join(REPO, "data", "source_registry.json")
+CORPUS_EDITIONS = os.path.join(REPO, "data", "corpus_editions.json")
+WORK_INDEX = os.path.join(REPO, "data", "work_index.json")
 OUT_JSON = os.path.join(REPO, "data", "crosswalk_report.json")
 
 # Target crosswalk namespaces per entity type (the design's alias schema). Listed
@@ -122,6 +135,35 @@ def main():
         else:
             served_none.append(slug)
 
+    # Served set: the same measures over what cog actually serves. work_index
+    # covers every served work (including the ones absent from the registry),
+    # so anchors and author authorities come from there; scheme info exists only
+    # for served works that are registry keys.
+    served = json.load(open(CORPUS_EDITIONS, encoding="utf-8"))
+    windex = json.load(open(WORK_INDEX, encoding="utf-8"))["works"]
+    nS = len(served)
+    sv_absent_registry = sorted(s for s in served if s not in works)
+    sv_work_qid = sv_author_qid = sv_any_anchor = sv_logical = 0
+    sv_qid_via_author = []
+    for slug in served:
+        e = windex.get(slug) or {}
+        anchors = e.get("work_anchors", {})
+        auth = (e.get("author") or {}).get("authorities", {})
+        if anchors:
+            sv_any_anchor += 1
+        if "wikidata" in anchors:
+            sv_work_qid += 1
+        if "wikidata" in auth:
+            sv_author_qid += 1
+            if "wikidata" not in anchors:
+                sv_qid_via_author.append(slug)
+        w = works.get(slug)
+        if w:
+            de = w.get("default_edition")
+            ed = w.get("editions", {}).get(de) if de else None
+            if ed and _is_logical(ed.get("scheme", "")):
+                sv_logical += 1
+
     # cheapest Wikidata enrichment: work lacks a QID but its author has one.
     author_qid = {slug: a["aliases"]["wikidata"]
                   for slug, a in authors.items() if "wikidata" in a.get("aliases", {})}
@@ -144,6 +186,12 @@ def main():
                                             if "wikidata" not in w.get("aliases", {})), nW),
             "pct_works_with_author_qid": _pct(works_any_author_qid, nW),
             "pct_authors_with_wikidata": _pct(len(author_qid), nA),
+            "served_works": nS,
+            "pct_served_in_registry": _pct(nS - len(sv_absent_registry), nS),
+            "pct_served_with_work_qid": _pct(sv_work_qid, nS),
+            "pct_served_with_author_qid": _pct(sv_author_qid, nS),
+            "pct_served_with_any_anchor": _pct(sv_any_anchor, nS),
+            "pct_served_with_logical_served_locus": _pct(sv_logical, nS),
         },
         "work_aliases": _ns_coverage(work_list, WORK_NS),
         "author_aliases": _ns_coverage(author_list, AUTHOR_NS),
@@ -171,6 +219,30 @@ def main():
                 "examples": sorted(served_none)[:CAP],
             },
             "editions_with_malformed_scheme": malformed_schemes,
+        },
+        "served_set": {
+            "what": "the registry-wide measures recomputed over the works cog "
+                    "actually serves (corpus_editions x work_index); the honest "
+                    "denominators for prioritizing enrichment",
+            "served_works": nS,
+            "in_registry": nS - len(sv_absent_registry),
+            "absent_from_registry": {
+                "what": "served works that are not registry keys (DFHG fragment "
+                        "collections, per-part OCR files); invisible to registry "
+                        "enrichment and carrying no edition scheme info",
+                "count": len(sv_absent_registry),
+                "examples": sv_absent_registry[:CAP],
+            },
+            "with_work_qid": sv_work_qid,
+            "with_author_qid": sv_author_qid,
+            "with_any_external_anchor": sv_any_anchor,
+            "with_logical_served_locus": sv_logical,
+            "work_qid_via_author": {
+                "what": "served work with no QID whose author has one (the "
+                        "actionable subset of the registry-wide list)",
+                "count": len(sv_qid_via_author),
+                "examples": sv_qid_via_author[:CAP],
+            },
         },
         "enrichment_targets": {
             "work_qid_via_author": {
@@ -208,6 +280,12 @@ def main():
     print(f"  enrichment: {len(qid_via_author)} works fillable via author QID; "
           f"{len(authors_no_wd)} authors missing wikidata; "
           f"{len(works_only_physical)} works lack a logical locus", file=sys.stderr)
+    print(f"  served set: {nS} works | in-registry {h['pct_served_in_registry']}% | "
+          f"work-QID {h['pct_served_with_work_qid']}% | "
+          f"author-QID {h['pct_served_with_author_qid']}% | "
+          f"any anchor {h['pct_served_with_any_anchor']}% | "
+          f"logical served locus {h['pct_served_with_logical_served_locus']}% | "
+          f"{len(sv_qid_via_author)} served works fillable via author QID", file=sys.stderr)
 
 
 if __name__ == "__main__":
