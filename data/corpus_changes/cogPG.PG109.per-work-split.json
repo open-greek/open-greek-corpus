@@ -1,0 +1,299 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG109 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG109",
+  "source_urn": "cogPG.PG109",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG109 (consistency review: ok). Crediting correction from the proposal: the annals at loci 337-416 are Pseudo-Symeon (tlg3182.001), not the credited tlg3070.001 (Symeon Logothetes / Leo Grammaticus, whose Bekker text is a different work)",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG109.' (delete the file when it was 'created'), strip the 'PG109.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG109.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG109": {
+   "rows": 570,
+   "greek_tokens": 209312,
+   "sha256": "8c84dc4f1f38e722fd3720fa54228f5b0abec3142406335da2f0f3bd15b29af9"
+  }
+ },
+ "works": [
+  {
+   "slug": "theophanes-continuatus.chronographia-lib-1-6",
+   "tlg": "tlg4153.tlg001",
+   "title": "Chronographia (lib. 1-6)",
+   "rank": "primary",
+   "file": "data/corpus/theophanes-continuatus.chronographia-lib-1-6.jsonl",
+   "mode": "created",
+   "rows": 243,
+   "greek_tokens": 95099,
+   "volume_loci": "13-255",
+   "locus_map": "cogPG.PG109 locus N -> theophanes-continuatus.chronographia-lib-1-6 locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "13",
+     "incipit": "Θεοφάνης [...] τῷ βασιλεῖ Μιχαήλ υἱοῦ Θεοφίλου, τοῦ κουροπαλάτου, ἤγουν ἀπὸ τῆς βασιλείας Λέοντος τοῦ Ἀρμενίου.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 88
+    }
+   ],
+   "evidence": "Locus 13 opens with the caps title 'ΤΟΥ ΣΟΦΩΤΑΤΟΥ ΔΕΣΠΙΟΤΟΥ ΚΑΙ ΑΥΤΟΚΡΑΤΩΡΩΣ' plus Constantine VII's proem ('τῶν σῶν, ὦ φιλοσοφώτατε βασιλεῦ...'); book headings in the served text: ΛΟΓΟΣ Αʹ at 15 ('Πατρὶς μὲν οὖν τοῦ δηλωθέντος Λέοντος Ἀρμενία'), ΛΟΓΟΣ Βʹ at 32, ΛΟΓΟΣ Γʹ at 54, ΛΟΓΟΣ Δʹ at 86, Vita Basilii (lib. 5) content 136-190, ΒΑΣΙΛΕΙΑ ΛΕΟΝΤΟΣ (lib. 6) at 190, ΒΑΣΙΛΕΙΑ ΡΩΜΑΝΟΥ at 249; ends in 255 with the sack of Chandax, Crete 961 (Bonn ed. p. 481). Served words 95312 vs TLG 98591. Migne cols 15-500 (locus = (col+11)/2)."
+  },
+  {
+   "slug": "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
+   "tlg": "tlg3173.tlg001",
+   "title": "Adversus iconoclastas",
+   "rank": "primary",
+   "file": "data/corpus/joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno.jsonl",
+   "mode": "created",
+   "rows": 8,
+   "greek_tokens": 2934,
+   "volume_loci": "256-263",
+   "locus_map": "cogPG.PG109 locus N -> joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "256",
+     "incipit": "Περὶ [ὰ] πιστῶν καὶ ὀρθοδόξων, καὶ πόθον καὶ ζῆλον ἐχόντων, πρὸς ὅλεγχον τῶν ἑνκντίων τῆς πίστεως",
+     "matched_normalized_offset": 3,
+     "matched_normalized_chars": 75
+    }
+   ],
+   "evidence": "Title line at 256 head ('Περὶ πιστῶν καὶ ὀρθοδόξων... πρὸς ἔλεγχον τῶν ἐναντίων τῆς πίστεως') then 'αʹ. Ναβουθὲ ὁ Ἰσραηλίτης, ἵνα μή τὸν πατρῷον ἀμπελῶνα παραδῷ, κατελιθοβολήθη'; iconophile polemic against the 754 synod 'εἰς τὸν τόπον τὸν λεγόμενον Ἱέρεια' (locus 258). Served words 2944 vs TLG 3034 for tlg3173.001 (PG 96, 1348-1361). Printed in PG109 appendix after ThCont (Migne cols ~501-516). TLG id inferred from word count and pairing with tlg3173.003; incipit not externally verified."
+  },
+  {
+   "slug": "joannes-hierosolymitanus.narratio",
+   "tlg": "tlg3173.tlg003",
+   "title": "Narratio (de origine haereseos iconomachorum)",
+   "rank": "primary",
+   "file": "data/corpus/joannes-hierosolymitanus.narratio.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 555,
+   "volume_loci": "264-265",
+   "locus_map": "cogPG.PG109 locus N -> joannes-hierosolymitanus.narratio locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "264",
+     "incipit": "αʹ. Βούλομαι ἐγὼ ὁ μέτριος καὶ πάντων ἔσχατος ἀποδεῖξαι μετὰ πάσης ἀληθείας, ἐπὶ τῆς παρούσης ταύτης ἀγίας ὑμῶν καὶ ἱερᾶς συνόδου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 107
+    }
+   ],
+   "evidence": "Caps heading at 264 garbled 'ΙΟ Α ΝΝΟΥ ΟΑΝΝΙΘ iΕΙΟΘΟΙΜΙΤΝΙ ... ΜΟΝΑΩΗΙ' = IOANNIS HIEROSOLYMITANI ... MONACHI; the narratio on the origin of iconoclasm (Yazid/Umar episode) addressed to a synod. TLG canon: Bekker 1838 (same Bonn volume as PG109 reprint) pp. 481-484, 569 words; served words 555. Migne cols ~517-520."
+  },
+  {
+   "slug": "laudatio-sancti-demetrii.narratio-de-capta-thessalonica",
+   "tlg": null,
+   "title": "Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica)",
+   "rank": "primary",
+   "file": "data/corpus/laudatio-sancti-demetrii.narratio-de-capta-thessalonica.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 623,
+   "volume_loci": "266-267",
+   "locus_map": "cogPG.PG109 locus N -> laudatio-sancti-demetrii.narratio-de-capta-thessalonica locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "266",
+     "incipit": "αʹ. Ἔτερον, ὡ παρόντες, τῶν τοῦ μεγαλομάρτυρος τεραστίων λέγων ἔρχομαι, των εἰρημένων τάχα οὐκ ἔλαττον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 84
+    }
+   ],
+   "evidence": "Caps heading at 266 garbled 'ΕΧ ΤΚΙΙΜΡΗΑΙΙΣ ΠάΗΤΙΚΙΣ ΟΕΜΕΤΚΙΙ ΣΙΕΙΕΝΑΤΙΜ ΝΑΚΝΑΤΙΘ...' (Latin: Ex ... martyris Demetrii ... narratio). A miracle-oration excerpt: St. Demetrius mourns the fall of Thessalonica under Leo VI ('οἴχεται μοι ἡ πατρίς', locus 267). Not identifiable with any entry in the local TLG canon; 623 served words; Migne cols ~521-524."
+  },
+  {
+   "slug": "joannes-cameniates.de-expugnatione-thessalonicae",
+   "tlg": "tlg3015.tlg001",
+   "title": "De expugnatione Thessalonicae",
+   "rank": "primary",
+   "file": "data/corpus/joannes-cameniates.de-expugnatione-thessalonicae.jsonl",
+   "mode": "created",
+   "rows": 57,
+   "greek_tokens": 22463,
+   "volume_loci": "268-324",
+   "locus_map": "cogPG.PG109 locus N -> joannes-cameniates.de-expugnatione-thessalonicae locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "268",
+     "incipit": "αʹ. Ὡς ἀρίστη τῶν ἀγαθῶν ἡ φιλοπονία, καὶ πάσης ἀρετῆς κτῆσιν ἐν ἑαυτῇ μαρτυροῦσα!",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 66
+    }
+   ],
+   "evidence": "Caps title at 268 'ΤΟΥ ΚΑΜΕΝΙΑΤΟΥ ... ΒΕ ΕΧΟΙΟΙΟ ΤΗΕΣΣΑΙΟΝΙΩΕΝο' (de excidio Thessalonicensi) plus the known incipit; explicit inside locus 324: 'Τέλος τῆς ἀξιομνημονεύτου ἰστορίας κῶρ Ἰωάν.', followed in the same locus by the garbled Latin 'ΓΗΟΟΜΒΕΕΙΘΙΙ ΡΒΕΑΤΙΟ' (Combefisii praefatio) introducing the next piece. Served words 22519 vs TLG 23382. Migne cols ~525-638.",
+   "notes": "the tail of locus 324 after the Cameniates explicit is the garbled Latin Combefis praefatio to the Cydones monodia; it rides in this work's last row (row-level carve)"
+  },
+  {
+   "slug": "demetrius-cydones.occisorum-thessalonicae-monodia",
+   "tlg": null,
+   "title": "Occisorum Thessalonicae monodia",
+   "rank": "primary",
+   "file": "data/corpus/demetrius-cydones.occisorum-thessalonicae-monodia.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 2522,
+   "volume_loci": "325-331",
+   "locus_map": "cogPG.PG109 locus N -> demetrius-cydones.occisorum-thessalonicae-monodia locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "325",
+     "incipit": "αʹ. Ἄνδρες, ὅσοι τὰς τῶν συγγενῶν διαπεφεύγατε χεῖρας, ἐγὼ μὲν οὐδ´ ὅ τι χρὴ καλεῖν πῶς πόλιν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 73
+    }
+   ],
+   "evidence": "Caps title at 325 'ΔΗΜΗΤΡΙΟΥ ΚΥΔΟΝΙΟΥ ΜΟΝΩΔΙΑ ... ΤΗΕΣΣΑΙΟΝΙΟΑ ΜΟΝΟΟΙΑ' (Demetrii Cydonii occisorum Thessalonicae monodia, on the 1345 Zealot massacre; standard citation PG 109, 639-652, matching mapped Migne col 639 for locus 325). Demetrius Cydones is TLG author 3138 in the full TLG, but neither he nor this work appears in the local tlg_canon.json, hence NEW. 2532 served words."
+  },
+  {
+   "slug": "vita-basilii-iunioris.excerpta",
+   "tlg": null,
+   "title": "Excerpta e Vita S. Basilii iunioris (BHG 263)",
+   "rank": "primary",
+   "file": "data/corpus/vita-basilii-iunioris.excerpta.jsonl",
+   "mode": "created",
+   "rows": 5,
+   "greek_tokens": 1726,
+   "volume_loci": "332-336",
+   "locus_map": "cogPG.PG109 locus N -> vita-basilii-iunioris.excerpta locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "332",
+     "incipit": "αʹ. Βασίλειος ὁ βασιλεὺς, ᾧ τὸ ἐπίκλην Μακεδὼν, υἱοὺς ἔσχε τέσσαρας, Κωνσταντῖνον, Λέοντα, Στέφανον καὶ Ἀλέξανδρον.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Caps title at 332 'ΕΚ ΤΟΥ ΒΙΟΥ ΒΑΣΙΛΕΙΟΥ ΤΟΥ ΝΕΟΥ'; excerpt on the Macedonian dynasty and Romanus Lecapenus from the Life of Basil the Younger, printed as introduction to the Symeon Magister annals. Ends in the first lines of locus 337 ('...κατασφάξας αὐτὰς, ὁ τῆς μαχείρας κληρνόμος.') before the Annales title in the same locus. Not in the local TLG canon. Migne cols ~653-662.",
+   "notes": "shared boundary row 337 (excerpt end + Pseudo-Symeon annals title) is assigned to the Pseudo-Symeon work"
+  },
+  {
+   "slug": "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
+   "tlg": "tlg3182.tlg001",
+   "title": "Chronographia / Annales a Leone Armenio ad Nicephorum Phocam",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712.jsonl",
+   "mode": "created",
+   "rows": 80,
+   "greek_tokens": 30917,
+   "volume_loci": "337-416",
+   "locus_map": "cogPG.PG109 locus N -> pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712 locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "337",
+     "incipit": "Ρωμαίων βασιλεὺς Λέων ὁ Ἀρμένιος καὶ Εἰκονομάχος, ἔτη  μῆνας εʹ.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 52
+    }
+   ],
+   "evidence": "Caps title inside locus 337: 'ΑΝΝΑΙΕΘ ΘΥΜ ΕΟΝΙΘΜΑΣΙΘΤΑΙΑΩ ΙΟΩΟΤΗΕΤ Χ ΑΝΝΑΙΕΘ Α ΙΕΟΝΕ ΑΙΜΕΝΙΟ ΑΩΝΩΕΡΙΟΗΙΜ ΡΗΟΩΑΜ' = ANNALES SYMEONIS MAGISTRI AC LOGOTHETAE ... A LEONE ARMENIO AD NICEPHORUM PHOCAM. Ends locus 416 with Nicephorus Phocas taking Aleppo, immediately before the GMC heading. TLG canon: Bekker 1838 pp. 603-760, 31859 words; served 30988. Mapped Migne col 663 = the standard start of Symeonis Magistri annales in PG109 (663-822). NOTE: this is the work the cgpg volume credits as tlg3070.001; see notes."
+  },
+  {
+   "slug": "georgius-monachus-continuatus.chronicon-continuatio-redactio",
+   "tlg": "tlg3051.tlg001",
+   "title": "Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum",
+   "rank": "primary",
+   "file": "data/corpus/georgius-monachus-continuatus.chronicon-continuatio-redactio.jsonl",
+   "mode": "created",
+   "rows": 81,
+   "greek_tokens": 29780,
+   "volume_loci": "417-497",
+   "locus_map": "cogPG.PG109 locus N -> georgius-monachus-continuatus.chronicon-continuatio-redactio locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "417",
+     "incipit": "αʹ. Τῷ τῷ ἔτει τοῦ κόσμου, τῆς δὲ θείας σαρκώσεως ὡιʹ, ἐβασίλευσε Λέων Ἀρμένιος ὁ πατρίκιοσἐ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Reign heading 'ΒΑΣΙΛΕΙΑ' at the very tail of locus 416 continuing 'ΛΕΟΝΤΟΣ ΤΟΥ ΑΡΜΕΝΙΟΥ' at the head of 417; subsequent reign headings at 427 (Michael II), 430 (Theophilus), 441 (Michael III with Theodora), 460 (Leo VI), 471 (Alexander), 473 (Constantine VII); explicit at 497: 'Ῥωμανὸς ὁ βασιλεὺς ἑν τῇ Πρώτῃ νήσῳ τελευτᾷ· καὶ τὸ σῶμα αὐτοῦ ἐν τῇ πόλει διακομισθὲν ἐν τῇ αὐτοῦ ἀπετέθη μονῇ.' TLG canon: Bekker 1838 pp. 763-924, 30883 words; served 29844. Mapped Migne cols 823-984."
+  },
+  {
+   "slug": "josephus-genesius.basilei-ai",
+   "tlg": "tlg3040.tlg001",
+   "title": "Basileiai (Regum libri quattuor)",
+   "rank": "primary",
+   "file": "data/corpus/josephus-genesius.basilei-ai.jsonl",
+   "mode": "created",
+   "rows": 83,
+   "greek_tokens": 22686,
+   "volume_loci": "501-583",
+   "locus_map": "cogPG.PG109 locus N -> josephus-genesius.basilei-ai locus 'PG109.N'",
+   "incipit_checks": [
+    {
+     "locus": "501",
+     "incipit": "Τὴν ἐξ ἱστορίας τελέσας βίβλον ὥς ἐκέλευσας, Ἀὐτοκράτορ, μελέταις καὶ καμάτοις μεγάλοις",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Caps title at 501: 'ψΟΒΕΡΗΕ ΩΕΝΕΘΙΙ ΠΙΘΤΟΛΙΑ ΒΑΣΙΛΕΙΩΝ Α. ΠΕΡΙ ΤΟΥ ΕΞ ΑΜΑΛΗΚ ΛΕΟΝΤΟΣ' (Iosephi Genesii historia, Regum lib. I de Leone Amalecita) plus the dedicatory verse proem to Constantine VII; book headings ΒΑΣΙΛΕΙΔΝ Βʹ (Michael II) at 518, lib. III (Theophilus) at 532, ΒΑΣΙΛΕΙΩΝ Δʹ ΠΕΡΙ ΜΙΧΑΗΛ ΤΟΥ ΘΕΟΦΛΟΥ at 550; explicit at 583: '...συμβασιλεύσας μὲν τῷ Μιχαὴλ ἔτος ἕν, αὐτοκράτωρ δὲ βιοὺς ιθʹ ἔτεσιν' (Basil I). Served words 22762 vs TLG 23339. Mapped Migne cols 991-1155 (standard Genesius range PG 109, 991-1156)."
+  }
+ ],
+ "residual": {
+  "rows": 2,
+  "greek_tokens": 7,
+  "loci": [
+   "498",
+   "500"
+  ],
+  "note": "498 is only the Latin word NOTITIA, 500 a garbled fragment: Latin notitia/front matter to Genesius (locus 499 not served)",
+  "sha256": "708902e7df11a0e0949a8c72b80bb6e2e317768a913b22e6fd2a6e7bbe8541be"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 209312,
+  "carved": 209305,
+  "residual": 7,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "theophanes-continuatus.chronographia-lib-1-6",
+   "tlg": "tlg4153.tlg001"
+  },
+  {
+   "slug": "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
+   "tlg": "tlg3173.tlg001"
+  },
+  {
+   "slug": "joannes-hierosolymitanus.narratio",
+   "tlg": "tlg3173.tlg003"
+  },
+  {
+   "slug": "joannes-cameniates.de-expugnatione-thessalonicae",
+   "tlg": "tlg3015.tlg001"
+  },
+  {
+   "slug": "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
+   "tlg": "tlg3182.tlg001"
+  },
+  {
+   "slug": "georgius-monachus-continuatus.chronicon-continuatio-redactio",
+   "tlg": "tlg3051.tlg001"
+  },
+  {
+   "slug": "josephus-genesius.basilei-ai",
+   "tlg": "tlg3040.tlg001"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "theophanes-continuatus.chronographia-lib-1-6",
+  "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
+  "joannes-hierosolymitanus.narratio",
+  "laudatio-sancti-demetrii.narratio-de-capta-thessalonica",
+  "joannes-cameniates.de-expugnatione-thessalonicae",
+  "demetrius-cydones.occisorum-thessalonicae-monodia",
+  "vita-basilii-iunioris.excerpta",
+  "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
+  "georgius-monachus-continuatus.chronicon-continuatio-redactio",
+  "josephus-genesius.basilei-ai"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG109; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG109, plan data/cgpg_carve_plan.json"
+}
