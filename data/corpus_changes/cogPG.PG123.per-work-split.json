@@ -1,0 +1,157 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG123 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG123",
+  "source_urn": "cogPG.PG123",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG123. The prefatory vita/kephalaia blocks (Ps.-Sophronius + Ps.-Dorotheus vitae) are folded into the following gospel commentary as its front matter, the same way the PG118 epistle ranges keep their hypothesis and kephalaia; the identification evidence for each block is kept in the work evidence",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG123.' (delete the file when it was 'created'), strip the 'PG123.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG123.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG123": {
+   "rows": 605,
+   "greek_tokens": 256291,
+   "sha256": "6d740b6fcf18d018ae5272ba8e23f8a9e169fb6f3e42d074331a64d7fa4078d2"
+  }
+ },
+ "works": [
+  {
+   "slug": "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
+   "tlg": null,
+   "title": "Enarratio in Evangelium Matthaei (with prefatory Ps.-Sophronius vita and kephalaia)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-matthaei.jsonl",
+   "mode": "created",
+   "rows": 174,
+   "greek_tokens": 71413,
+   "volume_loci": "75-248",
+   "locus_map": "cogPG.PG123 locus N -> theophylactus-achridensis.enarratio-in-evangelium-matthaei locus 'PG123.N'",
+   "incipit_checks": [
+    {
+     "locus": "75",
+     "incipit": "Ματθαῖος, ὁ καὶ Λευὶς, ἀπόστολος ἀπὸ τελωνῶν, ἐν τῇ Ἰουδαίᾳ πρῶτος διὰ τοὺς ἐκ περιτομῆς πιστεύσαντας Εὐαγγέλιον τοῦ Χριστοῦ, γράμμασιν καὶ ῥήμασιν Ἑβραῖκοῖς συνέταξεν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 140
+    },
+    {
+     "locus": "77",
+     "incipit": "Οἱ μὲν πρὸ τοῦ νόμου ἐκεῖνοι θεῖοι ἄνδρες, οὐ διὰ γραμμάτων καὶ βιβλίων ἐδιδάσκοντο· ἀλλὰ καθαρὰν ἔχοντες τὴν διάνοιαν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 98
+    }
+   ],
+   "evidence": "Locus 77 heading 'ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΟ ΚΑΤΑ ΜΑΤΑΙΟΝ ΕΥΑΓΓΕΛΙΟΝ. ΕΝΑΚΚΑΤΙΟ ΙΝ ΕvΑΝΞΕΙΙΟΜ ΜΑΤΤΗΕΙ ... ΠΡΟΟΙΜΙΟΝ' followed by the proem incipit. Ends mid-locus 249 with doxology '...εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' and explicit 'Τέλος ... εἰς τὸ κατὰ Ματθαῖον Εὐαγγέλιον ... Ἑρμηνείας Θεοφυλάκτου.' Migne cols ~139-486. Theophylact of Ohrid is not in TLG-E canon (only Theophylactus Simocatta tlg3130). || Ps.-Sophronius (Greek version of Jerome, De viris illustribus 3), Vita Matthaei; plus kephalaia list of Matthew (front matter to the Matthew commentary): File opens at locus 75 with this vita (mentions the Hebrew original in the library of Caesarea, the Nazoraeans of Beroea), then 'ΤΑ ΚΕΦΑΛΑΙΑ ΤΟΥ ΚΑΤΑ ΜΑΤΘΑΙΟΝ ΕΥΑΓΓΕΛΙΟΨ αʹ. Περὶ γενεαλογίας τοῦ Χριστοῦ' running through locus 76 into the top of 77. Migne cols ~135-139. Jerome/Sophronius has no entry in the TLG-E canon."
+  },
+  {
+   "slug": "theophylactus-achridensis.enarratio-in-evangelium-marci",
+   "tlg": null,
+   "title": "Enarratio in Evangelium Marci (with prefatory vitae and kephalaia)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-marci.jsonl",
+   "mode": "created",
+   "rows": 98,
+   "greek_tokens": 38962,
+   "volume_loci": "249-346",
+   "locus_map": "cogPG.PG123 locus N -> theophylactus-achridensis.enarratio-in-evangelium-marci locus 'PG123.N'",
+   "incipit_checks": [
+    {
+     "locus": "249",
+     "incipit": "Μάρκος, μαθητὴς καὶ ἐρμηνευτὴς Πέτρου, καθὼς σοῦ Πέτρου ἐξηγουμένου ἀκήκοε, παρακληθεὶς ἐν τῇ Ῥώμη παρὰ τῶν ἀδελφῶν, βραχύ συνέταξεν Εὐαγγέλιον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 120
+    },
+    {
+     "locus": "251",
+     "incipit": "Τὸ κατὰ Μάρκον Εὐαγγέλιον, μετὰ δέκα ἔτη τῆς τοῦ Χριστοῦ ἀναλήψεως συνεγράφη ἐν Ῥώμῃ· ἦν μὲν γὰρ οὗτος ὁ Μάρκος Πέτρου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 96
+    }
+   ],
+   "evidence": "Locus 251: 'ΠΡΟΟΙΜΙΟΝ. Τὸ κατὰ Μάρκον Εὐαγγέλιον...' after the garbled Latin title 'ΕΥΑΝΩΕΙΙΙ ... ΜΑΚΟΟΜ' (= Enarratio in Evangelium secundum Marcum). Ends at end of locus 346 (commentary on Mk 16:18-20) with doxology '...ὅτι σοι πρέπει ἡ διὰ λόγων καὶ ἔργων δόξα. Ἀμήν.' Migne cols ~487/489-682. || Ps.-Sophronius, Vita Marci (Jerome, De vir. ill. 8) + Ps.-Dorotheus of Tyre (Synopsis, CPG 3603), Vita Marci; plus kephalaia list of Mark (front matter to the Mark commentary): On locus 249, immediately after the Matthew explicit: 'ΒΙΟΣ ΤΟΥ ΜΑΡΚΟΥ Κατὰ Σωφρόνιον. Μάρκος, μαθητὴς...' (ends with death in Nero's 8th year, succeeded by Anianus). Locus 250: 'ΗΙΟΣ [=ΒΙΟΣ] ΤΟΥ ΜΑΡΚΟΥ Ἐκ τῆς τοῦ Δωροθέου μάρτυρος καὶ Τυρίων ἐπισκόπου Συνόψεως. Μάρκος ὁ εὐαγγελιστὴς, καὶ πρῶτος Ἀλεξανδρείας ἐπίσκοπος...' then 'ΤΑ ΚΕΦΑΛΑΙΑΤΟΥ ΚΑΤΑ ΜΑΡΚΟΝΕΥΑΙΓΕΑΙΟΥ' running into locus 251. Migne cols ~487-490."
+  },
+  {
+   "slug": "theophylactus-achridensis.enarratio-in-evangelium-lucae",
+   "tlg": null,
+   "title": "Enarratio in Evangelium Lucae (with prefatory vitae, hypothesis and kephalaia)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-lucae.jsonl",
+   "mode": "created",
+   "rows": 222,
+   "greek_tokens": 97378,
+   "volume_loci": "347-568",
+   "locus_map": "cogPG.PG123 locus N -> theophylactus-achridensis.enarratio-in-evangelium-lucae locus 'PG123.N'",
+   "incipit_checks": [
+    {
+     "locus": "347",
+     "incipit": "Λουκᾶς, ἱατρὸς Ἀντιοχεὸς, καθὼς τὰ συγγράμματα αὐτοῦ δῆλοῖ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 49
+    },
+    {
+     "locus": "351",
+     "incipit": "«Ἐπαιδήπερ πολλοὶ ἐπεχείρησαν ἀνατάξασθαι διήγησιν περὶ τῶν πεπληροφορημένων ἐν ἡμῖν πραΤμάτων",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 83
+    }
+   ],
+   "evidence": "Locus 351: 'ΠΡΟΟΙΙΟΝ [=ΠΡΟΟΙΜΙΟΝ]' opening with the Luke 1:1 lemma. Ends at end of locus 568 with '...ὅτι αὐτῷ πρέπει πᾶσα δόξα εἰς τοὺς αἰῶνας. Ἀμήν. έλος τῆς εἰς τὸ κατὰ Λουκᾶν Εἰαγγάλιον Ἐομηνείας Θεοφυλάκτοιυ.' (= Τέλος τῆς εἰς τὸ κατὰ Λουκᾶν Εὐαγγέλιον Ἑρμηνείας Θεοφυλάκτου). Migne cols ~692-1126. || Ps.-Sophronius, Vita Lucae + Ps.-Dorotheus of Tyre (Synopsis, CPG 3603), Vita Lucae; plus hypothesis (ΥΠΟΘΕΣΙΣ) and kephalaia list of Luke (front matter to the Luke commentary): Locus 347 is the title page: 'ΕΟΦΥΛΑΚΤΟΥ ἈΓΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΛΡΙΑΣ ΕΡΜΗΝΕΙΑ ΕΓΣ ΤΟ ΚΑTΑ ΛΟΥΚΑΝ ΕΥΑΓΓΕΛΙΟΝ' + Latin, then 'νΙΤΑ ... Κστὰ Σωφρόνεο·' with this incipit. Locus 348: 'ΒΙΟΣ ΛΟΥΚΑ ΤΟΥ ΕΥΑΓΤΕΑΙΣΤΟΥ [ἐκ] τῆς τοῦ Δωροθέου... συνόψεως', then 'ΥΠΟΘΕΣΙΣ Τοῦ κατὰ Λουκᾶν Εὐαγγελίου. Λουκᾶς ὁ θεῖος, Ἀντιοχεὺς μὲν ἦν, ἰατρὸς δέ...' (possibly Theophylact's own), then 'ΤΑ ΚΕΦΑΛΑΙΑ ΤΟΥ ΚΑΤΑ ΑΟΥΚΑΝ ΕΥΑΓΥΕΑΙΟΥ' through loci 349-350 into 351. Migne cols 683-692; locus 347 = col 683 anchors the page/column mapping."
+  },
+  {
+   "slug": "theophylactus-achridensis.enarratio-in-evangelium-joannis",
+   "tlg": null,
+   "title": "Enarratio in Evangelium Joannis (with prefatory vitae and kephalaia; John 1-7 in PG123, continued in PG124)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-joannis.jsonl",
+   "mode": "created",
+   "rows": 111,
+   "greek_tokens": 48538,
+   "volume_loci": "569-679",
+   "locus_map": "cogPG.PG123 locus N -> theophylactus-achridensis.enarratio-in-evangelium-joannis locus 'PG123.N'",
+   "incipit_checks": [
+    {
+     "locus": "569",
+     "incipit": "Ἰωάννης, ὃν Ἰησοῦς πάνυ ἠγάπησεν, υἱὸς Ζεβεδαίου, ἀδελφὸς Ἰακώβου τοῦ ὑπὸ Ἡρώδου μετὰ τὸ πάθος τοῦ Κυριου ἀποκεφαλισθέντος, ἔσχατος πάντων ἔγραψεν Εὐαγγέλιον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 132
+    },
+    {
+     "locus": "572",
+     "incipit": "Ἡ τοῦ ἀγίου Πνεύματος δύναμις ἐν ἀσθενείᾳ τελειοῦται, καθὰ γέγραπται, καὶ πιστεύομεν· ἐν ἀσθενείᾳ δὲ οὐ σώματος μόνον, ἀλλὰ δὴ καὶ λόγου καὶ σοφίας ἐν γλώττῃ κειμένης",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 136
+    }
+   ],
+   "evidence": "Locus 572: 'ΠΡΟΟΙΜΙΟΩΝ. Ἡ τοῦ ἀγίου Πνεύματος δύναμις...' Locus 573 already expounds Jn 1:1 ('Ἐν ἀρχῇ ἦν ὁ Λόγος'). Final locus 679 ends mid-exposition of John 7:47-52 ('Μὴ καὶ ὑμεῖς πεπλάνησθε;' ... 'Καὶ γνῷ τί ποιεῖ', Nicodemus scene) with no explicit, matching PG123 breaking off at col 1348 and the commentary resuming in PG124 cols 9-317. Migne cols ~1127/1133-1348. || Ps.-Sophronius, Vita Ioannis + Ps.-Dorotheus of Tyre (Synopsis, CPG 3603), Vita Ioannis; plus kephalaia list of John (front matter to the John commentary): Locus 569: 'viΤΑ ΓΟΑΗΝΙῼ [=VITA JOANNIS] ΒΙΟΣ ΤΟΥ ΙΩΑΝΝΟΥ Ἐκ τῶν Σωφρονίου. Ἰωάννης, ὃν Ἰησοῦς πάνυ ἠγάπησεν...' (mentions Patmos, Domitian, Apocalypse). Locus 570: 'ΕΙΟΣ [=ΒΙΟΣ] ΙΒΑΝΝΟΥ ΤΟΥ ΕΥΑΓΓΕΛΙΣΤΟΥ. Ἐκ τῆς [τ]οῦ Δωροθέου μάρτυρος καὶ Τυιρίων ἐπισκόπου συνόψεως', then kephalaia of John through locus 571. Locus 569 = Migne col 1127 (John block start), confirming col = 2*locus - 11."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 256291,
+  "carved": 256291,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
+  "theophylactus-achridensis.enarratio-in-evangelium-marci",
+  "theophylactus-achridensis.enarratio-in-evangelium-lucae",
+  "theophylactus-achridensis.enarratio-in-evangelium-joannis"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG123; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG123, plan data/cgpg_carve_plan.json"
+}
