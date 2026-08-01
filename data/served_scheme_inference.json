@@ -2,12 +2,12 @@
  "_meta": {
   "by_class": {
    "edition-prefixed": 988,
-   "logical-numeric": 2569,
-   "mixed": 111
+   "logical-numeric": 2559,
+   "mixed": 275
   },
   "dominance": 0.9,
   "what": "Classify every served work's loci and infer a citation scheme where the",
-  "works": 3668
+  "works": 3822
  },
  "works": {
   "abas.fragmenta": {
@@ -110,6 +110,14 @@
     "5"
    ],
    "scheme": "ref"
+  },
+  "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b": {
+   "class": "mixed",
+   "sample": [
+    "PG006.790",
+    "PG006.791",
+    "PG006.792"
+   ]
   },
   "acta-philippi.acta-philippi": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -2567,6 +2575,13 @@
    ],
    "scheme": "ref.sub"
   },
+  "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis": {
+   "class": "mixed",
+   "sample": [
+    "PG158.574",
+    "PG158.575"
+   ]
+  },
   "anonymus-iamblichi.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -3189,6 +3204,14 @@
     "1.3"
    ],
    "scheme": "ref.sub"
+  },
+  "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas": {
+   "class": "mixed",
+   "sample": [
+    "PG005.700",
+    "PG005.701",
+    "PG005.702"
+   ]
   },
   "apollonius-soph.lexicon-homericum": {
    "class": "edition-prefixed",
@@ -6042,6 +6065,21 @@
    ],
    "scheme": "ref.sub"
   },
+  "basilius-i-macedo.altera-paraenesis-ad-leonem-filium": {
+   "class": "mixed",
+   "sample": [
+    "PG107.38",
+    "PG107.39"
+   ]
+  },
+  "basilius-i-macedo.paraenesis-ad-leonem-filium": {
+   "class": "mixed",
+   "sample": [
+    "PG107.20",
+    "PG107.21",
+    "PG107.22"
+   ]
+  },
   "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp": {
    "class": "edition-prefixed",
    "sample": [
@@ -7768,6 +7806,14 @@
    ],
    "scheme": "ref.sub"
   },
+  "claudius-apollinarius.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG005.657",
+    "PG005.658",
+    "PG005.659"
+   ]
+  },
   "claudius-iolaus.fragmenta": {
    "class": "mixed",
    "sample": [
@@ -8323,17 +8369,6 @@
    ],
    "scheme": "ref"
   },
-  "cogPG.PG006": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "122",
-    "123",
-    "124"
-   ],
-   "scheme": "ref"
-  },
   "cogPG.PG067": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -8345,17 +8380,6 @@
    ],
    "scheme": "ref"
   },
-  "cogPG.PG087_1": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "18",
-    "19",
-    "20"
-   ],
-   "scheme": "ref"
-  },
   "cogPG.PG101": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -8363,7 +8387,7 @@
    "sample": [
     "14",
     "15",
-    "44"
+    "293"
    ],
    "scheme": "ref"
   },
@@ -8372,9 +8396,9 @@
    "class": "logical-numeric",
    "depth": 1,
    "sample": [
-    "20",
-    "21",
-    "22"
+    "376",
+    "602",
+    "603"
    ],
    "scheme": "ref"
   },
@@ -8383,9 +8407,8 @@
    "class": "logical-numeric",
    "depth": 1,
    "sample": [
-    "13",
-    "14",
-    "15"
+    "498",
+    "500"
    ],
    "scheme": "ref"
   },
@@ -8422,36 +8445,14 @@
    ],
    "scheme": "ref"
   },
-  "cogPG.PG122": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "190",
-    "191",
-    "192"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG123": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "75",
-    "76",
-    "77"
-   ],
-   "scheme": "ref"
-  },
   "cogPG.PG124": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
    "depth": 1,
    "sample": [
-    "10",
-    "11",
-    "12"
+    "168",
+    "169",
+    "170"
    ],
    "scheme": "ref"
   },
@@ -8460,31 +8461,9 @@
    "class": "logical-numeric",
    "depth": 1,
    "sample": [
-    "12",
-    "13",
-    "14"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG126": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "12",
-    "13",
-    "14"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG134": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "31",
-    "32",
-    "33"
+    "211",
+    "212",
+    "214"
    ],
    "scheme": "ref"
   },
@@ -8499,17 +8478,6 @@
    ],
    "scheme": "ref"
   },
-  "cogPG.PG146": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "12",
-    "13",
-    "14"
-   ],
-   "scheme": "ref"
-  },
   "cogPG.PG151": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -8518,39 +8486,6 @@
     "10",
     "11",
     "12"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG155": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "22",
-    "23",
-    "24"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG157": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "20",
-    "21",
-    "22"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG158": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "49",
-    "50",
-    "51"
    ],
    "scheme": "ref"
   },
@@ -8607,6 +8542,13 @@
     "4.3"
    ],
    "scheme": "ref.sub"
+  },
+  "constantinus-siculus.versus-in-leonem-philosophum": {
+   "class": "mixed",
+   "sample": [
+    "PG107.40",
+    "PG107.41"
+   ]
   },
   "constantinus-vii-porphyrogenitus-imperator.de-administrando-imperio": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -9774,6 +9716,14 @@
     "3"
    ],
    "scheme": "ref"
+  },
+  "demetrius-cydones.occisorum-thessalonicae-monodia": {
+   "class": "mixed",
+   "sample": [
+    "PG109.325",
+    "PG109.326",
+    "PG109.327"
+   ]
   },
   "demetrius-odessanus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -11827,6 +11777,14 @@
    ],
    "scheme": "ref"
   },
+  "ducas.historia-turcobyzantina": {
+   "class": "mixed",
+   "sample": [
+    "PG157.382",
+    "PG157.383",
+    "PG157.384"
+   ]
+  },
   "duris.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -12235,6 +12193,14 @@
    ],
    "scheme": "ref.sub.sub"
   },
+  "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam": {
+   "class": "mixed",
+   "sample": [
+    "PG005.715",
+    "PG005.716",
+    "PG005.717"
+   ]
+  },
   "epitaphium-sicili.sicili-epitaphium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -12300,6 +12266,14 @@
     "4.2"
    ],
    "scheme": "ref.sub"
+  },
+  "esaias-cyprius.epistola-de-processione-spiritus-sancti": {
+   "class": "mixed",
+   "sample": [
+    "PG158.521",
+    "PG158.522",
+    "PG158.523"
+   ]
   },
   "etymologicum-genuinum.etymologicum-genuinum-mwsge-pws": {
    "class": "edition-prefixed",
@@ -14116,6 +14090,13 @@
     "persaeus_svf1_arnim_0196.14"
    ]
   },
+  "fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae": {
+   "class": "mixed",
+   "sample": [
+    "PG005.694",
+    "PG005.695"
+   ]
+  },
   "gaius-musonius-rufus.dissertationum-lucio-digestarum-reliquiae": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -15383,6 +15364,14 @@
     "choeroboscus_hilgard_gg4_0114.3"
    ]
   },
+  "georgius-monachus-continuatus.chronicon-continuatio-redactio": {
+   "class": "mixed",
+   "sample": [
+    "PG109.417",
+    "PG109.418",
+    "PG109.419"
+   ]
+  },
   "georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior": {
    "class": "edition-prefixed",
    "sample": [
@@ -16524,6 +16513,14 @@
    ],
    "scheme": "ref.sub"
   },
+  "hegesippus-scr-eccl.fragmenta-ex-incerto-libro": {
+   "class": "mixed",
+   "sample": [
+    "PG005.663",
+    "PG005.664",
+    "PG005.665"
+   ]
+  },
   "hegesippus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -16812,6 +16809,14 @@
     "philetas_bach_1829_0111.1",
     "philetas_bach_1829_0111.2",
     "philetas_bach_1829_0111.3"
+   ]
+  },
+  "hermias-apologetics.irrisio-gentilium-philosophorum": {
+   "class": "mixed",
+   "sample": [
+    "PG006.592",
+    "PG006.593",
+    "PG006.594"
    ]
   },
   "hermias-history.fragmenta": {
@@ -17283,6 +17288,14 @@
     "berthelot_alchimistes_grec_0492.9",
     "berthelot_alchimistes_grec_0492.10",
     "berthelot_alchimistes_grec_0492.11"
+   ]
+  },
+  "hilarion-monachus.oratio-dialectica-de-pane-mystico": {
+   "class": "mixed",
+   "sample": [
+    "PG158.524",
+    "PG158.525",
+    "PG158.526"
    ]
   },
   "himerius.declamationes-et-orationes": {
@@ -18711,6 +18724,14 @@
    ],
    "scheme": "ref.sub.sub"
   },
+  "ignatius-scr-eccl.fragmenta-ex-epistolis": {
+   "class": "mixed",
+   "sample": [
+    "PG005.483",
+    "PG005.484",
+    "PG005.485"
+   ]
+  },
   "ilias-parva.ilias-parva-fragmenta": {
    "class": "edition-prefixed",
    "sample": [
@@ -19341,6 +19362,22 @@
     "berthelot_alchimistes_grec_0305.1",
     "berthelot_alchimistes_grec_0305.2",
     "berthelot_alchimistes_grec_0305.3"
+   ]
+  },
+  "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem": {
+   "class": "mixed",
+   "sample": [
+    "PG158.531",
+    "PG158.532",
+    "PG158.533"
+   ]
+  },
+  "joannes-cameniates.de-expugnatione-thessalonicae": {
+   "class": "mixed",
+   "sample": [
+    "PG109.268",
+    "PG109.269",
+    "PG109.270"
    ]
   },
   "joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1": {
@@ -20700,6 +20737,14 @@
    ],
    "scheme": "ref.sub"
   },
+  "joannes-diaconus-hadrianopolitanus.carmen-politicum": {
+   "class": "mixed",
+   "sample": [
+    "PG158.515",
+    "PG158.516",
+    "PG158.517"
+   ]
+  },
   "joannes-epiphaniensis.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -20723,6 +20768,21 @@
     "joannes_geometres_pg106_0004.1",
     "joannes_geometres_pg106_0004.10",
     "joannes_geometres_pg106_0004.100"
+   ]
+  },
+  "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno": {
+   "class": "mixed",
+   "sample": [
+    "PG109.256",
+    "PG109.257",
+    "PG109.258"
+   ]
+  },
+  "joannes-hierosolymitanus.narratio": {
+   "class": "mixed",
+   "sample": [
+    "PG109.264",
+    "PG109.265"
    ]
   },
   "joannes-laurentius-lydus.de-magistratibus-populi-romani": {
@@ -20894,6 +20954,42 @@
    ],
    "scheme": "ref.sub"
   },
+  "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub": {
+   "class": "mixed",
+   "sample": [
+    "PG134.568",
+    "PG134.569"
+   ]
+  },
+  "joannes-zonaras.epitome-historiarum-lib-13-18": {
+   "class": "mixed",
+   "sample": [
+    "PG134.570",
+    "PG134.571",
+    "PG134.572"
+   ]
+  },
+  "job-monachus.prooemium-in-psalmos": {
+   "class": "mixed",
+   "sample": [
+    "PG158.562",
+    "PG158.563"
+   ]
+  },
+  "josephus-genesius.basilei-ai": {
+   "class": "mixed",
+   "sample": [
+    "PG109.501",
+    "PG109.502",
+    "PG109.503"
+   ]
+  },
+  "josephus-ii-patriarcha.confessio-fidei": {
+   "class": "mixed",
+   "sample": [
+    "PG158.561"
+   ]
+  },
   "juba-ii-rex-mauretaniae.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -20948,6 +21044,13 @@
     "1.3"
    ],
    "scheme": "ref.sub"
+  },
+  "justinus-martyr.fragmenta-operum-deperditorum": {
+   "class": "mixed",
+   "sample": [
+    "PG006.803",
+    "PG006.804"
+   ]
   },
   "kekaumenos.consilia-et-narrationes": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -21018,6 +21121,13 @@
    ],
    "scheme": "ref.sub"
   },
+  "laudatio-sancti-demetrii.narratio-de-capta-thessalonica": {
+   "class": "mixed",
+   "sample": [
+    "PG109.266",
+    "PG109.267"
+   ]
+  },
   "leo-alabandensis.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -21058,6 +21168,70 @@
     "2.2"
    ],
    "scheme": "ref.sub"
+  },
+  "leo-vi-sapiens.carmen-compunctorium": {
+   "class": "mixed",
+   "sample": [
+    "PG107.196",
+    "PG107.197",
+    "PG107.198"
+   ]
+  },
+  "leo-vi-sapiens.carmina-et-epigrammata-varia": {
+   "class": "mixed",
+   "sample": [
+    "PG107.371",
+    "PG107.372",
+    "PG107.373"
+   ]
+  },
+  "leo-vi-sapiens.exapostilaria-anastasima": {
+   "class": "mixed",
+   "sample": [
+    "PG107.191",
+    "PG107.192",
+    "PG107.193"
+   ]
+  },
+  "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia": {
+   "class": "mixed",
+   "sample": [
+    "PG107.206",
+    "PG107.207",
+    "PG107.208"
+   ]
+  },
+  "leo-vi-sapiens.novellae-constitutiones": {
+   "class": "mixed",
+   "sample": [
+    "PG107.252",
+    "PG107.253",
+    "PG107.254"
+   ]
+  },
+  "leo-vi-sapiens.oracula": {
+   "class": "mixed",
+   "sample": [
+    "PG107.606",
+    "PG107.607",
+    "PG107.608"
+   ]
+  },
+  "leo-vi-sapiens.orationes": {
+   "class": "mixed",
+   "sample": [
+    "PG107.42",
+    "PG107.43",
+    "PG107.44"
+   ]
+  },
+  "leo-vi-sapiens.tactica": {
+   "class": "mixed",
+   "sample": [
+    "PG107.377",
+    "PG107.378",
+    "PG107.379"
+   ]
   },
   "leocrines.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -23884,6 +24058,14 @@
    ],
    "scheme": "ref.sub"
   },
+  "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum": {
+   "class": "mixed",
+   "sample": [
+    "PG005.499",
+    "PG005.500",
+    "PG005.501"
+   ]
+  },
   "martyrium-polycarpi.epistula-ecclesiae-smyrnensis-de-martyrio-sancti-polycarpi": {
    "class": "mixed",
    "sample": [
@@ -23950,6 +24132,14 @@
     "1",
     "1.1.a",
     "1.1.b"
+   ]
+  },
+  "maximus-theology.fragmentum-ex-libro-de-materia": {
+   "class": "mixed",
+   "sample": [
+    "PG005.679",
+    "PG005.680",
+    "PG005.681"
    ]
   },
   "megacles-megaclides.fragmenta": {
@@ -24037,6 +24227,14 @@
     "nausiphanes_diels_fvs2_0157.1",
     "nausiphanes_diels_fvs2_0157.2",
     "nausiphanes_diels_fvs2_0157.3"
+   ]
+  },
+  "melito-apologetics.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG005.614",
+    "PG005.615",
+    "PG005.616"
    ]
   },
   "melito.fragmenta": {
@@ -24427,6 +24625,30 @@
     "attaleiates.3"
    ]
   },
+  "michael-glycas.annales": {
+   "class": "mixed",
+   "sample": [
+    "PG158.49",
+    "PG158.50",
+    "PG158.51"
+   ]
+  },
+  "michael-glycas.epistolae": {
+   "class": "mixed",
+   "sample": [
+    "PG158.359",
+    "PG158.360",
+    "PG158.361"
+   ]
+  },
+  "michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni": {
+   "class": "mixed",
+   "sample": [
+    "PG122.461",
+    "PG122.462",
+    "PG122.463"
+   ]
+  },
   "michael-psellus.chronographia": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -24437,6 +24659,137 @@
     "1.1"
    ],
    "scheme": "ref.sub"
+  },
+  "michael-psellus.commentarius-in-psychogoniam-platonicam": {
+   "class": "mixed",
+   "sample": [
+    "PG122.550",
+    "PG122.551",
+    "PG122.574"
+   ]
+  },
+  "michael-psellus.de-actionum-nominibus": {
+   "class": "mixed",
+   "sample": [
+    "PG122.514",
+    "PG122.515",
+    "PG122.516"
+   ]
+  },
+  "michael-psellus.de-anima-celebres-opiniones": {
+   "class": "mixed",
+   "sample": [
+    "PG122.525",
+    "PG122.526",
+    "PG122.527"
+   ]
+  },
+  "michael-psellus.de-lapidum-virtutibus": {
+   "class": "mixed",
+   "sample": [
+    "PG122.454",
+    "PG122.455",
+    "PG122.456"
+   ]
+  },
+  "michael-psellus.de-legum-nominibus": {
+   "class": "mixed",
+   "sample": [
+    "PG122.522",
+    "PG122.523",
+    "PG122.524"
+   ]
+  },
+  "michael-psellus.de-locis-et-nominibus-atticis-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG122.610",
+    "PG122.611",
+    "PG122.612"
+   ]
+  },
+  "michael-psellus.de-mortis-determinatione": {
+   "class": "mixed",
+   "sample": [
+    "PG122.468",
+    "PG122.469"
+   ]
+  },
+  "michael-psellus.de-omnifaria-doctrina": {
+   "class": "mixed",
+   "sample": [
+    "PG122.351",
+    "PG122.352",
+    "PG122.353"
+   ]
+  },
+  "michael-psellus.de-operatione-daemonum-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG122.419",
+    "PG122.420",
+    "PG122.421"
+   ]
+  },
+  "michael-psellus.epistulae": {
+   "class": "mixed",
+   "sample": [
+    "PG122.613",
+    "PG122.614",
+    "PG122.615"
+   ]
+  },
+  "michael-psellus.in-mercurii-trismegisti-pimandrum": {
+   "class": "mixed",
+   "sample": [
+    "PG122.609"
+   ]
+  },
+  "michael-psellus.monodia-in-sanctae-sophiae-collapsam": {
+   "class": "mixed",
+   "sample": [
+    "PG122.466",
+    "PG122.467"
+   ]
+  },
+  "michael-psellus.opuscula-psychologica-theologica-daemonologica": {
+   "class": "mixed",
+   "sample": [
+    "PG122.594",
+    "PG122.595",
+    "PG122.596"
+   ]
+  },
+  "michael-psellus.poemata": {
+   "class": "mixed",
+   "sample": [
+    "PG122.275",
+    "PG122.276",
+    "PG122.277"
+   ]
+  },
+  "michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG122.448",
+    "PG122.449",
+    "PG122.450"
+   ]
+  },
+  "michael-psellus.quaestionum-naturalium-solutiones-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG122.401",
+    "PG122.402",
+    "PG122.403"
+   ]
+  },
+  "michael-psellus.versus-in-sanctos-tres-hierarchas-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG122.464",
+    "PG122.465"
+   ]
   },
   "michael.in-ethica-nicomachea-ixx-commentaria": {
    "class": "edition-prefixed",
@@ -24986,6 +25339,14 @@
     "berthelot_alchimistes_grec_0494.1",
     "berthelot_alchimistes_grec_0494.2",
     "berthelot_alchimistes_grec_0494.3"
+   ]
+  },
+  "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14": {
+   "class": "mixed",
+   "sample": [
+    "PG146.12",
+    "PG146.13",
+    "PG146.14"
    ]
   },
   "nicephorus-gregoras.historia-romana": {
@@ -25758,6 +26119,62 @@
     "walz_rhetores_v9_0001.1",
     "walz_rhetores_v9_0006.1",
     "walz_rhetores_v9_0006.2"
+   ]
+  },
+  "oecumenius.commentarius-in-acta-apostolorum": {
+   "class": "mixed",
+   "sample": [
+    "PG118.29",
+    "PG118.30",
+    "PG118.31"
+   ]
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG118.594",
+    "PG118.595",
+    "PG118.596"
+   ]
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG118.556",
+    "PG118.557",
+    "PG118.558"
+   ]
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG118.639",
+    "PG118.640",
+    "PG118.641"
+   ]
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG118.168",
+    "PG118.169",
+    "PG118.170"
+   ]
+  },
+  "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG118.327",
+    "PG118.328",
+    "PG118.329"
+   ]
+  },
+  "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG118.462",
+    "PG118.463",
+    "PG118.464"
    ]
   },
   "oenomaus.fragmenta": {
@@ -26578,12 +26995,27 @@
     "oxyrhynchuspapyr08gren_0076.3"
    ]
   },
+  "pantaenus.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG005.674",
+    "PG005.675"
+   ]
+  },
   "panyassis.fragmenta-epica": {
    "class": "edition-prefixed",
    "sample": [
     "panyassis_kinkel_egf_0005.1",
     "panyassis_kinkel_egf_0005.2",
     "panyassis_kinkel_egf_0006.1"
+   ]
+  },
+  "papias.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG005.637",
+    "PG005.638",
+    "PG005.639"
    ]
   },
   "pappus-mathematics.synagoge": {
@@ -26697,6 +27129,22 @@
     "2"
    ],
    "scheme": "ref"
+  },
+  "patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum": {
+   "class": "mixed",
+   "sample": [
+    "PG157.370",
+    "PG157.371",
+    "PG157.372"
+   ]
+  },
+  "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai": {
+   "class": "mixed",
+   "sample": [
+    "PG157.333",
+    "PG157.334",
+    "PG157.335"
+   ]
   },
   "patrocles.fragmenta": {
    "class": "edition-prefixed",
@@ -27969,6 +28417,22 @@
     "phoenix_choliambi_crusius_0012.3"
    ]
   },
+  "photius.amphilochia": {
+   "class": "mixed",
+   "sample": [
+    "PG101.44",
+    "PG101.45",
+    "PG101.46"
+   ]
+  },
+  "photius.amphilochia-supplementum": {
+   "class": "mixed",
+   "sample": [
+    "PG101.664",
+    "PG101.665",
+    "PG101.666"
+   ]
+  },
   "photius.bibliotheca": {
    "class": "edition-prefixed",
    "sample": [
@@ -27977,11 +28441,53 @@
     "helladius_chrestomathia_photius_bekker_v2_0002.3"
    ]
   },
+  "photius.commentarii-in-joannem-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG101.641"
+   ]
+  },
+  "photius.commentarii-in-matthaeum-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG101.620",
+    "PG101.621",
+    "PG101.622"
+   ]
+  },
   "photius.fragmenta": {
    "class": "mixed",
    "sample": [
     "5.i",
     "5.ii"
+   ]
+  },
+  "photius.fragmenta-in-epistulam-ad-romanos-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG101.642",
+    "PG101.643",
+    "PG101.644"
+   ]
+  },
+  "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG101.652"
+   ]
+  },
+  "photius.fragmenta-in-lucam-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG101.632",
+    "PG101.633",
+    "PG101.634"
+   ]
+  },
+  "photius.fragmenta-in-marcum-in-catenis": {
+   "class": "mixed",
+   "sample": [
+    "PG101.631"
    ]
   },
   "photius.lexicon": {
@@ -30681,12 +31187,36 @@
    ],
    "scheme": "ref.sub"
   },
+  "procopius-rhetoric.commentarii-in-octateuchum": {
+   "class": "mixed",
+   "sample": [
+    "PG087_1.18",
+    "PG087_1.19",
+    "PG087_1.20"
+   ]
+  },
   "procopius-rhetoric.epistulae-1-166": {
    "class": "edition-prefixed",
    "sample": [
     "aristaenetus_hercher_epistolographi_0627.1",
     "aristaenetus_hercher_epistolographi_0627.2",
     "aristaenetus_hercher_epistolographi_0627.3"
+   ]
+  },
+  "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia": {
+   "class": "mixed",
+   "sample": [
+    "PG087_1.547",
+    "PG087_1.548",
+    "PG087_1.549"
+   ]
+  },
+  "procopius-rhetoric.in-proverbia": {
+   "class": "mixed",
+   "sample": [
+    "PG087_1.618",
+    "PG087_1.619",
+    "PG087_1.620"
    ]
   },
   "prodicus.fragmenta": {
@@ -30803,6 +31333,30 @@
     "archytas_mullach_fpg2_0225.5",
     "archytas_mullach_fpg2_0225.6",
     "archytas_mullach_fpg2_0225.7"
+   ]
+  },
+  "pseudo-codinus.de-annis-ab-orbe-condito": {
+   "class": "mixed",
+   "sample": [
+    "PG157.325",
+    "PG157.326",
+    "PG157.327"
+   ]
+  },
+  "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos": {
+   "class": "mixed",
+   "sample": [
+    "PG157.20",
+    "PG157.21",
+    "PG157.22"
+   ]
+  },
+  "pseudo-codinus.patria-constantinopoleos": {
+   "class": "mixed",
+   "sample": [
+    "PG157.225",
+    "PG157.225.1",
+    "PG157.226"
    ]
   },
   "pseudo-dioscorides.de-lapidibus": {
@@ -31075,6 +31629,38 @@
    ],
    "scheme": "ref"
   },
+  "pseudo-justinus-martyr.cohortatio-ad-gentiles": {
+   "class": "mixed",
+   "sample": [
+    "PG006.128",
+    "PG006.129",
+    "PG006.130"
+   ]
+  },
+  "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum": {
+   "class": "mixed",
+   "sample": [
+    "PG006.753",
+    "PG006.754",
+    "PG006.755"
+   ]
+  },
+  "pseudo-justinus-martyr.de-monarchia": {
+   "class": "mixed",
+   "sample": [
+    "PG006.164",
+    "PG006.165",
+    "PG006.166"
+   ]
+  },
+  "pseudo-justinus-martyr.de-resurrectione": {
+   "class": "mixed",
+   "sample": [
+    "PG006.793",
+    "PG006.794",
+    "PG006.795"
+   ]
+  },
   "pseudo-justinus-martyr.epistula-ad-diognetum": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -31085,6 +31671,62 @@
     "2.2"
    ],
    "scheme": "ref.sub"
+  },
+  "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum": {
+   "class": "mixed",
+   "sample": [
+    "PG006.599",
+    "PG006.600",
+    "PG006.601"
+   ]
+  },
+  "pseudo-justinus-martyr.expositio-rectae-fidei": {
+   "class": "mixed",
+   "sample": [
+    "PG006.611",
+    "PG006.612",
+    "PG006.613"
+   ]
+  },
+  "pseudo-justinus-martyr.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG006.805",
+    "PG006.806",
+    "PG006.807"
+   ]
+  },
+  "pseudo-justinus-martyr.oratio-ad-gentiles": {
+   "class": "mixed",
+   "sample": [
+    "PG006.122",
+    "PG006.123",
+    "PG006.124"
+   ]
+  },
+  "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles": {
+   "class": "mixed",
+   "sample": [
+    "PG006.708",
+    "PG006.709",
+    "PG006.710"
+   ]
+  },
+  "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos": {
+   "class": "mixed",
+   "sample": [
+    "PG006.632",
+    "PG006.633",
+    "PG006.634"
+   ]
+  },
+  "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos": {
+   "class": "mixed",
+   "sample": [
+    "PG006.739",
+    "PG006.740",
+    "PG006.741"
+   ]
   },
   "pseudo-lucianus.amores": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -31239,6 +31881,14 @@
     "1.3"
    ],
    "scheme": "ref.sub"
+  },
+  "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712": {
+   "class": "mixed",
+   "sample": [
+    "PG109.337",
+    "PG109.338",
+    "PG109.339"
+   ]
   },
   "pseudo-zonaras.lexicon": {
    "class": "edition-prefixed",
@@ -31410,6 +32060,12 @@
    ],
    "scheme": "ref.sub"
   },
+  "quadratus-apologeta.fragmentum-apologiae": {
+   "class": "mixed",
+   "sample": [
+    "PG005.642"
+   ]
+  },
   "quintus-fabius-pictor.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -31446,6 +32102,14 @@
     "rhinthon_kaibel_cgf_1899_0014.1",
     "rhinthon_kaibel_cgf_1899_0014.2",
     "rhinthon_kaibel_cgf_1899_0014.3"
+   ]
+  },
+  "rhodon.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG005.676",
+    "PG005.677",
+    "PG005.678"
    ]
   },
   "rufus-medicine.de-renum-et-vesicae-morbis": {
@@ -32665,6 +33329,13 @@
     "1.3"
    ],
    "scheme": "ref.sub"
+  },
+  "serapion-scr-eccl.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG005.696",
+    "PG005.697"
+   ]
   },
   "serapion.fragmenta": {
    "class": "mixed",
@@ -34109,6 +34780,134 @@
    ],
    "scheme": "ref"
   },
+  "symeon-thessalonicensis.de-matrimonio": {
+   "class": "mixed",
+   "sample": [
+    "PG155.257",
+    "PG155.258",
+    "PG155.259"
+   ]
+  },
+  "symeon-thessalonicensis.de-ordine-sepulturae": {
+   "class": "mixed",
+   "sample": [
+    "PG155.341",
+    "PG155.342",
+    "PG155.343"
+   ]
+  },
+  "symeon-thessalonicensis.de-poenitentia": {
+   "class": "mixed",
+   "sample": [
+    "PG155.240",
+    "PG155.241",
+    "PG155.242"
+   ]
+  },
+  "symeon-thessalonicensis.de-sacerdotio": {
+   "class": "mixed",
+   "sample": [
+    "PG155.482",
+    "PG155.483",
+    "PG155.484"
+   ]
+  },
+  "symeon-thessalonicensis.de-sacra-liturgia": {
+   "class": "mixed",
+   "sample": [
+    "PG155.132",
+    "PG155.133",
+    "PG155.134"
+   ]
+  },
+  "symeon-thessalonicensis.de-sacra-precatione": {
+   "class": "mixed",
+   "sample": [
+    "PG155.273",
+    "PG155.274",
+    "PG155.275"
+   ]
+  },
+  "symeon-thessalonicensis.de-sacramentis": {
+   "class": "mixed",
+   "sample": [
+    "PG155.94",
+    "PG155.95",
+    "PG155.96"
+   ]
+  },
+  "symeon-thessalonicensis.de-sacris-ordinationibus": {
+   "class": "mixed",
+   "sample": [
+    "PG155.186",
+    "PG155.187",
+    "PG155.188"
+   ]
+  },
+  "symeon-thessalonicensis.de-sacro-templo": {
+   "class": "mixed",
+   "sample": [
+    "PG155.158",
+    "PG155.159",
+    "PG155.160"
+   ]
+  },
+  "symeon-thessalonicensis.de-sancto-chrismate": {
+   "class": "mixed",
+   "sample": [
+    "PG155.125",
+    "PG155.126",
+    "PG155.127"
+   ]
+  },
+  "symeon-thessalonicensis.de-sancto-euchelaeo": {
+   "class": "mixed",
+   "sample": [
+    "PG155.262",
+    "PG155.263",
+    "PG155.264"
+   ]
+  },
+  "symeon-thessalonicensis.dialogus-contra-haereses": {
+   "class": "mixed",
+   "sample": [
+    "PG155.22",
+    "PG155.23",
+    "PG155.24"
+   ]
+  },
+  "symeon-thessalonicensis.expositio-de-divino-templo": {
+   "class": "mixed",
+   "sample": [
+    "PG155.354",
+    "PG155.355",
+    "PG155.356"
+   ]
+  },
+  "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus": {
+   "class": "mixed",
+   "sample": [
+    "PG155.407",
+    "PG155.408",
+    "PG155.409"
+   ]
+  },
+  "symeon-thessalonicensis.expositio-de-sacro-symbolo": {
+   "class": "mixed",
+   "sample": [
+    "PG155.381",
+    "PG155.382",
+    "PG155.383"
+   ]
+  },
+  "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum": {
+   "class": "mixed",
+   "sample": [
+    "PG155.420",
+    "PG155.421",
+    "PG155.422"
+   ]
+  },
   "symmachus.fragmenta": {
    "class": "edition-prefixed",
    "sample": [
@@ -34157,6 +34956,13 @@
     "1.3"
    ],
    "scheme": "ref.sub"
+  },
+  "tatianus.fragmenta": {
+   "class": "mixed",
+   "sample": [
+    "PG006.808",
+    "PG006.809"
+   ]
   },
   "tatianus.oratio-ad-graecos": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -34741,6 +35547,14 @@
     "pg080_0044.3"
    ]
   },
+  "theodorus-agallianus.refutatio-contra-joannem-argyropulum": {
+   "class": "mixed",
+   "sample": [
+    "PG158.541",
+    "PG158.542",
+    "PG158.543"
+   ]
+  },
   "theodorus-hierapolita.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -34912,6 +35726,14 @@
    ],
    "scheme": "ref"
   },
+  "theophanes-continuatus.chronographia-lib-1-6": {
+   "class": "mixed",
+   "sample": [
+    "PG109.13",
+    "PG109.14",
+    "PG109.15"
+   ]
+  },
   "theophanes.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -35032,6 +35854,342 @@
     "3"
    ],
    "scheme": "ref"
+  },
+  "theophylactus-achridensis.de-iis-quorum-latini-incusantur": {
+   "class": "mixed",
+   "sample": [
+    "PG126.118",
+    "PG126.119",
+    "PG126.120"
+   ]
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-joannis": {
+   "class": "mixed",
+   "sample": [
+    "PG123.569",
+    "PG123.570",
+    "PG123.571"
+   ]
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-lucae": {
+   "class": "mixed",
+   "sample": [
+    "PG123.347",
+    "PG123.348",
+    "PG123.349"
+   ]
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-marci": {
+   "class": "mixed",
+   "sample": [
+    "PG123.249",
+    "PG123.250",
+    "PG123.251"
+   ]
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-matthaei": {
+   "class": "mixed",
+   "sample": [
+    "PG123.75",
+    "PG123.76",
+    "PG123.77"
+   ]
+  },
+  "theophylactus-achridensis.epistulae": {
+   "class": "mixed",
+   "sample": [
+    "PG126.161",
+    "PG126.162",
+    "PG126.163"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-acta-apostolorum-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG125.538",
+    "PG125.539",
+    "PG125.540"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses": {
+   "class": "mixed",
+   "sample": [
+    "PG124.608",
+    "PG124.609",
+    "PG124.610"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-ephesios": {
+   "class": "mixed",
+   "sample": [
+    "PG124.521",
+    "PG124.522",
+    "PG124.523"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-galatas": {
+   "class": "mixed",
+   "sample": [
+    "PG124.481",
+    "PG124.482",
+    "PG124.483"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos": {
+   "class": "mixed",
+   "sample": [
+    "PG125.100",
+    "PG125.101",
+    "PG125.102"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem": {
+   "class": "mixed",
+   "sample": [
+    "PG125.93",
+    "PG125.94",
+    "PG125.95"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses": {
+   "class": "mixed",
+   "sample": [
+    "PG124.575",
+    "PG124.576",
+    "PG124.577"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-romanos": {
+   "class": "mixed",
+   "sample": [
+    "PG124.173",
+    "PG124.174",
+    "PG124.175"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-titum": {
+   "class": "mixed",
+   "sample": [
+    "PG125.78",
+    "PG125.79",
+    "PG125.80"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi": {
+   "class": "mixed",
+   "sample": [
+    "PG125.573",
+    "PG125.574",
+    "PG125.575"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios": {
+   "class": "mixed",
+   "sample": [
+    "PG124.285",
+    "PG124.286",
+    "PG124.287"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses": {
+   "class": "mixed",
+   "sample": [
+    "PG124.645",
+    "PG124.646",
+    "PG124.647"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum": {
+   "class": "mixed",
+   "sample": [
+    "PG125.12",
+    "PG125.13",
+    "PG125.14"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-joannis": {
+   "class": "mixed",
+   "sample": [
+    "PG126.12",
+    "PG126.13",
+    "PG126.14"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-petri": {
+   "class": "mixed",
+   "sample": [
+    "PG125.602",
+    "PG125.603",
+    "PG125.604"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios": {
+   "class": "mixed",
+   "sample": [
+    "PG124.403",
+    "PG124.404",
+    "PG124.405"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses": {
+   "class": "mixed",
+   "sample": [
+    "PG124.669",
+    "PG124.670",
+    "PG124.671"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum": {
+   "class": "mixed",
+   "sample": [
+    "PG125.51",
+    "PG125.52",
+    "PG125.53"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-joannis": {
+   "class": "mixed",
+   "sample": [
+    "PG126.41",
+    "PG126.42",
+    "PG126.43"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-petri": {
+   "class": "mixed",
+   "sample": [
+    "PG125.634",
+    "PG125.635",
+    "PG125.636"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-iii-joannis": {
+   "class": "mixed",
+   "sample": [
+    "PG126.47",
+    "PG126.48",
+    "PG126.49"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-judae": {
+   "class": "mixed",
+   "sample": [
+    "PG126.50",
+    "PG126.51",
+    "PG126.52"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-habacuc": {
+   "class": "mixed",
+   "sample": [
+    "PG126.417",
+    "PG126.418",
+    "PG126.419"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-jonam": {
+   "class": "mixed",
+   "sample": [
+    "PG126.460",
+    "PG126.461",
+    "PG126.462"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-michaeam": {
+   "class": "mixed",
+   "sample": [
+    "PG126.532",
+    "PG126.533",
+    "PG126.534"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-nahum": {
+   "class": "mixed",
+   "sample": [
+    "PG126.492",
+    "PG126.493",
+    "PG126.494"
+   ]
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-oseam": {
+   "class": "mixed",
+   "sample": [
+    "PG126.289",
+    "PG126.290",
+    "PG126.292"
+   ]
+  },
+  "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum": {
+   "class": "mixed",
+   "sample": [
+    "PG126.83",
+    "PG126.84",
+    "PG126.85"
+   ]
+  },
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG125.432",
+    "PG125.433",
+    "PG125.434"
+   ]
+  },
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp": {
+   "class": "mixed",
+   "sample": [
+    "PG125.249",
+    "PG125.250",
+    "PG125.251"
+   ]
+  },
+  "theophylactus-achridensis.institutio-regia": {
+   "class": "mixed",
+   "sample": [
+    "PG126.134",
+    "PG126.135",
+    "PG126.136"
+   ]
+  },
+  "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum": {
+   "class": "mixed",
+   "sample": [
+    "PG126.151",
+    "PG126.152",
+    "PG126.153"
+   ]
+  },
+  "theophylactus-achridensis.oratio-in-praesentationem-deiparae": {
+   "class": "mixed",
+   "sample": [
+    "PG126.72",
+    "PG126.73",
+    "PG126.74"
+   ]
+  },
+  "theophylactus-achridensis.oratio-in-venerationem-crucis": {
+   "class": "mixed",
+   "sample": [
+    "PG126.60",
+    "PG126.61",
+    "PG126.62"
+   ]
+  },
+  "theophylactus-achridensis.supplementum-in-evangelium-joannis": {
+   "class": "mixed",
+   "sample": [
+    "PG126.80",
+    "PG126.81",
+    "PG126.82"
+   ]
+  },
+  "theophylactus-achridensis.vita-clementis-ohridensis": {
+   "class": "mixed",
+   "sample": [
+    "PG126.604",
+    "PG126.605",
+    "PG126.606"
+   ]
   },
   "theophylactus-simocatta.epistulae": {
    "class": "edition-prefixed",
@@ -35160,6 +36318,12 @@
     "3"
    ],
    "scheme": "ref"
+  },
+  "tiberianus.epistula-ad-trajanum-de-christianis": {
+   "class": "mixed",
+   "sample": [
+    "PG005.505"
+   ]
   },
   "tiberius.de-figuris-demosthenicis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -35779,6 +36943,14 @@
     "1.1.3"
    ],
    "scheme": "ref.sub.sub"
+  },
+  "vita-basilii-iunioris.excerpta": {
+   "class": "mixed",
+   "sample": [
+    "PG109.332",
+    "PG109.333",
+    "PG109.334"
+   ]
   },
   "vitae-aesopi.bibli-on-muqiko-n-tou-ai-sw-pou-ei-koni-zon-po-tw-n-lo-gwn": {
    "basis": "generic (canon scheme absent or depth mismatch)",
