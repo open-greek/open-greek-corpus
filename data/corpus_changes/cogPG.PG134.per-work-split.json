@@ -1,0 +1,148 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG134 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG134",
+  "source_urn": "cogPG.PG134",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG134 (consistency review: ok)",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG134.' (delete the file when it was 'created'), strip the 'PG134.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG134.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG134": {
+   "rows": 704,
+   "greek_tokens": 287809,
+   "sha256": "2fa21403a6bca1eb655eb38b0870e13c576ebe2dc521ead68933b4982ca5299e"
+  }
+ },
+ "works": [
+  {
+   "slug": "joannes-zonaras.epitome-historiarum-lib-1-12",
+   "tlg": "tlg3135.tlg001",
+   "title": "Epitome historiarum (lib. 1-12)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek open TEI edition (346,333 Greek tokens vs ~230k in this OCR; open_corpus rank 1 beats migne_cgpg rank 3); this CGPG Migne OCR copy is kept as a secondary witness",
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "mode": "created",
+   "rows": 535,
+   "greek_tokens": 228696,
+   "volume_loci": "31-567",
+   "locus_map": "cogPG.PG134 locus N -> joannes-zonaras.epitome-historiarum-lib-1-12 locus 'PG134.N'",
+   "incipit_checks": [
+    {
+     "locus": "31",
+     "incipit": "ΠΡΟΟΙΜΙΟΝ. Αʹ.. Εὐστόχως ἄν τις εἴποι, ἐπιτωθάζων μοι, μεῖζόν σοι τοῦ ἔργου τὸ πάρεργον.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 69
+    }
+   ],
+   "evidence": "Col 31 carries the printed title line ΠΡΟΟΙΜΙΟΝ and the proem incipit, matching Dindorf's edition opening (Εὐστόχως ἄν τις εἴποι ἐπιτωθάζων μοι). Work ends MID-column 568 with book 12's explicit 'Ὁ μὲν οὖν καθ´ ἕνα τρόπων τῶν ἰστορηθέντων βιαίως ἀπέῤῥηξε· τὴν ζωήν.' (death of Maximinus Daia), verbatim match against Dindorf vol. 3 p. 169 (archive.org ioannoutouzonara03zonauoft). Served range holds 230,492 words vs canon 240,589 for the full work (OCR variance). Note: cols 561-562 are duplicated as 563-564 (same printed leaf OCR'd twice, similarity 0.83-0.89)."
+  },
+  {
+   "slug": "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub",
+   "tlg": "tlg3135.tlg003",
+   "title": "Epitome historiarum (lib. 12, clausula varia) [Dub.]",
+   "rank": "primary",
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 774,
+   "volume_loci": "568-569",
+   "locus_map": "cogPG.PG134 locus N -> joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub locus 'PG134.N'",
+   "incipit_checks": [
+    {
+     "locus": "568",
+     "incipit": "Ἐν δὲ τῇ Ῥώμῃ τὴς τῶν πιστῶν Ἐκκλησίας προέστη μετὰ Καρκελλῖνον ἐν ἔτεσι δυσὶ τὴν λειτουργίαν ἐκπλήσαντα Εὐσέβιος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 96
+    }
+   ],
+   "evidence": "Starts MID-column 568 immediately after book 12's explicit; ends early in col 570 at '...ὀκτὼ δ´ ἐπὶ δέκα χρόνους ἐπεβίω οὗτος τῷ λειτουργήματι.' Verbatim match against Dindorf vol. 3 pp. 169-171, where Du Cange's note marks exactly this span (ἐν δὲ τῇ Ῥώμῃ ... λειτουργήματι) as absent from cod. A, added at the end of the regii/Colbertinus, 'suppositicia nec Zonarae esse videntur'. Content: anachronistic episcopal succession lists (Rome down to Gregory the Great, Antioch down to Ephraimius). 622 served words vs canon word_count 648. Served 'Καρκελλῖνον' is OCR for Μαρκελλῖνον."
+  },
+  {
+   "slug": "joannes-zonaras.epitome-historiarum-lib-13-18",
+   "tlg": "tlg3135.tlg002",
+   "title": "Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume",
+   "rank": "primary",
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "mode": "created",
+   "rows": 165,
+   "greek_tokens": 57561,
+   "volume_loci": "570-734",
+   "locus_map": "cogPG.PG134 locus N -> joannes-zonaras.epitome-historiarum-lib-13-18 locus 'PG134.N'",
+   "incipit_checks": [
+    {
+     "locus": "570",
+     "incipit": "Οὕτω μὲν οὖν, ὡς εἴρηται, τῆς τοῦ πατρὸς βασιλείας ὁ μέγας Κωνσταντῖνος διάδοχος γέγονεν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 73
+    }
+   ],
+   "evidence": "Starts MID-column 570; incipit is a verbatim match with Dindorf vol. 3 p. 172, LIB. XIII CAP. I (= Buettner-Wobst book 13.1, the start of the TLG 002 text). Col 734 ends with the death of Theophilus (842 CE): '...μηδὲ τὸν πατριάρχην Ἰωάννην τῆς Ἐκκλησίας ἐκδιωχθῆναι.', the exact explicit of book 15 (Dindorf vol. 3 p. 418, LIB. XV CAP. XXIX). Only books 13-15 are here: served range holds 57,623 words of the work's 118,917; books 16-18 presumably continue in PG135, which is not present in data/corpus."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "cols 563-564 are a rescan of the printed leaf already served as cols 561-562 (similarity 0.92/0.83, verified at carve time); dropped and archived below",
+  "pairs": [
+   {
+    "dropped_locus": "563",
+    "duplicate_of_kept_locus": "561",
+    "similarity": 0.967
+   },
+   {
+    "dropped_locus": "564",
+    "duplicate_of_kept_locus": "562",
+    "similarity": 0.976
+   }
+  ],
+  "rows_archived_verbatim": [
+   {
+    "urn": "cogPG.PG134",
+    "edition": "cgpg",
+    "locus": "563",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ἐγένετο· ἄλλοι δὲ κάμητα δομεστίκων αὐτὸν γενέσθαι φασί. Δομεστίκους δέ τινες τοὺς ἱππέας νομίζουσι. Αιαλεγόμενος δὲ τοῖς στρατιώταις διεβεβαίου μὴ κοινωνῆσαι τῷ φόνῳ τοῦ Νουμεριανοῦ· καὶ ἐν τῶ πᾶντα λέγειν στραφεὶς πρὸς τὸν Ἄπρον ἔπαρνον Ἐντα τοῦ στρατεύματος, οὗτος, ἔφη, ὁ ἐκείνου φονεύς. Καὶ αὐτίκα τῷ μετὰ χεῖρας ξίφει αὐτὸν ἀνεῖλεν. Ἐν δὲ τῇ Ῥώμῃ γενόμενος τῶν τῆς ἀρχῆς πραγμάτων ἀντεποιήσατο, καὶ τῆς τούτων ἥψατο διοικήσεως. Ἀπιδὼν δὲ πρὸς τὸ τῆς βασιλείας ὑπέρογκον, κοινωνὸν αὐτῆς προσλαμβάνεται κατὰ τὸ τέταρτον ἔτος της ἡγεμονίας αὐτοῦ, ἢ καθ´ μτέρους κατὰ τὸ δεύτερον Μαξιμιανὸν τὸν Ἐρκούλιον, μὴ ἐαυτὸν μόνον ἀρκοῦντα πρὸς τοσαύτης ἀρχῆς διοίκησιν λογισάμενος. Ἄμφω τοίνυν συμπνεύσαντες διωγμὸν ἑγείρουσι κατὰ Χριστιανῶν, τῶν πρὶν γεγονότων ἁπάντων σφοδρότερόν τε καὶ ἀγριώτερον. ἐκθύμως γὰρ, μᾶλλον δὲ περιμανῶς σὴ τοῦ Θεοῦ ἡμῶν Ἰησοῦ Χριστοῦ σπεῦδον ἐκ πάσης γῆς ἐξαλεῖψαι σωτήριον ὄνομα. Ὅτε κατὰ πᾶσαν πόλιν καὶ χώραν τοσοῦτοι ὑπὲρ τῆς εἰς xριστὸν ὁμολογίας ἠνδρίσαντο, ὡς μηδ´ ἀριθμῷ] σχεδὸν αὐτοὺς ὑπαχθῆναι ῥῴδιον εἶναι· ἔργον γὰρ τοῦτο τῶν ἄλλων ἀπάντων ἐτίθεντο σπουδαιότερον. Βουσίρεως δὲ καὶ Κοπτοῦ πόλεων Αἰνυπτια·ῶν περὶ τὰς ἐκεῖ Θήβας οἰκουμένων εἰς ἀποστα αία. ἐκκλινασῶν, ὁ Διοκλητιανὸς ἐκστρατεύσας κατ´ αὐτῶν εἶλέ τε καὶ αὐτὰς καὶ κατέσκαψεν. Εἶτ´ αὖθις Ἀλεξάνδρεια καὶ ἡ Αἴγυπτος ἀντῆραν χεῖρα Ῥωμαίοις, Ἀχιλλέως τινὸς εἰς τοῦτο τοὺς Αἰγυπτίους ὑπαγαγόντος· ἀλλὰ Ῥωμαῖων αὐτοῖς ἐπελθόντων σὺν Διοκλητιανῷ, οὐκ ἀντέσχον ἐπὶ πολὺ, καὶ ολλοὶ τῶν αἰτίων τῆς στάσεως ἀνῃρέθησαν, καὶ αὐτὸς Ἀχιλλεύς. Διοκλητιανὸς δὲ καὶ Μαξιμιανὸς Καίσαρας ἐχειροτόνησαν τοὺς ἑαυτῶν κηδεστὰς, ὁ μὲν Διοκλητιανὸς Μαξιμῖνον τὸν Γαλλέριον, τὴν οἰκείαν θυγατέρα συζεύξας αὐτῷ θαλερίαν· ὁ δ´ Ἑρκούλιος Μαξιμιανὸς Κώνσταντα, ὃς ἐπεκλήθη xλωρὸς διὰ τὴν ὡχρότητα, θυγατριδοῦν ἄντα Κλαλ δίου τοῦ πρὸ μικροῦ βασιλεύσαντος, ὡς ἤδη μο εἴρηται, καὶ αὐτὸς τούτῳ τὴν ἑαυτοῦ θυγατέρα θεοδώραν κατεγγυήσας. Καὶ ἄμφω δὲ τὼ Καίσαρε τούτω γαμετὰς εἰχέτην· ἀλλὰ διὰ τὸ πρὸς τοὺς βασιλεῖς κῆδος τὰς μὲν ἀπώσαντο, ταῖς δὲ τῶν βασιλέων θυγατράσι συνῴκησαν. Ἀμάνδου δέ τινος νεωτερίσαντος ἐν Γαλλίαις, Μαξιμιανὸς ἐκεῖσε γενόμενος τὸν νεωτερισμὸν κατέστειλε. Κράσσον τε Βρεττανίαν κατεσχηκότα ἐπὶ ἐνιαυτοὺς τρεῖς ὁ Κπαρχος ἀνεῖλεν Ἀσκληπιόδοτος· καὶ πέντε τινῶν Γκντιανῶν τὴν Ἀφρικὴν κατασχόντων, ὁ Ἐρκούλιος τούτους κατηγωνίσατο. Ὁ δέ γε Καῖσαρ Κώνστας ἐν ταῖς Γαλλίαις πρὸς Ἀλαμαννοὺς μαχόμενος τῆς αὐτῆς ἡμέρας ἦττητο καὶ νενίκηκε. Πρότερον μὲν γὸρ τῶν Ἀλαμαννῶν τῇ αὐτοῦ στρατιᾷ μετὰ ῥύμης ἐφορμησάντων σφοδφᾶς, εἰς"
+   },
+   {
+    "urn": "cogPG.PG134",
+    "edition": "cgpg",
+    "locus": "564",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "φυγὴν ἐτράπησαν ἅπαντες, οἷς καὶ αὐτὸς ὁ Κώνστας συναποδιδράσκων ἑάλω ἂν παρὰ βραχύ. ὀπίσω γὰρ ἐρχόμενος, κεκλεισμένας εὖρε τὰς πύλας τῆς πόκεως. Οἱ δὲ διώκοντες ἐγγίζοντες ἤδη ἕτοιμοι ἦσαν ἐκεῖνον συλλήψεσθαι, καὶ κἂν ἀπήχθη δέσμιος, εἰ μὴ σχοίνους ἐκ τοῦ τείχους ἄνωθεν καθιμήσαντες,, ταύταις αὐτὸν ἀνιμήσαντο. Οὕτω δὲ περισωθεὶς καὶ τῆς πόλεως ἐντὸς γεγονὼς, καὶ τὴν στρατιὰν ἀθροίσας αὐτίκα, καὶ λόγοις αὐτὴν παρακλητικοῖς εἰς ἀλκὴν διεγείρας, καὶ θάρσος οἷον ἐμπνεύσας αὐτῇ, ἔξεισιν εὐθὺς, καὶ συμμίξας τοῖς πολεμίοις νικᾷ νίκην περιφανῆ, ὥστε περὶ ἐξήκοντα χιλιάδας ἐκείνων πεσεῖν. Περσῶν δὲ Ναρσοῦ βασιλεύοντος, ὃς ἕβδομος ἀναγράφεται βασιλεῦσαι Περσῶν ἀπὸ Ἀρταξέρξου, οὗ πρόσθεν ἡ τῆς ἱστορίας συγγραφὴ ἐμνημόνευσεν, ὡς αὖθις Πέρσαις ἀνανεωμένου τὴν βασιλείαν·ετὰ γὰρ τὸν Ἀρταξέρξην τοῦτον ἢ τὸν Ἀρταξέρξην, διώνυμον ὄντα, Σαπώρης ἦρξε Περσῶν, καὶ μετ´ ἐκεῖνον Ὁρμίσδας, εἶτα Οὐαραράνης, καὶ μετὰ τοῦτον Οὐαραράκης, καὶ αὗθις ἄλλος Οὐαραράνης, καὶ ἐπὶ τούτοις Ναρσῆς. Τοῦ Ναρσοῦ τοίνυν τούτου τότε τὴν Συρίαν ληῖζομένου, τὸν ἵδιον γάμβρον τὸν Υαλλέριον Μαξιμῖνον ὁ Διοκλητιανὸς διὰ τῆς Αἰγύπτου ἐπὶ τοὺς Αἰθίοπας ἀπιὼν, συμβαλεῖν αὐτῷ μετὰ Συνάμεως ἀξιομάχου ἐξέπεμψεν· ὃς καὶ συμμίξας τοῖς. Πέρσαις ἡττήθη καὶ ἔφυγεν. Αὖθις δὲ μετὰ πλείονος αὐτὸν ὁ Διοκλητιανὸς ἐξέπεμψε στρατιᾶς. Συμβαλὼοὖν αὐτοῖς πάλιν οὕτως ἐνίκησεν, ὡς καὶ τὴν προτέραν ἔεταν ἀνεκαλέσασθαι. Τούς τε γὸ ρ πλείονας ἀπέκποιος τῶν Περσῶν, καὶ τὸν Ναρσῆν τρωθέντα μέχρι τῆς ἐνδοτέρας Περσίδος ἐδίωκε, καὶ τὰς τούτου γυναῖκας καὶ τοὺς παῖδας, καὶ ἀδελφὰς αἰχμαλώτους ἀπήγαγε, καὶ χρήματα ὄσα ἐπήγετο Ναρσῆς στρατευόμενος ἐχειρώσατο, καὶ πολλοὺς τῶν ἐν Πέρσαις περιφανῶν. Ἀναῤῥωσθεὶς δ´ ἐκ τοῦ τραύματος ὁ Ναρσῆς, πρεσβείας πρὸς Διοκλητιανὸν καὶ αλλέριον ἐποιήσατο, τοὺς παῖδας καὶ τὰς γυναῖκας ἀποδοθῆναι αὐτῷ ἀξιῶν, καὶ σπονδὰς θέσθαι εἰρηνικάς. Καὶ ἔτυχε τῆς αἰτήσεως, ἐκστὰς τοῖς Ῥωμαίοις ὅσων ἐβούλοντο. Καὶ ἄλλους δὲ πολλοὺς πολέμουζ κατώρθωσαν Διοκλητιανὸς καὶ Μαξιμιανὸς, τοὺς μὲν δι´ ἑαυτῶν ἢ τῶν Καισάρων, τοὺς δὲ διὰ στρατπνῶν. καὶ τοὺς ὄρους τῆς βασιλείας ἐπλάτυναν. Οἷς ἐπαρθείς ὁ Διοκλητιανὸς καὶ μέγα φρονήσας, σὐκέτι προσαγορεύεσθαι παρὰ τῆς γερουσίας ὡς πρώην ἠνείχετος ἀλλὰ προσκυνεῖσθαι ἐθέσπισε, καὶ τὰς ἐσθῆτας ἐαυτοῦ, καὶ τὰ ὑποδήματα χρυσῷ καὶ λίθοις καὶ μαργάροις ἐκόσμησε, καὶ πλείονα πολυτέλειαν οοῖς βασιλικοῖς παρασήμοις ἐνέθετο. Οἱ πρώην γὰρ βασιλεῖς κατὰ τοὺς ὑπάτους τετίμηντο, ἀαὶ τῆς βασιλείας παράσημον μόνον εἶχον πορφυροῦν περιβόλαιον. ΑΒʹ. Τοῦ δκωγμοῦ Σ ἐπιταθέντος, καὶ ἐναριθμήτων ἀνῆρῶν καὶ γυναικῶν ὑπὰρ τῆς εἰς Χριστὸν ἁμολογίας θνησκόντων, καὶ τῶν πιστῶν ἑτι πλεοναἰάντο, ν ἐκιιανέντες οἷ τύραννοι οὗτοι περὶ τὸ ἐννεακαιδέκατον ἕτος τῆς Διοκλητιανοῦ βασιλείας Πασπίσματα πανταχοῦ διεπέμψαντο, καθαιρεῖσθάι καὶ κατασκάπτεσθαι τὰς τῶν Χριστιανῶν ἐκκλησίας κελεύοντα, καὶ τὰς βέβλους αὐτῶν κατακαίεσθαι, καὶ τρὺς ἱερεῖς αὐτῶν ὡς διδασκάλους καὶ κήρυκας τῆς πίστεως ἀσυμπαθῶς προσαπόλλυσθαι."
+   }
+  ]
+ },
+ "token_conservation": {
+  "original": 287809,
+  "carved": 287031,
+  "residual": 0,
+  "dropped": 778,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub",
+   "tlg": "tlg3135.tlg003"
+  },
+  {
+   "slug": "joannes-zonaras.epitome-historiarum-lib-13-18",
+   "tlg": "tlg3135.tlg002"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub",
+  "joannes-zonaras.epitome-historiarum-lib-13-18"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG134; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG134, plan data/cgpg_carve_plan.json"
+}
