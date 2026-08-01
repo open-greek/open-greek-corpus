@@ -1,0 +1,273 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG158 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG158",
+  "source_urn": "cogPG.PG158",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG158 (consistency review: ok). Credited tlg3047.002 (Annales lectiones variae) is not identifiable in the served text (its PG appendix falls in the unserved rows 348-358) and gets no range",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG158.' (delete the file when it was 'created'), strip the 'PG158.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG158.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG158": {
+   "rows": 502,
+   "greek_tokens": 197345,
+   "sha256": "2f7d9afb7f2bb33bccc76499ae2aff640b845b708dbc2fc083538e4056aaf262"
+  }
+ },
+ "works": [
+  {
+   "slug": "michael-glycas.annales",
+   "tlg": "tlg3047.tlg001",
+   "title": "Annales",
+   "rank": "primary",
+   "file": "data/corpus/michael-glycas.annales.jsonl",
+   "mode": "created",
+   "rows": 299,
+   "greek_tokens": 114545,
+   "volume_loci": "49-347",
+   "locus_map": "cogPG.PG158 locus N -> michael-glycas.annales locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "49",
+     "incipit": "Βραχυσύλλαβον ἐγχαρόττω σοι τοῦτο τὸ γράμμα, τέκνον μου φἴλτατον. Εἰ γὰρ καὶ μυρίοις ἑαυτοὺς ἐκδεδώκασι πόνοις",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Incipit at 49 = known opening of Glycas' Annales (Bekker p. 3); explicit at 347 'διάδοχον καταλιπὼν τὸν υἱὸν αὐτοῦ τὸν Κωμνηνὲν Ἰωάννην' = known ending (death of Alexios I, 1118). Internal PARS II/III/IV title lines OCR'd at 151 ('ΡΑΚΘ ΙΙ. ΑΒ ΑΡΑΜΟ'), 228 ('ΡΑΚΘ ΙΙΙ'), 268 ('ΡΑΚΘ ΙΝ') match Migne conspectus cols 231/385/465 under the mapping real=2(L-35); conspectus puts Annales Pars I at col 27 = served 49."
+  },
+  {
+   "slug": "michael-glycas.epistolae",
+   "tlg": null,
+   "title": "Epistolae (I-XXIX; chapters of Eis tas aporias tes Theias Graphes)",
+   "rank": "primary",
+   "file": "data/corpus/michael-glycas.epistolae.jsonl",
+   "mode": "created",
+   "rows": 156,
+   "greek_tokens": 55680,
+   "volume_loci": "359-514",
+   "locus_map": "cogPG.PG158 locus N -> michael-glycas.epistolae locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "359",
+     "incipit": "ΕΠΙΣΤΟΛΗ Αʹ. Τῷ τιμιωτάτῳ μοναχῷ, καὶ στυλίτῃ κυρῷ Ἰωάννη τῷ Σιναῖνῃ. ΕΙ χρὴ συγκαταβαίνειν τοῖς πταίουσι, καὶ μὴ κατὰ λόγον αὐτοῖς ἐπιτιμᾷν τὰ προσήκοντα",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 127
+    }
+   ],
+   "evidence": "Title line 'ΕΡΙΘΤΟΙΑ Ιʹ. ΕΠΙΣΤΟΛΗ Αʹ' at 359; numbered ΕΠΙΣΤΟΛΗ headers Β-ΚΘ at 365, 393, 396, 399, 412, 426, 432, 435, 441, 444, 451, 454, 458, 484, 485, 492, 496, 499, 511, 512 match conspectus columns (Ep. I 647=359, II 659=365, III 715=393 ... XXIX 957=514) under real=2(L-35); letters end at 514 ('Εἰ δὲ προβολεὺς, καὶ τὰ ἑξῆς.') with Joannes Diaconus header opening 515. Conspectus: 'Michaelis Glycae Epistolae col 647'. No separate TLG work id in tlg_canon.json (tlg3047 has only 001/002)."
+  },
+  {
+   "slug": "joannes-diaconus-hadrianopolitanus.carmen-politicum",
+   "tlg": null,
+   "title": "Carmen politicum (encomiastic political verses to the emperor Palaiologos)",
+   "rank": "primary",
+   "file": "data/corpus/joannes-diaconus-hadrianopolitanus.carmen-politicum.jsonl",
+   "mode": "created",
+   "rows": 6,
+   "greek_tokens": 3073,
+   "volume_loci": "515-520",
+   "locus_map": "cogPG.PG158 locus N -> joannes-diaconus-hadrianopolitanus.carmen-politicum locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "516",
+     "incipit": "Ὀρεστιάδος εὐτελοῦς ἀξίαν οἰκονόμου, Καὶ διακόνου τῆς αὐτῆς ὀλβίας ἐκκλησίας, Τοὐπώνυ μον κατακαλοῦν τὴν κλῆσιν Ἰωάννου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 102
+    }
+   ],
+   "evidence": "Header 'ΟΑΚΜΕΝ ΡΟΕΙΤΙΟΩΜ' (= CARMEN POLITICUM) at 515 and 'ΟΑΝΝΙΘ ΒΙΑΟΟΝΙ δΑΛΜΕΝ ΡΟΙΙΤΙΩΟΜ' (= IOANNIS DIACONI CARMEN POLITICUM) at 516; poem self-names author as John, deacon of Orestias, dedicating to 'τῷ θείῳ στεφανηφόρῳ Παλαιολόγῳ'. Conspectus: 'Joannes Diaconus Hadrianopoleos col 959' = served 515.",
+   "notes": "row 515 carries only the garbled Latin CARMEN POLITICUM header; the Greek poem (and its incipit anchor) begins on row 516"
+  },
+  {
+   "slug": "esaias-cyprius.epistola-de-processione-spiritus-sancti",
+   "tlg": null,
+   "title": "Epistola (anti-Latin, on the procession of the Holy Spirit)",
+   "rank": "primary",
+   "file": "data/corpus/esaias-cyprius.epistola-de-processione-spiritus-sancti.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 706,
+   "volume_loci": "521-523",
+   "locus_map": "cogPG.PG158 locus N -> esaias-cyprius.epistola-de-processione-spiritus-sancti locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "521",
+     "incipit": "Καὶ ὁ γράψας καὶ ὁ διδάξας τὰ τεμάχη ἐκεῖνατῶν ῥητῶν ἀμαθὴς καὶ πάντη γραμμάτων ἄπειρός ἐστι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 77
+    }
+   ],
+   "evidence": "Garbled Latin header 'ΕΒΑΙΑΥΡΑΙΙ ΕΡΙΘΤΟΙΑ' (= ESAIAE [CYP]RII EPISTOLA) at 521; content is a Filioque polemic ending with an invitation to debate 'ἀπὸ τῶν βιβλίων τῶν σῶν' at 523. Conspectus: 'Esaias Cyprius col 971' = served 521. Served incipit may begin mid-piece (opening on real col 971 possibly preceded by a heading)."
+  },
+  {
+   "slug": "hilarion-monachus.oratio-dialectica-de-pane-mystico",
+   "tlg": null,
+   "title": "Logos dialektikos / Oratio dialectica de pane mystico Graecorum et azymo Latinorum",
+   "rank": "primary",
+   "file": "data/corpus/hilarion-monachus.oratio-dialectica-de-pane-mystico.jsonl",
+   "mode": "created",
+   "rows": 4,
+   "greek_tokens": 1412,
+   "volume_loci": "524-527",
+   "locus_map": "cogPG.PG158 locus N -> hilarion-monachus.oratio-dialectica-de-pane-mystico locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "524",
+     "incipit": "Ἐν τῷ μὲν διαλέγεσθαί με περὶ τοῦ ἄρτου μυστικοῦ τῶν Ἐλλήνων, καὶ ἀζύμου τῶν Λατίνων, ἐδείχθη μοι λόγος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 84
+    }
+   ],
+   "evidence": "Greek title line 'ΙΛΑΡΙΩΝΟΣ ΜΟΝΑΧΟΥ ΑΟΓΟΣ ΔΙΑΛΕΚΤΗΚΟΣ' with Latin 'ΟΑΤΙΟ ΒΙΑΚΕΩΤΙΟΑ ΡΕ ΡΑΝΕ...' (= ORATIO DIALECTICA DE PANE...) at 524; closes at 527 'παύσασθε αὐθαδ.ίας καὶ κακολογίας'. Conspectus: 'Hilario Monachus col 977' = served 524; rows 528-530 (Latin Notitia on Argyropulus, cols 983-990) absent."
+  },
+  {
+   "slug": "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem",
+   "tlg": null,
+   "title": "De processione Spiritus Sancti ad magnum ducem (Lucam Notaram), cum explanatione decreti synodi Florentinae",
+   "rank": "primary",
+   "file": "data/corpus/joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem.jsonl",
+   "mode": "created",
+   "rows": 9,
+   "greek_tokens": 3549,
+   "volume_loci": "531-539",
+   "locus_map": "cogPG.PG158 locus N -> joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "531",
+     "incipit": "αʹ. Ιᾶσι μὲν ἄλλοις ἐγώ σε τῶν εὐδαιμόνων νενόμικα, λαμπρότατε καὶ περιφανέστατε μέγα Δούξι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Chapter-numbered incipit (αʹ) addressed to the megas doux at 531; numbered chapters γʹ (533) through ιβʹ (539) on the procession of the Holy Spirit; closing at 539 'Δεῖ γάρ σοι πείθεσθαι πάντως, καθάπερ πατρὶ καὶ κηδεμόνι τοῦ γένους'. Agallianos' refutation at 541 refers back to what Argyropoulos 'πρὸς τὸν θαυμάσιον μέγαν Δούκαν γράφει'. Conspectus: 'De Processione Spiritus Sancti ad Magnum Ducem... col 991' = served 531. The appended 'Epistola ad Dominicum' (cols 1007-1010) is not distinguishable in the served text (row 540 missing).",
+   "notes": "Joannes Argyropulus is TLG author tlg4237, but this work has no TLG id; the slug reuses the canon author slug"
+  },
+  {
+   "slug": "theodorus-agallianus.refutatio-contra-joannem-argyropulum",
+   "tlg": null,
+   "title": "Refutatio (dialogus) contra Ioannem Argyropulum",
+   "rank": "primary",
+   "file": "data/corpus/theodorus-agallianus.refutatio-contra-joannem-argyropulum.jsonl",
+   "mode": "created",
+   "rows": 20,
+   "greek_tokens": 16590,
+   "volume_loci": "541-560",
+   "locus_map": "cogPG.PG158 locus N -> theodorus-agallianus.refutatio-contra-joannem-argyropulum locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "541",
+     "incipit": "Κάρις πολλὴ τῷ πάντα ἀρίστῳ καὶ σοφῷ Ἀργυροπούλῳ, ὅτι καὶ τοῦ δέους ἡμᾶς ἀπήλλαξεν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 68
+    }
+   ],
+   "evidence": "Header 'ζΟΝΤΗΑ ΙΟΑΝΝΕΜ ΑΚΩΥΚΟΡΙΙΙΜΝ' (= CONTRA IOANNEM ARGYROPULUM) at 541; alternating speaker labels ΑΡΓΥΡΟΠΟΥΛΟΣ / ΑΓΑΛΛΙΑΝΟΣ throughout 542-560; work closes early in 561 ('...ἡμῖν ἴσως ποτὲ γενήσεται.'). Conspectus: 'Theodorus Agallianus col 1011' = served 541.",
+   "notes": "shared boundary row 561 (Refutatio explicit + Josephus confessio) is assigned to the Confessio, which the row carries"
+  },
+  {
+   "slug": "josephus-ii-patriarcha.confessio-fidei",
+   "tlg": null,
+   "title": "Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439)",
+   "rank": "primary",
+   "file": "data/corpus/josephus-ii-patriarcha.confessio-fidei.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 236,
+   "volume_loci": "561-561",
+   "locus_map": "cogPG.PG158 locus N -> josephus-ii-patriarcha.confessio-fidei locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "561",
+     "incipit": "Ἰωσὸα ἐλέῳ Θεοῦ ἀρχιεπίσκοπος Κωνσταντινοι. πόλεως νέας Ῥώμης καὶ οἰκουμενικὸς πατριάρχης.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 78
+    }
+   ],
+   "evidence": "Headers within 561: 'ΛΟΝΕΕΘΘΙΟ ΕΙΟΕΙ' (= CONFESSIO FIDEI, with citation of Mansi t. XXXI) and 'ΗΤΕΛΕΥΤΑΙΑ ΓΝΟΜΗ ΤΟΥ ΠΑΤΡΙΑΡΧΩΥ'; text internally dated 9 June 1439, indiction 2. Conspectus: 'Josephus Cpolitanus Patriarcha col 1051' = served 561. The 'IOSEPHI PATRIARCHAE EPITAPHIUM' header at top of 562 belongs to this section, but no Greek epitaph text is served."
+  },
+  {
+   "slug": "job-monachus.prooemium-in-psalmos",
+   "tlg": null,
+   "title": "Prooemium (to an exposition of the Psalms)",
+   "rank": "primary",
+   "file": "data/corpus/job-monachus.prooemium-in-psalmos.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 340,
+   "volume_loci": "562-563",
+   "locus_map": "cogPG.PG158 locus N -> job-monachus.prooemium-in-psalmos locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "562",
+     "incipit": "Σκοπός ἐστιν ἡμῖν αὐτοσχεδιάζουσιν ἐν τῷ τὰς ἰεκὰς Δαυγτικὰς φωνὰς ἀναξαίνειν, ὡς ἀρωματικήν τινα θυμιαμάτων εὐωδίαν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 100
+    }
+   ],
+   "evidence": "Header at 562 '...ΡΕΩΩΑΤΟΚΙΘ ΡΗΟΣΜΙΟΜ' (= [IOBI] PECCATORIS PROOEMIUM) directly after the Josephi epitaphium caption; content is a proem to expounding 'τὰς ἱερὰς Δαυιτικὰς φωνάς' (the Psalms). Conspectus: 'Job Monachus col 1053' = served 562."
+  },
+  {
+   "slug": "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis",
+   "tlg": null,
+   "title": "Narratio de vita Mohammedis (on Muhammad the pseudo-prophet)",
+   "rank": "primary",
+   "file": "data/corpus/anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 1214,
+   "volume_loci": "574-575",
+   "locus_map": "cogPG.PG158 locus N -> anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis locus 'PG158.N'",
+   "incipit_checks": [
+    {
+     "locus": "574",
+     "incipit": "Ὁ τρισκατάρατος καὶ ἀθεώτατος Μωάμεδ, ὃς καὶ παρὰ τοῖς Ἀγαρηνοῖς τοῖς αὐτῷ ὑπηκόοις Μαχούμετ ἐπονομάζεται",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Header 'ΑΝΟΝΥΜΙ ΝΑΗ[Ϝ]ΑΙΟ ΒΕ viΤΑ ΜΟΠΑΜΜΕΩΙΘ' (= ANONYMI NARRATIO DE VITA MOHAMMEDIS) at 574; piece ends at 575 with 'Τοῦτο μὲν ἐν συνόψει εἴρηται περὶ τούτου ἅπαν τὸ ἐληθές. Τέλος.' Conspectus: 'Anonymus col 1077' = served 574; served volume ends at 575 (real 1080; Syllabus/indices follow at 1081+)."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 197345,
+  "carved": 197345,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "michael-glycas.annales",
+   "tlg": "tlg3047.tlg001"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "michael-glycas.annales",
+  "michael-glycas.epistolae",
+  "joannes-diaconus-hadrianopolitanus.carmen-politicum",
+  "esaias-cyprius.epistola-de-processione-spiritus-sancti",
+  "hilarion-monachus.oratio-dialectica-de-pane-mystico",
+  "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem",
+  "theodorus-agallianus.refutatio-contra-joannem-argyropulum",
+  "josephus-ii-patriarcha.confessio-fidei",
+  "job-monachus.prooemium-in-psalmos",
+  "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG158; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG158, plan data/cgpg_carve_plan.json"
+}
