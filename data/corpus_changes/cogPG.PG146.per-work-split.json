@@ -1,0 +1,104 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG146 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG146",
+  "source_urn": "cogPG.PG146",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG146. The volume is one continuous work (Historia ecclesiastica books 8-14); the seven per-book entries of the identification become one corpus work with per-book incipit anchors",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG146.' (delete the file when it was 'created'), strip the 'PG146.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG146.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG146": {
+   "rows": 630,
+   "greek_tokens": 238878,
+   "sha256": "d19e20d66ca76a172db901dd1a7060c14c8abb45ae050dc7ba1bb2ab1f402b92"
+  }
+ },
+ "works": [
+  {
+   "slug": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
+   "tlg": null,
+   "title": "Historia ecclesiastica, libri VIII-XIV (PG 146; books 1-7 and 15-18 are in PG 145/147, not served)",
+   "rank": "primary",
+   "file": "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl",
+   "mode": "created",
+   "rows": 630,
+   "greek_tokens": 238878,
+   "volume_loci": "12-644",
+   "locus_map": "cogPG.PG146 locus N -> nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14 locus 'PG146.N'",
+   "incipit_checks": [
+    {
+     "locus": "12",
+     "incipit": "ΚΕΦΑΛ. Αʹ. Ἀνακεφαλαίωσις τῶν πρωῤῥηθέντων καὶ ὧν ἐν τώ παρόντι διαληψόμεθα. λσα μὲν δὴ τῷ ἰσαποστόλω νεγένηται Κωνσταντίνῳ, πρὶν ἐς ἀντίπαλον κριθῆναι μοῖραν Λικινίῳ τῷ δυσσεβεῖ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 149
+    },
+    {
+     "locus": "119",
+     "incipit": "ΘἽ ΟΑΡΤ Ι. ΚΕΦΛΛ. Α Προοίμιον τῆς τοῦ τόμου ὃλης ἐκθέσεως· ἔσα ἐντὸς περιέξει. Ὑπὲρ μὲν οὗν τῶν τῇ καθόλου Ἐκκλησίᾳ ἐπισυμβάντων, ἔτι τῷ ζῇν περιόντος τοῦ Κωνσταντίνου, ἀποχρώντως ἡμῖν εἰρῆσθαι δοκεῖ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 162
+    },
+    {
+     "locus": "224",
+     "incipit": "ΚΕΦΑΛ. Αʹ. Περὶ βίου καὶ ἀγωγῆς τοῦ παραβάτου Ἰου λιανοῦ · καὶ ὡς Θεοῦ παραχωρήσει βασιλεὺς Ῥομαίων ἀνηγορεύθη. Κωνστάντιος μὲν οὖν τοῦτον ἀπεβίω τὸν τρόπον, οὐκ ἐλαχίστῳ χρώμενος μεταμέλῳ τῇ καινοτομίᾳ τῆς πατρικῆς πίστεως.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 185
+    },
+    {
+     "locus": "300",
+     "incipit": "ΚΕΦΑΛ. Αʹ. Α γερὶ διαίτης καὶ πολιτείας τοῦ βασιλέως Οὐαλεντινιανοῦ · ἔτι δὲ καὶ περὶ τοῦ ἀδελφοῦ αὐτοῦ Οὐάλεντος. Ἀλλ´ οὕτω μὲν ἀποστάτης ἀνήρηται· οὕτω δὲ καὶ Ἰοβιανὸς ὁ εὐσεβέστατος βασιλεὺς ἐν τοῖς μεθορίοις Γαλατῶν τε καὶ Βιθυνῶν ἐτελεύτα τὸν βίον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 206
+    },
+    {
+     "locus": "381",
+     "incipit": "ΚΕΦΑΛ. Αʹ. Περὶ τῆς βασιλείας Γρατιανοῦ καὶ Οὴμλεκτικια νρῦ τεῦ νέου, καὶ ὡς κοινωνὸν τῆς ἀρχῆς καὶ ἐλιρδύσιον τὸν Μέγαν προσίεντρ Λιπόντος δ´ τὔτω τὸν βίον Οὐάλεντος, οἱ βάρβαροι τῷ παρὰ δόξαν ἐπαρθέντες τροπαίῳ, πᾶσαν ἐπῆλθον τὴν Θρᾴκην δῃοῦντες",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 203
+    },
+    {
+     "locus": "468",
+     "incipit": "Αʹ. Περὶ τῆς βασιλείας Ὁνωρίου καὶ Ἀρκαδίου· Κὡς Ἀρκαδίῳ μέν Ῥουφῖνος παρεδυνάστειεν· Ὁνωρίῳ δέ Στελίχων ἐν ἑσπέρα τὴν αὐτὴν ἐπλήρου τάξιν· καὶ ὅπως τηνικαῦτα κοινὰ καὶ τὰ τῶν ἐκκλησιῶν ἐφέρετο πράγματα. Λαμπρῶς δ´ οὔτω τὴν Ἐκκλησίαν αὐξήσας ὁ μέγιστος Θεοδόσιος, ἐτελεύτα ἐπὶ διαδόχοις δυσὶ τοῖς παισίν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 251
+    },
+    {
+     "locus": "535",
+     "incipit": "ΚΕΦΑΛ. Αʹ. μρὶ τῆς βασιλείας τοῦ Νέου Θεοδοσίου· ὀς ὑπὸ ἐπινρόπῳ Ἰσδιγέρδῃ τῷ Περσῶν βασιλεῖ διῳκεῖτο · τὰ δὲ πράγματα διὰ χειρὸς ἦγεν Ἀνθέμιος τὰ πολλὰ Τρωῖλῳ τῷ σοφιστῇ συγγινόμενος. Ἰωάννης μὲν οὖν τὴν γλῶτταν χρυσοῦς τῷ πολλῷ τῶν ὑπὲρ Χριστοῦ ἀγώνων καμάτῳ οἶαπερ χρυσίον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 226
+    }
+   ],
+   "evidence": "First served row (locus 12 = col 9) opens with HE 8.1 'Ἀνακεφαλαίωσις τῶν πρωῤῥηθέντων'; book closes at locus 118 with the era formula 'ἀπὸ δὲ τῆς θείας τοῦ Κυρίου γεννήσεως τριακοσιοστὸν τεσσαρακοστὸν βʹ ἐπεραίνετο' (OCR; loci 12-118). || Nicephorus Callistus Xanthopulus, Historia ecclesiastica, liber IX (sons of Constantine, Constantius II, Athanasius, the synods to 361): Locus 119 (col 223) opens with garbled Latin header ('ΘἽ ΟΑΡΤ Ι.' = LIBER IX CAPUT I) and the book 9 proem; locus 223 carries the explicit close 'ἡ παροῦσα ἐνάτη μοι τῶν ἱστοριῶν ... τριακοσιοστὸν ἑξηκοστὸν ἕβδομον ἐπεραίνετο' (loci 119-223). || Nicephorus Callistus Xanthopulus, Historia ecclesiastica, liber X (Julian the Apostate, Jovian): Locus 224 (col 433) opens with HE 10.1 on Julian; narrative on Jovian runs to locus 299, which ends mid-word ('...εἰς Ταροὸν τὴν τῶν Κιλίκων γενόμενος, ἐκε'); book 10's closing era formula is missing from the OCR at the 299/300 page break (loci 224-299). || Nicephorus Callistus Xanthopulus, Historia ecclesiastica, liber XI (Valentinian I and Valens, monastic history, to 380): Locus 300 (col 585) opens with HE 11.1 on Valentinian; book closes within locus 381 with 'Ὁπηνίκα κόσμου μὲν ἔτος εωαʹ. Ἁπὸ δὲ τῆς θείας τοῦ Κυρίου γεννήσεως τς´ καὶ πʹ ἐπεραίνετο' (year 380; loci 300-381). Missing loci 309, 313, 315 fall inside this book. || Nicephorus Callistus Xanthopulus, Historia ecclesiastica, liber XII (Gratian, Valentinian II, Theodosius I, council of 381): Book 12 starts mid-locus 381 (col ~747) right after book 11's era formula, preceded by garbled Latin header 'ΝΙΩΕΡΗΟΚΙ ΟΑΙΓΙΘΤΙ ΧΑΝΤΗΟΡΟΙΙ' (NICEPHORI CALLISTI XANTHOPULI); closes at locus 467 tail with 'ἡ παραῆσα δωδεκάτη μοι τῶν ἱστοριῶν χρόνον ἐτῶν ὀκτωκαίδεκα ... τέταρτον καὶ τετρακο[σιοστόν]' (year 394/5; loci 381-467). || Nicephorus Callistus Xanthopulus, Historia ecclesiastica, liber XIII (Arcadius and Honorius, John Chrysostom, to 418): 'ΚΕΦΑΛ.' sits at the very end of locus 467 with the chapter title and text opening locus 468 (col 921); HE 13.2 on Chrysostom's upbringing follows at locus 471; closes within locus 535 with era formula 'τετρακο αιρστὸν ὀκτωκαιδέκατον ἐπεραίνετο' (year 418; loci 467-535). || Nicephorus Callistus Xanthopulus, Historia ecclesiastica, liber XIV (Theodosius II, Nestorius, Ephesus, to 450): Book 14 starts mid-locus 535 (col ~1055) after book 13's era formula and the garbled 'ΝΙΟΕΡΗΟΚΙ ΔΑΙΙΙΦΤΙ ΧΑΝΤΗΟΡΟi' header; last served row (locus 644 = col 1273) ends with Theodosius II's death, Marcian's accession, and the explicit close 'ἡ παροῦσα τεσσαρεσκαιδεκάτη μοι τῶν ἱστοριῶν χρόνον ἐτῶν τεσσαράκοντα πρὸς δυσίν ... τετρακοσιοστὸν καὶ ἑξηκοστὸν ἐπεραίνετο' (loci 535-644).",
+   "notes": "book XIII: the bare ΚΕΦΑΛ. marker sits at the very end of row 467; the chapter title and text (the incipit anchor) open row 468"
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 238878,
+  "carved": 238878,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG146; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG146, plan data/cgpg_carve_plan.json"
+}
