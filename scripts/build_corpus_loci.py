@@ -81,6 +81,9 @@ CORPUS = DATA / "corpus"
 
 L_TAG = f"{{{TEI_NS}}}l"
 DIV_TAG = f"{{{TEI_NS}}}div"
+# Unnumbered textpart subtypes served as citable rows (locus = the subtype
+# name). Only transmitted front matter; see the curation note in iter_passages.
+SERVED_UNNUMBERED_SUBTYPES = {"hypothesis"}
 MILESTONE_TAG = f"{{{TEI_NS}}}milestone"
 LB_TAG = f"{{{TEI_NS}}}lb"
 
@@ -410,7 +413,15 @@ def iter_passages(root):
     # token is never counted twice (once for the div, once for the finer unit).
     numbered_divs = [d for d in body.iter(DIV_TAG)
                      if _is_textpart(d) and d.get("n") is not None]
-    claimed = set(line_locus) | set(numbered_divs)
+    # Transmitted front matter under an UNNUMBERED subtype div: the drama
+    # hypotheseis (First1K Aeschylus). A curated set, not every subtype:
+    # unnumbered subtypes are overwhelmingly drama-structure containers
+    # (episode/choral/anapests/...) whose text is already served via their
+    # verse lines, and serving those as rows would emit junk residue.
+    subtype_divs = [d for d in body.iter(DIV_TAG)
+                    if _is_textpart(d) and d.get("n") is None
+                    and d.get("subtype") in SERVED_UNNUMBERED_SUBTYPES]
+    claimed = set(line_locus) | set(numbered_divs) | set(subtype_divs)
 
     def bekker_pages(el):
         """Distinct Bekker pages that have Greek text in this passage, in
@@ -451,6 +462,34 @@ def iter_passages(root):
     out = []
     for div in numbered_divs:
         out.append((ancestor_chain(div) + [div.get("n")], div, passage_text(div, claimed)))
+    seen_subtype: dict = {}
+    for div in subtype_divs:
+        parts = ancestor_chain(div) + [div.get("subtype")]
+        k = tuple(parts)
+        seen_subtype[k] = seen_subtype.get(k, 0) + 1
+        if seen_subtype[k] > 1:                      # repeated at one prefix
+            parts = parts[:-1] + [f"{div.get('subtype')}-{seen_subtype[k]}"]
+        out.append((parts, div, passage_text(div, claimed)))
+    # Loose Greek directly under the edition div BEFORE its first citable
+    # content (the Libanius declamation themata): direct children up to the
+    # first child holding a claimed unit, emitted once under locus "pr".
+    for ed in body.iter(DIV_TAG):
+        if ed.get("type") != "edition":
+            continue
+        pre: list = []
+        for ch in ed:
+            if not isinstance(ch.tag, str):
+                continue
+            if ch in claimed or any(d in claimed for d in ch.iter()):
+                break
+            if is_dropped(ch):
+                continue
+            t = passage_text(ch, claimed)
+            if t:
+                pre.append(t)
+        text = " ".join(pre)
+        if _GK.search(text):
+            out.append((["pr"], ed, text))
     for ln, parts in line_locus.items():
         out.append((parts, ln, passage_text(ln, claimed)))
 
