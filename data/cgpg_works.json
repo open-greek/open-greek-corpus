@@ -1588,64 +1588,139 @@
   "volume": "PG157",
   "urn": "cogPG.PG157",
   "kind": "volume",
-  "desc": "George Codinus; Ducas; Chronicon breve",
+  "desc": "George Codinus; Ducas; Chronicon breve (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 412,
-  "n_tokens": 123862,
+  "n_passages": 0,
+  "n_tokens": 0,
+  "works": []
+ },
+ {
+  "volume": "PG157",
+  "urn": "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos",
+  "kind": "work",
+  "desc": "Pseudo-Codinus - De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae) (PG157 loci 20-68)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 49,
+  "n_tokens": 18742,
+  "works": [
+   {
+    "tlg_id": "tlg3168",
+    "work_id": "001",
+    "title": "De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae)",
+    "author": "Pseudo-Codinus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG157",
+  "urn": "pseudo-codinus.patria-constantinopoleos",
+  "kind": "work",
+  "desc": "Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 101,
+  "n_tokens": 25157,
   "works": [
    {
     "tlg_id": "tlg3168",
     "work_id": "005",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 23058,
-    "title": "Patria Constantinopoleos",
-    "author": "Pseudo-CODINUS",
+    "title": "Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis)",
+    "author": "Pseudo-Codinus",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG157",
+  "urn": "pseudo-codinus.de-annis-ab-orbe-condito",
+  "kind": "work",
+  "desc": "Pseudo-Codinus - De annis ab orbe condito (Chronicon breve, from Adam to 1453) (PG157 loci 325-332)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 8,
+  "n_tokens": 2652,
+  "works": [
    {
     "tlg_id": "tlg3168",
-    "work_id": "007",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 2775,
-    "title": "Patria Constantinopoleos (ordo et tituli paragraphorum, quem",
-    "author": "Pseudo-CODINUS",
+    "work_id": "004",
+    "title": "De annis ab orbe condito (Chronicon breve, from Adam to 1453)",
+    "author": "Pseudo-Codinus",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG157",
+  "urn": "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai",
+  "kind": "work",
+  "desc": "Patria Constantinopoleos (anonymous, printed under Codinus) - Parastaseis syntomoi chronikai (with Peri theamaton section) (PG157 loci 333-369)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 37,
+  "n_tokens": 7796,
+  "works": [
    {
-    "tlg_id": "tlg3168",
-    "work_id": "006",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 2612,
-    "title": "Patria Constantinopoleos (variae lectiones)",
-    "author": "Pseudo-CODINUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg3168",
+    "tlg_id": "tlg3120",
     "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 19183,
-    "title": "De officiis (%6 officia palatii Constantinopoleos)",
-    "author": "Pseudo-CODINUS",
+    "title": "Parastaseis syntomoi chronikai (with Peri theamaton section)",
+    "author": "Patria Constantinopoleos (anonymous, printed under Codinus)",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG157",
+  "urn": "patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum",
+  "kind": "work",
+  "desc": "Patria Constantinopoleos (anonymous, printed under Codinus) - De sepulcris imperatorum quae sunt in templo sanctorum apostolorum (PG157 loci 370-377)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 8,
+  "n_tokens": 746,
+  "works": [
+   {
+    "tlg_id": "tlg3120",
+    "work_id": "004",
+    "title": "De sepulcris imperatorum quae sunt in templo sanctorum apostolorum",
+    "author": "Patria Constantinopoleos (anonymous, printed under Codinus)",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG157",
+  "urn": "ducas.historia-turcobyzantina",
+  "kind": "work",
+  "desc": "Ducas - Historia Turcobyzantina (PG157 loci 382-590)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 209,
+  "n_tokens": 68729,
+  "works": [
    {
     "tlg_id": "tlg3146",
     "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 70405,
     "title": "Historia Turcobyzantina",
-    "author": "DUCAS",
+    "author": "Ducas",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG158",
