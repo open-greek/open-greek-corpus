@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 10834,
-    "authors": 3241,
+    "works": 10988,
+    "authors": 3279,
     "editions": 8934,
-    "pct_works_with_canonical_locus": 37.1,
-    "pct_works_with_logical_served_locus": 9.8,
+    "pct_works_with_canonical_locus": 36.6,
+    "pct_works_with_logical_served_locus": 9.7,
     "pct_works_with_work_qid": 5.3,
-    "pct_works_with_author_qid": 55.6,
-    "pct_authors_with_wikidata": 43.3,
-    "served_works": 3668,
-    "pct_served_in_registry": 78.2,
-    "pct_served_with_work_qid": 13.7,
-    "pct_served_with_author_qid": 74.7,
-    "pct_served_with_any_anchor": 89.7,
-    "pct_served_with_logical_served_locus": 56.3
+    "pct_works_with_author_qid": 54.8,
+    "pct_authors_with_wikidata": 42.8,
+    "served_works": 3822,
+    "pct_served_in_registry": 76.1,
+    "pct_served_with_work_qid": 13.2,
+    "pct_served_with_author_qid": 75.0,
+    "pct_served_with_any_anchor": 87.2,
+    "pct_served_with_logical_served_locus": 53.7
   },
   "work_aliases": {
     "cts": {
-      "count": 10834,
+      "count": 10988,
       "pct": 100.0
     },
     "wikidata": {
@@ -39,20 +39,20 @@
   },
   "author_aliases": {
     "wikidata": {
-      "count": 1404,
-      "pct": 43.3
+      "count": 1402,
+      "pct": 42.8
     },
     "viaf": {
       "count": 1355,
-      "pct": 41.8
+      "pct": 41.3
     },
     "gnd": {
       "count": 1332,
-      "pct": 41.1
+      "pct": 40.6
     },
     "isni": {
       "count": 757,
-      "pct": 23.4
+      "pct": 23.1
     },
     "trismegistos": {
       "count": 0,
@@ -87,7 +87,7 @@
   },
   "canonical_locus": {
     "works_with_logical_locus": 4018,
-    "pct": 37.1,
+    "pct": 36.6,
     "works_only_physical_or_none": 3171,
     "by_scheme": {
       "fragment.line": 1445,
@@ -351,7 +351,7 @@
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
     "works_with_logical_served_locus": 1065,
-    "pct": 9.8,
+    "pct": 9.7,
     "served_logical_depth_distribution": {
       "1": 141,
       "2": 540,
@@ -417,7 +417,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9196,
+      "count": 9350,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -475,11 +475,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3668,
-    "in_registry": 2868,
+    "served_works": 3822,
+    "in_registry": 2909,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 800,
+      "count": 913,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -515,6 +515,7 @@
         "anonymi.fragmenta",
         "anonymus-author-of-vita-cononis.vita-sancti-cononis-bidanae",
         "anonymus-corinthius.fragmenta",
+        "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis",
         "anonymus-milesius.fragmenta",
         "anonymus-pseudo-john-chrysostom-pseudo-basil-of-caesarea.homilia-de-sancta-dominica",
         "anonymus-pseudo-john-chrysostom.homilia-de-dominica-die",
@@ -529,17 +530,16 @@
         "antigonus.fragmenta",
         "antileo.fragmenta",
         "antilochus.fragmenta",
-        "antiochianus.fragmenta",
-        "antipater.fragmenta-fhg"
+        "antiochianus.fragmenta"
       ]
     },
-    "with_work_qid": 502,
-    "with_author_qid": 2741,
-    "with_any_external_anchor": 3292,
-    "with_logical_served_locus": 2064,
+    "with_work_qid": 503,
+    "with_author_qid": 2865,
+    "with_any_external_anchor": 3334,
+    "with_logical_served_locus": 2054,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2239,
+      "count": 2362,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -597,7 +597,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5445,
+      "count": 5439,
       "examples": [
         {
           "work": "abydenus.fragmenta",
@@ -902,7 +902,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1837,
+      "count": 1877,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -929,6 +929,7 @@
         "anon-achilles-tatius-scr-erot",
         "anon-acta-barnabae",
         "anon-acta-joannis",
+        "anon-acta-justini-et-septem-sodalium",
         "anon-acta-philippi",
         "anon-acta-thomae",
         "anon-acusilaus",
@@ -952,8 +953,7 @@
         "anon-agathange",
         "anon-agatharchides-geography",
         "anon-agatharchides-samius",
-        "anon-agathemerus",
-        "anon-agathias-scholasticus"
+        "anon-agathemerus"
       ]
     },
     "works_without_canonical_locus": {
