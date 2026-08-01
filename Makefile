@@ -99,7 +99,10 @@ sourcing: $(REGISTRY) $(COVERAGE_REPORT) $(CROSSWALK_REPORT)
 # `make oga-metadata`); a change to it re-applies the OGA dating tags. The curated
 # data/oga_dating_adjudication.json resolves the genuine (|delta| >= 2) OGA-vs-cog
 # divergences; a change to it re-applies those decisions.
-$(REGISTRY): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json data/author_authority.json data/work_authority.json data/pseudo_author_attributions.json
+data/served_scheme_inference.json: $(CORPUS_EDITIONS) scripts/infer_served_schemes.py
+	$(PY) scripts/infer_served_schemes.py
+
+$(REGISTRY): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json data/author_authority.json data/work_authority.json data/pseudo_author_attributions.json data/served_scheme_inference.json source_identity.py
 	$(PY) scripts/build_registry.py
 $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_report.py scripts/source_precedence.py
 	$(PY) scripts/build_coverage_report.py

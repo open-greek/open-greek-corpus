@@ -929,6 +929,27 @@ def build() -> Registry:
     # minted, so it can tag any of them.
     apply_oga_dating(reg)
 
+    # Served-scheme inference (scripts/infer_served_schemes.py): a served work
+    # whose default edition declares NO scheme but whose actual loci are
+    # dominantly logical numerics gets the inferred scheme (canon cit_scheme
+    # when its depth matches, else generic ref/sub labels), marked inferred.
+    # Fills only EMPTY schemes; a declared scheme, physical or logical, wins.
+    inf_path = REPO / "data" / "served_scheme_inference.json"
+    n_inferred = 0
+    if inf_path.exists():
+        inferred = json.loads(inf_path.read_text(encoding="utf-8"))["works"]
+        for ws, w in reg.works.items():
+            de = w.default_edition
+            ed = w.editions.get(de) if de else None
+            rec = inferred.get(ws)
+            if (ed is not None and not (ed.scheme or "").strip()
+                    and rec and rec.get("class") == "logical-numeric"):
+                ed.scheme = rec["scheme"]
+                ed.scheme_inferred = True
+                n_inferred += 1
+        print(f"  + {n_inferred} served default editions gained an inferred "
+              f"scheme (data/served_scheme_inference.json)", file=sys.stderr)
+
     print(f"  + {n_authority} authors gained external authority aliases "
           f"(wikidata/viaf/gnd/isni){' [author_authority.json absent]' if not authority else ''}",
           file=sys.stderr)
