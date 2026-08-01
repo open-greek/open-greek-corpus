@@ -513,6 +513,23 @@ each zone's other-scan read is a same-print twin witness in corpus_secondary
 to arnim-svf3-1903.paratexta. Audit + full row backups live in the upstream
 OCR pipeline's data/corrections/svf3_catchall_dissolve/.
 
+`scripts/rekey_novellae_by_novel.py` (2026-07-31) re-keyed the Justinian
+Novellae (flavius-justinianus-imperator.novellae, the full Schoell-Kroll
+Corpus Iuris Civilis III OCR) from scan-page loci to novel-number loci
+(`<novel 1-168>.p<printed page>.<seg>`, plus `ed<1-13>.` for the Edicts,
+`app.` for the Appendix and `praef.` for the Latin front matter), since every
+citation scheme for the Novellae is novel-based (LSJ cites `Nov. 4.2`). Novel
+boundaries come from a per-novel printed start page + line concordance
+(structural headings of the TLG-E digitization of the same print, stigma/
+koppa numeral repairs under strict monotonicity) embedded in the script and
+confirmed against the OCR's own heading rows at a constant scan-printed
+offset of 30; the 16 novels Schoell-Kroll transmits in Latin only have no
+Greek heading, and their pages stay with the preceding novel. Text and row
+order are untouched (asserted), the old keys are recoverable by formula
+(scan = printed + 30), and the same run merged the stale `ocr_works.json`
+rows left over from the contra-monophysitas mis-slug rescope. Audit:
+`data/corpus_changes/flavius-justinianus-imperator.novellae.novel-rekey.json`.
+
 After a work is renamed, re-scoped, or dissolved, run
 `scripts/rekey_corrections_log.py --write`: it re-keys the read-only
 `data/corrections_log/` audit mirror to the works now serving each row's page
