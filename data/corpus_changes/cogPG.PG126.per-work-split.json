@@ -1,0 +1,448 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG126 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG126",
+  "source_urn": "cogPG.PG126",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG126",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG126.' (delete the file when it was 'created'), strip the 'PG126.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG126.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG126": {
+   "rows": 617,
+   "greek_tokens": 225938,
+   "sha256": "a5aa5c4c374c3a47440c7370e6ae1c7d64b379d5a5a250fcf60ef459f13dd056"
+  }
+ },
+ "works": [
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-i-joannis",
+   "tlg": null,
+   "title": "Expositio in epistolam I Joannis",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-joannis.jsonl",
+   "mode": "created",
+   "rows": 29,
+   "greek_tokens": 12346,
+   "volume_loci": "12-40",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-epistolam-i-joannis locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "12",
+     "incipit": "Ἐπειδὴ αὐτὸς ὁ Ἰωάννης, ὁ τὸ Εὐαγγέλιον γράψας, αὐτὸς καὶ ταύτην ἐπιστέλλει, ὑπομιμνήσκων τοὺς ἤδη πιστεύσαντας εἰς τὸν Κύριον.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 105
+    }
+   ],
+   "evidence": "Locus 12 opens with title 'ΘΕΟΦΥΛΑΚΤΟΥ ΕΙΣ ΤΗΝ Αʹ ΤΟΥ ΑΓΙΟΥ ΙΑΝΝΟΥ [sic] ΕΠΙΣΤΟΛΗΝ. ΥΠΟΘΕΣΙΣ ΤΗΣ Αʹ ΕΠΙΣΤΟΛΗΣ ΙΩΑΝΝΟΥ' followed by hypothesis and kephalaia list ('ΚΕΦΑ.ΛΑΙΑ ΤΙΙΣ Αʹ ΕΗΙΣΤΟΛΗΣ'); runs to the 2 Jo hypothesis heading inside locus 41.",
+   "notes": "shared boundary row 41 goes to the 2 John work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ii-joannis",
+   "tlg": null,
+   "title": "Expositio in epistolam II Joannis",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ii-joannis.jsonl",
+   "mode": "created",
+   "rows": 6,
+   "greek_tokens": 2162,
+   "volume_loci": "41-46",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-epistolam-ii-joannis locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "41",
+     "incipit": "Ταύτην ὡς πρεσβύτερος γράφει Ἐκλεκτῇ κυρίᾳ καὶ τοῖς τέκνοις αὐτῆς.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 56
+    }
+   ],
+   "evidence": "Locus 41: Latin argumentum leakage 'ΑΕΩΜΕΝΤΗΜ ΣΕΟΗΝΒΕ ΟΑΤΗΟΙΙΩ' (=Argumentum secundae catholicae) + 'ΥΠΟΘΕΣΙΣ ΤΗΣ Βʹ ΚΑΘΟΑΙΚΗΣ ΕΗΙΣΤ. ΙΩΑΝΝΟΥ'; locus 42 heading 'ΕΠΙΣΤΟΛΗ ΔΕΥΤΕΡΑ ΤΟΥ ΑΓΙΟΥ ΑΠΟΣΤΟΛΟΥ ΙΩΑΝΝΟΥ' with lemma 'Ὃ πρεσβύτερος Ἐκλεκτῇ κυρίᾳ'.",
+   "notes": "shared boundary row 47 goes to the 3 John work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-iii-joannis",
+   "tlg": null,
+   "title": "Expositio in epistolam III Joannis",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-iii-joannis.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 824,
+   "volume_loci": "47-49",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-epistolam-iii-joannis locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "47",
+     "incipit": "πατιν ἡ Ἐπιστολὴ περὶ φιλοξενίας· καὶ πρῶτον μὲν ἀποδέχεται τὸν Γάϊον, μαρτυρούμενον παρὰ πὰντων ἐπὶ φιλοξενίᾳ.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Locus 47: 'ΥΠΟΘΕΣΙΣ ΤΗΣ ΙΟΑΝΝον ΤΡΙΤΑΣ ΕΠΙΣΤΟΑΙΣ' + 'ΚΕΦΑΛΑΙΑ ΤΗΣ ΤΡΙΤΗΣ ΕΠΙΣΤΟΛΗΣ ΙΟΑΝΝΟΥ'; locus 48 heading 'ΕΠΙΣΤΟΛΗΤΡΙΤΗ ΤΟΥ ΑΓΙΟΥ ΑΠΟΣΤΟΛΟΥ ΙΩΑΝΝΩΥ' with lemma 'Ὁ πρεσβύτερος Γαΐῳ τῷ ἀγαπητῷ'. Incipit's first word is OCR-garbled (likely Πᾶσα αὕτη).",
+   "notes": "shared boundary row 50 goes to the Jude work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-judae",
+   "tlg": null,
+   "title": "Expositio in epistolam Judae",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-judae.jsonl",
+   "mode": "created",
+   "rows": 10,
+   "greek_tokens": 3481,
+   "volume_loci": "50-59",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-epistolam-judae locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "50",
+     "incipit": "Ταύτην τὴν Ἐπιστολὴν γράφει τοῖς ἤδη πιστεύσασιν. Ἡ δὲ πρόφασις αὕτη· Παρεισελθόντων τινῶν, καὶ διδασκόντων ἀδιάφορον εἶναι τὴν ἁμαρτίαν, καὶ ἀρνουμένων τὸν Χριστόν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 138
+    }
+   ],
+   "evidence": "Locus 50: 'ΥΠΟΘΕΣΙΣ ΤΗΣ ΙΟΥΔΑ ΕΠΙΣΤΟΑΗΣ'; locus 51 heading 'ΕΙΠΙΣΤΟΛΗ ΤΟΥ ΑΓΙΟΥ ΑΠΟΣΤΟΛΟΥ ΙΟΥΛΑ'; locus 59 ends with commentary on Jude 24-25 and explicit 'Τέλος τῆς Ἐπιστολῆς τοῦ ἀγίου ἀποστόλου'."
+  },
+  {
+   "slug": "theophylactus-achridensis.oratio-in-venerationem-crucis",
+   "tlg": null,
+   "title": "Oratio in venerationem crucis (mid-Lent sermon; conventional title)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.oratio-in-venerationem-crucis.jsonl",
+   "mode": "created",
+   "rows": 12,
+   "greek_tokens": 4278,
+   "volume_loci": "60-71",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.oratio-in-venerationem-crucis locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "60",
+     "incipit": "αʹ Τί δαὶ; ἡμεῖς ἐπὶ τῷ προκειμένῳ σιγήσωμεν Ραύματι, καὶ παρελευσόμεθα τὸν τοῦ Θεοῦ σταυρὸν ὰνευφήμητον, καὶ οὐχὶ καὶ διὰ τῆς γλώττης αὐτὸν ὰσπασόμεθα;",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 125
+    }
+   ],
+   "evidence": "Begins at locus 60 with new section numbering αʹ right after the Jude explicit; content is entirely on venerating the Cross during the fast (locus 65 'τὴν μεσιτείαν ἣν ἡμῖν ἐμεσίτευσεν ὁ σταυρὸς ἐκ τῆς νῦν προσκυνήσεως', locus 72 'Τῷ σταυρῷ τούτους ἀποσεισώμεθα· τῇ νηστείᾳ...'), ending with doxology 'Ἀμήν' inside locus 72. Title line at col 105 was lost by OCR; identification of the conventional title is by content, PG position 105-129 between the Jude commentary and the Presentation oration.",
+   "notes": "shared boundary row 72 goes to the Presentation oration"
+  },
+  {
+   "slug": "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
+   "tlg": null,
+   "title": "Oratio in praesentationem Deiparae",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.oratio-in-praesentationem-deiparae.jsonl",
+   "mode": "created",
+   "rows": 8,
+   "greek_tokens": 2635,
+   "volume_loci": "72-79",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.oratio-in-praesentationem-deiparae locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "72",
+     "incipit": "αʹ. Καὶ μνήμη μὲν δικαίου μετ´ ἐγκωμίων γενομένη πολλάκις ἤλεγξε τὸν ἐγκωμιάζοντα, μακρὰν τῆς ἀξίας πίπτοντα·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Starts inside locus 72 immediately after the Cross oration's doxology; encomium of the 'Δέσποινα... Θεοῦ Μητρός', with Joachim and Anna (loci 74, 78), the three-year-old brought to the temple (locus 75 'τριετ...ναὸ'), 'εἴσοδος' (locus 76), Eve-vs-woman trope (locus 77); ends locus 79 with festal doxology 'διὰ τῆς ἑορτῆς αὐτῆς ἁγιάζουσαν... εἰς τοὺς αἰῶνας τῶν αἰώνων'. PG position cols 129-144."
+  },
+  {
+   "slug": "theophylactus-achridensis.supplementum-in-evangelium-joannis",
+   "tlg": null,
+   "title": "Conclusion-fragment of a commentary on the Gospel of John (Jo 21:22-25 with account of John's death; supplement to the In Joannem)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.supplementum-in-evangelium-joannis.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 867,
+   "volume_loci": "80-82",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.supplementum-in-evangelium-joannis locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "80",
+     "incipit": "Ἄλλοι δὲ βεβαιοῦνται, ὅτι κυρίως κεκοίμηται, ἤγουν ἐτελεύτησε. Καὶ γὰρ μετὰ Δομετιανὸν ἐβασίλευσε Νερούας, ἔτος ἕν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 95
+    }
+   ],
+   "evidence": "Begins imperfectly (title and opening lost with the page break after locus 79's doxology): discussion whether John truly died, Nerva recalling John from Patmos, quotations from Eusebius HE (Polycrates to Victor), exegesis of Jo 21:23-25 lemmata ('Οὗτός ἐστιν ὁ μαθητὴς...', 'οἶμαι τὸν κόσμον χωρῆσαι τὰ γραφόμενα βιβλία'), closing 'ἵνα συντελέσωμεν ἐνταῦθα καὶ τὴν ἐξήγησιν' with doxology. Distinct from the complete In Joannem ending served in cogPG.PG124.jsonl (its locus 164 doxology differs), so this is the alternate/supplementary ending Migne prints at PG 126, 145-150."
+  },
+  {
+   "slug": "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum",
+   "tlg": null,
+   "title": "Historia martyrii XV martyrum Tiberiopolitanorum (BHG 1199)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum.jsonl",
+   "mode": "created",
+   "rows": 35,
+   "greek_tokens": 12852,
+   "volume_loci": "83-117",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "83",
+     "incipit": "αʹ. Ἡδη μὲν τὸ θεῖον τοῦ Εὐαγγελίου κήρυγμα κατὰ πάσης τῆς οἰκουμένης ἐκκέχυτο· καὶ ὁ τῶν ἀλιέων λόγος οἷά τις σαγήνη",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 95
+    }
+   ],
+   "evidence": "Locus 83: Latin title leakage 'ΟΙΙΝΒΕΩΙΜ ΙΙΗΠΘΤΗΙΠΜ ΜΑΚΤΥΗΙΜ Α ΤΗΕΟΡΗΥΙΑΟΤΟ... ΒΙΙΙΩΑΚΙΔ ΑΚΩΗΙΕΡΙΘΩΟΒΟ' (=quindecim illustrium martyrum a Theophylacto... Bulgariae archiepiscopo); martyrdom narrative under Julian with posthumous miracles (locus 116 healing at the shrine), ending with doxology inside locus 118. Standard PG range 151-221.",
+   "notes": "shared boundary row 118 goes to De iis quorum Latini incusantur"
+  },
+  {
+   "slug": "theophylactus-achridensis.de-iis-quorum-latini-incusantur",
+   "tlg": null,
+   "title": "De iis quorum Latini incusantur (Allocutio cuidam ex suis familiaribus)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.de-iis-quorum-latini-incusantur.jsonl",
+   "mode": "created",
+   "rows": 15,
+   "greek_tokens": 5340,
+   "volume_loci": "118-132",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.de-iis-quorum-latini-incusantur locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "118",
+     "incipit": "Εἰσῆλθε τὸ ἀξίωμά σου ἐνώπιόν μου, εὐλαβέστατέ μοι ἐν Κυρίῳ υἱὲ, καὶ κατενόησα μὲν αὐτὸ καλὸν, καὶ ὀφθαλμῶν ἀρχιερατικῶν ἄξιον·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 104
+    }
+   ],
+   "evidence": "Heading inside locus 118: 'ΠΡΟΣΛΑΛΙΑ' + Latin 'ἈΙΟΟΟΤΙΟ ΑΒΟΟΕΜΒΑΜ ΕΧ ΘΟΙΘ ΓΑΜΙΓΙΑΚΙΒΘ' (=Allocutio ad quemdam ex suis familiaribus); content on the Latins' ecclesiastical errors, azymes, Filioque moderation (locus 119 'Οὔτε γὰρ πολλὰ τὰ σφάλματα οἴδαμεν, οὔτε σχίζειν Ἐκκλησίας δυνάμενα'). Standard PG range 221-249."
+  },
+  {
+   "slug": "theophylactus-achridensis.institutio-regia",
+   "tlg": null,
+   "title": "Institutio regia (Paideia basilike, ad Constantinum Ducam porphyrogenitum)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.institutio-regia.jsonl",
+   "mode": "created",
+   "rows": 17,
+   "greek_tokens": 5009,
+   "volume_loci": "134-150",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.institutio-regia locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "134",
+     "incipit": "Δῶρόν τοι καὶ ἐγὼ, βασιλεῦ φίλε, τοῦτο δίδωμι· δῶρον ἐμοὶ διδόναι καὶ σοὶ λαμβάνειν ἱλαρῶς οἰκειότατον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 84
+    }
+   ],
+   "evidence": "Locus 134 opens 'ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ. Ἀξία καὶ τιμὴ τοῦ συντάγματος'; Latin CAPUT running heads through loci 135-150 (up to ΚΕΦΑΛ. ΚΖʹ at locus 150 on the king's sword); ends inside locus 151, followed there by an appended testimonium from Anna Comnena on the boy Constantine ('ΑΝΝ[ΑΕ] ΟΟΜΝΕΝΕ... ΟΟΝοΤΑΝΤΙΝΟ ΡΟΗΡΗΥΚΟΩΕΝΙΤΟ ΤΕΘΤΙΜΟΝΙΙΜ': 'Ἡν καὶ τὸ παιδίον καὶ ἄλλως ὡραῖον...'). Standard PG range 253-285.",
+   "notes": "shared boundary row 151 (Institutio end + Anna Comnena testimonium + Oratio in Alexium title) is assigned to the Oratio, which the row's incipit belongs to"
+  },
+  {
+   "slug": "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum",
+   "tlg": null,
+   "title": "Oratio in imperatorem Alexium I Comnenum",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum.jsonl",
+   "mode": "created",
+   "rows": 10,
+   "greek_tokens": 3631,
+   "volume_loci": "151-160",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "151",
+     "incipit": "αʹ. Ἀνάγει μέν μοι τὸν λόγον ὧ αὐτοκράτορ, εἰς τὰ βασίλεια καὶ ὁ θεσμὸς τοῦ ἔθους ὁ τῷ ὄντι βασιλικώτατος, ὃς τοῖς ἑκάστοτε σοφισταῖς ἀναπετάννυσι τὰ ἀνάκτορα·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 129
+    }
+   ],
+   "evidence": "Locus 151: Latin title leakage 'ΟΟΜΙΝΗΜ ΑΙΕΧΙΟΜ ΟΟΜΝΕΝΟΜ' (=in dominum Alexium Comnenum) followed by the αʹ incipit above (matches the known incipit of Gautier's Oratio ad Alexium); peroration at loci 159-160 praises the emperor's mother ('τὴν μακαρίαν ῥίζαν ὑμῶν τὴν ὁσίαν μητέρα', i.e. Anna Dalassena) and closes addressing his students ('ὦ παῖδες')."
+  },
+  {
+   "slug": "theophylactus-achridensis.epistulae",
+   "tlg": null,
+   "title": "Epistulae (collected letters, ca. 75 in the PG numbering)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "mode": "created",
+   "rows": 126,
+   "greek_tokens": 45328,
+   "volume_loci": "161-286",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.epistulae locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "161",
+     "incipit": "Οὕπω τῆς Ἀχρίδος ἐπέβην, καὶ τὴν ὑμᾶς ἔχουσαν πολιν ό δύσερως ἐπεπόθησα.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 59
+    }
+   ],
+   "evidence": "Locus 161 (col 307) begins the letter series (page opens with a stray verse tail 'δ´ ἀνὴρ οὐκ ἔτ´ αὐτὸς ἐκνεύει πάλιν', then the first letter's incipit above, on his arrival at Ohrid); Latin EPIST. numbering running heads garbled as 'ΕΡΙΘΤ.' throughout loci 188-286 (e.g. 'ΕΠΙΣΤ. ΚΗʹ' locus 216, 'ΕΡΙΘΤ. ΛΧΧΙΝ' locus 257); locus 286 ends at the header of the last letter ('ΕΡΙΘΤ. ΧΧΞΝ' ~ EPIST. LXXV), whose text falls in the missing loci 287-288."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-prophetam-oseam",
+   "tlg": null,
+   "title": "Expositio in prophetam Oseam (with dedicatory prologue and Prooemium in prophetas)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-oseam.jsonl",
+   "mode": "created",
+   "rows": 127,
+   "greek_tokens": 46934,
+   "volume_loci": "289-416",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-prophetam-oseam locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "289",
+     "incipit": "ὡλοθέου βασιλίδος καὶ φιλολόγου πληρῶν ἐπίταγμα τὸ δὲ ἦν ἐκ τῶν εἰς τοὺς προφήτας πάλαι καταδληθεισῶν ἐξηγήσεων σύνταγμά τι θέσθαι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 111
+    }
+   ],
+   "evidence": "Locus 289: title 'ΘΕΟΦΥΛΑΚΤΟΥ ΕΞΗΓΗΣΙΣ ΕΙΣ ΤΟΝ ΠΡΟΦΗΤΗΝ ΔΣΗΕ [=ΩΣΗΕ] / ΤΗΕΟΡΗΥΙΑΩΤΙ ΕΧΡΟΩΙΤΙΟ ΙΝ ΡΙΟΡΗΕΤΑΜ ΟΩΕΑΝ' + prologue (incipit above, garbled Φιλοθέου βασιλίδος = commissioned by the empress, i.e. Maria of Alania); locus 290 has 'ΠΡΟΟΙΜΙΟΝ ΤΗΣ ΕΞΗΓΗΣΕΩΣ ΤΩΝ ΑΓΙΩΝ ΠΡΟΦΗΤΩΝ'; ends locus 416 with doxology + appended vita 'Ὡσηὲ ἐρμηνεύεται σωζόμενος' (Vitae prophetarum, tlg1750) spilling into locus 417 top. Standard PG range 563-820.",
+   "notes": "the appended Vitae-prophetarum vita of Hosea spills into the top of row 417, which is assigned to the Habakkuk work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-prophetam-habacuc",
+   "tlg": null,
+   "title": "Expositio in prophetam Habacuc",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-habacuc.jsonl",
+   "mode": "created",
+   "rows": 43,
+   "greek_tokens": 15619,
+   "volume_loci": "417-459",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-prophetam-habacuc locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "417",
+     "incipit": "νΠΟΘΕΣΙΣ. Ξἰσί τινες, οἶ σφόδρα δυσχαιρένουσι, τοὺς ἀδικοῦνπας εὐημεροῦντας θοώμενοι·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 72
+    }
+   ],
+   "evidence": "Locus 417: 'ΑΗΩΠΜΕΝΤΟΜ' (=Argumentum) + ΥΠΟΘΕΣΙΣ with incipit above (garbled Εἰσί τινες, οἳ σφόδρα δυσχεραίνουσι); Ἀμβακούμ named repeatedly (loci 417-419, 432-433, 458); ends locus 459 with doxology + appended vita 'Ἀμβακοὺμ ὁ προφήτης ἦν ἐξ ἀγροῦ...' (Vitae prophetarum). Standard PG range 819-906."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-prophetam-jonam",
+   "tlg": null,
+   "title": "Expositio in prophetam Jonam",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-jonam.jsonl",
+   "mode": "created",
+   "rows": 32,
+   "greek_tokens": 11921,
+   "volume_loci": "460-491",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-prophetam-jonam locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "460",
+     "incipit": "Πάντας ἀνθρώπους δημιουργήσας ὁ τῶν ὅλων Θεὸς, πάντων ὁμοίως διατελεῖ προμηθούμενος, εἰ καὶ τὸ Ἰσραηλιτῶν ποτε πλέον ἐπιμελούμενος ὥφθη·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 115
+    }
+   ],
+   "evidence": "Locus 460: title 'ΤΗΕΟΡΗΥΙΑΩΤΙ ΑΚΩΗΙΕΡΙΘΩΟΡΙ ΒΟΙΟΑΓΙΕ ΕΧΡΟΙΤΙΟ ΙΝ ΡΒΟΡΗΕΤΑΜ ΙΟΝΑΜ. ΥΠΟ[Θ]ΕΣΙΣ' + incipit above; ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ at locus 464 ('Καὶ ἐγένετο λόγος Κυρίου πρὸς Ἰωνᾶν τὸν τοῦ Ἀμαθί'); ends locus 491 with doxology + appended vita 'Ἰωνᾶς ἑρμηνεύεται, Ὑψίστου πονοῶντος, ἢ περιστερά'. Standard PG range 905-968."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-prophetam-nahum",
+   "tlg": null,
+   "title": "Expositio in prophetam Nahum",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-nahum.jsonl",
+   "mode": "created",
+   "rows": 40,
+   "greek_tokens": 14622,
+   "volume_loci": "492-531",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-prophetam-nahum locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "492",
+     "incipit": "ΥΠΟΘΕΣΙΣ. Ἐκήρυξε μὲν Ἰωνᾶς ὁ θαυμάσιος τοῖς Νινευΐταις, ὡς εἰ μὴ μετανοήσαιεν, ἀπολοῦνται·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 75
+    }
+   ],
+   "evidence": "Locus 492: ΥΠΟΘΕΣΙΣ with incipit above, 'Ὁ τοίνυν ἀνὰ χεῖρα προφήτης Ναοὺμ, τοῦτον τὸν ὄλεθρον τῆς Νινευὶ προαναφωνεῖ'; Ναούμ lemmata through loci 494-520; ends locus 531 with doxology + appended vita 'Ναοὺμ ἑρμηνεύεται παράκλησις. Οὗτος ἦν ἀπὸ Ἐλκασαὶ...'. Standard PG range 969-1049."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-prophetam-michaeam",
+   "tlg": null,
+   "title": "Expositio in prophetam Michaeam",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-michaeam.jsonl",
+   "mode": "created",
+   "rows": 71,
+   "greek_tokens": 25382,
+   "volume_loci": "532-602",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.expositio-in-prophetam-michaeam locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "532",
+     "incipit": "ΥΠΟΘΕΣΙΣ. Σκοπὸς μὲν εἷς πᾶσι τοῖς θείοις προφήταις, ἡ βελτίωσις τῶν ἀκροατῶν, πρός τε θεογνωσίαν ὁδΚηγουμένων",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 92
+    }
+   ],
+   "evidence": "Locus 532: title 'ΟΕΟΦΥΛΑΚΤΟΥ ΔΡΥΜΕΠΙΣΚΟΓΝΟΥ ΒΟΥΑΓΑΡΙΑΣ / ΤΗΕΩΡΗΥΤΛΟΤΙ ΑΚΩΗΙΕΡΙΦΟΟΡΙ ΒΟΓΣΑΙΙΕ' (=Theophylacti archiepiscopi Bulgariae) + ΥΠΟΘΕΣΙΣ and 'ὁ ἀνὰ χεῖρας ἡμῖν ποίνυν ἅγιος Μιχαίας προφήτης'; ΚΕΦΑΛΛΙΟΝ ΠΡΩΤΟΝ at locus 533 ('Λόνος Κυρίου, ὃς ἐγένετο πρὸς Μιχαίαν'); locus 602 is exegesis of Mic 7:19-20 ('Καταδύσει τὰς ἁμαρτίας ἡμῶν... τῷ Ἀβραὰμ... τῷ Ἰσαάκ'), i.e. the commentary's final verses; its explicit falls in missing locus 603. Standard PG range 1049-1190."
+  },
+  {
+   "slug": "theophylactus-achridensis.vita-clementis-ohridensis",
+   "tlg": null,
+   "title": "Vita Clementis Ohridensis (the long life, BHG 355)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "mode": "created",
+   "rows": 30,
+   "greek_tokens": 12707,
+   "volume_loci": "604-633",
+   "locus_map": "cogPG.PG126 locus N -> theophylactus-achridensis.vita-clementis-ohridensis locus 'PG126.N'",
+   "incipit_checks": [
+    {
+     "locus": "604",
+     "incipit": "Αʹ. Δεῦτε, τέννα, ἀκούσατέ μου, δεῦτε, καὶ διηγήσομαι ὑμῖν, πάντες οἱ φοβούμενοι τὸν Θεὸν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 70
+    }
+   ],
+   "evidence": "Locus 604 opens mid-title '...ου καὶ ἀοιδίμου ἀρχιεπισκόπου τῆς πρώτης Ἰουστινιανῆς καὶ πάσης Βουλχαρίας, κυρίου ΘΕΟΦΥΛΑΚΤΟΥ, καὶ μαῖστορος τῶν ῥητόρων χρηματίσαντος ἐν Κωνσταντίνου πόλει' (title's first words on missing locus 603); narrative of Cyril and Methodius, Kotzel of Pannonia (locus 606), Clement in Bulgaria, his death and posthumous miracles (loci 630-632, numbered chapters e.g. Κϛʹ at 631), final apostrophe 'Ἀλλ´ ἔτι καὶ ἐποπτεύοις τὴν σὴν κληρονομίαν...' at locus 633."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 225938,
+  "carved": 225938,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "theophylactus-achridensis.expositio-in-epistolam-i-joannis",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-joannis",
+  "theophylactus-achridensis.expositio-in-epistolam-iii-joannis",
+  "theophylactus-achridensis.expositio-in-epistolam-judae",
+  "theophylactus-achridensis.oratio-in-venerationem-crucis",
+  "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
+  "theophylactus-achridensis.supplementum-in-evangelium-joannis",
+  "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum",
+  "theophylactus-achridensis.de-iis-quorum-latini-incusantur",
+  "theophylactus-achridensis.institutio-regia",
+  "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum",
+  "theophylactus-achridensis.epistulae",
+  "theophylactus-achridensis.expositio-in-prophetam-oseam",
+  "theophylactus-achridensis.expositio-in-prophetam-habacuc",
+  "theophylactus-achridensis.expositio-in-prophetam-jonam",
+  "theophylactus-achridensis.expositio-in-prophetam-nahum",
+  "theophylactus-achridensis.expositio-in-prophetam-michaeam",
+  "theophylactus-achridensis.vita-clementis-ohridensis"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG126; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG126, plan data/cgpg_carve_plan.json"
+}
