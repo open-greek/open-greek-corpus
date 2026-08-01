@@ -1,0 +1,273 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG124 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG124",
+  "source_urn": "cogPG.PG124",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG124. The John commentary rows continue the work begun in PG123 and are appended to the same corpus file (two-volume delivery of one work, the Cedrenus PG121/PG122 precedent)",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG124.' (delete the file when it was 'created'), strip the 'PG124.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG124.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG124": {
+   "rows": 670,
+   "greek_tokens": 261046,
+   "sha256": "420ba75cd29b61258e6b85f51f413e334506762f5ef35bd145d75c0f3a53b0aa"
+  }
+ },
+ "works": [
+  {
+   "slug": "theophylactus-achridensis.enarratio-in-evangelium-joannis",
+   "tlg": null,
+   "title": "Enarratio in Evangelium Joannis (continuation: John 7:52-21:25)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-joannis.jsonl",
+   "mode": "appended",
+   "rows": 155,
+   "greek_tokens": 68659,
+   "volume_loci": "10-164",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.enarratio-in-evangelium-joannis locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "10",
+     "incipit": "ΚΕΦΑΛ. Πʹ. Περὶ τῶν ἐρωτώντων τὸν Ἰησοῦν περὶ τοῦ Πατρὸς αἰτοῦ. Περὶ τοῦ Ἰησοῦ ἐλευθέρωσιν ἐπαγγελλομένου τοῖς ἑπομένοις αὐτῷ.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 104
+    }
+   ],
+   "evidence": "File opens mid-commentary at a kephalaia list then quotes John 7:52 and 8:12 («Μὴ καὶ σὺ ἐκ τῆς Γαλιλαίας εἶ;» ... «Ἐγώ εἰμι τὸ φῶς τοῦ κόσμου»), exactly where PG123's John commentary breaks off. Ends at locus 164 with the closing doxology on John 21:25 (books the world could not contain): '...φωτίσαντι ἡμᾶς ... ᾧ ἡ δόξα εἰς τοὺς αἰῶνας. Ἀμήν.' Locus 164 = col 317, the standard end citation for In Joannem (PG 124:9-317)."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-romanos",
+   "tlg": null,
+   "title": "Expositio in Epistolam ad Romanos (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-romanos.jsonl",
+   "mode": "created",
+   "rows": 112,
+   "greek_tokens": 43258,
+   "volume_loci": "173-284",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-romanos locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "173",
+     "incipit": "Ἡσυνεχὴς ἀνάγνωσις τῶν θείων Γραφῶν, εἰς, τὴν γνῶσιν αὐτῶν ἄγει·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 52
+    }
+   ],
+   "evidence": "Locus 173 heading: 'ΕΟΦΥΛΑΚΤΟΥ ΛΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ΤΟΥ ΑΓΙΟΥ ΙΙΑΥΛΟΥ ΠΡΟΣ ΡΩΜΛΙΟΥΣ ΕΠΙΣΤΟΛΗΣ ΕΧΗΓΗΣΙΣ ... ΑΥΗΟΘΕΣΙΣ ΤΙΣ ΠΡΟΣ ΡΩΜΑΙΟΥΣ ΕΠΙΣΤΟΑΠΣ' followed by the hypothesis; locus 174 has garbled Latin running head THEOPHYLACTI COMMENTARIUS IN EPISTOLAM AD ROMANOS and ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ on Rom 1:1 «Παῦλος». Ends mid-locus 285 with the Rom 16 doxology '...συντριβομένων ὑπὸ τοὺς πόδας ἡμῶν ... ᾧ ἡ δόξα εἰς το[ὺς αἰῶνας]' immediately before the 1 Cor title. Locus 173 = col 335, the standard In Rom. start.",
+   "notes": "shared boundary row 285 (Romans doxology + 1 Cor title) is assigned to the 1 Corinthians work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
+   "tlg": null,
+   "title": "Expositio in Epistolam I ad Corinthios (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios.jsonl",
+   "mode": "created",
+   "rows": 118,
+   "greek_tokens": 44261,
+   "volume_loci": "285-402",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "285",
+     "incipit": "Η Κόρινθος πολλῷ πλούτῳ καὶ σοφίᾳ κομῶσα, ἐπίστευσε μέν τῷ Χριστῷ, πλὴν μετὰ τὸ πιστινσαι ἐκινδύνευε Χριστοῦ ἐκπεσεῖν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 98
+    }
+   ],
+   "evidence": "Mid-locus 285: garbled title 'ΕΟΦΥΛΑΚΤΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ... »ΥΠοΡΕΣΙΣ ΠΖΣ ΠΡΟΣ ΚΟΡΙΝΒΙΟΥΣ ΠΡΩΤΗΣ ΕΠΙΣΤΟΑΗΣ' then the hypothesis on Corinth's wealth and factions. Ends locus 402 commenting 1 Cor 16:22 «Μαραναθά» with doxology '...ᾧ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' Span 285-402 = ~235 cols, matching the known In I Cor. range (~559-794)."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",
+   "tlg": null,
+   "title": "Expositio in Epistolam II ad Corinthios (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios.jsonl",
+   "mode": "created",
+   "rows": 78,
+   "greek_tokens": 28883,
+   "volume_loci": "403-480",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "403",
+     "incipit": "Δευτέραν πρὸς Κορινθίους προστίθοσιν´ Ἐπιστολὴν ὁ μακάριος Παῦλος, διότι ἐν τῇ πρώτῃ κὲν ἐπηγγείλατο ἐλθεῖν πρὸς αὐτοὺς,",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 101
+    }
+   ],
+   "evidence": "Locus 403 heading: 'ΕΟΦΥΑΑΚΤΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΑΓΑΡΙΑΣ ... Α ΥΠΟΘΕΣΙΣ ΤΗΣΑΕΥΤΕΡΑΣ ΠΡΟΣ ΚΟΡΓΝΡΗΣ [=Κορινθίους] ΕΠΙΣΤΟΛΗΣ' plus garbled Latin ARGUMENTUM SECUNDAE EPISTOLAE AD CORINTHIOS. Ends mid-locus 481 commenting 2 Cor 13:13 («Ἡ χάρις τοῦ Κυρίου ... μετὰ πάντων ὑμῶν») with doxology '...τοῦ τελείου ἐν Τριάδι Θεοῦ δεικνύμενοι· ᾧ ἡ δόξα εἰς τοὺς αἰῶνος τῶν αἰώνων. Ἀμήν.' Locus 403 = col 795, the known In II Cor. start.",
+   "notes": "shared boundary row 481 (2 Cor doxology + Galatians hypothesis) is assigned to the Galatians work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-galatas",
+   "tlg": null,
+   "title": "Expositio in Epistolam ad Galatas (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-galatas.jsonl",
+   "mode": "created",
+   "rows": 40,
+   "greek_tokens": 15157,
+   "volume_loci": "481-520",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-galatas locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "481",
+     "incipit": "Πρλλοῦ τὸ προοίμιον γέμει θυμοῦ, καὶ πσασχεδὸν ἡ Ἐπιστολή· [= Πολλοῦ τὸ προοίμιον γέμει θυμοῦ, καὶ σχεδὸν πᾶσα ἡ Ἐπιστολή]",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 38
+    }
+   ],
+   "evidence": "Mid-locus 481, directly after the 2 Cor doxology: 'ΥΗρρΕΣΙΣ ΤΗΣ ΠΡΟΣ ΓΑΛΑΤΑΣ ΕΙΣΤΟΑΗΣ' (= ΥΠΟΘΕΣΙΣ ... ΕΠΙΣΤΟΛΗΣ); locus 482 has garbled Latin running head THEOPHYLACTI COMMENTARIUS IN EPISTOLAM AD GALATAS and ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ. Ends mid-locus 521 with the Gal 6:18 comment and doxology '...Ἀ ἡ δόξα εἰς τοὺς αἰῶνας. Ἀμήν.' Locus 481 = col 951, the known In Gal. start (951-1032).",
+   "notes": "shared boundary row 521 (Galatians doxology + bare Ephesians title line) is assigned to the Ephesians work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-ephesios",
+   "tlg": null,
+   "title": "Expositio in Epistolam ad Ephesios (with prefixed hypothesis, its opening words lost in the OCR)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-ephesios.jsonl",
+   "mode": "created",
+   "rows": 54,
+   "greek_tokens": 20460,
+   "volume_loci": "521-574",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-ephesios locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "522",
+     "incipit": "Σὴλιστος καὶ μέγιστος, τιχμώμενος καὶ παρὰ σάντων μέν Ἐλλήνων, μάλιστα δὲ  παρὰ τῆς ΚἘρέσου, ὥστε καὶ νεωκόρον τῆς Ἀρτέμιδος λέγεσθαι ταύτην,",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 116
+    }
+   ],
+   "evidence": "Locus 521 ends with the bare title 'ΟΚΟΦΥΛΑΚΤΟΥ ΛΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ'; locus 522 opens mid-hypothesis (on the temple of Artemis at Ephesus, John the Evangelist at Ephesus, Timothy left there) plus garbled Latin running head THEOPHYLACTI COMMENTARIUS IN EPISTOLAM AD EPHESIOS. The hypothesis' first clause (naming Ephesus) is missing from the served OCR. Ends locus 574 with doxology '...ἐν αὐτῷ τῷ Χριστῷ τῷ ἀφθάρτῳ νυμφίῳ τῶν παρθένων ... Ὢ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' Span 522-574 = 105 cols, matching In Eph. 1033-1137.",
+   "notes": "row 521 carries only the bare title at its tail; the incipit anchor sits on row 522 where the hypothesis text begins"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",
+   "tlg": null,
+   "title": "Expositio in Epistolam ad Philippenses (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-philippenses.jsonl",
+   "mode": "created",
+   "rows": 33,
+   "greek_tokens": 12007,
+   "volume_loci": "575-607",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-philippenses locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "575",
+     "incipit": "οἱ Φλιππήσιοι ἀπὸ πόλεώς εἰσι μιᾶς τῶν ἐν Μακεδονίᾳ Φιλίππων, οὖτω καλουμένης ἀπὸ τοῦ ολιστοῦ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 78
+    }
+   ],
+   "evidence": "Locus 575 opens with the Philippians hypothesis (Philippi in Macedonia, Lydia the purple-seller, the jailer, Paul writing in chains); locus 576 carries the garbled Latin running head 'Τ ΗΕΟΡΗΧΙΑΩΤΙ ΟΟΜΜΕΝΤΑΚΙΗΘ ΠΝ ΕΡΙΘΤΟΙΑΜ ΔΙ ΡΗΙΓΙΡΡΕΝ[ΣΕΣ]'. Ends locus 607 commenting Phil 4:23 with doxology '...ᾯ ἡ δόξα καὶ τὸ κράτος, νῦν καὶ ἀεὶ καὶ εἰς τοὺς αἰῶνας. Ἀμήν.' Locus 575 = col 1139, the known In Phil. start."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses",
+   "tlg": null,
+   "title": "Expositio in Epistolam ad Colossenses (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-colossenses.jsonl",
+   "mode": "created",
+   "rows": 37,
+   "greek_tokens": 13825,
+   "volume_loci": "608-644",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-colossenses locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "608",
+     "incipit": "Πᾶσαι μὲν αἰ Ἐπιστολαὶ Παύλου ἄγιαι, μάλιστα δὲ αἱ δεδεμένου αὐτοῦ πεμπόμεναι,",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 65
+    }
+   ],
+   "evidence": "Locus 608 heading 'ΟΕΟΦΥΛΑΚΤΟΥ ΑΡΧΠΕΠΙΣΚΟΠΟΥ ΒΟΥΑΓΑΡΙΑΣ' then the hypothesis on epistles written in chains, citing Philemon («Ὅν ἐγέννησα ἐν τοῖς δεσμοῖς μου»); locus 609 has garbled Latin running head THEOPHYLACTI COMMENTARIUS IN EPISTOLAM AD COLOSSENSES. Ends locus 644 (on Col 4:17-18) with doxology '...εἰς δόξαν Πατρὸς, Υἱοῦ, καὶ ἁγίου Πνεύματος. Ὦ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων, Ἀμήν.' Locus 608 = col 1205, exactly the known In Col. start (1205-1278)."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
+   "tlg": null,
+   "title": "Expositio in Epistolam I ad Thessalonicenses",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses.jsonl",
+   "mode": "created",
+   "rows": 24,
+   "greek_tokens": 8520,
+   "volume_loci": "645-668",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "645",
+     "incipit": "Παῦλος καὶ Σιλουανὸς καὶ Τιμόθεος. Πρὸς Θεσσαλονικεῖς ὁ ἀπόστολος Παῦλος γράφων, ἑαυτῷ συντάττει καὶ Τιμόθεον.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Locus 645 heading: 'ΕΟΦΥΛΑΚΤΟΥ ΑΡΧ ΗΕΠΙΣΚΟΠΟΥ ΒΟΥΑΓΑΡΙΑἂ ΤΟΥ ΑΓΙΟΥ ΠΑΥΑΟΥ ΠΡΟΣ ΘΕΣΣΑΛΟΝΙΚΕΓΣ ΠΡΩΤΗΣ ΕΠΙΣΤΟΛΗΣ ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ' then commentary on 1 Thess 1:1. Ends locus 668 (on 1 Thess 5:24-28) with doxology '...πρὸς δόξαν ζήσωμεν τοῦ Πατρὸς, καὶ τοῦ Υἱοῦ, καὶ τοῦ ἀγίου Πνεύματος· ᾧ πρέπει πᾶσα δόξα εἰς τοὺς αἰῶ' truncated by the next work's title fragment 'ΕΟΦΥΛΑΚΤΟΥ' at the row's very end. Locus 645 = col 1279, matching In I Thess. (1279-1326).",
+   "notes": "row 668 ends with only the title fragment ΕΟΦΥΛΑΚΤΟΥ of the next work; since the 2 Thess hypothesis begins on 669, row 668 stays with 1 Thess"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
+   "tlg": null,
+   "title": "Expositio in Epistolam II ad Thessalonicenses (with prefixed hypothesis)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses.jsonl",
+   "mode": "created",
+   "rows": 16,
+   "greek_tokens": 5920,
+   "volume_loci": "669-684",
+   "locus_map": "cogPG.PG124 locus N -> theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses locus 'PG124.N'",
+   "incipit_checks": [
+    {
+     "locus": "669",
+     "incipit": "Αευτέραν πρὸς Θεσσαλονικεῖς ποιεῖται τὴν Ἐπιστολὴν ὁ μακάριος Παῦλος διὰ ταύτην τὴν αἰτίαν· [= Δευτέραν...]",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 68
+    }
+   ],
+   "evidence": "Locus 669: 'ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ΤΗ ΤΟΥ ΑΓΙΟΥ ΠΑΥΑΟΥ ΠΡΟΣ ΔΕΣΣΑΛΟΝΙΚΕΙΣ ΔΕΥΤΕΡΑΣ ΕΠΙΣΤΟΑΗΣ' plus garbled Latin ARGUMENTUM SECUNDAE EPISTOLAE AD THESSALONICENSES, then the hypothesis; locus 670 carries the garbled running head THEOPHYLACTI COMMENTARIUS IN EPISTOLAM II AD THESSALONICENSES. Locus 684, the file's last row, ends with a full closing doxology '...ᾧ πρέπει πᾶσα δόξα, τιμὴ, καὶ προσκύνησις, νῦν καὶ ἀεὶ καὶ εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.', i.e. the commentary and the volume conclude together at col ~1357 of ~1358."
+  }
+ ],
+ "residual": {
+  "rows": 3,
+  "greek_tokens": 96,
+  "loci": [
+   "168",
+   "169",
+   "170"
+  ],
+  "note": "168-170: Latin editorial front matter to the Pauline commentaries (monitum + praefationes), OCR'd as pseudo-Greek; identified but not an ancient work, stays in the volume file",
+  "sha256": "2b468a9d97b0975dd22a8071673b57c0bbe2470be511f9b111b8fcb721c5d13f"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 261046,
+  "carved": 260950,
+  "residual": 96,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "theophylactus-achridensis.expositio-in-epistolam-ad-romanos",
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-galatas",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-ephesios",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses",
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG124; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG124, plan data/cgpg_carve_plan.json"
+}
