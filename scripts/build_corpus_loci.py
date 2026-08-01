@@ -86,6 +86,16 @@ DIV_TAG = f"{{{TEI_NS}}}div"
 SERVED_UNNUMBERED_SUBTYPES = {"hypothesis"}
 MILESTONE_TAG = f"{{{TEI_NS}}}milestone"
 LB_TAG = f"{{{TEI_NS}}}lb"
+PB_TAG = f"{{{TEI_NS}}}pb"
+
+# A citable numbered div whose passage exceeds this many Greek tokens is served
+# split at edition-page boundaries when its own content carries at least two
+# distinct numbered <pb n=.../> page breaks (the page-split in iter_passages).
+# The CAG Aristotle commentaries, the NT catenae, the Chronicon Paschale etc.
+# arrive as whole-book divs (Simplicius In Physica: eight divs, 425k tokens)
+# that scholarship cites by edition page, and the TEI carries that pagination
+# as numbered <pb> milestones; serving one row per page makes the loci citable.
+OVERSIZE_TOKENS = 2000
 
 # Sentinel marking a line boundary inside a passage's part list (see
 # passage_segments): flushed into a separate text_lines segment.
@@ -312,11 +322,28 @@ def _is_textpart(el) -> bool:
     return el.tag == DIV_TAG and el.get("type") == "textpart"
 
 
-def iter_passages(root):
+def iter_passages(root, split_fallbacks=None, page_split=True):
     """Yield (locus_parts, text, bekker, text_lines) for every citable passage of
     an edition. `text_lines` is passage_segments(): the passage split into its
     printed/verse lines (>=1); ' '.join reproduces `text`. Emitted by the caller
     only when it has >=2 segments.
+
+    Page split: a numbered div whose passage exceeds OVERSIZE_TOKENS Greek
+    tokens AND whose own unclaimed content carries >= 2 distinct numbered
+    <pb n=.../> page breaks is served as one row per edition page instead of a
+    single whole-book blob: locus = the div's locus parts + the page number, in
+    document order (see page_rows). Split rows carry no bekker and no
+    text_lines. A div whose per-page reassembly fails the concatenation
+    invariant is served unsplit and its locus appended to `split_fallbacks`
+    (when given) for the caller's run summary.
+
+    The Bekker-cited Aristotle corpus is excluded, keeping its current rows: an
+    edition carrying inline Bekker milestones never page-splits (its canonical
+    page layer is the `bekker` field, and its <pb> stream, where present, is
+    just a print volume's pages), and the caller passes page_split=False for
+    the tlg0086 works whose Bekker pages come from the concordance instead -
+    that concordance is keyed by the served locus, so re-keying those rows
+    would break the very page citability they already have.
 
     `bekker` is the list of distinct Bekker canonical pages whose text falls in
     this passage, in first-appearance order (e.g. ["498a", "498b"]); empty for
@@ -354,10 +381,27 @@ def iter_passages(root):
     # opens exactly on a page milestone picks the new page up from the walk below.
     page_before: dict = {}
     _cur = None
+    has_bekker_milestones = False
     for e in body.iter():
         page_before[e] = _cur
         if is_bekker_page(e):
             _cur = e.get("n")
+            has_bekker_milestones = True
+
+    # Edition page in effect just before each element, over the numbered
+    # <pb n=.../> page breaks (the CAG/GCS-style print pagination). Exactly
+    # analogous to the Bekker page_before above; page_rows uses it to file an
+    # oversized div's opening text under the page it actually sits on. A <pb>
+    # carrying @ed records ANOTHER edition's pagination (First1K Clemens
+    # interleaves Stählin and Potter pages as ed="alt"; Origen adds ed="r"),
+    # often several streams at once, so only the edition's own un-@ed page
+    # breaks define the page stream here and in page_rows below.
+    pb_before: dict = {}
+    _cur_pb = None
+    for e in body.iter():
+        pb_before[e] = _cur_pb
+        if e.tag == PB_TAG and e.get("n") and e.get("ed") is None:
+            _cur_pb = e.get("n")
 
     def ancestor_chain(el):
         # Walk ALL ancestors up to <body>, not just an unbroken run of <div>s:
@@ -459,6 +503,93 @@ def iter_passages(root):
         walk(el, True)
         return ordered
 
+    def page_rows(div, parts, full_text):
+        """Per-page rows for an OVERSIZED numbered div: [(page_label, text)]
+        covering the div's passage in document order, or None when the div is
+        not splittable (fewer than 2 distinct numbered <pb n=.../> breaks in
+        its own unclaimed content, or all its text on one page) or when the
+        reassembly fails the concatenation invariant below (a <pb> mid-word
+        would do it; the div is then served unsplit and reported). The walk
+        mirrors passage_text EXACTLY (same is_dropped/claimed exclusions, same
+        tail handling), switching the accumulation bucket at each numbered
+        <pb>; text before the div's first <pb> files under the page in effect
+        at the div's start (pb_before), or under the literal label 'init' when
+        no page has begun yet. A page number repeating within the div (a
+        pagination restart) gets '-2', '-3' suffixes so the loci stay unique.
+
+        Only the edition's own page breaks switch buckets: a <pb> with @ed is
+        an alternate edition's pagination (see pb_before above) and is walked
+        past like any other milestone. A page break that falls INSIDE a word
+        (PTA writes <pb n="192" break="no"/> at the printed hyphenation) defers
+        the switch to the next whitespace, so the straddling word stays whole
+        on the page it starts on and the concatenation invariant holds."""
+        buckets: list[list] = [[pb_before.get(div) or "init", []]]
+        switched: set = set()
+        pending: list[str] = []       # switches awaiting a word boundary
+
+        def cur_open_word() -> bool:
+            for s in reversed(buckets[-1][1]):
+                if s:
+                    return not s[-1].isspace()
+            return False
+
+        def switch(page):
+            switched.add(page)
+            buckets.append([page, []])
+
+        def add(t):
+            while pending and t:
+                m = re.search(r"\s", t)
+                if m is None:         # word still not finished: stay put
+                    buckets[-1][1].append(t)
+                    return
+                buckets[-1][1].append(t[:m.start()])
+                switch(pending.pop(0))
+                t = t[m.start():]
+            if t:
+                buckets[-1][1].append(t)
+
+        def proc_children(e):
+            for ch in e:
+                if not is_dropped(ch) and ch not in claimed:
+                    if ch.tag == PB_TAG and ch.get("n") and ch.get("ed") is None:
+                        if cur_open_word():
+                            pending.append(ch.get("n"))
+                        else:
+                            switch(ch.get("n"))
+                    if ch.text:
+                        add(ch.text)
+                    proc_children(ch)
+                if ch.tail:
+                    add(ch.tail)
+
+        if div.text:
+            add(div.text)
+        proc_children(div)
+        for page in pending:          # pb at the very end: empty bucket, dropped
+            switch(page)
+        if len(switched) < 2:
+            return None
+        rows = [(page, " ".join("".join(chunk).split())) for page, chunk in buckets]
+        rows = [(page, t) for page, t in rows if t]
+        if len(rows) < 2:
+            return None
+        # Invariant: the split is a pure segmentation - the rows, rejoined,
+        # reproduce the unsplit passage text verbatim (both sides are already
+        # whitespace-normalized). On failure serve the div unsplit and let the
+        # caller record it, rather than ever rewriting text.
+        if " ".join(t for _page, t in rows) != full_text:
+            if split_fallbacks is not None:
+                split_fallbacks.append(".".join(parts))
+            return None
+        seen_pages: dict[str, int] = {}
+        labeled: list[tuple[str, str]] = []
+        for page, t in rows:
+            seen_pages[page] = seen_pages.get(page, 0) + 1
+            label = page if seen_pages[page] == 1 else f"{page}-{seen_pages[page]}"
+            labeled.append((label, t))
+        return labeled
+
     out = []
     for div in numbered_divs:
         out.append((ancestor_chain(div) + [div.get("n")], div, passage_text(div, claimed)))
@@ -496,8 +627,23 @@ def iter_passages(root):
     # Reading order, drop passages with no Greek (empty interior divs, milestones).
     order = {el: i for i, el in enumerate(body.iter())}
     out.sort(key=lambda x: order.get(x[1], 0))
-    return [(parts, text, bekker_pages(el), passage_segments(el, claimed))
-            for parts, el, text in out if _GK.search(text)]
+    numbered_set = set(numbered_divs)
+    do_page_split = page_split and not has_bekker_milestones
+    result = []
+    for parts, el, text in out:
+        if not _GK.search(text):
+            continue
+        if (do_page_split and el in numbered_set
+                and sum(1 for _ in _GK.finditer(text)) > OVERSIZE_TOKENS):
+            rows = page_rows(el, parts, text)
+            if rows is not None:
+                # One row per edition page, no bekker / text_lines on split rows;
+                # a page bucket with no Greek is dropped like any other passage.
+                result.extend((parts + [label], t, [], [])
+                              for label, t in rows if _GK.search(t))
+                continue
+        result.append((parts, text, bekker_pages(el), passage_segments(el, claimed)))
+    return result
 
 
 def main() -> None:
@@ -642,6 +788,8 @@ def main() -> None:
     editions: dict[str, dict] = {}
     warnings: dict[str, dict] = {}
     disambiguations: dict[str, dict] = {}   # work -> {base_locus: {basis, loci}}
+    split_fallbacks: dict[str, list[str]] = {}   # work -> oversized divs served
+    # unsplit because the page reassembly failed the concatenation invariant
     total_passages = 0
     for key in sorted(cands):
         if key in keep_list:
@@ -681,9 +829,15 @@ def main() -> None:
         covered_books: set[str] = set()
         for ntok, source, lic, path, edition in eds:
             root = ET.parse(str(path)).getroot()
+            fb: list[str] = []
             psgs = [(parts, unicodedata.normalize("NFC", text), bekker,
                      [unicodedata.normalize("NFC", s) for s in lines])
-                    for parts, text, bekker, lines in iter_passages(root)]
+                    for parts, text, bekker, lines in iter_passages(
+                        root, fb,
+                        # Concordance-covered tlg0086 works: their Bekker pages
+                        # join on the served locus, so never page-split them
+                        # (see the exclusion note in iter_passages).
+                        page_split=key not in bekker_concord)]
             books = {parts[0] for parts, _t, _b, _l in psgs if parts}
             if multi:
                 sh = _shingles(psgs)
@@ -696,6 +850,8 @@ def main() -> None:
             body_chars = sum(len(t) for t in
                              _GK.findall(unicodedata.normalize("NFC", body_text(root))))
             frags.append((_book_sort_key(books), edition, source, lic, psgs, ntok, body_chars))
+            if fb:                       # only for editions actually served
+                split_fallbacks.setdefault(key, []).extend(fb)
 
         # Order fragments by lowest book so a merged work reads in citation order
         # (Diodorus 1-5, 11-17, 18-20). A single-edition work is unaffected.
@@ -977,6 +1133,11 @@ def main() -> None:
           file=sys.stderr)
     print(f"works by license: {dict(bylic)}", file=sys.stderr)
     print(f"works with locus warnings: {len(warnings)}", file=sys.stderr)
+    if split_fallbacks:
+        print("page-split invariant fallbacks (served unsplit): "
+              + "; ".join(f"{k} [{', '.join(v)}]"
+                          for k, v in sorted(split_fallbacks.items())),
+              file=sys.stderr)
     if any(skips.values()):
         print(f"non-TEI protections: {len(skips['keep_list'])} keep-list, "
               f"{len(skips['clobber_guard'])} clobber-guarded, "

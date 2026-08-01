@@ -337,6 +337,24 @@ section clash) are kept as separate rows, the later one relocated to
 ordinal - so no reading is lost (`disambiguated_dup_loci`; the base ->
 [loci] + basis map is `corpus_loci_disambiguated.json`).
 
+An oversized numbered div (more than 2,000 Greek tokens of passage text - the
+CAG Aristotle commentaries, the NT catenae, the Chronicon Paschale, works
+scholarship cites by edition page, not by whole-book div) whose TEI carries at
+least two distinct numbered `<pb n=.../>` page breaks is served as one row per
+edition page instead of a single blob: the locus becomes the div's citation
+plus the page number (Simplicius In Physica book `1` -> `1.1` ... `1.226`),
+text before the div's first page break files under the page already in effect
+(or under `init` when none has begun), and a repeated page number within one
+div gets a `-2`/`-3` suffix. Only the edition's own pagination splits: a `<pb>`
+with `@ed` (an alternate edition's interleaved pages) is ignored, and a page
+break falling inside a word (PTA's `break="no"` hyphenation breaks) switches at
+the next word boundary so the straddling word stays on the page it starts on.
+The per-page rows rejoin to the unsplit passage verbatim (checked at build; a
+div that fails the check is served unsplit and reported). Split rows carry
+neither `bekker` nor `text_lines`. The Bekker-cited Aristotle corpus is
+excluded and keeps its current rows: page-level citability there is the
+`bekker` field, whose concordance joins on the served locus.
+
 Each record is `{urn, edition, locus, source, license, text}` plus, when
 applicable, these additive optional fields (none affects locus keying):
 
