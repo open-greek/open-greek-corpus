@@ -107,7 +107,7 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 | 1b | PTNK | preserve the UD (Universal Dependencies) train / dev / test split | built (`ptnk-v1`) |
 | 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | built (`pedalion-v1`) |
 | 1d | TAGNT | word-level annotation | built (`tagnt-v1`) |
-| 1e | GLAUx | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked works (tier 1), exclude NC and unclear source licenses, tag the Gorman-credited works' manual sentences `provenance=gorman`. | built (`glaux-v1`, pending publish) |
+| 1e | GLAUx | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked works (tier 1), exclude NC and unclear source licenses, tag the Gorman-credited works' manual sentences `provenance=gorman`. | built (`glaux-v1`) |
 | 1e | Diorisis | the other half of item 1e; carry its per-sentence annotation with the same policy screens. | queued |
 
 #### Built: OGA export `oga-v1`
@@ -148,7 +148,7 @@ GLAUx) is re-verified against GLAUx's `metadata.txt` at run time. dilemma pins:
 
     cog export pedalion-v1, sha256:ec549294330f0dafdc826fd7e44ec6eaa176cb4d76a5f542003b8d75c370edea
 
-#### Built: GLAUx export `glaux-v1` (pending publish)
+#### Built: GLAUx export `glaux-v1`
 
 Item 1e's GLAUx half. The payload lives on the Hub per "Storage" above, under
 `glaux-v1/` (per-work `works/<cts-work-id>.jsonl.gz` plus `manifest.json` and
