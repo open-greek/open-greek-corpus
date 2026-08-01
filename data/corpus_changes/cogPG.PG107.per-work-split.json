@@ -1,0 +1,294 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG107 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG107",
+  "source_urn": "cogPG.PG107",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG107 (consistency review: ok). The formerly credited tlg0723 works belong to Leo the physician, an author-name collision; nothing in the volume is his. All works here lack TLG ids",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG107.' (delete the file when it was 'created'), strip the 'PG107.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG107.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG107": {
+   "rows": 578,
+   "greek_tokens": 196722,
+   "sha256": "cfd5a601e57abe02be6c25a304b1628d09e599fa1aefeaccf8523186ff8562c4"
+  }
+ },
+ "works": [
+  {
+   "slug": "basilius-i-macedo.paraenesis-ad-leonem-filium",
+   "tlg": null,
+   "title": "Paraenesis ad Leonem filium (Exhortationum capita LXVI)",
+   "rank": "primary",
+   "file": "data/corpus/basilius-i-macedo.paraenesis-ad-leonem-filium.jsonl",
+   "mode": "created",
+   "rows": 18,
+   "greek_tokens": 6487,
+   "volume_loci": "20-37",
+   "locus_map": "cogPG.PG107 locus N -> basilius-i-macedo.paraenesis-ad-leonem-filium locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "20",
+     "incipit": "μασίλειος ἐν Χριστῷ βασιλέος Ῥωμαίων, Λέοντι τῷ πεκοθημένῳ υἱῷ καὶ συμβασιλεῖ. Περὶ παιδεύσεως. Βωφελές τι χρῆμα καὶ σπουδαιότατον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 110
+    }
+   ],
+   "evidence": "Title line at locus 20: ΒΑΣΙΛΕΙΟΥ ΤΟΥ ΡΩΜΑΙΩΝ ΒΑΣΙΛΕΩΣ, followed by the dedication to Leo son and co-emperor and chapter heading Περὶ παιδεύσεως; matches PG107 prolegomena cols. XXI-LVI (Basilii imp. exhortationum capita). Next work's title line begins locus 38."
+  },
+  {
+   "slug": "basilius-i-macedo.altera-paraenesis-ad-leonem-filium",
+   "tlg": null,
+   "title": "Altera paraenesis ad Leonem filium",
+   "rank": "primary",
+   "file": "data/corpus/basilius-i-macedo.altera-paraenesis-ad-leonem-filium.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 531,
+   "volume_loci": "38-39",
+   "locus_map": "cogPG.PG107 locus N -> basilius-i-macedo.altera-paraenesis-ad-leonem-filium locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "38",
+     "incipit": "Ἐ θεία καὶ παναγία Τρίας ἡ παντοδύναμος καὶ ζωοποιὸς ἀγαθότης, ἡ ἐν τρισὶν ὑποστάσεσιν ὁμοουσίως δοξαζομένη",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 91
+    }
+   ],
+   "evidence": "Title line at locus 38: ΒΑΣΙΛΕΙΟΥ ΒΑΣΙΛΕΩΣ ΕΤΕΡΑ ΠΑΡΑΙΝΕΣΓΣ ΕΙΣ ΤΟΝ ΑΥΤΟΥ ΥΙΟΝ ΑΕΟΝΤΑ ΒΑΣΙΛΕΑ (= Ἑτέρα παραίνεσις); corresponds to PG107 cols. LVII-LX. Verse content of the next item begins at locus 40."
+  },
+  {
+   "slug": "constantinus-siculus.versus-in-leonem-philosophum",
+   "tlg": null,
+   "title": "Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione)",
+   "rank": "primary",
+   "file": "data/corpus/constantinus-siculus.versus-in-leonem-philosophum.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 257,
+   "volume_loci": "40-41",
+   "locus_map": "cogPG.PG107 locus N -> constantinus-siculus.versus-in-leonem-philosophum locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "40",
+     "incipit": "Τῌ ʹὼδὰ ἄυρία μὲν δεδάηκας, ὅσα προγενέστεροι ἄνδρες 2άντο ποθ´ ὑψαγόραι τῆς θύραθεν σοφίης",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Elegiac verses addressing Λέον as apostate who drank the salt water of pagan wisdom; locus 41 names the author: Ταῦτα δὲ Κωνσταντῖνος, ὁ σῆς γάλα Καλλιοπίης ... ᾖσεν ἐπισταμένως. These are the poems of Constantine the Sicilian against Leo the Philosopher printed in the PG107 prolegomena (cols. LXI-LXVI). No TLG author entry for Constantinus Siculus in this canon."
+  },
+  {
+   "slug": "leo-vi-sapiens.orationes",
+   "tlg": null,
+   "title": "Orationes (homiliae et panegyrici) I-XX (collectio Combefis)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.orationes.jsonl",
+   "mode": "created",
+   "rows": 138,
+   "greek_tokens": 50199,
+   "volume_loci": "42-188",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.orationes locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "42",
+     "incipit": "Αὕτη ἡ ἡμέρα Κυρίου· ἀγαλλιασώμεθα καὶ κόρανθῶμεν ἐν αὐτη. Χρὴ γὰρ τοῦ βασιλείου ῥήματος τῇ βασιλίδι τὸν ἔπαινον προοιμιάσασθαι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 107
+    }
+   ],
+   "evidence": "Heading ΑΟΓΟΣ Αʹ (=ΛΟΓΟΣ Αʹ) with Latin ΟΚΑΤΙΟ Ι (=ORATIO I) at locus 42; numbered ΛΟΓΟΣ/ORATIO headings found at 47 (Bʹ), 52 (Γʹ), 55 (Δʹ), 72 (Ζʹ), 85 (Θʹ), 89 (Ιʹ), 101 (ΙΒʹ), 108 (ΙΓʹ), 120 (ΙΔʹ), 137 (Ιϛʹ), 143 (ΙΖʹ, in S. Nicolaum), 155 (ΙΗʹ, encomium of John Chrysostom, narrative continues to 187); locus 188 contains only the marker ΟΛΑΤΙΟ ΧΧ (ORATIO XX) with its text lost (loci 189-190 absent). Loci 63-71 are absent from the dump (orations V-VI zone)."
+  },
+  {
+   "slug": "leo-vi-sapiens.exapostilaria-anastasima",
+   "tlg": null,
+   "title": "Exapostilaria anastasima (cum theotokiis)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.exapostilaria-anastasima.jsonl",
+   "mode": "created",
+   "rows": 5,
+   "greek_tokens": 1707,
+   "volume_loci": "191-195",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.exapostilaria-anastasima locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "191",
+     "incipit": "Τοῖς μαθηταῖς συνέλθωμεν, ἐν ὄρει Γαλιλαίας, πίστει Χριστὸν θεάσασθαι, λέγοντα ἐξουσίαν λαβεῖν τῶν ἄνω καὶ κάτω",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Latin rubrics Exapostilarion 2/3/5 etc. (OCR: Εσαροσίείίανίαηι Σ at 191, Ἐξαποστειλάριον γʹ at 192, Ἐξαποστειλάριον ἐʹ Τιβεοιάδος θόλασσα at 195) interleaved with the eleven resurrection hymns and theotokia. Starts imperfectly: loci 189-190 absent, so the section head and first hymn are lost."
+  },
+  {
+   "slug": "leo-vi-sapiens.carmen-compunctorium",
+   "tlg": null,
+   "title": "Carmen compunctorium (anacreonticum de extremo iudicio)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.carmen-compunctorium.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 793,
+   "volume_loci": "196-198",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.carmen-compunctorium locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "196",
+     "incipit": "Ἄρα τίς γῆθεν ἀείρας Ἐν συστροφῇ με ζεφύρου, Ἀκαριαίως ἀποίσει Πρὸς τὴν κλαυθμῶνος κοιλάδα",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Anacreontic octosyllables on the Last Judgment (river of all-devouring fire, Michael gathering the dead, thrones set and books opened, appeal to the Theotokos) beginning at locus 196 immediately after the last exapostilarion; ends before the absent loci 199-205."
+  },
+  {
+   "slug": "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia",
+   "tlg": null,
+   "title": "Notitiae episcopatuum et documenta de praecedentia (Diatyposis Leonis; ps.-Epiphanii Ekthesis; Notitia patriarchatuum; Ekthesis nea)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia.jsonl",
+   "mode": "created",
+   "rows": 45,
+   "greek_tokens": 8741,
+   "volume_loci": "206-250",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "206",
+     "incipit": "αʹ. Ὁ Ῥώμης. βʹ. Ὁ Κωνοταντινουπόλεως, γ. Ὁ Ἀλεξανδρείας. δ. Ὁ Ἀντιοχείας. ἔ.Αἰλίας, ἤτοι Ἱεροσολύμων.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 77
+    }
+   ],
+   "evidence": "Composite block: locus 206 opens with the five patriarchal sees then ἅξις κροκαθεδρίας μητροπολιτῶν (= Τάξις προκαθεδρίας, Leo's Diatyposis); Latin heading ΝΟΤΙΤΙΑ ΡΑΤΗΙΑΚΩΗΑΤΟΘ ΟΟΝΕΤΑΝΤΙΝΟΡΟΙΙΤΑΝΙ (NOTITIA PATRIARCHATUS CONSTANTINOPOLITANI) inside locus 219; description of the five patriarchal thrones at 217-219; provincial/suffragan lists with parallel Latin (220-241); heading Α ΙΕΟΝΕ ΘΑΡΙΕΝΤΕ ΑΙ ΑΝΩΗΟΝΙΩΟΜ ΡΑΙΕΟΙΟΩ (A LEONE SAPIENTE AD ANDRONICUM PALAEOLOGUM) at 242; the protocol manual Ἔκθεσις νέα (naming patriarch Nilus and the era of Cantacuzenus) at 243-250. Part of this block corresponds to tlg2021.027 (ps.-Epiphanius, Notitiae episcopatuum [Sp.]); internal sub-boundaries need a dedicated pass before splitting."
+  },
+  {
+   "slug": "leo-vi-sapiens.novellae-constitutiones",
+   "tlg": null,
+   "title": "Novellae constitutiones (cum prooemio; const. I-CXIII et diataxeis additae ad CXVII)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.novellae-constitutiones.jsonl",
+   "mode": "created",
+   "rows": 119,
+   "greek_tokens": 37023,
+   "volume_loci": "252-370",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.novellae-constitutiones locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "252",
+     "incipit": "παντοδαποῖς νόμοις παρίσγε λαβεῖν γένεσιν, οἶ τῷ πλήθει τοῖς πράγμασι συνεπεκτεινόμενοι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Prooemium on the laws (Justinian's codification mentioned at 254) begins imperfectly at 252 (locus 251 absent, likely the title page); Latin heading ΟΟΝΟΤΙΤΟΤΙΟΙ (CONSTITUTIO I) at 255; numbered CONSTITUTIO/ΔΙΑΤΑΞΙΣ headings throughout (264 Const. X, 287, 295, 301, 322, 329, 357, 369 CONSTITUTIO CXV / ΔΙΑΤΑΞΙΣ ΡΙΕʹ, 370 ΔΙΑΤΑΞΙΣ ΡΙΖʹ Νεαρὰ νομοθεσία Λέοντος καὶ Ἀλεξάνδρου). Ends mid-locus 371 with the closing curse formula, after which the carmina begin in the same locus.",
+   "notes": "shared boundary row 371 (Novellae explicit + start of the carmina) is assigned to the carmina work"
+  },
+  {
+   "slug": "leo-vi-sapiens.carmina-et-epigrammata-varia",
+   "tlg": null,
+   "title": "Carmina et epigrammata varia (iambi; carmen hexametricum de mensibus; excerpta de S. Clemente)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.carmina-et-epigrammata-varia.jsonl",
+   "mode": "created",
+   "rows": 5,
+   "greek_tokens": 1428,
+   "volume_loci": "371-375",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.carmina-et-epigrammata-varia locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "371",
+     "incipit": "Πολλοί με τωθάζουσι γλώσσῃ κερτόμῳ Τοιαῦτα χλευάζοντες· Εὖγε τοῦ λόγου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 60
+    }
+   ],
+   "evidence": "Verse begins mid-locus 371 immediately after the Novellae explicit; locus 373 carries the rubric Ἔτεροι ἰαμβεῖοι τούτου στίχοι; locus 374 the hexameter banquet-of-months poem (Τέτρατος ἀγγέλλει ῥοδοδάκτυλος εἴαρος ὥρην); locus 375 quoted iambics on St. Clement with κ.τ.λ. NOTE: col_start 371 is shared with the Novellae explicit (intra-locus boundary)."
+  },
+  {
+   "slug": "leo-vi-sapiens.tactica",
+   "tlg": null,
+   "title": "Tactica (cum pinace et prooemio)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.tactica.jsonl",
+   "mode": "created",
+   "rows": 225,
+   "greek_tokens": 85912,
+   "volume_loci": "377-601",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.tactica locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "377",
+     "incipit": "ΤΩΝ ΠΟΛΕΜΙΚΩΝ ΠΑΡΑΣΚΕΥΩΝ ΠΙΝΑΞ. Περὶ τακτικῆς καὶ στρατηγοῦ. Περὶ τοῦ οἷον δεῖ εἶναι τὸν στρατηγόν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 82
+    }
+   ],
+   "evidence": "Locus 377 carries the table of contents heading ΤΩΝ ΠΟΛΕΜΙΚΩΝ ΠΑΡΑΣΚΕΥΩΝ ΠΙΝΑΞ plus Latin TACTICORUM INDEX / PROOEMIUM (OCR: ΤΑΩΤΙΩΟΚΗΜ ΙΝΡΕΧ. ΝΟΤΕ. ΡΝΟΟΕΜΙΟΜ); prooemium text at 378 (ἡ τῶν ὑπηκόων εἰρήνη καὶ εὐημερία); military content continuous to 601 (siege operations); Latin section on the Oracula begins at 602. Corresponds to printed PG107 cols. 669-1120."
+  },
+  {
+   "slug": "leo-vi-sapiens.oracula",
+   "tlg": null,
+   "title": "Oracula (cum vaticinio prosaico appendice)",
+   "rank": "primary",
+   "file": "data/corpus/leo-vi-sapiens.oracula.jsonl",
+   "mode": "created",
+   "rows": 11,
+   "greek_tokens": 2594,
+   "volume_loci": "606-616",
+   "locus_map": "cogPG.PG107 locus N -> leo-vi-sapiens.oracula locus 'PG107.N'",
+   "incipit_checks": [
+    {
+     "locus": "606",
+     "incipit": "αἷμα. Τὴν ἐχθροποιὸν ἔνδοθεν κρύπτει πλάνην, Ὡς εὐμενὴς δὲ κύνας ἐκτρέφει νέους.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 66
+    }
+   ],
+   "evidence": "Title line at locus 606: ΧΡΗΣΜΟΙ. ΘΑΡΙΕΝΤΙΘΘΙΜΙ ΙΜΡ. ΚΕΟΝΙΘ (= SAPIENTISSIMI IMP. LEONIS); verse oracles follow, with the appended prose vaticinium (star announcing the anointed king) at 614-616. The volume dump ends at locus 616 within this dossier. Corresponds to printed PG107 cols. 1121ff."
+  }
+ ],
+ "residual": {
+  "rows": 5,
+  "greek_tokens": 1050,
+  "loci": [
+   "376",
+   "602",
+   "603",
+   "604",
+   "605"
+  ],
+  "note": "376 is a garbled Latin section-title line before the Tactica; 602-605 are Migne's editorial dossier prefacing the Oracula (Latin heading + testimonia excerpted from Byzantine historians), not the Oracula proper",
+  "sha256": "d6edd73d864ec10e64a2175300b810ec1e272f30f6db9481bcaf4569e86e337e"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 196722,
+  "carved": 195672,
+  "residual": 1050,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "basilius-i-macedo.paraenesis-ad-leonem-filium",
+  "basilius-i-macedo.altera-paraenesis-ad-leonem-filium",
+  "constantinus-siculus.versus-in-leonem-philosophum",
+  "leo-vi-sapiens.orationes",
+  "leo-vi-sapiens.exapostilaria-anastasima",
+  "leo-vi-sapiens.carmen-compunctorium",
+  "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia",
+  "leo-vi-sapiens.novellae-constitutiones",
+  "leo-vi-sapiens.carmina-et-epigrammata-varia",
+  "leo-vi-sapiens.tactica",
+  "leo-vi-sapiens.oracula"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG107; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG107, plan data/cgpg_carve_plan.json"
+}
