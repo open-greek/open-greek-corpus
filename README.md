@@ -98,6 +98,10 @@ scripts/
                             phase on CORSAIRONE (run from the Mac; SHARDS=N for
                             parallel GPU workers)
   build_provenance.py       OCR works -> the provenance table in this README
+  build_ocr_quality_report.py  every OCR-source work -> data/ocr_quality_report.json:
+                            unattested-token rate (the ocr_llm_correct.py suspect
+                            filter) + witness-agreement estimates against
+                            corpus_secondary, with a worst-first triage ranking
   reconcile_cgpg_works.py   re-derive each cgpg_works.json work-unit's serving
                             status from corpus_editions (cgpg_chosen /
                             superseded_by); the vendored file is never hand-edited
@@ -122,6 +126,11 @@ scripts/
                             payload (queue item 1a) + the git-tracked pointer stub
                             data/annotations/oga/<release>.json; the payload dir is
                             gitignored (docs/annotation-export-contract.md, "Storage")
+  export_glaux_annotations.py  pinned GLAUx clone -> the standardized annotation-export
+                            payload (queue item 1e, GLAUx half) + the pointer stub
+                            data/annotations/glaux/<release>.json; drops the 25 PROIEL
+                            works, excludes NC and unclear source licenses, tags Gorman
+                            manual sentences provenance=gorman (docs/source-policy.md)
   upload_annotation_export.py  publish an export release dir to the HF dataset repo
                             ciscoriordan/open-greek-corpus-annotation-exports under
                             <release-id>/ (Hub API, verified file list; never git-LFS)
