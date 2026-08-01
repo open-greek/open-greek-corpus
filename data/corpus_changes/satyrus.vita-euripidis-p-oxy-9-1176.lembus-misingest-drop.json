@@ -1,0 +1,33 @@
+{
+ "_meta": {
+  "change": "remove the wrong-work rows (Heraclides Lembus / Posidonius, fhg_vol3 pp. 177-196) from the Satyrus secondary witness; the 89 true witness rows stay",
+  "work": "satyrus.vita-euripidis-p-oxy-9-1176",
+  "tlg": "tlg0608.tlg001",
+  "date": "2026-08-01",
+  "applied_by": "scripts/drop_satyrus_lembus_misingest.py",
+  "reversible": "restore data/corpus_changes/satyrus.vita-euripidis-p-oxy-9-1176.pre-lembus-misingest-drop.jsonl to data/corpus_secondary/satyrus.vita-euripidis-p-oxy-9-1176.jsonl (verbatim copy of the pre-change file; sha256 below)"
+ },
+ "before": {
+  "rows": 136,
+  "sha256": "58bf20819a799ebdcfc7453511b1b7a3e74a163022e28cf726f85f1deb0c300a"
+ },
+ "after": {
+  "rows": 89
+ },
+ "rows_removed": 47,
+ "removed_page_stems": [
+  "fhg_vol3_mueller_diocles_rhodius_0182",
+  "fhg_vol3_mueller_diocles_rhodius_0184",
+  "fhg_vol3_mueller_diocles_rhodius_0186",
+  "fhg_vol3_mueller_diocles_rhodius_0187",
+  "fhg_vol3_mueller_diocles_rhodius_0188",
+  "fhg_vol3_mueller_diocles_rhodius_0189",
+  "fhg_vol3_mueller_diocles_rhodius_0190",
+  "fhg_vol3_mueller_diocles_rhodius_0191",
+  "fhg_vol3_mueller_diocles_rhodius_0192",
+  "fhg_vol3_mueller_diocles_rhodius_0193",
+  "fhg_vol3_mueller_diocles_rhodius_0196"
+ ],
+ "removed_reason": "rows mis-ingested under satyrus.vita-euripidis-p-oxy-9-1176 (tlg0608): fhg_vol3 pp.177-196 are actually Heraclides Lembus (Excerpta Politiarum) + Posidonius (ΠΕΡΙ ΠΕΡΣΕΩΣ), not the P.Oxy 1176 Satyros; ceded to the correctly-scoped fhg-vol3 placeholder pending per-author re-attribution; byte-identical, verified 2026-07-10 Displaced 2026-07-10 crosswork dedup batch; audit with row backup in the upstream OCR pipeline's data/corrections/crosswork_dedup/.",
+ "evidence": "the rows' own secondary_reason (2026-07-10 crosswork dedup): content is Heraclides Lembus, Excerpta Politiarum + Posidonius, not the P.Oxy 9.1176 Satyros; byte-identical copy ceded to the fhg-vol3 placeholder, row backup in the upstream OCR pipeline's data/corrections/crosswork_dedup/. Not a witness of this work, so build_ocr_quality_report.py excluded them every run (meta.skips)"
+}
