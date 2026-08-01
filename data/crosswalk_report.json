@@ -2,9 +2,9 @@
   "headline": {
     "works": 10988,
     "authors": 3279,
-    "editions": 8934,
-    "pct_works_with_canonical_locus": 36.6,
-    "pct_works_with_logical_served_locus": 9.7,
+    "editions": 10205,
+    "pct_works_with_canonical_locus": 37.0,
+    "pct_works_with_logical_served_locus": 12.7,
     "pct_works_with_work_qid": 5.3,
     "pct_works_with_author_qid": 54.8,
     "pct_authors_with_wikidata": 42.8,
@@ -62,7 +62,7 @@
   "edition_aliases": {
     "cts": {
       "count": 1756,
-      "pct": 19.7
+      "pct": 17.2
     },
     "hathitrust": {
       "count": 0,
@@ -86,18 +86,20 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4018,
-    "pct": 36.6,
-    "works_only_physical_or_none": 3171,
+    "works_with_logical_locus": 4061,
+    "pct": 37.0,
+    "works_only_physical_or_none": 3167,
     "by_scheme": {
+      "(none)": 1555,
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
       "page.line": 976,
       "line": 774,
-      "(none)": 612,
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
+      "ref": 175,
+      "ref.sub": 153,
       "book.chapter.section.line": 151,
       "play.fragment.line": 141,
       "jebb page.line": 108,
@@ -175,6 +177,7 @@
       "hypothesis.scholion.line": 3,
       "oration.fragment.line": 3,
       "poem.line": 3,
+      "ref.sub.sub": 3,
       "section": 3,
       "section.fable.line": 3,
       "tome.volume.part.page.line": 3,
@@ -218,7 +221,6 @@
       "proverb.section.line": 2,
       "psalm.verse.line": 2,
       "question.answer.line": 2,
-      "ref": 2,
       "section.epistle or discourse.line": 2,
       "section.extract.excerpt.line": 2,
       "section.scholion.line": 2,
@@ -325,7 +327,6 @@
       "proverb.line": 1,
       "recensio.alphabetic letter.entry.line": 1,
       "recto.verso.line": 1,
-      "ref.sub.sub": 1,
       "reign.page.line of page": 1,
       "scholion.gloss.hypothesis.verse.line": 1,
       "scholion.verse.line": 1,
@@ -350,12 +351,12 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1065,
-    "pct": 9.7,
+    "works_with_logical_served_locus": 1393,
+    "pct": 12.7,
     "served_logical_depth_distribution": {
-      "1": 141,
-      "2": 540,
-      "3": 314,
+      "1": 314,
+      "2": 693,
+      "3": 316,
       "4": 65,
       "5": 4,
       "6": 1
@@ -417,13 +418,11 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9350,
+      "count": 9022,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
-        "acesander.fragmenta",
         "acesander.fragmentum-p-oxy-32-2637",
-        "achaeus.fragmenta",
         "achilles-tatius-astronomy.isagoga-excerpta",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",
         "achilles-tatius-astronomy.vita-arati-olim-sub-auctore-achille-tatio",
@@ -450,7 +449,6 @@
         "acta-xanthippae-et-polyxenae.acta-xanthippae-et-polyxenae-sub-auctore-onesimo",
         "acusilaus.fragmenta",
         "acusilaus.fragmenta-2",
-        "acusilaus.testimonia",
         "acusilaus.testimonia-2",
         "adamantius-judaeus.de-ventis",
         "adamantius-judaeus.fragmenta-ap-ae-tium-lib-15",
@@ -467,8 +465,11 @@
         "aelius-aristides.epigramma-dedicatorium",
         "aelius-aristides.fragmenta-poetica",
         "aelius-dionysius.attika-o-no-mata",
-        "aelius-dius.fragmenta",
-        "aelius-herodianus-et-pseudo-herodianus.de-impropriis-peri-kurologi-as-quoque-sub-nominibus"
+        "aelius-herodianus-et-pseudo-herodianus.de-impropriis-peri-kurologi-as-quoque-sub-nominibus",
+        "aelius-herodianus-et-pseudo-herodianus.de-locutionum-pravitatibus-posterior-pars-operis-sp",
+        "aelius-herodianus-et-pseudo-herodianus.de-locutionum-pravitatibus-prior-pars-operis-sp-fort-auctore",
+        "aelius-herodianus-et-pseudo-herodianus.de-versibus",
+        "aelius-herodianus-et-pseudo-herodianus.excerpta-e-herodiano-sp-e-cod-paris-gr-2552"
       ]
     },
     "editions_with_malformed_scheme": 0
@@ -958,10 +959,9 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3171,
+      "count": 3167,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
-        "acesander.fragmenta",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",
         "achilles-tatius-astronomy.vita-arati-olim-sub-auctore-achille-tatio",
         "acta-alexandrinorum.acta-alexandrinorum",
@@ -969,7 +969,6 @@
         "acta-phileae.acta-phileae-p-bodmer-20",
         "acta-thomae.actorum-thomae-consummatio",
         "acusilaus.fragmenta",
-        "acusilaus.testimonia",
         "adamantius-judaeus.de-ventis",
         "adamantius-judaeus.fragmenta-ap-ae-tium-lib-15",
         "adamantius-judaeus.fragmenta-ap-oribasium",
@@ -1009,7 +1008,9 @@
         "aelius-aristides.leuktriko-s-g-u-pe-r-lakedaimoni-wn-deu-teros",
         "aelius-aristides.leuktriko-s-u-pe-r-lakedaimoni-wn-prw-tos",
         "aelius-aristides.monw-di-e-pi-smu-rnh",
-        "aelius-aristides.palinw-di-e-pi-smu-rnh-kai-tw-tau-ths-noikismw"
+        "aelius-aristides.palinw-di-e-pi-smu-rnh-kai-tw-tau-ths-noikismw",
+        "aelius-aristides.panaqhnai-ko-s",
+        "aelius-aristides.panhguriko-s-e-n-kuzi-kw-peri-tou-naou"
       ]
     }
   }

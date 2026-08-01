@@ -19,7 +19,11 @@ never as its own field), records the keyed critical edition as reference-only
 editions as servable WITH their exact CTS version id as the edition slug (+ CTS-URN
 alias and editor/year from the corpus catalogs), sets default_edition to a servable
 open edition when one exists, and stores the sourcing verdict (best_source) on the
-work. The TLG number is a join key only, never a text source.
+work. A registry work the corpus serves from any other source (DFHG, OCR, CGPG,
+PTA, byzantium_gr, GLAUx, SAWS, wikisource) gets its servable default minted
+straight from its data/corpus_editions.json record, so every served in-registry
+work resolves to a servable default edition. The TLG number is a join key only,
+never a text source.
 
     python scripts/build_registry.py
 
@@ -271,10 +275,20 @@ def _norm_title(s: str) -> str:
 
 _URN_RE = re.compile(r"(tlg\d+\.tlg\d+|[a-z]+\d+\.[a-z]+\d+)\.([A-Za-z0-9-]+)$")
 
-# Human-readable provider labels for open TEI edition titles in the registry.
+# Human-readable provider labels for served edition titles in the registry:
+# the open TEI corpora, plus the sources whose served editions are minted
+# straight from corpus_editions.json (the served-defaults pass).
 PROVIDER_LABELS = {"first1k": "First1KGreek",
                    "perseus": "Perseus canonical-greekLit",
-                   "galenus_verbatim": "Galenus Verbatim (Sorbonne)"}
+                   "galenus_verbatim": "Galenus Verbatim (Sorbonne)",
+                   "dfhg": "Digital Fragmenta Historicorum Graecorum",
+                   "ocr": "cog OCR",
+                   "cgpg": "calfa-co Patrologia Graeca",
+                   "pta": "Patristic Text Archive",
+                   "byzantium_gr": "byzantium.gr",
+                   "glaux": "GLAUx",
+                   "saws": "Sharing Ancient Wisdoms",
+                   "wikisource": "Wikisource"}
 
 
 def load_open_editions() -> tuple[dict, dict]:
@@ -647,6 +661,7 @@ def build() -> Registry:
     # version the catalog lists.
     ingested = {}
     served_src = {}          # work key -> corpus source actually serving it
+    corpus_records = {}      # served slug -> full corpus record (defaults pass)
     ce = REPO / "data" / "corpus_editions.json"
     if ce.exists():
         # corpus_editions is now keyed by slug; recover the tlg-stem keying this
@@ -657,6 +672,7 @@ def build() -> Registry:
             work_cts = cts.split("greekLit:")[-1] if cts else slug
             ingested[work_cts] = info.get("edition")
             served_src[work_cts] = info.get("source")
+            corpus_records[slug] = info
 
     reg = Registry()
 
@@ -689,7 +705,6 @@ def build() -> Registry:
     if _betacode_conv is None:
         print("  ! betacode not installed; beta-code Greek titles left undecoded "
               "(pip install betacode)", file=sys.stderr)
-    n_servable = 0
     n_work_qid = 0
     wd_work_proposals: dict[str, dict] = {}   # work_slug -> Wikidata work record
     for w in works:
@@ -789,8 +804,6 @@ def build() -> Registry:
         win = ingested.get(cts)
         if win and f"{work_slug}.{win}" in reg.works[work_slug].editions:
             reg.works[work_slug].default_edition = f"{work_slug}.{win}"
-        if reg.works[work_slug].default_edition:
-            n_servable += 1
 
     # --- ingested open works not matched to a canon work ----------------
     # Two kinds: First1K's non-TLG textgroups (ggm/ogl/stoa/...), and works the
@@ -905,6 +918,52 @@ def build() -> Registry:
             n_byz += 1
     print(f"  + {n_byz} Byzantine vernacular works (byzantine_vernacular)", file=sys.stderr)
 
+    # --- servable defaults for the rest of the served set ----------------
+    # The passes above mint servable editions only for First1K / Perseus /
+    # galenus_verbatim / byzantine_vernacular texts, so a registry work served
+    # from any other source (DFHG, OCR, CGPG, PTA, byzantium_gr, GLAUx, SAWS,
+    # wikisource) still carries only its reference-only TLG edition and no
+    # default_edition at all. Mint the served edition from the corpus record
+    # itself: edition slug from its `edition`, provider from its `source`,
+    # license as recorded, servable, and made the work's default. Guards: a
+    # work whose default_edition is already set keeps it untouched (never
+    # demoted or replaced), and nothing is minted for a work the corpus does
+    # not serve. The scheme is left empty here; the inference pass below fills
+    # it (marked scheme_inferred) when the served loci classify
+    # logical-numeric. Deterministic (sorted) and idempotent like the rest.
+    n_corpus_default = 0
+    corpus_default_by_source: dict[str, int] = {}
+    for slug in sorted(corpus_records):
+        w = reg.works.get(slug)
+        if w is None:
+            continue                     # served, but not a registry work
+        if w.default_edition is not None:
+            continue                     # existing default: hands off
+        info = corpus_records[slug]
+        ed_slug = info.get("edition") or ""
+        provider = info.get("source") or ""
+        if not ed_slug:
+            continue
+        full = f"{slug}.{ed_slug}"
+        if full in w.editions and not w.editions[full].servable:
+            # the served edition slug collides with a reference-only record;
+            # promoting one would break the servable-default invariant.
+            print(f"  ! {full}: served edition slug collides with a "
+                  f"reference-only edition; no default minted", file=sys.stderr)
+            continue
+        label = PROVIDER_LABELS.get(provider, provider)
+        reg.mint_edition(slug, ed_slug, f"{label} ({ed_slug})",
+                         provider=provider, scheme="", servable=True,
+                         license=info.get("license", ""), make_default=True)
+        n_corpus_default += 1
+        corpus_default_by_source[provider] = \
+            corpus_default_by_source.get(provider, 0) + 1
+    print(f"  + {n_corpus_default} served works gained a servable default "
+          f"edition minted from corpus_editions.json ("
+          + ", ".join(f"{k} {n}" for k, n in
+                      sorted(corpus_default_by_source.items())) + ")",
+          file=sys.stderr)
+
     # apply work-level Wikidata matches that are MUTUALLY unique (a QID claimed by
     # more than one work is dropped from all, so one item is never two works).
     qid_use: dict[str, int] = {}
@@ -953,6 +1012,12 @@ def build() -> Registry:
     print(f"  + {n_authority} authors gained external authority aliases "
           f"(wikidata/viaf/gnd/isni){' [author_authority.json absent]' if not authority else ''}",
           file=sys.stderr)
+    # every pass that mints a default counts here (canon open editions, ingested
+    # non-canon works, Byzantine vernacular, and the corpus-served defaults), so
+    # this is the true works-with-a-servable-default figure.
+    n_servable = sum(1 for w in reg.works.values()
+                     if w.default_edition
+                     and w.editions[w.default_edition].servable)
     print(f"authors {len(reg.authors)}  works {len(reg.works)}  "
           f"editions {sum(len(w.editions) for w in reg.works.values())}  "
           f"servable-default {n_servable} "

@@ -308,7 +308,12 @@ Passage citations follow CTS-URN logical-locus semantics (`source_identity.py`,
 `parse_ref`): dot-separated levels (`book.chapter.line`), ranges with matching
 depth on both ends (`5.84-5.116`, never `5.84-116`). `Locus` validates the
 grammar on construction; `locus_for_citation(..., validate=True)` also checks
-depth against the edition's declared citation scheme. The crosswalk report's
+depth against the edition's declared citation scheme. Every served in-registry
+work carries a servable `default_edition`: when no open TEI edition exists,
+`build_registry.py` mints one straight from the work's `corpus_editions.json`
+record (DFHG, OCR, CGPG, PTA, byzantium.gr, GLAUx, SAWS, Wikisource), with the
+citation scheme inferred from the served loci when they are clean logical
+numerics (marked `scheme_inferred`). The crosswalk report's
 `served_canonical_locus` counts works whose bare citations resolve against an
 edition we actually serve (`default_edition`); it runs well below the
 any-edition count because most works' logical scheme sits on a reference-only
