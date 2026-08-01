@@ -166,11 +166,14 @@ def main():
         if ed is not None:
             if _is_logical(ed.get("scheme", "")):
                 sv_logical += 1
-        elif (inferred.get(slug) or {}).get("class") == "logical-numeric":
-            # no registry default edition (or no registry entry at all), but
-            # the served loci themselves are logical
-            # (scripts/infer_served_schemes.py): DFHG fragment collections,
-            # canon works served without a cataloged servable edition, etc.
+        elif w is None and (inferred.get(slug) or {}).get("class") == "logical-numeric":
+            # served but not a registry key at all (DFHG fragment collections,
+            # per-part OCR files): no edition record can carry a scheme, so
+            # classify the served loci themselves
+            # (scripts/infer_served_schemes.py). Every served IN-registry work
+            # now carries a servable default minted from corpus_editions
+            # (build_registry.py), so its scheme lives on the edition and this
+            # fallback no longer applies to it.
             sv_logical += 1
 
     # cheapest Wikidata enrichment: work lacks a QID but its author has one.
