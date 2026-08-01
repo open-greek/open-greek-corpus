@@ -2,8 +2,8 @@
  "_meta": {
   "by_class": {
    "edition-prefixed": 988,
-   "logical-numeric": 2560,
-   "mixed": 120
+   "logical-numeric": 2569,
+   "mixed": 111
   },
   "dominance": 0.9,
   "what": "Classify every served work's loci and infer a citation scheme where the",
@@ -1182,13 +1182,13 @@
   "aelius-theon.progymnasmata": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "aeneas-philosophy.epistulae": {
    "class": "edition-prefixed",
@@ -1744,13 +1744,13 @@
   "alexander-philosophy.de-anima": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "alexander-philosophy.de-anima-libri-mantissa-de-anima-liber-alter-sp": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -1810,53 +1810,54 @@
   "alexander-philosophy.in-aristotelis-analyticorum-priorum-librum-i-commentarium": {
    "class": "mixed",
    "sample": [
-    "introduction",
-    "24a10",
-    "24a11"
+    "introduction.1",
+    "introduction.2",
+    "introduction.3"
    ]
   },
   "alexander-philosophy.in-aristotelis-metaphysica-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "alexander-philosophy.in-aristotelis-meteorologicorum-libros-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "alexander-philosophy.in-aristotelis-topicorum-libros-octo-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "alexander-philosophy.in-librum-de-sensu-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "alexander-rhetoric.de-figuris": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -1985,45 +1986,36 @@
    "scheme": "ref"
   },
   "ammonius-philosophy.in-aristotelis-analyticorum-priorum-librum-i-commentarium": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
     "pr",
-    "1",
-    "2"
-   ],
-   "scheme": "ref"
+    "1.1",
+    "1.2"
+   ]
   },
   "ammonius-philosophy.in-aristotelis-categorias-commentarius": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 3,
+   "class": "mixed",
    "sample": [
-    "1.1.introduction",
-    "1.1.1",
-    "1.1.2"
-   ],
-   "scheme": "ref.sub.sub"
+    "1.1.introduction.1",
+    "1.1.introduction.2",
+    "1.1.introduction.3"
+   ]
   },
   "ammonius-philosophy.in-aristotelis-librum-de-interpretatione-commentarius": {
    "class": "mixed",
    "sample": [
     "pr",
-    "1",
-    "indices.index_verb"
+    "1.1",
+    "1.2"
    ]
   },
   "ammonius-philosophy.in-porphyrii-isagogen-sive-quinque-voces": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 2,
+   "class": "mixed",
    "sample": [
-    "2.introduction",
-    "2.1",
-    "2.2"
-   ],
-   "scheme": "ref.sub"
+    "2.introduction.1",
+    "2.introduction.2",
+    "2.introduction.3"
+   ]
   },
   "amometus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -2484,13 +2476,13 @@
   "anonymi-in-aristotelis-ethica-nicomachea.in-ethica-nicomachea-paraphrasis-pseudepigraphum-olim-constantino": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.init",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "anonymi-in-aristotelis-librum-alterum-analyticorum-posteriorum.anonymi-in-analyticorum-posteriorum-librum-alterum-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -3524,13 +3516,13 @@
   "archimedes.arenarius": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.134",
+    "1.135",
+    "1.136"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "archimedes.de-conoidibus-et-sphaeroidibus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -3546,13 +3538,13 @@
   "archimedes.de-corporibus-fluitantibus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.pr",
     "1.1",
     "1.2"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "archimedes.de-lineis-spiralibus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -3757,15 +3749,12 @@
    "scheme": "ref.sub"
   },
   "aretaeus.de-curatione-acutorum-morborum-libri-duo": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 2,
+   "class": "mixed",
    "sample": [
     "1.1",
-    "1.2",
-    "1.3"
-   ],
-   "scheme": "ref.sub"
+    "1.2.init",
+    "1.2.p.134"
+   ]
   },
   "aretaeus.de-curatione-diuturnorum-morborum-libri-duo": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -5020,13 +5009,13 @@
   "asclepius.in-aristotelis-metaphysicorum-libros-az-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "asinius-quadratus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -5048,13 +5037,13 @@
   "aspasius.in-ethica-nichomachea-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "astrampsychus-magus.astrampsychus-oracula-hercher": {
    "class": "edition-prefixed",
@@ -6193,15 +6182,12 @@
    ]
   },
   "basilius-theology.epistulae": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
     "1",
     "2",
     "3"
-   ],
-   "scheme": "ref"
+   ]
   },
   "basilius-theology.epitimia-in-canonicas-epitimia-25-dub": {
    "class": "edition-prefixed",
@@ -7110,13 +7096,13 @@
   "catenae-novum-testamentum.catena-in-acta-catena-andreae-e-cod-oxon-coll-nov-58": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "praef",
-    "1",
-    "2"
+    "1.1",
+    "1.2"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-colossenses-typus-parisinus-e-cod": {
    "class": "mixed",
@@ -7127,19 +7113,22 @@
    ]
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-ephesios-typus-parisinus-e-cod-coislin": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "hyp",
     "toc",
-    "1"
-   ]
+    "1.100"
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-galatas-typus-parisinus-e-cod-coislin": {
    "class": "mixed",
    "sample": [
     "hyp",
     "toc",
-    "praef"
+    "praef.4"
    ]
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-hebraeos-e-cod-paris-coislin-204": {
@@ -7147,7 +7136,7 @@
    "sample": [
     "hyp",
     "toc",
-    "1"
+    "1.119"
    ]
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-philemonem-e-cod-paris-coislin-204": {
@@ -7159,12 +7148,15 @@
    ]
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-philippenses-typus-parisinus-e-cod": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "hyp",
     "toc",
     "praef"
-   ]
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-romanos-typus-monacensis-e-cod-monac-gr": {
    "class": "mixed",
@@ -7175,12 +7167,15 @@
    ]
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-romanos-typus-vaticanus-e-cod-oxon-bodl": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "praef",
     "toc",
     "1"
-   ]
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-ad-titum-e-cod-paris-coislin-204": {
    "class": "mixed",
@@ -7191,28 +7186,37 @@
    ]
   },
   "catenae-novum-testamentum.catena-in-epistulam-i-ad-corinthios-typus-vaticanus-e-cod-paris": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "hyp",
     "toc",
-    "praef"
-   ]
+    "praef.4"
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-i-ad-thessalonicenses-typus-parisinus-e-cod": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "hyp",
     "toc",
-    "1"
-   ]
+    "1.343"
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-i-ad-timotheum-e-cod-paris-coislin-204": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 1,
    "sample": [
     "pr",
     "toc",
     "1"
-   ]
+   ],
+   "scheme": "ref"
   },
   "catenae-novum-testamentum.catena-in-epistulam-ii-ad-corinthios-catena-pseudooecumenii-e": {
    "class": "mixed",
@@ -7250,12 +7254,15 @@
    "scheme": "ref"
   },
   "catenae-novum-testamentum.catena-in-epistulam-joannis-i-catena-andreae-e-cod-oxon-coll": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "hyp",
     "1",
     "2"
-   ]
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-joannis-ii-catena-andreae-e-cod-oxon-coll": {
    "class": "mixed",
@@ -7287,13 +7294,13 @@
   "catenae-novum-testamentum.catena-in-epistulam-petri-i-catena-andreae-e-cod-oxon-coll": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "praef",
     "1",
     "2"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-epistulam-petri-ii-catena-andreae-e-cod-oxon-coll": {
    "class": "mixed",
@@ -7304,45 +7311,45 @@
    ]
   },
   "catenae-novum-testamentum.catena-in-joannem-catena-integra-e-codd-paris-coislin-23": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "pr",
     "toc",
-    "praef"
-   ]
+    "praef.178"
+   ],
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-lucam-typus-b-e-codd-paris-coislin-23-oxon-bodl": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
     "toc",
-    "praef",
-    "1"
-   ],
-   "scheme": "ref"
+    "praef.6",
+    "praef.7"
+   ]
   },
   "catenae-novum-testamentum.catena-in-marcum-recensio-ii-e-codd-oxon-bodl-laud-33": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "toc",
     "hypothesis",
-    "preface"
+    "preface.266"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.catena-in-matthaeum-catena-integra-e-cod-paris-coislin-gr-23": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "toc",
     "prologue",
-    "praef"
+    "praef.5"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "catenae-novum-testamentum.supplementum-et-varietas-lectionis-ad-catenam-in-evangelium-sancti": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -7450,11 +7457,13 @@
   "certamen-homeri-et-hesiodi.certamen-homeri-et-hesiodi": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.225",
+    "1.226",
+    "1.227"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "chaereas.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -7610,12 +7619,15 @@
    ]
   },
   "chronicon-paschale.chronicon-paschale": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "corrections"
-   ]
+    "1.3",
+    "1.4",
+    "1.5"
+   ],
+   "scheme": "ref.sub"
   },
   "chrysermus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -7789,13 +7801,13 @@
   "claudius-ptolemaeus.syntaxis-mathematica": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.toc",
     "1.1",
     "1.2"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "cleanthes.testimonia-et-fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -7874,24 +7886,21 @@
   "clemens-alexandrinus.paedagogus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.argument",
     "1.1",
     "1.2"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "clemens-alexandrinus.protrepticus": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
-    "1",
-    "2",
-    "3"
-   ],
-   "scheme": "ref"
+    "1.v.3.p.3",
+    "1.v.3.p.4",
+    "1.v.3.p.5"
+   ]
   },
   "clemens-alexandrinus.quis-dives-salvetur": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -8600,27 +8609,33 @@
    "scheme": "ref.sub"
   },
   "constantinus-vii-porphyrogenitus-imperator.de-administrando-imperio": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "porfyrogen-administrato.1",
-    "porfyrogen-administrato.2",
-    "porfyrogen-administrato.3"
-   ]
+    "pr",
+    "1.1",
+    "1.2"
+   ],
+   "scheme": "ref.sub"
   },
   "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 3,
    "sample": [
     "porfyrogen-ceremonis.1",
     "porfyrogen-ceremonis.2",
-    "porfyrogen-ceremonis.3"
-   ]
+    "1.2"
+   ],
+   "scheme": "ref.sub.sub"
   },
   "constantinus-vii-porphyrogenitus-imperator.de-thematibus": {
    "class": "mixed",
    "sample": [
-    "porfyrogen-thematibus.1",
-    "porfyrogen-thematibus.2",
-    "porfyrogen-thematibus.3"
+    "porfyrogen-thematibus",
+    "prol.1",
+    "asia.2"
    ]
   },
   "constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis": {
@@ -9339,13 +9354,13 @@
   "cyrillus-theology.de-adoratione-et-cultu-in-spiritu-et-veritate": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "0.Index",
-    "1",
-    "2"
+    "1.133",
+    "1.136"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "cyrillus-theology.de-incarnatione-dei-verbi-homilia-diversa-15": {
    "class": "edition-prefixed",
@@ -9666,21 +9681,24 @@
   "david.in-porphyrii-isagogen-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "3"
+    "1.80",
+    "1.81",
+    "1.82"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "david.prolegomena-philosophiae": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "deiochus-proconnesius.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -10688,13 +10706,13 @@
   "dexippus.in-aristotelis-categorias-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "diagoras.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -11244,15 +11262,12 @@
    "scheme": "ref"
   },
   "dionysius-halicarnassensis-history.de-compositione-verborum": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
     "1",
     "2",
     "3"
-   ],
-   "scheme": "ref"
+   ]
   },
   "dionysius-halicarnassensis-history.de-compositione-verborum-epitome": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -11873,23 +11888,24 @@
   "elias.eliae-olim-davidis-in-aristotelis-categorias-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2"
+    "1.107",
+    "1.108",
+    "1.109"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "elias.in-porphyrii-isagogen": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "empedocles.diels-ppf": {
    "class": "edition-prefixed",
@@ -13060,15 +13076,12 @@
    ]
   },
   "eusebius-scr-eccl.de-theophania-fragmenta": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
     "1",
     "2",
-    "3"
-   ],
-   "scheme": "ref"
+    "3.v.3.pt.2.p.4"
+   ]
   },
   "eusebius-scr-eccl.de-vitis-prophetarum-fragmenta": {
    "class": "edition-prefixed",
@@ -13134,15 +13147,12 @@
    "scheme": "ref.sub"
   },
   "eusebius-scr-eccl.onomasticon": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
+   "class": "mixed",
    "sample": [
     "pr",
-    "1",
-    "2"
-   ],
-   "scheme": "ref"
+    "1.v.3.pt.1.p.2",
+    "1.v.3.pt.1.p.4"
+   ]
   },
   "eusebius-scr-eccl.praeparatio-evangelica": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -13260,13 +13270,13 @@
   "eustratius.in-aristotelis-ethica-nicomachea-i-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio": {
    "class": "edition-prefixed",
@@ -13301,13 +13311,13 @@
   "eutocius.commentarii-in-libros-de-sphaera-et-cylindro": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "eutocius.commentarius-in-dimensionem-circuli": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14260,13 +14270,13 @@
   "galenus.de-antidotis-libri-ii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-atra-bile": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14333,24 +14343,24 @@
   "galenus.de-compositione-medicamentorum-per-genera-libri-vii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-compositione-medicamentorum-secundum-locos-libri-x": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 4,
    "sample": [
     "1.1",
-    "1.2",
-    "1.3"
+    "1.2.12.381",
+    "1.2.12.382"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub.sub"
   },
   "galenus.de-constitutione-artis-medicae-ad-patrophilum": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14443,13 +14453,13 @@
   "galenus.de-dignoscendis-pulsibus-libri-iv": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-dignotione-ex-insomniis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14463,13 +14473,13 @@
   "galenus.de-elementis-ex-hippocrate-libri-ii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
-    "1.3"
+    "1.3.426"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-experientia-medica": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14483,13 +14493,13 @@
   "galenus.de-foetuum-formatione-libellus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
-    "3"
+    "3.660"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "galenus.de-hirundinibus-revulsione-cucurbitula-incisione-et": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14549,13 +14559,13 @@
   "galenus.de-locis-affectis-libri-vi": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
-    "1.1",
-    "1.2",
-    "1.3"
+    "1.1.1",
+    "1.1.2",
+    "1.1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-marcore-liber": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14571,13 +14581,13 @@
   "galenus.de-methodo-medendi-libri-xiv": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-morborum-differentiis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14626,13 +14636,13 @@
   "galenus.de-naturalibus-facultatibus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-nervorum-dissectione": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14701,24 +14711,24 @@
   "galenus.de-placitis-hippocratis-et-platonis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.5",
     "1.6",
     "1.7"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-plenitudine-liber": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "galenus.de-praenotione-ad-posthumum-epigenem": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14734,13 +14744,13 @@
   "galenus.de-praesagitione-ex-pulsibus-libri-iv": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
-    "1.1",
-    "1.2",
-    "1.3"
+    "1.1.205",
+    "1.1.206",
+    "1.1.207"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-propriorum-animi-cuiuslibet-affectuum-dignotione-et-curatione": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14767,13 +14777,13 @@
   "galenus.de-pulsibus-libellus-ad-tirones": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "galenus.de-purgantium-medicamentorum-facultate": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14789,24 +14799,24 @@
   "galenus.de-rebus-boni-malique-suci": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "galenus.de-sanitate-tuenda-libri-vi": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-sectis-ad-eos-qui-introducuntur": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14822,13 +14832,13 @@
   "galenus.de-semine-libri-ii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-simplicium-medicamentorum-temperamentis-ac-facultatibus-libri-xi": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14864,13 +14874,13 @@
   "galenus.de-symptomatum-causis-libri-iii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
-    "1.2",
-    "1.3"
+    "1.2.86",
+    "1.2.87"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-symptomatum-differentiis-liber": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14886,13 +14896,13 @@
   "galenus.de-temperamentis-libri-iii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1.1",
     "1.2",
     "1.3"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "galenus.de-theriaca-ad-pisonem": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -14919,13 +14929,13 @@
   "galenus.de-tremore-palpitatione-convulsione-et-rigore-liber": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "galenus.de-tumoribus-praeter-naturam": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -15071,15 +15081,12 @@
    "scheme": "ref.sub"
   },
   "galenus.in-hippocratis-de-natura-hominis-librum-commentarii-iii": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 2,
+   "class": "mixed",
    "sample": [
-    "1.prooemium",
-    "1.1",
-    "1.2"
-   ],
-   "scheme": "ref.sub"
+    "1.prooemium.1",
+    "1.prooemium.2",
+    "1.prooemium.3"
+   ]
   },
   "galenus.in-hippocratis-de-victu-acutorum-commentaria-iv": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -15120,8 +15127,8 @@
    "depth": 2,
    "sample": [
     "1.prooemium",
-    "1.1",
-    "1.2"
+    "1.1.632",
+    "1.1.633"
    ],
    "scheme": "ref.sub"
   },
@@ -15141,9 +15148,9 @@
    "class": "logical-numeric",
    "depth": 3,
    "sample": [
-    "1.1.pr",
-    "1.1.1",
-    "1.1.2"
+    "1.1.pr.1",
+    "1.1.pr.2",
+    "1.1.pr.3"
    ],
    "scheme": "ref.sub.sub"
   },
@@ -15154,7 +15161,7 @@
    "sample": [
     "1.Prooemium",
     "1.1",
-    "1.2"
+    "1.2.17a.799"
    ],
    "scheme": "ref.sub"
   },
@@ -15339,20 +15346,26 @@
    ]
   },
   "georgius-acropolites.annales": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 1,
    "sample": [
-    "akropolitis.1",
-    "akropolitis.2",
-    "akropolitis.3"
-   ]
+    "1",
+    "2",
+    "3"
+   ],
+   "scheme": "ref"
   },
   "georgius-acropolites.contra-latinos": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "akropolitis-latinos.1",
     "akropolitis-latinos.2",
-    "akropolitis-latinos.3"
-   ]
+    "1.1"
+   ],
+   "scheme": "ref.sub"
   },
   "georgius-cedrenus.compendium-historiarum": {
    "class": "mixed",
@@ -15379,20 +15392,26 @@
    ]
   },
   "georgius-pachymeres.suggrafikai-i-stori-ai-libri-vi-de-michaele-palaeologo": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "pachymeris.1",
-    "pachymeris.2",
-    "pachymeris.3"
-   ]
+    "1.t",
+    "2.t",
+    "3.t"
+   ],
+   "scheme": "ref.sub"
   },
   "georgius-sphrantzes.chronicon-sive-minus-sp": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "sfrantzes.1",
-    "sfrantzes.2",
-    "sfrantzes.3"
-   ]
+    "t.1",
+    "1.1",
+    "2.1"
+   ],
+   "scheme": "ref.sub"
   },
   "glaucus-rheginus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -17088,15 +17107,12 @@
    "scheme": "ref.sub"
   },
   "heron.pneumatica": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 2,
+   "class": "mixed",
    "sample": [
-    "1.pr",
-    "1.1",
-    "1.2"
-   ],
-   "scheme": "ref.sub"
+    "1.pr.2",
+    "1.pr.4",
+    "1.pr.6"
+   ]
   },
   "heron.stereometrica": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -17194,9 +17210,9 @@
   "hesychius-of-jerusalem.commentarius-magnus-in-psalmos": {
    "class": "mixed",
    "sample": [
-    "Prooem",
-    "Ps_1",
-    "Ps_6"
+    "Prooem.init",
+    "Prooem.156",
+    "Prooem.157"
    ]
   },
   "hexapla-anonymi.lectiones": {
@@ -17892,13 +17908,13 @@
   "hippocrates-et-corpus-hippocraticum.epistulae": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "hippocrates-et-corpus-hippocraticum.jusjurandum": {
    "class": "mixed",
@@ -20730,93 +20746,94 @@
   "joannes-philoponus.in-aristotelis-analytica-posteriora-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-philoponus.in-aristotelis-analytica-priora-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-philoponus.in-aristotelis-categorias-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-philoponus.in-aristotelis-libros-de-anima-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-philoponus.in-aristotelis-libros-de-generatione-et-corruptione-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-philoponus.in-aristotelis-meteorologicorum-librum-primum-commentarium": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 2,
+   "class": "mixed",
    "sample": [
     "1.introduction",
     "1.1",
     "1.2"
-   ],
-   "scheme": "ref.sub"
+   ]
   },
   "joannes-philoponus.in-aristotelis-physicorum-libros-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-philoponus.in-libros-de-generatione-animalium-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "joannes-scylitzes.synopsis-historiarum": {
    "class": "mixed",
    "sample": [
-    "skylitzes.1",
-    "skylitzes.2",
-    "skylitzes.3"
+    "pro.1",
+    "Mich1.1",
+    "Mich1.2.1"
    ]
   },
   "joannes-stobaeus-anthologus.anthologium": {
@@ -20836,12 +20853,15 @@
    ]
   },
   "joannes-vi-cantacuzenus.historiae": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "kantakouzen1.1",
     "kantakouzen1.2",
-    "kantakouzen1.3"
-   ]
+    "1.1.1"
+   ],
+   "scheme": "ref.sub"
   },
   "joannes-zonaras.argumenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -20979,12 +20999,15 @@
    "scheme": "ref"
   },
   "laonicus-chalcocondyles.historiae": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "laonikos.1",
-    "laonikos.2",
-    "laonikos.3"
-   ]
+    "1.1",
+    "1.2",
+    "1.3"
+   ],
+   "scheme": "ref.sub"
   },
   "laosthenidas.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -21016,12 +21039,15 @@
    "scheme": "ref.sub"
   },
   "leo-diaconus.historia": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "diakonos.1",
-    "diakonos.2",
-    "diakonos.3"
-   ]
+    "diakonos",
+    "1.1",
+    "1.2"
+   ],
+   "scheme": "ref.sub"
   },
   "leo-pellaeus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -23828,11 +23854,13 @@
   "marinus.commentarium-in-euclidis-data": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.233",
+    "1.236",
+    "1.238"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "marmor-parium.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -24400,12 +24428,15 @@
    ]
   },
   "michael-psellus.chronographia": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "psellos.1",
     "psellos.2",
-    "psellos.3"
-   ]
+    "1.1"
+   ],
+   "scheme": "ref.sub"
   },
   "michael.in-ethica-nicomachea-ixx-commentaria": {
    "class": "edition-prefixed",
@@ -24418,51 +24449,57 @@
   "michael.in-libros-de-animalium-motione-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.103",
+    "1.104",
+    "1.105"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "michael.in-libros-de-partibus-animalium-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "michael.in-librum-de-animalium-incessu-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.135",
+    "1.136",
+    "1.137"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "michael.in-librum-quintum-ethicorum-nicomacheorum-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "michael.in-parva-naturalia-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "milon.fragmentum": {
    "class": "edition-prefixed",
@@ -24965,9 +25002,9 @@
   "nicetas-choniates.historia-xronikh-dih-ghsis": {
    "class": "mixed",
    "sample": [
-    "choniatis.1",
-    "choniatis.2",
-    "choniatis.3"
+    "pr.1",
+    "pr.2",
+    "pr.3"
    ]
   },
   "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni": {
@@ -25754,31 +25791,35 @@
   "olympiodorus-philosophy.in-aristotelis-categorias-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.26",
+    "1.27",
+    "1.28"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "olympiodorus-philosophy.in-aristotelis-meteora-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "olympiodorus-philosophy.prolegomena": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "olympiodorus-thebaeus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -25873,13 +25914,13 @@
   "oracula-sibyllina.oracula": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "praef",
-    "1",
-    "2"
+    "1.6",
+    "1.7"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "oribasius.collectiones-medicae-lib-1-16-24-25-43-50": {
    "class": "edition-prefixed",
@@ -30331,20 +30372,24 @@
   "porphyrius.in-aristotelis-categorias-expositio-per-interrogationem-et": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "3"
+    "3.55",
+    "3.56",
+    "3.57"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "porphyrius.isagoge-sive-quinque-voces": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "porphyrius.quaestionum-homericarum-ad-iliadem-pertinentium-reliquiae": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -30393,13 +30438,13 @@
   "porphyrius.zetemata-codicis-vaticani": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "1",
     "1.1",
     "1.2"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "posidippus.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -30565,13 +30610,13 @@
   "proclus.in-platonis-rem-publicam-commentarii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
-    "2",
-    "3"
+    "2.5",
+    "2.6"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "proclus.in-platonis-timaeum-commentaria": {
    "class": "edition-prefixed",
@@ -30862,11 +30907,13 @@
   "pseudo-galenus.de-pulsibus-ad-antonium-disciplinae-studiosum-ac-philosophum": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 3,
    "sample": [
-    "1"
+    "1.19.629",
+    "1.19.630",
+    "1.19.631"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub.sub"
   },
   "pseudo-galenus.de-remediis-parabilibus-libri-iii": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -30893,11 +30940,13 @@
   "pseudo-galenus.de-theriaca-ad-pamphilianum": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.295",
+    "1.296",
+    "1.297"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "pseudo-galenus.de-urinis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -30963,13 +31012,13 @@
   "pseudo-galenus.introductio-seu-medicus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "1",
     "2",
     "3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "pseudo-galenus.praesagitio-omnino-vera-expertaque": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -31748,13 +31797,13 @@
   "scholia-in-homerum.scholia-in-odysseam-scholia-vetera": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 3,
+   "depth": 4,
    "sample": [
     "1.epigraph.pr",
     "1.epigraph.1",
     "1.epigraph.2"
    ],
-   "scheme": "ref.sub.sub"
+   "scheme": "ref.sub.sub.sub"
   },
   "scholia-in-isocratem.scholia-in-isocratem-scholia-vetera": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -31876,12 +31925,15 @@
    "scheme": "ref.sub"
   },
   "scylitzes-continuatus.continuatio-scylitzae": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
-    "skylitzes0.1",
-    "skylitzes0.2",
-    "skylitzes0.3"
-   ]
+    "103",
+    "104.1",
+    "104.2"
+   ],
+   "scheme": "ref.sub"
   },
   "scythinus-poet-phil.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -32677,11 +32729,13 @@
   "severian-of-gabala.de-fide": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.767",
+    "1.768",
+    "1.769"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "severian-of-gabala.de-fide-et-lege-naturae": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -32708,11 +32762,13 @@
   "severian-of-gabala.de-sacrificiis-caini": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.124",
+    "1.125",
+    "1.126"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "severian-of-gabala.de-serpente-homilia": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -32833,11 +32889,13 @@
   "severian-of-gabala.in-ascensionem-domini": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.333",
+    "1.334",
+    "1.335"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "severian-of-gabala.in-ascensionem-domini-nostri-iesu-christi-et-in-principium-actorum": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -33223,11 +33281,13 @@
   "severian-of-gabala.oratio-in-dedicationem-pretiosae-et-uiuificae-crucis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1"
+    "1.129",
+    "1.65v",
+    "1.130"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "severian-of-gabala.quomodo-animam-acceperit-adamus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -33386,45 +33446,48 @@
    "scheme": "ref"
   },
   "simplicius.in-aristotelis-categorias-commentarium": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 2,
    "sample": [
     "sigla",
-    "preface",
-    "1"
-   ]
+    "preface.1",
+    "preface.2"
+   ],
+   "scheme": "ref.sub"
   },
   "simplicius.in-aristotelis-libros-de-anima-commentaria-sp-fort-auctore": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "simplicius.in-aristotelis-physicorum-libros-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "simplicius.in-aristotelis-quattuor-libros-de-caelo-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "simus-myonides-euphranor.testimonia-et-fragmenta": {
    "class": "edition-prefixed",
@@ -33667,13 +33730,13 @@
   "sophonias.in-aristotelis-libros-de-anima-paraphrasis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 2,
+   "depth": 3,
    "sample": [
     "prooemium",
-    "1.1",
-    "1.2"
+    "1.1.3",
+    "1.1.4"
    ],
-   "scheme": "ref.sub"
+   "scheme": "ref.sub.sub"
   },
   "sophron.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -33924,12 +33987,13 @@
   "stephanus-philosophy.in-aristotelis-librum-de-interpretatione-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "stephanus.fragmentum": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -34086,13 +34150,13 @@
   "syrianus.in-aristotelis-metaphysica-commentaria": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "tatianus.oratio-ad-graecos": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -34400,31 +34464,32 @@
   "themistius.analyticorum-posteriorum-paraphrasis": {
    "class": "mixed",
    "sample": [
-    "1",
-    "2",
-    "index_verb"
+    "1.1",
+    "1.2",
+    "1.3"
    ]
   },
   "themistius.in-aristotelis-libros-de-anima-paraphrasis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "themistius.in-aristotelis-physica-paraphrasis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "themistius.peri-filanqrwpi-as-h-kwnsta-ntios": {
    "class": "edition-prefixed",
@@ -34437,24 +34502,24 @@
   "themistius.quae-fertur-in-aristotelis-analyticorum-priorum-librum-i-paraphrasis": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "3",
-    "4",
-    "8"
+    "3.1",
+    "3.2",
+    "3.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "themistius.sophoniae-in-parva-naturalia-commentarium": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "1.1",
+    "1.2",
+    "1.3"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "themistoclis-epistulae.epistulae": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -34596,13 +34661,13 @@
   "theodoretus.historia-religiosa-philotheus": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
     "prologos",
-    "1",
-    "2"
+    "1.1293",
+    "1.1296"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "theodoretus.interpretatio-in-danielem": {
    "class": "mixed",
@@ -34837,12 +34902,15 @@
    "scheme": "ref.sub"
   },
   "theophanes-confessor.chronographia": {
-   "class": "mixed",
+   "basis": "generic (canon scheme absent or depth mismatch)",
+   "class": "logical-numeric",
+   "depth": 1,
    "sample": [
     "theofanis1.1",
     "theofanis1.2",
-    "theofanis1.3"
-   ]
+    "5777"
+   ],
+   "scheme": "ref"
   },
   "theophanes.fragmenta": {
    "basis": "generic (canon scheme absent or depth mismatch)",
