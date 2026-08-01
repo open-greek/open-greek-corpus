@@ -4,45 +4,45 @@
     "total_words": 74975998,
     "source_overrides_applied": 107,
     "ingested_via_cgpg_volume": 63,
-    "pct_ingested": 69.45,
-    "pct_ingested_actual": 63.72,
-    "ingested_words_actual": 47777590,
-    "ingested_complete_works": 2880,
-    "ingested_partial_works": 106,
-    "pct_reachable_not_ingested": 15.34,
-    "pct_locked": 13.63,
-    "pct_duplicate": 1.58
+    "pct_ingested": 71.87,
+    "pct_ingested_actual": 65.98,
+    "ingested_words_actual": 49469619,
+    "ingested_complete_works": 2905,
+    "ingested_partial_works": 108,
+    "pct_reachable_not_ingested": 14.58,
+    "pct_locked": 12.0,
+    "pct_duplicate": 1.55
   },
   "buckets": {
     "ingested": {
-      "works": 2986,
-      "word_count": 52068235
+      "works": 3013,
+      "word_count": 53886342
     },
     "reachable_not_ingested": {
-      "works": 1608,
-      "word_count": 11501008
+      "works": 1593,
+      "word_count": 10931344
     },
     "locked": {
-      "works": 2209,
-      "word_count": 10222562
+      "works": 2199,
+      "word_count": 8994006
     },
     "duplicate": {
-      "works": 406,
-      "word_count": 1184193
+      "works": 404,
+      "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2880,
-      "word_count": 49965788
+      "works": 2905,
+      "word_count": 51713157
     },
     "ingested_partial": {
-      "works": 106,
-      "word_count": 2102447
+      "works": 108,
+      "word_count": 2173185
     }
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1200,
-      "word_count": 10360312
+      "works": 1185,
+      "word_count": 9790648
     },
     "migne_pd": {
       "works": 408,
@@ -88,14 +88,6 @@
       "author": "SYRIANI, SOPATRI ET MARCELLINI SCHOLIA AD HERMOGENIS STATUS",
       "title": "Scholia ad Hermogenis librum PERI\\ STA/SEWN",
       "word_count": 192191,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg5034",
-      "work_id": "001",
-      "author": "SCHOLIA IN PINDARUM",
-      "title": "Scholia in Pindarum (scholia vetera)",
-      "word_count": 184598,
       "best_source": "pd_edition"
     },
     {
@@ -192,14 +184,6 @@
       "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
       "title": "De sententiis",
       "word_count": 111047,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg4031",
-      "work_id": "001",
-      "author": "EUSTRATIUS",
-      "title": "In Aristotelis analyticorum posteriorum librum secundum commentarium",
-      "word_count": 108899,
       "best_source": "pd_edition"
     },
     {
@@ -307,14 +291,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg4098",
-      "work_id": "001",
-      "author": "ETYMOLOGICUM GUDIANUM",
-      "title": "Etymologicum Gudianum (A)A/LION_ZEIAI/)",
-      "word_count": 77936,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg5034",
       "work_id": "004",
       "author": "SCHOLIA IN PINDARUM",
@@ -368,14 +344,6 @@
       "author": "LIBANIUS",
       "title": "Progymnasmata",
       "word_count": 69308,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg4034",
-      "work_id": "001",
-      "author": "MICHAEL",
-      "title": "In ethica Nicomachea ix%19x commentaria",
-      "word_count": 65713,
       "best_source": "pd_edition"
     },
     {
@@ -555,14 +523,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg2039",
-      "work_id": "001",
-      "author": "DIOPHANTUS",
-      "title": "Arithmeticorum libri sex",
-      "word_count": 46535,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg0726",
       "work_id": "001",
       "author": "PALLADIUS",
@@ -689,14 +649,6 @@
       "title": "De trinitate (lib. 3) [Sp.]",
       "word_count": 34493,
       "best_source": "migne_pd"
-    },
-    {
-      "tlg_id": "tlg0559",
-      "work_id": "009",
-      "author": "HERON",
-      "title": "Geometrica",
-      "word_count": 34086,
-      "best_source": "pd_edition"
     },
     {
       "tlg_id": "tlg3188",
@@ -1427,14 +1379,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg0541",
-      "work_id": "039",
-      "author": "MENANDER",
-      "title": "Fragmenta",
-      "word_count": 12000,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg2042",
       "work_id": "062",
       "author": "ORIGENES",
@@ -1589,14 +1533,6 @@
       "override_reason": "sourcing_map says migne_cgpg (mpg_vols 87) but no CGPG-covered volume contains it; CGPG never OCR'd that volume, so it falls back to Migne PD (our own OCR needed)"
     },
     {
-      "tlg_id": "tlg2034",
-      "work_id": "023",
-      "author": "PORPHYRIUS",
-      "title": "Contra Christianos (fragmenta)",
-      "word_count": 10420,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg5034",
       "work_id": "003",
       "author": "SCHOLIA IN PINDARUM",
@@ -1677,14 +1613,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg0579",
-      "work_id": "002",
-      "author": "ORPHICA",
-      "title": "Argonautica",
-      "word_count": 9013,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg4110",
       "work_id": "020",
       "author": "EVAGRIUS",
@@ -1762,14 +1690,6 @@
       "author": "STEPHANUS",
       "title": "In Magni sophistae librum de urinis",
       "word_count": 8356,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg0529",
-      "work_id": "001",
-      "author": "ARIUS DIDYMUS",
-      "title": "Physica (fragmenta)",
-      "word_count": 8354,
       "best_source": "pd_edition"
     },
     {
@@ -2477,14 +2397,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg0579",
-      "work_id": "003",
-      "author": "ORPHICA",
-      "title": "Lithica",
-      "word_count": 5025,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg2062",
       "work_id": "028",
       "author": "JOANNES CHRYSOSTOMUS",
@@ -2546,14 +2458,6 @@
       "author": "Georgius ACROPOLITES",
       "title": "Epitaphius in Joannem Ducam",
       "word_count": 4907,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg5040",
-      "work_id": "001",
-      "author": "SCHOLIA IN XENOPHONTEM",
-      "title": "Scholia in anabasin Cyri (scholia vetera)",
-      "word_count": 4901,
       "best_source": "pd_edition"
     },
     {
@@ -4949,14 +4853,6 @@
       "title": "In exaltationem venerandae crucis [Sp.]",
       "word_count": 1821,
       "best_source": "migne_pd"
-    },
-    {
-      "tlg_id": "tlg1413",
-      "work_id": "001",
-      "author": "HERACLITUS",
-      "title": "De incredibilibus",
-      "word_count": 1815,
-      "best_source": "pd_edition"
     },
     {
       "tlg_id": "tlg2062",
@@ -8439,14 +8335,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg0649",
-      "work_id": "001",
-      "author": "LESBONAX",
-      "title": "*POLITIKO/S",
-      "word_count": 339,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg1670",
       "work_id": "001",
       "author": "SERAPION",
@@ -11487,14 +11375,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg1511",
-      "work_id": "001",
-      "author": "MIMNERMUS",
-      "title": "Fragmenta",
-      "word_count": 30,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg1617",
       "work_id": "002",
       "author": "Marcus Antonius POLEMON",
@@ -12998,6 +12878,17 @@
       "missing_words": 61701
     },
     {
+      "tlg_id": "tlg4034",
+      "work_id": "001",
+      "author": "MICHAEL",
+      "title": "In ethica Nicomachea ix%19x commentaria",
+      "word_count": 65713,
+      "ingested_tokens": 6107,
+      "coverage_ratio": 0.093,
+      "source": "ocr",
+      "missing_words": 59606
+    },
+    {
       "tlg_id": "tlg4089",
       "work_id": "008",
       "author": "THEODORETUS",
@@ -13491,6 +13382,17 @@
       "coverage_ratio": 0.294,
       "source": "first1k",
       "missing_words": 2840
+    },
+    {
+      "tlg_id": "tlg0579",
+      "work_id": "003",
+      "author": "ORPHICA",
+      "title": "Lithica",
+      "word_count": 5025,
+      "ingested_tokens": 2501,
+      "coverage_ratio": 0.498,
+      "source": "ocr",
+      "missing_words": 2524
     },
     {
       "tlg_id": "tlg0608",
@@ -14088,8 +13990,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 700,
-    "n_tokens": 11383794,
+    "works": 707,
+    "n_tokens": 11365619,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -14468,6 +14370,14 @@
         "n_tokens": 79204
       },
       {
+        "key": "tlg4049.tlg001",
+        "edition": "qwen36-thomaemagistrisi00thomuoft",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 12036,
+        "n_tokens": 77130
+      },
+      {
         "key": "scholia-in-euripidem.scholia-in-euripidis-hecubam-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -14514,14 +14424,6 @@
         "license": "PD",
         "n_passages": 4793,
         "n_tokens": 72445
-      },
-      {
-        "key": "tlg5034.tlg001a",
-        "edition": "perseus-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 3089,
-        "n_tokens": 67356
       },
       {
         "key": "ocr.mansi_ephesus_t5",
@@ -14586,14 +14488,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 266,
         "n_tokens": 47775
-      },
-      {
-        "key": "tlg5034.tlg001b",
-        "edition": "perseus-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 911,
-        "n_tokens": 47289
       },
       {
         "key": "zosimus-alchemista.opera",
@@ -14666,14 +14560,6 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 833,
         "n_tokens": 36825
-      },
-      {
-        "key": "tlg5034.tlg001c",
-        "edition": "perseus-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 454,
-        "n_tokens": 36521
       },
       {
         "key": "severian-of-gabala.fragmenta-in-epistulas-pauli",
@@ -14812,6 +14698,14 @@
         "n_tokens": 22105
       },
       {
+        "key": "tlg4075.tlg001",
+        "edition": "qwen36-marinus-bub",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1663,
+        "n_tokens": 21475
+      },
+      {
         "key": "demetrius-poet-phil.demetrius-de-eloc-roberts",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
@@ -14844,14 +14738,6 @@
         "n_tokens": 17846
       },
       {
-        "key": "tlg5034.tlg001d",
-        "edition": "perseus-grc1",
-        "source": "first1k",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 233,
-        "n_tokens": 17509
-      },
-      {
         "key": "nicolaus-history.nicolaus-progymnasmata-felten",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
@@ -14874,6 +14760,14 @@
         "license": "PD",
         "n_passages": 1836,
         "n_tokens": 16630
+      },
+      {
+        "key": "philodemus.tlg1595-tlg241",
+        "edition": "qwen36-philodemiperioik00phil",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2107,
+        "n_tokens": 15357
       },
       {
         "key": "libanius.oratio-11",
@@ -15012,7 +14906,7 @@
         "n_tokens": 9743
       },
       {
-        "key": "tlg1595.tlg601",
+        "key": "philodemus.tlg1595-tlg601",
         "edition": "mekler-acadindex-1902",
         "source": "ocr",
         "license": "PD",
@@ -15204,6 +15098,14 @@
         "n_tokens": 7664
       },
       {
+        "key": "philodemus.tlg1595-tlg267",
+        "edition": "qwen36-philodemiepicur00philgoog",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 3134,
+        "n_tokens": 7657
+      },
+      {
         "key": "euripides.tlg0006-tlg017",
         "edition": "perseus-grc2",
         "source": "perseus",
@@ -15292,6 +15194,14 @@
         "n_tokens": 7163
       },
       {
+        "key": "philodemus.tlg1595-tlg271",
+        "edition": "qwen36-philodemiperipar00philuoft",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2096,
+        "n_tokens": 7162
+      },
+      {
         "key": "dicaearchus-messenius.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -15330,6 +15240,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 8,
         "n_tokens": 6980
+      },
+      {
+        "key": "philodemus.tlg1595-tlg492",
+        "edition": "qwen36-philodemiperitou00philuoft",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1762,
+        "n_tokens": 6928
       },
       {
         "key": "anonymus-author-of-vita-cononis.vita-sancti-cononis-bidanae",
@@ -15642,6 +15560,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 53,
         "n_tokens": 5120
+      },
+      {
+        "key": "tlg1595.tlg120",
+        "edition": "qwen36-sitzungsbericht308klasgoog",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 861,
+        "n_tokens": 5107
       },
       {
         "key": "libanius.oratio-30",
@@ -16124,6 +16050,14 @@
         "n_tokens": 3363
       },
       {
+        "key": "philodemus.tlg1595-tlg472",
+        "edition": "qwen36-philodemberindu00gompgoog",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 312,
+        "n_tokens": 3348
+      },
+      {
         "key": "eusebius-of-caesarea.hypomnema-de-psalmis",
         "edition": "pta-grcBibex",
         "source": "pta",
@@ -16346,6 +16280,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 37,
         "n_tokens": 2811
+      },
+      {
+        "key": "tlg1140.tlg001",
+        "edition": "qwen36-anticlides-bub",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 45,
+        "n_tokens": 2785
       },
       {
         "key": "libanius.declamatio-11",
@@ -16700,6 +16642,14 @@
         "n_tokens": 1890
       },
       {
+        "key": "philodemus.tlg1595-tlg003",
+        "edition": "qwen36-rivistadifilolog03-p469-576",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 621,
+        "n_tokens": 1890
+      },
+      {
         "key": "athanasius-of-alexandria.epistula-ad-dracontium",
         "edition": "pta-grc1",
         "source": "pta",
@@ -16826,6 +16776,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 18,
         "n_tokens": 1662
+      },
+      {
+        "key": "philodemus.tlg1595-tlg289",
+        "edition": "qwen36-philodemiperipoi00haus",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 255,
+        "n_tokens": 1661
       },
       {
         "key": "dino.fragmenta",

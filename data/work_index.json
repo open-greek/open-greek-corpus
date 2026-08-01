@@ -9,9 +9,9 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3623,
-   "with_external_anchor": 3246,
-   "no_external_anchor": 377,
+   "works": 3657,
+   "with_external_anchor": 3281,
+   "no_external_anchor": 376,
    "redirects": 4
   }
  },
@@ -22563,8 +22563,8 @@
     "edition": "qwen36-comica_adespota_caf3",
     "source": "ocr",
     "license": "PD",
-    "n_passages": 1320,
-    "n_tokens": 100754
+    "n_passages": 5727,
+    "n_tokens": 54261
    }
   },
   "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana": {
@@ -92473,25 +92473,6 @@
     "n_tokens": 4723
    }
   },
-  "tlg1595.tlg601": {
-   "id": "ogc003537",
-   "slug": "tlg1595.tlg601",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga001370",
-    "slug": "tlg1595",
-    "name": "tlg1595"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "mekler-acadindex-1902",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 1761,
-    "n_tokens": 9689
-   }
-  },
   "tlg1598.fragmenta": {
    "id": "ogc003538",
    "slug": "tlg1598.fragmenta",
@@ -92632,82 +92613,6 @@
     "license": "CC-BY-SA-4.0",
     "n_passages": 2,
     "n_tokens": 183
-   }
-  },
-  "tlg5034.tlg001a": {
-   "id": "ogc003545",
-   "slug": "tlg5034.tlg001a",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga001375",
-    "slug": "tlg5034",
-    "name": "tlg5034"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "perseus-grc1",
-    "source": "first1k",
-    "license": "CC-BY-SA-4.0",
-    "n_passages": 3089,
-    "n_tokens": 67356
-   }
-  },
-  "tlg5034.tlg001b": {
-   "id": "ogc003546",
-   "slug": "tlg5034.tlg001b",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga001375",
-    "slug": "tlg5034",
-    "name": "tlg5034"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "perseus-grc1",
-    "source": "first1k",
-    "license": "CC-BY-SA-4.0",
-    "n_passages": 911,
-    "n_tokens": 47289
-   }
-  },
-  "tlg5034.tlg001c": {
-   "id": "ogc003547",
-   "slug": "tlg5034.tlg001c",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga001375",
-    "slug": "tlg5034",
-    "name": "tlg5034"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "perseus-grc1",
-    "source": "first1k",
-    "license": "CC-BY-SA-4.0",
-    "n_passages": 454,
-    "n_tokens": 36521
-   }
-  },
-  "tlg5034.tlg001d": {
-   "id": "ogc003548",
-   "slug": "tlg5034.tlg001d",
-   "former_slugs": [],
-   "title": "",
-   "author": {
-    "id": "oga001375",
-    "slug": "tlg5034",
-    "name": "tlg5034"
-   },
-   "work_anchors": {},
-   "manifestation": {
-    "edition": "perseus-grc1",
-    "source": "first1k",
-    "license": "CC-BY-SA-4.0",
-    "n_passages": 233,
-    "n_tokens": 17509
    }
   },
   "tragica-adespota.fragmenta": {
@@ -94698,6 +94603,1002 @@
     "license": "PD",
     "n_passages": 45,
     "n_tokens": 3962
+   }
+  },
+  "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione": {
+   "id": "ogc003627",
+   "slug": "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione",
+   "former_slugs": [],
+   "title": "Theophrastus Sive De Animarum Immortalitate Et Corporum Resurrectione",
+   "author": {
+    "id": "oga000020",
+    "slug": "aeneas-philosophy",
+    "name": "Aeneas",
+    "authorities": {
+     "wikidata": "Q137152",
+     "viaf": "85151247927244270006",
+     "gnd": "118647148",
+     "isni": "0000000080089877"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4001.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-aeneasgazaeuset00zachgoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 940,
+    "n_tokens": 24806
+   }
+  },
+  "arius-didymus.physica-fragmenta": {
+   "id": "ogc003628",
+   "slug": "arius-didymus.physica-fragmenta",
+   "former_slugs": [],
+   "title": "Physica (Fragmenta)",
+   "author": {
+    "id": "oga000231",
+    "slug": "arius-didymus",
+    "name": "Arius Didymus",
+    "authorities": {
+     "wikidata": "Q641051",
+     "viaf": "564159474344227662693",
+     "gnd": "119362805",
+     "isni": "0000000002805209"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0529.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-doxographi-arius",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 196,
+    "n_tokens": 7947
+   }
+  },
+  "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat": {
+   "id": "ogc003629",
+   "slug": "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat",
+   "former_slugs": [],
+   "title": "Vita Isidori (Ap. Sudam, Hesychium, Photium Et E Cod. Vat",
+   "author": {
+    "id": "oga000434",
+    "slug": "damascius",
+    "name": "Damascius",
+    "authorities": {
+     "wikidata": "Q315360",
+     "viaf": "8510159477860427990009",
+     "gnd": "118988158",
+     "isni": "0000000373994125"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4066.tlg002"
+   },
+   "manifestation": {
+    "edition": "qwen36-damascius-boissonade",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 78,
+    "n_tokens": 12536
+   }
+  },
+  "diophantus-mathematics.arithmeticorum-libri-sex": {
+   "id": "ogc003630",
+   "slug": "diophantus-mathematics.arithmeticorum-libri-sex",
+   "former_slugs": [],
+   "title": "Arithmeticorum Libri Sex",
+   "author": {
+    "id": "oga000531",
+    "slug": "diophantus-mathematics",
+    "name": "Diophantus",
+    "authorities": {
+     "wikidata": "Q178217",
+     "viaf": "7061159478126427990000",
+     "gnd": "118525913",
+     "isni": "0000000423366849"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2039.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-diophantialexan01plangoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 4026,
+    "n_tokens": 51884
+   }
+  },
+  "epicurus.deperditorum-librorum-reliquiae": {
+   "id": "ogc003631",
+   "slug": "epicurus.deperditorum-librorum-reliquiae",
+   "former_slugs": [],
+   "title": "Deperditorum Librorum Reliquiae",
+   "author": {
+    "id": "oga000566",
+    "slug": "epicurus",
+    "name": "Epicurus",
+    "authorities": {
+     "wikidata": "Q43216",
+     "viaf": "7112161211540840070008",
+     "gnd": "118530585",
+     "isni": "0000000121366309"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0537.tlg015"
+   },
+   "manifestation": {
+    "edition": "qwen36-usener-epicurea-1887",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 4122,
+    "n_tokens": 61340
+   }
+  },
+  "etymologicum-gudianum.etymologicum-gudianum-lion-zeiai": {
+   "id": "ogc003632",
+   "slug": "etymologicum-gudianum.etymologicum-gudianum-lion-zeiai",
+   "former_slugs": [],
+   "title": "Etymologicum Gudianum (ἀάλιον-ζειαί)",
+   "author": {
+    "id": "oga001423",
+    "slug": "etymologicum-gudianum",
+    "name": "Etymologicum Gudianum"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4098.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-etym-gudianum-sturz-bsb",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 14167,
+    "n_tokens": 322517
+   }
+  },
+  "eustathius-philol.commentarii-ad-homeri-iliadem": {
+   "id": "ogc003633",
+   "slug": "eustathius-philol.commentarii-ad-homeri-iliadem",
+   "former_slugs": [],
+   "title": "Commentarii Ad Homeri Iliadem",
+   "author": {
+    "id": "oga000617",
+    "slug": "eustathius-philol",
+    "name": "Eustathius",
+    "authorities": {
+     "wikidata": "Q453465",
+     "viaf": "4890168850994167620008",
+     "gnd": "118682733",
+     "isni": "0000000121286018"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4083.tlg001",
+    "wikidata": "Q103979186"
+   },
+   "manifestation": {
+    "edition": "qwen36-eustathius-iliad-stallbaum",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2950,
+    "n_tokens": 1065178
+   }
+  },
+  "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium": {
+   "id": "ogc003634",
+   "slug": "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium",
+   "former_slugs": [],
+   "title": "In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium",
+   "author": {
+    "id": "oga000619",
+    "slug": "eustratius",
+    "name": "Eustratius",
+    "authorities": {
+     "wikidata": "Q3561265",
+     "viaf": "250237510",
+     "gnd": "10094096X",
+     "isni": "0000000370847648"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4031.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-inanalyticorumpo00eust",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2696,
+    "n_tokens": 110701
+   }
+  },
+  "heraclitus-paradoxography.de-incredibilibus": {
+   "id": "ogc003635",
+   "slug": "heraclitus-paradoxography.de-incredibilibus",
+   "former_slugs": [],
+   "title": "De Incredibilibus",
+   "author": {
+    "id": "oga001424",
+    "slug": "heraclitus-paradoxography",
+    "name": "Heraclitus",
+    "authorities": {
+     "wikidata": "Q5732548",
+     "viaf": "204998794",
+     "gnd": "102394989",
+     "isni": "0000000441178892"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1413.tlg001",
+    "wikidata": "Q109852725"
+   },
+   "manifestation": {
+    "edition": "glaux-1413-001",
+    "source": "glaux",
+    "license": "PD (ancient text); GLAUx CC BY-SA 4.0",
+    "n_passages": 39,
+    "n_tokens": 1757
+   }
+  },
+  "heron.geometrica": {
+   "id": "ogc003636",
+   "slug": "heron.geometrica",
+   "former_slugs": [],
+   "title": "Geometrica",
+   "author": {
+    "id": "oga000703",
+    "slug": "heron",
+    "name": "Heron",
+    "authorities": {
+     "wikidata": "Q161853",
+     "viaf": "261277110",
+     "gnd": "119107430",
+     "isni": "0000000107979256"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0559.tlg009"
+   },
+   "manifestation": {
+    "edition": "qwen36-heron-heiberg-v4",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2799,
+    "n_tokens": 46883
+   }
+  },
+  "lesbonax-rhetoric.politiko-s": {
+   "id": "ogc003637",
+   "slug": "lesbonax-rhetoric.politiko-s",
+   "former_slugs": [],
+   "title": "Πολιτικός",
+   "author": {
+    "id": "oga000804",
+    "slug": "lesbonax-rhetoric",
+    "name": "Lesbonax",
+    "authorities": {
+     "wikidata": "Q1129405",
+     "viaf": "96166002213575021844",
+     "gnd": "100976972",
+     "isni": "0000000010721291"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0649.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-lesbonax",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 40,
+    "n_tokens": 970
+   }
+  },
+  "menander-comedy.fragmenta-2": {
+   "id": "ogc003638",
+   "slug": "menander-comedy.fragmenta-2",
+   "former_slugs": [],
+   "title": "Fragmenta",
+   "author": {
+    "id": "oga000868",
+    "slug": "menander-comedy",
+    "name": "Menander",
+    "authorities": {
+     "wikidata": "Q118992",
+     "viaf": "933144647686880166588",
+     "gnd": "118747525",
+     "isni": "0000000374189697"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0541.tlg039"
+   },
+   "manifestation": {
+    "edition": "qwen36-comica_adespota_caf3",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 3413,
+    "n_tokens": 26967
+   }
+  },
+  "michael.in-ethica-nicomachea-ixx-commentaria": {
+   "id": "ogc003639",
+   "slug": "michael.in-ethica-nicomachea-ixx-commentaria",
+   "former_slugs": [],
+   "title": "In Ethica Nicomachea Ixx Commentaria",
+   "author": {
+    "id": "oga000894",
+    "slug": "michael",
+    "name": "Michael",
+    "authorities": {
+     "wikidata": "Q6835560",
+     "viaf": "22494607",
+     "gnd": "100953921",
+     "isni": "0000000079718920"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg4034.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-commentariainari20bero",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 44,
+    "n_tokens": 6107
+   }
+  },
+  "mimnermus-tragedy.fragmenta": {
+   "id": "ogc003640",
+   "slug": "mimnermus-tragedy.fragmenta",
+   "former_slugs": [],
+   "title": "Fragmenta",
+   "author": {
+    "id": "oga001425",
+    "slug": "mimnermus-tragedy",
+    "name": "Mimnermus",
+    "authorities": {
+     "wikidata": "Q98084384",
+     "viaf": "44692744",
+     "gnd": "102399638"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1511.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-nauck-tgf-mimnermus",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 144,
+    "n_tokens": 1085
+   }
+  },
+  "orphica.argonautica": {
+   "id": "ogc003641",
+   "slug": "orphica.argonautica",
+   "former_slugs": [],
+   "title": "Argonautica",
+   "author": {
+    "id": "oga000984",
+    "slug": "orphica",
+    "name": "Orphica"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0579.tlg002"
+   },
+   "manifestation": {
+    "edition": "qwen36-abel-orphica-argonautica",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 1093,
+    "n_tokens": 6788
+   }
+  },
+  "orphica.hymni": {
+   "id": "ogc003642",
+   "slug": "orphica.hymni",
+   "former_slugs": [],
+   "title": "Hymni",
+   "author": {
+    "id": "oga000984",
+    "slug": "orphica",
+    "name": "Orphica"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0579.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-abel-orphica-hymni",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 1017,
+    "n_tokens": 5509
+   }
+  },
+  "orphica.lithica": {
+   "id": "ogc003643",
+   "slug": "orphica.lithica",
+   "former_slugs": [],
+   "title": "Lithica",
+   "author": {
+    "id": "oga000984",
+    "slug": "orphica",
+    "name": "Orphica"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg0579.tlg003"
+   },
+   "manifestation": {
+    "edition": "qwen36-abel-orphica-lithica",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 328,
+    "n_tokens": 2501
+   }
+  },
+  "pancrates-epigram.fragmenta": {
+   "id": "ogc003644",
+   "slug": "pancrates-epigram.fragmenta",
+   "former_slugs": [],
+   "title": "Fragmenta",
+   "author": {
+    "id": "oga001426",
+    "slug": "pancrates-epigram",
+    "name": "Pancrates",
+    "authorities": {
+     "wikidata": "Q1229019",
+     "viaf": "42230499",
+     "gnd": "102401497"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1556.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-oxyrhynchuspapyr08gren",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 61,
+    "n_tokens": 157
+   }
+  },
+  "philodemus.tlg1595-tlg003": {
+   "id": "ogc003645",
+   "slug": "philodemus.tlg1595-tlg003",
+   "former_slugs": [],
+   "title": "tlg1595.tlg003",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg003",
+    "tlg": "tlg1595.tlg003"
+   },
+   "manifestation": {
+    "edition": "qwen36-rivistadifilolog03-p469-576",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 621,
+    "n_tokens": 1890
+   }
+  },
+  "philodemus.tlg1595-tlg241": {
+   "id": "ogc003646",
+   "slug": "philodemus.tlg1595-tlg241",
+   "former_slugs": [],
+   "title": "tlg1595.tlg241",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg241",
+    "tlg": "tlg1595.tlg241"
+   },
+   "manifestation": {
+    "edition": "qwen36-philodemiperioik00phil",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2107,
+    "n_tokens": 15357
+   }
+  },
+  "philodemus.tlg1595-tlg267": {
+   "id": "ogc003647",
+   "slug": "philodemus.tlg1595-tlg267",
+   "former_slugs": [],
+   "title": "tlg1595.tlg267",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg267",
+    "tlg": "tlg1595.tlg267"
+   },
+   "manifestation": {
+    "edition": "qwen36-philodemiepicur00philgoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 3134,
+    "n_tokens": 7657
+   }
+  },
+  "philodemus.tlg1595-tlg271": {
+   "id": "ogc003648",
+   "slug": "philodemus.tlg1595-tlg271",
+   "former_slugs": [],
+   "title": "tlg1595.tlg271",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg271",
+    "tlg": "tlg1595.tlg271"
+   },
+   "manifestation": {
+    "edition": "qwen36-philodemiperipar00philuoft",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2096,
+    "n_tokens": 7162
+   }
+  },
+  "philodemus.tlg1595-tlg289": {
+   "id": "ogc003649",
+   "slug": "philodemus.tlg1595-tlg289",
+   "former_slugs": [],
+   "title": "tlg1595.tlg289",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg289",
+    "tlg": "tlg1595.tlg289"
+   },
+   "manifestation": {
+    "edition": "qwen36-philodemiperipoi00haus",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 255,
+    "n_tokens": 1661
+   }
+  },
+  "philodemus.tlg1595-tlg472": {
+   "id": "ogc003650",
+   "slug": "philodemus.tlg1595-tlg472",
+   "former_slugs": [],
+   "title": "tlg1595.tlg472",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg472",
+    "tlg": "tlg1595.tlg472"
+   },
+   "manifestation": {
+    "edition": "qwen36-philodemberindu00gompgoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 312,
+    "n_tokens": 3348
+   }
+  },
+  "philodemus.tlg1595-tlg492": {
+   "id": "ogc003651",
+   "slug": "philodemus.tlg1595-tlg492",
+   "former_slugs": [],
+   "title": "tlg1595.tlg492",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg492",
+    "tlg": "tlg1595.tlg492"
+   },
+   "manifestation": {
+    "edition": "qwen36-philodemiperitou00philuoft",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 1762,
+    "n_tokens": 6928
+   }
+  },
+  "philodemus.tlg1595-tlg601": {
+   "id": "ogc003652",
+   "slug": "philodemus.tlg1595-tlg601",
+   "former_slugs": [],
+   "title": "tlg1595.tlg601",
+   "author": {
+    "id": "oga001057",
+    "slug": "philodemus",
+    "name": "Philodemus",
+    "authorities": {
+     "wikidata": "Q451550",
+     "viaf": "8723167807299018130001",
+     "gnd": "11859401X",
+     "isni": "0000000391961028"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg1595.tlg601",
+    "tlg": "tlg1595.tlg601"
+   },
+   "manifestation": {
+    "edition": "mekler-acadindex-1902",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 1761,
+    "n_tokens": 9689
+   }
+  },
+  "porphyrius.contra-christianos-fragmenta": {
+   "id": "ogc003653",
+   "slug": "porphyrius.contra-christianos-fragmenta",
+   "former_slugs": [],
+   "title": "Contra Christianos (Fragmenta)",
+   "author": {
+    "id": "oga001106",
+    "slug": "porphyrius",
+    "name": "Porphyrius",
+    "authorities": {
+     "wikidata": "Q203445",
+     "viaf": "3948164661916403390007",
+     "gnd": "118595873",
+     "isni": "0000000121363853"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2034.tlg023"
+   },
+   "manifestation": {
+    "edition": "qwen36-harnack-porphyry",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 461,
+    "n_tokens": 12746
+   }
+  },
+  "porphyrius.de-antro-nympharum": {
+   "id": "ogc003654",
+   "slug": "porphyrius.de-antro-nympharum",
+   "former_slugs": [],
+   "title": "De Antro Nympharum",
+   "author": {
+    "id": "oga001106",
+    "slug": "porphyrius",
+    "name": "Porphyrius",
+    "authorities": {
+     "wikidata": "Q203445",
+     "viaf": "3948164661916403390007",
+     "gnd": "118595873",
+     "isni": "0000000121363853"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2034.tlg004",
+    "wikidata": "Q27649594"
+   },
+   "manifestation": {
+    "edition": "glaux-2034-004",
+    "source": "glaux",
+    "license": "PD (ancient text); GLAUx corpus CC BY-SA 4.0",
+    "n_passages": 36,
+    "n_tokens": 4939
+   }
+  },
+  "porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma": {
+   "id": "ogc003655",
+   "slug": "porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma",
+   "former_slugs": [],
+   "title": "Εἰς τὰ ἁρμονικὰ Πτολεμαίου ὑπόμνημα",
+   "author": {
+    "id": "oga001106",
+    "slug": "porphyrius",
+    "name": "Porphyrius",
+    "authorities": {
+     "wikidata": "Q203445",
+     "viaf": "3948164661916403390007",
+     "gnd": "118595873",
+     "isni": "0000000121363853"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2034.tlg021"
+   },
+   "manifestation": {
+    "edition": "qwen36-porphyry-in-ptol-bub",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2401,
+    "n_tokens": 64042
+   }
+  },
+  "porphyrius.epistula-ad-anebonem": {
+   "id": "ogc003656",
+   "slug": "porphyrius.epistula-ad-anebonem",
+   "former_slugs": [],
+   "title": "Epistula Ad Anebonem",
+   "author": {
+    "id": "oga001106",
+    "slug": "porphyrius",
+    "name": "Porphyrius",
+    "authorities": {
+     "wikidata": "Q203445",
+     "viaf": "3948164661916403390007",
+     "gnd": "118595873",
+     "isni": "0000000121363853"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2034.tlg013"
+   },
+   "manifestation": {
+    "edition": "qwen36-parthey-anebonem",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 163,
+    "n_tokens": 2413
+   }
+  },
+  "porphyrius.sententiae-ad-intelligibilia-ducentes": {
+   "id": "ogc003657",
+   "slug": "porphyrius.sententiae-ad-intelligibilia-ducentes",
+   "former_slugs": [],
+   "title": "Sententiae Ad Intelligibilia Ducentes",
+   "author": {
+    "id": "oga001106",
+    "slug": "porphyrius",
+    "name": "Porphyrius",
+    "authorities": {
+     "wikidata": "Q203445",
+     "viaf": "3948164661916403390007",
+     "gnd": "118595873",
+     "isni": "0000000121363853"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2034.tlg008"
+   },
+   "manifestation": {
+    "edition": "glaux-2034-008",
+    "source": "glaux",
+    "license": "PD (ancient text); GLAUx corpus CC BY-SA 4.0",
+    "n_passages": 44,
+    "n_tokens": 7712
+   }
+  },
+  "porphyrius.vita-plotini": {
+   "id": "ogc003658",
+   "slug": "porphyrius.vita-plotini",
+   "former_slugs": [],
+   "title": "Vita Plotini",
+   "author": {
+    "id": "oga001106",
+    "slug": "porphyrius",
+    "name": "Porphyrius",
+    "authorities": {
+     "wikidata": "Q203445",
+     "viaf": "3948164661916403390007",
+     "gnd": "118595873",
+     "isni": "0000000121363853"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2034.tlg001",
+    "wikidata": "Q19239197"
+   },
+   "manifestation": {
+    "edition": "glaux-2034-001",
+    "source": "glaux",
+    "license": "PD (ancient text); GLAUx CC BY-SA 4.0",
+    "n_passages": 24,
+    "n_tokens": 8048
+   }
+  },
+  "scholia-in-pindarum.scholia-in-pindarum-scholia-vetera": {
+   "id": "ogc003659",
+   "slug": "scholia-in-pindarum.scholia-in-pindarum-scholia-vetera",
+   "former_slugs": [],
+   "title": "Scholia In Pindarum (Scholia Vetera)",
+   "author": {
+    "id": "oga001427",
+    "slug": "scholia-in-pindarum",
+    "name": "Scholia In Pindarum"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg5034.tlg001",
+    "tlg": "tlg5034.tlg001"
+   },
+   "manifestation": {
+    "edition": "perseus-grc1-consolidated",
+    "source": "first1k",
+    "license": "PD (ancient text); First1KGreek/Perseus CC BY-SA 4.0",
+    "n_passages": 4687,
+    "n_tokens": 168675
+   }
+  },
+  "scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera": {
+   "id": "ogc003660",
+   "slug": "scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera",
+   "former_slugs": [],
+   "title": "Scholia In Anabasin Cyri (Scholia Vetera)",
+   "author": {
+    "id": "oga001428",
+    "slug": "scholia-in-xenophontem",
+    "name": "Scholia In Xenophontem"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg5040.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-expeditiocyri02xenogoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 304,
+    "n_tokens": 4180
+   }
+  },
+  "themistius.peri-filanqrwpi-as-h-kwnsta-ntios": {
+   "id": "ogc003661",
+   "slug": "themistius.peri-filanqrwpi-as-h-kwnsta-ntios",
+   "former_slugs": [],
+   "title": "Περὶ φιλανθρωπίας ἢ Κωνστάντιος",
+   "author": {
+    "id": "oga001300",
+    "slug": "themistius",
+    "name": "Themistius",
+    "authorities": {
+     "wikidata": "Q365183",
+     "viaf": "3183159248458104870004",
+     "gnd": "118801783",
+     "isni": "0000000109286445"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2001.tlg001"
+   },
+   "manifestation": {
+    "edition": "qwen36-themistiioratio01dindgoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 6454,
+    "n_tokens": 157489
+   }
+  },
+  "tlg1140.tlg001": {
+   "id": "ogc003662",
+   "slug": "tlg1140.tlg001",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001429",
+    "slug": "tlg1140",
+    "name": "tlg1140"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-anticlides-bub",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 45,
+    "n_tokens": 2785
+   }
+  },
+  "tlg1595.tlg120": {
+   "id": "ogc003663",
+   "slug": "tlg1595.tlg120",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001370",
+    "slug": "tlg1595",
+    "name": "tlg1595"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-sitzungsbericht308klasgoog",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 861,
+    "n_tokens": 5107
+   }
+  },
+  "tlg4049.tlg001": {
+   "id": "ogc003664",
+   "slug": "tlg4049.tlg001",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001430",
+    "slug": "tlg4049",
+    "name": "tlg4049"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-thomaemagistrisi00thomuoft",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 12036,
+    "n_tokens": 77130
+   }
+  },
+  "tlg4075.tlg001": {
+   "id": "ogc003665",
+   "slug": "tlg4075.tlg001",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001431",
+    "slug": "tlg4075",
+    "name": "tlg4075"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-marinus-bub",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 1663,
+    "n_tokens": 21475
    }
   }
  },
