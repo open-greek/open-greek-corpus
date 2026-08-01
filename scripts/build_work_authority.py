@@ -28,6 +28,7 @@ PAGE = 4000
 QUERY = """
 SELECT ?tlg ?work ?workLabel
        (SAMPLE(?laL) AS ?la) (SAMPLE(?grcL) AS ?grc) (SAMPLE(?elL) AS ?el)
+       (GROUP_CONCAT(DISTINCT ?altL; separator="|") AS ?alts)
        (GROUP_CONCAT(DISTINCT ?gl; separator="|") AS ?genres)
        (GROUP_CONCAT(DISTINCT ?ll; separator="|") AS ?langs)
        (MIN(?yr) AS ?year) WHERE {
@@ -46,6 +47,10 @@ SELECT ?tlg ?work ?workLabel
   OPTIONAL { ?work rdfs:label ?laL . FILTER(LANG(?laL) = "la") }
   OPTIONAL { ?work rdfs:label ?grcL . FILTER(LANG(?grcL) = "grc") }
   OPTIONAL { ?work rdfs:label ?elL . FILTER(LANG(?elL) = "el") }
+  # altLabels carry the Latinized/scholarly title variants (e.g. "De anima"
+  # beside an English "On the Soul" main label) that the Canon actually uses.
+  OPTIONAL { ?work skos:altLabel ?altL .
+             FILTER(LANG(?altL) IN ("en", "la", "grc", "el")) }
   OPTIONAL { ?work wdt:P136 ?g . ?g rdfs:label ?gl . FILTER(LANG(?gl) = "en") }
   OPTIONAL { ?work wdt:P407 ?l . ?l rdfs:label ?ll . FILTER(LANG(?ll) = "en") }
   OPTIONAL { ?work wdt:P571 ?inc . BIND(YEAR(?inc) AS ?yr) }
@@ -95,6 +100,9 @@ def main():
                 v = r.get(fld, {}).get("value", "")
                 if v:
                     rec[fld] = v
+            alts = r.get("alts", {}).get("value", "")
+            if alts:
+                rec["alts"] = sorted(set(filter(None, alts.split("|"))))
             g = r.get("genres", {}).get("value", "")
             la = r.get("langs", {}).get("value", "")
             if g:
