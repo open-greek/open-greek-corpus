@@ -72,6 +72,33 @@ def main():
     # works added directly, e.g. off-registry Canon finds, live only here)
     cw_path = REPO / "data" / "tlg_crosswalk.json"
     crosswalk = json.loads(cw_path.read_text(encoding="utf-8")) if cw_path.exists() else {}
+
+    # Curated lettered sub-editions (tlg0007.tlg082a etc.): First1K/Perseus split
+    # these out of a parent canon work, and the canon has no entry for a lettered
+    # id, so their slugs come from the curated seed instead of a canon title.
+    seed_path = REPO / "data" / "lettered_subedition_slugs.json"
+    if seed_path.exists():
+        for e in json.loads(seed_path.read_text(encoding="utf-8"))["works"]:
+            stem = e["tlg"]
+            wslug = normalize_slug(e["title"])
+            if not wslug:
+                raise SystemExit(
+                    f"lettered seed: title {e['title']!r} normalizes to an "
+                    f"empty slug (use a Latin/betacode title)")
+            slug = f'{e["author_slug"]}.{wslug}'
+            cur = crosswalk.get(slug)
+            if cur and cur.get("tlg") not in (None, stem):
+                raise SystemExit(
+                    f"lettered seed: slug {slug} already maps to {cur['tlg']}")
+            # self-heal: a prior run may have recorded this stem under another
+            # (e.g. since-renamed) slug; the curated naming supersedes it
+            for other, oe in list(crosswalk.items()):
+                if oe.get("tlg") == stem and other != slug:
+                    del crosswalk[other]
+            crosswalk[slug] = {"cts": f"urn:cts:greekLit:{stem}", "tlg": stem,
+                               "author_slug": e["author_slug"], "title": e["title"]}
+            slug_taken.add(slug)
+
     rename, minted, unresolved = {}, [], []
     for stem in tlg_files:
         cts = f"urn:cts:greekLit:{stem}"

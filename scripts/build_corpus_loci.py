@@ -475,6 +475,26 @@ def main() -> None:
                  f"{_WORK_RE.search(p.name).group(2)}".startswith(args.only)]
     print(f"scanning {len(files)} TEI grc editions ...", file=sys.stderr)
 
+    # Source works consumed by a served consolidation (e.g. the four First1K
+    # Pindar-scholia files merged into the tlg5034.tlg001 slug, commit 3f8e8a8):
+    # re-serving them would duplicate the consolidated text under a raw key. The
+    # corpus_changes audit records are the source of truth: skip a work whose urn
+    # a record lists in provenance.consolidated_from, as long as the consolidated
+    # work itself is still served.
+    consumed_by_consolidation: dict[str, str] = {}     # urn stem -> consolidated slug
+    for rec_path in sorted((DATA / "corpus_changes").glob("*.json")):
+        try:
+            rec = json.loads(rec_path.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        meta = rec.get("_meta", {}) if isinstance(rec, dict) else {}
+        prov = rec.get("provenance") if isinstance(rec, dict) else None
+        merged = prov.get("consolidated_from", []) if isinstance(prov, dict) else []
+        work = meta.get("work", "") if isinstance(meta, dict) else ""
+        if merged and work and (CORPUS / f"{work}.jsonl").exists():
+            for fn in merged:
+                consumed_by_consolidation[fn[:-6] if fn.endswith(".jsonl") else fn] = work
+
     # Pass 1: gather EVERY acceptable edition per work. Most works have one, but
     # some (Diodorus, the Anthologia Graeca) are split across Perseus editions by
     # disjoint book range; Pass 2 keeps the largest as primary and merges in any
@@ -490,7 +510,10 @@ def main() -> None:
         source = p.relative_to(SRC).parts[0]   # sources/<name>/data/... -> <name>
         if source not in OWN_SOURCES:
             continue
-        key = slug_for(f"{m.group(1)}.{m.group(2)}")   # slug is the primary id, not the tlg
+        urn = f"{m.group(1)}.{m.group(2)}"
+        if urn in consumed_by_consolidation:
+            continue
+        key = slug_for(urn)                    # slug is the primary id, not the tlg
         if re.fullmatch(r"pta\d+\.pta\d+", key):
             # an unresolved pta id: deliberately unmapped in the pta crosswalk
             # (pta9999 = the PTA's vendored Septuaginta, handled by the LXX

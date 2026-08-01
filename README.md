@@ -174,10 +174,18 @@ data/
   author_ids.json           opaque oga author-id ledger: id -> slug, former_slugs, status
   work_id_aliases.json      curated rename seed (former slug -> current); the source
                             of truth for renames, replayed by build_id_registry.py
+  lettered_subedition_slugs.json  curated slugs for lettered TLG sub-edition ids
+                            (tlg0007.tlg082a etc., split out of a parent canon work;
+                            the canon has no entry for a lettered id), consumed by
+                            build_id_crosswalk.py
   corpus_changes/           audit trail for editorial changes to the served corpus
                             (source swaps, drops, re-attributions): per change a JSON
                             with old/new + evidence + date + the script that applied it,
-                            and the replaced/dropped rows archived verbatim (reversible)
+                            and the replaced/dropped rows archived verbatim (reversible).
+                            A record with provenance.consolidated_from also STEERS the
+                            TEI ingest: build_corpus_loci.py skips source works a served
+                            consolidation consumed, so a rebuild cannot re-serve them
+                            as raw-keyed duplicates
   work_index.json           reader-facing WEMI join: per work the ogc id, slug,
                             former slugs, CTS/TLG/Wikidata anchors, author (oga +
                             authorities), edition/source/tokens, plus a redirects map

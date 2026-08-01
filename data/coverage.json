@@ -473,6 +473,12 @@
 "source": "first1k",
 "tokens": 3922
 },
+"aelius-herodianus-et-pseudo-herodianus.de-passionibus-excerpta-e-didymo": {
+"license": "CC-BY-SA-4.0",
+"passages": 3,
+"source": "first1k",
+"tokens": 242
+},
 "aelius-herodianus-et-pseudo-herodianus.de-prosodia-catholica": {
 "license": "CC-BY-SA-4.0",
 "passages": 21,
@@ -9177,9 +9183,9 @@
 },
 "galenus.in-hippocratis-librum-primum-epidemiarum-commentarii-iii": {
 "license": "CC-BY-SA-4.0",
-"passages": 200,
+"passages": 487,
 "source": "first1k",
-"tokens": 77471
+"tokens": 156270
 },
 "galenus.in-hippocratis-librum-vi-epidemiarum-commentarii-vi": {
 "license": "CC-BY-SA-4.0",
@@ -10799,6 +10805,12 @@
 "source": "perseus",
 "tokens": 11242
 },
+"hippocrates-et-corpus-hippocraticum.de-genitura": {
+"license": "CC-BY-SA-4.0",
+"passages": 11,
+"source": "first1k",
+"tokens": 1942
+},
 "hippocrates-et-corpus-hippocraticum.de-glandulis": {
 "license": "CC-BY-SA-4.0",
 "passages": 17,
@@ -10876,6 +10888,12 @@
 "passages": 109,
 "source": "first1k",
 "tokens": 11826
+},
+"hippocrates-et-corpus-hippocraticum.de-natura-pueri": {
+"license": "CC-BY-SA-4.0",
+"passages": 20,
+"source": "first1k",
+"tokens": 7296
 },
 "hippocrates-et-corpus-hippocraticum.de-octimestri-partu": {
 "license": "CC-BY-SA-4.0",
@@ -15875,9 +15893,9 @@
 },
 "origenes.commentarii-in-evangelium-joannis-lib-1-2-4-5-6-10-13": {
 "license": "CC-BY-SA-4.0",
-"passages": 2771,
+"passages": 2857,
 "source": "first1k",
-"tokens": 151448
+"tokens": 153896
 },
 "origenes.commentarii-in-evangelium-joannis-lib-19-20-28-32": {
 "license": "CC-BY-SA-4.0",
@@ -17377,11 +17395,23 @@
 "source": "perseus",
 "tokens": 9614
 },
+"plutarchus.aetia-graeca-capitum-catalogus": {
+"license": "CC-BY-SA-4.0",
+"passages": 59,
+"source": "perseus",
+"tokens": 5928
+},
 "plutarchus.aetia-physica-911c-919e": {
 "license": "CC-BY-SA-4.0",
 "passages": 32,
 "source": "perseus",
 "tokens": 4060
+},
+"plutarchus.aetia-romana-capitum-catalogus": {
+"license": "CC-BY-SA-4.0",
+"passages": 113,
+"source": "perseus",
+"tokens": 13474
 },
 "plutarchus.agesilaus": {
 "license": "CC-BY-SA-4.0",
@@ -17946,6 +17976,18 @@
 "passages": 122,
 "source": "perseus",
 "tokens": 6146
+},
+"plutarchus.instituta-laconica-236f-240b": {
+"license": "CC-BY-SA-4.0",
+"passages": 42,
+"source": "perseus",
+"tokens": 1617
+},
+"plutarchus.lacaenarum-apophthegmata-240c-242d": {
+"license": "CC-BY-SA-4.0",
+"passages": 40,
+"source": "perseus",
+"tokens": 1084
 },
 "plutarchus.lucullus": {
 "license": "CC-BY-SA-4.0",
@@ -20805,9 +20847,9 @@
 },
 "theocritus-bucolic.epigrammata": {
 "license": "CC-BY-SA-4.0",
-"passages": 224,
+"passages": 265,
 "source": "perseus",
-"tokens": 1476
+"tokens": 1750
 },
 "theocritus-bucolic.idyllia": {
 "license": "CC-BY-SA-4.0",
@@ -21362,24 +21404,40 @@
 "tokens": 452
 },
 "tlg0007.tlg082a": {
+"lexicon_dedup": {
+"keeper": "plutarchus.instituta-laconica-236f-240b",
+"shared_rows_not_recounted": 41
+},
 "license": "CC-BY-SA-4.0",
 "passages": 42,
 "source": "perseus",
 "tokens": 1617
 },
 "tlg0007.tlg082b": {
+"lexicon_dedup": {
+"keeper": "plutarchus.lacaenarum-apophthegmata-240c-242d",
+"shared_rows_not_recounted": 40
+},
 "license": "CC-BY-SA-4.0",
 "passages": 40,
 "source": "perseus",
 "tokens": 1084
 },
 "tlg0007.tlg084a": {
+"lexicon_dedup": {
+"keeper": "plutarchus.aetia-romana-capitum-catalogus",
+"shared_rows_not_recounted": 113
+},
 "license": "CC-BY-SA-4.0",
 "passages": 113,
 "source": "perseus",
 "tokens": 13474
 },
 "tlg0007.tlg084b": {
+"lexicon_dedup": {
+"keeper": "plutarchus.aetia-graeca-capitum-catalogus",
+"shared_rows_not_recounted": 59
+},
 "license": "CC-BY-SA-4.0",
 "passages": 59,
 "source": "perseus",
@@ -21404,6 +21462,10 @@
 "tokens": 1942
 },
 "tlg0627.tlg024b": {
+"lexicon_dedup": {
+"keeper": "hippocrates-et-corpus-hippocraticum.de-natura-pueri",
+"shared_rows_not_recounted": 20
+},
 "license": "CC-BY-SA-4.0",
 "passages": 20,
 "source": "first1k",
@@ -21684,6 +21746,30 @@
 "passages": 1,
 "source": "first1k",
 "tokens": 466
+},
+"vitae-pindari-et-varia-de-pindaro.pentathlon-et-de-novem-lyricis": {
+"license": "CC-BY-SA-4.0",
+"passages": 2,
+"source": "first1k",
+"tokens": 183
+},
+"vitae-pindari-et-varia-de-pindaro.vita-ambrosiana": {
+"license": "CC-BY-SA-4.0",
+"passages": 2,
+"source": "first1k",
+"tokens": 526
+},
+"vitae-pindari-et-varia-de-pindaro.vita-metrica": {
+"license": "CC-BY-SA-4.0",
+"passages": 1,
+"source": "first1k",
+"tokens": 201
+},
+"vitae-pindari-et-varia-de-pindaro.vita-thomana-et-hypothesis-olympiorum": {
+"license": "CC-BY-SA-4.0",
+"passages": 1,
+"source": "first1k",
+"tokens": 535
 },
 "vitae-prophetarum.de-prophetarum-vita-et-obitu-dorothei-recensio": {
 "license": "CC-BY-SA-4.0",

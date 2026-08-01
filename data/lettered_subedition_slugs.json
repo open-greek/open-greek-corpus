@@ -1,0 +1,71 @@
+{
+  "comment": "Curated slugs for the lettered TLG sub-edition ids (tlg0007.tlg082a etc.) that First1K/Perseus split out of a parent canon work. The TLG canon has no entry for a lettered id, so build_id_crosswalk.py cannot mint a slug from it; entries here supply the author slug and title, and the builder mints slug = author_slug + '.' + normalize_slug(title). Evidence per entry: the source TEI title plus the canon parent.",
+  "works": [
+    {
+      "tlg": "tlg0007.tlg082a",
+      "author_slug": "plutarchus",
+      "title": "Instituta Laconica (236f-240b)",
+      "evidence": "Perseus TEI title 'Ta palaia to:n Lakedaimonio:n epite:deumata'; canon parent tlg0007.082 Apophthegmata Laconica [Sp.?] (208b-242d)"
+    },
+    {
+      "tlg": "tlg0007.tlg082b",
+      "author_slug": "plutarchus",
+      "title": "Lacaenarum apophthegmata (240c-242d)",
+      "evidence": "Perseus TEI title 'Lakaino:n apophthegmata'; canon parent tlg0007.082 Apophthegmata Laconica [Sp.?]"
+    },
+    {
+      "tlg": "tlg0007.tlg084a",
+      "author_slug": "plutarchus",
+      "title": "Aetia Romana capitum catalogus",
+      "evidence": "Perseus TEI title 'Kephalaio:n katagraphe: Ro:maika'; canon parent tlg0007.084 Aetia Romana et Graeca (263d-304f)"
+    },
+    {
+      "tlg": "tlg0007.tlg084b",
+      "author_slug": "plutarchus",
+      "title": "Aetia Graeca capitum catalogus",
+      "evidence": "Perseus TEI title 'Kephalaio:n katagraphe: Helle:nika'; canon parent tlg0007.084 Aetia Romana et Graeca"
+    },
+    {
+      "tlg": "tlg0087.tlg009a",
+      "author_slug": "aelius-herodianus-et-pseudo-herodianus",
+      "title": "De passionibus excerpta e Didymo",
+      "evidence": "First1K TEI title 'Ek to:n He:ro:dianou hypomne:mato:n to:n peri patho:n Didymou' (the Didymus excerpts of the Peri Pathon); canon parent tlg0087.009 PERI PAQWN"
+    },
+    {
+      "tlg": "tlg0627.tlg024a",
+      "author_slug": "hippocrates-et-corpus-hippocraticum",
+      "title": "De genitura",
+      "evidence": "First1K TEI title; canon parent tlg0627.024 De semine, de natura pueri, de morbis iv"
+    },
+    {
+      "tlg": "tlg0627.tlg024b",
+      "author_slug": "hippocrates-et-corpus-hippocraticum",
+      "title": "De natura pueri",
+      "evidence": "First1K TEI title; canon parent tlg0627.024 De semine, de natura pueri, de morbis iv"
+    },
+    {
+      "tlg": "tlg4170.tlg001a",
+      "author_slug": "vitae-pindari-et-varia-de-pindaro",
+      "title": "Vita Ambrosiana",
+      "evidence": "First1K TEI title; canon parent tlg4170.001 Vitae Pindari et varia de Pindaro"
+    },
+    {
+      "tlg": "tlg4170.tlg001b",
+      "author_slug": "vitae-pindari-et-varia-de-pindaro",
+      "title": "Vita Thomana et hypothesis Olympiorum",
+      "evidence": "First1K TEI title; canon parent tlg4170.001 Vitae Pindari et varia de Pindaro"
+    },
+    {
+      "tlg": "tlg4170.tlg001c",
+      "author_slug": "vitae-pindari-et-varia-de-pindaro",
+      "title": "Vita metrica",
+      "evidence": "First1K TEI title; canon parent tlg4170.001 Vitae Pindari et varia de Pindaro"
+    },
+    {
+      "tlg": "tlg4170.tlg001d",
+      "author_slug": "vitae-pindari-et-varia-de-pindaro",
+      "title": "Pentathlon et de novem lyricis",
+      "evidence": "First1K TEI title; canon parent tlg4170.001 Vitae Pindari et varia de Pindaro"
+    }
+  ]
+}
