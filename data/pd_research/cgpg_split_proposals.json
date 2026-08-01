@@ -1,0 +1,1122 @@
+{
+ "_meta": {
+  "what": "Work-to-column-range mapping proposals for splitting the multi-work CGPG volumes, researched per volume from the served loci with incipit verification (2026-07-31 workflow run)",
+  "date": "2026-07-31",
+  "consistency_review": "Per-volume verdicts (verified against actual jsonl locus sets in /Users/cisco/Documents/open-greek-corpus/data/corpus/):\n\n- PG003: ok. Locus range 71-568 and row count 459 match. Five credited works tile 71-568 contiguously with no gaps or inversions; the claimed 39 missing internal loci match the file exactly (list-for-list). The Pachymeres NEW entry (71-568) fully overlaps all five works, but this is deliberate and self-flagged as \"interwoven, not separable by column range\"; a splitter must treat it as an annotation, not a carve.\n\n- PG005: ok. Range 14-736, 266 rows match. 21 work ranges strictly ascending, no overlaps, no gaps inside any work range; all \"not served\" unassigned claims consistent (no served locus falls outside works + 14-24). Sparse coverage (e.g. 25-330 absent) is documented Latin matter.\n\n- PG006: ok. Range 122-809, 680 rows match. All claimed missing loci (142, 408, 598, 610, 628-631) verified absent; locus 142 sits inside work range 128-163 but is absent from the file and dual-listed in unassigned_ranges, which is harmless. Four shared-boundary loci (519, 739, 793, 803) documented for intra-locus cuts.\n\n- PG087_1: ok. Range 18-779, 710 rows match. Three works tile the full range; the 52 missing loci confirmed, all within 236-431 as claimed; shared boundary at 547 documented.\n\n- PG101: needs-review (minor). Range 14-673, 611 rows match; all not-served gap claims (16-43, 294-295, 612-619, 653-663) verified. Issue: unassigned range \"293-295\" structurally overlaps the Amphilochia work range 44-611, and locus 293 IS served (garbled Latin divider), so a naive range-based carve will include row 293 inside the Amphilochia text. The splitter needs an explicit exclusion or drop rule for locus 293. Shared boundaries at 632, 642, 652 are documented.\n\n- PG107: ok. Range 20-616, 578 rows match; all claimed absent loci (63-71, 189-190, 199-205, 251) verified absent. Loci 63-71 are dual-listed inside work range 42-188 and in unassigned_ranges, but since they are absent from the file nothing can be mis-assigned. Served unassigned rows 376 and 602-605 correctly accounted.\n\n- PG109: ok. Range 13-583, 570 rows match; 499 confirmed as the only absent locus; no gaps inside any work range; unassigned 498/500 are served and accounted. Shared boundary at 337 and mid-locus cuts at 324, 416/417 documented.\n\n- PG118: ok. Range 17-674, 658 rows: exactly contiguous (zero missing loci), confirming the proposal's contiguity claim. Seven works plus prefatory/appendix unassigned blocks cover every served locus; the five mid-column boundaries (162, 327, 462, 594, 639) are documented with subscription anchors.\n\n- PG134: ok. Range 31-734, 704 rows: exactly contiguous as claimed. Three works tile the range with documented mid-column cuts at 568 and 570. The duplicated-leaf claim verified: 561 vs 563 similarity 0.888, 562 vs 564 similarity 0.834, matching the proposal's stated figures; the splitter should dedupe as noted.\n\n- PG157: ok. Served block structure verified exactly: 20-68, 225-377 (plus sub-locus 225.1), 382-590 with no internal gaps and nothing served in 69-224 or 378-381. Mid-locus cuts at 333 and 369 (orphan Photius title) documented.\n\n- PG158: ok. Range 49-575, 502 rows match; all claimed absent blocks (348-358, 528-530, 540, 564-573) verified absent; no gaps inside any work range; shared locus 561 (Agallianus end + Josephus confessio, col_start = col_end 561) documented. The empty \"incipit_note\" field on the Joannes Diaconus entry is a stray artifact, not a missing incipit.\n\nCross-cutting checks, all clean: no col_end < col_start anywhere; no empty or non-Greek incipit fields (all are Greek, OCR garble preserved as stated); no work range extends beyond its file's locus min/max; every work's start and end locus exists as a served row in its file.\n\nSummary: 10 ok, 1 needs-review (PG101, served divider row 293 inside the Amphilochia range dual-listed as unassigned; needs an exclusion rule at split time)."
+ },
+ "volumes": [
+  {
+   "confidence": "high",
+   "volume": "PG003",
+   "works": [
+    {
+     "tlg": "tlg2798.001",
+     "author": "Pseudo-Dionysius Areopagita",
+     "title": "De caelesti hierarchia (with Pachymeres paraphrase interwoven)",
+     "col_start": "71",
+     "col_end": "192",
+     "incipit": "ἐπειδὴ Ἰεραρχίαν ἡ ἐπιγραφὴ ἔχει, ἰστέον, ὅτι ἱεραρχία ἐστὶν ἡ τῆς διατάξεως",
+     "evidence": "Volume opens mid-paraphrase of CH ch. 1 (row 71 glosses the CH title and cites 'ch. 15 of the present treatise'; row 72 glosses CH 1.1 'πᾶσα παροχὴ ἀγαθοῦ... ἀπὸ τοῦ τῶν φώτων Πατρός'). Genuine CH text confirmed at 89: 'ΚΕΦΑΛΑΙΟΝ Γʹ ... Ἔστι μὲν ἱεραρχία, κατ´ ἐμὲ, τάξις ἱερὰ, καὶ ἐπεστήμη, καὶ ἐνέργεια' (CH 3.1 verbatim); chapter headings Ϛʹ (107), Ζʹ (110), Ιʹ (143), ΙΔʹ (168). CH 15.9 explicit at end of 192: 'τὴν ὑπὲρ ἡμᾶς ... κρυφιότητα σιγῇ τιμήσαντες'. Locus-to-column map (PG col = 2*locus - 15) puts 192 at PG col 369, the canonical CH end. NOTE: CH title page and ch. 1 opening incl. 'Πᾶσα δόσις ἀγαθή' (PG cols 119-126 = would-be loci 67-70) are absent from the dump."
+    },
+    {
+     "tlg": "tlg2798.002",
+     "author": "Pseudo-Dionysius Areopagita",
+     "title": "De ecclesiastica hierarchia (with Pachymeres paraphrase interwoven)",
+     "col_start": "193",
+     "col_end": "299",
+     "incipit": "ὑπερκοσμίων καὶ ἱερωτάτων ἡμᾶς ἀποδεῖξαι λογίων χρὴ τοῖς τῆς ἱερᾶς μυσταγωγίας τὴν τελετὴν",
+     "evidence": "Row 193 continues EH 1.1 verbatim mid-sentence (the EH title line and first words fell in the OCR-lost tail of page 192 / missing page 197 region); 'Ἀλλ´ ὅρα ὅπως οὐκ ἐξορχήση τὰ ἅγια τῶν ἁγίων' (EH 1.1) also in 193. Paraphrase transition at 198: 'Μετα τὴν οὐρανίαν ἱεραρχίαν διαλαμβάνει καὶ περὶ τῆς καθ´ ἡμᾶς ἱεραρχίας'. EH chapter headings ΚΕΦΑΛΑΙΟΝ Δʹ (243), Εʹ (257), Ζʹ (283). Column map: 2*193-15 = 371, matching canonical EH start PG 3, 369. EH ch. 7 paraphrase ends at 299, immediately before the DN title at 300."
+    },
+    {
+     "tlg": "tlg2798.004",
+     "author": "Pseudo-Dionysius Areopagita",
+     "title": "De divinis nominibus (with Pachymeres paraphrase interwoven)",
+     "col_start": "300",
+     "col_end": "505",
+     "incipit": "ΚΕΦΑΛΑΙΟΝ Αʹ. Τ ΣΜΠΡΕΣΒΥΤΕΡΩ ΤΙΜΟΟΕΑ Διονύσιος ΠΡΕΣΗΥΤΕΡΟΣ, Νῦν δὴ ὦ μακάριε, μετὰ τὰς θεολογικὰς ὑποτυπώσεις ἐπὶ τὴν τῶν θείων ὀνομάτων ἀνάπτυξιν",
+     "evidence": "Row 300 carries the heading (OCR-garbled 'ΤΩ ΣΥΜΠΡΕΣΒΥΤΕΡΩ ΤΙΜΟΘΕΩ Διονύσιος ΠΡΕΣΒΥΤΕΡΟΣ') plus DN 1.1 incipit verbatim. Chapter headings Βʹ (325), Γʹ (347), Δʹ (354), Ζʹ (440), Ιʹ (475), ΙΑʹ (481), ΙΒʹ (492). Column map: 2*300-15 = 585, exactly the canonical DN start PG 3, 585. DN 13 material and its paraphrase (referencing De mystica theologia) end at 505, immediately before the MT incipit at 506. Row 310 contains Gregory of Nazianzus' hymn 'Ὦ πάντων ἐπέκεινα' quoted inside the DN ch. 1 paraphrase."
+    },
+    {
+     "tlg": "tlg2798.005",
+     "author": "Pseudo-Dionysius Areopagita",
+     "title": "De mystica theologia (with Pachymeres paraphrase interwoven)",
+     "col_start": "506",
+     "col_end": "539",
+     "incipit": "Τριὰς ὑπερούσιε, καὶ ὑπέρθεε, καὶ ὑπεράγαθε, τῆς Χριστιανῶν ἔφορε θεοσοφίας",
+     "evidence": "MT 1.1 incipit verbatim at 506 (title line itself not preserved by OCR). MT paraphrase-intro at 514 ('Ὃ μὲν ἱερὸς Διονύσιος τοῦ Περὶ θείων ὀνομάτων λόγου προέταξε...'); MT ch. 4 'Λέγομεν οὖν, ὡς ἡ πάντων αἰτία... οὔτε ἀνούσιός ἐστιν' at 527; ΚΕΦΑΛΑΙΟΝ Ε at 530. Column map: 2*506-15 = 997, the canonical MT start PG 3, 997. MT 5 paraphrase ('ὑπὲρ πᾶσαν ἀφαίρεσιν... πάντων ἐστὶν ἐπέκεινα') ends at 539, immediately before Ep. 1 at 540."
+    },
+    {
+     "tlg": "tlg2798.006",
+     "author": "Pseudo-Dionysius Areopagita",
+     "title": "Epistulae 1-10 (with Pachymeres paraphrase interwoven)",
+     "col_start": "540",
+     "col_end": "568",
+     "incipit": "Τὸ σκότος ἀφανὲς γίνεται τῷ φωτὶ, καὶ μᾶλλον τῷ πολλῷ φωτί",
+     "evidence": "Ep. 1 incipit verbatim at 540 (Γαΐῳ salutation lost to OCR); Ep. 2 incipit 'Πῶς ὁ πάντων ἐπέκεινα καὶ ὑπὲρ θεαρχίαν' verbatim at 541; Ep. 7 material (Apollophanes) at 547-548; Ep. 8 (Demophilus) at 553; Ep. 9 paraphrase intro ('Ἐρωτήσαντι δι´ ἐπιστολῆς, τίς ὁ τῆς σοφίας οἶκος... Ὁ μὲν ἱερὸς Τιμόθεος, ὦ καλὲ Τίτε') at 559; Ep. 10 title line 'ΕΠΙΣΤΟΛΗ Ι ΙΔΑΝΝΗ ΘΕΟΛΟΓΩ, ἈΗΟΣΤΟΛΩ ΚΑΙ ΕΥΑΓΓΕΛΙΣΤΗ, ΠΕΡΙΟΡΙΣΘΕΝΤΙ ΚΑΤΑ ΠΑΤΜΟΝ' with incipit 'Προσαγορεύω σε τὴν ἱερὰν ψυχὴν, ἠγαπημένε' at 566; Ep. 10 explicit ('τῆς ἐν Πάτμῳ φυλακῆς ἀφεθήσῃ') at 567. Column map: 2*540-15 = 1065, the canonical Epistulae start PG 3, 1065. Row 568 (last of volume) is the paraphrast's closing note on Dionysius' age at the crucifixion."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Georgius Pachymeres",
+     "title": "Paraphrasis in omnia opera Dionysii Areopagitae (interwoven, not separable by column range)",
+     "col_start": "71",
+     "col_end": "568",
+     "incipit": "ἐπειδὴ Ἰεραρχίαν ἡ ἐπιγραφὴ ἔχει, ἰστέον, ὅτι ἱεραρχία ἐστὶν ἡ τῆς διατάξεως",
+     "evidence": "PG 3 prints Pachymeres' Greek paraphrase after each Dionysian chapter, and the served text carries both throughout: e.g. 72 paraphrases CH 1.1 ('φησὶν ὁ μέγας Διονύσιος πρὸς τὸν τῶν Ἑφεαίων ἐπίσκοπον Τιμόθεον... πᾶσα παροχὴ ἀγαθοῦ'), 153 cites 'τοῦ σοφωτάτου Μαξίμου', 198 introduces EH, 514 introduces MT, 559 introduces Ep. 9, 568 is the paraphrast's closing note. Not in the TLG canon (tlg3142 has only the Historiae). It occupies no separate column range; each credited work's range above contains its paraphrase interleaved, so a pure column-range carve cannot separate Dionysius from Pachymeres."
+    }
+   ],
+   "unassigned_ranges": [],
+   "notes": "File: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG003.jsonl (459 rows, loci 71-568, all integer strings). IMPORTANT: the served loci are NOT Migne column numbers but scan PAGE numbers of PG 3 (2 columns per page); Migne Greek column ~= 2*locus - 15, verified at four independent anchors (EH start PG 369 -> page 192, DN start PG 585 -> locus 300, MT start PG 997 -> locus 506, Epistulae start PG 1065 -> locus 540). Every served locus 71-568 is attributable to one of the five credited works, so unassigned_ranges is empty; however note (a) PG 3's Latin front matter (cols 1-118) and the CH title page + ch. 1 opening (PG cols 119-126, would-be loci 67-70, incl. the famous incipit 'Πᾶσα δόσις ἀγαθή...') are absent from the dump entirely, so the CH file will start mid-paraphrase of ch. 1 and EH will start mid-sentence of EH 1.1; (b) 22 internal loci are missing rows (81, 99-100, 145, 197, 210-211, 231, 266, 277, 307-309, 334-335, 350, 376-380, 421-422, 445, 467, 478, 486, 509-513, 528, 532-535, 558, 565), all falling inside work ranges (page dropouts, some likely Latin-only or garbled pages), not separate works; (c) every work range interleaves Dionysius' text with Georgius Pachymeres' paraphrase chapter by chapter, plus embedded quotations (e.g. Gregory of Nazianzus' hymn at 310), so a clean Dionysius-only split needs passage-level (not column-level) separation; word counts of the ranges are roughly double the TLG word counts for this reason; (d) OCR quality is rough: headings are frequently garbled (e.g. 'Τ ΣΜΠΡΕΣΒΥΤΕΡΩ ΤΙΜΟΟΕΑ', 'ΙΔΑΝΝΗ ΘΕΟΛΟΓΩ') and stray Latin transliteration noise appears (e.g. rows 310, 440, 492). Canon check: tlg2798 works have no mpg_vols/column data in ~/Documents/tlge-tools/data/tlg_canon.json, and Pachymeres' Dionysian paraphrase is not in the canon (tlg3142 has only the Historiae), hence tlg NEW. Confidence high: every internal boundary (192/193, 299/300, 505/506, 539/540) is pinned by a verbatim explicit+incipit pair, and DN/MT/Ep. 1/Ep. 2/Ep. 10 starts match canonical incipits or title lines exactly; the only soft edges are the volume-initial CH start (first served row, identified by content, since the true CH opening pages are absent) and the OCR-lost EH title line.\""
+  },
+  {
+   "volume": "PG005",
+   "works": [
+    {
+     "tlg": "tlg1443.001",
+     "author": "IGNATIUS",
+     "title": "Epistulae vii genuinae (recensio media)",
+     "col_start": "331",
+     "col_end": "373",
+     "incipit": "ΠΡΟΣ ΕΦΕΣΙΟΥΣΣ. Ὁ Ἰγνάτιος, ὁ καὶ Θεοφόρος, τῇ εὐλογημένῃ έν μεγέθει Θεοῦ Πατρὸς [καὶ] πληρώματι",
+     "evidence": "Title line ΠΡΟΣ ΕΦΕΣΙΟΥΣΣ + middle-recension Ephesians salutation at 331; the seven letters follow in order (Magnesians salutation at 341, Trallians at 347, Romans within 353-357, ΦΙΛΑΛΕΛΦΕΥΣΙΝ title at 358, ΣΜΥΡΝΑΙΟΙΣ salutation inside 363, Ad Polycarpum salutation inside 368-369); 373 ends with Ad Pol. 8 (πλεῖν με ἀπὸ Τρωάδος εἰς Νεάπολιν). Locus 331 = Migne col 643, matching the standard citation PG 5:643-728 for the genuine epistles."
+    },
+    {
+     "tlg": "tlg1443.002",
+     "author": "IGNATIUS",
+     "title": "Epistulae interpolatae et epistulae suppositiciae (recensio longior)",
+     "col_start": "374",
+     "col_end": "480",
+     "incipit": "ΑΓΧΙΕΠΙΣΚΟΠΟΥ ΘΕΟΥ ΠΟΛΕΩΣ ΑΝΤΙΟΧΕΙΑΣ ΠΡΟΣ ΕΦΕΣΙΟΥΣ. [γνάτιος, ὁ καὶ Θεοφόρος, τῇ εὐλογημένῃ ἐν μεγέθει Θεοῦ Πατρὸς",
+     "evidence": "Long-recension title page at 374 (ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΘΕΟΥΠΟΛΕΩΣ ΑΝΤΙΟΧΕΙΑΣ, OCR-garbled) = PG 5:729, the standard citation for the interpolated epistles. Contains interpolated Eph (374), Magn (388 title), Trall, Rom (410 title), Philad, Smyrn, Polyc (439), then the spuria: Maria Cassobolita ad Ignatium (446, Ἰγνατίῳ Μαρία ἐκ Κασσοβήλων), Ad Mariam (450 title ΠΡΟΣ ΜΑΡΙΑΝ ΕΙΣ ΝΕΑΠΟΛΙΝ ΤΗΝ ΠΡΟΣ ΤΩ ΖΑΡΒΩ), Ad Tarsenses (~454), Ad Antiochenos (~459), Ad Heronem (~465, greeting Ἀσπάζονταί σε οἱ ἐπίσκοποι Ὀνήσιμος... at 468), Ad Philippenses (469 title ΠΡΟΣ ΦΙΛΙΠΠΗΣΙΟΥΣ Περὶ βαπτίσματος), ending with its doxology at 480."
+    },
+    {
+     "tlg": "tlg1443.X01",
+     "author": "IGNATIUS",
+     "title": "Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section)",
+     "col_start": "483",
+     "col_end": "489",
+     "incipit": "Βούλεσθε μαθεῖν οἷά τις ἐφθέγξατο ἅγιός τις πρὸ ἡμῶν τῆς διαδοχῆς τῶν ἀποστόλων γενόμενος",
+     "evidence": "Excerpt anthology: quotations attributed to Ignatius by later writers (483 tail: κατὰ τὸν Θεοφόρον Ἰγνάτιον) and florilegium-style extracts with headers such as Ἐκ τῆς πρὸς ΦΙΛΑΔΕΛΦΙΟΥΣ Ἐπιστολῆς / Τοῦ αὐτοῦ (489). Mapping to tlg1443.X01 (Fragmenta ap. Joannem Damascenum, Sacra parallela) is approximate: the section is certainly Ignatian excerpts, but PG's selection may not coincide exactly with the TLG X01 collection."
+    },
+    {
+     "tlg": "tlg2657.001",
+     "author": "MARTYRIUM IGNATII",
+     "title": "Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum')",
+     "col_start": "499",
+     "col_end": "503",
+     "incipit": "Ἄρτι διαδεξαμένου τὴν Ῥωμαίων ἀρχὴν Τραῖανοῦ, Ἰγνάτιος, ὁ τοῦ ἀποστόλου Ἰωάννου μαθητὴς",
+     "evidence": "Exact incipit of the Martyrium Antiochenum at 499; ends at 503 with the relics, the date (πρὸ δεκατριῶν Καλανδῶν Ἰαννουαρίων), the dream-visions, and closing doxology. Loci 499-503 = Migne cols 979-988, matching the standard citation PG 5:979-988."
+    },
+    {
+     "tlg": "NEW",
+     "author": "TIBERIANUS (praeses Palaestinae, pseudepigraphon ap. Joannem Malalam)",
+     "title": "Epistula Tiberiani ad Trajanum de Christianis",
+     "col_start": "505",
+     "col_end": "505",
+     "incipit": "Αὐτοκράτορι νικητῇ Καίσαρι, θειοτάτῳ Τραϊανῷ. Απέκαμον τιμωρούμενος καὶ φονεύων τοὺς Γαλιλαίους",
+     "evidence": "Single row: the spurious letter of Tiberianus, governor of Palaestina, to Trajan (transmitted in Malalas, Chron. 11), printed in PG 5 among the documents appended to the Martyrium Ignatii (cols 991-992). No TLG id for this piece in the canon."
+    },
+    {
+     "tlg": "tlg1622.001",
+     "author": "POLYCARPUS",
+     "title": "Epistula ad Philippenses",
+     "col_start": "512",
+     "col_end": "517",
+     "incipit": "Πολύκαρπος καὶ οἱ σὺν αὐτῷ πρεσβύτεροι τῇ Ἐκκλησίᾳ τοῦ Θεοῦ τῇ παροικούση Φιλίππους",
+     "evidence": "Exact incipit at 512; 517 is ch. 13 (Ἐγράψατέ μοι καὶ ὑμεῖς καὶ Ἰγνάτιος). Loci 512-517 = cols 1005-1016 = the standard citation PG 5:1005-1016. Chs. 10-12 survive only in Latin, hence the thin Greek at the end."
+    },
+    {
+     "tlg": "tlg1484.001",
+     "author": "MARTYRIUM POLYCARPI",
+     "title": "Epistula ecclesiae Smyrnensis de martyrio sancti Polycarpi",
+     "col_start": "524",
+     "col_end": "532",
+     "incipit": "Ἡ Ἐκκλησία τοῦ Θεοῦ, ἡ παροικοῦσα Σμύρναν, τῇ Ἐκκλησία τοῦ Θεοῦ τῇ παροικούσῃ ἐν Φιλομηλίῳ",
+     "evidence": "Exact incipit at 524 (= col 1029, matching PG 5:1029ff); 532 contains ch. 21 (Συνελήφθη δὲ ὑπὸ Ἡρώδου, ἐπὶ ἀρχιερέως Φιλίππου Τραλλιανοῦ) and the ch. 22 appendix/colophon (Ἐῤῥῶσθαι ὑμᾶς εὐχόμεθα... Pionius colophon)."
+    },
+    {
+     "tlg": "tlg1495.003",
+     "author": "MELITO",
+     "title": "Fragmenta",
+     "col_start": "614",
+     "col_end": "620",
+     "incipit": "Τὸ γὰρ οὐδεπώποτεα γενόμενον, νῦν διώκεται ὑπὸ τῶν θεοσεβῶν γένος, καινοῖς ἐλαυνόμενον δόγμασι",
+     "evidence": "614-615 Apology fragments (apud Eus. HE 4.26); 616 Chron.-Paschale Apology fragment (Οὐκ ἐσμὲν λίθων... θεραπευταὶ) plus the Eclogae preface Μελίτων Ὁνησίμῳ τῷ ἀδελφῷ χαίρειν with the OT canon list continuing at 617; 618-619 fragments on the sacrifice of Isaac (Τοῦ μακαρίου Μελίτωνος Σάρδεων named at 618); 620 fragment on Christ's deeds after baptism (apud Anastasium Sinaitam). NOTE: the other credited work, tlg1495.001 De pascha, is NOT in this volume (recovered from papyri decades after Migne)."
+    },
+    {
+     "tlg": "tlg1558.001",
+     "author": "PAPIAS",
+     "title": "Fragmenta",
+     "col_start": "637",
+     "col_end": "640",
+     "incipit": "Οὐκ ὀκνήσώ δέ σοι καὶ ὅσα ποτὲ παρὰ τῶν πρεσβυτέρων καλῶς ἔμαθον",
+     "evidence": "Exact incipit of the preface fragment (apud Eus. HE 3.39) at 637; 639 names the author (Ὁ Παπίας ἐν τῷ τετάρτῳ αὐτοῦ βιβλίῳ τῶν Κυριακῶν Ἐξηγήσεων); 640 is the Judas fragment (apud Apollinarem). Loci 637-640 = cols 1255-1262."
+    },
+    {
+     "tlg": "NEW",
+     "author": "QUADRATUS Apologeta",
+     "title": "Fragmentum apologiae (apud Eusebium, HE 4.3)",
+     "col_start": "642",
+     "col_end": "642",
+     "incipit": "Τοῦ δὲ Σωτῆρος ἡμῶν τὰ ἔργα ἀεὶ παρῆν ἀληθῆ γὰρ ἦν· οἱ θεραπευθέντες, οἱ ἀναστάντες ἐκ νεκρῶν",
+     "evidence": "Single row: the famous sole fragment of Quadratus' Apology to Hadrian, verbatim (Eus. HE 4.3.2). Locus 642 = cols 1265-1266. No entry for the apologist Quadratus in the local TLG canon (only Gaius Asinius Quadratus the historian), hence NEW."
+    },
+    {
+     "tlg": "tlg1163.001",
+     "author": "Claudius APOLLINARIUS",
+     "title": "Fragmenta",
+     "col_start": "657",
+     "col_end": "660",
+     "incipit": "Ἀλλὰ τοῖς μὲν ἔξωθεν ἱστορικοῖς ἅτε τῆς πίστεως ἀνοικείοις, τέθειται μὲν τὸ παράδοξον",
+     "evidence": "657 legio-fulminata dossier (Eus. HE 5.5, κεραυνοβόλον τῇ Ῥωμαίων ἐπικληθεῖσαν φωνῇ); 658-659 the two De pascha fragments from the Chronicon Paschale, with Eusebius' catalog of his works at 659 (Τοῦ δ´ Ἀπολλιναρίου πολλῶν παρὰ πολλοῖς σωζομένων...); 660 headed FRAGMENTA (OCR ΕΙΑΣΜΕΝΤΑ) carries Serapion's letter (Eus. HE 5.19) naming Κλαυδίου Ἀπολλιναρίου... ἐν Ἰεραπόλει ἐπισκόπου, printed here as a testimonium transmitting Apollinaris' writings (same text recurs in Serapion's own section at 696)."
+    },
+    {
+     "tlg": "tlg1398.001",
+     "author": "HEGESIPPUS",
+     "title": "Fragmenta (ex incerto libro / Hypomnemata)",
+     "col_start": "663",
+     "col_end": "673",
+     "incipit": "Διαδέχεται δὲ τὴν Ἐκκλησίαν μετὰ τῶν ἀποστόλων, ὁ ἀδελφὸς τοῦ Κυρίου Ἰάκωβος",
+     "evidence": "663 exact incipit of the martyrdom-of-James fragment (Eus. HE 2.23); grandsons of Judas (667), Symeon (668-669), heresy catalog and seven Jewish sects (671-672); 673 the Stephanus-Gobarus fragment (Ὑπομνημάτων, οὐκ οἶδα ὅ τι καὶ παθὼν μάτην...) plus Eusebius citing ὡς μαρτυρεῖ Ἡγήσιππος. Loci 663-673 = cols 1307-1327, matching the standard citation PG 5:1307-1328."
+    },
+    {
+     "tlg": "NEW",
+     "author": "PANTAENUS",
+     "title": "Fragmenta",
+     "col_start": "674",
+     "col_end": "675",
+     "incipit": "Ἐν τῷ ἡλίῳ ἔθετο τὸ σκήνωμα αὐτοῦ. Ἔνιοι μὲν οὖν φασι τὸ σῶμα τοῦ Κυρίου",
+     "evidence": "674 names him mid-fragment (Πανταῖνος δὲ ἡμῶν ἔλεγεν, from Clement's Eclogae propheticae on Ps 18:5); 675 the Maximus-Confessor scholion (οἱ περὶ Πάνταινον τὸν γενόμενον καθηγητὴν τοῦ Στρωματέως μεγάλου Κλήμεντος). No Pantaenus entry in the local TLG canon, hence NEW."
+    },
+    {
+     "tlg": "NEW",
+     "author": "RHODON",
+     "title": "Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13)",
+     "col_start": "676",
+     "col_end": "678",
+     "incipit": "Διὰ τοῦτο καὶ παρ´ ἑαυτοῖς ἀσύμφωνοι γεγόνασιν ΜαοοΙρ], ἀσυστάτου γνώμης ἀντιποιούμενοι",
+     "evidence": "676 (opens with editorial [...]) = Rhodon on the Marcionites, Apelles and Philumene (Eus. HE 5.13); 677 continues (Πότιτός τε καὶ Βασιλικός, Σύνερως); 678 names the author (αὐτὸς ὁ Ῥόδων ἐν ἰδίῳ συγγράμματι) and his teacher Tatian. No Rhodon entry in the local TLG canon, hence NEW."
+    },
+    {
+     "tlg": "tlg1488.001",
+     "author": "MAXIMUS",
+     "title": "Fragmentum ex libro de materia",
+     "col_start": "679",
+     "col_end": "687",
+     "incipit": "μὲν ἀδύνατον ὑπάρχειν ἀγέννητα δύο ἅμα,, οὐδέ σε ἀγνοεῖν νομίζω",
+     "evidence": "679-687 is the continuous De materia dialogue on God, matter, and the impossibility of two unoriginate principles (transmitted apud Eus. PE 7.22); content match throughout (e.g. 687 τὰ δὲ τῆς ὕλης μέρη ἀναιρετικὰ ἀλλήλων). 679 begins mid-sentence, the opening words having stood on the (absent) Latin-facing page."
+    },
+    {
+     "tlg": "tlg1626.001",
+     "author": "POLYCRATES",
+     "title": "Fragmentum synodicae epistulae (ad Victorem)",
+     "col_start": "688",
+     "col_end": "690",
+     "incipit": "Ἡμεῖς οὖν ἀῤῥᾳδιούργητον ἄγομεν τὴν ἡμέρανμή τε προστιθέντες, μή τε ἀφαιρούμενοι",
+     "evidence": "Exact incipit of Polycrates' letter to Victor (Eus. HE 5.24) at 688; the great luminaries of Asia (Philip in Hierapolis, John in Ephesus) at 688-689; ἑπτὰ μὲν ἦσαν συγγενεῖς μου ἐπίσκοποι at 690."
+    },
+    {
+     "tlg": "tlg1381.001",
+     "author": "THEOPHILUS CAESARIENSIS et synodus Caesariensis",
+     "title": "Fragmentum synodicae epistulae concilii Caesariensis (de paschate)",
+     "col_start": "694",
+     "col_end": "695",
+     "incipit": "Τῆς δ´ ἐπιστολῆς ἡμῶν πειράθητε κατὰ πᾶσαν Ἐκκλησίαν ἀντίγραφα διαπέμψασθαι",
+     "evidence": "Verbatim the surviving fragment of the Palestinian synod's paschal letter (Theophilus of Caesarea and Narcissus, apud Eus. HE 5.25), ending at 695 with ὥστε συμφώνως καὶ ὁμοῦ ἄγειν ἡμᾶς τὴν ἁγίαν ἡμέραν. Matches tlg1381 (word count ~77)."
+    },
+    {
+     "tlg": "tlg1670.001",
+     "author": "SERAPION",
+     "title": "Fragmenta",
+     "col_start": "696",
+     "col_end": "697",
+     "incipit": "Ὃπως δὲ καὶ τοῦτο ἴδητε ὅτι τῆς ψευδοῦς ταύτης τάξεως τῆς ἐπικαλουμένης νέας προφητείας",
+     "evidence": "696 = Serapion of Antioch's letter against the New Prophecy (Eus. HE 5.19); 697 = his letter on the Gospel of Peter and the Docetae (Eus. HE 6.12, οὓς Δοκητὰς καλοῦμεν)."
+    },
+    {
+     "tlg": "tlg1171.001",
+     "author": "APOLLONIUS",
+     "title": "Fragmenta ex libro adversus Cataphrygas seu Montanistas",
+     "col_start": "700",
+     "col_end": "703",
+     "incipit": "Ἁλλὰ τίς ἐστιν οὕτος ὁ πρόσφατος διδάσκαλος; τὰ ἔργα αὐτοῦ καὶ ἡ διδασκαλία δείκνυσιν",
+     "evidence": "700 exact incipit of Apollonius on Montanus, Pepuza and Tymion (Eus. HE 5.18); Themiso at 701; prophets and gifts at 702; the emerald/glass simile fragment at 703."
+    },
+    {
+     "tlg": "tlg1665.001",
+     "author": "SENIORES APUD IRENAEUM",
+     "title": "Reliquiae plurium anonymorum (presbyterorum fragmenta)",
+     "col_start": "708",
+     "col_end": "710",
+     "incipit": "Μὴ εἰδότος τοῦ Λὼτ, μηδὲ ἡδονῇ δουλεύσαντος, οἰκονομία ἐπετελεῖτο",
+     "evidence": "Three elder-fragments preserved by Irenaeus: 708 the presbyter on Lot (AH 4.31); 709 paradise prepared for men of the Spirit (AH 5.5.1, ἡτοιμάσθη ὁ παράδεισος) with the two-peoples/outstretched-hands saying; 710 the holy elder's iambics against Marcus the magician (AH 1.15.6, Ἃ σοι χορηγεῖ σὸς πατὴρ Σατᾶν ἀεί... Ἀζαζήλ). Matches tlg1665 exactly."
+    },
+    {
+     "tlg": "tlg1352.001",
+     "author": "EPISTULA ECCLESIARUM APUD LUGDUNUM ET VIENNAM",
+     "title": "Epistula ecclesiarum apud Lugdunum et Viennam (cum appendicibus ap. Eus. HE 5.1-4)",
+     "col_start": "715",
+     "col_end": "736",
+     "incipit": "λίας παροικοῦντες δοῦλοι Χριστοῦ, τοῖς κατὰ τὴν Ἀσίαν καὶ Φρυγίαν",
+     "evidence": "715 is the salutation with its opening words ([Οἱ ἐν Βιέννῃ καὶ Λουγδούνῳ τῆς Γαλ]λίας παροικοῦντες...) cut by the page break; the martyr narrative (Blandina, Sanctus, Attalus, Pothinus) runs continuously to 736, which carries the Alcibiades/Attalus continuation of Eus. HE 5.3 (= the tiny tlg1349.001 fragment, printed here as part of the same PG piece). Loci 715-736 = cols 1411-1453, matching PG 5:1409-1454."
+    }
+   ],
+   "unassigned_ranges": [
+    "14-24 (served Greek, but an editorial anthology: 'Testimonia veterum de S. Ignatio' - excerpts about Ignatius from Polycarp Phil. 13 at 14, Eusebius HE 3.36 at 15-17, Chrysostom's encomium and other later writers at 18-24; quotations, not an assignable TLG work)",
+    "1-13 (not served; title pages and Latin front matter)",
+    "25-330 (not served; the huge Latin prolegomena and dissertations on Ignatius, cols ~31-642)",
+    "481-482 (not served; Latin close of Ad Philippenses)",
+    "490-498 (not served; Latin matter before the Martyrium)",
+    "504 (not served; Latin)",
+    "506-511 (not served; Latin prolegomena to Polycarp)",
+    "518-523 (not served; Polycarp Phil. chs. 10-12 Latin-only + notes)",
+    "533-613 (not served; Latin: second-century popes' decretal letters (Anicetus, Pius, Soter, Eleutherius, Victor) and Latin prolegomena to Melito - the '2nd-c. popes' content of the volume is Latin-only)",
+    "621-636 (not served; Latin Melito matter and Papias prolegomena)",
+    "641 (not served; Latin)",
+    "643-656 (not served; Latin sections for Quadratus context, Aristides, Agrippa Castor, Aristo of Pella, Apollinaris prolegomena)",
+    "661-662 (not served; Latin)",
+    "691-693 (not served; Latin between Polycrates and Theophilus)",
+    "698-699 (not served; Latin)",
+    "704-707 (not served; Latin, possibly incl. the anonymous anti-Montanist matter)",
+    "711-714 (not served; Latin intro to the Lyon/Vienne letter)",
+    "737-end of volume (not served; Latin indices)"
+   ],
+   "confidence": "high",
+   "notes": "KEY FINDING FOR THE SPLIT SCRIPT: the jsonl loci are NOT Migne column numbers but PAGE numbers of the PG 5 print; each served row spans TWO Migne columns, col = 2*locus - 19 (and -18). Verified against five independent standard citations: locus 331 -> col 643 (genuine epistles PG 5:643-728), locus 374 -> col 729 (interpolated epistles PG 5:729ff), locus 499 -> col 979 (Martyrium Ignatii PG 5:979-988), locus 512 -> col 1005 (Polycarp PG 5:1005-1016), locus 524 -> col 1029 (Mart. Polycarpi), locus 663 -> col 1307 (Hegesippus PG 5:1307-1328). Any per-work column metadata written at split time should use the 2p-19 conversion, not the raw locus. -- The credited list (cgpg_works.json) for PG005 names only Melito tlg1495.001 (De pascha) and tlg1495.003 (Fragmenta). De pascha is NOT in this volume (the running text was recovered from P. Beatty/Bodmer papyri long after 1857); only the Fragmenta (loci 614-620) are here, including the Eclogae preface and the Chron.-Paschale apology quotes. The De pascha credit should be dropped or re-pointed. -- The volume actually contains 21 works plus the Testimonia anthology; all boundaries above are anchored by a title line, an exact known incipit, or a verbatim match to the known fragment text (sources given per work). Weakest points, flagged in the evidence fields: (1) the TLG mapping (not the boundary) of the Ignatian excerpt dossier 483-489 to tlg1443.X01 is approximate; (2) row 660 is Serapion's letter printed inside the Apollinaris dossier as a testimonium, so 660 could equally be left out of tlg1163; (3) 679 (Maximus) and 715 (Lyon/Vienne) begin mid-sentence because the true openings sat on absent pages; (4) works marked NEW (Quadratus the apologist, Pantaenus, Rhodon, Tiberianus letter) have no entry in ~/Documents/tlge-tools/data/tlg_canon.json - Quadratus/Pantaenus/Rhodon do have conventional identities (fragments known solely via Eusebius/Clement/Maximus Conf.), so check the full TLG online before minting ids. All loci are integers, strictly monotonic, 266 rows, range 14-736. File examined read-only: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG005.jsonl."
+  },
+  {
+   "volume": "PG006",
+   "works": [
+    {
+     "tlg": "tlg0646.tlg001",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Oratio ad gentiles",
+     "col_start": "122",
+     "col_end": "127",
+     "incipit": "Μὴ ὑπολάόητε, ὧ ἄνδρες Ἔλληνες, ἄλογον ἢ ἀνεπίκριτον εἶναί μου τὸν ἐκ τῶν ὑμετέρων ἐθῶν χωρισμόν.",
+     "evidence": "Title line 'ΙΟΥΣΤΙΝΟΥ ΦΙΛΟΣΟΦΟΥ ΚΑΙ ΜΑΡΤΥΡΟΣ' opens locus 122 followed by the standard incipit; explicit at 127 'Δεῖ γὰρ ἀποκατασταθῆναι ὅθεν ἀπέστη, ὅθεν τις ἐγένετο, ἢ ἐστιν.' = Oratio ad Graecos ch.5 end. Locus 122 = PG 6, 229 under the volume's locus mapping (Migne col = 2*locus-15)."
+    },
+    {
+     "tlg": "tlg0646.tlg002",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Cohortatio ad gentiles",
+     "col_start": "128",
+     "col_end": "163",
+     "incipit": "Ἀρχόμενος τῆς πρὸς ὑμᾶς παραινέσεως, ὧ ἄνδρες Ἔλληνες, εὔχομαι τῷ Θεῷ, ἐμοὶ μὲν ὑπάρξαι τὰ δέοντα",
+     "evidence": "Incipit of Cohortatio (Λόγος παραινετικός) at 128; explicit at 163 '...ἢ παρὰ τῶν προφητῶν μόνον, τῶν διὰ τῆς θείας ἐπιπνοίας διδασκόντων ἡμᾶς.' = ch.38 end. Matches PG 6, 241-311. Locus 142 is missing from the served file (one-column gap mid-work)."
+    },
+    {
+     "tlg": "tlg0646.tlg003",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "De monarchia",
+     "col_start": "164",
+     "col_end": "170",
+     "incipit": "ἀληθείας, θρησκείας τε τῆς εἰς τὸν ἕνα καὶ πάντων δεσπότην, παρεισδῦσα εἰς εἰδωλοποιίας ἐξέτρεψεν βασκανία",
+     "evidence": "Locus 164 opens a few words into De monarchia ch.1's first sentence ('Τῆς ἀνθρωπίνης φύσεως τὸ κατ' ἀρχὰς... εἰς ἐπίγνωσιν ἀληθείας, θρησκείας τε...'); the title and opening words (bottom of PG 6, 311/312) were dropped by the OCR. Explicit at 170 '...ὡς ἀχάριστοι τῷ κριτῇ τὰς εὐθύνας παρέξωμεν.' = ch.6 end. Matches PG 6, 312-326."
+    },
+    {
+     "tlg": "tlg0645.tlg001",
+     "author": "Justinus Martyr",
+     "title": "Apologia (prima)",
+     "col_start": "171",
+     "col_end": "227",
+     "incipit": "Αὐτοκράτορι Τίτῳ Αἰλίῳ Ἀδριανῷ Ἀντωνίνῳ Εὐσεβεῖ Σεβαστῷ Καίσαρι, Οὐηρισσίμῳυἱῷ φιλοσόφῳ, καὶ Λουκίῳ φιλοσόφῳ",
+     "evidence": "Title line 'ΤΟΥ ΑΥΤΟΥ ΙΟΥΣΤΕΝΟΥ ΑΠΟΛΟΓΙΑ ΠΡΩΤΗ ΥΠΕΡ ΧΡΙΣΤΙΑΝΩΝ' + dedication incipit at 171 (= PG 6, 327). Range ends at 227 with the appended imperial rescripts (Hadrian, Antoninus Pius, Marcus Aurelius' rain-miracle letter, PG 6, 435-440) printed as the Apologia's appendix; 227 ends mid title of Apol. II ('...ἐκ τῶν προΤΟΥ'). NOT in the credited cgpg_works list."
+    },
+    {
+     "tlg": "tlg0645.tlg002",
+     "author": "Justinus Martyr",
+     "title": "Apologia secunda",
+     "col_start": "228",
+     "col_end": "242",
+     "incipit": "Καὶ τὰ χθὲς δὲ καὶ πρώην ἐν τῇ πόλει ἐμῶν γενόμενα ἐπὶ Οὐρβίκου, ὧ Ῥωμαῖοι",
+     "evidence": "Title line 'ΑΥΤΟΥ ΙΟΥΣΤΙΝΟΥ ΑΠΟΛΟΓΙΑ ΔΕΥΤΕΡΑ ΥΠΕΡ ΧΡΙΣΤΙΑΝΩΝ' + incipit at 228 (= PG 6, 441); explicit at 242 'Εἴη οὖν καὶ ὑμᾶς ἀξίως εὐσεβείας καὶ φιλοσοφίας τὰ δίκαια ὑπὲρ ἑαυτῶν κρῖναι.' = ch.15 end (PG 6, 470). NOT in credited list."
+    },
+    {
+     "tlg": "tlg0645.tlg003",
+     "author": "Justinus Martyr",
+     "title": "Dialogus cum Tryphone",
+     "col_start": "243",
+     "col_end": "407",
+     "incipit": "Περιπατοῦντί μοι ἕωθεν ἐν τοῖς τοῦ ξύστου περιπάτοις συναντήσας τις μετὰ καὶ ἄλλων, Φιλόσοφε, χαῖρε, ἔφη.",
+     "evidence": "Incipit at 243 (= PG 6, 471); explicit at 407 '...πάντως καὶ αὐτοὶ ἡμῖν ὅμοια ποιήσητε, τὸ ἡμῶν εἶναι τὸν Χριστὸν τοῦ Θεοῦ.' = Dial. 142 end (PG 6, 800). Locus 408 (Migne 801-802, end matter/Tatian title page) missing from the served file. NOT in credited list."
+    },
+    {
+     "tlg": "tlg1766.tlg001",
+     "author": "Tatianus",
+     "title": "Oratio ad Graecos",
+     "col_start": "409",
+     "col_end": "451",
+     "incipit": "Μὴ πάνυ φιλέχθρως διατίθεσθε πρὸς τοὺς βαρβάρους, ὡ ἄνδρες Ἕλληνες, μηδὲ φθονήσητε τοῖς τούτων δόγμασι.",
+     "evidence": "Incipit at 409 (= PG 6, 803); explicit at 451 '...ἕτοιμον ἐμαυτὸν ὑμῖν πρὸς τὴν ἀνάκρισιν τῶν δογμάτων παρίστημι, μενούσης μοι κατὰ Θεὸν πολιτείας ἀνεξαρνήτου.' = Or. 42 end (PG 6, 888). NOT in credited list."
+    },
+    {
+     "tlg": "tlg1205.tlg001",
+     "author": "Athenagoras",
+     "title": "Legatio sive Supplicatio pro Christianis",
+     "col_start": "452",
+     "col_end": "493",
+     "incipit": "Αὐτοκράτορσι Μάρκῳ Αὐρηλίῳ Ἀντωνίνῳ καὶ Λουκίῳ Αὐρηλίῳ Κομμόδῳ, Ἀρμενιακοῖς, Σαρματικοῖς, τὸ δὲ μέγιστον, φιλοσόφοις.",
+     "evidence": "Dedication incipit at 452 (= PG 6, 889); explicit at 493 '...ὅπως ἤρεμον καὶ ἡσύχιον βίον διάγοιμεν, αὐτοὶ δὲ πάντα τὰ κεκελευσμένα προθύμως ὑπηρετοῖμεν.' = Leg. 37 end (PG 6, 972). NOT in credited list."
+    },
+    {
+     "tlg": "tlg1205.tlg002",
+     "author": "Athenagoras",
+     "title": "De resurrectione",
+     "col_start": "494",
+     "col_end": "519",
+     "incipit": "Παντὶ δόγματι καὶ λόγῳ τῆς ἐν τοῖς οὖσιν ἀληθείας ἐχομένῳ παραφύεταί τι ψεῦδος.",
+     "evidence": "Incipit at 494 (= PG 6, 973); the work ends inside locus 519 at '...καὶ τῆς ἑκάστῳ συμμετρουμένης ὑπὲρ τῶν εὖ ἢ κακῶς βεβιωμένων τιμῆς ἢ δίκης.' (De res. 25 end), followed in the same row by 'ΒΙΒΛΙΟΝ Αʹ.' opening Theophilus. Locus 519 = PG 6, 1023, the very column Migne's ranges assign to both works. NOT in credited list."
+    },
+    {
+     "tlg": "tlg1725.tlg001",
+     "author": "Theophilus Antiochenus",
+     "title": "Ad Autolycum",
+     "col_start": "519",
+     "col_end": "591",
+     "incipit": "Στωμύλον μὲν οὖν στόμα καὶ φράσις εὐεπὴς τέρψιν παρέχει καὶ ἔπαινον πρὸς κενὴν δόξαν",
+     "evidence": "Book heading 'ΒΙΒΛΙΟΝ Αʹ.' + incipit mid-locus 519 (= PG 6, 1023, shared with the end of Athenagoras De resurrectione); internal book headings ('Θεόφιλος πρὸς Αὐτόλυκον') at 531 and 568; explicit at 591 '...ὅπως σχῇς σύμβολον, καὶ ἀῤῥαβῶνα τῆς ἀληθείας.' = III.30 end (PG 6, 1168). NOT in credited list."
+    },
+    {
+     "tlg": "tlg0531.tlg001",
+     "author": "Hermias",
+     "title": "Irrisio gentilium philosophorum",
+     "col_start": "592",
+     "col_end": "597",
+     "incipit": "Παῦλος ὁ μακάριος ἀπότολος, τοῖς τὴν Ἐλλάδα τὴν Λακωνικὴν παροικοῦσι Κορινθίοις γράγων",
+     "evidence": "Title line 'ΕΡΜΙΟΥ ΦΙΛΟΣΟΦΟΥ ΑΙΑΣΥΡΜΟΣ ΤΩΝ ΕΞΩ ΦΙΛΟΣΟΦΟΝ.' (= Διασυρμὸς τῶν ἔξω φιλοσόφων) opens 592 (= PG 6, 1169); explicit at 597 '...καὶ τὸ τέλος αὐτῶν ἀτέκμαρτον, καὶ ἄχρηστον, ἔργῳ μηδενὶ προδήλῳ καὶ λόγῳ σαφεῖ βεβαιούμενον.' = Irrisio 10 end (PG 6, 1180). Locus 598 (Migne 1181-1182, Latin monitum) missing. NOT in credited list."
+    },
+    {
+     "tlg": "tlg0646.tlg007",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Epistula ad Zenam et Serenum",
+     "col_start": "599",
+     "col_end": "609",
+     "incipit": "Ἰουστῖνος Ζῆνα καὶ Σερήνῳ τοῖς ἀδελφοῖς, χαίρειν.",
+     "evidence": "Epistolary salutation incipit at 599 (= PG 6, 1183/1184); explicit at 609 '...δῴη πᾶσιν ὑμῖν τῆς μετὰ τῶν ἐκλεκτῶν τιμῆς καὶ ἀναπαύσεως ἐπιτυχεῖν! Οὗ καὶ ἡ χάρις εἴη μετὰ πάντων ὑμῶν.' (closing benediction, PG 6, 1204). Locus 610 missing."
+    },
+    {
+     "tlg": "tlg0646.tlg006",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Expositio rectae fidei",
+     "col_start": "611",
+     "col_end": "627",
+     "incipit": "Ἱκανῶς τὸν κατὰ Ἰουδαίων καὶ Ἐλλήνων ἐπελθόντες ἔλεγχον, ἀκολούθως αὖθις τὸν ὑγιᾶ τῆς πίστεως ἐκτιθέμεθα λόγον.",
+     "evidence": "Incipit at 611 (= PG 6, 1207); served text breaks off mid-sentence at 627 ('...τὴν μακαρίαν ἐλπίδα καὶ χορηγὸν τῆς') because loci 628-631 (Migne 1241-1248: the work's last lines + Latin prolegomena to the Quaestiones) are missing from the file. The work's true end (PG 6, 1240) is therefore slightly truncated."
+    },
+    {
+     "tlg": "tlg0646.tlg009",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Quaestiones et responsiones ad orthodoxos",
+     "col_start": "632",
+     "col_end": "707",
+     "incipit": "ἘΡΩΤΗΣΙΣ Αʹ. Εἰ τὴν ἀρχαίαν μὲν λατρείαν ἀνεῖλεν ὁ Θεὸς, ὡς αὐτὴν μὴ ἀρεσκόμενος",
+     "evidence": "'ἘΡΩΤΗΣΙΣ Αʹ' opens 632 (= PG 6, 1249) with the title fragment 'ἩΤΟΙ ΛΥΣΙΑ ΤΗΣ ΕΡΩΤΗΣΕΩΣ' (ἤτοι λύσις τῆς ἐρωτήσεως) in the same row; last response ends at 707 '...ἀλλ' ἐκ τῇ τοῦ Δεσπότου τοῦ ἀληθινοῦ Θεοῦ συγχωρήσεως;' (= PG 6, 1400)."
+    },
+    {
+     "tlg": "tlg0646.tlg010",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Quaestiones Christianorum ad gentiles",
+     "col_start": "708",
+     "col_end": "739",
+     "incipit": "ἘΡΩΤΗΣΙΣ Αʹ. Εἰ τῷ μεγίστῳ ἐν ἀνθρώποις ἀγαθῷ μέγιστον ἀντίκειται κακόν",
+     "evidence": "Incipit at 708 (= PG 6, 1401); internal headings 'ἘΡΩΤΗΣΙΣ ΧΡΙΣΤΙΑΝΙΚΗ ΠΡΟΣ ΤΟΥΣ ἜΛΛΗΝΑΣ Β/Γ/Δ/Ε' at 715, 721, 729, 734, then the closing numbered aporiai 'ΠΡΟΣ ΤΟΥΣ ΕΛΛΗΝΑΣ' (736-739). Ends inside locus 739 at question ιηʹ '...πῶς ἀγένητα καὶ ἰδίᾳ τὰ ἐν τῷ ἐνιαυτῷ;' (= PG 6, 1463)."
+    },
+    {
+     "tlg": "tlg0646.tlg011",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Quaestiones gentilium ad Christianos",
+     "col_start": "739",
+     "col_end": "752",
+     "incipit": "Περὶ τοῦ ἀσωμάτου, καὶ περὶ τοῦ Θεοῦ καὶ περὶ τῆς ἀναστάσεως τῶν νεκρῶν. α. Πόθεν δῆλον εἰ ἔστι τι ἀσώματον",
+     "evidence": "Begins inside locus 739 with its heading and the gentiles' numbered questions; the answers section 'Σ ΑΠΟΚΡΙΣΕΓΣ ΧΡΙΣΤΙΑΝΙΚΑΙ πρὸς τὰς προῤῥηθείσας ἐρωτήσεις' (= ἈΠΟΚΡΙΣΕΙΣ ΧΡΙΣΤΙΑΝΙΚΑΙ) opens inside 740. Explicit at 752 '...ἔσται αὐτῶν ἡ πρώτη ματαιοπονία ἔλεγχος τῆς ἀλόγου αὐτῶν ἀπιστίας.' (= PG 6, 1489). Matches PG 6, 1463-1489."
+    },
+    {
+     "tlg": "tlg0646.tlg008",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Confutatio dogmatum quorundam Aristotelicorum",
+     "col_start": "753",
+     "col_end": "789",
+     "incipit": "Τῶν κατὰ τὴν ἀνθρωπίνην σπουδὴν εἰς θεραπείαν τοῦ Θεοῦ ὑπὸ τῶν ἀνθρώπων γινομένων καλῶν",
+     "evidence": "Title line 'ΑΝΑΤΡΟΠΗ ΔΟΓΜΑΤΩΝ ΤΙΝΩΝ ΑΡΙΣΤΟΤΕΛΙΚΩΝ' + incipit at 753 (= PG 6, 1491/1492); anti-Aristotelian argument runs continuously to 789, ending '...μεταβάλλεται εἰς ἄλληλα, καὶ γίνονται ἐξ ἀλλήλων.' (= PG 6, 1564)."
+    },
+    {
+     "tlg": "tlg0384.tlg002",
+     "author": "Acta Justini et septem sodalium",
+     "title": "Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani",
+     "col_start": "790",
+     "col_end": "793",
+     "incipit": "Ἐν τῷ καιρῷ τῶν ἀνόμων ὑπερμάχων τῆς εἰδωλολατρείας προστάγματα ἀσεβῆ κατὰ τῶν εὐσεβούντων Χριστιανῶν",
+     "evidence": "Title line 'ΙΟΥΣΤΙΝΟΥ ΧΑΡΙΤΩΝΟΣ, ΧΑΡΙΤΟΥΣ. ΠΑΙΟΝΟΣ ΚΑΙΛΙΒΕΡΙΑΝΟΥ' opens 790 (= PG 6, 1565); interrogation by the prefect Rusticus (790-792); ends inside locus 793 '...συνεργασάσης αὐτοῖς τῆς χάριτος τοῦ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ, ᾠ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' PG 6 prints the vulgate text closest to Musurillo's recensio B (hence tlg0384.002); recension match not independently verified. NOT in credited list."
+    },
+    {
+     "tlg": "tlg0646.tlg005",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "De resurrectione",
+     "col_start": "793",
+     "col_end": "803",
+     "incipit": "Ὁ μὲν τῆς ἀληθείας λόγος ἐστὶν ἐλεύθερος καὶ αὐτεξούσιος, ὑπὸ μηδεμίαν βάσανον ἐλέγχου θέλων πίπτειν",
+     "evidence": "Incipit begins inside locus 793 immediately after the Martyrium's 'Ἀμήν.' (= PG 6, 1572); ends inside locus 803 at '...καθάπερ τοὺς ἐλπίδα σωτηρίας ἔχοντας ἀνθρώπους οἱ ἰατροὶ οὐκ ἐῶσιν ὑπηρετεῖν ταῖς ἡδοναῖς.' (ch.10 end, PG 6, 1591/1592), followed in the same row by the first Fragmenta item."
+    },
+    {
+     "tlg": "tlg0645.tlg004",
+     "author": "Justinus Martyr",
+     "title": "Fragmenta operum deperditorum (ex Irenaeo et Methodio)",
+     "col_start": "803",
+     "col_end": "804",
+     "incipit": "Καὶ καλῶς Ἰουστῖνος ἐν τῷ πρὸς Μαρκίωνα συλ. τάγματι φησίν· Ὅτι αὐτῷ τῷ Κυρίῳ οὐδ´ ἂν ἐπείσθην",
+     "evidence": "Begins inside locus 803: the two Irenaeus-preserved fragments (Adv. haer. 4.6.2 'πρὸς Μαρκίωνα' and 5.26.2 'Καλῶς ὁ Ἰουστῖνος ἔφη ὅτι πρὸ μὲν τῆς τοῦ Κυρίου παρουσίας...'), then at 804 the OCR-garbled Latin heading 'Εα Μειήοαῖθτο Βε Κεετεοιοηε ἅρμα Ρμοιῖκι' = 'Ex Methodio De resurrectione apud Photium' introducing 'Ἰουστῖνος δὲ ὁ Νεαπολίτης...'. Assignment of the gnomic sentences at the end of 804 between tlg0645.004 and tlg0646.012 is uncertain; the 804/805 division needs column-level verification against Otto. NOT in credited list."
+    },
+    {
+     "tlg": "tlg0646.tlg012",
+     "author": "Pseudo-Justinus Martyr",
+     "title": "Fragmenta",
+     "col_start": "805",
+     "col_end": "807",
+     "incipit": "Αʹ. Δι ἀμφοῖντοῖν ὀρνέοιν σημαίνεται ὁ Χριστὸς καὶ τεθνεὼς ὡς ἄνθρωπος, καὶ ζῶν ὡς Θεός.",
+     "evidence": "Numbered exegetical fragments (Αʹ-Δʹ on the Leviticus birds/goats typology, from Leontius and the catenae) begin at 805; the block ends at 807 with the heading 'Τοῦ ἁγίου Ἰουστίνου φιλοσόφου καὶ μάρτυρος ἐκ τοῦ εʹ μέρους τῆς Ἀπολογίας αὐτοῦ' and the sentence 'Τὸ εὖ πράττειν ἡγοῦμαι, ὦ ἄνδρες, οὐκ ἄλλο τι εἰναι ἢ τὸ κατὰ ἀλήθειαν ζῇν'. Whole S. Justini Fragmenta section = PG 6, 1591-1600; the split from tlg0645.004 at 804/805 is a best-effort division, see notes."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Tatianus",
+     "title": "Fragmenta (Tatiani fragmenta, PG 6, 1601-1608)",
+     "col_start": "808",
+     "col_end": "809",
+     "incipit": "Ἐκ τοῦ Περὶ τοῦ κατὰ τὸν Σωτῆρα καταρτισμοῦ Χυμφωνίαν μὲν οὖν ἀρμόζει προσευχῇ, κοινωνία δὲ φθορᾶς λύει τὴν ἔντευξιν.",
+     "evidence": "Heading 'Ἐκ τοῦ Περὶ τοῦ κατὰ τὸν Σωτῆρα καταρτισμοῦ' (Tatian's lost work quoted by Clement, Strom. 3.12.81) opens 808 (= PG 6, 1601), followed by Clement's discussions 'Πρὸς δὲ Τατιανὸν, λέγοντα εὐκτικὸν εἶναι τὸ Γενηθήτω φώς...'. Locus 809 (exegesis of Ruth and the φορεῖον of Cant. 3:9, last served row) is assigned to this block positionally; its attribution within the Tatiani fragmenta was not independently verified. TLG has only tlg1766.001 (Oratio) and tlg1766.002 (Diatesseron fragment), so these fragments have no TLG id."
+    }
+   ],
+   "unassigned_ranges": [
+    "pre-122 (PG 6, 1-228: Latin prolegomena, Maran's Vita and dissertations - not served at all, no loci exist)",
+    "142 (missing row; Migne 269-270, mid-Cohortatio one-column OCR gap)",
+    "408 (missing row; Migne 801-802, Dialogus end matter / Tatian title page)",
+    "598 (missing row; Migne 1181-1182, Latin monitum between Hermias and Ep. ad Zenam)",
+    "610 (missing row; Migne 1205-1206, between Ep. ad Zenam and Expositio)",
+    "628-631 (missing rows; Migne 1241-1248, last lines of Expositio rectae fidei + Latin prolegomena to the Quaestiones)",
+    "post-809 (PG 6, 1605-end: remaining Tatian fragment columns and the volume indices - not served)"
+   ],
+   "confidence": "medium",
+   "notes": "File: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG006.jsonl, 680 rows, loci 122-809, strictly increasing integers, no dotted loci, no duplicates. The served loci are NOT raw Migne column numbers: each row is one Greek column pair, with Migne col = 2*locus - 15 (verified at many independent anchors: 122->229 Oratio ad Graecos, 171->327 Apol. I, 228->441 Apol. II, 243->471 Dialogus, 409->803 Tatian, 452->889 Legatio, 494->973 Athenag. De res., 519->1023 shared Athenagoras/Theophilus column, 592->1169 Hermias, 632->1249 QRO, 708->1401 QCG, 739->1463 QCG/QGC seam, 753->1491 Confutatio, 790->1565 Martyrium, 803->1591 Fragmenta, 808->1601 Tatiani fragmenta). Any split script must also handle six works whose boundaries fall INSIDE a single locus: 519 (Athenag. De res. ends / Theophilus begins at 'ΒΙΒΛΙΟΝ Αʹ.'), 739 (QCG ends at question ιηʹ / QGC begins at 'Περὶ τοῦ ἀσωμάτου...'), 793 (Martyrium ends at 'Ἀμήν.' / Ps-Justin De resurrectione begins at 'Ὁ μὲν τῆς ἀληθείας λόγος'), 803 (De res. ends / Fragmenta begin at 'Καὶ καλῶς Ἰουστῖνος ἐν τῷ πρὸς Μαρκίωνα'), and 227/228 boundary is clean but 227 ends with the first word of Apol. II's title ('ΤΟΥ'). All 11 credited tlg0646 works were found (004 Epistula ad Diognetum is correctly absent; Migne printed it elsewhere). The volume additionally contains 8 uncredited items: Justin's genuine Apologia I-II and Dialogus (tlg0645.001-003), Tatian's Oratio (tlg1766.001), Athenagoras Legatio and De resurrectione (tlg1205.001-002), Theophilus Ad Autolycum (tlg1725.001), Hermias Irrisio (tlg0531.001), the Acta Justini (tlg0384, recensio uncertain, listed as .002), Justin's Fragmenta operum deperditorum (tlg0645.004), and unnumbered Tatiani fragmenta (NEW). Confidence is medium rather than high for exactly three reasons: (1) the division of the S. Justini Fragmenta block (803-807) between tlg0645.004 and tlg0646.012 at the 804/805 seam is inferred from fragment sources, not from a title line; (2) locus 809's attribution to the Tatiani fragmenta is positional; (3) the Acta Justini recension (tlg0384.001/.002/.003) was not verified against Musurillo. Every other boundary is confirmed by an exact incipit, explicit, or printed title line copied above from the served text (OCR errors preserved verbatim, e.g. 'ὑπολάόητε', 'ΙΟΥΣΤΕΝΟΥ', 'ΑΙΑΣΥΡΜΟΣ', 'ΚΑΙΛΙΒΕΡΙΑΝΟΥ'). De monarchia's opening words (title + first ~10 words, PG 6, 311/312) and the final lines of Expositio rectae fidei (Migne 1241f., missing loci 628-631) are lost in the served OCR; the future split should note both truncations. Word counts sanity-check the ranges: e.g. credited QRO 29353 words over 76 columns and Confutatio 16818 over 37 columns are proportionate.\""
+  },
+  {
+   "volume": "PG087_1",
+   "works": [
+    {
+     "tlg": "NEW",
+     "author": "Procopius of Gaza",
+     "title": "Commentarii in Octateuchum (catena-epitome, CPG 7430; as served: Genesis through Judges, no separate Ruth section)",
+     "col_start": "18",
+     "col_end": "547",
+     "incipit": "ΠΡΟΟΙΜΙΟΝ. Ἡδη μὲν καὶ πρότερον Θεοῦ τὸ δύνασθαι χορηγήατρς τὰς καταβεβλημένας ἐκ τῶν Πατέρων καὶ τῶν ἄλλων εἰς τὴν Ὁκτάτευχον ἐξηγήσεις συνελε. ξάμεθα",
+     "evidence": "Locus 18 opens with the famous prooemium naming the Octateuch (εἰς τὴν Ὁκτάτευχον ἐξηγήσεις). Internal book starts all verified: Exodus prologue at tail of 263 / Ex 1:5 lemma at 264 (Ἀριθμεῖ τοὺς μετὰ Ἰακώβ); Leviticus at 353 (Αἰ ἐν τῷ Λευῖτικῷ θνοίαι καθαρισμὸν ψυχῶν περιέχουσι = Migne col 691 exactly under col=2L-15); Numbers between 404 and 406 (locus 405 missing; 404 ends Lev 27, 406 is Num 2 camp order); Deuteronomy at 454 (Ἰκανούσθω ὑμῖν κατοικεῖν ἐν τῷ ὄρει τούτῳ = Deut 1:6, col 893); Joshua at 504 (Μωϋσῆς ὁ θεράπων μου τετελεύτηκε. Νῦν φὗν ἀναστὰς, διάβηθι τὸν Ἰορδάνην = Josh 1:2, col 993); Judges at 529 (inquiry of the Lord about the Canaanites, Judg 1:1, col 1043). Ends mid-row 547 with the Benjamite war (Judg 20-21), closing '...εἰ καὶ τῷ Θεῷ δικαίως.' immediately before the next work's prooemium in the same row."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Procopius of Gaza",
+     "title": "In libros Regum et Paralipomenon scholia (CPG 7431)",
+     "col_start": "547",
+     "col_end": "617",
+     "incipit": "ΠΡΩΙΙΜΙΟΝ. Πλεῖστοι προφῆται γεγένηνται, ὦν τὰς μὲν βίβλους οὐχ εὔρομεν, τὰς δὲ προσηγορίας ἐκ τῆς τῶν Παραλειπομένων μεμαθήκαμεν ἱστορίας.",
+     "evidence": "Begins mid-row 547 (shared boundary row): after the Judges ending, the served text carries the heading ΠΡΩΙΙΜΙΟΝ (= ΠΡΟΟΙΜΙΟΝ, OCR) and the Regum prooemium on the books of Kingdoms/Prophetia Samuel. 1 Kgdms 1:1 lemma (Καὶ ἐγένετο ἄνθρωπος, OCR 'Καὶ ἐοένεγορ ἄνρρωκρε') with ΚΕΦΑΛ. Αʹ at 548. Kings progression spot-checked: 552 (1 Kgdms 5), 560 (1 Kgdms 19), 566 (1 Kgdms 28 witch of Endor), 570-578 (2 Kgdms), 598 (4 Kgdms 1), 602-607 (4 Kgdms 13-24). Paralipomena section prooemium at 608 (see incipit in notes: Ὃσα παρέλιπεν ὁ τὰς Βασιλείας συγγεγραφώς), OCR'd Latin running header 'ζΟΜΜΕΝΤΑΚΙΙ ΙΝ ΓΙΒ. Ι ΡΑΚΑΙΡ.' (COMMENTARII IN LIB. I PARALIP.) at 610, ΚΕΦΑΛ. ΛΕʹ (2 Chron 35) at 617. Ends mid-row 617 with the closing remark mentioning Cyrus and the return of the captives, followed by the OCR'd Latin title 'ΜΟΝΙΤΟΜ ΙΝ ΟΟΜΜΕΝΤΑΚΙΟΘ ΑΙ ΡΚΟvΕΚΒΙΑ ΕΤ ΣΟΑΝΤΙΩΑ' (MONITUM IN COMMENTARIOS AD PROVERBIA ET CANTICA). Column arithmetic: 547-617 = Migne cols 1079-1220, the known range of these scholia."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Procopius of Gaza (attribution of the PG edition; Procopian authorship of this Proverbs epitome is doubted)",
+     "title": "In Proverbia (Ἑρμηνεία εἰς τὰς Παροιμίας, catena-epitome, CPG 7432)",
+     "col_start": "618",
+     "col_end": "779",
+     "incipit": "ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ Σκοπὸν ἔχων Σαλομὼν, τὸν πόθον ἡμῶν κινῆσαι πρὸς τοῦ ἄφραστον κάλλος τοῦ θείου χαρακτῆρος",
+     "evidence": "Clean start at 618 with heading ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ and the commentary's opening on Solomon's purpose, immediately after the Latin monitum at the tail of 617. Continuous Proverbs progression: 1:7 (Ἀρχὴ σοφίας, φόβος Κυρίου) at 620, 1:15 at 622, 4:23 at 637, 26:2 at 747, 30:30-31 (lion, strutting cock) at 774, 31:10-11 at 776, ending at 779 with Prov 31:28-31 and the closing Matt 5:16 quotation (δοξαζόντων τὸν Πατέρα ἡμῶν τὸν ἐν τοῖς οὐρανοῖς). Column arithmetic: 618↔col 1221 and 779↔cols 1543-44, exactly the known PG In Proverbia range 1221-1544; the volume dump ends here."
+    }
+   ],
+   "unassigned_ranges": [],
+   "confidence": "high",
+   "notes": "MAJOR FINDING: the credited works in data/cgpg_works.json for PG087_1 (tlg2598.004 Commentarii in Isaiam, tlg2598.002 Catena in Canticum canticorum, tlg2598.012 Refutatio Procli) are NOT in this served volume. Their canon column pointers (Canticum 1545-1753, Isaiam 1817-2717, Refutatio 2792e-h, all PG 87.2) lie beyond the served range, which ends at locus 779 = Migne col 1544. The volume actually contains the three Procopius OT works of PG 87 pars prior: Octateuch commentary (CPG 7430), Regum et Paralipomenon scholia (CPG 7431), and In Proverbia (CPG 7432). None of these has a TLG id: the local canon (~/Documents/tlge-tools/data/tlg_canon.json) lists no tlg2598 work for them, and data/tlg_crosswalk.json line 18949 explicitly records that a former tlg2598.tlg001 claim was fabricated ('no such work in the TLG canon'), hence tlg NEW for all three. LOCUS MAPPING: served loci are scan pages, not Migne columns; each locus L holds Migne cols 2L-15 and 2L-14 (verified at anchors 18↔21, 353↔691, 454↔893, 504↔993, 548↔1081, 608↔1201, 618↔1221, 779↔1543-44). A per-work carve should record real Migne columns via this formula. SHARED BOUNDARY ROWS: the work 1/work 2 seam falls mid-row 547 (Judges ends '...εἰ καὶ τῷ Θεῷ δικαίως.' then ΠΡΩΙΙΜΙΟΝ), and work 2 ends mid-row 617 before the Latin monitum; a text-level split within those rows is needed, unlike the clean row-edge boundary at 617/618. Sub-boundaries inside work 1 (if per-book splitting is wanted): Genesis 18-263, Exodus 263/264-352, Leviticus 353-404, Numbers 406-453 (405 missing), Deuteronomy 454-503/504, Joshua 504-528, Judges 529-547; inside work 2: Regum 547-607, Paralipomena 608-617 (prooemium at 608: 'ΠΡΟΟΙΜΙΟΝ. Ὃσα παρέλιπεν ὁ τὰς Βασιλείας συγγεγραφὼς, ταῦτα συντέθεικεν ὁ τὴν παροῦσαν ὑπόθεσιν ἐνστησάμενος'). SERVING GAPS: 52 loci absent from the file, all in 236-431 (Genesis 50/Exodus through Numbers stretch): 236, 250, 252-253, 256, 258, 260-262, 271, 274, 277, 290-294, 300-305, 309-313, 317-336, 340, 349, 354-355, 364, 371, 378-381, 392-395, 405, 409, 421, 431 (ranges approximate, exact list in analysis); these are missing pages, not unassigned content. OCR noise: several rows embed OCR'd Latin chapter headers/monita as pseudo-Greek (e.g. 265 is only 'ΟΑΡ. ΙΙ.' = CAP. II; 356, 532, 590, 605, 607, 609-611, 613, 615, 617 carry Latin fragments); all sit inside the works' ranges, so no unassigned column ranges exist within 18-779. File analyzed: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG087_1.jsonl (710 rows, loci 18-779)."
+  },
+  {
+   "volume": "PG101",
+   "works": [
+    {
+     "tlg": "NEW",
+     "author": "Photius",
+     "title": "Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated)",
+     "col_start": "44",
+     "col_end": "611",
+     "incipit": "Τῆς σπουδῆς σου τὸ γνήσιον δυσωπηθεὶς τὴν σὴν ἀοῆκα πρὸς πέρας ἐλθεῖν, ὡς ἐλπίσας, αἴτησιν·",
+     "evidence": "Title line at col 44: ΦΩΤΙΟΥ ΠΑΤΡΙΑΡΧΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΠΡΟΣ ΑΜΦΙΛΟΧΙΟΝ ΤΟΝ ΟΣΙΩΤΑΤΟΝ ΜΗΤΡΟΠΟΛΙΤΗΝ ΚΥΖΙΚΟΥ ... ΖΗΤΗΜΑΤΩΝ ΔΙΑΦΟΡΩΝ; ΕΡΩΤΗΣΙΣ Α at col 45 (with subtitle 'Ἀμφιλόχια πρὸς Ἀμφιλόχιον μητροπολίτην Κυζίκου λόγων ἱερῶν συλλογή'); continuous ΕΡΩΤΗΣΙΣ numbering tracked A' (45) → ΤΙΖ (610) → Latin QUAESTIO CCCXXI garbled as ΟΟΣΘΤΙΟ ΟΩΩΧΧΙ at 611; matches standard reference Amphilochia = PG 101, 45-1172. Col 611 ends with the garbled heading of the next quaestio (~CCCXXII); the series' end falls in the unserved gap 612-619. No TLG id: the tlg4040 canon has no Amphilochia/Epistulae work (Laourdas-Westerink not in TLG-E)."
+    },
+    {
+     "tlg": "tlg4040.028",
+     "author": "PHOTIUS",
+     "title": "Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series, not the Reuss text",
+     "col_start": "620",
+     "col_end": "630",
+     "incipit": "Ἀβραὰμ ἐγέννησε τὸν Ἰσαάκ. 2ωτίου. Ἀβραὰμ διὰ πίστεως ἐδικαιώθη.",
+     "evidence": "Col 620 opens with the Mt 1:2 lemma followed by a Φωτίου scholion; catena format with repeated Φωτίου attribution markers runs 620-630 in Matthew lemma order (Mt 9:17 wineskins at 625, Mt 26:75 cock-crow harmonization with Mark at 630). Section title lost in unserved gap 612-619. The served Migne/Mai text only partially overlaps the Reuss edition used by TLG."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Photius",
+     "title": "Fragmenta in Marcum (in catenis) - short block, not in TLG canon",
+     "col_start": "631",
+     "col_end": "632",
+     "incipit": "Καὶ παράγων, εἶδε Λευὶ τὸν τοῦ Ἀλφαίου καθήμενον ἐπὶ τὸ τελώνιον·",
+     "evidence": "Col 631 lemmata are distinctively Marcan: Λευὶ τὸν τοῦ Ἀλφαίου (Mk 2:14), Herod/Baptist's head given τῷ κορασίῳ (Mk 6:28); col 632 has σπεκουλάτωρ (Mk 6:27) and Δεῦτε ὑμεῖς αὐτοὶ κατ' ἰδίαν ... ἀναπαύεσθε ὀλίγον (Mk 6:31, Mark only). No Photius in Marcum work exists in the TLG canon. Boundary with the Luke block falls mid-col 632."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Photius",
+     "title": "Fragmenta in Lucam (in catenis) - not in TLG canon",
+     "col_start": "632",
+     "col_end": "640",
+     "incipit": "Ἐπεὶ οὖν ἀγράφων ὄντων τῶν παραδιδομένων, εἰκὸς ἦν ἄτοπα πολλὰ συμβαίνειν",
+     "evidence": "Begins mid-col 632 with commentary on Luke's prologue (οἱ ἀπὸ τῶν αὐτοπτῶν καὶ ὑπηρετῶν τοῦ Λόγου = Lk 1:2), preceded by garbled heading ΙΝ ΗΟΑΜ (likely IN LUCAM); then Annunciation Lk 1:28-38 (633-636, Γενηθήτω μοι κατὰ τὸ ῥῆμά σου at 636), Magnificat Lk 1:51 (634), Simeon Lk 2:34 (637), baptism (638), Joseph of Arimathea and burial (638-639), harmonistic scholia on the resurrection appearances defending Jerusalem appearances against the Galilee promise (639-640, quoting Mt 27:52 and Mt 28). Attribution of 638-640 to the Luke section (Lk 23-24 harmonization) rather than Matthew is my best reading; the content is partly Matthaean."
+    },
+    {
+     "tlg": "tlg4040.027",
+     "author": "PHOTIUS",
+     "title": "Commentarii in Joannem (in catenis) - Migne/Mai fragment series, not the Reuss text",
+     "col_start": "641",
+     "col_end": "642",
+     "incipit": "ἀπεκρίθη ὁ Ἰησοῦς, καὶ εἶπεν αὐτῇ· Πᾶς ἀ πίνων ἐκ τοῦ ὕδατος τούτου, διψήσει πάλιν·",
+     "evidence": "Col 641 opens with the Jn 4:13 lemma (Samaritan woman) with Φωτίου scholia; Jn 17:11-13 commentary at 642 head. Only ~1.5 columns served; the section ends mid-col 642 where Romans commentary begins. Far smaller than the Reuss corpus TLG serves for this work."
+    },
+    {
+     "tlg": "tlg4040.014",
+     "author": "PHOTIUS",
+     "title": "Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series, not the Staab text",
+     "col_start": "642",
+     "col_end": "652",
+     "incipit": "Εἰπών οὖν, ὡς ἔφημεν, ὅτι τύπος ἦν ὁ Ἀδὰμ τοῦ Χριστοῦ·",
+     "evidence": "Begins mid-col 642 (Rom 5:14 τύπος fragment; col head is still John 17). Romans lemma order confirmed across the block: Rom 5:17-18 at 643, Rom 7:8-10 at 643-646, Rom 8:24 at 646, Rom 8:31-9:3 at 647, Rom 9:11 at 648, Rom 11 at 649, Rom 12:2 at 650, Rom 14:6-9 at 652. Ends mid-col 652 at the printed heading of the next section."
+    },
+    {
+     "tlg": "tlg4040.016",
+     "author": "PHOTIUS",
+     "title": "Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated",
+     "col_start": "652",
+     "col_end": "652",
+     "incipit": "Ἡ γὰρ κατὰ Θεὸν λύπη μετάνοιαν εἰς σωτορία κατεργάζεται.",
+     "evidence": "Printed section heading mid-col 652 OCR'd as 'ΙΙ. ΙΝ ΕΡΙΘΤΟΙΑΜ ΙΙ ΑΒ ΟΟΗΙΝΤΗΙΟΘ' = 'II. IN EPISTOLAM II AD CORINTHIOS' (with a garbled Mai page citation), followed immediately by 2 Cor 7:10 commentary. Only the tail of col 652 is served; the work continues into the unserved gap 653-663."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Photius",
+     "title": "Amphilochia, supplementum: fuller recensions of selected quaestiones (~148, ~180, 228, 230, 231, 319, 320, 321)",
+     "col_start": "664",
+     "col_end": "673",
+     "incipit": "ΕΡΩΡΗΣΙΣ ΡΜΗʹ. εἶδε ἀλλήλους δάκνετε καὶ κατεσθίετε, Ελέπετε μὴ ὑπ´ ἀλλήλων ἀναλωθῆτε",
+     "evidence": "Col 664 opens with ΕΡΩΤΗΣΙΣ ΡΜΗʹ (148, on Gal 5:13-15); then ΕΡΩΤΗΣΙΣ headings at 665 (Διὰ τί ὁ Υἱὸς ἐσαρκώθη..., number garbled), 667 ΣΚΗʹ (Περὶ φύσεως καὶ ὑποστάσεως), 669 ΣΛʹ (Περὶ θεότητος), 671 ΣΛΑʹ, 672 ΤΙΘʹ (Absalom) and ΤΚʹ (φοιβήσασθαι), 673 ΤΚΑʹ (the raven and Elijah). Qq. 320-321 duplicate, with fuller answers, the same questions printed at col 611 in the main series, proving this is a supplementary recension, not a continuation. Its section title lies in the unserved gap 653-663. Same NEW work identity as the Amphilochia main series."
+    }
+   ],
+   "unassigned_ranges": [
+    "14-15 (Greek excerpts quoted inside the Latin prolegomena on Photius' elevation, drawn from Nicetas David Paphlagon's Vita Ignatii, PG 105; no matching work in the TLG canon)",
+    "16-43 (not served; Latin prolegomena)",
+    "293-295 (Latin divider: col 293 is only a garbled heading ΒΙΘΘΕΛΤΑΤΙΟ... = DISSERTATIO...; cols 294-295 not served; sits between Amphilochia qq. 80 and 81)",
+    "612-619 (not served; end of the Amphilochia main series, ~qq. 322-324, and the title of the fragment supplement)",
+    "653-663 (not served; continuation of the 2 Corinthians fragments and start of the quaestiones supplement)",
+    "674-end of volume (dump truncated at col 673; the remainder of PG 101, which standard references carry to col 1172+ for the Amphilochia complex, is not served)"
+   ],
+   "confidence": "medium",
+   "notes": "611 rows, bare integer loci 14-673 (no dotted loci), near-continuous except gaps 16-43, 294-295, 612-619, 653-663. The served dump is only the first half of PG 101. Structure found: (1) cols 44-611 the Amphilochia main series (title page col 44, ΕΡΩΤΗΣΙΣ Αʹ col 45, quaestio numbering tracked continuously to CCCXXI at 611); (2) cols 620-652 a catena-fragment supplement (Mai reprint) running Matthew, Mark, Luke, John, Romans, 2 Corinthians in order, each identified by lemma content since every printed Latin section heading is OCR-destroyed (only the 2 Cor heading at 652 is legible); (3) cols 664-673 fuller recensions of selected Amphilochia quaestiones, partly duplicating qq. 319-321 of the main series. Caveats: of the 9 credited works, only 4 (tlg4040.028, .027, .014, .016) have identifiable served content; tlg4040.015 (1 Cor), .017 (Gal), .018 (Eph), .019 (Phil), .026 (Heb) do NOT appear in the served columns - no 1 Cor section exists between Romans and the 2 Cor heading at 652, so those works must lie in the unserved gaps or beyond col 673 (though supplement quaestio 148 at 664-665 comments Gal 5:13-15, overlapping Galatians-fragment material). Also note the credited TLG texts are the Staab/Reuss critical editions, whose content only partially overlaps this Migne/Mai text, so column carve-outs from PG101 will not reproduce the TLG works exactly. The Amphilochia itself (the volume's bulk) has no TLG id and is listed NEW. Confidence is medium overall: the Amphilochia boundaries are title/incipit-confirmed, but the catena block's internal boundaries (630/631, mid-632, 640/641, mid-642, mid-652) are lemma-inferred, several section starts fall in unserved gaps, and the 638-640 passion/resurrection fragments could arguably belong to Matthew rather than Luke. OCR is noisy throughout, with the facing Latin column bleeding into the Greek as garbled pseudo-Greek. Files: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG101.jsonl, /Users/cisco/Documents/open-greek-corpus/data/cgpg_works.json."
+  },
+  {
+   "volume": "PG107",
+   "works": [
+    {
+     "tlg": "NEW",
+     "author": "Basilius I Macedo imperator (revera fort. Photius)",
+     "title": "Paraenesis ad Leonem filium (Exhortationum capita LXVI)",
+     "col_start": "20",
+     "col_end": "37",
+     "incipit": "μασίλειος ἐν Χριστῷ βασιλέος Ῥωμαίων, Λέοντι τῷ πεκοθημένῳ υἱῷ καὶ συμβασιλεῖ. Περὶ παιδεύσεως. Βωφελές τι χρῆμα καὶ σπουδαιότατον",
+     "evidence": "Title line at locus 20: ΒΑΣΙΛΕΙΟΥ ΤΟΥ ΡΩΜΑΙΩΝ ΒΑΣΙΛΕΩΣ, followed by the dedication to Leo son and co-emperor and chapter heading Περὶ παιδεύσεως; matches PG107 prolegomena cols. XXI-LVI (Basilii imp. exhortationum capita). Next work's title line begins locus 38."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Basilius I Macedo imperator",
+     "title": "Altera paraenesis ad Leonem filium",
+     "col_start": "38",
+     "col_end": "39",
+     "incipit": "Ἐ θεία καὶ παναγία Τρίας ἡ παντοδύναμος καὶ ζωοποιὸς ἀγαθότης, ἡ ἐν τρισὶν ὑποστάσεσιν ὁμοουσίως δοξαζομένη",
+     "evidence": "Title line at locus 38: ΒΑΣΙΛΕΙΟΥ ΒΑΣΙΛΕΩΣ ΕΤΕΡΑ ΠΑΡΑΙΝΕΣΓΣ ΕΙΣ ΤΟΝ ΑΥΤΟΥ ΥΙΟΝ ΑΕΟΝΤΑ ΒΑΣΙΛΕΑ (= Ἑτέρα παραίνεσις); corresponds to PG107 cols. LVII-LX. Verse content of the next item begins at locus 40."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Constantinus Siculus (cum responsione discipuli Leonis)",
+     "title": "Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione)",
+     "col_start": "40",
+     "col_end": "41",
+     "incipit": "Τῌ ʹὼδὰ ἄυρία μὲν δεδάηκας, ὅσα προγενέστεροι ἄνδρες 2άντο ποθ´ ὑψαγόραι τῆς θύραθεν σοφίης",
+     "evidence": "Elegiac verses addressing Λέον as apostate who drank the salt water of pagan wisdom; locus 41 names the author: Ταῦτα δὲ Κωνσταντῖνος, ὁ σῆς γάλα Καλλιοπίης ... ᾖσεν ἐπισταμένως. These are the poems of Constantine the Sicilian against Leo the Philosopher printed in the PG107 prolegomena (cols. LXI-LXVI). No TLG author entry for Constantinus Siculus in this canon."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator",
+     "title": "Orationes (homiliae et panegyrici) I-XX (collectio Combefis)",
+     "col_start": "42",
+     "col_end": "188",
+     "incipit": "Αὕτη ἡ ἡμέρα Κυρίου· ἀγαλλιασώμεθα καὶ κόρανθῶμεν ἐν αὐτη. Χρὴ γὰρ τοῦ βασιλείου ῥήματος τῇ βασιλίδι τὸν ἔπαινον προοιμιάσασθαι",
+     "evidence": "Heading ΑΟΓΟΣ Αʹ (=ΛΟΓΟΣ Αʹ) with Latin ΟΚΑΤΙΟ Ι (=ORATIO I) at locus 42; numbered ΛΟΓΟΣ/ORATIO headings found at 47 (Bʹ), 52 (Γʹ), 55 (Δʹ), 72 (Ζʹ), 85 (Θʹ), 89 (Ιʹ), 101 (ΙΒʹ), 108 (ΙΓʹ), 120 (ΙΔʹ), 137 (Ιϛʹ), 143 (ΙΖʹ, in S. Nicolaum), 155 (ΙΗʹ, encomium of John Chrysostom, narrative continues to 187); locus 188 contains only the marker ΟΛΑΤΙΟ ΧΧ (ORATIO XX) with its text lost (loci 189-190 absent). Loci 63-71 are absent from the dump (orations V-VI zone)."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator (attrib.)",
+     "title": "Exapostilaria anastasima (cum theotokiis)",
+     "col_start": "191",
+     "col_end": "195",
+     "incipit": "Τοῖς μαθηταῖς συνέλθωμεν, ἐν ὄρει Γαλιλαίας, πίστει Χριστὸν θεάσασθαι, λέγοντα ἐξουσίαν λαβεῖν τῶν ἄνω καὶ κάτω",
+     "evidence": "Latin rubrics Exapostilarion 2/3/5 etc. (OCR: Εσαροσίείίανίαηι Σ at 191, Ἐξαποστειλάριον γʹ at 192, Ἐξαποστειλάριον ἐʹ Τιβεοιάδος θόλασσα at 195) interleaved with the eleven resurrection hymns and theotokia. Starts imperfectly: loci 189-190 absent, so the section head and first hymn are lost."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator",
+     "title": "Carmen compunctorium (anacreonticum de extremo iudicio)",
+     "col_start": "196",
+     "col_end": "198",
+     "incipit": "Ἄρα τίς γῆθεν ἀείρας Ἐν συστροφῇ με ζεφύρου, Ἀκαριαίως ἀποίσει Πρὸς τὴν κλαυθμῶνος κοιλάδα",
+     "evidence": "Anacreontic octosyllables on the Last Judgment (river of all-devouring fire, Michael gathering the dead, thrones set and books opened, appeal to the Theotokos) beginning at locus 196 immediately after the last exapostilarion; ends before the absent loci 199-205."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator et alii (documenta ecclesiastica)",
+     "title": "Notitiae episcopatuum et documenta de praecedentia (Diatyposis Leonis; ps.-Epiphanii Ἔκθεσις; Notitia patriarchatuum; notitia a Leone ad Andronicum Palaeologum; Ἔκθεσις νέα)",
+     "col_start": "206",
+     "col_end": "250",
+     "incipit": "αʹ. Ὁ Ῥώμης. βʹ. Ὁ Κωνοταντινουπόλεως, γ. Ὁ Ἀλεξανδρείας. δ. Ὁ Ἀντιοχείας. ἔ.Αἰλίας, ἤτοι Ἱεροσολύμων.",
+     "evidence": "Composite block: locus 206 opens with the five patriarchal sees then ἅξις κροκαθεδρίας μητροπολιτῶν (= Τάξις προκαθεδρίας, Leo's Diatyposis); Latin heading ΝΟΤΙΤΙΑ ΡΑΤΗΙΑΚΩΗΑΤΟΘ ΟΟΝΕΤΑΝΤΙΝΟΡΟΙΙΤΑΝΙ (NOTITIA PATRIARCHATUS CONSTANTINOPOLITANI) inside locus 219; description of the five patriarchal thrones at 217-219; provincial/suffragan lists with parallel Latin (220-241); heading Α ΙΕΟΝΕ ΘΑΡΙΕΝΤΕ ΑΙ ΑΝΩΗΟΝΙΩΟΜ ΡΑΙΕΟΙΟΩ (A LEONE SAPIENTE AD ANDRONICUM PALAEOLOGUM) at 242; the protocol manual Ἔκθεσις νέα (naming patriarch Nilus and the era of Cantacuzenus) at 243-250. Part of this block corresponds to tlg2021.027 (ps.-Epiphanius, Notitiae episcopatuum [Sp.]); internal sub-boundaries need a dedicated pass before splitting."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator",
+     "title": "Novellae constitutiones (cum prooemio; const. I-CXIII et diataxeis additae ad CXVII)",
+     "col_start": "252",
+     "col_end": "371",
+     "incipit": "παντοδαποῖς νόμοις παρίσγε λαβεῖν γένεσιν, οἶ τῷ πλήθει τοῖς πράγμασι συνεπεκτεινόμενοι",
+     "evidence": "Prooemium on the laws (Justinian's codification mentioned at 254) begins imperfectly at 252 (locus 251 absent, likely the title page); Latin heading ΟΟΝΟΤΙΤΟΤΙΟΙ (CONSTITUTIO I) at 255; numbered CONSTITUTIO/ΔΙΑΤΑΞΙΣ headings throughout (264 Const. X, 287, 295, 301, 322, 329, 357, 369 CONSTITUTIO CXV / ΔΙΑΤΑΞΙΣ ΡΙΕʹ, 370 ΔΙΑΤΑΞΙΣ ΡΙΖʹ Νεαρὰ νομοθεσία Λέοντος καὶ Ἀλεξάνδρου). Ends mid-locus 371 with the closing curse formula, after which the carmina begin in the same locus."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator (et Leo Philosophus attrib.)",
+     "title": "Carmina et epigrammata varia (iambi Πολλοί με τωθάζουσι; ἕτεροι ἰαμβεῖοι; carmen hexametricum de mensibus; excerpta de S. Clemente)",
+     "col_start": "371",
+     "col_end": "375",
+     "incipit": "Πολλοί με τωθάζουσι γλώσσῃ κερτόμῳ Τοιαῦτα χλευάζοντες· Εὖγε τοῦ λόγου",
+     "evidence": "Verse begins mid-locus 371 immediately after the Novellae explicit; locus 373 carries the rubric Ἔτεροι ἰαμβεῖοι τούτου στίχοι; locus 374 the hexameter banquet-of-months poem (Τέτρατος ἀγγέλλει ῥοδοδάκτυλος εἴαρος ὥρην); locus 375 quoted iambics on St. Clement with κ.τ.λ. NOTE: col_start 371 is shared with the Novellae explicit (intra-locus boundary)."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator",
+     "title": "Tactica (cum pinace et prooemio)",
+     "col_start": "377",
+     "col_end": "601",
+     "incipit": "ΤΩΝ ΠΟΛΕΜΙΚΩΝ ΠΑΡΑΣΚΕΥΩΝ ΠΙΝΑΞ. Περὶ τακτικῆς καὶ στρατηγοῦ. Περὶ τοῦ οἷον δεῖ εἶναι τὸν στρατηγόν.",
+     "evidence": "Locus 377 carries the table of contents heading ΤΩΝ ΠΟΛΕΜΙΚΩΝ ΠΑΡΑΣΚΕΥΩΝ ΠΙΝΑΞ plus Latin TACTICORUM INDEX / PROOEMIUM (OCR: ΤΑΩΤΙΩΟΚΗΜ ΙΝΡΕΧ. ΝΟΤΕ. ΡΝΟΟΕΜΙΟΜ); prooemium text at 378 (ἡ τῶν ὑπηκόων εἰρήνη καὶ εὐημερία); military content continuous to 601 (siege operations); Latin section on the Oracula begins at 602. Corresponds to printed PG107 cols. 669-1120."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Leo VI Sapiens imperator (attrib.)",
+     "title": "Oracula (ΧΡΗΣΜΟΙ) cum vaticinio prosaico appendice",
+     "col_start": "606",
+     "col_end": "616",
+     "incipit": "αἷμα. Τὴν ἐχθροποιὸν ἔνδοθεν κρύπτει πλάνην, Ὡς εὐμενὴς δὲ κύνας ἐκτρέφει νέους.",
+     "evidence": "Title line at locus 606: ΧΡΗΣΜΟΙ. ΘΑΡΙΕΝΤΙΘΘΙΜΙ ΙΜΡ. ΚΕΟΝΙΘ (= SAPIENTISSIMI IMP. LEONIS); verse oracles follow, with the appended prose vaticinium (star announcing the anointed king) at 614-616. The volume dump ends at locus 616 within this dossier. Corresponds to printed PG107 cols. 1121ff."
+    }
+   ],
+   "unassigned_ranges": [
+    "63-71 (loci absent from the dump; zone of orations V-VI, possibly Latin-only or scan gap)",
+    "189-190 (loci absent; text of Oratio XX lost, only the marker ΟΛΑΤΙΟ ΧΧ at 188 remains)",
+    "199-205 (loci absent; in printed PG107 this zone includes Latin-only matter, notably the Epistola ad Omarum transmitted only in Latin)",
+    "251 (locus absent; probably the Novellae title page/prooemium opening)",
+    "376 (single garbled Latin caps line ΓΑΜΙΗΘ ΕΩΤΟΗ ΒΕΝΙΩΝΕ, a Latin title/section page before the Tactica)",
+    "602-605 (Latin heading ΟΚΑΩΟΙΑ ... = ORACULA quae exhibet ... paraphrasi, plus Greek testimonia excerpted from Byzantine historians about Leo's prophecies: the ΑΙΜΑ prophecy on the Komnenoi at 604, the oracle Οὐαί σοι, ὦ ἑπτάλοφε in political verse at 605; Migne's editorial dossier prefacing the Oracula, not the Oracula proper)"
+   ],
+   "confidence": "medium",
+   "notes": "CRITICAL: the two credited works are NOT in this volume. cgpg_works.json credits PG107 with tlg0723.001 (De natura hominum synopsis) and tlg0723.002 (untitled, ed. Ermerins) - but tlg0723 is LEO Phil. the 9th-century physician, and his medical treatises do not appear anywhere in the served text (keyword sweep for medical vocabulary: no hits for φλεβοτομ/πυρετ/νόσημα etc. outside incidental uses). PG107 is the Migne volume of Leo VI Sapiens; the credit is an author-name collision on 'LEO'. All actually-present works lack TLG ids in ~/Documents/tlge-tools/data/tlg_canon.json (no Leo VI author exists there; only the notitiae block partially overlaps tlg2021.027 ps.-Epiphanius Notitiae episcopatuum [Sp.]). SERVED LOCI ARE NOT PRINTED MIGNE COLUMNS: the dump's loci run 20-616 while printed PG107 runs past col. 1150 (Tactica printed at col. 669 sits at served locus 377; Novellae printed at col. 419 at served 242-252 area; Oracula printed at col. 1121 at served 606). The ratio is roughly 2:1, consistent with one served locus per Greek/Latin column pair, and the Roman-numeral prolegomena (Basil's paraeneses, cols. XXI-LX) are served as Arabic 20-41. Any split script must key on served loci, not canonical column cites. Two intra-locus boundaries exist: Novellae explicit and carmina incipit share locus 371; the notitiae block (206-250) is a composite of at least five distinct documents (Leo's Diatyposis, ps.-Epiphanius, notitia patriarchatuum, Andronicus-era notitia at 242, Ekthesis Nea protocol manual at 243-250) whose internal boundaries are obscured by heavy OCR garble in headings and would need a dedicated pass before per-document splitting. Confidence is medium, not high: boundaries at 20, 38, 42, 377, 606 have explicit title lines; 191, 196, 206, 252, 371 rest on content recognition with adjacent loci missing or boundaries mid-locus. File examined: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG107.jsonl (578 rows, loci 20-616, missing 63-71, 189-190, 199-205, 251)."
+  },
+  {
+   "volume": "PG109",
+   "works": [
+    {
+     "tlg": "tlg4153.001",
+     "author": "Theophanes Continuatus",
+     "title": "Chronographia (lib. 1-6)",
+     "col_start": "13",
+     "col_end": "255",
+     "incipit": "Θεοφάνης [...] τῷ βασιλεῖ Μιχαήλ υἱοῦ Θεοφίλου, τοῦ κουροπαλάτου, ἤγουν ἀπὸ τῆς βασιλείας Λέοντος τοῦ Ἀρμενίου.",
+     "evidence": "Locus 13 opens with the caps title 'ΤΟΥ ΣΟΦΩΤΑΤΟΥ ΔΕΣΠΙΟΤΟΥ ΚΑΙ ΑΥΤΟΚΡΑΤΩΡΩΣ' plus Constantine VII's proem ('τῶν σῶν, ὦ φιλοσοφώτατε βασιλεῦ...'); book headings in the served text: ΛΟΓΟΣ Αʹ at 15 ('Πατρὶς μὲν οὖν τοῦ δηλωθέντος Λέοντος Ἀρμενία'), ΛΟΓΟΣ Βʹ at 32, ΛΟΓΟΣ Γʹ at 54, ΛΟΓΟΣ Δʹ at 86, Vita Basilii (lib. 5) content 136-190, ΒΑΣΙΛΕΙΑ ΛΕΟΝΤΟΣ (lib. 6) at 190, ΒΑΣΙΛΕΙΑ ΡΩΜΑΝΟΥ at 249; ends in 255 with the sack of Chandax, Crete 961 (Bonn ed. p. 481). Served words 95312 vs TLG 98591. Migne cols 15-500 (locus = (col+11)/2)."
+    },
+    {
+     "tlg": "tlg3173.001",
+     "author": "Joannes (olim sub auctore Joanne Damasceno)",
+     "title": "Adversus iconoclastas",
+     "col_start": "256",
+     "col_end": "263",
+     "incipit": "Περὶ [ὰ] πιστῶν καὶ ὀρθοδόξων, καὶ πόθον καὶ ζῆλον ἐχόντων, πρὸς ὅλεγχον τῶν ἑνκντίων τῆς πίστεως",
+     "evidence": "Title line at 256 head ('Περὶ πιστῶν καὶ ὀρθοδόξων... πρὸς ἔλεγχον τῶν ἐναντίων τῆς πίστεως') then 'αʹ. Ναβουθὲ ὁ Ἰσραηλίτης, ἵνα μή τὸν πατρῷον ἀμπελῶνα παραδῷ, κατελιθοβολήθη'; iconophile polemic against the 754 synod 'εἰς τὸν τόπον τὸν λεγόμενον Ἱέρεια' (locus 258). Served words 2944 vs TLG 3034 for tlg3173.001 (PG 96, 1348-1361). Printed in PG109 appendix after ThCont (Migne cols ~501-516). TLG id inferred from word count and pairing with tlg3173.003; incipit not externally verified."
+    },
+    {
+     "tlg": "tlg3173.003",
+     "author": "Joannes (Hierosolymitanus monachus)",
+     "title": "Narratio (de origine haereseos iconomachorum)",
+     "col_start": "264",
+     "col_end": "265",
+     "incipit": "αʹ. Βούλομαι ἐγὼ ὁ μέτριος καὶ πάντων ἔσχατος ἀποδεῖξαι μετὰ πάσης ἀληθείας, ἐπὶ τῆς παρούσης ταύτης ἀγίας ὑμῶν καὶ ἱερᾶς συνόδου",
+     "evidence": "Caps heading at 264 garbled 'ΙΟ Α ΝΝΟΥ ΟΑΝΝΙΘ iΕΙΟΘΟΙΜΙΤΝΙ ... ΜΟΝΑΩΗΙ' = IOANNIS HIEROSOLYMITANI ... MONACHI; the narratio on the origin of iconoclasm (Yazid/Umar episode) addressed to a synod. TLG canon: Bekker 1838 (same Bonn volume as PG109 reprint) pp. 481-484, 569 words; served words 555. Migne cols ~517-520."
+    },
+    {
+     "tlg": "NEW",
+     "author": "anonymous (laudatio S. Demetrii, excerpt)",
+     "title": "Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica; testimonium prefixed to Cameniates)",
+     "col_start": "266",
+     "col_end": "267",
+     "incipit": "αʹ. Ἔτερον, ὡ παρόντες, τῶν τοῦ μεγαλομάρτυρος τεραστίων λέγων ἔρχομαι, των εἰρημένων τάχα οὐκ ἔλαττον",
+     "evidence": "Caps heading at 266 garbled 'ΕΧ ΤΚΙΙΜΡΗΑΙΙΣ ΠάΗΤΙΚΙΣ ΟΕΜΕΤΚΙΙ ΣΙΕΙΕΝΑΤΙΜ ΝΑΚΝΑΤΙΘ...' (Latin: Ex ... martyris Demetrii ... narratio). A miracle-oration excerpt: St. Demetrius mourns the fall of Thessalonica under Leo VI ('οἴχεται μοι ἡ πατρίς', locus 267). Not identifiable with any entry in the local TLG canon; 623 served words; Migne cols ~521-524."
+    },
+    {
+     "tlg": "tlg3015.001",
+     "author": "Joannes Cameniates",
+     "title": "De expugnatione Thessalonicae",
+     "col_start": "268",
+     "col_end": "324",
+     "incipit": "αʹ. Ὡς ἀρίστη τῶν ἀγαθῶν ἡ φιλοπονία, καὶ πάσης ἀρετῆς κτῆσιν ἐν ἑαυτῇ μαρτυροῦσα!",
+     "evidence": "Caps title at 268 'ΤΟΥ ΚΑΜΕΝΙΑΤΟΥ ... ΒΕ ΕΧΟΙΟΙΟ ΤΗΕΣΣΑΙΟΝΙΩΕΝο' (de excidio Thessalonicensi) plus the known incipit; explicit inside locus 324: 'Τέλος τῆς ἀξιομνημονεύτου ἰστορίας κῶρ Ἰωάν.', followed in the same locus by the garbled Latin 'ΓΗΟΟΜΒΕΕΙΘΙΙ ΡΒΕΑΤΙΟ' (Combefisii praefatio) introducing the next piece. Served words 22519 vs TLG 23382. Migne cols ~525-638."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Demetrius Cydones",
+     "title": "Occisorum Thessalonicae monodia",
+     "col_start": "325",
+     "col_end": "331",
+     "incipit": "αʹ. Ἄνδρες, ὅσοι τὰς τῶν συγγενῶν διαπεφεύγατε χεῖρας, ἐγὼ μὲν οὐδ´ ὅ τι χρὴ καλεῖν πῶς πόλιν",
+     "evidence": "Caps title at 325 'ΔΗΜΗΤΡΙΟΥ ΚΥΔΟΝΙΟΥ ΜΟΝΩΔΙΑ ... ΤΗΕΣΣΑΙΟΝΙΟΑ ΜΟΝΟΟΙΑ' (Demetrii Cydonii occisorum Thessalonicae monodia, on the 1345 Zealot massacre; standard citation PG 109, 639-652, matching mapped Migne col 639 for locus 325). Demetrius Cydones is TLG author 3138 in the full TLG, but neither he nor this work appears in the local tlg_canon.json, hence NEW. 2532 served words."
+    },
+    {
+     "tlg": "NEW",
+     "author": "anonymous (hagiography)",
+     "title": "Excerpta e Vita S. Basilii iunioris (BHG 263)",
+     "col_start": "332",
+     "col_end": "337",
+     "incipit": "αʹ. Βασίλειος ὁ βασιλεὺς, ᾧ τὸ ἐπίκλην Μακεδὼν, υἱοὺς ἔσχε τέσσαρας, Κωνσταντῖνον, Λέοντα, Στέφανον καὶ Ἀλέξανδρον.",
+     "evidence": "Caps title at 332 'ΕΚ ΤΟΥ ΒΙΟΥ ΒΑΣΙΛΕΙΟΥ ΤΟΥ ΝΕΟΥ'; excerpt on the Macedonian dynasty and Romanus Lecapenus from the Life of Basil the Younger, printed as introduction to the Symeon Magister annals. Ends in the first lines of locus 337 ('...κατασφάξας αὐτὰς, ὁ τῆς μαχείρας κληρνόμος.') before the Annales title in the same locus. Not in the local TLG canon. Migne cols ~653-662."
+    },
+    {
+     "tlg": "tlg3182.001",
+     "author": "Pseudo-Symeon (Symeon Magister ac Logothetes)",
+     "title": "Chronographia / Annales a Leone Armenio ad Nicephorum Phocam (partim edita e cod. Paris. gr. 1712)",
+     "col_start": "337",
+     "col_end": "416",
+     "incipit": "Ρωμαίων βασιλεὺς Λέων ὁ Ἀρμένιος καὶ Εἰκονομάχος, ἔτη  μῆνας εʹ.",
+     "evidence": "Caps title inside locus 337: 'ΑΝΝΑΙΕΘ ΘΥΜ ΕΟΝΙΘΜΑΣΙΘΤΑΙΑΩ ΙΟΩΟΤΗΕΤ Χ ΑΝΝΑΙΕΘ Α ΙΕΟΝΕ ΑΙΜΕΝΙΟ ΑΩΝΩΕΡΙΟΗΙΜ ΡΗΟΩΑΜ' = ANNALES SYMEONIS MAGISTRI AC LOGOTHETAE ... A LEONE ARMENIO AD NICEPHORUM PHOCAM. Ends locus 416 with Nicephorus Phocas taking Aleppo, immediately before the GMC heading. TLG canon: Bekker 1838 pp. 603-760, 31859 words; served 30988. Mapped Migne col 663 = the standard start of Symeonis Magistri annales in PG109 (663-822). NOTE: this is the work the cgpg volume credits as tlg3070.001; see notes."
+    },
+    {
+     "tlg": "tlg3051.001",
+     "author": "Georgius Monachus Continuatus",
+     "title": "Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum",
+     "col_start": "417",
+     "col_end": "497",
+     "incipit": "αʹ. Τῷ τῷ ἔτει τοῦ κόσμου, τῆς δὲ θείας σαρκώσεως ὡιʹ, ἐβασίλευσε Λέων Ἀρμένιος ὁ πατρίκιοσἐ",
+     "evidence": "Reign heading 'ΒΑΣΙΛΕΙΑ' at the very tail of locus 416 continuing 'ΛΕΟΝΤΟΣ ΤΟΥ ΑΡΜΕΝΙΟΥ' at the head of 417; subsequent reign headings at 427 (Michael II), 430 (Theophilus), 441 (Michael III with Theodora), 460 (Leo VI), 471 (Alexander), 473 (Constantine VII); explicit at 497: 'Ῥωμανὸς ὁ βασιλεὺς ἑν τῇ Πρώτῃ νήσῳ τελευτᾷ· καὶ τὸ σῶμα αὐτοῦ ἐν τῇ πόλει διακομισθὲν ἐν τῇ αὐτοῦ ἀπετέθη μονῇ.' TLG canon: Bekker 1838 pp. 763-924, 30883 words; served 29844. Mapped Migne cols 823-984."
+    },
+    {
+     "tlg": "tlg3040.001",
+     "author": "Josephus Genesius",
+     "title": "Basileiai (Regum libri quattuor)",
+     "col_start": "501",
+     "col_end": "583",
+     "incipit": "Τὴν ἐξ ἱστορίας τελέσας βίβλον ὥς ἐκέλευσας, Ἀὐτοκράτορ, μελέταις καὶ καμάτοις μεγάλοις",
+     "evidence": "Caps title at 501: 'ψΟΒΕΡΗΕ ΩΕΝΕΘΙΙ ΠΙΘΤΟΛΙΑ ΒΑΣΙΛΕΙΩΝ Α. ΠΕΡΙ ΤΟΥ ΕΞ ΑΜΑΛΗΚ ΛΕΟΝΤΟΣ' (Iosephi Genesii historia, Regum lib. I de Leone Amalecita) plus the dedicatory verse proem to Constantine VII; book headings ΒΑΣΙΛΕΙΔΝ Βʹ (Michael II) at 518, lib. III (Theophilus) at 532, ΒΑΣΙΛΕΙΩΝ Δʹ ΠΕΡΙ ΜΙΧΑΗΛ ΤΟΥ ΘΕΟΦΛΟΥ at 550; explicit at 583: '...συμβασιλεύσας μὲν τῷ Μιχαὴλ ἔτος ἕν, αὐτοκράτωρ δὲ βιοὺς ιθʹ ἔτεσιν' (Basil I). Served words 22762 vs TLG 23339. Mapped Migne cols 991-1155 (standard Genesius range PG 109, 991-1156)."
+    }
+   ],
+   "unassigned_ranges": [
+    "498-500 (locus 498 is only the Latin word 'ΝΟΤΙΤΙΑ', locus 499 is absent from the served file, locus 500 is a garbled fragment 'ΟΛΥΜΠΙΟΣ Ο ΟΛΥΜΟΣ': Latin notitia/front matter to Genesius, Migne cols ~985-990)",
+    "tail of locus 324 after the Cameniates explicit (garbled Latin: F. Combefisii praefatio to the Cydones monodia)"
+   ],
+   "confidence": "high",
+   "notes": "Served file: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG109.jsonl, 570 rows, loci 13-583 (499 missing). The loci are NOT raw Migne columns: each served locus corresponds to one Greek/Latin column pair, with Migne column = 2*locus - 11, verified exactly at five anchors (locus 13 = col 15 ThCont start, 337 = 663 Symeon Magister, 417 = 823 Georgius Mon. Cont., 501 = 991 Genesius, 583 = 1155 volume end). Every work boundary has a title line or incipit in the served text, and per-range word counts match TLG canon counts within 2-4 percent (deficit explained by OCR lacunae marked '[...]'). Two crediting corrections: (1) the volume metadata credits tlg3070.001 (Symeon Logothetes, ed. Bekker 1842 = Leo Grammaticus, PG108, 62203 words), but the text actually printed in PG109 at loci 337-416 is the Bonn 1838 'Symeonis Magistri ac Logothetae annales' = Pseudo-Symeon, tlg3182.001 (31859 words; served 30988) - the split should use tlg3182.001, and tlg3070.001 should not be sourced from this volume; (2) the volume contains three TLG works not in the credited list (tlg3173.001, tlg3173.003, tlg3051.001) and three non-TLG extras (St. Demetrius testimonium, Demetrius Cydones monodia, Vita Basilii iunioris excerpts). Soft points, flagged for honesty: the tlg3173.001 assignment for loci 256-263 rests on word count (2944 vs 3034), content (anti-Hiereia iconophile tract, Naboth incipit) and its position in the same appendix as tlg3173.003, not on an external incipit collation; the three NEW pieces have secure boundaries but only best-effort identifications. Boundary loci shared by two works (split mid-locus): 324 (Cameniates explicit + Combefis praefatio), 337 (Vita Basilii excerpt end + Pseudo-Symeon title), 416/417 (Ps-Symeon end + GMC heading 'ΒΑΣΙΛΕΙΑ' split across the locus break). Precedent script: /Users/cisco/Documents/open-greek-corpus/scripts/split_cedrenus_pg122.py."
+  },
+  {
+   "volume": "PG118",
+   "works": [
+    {
+     "tlg": "NEW",
+     "author": "Pseudo-Oecumenius (catena commentary printed under Oecumenius' name)",
+     "title": "Commentarius in Acta apostolorum (catena-derived commentary, CPG C151 sphere; printed PG 118, 43-308)",
+     "col_start": "29",
+     "col_end": "162",
+     "incipit": "Ἐκ διαφόρων ὑπομνημάτων συλλεχθεῖσά τε καὶ ἀκριβωθεῖσα εἰς σύνοψιν, εἰς τὰς Πράξεις τῶν Ἀποστόλων",
+     "evidence": "Title line at 29 ('Ἐκ διαφόρων ὑπομνημάτων... εἰς τὰς Πράξεις τῶν Ἀποστόλων') followed by ΚΕΦΑΛ. Αʹ and the Acts 1:1 lemma 'Τὸν μὲν πρῶτον λόγον ἐποιησάμην περὶ πάντων, ὦ Θεόφιλε'. Continuous commentary through Acts 28 (ch. ΛΘʹ heading at 160, Acts 28:30-31 lemma at 161-162). Ends mid-162 with the closing note 'Ἰστέον δὲ ὅτι μέχρι τούτου ἱστορεῖ Λουκᾶς τὰ περὶ τὸν μακάριον Παῦλον ἐν ταῖς Πράξεσι', after which the Paul-biography appendix begins. Not in the credited list; no TLG work exists for this text (TLG 2866 has only the Apocalypse commentary and Staab fragments)."
+    },
+    {
+     "tlg": "tlg2866.002",
+     "author": "OECUMENIUS (ps.-Oecumenius catena)",
+     "title": "Commentarii in epistulam ad Romanos (full PG catena commentary; TLG slot is Staab's untitled Romans fragments)",
+     "col_start": "168",
+     "col_end": "327",
+     "incipit": "Ἡ δὲ πρὸς Ῥωμαίους ἐπιστολὴ περιέχει τὴν πρὸς τὸν Χριστὸν παρασκευὴν",
+     "evidence": "Hypothesis of Romans opens 168 ('Ἡ δὲ πρὸς Ῥωμαίους ἐπιστολὴ περιέχει... Ταύτην ἐπιστέλλει ἀπὸ Κορίνθου'); kephalaia at 169-170; commentary proper at 171 with Rom 1:1 lemma 'Παῦλος δοῦλος Ἰησοῦ Χριστοῦ'. Explicit subscription mid-327: 'Τέλος σὺν Θεῷ τῆς πρὸς Ῥωμαίους Ἐπιστολῆς. ἐγράφη ἀπὸ Κορίνθου διὰ φοίβης τῆς διακόνου'. Not in the volume's credited list; tlg2866.002 (Staab pp. 423-432, untitled) is the matching TLG slot for Oecumenius on Romans."
+    },
+    {
+     "tlg": "tlg2866.003",
+     "author": "OECUMENIUS",
+     "title": "Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full ps.-Oecumenius catena commentary on 1 Cor]",
+     "col_start": "327",
+     "col_end": "462",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ἐφέσου τῆς Ασίας, ἑωρακὼς αὐτοὺς ἤδη καὶ διδάξας",
+     "evidence": "Starts mid-327, right after the Romans subscription, under the OCR-garbled heading 'ΥΙΟΩΕΣΙΣ πΗΣ ΠΡΟΣ ΚΟΡΙΝοίοΥα ΠΡΤΗΣ ΕΠΙΣΤΟΛΗΣ' (= ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ ΠΡΩΤΗΣ). Kephalaia at 328; commentary proper at 329 with 1 Cor 1:1 lemma 'Παῦλος κλητὸς ἀπόστολος Ἰησοῦ Χριστοῦ διὰ θελήματος Θεοῦ, καὶ Σωσθένης ὁ ἀδελφός' (after ΠΡΟΟΙΜΙΟΝ). Ends mid-462 with subscription 'πελος, σὺν Θεῷ, τῆς πρὸς Κοριθίους πρώτης Ἐπιστολῆς. ἐγράφη ἀπὸ Φιλίππων διὰ Στεφανᾶ καὶ Φουρτουνάτου'."
+    },
+    {
+     "tlg": "tlg2866.004",
+     "author": "OECUMENIUS",
+     "title": "Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary on 2 Cor]",
+     "col_start": "462",
+     "col_end": "555",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Μακεδονίας. Ἡ δὲ πρόφασις τῆς Ἑπιστολῆς αὔτη. Δεξάμενοι Κορίνθιοι τὴν προτέραν Ἐπιστολὴν",
+     "evidence": "Heading mid-462: 'ΥΠΟΟΕΣΙΣ ὩΙΣ ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ ΔΕΥΤΕΡΑΣ ΕΠΙΣΤΟΛΗΣ' immediately after the 1 Cor subscription. Kephalaia (Theodoret's, Latin caption garbled 'ΤΙΕΟΒΟΚΕΤΙ') at 463-464; commentary at 464 with 2 Cor 1:1 lemma 'Παῦλος ἀπόστολος ἸησοῦΧριστοῦ διὰ θελήματος Θεοῦ, καὶ Τιμόθεος ὁ ἀδελφὸς'. Ends at 555 with 'Τέλος, σύν Θεῷ, τὴς πρὸς Κορινθίους βʹ Ἐπιστολῆς.'"
+    },
+    {
+     "tlg": "tlg2866.005",
+     "author": "OECUMENIUS",
+     "title": "Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary on Gal]",
+     "col_start": "556",
+     "col_end": "594",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ῥώμης, ἐωρακὼς αὐτοὺς ήδη καὶ διδάξας",
+     "evidence": "556 opens with heading 'ΥΠΟΟΕΣΙΣ ΤΗΣ ΠΡΟΣ ΓΑΛΑΤΑΣ ΕΠΙΣΤΟΑΗΣ. ΑΗΩΟΜΕΝΤΗΜ ΕΡΙΘΤΟΙΕ ΑΡ ΑΙΑΤΑΘ' (= Argumentum epistolae ad Galatas). Kephalaia at 557, then Gal 1:1-5 lemma and comment 'Εὐθέως ἀναιρεῖ τὸ εἶναι ἀνθρώπων μαθητής'. Ends mid-594 with garbled subscription 'Τέος σὺν φεῷ τῆς πρὸς Γμλάτας Ἐπιστολῆς' (= Τέλος σὺν Θεῷ τῆς πρὸς Γαλάτας)."
+    },
+    {
+     "tlg": "tlg2866.006",
+     "author": "OECUMENIUS",
+     "title": "Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary on Eph]",
+     "col_start": "594",
+     "col_end": "639",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ῥώμης, οὕπω μὲέν ἐωρακὼς αὐτοὺς, ἀκούσας δὲ περὶ αὐτῶν",
+     "evidence": "Starts mid-594 under heading 'ΥΠΟΟΕΣΙΣ ΤΗΣ ΠΡΟΣ ΕΦΕΣΙΟΥΣ ΕΠΙΣΤΟΛΗΣ' immediately after the Galatians subscription. Theodoret kephalaia at 595; commentary at 596 under title 'ΙΙΑΥΛΟΥ ΑΗΟΣΤΟΛΟΥ Π ΠΡΟΣ ΕΦΕΣΙΟΥΣ ΕΠΙΣΓΟΛΗ' with Eph 1:1 lemma 'Παῦ ὰος ἀπόστολος Ἰησοῦ Χριστοῦ, διὰ θελήματος Θεοῦ, τοῖς ἀγίοις τοῖς οὐσιν ἐν Ἐφέσῳ'. Ends mid-639: 'Τέλος, σὺν Θεῷ, τῆς πρὸς Ἐφεσίους Ἐπιστολῆς. ἐγράφη ἀπὸ Ῥώμης διὰ Τυχικοῦ.'"
+    },
+    {
+     "tlg": "tlg2866.007",
+     "author": "OECUMENIUS",
+     "title": "Fragmenta in epistulam ad Philippenses (in catenis) [served text = full catena commentary on Phil]",
+     "col_start": "639",
+     "col_end": "674",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ῥώμης, ἑωρακὼς εὐολ, ἄμα καὶ διδάξας",
+     "evidence": "Starts mid-639 under garbled heading 'ΥΠΟΟΕΣΙΣ ΤΗΑ ΠΡδΟὲ ΦΙΑΗΣΙΟΥἂ ΕΠδΤΟΔΗΣ' (= ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ΦΙΛΙΠΠΗΣΙΟΥΣ) right after the Ephesians subscription. Kephalaia at 640; commentary at 641 with Phil 1:1 lemma 'Παῦλος καὶ Τμόθεος, δοῦλοι Ἰησοῦ Χριστοῦ, πᾶσι τοῖς ἀγίοις ἐν Χριστῷ Ἰησοῦ'. Ends at 674, the last served column, with 'Τέλος σὺν Θεῷ τῆς πρὸς Φιλιππνσίους' - the work closes exactly at the volume end."
+    }
+   ],
+   "unassigned_ranges": [
+    "17-18 (Greek preface of the old edition, the 1532 Verona editio by Bernardus Donatus: 'Αἰ τῇδε τῇ βίδλῳ περιεχόμεναι ἐξηγήσεις...', discussing the Oecumenius attribution from the Colossians subscription; ends 'Ἔρρωσθε.' at 18)",
+    "19-28 (prefatory apparatus: numbered list of miracles in Acts at 19; hypothesis of Acts 'Εἰκαὶ Πράξεις τὸ βιβλίον ἐπιγέγραπται τῶν ἀποστόλων' at 20; iambic verses on Paul printed in two parallel recensions at 21 and 23; prose notes on the order of the Pauline epistles and Paul's martyrdom at 22 and 24; kephalaia of Acts at 25-28)",
+    "162(latter part)-167 (post-Acts appendix / prolegomena to the Pauline corpus: chronology of Paul's preaching, martyrdom narrative from Eusebius, Ἀποδημίαι Παύλου at 165-166, partly in duplicate recensions; ends at 167 with the date of Paul's martyrdom)"
+   ],
+   "confidence": "high",
+   "notes": "Served loci run contiguously 17-674 (658 rows, all integer loci). These are sequential Greek-column indices spanning the ENTIRE printed PG 118, not printed Migne column numbers: Migne prints Greek and Latin in facing numbered columns (printed volume runs to c. col 1326, ending with Philippians), and the dump keeps only the Greek, renumbered consecutively. E.g. Romans (printed PG 118, 323-636) sits at loci 171-327 here; roughly printed_col ≈ 2*locus - 19. Every work boundary is confirmed by an explicit 'Τέλος σὺν Θεῷ τῆς πρὸς ...' subscription plus the next 'ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ...' heading and a Pauline 1:1 incipit lemma; five boundaries fall mid-column (162, 327, 462, 594, 639), so the split script needs intra-column cuts at those subscriptions. Work ranges include each epistle's hypothesis and (Theodoret-derived, Latin-captioned) kephalaia. IMPORTANT MISMATCH with the credited list: of the 13 credited TLG works only five (tlg2866.003-007: 1 Cor, 2 Cor, Gal, Eph, Phil) have corresponding sections in this served volume. The other eight (tlg2866.008 Col, 009-010 Thess, 011-012 Tim, 013 Titus, 014 Philemon, 015 Hebrews) are printed in PG 119 and are ABSENT from the served loci - do not carve ranges for them. Extra content found: the Acts commentary (29-162, no TLG id, listed as NEW) and the Romans commentary (168-327, listed under tlg2866.002, the untitled Staab Romans-fragments slot, though 002 is not in the credited list). Caveat for downstream use: the credited TLG works are Staab's 1933 catena fragments (a few hundred to 3k words each), while the PG sections are the complete ps.-Oecumenius catena commentaries (tens of thousands of words) from which those fragments were excerpted; the PG text is a source realization, not the TLG edition text. OCR quality is rough; Greek headings and Latin running titles are frequently garbled (e.g. ΥΠΟΟΕΣΙΣ, ΤΙΕΟΒΟΚΕΤΙ = THEODORETI), and incipits above are copied verbatim including OCR errors. Source file: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG118.jsonl."
+  },
+  {
+   "volume": "PG134",
+   "works": [
+    {
+     "tlg": "tlg3135.001",
+     "author": "Joannes Zonaras",
+     "title": "Epitome historiarum (lib. 1-12)",
+     "col_start": "31",
+     "col_end": "568",
+     "incipit": "ΠΡΟΟΙΜΙΟΝ. Αʹ.. Εὐστόχως ἄν τις εἴποι, ἐπιτωθάζων μοι, μεῖζόν σοι τοῦ ἔργου τὸ πάρεργον.",
+     "evidence": "Col 31 carries the printed title line ΠΡΟΟΙΜΙΟΝ and the proem incipit, matching Dindorf's edition opening (Εὐστόχως ἄν τις εἴποι ἐπιτωθάζων μοι). Work ends MID-column 568 with book 12's explicit 'Ὁ μὲν οὖν καθ´ ἕνα τρόπων τῶν ἰστορηθέντων βιαίως ἀπέῤῥηξε· τὴν ζωήν.' (death of Maximinus Daia), verbatim match against Dindorf vol. 3 p. 169 (archive.org ioannoutouzonara03zonauoft). Served range holds 230,492 words vs canon 240,589 for the full work (OCR variance). Note: cols 561-562 are duplicated as 563-564 (same printed leaf OCR'd twice, similarity 0.83-0.89)."
+    },
+    {
+     "tlg": "tlg3135.003",
+     "author": "Joannes Zonaras",
+     "title": "Epitome historiarum (lib. 12, clausula varia) [Dub.]",
+     "col_start": "568",
+     "col_end": "570",
+     "incipit": "Ἐν δὲ τῇ Ῥώμῃ τὴς τῶν πιστῶν Ἐκκλησίας προέστη μετὰ Καρκελλῖνον ἐν ἔτεσι δυσὶ τὴν λειτουργίαν ἐκπλήσαντα Εὐσέβιος",
+     "evidence": "Starts MID-column 568 immediately after book 12's explicit; ends early in col 570 at '...ὀκτὼ δ´ ἐπὶ δέκα χρόνους ἐπεβίω οὗτος τῷ λειτουργήματι.' Verbatim match against Dindorf vol. 3 pp. 169-171, where Du Cange's note marks exactly this span (ἐν δὲ τῇ Ῥώμῃ ... λειτουργήματι) as absent from cod. A, added at the end of the regii/Colbertinus, 'suppositicia nec Zonarae esse videntur'. Content: anachronistic episcopal succession lists (Rome down to Gregory the Great, Antioch down to Ephraimius). 622 served words vs canon word_count 648. Served 'Καρκελλῖνον' is OCR for Μαρκελλῖνον."
+    },
+    {
+     "tlg": "tlg3135.002",
+     "author": "Joannes Zonaras",
+     "title": "Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume",
+     "col_start": "570",
+     "col_end": "734",
+     "incipit": "Οὕτω μὲν οὖν, ὡς εἴρηται, τῆς τοῦ πατρὸς βασιλείας ὁ μέγας Κωνσταντῖνος διάδοχος γέγονεν",
+     "evidence": "Starts MID-column 570; incipit is a verbatim match with Dindorf vol. 3 p. 172, LIB. XIII CAP. I (= Buettner-Wobst book 13.1, the start of the TLG 002 text). Col 734 ends with the death of Theophilus (842 CE): '...μηδὲ τὸν πατριάρχην Ἰωάννην τῆς Ἐκκλησίας ἐκδιωχθῆναι.', the exact explicit of book 15 (Dindorf vol. 3 p. 418, LIB. XV CAP. XXIX). Only books 13-15 are here: served range holds 57,623 words of the work's 118,917; books 16-18 presumably continue in PG135, which is not present in data/corpus."
+    }
+   ],
+   "unassigned_ranges": [
+    "printed columns 1-30 (not present in the served jsonl; presumably Latin title page and front matter)"
+   ],
+   "confidence": "high",
+   "notes": "Served file /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG134.jsonl: 704 rows, loci are bare integers 31-734 with every integer present (no sub-loci, no Latin rows), 288,115 words total. The whole served range is Zonaras' Epitome historiarum; the volume = proem + books 1-15, ending exactly at the end of book 15. All three work boundaries were verified verbatim against Dindorf's Teubner edition vol. 3 (archive.org item ioannoutouzonara03zonauoft, pp. 169-172 and 418). Split caveats: (1) the 001/003 and 003/002 boundaries both fall mid-column (568 and 570), so the split script needs sub-column cuts: cut col 568 before 'Ἐν δὲ τῇ Ῥώμῃ τὴς τῶν πιστῶν Ἐκκλησίας προέστη' and col 570 before 'Οὕτω μὲν οὖν, ὡς εἴρηται'; (2) cols 563-564 duplicate cols 561-562 (same printed leaf OCR'd twice, difflib similarity 0.888/0.834) inside the 001 range - the split should deduplicate or flag them; (3) tlg3135.002 is only partially present (books 13-15, 57,623 of 118,917 words; chapter numbering in the served text follows the old Du Cange/Wolf division, which does not reset where Buettner-Wobst's books 13/14 divide, but the TLG-relevant boundary at col 570 is secure); books 16-18 belong to PG135, not in the corpus. Note the serving of every consecutive column with Greek text means the dump's loci cannot be the standard Migne alternating Greek/Latin columns; Dindorf's marginal P-references (Paris ed. I 646-648 at the clausula) also differ, so treat the loci purely as the served column scheme. Sources: https://archive.org/details/ioannoutouzonara03zonauoft"
+  },
+  {
+   "volume": "PG157",
+   "works": [
+    {
+     "tlg": "tlg3168.tlg001",
+     "author": "Pseudo-Codinus",
+     "title": "De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae)",
+     "col_start": "20",
+     "col_end": "68",
+     "incipit": "ΚΕΦΑΛ. Αʹ. Τὰ ἐκκλησιαστικὰ ὀφφίκια ἔχουσιν οὕτως. Ἠ πρώτη πεντάς. Ὁ μέγας οἰκονόμος, κρατῶν πάντα τὰ κτήματα τῆς ἐκκλησίας",
+     "evidence": "Chapter-1 heading at locus 20; running chapter headings ΚΕΦΑΛΑΙΟΝ Εʹ-ΚΒʹ across loci 31-68; explicit at end of 68: 'Ἔως ὧδε τὰ τῶν ὁφφικιαλίων τῶν βασιλέων Κωνσταντινουπόλεως ὀνόματα καὶ τῶν ὀφφικίων τῆς μητρὸς ἐκκλησίας.' Served word count 18764 vs TLG 19183 (98%)."
+    },
+    {
+     "tlg": "tlg3168.tlg005",
+     "author": "Pseudo-Codinus",
+     "title": "Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis: origins, schematographia, statues, buildings, Hagia Sophia narrative)",
+     "col_start": "225",
+     "col_end": "324",
+     "incipit": "Φασὶ μέν τινες Ἀργείους πρώτους τῇ θεᾷ χρησάσῃ, Ἔνθα δύο σκυλακες διερὴν μάρπτουσι θάσσσαν.",
+     "evidence": "Locus 225 opens with the Byzantium foundation oracle (Patria I incipit; note extra sub-locus 225.1 'Ἔνθ´ ἰχθὸς ἔλαφός τε νομὸν ξόσκουσι τὸν αὐτῷ'); internal section title lines: ΠΕΡΙ ΤΗΣ ΣΧΗΜΑΤΟΓΡΑΦΙΑΣ ΤΗΣ ΚΟΝΣΤΑΝΤΙΝΟΠΟΛΕΩΣ (242), ΠΕΡΙ ΑΣΙΑΒΗΝΗΣ (244, short geographic digression), ΠΕΡΙ ΑΓΑΛΜΑΤΟΝ ΣΤΗΛΩΝ ΚΑΙ ΘΕΑΜΑΤΟΝ (245 = Patria II), ΠΕΡΙ ΚΤΙΣΜΑΤΩΝ (280 = Patria III), ΠΕΡΙ ΤΗΣ ΟΙΚΟΔΟΜΗΣ ΤΟΥ ΝΑΟΥ ΤΗΣ ΑΓΙΑΣ ΣΟΦΙΑΣ (314 = Patria IV; same narrative as tlg3120.002 Diegesis in another recension, 3784 words here vs 4857). Sophia narrative ends at 324; 325 opens a different work. Served word count 25184 vs TLG 23058 (Migne recension is fuller)."
+    },
+    {
+     "tlg": "tlg3168.tlg004",
+     "author": "Pseudo-Codinus",
+     "title": "De annis ab orbe condito (Chronicon breve, from Adam to the fall of Constantinople 1453)",
+     "col_start": "325",
+     "col_end": "333",
+     "incipit": "ἈΠὸ Ἀδὰμ ἕως τοῦ κατακλυσμοῦ ἔτη βσῤʹ. Ἀπὸ τοῦ κατακλυσμοῦ ἕως τῆς πυργοποιίας ἔτη φκε.",
+     "evidence": "Fresh incipit at the top of locus 325 immediately after the Hagia Sophia narrative; chronological era list then imperial reign lists (325-332) ending mid-333 with Constantine XI's death in 1453: '...μήτε μὴν θελήσας τὸν κίνδυνον διαφυγεῖν, δυνατοῦ ὄντος.' Identification with tlg3168.004 (Schreiner Kleinchronik, 3313 words; served ~2850+part of 333) is PLAUSIBLE (title + content + length match; cgpg volume desc lists 'Chronicon breve'); no title line survived in the OCR (end of 324 is garbled). Work ends MID-locus 333, where the Parastaseis title line follows."
+    },
+    {
+     "tlg": "tlg3120.tlg001",
+     "author": "Patria Constantinopoleos (anonymous, printed under Codinus)",
+     "title": "Parastaseis syntomoi chronikai (with Peri theamaton section)",
+     "col_start": "333",
+     "col_end": "369",
+     "incipit": "ΠΑΡΑΣΤΑΣΕΙΣ ΣΥΝΤΟΜΟΙ ΧΡΟΝΙΚΑΙ Δέον γινώσκειν, ὅτι ὁ ἅγιος Μώκιος πρώην μὲν ὑπὸ Κωνσταντίνου τοῦ Μεγάλου παρῳκοδομήθη,",
+     "evidence": "Explicit title line ΠΑΡΑΣΤΑΣΕΙΣ ΣΥΝΤΟΜΟΙ ΧΡΟΝΙΚΑΙ mid-locus 333; first chapter on St Mokios matches Parastaseis §1; internal heading ΠΕΡΙ ΘΕΑΜΑΤΩΝ with 'Θέαμα αʹ' at 346 matches the Parastaseis theamata chapters; ends at 369 with the Aetius-cistern chapter '...εἰς τέλειον ἀφανσμόν'. Served ~7637 words (loci 334-369) + part of 333, vs TLG 8465 (90%). NOT in the credited list; starts MID-locus 333."
+    },
+    {
+     "tlg": "tlg3120.tlg004",
+     "author": "Patria Constantinopoleos (anonymous, printed under Codinus)",
+     "title": "De sepulcris imperatorum quae sunt in templo sanctorum apostolorum",
+     "col_start": "370",
+     "col_end": "377",
+     "incipit": "ΠΕΡΙ ΤΩΝ ΤΑΦΩΝ ΤΩΝ ΒΑΣΙΛΕΩΝ ΤΩΝ ΟΝΤΩΝ ΕΝ Τῼ ΝΑῼ ΤΩΝ ΑΓΙΩΝ ΑΠΟΣΤΟΛΟΩΝ. Ἐν τῶ ἡρῴῳ τοῦ ἁγίου καὶ μεγάλου Κωνσταντίνου",
+     "evidence": "Title line at locus 370; larnax-by-larnax list through 377, ending with the known explicit of the work (Theodora wife of Theophilos and daughters 'Θέκλα, Ἀναστασία καὶ Πουλχερία' in the Gastria monastery). Served 747 words vs TLG 769 (97%). NOT in the credited list. Note: locus 370's short row duplicates its opening sentence (OCR artifact)."
+    },
+    {
+     "tlg": "tlg3146.tlg001",
+     "author": "Ducas",
+     "title": "Historia Turcobyzantina",
+     "col_start": "382",
+     "col_end": "590",
+     "incipit": "Ἀριθμοὶ ἐτῶν ἀπὸ τοῦκρώτου ἀνθρώπου ἔως τῆς [OCR noise from Latin rubric] ἡμετέρας γενεᾶς. Ἀπὸ Ἀδὰμ τοῦ πρώτου ἀνθρώπου ἕως Νῶε, ἀφ´ ὃν ὁ κατακλυσμὸς γίγονε, γενεαὶ δέκα γεγόνασι",
+     "evidence": "Locus 382 carries the heading 'Ἀριθμοὶ ἐτῶν...' and the exact incipit of Ducas 1.1 ('Ἀπὸ Ἀδὰμ τοῦ πρώτου ἀνθρώπου ἕως Νῶε... γενεαὶ δέκα γεγόνασι'); continuous into the emperor list (385-387), the Ottoman emirates and Hellespont crossing (387-389), Kosovo/Murad's assassination (390), Bayezid (391), the Kantakouzenos narrative (393-395); ends at 590 mid-sentence in the 1462 siege of Mytilene ('Ὁρῶντες οὖν οἱ ἐντὸς...'), matching the famous abrupt break-off of Ducas ch. 45. Served 68858 words vs TLG 70405 (98%)."
+    }
+   ],
+   "unassigned_ranges": [
+    "1-19 (absent from served loci; Latin front matter/title pages)",
+    "69-224 (absent from served loci; presumably the Gretser/Goar Latin commentary and notes on De officiis plus Patria prolegomena, not OCR-served)",
+    "378-381 (absent from served loci; presumably Ducas title page and Latin preface)",
+    "end of locus 369: orphan title line 'ΦΩΤΙΟΥ ΠΑΤΡΤΑΡΧΟΥ ΚΟΝΣΤΑΝΤΝΟΥΠΟΛΕΩΣ ΕΚΦΡΑΣΙΣ' (Photius's Ekphrasis) with NO following text anywhere in the serve"
+   ],
+   "confidence": "high",
+   "notes": "File: /Users/cisco/Documents/open-greek-corpus/data/corpus/cogPG.PG157.jsonl (412 rows, three continuous loci blocks: 20-68, 225-377 with extra sub-locus 225.1, 382-590; no duplicate loci). The served loci are NOT the printed Migne column numbers (real PG157: De officiis 25-121, Excerpta ~409-712, Ducas 749-1166); they run at roughly half the real values, i.e. they look like page numbers of the print, with each row holding both columns of a page. Split caveats: (1) locus 333 must be cut mid-row between the Chronicon breve (ends '...δυνατοῦ ὄντος.') and the Parastaseis (starts at the ΠΑΡΑΣΤΑΣΕΙΣ ΣΥΝΤΟΜΟΙ ΧΡΟΝΙΚΑΙ title line); (2) locus 369 must be cut before the trailing Photius Ekphrasis title line, whose text is not served. Credited works tlg3168.006 (variae lectiones) and tlg3168.007 (ordo et tituli paragraphorum) are Preger-edition apparatus with no corresponding Migne text; nothing in the served volume answers to them and no column range can be assigned. Extra content vs the credited 5-work list: tlg3168.004 De annis ab orbe condito (325-333a; the identification with Schreiner's text is plausible rather than confirmed - boundaries are certain, the TLG equation rests on title, 1453 endpoint, and word count), tlg3120.001 Parastaseis (333b-369), tlg3120.004 De sepulcris (370-377). The Hagia Sophia section 314-324 was kept inside tlg3168.005 as Patria book IV (Migne recension); it is the same narrative as tlg3120.002 Diegesis, so the splitter should not double-serve it. Locus 391 (Ducas) contains a stretch of garbled OCR from the Latin parallel column; locus 370 duplicates its opening sentence. Ducas both begins (Adam chronology, ch. 1) and ends (mid-sentence, Mytilene 1462) exactly as the critical editions describe, so the whole 382-590 block is one work with no separate Chronicon breve inside it."
+  },
+  {
+   "confidence": "high",
+   "volume": "PG158",
+   "works": [
+    {
+     "tlg": "tlg3047.tlg001",
+     "author": "Michael Glycas",
+     "title": "Annales",
+     "col_start": "49",
+     "col_end": "347",
+     "incipit": "Βραχυσύλλαβον ἐγχαρόττω σοι τοῦτο τὸ γράμμα, τέκνον μου φἴλτατον. Εἰ γὰρ καὶ μυρίοις ἑαυτοὺς ἐκδεδώκασι πόνοις",
+     "evidence": "Incipit at 49 = known opening of Glycas' Annales (Bekker p. 3); explicit at 347 'διάδοχον καταλιπὼν τὸν υἱὸν αὐτοῦ τὸν Κωμνηνὲν Ἰωάννην' = known ending (death of Alexios I, 1118). Internal PARS II/III/IV title lines OCR'd at 151 ('ΡΑΚΘ ΙΙ. ΑΒ ΑΡΑΜΟ'), 228 ('ΡΑΚΘ ΙΙΙ'), 268 ('ΡΑΚΘ ΙΝ') match Migne conspectus cols 231/385/465 under the mapping real=2(L-35); conspectus puts Annales Pars I at col 27 = served 49."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Michael Glycas",
+     "title": "Epistolae (I-XXIX; PG 158, 647-958; = chapters of Eis tas aporias tes Theias Graphes, later ed. Eustratiades)",
+     "col_start": "359",
+     "col_end": "514",
+     "incipit": "ΕΠΙΣΤΟΛΗ Αʹ. Τῷ τιμιωτάτῳ μοναχῷ, καὶ στυλίτῃ κυρῷ Ἰωάννη τῷ Σιναῖνῃ. ΕΙ χρὴ συγκαταβαίνειν τοῖς πταίουσι, καὶ μὴ κατὰ λόγον αὐτοῖς ἐπιτιμᾷν τὰ προσήκοντα",
+     "evidence": "Title line 'ΕΡΙΘΤΟΙΑ Ιʹ. ΕΠΙΣΤΟΛΗ Αʹ' at 359; numbered ΕΠΙΣΤΟΛΗ headers Β-ΚΘ at 365, 393, 396, 399, 412, 426, 432, 435, 441, 444, 451, 454, 458, 484, 485, 492, 496, 499, 511, 512 match conspectus columns (Ep. I 647=359, II 659=365, III 715=393 ... XXIX 957=514) under real=2(L-35); letters end at 514 ('Εἰ δὲ προβολεὺς, καὶ τὰ ἑξῆς.') with Joannes Diaconus header opening 515. Conspectus: 'Michaelis Glycae Epistolae col 647'. No separate TLG work id in tlg_canon.json (tlg3047 has only 001/002)."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Joannes Diaconus Hadrianopolitanus (John, deacon and oikonomos of Orestias/Adrianople)",
+     "title": "Carmen politicum (encomiastic political verses to the emperor Palaiologos)",
+     "col_start": "515",
+     "col_end": "520",
+     "incipit": "Ὀρεστιάδος εὐτελοῦς ἀξίαν οἰκονόμου, Καὶ διακόνου τῆς αὐτῆς ὀλβίας ἐκκλησίας, Τοὐπώνυ μον κατακαλοῦν τὴν κλῆσιν Ἰωάννου",
+     "incipit_note": "",
+     "evidence": "Header 'ΟΑΚΜΕΝ ΡΟΕΙΤΙΟΩΜ' (= CARMEN POLITICUM) at 515 and 'ΟΑΝΝΙΘ ΒΙΑΟΟΝΙ δΑΛΜΕΝ ΡΟΙΙΤΙΩΟΜ' (= IOANNIS DIACONI CARMEN POLITICUM) at 516; poem self-names author as John, deacon of Orestias, dedicating to 'τῷ θείῳ στεφανηφόρῳ Παλαιολόγῳ'. Conspectus: 'Joannes Diaconus Hadrianopoleos col 959' = served 515."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Esaias Cyprius (Isaias of Cyprus)",
+     "title": "Epistola (anti-Latin, on the procession of the Holy Spirit)",
+     "col_start": "521",
+     "col_end": "523",
+     "incipit": "Καὶ ὁ γράψας καὶ ὁ διδάξας τὰ τεμάχη ἐκεῖνατῶν ῥητῶν ἀμαθὴς καὶ πάντη γραμμάτων ἄπειρός ἐστι",
+     "evidence": "Garbled Latin header 'ΕΒΑΙΑΥΡΑΙΙ ΕΡΙΘΤΟΙΑ' (= ESAIAE [CYP]RII EPISTOLA) at 521; content is a Filioque polemic ending with an invitation to debate 'ἀπὸ τῶν βιβλίων τῶν σῶν' at 523. Conspectus: 'Esaias Cyprius col 971' = served 521. Served incipit may begin mid-piece (opening on real col 971 possibly preceded by a heading)."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Hilarion monachus",
+     "title": "Logos dialektikos / Oratio dialectica de pane mystico Graecorum et azymo Latinorum",
+     "col_start": "524",
+     "col_end": "527",
+     "incipit": "Ἐν τῷ μὲν διαλέγεσθαί με περὶ τοῦ ἄρτου μυστικοῦ τῶν Ἐλλήνων, καὶ ἀζύμου τῶν Λατίνων, ἐδείχθη μοι λόγος",
+     "evidence": "Greek title line 'ΙΛΑΡΙΩΝΟΣ ΜΟΝΑΧΟΥ ΑΟΓΟΣ ΔΙΑΛΕΚΤΗΚΟΣ' with Latin 'ΟΑΤΙΟ ΒΙΑΚΕΩΤΙΟΑ ΡΕ ΡΑΝΕ...' (= ORATIO DIALECTICA DE PANE...) at 524; closes at 527 'παύσασθε αὐθαδ.ίας καὶ κακολογίας'. Conspectus: 'Hilario Monachus col 977' = served 524; rows 528-530 (Latin Notitia on Argyropulus, cols 983-990) absent."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Joannes Argyropulus (TLG author tlg4237, but this work has no TLG id)",
+     "title": "De processione Spiritus Sancti ad magnum ducem (Lucam Notaram), cum explanatione decreti synodi Florentinae",
+     "col_start": "531",
+     "col_end": "539",
+     "incipit": "αʹ. Ιᾶσι μὲν ἄλλοις ἐγώ σε τῶν εὐδαιμόνων νενόμικα, λαμπρότατε καὶ περιφανέστατε μέγα Δούξι",
+     "evidence": "Chapter-numbered incipit (αʹ) addressed to the megas doux at 531; numbered chapters γʹ (533) through ιβʹ (539) on the procession of the Holy Spirit; closing at 539 'Δεῖ γάρ σοι πείθεσθαι πάντως, καθάπερ πατρὶ καὶ κηδεμόνι τοῦ γένους'. Agallianos' refutation at 541 refers back to what Argyropoulos 'πρὸς τὸν θαυμάσιον μέγαν Δούκαν γράφει'. Conspectus: 'De Processione Spiritus Sancti ad Magnum Ducem... col 991' = served 531. The appended 'Epistola ad Dominicum' (cols 1007-1010) is not distinguishable in the served text (row 540 missing)."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Theodorus Agallianus",
+     "title": "Refutatio (dialogus) contra Ioannem Argyropulum",
+     "col_start": "541",
+     "col_end": "561",
+     "incipit": "Κάρις πολλὴ τῷ πάντα ἀρίστῳ καὶ σοφῷ Ἀργυροπούλῳ, ὅτι καὶ τοῦ δέους ἡμᾶς ἀπήλλαξεν",
+     "evidence": "Header 'ζΟΝΤΗΑ ΙΟΑΝΝΕΜ ΑΚΩΥΚΟΡΙΙΙΜΝ' (= CONTRA IOANNEM ARGYROPULUM) at 541; alternating speaker labels ΑΡΓΥΡΟΠΟΥΛΟΣ / ΑΓΑΛΛΙΑΝΟΣ throughout 542-560; work closes early in 561 ('...ἡμῖν ἴσως ποτὲ γενήσεται.'). Conspectus: 'Theodorus Agallianus col 1011' = served 541."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Josephus II patriarcha Constantinopolitanus",
+     "title": "Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439)",
+     "col_start": "561",
+     "col_end": "561",
+     "incipit": "Ἰωσὸα ἐλέῳ Θεοῦ ἀρχιεπίσκοπος Κωνσταντινοι. πόλεως νέας Ῥώμης καὶ οἰκουμενικὸς πατριάρχης.",
+     "evidence": "Headers within 561: 'ΛΟΝΕΕΘΘΙΟ ΕΙΟΕΙ' (= CONFESSIO FIDEI, with citation of Mansi t. XXXI) and 'ΗΤΕΛΕΥΤΑΙΑ ΓΝΟΜΗ ΤΟΥ ΠΑΤΡΙΑΡΧΩΥ'; text internally dated 9 June 1439, indiction 2. Conspectus: 'Josephus Cpolitanus Patriarcha col 1051' = served 561. The 'IOSEPHI PATRIARCHAE EPITAPHIUM' header at top of 562 belongs to this section, but no Greek epitaph text is served."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Job monachus ('Iob peccator')",
+     "title": "Prooemium (to an exposition of the Psalms)",
+     "col_start": "562",
+     "col_end": "563",
+     "incipit": "Σκοπός ἐστιν ἡμῖν αὐτοσχεδιάζουσιν ἐν τῷ τὰς ἰεκὰς Δαυγτικὰς φωνὰς ἀναξαίνειν, ὡς ἀρωματικήν τινα θυμιαμάτων εὐωδίαν",
+     "evidence": "Header at 562 '...ΡΕΩΩΑΤΟΚΙΘ ΡΗΟΣΜΙΟΜ' (= [IOBI] PECCATORIS PROOEMIUM) directly after the Josephi epitaphium caption; content is a proem to expounding 'τὰς ἱερὰς Δαυιτικὰς φωνάς' (the Psalms). Conspectus: 'Job Monachus col 1053' = served 562."
+    },
+    {
+     "tlg": "NEW",
+     "author": "Anonymus",
+     "title": "Narratio de vita Mohammedis (on Muhammad the pseudo-prophet)",
+     "col_start": "574",
+     "col_end": "575",
+     "incipit": "Ὁ τρισκατάρατος καὶ ἀθεώτατος Μωάμεδ, ὃς καὶ παρὰ τοῖς Ἀγαρηνοῖς τοῖς αὐτῷ ὑπηκόοις Μαχούμετ ἐπονομάζεται",
+     "evidence": "Header 'ΑΝΟΝΥΜΙ ΝΑΗ[Ϝ]ΑΙΟ ΒΕ viΤΑ ΜΟΠΑΜΜΕΩΙΘ' (= ANONYMI NARRATIO DE VITA MOHAMMEDIS) at 574; piece ends at 575 with 'Τοῦτο μὲν ἐν συνόψει εἴρηται περὶ τούτου ἅπαν τὸ ἐληθές. Τέλος.' Conspectus: 'Anonymus col 1077' = served 574; served volume ends at 575 (real 1080; Syllabus/indices follow at 1081+)."
+    }
+   ],
+   "unassigned_ranges": [
+    "348-358 (no rows served; = real PG cols ~625-646: 'Glycanorum Annalium continuatio' and Latin prolegomena to the Epistolae)",
+    "528-530 (no rows served; = real PG cols ~983-990: Latin Notitia on Joannes Argyropulus)",
+    "540 (no row served; = real PG cols ~1009-1010: Argyropulus' Epistola ad Dominicum, cols 1007-1010, not represented in the served Greek)",
+    "564-573 (no rows served; = real PG cols ~1057-1076: Bartholomaeus de Jano, Epistola de crudelitate Turcarum, col 1055ff, and Nicolaus Barbarus Patricius Venetus, col 1067ff, Latin-only documents)",
+    "Front matter real cols 1-26 (Latin prolegomena, Leunclavius praefatio, Glycae tabula) precedes the served range entirely; served loci begin at 49"
+   ],
+   "notes": "Key finding: the served loci are NOT raw PG 158 column numbers. Each served locus L holds the Greek of one real Migne column pair, real_col = 2*(L-35) (pair 2L-71/2L-70). This mapping was verified at 20+ independent points against Migne's own conspectus (Documenta Catholica Omnia, 'PG Volumen 158 Rerum Conspectus Pro Columnis Ordinatus'): Annales Pars I col 27=served 49, Pars II 231=151, Pars III 385=228, Pars IV 465=268, Epistolae 647=359 with per-letter headers matching (659=365, 715=393, 721=396, 727=399, 782=426, 793=432, 799=435, 811=441, 817=444, 831=451, 838=454, 845=458, 897=484, 899=485, 913=492, 921=496, 927=499, 951=511), Joannes Diaconus 959=515, Esaias Cyprius 971=521, Hilario 977=524, Argyropulus 991=531, Agallianus 1011=541, Josephus patriarcha 1051=561, Job 1053=562, Anonymus 1077=574. Any split script should carry both the served locus and the reconstructed real column. Credited work tlg3047.002 (Annales lectiones variae) is NOT identifiable in the served text: it is keyed to Bekker pages, and the PG 'Glycanorum Annalium continuatio' (real cols 623-646) falls in the missing served rows 348-358; do not assign it a column range. Boundary caveats: served columns are shared at three seams (561 holds Agallianus end + Josephus confessio; 562 holds the Josephi epitaphium caption + Job incipit; 539 holds Argyropulus chapters ια-ιβ and, per the conspectus, the start of his Epistola ad Dominicum at real 1007, which is not visibly present). Confidence 'high': every start boundary has a title line or incipit in the served text except Argyropulus at 531, which has a chapter-numbered incipit naming the addressee (megas doux) plus the conspectus column match and Agallianos' back-reference. Sources: http://www.documentacatholicaomnia.eu/1815-1875,_Migne,_PG_Volumen_158_Rerum_Conspectus_Pro_Columnis_Ordinatus,_MGR.html ; https://patristica.net/graeca/ ; http://rosetta.reltech.org/PG-list.html ; https://en.wikipedia.org/wiki/Michael_Glykas"
+  }
+ ]
+}
