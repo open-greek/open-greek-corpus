@@ -964,54 +964,199 @@
   "volume": "PG109",
   "urn": "cogPG.PG109",
   "kind": "volume",
-  "desc": "Theophanes Cont.; Cameniates; Symeon Logothete; Genesius",
+  "desc": "Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 570,
-  "n_tokens": 209576,
+  "n_passages": 2,
+  "n_tokens": 7,
+  "works": []
+ },
+ {
+  "volume": "PG109",
+  "urn": "theophanes-continuatus.chronographia-lib-1-6",
+  "kind": "work",
+  "desc": "Theophanes Continuatus - Chronographia (lib. 1-6) (PG109 loci 13-255)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 243,
+  "n_tokens": 95099,
   "works": [
    {
     "tlg_id": "tlg4153",
     "work_id": "001",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 98591,
-    "title": "Chronographia (lib. 1%19`6)",
-    "author": "THEOPHANES CONTINUATUS",
+    "title": "Chronographia (lib. 1-6)",
+    "author": "Theophanes Continuatus",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
+  "kind": "work",
+  "desc": "Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 8,
+  "n_tokens": 2934,
+  "works": [
+   {
+    "tlg_id": "tlg3173",
+    "work_id": "001",
+    "title": "Adversus iconoclastas",
+    "author": "Joannes (olim sub auctore Joanne Damasceno)",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "joannes-hierosolymitanus.narratio",
+  "kind": "work",
+  "desc": "Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 555,
+  "works": [
+   {
+    "tlg_id": "tlg3173",
+    "work_id": "003",
+    "title": "Narratio (de origine haereseos iconomachorum)",
+    "author": "Joannes Hierosolymitanus monachus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "laudatio-sancti-demetrii.narratio-de-capta-thessalonica",
+  "kind": "work",
+  "desc": "Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 623,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "joannes-cameniates.de-expugnatione-thessalonicae",
+  "kind": "work",
+  "desc": "Joannes Cameniates - De expugnatione Thessalonicae (PG109 loci 268-324)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 57,
+  "n_tokens": 22463,
+  "works": [
    {
     "tlg_id": "tlg3015",
     "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 23382,
     "title": "De expugnatione Thessalonicae",
-    "author": "Joannes CAMENIATES",
+    "author": "Joannes Cameniates",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "demetrius-cydones.occisorum-thessalonicae-monodia",
+  "kind": "work",
+  "desc": "Demetrius Cydones - Occisorum Thessalonicae monodia (PG109 loci 325-331)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 7,
+  "n_tokens": 2522,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "vita-basilii-iunioris.excerpta",
+  "kind": "work",
+  "desc": "Anonymus (hagiographus) - Excerpta e Vita S. Basilii iunioris (BHG 263) (PG109 loci 332-336)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 5,
+  "n_tokens": 1726,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
+  "kind": "work",
+  "desc": "Pseudo-Symeon (Symeon Magister ac Logothetes) - Chronographia / Annales a Leone Armenio ad Nicephorum Phocam (PG109 loci 337-416)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 80,
+  "n_tokens": 30917,
+  "works": [
    {
-    "tlg_id": "tlg3070",
+    "tlg_id": "tlg3182",
     "work_id": "001",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 62203,
-    "title": "Chronicon (sub nomine Leonis Grammatici vel Theodosii Melisseni vel",
-    "author": "SYMEON LOGOTHETES",
+    "title": "Chronographia / Annales a Leone Armenio ad Nicephorum Phocam",
+    "author": "Pseudo-Symeon (Symeon Magister ac Logothetes)",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "georgius-monachus-continuatus.chronicon-continuatio-redactio",
+  "kind": "work",
+  "desc": "Georgius Monachus Continuatus - Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum (PG109 loci 417-497)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 81,
+  "n_tokens": 29780,
+  "works": [
+   {
+    "tlg_id": "tlg3051",
+    "work_id": "001",
+    "title": "Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum",
+    "author": "Georgius Monachus Continuatus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG109",
+  "urn": "josephus-genesius.basilei-ai",
+  "kind": "work",
+  "desc": "Josephus Genesius - Basileiai (Regum libri quattuor) (PG109 loci 501-583)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 83,
+  "n_tokens": 22686,
+  "works": [
    {
     "tlg_id": "tlg3040",
     "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 23339,
-    "title": "*BASILEI=AI",
-    "author": "Josephus GENESIUS",
+    "title": "Basileiai (Regum libri quattuor)",
+    "author": "Josephus Genesius",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG112",
