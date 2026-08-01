@@ -1049,104 +1049,149 @@
   "volume": "PG101",
   "urn": "cogPG.PG101",
   "kind": "volume",
-  "desc": "Photius (Amphilochia, NT commentary)",
+  "desc": "Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 611,
-  "n_tokens": 232559,
+  "n_passages": 3,
+  "n_tokens": 515,
+  "works": []
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.amphilochia",
+  "kind": "work",
+  "desc": "Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 565,
+  "n_tokens": 215284,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.commentarii-in-matthaeum-in-catenis",
+  "kind": "work",
+  "desc": "Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 11,
+  "n_tokens": 3594,
+  "works": [
+   {
+    "tlg_id": "tlg4040",
+    "work_id": "028",
+    "title": "Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series",
+    "author": "Photius",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.fragmenta-in-marcum-in-catenis",
+  "kind": "work",
+  "desc": "Photius - Fragmenta in Marcum (in catenis) (PG101 loci 631-631)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1,
+  "n_tokens": 383,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.fragmenta-in-lucam-in-catenis",
+  "kind": "work",
+  "desc": "Photius - Fragmenta in Lucam (in catenis) (PG101 loci 632-640)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 9,
+  "n_tokens": 3650,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.commentarii-in-joannem-in-catenis",
+  "kind": "work",
+  "desc": "Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1,
+  "n_tokens": 336,
+  "works": [
+   {
+    "tlg_id": "tlg4040",
+    "work_id": "027",
+    "title": "Commentarii in Joannem (in catenis) - Migne/Mai fragment series",
+    "author": "Photius",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+  "kind": "work",
+  "desc": "Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 10,
+  "n_tokens": 4204,
   "works": [
    {
     "tlg_id": "tlg4040",
     "work_id": "014",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 25607,
-    "title": "Fragmenta in epistulam ad Romanos (in catenis)",
-    "author": "PHOTIUS",
+    "title": "Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series",
+    "author": "Photius",
     "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "028",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 18327,
-    "title": "Commentarii in Matthaeum (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "027",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 15403,
-    "title": "Commentarii in Joannem (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "015",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 12896,
-    "title": "Fragmenta in epistulam I ad Corinthios (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+  "kind": "work",
+  "desc": "Photius - Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated (PG101 loci 652-652)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1,
+  "n_tokens": 365,
+  "works": [
    {
     "tlg_id": "tlg4040",
     "work_id": "016",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 7048,
-    "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "026",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 4627,
-    "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "018",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 3489,
-    "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "019",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 2931,
-    "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
-    "author": "PHOTIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg4040",
-    "work_id": "017",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 1826,
-    "title": "Fragmenta in epistulam ad Galatas (in catenis)",
-    "author": "PHOTIUS",
+    "title": "Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated",
+    "author": "Photius",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG101",
+  "urn": "photius.amphilochia-supplementum",
+  "kind": "work",
+  "desc": "Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 10,
+  "n_tokens": 3879,
+  "works": [],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG107",

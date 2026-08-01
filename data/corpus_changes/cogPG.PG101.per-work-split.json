@@ -1,0 +1,246 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG101 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG101",
+  "source_urn": "cogPG.PG101",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG101 (consistency review: needs-review, minor - resolved here by the explicit locus-293 exclusion). Credited works tlg4040.015/017/018/019/026 are not in the served columns and get no range",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG101.' (delete the file when it was 'created'), strip the 'PG101.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG101.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG101": {
+   "rows": 611,
+   "greek_tokens": 232210,
+   "sha256": "b6924a2820b3e1b2d4d4aece5e40d38b35b22460360d8d0b2d7b94976cac6fa4"
+  }
+ },
+ "works": [
+  {
+   "slug": "photius.amphilochia",
+   "tlg": null,
+   "title": "Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated)",
+   "rank": "primary",
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "mode": "created",
+   "rows": 565,
+   "greek_tokens": 215284,
+   "volume_loci": "44-611",
+   "locus_map": "cogPG.PG101 locus N -> photius.amphilochia locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "44",
+     "incipit": "Τῆς σπουδῆς σου τὸ γνήσιον δυσωπηθεὶς τὴν σὴν ἀοῆκα πρὸς πέρας ἐλθεῖν, ὡς ἐλπίσας, αἴτησιν·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Title line at col 44: ΦΩΤΙΟΥ ΠΑΤΡΙΑΡΧΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΠΡΟΣ ΑΜΦΙΛΟΧΙΟΝ ΤΟΝ ΟΣΙΩΤΑΤΟΝ ΜΗΤΡΟΠΟΛΙΤΗΝ ΚΥΖΙΚΟΥ ... ΖΗΤΗΜΑΤΩΝ ΔΙΑΦΟΡΩΝ; ΕΡΩΤΗΣΙΣ Α at col 45 (with subtitle 'Ἀμφιλόχια πρὸς Ἀμφιλόχιον μητροπολίτην Κυζίκου λόγων ἱερῶν συλλογή'); continuous ΕΡΩΤΗΣΙΣ numbering tracked A' (45) → ΤΙΖ (610) → Latin QUAESTIO CCCXXI garbled as ΟΟΣΘΤΙΟ ΟΩΩΧΧΙ at 611; matches standard reference Amphilochia = PG 101, 45-1172. Col 611 ends with the garbled heading of the next quaestio (~CCCXXII); the series' end falls in the unserved gap 612-619. No TLG id: the tlg4040 canon has no Amphilochia/Epistulae work (Laourdas-Westerink not in TLG-E).",
+   "notes": "served locus 293 (Latin divider) is excluded to the residual per the consistency review"
+  },
+  {
+   "slug": "photius.commentarii-in-matthaeum-in-catenis",
+   "tlg": "tlg4040.tlg028",
+   "title": "Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series",
+   "rank": "primary",
+   "file": "data/corpus/photius.commentarii-in-matthaeum-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 11,
+   "greek_tokens": 3594,
+   "volume_loci": "620-630",
+   "locus_map": "cogPG.PG101 locus N -> photius.commentarii-in-matthaeum-in-catenis locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "620",
+     "incipit": "Ἀβραὰμ ἐγέννησε τὸν Ἰσαάκ. 2ωτίου. Ἀβραὰμ διὰ πίστεως ἐδικαιώθη.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 53
+    }
+   ],
+   "evidence": "Col 620 opens with the Mt 1:2 lemma followed by a Φωτίου scholion; catena format with repeated Φωτίου attribution markers runs 620-630 in Matthew lemma order (Mt 9:17 wineskins at 625, Mt 26:75 cock-crow harmonization with Mark at 630). Section title lost in unserved gap 612-619. The served Migne/Mai text only partially overlaps the Reuss edition used by TLG."
+  },
+  {
+   "slug": "photius.fragmenta-in-marcum-in-catenis",
+   "tlg": null,
+   "title": "Fragmenta in Marcum (in catenis)",
+   "rank": "primary",
+   "file": "data/corpus/photius.fragmenta-in-marcum-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 383,
+   "volume_loci": "631-631",
+   "locus_map": "cogPG.PG101 locus N -> photius.fragmenta-in-marcum-in-catenis locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "631",
+     "incipit": "Καὶ παράγων, εἶδε Λευὶ τὸν τοῦ Ἀλφαίου καθήμενον ἐπὶ τὸ τελώνιον·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 53
+    }
+   ],
+   "evidence": "Col 631 lemmata are distinctively Marcan: Λευὶ τὸν τοῦ Ἀλφαίου (Mk 2:14), Herod/Baptist's head given τῷ κορασίῳ (Mk 6:28); col 632 has σπεκουλάτωρ (Mk 6:27) and Δεῦτε ὑμεῖς αὐτοὶ κατ' ἰδίαν ... ἀναπαύεσθε ὀλίγον (Mk 6:31, Mark only). No Photius in Marcum work exists in the TLG canon. Boundary with the Luke block falls mid-col 632.",
+   "notes": "shared boundary row 632 (Mark block end + Luke block start) is assigned to the Luke fragments"
+  },
+  {
+   "slug": "photius.fragmenta-in-lucam-in-catenis",
+   "tlg": null,
+   "title": "Fragmenta in Lucam (in catenis)",
+   "rank": "primary",
+   "file": "data/corpus/photius.fragmenta-in-lucam-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 9,
+   "greek_tokens": 3650,
+   "volume_loci": "632-640",
+   "locus_map": "cogPG.PG101 locus N -> photius.fragmenta-in-lucam-in-catenis locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "632",
+     "incipit": "Ἐπεὶ οὖν ἀγράφων ὄντων τῶν παραδιδομένων, εἰκὸς ἦν ἄτοπα πολλὰ συμβαίνειν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 62
+    }
+   ],
+   "evidence": "Begins mid-col 632 with commentary on Luke's prologue (οἱ ἀπὸ τῶν αὐτοπτῶν καὶ ὑπηρετῶν τοῦ Λόγου = Lk 1:2), preceded by garbled heading ΙΝ ΗΟΑΜ (likely IN LUCAM); then Annunciation Lk 1:28-38 (633-636, Γενηθήτω μοι κατὰ τὸ ῥῆμά σου at 636), Magnificat Lk 1:51 (634), Simeon Lk 2:34 (637), baptism (638), Joseph of Arimathea and burial (638-639), harmonistic scholia on the resurrection appearances defending Jerusalem appearances against the Galilee promise (639-640, quoting Mt 27:52 and Mt 28). Attribution of 638-640 to the Luke section (Lk 23-24 harmonization) rather than Matthew is my best reading; the content is partly Matthaean."
+  },
+  {
+   "slug": "photius.commentarii-in-joannem-in-catenis",
+   "tlg": "tlg4040.tlg027",
+   "title": "Commentarii in Joannem (in catenis) - Migne/Mai fragment series",
+   "rank": "primary",
+   "file": "data/corpus/photius.commentarii-in-joannem-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 336,
+   "volume_loci": "641-641",
+   "locus_map": "cogPG.PG101 locus N -> photius.commentarii-in-joannem-in-catenis locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "641",
+     "incipit": "ἀπεκρίθη ὁ Ἰησοῦς, καὶ εἶπεν αὐτῇ· Πᾶς ἀ πίνων ἐκ τοῦ ὕδατος τούτου, διψήσει πάλιν·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 65
+    }
+   ],
+   "evidence": "Col 641 opens with the Jn 4:13 lemma (Samaritan woman) with Φωτίου scholia; Jn 17:11-13 commentary at 642 head. Only ~1.5 columns served; the section ends mid-col 642 where Romans commentary begins. Far smaller than the Reuss corpus TLG serves for this work.",
+   "notes": "shared boundary row 642 (John tail + Romans start) is assigned to the Romans fragments"
+  },
+  {
+   "slug": "photius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+   "tlg": "tlg4040.tlg014",
+   "title": "Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series",
+   "rank": "primary",
+   "file": "data/corpus/photius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 10,
+   "greek_tokens": 4204,
+   "volume_loci": "642-651",
+   "locus_map": "cogPG.PG101 locus N -> photius.fragmenta-in-epistulam-ad-romanos-in-catenis locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "642",
+     "incipit": "Εἰπών οὖν, ὡς ἔφημεν, ὅτι τύπος ἦν ὁ Ἀδὰμ τοῦ Χριστοῦ·",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 41
+    }
+   ],
+   "evidence": "Begins mid-col 642 (Rom 5:14 τύπος fragment; col head is still John 17). Romans lemma order confirmed across the block: Rom 5:17-18 at 643, Rom 7:8-10 at 643-646, Rom 8:24 at 646, Rom 8:31-9:3 at 647, Rom 9:11 at 648, Rom 11 at 649, Rom 12:2 at 650, Rom 14:6-9 at 652. Ends mid-col 652 at the printed heading of the next section.",
+   "notes": "shared boundary row 652 (Romans end + 2 Cor heading) is assigned to the 2 Corinthians fragments"
+  },
+  {
+   "slug": "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+   "tlg": "tlg4040.tlg016",
+   "title": "Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated",
+   "rank": "primary",
+   "file": "data/corpus/photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 365,
+   "volume_loci": "652-652",
+   "locus_map": "cogPG.PG101 locus N -> photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "652",
+     "incipit": "Ἡ γὰρ κατὰ Θεὸν λύπη μετάνοιαν εἰς σωτορία κατεργάζεται.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 47
+    }
+   ],
+   "evidence": "Printed section heading mid-col 652 OCR'd as 'ΙΙ. ΙΝ ΕΡΙΘΤΟΙΑΜ ΙΙ ΑΒ ΟΟΗΙΝΤΗΙΟΘ' = 'II. IN EPISTOLAM II AD CORINTHIOS' (with a garbled Mai page citation), followed immediately by 2 Cor 7:10 commentary. Only the tail of col 652 is served; the work continues into the unserved gap 653-663."
+  },
+  {
+   "slug": "photius.amphilochia-supplementum",
+   "tlg": null,
+   "title": "Amphilochia, supplementum: fuller recensions of selected quaestiones",
+   "rank": "primary",
+   "file": "data/corpus/photius.amphilochia-supplementum.jsonl",
+   "mode": "created",
+   "rows": 10,
+   "greek_tokens": 3879,
+   "volume_loci": "664-673",
+   "locus_map": "cogPG.PG101 locus N -> photius.amphilochia-supplementum locus 'PG101.N'",
+   "incipit_checks": [
+    {
+     "locus": "664",
+     "incipit": "ΕΡΩΡΗΣΙΣ ΡΜΗʹ. εἶδε ἀλλήλους δάκνετε καὶ κατεσθίετε, Ελέπετε μὴ ὑπ´ ἀλλήλων ἀναλωθῆτε",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 71
+    }
+   ],
+   "evidence": "Col 664 opens with ΕΡΩΤΗΣΙΣ ΡΜΗʹ (148, on Gal 5:13-15); then ΕΡΩΤΗΣΙΣ headings at 665 (Διὰ τί ὁ Υἱὸς ἐσαρκώθη..., number garbled), 667 ΣΚΗʹ (Περὶ φύσεως καὶ ὑποστάσεως), 669 ΣΛʹ (Περὶ θεότητος), 671 ΣΛΑʹ, 672 ΤΙΘʹ (Absalom) and ΤΚʹ (φοιβήσασθαι), 673 ΤΚΑʹ (the raven and Elijah). Qq. 320-321 duplicate, with fuller answers, the same questions printed at col 611 in the main series, proving this is a supplementary recension, not a continuation. Its section title lies in the unserved gap 653-663. Same NEW work identity as the Amphilochia main series."
+  }
+ ],
+ "residual": {
+  "rows": 3,
+  "greek_tokens": 515,
+  "loci": [
+   "14",
+   "15",
+   "293"
+  ],
+  "note": "14-15: Greek excerpts quoted inside the Latin prolegomena (from Nicetas David Paphlagon's Vita Ignatii, PG 105); 293: the garbled Latin divider heading (ΒΙΘΘΕΛΤΑΤΙΟ = DISSERTATIO) inside the Amphilochia range, excluded per the consistency review's locus-293 rule",
+  "sha256": "aa8b2ec5f88e339507c93bcdd458cc54fd29e2ca3e2cf2fe18d7c4ac7a31a3ea"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 232210,
+  "carved": 231695,
+  "residual": 515,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "photius.commentarii-in-matthaeum-in-catenis",
+   "tlg": "tlg4040.tlg028"
+  },
+  {
+   "slug": "photius.commentarii-in-joannem-in-catenis",
+   "tlg": "tlg4040.tlg027"
+  },
+  {
+   "slug": "photius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+   "tlg": "tlg4040.tlg014"
+  },
+  {
+   "slug": "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+   "tlg": "tlg4040.tlg016"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "photius.amphilochia",
+  "photius.commentarii-in-matthaeum-in-catenis",
+  "photius.fragmenta-in-marcum-in-catenis",
+  "photius.fragmenta-in-lucam-in-catenis",
+  "photius.commentarii-in-joannem-in-catenis",
+  "photius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+  "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+  "photius.amphilochia-supplementum"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG101; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG101, plan data/cgpg_carve_plan.json"
+}
