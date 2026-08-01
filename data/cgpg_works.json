@@ -479,124 +479,467 @@
   "volume": "PG006",
   "urn": "cogPG.PG006",
   "kind": "volume",
-  "desc": "Justin, Tatian, Athenagoras, Theophilus, Hermias",
+  "desc": "Justin, Tatian, Athenagoras, Theophilus, Hermias (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 680,
-  "n_tokens": 213837,
+  "n_passages": 0,
+  "n_tokens": 0,
+  "works": []
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.oratio-ad-gentiles",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Oratio ad gentiles (PG006 loci 122-127)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 6,
+  "n_tokens": 1045,
+  "works": [
+   {
+    "tlg_id": "tlg0646",
+    "work_id": "001",
+    "title": "Oratio ad gentiles",
+    "author": "Pseudo-Justinus Martyr",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.cohortatio-ad-gentiles",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Cohortatio ad gentiles (PG006 loci 128-163)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 35,
+  "n_tokens": 10708,
+  "works": [
+   {
+    "tlg_id": "tlg0646",
+    "work_id": "002",
+    "title": "Cohortatio ad gentiles",
+    "author": "Pseudo-Justinus Martyr",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.de-monarchia",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - De monarchia (PG006 loci 164-170)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 7,
+  "n_tokens": 1823,
+  "works": [
+   {
+    "tlg_id": "tlg0646",
+    "work_id": "003",
+    "title": "De monarchia",
+    "author": "Pseudo-Justinus Martyr",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "justinus-martyr.apologia",
+  "kind": "work",
+  "desc": "Justinus Martyr - Apologia (prima) (PG006 loci 171-227)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 57,
+  "n_tokens": 15119,
+  "works": [
+   {
+    "tlg_id": "tlg0645",
+    "work_id": "001",
+    "title": "Apologia (prima)",
+    "author": "Justinus Martyr",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "justinus-martyr.apologia-secunda",
+  "kind": "work",
+  "desc": "Justinus Martyr - Apologia secunda (PG006 loci 228-242)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 15,
+  "n_tokens": 3277,
+  "works": [
+   {
+    "tlg_id": "tlg0645",
+    "work_id": "002",
+    "title": "Apologia secunda",
+    "author": "Justinus Martyr",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "justinus-martyr.dialogus-cum-tryphone",
+  "kind": "work",
+  "desc": "Justinus Martyr - Dialogus cum Tryphone (PG006 loci 243-407)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 165,
+  "n_tokens": 51909,
+  "works": [
+   {
+    "tlg_id": "tlg0645",
+    "work_id": "003",
+    "title": "Dialogus cum Tryphone",
+    "author": "Justinus Martyr",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "tatianus.oratio-ad-graecos",
+  "kind": "work",
+  "desc": "Tatianus - Oratio ad Graecos (PG006 loci 409-451)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 43,
+  "n_tokens": 10108,
+  "works": [
+   {
+    "tlg_id": "tlg1766",
+    "work_id": "001",
+    "title": "Oratio ad Graecos",
+    "author": "Tatianus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "athenagoras.legatio-sive-supplicatio-pro-christianis",
+  "kind": "work",
+  "desc": "Athenagoras - Legatio sive Supplicatio pro Christianis (PG006 loci 452-493)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 42,
+  "n_tokens": 11031,
+  "works": [
+   {
+    "tlg_id": "tlg1205",
+    "work_id": "001",
+    "title": "Legatio sive Supplicatio pro Christianis",
+    "author": "Athenagoras",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "athenagoras.de-resurrectione",
+  "kind": "work",
+  "desc": "Athenagoras - De resurrectione (PG006 loci 494-518)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 25,
+  "n_tokens": 8842,
+  "works": [
+   {
+    "tlg_id": "tlg1205",
+    "work_id": "002",
+    "title": "De resurrectione",
+    "author": "Athenagoras",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "theophilus-apologetics.ad-autolycum",
+  "kind": "work",
+  "desc": "Theophilus Antiochenus - Ad Autolycum (PG006 loci 519-591)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 73,
+  "n_tokens": 21525,
+  "works": [
+   {
+    "tlg_id": "tlg1725",
+    "work_id": "001",
+    "title": "Ad Autolycum",
+    "author": "Theophilus Antiochenus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG006",
+  "urn": "hermias-apologetics.irrisio-gentilium-philosophorum",
+  "kind": "work",
+  "desc": "Hermias - Irrisio gentilium philosophorum (PG006 loci 592-597)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 6,
+  "n_tokens": 1818,
+  "works": [
+   {
+    "tlg_id": "tlg0531",
+    "work_id": "001",
+    "title": "Irrisio gentilium philosophorum",
+    "author": "Hermias",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Epistula ad Zenam et Serenum (PG006 loci 599-609)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 11,
+  "n_tokens": 3477,
+  "works": [
+   {
+    "tlg_id": "tlg0646",
+    "work_id": "007",
+    "title": "Epistula ad Zenam et Serenum",
+    "author": "Pseudo-Justinus Martyr",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.expositio-rectae-fidei",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Expositio rectae fidei (PG006 loci 611-627)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 17,
+  "n_tokens": 5804,
+  "works": [
+   {
+    "tlg_id": "tlg0646",
+    "work_id": "006",
+    "title": "Expositio rectae fidei",
+    "author": "Pseudo-Justinus Martyr",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Quaestiones et responsiones ad orthodoxos (PG006 loci 632-707)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 76,
+  "n_tokens": 28123,
   "works": [
    {
     "tlg_id": "tlg0646",
     "work_id": "009",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 29353,
     "title": "Quaestiones et responsiones ad orthodoxos",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "author": "Pseudo-Justinus Martyr",
     "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg0646",
-    "work_id": "008",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 16818,
-    "title": "Confutatio dogmatum quorundam Aristotelicorum",
-    "author": "Pseudo-JUSTINUS MARTYR",
-    "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Quaestiones Christianorum ad gentiles (PG006 loci 708-738)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 31,
+  "n_tokens": 13126,
+  "works": [
    {
     "tlg_id": "tlg0646",
     "work_id": "010",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 12757,
     "title": "Quaestiones Christianorum ad gentiles",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "author": "Pseudo-Justinus Martyr",
     "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg0646",
-    "work_id": "002",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 11276,
-    "title": "Cohortatio ad gentiles",
-    "author": "Pseudo-JUSTINUS MARTYR",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg0646",
-    "work_id": "006",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 5981,
-    "title": "Expositio rectae fidei",
-    "author": "Pseudo-JUSTINUS MARTYR",
-    "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Quaestiones gentilium ad Christianos (PG006 loci 739-752)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 14,
+  "n_tokens": 5288,
+  "works": [
    {
     "tlg_id": "tlg0646",
     "work_id": "011",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 5415,
     "title": "Quaestiones gentilium ad Christianos",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "author": "Pseudo-Justinus Martyr",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Confutatio dogmatum quorundam Aristotelicorum (PG006 loci 753-789)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 37,
+  "n_tokens": 15133,
+  "works": [
    {
     "tlg_id": "tlg0646",
-    "work_id": "007",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 3597,
-    "title": "Epistula ad Zenam et Serenum",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "work_id": "008",
+    "title": "Confutatio dogmatum quorundam Aristotelicorum",
+    "author": "Pseudo-Justinus Martyr",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b",
+  "kind": "work",
+  "desc": "Acta Justini et septem sodalium - Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani (recensio B proxima) (PG006 loci 790-792)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 653,
+  "works": [
+   {
+    "tlg_id": "tlg0384",
+    "work_id": "002",
+    "title": "Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani (recensio B proxima)",
+    "author": "Acta Justini et septem sodalium",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.de-resurrectione",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - De resurrectione (PG006 loci 793-802)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 10,
+  "n_tokens": 3432,
+  "works": [
    {
     "tlg_id": "tlg0646",
     "work_id": "005",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 3519,
     "title": "De resurrectione",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "author": "Pseudo-Justinus Martyr",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "justinus-martyr.fragmenta-operum-deperditorum",
+  "kind": "work",
+  "desc": "Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 338,
+  "works": [
    {
-    "tlg_id": "tlg0646",
-    "work_id": "003",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 1955,
-    "title": "De monarchia",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "tlg_id": "tlg0645",
+    "work_id": "004",
+    "title": "Fragmenta operum deperditorum (ex Irenaeo et Methodio)",
+    "author": "Justinus Martyr",
     "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg0646",
-    "work_id": "001",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 1090,
-    "title": "Oratio ad gentiles",
-    "author": "Pseudo-JUSTINUS MARTYR",
-    "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "pseudo-justinus-martyr.fragmenta",
+  "kind": "work",
+  "desc": "Pseudo-Justinus Martyr - Fragmenta (PG006 loci 805-807)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 852,
+  "works": [
    {
     "tlg_id": "tlg0646",
     "work_id": "012",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 560,
     "title": "Fragmenta",
-    "author": "Pseudo-JUSTINUS MARTYR",
+    "author": "Pseudo-Justinus Martyr",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG006",
+  "urn": "tatianus.fragmenta",
+  "kind": "work",
+  "desc": "Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 290,
+  "works": [],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG067",

@@ -1,0 +1,591 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG006 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG006",
+  "source_urn": "cogPG.PG006",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG006 (consistency review: ok)",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG006.' (delete the file when it was 'created'), strip the 'PG006.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG006.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG006": {
+   "rows": 680,
+   "greek_tokens": 213721,
+   "sha256": "571f1122fdd1b9b053abf52dc901b8289c7618d1f54d06511d4429be138674b3"
+  }
+ },
+ "works": [
+  {
+   "slug": "pseudo-justinus-martyr.oratio-ad-gentiles",
+   "tlg": "tlg0646.tlg001",
+   "title": "Oratio ad gentiles",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.oratio-ad-gentiles.jsonl",
+   "mode": "created",
+   "rows": 6,
+   "greek_tokens": 1045,
+   "volume_loci": "122-127",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.oratio-ad-gentiles locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "122",
+     "incipit": "Μὴ ὑπολάόητε, ὧ ἄνδρες Ἔλληνες, ἄλογον ἢ ἀνεπίκριτον εἶναί μου τὸν ἐκ τῶν ὑμετέρων ἐθῶν χωρισμόν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 79
+    }
+   ],
+   "evidence": "Title line 'ΙΟΥΣΤΙΝΟΥ ΦΙΛΟΣΟΦΟΥ ΚΑΙ ΜΑΡΤΥΡΟΣ' opens locus 122 followed by the standard incipit; explicit at 127 'Δεῖ γὰρ ἀποκατασταθῆναι ὅθεν ἀπέστη, ὅθεν τις ἐγένετο, ἢ ἐστιν.' = Oratio ad Graecos ch.5 end. Locus 122 = PG 6, 229 under the volume's locus mapping (Migne col = 2*locus-15)."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.cohortatio-ad-gentiles",
+   "tlg": "tlg0646.tlg002",
+   "title": "Cohortatio ad gentiles",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.cohortatio-ad-gentiles.jsonl",
+   "mode": "created",
+   "rows": 35,
+   "greek_tokens": 10708,
+   "volume_loci": "128-163",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.cohortatio-ad-gentiles locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "128",
+     "incipit": "Ἀρχόμενος τῆς πρὸς ὑμᾶς παραινέσεως, ὧ ἄνδρες Ἔλληνες, εὔχομαι τῷ Θεῷ, ἐμοὶ μὲν ὑπάρξαι τὰ δέοντα",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 79
+    }
+   ],
+   "evidence": "Incipit of Cohortatio (Λόγος παραινετικός) at 128; explicit at 163 '...ἢ παρὰ τῶν προφητῶν μόνον, τῶν διὰ τῆς θείας ἐπιπνοίας διδασκόντων ἡμᾶς.' = ch.38 end. Matches PG 6, 241-311. Locus 142 is missing from the served file (one-column gap mid-work)."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.de-monarchia",
+   "tlg": "tlg0646.tlg003",
+   "title": "De monarchia",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.de-monarchia.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 1823,
+   "volume_loci": "164-170",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.de-monarchia locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "164",
+     "incipit": "ἀληθείας, θρησκείας τε τῆς εἰς τὸν ἕνα καὶ πάντων δεσπότην, παρεισδῦσα εἰς εἰδωλοποιίας ἐξέτρεψεν βασκανία",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Locus 164 opens a few words into De monarchia ch.1's first sentence ('Τῆς ἀνθρωπίνης φύσεως τὸ κατ' ἀρχὰς... εἰς ἐπίγνωσιν ἀληθείας, θρησκείας τε...'); the title and opening words (bottom of PG 6, 311/312) were dropped by the OCR. Explicit at 170 '...ὡς ἀχάριστοι τῷ κριτῇ τὰς εὐθύνας παρέξωμεν.' = ch.6 end. Matches PG 6, 312-326."
+  },
+  {
+   "slug": "justinus-martyr.apologia",
+   "tlg": "tlg0645.tlg001",
+   "title": "Apologia (prima)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/justinus-martyr.apologia.jsonl",
+   "mode": "created",
+   "rows": 57,
+   "greek_tokens": 15119,
+   "volume_loci": "171-227",
+   "locus_map": "cogPG.PG006 locus N -> justinus-martyr.apologia locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "171",
+     "incipit": "Αὐτοκράτορι Τίτῳ Αἰλίῳ Ἀδριανῷ Ἀντωνίνῳ Εὐσεβεῖ Σεβαστῷ Καίσαρι, Οὐηρισσίμῳυἱῷ φιλοσόφῳ, καὶ Λουκίῳ φιλοσόφῳ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 94
+    }
+   ],
+   "evidence": "Title line 'ΤΟΥ ΑΥΤΟΥ ΙΟΥΣΤΕΝΟΥ ΑΠΟΛΟΓΙΑ ΠΡΩΤΗ ΥΠΕΡ ΧΡΙΣΤΙΑΝΩΝ' + dedication incipit at 171 (= PG 6, 327). Range ends at 227 with the appended imperial rescripts (Hadrian, Antoninus Pius, Marcus Aurelius' rain-miracle letter, PG 6, 435-440) printed as the Apologia's appendix; 227 ends mid title of Apol. II ('...ἐκ τῶν προΤΟΥ'). NOT in the credited cgpg_works list."
+  },
+  {
+   "slug": "justinus-martyr.apologia-secunda",
+   "tlg": "tlg0645.tlg002",
+   "title": "Apologia secunda",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/justinus-martyr.apologia-secunda.jsonl",
+   "mode": "created",
+   "rows": 15,
+   "greek_tokens": 3277,
+   "volume_loci": "228-242",
+   "locus_map": "cogPG.PG006 locus N -> justinus-martyr.apologia-secunda locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "228",
+     "incipit": "Καὶ τὰ χθὲς δὲ καὶ πρώην ἐν τῇ πόλει ἐμῶν γενόμενα ἐπὶ Οὐρβίκου, ὧ Ῥωμαῖοι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 59
+    }
+   ],
+   "evidence": "Title line 'ΑΥΤΟΥ ΙΟΥΣΤΙΝΟΥ ΑΠΟΛΟΓΙΑ ΔΕΥΤΕΡΑ ΥΠΕΡ ΧΡΙΣΤΙΑΝΩΝ' + incipit at 228 (= PG 6, 441); explicit at 242 'Εἴη οὖν καὶ ὑμᾶς ἀξίως εὐσεβείας καὶ φιλοσοφίας τὰ δίκαια ὑπὲρ ἑαυτῶν κρῖναι.' = ch.15 end (PG 6, 470). NOT in credited list."
+  },
+  {
+   "slug": "justinus-martyr.dialogus-cum-tryphone",
+   "tlg": "tlg0645.tlg003",
+   "title": "Dialogus cum Tryphone",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/justinus-martyr.dialogus-cum-tryphone.jsonl",
+   "mode": "created",
+   "rows": 165,
+   "greek_tokens": 51909,
+   "volume_loci": "243-407",
+   "locus_map": "cogPG.PG006 locus N -> justinus-martyr.dialogus-cum-tryphone locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "243",
+     "incipit": "Περιπατοῦντί μοι ἕωθεν ἐν τοῖς τοῦ ξύστου περιπάτοις συναντήσας τις μετὰ καὶ ἄλλων, Φιλόσοφε, χαῖρε, ἔφη.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 86
+    }
+   ],
+   "evidence": "Incipit at 243 (= PG 6, 471); explicit at 407 '...πάντως καὶ αὐτοὶ ἡμῖν ὅμοια ποιήσητε, τὸ ἡμῶν εἶναι τὸν Χριστὸν τοῦ Θεοῦ.' = Dial. 142 end (PG 6, 800). Locus 408 (Migne 801-802, end matter/Tatian title page) missing from the served file. NOT in credited list."
+  },
+  {
+   "slug": "tatianus.oratio-ad-graecos",
+   "tlg": "tlg1766.tlg001",
+   "title": "Oratio ad Graecos",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/tatianus.oratio-ad-graecos.jsonl",
+   "mode": "created",
+   "rows": 43,
+   "greek_tokens": 10108,
+   "volume_loci": "409-451",
+   "locus_map": "cogPG.PG006 locus N -> tatianus.oratio-ad-graecos locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "409",
+     "incipit": "Μὴ πάνυ φιλέχθρως διατίθεσθε πρὸς τοὺς βαρβάρους, ὡ ἄνδρες Ἕλληνες, μηδὲ φθονήσητε τοῖς τούτων δόγμασι.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 86
+    }
+   ],
+   "evidence": "Incipit at 409 (= PG 6, 803); explicit at 451 '...ἕτοιμον ἐμαυτὸν ὑμῖν πρὸς τὴν ἀνάκρισιν τῶν δογμάτων παρίστημι, μενούσης μοι κατὰ Θεὸν πολιτείας ἀνεξαρνήτου.' = Or. 42 end (PG 6, 888). NOT in credited list."
+  },
+  {
+   "slug": "athenagoras.legatio-sive-supplicatio-pro-christianis",
+   "tlg": "tlg1205.tlg001",
+   "title": "Legatio sive Supplicatio pro Christianis",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/athenagoras.legatio-sive-supplicatio-pro-christianis.jsonl",
+   "mode": "created",
+   "rows": 42,
+   "greek_tokens": 11031,
+   "volume_loci": "452-493",
+   "locus_map": "cogPG.PG006 locus N -> athenagoras.legatio-sive-supplicatio-pro-christianis locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "452",
+     "incipit": "Αὐτοκράτορσι Μάρκῳ Αὐρηλίῳ Ἀντωνίνῳ καὶ Λουκίῳ Αὐρηλίῳ Κομμόδῳ, Ἀρμενιακοῖς, Σαρματικοῖς, τὸ δὲ μέγιστον, φιλοσόφοις.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 99
+    }
+   ],
+   "evidence": "Dedication incipit at 452 (= PG 6, 889); explicit at 493 '...ὅπως ἤρεμον καὶ ἡσύχιον βίον διάγοιμεν, αὐτοὶ δὲ πάντα τὰ κεκελευσμένα προθύμως ὑπηρετοῖμεν.' = Leg. 37 end (PG 6, 972). NOT in credited list."
+  },
+  {
+   "slug": "athenagoras.de-resurrectione",
+   "tlg": "tlg1205.tlg002",
+   "title": "De resurrectione",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/athenagoras.de-resurrectione.jsonl",
+   "mode": "created",
+   "rows": 25,
+   "greek_tokens": 8842,
+   "volume_loci": "494-518",
+   "locus_map": "cogPG.PG006 locus N -> athenagoras.de-resurrectione locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "494",
+     "incipit": "Παντὶ δόγματι καὶ λόγῳ τῆς ἐν τοῖς οὖσιν ἀληθείας ἐχομένῳ παραφύεταί τι ψεῦδος.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 66
+    }
+   ],
+   "evidence": "Incipit at 494 (= PG 6, 973); the work ends inside locus 519 at '...καὶ τῆς ἑκάστῳ συμμετρουμένης ὑπὲρ τῶν εὖ ἢ κακῶς βεβιωμένων τιμῆς ἢ δίκης.' (De res. 25 end), followed in the same row by 'ΒΙΒΛΙΟΝ Αʹ.' opening Theophilus. Locus 519 = PG 6, 1023, the very column Migne's ranges assign to both works. NOT in credited list.",
+   "notes": "shared boundary row 519 (De resurrectione explicit + ΒΙΒΛΙΟΝ Αʹ opening Theophilus) is assigned to Ad Autolycum"
+  },
+  {
+   "slug": "theophilus-apologetics.ad-autolycum",
+   "tlg": "tlg1725.tlg001",
+   "title": "Ad Autolycum",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/theophilus-apologetics.ad-autolycum.jsonl",
+   "mode": "created",
+   "rows": 73,
+   "greek_tokens": 21525,
+   "volume_loci": "519-591",
+   "locus_map": "cogPG.PG006 locus N -> theophilus-apologetics.ad-autolycum locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "519",
+     "incipit": "Στωμύλον μὲν οὖν στόμα καὶ φράσις εὐεπὴς τέρψιν παρέχει καὶ ἔπαινον πρὸς κενὴν δόξαν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 71
+    }
+   ],
+   "evidence": "Book heading 'ΒΙΒΛΙΟΝ Αʹ.' + incipit mid-locus 519 (= PG 6, 1023, shared with the end of Athenagoras De resurrectione); internal book headings ('Θεόφιλος πρὸς Αὐτόλυκον') at 531 and 568; explicit at 591 '...ὅπως σχῇς σύμβολον, καὶ ἀῤῥαβῶνα τῆς ἀληθείας.' = III.30 end (PG 6, 1168). NOT in credited list."
+  },
+  {
+   "slug": "hermias-apologetics.irrisio-gentilium-philosophorum",
+   "tlg": "tlg0531.tlg001",
+   "title": "Irrisio gentilium philosophorum",
+   "rank": "primary",
+   "file": "data/corpus/hermias-apologetics.irrisio-gentilium-philosophorum.jsonl",
+   "mode": "created",
+   "rows": 6,
+   "greek_tokens": 1818,
+   "volume_loci": "592-597",
+   "locus_map": "cogPG.PG006 locus N -> hermias-apologetics.irrisio-gentilium-philosophorum locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "592",
+     "incipit": "Παῦλος ὁ μακάριος ἀπότολος, τοῖς τὴν Ἐλλάδα τὴν Λακωνικὴν παροικοῦσι Κορινθίοις γράγων",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Title line 'ΕΡΜΙΟΥ ΦΙΛΟΣΟΦΟΥ ΑΙΑΣΥΡΜΟΣ ΤΩΝ ΕΞΩ ΦΙΛΟΣΟΦΟΝ.' (= Διασυρμὸς τῶν ἔξω φιλοσόφων) opens 592 (= PG 6, 1169); explicit at 597 '...καὶ τὸ τέλος αὐτῶν ἀτέκμαρτον, καὶ ἄχρηστον, ἔργῳ μηδενὶ προδήλῳ καὶ λόγῳ σαφεῖ βεβαιούμενον.' = Irrisio 10 end (PG 6, 1180). Locus 598 (Migne 1181-1182, Latin monitum) missing. NOT in credited list."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
+   "tlg": "tlg0646.tlg007",
+   "title": "Epistula ad Zenam et Serenum",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.epistula-ad-zenam-et-serenum.jsonl",
+   "mode": "created",
+   "rows": 11,
+   "greek_tokens": 3477,
+   "volume_loci": "599-609",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.epistula-ad-zenam-et-serenum locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "599",
+     "incipit": "Ἰουστῖνος Ζῆνα καὶ Σερήνῳ τοῖς ἀδελφοῖς, χαίρειν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 41
+    }
+   ],
+   "evidence": "Epistolary salutation incipit at 599 (= PG 6, 1183/1184); explicit at 609 '...δῴη πᾶσιν ὑμῖν τῆς μετὰ τῶν ἐκλεκτῶν τιμῆς καὶ ἀναπαύσεως ἐπιτυχεῖν! Οὗ καὶ ἡ χάρις εἴη μετὰ πάντων ὑμῶν.' (closing benediction, PG 6, 1204). Locus 610 missing."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.expositio-rectae-fidei",
+   "tlg": "tlg0646.tlg006",
+   "title": "Expositio rectae fidei",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.expositio-rectae-fidei.jsonl",
+   "mode": "created",
+   "rows": 17,
+   "greek_tokens": 5804,
+   "volume_loci": "611-627",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.expositio-rectae-fidei locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "611",
+     "incipit": "Ἱκανῶς τὸν κατὰ Ἰουδαίων καὶ Ἐλλήνων ἐπελθόντες ἔλεγχον, ἀκολούθως αὖθις τὸν ὑγιᾶ τῆς πίστεως ἐκτιθέμεθα λόγον.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 94
+    }
+   ],
+   "evidence": "Incipit at 611 (= PG 6, 1207); served text breaks off mid-sentence at 627 ('...τὴν μακαρίαν ἐλπίδα καὶ χορηγὸν τῆς') because loci 628-631 (Migne 1241-1248: the work's last lines + Latin prolegomena to the Quaestiones) are missing from the file. The work's true end (PG 6, 1240) is therefore slightly truncated."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
+   "tlg": "tlg0646.tlg009",
+   "title": "Quaestiones et responsiones ad orthodoxos",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos.jsonl",
+   "mode": "created",
+   "rows": 76,
+   "greek_tokens": 28123,
+   "volume_loci": "632-707",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "632",
+     "incipit": "ἘΡΩΤΗΣΙΣ Αʹ. Εἰ τὴν ἀρχαίαν μὲν λατρείαν ἀνεῖλεν ὁ Θεὸς, ὡς αὐτὴν μὴ ἀρεσκόμενος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 65
+    }
+   ],
+   "evidence": "'ἘΡΩΤΗΣΙΣ Αʹ' opens 632 (= PG 6, 1249) with the title fragment 'ἩΤΟΙ ΛΥΣΙΑ ΤΗΣ ΕΡΩΤΗΣΕΩΣ' (ἤτοι λύσις τῆς ἐρωτήσεως) in the same row; last response ends at 707 '...ἀλλ' ἐκ τῇ τοῦ Δεσπότου τοῦ ἀληθινοῦ Θεοῦ συγχωρήσεως;' (= PG 6, 1400)."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
+   "tlg": "tlg0646.tlg010",
+   "title": "Quaestiones Christianorum ad gentiles",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles.jsonl",
+   "mode": "created",
+   "rows": 31,
+   "greek_tokens": 13126,
+   "volume_loci": "708-738",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "708",
+     "incipit": "ἘΡΩΤΗΣΙΣ Αʹ. Εἰ τῷ μεγίστῳ ἐν ἀνθρώποις ἀγαθῷ μέγιστον ἀντίκειται κακόν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 60
+    }
+   ],
+   "evidence": "Incipit at 708 (= PG 6, 1401); internal headings 'ἘΡΩΤΗΣΙΣ ΧΡΙΣΤΙΑΝΙΚΗ ΠΡΟΣ ΤΟΥΣ ἜΛΛΗΝΑΣ Β/Γ/Δ/Ε' at 715, 721, 729, 734, then the closing numbered aporiai 'ΠΡΟΣ ΤΟΥΣ ΕΛΛΗΝΑΣ' (736-739). Ends inside locus 739 at question ιηʹ '...πῶς ἀγένητα καὶ ἰδίᾳ τὰ ἐν τῷ ἐνιαυτῷ;' (= PG 6, 1463).",
+   "notes": "shared boundary row 739 (QCG question 18 end + QGC heading) is assigned to the Quaestiones gentilium"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos",
+   "tlg": "tlg0646.tlg011",
+   "title": "Quaestiones gentilium ad Christianos",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos.jsonl",
+   "mode": "created",
+   "rows": 14,
+   "greek_tokens": 5288,
+   "volume_loci": "739-752",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "739",
+     "incipit": "Περὶ τοῦ ἀσωμάτου, καὶ περὶ τοῦ Θεοῦ καὶ περὶ τῆς ἀναστάσεως τῶν νεκρῶν. α. Πόθεν δῆλον εἰ ἔστι τι ἀσώματον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 85
+    }
+   ],
+   "evidence": "Begins inside locus 739 with its heading and the gentiles' numbered questions; the answers section 'Σ ΑΠΟΚΡΙΣΕΓΣ ΧΡΙΣΤΙΑΝΙΚΑΙ πρὸς τὰς προῤῥηθείσας ἐρωτήσεις' (= ἈΠΟΚΡΙΣΕΙΣ ΧΡΙΣΤΙΑΝΙΚΑΙ) opens inside 740. Explicit at 752 '...ἔσται αὐτῶν ἡ πρώτη ματαιοπονία ἔλεγχος τῆς ἀλόγου αὐτῶν ἀπιστίας.' (= PG 6, 1489). Matches PG 6, 1463-1489."
+  },
+  {
+   "slug": "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",
+   "tlg": "tlg0646.tlg008",
+   "title": "Confutatio dogmatum quorundam Aristotelicorum",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum.jsonl",
+   "mode": "created",
+   "rows": 37,
+   "greek_tokens": 15133,
+   "volume_loci": "753-789",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "753",
+     "incipit": "Τῶν κατὰ τὴν ἀνθρωπίνην σπουδὴν εἰς θεραπείαν τοῦ Θεοῦ ὑπὸ τῶν ἀνθρώπων γινομένων καλῶν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Title line 'ΑΝΑΤΡΟΠΗ ΔΟΓΜΑΤΩΝ ΤΙΝΩΝ ΑΡΙΣΤΟΤΕΛΙΚΩΝ' + incipit at 753 (= PG 6, 1491/1492); anti-Aristotelian argument runs continuously to 789, ending '...μεταβάλλεται εἰς ἄλληλα, καὶ γίνονται ἐξ ἀλλήλων.' (= PG 6, 1564)."
+  },
+  {
+   "slug": "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b",
+   "tlg": "tlg0384.tlg002",
+   "title": "Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani (recensio B proxima)",
+   "rank": "primary",
+   "file": "data/corpus/acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 653,
+   "volume_loci": "790-792",
+   "locus_map": "cogPG.PG006 locus N -> acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "790",
+     "incipit": "Ἐν τῷ καιρῷ τῶν ἀνόμων ὑπερμάχων τῆς εἰδωλολατρείας προστάγματα ἀσεβῆ κατὰ τῶν εὐσεβούντων Χριστιανῶν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 88
+    }
+   ],
+   "evidence": "Title line 'ΙΟΥΣΤΙΝΟΥ ΧΑΡΙΤΩΝΟΣ, ΧΑΡΙΤΟΥΣ. ΠΑΙΟΝΟΣ ΚΑΙΛΙΒΕΡΙΑΝΟΥ' opens 790 (= PG 6, 1565); interrogation by the prefect Rusticus (790-792); ends inside locus 793 '...συνεργασάσης αὐτοῖς τῆς χάριτος τοῦ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ, ᾠ ἡ δόξα εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' PG 6 prints the vulgate text closest to Musurillo's recensio B (hence tlg0384.002); recension match not independently verified. NOT in credited list.",
+   "notes": "shared boundary row 793 (Martyrium Amen + Ps.-Justin De resurrectione incipit) is assigned to De resurrectione"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.de-resurrectione",
+   "tlg": "tlg0646.tlg005",
+   "title": "De resurrectione",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.de-resurrectione.jsonl",
+   "mode": "created",
+   "rows": 10,
+   "greek_tokens": 3432,
+   "volume_loci": "793-802",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.de-resurrectione locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "793",
+     "incipit": "Ὁ μὲν τῆς ἀληθείας λόγος ἐστὶν ἐλεύθερος καὶ αὐτεξούσιος, ὑπὸ μηδεμίαν βάσανον ἐλέγχου θέλων πίπτειν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 85
+    }
+   ],
+   "evidence": "Incipit begins inside locus 793 immediately after the Martyrium's 'Ἀμήν.' (= PG 6, 1572); ends inside locus 803 at '...καθάπερ τοὺς ἐλπίδα σωτηρίας ἔχοντας ἀνθρώπους οἱ ἰατροὶ οὐκ ἐῶσιν ὑπηρετεῖν ταῖς ἡδοναῖς.' (ch.10 end, PG 6, 1591/1592), followed in the same row by the first Fragmenta item.",
+   "notes": "shared boundary row 803 (De resurrectione ch. 10 end + first Justin Fragmenta item) is assigned to the Justin Fragmenta"
+  },
+  {
+   "slug": "justinus-martyr.fragmenta-operum-deperditorum",
+   "tlg": "tlg0645.tlg004",
+   "title": "Fragmenta operum deperditorum (ex Irenaeo et Methodio)",
+   "rank": "primary",
+   "file": "data/corpus/justinus-martyr.fragmenta-operum-deperditorum.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 338,
+   "volume_loci": "803-804",
+   "locus_map": "cogPG.PG006 locus N -> justinus-martyr.fragmenta-operum-deperditorum locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "803",
+     "incipit": "Καὶ καλῶς Ἰουστῖνος ἐν τῷ πρὸς Μαρκίωνα συλ. τάγματι φησίν· Ὅτι αὐτῷ τῷ Κυρίῳ οὐδ´ ἂν ἐπείσθην",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 75
+    }
+   ],
+   "evidence": "Begins inside locus 803: the two Irenaeus-preserved fragments (Adv. haer. 4.6.2 'πρὸς Μαρκίωνα' and 5.26.2 'Καλῶς ὁ Ἰουστῖνος ἔφη ὅτι πρὸ μὲν τῆς τοῦ Κυρίου παρουσίας...'), then at 804 the OCR-garbled Latin heading 'Εα Μειήοαῖθτο Βε Κεετεοιοηε ἅρμα Ρμοιῖκι' = 'Ex Methodio De resurrectione apud Photium' introducing 'Ἰουστῖνος δὲ ὁ Νεαπολίτης...'. Assignment of the gnomic sentences at the end of 804 between tlg0645.004 and tlg0646.012 is uncertain; the 804/805 division needs column-level verification against Otto. NOT in credited list.",
+   "notes": "the 804/805 division from tlg0646.tlg012 is the proposal's best-effort split of the continuous Fragmenta section"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.fragmenta",
+   "tlg": "tlg0646.tlg012",
+   "title": "Fragmenta",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-justinus-martyr.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 852,
+   "volume_loci": "805-807",
+   "locus_map": "cogPG.PG006 locus N -> pseudo-justinus-martyr.fragmenta locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "805",
+     "incipit": "Αʹ. Δι ἀμφοῖντοῖν ὀρνέοιν σημαίνεται ὁ Χριστὸς καὶ τεθνεὼς ὡς ἄνθρωπος, καὶ ζῶν ὡς Θεός.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 71
+    }
+   ],
+   "evidence": "Numbered exegetical fragments (Αʹ-Δʹ on the Leviticus birds/goats typology, from Leontius and the catenae) begin at 805; the block ends at 807 with the heading 'Τοῦ ἁγίου Ἰουστίνου φιλοσόφου καὶ μάρτυρος ἐκ τοῦ εʹ μέρους τῆς Ἀπολογίας αὐτοῦ' and the sentence 'Τὸ εὖ πράττειν ἡγοῦμαι, ὦ ἄνδρες, οὐκ ἄλλο τι εἰναι ἢ τὸ κατὰ ἀλήθειαν ζῇν'. Whole S. Justini Fragmenta section = PG 6, 1591-1600; the split from tlg0645.004 at 804/805 is a best-effort division, see notes."
+  },
+  {
+   "slug": "tatianus.fragmenta",
+   "tlg": null,
+   "title": "Fragmenta (Tatiani fragmenta, PG 6, 1601-1608)",
+   "rank": "primary",
+   "file": "data/corpus/tatianus.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 290,
+   "volume_loci": "808-809",
+   "locus_map": "cogPG.PG006 locus N -> tatianus.fragmenta locus 'PG006.N'",
+   "incipit_checks": [
+    {
+     "locus": "808",
+     "incipit": "Ἐκ τοῦ Περὶ τοῦ κατὰ τὸν Σωτῆρα καταρτισμοῦ Χυμφωνίαν μὲν οὖν ἀρμόζει προσευχῇ, κοινωνία δὲ φθορᾶς λύει τὴν ἔντευξιν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 97
+    }
+   ],
+   "evidence": "Heading 'Ἐκ τοῦ Περὶ τοῦ κατὰ τὸν Σωτῆρα καταρτισμοῦ' (Tatian's lost work quoted by Clement, Strom. 3.12.81) opens 808 (= PG 6, 1601), followed by Clement's discussions 'Πρὸς δὲ Τατιανὸν, λέγοντα εὐκτικὸν εἶναι τὸ Γενηθήτω φώς...'. Locus 809 (exegesis of Ruth and the φορεῖον of Cant. 3:9, last served row) is assigned to this block positionally; its attribution within the Tatiani fragmenta was not independently verified. TLG has only tlg1766.001 (Oratio) and tlg1766.002 (Diatesseron fragment), so these fragments have no TLG id."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 213721,
+  "carved": 213721,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "pseudo-justinus-martyr.oratio-ad-gentiles",
+   "tlg": "tlg0646.tlg001"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.cohortatio-ad-gentiles",
+   "tlg": "tlg0646.tlg002"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.de-monarchia",
+   "tlg": "tlg0646.tlg003"
+  },
+  {
+   "slug": "hermias-apologetics.irrisio-gentilium-philosophorum",
+   "tlg": "tlg0531.tlg001"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
+   "tlg": "tlg0646.tlg007"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.expositio-rectae-fidei",
+   "tlg": "tlg0646.tlg006"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
+   "tlg": "tlg0646.tlg009"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
+   "tlg": "tlg0646.tlg010"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos",
+   "tlg": "tlg0646.tlg011"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",
+   "tlg": "tlg0646.tlg008"
+  },
+  {
+   "slug": "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b",
+   "tlg": "tlg0384.tlg002"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.de-resurrectione",
+   "tlg": "tlg0646.tlg005"
+  },
+  {
+   "slug": "justinus-martyr.fragmenta-operum-deperditorum",
+   "tlg": "tlg0645.tlg004"
+  },
+  {
+   "slug": "pseudo-justinus-martyr.fragmenta",
+   "tlg": "tlg0646.tlg012"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "pseudo-justinus-martyr.oratio-ad-gentiles",
+  "pseudo-justinus-martyr.cohortatio-ad-gentiles",
+  "pseudo-justinus-martyr.de-monarchia",
+  "hermias-apologetics.irrisio-gentilium-philosophorum",
+  "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
+  "pseudo-justinus-martyr.expositio-rectae-fidei",
+  "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
+  "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
+  "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos",
+  "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",
+  "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b",
+  "pseudo-justinus-martyr.de-resurrectione",
+  "justinus-martyr.fragmenta-operum-deperditorum",
+  "pseudo-justinus-martyr.fragmenta",
+  "tatianus.fragmenta"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG006; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG006, plan data/cgpg_carve_plan.json"
+}
