@@ -1,0 +1,112 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG087_1 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG087_1",
+  "source_urn": "cogPG.PG087_1",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG087_1 (consistency review: ok). The formerly credited tlg2598 works (In Isaiam, Catena in Canticum, Refutatio Procli) are NOT in this served volume (they lie beyond the served range, in PG 87.2); the volume holds the three Procopius of Gaza OT catena works, none with a TLG id",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG087_1.' (delete the file when it was 'created'), strip the 'PG087_1.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG087_1.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG087_1": {
+   "rows": 710,
+   "greek_tokens": 207880,
+   "sha256": "a4f102361db91c686fc0e110468a4679d5d3b123df519ccc915cf13e8bcb5195"
+  }
+ },
+ "works": [
+  {
+   "slug": "procopius-rhetoric.commentarii-in-octateuchum",
+   "tlg": null,
+   "title": "Commentarii in Octateuchum (catena-epitome, CPG 7430; as served: Genesis through Judges)",
+   "rank": "primary",
+   "file": "data/corpus/procopius-rhetoric.commentarii-in-octateuchum.jsonl",
+   "mode": "created",
+   "rows": 477,
+   "greek_tokens": 121593,
+   "volume_loci": "18-546",
+   "locus_map": "cogPG.PG087_1 locus N -> procopius-rhetoric.commentarii-in-octateuchum locus 'PG087_1.N'",
+   "incipit_checks": [
+    {
+     "locus": "18",
+     "incipit": "ΠΡΟΟΙΜΙΟΝ. Ἡδη μὲν καὶ πρότερον Θεοῦ τὸ δύνασθαι χορηγήατρς τὰς καταβεβλημένας ἐκ τῶν Πατέρων καὶ τῶν ἄλλων εἰς τὴν Ὁκτάτευχον ἐξηγήσεις συνελε. ξάμεθα",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 127
+    }
+   ],
+   "evidence": "Locus 18 opens with the famous prooemium naming the Octateuch (εἰς τὴν Ὁκτάτευχον ἐξηγήσεις). Internal book starts all verified: Exodus prologue at tail of 263 / Ex 1:5 lemma at 264 (Ἀριθμεῖ τοὺς μετὰ Ἰακώβ); Leviticus at 353 (Αἰ ἐν τῷ Λευῖτικῷ θνοίαι καθαρισμὸν ψυχῶν περιέχουσι = Migne col 691 exactly under col=2L-15); Numbers between 404 and 406 (locus 405 missing; 404 ends Lev 27, 406 is Num 2 camp order); Deuteronomy at 454 (Ἰκανούσθω ὑμῖν κατοικεῖν ἐν τῷ ὄρει τούτῳ = Deut 1:6, col 893); Joshua at 504 (Μωϋσῆς ὁ θεράπων μου τετελεύτηκε. Νῦν φὗν ἀναστὰς, διάβηθι τὸν Ἰορδάνην = Josh 1:2, col 993); Judges at 529 (inquiry of the Lord about the Canaanites, Judg 1:1, col 1043). Ends mid-row 547 with the Benjamite war (Judg 20-21), closing '...εἰ καὶ τῷ Θεῷ δικαίως.' immediately before the next work's prooemium in the same row.",
+   "notes": "shared boundary row 547 (Judges explicit + Regum prooemium) is assigned to the Regum work, whose prooemium it carries"
+  },
+  {
+   "slug": "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
+   "tlg": null,
+   "title": "In libros Regum et Paralipomenon scholia (CPG 7431)",
+   "rank": "primary",
+   "file": "data/corpus/procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia.jsonl",
+   "mode": "created",
+   "rows": 71,
+   "greek_tokens": 24463,
+   "volume_loci": "547-617",
+   "locus_map": "cogPG.PG087_1 locus N -> procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia locus 'PG087_1.N'",
+   "incipit_checks": [
+    {
+     "locus": "547",
+     "incipit": "ΠΡΩΙΙΜΙΟΝ. Πλεῖστοι προφῆται γεγένηνται, ὦν τὰς μὲν βίβλους οὐχ εὔρομεν, τὰς δὲ προσηγορίας ἐκ τῆς τῶν Παραλειπομένων μεμαθήκαμεν ἱστορίας.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 117
+    }
+   ],
+   "evidence": "Begins mid-row 547 (shared boundary row): after the Judges ending, the served text carries the heading ΠΡΩΙΙΜΙΟΝ (= ΠΡΟΟΙΜΙΟΝ, OCR) and the Regum prooemium on the books of Kingdoms/Prophetia Samuel. 1 Kgdms 1:1 lemma (Καὶ ἐγένετο ἄνθρωπος, OCR 'Καὶ ἐοένεγορ ἄνρρωκρε') with ΚΕΦΑΛ. Αʹ at 548. Kings progression spot-checked: 552 (1 Kgdms 5), 560 (1 Kgdms 19), 566 (1 Kgdms 28 witch of Endor), 570-578 (2 Kgdms), 598 (4 Kgdms 1), 602-607 (4 Kgdms 13-24). Paralipomena section prooemium at 608 (see incipit in notes: Ὃσα παρέλιπεν ὁ τὰς Βασιλείας συγγεγραφώς), OCR'd Latin running header 'ζΟΜΜΕΝΤΑΚΙΙ ΙΝ ΓΙΒ. Ι ΡΑΚΑΙΡ.' (COMMENTARII IN LIB. I PARALIP.) at 610, ΚΕΦΑΛ. ΛΕʹ (2 Chron 35) at 617. Ends mid-row 617 with the closing remark mentioning Cyrus and the return of the captives, followed by the OCR'd Latin title 'ΜΟΝΙΤΟΜ ΙΝ ΟΟΜΜΕΝΤΑΚΙΟΘ ΑΙ ΡΚΟvΕΚΒΙΑ ΕΤ ΣΟΑΝΤΙΩΑ' (MONITUM IN COMMENTARIOS AD PROVERBIA ET CANTICA). Column arithmetic: 547-617 = Migne cols 1079-1220, the known range of these scholia."
+  },
+  {
+   "slug": "procopius-rhetoric.in-proverbia",
+   "tlg": null,
+   "title": "In Proverbia (catena-epitome, CPG 7432; Procopian authorship of the epitome doubted)",
+   "rank": "primary",
+   "file": "data/corpus/procopius-rhetoric.in-proverbia.jsonl",
+   "mode": "created",
+   "rows": 162,
+   "greek_tokens": 61824,
+   "volume_loci": "618-779",
+   "locus_map": "cogPG.PG087_1 locus N -> procopius-rhetoric.in-proverbia locus 'PG087_1.N'",
+   "incipit_checks": [
+    {
+     "locus": "618",
+     "incipit": "ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ Σκοπὸν ἔχων Σαλομὼν, τὸν πόθον ἡμῶν κινῆσαι πρὸς τοῦ ἄφραστον κάλλος τοῦ θείου χαρακτῆρος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Clean start at 618 with heading ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ and the commentary's opening on Solomon's purpose, immediately after the Latin monitum at the tail of 617. Continuous Proverbs progression: 1:7 (Ἀρχὴ σοφίας, φόβος Κυρίου) at 620, 1:15 at 622, 4:23 at 637, 26:2 at 747, 30:30-31 (lion, strutting cock) at 774, 31:10-11 at 776, ending at 779 with Prov 31:28-31 and the closing Matt 5:16 quotation (δοξαζόντων τὸν Πατέρα ἡμῶν τὸν ἐν τοῖς οὐρανοῖς). Column arithmetic: 618↔col 1221 and 779↔cols 1543-44, exactly the known PG In Proverbia range 1221-1544; the volume dump ends here."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 207880,
+  "carved": 207880,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "procopius-rhetoric.commentarii-in-octateuchum",
+  "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
+  "procopius-rhetoric.in-proverbia"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG087_1; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG087_1, plan data/cgpg_carve_plan.json"
+}

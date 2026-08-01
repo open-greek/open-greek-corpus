@@ -655,44 +655,52 @@
   "volume": "PG087_1",
   "urn": "cogPG.PG087_1",
   "kind": "volume",
-  "desc": "Procopius of Gaza v1 (OT catenae)",
+  "desc": "Procopius of Gaza v1 (OT catenae) (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 710,
-  "n_tokens": 208108,
-  "works": [
-   {
-    "tlg_id": "tlg2598",
-    "work_id": "004",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 178350,
-    "title": "Commentarii in Isaiam",
-    "author": "PROCOPIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2598",
-    "work_id": "002",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 42715,
-    "title": "Catena in Canticum canticorum",
-    "author": "PROCOPIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2598",
-    "work_id": "012",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 419,
-    "title": "Refutatio Procli (fragmentum e cod. Vat. gr. 1096)",
-    "author": "PROCOPIUS",
-    "cgpg_chosen": true
-   }
-  ]
+  "n_passages": 0,
+  "n_tokens": 0,
+  "works": []
+ },
+ {
+  "volume": "PG087_1",
+  "urn": "procopius-rhetoric.commentarii-in-octateuchum",
+  "kind": "work",
+  "desc": "Procopius Gazaeus - Commentarii in Octateuchum (catena-epitome, CPG 7430; as served: Genesis through Judges) (PG087_1 loci 18-546)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 477,
+  "n_tokens": 121593,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG087_1",
+  "urn": "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
+  "kind": "work",
+  "desc": "Procopius Gazaeus - In libros Regum et Paralipomenon scholia (CPG 7431) (PG087_1 loci 547-617)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 71,
+  "n_tokens": 24463,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG087_1",
+  "urn": "procopius-rhetoric.in-proverbia",
+  "kind": "work",
+  "desc": "Procopius Gazaeus (attribution of the PG edition) - In Proverbia (catena-epitome, CPG 7432; Procopian authorship of the epitome doubted) (PG087_1 loci 618-779)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 162,
+  "n_tokens": 61824,
+  "works": [],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG101",
