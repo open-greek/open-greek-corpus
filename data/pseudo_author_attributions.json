@@ -18,38 +18,43 @@
   },
   "concilium-ephesenum": {
    "name": "Concilium Ephesenum",
-   "aliases": {"wikidata": "Q184332"},
+   "aliases": {
+    "wikidata": "Q184332"
+   },
    "note": "Council of Ephesus (431 CE), wikidata Q184332 (First Council of Ephesus). Collective label for the conciliar acta."
   },
   "leo-vi-sapiens": {
    "name": "Leo VI Sapiens",
-   "aliases": {"wikidata": "Q41618"},
+   "aliases": {
+    "wikidata": "Q41618"
+   },
    "note": "Leo VI the Wise, Byzantine emperor 886-912, wikidata Q41618. Distinct from the registry's leo-philosophy (TLG 0723, Leo the physician, De natura hominum synopsis)."
   },
   "theophylactus-achridensis": {
    "name": "Theophylactus Achridensis",
-   "aliases": {"wikidata": "Q1247278"},
+   "aliases": {
+    "wikidata": "Q1247278"
+   },
    "note": "Theophylact of Ohrid, archbishop of Bulgaria (c. 1050 - c. 1108), wikidata Q1247278. Distinct from theophylactus-simocatta."
   },
   "nicephorus-callistus-xanthopulus": {
    "name": "Nicephorus Callistus Xanthopulus",
-   "aliases": {"wikidata": "Q939953"},
+   "aliases": {
+    "wikidata": "Q939953"
+   },
    "note": "Nikephoros Kallistos Xanthopoulos, ecclesiastical historian (c. 1256 - c. 1335), wikidata Q939953."
   },
   "symeon-thessalonicensis": {
    "name": "Symeon Thessalonicensis",
-   "aliases": {"wikidata": "Q246426"},
+   "aliases": {
+    "wikidata": "Q246426"
+   },
    "note": "Symeon, archbishop of Thessalonica (d. 1429), wikidata Q246426."
   },
   "ignatius-polycarpus-melito-pg5": {
    "name": "Ignatius, Polycarpus, Melito et alii (PG 5)",
    "aliases": {},
    "note": "Collective for PG 5. Served shares: Ignatius of Antioch (testimonia + epistles, long and short recensions + excerpts) ~63%, Polycarp Ad Philippenses ~5%, Martyrium Polycarpi ~7%, Papias fragments ~3%, Melito fragments and other second-century pieces the remainder."
-  },
-  "justinus-et-apologetae-pg6": {
-   "name": "Justinus, Tatianus, Athenagoras, Theophilus et Hermias (PG 6)",
-   "aliases": {},
-   "note": "Collective for PG 6 (second-century apologists). Served shares: Justin Martyr (Apol. I 6-13%, Apol. II 13-16%, Dial. c. Tryphone 16-41%, Acta Justini 97-100%) ~38%, Pseudo-Justin (Oratio/Cohortatio head 0-6%, Ep. ad Zenam, De resurrectione, Quaestiones 64-97%) ~40%, Tatian Oratio ~10%, Athenagoras ~9%, Theophilus Ad Autolycum ~3%, Hermias Irrisio ~1%."
   },
   "socrates-et-sozomenus-pg67": {
    "name": "Socrates Scholasticus et Sozomenus (PG 67)",
@@ -61,11 +66,6 @@
    "aliases": {},
    "note": "Standard collective title for PG 109 (after the Bonn corpus volume). Served shares: Theophanes Continuatus ~47%, Joannes Cameniates De excidio Thessalonicae (with the Demetrius Cydones monodia appended at 58.1-60.2%) ~13%, Symeon Magister (Logothetes) Annales 60.2-89.1% ~29%, Josephus Genesius Basileiai 89.2-100% ~11%."
   },
-  "cedrenus-et-psellus-pg122": {
-   "name": "Georgius Cedrenus et Michael Psellus (PG 122)",
-   "aliases": {},
-   "note": "Collective for PG 122: Cedrenus Compendium historiarum continuation (served tokens 0-54.2%), then Michael Psellus (De omnifaria doctrina at 54.2%, dialogues, Characteres, Monodia, De legum nominibus) ~46%."
-  },
   "isidorus-joel-choniates-pg139": {
    "name": "Isidorus Thessalonicensis, Joel et Nicetas Choniates (PG 139)",
    "aliases": {},
@@ -75,16 +75,6 @@
    "name": "Gregorius Palamas, Acindynus et Barlaam (PG 151)",
    "aliases": {},
    "note": "Collective for PG 151 (hesychast controversy volume). Served shares: Gregory Palamas homilies ~0-30%, Philotheus CP Encomium/Vita Palamae from 29.7%, then pro- and anti-Palamite controversy texts (Gregorius Acindynus, Barlaam of Calabria and related documents) to 100%. No author reaches 90%."
-  },
-  "codinus-et-ducas-pg157": {
-   "name": "Georgius Codinus et Ducas (PG 157)",
-   "aliases": {},
-   "note": "Collective for PG 157: Pseudo-Codinus corpus (De officiis from served start, De sepulcris imperatorum at 43.9%) ~45%, Ducas Historia Turcobyzantina ~45-100% (~55%)."
-  },
-  "michael-glycas-et-alii-pg158": {
-   "name": "Michael Glycas, Hilarion monachus et alii (PG 158)",
-   "aliases": {},
-   "note": "Collective for PG 158: Michael Glycas (Annales + letters) ~88.2% of served tokens, just under the 90% dominance bar; tail is Hilarion monachus Dialogus de azymis (header at 88.2%) and other short 15th-century pieces (incl. one contra Joannem Argyropoulum at 90.7%)."
   }
  },
  "works": {
@@ -92,7 +82,12 @@
    "author": "oribasius",
    "title": "Oeuvres d'Oribase vol. 3 (Bussemaker-Daremberg, remainder)",
    "slug": "oribasius.bussemaker-daremberg-vol-3-remainder",
-   "tags": {"century": 4, "genre": ["medicine"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "medicine"
+    ]
+   },
    "attribution": "single-author edition (remainder pages)",
    "evidence": [
     "served rows: Greek therapeutic text (Collectiones medicae material), pages 701-750 of the volume",
@@ -104,7 +99,12 @@
    "author": "oribasius",
    "title": "Oeuvres d'Oribase vol. 4 (Bussemaker-Daremberg, remainder)",
    "slug": "oribasius.bussemaker-daremberg-vol-4-remainder",
-   "tags": {"century": 4, "genre": ["medicine"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "medicine"
+    ]
+   },
    "attribution": "single-author edition (remainder pages)",
    "evidence": [
     "served rows: the editors' apparatus notes on Oribasius' text ('Oribase a probablement ecrit ...'), pages 668-729",
@@ -115,7 +115,12 @@
    "author": "oribasius",
    "title": "Oeuvres d'Oribase vol. 5 (Bussemaker-Daremberg, remainder)",
    "slug": "oribasius.bussemaker-daremberg-vol-5-remainder",
-   "tags": {"century": 4, "genre": ["medicine"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "medicine"
+    ]
+   },
    "attribution": "single-author edition (remainder pages)",
    "evidence": [
     "served rows: Greek chapter tables of the Synopsis/Euporista books, pages 937-944",
@@ -125,7 +130,12 @@
   "ocr.pg026": {
    "author": "athanasius-theology",
    "title": "Patrologia Graeca 26 (unsplit pages)",
-   "tags": {"century": 4, "genre": ["theology"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: title page ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ (pg026_0010.1, pg026_0509.1) and ΠΕΡΙ ΤΗΣ ΕΝΣΑΡΚΟΥ ΕΠΙΦΑΝΕΙΑΣ ... ΚΑΙ ΚΑΤΑ ΑΡΕΙΑΝΩΝ (De incarnatione et contra Arianos, a PG 26 work)",
@@ -136,7 +146,12 @@
   "ocr.pg031": {
    "author": "basilius-theology",
    "title": "Patrologia Graeca 31 (unsplit pages)",
-   "tags": {"century": 4, "genre": ["theology"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: volume front matter and chapter tables; the Latin monitum at pg031_0030.1 names Basil ('duas has orationes ... Basil[ius]')",
@@ -147,7 +162,12 @@
   "ocr.pg036": {
    "author": "gregorius-nazianzenus",
    "title": "Patrologia Graeca 36 (unsplit pages)",
-   "tags": {"century": 4, "genre": ["theology"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: title page ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΘΕΟΛΟΓΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ (pg036_0007) followed by the five Theological Orations in sequence",
@@ -159,7 +179,12 @@
   "ocr.pg048": {
    "author": "joannes-chrysostomus",
    "title": "Patrologia Graeca 48 (unsplit pages)",
-   "tags": {"century": 4, "genre": ["theology"]},
+   "tags": {
+    "century": 4,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: title page ΙΩΑΝΝΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ (pg048_0010) and PG 48 works (ΠΕΡΙ ΠΑΡΘΕΝΙΑΣ, ΕΙΣ ΝΕΩΤΕΡΑΝ ΧΗΡΕΥΣΑΣΑΝ)",
@@ -171,7 +196,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 1 (Walz)",
    "slug": "rhetores-graeci-walz.vol-1",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: volume table of contents starting 'I. Ἑρμογένοῦς προγυμνάσματα' (walz_rhetores_v1_0019.1); Pachymeres header at 82.8%",
@@ -182,7 +211,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 2 (Walz)",
    "slug": "rhetores-graeci-walz.vol-2",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: opens with 'Σχόλια περὶ σχημάτων ῥητορικῶν' (walz_rhetores_v2_0007.1); progymnasmata exercises throughout",
@@ -193,7 +226,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 3 (Walz)",
    "slug": "rhetores-graeci-walz.vol-3",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: volume table of contents 'I. Ἑρμογένοῦς τέχνη ῥητορικὴ' (walz_rhetores_v3_0007.1); stasis-theory section heads",
@@ -204,7 +241,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 4 (Walz)",
    "slug": "rhetores-graeci-walz.vol-4",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: 'ΕΚ ΔΙΑΦΟΡΩΝ ΤΕΧΝΟΓΡΑΦΩΝ ΕΙΣ ΤΑ ΠΡΟΛΕΓΟΜΕΝΑ ΤΗΣ [ΡΗΤΟΡΙΚΗΣ]' (walz_rhetores_v4_0015.2): anonymous prolegomena and scholia collections",
@@ -215,7 +256,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 5 (Walz)",
    "slug": "rhetores-graeci-walz.vol-5",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: table of contents 'I. ΣΩΠΑΤΡΟΥ ΣΧΟΛΙΑ ΕΙΣ ΤΑΣ ΣΤΑΣΕΙΣ ... V. ΜΙΧΑΗΛ ΤΟΥ ΨΕΛΛΟΥ ΠΕΡΙ ΤΩΝ ΤΟΥ ΛΟΓΟΥ ΜΕΡΩΝ' (walz_rhetores_v5_0007-0008)",
@@ -226,7 +271,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 6 (Walz)",
    "slug": "rhetores-graeci-walz.vol-6",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: table of contents 'I. Δοξοπάτρου προλεγόμενα τῆς ῥητορικῆς' (walz_rhetores_v6_0007.1); 'ΓΕΩΡΓΙΟΥ ΤΟΥ ΔΙΑΙΡΕΤΟΥ ΣΧΟΛΙΑ ΕΙΣ ΤΟ ΠΕΡΙ ΕΥΡΕΣΕΩΣ ΕΡΜΟΓΕΝΟΥΣ' at 85.2%",
@@ -237,7 +286,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 7 pars 1 (Walz)",
    "slug": "rhetores-graeci-walz.vol-7-1",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: metrical/rhetorical scholia contents; 'ΕΙΣ ΤΟ ΠΕΡΙ ΕΥΡΕΣΕΩΣ ΕΡΜΟΓΕΝΟΥΣ ... ΑΝΕΠΙΓΡΑΦΟΣ' at 7.4%",
@@ -248,7 +301,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 7 pars 2 (Walz)",
    "slug": "rhetores-graeci-walz.vol-7-2",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: opens ΕΡΜΟΓΕΝΟΥΣ (walz_rhetores_v7pt2_0007.1); 'ΓΡΗΓ. ΤΟΥ ΚΟΡ. ΕΙΣ ΤΟ ΠΕΡΙ ΜΕΘ. ΔΕΙΝ.' (Gregory of Corinth) at 61.9%",
@@ -259,7 +316,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 8 (Walz)",
    "slug": "rhetores-graeci-walz.vol-8",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: table of contents 'I. Σωπάτρου διαίρεσις ζητημάτων' (walz_rhetores_v8_0007.1); declamation-theme headers",
@@ -270,7 +331,11 @@
    "author": "rhetores-graeci-walz",
    "title": "Rhetores Graeci vol. 9 (Walz)",
    "slug": "rhetores-graeci-walz.vol-9",
-   "tags": {"genre": ["rhetoric"]},
+   "tags": {
+    "genre": [
+     "rhetoric"
+    ]
+   },
    "attribution": "anthology (collective label)",
    "evidence": [
     "served rows: epideictic treatises (ΠΕΡΙ ΕΠΙΔΕΙΚΤΙΚΩΝ at 0.3%, ΠΩΣ ΔΕΙ ... ΤΑΣ ΠΟΛΕΙΣ ΕΓΚΩΜΙΑΖΕΙΝ at 19%: Menander Rhetor material)",
@@ -281,7 +346,12 @@
    "author": "concilium-ephesenum",
    "title": "Acta concilii Ephesini (Mansi t. 4)",
    "slug": "concilium-ephesenum.acta-mansi-t4",
-   "tags": {"century": 5, "genre": ["conciliar"]},
+   "tags": {
+    "century": 5,
+    "genre": [
+     "conciliar"
+    ]
+   },
    "attribution": "conciliar acta (collective label)",
    "evidence": [
     "served rows: header Η ΕΝ ΕΦΕΣΩ ΑΓΙΑ ΟΙΚΟΥΜΕΝΙΚΗ ΤΡΙΤΗ ΣΥΝΟΔΟΣ (mansi_ephesus_t4_0298.1); synodal letters and kephalaia",
@@ -293,7 +363,12 @@
    "author": "concilium-ephesenum",
    "title": "Acta concilii Ephesini (Mansi t. 5)",
    "slug": "concilium-ephesenum.acta-mansi-t5",
-   "tags": {"century": 5, "genre": ["conciliar"]},
+   "tags": {
+    "century": 5,
+    "genre": [
+     "conciliar"
+    ]
+   },
    "attribution": "conciliar acta (collective label)",
    "evidence": [
     "served rows: ΕΠΙΛΥΣΙΣ ΤΩΝ ΔΩΔΕΚΑ [ΚΕΦΑΛΑΙΩΝ], letters of Cyril of Alexandria and Theodoret, homily of Cyril, Acacius of Melitene, Theodotus: Ephesus-431 dossier",
@@ -304,7 +379,12 @@
   "cogPG.PG003": {
    "author": "pseudo-dionysius-areopagita",
    "title": "Patrologia Graeca 3",
-   "tags": {"century": 6, "genre": ["theology"]},
+   "tags": {
+    "century": 6,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: Corpus Dionysiacum (hierarchies, De divinis nominibus scope) ending with Epistula 10 to John the Theologian on Patmos at 99.8% (locus 566); Pachymeres' paraphrase is printed interleaved with the text in PG 3 and part of the served tokens",
@@ -315,48 +395,44 @@
   "cogPG.PG005": {
    "author": "ignatius-polycarpus-melito-pg5",
    "title": "Patrologia Graeca 5",
-   "tags": {"century": 2, "genre": ["theology", "epistolography"]},
+   "tags": {
+    "century": 2,
+    "genre": [
+     "theology",
+     "epistolography"
+    ]
+   },
    "attribution": "collective (no author >=90% of served tokens)",
    "evidence": [
     "served rows: Ignatian testimonia + epistles from served start to ~63% (ΠΡΟΣ ΕΦΕΣΙΟΥΣ at locus 331, ΠΡΟΣ ΜΑΓΝΗΣΙΟΥΣ at 388, Ad Polycarpum at 46.7%), Polycarp Ad Philippenses at 67%, Martyrium Polycarpi at 70.4-77%, Papias fragments at 77.2%, Melito and other second-century fragments in the tail",
     "PG volume table: PG 5 = Ignatius of Antioch, Polycarp, Melito of Sardis, Papias, et al."
    ]
   },
-  "cogPG.PG006": {
-   "author": "justinus-et-apologetae-pg6",
-   "title": "Patrologia Graeca 6",
-   "tags": {"century": 2, "genre": ["apologetics"]},
-   "attribution": "collective (no author >=90% of served tokens)",
-   "evidence": [
-    "served rows: ΙΟΥΣΤΙΝΟΥ ΦΙΛΟΣΟΦΟΥ ΚΑΙ ΜΑΡΤΥΡΟΣ Oratio at start, Apologia I at 6.4%, Apologia II at 13.4%, Dialogus (Trypho passim 16-41%), Tatian (quoting 'ὁ θαυμασιώτατος Ἰουστῖνος') 41-51%, Athenagoras De resurrectione ~51-60%, Theophilus Ad Autolycum at 60.1%, ΕΡΜΙΟΥ ΦΙΛΟΣΟΦΟΥ ΔΙΑΣΥΡΜΟΣ at 63.3%, Ps-Justin Ep. ad Zenam at 64.2% and De resurrectione/Quaestiones to 97%, Acta Justini at 97.4%",
-    "PG volume table: PG 6 = Justin Martyr, Tatian, Athenagoras, Theophilus of Antioch, Hermias"
-   ]
-  },
   "cogPG.PG067": {
    "author": "socrates-et-sozomenus-pg67",
    "title": "Patrologia Graeca 67",
-   "tags": {"century": 5, "genre": ["history", "ecclesiastical"]},
+   "tags": {
+    "century": 5,
+    "genre": [
+     "history",
+     "ecclesiastical"
+    ]
+   },
    "attribution": "collective (48%/52% split, no author >=90%)",
    "evidence": [
     "served rows: Socrates HE from served start (proem naming Eusebius, locus 22) to 48.2%; header ΕΡΜΕΙΟΥ ΣΩΖΟΜΕΝΟΥ ΣΑΛΑΜ[ΙΝΙΟΥ] (Sozomen HE dedication to Theodosius II) at locus 427, Sozomen to 100%",
     "PG volume table: PG 67 = Socrates Scholasticus and Sozomen"
    ]
   },
-  "cogPG.PG087_1": {
-   "author": "procopius-rhetoric",
-   "title": "Patrologia Graeca 87.1",
-   "tags": {"century": 6, "genre": ["exegesis"]},
-   "attribution": "single-author volume",
-   "evidence": [
-    "served rows: Procopius' catena proem on the Octateuch (ΠΡΟΟΙΜΙΟΝ 'Ἤδη μὲν καὶ πρότερον ...' at locus 18), then Genesis through Kings/Judges commentary in volume order",
-    "PG volume table: PG 87 = Procopius of Gaza",
-    "author entry reused: registry procopius-rhetoric = Procopius of Gaza (wikidata Q557776 verified: sophist of Gaza, c. 465-528, Octateuch commentaries)"
-   ]
-  },
   "cogPG.PG101": {
    "author": "photius",
    "title": "Patrologia Graeca 101",
-   "tags": {"century": 9, "genre": ["theology"]},
+   "tags": {
+    "century": 9,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: header ΦΩΤΙΟΥ ΠΑΤΡΙΑΡΧΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ... ΠΡΟΣ ΑΜΦΙΛΟΧΙΟΝ (Amphilochia) at 0.2% (locus 44); numbered ΕΡΩΤΗΣΙΣ sections continue to the tail (ΕΡΩΤΗΣΙΣ 272 at 86.8%)",
@@ -367,7 +443,13 @@
   "cogPG.PG107": {
    "author": "leo-vi-sapiens",
    "title": "Patrologia Graeca 107",
-   "tags": {"century": 9, "genre": ["homiletics", "tactics"]},
+   "tags": {
+    "century": 9,
+    "genre": [
+     "homiletics",
+     "tactics"
+    ]
+   },
    "attribution": "dominant author (~96% of served tokens)",
    "evidence": [
     "served rows: the two Paraeneses transmitted under Basil I's name, addressed to Leo ('ΒΑΣΙΛΕΙΟΥ ΤΟΥ ΡΩΜΑΙΩΝ ΒΑΣΙΛΕΩΣ ... Λέοντι τῷ ... υἱῷ', loci 20-42) occupy only ~3.7% of tokens; from 3.7% Leo VI's homilies (ΛΟΓΟΣ ΙΖʹ 'Λέοντος ἐν Χριστῷ βασιλεῖ αἰωνίῳ βασιλέως' at 20.4%), Tactica (~33-54%), Novellae and Oracula follow",
@@ -378,7 +460,12 @@
   "cogPG.PG109": {
    "author": "scriptores-post-theophanem",
    "title": "Patrologia Graeca 109",
-   "tags": {"century": 10, "genre": ["history"]},
+   "tags": {
+    "century": 10,
+    "genre": [
+     "history"
+    ]
+   },
    "attribution": "collective (largest share 47%, no author >=90%)",
    "evidence": [
     "served rows: Theophanes Continuatus proem at served start (locus 13) to ~47%; Cameniates/De excidio Thessalonicae region from 47.1% with ΔΗΜΗΤΡΙΟΥ ΚΥΔΟΝΙΟΥ ΜΟΝΩΔΙΑ at 58.1%; Symeon Magister ANNALES ('A LEONE ARMENIO', locus 337) 60.2-89.1%; JOSEPHI GENESII header (ΒΑΣΙΛΕΙΩΝ Α ΠΕΡΙ ΤΟΥ ΕΞ ΑΜΑΛΗΚ ΛΕΟΝΤΟΣ, locus 501) 89.2-100%",
@@ -388,7 +475,12 @@
   "cogPG.PG112": {
    "author": "constantinus-vii-porphyrogenitus-imperator",
    "title": "Patrologia Graeca 112",
-   "tags": {"century": 10, "genre": ["history"]},
+   "tags": {
+    "century": 10,
+    "genre": [
+     "history"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: De cerimoniis preface ('Ἄλλοις μέν τισιν ἴσως ἔδοξεν ἂν τουτὶ τὸ ἐγχείρημα περιττὸν ...', locus 44) and ceremonial content throughout, incl. the imperial tombs list (De cer. II.42) at 80.4%",
@@ -399,7 +491,12 @@
   "cogPG.PG113": {
    "author": "constantinus-vii-porphyrogenitus-imperator",
    "title": "Patrologia Graeca 113",
-   "tags": {"century": 10, "genre": ["history"]},
+   "tags": {
+    "century": 10,
+    "genre": [
+     "history"
+    ]
+   },
    "attribution": "dominant author (>=90% of served tokens)",
    "evidence": [
     "served rows: De thematibus from served start (locus 39), De administrando imperio (Pechenegs at 21.6%) to ~59%; the Constantinian Excerpta de legationibus (ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ at 59.2%, ΕΘΝΩΝ ΠΡΟΣ ΡΩΜΑΙΟΥΣ at 64.1%) fill the rest; all printed among Constantine's opera",
@@ -410,7 +507,11 @@
   "cogPG.PG118": {
    "author": "oecumenius",
    "title": "Patrologia Graeca 118",
-   "tags": {"genre": ["exegesis"]},
+   "tags": {
+    "genre": [
+     "exegesis"
+    ]
+   },
    "attribution": "single-author volume (commentaries transmitted under Oecumenius' name)",
    "evidence": [
     "served rows: prologue on the collected ἐξηγήσεις (locus 17), then the Acts/Pauline catena commentaries in order (ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ΓΑΛΑΤΑΣ ΕΠΙΣΤΟΛΗΣ at 82%, ΠΡΟΣ ΕΦΕΣΙΟΥΣ at 88%)",
@@ -418,31 +519,15 @@
     "author entry reused: registry oecumenius (wikidata Q85798998)"
    ]
   },
-  "cogPG.PG122": {
-   "author": "cedrenus-et-psellus-pg122",
-   "title": "Patrologia Graeca 122",
-   "tags": {"century": 11, "genre": ["history"]},
-   "attribution": "collective (54%/46% split, no author >=90%)",
-   "evidence": [
-    "served rows: Cedrenus Compendium continuation (death of Alexander, Constantine VII accession) from served start to 54.2%; Psellus DE OMNIFARIA DOCTRINA header at 54.2% (locus 351), MICHAELIS PSELLI DIALOGUS at 66.3%, ΤΟΥ ΑΥΤΟΥ ΨΕΛΛΟΥ ΜΟΝΩΔΙΑ at 71.1%, ΠΕΡΙ ΚΑΙΝΩΝ ΔΟΓΜΑΤΩΝ (De legum nominibus) at 73.8%",
-    "PG volume table: PG 121-122 = George Cedrenus; Migne's t. 122 also carries Michael Psellus opuscula (confirmed by the served headers)"
-   ]
-  },
-  "cogPG.PG123": {
-   "author": "theophylactus-achridensis",
-   "title": "Patrologia Graeca 123",
-   "tags": {"century": 11, "genre": ["exegesis"]},
-   "attribution": "single-author volume",
-   "evidence": [
-    "served rows: commentary on Matthew from served start; header ΘΕΟΦΥΛΑΚΤΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΟ ΚΑΤΑ ΛΟΥΚΑΝ ΕΥΑΓΓΕΛΙΟΝ at 43.1% (locus 347)",
-    "PG volume table: PG 123-126 = Theophylact of Ohrid",
-    "wikidata Q1247278 (Theophylact of Ohrid, c. 1050-1108) verified"
-   ]
-  },
   "cogPG.PG124": {
    "author": "theophylactus-achridensis",
    "title": "Patrologia Graeca 124",
-   "tags": {"century": 11, "genre": ["exegesis"]},
+   "tags": {
+    "century": 11,
+    "genre": [
+     "exegesis"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: commentary on John from served start; ΘΕΟΦΥΛΑΚΤΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ... ΠΡΟΣ ΡΩΜΑΙΟΥΣ ΕΠΙΣΤΟΛΗΣ ΕΞΗΓΗΣΙΣ at 26.3%, 2 Corinthians at 59.9%, Colossians at 89.3%, 1-2 Thessalonians at 94.5-97.7%",
@@ -452,95 +537,47 @@
   "cogPG.PG125": {
    "author": "theophylactus-achridensis",
    "title": "Patrologia Graeca 125",
-   "tags": {"century": 11, "genre": ["exegesis"]},
+   "tags": {
+    "century": 11,
+    "genre": [
+     "exegesis"
+    ]
+   },
    "attribution": "single-author volume",
    "evidence": [
     "served rows: THEOPHYLACTI COMMENTARIUS IN PRIMAM EPISTOLAM AD TIMOTHEUM header at 0.1% (locus 13); Pastoral epistles then the Acts commentary (TEXTUS/COMMENTARIUS alternation on Acts 4:32 at 61.8%)",
     "PG volume table: PG 123-126 = Theophylact of Ohrid"
    ]
   },
-  "cogPG.PG126": {
-   "author": "theophylactus-achridensis",
-   "title": "Patrologia Graeca 126",
-   "tags": {"century": 11, "genre": ["exegesis"]},
-   "attribution": "single-author volume",
-   "evidence": [
-    "served rows: ΘΕΟΦΥΛΑΚΤΟΥ ΕΙΣ ΤΗΝ Αʹ ΤΟΥ ΑΓΙΟΥ ΙΩΑΝΝΟΥ ΕΠΙΣΤΟΛΗΝ at served start; Martyrium of the Fifteen Martyrs of Tiberiopolis 'A THEOPHYLACTO ... BULGARIAE ARCHIEPISCOPO' at 11.8%; ΕΞΗΓΗΣΙΣ ΕΙΣ ΤΟΝ ΠΡΟΦΗΤΗΝ ΩΣΗΕ at 43.7%, Jonah at 71.4%, further prophets at 83.2%",
-    "PG volume table: PG 123-126 = Theophylact of Ohrid"
-   ]
-  },
-  "cogPG.PG134": {
-   "author": "joannes-zonaras",
-   "title": "Patrologia Graeca 134",
-   "tags": {"century": 12, "genre": ["history"]},
-   "attribution": "single-author volume",
-   "evidence": [
-    "served rows: Zonaras' Epitome historiarum proem ('μεῖζόν σοι τοῦ ἔργου τὸ πάρεργον', locus 31) and the Annales continuously",
-    "PG volume table: PG 134-135 = John Zonaras",
-    "author entry reused: registry joannes-zonaras (wikidata Q32052)"
-   ]
-  },
   "cogPG.PG139": {
    "author": "isidorus-joel-choniates-pg139",
    "title": "Patrologia Graeca 139",
-   "tags": {"century": 13, "genre": ["history", "homiletics"]},
+   "tags": {
+    "century": 13,
+    "genre": [
+     "history",
+     "homiletics"
+    ]
+   },
    "attribution": "collective (Choniates ~76%, below 90%)",
    "evidence": [
     "served rows: Marian sermons (ΛΟΓΟΣ Αʹ Εἰς τὴν γέννησιν ... Μαρίας) from served start to ~17% = Isidore of Thessalonica; brief world-chronicle segment (9th-11th c. emperors at 21.9-22.7%) = Joel; Nicetas Choniates Historia from ~24% (John II Komnenos at 35.3%, Norman sack of Thessalonica at 59.9%, ΤΟΥ ΑΥΤΟΥ ΧΩΝΙΑΤΟΥ ΤΑ ΜΕΤΑ ΤΗΝ ΑΛΩΣΙΝ at 90.7%, Thesaurus pinax at 99.3%)",
     "PG volume table: PG 139 = Isidore of Thessalonica, Nicetas of Thessalonica, John of Citrus, Mark III of Alexandria, Joel, Nicetas Choniates"
    ]
   },
-  "cogPG.PG146": {
-   "author": "nicephorus-callistus-xanthopulus",
-   "title": "Patrologia Graeca 146",
-   "tags": {"century": 14, "genre": ["history", "ecclesiastical"]},
-   "attribution": "single-author volume",
-   "evidence": [
-    "served rows: Historia ecclesiastica continuation (book 8 recap of Constantine and Licinius at served start, locus 12) running unbroken",
-    "PG volume table: PG 145-147 = Nicephorus Callistus Xanthopoulos (PG 146 = HE books 8-14)",
-    "wikidata Q939953 (Nikephoros Kallistos Xanthopoulos, c. 1256-1335) verified"
-   ]
-  },
   "cogPG.PG151": {
    "author": "palamas-acindynus-barlaam-pg151",
    "title": "Patrologia Graeca 151",
-   "tags": {"century": 14, "genre": ["theology"]},
+   "tags": {
+    "century": 14,
+    "genre": [
+     "theology"
+    ]
+   },
    "attribution": "collective (no author >=90% of served tokens)",
    "evidence": [
     "served rows: Palamas homilies from served start ('Ἀδελφοὶ μὲν ἡμεῖς πάντες ...') to ~30%; Philotheus CP's Encomium/Vita of Palamas from 29.7% (ΤΟΥ ΑΓΙΟΤΑΤΟΥ ... ΠΑΤΡΙΑΡΧΟΥ header, Barlaam narrative at 33.2%); pro- and anti-Palamite controversy texts (Acindynus/Barlaam material, incl. anti-Palamite polemic 'Ὁ δὲ Παλαμᾶς ... ἀκτίστους ὀνομάζει θεότητας' at 77.6%) to 100%",
     "PG volume table: PG 151 = Gregory Palamas, Gregory Acindynus, Barlaam of Calabria"
-   ]
-  },
-  "cogPG.PG155": {
-   "author": "symeon-thessalonicensis",
-   "title": "Patrologia Graeca 155",
-   "tags": {"century": 15, "genre": ["theology", "liturgy"]},
-   "attribution": "single-author volume",
-   "evidence": [
-    "served rows: the Dialogus in Christo from served start (ΑΡΧΙΕΡΕΥΣ speaker headings, locus 22); running head SYMEONIS THESSALONICENSIS ARCHIEP. at 46.5%; De sacra liturgia and Expositio de divino symbolo sections at 71.8-97.8%",
-    "PG volume table: PG 155 = Symeon of Thessalonica",
-    "wikidata Q246426 (Symeon of Thessalonica, d. 1429) verified"
-   ]
-  },
-  "cogPG.PG157": {
-   "author": "codinus-et-ducas-pg157",
-   "title": "Patrologia Graeca 157",
-   "tags": {"century": 15, "genre": ["history"]},
-   "attribution": "collective (45%/55% split, no author >=90%)",
-   "evidence": [
-    "served rows: Pseudo-Codinus De officiis from served start (Τὰ ἐκκλησιαστικὰ ὀφφίκια, locus 20) with De sepulcris imperatorum at 43.9%; Ducas Historia Turcobyzantina from ~45% (Theodore Laskaris/John Vatatzes succession at locus 385) to 100% (fall of Constantinople at 91.5%, Aegean islands 1462 at 98.6%)",
-    "PG volume table: PG 157 = George Codinus and Doukas"
-   ]
-  },
-  "cogPG.PG158": {
-   "author": "michael-glycas-et-alii-pg158",
-   "title": "Patrologia Graeca 158",
-   "tags": {"century": 12, "genre": ["history", "theology"]},
-   "attribution": "collective (Glycas ~88%, just below the 90% bar)",
-   "evidence": [
-    "served rows: Glycas' Annales preface ('Βραχυσύλλαβον ... τὰ χρονικὰ ...', locus 49) and chronicle + letters to 88.2%; ΙΛΑΡΙΩΝΟΣ ΜΟΝΑΧΟΥ ΛΟΓΟΣ ΔΙΑΛΕΚΤΙΚΟΣ (De pane ... et azymis) header at 88.2% (locus 524); a contra Joannem Argyropoulum piece at 90.7%",
-    "PG volume table: PG 158 = Michael Glycas, John of Adrianople, Isaiah of Cyprus, Hilarion the Monk, John Argyropoulos, et al.",
-    "author entry for Glycas alone exists as registry michael-glycas (wikidata Q581550); volume kept collective because Glycas holds <90% of served tokens"
    ]
   }
  }
