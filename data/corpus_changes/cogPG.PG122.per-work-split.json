@@ -1,0 +1,1122 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG122 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG122",
+  "source_urn": "cogPG.PG122",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG122 (residual after the Cedrenus v2 split, scripts/split_cedrenus_pg122.py). Duplicate-scan blocks verified by similarity at carve time; NOTE the research file's claim that 652-663 duplicate 630-641 is off by two rows: measurement shows 652-661 duplicate 630-639, while 662-663 are unique continuing Patria text (663 continues 662 mid-sentence), so 662-663 are kept",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG122.' (delete the file when it was 'created'), strip the 'PG122.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG122.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG122": {
+   "rows": 412,
+   "greek_tokens": 153769,
+   "sha256": "6a5240ce9ccc4f5a9c7f025176541f2c4b09b26eb251b838bb6d333c763780cf"
+  }
+ },
+ "works": [
+  {
+   "slug": "scylitzes-continuatus.continuatio-scylitzae",
+   "tlg": "tlg3064.tlg002",
+   "title": "Scylitzes Continuatus (Migne: Joannes Scylitzes Curopalata, Excerpta ex Breviario historico)",
+   "rank": "secondary",
+   "secondary_reason": "tlg3064.tlg002 is served from byzantium.gr's manual transcription of the Bonn edition, which beats OCR of the same text per the source-precedence tie-break (see scripts/split_cedrenus_pg122.py); this Migne PG122 OCR copy is kept as a displaced secondary witness, not served",
+   "file": "data/corpus_secondary/scylitzes-continuatus.continuatio-scylitzae.jsonl",
+   "mode": "created",
+   "rows": 54,
+   "greek_tokens": 20956,
+   "volume_loci": "190-243",
+   "locus_map": "cogPG.PG122 locus N -> scylitzes-continuatus.continuatio-scylitzae locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "190",
+     "incipit": "αὐτίκα τῷ βασιλικῷ νομίσματι σπαρηφόρος διαχαράττεται, μὴ τῷ Θεῷ τὸ πάν ἐπιγράφων,, ἀλλὰ τῇ ἰδίᾳ ἰσχύι καὶ τῇ περὶ πολέμους ἐμπειρία",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 109
+    }
+   ],
+   "evidence": "Loc 190 incipit is verbatim the byzantium.gr scylitzes-continuatus skylitzes0.1 (documented in scripts/split_cedrenus_pg122.py); narrative runs 1057 (Isaac I's reforms) to the murder of the logothetes Nikephoritzes (~1078) at loc 243 tail ('...κατὰ τὴν ἀναίρεσιν τοῦ λογο[θ]έτου τοιοῦτον ἔσχε τέ[λ]ος'). Work's final 2-3 pages (cols ~473-477) fall in the 244-274 gap. NOTE: already served cleanly by byzantium.gr under tlg3064.tlg002."
+  },
+  {
+   "slug": "michael-psellus.poemata",
+   "tlg": "tlg2702.tlg015",
+   "title": "Poemata (PG 122 selection: In Canticum canticorum paraphrasis cum exegesi = poem 2; Versus de dogmate; Synopsis canonum; Synopsis legum = poem 8, first pages only)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.poemata.jsonl",
+   "mode": "created",
+   "rows": 84,
+   "greek_tokens": 31945,
+   "volume_loci": "275-475",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.poemata locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "275",
+     "incipit": "Ἐπειδήπερ τὸ φιλομαθὲς τὸ σὸν, ὥ στεφηφόρε, Ἐρμηνευθῆναι γλίχεται τὴν ξένην καὶ ποικίλην Τοῦ τῶν ψσμάτων ᾳσματος ἐξήγησιν καὶ γνῶσιν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 111
+    },
+    {
+     "locus": "415",
+     "incipit": "«ἀέχου καὶ κῶν θεμέλιον τῶν καθ´ ἡμᾶς θογμάτων, Σύντομον, καὶ συνοπτικὸν, καὶ περιγεγραμμένον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    },
+    {
+     "locus": "470",
+     "incipit": "Τῶν συνελθόντων εὐσεβῶν εἰς Νικαίαν Πατέρων, Ἐπὶ τοῦ αὐτοκράτορος καὶ πιστοῦ Κωνσταντίνου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 77
+    },
+    {
+     "locus": "475",
+     "incipit": "Πολὺ καὶ δυσοεώρητον, τὸ μάθημα τοῦ νόμου, Ἐν πλάτει δυσπερίληπτον, ἀσαφὲς ἐν συνόψει, Καὶ λόγῳ δυσερμήνευτον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Loc 275 opens with the verse dedication to the emperor ('ὦ στεφηφόρε') = the known incipit of Westerink Poema 2 (In Canticum); loci 276-350 alternate verse paraphrase and prose catena exegesis of the Song; ends at loc 350 tail; loc 351 starts the next work. The tlg id covers the verse layer only; the prose catena layer is Migne's composite, not in Westerink. || Michael Psellus, Versus de dogmate (Στίχοι περὶ δόγματος; PG 122, 811-817; in Westerink's Poemata): Political verses ('Δέχου τὸν θεμέλιον τῶν καθ' ἡμᾶς δογμάτων...') on Trinity, Incarnation, and the seven councils (Nestorius, Dioscorus, Origenism, iconoclasm) filling loci 415-418; matches Migne index 'Versus de Dogmate 811-817'. Poem transmitted in Westerink's Poemata (exact poem number not verified). || Michael Psellus, Synopsis canonum in verse (Migne index: 'Oblatio Nomocanonis'; PG 122, 919-923; didactic poem on the councils and their canons, in Westerink's Poemata): Political verses enumerating councils and canon counts (Nicaea 318 fathers, Ancyra 24 canons, Neocaesarea, Sardica, Gangra...) begin mid-loc 470 and close at loc 474: 'Δίδαις αὕτη σύντομος τῶν ἱερῶν κανόνων.' Quoted incipit is the first served portion (true opening lines mid-page). Loci 472-473 are duplicate scans of 470-471. Westerink Poemata attribution probable (exact poem number not verified). || Michael Psellus, Synopsis legum versibus iambis et politicis (Σύνοψις τῶν νόμων, dedicated to Michael VII Doukas; PG 122, 925-1006 = Westerink, Poemata 8): Loc 474 tail carries the cut Latin heading 'ΜΙΟΗΑ...' and loc 475 the full 'MICHAELIS PSELLI SYNOPSIS LEGUM' + Greek title end ('...τὸν βασιλέα Καίσαρα Μιχαὴλ τὸν Δοῦκαν, ἐκ προστάξεως τοῦ πατρὸς αὐτοῦ') + the poem's known incipit. Only the first ~2 pages are served: the body (Migne cols ~937-1006) is lost in the 476-513 gap.",
+   "notes": "four Migne pieces of the one Westerink Poemata work (tlg2702.tlg015) served as one corpus work; the In Canticum section carries Migne's interwoven prose exegesis (Gregory of Nyssa, Nilus, Maximus excerpts), which Westerink does not print"
+  },
+  {
+   "slug": "michael-psellus.de-omnifaria-doctrina",
+   "tlg": null,
+   "title": "De omnifaria doctrina (Didaskalia pantodape)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
+   "mode": "created",
+   "rows": 50,
+   "greek_tokens": 20320,
+   "volume_loci": "351-400",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-omnifaria-doctrina locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "351",
+     "incipit": "Πιστεύω εἰς ἔνα Πατέρα τὴν πάντων ἀρχὴν καὶ αῖτίαν, οὐκ ἔκ τινος γεννηθέντα, ἀναίτιον καὶ ἀγέννητον μόνον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 87
+    }
+   ],
+   "evidence": "Loc 351 head carries the OCR'd Latin heading 'ΒΕ ΟΜΝΙΕΑΚΙΑ ΒΟΟΤΗΙΝΑ' = DE OMNIFARIA DOCTRINA (anchors Migne col 687 = 2*351-15 exactly) followed by cap. 1 (creed). Numbered chapters run continuously into the 150s ('ρμη´ Διατί ἡ ἄρκτος...' loc 398, 'ρνε´' loc 400), the Διατί-questions drawn from Plutarch's Quaestiones naturales; ends mid-loc 401. No entry for this work in the local tlg_canon.json (TLG online has it under 2702).",
+   "notes": "shared boundary row 401 (De omnifaria end + Quaestionum naturalium dedication) is assigned to the Quaestiones"
+  },
+  {
+   "slug": "michael-psellus.quaestionum-naturalium-solutiones-sp",
+   "tlg": null,
+   "title": "Quaestionum naturalium solutiones (anonymous compendium, Migne's title; akin to Symeon Seth)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.quaestionum-naturalium-solutiones-sp.jsonl",
+   "mode": "created",
+   "rows": 14,
+   "greek_tokens": 5697,
+   "volume_loci": "401-414",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.quaestionum-naturalium-solutiones-sp locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "401",
+     "incipit": "Ὁ μὸν Πλούταρχος, ὧ μέγιστε καὶ ειότατε βασιλεῦ, διαφόρους δόξας ἀπαριθμούμενος, καὶ τὴν ἀληθῆ μὴ ἀποδεικνύων καὶ πιστούμενος, συγχέει μᾶλλον τὸν λογισμὸν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 129
+    }
+   ],
+   "evidence": "Begins mid-loc 401 with a fresh dedication to an emperor criticizing Plutarch's doxographic method, then restarts chapter numbering: α´ earth spherical (402), β´ size of earth, climates (403-404), clouds/winds/earthquakes (405-406), η´ Περὶ ἴριδος (407), ιδ´ Εἰ τρέφεται ὁ οὐρανός (408), ιθ´ Τίς ἡ τοῦ οὐρανοῦ οὐσία (409), lunar eclipses to loc 414 tail. Distinct work from De omnifaria (own preface and numbering); flagged for closer identification against Symeon Seth (Delatte) at split time."
+  },
+  {
+   "slug": "michael-psellus.de-operatione-daemonum-sp",
+   "tlg": null,
+   "title": "De operatione daemonum dialogus (Timotheus; now held spurious)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl",
+   "mode": "created",
+   "rows": 29,
+   "greek_tokens": 6749,
+   "volume_loci": "419-447",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-operatione-daemonum-sp locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "420",
+     "incipit": "Χρόνιος, ὦ Τιμόθεε, δύο πον ἔτη, καὶ πρὸς, ἐντεῦθεν ἔκδημος ὤν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 48
+    }
+   ],
+   "evidence": "Loc 419 is a bare title page whose whole text is the OCR'd Latin 'ΜΙΟΗΑΕΕΗΘ ΡΒΕΙΙΙ ΟΙΑΙΟΩΕΘ...' = MICHAELIS PSELLI DIALOGUS [DE OPERATIONE DAEMONUM]; loc 420 opens with the dialogue's known incipit (Timotheus and Thrax); ends mid-loc 448 with the closing joke '...ὑπὲρ τὴς Συρακουσίων δεκάτας καταθησόμεθα.' Now held spurious (12th c.); no entry in local canon.",
+   "notes": "row 419 is a bare OCR'd Latin title page; the dialogue incipit anchor sits on row 420. Shared boundary row 448 goes to the Quaenam opusculum"
+  },
+  {
+   "slug": "michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp",
+   "tlg": null,
+   "title": "Quaenam sunt Graecorum opiniones de daemonibus",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp.jsonl",
+   "mode": "created",
+   "rows": 4,
+   "greek_tokens": 1429,
+   "volume_loci": "448-451",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "448",
+     "incipit": "αʹ. Ὁ μὲν ἡμέτερος λόγος προα,ρέσεις καὶ τοῖς ἀγγελοις διδοὺς, καὶ πρὸς τὴν κρείττονα μὲν τούτους ἀπευθύνων ῥοπὴν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Mid-loc 448 heading 'ΤΟΥ ΑΥΤΟΥ ΨΕΛΛΟΥ ΤΙΙΑ ΠΕΡΙ ΔΑΙΜΟΝΩΝ ΔΟΠΑΖΟΥΣΙΝ ΕΑΛΗΝΕΣ' + Latin 'QUAENAM SUNT GRAECORUM OPINIONES DE DAEMONIBUS' (garbled), then daemonology (Baubo, solar tropai, daimon-classes) through loc 451; its end falls in the 452-453 gap."
+  },
+  {
+   "slug": "michael-psellus.de-lapidum-virtutibus",
+   "tlg": null,
+   "title": "De lapidum virtutibus",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-lapidum-virtutibus.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 902,
+   "volume_loci": "454-460",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-lapidum-virtutibus locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "454",
+     "incipit": "Αἰτιολογήσασθαι οὐ σοι τὰς ἐν τοῖς λίθοις δανάμεις οὐκ ἂν τολμήσαιμι, οὐδὲ μιμήσομαι, κατὰ ποῦ τὸ μέρος τῶν Δογματικῶν τὴν προπέτεισν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 111
+    }
+   ],
+   "evidence": "Loc 454 opens with the treatise's programmatic address on the powers of stones; loci 455-460 catalog stones (amethyst, galactites, iaspis, onyx, selenites, smaragdos, chrysolithos, chalazias) and it closes within loc 460: '...τοὺς δὲ λόγους αὐτῶν καὶ τας αἰτίας παρὰ τοῖς ἀνω θησαυροῖς ἔασον.' (Modern ed. in Duffy's Philosophica minora I; if adopted, that collection is tlg2702.tlg010.) The index's tiny 'Epigramma in S. Gregorium Nazianzenum' (cols 899-901) is not identifiable in the served rows."
+  },
+  {
+   "slug": "michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni",
+   "tlg": null,
+   "title": "Characteres Gregorii Theologi, Basilii Magni, Chrysostomi et Gregorii Nysseni",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 1239,
+   "volume_loci": "461-463",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "461",
+     "incipit": "αʹ. Ἡρώτησας, λογιώτατε ἀδελφὲ, τίνες τε καὶ πόσοι τῆς κατὰ´ ἡμᾶς φλιοσοφίας προς τὴν τέχνην τοὺς οἰκείους λόγους ἀπίξεσαν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 100
+    }
+   ],
+   "evidence": "Loc 461 head: 'ΤΟΥ ΑΥΤΟΥ [Χ]ΑΡΑΚΤΗΡΕΣ...' with Latin 'CHARACTERES GREGORII THEOLOGI, BASILII MAGNI, JOANNIS CHRYSOSTOMI ET GREGORII NYSSENI' (OCR-garbled), then stylistic comparison of the four fathers (Gregory vs Demosthenes etc.) to mid-loc 464.",
+   "notes": "shared boundary row 464 goes to the Versus in tres hierarchas"
+  },
+  {
+   "slug": "michael-psellus.versus-in-sanctos-tres-hierarchas-sp",
+   "tlg": null,
+   "title": "Versus in sanctos tres hierarchas with epigrams (signed by a John, probably Mauropous; printed as Joannis Pselli)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.versus-in-sanctos-tres-hierarchas-sp.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 479,
+   "volume_loci": "464-465",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.versus-in-sanctos-tres-hierarchas-sp locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "464",
+     "incipit": "ΔΣχα, θεατὰ, καὶ βραχὺν μεῖνον χρόνον Μήπως τεράξῃς τὴν καλὴν συνουσίαν, Καὶ ζημιώσῃς κόσμον ἐνθέους λόγους.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 89
+    }
+   ],
+   "evidence": "Mid-loc 464 heading 'ΤΟΥ ΙΟΛΝΝΟΥ ΨΕΛΛΟΥ ΣΤΙΧΟΙ ΕΙΣ ΤΟΥΣ ΑΓΙΟΥΣ ΤΡΕΙΣ ΙΕΡΑΡΧΑΣ' (JOANNIS PSELLI VERSUS IN SANCTOS TRES HIERARCHAS); loc 465 carries the epigram cycle (Εἰς Γρηγόριον τὸν Θεόλογον, Εἰς τὸν μέγαν Βασίλειον, Εἰς τοὺς τρεῖς ἅμα, Εἰς τὴν αὐτοῦ καθαίρεσιν) signed '...εὔνους μαθητὴς οἰκέτης Ἰωάννης', pointing to a John (Mauropous) rather than Michael Psellus. The index's 'Encomium et Officium Symeonis Metaphrastae' (col 910) is not identifiable in the served rows."
+  },
+  {
+   "slug": "michael-psellus.monodia-in-sanctae-sophiae-collapsam",
+   "tlg": null,
+   "title": "Monodia in Sanctae Sophiae (partem) collapsam",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.monodia-in-sanctae-sophiae-collapsam.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 757,
+   "volume_loci": "466-467",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.monodia-in-sanctae-sophiae-collapsam locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "466",
+     "incipit": "Ἐν ἄρα καὶ συμφορὰ συμφορᾶς, καὶ πάθος πάθους, καὶ λύπη λύπης, καὶ οἱμωγῆς οἱμωγὴ, καὶ θρῆνος θρήνου μείζων τε καὶ ἀργαλεώτερος.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 103
+    }
+   ],
+   "evidence": "Loc 466 head: 'ΤΟΥ ΑΥΤΤΟΥ ΨΕΛΛΟΥ ΜΟΝ[Ω]ΔΙΑ / EJUSDEM PSELLI MONODIA IN COLLAPSIONEM TEMPLI SANCTAE SOPHIAE' (OCR-garbled) + lament incipit; lament over the collapsed dome continues (biblical Zion language, loc 467) and ends mid-loc 468 ('...εἰ προσκυνήσω, εἰ θεοκλυτήσω, Θεοῦ ἄρα τοῦτο κάκεῖνο εἰδότος.').",
+   "notes": "shared boundary row 468 goes to De mortis determinatione"
+  },
+  {
+   "slug": "michael-psellus.de-mortis-determinatione",
+   "tlg": null,
+   "title": "De mortis determinatione (Antigraphe on whether the term of life is fixed)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-mortis-determinatione.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 732,
+   "volume_loci": "468-469",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-mortis-determinatione locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "468",
+     "incipit": "αʹ. Οὐχ ὡς ἡπόρηται τὸ παρὰ σοῦ προβληθὲν ζήτημα, λογιώτατε Πάτερ, οὕτως ἡρώτησας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 66
+    }
+   ],
+   "evidence": "Mid-loc 468 heading 'ΤΟΥ ΣΟΦΩΤΑΤΟΥ ΨΕΛΛΟΥ ΑΝΤΙΓΡΑΦΗ / SAPIENTISSIMI PSELLI RESPONSUM' (garbled); argument that nothing is indefinite to God, the ὅρος of each life fixed ('περιώρισται γὰρ τῷ τεθνηκότι ὁ τῆς ζωῆς χρόνος', loc 469), ending within loc 470. Loc 472 is a duplicate scan of loc 470.",
+   "notes": "shared boundary row 470 (De mortis end + Synopsis canonum verses) is assigned to the Poemata work"
+  },
+  {
+   "slug": "michael-psellus.de-actionum-nominibus",
+   "tlg": null,
+   "title": "De actionum nominibus (Attic legal antiquities)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-actionum-nominibus.jsonl",
+   "mode": "created",
+   "rows": 8,
+   "greek_tokens": 2907,
+   "volume_loci": "514-521",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-actionum-nominibus locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "514",
+     "incipit": "αʹ. Ὁρῶν ὑμῶν ἐνίους τὰ τῶν παρ´ Ἕλλησι καὶ Ῥωμαίοις δικῶν ὁνόματα περὶ πολλοῦ ποιουμένους εἰδέναι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 81
+    }
+   ],
+   "evidence": "The dump resumes after the big gap exactly at this work's cap. α´ (loc 514 = Migne col 1007, col = 2*loc-21 post-gap); numbered chapters on Attic legal terms (diomosia/antomosia loc 516, exomosia loc 517, month-days loc 519, protagonistai mth´=49 loc 521) through loc 521; loc 522 opens the next heading."
+  },
+  {
+   "slug": "michael-psellus.de-legum-nominibus",
+   "tlg": null,
+   "title": "De legum nominibus (glossary of Roman-law terms and Latin legal loanwords)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-legum-nominibus.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 752,
+   "volume_loci": "522-524",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-legum-nominibus locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "522",
+     "incipit": "Αδοιάνειον δόγμα, ὅπερ βούλεται τὸν καλῆς πίσττι νομέα μήτε κερδαίνειν, μήτε ζημιοῦσθαι.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Loc 522 head: 'ΤΟΥ ΑΥΤΟΥ ΠΕΡΙ ΚΑΙΝΩΝ ΔΟΓΜΛΤΩΜ ΚΑΙ ΟΡΩΝΤΝΝΟΜΙΚΩΝ ΡΩΜΑΙΣΤΙ ΑΕΓΛΜΕΝΝ ΑΕΧΕΩΝ' with garbled Latin; prose glossary of senatusconsulta (Hadrianeion, Macedonianeion, Orphitianeion) and Latin terms (Δινάριον, Διγέστον, Δεπορτάτιο, Ἰοῦς κίβιλις Ῥωμανόρουμ), closing mid-loc 525: 'Καὶ ταῦτα μέν σοι τῶν ἐπὶ μνήμης κειμένων ἡμῖν.'",
+   "notes": "shared boundary row 525 goes to De anima celebres opiniones"
+  },
+  {
+   "slug": "michael-psellus.de-anima-celebres-opiniones",
+   "tlg": null,
+   "title": "De anima celebres opiniones",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-anima-celebres-opiniones.jsonl",
+   "mode": "created",
+   "rows": 24,
+   "greek_tokens": 10379,
+   "volume_loci": "525-548",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-anima-celebres-opiniones locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "525",
+     "incipit": "Οτι τῶν ψυχικῶν δυνάμεων, αἱ μέν εἰσιν ἄλογοι, αἱ δὲ λογικαί- τῶν δὲ λογικῶν, αἱ μὲν ζωτικαὶ καὶ ἀρεκτικαὶ, αἱ δὲ γνωστικαί.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 97
+    }
+   ],
+   "evidence": "Mid-loc 525 heading 'ΜΙΩΗΑΕΙΙΘ ΡῼΕΙΙΙ ... ΡΕ ΑΝΙΜ Α ΛΕΗΕΒΣΕΘ ΟΡΙΝΙΟΝΕΘ' = MICHAELIS PSELLI DE ANIMA CELEBRES OPINIONES, then doxographic psychology (soul faculties, doxa/dianoia/nous, soul as entelechy, loci 526-548). Duplicate scan pages: 552-557 repeat 542-547 and 558-570 repeat 536-548, so this work's text also fills most of 552-570. Related material in O'Meara's Philosophica minora II (tlg2702.tlg011) but identity not verified."
+  },
+  {
+   "slug": "michael-psellus.commentarius-in-psychogoniam-platonicam",
+   "tlg": null,
+   "title": "Commentarius in Psychogoniam Platonicam (on the soul-generation in Plato's Timaeus)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.commentarius-in-psychogoniam-platonicam.jsonl",
+   "mode": "created",
+   "rows": 18,
+   "greek_tokens": 6509,
+   "volume_loci": "550-589",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.commentarius-in-psychogoniam-platonicam locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "550",
+     "incipit": "τι ποσοῦ καὶ δείκνυται, ὅτι ἡ ἰσότης στοιχεῖόν ἐστι τοῦ παντοίου τῶν ἐν ἀριθμοῖς σχέσεων πληθυσμοῦ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 82
+    }
+   ],
+   "evidence": "Mathematical exegesis of the Timaeus psychogonia (harmonic ratios, hebdomadic soul division loc 575, leimma computations loc 585-588); the Greek title of the second constituent piece stands at loc 584 head. True opening lost with missing page 549. WARNING for splitting: within 550-589 the loci 552-570 are duplicate scans of De anima pages (552-557=542-547, 558-570=536-548) and 572-573 duplicate 550-551; distinct psychogonia content = 550-551 + 574-589 only.",
+   "notes": "the work's true opening is lost with missing page 549; rows 552-573 inside the span are rescans of De anima pages and are dropped, leaving 550-551 + 574-589 as the distinct psychogonia text"
+  },
+  {
+   "slug": "michael-psellus.opuscula-psychologica-theologica-daemonologica",
+   "tlg": "tlg2702.tlg011",
+   "title": "Expositio in oracula Chaldaica + Expositio brevis dogmatum Chaldaicorum (the two Chaldaica of O'Meara's Philosophica minora II, partial)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.opuscula-psychologica-theologica-daemonologica.jsonl",
+   "mode": "created",
+   "rows": 15,
+   "greek_tokens": 5284,
+   "volume_loci": "594-608",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.opuscula-psychologica-theologica-daemonologica locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "594",
+     "incipit": "εἴδωλα λέγεται παρὰ τοῖς φιλοσόφοις, τὰ συμφυῆ μὲν κρείττοσιν, ἐλάττονα δὲ ἐκείνων τυγχάνοντα",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 79
+    },
+    {
+     "locus": "607",
+     "incipit": "ἑπτὰ φασι σωματικοὺς κόσμους, ἐμπύριον ἕνα καὶ πρῶτον, καὶ τρεῖς μετ´ αὐτὸν αἱθερίους, ἔπειτα τρεῖς ὑλαίους",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 88
+    }
+   ],
+   "evidence": "Lemma-by-lemma exegesis of Chaldean oracles ('Πάθος γὰρ ὁρίζεται ὁ Χαλδαῖος...' loc 596; recollection/descent of souls loc 605); the work's opening (and title) lost in the 590-593 gap; ends before the Ἔκθεσις heading at loc 607. || Michael Psellus, Expositio brevis dogmatum Chaldaicorum (Ἔκθεσις κεφαλαιώδης καὶ σύντομος τῶν παρὰ Χαλδαίοις δογμάτων; PG 122, 1150-1153; O'Meara, Philosophica minora II, Chaldaica): Loc 607: heading 'ΤΟΥ ΑΥΤΟΥ [Ψ]ΕΛΛΟΥ ΕΚΘΕΣΙΣ ΚΕΦΛΑΙΩΔΗΣ ΚΑΙ ΣΥΝΤΟΜΟΣ ΤΩΝ ΠΑΡΑ ΧΑΑΔΑΙΟΙΣ ΔΟΓΜΑΤΩΝ' + the summary of Chaldean cosmology (seven corporeal worlds, synocheis, teletarchai, Hekate, hapax/dis epekeina, loc 608), ending mid-loc 609 before the Pimander note.",
+   "notes": "two Migne pieces of the one O'Meara collection work (tlg2702.tlg011) served as one corpus work; the Expositio's own opening is lost in the 590-593 gap. Shared boundary row 609 goes to the Pimander note"
+  },
+  {
+   "slug": "michael-psellus.in-mercurii-trismegisti-pimandrum",
+   "tlg": null,
+   "title": "In Mercurii Trismegisti Pimandrum (brief note)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.in-mercurii-trismegisti-pimandrum.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 305,
+   "volume_loci": "609-609",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.in-mercurii-trismegisti-pimandrum locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "609",
+     "incipit": "Ἐοικεν ἀ γόης οὖτος τῇ σείᾳ γραφὴ οὐ παρέργως ὡμίληκέναι· ὅθεν ἐκ ταύτης ὁρμώμενος τῆ κοσμοποιίᾳ ἐπιχειρεῖ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 89
+    }
+   ],
+   "evidence": "Mid-loc 609 heading 'ΤΟΥ [Ψ]ΕΛΛΟΥ ΕΙΣ ΤΟΜ ΕΡΜΟΥ ΤΟΥ ΤΡΙΣΜΕΓΙΣΤΟΥ ΠΩΜΑΝΔΡΗΝ / PSELLI IN MERCURII TRISMEGISTI PIMANDRUM' (garbled); short polemical note on Hermes' borrowing from Moses, ending early in loc 610.",
+   "notes": "shared boundary row 610 goes to De locis Atticis"
+  },
+  {
+   "slug": "michael-psellus.de-locis-et-nominibus-atticis-sp",
+   "tlg": null,
+   "title": "De locis et nominibus Atticis",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.de-locis-et-nominibus-atticis-sp.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 1031,
+   "volume_loci": "610-612",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.de-locis-et-nominibus-atticis-sp locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "610",
+     "incipit": "Σὺ δὲ ἄρα οὐκ αὐτῆς μόνον τῆς Ἀθηναίων ἐρᾷῷς πόλεως, ἀλλὰ καὶ τῶν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 52
+    }
+   ],
+   "evidence": "Mid-loc 610 heading '[Ψ]ΕΛΛΟΥ ΠΕΡΙ ΤΩΝ ΑΘΗΝΑΙΚΩΝ ΤΟΠΩΝ ΚΑΙ ΟΝΟΜΑΤΩΝ / PSELLI DE LOCIS ET NOMINIBUS ATTICIS' (with a stretch of garbled Latin from the parallel column); epistolary antiquarian tour of Athens (Sphettos/Phaleron demes loc 611; acropolis, Parthenon, Phidias' Athena loc 612)."
+  },
+  {
+   "slug": "michael-psellus.epistulae",
+   "tlg": null,
+   "title": "Epistolae (numbered PG selection, with the In equum aereum epigram at the head of the first row)",
+   "rank": "primary",
+   "file": "data/corpus/michael-psellus.epistulae.jsonl",
+   "mode": "created",
+   "rows": 13,
+   "greek_tokens": 5190,
+   "volume_loci": "613-625",
+   "locus_map": "cogPG.PG122 locus N -> michael-psellus.epistulae locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "613",
+     "incipit": "Ἑμπνους ὁ χαλκοῦς ἵππος οὕτος ὃν βλέεις, Ἕμπνους ἀληθῶς καὶ φριμάζεται τάχα.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 63
+    },
+    {
+     "locus": "613",
+     "incipit": "Αʹ. Τῷ μητροπολίτῃ Θεσσαλονίκης, τῷ γεὶ Κμαίστωρι τῶν ῥητόρων. Οὐδίν ὁ ῥήτωρ, ὅτι μὴ γλῶσσα λαμπρὰ, κἂν λέγῃ, κἂν γράφῃ, κἂν παιδεύῃ ῥητορικήν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 113
+    }
+   ],
+   "evidence": "Letters begin mid-loc 613 right after the horse epigram, numbered in the print (vii at loc 618, ix at 620, xi at 622; 'Πρὸς τὸν Καίσαρα τὸν Δούκαν' loc 617), continuing to loc 625 (short row); the section's end and the 'Fragmenta' (Migne col 1186) fall in the missing page 626. Canon has no Psellus Epistulae entry. || Michael Psellus, In equum aereum in Hippodromo (epigram; PG 122, 1161): Loc 613 head: 'ΜΙΧΑΗΛΤΟΥ [Ψ]ΕΛΛΟΥ Εἰς τὸν χαλκοῦν ἵππον τὸν ἐν τῷ Ἱ[πποδρομίῳ]' + six-line epigram on the bronze horse; possibly also in Westerink's Poemata (tlg2702.tlg015), unverified.",
+   "notes": "the six-line In equum aereum epigram (PG 122, 1161) occupies the head of row 613 and cannot be row-separated from the first letters; it rides in this work with its own incipit anchor recorded"
+  },
+  {
+   "slug": "pseudo-codinus.patria-constantinopoleos",
+   "tlg": "tlg3168.tlg005",
+   "title": "De antiquitatibus Constantinopolitanis libri IV = Patria Constantinopoleos (Banduri's Anonymus; ends mid-book III)",
+   "rank": "secondary",
+   "secondary_reason": "tlg3168.tlg005 is served primary from the PG157 carve (pseudo-codinus.patria-constantinopoleos, the fuller Migne recension incl. the Hagia Sophia book); this PG122 Banduri-recension copy (books I-III, incomplete, heavy rescan duplication) is kept as a secondary witness to avoid double-serving the work",
+   "file": "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl",
+   "mode": "created",
+   "rows": 32,
+   "greek_tokens": 12158,
+   "volume_loci": "627-679",
+   "locus_map": "cogPG.PG122 locus N -> pseudo-codinus.patria-constantinopoleos locus 'PG122.N'",
+   "incipit_checks": [
+    {
+     "locus": "627",
+     "incipit": "ὸ πῶς μιτῆλοες τὰς κκρυμμένας πάγας, Καὶ πῶς σοφῶς ἤγαγες αὐτὰς εἰς φῶς",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 58
+    }
+   ],
+   "evidence": "Loc 627 opens with iambic dedication verses to an emperor ('...αὐτοκράτορ...') then the topography of Byzas' city ending '...ἡ ἐπὶ τοῦ Βύζαντος σχηματογραφία τῆς πόλεως'; loc 628 'Ἡ δὲ ἑτέρα σχηματογραφία, ἣν συντέθεικεν ὁ μέγας Κωνσταντῖνος' (walls of Constantine); Latin running title 'ANONYMI DE ANTIQUITATIBUS CPOLITANIS LIBER SECUNDUS' at loc 666; statue notices (book II) loci 665-671, church/building notices (book III) 672-679 (Hagia Eirene, ta Bassou, Blachernae, hagia Soros). Content = the Ps.-Codinus Patria (Preger, Scriptores originum Cpol. pt. 2; cf. tlg3120). WARNING for splitting: loci 640-651 and 652-663 are duplicate scans of 628-639/630-641; the dump ends abruptly mid-book III at loc 679 (the verse dedication at 627 could alternatively be the Pselli 'Fragmenta' of Migne col 1186).",
+   "notes": "rows kept after deduplication: 627-639, 650 (the unique leaf the first scan pass missed), 662-679; row_order places 650 in its reading position between 637 and 638 (it continues 637 mid-word), while its locus keeps the scan-page identity"
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "rescanned page images: 472-473 repeat 470-471; 552-557 repeat 542-547; 558-570 repeat 536-548 (549/571 absent on both sides); 572-573 repeat 550-551. In the Patria block the three scan passes each missed a different leaf: 640-649 repeat 628-637, 651/661 repeat 639, 652-659 repeat 630-637, 660 repeats 650 - but row 650 itself is a UNIQUE leaf (Zeus/zodiac statue notices) absent from the first pass, continuing row 637 mid-word (…ἐκ τῶν πολ|λῶν ὁπῆρχον), so it is kept and ordered between 637 and 638. Isolated near-dupe suspicions 301/303, 363/365, 435/436 did NOT verify as duplicates and are kept. All dropped rows archived verbatim below; every dropped/kept pair verified by similarity at carve time",
+  "pairs": [
+   {
+    "dropped_locus": "472",
+    "duplicate_of_kept_locus": "470",
+    "similarity": 0.964
+   },
+   {
+    "dropped_locus": "473",
+    "duplicate_of_kept_locus": "471",
+    "similarity": 0.97
+   },
+   {
+    "dropped_locus": "552",
+    "duplicate_of_kept_locus": "542",
+    "similarity": 0.963
+   },
+   {
+    "dropped_locus": "553",
+    "duplicate_of_kept_locus": "543",
+    "similarity": 0.96
+   },
+   {
+    "dropped_locus": "554",
+    "duplicate_of_kept_locus": "544",
+    "similarity": 0.972
+   },
+   {
+    "dropped_locus": "555",
+    "duplicate_of_kept_locus": "545",
+    "similarity": 0.966
+   },
+   {
+    "dropped_locus": "556",
+    "duplicate_of_kept_locus": "546",
+    "similarity": 0.952
+   },
+   {
+    "dropped_locus": "557",
+    "duplicate_of_kept_locus": "547",
+    "similarity": 0.976
+   },
+   {
+    "dropped_locus": "558",
+    "duplicate_of_kept_locus": "536",
+    "similarity": 0.964
+   },
+   {
+    "dropped_locus": "559",
+    "duplicate_of_kept_locus": "537",
+    "similarity": 0.98
+   },
+   {
+    "dropped_locus": "560",
+    "duplicate_of_kept_locus": "538",
+    "similarity": 0.97
+   },
+   {
+    "dropped_locus": "561",
+    "duplicate_of_kept_locus": "539",
+    "similarity": 0.967
+   },
+   {
+    "dropped_locus": "562",
+    "duplicate_of_kept_locus": "540",
+    "similarity": 0.953
+   },
+   {
+    "dropped_locus": "563",
+    "duplicate_of_kept_locus": "541",
+    "similarity": 0.97
+   },
+   {
+    "dropped_locus": "564",
+    "duplicate_of_kept_locus": "542",
+    "similarity": 0.966
+   },
+   {
+    "dropped_locus": "565",
+    "duplicate_of_kept_locus": "543",
+    "similarity": 0.966
+   },
+   {
+    "dropped_locus": "566",
+    "duplicate_of_kept_locus": "544",
+    "similarity": 0.964
+   },
+   {
+    "dropped_locus": "567",
+    "duplicate_of_kept_locus": "545",
+    "similarity": 0.963
+   },
+   {
+    "dropped_locus": "568",
+    "duplicate_of_kept_locus": "546",
+    "similarity": 0.963
+   },
+   {
+    "dropped_locus": "569",
+    "duplicate_of_kept_locus": "547",
+    "similarity": 0.979
+   },
+   {
+    "dropped_locus": "570",
+    "duplicate_of_kept_locus": "548",
+    "similarity": 0.965
+   },
+   {
+    "dropped_locus": "572",
+    "duplicate_of_kept_locus": "550",
+    "similarity": 0.984
+   },
+   {
+    "dropped_locus": "573",
+    "duplicate_of_kept_locus": "551",
+    "similarity": 0.982
+   },
+   {
+    "dropped_locus": "640",
+    "duplicate_of_kept_locus": "628",
+    "similarity": 0.982
+   },
+   {
+    "dropped_locus": "641",
+    "duplicate_of_kept_locus": "629",
+    "similarity": 0.975
+   },
+   {
+    "dropped_locus": "642",
+    "duplicate_of_kept_locus": "630",
+    "similarity": 0.969
+   },
+   {
+    "dropped_locus": "643",
+    "duplicate_of_kept_locus": "631",
+    "similarity": 0.969
+   },
+   {
+    "dropped_locus": "644",
+    "duplicate_of_kept_locus": "632",
+    "similarity": 0.969
+   },
+   {
+    "dropped_locus": "645",
+    "duplicate_of_kept_locus": "633",
+    "similarity": 0.964
+   },
+   {
+    "dropped_locus": "646",
+    "duplicate_of_kept_locus": "634",
+    "similarity": 0.939
+   },
+   {
+    "dropped_locus": "647",
+    "duplicate_of_kept_locus": "635",
+    "similarity": 0.952
+   },
+   {
+    "dropped_locus": "648",
+    "duplicate_of_kept_locus": "636",
+    "similarity": 0.961
+   },
+   {
+    "dropped_locus": "649",
+    "duplicate_of_kept_locus": "637",
+    "similarity": 0.946
+   },
+   {
+    "dropped_locus": "651",
+    "duplicate_of_kept_locus": "639",
+    "similarity": 0.974
+   },
+   {
+    "dropped_locus": "652",
+    "duplicate_of_kept_locus": "630",
+    "similarity": 0.964
+   },
+   {
+    "dropped_locus": "653",
+    "duplicate_of_kept_locus": "631",
+    "similarity": 0.951
+   },
+   {
+    "dropped_locus": "654",
+    "duplicate_of_kept_locus": "632",
+    "similarity": 0.971
+   },
+   {
+    "dropped_locus": "655",
+    "duplicate_of_kept_locus": "633",
+    "similarity": 0.964
+   },
+   {
+    "dropped_locus": "656",
+    "duplicate_of_kept_locus": "634",
+    "similarity": 0.929
+   },
+   {
+    "dropped_locus": "657",
+    "duplicate_of_kept_locus": "635",
+    "similarity": 0.97
+   },
+   {
+    "dropped_locus": "658",
+    "duplicate_of_kept_locus": "636",
+    "similarity": 0.962
+   },
+   {
+    "dropped_locus": "659",
+    "duplicate_of_kept_locus": "637",
+    "similarity": 0.945
+   },
+   {
+    "dropped_locus": "660",
+    "duplicate_of_kept_locus": "650",
+    "similarity": 0.951
+   },
+   {
+    "dropped_locus": "661",
+    "duplicate_of_kept_locus": "639",
+    "similarity": 0.97
+   }
+  ],
+  "rows_archived_verbatim": [
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "472",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "καὶ τοῖς τῶν πατέρων ἡμῶν λόγοις, τὴν´ εἰ τισι μὲ ἐντύχοις ὡς περὶ ὡρισμένου τοῦ συμπεράσματος τῆς ζωῆς ἡμῶν λέγουσι, τισὶ δὲ ὡς περὶ ἀορίστου. μὴ διαφωνεῖν πρὸς ἄλληλα οἰηθείης τὰ δόγματα, ἀλλ´ ἐπικρίνοις ὡς ταῦτα μὲν κατά τοῦτον τὸν τρόπον ἐξενήνεκται, ἐκεῖνα δὲ κατὰ τὸν ἕτερον. σʹΠρὸς δε τούτοις εἰδέναι σε βούλομαι ὡς οὐχ ἀπλῆ τις ἐστὶν ἡ καθ´ ἡμᾶς φύσις, ἀλλὰ πλήρεις ἐσμὲν καὶ τοῦ ὅντος καὶ τῆς γενέσεως, διοικούμεθά τε τὰ μὲν ὑπὸ προνοίας, τὰ δ´ ὑπὸ φόσεως, τὰ δ´ ἐκ προαιρέσεως, Καὶ οὐ τοῦτο λέγω. ὡς διέστηκε τι τῆς προνοίας καὶ τοῦ Θεοῦ, ἀλλ´ ὄτι καὶ τἄλλα ἐκεῖθεν τὴν οὐσίαν λαχόντα ἡ φυσικῶς περὶ ἡμᾶς ἐνεργεῖ ἢ προαιρετικῶς. Διὰ ταῦτα τοιγαροῦν καὶ κουμοὶ καὶ θάλπη ἐκφέρουσιν ἡμᾶς τῆς ζωῆς ὅτι καὶ Κφύοεως μετεσχήκαμεν· καὶ αὖθις ἄτοποι γνῶμαι σβεννύουσιν ἡμῶν τὴν ζωήν, παρὰ τὸ μέρος τῆς προαιρέσεως. ἅπαντα οἶδε μὲν ὡρισμένως ὁ Θεὸς ἐκεῖνα δὲ κατὰ τὴν ἑαυτῶν φύσιν τὴν ἐνέργειαν ἔχουσιν. ἔχεις δοὺ τὴν λύσιν ἐπὶ βραχέος ὃπερ ἠρώτησας, Πατέρων ἐμοὶ λογιώτατε καὶ σεβασμιώτατε. Ἔχε μοι γνῶσιν, δέσποτα, καὶ τοῦ Νομοκανόνος. ούνθετος βίβλος πέφυκε νόμων τε καὶ κανόνων. Κανόνων μὲν συνοδικῶν, καὶ νόμων διαφόρων, Τῶν νεαρῶν δὲ μάλιστα πανσόφων θεσπισμάτων, Δυνηγορνῦνται κάλλιστα τοῖς γραφεῖσι κανόσιν. ἐστι δὲ πρώτη σύνοδος τῇ τιμῇ καὶ τῇ τάξει, Τῶν συνελθόντων εὐσεβῶν εἰς Νικαίαν Πατέρων, Ἐπὶ τοῦ αὐτοκράτορος καὶ πιστοῦ Κωνσταντίνου, Ὡε μέγας, ὃς ἐξαίρετος καλῶς ἐπωνομάσθη. Ὥν ὀκτὼ καὶ δέκ. ἀριθμὸς πρὸς τοῖς τριακοσίοις. Δευτίρα ταύτης πέφυκε, τῷ χρόνῳ δὲ προτέρα, Τῶν ἐλθόντων εἰς Ἅγκυραν Πατέρων μακαρίων Οἶ τέσσαρας πρὸς εἴκοσι ἐξεθεντο κανόνας, Οἱ δ´ ἐν Νικαίᾳ εἴκοσι ἐξέθεντο καὶ μόνους Τρίτη σύνοδος γέγονεν ἐν Νεοκαισαρεία· Αὔτη πρῶτον πέφυκε καὶ τῆς ἐν τῇ Νικαίᾳ, Τρίτην δὲ τάξιν εἴληφεν, ὡς τῶν δοοῖν ἐλάττω"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "473",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Τῆς μὴν τῆς ἀγιωτάτης, τῆς δὲ χρόνου πρεσβείᾳ, Κανόνες ιδ´ καὶ ταύτης τῆς συνόδου Τετάρτη τῆς ἐν Σαρδικῇ μετὰ τοὺς ἐν Νικαίᾳ Κανόνες εἶς πρὸς εἴκοσι καὶ ταύτης τῆς συνόδου·Ἡ πέμπτη τῶν ἐν Γάγγραις δὲ Πατέρων συνελ- [όντων, ὧν οἷ κανόνες εἶκοσι τυγχάνουσι καὶ μόνοι ἕκτῃ τῶν εἰς Θεούπολιν κοινῇ δεδραμηκότων Οὔτω γὰρ ὀνομάζουσι τὴν Ἀντιόχου πόλιν, Ὡν πέντε πρὸς τοῖς εἴκοσι τυγχάνουσι κανόνες ἑβδόμῃ τούτων πέφυκε τῶν ἐν λαοδικείᾳ. Τῷ´ ὧν ἐξεφωνήθησαν δογματικοὶ κανόνες Ἐννέα πρὸς πεντήκοντα πίστεως ὅλοι πλήρεις. Τῶν δ´ εἰς Κωνσταντίνου πόλιν Πατέρων ουνελθόντων, ὀγδόῃ τοότων σύνοδος ὧν ἐπτὰ οἱ κανόνας Ἔ δέ γ´ ἐννάτη σόνοδος γέγονεν ἐν Ἐφέσῳ Ὑφ´ ἧς ἐξεφωνήθησαν ἐννέα κανόνες μόνοι. Δοκάτη δὲ τῷ ἀριθμῷ τῶν ἐν τῆ Χαλνηδόνι Πἀρ ὤν ἑπτὰ πρὸς εἴκοσιν ἐτέθησαν κανόνες, Ὁ μέγας δὲ ὁ Βασίλειος ἡ βάσις τῶν δογμάτων κτὼ πρὸς τοῖς ἑξήκοντα ἐθέσπισε κανόνας. Εἰς δὲ Κωνσταντίνου πόλιν καὶ δίς καὶ τρὶς ἡθροίσθη Αογὰς Πατέρων εὐσεβῶν ὧν οἱ κανόνες δῆλοι. Ἀλλοι τε πλεῖστοι τῶν πιστῶν ἀνδρῶν σεβασμίων Κανόνας ἐκτεθήκασι κρατύνοντες τὴν πίστιν ὧνπερ ὁ Διονύσιος ὁ τῆς Ἀλεξανδρείας, Τρηγόριος ἐπίσκοπος ὁ Κεοκαισαρείας, Τιμόθειος ὁ εὐσεβὴς, καὶ Κόριλλος ὁ πάνυ, Γεννάδιος ὁ θαυμαστὸς θεσπίσας ἐγκυκλίως Πρὸ τούτων διὰ Κλήμεντος ἐνεγράφησαν κανόνεις, Των σεβασμίων καὶ σεπτῶν καὶ θείων ἀποστόλων, Πέντε πρὸς ὀγδοήκοντα σεβάσμιοι κανόνες. Οὐ πάντες δὲ θεσπίζουσι περὶ θεολογίας, Ἀλλὰ´ οἱ μὲν τὰ τῆς πίστεως κρατύνουσιν εὐλόγως, Οἱ δὲ τοῖς ἁμαρτάνουσιν μέτρα τῆς μετανοίας, Εὐθέως κανονίζουσι τοὺς χειροτονουμένους Ηάντες δὲ λυσιτέλειαν εἴσάγουσι τῷ βίῳ Ὁ κανοίσας δ´ ἄπαντας ἐντέχνως τοὺς κανόνας, Ὅσους ἐφεῦρε, δέσποτα, κανόνας τῶν Πατέρων Πρὸς τὴν πὸτὴν ὑπόθεσιν εὐκαίρως γεγραμμένους, Ιάντας εἰς ἕν συνήγαγεν ὥσπερ ὑπὸ τίτλ ους Ἀλλὰ κληρονομουμένον δέσποτα, πολλοὶ διά τι [πταῖσμα, Ἀδοοτοι καθεστήκασιν εἰς ὃν ἄγονται κλῆρον, Ηολλοὶ γοῦν ἐκανόνισαν τὰ περὶ τῶν ἀδέκτων, Ὥτε λογὰς τῶν σεβαστῶν καὶ θείων Ἀποστόλων, Ὁ μέγας τε Βασίλειος ἵγραψε περὶ τούτων. Ἵν οὖν μὴ δυσχεραίνηται ἐρευνῶν τοὺς κανόνας, Ὁ συναθροίσας ἅπαντας εἰς ἕν πυκτίον, ἄναξ, Τέχνην ἀδημιούργησεν ἐν τούτῳ θαυμασίαν, Πρὸς τὴν ὑποκειμένην γὰρ καὶ ζητουμένην αύαιν Κανόνας τοὺς προσήκοντας συνήθροισεν ἐντέχνως, ἐστι καὶ τάξις, δέσποτα, καὶ βαθμὸς τῶν κανόνων.",
+    "corrections": [
+     "confusion"
+    ]
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "552",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "οὐ οὐ μόνον τὰ ἄυλα οἶδεν, ἀλλὰ καὶ τὰ ἔνυλα, Ὁ γὰρ εἰδὼς τὰ κρείττονα, πολλῷ πλέον καὶ τὰ χείρονα οἶδε τὰ ἄυλα. Σκοπήσει πάντως καὶ τὰ χείρονα τῶν αὐλῶν· ἄ ἐστι τὰ ἔνυλα. Εἰ γὰρ ὁ νοῦς ὅ ἐστιν ἡ λογικὴ γνῶσις. μόνον οἶδε τὰ ἄυλα, οὐ γινώσκει δὲ καὶ τὰ ἔνυλα, ὅσται ὁ νοῦς κατά τι ἄνους· τὰ γὰρ ἔνυλα οὐ νοῶν, ἄνους ἕσται κατ´ αὐτά· ἀλλὰ μὲν ἄτοπον τὸν νοῦν κατά τι ἄνουν εἶναι. Οὐκ ἄρα τὰ ἄυλα μόνον οἶδεν, ἀλλὰ καὶ τὰ ἔνυλα. Καὶ ταῦτα μὲν ὁ Ἀριστοτέλης. Ὅτι δὲ καὶ τὰ ἔνυλα οἶδεν ὁ νοῦς ἔντεῦθεν ἔστι συνιδεῖν. Εἰ γὰρ οὐ ἠπίστατο τὰ ἔνυλα, πῶς ἐπιδιορθοῦται τὴν αἴσθησιν, ὁρῶσαν τὴν κώπην ἐν ὕδατι κεκλασμένην, καὶ τὸν ἥλιον ποδιαῖον; ἀλλως τε δὲ ἔχομεν κανόνα, ὅτι τὸ ἐπιστάμενον διαφορὰν πραγμάτων, πολλῷ μᾶλλον αὐτὰ τάδε· τῆν διαφορὰν τῶν αὐλῶν πρὸς τὰ ἔνυλα, οἶδεν ἄρα καὶ τὰ ἔνυλα. Ἀλλ´ ἐρεῖς ἵσως ὅτι ἄτοπον ἀστι τὸ νοῦν τὰ ἔπω εἰδέναι· ταῦτα γὰρ αἰσθήσεώς ἐστι τὸ τὰ νυλα καὶ τὰ κατὰ μέρος γινώσκειν· ὁ μὲν γὰρ νοῦς αὰναθάλοω οἵδε μύνον· τῆς δὲ αἰσθήσεως ἐστι τὸ εἰδιναι μερικὰ, ἀ τινά ἐστιν ἔνυλα. Ἐστι δὲ εἰπεῖν πρὸς τοῦτο. ὅτὶ ὁ νοῦς τῷ μὲν ὑποκειμένῳ εἶς ἐστι, τῷ δὲ λόγῳ διάφορος. Ὁ γὰρ νοῦς ἥ καθ´ ἑαυτὸν μόνον ἐνεργεῖ, καὶ τότε τὸ καθόλου μόνον οἶδεν· ἡ μετὰ αἰσθήσεως ἐνεργεῖ, ὀργάνῳ αὐτῇ κεχρημένος· καὶ τότε τὰ ἔνυλα καὶ μερικὰ οἶδεν. Ὡσπερ γὰρ ἡ αὐτῆ εὐθεῖα, τῷ μὲν ὑποκειμένῳ ἡ αὐτή ἐστι, τῷ δὶ λόγωῳ ιάφορος. Ἡ γὰρ νῦν εὐθεῖα οὖσα δόναται πλασθῆναι καὶ ἐπικαμπὴς γενέσθαι· οὕτω καὶ ὁ νοῦς ὁ αὐτός ἐστι τῷ ὑποκειμένῳ· ἄλλοτε εὐθεῖα ἀνακογεῖ, ὁ καὶ καθ´ ἕαυτὸν ἐνεργεῖ καὶ τὰ ἄυλα οἶδεν, ἄλλοτε δὲ κεκλασμένη εὐθεῖα, ἐπικαμπόμενος πρὸς τὴν αἴσθησιν, καὶ ὀργάνῳ αὐτῇ κεχρημένος, Κς. καὶ τὰ ἔνυλα οἶδε. Τοῦτε μὲν οὖν ἐστι τὸ πρῶτον ἄπορον καὶ ἡ λύσις αὐτοῦ. Δεύτερον ἄπορον, ὅν καὶ λῆμμα προλαμβάνεται, τοιοῦτον, ὅτι τὸ ἀπὸ τοῦ δυνάυει εἶς τὸ ἐνεργείᾳ γενόμενον, πάντως ἀλλοιοῦται, ἡ δὲ ἀλλοίωσις πάθος ἐστί. Τοῦτου προληφοέντος πρόεισι λοιπὸν τὸ ἄπορον. Ε γινώσκει ὁ νοῦς τὰ] νυλα, δῆλον ὅτι πάσχει ὑπ´ αὐτῶν, ἀπὸ τῆς δυνάμει γνώσεως εἰς τὴν ἐνεργείᾳ γνῶσιν. Τὸ δὲ ἀπὸ τοῦ δυνάμει ἀγόμενον εἰς τὸ ἐνεργείᾳ ἀλλοιοῦται. Τὸ δὲ ἀλλοιούμενον, πάσχει. Ὁ νοῦς ἄρα πάσχει ἀπὸ τῶν ἐνύλων· καὶ ἐπειδῆ οὐδὲν ἐκ τοῦ ἀνομούλου πάσχει, δῆλον ἄρα ὄτι ὁμόύλός ἀστιν ὁ νοῦς τοῖς ἐνύλοις. Καὶ ἔστι καὶ αὐτὸς ἔνυλος καὶ ἄφοαρτος. Αὕτη ἡ ἀπορία, α ἐπιλυσόμενοί φαμεν, ὅτι κακῶς εἰληπται, ὅτι ποῦ τοιοῦν καὶ πάσχει· οὖτος ὁ λόγος ψευδής ἐστι. Τότε γὰρ τὸ ποιοῦν ἀντιπάσχει, ὅτε ὁμόυλον ἔσται τῶ πάσχοντι. Ἐπειδὴ οὖν ὁ νοῦς οὐκ ἔστιν ὁμόυλος τοῖς ἐκάλρις ολκ ἐνάγκῃ πάσχειν αὐτὸν ὑπὸ τῶν ἐνόλων ὄτε γινώσκει αὸτά. Ποιεῖ γὰρ καὶ ὁ δημιουργὸς, εὐεργετῶν ἡμᾶς· καὶ ὅμως οὐκ ἀντπάσνει ὑφ´ ἡμῶν· ὡστε ἐκεῖνα μόνα τῶν ποιούντων ἀντιπάς ει, ὅσα ὁμόνλά ἐστι τοῖς πάσχουσιν. Ὁτι Τδιόν ἐστι τῷ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "553",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "νοή, καὶ τὸ τῇ οὐσίᾳ ἐνεργεῖν. Και γὰρ ὁ ἐπιστήμων αὖ ἐπιστήμη μόνον ἐστὶν, οὔτε ψυχὴ, ἀλλὰ κρᾶμα ἐξ ἀμφοτέρων· σύγκειται γὰρ ἐκ ψυχῆς καὶ ἐπιστήμης, καὶ ἀναλογεῖ, ἡ μὲν ψυχὴ ὕλῃ, ἡ δὲ ἐπιστήμη εἴδει. Καὶ ἐπειδὴ παντὸς πραγματος μᾶλλον ἐστίν οὐσία τὸ εἶδος τῆς ὕλης· εἰ μᾶλλον οὐσία τὸ εἶδος τῆς ὕλης· φασὶ δὲ Ἔλληνες ἀρχὴν τῶν ὅλων Φεὸν, καὶ ὕλην· τὸν Θεὸν ὡς εἶδος λέγοντες· οὐσίαν ἄρα φασὶ τὸν Θεὸν τῆς ὕλης μᾶλλον, καὶ αὐτὰ εἴδη Θεόν· εἴπερ οὐδεμία ὕλη ἐν τοῖς οὖσιν ἀνείδεος, ὅπερ ὡς λίπν ἀσεβὲς παραιτητέον· οὐσία ἄρα ἐστὶ τοῦ ἐπιστήμονος ἡ ἐπιστήμη· καὶ εἰ ὁ ἐπιστήμων κατὰ τὴν ἐπιστήμην ἐνεργεῖ, αὕτη δέδεικται οὐσία τοῦ ἐπιστήμονος οὖσα. Κατὰ τοῦτο ἄρα λέγεται τῆ οὐσίᾳ ἐνεργεῖν, διὰ τὸ τὴν ἐπιστήμην οὐσίαν εἶναι τοῦ ἐπιστήμονος. Οὕτε γρ κατὰ τὸ ὁψηλὸν ἐκεῖνο καὶ ἐπηρμένον θεώρημα ὅτι ὡς ἐπὶ Θεοῦ, ἡ αὐτὴ ἐστίν οὐσία τῇ ἐνεργείᾳ· ἐπὶ γὰρ τῶν ψυχῶν, καὶ τῶν ἀόλων οὐσιῶν, χωρὶς τῆς πρώτης αἰτίας, καὶ οὐσία ἐστὶ καὶ δύααμις καὶ ἐνέργεια. Τῇ οὖν οὐσίᾳ λέγεπαι ἐνεργεῖν, διὰ τὸ τὴν ἐπιστήμην οἱονεὶ οὐσίαν λί γεῖσθαι τῆς ψυχῆς. Ἐκ τοῦ κρείττονος οὖν ὡνόμασεν πὰν νοῦν Ἐπειδὴ γὰρ τῇ ἐνεργείᾳ ἐνεργεῖ ὁ νοῦς, καὶ ὡς ἐνεργείᾳ ἐνεργεῖ· κρεῖττον δὲ ἐν πᾶσιν ἡ ἀνέονεια καὶ ἡ οὐσία· διὰ τοῦτο θέλων εἰπεῖν ὅτι τῆ ἀνκονεία ἐνεργεῖ, εἶπε τῇ οὐσίᾳ, ὡς ἀπὸ κρείττο. νος ὡσπερ ἀπὸ γενους τιμιωτέρου τὸ πᾶν δηλούμενος· ὡς Τεῦκρε, φίλη κεφαλή. Καὶ τοῦτο οὖν ἁρμόττει, τῷ ἐνεργείᾳ νῷ τοῦ ἀνθρώπου. Ἐνέργεια γὰρ ὢν, νοεῖ ὁ δὲ ούραθεν, αὐτόθεν ἐνέργειά ἐστι, καὶ τὸ τρίτον δὲ ἀρμόζει αὐτῷ, ὅτι ὁ νοῦς ἀεὶ νοεῖ, οὐχ ὡς ὁ Ηλωτῖνος οἷσται, ὅτι ἁεὶ διαπαντὸς ὁ αὐτὸς νοεῖ. Οό γὰρ τὸν ἔνα τῶν ἀριθμῶν νοῦν λεγόμενον ἀεὶ νοεῖ· ἀλλʹ´ ὅτι ὁ ἐν ὅλῳ τῷ κόσμῳ ἀνορωπικὸς νοῦς ἀεὶ νοεῖ. Καν γὰρ ἐγὼ μὴ νοῶ, ἀλλ´ οὖν ἄλλος νοεῖ καὶ τῇ διαδοχῇ γίνεται τὸ ἀεί· Τνα μὴ ἐπιλείψῃ ἡ ἔλλαμψις πρὸς ἡμᾶς ἡ τοῦ Θεοῦ, ἢ ἀεὶ νοεῖν λέγεται, ἑπειδὴ ἀεὶ δύναται νοεῖν. Ὁ γὰρ ἔχων τὸν νοῦν, ἐν οἱᾳδήποτε ὥρᾳ βούλεται, νοεῖ, ὥσπερ τῷ ἀνθρωπίνῳ νῷ τοῦτο ὁπάρχει. Ὁ γὰρ θύραθεν νοῦς, ἃ εἰς κατὰ ἀριθμὸν πάντα νοεῖ Ἀλλὰ γαῆσα μὲν λν τούτοις. Ὅτι ἐν τῷ ἐνὶ μὲν ἀνθρώπῳ, φύσει τὸ δυνάμει ἐστὶ πρότερον τοῦ ἐνεργείᾳ· οὐκ ἐν τῷ ὅλῳ δὲ κέσμα· ἐν γᾶρ τῷ ὅλῳ κόσμῳ, φασί τινες, οὐ δεύπερον τοῦ ἄλλου οὐδὲ πρότερον οὖτε τὸ δυνάμει τοῦ ἐνεργείᾳ· οὔτε τὸ ἐνεργείᾳ, τοῦ δυνάμει. Εἰ γὰ ἀίδιος ὁ κόσμος κατὰ τὸν Ἀριστοτέλην, οὐδὲν ἕτεοον θατέρου πιότερυν, ἀλλ´ ὁμόχρονά ἑστιν. Ὃτε μέν τοι χωρισθῇ ὁ νοῦς και γένηται κατ´ ἐνέργειαν, τότε γίνεται ὅπερ ἐστὶ, τουτέστι κυρίως νοῦς. Καὶ τοῦτο μόνον, ἀδύντον καὶ ἀίδιον. Ἡ δὲ ἄλογος ψυχὴ καὶ ἡ φυτικὴ ἀθάνατος μὲν, οὐκ ἀίδιος δέ. Ἀθάνατος Ἀ· μν λέγεται κἂν φθαρτὰ καὶ οὐκ ἀίδιος δοξάζεται, ἐπειδὴ οὐ καθό ψυχὴ φθείρεται, ἀλλὰ καθὸ ἐν σώματι Κστι λιὸ καὶ Πλάτων λέγει, πᾶσαν ψυχὴν ἀθάνατον, τοῦτο λέγων καὶ ἐπὶ φυτικῆς καὶ ἐπὶ ἀλόχου, Ἡ δὲ ὅλη τὸ ἀνάπαλιν, ἀίδιος μὲν, οὐκ ἀθάνατος δε· διὸ Ργηοι. Δε. ΔΧΧΙΙ.",
+    "corrections": [
+     "confusion"
+    ]
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "554",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "« νοῆς ἀλὲιος λένεται, ὡς καὶ ἀδιος καὶ ἀράνατος. Ἔτι φησὶ διαφέρειν φαντασίαν αἰσθήσεως καὶ διανοίας, καθὸ ἡ μὲν μέση τούτων ἐστὶ, τὰ δὲ παρ´ ἑκάτερα· ἄρχεται μὲν γὰρ ἡ φαντασία ἀπὸ τῆς αἴ σθήσεως· ἀρχὰς γὰρ ἡ αἴσθησις δίδωσι τῇ φαντασίᾳ· ἐκείνη δὲ τῇ διανοίᾳ ἀρχὰς δίδωσιν. Ἄνευ γὰρ φαντασίας οὐ δύναται ἡ διάνοια ἐνεργῆσαι. Καὶ ταύτῃ δικφέρει φαντασία αἰσθήσεως καὶ διανοίας. Πρὸς τούτοις λέγει δόξης καὶ φαντασίας διαφοράς· ὅτι φαντασθῆναι μὲν ὅτε καὶ θέλομεν δυνάμερα. Καὶ γὰρ τρίπηχυν καὶ εἶκοσάπηχυν ἄνθρωπον φανταζόμεθα καὶ δυνάμεθα ἀναπλάσασθαι καὶ τραγέλαφον καὶ ἱππόν ταῦρον, δοξάσαι δὲ ἂ θέλομεν, οὐ πάντως δυνάμεθα. Τὸ γὰρ δἰς δύο εἰπεῖν μὲν δέκα δυνάμεα, δοξάσαι δὲ οὐ δυνάμεθα, ὥστε ἡ μὲν φαντασία ἐφ´ ἡμῖν, ἡ δὲ δόξα οὐκ ἐφ´ ἡμῖν· Εἰ δὲ δεῖ ἀληθῆ εἰπεῖν, οὐδὲ φαντασία ἐφ´ ἡμῖν ἔστιν· ἡ γὰρ ἐν τῷ καθεύδειν γινομένη, οὐκ ἐφ ἡμῖν. Οὐ γὰρ ἂ θέλομεν ἐν τοῖς ὕπνοις φανταζόμεθα· καὶ τί λέγω ἐν τῷ καθεύδειν; ἀλλὰ οτε πᾶσα ἐν τῷ ἐγρηγορέναι. Ὃτε γὰρ τὰ ὄντα ὡς ἄντα φανταζόμεθα, οὐ δυνάμεθα, εἰ μὴ ὡς ἔχουσι, φαντάζεσθαι αὐτά. Οἷον τὸ Σωκράτην εἴ προθῶμαι φαντάζεσθαι, οὐ δυνάμεθα αὐτὸν φαντασθῆναι ἀστεῖον καὶ λευκὸν καὶ κομῶντα, ἀλλὰ πάντως σαλακρὸν καὶ μέλανα καὶ προγάστορα, ὥστε ἡ ἀκριβὴς διαφορὰ αὕτη ἐστίν. Ὄτι πως φησί, λέγων Ἀριστοτέλης, πᾶν τὸ κινούμενον ἐν τόπῳ μὲν εἶναι, αὐτὸς τὴν ἀπλανῆ, κινουμένην μὴν ὁμολογεῖ, ἔν τόπῳ δὲ μὴ εἶναι· ἢ ὅτι κΑν μὴ ὄλη ὡς ὅλη, ἀλλ´ ὅτι τὰ μέρη αὐτῆς ἐν τόπῳ· οὐχ ὅτι πέφυκε μὴ περιέχεσοαί· ἀλλ´ ὅτι μὴ ἐπέκεινα αὐτῆς σῶμά ἔστιν· ἵνα καὶ τὸ πᾶν αὐτῇ περικοιλαίνηται ἐν αὐτῷ. Ἐπὶ δὲ ψυχῆς οὐδὲν τοιοῦτόν ἐστιν, ἀλλ´ ἡ φύσις αὐτῆς ἑστι τὸ μὴ τόπῳ περιγράφεσθαι. Ὀτι ἡ ψυχὴ καθ´ ἐαυτὴν ἀκίνητός ἐστι· κατὰ συμβεβηκὸς δὲ ἑαυτὴν κινεῖν λέγοιτ´ ἄν· καὶ τότε μόνην τὴν κατὰ τύπον κίνησιν. Ἐπειδὴ γὰρ κινεῖ μὲν αὕτη τὸ σῶμο· ἔστι δὲ ἐν αὐτῷ κινουμενα· κινουμένου δὲ τοῦ σώματος συγκινηθήσεται αὐτῷ· ὥστε κατὰ συμβεβηκὸς ἐαυτὴν κινεῖ· τῷ τὸ σῶμα, ἐν ᾗ ἐστι· καθ´ ἑαυτὴν δέ, καὶ κατ´ οὐσίαν οὗτε κινεῖται, οὕτε ἐν τόπῳ ἐστί. Τὴν οὖν κατὰ τόπον κίνησιν λέγοιτ´ ν μόνον κινεῖν ἑαυτὴν ἡ ψυχὴ κατὰ συμβε. βηκὸς, ἄλλην δὲ οὐδεμίαν. Οὕτε γὰρ ἀλλοιοῦται τοῦ σώματος ἀλλοιολμένου, οὖτε αὔξεται ἢ μειοῦτα Ὅτι πολλάκις ὁ Αριστοτέλης ψυχῆν καλεῖ. ἄμα καὶ τὴν ἄλογον καὶ τὴν φυτικὴν, συλλαμβάνων τῆ λογικῇ. Πολλάκις δὲ μόνον τὴν λογικήν· ἔσο´ ὅτε δὲ καὶ αὐτὸν τὸν νοῦν ψυχὴν ὀνομάζει, ἐπονομάζει δὲ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "555",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "πάλιν ἰδιαζόντως τὴν ψυχὴν τὸν ἄλογον καὶ τὴν φυτικήν. Πολυσήμου τοίνυν τῆς ψυχῆς παρὰ Ἀριστοτέλους λαμβανομένης, δεῖ ἐκάστῳ σημαινομένῳ τὸ οἰκαῖα ἀφορίζειν καὶ ἀπονέμειν· καὶ μὴ συγχεῖν διὰ τῆς ὁμωνυμίας τῆς φωνῆς καὶ τῶν πραγμάτων τὸ διφρημένον καὶ ἀσόγχυτον. Ὡσπερ γὰρ τὸ ὁφαίνειν τυχὸν τοῦ ζώου ἐστίν κατὰ τὸ σῶμα· οὕτω καὶ τὸ διανοεῖσθαι τοῦ ζώου ἐστὶ κατὰ ψυχήν. Διὸ τοῦ ζώου φθειρομένου, ὅσων τούτων ἔξει ἡ ψυχὴ, ὅπερ ἐκ τῆς συμπλοκῆς τῆς πρὸς τὸ σῶμα αὐτῇ ἐπογένετο· ὥστε οὐδὲ μνημονεύει. Καὶ γὰρ ἐνταῦθα μὲν παραῤῥέουσά ἐστιν ἡ γνῶσις αὐτῆς, καὶ δεῖται μνήμης εἰς κατοχὴν τῶν ἐγνωσμένων. Μετὰ δὲ τὸ σῶμα, ἀπε ἀστῶσαν ἕχουσα τὴν γνῶσιν, καὶ αὐτοῖς προσβάλλουσα τοῖς Κπράγμασι, μνήμης οὐ δεῖται· μνήμη γάρ ἐστιν ἡ τῶν πάλαι ἐγνωσμένων. τι φησὶν Ἀριστοτέλης, ὅταν μὴ ἄργῃ ὁ νοῦς, ἀλλὰ παρὰ φύσιν ἔχει ὁ ἄνθρωπος, τότε τῆς τάξεως ἀντιστραφείσης, ἕπονται ταῖς κράσεσι τοῦ σώματος αἱ τῆς ψυχῆς δυνάμεις. Ὃταν δὲ ὁ νοῦς ἄρχῃ, τότε κατὰ φύσιν ἔχοντος τοῦ ἀνθρώπου, οὐκέτι ταῖς κράσεσι τοῦ σώματος ἀκολουθοῦσιν α τῆς ψυχῆς δυνάμεις, ἀλλ´ ἴπεται τῆ ψυχῇ τὸ σῶμα. ὸσι τὴν Θαλοῦ δόξαν περὶ ψυχῆς ἀνατρέπων, ὅστις λέγε παντὶ σώματι μεμίχθαι τὴν ψυχὴν ὡς παρεῖναι σῶμα ἔμψυχον. Πρῶτον μὲν, τί δή ποτε, φησὶν, ἀν παντὶ σώμστι οὕσης ψυχῆς, τὰ μὲν ἐστὶ ζῶα, τὰ δὲ οὖ; εἶτα, διαεί τῶν ἀπλῶν οὐδὲν ἐστι ζῶον; καί τοι ἔδει μᾶλλον ταῦτα. Ἐν γὰρ πυρὶ οὖσα, καὶ ἐν ἀέρι, ἅτε καθαρωτέροις καὶ λεπτομερεστέροις σώμασιν απτε ἂὲλτιον ἂν εἴη ἐν τούτοις ἡ ψυχήτῶν συνθέτων, θεν καὶ μᾶλλον διαφαίνεσοαι ἐαυτῆς ὥφειλον αἱ ἐνέργειαι. Καὶ ἄλλα δὲ πλείω συνοπάνει τῇ ὑπολήψει ταύτῃ ἐπόμενα ἄτοπα. Ὅτι ἐπεὶ πλείους καὶ διάφοροι τῆς ψυχῆς ἐνέργειαι, ζητεῖ ὁ Ἀριστοτέλης, πότερον μιᾶς οὖσης καὶ ἀμερίστου τῆς ψυχῆς, κατ´´ οὐσίαν ἐκ ταύτης αἱ διάφοροι δυνάμεις καὶ ἐνέργειαι προίρχονται· ὡς τὴν αὐτὴν εἶναι κατ´ οὐσίαν, καὶ μίαν τῷ ἀριθμῶ, καὶ θρεπτικὴν, καὶ αόξητικὴν, καὶ γεννητικὴν, καὶ λογικὴν, καὶ θυμικὴν, καὶ ἐπιθυμητικήν. Καὶ καθά. πιρ ἡ τοῦ πωρὸς οὐσία μία καὶ ἡ αὐτή ἐστιν· ἐξ ἧς ἡ καυστική τε καὶ ἔηραντικὴ, καὶ φωτιστικά πρόεισι δύναμίς τε καὶ ἐνέργεια, ἢ τις ἄλλη δύναμις ψυχικὴ, ἡ μεριστή ἐστιν ἡ ψυχὴ, καὶ κατὰ ἄλλο καὶ Χλλο μόριον αὐτῆς εκάστη τῶν ἐνεργειῶν τούτων γίνεται. Φησὶ δὲ ὁ Ἀριστοτέλης οὐκ ἀρεσκόμενος τῷ δόγμετι, ἀλλ´ ἐγκαλῶν τῷ Τιμαίῳ παρὰ τὰ μόρια τοῦ σώματος διαιροῦντι καὶ τὴν ψυχήν. Καὶ γὰρ οὐδ´ αὐτὸς βούλεται μίαν οὐσίαν εἶναι τῆς ψυχῆς. ἀλλ´ ἐκ διαφόρων μὲν οὐσιῶν συγκεῖσθαι ταύτην· ἡνωμένων ἂὲ ἀλλήλαις καὶ συνεχῶν οὕτως, ὡς μίαν γίνεσθαι ὐτῶν συμπάθειαν. Διαβαίνει γάρ τι καὶ ἐκ τοῦ λόγου εἰς τὰ πάθη, καὶ ἐξ ἐκείνων εἴς τὸν λόγον. Τότε γὰρ ὁποτετάχθαι τὰ πάθη, καὶ εἴκειν τῷ λόγῳ, ἅνωθεν ἐκ τῆς τοῦ λόγου συλλήψεως αὐτοῖς ἀφήκει. Τότε κρὸς τὰς οἰκείας ἐνεργείας ἐμποδίζεσοαι τὸν λόγον, ἐκ τῆς πρὸς τὰ πάθη σχέσεως αὐτῶν"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "556",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "περιγίνεται, Οὕτως οὖν μία οὐσία ἡ ψυνὴ, ὡς καὶ τὸν ὅλον ἄνθρωπον μιᾶς εἶναί φαμεν οὐσίας, καὶ ἀπλῶς, τὰ ἐξ ὕλης καὶ εἴδους· ἐπεὶ ὅτι γε οὐδὲ ἡ ἄλογος ψυχὴ πᾶσα μιᾶς ἐστιν οὐσίας, δεικνύει τὰ μάχεσθαι ἄλλήλοις πολλάκις τὰ πάθη, θυμὸν λόγῳ καὶ ἐπιθυμίαν· οὐδὲν δὲ αὐτῶν μάχεται, πολλοῖς γοῦν πρὸς τοῦ λόγου μάλλον ὁ θυμὸς, μᾶλλον γίνεται, Ὡς συγγενέστερος διὰ τὸ φιλότιμον. Ἀνθέλκει δὲ ἡ ἐπιθυμία. Ὅτι κατὰ συμβεβηκὸς, φησίν, εἰς ὁμοιομερῆ διαιρεῖται μέρη ἡ ψυχή· τῷ γάρ τοι ἐν τῷ σώματι διαιρεῖσθαι, καὶ αὐτὴ συνδιαιρεῖται, ὡς ἐπὶ τῶν φυτῶν καὶ τῶν ἐντόμων. Ὅτι ἡ μὲν ἄλογος ψυχὴ καὶ ἡ φυτικὴ, ἐντελέχεια λέγοιτ᾽´ ἂν τοῦ σώματος, ὡς εἶδος ἐν ὕλῃ, καὶ ὡς οὐσίᾳ τελειοῦσα τὸ ὑποκείμενον, καὶ ἀχώριστος ἐπάρχουσα αὐτοῦ. Τίνος γάρ ἔσται τελειότης ἡ φυτικὴ ψυχὴ χωρισθεῖσα τοῦ σώματος· Ἐντελέχεια Σὲ καὶ Ἀ λογικὴ ψυχὴ λέγοιτ᾽´ ἂν, οὐχ ὡς τῇ οὐσίᾳ τελειοῦσα τὸ ὑποκείμενον, ἀλλὰ τῆ ἐνεργείᾳ. Καὶ ὠς ὁ κυβερνήτης τὸ πλοῖον τελειοῖ καὶ τέττει· διὸ καὶ χωριστή ἐστιν αὐτοῦ. Δύναται μέν τοι κατά τινα τρόπον λέγεσθαι καὶ ἡ λογικὴ ψυχὴ ἀχώριστος εἶναι τοῦ σώματος, καθ᾽ ἐστιν ἐντελέχεια. Τὰς γὰρ ἐνεργείας καθ´ ἅς τελειοῖ τὸ ζῶον, κινοῦσα αὐτὸ τοιῶσδε ἦ τοιῶσδε, ἀχωρίστως ἔχει τοῦ σώματος. Ἐελθοῦσα τὰς ἐκ τῆς αγισιως τῆς πρὸς τὸ σῶμαι ἀντὶ Ταάση καθὸ ἐντελέχειά ἐστι, λέγω δὴ κατὰ τέσδε τὰς ἐνεργείας. ἀχώριστος ἀν εἵη τοῦ σώματος· ὥσπερ καὶ τοῦ κυβερνήτου αἱ ὡς κυβερνήτου ἐνέργειαι τοῦ πλοίου εἰσὶν ἀχώριστοι, καὶ χωρίζεται μὲν ὁ ἄνορωπος. Ὡς μὶν τοι κυβερνήτης ὥν ἐν ἐνεργείᾳ ἄμα τε κεχωρισται τῆς νεὼς,καὶ ἐφθαρμένας ἕχει τὰς τοιαύταε, ἐνεργείας. Ὅτι κρείττων, φασὶ, πασῶν καὶ τιμιωτέρα τῶν τῆς φυτικῆς ψυχῆς δυνέμεων ἡ γυνητική· δεύτερον δὲ ἡ αὐξητικὴ, καὶ τρίτον ἡ θρεπτική. Τῆς μὲν γὰῃ θρεπτικῆς ἔργον ἑστὶ τὸ σώζειν τὸ εἰδος· μεχρι γὰρι τοσούτου σωζόμεθα, ἕως ἂν τρεφώμεθα. Τῆς δὲ αὐἐλτικῆς, τὸ εἰς τὸ τέλειον καὶ κατὰ φύσιν μέτρον ἀγαγεῖν, εἰς ὃ γενόμενα τά τε ζῶα καὶ τὰ φυτὰ, ἐπὶ τὸ σκοπιμώτατον τῆς φύσεως τέλος, λέγω δὴ τὸν γεννητικὴν δύναμιν, παραγίνεται. Οὗτος γὰρ τῆς φύσεως ὁ τελικώτατος σκοπὸς διὰ τὴν ἕσεσιν τῆς ἀνδιάτοτος τῆς ἀθανασίας τοῖς γεννητοῖς ζώοις, ἐπισκευαστῆς τῇ διαδοχῇ γενομένης· ὢστε ἡ μὲν σἔητικὴ ὕλης ἐπέχει λόγον πρὸς τὴν γεννητικήν. Πρὸς δὲ τὴν αὐξητικὴν ἡ θρεπτιή. Ὅτι ὁ νοῦς κατὰ Ἀριστοτέλην δύναιτ´ Σν ἐντελέχεια τοῦ σῶματος λέγεσθαι, καὶ κατὰ τοῦτο ἀχώριστάς ἑστι τοῦ σώματος, οὕτε τῇ οὐσίᾳ, οὕτε πάσαις αὐτοῦ ταῖς ἐνεργείαις. ἀλλὰ ταύταις ἆς Τανω ἐτῆς σχέσεως τῆς πρὸς τὸ σῶμα, ὧν μάλιστά εἰσιν αἱ πρακτικαί. Αὖται δὲ ἐνέργειαι ἀχώριστοι εἰσὶ σοῦ σώματος· ἀμα γὰρ τῷ φθαρῆναι τὸ σῶμα, συμφθείρονται καὶ αἱ τοιαῦται τοῦ νοῦ ἑνέργειαι, ἀε ἑκ τῆς σχσεως ἔσγε τοῦ σώματος. Καὶ ὧσπερ ἐ κυβερνήτης, ἐντελέχεια ὥν τῆς νεὼς, ἐπειδὴ δὴ οὁ μόνον κυβερνήτης ἐστὶν, ἀλλὰ καὶ ὁ ἄνθρωπος, Δε"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "557",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "δὲ ἄνθρωπος μένων ἐντελέχεια τῆς ναοῦ, ταύτῃ και ἀχώριστός ἐστιν· οὕτω καὶ ἡ ἡμετέρα ψυγὴ, ἐντελέχεια οὖσα τοῦ σώματος, ταύτῃ ἄνευ σώματος οὐ δν εἴη. Ἐπειδὴ δὲ ἔχει τινὰς καὶ χωριστὰς σώματος ἐνεργείας, τὰς περὶ τῶν νοητῶν φημι, εἰς ἂς οὐ μόνον οὐ συμβάλλεται τὸ σῶμα, ἀλλὰ καὶ ἐμποδίζει· πρόδηλον ὅτι καὶ τὴν οὐσίαν ἕξει χωριστὴν νοῦς τότς οὖσα καὶ λεγομένη, οὐκέτι μέν τοι ψυχὴ εἰ μὴ δυνάμει· ὧσπερ καὶ ἐν σώματι οὖσα, οὐ δυνάμει ἐστὶ νοῦς. Ὅτι τὰ ζῶα, φησί, μετίχει τῆς θρεπτικῆς καὶ αἰσθητικῆς δυνάμεως· διὰ δὲ τὴν αἰσθητικὴν καὶ τῆς ὀρεκτικῆς, καὶ κατασκευάζει, ὅτι πάντως ἔνθα κἂν μία αἴσθησις ᾖ, ἀνάγκη εἶναι ἐπιθυμίαν καὶ ὄρεξιν. διὰ τοῦτο οὗν τὰ ζῶα αἴσθησιν ἔχει πάντα· ἐν πάσι γὰρ πάντως ἐστίν ἡ ἀφῆ, κἄν μή τις ἄλλη, τῶν αἰσθήσεων. Ἡ δὲ αἴσθησις τοῦ ἡδέος καὶ τοῦ λυπηροῦ ἀντιλαμβάνεται· ἔνυα δὴ τὸ ἡδὺ, ἐκεῖ πάν τως καὶ ἢ ἐπιθυμία καὶ ὄρεξις. Ἡ γὰρ ἐπιθυμία τοῦ ἡδέος ἐστὶν ἔφεσις· ἕνθεν, καὶ τὰ μόνης τῆς φῆς μετέχοντα, ὁρῶνται διαχεόμενα προσιόντων τῶν ἡδέων· συστελλόμενα δὲ, λυπηροῦ τινος προσπελάσαντος. ὁρίζει δὲ τὴν ὅρεξιν, ἐπιθυμίᾳ, θυμῷ, βουλήσει· ἕκαστον γὰρ τούτων ὄρεξις τίς ἐστι. Δῆλον δὲ ὅτι ἀπλῆ μὲν ὄρεξις τῷ αἰσθητικῷ ἀπλῶς ὑπάρχουσα φαίνεται. Οὐ πᾶσα δὲ ὄρεξις παντὶ αἰσθητικῷ· τοῖς μὲν γὰρ τὴν ἁφὴν μόνην ἔχουσιν ἡ κατ´ ἐπιθυμίαν ὑπάρχει ὄρεξις· τοῖς δὲ πάσας τὰς αἰσθήσεις, καὶ ἡ κατὰ θυμόν. ὁρῶνται γὰρ τὰ τοιαῦτα ἀμυντικὰ ὄντα. Ἡ δὲ βούλησις μόνου ἐστὶ τοῦ λόγου, ὡσιε ὁμωνύμως ἡ ὄρεξις, καὶ ἡ ἐπιθυμία δὲ ὡσαύτως. Καὶ γὰρ ἡ ὄρεξις λέγεται μὲν καὶ κοινῶς, ἐπί τε θυμοῦ καὶ ἐπιθυμίας, καὶ τοῦ λόγου· καὶ γὰρ τῶν θείων ὀρέγεσθαι φαμεν, καὶ ἐπιστήμης ὀρέγεσθαι. Ἔπτι δὲ καὶ ἰδικώτερον λεγομένη ὄρεξις, ἐπὶ τῶν φυσικῶν κινήσεων, ἀντιδιαστελλομένη πρὸς τὸν λόγον. Καὶ ἐπιθυμία ὡσαύτως, ἡ μὲν ἐστὶ κοινὴ, ἡ δὲ ἀντιδιαστελλομένη πρὸς θυμὸν, καὶ τὸν λόγον. Ὅτι οὐ λέγουσι τὸ φῶς σῶμα· ἐπεὶ δὲ λέγους τινες τὸ φῶς σῶμα εἶναι, λέγουσι σφαῖράν τινα φωτὸς προιέναι ἐκ τοῦ ἡλίου. Ἐπεὶ δὲ καὶ ὁ ἥλιος σφαιρικός· ἕστι δὲ σοαιρικὸς καὶ ὁ ἀήρ· ἀνάγκη πᾶσα τὴν τοῦ φωτὸς σφαῖραν προιοῦσαν πρὸς ἡμᾶς, ἡ ὠθεῖν τὴν σφαῖραν τοῦ ἀέρος· καὶ οὕτω τὸν τόπον αὐτῆς καταλαβοῦσαν, φωτίζειν τὸν περὶ ἡμᾶς τόπον. Εἰ καταλαμβάνει, ἔσται κενὸν ἀέρος τὸ πεφωτισμένον ἡμισφαίριον, ὅπερ ἀδύνατον. Εἰ δὲ μὴ ὡθεῖ, οὐδὲ φωτίζει, ὥστε μὴ ἀφικνούμενον εἰς ἡμᾶς· εἰ δὲ χωρήσει δι´ αὐτῆς, ἔσται σῶμα διὰ σώματος κεχωρηκός· ὅ τι περ ἀδύνατον. Εἰ δὲ λέξουσί τινες, ὡς, Χλλο σῶμα δύναται χωρῆσαι διὰ σώματος· μάλιστα μὲν ὁ λόγος ἀδύνατος. οὕτω γὰρ ἢμελλεν ὁ οὐρανὸς ἀν κέγχρῳ δύνασθαι λέγεσθαι. Ἔπειτα εἰ διὰ τὸ ἄυλον εἶναι, δόναται χωρῆσαι διὰ τοῦ σώματος, ἐχώρησεν ἂν οὐ μόνον δι´ ἀρος, ἀλλὰ καὶ δι´ ἄλλου βτουοῦν. Τίς γὰρ ἡ ἀποκλήρωσις εἴη, αὐλὸν σῶμα Ἀιὰ σώματος εἶναι χωροῦν, μὴ καὶ διὰ παντὸς χωρεῖν; ὥστε ἵδει καὶ διὰ τῶν στερεῶν σωμάτων χώρης σαι τὸ φῶς· διὰ γῆς λέγω, καὶ τῷν ὁμοίων. Διτί"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "558",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "περὶ μὲν τούτων, καὶ ἰδίᾳ θεωρητέον. Πλὴν εἰ στι τι τῆς αὐξητικῆς χνος καὶ μετὰ θάνατον ἐν τῷ σώματι, ὥστε καὶ τῆς θρεπτικῆς· διὰ γὰρ τὴν αὔξησιν καὶ ἡ τρεφή. Ἐνταῦθα ἄρα δῆλον ὅτι ἐν τῷ σώματι τὸ εἶναι ἔχουσιν αἱ δυνάμιις αὗται. Βὲ δὲ αὗται, καὶ ἡ γεννητικήι τῆς γὰρ αὐτῆς ἐστι συστοιχιίας, οὐ ἓν τις καὶ ἴχνος τι ταύτης ἐν τῷ νεκρῷ σώματι, τὰ γινόμενα ζῶα· σφῆκας λέγω καὶ μελίσσας καὶ σκώληκας καὶ τὰ ὁμοία. Ἡ μέν τοι λογος, φασὶν, οὐκ ἔτι ἐν τῷ σώματι ἔχει τὸ εἶναι· ἐπιδιαμένει γὰρ καὶ μετὰ τὴν ἔξοδον καὶ ὑποκείμενον ἔχουσα πρὸς πνευματικὸν σῶμα. Ὅπερ ἐστὶ μὲν καὶ αὐτό ἐκ τῶνδὲ. λέγεται δὲ ἐκ τοῦ πλεονάζοντος ἤτοι τοῦ ἀέρος· ὥσπερ καὶ τὸ παχὺ γήῖνον ἐκ τοῦ πλεονάζοντος ὡσαύτως. Αὕτη μὲν οὖν ἡ δόξα Ἑλληνικῆς ἐστι μᾶλλον μυθολογίας ἢ ἀληθείας. Εἰ δὲ καὶ κατασκευάζειν πειρᾶται, ἐξ ἀνάγκης ἔχειν τὴν ἄλογον ψυχήν τὸ πνευματικὸν τοῦτο σῶμα, φασὶν, ὅτι μετὰ τὴν ἐν τούτου τοῦ σώματος ἔξοδον, εἰς δου ἀφικνεῖται ἡ ψυχὴ, καὶ ποινὰς ἐκεῖσε τῶν οὐ καλῶς βεβιωμένον παρέχει. Οὐ γὰρ μόνον τὸ εἵναι ἡμῶν φροντίζει ἡ πρόνοια. ἀλλὰ τὸ εὖ εἶναι. Διὸ οὐκ ἀμελεῖται ἡ ψυχὴ εἶς τὸ παρὰ φύσιν ἐξολισθήσασα, ἀλλὰ τυγχάνει τῆς προσηκούσης ἐπιμελείας· καὶ ἐπειδὴ τ ἀμαρτάνειν αὐτῇ διὰ γλυκυθυμίαν ἐγένετο, ἐξ ἀνάγκης καὶ τὸ καθαρθῆναι δι´ ἀλγήσεως αὐτῇ γενκσεται. Ἀσώματος δὲ οὖσα, οὐκ ἂν ἀλγύνοιτο, οὐδὲ τοῖς ὑπὸ γῆν δικαιωτηρίοις κολάζοιτο. οὐκοῦν ἀνάγοη σώματι ἐξῆφθαι αὐτῆς· ὃ διακρινόμενον ἀμτρως, ἡ συγκρινόμενον ὑπὸ φλέξεως ἡ καόσεως ἀμτρου, ἀλγυνει τὴν ψυχὴν διὰ τὴν συμπάφειαν. Ἀλλὰ γὰρ ἐρεῖ τις πρὸς τὴν πιθανολογίαν ταύτην. ὡς εἰ πέφυκεν ἡ ψυχὴ χωριζομένη τοῦ παχέος σώματος, πάσχειν διὰ τοῦ πνευματικοῦ σώματος καὶ ἀλγύνεσθαι· οὁδὲν κωλύει αὐτὴν καὶ χωρὶς ἐκείνου τὸ πάθος ἀναδέχε. αθαι· εἴπερ ἔλως καὶ παθητικὰς ἔχει δυνάμεις, δι´ ὧν καὶ πάσχειν ὄπὸ τοῦ πνευματικοῦ σώματος πέφυκεν. Ὧσπερ γὰρ τοῦ ἀερώδους τούτου σώματος τὰ ἐν ᾤδου πάθη ἄπτεται· διὰ δὲ τούτου καὶ τῆς ψυχῆς· οὔτω καὶ εἰ μὴ μέσον παρελαμβάνετο τὸ σῶμα, οὁδὲν ἧν ἐμποδὼν, ἄπτεσοαι τὰ πάθη τῆς ψοχῆς. Ἅν τε γὰρ ἀσώματον ὁποθῶσιν, εὐχερῶς ἓφάψεται τῆς ὑυχής. Ἄν τ´ ἐνσώματον, διὰ τοῦ σώματος ἔπασχεν ἡ ψυχή· ἡ γὰρ ἱνωσις οὐδὲν μᾶλλον παφητικὴν ποιεῖ τὴν ψυχήν. Ἀλλὰ ταῦτα μὲν τῆς ἐκλογῆς μείζω. Πλὴν διὰ τοῦτο, οὔονται καὶ τὸ πνευματικὸν κατασκευάζειν ὅτι ἂστι σῶμα, καὶ ὅτι ἀχώσι. στος αὐτοῦ καὶ μετὰ θάνατον ἡ λογικὴ ψυχή. Ἐ τούτῳ δὲ ὡς ἐν ὑποκειμένῳ, καὶ τὸν θυμέν φασι, καὶ τὴν ἐπιθυμίαν εἶναι, καὶ ἀχώριστα αὐτοῦ τυγχάνειν· καὶ γὰρ μετὰ τὸν θάνατον ὁ οὑμὸς καὶ ἡ ἐπιθυμία διαμένει ἐν θποκειμὲνῳ, ἔχοντα τὸ εἶναι, ἐν τῷ πνεύματικῷ σώματι. Εἰ γὰρ ἄμα τῇ ἐξόδῳ τοῦ σώματος ἀπηλλάττετο τῶν παθῶν τούτων ἡ ψυχὴ, καθαρὰ ἄν ἧν πάντως, καὶ γενέσεως ἀπηλλαγμένη. ἀπηλλαγμένη δὲ οὖσα καὶ τῶν παρῶν καὶ τῆς γενέσεως,"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "559",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ἀνκτο ν, καὶ οὐκ ἀν τοῖς ὑπὸ γῆν δικαιωτηρίοις παρεδίδοτο. Τὰ δὲ δικαιωτήρια ἐπιστρέφουσιν αὑτὴν πρὸς ἑαυτὴν, ὥστε λοιπὸν καταγνοῦσα αὑτῆς, οἰκεῖα ὁρμῇ καθαρθῆναι. Αὐτὰ μὲν γὰρ τὰ δικαιωτήρια οὐκ ἀνάγει αὐτὴν, ἀλλὰ καθαίρει· καθαιρομένη δὲ ἐπιστρέφεται, καὶ αὐτὴ ἑαυτὴν ἀνέχει γενέσεως ἀπαλλαγεῖσα. Τότε τοίνυν καὶ τὸν θυμὸν καὶ τὴν ἐτιθυμίαν ἀποτίθοται μετὰ τούτου τοῦ ὀχήματος, τοῦ πνευματικοῦ λέγω· ὡς εἶναί τι καὶ μετὰ τοῦτο ἄλλο τι ἀνδίως αὐτῆς ἐξημμένον σῶμα οὐράνιον, καὶ διὰ τοῦτο ἀίδιον, καὶ ὥς φασιν, αὐγοειδὲς ἢ ἀστροειδές, Τῶν γὰρ ἐγκοσμίων οὖσαν, ἄνάγκη πάντως ἔχειν τινὰ κλῆρον, ὄν διοικήσει μέρος ὄντα ποῦ κόσμου, καὶ εἰ ἀεὶ ἀκίνητός ἐστι, καὶ δεῖ αὐτὴν ἐνεργεῖν, δεῖ αὐτὴν ἔχειν ἀτδίως ἐξημμένον τι σῶμα Ἀλλὰ ταῦτα μὲν οἱ Ἑλληνικοὶ καὶ Πλατωνικοὶ μῦθοι. Ὅτι, φασὶ, τοῦ μὲν πνευματικοῦ σώματος ὁ θυμὸς καὶ ἡ ἐπιθυμία ἀχώριστα. Δῆλον δὲ καὶ ὅτι ὥσπερ αἱ ζωτικαὶ αἱ θρεπτικαὶ τῆς ἀλόγου δυνάμεως, ἐν τῷ πνεύματι ἵδρυνται, οὕτω καὶ αἰ γνωστικαί. Εἰ γὰρ αἱ χείρους αὐτῶν τούτου τοῦ παχέος σώματός εἰσι χωρισταί, πολλῷ μᾶλλον αἱ κρείττους· κρείττους δὲ αἱ γνωστικαὶ. φαντασία λέγω καὶ αἴσθησις. ἂλλ´ εἰ καὶ ἐν ἐκείνῳ ἔχουσι τὸ εἶναι αἱ ἄλογοι τῆς ψυχῆς δυνάμεις· ἀλλ´ οὖν φοιτῶσιν ἴχνη τινὰ ἀπ´ ἐκείνου καὶ ἐπὶ τὸ παχὺ τοῦ σώματος· ὧσπερ καὶ ἀπὸ τοῦ νοῦ ἐλέγομεν φοιτᾷν ἐπὶ πάσας τὰς κοινὰς ἐννοίας. Ὃτι γὰρ καὶ μέχρι τούτου τοῦ σώματος ἐλλάμψεις φοιτῶσι τῆς ἀλόγου ζωῆς, δῆλον· ὁ μὲν γὰρ θυμὸς κινεῖ τὸ περικάρδιον αἵμα, καὶ ζέσιν τινὰ αὐτοῦ ποιεῖ· ἡ δὲ ἐπιθυμία τὸ ἧπαρ τοιῶσδε ἦ τοιῶσδει διατίθησι πρὸς τὰς ἑαυτῆς κινήσεις. Αἱ αἰσθήσιις τε πάσαι τῷ ἐγκεφάλῳ ἐλλάμπονται· ἐξ ἐκείνου γὰρ ἂπὶ τὰ αἰσθητήρια διὰ τῶν νευρῶν χορηγεῖται ἡ δύναμις ἡ αἶσοητική· καὶ πεπονθότος τι, ὡς ατροὶ δεικνόουσι. Τοῦ γὰρ καλουμένου μήνιγγος φύλακος ἐπιτεθέντος, εἰ ἐπισυμβῇ τι τῷ μήνιγγι ἀναίσθητον καὶ ἀκίνητον τὸ ζῶον γίνεται. Ἔστι δὲ ὁ μήνιγξ, ὁμνν τις σκέπων τὸν ἐγκέφαλον, καὶ νοτιαίου μρους πεπονθότος, τὸ μὲν ἀνωτέρω μέρος τοῦ παρόντος ἀπολαύει αἰσθήσεως· τὰ δὲ κάτω ἀναίσθητα γίνεται, διὰ τὸ μὴ χορηγεῖσθαι ἔτι ἀπὸ τοῦ ἐγιεφάλου τὴν αἰσοητικὴν; δύναμιν, τοῦ ὁργάνου λέγω δὴ τοῦ νεύρου πεπονότος, Καὶ εἱ δεθείη δὲ νεῦρον πάλιν, ἀναίσοητον μὲν τὸ κάτω μέρος γίνεται, τὸ δέ ἄνω μένει αἰσθητικόν. Δῆλον οὖν ἐκ τῶν εἰρημένων, ὅτι τε ἐστι πνευματικὸν σῶμα καὶ τούτου ἀχώριστα θυμὸς καὶ ἐπιθυμία, Ὅτι, φασὶν, ἡ εδησις τρίττή· ἡ γὰρ ἐπιστήμη λέγεται εδησις, ὥς φησιν ὁ Πλάτων ἐν τῷ Φαίδωνι. Τὸ γὰρ εἰδέναι τοῦτό ἐστι, τὸ λαβόντα που ἐπιστήμην ἔχειν καὶ μὴ ἀποβεβλῆσοαι, ἢ ἡ ὀλοσχερεστερα γνῶσις, ἡ ἀπλῶς ἡ κοινοτέρα καὶ τούτων ἑκάτερον περιέχουσα, ὥς φησιν Ἀριστοτέλης ἐν τοῖς φυσικοῖς, ἐπειδὴ τὸ εἰδέναι καὶ τὸ ἐπίστασθαι περὶ πάσας τὰς ἐπιστήμας. Διὰ μὲν γὰρ τοῦ εἰδάναι τὴν ὁλοσχερῆ γνῶσιν σημαίνει· διὰ δὲ τοῦ ἐπίστασοαι τὴν ἀκριβῆ,"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "560",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ἡ τὴν κοινῶς ἐπὶ πάσης γνώσεως λεγομένην. Καὶ ἐνταῦθα καὶ ἐν τοῖς μετὰ τὰ φυσικὰ παρέλαβεν. Ὅτι φησὶν Ἀριστοτέλης ἐν τῇ ἀποδεικτικῇ, κατὰ δύο τρόπους κρίνεσθαι ἐπιστήμην ἐπιστήμης ἀκριβεστέραν. Καθ´ ἕνα μὲν ὅταν ἡ ἐτέρα τῆς ἐτέρας τὰς, ἀρχὰς ἀποδεικνύει, οἷον ἡ φυσιολογία ἱατρικῆς ἀκριβεστέρα· ὡσαύτως καὶ ἡ γεωμετρία, μηχανικής. Διὰ τὴν τοιαύτην αἰτίαν ἀκριβεστέρα καὶ ἀριθμητικὴ ἀρμονικῆς. Καθ´ ἕτερον δὲ λόγον ἀκριβεστέοἐστίν ἐπιστήμη ἐπιστήμης, ἡ ἄυλον ἔχουσα τὸ ὑποκείμενον, ὡς γεωμετρία, ἀριθμητική τε καὶ θεολογία, τῶν ὑποβαλλομένων τὰ ὀλικὰ ὑποκείμενα Διά φησι καὶ Ἀριστοτέλης ἐν τοῖς μετὰ τὰ φυσικὰ, ὅτι ἡ τῶν νοητῶν θεωρία καὶ ῥάστη ἐστὶ καὶ χαλεπή. Ῥάστη μὲν, διότι περὶ ἐστώτων ἐστὶ πραγμάτων καὶ ἀεὶ ὡσαύτως ἐχόντων· φανότατα γὰρ τὰ θεῖα ὡς ἀμετάβλητα καθάπαξ, κατ´ οὐσίαν, κατὰ δύναμιν, κατ´ ἐνέργειαν. Ῥάστη μὲν οὖν διὰ τοῦτο· χαλεπὴ δὲ διὰ τὴν ἡμετέραν ἀσθένειαν. Οὐ γὰρ ἐξισχύομεν ἐν σώματι, καὶ ἐμπαθεῖς ὅντες, εἰς τὸ ἑκείνων φῶς ἀτενίσαι· ὅπερ πάσχουσι καὶ αἱ νυκτερίδες πρὸς τὸν ἥλιον. Ὁτι Πλάτων ἀθάνατον λέγων, τὴν ψυχὴν, ἀφανάτοις ὁμώνυμον εἶναι ἐπιφέρει· διότι τὸ μὲν κυρίως ἀθάνατον καὶ κατ´ οὐσίαν καὶ κατ´ ἐνέργειαν ἐστιν ἀμετάβλητον· τὴν δὲ ψυχὴν κατ’´ οὐσίαν μὲν οὐδὲν ἀθάνατον, οὐκέτι δὲ καὶ κατ´ ἐνέργειαν. Οὕτως δ´ ἂν εἴποις καὶ τὰ οὐράνια ἀθανάτοις ὁμώνυμα· μεταβάλλει γὰρ καὶ αὐτὰ, εἶ καὶ μὴ κατ´ οὐσίαν, ἀλλὰ κατὰ τόπον. Ὅτι ἡ περὶ ψυχῆς ἀληθεστάτη γνῶσις, πρὸς πᾶσαν φιλοσοφίαν συμβάλλεται· πρὸς δὲ τὴν ἠθικὴν λέγω καὶ τὴν θεολογικὴν καὶ τὴν φυσικήν. Πρὸς μὲν οὖν τὸν ἠθικὴν ὅτι ἀδύνατον ἡμᾶς τὰ ἑαυτῶν καταστευάσαι ἴθη τὰς δυνάμεις τῆς ψυχῆς μὴ ἐπισκεψαμένους· πρὸς δὲ θεολογίαν, ὅτι ζητοῦμεν περὶ τοῦ νοῦ τοῦ χωριστοῦ τοῦ ἐν ἡμῖν, ὅτι καὶ αὐτὸς ἀθάνα. τος. Ἐπειδὴ δὲ ὁ νοῦς νοητῶν ἐστι, νοῦς τῶν πρός τί ἐστι Τῶν δὲ πρός τι ὁ τὸ ἔν εἰδὼς, καὶ τὸ λοιπὸν εἴσεται, δῆλον ὅτι ἡ θεωρία τοῦ ἡμετέρου νοῦ καὶ εἰς ὓεολογίαν μεγάλα συμβάλλεται. συμβάλλει δὲ ἡμῖν καὶ πρὸς τὴν φυσικήν, Εἴ γε φυσικῆς μέν ἐστιν ἔργον, τὸ περὶ σωμάτων διαλεχθῆναι, καὶ τῶν εἰδῶν αὐτῶν, καὶ τῶν δυνάμεων· τῶν δὲ ἐν σώμασιν εἰδῶν τὸ κάλλιστον ἡ ψυχή-. τι δεῖ, φησὶ, καθάπερ καὶ ἐπὶ τῶν ἄλλων, οὕτω. καὶ ἐπὶ τῆς ψυχῆς ζητῆσαι, ὑπὸ ποῖον γένος αὐτὴν ἀνάξομεν. Καὶ γὰρ οἱ μετὰ αὕτὴν ὑπὸ τὴν οὐσίαν ἀνάγουσιν· οἱ δὲ ὑπὸ τὸ ποσόν· ὧν ἐστι καὶ πενοκράτης. Αριθμὸς γάρ ἐστι, φησὶν, ἡ ψυχὴ κινῆῶν ἑαυτόν. Οἱ δὲ ὑπὸ τὸ ποιὸν, ῶν εἶσι καὶ ἱπτροῖ, ἡμᾶς  ἶναι λέγοντες αὐτήν. Τοιοῦτοι δ´ ἅν εἶεν καὶ οἱ ἐντελέχειαν αὐτὴν νομίζοντες τοιαστην. Ἀλλοι"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "561",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "λόγον αὐτὸν τῶν στοιχείων λέγουσιν, οἱ δηλονότι ὕπὸ τὸ πρός τι ταύτην ἀνάγουσι. Τὸ γὰρ διπλάσιον ἢ ἡμιόλιον τῶν πρός τι. Ἀμφίβολον οὖν τέως τὸ γένος. Ἐπειδὰν δὲ εὕρωμεν ὅτι οὐσίαν, πάλιν ζητεῖν δεήσει, πότερον σῶμα ἢ ἀσώματον, καὶ εἰ σῶμα ἀπλοῦν ἢ σόνθετον· καὶ εἰ ἀσώματον χωριστὸν ἢ ἀχώριστον. Καὶ πότερον μία ἐν ἑκάστῳ ψυχὴ, ἢ πολλαί· καὶ εἰ μία, μονοειδὴς ἢ πολυδύναμος· καὶ τίς ὴ τῶν δυνάμεων διαφορὰ, καὶ εἰ πολλαί- πότερον τῶ ἀριθμῷ πολλαί, ἢ καὶ τῷ εἴδει· πότερον καὶ τῶ Κγένει, ἡ οὖ. Τὰ γὰρ τῷ εἶδει διαφέροντα, οὐ πάντως καὶ τῶ νένει· ὡς ἄνθρωπος καὶ ἵππος. Τὰ μέντοι τῷ Κγένει διαφέροντα, ἐξ ἀνάγκης καὶ τῷ εἴδει, ὡς λίθος καὶ ʹῶον. Ταῦτα τοίνυν καὶ τούτων πλείονα, πρὸς τὸ λαβεῖν τὸν ὁρισμὸν τῆς ψυχῆς, ζητητίον. Ὅτι Ἀριστοτέλης ὁπὸ διαίρεσιν τὸν λόγον ἀνάγων τὸν περὶ ψυχῆς, φησὶν, ἢ δυνάμει ἐστὶν ἡ ἐντελέχεια, ἀντὶ μὲν τοῦ σώματος χρησάμενος τῇ δυνάμει. ἀντὶ δὲ τοῦ ἀσώματος τῇ ἐντελεχείᾳ· καὶ γὰρ τῶν σωμάτων τὰ μὲν ἐν γενέσει καὶ φθορᾷ δυνάμει ἐστί, καὶ κατ´ οὐσίαν καὶ κατὰ ποιότητα, καὶ τὴν ἐν τόπου εἶς τόπον μεταβολήνδυνάμει μὲν γάρ ἐσμεν ἄνθρωποι ἐν τῷ σπέρματι καὶ ἐν τῷ καταμηνίῳ· καὶ δυνάμει παῖδες ὄντες, ὅχομεν τὸ τοῦ ἀνδρὸς μέγεθος. Ὁμοίως καὶ ἐπὶ τοῦ ποιοῦ δυνάμει ψυχροὶ ερμοὶ ὅντες, καὶ δυνάμει κινούμεθα καθήμενοι. Τὰ δέ τε οὐράνια ἐν τῆ τατὰ τάπον μεταβολῇ μόνον ἔχουσι τῇ δυνάμει. Ἀνα. τέλλων γὰρ ὁ ἥλιος, δυνάμει μεσουρανεῖ· καὶ μεσουρανῶν δυνάμει δύνει· καὶ ἐπὶ τῆς ἄλλης αὐτοῦ κινήσεως καὶ τῶν ἄλλων ἀστέρων, ὡσαύτως ἐν τῇ κατὰ τόπον μεταβολῇ, τὸ δύναμει ἐστὶ θεωρεῖν. Ἀλλὰ τί δήποτε ἐπὶ τοῦ σώματος ἐν δυνάμει τάξας, ἐπὶ τοῦ ἀσωμάτου οὐκ εἴπεν ἐντελεχείᾳ κατὰ δοτικὴν πτῶσιν ἀλλ´´ ἐντελέχειαν κατ´ εὐθεῖαν; Λέγομεν οὖν Κτι ἅελο ἐστὶ δόναμις, καὶ ἄλλο ἐν δυνάμει, καὶ ἄλλο ἐντελέχεια, καὶ ἄλλο ἐντελεχείᾳ. Ἐ μὸν γὰρ ὕλη μόνως ἐστὶ δυνάμει πάντα, καὶ ἕστι δυνάμει, ἐνεργείᾳ δὲ οὐδέν. Τὸ δὲ ἶδος μόνως ἐντελέχεια· τὸ δὲ ἐέ ὕλης καὶ εἴδους καὶ ἐν δυνάμει, τοῦτό ἀστι καὶ ἐντελεχείᾳ. Συντρέχουσι γὰρ πάντα ταῦτα ἄμα· καὶ βπερ ἐστὶ καὶ ἐν δυνάμει, τοῦτό ἐστι καὶ ἐντελεχεία. Καὶ γὰρ πάντα τὰ εἴδη, δυνάμει ἐν τῇ ὕλῃ ἑστὶν, ἄτις ποτὲ μὲν τοῦτο, ποτὲ δὲ ἐκεῖνο γίνεται ἓνεογείᾳ. Νῦν μὲν γὰρ ἄνθρωπος οὖσα δυνάμει, ἀλλοτε γίνεται ἐνεργείᾳ ἄνβρωπος· μᾶλλον δὲ ἄμα ἔγει καὶ τὸ δυνάμει καὶ τὸ ἐνεργείᾳ. Ἐπειδὴ γὰρ οὐδέποτέ ἑστι γυμνὴ εἶδους, ἑκείνου τοῦ εδους, ἐνεργείᾳ μὲν οῦν ἑστι τόδε, τῇ δυνάμει δὲ ἄλλο. Ἐπεὶ οὖν ἑν οἷς πὰ δυνάμει ἑστὶν, ἑν τούτοις καὶ τὸ ἑνεργείᾳ, ὡς ἑπὶ τῶν ἐνύλων εἴρηται σωμάτων· ἑπὶ δὲ τῶν θείων καὶ ἀσωμάτων οὐκ ἔστι τὸ δυνάμει· ἐπεὶ μηδὲ ὕλη· καὶ διὰ τοῦτο οὑδὲ τὸ ἐνεργείᾳ. Οὐ γάρ εἰσιν ἐνεργείᾳ τόδε τι, ἀλλ´ αὑτοινέργειαί εἰσιν ἢδη ὅντα κακαὶ συνοέτῳ φύσει, τὴν αὐλὸν καὶ ἀσώματον, ἐσήμανε διὰ τοῦ δυνάμει· τὴν δὲ διὰ τοῦ ἐντελέΧια. Ὅτι δυνατὸν φησὶ καὶ μίαν ψυχὴν ἑπὶ τοῦ ἀνθρώπου λέγειν καὶ πλείους· πλείους μὲν ὅτι διαφέρουσιν"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "562",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ἀλλήλων τῷ ἶδει, ἡ φυτικῇ καὶ ἡ ἄλογος καὶ ἡ λογικὴ, καὶ χωρίζονται ἀλλήλων. Καὶ δὲ διὰ τὴν συμφωνίαν τούτων καὶ τὴν συμπάθειαν. Καὶ γὰρ καὶ ἐκ τοῦ λόγου ἐνέργειαι διαβαίνουσι μέχρι τῆς φυτικῆς, καὶ αἱ τούτων κινήσεις καὶ ζωαί, οἱονεὶ συνδιατιθέασιν ἐν αὐταῖς τὸν λόγον. Οὐκοῦν καὶ μία. Ὅτι οἱ μίαν λέγοντες ψυχὴν τῷ εἴδει ἐν πασι τοῖς ζώοις, κρᾶσιν εἶναι αὐτὴν δοξάζουσιν· ἐξαλλάττ·σοαι γὰρ αὐτὴν πρὸς τὴν ἐν ἑκάστῳ ἰδιότητα τῆς κράσεως τίθενται· οἷς ἔπεται πολλὰ ὅτοπα· ἔν μὲν ὅτι τὰ αἰτιατά, κρείττω κοιοῦτι τῶν αἰτίων. Τὸ γὰρ ἄψυχον σῶμα ψυχῆς αἴτιον ποιοῦσι. Δεύτερον, τὸ ζῶον τῆς ζωῆς, τὸ ἀκίνητον τοῦ κινητικοῦ, τὸ ἄλογον τοῦ λόγου, καὶ ὅσα τοιαῦτα. Ὅτι τὰς ἐν τοῖς διαφόροις ζώοις ψυχὰς Ἀριστοτέλης διαφόρους εἶναι λέγει τῷ εἴδει. Ὅτι φησὲν οὐκ ἔστι κοινὸν γένος τῶν ψυχῶν, διόπερ οὐδὲ ἐνδέχεται ενα κοινὸν αὐτῶν ὅρον ἀποδοῦναι, καθάπερ τυχὸν τοῦ ζώου. Οὐκ ἕστι δὲ κοινὸν γένος, διότι ἐὰν σὸταῖς τὸ πρότερον καὶ τὸ ὕστερον θεωρεῖται· ἔπεο ἀδύατοἐν τοῖς τελοῦσιν ὑπὸ τὸ αὐτὸ καθορᾶσθαι γνος. Ἐνταῦθα δὲ πρότερον μὲν ἡ φυτικῇ τῇ φύσει, δεύτερον δὲ αἱ λοιπαί. Καὶ συναναιρεῖ μὲν τὰς ἄλλας, οὖ συναναιρεῖται δὲ αὐταῖς, καὶ συνεισφέρεται μὲν ἐκείναις, οὐ συνεισφέρει δὲ, ὅπερ ἵδισν, τοῦ φύσει προτέρου. Ὃπου γὰρ ἡ λογικὴ, ἐκεῖ καὶ ἡ ἄλογος καὶ ἡ φυτική· οὐ μέν τοι ὅπου ἡ φυτικὴ, ἐκεῖ καὶ αἱ λοι- παί- ἢ ὅπου ἡ ἄλογος, ἐκεῖ καὶ ἡ λογκή· διὰ καὶ ἡ ἄλογος φύσει προτέρα τῆς λογκῆς· καὶ ἀναιρεθεῖσα ἡ φυτικὴ, συνανεῖλεν ἀκ τοῦ ὑποκειμένου καὶ τὰς λοιπάς. Ὡστε ἀστὶν ἐν αὐταῖς τὸ πρότερον τῇ φύσει καὶ τὸ ὕστερον. Καὶ διὰ τοῦτο τὸ κοινῶς αὸτοῖς κατηγορούμενον οὐκ ἕστι γένος, τοῦτ´ ἔστιν ἤ ψυχὴ, ἀλλ´ ὁμώνυμά ἀστιν ἀλλήλοις, ὡς τὰ ἀφ´ ἔτος καὶ πρὸς ἕν. Ὅτι τριῶν ὅντων τῶν ἐν τοῖς φυσικοῖς πράγμεσιν, δῆδους, ὅλης καὶ τῆς αἰτίας καθ´ ἧν ἀστι τὸ εἶδος ἐν τῇ ὕλῃ. καταγίνονται φασὶ περὶ ταῦτα μὲροδοι πίν. τε, ἡ φυσικὴ, ἡ κατὰ μέρος τέχνη, ἡ διαλεκτικὰ, ἡ μαθηματικὴ, ἡ πρώτη φιλοσοφία. Ἐστι δὲ φυσικῆς μὲν περὶ πάντων εἰρημένων διαλεχοῆναι· τῆς τε ὅλης φημί, τῶν φυσικῶν πραγμάτεων, καὶ τοῦ εἴδους καὶ τῆς αἰτίας· οἷον ὅτι τῶν οὐρνίων ὕλη, σὐχὶ τὰ πέσσαρα στοιχεῖα, ἀλλὰ πάμπτον ἕτερον τὸ σῶμα; ΙΠάλιν τι τὸ εἶδος, ὅτι σφιρικὰ καὶ διατί σφαιρικά· ἕτι πολυχωρητότατον, ἐν ἐπιπέδφ μὴν τῶν ἄλλον σχημάτων ὁ κύκλος, ἐν στερεοῖς δὲ ἡ σφαῖρα, ὡς καὶ ὁ Πλάτων, ἐν Τιμαίῳ διὰ τοῦτο σφαιρικν γενέσθαι τὸν οὐρανὸν ἀποδέδωκεν. Ἀποδίδωσι ζὲ καὶ ὁ Ἀριστοτέλης φυρικὴν αἰτίαν τοῦ σχήμεος τὰ ορανοῦ. Τῷ γὰρ αἰδίῳ φησίν ἐσομένφ. Ἀποδάδωσι δὲ καὶ ὁ Πλωτῖνος αἰτίαν ἐκ τῆς σχέσεως ἦἔχει τὰ πρὸ αὐτοῦ. Πρεσεχῶς δὲ εἰειν ὁπλρ τὰ οβράνια αἱ νοηταὶ οὐσίαι· δεῖ δὲ τὸ αἰτιπτὸν ὅτι μΒλλειν ὡμοιῶσθαι τῷ προσεχεῖ αἰτίῳ, κα´ τοότον οἰκάν-καὶ μίμημα φέρειν. Διὰ τοῦτο οὖν, φησὶ, κύκλῳ κινεῖαι"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "563",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ὁ οὐρανὸς, ὅτι νοῦν μιμεῖται· ἵδιον γὰρ τοῦ νοῦ, τὸ πρὸς ἑαυτὸν συνντόειν. Αὐτὸς γὰρ ὁ ὁρῶν, αὐτὸς ὁ ὁρώμενος· ὁρῶν γὰρ τὰ εἴδη, ἐαυτὸν ὁρᾷ, καὶ αὐτὸν ὁρῶν, τὰ εἴδη τεθέπται, Πλήρωμα γὰρ ἐστι τῶν εἰδῶν, καὶ εἶδος εἰδῶν, ἔχει οὖν οὐρανὸς τὸ μὲν σφαιρικὸν σχῆμα, διὰ τὴν κύκλῳ κίνησιν· ταύτην δὲ διὰ τὴν πρὸς τὸν νοῦν ἐξομοίωσιν. Καὶ ἄλλως μι. μεῖται τὸν νοῦν ἀμερῶς πανταχῆ ὅντα· καὶ γὰρ τὸ οὐράνιον σῶμα πανταχῆ ῆ γίνεται. Τὸ οὖν πανταχῆ γίνεσθαι, τὸ πανταχοῦ ὃν μιμεῖται. τελείωσις γὰρ τῶν χειρόνων, ἡ πρὸς τὰ ὁπέρτερα ἐπιστροφή τε καὶ ἐξομοίωσις. οὕτω μὲν ὁ φυσικὸς πάντων τῶν φυσικῶν ἀποδώσει καὶ τὸ εἶδος καὶ τὴν ὕλην καὶ τὸ αἴτιον, καὶ διὰ τοῦτο τὸν ὁρισμόν· ἐκ δὲ τῆς ὕλης καὶ τοῦ εἴδους καὶ τῆς αἰτίας ἀποδώσει. Ὁ δὲ κατὰ Κμέρος τεχνίτης, καὶ αὐτὸς μὲν περὶ τῶν αὐτῶν διαλαμβάνει. Διφέριι δὲ τοῦ φυσικοῦ, ὅτι περὶ μερικόν τι καταγίνσται πρᾶγμα· οἶον ὁ ἰατρὸς, περὶ τὰ αν ἡοώπινα σώματα, ὁ τέκτων περὶ λίθους καὶ ἔύλα. ἀποδώσει δὲ καὶ οὖτος τὸν ὁρισμὸν, παραλαμβάνων καὶ τὸ εἶδος καὶ τὴν ὕλην καὶ τὴν αἰτίαν. Ὅτι ἢ ἀληθὴς Ἀριστοτέλους περὶ τῶν τριῶν τοῦ νοῦ σημαινομένων διάληψις, ἢν ἐπικρίνει καὶ Ἀμμώνιος. Τοιαύτη ἐστί. Πρῶτον τοίνυν ἐστὶ σημαινόμενον, δ νοῦς ὁ δυνάμει εἰδώς τὰ πράγματα. ὥσπερ ἐπὶ τῶν παίδων ἐστί. Δεύτερον σημαινόμενον ὁ νοῦς ἃ καθ´ ἔξιν εἰδώς τὰ πράγματα, ὥσπερ ὁ ἐπὶ τῶν τελείων· τῶν ἐπισταμένων μὲν τὸ πράγματα, ἡρεμούντων δὲ καὶ μὴ ἐνεργούντων κατὰ ταῦτα. Τρίτον σημαινόμενόν ἐστιν· ὁ νοῦς οὐχ ὁ θύραθεν εσιὼν, ὡς ἐκεῖνοι οἴονται· ἀλλ´ ὁ καθ´ ἔξιν ἄμα καὶ ἐνέργειαν, ὥσπερ ὁ τῶν τελείων νοῦς τῶν εἰδότων τὰ πράγματα, καὶ προχειριζομένων τὴν εἴδησίν, καὶ ἐνεργούντων κατ´ αὐτήν. Καὶ τὰ μὲν σημαινόμενα τοῦ νοῦ κατὰ Ἀριστοτέλην ταῦτα, ὅτι Πλάτωνος λέγοντος τὴν ψυχὴν τόπον εἰδῶν, ὁ Ἀριστοτέλης τρόπον μὲν τινα πρὸς δόγμα ἀποδέγεται, τρόπον δὲ διαβάλλει. Ἀποδέχεται μὲν ἐπειδὴ εἷπεν ὅτι δέχεται ἡ ψυχὴ τὰ εἴδη τῶν νοητῶν, καὶ οὕτως ἐνεργεῖ· καὶ διὰ τοῦτο εἰπεῖν αὐτὴν τὸν Πλάτωνα τόπον εἰδῶν. μέμφεται δὲ εἰς δύο τινά. Πρῶτον μὲν ὅτι πᾶσαν ψυχὴν ὁ Πλάτων λέγει τόπον εἰδῶν, καὶ οὐ μόνον τὴν λογικήν· καίτοι τε τὴν λογικὴν ἐκεῖνος μόνος ἔλεγε τόπον εἰδῶν καὶ ψυχήν, τὰς δὲ ἄλλας ἐμύ. νίας. Δεύτερον δὲ, ἔτι ἐνεργείᾳ λέγει ἑν τῇ ψυχῇ τὰ εἴδη, καὶ οὐ δυνάμει. Ὁ γὰρ Ἀριστοτέλης ἀγράφῳ γραμματίῳ αὐτὴν εἰκάζει, καὶ κυρίως λέγει μάθηαιν. Ὁ μέν τοι Πλάτων ἐγγράφῳ γραμματίῳ, καὶ τὴν μάθησιν ἀνάμνησιν λέγει. Ὅτι διττῆς οὖσης ἐν ὴμῖν τῆς γνώσεως τῆς μὲν ἀλόχου οἷον αἰσθήσεως, πῆς δὲ λογικῆς οἷον τνῦ νοῦ, διττά ἐστι καὶ τὰ γινωσκόμενα· τὰ μὲν ἔνυλα, καὶ, τὰ αὐσθητά· τὰ δὲ ἄλα, πητεὶ οὖν διὰ τούτων ὁ Ἀριστοτέλης, πότερον ἐκάστη γνῶσις νὸ οἰκεῖον γινώσκει, οἷον ἡ μὲν ἄλογος τὰ ἄνολα, ἡ δὲ λογικὴ τὰ ἄυλα μόνον· ἢ ἡ μὲν ἄλογος τὰ Ξνυλα οἶδε μόνον· ἡ δὲ λογικὴ ὡς κρείτιων οσα, οὐ μόνον τὰ ἄυλα οἶδεν, ἀλλὰ καὶ τὰ ἵνυλα. Καὶ τοιαύτης οὐσης τῆς ἀπορίας, ἐπικρίνει λέγων, ὅτι ἡ λογικὴ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "564",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "οὐ μόνον τὰ ἄυλα οἶδεν, ἀλλὰ καὶ τὰ ἔνωλα Ὡ γὰρ εἰδὼς τὰ κρείττονα, πολλῷ πλέον καὶ τὰ χείρονα οἶδε τὰ ἄυλα. Σκοπήσει πάντως καὶ τὰ γείροσνα τῶν αὐλῶν· ἅ ἐστι τὰ ἔνυλα. Εἰ γὰρ ὁ νοῦς ὁ ἐστιν ή λογικὴ γνῶσις. μόνον οἶδε τὰ ἄυλα, μὴ γινώσκει δὲ καὶ τὰ ἔνυλα, ἔσται ὁ νοῦς κατά τι ἄνους· τὰ γὰρ ἔνυλα μὴ νοῶν, ἄνους ἔσται κατ´ αὐτά· ἀλλὰ μὲν τοπον τὸν νοῦν κατά τι ἄνουν εἶναι. Οὐκ ἄρα τὰ ἄυλα μόνον οἷδεν, ἀλλὰ καὶ τὰ ἔνυλα. Καὶ ταῦτα μὲν ὁ Ἀριστοτέλης. Ὅτι δὲ καὶ τὰ ἔνυλα οἷδεν ὁ νοῦς ἐντεῦθεν ἔστι συνιδεῖν. Εἶ γὰρ μὴ ἠπίστατο τὰ ἔν. υλα, πῶς ἐπιδιωρθοῦται τὴν αἴσθησιν, ὁρῶσαν τὴν κώπην ἐν ὕδατι κεκλασμένην, καὶ τὸν ἥλιον ποδιαῖον· ἀλλως τε δὲ ἔχομεν κανόνα, ὅτι τὸ ἐπιστάμενον διαφορὰν πραγμάτων, πολλῷ μᾶλλον αὐτὰ τάδε· τὴν διαφορὰν τῶν αὐλῶν πρὸς τὰ ἔνυλα, οἷδεν ἅρα καὶ τὰ ἔνυλα Ἀλλ´ ἐρεῖς ἴσως ὅτι ἄτοπον ἐστι τὸ νοῦν τὰ ἔξω εἰδέναι· ταῦτα γὰρ αἰσθήσεώς ἐστι τὸ τὰ ἔνυλα καὶ τὰ κατὰ μέρος γινώσκειν· ὁ μὲν γὰρ νοῦς τὸ καθόλου οἶδε μύνον· τῆς δὲ αἰσθήσεως ἐστι τὸ εἰδέναι μερικὰ, ἀ τινά ἐστιν ἔνυλα. Ἔστι δὲ εἰπεῖν πρὸς τοῦτο. ὅτὶ ὁ νοῦς τῳ μὲν ὑποκειμένῳ εἶς ἐστι, τῷ δὲ λόγῳ διάφορος. Ὁ γὰρ νοῦς ἥ καφ´ ἑαυτὸν μόνον ἐνεργεῖ καὶ τότε τὸ καθόλου μόνον οἶδεν· ἢ μετὰ αἰσθήσεως ἐνεργεῖ, ὀργάνῳ αὐτῆς κεχρημένος· καὶ τότε τὰ ἔνυλα καὶ μερικὰ οἶδεν. Ὡσπερ γὰρ ἡ αὐτῆς εὐθεῖα, τῷ μὲν ὑποκειμένῳ ἡ αὐτή ἐστι, τῷ δὲ λόγῳ ιάφορος. Ἐ γὰρ νῦν εὐθεῖα οὖσα δύναται κλασθῆναι καὶ ἐπικαμπὴς γενέσθαι· οὕτω καὶ ὁ νοῦς Α αύτός ἐστι τῶ ὑποκειμένῳ· ἄλλοτε εὐθεῖα ἀναλογεῖ, ὁ καὶ καθ´ ἕαυτὸν ἐνεργεῖ καὶ τὰ ἄυλα οἶδεν, ἄλλοτε δὲ κεκλασμένη εὐθεῖα, ἐπικαμπόμενος πρὸς τὴν αἴσθησιν, καὶ ὀργάνῳ αὐτῇ κεχρημένος, Κτε καὶ τὰ ἔνυλα οἶδε. Τουτε μὲν οὖν ἐστι τὸ πρῶτον ἀποοον καὶ ἡ λύσις αὐτοῦ. Δεύτερον ἄπορον, ὃν καὶ λῆμμα προλαμβάνεται, τοιοῦτον, ὅτι τὸ ἀπὸ τοῦ δυνάυει εἶς τὸ ἐνεργείᾳ γενόμενον, πάντως ἀλλοιοῦται, ἡ δὲ ἀλλοίωσις πάθος ἐστί. Τοῦτου προληφθέντος ποόειαι λοιπὸν τὸ ἄπορον. Εἰ γινώσκει ὁ νοῦς τὰ ἔνυλα, δῆλον ὅτι πάσχει ὑπ´ αὐτῶν, ἀπὸ τῆς δυνάμει γνώσεως εἴς τὴν ἐνεργείᾳ γνῶσιν. Τὸ δὲ ἀπὸ τοῦ ἄανάμει ἀγόμενον εἰς τὸ ἐνεργείᾳ ἀλλοιοῦται. Τὸ δὲ ἀλλριούμενον, πάσχει. Ὀ νοῦς ἄρα πάσχει ἀπὸ τῶν ἐνόλων· καὶ ἐπειδῆ οὐδὲν ἐκ τοῦ ἀνομούλου πάσχει, δλον ἄρα ὅτι ὁμόύλός ἐστιν ὁ νοῦς τοῖς ἐνύλοις. Καὶ ἔστι καὶ αὐτὸς ἔνυλος καὶ ἄφθαρτος. Αὕτη ἡ ἀπορία, ἄ ἐπιλυσόμενοί φαμεν, ὅτι κακῶς εἴληπται ὅτι ποῶ ποιοῦν καὶ πάσχει· οὖτος ὁ λόγος ψευδής ἐστι. Τότε γὰρ τὸ ποιοῦν ἀντιπάσχει, ὅτε ὁμόυλον ἔσται τῷ πάσγοντι. Ἐπειδὴ οὖν ὁ νοῦς οὐκ ἔστιν ὁμόυλος τοῖς ἐνόλοις, οὐκ ἀνάγκη πάσχειν αὐτὸν ὑπὸ τῶν ἐνύλων ὄτε γινώσκει αὐτά, Ιοιεῖ γὰρ καὶ ὁ δημιουργὸς, εὐεργετῶν ἡμᾶς· καὶ ὅμως οὐκ ἀντπάσχει ὑφ´ ἡμῶν· ὡστε ἐκεῖνα μόνα τῶν ποιούντων ἀντιπάσγει, ὅσα ὁμόύλά ἐστι τοῖς πάσχουσιν. Ὃτι Τδιόν ἐστι τῷ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "565",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "νοή, καὶ τὸ τῇ οὐσίᾳ ἐνεργεῖν. Καὶ γὰρ ὁ ἐπιστημῶν οὔτε ἐπιστήμη μόνον ἐστὶν, οὔτε ψυχὴ, ἀλλὰ κρᾶμα ἐξ ἀμφοτέρων· σύγκειται γὰρ ἐκ ψυχῆς καὶ ἐπιστήμης, καὶ ἀναλογεῖ, ἡ μὲν ψυχὴ ὕλῃ, ἡ δὲ ἐπιστήμη εἴδει. Καὶ ἐπειδὴ παντὸς πραγματος μᾶλ λον ἐστὶν οὐσία τὸ εἶδος τῆς ὕλης· εἰ μᾶλλον οὐσία τὸ εἶδος τῆς ὕλης· φασὶ δὲ Ἔλληνες ἀρχὴν τῶν ἄλλων Θεὸν, καὶ ὕλην· τὸν Θεὸν ὡς εἶδος λέγοντες· οὐσίαν ἄρα φασὶ τὸν Θεὸν τῆς ὕλης μᾶλλον, καὶ αὐτὰ εἴδη ράν· εἴπερ οὐδεμία ὅλη ἐν τοῖς οὖσιν ἀνείδεος, ὅπερ ὥς λιπὸν ἀσεβὲς παραιτητέον· οὐσία ἄρα ἐστὶ τοῦ ἐπιστήμονος ἡ ἐπιστήμη· καὶ εἰ ὁ ἐπιστήμων κατὰ τὴν ἐπιστήμην ἐνεργεῖ, αὕτη δέδεικται οὐσία τοῦ ἐπιστήμονος οὐσα. Κατὰ τοῦτο ἄρα λέγεται τῆ οὐσίᾳ ἐνεργεῖν, διὰ τὸ τὴν ἐπιστήμην οὐσίαν εἶναι τοῦ ἐπιστήμονος. οὔτε γὰρ κατὰ τὸ ὑψηλὸν ἐκεῖνο καὶ ἐπηρμένον θεώρημα ὅτι ὡς ἐπὶ Θεοῦ, ἡ αὐτὴ ἐστῖν ούσία τῇ ἐνεργείᾳ· ἐπὶ γὰρ τῶν ψυχῶν, καὶ τῶν αήλων οὐσιῶν, χωρὶς τῆς πρώτης αἰτιας, καὶ οὐσία ἐστὶ καὶ δύααμις καὶ ἐνέργεια. Τῇ οὖν οὐσίᾳ λέγεται ἐνεργεῖν, διὰ τὸ τὴν ἐπιστήμην οἱονεὶ οὐσίαν λέ γεσθαι τῆς ψυχῆς. Ἐκ τοῦ κρείττονος οὖν ὠνόμασε τὸν νοῦν Ἐπειδὴ γὰρ τῇ ἐνεργείᾳ ἐνεργεῖ ὁ νοῦς, καὶ ὧν ἐνεργείᾳ ἐνεργεῖ· κρεῖττον δὲ ἀν πᾶσιν ἡ λυέονεια καὶ ἡ οὐσία· διὰ τοῦτο θέλων εἶπεῖν ὅτι τῆ ἀνεονείᾳ Τνεργεῖ, εἶπε τῆ οὐσίᾳ, ὡς ἀπὸ κρείττονος, ὥσπερ ἀπὸ γενους τιμιωτέρου τὸ πᾶν δηλούμενος· ὡς Τεῦκρε, φίλη κεφαλή. Καὶ τοῦτο οὖν ἀρμόττει, τῷ ἐνεργείᾳ νῷ τοῦ ἀνθρώπου. Ἐνέργεια. γὰρ ὤν, νοεῖ· ἀ δὲ θύραθεν, αὐτόθεν ἐνέργειά ἐστι, καὶ τὸ τρίτον δὲ ἀρμόζει αὐτῷ, ὅτι ὁ νοῦς ἀεὶ νοεῖ, οὐχ ὡς ὁ Βλωτῖνος οἷτται, ὅτι ἀεὶ διαπαντὸς ὁ αὐτὸς νοεῖ. Οὁ γὰρ τὸν ἔνα τῶν ἀριθμῶν νοῦν λεγόμενον ἀεὶ νοεῖ· ἀλλ´ ὅτι ὁ ἐν ὅλῷ τῷ κόσμῳ ἀνθρωπικὸς νοῦς ἀεὶ νοεῖ. ΚΖν γὰρ ἐγὼ μὴ νοῶ, ἀλλ´ οὖν ἄλλος νοεῖ καὶ τῆ διαδοχῇ γίνεται τὸ ἀεί· ἵνα μὴ ἐπιλείψῃ ἡ ἔλλαμῷις πρὸς ἡμᾶς ἡ τοῦ Θεοῦ, ἢ ἀεὶ νοεῖν λέγεται, ἑπειδὴ ἀεὶ δύναται νοεῖν. Ὁ γὰρ ἔχων τὸν νοῦν, ἐν οἰᾳδήποτε ὥρᾳ βούλεται, νοιῖ, ὧσπερ τῷ ἀνθρωπίνῳ νῷ τοῦτο ὅπάρχει. Ὁ γὰρ θύραθεν νοῦς δ εἶς κατὰ ἀριθμὸν, πάντα νοεῖ. Ἀλλὰ ταῦτα μὲν ἐν τούτοις. Ὅτι ἐν τῷ ἐνὶ μὲν ἀνορώπῳ, φόσει τὸ δυνάμει ἀστὶ πρότερον τοῦ ἐνεργείᾳ· οὐκ ἐν τῷ ὅλῳ δὲ κόσμῳ· ἐν γᾶρ τῷ ὅλῳ κόσμῳ, φασί τινες, οὐ δεύπερον τοῦ ἄλλου οὐδὲ πρότερον οὖτε τὸ δυνάμει τοῦ ἐνεργείᾳ· οὔτε τὸ ἐνεργείᾳ, τοῦ δυνάμει. Εἰ γὰ ἀίδιος ὁ κόσμος κατὰ τὸν Ἀριστοτέλην, οὐδὲν ἕτερον θατέρου πρότερυν, ἀλλ´ ὁμόχρονά ἐστιν. Ὅτο μέν τοι χωρισθῇ ὁ νους και γένηται κατ´ ἐνέργειαν, τότε γίνεται ὅπερ ἐστὶ, τουτέστι κυρίως νοῦς. Καὶ τοῦτο μόνον, ἀδύνατον καὶ ἀίδιον. Ἐ δὲ ἄλογος ψυχὴ καὶ ἡ φυτικὴ ἀθάνατος μὲν, οὐκ ἀίδιος δέ. Ἀθάνατος δὲ ἂν λέγεται κΔν φοαρτὴ καὶ οὐκ ἀδιος δοξάζεται, ἐπειδὴ οὐ καθὸ ψυχὴ φθείρεται, ἀλλὰ καθὸ ἐν σώματι ἔστι. Διὸ καὶ Πλάτων λέγει, πᾶσαν ψυχὴν ἀθάνατον, τρῦτο λέγων καὶ ἐπὶ φυτικῆς καὶ ἐπὶ ἀλόγου, Ἡ δὲ ὕλη τὸ ἀνάπαλιν, ἀίδιος μὲν, οὐκ ἀθάνατος δέ· διὸ Ραταοι. Οε. ΟΧΧΙi."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "566",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Α νοῆα ἀλιος λέγεται, ὡς καὶ ἀίδιος καὶ ἀθάνατος. Ἔτι φησὶ διαφέρειν φαντασίαν αἰσθήσεως καὶ διανοίας, καθὸ ἡ μὲν μέση τούτων ἐστί, τὰ δὲ παφ´ ἐκάτερα· ἄρχεται μὲν γὰρ ἡ φαντασία ἀπὸ τῆς αἴ. σθήσεως· ἀρχὰς γὰρ ἡ αἴσθησις δίδωσι τῇ φαντασίᾳ· ἐκείνη δὲ τῇ διανοίᾳ ἀρχὰς δίδωσιν. Ἄνευ γὰρ φαντασίας οὐ δύναται ἡ διάνοια ἐνεργῆσαι. Καὶ ταύτῃ διαφέρει φαντασία αἰσθήσεως καὶ διανοίας. Πρὸς τούτοις λέγει δόξης καὶ φαντασίας διαφοράς· ὅτι φαντασθῆναι μὲν ὅτε καὶ θέλομεν δυνάμεθα. Καὶ γὰρ τρίπηχυν καὶ εἰκοσάπηχυν ἄνθρωπον φανταῖόμεθα καὶ δυνάμεθα ἀναπλάσασθαι καὶ τραγέλαφον καὶ ἱπποκένταυρον. δοίάσαι δὲ ἃ θέλομεν. οὐ πάντως δύναμερα. Τὸ γὰρ δὶς δόξῃ εἰπεῖν μὲν δέκα δυνάμεθα, δοξάσαι δὲ οὐ δυνάμεθα, ὥστε ἡ μὲν φαντασία ἀφ´ ἡμῖν, ἡ δὲ δόξα οὐκ ἐφ´ ἡμῖν· Εἰ δὲ δεῖ ἀληθῆ εἰπεῖν, οὐδὲ φπντασία ἐφ´ ἡμῖν ἐστιν· ἡ γὰρ ἐν τῶ καθεόδειν γινομένη, οὐκ ἐφ´ ἡμῖν. Οὐ γὰρ ἂ θέλομεν ἐν τοῖς ὅπνοις φανταζόμεθα· καὶ τί λέγω ἐν τῷ καθεύδειν; ἀλλὰ· αῆτι πᾶσα ἐν τῷ ἐγρηγορέναι. Ὁτε γὰρ τὰ ὄντα ὡς ἄντα φανταζόμεθα, οὐ δυνάμεθα, εἱ μὴ ὡς ἔχουσι, φαντάζεσθαι αὐτά. Οἷον τὸ Σωκράτην εἵ προορῶμαι φαντάζεσθαι, οὖ δυνάμεθα αὐτὸν φαντασρῆναι ἀστεῖον καὶ λευκὸν καὶ κομῶντα, ἀλλὰ πάντως φαλωφὸν καὶ μέλανα καὶ προγάστορα, ὥστε ἡ ἀριἄός διαφορὰ αὔτη ἐστίν θτι πως φησὶ, λέγων Ἀριστοτέλης, πᾶν τὸ κινούμενον ἐν τόπῳ μὲν εἶναι, αὐτὸς τὴν ἀπλανῆ, κινουμένην μὲν ὁμολογεῖ, ἔν τόπῳ δὲ μὴ εἶναι· ἢ ὅτι κΑν μὴ ὅλη ὡς ὅλη, ἀλλὰ´ ὅτι τὰ μέρη αδτῆς ἐν τόπῳ· ούχ ὅτι πέφυκε μὴ περιέχεσοαί· ἀλλὰʹ ὅτι μὴ ἐπέκεινα αὐτῆς σῶμά ἐστιν· ἵνα καὶ τὸ πᾶν αὐτῇ περικοιλαίνηται ἐν αὐτῷ. Ἐπὶ δὲ ψυχῆς οὐδὲν τοιοῦτόν ἐστιν, ἀλλὰ´ ἡ φύσις αὐτῆς ἐστι τὸ μὴ τόπῳ περιγράφεμθαι. Ὄτι ἡ ψυχὴ καθ´ ἑαυτὴν ἀίνητός ἐστι· κατὰ συιμβεβηκὸς δὲ αυτὴν κινεῖν λέγοιτ´ ἄν· καὶ τότε μόνην τὴν κατὰ τόπον κίνησιν. Ἐπειδὴ γὰρ κινεῖ μὲν αὕτη τὸ σῶμα· ἔστι δὲ ἐν αὐτῷ κινουμενα·νι νουμένου δὲ τοῦ σώματος συγκινηθήσεται αὐτῶ· ὥστε κατὰ συμβεβηκὸς ἐαυτὴν κινεῖ· τῷ τὸ σῶμα, ἐν ᾧ ἐστι· καθ´ ἑαυτὴν δέ, καὶ κατ´ οὐσίαν οὕτε κινεῖται, οὕτε ἐν τόπῳ ἐστί. Τήν οὖν κατὰ τόπον κίνησιν λέγοιτ´ ἄν μόνον κινεῖν ἑαυτὴν ἡ ψυχὴ κατὰ συμβεβανλς ἄλλην δὲ οὐδεμίαν. Οὕτε γὰρ ἀλλοιοῦται τοῦ σώματος ἀλλοιολμένου, οὖτε αὔξεται ἢ μειοῦται Ὁτι πολλἀλις ὁ Αριστοτέλης ψυχὴν καλεῖ, ἄμα καὶ τὴν ἄλογον καὶ τὴν φυτικὴν, συλλαμβάνων τῆ λογικῇ. Πολλάκις δὲ μόνον τὴν λογικήν· ἔσθ´ ὅτε δὲ καὶ αὐτὸν τὸν νοῦν ψυχὴν ὀνομάζει, ἐπονομάζει δὲ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "567",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "πάλιν ἐδιαζόντως τὴν ψυχὴν τὴν ἄλογον καὶ τὴν φυτικήν. Πολουσήμου τοίνυν τῆς ψυχῆς παρὰ Ἀριστοτέλους λαμβανομένης, δεῖ ἐκάστῳ σημαινομένῳ τὰ οἰκεῖα ἀφορίζειν καὶ ἀπονέμειν· καὶ μὴ συγχεῖν διὰ τῆς ὁμωνυμίας τῆς φωνῆς καὶ τῶν πραγμάτων τὸ διηρημένον καὶ ἀσύγχυτον. Ὡσπερ γὰρ τὸ θφαίνειν τυχὸν τοῦ ζώου ἐστίν κατὰ τὸ σῶμα· οὕτω καὶ τὸ διανοεῖσθαι τοῦ ζῴου ἐστίν κατὰ ψυχήν. Διὸ τοῦ ζώου φθειρομένου, οὐδὲν τούτων ἔξει ἡ ψυχὴ, ὃπερ ἐκ τῆς συμπλοκῆς τῆς πρὸς τὸ σῶμα αὐτῇ ἐπεγένετο· ὥστε οὐδὲ μνημονεύει. Καὶ γὰρ ἐνταῦθα μὲν παραῤῥίουσά ἐστίν ἡ γνῶσις αὐτῆς, καὶ δεῖται μνήμης εἶς κατοχὴν τῶν ἐγνωσμένων. κατὰ δὲ τὸ σῶμα, ὅτε ἐστῶσαν ἔχουσα τὴν γνῶσιν, καὶ αὐτοῖς προσβάλλουσα τοῖς πράγμασι, μνήμης οὐ δεῖται· μνήμη γάρ ἐστιν ἡ τῶν πάλαι ἐγνωσμένων. Ὃτι φησὶν Ἀριστοτέλης, ὄταν μὴ ἄρχῃ ὁ νοῦς, ἀλλὰ καρὰ φύσιν ἔχει ὁ ἄνθρωπος, τότε τῆς τάξεως ἀντιστραφείσης, ἔπονται ταῖς κράσεσι τοῦ σώματος αἱ τῆς ψυχῆς δυνάμεις. Ὃταν δὲ ὁ νοῦς ἄρχῃ, τότε κατὰ φύσιν ἔχοντος τοῦ ἀνθρώπου, οὐκέτι ταῖς κράσεσι οῦ σώματος ἀκολουθοῦσιν αἱ τῆς ψυχῆς δυνάμεις, ἀλλ´ ἔπεται τῇ ψυχῇ τὸ σῶμα, τι τὴν Θαλοῦ δόξαν περὶ ψυχῆς ἀνατρέπων, ὅστις λεγε πσντὶ σώματι μεμίχθαι τὴν ψυχὴν ὡς παρεῖναι σῶμα ἐμυχον. Πρῶτον μὲν, τί δή ποτε, φησὶν, Ἀν πντὶ σώμετι οὗσης ψυχῆς, τὰ μὲν ἐσεὶ ζῶα, τὰ δε οὖ; οἶτα, διαεί τῶν ἀπλῶν οὐδιν ἐστι ζῶον· καί αι ἴδει μᾶλλον ταῦτα. Ἐν γὰρ πυρὶ οὖσα, καὶ ἐν ἀέρι, ἄτε καθαρωτίροις καὶ λεπτομερεστέροις σώμασιν αὗσα, βίλτιον ἂν τἴη ἐν τούτοις ἡ ψυχὴτῶν συνθέτων, Ζθεν καὶ μᾶλλον ἂιαφαίνεσθαι ἐαυτῆς ὥφειλον αἱ ἐνέργειαι. Καὶ ἄλλα δὲ πλείω συνεπάνοι τῇ ὑπολήψει ταύτῃ ἐπόμενα ἄτοπα. Ὅτι ἐπεὶ πλείους καὶ διάφοροι τῆς ψυχῆς ἐνέργειαι, ζητεῖ ὁ Ἀριστοτέλης, πότερον μιᾶς οὖσης καὶ ἀμερίστου τῆς ψυχῆς, κατ´ οὐσίαν ἐκ ταύτης αἱ διάφοροι δυνάμεις καὶ ἐνέργειαι προέρχονται· ὧς τὴν αὐτὴν εἰναι κατ´ οὐσίαν, καὶ μίαν τῷ ἀριθμῶ, καὶ θρεπτικὴν, καὶ αὐξητικὴν, καὶ γεννητικὴν, καὶ λογικὴν, καὶ δυμικήν, καὶ ἐπιθυμητικήν. Καὶ καθάπιρ ἡ τοῦ πυρὸς οὐσία μία καὶ ἡ αὕτή ἐστιν· ἐξ ἧς ἡ καυστική τε καὶ ξηραντικὴ, καὶ φωτιστική πρόεισι δύναμίς τε καὶ ἐνέργεια, ἢ τις ἄλλη δόναμις ψυχικὴ, ἢ μεριστή ἐστιν ἡ ψυχὴ, καὶ κατὰ ἄλλο καὶ ἄλλο μόριον αὐτῆς Ἀκάστη τῶν ἐνεργειῶν τούτων γίνεται. Φησὶ δὲ ὁ Ἀριστοτέλης οὐκ ἀρεσκόμενος τῷ δόγματι, ἀλλ´ ἐγκαλῶν τῷ Τιμαίῳ παρὰ τὰ μόρια τοῦ σώματος διαιροῦντι καὶ τὴν ψυχήν. Καὶ γὰρ οὐδ´ αὐτὸς βούλεται μίαν οὐσίαν εἶναι τῆς ψυχῆς. ἀλλ´ ἀκ διαφόρων μὲν οὐσιῶν συγκεῖσθαι ταύτην· ἡνωμένων δὲ ἀλλήλαις καὶ συνεχῶν οὕτως, ὡς μίαν γίνεσθαι αὐτῶν συμπάθειαν. Διαβαίνει γάρ τι καὶ ἐκ τοῦ λόγου εἰς τὰ παρῇ, καὶ ἐξ ἐκείνων εἵς τὸν λόγον. Τότε γὰρ ὑποτρτάχθαι τὰ πάθη, καὶ εἴκειν τῷ λόγῳ, ἄνωθεν ἐκ τῇς τοῦ λόγου συλλήψεως αὐτοῖς, ἀφήκει. Τότε κρὸς τὰς οἰκείας ἐνεργείας ἐμποδίζεσοαι τὸν λόγον, ἐκ τῆς πρὸς τὰ πάθη σχέσεως αὐτῶν"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "568",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "πριγίνοται. Οὕτως οὖν μὲν οὐσία ἡ ψυχὴ, ἣ καὶ τὸν ὅλον ἄνθρωπον μιᾶς εἶναι φαμεν οὐσίας, καὶ ἀπλῶς, τὰ ἐξ ὕλης καὶ εἴδους· ἐπεὶ ὅτι γε οὐδὲ ἡ ἀλονος ψυχὴ πάσα μιᾶς ἐστιν οὐσίας, δεικνύει τὸ μάχεσθαι ἀλλήλοις πολλάκις τὰ πάθη, θυμὸν λέγω καὶ ἐπιθυμίαν· οὐδὲν δὲ αὐτῶν μάχεται, Πολλάκις γοῦν πρὸς τοῦ λόγου μᾶλλον ὁ θυμὸς, μᾶλλον γίνεται, ὡς συγγενέστερος διὰ τὸ φιλότιμον. Ἀνδέλκει δὲ ἡ ἐπιθυμία. Ὅτι κατὰ συμβεβηκὸς, φησὶν, εἰς ὁμοιομερῆ διαιρεῖται μέρη ἡ ψυχή· τῷ γάρ τοι ἐν τοῦ σώματι διαιρεῖσθοι, καὶ αὐτὴ συνδιαιρεῖται, ὡς ἐν των φυτῶν καὶ τῶν ἐντόμων Ὅτι ἡ μὲν ἄλογος ψυχὴ καὶ ἡ φυτικὴ, ἀντελέχεια λέγοιτ´ ἂν τοῦ σώματος, ὡς εἶδος ἐν ὕλῃ, καὶ ὡς οὐσίᾳ τελειοῦσα τὸ ὑποκείμενον καὶ ἐχώριστος ἐκάρχουσα αὐτοῦ. Τίνος γάρ ἔσται τελειότης ἡ φυτικὴ ψυχὴ χωρισθεῖσα τοῦ σώματος; Ἐντελέχεια δὲ καὶ ἡ λογικὴ ψυχὴ λέγοιτ´ ἅν, οὐχ ὡς τῇ οὐσίᾳ τελειοῦσα τὸ ὑποκείμενον. ἀλλὰ τῇ ἐνεργείᾳ. Καὶ ὡς ὁ κυβεονήτης τὸ πλοῖον τελειοῖ καὶ τάττει· διὸ καὶ χωριστή ἐστίν αὐτοῦ. Δύναται μέν τοι κατά τινα τρόπον λέγεσθαι καὶ ἡ λογικὴ ψυχὴ ἀχώριστος εἶναι τοῦ σώματος, καθό ἐστιν ἐντελέχεια. Τὰς γὰρ ἐνεργείας καθ´ ἂς τελειοῖ τὸ ζῶον, κινοῦσα αὐτὸ τοιῶσδε ἢ τοιῶσδε. ἀχωρίστως ἔχει τοῦ σώματος. Ἐξελθοῦσα γὰρ αὐτοῦ, οὐκέτι ταύτας ἐνεργήσει· ἔσχε γὰρ αὐτὰς ἐκ τῆς σχέσεως τῆς πρὸς τὸ σῶμα· ὥστε ταύτῃ καθὸ ἐντελέχειά ἐστι, λέγω δὴ κατὰ τάσδε τὰς ἐνεργείας, ἀχώριστος ἂν εἴη τοῦ σώματος· ὥσπερ καὶ οἷ κυβερνήτου αἱ ὡς κυβερνήτου ἐνέργειαι τοῦ πλοίου εἰσὶν ἀχώριστοι, καὶ χωρίζεται μὲν ὁ ἄνορωπος. Ὡς μὲν τοι κυβερνήτης ὥν ἐν ἐνεργείᾳ ἄμα τε κεχώρισται τῆς νεὼς, καὶ ἐφθαρμένας ἔχει τὰς τοιαύτας ἐνεργείας. Ὅτι κρείττων, φασὶ, πασῶν καὶ τιμιωτέρα τῶν τῆς φυτικῆς ψυχῆς δυνάμεων ἡ γυνητική· δεύτερον δὲ ἡαὐξητικὴ, καὶ τρίτον ἡ θρεπτική. Τῆς μὲν γὰρ θρεπτικῆς ἕργον ἑστὶ τὸ σώζειν τὸ σὐδος· μέχρι γὰρ τοσούτου σωζόμεθα, ἕως ἂν τρεφώμεθα. Τῆς δὲ αὐἐητικῆς, τὸ εἰς τὸ τέλειον καὶ κατὰ φύσιν μέτρον ἀγαγεῖν, εἰς ὃ γενόμενα τά τε ζῶα καὶ τὰ φυτὰ, ἐπὶ τὸ σκοπιμώτατον τῆς φύσεως τέλος, λέγω δὴ τὴν γεννητικὴν δύναμιν, παραγίνεται. Οὕτος γὰρ τῆς φύσεως ὁ τελικώτατος σκοπὸς διὰ τὴν ἄφεσιν τῆς ἀνδιότοτος τῆς ἀθανασίας τοῖς γεννητοῖς ζώοις, ἐπισκευαστῆς τῇ διαδοχῇ γενομένης ὢστε ἡ μὲν σὐἔητικὴ ὕλης ἐπέχει λόγον πρὸς τὴν γεννητικήν. Πρὸς δὲ τὴν αὐξητικὴν ἡ θρεπτική. Ὡτι ὁ νοῦς κατὰ Ἀριστοτέλην δύναιτ´ Σν ἐντελέ· χεια τοῦ σώματος λέγεσθαι, καὶ κατὰ τοῦτο ἀχώρι. στός ἑστι τοῦ σώματος, οὕτε τῇ οὐσίᾳ, οὕτε πάσαις αὐτοῦ ταῖς νεργείαις. ἀλλὰ ταύταις, ἅς ἵσχωί ἐκ τῆς σχέσεως τῆς πρὸς τὸ σῶμα, ὧν μάλιστάεἰεαἱ πρακτικαί. Αὖται δὲ ἑνέργειαι ἀχώροιστοι εἶαὶ τοῦ σώματος· ἀμα γὰρ τῷ φθαρῆναι τὸ σῶμα, συαφθείρονται καὶ αἱ τοιαῦται τοῦ νοῦ ἐνέργειαι, ἄς Κκ τῆς σχέσεως ἔσχε τοῦ σώματος. Καὶ ὥσπερ ὁ κυβερνήτης, ἐντελέχεια ὥν τῆς νεὼς, ἐπειδὰ δὴ οὁ μόνον κυβερνήτης ἐστὶν, ἀλλὰ καὶ ὁ ἄνθρωπος, ἣ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "569",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "δὲ ἄνθρωπος μένων ἐντελέχεια τῆς νοῦς, ταύτῃ και ἀχώριστός ἐστιν· οὕτω καὶ ἡ ἡμετέρα ψυγὴ, ἐντελέχεια οὖσα τοῦ σώματος, ταύτῃ ἄνευ σώματος οὐκ ἂν εἴη. ἐπειδὴ δὲ ἔχει τινὰς καὶ χωριστὰς σώματος ἐνεργείας, τὰς περὶ τῶν νοητῶν φημι, εἰς ἅς οὐ μόνον οὐ συμβάλλεται τὸ σῶμα, ἀλλὰ καὶ ἐμποδίζει·πρόδηλον ὅτι καὶ τὴν οὐσίαν ἕξει χωριστὴν νοῦς τότε οὖσα καὶ λεγομένη, οὐκέτι μέν τοι ψυχὴ εἰ μὴ δυνάμει· ὥσπερ καὶ ἐν σώματι οὖσα, οὐ δυνάμει ἐστὶ νοῦς. Ὅτι τὰ ζῶα, φησὶ, μετέχει τῆς θρεπτικῆς καὶ αἰσθητικῆς δυνάμεως· διὰ δὲ τὴν αἰσθητικὴν καὶ τῆς ὀρεκτικῆς, καὶ κατασκευάζει, ὅτι πάντως ἔνθα ἐὰν μία αἴσθησις ἧ, ἀνάγκη εἶναι ἐπιθυμίαν καὶ ἔρεξιν. Διὰ τοῦτο οὗν τὰ ζῶα αἴσθησιν ἔχει πάντα· ἐν πᾶσι γὰρ πάντως ἐστὶν ἡ ἀφὴ, ἐὰν μή τις ἄλλη τῶν αἰσθήσεων. Ἡ δὲ αἴσθησις τοῦ ἡδέος καὶ τοῦ λυπηροῦ ἀντιλαμβάνεται· ἔνθα δὴ τὸ ἡδὺ, ἐκεῖ πάντως καὶ ἡ ἐπιθυμία καὶ ὅρεξις. Ἡ γὰρ ἐπιθυμία τοῦ ἡδέος ἐστὶν ἔφεσις· ἵνθεν, καὶ τὰ μόνης τῆς ἁφῆς μετέχοντα, ὁρῶνται διαχεόμενα προσιόντων τῶν ἡδέων· συστελλόμενα δὲ, λυπηροῦ τινος προσπελάσαντος. ὁρίζει δὲ τὴν ὅρεξιν, ἐπιθυμίᾳ, θυμῷ, βουλήσει· ἕκαστον γὰρ τούτων ὄρεξις τίς ἐστι. Δῆλον Σὲ ὅτι ἁπλῆ μὲν ὅρεξις τῷ αἰσθητικῷ ἀπλῶς ὑπάρχουσα φαίνεται. Οὐ πᾶσα δὲ ὅρεξις παντὶ αἰσθητικῷ· τοῖς μὲν γὰρ τὴν ἀφὴν μόνην ἔχουσιν ἡ κατ´ ἐπιθυμίαν ὑπάρχει ὅρεξις· τοῖς δὲ πάσας τὰς αἰσθήσεις, καὶ ἡ κατὰ θυμόν. ὁρῶνται χὰρ τὰ τοιαῦτα ἀμυντικὰ ὄντα. Ἡ δὲ βούλησις μόνου ἐστὶ τοῦ λόνου ὧσε ὁμωνύμως ἡ ὅρεξις, καὶ ἡ ἐπιθυμία δὲ ὡσαύτως. Καὶ γὰρ ἡ ὄρεξις λέγεται μὲν καὶ κοινῶς, ἐπί τε θυμοῦ καὶ ἐπιθυμίας, καὶ τοῦ λόγου· καὶ γὰρ τῶν θείων ὀρέγεσθαί φαμεν, καὶ ἐπιστήμης ὀρέγεσθαι. Ἔστι δὲ καὶ λδικώτερον λεγομένη ὅρεξις, ἐπὶ τῶν φυσικῶν κινήσεων, ἀντιδιαστελλομένη πρὸς τὸν λόγον. Καὶ ἐπιθυμία ὡσαύτως, ἡ μὲν ἐστὶ κοινὴ, ἢ δὲ ἀντιδιαστελλομένη πρὸς θυμὸν, καὶ τὸν λόγον. Ὅτι οὐ λέγουσι τὸ φῶς σῶμα· ἐπεὶ δὲ λέγους. τινες τὸ φῶς σῶμα εἶναι, λέγουσι σφαῖράν τινα φωτὸς προιέναι ἐκ τοῦ ἡλίου. Ἐπεὶ δὲ καὶ ὁ ἥλιος σφαιρικός· ἔστι δὲ σφαιρικὸς καὶ ὁ ἀήρ· ἀνάγκη πᾶσα τὴν τοῦ φωτὸς σφαῖραν προιοῦσαν πρὸς ἡμᾶς, ἡ ὠθεῖν τὴν σφαῖραν τοῦ ἀέρος· καὶ οὕτω τὸν τόπον αὐτῆς καταλαβοῦσαν, φωτίζειν τὸν περὶ ἡμᾶς τόπον Εἰ καταλαμβάνει, ἔσται κενὸν ἀέρος τὸ πεφωτισμέναν ἡμισφαίριον, ὅπερ ἀδύνατον. Εἰ δὲ μὴ ὡθοῖ, οὐδὲ φωτίζει, ὥστε μὴ ἀφικνούμενον εἰς ἡμᾶς· εἶ δὲ χωρήσει δι´ αὐτῆς, ἔσται σῶμα διὰ σώματος κεχωρηκός· ὅ τι περ ἀδύνατον. Εἰ δὲ λέξουσί τινες, ὡς ἄλλο σῶμα δύναται χωρῆσαι διὰ σώματος· μάλιστα μὲν ὁ λόγος ἀδύνατος. οὕτω γὰρ ἤμελλεν ὁ οὐρανὸς ἐν κέγχρῳ δύνασθαι λέγεσθαι. Ἔπειτα εἰ διὰ τὸ ἄυλον εἶναι, δύναται χωρῆσαι διὰ τοῦ σώματος, ἐχώρησεν ἂν οὐ μόνον δι´ ἀέρος, ἀλλὰ καὶ δι´ ἄλλου ῥτουοῦν. Τίς γὰρ ἡ ἀποκλήρωσις εἵη, ἄυλον σῶμα διὰ σώματος εἶναι χωροῦν, μὴ καὶ διὰ παντὸς χωρεῖν; ὥστε ἔδει καὶ διὰ τῶν στερεῶν σωμάτων χωρῆσαι τὸ φῶς· διὰ γῆς λέγω, καὶ τῷν ὁμοίων. Διστί"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "570",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "οὖν μὴ καὶ ὑπὸ τὴν γῆν ὄντος τοῦ ἡλίου ὁρῶμεν ὑπὸ τὴν γῆν, τοῦ φωτὸς καὶ διὰ τῆς γῆς χωροῦντος, Ἔπειτα εἰ σῶμα ὅν τὸ φῶς, χωρεῖ διὰ σώματος τοῦ ἀέρος, ἔδει καὶ τὸ ὅλον πυκνότερον καὶ πακύτερον γίνεσοαι. Λῦν δὲ τοὐναντίον· λεπτομερόστερος γὰρ ὁ ἀήρ φωτιζόμενος γίνεται, ὥσπερ καὶ ἐν γῇ χωρήσει ὕδωρ· καὶ μείζων ὁ ἐξ ἀμφοῖν γίνεται τέπος, Ἀνάγκη πᾶσα τὸ ἐξ ἀμφοῖν σῶμα παχύτερον γίνεσθαι. Οὕτω δὲ καὶ τὸν ἀἱρα ἀνάγκη παχύτερον γενέσθαι, γενομένου τοῦ φωτός· νῦν δὲ τοὐναντίον λεπτομερέστερος γίνοται."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "572",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "τι ποσοῦ, καὶ δείκνυται, ὅτι ἡ ἰσότης στοιχεῖόν ἐστι τοῦ παντοίου τῶν ἐν ἀριθμοῖς σχέσεων πληθυσμοῦ, διότι ἐξ αὐτῆς πᾶσαι αἱ σχέσεις γεννῶνται καὶ εἰς αὐτὴν ἐσχάτην ἀναλύονται, ὅπερ ὅρος στοιχείων ἐστὶν, ἀλλὰ καὶ πρὸς πραγματειώδη καὶ φιλόσοφον ὅντως θεωρίαν χρησιμεύει ἡμῖν· τίνα δέ εἶσιν, Εἰς ἂ ἡμῖν ἡ παροῦσα χρησιμεύει θεωρία, λέγεις; εἴς τε τὴν Πλάτωνος ψυχογονίαν καὶ εἰς τὰ ἀρμονικὰ διαστήματα. Ἔστι δὲ ἁρμονικόν διάστημα ἡ ἀπὸ φθόγγου εἰς φθόγγον μετάβασις τῆς πληγῆς, οἶον ἀπὸ τοῦ βαρυτέρου εἰς τὸ ὀξύτερον, ἢ τὸ ἀνάπαλιν. Φθόγγος γάρ ἐστιν ἡ τῆς μιᾶς χορδῆς ποιά τις ἀπήχησις. Ἐ δ´ ἀπ´ αὐτῆς πρὸς τὴν ἐφεξῆς καὶ διάφορος αὐτῇ κατὰ βαρύτητα ἡ ὀξύτητα ἐν λόγῳ διεσιαίῳ ἢ ἡμιτονιαίῳ ἦ τονιαίῳ μετάστασις καλεῖται Διάστημα· τὸ δ´ αὐτὸ καὶ ἐμμέλεια. Ἐκ δὲ τῶν ἐμμελειῶν τὸ σύστημα· ἐκ τριῶν μὲν τὸ διὰ δʹ, ἐκ τεσσάρων δὲ διὰ εʹ, καὶ τὸ μὲν διὰ δʹ ἐν ἐπιτρίτῳ, τὸ δὲ διὰ εʹ ἐν ἡμιολίῳ λόγῳ συνεστὼς, αἱ καὶ πρῶται καὶ ἁπλαῖ συμφωνίαι καλοῦνται παρὰ τοῖς μουσικοῖς· ἐκ δὲ τοῦ διὰ δʹ καὶ διὰ εʹ ἡ διὰ πασῶν σύγκειται, ἐν διπλασίενι λόγῳ θεωρουμένη. ἥτις καὶ ὁμοφωνία καλεῖται καὶ ὅμόφωνον σύστημα, σύστημα ἐκ ἐνστημάτων μέλος ἔχον κατακορέστατον. Καὶ ἐφεξῆς τὰ λοιπὰ συστήματα, ἵνα μὴ πάντα ἐπεξέρχωμαι, ἐπεὶ οὐδὲ περὶ τούτων νῦν πρόκειται λέγειν, ἀλλὰ ἄρκει ἐνδείξασθαι τὰ δεχόμενα. βʹ. Καταδιαιρεῖται οὖν τὸ ἐπίτριτον ἐν μὲν διατονικῷ γένει [τρία γὰρ τὰ ἐναρμόνια γένη, ἐναρμόνιον, χρῶμα καὶ διάτονον] εἰς ἡμιτόνιον [ἐστι δὲ τὸ λεγόμενον ἡμιτόνιον οὐ κυρίως ἡμιτόνιον, ἀλλὰ λεῖμμα] καὶ τόνον, ἤγουν εἰς ἡμιτόνιον καὶ δύο τόνους ἐφεξῆς τὸ διατονικὸν διαιρεῖται. Ὁ δὲ τόνος ἐν ἐπογδόῳ συνίσταται λόγῳ, διὰ τοῦτο δὲ οὐκ ἔστι τὸ λεγόμενον λεῖμμα ὅπερ ἐστὶ τὸ ἔλαττον τμῆμα τοῦ τόνου, καὶ τὴν ἁποτομὴν, ὅπερ ἐστὶ τὸ μεῖζον. Ἐν δὲ τῷ Ἀναρμονίῳ εἰς δίεσιν καὶ δίεσιν καὶ δίτονον· ἐν δὲ τῷ χρώματι εἶς ἡμιτόνιον καὶ ἡμιτόνιον καὶ τριημιτόνιον καταδιαιρεῖται λόγος,",
+    "corrections": [
+     "confusion"
+    ]
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "573",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "γ. Εἰς ταῦτα οὖν τὰ ἁρμονικὰ διασεήματα ἡμ μέθοδος τῆς εὑρέσεως τῶν ἐφεξῆς ἐπιμορίων συμβάλλιταί λόγων· εἴπη δὲ διαστήματα, ἀλλ´ οὐ συστήματα, ἵνα τὴν στοιχειωδεστάτην σχέσιν τῶν ἐναρ· μοίων λόγων, καὶ ἐξ ὥν ἄλλαι σύγκεινται σχέσεις· δηλώσῃ. Εἰς ταῦτα γοῦν, ὡς εἴρηται, καὶ εἰς τὴν τοῦ Πλάτωνος συμβάλλεται ψυχογονίαν. Θεωρεῖ γὰρ ὁ Πλάτων ἐν τῷ Τιμαίῳ τῷ διαλόγῳ ἐκ ψυχὴν ἀπλῶς ἐκ τοῦ δημιουργοῦ γενομένην νοῦ, καὶ οὐ κατὰ χρόνον, ἀλλὰ κατ´ οὐσίαν· καὶ γὰρ ἐν τῷ Φαίδρῳ ἀγένητον καὶ ἀνώλεθρον αὐτὴν δείκνυται, ὥστε τὴν κατ´ οὐσίαν αὐτῆς ἀπὸ τῶν νοητῶν αἰτίων πάροδον γένεσιν λέγει τῆς ψυχῆς. Ἔστι χὰρ τῶν ὅντων τὰ μὲν νοητὰ καὶ ἀγένητα, τὰ δὲ αἱσθητὰ καὶ γενητὰ, τὰ δὲ μεταξὺ τούτων νοητὰ καὶ γενητά. Τὰ μὲν γάρ ἐστιν ἀσύνθετα πάντα καὶ ἀμέριστα καὶ διὰ τοῦτο ἀγένητα, τὰ δὲ σύνθετα καὶ μεριστὰ καὶ διὰ τοῦτο γενητὰ, τὰ δὲ ἐν μέσῳ τούτιον νοητὰ καὶ γενητὰ, ἀμέριστά τε ὅντα καὶ μεριστὰ τὴν φύσιν ἀπλᾶ τε καὶ σόνοετα τρόπον ἕτερον. Ἄλλη οὖν ἡ ἐπὶ ψυχῆς γένεσις, καὶ ἀλλη ἡ ἐπὶ σώματος· ἡ μὲν προτέρα καὶ πρεσβυτίρα, προσεχεστέρα γάρ ἐστι τῷ πάντων Δημιουργῷ, ἡ δὲ δευτέρα καὶ νεωτέρα, ποῤῥωτέρω γάρ ἐστι τῆς μιᾶς αἰτίας. Οἶδε γὰρ ὁ Πλάτων οὐ μόνον ἐπὶ σωμάτων, ἀλλὰ καὶ ἐπὶ ψυχῶν χώραν ἐχουσαν τὴν γένεσιν, καθόσον καὶ αὐται χρόνου μετέχουσιν· καθὼς καὶ ἐν τῷ Φαίδρῳ φησὶ διὰ χρόνου θεᾶσθαι τὸ ὃν αὐτάς. Πᾶσα γὰρ ἡ μεταβατικὴ κίνησις, κἂν ἀσωμάτων ἐστὶν οὐσιῶν ἐνέργεια, συνεῖευγμένον ἔχει τὸν χρόνον αὐτῇ· καὶ γὰρ ἡ ψυχὴ μεταβατικῶς τοὺς ὅρους νοεῖ, καὶ κατὰ μὲν τὰς ἐνεργείας χρόνου μετάληψιν, κατὰ δὲ τὴν οὐσίαν αώνι συντέτακται. Θεωρεῖται γὰρ ἐν τῇ ψυχῇ οὐσία καὶ δύναμις καὶ ἐνέργεια· καὶ ἔστιν αὕτη ἐκ τῶν γενῶν τοῦ ὅντος συγκειμένη, οὐσίας, ταὐτοῦ, ἑτέρου. δʹ. Ἀλλὰ γὰρ τριφουῆ τὴν τῆς ψυχῆς οὐσίαν ὁ Πλάτων ὁρᾷ. Ἄλλη γάρ ἐστιν ἡ ὕπαρξις αὐτῆς· καὶ ἄλλη ἀρμονία ἡ ἐν αὐτῆ, καθ´ ἣν τὸ οὐσιῶδες αὐτῆς συνέχεται πλῆθος, οὕτε μιᾶς οὕσης οὐσίας, ὡς ὁ νοῦς, οὖτε εἰς ἄπειρον διαιρουμένης, ὡς τὸ σῶμα μετ´ αὐτὴν, ἀλλ´ εἰς πλείω μν οὐσιώδη μέρη, ἐξ ὧν ἐστι, πεπερασμένα δὲ καθ´ ἀριθμὸν, ὧν πλείω εἶναι μέρη ψυχῆς ἀδόνατον, μηκετι διαιρετῶν ὅντων εἰς ἄλλα"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "640",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Η δὲ ἐτέρα σχηματογραφία, ἣν συντέθεικεν ὁ μέγαι Κωνσταντῖνος Ποοσέθηκε τοίνυν τὸ τεῖχος ἀπὸ τοῦ Εὐγενίου μέχρι τοῦ Ἀγίου Ἀντωνίου, ἀπὸ δὲ τῶν Τόπων ἕως τῆς Ἀγίας Θεοτόκου τῆς Ῥάβδου, καὶ ἀνέβαινεν εἰς τὸ Ἐξωκιόνιον, καὶ τὸ χερσαῖον τεῖχος, ἀπὸ τοῦ Μιλίου· καὶ ἤρχετο μέχρι τῆς παλαιᾶς πόρτης τοῦ Προδρόμου, καὶ τῆς μονῆς τοῦ Δίου καὶ τῆς Εἰκασίας, καὶ διήρχετο μιχρι τῆς Βώνου, καὶ εἰς τὸν Ἄγιον ανουῆλ, Σαβὶλ καὶ Ἰσμαήλ, ἐν ᾧ τόπῳ ἀνῃρέθησαν οῦτοι οἱ ἄγιοι· καὶ διήρχετο εἰς τὰ Ἀρματίου, καὶ μέχρι τοῦ Ἀγίου Ἀντωνίου, καὶ ἔκαμπτε εἰς τὸν τοῦ Εὐγενίου. Διήρκεσε δὲ τὸ τεῖχος ἔτη ρλβʹ, δέκα θασιλέων αὐτοκρατορησάντων, Αὕτη τοῦ Μεγάλου Κωνα ταντίνου ἡ σχηματογραφία. Χρὴ δὲ εἰδέναι ὅτι, τῷ πεντακισχιλιοστῷ ὀκτακοσιοστῷ τοιακοστῳ τετάρτῳ ἔτει τοῦ κόσμου, τῷ τρίτῳ μηνὶ τῆς κρισκαιδεκάτης ἐπινεμήσεως, ἐν ἡμέρᾳ τετάρτῃ τοῦ Νοεμβρίου μηνὸς, ὅντος τοῦ ἡλίου εἰς τὸ τοῦ Τοξότου ζῴδιον· ὡροσκόπει γὰρ Καρκῖνος· τῷ πρώτῳ ἔτει τῆς διακοσιοστῆς ἑβδομηκοστῆς ἕκτης Ὁλυμπιάδος, ἐπήξαντο τοὺς θεμελίους τῶν δυτικῶν τειχῶν τῆς Κωνσταντινουπόλεως· καὶ ἐν ἐννέα μησὶ τό τε χερσαῖον και παράλιον τεῖχος, μετὰ πλείστων οἰκοδομημάτων, τῶν ἐν τῇ πόλει δομηθέντων ἀπαρτίσαντες, τῇ ιαʹ τοῦ Μαίου μηνὸς, τὰ ἐγκαίνια τῆς πόλεως γέγονε, καὶ προσηγορεύθη ΚωνσταντινούΕπὶ δὲ τῇ τῶν ἐγκαινίων ἡμέρᾳ προσέταξεν ἐπὶ τοὺς ἐφεξῆς χρόνους, τὴν αὐτοῦ στήλην ὁρᾶσθαι, μετὰ τῆς εἴθισμένης τιμῆς, Ἰππικοῦ ἀγομένου, τοῖς κατὰ καιρὸν βασιλεύουσιν, ὅντων καὶ τῶν δημοτῶν, καὶ ἀνέρχεσθαι μέχρι τοῦ στάματος. Ταῦτα ἐπράχθη τῷ δωδεκάτῳ ἔτει τῆς βασιλείας τοῦ Μεγάλου Κωνσταντίνου, συμπραττόντων καὶ συνευδακούντων εἶς τὴν οἰκοδομὴν τῆς θεοφρουρήτου Κωνσταντινουπόλεως· Εὐφρατᾶ τέ φημι τοῦ παρακοιμωμένου καὶ Οὐροικίου, καὶ Ὁλυβρίου τοῦ πραιποσίτου, Ἰσιδώρου καὶ Εὐστοργίου, καὶ Μιχαήλ πρωτοβεστιαρίου, ἀμφοτέρων πατρικίων, καὶ Ὁνοταρσίου ἐπάρχου, καθὼς ἱστοροῦσιν ὁ τε Εὐτυχιανὸς γραμματικὸς ὁ προτοασηκρῆτις, καὶ ὁ συμπαρὼν τῷ παραβάτῃ Ἰουλιανῷ ἐν Περσίδι, Εὐτρόπιός τις ὁ σοφιστῆς καὶ ἐπιστολογράφος Κωνσταντίνου, Τρώύλος ὁ ῥήτωρ, ὁ πολλὰς ἀρχὰς διανύσας μετὰ δόξης, καὶ Ἡσύχιος ὁ ταχυγράφος. Οὖτοι πάντες θεαταὶ καὶ συνίστορες γεγόνασι τῶν τότε πραχθέντων ἀκριβῶς. Ἐν δὲ τῷ δωδεκᾶτῳ ἔτει τῆς αὐτοῦ βασιλείας ἐποίησεν, ὡς εἴρηται, μείζονα τὴν Βύζαντος πόλιν· ἕκτισε δὲ καὶ τὰ παλάτια τὰ ἀπά τε τῆς Χαλκῆς, καὶ τῶν Ἐξκουβίτων, καὶ τῶν Σχολῶν· καὶ ναὸν ἀνήγειρεν ἐκεῖσε τῶν Ἀγίων Ἀποστόλων, καὶ τὴν θόλον τῆς Ἑπταλύχνου, ἡ καὶ μέχρι τοῦ νῦν σώζεται ἔσωθεν τῶν Σχολῶν· καὶ τὸ Τριβουνάλιον καὶ τὰ νῦν ὀνομαζόμενα Νούμερα"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "641",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "καὶ αὐτὰ εἰς τὰ αὐτὰ παλάτια, καὶ τὰ ἐννεακαίδεκα Ἀκκούβιτα, καὶ τὸ Στέψιμον, καὶ τὸν ναὸν τοῦ ἁγίου Στεφάνου, ὅνπερ εἶχε χειμονικὸν κοιτῶνα. Ἀνήγειρε δὲ καὶ τὴν Μαγναύραν, καὶ τὴν τοῦ Κυρίου ἐκκλησίαν, καὶ Γενικὸν, καὶ τὸ Ἰδικὸν, καὶ τὸ ἑεστιάριον, καὶ τὸν Καβαλλᾶν, καὶ τὸ ἦίγμας καὶ τὸ Ὅατον, τὸ πρὸς τὴν Νέαν κείμενον, καὶ μέχρι τῆς ὀνομαζομένης Σιδηρᾶς πόρτης, καὶ τὰ παλάτια μέχρι τοῦ Γερανίου, καὶ τὸ Χρυσόκλαβον, καὶ τὸ μέγα λουτρὸν τοῦ Οἰκονομίου, τὸ πλησιάζον εἰς τὸ Τζυκανιστήριον, ἔχον ἐνθήκας ἑπτὰ, καὶ στοὰς ιβʹ· καὶ κόλυαβον εὐμεγέθη ἔνζωδον· καὶ αἱ μὲν ἑπτὰ ἐνθῆκαι, εἰς ἀνάμνησιν τῶν ζ πλανητῶν ἀστέρων· αἱ δὲ ιβʹ στοαὶ τῶν ιμʹ μηνῶν τὰς κράσεις ἴσαζον, ὅπερ οὗν ἦλθε μέχρι τοῦ βασιλέως Κυροῦ Νικηφόρου τοῦ Φωκᾶ· ἀ δὲ κατέλυσιο Ἰωάννης Τζιμίσκης, καὶ ἐκ τῆς τούτου ὕλης ἔκτισε τὴν Χαλκὴν, ἔνθα καὶ ἐτάφη. Βουλόμενος δὲ κτίζειν καὶ ἱππικὸν κατὰ μίμησιν τῆς Ῥώμης, εὖρε τὸ τοῦ Σεβήρου, καὶ ἀνεπλήρωσεν αὐτὸ, ἣ γουν τὸ ἓν μέρος τῶν βαθμίδων, καὶ τῶν δύο περιπάτων, καὶ καγκέλλων, καὶ αὐτὸν τὸν Σφενδῶνα, καὶ τοὺς καμπτῆρας, καὶ σοὺς δήμους. άντα δὲ τὰ χαλκουργήματα καὶ τὰ ξόανα ἐκ διαφόρων ναῶν καὶ πόλεων ἀθροίσας, ἔστησεν αὐτὰ εἰς κόσμον τῆς πόλεως· ὁμοίως καὶ τοὺς κίονας τοῦ περιπάτου· ἐπάτωσε δὲ τούτους μετὰ συγκοπῆς, καὶ ἐπετέλεσεν αὐτὸ, πρῶτον ποιήσας καὶ ἱππικὸν ἀγῶνα. Ὁ δὲ ἔχων τοὺς ὀρνιΔίους πόδας ἤχθη ἀπὸ τῆς μειγάλης Ἀντιοχείας· ἔστι δὲ ὁ Βελλεροφόντης· καὶ ἐκεῖσε ἐσέβοντο αὐτόν. ὁπόσα δὲ καὶ ἄλλα ἀγάλματα, καὶ ἅτινά εἶσι, καὶ πόθεν ἧκασιν ἕκαστον, καὶ διατί ἐστηλώθησαν, ὅσχατον λεπτομερῶς ἐροῦμεν. Ὅλων οὖν ὁ Μέγας Κωνσταντῖνος οἰκῆσαι τὴν πόλιν αὐτοῦ, μᾶλλον δὲ τοὺς Ῥωμαίους εἰς τὸ Βυζάντιον κατακρατῆσαι, ἔλαβεν ἐξ αὐτῶν τῶν Ῥωμαίων τὰ τούτων δακτυλίδα, ἐνὸς ἑκάστου ἰδίως, καὶ ἀπέστειλεν αὐτοὺς εἰς τὸν βασιλέα τῶν Περσῶν Σάβαρον· ἐῖ ὧν οἱ μὲν τέσσαρες ἐτύγχανον μάγιστοοι· Ῥωμαῖοι δὲ ὅ τε Ἀδὰμ. ὁ Πρωτάσιος, ὁ Φιλόξενος, καὶ ὁ Σκόμβρος, καὶ πατρίκιοι ἃκτὼ, ὁ Πρόβος, ὁ Δομνῖνος, Σαλούστιος ὁ ἔπαρχος, Μόδεστος καὶ ὁ Εβουλος, ὁ Δαρεῖος, ὁ Μαῦρος, ὁ Ῥοδανός· οἵτινες ἐξαπεστάλησαν, μετὰ πλείστου στρατοῦ ποιήσαντες ἐν Περσίδι μῆνας ιϛʹ, ὁ δὲ Μέγας Κωνσταντῖνος ἀποστείλας εἰς Ῥώμην ἀνελάβατο τὰς γυναῖκας αὐτῶν· οἱ δὲ σταλέντες ἐκεῖσε, ἰαεάσαντο καὶ τοὺς τόπους ἑνὸς ἑκάστου ποῦε´ κεῖνται καὶ ὅπως· ἐτέρας ἐπὶ τοὺς αἰγιαλοὺς τῆς θαλάσσης, ἄλλας ἐπὶ τοὺς ἡπείρους ὡσαύτως· ἐθεάσαντο δὲ καὶ τὰς ἀνόδους, αἱ ἧσαν κοχλιοειδεῖς· καὶ λαβόντες τὰς φαμιλίας τῶν τούτων συγκλητικῶν, ἀνῆλθον ἐπὶ τὸ Βυζάντιον, καὶ ἔκτισαν ὁμοια κτίσματα καὶ ἐκάθισαν ἐκεῖσε τὰς φαμιλίας αὐτῶν. Ἐλθόντες σῆν ἐκ Περαίδος μετὰ νίκης μεγάλης, ἀνελάβοντο καὶ πάκτα κεντηνάριᾶ τξεʹ. Ἐδέξατο οὖν αὐτοὺς ὁ βασιλεὺς ἀσμένως, καὶ ποιήσας εὐωχ ίαν, εἶπεν αὐτοῖς· Θέλετε ἀπελθεῖν εἰς Ῥώμην; δοκιμάζων"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "642",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "αὐτούς. Οἱ δὲ ἔφησαν μὴ κατελθεῖν μέχρι δύο μηνῶν· ὁ δὲ βασιλεὺς ἔφη· Ἀπόψε ἔχω δοῦναι ὑμῖν τὰς αἰκίας ὑμῶν. Προστάξας οὖν Εὐφράτῃ τῷ παρωκοιμωμένῳ αὐτοῦ ὅστις καὶ ἐποίησε τὸν βασιλέα Χριστικνὸν, ἀποδοῦναι ἑνὶ ἑκάστῳ τούτων τὸν οἶκον αὐτοῦ μετὰ ὀψικίου αὐτοῦ. Οἱ δὲ, ὡς εἶδον τοὺς πο λῶνας, καὶ τὰς αὐλὰς, καὶ τὰς ἁνόδους ὁμοίως, τὰ μέτρα δὲ, καὶ τὰ σχήματα, καὶ τὰ ὕψη, καὶ πάντἀπλῶς οἷα τὰ ἐν τῇ Ῥώμῃ, ἔδοξαν εἶναι ἐν φαντασίᾳ εἰς τὴν Ῥώμην. Εόρόντες δὲ καὶ τὰς φαμιλίας αὐτῶν, ἐξεπλάγησαν. Ἐρωτήσαντες δὲ ταύτας, καὶ μαθόντες ἀκριβῶς, τότε ἐπίστευσαν, ὡς οὐκ ἔστι φάντασμα, ἀλλὰ φρόνησις τοῦ βασιλέως, ὅτι καὶ ἄκοντας αὐτοὺς ἐν τῷ Βυζαντίῳ ἐνώκοσεν Ἔν δὲ τῶν ὀνομάτων αὐτῶν εἰλήφασιν οἱ τόποι τὰς ·Ἔπροσηγορίας, Ὁ Φιλόίενος ἔκτισε κινοτίρναν. Ὁ Κρόβος ἀνήγειρε τὸν ναὸν τοῦ Προδρόμο, Κνπερ Καβαλῖνος ἐποίησεν ἐργοδόσιον, τὸ λογόμενον νῦν Πρόβου. Ὁ δὲ Δομνῖνος ἔκτισεν οἶκον εἰς τὰ Μαυριανοῦ, ὅνπερ εἶχεν ὁ Ἀγρικόλαος. Ὁ Ααρεῖος ἔκτισε τὸν οἶκον τῆς Κανατίσης τοῦ σκληροῦ. Ὁ Μαῦρος ἔκτισε τὸν οἶκον, ὃς καλεῖται τοῦ Εελονᾶ ὉῬοδανὸς ἔκτισε τὸν οἶκον, ὅς καλεῖται τὰ ἐν οὐρανοῖς· ἔστι δὲ τῆς Μαμένης. Ὁ Σαλούστιος ἔκτισεν οἶκον, ὃς καλεῖται τοῦ Κονδομύτου. Ο Μόδεστος ἔκτισεν οἶκον εἰς τοὺς ἁγίους Ἀποστόλους, τὸν λεγόμενον τοῦ λαμπροῦ, καβῶς καὶ νῦν καλεῖται Ὁ Εὅβουλος ἔκτισε τρεῖς πυλῶνας· ἔκτισε δὲ καὶ τέσσαρας ἐμβόλους ἀπὸ τοῦ Παλατίου μέχρι τῶν χερσαίων τειχῶν, ἐγχορήγους θόλους· ὧν ὁ εἰς ἤρχετο ἀπὸ τοῦ Τζυκανιστηρίου, καὶ τῶν αγγάνων, καὶ τῆς Ἀκροπόλεως, καὶ τοῦ Εόγενίου, καὶ διήρχετο μέχρι τοῦ ἁγίου Ἀντωνίου. Ὁ δ´ ἕτερος ἢρχειτο ἀπὸ δάφνης, καὶ τῶν Σοφιῶν, μέχρι τῆς Ράβδου· οἱ δ´ ἕτεροι δύο ἔμβολοι ἁπὸ τῆς Χαλκῆς, καὶ τοῦ Μιλίου, καὶ τοῦ Φόρου, μέχρι τοῦ Ταύρου, καὶ τοῦ Βοδς, καὶ τοῦ Ἑξωκιονίου αὐτοῦ. Ἐπάνω δὲ τῶν ἐμβόλων περίπατοι πλακωτοὶ λίθινοι, καὶ στῆλαι χαλκαὶ ἄπειροι, εἰς διακόσμησιν τῆς πόλεως. ἔκτισε δὲ καὶ τοὺς μυδρῶνας καὶ ἀγωγοὺς, δι´ ὧν τὸ ὕδωρ ἐκφέρεται ἀπὸ Βουλγαρίας. Ἐποίησε δὲ καὶ τοὺς καράβους ἐγχορήγους ἐπὶ πᾶσαν τὴν πόλιν, βαθεῖς τῷ ὕψει ὅσον τῶν ἐμβόλων, διὰ τὸ μὴ εἷναι δυσωδίαν τινὰ, καὶ ἐνσκήπτωσι νόσοι πολλαὶ, ἀλλ εἰς τὸ βάθος διέρχεσθαι τὰς δυσώδεις ὕλας, καὶ καπέρχεσθαι εἰς τὴν θάλασσαν. Ταῦτα δὲ ἐκτίσθησαν, ώς εἴρηται, παρὰ Οὐρβικίου τοῦ πραιποσίτου, καὶ Σαλουστίου ἐπάρχου, καὶ τῶν λοιπῶν, καταλιπών αὐτοῖς κεντηνάρια χρυσίου ἑξακόσια, εἰς τε τοὺς ἐμβόλους, τοὺς ἀγωγοὺς, καὶ τὰ τείχη· ἐκεῖνος δὲ ἐκίνησι κατὰ Σκυθῶν, καὶ ὑποτάξας, αὐτοὺς ἕετιστ πόλεις ἐκεῖσε τὴν Περσθλάβαν, καὶ τὴν Δίστραν, καὶ τὴν Πλισκούβαν, καὶ τὴν Κωνστανείαν. Ταῦτα ἐκτίσθησαν εἰς χρόνους δύο ἥμισυ ἐπὸ φωνῆς"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "643",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Ἐρμείου. Ἔκτισε, δὲ καὶ τὰ Ἀρματίου, ἐν ᾧ τήν τε κόρτην ἔπηξε, καὶ τὰ ἄρματα τέθεικε μετὰ τὸ ὑποτάξαι τοὺς Βυζοντίους. Ἔς δὲ τὸ ὅνομα τῶν τριῶν αὐτοῦ υἱῶν ἔκτισε τὰ Παλάτια, τὰ καλούμενα Κωνσταντινιανὰ, καὶ τὰ λεγόμενα τὰ Κῶνστα. Ἔστη δὲ καὶ ὁ οἶκος τοῦ Τουβάκης, καὶ τοῦ Ἰβηρίτζη, Δστις καλεῖται τοῦ Ἀκροπολίτου. Τοὺς δὲ ναοὺς καὶ τὰ λοιπὰ ὅσα ἀνήγειρεν ὁ Μέγας Κωνσταντῖνος, ὕστερον εἰς τὰ Περὶ κτισμάτων ἐροῦμεν, Περὶ τοῦ Αὐγουστιῶνος, Ὁ δὲ Μικρὸς Θεοδόσιος εἰς τὸν πέμπτον χρόνον τῆς αὐτοῦ βασιλείας, σεισμοῦ γεγονότος, καὶ τῶν τειχῶν καταπιπτόντων, διὰ τὸ τοὺς Ἀμαληκίτας τοὺς Χατζιντζαρίους οἰκῆσαι ἐν τῇ πόλει, καὶ βλασφημῆσαι σφοδρῶς εἰς τὸ Τρισάγιον, ποιήσας ὁ αὐτὸς βασιλεὺς ἱκεσίαν καὶ λιτὴν εἰς τὸν Κάμπον τοῦ Τριβουναλίου μετὰ τοῦ πατριάρχου Πρόκλου καὶ Εαντὸς τοῦ λαοῦ· καὶ τὸ, Κύριε ἐλὲησον, κραζόντῶν· ἔτι πάντων ὁρώντων ἡρπάγη παιδίον εἰς τὸν ἀέρα, καὶ ἤκουσεν ἀγγέλων μελῳδούντων καὶ ὑμνούντων. Ἄγιος ὁ Θεὸς, ἄγιος ἰσχυρός, ἄγιος ἀθάνατος, ἐλέησον ἡμᾶς. Τοῦ παιδίου κατελθόντος, ὁ λαὸς ἐμελῴδει οὐτως, καὶ ἔστη ὁ σεισμός. Καὶ διὰ ταῦτα ἐξέωσεν ὁ βασιλεὺς πάντας τοὺς αἱρετικοὺς ἐκ τῆς πόλεως, καὶ τὰ τείχη ἐξέβαλεν ἀπὸ τοῦ Ἔξωκιονίου μέχρι τῆς χρυσίας· ἐν οὗ καὶ στήλην αὐτοῦ ἔστησεν ὅπισθεν τῶν ἐλεράντων· καὶ ἀνεβίβασε καὶ τὸ παράλιον τεῖχος, ἀπὸ τῆς Ῥαύδου μέχρι τῆς Χρυσίας, ἀπὸ τοῦ Ἁγίου Ἀντωνίου τὰ Ἀρματίου μέχρι Βλαχερνῶν καὶ μέχρι τῆς Χρυσίας. Οἱ δὲ δύο δῆμοι ἔκτισαν τὰ τείχη παρὰ´ αὐτοῦ τοῦ βασιλέως Θεοδοσίου ὀρισθέντες, καθὼς εἰς τὰ Περὶ κτισμάτων ἐροῦμεν. Τῇ πέμπτῃ τοῦ Ὁκτωβρίου μηνὸς ἐχόρευον οἱ ῥεγεονάρχαι ἐν τῷ Γουστείῳ, ἤγουν τῷ ὀψοπωλίῳ, εἰς τὴν τιμὴν τοῦ κατὰ τὸν καιρὸν ἐκεῖνον βασιλεύοντος· ὃν οἱ ἰδιῶται Αὐγουστιωνα ἐκάλεσαν, ἐν ῷ καὶ στήλην ἕστησε Κωνσταντῖνος τῆς μητρὸς αὐτοῦ· διὸ καὶ ἐπωνόμασε τὸν τόπον Αὐγουστιῶνα, ἄτερον Γουστείονα λέγομεν. Περὶ τοῦ αὐτοῦ Αὐγουστιῶνος· διατί σφαῖραν καὶ σταυρὸν κρατῶν ἐφ´ ἵππου ἐστήλωται. Ὁ Μέγας Ἰουστινιανὸς κτίσας τὴν ἁγίαν Σοφίαν ἐκάθηρε τὴν αὐλὴν, καὶ ἐμαρμάρωσε ταύτην τὸν πρότερον οὖσαν Γουστεῖον, ὡς εἴρηται, ἥγουν ὀψοπώλιον. Διὸ καὶ ἔστησε καὶ τὴν ἐαυτοῦ στήλην ἔφιππον ἐπὶ τοῦ κίονος· καὶ τῇ μὲν ἀριστερὰ χειρὶ φέρει σφαῖραν, σταυροῦ ἐμπεπηγότος ἐν αὐτῇ· ὅτι διὰ τῆς οἱς σταυρὸν πίστεως τῆς γῆς ἀπάσης ἐγκρατὴς γέγονε. Σφαῖρα μὲν γὰρ ἡ γῆ, διὰ τὸ σφαιροειδὲς τοῦ αὐτῆς σχήματος· πίστις δὲ ὁ σταυρὸς διὰ τὸν ἐν αὐτῷ προσηλωθέντα σαρκὶ Θεόν· τὴν δεξιὰν χεῖρα ἓνατεταμένην ἔχουσαν κατὰ ἀνατολὰς, καὶ στάσιν τῶν Περσῶν σημαίνουσαν, καὶ μὴ μεταβαίνειν ἐπὶ τῆς Ῥωμαικῆς γῆς, διὰ τῆς ἀνατάσεως καὶ ἀπώσεως τῆς χειρὸς βοῶν· Στῆτε, Πέρσαι, καὶ μὴ ΚΡε μφμειίοπα."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "644",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Οὗ εἰαιωίε ἄανίσέι. πρόσω χωρεῖτε· οὐ γὰρ συνοίσει ὁμῖν, Τὸν οὖν αὐτὸν Ἰουστινιανόν λέγεται ἐπαρθῆναι τοῖς τοῦ Βελισαρίου εὐτυχήμασιν. Οὗτος οὖν σταλεὶς κατὰ τῶν Περσῶν καὶ τῶν λοιπῶν τῶν τῆς Ἀνατολῆς παρὰ τοῦ βασιλέως, καὶ πάντας κατατροπωσάμενος καὶ Γιλίμερα κρατῆσαι ἀπέστειλεν αὐτὸν εἰς Μαυρουσίει, ἐκεῖσε τηρεῖσθαι ὑπὸ τοῦ Φαρᾶ, ὅς εἰς μεγάλην ἔνδειαν ἄρτου γεγονὼς διὰ τὸ μὴ ἐν τῶ τόπῳ τῆς Μαυρουσίας σῖτον γεωργεῖσθαι, ἀλλ´ ἑφθὸν τὰς ἀλύρας σιτεῖσθαι, ἔγραψε τῷ βασιλεῖ στεῖλαι αὐτῷ ἄρτον καὶ σπόγγον καὶ κιθάραν. Ὁ δὲ ἐκπλαγεὶς ἐπὶ τούτοις, ἤρετο τὸν ἐπιστολέα τίνος χάριν ταῦτά γε ἐπιΓητεῖ. Καὶ ἐξεῖπεν, ὄτι ἄρτον μὲν, διὰ τὸ αὐτὸν ἐπιθυμεῖν τε καὶ φαγεῖν· σπόγγον, διὰ τὸ λούειν τὸ ἄπαν αὐτοῦ σῶμα ὑπὸ τῶν δακρύων· τὴν δὲ κιθάραν, διὰ τὸ παραμυθεῖσθαι ἐαυτῷ ταῖς συμφοραῖς. Ὁ δὲ βασιλεὺς ἐκπλαγεὶς καὶ θαυμάσας, ἔστειλε τούτῳ τὰ αἰτηθεντα. Διὰ ταῦτα οὖν Ἰουστινιπνὸς, ἐπαρθεὶς ἐφ´ ἵππον ἑαυτὸν ἔστησεν ἐπὶ κίονος· ὅτι ὕστερον φθονήσας τῷ ῥηθέντι στρατηγικωτάτῳ Βελισαρίῳ, ἐξώρυξε τούτου τοὺς ὀφθαλμοὺς, καὶ προσἑταές τοῦτον καθεσθῆναι εἶς τὰ Λαύοου καῖ ἐππιδαῦνοι αὐτῷ σκεῦος ὀστράκινον, καὶ ἐπιῤῥίπτειν αὐτῷ τοὺς δερχομένους ὀβολὸν. Περὶ τῶν στηλῶν εἰς τὴν Χαλκὴν ἰσταμένων Ὅτι ἐν τῇ Χαλκῇ πλησίον, Πουλχερίας τῆς ἀοι δήμου, ὡς πρὸς τὸν περίπατον τοῦ παλατίου ἀνηγέρθη στήλη αὕτη· ὡσαύτως καὶ Ἀριάδνη καὶ Ζήνων. ἵστανται καὶ ἕτεραι δύο στῆλαι πεῖαὶ ἐπὶ κίονος βραχίως, ἐλεγεῖα ἔχουσαι Σεκούνδου φιλοσόφου· ἀντικρὺς δὲ τῆς Χαλκῆς ἀψίδος Γοργονοειδεῖς κεφαλαὶ δύο χρυσέμβαφοι γυνακεῖαι· ἧχθησαν δα ἀπὸ Ἐφέσου ἐκ τοῦ ναοῦ τῆς Ἀρτέμιδος στῆλα, ὀκτώ· καὶ αἱ μὲν τέσσαρες ἐν τοῖς τοῦ Ταύρου μερεσιν, ἐν τοῖς παλατίοις προεπεπήγεισαν, Κωνστειτίνου, καὶ Ἰουλιανοῦ, καὶ τῆς γυναικὸς, καὶ τοῦ ἀδελφοῦ αὐτοῦ Γάλλου· αἱ δὲ τέσσαρες ἐν τοῖς τῆς xαλκῆς εὐωνύμοις μέρεσιν, ἔνθα καὶ σταυρὸς ὑπὸ Ἰουστινιανοῦ ἐπεπήγει, καὶ στήλη χρυσέμβαφος Βελισαρίου καὶ Τιβερίου τοῦ Κουρτοειδοῦς Θρῳεὸς, καὶ τοῦ Ἰουστίνου τοῦ πρώτου λεπτοειδὴς, καὶ τῶν συγγενῶν αὐτοῦ στῆλαι ἑπτὰ, αἱ μὲν ἀπὸ μαρμάρων, αἱ δὲ χαλκαῖ. Καὶ οἱ δύο ἵπποι ἐπάνω τῶν Γοργονειδῶν ἱστάμεννι ἐν τῇ ἀψίδι, καὶ οὖτοι ἐκ τῆς Ἀρτέμιδος ἀπὸ Ἐφέσου ἡχθησαν ὑπὸ Ἰουστινιανοῦ τοῦ κτίσαντος τὴν Ἁγίαν Σοφίαν· καὶ ἐστήλωσεν αὐτὰ, διὰ τὸ μὴ ἀντιζηλοῦν ἀλλήλων τοὺς ἵππους· ὁμοίως καὶ τὸν σταυρὸν διὰ τὸ ἑδραῖον· καὶ Μαξιμίνου στέλη χαλκῆ ἐν αὐτοῖς ἵσταται βαρυτάτη, ἔνθα νῦν καὶ τὸ γένος ἄπαν Θεοδοσίου ὑπάρχει. Περὶ τῶν στηλῶν τοῦ Μαυρικίου. αἱ τοῦ Μαυρικίου, καὶ τῆς γυναικὸς αὐτοῦ, καὶ τῶν τέκνων. Ἐν γὰρ τῇ Χαλκῇ ἵστανται αἱ τοιαῦτει στῆλαι τοῦ Μαυρικίου, ἄνωθεν τῆς θεανδρικῆς εἰ, κόνος τοῦ Ἰησοῦ ὄπ´ αὐτοῦ κατασκευασοεϊσαι, καὶ ἐκτεταμέναι ταῖς χερσίν. Αἱ δὲ λοιπαὶ ἐκ τῆς τῶν Ἀρηναίων ἧκασι γῆς· φιλοσόφου δέ φασιν εἶναι, ὡς λέγει καὶ ὁ Αιγύρος. Μετὰ τὸ σφαγῆναι παρά τοῦ τυρόννου Φφωκὰ Μαυρίκιον, εἷς τις δικονος τῶν",
+    "corrections": [
+     "confusion"
+    ]
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "645",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "μαθητῶν Εὐτυχίου τοῦ αἱρετικοῦ ὀνόματι Ἄκατος, τῶν ἡττηθέντας τοὺς περὶ αὐτοῦ διδασκάλους, κάκεῖνος ἀποδράσας, κατέλαβε κάστρον τι καλούμενον Σεραπίωνα· τοῦτο δὲ ἐτύγχανεν ὄν ἔν τῶν παρὰ Πέρσαις ῥηγίων. Καταμηνύει δὲ Περιττίῳ τῷ φρουράρχῳ τὰ τῆς ἀσθενείας τῶν ἓν τῇ Χαλκηδόνι οἰκούντων, προσθεὶς, ὅτι ἅμα τῷ καταλαβεῖν αὐτὸν πούτους χειρώσεσθαι, καὶ δῆτα ἀμενητὶ στρατεύσας ἃ ῥηθεὶς Πέρσης, καὶ ἔχων στρατιωτῶν ἐβδομήκοντα χιλιάδας, καταλαμβάνει τὴν Χαλκηδόνα οἱ δὲ μόλις ἴσχυσαν διαφυγεῖν εἰς Κωνσταντινούπολιν μετὰ τῶν τιμίων λειψάνων τῆς ἁγίας Εὐφημίας, ὕπὲρ ἧς τὸ πλέον ἐσπούδαζεν ὁ προδότης καὶ ἀνίερος Ἄκατος, θέλων ἀμῦναι αὐτὴν, διότι τοὺς αἱρέσεως αὐτῶν τόμους κατήσχυνεν, ἄμα δὲ, καὶ διότι οὐ συνεχωρήθη Εὐτύχιον τὸν ἀτυχῇ τὴν τοιαύτην εὐτυχῆσαι μητρόπολιν. Λεηλατήσαντες δὲ τότε τὰ ἐκεῖσε πάντα οἱ Πέρσαι, ὅλαβον καὶ τὸ χρυσέγκαυστον ἄγαλμα τοῦ Ἡλίου θεοῦ, τοῦ λεγομένου Κρόνου, καὶ ἀπήγαγον εἰς Περσίαν, καὶ ἐτίμησαν ὡς θεόν. Περὶ τοῦ πῶς ἐκλήθη Αὔγουστος. Ὁ Αὔγουστος ὁ Ὁκταούτος Αὐγούστῳ μηνὶ ὁπάτευσε, καὶ ἐτίμησεν αὐτὸν, Σεξτίλιον τὸ πρότερον λεγόμινον, καὶ ὡνόμασεν αὐτὸν Αὔγουστον· ἐν αὐτῷ δὲ ἐτελεύτησε τῷ μηνὶ τῷ ιθʹ ἡμέρᾳ. Τῷ δὲ Σεπτεμβρίῳ μηνὶ ἐγεννήθη εἰς τὰς κγʹ, καὶ ἐνίκησεν Ἀντώνιον, καὶ ἥρξατο τῆς μοναρχίας, καὶ ἐτίμησεν αὐτὸν ἄρχοντα Ἰνδικτιῶνος, ἥτοι ἁρχὴν χρόνου· ὅθεν Σεπτέμβριος τειτίμηται. Περὶ τῶν Νουμέρων καὶ τῆς Χαλκῆς. τὰ νοθερα καὶ τὴν Χαλκὴν ὁ Μέγας Κωνσταντῖνος ἔκτισε· καὶ διὰ τὸ εἷναι ἀργὰ, ἐποίησεν αὐτὰ φυλακὴν ὁ Ἡράκλειος, καὶ οἱ καθεξῆς. ερὶ τῆς χαλκῆς στήλης, τῆς ἱσταμένης εἰς τὴν πύλην. Ὅτι ἐν λεγομένῃ Χαλκῇ στήλῃ χαλκὴ ἦν, ἡτις ἐστη παρὰ τοῦ Μεγάλου Κωνσταντίνου, τοῦ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ τυγχάνει. Ὁ δὲ Αέων ὁ πατῆρ. τοῦ Καβαλίνου ταύτην κατήγαγεν· ἡ δὲ νῦν διὰς ψηφίδων ὁρωμένη εἰκὼν, ὡσαύτως ἐστίν. Ἀνιστορήθη δὲ παρὰ Εἰρήνης τῆς Ἀθηναίας, ἐξ ἧς γυνὴ αἱμοῥῥοοὖσα ἱάθη· καί ἕτερα οὖν πολλὰ θαύματα ἐπετελοῦντο εἰς τὸ ὅνομα τοῦ Χριστοῦ. δι μνὸσιι ἀεετιὸρπε, οα ἐεε η ρανίες υίαα, ἰ αφμοπαπ ἰοσο φμφίῖὸει ρανε ἰποέρία. Ἰστέον οὖν, ὅτι δυσεύρετα ὅντα τὰ τοιαῦτα διὰ τὸ συγκεχυμένα εἶναι, διρσέθη εἰς τρία μέρη. Καὶ τὸ μὲν πρῶτον ἄρχεται ἀπὸ τοῦ παλατίου τῆς Χαλκῆς, καὶ τοῦ Μιλίου μέχρι τῆς Χρυσίας· τὸ δὲ ἕτερον ἀπὸ τοῦ Τζυγκανιστηρίου, τῆς Ὅδηγητρίας, τῶν Μαγγάνων, μέχρι Βλαχερνῶν· τὸ δὲ τρίτον μέρος ἀπὸ τοῦ ἐτέρου μέρους, τοῦ Ἀγίου Σεργίου καὶ τῶν Σοφιῶν. Καὶ ὁ βουλόμενος εὑρεῖν τι, οὐ δυσχεραίνει, ἀλλ´ εὐθέως εὑρήσει τὸ ζητούμενον. Περὶ τὰ παλάτια τοῦ Βουκολέοντος. ἀ παλάτια τοῦ Βουκολέοντος, τὰ ἄνωθεν τοῦ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "646",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Ρε Βαρήπε Ρε Ηιρροανοιο. Λε λαρηαια. Περὶ τοῦ Κοιαίστορος. Τὰ παλάτια Κοιαίστορος τοῦ Ἰππικοῦ ὁ μέγας Κωνσταντῖνος ἀνήγειρε. Περὶ τῆς Δάφνης Δάφνη δὲ ἐκλήθη διὰ τὸ ἵστασθαι ἐκεῖσε στήλην ὅνομα φέρουσαν Δάφνης, ἥτις ὄγθη ἀπὸ Ῥώμης, ὅπου καὶ μαντεῖον ἧν· ἐκεῖσε γὰρ καὶ τοὺς στεφάνους τῆς διάφνης οἱ ἀρχοντες ἐλάμβανον κατὰ τὸν Ἱανουάριον μῆνα. Περὶ τοῦ Ἰπποδρόμου. Ὁ δὲ Ἰππόδρομος ἐκλήθη, διότι ἀπὸ τοῦ ἀγίου Κωνσταντίνου ἕως τῆς Εἰρήνης τῆς Ἀθηναίας ἐκεῖσε κατιδίαν ἐπὶ ἅρματος ἔτρεχον οἱ βασιλεῖς. Ὁ δὲ Ἰουστινιανὸς ἔκτισε τὸν Λαυσιακόν. Περὶ Τύχης. Ἡ δὲ τύχη τὸ ἄγαλμα ἤχθη παρὰ τοῦ Μεγάλουν κωνσταντίνου ἀπὸ Ῥώμης, ὅπερ ἵστατο ἐπάνω τῆς ἀψίδος τοῦ παλατίου, ὁ δὲ βασιλεὺς Μαυρίκιος συνέτριψεν αὐτό. Περὶ Μαγναύρας, Αέγεται οὖν, ὅτι ὁ Τρίκλινος τοῦ Μεγάλου Εωνσταντίνου ἡ Μαγναῦρα, περιπατοῦντος ἐν αὐτῇ ποτι Ἀναστασίου τοῦ Δικόρου, τῷ κζ τῆς αὐτοῦ βασιλείας, καὶ τετάρτῳ μηνί, βρονταὶ καὶ ἀστραπαὶ γεγόνασι πρὸς τὸ παλάτιον· πάντων δὲ ἀδημονούντων καὶ φευγόντων ἀπὸ τόπου εἰς τόπον, καὶ αὐτοῦ δὲ τοῦ βασιλέως φεύγοντος ἐν ἑνὶ τῶν κοιτωνίσκων, ῶν ἔκτισε, καὶ κατέβη ἐκεῖσε ἡ ὁργὴ τοῦ Θεοῦ, ὥστε Καἱφνιδίως εὑρεθῆναι νεκρόν. Φασὶ δὲ αὐτὸν μετὰ τὸ ταφῆναι εἰς τοὺς ἁγίους Ἀποστόλους, μεθημέραν βοᾷν· Ελεήσατε, ἐλεήσατε, καὶ ἀνοίξατε. Τῶν μνημοραλίων δὲ εἰπόντων ὃτι ἄλλος βασιλεύει. ἔφν· Οὐδέν μοι μέλει, εἰς μοναστήριον ὑπάγετέ με. καὶ ποιήσατε με μοναχόν. Οἱ δὲ εἴασαν αὐτόν. Λέγεται μετά τινα χρόνον τὸ μνῆμα αὐτοῦ ἀνοιγῆναι, καὶ εὐρεθῆναι αὐτὸν φαγόντα τοὺς βραχίονας αὐτοῦ, καὶ τὰ καλήγια, ἃ ἐφόρει· ἔκραξε δὲ μεγάλως· Ὦ Μάνα, ὑπὸ τῆς αὖρας ἀπόλλυμαι. Τῆς δὲ φωνῆς ταύτης ἤκουσαν τονες τῶν ἀνθρώπων αὐτοῦ, καὶ διὰ τοῦτο ἐκλήθη ὁ Τρίκλινος αὐτοῦ Μαγναῦρα, ἀπὸ τῶν Μάνα καὶ υρα τοῦ πυρός. Περὶ τὸν Σωτῆρα τῆς Χαλκῆς. Τὸν δέ Σωτῆρα εἰς τὴν Χαλκὴν ἀνήγειρε Ῥωμανὸς ὁ γέρων ὁπὸ στυρακίων μικρῶν δύο, ὡς ἔστι φαινόμενον, τὸ θυσιαστήριον, ποιήσας καὶ κληρικοὺς ιβʹ.  δὲ Ἰωάννης ὁ Ττιμίσκης ἐπλάτονε καὶ ἀνήγειρεν αύτὸν καλλύνας ἐκ χρυσίου καὶ ἀόγύρου πολλοῦ ἐποίησε δὲ καὶ κληρικοὺς λεʹ, τιθεὶς αὐτοῖς καὶ ῥογας καὶ ἀννόνας, καὶ ἀνὰ νομισμάτων λʹ τὰ δὲ ἱερὰ, καὶ πὰ στέμματα, καὶ τὰ σκῆπτρα, καὶ τοὺς δίσκους, καὶ τὰς λυννίας, καὶ τὰς ἐσθῆτας, καὶ τὰ ἄμφια τὰ βασιλικὰ, ἰδιόκτητα αὐτοῦ ὅντα, ἀπεχαρίσατο πρὸς πλν ναόν· ὡσαύτως καὶ τὰ ἀκίνητα αὑτοῦ κτήματα ἐπεκύρωσεν αὐτῷ, ἐν ᾧ ἀπὸ τοῦ ταξειδίου ἐφέρετο τὴν τιμίαν εἰκόνα τῆς ἀγίας σταυρώσεως τῆς ἐν τῆ Βηρυτῷ, καὶ τὰ ἄγια σανδάλια τοῦ Χριστοῦ καὶ Θεοῦ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "647",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "σον μετὰ χυμεύσεως, ἐν ᾧ καὶ ἐτίθη. τῶν στηλῶν τῶν ἱσταμένων ἄνω τοῦ Μιλίου. Ἐν δὲ τῆ καμάρᾳ τοῦ Ἰλίου στῆλαι Κωνσταν. πίνου καὶ Ἑλένης εἰσίν. Ἐνθα καὶ σταυρὸς ὁράται πρὸς ἀνατολὴν βασταζόμενος π´ αὐτῶν· μέσον δὲ τοῦ σταυροῦ ἡ Τύχη τῆς πόλεως, ὅπερ ἐστὶ κατήνιον κλειδόμενον καὶ ἐστοιχειωμένον, τοῦ παντὸς εἴδους ἀνελλιπῶς, καὶ νίκην κατὰ παντων τῶν ἐθνῶν σὲρον τοῦ μηκέτι ἰσχύειν, ἢ προσεγγίσαι ἢ προσψαῦσαι τῇ πλλει τεῦτα. ἀλλὰ πόρρω ἀπόχεσθαι, καὶ ὑπονοστεῖν ὡς ἡττωμένα. Ἐν αὐτῷ δὲ τῷ Μιλίῳ στῆλαι ἵστανται τοεῖς, Σοφίας τῆς γυναικὸς Ἰουστίνου τοῦ Θρακὸς, καὶ Ἀραβίας τῆς θυγατρὸς αὐτῶν, καὶ Ἑλένης ἀνεψιᾶς αὐτῶν. Πδοὶ τῆς στήλης τοῦ Θεοδοσίου ν τῶ λεγοιμένω Μιλίῳ Θεοδοσίου στήλη ἵσταται ἐφ´ ἵππου χαλκοῦ, καὶ ἐν τῇ χειρὶ αὐτοῦ μῆλον κρατοῦντος, ὃν ἀναγείρας σιτηρέσια πολλὰ δέδωκε τοῖς ἐν τῇ πόλει. Οἱ δὲ κίονες, καὶ οἱ ποδίοσκοι, καὶ οἱ τῶν Ἀρτοπωλίων ὁμοίως καὶ τῶν Τζυκκαλαρίων, καὶ τῆς Χαλκῆς ἔχουσιν ἱστορίας πολλὰς, ἂς ὁ αὐτὸς καλλύνας ἐχρύσωσεν. Παρὰ τοῦ ναοῦ τοῦ οεολόγου αωὰς ὁ τύραννος ἔκτισεν ἐκ βάθρων τὸν ναὸν τοῦ ἁγίου Φωκᾶ ἐν τῷ Μιλίῳ, μήπω οὖν ὀροφώσας αὐτόν· ἐκεῖσε γὰρ ἦν ἡ ἀλλαγὴ τῶν κοντούρων, καθ´ ὃν τόπον ἡντξοκόπησε τὰ κόντουρα, ὄτε καὶ μαγελαβίοις ἐτύφθη παρὰ Χαυρικίου τοῦ βασιλέως, τολμήσαντος τοῦ αὐτοῦ Φωκᾶ ἐν τῷ κόντῳ αὐτοῦ προσδῆσαι τὸ πιττάκιον, ὅπερ ἀπὸ Λογγοβαρδίας ἐλθὼν ἔφερε, τοῦ στρατοῦ ἐκεῖθεν ἀποστείλαντος τοῦτον διὰ τὴν ῥόγαν αὐτῶν. Καὶ ἐγκαλέσας ἐν ἡμέρα Ἰπποδρομίου, ὅτι οὕτος εὑρὼν ἄδειαν καὶ ἀναλαβόμενος τὰ κόντουρα ὑπεχώρησε· τὰ δὲ καταλειφθέντα ἀντζίσας, κατῆλθεν ἕως Λογγοβαρδίαν ἐτι τὰς πληγὰς ὄχων· διὰ τοῦτο γὰρ προετιμήθη εἰς τὴν βασιλείαν παρὰ τοῦ στρατοῦ. Μετὰ οὐν τὸ ἀνελθεῖν καὶ βασιλεῦσαι, ἔστησεν ἐκεῖ δύο ἵππους κοντούρους ἡντζωκοπημένους, καὶ βωμοὺς λιθίνους τετραδικοὺς σύνεγγυς τοῦ Ἀγίου Φωκᾶ, ὃν αὐτὸς ἀνήγειρε, Διίππιον αὐτὸν ὀνομάσας· ἐκεῖσε γὰρ καὶ τέσσαρας εὲκόνας ἐκ ψηφίδων χρυσῶν, Κωνσταντίνου καὶ Ἐλένης ἰστόρησεν. Ὁ δὲ Ἑράκλειος ἐλθὼν, καὶ κρατήσας, καὶ τὸν Φωκὰν τιμωρήσας, καὶ καύσας ἐν τῇ τοῦ βοῦς ἀγορᾷ, ἐτίμησε τὸν ναὸν, καὶ σκεπάσας αὐτὸν καὶ μετονομάσας εἰς τὸ τοῦ ἁγίου ἀποστόλου καὶ εὐαγγελιστοῦ Ἰωάννου τοῦ Θεολόγου ὄνομα. Περὶ τοῦ ἁγίου Θεοδώρου τοῦ Σφωρακίου. Τὸν ἄγιον Θεόδωρον τὸν Σφωρακίου, Σφωράκιος πατρίκιος ἔκτισεν ἐν τοῖς χρόνοις Ἀρκαδίου καὶ Θεοδοσίου υἱοῦ αὐτοῦ. Ἔκτισε δὲ ἕνα πισὸν μέρους τῆς ἐκκλησίας τῶν κατηχουμένων, καὶ ἀπέθετο κεντηνάρια χρυσίου τρία· καὶ παρῆλθον χρόνοι ρλγ· ἐν γὰρ τοῖς χρόνοις τοῦ Μαυρικίου ἐπεκαύθη μέρος, τι τοῦ ναοῦ καὶ ἀνῳκοδομήθη παρ´, αὐτοῦ, κτίσας καὶ Βε ἰσπορίο Τὴεοίορί."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "648",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Ρε Οοίαροο. Ὁ Ιαεο. ΠΙΟΓΙΒ. τῷ Εονο. κὐκτήριον τοῦ Ἀγίου Γεωργίου. Ἑπὶ δὲ τῆς αὐτοκρε. τορίας Λέοντος τοῦ υἱοῦ Βασιλείου ἀνελθὼν Ῥωμαῖός τις τοῦ εὖτασθαι εἶς τοὺς ναοὺς τῆς πόλεως, εἴδε Ῥωμαῖα γράμματα λίθινα ἐπάνω τοῦ πιντοῦ καὶ Σά ναμιν αὐτῶν γνοὺς ἐγνώρισε τῷ βασιλεῖ Λέοντι περὶ χρυσίου τινὸς, καὶ στείλαντος, καὶ ἀναλαμβανομένου ταῦτα, ἐποίησεν αὐτὸν Ἰλλούστριον, δοὺς αὐτῷ καὶ χάραγμα λίτρας λʹ. Ἀνήγειρε δὲ ὁ αὐτὸς Σφωράκιος καὶ τὸν Πρόδρομον, τὸν εἰς τὴν κόγχην τοῦ ναοῦ τοῦ Ἀγίου Θεοδώρου τυγχάνοντα. Περί τοῦ Ὁκταγώνου. Τὰ δὲ Τετοαδίσιον ὀκτάγωνόν ἔστιν εἰς δ Τσταντο στοαὶ ὀκτὼ, ἤγουν καμαροειδεῖς τόποι, καὶ διδάσκαλοι ἐκεῖσε ἐτύγχανον οʹκουμενικῶν, καὶ οἱ κατὰ αι ροὺς βασιλεῖς τοῖς ἐκεῖσε διδασκάλοις ἐβουλεύοντο, καὶ οὐδὲν ἔπραττον χωρὶς αὐτῶν, ἐξ ὧν γέγονε καὶ πατοιάρχης καὶ ἐπίσκοποι. Πλησίον δὲ τῆς βασιλικῆς ἦν, καὶ διήρκεσεν ἔτη υιδ´, μέχρι τοῦ διιάτου χρόνου Λέοντος τοῦ Συρογενοῦς, τοῦ πατρὸς τοῦ Καβαλίνου. Περιτραπεῖς δὲ τῆς θείας χάριτος, καὶ ταύτης γυμνωθεὶς, διὰ τὸ μὴ συγκοινωνεῖν τοὺς μοναχοὺς τῇ ματαίᾳ αὐτοῦ ἐνστάσει, θυμοῦ δὲ πλησοεῖς καὶ φρύγανα προστάξας ἀθροισθῆναι καὶ ξόλα, κατέκαυσεν αὐτοὺς, καὶ τοὺς ἐκεῖσε ὅντας δέκα εξ μοναχούς. Ιερὶ τοῦ Λαήσο, Τὰ δὲ Λαύσου οὗκος ἧν Λαύσου πατρικίου καὶ πραιποσίτου, ὅστις ἀρχὰς πολλὰς καὶ δόξας διήνυσεν ἐν τοῖς χρόνοις Ἀρκαδίου τοῦ υἱοῦ τοῦ Μεγάλου Θεοδοσίου. Ἐκόσμησε δὲ αὐτὸν διὰ ποικίλων καὶ πολυτελῶν μικρῶν κιόνων καὶ μαρμάρων. Ὁ δὲ τοιοῦτος οὗτος ἐκ τῶν δώδεκα οκων ἐτύγχανε τοῦ Μεγάλου Κωνσταντίνου, ἐν ᾧ καὶ ἀετοὶ λίθινοι, καὶ φιάλαι, καὶ βαθμοῖ, καὶ βωμοὶ τετράγωνοι, εἰς διακόσμησιν τῆς πόλεως ἰστάκεναι μέχρι τῆς σήμερον. λησίον δὲ τῆς ἀψίδος τοῦ Μιλίου στήλη ἔφιππος στατο Τραιανοῦ καὶ Θεοδοσίου τοῦ Μικροῦ. Περὶ τοῦ φόρου. Ὁ δὲ Φόρος εἰς μίμησιν τοῦ Ὡκεανοῦ ἐκτίσθη κακλοειδής· καὶ ὡρολόγιον ἐκεῖσε ἦν χαλκοῦν, δπερ ἔφερεν ἀπὸ Κυζίκου. Περὶ τῶν στηλῶν τῶν ἱσταμένων ἐν τῇ ἀψίδι τῆς καιλάρας τοῦ Φόρου. Ὁτι ἐν τῇ ἀψίδι τῆς καμάρας τοῦ Φόροι ἵστανται δύο στῆλαι Ἑλένης καὶ Κωνσταντίνου καὶ στοκρὸς μέσον αὐτῶν γράφων. Είς ἄγιος, εἶς Κύριος, Ἰησοῦς Χριστὸς εἶς δόξαν Θεοῦ Πατρὸς. Ἀμήν. Καὶ δύο ταχυδρόμων ὁμοίως στῆλαι πτερωτῶν. Περὶ τοῦ σταυροῦ τοῦ ἐν τῷ βορείῳ μέρει. Ὅτι ἐπὶ τὸ βόρειον μέρος τοῦ Φόρου ἵστατο σταυρὸς ὡς ἶδεν αὐτὸν Κωνσταντῖνος ὁ Μέγας ἐν τῷ οὐρανῷ χρυσέμβαφον καὶ ἐν τοῖς ἀκρωτηρίοις στρογγύλοις μῆλον. Ἐνθεν καὶ υἱοὶ σὐτοῦ καθορῶνται χρυσίμβαφοι μέχρι τοῦ νῦν Περὶ τῶν δόο σταυρῶν τῶν καχοοσμένων. Ὅτι κάτωθον τοῦ κονος τοῦ τόρου καχωσμινοι"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "649",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "εἰσίν οὗτοι οδόο σταυροί, καὶ τὸ βίκιον τοῦ μύρου, ᾧ ἡλείψατο ὁ Ἰησούς, καὶ πολλὰ σημειοφορικὰ ἕτερα τιθέντα μὲν παρὰ τοῦ Μεγάλου Κωνσταντίνου, ἀσφαλισθέντα δὲ παρὰ τοῦ Μεγάλου Θεοδοσίου. Περὶ τοῦ ἄρματος Ἡλίου. Ὃτι τὸ ἄρμα Ἡλίου ἐν τέτρασιν ἵπποις πυρίνοις ἱπταμένοις παρὰ δύο στηλῶν ἔκπαλαι ὑπῆρχεν ἐν τῶ ὡρείῳ Μιλίῳ. Ἔνθα εὐώημίσοη Κωνσταντῖνος ἐν τῷ νικῆσαι Ἀζώτιον. Κατενεχθὲν δὲ τὸ ἄρμα ἐν τῷ Ἱπποδρομίῳ, δορυφορούμενον στηλίδιον μικρὸν κατκσκευάτθη παρα Κωνσταντίνου ὑπὸ Ἡλίου φερόμενον, Τύχη τῆς πόλεως εἰς τὸ στάμα εἰσῄει, καὶ στεφανωθὲν ἐξψει· ἐτίθετο δὲ ἐν τῷ Σενάτῳ ἑορτῶν ἐπιουσῶν καὶ γενεσίων τῆς πόλεως τελουμένων· Σιάτι δὲ ἐπὶ κεφαλῆς σταυρὸν εἶχεν, ὅν ἐχάραξε Κωνσταντῖνος. Ἰουλιανὸς αὐτὸ βόθρῳ κατέχωσεν. Ἔνθα Ἅρειος τὸν ἔχθιστον θάνατον ἀπὸ τῆς καμάρας τοῦ φόρου τοῦ Σενάτου ἀπέδωκεν, οὗ καὶ οἱ παρερχόμένοι οὖρα καὶ κόπρα ἐτίθουν αὐτῷ τῷ ἐχθίστῳ Ἀρείῳ. Περὶ τοῦ Σενάτου. Ὃτι τὸ Σενάτον, ὡς οἱ μὲν λέγουσιν, ἐξ ἀργῆς ἧν σῶν κωδικέλλων φυλακτήριον· ἐκεῖσε γὰρ οἱ ατρίκιοι ἐλάμβανον αὐτοὺς, ἐν ᾧ τε καὶ Καλλίστρατος πρῶτον τὴν ἀξίαν τοῦ ὃπάτου ἐκεῖσε ἐδέξατο, τοῦ δήμου κράξαντος, Καλλίστρατος εὐτυχὴς καὶ εἰς ἄλλο προκόψει· ὁ δὲ φοβηθεὶς προσέφυγε τῇ ἐκκλησίᾳ. Κωνσταντῖνος δὲ ἐξωμόσατο μὴ ἀδικῆσαι αὐτόν. Ὁ δὲ μὴ ἀνασχόμενος ἐχειροτονήθη πρεσβύτερος, εἶτα ἐπίσκοπος. Περὶ τοῦ τεθέντος στοιχείου, καὶ τοῦ Φόρου, καὶ τῆς στῇ λης. Κάτωθεν δὲ τοῦ κίονος τοῦ φόρου ἐτέθη καὶ Παλλάδιον στοιχεῖον, καὶ ἕτερα πολλὰ σημειοφορικά. Ὁ δὲ κύκλος τοῦ Φόρου ἐπὶ τὸ ἵσον τῆς ποδέας τῆς κόρτης τοῦ Μειγάλου Κωνσταντίνου, ἣν αὐτὸς ἔπηξεν ὅτε ἀνῆλθεν ἀπὸ Ῥώμης. Οἱ δὲ ὃύο σιγματοειδεῖς ἔμβολοι ἐτύγχανον τότε σταῦλοι γύρωθεν τοῦ κόρτης. Ὁ δὲ περίβλεπτος οὖτος κίων, καὶ ἡ στήλη τοῦ Ἀπόλλωνος, ἵστι τοῦ Μεγάλου Κωνσταντίνου, ἦν ἴστησεν οὖτος δίκην ἡλίου, τιθεὶς ἐν τῇ κεφαλῇ αὐτοῦ τοὺς ἥλους ἐκ τῶν τοῦ Χριστοῦ δίκην ἀκτίνων, ὡς ἤλιος τοῖς πολίταις ἐκλάμπων. Περὶ τῶν τεθέντων ἡνιόχγων ἀν τῷ Σενάτῳ, καὶ περὶ τῶν ι´ κοφίνων τῶν ἄρτων. λν δὲ τῷ Σενάτῳ ἀπετέθησαν οἱ ἣνίοχοι ἐν ζευξἱπποις ἐν τῷ ἀστρονομικῷ ὀργάνῳ, ἕνθα τῆς Ἀρτέ.Διλος καὶ τῆς Ἀφοοδίτης Τσταται στήλη, ἐν αἴς σκυτάλαις ἀπεκεφαλίσθη ὑπὸ Ἀρειανῶν Ἀρκάδιος ἀρχιδιάκονος τῆς Ἀγίας εἰρήνης. Οἱ δὲ δέκα κόφινοι σῶν περισσευμάτων, δέκα ἕτη ἐν τῷ παλατίῳ τοῦ Ξενάτου κατίκειντο· μετὰ δὲ ταῦτα ὃπὸ τὴν βάσιν Ἐν δὲ τῇ μεγάλῃ ἐκκλησίᾳ, τῇ νῦν ὀνομαζομένῃ ἡ Ἀγα Σοφία, στῆλαι Ἰσταντο υκζ, αἱ πλείονες τούτων Ἐλληνικαὶ ὁπῆρχον· ατινις ἑκ τῶν πολθε σιννὰ δοίίς. ρα δοκαί."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "651",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "τῆς πανηγύρεως· καὶ γυμνὴ ὧσαύτως στήλη σημαίνουσα τὸ ἀναίσχυντον τῶν τε ἀγοραζόντων καὶ πωλούντων. Περὶ τοῦ Συστηματίου, τοῦ ἐν τῷ Φόρῳ μέσον σταμένου. Συστημάτιον δὲ μέσον τοῦ Φόρου ἔνζωδον ἐπὶ κιόνων ἱστάμενον, καὶ ἐν αὐτῷ δηλοῦν τὰς ἱστορίας τῶν μελλόντων ἐσχάτως γίνεσθαι ἐπὶ ταύτᾳ τῇ πόλει· οἱ δὲ στηλωτικοὶ τῶν ἀποτελεσμάτων ταῦτα πάντα συνίασιν. Ἐστήλωσε δὲ αὐτὰ Ἀπολλώνιος ὁ Τυανεὺς παρακληθεὶς παρὰ Κωνσταντίνου τοῦ Μεγάλου καῖ εἰσελθὼν ἐστοιχείωσε τὰ ὀνόματα τῆς ἐπικρατείας ἕως τέλους αἰώνων. Περὶ τοῦ πῶς ἔκτισε τὴν πόλιν, ὅτε ἐξῆλθε μετὰ τῶν μεγιστάνων ἐν τῷ Φόρῳ πεζός. Ὅτι μέλλων κτίσαι τὴν πόλιν ὁ Μέγας Κωνσταντῖνος, καὶ ὁφείλων πὴξαι τὸ θεμέλιον, καὶ κατεμέτρησεν αὐτὴν, πεζὸς ἐξελθὼν μετὰ τῶν μεγιστάτων αὐτοῦ, καὶ ἐλθὼν εἰς τὸν Φόρον, εἶπον αὐτῷ οἱ ἄρχοντες· Ποίει τέλος τοῷ τείχους, δέσποτα. Ἐκεῖνος δὲ ἔφη· Οχὶ ἕως οὖ στῆ ὁ προἄῦωγός μου, ἐκεῖσε πληρώσω. Μόνος γὰρ οὗτος ἑώρα τὸν ἀγγελον. Ἀπελθὼν δὲ μέχρι τοῦ Ἐξωκιονίου πεζὸς μετὰ πάσης τῆς συγκλήτου, ἐκεῖσε δὲ ἰδών τὸν ἀγγελον τὴν ῥομφαίαν αὐτοῦ πήξαντα, καὶ μηνόοντα ἕως ἐκεῖ στῆναι αὐτὸν, καὶ διὰ τοῦτο ἔπηξεν ἐκεῖ τὸ τεῖχος· Περὶ τοῦ Ἀρτοπωλίου. ἄν δὲ τοῖς Ἀρτοπωλίοις κυνάρια ἔστησεν εἴκοσι περιφερῆ, καὶ ταῶνας, καὶ ἀετοὺς, καὶ λεαίνας, καὶ κριῶν κάρας, καὶ στρουθῶν, καὶ κορώνης, καὶ τρυγόνος, καὶ γαλῆς, καὶ δαμάλεως, καὶ Γοργόνας δύο, μίαν μὲν ἐκ δεξιῶν, καὶ ἐτέραν ἐξ εὐωνύμων,, κατ´ ὑψιν ἀμφότεραι βλέπουσαι, ἀπὸ μαρμάρων ἐγγεγλυμμέναι, καὶ χοίρων ἀγέλας. Ἰσταντο δὲ μέχρι Ζήνωνος. Γαληνὸς δέ τις ἰατρὸς καὶ φιλόσοφος ὑπάρχων, ἐκεῖσε παραιωθεὶς τὰς Γοργόνας ἔλιγεν ἱεροτλυαικὰ, καὶ ἀστρονομικὰ τῶν μελλόντων δηλεώσας τὰς ἱστορίας πάσας σὺν τοῖς ὀνόμασι Κωνσταντίνοι. τοῦ Μεγάλου τυπώσαντος ταῦτα. Τοῦ δὲ Γαληνοῦ ἐπὶ πλείστων συχνάσαντος, καὶ τοῖς ἀναγνώσμασι προσχόντος, τὰ μέλλοντα συμβαίνειν τῷ Χήνωνι παρὰ Βηρίνης εἰπόντος καὶ γελάσαντος· Καλλίστρατός τις συρφετὸς κάπημος τῇ τέχνῃ, μετὰ τὴν ἐπάνοδον Ζήνωνος, διαβάλλει τὸν Γαληνόν· ὁ δὲ Ζήκ νων τοῦτον ἄνηοήκει, ὅπερ λέγουσιν εἶναι ἀληθές· καὶ γὰρ αἱ ἀγέλαι τῶν χοίρων διερχόμεναι ἐκεῖσε εἰς τὸν Ἄρτοτυριανὸν τόπον μέσον τῆς καμάρας, ὅθεν ἀνέρχε ται, ἵστανται ἐνεοί, καὶ οὐ δύνανται παρέρχεσθαι ὅτε οἱ χοιροδέται οἱ τούτους ἐλαύνοντες, τύψωσι τούτους, καὶ τότε μεθίστανται· ἡνίκα γὰρ ψυχῇ αἷμα ὀλίγον, αρρόως ὁρμᾷ ἡ ἀγέλη. Περὶ τοῦ σταυρίου τοῦ ἱδρυμένου ἐπὶ κίονος, Τὸ δὲ σταυρίον τὸ ἱδρυμένον ἐπὶ κίονος πλησίον ἔῶν Ἀρτοπωλίων ἐν τῇ λιθοστρώτῳ αὐλῇ ἀνηγέρθη παρὰ Κωνσταντίνου τοῦ Μεγάλου, ὅτε ἐκτίσθη ἡ πόλις. Βἰς δὲ τὸ παλαιὸν ὅφερον ἑκεῖσε τοὺς ἵππους ἐκατέρων τὧν μερῶν ἡνίοχοι, καὶ εὐφημίζονΡε λνίοροιιο."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "652",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "αὐτούς. Οἱ δὲ ἔφησαν μὴ κατελθεῖν μέχρι δέο μηνῶνἃ δὲ βασιλεὺς ἔφη· Ἀπόψε ἔχω δοῦναι ὄμῖν τὰοἶκίας ὑμῶν. Προστάξας οὖν Εὐφράτῃ τῷ παρακοιμωμένῳ αὐτοῦ ὅστις καὶ ἐποίησε τὸν βασιλέα Χριστιανὸν, ἀποδοῦναι ἐνὶ ἑκάστῳ τούτων τὸν οἶκον αὐτοῦ μετὰ ὀψικίου αὐτοῦ. Οἱ δέ, ὡς εἶδον τοὺς πολῶνας, καὶ τὰς αὐλὰς, καὶ τὰς ἀνόδους ὁμοίως τὰ μέτρα δὲ, καὶ τὰ σχήματα, καὶ τὰ ὕψῃ, καὶ πάντι άπλῶς οἷα τὰ ἐν τῇ Ῥώμῃ, ἔδοξαν εἶναι ἐν φαντασίᾳ εἶς τὴν Ῥώμην. Βὸρόντες δὲ καὶ τὰς φαμιλίας αὐτῶν, ἐξεπλάγησαν. Ἐρωτήσαντες Σὲ ταύτας, καὶ μαθόντες ἀκριβῶς, τότε ἐπίστευσαν, ὡς οὐκ ἔστι φάντασμα, ἀλλὰ φρόνησις τοῦ βασιλέως, ὅτι καὶ ἄκοντας αὐτοὺς ἐν τῷ Βυζαντίῳ ἐνώκησεν. Ἐκ δὲ τῶν ὀνομάτων αὐτῶν εἰλήφασιν οἱ τόποι τὰς ἘΤρρσηγορίας. Ο Φιλόξενος ἔκτισε κινστίρναν. Ὁ Ηρόβος ἀνήγειρε τὸν ναὸν τοῦ Προδρόμου, νπερ Καβαλῖνος ἐποίησεν ἐργοδόσιον, τὸ λεγόμενον νῦν Πρόβου. Ὁ δὲ Δομνῖνος ἔκτισεν οἶκον εἰς τὰ Μαυριανοῦ, ἄνπερ εἶχεν ὁ Ἀγρικόλαος. Ὁ Δαρεῖος ἕκτισε τὸν οἶκον τῆς Κανατίσης τοῦ σκληροῦ. Ὁ Μαῦρος ἔκτισε τὸν οἶκον, δς καλεῖται τοῦ Βελονᾷ Ὁ Ῥοδανὸς ἔκτισε τὸν οἶκον, ὅς καλεῖται τὰ ἐν οὐρανοῖς· ἔστι δὲ τῆς Μαμένης. Ὁ Σαλούστιος ἔκτισεν οἶκον, ὅς καλεῖται τοῦ Κονδομύτου. Ὃ Μόδεστος ἔκτισεν οἶκον εἰς τοὺς ἁγίους Ἀποστόλους, τὸν λεγόμενον τοῦ λαμπροῦ, καθὼς καὶ «νῦν καλεῖται Ὁ Εὔβουλος ἔκτισε τρεῖς πυλῶνας· ὄιτις- δὲ τὶ τέσσαρας ἐμβόλους ἀπὸ τοῦ Παλατίου μέχρι τῶχερσαίων τειχῶν, ἐγρχορήγους θόλους· ὧν ὁ εἰς ἤρχετο ἀπὸ τοῦ Τυκανιστηρίου, καὶ τῶν Μαγγάνων, καὶ τῆς Ἀκροπόλεως, καὶ τοῦ Εὐγενίου, καὶ διήρχετο μέχρι τοῦ Ἀγίου Ἀντωνίου. Ὁ δ´´ ἕτερος ἤρχετο ἀπὸ δάφνης, καὶ τῶν Σοφιῶν, μέχρι τῆς Ράβδου· οἱ δ´ ἕτεροι δύο ἔμβολοι ἁπὸ τῆς Χαλκῆς καὶ τοῦ Μιλίου, καὶ τοῦ Φόρου, μέχρι τοῦ Ταύρου, καὶ τοῦ βοῦς, καὶ τοῦ Ἐεωκιονίου αὐτοῦ. Ἐπάνω δέὲ τῶν ἐμβόλων περίπατοι πλακωτοὶ λίθινοι, καὶ στῆλαι χαλκαὶ ἄπειροι, εἰς διακόσμησιν τῆς πόλεως. ἔκτισε δὲ καὶ τοὺς μυδρῶνας καὶ ἀγωγοὺς, δι´ ὧν τὸ ὕδωρ ἐκφέρεται ἀπὸ Βουλγαρίας. Ἐποίησε δὲ καὶ τοὺς καράβους ἐγχορήγους ἐπὶ πᾶσαν τὴν πόλιν, βαθεῖς τῷ ὕψει ὅσον τῶν ἐμβόλων, διὰ τὸ μὴ εἵἶναι δυσωδίαν τινὰ, καὶ ἐνσκήπτωσι νόσοι πολλαί, ἀλλ αῖς τὸ βάθος διέρχεσθαι τὰς δυσώδεις ὕλας, καὶ κατἔρχεσοαι εἶς τὴν θάλασσαν. Ταῦτα δὲ ἐκτίσοησν, ώς εἴρηται, παρὰ Οὐρβικίου τοῦ πραιποσίτου καὶ Σαλουστίου ἐπάρχου, καὶ τῶν λοιπῶν, καταλιπῶν αὐτοῖς κεντηνάρια χρυσίου ἑξακόσια, εἶς τε τοὺς ἐμβόλους, τοὺς ἀγωγοὺς, καὶ τὰ τείχη· ἐκεῖνος δε ἐκίνησε κατὰ Σκυθῶν, καὶ ὑποτάας αὐτοὺς ἔττισπόλεις ἐκεῖσε τὴν Περσθλάβαν, καὶ τὴν Δίστραν, καὶ τὴν Πλισκούβαν, καὶ τὴν Κωνσταντίαν. Ταῦτἐκτίσθησαν ἰς χρόνους δόο ἥμισυ ἐπὸ φωνῆς"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "653",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Ἐρμείου. Ἔκτισε, δὲ καὶ τὰ Ἀρματίου, ἐν ᾧ τήν τε κόρτην ἔπηξε, καὶ τὰ ἄρματα τέθεικε μετὰ τὸ ὕποτάξαι τοὺς Βυζοντίους. Εἰς δὲ τὸ ὅνομα πῶν τριῶν αὐτοῦ υἱῶν ἔκτισε τὰ Παλάτια, τὰ καλούμενα Κωνσταντινιανὰ, καὶ τὰ λεγόμενα τὰ Κῶνστα. Ἔστη δὲ καὶ ὁ οἶκος τοῦ Τουβάκης, καὶ τοῦ Ἰβηρίτζη, στις καλεῖται τοῦ Ἀκροπολίτου. Τοὺς δὲ ναοὺς καὶ τὰ λοιπὰ ὅσα ἀνήγειρεν ὁ Μέγας Κωνσταντῖνος, ὕστερον εἰς τὰ Περὶ κτισμάτων ἐροῦμεν, Οἱ ἰεττα πποίη, οἱ πμνί μνὸίς Ο. σμὸ Τεοαοεῖο Τκίονί εἰενεῖ [νκί, εἰ φμοποαο αὐ οᾶρφ μρκσίο ναείαμαέέ είηὲ. Περὶ τοῦ Αὐγουστιῶνος, Ὁ δὲ Μικρὸς Θεοδόσιος εἰς τὸν πέμπτον χρόνον τῆς αὐτοῦ βασιλείας, σεισμοῦ γεγονότος, καὶ των τειχῶν καταπιπτόντων, διὰ τὸ τοὺς Ἀμαληκίτας τοὺς Χατζιντζαρίους οἰκῆσαι ἐν τῇ πόλει, καὶ βλασφημῆσαι σφοδρῶς εἶς τὸ Τρισάγιον, ποιήσας ὁ αὐτὸς βασιλεὺς ἱκεσίαν καὶ λιτὴν εἰς τὸν Κάμπον τοῦ Τριβουναλίου μετὰ τοῦ πατριάρχου Πρόκλου καὶ Εαντὸς τοῦ λαοῦ· καὶ τὸ, Κύριε ἐλὲησον, κραζόντῶν· ἔτι πάντων ὁρώντων ἡρπάγη παιδίον εἰς τὸν ἀέρα, καὶ ἤκουσεν ἀγγέλων μελῳδούντων καὶ ὑμνούντων. Ἄγιος ὁ Θεὸς, ἄγιος ἱσχυρὸς, ἄγιος ἀθάνατος, ἐλέησον ἡμᾶς. Τοῦ παιδίου κατελθόντος, ὁ λαὸς ἐμελῴδει οὖτως, καὶ ἔστη ὁ σεισμός. Καὶ διὰ ταῦτα ἐξέωσεν ὁ βασιλεὺς πάντας τοὺς αἱρετικούς ἐκ τῆς πόλεως, καὶ τὰ τείχη ἐξέβαλιν ἀπὸ τοῦ Ἑξωκιονίου μέχρι τῆς χρυσίας· ἐξ οὖ καὶ στήλην αὐτοῦ ἔστησεν ὅπισθεν τῶν ἐλεφάντων· καὶ ἀνεβίβασε καὶ τὸ παράλιον τεῖχος, ἀπὸ τῆς Ῥαύδου μέχρι τῆς Χρυσίας, ἁπὸ τοῦ ἁγίου Ἀντωνίου τὰ Ἀρματίου μέχρι Βλαχερνῶν καὶ μέχρι τῆς Χρυσίας Οἱ δὲ δύο δῆμοι ἔκτισαν τὰ τείχη παρ´ αὐτοῦ τοῦ βασιλέως Θεοδοσίου ὀρισθέντες, καθὼς εἰς τὰ Περὶ κτισμάτων ἐροῦμεν Τῇ πέμπτῃ τοῦ Ὁκτωβρίου μηνὸς ἐχόρευον οἱ ῥεγεονάρχαι ἐν τῷ Γουστείῳ, ἤγουν τῷ ὀψοπωλίῳ, εἰς τὴν τιμὴν τοῦ κατὰ τὸν καιρὸν ἐκεῖνον βασιλεύοντος· ὃν οἱ ἰδιῶται Αὐγουστιωνα ἐκάλεσαν, ἐν ᾧ καὶ στήλην ἔστησε Κωνσταντῖνος τῆς μητρὸς αὐτοῦ· διὸ καὶ ἐπωνόμασε τὸν τόπον Αὐγουστιῶνα, ἄτερον Γουστείονα λέγουεν Ιερὶ τοῦ αὐτοῦ Αὐγουστιῶνος· διατί σφαῖραν καὶ σταυρὸν κρατῶν ἐφ´ ἵππου ἐστήλωται. Ο Μέγας Ἰουστινιανὸς κτίσας τὴν Ἀγίαν Σοφίαν ἐκάθηρε τὴν αὐλὴν, καὶ ἐμαρμάρωσε ταύτην τὸ πρότερον οὖσαν Γουστεῖον, ὡς εἴρηται, ἥγουν ὀψοπώλιον. Διὸ καὶ ἕστησε καὶ τὴν ἐαυτοῦ στήλην ἔφιππον ἐπὶ τοῦ κίονος· καὶ τῇ μὲν ἀριστερᾷ χειρὶ φέρει σφαῖραν, σταυροῦ ἐμπεπηγότος ἐν αὐτῇ· ὅτι διὰ τῆς εἰς σταυρὸν πίστεως τῆς γῆς ἀπάσης ἐγορατὴς γέγονε. Σφαῖρα μὲν γὰρ ἡ γῆ, διὰ τὸ σφαιροειδὲς ποῦ αὐτῆς σχήματος· πίστις δὲ ὁ σταυρὸς διὰ τὸν ἐν αὐτῷ προσηλωθέντα σαρκὶ Θεόν· τὴν δεξιὰν χεῖρα ἐνατεταμένην ἐχουσαν κατὰ ἀνατολὰς, καὶ στάσιν τῶν Περσῶν σημαίνουσαν, καὶ μὴ μεταβαίνειν ἐπὶ τῆς Ῥωμαικῆς γῆς, διὰ τῆς ἀνατάσεως καὶ ἀπὡσεως τῆς χειρὸς βοῶν· Στῆτε, Πέρεαι, καὶ μὴ Ρε Αμφμείίοης"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "654",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "Οἱ ειαίωίς Μανέοέι. πρόσω χωρεῖ οὐ γὰρ συνοίσει ὑμῖν, Τὸν οὖν πὲ τὸν Ἰουστινιανὸν λέγεται ἐπαρθῆναι τοῖς τοῦ Βελισαρίου εὐτυχήμασιν. Οὗτος οὖν σταλεὶς κατὰ τῶν Περσῶν καὶ τῶν λοιπῶν τῶν τῆς Ἀνατολῆς παρὰ τοῦ βασιλέως, καὶ πάντας κατατροπωσάμενος, καὶ Γι. λίμερα κρατῆσαι ἀπέστειλεν αὐτὸν εἰς Μαυρουσίαν, ἐκεῖσε τηρεῖσθαι ὑπὸ τοῦ Φαραῶ, ὅς εἰς μεγάλην ἔνδειαν ἄρτου γεγονὼς διὰ τὸ μὴ ἐν τῷ τόπῳ τῆς Μαυρουσίας σῖτον γεωργεῖσθαι, ἀλλ´ ἑφθὸν τὰς ὀλώ ρας σιτεῖσθαι, ἔγραψε τῷ βασιλεῖ στεῖλαι αὐτῶ ἄρτον καὶ σπόγγον καὶ κιθάραν. Ὁ δὲ ἐκπλαγεὶς ἐπὶ σούτοις, ἢρετο τὸν ἐπιστολέα τίνος χάριν ταῦτά γε ἐπιζητεῖ. Καὶ ἐξεῖπεν, ὅτι ἄρτον μὲν, διὰ τὸ αὐτὸν ἐπιθυμεῖν τε καὶ φαγεῖν· σπόγγον, διὰ τὸ λούειν τὸ ἄπαν αὐτοῦ σῶμα ὑπὸ τῶν δακρύων· τῆν δὲ κιθάραν, διὰ τὸ παραμυθεῖσθαι ἐαυτῷ ταῖς συμφοραῖς. Ὁ δὲ βασιλεὺς ἐκπλαγεὶς καὶ θαυμάσας, ἔστειλι τούτῳ τὰ αἰτηθέντα. Διὰ ταῦτα οὖν Ἰουστινιανὸς ἐπαροεὶς ἐφ´ ἵππον ἑαυτὸν ἔστησεν ἐπὶ κίονος· οτ ὕστερον φοονήσας τῷ ῥηθέντι στρατηγικωτάτῳ Βελισαοίω, ἐξώρυξε τούτου τοὺς ὀφθαλμοὺς, καὶ προσέταξε τοῦτον καθεσθῆναι εἰς τὰ Ααύρου, καὶ ἐπιδοῦναι αὐτῶ σκεῦος ὀστράκινον, καὶ ἐπιῤῥίπτειν αὐτῷ τοὺς δερχομένους ὀβολὸν. Ικοὶ τῶν στηλῶν εἰς τὴν Χαλκὴν ἱσταμένων. Ὃτι ἐν τῇ Χαλκῇ πλησίον, [ουλχερίας τῆς ἀοιδίμου, ὡς πρὸς τὸν περίπατον τοῦ παλατίου ανηγέρθη στήλη αὕτη· ὡσαύτως καὶ Ἀριάδνη καὶ Ζήνων.ἵστανται καὶ ἕτεραι δύο στῆλαι πεζαὶ ἐπί κίονος βραχέως, ἐλεγεῖα ἔχουσαι Σκούνδου φιλοσόφου· ἀντικρὺς δὲ τῆς Χαλκῆς ἀίδος Γοργονοιει. δεῖς κεφαλαὶ δύο χρυσέμβαφοι γυνακεῖαι· ἥχθησαν δα ἀπὸ Ἐφέσου ἐκ τοῦ ναοῦ τῆς Ἀρτέμιδος στῆλα, ὀκτώ· καὶ αἱ μὲν τέσσαρες ἐν τοῖς τοῦ Ταύρου μέρεσιν, ἐν τοῖς παλατίοις προεπεπήγεισαν, Κωνσταντίνου, καὶ Ἰουλιανοῦ, καὶ τῆς γυναικὸς, καὶ τοῦ ἀδελφοῦ αὐτοῦ Γάλλου· αἱ δὲ τέσσαρες ἐν τοῖς τῆς, Χαλκῆς εὐωνύμοις μέρεσιν, ἔνθα καὶ σταυρὸς ὑπὸ Ἰουστινιανοῦ ἐπεπήγει, καὶ στήλη χρυσέμβαφος Βελισαρίου καὶ Τιβερίου τοῦ Κουρτοειδοῦς Θρμεὸς, καὶ τοῦ Ἰουστίνου τοῦ πρώτου λεπτοειδὴς, καὶ τῶν συγγενῶν αὐτοῦ στῆλαι ἑπτὰ, αἱ μὲν ἀπὸ μαρμάρων, αἱ δὲ χαλκαῖ. Καὶ οἱ δύο ἵπποι ἐπάνω τῶν Τοργονειδῶν ἱστάμεννι ἐν τῇ ἀψίδι, καὶ οὖτοι ἐκ τῆς Ἀρτέμιδος ἀπὸ Ἐφέσου ἥχθησαν ὑπὸ Ἰουστινιανοῦ τοῦ κτίσαντος τὴν Ἀγίαν Σοφίαν· καὶ ἐστήλωσεν αὐτὰ, διὰ τὸ μὴ ἀντιζηλοῦν ἀλλήλων τοὺς ἵππους· ὁμοίως καὶ τὸν σταυρὸν διὰ τὸ ἑδραῖον· καὶ Μαξιμίνου στήλη χαλκῆ ἐν αὐτοῖς ἵσταται βαρυτάτη, ἵνθα νῦν καὶ τὸ γένος ἄπαν Θεοδοσίου ὑπάρχει. Περὶ τῶν στηλῶν τοῦ Μαυρικίου. Καὶ τοῦ Μαυρικίου, καὶ τῆς γυναικὸς αὐτοῦ, καὶ τῶν τέκνων. Ἐν γὰρ τῇ Χαλκῇ ἵστανται αἱ τοιαῦτω· στῆλαι τοῦ Μαυρικίου, ἀνωθεν τῆς θεανδρικῆς εἰκόνος τοῦ Ἰησοῦ ὄπ´ αὐτοῦ κατασκευασθεῖσαι, καὶ ἐκτεταμέναι ταῖς χερσίν. Αἱ δὲ λοιπαὶ ἐκ τῆς τῶν Ἀοηναίων ἧκασι γῆς· φιλοσόφου δέ φασιν εἶναι, ὥς λέγει καὶ ὁ Λιγύριος. Μετὰ τὸ σφαγῆναι παρά τοῦ τυράννου Φωκᾶ Μαυρίκιον, εἷς τις διάκονος τῶν"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "655",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "μαθητῶν Εὐτυχίου τοῦ αἰρετικοῦ ὀνόματι Ἀκατος Ἰδών ἡττηθέντας τοὺς περὶ αὐτοῦ διδασκάλους, κἀκεῖνος ἀποδράσας, κατέλαβε κάστρον τι καλούμενον Σεραπίωνα· τοῦτο δὲ ἐτύγχανεν ὄν ἦν τῶν παρα Ηέρσαις ῥηγίων. Καταμηνύει δὲ Περιττίῳ τῷ φρουράρχῳ τὰ τῆς ἀσθινείας τῶν εν τῇ Χαλκηδόνι ρκούντων, προσθεὶς, ὅτι ἅμα τῷ καταλαβεῖν αὐτὸν τούτους χειρώσεσθαι, καὶ δῆτα ἀμενητὶ στρατεύσας ὁ ῥηθεὶς Πέρσης, καὶ ἔχων στρατιωτῶν ἐβδομήκοντα χιλιάδας, καταλαμβάνει τὴν Χαλκηδόνα· οἱ δὲ μόλις ἴσχυσαν διαφυγεῖν εἰς Κωνσταντινούπολιν μετὰ τῶν τιμίων λειὺάνων τῆς ἁγίας Εὐφημίας, ὑπὲρ ἧς τὸ πλέον ἐσπούδαζεν ὁ προδότης καὶ ἀνίερος Ἅκατος, έλων ἀμῦναι αὐτὴν, διότι τοὺς αἰρέσεως αὐτῶν τόμους κατήσχυνεν, ἅμα δὲ, καὶ διότι οὐ συνεχωρήθη Εὐτύχιον τὸν ἀτυχῆ τὴν τοιαύτην εὐτυχῆσαι μητρόπολιν. Λεηλατήσαντες δὲ τότε τὰ ἐκεῖσε πάντα οἱ Πέρσαι, ἔλαβον καὶ τὸ χρυσέγκαυστον ἄγαλμα τοῦ Ἡλίου θεοῦ, τοῦ λεγομένου Κρόνου, καὶ ἀπήγαγον εἰς Περσίαν, καὶ ἐτίμησαν ὡς θεόν. Περὶ τοῦ πῶς ἐκλήθη Λύγουστος, Ο Αὔγουστος ὁ Ὁκταούίος Αὐγούστῳ μηνὶ ὑπάτευσε, καὶ ἐτίμησεν αὐτὸν, Σείτίλιον τὸ πρότερον λεγόμενον, καὶ ὡνόμασεν αὐτὸν Αὔγουστον· ἐν αὐτῷ δὲ ἐτελεύτησε τῷ μηνὶ τῷ ιθ´ ἡμέρᾳ. Τῷ δὲ Σεπτεμβρίῳ μηνὶ ἐγεννήθη εἰς τὰς κγʹ, καὶ ἐνίκησεν Ἀντώνιον, καὶ ἥρξστο τῆς μοναρχίας, καὶ ἐτίμησεν αὐτὸν ἄρχοντα Ἰνδικτιῶνος, ἤτοι ἀρχὴν χρόνου· ὅθεν Σεπτέμβριος τετίμηται. Περὶ τῶν Νουμέρων καὶ τῆς Χαλκῆς. Τὰ Νούμερα καὶ τὴν Χαλκὴν ὁ Μέγας Κωνσταντῖνος ἔκτισε· καὶ διὰ τὸ εἶναι ἀργὰ, ἐποίησεν αὐτὰ φυλακήν ὁ Ἡράκλειος, καὶ οἱκαθεξῆς. Περὶ τῆς χαλκῆς στήλης, τῆς ἰσταμένης εἰς τὴν πύΚην. Ὃτι ἐν λεγομένῃ Χαλκῇ στήλῃ χαλκὴ ἧν, ἥτις ἔστη παρὰ τοῦ Μεγάλου Κωνσταντίνου, τοῦ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ τυγχάνει. Ὁ δὲ Λέων ὁ πατῆρ. τοῦ Καβαλίνου ταύτην κατήγαγεν· ἡ δὲ νῦν διὰ ψηφίδων ὁρωμένη εἰκὼν, ὡσαύτως ἐστίν. Ἀνιστορήθην δὲ παρὰ Εἰρήνης τῆς Ἀθηναίας, ἐξ ἦς γυνὴ αἱμοῤῥοοὖσα ἰάθη· καί ἕτερα οὖν πολλὰ θαόματα ἐπετελοῦντο εἰς τὸ ὅνομα τοῦ Χριστοῦ. ν μὸει ἀεεσνίὸεα, σαπ ἐνεε ἐ ρανίσε ἀυιααι, ἱ αφμοπα ἰοοο ίῖὸει ρανε ἐπείρίο Ἰστέον οὖν, ὅτι δυσεύρειτα ὅντα τὰ τοιαῦτα διὰ τὸ συγκεχυμένα εἶναι, διῃσέθη εἰς τρία μέρη. Καὶ τὸ μὲν πρῶτον ἄρχεται ἀπὸ τοῦ παλατίου τῆς Χαλκῆς, καὶ τοῦ Μιλίου μέχρι τῆς Χρυσίας· τὸ δὲ ἕτερον ἀπὸ τοῦ Τζυγκανιστηρίου, τῆς Ὁδηγητρίας τῶν Μαγγάνων, μέχρι Βλαχερνῶν· τὸ δὲ τρίτον μέρος ἀπὸ τοῦ ἐτέρου μέρους, τοῦ Ἀγίου Σεργίου καὶ τῶν Σοφιῶν. Καὶ ὁ βουλόμενος εὑρεῖν τι, οὐ δυσχεραίνει, ἀλλ´ εὐθέως εὐρήσει τὸ ζητούμενον. Περὶ τὰ παλάτια τοῦ Βουκολέοντος. Τὰ παλάτια τοῦ Βουκολέοντος, τὰ ἄνωθεν τοῦ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "656",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ΘωθΩΗθΙΩΠ ΒΑρΜΒΩΦε Φἰο ἀἱοιυμ ἦν, ὅ εἰαίαα ἄν οοΙοοεἰα οεεοι, αυια ὓαρὴε αρρείΙααιυΓ. ΙΒεα Ρε Οαμὲκε. Ρε Κίρροαοπο. Ἀε Καφκανα. τείχους παρεξίβαλε Θεοδόσιος ὁ Μικρός. Ὁ δὲ Μαρκιανὸς ἐποίησε Τρίκλινον, ὅς καλεῖται Χρυσοτρίκλινος. Περὶ τοῦ Κοιαίστορος. Τὰ παλάτια Κοιαίστορος τοῦ Ἰππικοῦ ὁ μέγας Κωνσταντῖνος ἀνήγειρε, Περὶ τῆς Δάφνης. Δάονη δὲ ἐκλήθη διὰ τὸ ἵστασθαι ἐκεῖσε στήλην ὅνομα φέρουσαν Δάφνης ἣτις ἤχθη ἀπὸ Ῥώμης. δπου καὶ μαντεῖον ἦν· ἐκεῖσε γὰρ καὶ τοὺς στεσάνομ. τῆς διάφνης οἱ ἀρχοντες ἐλάμβανον κατὰ τὸν Ἰανουάριον μῆνα. Περὶ τοῦ Ἰπποδρόμου. Ὁ δὲ Ἡτπόδοομος ἐκλήθη, διότι ἀπὸ τοῦ ἀνίου Κωνσταντίνου ἕως τῆς Εἰρήνης τῆς Ἀθηναίας ἐκεῖσε κατιδίαν ἐπὶ ἄρματος ἔτρεχον οἱ βασιλεῖς. Ὁ δὲ Ἰουστινιανὸς ἔκτισε τὸν Ααυσιακόν Περὶ Τόχης. Ἡ δὲ τύχη τὸ ἄγαλμα ἤχθη παρὰ τοῦ Μεγάλου Κωνσταντίνου ἀπὸ Ῥώμης, ὅπερ ἵστατο ἐπάνω τῆς ἀῳίδος τοῦ παλατίου, ὁ δὲ βασιλεὺς Μαυρίκιος συνέτριψεν αὐτό. Περὶ Μαγναύρας, λέγεται οὖν, ὅτι ὁ Τρίκλινος τοῦ Μεγάλου Κωνσταντίνου ἡ Μαγναῦρα, περιπατοῦντος ἐν αὐτῆ ποτε Ἀναστασίου τοῦ Δικόρου, τῷ κᾗ τῆς αὐτοῦ βασι λείας, καὶ τοτάρτῳ μηνὶ, βρονταὶ καὶ ἀστραπαὶ γεγόνασι πρὸς τὸ παλάτιον· πάντων δὲ ἀδημονούναων καὶ φευγόντων ἀπὸ τόπου εἰς τόπον, καὶ αὐτοῶ δὲ τοῦ θασιλέως φεύγοντος ἐν ἐνὶ τῶν κοιτωνίσκων, ῶν ἔκτισε, καὶ κατέβη ἐκεῖσε ἡ ὁργὴ τοῦ Θεοῦ. πτι αφνιδίως εὐρεθῆναι νεκρόν. Φασὶ δὲ αὐτὸν μετὰ τὸ ταφῆναι εἰς τοὺς ἁγίους Ἀποστόλους, μεθημέραν βοᾷν· Ελεήσατε, ἐλεήσατε. καὶ ἀνοίξατε. Τῶν μνημοραλίων δὲ εἰπόντων ὃτι ἄλλος βασιλεύει, ἔφη· Οὐδέν μοι μέλει, εἰς μοναστήριον ὑπάγετε με, καποιήσατε με μοναχόν. Οἱ δὲ εἴκσαν αὐτόν. Λέγεται μετά τινα χρόνον τὸ μνῆμα αὐνοῦ ἀνοιγῆναι, καὶ εὐρεθῆναι αὐτὸν φαγόντα τοὺς βραχίονας αὐτοῦ, καὶ τὰ καλήγια, ἃ ἐφόρει· ἔκραξε δὲ μεγάλως· Ὦ Μάνα, ὑπὸ τῆς αὖρας ἀπόλλυμαι. Τῆς δὲ φωνῆς ταύτης κουσάν τινες τῶν ἀνθρώπων αὐτοῦ, καὶ διὰ τοῦτο ἐκλήθη ὁ Τρίκλινος αὐτοῦ Μαγναῦρα, ἀπὸ τῶν Μάνα καὶ αὐρα τοῦ πυρός. Περὶ τὸν Σωτῆρα τῆς Χαλκῆς. Τὸν δέ Σωτῆρα εἰς τὴν Χαλκὴν ἀνήγειρε Ῥωμανὸς ὁ γέρων ὑπὸ στυρακίων μικρῶν δύο, ὡς ἔστι φαινόμενον, τὸ θυσιαστήριον, ποιήσας καὶ κληρικοὺς ιβʹ. Ὅ δὲ Ἰωάννης ὁ Τέιμίσκης ἐπλάτυνε καὶ ἀνήγειρεν αὐτὸν καλλύνας ἐκ χρυσίου καὶ ἀόγύρου πολλοῦ ἐποίησε δὲ καὶ κληρικοῦς λϛʹ, τιθεὶς αὐτοῖς καὶ ῥογας καὶ ἀννόνας, καὶ ἀνὰ νομισμάτων λ τὰ δὲ ἱερὰ, καὶ πὰ στέμματα, καὶ τὰ σκῆπτρα, καὶ τοὺς δίσκους, καὶ τὰς λυχνίας, καὶ τὰς ἐσθῆτας, καὶ τὰ ἀμφια τὰ βασιλικὰ, ἱδιόκτητα αὐτοῦ ὄντα, ἀπεχαρίσατο πρὸς τὸν υαόν· ὡσαύτως καὶ τὰ ἀκίνητα αὐτοῦ κτκμαατα ἐπεκόρωσεν αὐτῷ, ἐν ᾧ ἀπὸ τοῦ ταξειδίου ἐφέρετο τὴν τιμίαν εἰκόνα τῆς ἀγίας σταυρώσεως τῆς ἐν τῆ Βηρυτῷ, καὶ τὰ ἁγια σανδάλια τοῦ Χριστοῦ καὶ Θεοῦ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "657",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "ἡμῶν ἑν ποικίλοις χρυσοῖς, καὶ διὰ λίθων κιβουρίοις, ἐποίησεν οὖν καὶ τὸ ἑαυτοῦ μνῆμα ἐκεῖσι ὀλόχρυσον μετὰ χυμεύσεως, ἐν ᾗ καὶ ἐτέθη. Ἱερᾷ τῶν στηλῶν τῶν ἱσταμένων ἀνω τοῦ Ἐν δὲ τῇ καμάρᾳ τοῦ Μιλίου στῆλαι Κωνσταντίνου καὶ Ἑλένης εἰσίν. Ἔνθα καὶ σταυρὸς ὁρᾶται πρὸς ἀνατολὴν βασταζόμενος ὑπ´ αὐτῶν· μέσον δὲ τοῦ σταυροῦ ἡ Τύχη τῆς πόλεως, ὅπερ ἐστὶ κατήνιον κλειδόμενον καὶ ἂστοιχειωμένον, τοῦ παντὸς εἴδους ἀνελλιπῶς, καὶ νίκην κατὰ πάντων τῶν ἐθνῶν φέρον τοῦ μηκέτι ἠσχύειν, ἡ προσεγγίσαι ἢ προσύαῦσαι τῆ πᾶλει ταῦτα, ἀλλὰ πόρρω ἀπέχεσθαι, καὶ ὑπονοστεῖν ὸς ἡττωμένα. Ἐν αὐτῷ δὲ τῷ Μιλίῳ στῆλαι ἵστανται τρεῖς, Σοφίας τῆς γυναικὸς Ἰουστίνου τοῦ Θρακὸς, καὶ Ἀραβίας τῆς θυγατρὸς αὐτῶν, καὶ Ἐλένης ἀνεψιᾶς αὐτῶν. Περὶ τῆς στήλης τοῦ Θεοδοσίου. Ἐν τῷ λεγομένῳ Μιλίῳ Θεοδοσίου στήλη ἵσταται κφ´ ἵππου χαλκοῦ, καὶ ἐν τῇ χειρὶ αὐτοῦ μῆλον κρατοῦντος, ἢν ἀναγείρας σιτηρέσια πολλὰ δέδωκε τοῖς ἐν τῆ πόλει. Οἱ δὲ κίονες, καὶ οἱ ποδίοσκοι, καὶ οἱ τῶν Ἀρτοπωλιων ὁμοίως καὶ τῶν Τξυκκαλαρίων, καὶ τῆς Χαλκῆς ἔχουσιν ἱστορίας πολλὰς, ἂς ὁ αὐτὸς καλλύνας ἐχρύτωσεν. Περὶ τοῦ ναοῦ τοῦ Θεολόγου. Φωπὰς ὁ τύραννος ἔκτισεν ἐκ βάθρων τὸν ναὸν τοῦ αγίου Φωκᾶ ἐν τῷ Μιλίῳ, μήπω οὖν ὀροφώσας αλτά· ἐκεῖσε γὰρ ἦν ἡ ἀλλαγὴ τῶν κοντούρων, καθ´ ὃν πόπον ἡντξοκόπησε τὰ κόντουρα, ὅτε καὶ μαγκλαβίοις ἐτύφθη παρὰ Καυρικίου τοῦ βασιλέως, τολμήσαντος τοῦ αὐτοῦ Φωκᾶ ἐν τῷ κόντῳ αὐτοῦ προσδῆσαι τὸ πιττάκιον, ὅπερ ἀπὸ Λογχοβαρδίας ἐλθὼν ἔφερε, τοῦ στρατοῦ ἐκεῖθεν ἀποστείλαντος τοῦτον διὰ τὴν ῥόγαν αὐτῶν. Καὶ ἐγκαλέσας ἐν ἡμέρᾳ Ἰπποδρομίου, ὅτι οὖτος εὑρών ἄδειαν καὶ ἀναλαβόμενος τὰ κόντουρα ὑπεχώρησε· τὰ δὲ καταλειφθέντα ἀντζίσας, κατῆλθιν ἕως Λογγοβαρδίαν ἔτι τὰς πληγὰς ἔχων· διὰ τοῦτο γὰρ προετιμήθη εἰς τὴν βασιλείαν παρὰ τοῦ στρατοῦ. Μετὰ οὐν τὸ ἀνελθεῖν καὶ βασιλεῦσαι, ἔστησεν ἐκεῖ δύο ἵππους κοντούρους ἡντζωκοπημένους, καὶ βωμοὺς λιθίνους τετραδικοὺς σύνεγγυς τοῦ Ἀγίου Φωκᾶ, ὃν αὐτὸς ἀνήγειρε, Διίππιον αὐτὸν ὀνομάσας· ἐκεῖσε γὰρ καὶ τέσσαρας εἰκόνας ἐκ ψηφίδων χρυσῶν, Κωνσταντίνου καὶ Ἑλένης ἱστόρησεν. Ὁ δὲ Ἡράκλειος ἐλθὼν, καὶ κρατήσας, καὶ τὸν Φωκὰν τιμωρήσας, καὶ καύσας ἐν τῇ τοῦ Βοὸς ἀγορᾷ, ἐτίμησε τὸν ναὸν, καὶ σκεπάσας αὐτὸν καὶ μετονομάσας εἰς τὸ τοῦ ἁγίου ἀποστόλου καὶ εὐαγγελιστοῦ Ἰωάννου τοῦ Θεολόγου ὅνομα. Περὶ τοῦ ἁγίου Θεοδώρου τοῦ Σφωρακίου. Τὸν ἄγιον Θεόδωρόν τὸν Σφωρακίου, Σφωράκιος πατρίκιος ἔκτισεν ἐν τοῖς χρόνοις Ἀρκαδίου καὶ ΘεοἈααίου υἱοῦ αὐτοῦ. Ἔκτισε δὲ ἕνα πισὸν μέρους τῆς ἐκκλησίας τῶν κατηχουμένων, καὶ ἀπέρετο κεντηνάρια χρυσίου τρία· καὶ παρῆλθον χρόνοι ρλγ´· ἀν γὰρ τοῖς χρόνοις τοῦ αυρικίου ἐπεκαύθη μέρος τι τοῦ ναοῦ καὶ ἀνῳκοδομήθη παρ’, αὐτοῦ, κτίσας καὶ"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "658",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "κτήριον τοῦ Ἀγίου Γωργίου. Ἐπὶ δὲ τῆς αὐτοκρατορίας Λέοντος τοῦ υἱοῦ Βασιλείου ἀνελθὼν Ῥωμαῖός τις τοῦ εὕξασθαι εἶς τοὺς ναοὺς τῆς πόλεως, εἶδε Ῥωμαῖα γράμματα λίθινα ἐπάνω τοῦ πινεοῦ καὶ δὲ ναμιν αὐτῶν γνοὺς ἐγνώρισε τῷ βασιλεῖ Λέοντι περὶ χρυσίου τινὸς, καὶ στείλαντος, καὶ ἀναλαμβανομένου ταῦτα, ἐποίησεν αὐτὸν Ἰλλούστριον, ὅοὺς αὐτῷ καὶ χέραγμα λίτρας λʹ. Ἀνήγειρε δὲ ὁ αὐτὸς Σφωράκιος καὶ τὸν Ιρόδρομον, τὸν εἰς τὴν κόγχην τοῦ ναοῦ τοῦ Ἀγίου Θεοδώρου τυγχάνοντα. Περὶ τοῦ Ὁκταγώνου. ΚΤὸ δὲ Τετραδίσιον ὀκτάγωνόν ἔστιν εἰς ἔ ἵσταντο στοαὶ ὀκτὼ, ἤγουν καμαροειδεῖς τόποι, καὶ διδάστα λοι ἐκεῖσε ἐτύγχανον οἴκουμενικῶν, καὶ οἱ κατὰ καιροὺς βασιλεῖς τοῖς ἐκεῖσε διδασκάλοις ἐβουλεύοντο, καὶ οὐδὲν ἔπραττον χωρὶς αὐτῶν, ἐξ ὧν γέγονε καὶ πατοιάρχης καὶ ἐπίσκοποι. Πλησίον δὲ τῆς βασιλικῆς ἦν, καὶ διήρκεσεν ἔτη υιδʹ, μέχρι τοῦ δεκάτου χρόνου Λέοντος τοῦ Συρογενοῦς, τοῦ πατρὸς τοῦ αβαλίνου. Περιτραπεὶς δὲ τῆς θείας χάριτος, καὶ ταύτης γυμνωθεὶς, διὰ τὸ μὴ συγκοινωνεῖν τοὺς μοναχοὺς τῇ ματαίᾳ αὑτοῦ ἐνστάσει, θυμοῦ δὲ πλησοεῖς καὶ φρύγανα προστάξας ἀθροῖσθῆναι καὶ ἔνδυμα, κατέκαυσεν αὐτοὺς, καὶ τοὺς ἐκεῖσε ὅντας δέκα ἐξ μοναχούς. Περὶ τοῦ Λαύσου Φὴ δὲ Ααήσου οἶκος Χρῆ Λαύσου πατρικίου καὶ πραιποσίτου, ὅστις ἀρχὰς πολλὰς καὶ δόξας διήνυσεν τ. τοῖς χρόνοις Ἀρκαδίου τοῦ υἱοῦ τοῦ Μεγάλου Θεοδοσίου. Ἐκόσμησε δὲ αὐτὸν διὰ ποικίλων καὶ πολυτελῶν μικρῶν κιόνων καὶ μαρμάρων. Ὁ δὲ τοιοῦτος οἶκος ἐκ τῶν δώδεκα οἵκων ἐτύγχανε τοῦ Μεγάλου Κωνσταντίνου, ἐν ᾧ καὶ ἀετοὶ λίθινοι, καὶ φιάλαι, καὶ βαθμοὶ, καὶ βωμοὶ τετράγωνοι, εἰς διακόσμησιν τῆς πόλεως ἱστάμεναι μέχρι τῆς σήμερον. Μλησίον δὲ τῆς ἀψίδοε τοῦ Μιλίου στήλη ἔφιππος ἵστατο Τραιανοῦ καὶ Θεοδοσίου τοῦ Μικροῦ. Περὶ τοῦ Φόρου. Ὁ δὲ Φόρος εἰς μίμησιν τοῦ Ὀκεανοῦ ἐκτίσθη κυκλοειδής· καὶ ὡρολόγιον ἐκεῖσε ἦν χαλκοῦν, ὅπερ ἔφερεν ἀπὸ Κυζίκου Περὶ τῶν στηλῶν τῶν ἱσταμένων ἐν τῇ ἀφίδι τῆς καμάρας τοῦ Φόρου. Ὅτι ἐν τῇ ἀψίδι τῆς καμάρας τοῦ Φόροι ἵοτανται δύο στῆλαι Ἑλένης καὶ Κωνσταντίνου, καὶ σταυρὸς μέσον αὐτῶν γράφων. Εἷς ἄγιος, εἰς Κυριος, Ἰησοῦς Χριστὸς εἰς δόξαν Θεοῦ Πατρὸς. Ἀμήν. Καὶ δύο ταχυδρόμων ὁμοίως στῆλαι πτερωτῶν. Περὶ τοῦ σταυροῦ τοῦ ἐν τῷ βορείῳ μέρει. Ὅτι ἐπὶ τὸ βόρειον μέρος τοῦ Φόρου ἵστατο σταυρὸς ὡς εἶδεν αὐτὸν Κωνσταντῖνος ὁ Μέγας ἐν τῷ οὐρανῷ χρυσέμβαφον καὶ ἐν τοῖς ἀρωτηρίοις στρογγύόλοις μῆλον. Ἔνθεν καὶ υἱοὶ αὐτοῦ καθορῶνται χρυσίμβαφοι μέχρι τοῦ νῦν· ΚΠερὶ τῶν δύο σταυρῶν τῶν καχωσμένων Ὁτι κάτωθεν τοῦ κίονος τοῦ φόρου κεχωσμένοι"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "659",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "χὸαὶν οὗτοι οἱ δόο σταυροί, καὶ τὸ βίκιον τοῦ μόρου, ᾧ ἠλείψατο ὁ Ἰησοῦς, καὶ πολλὰ σημειοσοσιὰ ἕτερα τιθέντα μὲν παρὰ τοῦ Μεγάλου Κωνσταντίνου, ἀσφαλισθέντα δὲ παρὰ τοῦ Μεγάλου Θεοδοσίου. Περὶ τοῦ ἄρματος Ἡλίου. Ὃτι τὸ ἄρμα Ἡλίου ἐν τέτρασιν ἵπποις πυρίνοις ἱπταμένοις παρὰ δύο στηλῶν ἕκπαλαι ὑπῆρχεν ἐν τῷ ὡρείῳ Μιλίῳ. Ἔνθα εὐώημίσθη Κωνσταντῖνος ἐν τῷ νικῆσαι Ἀζώτιον. Κατενεχθὲν δὲ τὸ ἄρμα ἐν τῷ Ἱπποδρομίῳ, δορυφορούμενον στηλίδιον μικρὸν καττσκευάσθη παρὰ Κωνσταντίνου ὑπὸ Ἡλίου φερόμενον, Τύχη τῆς πόλεως εἰς τὸ στάμα εἰσῄει, καὶ στεφανωθὲν ἐξψει· ἐτίθετο δὲ ἐν τῷ Σενάτῳ ἑορτῶν ἐπιουσῶν καὶ γενεσίων τῆς πόλεως τελουμένων· διότι δὲ ἐπὶ κεφαλῆς σταυρὸν εἶχεν, ὅν ἐχάραξε Κωνσταντῖνος. Ἰουλιανὸς αὐτὸ βόθρῳ κατέχωσεν. Ἔνθα Ἄρειος τὸν ἔχθιστον θάνατον ἀπὸ τῆς καμάρας τοῦ φόρου τοῦ Σενάτου ἀπέδωκεν, ποῦ καὶ οἱ παρερχόμένοι οὖρα καὶ κόπρα ἐτίθουν αὐτῷ τῷ ἐχθίστῳ Ἀρείῳ. Περὶ τοῦ Σενάτου τι τὸ Σινάτον, ὡς οἱ μὲν λέγουσιν, ἐξ ἀργῆς ἦν τῶν κωδικέλλων φυλακτήριον· ἐκεῖσε γὰρ οἱ Πατρίοιοι ἀλάμβανον αὐτοὺς, ἐν ᾧ τε καὶ Καλλίσερατος πρῶτον τὴν ἀξίαν τοῦ ὄπάτου ἐκεῖσε ἐδίξατο, τοῦ δήμου κράξαντος, Καλλίστρατος εὐτυχὴς καὶ οἰς ἄλλο προκόψει· ὁ δὲ φοβηθεὶς προσίφυγε τῇ ἐκκλησίᾳ. Κωνσταντῖνος δὲ ἐξωμόσοτο μὴ ἀδικῆσαι αὐτόν. Ὁ δὲ μὴ ἀνασχόμενος ἐχειροτονήθη πρεσβύτερος, εἷτα ἐπίσκοπος. ἱκρὶ τοῦ τεὸέντος στοιχείου, καὶ τοῦ Φόρου, καὶ τῆς στήλης. Κάτωθεν δὲ τοῦ κίονος τοῦ Φόρου ἐτέθη καὶ Παλλάδιον στοιχεῖον, καὶ ἕτερα πολλὰ σημειοφορικά. Ὁ δὲ κύκλος τοῦ Φόρου ἐπὶ τὸ ἵσον τῆς ποδιας τῆς κόρτης τοῦ Μεγάλου Κωνσταντίνου, ἦν αὐτὸς ἔπηξεν ὅτε ἀνῆλθεν ἀπὸ Ῥώμης. Οἱ δὲ δύο σιγματοειδεῖς ἔμβολοι ἐτύγχανον τότε σταῦλοι γόρωθεν τοῦ κόρτης. Ὅ δὲ περίβλεπτος οὖτος κίων, καὶ ἡ στήλη τοῦ Ἀπόλλωνος, ἔστι τοῦ Μεγάλου Κωνσταντίνου, ἢν ἔστησεν οὖτος δίκην ἡλίου, τιθεῖς ἐν τῇ κεφαλῇ αὐτοῦ τοὺς ἥλους ἐκ τῶν τοῦ Χριστοῦ δίκην ἀτίνων, ώς ἣλιος τοῖς πολίταις ἐκλάμπων. Περὶ τῶν τεθέντων ἡνιόχων ἐν τῷ Σενάτῳ, καὶ περὶ τῶν ιʹ κοφίνων τῶν ἄρτων. ν δὲ τῷ Σενάτῳ ἀπετέθησαν οἱ ἡνίοχοι ἐν ζευξίπποις ἐν τῷ ἀστρονομικῷ ὀργάνῳ, ἕνθα τῆς Ἀρτέμιδος καὶ τῆς Ἀφροδίτης ἵσταται στήλη, ἐν αἱς σκυσάλαις ἀπεκεφαλίσθη ὅπὸ Ἀρειανῶν Ἀρκάδιος ἀρχιδιάκονος τῆς Ἀγίας Εἰρήνης. Οἱ δὲ δέκα κόφινοι τῶν περισσευμάτων, δέκα ἕτη ἐν τῷ παλατίῳ τοῦ Σενάτου κατέκειντο· μετὰ δὲ ταῦτα ὁπὸ τὴν βάσιν Ἐν δὲ τῇ μεγάλῃ ἐκκλησίᾳ, τῇ νῦν ὀνομαξομένῃ ἡ Ἀγία Σοφία, στῆλαι ἵσταντο υκζ, αἱ πλείονες τούτων Ἐλληνικαὶ ὑπῆρχον· οτινες ἑκ τῶν πολΟε σκνν ὅοιίς. Βε ΣσκαΙα."
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "660",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "λῶν ὁπῆρχον, τοῦ τε Διὸς, καὶ Κάρου τοῦ πατρὸς, καὶ Διοκλητιανοῦ, καὶ τὰ δώδεκα ζώδια, ἥ τε Σελήνη καὶ ἡ Ἀφροδίτη, καὶ ὁ Ἅρκτοῦρος ἀστὴρ, παρὰ δύο Περσικῶν στηλῶν βασταζόμενος, καὶ ὁ Νότιος Πόλος, καὶ ἡ ἱέρεια τῆς Ἀθηνᾶς, ἀπὸ τοῦ πλευροῦ τὴν ἶριν ἀφιλοσόφως μαντεύουσαν ἔχουσα. Ἐκ Σ τῶν Χριστιανῶν οὐκ ὀλίγαι μὲν, ὡς εἶπον· καὶ δέον ἐκ τῶν πολλῶν ὀλίγας εἰπεῖν· Κωνοταντίνου τοῦ Μειγάλου, καὶ Κώνσταντος, καὶ Γάλλου, Θεοδοσίου τε καὶ Ἰουλιανοῦ, καὶ Θεοδοσίου τοῦ ἐτέρου, καὶ Ἀρκαδίου υἱοῦ αὐτοῦ, καὶ Σεραπίονος ὄπάτου, καὶ Ἑλένης μητρὸς Κωνσταντίνου τρεῖς· ἡ μὰν μία πορφύρα διὰ μαργάρων· ἡ δὲ ἐτέρα διὰ ψηφίδων ἀργυρῶν ἐν τῷ χαλκῷ κίονι, καὶ ἡ ἄλλη ἐλεφαντώδης Κύπρου ῥήτορος προσενέγκαντος· ἅς Ἰουστινιανὸς μερίσας ἐν τῇ πόλει ναὸν μέγιτσον ἀνήγειρε μετὰ πίστεως καὶ πόθου πολλοῦ· οἱ δὲ πεπειράμενοι τῶν προειρημένων, περιερχόμενοι τὴν πόλιν, καὶ ζητοῦντες αὐτὰς, εὁρήσουσιν οὐκ ὀλίγας. Περὶ τῶν στηλῶν τῶν ἱσταμένων ἐν τῷ δεξιῷ μέρει τοῦ Φόρου. Ἐν δὲ τῷ δεξιῷ μέρει τοῦ Φόρου τοῦ ἀνατολῆς, ἐδέξαντο στήλας πορφυρᾶς διὰ μαρμάρων ιβʹ, καὶ σειρῆνας δώδεκα, ἄστινας οἱ πολλοὶ ἵππους θαλασσίους καλοῦσι· χρυσέμβαφοι δὲ ἦσαν. Ἐπὶ δὲ ἡμῶν ἑπτὰ μόναι καθορῶνται· τὰς δὲ τρεῖς ἐξ αὐτῶν ἐν τοῖς τοῦ Ἀγίου Δάμαντος μέρεσιν ἔθηκαν, καὶ αἱ λοιπαὶ στῆλαι σώΓονται Ἡ δὲ Τύχη τῆς πόλεως χαλκὴ μετὰ μοδιόλου Τστατο ἐν τῇ ἀνατολικῇ ἀψίδι, ἣν, εφησαν. Μιχαὴ λ ὁ Ῥαγγαβὶ χειροκοπηθῆναι, διὰ τὸ μὴ ἰσχύειν τὰ δημοτικὰ μέρη κατὰ τῶν ἀνακτόρων. Περὶ τοῦ σταυροῦ τοῦ γράφοντος· Ἅγιος, ἄγιος, ἄγιος. Ἰστέον. ὅτι ὁ σταυρὸς ὁ μεσοσυλλαβῶν καὶ ἀνανινοωο σκόμενος, ἅγιος, ἄγιος, ἄγιος, παρὰ τοῦ πρωτοστατοῦντος τῷ Φόρῳ ἀνηγορεύθη· ἔνθεν καὶ δύο ταχυδρόμων, καὶ αὐτοῦ τοῦ Κωνσταντίνου, καὶ Ἐλένης ἐκ δεξιῶν καὶ ἐξ εὐωνύμων σώζονται στῆλαι. Εἰς δὲὰ τὴν ἀνατολινὴν ἀψίδα τοῦ Κωνσταννινιακοῦ Φόρου σταυρὸς ἀργυρέμπλαστος, καὶ ἐν τοῖς ἀκρωτηρίοις σεοογγύλοις μῆλον, ἐν αὐτῷ τῷ τόπῳ ἀνηγέρθη ὑπλ Κωνσταντίνου, ὡς ἀθεάσατο αὐτὸν ἐν τῷ οὐρανῷ. Οἱ δὲ χρυσέμβαφοι υἱοὶ αὐτοῦ εἰσι καὶ ἐλέφαντος στήλη ἵστατο φοβερὰ ἐν τοῖς εὐωνύμοις μέρεσι πληαίον τῆς μεγάλης στήλης· ἔνοα καὶ παράδοξον ἐδείκνυτο θέαμα· σεισμοῦ γὰρ γενομένου καὶ αὐτὸς πίπτωκε, καῖ ἀπώλετο τὸν ἕνα πόδα τὸν ὅπισοιν αἱ δὲ τοῦ ἐπάρχου ταξεῶταιος γὰρ τὸν όρον παρ πίτᾶιν αυλάττεσθαι] συνδραμοῦντες ἡγεραν τὸν ἐλέφαντα, καὶ εὖρον ἔσωθεν αὐτοῦ τὰ ὀστᾶ ἀνθρώπου ἀμφότερα ὅλου τοῦ σώματος, καὶ πυξίον μικρὸν, οῦ ἐν τῇ κεφαλῆ ἔγραψεν· φροδίτης παρθένου δερᾶς οόδὲ θανοῦσα χωρίζομαι. ὅπερ ὁ ἔσαρχος νῷ δημοσίῳ προσέθηκεν ἰς νουμία. Τοῖς προσνεδεδηλιωκότι, καὶ χοῖρος ἵστιρ. αημαίνων τὴκ κραωγὴν"
+   },
+   {
+    "urn": "cogPG.PG122",
+    "edition": "cgpg",
+    "locus": "661",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "text": "τῆς πανηγόρεως· καὶ γυμνὴ ὡσαύτως στήλη σημαίνουσα τὸ ἀναίσχυντον τῶν τε ἀγοραζόντων καὶ πωλούντων. Περὶ τοῦ Συστηματίου, τοῦ ἐν τῷ Φόρῳ μέσον θσταμένου. Συστημάτιον δὲ μέσον τοῦ Φόρου ἔνζωδον ἐπὶ κιάνων Ἰστάλενον. καὶ ἐν αὐτῷ δηλοῦν τὰς ἱστορίας τῶν μελλόντων ἐσχάτως γίνεσθαι ἐπὶ ταύτᾳ τῇ πόλει· οἱ δὲ στηλωτικοὶ τῶν ἀποτελεσμάτων ταῦτα πάνιτα σλνίασιν Ἐστχλωσε δὲ αὐτὰ Ἀπολλώνιος δ Τυανεὺς παρακληθεὶς παρά Κωνσταντίνου τοῦ Μεγάλου καὶ εἰσελθών ἐστοιχείωσε τὰ ὀνόματα τῆς ἐπικρατείας ἕως τέλους αἰώνων. Περὶ τοῦ πῶς ἔκτισε τὴν πόλιν. Ὅτε ἐξῆλθε μετὰ τῶν μεγιστάνων ἐν τῷ Φόρῳ πεζός. Οτι μέλλων κτίσαι τὴν πόλιν ὁ Μέγας Κωνστανπῖνος, καὶ ὁφείλων πῆξαι τὸ θεμέλιον, καὶ κατεμέτρησεν αὐτὴν, πεζὸς ἐξελθὼν μετὰ τῶν μεγιστάτων αὐτοῦ, καὶ ἐλθὼν εἰς τὸν Φόρον, εἶπον αὐτῷ οἱ ἄρχοντες· Ποίει τέλος τοῦ τείχους, δέσποτα, Ἐκεῖνος δὲ ἔφη· Οὐχὶ ἕως οὖ στῇ ὁ προἄῦωγός μου, ἐκεῖσε πληρώσω. Μόνος γὰρ οὗτος ἑώρα τὸν ἄγγελον. Ἀπελθὼν δὲ μέχρι τοῦ Ἐξωκιονίου πεζὸς μετὰ πάσης τῆς συγκλήτου, ἐκεῖσε δὲ ἰδὼν τὸν ἀγγελον τὴν ῥομφαίαν αὐτοῦ πήξαντα, καὶ μηνύοντα Κως ἐκεῖ στῆναι αὐτὸν, καὶ διὰ τοῦτο ἔπηξεν ἐκεῖ τὸ τεῖχος· Περὶ τοῦ Ἀρτοπωλίου, Ἐν δὲ τοῖς Ἀρτοπωλίοις κυνάρια ἔστησεν εὥτοσε περιφερῆ, καὶ ταῶνας, καὶ ἀετοὺς, καὶ λεαίνας, καὶ κριῶν κάρας, καὶ στρουθῶν, καὶ κορώνης, καὶ τρυγόνος, καὶ γαλῆς, καὶ δαμάλεως, καὶ Γοργόνας δύο, μίαν μὲν ἐκ δεξιῶν, καὶ ἐτέραν ἐξ εὐωνύμων, κατ´ ὑψιν ἀμφότεραι βλέπουσαι, ἀπὸ μαρμάρων ἐγγεγλυμμέναι, καὶ χοίρων ἀγέλας. Ἰσταντο δὶ μέχρι Ζήνωνος. Γαληνὸς δέ τις ἰατρὸς καὶ φιλόσοφος ὑπάρχων, ἐκεῖσε παραιωθεὶς τὰς Γοργόνας ἔλεγεν ἱεροτλυσικὰ καὶ ἀστρονομικὰ τῶν μελλόντων δολῶταα τὰς ἱστορίας πάσας σὺν τοῖς ὀνόμασι Κωνσταντίνου ποῦ Μεγάλου τυπώσαντος ταῦτα. Τοῦ δὲ Γαληνοῦ ἐπὶ πλείστων συχνάσαντος, καὶ τοῖς ἀναγνώσμασι προσχόντος, τὰ μέλλοντα συμβαίνειν τῷ Χήνωνι παρὰ Βηρίνης εἰπόντος καὶ γελάσαντος· Καλλίστρατός τις συρφετὸς κάπημος τῆ τέχνῃ, μετὰ τὴν ἐπάνοδον Ζήνωνος, διαβάλλει τὸν Γαληνόν· ὁ δὲ Ζήνων τοῦτον ἄνῃρήκει, ὅπερ λέγουσιν εἶναι ἀληθές· καὶ γὰρ αἱ ἀγέλαι τῶν χοίρων διερχόμεναι ἐκεῖσε εἰς τὸν Ἀρτοτυριανὸν τόπον μέσον τῆς καμάρας, ὅθεν ἀνέρχεται, ἵστανται ἐνεοί, καὶ οὐ δύνανται παρέρχεσθαι, ὅτι οἱ χοιροδέται οἱ τούτους ἐλαύνοντες, τύψωσι τούτους, καὶ τότε μεθίστανται· ἡνίκα γὰρ ψυχῆ αἷμα ὀλίγον, ἀρρόως ὁρμᾷ ἡ ἀγέλη. Περὶ τοῦ σταυρίου τοῦ δρυμένου ἐπὶ κίονος. Τὸ δὲ σταυρίον τὸ ἱδρόμενον ἐπὶ κίονος πλησίον πῶν Ἀρτοπωλίων ἐν τῇ λιθοστρώτῳ αὐλῇ ἀνηγέρθη παρὰ Κωνσταντίνου τοῦ Μεγάλου, ὅτε ἐκτίσθη ἡ πόλις. Εἰς δὲ τὸ παλαιὸν ἔφερον ἐκεῖσε τοὺς ἵππους ἑκατέρων τῶν μρῶν ἡνίοχοι, καὶ οὐφημίζονΡε ἀνίοροιιο."
+   }
+  ]
+ },
+ "token_conservation": {
+  "original": 153769,
+  "carved": 135720,
+  "residual": 0,
+  "dropped": 18049,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "michael-psellus.poemata",
+   "tlg": "tlg2702.tlg015"
+  },
+  {
+   "slug": "michael-psellus.opuscula-psychologica-theologica-daemonologica",
+   "tlg": "tlg2702.tlg011"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "michael-psellus.poemata",
+  "michael-psellus.de-omnifaria-doctrina",
+  "michael-psellus.quaestionum-naturalium-solutiones-sp",
+  "michael-psellus.de-operatione-daemonum-sp",
+  "michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp",
+  "michael-psellus.de-lapidum-virtutibus",
+  "michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni",
+  "michael-psellus.versus-in-sanctos-tres-hierarchas-sp",
+  "michael-psellus.monodia-in-sanctae-sophiae-collapsam",
+  "michael-psellus.de-mortis-determinatione",
+  "michael-psellus.de-actionum-nominibus",
+  "michael-psellus.de-legum-nominibus",
+  "michael-psellus.de-anima-celebres-opiniones",
+  "michael-psellus.commentarius-in-psychogoniam-platonicam",
+  "michael-psellus.opuscula-psychologica-theologica-daemonologica",
+  "michael-psellus.in-mercurii-trismegisti-pimandrum",
+  "michael-psellus.de-locis-et-nominibus-atticis-sp",
+  "michael-psellus.epistulae"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG122; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG122, plan data/cgpg_carve_plan.json"
+}

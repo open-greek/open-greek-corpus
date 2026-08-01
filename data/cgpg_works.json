@@ -1771,13 +1771,305 @@
   "volume": "PG122",
   "urn": "cogPG.PG122",
   "kind": "volume",
-  "desc": "Scylitzes continuatus + Psellus (Cedrenus v2 913-1057 split to georgius-cedrenus.compendium-historiarum / tlg3018.tlg001)",
+  "desc": "Scylitzes continuatus + Psellus (Cedrenus v2 913-1057 split to georgius-cedrenus.compendium-historiarum / tlg3018.tlg001) (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 412,
-  "n_tokens": 153769,
+  "n_passages": 0,
+  "n_tokens": 0,
   "works": []
+ },
+ {
+  "volume": "PG122",
+  "urn": "scylitzes-continuatus.continuatio-scylitzae",
+  "kind": "work",
+  "desc": "Scylitzes Continuatus - Scylitzes Continuatus (Migne: Joannes Scylitzes Curopalata, Excerpta ex Breviario historico) (PG122 loci 190-243)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 54,
+  "n_tokens": 20956,
+  "works": [
+   {
+    "tlg_id": "tlg3064",
+    "work_id": "002",
+    "title": "Scylitzes Continuatus (Migne: Joannes Scylitzes Curopalata, Excerpta ex Breviario historico)",
+    "author": "Scylitzes Continuatus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.poemata",
+  "kind": "work",
+  "desc": "Michael Psellus - Poemata (PG 122 selection: In Canticum canticorum paraphrasis cum exegesi = poem 2; Versus de dogmate; Synopsis canonum; Synopsis legum = poem 8, first pages only) (PG122 loci 275-475)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 84,
+  "n_tokens": 31945,
+  "works": [
+   {
+    "tlg_id": "tlg2702",
+    "work_id": "015",
+    "title": "Poemata (PG 122 selection: In Canticum canticorum paraphrasis cum exegesi = poem 2; Versus de dogmate; Synopsis canonum; Synopsis legum = poem 8, first pages only)",
+    "author": "Michael Psellus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-omnifaria-doctrina",
+  "kind": "work",
+  "desc": "Michael Psellus - De omnifaria doctrina (Didaskalia pantodape) (PG122 loci 351-400)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 50,
+  "n_tokens": 20320,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.quaestionum-naturalium-solutiones-sp",
+  "kind": "work",
+  "desc": "Pseudo-Michael Psellus - Quaestionum naturalium solutiones (anonymous compendium, Migne's title; akin to Symeon Seth) (PG122 loci 401-414)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 14,
+  "n_tokens": 5697,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-operatione-daemonum-sp",
+  "kind": "work",
+  "desc": "Pseudo-Michael Psellus - De operatione daemonum dialogus (Timotheus; now held spurious) (PG122 loci 419-447)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 29,
+  "n_tokens": 6749,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp",
+  "kind": "work",
+  "desc": "Pseudo-Michael Psellus - Quaenam sunt Graecorum opiniones de daemonibus (PG122 loci 448-451)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 4,
+  "n_tokens": 1429,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-lapidum-virtutibus",
+  "kind": "work",
+  "desc": "Michael Psellus - De lapidum virtutibus (PG122 loci 454-460)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 7,
+  "n_tokens": 902,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni",
+  "kind": "work",
+  "desc": "Michael Psellus - Characteres Gregorii Theologi, Basilii Magni, Chrysostomi et Gregorii Nysseni (PG122 loci 461-463)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 1239,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.versus-in-sanctos-tres-hierarchas-sp",
+  "kind": "work",
+  "desc": "Pseudo-Michael Psellus (fort. Joannes Mauropous) - Versus in sanctos tres hierarchas with epigrams (signed by a John, probably Mauropous; printed as Joannis Pselli) (PG122 loci 464-465)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 479,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.monodia-in-sanctae-sophiae-collapsam",
+  "kind": "work",
+  "desc": "Michael Psellus - Monodia in Sanctae Sophiae (partem) collapsam (PG122 loci 466-467)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 757,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-mortis-determinatione",
+  "kind": "work",
+  "desc": "Michael Psellus - De mortis determinatione (Antigraphe on whether the term of life is fixed) (PG122 loci 468-469)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 732,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-actionum-nominibus",
+  "kind": "work",
+  "desc": "Michael Psellus - De actionum nominibus (Attic legal antiquities) (PG122 loci 514-521)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 8,
+  "n_tokens": 2907,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-legum-nominibus",
+  "kind": "work",
+  "desc": "Michael Psellus - De legum nominibus (glossary of Roman-law terms and Latin legal loanwords) (PG122 loci 522-524)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 752,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-anima-celebres-opiniones",
+  "kind": "work",
+  "desc": "Michael Psellus - De anima celebres opiniones (PG122 loci 525-548)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 24,
+  "n_tokens": 10379,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.commentarius-in-psychogoniam-platonicam",
+  "kind": "work",
+  "desc": "Michael Psellus - Commentarius in Psychogoniam Platonicam (on the soul-generation in Plato's Timaeus) (PG122 loci 550-589)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 18,
+  "n_tokens": 6509,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.opuscula-psychologica-theologica-daemonologica",
+  "kind": "work",
+  "desc": "Michael Psellus - Expositio in oracula Chaldaica + Expositio brevis dogmatum Chaldaicorum (the two Chaldaica of O'Meara's Philosophica minora II, partial) (PG122 loci 594-608)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 15,
+  "n_tokens": 5284,
+  "works": [
+   {
+    "tlg_id": "tlg2702",
+    "work_id": "011",
+    "title": "Expositio in oracula Chaldaica + Expositio brevis dogmatum Chaldaicorum (the two Chaldaica of O'Meara's Philosophica minora II, partial)",
+    "author": "Michael Psellus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.in-mercurii-trismegisti-pimandrum",
+  "kind": "work",
+  "desc": "Michael Psellus - In Mercurii Trismegisti Pimandrum (brief note) (PG122 loci 609-609)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1,
+  "n_tokens": 305,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.de-locis-et-nominibus-atticis-sp",
+  "kind": "work",
+  "desc": "Pseudo-Michael Psellus - De locis et nominibus Atticis (PG122 loci 610-612)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 1031,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "michael-psellus.epistulae",
+  "kind": "work",
+  "desc": "Michael Psellus - Epistolae (numbered PG selection, with the In equum aereum epigram at the head of the first row) (PG122 loci 613-625)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 13,
+  "n_tokens": 5190,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG122",
+  "urn": "pseudo-codinus.patria-constantinopoleos",
+  "kind": "work",
+  "desc": "Pseudo-Codinus (Anonymus Banduri) - De antiquitatibus Constantinopolitanis libri IV = Patria Constantinopoleos (Banduri's Anonymus; ends mid-book III) (PG122 loci 627-679)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 32,
+  "n_tokens": 12158,
+  "works": [
+   {
+    "tlg_id": "tlg3168",
+    "work_id": "005",
+    "title": "De antiquitatibus Constantinopolitanis libri IV = Patria Constantinopoleos (Banduri's Anonymus; ends mid-book III)",
+    "author": "Pseudo-Codinus (Anonymus Banduri)",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
  },
  {
   "volume": "PG123",
@@ -2766,27 +3058,6 @@
     "tlg_id": "tlg3168",
     "work_id": "001",
     "title": "De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae)",
-    "author": "Pseudo-Codinus",
-    "cgpg_chosen": true
-   }
-  ],
-  "cgpg_chosen": true
- },
- {
-  "volume": "PG157",
-  "urn": "pseudo-codinus.patria-constantinopoleos",
-  "kind": "work",
-  "desc": "Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324)",
-  "edition": "cgpg",
-  "license": "CC-BY-4.0",
-  "source": "cgpg",
-  "n_passages": 101,
-  "n_tokens": 25157,
-  "works": [
-   {
-    "tlg_id": "tlg3168",
-    "work_id": "005",
-    "title": "Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis)",
     "author": "Pseudo-Codinus",
     "cgpg_chosen": true
    }
