@@ -1,17 +1,17 @@
 {
   "headline": {
-    "works": 10789,
-    "authors": 3232,
-    "editions": 8938,
-    "pct_works_with_canonical_locus": 37.2,
+    "works": 10823,
+    "authors": 3240,
+    "editions": 8934,
+    "pct_works_with_canonical_locus": 37.1,
     "pct_works_with_logical_served_locus": 9.8,
     "pct_works_with_work_qid": 4.5,
-    "pct_works_with_author_qid": 55.8,
-    "pct_authors_with_wikidata": 43.4
+    "pct_works_with_author_qid": 55.7,
+    "pct_authors_with_wikidata": 43.3
   },
   "work_aliases": {
     "cts": {
-      "count": 10789,
+      "count": 10823,
       "pct": 100.0
     },
     "wikidata": {
@@ -34,15 +34,15 @@
   "author_aliases": {
     "wikidata": {
       "count": 1404,
-      "pct": 43.4
+      "pct": 43.3
     },
     "viaf": {
       "count": 1355,
-      "pct": 41.9
+      "pct": 41.8
     },
     "gnd": {
       "count": 1333,
-      "pct": 41.2
+      "pct": 41.1
     },
     "isni": {
       "count": 757,
@@ -55,7 +55,7 @@
   },
   "edition_aliases": {
     "cts": {
-      "count": 1760,
+      "count": 1756,
       "pct": 19.7
     },
     "hathitrust": {
@@ -81,15 +81,15 @@
   },
   "canonical_locus": {
     "works_with_logical_locus": 4015,
-    "pct": 37.2,
-    "works_only_physical_or_none": 3178,
+    "pct": 37.1,
+    "works_only_physical_or_none": 3174,
     "by_scheme": {
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
       "page.line": 976,
       "line": 774,
-      "(none)": 619,
+      "(none)": 615,
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
       "book.chapter.section.line": 151,
@@ -409,7 +409,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9154,
+      "count": 9188,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -468,7 +468,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5535,
+      "count": 5536,
       "examples": [
         {
           "work": "abydenus.fragmenta",
@@ -773,7 +773,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1828,
+      "count": 1836,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -829,7 +829,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3178,
+      "count": 3174,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "acesander.fragmenta",
