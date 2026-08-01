@@ -1,0 +1,58 @@
+{
+ "release_id": "diorisis-v1",
+ "content_hash": "sha256:61f1b8b251cd626155d7cb1612f5bb7764c214894b800d29f04a6e00407a931a",
+ "pin_line": "cog export diorisis-v1, sha256:61f1b8b251cd626155d7cb1612f5bb7764c214894b800d29f04a6e00407a931a",
+ "storage": {
+  "hf_dataset_repo": "ciscoriordan/open-greek-corpus-annotation-exports",
+  "repo_type": "dataset",
+  "path_in_repo": "diorisis-v1/",
+  "url": "https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports/tree/main/diorisis-v1",
+  "payload": "works/<work_key>.jsonl.gz per exported work, plus manifest.json and diorisis_scope_audit.json",
+  "note": "docs/annotation-export-contract.md, 'Storage': export payloads live on the Hub; git tracks the exporter script and this pointer stub only. Regenerate locally with scripts/export_diorisis_annotations.py, publish with scripts/upload_annotation_export.py."
+ },
+ "counts": {
+  "works_exported": 812,
+  "diorisis_files_exported": 820,
+  "tokens": 10206421,
+  "sentences": 538011,
+  "sentences_by_analysis": {
+   "auto": 538011
+  },
+  "tokens_by_analysis": {
+   "auto": 10206421
+  },
+  "provenance_sentences": {
+   "diorisis": 538011
+  },
+  "provenance_tokens": {
+   "diorisis": 10206421
+  },
+  "tokens_unknown_lemma": 153593,
+  "tokens_without_morph": 153593,
+  "tokens_multiple_morph": 1972702,
+  "sentences_without_locus": 33745,
+  "sentences_without_tokens": 222,
+  "punct_marks_not_exported": 1309617,
+  "files_excluded_noncommercial": 0,
+  "files_excluded_unclear_license": 0,
+  "files_unmapped": 0
+ },
+ "generated_by": "scripts/export_diorisis_annotations.py",
+ "generated_at": "2026-07-31T00:00:00Z",
+ "contract": "docs/annotation-export-contract.md",
+ "upstream_pin": {
+  "source": "The Diorisis Ancient Greek Corpus (figshare article 6187256, version 1)",
+  "version_doi": "10.6084/m9.figshare.6187256.v1",
+  "figshare_article": "https://figshare.com/articles/dataset/The_Diorisis_Ancient_Greek_Corpus/6187256",
+  "download_url": "https://ndownloader.figshare.com/files/11296247",
+  "file": {
+   "name": "Diorisis.zip",
+   "bytes": 194443428,
+   "md5": "f3a26efa7e7d2b93d1bcca26900d180a",
+   "sha256": "fb32b7ff4bcfc433f1234aff8134096f524c9a32accbfdf0a072df4a5f019b65"
+  },
+  "retained_copy": "~/Documents/diorisis",
+  "license": "CC BY 4.0 (the figshare record's aggregate license); every file's own TEI header carries CC BY-SA 3.0 US. Text sources: Perseus canonical-greekLit (752 files), Bibliotheca Augustana (60), The Little Sailing (8), per each file's source ref",
+  "note": "cog pins the upstream; consumers pin only pin_line (docs/pinning-discipline.md)"
+ }
+}
