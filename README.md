@@ -186,6 +186,14 @@ data/
   coverage.json             per work urn: source, license, tokens, passages
   public_lemma_frequency.tsv  lemma <TAB> corpus token count (the headline artifact)
   source_overrides.json     per-work source-precedence exceptions (+ reason)
+  collection_serving_map.json  curated: sourcing-map collection URNs (e.g. Libanius
+                            Orationes) served as per-part corpus files with no
+                            shared TLG anchor; the coverage report credits the
+                            summed parts instead of listing the URN as a gap
+  partial_ceilings.json     curated + title rule: partial/underfilled works whose
+                            missing words are copyright-capped (expected count
+                            follows a locked modern edition); the coverage report
+                            splits missing words into actionable vs structural
   non_tei_authoritative.json  works a TEI rebuild must never overwrite (a served
                             OCR/other delivery beats a fragmentary TEI copy)
   oga_dating.json           OGA per-work composition dating (CTS-URN -> ISO date +

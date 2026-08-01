@@ -25,6 +25,7 @@ Pure stdlib. Re-runnable.
 import csv
 import json
 import os
+import re
 import sys
 
 REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -91,6 +92,27 @@ def main():
                     if w.get("status") in ("gap", "locked"):
                         cgpg_covered[slug_for(f"{w['tlg_id']}.tlg{w['work_id']}", warn=False)] = vol["urn"]
 
+    # Collection URNs served as per-part files: some sourcing-map works (e.g.
+    # Libanius Orationes, tlg2200.004) are served as dozens of per-part corpus
+    # files that carry no shared TLG anchor, so the collection key never appears
+    # in corpus_editions and the work would show as an untouched gap. The curated
+    # map credits such a row with the summed tokens of its served parts; the sum
+    # goes through the normal complete/partial ratio below.
+    collection_credit = {}                  # work key -> (label, member keys, tokens)
+    cs_path = os.path.join(REPO, "data", "collection_serving_map.json")
+    if os.path.exists(cs_path):
+        with open(cs_path, encoding="utf-8") as f:
+            for c in json.load(f)["collections"]:
+                members = sorted(
+                    k for k in edition_keys
+                    if any(k.startswith(p) for p in c["served_prefixes"])
+                )
+                if not members:
+                    continue
+                toks = sum(_int(editions[k].get("n_tokens")) for k in members)
+                key = slug_for(f"{c['tlg_id']}.tlg{c['work_id']}", warn=False)
+                collection_credit[key] = (c["served_prefixes"][0] + "*", members, toks)
+
     buckets = {
         "ingested": [],
         "reachable_not_ingested": [],
@@ -102,6 +124,7 @@ def main():
     matched_edition_keys = set()
 
     n_via_cgpg = 0
+    n_via_parts = 0
     for row in rows:
         key = row["key"]
         best = row["best_source"]
@@ -113,6 +136,13 @@ def main():
             row["ingested_via"] = cgpg_covered[key]
             buckets["ingested"].append(row)
             n_via_cgpg += 1
+        elif key in collection_credit:
+            label, members, toks = collection_credit[key]
+            row["ingested_via"] = "parts:" + label
+            row["parts_tokens"] = toks
+            buckets["ingested"].append(row)
+            matched_edition_keys.update(members)
+            n_via_parts += 1
         elif best == "locked":
             buckets["locked"].append(row)
         elif best == "duplicate":
@@ -127,10 +157,14 @@ def main():
     # ingested work's actual token count against its expected size to split
     # COMPLETE from PARTIAL, and credit only the words actually ingested.
     COMPLETE_RATIO = 0.5
+    UNDERFILLED_RATIO = 0.9
     actual_ingested_words = 0
     for row in buckets["ingested"]:
         w = row["word_count"]
-        if "ingested_via" in row:                 # CGPG volume holds the full work
+        if "parts_tokens" in row:                 # per-part serving: real sum
+            nt = row["parts_tokens"]
+            ratio = (nt / w) if w else 1.0
+        elif "ingested_via" in row:               # CGPG volume holds the full work
             nt, ratio = w, 1.0
         else:
             nt = _int(editions.get(row["key"], {}).get("n_tokens"))
@@ -141,6 +175,31 @@ def main():
         actual_ingested_words += min(nt, w) if w else nt
     ingested_complete = [r for r in buckets["ingested"] if r["complete"]]
     ingested_partial = [r for r in buckets["ingested"] if not r["complete"]]
+
+    # Structural ceilings: a partial (or underfilled) work whose missing words
+    # cannot come from any PD/open route, because the expected count follows a
+    # copyright-locked modern edition. Annotation only; verdicts never change.
+    ceil_rule, ceil_works, ceil_exceptions = None, {}, set()
+    pc_path = os.path.join(REPO, "data", "partial_ceilings.json")
+    if os.path.exists(pc_path):
+        with open(pc_path, encoding="utf-8") as f:
+            pc = json.load(f)
+        ceil_rule = (re.compile(pc["title_rule"]["pattern"]),
+                     pc["title_rule"]["reason"])
+        ceil_works = {(w["tlg_id"], w["work_id"]): w["reason"]
+                      for w in pc["works"]}
+        ceil_exceptions = {(w["tlg_id"], w["work_id"])
+                           for w in pc.get("rule_exceptions", [])}
+
+    def structural_reason(row):
+        r = ceil_works.get((row["tlg_id"], row["work_id"]))
+        if r:
+            return r
+        if (row["tlg_id"], row["work_id"]) in ceil_exceptions:
+            return None
+        if ceil_rule and ceil_rule[0].search(row["title"] or ""):
+            return ceil_rule[1]
+        return None
 
     def summarize(rs):
         return {"works": len(rs), "word_count": sum(r["word_count"] for r in rs)}
@@ -212,6 +271,7 @@ def main():
         "total_words": total_words,
         "source_overrides_applied": n_overridden,
         "ingested_via_cgpg_volume": n_via_cgpg,
+        "ingested_via_served_parts": n_via_parts,
         "pct_ingested": pct("ingested"),
         # proportional: actual ingested words (a partial counts only its real text)
         "pct_ingested_actual": pct_actual,
@@ -224,15 +284,43 @@ def main():
     }
 
     # partial works: ingested but incomplete (fragments / in-progress OCR), the
-    # finish-this queue, sorted by how many words are still missing.
+    # finish-this queue, sorted by how many words are still missing. Structurally
+    # capped rows carry their ceiling reason so the actionable queue is visible.
+    def queue_entry(r):
+        e = {"tlg_id": r["tlg_id"], "work_id": r["work_id"], "author": r["author"],
+             "title": r["title"], "word_count": r["word_count"],
+             "ingested_tokens": r["ingested_tokens"], "coverage_ratio": r["coverage_ratio"],
+             "source": editions.get(r["key"], {}).get("source", r["best_source"]),
+             "missing_words": max(0, r["word_count"] - r["ingested_tokens"])}
+        reason = structural_reason(r)
+        if reason:
+            e["structural_ceiling"] = reason
+        return e
+
     partial_list = [
-        {"tlg_id": r["tlg_id"], "work_id": r["work_id"], "author": r["author"],
-         "title": r["title"], "word_count": r["word_count"],
-         "ingested_tokens": r["ingested_tokens"], "coverage_ratio": r["coverage_ratio"],
-         "source": editions.get(r["key"], {}).get("source", r["best_source"]),
-         "missing_words": max(0, r["word_count"] - r["ingested_tokens"])}
+        queue_entry(r)
         for r in sorted(ingested_partial, key=lambda r: -(r["word_count"] - r["ingested_tokens"]))
     ]
+
+    # underfilled: counted complete by the 0.5 cutoff but still missing >=10% of
+    # the expected words. Ratios in the 0.9-1.0 band are tokenization noise
+    # (corpus tokens vs TLG canon counts); below 0.9 the missing text is real.
+    # CGPG volume credits are excluded (their ratio is the 1.0 placeholder).
+    underfilled = [
+        queue_entry(r) for r in ingested_complete
+        if r["coverage_ratio"] < UNDERFILLED_RATIO
+        and not (("ingested_via" in r) and "parts_tokens" not in r)
+    ]
+    underfilled.sort(key=lambda e: -e["missing_words"])
+
+    def split_missing(entries):
+        s = sum(e["missing_words"] for e in entries if "structural_ceiling" in e)
+        a = sum(e["missing_words"] for e in entries if "structural_ceiling" not in e)
+        return {"actionable": a, "structural": s}
+
+    headline["partial_missing_words"] = split_missing(partial_list)
+    headline["underfilled_50_90_works"] = len(underfilled)
+    headline["underfilled_50_90_missing_words"] = split_missing(underfilled)
 
     report = {
         "headline": headline,
@@ -240,6 +328,7 @@ def main():
         "reachable_not_ingested_by_source": by_source,
         "gap_list": gap_list,
         "partial_ingestions": partial_list,
+        "underfilled_50_90": underfilled,
         "ingested_not_in_sourcing_map": {
             "works": len(extra),
             "n_tokens": extra_tokens,
@@ -294,13 +383,28 @@ def print_summary(report):
     print()
     pl = report["partial_ingestions"]
     if pl:
-        miss = sum(p["missing_words"] for p in pl)
+        miss = h["partial_missing_words"]
         print(f"PARTIAL INGESTIONS (started, not complete): {_fmt(len(pl))} works, "
-              f"{_fmt(miss)} words still missing - top 8:")
+              f"{_fmt(miss['actionable'])} words actionable + "
+              f"{_fmt(miss['structural'])} structurally capped - top 8:")
         for p in pl[:8]:
+            cap = " [capped]" if "structural_ceiling" in p else ""
             print(f"  {p['coverage_ratio']:>5.0%} {p['tlg_id']}.tlg{p['work_id']:<8} "
                   f"{p['ingested_tokens']:>8,}/{p['word_count']:<8,} {p['source']:<10} "
-                  f"{(p['author']+' / '+p['title'])[:42]}")
+                  f"{(p['author']+' / '+p['title'])[:42]}{cap}")
+        print()
+
+    uf = report["underfilled_50_90"]
+    if uf:
+        miss = h["underfilled_50_90_missing_words"]
+        print(f"UNDERFILLED (complete by the 0.5 cutoff, ratio < 0.9): "
+              f"{_fmt(len(uf))} works, {_fmt(miss['actionable'])} words actionable + "
+              f"{_fmt(miss['structural'])} structurally capped - top 8:")
+        for p in uf[:8]:
+            cap = " [capped]" if "structural_ceiling" in p else ""
+            print(f"  {p['coverage_ratio']:>5.0%} {p['tlg_id']}.tlg{p['work_id']:<8} "
+                  f"{p['ingested_tokens']:>8,}/{p['word_count']:<8,} {p['source']:<10} "
+                  f"{(p['author']+' / '+p['title'])[:42]}{cap}")
         print()
 
     print("REACHABLE-NOT-INGESTED breakdown by best_source:")
