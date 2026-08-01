@@ -1,0 +1,205 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG157 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG157",
+  "source_urn": "cogPG.PG157",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG157 (consistency review: ok). Credited works tlg3168.006/007 (Preger apparatus) have no Migne text and get no range. The Hagia Sophia section (314-324) stays inside the Patria (tlg3168.005) and is not double-served as tlg3120.002",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG157.' (delete the file when it was 'created'), strip the 'PG157.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG157.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG157": {
+   "rows": 412,
+   "greek_tokens": 123822,
+   "sha256": "1faaab7e5fc3845a35dece9599c366fb5dd305ca99b8ace0998c8dddb03d3b5e"
+  }
+ },
+ "works": [
+  {
+   "slug": "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos",
+   "tlg": "tlg3168.tlg001",
+   "title": "De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae)",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-codinus.de-officiis-officia-palatii-constantinopoleos.jsonl",
+   "mode": "created",
+   "rows": 49,
+   "greek_tokens": 18742,
+   "volume_loci": "20-68",
+   "locus_map": "cogPG.PG157 locus N -> pseudo-codinus.de-officiis-officia-palatii-constantinopoleos locus 'PG157.N'",
+   "incipit_checks": [
+    {
+     "locus": "20",
+     "incipit": "ΚΕΦΑΛ. Αʹ. Τὰ ἐκκλησιαστικὰ ὀφφίκια ἔχουσιν οὕτως. Ἠ πρώτη πεντάς. Ὁ μέγας οἰκονόμος, κρατῶν πάντα τὰ κτήματα τῆς ἐκκλησίας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 100
+    }
+   ],
+   "evidence": "Chapter-1 heading at locus 20; running chapter headings ΚΕΦΑΛΑΙΟΝ Εʹ-ΚΒʹ across loci 31-68; explicit at end of 68: 'Ἔως ὧδε τὰ τῶν ὁφφικιαλίων τῶν βασιλέων Κωνσταντινουπόλεως ὀνόματα καὶ τῶν ὀφφικίων τῆς μητρὸς ἐκκλησίας.' Served word count 18764 vs TLG 19183 (98%)."
+  },
+  {
+   "slug": "pseudo-codinus.patria-constantinopoleos",
+   "tlg": "tlg3168.tlg005",
+   "title": "Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis)",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-codinus.patria-constantinopoleos.jsonl",
+   "mode": "created",
+   "rows": 101,
+   "greek_tokens": 25157,
+   "volume_loci": "225-324",
+   "locus_map": "cogPG.PG157 locus N -> pseudo-codinus.patria-constantinopoleos locus 'PG157.N'",
+   "incipit_checks": [
+    {
+     "locus": "225",
+     "incipit": "Φασὶ μέν τινες Ἀργείους πρώτους τῇ θεᾷ χρησάσῃ, Ἔνθα δύο σκυλακες διερὴν μάρπτουσι θάσσσαν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Locus 225 opens with the Byzantium foundation oracle (Patria I incipit; note extra sub-locus 225.1 'Ἔνθ´ ἰχθὸς ἔλαφός τε νομὸν ξόσκουσι τὸν αὐτῷ'); internal section title lines: ΠΕΡΙ ΤΗΣ ΣΧΗΜΑΤΟΓΡΑΦΙΑΣ ΤΗΣ ΚΟΝΣΤΑΝΤΙΝΟΠΟΛΕΩΣ (242), ΠΕΡΙ ΑΣΙΑΒΗΝΗΣ (244, short geographic digression), ΠΕΡΙ ΑΓΑΛΜΑΤΟΝ ΣΤΗΛΩΝ ΚΑΙ ΘΕΑΜΑΤΟΝ (245 = Patria II), ΠΕΡΙ ΚΤΙΣΜΑΤΩΝ (280 = Patria III), ΠΕΡΙ ΤΗΣ ΟΙΚΟΔΟΜΗΣ ΤΟΥ ΝΑΟΥ ΤΗΣ ΑΓΙΑΣ ΣΟΦΙΑΣ (314 = Patria IV; same narrative as tlg3120.002 Diegesis in another recension, 3784 words here vs 4857). Sophia narrative ends at 324; 325 opens a different work. Served word count 25184 vs TLG 23058 (Migne recension is fuller).",
+   "notes": "includes sub-locus 225.1"
+  },
+  {
+   "slug": "pseudo-codinus.de-annis-ab-orbe-condito",
+   "tlg": "tlg3168.tlg004",
+   "title": "De annis ab orbe condito (Chronicon breve, from Adam to 1453)",
+   "rank": "primary",
+   "file": "data/corpus/pseudo-codinus.de-annis-ab-orbe-condito.jsonl",
+   "mode": "created",
+   "rows": 8,
+   "greek_tokens": 2652,
+   "volume_loci": "325-332",
+   "locus_map": "cogPG.PG157 locus N -> pseudo-codinus.de-annis-ab-orbe-condito locus 'PG157.N'",
+   "incipit_checks": [
+    {
+     "locus": "325",
+     "incipit": "ἈΠὸ Ἀδὰμ ἕως τοῦ κατακλυσμοῦ ἔτη βσῤʹ. Ἀπὸ τοῦ κατακλυσμοῦ ἕως τῆς πυργοποιίας ἔτη φκε.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 71
+    }
+   ],
+   "evidence": "Fresh incipit at the top of locus 325 immediately after the Hagia Sophia narrative; chronological era list then imperial reign lists (325-332) ending mid-333 with Constantine XI's death in 1453: '...μήτε μὴν θελήσας τὸν κίνδυνον διαφυγεῖν, δυνατοῦ ὄντος.' Identification with tlg3168.004 (Schreiner Kleinchronik, 3313 words; served ~2850+part of 333) is PLAUSIBLE (title + content + length match; cgpg volume desc lists 'Chronicon breve'); no title line survived in the OCR (end of 324 is garbled). Work ends MID-locus 333, where the Parastaseis title line follows.",
+   "notes": "shared boundary row 333 (Chronicon explicit + ΠΑΡΑΣΤΑΣΕΙΣ title) is assigned to the Parastaseis"
+  },
+  {
+   "slug": "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai",
+   "tlg": "tlg3120.tlg001",
+   "title": "Parastaseis syntomoi chronikai (with Peri theamaton section)",
+   "rank": "primary",
+   "file": "data/corpus/patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai.jsonl",
+   "mode": "created",
+   "rows": 37,
+   "greek_tokens": 7796,
+   "volume_loci": "333-369",
+   "locus_map": "cogPG.PG157 locus N -> patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai locus 'PG157.N'",
+   "incipit_checks": [
+    {
+     "locus": "333",
+     "incipit": "ΠΑΡΑΣΤΑΣΕΙΣ ΣΥΝΤΟΜΟΙ ΧΡΟΝΙΚΑΙ Δέον γινώσκειν, ὅτι ὁ ἅγιος Μώκιος πρώην μὲν ὑπὸ Κωνσταντίνου τοῦ Μεγάλου παρῳκοδομήθη,",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 100
+    }
+   ],
+   "evidence": "Explicit title line ΠΑΡΑΣΤΑΣΕΙΣ ΣΥΝΤΟΜΟΙ ΧΡΟΝΙΚΑΙ mid-locus 333; first chapter on St Mokios matches Parastaseis §1; internal heading ΠΕΡΙ ΘΕΑΜΑΤΩΝ with 'Θέαμα αʹ' at 346 matches the Parastaseis theamata chapters; ends at 369 with the Aetius-cistern chapter '...εἰς τέλειον ἀφανσμόν'. Served ~7637 words (loci 334-369) + part of 333, vs TLG 8465 (90%). NOT in the credited list; starts MID-locus 333.",
+   "notes": "the orphan Photius-Ekphrasis title line at the very end of locus 369 has no following text anywhere in the volume; it rides in this work's last row"
+  },
+  {
+   "slug": "patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum",
+   "tlg": "tlg3120.tlg004",
+   "title": "De sepulcris imperatorum quae sunt in templo sanctorum apostolorum",
+   "rank": "primary",
+   "file": "data/corpus/patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum.jsonl",
+   "mode": "created",
+   "rows": 8,
+   "greek_tokens": 746,
+   "volume_loci": "370-377",
+   "locus_map": "cogPG.PG157 locus N -> patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum locus 'PG157.N'",
+   "incipit_checks": [
+    {
+     "locus": "370",
+     "incipit": "ΠΕΡΙ ΤΩΝ ΤΑΦΩΝ ΤΩΝ ΒΑΣΙΛΕΩΝ ΤΩΝ ΟΝΤΩΝ ΕΝ Τῼ ΝΑῼ ΤΩΝ ΑΓΙΩΝ ΑΠΟΣΤΟΛΟΩΝ. Ἐν τῶ ἡρῴῳ τοῦ ἁγίου καὶ μεγάλου Κωνσταντίνου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 94
+    }
+   ],
+   "evidence": "Title line at locus 370; larnax-by-larnax list through 377, ending with the known explicit of the work (Theodora wife of Theophilos and daughters 'Θέκλα, Ἀναστασία καὶ Πουλχερία' in the Gastria monastery). Served 747 words vs TLG 769 (97%). NOT in the credited list. Note: locus 370's short row duplicates its opening sentence (OCR artifact)."
+  },
+  {
+   "slug": "ducas.historia-turcobyzantina",
+   "tlg": "tlg3146.tlg001",
+   "title": "Historia Turcobyzantina",
+   "rank": "primary",
+   "file": "data/corpus/ducas.historia-turcobyzantina.jsonl",
+   "mode": "created",
+   "rows": 209,
+   "greek_tokens": 68729,
+   "volume_loci": "382-590",
+   "locus_map": "cogPG.PG157 locus N -> ducas.historia-turcobyzantina locus 'PG157.N'",
+   "incipit_checks": [
+    {
+     "locus": "382",
+     "incipit": "Ἀριθμοὶ ἐτῶν ἀπὸ τοῦκρώτου ἀνθρώπου ἔως τῆς [OCR noise from Latin rubric] ἡμετέρας γενεᾶς. Ἀπὸ Ἀδὰμ τοῦ πρώτου ἀνθρώπου ἕως Νῶε, ἀφ´ ὃν ὁ κατακλυσμὸς γίγονε, γενεαὶ δέκα γεγόνασι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 36
+    }
+   ],
+   "evidence": "Locus 382 carries the heading 'Ἀριθμοὶ ἐτῶν...' and the exact incipit of Ducas 1.1 ('Ἀπὸ Ἀδὰμ τοῦ πρώτου ἀνθρώπου ἕως Νῶε... γενεαὶ δέκα γεγόνασι'); continuous into the emperor list (385-387), the Ottoman emirates and Hellespont crossing (387-389), Kosovo/Murad's assassination (390), Bayezid (391), the Kantakouzenos narrative (393-395); ends at 590 mid-sentence in the 1462 siege of Mytilene ('Ὁρῶντες οὖν οἱ ἐντὸς...'), matching the famous abrupt break-off of Ducas ch. 45. Served 68858 words vs TLG 70405 (98%)."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 123822,
+  "carved": 123822,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos",
+   "tlg": "tlg3168.tlg001"
+  },
+  {
+   "slug": "pseudo-codinus.patria-constantinopoleos",
+   "tlg": "tlg3168.tlg005"
+  },
+  {
+   "slug": "pseudo-codinus.de-annis-ab-orbe-condito",
+   "tlg": "tlg3168.tlg004"
+  },
+  {
+   "slug": "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai",
+   "tlg": "tlg3120.tlg001"
+  },
+  {
+   "slug": "patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum",
+   "tlg": "tlg3120.tlg004"
+  },
+  {
+   "slug": "ducas.historia-turcobyzantina",
+   "tlg": "tlg3146.tlg001"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos",
+  "pseudo-codinus.patria-constantinopoleos",
+  "pseudo-codinus.de-annis-ab-orbe-condito",
+  "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai",
+  "patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum",
+  "ducas.historia-turcobyzantina"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG157; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG157, plan data/cgpg_carve_plan.json"
+}
