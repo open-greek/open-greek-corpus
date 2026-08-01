@@ -98,6 +98,9 @@ scripts/
                             phase on CORSAIRONE (run from the Mac; SHARDS=N for
                             parallel GPU workers)
   build_provenance.py       OCR works -> the provenance table in this README
+  reconcile_cgpg_works.py   re-derive each cgpg_works.json work-unit's serving
+                            status from corpus_editions (cgpg_chosen /
+                            superseded_by); the vendored file is never hand-edited
   build_source_overrides.py pd_research sweeps -> data/source_overrides.json
   source_precedence.py      the ladder + resolve() (used by registry + coverage)
   build_registry.py         inventory + overrides -> source_registry.json;
