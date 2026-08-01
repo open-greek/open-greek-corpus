@@ -3,60 +3,64 @@
     "total_works": 7209,
     "total_words": 74975998,
     "source_overrides_applied": 107,
-    "ingested_via_cgpg_volume": 63,
+    "ingested_via_cgpg_volume": 10,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.51,
-    "pct_ingested_actual": 66.52,
-    "ingested_words_actual": 49876300,
-    "ingested_complete_works": 2907,
-    "ingested_partial_works": 108,
-    "pct_reachable_not_ingested": 13.94,
-    "pct_locked": 12.0,
+    "pct_ingested": 72.36,
+    "pct_ingested_actual": 66.06,
+    "ingested_words_actual": 49527482,
+    "ingested_complete_works": 2897,
+    "ingested_partial_works": 117,
+    "pct_reachable_not_ingested": 14.28,
+    "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
-      "actionable": 981021,
-      "structural": 532885
+      "actionable": 1165959,
+      "structural": 562316
     },
-    "underfilled_50_90_works": 438,
+    "underfilled_50_90_works": 445,
     "underfilled_50_90_missing_words": {
-      "actionable": 1645960,
-      "structural": 178100
+      "actionable": 1646808,
+      "structural": 179329
     }
   },
   "buckets": {
     "ingested": {
-      "works": 3015,
-      "word_count": 54367186
+      "works": 3014,
+      "word_count": 54253596
     },
     "reachable_not_ingested": {
-      "works": 1591,
-      "word_count": 10450500
+      "works": 1599,
+      "word_count": 10706608
     },
     "locked": {
-      "works": 2199,
-      "word_count": 8994006
+      "works": 2192,
+      "word_count": 8851488
     },
     "duplicate": {
       "works": 404,
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2907,
-      "word_count": 52194001
+      "works": 2897,
+      "word_count": 51761707
     },
     "ingested_partial": {
-      "works": 108,
-      "word_count": 2173185
+      "works": 117,
+      "word_count": 2491889
     }
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1183,
-      "word_count": 9309804
+      "works": 1169,
+      "word_count": 9226899
     },
     "migne_pd": {
-      "works": 408,
-      "word_count": 1140696
+      "works": 407,
+      "word_count": 1137662
+    },
+    "migne_cgpg": {
+      "works": 23,
+      "word_count": 342047
     }
   },
   "gap_list": [
@@ -91,6 +95,14 @@
       "title": "De legationibus",
       "word_count": 181366,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2598",
+      "work_id": "004",
+      "author": "PROCOPIUS",
+      "title": "Commentarii in Isaiam",
+      "word_count": 178350,
+      "best_source": "migne_cgpg"
     },
     {
       "tlg_id": "tlg4036",
@@ -373,6 +385,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg3070",
+      "work_id": "001",
+      "author": "SYMEON LOGOTHETES",
+      "title": "Chronicon (sub nomine Leonis Grammatici vel Theodosii Melisseni vel",
+      "word_count": 62203,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG109); ready CC-BY text beats OCRing a PD edition ourselves"
+    },
+    {
       "tlg_id": "tlg4031",
       "work_id": "003",
       "author": "EUSTRATIUS",
@@ -541,6 +563,14 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg2598",
+      "work_id": "002",
+      "author": "PROCOPIUS",
+      "title": "Catena in Canticum canticorum",
+      "word_count": 42715,
+      "best_source": "migne_cgpg"
+    },
+    {
       "tlg_id": "tlg0730",
       "work_id": "001",
       "author": "MELETIUS",
@@ -669,14 +699,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg3182",
-      "work_id": "001",
-      "author": "Pseudo-SYMEON",
-      "title": "Chronographia (partim edita e cod. Paris. gr. 1712)",
-      "word_count": 31859,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg4093",
       "work_id": "005",
       "author": "Georgius CHOEROBOSCUS",
@@ -690,14 +712,6 @@
       "author": "HISTORIA ALEXANDRI MAGNI",
       "title": "Recensio A sive Recensio vetusta",
       "word_count": 31522,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg3051",
-      "work_id": "001",
-      "author": "GEORGIUS MONACHUS CONTINUATUS",
-      "title": "Chronicon (continuatio) (redactio A)",
-      "word_count": 30883,
       "best_source": "pd_edition"
     },
     {
@@ -1293,6 +1307,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg4040",
+      "work_id": "015",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam I ad Corinthios (in catenis)",
+      "word_count": 12896,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition"
+    },
+    {
       "tlg_id": "tlg0746",
       "work_id": "001",
       "author": "THEOPHILUS Protospatharius et STEPHANUS Atheniensis",
@@ -1527,6 +1551,16 @@
       "override_reason": "sourcing_map says migne_cgpg (mpg_vols 87) but no CGPG-covered volume contains it; CGPG never OCR'd that volume, so it falls back to Migne PD (our own OCR needed)"
     },
     {
+      "tlg_id": "tlg0723",
+      "work_id": "002",
+      "author": "LEO",
+      "title": "",
+      "word_count": 10463,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG107); ready CC-BY text beats OCRing a PD edition ourselves"
+    },
+    {
       "tlg_id": "tlg5034",
       "work_id": "003",
       "author": "SCHOLIA IN PINDARUM",
@@ -1668,14 +1702,6 @@
       "author": "COMMENTARIA IN DIONYSII THRACIS ARTEM GRAMMATICAM",
       "title": "Commentariolus Byzantinus",
       "word_count": 8512,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg3120",
-      "work_id": "001",
-      "author": "PATRIA CONSTANTINOPOLEOS",
-      "title": "*PARASTA/SEIS SU/NTOMOI XRONIKAI/",
-      "word_count": 8465,
       "best_source": "pd_edition"
     },
     {
@@ -1893,6 +1919,16 @@
       "title": "De jejunio (sermones 1%19`7) [Sp.]",
       "word_count": 7043,
       "best_source": "migne_pd"
+    },
+    {
+      "tlg_id": "tlg0723",
+      "work_id": "001",
+      "author": "LEO",
+      "title": "De natura hominum synopsis",
+      "word_count": 7038,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG107); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg0729",
@@ -2519,6 +2555,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg4040",
+      "work_id": "026",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
+      "word_count": 4627,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition"
+    },
+    {
       "tlg_id": "tlg1747",
       "work_id": "001",
       "author": "VITA ADAM ET EVAE",
@@ -2557,6 +2603,16 @@
       "title": "Sententiae",
       "word_count": 4515,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg1495",
+      "work_id": "001",
+      "author": "MELITO",
+      "title": "De pascha (P. Beatty `8 %7 P. Bodmer 13 %7 P. Oxy",
+      "word_count": 4499,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG005); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg0363",
@@ -3063,6 +3119,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg4040",
+      "work_id": "018",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
+      "word_count": 3489,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition"
+    },
+    {
       "tlg_id": "tlg2871",
       "work_id": "002",
       "author": "JOANNES MALALAS",
@@ -3205,14 +3271,6 @@
       "title": "De patientia (sermo 2) [Sp.]",
       "word_count": 3295,
       "best_source": "migne_pd"
-    },
-    {
-      "tlg_id": "tlg1488",
-      "work_id": "001",
-      "author": "MAXIMUS",
-      "title": "Fragmentum ex libro de materia",
-      "word_count": 3273,
-      "best_source": "pd_edition"
     },
     {
       "tlg_id": "tlg2200",
@@ -3383,14 +3441,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg3173",
-      "work_id": "001",
-      "author": "JOANNES",
-      "title": "Adversus iconoclastas (olim sub auctore Joanne Damasceno)",
-      "word_count": 3034,
-      "best_source": "migne_pd"
-    },
-    {
       "tlg_id": "tlg4090",
       "work_id": "012",
       "author": "CYRILLUS",
@@ -3421,6 +3471,16 @@
       "title": "Apocalypsis apocrypha Joannis",
       "word_count": 2961,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg4040",
+      "work_id": "019",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
+      "word_count": 2931,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg4117",
@@ -3573,6 +3633,16 @@
       "title": "De eleemosyna [Sp.]",
       "word_count": 2775,
       "best_source": "migne_pd"
+    },
+    {
+      "tlg_id": "tlg3168",
+      "work_id": "007",
+      "author": "Pseudo-CODINUS",
+      "title": "Patria Constantinopoleos (ordo et tituli paragraphorum, quem",
+      "word_count": 2775,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG157); ready CC-BY text beats OCRing a PD edition ourselves"
     },
     {
       "tlg_id": "tlg4161",
@@ -3773,6 +3843,16 @@
       "title": "*PERI\\ PARAGWGW=N GENIKW=N A)PO\\ DIALE/KTWN (e cod. Barroc",
       "word_count": 2616,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg3168",
+      "work_id": "006",
+      "author": "Pseudo-CODINUS",
+      "title": "Patria Constantinopoleos (variae lectiones)",
+      "word_count": 2612,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG157); ready CC-BY text beats OCRing a PD edition ourselves"
     },
     {
       "tlg_id": "tlg0018",
@@ -4761,14 +4841,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg0531",
-      "work_id": "001",
-      "author": "HERMIAS",
-      "title": "Irrisio gentilium philosophorum",
-      "word_count": 1865,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg4076",
       "work_id": "005",
       "author": "MENANDER Protector",
@@ -4831,6 +4903,16 @@
       "title": "De salute animae [Sp.]",
       "word_count": 1832,
       "best_source": "migne_pd"
+    },
+    {
+      "tlg_id": "tlg4040",
+      "work_id": "017",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam ad Galatas (in catenis)",
+      "word_count": 1826,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG101); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg0497",
@@ -4897,12 +4979,14 @@
       "best_source": "migne_pd"
     },
     {
-      "tlg_id": "tlg1398",
-      "work_id": "001",
-      "author": "HEGESIPPUS",
-      "title": "Fragmenta (ex incerto libro)",
-      "word_count": 1767,
-      "best_source": "pd_edition"
+      "tlg_id": "tlg2866",
+      "work_id": "015",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
+      "word_count": 1746,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg2021",
@@ -5241,6 +5325,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg3047",
+      "work_id": "002",
+      "author": "Michael GLYCAS",
+      "title": "Annales (lectiones variae)",
+      "word_count": 1521,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG158); ready CC-BY text beats OCRing a PD edition ourselves"
+    },
+    {
       "tlg_id": "tlg2042",
       "work_id": "024",
       "author": "ORIGENES",
@@ -5470,14 +5564,6 @@
       "author": "ALEXANDER",
       "title": "*PERI\\ R(HTORIKW=N A)FORMW=N (fragmenta)",
       "word_count": 1375,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg2657",
-      "work_id": "001",
-      "author": "MARTYRIUM IGNATII",
-      "title": "Martyrium Ignatii Antiocheni (martyrium Antiochenum)",
-      "word_count": 1371,
       "best_source": "pd_edition"
     },
     {
@@ -6793,14 +6879,6 @@
       "best_source": "migne_pd"
     },
     {
-      "tlg_id": "tlg3120",
-      "work_id": "004",
-      "author": "PATRIA CONSTANTINOPOLEOS",
-      "title": "De sepulcris imperatorum quae sunt in templo sanctorum apostolorum",
-      "word_count": 769,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg0571",
       "work_id": "005",
       "author": "ARISTOCLES",
@@ -6889,14 +6967,6 @@
       "best_source": "migne_pd"
     },
     {
-      "tlg_id": "tlg1171",
-      "work_id": "001",
-      "author": "APOLLONIUS",
-      "title": "Fragmenta ex libro adversus Cataphrygas seu Montanistas",
-      "word_count": 737,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg5024",
       "work_id": "022",
       "author": "ANONYMI IN HERMOGENEM",
@@ -6967,14 +7037,6 @@
       "title": "In laudem sancti Joannis theologi (homilia 1) [Sp.]",
       "word_count": 715,
       "best_source": "migne_pd"
-    },
-    {
-      "tlg_id": "tlg0645",
-      "work_id": "004",
-      "author": "JUSTINUS MARTYR",
-      "title": "Fragmenta operum deperditorum",
-      "word_count": 715,
-      "best_source": "pd_edition"
     },
     {
       "tlg_id": "tlg3141",
@@ -7401,14 +7463,6 @@
       "best_source": "migne_pd"
     },
     {
-      "tlg_id": "tlg3173",
-      "work_id": "003",
-      "author": "JOANNES",
-      "title": "Narratio",
-      "word_count": 569,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg1365",
       "work_id": "002",
       "author": "MELAMPUS Scriptor De Divinatione",
@@ -7455,6 +7509,16 @@
       "title": "Sententiae",
       "word_count": 557,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2866",
+      "work_id": "008",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam ad Colossenses (in catenis)",
+      "word_count": 554,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg2018",
@@ -7599,6 +7663,16 @@
       "title": "Fragmenta",
       "word_count": 502,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2866",
+      "work_id": "011",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam i ad Timotheum (in catenis)",
+      "word_count": 499,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg2035",
@@ -7951,6 +8025,14 @@
       "title": "*PERI\\ TRO/PWN",
       "word_count": 421,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2598",
+      "work_id": "012",
+      "author": "PROCOPIUS",
+      "title": "Refutatio Procli (fragmentum e cod. Vat. gr. 1096)",
+      "word_count": 419,
+      "best_source": "migne_cgpg"
     },
     {
       "tlg_id": "tlg4319",
@@ -8329,12 +8411,14 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg1670",
-      "work_id": "001",
-      "author": "SERAPION",
-      "title": "Fragmenta",
-      "word_count": 339,
-      "best_source": "pd_edition"
+      "tlg_id": "tlg2866",
+      "work_id": "009",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam i ad Thessalonicenses (in catenis)",
+      "word_count": 337,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg4319",
@@ -9041,14 +9125,6 @@
       "best_source": "pd_edition"
     },
     {
-      "tlg_id": "tlg1163",
-      "work_id": "001",
-      "author": "Claudius APOLLINARIUS",
-      "title": "Fragmenta",
-      "word_count": 216,
-      "best_source": "pd_edition"
-    },
-    {
       "tlg_id": "tlg2482",
       "work_id": "003",
       "author": "DAIMACHUS",
@@ -9095,6 +9171,16 @@
       "title": "Epistula",
       "word_count": 213,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2866",
+      "work_id": "010",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam ii ad Thessalonicenses (in catenis)",
+      "word_count": 212,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg2035",
@@ -9303,6 +9389,16 @@
       "title": "Fragmenta",
       "word_count": 194,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2866",
+      "work_id": "012",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam ii ad Timotheum (in catenis)",
+      "word_count": 193,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg4319",
@@ -9879,6 +9975,16 @@
       "title": "Epistula",
       "word_count": 127,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2866",
+      "work_id": "013",
+      "author": "OECUMENIUS",
+      "title": "Fragmenta in epistulam ad Titum (in catenis)",
+      "word_count": 126,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg0019",
@@ -10525,14 +10631,6 @@
       "work_id": "001",
       "author": "JUSJURANDUM MEDICUM",
       "title": "Jusjurandum medicum",
-      "word_count": 77,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg1381",
-      "work_id": "001",
-      "author": "FRAGMENTUM SYNODICAE EPISTULAE CONCILII CAESARIENSIS",
-      "title": "Fragmentum epistulae",
       "word_count": 77,
       "best_source": "pd_edition"
     },
@@ -11745,6 +11843,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg2866",
+      "work_id": "014",
+      "author": "OECUMENIUS",
+      "title": "Fragmentum in epistulam ad Philemonem (in catenis)",
+      "word_count": 16,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG118); unlocks a work otherwise behind an in-copyright edition"
+    },
+    {
       "tlg_id": "tlg0205",
       "work_id": "002",
       "author": "PHILODAMUS",
@@ -12874,6 +12982,17 @@
       "missing_words": 61701
     },
     {
+      "tlg_id": "tlg3135",
+      "work_id": "002",
+      "author": "Joannes ZONARAS",
+      "title": "Epitome historiarum (lib. 13%19`18)",
+      "word_count": 118917,
+      "ingested_tokens": 57561,
+      "coverage_ratio": 0.484,
+      "source": "cgpg",
+      "missing_words": 61356
+    },
+    {
       "tlg_id": "tlg4034",
       "work_id": "001",
       "author": "MICHAEL",
@@ -12906,6 +13025,28 @@
       "coverage_ratio": 0.14,
       "source": "first1k",
       "missing_words": 53204
+    },
+    {
+      "tlg_id": "tlg2702",
+      "work_id": "015",
+      "author": "Michael PSELLUS",
+      "title": "Poemata",
+      "word_count": 80426,
+      "ingested_tokens": 31945,
+      "coverage_ratio": 0.397,
+      "source": "cgpg",
+      "missing_words": 48481
+    },
+    {
+      "tlg_id": "tlg2702",
+      "work_id": "011",
+      "author": "Michael PSELLUS",
+      "title": "Opuscula psychologica, theologica, daemonologica",
+      "word_count": 50585,
+      "ingested_tokens": 5284,
+      "coverage_ratio": 0.104,
+      "source": "cgpg",
+      "missing_words": 45301
     },
     {
       "tlg_id": "tlg1602",
@@ -12966,6 +13107,18 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg4040",
+      "work_id": "014",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam ad Romanos (in catenis)",
+      "word_count": 25607,
+      "ingested_tokens": 4204,
+      "coverage_ratio": 0.164,
+      "source": "cgpg",
+      "missing_words": 21403,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
       "tlg_id": "tlg2050",
       "work_id": "001",
       "author": "EUNAPIUS",
@@ -13010,6 +13163,28 @@
       "source": "ocr",
       "missing_words": 15204,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg4040",
+      "work_id": "027",
+      "author": "PHOTIUS",
+      "title": "Commentarii in Joannem (in catenis)",
+      "word_count": 15403,
+      "ingested_tokens": 336,
+      "coverage_ratio": 0.022,
+      "source": "cgpg",
+      "missing_words": 15067
+    },
+    {
+      "tlg_id": "tlg4040",
+      "work_id": "028",
+      "author": "PHOTIUS",
+      "title": "Commentarii in Matthaeum (in catenis)",
+      "word_count": 18327,
+      "ingested_tokens": 3594,
+      "coverage_ratio": 0.196,
+      "source": "cgpg",
+      "missing_words": 14733
     },
     {
       "tlg_id": "tlg1377",
@@ -13150,6 +13325,18 @@
       "coverage_ratio": 0.326,
       "source": "ocr",
       "missing_words": 6695
+    },
+    {
+      "tlg_id": "tlg4040",
+      "work_id": "016",
+      "author": "PHOTIUS",
+      "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
+      "word_count": 7048,
+      "ingested_tokens": 365,
+      "coverage_ratio": 0.052,
+      "source": "cgpg",
+      "missing_words": 6683,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
       "tlg_id": "tlg2062",
@@ -13581,6 +13768,18 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg1558",
+      "work_id": "001",
+      "author": "PAPIAS",
+      "title": "Fragmenta",
+      "word_count": 1676,
+      "ingested_tokens": 708,
+      "coverage_ratio": 0.422,
+      "source": "cgpg",
+      "missing_words": 968,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
       "tlg_id": "tlg4090",
       "work_id": "125",
       "author": "CYRILLUS",
@@ -13719,6 +13918,18 @@
       "coverage_ratio": 0.349,
       "source": "ocr",
       "missing_words": 390,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg0645",
+      "work_id": "004",
+      "author": "JUSTINUS MARTYR",
+      "title": "Fragmenta operum deperditorum",
+      "word_count": 715,
+      "ingested_tokens": 338,
+      "coverage_ratio": 0.473,
+      "source": "cgpg",
+      "missing_words": 377,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
@@ -15682,6 +15893,17 @@
       "missing_words": 669
     },
     {
+      "tlg_id": "tlg3168",
+      "work_id": "004",
+      "author": "Pseudo-CODINUS",
+      "title": "De annis ab orbe condito",
+      "word_count": 3313,
+      "ingested_tokens": 2652,
+      "coverage_ratio": 0.8,
+      "source": "cgpg",
+      "missing_words": 661
+    },
+    {
       "tlg_id": "tlg1562",
       "work_id": "002",
       "author": "PARMENIDES",
@@ -15759,6 +15981,18 @@
       "coverage_ratio": 0.877,
       "source": "ocr",
       "missing_words": 626
+    },
+    {
+      "tlg_id": "tlg1495",
+      "work_id": "003",
+      "author": "MELITO",
+      "title": "Fragmenta",
+      "word_count": 1553,
+      "ingested_tokens": 931,
+      "coverage_ratio": 0.599,
+      "source": "cgpg",
+      "missing_words": 622,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
       "tlg_id": "tlg2035",
@@ -16538,6 +16772,18 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg1398",
+      "work_id": "001",
+      "author": "HEGESIPPUS",
+      "title": "Fragmenta (ex incerto libro)",
+      "word_count": 1767,
+      "ingested_tokens": 1508,
+      "coverage_ratio": 0.853,
+      "source": "cgpg",
+      "missing_words": 259,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
       "tlg_id": "tlg2022",
       "work_id": "017",
       "author": "GREGORIUS NAZIANZENUS",
@@ -16817,6 +17063,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg0384",
+      "work_id": "002",
+      "author": "ACTA JUSTINI ET SEPTEM SODALIUM",
+      "title": "Acta Justini et septem sodalium (recensio B)",
+      "word_count": 840,
+      "ingested_tokens": 653,
+      "coverage_ratio": 0.777,
+      "source": "cgpg",
+      "missing_words": 187
+    },
+    {
       "tlg_id": "tlg2022",
       "work_id": "058",
       "author": "GREGORIUS NAZIANZENUS",
@@ -16836,6 +17093,18 @@
       "ingested_tokens": 747,
       "coverage_ratio": 0.806,
       "source": "dfhg",
+      "missing_words": 180,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg1171",
+      "work_id": "001",
+      "author": "APOLLONIUS",
+      "title": "Fragmenta ex libro adversus Cataphrygas seu Montanistas",
+      "word_count": 737,
+      "ingested_tokens": 557,
+      "coverage_ratio": 0.756,
+      "source": "cgpg",
       "missing_words": 180,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
@@ -17003,6 +17272,18 @@
       "coverage_ratio": 0.791,
       "source": "ocr",
       "missing_words": 147,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg1670",
+      "work_id": "001",
+      "author": "SERAPION",
+      "title": "Fragmenta",
+      "word_count": 339,
+      "ingested_tokens": 194,
+      "coverage_ratio": 0.572,
+      "source": "cgpg",
+      "missing_words": 145,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
@@ -18381,6 +18662,18 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg1381",
+      "work_id": "001",
+      "author": "FRAGMENTUM SYNODICAE EPISTULAE CONCILII CAESARIENSIS",
+      "title": "Fragmentum epistulae",
+      "word_count": 77,
+      "ingested_tokens": 54,
+      "coverage_ratio": 0.701,
+      "source": "cgpg",
+      "missing_words": 23,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
       "tlg_id": "tlg2042",
       "work_id": "071",
       "author": "ORIGENES",
@@ -19124,8 +19417,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 617,
-    "n_tokens": 10988800,
+    "works": 719,
+    "n_tokens": 9697748,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -19136,60 +19429,12 @@
         "n_tokens": 399517
       },
       {
-        "key": "cogPG.PG134",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 704,
-        "n_tokens": 287809
-      },
-      {
-        "key": "cogPG.PG118",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 658,
-        "n_tokens": 266964
-      },
-      {
-        "key": "cogPG.PG124",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 670,
-        "n_tokens": 261046
-      },
-      {
-        "key": "cogPG.PG123",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 605,
-        "n_tokens": 256291
-      },
-      {
-        "key": "cogPG.PG146",
+        "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
         "n_passages": 630,
         "n_tokens": 238878
-      },
-      {
-        "key": "cogPG.PG125",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 621,
-        "n_tokens": 236779
-      },
-      {
-        "key": "cogPG.PG101",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 611,
-        "n_tokens": 232210
       },
       {
         "key": "ocr.walz_rhetores_v4",
@@ -19200,14 +19445,6 @@
         "n_tokens": 226107
       },
       {
-        "key": "cogPG.PG126",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 617,
-        "n_tokens": 225938
-      },
-      {
         "key": "cogPG.PG067",
         "edition": "cgpg",
         "source": "cgpg",
@@ -19216,28 +19453,12 @@
         "n_tokens": 220457
       },
       {
-        "key": "cogPG.PG006",
+        "key": "photius.amphilochia",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 680,
-        "n_tokens": 213721
-      },
-      {
-        "key": "cogPG.PG109",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 570,
-        "n_tokens": 209312
-      },
-      {
-        "key": "cogPG.PG087_1",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 710,
-        "n_tokens": 207880
+        "n_passages": 565,
+        "n_tokens": 215284
       },
       {
         "key": "cogPG.PG139",
@@ -19246,30 +19467,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 511,
         "n_tokens": 201766
-      },
-      {
-        "key": "cogPG.PG155",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 472,
-        "n_tokens": 199763
-      },
-      {
-        "key": "cogPG.PG158",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 502,
-        "n_tokens": 197345
-      },
-      {
-        "key": "cogPG.PG107",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 578,
-        "n_tokens": 196722
       },
       {
         "key": "timotheus-history.timotheus-defluviis-ggm2",
@@ -19318,14 +19515,6 @@
         "license": "PD",
         "n_passages": 24559,
         "n_tokens": 157587
-      },
-      {
-        "key": "cogPG.PG122",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 412,
-        "n_tokens": 153769
       },
       {
         "key": "zonaeus-walz-rg8",
@@ -19408,12 +19597,20 @@
         "n_tokens": 128249
       },
       {
-        "key": "cogPG.PG157",
+        "key": "procopius-rhetoric.commentarii-in-octateuchum",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 412,
-        "n_tokens": 123822
+        "n_passages": 477,
+        "n_tokens": 121593
+      },
+      {
+        "key": "theophylactus-achridensis.enarratio-in-evangelium-joannis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 266,
+        "n_tokens": 117197
       },
       {
         "key": "antonius-diogenes.hercher",
@@ -19472,12 +19669,28 @@
         "n_tokens": 98427
       },
       {
+        "key": "theophylactus-achridensis.enarratio-in-evangelium-lucae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 222,
+        "n_tokens": 97378
+      },
+      {
         "key": "fhg-vol3-mueller-diocles-rhodius",
         "edition": "qwen36-fhg_vol3_mueller_diocles_rhodius",
         "source": "ocr",
         "license": "PD",
         "n_passages": 3730,
         "n_tokens": 88967
+      },
+      {
+        "key": "leo-vi-sapiens.tactica",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 225,
+        "n_tokens": 85912
       },
       {
         "key": "cogByz.erotokritos",
@@ -19560,6 +19773,22 @@
         "n_tokens": 72445
       },
       {
+        "key": "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 174,
+        "n_tokens": 71413
+      },
+      {
+        "key": "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 183,
+        "n_tokens": 63075
+      },
+      {
         "key": "ocr.mansi_ephesus_t5",
         "edition": "qwen36-mansi_ephesus_t5",
         "source": "ocr",
@@ -19568,12 +19797,28 @@
         "n_tokens": 62453
       },
       {
+        "key": "procopius-rhetoric.in-proverbia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 162,
+        "n_tokens": 61824
+      },
+      {
         "key": "hesychius-of-jerusalem.commentarius-magnus-in-psalmos",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 132,
         "n_tokens": 61759
+      },
+      {
+        "key": "michael-glycas.epistolae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 156,
+        "n_tokens": 55680
       },
       {
         "key": "ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius",
@@ -19590,6 +19835,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 160,
         "n_tokens": 55030
+      },
+      {
+        "key": "oecumenius.commentarius-in-acta-apostolorum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 134,
+        "n_tokens": 53508
       },
       {
         "key": "aristarchus-ludwich",
@@ -19616,12 +19869,52 @@
         "n_tokens": 50859
       },
       {
-        "key": "cogPG.PG005",
+        "key": "leo-vi-sapiens.orationes",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 266,
-        "n_tokens": 47775
+        "n_passages": 138,
+        "n_tokens": 50199
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-prophetam-oseam",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 127,
+        "n_tokens": 46934
+      },
+      {
+        "key": "theophylactus-achridensis.epistulae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 126,
+        "n_tokens": 45328
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 118,
+        "n_tokens": 44261
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-romanos",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 112,
+        "n_tokens": 43258
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 110,
+        "n_tokens": 42933
       },
       {
         "key": "zosimus-alchemista.opera",
@@ -19630,6 +19923,14 @@
         "license": "PD",
         "n_passages": 5595,
         "n_tokens": 40753
+      },
+      {
+        "key": "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 106,
+        "n_tokens": 40247
       },
       {
         "key": "aristobulus.fhg3",
@@ -19646,6 +19947,14 @@
         "license": "PD",
         "n_passages": 8974,
         "n_tokens": 39309
+      },
+      {
+        "key": "theophylactus-achridensis.enarratio-in-evangelium-marci",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 98,
+        "n_tokens": 38962
       },
       {
         "key": "didymus.schmidt",
@@ -19680,6 +19989,14 @@
         "n_tokens": 37442
       },
       {
+        "key": "leo-vi-sapiens.novellae-constitutiones",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 119,
+        "n_tokens": 37023
+      },
+      {
         "key": "hippolytus-of-rome.commentarii-in-danielem",
         "edition": "pta-grc1",
         "source": "pta",
@@ -19712,6 +20029,22 @@
         "n_tokens": 34499
       },
       {
+        "key": "symeon-thessalonicensis.dialogus-contra-haereses",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 72,
+        "n_tokens": 32099
+      },
+      {
+        "key": "symeon-thessalonicensis.de-sacra-precatione",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 68,
+        "n_tokens": 30158
+      },
+      {
         "key": "kekaumenos.consilia-et-narrationes",
         "edition": "saws-roueche-2013",
         "source": "saws",
@@ -19736,6 +20069,22 @@
         "n_tokens": 29407
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 35,
+        "n_tokens": 29184
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 78,
+        "n_tokens": 28883
+      },
+      {
         "key": "methodius.symposium-sive-convivium-decem-virginum",
         "edition": "opp-grc1",
         "source": "first1k",
@@ -19752,12 +20101,36 @@
         "n_tokens": 26788
       },
       {
+        "key": "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 62,
+        "n_tokens": 25586
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-prophetam-michaeam",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 71,
+        "n_tokens": 25382
+      },
+      {
         "key": "scholia-in-euripidem.scholia-in-euripidis-hippolytum",
         "edition": "1st1K-grc1",
         "source": "first1k",
         "license": "CC-BY-SA-4.0",
         "n_passages": 722,
         "n_tokens": 25321
+      },
+      {
+        "key": "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 71,
+        "n_tokens": 24463
       },
       {
         "key": "athanasius-theology.oratio-iii-contra-arianos",
@@ -19824,6 +20197,14 @@
         "n_tokens": 23070
       },
       {
+        "key": "symeon-thessalonicensis.de-sacris-ordinationibus",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 54,
+        "n_tokens": 21994
+      },
+      {
         "key": "tlg4075.tlg001",
         "edition": "qwen36-marinus-bub",
         "source": "ocr",
@@ -19838,6 +20219,22 @@
         "license": "PD",
         "n_passages": 821,
         "n_tokens": 21215
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-ephesios",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 54,
+        "n_tokens": 20460
+      },
+      {
+        "key": "michael-psellus.de-omnifaria-doctrina",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 50,
+        "n_tokens": 20320
       },
       {
         "key": "aristoteles.fragmenta",
@@ -19888,6 +20285,22 @@
         "n_tokens": 16630
       },
       {
+        "key": "theodorus-agallianus.refutatio-contra-joannem-argyropulum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 20,
+        "n_tokens": 16590
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-prophetam-habacuc",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 43,
+        "n_tokens": 15619
+      },
+      {
         "key": "philodemus.tlg1595-tlg241",
         "edition": "qwen36-philodemiperioik00phil",
         "source": "ocr",
@@ -19896,12 +20309,52 @@
         "n_tokens": 15357
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-galatas",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 40,
+        "n_tokens": 15157
+      },
+      {
         "key": "aquila.fragmenta",
         "edition": "qwen36-field-hexapla-greek",
         "source": "ocr",
         "license": "PD",
         "n_passages": 3819,
         "n_tokens": 14656
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-prophetam-nahum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 40,
+        "n_tokens": 14622
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 39,
+        "n_tokens": 13960
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 37,
+        "n_tokens": 13825
+      },
+      {
+        "key": "symeon-thessalonicensis.de-sacramentis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 31,
+        "n_tokens": 13493
       },
       {
         "key": "plutarchus.aetia-romana-capitum-catalogus",
@@ -19920,12 +20373,36 @@
         "n_tokens": 13474
       },
       {
+        "key": "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 35,
+        "n_tokens": 12852
+      },
+      {
+        "key": "theophylactus-achridensis.vita-clementis-ohridensis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 30,
+        "n_tokens": 12707
+      },
+      {
         "key": "philodemus.de-musica-librorum-quae-exstant",
         "edition": "1st1K-grc1",
         "source": "first1k",
         "license": "CC-BY-SA-4.0",
         "n_passages": 148,
         "n_tokens": 12626
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-i-joannis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 29,
+        "n_tokens": 12346
       },
       {
         "key": "aristoteles-et-corpus-aristotelicum.tlg0086-tlg039",
@@ -19936,12 +20413,44 @@
         "n_tokens": 12094
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-i-petri",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 32,
+        "n_tokens": 12062
+      },
+      {
         "key": "apophthegmata-et-gnomae.secundum-alphabetum",
         "edition": "saws-searby-edgr",
         "source": "saws",
         "license": "CC-BY-4.0",
         "n_passages": 613,
         "n_tokens": 12054
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 33,
+        "n_tokens": 12007
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-prophetam-jonam",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 32,
+        "n_tokens": 11921
+      },
+      {
+        "key": "symeon-thessalonicensis.de-sacro-templo",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 28,
+        "n_tokens": 11835
       },
       {
         "key": "syntipas.narrationes-de-syntipa",
@@ -19952,12 +20461,52 @@
         "n_tokens": 11784
       },
       {
+        "key": "symeon-thessalonicensis.de-sacra-liturgia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 26,
+        "n_tokens": 11481
+      },
+      {
+        "key": "symeon-thessalonicensis.expositio-de-sacro-symbolo",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 26,
+        "n_tokens": 11418
+      },
+      {
         "key": "diogenes-sinopensis.fragmenta-et-apophthegmata",
         "edition": "qwen36-archytas_mullach_fpg2",
         "source": "ocr",
         "license": "PD",
         "n_passages": 488,
         "n_tokens": 11156
+      },
+      {
+        "key": "symeon-thessalonicensis.expositio-de-divino-templo",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 27,
+        "n_tokens": 10454
+      },
+      {
+        "key": "michael-psellus.de-anima-celebres-opiniones",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 24,
+        "n_tokens": 10379
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 29,
+        "n_tokens": 10163
       },
       {
         "key": "severian-of-gabala.in-ascensionem-domini-nostri-iesu-christi-et-in-principium-actorum",
@@ -20016,6 +20565,14 @@
         "n_tokens": 9652
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 27,
+        "n_tokens": 9598
+      },
+      {
         "key": "tlg1595.tlg241",
         "edition": "jensen-deoec-1906",
         "source": "ocr",
@@ -20048,12 +20605,28 @@
         "n_tokens": 8862
       },
       {
+        "key": "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 45,
+        "n_tokens": 8741
+      },
+      {
         "key": "pherecydes.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 185,
         "n_tokens": 8659
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 24,
+        "n_tokens": 8520
       },
       {
         "key": "dindorf-hgm1.paratexta",
@@ -20312,6 +20885,14 @@
         "n_tokens": 6980
       },
       {
+        "key": "symeon-thessalonicensis.de-poenitentia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 17,
+        "n_tokens": 6979
+      },
+      {
         "key": "philodemus.tlg1595-tlg492",
         "edition": "qwen36-philodemiperitou00philuoft",
         "source": "ocr",
@@ -20344,6 +20925,22 @@
         "n_tokens": 6838
       },
       {
+        "key": "michael-psellus.de-operatione-daemonum-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 29,
+        "n_tokens": 6749
+      },
+      {
+        "key": "cogPG.PG118",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 17,
+        "n_tokens": 6628
+      },
+      {
         "key": "euripides.tlg0006-tlg002",
         "edition": "perseus-grc2",
         "source": "perseus",
@@ -20352,12 +20949,36 @@
         "n_tokens": 6556
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ii-petri",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 18,
+        "n_tokens": 6540
+      },
+      {
+        "key": "michael-psellus.commentarius-in-psychogoniam-platonicam",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 18,
+        "n_tokens": 6509
+      },
+      {
         "key": "severian-of-gabala.in-illud-pater-transeat-a-me-calix-iste",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-4.0",
         "n_passages": 29,
         "n_tokens": 6508
+      },
+      {
+        "key": "basilius-i-macedo.paraenesis-ad-leonem-filium",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 18,
+        "n_tokens": 6487
       },
       {
         "key": "agathias-scholasticus.epigrammata",
@@ -20448,6 +21069,14 @@
         "n_tokens": 5928
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 16,
+        "n_tokens": 5920
+      },
+      {
         "key": "severian-of-gabala.de-paenitentia-et-compunctione",
         "edition": "pta-grc1",
         "source": "pta",
@@ -20462,6 +21091,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 9,
         "n_tokens": 5754
+      },
+      {
+        "key": "michael-psellus.quaestionum-naturalium-solutiones-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 14,
+        "n_tokens": 5697
       },
       {
         "key": "aristocles-messanius.fragmenta-2",
@@ -20486,6 +21123,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 5,
         "n_tokens": 5666
+      },
+      {
+        "key": "symeon-thessalonicensis.de-ordine-sepulturae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 13,
+        "n_tokens": 5642
       },
       {
         "key": "euripides.tlg0006-tlg019",
@@ -20528,12 +21173,28 @@
         "n_tokens": 5384
       },
       {
+        "key": "theophylactus-achridensis.de-iis-quorum-latini-incusantur",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 15,
+        "n_tokens": 5340
+      },
+      {
         "key": "severian-of-gabala.de-sigillis-sermo",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 6,
         "n_tokens": 5293
+      },
+      {
+        "key": "michael-psellus.epistulae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 13,
+        "n_tokens": 5190
       },
       {
         "key": "severian-of-gabala.in-iudaeos-et-graecos",
@@ -20544,12 +21205,28 @@
         "n_tokens": 5141
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 15,
+        "n_tokens": 5113
+      },
+      {
         "key": "tlg1595.tlg120",
         "edition": "qwen36-sitzungsbericht308klasgoog",
         "source": "ocr",
         "license": "PD",
         "n_passages": 861,
         "n_tokens": 5107
+      },
+      {
+        "key": "theophylactus-achridensis.institutio-regia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 17,
+        "n_tokens": 5009
       },
       {
         "key": "cogByz.poulologos",
@@ -20616,6 +21293,14 @@
         "n_tokens": 4723
       },
       {
+        "key": "symeon-thessalonicensis.de-sancto-euchelaeo",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 11,
+        "n_tokens": 4649
+      },
+      {
         "key": "philo-byblius.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -20630,6 +21315,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 18,
         "n_tokens": 4495
+      },
+      {
+        "key": "symeon-thessalonicensis.de-sacerdotio",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 12,
+        "n_tokens": 4484
       },
       {
         "key": "severian-of-gabala.de-christo-pastore-et-ove",
@@ -20664,12 +21357,28 @@
         "n_tokens": 4377
       },
       {
+        "key": "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 13,
+        "n_tokens": 4342
+      },
+      {
         "key": "cogByz.gadarou_lykou_aloupous",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
         "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
         "n_passages": 543,
         "n_tokens": 4296
+      },
+      {
+        "key": "theophylactus-achridensis.oratio-in-venerationem-crucis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 12,
+        "n_tokens": 4278
       },
       {
         "key": "arrianus-nicomedensis.fragmenta",
@@ -20736,6 +21445,14 @@
         "n_tokens": 3902
       },
       {
+        "key": "photius.amphilochia-supplementum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 10,
+        "n_tokens": 3879
+      },
+      {
         "key": "joannes-antiochenus.fragmenta-fhg5",
         "edition": "dfhg",
         "source": "dfhg",
@@ -20800,6 +21517,14 @@
         "n_tokens": 3660
       },
       {
+        "key": "photius.fragmenta-in-lucam-in-catenis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 9,
+        "n_tokens": 3650
+      },
+      {
         "key": "severian-of-gabala.in-illud-secundum-imaginem-et-similitudinem",
         "edition": "pta-grc1",
         "source": "pta",
@@ -20808,12 +21533,36 @@
         "n_tokens": 3643
       },
       {
+        "key": "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 10,
+        "n_tokens": 3631
+      },
+      {
+        "key": "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 9,
+        "n_tokens": 3549
+      },
+      {
         "key": "athanasius-of-alexandria.epistula-ad-afros",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 47,
         "n_tokens": 3489
+      },
+      {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-judae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 10,
+        "n_tokens": 3481
       },
       {
         "key": "severian-of-gabala.encomium-in-sanctos-martyres",
@@ -20880,6 +21629,22 @@
         "n_tokens": 3120
       },
       {
+        "key": "symeon-thessalonicensis.de-sancto-chrismate",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 7,
+        "n_tokens": 3101
+      },
+      {
+        "key": "joannes-diaconus-hadrianopolitanus.carmen-politicum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 6,
+        "n_tokens": 3073
+      },
+      {
         "key": "severian-of-gabala.oratio-in-dedicationem-pretiosae-et-uiuificae-crucis",
         "edition": "pta-grc1",
         "source": "pta",
@@ -20910,6 +21675,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 99,
         "n_tokens": 2947
+      },
+      {
+        "key": "michael-psellus.de-actionum-nominibus",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 8,
+        "n_tokens": 2907
       },
       {
         "key": "severian-of-gabala.in-proditionem-servatoris",
@@ -20952,6 +21725,14 @@
         "n_tokens": 2684
       },
       {
+        "key": "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 8,
+        "n_tokens": 2635
+      },
+      {
         "key": "severian-of-gabala.oratio-de-exaltatione-crucis",
         "edition": "pta-grc1",
         "source": "pta",
@@ -20968,12 +21749,36 @@
         "n_tokens": 2600
       },
       {
+        "key": "leo-vi-sapiens.oracula",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 11,
+        "n_tokens": 2594
+      },
+      {
         "key": "severian-of-gabala.de-fide",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 6,
         "n_tokens": 2540
+      },
+      {
+        "key": "cogPG.PG005",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 11,
+        "n_tokens": 2529
+      },
+      {
+        "key": "demetrius-cydones.occisorum-thessalonicae-monodia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 7,
+        "n_tokens": 2522
       },
       {
         "key": "severian-of-gabala.in-postremum-iudicium",
@@ -21016,6 +21821,14 @@
         "n_tokens": 2344
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 7,
+        "n_tokens": 2298
+      },
+      {
         "key": "severian-of-gabala.in-iob-sermo-1",
         "edition": "pta-grc1",
         "source": "pta",
@@ -21048,12 +21861,28 @@
         "n_tokens": 2174
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-ii-joannis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 6,
+        "n_tokens": 2162
+      },
+      {
         "key": "charax-pergamenus.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 59,
         "n_tokens": 2150
+      },
+      {
+        "key": "symeon-thessalonicensis.de-matrimonio",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 5,
+        "n_tokens": 2048
       },
       {
         "key": "severian-of-gabala.in-meretricem-et-pharisaeum",
@@ -21168,9 +21997,25 @@
         "n_tokens": 1737
       },
       {
+        "key": "vita-basilii-iunioris.excerpta",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 5,
+        "n_tokens": 1726
+      },
+      {
         "key": "eusebius-alexandrinus.de-die-dominica",
         "edition": "pta-grc5",
         "source": "pta",
+        "license": "CC-BY-4.0",
+        "n_passages": 5,
+        "n_tokens": 1707
+      },
+      {
+        "key": "leo-vi-sapiens.exapostilaria-anastasima",
+        "edition": "cgpg",
+        "source": "cgpg",
         "license": "CC-BY-4.0",
         "n_passages": 5,
         "n_tokens": 1707
@@ -21256,6 +22101,14 @@
         "n_tokens": 1617
       },
       {
+        "key": "cogPG.PG125",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 20,
+        "n_tokens": 1606
+      },
+      {
         "key": "severian-of-gabala.homilia-de-lotione-pedum",
         "edition": "pta-grc1",
         "source": "pta",
@@ -21336,6 +22189,30 @@
         "n_tokens": 1444
       },
       {
+        "key": "michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 4,
+        "n_tokens": 1429
+      },
+      {
+        "key": "leo-vi-sapiens.carmina-et-epigrammata-varia",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 5,
+        "n_tokens": 1428
+      },
+      {
+        "key": "hilarion-monachus.oratio-dialectica-de-pane-mystico",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 4,
+        "n_tokens": 1412
+      },
+      {
         "key": "asclepiades.fragmenta",
         "edition": "qwen36-fhg_vol3_mueller_diocles_rhodius",
         "source": "ocr",
@@ -21400,6 +22277,14 @@
         "n_tokens": 1282
       },
       {
+        "key": "ignatius-scr-eccl.fragmenta-ex-epistolis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 7,
+        "n_tokens": 1280
+      },
+      {
         "key": "anonymi.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -21414,6 +22299,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 330,
         "n_tokens": 1240
+      },
+      {
+        "key": "michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 1239
       },
       {
         "key": "phaleas-et-hippodamus.testimonia-et-fragmenta",
@@ -21438,6 +22331,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 5,
         "n_tokens": 1216
+      },
+      {
+        "key": "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 1214
       },
       {
         "key": "isidore-charax.mansiones-parthicae",
@@ -21480,6 +22381,22 @@
         "n_tokens": 1084
       },
       {
+        "key": "cogPG.PG107",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 5,
+        "n_tokens": 1050
+      },
+      {
+        "key": "michael-psellus.de-locis-et-nominibus-atticis-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 1031
+      },
+      {
         "key": "candidus-isaurus.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -21520,6 +22437,14 @@
         "n_tokens": 902
       },
       {
+        "key": "michael-psellus.de-lapidum-virtutibus",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 7,
+        "n_tokens": 902
+      },
+      {
         "key": "anonymus-pseudo-john-chrysostom.homilia-de-dominica-die",
         "edition": "pta-grc2",
         "source": "pta",
@@ -21534,6 +22459,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 1,
         "n_tokens": 874
+      },
+      {
+        "key": "theophylactus-achridensis.supplementum-in-evangelium-joannis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 867
       },
       {
         "key": "carmina-delphis-inventa.carmina-delphis-inventa",
@@ -21568,6 +22501,14 @@
         "n_tokens": 828
       },
       {
+        "key": "theophylactus-achridensis.expositio-in-epistolam-iii-joannis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 824
+      },
+      {
         "key": "athanasius-of-alexandria.epistula-ad-jovianum",
         "edition": "pta-grc1",
         "source": "pta",
@@ -21582,6 +22523,14 @@
         "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
         "n_passages": 137,
         "n_tokens": 801
+      },
+      {
+        "key": "leo-vi-sapiens.carmen-compunctorium",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 793
       },
       {
         "key": "nonnosus.fragmenta-fhg4",
@@ -21600,12 +22549,36 @@
         "n_tokens": 760
       },
       {
+        "key": "michael-psellus.monodia-in-sanctae-sophiae-collapsam",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 757
+      },
+      {
+        "key": "michael-psellus.de-legum-nominibus",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 752
+      },
+      {
         "key": "anonymus-pseudo-john-chrysostom.in-paralyticum",
         "edition": "pta-grcBibex",
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 6,
         "n_tokens": 738
+      },
+      {
+        "key": "michael-psellus.de-mortis-determinatione",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 732
       },
       {
         "key": "aristocles.fragmenta-fhg4",
@@ -21622,6 +22595,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 9,
         "n_tokens": 708
+      },
+      {
+        "key": "esaias-cyprius.epistola-de-processione-spiritus-sancti",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 706
       },
       {
         "key": "aristocles.fragmenta",
@@ -21654,6 +22635,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 8,
         "n_tokens": 630
+      },
+      {
+        "key": "laudatio-sancti-demetrii.narratio-de-capta-thessalonica",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 623
       },
       {
         "key": "timaeus.fragmenta",
@@ -21752,6 +22741,14 @@
         "n_tokens": 535
       },
       {
+        "key": "basilius-i-macedo.altera-paraenesis-ad-leonem-filium",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 531
+      },
+      {
         "key": "tlg4170.tlg001a",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -21774,6 +22771,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 23,
         "n_tokens": 525
+      },
+      {
+        "key": "cogPG.PG101",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 515
       },
       {
         "key": "severian-of-gabala.homilia-de-quinque-aetatibus-mundi",
@@ -21822,6 +22827,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 9,
         "n_tokens": 487
+      },
+      {
+        "key": "michael-psellus.versus-in-sanctos-tres-hierarchas-sp",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 479
       },
       {
         "key": "priscus.fragmenta",
@@ -21904,6 +22917,14 @@
         "n_tokens": 390
       },
       {
+        "key": "photius.fragmenta-in-marcum-in-catenis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 1,
+        "n_tokens": 383
+      },
+      {
         "key": "diodorus-siculus.fragmenta-lib-6-8",
         "edition": "dfhg",
         "source": "dfhg",
@@ -21968,6 +22989,22 @@
         "n_tokens": 354
       },
       {
+        "key": "rhodon.fragmenta",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 343
+      },
+      {
+        "key": "job-monachus.prooemium-in-psalmos",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 340
+      },
+      {
         "key": "anonymus-pseudo-john-chrysostom.in-paralyticum-pta",
         "edition": "pta-grcBibex",
         "source": "pta",
@@ -22024,6 +23061,14 @@
         "n_tokens": 308
       },
       {
+        "key": "michael-psellus.in-mercurii-trismegisti-pimandrum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 1,
+        "n_tokens": 305
+      },
+      {
         "key": "dindorf-hgm2.paratexta",
         "edition": "qwen36-menander_protector_dindorf_hgm",
         "source": "ocr",
@@ -22038,6 +23083,14 @@
         "license": "PD",
         "n_passages": 8,
         "n_tokens": 299
+      },
+      {
+        "key": "tatianus.fragmenta",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 290
       },
       {
         "key": "sotion.leipsana",
@@ -22096,6 +23149,14 @@
         "n_tokens": 267
       },
       {
+        "key": "constantinus-siculus.versus-in-leonem-philosophum",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 257
+      },
+      {
         "key": "ephorus.fragmenta-fhg1",
         "edition": "dfhg",
         "source": "dfhg",
@@ -22152,6 +23213,14 @@
         "n_tokens": 239
       },
       {
+        "key": "josephus-ii-patriarcha.confessio-fidei",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 1,
+        "n_tokens": 236
+      },
+      {
         "key": "hermogenes-tarsensis.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -22166,6 +23235,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 3,
         "n_tokens": 225
+      },
+      {
+        "key": "pantaenus.fragmenta",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 224
       },
       {
         "key": "ariaethus-tegeata.fragmenta",
@@ -22800,6 +23877,14 @@
         "n_tokens": 96
       },
       {
+        "key": "cogPG.PG124",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 3,
+        "n_tokens": 96
+      },
+      {
         "key": "philostephanus.fragmenta",
         "edition": "qwen36-aristobulus_fhg3-ocr",
         "source": "ocr",
@@ -23224,6 +24309,14 @@
         "n_tokens": 59
       },
       {
+        "key": "tiberianus.epistula-ad-trajanum-de-christianis",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 1,
+        "n_tokens": 59
+      },
+      {
         "key": "methodius.de-martyribus-fragmenta",
         "edition": "opp-grc1",
         "source": "first1k",
@@ -23357,6 +24450,14 @@
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 2,
+        "n_tokens": 48
+      },
+      {
+        "key": "quadratus-apologeta.fragmentum-apologiae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 1,
         "n_tokens": 48
       },
       {
@@ -24022,6 +25123,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 1,
         "n_tokens": 10
+      },
+      {
+        "key": "cogPG.PG109",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 2,
+        "n_tokens": 7
       },
       {
         "key": "philonides-philogenes.fragmenta",
