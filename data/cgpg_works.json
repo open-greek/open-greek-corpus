@@ -1208,144 +1208,152 @@
   "volume": "PG118",
   "urn": "cogPG.PG118",
   "kind": "volume",
-  "desc": "Oecumenius (catenae on Acts, Pauline & Catholic epistles)",
+  "desc": "Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 658,
-  "n_tokens": 267557,
+  "n_passages": 17,
+  "n_tokens": 6628,
+  "works": []
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.commentarius-in-acta-apostolorum",
+  "kind": "work",
+  "desc": "Pseudo-Oecumenius - Commentarius in Acta apostolorum (catena-derived commentary printed under Oecumenius' name, CPG C151 sphere) (PG118 loci 29-162)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 134,
+  "n_tokens": 53508,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+  "kind": "work",
+  "desc": "Oecumenius (ps.-Oecumenius catena) - Fragmenta in epistulam ad Romanos (in catenis) [served text = full ps.-Oecumenius catena commentary on Romans] (PG118 loci 168-326)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 159,
+  "n_tokens": 65976,
+  "works": [
+   {
+    "tlg_id": "tlg2866",
+    "work_id": "002",
+    "title": "Fragmenta in epistulam ad Romanos (in catenis) [served text = full ps.-Oecumenius catena commentary on Romans]",
+    "author": "Oecumenius (ps.-Oecumenius catena)",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
+  "kind": "work",
+  "desc": "Oecumenius - Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 327-461)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 135,
+  "n_tokens": 55091,
   "works": [
    {
     "tlg_id": "tlg2866",
     "work_id": "003",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 3021,
-    "title": "Fragmenta in epistulam i ad Corinthios (in catenis)",
-    "author": "OECUMENIUS",
+    "title": "Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full catena commentary]",
+    "author": "Oecumenius",
     "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "015",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 1746,
-    "title": "Fragmenta in epistulam ad Hebraeos (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "006",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 920,
-    "title": "Fragmenta in epistulam ad Ephesios (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "008",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 554,
-    "title": "Fragmenta in epistulam ad Colossenses (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "011",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 499,
-    "title": "Fragmenta in epistulam i ad Timotheum (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "005",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 464,
-    "title": "Fragmenta in epistulam ad Galatas (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+  "kind": "work",
+  "desc": "Oecumenius - Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 462-555)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 94,
+  "n_tokens": 37633,
+  "works": [
    {
     "tlg_id": "tlg2866",
     "work_id": "004",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 433,
-    "title": "Fragmenta in epistulam ii ad Corinthios (in catenis)",
-    "author": "OECUMENIUS",
+    "title": "Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary]",
+    "author": "Oecumenius",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
+  "kind": "work",
+  "desc": "Oecumenius - Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary] (PG118 loci 556-593)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 38,
+  "n_tokens": 15377,
+  "works": [
    {
     "tlg_id": "tlg2866",
-    "work_id": "009",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 337,
-    "title": "Fragmenta in epistulam i ad Thessalonicenses (in catenis)",
-    "author": "OECUMENIUS",
+    "work_id": "005",
+    "title": "Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary]",
+    "author": "Oecumenius",
     "cgpg_chosen": true
-   },
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
+  "kind": "work",
+  "desc": "Oecumenius - Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary] (PG118 loci 594-638)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 45,
+  "n_tokens": 18350,
+  "works": [
+   {
+    "tlg_id": "tlg2866",
+    "work_id": "006",
+    "title": "Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary]",
+    "author": "Oecumenius",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG118",
+  "urn": "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
+  "kind": "work",
+  "desc": "Oecumenius - Fragmenta in epistulam ad Philippenses (in catenis) [served text = full catena commentary] (PG118 loci 639-674)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 36,
+  "n_tokens": 14401,
+  "works": [
    {
     "tlg_id": "tlg2866",
     "work_id": "007",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 330,
-    "title": "Fragmenta in epistulam ad Philippenses (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "010",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 212,
-    "title": "Fragmenta in epistulam ii ad Thessalonicenses (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "012",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 193,
-    "title": "Fragmenta in epistulam ii ad Timotheum (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "013",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 126,
-    "title": "Fragmenta in epistulam ad Titum (in catenis)",
-    "author": "OECUMENIUS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg2866",
-    "work_id": "014",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 16,
-    "title": "Fragmentum in epistulam ad Philemonem (in catenis)",
-    "author": "OECUMENIUS",
+    "title": "Fragmenta in epistulam ad Philippenses (in catenis) [served text = full catena commentary]",
+    "author": "Oecumenius",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG121",

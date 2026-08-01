@@ -1,0 +1,243 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG118 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG118",
+  "source_urn": "cogPG.PG118",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG118 (consistency review: ok). Of the 13 credited tlg2866 works only the Romans-Philippians span is in this volume (Colossians-Hebrews are printed in PG 119, not served); the Acts commentary is an extra with no TLG work",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG118.' (delete the file when it was 'created'), strip the 'PG118.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG118.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG118": {
+   "rows": 658,
+   "greek_tokens": 266964,
+   "sha256": "f90ee8ec95ce1f835b1f1983bf9e102df34670b8c8927ad97c71afc86247eca5"
+  }
+ },
+ "works": [
+  {
+   "slug": "oecumenius.commentarius-in-acta-apostolorum",
+   "tlg": null,
+   "title": "Commentarius in Acta apostolorum (catena-derived commentary printed under Oecumenius' name, CPG C151 sphere)",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
+   "mode": "created",
+   "rows": 134,
+   "greek_tokens": 53508,
+   "volume_loci": "29-162",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.commentarius-in-acta-apostolorum locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "29",
+     "incipit": "Ἐκ διαφόρων ὑπομνημάτων συλλεχθεῖσά τε καὶ ἀκριβωθεῖσα εἰς σύνοψιν, εἰς τὰς Πράξεις τῶν Ἀποστόλων",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 83
+    }
+   ],
+   "evidence": "Title line at 29 ('Ἐκ διαφόρων ὑπομνημάτων... εἰς τὰς Πράξεις τῶν Ἀποστόλων') followed by ΚΕΦΑΛ. Αʹ and the Acts 1:1 lemma 'Τὸν μὲν πρῶτον λόγον ἐποιησάμην περὶ πάντων, ὦ Θεόφιλε'. Continuous commentary through Acts 28 (ch. ΛΘʹ heading at 160, Acts 28:30-31 lemma at 161-162). Ends mid-162 with the closing note 'Ἰστέον δὲ ὅτι μέχρι τούτου ἱστορεῖ Λουκᾶς τὰ περὶ τὸν μακάριον Παῦλον ἐν ταῖς Πράξεσι', after which the Paul-biography appendix begins. Not in the credited list; no TLG work exists for this text (TLG 2866 has only the Apocalypse commentary and Staab fragments)."
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+   "tlg": "tlg2866.tlg002",
+   "title": "Fragmenta in epistulam ad Romanos (in catenis) [served text = full ps.-Oecumenius catena commentary on Romans]",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 159,
+   "greek_tokens": 65976,
+   "volume_loci": "168-326",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "168",
+     "incipit": "Ἡ δὲ πρὸς Ῥωμαίους ἐπιστολὴ περιέχει τὴν πρὸς τὸν Χριστὸν παρασκευὴν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 58
+    }
+   ],
+   "evidence": "Hypothesis of Romans opens 168 ('Ἡ δὲ πρὸς Ῥωμαίους ἐπιστολὴ περιέχει... Ταύτην ἐπιστέλλει ἀπὸ Κορίνθου'); kephalaia at 169-170; commentary proper at 171 with Rom 1:1 lemma 'Παῦλος δοῦλος Ἰησοῦ Χριστοῦ'. Explicit subscription mid-327: 'Τέλος σὺν Θεῷ τῆς πρὸς Ῥωμαίους Ἐπιστολῆς. ἐγράφη ἀπὸ Κορίνθου διὰ φοίβης τῆς διακόνου'. Not in the volume's credited list; tlg2866.002 (Staab pp. 423-432, untitled) is the matching TLG slot for Oecumenius on Romans.",
+   "notes": "tlg2866.tlg002 exists in the canon with an empty title (1,856 words, Staab's Romans fragments); the slug is minted on the sibling works' naming pattern (curated title, lettered-subedition precedent)"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
+   "tlg": "tlg2866.tlg003",
+   "title": "Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full catena commentary]",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 135,
+   "greek_tokens": 55091,
+   "volume_loci": "327-461",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "327",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ἐφέσου τῆς Ασίας, ἑωρακὼς αὐτοὺς ἤδη καὶ διδάξας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 59
+    }
+   ],
+   "evidence": "Starts mid-327, right after the Romans subscription, under the OCR-garbled heading 'ΥΙΟΩΕΣΙΣ πΗΣ ΠΡΟΣ ΚΟΡΙΝοίοΥα ΠΡΤΗΣ ΕΠΙΣΤΟΛΗΣ' (= ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ ΠΡΩΤΗΣ). Kephalaia at 328; commentary proper at 329 with 1 Cor 1:1 lemma 'Παῦλος κλητὸς ἀπόστολος Ἰησοῦ Χριστοῦ διὰ θελήματος Θεοῦ, καὶ Σωσθένης ὁ ἀδελφός' (after ΠΡΟΟΙΜΙΟΝ). Ends mid-462 with subscription 'πελος, σὺν Θεῷ, τῆς πρὸς Κοριθίους πρώτης Ἐπιστολῆς. ἐγράφη ἀπὸ Φιλίππων διὰ Στεφανᾶ καὶ Φουρτουνάτου'."
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+   "tlg": "tlg2866.tlg004",
+   "title": "Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary]",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 94,
+   "greek_tokens": 37633,
+   "volume_loci": "462-555",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "462",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Μακεδονίας. Ἡ δὲ πρόφασις τῆς Ἑπιστολῆς αὔτη. Δεξάμενοι Κορίνθιοι τὴν προτέραν Ἐπιστολὴν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 94
+    }
+   ],
+   "evidence": "Heading mid-462: 'ΥΠΟΟΕΣΙΣ ὩΙΣ ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ ΔΕΥΤΕΡΑΣ ΕΠΙΣΤΟΛΗΣ' immediately after the 1 Cor subscription. Kephalaia (Theodoret's, Latin caption garbled 'ΤΙΕΟΒΟΚΕΤΙ') at 463-464; commentary at 464 with 2 Cor 1:1 lemma 'Παῦλος ἀπόστολος ἸησοῦΧριστοῦ διὰ θελήματος Θεοῦ, καὶ Τιμόθεος ὁ ἀδελφὸς'. Ends at 555 with 'Τέλος, σύν Θεῷ, τὴς πρὸς Κορινθίους βʹ Ἐπιστολῆς.'"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
+   "tlg": "tlg2866.tlg005",
+   "title": "Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary]",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 38,
+   "greek_tokens": 15377,
+   "volume_loci": "556-593",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "556",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ῥώμης, ἐωρακὼς αὐτοὺς ήδη καὶ διδάξας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 50
+    }
+   ],
+   "evidence": "556 opens with heading 'ΥΠΟΟΕΣΙΣ ΤΗΣ ΠΡΟΣ ΓΑΛΑΤΑΣ ΕΠΙΣΤΟΑΗΣ. ΑΗΩΟΜΕΝΤΗΜ ΕΡΙΘΤΟΙΕ ΑΡ ΑΙΑΤΑΘ' (= Argumentum epistolae ad Galatas). Kephalaia at 557, then Gal 1:1-5 lemma and comment 'Εὐθέως ἀναιρεῖ τὸ εἶναι ἀνθρώπων μαθητής'. Ends mid-594 with garbled subscription 'Τέος σὺν φεῷ τῆς πρὸς Γμλάτας Ἐπιστολῆς' (= Τέλος σὺν Θεῷ τῆς πρὸς Γαλάτας)."
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
+   "tlg": "tlg2866.tlg006",
+   "title": "Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary]",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 45,
+   "greek_tokens": 18350,
+   "volume_loci": "594-638",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "594",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ῥώμης, οὕπω μὲέν ἐωρακὼς αὐτοὺς, ἀκούσας δὲ περὶ αὐτῶν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 63
+    }
+   ],
+   "evidence": "Starts mid-594 under heading 'ΥΠΟΟΕΣΙΣ ΤΗΣ ΠΡΟΣ ΕΦΕΣΙΟΥΣ ΕΠΙΣΤΟΛΗΣ' immediately after the Galatians subscription. Theodoret kephalaia at 595; commentary at 596 under title 'ΙΙΑΥΛΟΥ ΑΗΟΣΤΟΛΟΥ Π ΠΡΟΣ ΕΦΕΣΙΟΥΣ ΕΠΙΣΓΟΛΗ' with Eph 1:1 lemma 'Παῦ ὰος ἀπόστολος Ἰησοῦ Χριστοῦ, διὰ θελήματος Θεοῦ, τοῖς ἀγίοις τοῖς οὐσιν ἐν Ἐφέσῳ'. Ends mid-639: 'Τέλος, σὺν Θεῷ, τῆς πρὸς Ἐφεσίους Ἐπιστολῆς. ἐγράφη ἀπὸ Ῥώμης διὰ Τυχικοῦ.'"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
+   "tlg": "tlg2866.tlg007",
+   "title": "Fragmenta in epistulam ad Philippenses (in catenis) [served text = full catena commentary]",
+   "rank": "primary",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis.jsonl",
+   "mode": "created",
+   "rows": 36,
+   "greek_tokens": 14401,
+   "volume_loci": "639-674",
+   "locus_map": "cogPG.PG118 locus N -> oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis locus 'PG118.N'",
+   "incipit_checks": [
+    {
+     "locus": "639",
+     "incipit": "Ταύτην ἐπιστέλλει ἀπὸ Ῥώμης, ἑωρακὼς εὐολ, ἄμα καὶ διδάξας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 48
+    }
+   ],
+   "evidence": "Starts mid-639 under garbled heading 'ΥΠΟΟΕΣΙΣ ΤΗΑ ΠΡδΟὲ ΦΙΑΗΣΙΟΥἂ ΕΠδΤΟΔΗΣ' (= ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ΦΙΛΙΠΠΗΣΙΟΥΣ) right after the Ephesians subscription. Kephalaia at 640; commentary at 641 with Phil 1:1 lemma 'Παῦλος καὶ Τμόθεος, δοῦλοι Ἰησοῦ Χριστοῦ, πᾶσι τοῖς ἀγίοις ἐν Χριστῷ Ἰησοῦ'. Ends at 674, the last served column, with 'Τέλος σὺν Θεῷ τῆς πρὸς Φιλιππνσίους' - the work closes exactly at the volume end."
+  }
+ ],
+ "residual": {
+  "rows": 17,
+  "greek_tokens": 6628,
+  "loci": [
+   "17",
+   "18",
+   "19",
+   "20",
+   "21",
+   "22",
+   "23",
+   "24",
+   "25",
+   "26",
+   "27",
+   "28",
+   "163",
+   "164",
+   "165",
+   "166",
+   "167"
+  ],
+  "note": "17-28: 1532 Verona-edition Greek preface + prefatory apparatus (hypothesis of Acts, verses on Paul, kephalaia); 163-167: post-Acts Paul-biography appendix (chronology, Apodemiai Paulou). Editorial paratext, kept in the volume file",
+  "sha256": "a78d0a5bc76958103ae17b9c749d3705f4738af4c6b3ff02b8a778de6eea3a70"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 266964,
+  "carved": 260336,
+  "residual": 6628,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+   "tlg": "tlg2866.tlg002"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
+   "tlg": "tlg2866.tlg003"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+   "tlg": "tlg2866.tlg004"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
+   "tlg": "tlg2866.tlg005"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
+   "tlg": "tlg2866.tlg006"
+  },
+  {
+   "slug": "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
+   "tlg": "tlg2866.tlg007"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "oecumenius.commentarius-in-acta-apostolorum",
+  "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis",
+  "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
+  "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+  "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
+  "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
+  "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG118; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG118, plan data/cgpg_carve_plan.json"
+}
