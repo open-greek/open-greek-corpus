@@ -1,0 +1,403 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG155 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG155",
+  "source_urn": "cogPG.PG155",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG155. The sixteen segments follow Migne's conventional treatise division (the standard citation form for Symeon); works 1-11 are parts of the one great dialogue, noted per work",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG155.' (delete the file when it was 'created'), strip the 'PG155.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG155.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG155": {
+   "rows": 472,
+   "greek_tokens": 199763,
+   "sha256": "f9a82b0ba1ca67644a7c06443fe373556a157a031c9e90fa5834f7b62735038b"
+  }
+ },
+ "works": [
+  {
+   "slug": "symeon-thessalonicensis.dialogus-contra-haereses",
+   "tlg": null,
+   "title": "Dialogus in Christo adversus omnes haereses (chs. 1-32 of the great dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.dialogus-contra-haereses.jsonl",
+   "mode": "created",
+   "rows": 72,
+   "greek_tokens": 32099,
+   "volume_loci": "22-93",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.dialogus-contra-haereses locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "22",
+     "incipit": "ΑΡΧΙΕΡΕΥΣ. Ἐν Χριστῷ τῷ μονογενεῖ Υἱῷ τοῦ Θεοῦ καὶ Πατρὸς καὶ Θεῷ ἡμῶν, τῇ ζώσῃ σιφίᾳ, τῷ χορηΚγοῦτι Λόγῳ λόγον ἐν ἀνοίξει τοῦ στόματος, ὑμῖν, ἀδελφοί, πειθόμενος ὡς ἡ ἐντολὴ, κατὰ δύναμιν πρὸς τὸ λέγειν ἤκω, περὶ ὧν ἡμᾶς ἠρωτήσατε.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 184
+    }
+   ],
+   "evidence": "First served row opens with speaker labels ΑΡΧΙΕΡΕΥΣ/ΚΛΗΡΙΚΟΣ and 'ἐν σχήματι διαλόγου'; anti-heresy chapters follow (e.g. locus 77, ΚΕΦΑΛ. ΛΑʹ Περὶ τοῦ ἱεροῦ Γρηγορίου Θεσσαλονίκης τοῦ Θαυματουργοῦ = ch. 31 on Gregory Palamas). Matches PG 155, 33-176.",
+   "notes": "shared boundary row 94 goes to De sacramentis"
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sacramentis",
+   "tlg": null,
+   "title": "De sacramentis (chs. 33-70 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sacramentis.jsonl",
+   "mode": "created",
+   "rows": 31,
+   "greek_tokens": 13493,
+   "volume_loci": "94-124",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sacramentis locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "94",
+     "incipit": "ΚΕΦΑΛ. ΑΓʹ. Ὅτι ἐπτὰ τὰ τῆς Ἐκκλησίας μυστήρια. Ἀρχιερεὺς. Ἐπείπερ ζητεῖτε, τὸ κατὰ δύναμιν ἐρῶ ἐν Χριστῷ. ἑπτὰ τὰ χαρίσματα τοῦ Πνεύματος., ὡς Ἡσαΐας φησὶ, καὶ ἑπτὰ τὰ μυστήρια της Ἐκκλησίας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 152
+    }
+   ],
+   "evidence": "ΚΕΦΑΛ. ΛΓʹ (OCR ΑΓʹ) 'Ὅτι ἑπτὰ τὰ τῆς Ἐκκλησίας μυστήρια' mid-locus 94; baptism chapters run to ΚΕΦΑΛ. Οʹ (70) on locus 124. Matches PG 155, 175-237."
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sancto-chrismate",
+   "tlg": null,
+   "title": "De sancto chrismate (chs. 71-77 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sancto-chrismate.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 3101,
+   "volume_loci": "125-131",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sancto-chrismate locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "125",
+     "incipit": "ΚΕΦΑΛ. ΟΒʹ. Περὶ της ἱερᾶς τελετῆς τοῦ ἁγίσυ μύρου. Κατὰ τὴν ἐπαύριον οὖν, ἥτις ἐστὶν ἡ ἁγία καὶ μεγόλη Πέμπτη,· εἰσάγεται τοῦτο τὸ μύρον ἐν κρατῆρι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 117
+    }
+   ],
+   "evidence": "Ch. 72 heading on chrism consecration at locus 125; locus 131 (col ~251) still on myron ('Ὅτι παρ´ ἐπισκόπου μόνον τὸ μύρον καὶ αἱ χειροτονίαι'). Matches PG 155, 237-252.",
+   "notes": "the ch. 71 heading was lost to OCR; the work range starts at row 125 where ch. 72 stands, row 124 staying with De sacramentis"
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sacra-liturgia",
+   "tlg": null,
+   "title": "De sacra liturgia (chs. ~78-100 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sacra-liturgia.jsonl",
+   "mode": "created",
+   "rows": 26,
+   "greek_tokens": 11481,
+   "volume_loci": "132-157",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sacra-liturgia locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "132",
+     "incipit": "ἀρχιερεὺς. Χάρις ὑμῖν, ἀδελφὲ, δι´ ὑμῶν γὰρ καὶ αὐτὸς πρὸς τοῦτο κινούμενος, τινὰ τῶν ἀναγκαίων μανθάνω. ... Καὶ λοιπὸν ἀκόλουθον ἀν εἰη, περὶ της φρικτῆς καὶ θείας ἱερουργίας διαλαβεῖν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 58
+    }
+   ],
+   "evidence": "Explicit transition at locus 132: after the myron he turns to the divine liturgy, citing Dionysius; locus 157 (col ~303) ends with the antidoron and dismissal. Matches PG 155, 253-304."
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sacro-templo",
+   "tlg": null,
+   "title": "De sacro templo et eius consecratione (chs. 101-155 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sacro-templo.jsonl",
+   "mode": "created",
+   "rows": 28,
+   "greek_tokens": 11835,
+   "volume_loci": "158-185",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sacro-templo locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "158",
+     "incipit": "ΚΕΦΑΛ. ΡΑʹ. Περὶ οἰκοδομῆς ἀγίου ναοῦ, καὶ εὐχῆς ἐπὶ θελελίΦ. Ὁ μέλλων οἰκοδομῆσαι θεῖον ναὸν προσέρχεται",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 86
+    }
+   ],
+   "evidence": "ΚΕΦΑΛ. ΡΑʹ (101) 'Περὶ οἰκοδομῆς ἁγίου ναοῦ' at locus 158; consecration chapters (ΡΙΑʹ chrismation of the church, ΡΚʹ enkainia) follow; on locus 186 the Klerikos says 'τὰ περὶ τοῦ θείου ἔγνωμεν ναοῦ' before the next heading. Matches PG 155, 305-361.",
+   "notes": "shared boundary row 186 goes to De sacris ordinationibus"
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sacris-ordinationibus",
+   "tlg": null,
+   "title": "De sacris ordinationibus (chs. 156-250 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sacris-ordinationibus.jsonl",
+   "mode": "created",
+   "rows": 54,
+   "greek_tokens": 21994,
+   "volume_loci": "186-239",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sacris-ordinationibus locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "186",
+     "incipit": "ΠΕΡΙ ΤΩΝ ΙΕΡΩΝ ΧΕΙΡΟΤΟΝΙΩ ΟΕ ΣαρΗΙς ΟΗΡΙΝαΤΙΟΝΙΒΙΣ. Ἀρκιπρεύς. Τοῦτο δὴ καὶ ποιήσω, ἐπεὶ καὶ ἀναγκαῖον τοῖς ἱερωμένοις ἡμῖν τὰ περὶ τῶν ἐν ἡμῖν βείων τελετῶν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 130
+    }
+   ],
+   "evidence": "Greek heading plus OCR'd Latin 'DE SACRIS ORDINATIONIBUS' printed at locus 186 (col 361); ordination/office chapters (e.g. ΚΕΦΑΛ. ΣΜΑʹ on offikia, locus 236) run to ch. ~250 (locus 239, ΚΕΦΑΛ. ΣΜΘʹ area). Matches PG 155, 361-469."
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-poenitentia",
+   "tlg": null,
+   "title": "De poenitentia (chs. 251-275 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-poenitentia.jsonl",
+   "mode": "created",
+   "rows": 17,
+   "greek_tokens": 6979,
+   "volume_loci": "240-256",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-poenitentia locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "240",
+     "incipit": "ΚΕΦΛΛ. ΣΝΛʹ. τι τοῦτο μετάνοια τὸ διημεκῶς ταπεινοῦσθαι καὶ ἁμαρτω λὸν λέγειν καὶ νομ’ζαιν ἑαυτὸν, καὶ πρὸς τὴν ἐξαγόρευσιν τρέχειν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 108
+    }
+   ],
+   "evidence": "ΚΕΦΑΛ. ΣΝΑʹ (251) at locus 240, immediately after 'πρότερον τὰ περὶ τῶν ἱερῶν χειροτονιῶν κατὰ δύναμιν ἑρμηνεύσαντες'; covers confession and the monastic schema (ΚΕΦΑΛ. ΣΞΕʹ, locus 250) and closes on locus 257: 'Ἰδοὺ τοίνυν καὶ τὰ τῆς μετανοίας ὡς ἐνὸν ἡμῖν ἐξεθήκαμεν'. Matches PG 155, 469-504.",
+   "notes": "shared boundary row 257 goes to De matrimonio"
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-matrimonio",
+   "tlg": null,
+   "title": "De honesto et legitimo matrimonio (chs. 276-281 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-matrimonio.jsonl",
+   "mode": "created",
+   "rows": 5,
+   "greek_tokens": 2048,
+   "volume_loci": "257-261",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-matrimonio locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "257",
+     "incipit": "Καὶ λέγομεν ἤδη περὶ τοῦ γάμου, ὅστις κατὰ θείαν συγχώρησιν ἐν ἀνθρώποις ἐστὶν ἐνεργούμενος, τοῖς κατὰ κόσμον θέλουσι ζῆν, διὰ μόνην παιδοποιίαν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 120
+    }
+   ],
+   "evidence": "Transition mid-locus 257 ('Λοιπὸν καὶ περὶ τῶν δύο ἔτι ὑπολοίπων μυστηρίων'); marriage chapters follow: ΣΟϛʹ Διατί στέφανοι ἐν τῷ γάμῳ (locus 258), ΣΟΗʹ Περὶ τῶν μνήστρων (259), ΣΟΘʹ Περὶ τῆς τοῦ γάμου τελετῆς and ΣΠʹ ἀρχιερέως ἴδιον ἔργον (260). Matches PG 155, 503-515."
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sancto-euchelaeo",
+   "tlg": null,
+   "title": "De sancto oleo / euchelaeo (chs. ~282-295 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sancto-euchelaeo.jsonl",
+   "mode": "created",
+   "rows": 11,
+   "greek_tokens": 4649,
+   "volume_loci": "262-272",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sancto-euchelaeo locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "263",
+     "incipit": "ΚΕΦΑΛ. ΣΠΓ. λστί ἑπτὰ πρεσβύτεροι ἐν τῷ εὐχελαίῳ· κ διατίπολλάκις καὶ τρεῖς διὰ σπάνιν ἱερέων",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Ch. 283 on the seven presbyters of the euchelaion at locus 263 (col ~515); chapters ΣΠΗʹ 'Περὶ τῆς τελετῆς τοῦ εὐχελαίου' (locus 267) and ΣΗϛʹ on oil for the dead (locus 265) follow; appendix chapters on priests' faults (ΚΕΦΑΛ. ΣϞΓʹ, locus 272) close it. Matches PG 155, ~513-535.",
+   "notes": "the opening heading on row 262 was lost to OCR; the incipit anchor sits on row 263 (ch. 283)"
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sacra-precatione",
+   "tlg": null,
+   "title": "De sacra precatione (on the divine office; chs. 296-ca.358 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sacra-precatione.jsonl",
+   "mode": "created",
+   "rows": 68,
+   "greek_tokens": 30158,
+   "volume_loci": "273-340",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sacra-precatione locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "273",
+     "incipit": "Ἀρκτέον τοίνυν λέγειν καὶ περὶ τῶν θείων τῆς Ἐκκλησίας προσευχῶν κατὰ τὴν ὑμετέραν ἐρώτησιν. Ὁ περὶ τῆς προσευχῆς λόγος, ἀδελφοὶ, πολύς τε καὶ μέγιστος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 125
+    }
+   ],
+   "evidence": "Preface plus programmatic opening on prayer at locus 273 (col 535); office/liturgy-of-hours chapters follow (ΚΕΦΑΛ. ΤΙΗʹ on Trisagion and Pater noster, locus 294; ΤΚʹ hermeneia of the Pater, locus 295; ΤΛʹ on the Beatitudes, locus 303). Matches PG 155, 535-669."
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-ordine-sepulturae",
+   "tlg": null,
+   "title": "De fine et exsequiarum ordine (De ordine sepulturae; chs. ~359-373 of the dialogue)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-ordine-sepulturae.jsonl",
+   "mode": "created",
+   "rows": 13,
+   "greek_tokens": 5642,
+   "volume_loci": "341-353",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-ordine-sepulturae locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "341",
+     "incipit": "ΚΕΦΑΛ. ΤΞʹ. Περὶ τοῦ συνεχῶς κοινωνεῖν ἄπαντας τῶν φρικτῶν μυστηρίων, ὡς ὑπέρ πάντα ἐπωφελους ὅντος τοῦ ἔργου.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Preparation-for-death and burial chapters: ΤΞΒʹ 'Διατί ἁγία εἰκὼν ἐπάνω τοῦ λειψάνου... τίθεται' and ΤΞΓʹ on the Trisagion at funerals (locus 343); the whole dialogue ends on locus 353 with mutual thanksgiving of Klerikos and Archiereus. Commonly cited as De ordine sepulturae, PG 155, 669-696."
+  },
+  {
+   "slug": "symeon-thessalonicensis.expositio-de-divino-templo",
+   "tlg": null,
+   "title": "Expositio de divino templo (sent to the pious in Crete)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.expositio-de-divino-templo.jsonl",
+   "mode": "created",
+   "rows": 27,
+   "greek_tokens": 10454,
+   "volume_loci": "354-380",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.expositio-de-divino-templo locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "354",
+     "incipit": "Ἐε ἀγάπης θείας κεκινημένοι, πρὸς τὸ μαθεῖν τί ποτε δηλοῦσι τὰ σύμβολα τῶν ἐν τῇ θεία συνάξει τελουμένων",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 86
+    }
+   ],
+   "evidence": "Full title at locus 354 (OCR garbled): '...ΑΡΑΙΕΡΕΩΝ ΤΕ ΚΑΙ ΤΩΝ ΔΝ ΕΚΑΣΓΟΣ ΤΟΥΤΒΝ ΣΤΟΛΩΝ ΙΕΡΩΝ [ΠΕΡΙΒ]ΑΛΛΕΤΑΙ. ΟΥ ΜΗΝ ΑΑΛΑ ΚΑΙ ΠΕΡΙ ΤΗΣ ΘΕΙΑΣ ΜΥΣΤΑΓΩΓΙΑΣ... Καὶ τοῖς ἐν Κρήτῃ εὐσεβέσι ζητήσασιν ἀποσταλεῖσα', with numbered sections αʹ, βʹ following. Matches PG 155, 697-749."
+  },
+  {
+   "slug": "symeon-thessalonicensis.expositio-de-sacro-symbolo",
+   "tlg": null,
+   "title": "Expositio de sacro symbolo (exposition of the Creed)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.expositio-de-sacro-symbolo.jsonl",
+   "mode": "created",
+   "rows": 26,
+   "greek_tokens": 11418,
+   "volume_loci": "381-406",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.expositio-de-sacro-symbolo locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "381",
+     "incipit": "ΤΟΥ ΑΥΤΟΥ Δθα Περὶ τοῦ ἱερωτάτου Συμβόλου τῆς ἀληθοῦς καὶ μόνης τῶν Χριστιανῶν ἡμῶν πίστεως, ἀναγκαῖον ικὲν καὶ σωτηριῶδες, πρό τινος ἄλλου τῶν παρ´ ἡμῖν, πάντα πιστὸν ἄχρι καὶ συλλαβῆς καὶ κεραίας ἀσινὲς τηρεῖν αὐτὸ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 178
+    }
+   ],
+   "evidence": "'ΤΟΥ ΑΥΤΟΥ' title at locus 381 (col 751) opening a continuous clause-by-clause commentary on the Nicene-Constantinopolitan Creed (locus 382 on the two councils; locus 383 'Πιστεύω εἰς ἔνα Θεὸν Πατέρα παντοκράτορα'). Matches PG 155, 751-801."
+  },
+  {
+   "slug": "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",
+   "tlg": null,
+   "title": "Expositio necessaria de sacri symboli dictionibus",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus.jsonl",
+   "mode": "created",
+   "rows": 13,
+   "greek_tokens": 4342,
+   "volume_loci": "407-419",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "407",
+     "incipit": "ΕΚΟΕΣΙΣ ΤΟΥ ΑΥΤΟΥ ΑΝΑΓΚΑΙΟΤΑΤΗ ΠΕΡΙ ΤΩΝ ΤΟΥ ΙΕΡΟΥ ΣΥΜΒΟΛΟΥ ΡΗΣΕΩΝ ... Καλὸν ἐκθέσθαι καὶ ὅθεν τὸ ἱερώτατον παρὰ τῶν θείων Πατέρων συνετέθη Σύμβολον.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 48
+    }
+   ],
+   "evidence": "Display title at locus 407 (col 803); proceeds phrase by phrase with proof-texts (locus 408: Παντοκράτωρ from Zachariah, Ezekiel, Isaiah); ends on locus 420 with doxology 'Ὅτι αὐτῷ τῷ Χριστῷ... εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' Matches PG 155, 803-829.",
+   "notes": "shared boundary row 420 goes to the Responsa"
+  },
+  {
+   "slug": "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum",
+   "tlg": null,
+   "title": "Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum.jsonl",
+   "mode": "created",
+   "rows": 62,
+   "greek_tokens": 25586,
+   "volume_loci": "420-481",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "420",
+     "incipit": "ΓΟΥ ΛΥΤΟΥ ΑΗΩΚΡΙΣΕΙΣ ΠΡΙλΙΙοΝ Ἔδει μὲν τὰς τοιαύτας των ἐρωτήσεων ὑψηλοτέρας οὔσας καὶ ὑπὲρ ἡμᾶς, ἡγιασμένε δέσποτα, καὶ εν Χριστῷ ποθεινότατε ἀδελφὲ, πρός τινα τῶν κε ναθαρμένων... ποιήσασθαι.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 127
+    }
+   ],
+   "evidence": "Title 'ΤΟΥ ΑΥΤΟΥ ΑΠΟΚΡΙΣΕΙΣ ΠΡ...' (OCR garbled) mid-locus 420 (col 829); numbered ΕΡΩΤΗΣΙΣ headings and Latin QUAESTIO running heads (OCR 'ΟΟΕΘΤΙΟ') throughout loci 421-481, reaching ΕΡΩΤΗΣΙΣ ΠΓʹ (83) at locus 481 (col ~951). Matches PG 155, 829-952."
+  },
+  {
+   "slug": "symeon-thessalonicensis.de-sacerdotio",
+   "tlg": null,
+   "title": "De sacerdotio (epistle to a devout monk)",
+   "rank": "primary",
+   "file": "data/corpus/symeon-thessalonicensis.de-sacerdotio.jsonl",
+   "mode": "created",
+   "rows": 12,
+   "greek_tokens": 4484,
+   "volume_loci": "482-493",
+   "locus_map": "cogPG.PG155 locus N -> symeon-thessalonicensis.de-sacerdotio locus 'PG155.N'",
+   "incipit_checks": [
+    {
+     "locus": "482",
+     "incipit": "ΕΕΡΙ ΙΕΡΩΣΥΝΗΣ ΠΡΟΣ ΤΙΝΑ ΤΩΝ ΕΥΛΑΒΩΝ ΜΟΝΑΧΩΝ ΙΕΡΑΣ ΔΑΚΟΝΙΑΣ ΠΧΙΩΜΕΝΟΝ Ἐν Χριστῷ μοι ἀγαπητὲ καὶ γνησιώτατε ἀδελφέ, τὴν ὀφειλὴν τῆς ἀγάπης πᾶσι κατὰ τὴν ἐντολὴν ὀφείλοντες",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 144
+    }
+   ],
+   "evidence": "Display title ΠΕΡΙ ΙΕΡΩΣΥΝΗΣ... at locus 482 (col 953); epistolary address to a brother entering the diaconate; closes at locus 493 with full doxology '...νῦν καὶ ἀεὶ καὶ εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν.' Matches PG 155, 953-975."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 199763,
+  "carved": 199763,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "symeon-thessalonicensis.dialogus-contra-haereses",
+  "symeon-thessalonicensis.de-sacramentis",
+  "symeon-thessalonicensis.de-sancto-chrismate",
+  "symeon-thessalonicensis.de-sacra-liturgia",
+  "symeon-thessalonicensis.de-sacro-templo",
+  "symeon-thessalonicensis.de-sacris-ordinationibus",
+  "symeon-thessalonicensis.de-poenitentia",
+  "symeon-thessalonicensis.de-matrimonio",
+  "symeon-thessalonicensis.de-sancto-euchelaeo",
+  "symeon-thessalonicensis.de-sacra-precatione",
+  "symeon-thessalonicensis.de-ordine-sepulturae",
+  "symeon-thessalonicensis.expositio-de-divino-templo",
+  "symeon-thessalonicensis.expositio-de-sacro-symbolo",
+  "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",
+  "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum",
+  "symeon-thessalonicensis.de-sacerdotio"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG155; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG155, plan data/cgpg_carve_plan.json"
+}
