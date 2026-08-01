@@ -66,34 +66,414 @@
   "volume": "PG005",
   "urn": "cogPG.PG005",
   "kind": "volume",
-  "desc": "Ignatius, Polycarp, Melito, 2nd-c. popes",
+  "desc": "Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 266,
-  "n_tokens": 47804,
+  "n_passages": 11,
+  "n_tokens": 2529,
+  "works": []
+ },
+ {
+  "volume": "PG005",
+  "urn": "ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media",
+  "kind": "work",
+  "desc": "Ignatius Antiochenus - Epistulae vii genuinae (recensio media) (PG005 loci 331-373)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 43,
+  "n_tokens": 7649,
+  "works": [
+   {
+    "tlg_id": "tlg1443",
+    "work_id": "001",
+    "title": "Epistulae vii genuinae (recensio media)",
+    "author": "Ignatius Antiochenus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG005",
+  "urn": "ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior",
+  "kind": "work",
+  "desc": "Ignatius Antiochenus (interpolator) - Epistulae interpolatae et epistulae suppositiciae (recensio longior) (PG005 loci 374-480)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 107,
+  "n_tokens": 19230,
+  "works": [
+   {
+    "tlg_id": "tlg1443",
+    "work_id": "002",
+    "title": "Epistulae interpolatae et epistulae suppositiciae (recensio longior)",
+    "author": "Ignatius Antiochenus (interpolator)",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG005",
+  "urn": "ignatius-scr-eccl.fragmenta-ex-epistolis",
+  "kind": "work",
+  "desc": "Ignatius Antiochenus - Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section) (PG005 loci 483-489)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 7,
+  "n_tokens": 1280,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum",
+  "kind": "work",
+  "desc": "Martyrium Ignatii - Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum') (PG005 loci 499-503)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 5,
+  "n_tokens": 1280,
+  "works": [
+   {
+    "tlg_id": "tlg2657",
+    "work_id": "001",
+    "title": "Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum')",
+    "author": "Martyrium Ignatii",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "tiberianus.epistula-ad-trajanum-de-christianis",
+  "kind": "work",
+  "desc": "Tiberianus (praeses Palaestinae, pseudepigraphon ap. Joannem Malalam) - Epistula Tiberiani ad Trajanum de Christianis (PG005 loci 505-505)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1,
+  "n_tokens": 59,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "polycarpus.epistula-ad-philippenses",
+  "kind": "work",
+  "desc": "Polycarpus Smyrnaeus - Epistula ad Philippenses (PG005 loci 512-517)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 6,
+  "n_tokens": 1132,
+  "works": [
+   {
+    "tlg_id": "tlg1622",
+    "work_id": "001",
+    "title": "Epistula ad Philippenses",
+    "author": "Polycarpus Smyrnaeus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG005",
+  "urn": "martyrium-polycarpi.epistula-ecclesiae-smyrnensis-de-martyrio-sancti-polycarpi",
+  "kind": "work",
+  "desc": "Martyrium Polycarpi - Epistula ecclesiae Smyrnensis de martyrio sancti Polycarpi (PG005 loci 524-532)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 9,
+  "n_tokens": 2445,
+  "works": [
+   {
+    "tlg_id": "tlg1484",
+    "work_id": "001",
+    "title": "Epistula ecclesiae Smyrnensis de martyrio sancti Polycarpi",
+    "author": "Martyrium Polycarpi",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG005",
+  "urn": "melito-apologetics.fragmenta",
+  "kind": "work",
+  "desc": "Melito Sardensis - Fragmenta (PG005 loci 614-620)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 7,
+  "n_tokens": 931,
   "works": [
    {
     "tlg_id": "tlg1495",
-    "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 4499,
-    "title": "De pascha (P. Beatty `8 %7 P. Bodmer 13 %7 P. Oxy",
-    "author": "MELITO",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg1495",
     "work_id": "003",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 1553,
     "title": "Fragmenta",
-    "author": "MELITO",
+    "author": "Melito Sardensis",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "papias.fragmenta",
+  "kind": "work",
+  "desc": "Papias Hierapolitanus - Fragmenta (PG005 loci 637-640)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 4,
+  "n_tokens": 708,
+  "works": [
+   {
+    "tlg_id": "tlg1558",
+    "work_id": "001",
+    "title": "Fragmenta",
+    "author": "Papias Hierapolitanus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "quadratus-apologeta.fragmentum-apologiae",
+  "kind": "work",
+  "desc": "Quadratus Apologeta - Fragmentum apologiae (apud Eusebium, HE 4.3) (PG005 loci 642-642)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1,
+  "n_tokens": 48,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "claudius-apollinarius.fragmenta",
+  "kind": "work",
+  "desc": "Claudius Apollinarius Hierapolitanus - Fragmenta (PG005 loci 657-660)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 4,
+  "n_tokens": 346,
+  "works": [
+   {
+    "tlg_id": "tlg1163",
+    "work_id": "001",
+    "title": "Fragmenta",
+    "author": "Claudius Apollinarius Hierapolitanus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "hegesippus-scr-eccl.fragmenta-ex-incerto-libro",
+  "kind": "work",
+  "desc": "Hegesippus - Fragmenta (ex incerto libro / Hypomnemata) (PG005 loci 663-673)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 11,
+  "n_tokens": 1508,
+  "works": [
+   {
+    "tlg_id": "tlg1398",
+    "work_id": "001",
+    "title": "Fragmenta (ex incerto libro / Hypomnemata)",
+    "author": "Hegesippus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "pantaenus.fragmenta",
+  "kind": "work",
+  "desc": "Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 224,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "rhodon.fragmenta",
+  "kind": "work",
+  "desc": "Rhodon - Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13) (PG005 loci 676-678)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 343,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "maximus-theology.fragmentum-ex-libro-de-materia",
+  "kind": "work",
+  "desc": "Maximus - Fragmentum ex libro de materia (PG005 loci 679-687)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 9,
+  "n_tokens": 3066,
+  "works": [
+   {
+    "tlg_id": "tlg1488",
+    "work_id": "001",
+    "title": "Fragmentum ex libro de materia",
+    "author": "Maximus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "polycrates-scr-eccl.fragmentum-synodicae-epistulae",
+  "kind": "work",
+  "desc": "Polycrates Ephesius - Fragmentum synodicae epistulae (ad Victorem) (PG005 loci 688-690)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 303,
+  "works": [
+   {
+    "tlg_id": "tlg1626",
+    "work_id": "001",
+    "title": "Fragmentum synodicae epistulae (ad Victorem)",
+    "author": "Polycrates Ephesius",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG005",
+  "urn": "fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae",
+  "kind": "work",
+  "desc": "Theophilus Caesariensis et synodus Caesariensis - Fragmentum synodicae epistulae concilii Caesariensis (de paschate) (PG005 loci 694-695)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 54,
+  "works": [
+   {
+    "tlg_id": "tlg1381",
+    "work_id": "001",
+    "title": "Fragmentum synodicae epistulae concilii Caesariensis (de paschate)",
+    "author": "Theophilus Caesariensis et synodus Caesariensis",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "serapion-scr-eccl.fragmenta",
+  "kind": "work",
+  "desc": "Serapion Antiochenus - Fragmenta (PG005 loci 696-697)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 194,
+  "works": [
+   {
+    "tlg_id": "tlg1670",
+    "work_id": "001",
+    "title": "Fragmenta",
+    "author": "Serapion Antiochenus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas",
+  "kind": "work",
+  "desc": "Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 4,
+  "n_tokens": 557,
+  "works": [
+   {
+    "tlg_id": "tlg1171",
+    "work_id": "001",
+    "title": "Fragmenta ex libro adversus Cataphrygas seu Montanistas",
+    "author": "Apollonius",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG005",
+  "urn": "seniores-apud-irenaeum.reliquiae-plurium-anonymorum",
+  "kind": "work",
+  "desc": "Seniores apud Irenaeum - Reliquiae plurium anonymorum (presbyterorum fragmenta) (PG005 loci 708-710)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 222,
+  "works": [
+   {
+    "tlg_id": "tlg1665",
+    "work_id": "001",
+    "title": "Reliquiae plurium anonymorum (presbyterorum fragmenta)",
+    "author": "Seniores apud Irenaeum",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG005",
+  "urn": "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
+  "kind": "work",
+  "desc": "Epistula ecclesiarum apud Lugdunum et Viennam - Epistula ecclesiarum apud Lugdunum et Viennam (cum appendicibus ap. Eus. HE 5.1-4) (PG005 loci 715-736)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 22,
+  "n_tokens": 3667,
+  "works": [
+   {
+    "tlg_id": "tlg1352",
+    "work_id": "001",
+    "title": "Epistula ecclesiarum apud Lugdunum et Viennam (cum appendicibus ap. Eus. HE 5.1-4)",
+    "author": "Epistula ecclesiarum apud Lugdunum et Viennam",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG006",

@@ -1,0 +1,561 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG005 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG005",
+  "source_urn": "cogPG.PG005",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_split_proposals.json PG005 (consistency review: ok)",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG005.' (delete the file when it was 'created'), strip the 'PG005.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG005.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG005": {
+   "rows": 266,
+   "greek_tokens": 47775,
+   "sha256": "0a260f1724cde13efaab64dfa1779f55a3eafacdb7e6c29211497f99d5c0794b"
+  }
+ },
+ "works": [
+  {
+   "slug": "ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media",
+   "tlg": "tlg1443.tlg001",
+   "title": "Epistulae vii genuinae (recensio media)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media.jsonl",
+   "mode": "created",
+   "rows": 43,
+   "greek_tokens": 7649,
+   "volume_loci": "331-373",
+   "locus_map": "cogPG.PG005 locus N -> ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "331",
+     "incipit": "ΠΡΟΣ ΕΦΕΣΙΟΥΣΣ. Ὁ Ἰγνάτιος, ὁ καὶ Θεοφόρος, τῇ εὐλογημένῃ έν μεγέθει Θεοῦ Πατρὸς [καὶ] πληρώματι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 77
+    }
+   ],
+   "evidence": "Title line ΠΡΟΣ ΕΦΕΣΙΟΥΣΣ + middle-recension Ephesians salutation at 331; the seven letters follow in order (Magnesians salutation at 341, Trallians at 347, Romans within 353-357, ΦΙΛΑΛΕΛΦΕΥΣΙΝ title at 358, ΣΜΥΡΝΑΙΟΙΣ salutation inside 363, Ad Polycarpum salutation inside 368-369); 373 ends with Ad Pol. 8 (πλεῖν με ἀπὸ Τρωάδος εἰς Νεάπολιν). Locus 331 = Migne col 643, matching the standard citation PG 5:643-728 for the genuine epistles."
+  },
+  {
+   "slug": "ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior",
+   "tlg": "tlg1443.tlg002",
+   "title": "Epistulae interpolatae et epistulae suppositiciae (recensio longior)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior.jsonl",
+   "mode": "created",
+   "rows": 107,
+   "greek_tokens": 19230,
+   "volume_loci": "374-480",
+   "locus_map": "cogPG.PG005 locus N -> ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "374",
+     "incipit": "ΑΓΧΙΕΠΙΣΚΟΠΟΥ ΘΕΟΥ ΠΟΛΕΩΣ ΑΝΤΙΟΧΕΙΑΣ ΠΡΟΣ ΕΦΕΣΙΟΥΣ. [γνάτιος, ὁ καὶ Θεοφόρος, τῇ εὐλογημένῃ ἐν μεγέθει Θεοῦ Πατρὸς",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 95
+    }
+   ],
+   "evidence": "Long-recension title page at 374 (ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΘΕΟΥΠΟΛΕΩΣ ΑΝΤΙΟΧΕΙΑΣ, OCR-garbled) = PG 5:729, the standard citation for the interpolated epistles. Contains interpolated Eph (374), Magn (388 title), Trall, Rom (410 title), Philad, Smyrn, Polyc (439), then the spuria: Maria Cassobolita ad Ignatium (446, Ἰγνατίῳ Μαρία ἐκ Κασσοβήλων), Ad Mariam (450 title ΠΡΟΣ ΜΑΡΙΑΝ ΕΙΣ ΝΕΑΠΟΛΙΝ ΤΗΝ ΠΡΟΣ ΤΩ ΖΑΡΒΩ), Ad Tarsenses (~454), Ad Antiochenos (~459), Ad Heronem (~465, greeting Ἀσπάζονταί σε οἱ ἐπίσκοποι Ὀνήσιμος... at 468), Ad Philippenses (469 title ΠΡΟΣ ΦΙΛΙΠΠΗΣΙΟΥΣ Περὶ βαπτίσματος), ending with its doxology at 480."
+  },
+  {
+   "slug": "ignatius-scr-eccl.fragmenta-ex-epistolis",
+   "tlg": null,
+   "title": "Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section)",
+   "rank": "primary",
+   "file": "data/corpus/ignatius-scr-eccl.fragmenta-ex-epistolis.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 1280,
+   "volume_loci": "483-489",
+   "locus_map": "cogPG.PG005 locus N -> ignatius-scr-eccl.fragmenta-ex-epistolis locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "483",
+     "incipit": "Βούλεσθε μαθεῖν οἷά τις ἐφθέγξατο ἅγιός τις πρὸ ἡμῶν τῆς διαδοχῆς τῶν ἀποστόλων γενόμενος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 76
+    }
+   ],
+   "evidence": "Excerpt anthology: quotations attributed to Ignatius by later writers (483 tail: κατὰ τὸν Θεοφόρον Ἰγνάτιον) and florilegium-style extracts with headers such as Ἐκ τῆς πρὸς ΦΙΛΑΔΕΛΦΙΟΥΣ Ἐπιστολῆς / Τοῦ αὐτοῦ (489). Mapping to tlg1443.X01 (Fragmenta ap. Joannem Damascenum, Sacra parallela) is approximate: the section is certainly Ignatian excerpts, but PG's selection may not coincide exactly with the TLG X01 collection.",
+   "notes": "the proposal's tlg1443.X01 mapping (Fragmenta ap. Joannem Damascenum, Sacra parallela) is approximate per its own evidence, so no TLG anchor is claimed; the correspondence is recorded here instead"
+  },
+  {
+   "slug": "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum",
+   "tlg": "tlg2657.tlg001",
+   "title": "Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum')",
+   "rank": "primary",
+   "file": "data/corpus/martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum.jsonl",
+   "mode": "created",
+   "rows": 5,
+   "greek_tokens": 1280,
+   "volume_loci": "499-503",
+   "locus_map": "cogPG.PG005 locus N -> martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "499",
+     "incipit": "Ἄρτι διαδεξαμένου τὴν Ῥωμαίων ἀρχὴν Τραῖανοῦ, Ἰγνάτιος, ὁ τοῦ ἀποστόλου Ἰωάννου μαθητὴς",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Exact incipit of the Martyrium Antiochenum at 499; ends at 503 with the relics, the date (πρὸ δεκατριῶν Καλανδῶν Ἰαννουαρίων), the dream-visions, and closing doxology. Loci 499-503 = Migne cols 979-988, matching the standard citation PG 5:979-988."
+  },
+  {
+   "slug": "tiberianus.epistula-ad-trajanum-de-christianis",
+   "tlg": null,
+   "title": "Epistula Tiberiani ad Trajanum de Christianis",
+   "rank": "primary",
+   "file": "data/corpus/tiberianus.epistula-ad-trajanum-de-christianis.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 59,
+   "volume_loci": "505-505",
+   "locus_map": "cogPG.PG005 locus N -> tiberianus.epistula-ad-trajanum-de-christianis locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "505",
+     "incipit": "Αὐτοκράτορι νικητῇ Καίσαρι, θειοτάτῳ Τραϊανῷ. Απέκαμον τιμωρούμενος καὶ φονεύων τοὺς Γαλιλαίους",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 83
+    }
+   ],
+   "evidence": "Single row: the spurious letter of Tiberianus, governor of Palaestina, to Trajan (transmitted in Malalas, Chron. 11), printed in PG 5 among the documents appended to the Martyrium Ignatii (cols 991-992). No TLG id for this piece in the canon."
+  },
+  {
+   "slug": "polycarpus.epistula-ad-philippenses",
+   "tlg": "tlg1622.tlg001",
+   "title": "Epistula ad Philippenses",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/polycarpus.epistula-ad-philippenses.jsonl",
+   "mode": "created",
+   "rows": 6,
+   "greek_tokens": 1132,
+   "volume_loci": "512-517",
+   "locus_map": "cogPG.PG005 locus N -> polycarpus.epistula-ad-philippenses locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "512",
+     "incipit": "Πολύκαρπος καὶ οἱ σὺν αὐτῷ πρεσβύτεροι τῇ Ἐκκλησίᾳ τοῦ Θεοῦ τῇ παροικούση Φιλίππους",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 71
+    }
+   ],
+   "evidence": "Exact incipit at 512; 517 is ch. 13 (Ἐγράψατέ μοι καὶ ὑμεῖς καὶ Ἰγνάτιος). Loci 512-517 = cols 1005-1016 = the standard citation PG 5:1005-1016. Chs. 10-12 survive only in Latin, hence the thin Greek at the end."
+  },
+  {
+   "slug": "martyrium-polycarpi.epistula-ecclesiae-smyrnensis-de-martyrio-sancti-polycarpi",
+   "tlg": "tlg1484.tlg001",
+   "title": "Epistula ecclesiae Smyrnensis de martyrio sancti Polycarpi",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/martyrium-polycarpi.epistula-ecclesiae-smyrnensis-de-martyrio-sancti-polycarpi.jsonl",
+   "mode": "created",
+   "rows": 9,
+   "greek_tokens": 2445,
+   "volume_loci": "524-532",
+   "locus_map": "cogPG.PG005 locus N -> martyrium-polycarpi.epistula-ecclesiae-smyrnensis-de-martyrio-sancti-polycarpi locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "524",
+     "incipit": "Ἡ Ἐκκλησία τοῦ Θεοῦ, ἡ παροικοῦσα Σμύρναν, τῇ Ἐκκλησία τοῦ Θεοῦ τῇ παροικούσῃ ἐν Φιλομηλίῳ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "Exact incipit at 524 (= col 1029, matching PG 5:1029ff); 532 contains ch. 21 (Συνελήφθη δὲ ὑπὸ Ἡρώδου, ἐπὶ ἀρχιερέως Φιλίππου Τραλλιανοῦ) and the ch. 22 appendix/colophon (Ἐῤῥῶσθαι ὑμᾶς εὐχόμεθα... Pionius colophon)."
+  },
+  {
+   "slug": "melito-apologetics.fragmenta",
+   "tlg": "tlg1495.tlg003",
+   "title": "Fragmenta",
+   "rank": "primary",
+   "file": "data/corpus/melito-apologetics.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 931,
+   "volume_loci": "614-620",
+   "locus_map": "cogPG.PG005 locus N -> melito-apologetics.fragmenta locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "614",
+     "incipit": "Τὸ γὰρ οὐδεπώποτεα γενόμενον, νῦν διώκεται ὑπὸ τῶν θεοσεβῶν γένος, καινοῖς ἐλαυνόμενον δόγμασι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 80
+    }
+   ],
+   "evidence": "614-615 Apology fragments (apud Eus. HE 4.26); 616 Chron.-Paschale Apology fragment (Οὐκ ἐσμὲν λίθων... θεραπευταὶ) plus the Eclogae preface Μελίτων Ὁνησίμῳ τῷ ἀδελφῷ χαίρειν with the OT canon list continuing at 617; 618-619 fragments on the sacrifice of Isaac (Τοῦ μακαρίου Μελίτωνος Σάρδεων named at 618); 620 fragment on Christ's deeds after baptism (apud Anastasium Sinaitam). NOTE: the other credited work, tlg1495.001 De pascha, is NOT in this volume (recovered from papyri decades after Migne)."
+  },
+  {
+   "slug": "papias.fragmenta",
+   "tlg": "tlg1558.tlg001",
+   "title": "Fragmenta",
+   "rank": "primary",
+   "file": "data/corpus/papias.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 4,
+   "greek_tokens": 708,
+   "volume_loci": "637-640",
+   "locus_map": "cogPG.PG005 locus N -> papias.fragmenta locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "637",
+     "incipit": "Οὐκ ὀκνήσώ δέ σοι καὶ ὅσα ποτὲ παρὰ τῶν πρεσβυτέρων καλῶς ἔμαθον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 53
+    }
+   ],
+   "evidence": "Exact incipit of the preface fragment (apud Eus. HE 3.39) at 637; 639 names the author (Ὁ Παπίας ἐν τῷ τετάρτῳ αὐτοῦ βιβλίῳ τῶν Κυριακῶν Ἐξηγήσεων); 640 is the Judas fragment (apud Apollinarem). Loci 637-640 = cols 1255-1262."
+  },
+  {
+   "slug": "quadratus-apologeta.fragmentum-apologiae",
+   "tlg": null,
+   "title": "Fragmentum apologiae (apud Eusebium, HE 4.3)",
+   "rank": "primary",
+   "file": "data/corpus/quadratus-apologeta.fragmentum-apologiae.jsonl",
+   "mode": "created",
+   "rows": 1,
+   "greek_tokens": 48,
+   "volume_loci": "642-642",
+   "locus_map": "cogPG.PG005 locus N -> quadratus-apologeta.fragmentum-apologiae locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "642",
+     "incipit": "Τοῦ δὲ Σωτῆρος ἡμῶν τὰ ἔργα ἀεὶ παρῆν ἀληθῆ γὰρ ἦν· οἱ θεραπευθέντες, οἱ ἀναστάντες ἐκ νεκρῶν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 75
+    }
+   ],
+   "evidence": "Single row: the famous sole fragment of Quadratus' Apology to Hadrian, verbatim (Eus. HE 4.3.2). Locus 642 = cols 1265-1266. No entry for the apologist Quadratus in the local TLG canon (only Gaius Asinius Quadratus the historian), hence NEW."
+  },
+  {
+   "slug": "claudius-apollinarius.fragmenta",
+   "tlg": "tlg1163.tlg001",
+   "title": "Fragmenta",
+   "rank": "primary",
+   "file": "data/corpus/claudius-apollinarius.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 4,
+   "greek_tokens": 346,
+   "volume_loci": "657-660",
+   "locus_map": "cogPG.PG005 locus N -> claudius-apollinarius.fragmenta locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "657",
+     "incipit": "Ἀλλὰ τοῖς μὲν ἔξωθεν ἱστορικοῖς ἅτε τῆς πίστεως ἀνοικείοις, τέθειται μὲν τὸ παράδοξον",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 72
+    }
+   ],
+   "evidence": "657 legio-fulminata dossier (Eus. HE 5.5, κεραυνοβόλον τῇ Ῥωμαίων ἐπικληθεῖσαν φωνῇ); 658-659 the two De pascha fragments from the Chronicon Paschale, with Eusebius' catalog of his works at 659 (Τοῦ δ´ Ἀπολλιναρίου πολλῶν παρὰ πολλοῖς σωζομένων...); 660 headed FRAGMENTA (OCR ΕΙΑΣΜΕΝΤΑ) carries Serapion's letter (Eus. HE 5.19) naming Κλαυδίου Ἀπολλιναρίου... ἐν Ἰεραπόλει ἐπισκόπου, printed here as a testimonium transmitting Apollinaris' writings (same text recurs in Serapion's own section at 696)."
+  },
+  {
+   "slug": "hegesippus-scr-eccl.fragmenta-ex-incerto-libro",
+   "tlg": "tlg1398.tlg001",
+   "title": "Fragmenta (ex incerto libro / Hypomnemata)",
+   "rank": "primary",
+   "file": "data/corpus/hegesippus-scr-eccl.fragmenta-ex-incerto-libro.jsonl",
+   "mode": "created",
+   "rows": 11,
+   "greek_tokens": 1508,
+   "volume_loci": "663-673",
+   "locus_map": "cogPG.PG005 locus N -> hegesippus-scr-eccl.fragmenta-ex-incerto-libro locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "663",
+     "incipit": "Διαδέχεται δὲ τὴν Ἐκκλησίαν μετὰ τῶν ἀποστόλων, ὁ ἀδελφὸς τοῦ Κυρίου Ἰάκωβος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 64
+    }
+   ],
+   "evidence": "663 exact incipit of the martyrdom-of-James fragment (Eus. HE 2.23); grandsons of Judas (667), Symeon (668-669), heresy catalog and seven Jewish sects (671-672); 673 the Stephanus-Gobarus fragment (Ὑπομνημάτων, οὐκ οἶδα ὅ τι καὶ παθὼν μάτην...) plus Eusebius citing ὡς μαρτυρεῖ Ἡγήσιππος. Loci 663-673 = cols 1307-1327, matching the standard citation PG 5:1307-1328."
+  },
+  {
+   "slug": "pantaenus.fragmenta",
+   "tlg": null,
+   "title": "Fragmenta",
+   "rank": "primary",
+   "file": "data/corpus/pantaenus.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 224,
+   "volume_loci": "674-675",
+   "locus_map": "cogPG.PG005 locus N -> pantaenus.fragmenta locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "674",
+     "incipit": "Ἐν τῷ ἡλίῳ ἔθετο τὸ σκήνωμα αὐτοῦ. Ἔνιοι μὲν οὖν φασι τὸ σῶμα τοῦ Κυρίου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 57
+    }
+   ],
+   "evidence": "674 names him mid-fragment (Πανταῖνος δὲ ἡμῶν ἔλεγεν, from Clement's Eclogae propheticae on Ps 18:5); 675 the Maximus-Confessor scholion (οἱ περὶ Πάνταινον τὸν γενόμενον καθηγητὴν τοῦ Στρωματέως μεγάλου Κλήμεντος). No Pantaenus entry in the local TLG canon, hence NEW."
+  },
+  {
+   "slug": "rhodon.fragmenta",
+   "tlg": null,
+   "title": "Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13)",
+   "rank": "primary",
+   "file": "data/corpus/rhodon.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 343,
+   "volume_loci": "676-678",
+   "locus_map": "cogPG.PG005 locus N -> rhodon.fragmenta locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "676",
+     "incipit": "Διὰ τοῦτο καὶ παρ´ ἑαυτοῖς ἀσύμφωνοι γεγόνασιν ΜαοοΙρ], ἀσυστάτου γνώμης ἀντιποιούμενοι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "676 (opens with editorial [...]) = Rhodon on the Marcionites, Apelles and Philumene (Eus. HE 5.13); 677 continues (Πότιτός τε καὶ Βασιλικός, Σύνερως); 678 names the author (αὐτὸς ὁ Ῥόδων ἐν ἰδίῳ συγγράμματι) and his teacher Tatian. No Rhodon entry in the local TLG canon, hence NEW."
+  },
+  {
+   "slug": "maximus-theology.fragmentum-ex-libro-de-materia",
+   "tlg": "tlg1488.tlg001",
+   "title": "Fragmentum ex libro de materia",
+   "rank": "primary",
+   "file": "data/corpus/maximus-theology.fragmentum-ex-libro-de-materia.jsonl",
+   "mode": "created",
+   "rows": 9,
+   "greek_tokens": 3066,
+   "volume_loci": "679-687",
+   "locus_map": "cogPG.PG005 locus N -> maximus-theology.fragmentum-ex-libro-de-materia locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "679",
+     "incipit": "μὲν ἀδύνατον ὑπάρχειν ἀγέννητα δύο ἅμα,, οὐδέ σε ἀγνοεῖν νομίζω",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 52
+    }
+   ],
+   "evidence": "679-687 is the continuous De materia dialogue on God, matter, and the impossibility of two unoriginate principles (transmitted apud Eus. PE 7.22); content match throughout (e.g. 687 τὰ δὲ τῆς ὕλης μέρη ἀναιρετικὰ ἀλλήλων). 679 begins mid-sentence, the opening words having stood on the (absent) Latin-facing page."
+  },
+  {
+   "slug": "polycrates-scr-eccl.fragmentum-synodicae-epistulae",
+   "tlg": "tlg1626.tlg001",
+   "title": "Fragmentum synodicae epistulae (ad Victorem)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/polycrates-scr-eccl.fragmentum-synodicae-epistulae.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 303,
+   "volume_loci": "688-690",
+   "locus_map": "cogPG.PG005 locus N -> polycrates-scr-eccl.fragmentum-synodicae-epistulae locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "688",
+     "incipit": "Ἡμεῖς οὖν ἀῤῥᾳδιούργητον ἄγομεν τὴν ἡμέρανμή τε προστιθέντες, μή τε ἀφαιρούμενοι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 69
+    }
+   ],
+   "evidence": "Exact incipit of Polycrates' letter to Victor (Eus. HE 5.24) at 688; the great luminaries of Asia (Philip in Hierapolis, John in Ephesus) at 688-689; ἑπτὰ μὲν ἦσαν συγγενεῖς μου ἐπίσκοποι at 690."
+  },
+  {
+   "slug": "fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae",
+   "tlg": "tlg1381.tlg001",
+   "title": "Fragmentum synodicae epistulae concilii Caesariensis (de paschate)",
+   "rank": "primary",
+   "file": "data/corpus/fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 54,
+   "volume_loci": "694-695",
+   "locus_map": "cogPG.PG005 locus N -> fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "694",
+     "incipit": "Τῆς δ´ ἐπιστολῆς ἡμῶν πειράθητε κατὰ πᾶσαν Ἐκκλησίαν ἀντίγραφα διαπέμψασθαι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 65
+    }
+   ],
+   "evidence": "Verbatim the surviving fragment of the Palestinian synod's paschal letter (Theophilus of Caesarea and Narcissus, apud Eus. HE 5.25), ending at 695 with ὥστε συμφώνως καὶ ὁμοῦ ἄγειν ἡμᾶς τὴν ἁγίαν ἡμέραν. Matches tlg1381 (word count ~77)."
+  },
+  {
+   "slug": "serapion-scr-eccl.fragmenta",
+   "tlg": "tlg1670.tlg001",
+   "title": "Fragmenta",
+   "rank": "primary",
+   "file": "data/corpus/serapion-scr-eccl.fragmenta.jsonl",
+   "mode": "created",
+   "rows": 2,
+   "greek_tokens": 194,
+   "volume_loci": "696-697",
+   "locus_map": "cogPG.PG005 locus N -> serapion-scr-eccl.fragmenta locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "696",
+     "incipit": "Ὃπως δὲ καὶ τοῦτο ἴδητε ὅτι τῆς ψευδοῦς ταύτης τάξεως τῆς ἐπικαλουμένης νέας προφητείας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 74
+    }
+   ],
+   "evidence": "696 = Serapion of Antioch's letter against the New Prophecy (Eus. HE 5.19); 697 = his letter on the Gospel of Peter and the Docetae (Eus. HE 6.12, οὓς Δοκητὰς καλοῦμεν)."
+  },
+  {
+   "slug": "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas",
+   "tlg": "tlg1171.tlg001",
+   "title": "Fragmenta ex libro adversus Cataphrygas seu Montanistas",
+   "rank": "primary",
+   "file": "data/corpus/apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas.jsonl",
+   "mode": "created",
+   "rows": 4,
+   "greek_tokens": 557,
+   "volume_loci": "700-703",
+   "locus_map": "cogPG.PG005 locus N -> apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "700",
+     "incipit": "Ἁλλὰ τίς ἐστιν οὕτος ὁ πρόσφατος διδάσκαλος; τὰ ἔργα αὐτοῦ καὶ ἡ διδασκαλία δείκνυσιν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 71
+    }
+   ],
+   "evidence": "700 exact incipit of Apollonius on Montanus, Pepuza and Tymion (Eus. HE 5.18); Themiso at 701; prophets and gifts at 702; the emerald/glass simile fragment at 703."
+  },
+  {
+   "slug": "seniores-apud-irenaeum.reliquiae-plurium-anonymorum",
+   "tlg": "tlg1665.tlg001",
+   "title": "Reliquiae plurium anonymorum (presbyterorum fragmenta)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek/Perseus open TEI edition (source-precedence rank 1 open_corpus beats rank 3 migne_cgpg); this CGPG Migne OCR copy is kept as a secondary witness, not served",
+   "file": "data/corpus_secondary/seniores-apud-irenaeum.reliquiae-plurium-anonymorum.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 222,
+   "volume_loci": "708-710",
+   "locus_map": "cogPG.PG005 locus N -> seniores-apud-irenaeum.reliquiae-plurium-anonymorum locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "708",
+     "incipit": "Μὴ εἰδότος τοῦ Λὼτ, μηδὲ ἡδονῇ δουλεύσαντος, οἰκονομία ἐπετελεῖτο",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 55
+    }
+   ],
+   "evidence": "Three elder-fragments preserved by Irenaeus: 708 the presbyter on Lot (AH 4.31); 709 paradise prepared for men of the Spirit (AH 5.5.1, ἡτοιμάσθη ὁ παράδεισος) with the two-peoples/outstretched-hands saying; 710 the holy elder's iambics against Marcus the magician (AH 1.15.6, Ἃ σοι χορηγεῖ σὸς πατὴρ Σατᾶν ἀεί... Ἀζαζήλ). Matches tlg1665 exactly."
+  },
+  {
+   "slug": "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
+   "tlg": "tlg1352.tlg001",
+   "title": "Epistula ecclesiarum apud Lugdunum et Viennam (cum appendicibus ap. Eus. HE 5.1-4)",
+   "rank": "primary",
+   "file": "data/corpus/epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam.jsonl",
+   "mode": "created",
+   "rows": 22,
+   "greek_tokens": 3667,
+   "volume_loci": "715-736",
+   "locus_map": "cogPG.PG005 locus N -> epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam locus 'PG005.N'",
+   "incipit_checks": [
+    {
+     "locus": "715",
+     "incipit": "λίας παροικοῦντες δοῦλοι Χριστοῦ, τοῖς κατὰ τὴν Ἀσίαν καὶ Φρυγίαν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 55
+    }
+   ],
+   "evidence": "715 is the salutation with its opening words ([Οἱ ἐν Βιέννῃ καὶ Λουγδούνῳ τῆς Γαλ]λίας παροικοῦντες...) cut by the page break; the martyr narrative (Blandina, Sanctus, Attalus, Pothinus) runs continuously to 736, which carries the Alcibiades/Attalus continuation of Eus. HE 5.3 (= the tiny tlg1349.001 fragment, printed here as part of the same PG piece). Loci 715-736 = cols 1411-1453, matching PG 5:1409-1454."
+  }
+ ],
+ "residual": {
+  "rows": 11,
+  "greek_tokens": 2529,
+  "loci": [
+   "14",
+   "15",
+   "16",
+   "17",
+   "18",
+   "19",
+   "20",
+   "21",
+   "22",
+   "23",
+   "24"
+  ],
+  "note": "loci 14-24 are the 'Testimonia veterum de S. Ignatio' editorial anthology (excerpts about Ignatius from Polycarp, Eusebius, Chrysostom and later writers): quotations, not an assignable work; they stay in the volume file",
+  "sha256": "c6836e0ddd5b3b55a36005726c6e827c97492a14d9aca1c56edbcb68ce3e4a58"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 47775,
+  "carved": 45246,
+  "residual": 2529,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [
+  {
+   "slug": "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum",
+   "tlg": "tlg2657.tlg001"
+  },
+  {
+   "slug": "melito-apologetics.fragmenta",
+   "tlg": "tlg1495.tlg003"
+  },
+  {
+   "slug": "papias.fragmenta",
+   "tlg": "tlg1558.tlg001"
+  },
+  {
+   "slug": "claudius-apollinarius.fragmenta",
+   "tlg": "tlg1163.tlg001"
+  },
+  {
+   "slug": "hegesippus-scr-eccl.fragmenta-ex-incerto-libro",
+   "tlg": "tlg1398.tlg001"
+  },
+  {
+   "slug": "maximus-theology.fragmentum-ex-libro-de-materia",
+   "tlg": "tlg1488.tlg001"
+  },
+  {
+   "slug": "fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae",
+   "tlg": "tlg1381.tlg001"
+  },
+  {
+   "slug": "serapion-scr-eccl.fragmenta",
+   "tlg": "tlg1670.tlg001"
+  },
+  {
+   "slug": "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas",
+   "tlg": "tlg1171.tlg001"
+  },
+  {
+   "slug": "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
+   "tlg": "tlg1352.tlg001"
+  }
+ ],
+ "corrections_provenance_flag": [
+  "ignatius-scr-eccl.fragmenta-ex-epistolis",
+  "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum",
+  "tiberianus.epistula-ad-trajanum-de-christianis",
+  "melito-apologetics.fragmenta",
+  "papias.fragmenta",
+  "quadratus-apologeta.fragmentum-apologiae",
+  "claudius-apollinarius.fragmenta",
+  "hegesippus-scr-eccl.fragmenta-ex-incerto-libro",
+  "pantaenus.fragmenta",
+  "rhodon.fragmenta",
+  "maximus-theology.fragmentum-ex-libro-de-materia",
+  "fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae",
+  "serapion-scr-eccl.fragmenta",
+  "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas",
+  "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG005; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG005, plan data/cgpg_carve_plan.json"
+}
