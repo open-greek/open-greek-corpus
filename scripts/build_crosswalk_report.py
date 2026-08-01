@@ -141,6 +141,9 @@ def main():
     # for served works that are registry keys.
     served = json.load(open(CORPUS_EDITIONS, encoding="utf-8"))
     windex = json.load(open(WORK_INDEX, encoding="utf-8"))["works"]
+    inf_path = os.path.join(REPO, "data", "served_scheme_inference.json")
+    inferred = (json.load(open(inf_path, encoding="utf-8"))["works"]
+                if os.path.exists(inf_path) else {})
     nS = len(served)
     sv_absent_registry = sorted(s for s in served if s not in works)
     sv_work_qid = sv_author_qid = sv_any_anchor = sv_logical = 0
@@ -158,11 +161,17 @@ def main():
             if "wikidata" not in anchors:
                 sv_qid_via_author.append(slug)
         w = works.get(slug)
-        if w:
-            de = w.get("default_edition")
-            ed = w.get("editions", {}).get(de) if de else None
-            if ed and _is_logical(ed.get("scheme", "")):
+        de = (w or {}).get("default_edition")
+        ed = (w or {}).get("editions", {}).get(de) if de else None
+        if ed is not None:
+            if _is_logical(ed.get("scheme", "")):
                 sv_logical += 1
+        elif (inferred.get(slug) or {}).get("class") == "logical-numeric":
+            # no registry default edition (or no registry entry at all), but
+            # the served loci themselves are logical
+            # (scripts/infer_served_schemes.py): DFHG fragment collections,
+            # canon works served without a cataloged servable edition, etc.
+            sv_logical += 1
 
     # cheapest Wikidata enrichment: work lacks a QID but its author has one.
     author_qid = {slug: a["aliases"]["wikidata"]
