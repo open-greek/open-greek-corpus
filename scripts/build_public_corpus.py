@@ -106,7 +106,18 @@ def body_text(root) -> str:
     parts = []
 
     def walk(el):
-        if is_dropped(el):
+        if not isinstance(el.tag, str):
+            # comment/PI node: its content (e.g. commented-out apparatus divs)
+            # is not body text, but the tail after it is
+            if el.tail:
+                parts.append(el.tail)
+            return
+        if is_dropped(el) or (el.tag == f"{{{TEI_NS}}}div"
+                              and el.get("type") == "praefatio"):
+            # praefatio: modern editorial front matter (PTA's German/English
+            # introductions quoting Greek), a sibling of the edition div. A
+            # denylist, not an edition-div allowlist, because some files keep
+            # textpart divs OUTSIDE the edition wrapper (tlg5031.tlg001).
             if el.tail:
                 parts.append(el.tail)
             return
