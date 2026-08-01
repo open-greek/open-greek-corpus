@@ -1717,8 +1717,12 @@ below; regenerate it with `python scripts/build_provenance.py`.
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
   copyrightable; use them freely.
-- Next: per-work loci for the multi-work CGPG Migne volumes, and byzantium.gr
-  loci upgraded from page-paragraph indices to book/chapter citations.
+- The byzantium.gr works now carry real citation loci read from each page's
+  own markers (book/chapter, Psellos book.section, Theophanes annus mundi,
+  Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
+  structure, keeps page-paragraph indices.
+- Next: per-work loci for the multi-work CGPG Migne volumes (work-to-column
+  mappings researched for all 18 volumes in data/pd_research/, carve pending).
 
 ## License
 
