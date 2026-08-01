@@ -190,6 +190,39 @@ def main() -> None:
                 "evidence": ["corpus_editions.json", "sources/galenus_verbatim"],
             }
 
+    # 5) Rolling PD wall: a LOCKED verdict whose TLG edition year has crossed the
+    #    US 95-year line becomes pd_edition. The sourcing map's verdicts froze at
+    #    pd_cutoff_us=1930 (its build date); nothing reclassified later years as
+    #    they aged into PD. PD_WALL_YEAR is a declared constant, not wall-clock,
+    #    so the output stays byte-stable; bump it each January and regenerate
+    #    (the bump is the reviewable act that flips that year's editions:
+    #    2027 flips 1931, 2029 flips 1933, etc.). Multi-volume spans use the
+    #    LAST year in pub_year, so a set is only PD once every volume is.
+    PD_WALL_YEAR = 2026        # editions published <= PD_WALL_YEAR - 96 are US-PD
+    inv_path = DATA / "inventory" / "work_inventory.json"
+    if inv_path.exists():
+        inv = json.loads(inv_path.read_text(encoding="utf-8"))
+        rows = inv["works"] if isinstance(inv, dict) and "works" in inv else inv
+        for w in (rows.values() if isinstance(rows, dict) else rows):
+            k = _key(w["tlg_id"], w["work_id"])
+            if over_of(k) != "locked" or k in records:
+                continue
+            years = [int(y) for y in
+                     re.findall(r"\b(1[89]\d\d|20\d\d)\b", str(w.get("pub_year", "")))]
+            if not years or max(years) > PD_WALL_YEAR - 96:
+                continue
+            row = sm_rows.get(k, {})
+            records[k] = {
+                "tlg_id": k[0], "work_id": k[1], "source": "pd_edition",
+                "over": "locked", "author": row.get("author", ""),
+                "title": row.get("title", ""),
+                "word_count": int(row.get("word_count") or 0),
+                "pub_year": max(years),
+                "evidence": ["work_inventory.json pub_year",
+                             f"US PD wall at {PD_WALL_YEAR}: editions <= "
+                             f"{PD_WALL_YEAR - 96} out of copyright"],
+            }
+
     # human-readable reason from the (source, over, overlap) shape
     def reason_for(r):
         src, over = r["source"], r.get("over", "")
@@ -215,6 +248,10 @@ def main() -> None:
             if over == "locked":
                 return base + "; unlocks a work otherwise behind an in-copyright edition"
             return base + "; a ready CC BY-SA edition beats OCRing a PD edition ourselves"
+        if src == "pd_edition" and over == "locked":
+            return (f"the TLG edition (published {r.get('pub_year', '?')}) has "
+                    "crossed the US 95-year PD wall since the sourcing map froze "
+                    "at pd_cutoff_us=1930; eligible for our own OCR")
         return ""
 
     out = []
@@ -224,7 +261,7 @@ def main() -> None:
         # stable field order
         ordered = {f: r[f] for f in ("tlg_id", "work_id", "source", "over",
                                      "author", "title", "word_count") if f in r}
-        for f in ("slug", "edition", "pg_volume", "mpg_vols", "also_in_cgpg", "urls",
+        for f in ("slug", "edition", "pg_volume", "mpg_vols", "also_in_cgpg", "pub_year", "urls",
                   "pages", "reason", "evidence"):
             if f in r:
                 ordered[f] = r[f]
