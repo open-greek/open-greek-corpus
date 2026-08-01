@@ -8,7 +8,7 @@
   "adjudication": "data/oga_dating_adjudication.json",
   "policy": "fill gaps, never clobber; adjudicate genuine divergences, flag the rest (Multi-Source Data)",
   "counts": {
-   "filled": 126,
+   "filled": 122,
    "agreed": 996,
    "conflicts": 466,
    "adjudicated": 39,
@@ -17,7 +17,7 @@
     "b": 10,
     "c": 19
    },
-   "resolved_no_registry_home": 284,
+   "resolved_no_registry_home": 288,
    "conflict_delta_century_histogram": {
     "1": 466
    }
@@ -735,30 +735,6 @@
   {
    "urn": "tlg5031.tlg002",
    "slug": "scholia-in-nicandrum.scholia-et-glossae-in-nicandri-alexipharmaca-scholia-vetera-et",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg5034.tlg001a",
-   "slug": "scholia-in-pindarum.tlg5034-tlg001a",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg5034.tlg001b",
-   "slug": "scholia-in-pindarum.tlg5034-tlg001b",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg5034.tlg001c",
-   "slug": "scholia-in-pindarum.tlg5034-tlg001c",
-   "century": -2,
-   "era": "hellenistic"
-  },
-  {
-   "urn": "tlg5034.tlg001d",
-   "slug": "scholia-in-pindarum.tlg5034-tlg001d",
    "century": -2,
    "era": "hellenistic"
   },
@@ -7687,6 +7663,10 @@
   "tlg5023.tlg014",
   "tlg5023.tlg015",
   "tlg5023.tlg016",
+  "tlg5034.tlg001a",
+  "tlg5034.tlg001b",
+  "tlg5034.tlg001c",
+  "tlg5034.tlg001d",
   "tlg9006.tlg011",
   "tlg9006.tlg016"
  ]
