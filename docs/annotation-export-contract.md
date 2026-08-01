@@ -107,7 +107,8 @@ what order) and the text-source watchlist (which text sources cog ingests next).
 | 1b | PTNK | preserve the UD (Universal Dependencies) train / dev / test split | built (`ptnk-v1`) |
 | 1c | Pedalion trees | the per-token ref prefix *is* the provenance: `Leuven` / `PER` / `GORMAN` / `PRO1` / `PRO2` / `HARR`. Apply the source policy at ingest: drop `PRO1` / `PRO2` (tier-1 PROIEL), tag `GORMAN` rows `provenance=gorman`, pass the rest through. | built (`pedalion-v1`) |
 | 1d | TAGNT | word-level annotation | built (`tagnt-v1`) |
-| 1e | GLAUx + Diorisis | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked GLAUx works (tier 1), tag the 40 Gorman-credited works `provenance=gorman`. | queued |
+| 1e | GLAUx | carry the per-sentence `analysis` (`manual` / `auto`) and the per-work `TREEBANK_ANNOTATIONS` provenance; drop the 25 PROIEL-marked works (tier 1), exclude NC and unclear source licenses, tag the Gorman-credited works' manual sentences `provenance=gorman`. | built (`glaux-v1`, pending publish) |
+| 1e | Diorisis | the other half of item 1e; carry its per-sentence annotation with the same policy screens. | queued |
 
 #### Built: OGA export `oga-v1`
 
@@ -146,6 +147,42 @@ excluded on edition-rights grounds, and the literary scope (works not already in
 GLAUx) is re-verified against GLAUx's `metadata.txt` at run time. dilemma pins:
 
     cog export pedalion-v1, sha256:ec549294330f0dafdc826fd7e44ec6eaa176cb4d76a5f542003b8d75c370edea
+
+#### Built: GLAUx export `glaux-v1` (pending publish)
+
+Item 1e's GLAUx half. The payload lives on the Hub per "Storage" above, under
+`glaux-v1/` (per-work `works/<cts-work-id>.jsonl.gz` plus `manifest.json` and
+`glaux_scope_audit.json`); the git-tracked pointer stub is
+`data/annotations/glaux/glaux-v1.json`. It is produced reproducibly by
+`scripts/export_glaux_annotations.py` from the retained GLAUx clone (commit
+`b077d8f6`, corpus CC BY-SA). Scope: 1,375 CTS works (1,387 GLAUx documents;
+letter-suffix parts merged into their base work with a per-token `doc` field),
+19,383,236 tokens, 941,208 sentences. GLAUx's native per-sentence `analysis`
+(`manual` / `auto`) is carried per token and the per-work `TREEBANK_ANNOTATIONS`
+credit in the manifest. Policy screens, all re-derived from `metadata.txt` at
+run time: the 25 PROIEL-marked works (tier 1, 364,200 tokens) are dropped; the
+7 NonCommercial SOURCE_LICENSE works (107,200 tokens, largest Aesop `0096-002a`)
+are excluded; 2 unclear-license works (6,380 tokens: `0237-003` OpenEdition
+Books License, `2034-006` GPL) are excluded because the aggregate is published
+under CC BY-SA and unknown or unclear per-work licenses are excluded rather
+than served. Manual sentences in the 40 Gorman-credited works are
+`provenance_tag=gorman` (19,891 sentences / 490,511 tokens); everything else is
+`provenance_tag=glaux`. Encoding is normalized per this contract. dilemma pins:
+
+    cog export glaux-v1, sha256:dda362b02dd980b26d44deb01f62a726b168ebb2d84ddff7842fb9265daca83c
+
+Gorman coverage ruling (diffed against vgorman1/Greek-Dependency-Trees): all 40
+Gorman-credited GLAUx works appear in the Gorman repo, so `glaux-v1` subsumes
+the Gorman trees at work level, with the `gorman` tag marking exactly their
+manual sentences. Gorman trees NOT subsumed, a possible small future item:
+Herodotus book 1 (GLAUx's Herodotus is PROIEL-marked and dropped), Andocides 1
+(partial, sections 1-75), Demosthenes 7 / 17 / 27 / 36 / 37 / 39 / 42 / 45 /
+51 / 54 / 57, Isaeus 3, Isocrates 18, Plutarch `0007-087`, and Xenophon
+Anabasis books 1 and 3 (all auto-only in GLAUx), plus Plato's Crito (in the
+Gorman repo, but GLAUx credits its manual layer to Pedalion). License finding:
+the Gorman repo's `TREEBANK LICENSE` is CC BY-SA 4.0 with no NonCommercial
+term; the GLAUx README's "CC BY-NC-SA 4.0" claim for the Gorman trees is stale
+against upstream.
 
 ### Text-source watchlist
 
