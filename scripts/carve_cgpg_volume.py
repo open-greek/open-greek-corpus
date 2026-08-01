@@ -512,19 +512,26 @@ def update_cgpg_works(vol_plan: dict, per_work_audit: list[dict],
                                "title": w["title"],
                                "author": w.get("author_display", ""),
                                "cgpg_chosen": wa["rank"] == "primary"})
+        # a secondary copy of a slug whose PRIMARY is another volume's cgpg
+        # carve gets kind "secondary-witness": reconcile_cgpg_works.py (kind ==
+        # "work" only) must not flip it to cgpg_chosen, and build_provenance
+        # must not let it shadow the primary entry's desc
+        kind = w.get("cgpg_works_kind", "work")
         new_entries.append({
-            "volume": vol, "urn": wa["slug"], "kind": "work",
+            "volume": vol, "urn": wa["slug"], "kind": kind,
             "desc": f"{w.get('author_display', '')} - {w['title']} "
                     f"({vol} loci {wa['volume_loci']})".strip(" -"),
             **template,
             "n_passages": wa["rows"], "n_tokens": wa["greek_tokens"],
             "works": works_list,
-            "cgpg_chosen": wa["rank"] == "primary",
+            "cgpg_chosen": wa["rank"] == "primary" and kind == "work",
         })
-    # drop any prior entries for these slugs (idempotent re-add), insert after
-    # the volume entry in plan order
+    # drop any prior entries THIS volume contributed for these slugs
+    # (idempotent re-add; another volume's entry for the same slug stays),
+    # insert after the volume entry in plan order
     slugs = {e["urn"] for e in new_entries}
-    vols = [e for e in vols if e.get("urn") not in slugs]
+    vols = [e for e in vols
+            if not (e.get("urn") in slugs and e.get("volume") == vol)]
     vol_idx = next(i for i, e in enumerate(vols) if e.get("urn") == src_urn)
     vols[vol_idx + 1:vol_idx + 1] = new_entries
     fp.write_text(json.dumps(vols, ensure_ascii=False, indent=1) + "\n",
@@ -553,11 +560,27 @@ def propagate_corrected_flag(src_urn: str, vol_plan: dict) -> list[str]:
     return added
 
 
+def refresh_cgpg_works(vol_plan: dict) -> None:
+    """Re-derive this volume's data/cgpg_works.json entries from its applied
+    audit record (for repairing/regenerating the metadata without re-carving)."""
+    vol = vol_plan["volume"]
+    audit_fp = DATA / "corpus_changes" / f"cogPG.{vol}.per-work-split.json"
+    if not audit_fp.exists():
+        fail(f"{vol}: no audit record; carve not applied")
+    audit = json.loads(audit_fp.read_text(encoding="utf-8"))
+    update_cgpg_works(vol_plan, audit["works"], audit["residual"]["loci"],
+                      audit["residual"]["greek_tokens"])
+    print(f"{vol}: cgpg_works.json entries re-derived from {audit_fp.name}")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--volume", required=True, help="e.g. PG005")
     ap.add_argument("--plan", type=Path, default=PLAN_PATH)
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--refresh-cgpg-works", action="store_true",
+                    help="re-derive this volume's cgpg_works.json entries from "
+                         "its applied audit record (no carving)")
     args = ap.parse_args()
 
     plan = json.loads(args.plan.read_text(encoding="utf-8"))
@@ -565,6 +588,9 @@ def main() -> int:
     if vol_plan is None:
         fail(f"plan has no volume {args.volume}")
     vol_plan.setdefault("date", plan["_meta"]["date"])
+    if args.refresh_cgpg_works:
+        refresh_cgpg_works(vol_plan)
+        return 0
     carve(vol_plan, args.apply)
     return 0
 

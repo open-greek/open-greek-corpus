@@ -94,7 +94,10 @@ def is_masked(edition: str, urn: str, prov_recs: dict) -> bool:
 
 def main() -> None:
     ce = _load("corpus_editions.json") or {}
-    cgpg = {w["urn"]: w for w in (_load("cgpg_works.json") or [])}
+    # kind "secondary-witness" entries (a displaced CGPG copy of a slug whose
+    # primary is another volume's carve) must not shadow the primary's desc
+    cgpg = {w["urn"]: w for w in (_load("cgpg_works.json") or [])
+            if w.get("kind") != "secondary-witness"}
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
     prov_recs = _load_provenance()

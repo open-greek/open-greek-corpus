@@ -93,7 +93,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 7748
+  }
  },
  {
   "volume": "PG005",
@@ -114,7 +120,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 19276
+  }
  },
  {
   "volume": "PG005",
@@ -182,7 +194,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "polycarpus.epistula-ad-philippenses",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 1580
+  }
  },
  {
   "volume": "PG005",
@@ -203,7 +221,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "martyrium-polycarpi.epistula-ecclesiae-smyrnensis-de-martyrio-sancti-polycarpi",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 2641
+  }
  },
  {
   "volume": "PG005",
@@ -368,7 +392,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "polycrates-scr-eccl.fragmentum-synodicae-epistulae",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 306
+  }
  },
  {
   "volume": "PG005",
@@ -452,7 +482,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "seniores-apud-irenaeum.reliquiae-plurium-anonymorum",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 348
+  }
  },
  {
   "volume": "PG005",
@@ -569,7 +605,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "justinus-martyr.apologia",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 14434
+  }
  },
  {
   "volume": "PG006",
@@ -590,7 +632,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "justinus-martyr.apologia-secunda",
+   "source": "first1k",
+   "edition": "perseus-grc2",
+   "n_tokens": 3293
+  }
  },
  {
   "volume": "PG006",
@@ -611,7 +659,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "justinus-martyr.dialogus-cum-tryphone",
+   "source": "first1k",
+   "edition": "perseus-grc2",
+   "n_tokens": 52025
+  }
  },
  {
   "volume": "PG006",
@@ -632,7 +686,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "tatianus.oratio-ad-graecos",
+   "source": "first1k",
+   "edition": "perseus-grc1",
+   "n_tokens": 10189
+  }
  },
  {
   "volume": "PG006",
@@ -653,7 +713,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "athenagoras.legatio-sive-supplicatio-pro-christianis",
+   "source": "first1k",
+   "edition": "perseus-grc1",
+   "n_tokens": 11300
+  }
  },
  {
   "volume": "PG006",
@@ -674,7 +740,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "athenagoras.de-resurrectione",
+   "source": "first1k",
+   "edition": "perseus-grc2",
+   "n_tokens": 8913
+  }
  },
  {
   "volume": "PG006",
@@ -695,7 +767,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "theophilus-apologetics.ad-autolycum",
+   "source": "first1k",
+   "edition": "perseus-grc1",
+   "n_tokens": 21600
+  }
  },
  {
   "volume": "PG006",
@@ -1771,7 +1849,7 @@
   "volume": "PG122",
   "urn": "cogPG.PG122",
   "kind": "volume",
-  "desc": "Scylitzes continuatus + Psellus (Cedrenus v2 913-1057 split to georgius-cedrenus.compendium-historiarum / tlg3018.tlg001) (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
+  "desc": "Scylitzes continuatus + Psellus (Cedrenus v2 913-1057 split to georgius-cedrenus.compendium-historiarum / tlg3018.tlg001) (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed) (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
@@ -1798,7 +1876,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "scylitzes-continuatus.continuatio-scylitzae",
+   "source": "byzantium_gr",
+   "edition": "byzantium-gr",
+   "n_tokens": 21241
+  }
  },
  {
   "volume": "PG122",
@@ -2053,7 +2137,7 @@
  {
   "volume": "PG122",
   "urn": "pseudo-codinus.patria-constantinopoleos",
-  "kind": "work",
+  "kind": "secondary-witness",
   "desc": "Pseudo-Codinus (Anonymus Banduri) - De antiquitatibus Constantinopolitanis libri IV = Patria Constantinopoleos (Banduri's Anonymus; ends mid-book III) (PG122 loci 627-679)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
@@ -2696,7 +2780,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "joannes-zonaras.epitome-historiarum-lib-1-12",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 346333
+  }
  },
  {
   "volume": "PG134",
@@ -3035,7 +3125,7 @@
   "volume": "PG157",
   "urn": "cogPG.PG157",
   "kind": "volume",
-  "desc": "George Codinus; Ducas; Chronicon breve (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
+  "desc": "George Codinus; Ducas; Chronicon breve (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed) (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
@@ -3058,6 +3148,27 @@
     "tlg_id": "tlg3168",
     "work_id": "001",
     "title": "De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae)",
+    "author": "Pseudo-Codinus",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG157",
+  "urn": "pseudo-codinus.patria-constantinopoleos",
+  "kind": "work",
+  "desc": "Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 101,
+  "n_tokens": 25157,
+  "works": [
+   {
+    "tlg_id": "tlg3168",
+    "work_id": "005",
+    "title": "Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis)",
     "author": "Pseudo-Codinus",
     "cgpg_chosen": true
    }
