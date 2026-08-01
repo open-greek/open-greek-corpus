@@ -5,12 +5,12 @@
     "editions": 8934,
     "pct_works_with_canonical_locus": 37.1,
     "pct_works_with_logical_served_locus": 9.8,
-    "pct_works_with_work_qid": 4.5,
+    "pct_works_with_work_qid": 5.3,
     "pct_works_with_author_qid": 55.6,
     "pct_authors_with_wikidata": 43.3,
     "served_works": 3668,
     "pct_served_in_registry": 78.2,
-    "pct_served_with_work_qid": 11.5,
+    "pct_served_with_work_qid": 13.7,
     "pct_served_with_author_qid": 74.7,
     "pct_served_with_any_anchor": 89.7,
     "pct_served_with_logical_served_locus": 29.0
@@ -21,8 +21,8 @@
       "pct": 100.0
     },
     "wikidata": {
-      "count": 488,
-      "pct": 4.5
+      "count": 579,
+      "pct": 5.3
     },
     "trismegistos": {
       "count": 0,
@@ -47,7 +47,7 @@
       "pct": 41.8
     },
     "gnd": {
-      "count": 1333,
+      "count": 1332,
       "pct": 41.1
     },
     "isni": {
@@ -531,13 +531,13 @@
         "antipater.fragmenta-fhg"
       ]
     },
-    "with_work_qid": 422,
+    "with_work_qid": 502,
     "with_author_qid": 2741,
     "with_any_external_anchor": 3292,
     "with_logical_served_locus": 1062,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2319,
+      "count": 2239,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -595,7 +595,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5536,
+      "count": 5445,
       "examples": [
         {
           "work": "abydenus.fragmenta",
