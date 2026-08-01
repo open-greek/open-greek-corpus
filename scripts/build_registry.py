@@ -619,10 +619,13 @@ def build() -> Registry:
         for tlg, recs in json.loads(WORK_AUTHORITY.read_text(encoding="utf-8")).items():
             by_title = {}
             for rc in recs:
-                # index under every label form (English + Latin + Greek); the
-                # Latin label is the Canon's title form. Dedup a rec per norm key.
+                # index under every label form (English + Latin + Greek) plus
+                # the altLabel variants (the Latinized scholarly titles often
+                # live only there); the Latin label is the Canon's title form.
+                # Dedup a rec per norm key.
                 forms = {_norm_title(rc[k]) for k in ("label", "la", "grc", "el")
                          if rc.get(k)}
+                forms |= {_norm_title(a) for a in rc.get("alts", [])}
                 forms.discard("")
                 for nt in forms:
                     lst = by_title.setdefault(nt, [])
