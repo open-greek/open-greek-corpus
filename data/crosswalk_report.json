@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 10823,
-    "authors": 3240,
+    "works": 10834,
+    "authors": 3241,
     "editions": 8934,
     "pct_works_with_canonical_locus": 37.1,
     "pct_works_with_logical_served_locus": 9.8,
     "pct_works_with_work_qid": 4.5,
-    "pct_works_with_author_qid": 55.7,
+    "pct_works_with_author_qid": 55.6,
     "pct_authors_with_wikidata": 43.3,
-    "served_works": 3657,
-    "pct_served_in_registry": 78.4,
+    "served_works": 3668,
+    "pct_served_in_registry": 78.2,
     "pct_served_with_work_qid": 11.5,
-    "pct_served_with_author_qid": 74.8,
+    "pct_served_with_author_qid": 74.7,
     "pct_served_with_any_anchor": 89.7,
     "pct_served_with_logical_served_locus": 29.0
   },
   "work_aliases": {
     "cts": {
-      "count": 10823,
+      "count": 10834,
       "pct": 100.0
     },
     "wikidata": {
@@ -415,7 +415,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9188,
+      "count": 9199,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -473,16 +473,17 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3657,
+    "served_works": 3668,
     "in_registry": 2868,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 789,
+      "count": 800,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
         "achaeus.fragmenta-fhg4",
         "aelius-harpocration.fragmenta",
+        "aelius-herodianus-et-pseudo-herodianus.de-passionibus-excerpta-e-didymo",
         "aenesidemus.fragmenta",
         "aethlius-samius.fragmenta",
         "agaclytus.fragmenta",
@@ -527,17 +528,16 @@
         "antileo.fragmenta",
         "antilochus.fragmenta",
         "antiochianus.fragmenta",
-        "antipater.fragmenta-fhg",
-        "antisthenes.declamationes-fragmenta"
+        "antipater.fragmenta-fhg"
       ]
     },
     "with_work_qid": 422,
-    "with_author_qid": 2734,
-    "with_any_external_anchor": 3281,
+    "with_author_qid": 2741,
+    "with_any_external_anchor": 3292,
     "with_logical_served_locus": 1062,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2312,
+      "count": 2319,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -900,7 +900,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1836,
+      "count": 1837,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
