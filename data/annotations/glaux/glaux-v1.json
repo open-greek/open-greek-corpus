@@ -1,0 +1,52 @@
+{
+ "release_id": "glaux-v1",
+ "content_hash": "sha256:dda362b02dd980b26d44deb01f62a726b168ebb2d84ddff7842fb9265daca83c",
+ "pin_line": "cog export glaux-v1, sha256:dda362b02dd980b26d44deb01f62a726b168ebb2d84ddff7842fb9265daca83c",
+ "storage": {
+  "hf_dataset_repo": "ciscoriordan/open-greek-corpus-annotation-exports",
+  "repo_type": "dataset",
+  "path_in_repo": "glaux-v1/",
+  "url": "https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports/tree/main/glaux-v1",
+  "payload": "works/<work_key>.jsonl.gz per exported work, plus manifest.json and glaux_scope_audit.json",
+  "note": "docs/annotation-export-contract.md, 'Storage': export payloads live on the Hub; git tracks the exporter script and this pointer stub only. Regenerate locally with scripts/export_glaux_annotations.py, publish with scripts/upload_annotation_export.py."
+ },
+ "counts": {
+  "works_exported": 1375,
+  "glaux_documents_exported": 1387,
+  "tokens": 19383236,
+  "sentences": 941208,
+  "sentences_by_analysis": {
+   "manual": 63026,
+   "auto": 878182
+  },
+  "tokens_by_analysis": {
+   "manual": 1175070,
+   "auto": 18208166
+  },
+  "provenance_sentences": {
+   "glaux": 921317,
+   "gorman": 19891
+  },
+  "provenance_tokens": {
+   "glaux": 18892725,
+   "gorman": 490511
+  },
+  "artificial_nodes": 362172,
+  "tokens_missing_locus": 140434,
+  "tokens_locus_fallback": 507051,
+  "composite_locus_works": 2,
+  "works_dropped_proiel": 25,
+  "works_excluded_noncommercial": 7,
+  "works_excluded_unclear_license": 2
+ },
+ "generated_by": "scripts/export_glaux_annotations.py",
+ "generated_at": "2026-08-01T01:24:43Z",
+ "contract": "docs/annotation-export-contract.md",
+ "upstream_pin": {
+  "source": "GLAUx (the Greek Language Automated) @ b077d8f6ff429a5c7245954bc16bb7d1d7948823",
+  "repo": "https://github.com/alekkeersmaekers/glaux",
+  "commit": "b077d8f6ff429a5c7245954bc16bb7d1d7948823",
+  "retained_clone": "~/Documents/glaux",
+  "note": "cog pins the upstream; consumers pin only pin_line (docs/pinning-discipline.md)"
+ }
+}
