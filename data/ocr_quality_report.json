@@ -5,8 +5,8 @@
     "cgpg",
     "ocr"
    ],
-   "n_token_occurrences": 36123382,
-   "n_unique_forms": 1167381,
+   "n_token_occurrences": 36124268,
+   "n_unique_forms": 1167424,
    "n_works": 2496,
    "sources": [
     "byzantine_vernacular",
@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1172,
-   "ocr_works_ranked": 669,
-   "ocr_works_with_witness": 181,
-   "secondary_files": 374,
-   "skipped": 32,
-   "tei_primary_ocr_secondary_pairs": 163
+   "ocr_works": 1326,
+   "ocr_works_ranked": 769,
+   "ocr_works_with_witness": 182,
+   "secondary_files": 390,
+   "skipped": 29,
+   "tei_primary_ocr_secondary_pairs": 179
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -38,14 +38,6 @@
   "methodology": "unattested rate = share of NFC Greek tokens >= 4 chars (all-caps excluded) absent from the non-OCR corpus, per ocr_llm_correct.py iter_passages; witness agreement = occurrence-weighted normalized word-bigram containment ESTIMATES between unaligned editions, per dedup_fhg_containment.py normalization",
   "min_rank_tokens": 2000,
   "skips": [
-   {
-    "reason": "996 mis-ingested secondary rows (different work) excluded from the witness",
-    "slug": "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione"
-   },
-   {
-    "reason": "secondary file empty; witness null",
-    "slug": "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione"
-   },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "antistius-ap-duebner-v2"
@@ -151,10 +143,6 @@
     "slug": "polybius-megalopolitanus.fragmenta"
    },
    {
-    "reason": "47 mis-ingested secondary rows (different work) excluded from the witness",
-    "slug": "satyrus.vita-euripidis-p-oxy-9-1176"
-   },
-   {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "scholia-in-sophoclem.scholia-in-sophoclis-ajacem-scholia-vetera"
    },
@@ -170,31 +158,31 @@
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9128,
-    "median": 0.7605,
+    "median": 0.7794,
     "min": 0.1072,
-    "n": 59,
-    "q1": 0.6784,
-    "q3": 0.8069
+    "n": 72,
+    "q1": 0.6939,
+    "q3": 0.8367
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9128,
-    "median": 0.6914,
+    "median": 0.7047,
     "min": 0.0192,
-    "n": 163,
-    "q1": 0.5304,
-    "q3": 0.7798
+    "n": 179,
+    "q1": 0.544,
+    "q3": 0.7954
    },
-   "n_pairs": 163,
-   "n_pairs_summarized": 59,
+   "n_pairs": 179,
+   "n_pairs_summarized": 72,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4406,
-   "median": 0.147,
-   "min": 0.034,
-   "n": 669,
-   "q1": 0.1161,
-   "q3": 0.1848
+   "median": 0.1377,
+   "min": 0.0129,
+   "n": 769,
+   "q1": 0.1028,
+   "q3": 0.1746
   }
  },
  "works": {
@@ -205,6 +193,15 @@
    "n_unattested": 254,
    "source": "ocr",
    "unattested_rate": 0.272532,
+   "witness": null
+  },
+  "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b": {
+   "edition": "cgpg",
+   "n_tokens": 653,
+   "n_tokens_checked": 453,
+   "n_unattested": 38,
+   "source": "cgpg",
+   "unattested_rate": 0.083885,
    "witness": null
   },
   "acusilaus.testimonia-2": {
@@ -262,9 +259,9 @@
    "edition": "nauck-tgf-ocr",
    "n_tokens": 16985,
    "n_tokens_checked": 11208,
-   "n_unattested": 1223,
+   "n_unattested": 1221,
    "source": "ocr",
-   "unattested_rate": 0.109118,
+   "unattested_rate": 0.10894,
    "witness": null
   },
   "agaclytus.fragmentum": {
@@ -594,6 +591,15 @@
    "unattested_rate": 0.324276,
    "witness": null
   },
+  "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis": {
+   "edition": "cgpg",
+   "n_tokens": 1214,
+   "n_tokens_checked": 777,
+   "n_unattested": 53,
+   "source": "cgpg",
+   "unattested_rate": 0.068211,
+   "witness": null
+  },
   "anthemius.dupuy-1777": {
    "edition": "qwen36-anthemius_dupuy_1777",
    "n_tokens": 2563,
@@ -791,6 +797,15 @@
     "n_bigrams_secondary": 1631,
     "secondary_edition": "qwen36-apollonius_parad_keller_v1"
    }
+  },
+  "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas": {
+   "edition": "cgpg",
+   "n_tokens": 557,
+   "n_tokens_checked": 357,
+   "n_unattested": 19,
+   "source": "cgpg",
+   "unattested_rate": 0.053221,
+   "witness": null
   },
   "apollonius-soph.lexicon-homericum": {
    "edition": "qwen36-apollonius_sophista_bekker-masked",
@@ -1917,6 +1932,24 @@
     "secondary_edition": "qwen36-archedemus_svf3"
    }
   },
+  "basilius-i-macedo.altera-paraenesis-ad-leonem-filium": {
+   "edition": "cgpg",
+   "n_tokens": 531,
+   "n_tokens_checked": 330,
+   "n_unattested": 20,
+   "source": "cgpg",
+   "unattested_rate": 0.060606,
+   "witness": null
+  },
+  "basilius-i-macedo.paraenesis-ad-leonem-filium": {
+   "edition": "cgpg",
+   "n_tokens": 6491,
+   "n_tokens_checked": 4065,
+   "n_unattested": 417,
+   "source": "cgpg",
+   "unattested_rate": 0.102583,
+   "witness": null
+  },
   "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 33777,
@@ -2769,6 +2802,15 @@
    "unattested_rate": 0.5,
    "witness": null
   },
+  "claudius-apollinarius.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 346,
+   "n_tokens_checked": 219,
+   "n_unattested": 18,
+   "source": "cgpg",
+   "unattested_rate": 0.082192,
+   "witness": null
+  },
   "clearchus-comedy.fragmenta": {
    "edition": "kock-caf2-ocr-frag",
    "n_tokens": 181,
@@ -2846,20 +2888,11 @@
   },
   "cogPG.PG005": {
    "edition": "cgpg",
-   "n_tokens": 47804,
-   "n_tokens_checked": 29315,
-   "n_unattested": 1141,
+   "n_tokens": 2534,
+   "n_tokens_checked": 1588,
+   "n_unattested": 86,
    "source": "cgpg",
-   "unattested_rate": 0.038922,
-   "witness": null
-  },
-  "cogPG.PG006": {
-   "edition": "cgpg",
-   "n_tokens": 213836,
-   "n_tokens_checked": 125829,
-   "n_unattested": 4276,
-   "source": "cgpg",
-   "unattested_rate": 0.033983,
+   "unattested_rate": 0.054156,
    "witness": null
   },
   "cogPG.PG067": {
@@ -2871,40 +2904,31 @@
    "unattested_rate": 0.036177,
    "witness": null
   },
-  "cogPG.PG087_1": {
-   "edition": "cgpg",
-   "n_tokens": 208108,
-   "n_tokens_checked": 123898,
-   "n_unattested": 8478,
-   "source": "cgpg",
-   "unattested_rate": 0.068427,
-   "witness": null
-  },
   "cogPG.PG101": {
    "edition": "cgpg",
-   "n_tokens": 232559,
-   "n_tokens_checked": 135649,
-   "n_unattested": 9405,
+   "n_tokens": 515,
+   "n_tokens_checked": 316,
+   "n_unattested": 16,
    "source": "cgpg",
-   "unattested_rate": 0.069333,
+   "unattested_rate": 0.050633,
    "witness": null
   },
   "cogPG.PG107": {
    "edition": "cgpg",
-   "n_tokens": 196884,
-   "n_tokens_checked": 120555,
-   "n_unattested": 13042,
+   "n_tokens": 1050,
+   "n_tokens_checked": 627,
+   "n_unattested": 53,
    "source": "cgpg",
-   "unattested_rate": 0.108183,
+   "unattested_rate": 0.08453,
    "witness": null
   },
   "cogPG.PG109": {
    "edition": "cgpg",
-   "n_tokens": 209576,
-   "n_tokens_checked": 130109,
-   "n_unattested": 13108,
+   "n_tokens": 7,
+   "n_tokens_checked": 1,
+   "n_unattested": 1,
    "source": "cgpg",
-   "unattested_rate": 0.100746,
+   "unattested_rate": 1.0,
    "witness": null
   },
   "cogPG.PG112": {
@@ -2927,65 +2951,29 @@
   },
   "cogPG.PG118": {
    "edition": "cgpg",
-   "n_tokens": 267557,
-   "n_tokens_checked": 159707,
-   "n_unattested": 8555,
+   "n_tokens": 6630,
+   "n_tokens_checked": 4230,
+   "n_unattested": 288,
    "source": "cgpg",
-   "unattested_rate": 0.053567,
-   "witness": null
-  },
-  "cogPG.PG122": {
-   "edition": "cgpg",
-   "n_tokens": 153859,
-   "n_tokens_checked": 91561,
-   "n_unattested": 10991,
-   "source": "cgpg",
-   "unattested_rate": 0.12004,
-   "witness": null
-  },
-  "cogPG.PG123": {
-   "edition": "cgpg",
-   "n_tokens": 256516,
-   "n_tokens_checked": 152118,
-   "n_unattested": 8859,
-   "source": "cgpg",
-   "unattested_rate": 0.058238,
+   "unattested_rate": 0.068085,
    "witness": null
   },
   "cogPG.PG124": {
    "edition": "cgpg",
-   "n_tokens": 261375,
-   "n_tokens_checked": 154495,
-   "n_unattested": 9166,
+   "n_tokens": 99,
+   "n_tokens_checked": 58,
+   "n_unattested": 53,
    "source": "cgpg",
-   "unattested_rate": 0.059329,
+   "unattested_rate": 0.913793,
    "witness": null
   },
   "cogPG.PG125": {
    "edition": "cgpg",
-   "n_tokens": 237195,
-   "n_tokens_checked": 142977,
-   "n_unattested": 16060,
+   "n_tokens": 1629,
+   "n_tokens_checked": 1027,
+   "n_unattested": 826,
    "source": "cgpg",
-   "unattested_rate": 0.112326,
-   "witness": null
-  },
-  "cogPG.PG126": {
-   "edition": "cgpg",
-   "n_tokens": 226342,
-   "n_tokens_checked": 135005,
-   "n_unattested": 11922,
-   "source": "cgpg",
-   "unattested_rate": 0.088308,
-   "witness": null
-  },
-  "cogPG.PG134": {
-   "edition": "cgpg",
-   "n_tokens": 288059,
-   "n_tokens_checked": 176761,
-   "n_unattested": 17068,
-   "source": "cgpg",
-   "unattested_rate": 0.09656,
+   "unattested_rate": 0.804284,
    "witness": null
   },
   "cogPG.PG139": {
@@ -2997,15 +2985,6 @@
    "unattested_rate": 0.079606,
    "witness": null
   },
-  "cogPG.PG146": {
-   "edition": "cgpg",
-   "n_tokens": 239129,
-   "n_tokens_checked": 148541,
-   "n_unattested": 10190,
-   "source": "cgpg",
-   "unattested_rate": 0.068601,
-   "witness": null
-  },
   "cogPG.PG151": {
    "edition": "cgpg",
    "n_tokens": 399713,
@@ -3013,33 +2992,6 @@
    "n_unattested": 11961,
    "source": "cgpg",
    "unattested_rate": 0.049856,
-   "witness": null
-  },
-  "cogPG.PG155": {
-   "edition": "cgpg",
-   "n_tokens": 200042,
-   "n_tokens_checked": 113748,
-   "n_unattested": 8801,
-   "source": "cgpg",
-   "unattested_rate": 0.077373,
-   "witness": null
-  },
-  "cogPG.PG157": {
-   "edition": "cgpg",
-   "n_tokens": 123862,
-   "n_tokens_checked": 74103,
-   "n_unattested": 9074,
-   "source": "cgpg",
-   "unattested_rate": 0.122451,
-   "witness": null
-  },
-  "cogPG.PG158": {
-   "edition": "cgpg",
-   "n_tokens": 197541,
-   "n_tokens_checked": 119029,
-   "n_unattested": 8751,
-   "source": "cgpg",
-   "unattested_rate": 0.07352,
    "witness": null
   },
   "comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e": {
@@ -3067,6 +3019,15 @@
    "n_unattested": 16665,
    "source": "ocr",
    "unattested_rate": 0.126215,
+   "witness": null
+  },
+  "constantinus-siculus.versus-in-leonem-philosophum": {
+   "edition": "cgpg",
+   "n_tokens": 257,
+   "n_tokens_checked": 180,
+   "n_unattested": 42,
+   "source": "cgpg",
+   "unattested_rate": 0.233333,
    "witness": null
   },
   "constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis": {
@@ -3663,6 +3624,15 @@
    "unattested_rate": 0.2,
    "witness": null
   },
+  "demetrius-cydones.occisorum-thessalonicae-monodia": {
+   "edition": "cgpg",
+   "n_tokens": 2526,
+   "n_tokens_checked": 1505,
+   "n_unattested": 113,
+   "source": "cgpg",
+   "unattested_rate": 0.075083,
+   "witness": null
+  },
   "demetrius-poet-phil.demetrius-de-eloc-roberts": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 21272,
@@ -4152,6 +4122,15 @@
    "unattested_rate": 0.147059,
    "witness": null
   },
+  "ducas.historia-turcobyzantina": {
+   "edition": "cgpg",
+   "n_tokens": 68757,
+   "n_tokens_checked": 40985,
+   "n_unattested": 5159,
+   "source": "cgpg",
+   "unattested_rate": 0.125875,
+   "witness": null
+  },
   "ecphantides.fragmenta": {
    "edition": "kock-caf1-ocr-frag",
    "n_tokens": 133,
@@ -4317,6 +4296,15 @@
    "unattested_rate": 0.053097,
    "witness": null
   },
+  "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam": {
+   "edition": "cgpg",
+   "n_tokens": 3668,
+   "n_tokens_checked": 2262,
+   "n_unattested": 75,
+   "source": "cgpg",
+   "unattested_rate": 0.033156,
+   "witness": null
+  },
   "eratosthenes-et-eratosthenica.catasterismi": {
    "edition": "qwen36-eratosthenes_bernhardy",
    "n_tokens": 20736,
@@ -4351,6 +4339,15 @@
    "n_unattested": 3284,
    "source": "ocr",
    "unattested_rate": 0.267274,
+   "witness": null
+  },
+  "esaias-cyprius.epistola-de-processione-spiritus-sancti": {
+   "edition": "cgpg",
+   "n_tokens": 707,
+   "n_tokens_checked": 384,
+   "n_unattested": 23,
+   "source": "cgpg",
+   "unattested_rate": 0.059896,
    "witness": null
   },
   "etymologicum-genuinum.etymologicum-genuinum-mwsge-pws": {
@@ -4627,9 +4624,9 @@
    "edition": "eustathius-odyssey-stallbaum-qwen36-pagekey",
    "n_tokens": 539821,
    "n_tokens_checked": 310134,
-   "n_unattested": 83746,
+   "n_unattested": 83745,
    "source": "ocr",
-   "unattested_rate": 0.270032,
+   "unattested_rate": 0.270028,
    "witness": null
   },
   "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium": {
@@ -5130,6 +5127,15 @@
    "unattested_rate": 0.0,
    "witness": null
   },
+  "fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae": {
+   "edition": "cgpg",
+   "n_tokens": 54,
+   "n_tokens_checked": 37,
+   "n_unattested": 1,
+   "source": "cgpg",
+   "unattested_rate": 0.027027,
+   "witness": null
+  },
   "gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth": {
    "edition": "qwen36-suetonius_reliquiae_reifferscheid",
    "n_tokens": 11498,
@@ -5171,6 +5177,15 @@
     "n_bigrams_secondary": 26190,
     "secondary_edition": "qwen36-choeroboscus_hilgard_gg4"
    }
+  },
+  "georgius-monachus-continuatus.chronicon-continuatio-redactio": {
+   "edition": "cgpg",
+   "n_tokens": 29808,
+   "n_tokens_checked": 18284,
+   "n_unattested": 2109,
+   "source": "cgpg",
+   "unattested_rate": 0.115347,
+   "witness": null
   },
   "georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior": {
    "edition": "migne-ocr-qwen36",
@@ -5263,9 +5278,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 43522,
    "n_tokens_checked": 28862,
-   "n_unattested": 8004,
+   "n_unattested": 8003,
    "source": "ocr",
-   "unattested_rate": 0.27732,
+   "unattested_rate": 0.277285,
    "witness": null
   },
   "gregorius-nazianzenus.carmina-dogmatica": {
@@ -6147,6 +6162,15 @@
    "unattested_rate": 0.077922,
    "witness": null
   },
+  "hegesippus-scr-eccl.fragmenta-ex-incerto-libro": {
+   "edition": "cgpg",
+   "n_tokens": 1511,
+   "n_tokens_checked": 911,
+   "n_unattested": 37,
+   "source": "cgpg",
+   "unattested_rate": 0.040615,
+   "witness": null
+  },
   "hegesippus.fragmenta": {
    "edition": "kock-caf3-ocr-frag",
    "n_tokens": 164,
@@ -6247,6 +6271,15 @@
    "n_unattested": 1315,
    "source": "ocr",
    "unattested_rate": 0.329326,
+   "witness": null
+  },
+  "hermias-apologetics.irrisio-gentilium-philosophorum": {
+   "edition": "cgpg",
+   "n_tokens": 1818,
+   "n_tokens_checked": 1037,
+   "n_unattested": 43,
+   "source": "cgpg",
+   "unattested_rate": 0.041466,
    "witness": null
   },
   "hermias-history.fragmenta": {
@@ -6406,6 +6439,15 @@
    "n_unattested": 36,
    "source": "ocr",
    "unattested_rate": 0.157205,
+   "witness": null
+  },
+  "hilarion-monachus.oratio-dialectica-de-pane-mystico": {
+   "edition": "cgpg",
+   "n_tokens": 1414,
+   "n_tokens_checked": 845,
+   "n_unattested": 87,
+   "source": "cgpg",
+   "unattested_rate": 0.102959,
    "witness": null
   },
   "himerius.declamationes-et-orationes": {
@@ -6585,6 +6627,15 @@
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
   },
+  "ignatius-scr-eccl.fragmenta-ex-epistolis": {
+   "edition": "cgpg",
+   "n_tokens": 1281,
+   "n_tokens_checked": 815,
+   "n_unattested": 18,
+   "source": "cgpg",
+   "unattested_rate": 0.022086,
+   "witness": null
+  },
   "ilias-parva.ilias-parva-fragmenta": {
    "edition": "qwen36-antimachus_kinkel_egf1-ocr",
    "n_tokens": 1894,
@@ -6684,6 +6735,24 @@
    "unattested_rate": 0.206077,
    "witness": null
   },
+  "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem": {
+   "edition": "cgpg",
+   "n_tokens": 3552,
+   "n_tokens_checked": 1956,
+   "n_unattested": 139,
+   "source": "cgpg",
+   "unattested_rate": 0.071063,
+   "witness": null
+  },
+  "joannes-cameniates.de-expugnatione-thessalonicae": {
+   "edition": "cgpg",
+   "n_tokens": 22490,
+   "n_tokens_checked": 14250,
+   "n_unattested": 1248,
+   "source": "cgpg",
+   "unattested_rate": 0.087579,
+   "witness": null
+  },
   "joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 7512,
@@ -6751,9 +6820,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 3021,
    "n_tokens_checked": 1867,
-   "n_unattested": 287,
+   "n_unattested": 286,
    "source": "ocr",
-   "unattested_rate": 0.153723,
+   "unattested_rate": 0.153187,
    "witness": null
   },
   "joannes-chrysostomus.ad-viduam-juniorem": {
@@ -8187,6 +8256,15 @@
    "unattested_rate": 0.088495,
    "witness": null
   },
+  "joannes-diaconus-hadrianopolitanus.carmen-politicum": {
+   "edition": "cgpg",
+   "n_tokens": 3075,
+   "n_tokens_checked": 1971,
+   "n_unattested": 262,
+   "source": "cgpg",
+   "unattested_rate": 0.132927,
+   "witness": null
+  },
   "joannes-epiphaniensis.fragmentum": {
    "edition": "qwen36-socrates_hist_fhg4",
    "n_tokens": 1699,
@@ -8209,6 +8287,24 @@
    "n_unattested": 18684,
    "source": "ocr",
    "unattested_rate": 0.157912,
+   "witness": null
+  },
+  "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno": {
+   "edition": "cgpg",
+   "n_tokens": 2938,
+   "n_tokens_checked": 1763,
+   "n_unattested": 134,
+   "source": "cgpg",
+   "unattested_rate": 0.076007,
+   "witness": null
+  },
+  "joannes-hierosolymitanus.narratio": {
+   "edition": "cgpg",
+   "n_tokens": 555,
+   "n_tokens_checked": 345,
+   "n_unattested": 47,
+   "source": "cgpg",
+   "unattested_rate": 0.136232,
    "witness": null
   },
   "joannes-laurentius-lydus.de-magistratibus-populi-romani": {
@@ -8244,6 +8340,60 @@
     "secondary_edition": "qwen36-tzetzes_historiae_kiessling"
    }
   },
+  "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub": {
+   "edition": "cgpg",
+   "n_tokens": 775,
+   "n_tokens_checked": 508,
+   "n_unattested": 44,
+   "source": "cgpg",
+   "unattested_rate": 0.086614,
+   "witness": null
+  },
+  "joannes-zonaras.epitome-historiarum-lib-13-18": {
+   "edition": "cgpg",
+   "n_tokens": 57628,
+   "n_tokens_checked": 35937,
+   "n_unattested": 3657,
+   "source": "cgpg",
+   "unattested_rate": 0.101761,
+   "witness": null
+  },
+  "job-monachus.prooemium-in-psalmos": {
+   "edition": "cgpg",
+   "n_tokens": 340,
+   "n_tokens_checked": 206,
+   "n_unattested": 12,
+   "source": "cgpg",
+   "unattested_rate": 0.058252,
+   "witness": null
+  },
+  "josephus-genesius.basilei-ai": {
+   "edition": "cgpg",
+   "n_tokens": 22703,
+   "n_tokens_checked": 14634,
+   "n_unattested": 1799,
+   "source": "cgpg",
+   "unattested_rate": 0.122933,
+   "witness": null
+  },
+  "josephus-ii-patriarcha.confessio-fidei": {
+   "edition": "cgpg",
+   "n_tokens": 237,
+   "n_tokens_checked": 146,
+   "n_unattested": 15,
+   "source": "cgpg",
+   "unattested_rate": 0.10274,
+   "witness": null
+  },
+  "justinus-martyr.fragmenta-operum-deperditorum": {
+   "edition": "cgpg",
+   "n_tokens": 338,
+   "n_tokens_checked": 218,
+   "n_unattested": 13,
+   "source": "cgpg",
+   "unattested_rate": 0.059633,
+   "witness": null
+  },
   "laetus.fragmenta": {
    "edition": "qwen36-socrates_hist_fhg4",
    "n_tokens": 442,
@@ -8266,6 +8416,87 @@
    "n_unattested": 293,
    "source": "ocr",
    "unattested_rate": 0.221634,
+   "witness": null
+  },
+  "laudatio-sancti-demetrii.narratio-de-capta-thessalonica": {
+   "edition": "cgpg",
+   "n_tokens": 624,
+   "n_tokens_checked": 367,
+   "n_unattested": 41,
+   "source": "cgpg",
+   "unattested_rate": 0.111717,
+   "witness": null
+  },
+  "leo-vi-sapiens.carmen-compunctorium": {
+   "edition": "cgpg",
+   "n_tokens": 796,
+   "n_tokens_checked": 516,
+   "n_unattested": 163,
+   "source": "cgpg",
+   "unattested_rate": 0.315891,
+   "witness": null
+  },
+  "leo-vi-sapiens.carmina-et-epigrammata-varia": {
+   "edition": "cgpg",
+   "n_tokens": 1429,
+   "n_tokens_checked": 950,
+   "n_unattested": 154,
+   "source": "cgpg",
+   "unattested_rate": 0.162105,
+   "witness": null
+  },
+  "leo-vi-sapiens.exapostilaria-anastasima": {
+   "edition": "cgpg",
+   "n_tokens": 1707,
+   "n_tokens_checked": 1054,
+   "n_unattested": 105,
+   "source": "cgpg",
+   "unattested_rate": 0.09962,
+   "witness": null
+  },
+  "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia": {
+   "edition": "cgpg",
+   "n_tokens": 8767,
+   "n_tokens_checked": 5249,
+   "n_unattested": 1899,
+   "source": "cgpg",
+   "unattested_rate": 0.361783,
+   "witness": null
+  },
+  "leo-vi-sapiens.novellae-constitutiones": {
+   "edition": "cgpg",
+   "n_tokens": 37074,
+   "n_tokens_checked": 23082,
+   "n_unattested": 2411,
+   "source": "cgpg",
+   "unattested_rate": 0.104454,
+   "witness": null
+  },
+  "leo-vi-sapiens.oracula": {
+   "edition": "cgpg",
+   "n_tokens": 2594,
+   "n_tokens_checked": 1613,
+   "n_unattested": 209,
+   "source": "cgpg",
+   "unattested_rate": 0.129572,
+   "witness": null
+  },
+  "leo-vi-sapiens.orationes": {
+   "edition": "cgpg",
+   "n_tokens": 50226,
+   "n_tokens_checked": 30822,
+   "n_unattested": 2622,
+   "source": "cgpg",
+   "unattested_rate": 0.085069,
+   "witness": null
+  },
+  "leo-vi-sapiens.tactica": {
+   "edition": "cgpg",
+   "n_tokens": 85962,
+   "n_tokens_checked": 52067,
+   "n_unattested": 4947,
+   "source": "cgpg",
+   "unattested_rate": 0.095012,
    "witness": null
   },
   "lesbonax-rhetoric.politiko-s": {
@@ -8451,6 +8682,15 @@
    "unattested_rate": 0.129245,
    "witness": null
   },
+  "martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum": {
+   "edition": "cgpg",
+   "n_tokens": 1280,
+   "n_tokens_checked": 836,
+   "n_unattested": 30,
+   "source": "cgpg",
+   "unattested_rate": 0.035885,
+   "witness": null
+  },
   "maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo": {
    "edition": "qwen36-archytas_mullach_fpg2",
    "n_tokens": 2999,
@@ -8458,6 +8698,15 @@
    "n_unattested": 258,
    "source": "ocr",
    "unattested_rate": 0.14262,
+   "witness": null
+  },
+  "maximus-theology.fragmentum-ex-libro-de-materia": {
+   "edition": "cgpg",
+   "n_tokens": 3066,
+   "n_tokens_checked": 1789,
+   "n_unattested": 23,
+   "source": "cgpg",
+   "unattested_rate": 0.012856,
    "witness": null
   },
   "melanippides.fragmenta": {
@@ -8501,6 +8750,15 @@
     "n_bigrams_secondary": 9416,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
+  },
+  "melito-apologetics.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 931,
+   "n_tokens_checked": 580,
+   "n_unattested": 21,
+   "source": "cgpg",
+   "unattested_rate": 0.036207,
+   "witness": null
   },
   "menander-comedy.fragmenta-2": {
    "edition": "qwen36-comica_adespota_caf3",
@@ -8630,6 +8888,186 @@
     "n_bigrams_secondary": 1033,
     "secondary_edition": "qwen36-socrates_hist_fhg4"
    }
+  },
+  "michael-glycas.annales": {
+   "edition": "cgpg",
+   "n_tokens": 114679,
+   "n_tokens_checked": 69650,
+   "n_unattested": 5310,
+   "source": "cgpg",
+   "unattested_rate": 0.076238,
+   "witness": null
+  },
+  "michael-glycas.epistolae": {
+   "edition": "cgpg",
+   "n_tokens": 55726,
+   "n_tokens_checked": 33709,
+   "n_unattested": 2225,
+   "source": "cgpg",
+   "unattested_rate": 0.066006,
+   "witness": null
+  },
+  "michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni": {
+   "edition": "cgpg",
+   "n_tokens": 1240,
+   "n_tokens_checked": 750,
+   "n_unattested": 75,
+   "source": "cgpg",
+   "unattested_rate": 0.1,
+   "witness": null
+  },
+  "michael-psellus.commentarius-in-psychogoniam-platonicam": {
+   "edition": "cgpg",
+   "n_tokens": 6512,
+   "n_tokens_checked": 3497,
+   "n_unattested": 409,
+   "source": "cgpg",
+   "unattested_rate": 0.116957,
+   "witness": null
+  },
+  "michael-psellus.de-actionum-nominibus": {
+   "edition": "cgpg",
+   "n_tokens": 2907,
+   "n_tokens_checked": 1738,
+   "n_unattested": 222,
+   "source": "cgpg",
+   "unattested_rate": 0.127733,
+   "witness": null
+  },
+  "michael-psellus.de-anima-celebres-opiniones": {
+   "edition": "cgpg",
+   "n_tokens": 10381,
+   "n_tokens_checked": 5843,
+   "n_unattested": 515,
+   "source": "cgpg",
+   "unattested_rate": 0.08814,
+   "witness": null
+  },
+  "michael-psellus.de-lapidum-virtutibus": {
+   "edition": "cgpg",
+   "n_tokens": 902,
+   "n_tokens_checked": 580,
+   "n_unattested": 98,
+   "source": "cgpg",
+   "unattested_rate": 0.168966,
+   "witness": null
+  },
+  "michael-psellus.de-legum-nominibus": {
+   "edition": "cgpg",
+   "n_tokens": 752,
+   "n_tokens_checked": 546,
+   "n_unattested": 161,
+   "source": "cgpg",
+   "unattested_rate": 0.294872,
+   "witness": null
+  },
+  "michael-psellus.de-locis-et-nominibus-atticis-sp": {
+   "edition": "cgpg",
+   "n_tokens": 1032,
+   "n_tokens_checked": 595,
+   "n_unattested": 106,
+   "source": "cgpg",
+   "unattested_rate": 0.178151,
+   "witness": null
+  },
+  "michael-psellus.de-mortis-determinatione": {
+   "edition": "cgpg",
+   "n_tokens": 732,
+   "n_tokens_checked": 403,
+   "n_unattested": 37,
+   "source": "cgpg",
+   "unattested_rate": 0.091811,
+   "witness": null
+  },
+  "michael-psellus.de-omnifaria-doctrina": {
+   "edition": "cgpg",
+   "n_tokens": 20335,
+   "n_tokens_checked": 11691,
+   "n_unattested": 1003,
+   "source": "cgpg",
+   "unattested_rate": 0.085792,
+   "witness": null
+  },
+  "michael-psellus.de-operatione-daemonum-sp": {
+   "edition": "cgpg",
+   "n_tokens": 6758,
+   "n_tokens_checked": 4100,
+   "n_unattested": 490,
+   "source": "cgpg",
+   "unattested_rate": 0.119512,
+   "witness": null
+  },
+  "michael-psellus.epistulae": {
+   "edition": "cgpg",
+   "n_tokens": 5195,
+   "n_tokens_checked": 2953,
+   "n_unattested": 349,
+   "source": "cgpg",
+   "unattested_rate": 0.118185,
+   "witness": null
+  },
+  "michael-psellus.in-mercurii-trismegisti-pimandrum": {
+   "edition": "cgpg",
+   "n_tokens": 305,
+   "n_tokens_checked": 166,
+   "n_unattested": 20,
+   "source": "cgpg",
+   "unattested_rate": 0.120482,
+   "witness": null
+  },
+  "michael-psellus.monodia-in-sanctae-sophiae-collapsam": {
+   "edition": "cgpg",
+   "n_tokens": 757,
+   "n_tokens_checked": 424,
+   "n_unattested": 64,
+   "source": "cgpg",
+   "unattested_rate": 0.150943,
+   "witness": null
+  },
+  "michael-psellus.opuscula-psychologica-theologica-daemonologica": {
+   "edition": "cgpg",
+   "n_tokens": 5287,
+   "n_tokens_checked": 3249,
+   "n_unattested": 481,
+   "source": "cgpg",
+   "unattested_rate": 0.148046,
+   "witness": null
+  },
+  "michael-psellus.poemata": {
+   "edition": "cgpg",
+   "n_tokens": 31969,
+   "n_tokens_checked": 19825,
+   "n_unattested": 2493,
+   "source": "cgpg",
+   "unattested_rate": 0.12575,
+   "witness": null
+  },
+  "michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp": {
+   "edition": "cgpg",
+   "n_tokens": 1430,
+   "n_tokens_checked": 855,
+   "n_unattested": 109,
+   "source": "cgpg",
+   "unattested_rate": 0.127485,
+   "witness": null
+  },
+  "michael-psellus.quaestionum-naturalium-solutiones-sp": {
+   "edition": "cgpg",
+   "n_tokens": 5699,
+   "n_tokens_checked": 3259,
+   "n_unattested": 336,
+   "source": "cgpg",
+   "unattested_rate": 0.103099,
+   "witness": null
+  },
+  "michael-psellus.versus-in-sanctos-tres-hierarchas-sp": {
+   "edition": "cgpg",
+   "n_tokens": 480,
+   "n_tokens_checked": 303,
+   "n_unattested": 48,
+   "source": "cgpg",
+   "unattested_rate": 0.158416,
+   "witness": null
   },
   "michael.in-ethica-nicomachea-ixx-commentaria": {
    "edition": "qwen36-commentariainari20bero",
@@ -8862,6 +9300,15 @@
    "unattested_rate": 0.218515,
    "witness": null
   },
+  "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14": {
+   "edition": "cgpg",
+   "n_tokens": 239129,
+   "n_tokens_checked": 148541,
+   "n_unattested": 10190,
+   "source": "cgpg",
+   "unattested_rate": 0.068601,
+   "witness": null
+  },
   "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 8346,
@@ -9088,18 +9535,18 @@
    "edition": "qwen36-walz_rhetores_v4-masked",
    "n_tokens": 226657,
    "n_tokens_checked": 122980,
-   "n_unattested": 15694,
+   "n_unattested": 15693,
    "source": "ocr",
-   "unattested_rate": 0.127614,
+   "unattested_rate": 0.127606,
    "witness": null
   },
   "ocr.walz_rhetores_v5": {
    "edition": "qwen36-walz_rhetores_v5-masked",
    "n_tokens": 157926,
    "n_tokens_checked": 85837,
-   "n_unattested": 11477,
+   "n_unattested": 11475,
    "source": "ocr",
-   "unattested_rate": 0.133707,
+   "unattested_rate": 0.133684,
    "witness": null
   },
   "ocr.walz_rhetores_v6": {
@@ -9115,9 +9562,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 167847,
    "n_tokens_checked": 97044,
-   "n_unattested": 8355,
+   "n_unattested": 8354,
    "source": "ocr",
-   "unattested_rate": 0.086095,
+   "unattested_rate": 0.086085,
    "witness": null
   },
   "ocr.walz_rhetores_v7pt2": {
@@ -9145,6 +9592,69 @@
    "n_unattested": 12490,
    "source": "ocr",
    "unattested_rate": 0.160523,
+   "witness": null
+  },
+  "oecumenius.commentarius-in-acta-apostolorum": {
+   "edition": "cgpg",
+   "n_tokens": 53570,
+   "n_tokens_checked": 32158,
+   "n_unattested": 1621,
+   "source": "cgpg",
+   "unattested_rate": 0.050407,
+   "witness": null
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 18393,
+   "n_tokens_checked": 10908,
+   "n_unattested": 678,
+   "source": "cgpg",
+   "unattested_rate": 0.062156,
+   "witness": null
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 15415,
+   "n_tokens_checked": 9126,
+   "n_unattested": 505,
+   "source": "cgpg",
+   "unattested_rate": 0.055336,
+   "witness": null
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 14427,
+   "n_tokens_checked": 8534,
+   "n_unattested": 415,
+   "source": "cgpg",
+   "unattested_rate": 0.048629,
+   "witness": null
+  },
+  "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 66155,
+   "n_tokens_checked": 38830,
+   "n_unattested": 2238,
+   "source": "cgpg",
+   "unattested_rate": 0.057636,
+   "witness": null
+  },
+  "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 55233,
+   "n_tokens_checked": 33172,
+   "n_unattested": 1613,
+   "source": "cgpg",
+   "unattested_rate": 0.048625,
+   "witness": null
+  },
+  "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 37734,
+   "n_tokens_checked": 22749,
+   "n_unattested": 1197,
+   "source": "cgpg",
+   "unattested_rate": 0.052618,
    "witness": null
   },
   "oenopides.testimonia": {
@@ -9285,6 +9795,15 @@
    "unattested_rate": 0.721311,
    "witness": null
   },
+  "pantaenus.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 225,
+   "n_tokens_checked": 138,
+   "n_unattested": 5,
+   "source": "cgpg",
+   "unattested_rate": 0.036232,
+   "witness": null
+  },
   "panyassis.fragmenta-epica": {
    "edition": "qwen36-panyassis_kinkel_egf",
    "n_tokens": 33197,
@@ -9299,6 +9818,15 @@
     "n_bigrams_secondary": 1437,
     "secondary_edition": "qwen36-panyassis_kinkel_egf"
    }
+  },
+  "papias.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 708,
+   "n_tokens_checked": 440,
+   "n_unattested": 17,
+   "source": "cgpg",
+   "unattested_rate": 0.038636,
+   "witness": null
   },
   "parmenides.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
@@ -9344,6 +9872,24 @@
     "n_bigrams_secondary": 60,
     "secondary_edition": "migne-ocr-qwen36"
    }
+  },
+  "patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum": {
+   "edition": "cgpg",
+   "n_tokens": 746,
+   "n_tokens_checked": 473,
+   "n_unattested": 51,
+   "source": "cgpg",
+   "unattested_rate": 0.107822,
+   "witness": null
+  },
+  "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai": {
+   "edition": "cgpg",
+   "n_tokens": 7797,
+   "n_tokens_checked": 4856,
+   "n_unattested": 713,
+   "source": "cgpg",
+   "unattested_rate": 0.146829,
+   "witness": null
   },
   "patrocles.fragmenta": {
    "edition": "qwen36-nauck_tgf_1889-ocr",
@@ -9912,13 +10458,85 @@
    "unattested_rate": 0.417799,
    "witness": null
   },
+  "photius.amphilochia": {
+   "edition": "cgpg",
+   "n_tokens": 215610,
+   "n_tokens_checked": 125675,
+   "n_unattested": 8829,
+   "source": "cgpg",
+   "unattested_rate": 0.070253,
+   "witness": null
+  },
+  "photius.amphilochia-supplementum": {
+   "edition": "cgpg",
+   "n_tokens": 3884,
+   "n_tokens_checked": 2185,
+   "n_unattested": 103,
+   "source": "cgpg",
+   "unattested_rate": 0.04714,
+   "witness": null
+  },
   "photius.bibliotheca": {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
    "n_tokens": 154191,
    "n_tokens_checked": 89594,
-   "n_unattested": 22189,
+   "n_unattested": 22188,
    "source": "ocr",
-   "unattested_rate": 0.247662,
+   "unattested_rate": 0.247651,
+   "witness": null
+  },
+  "photius.commentarii-in-joannem-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 336,
+   "n_tokens_checked": 196,
+   "n_unattested": 7,
+   "source": "cgpg",
+   "unattested_rate": 0.035714,
+   "witness": null
+  },
+  "photius.commentarii-in-matthaeum-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 3601,
+   "n_tokens_checked": 2188,
+   "n_unattested": 152,
+   "source": "cgpg",
+   "unattested_rate": 0.06947,
+   "witness": null
+  },
+  "photius.fragmenta-in-epistulam-ad-romanos-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 4207,
+   "n_tokens_checked": 2412,
+   "n_unattested": 110,
+   "source": "cgpg",
+   "unattested_rate": 0.045605,
+   "witness": null
+  },
+  "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 366,
+   "n_tokens_checked": 204,
+   "n_unattested": 5,
+   "source": "cgpg",
+   "unattested_rate": 0.02451,
+   "witness": null
+  },
+  "photius.fragmenta-in-lucam-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 3657,
+   "n_tokens_checked": 2239,
+   "n_unattested": 159,
+   "source": "cgpg",
+   "unattested_rate": 0.071014,
+   "witness": null
+  },
+  "photius.fragmenta-in-marcum-in-catenis": {
+   "edition": "cgpg",
+   "n_tokens": 383,
+   "n_tokens_checked": 234,
+   "n_unattested": 24,
+   "source": "cgpg",
+   "unattested_rate": 0.102564,
    "witness": null
   },
   "photius.lexicon": {
@@ -10179,6 +10797,15 @@
    "unattested_rate": 0.094438,
    "witness": null
   },
+  "procopius-rhetoric.commentarii-in-octateuchum": {
+   "edition": "cgpg",
+   "n_tokens": 121734,
+   "n_tokens_checked": 70781,
+   "n_unattested": 4703,
+   "source": "cgpg",
+   "unattested_rate": 0.066444,
+   "witness": null
+  },
   "procopius-rhetoric.epistulae-1-166": {
    "edition": "qwen36-aristaenetus_hercher_epistolographi-ocr",
    "n_tokens": 24070,
@@ -10186,6 +10813,24 @@
    "n_unattested": 1986,
    "source": "ocr",
    "unattested_rate": 0.134818,
+   "witness": null
+  },
+  "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia": {
+   "edition": "cgpg",
+   "n_tokens": 24504,
+   "n_tokens_checked": 14448,
+   "n_unattested": 1098,
+   "source": "cgpg",
+   "unattested_rate": 0.075997,
+   "witness": null
+  },
+  "procopius-rhetoric.in-proverbia": {
+   "edition": "cgpg",
+   "n_tokens": 61870,
+   "n_tokens_checked": 38669,
+   "n_unattested": 2677,
+   "source": "cgpg",
+   "unattested_rate": 0.069229,
    "witness": null
   },
   "prodicus.testimonia": {
@@ -10242,6 +10887,147 @@
    "unattested_rate": 0.16381,
    "witness": null
   },
+  "pseudo-codinus.de-annis-ab-orbe-condito": {
+   "edition": "cgpg",
+   "n_tokens": 2653,
+   "n_tokens_checked": 1496,
+   "n_unattested": 156,
+   "source": "cgpg",
+   "unattested_rate": 0.104278,
+   "witness": null
+  },
+  "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos": {
+   "edition": "cgpg",
+   "n_tokens": 18747,
+   "n_tokens_checked": 10875,
+   "n_unattested": 1328,
+   "source": "cgpg",
+   "unattested_rate": 0.122115,
+   "witness": null
+  },
+  "pseudo-codinus.patria-constantinopoleos": {
+   "edition": "cgpg",
+   "n_tokens": 25162,
+   "n_tokens_checked": 15418,
+   "n_unattested": 1667,
+   "source": "cgpg",
+   "unattested_rate": 0.10812,
+   "witness": {
+    "agreement_primary_in_secondary": 0.350974,
+    "agreement_secondary_in_primary": 0.516658,
+    "n_bigrams_primary": 25056,
+    "n_bigrams_secondary": 12126,
+    "secondary_edition": "cgpg"
+   }
+  },
+  "pseudo-justinus-martyr.cohortatio-ad-gentiles": {
+   "edition": "cgpg",
+   "n_tokens": 10716,
+   "n_tokens_checked": 6903,
+   "n_unattested": 363,
+   "source": "cgpg",
+   "unattested_rate": 0.052586,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum": {
+   "edition": "cgpg",
+   "n_tokens": 15140,
+   "n_tokens_checked": 8085,
+   "n_unattested": 159,
+   "source": "cgpg",
+   "unattested_rate": 0.019666,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.de-monarchia": {
+   "edition": "cgpg",
+   "n_tokens": 1825,
+   "n_tokens_checked": 1155,
+   "n_unattested": 149,
+   "source": "cgpg",
+   "unattested_rate": 0.129004,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.de-resurrectione": {
+   "edition": "cgpg",
+   "n_tokens": 3434,
+   "n_tokens_checked": 2101,
+   "n_unattested": 53,
+   "source": "cgpg",
+   "unattested_rate": 0.025226,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum": {
+   "edition": "cgpg",
+   "n_tokens": 3479,
+   "n_tokens_checked": 2087,
+   "n_unattested": 127,
+   "source": "cgpg",
+   "unattested_rate": 0.060853,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.expositio-rectae-fidei": {
+   "edition": "cgpg",
+   "n_tokens": 5806,
+   "n_tokens_checked": 3346,
+   "n_unattested": 120,
+   "source": "cgpg",
+   "unattested_rate": 0.035864,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 852,
+   "n_tokens_checked": 486,
+   "n_unattested": 23,
+   "source": "cgpg",
+   "unattested_rate": 0.047325,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.oratio-ad-gentiles": {
+   "edition": "cgpg",
+   "n_tokens": 1047,
+   "n_tokens_checked": 655,
+   "n_unattested": 58,
+   "source": "cgpg",
+   "unattested_rate": 0.08855,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles": {
+   "edition": "cgpg",
+   "n_tokens": 13131,
+   "n_tokens_checked": 7432,
+   "n_unattested": 265,
+   "source": "cgpg",
+   "unattested_rate": 0.035657,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos": {
+   "edition": "cgpg",
+   "n_tokens": 28135,
+   "n_tokens_checked": 15917,
+   "n_unattested": 542,
+   "source": "cgpg",
+   "unattested_rate": 0.034052,
+   "witness": null
+  },
+  "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos": {
+   "edition": "cgpg",
+   "n_tokens": 5292,
+   "n_tokens_checked": 2962,
+   "n_unattested": 118,
+   "source": "cgpg",
+   "unattested_rate": 0.039838,
+   "witness": null
+  },
+  "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712": {
+   "edition": "cgpg",
+   "n_tokens": 30963,
+   "n_tokens_checked": 19047,
+   "n_unattested": 1959,
+   "source": "cgpg",
+   "unattested_rate": 0.102851,
+   "witness": null
+  },
   "pseudo-zonaras.lexicon": {
    "edition": "qwen36-zonaras_lexicon_v1-masked",
    "n_tokens": 164809,
@@ -10290,6 +11076,15 @@
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
   },
+  "quadratus-apologeta.fragmentum-apologiae": {
+   "edition": "cgpg",
+   "n_tokens": 48,
+   "n_tokens_checked": 30,
+   "n_unattested": 1,
+   "source": "cgpg",
+   "unattested_rate": 0.033333,
+   "witness": null
+  },
   "rhianus.fragmenta": {
    "edition": "qwen36-alexander_aetolus_meineke-ocr",
    "n_tokens": 2075,
@@ -10313,6 +11108,15 @@
     "n_bigrams_secondary": 202,
     "secondary_edition": "qwen36-rhinthon_kaibel_cgf_1899"
    }
+  },
+  "rhodon.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 343,
+   "n_tokens_checked": 222,
+   "n_unattested": 15,
+   "source": "cgpg",
+   "unattested_rate": 0.067568,
+   "witness": null
   },
   "salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza": {
    "edition": "qwen36-berthelot_alchimistes_grec",
@@ -10378,9 +11182,9 @@
    "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
    "n_tokens": 119911,
    "n_tokens_checked": 71977,
-   "n_unattested": 25890,
+   "n_unattested": 25888,
    "source": "ocr",
-   "unattested_rate": 0.359698,
+   "unattested_rate": 0.35967,
    "witness": null
   },
   "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera": {
@@ -10552,6 +11356,15 @@
    "n_unattested": 66,
    "source": "ocr",
    "unattested_rate": 0.184358,
+   "witness": null
+  },
+  "serapion-scr-eccl.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 194,
+   "n_tokens_checked": 123,
+   "n_unattested": 4,
+   "source": "cgpg",
+   "unattested_rate": 0.03252,
    "witness": null
   },
   "serenus.de-sectione-cylindri": {
@@ -10821,6 +11634,150 @@
    "unattested_rate": 0.1,
    "witness": null
   },
+  "symeon-thessalonicensis.de-matrimonio": {
+   "edition": "cgpg",
+   "n_tokens": 2049,
+   "n_tokens_checked": 1174,
+   "n_unattested": 92,
+   "source": "cgpg",
+   "unattested_rate": 0.078365,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-ordine-sepulturae": {
+   "edition": "cgpg",
+   "n_tokens": 5652,
+   "n_tokens_checked": 3180,
+   "n_unattested": 261,
+   "source": "cgpg",
+   "unattested_rate": 0.082075,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-poenitentia": {
+   "edition": "cgpg",
+   "n_tokens": 6992,
+   "n_tokens_checked": 3980,
+   "n_unattested": 354,
+   "source": "cgpg",
+   "unattested_rate": 0.088945,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sacerdotio": {
+   "edition": "cgpg",
+   "n_tokens": 4486,
+   "n_tokens_checked": 2771,
+   "n_unattested": 149,
+   "source": "cgpg",
+   "unattested_rate": 0.053771,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sacra-liturgia": {
+   "edition": "cgpg",
+   "n_tokens": 11486,
+   "n_tokens_checked": 6478,
+   "n_unattested": 567,
+   "source": "cgpg",
+   "unattested_rate": 0.087527,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sacra-precatione": {
+   "edition": "cgpg",
+   "n_tokens": 30193,
+   "n_tokens_checked": 16919,
+   "n_unattested": 1381,
+   "source": "cgpg",
+   "unattested_rate": 0.081624,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sacramentis": {
+   "edition": "cgpg",
+   "n_tokens": 13518,
+   "n_tokens_checked": 7679,
+   "n_unattested": 629,
+   "source": "cgpg",
+   "unattested_rate": 0.081912,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sacris-ordinationibus": {
+   "edition": "cgpg",
+   "n_tokens": 22031,
+   "n_tokens_checked": 12499,
+   "n_unattested": 1069,
+   "source": "cgpg",
+   "unattested_rate": 0.085527,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sacro-templo": {
+   "edition": "cgpg",
+   "n_tokens": 11848,
+   "n_tokens_checked": 6563,
+   "n_unattested": 509,
+   "source": "cgpg",
+   "unattested_rate": 0.077556,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sancto-chrismate": {
+   "edition": "cgpg",
+   "n_tokens": 3106,
+   "n_tokens_checked": 1786,
+   "n_unattested": 135,
+   "source": "cgpg",
+   "unattested_rate": 0.075588,
+   "witness": null
+  },
+  "symeon-thessalonicensis.de-sancto-euchelaeo": {
+   "edition": "cgpg",
+   "n_tokens": 4654,
+   "n_tokens_checked": 2722,
+   "n_unattested": 212,
+   "source": "cgpg",
+   "unattested_rate": 0.077884,
+   "witness": null
+  },
+  "symeon-thessalonicensis.dialogus-contra-haereses": {
+   "edition": "cgpg",
+   "n_tokens": 32146,
+   "n_tokens_checked": 18396,
+   "n_unattested": 1240,
+   "source": "cgpg",
+   "unattested_rate": 0.067406,
+   "witness": null
+  },
+  "symeon-thessalonicensis.expositio-de-divino-templo": {
+   "edition": "cgpg",
+   "n_tokens": 10460,
+   "n_tokens_checked": 5991,
+   "n_unattested": 465,
+   "source": "cgpg",
+   "unattested_rate": 0.077616,
+   "witness": null
+  },
+  "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus": {
+   "edition": "cgpg",
+   "n_tokens": 4386,
+   "n_tokens_checked": 2478,
+   "n_unattested": 219,
+   "source": "cgpg",
+   "unattested_rate": 0.088378,
+   "witness": null
+  },
+  "symeon-thessalonicensis.expositio-de-sacro-symbolo": {
+   "edition": "cgpg",
+   "n_tokens": 11426,
+   "n_tokens_checked": 6537,
+   "n_unattested": 468,
+   "source": "cgpg",
+   "unattested_rate": 0.071592,
+   "witness": null
+  },
+  "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum": {
+   "edition": "cgpg",
+   "n_tokens": 25609,
+   "n_tokens_checked": 14595,
+   "n_unattested": 1051,
+   "source": "cgpg",
+   "unattested_rate": 0.072011,
+   "witness": null
+  },
   "symmachus.fragmenta": {
    "edition": "qwen36-field-hexapla-greek",
    "n_tokens": 39549,
@@ -10837,6 +11794,15 @@
    "n_unattested": 3367,
    "source": "ocr",
    "unattested_rate": 0.169451,
+   "witness": null
+  },
+  "tatianus.fragmenta": {
+   "edition": "cgpg",
+   "n_tokens": 290,
+   "n_tokens_checked": 172,
+   "n_unattested": 15,
+   "source": "cgpg",
+   "unattested_rate": 0.087209,
    "witness": null
   },
   "teleclides.fragmenta": {
@@ -11115,6 +12081,15 @@
    "unattested_rate": 0.136206,
    "witness": null
   },
+  "theodorus-agallianus.refutatio-contra-joannem-argyropulum": {
+   "edition": "cgpg",
+   "n_tokens": 16597,
+   "n_tokens_checked": 9385,
+   "n_unattested": 625,
+   "source": "cgpg",
+   "unattested_rate": 0.066596,
+   "witness": null
+  },
   "theodorus-mathematics.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
    "n_tokens": 352,
@@ -11194,9 +12169,9 @@
    "edition": "qwen36-nauck_tgf_1889",
    "n_tokens": 113477,
    "n_tokens_checked": 75386,
-   "n_unattested": 14862,
+   "n_unattested": 14860,
    "source": "ocr",
-   "unattested_rate": 0.197145,
+   "unattested_rate": 0.197119,
    "witness": {
     "agreement_primary_in_secondary": 0.090081,
     "agreement_secondary_in_primary": 0.272357,
@@ -11214,6 +12189,15 @@
    "unattested_rate": 0.24915,
    "witness": null
   },
+  "theophanes-continuatus.chronographia-lib-1-6": {
+   "edition": "cgpg",
+   "n_tokens": 95235,
+   "n_tokens_checked": 58865,
+   "n_unattested": 5542,
+   "source": "cgpg",
+   "unattested_rate": 0.094148,
+   "witness": null
+  },
   "theophilus-comedy.fragmenta": {
    "edition": "kock-caf2-ocr-frag",
    "n_tokens": 414,
@@ -11221,6 +12205,384 @@
    "n_unattested": 14,
    "source": "ocr",
    "unattested_rate": 0.049822,
+   "witness": null
+  },
+  "theophylactus-achridensis.de-iis-quorum-latini-incusantur": {
+   "edition": "cgpg",
+   "n_tokens": 5352,
+   "n_tokens_checked": 3104,
+   "n_unattested": 289,
+   "source": "cgpg",
+   "unattested_rate": 0.093106,
+   "witness": null
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-joannis": {
+   "edition": "cgpg",
+   "n_tokens": 117346,
+   "n_tokens_checked": 68604,
+   "n_unattested": 3858,
+   "source": "cgpg",
+   "unattested_rate": 0.056236,
+   "witness": null
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-lucae": {
+   "edition": "cgpg",
+   "n_tokens": 97447,
+   "n_tokens_checked": 57964,
+   "n_unattested": 3343,
+   "source": "cgpg",
+   "unattested_rate": 0.057674,
+   "witness": null
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-marci": {
+   "edition": "cgpg",
+   "n_tokens": 38996,
+   "n_tokens_checked": 23298,
+   "n_unattested": 1562,
+   "source": "cgpg",
+   "unattested_rate": 0.067044,
+   "witness": null
+  },
+  "theophylactus-achridensis.enarratio-in-evangelium-matthaei": {
+   "edition": "cgpg",
+   "n_tokens": 71475,
+   "n_tokens_checked": 42419,
+   "n_unattested": 2589,
+   "source": "cgpg",
+   "unattested_rate": 0.061034,
+   "witness": null
+  },
+  "theophylactus-achridensis.epistulae": {
+   "edition": "cgpg",
+   "n_tokens": 45441,
+   "n_tokens_checked": 26768,
+   "n_unattested": 3103,
+   "source": "cgpg",
+   "unattested_rate": 0.115922,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-acta-apostolorum-sp": {
+   "edition": "cgpg",
+   "n_tokens": 29243,
+   "n_tokens_checked": 17888,
+   "n_unattested": 1247,
+   "source": "cgpg",
+   "unattested_rate": 0.069712,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses": {
+   "edition": "cgpg",
+   "n_tokens": 13841,
+   "n_tokens_checked": 8127,
+   "n_unattested": 471,
+   "source": "cgpg",
+   "unattested_rate": 0.057955,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-ephesios": {
+   "edition": "cgpg",
+   "n_tokens": 20495,
+   "n_tokens_checked": 11968,
+   "n_unattested": 624,
+   "source": "cgpg",
+   "unattested_rate": 0.052139,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-galatas": {
+   "edition": "cgpg",
+   "n_tokens": 15170,
+   "n_tokens_checked": 9038,
+   "n_unattested": 535,
+   "source": "cgpg",
+   "unattested_rate": 0.059195,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos": {
+   "edition": "cgpg",
+   "n_tokens": 42985,
+   "n_tokens_checked": 25586,
+   "n_unattested": 3782,
+   "source": "cgpg",
+   "unattested_rate": 0.147815,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem": {
+   "edition": "cgpg",
+   "n_tokens": 2298,
+   "n_tokens_checked": 1360,
+   "n_unattested": 169,
+   "source": "cgpg",
+   "unattested_rate": 0.124265,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses": {
+   "edition": "cgpg",
+   "n_tokens": 12018,
+   "n_tokens_checked": 7199,
+   "n_unattested": 472,
+   "source": "cgpg",
+   "unattested_rate": 0.065565,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-romanos": {
+   "edition": "cgpg",
+   "n_tokens": 43313,
+   "n_tokens_checked": 25356,
+   "n_unattested": 1553,
+   "source": "cgpg",
+   "unattested_rate": 0.061248,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ad-titum": {
+   "edition": "cgpg",
+   "n_tokens": 5116,
+   "n_tokens_checked": 3156,
+   "n_unattested": 329,
+   "source": "cgpg",
+   "unattested_rate": 0.104246,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi": {
+   "edition": "cgpg",
+   "n_tokens": 10189,
+   "n_tokens_checked": 6132,
+   "n_unattested": 474,
+   "source": "cgpg",
+   "unattested_rate": 0.077299,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios": {
+   "edition": "cgpg",
+   "n_tokens": 44314,
+   "n_tokens_checked": 26433,
+   "n_unattested": 1436,
+   "source": "cgpg",
+   "unattested_rate": 0.054326,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses": {
+   "edition": "cgpg",
+   "n_tokens": 8530,
+   "n_tokens_checked": 5198,
+   "n_unattested": 356,
+   "source": "cgpg",
+   "unattested_rate": 0.068488,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum": {
+   "edition": "cgpg",
+   "n_tokens": 13974,
+   "n_tokens_checked": 8478,
+   "n_unattested": 775,
+   "source": "cgpg",
+   "unattested_rate": 0.091413,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-joannis": {
+   "edition": "cgpg",
+   "n_tokens": 12372,
+   "n_tokens_checked": 7164,
+   "n_unattested": 496,
+   "source": "cgpg",
+   "unattested_rate": 0.069235,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-i-petri": {
+   "edition": "cgpg",
+   "n_tokens": 12115,
+   "n_tokens_checked": 7287,
+   "n_unattested": 616,
+   "source": "cgpg",
+   "unattested_rate": 0.084534,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios": {
+   "edition": "cgpg",
+   "n_tokens": 28922,
+   "n_tokens_checked": 17349,
+   "n_unattested": 939,
+   "source": "cgpg",
+   "unattested_rate": 0.054124,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses": {
+   "edition": "cgpg",
+   "n_tokens": 5925,
+   "n_tokens_checked": 3602,
+   "n_unattested": 234,
+   "source": "cgpg",
+   "unattested_rate": 0.064964,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum": {
+   "edition": "cgpg",
+   "n_tokens": 9606,
+   "n_tokens_checked": 5727,
+   "n_unattested": 533,
+   "source": "cgpg",
+   "unattested_rate": 0.093068,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-joannis": {
+   "edition": "cgpg",
+   "n_tokens": 2169,
+   "n_tokens_checked": 1274,
+   "n_unattested": 93,
+   "source": "cgpg",
+   "unattested_rate": 0.072998,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-ii-petri": {
+   "edition": "cgpg",
+   "n_tokens": 6563,
+   "n_tokens_checked": 3912,
+   "n_unattested": 365,
+   "source": "cgpg",
+   "unattested_rate": 0.093303,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-iii-joannis": {
+   "edition": "cgpg",
+   "n_tokens": 829,
+   "n_tokens_checked": 505,
+   "n_unattested": 60,
+   "source": "cgpg",
+   "unattested_rate": 0.118812,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-epistolam-judae": {
+   "edition": "cgpg",
+   "n_tokens": 3492,
+   "n_tokens_checked": 2195,
+   "n_unattested": 199,
+   "source": "cgpg",
+   "unattested_rate": 0.090661,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-habacuc": {
+   "edition": "cgpg",
+   "n_tokens": 15641,
+   "n_tokens_checked": 9314,
+   "n_unattested": 859,
+   "source": "cgpg",
+   "unattested_rate": 0.092227,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-jonam": {
+   "edition": "cgpg",
+   "n_tokens": 11936,
+   "n_tokens_checked": 7062,
+   "n_unattested": 615,
+   "source": "cgpg",
+   "unattested_rate": 0.087086,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-michaeam": {
+   "edition": "cgpg",
+   "n_tokens": 25424,
+   "n_tokens_checked": 15125,
+   "n_unattested": 1126,
+   "source": "cgpg",
+   "unattested_rate": 0.074446,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-nahum": {
+   "edition": "cgpg",
+   "n_tokens": 14641,
+   "n_tokens_checked": 8818,
+   "n_unattested": 724,
+   "source": "cgpg",
+   "unattested_rate": 0.082105,
+   "witness": null
+  },
+  "theophylactus-achridensis.expositio-in-prophetam-oseam": {
+   "edition": "cgpg",
+   "n_tokens": 46997,
+   "n_tokens_checked": 28156,
+   "n_unattested": 2229,
+   "source": "cgpg",
+   "unattested_rate": 0.079166,
+   "witness": null
+  },
+  "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum": {
+   "edition": "cgpg",
+   "n_tokens": 12879,
+   "n_tokens_checked": 7940,
+   "n_unattested": 592,
+   "source": "cgpg",
+   "unattested_rate": 0.074559,
+   "witness": null
+  },
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp": {
+   "edition": "cgpg",
+   "n_tokens": 40312,
+   "n_tokens_checked": 24338,
+   "n_unattested": 1866,
+   "source": "cgpg",
+   "unattested_rate": 0.07667,
+   "witness": null
+  },
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp": {
+   "edition": "cgpg",
+   "n_tokens": 63165,
+   "n_tokens_checked": 38086,
+   "n_unattested": 5078,
+   "source": "cgpg",
+   "unattested_rate": 0.13333,
+   "witness": null
+  },
+  "theophylactus-achridensis.institutio-regia": {
+   "edition": "cgpg",
+   "n_tokens": 5019,
+   "n_tokens_checked": 3030,
+   "n_unattested": 341,
+   "source": "cgpg",
+   "unattested_rate": 0.112541,
+   "witness": null
+  },
+  "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum": {
+   "edition": "cgpg",
+   "n_tokens": 3639,
+   "n_tokens_checked": 2184,
+   "n_unattested": 220,
+   "source": "cgpg",
+   "unattested_rate": 0.100733,
+   "witness": null
+  },
+  "theophylactus-achridensis.oratio-in-praesentationem-deiparae": {
+   "edition": "cgpg",
+   "n_tokens": 2639,
+   "n_tokens_checked": 1570,
+   "n_unattested": 169,
+   "source": "cgpg",
+   "unattested_rate": 0.107643,
+   "witness": null
+  },
+  "theophylactus-achridensis.oratio-in-venerationem-crucis": {
+   "edition": "cgpg",
+   "n_tokens": 4289,
+   "n_tokens_checked": 2531,
+   "n_unattested": 228,
+   "source": "cgpg",
+   "unattested_rate": 0.090083,
+   "witness": null
+  },
+  "theophylactus-achridensis.supplementum-in-evangelium-joannis": {
+   "edition": "cgpg",
+   "n_tokens": 867,
+   "n_tokens_checked": 528,
+   "n_unattested": 45,
+   "source": "cgpg",
+   "unattested_rate": 0.085227,
+   "witness": null
+  },
+  "theophylactus-achridensis.vita-clementis-ohridensis": {
+   "edition": "cgpg",
+   "n_tokens": 12716,
+   "n_tokens_checked": 7737,
+   "n_unattested": 534,
+   "source": "cgpg",
+   "unattested_rate": 0.069019,
    "witness": null
   },
   "theophylactus-simocatta.epistulae": {
@@ -11287,6 +12649,15 @@
    "n_unattested": 33,
    "source": "ocr",
    "unattested_rate": 0.336735,
+   "witness": null
+  },
+  "tiberianus.epistula-ad-trajanum-de-christianis": {
+   "edition": "cgpg",
+   "n_tokens": 59,
+   "n_tokens_checked": 40,
+   "n_unattested": 3,
+   "source": "cgpg",
+   "unattested_rate": 0.075,
    "witness": null
   },
   "timaeus-philosophy.fragmenta-et-titulus-sp": {
@@ -11658,6 +13029,15 @@
    "unattested_rate": 0.133814,
    "witness": null
   },
+  "vita-basilii-iunioris.excerpta": {
+   "edition": "cgpg",
+   "n_tokens": 1727,
+   "n_tokens_checked": 1048,
+   "n_unattested": 115,
+   "source": "cgpg",
+   "unattested_rate": 0.109733,
+   "witness": null
+  },
   "xenarchus.fragmenta": {
    "edition": "kock-caf2-ocr-frag",
    "n_tokens": 407,
@@ -11841,6 +13221,7 @@
   "orphica.hymni",
   "phanocles.fragmenta",
   "anthemius.dupuy-1777",
+  "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia",
   "aristides-quintilianus-music.de-musica",
   "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera",
   "orphica.argonautica",
@@ -12127,8 +13508,8 @@
   "joannes-chrysostomus.de-sancta-trinitate-sp",
   "gregorius-nazianzenus.epistulae-theologicae",
   "ctesias.fragmenta",
-  "joannes-chrysostomus.ad-theodorum-lapsum-lib-2-epistula-ad-theodorum",
   "gregorius-nazianzenus.in-theophania-orat-38",
+  "joannes-chrysostomus.ad-theodorum-lapsum-lib-2-epistula-ad-theodorum",
   "joannes-chrysostomus.contra-eos-qui-subintroductas-habent-virgines",
   "gregorius-nyssenus.de-occursu-domini-sp",
   "joannes-chrysostomus.contra-ludos-et-theatra",
@@ -12161,15 +13542,18 @@
   "gregorius-nazianzenus.in-laudem-athanasii-orat-21",
   "symmachus.fragmenta",
   "joannes-chrysostomus.de-profectu-evangelii",
+  "michael-psellus.opuscula-psychologica-theologica-daemonologica",
   "aeneas-philosophy.epistulae",
   "joannes-chrysostomus.de-sacerdotio-lib-1-6",
   "basilius-theology.in-gordium-martyrem",
   "joannes-chrysostomus.in-genesim-homiliae-1-67",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
   "joannes-chrysostomus.in-pentecosten-sermo-1-sp",
   "joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34",
   "joannes-chrysostomus.de-sancta-droside-martyre",
   "joannes-chrysostomus.ad-theodorum-lapsum-lib-1",
   "polystratus.peri-lo-gou-katafronh-sews-p-herc-336-1150",
+  "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai",
   "gregorius-nyssenus.de-vita-mosis",
   "gregorius-nazianzenus.in-laudem-sororis-gorgoniae-orat-8",
   "joannes-chrysostomus.de-beato-abraham-sp",
@@ -12250,10 +13634,12 @@
   "joannes-chrysostomus.ad-eos-qui-scandalizati-sunt",
   "joannes-chrysostomus.de-sanctis-bernice-et-prosdoce",
   "athanasius-theology.sermo-de-patientia-sp",
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
   "scholia-in-platonem.scholia-in-platonem-scholia-vetera",
   "joannes-chrysostomus.in-epistulam-ad-titum-homiliae-1-6",
   "joannes-chrysostomus.in-dictum-pauli-oportet-haereses-esse",
   "athanasius-theology.homilia-in-sanctum-pascha-et-in-recens-illuminatos-sp",
+  "joannes-diaconus-hadrianopolitanus.carmen-politicum",
   "gregorius-nazianzenus.ad-julianum-tributorum-exaequatorem-orat-19",
   "licymnius.fragmenta",
   "oribasius.collectiones-medicae-libri-incerti",
@@ -12275,6 +13661,7 @@
   "gregorius-nyssenus.adversus-macedonianos-de-spiritu-sancto",
   "joannes-chrysostomus.expositiones-in-psalmos",
   "joannes-chrysostomus.interpretatio-in-danielem-prophetam-sp",
+  "leo-vi-sapiens.oracula",
   "gregorius-nyssenus.de-virginitate",
   "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
   "marcellinus.vita-thucydidis",
@@ -12284,6 +13671,7 @@
   "joannes-chrysostomus.de-precatione-orat-1-2-sp",
   "joannes-chrysostomus.adversus-judaeos-orationes-1-8",
   "theodoretus.commentaria-in-isaiam",
+  "michael-psellus.de-actionum-nominibus",
   "joannes-chrysostomus.de-lazaro-homiliae-1-7",
   "ocr.walz_rhetores_v4",
   "joannes-chrysostomus.in-dictum-pauli-nolo-vos-ignorare",
@@ -12295,13 +13683,16 @@
   "eusebius-scr-eccl.fragmenta-in-lucam",
   "joannes-chrysostomus.de-christi-divinitate-contra-anomoeos-homilia-12",
   "gregorius-nyssenus.in-canticum-canticorum-homiliae-15",
+  "ducas.historia-turcobyzantina",
   "cyrillus-theology.libri-v-contra-nestorium",
+  "michael-psellus.poemata",
   "dionysius-soph.epistulae",
   "joannes-chrysostomus.in-epistulam-ad-philippenses-homiliae-1-15",
   "theodoretus.haereticarum-fabularum-compendium",
   "empedocles.testimonia",
   "joannes-chrysostomus.in-illud-pater-si-possibile-est-transeat",
   "joannes-chrysostomus.in-illud-filius-ex-se-nihil-facit",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
   "basilius-theology.homiliae-super-psalmos",
   "cyrillus-scr-eccl.mystagogiae-1-5-sp",
   "joannes-chrysostomus.in-illud-hoc-scitote-quod-in-novissimis-diebus",
@@ -12310,11 +13701,12 @@
   "theodoretus.interpretatio-in-ezechielem",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos",
   "eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum",
+  "josephus-genesius.basilei-ai",
   "porphyrius.contra-christianos-fragmenta",
   "gregorius-nyssenus.encomium-in-sanctum-stephanum-protomartyrem-i",
-  "cogPG.PG157",
   "gregorius-nyssenus.de-professione-christiana-ad-harmonium",
   "apollonius-philosophy.apollonii-epistulae-dub",
+  "pseudo-codinus.de-officiis-officia-palatii-constantinopoleos",
   "joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7",
   "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione",
   "joannes-chrysostomus.in-epistulam-ii-ad-thessalonicenses-homiliae-1-5",
@@ -12324,18 +13716,22 @@
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
   "athanasius-theology.homilia-de-semente-sp",
   "athanasius-theology.quaestiones-in-evangelia-sp",
-  "cogPG.PG122",
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
+  "michael-psellus.de-operatione-daemonum-sp",
   "gregorius-nyssenus.oratio-catechetica-magna",
   "gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti",
   "joannes-stobaeus-anthologus.anthologium",
   "gregorius-nyssenus.in-ecclesiasten-homiliae-8",
+  "michael-psellus.epistulae",
   "gregorius-nyssenus.epistula-canonica-ad-letoium",
   "basilius-theology.de-spiritu-sancto",
   "joannes-chrysostomus.pg048",
+  "michael-psellus.commentarius-in-psychogoniam-platonicam",
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
   "antiphon-soph.testimonia",
   "gregorius-nyssenus.de-oratione-dominica-orationes-v",
+  "theophylactus-achridensis.epistulae",
+  "georgius-monachus-continuatus.chronicon-continuatio-redactio",
   "athanasius-theology.homilia-de-passione-et-cruce-domini-sp",
   "hecataeus-abderita.testimonia-2",
   "joannes-chrysostomus.contra-anomoeos-homilia-11",
@@ -12349,7 +13745,7 @@
   "joannes-chrysostomus.de-christi-precibus-contra-anomoeos-homilia-10",
   "parmenides.testimonia",
   "ocr.walz_rhetores_v8",
-  "cogPG.PG125",
+  "theophylactus-achridensis.institutio-regia",
   "carmina-convivialia-pmg.fragmenta",
   "athanasius-theology.synopsis-scripturae-sacrae-sp",
   "prodicus.testimonia",
@@ -12368,9 +13764,10 @@
   "cyrillus-theology.apologia-xii-capitulorum-contra-orientales",
   "gregorius-nazianzenus.liturgia-sancti-gregorii-sp",
   "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp",
-  "cogPG.PG107",
+  "pseudo-codinus.patria-constantinopoleos",
   "basilius-theology.adversus-eunomium-libri-5",
   "epicharmus-et-pseudepicharmea.testimonia",
+  "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
   "athanasius-theology.doctrina-ad-antiochum-ducem-sp",
   "heron.definitiones",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum",
@@ -12382,18 +13779,25 @@
   "democritus-philosophy.testimonia",
   "joannes-chrysostomus.de-sancta-pentecoste-homiliae-1-2",
   "theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli",
+  "leo-vi-sapiens.novellae-constitutiones",
+  "pseudo-codinus.de-annis-ab-orbe-condito",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
   "cogPG.PG112",
   "heron.geometrica",
   "athanasius-theology.sermo-in-annuntiationem-deiparae-sp",
   "athanasius-theology.disputatio-contra-arium-sp",
   "athanasius-theology.syntagma-ad-quendam-politicum-sp",
+  "michael-psellus.quaestionum-naturalium-solutiones-sp",
   "epicurus.deperditorum-librorum-reliquiae",
+  "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
   "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
   "theodoretus.eranistes",
+  "basilius-i-macedo.paraenesis-ad-leonem-filium",
   "cratinus.fragmenta",
   "ocr.walz_rhetores_v6",
+  "joannes-zonaras.epitome-historiarum-lib-13-18",
   "athanasius-theology.fragmenta-varia",
-  "cogPG.PG109",
+  "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum",
   "pythagoras.testimonia",
   "cyrillus-theology.fragmenta-in-canticum-canticorum",
   "athanasius-theology.epistula-ad-adelphium",
@@ -12401,13 +13805,13 @@
   "ocr.walz_rhetores_v3",
   "gregorius-nyssenus.de-perfectione-christiana-ad-olympium-monachum",
   "zeno-philosophy.testimonia",
-  "cogPG.PG134",
   "xenophanes.testimonia",
   "diophantus-mathematics.arithmeticorum-libri-sex",
   "anaximenes-philosophy.testimonia",
   "athanasius-theology.de-sancta-trinitate-dialogi-2-and-4-sp",
   "andronicus-rhodius.de-passionibus-lib-1-sp",
   "athanasius-theology.dialogi-duo-contra-macedonianos-sp",
+  "leo-vi-sapiens.tactica",
   "gregorius-nyssenus.de-instituto-christiano",
   "archytas-philosophy.testimonia",
   "basilius-theology.prologus-5-sermo-asceticus-dub",
@@ -12415,37 +13819,58 @@
   "aristophanes-comedy.fragmenta-2",
   "athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria",
   "cyrillus-theology.dialogus-cum-nestorio-sp",
+  "theophanes-continuatus.chronographia-lib-1-6",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-petri",
   "athanasius-theology.liber-de-definitionibus-sp",
+  "theophylactus-achridensis.de-iis-quorum-latini-incusantur",
   "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum",
   "anaxagoras.testimonia",
   "zeno-citieus.testimonia-et-fragmenta",
+  "theophylactus-achridensis.expositio-in-prophetam-habacuc",
   "athanasius-theology.epistula-ad-marcellinum-de-interpretatione-psalmorum",
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum",
   "philolaus.testimonia",
   "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate",
   "athanasius-theology.epistula-ad-afros-episcopos",
+  "theophylactus-achridensis.expositio-in-epistolam-judae",
+  "theophylactus-achridensis.oratio-in-venerationem-crucis",
   "athanasius-theology.quaestiones-aliae-sp",
   "arius-didymus.physica-fragmenta",
   "joannes-chrysostomus.in-ascensionem-domini-nostri-jesu-christi",
+  "symeon-thessalonicensis.de-poenitentia",
   "joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae",
   "basilius-theology.regulae-morales",
-  "cogPG.PG126",
+  "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",
+  "michael-psellus.de-anima-celebres-opiniones",
   "gregorius-nyssenus.ad-ablabium-quod-non-sint-tres-dei",
   "ocr.walz_rhetores_v2",
+  "joannes-cameniates.de-expugnatione-thessalonicae",
+  "symeon-thessalonicensis.de-sacra-liturgia",
+  "theophylactus-achridensis.expositio-in-prophetam-jonam",
   "athanasius-theology.sermo-in-nativitatem-christi-sp",
   "pythagoristae-d-k.testimonia-et-fragmenta",
   "ocr.walz_rhetores_v7pt1",
   "basilius-theology.prologus-8-de-fide",
   "anaximander.testimonia",
+  "michael-psellus.de-omnifaria-doctrina",
+  "symeon-thessalonicensis.de-sacris-ordinationibus",
   "leucippus.testimonia",
   "athanasius-theology.de-sancta-trinitate-dialogi-1-3-5-sp",
+  "leo-vi-sapiens.orationes",
   "joannes-damascenus.commentarii-in-epistulas-pauli-dub",
+  "theophylactus-achridensis.expositio-in-epistolam-i-petri",
   "demetrius-poet-phil.demetrius-de-eloc-roberts",
   "gregorius-nyssenus.de-anima-sp",
   "cogPG.PG113",
   "melissus.testimonia",
   "joannes-damascenus.adversus-iconoclastas-sp",
   "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+  "theophylactus-achridensis.expositio-in-prophetam-nahum",
   "gregorius-nyssenus.testimonia-adversus-judaeos-sp",
+  "symeon-thessalonicensis.de-ordine-sepulturae",
+  "symeon-thessalonicensis.de-sacramentis",
+  "symeon-thessalonicensis.de-sacra-precatione",
   "joannes-damascenus.passio-sancti-artemii-dub",
   "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
   "gregorius-nyssenus.in-illud-tunc-et-ipse-filius",
@@ -12453,55 +13878,110 @@
   "diphilus-comedy.fragmenta",
   "diogenes-apolloniates.testimonia",
   "cogPG.PG139",
+  "theophylactus-achridensis.expositio-in-prophetam-oseam",
   "nicolaus-history.nicolaus-progymnasmata-felten",
+  "symeon-thessalonicensis.de-matrimonio",
   "dionysius-thrax-grammar.ars-grammatica",
   "porphyrius.epistula-ad-anebonem",
+  "symeon-thessalonicensis.de-sancto-euchelaeo",
   "proclus.in-platonis-timaeum-commentaria",
-  "cogPG.PG155",
+  "symeon-thessalonicensis.expositio-de-divino-templo",
+  "symeon-thessalonicensis.de-sacro-templo",
+  "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp",
   "damianus-scriptor-de-opticis.optica",
+  "michael-glycas.annales",
+  "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
+  "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
   "basilius-theology.de-baptismo-libri-duo",
   "basilius-theology.liturgia-recensio-brevior-vetusta",
   "athanasius-theology.orationes-tres-contra-arianos",
+  "symeon-thessalonicensis.de-sancto-chrismate",
   "eudemus-philosophy.fragmenta",
+  "demetrius-cydones.occisorum-thessalonicae-monodia",
   "joannes-damascenus.contra-nestorianos",
+  "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum",
+  "theophylactus-achridensis.expositio-in-prophetam-michaeam",
   "empedocles.epigramma",
-  "cogPG.PG158",
   "athanasius-theology.epistulae-quattuor-ad-serapionem",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-joannis",
   "athanasius-theology.epistula-ad-epictetum",
   "cogPG.PG003",
   "gregorius-nyssenus.ad-graecos-ex-communibus-notionibus",
+  "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum",
+  "symeon-thessalonicensis.expositio-de-sacro-symbolo",
   "serenus.de-sectione-cylindri",
+  "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem",
+  "photius.fragmenta-in-lucam-in-catenis",
+  "photius.amphilochia",
   "michael.in-ethica-nicomachea-ixx-commentaria",
-  "cogPG.PG101",
+  "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
+  "photius.commentarii-in-matthaeum-in-catenis",
+  "theophylactus-achridensis.expositio-in-epistolam-i-joannis",
+  "procopius-rhetoric.in-proverbia",
+  "theophylactus-achridensis.vita-clementis-ohridensis",
   "damascius.in-parmenidem",
-  "cogPG.PG146",
-  "cogPG.PG087_1",
+  "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
+  "cogPG.PG118",
+  "symeon-thessalonicensis.dialogus-contra-haereses",
+  "theophylactus-achridensis.enarratio-in-evangelium-marci",
   "alcmaeon.testimonia",
   "athanasius-theology.testimonia-e-scriptura-de-communi-essentia-patris-et-filii-et-spiritus",
   "georgius-cedrenus.compendium-historiarum",
+  "theodorus-agallianus.refutatio-contra-joannem-argyropulum",
+  "procopius-rhetoric.commentarii-in-octateuchum",
+  "michael-glycas.epistolae",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
   "athanasius-theology.symbolum-quicumque-sp",
   "basilius-theology.de-humilitate",
   "basilius-theology.in-illud-in-principio-erat-verbum",
   "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium",
   "damascius.de-principiis",
+  "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-romanos",
+  "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
+  "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
   "cyrillus-theology.scholia-de-incarnatione-unigeniti-fragmenta",
-  "cogPG.PG124",
   "cyrillus-theology.de-incarnatione-unigeniti",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-galatas",
   "cyrillus-theology.quod-unus-sit-christus",
-  "cogPG.PG123",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses",
+  "theophylactus-achridensis.enarratio-in-evangelium-lucae",
+  "oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis",
   "philemon.fragmenta",
-  "cogPG.PG118",
+  "theophylactus-achridensis.enarratio-in-evangelium-joannis",
+  "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
+  "cogPG.PG005",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",
+  "symeon-thessalonicensis.de-sacerdotio",
+  "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+  "pseudo-justinus-martyr.cohortatio-ad-gentiles",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-ephesios",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+  "oecumenius.commentarius-in-acta-apostolorum",
   "ocr.pg026",
   "cogPG.PG151",
   "basilius-theology.contra-sabellianos-et-arium-et-anomoeos",
+  "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
+  "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
   "joannes-chrysostomus.de-sancta-pelagia-virgine-et-martyre",
+  "photius.amphilochia-supplementum",
   "joannes-chrysostomus.ad-viduam-juniorem",
   "joannes-chrysostomus.in-sanctum-barlaam-martyrem",
+  "photius.fragmenta-in-epistulam-ad-romanos-in-catenis",
   "athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp",
-  "cogPG.PG005",
+  "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos",
   "basilius-theology.prologus-7-de-judicio-dei",
   "cogPG.PG067",
-  "cogPG.PG006"
+  "pseudo-justinus-martyr.expositio-rectae-fidei",
+  "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
+  "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
+  "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
+  "pseudo-justinus-martyr.de-resurrectione",
+  "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",
+  "maximus-theology.fragmentum-ex-libro-de-materia"
  ]
 }

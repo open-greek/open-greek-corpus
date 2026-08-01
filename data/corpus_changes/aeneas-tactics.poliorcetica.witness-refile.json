@@ -1,0 +1,43 @@
+{
+ "_meta": {
+  "change": "re-file the whole displaced OCR witness from the wrong slug to the work it actually transmits",
+  "from_file": "data/corpus_secondary/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl (removed)",
+  "to_file": "data/corpus_secondary/aeneas-tactics.poliorcetica.jsonl (created)",
+  "work": "aeneas-tactics.poliorcetica",
+  "tlg": "tlg0058.tlg001",
+  "date": "2026-08-01",
+  "applied_by": "scripts/refile_aeneas_tacticus_witness.py",
+  "reversible": "delete data/corpus_secondary/aeneas-tactics.poliorcetica.jsonl and restore data/corpus_changes/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.pre-witness-refile.jsonl to data/corpus_secondary/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl (verbatim copy of the removed file; sha256 below)"
+ },
+ "rows_moved": 996,
+ "greek_tokens": 18799,
+ "old": {
+  "urn": "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione",
+  "edition": "migne-ocr-qwen36",
+  "secondary_reason": "MIS-INGEST (Isyllus-class): the whole slug serves Aeneas TACTICUS Poliorcetica (Hug 1874, scan aeneaecommentar01huggoog), NOT Aeneas of Gaza's Theophrastus. Verified 2026-07-08: contiguous phrases ('μετα λαμπτηρος πορευεσθαι', 'τους χρεωφειλετας κουφιζοντα', 'τοις δρομοκηρυξιν') verbatim in perseus aeneas-tactics.poliorcetica; misses are Hug apparatus-criticus paratext (H:/M sigla). tlg4001.tlg001 crosswalk claim pruned; COG serves no Aeneas of Gaza (open sourcing gap). Dropped gen1-ocr rows = apparatus lines (git-recoverable).",
+  "sha256": "1fdbe048c9dfd94422a061c882bfe45a8bd69dba385127f00b1e47d5e6ca97b1"
+ },
+ "new": {
+  "urn": "aeneas-tactics.poliorcetica",
+  "edition": "qwen36-aeneaecommentar01huggoog",
+  "secondary_reason": "displaced witness of the served perseus-grc2 text: Qwen3.6 OCR of Aeneas Tacticus, Poliorcetica ed. Hug (Teubner 1874, scan aeneaecommentar01huggoog), a different edition of the same work, including Hug's Latin prolegomena, apparatus criticus and index paratext. Wrongly filed under aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione until 2026-08-01; re-filed by scripts/refile_aeneas_tacticus_witness.py (audit: data/corpus_changes/aeneas-tactics.poliorcetica.witness-refile.json)."
+ },
+ "edition_relabel": {
+  "note": "delivery-side Migne family mislabel corrected to the actual scan; the volume is Hug's Teubner 1874, not Migne PG (precedent: relabel_aelius_dionysius_schwabe_edition.py)",
+  "inverse_mapping": {
+   "qwen36-aeneaecommentar01huggoog": "migne-ocr-qwen36"
+  }
+ },
+ "evidence": {
+  "prior": "MIS-INGEST note of 2026-07-08 on every row: contiguous phrases verbatim in perseus aeneas-tactics.poliorcetica; misses are Hug apparatus-criticus paratext",
+  "computed": {
+   "method": "normalized word-bigram containment, build_ocr_quality_report.py functions",
+   "agreement_tei_in_ocr": 0.756064,
+   "agreement_ocr_in_tei": 0.631597,
+   "n_bigrams_tei": 13606,
+   "n_bigrams_ocr": 17755,
+   "threshold_tei_in_ocr": 0.5
+  },
+  "conclusion": "the rows are a displaced witness of the served Aeneas Tacticus Poliorcetica, not junk duplication: no other copy of the Hug OCR exists in the repo and the served primary is a different source (perseus TEI)"
+ }
+}

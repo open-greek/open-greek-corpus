@@ -569,6 +569,20 @@ order are untouched (asserted), the old keys are recoverable by formula
 rows left over from the contra-monophysitas mis-slug rescope. Audit:
 `data/corpus_changes/flavius-justinianus-imperator.novellae.novel-rekey.json`.
 
+`scripts/refile_aeneas_tacticus_witness.py` (2026-08-01) re-filed the
+996-row Aeneas Tacticus OCR (Poliorcetica ed. Hug, Teubner 1874, scan
+aeneaecommentar01huggoog) that had sat mis-ingest-marked in corpus_secondary
+under aeneas-philosophy.theophrastus-...: it is a real witness of the served
+perseus-grc2 `aeneas-tactics.poliorcetica` (bigram containment of the served
+text in the OCR 0.76, asserted by the script), so it now lives at
+`data/corpus_secondary/aeneas-tactics.poliorcetica.jsonl`, with the
+delivery-side `migne-ocr-qwen36` edition mislabel corrected to the actual
+scan. `scripts/drop_satyrus_lembus_misingest.py` (same date) removed the 47
+wrong-work rows (Heraclides Lembus, Excerpta Politiarum + Posidonius,
+fhg_vol3 pp. 177-196) from the `satyrus.vita-euripidis-p-oxy-9-1176`
+secondary, keeping its 89 true witness rows. Both are audited and reversible
+in `data/corpus_changes/` (verbatim pre-change files archived).
+
 After a work is renamed, re-scoped, or dissolved, run
 `scripts/rekey_corrections_log.py --write`: it re-keys the read-only
 `data/corrections_log/` audit mirror to the works now serving each row's page
