@@ -1,0 +1,312 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG125 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG125",
+  "source_urn": "cogPG.PG125",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "cgpg_zerocredit_identification.json PG125 (its work ranges are Migne columns; the loci below follow the per-work evidence fields, which give the served locus spans)",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG125.' (delete the file when it was 'created'), strip the 'PG125.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG125.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG125": {
+   "rows": 621,
+   "greek_tokens": 236779,
+   "sha256": "d536eb3b1437cd64fc3f79ce8aa3e224d4b9a1b7b0a9b99ba96a388f57f767ee"
+  }
+ },
+ "works": [
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum",
+   "tlg": null,
+   "title": "Expositio in epistolam I ad Timotheum",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum.jsonl",
+   "mode": "created",
+   "rows": 39,
+   "greek_tokens": 13960,
+   "volume_loci": "12-50",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "12",
+     "incipit": "Ὑπόθεσις τῆς πρὸς Τμόθεον πρώτης Ἐπιστολῆς. Τῶν. τοῦ Παύου μαθητῶν ὁ Τιμόθεος ἦν, καὶ οΠνω τις εὐδόκιμος, καὶ τῷ Παύλῳ προστετηκὼς",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 106
+    }
+   ],
+   "evidence": "Loci 12-51 (work ends at top of locus 51 before the 2 Tim title). Row 12 opens with the hypothesis of 1 Tim; commentary runs through 1 Tim 6:20-21 (κενοφωνίας/καινοφωνίας discussion) ending on locus 50-51. Theophylact of Ohrid is not in TLG-E canon (only Theophylactus Simocatta, tlg3130); no canon work points at MPG 125.",
+   "notes": "shared boundary row 51 (1 Tim end + 2 Tim title) is assigned to the 2 Timothy work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum",
+   "tlg": null,
+   "title": "Expositio in epistolam II ad Timotheum",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum.jsonl",
+   "mode": "created",
+   "rows": 27,
+   "greek_tokens": 9598,
+   "volume_loci": "51-77",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "51",
+     "incipit": "ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ΤΟΥ ΑΓΙΟΥ ΠΑΥΛΟΥ πρὸς ΤΜΟΘΕΟ ΔΕΥΤΕΡΑΣ ΕΠΠΣΤΟΑΗΣ ΕΞΗΓΗΣΙΣ ... ΘΖ πόθεσις τῆς πρὸς Τιμόθεον δευτέρας Ἐπιστολῆς, Τί δήποτε καὶ θευτέραν ἐπιστέλλει τῷ Τιμοθέῳ Ἐπιστολήν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 64
+    }
+   ],
+   "evidence": "Loci 51-77. Title on locus 51: [ΘΕΟΦΥΛΑΚΤΟΥ] ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΒΟΥΛΓΑΡΙΑΣ ... ΕΞΗΓΗΣΙΣ, followed by Latin 'Argumentum secundae Epistolae ad Timotheum' OCR'd as pseudo-Greek. Ends locus 77 with 2 Tim 4:21 commentary (Eubulus, Pudens, Linus, Claudia)."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
+   "tlg": null,
+   "title": "Expositio in epistolam ad Titum",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-titum.jsonl",
+   "mode": "created",
+   "rows": 15,
+   "greek_tokens": 5113,
+   "volume_loci": "78-92",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-titum locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "78",
+     "incipit": "Ὑκόδεσις τῆς πρὸς Τττον Ἐπιστολῆς. Τῶν Παύλῳ συνόντων ὃοκιμώτατος ὁ Τῖτος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 62
+    }
+   ],
+   "evidence": "Loci 78-93. Row 78 opens with the Titus hypothesis; Titus doxology (Ἡ χάρις μετὰ πάντων...Ἀμήν) ends at top of locus 93 immediately before the Philemon hypothesis.",
+   "notes": "shared boundary row 93 (Titus doxology + Philemon hypothesis) is assigned to the Philemon work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
+   "tlg": null,
+   "title": "Expositio in epistolam ad Philemonem",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-philemonem.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 2298,
+   "volume_loci": "93-99",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-philemonem locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "93",
+     "incipit": "πόθεσις τῆς πρὸς Φιλήμονα Ἐπιστολῆς. Οὔτε δοῦλον οὔτε δεσκότην ὁ Χριστὸς προσιόντας αὐτῷ ἀποβάλλεται.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 86
+    }
+   ],
+   "evidence": "Starts mid-locus 93, ends end of locus 99 (row 100 opens directly with the Hebrews hypothesis). Loci 93-99."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
+   "tlg": null,
+   "title": "Expositio in epistolam ad Hebraeos",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos.jsonl",
+   "mode": "created",
+   "rows": 110,
+   "greek_tokens": 42933,
+   "volume_loci": "100-209",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "100",
+     "incipit": "ὑπόδεσις τῆς πρὸς Ἐδραίους ἐπιστολῆς. Κθνῶν μὲν ἀπόστολος ἦν ὁ μακάριος Παῦλος, καθὰ δὴ καὶ αὐτὸς ἑν τῇ πρὸς Ῥωμαίους φησίν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 101
+    }
+   ],
+   "evidence": "Loci 100-209. Row 100 opens with the Hebrews hypothesis ('written from Italy' argument at locus 101); Heb 13 commentary at loci 205-209; ends locus 209 with closing doxology (...εἰς τοὺς αἰῶνας τῶν αἰώνων. Ἀμήν)."
+  },
+  {
+   "slug": "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
+   "tlg": null,
+   "title": "In Acta apostolorum commentarius (first, longer text; catena compiled largely from Chrysostom; Theophylact attribution rejected)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.in-acta-apostolorum-commentarius-sp.jsonl",
+   "mode": "created",
+   "rows": 183,
+   "greek_tokens": 63075,
+   "volume_loci": "249-431",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.in-acta-apostolorum-commentarius-sp locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "249",
+     "incipit": "Πράξεις ἀποστόλων τὸ βιβλίον καλεῖται, ἐπειδὴ τὰς πράξεις ὁμοῦ τῶν ἀποστόλων περιέχει.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 73
+    }
+   ],
+   "evidence": "Loci 249 (mid-row, after a dedicatory epigram) to 431. Front matter: hypothesis (249-250, 'Ἀντιοχεὺς γὰρ οὗτος ὑπάρχων τὸ γένος' at 250), list of signs (251), 'Τὰ Κεφάλαια τῶν Πράξεων τῶν ἀγίων ἀποστόλων' (252-254), then a prologue explicitly headed 'Τοῦ ἐν ἀγίοις Πατρὸς ἡμῶν Ἰωάννου τοῦ Χρυσοστόμου ὑπόμνημα εἰς τὰς Πράξεις' with the incipit of Chrysostom In Acta hom. 1 ('Πολλοῖς τοῦτο τὸ βιβλίον...', cf. PG 60:13) at locus 255. Commentary organized by CAPUT (ΟΑΡΩΤ Ι = CAPUT I at 257) through Acts 28:29 at locus 431. Theophylact's authorship of the PG125 Acts material is generally rejected; content is catena/Chrysostom-derived."
+  },
+  {
+   "slug": "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp",
+   "tlg": null,
+   "title": "In Acta apostolorum commentarius alter (second text, with ΠΡΟΛΟΓΟΣ ΘΕΟΦΥΛΑΚΤΟΥ; TEXTUS/ΕΡΜΗΝΕΙΑ alternation)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp.jsonl",
+   "mode": "created",
+   "rows": 106,
+   "greek_tokens": 40247,
+   "volume_loci": "432-537",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "432",
+     "incipit": "Ἀρνὰ ἐν Θεῶ τῶν Πράξιων τῶν ἀποστόλων συγπραφεισῶν παρὰ τοῦ ἀγίου ἀποστόλουκαὶ εὐαγγελιστοῦ Λουκᾶ. ΠΡΟΛΟΓΟΣ ΘΕΟΦΥΛΑΚΤΟΥ. Οὗτος ὁ μακάριος Λουκᾶς μαθητὴς ἦν Παύλου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 138
+    }
+   ],
+   "evidence": "Loci 432-537. Row 432 opens with ms-style title 'Ἀρχὴ σὺν Θεῷ τῶν Πράξεων...' plus ΠΡΟΛΟΓΟΣ ΘΕΟΦΥΛΑΚΤΟΥ. Pages carry OCR'd Latin running labels TEXTUS/COMMENTARIUS (e.g. locus 491) and footer PATROL. GR. CXXV (locus 508). ΕΡΜΗΝΕΙΑ blocks from locus 433 onward; ends with Acts 28:25-29 at loci 536-537."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
+   "tlg": null,
+   "title": "Expositio in Acta apostolorum (third, compendious text: brief scholia)",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-acta-apostolorum-sp.jsonl",
+   "mode": "created",
+   "rows": 35,
+   "greek_tokens": 29184,
+   "volume_loci": "538-572",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-acta-apostolorum-sp locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "538",
+     "incipit": "ΕΞΗΓΗΣΙΣ ΕΓΣ ΤΑΣ ΠΡΑΞΕΙΣ ΤΩΝ ΑΠΟΣΤΟΛΩΝ. Ἀντιονεὺς ὑπάρχων τὸ χένος ὁ Λουκᾶς, ἰατρός τε τὴν τέχνην, δύο βίβλους συνεγράψατο",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 101
+    }
+   ],
+   "evidence": "Loci 538-573 (ends at top of 573 with a chronological colophon dating Acts events 'μέχρι τῆς ὑπατίας, τετάρτης μὲν Ἀρκαδίου, τρίτης δὲ Ὁνωρίου'). Row 538 opens with the ΕΞΗΓΗΣΙΣ title and the common Acts hypothesis; brief bracket-supplemented scholia covering Acts 1-28 in ~35 pages (Acts 28/Rome at 571-572).",
+   "notes": "shared boundary row 573 (expositio colophon + James heading) is assigned to the James work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
+   "tlg": null,
+   "title": "Expositio in epistolam catholicam S. Jacobi",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi.jsonl",
+   "mode": "created",
+   "rows": 29,
+   "greek_tokens": 10163,
+   "volume_loci": "573-601",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "573",
+     "incipit": "Καθολικαὶ λέγονται αὗται αἱ Ἐπιστολαί· Ἰανί βου μία, Πέτρου δύο, Ἰωάννου τρεῖς καὶ Ἰούτα μία, οἰονεὶ ἐγκόκλιοι.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 90
+    }
+   ],
+   "evidence": "Starts mid-locus 573 after Latin heading (garbled 'ΔίΑ Τ ΕΗΙΣΤΟΑΑΙ...ΚΑΘΩΑΙΚΑΙ ΟΝΟΜΑΖΟΝΤΑΙ' = Cur epistolae catholicae nominantur); hypothesis proper follows on 573: 'ΥΠΟΘΕΣΙΣ ΤΗΣ ΚΑΘΟΛΙΚΗΣ ΕΠΙΣΤΟΛΗΣ ΙΑΚΩΒΟΥ. Ἐπειδὴ γὰρ αὐτὸς ὁ Ἰάκωβος ταύτην γράφει τοῖς ἀπὸ τῶν δώδεκα φυλῶν διασπαρεῖσι'. Ends mid-locus 602 with subscription 'Ἰακώβου Ἐπιστολὴ Καθολικὴ στίχων σμβʹ'. Loci 573-602.",
+   "notes": "shared boundary row 602 (James subscription + 1 Peter hypothesis) is assigned to the 1 Peter work"
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-i-petri",
+   "tlg": null,
+   "title": "Expositio in epistolam I S. Petri",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-petri.jsonl",
+   "mode": "created",
+   "rows": 32,
+   "greek_tokens": 12062,
+   "volume_loci": "602-633",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-i-petri locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "602",
+     "incipit": "ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΩΤΗΣ ΕΠΙΣΤΟΑΗΣ ΤΟΥ ΑΙʹΙΟΥ ΑΠΟΣΤΟΑΟΥ ΠΕΤΡΟΥ. Ἐπειδὴ ὁ Πέτρος αὐτὸς τοῖς ἐν τῇ διασπορᾷ οὖσιν Ἰουδαίοις, καὶ γενομένοις Χριστιανοῖς, γράφει τὴν Ἐπιστολὴν διδασκαλικήν.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 152
+    }
+   ],
+   "evidence": "Starts mid-locus 602 (hypothesis + ΚΕΦΑΛΑΙΑ ΤΗΣ ΑΥΤΗΣ ΕΠΙΣΤΟΛΗΣ κʹ), commentary from locus 603 ('ΕΠΙΣΤΟΛΗ ΠΡΩΤΗ ΤΟΥ ΑΓΙΟΥ ΑΠΟΣΤΟΛΟΥ ΠΕΤΡΟΥ ... ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ', with Latin 'EPISTOLA PRIMA SANCTI PETRI APOSTOLI' OCR'd as pseudo-Greek). Ends end of locus 633 (1 Pet 5:12-14, Silvanus/Mark discussion). Loci 602-633."
+  },
+  {
+   "slug": "theophylactus-achridensis.expositio-in-epistolam-ii-petri",
+   "tlg": null,
+   "title": "Expositio in epistolam II S. Petri",
+   "rank": "primary",
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ii-petri.jsonl",
+   "mode": "created",
+   "rows": 18,
+   "greek_tokens": 6540,
+   "volume_loci": "634-651",
+   "locus_map": "cogPG.PG125 locus N -> theophylactus-achridensis.expositio-in-epistolam-ii-petri locus 'PG125.N'",
+   "incipit_checks": [
+    {
+     "locus": "634",
+     "incipit": "Ἐπειδὴ καὶ ταύτῃν πάλιν αὐτὸς ὁ Πέτρος επιστέλλει τοῖς ἤδη πιστεύσασιν. Ἔστι.δὲ ἡ Ἐπιστολὴ ὑπόμνησις τῶν πρώτων.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 93
+    }
+   ],
+   "evidence": "Loci 634-651 (end of file = end of volume, col 1288). Row 634 opens with the 2 Peter hypothesis and 'ΚΕΦΑΛΑΙΑ ΤΗΣ ΑΥΤΗΣ Βʹ ΕΠΙΣΤΟΛΗΣ'. Commentary is complete: locus 650 covers 2 Pet 3:10-12, locus 651 ends with commentary on 2 Pet 3:16-18 ('δυσνόητα...στρεβλοῦσθαι', closing prayer remark). PG126 then begins with 1 John."
+  }
+ ],
+ "residual": {
+  "rows": 20,
+  "greek_tokens": 1606,
+  "loci": [
+   "211",
+   "212",
+   "214",
+   "215",
+   "217",
+   "219",
+   "220",
+   "224",
+   "226",
+   "228",
+   "230",
+   "234",
+   "235",
+   "236",
+   "237",
+   "240",
+   "241",
+   "242",
+   "243",
+   "244"
+  ],
+  "note": "the served rows inside 210-248 are the Latin prolegomena/dissertation prefixed to the Acts commentary (SECTIO I-XIII), OCR'd as pseudo-Greek; not an ancient work, stays in the volume file",
+  "sha256": "b33f951cc1029440753eab5442529173f26ad48c2e507c2eb7ec977fb652dec1"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 236779,
+  "carved": 235173,
+  "residual": 1606,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
+  "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
+  "theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp",
+  "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
+  "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
+  "theophylactus-achridensis.expositio-in-epistolam-i-petri",
+  "theophylactus-achridensis.expositio-in-epistolam-ii-petri"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG125; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG125, plan data/cgpg_carve_plan.json"
+}
