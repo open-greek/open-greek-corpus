@@ -1443,34 +1443,76 @@
   "volume": "PG134",
   "urn": "cogPG.PG134",
   "kind": "volume",
-  "desc": "John Zonaras v1 Annales",
+  "desc": "John Zonaras v1 Annales (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 704,
-  "n_tokens": 288059,
+  "n_passages": 0,
+  "n_tokens": 0,
+  "works": []
+ },
+ {
+  "volume": "PG134",
+  "urn": "joannes-zonaras.epitome-historiarum-lib-1-12",
+  "kind": "work",
+  "desc": "Joannes Zonaras - Epitome historiarum (lib. 1-12) (PG134 loci 31-567)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 535,
+  "n_tokens": 228696,
+  "works": [
+   {
+    "tlg_id": "tlg3135",
+    "work_id": "001",
+    "title": "Epitome historiarum (lib. 1-12)",
+    "author": "Joannes Zonaras",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
+ },
+ {
+  "volume": "PG134",
+  "urn": "joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub",
+  "kind": "work",
+  "desc": "Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2,
+  "n_tokens": 774,
+  "works": [
+   {
+    "tlg_id": "tlg3135",
+    "work_id": "003",
+    "title": "Epitome historiarum (lib. 12, clausula varia) [Dub.]",
+    "author": "Joannes Zonaras",
+    "cgpg_chosen": true
+   }
+  ],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG134",
+  "urn": "joannes-zonaras.epitome-historiarum-lib-13-18",
+  "kind": "work",
+  "desc": "Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 165,
+  "n_tokens": 57561,
   "works": [
    {
     "tlg_id": "tlg3135",
     "work_id": "002",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 118917,
-    "title": "Epitome historiarum (lib. 13%19`18)",
-    "author": "Joannes ZONARAS",
-    "cgpg_chosen": true
-   },
-   {
-    "tlg_id": "tlg3135",
-    "work_id": "003",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 648,
-    "title": "Epitome historiarum (lib. 12, clausula varia) [Dub.]",
-    "author": "Joannes ZONARAS",
+    "title": "Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume",
+    "author": "Joannes Zonaras",
     "cgpg_chosen": true
    }
-  ]
+  ],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG139",
