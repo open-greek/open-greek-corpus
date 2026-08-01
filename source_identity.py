@@ -187,6 +187,9 @@ class Edition:
                                      # ship its text. Only servable editions can be
                                      # auto-chosen as a work's default_edition.
     license: str = ""               # license id when known (CC-BY-SA-4.0, CC0/PD)
+    scheme_inferred: bool = False   # scheme came from the served loci
+                                     # (data/served_scheme_inference.json), not a
+                                     # catalog declaration
     aliases: dict = field(default_factory=dict)
 
 
