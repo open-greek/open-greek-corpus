@@ -1,0 +1,21 @@
+{
+  "comment": "Sourcing-map works whose text is served as many per-part corpus files that carry no shared TLG anchor (cts is null on each part), so the collection URN looks untouched in the gap list. build_coverage_report.py credits each row here with the summed tokens of the served files matching its prefixes, and runs the sum through the normal complete/partial ratio. Curated: every entry needs evidence. This is a report-side credit only; the real fix, per-work crosswalk anchors, would supersede an entry.",
+  "collections": [
+    {
+      "tlg_id": "tlg2200",
+      "work_id": "004",
+      "title": "Orationes 1-64",
+      "served_prefixes": ["libanius.oratio-", "libanius.orationes-"],
+      "evidence": "50 of 64 orations served: libanius.oratio-2..64 (Foerster OCR, arabic slugs) plus libanius.oratio-i/-v/-vi/-viii and libanius.orationes-l (First1K TEI, roman slugs; the OCR ingest skipped exactly the orations First1K already covers, verified no arabic/roman number overlaps 2026-07-31). No per-oration TLG URNs exist.",
+      "date": "2026-07-31"
+    },
+    {
+      "tlg_id": "tlg2200",
+      "work_id": "005",
+      "title": "Declamationes 1-51",
+      "served_prefixes": ["libanius.declamatio-"],
+      "evidence": "All 51 declamations served: libanius.declamatio-2..51 (Foerster OCR) plus libanius.declamatio-i (First1K TEI); summed tokens 224,159 vs 220,315 expected. No per-declamation TLG URNs exist.",
+      "date": "2026-07-31"
+    }
+  ]
+}
