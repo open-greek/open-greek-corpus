@@ -436,6 +436,15 @@ this repo holds the resulting text in `data/corpus`, raw where uncorrected,
 corrected where correction has caught up. The rollup treats OCR text like any
 other source.
 
+Corrections keep the edition's own capitalization. An upstream corrector used to
+resolve a capitalized token to the frequent lowercase form and so lowercase the
+capital the edition prints - after a full stop, at the head of a lexicon's lemma
+register - on no evidence at all. That is now blocked at the source, and the
+2026-08-01 recase pass put back the capitals in 6,423 rows across 178 works,
+retiring 17,047 correction records and replacing 4,697 of them with the
+case-preserving fix (audit upstream in `data/corrections/recase_2026-08-01.json`;
+the overlay in `data/corrections_log/applied.jsonl` reflects the result).
+
 ### Why the OCR runs on Qwen3.6-27B (2026-07)
 
 The first OCR pass ran on a smaller fine-tuned vision model. Inside its
