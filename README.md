@@ -439,11 +439,18 @@ other source.
 Corrections keep the edition's own capitalization. An upstream corrector used to
 resolve a capitalized token to the frequent lowercase form and so lowercase the
 capital the edition prints - after a full stop, at the head of a lexicon's lemma
-register - on no evidence at all. That is now blocked at the source, and the
-2026-08-01 recase pass put back the capitals in 6,423 rows across 178 works,
-retiring 17,047 correction records and replacing 4,697 of them with the
-case-preserving fix (audit upstream in `data/corrections/recase_2026-08-01.json`;
-the overlay in `data/corrections_log/applied.jsonl` reflects the result).
+register, on a divine name - with no evidence behind the case change at all. That is
+now blocked at the source, where each edition's convention is measured from its own
+rows and from its own usage of the word. Two passes put the capitals back: 6,423 rows
+across 178 works on 2026-08-01, and a further 1,183 rows across 65 works on 2026-08-02
+once the per-word evidence was added (`Θεοῦ`, `Ἐκκλησίας`, `Υἱοῦ`, `Γραφαῖς`). 18,242
+correction records retired, 4,945 replaced with the case-preserving fix; audits
+upstream in `data/corrections/recase_2026-08-0{1,2}.json`, and
+`data/corrections_log/applied.jsonl` reflects the result.
+
+Roughly 7,900 lowercasings remain unresolved, in classes the evidence cannot reach:
+verse lines in blocks the edition sets line by line, dash-introduced rubrics, and
+words whose case tracks their sense. They are flagged upstream, not silently blessed.
 
 ### Why the OCR runs on Qwen3.6-27B (2026-07)
 
