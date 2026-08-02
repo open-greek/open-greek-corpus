@@ -448,9 +448,16 @@ correction records retired, 4,945 replaced with the case-preserving fix; audits
 upstream in `data/corrections/recase_2026-08-0{1,2}.json`, and
 `data/corrections_log/applied.jsonl` reflects the result.
 
-Roughly 7,900 lowercasings remain unresolved, in classes the evidence cannot reach:
-verse lines in blocks the edition sets line by line, dash-introduced rubrics, and
-words whose case tracks their sense. They are flagged upstream, not silently blessed.
+A third pass on 2026-08-02 restored the referential capitals - `Θεοῦ`, `Θεόν`,
+`Θεός` and the like - from a hand-curated, adversarially audited list of 80 forms
+these editions capitalize for their referent rather than their position.
+
+Roughly 7,700 lowercasings remain unresolved, and are flagged upstream rather than
+silently blessed. They fall in classes the evidence genuinely cannot reach: verse
+lines in blocks the edition sets line by line (the corpus rows carry no newlines, so
+the structure is gone), dash-introduced rubrics, and words whose case tracks their
+sense - `υἱός` the Son against a man's son, `ἥλιος` the god against the sun - where
+a blanket rule would corrupt the majority of occurrences.
 
 ### Why the OCR runs on Qwen3.6-27B (2026-07)
 
