@@ -148,7 +148,14 @@ $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
 # build_provenance.py rewrites the table between the OCR-PROVENANCE markers, so
 # README.md is genuinely its output file. A hand edit to the README also updates
 # the mtime, so editing prose does not trigger a spurious corpus-wide rescan.
-README.md: $(CORPUS_FILES) scripts/build_provenance.py $(CORPUS_EDITIONS)
+#
+# $(WORK_LEMMAS) is a prerequisite because the Words column reads the per-work
+# token totals it derives. The order matters, and getting it wrong is not a
+# no-op: a stale totals file predates the CGPG carves and the July re-OCR, so it
+# would report the whole Hesychius lexicon under the slug of its prefatory
+# letter. Build the totals first and the column is right; trust them stale and
+# it is worse than the ledger it replaces.
+README.md: $(CORPUS_FILES) scripts/build_provenance.py $(CORPUS_EDITIONS) $(WORK_LEMMAS)
 	$(PY) scripts/build_provenance.py
 
 # The crosswalk's titles come from the vendored CTS metadata in a second pass.

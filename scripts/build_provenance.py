@@ -14,6 +14,7 @@ from __future__ import annotations
 
 import json
 import re
+import sys
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -100,6 +101,28 @@ def main() -> None:
             if w.get("kind") != "secondary-witness"}
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
+    # The Words column used to print ocr_works.json's / cgpg_works.json's own
+    # n_tokens. Neither file is generated: both are ledgers that a dozen one-off
+    # rescope/rekey/dissolve scripts edit in place, so their counts drift from
+    # the text they describe - a sample of 200 found 30 off by more than half.
+    # work_token_totals.json is derived from data/corpus by
+    # build_work_lemma_counts.py, so prefer it and keep the ledger only as the
+    # fallback for a work it has not reached.
+    # Stale totals are worse than no totals: a file predating the CGPG carves
+    # reports the whole Hesychius lexicon under the slug of its prefatory letter.
+    # Fall back to the ledger rather than publish that.
+    token_totals: dict[str, int] = {}
+    totals_fp = DATA / "work_token_totals.json"
+    corpus_mtime = max((fp.stat().st_mtime for fp in (DATA / "corpus").glob("*.jsonl")),
+                       default=0)
+    if totals_fp.exists() and totals_fp.stat().st_mtime >= corpus_mtime:
+        token_totals = {urn: v.get("tokens") for urn, v in
+                        (_load("work_token_totals.json") or {}).items()
+                        if isinstance(v, dict)}
+    elif totals_fp.exists():
+        print("work_token_totals.json is older than data/corpus; falling back to "
+              "the ledger counts. Run build_work_lemma_counts.py to refresh.",
+              file=sys.stderr)
     prov_recs = _load_provenance()
     prov = _load("corrections_log/provenance.json") or {}
     corrected = set(prov.get("corrected_works", []))
@@ -170,7 +193,8 @@ def main() -> None:
             # older campaign model.
             ed = srcs.get(m.get("edition", ""), {})
             model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
-        rows.append((name, desc, dl, model, f"{m.get('n_tokens', 0):,}", status))
+        words = token_totals.get(urn, m.get("n_tokens", 0)) or 0
+        rows.append((name, desc, dl, model, f"{words:,}", status))
 
     n_corr = sum(1 for r in rows if r[5] == "manual")
     n_auto = sum(1 for r in rows if r[5] == "auto-corrected")
