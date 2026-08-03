@@ -436,6 +436,25 @@ this repo holds the resulting text in `data/corpus`, raw where uncorrected,
 corrected where correction has caught up. The rollup treats OCR text like any
 other source.
 
+### How good are the corrections?
+
+Measured for the first time on 2026-08-02, by blind philological rating of a
+stratified sample of the corrections actually present in the served text.
+Population-weighted precision is 75.8% (95% CI 69-83%), so on the order of 46,000
+of them are wrong, with an honest range of 29,000-60,000. By corrector:
+`confusion` 93%, `freq`/auto 85%, `llm`/auto 78%, `freq`/accepted 71%. Adjudicated
+output is not better than auto-applied output; the sample cannot say why.
+
+The worst cell, `llm`/accepted, measured 33% and has been reverted to its OCR
+readings and requeued. A full-population check found 48% of it produced strings
+unattested in 1.17M clean Greek forms. The 2,496 of its fixes that turned an
+unattested string into an attested one were restored, since that is positive
+evidence; the rest await re-adjudication behind a lexicon gate.
+
+Two things this leaves open: `prosodia`/accepted is 43% unattested and has not
+been rated, and `freq`/accepted is the largest block of damage (~19,300 wrong
+rows) purely by size.
+
 Corrections keep the edition's own capitalization. An upstream corrector used to
 resolve a capitalized token to the frequent lowercase form and so lowercase the
 capital the edition prints - after a full stop, at the head of a lexicon's lemma
