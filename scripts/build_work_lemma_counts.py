@@ -214,14 +214,22 @@ def main() -> None:
 
     lemma_cache = load_lemma_cache() if use_cache else {}
     if args.lemma_map:
-        n_new = 0
+        n_new = n_kept = 0
         for line in args.lemma_map.read_text(encoding="utf-8").splitlines():
             form, _, lemma = line.partition("\t")
             if form and lemma.strip():
-                if form not in lemma_cache:
-                    n_new += 1
+                if form in lemma_cache:
+                    # Fill gaps, never override. The map is whatever dilemma
+                    # returned on a remote box, with no confidence attached, so
+                    # one bad row used to silently reassign every occurrence of a
+                    # form - `ou -> ooun` would have moved 658,075 occurrences of
+                    # the commonest negative in Greek onto a service-berry.
+                    n_kept += 1
+                    continue
+                n_new += 1
                 lemma_cache[form] = lemma.strip()
-        print(f"merged {args.lemma_map}: +{n_new} new cache entries",
+        print(f"merged {args.lemma_map}: +{n_new} new cache entries, "
+              f"{n_kept} existing entries left as they were",
               file=sys.stderr)
 
     missing = [f for f in keep if f not in lemma_cache]
