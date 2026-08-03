@@ -32,6 +32,7 @@ REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.join(REPO, "scripts"))
 from source_precedence import REACHABLE_SOURCES, load_overrides, resolve
 from crosswalk import slug_for
+from build_registry import clean_name, decode_betacode_title
 
 SOURCING_MAP = os.path.join(REPO, "data", "inventory", "sourcing_map.csv")
 CORPUS_EDITIONS = os.path.join(REPO, "data", "corpus_editions.json")
@@ -46,11 +47,21 @@ def _int(s):
 
 
 def load_sourcing_map(path):
+    """Rows of the vendored sourcing map, with display-ready titles.
+
+    The map stores the Canon's raw beta-code, and this report used to publish it
+    verbatim: 140 gap entries read `*SUGGRAFIKAI\\ I(STORI/AI`, and 80 more
+    carried `%<n>` typeset markers. The registry already decodes these for its own
+    display titles, so use its decoder here and the two artifacts agree.
+    """
     rows = []
     with open(path, newline="", encoding="utf-8") as f:
         for row in csv.DictReader(f):
             row["word_count"] = _int(row.get("word_count"))
             row["key"] = slug_for(f"{row['tlg_id']}.tlg{row['work_id']}", warn=False)
+            raw = row.get("title") or ""
+            row["title"] = decode_betacode_title(raw) or clean_name(raw)
+            row["author"] = clean_name(row.get("author") or "")
             rows.append(row)
     return rows
 

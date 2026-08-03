@@ -127,6 +127,19 @@ def clean_name(raw: str) -> str:
     s = _BETA_HASH.sub("", s)
     s = _BETA_PCT.sub("", s)
     s = s.replace("*", "")
+    # ` is the Canon's numeric escape, and it reads two ways. Between two
+    # alphanumerics it is a range dash - "Problemata (Lib. 1`2)" is books 1-2,
+    # "Ad Principem Ineruditum (779d`782f)" is a Stephanus range. Standing before
+    # a number it is only a marker that one follows - "(P. Oxy. `15.1795)". Left
+    # in, it surfaced in 143 served titles as "Catecheses Ad Illuminandos 1`18".
+    #
+    # The slugs settle the reading rather than a guess: slugging maps any
+    # non-alphanumeric to "-", so these works have long been served at
+    # problemata-lib-1-2-sp, ad-principem-ineruditum-779d-782f and
+    # p-oxy-15-1795. Both branches are needed to keep it that way - dropping the
+    # dash branch for letter-digit boundaries would move 77 published slugs.
+    s = re.sub(r"(?<=\w)`(?=\w)", "-", s)
+    s = s.replace("`", "")
     # a stray font-number "2" still glued (no space) to the start/end of the
     # text: drop it. A space-separated number is a real work number
     # (e.g. "Olynthiaca 2") and is kept.
@@ -153,6 +166,14 @@ _BETA_GREEK = re.compile(r"\*[A-Za-z()/\\=]|[A-Za-z][/\\=]|[/\\=][A-Za-z]")
 # parenthetical notes untouched. This handles a pure Greek title, a Greek title
 # with a trailing Latin note, and a Latin title with an embedded Greek gloss alike.
 _BETA_TOKEN = re.compile(r"[/\\=*]")
+
+# Known gap: a token whose only beta marker is a BREATHING, with no accent and no
+# `*`, reads as Latin and survives undecoded - `H(` for ἡ, `O(` for ὁ, `E)N` for
+# ἐν. One title still shows it ("... H(τέχνη λελάληκεν"). Accepting breathings
+# here does not work: a trailing `)` is ambiguous between a smooth breathing and
+# a closing paren, so the same rule that recovers 70 real tokens also turns the
+# list marker `B)`, the siglum `HILPQ)` and the page reference `607A)` into Greek.
+# Deciding it needs paren-depth across the whole title, not a token-local test.
 
 
 def _decode_beta_range(tok: str) -> str:
@@ -181,7 +202,9 @@ def decode_betacode_title(raw: str) -> str | None:
     if not raw or _betacode_conv is None or not _BETA_GREEK.search(raw):
         return None
     # strip font wrappers ([2..]2) and TLG typeset markup (#n %n `); keep [Sp.]/[Dub.].
-    s = re.sub(r"[\[\]{}]2|[{}]|#\d+|%\d*|`", "", raw)
+    # ` between two alphanumerics is a range dash, as in clean_name.
+    s = re.sub(r"[\[\]{}]2|[{}]|#\d+|%\d*", "", raw)
+    s = re.sub(r"(?<=\w)`(?=\w)", "-", s).replace("`", "")
     toks, changed = [], False
     for tok in s.split(" "):
         if "_" in tok:                       # beta-code range: `*A_*O`, `word_word`
