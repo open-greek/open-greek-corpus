@@ -92,6 +92,14 @@ def build(write: bool = True) -> dict:
         pa = pseudo_works.get(work_slug)
         if pa and pa.get("title"):
             return pa["title"]
+        # The registry only covers works the TLG Canon lists, so everything
+        # ingested from elsewhere - carved CGPG volumes, byzantium.gr, the OCR'd
+        # PD editions - reached the served index with an empty title, 913 of
+        # them. The crosswalk already vends a title for most; use it rather than
+        # publish a blank.
+        cw = tc.get(work_slug)
+        if cw and cw.get("title"):
+            return cw["title"]
         return ""
 
     works = {}
