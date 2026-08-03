@@ -133,6 +133,50 @@ def dilemma_version() -> str:
         return "unknown"
 
 
+def validate_cache(cache: dict[str, str]) -> None:
+    """Apply the lemma-map checks to the persistent cache, in place.
+
+    Filtering the incoming map is not enough. The merge below fills gaps and
+    never overrides, by design - so an entry that got into the cache before the
+    checks existed can never be displaced by a good one, and the checks give the
+    reassuring answer while the damage sits upstream of them. This cache had
+    `οὐ -> οὖον` in it, which put 294,404 occurrences of the commonest negative
+    in Greek onto a service-berry and published it at #27 in the top-30.
+
+    The corpus's own per-lemma frequencies are the reference, so this is a no-op
+    until data/public_lemma_frequency.tsv exists.
+    """
+    freq_path = DATA / "public_lemma_frequency.tsv"
+    if not freq_path.exists():
+        print("no public_lemma_frequency.tsv; skipping cache validation",
+              file=sys.stderr)
+        return
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from validate_lemma_map import (load_lemma_frequencies,  # noqa: PLC0415
+                                    particle_capture, rejection_reason)
+
+    freq = load_lemma_frequencies(freq_path)
+    repaired, dropped = [], []
+    for form, lemma in list(cache.items()):
+        particle = particle_capture(form, lemma, freq)
+        if particle:
+            repaired.append((form, lemma, particle))
+            cache[form] = particle
+            continue
+        reason = rejection_reason(form, lemma, freq)
+        if reason:
+            dropped.append((form, lemma, reason))
+            del cache[form]
+    for form, lemma, particle in sorted(repaired):
+        print(f"  cache repair: {form} -> {lemma} is now {particle}",
+              file=sys.stderr)
+    for form, lemma, reason in sorted(dropped)[:40]:
+        print(f"  cache drop: {form} -> {lemma} ({reason})", file=sys.stderr)
+    if repaired or dropped:
+        print(f"cache validated: {len(repaired):,} repaired, "
+              f"{len(dropped):,} dropped", file=sys.stderr)
+
+
 def load_lemma_cache() -> dict[str, str]:
     if not LEMMA_CACHE.exists():
         return {}
@@ -231,6 +275,11 @@ def main() -> None:
         print(f"merged {args.lemma_map}: +{n_new} new cache entries, "
               f"{n_kept} existing entries left as they were",
               file=sys.stderr)
+
+    # After the merge, so both sources are covered by one pass: the cache may
+    # carry entries older than these checks, and the map may carry new ones.
+    if lemma_cache:
+        validate_cache(lemma_cache)
 
     missing = [f for f in keep if f not in lemma_cache]
     print(f"{len(keep):,} forms above min-count "
