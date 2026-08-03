@@ -476,8 +476,17 @@ replaced or dropped the text they targeted - and were retired on proof (text
 absent AND a redo dir or an audit accounting for the removal); everything a
 `data/corpus_changes/` audit can still place is re-keyed through that audit's
 own map rather than retired. What remains claims only what the text carries:
-120,894 corrections verifiably present, across 175 manually-corrected and 737
-auto-corrected works, with nothing awaiting a remap.
+of 192,151 records still marked active, 120,894 are verifiably present, spread
+over 890 works. The rest cannot reach the corpus as they are keyed: 41,873 name a
+file a carve has since split away, 29,381 a locus that no longer exists, and
+three more are simply not in the text. The carve-orphaned block is recoverable in
+principle, since `data/corpus_changes/` records where each volume's loci went,
+but it has not been re-keyed and is not counted above.
+
+That is a smaller number of works than the provenance table's 985 (155 manually
+corrected, 830 auto), and the gap is real rather than a discrepancy: the table
+counts what each row's own `corrections` stamp says, so it also sees works edited
+by passes that never went through this overlay.
 
 Corrections keep the edition's own capitalization. An upstream corrector used to
 resolve a capitalized token to the frequent lowercase form and so lowercase the
@@ -670,12 +679,12 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1312 OCR'd works/volumes: 193 manually corrected, 793 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 326 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1312 OCR'd works/volumes: 155 manually corrected, 830 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 327 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
 | achaeus.fragmenta | ΑΔΡΑΣΤΟΣ | nauck-tgf-ocr-frag | Qwen3.6-27B | 1,393 | raw OCR |
-| acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b | Acta Justini et septem sodalium - Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani (recensio B proxima) (PG006 loci 790-792) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 653 | manual |
+| acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b | Acta Justini et septem sodalium - Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani (recensio B proxima) (PG006 loci 790-792) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 653 | auto-corrected |
 | acusilaus.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 456 | auto-corrected |
 | aelius-dionysius.attika-o-no-mata |  | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 32,071 | auto-corrected |
 | aeneas-philosophy.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,842 | auto-corrected |
@@ -700,18 +709,18 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anacreontea.anacreontea |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,644 | auto-corrected |
 | ananius.fragmenta | ANANIUS — Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 78 | raw OCR |
 | anaxagoras.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,045 | auto-corrected |
-| anaxandrides.fragmenta | ΑΝΑΞΑΝΔΡΙΔΗΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 2,566 | raw OCR |
+| anaxandrides.fragmenta | ΑΝΑΞΑΝΔΡΙΔΗΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 2,566 | auto-corrected |
 | anaxarchus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,941 | auto-corrected |
 | anaxilas.fragmenta | ΑΓΡΟΙΚΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 1,077 | auto-corrected |
 | anaximander.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,482 | auto-corrected |
 | anaximenes-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,809 | auto-corrected |
 | anaximenis-milesii-epistulae.epistulae |  | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
 | anaxippus.fragmenta | ANAXIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
-| andreas.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | raw OCR |
-| andronicus-rhodius.de-passionibus-lib-1-sp |  | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 214,806 | auto-corrected |
+| andreas.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
+| andronicus-rhodius.de-passionibus-lib-1-sp |  | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 214,806 | manual |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
 | anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735 |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 4,653 | raw OCR |
-| anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis | Anonymus - Narratio de vita Mohammedis (on Muhammad the pseudo-prophet) (PG158 loci 574-575) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,214 | manual |
+| anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis | Anonymus - Narratio de vita Mohammedis (on Muhammad the pseudo-prophet) (PG158 loci 574-575) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,214 | auto-corrected |
 | anthemius.dupuy-1777 |  | qwen36-anthemius_dupuy_1777 | Qwen3.6-27B | 2,413 | raw OCR |
 | antidotus.fragmenta | ΑΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 91 | raw OCR |
 | antigonus-paradoxography.historiarum-mirabilium-collectio |  | qwen36-antigonus_keller_rnsgm1 | Qwen3.6-27B | 24,618 | auto-corrected |
@@ -730,7 +739,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | apollodorus.fragmenta-2 | APOLLODORUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 68 | raw OCR |
 | apollonius-philosophy.apollonii-epistulae-dub |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,380 | auto-corrected |
 | apollonius-philosophy.apotelesmata-sp |  | qwen36-apollonius_parad_keller_v1 | Qwen3.6-27B | 22,908 | auto-corrected |
-| apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas | Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 557 | manual |
+| apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas | Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 557 | auto-corrected |
 | apollonius-soph.lexicon-homericum |  | [archive.org](https://archive.org/details/apolloniisophis00bekkgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 47,144 | auto-corrected |
 | apollophanes-comedy.fragmenta | ἈΠΟΛΛΟΦΆΝΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 322 | auto-corrected |
 | apollophanes.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 105 | auto-corrected |
@@ -825,7 +834,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | athanasius-theology.sermo-ad-antiochum-ducem-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΕΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ, ΠΡΟΣ ΑΝΤΙΟΧΟΝ ΑΡΧΟΝΤΑ (86) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,662 | auto-corrected |
 | athanasius-theology.sermo-contra-latinos-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,851 | auto-corrected |
 | athanasius-theology.sermo-contra-omnes-haereses-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΚΑΤΑ ΠΑΣΩΝ ΤΩΝ ΑΙΡΕΣΕΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,155 | auto-corrected |
-| athanasius-theology.sermo-de-descriptione-deiparae-sp | ΕΙΣ ΑΠΟΓΡΑΦΗΝ (55) ΤΗΣ ΑΓΙΑΣ ΜΑΡΙΑΣ, ΚΑΙ ΕΙΣ ΤΟΝ ΙΟΣΗΦ, ΛΟΓΟΣ (56). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,639 | raw OCR |
+| athanasius-theology.sermo-de-descriptione-deiparae-sp | ΕΙΣ ΑΠΟΓΡΑΦΗΝ (55) ΤΗΣ ΑΓΙΑΣ ΜΑΡΙΑΣ, ΚΑΙ ΕΙΣ ΤΟΝ ΙΟΣΗΦ, ΛΟΓΟΣ (56). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,639 | auto-corrected |
 | athanasius-theology.sermo-de-patientia-sp | ΤΟΥ ἈΥΤΟΥ ἈΘΑΝΑΣΙΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ, ΠΕΡΙ ΥΠΟΜΟΝΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,076 | auto-corrected |
 | athanasius-theology.sermo-exhortatorius-sp-e-cod-paris-gr-769 | ΛΟΓΟΣ ΤΟΥ ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ ΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,289 | auto-corrected |
 | athanasius-theology.sermo-in-annuntiationem-deiparae-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,104 | auto-corrected |
@@ -846,7 +855,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | autocrates-comedy.fragmenta | ΑΔΗΛΟΤ ΔΡΑΜΑΤΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 74 | raw OCR |
 | axionicus.fragmenta | ΔΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 491 | raw OCR |
 | basilides.fragmentum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33 | raw OCR |
-| basilius-i-macedo.altera-paraenesis-ad-leonem-filium | Basilius I Macedo imperator - Altera paraenesis ad Leonem filium (PG107 loci 38-39) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 531 | manual |
+| basilius-i-macedo.altera-paraenesis-ad-leonem-filium | Basilius I Macedo imperator - Altera paraenesis ad Leonem filium (PG107 loci 38-39) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 531 | auto-corrected |
 | basilius-i-macedo.paraenesis-ad-leonem-filium | Basilius I Macedo imperator (revera fort. Photius) - Paraenesis ad Leonem filium (Exhortationum capita LXVI) (PG107 loci 20-37) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,487 | manual |
 | basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp | ΛΟΓΟΣ ΜΑʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,678 | auto-corrected |
 | basilius-scr-eccl.sermones-xli | A ΛΟΓΟΣ Α' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 69,629 | auto-corrected |
@@ -934,7 +943,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | choerilus.fragmenta-epica |  | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 826 | auto-corrected |
 | choricius.opera |  | qwen36-choricius_boissonade | Qwen3.6-27B | 67,121 | auto-corrected |
 | cinesias.fragmentum |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 100 | raw OCR |
-| claudius-apollinarius.fragmenta | Claudius Apollinarius Hierapolitanus - Fragmenta (PG005 loci 657-660) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 346 | manual |
+| claudius-apollinarius.fragmenta | Claudius Apollinarius Hierapolitanus - Fragmenta (PG005 loci 657-660) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 346 | auto-corrected |
 | clearchus-comedy.fragmenta | ΚΙΘΑΡΩΙΔΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 177 | raw OCR |
 | clearchus-philosophy.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 31,248 | auto-corrected |
 | cleobulina-scriptor-aenigmatum.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 167 | raw OCR |
@@ -955,7 +964,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 201,766 | manual |
 | PG151 | Gregory Palamas v2; Acindynus; Barlaam | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 399,517 | manual |
 | comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
-| comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota — Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,261 | auto-corrected |
+| comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota — Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,261 | raw OCR |
 | commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,211 | auto-corrected |
 | constantinus-siculus.versus-in-leonem-philosophum | Constantinus Siculus - Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione) (PG107 loci 40-41) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 257 | manual |
 | constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 212,432 | manual |
@@ -1018,7 +1027,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat | DAMASCIUS — Vita Isidori (fragmenta ap. Sudam etc.) | qwen36-damascius-boissonade | Qwen3.6-27B | 12,536 | raw OCR |
 | damianus-scriptor-de-opticis.optica |  | qwen36-damianus_schoene | Qwen3.6-27B | 3,440 | auto-corrected |
 | damon-et-phintias.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 308 | raw OCR |
-| damoxenus.fragmenta | DAMOXENUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 290 | raw OCR |
+| damoxenus.fragmenta | DAMOXENUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 290 | auto-corrected |
 | demetrius-comedy.fragmenta | ΔΗΜΗΤΡΙΟΤ ΣΙΚΕΛΙΑ 795 | kock-caf1-ocr-frag | Qwen3.6-27B | 226 | raw OCR |
 | demetrius-cydones.occisorum-thessalonicae-monodia | Demetrius Cydones - Occisorum Thessalonicae monodia (PG109 loci 325-331) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,522 | manual |
 | demetrius-poet-phil.demetrius-de-eloc-roberts |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,215 | auto-corrected |
@@ -1064,7 +1073,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | diphilus-epic.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 130 | raw OCR |
 | dius.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 361 | auto-corrected |
 | dosiadas.fragmenta |  | qwen36-socrates_hist_fhg4-ocr | Qwen3.6-27B | 1 | raw OCR |
-| dositheus-magister.ars-grammatica |  | [archive.org](https://archive.org/details/arsgrammaticarec00dosiuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,479 | auto-corrected |
+| dositheus-magister.ars-grammatica |  | [archive.org](https://archive.org/details/arsgrammaticarec00dosiuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,479 | raw OCR |
 | dromo.fragmenta | ΨΑΛΤΡΙΑ | kock-caf2-ocr-frag | Qwen3.6-27B | 43 | raw OCR |
 | ducas.historia-turcobyzantina | Ducas - Historia Turcobyzantina (PG157 loci 382-590) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 68,729 | manual |
 | ecphantides.fragmenta | ἈΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 133 | raw OCR |
@@ -1079,7 +1088,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | epicurus.deperditorum-librorum-reliquiae | EPICURUS — Deperditorum librorum reliquiae (Usener, Epicurea) | qwen36-usener-epicurea-1887 | Qwen3.6-27B | 61,340 | raw OCR |
 | epigenes.fragmenta | ΑΡΙΤΤΡΙΟΤ ΑΦΑΝΙΣΜΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 219 | raw OCR |
 | epigonus-ap-cougny-v1 |  | qwen36-epigonus_ap_cougny_v1 | Qwen3.6-27B | 79,204 | auto-corrected |
-| epilycus.fragmenta | ΚΩΡΑΛΙΣΚΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 269 | raw OCR |
+| epilycus.fragmenta | ΚΩΡΑΛΙΣΚΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 269 | auto-corrected |
 | epimenides.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,962 | auto-corrected |
 | epinicus.fragmenta | EPINICUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 172 | raw OCR |
 | epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam | Epistula ecclesiarum apud Lugdunum et Viennam - Epistula ecclesiarum apud Lugdunum et Viennam (cum appendicibus ap. Eus. HE 5.1-4) (PG005 loci 715-736) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,667 | manual |
@@ -1087,7 +1096,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | erinna.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,142 | auto-corrected |
 | eriphus.fragmenta | ΜΕΛΙΒΟΙΑ | kock-caf2-ocr-frag | Qwen3.6-27B | 173 | raw OCR |
 | erotianus.vocum-hippocraticarum-collectio |  | qwen36-erotianus_nachmanson_1918 | Qwen3.6-27B | 18,450 | auto-corrected |
-| esaias-cyprius.epistola-de-processione-spiritus-sancti | Esaias Cyprius - Epistola (anti-Latin, on the procession of the Holy Spirit) (PG158 loci 521-523) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 706 | manual |
+| esaias-cyprius.epistola-de-processione-spiritus-sancti | Esaias Cyprius - Epistola (anti-Latin, on the procession of the Holy Spirit) (PG158 loci 521-523) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 706 | auto-corrected |
 | etymologicum-genuinum.etymologicum-genuinum-mwsge-pws |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 71,691 | auto-corrected |
 | etymologicum-gudianum.etymologicum-gudianum-lion-zeiai | ETYMOLOGICUM GUDIANUM — Etymologicum Gudianum | qwen36-etym-gudianum-sturz-bsb | Qwen3.6-27B | 322,517 | raw OCR |
 | euagon.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 213 | auto-corrected |
@@ -1116,12 +1125,12 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum | ΕΚΛΟΓΗ ΕΝ ΣΥΝΤΟΜΩ ΕΚ ΤΩΝ ΣΥΝΤΕΘΕΝΤΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,795 | auto-corrected |
 | eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum | ἈΦΡΙΚΑΝΟΥ (48) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,483 | auto-corrected |
 | eustathius-philol.commentarii-ad-homeri-iliadem | Eustathius Thessalonicensis — Commentarii ad Homeri Iliadem | qwen36-eustathius-iliad-stallbaum | Qwen3.6-27B | 1,065,178 | raw OCR |
-| eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS — Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 537,945 | manual |
+| eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS — Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 537,945 | auto-corrected |
 | eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium | EUSTRATIUS — In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium | qwen36-inanalyticorumpo00eust | Qwen3.6-27B | 110,701 | raw OCR |
 | eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 3,962 | raw OCR |
 | euthycles.fragmenta | EUTHYCLES — Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 83 | raw OCR |
 | fhg-vol3-mueller-diocles-rhodius |  | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 88,967 | auto-corrected |
-| flavius-justinianus-imperator.novellae |  | qwen36-justinian_novellae_schoell | Qwen3.6-27B | 233,631 | manual |
+| flavius-justinianus-imperator.novellae |  | qwen36-justinian_novellae_schoell | Qwen3.6-27B | 233,631 | auto-corrected |
 | fragmenta-alchemica.bafh-tou-i-ndikou-sidh-rou-grafei-sa-tw-au-tw-xro-nw |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 199 | raw OCR |
 | fragmenta-alchemica.bafh-tou-para-pe-rsais-e-ceurhme-nou-xalkou-grafei-sa-po |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 269 | raw OCR |
 | fragmenta-alchemica.de-margaritis-collectio-excerptorum-quae-incipit-vocibus |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 934 | auto-corrected |
@@ -1171,7 +1180,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | fragmenta-alchemica.xrh-sis-ioustinianou-basile-ws-sine-titulo-e-cod |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 726 | auto-corrected |
 | fragmenta-alchemica.xrusou-poi-hsis-e-cod-paris-b-n-gr-2327-fol-232r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 292 | raw OCR |
 | fragmentum-stoicum.fragmentum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20 | auto-corrected |
-| fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae | Theophilus Caesariensis et synodus Caesariensis - Fragmentum synodicae epistulae concilii Caesariensis (de paschate) (PG005 loci 694-695) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 54 | manual |
+| fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae | Theophilus Caesariensis et synodus Caesariensis - Fragmentum synodicae epistulae concilii Caesariensis (de paschate) (PG005 loci 694-695) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 54 | raw OCR |
 | gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth |  | qwen36-suetonius_reliquiae_reifferscheid | Qwen3.6-27B | 11,460 | auto-corrected |
 | geoponica.geoponica |  | qwen36-geoponica_beckh | Qwen3.6-27B | 123,977 | auto-corrected |
 | georgius-cedrenus.compendium-historiarum |  | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 291,745 | manual |
@@ -1284,7 +1293,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | gregorius-nyssenus.vita-sanctae-macrinae | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΕΙΣ ΤΟΝ ΒΙΟΝ ΤΗΣ ΟΣΙΑΣ ΜΑΚΡΙΝΗΣ ΑΔΕΛΦΗΣ ΤΟΥ ΜΕΓΑΛΟΥ ΒΑΣΙΛΕΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,567 | auto-corrected |
 | hecataeus-abderita.testimonia-2 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,188 | auto-corrected |
 | hegemon-parodius.fragmentum | ἈΤΣΙΠΠΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
-| hegesippus-scr-eccl.fragmenta-ex-incerto-libro | Hegesippus - Fragmenta (ex incerto libro / Hypomnemata) (PG005 loci 663-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,508 | manual |
+| hegesippus-scr-eccl.fragmenta-ex-incerto-libro | Hegesippus - Fragmenta (ex incerto libro / Hypomnemata) (PG005 loci 663-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,508 | auto-corrected |
 | hegesippus.fragmenta | HEGESIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 164 | raw OCR |
 | heliodorus.fragmenta | Fragmenta | qwen36-staphylus_fhg4 | Qwen3.6-27B | 157 | raw OCR |
 | hellanicus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 959 | auto-corrected |
@@ -1295,7 +1304,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | herillus.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 209 | raw OCR |
 | hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 57 | raw OCR |
 | hermesianax.fragmenta |  | qwen36-philetas_bach_1829-ocr | Qwen3.6-27B | 6,528 | auto-corrected |
-| hermias-apologetics.irrisio-gentilium-philosophorum | Hermias - Irrisio gentilium philosophorum (PG006 loci 592-597) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,818 | manual |
+| hermias-apologetics.irrisio-gentilium-philosophorum | Hermias - Irrisio gentilium philosophorum (PG006 loci 592-597) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,818 | auto-corrected |
 | hermias-history.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 514 | auto-corrected |
 | hermippus-comedy.fragmenta | 230 ΕΡΜΙΠΠΟΥ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,948 | auto-corrected |
 | hermippus-comedy.fragmenta-4 |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
@@ -1303,9 +1312,9 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | heron.definitiones |  | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,023 | auto-corrected |
 | heron.geometrica | HERO ALEXANDRINUS — Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 46,883 | raw OCR |
 | hesiodus.fragmenta |  | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 15,873 | auto-corrected |
-| hesychius-lexicography.epistula-ad-eulogium |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 571 | auto-corrected |
-| hesychius-lexicography.lexicon-o |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 146,215 | raw OCR |
-| hesychius-lexicography.lexicon-p-w |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 56,840 | raw OCR |
+| hesychius-lexicography.epistula-ad-eulogium |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 571 | raw OCR |
+| hesychius-lexicography.lexicon-o |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 146,215 | auto-corrected |
+| hesychius-lexicography.lexicon-p-w |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 56,840 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,821 | auto-corrected |
 | hicetas.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
 | hierocles-philosophy.hqikh-stoixei-wsis |  | qwen36-hierocl_aureum_mullach_fpg1 | Qwen3.6-27B | 139,484 | auto-corrected |
@@ -1324,7 +1333,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | hippon.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,989 | auto-corrected |
 | horapollo.hieroglyphica-translatio-philippi |  | qwen36-horapollo_leemans | Qwen3.6-27B | 17,836 | auto-corrected |
 | hyperochus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 83 | raw OCR |
-| ibycus.fragmenta | IBYCUS — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,616 | raw OCR |
+| ibycus.fragmenta | IBYCUS — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,616 | auto-corrected |
 | iccus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 611 | raw OCR |
 | idaeus-philosophy.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 765 | auto-corrected |
 | ignatius-scr-eccl.fragmenta-ex-epistolis | Ignatius Antiochenus - Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section) (PG005 loci 483-489) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,280 | manual |
@@ -1334,7 +1343,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | ion-philosophy.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,309 | auto-corrected |
 | iophon.fragmenta | ἈΤΑΩΙΔΟΙ ΣΑΤΤΡΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 285 | auto-corrected |
 | isidorus-scholasticus-anthol-didot |  | qwen36-isidorus_scholasticus_anthol_didot | Qwen3.6-27B | 105,271 | auto-corrected |
-| isyllus.fragmenta-ig-4-950 |  | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 72 | manual |
+| isyllus.fragmenta-ig-4-950 |  | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 72 | raw OCR |
 | jacobs-anthologia-graeca-t13.appendix-epigrammatum |  | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 17,097 | auto-corrected |
 | joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,260 | raw OCR |
 | joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem | Joannes Argyropulus - De processione Spiritus Sancti ad magnum ducem (Lucam Notaram), cum explanatione decreti synodi Florentinae (PG158 loci 531-539) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,549 | manual |
@@ -1510,21 +1519,21 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | joannes-epiphaniensis.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,676 | auto-corrected |
 | joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos |  | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 200,423 | auto-corrected |
 | joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno | Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,934 | manual |
-| joannes-hierosolymitanus.narratio | Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 555 | manual |
+| joannes-hierosolymitanus.narratio | Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 555 | auto-corrected |
 | joannes-laurentius-lydus.de-magistratibus-populi-romani |  | qwen36-lydus_mensibus_wuensch | Qwen3.6-27B | 43,809 | auto-corrected |
 | joannes-stobaeus-anthologus.anthologium |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 434,198 | manual |
 | joannes-tzetzes.tzetzes-historiae-kiessling |  | qwen36-tzetzes_historiae_kiessling | Qwen3.6-27B | 103,890 | auto-corrected |
-| joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 774 | manual |
+| joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 774 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 57,561 | manual |
-| job-monachus.prooemium-in-psalmos | Job monachus ('Iob peccator') - Prooemium (to an exposition of the Psalms) (PG158 loci 562-563) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 340 | manual |
+| job-monachus.prooemium-in-psalmos | Job monachus ('Iob peccator') - Prooemium (to an exposition of the Psalms) (PG158 loci 562-563) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 340 | auto-corrected |
 | josephus-genesius.basilei-ai | Josephus Genesius - Basileiai (Regum libri quattuor) (PG109 loci 501-583) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,686 | manual |
-| josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 236 | manual |
-| justinus-martyr.fragmenta-operum-deperditorum | Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 338 | manual |
+| josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 236 | auto-corrected |
+| justinus-martyr.fragmenta-operum-deperditorum | Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 338 | auto-corrected |
 | laetus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 439 | auto-corrected |
 | lamprocles.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,171 | auto-corrected |
-| laudatio-sancti-demetrii.narratio-de-capta-thessalonica | Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 623 | manual |
+| laudatio-sancti-demetrii.narratio-de-capta-thessalonica | Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 623 | auto-corrected |
 | leo-vi-sapiens.carmen-compunctorium | Leo VI Sapiens imperator - Carmen compunctorium (anacreonticum de extremo iudicio) (PG107 loci 196-198) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 793 | manual |
-| leo-vi-sapiens.carmina-et-epigrammata-varia | Leo VI Sapiens imperator (et Leo Philosophus attrib.) - Carmina et epigrammata varia (iambi; carmen hexametricum de mensibus; excerpta de S. Clemente) (PG107 loci 371-375) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,428 | manual |
+| leo-vi-sapiens.carmina-et-epigrammata-varia | Leo VI Sapiens imperator (et Leo Philosophus attrib.) - Carmina et epigrammata varia (iambi; carmen hexametricum de mensibus; excerpta de S. Clemente) (PG107 loci 371-375) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,428 | auto-corrected |
 | leo-vi-sapiens.exapostilaria-anastasima | Leo VI Sapiens imperator (attrib.) - Exapostilaria anastasima (cum theotokiis) (PG107 loci 191-195) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,707 | manual |
 | leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia | Leo VI Sapiens imperator et alii (documenta ecclesiastica) - Notitiae episcopatuum et documenta de praecedentia (Diatyposis Leonis; ps.-Epiphanii Ekthesis; Notitia patriarchatuum; Ekthesis nea) (PG107 loci 206-250) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 8,741 | manual |
 | leo-vi-sapiens.novellae-constitutiones | Leo VI Sapiens imperator - Novellae constitutiones (cum prooemio; const. I-CXIII et diataxeis additae ad CXVII) (PG107 loci 252-370) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 37,023 | manual |
@@ -1548,9 +1557,9 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | manetho.fragmenta | Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 3,012 | auto-corrected |
 | mantissa-proverbiorum.mantissa-proverbiorum |  | [archive.org](https://archive.org/details/corpusparoemiogr02leutuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 167,247 | auto-corrected |
 | marcellinus.vita-thucydidis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 97,476 | auto-corrected |
-| martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum | Martyrium Ignatii - Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum') (PG005 loci 499-503) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,280 | manual |
+| martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum | Martyrium Ignatii - Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum') (PG005 loci 499-503) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,280 | auto-corrected |
 | maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,985 | auto-corrected |
-| maximus-theology.fragmentum-ex-libro-de-materia | Maximus - Fragmentum ex libro de materia (PG005 loci 679-687) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,066 | manual |
+| maximus-theology.fragmentum-ex-libro-de-materia | Maximus - Fragmentum ex libro de materia (PG005 loci 679-687) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,066 | auto-corrected |
 | melanippides.fragmenta | MELANIPPIDES — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 247 | raw OCR |
 | melanthius-elegy.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 73 | raw OCR |
 | melanthius.fragmentum |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 277 | auto-corrected |
@@ -1574,17 +1583,17 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | michael-psellus.de-actionum-nominibus | Michael Psellus - De actionum nominibus (Attic legal antiquities) (PG122 loci 514-521) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,907 | manual |
 | michael-psellus.de-anima-celebres-opiniones | Michael Psellus - De anima celebres opiniones (PG122 loci 525-548) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,379 | manual |
 | michael-psellus.de-lapidum-virtutibus | Michael Psellus - De lapidum virtutibus (PG122 loci 454-460) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 902 | manual |
-| michael-psellus.de-legum-nominibus | Michael Psellus - De legum nominibus (glossary of Roman-law terms and Latin legal loanwords) (PG122 loci 522-524) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 752 | manual |
-| michael-psellus.de-locis-et-nominibus-atticis-sp | Pseudo-Michael Psellus - De locis et nominibus Atticis (PG122 loci 610-612) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,031 | manual |
+| michael-psellus.de-legum-nominibus | Michael Psellus - De legum nominibus (glossary of Roman-law terms and Latin legal loanwords) (PG122 loci 522-524) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 752 | auto-corrected |
+| michael-psellus.de-locis-et-nominibus-atticis-sp | Pseudo-Michael Psellus - De locis et nominibus Atticis (PG122 loci 610-612) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,031 | auto-corrected |
 | michael-psellus.de-mortis-determinatione | Michael Psellus - De mortis determinatione (Antigraphe on whether the term of life is fixed) (PG122 loci 468-469) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 732 | manual |
 | michael-psellus.de-omnifaria-doctrina | Michael Psellus - De omnifaria doctrina (Didaskalia pantodape) (PG122 loci 351-400) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 20,320 | manual |
 | michael-psellus.de-operatione-daemonum-sp | Pseudo-Michael Psellus - De operatione daemonum dialogus (Timotheus; now held spurious) (PG122 loci 419-447) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,749 | manual |
 | michael-psellus.epistulae | Michael Psellus - Epistolae (numbered PG selection, with the In equum aereum epigram at the head of the first row) (PG122 loci 613-625) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,190 | manual |
-| michael-psellus.in-mercurii-trismegisti-pimandrum | Michael Psellus - In Mercurii Trismegisti Pimandrum (brief note) (PG122 loci 609-609) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 305 | manual |
+| michael-psellus.in-mercurii-trismegisti-pimandrum | Michael Psellus - In Mercurii Trismegisti Pimandrum (brief note) (PG122 loci 609-609) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 305 | auto-corrected |
 | michael-psellus.monodia-in-sanctae-sophiae-collapsam | Michael Psellus - Monodia in Sanctae Sophiae (partem) collapsam (PG122 loci 466-467) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 757 | manual |
 | michael-psellus.opuscula-psychologica-theologica-daemonologica | Michael Psellus - Expositio in oracula Chaldaica + Expositio brevis dogmatum Chaldaicorum (the two Chaldaica of O'Meara's Philosophica minora II, partial) (PG122 loci 594-608) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,284 | manual |
 | michael-psellus.poemata | Michael Psellus - Poemata (PG 122 selection: In Canticum canticorum paraphrasis cum exegesi = poem 2; Versus de dogmate; Synopsis canonum; Synopsis legum = poem 8, first pages only) (PG122 loci 275-475) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 31,945 | manual |
-| michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp | Pseudo-Michael Psellus - Quaenam sunt Graecorum opiniones de daemonibus (PG122 loci 448-451) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,429 | manual |
+| michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp | Pseudo-Michael Psellus - Quaenam sunt Graecorum opiniones de daemonibus (PG122 loci 448-451) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,429 | auto-corrected |
 | michael-psellus.quaestionum-naturalium-solutiones-sp | Pseudo-Michael Psellus - Quaestionum naturalium solutiones (anonymous compendium, Migne's title; akin to Symeon Seth) (PG122 loci 401-414) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,697 | manual |
 | michael-psellus.versus-in-sanctos-tres-hierarchas-sp | Pseudo-Michael Psellus (fort. Joannes Mauropous) - Versus in sanctos tres hierarchas with epigrams (signed by a John, probably Mauropous; printed as Joannis Pselli) (PG122 loci 464-465) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 479 | manual |
 | michael.in-ethica-nicomachea-ixx-commentaria | MICHAEL EPHESIUS — In Ethica Nicomachea commentaria (CAG XX) | qwen36-commentariainari20bero | Qwen3.6-27B | 6,107 | raw OCR |
@@ -1641,13 +1650,13 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | oribasius.collectiones-medicae-libri-incerti |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,777 | manual |
 | oribasius.libri-ad-eunapium-lib-1-4 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,440 | auto-corrected |
 | oribasius.synopsis-ad-eustathium-filium |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 78,515 | auto-corrected |
-| orphica.argonautica | ORPHICA — Argonautica | qwen36-abel-orphica-argonautica | Qwen3.6-27B | 6,788 | raw OCR |
-| orphica.hymni | ORPHICA — Hymni | qwen36-abel-orphica-hymni | Qwen3.6-27B | 5,509 | raw OCR |
+| orphica.argonautica | ORPHICA — Argonautica | qwen36-abel-orphica-argonautica | Qwen3.6-27B | 6,788 | auto-corrected |
+| orphica.hymni | ORPHICA — Hymni | qwen36-abel-orphica-hymni | Qwen3.6-27B | 5,509 | auto-corrected |
 | orphica.lithica | ORPHICA — Lithica | qwen36-abel-orphica-lithica | Qwen3.6-27B | 2,501 | raw OCR |
 | orphica.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,779 | auto-corrected |
 | ostanes-magus.osta-nou-filoso-fou-pro-s-peta-sion-peri-th-s-i-era-s-tau-ths-kai |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 415 | auto-corrected |
 | pancrates-epigram.fragmenta | PANCRATES — Fragmenta | qwen36-oxyrhynchuspapyr08gren | Qwen3.6-27B | 157 | raw OCR |
-| pantaenus.fragmenta | Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 224 | manual |
+| pantaenus.fragmenta | Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 224 | raw OCR |
 | panyassis.fragmenta-epica |  | qwen36-panyassis_kinkel_egf | Qwen3.6-27B | 33,044 | auto-corrected |
 | papias.fragmenta | Papias Hierapolitanus - Fragmenta (PG005 loci 637-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 708 | manual |
 | parmenides.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,838 | auto-corrected |
@@ -1714,14 +1723,14 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | phoenix.fragmenta |  | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 27,870 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 215,284 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,879 | manual |
-| photius.bibliotheca |  | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 153,418 | auto-corrected |
-| photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | manual |
+| photius.bibliotheca |  | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 153,418 | raw OCR |
+| photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,594 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,204 | manual |
-| photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Photius - Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated (PG101 loci 652-652) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 365 | manual |
+| photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Photius - Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated (PG101 loci 652-652) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 365 | raw OCR |
 | photius.fragmenta-in-lucam-in-catenis | Photius - Fragmenta in Lucam (in catenis) (PG101 loci 632-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,650 | manual |
-| photius.fragmenta-in-marcum-in-catenis | Photius - Fragmenta in Marcum (in catenis) (PG101 loci 631-631) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 383 | manual |
-| photius.lexicon |  | [archive.org](https://archive.org/details/photiipatriarch00nabegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 102,580 | raw OCR |
+| photius.fragmenta-in-marcum-in-catenis | Photius - Fragmenta in Marcum (in catenis) (PG101 loci 631-631) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 383 | raw OCR |
+| photius.lexicon |  | [archive.org](https://archive.org/details/photiipatriarch00nabegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 102,580 | auto-corrected |
 | phrynichus-comedy.fragmenta | ΦΡΤΝΙΧΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,669 | auto-corrected |
 | phrynichus-tragedy.fragmenta | ΑΙΓΥΠΤΙΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 642 | raw OCR |
 | pigres.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 623 | raw OCR |
@@ -1760,12 +1769,12 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | pseudo-codinus.patria-constantinopoleos | Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,157 | manual |
 | pseudo-justinus-martyr.cohortatio-ad-gentiles | Pseudo-Justinus Martyr - Cohortatio ad gentiles (PG006 loci 128-163) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,708 | manual |
 | pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum | Pseudo-Justinus Martyr - Confutatio dogmatum quorundam Aristotelicorum (PG006 loci 753-789) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 15,133 | manual |
-| pseudo-justinus-martyr.de-monarchia | Pseudo-Justinus Martyr - De monarchia (PG006 loci 164-170) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,823 | manual |
+| pseudo-justinus-martyr.de-monarchia | Pseudo-Justinus Martyr - De monarchia (PG006 loci 164-170) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,823 | auto-corrected |
 | pseudo-justinus-martyr.de-resurrectione | Pseudo-Justinus Martyr - De resurrectione (PG006 loci 793-802) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,432 | manual |
-| pseudo-justinus-martyr.epistula-ad-zenam-et-serenum | Pseudo-Justinus Martyr - Epistula ad Zenam et Serenum (PG006 loci 599-609) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,477 | manual |
+| pseudo-justinus-martyr.epistula-ad-zenam-et-serenum | Pseudo-Justinus Martyr - Epistula ad Zenam et Serenum (PG006 loci 599-609) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,477 | auto-corrected |
 | pseudo-justinus-martyr.expositio-rectae-fidei | Pseudo-Justinus Martyr - Expositio rectae fidei (PG006 loci 611-627) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,804 | manual |
-| pseudo-justinus-martyr.fragmenta | Pseudo-Justinus Martyr - Fragmenta (PG006 loci 805-807) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 852 | manual |
-| pseudo-justinus-martyr.oratio-ad-gentiles | Pseudo-Justinus Martyr - Oratio ad gentiles (PG006 loci 122-127) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,045 | manual |
+| pseudo-justinus-martyr.fragmenta | Pseudo-Justinus Martyr - Fragmenta (PG006 loci 805-807) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 852 | auto-corrected |
+| pseudo-justinus-martyr.oratio-ad-gentiles | Pseudo-Justinus Martyr - Oratio ad gentiles (PG006 loci 122-127) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,045 | auto-corrected |
 | pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles | Pseudo-Justinus Martyr - Quaestiones Christianorum ad gentiles (PG006 loci 708-738) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 13,126 | manual |
 | pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos | Pseudo-Justinus Martyr - Quaestiones et responsiones ad orthodoxos (PG006 loci 632-707) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 28,123 | manual |
 | pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos | Pseudo-Justinus Martyr - Quaestiones gentilium ad Christianos (PG006 loci 739-752) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,288 | manual |
@@ -1774,10 +1783,10 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius |  | qwen36-ptolemaeus_gramm_valckenaer_ammonius | Qwen3.6-27B | 55,164 | auto-corrected |
 | pythagoras.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 6,574 | auto-corrected |
 | pythagoristae-d-k.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 23,856 | auto-corrected |
-| quadratus-apologeta.fragmentum-apologiae | Quadratus Apologeta - Fragmentum apologiae (apud Eusebium, HE 4.3) (PG005 loci 642-642) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 48 | manual |
+| quadratus-apologeta.fragmentum-apologiae | Quadratus Apologeta - Fragmentum apologiae (apud Eusebium, HE 4.3) (PG005 loci 642-642) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 48 | raw OCR |
 | rhianus.fragmenta |  | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 2,073 | auto-corrected |
 | rhinthon.fragmenta |  | qwen36-rhinthon_kaibel_cgf_1899 | Qwen3.6-27B | 37,390 | auto-corrected |
-| rhodon.fragmenta | Rhodon - Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13) (PG005 loci 676-678) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 343 | manual |
+| rhodon.fragmenta | Rhodon - Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13) (PG005 loci 676-678) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 343 | auto-corrected |
 | salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 950 | raw OCR |
 | sannyrion.fragmenta | ΔΑΝΑΗ | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
 | sappho.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,087 | auto-corrected |
@@ -1793,7 +1802,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera |  | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,207 | auto-corrected |
 | scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et |  | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,086 | auto-corrected |
 | scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 5,989 | auto-corrected |
-| scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora |  | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 64,951 | raw OCR |
+| scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora |  | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 64,951 | auto-corrected |
 | scholia-in-platonem.scholia-in-platonem-scholia-vetera |  | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,306 | auto-corrected |
 | scholia-in-theocritum.scholia-vetera-et-recentiora |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 92,305 | auto-corrected |
 | scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera | SCHOLIA IN XENOPHONTEM — Scholia in Xenophontis Anabasin | qwen36-expeditiocyri02xenogoog | Qwen3.6-27B | 4,180 | raw OCR |
@@ -1802,7 +1811,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | scythinus.peri-physios |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 44 | raw OCR |
 | secundus-mullach-fpg1 |  | qwen36-secundus_mullach_fpg1 | Qwen3.6-27B | 151,676 | auto-corrected |
 | semonides.fragmenta | SEMONIDES — Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 524 | raw OCR |
-| serapion-scr-eccl.fragmenta | Serapion Antiochenus - Fragmenta (PG005 loci 696-697) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 194 | manual |
+| serapion-scr-eccl.fragmenta | Serapion Antiochenus - Fragmenta (PG005 loci 696-697) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 194 | auto-corrected |
 | serenus.de-sectione-cylindri |  | qwen36-serenus_heiberg_opuscula | Qwen3.6-27B | 34,300 | auto-corrected |
 | simias.fragmenta |  | qwen36-simias_fraenkel | Qwen3.6-27B | 6,875 | auto-corrected |
 | simonides-lyric.fragmenta-2 |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,746 | auto-corrected |
@@ -1823,7 +1832,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | sotades-comedy.fragmenta | ΑΔΗΛΩΝ ΔΡΑΜΑΤΩΝ | kock-caf2-ocr-frag | Qwen3.6-27B | 53 | raw OCR |
 | sotion.leipsana |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 287 | auto-corrected |
 | sphaerus.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 558 | auto-corrected |
-| stephanus-grammar.ethnica-epitome |  | [archive.org](https://archive.org/details/bub_gb_0NIPAAAAQAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 144,357 | auto-corrected |
+| stephanus-grammar.ethnica-epitome |  | [archive.org](https://archive.org/details/bub_gb_0NIPAAAAQAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 144,357 | raw OCR |
 | stephanus.fragmentum | STEPHANUS — Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 99 | raw OCR |
 | straton-philosophy.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 297 | raw OCR |
 | strattis.fragmenta | ἈΡΓΥΡΙΟΤ ἈΦΑΝΙΣΜΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 2,271 | auto-corrected |
@@ -1846,7 +1855,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum | Symeon Thessalonicensis - Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters) (PG155 loci 420-481) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,586 | manual |
 | symmachus.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 39,309 | auto-corrected |
 | synesius-philosophy.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,687 | auto-corrected |
-| tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | manual |
+| tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | auto-corrected |
 | teleclides.fragmenta | ΤΗΛΕΚΛΕΙΔΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |
 | telephus.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 136 | raw OCR |
 | telesilla.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,203 | auto-corrected |
@@ -1877,8 +1886,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | theodoretus.quaestiones-in-octateuchum | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ, ΕΠΙΣΚΟΠΟΥ ΚΥΡΟΥ, ΤΑ ΑΠΟΡΑ ΤΗΣ ΘΕΙΑΣ ΓΡΑΦΗΣ. ΚΑΤ' ΕΚΛΟΓΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 66,557 | auto-corrected |
 | theodorus-agallianus.refutatio-contra-joannem-argyropulum | Theodorus Agallianus - Refutatio (dialogus) contra Ioannem Argyropulum (PG158 loci 541-560) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 16,590 | manual |
 | theodorus-mathematics.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 351 | raw OCR |
-| theodosius.canones-isagogici-de-flexione-nominum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 14,109 | auto-corrected |
-| theodosius.canones-isagogici-de-flexione-verborum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 16,797 | auto-corrected |
+| theodosius.canones-isagogici-de-flexione-nominum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 14,109 | raw OCR |
+| theodosius.canones-isagogici-de-flexione-verborum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 16,797 | raw OCR |
 | theodotion.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 23,151 | auto-corrected |
 | theognetus.fragmenta | THEOGNETUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 135 | raw OCR |
 | theognis-elegy.elegiae |  | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 3,233 | auto-corrected |
@@ -1927,7 +1936,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum | Theophylactus Achridensis - Oratio in imperatorem Alexium I Comnenum (PG126 loci 151-160) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,631 | manual |
 | theophylactus-achridensis.oratio-in-praesentationem-deiparae | Theophylactus Achridensis - Oratio in praesentationem Deiparae (PG126 loci 72-79) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,635 | manual |
 | theophylactus-achridensis.oratio-in-venerationem-crucis | Theophylactus Achridensis - Oratio in venerationem crucis (mid-Lent sermon; conventional title) (PG126 loci 60-71) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,278 | manual |
-| theophylactus-achridensis.supplementum-in-evangelium-joannis | Theophylactus Achridensis (attributed) - Conclusion-fragment of a commentary on the Gospel of John (Jo 21:22-25 with account of John's death; supplement to the In Joannem) (PG126 loci 80-82) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 867 | manual |
+| theophylactus-achridensis.supplementum-in-evangelium-joannis | Theophylactus Achridensis (attributed) - Conclusion-fragment of a commentary on the Gospel of John (Jo 21:22-25 with account of John's death; supplement to the In Joannem) (PG126 loci 80-82) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 867 | auto-corrected |
 | theophylactus-achridensis.vita-clementis-ohridensis | Theophylactus Achridensis - Vita Clementis Ohridensis (the long life, BHG 355) (PG126 loci 604-633) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,707 | manual |
 | theophylactus-simocatta.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,554 | auto-corrected |
 | theopompus-comedy.fragmenta | ἈΦΡΟΔΙΣΙΑ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,876 | auto-corrected |
@@ -1935,7 +1944,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | thespis.fragmenta | ΠΕΝΘΕΤΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 262 | raw OCR |
 | thrasymachus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,086 | auto-corrected |
 | thugenides.fragmenta | THUGENIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 144 | raw OCR |
-| tiberianus.epistula-ad-trajanum-de-christianis | Tiberianus (praeses Palaestinae, pseudepigraphon ap. Joannem Malalam) - Epistula Tiberiani ad Trajanum de Christianis (PG005 loci 505-505) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 59 | manual |
+| tiberianus.epistula-ad-trajanum-de-christianis | Tiberianus (praeses Palaestinae, pseudepigraphon ap. Joannem Malalam) - Epistula Tiberiani ad Trajanum de Christianis (PG005 loci 505-505) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 59 | auto-corrected |
 | timaeus-philosophy.fragmenta-et-titulus-sp |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,691 | auto-corrected |
 | timaeus-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 134 | raw OCR |
 | timaeus-sophista.lexicon-platonicum |  | [archive.org](https://archive.org/details/timaiousophistou00tima) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 33,929 | auto-corrected |
