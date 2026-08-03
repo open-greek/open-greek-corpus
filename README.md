@@ -451,9 +451,21 @@ unattested in 1.17M clean Greek forms. The 2,496 of its fixes that turned an
 unattested string into an attested one were restored, since that is positive
 evidence; the rest await re-adjudication behind a lexicon gate.
 
-Two things this leaves open: `prosodia`/accepted is 43% unattested and has not
-been rated, and `freq`/accepted is the largest block of damage (~19,300 wrong
-rows) purely by size.
+`prosodia`/accepted looked like a second such cell at 43% unattested, but it is
+not: that pass normalizes sigma (medial to `σ`, final to `ς`, lunate to either),
+which is correct Greek orthography whatever else is wrong with the token, so
+applying it to an already-broken word leaves the word broken and unattested
+without making it worse. None of its corrections made a token rarer.
+
+`freq`/accepted remains the largest single block of damage (~19,300 wrong rows)
+purely by size, and has not been re-adjudicated.
+
+The overlay is also kept honest about its own reach. Of the corrections marked
+active, 26,023 could no longer apply at all - the July 2026 re-OCR had replaced
+the text they targeted - and are retired; another 35,814 belong to works a
+`data/corpus_changes/` audit still accounts for and await re-keying rather than
+retirement. What remains claims only what the text carries: 122,168 corrections,
+across 175 manually-corrected and 737 auto-corrected works.
 
 Corrections keep the edition's own capitalization. An upstream corrector used to
 resolve a capitalized token to the frequent lowercase form and so lowercase the
