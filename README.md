@@ -438,12 +438,20 @@ other source.
 
 ### How good are the corrections?
 
-Measured for the first time on 2026-08-02, by blind philological rating of a
-stratified sample of the corrections actually present in the served text.
-Population-weighted precision is 75.8% (95% CI 69-83%), so on the order of 46,000
-of them are wrong, with an honest range of 29,000-60,000. By corrector:
-`confusion` 93%, `freq`/auto 85%, `llm`/auto 78%, `freq`/accepted 71%. Adjudicated
-output is not better than auto-applied output; the sample cannot say why.
+Measured by blind philological rating of stratified samples of the corrections
+actually present in the served text (first pass 2026-08-02, largest cell
+remeasured at n=295 on 2026-08-03). By corrector: `confusion` 93%, `freq`/auto
+85%, `freq`/accepted 80% (95% CI 74-87), `llm`/auto 78%. Weighted overall,
+roughly 40,000 of the corrections are wrong; the `freq`/accepted term of that is
+measured to ~13,000 (range 9,000-17,600) and the other cells still rest on their
+original n≈30 samples.
+
+The measurement's own noise floor is known: independent raters shown identical
+items disagree on 8.6% of them (kappa 0.78), so no figure here is finer than a
+few points. That floor cannot explain away the one revert taken on these
+numbers: for `llm`/accepted's 10-of-30 to have come from an acceptable cell,
+rater error would have to be several times what was measured (P < 1e-4 at every
+plausible rate).
 
 The worst cell, `llm`/accepted, measured 33% and has been reverted to its OCR
 readings and requeued. A full-population check found 48% of it produced strings
@@ -457,15 +465,19 @@ which is correct Greek orthography whatever else is wrong with the token, so
 applying it to an already-broken word leaves the word broken and unattested
 without making it worse. None of its corrections made a token rarer.
 
-`freq`/accepted remains the largest single block of damage (~19,300 wrong rows)
-purely by size, and has not been re-adjudicated.
+`freq`/accepted remains the largest single block of damage (~13,000 wrong rows)
+purely by size. A ten-stratum analysis found no slice of it bad enough to revert
+wholesale and no factor (edit kind, target rarity, genre) that gates it, so what
+remains needs per-record judgment or nothing.
 
-The overlay is also kept honest about its own reach. Of the corrections marked
-active, 26,023 could no longer apply at all - the July 2026 re-OCR had replaced
-the text they targeted - and are retired; another 35,814 belong to works a
-`data/corpus_changes/` audit still accounts for and await re-keying rather than
-retirement. What remains claims only what the text carries: 122,168 corrections,
-across 175 manually-corrected and 737 auto-corrected works.
+The overlay is also kept honest about its own reach. 35,008 corrections marked
+active could no longer apply at all - the July 2026 re-OCR or a later carve had
+replaced or dropped the text they targeted - and were retired on proof (text
+absent AND a redo dir or an audit accounting for the removal); everything a
+`data/corpus_changes/` audit can still place is re-keyed through that audit's
+own map rather than retired. What remains claims only what the text carries:
+120,894 corrections verifiably present, across 175 manually-corrected and 737
+auto-corrected works, with nothing awaiting a remap.
 
 Corrections keep the edition's own capitalization. An upstream corrector used to
 resolve a capitalized token to the frequent lowercase form and so lowercase the
