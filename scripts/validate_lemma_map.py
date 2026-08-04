@@ -97,6 +97,13 @@ PARTICLE_BY_SKELETON = {deaccent(p): p for p in sorted(PARTICLES)}
 # distinguish two words. Breathing and iota subscript can, and do: ὁ/ὀ, ἡ/ἠ,
 # οὗ against οὐ. So the accent comes off and they stay on.
 _ACCENTS = {"́", "̀", "͂"}          # oxia, varia, perispomeni
+# The editorial dot below says the letter is uncertain, not that the word is a
+# different one, so it is ignored - otherwise `οὐ̣` never reaches οὐ. Everything
+# else stays significant, and deliberately so: a macron marks an abbreviation or
+# a numeral (`η̅` is not ἤ) and a diaeresis breaks a diphthong (`ἔϋ` is not εὖ).
+# Both look like noise and are not. Leaving such a form unlemmatized costs less
+# than merging it into the wrong lemma.
+_IGNORABLE = {"̣"}                  # U+0323 combining dot below
 
 
 def unaccent(s: str) -> str:
@@ -110,17 +117,16 @@ def _particle_compatible(form: str, particle: str) -> bool:
 
     A form may be MISSING a breathing or subscript the particle has - OCR drops
     them, and an all-caps heading never had them - but it may not carry a
-    different one. That is what keeps `οὗ` off `οὐ` and `ᾗ`, `ῃ`, `ἧ` off `ἤ`,
-    all of which share a deaccented skeleton with a particle while being other
-    words entirely.
+    different one. That is what keeps `οὗ` off `οὐ`, `εὕ` off `εὖ`, and `ᾗ`,
+    `ῃ`, `ἧ` off `ἤ`, all of which share a deaccented skeleton with a particle
+    while being other words entirely.
     """
     if deaccent(form) != deaccent(particle):
         return False
-    f, p = unaccent(form), unaccent(particle)
-    if f == p:
-        return True
-    marks = lambda s: {c for c in s if unicodedata.combining(c)}  # noqa: E731
-    return marks(f) <= marks(p)
+    lex = lambda s: {c for c in unicodedata.normalize("NFD", s.lower())  # noqa: E731
+                     if unicodedata.combining(c)
+                     and c not in _ACCENTS and c not in _IGNORABLE}
+    return lex(form) <= lex(particle)
 
 
 def particle_capture(form: str, lemma: str, freq: dict[str, int],
@@ -165,6 +171,7 @@ def particle_capture(form: str, lemma: str, freq: dict[str, int],
     particle = PARTICLE_BY_SKELETON.get(skeleton)
     if particle and deaccent(lemma) != skeleton \
             and deaccent(lemma.rstrip("0123456789")) != deaccent(particle) \
+            and _particle_compatible(form, particle) \
             and freq.get(lemma, 0) * rarer_by < freq.get(particle, 0):
         return particle
     # The lemma is already a variant spelling of the particle rather than the
@@ -183,13 +190,21 @@ def particle_capture(form: str, lemma: str, freq: dict[str, int],
     return None
 
 
+# This one has a known right answer rather than only a wrong one, so callers
+# repair it instead of dropping: if the proposed lemma is just the form
+# capitalized, the lemma is the form. 475 of the 560 rejects in the cache were
+# this, all ordinary words - ἀπόγονος, ἀκόλαστος, εὐσχήμων - and dropping them
+# traded a wrong lemma for no lemma.
+CAPITALIZED_VARIANT = "capitalized variant of the form itself"
+
+
 def rejection_reason(form: str, lemma: str, freq: dict[str, int],
                      min_lemma: int = 1000) -> str | None:
     """Why this form -> lemma pair must not stand, or None if it may."""
     f_as_lemma, l_freq = freq.get(form, 0), freq.get(lemma, 0)
     if lemma != lower_initial(lemma) and lower_initial(lemma) == form \
             and f_as_lemma > l_freq:
-        return "capitalized variant of the form itself"
+        return CAPITALIZED_VARIANT
     if form in PARTICLES and lemma not in PARTICLES:
         return "closed-class particle reassigned to another lemma"
     if (f_as_lemma >= min_lemma and l_freq * 20 < f_as_lemma
@@ -210,8 +225,41 @@ def load_lemma_frequencies(path: Path) -> dict[str, int]:
     return freq
 
 
+REJECTED = DATA / "cache" / "lemma_rejected.tsv"
+
+
+def load_rejected(path: Path | None = None) -> dict[str, str]:
+    """Forms whose lemma was rejected, and why. Persistent on purpose.
+
+    A drop that lives only for the run that made it is not a drop: the form
+    leaves the cache, the next run sees it as never-lemmatized, hands it back to
+    the deterministic lemmatizer, and gets the same wrong answer. `βασκανία ->
+    Βασκανία` came back that way after being dropped twice. Delete this file
+    alongside the caches after a Dilemma upgrade, so a better model gets to
+    re-answer.
+    """
+    path = path or REJECTED
+    if not path.exists():
+        return {}
+    out: dict[str, str] = {}
+    for line in path.read_text(encoding="utf-8").splitlines():
+        form, sep, reason = line.partition("\t")
+        if sep:
+            out[form] = reason
+    return out
+
+
+def save_rejected(rejected: dict[str, str], path: Path | None = None) -> None:
+    path = path or REJECTED
+    if not rejected:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(f"{f}\t{r}\n" for f, r in sorted(rejected.items())),
+                    encoding="utf-8")
+
+
 def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
-                   label: str = "cache") -> tuple[int, int]:
+                   label: str = "cache") -> tuple[set[str], set[str]]:
     """Apply these checks to a persistent form->lemma cache, in place.
 
     Filtering the incoming map is not enough, and both lemma pipelines keep a
@@ -241,17 +289,30 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
         print(f"no {freq_path.name}; skipping {label} validation", file=sys.stderr)
         return (set(), set())
     freq = load_lemma_frequencies(freq_path)
+    tombstones = load_rejected()
     repaired, dropped = [], []
     for form, lemma in list(cache.items()):
+        # A form rejected on an earlier run that has crept back in: the
+        # lemmatizer is deterministic, so it returned the same wrong answer.
+        if form in tombstones:
+            dropped.append((form, lemma, tombstones[form]))
+            del cache[form]
+            continue
         particle = particle_capture(form, lemma, freq)
         if particle:
             repaired.append((form, lemma, particle))
             cache[form] = particle
             continue
         reason = rejection_reason(form, lemma, freq)
+        if reason == CAPITALIZED_VARIANT:
+            repaired.append((form, lemma, form))
+            cache[form] = form
+            continue
         if reason:
             dropped.append((form, lemma, reason))
+            tombstones[form] = reason
             del cache[form]
+    save_rejected(tombstones)
     for form, lemma, particle in sorted(repaired):
         print(f"  {label} repair: {form} -> {lemma} is now {particle}",
               file=sys.stderr)
@@ -260,7 +321,12 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
     if repaired or dropped:
         print(f"{label} validated: {len(repaired):,} repaired, "
               f"{len(dropped):,} dropped", file=sys.stderr)
-    return ({f for f, _, _ in repaired}, {f for f, _, _ in dropped})
+    # The full tombstone set, not just what came out of the cache this run. A
+    # form already absent is not "dropped" here, so returning only this run's
+    # removals lets the caller re-derive it, put it back, and drop it again next
+    # run - the build oscillated between 6,053,216 and 6,053,391 work-lemma
+    # pairs on alternate runs until this returned the union.
+    return ({f for f, _, _ in repaired}, set(tombstones))
 
 
 def main() -> None:
