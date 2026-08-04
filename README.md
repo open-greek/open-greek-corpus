@@ -19,7 +19,7 @@ Byzantine literary Greek.
 | [Galenus Verbatim](https://github.com/galenus-verbatim/galenus_cts) | CC BY-SA 4.0 | Galen and pseudo-Galen TEI (Sorbonne): verified Kuehn transcriptions plus revised First1K files (`galenus_verbatim`) |
 | Byzantine and early modern | PD / CC BY-SA | late vernacular verse/prose, 12th-17th c. (`byzantine_vernacular`) |
 | [byzantium.gr](https://byzantium.gr) | PD (Bonn/CSHB editions) | Byzantine historians, clean polytonic transcriptions (`byzantium_gr`) |
-| [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`); the multi-work volumes are carved into per-work files by `scripts/carve_cgpg_volume.py` (plan: `data/cgpg_carve_plan.json`), only PG003 still serves volume-keyed |
+| [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`); 17 multi-work volumes are carved into per-work files by `scripts/carve_cgpg_volume.py` (plan: `data/cgpg_carve_plan.json`), and 13 `cogPG.*` files still serve volume-keyed |
 | [PTA](https://github.com/PatristicTextArchive/pta_data) | CC BY-SA / CC BY, per file | Patristic Text Archive (BBAW): critical patristic TEI incl. the Severian of Gabala corpus (`pta`); pta ids resolve via `scripts/build_pta_crosswalk.py`, the single BY-NC-SA file is excluded |
 | [DFHG](https://dfhg-project.org) | CC BY-SA 4.0 | Mueller's Fragmenta Historicorum Graecorum vols 1-5 as corrected transcription (Berti/Leipzig), superseding our FHG OCR (`dfhg`); ingested by `scripts/ingest_dfhg.py`; the held-back specials (Diodorus' fragmentary books, homonym collisions) are resolved by `scripts/ingest_dfhg_specials.py`, and the carve slugs get TLG urns from the constrained canon pass `scripts/build_dfhg_canon_pass.py` (audit trail in `data/dfhg_canon_pass.json`) |
 | [SAWS](https://ancientwisdoms.ac.uk) | CC BY 4.0 (2025 KCL figshare deposit, doi:10.18742/28259054.v1; supersedes the project's 2013 in-file CC BY-NC-SA notices) | Sharing Ancient Wisdoms born-digital editions (`saws`): Roueche's Kekaumenos, the Searby et al. Apophthegmata et gnomae secundum alphabetum, and diplomatic transcriptions of the Gnomologium Vaticanum (Vat. gr. 743) and Corpus Parisinum VI (Par. gr. 1168 + Bodl. Digby 6); ingested by `scripts/ingest_saws.py` (which re-verifies the deposit license against the figshare API on every fetch) |
@@ -274,13 +274,16 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 390 served works have no external id
-at all (the exceed-TLG material) and rely on the `ogc` id alone. The TLG/CTS
-crosswalk lives in `data/tlg_crosswalk.tsv` and in each work's `cts` field in
-`corpus_editions.json` (which now also carries the `ogc` `id`), so joins against
-citation and lexicon data still work. `build_crosswalk_report.py` reports how
-complete the crosswalk is and where enrichment is cheapest (e.g. the author has a
-Wikidata QID but the work doesn't). Why TLG numbers are kept as aliases rather
+distinct `ogc` ids sharing one TLG anchor. 488 of the 3,822 served works have no
+external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
+TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
+`work_index.json` under `work_anchors` (`cts` on 3,334 works, `tlg` on 3,322,
+`wikidata` on 503), so joins against citation and lexicon data still work.
+`corpus_editions.json` is not where to look for it: that file is derived from
+`data/corpus` on every build and carries only the manifestation (edition,
+source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`
+reports how complete the crosswalk is and where enrichment is cheapest (e.g.
+the author has a Wikidata QID but the work doesn't). Why TLG numbers are kept as aliases rather
 than dropped: `docs/identity-and-citation.md`.
 
 Canon titles stored in beta-code (`*AI)GU/PTIOS`) are decoded to Unicode at
@@ -298,11 +301,20 @@ A work already served from a better source per the precedence ladder is carved
 to `data/corpus_secondary/` as a witness instead of competing. Each carve
 leaves a reversible audit in `data/corpus_changes/cogPG.<VOL>.per-work-split.json`
 (token-exact partition, dropped rescan leaves archived verbatim), and
-`cgpg_works.json` credits the per-work units. Only PG003 still serves
-volume-keyed: its Dionysius text is interleaved passage-by-passage with
-Pachymeres' paraphrase, which a column carve cannot separate
-(`data/corpus_changes/cogPG.PG003.split-deferred.json`). byzantium.gr
-historians are single works and key by their slug directly.
+`cgpg_works.json` credits the per-work units. 17 volumes have been carved so
+far, and 13 `cogPG.*` files are still volume-keyed. Seven of those are the
+carved volumes' leftovers (PG005, PG101, PG107, PG109, PG118, PG124, PG125:
+2 to 20 rows each, 12,464 Greek tokens between them, the rows the plan's
+ranges did not claim). The other six are whole uncarved volumes and hold about
+1.28M Greek tokens, 27% of the 4.70M the CGPG delivery serves: PG003, PG067,
+PG112, PG113, PG139 and PG151. They are listed with their token counts in the
+OCR provenance table below. Only PG003 of those six is uncarved on the
+evidence: its Dionysius text is interleaved passage-by-passage with Pachymeres'
+paraphrase, which a column carve cannot separate
+(`data/corpus_changes/cogPG.PG003.split-deferred.json`). The other five are not
+in the plan at all, which covers 18 volumes; the column research for them has
+not been done. byzantium.gr historians are single works and key by their slug
+directly.
 
 Passage citations follow CTS-URN logical-locus semantics (`source_identity.py`,
 `parse_ref`): dot-separated levels (`book.chapter.line`), ranges with matching
@@ -334,6 +346,10 @@ python scripts/ingest_wikisource_ecclesiastes.py --fetch --apply   # LXX Ecclesi
 make                       # full chain; or a single stage:
 make yardstick             # data/corpus/*.jsonl -> public_lexicon.tsv + lemma frequency
 make sourcing              # source_overrides.json -> registry + coverage report
+make reports               # quality report, per-work lemma counts, this README's
+                           # provenance table (see the Makefile header: this goal
+                           # re-runs the ingest chain when it is stale, and that
+                           # chain can go to the network)
 PY=.venv/bin/python DILEMMA=/path/to/dilemma make   # override interpreter / lemmatizer path
 ```
 
@@ -477,11 +493,23 @@ absent AND a redo dir or an audit accounting for the removal); everything a
 `data/corpus_changes/` audit can still place is re-keyed through that audit's
 own map rather than retired. What remains claims only what the text carries:
 of 192,151 records still marked active, 120,894 are verifiably present, spread
-over 890 works. The rest cannot reach the corpus as they are keyed: 41,873 name a
-file a carve has since split away, 29,381 a locus that no longer exists, and
-three more are simply not in the text. The carve-orphaned block is recoverable in
-principle, since `data/corpus_changes/` records where each volume's loci went,
-but it has not been re-keyed and is not counted above.
+over 890 works. Of the rest, three are simply not in the text and the other
+71,254 are all one thing, a carve orphan: every one is keyed to a `cogPG.<vol>`
+volume that no longer holds the row, because the per-work carve moved it. An
+earlier count split them in two, 41,873 whose file was gone and 29,381 whose
+locus was gone, as though those were different failures. They are not. The only
+difference is whether the carve left a residual file behind: the ten volumes
+carved to nothing (PG006, PG087_1, PG122, PG123, PG126, PG134, PG146, PG155,
+PG157, PG158) have no file for a record to miss, while the seven that kept 2 to
+20 unclaimed rows (PG005, PG101, PG107, PG109, PG118, PG124, PG125) still have a
+file, so the same orphan reports a missing locus instead.
+
+Being an orphan is not being lost. Replaying the loci through the carve audits
+in `data/corpus_changes/` places 68,744 of the 71,254 on exactly one surviving
+row, across 176 carved works; the remaining 2,510 are all PG122 rows that the
+earlier Cedrenus split had already moved, and that split's own audit places
+every one of them. So the whole block is recoverable, and none of it has been
+re-keyed or counted above.
 
 That is a smaller number of works than the provenance table's 985 (155 manually
 corrected, 830 auto), and the gap is real rather than a discrepancy: the table
@@ -683,273 +711,273 @@ below; regenerate it with `python scripts/build_provenance.py`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
-| achaeus.fragmenta | ΑΔΡΑΣΤΟΣ | nauck-tgf-ocr-frag | Qwen3.6-27B | 1,396 | raw OCR |
+| achaeus.fragmenta | Achaeus - Fragmenta | nauck-tgf-ocr-frag | Qwen3.6-27B | 1,396 | raw OCR |
 | acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b | Acta Justini et septem sodalium - Martyrium SS. Justini, Charitonis, Charitus, Euelpisti, Hieracis, Paeonis et Liberiani (recensio B proxima) (PG006 loci 790-792) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 653 | auto-corrected |
-| acusilaus.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 456 | auto-corrected |
-| aelius-dionysius.attika-o-no-mata |  | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 32,229 | auto-corrected |
-| aeneas-philosophy.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,870 | auto-corrected |
-| aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione | AENEAS GAZAEUS — Theophrastus sive de animarum immortalitate | qwen36-aeneasgazaeuset00zachgoog | Qwen3.6-27B | 24,881 | raw OCR |
-| aeschines-socraticus.fragmenta |  | qwen36-aeschines_socr_dialogi_clericus | Qwen3.6-27B | 14,099 | auto-corrected |
-| aeschylus-tragedy.fragmenta | ΩΣΦΡΑΖΟΜΕΝΟΝ ΡΟΨΙΝ ΖΗΤΩΝΤΑΣ ΨΥΧΗΝ ΞΕΝΩΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ ΤΟΥΤΟΝ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 16,985 | auto-corrected |
-| agaclytus.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 147 | raw OCR |
-| agathon-tragedy.fragmenta | ΑΛΚΜΕΩΝ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 897 | auto-corrected |
-| alcaeus-comedy.fragmenta | ἈΔΕΛΦΑΙ ΜΟΙΧΕΤΟΜΕΝΑΙ | kock-caf1-ocr-frag | Qwen3.6-27B | 587 | raw OCR |
-| alcaeus-lyric.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,308 | auto-corrected |
-| alcmaeon.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 190 | raw OCR |
-| alcmaeon.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,345 | auto-corrected |
-| alcman.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,854 | auto-corrected |
-| alexander-lyric.fragmenta |  | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 22,536 | auto-corrected |
-| alexander-medicine.dedicatio-ad-cosman |  | qwen36-alex_trall_puschmann | Qwen3.6-27B | 43,309 | auto-corrected |
-| alexander.fragmenta | ALEXANDER — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
-| alexis-comedy.fragmenta | ἈΓΩΝΙΣ Η ἸΠΠΙΣΚΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
+| acusilaus.testimonia-2 | Acusilaus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 456 | auto-corrected |
+| aelius-dionysius.attika-o-no-mata | Aelius Dionysius - Ἀττικὰ ὀνόματα | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 32,229 | auto-corrected |
+| aeneas-philosophy.epistulae | Aeneas - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,870 | auto-corrected |
+| aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione | AENEAS GAZAEUS - Theophrastus sive de animarum immortalitate | qwen36-aeneasgazaeuset00zachgoog | Qwen3.6-27B | 24,881 | raw OCR |
+| aeschines-socraticus.fragmenta | Aeschines Socraticus - Fragmenta | qwen36-aeschines_socr_dialogi_clericus | Qwen3.6-27B | 14,099 | auto-corrected |
+| aeschylus-tragedy.fragmenta | Aeschylus - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 16,985 | auto-corrected |
+| agaclytus.fragmentum | Agaclytus - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 147 | raw OCR |
+| agathon-tragedy.fragmenta | Agathon - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 897 | auto-corrected |
+| alcaeus-comedy.fragmenta | Alcaeus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 587 | raw OCR |
+| alcaeus-lyric.fragmenta | Alcaeus - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,308 | auto-corrected |
+| alcmaeon.fragmenta | Alcmaeon - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 190 | raw OCR |
+| alcmaeon.testimonia | Alcmaeon - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,345 | auto-corrected |
+| alcman.fragmenta | Alcman - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,854 | auto-corrected |
+| alexander-lyric.fragmenta | Alexander - Fragmenta | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 22,536 | auto-corrected |
+| alexander-medicine.dedicatio-ad-cosman | Alexander - Dedicatio Ad Cosman | qwen36-alex_trall_puschmann | Qwen3.6-27B | 43,309 | auto-corrected |
+| alexander.fragmenta | ALEXANDER - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
+| alexis-comedy.fragmenta | Alexis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
 | ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 80 | raw OCR |
-| amipsias.fragmenta | ἈΠΟΚΟΤΤΑΒΙΖΟΝΤΕΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 766 | raw OCR |
-| amphis.fragmenta | ΑΛΕΙΠΤΡΙΑ | kock-caf2-ocr-frag | Qwen3.6-27B | 1,086 | auto-corrected |
-| anacreon.fragmenta-2 |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,215 | auto-corrected |
-| anacreontea.anacreontea |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,647 | auto-corrected |
-| ananius.fragmenta | ANANIUS — Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 78 | raw OCR |
-| anaxagoras.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,079 | auto-corrected |
-| anaxandrides.fragmenta | ΑΝΑΞΑΝΔΡΙΔΗΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 2,581 | auto-corrected |
-| anaxarchus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,944 | auto-corrected |
-| anaxilas.fragmenta | ΑΓΡΟΙΚΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 1,084 | auto-corrected |
-| anaximander.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,482 | auto-corrected |
-| anaximenes-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,812 | auto-corrected |
-| anaximenis-milesii-epistulae.epistulae |  | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
-| anaxippus.fragmenta | ANAXIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
-| andreas.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
-| andronicus-rhodius.de-passionibus-lib-1-sp |  | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,269 | manual |
+| amipsias.fragmenta | Amipsias - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 766 | raw OCR |
+| amphis.fragmenta | Amphis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,086 | auto-corrected |
+| anacreon.fragmenta-2 | Anacreon - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,215 | auto-corrected |
+| anacreontea.anacreontea | Anacreontea - Anacreontea | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,647 | auto-corrected |
+| ananius.fragmenta | ANANIUS - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 78 | raw OCR |
+| anaxagoras.testimonia | Anaxagoras - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,079 | auto-corrected |
+| anaxandrides.fragmenta | Anaxandrides - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 2,581 | auto-corrected |
+| anaxarchus.testimonia | Anaxarchus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,944 | auto-corrected |
+| anaxilas.fragmenta | Anaxilas - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,084 | auto-corrected |
+| anaximander.testimonia | Anaximander - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,482 | auto-corrected |
+| anaximenes-philosophy.testimonia | Anaximenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,812 | auto-corrected |
+| anaximenis-milesii-epistulae.epistulae | Anaximenis Milesii Epistulae - Epistulae | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
+| anaxippus.fragmenta | ANAXIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
+| andreas.fragmentum | Andreas - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
+| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) Sp. | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,269 | manual |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
-| anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735 |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 4,696 | raw OCR |
+| anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735 | Anonymi In Oppiani Opera - In Oppiani Halieutica Exegesis (E Cod. Paris. Gr. 2735) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 4,696 | raw OCR |
 | anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis | Anonymus - Narratio de vita Mohammedis (on Muhammad the pseudo-prophet) (PG158 loci 574-575) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,214 | auto-corrected |
 | anthemius.dupuy-1777 |  | qwen36-anthemius_dupuy_1777 | Qwen3.6-27B | 2,563 | raw OCR |
-| antidotus.fragmenta | ΑΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 91 | raw OCR |
-| antigonus-paradoxography.historiarum-mirabilium-collectio |  | qwen36-antigonus_keller_rnsgm1 | Qwen3.6-27B | 24,737 | auto-corrected |
-| antimachus-elegy.fragmenta |  | qwen36-antimachus_kinkel_egf1 | Qwen3.6-27B | 29,708 | auto-corrected |
-| antiphanes.fragmenta | ΑΓΡΟΙΚΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 10,679 | auto-corrected |
-| antiphon-soph.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,196 | auto-corrected |
-| antiphon-tragedy.fragmenta | ΜΕΛΕΑΓΡΟΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 169 | raw OCR |
-| antisthenes-atheniensis.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 68 | raw OCR |
-| antisthenes.declamationes-fragmenta |  | qwen36-archytas_mullach_fpg2-ocr | Qwen3.6-27B | 8,562 | auto-corrected |
+| antidotus.fragmenta | Antidotus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 91 | raw OCR |
+| antigonus-paradoxography.historiarum-mirabilium-collectio | Antigonus - Historiarum Mirabilium Collectio | qwen36-antigonus_keller_rnsgm1 | Qwen3.6-27B | 24,737 | auto-corrected |
+| antimachus-elegy.fragmenta | Antimachus - Fragmenta | qwen36-antimachus_kinkel_egf1 | Qwen3.6-27B | 29,708 | auto-corrected |
+| antiphanes.fragmenta | Antiphanes - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,679 | auto-corrected |
+| antiphon-soph.testimonia | Antiphon - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,196 | auto-corrected |
+| antiphon-tragedy.fragmenta | Antiphon - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 169 | raw OCR |
+| antisthenes-atheniensis.testimonia | Antisthenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 68 | raw OCR |
+| antisthenes.declamationes-fragmenta | Declamationes (fragmenta) | qwen36-archytas_mullach_fpg2-ocr | Qwen3.6-27B | 8,562 | auto-corrected |
 | antonius-diogenes.hercher |  | qwen36-antonius_diogenes_hercher | Qwen3.6-27B | 114,457 | auto-corrected |
-| aphthonius.progymnasmata |  | qwen36-aphthonius_progymnasmata | Qwen3.6-27B | 14,834 | auto-corrected |
-| apollodorus-cyzicenus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 37 | raw OCR |
-| apollodorus-history.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,175 | auto-corrected |
-| apollodorus-philosophy.fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 712 | auto-corrected |
-| apollodorus.fragmenta | APOLLODORUS — Fragmenta | kock-caf3-ocr | Qwen3.6-27B | 252 | raw OCR |
-| apollodorus.fragmenta-2 | APOLLODORUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 68 | raw OCR |
-| apollonius-philosophy.apollonii-epistulae-dub |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,393 | auto-corrected |
-| apollonius-philosophy.apotelesmata-sp |  | qwen36-apollonius_parad_keller_v1 | Qwen3.6-27B | 23,053 | auto-corrected |
+| aphthonius.progymnasmata | Aphthonius - Progymnasmata | qwen36-aphthonius_progymnasmata | Qwen3.6-27B | 14,834 | auto-corrected |
+| apollodorus-cyzicenus.testimonia | Apollodorus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 37 | raw OCR |
+| apollodorus-history.fragmenta | Apollodorus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,175 | auto-corrected |
+| apollodorus-philosophy.fragmenta | Apollodorus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 712 | auto-corrected |
+| apollodorus.fragmenta | APOLLODORUS - Fragmenta | kock-caf3-ocr | Qwen3.6-27B | 252 | raw OCR |
+| apollodorus.fragmenta-2 | APOLLODORUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 68 | raw OCR |
+| apollonius-philosophy.apollonii-epistulae-dub | Apollonius - Apollonii Epistulae Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,393 | auto-corrected |
+| apollonius-philosophy.apotelesmata-sp | Apollonius - Apotelesmata Sp. | qwen36-apollonius_parad_keller_v1 | Qwen3.6-27B | 23,053 | auto-corrected |
 | apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas | Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 557 | auto-corrected |
-| apollonius-soph.lexicon-homericum |  | [archive.org](https://archive.org/details/apolloniisophis00bekkgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 47,301 | auto-corrected |
-| apollophanes-comedy.fragmenta | ἈΠΟΛΛΟΦΆΝΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 322 | auto-corrected |
-| apollophanes.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 117 | auto-corrected |
+| apollonius-soph.lexicon-homericum | Apollonius - Lexicon Homericum | [archive.org](https://archive.org/details/apolloniisophis00bekkgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 47,301 | auto-corrected |
+| apollophanes-comedy.fragmenta | Apollophanes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 322 | auto-corrected |
+| apollophanes.fragmenta | Fragmenta | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 117 | auto-corrected |
 | aquila.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 14,764 | auto-corrected |
-| araros.fragmenta | ΑΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 173 | raw OCR |
-| arcadius.de-accentibus-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,077 | auto-corrected |
-| arcesilaus-comedy.fragmentum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,932 | auto-corrected |
-| archedemus.fragmenta |  | qwen36-archedemus_svf3 | Qwen3.6-27B | 616 | raw OCR |
-| archedicus.fragmenta | ARCHEDICUS — Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 439 | raw OCR |
-| archelaus-paradoxography.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 101 | raw OCR |
-| archelaus-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,603 | auto-corrected |
-| archestratus-parodius.fragmenta |  | qwen36-archestratus_brandt | Qwen3.6-27B | 16,626 | auto-corrected |
-| archilochus.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 9,865 | auto-corrected |
+| araros.fragmenta | Araros - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 173 | raw OCR |
+| arcadius.de-accentibus-sp | Arcadius - De Accentibus Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,077 | auto-corrected |
+| arcesilaus-comedy.fragmentum | Arcesilaus - Fragmentum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,932 | auto-corrected |
+| archedemus.fragmenta | Archedemus - Fragmenta | qwen36-archedemus_svf3 | Qwen3.6-27B | 616 | raw OCR |
+| archedicus.fragmenta | ARCHEDICUS - Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 439 | raw OCR |
+| archelaus-paradoxography.fragmenta | Archelaus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 101 | raw OCR |
+| archelaus-philosophy.testimonia | Archelaus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,603 | auto-corrected |
+| archestratus-parodius.fragmenta | Archestratus - Fragmenta | qwen36-archestratus_brandt | Qwen3.6-27B | 16,626 | auto-corrected |
+| archilochus.fragmenta | Archilochus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 9,865 | auto-corrected |
 | archippus-lysis-opsimus.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 331 | raw OCR |
-| archippus.fragmenta | ἈΡΧΙΠΠΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 738 | raw OCR |
-| archytas-philosophy.testimonia |  | qwen36-anaxagoras_diels_vs1 | Qwen3.6-27B | 6,905 | auto-corrected |
-| aresas.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 591 | auto-corrected |
-| aretades.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 178 | raw OCR |
-| aristaenetus.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 201,613 | auto-corrected |
-| aristaeus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 490 | auto-corrected |
-| aristagoras-comedy.fragmenta | ἈΡΙΣΤΑΓΟΡΑΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 102 | raw OCR |
+| archippus.fragmenta | Archippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 738 | raw OCR |
+| archytas-philosophy.testimonia | Archytas - Testimonia | qwen36-anaxagoras_diels_vs1 | Qwen3.6-27B | 6,905 | auto-corrected |
+| aresas.fragmentum | Aresas - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 591 | auto-corrected |
+| aretades.fragmenta | Aretades - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 178 | raw OCR |
+| aristaenetus.epistulae | Aristaenetus - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 201,613 | auto-corrected |
+| aristaeus.fragmenta | Aristaeus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 490 | auto-corrected |
+| aristagoras-comedy.fragmenta | Aristagoras - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 102 | raw OCR |
 | aristarchus-ludwich |  | qwen36-aristarchus_ludwich | Qwen3.6-27B | 52,926 | auto-corrected |
-| aristarchus.fragmenta |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 246 | raw OCR |
-| aristias.fragmenta | ΚΤΚΑΩΨ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 243 | raw OCR |
-| aristides-quintilianus-music.de-musica |  | qwen36-aristides_quintilianus_meibom | Qwen3.6-27B | 64,826 | auto-corrected |
+| aristarchus.fragmenta | Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 246 | raw OCR |
+| aristias.fragmenta | Aristias - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 243 | raw OCR |
+| aristides-quintilianus-music.de-musica | Aristides Quintilianus - De Musica | qwen36-aristides_quintilianus_meibom | Qwen3.6-27B | 64,826 | auto-corrected |
 | aristippus-cyrenaicus.sententiae-et-apophthegmata |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 6,866 | auto-corrected |
 | aristobulus.fhg3 |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 39,530 | auto-corrected |
-| aristocles-messanius.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 684 | auto-corrected |
+| aristocles-messanius.fragmenta | Aristocles - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 684 | auto-corrected |
 | aristocles.fragmenta | Fragmenta | qwen36-nicostratus_fhg4 | Qwen3.6-27B | 680 | auto-corrected |
-| aristomenes.fragmenta | ἈΡΙΣΤΟΜΕΝΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 367 | raw OCR |
+| aristomenes.fragmenta | Aristomenes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 367 | raw OCR |
 | aristonicus-friedlaender |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,713 | auto-corrected |
-| aristonymus.fragmenta | ἈΡΙΣΤΩΝΤΜΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 124 | raw OCR |
+| aristonymus.fragmenta | Aristonymus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 124 | raw OCR |
 | aristophanes-byzantii-nauck |  | qwen36-aristophanes_byzantii_nauck | Qwen3.6-27B | 23,606 | auto-corrected |
-| aristophanes-comedy.fragmenta-2 | ἈΡΙΣΤΟΦΆΝΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 17,598 | auto-corrected |
-| aristophon.fragmenta | ΔΙΑΤΜΟΙ Η ΠΥΡΑΤΝΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 430 | raw OCR |
-| arius-didymus.physica-fragmenta | ARIUS DIDYMUS — Physica (fragmenta, Diels Doxographi) | qwen36-doxographi-arius | Qwen3.6-27B | 7,965 | raw OCR |
+| aristophanes-comedy.fragmenta-2 | Aristophanes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 17,598 | auto-corrected |
+| aristophon.fragmenta | Aristophon - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 430 | raw OCR |
+| arius-didymus.physica-fragmenta | ARIUS DIDYMUS - Physica (fragmenta, Diels Doxographi) | qwen36-doxographi-arius | Qwen3.6-27B | 7,965 | raw OCR |
 | arnim-svf1-1905.paratexta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 95 | raw OCR |
 | arnim-svf3-1903.paratexta |  | qwen36-archedemus_svf3 | Qwen3.6-27B | 77 | raw OCR |
-| artemon-history.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 938 | auto-corrected |
+| artemon-history.fragmenta | Artemon - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 938 | auto-corrected |
 | asclepiades.fragmenta | Fragmenta | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 1,414 | auto-corrected |
-| asius.fragmentum-elegiacum |  | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 20 | raw OCR |
+| asius.fragmentum-elegiacum | Asius - Fragmentum Elegiacum | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 20 | raw OCR |
 | astrampsychus-magus.astrampsychus-oracula-hercher |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,885 | auto-corrected |
-| astydamas.fragmenta | ΕΡΜΗΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 449 | auto-corrected |
-| athanasius-theology.de-corpore-et-anima-sp | 529 ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 987 | auto-corrected |
-| athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp | 38 ΠΕΡΙ ΣΑΡΚΩΣΕΩΣ ΥΤΟΥ ΚΥΡΙΟΥ ΗΜΩΝ ΙΗΣΟΥ ΧΡΙΣΤΟΥ ΚΑΤΑ ΑΠΟΛΛΙΝΑΡΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,352 | auto-corrected |
-| athanasius-theology.de-sabbatis-et-circumcisione-sp | ΠΕΡΙ ΣΑΒΒΑΤΩΝ ΚΑΙ ΠΕΡΙΤΟΜΗΣ, ΕΚ ΤΗΣ ΕΞΟΔΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,600 | raw OCR |
-| athanasius-theology.de-sancta-trinitate-dialogi-1-3-5-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΔΙΑΛΟΓΟΣ ΠΕΡΙ ΤΗΣ ΤΡΙΑΔΟΣ, ΕΝ Ο ΔΙΑΛΕΓΟΝΤΑΙ ΟΡΘΟΔΟΞΟΣ ΚΑΙ ΑΝΟΜΟΙΟΣ ΑΡΕΙΑΝΙΣΤΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 24,009 | auto-corrected |
-| athanasius-theology.de-sancta-trinitate-dialogi-2-and-4-sp | ΔΙΑΛΟΓΟΣ Εʹ ΠΕΡΙ ΑΓΙΑΣ ΤΡΙΑΔΟΣ, ΕΝ Ω ΔΙΑΛΕΓΟΝΤΑΙ ΟΜΟΙΩΣ ΟΡΘΟΔΟΞΟΣ ΚΑΙ ΑΝΟΜΟΙΟΣ ΑΡΕΙΑΝΙΣΤΗΣ (2). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,560 | auto-corrected |
-| athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΕΠΙΣΤΟΛΗ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,193 | auto-corrected |
-| athanasius-theology.de-virginitate-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΩΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,095 | auto-corrected |
-| athanasius-theology.dialogi-duo-contra-macedonianos-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΚΑΤΑ ΑΙΡΕΣΕΩΝ ΔΙΑΦΟΡΩΝ ΛΟΓΟΙ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 19,828 | auto-corrected |
-| athanasius-theology.disputatio-contra-arium-sp | 158 ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΔΙΑΛΟΓΟΣ ΕΝ ΤΗ ΚΑΤΑ ΝΙΚΑΙΑΝ ΣΥΝΟΔΩ ΠΡΟΣ ἈΡΕΙΟΝ (49). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,666 | auto-corrected |
-| athanasius-theology.doctrina-ad-antiochum-ducem-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΔΙΔΑΣΚΑΛΙΑ ΠΡΟΣ ΑΝΤΙΟΧΟΝ ΔΟΥΚΑΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,628 | auto-corrected |
-| athanasius-theology.doctrina-ad-monachos-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,128 | raw OCR |
-| athanasius-theology.epistula-ad-adelphium | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ (77), ΕΠΙΣΤΟΛΗ ΠΡΟΣ ΑΔΕΛΦΙΟΝ ΕΠΙΣΚΟΠΟΝ ΚΑΙ ΟΜΟΛΟΓΗΤΗΝ, ΚΑΤΑ ΑΡΕΙΑΝΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,106 | auto-corrected |
-| athanasius-theology.epistula-ad-afros-episcopos | ΚΑΙ ΤΟΥ ΜΑΚΑΡΙΟΥ ΑΘΑΝΑΣΙΟΥ ΚΑΤΑ ΑΡΙΑΝΩΝ ΠΡΟΣ ΤΟΥΣ ΕΝ ΤΗ ΑΦΡΙΚΗ ΤΙΜΙΩΤΑΤΟΥΣ ΕΠΙΣΚΟΠΟΥΣ 6 . | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,600 | auto-corrected |
-| athanasius-theology.epistula-ad-epictetum | ΠΡΟΣ ΕΠΙΚΤΗΤΟΝ ΚΟΡΙΝΘΟΥ, ΚΑΤΑ ΤΟΝ ΑΙΡΕΤΙΚΟΝ ΕΠΙΣΤΟΛΑ (91). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,204 | raw OCR |
-| athanasius-theology.epistula-ad-jovianum | 75 ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΠΡΟΣ ΙΟΒΙΑΝΟΝ ΠΕΡΙ ΠΙΣΤΕΩΣ 76 . | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,935 | raw OCR |
-| athanasius-theology.epistula-ad-marcellinum-de-interpretatione-psalmorum | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΠΡΟΣ ΜΑΡΚΕΛΛΙΝΟΝ ΕΙΣ ΤΗΝ ΕΡΜΗΝΕΙΑΝ ΤΩΝ ΨΑΛΜΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,824 | auto-corrected |
-| athanasius-theology.epistula-ad-maximum | ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΠΡΟΣ ΜΑΣΙΜΟΝ ΦΙΛΟΣΟΦΟΝ (21). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 959 | auto-corrected |
-| athanasius-theology.epistula-ad-monachos-2 | ΤΟΥ ΕΝΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,422 | auto-corrected |
-| athanasius-theology.epistula-ad-rufinianum | ΕΠΙΣΤΟΛΗ ΠΡΟΣ ΡΟΥΦΙΝΙΑΝΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 316 | raw OCR |
-| athanasius-theology.epistula-catholica-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 438 | auto-corrected |
+| astydamas.fragmenta | Astydamas - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 449 | auto-corrected |
+| athanasius-theology.de-corpore-et-anima-sp | Athanasius - De Corpore Et Anima Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 987 | auto-corrected |
+| athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp | Athanasius - De Incarnatione Contra Apollinarium Libri Ii Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,352 | auto-corrected |
+| athanasius-theology.de-sabbatis-et-circumcisione-sp | Athanasius - De Sabbatis Et Circumcisione Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,600 | raw OCR |
+| athanasius-theology.de-sancta-trinitate-dialogi-1-3-5-sp | Athanasius - De Sancta Trinitate (Dialogi 1, 3, 5) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 24,009 | auto-corrected |
+| athanasius-theology.de-sancta-trinitate-dialogi-2-and-4-sp | Athanasius - De Sancta Trinitate (Dialogi 2 And 4) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,560 | auto-corrected |
+| athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria | Athanasius - De Synodis Arimini In Italia Et Seleuciae In Isauria | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,193 | auto-corrected |
+| athanasius-theology.de-virginitate-sp | Athanasius - De Virginitate Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,095 | auto-corrected |
+| athanasius-theology.dialogi-duo-contra-macedonianos-sp | Athanasius - Dialogi Duo Contra Macedonianos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 19,828 | auto-corrected |
+| athanasius-theology.disputatio-contra-arium-sp | Athanasius - Disputatio Contra Arium Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,666 | auto-corrected |
+| athanasius-theology.doctrina-ad-antiochum-ducem-sp | Athanasius - Doctrina Ad Antiochum Ducem Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,628 | auto-corrected |
+| athanasius-theology.doctrina-ad-monachos-sp | Athanasius - Doctrina Ad Monachos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,128 | raw OCR |
+| athanasius-theology.epistula-ad-adelphium | Athanasius - Epistula Ad Adelphium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,106 | auto-corrected |
+| athanasius-theology.epistula-ad-afros-episcopos | Athanasius - Epistula Ad Afros Episcopos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,600 | auto-corrected |
+| athanasius-theology.epistula-ad-epictetum | Athanasius - Epistula Ad Epictetum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,204 | raw OCR |
+| athanasius-theology.epistula-ad-jovianum | Athanasius - Epistula Ad Jovianum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,935 | raw OCR |
+| athanasius-theology.epistula-ad-marcellinum-de-interpretatione-psalmorum | Athanasius - Epistula Ad Marcellinum De Interpretatione Psalmorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,824 | auto-corrected |
+| athanasius-theology.epistula-ad-maximum | Athanasius - Epistula Ad Maximum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 959 | auto-corrected |
+| athanasius-theology.epistula-ad-monachos-2 | Athanasius - Epistula Ad Monachos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,422 | auto-corrected |
+| athanasius-theology.epistula-ad-rufinianum | Athanasius - Epistula Ad Rufinianum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 316 | raw OCR |
+| athanasius-theology.epistula-catholica-sp | Athanasius - Epistula Catholica Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 438 | auto-corrected |
 | athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum | Epistula festalis xxxix (fragmentum in collectione canonum) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,318 | raw OCR |
-| athanasius-theology.epistulae-ad-castorem-sp | ΤΟΥ ἈΥΤΟΥ ΜΕΓΑΛΟΥ ἈΘΑΝΑΣΙΟΥ ΠΡΟΣ ΚΑΣΤΟΡΑ ΤΟΝ ΜΑΚΑΡΙΟΤΑΤΟΝ ΠΕΡΙ ΤΟΝ ΚΑΝΟΝΙΚΟΝ ΤΟΝ ΚΟΙΝΟΒΙΟΝ ΔΙΑΤΥΠΩ‐ ΣΘΑΝ (37). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,872 | auto-corrected |
+| athanasius-theology.epistulae-ad-castorem-sp | Athanasius - Epistulae Ad Castorem Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,872 | auto-corrected |
 | athanasius-theology.epistulae-festales-ap-cosmam-indicopleustem | Epistulae festales (ap. Cosmam Indicopleustem) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 295 | auto-corrected |
-| athanasius-theology.epistulae-quattuor-ad-serapionem | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΕΠΙΣΤΟΛΗ ΠΡΟΣ ΣΕΡΑΠΙΩΝΑ ΘΜΟΥΕΟΣ ΕΠΙΣΚΟΠΟΝ (71) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 22,684 | auto-corrected |
-| athanasius-theology.expositiones-in-psalmos | ΤΟΥ ἉΓΙΟΥ ἈΘΑΝΑΣΙΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ ὙΠΟΘΕΣΙΣ ΕΙΣ ΤΟΥΣ ΨΑΛΜΟΥΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 207,612 | auto-corrected |
+| athanasius-theology.epistulae-quattuor-ad-serapionem | Athanasius - Epistulae Quattuor Ad Serapionem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 22,684 | auto-corrected |
+| athanasius-theology.expositiones-in-psalmos | Athanasius - Expositiones In Psalmos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 207,612 | auto-corrected |
 | athanasius-theology.fragmenta-varia | Fragmenta varia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,425 | auto-corrected |
-| athanasius-theology.homilia-de-passione-et-cruce-domini-additamenta | ἈΘΑΝΑΣΙΟΥ ΕΙΣ ΤΟ ΠΑΘΟΣ (81) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 357 | raw OCR |
-| athanasius-theology.homilia-de-passione-et-cruce-domini-sp | ΕΙΣ ΤΟ ΠΑΘΟΣ ΤΟΥ ΚΥΡΙΟΥ ΚΑΙ ΕΙΣ ΤΟΝ ΣΤΑΥΡΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,362 | auto-corrected |
-| athanasius-theology.homilia-de-semente-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,035 | auto-corrected |
-| athanasius-theology.homilia-in-occursum-domini-sp | ΧΟΙΟΣ ΕΙΣ ΤΗΝ ΥΠΑΝΤΗΝ ΤΟΥ ΚΥΡΙΟΥ, ΚΑΙ ΘΕΟΥ, ΚΑΙ ΣΩΤΗΡΟΣ ΗΜΩΝ ΙΗΣΟΥ ΧΡΙΣΤΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,947 | auto-corrected |
-| athanasius-theology.homilia-in-passionem-domini-et-in-parasceve-sp | ΛΟΓΟΣ ΕΙΣ ΤΟ ΠΑΘΟΣ ΤΟΥ ΚΥΡΙΟΥ (20) ΤΗ ΑΓΙΑ ΠΑΡΑΣΚΕΥΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,365 | auto-corrected |
-| athanasius-theology.homilia-in-sanctum-andream-sp | ΕΓΚΩΜΙΟΝ ΕΙΣ ΤΟΝ ΑΓΙΟΝ ΑΝΔΡΕΑΝ ΤΟΝ ΑΠΟΣΤΟΛΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,038 | auto-corrected |
-| athanasius-theology.homilia-in-sanctum-pascha-et-in-recens-illuminatos-sp | ΕΙΣ ΤΟ ΑΓΙΟΝ ΠΑΣΧΑ ΚΑΙ ΕΙΣ ΤΟΥΣ ΝΕΟΦΘΙΣΤΟΥΣ ΤΩ ΣΑΒΒΑΤΩ ΤΗΣ ΑΠΟΛΥΣΙΜΟΥ ΛΟΓΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,962 | auto-corrected |
-| athanasius-theology.homilia-in-sanctum-pascha-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΔΟΓΟΣ ΕΙΣ ΤΟ ΑΓΙΟΝ ΠΑΣΧΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 946 | auto-corrected |
-| athanasius-theology.in-caecum-nativitate-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,516 | auto-corrected |
-| athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,691 | raw OCR |
-| athanasius-theology.in-nativitatem-praecursoris-sp | ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,461 | auto-corrected |
-| athanasius-theology.interpretatio-in-symbolum-sp | ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 311 | raw OCR |
-| athanasius-theology.liber-de-definitionibus-sp | ΤΟΥΑΥΤΟΥΑΘΑΝΑΣΙΟΥ ΠΡΟΣ ΤΟΝ ΕΥΣΕΒΕ- ΣΤΑΤΟΝ ΒΑΣΙΛΕΑ ΙΟΒΙΑΝΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,144 | auto-corrected |
-| athanasius-theology.narratio-de-cruce-seu-imagine-berytensi-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,980 | raw OCR |
-| athanasius-theology.oratio-in-resurrectionem-et-in-recens-baptizatos-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,889 | raw OCR |
-| athanasius-theology.orationes-tres-contra-arianos | ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 74,999 | auto-corrected |
-| athanasius-theology.quaestiones-ad-antiochum-ducem-sp | C ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,459 | auto-corrected |
-| athanasius-theology.quaestiones-aliae-sp | ΤΟΥ ΕΝ ΑΙΤΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΕΤΕΡΑΙ ΤΙΝΕΣ ΕΡΩΤΗΣΕΙΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,322 | auto-corrected |
-| athanasius-theology.quaestiones-in-evangelia-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΡΗΕΙΕΣ ΚΑΙ ΕΡΜΗΝΕΙΑΙ ΠΑΡΑΒΟΛΩΝ ΤΟΥ ΑΓΙΟΥ ΕΥΑΓΓΕΛΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,493 | auto-corrected |
-| athanasius-theology.quaestiones-in-scripturam-sacram-sp | ΕΚ ΤΟΥ ΠΑΛΑΙΟΥ ΔΙΑΦΟΡΟΙ ΕΡΜΗ‐ ΝΕΙΑΙ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,128 | auto-corrected |
-| athanasius-theology.refutatio-hypocriseos-meletii-et-eusebii-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 604 | raw OCR |
+| athanasius-theology.homilia-de-passione-et-cruce-domini-additamenta | Athanasius - Homilia De Passione Et Cruce Domini (Additamenta) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 357 | raw OCR |
+| athanasius-theology.homilia-de-passione-et-cruce-domini-sp | Athanasius - Homilia De Passione Et Cruce Domini Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,362 | auto-corrected |
+| athanasius-theology.homilia-de-semente-sp | Athanasius - Homilia De Semente Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,035 | auto-corrected |
+| athanasius-theology.homilia-in-occursum-domini-sp | Athanasius - Homilia In Occursum Domini Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,947 | auto-corrected |
+| athanasius-theology.homilia-in-passionem-domini-et-in-parasceve-sp | Athanasius - Homilia In Passionem Domini Et In Parasceve Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,365 | auto-corrected |
+| athanasius-theology.homilia-in-sanctum-andream-sp | Athanasius - Homilia In Sanctum Andream Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,038 | auto-corrected |
+| athanasius-theology.homilia-in-sanctum-pascha-et-in-recens-illuminatos-sp | Athanasius - Homilia In Sanctum Pascha Et In Recens Illuminatos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,962 | auto-corrected |
+| athanasius-theology.homilia-in-sanctum-pascha-sp | Athanasius - Homilia In Sanctum Pascha Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 946 | auto-corrected |
+| athanasius-theology.in-caecum-nativitate-sp | Athanasius - In Caecum A Nativitate Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,516 | auto-corrected |
+| athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp | Athanasius - In Illud: Profecti In Pagum Invenietis Pullum Alligatum Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,691 | raw OCR |
+| athanasius-theology.in-nativitatem-praecursoris-sp | Athanasius - In Nativitatem Praecursoris Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,461 | auto-corrected |
+| athanasius-theology.interpretatio-in-symbolum-sp | Athanasius - Interpretatio In Symbolum Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 311 | raw OCR |
+| athanasius-theology.liber-de-definitionibus-sp | Athanasius - Liber De Definitionibus Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,144 | auto-corrected |
+| athanasius-theology.narratio-de-cruce-seu-imagine-berytensi-sp | Athanasius - Narratio De Cruce Seu Imagine Berytensi Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,980 | raw OCR |
+| athanasius-theology.oratio-in-resurrectionem-et-in-recens-baptizatos-sp | Athanasius - Oratio In Resurrectionem Et In Recens Baptizatos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,889 | raw OCR |
+| athanasius-theology.orationes-tres-contra-arianos | Athanasius - Orationes Tres Contra Arianos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 74,999 | auto-corrected |
+| athanasius-theology.quaestiones-ad-antiochum-ducem-sp | Athanasius - Quaestiones Ad Antiochum Ducem Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,459 | auto-corrected |
+| athanasius-theology.quaestiones-aliae-sp | Athanasius - Quaestiones Aliae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,322 | auto-corrected |
+| athanasius-theology.quaestiones-in-evangelia-sp | Athanasius - Quaestiones In Evangelia Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,493 | auto-corrected |
+| athanasius-theology.quaestiones-in-scripturam-sacram-sp | Athanasius - Quaestiones In Scripturam Sacram Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,128 | auto-corrected |
+| athanasius-theology.refutatio-hypocriseos-meletii-et-eusebii-sp | Athanasius - Refutatio Hypocriseos Meletii Et Eusebii Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 604 | raw OCR |
 | athanasius-theology.scholia-in-acta-fort-ex-libris-contra-novatianos | Scholia in Acta (fort. ex libris Contra Novatianos) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 520 | raw OCR |
-| athanasius-theology.sermo-ad-antiochum-ducem-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΕΜΩΝ ΑΘΑΝΑΣΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ, ΠΡΟΣ ΑΝΤΙΟΧΟΝ ΑΡΧΟΝΤΑ (86) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,682 | auto-corrected |
-| athanasius-theology.sermo-contra-latinos-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,853 | auto-corrected |
-| athanasius-theology.sermo-contra-omnes-haereses-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΚΑΤΑ ΠΑΣΩΝ ΤΩΝ ΑΙΡΕΣΕΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,185 | auto-corrected |
-| athanasius-theology.sermo-de-descriptione-deiparae-sp | ΕΙΣ ΑΠΟΓΡΑΦΗΝ (55) ΤΗΣ ΑΓΙΑΣ ΜΑΡΙΑΣ, ΚΑΙ ΕΙΣ ΤΟΝ ΙΟΣΗΦ, ΛΟΓΟΣ (56). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,640 | auto-corrected |
-| athanasius-theology.sermo-de-patientia-sp | ΤΟΥ ἈΥΤΟΥ ἈΘΑΝΑΣΙΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ, ΠΕΡΙ ΥΠΟΜΟΝΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,078 | auto-corrected |
-| athanasius-theology.sermo-exhortatorius-sp-e-cod-paris-gr-769 | ΛΟΓΟΣ ΤΟΥ ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ ΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,290 | auto-corrected |
-| athanasius-theology.sermo-in-annuntiationem-deiparae-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,105 | auto-corrected |
-| athanasius-theology.sermo-in-nativitatem-christi-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,627 | auto-corrected |
-| athanasius-theology.sermo-pro-iis-qui-saeculo-renuntiarunt-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΤΟΥ ΜΕΓΑΛΟΥ ΠΑΤΡΙΑΡΧΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,836 | auto-corrected |
-| athanasius-theology.symbolum-quicumque-sp | ΣΥΜΒΟΛΟΝ ΤΟΥ ΑΓΙΟΥ ΑΘΑΝΑΣΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,921 | auto-corrected |
-| athanasius-theology.synopsis-scripturae-sacrae-sp | ΣΥΝΟΨΙΣ ἘΠΙΤΟΜΟΣ ΤΗΣ ΘΕΙΑΣ ΓΡΑΦΗΣ, ΠΑΛΑΙΑΣ ΚΑΙ ΝΕΑΣ ΔΙΑΘΗΚΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,187 | auto-corrected |
-| athanasius-theology.syntagma-ad-monachos-e-cod-vossiano-gr-fol-46-sp | ΣΥΝΤΑΓΜΑ ΔΙΔΑΣΚΑΛΙΑΣ ΠΡΟΣ ΜΟΝΑΖΟΝΤΑΣ, ΚΑΙ ΠΑΝΤΑΣ ΧΡΙΣΤΙΑΝΟΥΣ, ΚΑΘΗΚΟΥΣ ΤΕ ΚΑΙ ΛΑΙΚΟΥΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,633 | raw OCR |
-| athanasius-theology.syntagma-ad-quendam-politicum-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,903 | auto-corrected |
-| athanasius-theology.testimonia-e-scriptura-de-communi-essentia-patris-et-filii-et-spiritus | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,702 | auto-corrected |
-| athanasius-theology.vita-antonii | ΒΙΟΣ ΚΑΙ ΠΟΛΙΤΕΙΑ ΤΟΥ ΟΣΙΟΥ ΠΑΤΡΟΣ ΗΜΩΝ ΑΝΤΩΝΙΟΥ ΣΥΓΓΡΑΦΕΙΣ ΚΑΙ ΑΠΟΣΤΑΛΕΙΣ ΠΡΟΣ ΤΟΥΣ ΕΝ ΤΗ ΣΕΝΗ ΜΟΝΑΚΟΥΣ ΠΑΡΑ ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΑΘΑΝΑΣΙΟΥ ΕΠΙΣΚΟΠΟΥ ΑΛΕΧΑΝΔΡΕΙΑΣ (4). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,358 | auto-corrected |
-| athanasius-theology.vita-sanctae-syncleticae-sp | ΒΙΟΣ ΚΑΙ ΠΟΛΙΤΕΙΑ ΤΩΣ ΑΓΙΑΣ ΚΑΙ ΜΑΚΑ- ΡΙΑΣ ΚΑΙ ΔΙΔΑΣΚΑΛΟΥ ΣΥΓΚΛΗΤΙΚΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,741 | auto-corrected |
-| athanasius-theology.vitae-monasticae-institutio-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 726 | raw OCR |
-| athenaeus-mechanics.de-machinis |  | qwen36-athenaeus_mech_wescher | Qwen3.6-27B | 46,656 | auto-corrected |
-| atridarum-reditus.fragmenta |  | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 570 | auto-corrected |
-| atridarum-reditus.fragmentum |  | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 5 | raw OCR |
-| autocharis.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 82 | auto-corrected |
-| autocrates-comedy.fragmenta | ΑΔΗΛΟΤ ΔΡΑΜΑΤΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 74 | raw OCR |
-| axionicus.fragmenta | ΔΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 491 | raw OCR |
-| basilides.fragmentum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33 | raw OCR |
+| athanasius-theology.sermo-ad-antiochum-ducem-sp | Athanasius - Sermo Ad Antiochum Ducem Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,682 | auto-corrected |
+| athanasius-theology.sermo-contra-latinos-sp | Athanasius - Sermo Contra Latinos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,853 | auto-corrected |
+| athanasius-theology.sermo-contra-omnes-haereses-sp | Athanasius - Sermo Contra Omnes Haereses Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,185 | auto-corrected |
+| athanasius-theology.sermo-de-descriptione-deiparae-sp | Athanasius - Sermo De Descriptione Deiparae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,640 | auto-corrected |
+| athanasius-theology.sermo-de-patientia-sp | Athanasius - Sermo De Patientia Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,078 | auto-corrected |
+| athanasius-theology.sermo-exhortatorius-sp-e-cod-paris-gr-769 | Athanasius - Sermo Exhortatorius Sp. (E Cod. Paris. Gr. 769) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,290 | auto-corrected |
+| athanasius-theology.sermo-in-annuntiationem-deiparae-sp | Athanasius - Sermo In Annuntiationem Deiparae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,105 | auto-corrected |
+| athanasius-theology.sermo-in-nativitatem-christi-sp | Athanasius - Sermo In Nativitatem Christi Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,627 | auto-corrected |
+| athanasius-theology.sermo-pro-iis-qui-saeculo-renuntiarunt-sp | Athanasius - Sermo Pro Iis Qui Saeculo Renuntiarunt Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,836 | auto-corrected |
+| athanasius-theology.symbolum-quicumque-sp | Athanasius - Symbolum "Quicumque" Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,921 | auto-corrected |
+| athanasius-theology.synopsis-scripturae-sacrae-sp | Athanasius - Synopsis Scripturae Sacrae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,187 | auto-corrected |
+| athanasius-theology.syntagma-ad-monachos-e-cod-vossiano-gr-fol-46-sp | Athanasius - Syntagma Ad Monachos (E Cod. Vossiano Gr., Fol. 46) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,633 | raw OCR |
+| athanasius-theology.syntagma-ad-quendam-politicum-sp | Athanasius - Syntagma Ad Quendam Politicum Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,903 | auto-corrected |
+| athanasius-theology.testimonia-e-scriptura-de-communi-essentia-patris-et-filii-et-spiritus | Athanasius - Testimonia E Scriptura (De Communi Essentia Patris Et Filii Et Spiritus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,702 | auto-corrected |
+| athanasius-theology.vita-antonii | Athanasius - Vita Antonii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,358 | auto-corrected |
+| athanasius-theology.vita-sanctae-syncleticae-sp | Athanasius - Vita Sanctae Syncleticae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,741 | auto-corrected |
+| athanasius-theology.vitae-monasticae-institutio-sp | Athanasius - Vitae Monasticae Institutio Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 726 | raw OCR |
+| athenaeus-mechanics.de-machinis | Athenaeus - De Machinis | qwen36-athenaeus_mech_wescher | Qwen3.6-27B | 46,656 | auto-corrected |
+| atridarum-reditus.fragmenta | Atridarum Reditus - Fragmenta | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 570 | auto-corrected |
+| atridarum-reditus.fragmentum | Atridarum Reditus - Fragmentum | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 5 | raw OCR |
+| autocharis.fragmentum | Autocharis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 82 | auto-corrected |
+| autocrates-comedy.fragmenta | Autocrates - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 74 | raw OCR |
+| axionicus.fragmenta | Axionicus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 491 | raw OCR |
+| basilides.fragmentum | Basilides - Fragmentum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33 | raw OCR |
 | basilius-i-macedo.altera-paraenesis-ad-leonem-filium | Basilius I Macedo imperator - Altera paraenesis ad Leonem filium (PG107 loci 38-39) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 531 | auto-corrected |
 | basilius-i-macedo.paraenesis-ad-leonem-filium | Basilius I Macedo imperator (revera fort. Photius) - Paraenesis ad Leonem filium (Exhortationum capita LXVI) (PG107 loci 20-37) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,491 | manual |
-| basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp | ΛΟΓΟΣ ΜΑʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,777 | auto-corrected |
-| basilius-scr-eccl.sermones-xli | A ΛΟΓΟΣ Α' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 69,840 | auto-corrected |
-| basilius-theology.adversus-eunomium-libri-5 | ΒΑΣΙΛΙΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 45,618 | auto-corrected |
-| basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius | ΕΡΩΤΗΣΙΣ Γ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,709 | auto-corrected |
-| basilius-theology.asceticon-magnum-sive-quaestiones-regulae-fusius | ΚΕΦΑΛΑΙΑ ΤΩΝ ΚΑΤΑ ΠΛΑΤΟΣ ΟΡΩΝ 39 . | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 27,219 | auto-corrected |
-| basilius-theology.consolatoria-ad-aegrotum-sp-sub-auctore-proclo | ΤΟΥ ΑΥΤΟΥ (58) ΟΜΙΛΙΑ ΠΑΡΑΜΥΘΗΤΙΚΗ ΑΣΘΕΝΟΥΝΤΙ (59) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,800 | auto-corrected |
-| basilius-theology.constitutiones-asceticae-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΒΑΣΙΛΕΙΟΥ· ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΑΙΣΑΡΕΙΑΣ ΚΑΠΠΑΔΟΚΙΑΣ· ΑΣΚΗΤΙΚΑΙ ΔΙΑΤΑΞΕΙΣ (55) , ΠΡΟΣ ΤΟΥΣ ΕΝ ΚΟΙΝΟΒΙΩ ΚΑΙ ΚΑΤΑΜΟΝΑΣ ΑΣΚΟΥΝΤΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,864 | auto-corrected |
-| basilius-theology.contra-sabellianos-et-arium-et-anomoeos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,681 | raw OCR |
-| basilius-theology.de-baptismo-libri-duo | ΛΟΓΟΣ Αʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,741 | auto-corrected |
+| basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp | Basilius - De Vita Et Miraculis Sanctae Theclae Libri Ii Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,777 | auto-corrected |
+| basilius-scr-eccl.sermones-xli | Basilius - Sermones Xli | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 69,840 | auto-corrected |
+| basilius-theology.adversus-eunomium-libri-5 | Basilius - Adversus Eunomium (Libri 5) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 45,618 | auto-corrected |
+| basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius | Basilius - Asceticon Magnum Sive Quaestiones (Regulae Brevius | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,709 | auto-corrected |
+| basilius-theology.asceticon-magnum-sive-quaestiones-regulae-fusius | Basilius - Asceticon Magnum Sive Quaestiones (Regulae Fusius | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 27,219 | auto-corrected |
+| basilius-theology.consolatoria-ad-aegrotum-sp-sub-auctore-proclo | Basilius - Consolatoria Ad Aegrotum Sp. (Sub Auctore Proclo) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,800 | auto-corrected |
+| basilius-theology.constitutiones-asceticae-sp | Basilius - Constitutiones Asceticae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,864 | auto-corrected |
+| basilius-theology.contra-sabellianos-et-arium-et-anomoeos | Basilius - Contra Sabellianos Et Arium Et Anomoeos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,681 | raw OCR |
+| basilius-theology.de-baptismo-libri-duo | Basilius - De Baptismo Libri Duo | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,741 | auto-corrected |
 | basilius-theology.de-fide | De fide | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,017 | raw OCR |
-| basilius-theology.de-humilitate |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,097 | auto-corrected |
-| basilius-theology.de-jejunio-homilia-1 | ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΑΙΣΑΡΕΙΑΣ ΚΑΠΠΑΔΟΚΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,866 | auto-corrected |
-| basilius-theology.de-jejunio-homilia-2 | ΠΕΡΙ ΝΗΣΤΕΙΑΣ ΛΟΓΟΣ Β’ 66 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,460 | auto-corrected |
-| basilius-theology.de-jejunio-homilia-3-sp | ΤΟΥ ΑΥΤΟΥ ΠΕΡΙ ΝΗΣΤΕΙΑΣ ΛΟΓΟΣ Γ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,049 | auto-corrected |
-| basilius-theology.de-spiritu-sancto | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΒΑΣΙΛΕΙΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΑΙΣΑΡΕΙΑΣ ΚΑΠΠΑΔΟΚΙΑΣ ΠΕΡΙ ΤΟΥ ΑΓΙΟΥ ΠΝΕΥΜΑΤΟΣ ΠΡΟΣ ΤΟΝ ΕΝ ΑΓΙΟΙΣ ΑΜΦΙΑΟΧΙΟΝ (19) ΕΠΙΣΚΟΠΟΝ ΙΚΟΝΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,765 | auto-corrected |
-| basilius-theology.enarratio-in-prophetam-isaiam-dub | ΕἸΣ ΤΟΝ ΠΡΟΦΗΤΗΝ ΙΣΑΙΑΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 91,458 | auto-corrected |
-| basilius-theology.epitimia-in-canonicas-epitimia-25-dub | ΚΕΦΑΛΑΙΑ ΔΙΑΤΑΞΕΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 814 | auto-corrected |
+| basilius-theology.de-humilitate | Basilius - De Humilitate | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,097 | auto-corrected |
+| basilius-theology.de-jejunio-homilia-1 | Basilius - De Jejunio (Homilia 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,866 | auto-corrected |
+| basilius-theology.de-jejunio-homilia-2 | Basilius - De Jejunio (Homilia 2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,460 | auto-corrected |
+| basilius-theology.de-jejunio-homilia-3-sp | Basilius - De Jejunio (Homilia 3) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,049 | auto-corrected |
+| basilius-theology.de-spiritu-sancto | Basilius - De Spiritu Sancto | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,765 | auto-corrected |
+| basilius-theology.enarratio-in-prophetam-isaiam-dub | Basilius - Enarratio In Prophetam Isaiam Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 91,458 | auto-corrected |
+| basilius-theology.epitimia-in-canonicas-epitimia-25-dub | Basilius - Epitimia In Canonicas (Epitimia 25) Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 814 | auto-corrected |
 | basilius-theology.homilia-adversus-eos-qui-irascuntur | Homilia adversus eos qui irascuntur | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,221 | auto-corrected |
 | basilius-theology.homilia-de-invidia | Homilia de invidia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,581 | auto-corrected |
-| basilius-theology.homilia-de-misericordia-et-judicio-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,043 | raw OCR |
-| basilius-theology.homilia-de-spiritu-sancto-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΒΑΣΙΛΕΙΟΥ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,534 | raw OCR |
-| basilius-theology.homilia-dicta-in-lacisis | 87 ΟΜΙΛΙΑ ΦΗΘΕΙΣΑ ΕΝ ΛΑΚΙΖΟΙΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,185 | raw OCR |
+| basilius-theology.homilia-de-misericordia-et-judicio-sp | Basilius - Homilia De Misericordia Et Judicio Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,043 | raw OCR |
+| basilius-theology.homilia-de-spiritu-sancto-sp | Basilius - Homilia De Spiritu Sancto Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,534 | raw OCR |
+| basilius-theology.homilia-dicta-in-lacisis | Basilius - Homilia Dicta In Lacisis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,185 | raw OCR |
 | basilius-theology.homilia-dicta-tempore-famis-et-siccitatis | Homilia dicta tempore famis et siccitatis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,164 | auto-corrected |
 | basilius-theology.homilia-exhortatoria-ad-sanctum-baptisma | Homilia exhortatoria ad sanctum baptisma | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,426 | auto-corrected |
 | basilius-theology.homilia-in-divites | Homilia in divites | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,383 | auto-corrected |
-| basilius-theology.homilia-in-illud-destruam-horrea-mea | ΕἸΣ ΤῸ ΠΤΟΝ ΤΟΥ ΚΑΤᾺ ΛΟΥΚΑΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,594 | auto-corrected |
-| basilius-theology.homilia-in-illud-ne-dederis-somnum-oculis-tuis-sp | A ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΩΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,560 | auto-corrected |
+| basilius-theology.homilia-in-illud-destruam-horrea-mea | Basilius - Homilia In Illud: Destruam Horrea Mea | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,594 | auto-corrected |
+| basilius-theology.homilia-in-illud-ne-dederis-somnum-oculis-tuis-sp | Basilius - Homilia In Illud: Ne Dederis Somnum Oculis Tuis Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,560 | auto-corrected |
 | basilius-theology.homilia-in-principium-proverbiorum | Homilia in principium proverbiorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,994 | auto-corrected |
-| basilius-theology.homilia-in-psalmum-37-sp | ΕἸΣ ἈΖʹ ΨΑΛΜΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,380 | auto-corrected |
-| basilius-theology.homiliae-in-hexaemeron | ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΑΙΣΑΡΕΙΑΣ ΚΑΠΠΑΔΟΚΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,668 | auto-corrected |
-| basilius-theology.homiliae-super-psalmos | ΟΜΙΛΙΑ ΕΙΣ ΤΟΝ ΠΡΩΤΟΝ ΨΑΛΜΟΝ (85) . | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 49,924 | auto-corrected |
+| basilius-theology.homilia-in-psalmum-37-sp | Basilius - Homilia In Psalmum 37 Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,380 | auto-corrected |
+| basilius-theology.homiliae-in-hexaemeron | Basilius - Homiliae In Hexaemeron | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,668 | auto-corrected |
+| basilius-theology.homiliae-super-psalmos | Basilius - Homiliae Super Psalmos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 49,924 | auto-corrected |
 | basilius-theology.in-barlaam-martyrem-sp | In Barlaam martyrem [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 670 | auto-corrected |
 | basilius-theology.in-ebriosos | In ebriosos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,427 | auto-corrected |
 | basilius-theology.in-gordium-martyrem | In Gordium martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,483 | auto-corrected |
-| basilius-theology.in-illud-in-principio-erat-verbum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,277 | raw OCR |
+| basilius-theology.in-illud-in-principio-erat-verbum | Basilius - In Illud: In Principio Erat Verbum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,277 | raw OCR |
 | basilius-theology.in-mamantem-martyrem | In Mamantem martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,698 | auto-corrected |
 | basilius-theology.in-quadraginta-martyres-sebastenses | In quadraginta martyres Sebastenses | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,155 | auto-corrected |
-| basilius-theology.in-sanctam-christi-generationem | ΟΜΙΛΙΑ ΕΙΣ ΤΗΝ ΑΓΙΑΝ ΤΟΥ ΧΡΙΣΤΟΥ ΓΕΝΝΗΣΙΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,806 | auto-corrected |
-| basilius-theology.liturgia-recensio-brevior-vetusta | ΛΕΙΤΟΥΡΓΙΑ ΤΟΥ ΑΓΙΟΥ ΒΑΣΙΛΕΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,761 | auto-corrected |
-| basilius-theology.orationes-sive-exorcismi-sp | ΕΥΧΑΙ ΗΤΟΙ ΕΞΟΡΚΙΣΜΟΙ ΤΟΥ ΜΕΓΑΛΟΥ ΒΑΣΙΛΕΙΟΥ ΠΡΟΣ ΤΟΥΣ ΠΑΣΧΟΝΤΑΣ ΥΠΟ ΔΑΙΜΟΝΩΝ, ΚΑΙ ΕΚΑΣΤΗΝ ΑΣΘΕΝΕΙΑΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,318 | auto-corrected |
-| basilius-theology.poenae-in-monachos-delinquentes-epitimia-24-dub | ἘΠΙΤΙΜΙΑ ΕΙΣ ΤΑΣ ΚΑΝΟΝΙΚΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 268 | raw OCR |
-| basilius-theology.prologus-3-prooemium-in-regulas-brevius-tractatas | 43 ΠΡΟΟΙΜΙΟΝ ΤΩΝ ΚΑΤ' ΕΠΙΤΟΜΗΝ ΟΡΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 588 | raw OCR |
-| basilius-theology.prologus-4-prooemium-in-asceticum-magnum | ΤΟΥ ΑΥΤΟΥ ΟΡΟΙ ΚΑΤΑ ΠΛΑΤΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,941 | raw OCR |
-| basilius-theology.prologus-5-sermo-asceticus-dub | ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ ΑΣΚΗΤΙΚΟΣ (40) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,259 | auto-corrected |
-| basilius-theology.prologus-7-de-judicio-dei |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,190 | raw OCR |
-| basilius-theology.prologus-8-de-fide | TOY ΑΥΤΟΥ ΠΕΡΙ ΠΙΣΤΕΩΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,867 | auto-corrected |
+| basilius-theology.in-sanctam-christi-generationem | Basilius - In Sanctam Christi Generationem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,806 | auto-corrected |
+| basilius-theology.liturgia-recensio-brevior-vetusta | Basilius - Liturgia (Recensio Brevior Vetusta) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,761 | auto-corrected |
+| basilius-theology.orationes-sive-exorcismi-sp | Basilius - Orationes Sive Exorcismi Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,318 | auto-corrected |
+| basilius-theology.poenae-in-monachos-delinquentes-epitimia-24-dub | Basilius - Poenae In Monachos Delinquentes (Epitimia 24) Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 268 | raw OCR |
+| basilius-theology.prologus-3-prooemium-in-regulas-brevius-tractatas | Basilius - Prologus 3 (Prooemium In Regulas Brevius Tractatas) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 588 | raw OCR |
+| basilius-theology.prologus-4-prooemium-in-asceticum-magnum | Basilius - Prologus 4 (Prooemium In Asceticum Magnum) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,941 | raw OCR |
+| basilius-theology.prologus-5-sermo-asceticus-dub | Basilius - Prologus 5 (Sermo Asceticus) Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,259 | auto-corrected |
+| basilius-theology.prologus-7-de-judicio-dei | Basilius - Prologus 7 (De Judicio Dei) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,190 | raw OCR |
+| basilius-theology.prologus-8-de-fide | Basilius - Prologus 8 (De Fide) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,867 | auto-corrected |
 | basilius-theology.quod-deus-non-est-auctor-malorum | Quod deus non est auctor malorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,805 | auto-corrected |
 | basilius-theology.quod-rebus-mundanis-adhaerendum-non-sit | Quod rebus mundanis adhaerendum non sit | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,945 | auto-corrected |
-| basilius-theology.regulae-morales | ἈΡΧῊ ΤΩΝ ΗΘΙΚΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 27,318 | auto-corrected |
+| basilius-theology.regulae-morales | Basilius - Regulae Morales | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 27,318 | auto-corrected |
 | basilius-theology.sermo-10-praevia-institutio-ascetica-dub | Sermo 10 (praevia institutio ascetica) [Dub.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 848 | auto-corrected |
 | basilius-theology.sermo-11-sermo-asceticus-et-exhortatio-de-renuntiatione-mundi | Sermo 11 (sermo asceticus et exhortatio de renuntiatione mundi) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,710 | auto-corrected |
-| basilius-theology.sermo-ob-sacerdotum-instructionem-recensio-brevior-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΒΑΣΙΛΕΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 598 | auto-corrected |
-| basilius-theology.sermones-de-moribus-symeone-metaphrasta-collecti | ΔΙΑ ΣΥΜΕΩΝ ΤΟΥ ΜΑΓΙΣΤΡΟΥ ΚΑΙ ΛΟΓΟΘΕΤΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,923 | auto-corrected |
-| beros-s-us.fragmenta |  | qwen36-demochares_fhg2-ocr | Qwen3.6-27B | 1,842 | auto-corrected |
-| bion-history.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 55 | raw OCR |
-| bion-mathematics.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 94 | raw OCR |
-| bion-philosophy.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,673 | auto-corrected |
-| blaesus.fragmentum | BLAESUS — Fragmentum | qwen36-sopater_kaibel_cgf-ocr | Qwen3.6-27B | 113 | raw OCR |
-| boethus.fragmenta |  | qwen36-apollodorus_seleuc_svf3-ocr | Qwen3.6-27B | 588 | auto-corrected |
-| boidas.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 84 | raw OCR |
-| bolus.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 28 | raw OCR |
-| brotinus.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 502 | auto-corrected |
-| bryson.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 238 | raw OCR |
-| butherus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 148 | raw OCR |
-| callias.fragmenta | ΚΤΚΑΩΠΕΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 529 | raw OCR |
-| callicratidas.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 1,336 | auto-corrected |
+| basilius-theology.sermo-ob-sacerdotum-instructionem-recensio-brevior-sp | Basilius - Sermo Ob Sacerdotum Instructionem (Recensio Brevior) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 598 | auto-corrected |
+| basilius-theology.sermones-de-moribus-symeone-metaphrasta-collecti | Basilius - Sermones De Moribus A Symeone Metaphrasta Collecti | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,923 | auto-corrected |
+| beros-s-us.fragmenta | Beros(S)Us - Fragmenta | qwen36-demochares_fhg2-ocr | Qwen3.6-27B | 1,842 | auto-corrected |
+| bion-history.fragmenta | Bion - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 55 | raw OCR |
+| bion-mathematics.testimonia | Bion - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 94 | raw OCR |
+| bion-philosophy.fragmenta | Bion - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,673 | auto-corrected |
+| blaesus.fragmentum | BLAESUS - Fragmentum | qwen36-sopater_kaibel_cgf-ocr | Qwen3.6-27B | 113 | raw OCR |
+| boethus.fragmenta | Fragmenta | qwen36-apollodorus_seleuc_svf3-ocr | Qwen3.6-27B | 588 | auto-corrected |
+| boidas.testimonium | Boïdas - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 84 | raw OCR |
+| bolus.testimonium | Bolus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 28 | raw OCR |
+| brotinus.testimonia | Brotinus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 502 | auto-corrected |
+| bryson.fragmentum | Bryson - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 238 | raw OCR |
+| butherus.fragmentum | Butherus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 148 | raw OCR |
+| callias.fragmenta | Callias - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 529 | raw OCR |
+| callicratidas.fragmenta | Callicratidas - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 1,336 | auto-corrected |
 | callimachus.callimachea-schneider-v1 |  | qwen36-callimachea_schneider_v1 | Qwen3.6-27B | 18,253 | auto-corrected |
-| callinus.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 149 | raw OCR |
-| calliphon-et-democedes.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,465 | auto-corrected |
-| callixenus.fragmenta |  | qwen36-fhg_vol3_mueller_diocles_rhodius-ocr | Qwen3.6-27B | 3,805 | auto-corrected |
-| cantharus.fragmenta | ΚΑΝΘΑΡΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 149 | auto-corrected |
-| carcinus-junior.fragmenta | ΑΜΦΙΑΡΕΩΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 665 | raw OCR |
-| carmina-convivialia-pmg.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,946 | auto-corrected |
-| carmina-popularia-pmg.fragmenta | CARMINA POPULARIA (PMG) — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,141 | auto-corrected |
-| cephisodorus.fragmenta | ΚΗΦΙΣΟΔΩΡΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 288 | raw OCR |
-| cercidas.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 351 | auto-corrected |
-| cercops.testimonium |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 52 | raw OCR |
-| chaeremon-history.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 929 | auto-corrected |
-| chaeremon-tragedy.fragmenta | ΔΙΟΝΥΣΟΣ | nauck-tgf-ocr-frag | Qwen3.6-27B | 814 | raw OCR |
-| charax.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 1,375 | auto-corrected |
-| chariclides.fragmentum | CHARICLIDES — Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 103 | raw OCR |
-| chionides.fragmenta | ΕΥΕΤΗΣ ΕΥΕΕΝΙΔΗΣ ΜΤΑΛΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 113 | raw OCR |
-| choerilus-tragedy.fragmenta | 1 ΑΛΟΠΗ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 30 | raw OCR |
-| choerilus.fragmenta-epica |  | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 830 | auto-corrected |
-| choricius.opera |  | qwen36-choricius_boissonade | Qwen3.6-27B | 67,386 | auto-corrected |
-| cinesias.fragmentum |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
+| callinus.fragmenta | Callinus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 149 | raw OCR |
+| calliphon-et-democedes.testimonia | Calliphon Et Democedes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,465 | auto-corrected |
+| callixenus.fragmenta | Callixenus - Fragmenta | qwen36-fhg_vol3_mueller_diocles_rhodius-ocr | Qwen3.6-27B | 3,805 | auto-corrected |
+| cantharus.fragmenta | Cantharus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 149 | auto-corrected |
+| carcinus-junior.fragmenta | Carcinus Junior - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 665 | raw OCR |
+| carmina-convivialia-pmg.fragmenta | Carmina Convivialia (Pmg) - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,946 | auto-corrected |
+| carmina-popularia-pmg.fragmenta | CARMINA POPULARIA (PMG) - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,141 | auto-corrected |
+| cephisodorus.fragmenta | Cephisodorus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 288 | raw OCR |
+| cercidas.fragmenta | Cercidas - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 351 | auto-corrected |
+| cercops.testimonium | Cercops - Testimonium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 52 | raw OCR |
+| chaeremon-history.fragmenta | Chaeremon - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 929 | auto-corrected |
+| chaeremon-tragedy.fragmenta | Chaeremon - Fragmenta | nauck-tgf-ocr-frag | Qwen3.6-27B | 814 | raw OCR |
+| charax.fragmenta | Charax - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 1,375 | auto-corrected |
+| chariclides.fragmentum | CHARICLIDES - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 103 | raw OCR |
+| chionides.fragmenta | Chionides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 113 | raw OCR |
+| choerilus-tragedy.fragmenta | Choerilus - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 30 | raw OCR |
+| choerilus.fragmenta-epica | Fragmenta epica | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 830 | auto-corrected |
+| choricius.opera | Choricius - Opera | qwen36-choricius_boissonade | Qwen3.6-27B | 67,386 | auto-corrected |
+| cinesias.fragmentum | Cinesias - Fragmentum | bergk-plg3-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
 | claudius-apollinarius.fragmenta | Claudius Apollinarius Hierapolitanus - Fragmenta (PG005 loci 657-660) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 346 | auto-corrected |
-| clearchus-comedy.fragmenta | ΚΙΘΑΡΩΙΔΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 181 | raw OCR |
-| clearchus-philosophy.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 31,491 | auto-corrected |
-| cleobulina-scriptor-aenigmatum.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 167 | raw OCR |
-| cleostratus.testimonia | CLEOSTRATUS — Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 352 | auto-corrected |
-| clidemus-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 314 | auto-corrected |
-| clinias.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 165 | raw OCR |
+| clearchus-comedy.fragmenta | Clearchus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 181 | raw OCR |
+| clearchus-philosophy.fragmenta | Clearchus - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 31,491 | auto-corrected |
+| cleobulina-scriptor-aenigmatum.fragmenta | Cleobulina Scriptor Aenigmatum - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 167 | raw OCR |
+| cleostratus.testimonia | CLEOSTRATUS - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 352 | auto-corrected |
+| clidemus-philosophy.testimonia | Clidemus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 314 | auto-corrected |
+| clinias.fragmenta | Clinias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 165 | raw OCR |
 | PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 160,260 | manual |
 | PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,534 | manual |
 | PG067 | Socrates Scholasticus + Sozomen HE | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 220,569 | manual |
@@ -963,565 +991,565 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
 | PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 201,971 | manual |
 | PG151 | Gregory Palamas v2; Acindynus; Barlaam | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 399,713 | manual |
-| comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
-| comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota — Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
-| commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,685 | auto-corrected |
+| comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e | Comarius - Περὶ τῆς θείας καὶ ἱερᾶς τέχνης τῶν φιλοσόφων (E | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
+| comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
+| commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana | Commentaria In Dionysii Thracis Artem Grammaticam - Prolegomena Vossiana | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,685 | auto-corrected |
 | constantinus-siculus.versus-in-leonem-philosophum | Constantinus Siculus - Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione) (PG107 loci 40-41) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 257 | manual |
-| constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 212,990 | manual |
-| corinna.fragmenta | CORINNA — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 636 | auto-corrected |
-| cosmas-hieromonachus.ermhnei-th-s-e-pisth-mhs-th-s-xrusopoii-as-i-eromona-xou-tou |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,176 | auto-corrected |
-| cougny-appendix-nova.didot-anthologia-v3 |  | qwen36-thomas_patricius_anthol_dubner_v3 | Qwen3.6-27B | 101,426 | auto-corrected |
-| crates-comedy.fragmenta | ΓΕΙΤΟΝΕΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,024 | raw OCR |
-| crates-poet-phil.fragmenta |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,268 | auto-corrected |
-| cratinus-junior.fragmenta | ΘΗΡΑΜΕΝΗΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 266 | raw OCR |
-| cratinus.fragmenta | ἈΡΧΙΔΟΧΟΙ | kock-caf1-ocr-frag | Qwen3.6-27B | 9,074 | auto-corrected |
-| cratylus.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 681 | auto-corrected |
-| crinis.fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 281 | raw OCR |
-| critias.fragmenta | ΣΙΣΤΦΟΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 663 | raw OCR |
-| critias.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,715 | auto-corrected |
+| constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis | Constantinus Vii Porphyrogenitus Imperator - De Virtutibus Et Vitiis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 212,990 | manual |
+| corinna.fragmenta | CORINNA - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 636 | auto-corrected |
+| cosmas-hieromonachus.ermhnei-th-s-e-pisth-mhs-th-s-xrusopoii-as-i-eromona-xou-tou | Cosmas Hieromonachus - Ἑρμηνεία τῆς ἐπιστήμης τῆς χρυσοποιίας ἱερομονάχου τοῦ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,176 | auto-corrected |
+| cougny-appendix-nova.didot-anthologia-v3 | Appendix nova epigrammatum (Didot Anthologia Graeca vol. 3) | qwen36-thomas_patricius_anthol_dubner_v3 | Qwen3.6-27B | 101,426 | auto-corrected |
+| crates-comedy.fragmenta | Crates - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,024 | raw OCR |
+| crates-poet-phil.fragmenta | Crates - Fragmenta | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,268 | auto-corrected |
+| cratinus-junior.fragmenta | Cratinus Junior - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 266 | raw OCR |
+| cratinus.fragmenta | Cratinus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 9,074 | auto-corrected |
+| cratylus.testimonia | Cratylus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 681 | auto-corrected |
+| crinis.fragmenta | Crinis - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 281 | raw OCR |
+| critias.fragmenta | Critias - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 663 | raw OCR |
+| critias.testimonia | Critias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,715 | auto-corrected |
 | crito-vel-damippus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 665 | raw OCR |
-| critolaus-history.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 134 | raw OCR |
-| crobylus.fragmenta | CROBYLUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 316 | raw OCR |
-| ctesias.fragmenta |  | qwen36-ctesias_gilmore-ocr | Qwen3.6-27B | 31,082 | auto-corrected |
-| cypria.cypria-fragmenta |  | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 2,651 | auto-corrected |
-| cyrillus-scr-eccl.catecheses-ad-illuminandos-1-18 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,603 | auto-corrected |
-| cyrillus-scr-eccl.epistula-ad-constantium-imperatorem | ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἹΕΡΟΣΟΛΥΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,737 | auto-corrected |
-| cyrillus-scr-eccl.homilia-in-occursum-domini-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ (1) ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,251 | auto-corrected |
-| cyrillus-scr-eccl.mystagogiae-1-5-sp | ΤΟΥ ΑΥΤΟΥ ΚΑΤΗΧΗΤΙΚΟΙ ΛΟΓΟΙ ΠΕΝΤΕ ΠΡΟΣ ΤΟΥΣ ΝΕΟΦΩΤΙΣΤΟΥΣ (1). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,718 | auto-corrected |
-| cyrillus-scr-eccl.procatechesis | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,577 | auto-corrected |
-| cyrillus-theology.ad-calosyrium-epist-83 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,320 | raw OCR |
-| cyrillus-theology.ad-euoptium-episcopum-ptolemaidis-epist-84 | ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 822 | auto-corrected |
-| cyrillus-theology.apologeticus-ad-theodosium-imperatorem | ΠΡΟΣ ΤΟΝ ΕΥΣΕΒΕΣΤΑΤΟΝ ΒΑΣΙΛΕΑ ΘΕΟΔΟΣΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,309 | auto-corrected |
-| cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum | ΘΕΟΔΩΡΗΤΟΥ ΕΠΙΣΚΟΠΟΥ ΚΥΡΟΥ ΕΠΙΣΤΟΛΗ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,192 | auto-corrected |
-| cyrillus-theology.apologia-xii-capitulorum-contra-orientales | ἈΠΟΛΟΓΗΤΙΚΟΣ ὙΠΕΡ ΤΩΝ ΔΩΔΕΚΑ ΚΕΦΑΛΑΙΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,271 | auto-corrected |
-| cyrillus-theology.collectio-dictorum-veteris-testamenti-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,583 | auto-corrected |
-| cyrillus-theology.commentarii-in-joannem | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 179,007 | auto-corrected |
-| cyrillus-theology.commentarii-in-lucam-in-catenis | ΕΞΗΓΗΣΙΣ ΕΙΣ ΤΟ ΚΑΤΑ ΛΟΥΚΑΝ ΕΥΑΓΓΕΛΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 86,969 | auto-corrected |
-| cyrillus-theology.commentarius-in-isaiam-prophetam | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΕΞΗΓΗΣΙΣ ΥΠΟΜΝΗΜΑΤΙΚΗ ΕΙΣ ΤΟΝ ΠΡΟΦΗΤΗΝ ΗΣΑΙΑΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 293,813 | auto-corrected |
-| cyrillus-theology.contra-julianum-lib-1-2 | ΤΟΥ ἉΓΙΟΥ ΚΥΡΙΛΛΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,002 | auto-corrected |
-| cyrillus-theology.de-incarnatione-dei-verbi-homilia-diversa-15 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,122 | raw OCR |
-| cyrillus-theology.de-incarnatione-unigeniti |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,121 | auto-corrected |
-| cyrillus-theology.de-sancta-trinitate-dialogi-ivii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 81,783 | auto-corrected |
-| cyrillus-theology.de-sancta-trinitate-sp | ΚΕΦΑΛΑ Αʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 16,997 | auto-corrected |
-| cyrillus-theology.dialogus-cum-nestorio-sp | ΤΟΥ ΑΥΤΟΥ ΑΓΙΟΥ ΚΥΡΙΛΛΟΥ ΔΙΑΛΕΞΙΣ ΠΡΟΣ ΝΕΣΤΟΡΙΟΝ (1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,252 | auto-corrected |
-| cyrillus-theology.epistulae-paschales-sive-homiliae-paschales-epist-1-30 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΟΜΙΛΙΑΙ ΕΟΡΤΑΣΤΙΚΑΙ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 118,202 | auto-corrected |
-| cyrillus-theology.explanatio-xii-capitulorum | ΕΠΙΛΥΣΙΣ ΤΩΝ ΔΩΔΕΚΑ ΚΕΦΑΛΑΙΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,016 | auto-corrected |
-| cyrillus-theology.expositio-in-psalmos | 5 ΨΑΛΜΟΣ Αʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 95,623 | auto-corrected |
-| cyrillus-theology.expositio-in-psalmos-prooemium | ΚΥΡΊΛΛΟΝ ἈΡΧΙΕΠΙΣΚΌΠΟΥ ἈΛΈΞΑΝ ΑΡΕΙΑϹΕΙϹΤΟΥϹ ΨΑΛΜΟΝϹ:: | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 367 | raw OCR |
-| cyrillus-theology.fragmenta-in-canticum-canticorum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,680 | raw OCR |
-| cyrillus-theology.fragmenta-in-libros-regum | ΕΚ ΤΗΣ ΕΡΜΗΝΕΙΑΣ ΤΟΥ ΑΓΙΟΥ ΚΥΡΙΛΛΟΥ ΕΙΣ ΤΑΣ ΒΑΣΙΛΕΙΩΝ ΒΙΒΛΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,753 | auto-corrected |
-| cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,318 | raw OCR |
-| cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos | ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΡΩΜΑΙΟΥΣ ΕΠΙΣΤΟΛΗΝ: | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 27,999 | auto-corrected |
-| cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios | ΤΟΥ ἉΓΙΟΥ ΚΥΡΙΛΛΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,107 | auto-corrected |
-| cyrillus-theology.libri-v-contra-nestorium | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ ΔΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΚΑΤΑ ΤΩΝ ΝΕΣΤΟΡΙΟΥ ΔΥΣΦΗΜΙΩΝ ΠΕΝΤΑΒΙΒΛΟΣ ΑΝΤΙΠΡΕΙΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 50,043 | auto-corrected |
-| cyrillus-theology.oratio-ad-arcadiam-et-marinam-augustas-de-fide | ΚΥΡΙΛΛΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ ΠΡΟΣΦΩΝΗΤΙΚΟΣ ΤΑΙΣ ΕΥΣΕΒΕΣΤΑΤΑΙΣ ΒΑΣΙΛΙΣΣΑΙΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,398 | auto-corrected |
-| cyrillus-theology.oratio-ad-pulcheriam-et-eudociam-augustas-de-fide | ΚΥΡΙΛΛΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ ΛΟΓΟΣ ΔΕΥΤΕΡΟΣ ΠΡΟΣ ΧΡΗΣΤΙΚΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,879 | auto-corrected |
-| cyrillus-theology.oratio-ad-theodosium-imperatorem-de-recta-fide | ΠΡΟΣ ΤΟΝ ΕΥΣΕΒΕΣΤΑΤΟΝ ΒΑΣΙΛΕΑ ΘΕΟΔΟΣΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,351 | auto-corrected |
-| cyrillus-theology.quod-unus-sit-christus |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 18,713 | auto-corrected |
-| cyrillus-theology.responsiones-ad-tiberium-diaconum-sociosque-suos | ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,229 | auto-corrected |
-| cyrillus-theology.scholia-de-incarnatione-unigeniti-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,008 | auto-corrected |
-| cyrillus-theology.sermo-de-obitu-sanctorum-trium-puerorum-fragmenta-sp | ΛΟΓΟΣ ΕΙΣ ΤΗΝ ΤΕΛΕΥΤΗΝ ΤΩΝ ΑΓΙΩΝ ΠΡΩΝ ΠΑΙΔΩΝ ΚΑΙ ΤΟΥ ΠΑΝΣΟΦΟΥ ΔΑΝΙΗΛ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,178 | auto-corrected |
-| cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ Η ΒΙΒΛΟΣ ΤΩΝ ΘΗΣΑΥΡΩΝ ΠΕΡΙ ΤΗΣ ΑΓΙΑΣ ΚΑΙ ΟΜΟΟΥΣΙΟΥ ΤΡΙΑΔΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 131,280 | auto-corrected |
-| damascius.de-principiis | DAMASCIUS — De principiis (Ἀπορίαι καὶ λύσεις περὶ τῶν πρώτων ἀρχῶν) | [Damascius, ed. Ruelle (MDZ scan + HathiTrust, ROVER-merged; primary OCR Qwen3.6)](https://www.digitale-sammlungen.de/en/view/bsb00075170) | Qwen3.6-27B-FP8 | 119,302 | auto-corrected |
-| damascius.in-parmenidem | DAMASCIUS — In Parmenidem | [Damascius, ed. Ruelle (MDZ scan + HathiTrust, ROVER-merged; primary OCR Qwen3.6)](https://www.digitale-sammlungen.de/en/view/bsb00075170) | Qwen3.6-27B-FP8 | 132,536 | auto-corrected |
-| damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat | DAMASCIUS — Vita Isidori (fragmenta ap. Sudam etc.) | qwen36-damascius-boissonade | Qwen3.6-27B | 12,624 | raw OCR |
-| damianus-scriptor-de-opticis.optica |  | qwen36-damianus_schoene | Qwen3.6-27B | 3,447 | auto-corrected |
-| damon-et-phintias.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 308 | raw OCR |
-| damoxenus.fragmenta | DAMOXENUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 291 | auto-corrected |
-| demetrius-comedy.fragmenta | ΔΗΜΗΤΡΙΟΤ ΣΙΚΕΛΙΑ 795 | kock-caf1-ocr-frag | Qwen3.6-27B | 226 | raw OCR |
+| critolaus-history.fragmenta | Critolaus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 134 | raw OCR |
+| crobylus.fragmenta | CROBYLUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 316 | raw OCR |
+| ctesias.fragmenta | Ctesias - Fragmenta | qwen36-ctesias_gilmore-ocr | Qwen3.6-27B | 31,082 | auto-corrected |
+| cypria.cypria-fragmenta | Cypria - Cypria (Fragmenta) | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 2,651 | auto-corrected |
+| cyrillus-scr-eccl.catecheses-ad-illuminandos-1-18 | Cyrillus - Catecheses Ad Illuminandos 1-18 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,603 | auto-corrected |
+| cyrillus-scr-eccl.epistula-ad-constantium-imperatorem | Cyrillus - Epistula Ad Constantium Imperatorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,737 | auto-corrected |
+| cyrillus-scr-eccl.homilia-in-occursum-domini-sp | Cyrillus - Homilia In Occursum Domini Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,251 | auto-corrected |
+| cyrillus-scr-eccl.mystagogiae-1-5-sp | Cyrillus - Mystagogiae 1-5 Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,718 | auto-corrected |
+| cyrillus-scr-eccl.procatechesis | Cyrillus - Procatechesis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,577 | auto-corrected |
+| cyrillus-theology.ad-calosyrium-epist-83 | Cyrillus - Ad Calosyrium (Epist. 83) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,320 | raw OCR |
+| cyrillus-theology.ad-euoptium-episcopum-ptolemaidis-epist-84 | Cyrillus - Ad Euoptium Episcopum Ptolemaidis (Epist. 84) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 822 | auto-corrected |
+| cyrillus-theology.apologeticus-ad-theodosium-imperatorem | Cyrillus - Apologeticus Ad Theodosium Imperatorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,309 | auto-corrected |
+| cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum | Cyrillus - Apologia Xii Anathematismorum Contra Theodoretum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,192 | auto-corrected |
+| cyrillus-theology.apologia-xii-capitulorum-contra-orientales | Cyrillus - Apologia Xii Capitulorum Contra Orientales | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,271 | auto-corrected |
+| cyrillus-theology.collectio-dictorum-veteris-testamenti-sp | Cyrillus - Collectio Dictorum Veteris Testamenti Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,583 | auto-corrected |
+| cyrillus-theology.commentarii-in-joannem | Cyrillus - Commentarii In Joannem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 179,007 | auto-corrected |
+| cyrillus-theology.commentarii-in-lucam-in-catenis | Cyrillus - Commentarii In Lucam (In Catenis) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 86,969 | auto-corrected |
+| cyrillus-theology.commentarius-in-isaiam-prophetam | Cyrillus - Commentarius In Isaiam Prophetam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 293,813 | auto-corrected |
+| cyrillus-theology.contra-julianum-lib-1-2 | Cyrillus - Contra Julianum (Lib. 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,002 | auto-corrected |
+| cyrillus-theology.de-incarnatione-dei-verbi-homilia-diversa-15 | Cyrillus - De Incarnatione Dei Verbi (Homilia Diversa 15) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,122 | raw OCR |
+| cyrillus-theology.de-incarnatione-unigeniti | Cyrillus - De Incarnatione Unigeniti | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,121 | auto-corrected |
+| cyrillus-theology.de-sancta-trinitate-dialogi-ivii | Cyrillus - De Sancta Trinitate Dialogi Ivii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 81,783 | auto-corrected |
+| cyrillus-theology.de-sancta-trinitate-sp | Cyrillus - De Sancta Trinitate Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 16,997 | auto-corrected |
+| cyrillus-theology.dialogus-cum-nestorio-sp | Cyrillus - Dialogus Cum Nestorio Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,252 | auto-corrected |
+| cyrillus-theology.epistulae-paschales-sive-homiliae-paschales-epist-1-30 | Cyrillus - Epistulae Paschales Sive Homiliae Paschales (Epist. 1-30) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 118,202 | auto-corrected |
+| cyrillus-theology.explanatio-xii-capitulorum | Cyrillus - Explanatio Xii Capitulorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,016 | auto-corrected |
+| cyrillus-theology.expositio-in-psalmos | Cyrillus - Expositio In Psalmos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 95,623 | auto-corrected |
+| cyrillus-theology.expositio-in-psalmos-prooemium | Cyrillus - Expositio In Psalmos (Prooemium) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 367 | raw OCR |
+| cyrillus-theology.fragmenta-in-canticum-canticorum | Cyrillus - Fragmenta In Canticum Canticorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,680 | raw OCR |
+| cyrillus-theology.fragmenta-in-libros-regum | Cyrillus - Fragmenta In Libros Regum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,753 | auto-corrected |
+| cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos | Cyrillus - Fragmenta In Sancti Pauli Epistulam Ad Hebraeos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,318 | raw OCR |
+| cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos | Cyrillus - Fragmenta In Sancti Pauli Epistulam Ad Romanos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 27,999 | auto-corrected |
+| cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios | Cyrillus - Fragmenta In Sancti Pauli Epistulam Ii Ad Corinthios | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,107 | auto-corrected |
+| cyrillus-theology.libri-v-contra-nestorium | Cyrillus - Libri V Contra Nestorium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 50,043 | auto-corrected |
+| cyrillus-theology.oratio-ad-arcadiam-et-marinam-augustas-de-fide | Cyrillus - Oratio Ad Arcadiam Et Marinam Augustas De Fide | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,398 | auto-corrected |
+| cyrillus-theology.oratio-ad-pulcheriam-et-eudociam-augustas-de-fide | Cyrillus - Oratio Ad Pulcheriam Et Eudociam Augustas De Fide | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,879 | auto-corrected |
+| cyrillus-theology.oratio-ad-theodosium-imperatorem-de-recta-fide | Cyrillus - Oratio Ad Theodosium Imperatorem De Recta Fide | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,351 | auto-corrected |
+| cyrillus-theology.quod-unus-sit-christus | Cyrillus - Quod Unus Sit Christus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 18,713 | auto-corrected |
+| cyrillus-theology.responsiones-ad-tiberium-diaconum-sociosque-suos | Cyrillus - Responsiones Ad Tiberium Diaconum Sociosque Suos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,229 | auto-corrected |
+| cyrillus-theology.scholia-de-incarnatione-unigeniti-fragmenta | Cyrillus - Scholia De Incarnatione Unigeniti (Fragmenta) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,008 | auto-corrected |
+| cyrillus-theology.sermo-de-obitu-sanctorum-trium-puerorum-fragmenta-sp | Cyrillus - Sermo De Obitu Sanctorum Trium Puerorum (Fragmenta) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,178 | auto-corrected |
+| cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate | Cyrillus - Thesaurus De Sancta Consubstantiali Trinitate | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 131,280 | auto-corrected |
+| damascius.de-principiis | DAMASCIUS - De principiis (Ἀπορίαι καὶ λύσεις περὶ τῶν πρώτων ἀρχῶν) | [Damascius, ed. Ruelle (MDZ scan + HathiTrust, ROVER-merged; primary OCR Qwen3.6)](https://www.digitale-sammlungen.de/en/view/bsb00075170) | Qwen3.6-27B-FP8 | 119,302 | auto-corrected |
+| damascius.in-parmenidem | DAMASCIUS - In Parmenidem | [Damascius, ed. Ruelle (MDZ scan + HathiTrust, ROVER-merged; primary OCR Qwen3.6)](https://www.digitale-sammlungen.de/en/view/bsb00075170) | Qwen3.6-27B-FP8 | 132,536 | auto-corrected |
+| damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat | DAMASCIUS - Vita Isidori (fragmenta ap. Sudam etc.) | qwen36-damascius-boissonade | Qwen3.6-27B | 12,624 | raw OCR |
+| damianus-scriptor-de-opticis.optica | Damianus Scriptor De Opticis - Optica | qwen36-damianus_schoene | Qwen3.6-27B | 3,447 | auto-corrected |
+| damon-et-phintias.testimonium | Damon Et Phintias - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 308 | raw OCR |
+| damoxenus.fragmenta | DAMOXENUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 291 | auto-corrected |
+| demetrius-comedy.fragmenta | Demetrius - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 226 | raw OCR |
 | demetrius-cydones.occisorum-thessalonicae-monodia | Demetrius Cydones - Occisorum Thessalonicae monodia (PG109 loci 325-331) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,526 | manual |
 | demetrius-poet-phil.demetrius-de-eloc-roberts |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,272 | auto-corrected |
-| demetrius-poet-phil.fragmenta-et-titulus |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 144 | raw OCR |
+| demetrius-poet-phil.fragmenta-et-titulus | Demetrius - Fragmenta Et Titulus | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 144 | raw OCR |
 | demochares.fhg2 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 111,581 | auto-corrected |
-| demochares.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 1,356 | auto-corrected |
-| democritus-history.fragmentum |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 135 | raw OCR |
-| democritus-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 48,936 | auto-corrected |
-| demodocus.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 2,007 | auto-corrected |
-| demon.fragmenta |  | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 334 | raw OCR |
-| demonax-philosophy.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,374 | auto-corrected |
-| dercyllus.fragmenta |  | qwen36-staphylus_fhg4-ocr | Qwen3.6-27B | 124 | auto-corrected |
-| diagoras.fragmenta | DIAGORAS — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 206 | auto-corrected |
+| demochares.fragmenta | Demochares - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 1,356 | auto-corrected |
+| democritus-history.fragmentum | Democritus - Fragmentum | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 135 | raw OCR |
+| democritus-philosophy.testimonia | Democritus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 48,936 | auto-corrected |
+| demodocus.fragmenta | Demodocus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 2,007 | auto-corrected |
+| demon.fragmenta | Demon - Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 334 | raw OCR |
+| demonax-philosophy.fragmenta | Demonax - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,374 | auto-corrected |
+| dercyllus.fragmenta | Dercyllus - Fragmenta | qwen36-staphylus_fhg4-ocr | Qwen3.6-27B | 124 | auto-corrected |
+| diagoras.fragmenta | DIAGORAS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 206 | auto-corrected |
 | didymus.schmidt |  | qwen36-didymus_schmidt | Qwen3.6-27B | 39,037 | auto-corrected |
 | diels-fdv2-1906-1.paratexta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 46 | auto-corrected |
 | diels-fvs-1903.paratexta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 199 | raw OCR |
 | diels-ppf-1901.paratexta |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,403 | auto-corrected |
 | dindorf-hgm1.paratexta |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 8,535 | auto-corrected |
 | dindorf-hgm2.paratexta |  | qwen36-menander_protector_dindorf_hgm | Qwen3.6-27B | 302 | auto-corrected |
-| dinolochus.fragmentum | DINOLOCHUS — Fragmentum | qwen36-rhinthon_kaibel_cgf_1899-ocr | Qwen3.6-27B | 391 | auto-corrected |
+| dinolochus.fragmentum | DINOLOCHUS - Fragmentum | qwen36-rhinthon_kaibel_cgf_1899-ocr | Qwen3.6-27B | 391 | auto-corrected |
 | diocles-echecrates-polymnastus-phanton-arion.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 62 | raw OCR |
-| diocles.fragmenta | ΚΤΚΑΩΠΕΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 213 | auto-corrected |
-| diodorus-aspendius.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 16 | raw OCR |
-| diodorus-comedy.fragmenta | ΕΠΙΚΛΗΡΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 152 | raw OCR |
-| diogenes-apolloniates.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,568 | auto-corrected |
+| diocles.fragmenta | Diocles - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 213 | auto-corrected |
+| diodorus-aspendius.fragmentum | Diodorus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 16 | raw OCR |
+| diodorus-comedy.fragmenta | Diodorus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 152 | raw OCR |
+| diogenes-apolloniates.testimonia | Diogenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,568 | auto-corrected |
 | diogenes-oenoandensis.diogenes-oenoanda-william |  | qwen36-diogenes_oenoanda_william | Qwen3.6-27B | 10,112 | auto-corrected |
-| diogenes-philosophy.fragmenta | ΟΙΔΙΠΟΤΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 208 | raw OCR |
+| diogenes-philosophy.fragmenta | Diogenes - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 208 | raw OCR |
 | diogenes-sinopensis.fragmenta-et-apophthegmata |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 11,181 | auto-corrected |
-| diogenes-smyrnaeus.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 24 | raw OCR |
-| diogenes.fragmentum |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 243 | auto-corrected |
-| dionysius-chalcus.fragmenta | DIONYSIUS CHALCUS — Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 436 | raw OCR |
-| dionysius-comedy.fragmenta | ἈΚΟΝΤΙΖΟΜΕΝΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 280 | raw OCR |
-| dionysius-i-tragedy.fragmenta | ΔΙΜΟΣ (?) | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 457 | auto-corrected |
-| dionysius-metaqemenos.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 515 | auto-corrected |
-| dionysius-milesius.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 559 | raw OCR |
-| dionysius-soph.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,346 | auto-corrected |
-| dionysius-thrax-grammar.ars-grammatica | ΤΈΧΝΗ ΔΙΟΝΥΣΊΟΥ ΓΡΑΜΜΑΤΙΚΟΥ͂ | [Dionysius Thrax, Ars grammatica, ed. Uhlig (Grammatici Graeci I.1)](https://archive.org/search?query=Grammatici+Graeci+Uhlig+Dionysii+Thracis) | Qwen3.6-27B | 6,232 | auto-corrected |
-| diophantus-mathematics.arithmeticorum-libri-sex | DIOPHANTUS — Arithmetica | qwen36-diophantialexan01plangoog | Qwen3.6-27B | 52,458 | raw OCR |
-| dioscurides.fragmenta |  | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 757 | auto-corrected |
-| diotimus-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 178 | raw OCR |
-| dioxippus.fragmenta | DIOXIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 31 | raw OCR |
-| diphilus-comedy.fragmenta | ΔΙΦΙΛΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 3,360 | auto-corrected |
-| diphilus-epic.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 130 | raw OCR |
-| dius.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 361 | auto-corrected |
-| dosiadas.fragmenta |  | qwen36-socrates_hist_fhg4-ocr | Qwen3.6-27B | 1 | raw OCR |
-| dositheus-magister.ars-grammatica |  | [archive.org](https://archive.org/details/arsgrammaticarec00dosiuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,492 | raw OCR |
-| dromo.fragmenta | ΨΑΛΤΡΙΑ | kock-caf2-ocr-frag | Qwen3.6-27B | 43 | raw OCR |
+| diogenes-smyrnaeus.testimonium | Diogenes - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 24 | raw OCR |
+| diogenes.fragmentum | Fragmentum | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 243 | auto-corrected |
+| dionysius-chalcus.fragmenta | DIONYSIUS CHALCUS - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 436 | raw OCR |
+| dionysius-comedy.fragmenta | Dionysius - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 280 | raw OCR |
+| dionysius-i-tragedy.fragmenta | Dionysius I - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 457 | auto-corrected |
+| dionysius-metaqemenos.fragmenta | Fragmenta | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 515 | auto-corrected |
+| dionysius-milesius.fragmenta | Dionysius - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 559 | raw OCR |
+| dionysius-soph.epistulae | Dionysius - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,346 | auto-corrected |
+| dionysius-thrax-grammar.ars-grammatica | Dionysius Thrax - Ars Grammatica | [Dionysius Thrax, Ars grammatica, ed. Uhlig (Grammatici Graeci I.1)](https://archive.org/search?query=Grammatici+Graeci+Uhlig+Dionysii+Thracis) | Qwen3.6-27B | 6,232 | auto-corrected |
+| diophantus-mathematics.arithmeticorum-libri-sex | DIOPHANTUS - Arithmetica | qwen36-diophantialexan01plangoog | Qwen3.6-27B | 52,458 | raw OCR |
+| dioscurides.fragmenta | Dioscurides - Fragmenta | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 757 | auto-corrected |
+| diotimus-philosophy.testimonia | Diotimus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 178 | raw OCR |
+| dioxippus.fragmenta | DIOXIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 31 | raw OCR |
+| diphilus-comedy.fragmenta | Diphilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 3,360 | auto-corrected |
+| diphilus-epic.fragmentum | Diphilus - Fragmentum | bergk-plg2-ocr-frag | Qwen3.6-27B | 130 | raw OCR |
+| dius.fragmenta | Dius - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 361 | auto-corrected |
+| dosiadas.fragmenta | Fragmenta | qwen36-socrates_hist_fhg4-ocr | Qwen3.6-27B | 1 | raw OCR |
+| dositheus-magister.ars-grammatica | Dositheus Magister - Ars Grammatica | [archive.org](https://archive.org/details/arsgrammaticarec00dosiuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,492 | raw OCR |
+| dromo.fragmenta | Dromo - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 43 | raw OCR |
 | ducas.historia-turcobyzantina | Ducas - Historia Turcobyzantina (PG157 loci 382-590) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 68,757 | manual |
-| ecphantides.fragmenta | ἈΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 133 | raw OCR |
-| ecphantus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 335 | raw OCR |
-| elias-cretensis.commentarii-in-sancti-gregorii-nazianzeni-orationes-xix | Elias Cretensis — Commentarii in sancti Gregorii Nazianzeni orationes xix | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 38,707 | auto-corrected |
+| ecphantides.fragmenta | Ecphantides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 133 | raw OCR |
+| ecphantus.testimonia | Ecphantus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 335 | raw OCR |
+| elias-cretensis.commentarii-in-sancti-gregorii-nazianzeni-orationes-xix | Elias Cretensis - Commentarii in sancti Gregorii Nazianzeni orationes xix | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 38,707 | auto-corrected |
 | empedocles.diels-ppf |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 23,715 | auto-corrected |
-| empedocles.epigramma |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 5,446 | raw OCR |
-| empedocles.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 40,656 | auto-corrected |
-| ephippus.fragmenta | ἈΜΦΙΣΒΗΤΗΣΙΜΑ | kock-caf2-ocr-frag | Qwen3.6-27B | 1,026 | raw OCR |
-| epicharmus-et-pseudepicharmea.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 5,241 | auto-corrected |
-| epicrates.fragmenta | ΕΠΙΚΡΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 373 | raw OCR |
-| epicurus.deperditorum-librorum-reliquiae | EPICURUS — Deperditorum librorum reliquiae (Usener, Epicurea) | qwen36-usener-epicurea-1887 | Qwen3.6-27B | 64,436 | raw OCR |
-| epigenes.fragmenta | ΑΡΙΤΤΡΙΟΤ ΑΦΑΝΙΣΜΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 219 | raw OCR |
+| empedocles.epigramma | Empedocles - Epigramma | bergk-plg2-ocr-frag | Qwen3.6-27B | 5,446 | raw OCR |
+| empedocles.testimonia | Empedocles - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 40,656 | auto-corrected |
+| ephippus.fragmenta | Ephippus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,026 | raw OCR |
+| epicharmus-et-pseudepicharmea.testimonia | Epicharmus Et Pseudepicharmea - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 5,241 | auto-corrected |
+| epicrates.fragmenta | Epicrates - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 373 | raw OCR |
+| epicurus.deperditorum-librorum-reliquiae | EPICURUS - Deperditorum librorum reliquiae (Usener, Epicurea) | qwen36-usener-epicurea-1887 | Qwen3.6-27B | 64,436 | raw OCR |
+| epigenes.fragmenta | Epigenes - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 219 | raw OCR |
 | epigonus-ap-cougny-v1 |  | qwen36-epigonus_ap_cougny_v1 | Qwen3.6-27B | 79,311 | auto-corrected |
-| epilycus.fragmenta | ΚΩΡΑΛΙΣΚΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 272 | auto-corrected |
-| epimenides.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,983 | auto-corrected |
-| epinicus.fragmenta | EPINICUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 172 | raw OCR |
+| epilycus.fragmenta | Epilycus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 272 | auto-corrected |
+| epimenides.testimonia-2 | Epimenides - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,983 | auto-corrected |
+| epinicus.fragmenta | EPINICUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 172 | raw OCR |
 | epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam | Epistula ecclesiarum apud Lugdunum et Viennam - Epistula ecclesiarum apud Lugdunum et Viennam (cum appendicibus ap. Eus. HE 5.1-4) (PG005 loci 715-736) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,668 | manual |
-| eratosthenes-et-eratosthenica.catasterismi |  | qwen36-eratosthenes_bernhardy | Qwen3.6-27B | 20,736 | auto-corrected |
-| erinna.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,148 | auto-corrected |
-| eriphus.fragmenta | ΜΕΛΙΒΟΙΑ | kock-caf2-ocr-frag | Qwen3.6-27B | 173 | raw OCR |
-| erotianus.vocum-hippocraticarum-collectio |  | qwen36-erotianus_nachmanson_1918 | Qwen3.6-27B | 18,499 | auto-corrected |
+| eratosthenes-et-eratosthenica.catasterismi | Eratosthenes Et Eratosthenica - Catasterismi | qwen36-eratosthenes_bernhardy | Qwen3.6-27B | 20,736 | auto-corrected |
+| erinna.fragmenta | Erinna - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,148 | auto-corrected |
+| eriphus.fragmenta | Eriphus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 173 | raw OCR |
+| erotianus.vocum-hippocraticarum-collectio | Erotianus - Vocum Hippocraticarum Collectio | qwen36-erotianus_nachmanson_1918 | Qwen3.6-27B | 18,499 | auto-corrected |
 | esaias-cyprius.epistola-de-processione-spiritus-sancti | Esaias Cyprius - Epistola (anti-Latin, on the procession of the Holy Spirit) (PG158 loci 521-523) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 707 | auto-corrected |
-| etymologicum-genuinum.etymologicum-genuinum-mwsge-pws |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 71,823 | auto-corrected |
-| etymologicum-gudianum.etymologicum-gudianum-lion-zeiai | ETYMOLOGICUM GUDIANUM — Etymologicum Gudianum | qwen36-etym-gudianum-sturz-bsb | Qwen3.6-27B | 323,254 | raw OCR |
-| euagon.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 213 | auto-corrected |
-| euangelus.fragmentum | EUANGELUS — Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 158 | raw OCR |
-| eubulides.fragmentum | ΔΙΣ ΕΞΑΠΑΤΩΜΕΝΟΣ ΕΠΙΚΛΗΡΟΣ ΘΩΡΤΚΙΟΝ (?) | kock-caf2-ocr-frag | Qwen3.6-27B | 72 | raw OCR |
-| eubulus.fragmenta | ΕΥΒΟΥΛΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 4,383 | auto-corrected |
-| eudemus-philosophy.fragmenta |  | qwen36-eudemus_spengel_1866 | Qwen3.6-27B | 39,732 | auto-corrected |
-| eudoxus-astronomy.fragmenta |  | qwen36-eudoxus_ars_astronomica_blass | Qwen3.6-27B | 3,807 | auto-corrected |
-| eudoxus.fragmenta | EUDOXUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 79 | raw OCR |
-| eudromus.fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 67 | raw OCR |
-| euenus.fragmenta | EUENUS — Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 534 | raw OCR |
+| etymologicum-genuinum.etymologicum-genuinum-mwsge-pws | Etymologicum Genuinum - Etymologicum Genuinum (α-ἁμωσγέπως) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 71,823 | auto-corrected |
+| etymologicum-gudianum.etymologicum-gudianum-lion-zeiai | ETYMOLOGICUM GUDIANUM - Etymologicum Gudianum | qwen36-etym-gudianum-sturz-bsb | Qwen3.6-27B | 323,254 | raw OCR |
+| euagon.fragmenta | Euagon - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 213 | auto-corrected |
+| euangelus.fragmentum | EUANGELUS - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 158 | raw OCR |
+| eubulides.fragmentum | Eubulides - Fragmentum | kock-caf2-ocr-frag | Qwen3.6-27B | 72 | raw OCR |
+| eubulus.fragmenta | Eubulus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 4,383 | auto-corrected |
+| eudemus-philosophy.fragmenta | Eudemus - Fragmenta | qwen36-eudemus_spengel_1866 | Qwen3.6-27B | 39,732 | auto-corrected |
+| eudoxus-astronomy.fragmenta | Eudoxus - Fragmenta | qwen36-eudoxus_ars_astronomica_blass | Qwen3.6-27B | 3,807 | auto-corrected |
+| eudoxus.fragmenta | EUDOXUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 79 | raw OCR |
+| eudromus.fragmenta | Eudromus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 67 | raw OCR |
+| euenus.fragmenta | EUENUS - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 534 | raw OCR |
 | euhemerus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,136 | auto-corrected |
-| eumelus.fragmentum |  | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 1,142 | auto-corrected |
-| eunicus.fragmentum | ΦΙΛΥΑΛΛΙΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 117 | raw OCR |
-| euphorion.fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,688 | auto-corrected |
-| eupolis.fragmenta | ΕΤΗΟΛΙΔΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 9,473 | auto-corrected |
-| euryphamus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 811 | auto-corrected |
-| eurytus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 234 | auto-corrected |
-| eurytus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 608 | raw OCR |
-| eusebius-scr-eccl.antiquorum-martyriorum-collectio-fragmenta | ΤΩΝ ΑΡΧΑΙΩΝ ΜΑΡΤΥΡΙΩΝ ΣΥΝΑΓΩΓΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,698 | auto-corrected |
-| eusebius-scr-eccl.de-solemnitate-paschali |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,629 | auto-corrected |
-| eusebius-scr-eccl.de-vitis-prophetarum-fragmenta | ABΔΙΟΥ, Δ' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,496 | auto-corrected |
-| eusebius-scr-eccl.epistula-ad-carpianum-ad-canones-evangeliorum-praemissa | A ΚΑΝΩΝ ΠΡΩΤΟΣ ΕΝ Ω ΟΙ ΤΕΣΣΑΡΕΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,084 | auto-corrected |
-| eusebius-scr-eccl.fragmenta-in-lucam | ΕΥΣΕΒΙΟΥ ΚΑΙΣΑΡΕΙΑΣ ΕΙΣ ΤΟ ΚΑΤΑ ΛΟΥΚΑΝ ΕΥΑΓΓΕΛΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,432 | auto-corrected |
-| eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum | ἘΚΛΟΓΗ ἘΝ ΣΥΝΤΟΜΩ ἘΚ ΤΟΥ ἈΥΤΟΥ ΕΥΣΕΒΙΟΥ ΠΡΟΣ ΜΑΡΙΝΟΝ ΠΕΡΙ ΤΟΝ ΕΝ ΕΥΑΓΓΕΛΙΟΙΣ ΖΗΤΗΜΑΤΩΝ ΚΑΙ ΑΥΣΕΩΝ (24). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,142 | auto-corrected |
-| eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum | ΕΚΛΟΓΗ ΕΝ ΣΥΝΤΟΜΩ ΕΚ ΤΩΝ ΣΥΝΤΕΘΕΝΤΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,796 | auto-corrected |
-| eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum | ἈΦΡΙΚΑΝΟΥ (48) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,492 | auto-corrected |
-| eustathius-philol.commentarii-ad-homeri-iliadem | Eustathius Thessalonicensis — Commentarii ad Homeri Iliadem | qwen36-eustathius-iliad-stallbaum | Qwen3.6-27B | 1,069,461 | raw OCR |
-| eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS — Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 539,821 | auto-corrected |
-| eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium | EUSTRATIUS — In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium | qwen36-inanalyticorumpo00eust | Qwen3.6-27B | 110,851 | raw OCR |
-| eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 3,965 | raw OCR |
-| euthycles.fragmenta | EUTHYCLES — Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 83 | raw OCR |
+| eumelus.fragmentum | Eumelus - Fragmentum | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 1,142 | auto-corrected |
+| eunicus.fragmentum | Eunicus - Fragmentum | kock-caf1-ocr-frag | Qwen3.6-27B | 117 | raw OCR |
+| euphorion.fragmenta | Euphorion - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,688 | auto-corrected |
+| eupolis.fragmenta | Eupolis - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 9,473 | auto-corrected |
+| euryphamus.fragmentum | Euryphamus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 811 | auto-corrected |
+| eurytus.fragmentum | Eurytus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 234 | auto-corrected |
+| eurytus.testimonia | Eurytus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 608 | raw OCR |
+| eusebius-scr-eccl.antiquorum-martyriorum-collectio-fragmenta | Eusebius - Antiquorum Martyriorum Collectio (Fragmenta) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,698 | auto-corrected |
+| eusebius-scr-eccl.de-solemnitate-paschali | Eusebius - De Solemnitate Paschali | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,629 | auto-corrected |
+| eusebius-scr-eccl.de-vitis-prophetarum-fragmenta | Eusebius - De Vitis Prophetarum (Fragmenta) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,496 | auto-corrected |
+| eusebius-scr-eccl.epistula-ad-carpianum-ad-canones-evangeliorum-praemissa | Eusebius - Epistula Ad Carpianum Ad Canones Evangeliorum Praemissa | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,084 | auto-corrected |
+| eusebius-scr-eccl.fragmenta-in-lucam | Eusebius - Fragmenta In Lucam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,432 | auto-corrected |
+| eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum | Eusebius - Quaestiones Evangelicae Ad Marinum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,142 | auto-corrected |
+| eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum | Eusebius - Quaestiones Evangelicae Ad Stephanum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,796 | auto-corrected |
+| eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum | Eusebius - Supplementa Ad Quaestiones Ad Marinum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,492 | auto-corrected |
+| eustathius-philol.commentarii-ad-homeri-iliadem | Eustathius Thessalonicensis - Commentarii ad Homeri Iliadem | qwen36-eustathius-iliad-stallbaum | Qwen3.6-27B | 1,069,461 | raw OCR |
+| eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS - Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 539,821 | auto-corrected |
+| eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium | EUSTRATIUS - In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium | qwen36-inanalyticorumpo00eust | Qwen3.6-27B | 110,851 | raw OCR |
+| eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio | Eutecnius - Paraphrasis In Oppiani Cynegetica (Fort. Auctore Eutecnio) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 3,965 | raw OCR |
+| euthycles.fragmenta | EUTHYCLES - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 83 | raw OCR |
 | fhg-vol3-mueller-diocles-rhodius |  | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 89,233 | auto-corrected |
-| flavius-justinianus-imperator.novellae |  | qwen36-justinian_novellae_schoell | Qwen3.6-27B | 234,311 | auto-corrected |
-| fragmenta-alchemica.bafh-tou-i-ndikou-sidh-rou-grafei-sa-tw-au-tw-xro-nw |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 199 | raw OCR |
-| fragmenta-alchemica.bafh-tou-para-pe-rsais-e-ceurhme-nou-xalkou-grafei-sa-po |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 269 | raw OCR |
-| fragmenta-alchemica.de-margaritis-collectio-excerptorum-quae-incipit-vocibus |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 934 | auto-corrected |
-| fragmenta-alchemica.de-quattuor-elementis-tractatus-qui-incipit-vocibus-rxh-th-s |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,548 | auto-corrected |
-| fragmenta-alchemica.dia-gramma-th-s-mega-lhs-h-liourgi-as-paraballo-menon-ei-s-th-n |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 167 | raw OCR |
-| fragmenta-alchemica.diaforai-moli-bdou-kai-xrusopeta-lou-e-cod-venet-marc |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 623 | auto-corrected |
-| fragmenta-alchemica.ei-qe-leis-poih-sai-fou-rmas-kai-tu-lous-po-bronthsi-ou-poi-ei |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 456 | raw OCR |
-| fragmenta-alchemica.eu-xh-ei-s-meli-ssion-e-cod-venet-marc-299-fol-3r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 195 | auto-corrected |
-| fragmenta-alchemica.excerptum-de-mensibus-sine-titulo-e-cod-paris-b-n-gr-2327 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 99 | auto-corrected |
-| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 49 | raw OCR |
-| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-2 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 194 | auto-corrected |
-| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-3 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 107 | raw OCR |
-| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-4 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 51 | raw OCR |
-| fragmenta-alchemica.fragmentum-peri-leukw-sews-xalkou-sine-titulo-e |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 240 | raw OCR |
-| fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 27 | raw OCR |
-| fragmenta-alchemica.h-oi-konomi-e-cod-venet-marc-299-fol-98v |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 196 | raw OCR |
-| fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 35 | raw OCR |
-| fragmenta-alchemica.katabafh-li-qwn-kai-smara-gdwn-kai-lixnitw-n-kai |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,650 | auto-corrected |
-| fragmenta-alchemica.kinnaba-rews-skeuasi-e-cod-paris-b-n-gr-2327-fol |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 286 | auto-corrected |
-| fragmenta-alchemica.leu-kwsis-u-datos-di-ou-leukai-netai-oi-konomou-menon |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 66 | auto-corrected |
-| fragmenta-alchemica.o-li-qos-th-s-filosofi-as-fort-auctore-zosimo-e-cod |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 206 | auto-corrected |
-| fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 126 | raw OCR |
-| fragmenta-alchemica.oti-su-nqeton-kai-ou-x-plou-n-ei-dos-kai-ti-s-h |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 787 | auto-corrected |
-| fragmenta-alchemica.peri-bafh-s-sidh-rou-e-cod-venet-marc-299-fol-104r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 839 | raw OCR |
-| fragmenta-alchemica.peri-leukw-sews-tou-rsenikou-tou-sxistou-e-cod |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 96 | auto-corrected |
-| fragmenta-alchemica.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 830 | raw OCR |
-| fragmenta-alchemica.peri-th-s-timiwta-ths-kai-polufh-mou-xrusoxoi-kh-s-e-cod |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 4,344 | auto-corrected |
-| fragmenta-alchemica.peri-tou-li-qou-tw-n-filoso-fwn-e-cod-b-n-gr-2327-fol |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 708 | auto-corrected |
-| fragmenta-alchemica.peri-tou-o-reixa-lkou |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 52 | auto-corrected |
-| fragmenta-alchemica.peri-tou-poih-sai-o-cuggosa-pounon-e-cod-paris-b-n-gr |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 98 | auto-corrected |
-| fragmenta-alchemica.peri-tou-poih-sai-turo-kollan-e-cod-paris-b-n-gr-2327 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 173 | auto-corrected |
-| fragmenta-alchemica.peri-tou-qei-ou-kau-stou-e-cod-paris-b-n-gr-2327 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 77 | raw OCR |
-| fragmenta-alchemica.peri-tou-xrusw-sai-si-dhron-e-cod-paris-b-n-gr-2327 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 323 | auto-corrected |
-| fragmenta-alchemica.peri-zu-qwn-poih-sews-e-cod-venet-marc-299-fol-162r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 105 | raw OCR |
-| fragmenta-alchemica.po-sos-o-tw-n-baptome-nwn-e-ri-wn-staqmo-s-w-feilen-kai-po-sos-o |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 88 | auto-corrected |
-| fragmenta-alchemica.poi-hsis-krustalli-wn-e-cod-venet-marc-299-fol-116r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 408 | raw OCR |
-| fragmenta-alchemica.poi-hsis-ma-llon-tou-panto-s-e-cod-venet-marc-299-fol |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 516 | raw OCR |
-| fragmenta-alchemica.poi-hsis-rgu-rou-e-cod-venet-marc-299-fol-194v |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 140 | auto-corrected |
-| fragmenta-alchemica.poi-hsis-sbe-stou-e-cod-venet-marc-299-fol-99v |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 119 | auto-corrected |
-| fragmenta-alchemica.skeuasi-froni-trou-tou-zhtoume-nou-ei-s-ta-s-kollh-seis-xrusou |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 47 | auto-corrected |
-| fragmenta-alchemica.sta-kths-poi-hsis-e-cod-venet-marc-299-fol-162v |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 286 | auto-corrected |
-| fragmenta-alchemica.sumpe-rasma-th-s-poih-sews-e-cod-venet-marc-299-fol |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 63 | auto-corrected |
-| fragmenta-alchemica.ti-s-h-meta-th-n-i-wsin-oi-konomi-e-cod-venet-marc |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 77 | auto-corrected |
-| fragmenta-alchemica.ti-s-h-th-s-koma-rews-su-nqesis-e-cod-venet-marc-299 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 28 | raw OCR |
-| fragmenta-alchemica.ti-s-h-tou-me-lanos-chri-ou-kataskeuh-e-cod-venet-marc |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 71 | raw OCR |
-| fragmenta-alchemica.ti-s-h-tw-n-rxai-wn-sbestos-e-cod-venet-marc-299 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 208 | raw OCR |
-| fragmenta-alchemica.xrh-sis-ioustinianou-basile-ws-sine-titulo-e-cod |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 726 | auto-corrected |
-| fragmenta-alchemica.xrusou-poi-hsis-e-cod-paris-b-n-gr-2327-fol-232r |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 292 | raw OCR |
-| fragmentum-stoicum.fragmentum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20 | auto-corrected |
+| flavius-justinianus-imperator.novellae | Flavius Justinianus Imperator - Novellae | qwen36-justinian_novellae_schoell | Qwen3.6-27B | 234,311 | auto-corrected |
+| fragmenta-alchemica.bafh-tou-i-ndikou-sidh-rou-grafei-sa-tw-au-tw-xro-nw | Fragmenta Alchemica - Βαφὴ τοῦ Ἰνδικοῦ σιδήρου, γραφεῖσα τῷ αὐτῷ χρόνῳ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 199 | raw OCR |
+| fragmenta-alchemica.bafh-tou-para-pe-rsais-e-ceurhme-nou-xalkou-grafei-sa-po | Fragmenta Alchemica - Βαφὴ τοῦ παρὰ Πέρσαις ἐξευρημένου χαλκοῦ γραφεῖσα ἀπὸ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 269 | raw OCR |
+| fragmenta-alchemica.de-margaritis-collectio-excerptorum-quae-incipit-vocibus | Fragmenta Alchemica - De Margaritis (Collectio Excerptorum Quae Incipit A Vocibus | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 934 | auto-corrected |
+| fragmenta-alchemica.de-quattuor-elementis-tractatus-qui-incipit-vocibus-rxh-th-s | Fragmenta Alchemica - De Quattuor Elementis (Tractatus Qui Incipit A Vocibus ἀρχὴ τῆς | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,548 | auto-corrected |
+| fragmenta-alchemica.dia-gramma-th-s-mega-lhs-h-liourgi-as-paraballo-menon-ei-s-th-n | Fragmenta Alchemica - Διάγραμμα τῆς μεγάλης ἡλιουργίας παραβαλλόμενον Ei)S τὴν | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 167 | raw OCR |
+| fragmenta-alchemica.diaforai-moli-bdou-kai-xrusopeta-lou-e-cod-venet-marc | Fragmenta Alchemica - Διαφοραὶ μολίβδου καὶ χρυσοπετάλου (E Cod. Venet. Marc | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 623 | auto-corrected |
+| fragmenta-alchemica.ei-qe-leis-poih-sai-fou-rmas-kai-tu-lous-po-bronthsi-ou-poi-ei | Fragmenta Alchemica - Εἰ θέλεις ποιῆσαι φούρμας καὶ τύλους ἀπὸ βροντησίου, ποίει | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 456 | raw OCR |
+| fragmenta-alchemica.eu-xh-ei-s-meli-ssion-e-cod-venet-marc-299-fol-3r | Fragmenta Alchemica - Εὐχὴ Ei)S τὸ μελίσσιον (E Cod. Venet. Marc. 299, Fol. 3R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 195 | auto-corrected |
+| fragmenta-alchemica.excerptum-de-mensibus-sine-titulo-e-cod-paris-b-n-gr-2327 | Fragmenta Alchemica - Excerptum De Mensibus (Sine Titulo) (E Cod. Paris. B.N. Gr. 2327, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 99 | auto-corrected |
+| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 49 | raw OCR |
+| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-2 | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 194 | auto-corrected |
+| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-3 | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 107 | raw OCR |
+| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-4 | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 51 | raw OCR |
+| fragmenta-alchemica.fragmentum-peri-leukw-sews-xalkou-sine-titulo-e | Fragmenta Alchemica - Fragmentum περὶ λευκώσεως (χαλκοὖ (Sine Titulo) (E | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 240 | raw OCR |
+| fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r | Fragmenta Alchemica - Ἡ ἀγωγή (E Cod. Venet. Marc. 299, 101R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 27 | raw OCR |
+| fragmenta-alchemica.h-oi-konomi-e-cod-venet-marc-299-fol-98v | Fragmenta Alchemica - Ἡ οἰκονομία (E Cod. Venet. Marc. 299, Fol. 98V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 196 | raw OCR |
+| fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v | Fragmenta Alchemica - Ἡ ποίησις (E Cod. Venet. Marc. 299, Fol. 100V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 35 | raw OCR |
+| fragmenta-alchemica.katabafh-li-qwn-kai-smara-gdwn-kai-lixnitw-n-kai | Fragmenta Alchemica - Καταβαφὴ λίθων καὶ σμαράγδων καὶ λιχνιτῶν καὶ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,650 | auto-corrected |
+| fragmenta-alchemica.kinnaba-rews-skeuasi-e-cod-paris-b-n-gr-2327-fol | Fragmenta Alchemica - Κινναβάρεως σκευασία (E Cod. Paris. B.N. Gr. 2327, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 286 | auto-corrected |
+| fragmenta-alchemica.leu-kwsis-u-datos-di-ou-leukai-netai-oi-konomou-menon | Fragmenta Alchemica - Λεύκωσις ὕδατος, Di' οὗ λευκαίνεται οἰκονομούμενον τὸ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 66 | auto-corrected |
+| fragmenta-alchemica.o-li-qos-th-s-filosofi-as-fort-auctore-zosimo-e-cod | Fragmenta Alchemica - Ὁ λίθος τῆς φιλοσοφίας (Fort. Auctore Zosimo) (E Cod | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 206 | auto-corrected |
+| fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol | Fragmenta Alchemica - Οἰκονομία τῆς ἀσβέστου (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 126 | raw OCR |
+| fragmenta-alchemica.oti-su-nqeton-kai-ou-x-plou-n-ei-dos-kai-ti-s-h | Fragmenta Alchemica - Ὅτι σύνθετον καὶ Ou)X ἁπλοῦν τὸ εἶδος καὶ τίς H( | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 787 | auto-corrected |
+| fragmenta-alchemica.peri-bafh-s-sidh-rou-e-cod-venet-marc-299-fol-104r | Fragmenta Alchemica - Περὶ βαφῆς σιδήρου (E Cod. Venet. Marc. 299, Fol. 104R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 839 | raw OCR |
+| fragmenta-alchemica.peri-leukw-sews-tou-rsenikou-tou-sxistou-e-cod | Fragmenta Alchemica - Περὶ λευκώσεως τοῦ ἀρσενικοῦ τοῦ σχιστοῦ (E Cod | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 96 | auto-corrected |
+| fragmenta-alchemica.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e | Fragmenta Alchemica - Περὶ τῆς θείας καὶ ἱερᾶς τέχνης τῶν φιλοσόφων (E | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 830 | raw OCR |
+| fragmenta-alchemica.peri-th-s-timiwta-ths-kai-polufh-mou-xrusoxoi-kh-s-e-cod | Fragmenta Alchemica - Περὶ τῆς τιμιωτάτης καὶ πολυφήμου χρυσοχοϊκῆς (E Cod | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 4,344 | auto-corrected |
+| fragmenta-alchemica.peri-tou-li-qou-tw-n-filoso-fwn-e-cod-b-n-gr-2327-fol | Fragmenta Alchemica - Περὶ τοῦ λίθου τῶν φιλοσόφων (E Cod. B.N. Gr. 2327, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 708 | auto-corrected |
+| fragmenta-alchemica.peri-tou-o-reixa-lkou | Fragmenta Alchemica - Περὶ τοῦ ὀρειχάλκου | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 52 | auto-corrected |
+| fragmenta-alchemica.peri-tou-poih-sai-o-cuggosa-pounon-e-cod-paris-b-n-gr | Fragmenta Alchemica - Περὶ τοῦ ποιῆσαι ὀξυγγοσάπουνον (E Cod. Paris. B.N. Gr | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 98 | auto-corrected |
+| fragmenta-alchemica.peri-tou-poih-sai-turo-kollan-e-cod-paris-b-n-gr-2327 | Fragmenta Alchemica - Περὶ τοῦ ποιῆσαι τυρόκολλαν (E Cod. Paris. B.N. Gr. 2327, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 173 | auto-corrected |
+| fragmenta-alchemica.peri-tou-qei-ou-kau-stou-e-cod-paris-b-n-gr-2327 | Fragmenta Alchemica - Περὶ τοῦ θείου ἀκαύστου (E Cod. Paris. B.N. Gr. 2327, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 77 | raw OCR |
+| fragmenta-alchemica.peri-tou-xrusw-sai-si-dhron-e-cod-paris-b-n-gr-2327 | Fragmenta Alchemica - Περὶ τοῦ χρυσῶσαι σίδηρον (E Cod. Paris. B.N. Gr. 2327, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 323 | auto-corrected |
+| fragmenta-alchemica.peri-zu-qwn-poih-sews-e-cod-venet-marc-299-fol-162r | Fragmenta Alchemica - Περὶ ζύθων ποιήσεως (E Cod. Venet. Marc. 299, Fol. 162R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 105 | raw OCR |
+| fragmenta-alchemica.po-sos-o-tw-n-baptome-nwn-e-ri-wn-staqmo-s-w-feilen-kai-po-sos-o | Fragmenta Alchemica - Πόσος O(τῶν βαπτομένων ἐρίων σταθμὸς ὤφειλεν καὶ πόσος O( | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 88 | auto-corrected |
+| fragmenta-alchemica.poi-hsis-krustalli-wn-e-cod-venet-marc-299-fol-116r | Fragmenta Alchemica - Ποίησις κρυσταλλίων (E Cod. Venet. Marc. 299, Fol. 116R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 408 | raw OCR |
+| fragmenta-alchemica.poi-hsis-ma-llon-tou-panto-s-e-cod-venet-marc-299-fol | Fragmenta Alchemica - Ποίησις μᾶλλον τοῦ παντός (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 516 | raw OCR |
+| fragmenta-alchemica.poi-hsis-rgu-rou-e-cod-venet-marc-299-fol-194v | Fragmenta Alchemica - Ποίησις ἀργύρου (E Cod. Venet. Marc. 299, Fol. 194V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 140 | auto-corrected |
+| fragmenta-alchemica.poi-hsis-sbe-stou-e-cod-venet-marc-299-fol-99v | Fragmenta Alchemica - Ποίησις ἀσβέστου (E Cod. Venet. Marc. 299, Fol. 99V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 119 | auto-corrected |
+| fragmenta-alchemica.skeuasi-froni-trou-tou-zhtoume-nou-ei-s-ta-s-kollh-seis-xrusou | Fragmenta Alchemica - Σκευασία ἀφρονίτρου τοῦ ζητουμένου Ei)S τὰς κολλήσεις χρυσοῦ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 47 | auto-corrected |
+| fragmenta-alchemica.sta-kths-poi-hsis-e-cod-venet-marc-299-fol-162v | Fragmenta Alchemica - Στάκτης ποίησις (E Cod. Venet. Marc. 299, Fol. 162V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 286 | auto-corrected |
+| fragmenta-alchemica.sumpe-rasma-th-s-poih-sews-e-cod-venet-marc-299-fol | Fragmenta Alchemica - Συμπέρασμα τῆς ποιήσεως (E Cod. Venet. Marc. 299, Fol | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 63 | auto-corrected |
+| fragmenta-alchemica.ti-s-h-meta-th-n-i-wsin-oi-konomi-e-cod-venet-marc | Fragmenta Alchemica - Τίς H(μετὰ τὴν ἴωσιν οἰκονομία (E Cod. Venet. Marc | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 77 | auto-corrected |
+| fragmenta-alchemica.ti-s-h-th-s-koma-rews-su-nqesis-e-cod-venet-marc-299 | Fragmenta Alchemica - Τίς H(τῆς κομάρεως σύνθεσις (E Cod. Venet. Marc. 299, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 28 | raw OCR |
+| fragmenta-alchemica.ti-s-h-tou-me-lanos-chri-ou-kataskeuh-e-cod-venet-marc | Fragmenta Alchemica - Τίς H(τοῦ μέλανος ξηρίου κατασκευή (E Cod. Venet. Marc | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 71 | raw OCR |
+| fragmenta-alchemica.ti-s-h-tw-n-rxai-wn-sbestos-e-cod-venet-marc-299 | Fragmenta Alchemica - Τίς H(τῶν ἀρχαίων ἄσβεστος (E Cod. Venet. Marc. 299, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 208 | raw OCR |
+| fragmenta-alchemica.xrh-sis-ioustinianou-basile-ws-sine-titulo-e-cod | Fragmenta Alchemica - Χρῆσις Ἰουστινιανοῦ βασιλέως (Sine Titulo) (E Cod | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 726 | auto-corrected |
+| fragmenta-alchemica.xrusou-poi-hsis-e-cod-paris-b-n-gr-2327-fol-232r | Fragmenta Alchemica - Χρυσοῦ ποίησις (E Cod. Paris. B.N. Gr. 2327, Fol. 232R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 292 | raw OCR |
+| fragmentum-stoicum.fragmentum | Fragmentum Stoicum - Fragmentum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20 | auto-corrected |
 | fragmentum-synodicae-epistulae-concilii-caesariensis.fragmentum-epistulae | Theophilus Caesariensis et synodus Caesariensis - Fragmentum synodicae epistulae concilii Caesariensis (de paschate) (PG005 loci 694-695) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 54 | raw OCR |
-| gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth |  | qwen36-suetonius_reliquiae_reifferscheid | Qwen3.6-27B | 11,498 | auto-corrected |
-| geoponica.geoponica |  | qwen36-geoponica_beckh | Qwen3.6-27B | 124,636 | auto-corrected |
-| georgius-cedrenus.compendium-historiarum |  | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 291,998 | manual |
-| georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 143,024 | auto-corrected |
+| gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth | Gaius Suetonius Tranquillus - Περὶ βλασφημιῶν καὶ πόθεν ἑκάστη | qwen36-suetonius_reliquiae_reifferscheid | Qwen3.6-27B | 11,498 | auto-corrected |
+| geoponica.geoponica | Geoponica - Geoponica | qwen36-geoponica_beckh | Qwen3.6-27B | 124,636 | auto-corrected |
+| georgius-cedrenus.compendium-historiarum | Georgius Cedrenus - Compendium Historiarum | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 291,998 | manual |
+| georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de | Georgius Choeroboscus - Prolegomena Et Scholia In Theodosii Alexandrini Canones Isagogicos De | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 143,024 | auto-corrected |
 | georgius-monachus-continuatus.chronicon-continuatio-redactio | Georgius Monachus Continuatus - Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum (PG109 loci 417-497) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 29,808 | manual |
-| georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior | ΠΡΟΟΙΜΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 240,537 | auto-corrected |
-| gorgias-rhetoric.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 982 | auto-corrected |
-| gorgias-rhetoric.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,888 | auto-corrected |
-| gregorius-nazianzenus.ad-eos-qui-ipsum-acciverant-nec-occurrerant-orat-3 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 785 | auto-corrected |
-| gregorius-nazianzenus.ad-gregorium-nyssenum-orat-11 | ΛΟΓΟΣ ΙΑʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,542 | raw OCR |
-| gregorius-nazianzenus.ad-julianum-tributorum-exaequatorem-orat-19 | ΛΟΓΟΣ ΙΘ' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,992 | auto-corrected |
-| gregorius-nazianzenus.ad-patrem-orat-12 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,198 | auto-corrected |
-| gregorius-nazianzenus.apologetica-orat-2 | ΛΟΓΟΣ Β. A | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,634 | auto-corrected |
-| gregorius-nazianzenus.apologeticus-ad-patrem-orat-9 | ΛΟΓΟΣ Θʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,207 | auto-corrected |
-| gregorius-nazianzenus.carmina-de-se-ipso | ΒΙΒΛΟΣ Βʹ. ΕΠΗ ΙΣΤΟΡΙΚΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 43,522 | auto-corrected |
-| gregorius-nazianzenus.carmina-dogmatica | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΘΕΟΛΟΓΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 51,964 | auto-corrected |
-| gregorius-nazianzenus.carmina-quae-spectant-ad-alios | TOMH B'. ΠΕΡΙ ΤΩΝ ΕΤΕΡΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,109 | auto-corrected |
-| gregorius-nazianzenus.contra-arianos-et-de-seipso-orat-33 | ΛΟΓΟΣ ΛΓʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,177 | auto-corrected |
-| gregorius-nazianzenus.contra-julianum-imperatorem-1-orat-4 | A ΛΟΓΟΣ Δ' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 25,381 | auto-corrected |
-| gregorius-nazianzenus.de-dogmate-et-constitutione-episcoporum-orat-20 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,827 | raw OCR |
-| gregorius-nazianzenus.de-martyribus-et-adversus-arianos-orat-35-sp | ΛΟΓΟΣ ΛΕʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,043 | auto-corrected |
-| gregorius-nazianzenus.de-moderatione-in-disputando-orat-32 | ΛΟΓΟΣ ΛΒʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,899 | auto-corrected |
-| gregorius-nazianzenus.de-pace-1-orat-6 | ΛΟΓΟΣ Ϛʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,473 | auto-corrected |
-| gregorius-nazianzenus.de-pauperum-amore-orat-14 | ΛΟΓΟΣ ΙΔʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,216 | auto-corrected |
-| gregorius-nazianzenus.de-seipso-et-ad-eos-qui-ipsum-cathedram-constantinopolitanam-affectare | ΛΟΓΟΣ ΛϚ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,403 | auto-corrected |
-| gregorius-nazianzenus.epistulae | ΓΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΘΕΟΛΟΓΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 39,905 | auto-corrected |
-| gregorius-nazianzenus.epistulae-theologicae | ΡΑ' ΠΡΟΣ ΚΑΔΙΟΝΙΟΝ ΠΡΕΣΒΥΤΕΡΟΝ ΚΑΤΑ ΑΠΟΛΛΙΝΑΡΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,036 | auto-corrected |
+| georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior | Georgius Monachus - Chronicon Breve (Lib. 1-6) (Redactio Recentior) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 240,537 | auto-corrected |
+| gorgias-rhetoric.fragmenta | Gorgias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 982 | auto-corrected |
+| gorgias-rhetoric.testimonia | Gorgias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,888 | auto-corrected |
+| gregorius-nazianzenus.ad-eos-qui-ipsum-acciverant-nec-occurrerant-orat-3 | Gregorius Nazianzenus - Ad Eos Qui Ipsum Acciverant Nec Occurrerant (Orat. 3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 785 | auto-corrected |
+| gregorius-nazianzenus.ad-gregorium-nyssenum-orat-11 | Gregorius Nazianzenus - Ad Gregorium Nyssenum (Orat. 11) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,542 | raw OCR |
+| gregorius-nazianzenus.ad-julianum-tributorum-exaequatorem-orat-19 | Gregorius Nazianzenus - Ad Julianum Tributorum Exaequatorem (Orat. 19) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,992 | auto-corrected |
+| gregorius-nazianzenus.ad-patrem-orat-12 | Gregorius Nazianzenus - Ad Patrem (Orat. 12) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,198 | auto-corrected |
+| gregorius-nazianzenus.apologetica-orat-2 | Gregorius Nazianzenus - Apologetica (Orat. 2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,634 | auto-corrected |
+| gregorius-nazianzenus.apologeticus-ad-patrem-orat-9 | Gregorius Nazianzenus - Apologeticus Ad Patrem (Orat. 9) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,207 | auto-corrected |
+| gregorius-nazianzenus.carmina-de-se-ipso | Gregorius Nazianzenus - Carmina De Se Ipso | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 43,522 | auto-corrected |
+| gregorius-nazianzenus.carmina-dogmatica | Gregorius Nazianzenus - Carmina Dogmatica | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 51,964 | auto-corrected |
+| gregorius-nazianzenus.carmina-quae-spectant-ad-alios | Gregorius Nazianzenus - Carmina Quae Spectant Ad Alios | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,109 | auto-corrected |
+| gregorius-nazianzenus.contra-arianos-et-de-seipso-orat-33 | Gregorius Nazianzenus - Contra Arianos Et De Seipso (Orat. 33) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,177 | auto-corrected |
+| gregorius-nazianzenus.contra-julianum-imperatorem-1-orat-4 | Gregorius Nazianzenus - Contra Julianum Imperatorem 1 (Orat. 4) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 25,381 | auto-corrected |
+| gregorius-nazianzenus.de-dogmate-et-constitutione-episcoporum-orat-20 | Gregorius Nazianzenus - De Dogmate Et Constitutione Episcoporum (Orat. 20) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,827 | raw OCR |
+| gregorius-nazianzenus.de-martyribus-et-adversus-arianos-orat-35-sp | Gregorius Nazianzenus - De Martyribus Et Adversus Arianos (Orat. 35) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,043 | auto-corrected |
+| gregorius-nazianzenus.de-moderatione-in-disputando-orat-32 | Gregorius Nazianzenus - De Moderatione In Disputando (Orat. 32) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,899 | auto-corrected |
+| gregorius-nazianzenus.de-pace-1-orat-6 | Gregorius Nazianzenus - De Pace 1 (Orat. 6) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,473 | auto-corrected |
+| gregorius-nazianzenus.de-pauperum-amore-orat-14 | Gregorius Nazianzenus - De Pauperum Amore (Orat. 14) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,216 | auto-corrected |
+| gregorius-nazianzenus.de-seipso-et-ad-eos-qui-ipsum-cathedram-constantinopolitanam-affectare | Gregorius Nazianzenus - De Seipso Et Ad Eos Qui Ipsum Cathedram Constantinopolitanam Affectare | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,403 | auto-corrected |
+| gregorius-nazianzenus.epistulae | Gregorius Nazianzenus - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 39,905 | auto-corrected |
+| gregorius-nazianzenus.epistulae-theologicae | Gregorius Nazianzenus - Epistulae Theologicae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,036 | auto-corrected |
 | gregorius-nazianzenus.fragmentum-ex-oratione-contra-astronomos-sp | Fragmentum ex oratione contra astronomos [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 883 | raw OCR |
-| gregorius-nazianzenus.funebris-in-laudem-caesarii-fratris-oratio-orat-7 | ΛΟΓΟΣ Ζ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,608 | auto-corrected |
-| gregorius-nazianzenus.funebris-oratio-in-laudem-basilii-magni-caesareae-in-cappadocia | ΛΟΓΟΣ ΜΓʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,189 | auto-corrected |
-| gregorius-nazianzenus.funebris-oratio-in-patrem-orat-18 | ΛΟΓΟΣ ΙΗʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,324 | auto-corrected |
-| gregorius-nazianzenus.in-aegyptiorum-adventum-orat-34 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,709 | raw OCR |
-| gregorius-nazianzenus.in-consecratione-eulalii-doarensium-episcopi-orat-13 | ΛΟΓΟΣ ΙΓ' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 332 | raw OCR |
-| gregorius-nazianzenus.in-dictum-evangelii-cum-consummasset-jesus-hos-sermones-orat-37 | ΛΟΓΟΣ ΛΖʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,112 | auto-corrected |
-| gregorius-nazianzenus.in-laudem-athanasii-orat-21 | ΛΟΓΟΣ ΚΑʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,348 | auto-corrected |
-| gregorius-nazianzenus.in-laudem-heronis-philosophi-orat-25 | ΛΟΓΟΣ ΚΕʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,086 | auto-corrected |
-| gregorius-nazianzenus.in-laudem-sororis-gorgoniae-orat-8 | ΛΟΓΟΣ Η | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,365 | auto-corrected |
-| gregorius-nazianzenus.in-machabaeorum-laudem-orat-15 | ΛΟΓΟΣ ΙΕʹ (49) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,833 | auto-corrected |
-| gregorius-nazianzenus.in-novam-dominicam-orat-44 | ΛΟΓΟΣ ΜΔʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,177 | auto-corrected |
-| gregorius-nazianzenus.in-patrem-tacentem-orat-16 | ΛΟΓΟΣ ΙϚ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,364 | auto-corrected |
-| gregorius-nazianzenus.in-sancta-lumina-orat-39 | ΛΟΓΟΣ ΙΖ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,596 | auto-corrected |
-| gregorius-nazianzenus.in-sanctum-baptisma-orat-40 | ΛΟΓΟΣ Μʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,429 | auto-corrected |
-| gregorius-nazianzenus.in-sanctum-pascha-et-in-tarditatem-orat-1 | ἘΝ ἉΓΙΟΙ͂Σ ΠΑΤΡῸΣ ἩΜΩ͂Ν ΓΡΗΓΟΡΙΟΥ͂ ΤΟΥ͂ ΘΕΟΛΟΓΟΥ͂ ἈΡΧΙΕΠΙΣΚΌΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΌΛΕΩΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 882 | auto-corrected |
+| gregorius-nazianzenus.funebris-in-laudem-caesarii-fratris-oratio-orat-7 | Gregorius Nazianzenus - Funebris In Laudem Caesarii Fratris Oratio (Orat. 7) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,608 | auto-corrected |
+| gregorius-nazianzenus.funebris-oratio-in-laudem-basilii-magni-caesareae-in-cappadocia | Gregorius Nazianzenus - Funebris Oratio In Laudem Basilii Magni Caesareae In Cappadocia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,189 | auto-corrected |
+| gregorius-nazianzenus.funebris-oratio-in-patrem-orat-18 | Gregorius Nazianzenus - Funebris Oratio In Patrem (Orat. 18) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,324 | auto-corrected |
+| gregorius-nazianzenus.in-aegyptiorum-adventum-orat-34 | Gregorius Nazianzenus - In Aegyptiorum Adventum (Orat. 34) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,709 | raw OCR |
+| gregorius-nazianzenus.in-consecratione-eulalii-doarensium-episcopi-orat-13 | Gregorius Nazianzenus - In Consecratione Eulalii Doarensium Episcopi (Orat. 13) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 332 | raw OCR |
+| gregorius-nazianzenus.in-dictum-evangelii-cum-consummasset-jesus-hos-sermones-orat-37 | Gregorius Nazianzenus - In Dictum Evangelii: Cum Consummasset Jesus Hos Sermones (Orat. 37) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,112 | auto-corrected |
+| gregorius-nazianzenus.in-laudem-athanasii-orat-21 | Gregorius Nazianzenus - In Laudem Athanasii (Orat. 21) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,348 | auto-corrected |
+| gregorius-nazianzenus.in-laudem-heronis-philosophi-orat-25 | Gregorius Nazianzenus - In Laudem Heronis Philosophi (Orat. 25) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,086 | auto-corrected |
+| gregorius-nazianzenus.in-laudem-sororis-gorgoniae-orat-8 | Gregorius Nazianzenus - In Laudem Sororis Gorgoniae (Orat. 8) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,365 | auto-corrected |
+| gregorius-nazianzenus.in-machabaeorum-laudem-orat-15 | Gregorius Nazianzenus - In Machabaeorum Laudem (Orat. 15) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,833 | auto-corrected |
+| gregorius-nazianzenus.in-novam-dominicam-orat-44 | Gregorius Nazianzenus - In Novam Dominicam (Orat. 44) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,177 | auto-corrected |
+| gregorius-nazianzenus.in-patrem-tacentem-orat-16 | Gregorius Nazianzenus - In Patrem Tacentem (Orat. 16) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,364 | auto-corrected |
+| gregorius-nazianzenus.in-sancta-lumina-orat-39 | Gregorius Nazianzenus - In Sancta Lumina (Orat. 39) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,596 | auto-corrected |
+| gregorius-nazianzenus.in-sanctum-baptisma-orat-40 | Gregorius Nazianzenus - In Sanctum Baptisma (Orat. 40) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,429 | auto-corrected |
+| gregorius-nazianzenus.in-sanctum-pascha-et-in-tarditatem-orat-1 | Gregorius Nazianzenus - In Sanctum Pascha Et In Tarditatem (Orat. 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 882 | auto-corrected |
 | gregorius-nazianzenus.in-sanctum-pascha-orat-45 | In sanctum pascha (orat. 45) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,189 | auto-corrected |
-| gregorius-nazianzenus.in-seipsum-ad-patrem-et-basilium-magnum-orat-10 | ΛΟΓΟΣ Ιʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 662 | raw OCR |
-| gregorius-nazianzenus.in-seipsum-cum-rure-rediisset-post-ea-quae-maximo-perpetrata | ΛΟΓΟΣ ΚϚʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,896 | auto-corrected |
-| gregorius-nazianzenus.in-theophania-orat-38 | ΛΟΓΟΣ ΛΗ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,425 | auto-corrected |
+| gregorius-nazianzenus.in-seipsum-ad-patrem-et-basilium-magnum-orat-10 | Gregorius Nazianzenus - In Seipsum Ad Patrem Et Basilium Magnum (Orat. 10) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 662 | raw OCR |
+| gregorius-nazianzenus.in-seipsum-cum-rure-rediisset-post-ea-quae-maximo-perpetrata | Gregorius Nazianzenus - In Seipsum, Cum Rure Rediisset, Post Ea Quae A Maximo Perpetrata | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,896 | auto-corrected |
+| gregorius-nazianzenus.in-theophania-orat-38 | Gregorius Nazianzenus - In Theophania (Orat. 38) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,425 | auto-corrected |
 | gregorius-nazianzenus.liturgia-sancti-gregorii-sp | Liturgia sancti Gregorii [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,674 | auto-corrected |
 | gregorius-nazianzenus.significatio-in-ezechielem-sp | Significatio in Ezechielem [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 521 | auto-corrected |
-| gregorius-nazianzenus.supremum-vale-orat-42 | ΛΟΓΟΣ ΜΒ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,830 | auto-corrected |
-| gregorius-nazianzenus.testamentum | ΤΟΥ ΑΓΙΟΥ ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΘΕΟΛΟΓΟΥ ΙΣΟΝ ΤΗΣ ΔΙΑΘΗΚΗΣ ΜΕΤΑΓΡΑΦΕΝ ΕΚ ΤΟΥ ΑΡΧΕΤΥΠΟΥ ΔΙΚΑΙΩΜΑΤΟΣ, ΕΝ Ω ΙΑΙΟΧΕΙΡΟΙ ΥΠΟΓΡΑΦΑΙ ΣΩΖΟΝΤΑΙ ΥΠ' ΑΥΤΟΥ ΤΕ ΚΑΙ ΤΩΝ ΥΠΟΓΡΑΨΑΝΤΩΝ ΜΑΡΤΥΡΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,014 | raw OCR |
-| gregorius-nyssenus.ad-ablabium-quod-non-sint-tres-dei | ΠΕΡΙ ΤΟΥ ΜΗ ΕΙΝΑΙ ΤΡΕΙΣ ΘΕΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,130 | auto-corrected |
-| gregorius-nyssenus.ad-graecos-ex-communibus-notionibus | ΤΟΥ ΑΥΤΟΥ ΓΡΗΓΟΡΙΟΥ ΠΡΟΣ ΕΛΛΗΝΑΣ ΕΚ ΤΩΝ ΚΟΙΝΩΝ ΕΝΝΟΙΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,123 | auto-corrected |
-| gregorius-nyssenus.ad-imaginem-dei-et-ad-similitudinem-sp | ΤΟΥ ΑΥΤΟΥ ΓΡΗΓΟΡΙΟΥ ΝΥΣΣΗΣ ΠΕΡΙ ΤΟΥ, ΤΙ ΕΣΤΙ ΤΟ, ΚΑΤ' ΕΙΚΟΝΑ ΘΕΟΥ ΚΑΙ ΚΑΘ' ΟΜΟΙΩΣΙΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,252 | auto-corrected |
-| gregorius-nyssenus.ad-theophilum-adversus-apollinaristas | ΤΟΥ ΑΥΤΟΥ ΓΡΗΓΟΡΙΟΥ ΚΑΤΑ ΑΠΟΛΙΝΑΡΙΟΥ ΠΡΟΣ ΘΕΟΦΙΛΟΝ ΕΠΙΣΚΟΠΟΝ ΑΛΕΞΑΝΔΡΕΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,689 | auto-corrected |
-| gregorius-nyssenus.adversus-arium-et-sabellium-de-patre-et-filio | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΛΟΓΟΣ ΚΑΤΑ ΑΡΕΙΟΥ ΚΑΙ ΣΑΒΕΛΛΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,432 | auto-corrected |
-| gregorius-nyssenus.adversus-eos-qui-castigationes-aegre-ferunt | ΤΟΥ ΑΥΤΟΥ ΠΡΟΣ ΤΟΥΣ ΑΧΘΟΜΕΝΟΥΣ ΤΑΙΣ ΕΠΙΤΙΜΗΣΕΣΙ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,137 | auto-corrected |
-| gregorius-nyssenus.adversus-macedonianos-de-spiritu-sancto | ΚΑΤΑ ΜΑΚΕΔΟΝΙΑΝΩΝ ΤΩΝ ΠΝΕΥΜΑΤΟΜΑΧΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,007 | auto-corrected |
-| gregorius-nyssenus.antirrheticus-adversus-apollinarium | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΕΠΙΣΚΟΠΟΥ ΝΥΣΣΕΝΕ ΑΝΤΙΡΡΗΤΙΚΟΣ ΠΡΟΣ ΤΑ ΑΠΟΛΙΝΑΡΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 25,016 | auto-corrected |
-| gregorius-nyssenus.apologia-in-hexaemeron | ΑΠΟΛΟΓΗΤΙΚΟΣ ΠΡΟΣ ΠΕΤΡΟΝ ΤΟΝ ΑΔΕΛΦΟΝ ΑΥΤΟΥ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,190 | auto-corrected |
-| gregorius-nyssenus.contra-eunomium | ΠΡΟΣ ΤΟΝ ΑΔΕΛΦΟΝ ΑΥΤΟΥ ΠΕΤΡΟΝ ΕΠΙΣΚΟΠΟΝ ΣΕΒΑΣΤΕΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 178,664 | auto-corrected |
-| gregorius-nyssenus.contra-fatum | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,707 | auto-corrected |
-| gregorius-nyssenus.contra-fornicarios | Ὁ ΔΕ ΠΟΡΝΕΙΩΝ, ΕΙΣ ΤΟ ΙΑΙΟΝ ΣΟΜΑ ΑΜΑΡΤΑΝΕΙ (1). | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 918 | auto-corrected |
-| gregorius-nyssenus.contra-usurarios | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΕΠΙΣΚΟΠΟΥ ΝΥΣΣΕΝΕ ΚΑΤΑ ΤΩΝ ΤΟΚΙΖΟΝΤΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,712 | auto-corrected |
-| gregorius-nyssenus.de-anima-sp | ΤΟΥ ΑΥΤΟΥ ΓΡΗΓΟΡΙΟΥ ΠΕΡΙ ΨΥΧΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,730 | auto-corrected |
-| gregorius-nyssenus.de-beneficentia-vulgo-de-pauperibus-amandis-i | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΠΕΡΙ ΦΙΛΟΠΤΩΧΙΑΣ ΚΑΙ ΕΥΠΟΠΑΣ ΛΟΓΟΣ Αʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,724 | auto-corrected |
-| gregorius-nyssenus.de-creatione-hominis-sermo-alter-sp | ΛΟΓΟΣ Βʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,294 | auto-corrected |
-| gregorius-nyssenus.de-creatione-hominis-sermo-primus-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΝΥΣΣΗΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,697 | auto-corrected |
-| gregorius-nyssenus.de-deitate-adversus-evagrium-vulgo-in-suam |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,862 | raw OCR |
-| gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti | ΠΕΡΙ ΘΕΟΤΗΤΟΣ ΥΙΟΥ ΚΑΙ ΠΝΕΥΜΑΤΟΣ ΛΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,744 | auto-corrected |
-| gregorius-nyssenus.de-infantibus-praemature-abreptis | ΤΟΥ ΑΥΤΟΥ ΠΕΡΙ ΤΩΝ ΝΗΠΙΩΝ ΠΡΟ ΩΡΑΣ ΑΦΑΡΠΑΖΟΜΕΝΩΝ, ΠΡΟΣ ΙΕΡΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,739 | auto-corrected |
-| gregorius-nyssenus.de-instituto-christiano | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΠΕΡΙ ΤΟΥ ΚΑΤΑ ΘΕΟΝ ΣΚΟΠΟΥ ΚΑΙ ΤΗΣ ΚΑΤΑ ΑΛΗΘΕΙΑΝ ΔΕΚΕΣΕΩΣ· ΚΑΙ ΠΡΟΣ ΤΟΥΣ ΑΠΑΙΤΗΣΑΝΤΑΣ ΔΕΚΗΤΑΣ ΠΕΡΙ ΤΗΣ ΕΥΣΕΒΕΙΑΣ ΣΚΟΠΟΥ· ΚΑΙ ΤΟΥ ΟΠΩΣ ΧΡΗ ΣΥΝΕΙΝΑΙ ΑΛΛΗΛΟΙΣ ΚΑΙ ΣΥΝΑΓΩΝΙΖΕΣΘΑΙ, ΥΠΟΤΥΠΩΣΙΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,681 | auto-corrected |
-| gregorius-nyssenus.de-mortuis-non-esse-dolendum | ΤΟΥ ἈΥΤΟΥ ΔΙΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,028 | auto-corrected |
-| gregorius-nyssenus.de-occursu-domini-sp | ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΤΗΝ ΥΠΑΠΑΝΤΗΝ ΤΟΥ ΚΥΡΙΟΥ, ΚΑΙ ΕΙΣ ΤΗΝ ΘΕΟΤΟΚΟΝ, ΚΑΙ ΕΙΣ ΤΟΝ ΔΙΚΑΙΟΝ ΣΥΜΕΟΝΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,443 | auto-corrected |
-| gregorius-nyssenus.de-opificio-hominis | ΠΕΡΙ ΚΑΤΑΣΚΕΥΗΣ ΑΝΘΡΩΠΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,801 | auto-corrected |
-| gregorius-nyssenus.de-oratione-dominica-orationes-v | ΓΡΗΓΟΡΙΟΥ ΝΥΣΣΗΣ ΕΙΣ ΤΗΝ ΠΡΟΣΕΥΧΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,096 | auto-corrected |
-| gregorius-nyssenus.de-perfectione-christiana-ad-olympium-monachum | ΤΟΥ ΑΥΤΟΥ ΠΕΡΙ ΤΕΛΕΙΟΤΗΤΟΣ, ΚΑΙ ΟΠΟΙΟΝ ΧΡΗ ΕΙΝΑΙ ΤΟΝ ΧΡΙΣΤΙΑΝΟΝ, ΠΡΟΣ ΟΛΥΜΠΙΟΝ ΜΟΝΑΧΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,079 | auto-corrected |
-| gregorius-nyssenus.de-professione-christiana-ad-harmonium | ΤΙ ΤΟ ΧΡΙΣΤΙΑΝΩΝ ΟΝΟΜΑ Η ΕΠΑΓΓΕΛΜΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,120 | raw OCR |
-| gregorius-nyssenus.de-pythonissa-ad-theodosium-episcopum |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 672 | raw OCR |
-| gregorius-nyssenus.de-sancto-theodoro | ΕΙΣ ΤΟΝ ΜΕΓΑΝ ΜΑΡΤΥΡΑ ΘΕΟΔΩΡΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,212 | auto-corrected |
-| gregorius-nyssenus.de-spiritu-sancto-sive-in-pentecosten | ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ ΕΙΣ ΤΟ ΑΓΙΟΝ ΠΝΕΥΜΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,061 | auto-corrected |
-| gregorius-nyssenus.de-virginitate | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΠΕΡΙ ΠΑΡΘΕΝΙΑΣ ΕΠΙΣΤΟΛΗ ΠΡΟΤΡΕΠΤΙΚΗ ΕΙΣ ΤΟΝ ΚΑΤ' ΑΡΕΤΗΝ ΒΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 22,317 | auto-corrected |
-| gregorius-nyssenus.de-vita-gregorii-thaumaturgi | ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΤΟΝ ΒΙΟΝ ΤΟΥ ΑΓΙΟΥ ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΘΑΥΜΑΤΟΥΡΓΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,024 | auto-corrected |
-| gregorius-nyssenus.de-vita-mosis | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΕΠΙΣΚΟΠΟΥ ΝΥΣΣΗΣ, ΠΕΡΙ ΤΟΥ ΒΙΟΥ ΜΩΣΕΩΣ, Η ΠΕΡΙ ΤΗΣ ΚΑΤ’ ΑΡΕΤΗΝ ΤΕΛΕΙΟΤΗΤΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 28,095 | auto-corrected |
-| gregorius-nyssenus.decem-syllogismi-contra-manichaeos-sp | ΤΟΥ ΑΥΤΟΥ ΚΑΤΑ ΜΑΝΙΧΑΙΩΝ ΛΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229 | raw OCR |
-| gregorius-nyssenus.dialogus-de-anima-et-resurrectione | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΕΠΙΣΚΟΠΟΥ ΝΥΣΣΗΣ ΠΕΡΙ ΨΥΧΗΣ ΚΑΙ ΑΝΑΣΤΑΣΕΩΣ Ο ΛΟΓΟΣ Ο ΛΕΓΟΜΕΝΟΣ ΤΑ ΜΑΚΡΙΝΙΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 24,844 | auto-corrected |
-| gregorius-nyssenus.encomium-in-sanctum-stephanum-protomartyrem-i | ΕΙΣ ΤΟΝ ΑΓΙΟΝ ΣΤΕΦΑΝΟΝ ΤΟΝ ΠΡΩΤΟΜΑΡΤΥΡΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,030 | auto-corrected |
-| gregorius-nyssenus.encomium-in-xl-martyres-i | ΕΙΣ ΤΟΥΣ ΑΓΙΟΥΣ ΤΕΣΣΑΡΑΚΟΝΤΑ ΜΑΡΤΥΡΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,611 | auto-corrected |
-| gregorius-nyssenus.encomium-in-xl-martyres-ii | ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΤΟΥΣ ΤΕΣΣΑΡΑΚΟΝΤΑ ΜΑΡΤΥΡΑΣ ΛΟΓΟΣ ΕΓΚΩΜΙΑΣΤΙΚΟΣ ΡΗΘΕΙΣ ΕΝ ΤΩ ΜΑΡΤΥΡΙΩ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,691 | auto-corrected |
-| gregorius-nyssenus.epistula-canonica-ad-letoium | ΤΟΥ ΑΥΤΟΥ ΕΠΙΣΤΟΛΗ ΚΑΝΟΝΙΚΗ ΠΡΟΣ ΤΟΝ ΕΝ ΑΓΙΟΙΣ ΑΗΤΟΙΟΝ ΕΠΙΣΚΟΠΟΝ ΜΕΛΙΤΙΝΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,070 | auto-corrected |
-| gregorius-nyssenus.epistulae | ΕΠΙΣΤΟΛΗ Ζ’ (29) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,181 | auto-corrected |
-| gregorius-nyssenus.in-ascensionem-christi | ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΤΗΝ ΤΟΥ ΧΡΙΣΤΟΥ ΑΝΑΛΗΨΙΝ ΤΗΝ ΑΕΓΟΜΕΝΗΝ ΤΩ ΕΠΙΧΩΡΙΩ ΤΩΝ ΚΑΠΠΑΔΟΚΩΝ ΕΘΕΙ ΤΗΝ ΕΠΙΣΟΖΟΜΕΝΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,028 | auto-corrected |
-| gregorius-nyssenus.in-basilium-fratrem | ΕΙΣ ΤΟΝ ΙΑΙΟΝ ΑΔΕΑΦΟΝ ΤΟΝ ΜΕΓΑΝ ΒΑΣΙΛΕΙΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,111 | auto-corrected |
-| gregorius-nyssenus.in-canticum-canticorum-homiliae-15 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΕΠΙΣΚΟΠΟΥ ΝΥΣΣΗΣ ΕΞΗΓΗΣΙΣ ΑΚΡΙΒΗΣ ΕΙΣ ΤΑ ΑΣΜΑΤΑ ΤΩΝ ΑΣΜΑΤΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 75,182 | auto-corrected |
-| gregorius-nyssenus.in-ecclesiasten-homiliae-8 | ΕΙΣ ΤΟΝ ΕΚΚΛΗΣΙΑΣΤΗΝ ΤΟΥ ΣΑΛΟΜΩΝΤΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,424 | auto-corrected |
-| gregorius-nyssenus.in-illud-quatenus-uni-ex-his-fecistis-mihi-fecistis | ΤΟΥ ΑΥΤΟΥ ΓΡΗΓΟΡΙΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,549 | auto-corrected |
-| gregorius-nyssenus.in-illud-tunc-et-ipse-filius | ΕΙΣ ΤΟ, ΟΤΑΝ ΥΠΟΤΑΓΗ ΑΥΤΩ ΤΑ ΠΑΝΤΑ, ΤΟΤΕ ΚΑΙ ΑΥΤΟΣ Ο ΥΙΟΣ ΥΠΟΤΑΓΗΣΕΤΑΙ ΤΩ ΥΠΟΤΑΞΑΝΤΙ ΑΥΤΩ ΤΑ ΠΑΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,800 | auto-corrected |
-| gregorius-nyssenus.in-inscriptiones-psalmorum | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΕΠΙΣΚΟΠΟΥ ΝΥΣΣΕΝΕ ΠΡΩΤΟΝ ΒΙΒΛΙΟΝ ΕΙΣ ΤΗΝ ΕΠΙΓΡΑΦΗΝ ΤΩΝ ΨΑΛΜΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 39,897 | auto-corrected |
-| gregorius-nyssenus.in-luciferam-sanctam-domini-resurrectionem-vulgo-in | ΛΟΓΟΣ Εʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,229 | raw OCR |
-| gregorius-nyssenus.in-sanctum-ephraim | ΕΙΣ ΤΟΝ ΟΣΙΟΝ ΠΑΤΕΡΑ ΗΜΩΝ ΕΦΡΑΙΜ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,458 | auto-corrected |
-| gregorius-nyssenus.in-sanctum-et-salutare-pascha-vulgo-in-christi | ΛΟΓΟΣ Δʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 389 | auto-corrected |
-| gregorius-nyssenus.in-sanctum-pascha-vulgo-in-christi-resurrectionem-oratio | ΛΟΓΟΣ Β' | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,794 | auto-corrected |
-| gregorius-nyssenus.oratio-catechetica-magna | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΓΡΗΓΟΡΙΟΥ ΕΥΕΣΚΟΠΟΥ ΝΥΣΣΕΝΣ ΛΟΓΟΣ ΚΑΤΗΧΗΤΙΚΟΣ Ο ΜΕΓΑΣ ΕΝ ΚΕΦΑΛΑΙΟΙΣ ΤΕΣΣΑΡΑΚΟΝΤΑ ΔΙΗΡΜΕΝΕΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,627 | auto-corrected |
-| gregorius-nyssenus.oratio-consolatoria-in-pulcheriam | ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΠΟΥΛΧΕΡΙΑΝ ΛΟΓΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,800 | auto-corrected |
-| gregorius-nyssenus.oratio-funebris-in-flacillam-imperatricem | ΤΟΥ ΑΥΤΟΥ ΕΠΙΤΑΦΙΟΣ ΛΟΓΟΣ ΕΙΣ ΠΛΑΚΙΛΛΑΝ ΒΑΣΙΛΙΣΣΑΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,868 | auto-corrected |
-| gregorius-nyssenus.oratio-funebris-in-meletium-episcopum | ΤΟΥ ΑΥΤΟΥ ΕΠΙΤΑΦΙΟΣ ΛΟΓΟΣ ΕΙΣ ΤΟΝ ΜΕΓΑΝ ΜΕΛΕΤΙΟΝ ΕΠΙΣΚΟΠΟΝ ΑΝΤΙΟΧΕΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,343 | auto-corrected |
-| gregorius-nyssenus.oratio-in-diem-natalem-christi | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΛΟΓΟΣ ΕΙΣ ΤΗΝ ΓΕΝΝΗΣΙΝ ΤΟΥ ΧΡΙΣΤΟΥ ΚΑΙ ΕΙΣ ΤΑ ΝΗΠΙΑ ΤΑ ΕΝ ΒΗΘΛΕΕΜ ΑΝΑΙΡΕΘΕΝΤΑ ΥΠΟ ΗΡΩΔΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,809 | auto-corrected |
-| gregorius-nyssenus.orationes-viii-de-beatitudinibus | ΕΙΣ ΤΟΥΣ ΜΑΚΑΡΙΣΜΟΥΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,619 | auto-corrected |
-| gregorius-nyssenus.testimonia-adversus-judaeos-sp | ΕΚΛΟΓΑΙ ΜΑΡΤΥΡΙΩΝ ΠΡΟΣ ΙΟΥΔΑΙΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,087 | auto-corrected |
-| gregorius-nyssenus.vita-sanctae-macrinae | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΓΡΗΓΟΡΙΟΥ ΕΙΣ ΤΟΝ ΒΙΟΝ ΤΗΣ ΟΣΙΑΣ ΜΑΚΡΙΝΗΣ ΑΔΕΛΦΗΣ ΤΟΥ ΜΕΓΑΛΟΥ ΒΑΣΙΛΕΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,592 | auto-corrected |
-| hecataeus-abderita.testimonia-2 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,190 | auto-corrected |
-| hegemon-parodius.fragmentum | ἈΤΣΙΠΠΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
+| gregorius-nazianzenus.supremum-vale-orat-42 | Gregorius Nazianzenus - Supremum Vale (Orat. 42) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,830 | auto-corrected |
+| gregorius-nazianzenus.testamentum | Gregorius Nazianzenus - Testamentum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,014 | raw OCR |
+| gregorius-nyssenus.ad-ablabium-quod-non-sint-tres-dei | Gregorius Nyssenus - Ad Ablabium Quod Non Sint Tres Dei | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,130 | auto-corrected |
+| gregorius-nyssenus.ad-graecos-ex-communibus-notionibus | Gregorius Nyssenus - Ad Graecos Ex Communibus Notionibus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,123 | auto-corrected |
+| gregorius-nyssenus.ad-imaginem-dei-et-ad-similitudinem-sp | Gregorius Nyssenus - Ad Imaginem Dei Et Ad Similitudinem Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,252 | auto-corrected |
+| gregorius-nyssenus.ad-theophilum-adversus-apollinaristas | Gregorius Nyssenus - Ad Theophilum Adversus Apollinaristas | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,689 | auto-corrected |
+| gregorius-nyssenus.adversus-arium-et-sabellium-de-patre-et-filio | Gregorius Nyssenus - Adversus Arium Et Sabellium De Patre Et Filio | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,432 | auto-corrected |
+| gregorius-nyssenus.adversus-eos-qui-castigationes-aegre-ferunt | Gregorius Nyssenus - Adversus Eos Qui Castigationes Aegre Ferunt | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,137 | auto-corrected |
+| gregorius-nyssenus.adversus-macedonianos-de-spiritu-sancto | Gregorius Nyssenus - Adversus Macedonianos De Spiritu Sancto | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,007 | auto-corrected |
+| gregorius-nyssenus.antirrheticus-adversus-apollinarium | Gregorius Nyssenus - Antirrheticus Adversus Apollinarium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 25,016 | auto-corrected |
+| gregorius-nyssenus.apologia-in-hexaemeron | Gregorius Nyssenus - Apologia In Hexaemeron | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,190 | auto-corrected |
+| gregorius-nyssenus.contra-eunomium | Gregorius Nyssenus - Contra Eunomium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 178,664 | auto-corrected |
+| gregorius-nyssenus.contra-fatum | Gregorius Nyssenus - Contra Fatum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,707 | auto-corrected |
+| gregorius-nyssenus.contra-fornicarios | Gregorius Nyssenus - Contra Fornicarios | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 918 | auto-corrected |
+| gregorius-nyssenus.contra-usurarios | Gregorius Nyssenus - Contra Usurarios | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,712 | auto-corrected |
+| gregorius-nyssenus.de-anima-sp | Gregorius Nyssenus - De Anima Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,730 | auto-corrected |
+| gregorius-nyssenus.de-beneficentia-vulgo-de-pauperibus-amandis-i | Gregorius Nyssenus - De Beneficentia (Vulgo De Pauperibus Amandis I) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,724 | auto-corrected |
+| gregorius-nyssenus.de-creatione-hominis-sermo-alter-sp | Gregorius Nyssenus - De Creatione Hominis Sermo Alter Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,294 | auto-corrected |
+| gregorius-nyssenus.de-creatione-hominis-sermo-primus-sp | Gregorius Nyssenus - De Creatione Hominis Sermo Primus Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,697 | auto-corrected |
+| gregorius-nyssenus.de-deitate-adversus-evagrium-vulgo-in-suam | Gregorius Nyssenus - De Deitate Adversus Evagrium (Vulgo In Suam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,862 | raw OCR |
+| gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti | Gregorius Nyssenus - De Deitate Filii Et Spiritus Sancti | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,744 | auto-corrected |
+| gregorius-nyssenus.de-infantibus-praemature-abreptis | Gregorius Nyssenus - De Infantibus Praemature Abreptis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,739 | auto-corrected |
+| gregorius-nyssenus.de-instituto-christiano | Gregorius Nyssenus - De Instituto Christiano | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,681 | auto-corrected |
+| gregorius-nyssenus.de-mortuis-non-esse-dolendum | Gregorius Nyssenus - De Mortuis Non Esse Dolendum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,028 | auto-corrected |
+| gregorius-nyssenus.de-occursu-domini-sp | Gregorius Nyssenus - De Occursu Domini Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,443 | auto-corrected |
+| gregorius-nyssenus.de-opificio-hominis | Gregorius Nyssenus - De Opificio Hominis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,801 | auto-corrected |
+| gregorius-nyssenus.de-oratione-dominica-orationes-v | Gregorius Nyssenus - De Oratione Dominica Orationes V | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,096 | auto-corrected |
+| gregorius-nyssenus.de-perfectione-christiana-ad-olympium-monachum | Gregorius Nyssenus - De Perfectione Christiana Ad Olympium Monachum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,079 | auto-corrected |
+| gregorius-nyssenus.de-professione-christiana-ad-harmonium | Gregorius Nyssenus - De Professione Christiana Ad Harmonium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,120 | raw OCR |
+| gregorius-nyssenus.de-pythonissa-ad-theodosium-episcopum | Gregorius Nyssenus - De Pythonissa Ad Theodosium Episcopum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 672 | raw OCR |
+| gregorius-nyssenus.de-sancto-theodoro | Gregorius Nyssenus - De Sancto Theodoro | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,212 | auto-corrected |
+| gregorius-nyssenus.de-spiritu-sancto-sive-in-pentecosten | Gregorius Nyssenus - De Spiritu Sancto Sive In Pentecosten | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,061 | auto-corrected |
+| gregorius-nyssenus.de-virginitate | Gregorius Nyssenus - De Virginitate | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 22,317 | auto-corrected |
+| gregorius-nyssenus.de-vita-gregorii-thaumaturgi | Gregorius Nyssenus - De Vita Gregorii Thaumaturgi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,024 | auto-corrected |
+| gregorius-nyssenus.de-vita-mosis | Gregorius Nyssenus - De Vita Mosis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 28,095 | auto-corrected |
+| gregorius-nyssenus.decem-syllogismi-contra-manichaeos-sp | Gregorius Nyssenus - Decem Syllogismi Contra Manichaeos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229 | raw OCR |
+| gregorius-nyssenus.dialogus-de-anima-et-resurrectione | Gregorius Nyssenus - Dialogus De Anima Et Resurrectione | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 24,844 | auto-corrected |
+| gregorius-nyssenus.encomium-in-sanctum-stephanum-protomartyrem-i | Gregorius Nyssenus - Encomium In Sanctum Stephanum Protomartyrem I | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,030 | auto-corrected |
+| gregorius-nyssenus.encomium-in-xl-martyres-i | Gregorius Nyssenus - Encomium In Xl Martyres I | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,611 | auto-corrected |
+| gregorius-nyssenus.encomium-in-xl-martyres-ii | Gregorius Nyssenus - Encomium In Xl Martyres Ii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,691 | auto-corrected |
+| gregorius-nyssenus.epistula-canonica-ad-letoium | Gregorius Nyssenus - Epistula Canonica Ad Letoium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,070 | auto-corrected |
+| gregorius-nyssenus.epistulae | Gregorius Nyssenus - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,181 | auto-corrected |
+| gregorius-nyssenus.in-ascensionem-christi | Gregorius Nyssenus - In Ascensionem Christi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,028 | auto-corrected |
+| gregorius-nyssenus.in-basilium-fratrem | Gregorius Nyssenus - In Basilium Fratrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,111 | auto-corrected |
+| gregorius-nyssenus.in-canticum-canticorum-homiliae-15 | Gregorius Nyssenus - In Canticum Canticorum (Homiliae 15) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 75,182 | auto-corrected |
+| gregorius-nyssenus.in-ecclesiasten-homiliae-8 | Gregorius Nyssenus - In Ecclesiasten (Homiliae 8) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,424 | auto-corrected |
+| gregorius-nyssenus.in-illud-quatenus-uni-ex-his-fecistis-mihi-fecistis | Gregorius Nyssenus - In Illud: Quatenus Uni Ex His Fecistis Mihi Fecistis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,549 | auto-corrected |
+| gregorius-nyssenus.in-illud-tunc-et-ipse-filius | Gregorius Nyssenus - In Illud: Tunc Et Ipse Filius | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,800 | auto-corrected |
+| gregorius-nyssenus.in-inscriptiones-psalmorum | Gregorius Nyssenus - In Inscriptiones Psalmorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 39,897 | auto-corrected |
+| gregorius-nyssenus.in-luciferam-sanctam-domini-resurrectionem-vulgo-in | Gregorius Nyssenus - In Luciferam Sanctam Domini Resurrectionem (Vulgo In | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,229 | raw OCR |
+| gregorius-nyssenus.in-sanctum-ephraim | Gregorius Nyssenus - In Sanctum Ephraim | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,458 | auto-corrected |
+| gregorius-nyssenus.in-sanctum-et-salutare-pascha-vulgo-in-christi | Gregorius Nyssenus - In Sanctum Et Salutare Pascha (Vulgo In Christi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 389 | auto-corrected |
+| gregorius-nyssenus.in-sanctum-pascha-vulgo-in-christi-resurrectionem-oratio | Gregorius Nyssenus - In Sanctum Pascha (Vulgo In Christi Resurrectionem Oratio | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,794 | auto-corrected |
+| gregorius-nyssenus.oratio-catechetica-magna | Gregorius Nyssenus - Oratio Catechetica Magna | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,627 | auto-corrected |
+| gregorius-nyssenus.oratio-consolatoria-in-pulcheriam | Gregorius Nyssenus - Oratio Consolatoria In Pulcheriam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,800 | auto-corrected |
+| gregorius-nyssenus.oratio-funebris-in-flacillam-imperatricem | Gregorius Nyssenus - Oratio Funebris In Flacillam Imperatricem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,868 | auto-corrected |
+| gregorius-nyssenus.oratio-funebris-in-meletium-episcopum | Gregorius Nyssenus - Oratio Funebris In Meletium Episcopum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,343 | auto-corrected |
+| gregorius-nyssenus.oratio-in-diem-natalem-christi | Gregorius Nyssenus - Oratio In Diem Natalem Christi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,809 | auto-corrected |
+| gregorius-nyssenus.orationes-viii-de-beatitudinibus | Gregorius Nyssenus - Orationes Viii De Beatitudinibus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,619 | auto-corrected |
+| gregorius-nyssenus.testimonia-adversus-judaeos-sp | Gregorius Nyssenus - Testimonia Adversus Judaeos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,087 | auto-corrected |
+| gregorius-nyssenus.vita-sanctae-macrinae | Gregorius Nyssenus - Vita Sanctae Macrinae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,592 | auto-corrected |
+| hecataeus-abderita.testimonia-2 | Hecataeus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,190 | auto-corrected |
+| hegemon-parodius.fragmentum | Hegemon - Fragmentum | kock-caf1-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
 | hegesippus-scr-eccl.fragmenta-ex-incerto-libro | Hegesippus - Fragmenta (ex incerto libro / Hypomnemata) (PG005 loci 663-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,511 | auto-corrected |
-| hegesippus.fragmenta | HEGESIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 164 | raw OCR |
+| hegesippus.fragmenta | HEGESIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 164 | raw OCR |
 | heliodorus.fragmenta | Fragmenta | qwen36-staphylus_fhg4 | Qwen3.6-27B | 157 | raw OCR |
-| hellanicus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 981 | auto-corrected |
-| heniochus.fragmenta | ΠΟΛΤΙΠΡΑΓΜΩΝ | kock-caf2-ocr-frag | Qwen3.6-27B | 76 | raw OCR |
-| heraclides-comedy.fragmentum | ΑΔΗΛΟΥ ΔΡΑΜΑΤΟΣ | [Kock, Comicorum Atticorum Fragmenta II](https://archive.org/search?query=Comicorum+Atticorum+Fragmenta+Kock) | Qwen3.6-27B | 130 | raw OCR |
-| heraclides-ponticus-junior-grammar.fragmenta |  | qwen36-aelian_heraclid_tauchnitz_1829 | Qwen3.6-27B | 57,798 | auto-corrected |
-| heraclitus-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 15,745 | auto-corrected |
-| herillus.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 219 | raw OCR |
-| hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 57 | raw OCR |
-| hermesianax.fragmenta |  | qwen36-philetas_bach_1829-ocr | Qwen3.6-27B | 6,546 | auto-corrected |
+| hellanicus.fragmenta | Hellanicus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 981 | auto-corrected |
+| heniochus.fragmenta | Heniochus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 76 | raw OCR |
+| heraclides-comedy.fragmentum | Heraclides - Fragmentum | [Kock, Comicorum Atticorum Fragmenta II](https://archive.org/search?query=Comicorum+Atticorum+Fragmenta+Kock) | Qwen3.6-27B | 130 | raw OCR |
+| heraclides-ponticus-junior-grammar.fragmenta | Heraclides Ponticus Junior - Fragmenta | qwen36-aelian_heraclid_tauchnitz_1829 | Qwen3.6-27B | 57,798 | auto-corrected |
+| heraclitus-philosophy.testimonia | Heraclitus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 15,745 | auto-corrected |
+| herillus.fragmenta | Herillus - Fragmenta | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 219 | raw OCR |
+| hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos | Hermes - Αἴνιγμα τοῦ φιλοσοφικοῦ λίθου Ἑρμοῦ καὶ Ἀγαθοδαίμονος | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 57 | raw OCR |
+| hermesianax.fragmenta | Fragmenta | qwen36-philetas_bach_1829-ocr | Qwen3.6-27B | 6,546 | auto-corrected |
 | hermias-apologetics.irrisio-gentilium-philosophorum | Hermias - Irrisio gentilium philosophorum (PG006 loci 592-597) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,818 | auto-corrected |
-| hermias-history.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 515 | auto-corrected |
-| hermippus-comedy.fragmenta | 230 ΕΡΜΙΠΠΟΥ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,960 | auto-corrected |
-| hermippus-comedy.fragmenta-4 |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
-| herodas.mimiambi | ΠΡΟΚΥΚΛΙΣ Η ΜΑΣΤΡΟΠΟΣ | [Herodas, ed. Headlam-Knox](https://archive.org/details/herodasmimesfrag00hero) | Qwen3.6-27B | 2,846 | auto-corrected |
-| heron.definitiones |  | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,184 | auto-corrected |
-| heron.geometrica | HERO ALEXANDRINUS — Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
-| hesiodus.fragmenta |  | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
-| hesychius-lexicography.epistula-ad-eulogium |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | raw OCR |
-| hesychius-lexicography.lexicon-o |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 150,437 | auto-corrected |
-| hesychius-lexicography.lexicon-p-w |  | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,547 | auto-corrected |
+| hermias-history.fragmenta | Hermias - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 515 | auto-corrected |
+| hermippus-comedy.fragmenta | Hermippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,960 | auto-corrected |
+| hermippus-comedy.fragmenta-4 | Hermippus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
+| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam-Knox](https://archive.org/details/herodasmimesfrag00hero) | Qwen3.6-27B | 2,846 | auto-corrected |
+| heron.definitiones | Heron - Definitiones | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,184 | auto-corrected |
+| heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
+| hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
+| hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | raw OCR |
+| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 150,437 | auto-corrected |
+| hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,547 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,837 | auto-corrected |
-| hicetas.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
-| hierocles-philosophy.hqikh-stoixei-wsis |  | qwen36-hierocl_aureum_mullach_fpg1 | Qwen3.6-27B | 139,938 | auto-corrected |
-| hieronymus.fragmenta |  | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 542 | auto-corrected |
-| hierotheus-alchemy.ieroqe-ou-peri-th-s-i-era-s-te-xnhs-e-cod-paris-b-n-gr |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 372 | auto-corrected |
+| hicetas.testimonia | Hicetas - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
+| hierocles-philosophy.hqikh-stoixei-wsis | Hierocles - Ἠθικὴ στοιχείωσις | qwen36-hierocl_aureum_mullach_fpg1 | Qwen3.6-27B | 139,938 | auto-corrected |
+| hieronymus.fragmenta | Fragmenta | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 542 | auto-corrected |
+| hierotheus-alchemy.ieroqe-ou-peri-th-s-i-era-s-te-xnhs-e-cod-paris-b-n-gr | Hierotheus - Ἱεροθέου περὶ τῆς ἱερᾶς τέχνης (E Cod. Paris. B.N. Gr | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 372 | auto-corrected |
 | hilarion-monachus.oratio-dialectica-de-pane-mystico | Hilarion monachus - Logos dialektikos / Oratio dialectica de pane mystico Graecorum et azymo Latinorum (PG158 loci 524-527) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,414 | manual |
-| himerius.declamationes-et-orationes |  | qwen36-himerius_dubner_didot | Qwen3.6-27B | 257,196 | auto-corrected |
-| hipparchus-comedy.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 216 | raw OCR |
-| hipparchus-philosophy.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 634 | auto-corrected |
-| hippasus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,786 | raw OCR |
-| hippias-soph.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,920 | auto-corrected |
+| himerius.declamationes-et-orationes | Himerius - Declamationes Et Orationes | qwen36-himerius_dubner_didot | Qwen3.6-27B | 257,196 | auto-corrected |
+| hipparchus-comedy.fragmenta | Hipparchus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 216 | raw OCR |
+| hipparchus-philosophy.fragmentum | Hipparchus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 634 | auto-corrected |
+| hippasus.testimonia | Hippasus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,786 | raw OCR |
+| hippias-soph.testimonia-2 | Hippias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,920 | auto-corrected |
 | hippiatrica.appendices-ad-hippiatrica-berolinensia | Appendices ad Hippiatrica Berolinensia | [Oder-Hoppe, Corpus Hippiatricorum Graecorum vol. 1 (Berolinensia), Teubner 1924](https://digital.slub-dresden.de/werkansicht/dlf/303101) | Qwen3.6-27B | 2,800 | auto-corrected |
 | hippiatrica.hippiatrica-berolinensia | Hippiatrica Berolinensia | [Oder-Hoppe, Corpus Hippiatricorum Graecorum vol. 1 (Berolinensia), Teubner 1924](https://digital.slub-dresden.de/werkansicht/dlf/303101) | Qwen3.6-27B | 94,957 | auto-corrected |
-| hippocrates.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,425 | auto-corrected |
-| hippodamus.fragmenta-sp |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,677 | auto-corrected |
-| hippon.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,993 | auto-corrected |
-| horapollo.hieroglyphica-translatio-philippi |  | qwen36-horapollo_leemans | Qwen3.6-27B | 17,898 | auto-corrected |
-| hyperochus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 83 | raw OCR |
-| ibycus.fragmenta | IBYCUS — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,628 | auto-corrected |
-| iccus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 611 | raw OCR |
-| idaeus-philosophy.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 765 | auto-corrected |
+| hippocrates.testimonia | Hippocrates - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,425 | auto-corrected |
+| hippodamus.fragmenta-sp | Hippodamus - Fragmenta Sp. | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,677 | auto-corrected |
+| hippon.testimonia | Hippon - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,993 | auto-corrected |
+| horapollo.hieroglyphica-translatio-philippi | Horapollo - Hieroglyphica (Translatio Philippi) | qwen36-horapollo_leemans | Qwen3.6-27B | 17,898 | auto-corrected |
+| hyperochus.fragmenta | Hyperochus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 83 | raw OCR |
+| ibycus.fragmenta | IBYCUS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,628 | auto-corrected |
+| iccus.testimonia | Iccus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 611 | raw OCR |
+| idaeus-philosophy.testimonium | Idaeus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 765 | auto-corrected |
 | ignatius-scr-eccl.fragmenta-ex-epistolis | Ignatius Antiochenus - Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section) (PG005 loci 483-489) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,281 | manual |
-| ilias-parva.ilias-parva-fragmenta |  | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 1,894 | auto-corrected |
-| iliu-persis.iliu-persis-fragmenta |  | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 379 | auto-corrected |
-| ion-philosophy.fragmenta | ΑΓΑΜΕΜΝΩΝ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 1,898 | auto-corrected |
-| ion-philosophy.testimonia-2 |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,313 | auto-corrected |
-| iophon.fragmenta | ἈΤΑΩΙΔΟΙ ΣΑΤΤΡΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 285 | auto-corrected |
+| ilias-parva.ilias-parva-fragmenta | Ilias Parva - Ilias Parva (Fragmenta) | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 1,894 | auto-corrected |
+| iliu-persis.iliu-persis-fragmenta | Iliu Persis - Iliu Persis (Fragmenta) | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 379 | auto-corrected |
+| ion-philosophy.fragmenta | Ion - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 1,898 | auto-corrected |
+| ion-philosophy.testimonia-2 | Ion - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,313 | auto-corrected |
+| iophon.fragmenta | Iophon - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 285 | auto-corrected |
 | isidorus-scholasticus-anthol-didot |  | qwen36-isidorus_scholasticus_anthol_didot | Qwen3.6-27B | 105,423 | auto-corrected |
-| isyllus.fragmenta-ig-4-950 |  | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 75 | raw OCR |
-| jacobs-anthologia-graeca-t13.appendix-epigrammatum |  | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 17,153 | auto-corrected |
-| joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,261 | raw OCR |
+| isyllus.fragmenta-ig-4-950 | Isyllus - Fragmenta (Ig 4.950) | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 75 | raw OCR |
+| jacobs-anthologia-graeca-t13.appendix-epigrammatum | Appendix epigrammatum (ed. Jacobs) | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 17,153 | auto-corrected |
+| joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs | Joannes Archiereus - Ἰωάννου ἀρχιερέως τοῦ E)N Ἐβειγίᾳ περὶ τῆς θείας τέχνης | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,261 | raw OCR |
 | joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem | Joannes Argyropulus - De processione Spiritus Sancti ad magnum ducem (Lucam Notaram), cum explanatione decreti synodi Florentinae (PG158 loci 531-539) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,552 | manual |
 | joannes-cameniates.de-expugnatione-thessalonicae | Joannes Cameniates - De expugnatione Thessalonicae (PG109 loci 268-324) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,490 | manual |
-| joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1 | 422 ΠΡΟΣ ΔΗΜΗΤΡΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,512 | auto-corrected |
-| joannes-chrysostomus.ad-eos-qui-scandalizati-sunt | ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,044 | auto-corrected |
-| joannes-chrysostomus.ad-illuminandos-catecheses-1-2-series-prima-et-secunda | ΚΑΤΗΧΗΣΙΣ ΠΡΩΤΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,937 | auto-corrected |
-| joannes-chrysostomus.ad-populum-antiochenum-homiliae-1-21 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,964 | auto-corrected |
-| joannes-chrysostomus.ad-stagirium-daemone-vexatum-lib-1-3 | ΠΡΟΣ ΣΤΑΓΕΙΡΙΟΝ ΑΕΚΗΤΗΝ ΔΑΙΜΟΝΟΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,026 | auto-corrected |
-| joannes-chrysostomus.ad-stelechium-de-compunctione-lib-2 | ΠΡΟΣ ΣΤΕΛΕΧΙΟΝ, ΚΑΙ ΠΕΡΙ ΚΑΤΑΝΥΣΕΩΣ ΛΟΓΟΣ ΔΕΥΤΕΡΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,597 | auto-corrected |
-| joannes-chrysostomus.ad-theodorum-lapsum-lib-1 | ΛΟΓΟΣ ΠΑΡΑΙΝΕΤΙΚΟΣ ΕΙΣ ΘΕΟΔΩΡΟΝ ΕΚΠΕΣΟΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,865 | auto-corrected |
-| joannes-chrysostomus.ad-theodorum-lapsum-lib-2-epistula-ad-theodorum | ΤΟΥ ΑΥΤΟΥ ΠΡΟΣ ΤΟΝ ΑΥΤΟΝ ΘΕΟΔΩΡΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,021 | auto-corrected |
-| joannes-chrysostomus.ad-viduam-juniorem |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,184 | auto-corrected |
-| joannes-chrysostomus.adversus-ebriosos-et-de-resurrectione-domini-nostri-jesu-christi | ΚΑΤΑ ΜΕΘΥΟΝΤΩΝ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,972 | auto-corrected |
-| joannes-chrysostomus.adversus-judaeos-orationes-1-8 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 43,094 | auto-corrected |
-| joannes-chrysostomus.adversus-oppugnatores-vitae-monasticae-lib-1-3 | ΤΟΙΣ ΕΠΙ ΤΟ ΜΟΝΑΖΕΙΝ ΕΝΑΓΟΥΣΙΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,122 | auto-corrected |
-| joannes-chrysostomus.ascetam-facetiis-uti-non-debere-sp | 801 ὍΤΙ ΟΥ ΧΡΗ ΕΥΤΡΑΠΕΙΖΕΙΝ ΤΟΝ ΑΣΚΗΤΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,108 | auto-corrected |
-| joannes-chrysostomus.commentarius-in-job | ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 26,820 | auto-corrected |
-| joannes-chrysostomus.comparatio-regis-et-monachi-dub | 116 ΣΥΓΚΡΙΣΙΣ ΒΑΣΙΛΙΚΗΣ ΔΥΝΑΣΤΕΙΑΣ ΚΑΙ ΠΛΟΥΤΟΥ ΚΑΙ ΥΠΕΡΟΧΗΣ, ΠΡΟΣ ΜΟΝΑΧΟΝ ΣΥΖΩΝ- ΤΑ ΤΗ ΑΛΗΘΕΣΤΑΤΗ ΚΑΙ ΚΑΤΑ ΧΡΙΣΤΟΝ ΦΙΛΟΣΟΦΙΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,198 | auto-corrected |
+| joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1 | Joannes Chrysostomus - Ad Demetrium De Compunctione (Lib. 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,512 | auto-corrected |
+| joannes-chrysostomus.ad-eos-qui-scandalizati-sunt | Joannes Chrysostomus - Ad Eos Qui Scandalizati Sunt | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,044 | auto-corrected |
+| joannes-chrysostomus.ad-illuminandos-catecheses-1-2-series-prima-et-secunda | Joannes Chrysostomus - Ad Illuminandos Catecheses 1-2 (Series Prima Et Secunda) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,937 | auto-corrected |
+| joannes-chrysostomus.ad-populum-antiochenum-homiliae-1-21 | Joannes Chrysostomus - Ad Populum Antiochenum (Homiliae 1-21) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,964 | auto-corrected |
+| joannes-chrysostomus.ad-stagirium-daemone-vexatum-lib-1-3 | Joannes Chrysostomus - Ad Stagirium A Daemone Vexatum (Lib. 1-3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,026 | auto-corrected |
+| joannes-chrysostomus.ad-stelechium-de-compunctione-lib-2 | Joannes Chrysostomus - Ad Stelechium De Compunctione (Lib. 2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,597 | auto-corrected |
+| joannes-chrysostomus.ad-theodorum-lapsum-lib-1 | Joannes Chrysostomus - Ad Theodorum Lapsum (Lib. 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,865 | auto-corrected |
+| joannes-chrysostomus.ad-theodorum-lapsum-lib-2-epistula-ad-theodorum | Joannes Chrysostomus - Ad Theodorum Lapsum (Lib. 2) ( Epistula Ad Theodorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,021 | auto-corrected |
+| joannes-chrysostomus.ad-viduam-juniorem | Joannes Chrysostomus - Ad Viduam Juniorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,184 | auto-corrected |
+| joannes-chrysostomus.adversus-ebriosos-et-de-resurrectione-domini-nostri-jesu-christi | Joannes Chrysostomus - Adversus Ebriosos Et De Resurrectione Domini Nostri Jesu Christi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,972 | auto-corrected |
+| joannes-chrysostomus.adversus-judaeos-orationes-1-8 | Joannes Chrysostomus - Adversus Judaeos (Orationes 1-8) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 43,094 | auto-corrected |
+| joannes-chrysostomus.adversus-oppugnatores-vitae-monasticae-lib-1-3 | Joannes Chrysostomus - Adversus Oppugnatores Vitae Monasticae (Lib. 1-3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,122 | auto-corrected |
+| joannes-chrysostomus.ascetam-facetiis-uti-non-debere-sp | Joannes Chrysostomus - Ascetam Facetiis Uti Non Debere Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,108 | auto-corrected |
+| joannes-chrysostomus.commentarius-in-job | Joannes Chrysostomus - Commentarius In Job | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 26,820 | auto-corrected |
+| joannes-chrysostomus.comparatio-regis-et-monachi-dub | Joannes Chrysostomus - Comparatio Regis Et Monachi Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,198 | auto-corrected |
 | joannes-chrysostomus.contra-anomoeos-homilia-11 | Contra Anomoeos (homilia 11) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,096 | auto-corrected |
-| joannes-chrysostomus.contra-eos-qui-subintroductas-habent-virgines | ΠΡΟΣ ΤΟΥΣ ΕΧΟΝΤΑΣ ΠΑΡΘΕΝΟΥΣ ΣΥΝΕΙΣΑΚΤΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,403 | auto-corrected |
-| joannes-chrysostomus.contra-judaeos-gentiles-et-haereticos-et-in-illud-vocatus-est-jesus | ΠΡΟΣ ΙΟΥΔΑΙΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,636 | auto-corrected |
-| joannes-chrysostomus.contra-ludos-et-theatra | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΟΜΙΛΙΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,101 | auto-corrected |
-| joannes-chrysostomus.de-anna-sermones-1-5 | ΛΟΓΟΣ Αʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 24,330 | auto-corrected |
-| joannes-chrysostomus.de-babyla-contra-julianum-et-gentiles | ΛΟΓΟΣ ΕΙΣ ΤΟΝ ΜΑΚΑΡΙΟΝ ΒΑΒΥΛΑΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,509 | auto-corrected |
-| joannes-chrysostomus.de-beato-abraham-sp | ΕΙΣ ΤΟΝ ΜΑΚΑΡΙΟΝ ΑΒΡΑΑΜ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,542 | auto-corrected |
-| joannes-chrysostomus.de-chananaea-dub | ΕΙΣ ΤΗΝ ΕΠΙΛΥΣΙΝ ΤΗΣ ΧΑΝΑΝΑΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,333 | auto-corrected |
+| joannes-chrysostomus.contra-eos-qui-subintroductas-habent-virgines | Joannes Chrysostomus - Contra Eos Qui Subintroductas Habent Virgines | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,403 | auto-corrected |
+| joannes-chrysostomus.contra-judaeos-gentiles-et-haereticos-et-in-illud-vocatus-est-jesus | Joannes Chrysostomus - Contra Judaeos, Gentiles Et Haereticos Et In Illud: Vocatus Est Jesus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,636 | auto-corrected |
+| joannes-chrysostomus.contra-ludos-et-theatra | Joannes Chrysostomus - Contra Ludos Et Theatra | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,101 | auto-corrected |
+| joannes-chrysostomus.de-anna-sermones-1-5 | Joannes Chrysostomus - De Anna (Sermones 1-5) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 24,330 | auto-corrected |
+| joannes-chrysostomus.de-babyla-contra-julianum-et-gentiles | Joannes Chrysostomus - De Babyla Contra Julianum Et Gentiles | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,509 | auto-corrected |
+| joannes-chrysostomus.de-beato-abraham-sp | Joannes Chrysostomus - De Beato Abraham Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,542 | auto-corrected |
+| joannes-chrysostomus.de-chananaea-dub | Joannes Chrysostomus - De Chananaea Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,333 | auto-corrected |
 | joannes-chrysostomus.de-christi-divinitate-contra-anomoeos-homilia-12 | De Christi divinitate (%6 Contra Anomoeos, homilia 12) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,649 | auto-corrected |
 | joannes-chrysostomus.de-christi-precibus-contra-anomoeos-homilia-10 | De Christi precibus (%6 Contra Anomoeos, homilia 10) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,345 | auto-corrected |
-| joannes-chrysostomus.de-coemeterio-et-de-cruce | ΕΙΣ ΤΟ ΟΝΟΜΑ ΤΟΥ ΚΟΙΜΗΤΗΡΙΟΥ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,940 | auto-corrected |
-| joannes-chrysostomus.de-confessione-pretiosae-crucis-sp | 825 ΤΟΥ ΑΥΤΟΥ ΛΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,861 | auto-corrected |
-| joannes-chrysostomus.de-davide-et-saule-homiliae-1-3 | ΟΜΙΛΙΑ Βʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,762 | auto-corrected |
-| joannes-chrysostomus.de-decem-millium-talentorum-debitore | 1 ΕἸΣ ΤῊΝ ΠΑΡΑΒΟΛΗ͂Ν | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,703 | auto-corrected |
-| joannes-chrysostomus.de-eleemosyna | ΠΕΡΙ ΕΛΕΗΜΟΣΥΝΗΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,195 | auto-corrected |
-| joannes-chrysostomus.de-fato-et-providentia-orationes-1-6 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΙΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,078 | auto-corrected |
-| joannes-chrysostomus.de-fugienda-simulata-specie-sp | ὍΤΙ ἘΠΙΠΛΑΣΤῸΝ ΣΧΗΜᾺ ΚΑῚ ΜῊ ἈΛΗΘΈΣ ΦΕΥΓΕΙ͂Ν ΧΡῊ, ὉΜΙΛΊΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 837 | auto-corrected |
-| joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7 | ΕΙΣ ΤΟΝ ΑΓΙΟΝ ΑΠΟΣΤΟΛΟΝ ΠΑΥΛΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,893 | auto-corrected |
-| joannes-chrysostomus.de-lazaro-homiliae-1-7 | 691 ΠΕΡΙ ΤΟΥ ΜΗ ΔΕΙΝ ΑΝΑΘΕΜΑΤΙΖΕΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,586 | auto-corrected |
-| joannes-chrysostomus.de-libello-repudii | 203 ΕἸΣ ΤΟ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,685 | auto-corrected |
-| joannes-chrysostomus.de-maccabeis-homiliae-1-3 | ΕἸΣ ΤΟῪΣ ἉΓΊΟΥΣ ΜΑΚΚΑΒΑΙΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,671 | auto-corrected |
-| joannes-chrysostomus.de-melchisedech-sp | ΤΟΥ ΑΥΤΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,849 | raw OCR |
-| joannes-chrysostomus.de-non-iterando-conjugio | ΤΟΥ ΑΥΤΟΥ ΠΡΟΣ ΤΗΝ ΑΥΤΗΝ ΠΕΡΙ ΜΟΝΑΝΔΡΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,816 | auto-corrected |
-| joannes-chrysostomus.de-occursu-domini-de-deipara-et-symeone-sp | 819 ΕΙΣ ΤΗΝ ΥΠΑΠΑΝΤΗΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,014 | auto-corrected |
-| joannes-chrysostomus.de-paenitentia-homiliae-1-9 | ΛΟΓΟΣ ΠΕΡΙ ΜΕΤΑΝΟΙΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 37,560 | auto-corrected |
-| joannes-chrysostomus.de-perfecta-caritate-sp | ΧΡΥΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,855 | auto-corrected |
-| joannes-chrysostomus.de-precatione-orat-1-2-sp | ΤΟΥ ΑΥΤΟΥ ΠΕΡΙ ΠΡΟΣΕΥΧΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,900 | auto-corrected |
-| joannes-chrysostomus.de-proditione-judae-homiliae-1-2 | 721 ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΤΗΝ ΠΡΟΔΟΣΙΑΝ ΤΟΥ ΙΟΥΔΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,746 | auto-corrected |
-| joannes-chrysostomus.de-profectu-evangelii | 500 ΠΡΟΣ ΤΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,337 | auto-corrected |
-| joannes-chrysostomus.de-resurrectione-mortuorum | ΠΕΡΙ ΤΗΣ ΤΩΝ ΝΕΚΡΩΝ ΑΝΑΣΤΑΣΕΩΣ ΟΜΙΛΙΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,435 | auto-corrected |
-| joannes-chrysostomus.de-sacerdotio-lib-1-6 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΠΕΡΙ ΙΕΡΩΣΥΝΗΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 31,674 | auto-corrected |
-| joannes-chrysostomus.de-sacerdotio-lib-7-sp | 813 ΤΟΥ ΑΥΤΟΥ [ΧΡΥΣΟΣΤΟΜΟΥ] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,695 | auto-corrected |
-| joannes-chrysostomus.de-sancta-droside-martyre | 688 ΕΓΚΩΜΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,844 | auto-corrected |
-| joannes-chrysostomus.de-sancta-pelagia-virgine-et-martyre |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,435 | raw OCR |
-| joannes-chrysostomus.de-sancta-pentecoste-homiliae-1-2 | ΕἸΣ ΤῊΝ ἈΓΙΑΝ ΠΕΝΤΗΚΟΣΤΗΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,821 | auto-corrected |
-| joannes-chrysostomus.de-sancta-thecla-martyre-sp | ΕἸΣ ΤῊΝ ἉΓΊΑΝ ΠΡΩΤΟΜΑΡΤΥΡΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,013 | raw OCR |
-| joannes-chrysostomus.de-sancta-trinitate-sp | 797 ΧΡΥΣΟΣΤΟΜΟΥ ΟΜΙΛΙΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,448 | auto-corrected |
-| joannes-chrysostomus.de-sanctis-bernice-et-prosdoce | ΕΙΣ ΤΑΣ ΑΓΙΑΣ ΜΑΡΤΥΡΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,143 | auto-corrected |
-| joannes-chrysostomus.de-sancto-hieromartyre-babyla |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,781 | raw OCR |
-| joannes-chrysostomus.de-sancto-hieromartyre-phoca | 1704 ΕΙΣ ΤΟΝ ΑΓΙΟΝ ΙΕΡΟΜΑΡΤΥΡΑ ΦΩΚΑΝ, ΚΑΙ ΚΑΤΑ ΑΙΡΕΤΙΚΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,304 | auto-corrected |
-| joannes-chrysostomus.de-sancto-meletio-antiocheno | ΟΜΙΛΙΑ ΕΓΚΩΜΙΑΣΤΙΚΗ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,714 | auto-corrected |
-| joannes-chrysostomus.de-terrae-motu | 747 ΟΜΙΛΙΑ ΜΕΤΑ ΤΟΝ ΣΕΙΣΜΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 856 | auto-corrected |
-| joannes-chrysostomus.de-virginitate | ἈΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΠΕΡΙ ΠΑΡΘΕΝΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,611 | auto-corrected |
-| joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΕΚΛΟΓΑΙ ΑΠΟ ΔΙΑΦΟΡΩΝ ΛΟΓΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 152,854 | auto-corrected |
-| joannes-chrysostomus.epistula-ad-caesarium-sp | 736-742 ΙΩΑΝΝΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 517 | auto-corrected |
-| joannes-chrysostomus.epistula-ad-cyriacum-epist-125-recensiones | ΠΡΟΣ ΚΥΡΙΑΚΟΝ ΕΠΙΣΚΟΠΟΝ ΕΝ ΕΞΟΡΙΑ ΩΝΤΑ ΚΑΙ ΑΥΤΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,869 | auto-corrected |
-| joannes-chrysostomus.epistula-ad-episcopos-presbyteros-et-diaconos | ΤΩ ΑΓΑΠΗΤΩ ΑΔΕΛΦΩ ΙΩΑΝΝΗ ΙΝΝΟΚΕΝΤΙΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,448 | auto-corrected |
-| joannes-chrysostomus.epistulae-18-242 | 699 ΤΟΥ ΑΥΤΟΥ ΠΡΟΣ ΔΙΑΦΟΡΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,036 | auto-corrected |
-| joannes-chrysostomus.epistulae-ad-olympiadem-epist-1-17 | ΤΗ ΔΕΣΠΟΙΝΗ ΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 48,926 | auto-corrected |
-| joannes-chrysostomus.expositiones-in-psalmos | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 198,129 | auto-corrected |
-| joannes-chrysostomus.fragmenta-in-epistulas-catholicas | A ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,774 | auto-corrected |
-| joannes-chrysostomus.fragmenta-in-jeremiam-in-catenis | ΤΟΥ ἉΓΙΟΥ ΙΩΑΝΝΟΥ ἈΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΕΞΗΓΗΣΕΩΣ ΕΙΣ ΤΟΝ ΙΕΡΕΜΙΑΝ ΠΡΟΦΗΤΗΝ ΤΑ ΣΩΖΟΜΕΝΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 50,737 | auto-corrected |
-| joannes-chrysostomus.fragmenta-in-proverbia-in-catenis | ΚΕΦΑΛ. Β’. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,478 | auto-corrected |
-| joannes-chrysostomus.homilia-dicta-in-templo-sanctae-anastasiae | 540 ΟΜΙΛΙΑ Α΄. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,946 | auto-corrected |
-| joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,897 | auto-corrected |
-| joannes-chrysostomus.homilia-habita-postquam-presbyter-gothus-concionatus-fuerat | ΟΜΙΛΙΑ Ηʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,438 | auto-corrected |
-| joannes-chrysostomus.homilia-in-martyres | ΕἸΣ ΜΑΡΤΥΡΑΣ ὉΜΙΛΊΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,503 | auto-corrected |
-| joannes-chrysostomus.in-acta-apostolorum-homiliae-1-55 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 169,228 | auto-corrected |
-| joannes-chrysostomus.in-annuntiationem-beatae-virginis-sp | ΕἸΣ ΤῸΝ ΕΥΑΓΓΕΛΙΣΜΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,080 | auto-corrected |
-| joannes-chrysostomus.in-ascensionem-domini-nostri-jesu-christi | 768 ΤΟΥ ΑΥΤΟΥ ΕΙΣ ΤΗΝ ΑΝΑΛΗΨΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,601 | auto-corrected |
-| joannes-chrysostomus.in-ascensionem-sermo-1-sp | ΕἸΣ ΤῊΝ ἈΝΑΛΗΨΊΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 321 | raw OCR |
-| joannes-chrysostomus.in-ascensionem-sermo-2-sp | ΕἸΣ ΤῊΝ ἈΝΑΛΗΨΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,135 | auto-corrected |
-| joannes-chrysostomus.in-ascensionem-sermo-3-sp | ΕΙΣ ΤΗΝ ΑΝΑΛΗΨΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,025 | auto-corrected |
-| joannes-chrysostomus.in-dictum-pauli-nolo-vos-ignorare | ΕἸΣ ΤῸ ἈΠΟΣΤΟΛΙΚῸΝ ΡΗΤῸΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,447 | auto-corrected |
-| joannes-chrysostomus.in-dictum-pauli-oportet-haereses-esse | 240 ΕΙΣ ΤΟ ΑΠΟΣΤΟΛΙΚΟΝ ΙΗΤΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,740 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-ephesios-homiliae-1-24 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,934 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-galatas-commentarius | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 100,091 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 99,169 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-philemonem-homiliae-1-3 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ. ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΦΙΛΗΜΟΝΑ ΕΠΙΣΤΟΛΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 41,554 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-philippenses-homiliae-1-15 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΦΙΛΙΠΠΗΣΙΟΥΣ ΕΠΙΣΤΟΛΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 50,248 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-romanos-homiliae-1-32 | ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΡΩΜΑΙΟΥΣ ΕΠΙΣΤΟΛΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 192,110 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ad-titum-homiliae-1-6 | ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΟΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΤΙΤΟΝ ΕΠΙΣΤΟΛΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 16,323 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-i-ad-corinthios-homiliae-1-44 | ΙΩΑΝΝΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΥΠΟΘΕΣΙΣ ΤΗΣ ΠΡΟΣ ΚΟΡΙΝΘΙΟΥΣ ΠΡΩΤΗΣ ΕΠΙΣΤΟΛΗΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 169,261 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-i-ad-thessalonicenses-homiliae-1-11 | ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΘΕΣΣΑΛΟΝΙΚΕΙΣ ΕΠΙΣΤΟΛΗΝ ΠΡΩΤΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,980 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-i-ad-timotheum-homiliae-1-18 | ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΤΙΜΟΘΕΟΝ ΕΠΙΣΤΟΛΗΝ ΠΡΩΤΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 51,667 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ii-ad-corinthios-homiliae-1-30 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 94,961 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ii-ad-thessalonicenses-homiliae-1-5 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,026 | auto-corrected |
-| joannes-chrysostomus.in-epistulam-ii-ad-timotheum-homiliae-1-10 | 678 ΟΜΙΛΙΑ Δ’ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,561 | auto-corrected |
-| joannes-chrysostomus.in-eutropium | ΕΥΤΡΟΠΙΟΝ ΕΥΝΟΥΧΟΝ ΠΑΤΡΙΚΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,854 | auto-corrected |
-| joannes-chrysostomus.in-genesim-homiliae-1-67 | 423 ΟΜΙΛΙΑ ΜΒʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 265,963 | auto-corrected |
-| joannes-chrysostomus.in-genesim-sermones-1-9 | 644-645 ΛΟΓΟΣ Αʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,945 | auto-corrected |
-| joannes-chrysostomus.in-heliam-et-viduam | 328 ΕΙΣ ΤΟΝ ΗΛΙΑΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,983 | auto-corrected |
-| joannes-chrysostomus.in-illud-filius-ex-se-nihil-facit | 103 ΛΟΓΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,410 | auto-corrected |
-| joannes-chrysostomus.in-illud-habentes-eundem-spiritum-homiliae-1-3 | 260 ΕΙΣ ΤΗΝ ΑΠΟΣΤΟΛΙΚΗΝ ΡΗΣΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,663 | auto-corrected |
-| joannes-chrysostomus.in-illud-hoc-scitote-quod-in-novissimis-diebus | ὉΜΙΛΙΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,650 | auto-corrected |
-| joannes-chrysostomus.in-illud-in-faciem-ei-restiti |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 948 | raw OCR |
-| joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen | 145 ΕΙΣ ΤΗΝ ΠΡΟΦΗΤΙΚΗΝ ΡΗΣΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,362 | auto-corrected |
-| joannes-chrysostomus.in-illud-ne-timueritis-cum-dives-factus-fuerit-homo | ΕἸΣ ΤῸ ῬΗΤῸΝ ΤΟΥ͂ ΠΡΟΦΗΤΟΥ͂ ΔΑΥΊΔ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,289 | auto-corrected |
-| joannes-chrysostomus.in-illud-pater-meus-usque-modo-operatur | 582 ΟΜΙΛΙΑ Θʹ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,582 | auto-corrected |
-| joannes-chrysostomus.in-illud-pater-si-possibile-est-transeat | ΕἸΣ ΤΟ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,601 | auto-corrected |
-| joannes-chrysostomus.in-illud-propter-fornicationes-autem-unusquisque-suam-uxorem | 193 ΕΙΣ ΤΟ ΑΠΟΣΤΟΛΙΚΟΝ ΡΗΤΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,895 | auto-corrected |
-| joannes-chrysostomus.in-illud-salutate-priscillam-et-aquilam-sermones-1-2 | 173 ΕΙΣ ΤΟ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,750 | auto-corrected |
-| joannes-chrysostomus.in-illud-si-esurierit-inimicus | 157 ΠΡΟΣ ΤΟΥΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,468 | auto-corrected |
-| joannes-chrysostomus.in-illud-utinam-sustineretis-modicum | 291 ΕἸΣ ΤΟ ἈΠΟΣΤΟΛΙΚΟΝ ΡΗΤΟΝ, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,069 | auto-corrected |
-| joannes-chrysostomus.in-illud-vidi-dominum-homiliae-1-6 | ΕΠΑΙΝΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 19,875 | auto-corrected |
-| joannes-chrysostomus.in-illud-vidua-eligatur | 311 ΕἸΣ ΤΟ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,298 | auto-corrected |
-| joannes-chrysostomus.in-isaiam | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 37,111 | auto-corrected |
-| joannes-chrysostomus.in-joannem-homiliae-1-88 | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΤΑ ΕΥΡΙΣΚΟΜΕΝΑ ΠΑΝΤΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 215,521 | auto-corrected |
-| joannes-chrysostomus.in-martyres-aegyptios | 699 ΕΓΚΩΜΙΟΝ ΕΙΣ ΜΑΡΤΥΡΑΣ ΑΙΓΥΠΤΙΟΥΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,973 | auto-corrected |
-| joannes-chrysostomus.in-matthaeum-homiliae-1-90 |  | qwen36-pg57 | Qwen3.6-27B | 322,179 | manual |
-| joannes-chrysostomus.in-novam-dominicam-et-in-apostolum-thomam-sp | ΕἸΣ ΤῊΝ ΚΑΙΝῊΝ ΚΥΡΙΑΚῊΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,562 | auto-corrected |
-| joannes-chrysostomus.in-pentecosten-sermo-1-sp | 975 ΣΒΥΝΙΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,567 | auto-corrected |
-| joannes-chrysostomus.in-pentecosten-sermo-2-sp | ΕἸΣ ΤῊΝ ἉΓΊΑΝ ΠΕΝΤΗΚΟΣΤΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,021 | auto-corrected |
-| joannes-chrysostomus.in-pentecosten-sermo-3-sp | 794 ΕἸΣ ΤῊΝ ἉΓΊΑΝ ΠΕΝΤΗΚΟΣΤΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,807 | auto-corrected |
-| joannes-chrysostomus.in-principium-actorum-homiliae-1-4 | 48-50 ΟΜΙΛΙΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 43,405 | auto-corrected |
-| joannes-chrysostomus.in-psalmos-101-107-sp | ΤΑΛΜ. ΡΑ'. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 38,993 | auto-corrected |
-| joannes-chrysostomus.in-psalmum-100-sp | ΕΙΣ ΤΟΝ Π’ ΥΑΛΜΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,989 | auto-corrected |
-| joannes-chrysostomus.in-psalmum-118-homiliae-1-3-sp | ΣΤΑΣΙΣ Γʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,014 | auto-corrected |
-| joannes-chrysostomus.in-psalmum-139-sp | 719 ΕἸΣ ΤΟ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,998 | auto-corrected |
-| joannes-chrysostomus.in-psalmum-145 | 528 ΟΜΙΛΙΑ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,610 | auto-corrected |
-| joannes-chrysostomus.in-quatriduanum-lazarum | ΛΟΓΟΣ ΕΙΣ ΤΟΝ ΤΕΤΡΑΗΜΕΡΟΝ ΛΑΖΑΡΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,611 | auto-corrected |
+| joannes-chrysostomus.de-coemeterio-et-de-cruce | Joannes Chrysostomus - De Coemeterio Et De Cruce | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,940 | auto-corrected |
+| joannes-chrysostomus.de-confessione-pretiosae-crucis-sp | Joannes Chrysostomus - De Confessione Pretiosae Crucis Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,861 | auto-corrected |
+| joannes-chrysostomus.de-davide-et-saule-homiliae-1-3 | Joannes Chrysostomus - De Davide Et Saule (Homiliae 1-3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,762 | auto-corrected |
+| joannes-chrysostomus.de-decem-millium-talentorum-debitore | Joannes Chrysostomus - De Decem Millium Talentorum Debitore | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,703 | auto-corrected |
+| joannes-chrysostomus.de-eleemosyna | Joannes Chrysostomus - De Eleemosyna | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,195 | auto-corrected |
+| joannes-chrysostomus.de-fato-et-providentia-orationes-1-6 | Joannes Chrysostomus - De Fato Et Providentia (Orationes 1-6) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,078 | auto-corrected |
+| joannes-chrysostomus.de-fugienda-simulata-specie-sp | Joannes Chrysostomus - De Fugienda Simulata Specie Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 837 | auto-corrected |
+| joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7 | Joannes Chrysostomus - De Laudibus Sancti Pauli Apostoli (Homiliae 1-7) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,893 | auto-corrected |
+| joannes-chrysostomus.de-lazaro-homiliae-1-7 | Joannes Chrysostomus - De Lazaro (Homiliae 1-7) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,586 | auto-corrected |
+| joannes-chrysostomus.de-libello-repudii | Joannes Chrysostomus - De Libello Repudii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,685 | auto-corrected |
+| joannes-chrysostomus.de-maccabeis-homiliae-1-3 | Joannes Chrysostomus - De Maccabeis (Homiliae 1-3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,671 | auto-corrected |
+| joannes-chrysostomus.de-melchisedech-sp | Joannes Chrysostomus - De Melchisedech Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,849 | raw OCR |
+| joannes-chrysostomus.de-non-iterando-conjugio | Joannes Chrysostomus - De Non Iterando Conjugio | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,816 | auto-corrected |
+| joannes-chrysostomus.de-occursu-domini-de-deipara-et-symeone-sp | Joannes Chrysostomus - De Occursu Domini, De Deipara Et Symeone Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,014 | auto-corrected |
+| joannes-chrysostomus.de-paenitentia-homiliae-1-9 | Joannes Chrysostomus - De Paenitentia (Homiliae 1-9) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 37,560 | auto-corrected |
+| joannes-chrysostomus.de-perfecta-caritate-sp | Joannes Chrysostomus - De Perfecta Caritate Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,855 | auto-corrected |
+| joannes-chrysostomus.de-precatione-orat-1-2-sp | Joannes Chrysostomus - De Precatione (Orat. 1-2) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,900 | auto-corrected |
+| joannes-chrysostomus.de-proditione-judae-homiliae-1-2 | Joannes Chrysostomus - De Proditione Judae (Homiliae 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,746 | auto-corrected |
+| joannes-chrysostomus.de-profectu-evangelii | Joannes Chrysostomus - De Profectu Evangelii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,337 | auto-corrected |
+| joannes-chrysostomus.de-resurrectione-mortuorum | Joannes Chrysostomus - De Resurrectione Mortuorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,435 | auto-corrected |
+| joannes-chrysostomus.de-sacerdotio-lib-1-6 | Joannes Chrysostomus - De Sacerdotio (Lib. 1-6) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 31,674 | auto-corrected |
+| joannes-chrysostomus.de-sacerdotio-lib-7-sp | Joannes Chrysostomus - De Sacerdotio (Lib. 7) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,695 | auto-corrected |
+| joannes-chrysostomus.de-sancta-droside-martyre | Joannes Chrysostomus - De Sancta Droside Martyre | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,844 | auto-corrected |
+| joannes-chrysostomus.de-sancta-pelagia-virgine-et-martyre | Joannes Chrysostomus - De Sancta Pelagia Virgine Et Martyre | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,435 | raw OCR |
+| joannes-chrysostomus.de-sancta-pentecoste-homiliae-1-2 | Joannes Chrysostomus - De Sancta Pentecoste (Homiliae 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,821 | auto-corrected |
+| joannes-chrysostomus.de-sancta-thecla-martyre-sp | Joannes Chrysostomus - De Sancta Thecla Martyre Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,013 | raw OCR |
+| joannes-chrysostomus.de-sancta-trinitate-sp | Joannes Chrysostomus - De Sancta Trinitate Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,448 | auto-corrected |
+| joannes-chrysostomus.de-sanctis-bernice-et-prosdoce | Joannes Chrysostomus - De Sanctis Bernice Et Prosdoce | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,143 | auto-corrected |
+| joannes-chrysostomus.de-sancto-hieromartyre-babyla | Joannes Chrysostomus - De Sancto Hieromartyre Babyla | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,781 | raw OCR |
+| joannes-chrysostomus.de-sancto-hieromartyre-phoca | Joannes Chrysostomus - De Sancto Hieromartyre Phoca | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,304 | auto-corrected |
+| joannes-chrysostomus.de-sancto-meletio-antiocheno | Joannes Chrysostomus - De Sancto Meletio Antiocheno | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,714 | auto-corrected |
+| joannes-chrysostomus.de-terrae-motu | Joannes Chrysostomus - De Terrae Motu | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 856 | auto-corrected |
+| joannes-chrysostomus.de-virginitate | Joannes Chrysostomus - De Virginitate | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,611 | auto-corrected |
+| joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp | Joannes Chrysostomus - Eclogae Ixlviii Ex Diversis Homiliis Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 152,854 | auto-corrected |
+| joannes-chrysostomus.epistula-ad-caesarium-sp | Joannes Chrysostomus - Epistula Ad Caesarium Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 517 | auto-corrected |
+| joannes-chrysostomus.epistula-ad-cyriacum-epist-125-recensiones | Joannes Chrysostomus - Epistula Ad Cyriacum (Epist. 125 Recensiones) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,869 | auto-corrected |
+| joannes-chrysostomus.epistula-ad-episcopos-presbyteros-et-diaconos | Joannes Chrysostomus - Epistula Ad Episcopos, Presbyteros Et Diaconos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,448 | auto-corrected |
+| joannes-chrysostomus.epistulae-18-242 | Joannes Chrysostomus - Epistulae 18-242 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,036 | auto-corrected |
+| joannes-chrysostomus.epistulae-ad-olympiadem-epist-1-17 | Joannes Chrysostomus - Epistulae Ad Olympiadem (Epist. 1-17) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 48,926 | auto-corrected |
+| joannes-chrysostomus.expositiones-in-psalmos | Joannes Chrysostomus - Expositiones In Psalmos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 198,129 | auto-corrected |
+| joannes-chrysostomus.fragmenta-in-epistulas-catholicas | Joannes Chrysostomus - Fragmenta In Epistulas Catholicas | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,774 | auto-corrected |
+| joannes-chrysostomus.fragmenta-in-jeremiam-in-catenis | Joannes Chrysostomus - Fragmenta In Jeremiam (In Catenis) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 50,737 | auto-corrected |
+| joannes-chrysostomus.fragmenta-in-proverbia-in-catenis | Joannes Chrysostomus - Fragmenta In Proverbia (In Catenis) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,478 | auto-corrected |
+| joannes-chrysostomus.homilia-dicta-in-templo-sanctae-anastasiae | Joannes Chrysostomus - Homilia Dicta In Templo Sanctae Anastasiae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,946 | auto-corrected |
+| joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum | Joannes Chrysostomus - Homilia Dicta Postquam Reliquiae Martyrum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,897 | auto-corrected |
+| joannes-chrysostomus.homilia-habita-postquam-presbyter-gothus-concionatus-fuerat | Joannes Chrysostomus - Homilia Habita Postquam Presbyter Gothus Concionatus Fuerat | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,438 | auto-corrected |
+| joannes-chrysostomus.homilia-in-martyres | Joannes Chrysostomus - Homilia In Martyres | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,503 | auto-corrected |
+| joannes-chrysostomus.in-acta-apostolorum-homiliae-1-55 | Joannes Chrysostomus - In Acta Apostolorum (Homiliae 1-55) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 169,228 | auto-corrected |
+| joannes-chrysostomus.in-annuntiationem-beatae-virginis-sp | Joannes Chrysostomus - In Annuntiationem Beatae Virginis Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,080 | auto-corrected |
+| joannes-chrysostomus.in-ascensionem-domini-nostri-jesu-christi | Joannes Chrysostomus - In Ascensionem Domini Nostri Jesu Christi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,601 | auto-corrected |
+| joannes-chrysostomus.in-ascensionem-sermo-1-sp | Joannes Chrysostomus - In Ascensionem (Sermo 1) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 321 | raw OCR |
+| joannes-chrysostomus.in-ascensionem-sermo-2-sp | Joannes Chrysostomus - In Ascensionem (Sermo 2) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,135 | auto-corrected |
+| joannes-chrysostomus.in-ascensionem-sermo-3-sp | Joannes Chrysostomus - In Ascensionem (Sermo 3) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,025 | auto-corrected |
+| joannes-chrysostomus.in-dictum-pauli-nolo-vos-ignorare | Joannes Chrysostomus - In Dictum Pauli: Nolo Vos Ignorare | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,447 | auto-corrected |
+| joannes-chrysostomus.in-dictum-pauli-oportet-haereses-esse | Joannes Chrysostomus - In Dictum Pauli: Oportet Haereses Esse | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,740 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-ephesios-homiliae-1-24 | Joannes Chrysostomus - In Epistulam Ad Ephesios (Homiliae 1-24) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,934 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-galatas-commentarius | Joannes Chrysostomus - In Epistulam Ad Galatas Commentarius | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 100,091 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34 | Joannes Chrysostomus - In Epistulam Ad Hebraeos (Homiliae 1-34) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 99,169 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-philemonem-homiliae-1-3 | Joannes Chrysostomus - In Epistulam Ad Philemonem (Homiliae 1-3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 41,554 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-philippenses-homiliae-1-15 | Joannes Chrysostomus - In Epistulam Ad Philippenses (Homiliae 1-15) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 50,248 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-romanos-homiliae-1-32 | Joannes Chrysostomus - In Epistulam Ad Romanos (Homiliae 1-32) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 192,110 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ad-titum-homiliae-1-6 | Joannes Chrysostomus - In Epistulam Ad Titum (Homiliae 1-6) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 16,323 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-i-ad-corinthios-homiliae-1-44 | Joannes Chrysostomus - In Epistulam I Ad Corinthios (Homiliae 1-44) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 169,261 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-i-ad-thessalonicenses-homiliae-1-11 | Joannes Chrysostomus - In Epistulam I Ad Thessalonicenses (Homiliae 1-11) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 33,980 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-i-ad-timotheum-homiliae-1-18 | Joannes Chrysostomus - In Epistulam I Ad Timotheum (Homiliae 1-18) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 51,667 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ii-ad-corinthios-homiliae-1-30 | Joannes Chrysostomus - In Epistulam Ii Ad Corinthios (Homiliae 1-30) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 94,961 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ii-ad-thessalonicenses-homiliae-1-5 | Joannes Chrysostomus - In Epistulam Ii Ad Thessalonicenses (Homiliae 1-5) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,026 | auto-corrected |
+| joannes-chrysostomus.in-epistulam-ii-ad-timotheum-homiliae-1-10 | Joannes Chrysostomus - In Epistulam Ii Ad Timotheum (Homiliae 1-10) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,561 | auto-corrected |
+| joannes-chrysostomus.in-eutropium | Joannes Chrysostomus - In Eutropium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,854 | auto-corrected |
+| joannes-chrysostomus.in-genesim-homiliae-1-67 | Joannes Chrysostomus - In Genesim (Homiliae 1-67) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 265,963 | auto-corrected |
+| joannes-chrysostomus.in-genesim-sermones-1-9 | Joannes Chrysostomus - In Genesim (Sermones 1-9) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,945 | auto-corrected |
+| joannes-chrysostomus.in-heliam-et-viduam | Joannes Chrysostomus - In Heliam Et Viduam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,983 | auto-corrected |
+| joannes-chrysostomus.in-illud-filius-ex-se-nihil-facit | Joannes Chrysostomus - In Illud: Filius Ex Se Nihil Facit | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,410 | auto-corrected |
+| joannes-chrysostomus.in-illud-habentes-eundem-spiritum-homiliae-1-3 | Joannes Chrysostomus - In Illud: Habentes Eundem Spiritum (Homiliae 1-3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,663 | auto-corrected |
+| joannes-chrysostomus.in-illud-hoc-scitote-quod-in-novissimis-diebus | Joannes Chrysostomus - In Illud: Hoc Scitote Quod In Novissimis Diebus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,650 | auto-corrected |
+| joannes-chrysostomus.in-illud-in-faciem-ei-restiti | Joannes Chrysostomus - In Illud: In Faciem Ei Restiti | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 948 | raw OCR |
+| joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen | Joannes Chrysostomus - In Illud Isaiae: Ego Dominus Deus Feci Lumen | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,362 | auto-corrected |
+| joannes-chrysostomus.in-illud-ne-timueritis-cum-dives-factus-fuerit-homo | Joannes Chrysostomus - In Illud: Ne Timueritis Cum Dives Factus Fuerit Homo | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,289 | auto-corrected |
+| joannes-chrysostomus.in-illud-pater-meus-usque-modo-operatur | Joannes Chrysostomus - In Illud: Pater Meus Usque Modo Operatur | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,582 | auto-corrected |
+| joannes-chrysostomus.in-illud-pater-si-possibile-est-transeat | Joannes Chrysostomus - In Illud: Pater, Si Possibile Est, Transeat | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,601 | auto-corrected |
+| joannes-chrysostomus.in-illud-propter-fornicationes-autem-unusquisque-suam-uxorem | Joannes Chrysostomus - In Illud: Propter Fornicationes Autem Unusquisque Suam Uxorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,895 | auto-corrected |
+| joannes-chrysostomus.in-illud-salutate-priscillam-et-aquilam-sermones-1-2 | Joannes Chrysostomus - In Illud: Salutate Priscillam Et Aquilam (Sermones 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,750 | auto-corrected |
+| joannes-chrysostomus.in-illud-si-esurierit-inimicus | Joannes Chrysostomus - In Illud: Si Esurierit Inimicus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,468 | auto-corrected |
+| joannes-chrysostomus.in-illud-utinam-sustineretis-modicum | Joannes Chrysostomus - In Illud: Utinam Sustineretis Modicum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,069 | auto-corrected |
+| joannes-chrysostomus.in-illud-vidi-dominum-homiliae-1-6 | Joannes Chrysostomus - In Illud: Vidi Dominum (Homiliae 1-6) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 19,875 | auto-corrected |
+| joannes-chrysostomus.in-illud-vidua-eligatur | Joannes Chrysostomus - In Illud: Vidua Eligatur | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,298 | auto-corrected |
+| joannes-chrysostomus.in-isaiam | Joannes Chrysostomus - In Isaiam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 37,111 | auto-corrected |
+| joannes-chrysostomus.in-joannem-homiliae-1-88 | Joannes Chrysostomus - In Joannem (Homiliae 1-88) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 215,521 | auto-corrected |
+| joannes-chrysostomus.in-martyres-aegyptios | Joannes Chrysostomus - In Martyres Aegyptios | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,973 | auto-corrected |
+| joannes-chrysostomus.in-matthaeum-homiliae-1-90 | Joannes Chrysostomus - In Matthaeum (Homiliae 1-90) | qwen36-pg57 | Qwen3.6-27B | 322,179 | manual |
+| joannes-chrysostomus.in-novam-dominicam-et-in-apostolum-thomam-sp | Joannes Chrysostomus - In Novam Dominicam Et In Apostolum Thomam Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,562 | auto-corrected |
+| joannes-chrysostomus.in-pentecosten-sermo-1-sp | Joannes Chrysostomus - In Pentecosten (Sermo 1) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,567 | auto-corrected |
+| joannes-chrysostomus.in-pentecosten-sermo-2-sp | Joannes Chrysostomus - In Pentecosten (Sermo 2) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,021 | auto-corrected |
+| joannes-chrysostomus.in-pentecosten-sermo-3-sp | Joannes Chrysostomus - In Pentecosten (Sermo 3) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,807 | auto-corrected |
+| joannes-chrysostomus.in-principium-actorum-homiliae-1-4 | Joannes Chrysostomus - In Principium Actorum (Homiliae 1-4) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 43,405 | auto-corrected |
+| joannes-chrysostomus.in-psalmos-101-107-sp | Joannes Chrysostomus - In Psalmos 101-107 Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 38,993 | auto-corrected |
+| joannes-chrysostomus.in-psalmum-100-sp | Joannes Chrysostomus - In Psalmum 100 Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,989 | auto-corrected |
+| joannes-chrysostomus.in-psalmum-118-homiliae-1-3-sp | Joannes Chrysostomus - In Psalmum 118 (Homiliae 1-3) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,014 | auto-corrected |
+| joannes-chrysostomus.in-psalmum-139-sp | Joannes Chrysostomus - In Psalmum 139 Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,998 | auto-corrected |
+| joannes-chrysostomus.in-psalmum-145 | Joannes Chrysostomus - In Psalmum 145 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,610 | auto-corrected |
+| joannes-chrysostomus.in-quatriduanum-lazarum | Joannes Chrysostomus - In Quatriduanum Lazarum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,611 | auto-corrected |
 | joannes-chrysostomus.in-quatriduanum-lazarum-contra-anomoeos-homilia-9-sp | In quatriduanum Lazarum (%6 Contra Anomoeos, homilia 9) [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,340 | auto-corrected |
-| joannes-chrysostomus.in-sanctos-petrum-et-heliam-sp | 730 ΛΟΓΟΣ ΕΙΣ ΠΕΤΡΟΝ ΤΟΝ ΑΠΟΣΤΟΛΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,717 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-barlaam-martyrem |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,952 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-eustathium-antiochenum | ET‘ΚΩΜΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,152 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-ignatium-martyrem | ΕΓΚΩΜΙΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,840 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-julianum-martyrem | ΕΓΚΩΜΙΟΝ ΕΙΣ ΤΟΝ ΑΓΙΟΝ ΜΑΡΤΥΡΑ ΙΟΥΛΙΑΝΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,939 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-lucianum-martyrem | 524 ΟΜΙΛΙΑ ΕΓΚΩΜΙΑΣΤΙΚΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,519 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-pascha | 750 ΕΙΣ ΤΟ ΑΓΙΟΝ ΠΑΣΧΑ ΛΟΓΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,736 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-romanum-homilia-1 | ΕἸΣ ΤῸΝ ἉΓΙΟΝ ΜΑΡΤΥΡΑ ῬΩΜΑΝΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,535 | auto-corrected |
-| joannes-chrysostomus.in-triduanam-resurrectionem-domini-sp | ΕΙΣ ΤΗΝ ΤΡΙΗΜΕΡΟΝ ΑΝΑΣΤΑΣΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,729 | auto-corrected |
-| joannes-chrysostomus.interpretatio-in-danielem-prophetam-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ, ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΚΩΝΣΤΑΝΤΙΝΟΥΠΟΛΕΩΣ, ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΟΝ ΔΑΝΙΗΛ ΠΡΟΦΗΤΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,891 | auto-corrected |
-| joannes-chrysostomus.laus-diodori-episcopi | 747 ΕΓΚΩΜΙΟΝ ΕΙΣ ΔΙΟΔΩΡΟΝ ΕΠΙΣΚΟΠΟΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 976 | auto-corrected |
-| joannes-chrysostomus.oratio-secunda-sp | ΕΥΧΗ ΔΕΥΤΕΡΑ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,727 | raw OCR |
-| joannes-chrysostomus.peccata-fratrum-non-evulganda | 344 ΠΕΡΙ ΤΟΥ ΜΗ ΔΗΜΟΣΙΕΥΕΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,122 | auto-corrected |
-| joannes-chrysostomus.pg048 | ΧΡΥΣΟΣΤΟΜΟΥ ὉΜΙΛΙΑ ΠΡΩΤΗ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 35,870 | auto-corrected |
-| joannes-chrysostomus.pg052 | ΕἸΣ ΤῊΝ ἈΝΑΛΗΨΙΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,114 | auto-corrected |
-| joannes-chrysostomus.post-reditum-priore-exsilio-sermo-2 | 426-427 ΤΟΥ ΑΥΤΟΥ ΕΠΑΝΕΛΘΟΝΤΟΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,948 | auto-corrected |
-| joannes-chrysostomus.prooemia-in-psalmos-fragmenta-sp | ΠΡΟΟΙΜΙΑ ΤΩΝ ΨΑΛΜΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,506 | auto-corrected |
-| joannes-chrysostomus.quales-ducendae-sint-uxores-encomium-ad-maximum | [314] ΕΓΚΩΜΙΟΝ ΕἸΣ ΜΑΞΊMΟN | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,142 | auto-corrected |
-| joannes-chrysostomus.quod-regulares-feminae-viris-cohabitare-non-debeant | ΠΕΡΙ ΤΟΥ ΤΑΣ ΚΑΝΟΝΙΚΑΣ ΜΗ ΣΥΝΟΙΚΕΙΝ ΑΝΔΡΑΣΙΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,158 | auto-corrected |
-| joannes-chrysostomus.sermo-antequam-iret-in-exsilium | ΟΜΙΛΙΑ ΠΡΟ ΤΗΣ ΕΞΟΡΙΑΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,863 | auto-corrected |
-| joannes-chrysostomus.sermo-cum-iret-in-exsilium | 420-421 OTE ΑΠΗΕΙ ΕΝ ΤΗ ΕΕΟΠΙΑ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 833 | raw OCR |
-| joannes-chrysostomus.synopsis-scripturae-sacrae-sp | ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 39,066 | auto-corrected |
-| joannes-damascenus.adversus-iconoclastas-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,083 | auto-corrected |
-| joannes-damascenus.commentarii-in-epistulas-pauli-dub | ΙΩΑΝΝΟΥ ΤΟΥ ΔΑΜΑΣΚΗΝΟΥ ΕΚ ΤΗΣ ΚΑΘΟΛΟΥ ΕΡΜΗΝΕΙΑΣ ΙΩΑΝΝΟΥ ΤΟΥ ΧΡΥΣΟΣΤΟΜΟΥ ΕΚΛΟΓΑΙ ΕΚΛΕΓΕΙΣΑΙ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 96,410 | auto-corrected |
-| joannes-damascenus.contra-nestorianos | ΙΩΑΝΝΟΥ ΤΟΥ ΔΑΜΑΣΚΗΝΟΥ ΚΑΤΑ ΤΗΣ ΑΙΡΕΣΕΩΣ ΤΩΝ ΝΕΣΤΟΡΙΑΝΩΝ ΕΠΟΣ ΑΚΡΙΒΕΣΤΑΤΟΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,878 | auto-corrected |
-| joannes-damascenus.de-azymis-fragmenta-duo-sp |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,274 | raw OCR |
-| joannes-damascenus.de-duabus-in-christo-voluntatibus | ΚΕΦΑΛ. Ηʹ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,800 | auto-corrected |
-| joannes-damascenus.de-immaculato-corpore-sp | ΕΠΙΣΤΟΛΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,283 | auto-corrected |
-| joannes-damascenus.de-natura-composita-sive-contra-acephalos | ΕΠΙΔΕΙΞΙΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,298 | auto-corrected |
-| joannes-damascenus.de-octo-spiritibus-nequitiae-fragmentum-sp | ΤΩΝ ΟΚΤΩ ΤΗΣ ΠΟΝΗΡΙΑΣ ΠΝΕΥΜΑΤΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,340 | auto-corrected |
-| joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp | ΛΟΓΟΣ ἈΠΟΔΕΙΚΤΙΚΟΣ ΠΕΡΙ ΤΟΝ ΑΓΙΟΝ ΚΑΙ ΣΕΠΤΟΝ ΕΙΚΟΝΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,955 | auto-corrected |
-| joannes-damascenus.de-sacris-jejuniis | ΙΩΑΝΝΟΥ ΠΡΕΣΒΥΤΕΡΟΥ ΔΑΜΑΣΚΗΝΟΥ ΙΕΠΙ ΤΩΝ ΑΓΙΩΝ ΝΗΣΤΕΙΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,468 | auto-corrected |
-| joannes-damascenus.de-sancta-trinitate-fragmentum-dub |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,057 | raw OCR |
-| joannes-damascenus.disputatio-christiani-et-saraceni-dub |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,746 | raw OCR |
-| joannes-damascenus.epistula-de-hymno-trisagio | ΠΡΟΣ ΙΟΡΔΑΝΗΝ ΑΡΧΙΜΑΝΔΡΙΤΗΝ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,956 | auto-corrected |
-| joannes-damascenus.institutio-elementaris |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,838 | raw OCR |
-| joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp | ΟΝΟΣ ΑΙ ΥΠΕΡ ΑΥΤΟΝ ΓΙΝΟΜΕΝΑΙ ΑΕΙΟΥΡΓΙΑΙ ΚΑΙ ΕΥΠΟΙΙΑΙ ΤΟΥΤΟΥΣ ΟΝΟΜΑΖΙΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,980 | auto-corrected |
-| joannes-damascenus.passio-sancti-artemii-dub |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,805 | auto-corrected |
-| joannes-damascenus.quid-est-homo-fragmentum-dub | 580 ΠΑΣΧΑΛΙΟΝ ΤΟΥ ἉΓΙΟΥ ἸΩΑΝΝΟΥ ΤΟΥ ΔΑΜΑΣΚΗΝΟΥ. ΟΙ ΚΥΚΛΟΙ ΤΟΥ ἩΛΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,094 | auto-corrected |
-| joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 116,283 | auto-corrected |
+| joannes-chrysostomus.in-sanctos-petrum-et-heliam-sp | Joannes Chrysostomus - In Sanctos Petrum Et Heliam Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,717 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-barlaam-martyrem | Joannes Chrysostomus - In Sanctum Barlaam Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,952 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-eustathium-antiochenum | Joannes Chrysostomus - In Sanctum Eustathium Antiochenum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,152 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-ignatium-martyrem | Joannes Chrysostomus - In Sanctum Ignatium Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,840 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-julianum-martyrem | Joannes Chrysostomus - In Sanctum Julianum Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,939 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-lucianum-martyrem | Joannes Chrysostomus - In Sanctum Lucianum Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,519 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-pascha | Joannes Chrysostomus - In Sanctum Pascha | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,736 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-romanum-homilia-1 | Joannes Chrysostomus - In Sanctum Romanum (Homilia 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,535 | auto-corrected |
+| joannes-chrysostomus.in-triduanam-resurrectionem-domini-sp | Joannes Chrysostomus - In Triduanam Resurrectionem Domini Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,729 | auto-corrected |
+| joannes-chrysostomus.interpretatio-in-danielem-prophetam-sp | Joannes Chrysostomus - Interpretatio In Danielem Prophetam Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,891 | auto-corrected |
+| joannes-chrysostomus.laus-diodori-episcopi | Joannes Chrysostomus - Laus Diodori Episcopi | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 976 | auto-corrected |
+| joannes-chrysostomus.oratio-secunda-sp | Joannes Chrysostomus - Oratio Secunda Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,727 | raw OCR |
+| joannes-chrysostomus.peccata-fratrum-non-evulganda | Joannes Chrysostomus - Peccata Fratrum Non Evulganda | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 13,122 | auto-corrected |
+| joannes-chrysostomus.pg048 | Joannes Chrysostomus - pg048 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 35,870 | auto-corrected |
+| joannes-chrysostomus.pg052 | Joannes Chrysostomus - pg052 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,114 | auto-corrected |
+| joannes-chrysostomus.post-reditum-priore-exsilio-sermo-2 | Joannes Chrysostomus - Post Reditum A Priore Exsilio (Sermo 2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,948 | auto-corrected |
+| joannes-chrysostomus.prooemia-in-psalmos-fragmenta-sp | Joannes Chrysostomus - Prooemia In Psalmos (Fragmenta) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,506 | auto-corrected |
+| joannes-chrysostomus.quales-ducendae-sint-uxores-encomium-ad-maximum | Joannes Chrysostomus - Quales Ducendae Sint Uxores ( Encomium Ad Maximum) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,142 | auto-corrected |
+| joannes-chrysostomus.quod-regulares-feminae-viris-cohabitare-non-debeant | Joannes Chrysostomus - Quod Regulares Feminae Viris Cohabitare Non Debeant | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,158 | auto-corrected |
+| joannes-chrysostomus.sermo-antequam-iret-in-exsilium | Joannes Chrysostomus - Sermo Antequam Iret In Exsilium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,863 | auto-corrected |
+| joannes-chrysostomus.sermo-cum-iret-in-exsilium | Joannes Chrysostomus - Sermo Cum Iret In Exsilium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 833 | raw OCR |
+| joannes-chrysostomus.synopsis-scripturae-sacrae-sp | Joannes Chrysostomus - Synopsis Scripturae Sacrae Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 39,066 | auto-corrected |
+| joannes-damascenus.adversus-iconoclastas-sp | Joannes Damascenus - Adversus Iconoclastas Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,083 | auto-corrected |
+| joannes-damascenus.commentarii-in-epistulas-pauli-dub | Joannes Damascenus - Commentarii In Epistulas Pauli Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 96,410 | auto-corrected |
+| joannes-damascenus.contra-nestorianos | Joannes Damascenus - Contra Nestorianos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,878 | auto-corrected |
+| joannes-damascenus.de-azymis-fragmenta-duo-sp | Joannes Damascenus - De Azymis (Fragmenta Duo) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,274 | raw OCR |
+| joannes-damascenus.de-duabus-in-christo-voluntatibus | Joannes Damascenus - De Duabus In Christo Voluntatibus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,800 | auto-corrected |
+| joannes-damascenus.de-immaculato-corpore-sp | Joannes Damascenus - De Immaculato Corpore Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,283 | auto-corrected |
+| joannes-damascenus.de-natura-composita-sive-contra-acephalos | Joannes Damascenus - De Natura Composita Sive Contra Acephalos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,298 | auto-corrected |
+| joannes-damascenus.de-octo-spiritibus-nequitiae-fragmentum-sp | Joannes Damascenus - De Octo Spiritibus Nequitiae (Fragmentum) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,340 | auto-corrected |
+| joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp | Joannes Damascenus - De Sacris Imaginibus Contra Constantinum Cabalinum Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,955 | auto-corrected |
+| joannes-damascenus.de-sacris-jejuniis | Joannes Damascenus - De Sacris Jejuniis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,468 | auto-corrected |
+| joannes-damascenus.de-sancta-trinitate-fragmentum-dub | Joannes Damascenus - De Sancta Trinitate (Fragmentum) Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,057 | raw OCR |
+| joannes-damascenus.disputatio-christiani-et-saraceni-dub | Joannes Damascenus - Disputatio Christiani Et Saraceni Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,746 | raw OCR |
+| joannes-damascenus.epistula-de-hymno-trisagio | Joannes Damascenus - Epistula De Hymno Trisagio | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,956 | auto-corrected |
+| joannes-damascenus.institutio-elementaris | Joannes Damascenus - Institutio Elementaris | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,838 | raw OCR |
+| joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp | Joannes Damascenus - Oratio De His Qui In Fide Dormierunt Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,980 | auto-corrected |
+| joannes-damascenus.passio-sancti-artemii-dub | Joannes Damascenus - Passio Sancti Artemii Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,805 | auto-corrected |
+| joannes-damascenus.quid-est-homo-fragmentum-dub | Joannes Damascenus - Quid Est Homo? (Fragmentum) Dub. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,094 | auto-corrected |
+| joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae | Joannes Damascenus - Sacra Parallela (Recensiones Secundum Alphabeti Litteras Dispositae, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 116,283 | auto-corrected |
 | joannes-diaconus-hadrianopolitanus.carmen-politicum | Joannes Diaconus Hadrianopolitanus - Carmen politicum (encomiastic political verses to the emperor Palaiologos) (PG158 loci 515-520) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,075 | manual |
-| joannes-epiphaniensis.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,699 | auto-corrected |
-| joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos |  | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 200,842 | auto-corrected |
+| joannes-epiphaniensis.fragmentum | Joannes Epiphaniensis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,699 | auto-corrected |
+| joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 200,842 | auto-corrected |
 | joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno | Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,938 | manual |
 | joannes-hierosolymitanus.narratio | Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 555 | auto-corrected |
-| joannes-laurentius-lydus.de-magistratibus-populi-romani |  | qwen36-lydus_mensibus_wuensch | Qwen3.6-27B | 44,112 | auto-corrected |
-| joannes-stobaeus-anthologus.anthologium |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 435,325 | manual |
+| joannes-laurentius-lydus.de-magistratibus-populi-romani | Joannes Laurentius Lydus - De Magistratibus Populi Romani | qwen36-lydus_mensibus_wuensch | Qwen3.6-27B | 44,112 | auto-corrected |
+| joannes-stobaeus-anthologus.anthologium | Joannes Stobaeus Anthologus - Anthologium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 435,325 | manual |
 | joannes-tzetzes.tzetzes-historiae-kiessling |  | qwen36-tzetzes_historiae_kiessling | Qwen3.6-27B | 103,943 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 775 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 57,628 | manual |
@@ -1529,8 +1557,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | josephus-genesius.basilei-ai | Josephus Genesius - Basileiai (Regum libri quattuor) (PG109 loci 501-583) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,703 | manual |
 | josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 237 | auto-corrected |
 | justinus-martyr.fragmenta-operum-deperditorum | Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 338 | auto-corrected |
-| laetus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 442 | auto-corrected |
-| lamprocles.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,193 | auto-corrected |
+| laetus.fragmenta | Laetus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 442 | auto-corrected |
+| lamprocles.fragmenta | Lamprocles - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,193 | auto-corrected |
 | laudatio-sancti-demetrii.narratio-de-capta-thessalonica | Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 624 | auto-corrected |
 | leo-vi-sapiens.carmen-compunctorium | Leo VI Sapiens imperator - Carmen compunctorium (anacreonticum de extremo iudicio) (PG107 loci 196-198) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 796 | manual |
 | leo-vi-sapiens.carmina-et-epigrammata-varia | Leo VI Sapiens imperator (et Leo Philosophus attrib.) - Carmina et epigrammata varia (iambi; carmen hexametricum de mensibus; excerpta de S. Clemente) (PG107 loci 371-375) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,429 | auto-corrected |
@@ -1540,42 +1568,42 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | leo-vi-sapiens.oracula | Leo VI Sapiens imperator (attrib.) - Oracula (cum vaticinio prosaico appendice) (PG107 loci 606-616) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,594 | manual |
 | leo-vi-sapiens.orationes | Leo VI Sapiens imperator - Orationes (homiliae et panegyrici) I-XX (collectio Combefis) (PG107 loci 42-188) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 50,226 | manual |
 | leo-vi-sapiens.tactica | Leo VI Sapiens imperator - Tactica (cum pinace et prooemio) (PG107 loci 377-601) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 85,962 | manual |
-| lesbonax-rhetoric.politiko-s | LESBONAX — De figuris | qwen36-lesbonax | Qwen3.6-27B | 970 | raw OCR |
-| leucippus.testimonia | LEUCIPPUS — Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,626 | auto-corrected |
-| lexicon-sabbaiticum.lexicon-sabbaiticum-e-cod-sabbaitico-137 |  | [archive.org](https://archive.org/details/lexicon-sabbaiticum-athanasios-papadopulos-kerameus) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 5,134 | auto-corrected |
-| licymnius.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,161 | auto-corrected |
-| limenius.paean-delphicus-ii-et-prosodium-in-apollinem |  | qwen36-limenius_delphic_fairbanks | Qwen3.6-27B | 7,448 | auto-corrected |
+| lesbonax-rhetoric.politiko-s | LESBONAX - De figuris | qwen36-lesbonax | Qwen3.6-27B | 970 | raw OCR |
+| leucippus.testimonia | LEUCIPPUS - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,626 | auto-corrected |
+| lexicon-sabbaiticum.lexicon-sabbaiticum-e-cod-sabbaitico-137 | Lexicon Sabbaiticum - Lexicon Sabbaiticum (E Cod. Sabbaitico 137) | [archive.org](https://archive.org/details/lexicon-sabbaiticum-athanasios-papadopulos-kerameus) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 5,134 | auto-corrected |
+| licymnius.fragmenta | Licymnius - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,161 | auto-corrected |
+| limenius.paean-delphicus-ii-et-prosodium-in-apollinem | Limenius - Paean Delphicus Ii Et Prosodium In Apollinem | qwen36-limenius_delphic_fairbanks | Qwen3.6-27B | 7,448 | auto-corrected |
 | lucius-annaeus-cornutus.cornutus-lang |  | qwen36-cornutus_lang | Qwen3.6-27B | 23,228 | auto-corrected |
-| lycon-tarentinus-vel-iasensis.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 383 | raw OCR |
-| lycophron-tragedy.fragmenta | ΜΕΝΕΔΗΜΟΣ ΣΑΤΤΡΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 302 | auto-corrected |
-| lycophronides.fragmenta | LYCOPHRONIDES — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 20 | raw OCR |
-| lynceus.fragmentum | LYNCEUS — Fragmentum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 108 | raw OCR |
-| lyrica-adespota-ca.fragmenta-lyrica |  | qwen36-lyrica_adespota_bergk_plg3 | Qwen3.6-27B | 58,849 | auto-corrected |
-| lysippus.fragmenta | ΑΔΗΛΩΝ ΔΡΑΜΑΤΩΝ | kock-caf1-ocr-frag | Qwen3.6-27B | 333 | raw OCR |
-| magnes.fragmenta | ΒΑΡΒΙΤΙΣΤΑΙ ΒΑΤΡΑΧΟΙ | kock-caf1-ocr-frag | Qwen3.6-27B | 62 | raw OCR |
-| magnus.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 793 | auto-corrected |
+| lycon-tarentinus-vel-iasensis.testimonia | Lycon - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 383 | raw OCR |
+| lycophron-tragedy.fragmenta | Lycophron - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 302 | auto-corrected |
+| lycophronides.fragmenta | LYCOPHRONIDES - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 20 | raw OCR |
+| lynceus.fragmentum | LYNCEUS - Fragmentum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 108 | raw OCR |
+| lyrica-adespota-ca.fragmenta-lyrica | Lyrica Adespota (Ca) - Fragmenta Lyrica | qwen36-lyrica_adespota_bergk_plg3 | Qwen3.6-27B | 58,849 | auto-corrected |
+| lysippus.fragmenta | Lysippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 333 | raw OCR |
+| magnes.fragmenta | Magnes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 62 | raw OCR |
+| magnus.fragmentum | Magnus - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 793 | auto-corrected |
 | manetho.fragmenta | Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 3,034 | auto-corrected |
-| mantissa-proverbiorum.mantissa-proverbiorum |  | [archive.org](https://archive.org/details/corpusparoemiogr02leutuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 167,532 | auto-corrected |
-| marcellinus.vita-thucydidis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 97,683 | auto-corrected |
+| mantissa-proverbiorum.mantissa-proverbiorum | Mantissa Proverbiorum - Mantissa Proverbiorum | [archive.org](https://archive.org/details/corpusparoemiogr02leutuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 167,532 | auto-corrected |
+| marcellinus.vita-thucydidis | Marcellinus - Vita Thucydidis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 97,683 | auto-corrected |
 | martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum | Martyrium Ignatii - Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum') (PG005 loci 499-503) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,280 | auto-corrected |
-| maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,999 | auto-corrected |
+| maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo | Maximus - Περὶ τῶν ἀλύτων ἀντιθέσεων (Fort. Auctore Maximo | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,999 | auto-corrected |
 | maximus-theology.fragmentum-ex-libro-de-materia | Maximus - Fragmentum ex libro de materia (PG005 loci 679-687) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,066 | auto-corrected |
-| melanippides.fragmenta | MELANIPPIDES — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 268 | raw OCR |
-| melanthius-elegy.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 73 | raw OCR |
-| melanthius.fragmentum |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 277 | auto-corrected |
-| melissus.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,146 | auto-corrected |
+| melanippides.fragmenta | MELANIPPIDES - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 268 | raw OCR |
+| melanthius-elegy.fragmentum | Melanthius - Fragmentum | bergk-plg2-ocr-frag | Qwen3.6-27B | 73 | raw OCR |
+| melanthius.fragmentum | Fragmentum | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 277 | auto-corrected |
+| melissus.testimonia | Melissus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,146 | auto-corrected |
 | melito-apologetics.fragmenta | Melito Sardensis - Fragmenta (PG005 loci 614-620) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 931 | manual |
-| menander-comedy.fragmenta-2 | Menander — Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 27,049 | raw OCR |
-| menecrates-elaita.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 573 | auto-corrected |
-| menecrates-poet-phil.fragmentum-et-titulus |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 148 | raw OCR |
-| menecrates.titulus | MENECRATES — Titulus | kock-caf3-ocr | Qwen3.6-27B | 92 | raw OCR |
-| menestor.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 668 | auto-corrected |
-| metagenes.fragmenta | ΜΕΤΑΓΕΝΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 494 | auto-corrected |
-| metopus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 461 | raw OCR |
+| menander-comedy.fragmenta-2 | Menander - Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 27,049 | raw OCR |
+| menecrates-elaita.fragmenta | Menecrates - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 573 | auto-corrected |
+| menecrates-poet-phil.fragmentum-et-titulus | Menecrates - Fragmentum Et Titulus | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 148 | raw OCR |
+| menecrates.titulus | MENECRATES - Titulus | kock-caf3-ocr | Qwen3.6-27B | 92 | raw OCR |
+| menestor.testimonia | Menestor - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 668 | auto-corrected |
+| metagenes.fragmenta | Metagenes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 494 | auto-corrected |
+| metopus.fragmenta | Metopus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 461 | raw OCR |
 | metrodorus-koerte |  | qwen36-metrodorus_koerte | Qwen3.6-27B | 8,673 | auto-corrected |
-| metrodorus-major.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 850 | raw OCR |
-| metrodorus-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,740 | auto-corrected |
-| metrophanes.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 273 | raw OCR |
+| metrodorus-major.testimonia | Metrodorus Major - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 850 | raw OCR |
+| metrodorus-philosophy.testimonia | Metrodorus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,740 | auto-corrected |
+| metrophanes.fragmentum | Metrophanes - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 273 | raw OCR |
 | michael-glycas.annales | Michael Glycas - Annales (PG158 loci 49-347) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 114,679 | manual |
 | michael-glycas.epistolae | Michael Glycas - Epistolae (I-XXIX; chapters of Eis tas aporias tes Theias Graphes) (PG158 loci 359-514) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,726 | manual |
 | michael-psellus.characteres-gregorii-theologi-basilii-magni-chrysostomi-et-gregorii-nysseni | Michael Psellus - Characteres Gregorii Theologi, Basilii Magni, Chrysostomi et Gregorii Nysseni (PG122 loci 461-463) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,240 | manual |
@@ -1596,45 +1624,45 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp | Pseudo-Michael Psellus - Quaenam sunt Graecorum opiniones de daemonibus (PG122 loci 448-451) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,430 | auto-corrected |
 | michael-psellus.quaestionum-naturalium-solutiones-sp | Pseudo-Michael Psellus - Quaestionum naturalium solutiones (anonymous compendium, Migne's title; akin to Symeon Seth) (PG122 loci 401-414) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,699 | manual |
 | michael-psellus.versus-in-sanctos-tres-hierarchas-sp | Pseudo-Michael Psellus (fort. Joannes Mauropous) - Versus in sanctos tres hierarchas with epigrams (signed by a John, probably Mauropous; printed as Joannis Pselli) (PG122 loci 464-465) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 480 | manual |
-| michael.in-ethica-nicomachea-ixx-commentaria | MICHAEL EPHESIUS — In Ethica Nicomachea commentaria (CAG XX) | qwen36-commentariainari20bero | Qwen3.6-27B | 6,111 | raw OCR |
-| milon.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 54 | auto-corrected |
-| mimnermus-elegy.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 594 | auto-corrected |
-| mimnermus-tragedy.fragmenta | MIMNERMUS TRAGICUS — Fragmenta (TGF Nauck) | qwen36-nauck-tgf-mimnermus | Qwen3.6-27B | 1,088 | raw OCR |
-| mnesimachus-comedy.fragmenta | 436 ΜΝΗΣΙΜΑΧΟΥ | kock-caf2-ocr-frag | Qwen3.6-27B | 697 | raw OCR |
-| moderatus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 609 | auto-corrected |
-| moeris.lexicon-atticum |  | [archive.org](https://archive.org/details/moeridisatticis00moergoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,061 | auto-corrected |
-| monimus-cynicus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 299 | auto-corrected |
-| moschion.fragmenta | ΘΕΜΙΣΤΟΚΛΗΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 491 | raw OCR |
-| moses.eu-poi-kai-eu-tuxi-tou-ktisame-nou-kai-e-pituxi-kama-tou-kai |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,753 | auto-corrected |
+| michael.in-ethica-nicomachea-ixx-commentaria | MICHAEL EPHESIUS - In Ethica Nicomachea commentaria (CAG XX) | qwen36-commentariainari20bero | Qwen3.6-27B | 6,111 | raw OCR |
+| milon.fragmentum | Milon - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 54 | auto-corrected |
+| mimnermus-elegy.fragmenta | Mimnermus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 594 | auto-corrected |
+| mimnermus-tragedy.fragmenta | MIMNERMUS TRAGICUS - Fragmenta (TGF Nauck) | qwen36-nauck-tgf-mimnermus | Qwen3.6-27B | 1,088 | raw OCR |
+| mnesimachus-comedy.fragmenta | Mnesimachus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 697 | raw OCR |
+| moderatus.fragmenta | Moderatus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 609 | auto-corrected |
+| moeris.lexicon-atticum | Moeris - Lexicon Atticum | [archive.org](https://archive.org/details/moeridisatticis00moergoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,061 | auto-corrected |
+| monimus-cynicus.fragmenta | De Monimo + Monimi fragmenta (Cynic) | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 299 | auto-corrected |
+| moschion.fragmenta | Moschion - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 491 | raw OCR |
+| moses.eu-poi-kai-eu-tuxi-tou-ktisame-nou-kai-e-pituxi-kama-tou-kai | Moses - Εὐποία καὶ εὐτυχία τοῦ κτισαμένου καὶ ἐπιτυχία καμάτου καὶ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,753 | auto-corrected |
 | mullach-fpg2.paratexta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 37,591 | auto-corrected |
-| musaeus-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 857 | auto-corrected |
-| myron.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 371 | auto-corrected |
-| myrtilus.fragmenta | MYRTILUS — Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 143 | raw OCR |
-| nausicrates.fragmenta | ΝΑΤΣΙΚΡΑΤΗΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 69 | raw OCR |
-| nausiphanes.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,195 | auto-corrected |
+| musaeus-philosophy.testimonia | Musaeus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 857 | auto-corrected |
+| myron.fragmenta | Myron - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 371 | auto-corrected |
+| myrtilus.fragmenta | MYRTILUS - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 143 | raw OCR |
+| nausicrates.fragmenta | Nausicrates - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 69 | raw OCR |
+| nausiphanes.testimonia | Nausiphanes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,195 | auto-corrected |
 | nechepso-petosiris-riess |  | qwen36-nechepso_petosiris_riess | Qwen3.6-27B | 842 | auto-corrected |
-| neophron.fragmenta | ΜΗΔΕΙΑ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 336 | auto-corrected |
-| neoptolemus.fragmenta | NEOPTOLEMUS — Fragmenta | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 144 | raw OCR |
-| nessas.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 142 | auto-corrected |
+| neophron.fragmenta | Neophron - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 336 | auto-corrected |
+| neoptolemus.fragmenta | NEOPTOLEMUS - Fragmenta | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 144 | raw OCR |
+| nessas.testimonia | Nessas - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 142 | auto-corrected |
 | nestorianus.fragmenta |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 216 | raw OCR |
-| nicephorus-blemmydes.aper-xrh-zei-h-parou-sa-kataskeuh-fort-auctore |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 321 | raw OCR |
-| nicephorus-blemmydes.nikhfo-rou-tou-blemmu-dou-peri-th-s-xrusopoii-as-fort |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,582 | auto-corrected |
+| nicephorus-blemmydes.aper-xrh-zei-h-parou-sa-kataskeuh-fort-auctore | Nicephorus Blemmydes - Ἅπερ χρῄζει H(παροῦσα κατασκευή (Fort. Auctore | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 321 | raw OCR |
+| nicephorus-blemmydes.nikhfo-rou-tou-blemmu-dou-peri-th-s-xrusopoii-as-fort | Nicephorus Blemmydes - Νικηφόρου τοῦ Βλεμμύδου περὶ τῆς χρυσοποιίας (Fort | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,582 | auto-corrected |
 | nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14 | Nicephorus Callistus Xanthopulus - Historia ecclesiastica, libri VIII-XIV (PG 146; books 1-7 and 15-18 are in PG 145/147, not served) (PG146 loci 12-644) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 239,129 | manual |
-| nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni | Nicetas Heracleensis — Fragmenta commentariorum XVI orationum Gregorii Nazianzeni | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,346 | auto-corrected |
-| nicias-history.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 65 | raw OCR |
-| nicochares.fragmenta | ΝΙΚΟΧΑΡΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 320 | raw OCR |
+| nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni | Nicetas Heracleensis - Fragmenta commentariorum XVI orationum Gregorii Nazianzeni | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,346 | auto-corrected |
+| nicias-history.fragmentum | Nicias - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 65 | raw OCR |
+| nicochares.fragmenta | Nicochares - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 320 | raw OCR |
 | nicolaus-history.nicolaus-progymnasmata-felten |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,289 | auto-corrected |
-| nicolaus.fragmenta | NICOLAUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 141 | raw OCR |
-| nicomachus.fragmenta | NICOMACHUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 158 | raw OCR |
-| nicophon.fragmenta | ΑΦΡΟΔΙΤΗΣ ΓΟΝΑΙ | kock-caf1-ocr-frag | Qwen3.6-27B | 560 | raw OCR |
-| nicostratus.fragmenta | ΝΙΚΟΣΤΡΑΤΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 969 | auto-corrected |
-| nonnosus.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 881 | raw OCR |
-| ocellus.de-universi-natura-sp |  | qwen36-hierocl_aureum_mullach_fpg1-ocr | Qwen3.6-27B | 5,422 | auto-corrected |
-| ocr.walz_rhetores_v1 |  | [archive.org](https://archive.org/details/rhetoresgraeciem01walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 142,531 | manual |
-| ocr.walz_rhetores_v4 |  | [archive.org](https://archive.org/details/rhetoresgraeciem04walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 226,657 | manual |
-| ocr.walz_rhetores_v5 |  | [archive.org](https://archive.org/details/rhetoresgraeciem05walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,926 | manual |
-| ocr.walz_rhetores_v7pt2 |  | [archive.org](https://archive.org/details/p2rhetoresgraeci07walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 163,601 | manual |
-| ocr.walz_rhetores_v9 |  | [archive.org](https://archive.org/details/rhetoresgraeciem09walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 135,644 | manual |
+| nicolaus.fragmenta | NICOLAUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 141 | raw OCR |
+| nicomachus.fragmenta | NICOMACHUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 158 | raw OCR |
+| nicophon.fragmenta | Nicophon - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 560 | raw OCR |
+| nicostratus.fragmenta | Nicostratus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 969 | auto-corrected |
+| nonnosus.fragmenta | Nonnosus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 881 | raw OCR |
+| ocellus.de-universi-natura-sp | Ocellus - De Universi Natura Sp. | qwen36-hierocl_aureum_mullach_fpg1-ocr | Qwen3.6-27B | 5,422 | auto-corrected |
+| ocr.walz_rhetores_v1 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 1 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem01walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 142,531 | manual |
+| ocr.walz_rhetores_v4 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 4 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem04walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 226,657 | manual |
+| ocr.walz_rhetores_v5 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 5 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem05walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,926 | manual |
+| ocr.walz_rhetores_v7pt2 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 7 pars 2 (Walz) | [archive.org](https://archive.org/details/p2rhetoresgraeci07walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 163,601 | manual |
+| ocr.walz_rhetores_v9 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 9 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem09walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 135,644 | manual |
 | oecumenius.commentarius-in-acta-apostolorum | Pseudo-Oecumenius - Commentarius in Acta apostolorum (catena-derived commentary printed under Oecumenius' name, CPG C151 sphere) (PG118 loci 29-162) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 53,570 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis | Oecumenius - Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary] (PG118 loci 594-638) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,393 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis | Oecumenius - Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary] (PG118 loci 556-593) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 15,415 | manual |
@@ -1642,128 +1670,128 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis | Oecumenius (ps.-Oecumenius catena) - Fragmenta in epistulam ad Romanos (in catenis) [served text = full ps.-Oecumenius catena commentary on Romans] (PG118 loci 168-326) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 66,155 | manual |
 | oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 327-461) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,233 | manual |
 | oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 462-555) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 37,734 | manual |
-| oenopides.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,451 | auto-corrected |
-| onatas.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 425 | auto-corrected |
-| ophelio.fragmenta | Ὠ Φ Ε Λ Ι Ὦ Ν | kock-caf2-ocr-frag | Qwen3.6-27B | 132 | auto-corrected |
-| oracula-chaldaica.oracula-fragmenta-olim-sub-auctore-juliano-theurgo |  | qwen36-oracula_chaldaica_kroll | Qwen3.6-27B | 8,267 | auto-corrected |
-| oribasius.collectiones-medicae-lib-1-16-24-25-43-50 |  | qwen36-bussemaker-daremberg-1851-rover | Qwen3.6-27B | 315,754 | manual |
-| oribasius.collectiones-medicae-libri-incerti |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,793 | manual |
-| oribasius.libri-ad-eunapium-lib-1-4 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,499 | auto-corrected |
-| oribasius.synopsis-ad-eustathium-filium |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 78,632 | auto-corrected |
-| orphica.argonautica | ORPHICA — Argonautica | qwen36-abel-orphica-argonautica | Qwen3.6-27B | 6,794 | auto-corrected |
-| orphica.hymni | ORPHICA — Hymni | qwen36-abel-orphica-hymni | Qwen3.6-27B | 5,519 | auto-corrected |
-| orphica.lithica | ORPHICA — Lithica | qwen36-abel-orphica-lithica | Qwen3.6-27B | 2,518 | raw OCR |
-| orphica.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,796 | auto-corrected |
-| ostanes-magus.osta-nou-filoso-fou-pro-s-peta-sion-peri-th-s-i-era-s-tau-ths-kai |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 416 | auto-corrected |
-| pancrates-epigram.fragmenta | PANCRATES — Fragmenta | qwen36-oxyrhynchuspapyr08gren | Qwen3.6-27B | 211 | raw OCR |
+| oenopides.testimonia | Oenopides - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,451 | auto-corrected |
+| onatas.fragmenta | Onatas - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 425 | auto-corrected |
+| ophelio.fragmenta | Ophelio - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 132 | auto-corrected |
+| oracula-chaldaica.oracula-fragmenta-olim-sub-auctore-juliano-theurgo | Oracula Chaldaica - Oracula (Fragmenta) (Olim Sub Auctore Juliano Theurgo) | qwen36-oracula_chaldaica_kroll | Qwen3.6-27B | 8,267 | auto-corrected |
+| oribasius.collectiones-medicae-lib-1-16-24-25-43-50 | Oribasius - Collectiones Medicae (Lib. 1-16, 24-25, 43-50) | qwen36-bussemaker-daremberg-1851-rover | Qwen3.6-27B | 315,754 | manual |
+| oribasius.collectiones-medicae-libri-incerti | Oribasius - Collectiones Medicae (Libri Incerti) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 30,793 | manual |
+| oribasius.libri-ad-eunapium-lib-1-4 | Oribasius - Libri Ad Eunapium (Lib. 1-4) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,499 | auto-corrected |
+| oribasius.synopsis-ad-eustathium-filium | Oribasius - Synopsis Ad Eustathium Filium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 78,632 | auto-corrected |
+| orphica.argonautica | ORPHICA - Argonautica | qwen36-abel-orphica-argonautica | Qwen3.6-27B | 6,794 | auto-corrected |
+| orphica.hymni | ORPHICA - Hymni | qwen36-abel-orphica-hymni | Qwen3.6-27B | 5,519 | auto-corrected |
+| orphica.lithica | ORPHICA - Lithica | qwen36-abel-orphica-lithica | Qwen3.6-27B | 2,518 | raw OCR |
+| orphica.testimonia | Orphica - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,796 | auto-corrected |
+| ostanes-magus.osta-nou-filoso-fou-pro-s-peta-sion-peri-th-s-i-era-s-tau-ths-kai | Ostanes Magus - Ὀστάνου φιλοσόφου πρὸς Πετάσιον περὶ τῆς ἱερᾶς ταύτης καὶ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 416 | auto-corrected |
+| pancrates-epigram.fragmenta | PANCRATES - Fragmenta | qwen36-oxyrhynchuspapyr08gren | Qwen3.6-27B | 211 | raw OCR |
 | pantaenus.fragmenta | Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 225 | raw OCR |
-| panyassis.fragmenta-epica |  | qwen36-panyassis_kinkel_egf | Qwen3.6-27B | 33,197 | auto-corrected |
+| panyassis.fragmenta-epica | Panyassis - Fragmenta Epica | qwen36-panyassis_kinkel_egf | Qwen3.6-27B | 33,197 | auto-corrected |
 | papias.fragmenta | Papias Hierapolitanus - Fragmenta (PG005 loci 637-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 708 | manual |
-| parmenides.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,863 | auto-corrected |
+| parmenides.testimonia | Parmenides - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,863 | auto-corrected |
 | parmiscus.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 133 | raw OCR |
-| paron.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 184 | raw OCR |
+| paron.testimonium | Paron - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 184 | raw OCR |
 | patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum | Patria Constantinopoleos (anonymous, printed under Codinus) - De sepulcris imperatorum quae sunt in templo sanctorum apostolorum (PG157 loci 370-377) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 746 | manual |
 | patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai | Patria Constantinopoleos (anonymous, printed under Codinus) - Parastaseis syntomoi chronikai (with Peri theamaton section) (PG157 loci 333-369) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7,797 | manual |
-| patrocles.fragmenta |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 131 | auto-corrected |
-| paulus-medicine.epitomae-medicae-libri-septem |  | qwen36-paulus_aegineta_heiberg_cmg9 | Qwen3.6-27B | 119,239 | auto-corrected |
-| paulus-silentiarius.descriptio-sanctae-sophiae |  | qwen36-paulsilent_descriptio_bekker | Qwen3.6-27B | 45,173 | auto-corrected |
-| pausanias-attic.attikw-n-o-noma-twn-sunagwgh |  | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 19,814 | auto-corrected |
-| pelagius.pelagi-ou-filoso-fou-peri-th-s-qei-as-tau-ths-kai-i-era-s-te-xnhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 2,274 | auto-corrected |
-| pempelus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 227 | raw OCR |
-| perictione.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 1,259 | auto-corrected |
-| persaeus.fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,739 | auto-corrected |
-| petron.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 214 | raw OCR |
-| phaenias.fragmenta |  | qwen36-demochares_fhg2-ocr | Qwen3.6-27B | 666 | raw OCR |
+| patrocles.fragmenta | Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 131 | auto-corrected |
+| paulus-medicine.epitomae-medicae-libri-septem | Paulus - Epitomae Medicae Libri Septem | qwen36-paulus_aegineta_heiberg_cmg9 | Qwen3.6-27B | 119,239 | auto-corrected |
+| paulus-silentiarius.descriptio-sanctae-sophiae | Paulus Silentiarius - Descriptio Sanctae Sophiae | qwen36-paulsilent_descriptio_bekker | Qwen3.6-27B | 45,173 | auto-corrected |
+| pausanias-attic.attikw-n-o-noma-twn-sunagwgh | Pausanias - Ἀττικῶν ὀνομάτων συναγωγή | qwen36-aelius_dionysius_schwabe-ocr | Qwen3.6-27B | 19,814 | auto-corrected |
+| pelagius.pelagi-ou-filoso-fou-peri-th-s-qei-as-tau-ths-kai-i-era-s-te-xnhs | Pelagius - Πελαγίου φιλοσόφου περὶ τῆς θείας ταύτης καὶ ἱερᾶς τέχνης | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 2,274 | auto-corrected |
+| pempelus.fragmenta | Pempelus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 227 | raw OCR |
+| perictione.fragmenta | Perictione - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 1,259 | auto-corrected |
+| persaeus.fragmenta | Persaeus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,739 | auto-corrected |
+| petron.testimonium | Petron - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 214 | raw OCR |
+| phaenias.fragmenta | Phaenias - Fragmenta | qwen36-demochares_fhg2-ocr | Qwen3.6-27B | 666 | raw OCR |
 | phaleas-et-hippodamus.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,237 | raw OCR |
-| phanocles.fragmenta |  | qwen36-philetas_bach_1829-ocr | Qwen3.6-27B | 2,451 | auto-corrected |
-| pherecrates.fragmenta | ΦΕΡΕΚΡΑΤΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 5,117 | auto-corrected |
-| pherecydes-mythography.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,268 | auto-corrected |
-| philemon-junior.fragmenta | ΦΙΛΗΜΩΝ Ὁ ΝΕΩΤΕΡΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 111 | raw OCR |
-| philemon.fragmenta | ἈΓΡΟΙΚΟΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 5,863 | auto-corrected |
-| philetaerus.fragmenta | ΑΔΩΝΙΑΖΟΥΣΑΙ | kock-caf2-ocr-frag | Qwen3.6-27B | 413 | raw OCR |
-| philetas.fragmenta |  | qwen36-philetas_bach_1829 | Qwen3.6-27B | 6,371 | auto-corrected |
-| philippides.fragmenta | PHILIPPIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 1,020 | raw OCR |
-| philippus-history.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 159 | raw OCR |
-| philiscus-comedy.fragmenta | ἈΔΏΝΙΣ ἈΡΤΕΜΙΔΟΣ ΚΑῚ ἈΠΟΛΛΩΝΟΣ ΓΟΝΑῚ ΔΙΟΣ ΓΟΝΑῚ | kock-caf2-ocr-frag | Qwen3.6-27B | 88 | raw OCR |
+| phanocles.fragmenta | Phanocles - Fragmenta | qwen36-philetas_bach_1829-ocr | Qwen3.6-27B | 2,451 | auto-corrected |
+| pherecrates.fragmenta | Pherecrates - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 5,117 | auto-corrected |
+| pherecydes-mythography.testimonia | Pherecydes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,268 | auto-corrected |
+| philemon-junior.fragmenta | Philemon Junior - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 111 | raw OCR |
+| philemon.fragmenta | Philemon - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 5,863 | auto-corrected |
+| philetaerus.fragmenta | Philetaerus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 413 | raw OCR |
+| philetas.fragmenta | Philetas - Fragmenta | qwen36-philetas_bach_1829 | Qwen3.6-27B | 6,371 | auto-corrected |
+| philippides.fragmenta | PHILIPPIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 1,020 | raw OCR |
+| philippus-history.fragmenta | Philippus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 159 | raw OCR |
+| philiscus-comedy.fragmenta | Philiscus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 88 | raw OCR |
 | philocles-tragedy.fragmenta | ΤΗΡΕΤΣ v. ΠΑΝΔΙΟΝΙΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 216 | auto-corrected |
-| philodamus.paean-in-dionysum |  | qwen36-limenius_delphic_fairbanks-ocr | Qwen3.6-27B | 814 | auto-corrected |
-| philodemus.tlg1595-tlg003 | PHILODEMUS — Index Stoicorum Herculanensis | qwen36-rivistadifilolog03-p469-576 | Qwen3.6-27B | 2,744 | raw OCR |
-| philodemus.tlg1595-tlg241 | PHILODEMUS — De oeconomia | qwen36-philodemiperioik00phil | Qwen3.6-27B | 17,894 | raw OCR |
-| philodemus.tlg1595-tlg267 | PHILODEMUS — De ira | qwen36-philodemiepicur00philgoog | Qwen3.6-27B | 8,279 | raw OCR |
-| philodemus.tlg1595-tlg271 | PHILODEMUS — De libertate dicendi (Peri parrhesias) | qwen36-philodemiperipar00philuoft | Qwen3.6-27B | 9,795 | raw OCR |
-| philodemus.tlg1595-tlg289 | PHILODEMUS — De poematis (Peri poiematon) | qwen36-philodemiperipoi00haus | Qwen3.6-27B | 2,053 | raw OCR |
-| philodemus.tlg1595-tlg472 | PHILODEMUS — De signis (Peri semeion kai semeioseon) | qwen36-philodemberindu00gompgoog | Qwen3.6-27B | 4,581 | raw OCR |
-| philodemus.tlg1595-tlg492 | PHILODEMUS — De bono rege secundum Homerum | qwen36-philodemiperitou00philuoft | Qwen3.6-27B | 9,500 | raw OCR |
+| philodamus.paean-in-dionysum | Philodamus - Paean In Dionysum | qwen36-limenius_delphic_fairbanks-ocr | Qwen3.6-27B | 814 | auto-corrected |
+| philodemus.tlg1595-tlg003 | PHILODEMUS - Index Stoicorum Herculanensis | qwen36-rivistadifilolog03-p469-576 | Qwen3.6-27B | 2,744 | raw OCR |
+| philodemus.tlg1595-tlg241 | PHILODEMUS - De oeconomia | qwen36-philodemiperioik00phil | Qwen3.6-27B | 17,894 | raw OCR |
+| philodemus.tlg1595-tlg267 | PHILODEMUS - De ira | qwen36-philodemiepicur00philgoog | Qwen3.6-27B | 8,279 | raw OCR |
+| philodemus.tlg1595-tlg271 | PHILODEMUS - De libertate dicendi (Peri parrhesias) | qwen36-philodemiperipar00philuoft | Qwen3.6-27B | 9,795 | raw OCR |
+| philodemus.tlg1595-tlg289 | PHILODEMUS - De poematis (Peri poiematon) | qwen36-philodemiperipoi00haus | Qwen3.6-27B | 2,053 | raw OCR |
+| philodemus.tlg1595-tlg472 | PHILODEMUS - De signis (Peri semeion kai semeioseon) | qwen36-philodemberindu00gompgoog | Qwen3.6-27B | 4,581 | raw OCR |
+| philodemus.tlg1595-tlg492 | PHILODEMUS - De bono rege secundum Homerum | qwen36-philodemiperitou00philuoft | Qwen3.6-27B | 9,500 | raw OCR |
 | philodemus.tlg1595-tlg601 |  | [Philodemus, Academicorum index Herculanensis, ed. Mekler, Berlin 1902](https://archive.org/details/academicorumphil00mekluoft) | Qwen3.6-27B | 9,689 | auto-corrected |
 | philodemus.volumina-rhetorica | De rhetorica (Volumina rhetorica) | [Philodemus, Volumina rhetorica vol.1, ed. Sudhaus, Teubner 1892](https://archive.org/details/philodemivolumi00schugoog) | Qwen3.6-27B | 99,394 | auto-corrected |
-| philolaus.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,426 | auto-corrected |
-| philonides.fragmenta | ΑΔΗΛΩΝ ΔΡΑΜΑΤΩΝ | kock-caf1-ocr-frag | Qwen3.6-27B | 118 | raw OCR |
-| philosophus-anonymus.anepigra-fou-filoso-fou-kata-kolouqi-xrh-sews-e-mfai-non |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,011 | auto-corrected |
-| philosophus-anonymus.anepigra-fou-filoso-fou-peri-qei-ou-u-datos-th-s-leukw-sews |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 832 | auto-corrected |
-| philosophus-anonymus.anepigra-fou-filoso-fou-peri-th-s-qei-as-kai-i-era-s-te-xnhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 2,863 | auto-corrected |
-| philosophus-christianus.anti-qesis-le-gousa-o-ti-qei-on-u-dwr-e-n-e-sti-tw-ei-dei |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 466 | raw OCR |
-| philosophus-christianus.apori-e-n-bu-ssaion-u-dwr-e-n-tw-riqmw-deiknu-ein |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 431 | auto-corrected |
-| philosophus-christianus.h-tou-muqikou-u-datos-poi-hsis-e-cod-venet-marc-299 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 861 | auto-corrected |
-| philosophus-christianus.oti-tetraxw-s-diairoume-nhs-th-s-u-lhs-dia-foroi-pogi-nontai |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 219 | auto-corrected |
-| philosophus-christianus.po-sai-ei-si-n-ai-kat-ei-dos-kai-ge-nos-diaforai-tw-n-poih-sewn |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 916 | auto-corrected |
-| philosophus-christianus.pw-s-dei-noei-n-diafora-s-tw-n-poih-sewn-kai-sxh-masi-gewmetrikoi-s |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 243 | raw OCR |
-| philosophus-christianus.ti-s-h-e-n-pokru-fois-tw-n-palaiw-n-e-kdidome-nh-ta-cis-e |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,417 | auto-corrected |
-| philosophus-christianus.ti-s-h-kaqo-lou-tou-u-datos-oi-konomi-e-cod-venet |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 37 | auto-corrected |
-| philosophus-christianus.ti-s-h-tw-n-rxai-wn-diafwni-e-cod-venet-marc-299 |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 263 | auto-corrected |
-| philosophus-christianus.tou-xristianou-peri-eu-staqei-as-tou-xrusou-e-cod |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 949 | auto-corrected |
-| philosophus-christianus.tou-xristianou-peri-tou-qei-ou-u-datos-e-cod-venet |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 134 | auto-corrected |
-| philosophus-christianus.tou-xristianou-su-noyis-ti-s-h-ai-ti-th-s-prokeime-nhs |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 85 | raw OCR |
-| philostephanus.fragmenta |  | qwen36-aristobulus_fhg3-ocr | Qwen3.6-27B | 96 | raw OCR |
-| philoxenus.fragmenta | PHILOXENUS — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 977 | auto-corrected |
-| philyllius.fragmenta | ΔΩΔΕΚΆΤΗ | kock-caf1-ocr-frag | Qwen3.6-27B | 559 | raw OCR |
-| phintys.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 820 | auto-corrected |
-| phocylides.sententiae | PHOCYLIDES — Sententiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 909 | auto-corrected |
-| phoebammon.de-figuris-fort-auctore-phoebammone-alio |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,156 | auto-corrected |
-| phoenicides.fragmenta | PHOENICIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
-| phoenix.fragmenta |  | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
+| philolaus.testimonia | Philolaus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,426 | auto-corrected |
+| philonides.fragmenta | Philonides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 118 | raw OCR |
+| philosophus-anonymus.anepigra-fou-filoso-fou-kata-kolouqi-xrh-sews-e-mfai-non | Philosophus Anonymus - Ἀνεπιγράφου φιλοσόφου κατὰ ἀκολουθίαν χρήσεως ἐμφαῖνον τὸ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,011 | auto-corrected |
+| philosophus-anonymus.anepigra-fou-filoso-fou-peri-qei-ou-u-datos-th-s-leukw-sews | Philosophus Anonymus - Ἀνεπιγράφου φιλοσόφου περὶ θείου ὕδατος τῆς λευκώσεως | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 832 | auto-corrected |
+| philosophus-anonymus.anepigra-fou-filoso-fou-peri-th-s-qei-as-kai-i-era-s-te-xnhs | Philosophus Anonymus - Ἀνεπιγράφου φιλοσόφου περὶ τῆς θείας καὶ ἱερᾶς τέχνης | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 2,863 | auto-corrected |
+| philosophus-christianus.anti-qesis-le-gousa-o-ti-qei-on-u-dwr-e-n-e-sti-tw-ei-dei | Philosophus Christianus - Ἀντίθεσις λέγουσα ὅτι τὸ θεῖον ὕδωρ ἕν E)Sti τῷ εἴδει | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 466 | raw OCR |
+| philosophus-christianus.apori-e-n-bu-ssaion-u-dwr-e-n-tw-riqmw-deiknu-ein | Philosophus Christianus - Ἀπορία. Τὸ ἓν ἀβύσσαιον ὕδωρ E)N τῷ ἀριθμῷ δεικνύειν | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 431 | auto-corrected |
+| philosophus-christianus.h-tou-muqikou-u-datos-poi-hsis-e-cod-venet-marc-299 | Philosophus Christianus - Ἡ τοῦ μυθικοῦ ὕδατος ποίησις (E Cod. Venet. Marc. 299, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 861 | auto-corrected |
+| philosophus-christianus.oti-tetraxw-s-diairoume-nhs-th-s-u-lhs-dia-foroi-pogi-nontai | Philosophus Christianus - Ὅτι τετραχῶς διαιρουμένης τῆς ὕλης, διάφοροι ἀπογίνονται | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 219 | auto-corrected |
+| philosophus-christianus.po-sai-ei-si-n-ai-kat-ei-dos-kai-ge-nos-diaforai-tw-n-poih-sewn | Philosophus Christianus - Πόσαι εἰσὶν Ai(Kat' εἶδος καὶ γένος διαφοραὶ τῶν ποιήσεων | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 916 | auto-corrected |
+| philosophus-christianus.pw-s-dei-noei-n-diafora-s-tw-n-poih-sewn-kai-sxh-masi-gewmetrikoi-s | Philosophus Christianus - Πῶς δεῖ νοεῖν διαφορὰς τῶν ποιήσεων καὶ σχήμασι γεωμετρικοῖς | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 243 | raw OCR |
+| philosophus-christianus.ti-s-h-e-n-pokru-fois-tw-n-palaiw-n-e-kdidome-nh-ta-cis-e | Philosophus Christianus - Τίς H(E)N ἀποκρύφοις τῶν παλαιῶν ἐκδιδομένη τάξις (E | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,417 | auto-corrected |
+| philosophus-christianus.ti-s-h-kaqo-lou-tou-u-datos-oi-konomi-e-cod-venet | Philosophus Christianus - Τίς H(καθόλου τοῦ ὕδατος οἰκονομία (E Cod. Venet | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 37 | auto-corrected |
+| philosophus-christianus.ti-s-h-tw-n-rxai-wn-diafwni-e-cod-venet-marc-299 | Philosophus Christianus - Τίς H(τῶν ἀρχαίων διαφωνία (E Cod. Venet. Marc. 299, | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 263 | auto-corrected |
+| philosophus-christianus.tou-xristianou-peri-eu-staqei-as-tou-xrusou-e-cod | Philosophus Christianus - Τοῦ Χριστιανοῦ περὶ εὐσταθείας τοῦ χρυσοῦ (E Cod | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 949 | auto-corrected |
+| philosophus-christianus.tou-xristianou-peri-tou-qei-ou-u-datos-e-cod-venet | Philosophus Christianus - Τοῦ Χριστιανοῦ περὶ τοῦ θείου ὕδατος (E Cod. Venet | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 134 | auto-corrected |
+| philosophus-christianus.tou-xristianou-su-noyis-ti-s-h-ai-ti-th-s-prokeime-nhs | Philosophus Christianus - Τοῦ Χριστιανοῦ σύνοψις. τίς H(αἰτία τῆς προκειμένης | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 85 | raw OCR |
+| philostephanus.fragmenta | Fragmenta | qwen36-aristobulus_fhg3-ocr | Qwen3.6-27B | 96 | raw OCR |
+| philoxenus.fragmenta | PHILOXENUS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 977 | auto-corrected |
+| philyllius.fragmenta | Philyllius - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 559 | raw OCR |
+| phintys.fragmenta | Phintys - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 820 | auto-corrected |
+| phocylides.sententiae | PHOCYLIDES - Sententiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 909 | auto-corrected |
+| phoebammon.de-figuris-fort-auctore-phoebammone-alio | Phoebammon - De Figuris (Fort. Auctore Phoebammone Alio) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,156 | auto-corrected |
+| phoenicides.fragmenta | PHOENICIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
+| phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 215,610 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | manual |
-| photius.bibliotheca |  | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,191 | raw OCR |
+| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,191 | raw OCR |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | manual |
 | photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Photius - Fragmenta in epistulam ii ad Corinthios (in catenis) - Migne/Mai fragment series, truncated (PG101 loci 652-652) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 366 | raw OCR |
 | photius.fragmenta-in-lucam-in-catenis | Photius - Fragmenta in Lucam (in catenis) (PG101 loci 632-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,657 | manual |
 | photius.fragmenta-in-marcum-in-catenis | Photius - Fragmenta in Marcum (in catenis) (PG101 loci 631-631) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 383 | raw OCR |
-| photius.lexicon |  | [archive.org](https://archive.org/details/photiipatriarch00nabegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 102,751 | auto-corrected |
-| phrynichus-comedy.fragmenta | ΦΡΤΝΙΧΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,672 | auto-corrected |
-| phrynichus-tragedy.fragmenta | ΑΙΓΥΠΤΙΟΙ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 642 | raw OCR |
-| pigres.fragmentum |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 628 | raw OCR |
-| pindarus.fragmenta |  | [Pindar, ed. Schroeder (Teubner)](https://archive.org/search?query=Pindari+carmina+Schroeder) | Qwen3.6-27B | 12,139 | auto-corrected |
-| pisander-epic.heraclea-fragmenta |  | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 28 | raw OCR |
-| plato-comedy.fragmenta | ΠΛΑΤΩΝ | kock-caf1-ocr-frag | Qwen3.6-27B | 5,848 | auto-corrected |
-| platonius.fragmenta-de-comoedia-graeca |  | qwen36-platonius_duebner_scholaristoph1 | Qwen3.6-27B | 355,282 | auto-corrected |
-| poliochus.fragmenta | POLIOCHUS — Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 193 | auto-corrected |
+| photius.lexicon | Photius - Lexicon | [archive.org](https://archive.org/details/photiipatriarch00nabegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 102,751 | auto-corrected |
+| phrynichus-comedy.fragmenta | Phrynichus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,672 | auto-corrected |
+| phrynichus-tragedy.fragmenta | Phrynichus - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 642 | raw OCR |
+| pigres.fragmentum | Pigres - Fragmentum | bergk-plg2-ocr-frag | Qwen3.6-27B | 628 | raw OCR |
+| pindarus.fragmenta | Pindarus - Fragmenta | [Pindar, ed. Schroeder (Teubner)](https://archive.org/search?query=Pindari+carmina+Schroeder) | Qwen3.6-27B | 12,139 | auto-corrected |
+| pisander-epic.heraclea-fragmenta | Pisander - Heraclea (Fragmenta) | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 28 | raw OCR |
+| plato-comedy.fragmenta | Plato - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 5,848 | auto-corrected |
+| platonius.fragmenta-de-comoedia-graeca | Platonius - Fragmenta De Comoedia Graeca | qwen36-platonius_duebner_scholaristoph1 | Qwen3.6-27B | 355,282 | auto-corrected |
+| poliochus.fragmenta | POLIOCHUS - Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 193 | auto-corrected |
 | polus-lucanus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 184 | raw OCR |
-| polyclitus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 761 | auto-corrected |
-| polystratus.peri-lo-gou-katafronh-sews-p-herc-336-1150 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,072 | auto-corrected |
-| polyzelus.fragmenta | ΔΙΟΝΤΕΟΤ ΓΟΝΑΙ | kock-caf1-ocr-frag | Qwen3.6-27B | 312 | raw OCR |
-| pompeius-macer.fragmentum |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 213 | raw OCR |
-| porphyrius.chronica |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 2,163 | auto-corrected |
-| porphyrius.contra-christianos-fragmenta | PORPHYRIUS — Contra Christianos (fragmenta, Harnack) | qwen36-harnack-porphyry | Qwen3.6-27B | 12,792 | raw OCR |
-| porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma | PORPHYRIUS — In Ptolemaei Harmonica commentarius | qwen36-porphyry-in-ptol-bub | Qwen3.6-27B | 64,280 | raw OCR |
-| porphyrius.epistula-ad-anebonem | PORPHYRIUS — Epistula ad Anebonem | qwen36-parthey-anebonem | Qwen3.6-27B | 2,415 | raw OCR |
-| posidippus.fragmenta | POSIDIPPUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 886 | raw OCR |
-| potamon.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 43 | raw OCR |
-| pratinas.fragmenta | ΔΤΣΜΑΙΝΑΙ Η ΚΑΡΤΑΤΙΔΕΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 107 | raw OCR |
-| praxilla.fragmenta | PRAXILLA — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 228 | raw OCR |
-| priscianus.metaphrasis-in-theophrastum |  | qwen36-priscianus_lydus_bywater | Qwen3.6-27B | 108,867 | auto-corrected |
-| priscus-history.testimonia |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 157 | auto-corrected |
-| proclus.in-platonis-timaeum-commentaria |  | qwen36-proclus_timaeus_v1 | Qwen3.6-27B | 553,283 | manual |
-| proclus.institutio-theologica |  | qwen36-proclus_didot_et-1855 | Qwen3.6-27B | 29,050 | auto-corrected |
+| polyclitus.testimonia | Polyclitus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 761 | auto-corrected |
+| polystratus.peri-lo-gou-katafronh-sews-p-herc-336-1150 | Polystratus - Περὶ ἀλόγου καταφρονήσεως (P. Herc. 336-1150) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,072 | auto-corrected |
+| polyzelus.fragmenta | Polyzelus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 312 | raw OCR |
+| pompeius-macer.fragmentum | Pompeius Macer - Fragmentum | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 213 | raw OCR |
+| porphyrius.chronica | Porphyrius - Chronica | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 2,163 | auto-corrected |
+| porphyrius.contra-christianos-fragmenta | PORPHYRIUS - Contra Christianos (fragmenta, Harnack) | qwen36-harnack-porphyry | Qwen3.6-27B | 12,792 | raw OCR |
+| porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma | PORPHYRIUS - In Ptolemaei Harmonica commentarius | qwen36-porphyry-in-ptol-bub | Qwen3.6-27B | 64,280 | raw OCR |
+| porphyrius.epistula-ad-anebonem | PORPHYRIUS - Epistula ad Anebonem | qwen36-parthey-anebonem | Qwen3.6-27B | 2,415 | raw OCR |
+| posidippus.fragmenta | POSIDIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 886 | raw OCR |
+| potamon.fragmenta | Potamon - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 43 | raw OCR |
+| pratinas.fragmenta | Pratinas - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 107 | raw OCR |
+| praxilla.fragmenta | PRAXILLA - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 228 | raw OCR |
+| priscianus.metaphrasis-in-theophrastum | Priscianus - Metaphrasis In Theophrastum | qwen36-priscianus_lydus_bywater | Qwen3.6-27B | 108,867 | auto-corrected |
+| priscus-history.testimonia | Priscus - Testimonia | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 157 | auto-corrected |
+| proclus.in-platonis-timaeum-commentaria | Proclus - In Platonis Timaeum Commentaria | qwen36-proclus_timaeus_v1 | Qwen3.6-27B | 553,283 | manual |
+| proclus.institutio-theologica | Proclus - Institutio Theologica | qwen36-proclus_didot_et-1855 | Qwen3.6-27B | 29,050 | auto-corrected |
 | procopius-rhetoric.commentarii-in-octateuchum | Procopius Gazaeus - Commentarii in Octateuchum (catena-epitome, CPG 7430; as served: Genesis through Judges) (PG087_1 loci 18-546) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 121,734 | manual |
-| procopius-rhetoric.epistulae-1-166 |  | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 24,070 | auto-corrected |
+| procopius-rhetoric.epistulae-1-166 | Procopius - Epistulae 1-166 | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 24,070 | auto-corrected |
 | procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia | Procopius Gazaeus - In libros Regum et Paralipomenon scholia (CPG 7431) (PG087_1 loci 547-617) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 24,504 | manual |
 | procopius-rhetoric.in-proverbia | Procopius Gazaeus (attribution of the PG edition) - In Proverbia (catena-epitome, CPG 7432; Procopian authorship of the epitome doubted) (PG087_1 loci 618-779) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 61,870 | manual |
-| prodicus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,709 | auto-corrected |
+| prodicus.testimonia | Prodicus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,709 | auto-corrected |
 | proros-amyclas-clinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 329 | raw OCR |
-| protagoras.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,474 | auto-corrected |
-| pseudo-archytas.fragmenta |  | qwen36-archytas_mullach_fpg2-ocr | Qwen3.6-27B | 4,651 | auto-corrected |
+| protagoras.testimonia | Protagoras - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,474 | auto-corrected |
+| pseudo-archytas.fragmenta | Pseudo-Archytas - Fragmenta | qwen36-archytas_mullach_fpg2-ocr | Qwen3.6-27B | 4,651 | auto-corrected |
 | pseudo-codinus.de-annis-ab-orbe-condito | Pseudo-Codinus - De annis ab orbe condito (Chronicon breve, from Adam to 1453) (PG157 loci 325-332) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,653 | manual |
 | pseudo-codinus.de-officiis-officia-palatii-constantinopoleos | Pseudo-Codinus - De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae) (PG157 loci 20-68) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,747 | manual |
 | pseudo-codinus.patria-constantinopoleos | Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,162 | manual |
@@ -1779,64 +1807,64 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos | Pseudo-Justinus Martyr - Quaestiones et responsiones ad orthodoxos (PG006 loci 632-707) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 28,135 | manual |
 | pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos | Pseudo-Justinus Martyr - Quaestiones gentilium ad Christianos (PG006 loci 739-752) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,292 | manual |
 | pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712 | Pseudo-Symeon (Symeon Magister ac Logothetes) - Chronographia / Annales a Leone Armenio ad Nicephorum Phocam (PG109 loci 337-416) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 30,963 | manual |
-| pseudo-zonaras.lexicon |  | [archive.org](https://archive.org/details/lexiconextribus00albegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 164,809 | manual |
+| pseudo-zonaras.lexicon | Pseudo-Zonaras - Lexicon | [archive.org](https://archive.org/details/lexiconextribus00albegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 164,809 | manual |
 | ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius |  | qwen36-ptolemaeus_gramm_valckenaer_ammonius | Qwen3.6-27B | 55,321 | auto-corrected |
-| pythagoras.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 6,587 | auto-corrected |
-| pythagoristae-d-k.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 23,896 | auto-corrected |
+| pythagoras.testimonia | Pythagoras - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 6,587 | auto-corrected |
+| pythagoristae-d-k.testimonia-et-fragmenta | Pythagoristae (D-K) - Testimonia Et Fragmenta | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 23,896 | auto-corrected |
 | quadratus-apologeta.fragmentum-apologiae | Quadratus Apologeta - Fragmentum apologiae (apud Eusebium, HE 4.3) (PG005 loci 642-642) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 48 | raw OCR |
-| rhianus.fragmenta |  | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 2,075 | auto-corrected |
-| rhinthon.fragmenta |  | qwen36-rhinthon_kaibel_cgf_1899 | Qwen3.6-27B | 37,598 | auto-corrected |
+| rhianus.fragmenta | Rhianus - Fragmenta | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 2,075 | auto-corrected |
+| rhinthon.fragmenta | Rhinthon - Fragmenta | qwen36-rhinthon_kaibel_cgf_1899 | Qwen3.6-27B | 37,598 | auto-corrected |
 | rhodon.fragmenta | Rhodon - Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13) (PG005 loci 676-678) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 343 | auto-corrected |
-| salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza |  | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 955 | raw OCR |
-| sannyrion.fragmenta | ΔΑΝΑΗ | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
-| sappho.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,099 | auto-corrected |
+| salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza | Salmanas - Μέθοδος Di' ἧς ἀποτελεῖται H(σφαιροειδὴς χάλαζα | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 955 | raw OCR |
+| sannyrion.fragmenta | Sannyrion - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
+| sappho.fragmenta | Sappho - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,099 | auto-corrected |
 | satyrus.vita-euripidis-p-oxy-9-1176 | Vita Euripidis (P. Oxy. 9.1176) | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 451 | raw OCR |
-| scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera |  | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 117,962 | auto-corrected |
-| scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera |  | qwen36-schol_aeschin_dindorf | Qwen3.6-27B | 31,870 | auto-corrected |
-| scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera |  | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 119,911 | auto-corrected |
-| scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera |  | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 120,592 | auto-corrected |
-| scholia-in-aratum.scholia-in-aratum-scholia-vetera |  | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,686 | auto-corrected |
-| scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii |  | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 354,055 | auto-corrected |
+| scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera | Scholia In Aelium Aristidem - Scholia In Aelium Aristidem (Scholia Vetera) | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 117,962 | auto-corrected |
+| scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera | Scholia In Aeschinem - Scholia In Aeschinem (Scholia Vetera) | qwen36-schol_aeschin_dindorf | Qwen3.6-27B | 31,870 | auto-corrected |
+| scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera | Scholia In Aeschylum - Scholia In Aeschylum (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 119,911 | auto-corrected |
+| scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 120,592 | auto-corrected |
+| scholia-in-aratum.scholia-in-aratum-scholia-vetera | Scholia In Aratum - Scholia In Aratum (Scholia Vetera) | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,686 | auto-corrected |
+| scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii) | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 354,055 | auto-corrected |
 | scholia-in-callimachum.schol-callim-schneider |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,582 | auto-corrected |
 | scholia-in-demosthenem.scholia-demosthenem-dindorf-v8 |  | qwen36-scholia_demosthenem_dindorf_v8 | Qwen3.6-27B | 109,808 | auto-corrected |
-| scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera |  | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,839 | auto-corrected |
-| scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et |  | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,688 | auto-corrected |
-| scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,032 | auto-corrected |
-| scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora |  | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 65,351 | auto-corrected |
-| scholia-in-platonem.scholia-in-platonem-scholia-vetera |  | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,660 | auto-corrected |
-| scholia-in-theocritum.scholia-vetera-et-recentiora |  | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 92,656 | auto-corrected |
-| scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera | SCHOLIA IN XENOPHONTEM — Scholia in Xenophontis Anabasin | qwen36-expeditiocyri02xenogoog | Qwen3.6-27B | 4,214 | raw OCR |
-| scythinus-poet-phil.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 315 | auto-corrected |
-| scythinus-poet-phil.testimonia |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 249 | raw OCR |
+| scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera | Scholia In Hesiodum - Scholia In Opera Et Dies (Scholia Vetera) | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,839 | auto-corrected |
+| scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et | Scholia In Lycophronem - Scholia In Lycophronem (Scholia Vetera Et Recentiora Partim Isaac Et | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,688 | auto-corrected |
+| scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Cynegetica (Scholia Vetera Et Recentiora) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,032 | auto-corrected |
+| scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Halieutica (Scholia Vetera Et Recentiora) | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 65,351 | auto-corrected |
+| scholia-in-platonem.scholia-in-platonem-scholia-vetera | Scholia In Platonem - Scholia In Platonem (Scholia Vetera) | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,660 | auto-corrected |
+| scholia-in-theocritum.scholia-vetera-et-recentiora | Scholia In Theocritum - Scholia vetera et recentiora | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 92,656 | auto-corrected |
+| scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera | SCHOLIA IN XENOPHONTEM - Scholia in Xenophontis Anabasin | qwen36-expeditiocyri02xenogoog | Qwen3.6-27B | 4,214 | raw OCR |
+| scythinus-poet-phil.fragmenta | Scythinus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 315 | auto-corrected |
+| scythinus-poet-phil.testimonia | Scythinus - Testimonia | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 249 | raw OCR |
 | scythinus.peri-physios |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 44 | raw OCR |
 | secundus-mullach-fpg1 |  | qwen36-secundus_mullach_fpg1 | Qwen3.6-27B | 152,132 | auto-corrected |
-| semonides.fragmenta | SEMONIDES — Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 524 | raw OCR |
+| semonides.fragmenta | SEMONIDES - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 524 | raw OCR |
 | serapion-scr-eccl.fragmenta | Serapion Antiochenus - Fragmenta (PG005 loci 696-697) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 194 | auto-corrected |
-| serenus.de-sectione-cylindri |  | qwen36-serenus_heiberg_opuscula | Qwen3.6-27B | 34,332 | auto-corrected |
-| simias.fragmenta |  | qwen36-simias_fraenkel | Qwen3.6-27B | 6,904 | auto-corrected |
-| simonides-lyric.fragmenta-2 |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,763 | auto-corrected |
+| serenus.de-sectione-cylindri | Serenus - De Sectione Cylindri | qwen36-serenus_heiberg_opuscula | Qwen3.6-27B | 34,332 | auto-corrected |
+| simias.fragmenta | Simias - Fragmenta | qwen36-simias_fraenkel | Qwen3.6-27B | 6,904 | auto-corrected |
+| simonides-lyric.fragmenta-2 | Simonides - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,763 | auto-corrected |
 | simus-myonides-euphranor.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 104 | raw OCR |
-| simylus.fragmentum | SIMYLUS — Fragmentum | kock-caf2-ocr-frag | Qwen3.6-27B | 35 | raw OCR |
-| sminthes.titulus |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 34 | auto-corrected |
+| simylus.fragmentum | SIMYLUS - Fragmentum | kock-caf2-ocr-frag | Qwen3.6-27B | 35 | raw OCR |
+| sminthes.titulus | Sminthes - Titulus | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 34 | auto-corrected |
 | socrates-rhodius.socrates-hist-fhg4 |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 51,835 | auto-corrected |
-| solon.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 1,900 | auto-corrected |
-| sopater-comedy.fragmenta |  | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 32,797 | auto-corrected |
-| sophilus.fragmenta | ΑΝΔΡΟΚΛΗΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
-| sophron.fragmenta | SOPHRON — Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 5,497 | auto-corrected |
-| sosicrates.fragmenta | SOSICRATES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |
-| sosipater.fragmentum | SOSIPATER — Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 270 | raw OCR |
-| sosiphanes.fragmenta |  | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 366 | raw OCR |
-| sositheus.fragmenta | ΔΑΦΝΙΣ Η ΑΙΤΤΕΡΣΗΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 448 | raw OCR |
-| sosthenes.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 106 | auto-corrected |
+| solon.fragmenta | Solon - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 1,900 | auto-corrected |
+| sopater-comedy.fragmenta | Sopater - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 32,797 | auto-corrected |
+| sophilus.fragmenta | Sophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
+| sophron.fragmenta | SOPHRON - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 5,497 | auto-corrected |
+| sosicrates.fragmenta | SOSICRATES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |
+| sosipater.fragmentum | SOSIPATER - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 270 | raw OCR |
+| sosiphanes.fragmenta | Sosiphanes - Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 366 | raw OCR |
+| sositheus.fragmenta | Sositheus - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 448 | raw OCR |
+| sosthenes.fragmenta | Sosthenes - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 106 | auto-corrected |
 | sosylus-bilabel-papyrus1922 |  | qwen36-sosylus_bilabel_papyrus1922 | Qwen3.6-27B | 5,170 | auto-corrected |
-| sotades-comedy.fragmenta | ΑΔΗΛΩΝ ΔΡΑΜΑΤΩΝ | kock-caf2-ocr-frag | Qwen3.6-27B | 53 | raw OCR |
+| sotades-comedy.fragmenta | Sotades - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 53 | raw OCR |
 | sotion.leipsana |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 288 | auto-corrected |
-| sphaerus.fragmenta |  | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 558 | auto-corrected |
-| stephanus-grammar.ethnica-epitome |  | [archive.org](https://archive.org/details/bub_gb_0NIPAAAAQAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 145,712 | raw OCR |
-| stephanus.fragmentum | STEPHANUS — Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 99 | raw OCR |
-| straton-philosophy.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 298 | raw OCR |
-| strattis.fragmenta | ἈΡΓΥΡΙΟΤ ἈΦΑΝΙΣΜΟΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 2,279 | auto-corrected |
-| susarion.fragmentum | ΣΟΤΣΑΡΙΩΝ | kock-caf1-ocr-frag | Qwen3.6-27B | 31 | raw OCR |
+| sphaerus.fragmenta | Sphaerus - Fragmenta | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 558 | auto-corrected |
+| stephanus-grammar.ethnica-epitome | Stephanus - Ethnica (Epitome) | [archive.org](https://archive.org/details/bub_gb_0NIPAAAAQAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 145,712 | raw OCR |
+| stephanus.fragmentum | STEPHANUS - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 99 | raw OCR |
+| straton-philosophy.fragmenta | Straton - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 298 | raw OCR |
+| strattis.fragmenta | Strattis - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 2,279 | auto-corrected |
+| susarion.fragmentum | Susarion - Fragmentum | kock-caf1-ocr-frag | Qwen3.6-27B | 31 | raw OCR |
 | symeon-thessalonicensis.de-matrimonio | Symeon Thessalonicensis - De honesto et legitimo matrimonio (chs. 276-281 of the dialogue) (PG155 loci 257-261) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,049 | manual |
 | symeon-thessalonicensis.de-ordine-sepulturae | Symeon Thessalonicensis - De fine et exsequiarum ordine (De ordine sepulturae; chs. ~359-373 of the dialogue) (PG155 loci 341-353) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,652 | manual |
 | symeon-thessalonicensis.de-poenitentia | Symeon Thessalonicensis - De poenitentia (chs. 251-275 of the dialogue) (PG155 loci 240-256) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,992 | manual |
@@ -1854,48 +1882,48 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | symeon-thessalonicensis.expositio-de-sacro-symbolo | Symeon Thessalonicensis - Expositio de sacro symbolo (exposition of the Creed) (PG155 loci 381-406) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 11,426 | manual |
 | symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum | Symeon Thessalonicensis - Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters) (PG155 loci 420-481) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,609 | manual |
 | symmachus.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 39,549 | auto-corrected |
-| synesius-philosophy.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,822 | auto-corrected |
+| synesius-philosophy.epistulae | Synesius - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,822 | auto-corrected |
 | tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | auto-corrected |
-| teleclides.fragmenta | ΤΗΛΕΚΛΕΙΔΗΣ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |
-| telephus.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 136 | raw OCR |
-| telesilla.fragmenta |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,207 | auto-corrected |
-| telestes.fragmenta | TELESTES — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 243 | auto-corrected |
-| terpander.fragmenta-fort-auctore-terpandro |  | bergk-plg3-ocr-frag | Qwen3.6-27B | 45 | raw OCR |
-| thales.fragmenta |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,008 | auto-corrected |
-| thales.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 7,246 | auto-corrected |
-| theagenes-philosophy.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 231 | raw OCR |
-| theages.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,220 | auto-corrected |
-| theano.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 587 | auto-corrected |
-| themison.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 2 | raw OCR |
-| themistius.peri-filanqrwpi-as-h-kwnsta-ntios | THEMISTIUS — Orationes | qwen36-themistiioratio01dindgoog | Qwen3.6-27B | 157,937 | raw OCR |
-| theodectas.fragmenta | ΑΑΚΜΕΩΝ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 1,046 | auto-corrected |
-| theodoretus.commentaria-in-isaiam | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 44,728 | auto-corrected |
-| theodoretus.de-providentia-orationes-decem | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 46,560 | auto-corrected |
-| theodoretus.epistulae-collectio-sirmondiana-epistulae-1-95 | ΘΕΟΔΩΡΗΤΟΥ ἘΠΙΣΚΟΠΟΥ ΚΥΡΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 53,742 | auto-corrected |
-| theodoretus.eranistes | ΕΡΑΝΙΣΤΗΣ ΗΤΟΙ ΠΟΛΥΜΟΡΦΟΣ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 52,470 | auto-corrected |
-| theodoretus.explanatio-in-canticum-canticorum | ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΟ ΑΣΜΑ ΤΩΝ ΑΣΜΑΤΩΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,516 | auto-corrected |
-| theodoretus.graecarum-affectionum-curatio | ΘΕΟΔΩΡΗΤΟΥ ΕΠΙΣΚΟΠΟΥ ΚΥΡΟΥ ΕΛΛΗΝΙΚΩΝ ΠΑΘΗΜΑΤΩΝ ΘΕΡΑΠΕΥΤΙΚΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 70,301 | auto-corrected |
-| theodoretus.haereticarum-fabularum-compendium | ΑΙΡΕΤΙΚΗΣ ΚΑΚΟΜΟΥΣΙΑΣ ΕΠΙΤΟΜΗ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 36,689 | auto-corrected |
-| theodoretus.interpretatio-in-ezechielem | ΕΡΜΗΝΕΙΑ ΤΗΣ ΠΡΟΦΗΤΕΙΑΣ ΤΟΥ ΘΕΙΟΥ ΕΖΕΚΙΗΛ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 132,992 | auto-corrected |
-| theodoretus.interpretatio-in-jeremiam | ΕΡΜΗΝΕΙΑ ΤΗΣ ΠΡΟΦΗΤΕΙΑΣ ΤΟΥ ΘΕΙΟΥ ΙΕΡΕΜΙΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,139 | auto-corrected |
-| theodoretus.interpretatio-in-psalmos | ἘΡΜΗΝ. ΤΟΥ Βʹ ΨΑΛΜΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 178,942 | auto-corrected |
-| theodoretus.interpretatio-in-xii-prophetas-minores | ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΟΥΣ ΔΩΔΕΚΑ ΠΡΟΦΗΤΑΣ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 74,748 | auto-corrected |
-| theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli | ΤΟΥ ΑΓΙΟΥ ΑΠΟΣΤΟΛΟΥ ΠΑΥΛΟΥ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 147,306 | auto-corrected |
-| theodoretus.libellus-contra-nestorium-ad-sporacium-sp | ΕΠΙΣΚΟΠΟΥ ΚΥΡΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,433 | auto-corrected |
-| theodoretus.quaestiones-in-libros-regnorum-et-paralipomenon | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 58,252 | auto-corrected |
-| theodoretus.quaestiones-in-octateuchum | ΤΟΥ ΜΑΚΑΡΙΟΥ ΘΕΟΔΩΡΗΤΟΥ, ΕΠΙΣΚΟΠΟΥ ΚΥΡΟΥ, ΤΑ ΑΠΟΡΑ ΤΗΣ ΘΕΙΑΣ ΓΡΑΦΗΣ. ΚΑΤ' ΕΚΛΟΓΗΝ. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 66,747 | auto-corrected |
+| teleclides.fragmenta | Teleclides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |
+| telephus.fragmenta | Telephus - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 136 | raw OCR |
+| telesilla.fragmenta | Telesilla - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,207 | auto-corrected |
+| telestes.fragmenta | TELESTES - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 243 | auto-corrected |
+| terpander.fragmenta-fort-auctore-terpandro | Terpander - Fragmenta (Fort. Auctore Terpandro) | bergk-plg3-ocr-frag | Qwen3.6-27B | 45 | raw OCR |
+| thales.fragmenta | Thales - Fragmenta | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,008 | auto-corrected |
+| thales.testimonia | Thales - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 7,246 | auto-corrected |
+| theagenes-philosophy.testimonia | Theagenes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 231 | raw OCR |
+| theages.fragmenta | Theages - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,220 | auto-corrected |
+| theano.fragmenta | Theano - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 587 | auto-corrected |
+| themison.fragmentum | Themison - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 2 | raw OCR |
+| themistius.peri-filanqrwpi-as-h-kwnsta-ntios | THEMISTIUS - Orationes | qwen36-themistiioratio01dindgoog | Qwen3.6-27B | 157,937 | raw OCR |
+| theodectas.fragmenta | Theodectas - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 1,046 | auto-corrected |
+| theodoretus.commentaria-in-isaiam | Theodoretus - Commentaria In Isaiam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 44,728 | auto-corrected |
+| theodoretus.de-providentia-orationes-decem | Theodoretus - De Providentia Orationes Decem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 46,560 | auto-corrected |
+| theodoretus.epistulae-collectio-sirmondiana-epistulae-1-95 | Theodoretus - Epistulae: Collectio Sirmondiana (Epistulae 1-95) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 53,742 | auto-corrected |
+| theodoretus.eranistes | Theodoretus - Eranistes | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 52,470 | auto-corrected |
+| theodoretus.explanatio-in-canticum-canticorum | Theodoretus - Explanatio In Canticum Canticorum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,516 | auto-corrected |
+| theodoretus.graecarum-affectionum-curatio | Theodoretus - Graecarum Affectionum Curatio | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 70,301 | auto-corrected |
+| theodoretus.haereticarum-fabularum-compendium | Theodoretus - Haereticarum Fabularum Compendium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 36,689 | auto-corrected |
+| theodoretus.interpretatio-in-ezechielem | Theodoretus - Interpretatio In Ezechielem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 132,992 | auto-corrected |
+| theodoretus.interpretatio-in-jeremiam | Theodoretus - Interpretatio In Jeremiam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 47,139 | auto-corrected |
+| theodoretus.interpretatio-in-psalmos | Theodoretus - Interpretatio In Psalmos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 178,942 | auto-corrected |
+| theodoretus.interpretatio-in-xii-prophetas-minores | Theodoretus - Interpretatio In Xii Prophetas Minores | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 74,748 | auto-corrected |
+| theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli | Theodoretus - Interpretatio In Xiv Epistulas Sancti Pauli | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 147,306 | auto-corrected |
+| theodoretus.libellus-contra-nestorium-ad-sporacium-sp | Theodoretus - Libellus Contra Nestorium Ad Sporacium Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,433 | auto-corrected |
+| theodoretus.quaestiones-in-libros-regnorum-et-paralipomenon | Theodoretus - Quaestiones In Libros Regnorum Et Paralipomenon | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 58,252 | auto-corrected |
+| theodoretus.quaestiones-in-octateuchum | Theodoretus - Quaestiones In Octateuchum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 66,747 | auto-corrected |
 | theodorus-agallianus.refutatio-contra-joannem-argyropulum | Theodorus Agallianus - Refutatio (dialogus) contra Ioannem Argyropulum (PG158 loci 541-560) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 16,597 | manual |
-| theodorus-mathematics.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 352 | raw OCR |
-| theodosius.canones-isagogici-de-flexione-nominum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 14,153 | raw OCR |
-| theodosius.canones-isagogici-de-flexione-verborum |  | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 16,890 | raw OCR |
+| theodorus-mathematics.testimonia | Theodorus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 352 | raw OCR |
+| theodosius.canones-isagogici-de-flexione-nominum | Canones isagogici de flexione nominum | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 14,153 | raw OCR |
+| theodosius.canones-isagogici-de-flexione-verborum | Canones isagogici de flexione verborum | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 16,890 | raw OCR |
 | theodotion.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 23,323 | auto-corrected |
-| theognetus.fragmenta | THEOGNETUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 135 | raw OCR |
-| theognis-elegy.elegiae |  | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 3,239 | auto-corrected |
-| theognis-history.fragmentum |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 239 | auto-corrected |
-| theognis-tragedy.fragmentum |  | qwen36-nauck_tgf_1889 | Qwen3.6-27B | 113,477 | auto-corrected |
-| theognostus.canones-sive-de-orthographia |  | [archive.org](https://archive.org/details/anecdotagrcaeco00fragoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 150,818 | auto-corrected |
+| theognetus.fragmenta | THEOGNETUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 135 | raw OCR |
+| theognis-elegy.elegiae | Theognis - Elegiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 3,239 | auto-corrected |
+| theognis-history.fragmentum | Theognis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 239 | auto-corrected |
+| theognis-tragedy.fragmentum | Theognis - Fragmentum | qwen36-nauck_tgf_1889 | Qwen3.6-27B | 113,477 | auto-corrected |
+| theognostus.canones-sive-de-orthographia | Theognostus - Canones Sive De Orthographia | [archive.org](https://archive.org/details/anecdotagrcaeco00fragoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 150,818 | auto-corrected |
 | theophanes-continuatus.chronographia-lib-1-6 | Theophanes Continuatus - Chronographia (lib. 1-6) (PG109 loci 13-255) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 95,235 | manual |
-| theophilus-comedy.fragmenta | ΘΕΟΦΙΛΟΥ ΒΟΙΩΤΙΣ | kock-caf2-ocr-frag | Qwen3.6-27B | 414 | raw OCR |
+| theophilus-comedy.fragmenta | Theophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 414 | raw OCR |
 | theophylactus-achridensis.de-iis-quorum-latini-incusantur | Theophylactus Achridensis - De iis quorum Latini incusantur (Allocutio cuidam ex suis familiaribus) (PG126 loci 118-132) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,352 | manual |
 | theophylactus-achridensis.enarratio-in-evangelium-joannis | Theophylactus Achridensis - Enarratio in Evangelium Joannis (complete across two volumes: PG123 John 1-7 + PG124 John 7:52-21:25) (PG124 loci 10-164) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 117,346 | manual |
 | theophylactus-achridensis.enarratio-in-evangelium-lucae | Theophylactus Achridensis - Enarratio in Evangelium Lucae (with prefatory vitae, hypothesis and kephalaia) (PG123 loci 347-568) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 97,447 | manual |
@@ -1938,33 +1966,33 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | theophylactus-achridensis.oratio-in-venerationem-crucis | Theophylactus Achridensis - Oratio in venerationem crucis (mid-Lent sermon; conventional title) (PG126 loci 60-71) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,289 | manual |
 | theophylactus-achridensis.supplementum-in-evangelium-joannis | Theophylactus Achridensis (attributed) - Conclusion-fragment of a commentary on the Gospel of John (Jo 21:22-25 with account of John's death; supplement to the In Joannem) (PG126 loci 80-82) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 867 | auto-corrected |
 | theophylactus-achridensis.vita-clementis-ohridensis | Theophylactus Achridensis - Vita Clementis Ohridensis (the long life, BHG 355) (PG126 loci 604-633) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,716 | manual |
-| theophylactus-simocatta.epistulae |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,582 | auto-corrected |
-| theopompus-comedy.fragmenta | ἈΦΡΟΔΙΣΙΑ | kock-caf1-ocr-frag | Qwen3.6-27B | 1,876 | auto-corrected |
-| theopompus-history.testimonia |  | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 23,594 | auto-corrected |
-| thespis.fragmenta | ΠΕΝΘΕΤΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 262 | raw OCR |
-| thrasymachus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,086 | auto-corrected |
-| thugenides.fragmenta | THUGENIDES — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 144 | raw OCR |
+| theophylactus-simocatta.epistulae | Theophylactus Simocatta - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,582 | auto-corrected |
+| theopompus-comedy.fragmenta | Theopompus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,876 | auto-corrected |
+| theopompus-history.testimonia | Theopompus - Testimonia | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 23,594 | auto-corrected |
+| thespis.fragmenta | Thespis - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 262 | raw OCR |
+| thrasymachus.testimonia | Thrasymachus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,086 | auto-corrected |
+| thugenides.fragmenta | THUGENIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 144 | raw OCR |
 | tiberianus.epistula-ad-trajanum-de-christianis | Tiberianus (praeses Palaestinae, pseudepigraphon ap. Joannem Malalam) - Epistula Tiberiani ad Trajanum de Christianis (PG005 loci 505-505) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 59 | auto-corrected |
-| timaeus-philosophy.fragmenta-et-titulus-sp |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,691 | auto-corrected |
-| timaeus-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 135 | raw OCR |
-| timaeus-sophista.lexicon-platonicum |  | [archive.org](https://archive.org/details/timaiousophistou00tima) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 34,586 | auto-corrected |
-| timagenes.fragmenta |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 399 | auto-corrected |
-| timagoras.fragmenta |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 319 | auto-corrected |
-| timocles-comedy.fragmenta | ΑΙΓΤΙΠΙΟΙ | kock-caf2-ocr-frag | Qwen3.6-27B | 1,581 | raw OCR |
-| timocreon.fragmenta | TIMOCREON — Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 261 | auto-corrected |
-| timon.fragmenta-et-tituli |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 7,676 | auto-corrected |
+| timaeus-philosophy.fragmenta-et-titulus-sp | Timaeus - Fragmenta Et Titulus Sp. | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,691 | auto-corrected |
+| timaeus-philosophy.testimonia | Timaeus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 135 | raw OCR |
+| timaeus-sophista.lexicon-platonicum | Timaeus Sophista - Lexicon Platonicum (e cod. Coislin. 345) | [archive.org](https://archive.org/details/timaiousophistou00tima) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 34,586 | auto-corrected |
+| timagenes.fragmenta | Timagenes - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 399 | auto-corrected |
+| timagoras.fragmenta | Timagoras - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 319 | auto-corrected |
+| timocles-comedy.fragmenta | Timocles - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,581 | raw OCR |
+| timocreon.fragmenta | TIMOCREON - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 261 | auto-corrected |
+| timon.fragmenta-et-tituli | Timon - Fragmenta Et Tituli | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 7,676 | auto-corrected |
 | timosthenes-ggm1 |  | qwen36-timosthenes_ggm1 | Qwen3.6-27B | 104,827 | auto-corrected |
-| timostratus.fragmenta | TIMOSTRATUS — Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 182 | raw OCR |
-| timotheus-comedy.fragmenta | ΜΕΤΑΒΑΛΛΟΜΕΝΟΣ Η ΜΕΤΑΦΕΡΟΜΕΝΟΣ ΠΤΚΤΗΣ ΠΑΡΑΚΑΤΑΘΗΚΗ | kock-caf2-ocr-frag | Qwen3.6-27B | 80 | raw OCR |
+| timostratus.fragmenta | TIMOSTRATUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 182 | raw OCR |
+| timotheus-comedy.fragmenta | Timotheus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 80 | raw OCR |
 | timotheus-grammar.timotheus-gaza-haupt-opuscula |  | qwen36-timotheus_gaza_haupt_opuscula | Qwen3.6-27B | 16,665 | auto-corrected |
 | timotheus-history.timotheus-defluviis-ggm2 |  | qwen36-timotheus_defluviis_ggm2 | Qwen3.6-27B | 181,964 | auto-corrected |
-| timotheus-lyric.fragmenta |  | qwen36-timotheus_perser_wilamowitz | Qwen3.6-27B | 5,430 | auto-corrected |
-| titanomachia.titanomachia-fragmenta |  | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 452 | auto-corrected |
-| tlg0129.fragmenta |  | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 2,199 | auto-corrected |
-| tlg1140.tlg001 | ANTICLIDES — Fragmenta | qwen36-anticlides-bub | Qwen3.6-27B | 2,785 | raw OCR |
-| tlg1235.fragmenta |  | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 98 | raw OCR |
+| timotheus-lyric.fragmenta | Timotheus - Fragmenta | qwen36-timotheus_perser_wilamowitz | Qwen3.6-27B | 5,430 | auto-corrected |
+| titanomachia.titanomachia-fragmenta | Titanomachia - Titanomachia (Fragmenta) | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 452 | auto-corrected |
+| tlg0129.fragmenta | Fragmenta | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 2,199 | auto-corrected |
+| tlg1140.tlg001 | ANTICLIDES - Fragmenta | qwen36-anticlides-bub | Qwen3.6-27B | 2,785 | raw OCR |
+| tlg1235.fragmenta | Fragmenta | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 98 | raw OCR |
 | tlg1595.tlg003 | Stoicorum Historia / Index Stoicorum (P.Herc. 1018) | [Philodemus, Stoicorum Historia (Index Stoicorum), ed. Comparetti, Rivista di Filologia 3, 1875](https://archive.org/details/rivistadifilolog03toriuoft) | Qwen3.6-27B | 2,256 | auto-corrected |
-| tlg1595.tlg120 | PHILODEMUS — De morte liber IV | qwen36-sitzungsbericht308klasgoog | Qwen3.6-27B | 7,204 | raw OCR |
+| tlg1595.tlg120 | PHILODEMUS - De morte liber IV | qwen36-sitzungsbericht308klasgoog | Qwen3.6-27B | 7,204 | raw OCR |
 | tlg1595.tlg210 | De musica lib. iv | [Philodemus, De musica, ed. Kemke, Teubner 1884](https://archive.org/details/philodemidemusic00phil) | Qwen3.6-27B | 13,240 | auto-corrected |
 | tlg1595.tlg241 | De oeconomia | [Philodemus, De oeconomia, ed. Jensen, Teubner 1906](https://archive.org/details/philodemiperioik00phil) | Qwen3.6-27B | 11,598 | auto-corrected |
 | tlg1595.tlg267 | De ira (Peri orges) | [Philodemus, De ira (editio princeps), ed. Gomperz 1864](https://archive.org/details/philodemiepicur00philgoog) | Qwen3.6-27B | 7,946 | auto-corrected |
@@ -1972,29 +2000,29 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | tlg1595.tlg289 | De poematis lib. ii | [Philodemus, De poematis lib. ii, ed. Hausrath](https://archive.org/details/philodemiperipoi00haus) | Qwen3.6-27B | 1,856 | auto-corrected |
 | tlg1595.tlg472 | De signis (Peri semeion kai semeioseon) | [Philodemus, De signis (Peri semeioseon), ed. Gomperz, Herkulanische Studien 1, 1865](https://archive.org/details/philodemberindu00gompgoog) | Qwen3.6-27B | 4,471 | auto-corrected |
 | tlg1595.tlg492 | De bono rege secundum Homerum | [Philodemus, De bono rege secundum Homerum, ed. Olivieri, Teubner 1909](https://archive.org/details/philodemiperitou00philuoft) | Qwen3.6-27B | 6,428 | auto-corrected |
-| tlg1598.fragmenta |  | qwen36-nicostratus_fhg4-ocr | Qwen3.6-27B | 78 | raw OCR |
-| tlg2524.fragmenta |  | qwen36-nicostratus_fhg4-ocr | Qwen3.6-27B | 162 | auto-corrected |
-| tlg2637.fragmenta |  | qwen36-nicostratus_fhg4-ocr | Qwen3.6-27B | 578 | auto-corrected |
-| tlg4049.tlg001 | THOMAS MAGISTER — Ecloga nominum et verborum Atticorum | qwen36-thomaemagistrisi00thomuoft | Qwen3.6-27B | 77,512 | raw OCR |
-| tlg4075.tlg001 | MARINUS — Vita Procli | qwen36-marinus-bub | Qwen3.6-27B | 21,561 | raw OCR |
-| tragica-adespota.fragmenta | ΦΙΛΟΚΤΗΤΗΣ | nauck-tgf-ocr-frag | Qwen3.6-27B | 11,439 | auto-corrected |
-| tyrtaeus.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 953 | auto-corrected |
-| ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas |  | qwen36-scholia_demosthenem_dindorf_v8-ocr | Qwen3.6-27B | 5,231 | auto-corrected |
+| tlg1598.fragmenta | Fragmenta | qwen36-nicostratus_fhg4-ocr | Qwen3.6-27B | 78 | raw OCR |
+| tlg2524.fragmenta | Fragmenta | qwen36-nicostratus_fhg4-ocr | Qwen3.6-27B | 162 | auto-corrected |
+| tlg2637.fragmenta | Fragmenta | qwen36-nicostratus_fhg4-ocr | Qwen3.6-27B | 578 | auto-corrected |
+| tlg4049.tlg001 | THOMAS MAGISTER - Ecloga nominum et verborum Atticorum | qwen36-thomaemagistrisi00thomuoft | Qwen3.6-27B | 77,512 | raw OCR |
+| tlg4075.tlg001 | MARINUS - Vita Procli | qwen36-marinus-bub | Qwen3.6-27B | 21,561 | raw OCR |
+| tragica-adespota.fragmenta | Tragica Adespota - Fragmenta | nauck-tgf-ocr-frag | Qwen3.6-27B | 11,439 | auto-corrected |
+| tyrtaeus.fragmenta | Tyrtaeus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 953 | auto-corrected |
+| ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas | Ulpianus - Prolegomena In Demosthenis Orationes Olynthiacas Et Philippicas | qwen36-scholia_demosthenem_dindorf_v8-ocr | Qwen3.6-27B | 5,231 | auto-corrected |
 | vita-basilii-iunioris.excerpta | Anonymus (hagiographus) - Excerpta e Vita S. Basilii iunioris (BHG 263) (PG109 loci 332-336) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,727 | manual |
-| xenarchus.fragmenta | ΒΟΥΤΑΛΙΩΝ | kock-caf2-ocr-frag | Qwen3.6-27B | 407 | raw OCR |
-| xeniades.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 43 | auto-corrected |
-| xenocles.fragmentum | ΛΙΚΥΜΝΙΟΣ | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 143 | raw OCR |
-| xenomedes.fragmenta |  | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 840 | auto-corrected |
-| xenophanes.fragmenta |  | bergk-plg2-ocr-frag | Qwen3.6-27B | 491 | raw OCR |
-| xenophanes.fragmenta-silli-et-de-natura |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,887 | auto-corrected |
-| xenophanes.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 11,571 | auto-corrected |
-| xenophilus.testimonia |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 110 | raw OCR |
-| xuthus.testimonium |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 140 | raw OCR |
-| zeno-citieus.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,161 | auto-corrected |
-| zeno-philosophy.testimonia |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,751 | auto-corrected |
-| zeno-tarsensis.fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 174 | raw OCR |
+| xenarchus.fragmenta | Xenarchus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 407 | raw OCR |
+| xeniades.testimonium | Xeniades - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 43 | auto-corrected |
+| xenocles.fragmentum | Xenocles - Fragmentum | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 143 | raw OCR |
+| xenomedes.fragmenta | Xenomedes - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 840 | auto-corrected |
+| xenophanes.fragmenta | Xenophanes - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 491 | raw OCR |
+| xenophanes.fragmenta-silli-et-de-natura | Xenophanes - Fragmenta (Silli Et De Natura) | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,887 | auto-corrected |
+| xenophanes.testimonia | Xenophanes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 11,571 | auto-corrected |
+| xenophilus.testimonia | Xenophilus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 110 | raw OCR |
+| xuthus.testimonium | Xuthus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 140 | raw OCR |
+| zeno-citieus.testimonia-et-fragmenta | Zeno - Testimonia Et Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,161 | auto-corrected |
+| zeno-philosophy.testimonia | Zeno - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,751 | auto-corrected |
+| zeno-tarsensis.fragmenta | Zeno - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 174 | raw OCR |
 | zonaeus-walz-rg8 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 154,278 | auto-corrected |
-| zosimus-alchemista.opera |  | qwen36-berthelot_alchimistes_grec-ocr | Qwen3.6-27B | 40,877 | auto-corrected |
+| zosimus-alchemista.opera | Opera | qwen36-berthelot_alchimistes_grec-ocr | Qwen3.6-27B | 40,877 | auto-corrected |
 <!-- OCR-PROVENANCE:END -->
 
 ## Status
@@ -2012,12 +2040,15 @@ below; regenerate it with `python scripts/build_provenance.py`.
   18 researched volumes split (~160 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 16 displaced witnesses to corpus_secondary),
-  each with a reversible token-exact audit in data/corpus_changes/. Only PG003
-  remains volume-keyed (Dionysius/Pachymeres passage-level interleave; see the
-  split-deferred flag record).
-- Next: passage-level separation of PG003 (Dionysius vs Pachymeres paraphrase),
-  then per-work citation loci for the carved CGPG works (now page-keyed
-  `<VOL>.<page>`).
+  each with a reversible token-exact audit in data/corpus_changes/. 13
+  `cogPG.*` files remain volume-keyed: seven leftovers of carved volumes
+  (12,464 tokens between them) and six uncarved volumes (PG003, PG067, PG112,
+  PG113, PG139, PG151, ~1.28M tokens). Only PG003 is deferred on the evidence
+  (Dionysius/Pachymeres passage-level interleave; see the split-deferred flag
+  record); the other five are simply not researched yet.
+- Next: research and carve PG067, PG112, PG113, PG139 and PG151, passage-level
+  separation of PG003 (Dionysius vs Pachymeres paraphrase), then per-work
+  citation loci for the carved CGPG works (now page-keyed `<VOL>.<page>`).
 
 ## License
 

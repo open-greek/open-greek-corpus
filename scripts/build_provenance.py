@@ -3,9 +3,11 @@
 its source, the model that OCR'd it, and whether it has been manually corrected yet.
 
 Reads corpus_editions.json (which works are OCR), cgpg_works.json / ocr_works.json
-(human descriptions), and data/corrections_log/provenance.json (the list of works that
-have had a correction pass, delivered by the OCR pipeline - a plain list of urns,
-nothing about how). Rewrites the table between the OCR-PROVENANCE markers in README.md.
+(human descriptions), work_index.json (the served title, for the many OCR works whose
+ledger description is blank or is a scan's running head), and
+data/corrections_log/provenance.json (the list of works that have had a correction
+pass, delivered by the OCR pipeline - a plain list of urns, nothing about how).
+Rewrites the table between the OCR-PROVENANCE markers in README.md.
 
   python scripts/build_provenance.py
 """
@@ -74,6 +76,49 @@ def masked_model(rec: dict) -> str:
     return f"{model} ({note})"
 
 
+def looks_like_page_header(desc: str) -> bool:
+    """Whether a ledger description is a scan's running head rather than a title.
+
+    ocr_works.json's `title` was harvested from the OCR of the first page for a
+    whole family of fragment editions, so it holds whatever was printed across the
+    top of that page: the play a fragment came from (`ΑΔΡΑΣΤΟΣ` for the whole of
+    Achaeus' Fragmenta), a section rubric (`ΛΟΓΟΣ Αʹ`), sometimes half a column of
+    running text. Printed running heads are set in capitals and our real titles are
+    not, so "carries cased letters, none of them lowercase" separates the two
+    cleanly - 486 of the table's 1,312 rows.
+
+    Test for the ABSENCE of lowercase, not for all(isupper()): the Greek numeral
+    sign in `ΛΟΓΟΣ Αʹ` (U+0374) is alpha but is neither upper nor lower, so
+    all(isupper()) says False and 38 unmistakable running heads survive the filter.
+    """
+    return (bool(desc) and any(c.isalpha() for c in desc)
+            and not any(c.islower() for c in desc))
+
+
+def indexed_desc(urn: str, index: dict) -> str:
+    """`Author - Title` from the work index, the fallback for a row whose ledger
+    description is missing or is a running head. work_index.json is the reader-facing
+    join and carries a real title for 940 of the 996 rows the ledgers cannot describe;
+    the rest have no title there either (editors' paratexta, multi-author testimonia
+    bundles, a few works the registry never titled) and are left blank rather than
+    given an invented one.
+
+    Two things in the index are not descriptions and must not be printed as if they
+    were. 31 works are "titled" with the OCR delivery's file stem
+    (`anthemius_dupuy_1777`), recognizable by the underscore no real title carries -
+    printing it would just restate the Work column in worse spelling. And 36 authors
+    have no display name, only their own slug (`boethus`), which the Work column
+    already shows; prepending it earns nothing, so those rows get the bare title.
+    """
+    w = index.get(urn) or {}
+    title = (w.get("title") or "").strip()
+    if not title or "_" in title:
+        return ""
+    author = (w.get("author") or {})
+    name = (author.get("name") or "").strip()
+    return f"{name} - {title}" if name and name != (author.get("slug") or "") else title
+
+
 def is_masked(edition: str, urn: str, prov_recs: dict) -> bool:
     """Whether a work's served (dominant) edition is a masked-column re-OCR run.
     Now that "ocr-masked" is folded into "ocr", the pipeline is recognized from the
@@ -100,6 +145,7 @@ def main() -> None:
     cgpg = {w["urn"]: w for w in (_load("cgpg_works.json") or [])
             if w.get("kind") != "secondary-witness"}
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
+    index = (_load("work_index.json") or {}).get("works") or {}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
     # The Words column used to print ocr_works.json's / cgpg_works.json's own
     # n_tokens. Neither file is generated: both are ledgers that a dozen one-off
@@ -152,7 +198,7 @@ def main() -> None:
         label = (srcs.get(edition, {}).get("label") if isinstance(srcs.get(edition), dict) else None) \
             or edition
         if not label:
-            return "—"
+            return "-"
         label = re.sub(r",\s*[\w.-]+\.\w{2,}\)", ")", label)      # (elegiac+iambic, archive.org) -> (elegiac+iambic)
         label = re.sub(r"\s*\([\w.-]+\.\w{2,}\)", "", label).strip()   # (roger-pearse.com) -> ''
         return f"[{label}]({url})" if url else label
@@ -170,8 +216,21 @@ def main() -> None:
             name = urn.replace("cogPG.", "")
         else:
             w = ocr.get(urn, {})
-            desc = " — ".join(p for p in (w.get("author", ""), w.get("title", "")) if p)
+            # " - ", the separator cgpg_works.json's descriptions already use, so one
+            # column does not print two different dashes down its length.
+            desc = " - ".join(p for p in (w.get("author", ""), w.get("title", "")) if p)
             name = urn
+        # The ledgers describe barely a quarter of these rows: ocr_works.json has no
+        # entry at all for 208 of them, a blank one for 301 more, and a harvested
+        # running head for 486, which is how the Content column came to print
+        # ΑΔΡΑΣΤΟΣ against the whole of Achaeus' Fragmenta. Fall back to the work
+        # index, which titles all but 56 of the 996.
+        # Only when the ledger has nothing usable: its descriptions are the richer
+        # ones where they exist (they carry the Migne column range, the attribution
+        # note, what a catena actually covers), so preferring the index wholesale
+        # would flatten 316 good rows into a bare title.
+        if not desc.strip() or looks_like_page_header(desc):
+            desc = indexed_desc(urn, index) or desc
         status = ("manual" if urn in corrected
                   else "auto-corrected" if urn in auto_corrected
                   else "raw OCR")

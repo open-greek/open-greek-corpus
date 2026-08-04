@@ -11,16 +11,27 @@
 #   source  -> source_overrides.json                         (precedence overrides)
 #           -> source_registry.json + coverage_report.json   (verdict + the gap)
 #
-# Outputs are byte-stable (sorted, no wall-clock), so `make` is a no-op when no
-# prerequisite changed and re-committing regenerated files is churn-free.
+# Outputs are byte-stable (sorted, no wall-clock), so re-committing regenerated
+# files is churn-free. That is a property of the OUTPUTS, not a promise that a
+# target is cheap to ask for: no goal here is a leaf, and `make reports` is the
+# one to watch. Its chain runs back through corpus_editions.json to the three
+# ingesters and the id layer, then forward through the yardstick, before any
+# report runs - twelve commands, and one of them
+# (scripts/build_byzantium_gr_corpus.py) goes to byzantium.gr over the network
+# for any page missing from data/cache/byzantium_gr/, which is gitignored and so
+# is empty in a fresh clone. Whether that happens turns on mtimes, not content,
+# and a clone stamps every file at checkout time in no useful order, so run
+# `make -n <goal>` first if the network matters. To rebuild one report without
+# the chain, run its script directly.
 #
 #   make            # full chain
 #   make yardstick  # just the lexicon + lemma frequency
 #   make sourcing   # just overrides + registry + coverage report
-#   make reports    # just the per-corpus reports (quality, per-work lemmas,
-#                   # the README provenance table)
+#   make reports    # the per-corpus reports (quality, per-work lemmas, the
+#                   # README provenance table), plus whatever of the ingest
+#                   # chain and the yardstick is out of date ahead of them
 #
-# build_lemma_frequency needs the Dilemma lemmatiser importable; point DILEMMA at
+# build_lemma_frequency needs the Dilemma lemmatizer importable; point DILEMMA at
 # its checkout (default ../dilemma) or pre-set PYTHONPATH.
 
 PY       ?= python3
@@ -66,7 +77,9 @@ oga-metadata:
 # Just the opaque-id layer: ledgers -> corpus_editions id injection -> WEMI index.
 # build_work_index.py reads the committed $(CROSSWALK) for the title of any work
 # the registry does not cover (the carved CGPG volumes, byzantium.gr, the OCR'd
-# PD editions - 913 works were served titleless). It is NOT a prerequisite here:
+# PD editions - 913 works were served titleless, and the crosswalk titled 484 of
+# them; the 429 still blank are FGrH/FHG fragment authors with no TLG anchor, for
+# which no file in the repo holds a title). It is NOT a prerequisite here:
 # the crosswalk is a committed artifact, `sourcing` rebuilds it when the registry
 # moves, and making it one would drag the whole ingest chain into this target.
 ids:
@@ -138,7 +151,7 @@ reports: $(QUALITY_REPORT) $(WORK_LEMMAS) README.md
 $(QUALITY_REPORT): $(CORPUS_FILES) scripts/build_ocr_quality_report.py
 	$(PY) scripts/build_ocr_quality_report.py
 
-# Needs the Dilemma lemmatiser, like $(LEMMA_FREQ). Writes the .tsv.gz and its
+# Needs the Dilemma lemmatizer, like $(LEMMA_FREQ). Writes the .tsv.gz and its
 # stats sidecar; the persistent form->lemma cache is validated on load, so a bad
 # entry cannot survive a rebuild (scripts/validate_lemma_map.py holds the checks).
 $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
