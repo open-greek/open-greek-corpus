@@ -25,6 +25,13 @@ non-numbered structure) is treated as ordinary running text of its enclosing
 citable div, never emitted as a garbage row-index locus. Works whose leaves have
 no derivable @n are reported, not silently emitted.
 
+A work cited by alphabetic division (the Suda, keyed book.division.entry) gets
+that division component repaired where the TEI keys it wrongly: a Latin capital
+standing in for the identical-looking Greek letter, or an entry number fused
+onto the letter ("O255" for the omicron section). See division_repairs, which
+gates the repair on the work already spelling other divisions in Greek so a
+locus that is legitimately Latin is never touched.
+
 Dedup per tlgAuthor.tlgWork: the largest edition (most Greek tokens) is the
 primary; any OTHER edition whose books are disjoint from it AND whose text barely
 overlaps (word 5-gram shingles) is merged in, so a work split across part-editions
@@ -184,6 +191,117 @@ def _recension_tag(text: str) -> str | None:
     """The recension siglum a reading carries as an in-text prefix, else None."""
     m = _RECENSION_RE.match(text)
     return m.group(1) if m else None
+
+
+# --- alphabetic-division repair (see division_repairs) ----------------------
+# Greek capitals whose LATIN lookalike is a different codepoint but an identical
+# glyph. Exactly these can be keyed in the wrong script with nothing to see, so
+# exactly these are the ones found wrong: the First1K Suda keys its divisions A
+# B E as Latin while Γ Δ Κ Λ Μ Ν Ξ Π Ρ Σ Τ Ω came through as Greek, and the
+# digraph `Aι` mixes both scripts inside one label. `Suda A.1` and `Suda Α.1`
+# are then two strings for one citation and neither resolves reliably.
+# Lowercase is deliberately absent. The confusable lowercase pairs (o/ο, v/ν,
+# p/ρ) would drag genuine Latin-script loci into the rule, and the corpus is
+# full of them - `Prooem`, `Ps_101`, `Rom.1_1`, `NaN`, `praef` - which must stay
+# exactly as the TEI keys them.
+LATIN_TO_GREEK_CAPITAL = {"A": "Α", "B": "Β", "E": "Ε", "Z": "Ζ", "H": "Η",
+                          "I": "Ι", "K": "Κ", "M": "Μ", "N": "Ν", "O": "Ο",
+                          "P": "Ρ", "T": "Τ", "X": "Χ", "Y": "Υ"}
+# Same Greek letter range as _GK_LETTER. A locus component of nothing but Greek
+# letters is an alphabetic division label; one with a number fused onto the end
+# is the second defect below.
+_GREEK_LABEL = re.compile(r"^[Ͱ-Ͽἀ-῿]+$")
+_GREEK_FUSED = re.compile(r"^([Ͱ-Ͽἀ-῿]+)[0-9]+$")
+# The evidence gate. A component position is only read as a Greek alphabetic
+# division slot when the work already spells at least this many of its own
+# divisions in Greek there; the mis-keyed ones are then the gaps in that
+# alphabet. Without the gate the rule would eat Roman numerals, which are Latin
+# capitals that DO map to Greek labels (I -> Ι, X -> Χ, II -> ΙΙ): six Appian
+# fragmenta works cite their books I, II, III, IV, V and must stay Latin. None
+# of them spells a division in Greek, so the gate never opens for them.
+MIN_GREEK_DIVISIONS = 2
+# ...and a repaired label may be at most this many Greek letters. Measured over
+# the works this ingester owns: 24,182 rows carry an all-Greek locus component,
+# and every one of them is a single letter or a two-letter digraph (390 rows,
+# the Suda's Αι). A three-letter "division" would be III or XII read as Greek.
+MAX_DIVISION_LETTERS = 2
+
+
+def _greek_division_label(value: str) -> str | None:
+    """The alphabetic division `value` denotes once its Latin homoglyph capitals
+    are read as Greek, or None when it is not a division label at all:
+
+        'Αι'   -> 'Αι'   already keyed Greek
+        'A'    -> 'Α'    keyed Latin
+        'Aι'   -> 'Αι'   Latin capital + Greek iota inside one digraph
+        'Ο255' -> 'Ο'    an entry number fused onto the division letter: the
+                         whole Suda omicron section sits under `Ο255` while the
+                         entry number is already the NEXT component, so the row
+                         served as `3.Ο255.1` is the citation Suda ο 1
+        'Ps_101', 'Prooem', 'NaN', 'IV', 'TOC' -> None   real Latin script
+    """
+    greek = "".join(LATIN_TO_GREEK_CAPITAL.get(c, c) for c in value)
+    if _GREEK_LABEL.match(greek):
+        return greek
+    m = _GREEK_FUSED.match(greek)
+    return m.group(1) if m else None
+
+
+def division_repairs(loci_parts: list[list[str]]) -> dict[int, dict[str, str]]:
+    """{component index: {mis-keyed division label -> the label it means}} for
+    one work's loci, empty when the work has no alphabetic divisions to repair.
+
+    A lexicon cited by alphabetic division and entry (the Suda: `book.division.
+    entry`) is only citable if the division component is the Greek letter it
+    stands for. Two things break that, both keying defects in the TEI @n rather
+    than anything about the text, and both fixed here so a rebuild serves the
+    repaired loci instead of reverting them (this replaces the one-off
+    scripts/fix_suda_divisions.py, whose repair a rebuild used to undo).
+
+    It is a general rule, not a Suda special case, but a tightly gated one: the
+    work must already spell MIN_GREEK_DIVISIONS of its own divisions in Greek at
+    that component position, because Latin capitals in a locus are usually
+    entirely legitimate (`Prooem`, `Ps_101`, `Agis.1.1`, `2.121A`, Appian's
+    Roman-numeral books) and a homoglyph rewrite would corrupt them. Measured
+    over the 1,924 works this ingester owns, exactly one - suda.lexicon - has a
+    slot that opens the gate.
+
+    A label is repaired only when NO other value in that slot resolves to the
+    same label, which is the second line of defense for a work that does open the
+    gate. That one test does three jobs: it refuses to merge a Latin `A` into a
+    division the work already spells `Α` (we could not tell which entries belong
+    to which), it refuses to strip a fused number off a letter that carries
+    several - the Pseudo-Dorotheus appendix is keyed A1 ... A12, where stripping
+    would collapse twelve citations into one - and it keeps the repair injective,
+    so no two divisions can ever land on the same one.
+    """
+    repairs: dict[int, dict[str, str]] = {}
+    width = max((len(p) for p in loci_parts), default=0)
+    for i in range(width):
+        values = {p[i] for p in loci_parts if len(p) > i}
+        if sum(1 for v in values if _GREEK_LABEL.match(v)) < MIN_GREEK_DIVISIONS:
+            continue                       # not a Greek-alphabet slot: hands off
+        fixes: dict[str, str] = {}
+        for v in values:
+            label = _greek_division_label(v)
+            if label is None or label == v or len(label) > MAX_DIVISION_LETTERS:
+                continue                   # not a label, already right, too long
+            if any(w != v and _greek_division_label(w) == label for w in values):
+                continue                   # ambiguous: would merge two divisions
+            fixes[v] = label
+        if fixes:
+            repairs[i] = fixes
+    return repairs
+
+
+def repaired_locus_parts(parts: list[str],
+                         repairs: dict[int, dict[str, str]]) -> list[str]:
+    """`parts` with each mis-keyed division label replaced by the one it means."""
+    out = list(parts)
+    for i, fixes in repairs.items():
+        if i < len(out) and out[i] in fixes:
+            out[i] = fixes[out[i]]
+    return out
 
 
 def _atomic_write_text(path: Path, text: str) -> None:
@@ -790,6 +908,8 @@ def main() -> None:
     disambiguations: dict[str, dict] = {}   # work -> {base_locus: {basis, loci}}
     split_fallbacks: dict[str, list[str]] = {}   # work -> oversized divs served
     # unsplit because the page reassembly failed the concatenation invariant
+    division_repaired: dict[str, int] = {}       # work -> rows whose alphabetic
+    # division label was mis-keyed and repaired (division_repairs)
     total_passages = 0
     for key in sorted(cands):
         if key in keep_list:
@@ -867,6 +987,29 @@ def main() -> None:
             for parts, text, bekker, lines in psgs:
                 emitted_chars += sum(len(t) for t in _GK.findall(text))
                 records.append((parts, text, bekker, lines, source, lic, edition))
+
+        # Repair mis-keyed alphabetic divisions (division_repairs) before anything
+        # keys off the locus. It runs HERE, over the whole work at once, because
+        # the evidence for a repair is the rest of the work: a division label is
+        # only read as mis-keyed Greek when the same slot already holds Greek
+        # divisions and none of them claims the repaired label. iter_passages sees
+        # one edition's passages at a time and could not make that call safely.
+        # Running before the collision resolution below is also what keeps the two
+        # honest with each other: the resolution must see the repaired loci (it is
+        # what serves one row per served locus), and a disambiguation tag it
+        # appends - `1.66.68.90~RV` - is never a division and must never be fed
+        # through the homoglyph map.
+        div_repairs = division_repairs([r[0] for r in records])
+        n_div_repaired = 0
+        if div_repairs:
+            repaired = []
+            for rec in records:
+                parts = repaired_locus_parts(rec[0], div_repairs)
+                if parts != rec[0]:
+                    n_div_repaired += 1
+                repaired.append((parts, *rec[1:]))
+            records = repaired
+            division_repaired[key] = n_div_repaired
 
         # Resolve same-locus collisions so the corpus stays strictly locus-keyed
         # (one served locus -> one row) WITHOUT ever discarding a distinct reading.
@@ -1059,11 +1202,21 @@ def main() -> None:
         #                           section clash); count of relocated readings. The
         #                           base -> [loci] + basis map is in
         #                           data/corpus_loci_disambiguated.json.
-        bad: dict[str, int] = {}
+        #   repaired_division_loci  rows whose alphabetic division label was keyed in
+        #                           the wrong script or carried a fused entry number
+        #                           and was repaired (division_repairs); count of rows,
+        #                           with the label map itself in division_repairs so
+        #                           the change is auditable and invertible from the
+        #                           report alone.
+        bad: dict[str, object] = {}
         if emitted_chars < body_chars_total:
             bad["dropped_chars"] = body_chars_total - emitted_chars
         if n_collapsed:
             bad["collapsed_dup_loci"] = n_collapsed
+        if n_div_repaired:
+            bad["repaired_division_loci"] = n_div_repaired
+            bad["division_repairs"] = {str(i): fixes
+                                       for i, fixes in sorted(div_repairs.items())}
         if n_disambiguated:
             bad["disambiguated_dup_loci"] = n_disambiguated
         if bad:
@@ -1133,6 +1286,11 @@ def main() -> None:
           file=sys.stderr)
     print(f"works by license: {dict(bylic)}", file=sys.stderr)
     print(f"works with locus warnings: {len(warnings)}", file=sys.stderr)
+    if division_repaired:
+        print("alphabetic divisions repaired: "
+              + "; ".join(f"{k} [{v:,} loci]"
+                          for k, v in sorted(division_repaired.items())),
+              file=sys.stderr)
     if split_fallbacks:
         print("page-split invariant fallbacks (served unsplit): "
               + "; ".join(f"{k} [{', '.join(v)}]"
