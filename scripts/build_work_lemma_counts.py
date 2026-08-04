@@ -46,11 +46,24 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import io
 import json
 import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
+
+
+def gzip_write_text(path: Path):
+    """Text-mode gzip writer with no embedded timestamp.
+
+    gzip stamps the wall clock into its header, so an artifact whose content had
+    not changed still came out byte-different on every rebuild - a 39 MB diff
+    for nothing, against the Makefile's promise that outputs are byte-stable and
+    re-committing them is churn-free.
+    """
+    return io.TextIOWrapper(gzip.GzipFile(path, "wb", mtime=0), encoding="utf-8")
+
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -109,7 +122,7 @@ def load_work_forms(files: list[Path], use_cache: bool) -> dict[str, Counter[str
             counters = tokenize_file(fp)
             fresh += 1
             if use_cache:
-                with gzip.open(cache_fp, "wt", encoding="utf-8") as f:
+                with gzip_write_text(cache_fp) as f:
                     for urn, c in counters.items():
                         for form, n in c.most_common():
                             f.write(f"{urn}\t{form}\t{n}\n")
@@ -158,7 +171,7 @@ def load_lemma_cache() -> dict[str, str]:
 
 def save_lemma_cache(cache: dict[str, str]) -> None:
     CACHE.mkdir(parents=True, exist_ok=True)
-    with gzip.open(LEMMA_CACHE, "wt", encoding="utf-8") as f:
+    with gzip_write_text(LEMMA_CACHE) as f:
         for form, lemma in cache.items():
             f.write(f"{form}\t{lemma}\n")
     LEMMA_META.write_text(json.dumps(
@@ -278,7 +291,7 @@ def main() -> None:
     totals: dict[str, dict[str, int]] = {}
     n_pairs = 0
     keep_set = set(keep)
-    sink = (gzip.open(DATA / "work_lemma_counts.tsv.gz", "wt", encoding="utf-8")
+    sink = (gzip_write_text(DATA / "work_lemma_counts.tsv.gz")
             if use_cache else None)
     try:
         for urn in sorted(works):
