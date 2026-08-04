@@ -1,0 +1,197 @@
+{
+ "corpus": {
+  "passages": 2108580,
+  "tokens": 66664829,
+  "tokens_lemmatized": 64944454,
+  "works": 3822
+ },
+ "generated_from": {
+  "commit": "48d1846ee4c94855cb4bfc5123d272d8df817039",
+  "commit_date": "2026-08-04",
+  "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
+ },
+ "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
+ "licenses": {
+  "CC-BY-4.0": {
+   "tokens": 4880040,
+   "works": 214
+  },
+  "CC-BY-SA-4.0": {
+   "tokens": 33781155,
+   "works": 2420
+  },
+  "PD": {
+   "tokens": 27493012,
+   "works": 1167
+  },
+  "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
+   "tokens": 7519,
+   "works": 1
+  },
+  "PD (ancient LXX text); Wikisource transcription CC BY-SA 4.0": {
+   "tokens": 4547,
+   "works": 1
+  },
+  "PD (ancient poem); Wikisource transcription CC BY-SA 4.0": {
+   "tokens": 2176,
+   "works": 1
+  },
+  "PD (ancient text); First1KGreek/Perseus CC BY-SA 4.0": {
+   "tokens": 168687,
+   "works": 1
+  },
+  "PD (ancient text); GLAUx CC BY-SA 4.0": {
+   "tokens": 9805,
+   "works": 2
+  },
+  "PD (ancient text); GLAUx corpus CC BY-SA 4.0": {
+   "tokens": 127905,
+   "works": 3
+  },
+  "Public domain (14th century text, Kalonaros 1940 edition)": {
+   "tokens": 73301,
+   "works": 1
+  },
+  "Public domain / CC BY-SA 3.0 (Wikisource)": {
+   "tokens": 116682,
+   "works": 11
+  }
+ },
+ "pin": {
+  "catalog": "data/corpus_catalog.tsv",
+  "catalog_rows": 3822,
+  "catalog_sha256": "86fa9cb096dbe31d21a7af65b002a3060fec712485e04bf18d15f68ab097efdc",
+  "corpus_sha256": "1e5d602ee970b712251826140f604b97edcb1faa35c8ef13582add326b7e9dd0",
+  "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
+ },
+ "quality": {
+  "correction_status": {
+   "auto-corrected": {
+    "tokens": 19097126,
+    "works": 834
+   },
+   "manual": {
+    "tokens": 8728724,
+    "works": 163
+   },
+   "not-ocr": {
+    "tokens": 36124268,
+    "works": 2496
+   },
+   "raw-ocr": {
+    "tokens": 2714711,
+    "works": 329
+   }
+  },
+  "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
+  "raw_ocr": {
+   "ocr_share_of_corpus_tokens": 0.4581,
+   "ocr_tokens": 30540561,
+   "ocr_works": 1326,
+   "raw_share_of_corpus_tokens": 0.0407,
+   "raw_share_of_ocr_tokens": 0.0889,
+   "raw_tokens": 2714711,
+   "raw_works": 329,
+   "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
+  },
+  "wrong_corrections": {
+   "active_records": 192151,
+   "caveats": [
+    "Only the freq/accepted cell has been remeasured (n=295); the other cells still rest on their original samples of about 30 items each.",
+    "Independent raters shown identical items disagree on 8.6% of them (kappa 0.78), so no figure here is finer than a few points.",
+    "The estimate counts corrections that are wrong, not OCR errors that survive: a raw-OCR work has had no correction pass at all and none of these rates say anything about it.",
+    "The worst cell measured, llm/accepted at 33%, was reverted to its OCR readings and is excluded from the figures above.",
+    "The per-work unattested_rate in data/corpus_catalog.tsv is a triage signal, not a character error rate: a lexicon or a dialect glossary scores high on rare vocabulary without being misread."
+   ],
+   "corrections_present": 120894,
+   "corrections_present_works": 890,
+   "freq_accepted": {
+    "ci95": [
+     0.74,
+     0.87
+    ],
+    "n": 295,
+    "precision": 0.8,
+    "remeasured_on": "2026-08-03",
+    "wrong_rows": 13000,
+    "wrong_rows_range": [
+     9000,
+     17600
+    ]
+   },
+   "measured_on": [
+    "2026-08-02",
+    "2026-08-03"
+   ],
+   "method": "blind philological rating of stratified samples of the corrections actually present in the served text",
+   "population_check": {
+    "checked": true,
+    "records_now": 192151,
+    "records_when_measured": 192151,
+    "stale": false
+   },
+   "precision_by_corrector": {
+    "confusion": 0.93,
+    "freq/accepted": 0.8,
+    "freq/auto": 0.85,
+    "llm/auto": 0.78
+   },
+   "rater_disagreement": 0.086,
+   "rater_kappa": 0.78,
+   "wrong_rows_estimate": 40000
+  }
+ },
+ "release_date": "2026-08-04",
+ "release_id": "corpus-2026-08-04",
+ "sources": {
+  "byzantine_vernacular": {
+   "tokens": 189983,
+   "works": 12
+  },
+  "byzantium_gr": {
+   "tokens": 1648928,
+   "works": 19
+  },
+  "cgpg": {
+   "tokens": 4696477,
+   "works": 178
+  },
+  "dfhg": {
+   "tokens": 692799,
+   "works": 528
+  },
+  "first1k": {
+   "tokens": 21869519,
+   "works": 1045
+  },
+  "galenus_verbatim": {
+   "tokens": 318470,
+   "works": 25
+  },
+  "glaux": {
+   "tokens": 137710,
+   "works": 5
+  },
+  "ocr": {
+   "tokens": 25844084,
+   "works": 1148
+  },
+  "perseus": {
+   "tokens": 9696027,
+   "works": 748
+  },
+  "pta": {
+   "tokens": 1493681,
+   "works": 106
+  },
+  "saws": {
+   "tokens": 62909,
+   "works": 5
+  },
+  "wikisource": {
+   "tokens": 14242,
+   "works": 3
+  }
+ },
+ "title": "Open Greek Corpus"
+}
