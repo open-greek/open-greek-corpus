@@ -1,0 +1,130 @@
+cff-version: 1.2.0
+message: >-
+  If you use this corpus, cite the release you actually built against, by its
+  tag. The tag is a complete byte pin: data/corpus is git-tracked, so the tag
+  fixes every served passage. data/corpus_release.json carries that release's
+  id, per-source counts and quality caveats; data/corpus_catalog.tsv carries one
+  row per work with its own sha256. There is no DOI for this corpus - cite the
+  tag and the repository.
+title: Open Greek Corpus
+abstract: >-
+  An open corpus of ancient Greek: openly-licensed digital editions where they
+  exist, our own OCR of public-domain editions where they do not, with the goal
+  of a free counterpart to the subscription corpora. Text is served as one
+  locus-keyed JSONL file per work, with a per-work catalog, an id layer
+  (opaque work and author ids crosswalked to CTS/TLG, Wikidata, VIAF/GND/ISNI),
+  and per-lemma and per-work frequency tables. Part of the corpus is OCR of
+  pre-1930 public-domain editions and is corrected to varying degrees, so quality
+  is uneven by design and is published per work rather than averaged away.
+type: dataset
+authors:
+  - family-names: Riordan
+    given-names: Francisco
+repository-code: "https://github.com/open-greek/open-greek-corpus"
+version: corpus-2026-08-04
+date-released: "2026-08-04"
+license: CC-BY-SA-4.0
+keywords:
+  - ancient Greek
+  - Greek literature
+  - corpus linguistics
+  - digital classics
+  - TEI
+  - OCR
+  - CTS
+# Licensing is not uniform, and the single `license` field above cannot say so.
+# The aggregate is CC BY-SA 4.0, because the bulk of it is CC BY-SA 4.0 editions
+# redistributed under the same terms; our own OCR of public-domain editions is
+# ADDITIONALLY available under CC BY 4.0; the derived statistical tables (lemma
+# frequency, coverage counts) are facts and carry no copyright. No
+# non-commercial (CC BY-NC-SA) text is included. LICENSE states this in full,
+# and each work's own source and license are in data/coverage.json and
+# data/corpus_catalog.tsv.
+#
+# The references below are the aggregated corpora whose licenses require
+# attribution when you redistribute the text. Attribution is also due to the
+# individual editors recorded per work in data/coverage.json.
+references:
+  - type: data
+    title: First1KGreek
+    authors:
+      - name: Open Greek and Latin
+    license: CC-BY-SA-4.0
+    url: "https://github.com/OpenGreekAndLatin/First1KGreek"
+    notes: First-millennium Greek TEI editions; the bulk of the aggregated text.
+  - type: data
+    title: canonical-greekLit
+    authors:
+      - name: Perseus Digital Library
+    license: CC-BY-SA-4.0
+    url: "https://github.com/PerseusDL/canonical-greekLit"
+    notes: The classical canon, TEI; the other bulk source.
+  - type: data
+    title: Galenus Verbatim
+    authors:
+      - name: "Galenus Verbatim (Sorbonne Universite)"
+    license: CC-BY-SA-4.0
+    url: "https://github.com/galenus-verbatim/galenus_cts"
+    notes: Galen and pseudo-Galen TEI.
+  - type: data
+    title: "Patrologia Graeca (OCR)"
+    authors:
+      - name: Calfa
+    license: CC-BY-4.0
+    url: "https://github.com/calfa-co/Patrologia-Graeca"
+    notes: CC-BY OCR of the public-domain Migne Patrologia Graeca.
+  - type: data
+    title: Patristic Text Archive
+    authors:
+      - name: "Berlin-Brandenburgische Akademie der Wissenschaften"
+    license: CC-BY-SA-4.0
+    url: "https://github.com/PatristicTextArchive/pta_data"
+    notes: >-
+      Critical patristic TEI; licensed per file (CC BY-SA or CC BY), and the one
+      CC BY-NC-SA file is excluded rather than served.
+  - type: data
+    title: "Digital Fragmenta Historicorum Graecorum"
+    authors:
+      - name: "DFHG Project, Universitat Leipzig"
+    license: CC-BY-SA-4.0
+    url: "https://www.dfhg-project.org"
+    notes: Mueller's Fragmenta Historicorum Graecorum vols 1-5, corrected transcription.
+  - type: data
+    title: Sharing Ancient Wisdoms
+    authors:
+      - name: "SAWS Project"
+    license: CC-BY-4.0
+    doi: 10.18742/28259054.v1
+    url: "https://ancientwisdoms.ac.uk"
+    notes: >-
+      Born-digital editions and diplomatic transcriptions; the 2025 KCL figshare
+      deposit, which supersedes the project's 2013 in-file CC BY-NC-SA notices.
+  - type: data
+    title: "GLAUx: the Greek Language Automated"
+    authors:
+      - name: Alek Keersmaekers
+    license: CC-BY-SA-4.0
+    url: "https://github.com/alekkeersmaekers/glaux"
+    notes: >-
+      Source of the served text of Julius Pollux, Onomasticon, and of the Bekker
+      concordance milestones.
+  - type: data
+    title: Greek Wikisource
+    authors:
+      - name: Greek Wikisource contributors
+    license: CC-BY-SA-4.0
+    url: "https://el.wikisource.org"
+    notes: >-
+      Proofread transcriptions of public-domain editions; the base texts are
+      public domain, the contributor transcription layer is CC BY-SA 4.0.
+  - type: data
+    title: "Opera Graeca Adnotata (v0.2.0)"
+    authors:
+      - family-names: Celano
+        given-names: "Giuseppe G. A."
+    license: CC-BY-SA-4.0
+    doi: 10.5281/zenodo.14206061
+    year: 2024
+    notes: >-
+      Metadata only, no text: per-work composition dating and the PTA/TLG
+      duplicate map. Pinned by version DOI in sources/oga/manifest.json.
