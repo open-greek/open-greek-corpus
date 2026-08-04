@@ -92,6 +92,35 @@ def lower_initial(s: str) -> str:
 # Skeleton -> canonical particle, so accent and case variants resolve too.
 PARTICLE_BY_SKELETON = {deaccent(p): p for p in sorted(PARTICLES)}
 
+# Accent is positional - the grave appears only before a pause - so it cannot
+# distinguish two words. Breathing and iota subscript can, and do: ὁ/ὀ, ἡ/ἠ,
+# οὗ against οὐ. So the accent comes off and they stay on.
+_ACCENTS = {"́", "̀", "͂"}          # oxia, varia, perispomeni
+
+
+def unaccent(s: str) -> str:
+    """Lowercase, accent stripped, breathing and iota subscript kept."""
+    return "".join(c for c in unicodedata.normalize("NFD", s.lower())
+                   if not (unicodedata.combining(c) and c in _ACCENTS))
+
+
+def _particle_compatible(form: str, particle: str) -> bool:
+    """True if `form` can be an accent or case variant of `particle`.
+
+    A form may be MISSING a breathing or subscript the particle has - OCR drops
+    them, and an all-caps heading never had them - but it may not carry a
+    different one. That is what keeps `οὗ` off `οὐ` and `ᾗ`, `ῃ`, `ἧ` off `ἤ`,
+    all of which share a deaccented skeleton with a particle while being other
+    words entirely.
+    """
+    if deaccent(form) != deaccent(particle):
+        return False
+    f, p = unaccent(form), unaccent(particle)
+    if f == p:
+        return True
+    marks = lambda s: {c for c in s if unicodedata.combining(c)}  # noqa: E731
+    return marks(f) <= marks(p)
+
 
 def particle_capture(form: str, lemma: str, freq: dict[str, int],
                      rarer_by: int = 20) -> str | None:
@@ -136,6 +165,14 @@ def particle_capture(form: str, lemma: str, freq: dict[str, int],
     if particle and deaccent(lemma) != skeleton \
             and deaccent(lemma.rstrip("0123456789")) != deaccent(particle) \
             and freq.get(lemma, 0) * rarer_by < freq.get(particle, 0):
+        return particle
+    # The lemma is already a variant spelling of the particle rather than the
+    # particle: `ἢ -> ἢ` leaves the disjunctive split over two lemmas, 351,791
+    # occurrences under the grave and 13,243 under the acute, neither of which is
+    # a dictionary form. Frequency gets no say here - the lemma IS the particle,
+    # spelled wrong - but the breathing must agree, or this swallows `οὗ`.
+    if particle and lemma != particle and deaccent(lemma) == skeleton \
+            and _particle_compatible(form, particle):
         return particle
     if freq.get(lemma, 0) == 0 and len(skeleton) >= 2:
         elided = [p for p in PARTICLES

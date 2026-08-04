@@ -238,6 +238,11 @@ def main() -> None:
     ap.add_argument("--lemma-map", type=Path, metavar="FILE",
                     help="merge a form<TAB>lemma map (from lemmatize_forms.py) "
                          "into the cache before deciding what is missing")
+    ap.add_argument("--write-lemma-frequency", action="store_true",
+                    help="also overwrite data/public_lemma_frequency.tsv and its "
+                         "stats. Off by default: build_lemma_frequency.py owns "
+                         "that file, uses a different cache and a different "
+                         "--min-count, and validate_cache reads it as a reference")
     args = ap.parse_args()
 
     files = sorted(CORPUS.glob("*.jsonl"))
@@ -355,6 +360,24 @@ def main() -> None:
         json.dumps(totals, ensure_ascii=False, indent=0, sort_keys=True))
     (DATA / "work_lemma_counts_stats.json").write_text(
         json.dumps(stats, ensure_ascii=False, indent=1))
+    # Off by default: build_lemma_frequency.py is the Makefile's declared
+    # producer of the per-lemma table ($(LEMMA_FREQ)), and writing it from here
+    # too made whichever ran last win. They do not agree - different caches, and
+    # --min-count 2 here against the Makefile's 5, so 282,974 lemmas against
+    # 85,184. Worse, validate_cache above reads that file as its reference, so
+    # writing it here closes a loop: the validator would be graded against the
+    # output of the thing it validates.
+    if not args.write_lemma_frequency:
+        print("skipping public_lemma_frequency.tsv (build_lemma_frequency.py "
+              "owns it; pass --write-lemma-frequency to override)",
+              file=sys.stderr)
+        print(f"\nworks: {len(totals):,} | work-lemma pairs: {n_pairs:,} | "
+              f"lemmas: {len(lemma_freq):,} | tokens lemmatized: "
+              f"{total_lemmatized:,}/{total_tokens:,} ({stats['coverage_pct']}%)",
+              file=sys.stderr)
+        print("wrote data/work_lemma_counts.tsv.gz, work_token_totals.json, "
+              "work_lemma_counts_stats.json", file=sys.stderr)
+        return
     with (DATA / "public_lemma_frequency.tsv").open("w", encoding="utf-8") as f:
         for lemma, c in lemma_freq.most_common():
             f.write(f"{lemma}\t{c}\n")
