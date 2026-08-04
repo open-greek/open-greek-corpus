@@ -22,6 +22,12 @@ Four signatures, all measured against the corpus's own lemma frequencies:
                       the homograph test and carry most of the damage. This one
                       repairs rather than rejects, since a closed-class word is
                       its own lemma by definition.
+  grave lemma         the proposed LEMMA carries a grave, which no headword
+                      does, and the acute counterpart is attested - `ξὺν -> ξύν`,
+                      `ἓξ -> ἕξ`, `ὁτὲ -> ὁτέ`. The particle rule reached 19
+                      words under one accent; this reaches any word under the
+                      one accent that is never lexical. Repairs, for the same
+                      reason: a positional accent cannot be part of a headword.
   capitalization      the proposed lemma is the form's own capitalized variant
                       and the lowercase lemma is commoner - εὔλογος -> Εὔλογος,
                       ἰατρικός -> Ἰατρικός, βασιλίς -> Βασιλίς. The same
@@ -38,7 +44,9 @@ every rejected row is listed with the counts that condemned it.
 Both lemma pipelines call validate_cache() below on their persistent form->lemma
 cache at load, because filtering the incoming map does not help a cache that is
 already poisoned: the merge fills gaps and never overrides, so a bad entry that
-got in before the checks existed can never be displaced by a good one.
+got in before the checks existed can never be displaced by a good one. They call
+it a second time on whatever the lemmatizer newly derived, because a check that
+only reads the cache checks nothing on a first build.
 """
 
 from __future__ import annotations
@@ -96,7 +104,8 @@ PARTICLE_BY_SKELETON = {deaccent(p): p for p in sorted(PARTICLES)}
 # Accent is positional - the grave appears only before a pause - so it cannot
 # distinguish two words. Breathing and iota subscript can, and do: ὁ/ὀ, ἡ/ἠ,
 # οὗ against οὐ. So the accent comes off and they stay on.
-_ACCENTS = {"́", "̀", "͂"}          # oxia, varia, perispomeni
+OXIA, VARIA, PERISPOMENI = "́", "̀", "͂"
+_ACCENTS = {OXIA, VARIA, PERISPOMENI}
 # The editorial dot below says the letter is uncertain, not that the word is a
 # different one, so it is ignored - otherwise `οὐ̣` never reaches οὐ. Everything
 # else stays significant, and deliberately so: a macron marks an abbreviation or
@@ -107,9 +116,16 @@ _IGNORABLE = {"̣"}                  # U+0323 combining dot below
 
 
 def unaccent(s: str) -> str:
-    """Lowercase, accent stripped, breathing and iota subscript kept."""
-    return "".join(c for c in unicodedata.normalize("NFD", s.lower())
-                   if not (unicodedata.combining(c) and c in _ACCENTS))
+    """Lowercase, accent stripped, breathing and iota subscript kept.
+
+    Recomposed to NFC because the only thing this is looked up in is the
+    frequency table, and that table is NFC: build_work_lemma_counts.py
+    normalizes every token to NFC before counting it. Decomposed output would
+    miss every entry whose breathing or subscript survives the strip.
+    """
+    return unicodedata.normalize("NFC", "".join(
+        c for c in unicodedata.normalize("NFD", s.lower())
+        if not (unicodedata.combining(c) and c in _ACCENTS)))
 
 
 def _particle_compatible(form: str, particle: str) -> bool:
@@ -188,6 +204,88 @@ def particle_capture(form: str, lemma: str, freq: dict[str, int],
         if len(elided) == 1 and elided[0] != lemma:
             return elided[0]
     return None
+
+
+def to_acute(s: str) -> str:
+    """`s` with every grave rewritten as an acute and nothing else touched.
+
+    Deliberately not unaccent-then-reaccent. The grave is the one mark in the
+    string that carries no lexical information, so it is the only one allowed to
+    move: stripping the rest would collapse ᾗ, ῃ and ἧ onto ἤ and οὗ onto οὐ,
+    which is the merge _particle_compatible exists to refuse. Rewriting in place
+    also leaves the accent on the syllable it was already on, so `ποτὲ` becomes
+    ποτέ ("at some time") and can never reach πότε ("when?").
+    """
+    return unicodedata.normalize(
+        "NFC", unicodedata.normalize("NFD", s).replace(VARIA, OXIA))
+
+
+def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
+    """The acute headword a grave-accented lemma stands for, or None to leave it.
+
+    No dictionary headword carries a grave. The grave is what a final acute
+    becomes when the word is not before a pause, so it records the word's
+    neighbors, not the word, and PARTICLES was only ever a 19-word sample of a
+    class that runs to 9,821 lemmas and 693,349 tokens in the current cache.
+    9,739 of the 9,927 entries in that class are the lemmatizer echoing the
+    surface form straight back (form == lemma), which splits a headword's tokens
+    over two entries exactly as `ἢ` split the disjunctive. (Every count in this
+    docstring is over the forms a build actually lemmatizes, corpus count >= 2,
+    so they can be reproduced against public_lexicon.tsv. The whole cache,
+    hapax forms included, holds 14,882 such entries.)
+
+    Repaired only where the corpus supplies the headword itself: the acute
+    counterpart must already be attested. That is the only positive evidence
+    going, because the frequency table is generated from these same caches, so a
+    grave lemma that has swallowed every token of its word looks impeccably
+    attested while its acute counterpart sits at zero for want of anything left
+    to carry - `τὸν` 610,395 against `τόν` 0. Attestation repairs 334 of the
+    9,821 lemmas and 16,330 tokens; the other 9,487 lemmas and 677,019 tokens
+    are left.
+
+    Requiring the acute to be COMMONER as well is the obvious extra safeguard,
+    and it is wrong here for the same reason it is wrong for `ἢ` above: the
+    grave entry's count IS the tokens it took off the acute headword, so that
+    test asks a split to have healed itself before it may be healed. It costs
+    141 lemmas and 6,112 tokens, every one of them the same word listed twice
+    (`᾿Αβραὰμ` 201 beside `᾿Αβραάμ` 122, `Ἐλπὶς` 1,100 beside `Ἐλπίς` 120,
+    `Πολιτικὸς` 357 beside `Πολιτικός` 23), and leaves them split for good.
+
+    Leaving beats tombstoning for the 9,487 with no attested acute. A grave
+    lemma is the right WORD in the wrong citation form, so it still groups its
+    occurrences correctly and every downstream join on it still returns the
+    right passages, unlike `οὐ -> οὖον` or `κβ -> κβʹ` where the tokens land on
+    a different word entirely. Tombstoning `τὸν` alone would trade 610,395
+    lemmatized tokens for nothing better than a blank.
+
+    One place a grave genuinely marks a distinct word, and the reason for the
+    last test: editors print `τὶς` for the enclitic indefinite precisely to hold
+    it apart from the interrogative `τίς`, and the two are separate headwords
+    (τις 300,312, τίς 250,416). The acute test cannot see that, since τίς is
+    attested and enormous. The corpus's own unaccented headword can: where one
+    exists and is the commoner reading, the grave is doing lexical work and the
+    entry is left alone. It costs 34 repairs worth 364 tokens, all of them OCR
+    shrapnel (`χὰρ` 164, `ριστὸν` 28, `χροὺς` 23), to keep the indefinite
+    pronoun out of the interrogative.
+
+    What this does NOT reach: the article. `τὸν` is doubly wrong, since the
+    lemma of the article is the nominative, and taking the grave off leaves
+    `τόν`, an accusative that is no more a headword than `τὸν` was. So the acute
+    is unattested and the entry is left, deliberately. The rest of the article's
+    paradigm sits under ὅς in this cache (`τὸ`, `τὴν`, `τοὺς`, and ὁ itself),
+    which makes ὅς the only lemma the data would support, and inferring it from
+    a paradigm this rule cannot see is a different rule with a different way of
+    being wrong. It is not invented here.
+    """
+    if VARIA not in unicodedata.normalize("NFD", lemma):
+        return None
+    acute = to_acute(lemma)
+    a_freq = freq.get(acute, 0)
+    if a_freq == 0:              # nothing attested to repair TO: `τὸν`
+        return None
+    if freq.get(unaccent(lemma), 0) > a_freq:   # the enclitic: `τὶς` under τις
+        return None
+    return acute
 
 
 # This one has a known right answer rather than only a wrong one, so callers
@@ -271,11 +369,18 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
     and published it at #27 in the top-30. `data/cache/lemma_cache.tsv` had 16
     forms of the same family.
 
-    The corpus's own per-lemma frequencies are the reference, so this is a no-op
-    when that table is absent. Note the bootstrap for whichever pipeline WRITES
-    that table: it is reading its own previous generation. That is fine while the
-    reference is sound, and it is why the particle repairs that need no frequency
-    at all - a closed-class word is its own lemma - carry the load.
+    The corpus's own per-lemma frequencies are the reference, so the graded
+    checks are skipped when that table is absent; the tombstone sweep is not,
+    because a tombstone is a recorded decision and needs no reference to hold.
+    Note the bootstrap for whichever pipeline WRITES that table: it is reading
+    its own previous generation. That is fine while the reference is sound, and
+    it is why the particle repairs that need no frequency at all - a closed-class
+    word is its own lemma - carry the load.
+
+    Call it on newly derived entries too, not only on the cache as loaded. The
+    two callers each pass the lemmatizer's fresh output through a second time,
+    because grading the cache and then publishing whatever came back new says
+    nothing at all on a first build, where everything is new.
 
     Returns (repaired_forms, dropped_forms). The caller MUST keep the dropped
     set and refuse to re-derive those forms in the same run: they are dropped
@@ -285,23 +390,37 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
     `βασκανία -> Βασκανία` survived three passes because of it.
     """
     freq_path = freq_path or (DATA / "public_lemma_frequency.tsv")
-    if not freq_path.exists():
-        print(f"no {freq_path.name}; skipping {label} validation", file=sys.stderr)
-        return (set(), set())
-    freq = load_lemma_frequencies(freq_path)
     tombstones = load_rejected()
     repaired, dropped = [], []
-    for form, lemma in list(cache.items()):
-        # A form rejected on an earlier run that has crept back in: the
-        # lemmatizer is deterministic, so it returned the same wrong answer.
+    # Tombstones first, and independently of the reference table. A tombstone is
+    # a decision already taken and written down, not one to re-derive, so it
+    # holds whether or not the frequencies are on disk. This sweep used to sit
+    # BELOW the early return for a missing table, which meant a fresh clone -
+    # where public_lemma_frequency.tsv is a build product that does not exist
+    # yet - let every form ever rejected walk straight back in on the first
+    # build, with nothing on disk to show it had happened.
+    for form in list(cache):
+        # It crept back because the lemmatizer is deterministic: handed the same
+        # form it returns the same wrong answer.
         if form in tombstones:
-            dropped.append((form, lemma, tombstones[form]))
-            del cache[form]
-            continue
+            dropped.append((form, cache.pop(form), tombstones[form]))
+    if not freq_path.exists():
+        print(f"no {freq_path.name}; {label}: applied {len(dropped):,} "
+              f"tombstones, skipped the frequency checks", file=sys.stderr)
+        return (set(), set(tombstones))
+    freq = load_lemma_frequencies(freq_path)
+    for form, lemma in list(cache.items()):
         particle = particle_capture(form, lemma, freq)
         if particle:
             repaired.append((form, lemma, particle))
             cache[form] = particle
+            continue
+        # After the particles, so the 19 closed-class words are not handled
+        # twice, and before the rejections, because a repair beats a drop.
+        acute = grave_lemma_repair(lemma, freq)
+        if acute:
+            repaired.append((form, lemma, acute))
+            cache[form] = acute
             continue
         reason = rejection_reason(form, lemma, freq)
         if reason == CAPITALIZED_VARIANT:
@@ -313,14 +432,19 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
             tombstones[form] = reason
             del cache[form]
     save_rejected(tombstones)
-    for form, lemma, particle in sorted(repaired):
-        print(f"  {label} repair: {form} -> {lemma} is now {particle}",
+    # The repairs are capped like the drops now. They were printed in full back
+    # when only the 19 particles could produce one; the grave rule repairs 334
+    # lemmas on the current cache, and 400 lines of stderr is not an audit. The
+    # counts below are never capped, and `--write` prints its own report.
+    for form, lemma, fixed in sorted(repaired)[:40]:
+        print(f"  {label} repair: {form} -> {lemma} is now {fixed}",
               file=sys.stderr)
     for form, lemma, reason in sorted(dropped)[:40]:
         print(f"  {label} drop: {form} -> {lemma} ({reason})", file=sys.stderr)
     if repaired or dropped:
         print(f"{label} validated: {len(repaired):,} repaired, "
-              f"{len(dropped):,} dropped", file=sys.stderr)
+              f"{len(dropped):,} dropped (first 40 of each listed above)",
+              file=sys.stderr)
     # The full tombstone set, not just what came out of the cache this run. A
     # form already absent is not "dropped" here, so returning only this run's
     # removals lets the caller re-derive it, put it back, and drop it again next
@@ -359,6 +483,12 @@ def main() -> None:
             why["closed-class particle variant captured by a rare lemma"] += 1
             kept.append(f"{form}\t{particle}")
             continue
+        acute = grave_lemma_repair(lemma, freq)
+        if acute:
+            repaired.append((freq.get(lemma, 0), form, lemma, acute))
+            why["grave-accented lemma, acute headword already attested"] += 1
+            kept.append(f"{form}\t{acute}")
+            continue
         reason = rejection_reason(form, lemma, freq, args.min_lemma)
         if reason:
             rejected.append((freq.get(form, 0), freq.get(lemma, 0), form, lemma,
@@ -376,10 +506,13 @@ def main() -> None:
         print(f"   {form:>14} ({f_as_lemma:>9,} as a lemma)  ->  "
               f"{lemma:<16} ({l_freq:,})   {reason}")
     if repaired:
-        print("\n   repaired to the particle:")
-        for l_freq, form, lemma, particle in sorted(repaired)[:30]:
+        # Two rules land here now, the particle and the grave, so the heading no
+        # longer names one of them: `Ξὺν -> ξὺν` is repaired to ξύν by the grave
+        # rule and never touches the closed-class set.
+        print("\n   repaired:")
+        for l_freq, form, lemma, fixed in sorted(repaired)[:30]:
             print(f"   {form:>14}  ->  {lemma:<14} ({l_freq:,})  "
-                  f"now {particle} ({freq.get(particle, 0):,})")
+                  f"now {fixed} ({freq.get(fixed, 0):,})")
 
     if args.write:
         args.write.write_text("\n".join(kept) + "\n", encoding="utf-8")

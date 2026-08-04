@@ -89,13 +89,21 @@ def main() -> None:
     # tests bootstrap off the last generation. That is sound while the reference
     # is, and the repairs that carry the load - a closed-class word is its own
     # lemma - need no frequency at all.
-    rejected: set[str] = set()
-    if cache:
-        repaired, rejected = validate_cache(cache, OUT, label="lemma_cache")
-        if (repaired or rejected) and not args.no_cache:
-            CACHE.parent.mkdir(parents=True, exist_ok=True)
-            CACHE.write_text("".join(f"{f}\t{lem}\n" for f, lem in cache.items()),
-                             encoding="utf-8")
+    #
+    # Run even on an empty cache. The old `if cache:` skipped the whole pass on
+    # a first build, and with it the load of data/cache/lemma_rejected.tsv, so a
+    # fresh clone re-derived every form that had ever been tombstoned and
+    # published the result.
+    n_before = len(cache)
+    repaired, rejected = validate_cache(cache, OUT, label="lemma_cache")
+    # `rejected` is the whole tombstone file rather than this run's removals, so
+    # it is non-empty on nearly every run and rewriting 15 MB on it is churn.
+    # A repair keeps the entry count and a drop lowers it, and between them that
+    # is exactly the condition "what is on disk is now stale".
+    if (repaired or len(cache) != n_before) and not args.no_cache:
+        CACHE.parent.mkdir(parents=True, exist_ok=True)
+        CACHE.write_text("".join(f"{f}\t{lem}\n" for f, lem in cache.items()),
+                         encoding="utf-8")
 
     # Dropped forms stay out of this run's lemmatization: re-deriving one gets
     # the same wrong answer back and undoes the drop.
@@ -109,19 +117,45 @@ def main() -> None:
         from dilemma import Dilemma  # noqa: PLC0415
         d = Dilemma(lang="grc")
         CH = 50000
+        # Into a dict of its own, so the checks below read only what the
+        # lemmatizer just said and not the half-million entries already vetted.
+        derived: dict[str, str] = {}
         for i in range(0, len(misses), CH):
             chunk = misses[i:i + CH]
             lemmas = d.lemmatize_batch(chunk)
             for f, lemma in zip(chunk, lemmas):
-                cache[f] = (lemma or "").strip()
+                derived[f] = (lemma or "").strip()
             if (i // CH) % 5 == 0:
                 print(f"  {i + len(chunk):,}/{len(misses):,} new forms",
                       file=sys.stderr)
+        # The same checks again, on what this run derived. Newly derived entries
+        # used to go into the table unread - the pass above graded the cache and
+        # nothing graded the lemmatizer - so on a first build from an empty cache
+        # the whole lexicon was published unchecked, `οὐ -> οὖον` included, with
+        # the validator sitting right there in the pipeline. An empty lemma is
+        # Dilemma declining to answer rather than answering badly, and stays out
+        # of the checks: it is the negative-cache row that stops the form being
+        # recomputed every run, and the unattested-target rule would tombstone
+        # every one of them.
+        answered = {f: lem for f, lem in derived.items() if lem}
+        rejected |= validate_cache(answered, OUT, label="new lemmas")[1]
+        # Dropped means no lemma, not a retry. Handing the form back to the
+        # lemmatizer in this same run would return the same wrong answer and
+        # quietly undo the drop, which is how `βασκανία -> Βασκανία` survived
+        # three passes; nothing below re-enters lemmatize, and the tombstone
+        # validate_cache just wrote keeps the form out of `misses` next run.
+        for f in list(derived):
+            if derived[f]:
+                derived[f] = answered.get(f, "")
+                if not derived[f]:
+                    del derived[f]
+        cache.update(derived)
         if not args.no_cache:
             CACHE.parent.mkdir(parents=True, exist_ok=True)
             with CACHE.open("a", encoding="utf-8") as cf:  # append the new forms
                 for f in misses:
-                    cf.write(f"{f}\t{cache[f]}\n")
+                    if f in derived:
+                        cf.write(f"{f}\t{derived[f]}\n")
 
     lemma_freq: Counter[str] = Counter()
     form_tokens = 0
