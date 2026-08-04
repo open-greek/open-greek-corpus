@@ -29,6 +29,9 @@ import sys
 from collections import Counter
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from validate_lemma_map import validate_cache  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 
@@ -76,7 +79,27 @@ def main() -> None:
             f, sep, lem = line.partition("\t")
             if sep:
                 cache[f] = lem
-    misses = [f for f in forms if f not in cache]
+    # Same checks the other pipeline applies to its cache, for the same reason:
+    # this one is append-only, so a bad entry can never be displaced by a good
+    # one. It held 16 forms of the οὖον family (ὁὐ, ὀὐ, οὐα, ...); it happened
+    # not to hold the plain οὐ, which is why this table looked clean while
+    # data/cache/form_lemma.tsv.gz published a service-berry at #27.
+    #
+    # The reference here is this script's own previous output, so the frequency
+    # tests bootstrap off the last generation. That is sound while the reference
+    # is, and the repairs that carry the load - a closed-class word is its own
+    # lemma - need no frequency at all.
+    rejected: set[str] = set()
+    if cache:
+        repaired, rejected = validate_cache(cache, OUT, label="lemma_cache")
+        if (repaired or rejected) and not args.no_cache:
+            CACHE.parent.mkdir(parents=True, exist_ok=True)
+            CACHE.write_text("".join(f"{f}\t{lem}\n" for f, lem in cache.items()),
+                             encoding="utf-8")
+
+    # Dropped forms stay out of this run's lemmatization: re-deriving one gets
+    # the same wrong answer back and undoes the drop.
+    misses = [f for f in forms if f not in cache and f not in rejected]
     print(f"lemmatizing {len(forms):,} distinct forms "
           f"(skipped {n_skipped:,} rarer than {args.min_count} of {n_total:,}); "
           f"cache: {len(forms) - len(misses):,} hit / {len(misses):,} to compute",

@@ -35,8 +35,8 @@ every rejected row is listed with the counts that condemned it.
   python3 scripts/validate_lemma_map.py
   python3 scripts/validate_lemma_map.py --write data/lemma_map.tsv
 
-build_work_lemma_counts.py applies the same checks to the persistent form->lemma
-cache on load, because filtering the incoming map does not help a cache that is
+Both lemma pipelines call validate_cache() below on their persistent form->lemma
+cache at load, because filtering the incoming map does not help a cache that is
 already poisoned: the merge fills gaps and never overrides, so a bad entry that
 got in before the checks existed can never be displaced by a good one.
 """
@@ -44,6 +44,7 @@ got in before the checks existed can never be displaced by a good one.
 from __future__ import annotations
 
 import argparse
+import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -207,6 +208,59 @@ def load_lemma_frequencies(path: Path) -> dict[str, int]:
         if len(p) >= 2 and p[1].isdigit():
             freq[p[0]] = int(p[1])
     return freq
+
+
+def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
+                   label: str = "cache") -> tuple[int, int]:
+    """Apply these checks to a persistent form->lemma cache, in place.
+
+    Filtering the incoming map is not enough, and both lemma pipelines keep a
+    cache that proves it: the merges fill gaps and never override, by design, so
+    an entry that got in before the checks existed can never be displaced by a
+    good one, and the checks give the reassuring answer while the damage sits
+    upstream of them. `data/cache/form_lemma.tsv.gz` had `οὐ -> οὖον`, which put
+    294,404 occurrences of the commonest negative in Greek onto a service-berry
+    and published it at #27 in the top-30. `data/cache/lemma_cache.tsv` had 16
+    forms of the same family.
+
+    The corpus's own per-lemma frequencies are the reference, so this is a no-op
+    when that table is absent. Note the bootstrap for whichever pipeline WRITES
+    that table: it is reading its own previous generation. That is fine while the
+    reference is sound, and it is why the particle repairs that need no frequency
+    at all - a closed-class word is its own lemma - carry the load.
+
+    Returns (repaired_forms, dropped_forms). The caller MUST keep the dropped
+    set and refuse to re-derive those forms in the same run: they are dropped
+    precisely because the lemmatizer's answer for them is wrong, so handing them
+    back to it returns the same answer and quietly undoes the drop. That is not
+    hypothetical - it is what happened the first time this was wired in, and
+    `βασκανία -> Βασκανία` survived three passes because of it.
+    """
+    freq_path = freq_path or (DATA / "public_lemma_frequency.tsv")
+    if not freq_path.exists():
+        print(f"no {freq_path.name}; skipping {label} validation", file=sys.stderr)
+        return (set(), set())
+    freq = load_lemma_frequencies(freq_path)
+    repaired, dropped = [], []
+    for form, lemma in list(cache.items()):
+        particle = particle_capture(form, lemma, freq)
+        if particle:
+            repaired.append((form, lemma, particle))
+            cache[form] = particle
+            continue
+        reason = rejection_reason(form, lemma, freq)
+        if reason:
+            dropped.append((form, lemma, reason))
+            del cache[form]
+    for form, lemma, particle in sorted(repaired):
+        print(f"  {label} repair: {form} -> {lemma} is now {particle}",
+              file=sys.stderr)
+    for form, lemma, reason in sorted(dropped)[:40]:
+        print(f"  {label} drop: {form} -> {lemma} ({reason})", file=sys.stderr)
+    if repaired or dropped:
+        print(f"{label} validated: {len(repaired):,} repaired, "
+              f"{len(dropped):,} dropped", file=sys.stderr)
+    return ({f for f, _, _ in repaired}, {f for f, _, _ in dropped})
 
 
 def main() -> None:
