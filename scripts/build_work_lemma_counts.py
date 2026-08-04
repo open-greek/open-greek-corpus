@@ -256,9 +256,12 @@ def main() -> None:
 
     # After the merge, so both sources are covered by one pass: the cache may
     # carry entries older than these checks, and the map may carry new ones.
-    rejected: set[str] = set()
-    if lemma_cache:
-        _, rejected = validate_cache(lemma_cache)
+    # Unconditional, empty cache included. Under the old `if lemma_cache:` a
+    # first build from an empty cache validated nothing, which also meant it
+    # never loaded data/cache/lemma_rejected.tsv - so every form ever tombstoned
+    # was handed back to the lemmatizer and republished, and a fresh clone came
+    # out worse than the machine the tombstones were recorded on.
+    _, rejected = validate_cache(lemma_cache)
 
     # A dropped form must NOT go back through the lemmatizer this run. It was
     # dropped because the answer for it is wrong, and the lemmatizer is
@@ -282,7 +285,22 @@ def main() -> None:
 
     if missing:
         print(f"lemmatizing {len(missing):,} forms locally ...", file=sys.stderr)
-        lemmatize_local(missing, lemma_cache)
+        # Into a dict of its own, so the checks below see only what the
+        # lemmatizer just said and not the million entries already vetted above.
+        # Without this pass the checks graded the cache and then published
+        # whatever came back fresh, unread: on a first build that is EVERY
+        # lemma, so `οὐ -> οὖον` would have gone out again on a clean clone with
+        # the validator sitting right there in the pipeline.
+        derived: dict[str, str] = {}
+        lemmatize_local(missing, derived)
+        # Deliberately after lemmatization and not a second round trip. A form
+        # dropped here must not be re-derived in the same run - the lemmatizer
+        # is deterministic, so it returns the same wrong answer and the drop
+        # undoes itself, which is how `βασκανία -> Βασκανία` survived three
+        # passes. Nothing below re-enters lemmatize_local, and the tombstone
+        # validate_cache just wrote keeps the form out of `missing` next run.
+        rejected |= validate_cache(derived, label="new lemmas")[1]
+        lemma_cache.update(derived)
     if use_cache:
         save_lemma_cache(lemma_cache)
 
