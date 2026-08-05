@@ -63,8 +63,8 @@ INGESTERS := scripts/build_corpus_loci.py scripts/build_byzantine_vernacular_cor
              scripts/build_byzantium_gr_corpus.py
 SWEEPS    := data/pd_research/byzantium_sweep.json data/pd_research/cgpg_coverage.json
 
-.PHONY: all yardstick sourcing ingest ids reports clean oga-metadata
-all: yardstick sourcing reports
+.PHONY: all yardstick sourcing ingest ids reports check clean oga-metadata
+all: yardstick sourcing reports check
 
 # OGA (Opera Graeca Adnotata v0.2.0) metadata: per-work dating + the PTA/TLG
 # duplicate map + the source pin. Reads the retained OGA clone ($OGA_ROOT, default
@@ -177,6 +177,15 @@ README.md: $(CORPUS_FILES) scripts/build_provenance.py $(CORPUS_EDITIONS) $(WORK
 $(CROSSWALK): $(REGISTRY) scripts/build_id_crosswalk.py scripts/backfill_crosswalk_titles.py
 	$(PY) scripts/build_id_crosswalk.py
 	$(PY) scripts/backfill_crosswalk_titles.py --write
+
+# 6. Consistency checks that have no output of their own. These FAIL rather than
+#    repair, because the repair is not always the right move: check_ocr_ledgers
+#    syncs the two ledgers' passage and token counts to the served text, but
+#    deliberately leaves source/edition/license alone, since a row reading
+#    `ocr` / PD against a corpus reading first1k / CC-BY-SA-4.0 is a work we
+#    OCR'd that an open edition later displaced, and both are true.
+check:
+	$(PY) scripts/check_ocr_ledgers.py
 
 clean:
 	rm -f $(LEXICON) data/coverage.json $(LEMMA_FREQ) $(OVERRIDES) \
