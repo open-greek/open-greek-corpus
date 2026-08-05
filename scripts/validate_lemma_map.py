@@ -52,6 +52,7 @@ only reads the cache checks nothing on a first build.
 from __future__ import annotations
 
 import argparse
+import json
 import sys
 import unicodedata
 from collections import Counter
@@ -198,6 +199,20 @@ def particle_capture(form: str, lemma: str, freq: dict[str, int],
     if particle and lemma != particle and deaccent(lemma) == skeleton \
             and _particle_compatible(form, particle):
         return particle
+    # An elided stem the corpus itself vouches for. This branch exists because
+    # the length test below cannot decide the single letters: it excludes them
+    # all to keep the abbreviation marks γ̅, χ̅ and θ̅ out, and that costs δ its
+    # 281,109 occurrences to save a few hundred. The page settles it instead -
+    # δ is written before an apostrophe 87.3% of the time and γ 30.9% - and
+    # scripts/measure_elision_rates.py is where that comes from.
+    #
+    # Not gated on the lemma being unattested, unlike the branch below. δ IS
+    # attested as a lemma, with the 281,109 tokens that are the whole problem;
+    # an attested wrong answer is still wrong, and the apostrophe is better
+    # evidence than the absence of a frequency entry.
+    folded = ELIDED_FOLDS.get(skeleton)
+    if folded and folded != lemma:
+        return folded
     if freq.get(lemma, 0) == 0 and len(skeleton) >= 2:
         elided = [p for p in PARTICLES
                   if deaccent(p).startswith(skeleton) and deaccent(p) != skeleton]
@@ -293,6 +308,50 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
 # capitalized, the lemma is the form. 475 of the 560 rejects in the cache were
 # this, all ordinary words - ἀπόγονος, ἀκόλαστος, εὐσχήμων - and dropping them
 # traded a wrong lemma for no lemma.
+ELISION_RATES = DATA / "elision_rates.json"
+# The gap the measurement leaves: δ at 87.3%, then ἵνα's stem at 67.7% and τε's
+# at 46.4%. Nothing lands between, so the threshold is not a tuned number.
+ELIDED_MIN_RATE = 0.80
+
+# A decisive rate proves a stem stands elided. It does not prove what it is
+# elided FROM, and the skeleton these rates are keyed on has already dropped the
+# accent and the breathing that decide it. Measured spellings, from
+# `spellings_when_elided` in the rates file:
+#
+#   ειτ  εἶτ 2,375 against εἴτ 2,168 - εἶτα and εἴτε, near enough an even split
+#   οτ   ὅτ 567 - that is elided ὅτε, and ὅτε is not the particle ὅτι
+#   ουτ  οὔτ 1,499 with οὕτ and οὗτ behind it, so οὕτω is in the same skeleton
+#   αλλ  ἀλλ 31,595 with ἄλλ and Ἄλλ at 1,165 - ἄλλος, a different word
+#
+# Each is left alone despite clearing the rate. δ is the one stem that is both
+# decisive and single-lexeme: 227,571 δ and 744 Δ, nothing else.
+ELISION_AMBIGUOUS = {
+    "ειτ": "εἶτα and εἴτε share the skeleton and split almost evenly",
+    "οτ": "ὅτ' is elided ὅτε, not the particle ὅτι",
+    "ουτ": "οὕτω shares the skeleton with οὔτε once the breathing is gone",
+    "αλλ": "ἄλλος shares the skeleton with ἀλλά; the accented form is handled "
+           "by the elided-prefix branch of particle_capture instead",
+}
+
+
+def load_elision_rates(path: Path | None = None) -> dict[str, str]:
+    """Bare stem -> the particle it folds into, for the stems the corpus says
+    are elided. Empty when the measurement has not been run, which is the same
+    shape of degradation as a missing frequency table: the rule goes quiet
+    rather than guessing.
+    """
+    path = path or ELISION_RATES
+    if not path.exists():
+        return {}
+    stems = json.loads(path.read_text(encoding="utf-8")).get("stems", {})
+    return {stem: r["particle"] for stem, r in stems.items()
+            if r.get("rate", 0) >= ELIDED_MIN_RATE and stem not in ELISION_AMBIGUOUS}
+
+
+# Loaded once. A test that wants a different set monkeypatches this.
+ELIDED_FOLDS = load_elision_rates()
+
+
 ARTICLE_LEMMA, RELATIVE_LEMMA = "ὁ", "ὅς"
 
 # The definite article, whose whole paradigm was lemmatized to ὅς, the relative
