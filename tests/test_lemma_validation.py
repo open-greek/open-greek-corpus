@@ -460,3 +460,67 @@ def test_the_article_rule_runs_before_the_graded_checks(bench):
     assert not dropped
     assert cache == {"τὰ": "ὁ", "Τὸ": "ὁ", "ἃ": "ὅς", "οἳ": "ὅς"}
     assert repaired == {"τὰ", "Τὸ", "ἃ", "οἳ"}
+
+
+# --------------------------------------------------------------------------
+# Elided stems the corpus vouches for. The length test could not decide the
+# single letters: it excluded them all to keep γ̅, χ̅ and θ̅ out, and that cost δ
+# its 281,109 occurrences to save a few hundred.
+
+@pytest.fixture
+def folds(monkeypatch):
+    monkeypatch.setattr(vlm, "ELIDED_FOLDS", {"δ": "δέ", "μητ": "μήτε"})
+
+
+def test_a_measured_elided_stem_folds_into_its_particle(folds):
+    assert particle_capture("δ", "δ", FREQ) == "δέ"
+    assert particle_capture("Δ", "δ", FREQ) == "δέ"
+    assert particle_capture("μήτ", "μήτʼ", FREQ) == "μήτε"
+
+
+def test_an_unmeasured_stem_does_not(folds):
+    """γ is the numeral and the abbreviation mark more often than it is elided
+    γάρ: 30.9% before an apostrophe, against δ's 87.3%."""
+    for form in ("γ", "τ", "κ", "ι"):
+        assert particle_capture(form, form, FREQ) is None, form
+
+
+def test_the_fold_is_not_gated_on_the_lemma_being_unattested(folds):
+    """The branch below it only fires when the proposed lemma is attested
+    nowhere. δ IS attested, with exactly the 281,109 tokens that are the
+    problem, so gating on that would leave it untouched."""
+    freq = {**FREQ, "δ": 281_109, "δέ": 1_550_869}
+    assert particle_capture("δ", "δ", freq) == "δέ"
+
+
+def test_the_fold_is_a_no_op_once_correct(folds):
+    assert particle_capture("δ", "δέ", FREQ) is None
+
+
+def test_no_rates_file_means_no_folding(monkeypatch, tmp_path):
+    """Same degradation as a missing frequency table: the rule goes quiet
+    rather than guessing, so a fresh clone does not fold on stale evidence."""
+    monkeypatch.setattr(vlm, "ELIDED_FOLDS", {})
+    assert particle_capture("δ", "δ", FREQ) is None
+    assert vlm.load_elision_rates(tmp_path / "absent.json") == {}
+
+
+def test_an_ambiguous_stem_is_excluded_even_at_a_decisive_rate(tmp_path):
+    """The rate proves a stem is elided, not what from. εἶτ (εἶτα) and εἴτ
+    (εἴτε) split 2,375 to 2,168 and the skeleton has dropped what tells them
+    apart, so a 97.7% rate must not be enough on its own."""
+    rates = {"stems": {
+        "ειτ": {"particle": "εἴτε", "rate": 0.977, "occurrences": 5096},
+        "δ": {"particle": "δέ", "rate": 0.873, "occurrences": 261507},
+    }}
+    fp = tmp_path / "rates.json"
+    fp.write_text(json.dumps(rates, ensure_ascii=False), encoding="utf-8")
+    assert vlm.load_elision_rates(fp) == {"δ": "δέ"}
+    assert "ειτ" in vlm.ELISION_AMBIGUOUS
+
+
+def test_a_stem_below_the_threshold_is_excluded(tmp_path):
+    rates = {"stems": {"τ": {"particle": "τε", "rate": 0.464, "occurrences": 43070}}}
+    fp = tmp_path / "rates.json"
+    fp.write_text(json.dumps(rates, ensure_ascii=False), encoding="utf-8")
+    assert vlm.load_elision_rates(fp) == {}
