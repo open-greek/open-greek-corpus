@@ -19,9 +19,9 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import validate_lemma_map as vlm  # noqa: E402
-from validate_lemma_map import (grave_lemma_repair,  # noqa: E402
-                                particle_capture, rejection_reason, to_acute,
-                                validate_cache)
+from validate_lemma_map import (closed_class_lemma,  # noqa: E402
+                                grave_lemma_repair, particle_capture,
+                                rejection_reason, to_acute, validate_cache)
 
 # οὐ is enormous, οὖον is not; that gap is what condemns the capture.
 FREQ = {"οὐ": 658_075, "οὖον": 205, "ἤ": 366_052, "εἰμί": 1_190_360,
@@ -229,12 +229,17 @@ def test_the_repair_reaches_a_grave_lemma_under_any_form(bench):
 
 def test_a_grave_lemma_with_no_acute_headword_is_left_not_tombstoned(bench):
     """A grave lemma is the right WORD in the wrong citation form: it still
-    groups its occurrences, so a downstream join on it still finds them. Dropping
-    τὸν would trade 610,395 lemmatized tokens for a blank."""
-    cache = {"τὸν": "τὸν"}
+    groups its occurrences, so a downstream join on it still finds them, and
+    dropping it would trade lemmatized tokens for a blank.
+
+    This used to use τὸν, which is no longer an example of anything: the article
+    is a closed paradigm, so closed_class_lemma settles it as ὁ without needing
+    an attested acute headword. Χωρὶς is the real shape of the limit - a grave
+    citation form whose acute twin the corpus never attests, left alone."""
+    cache = {"χωρὶς": "Χωρὶς"}
     repaired, dropped = validate_cache(cache, bench, label="test")
-    assert cache == {"τὸν": "τὸν"}
-    assert "τὸν" not in repaired and "τὸν" not in dropped
+    assert cache == {"χωρὶς": "Χωρὶς"}
+    assert "χωρὶς" not in repaired and "χωρὶς" not in dropped
 
 
 # --------------------------------------------------------------------------
@@ -398,3 +403,60 @@ def test_a_tombstone_applies_without_the_frequency_table(bench, tmp_path):
     _, dropped = validate_cache(cache, tmp_path / "not-built-yet.tsv",
                                 label="test")
     assert "κβ" not in cache and "κβ" in dropped
+
+
+# --------------------------------------------------------------------------
+# The article. Its whole paradigm was lemmatized to ὅς, the relative pronoun:
+# 8,926,058 tokens, 13.4% of the corpus, and it made ὅς the published #1 lemma.
+
+def test_the_article_paradigm_lemmatizes_to_ho():
+    for form in ("ὁ", "ἡ", "οἱ", "αἱ", "τό", "τὸ", "τοῦ", "τῆς", "τῷ", "τῇ",
+                 "τὸν", "τὴν", "τὰ", "τῶν", "τοῖς", "ταῖς", "τοὺς", "τὰς",
+                 "τοῖν", "τὼ"):
+        assert closed_class_lemma(form) == "ὁ", form
+
+
+def test_the_relative_keeps_its_own_lemma():
+    # the corpus had these partly the other way round: ἃ was on ὁ, οἳ on ἕ
+    for form in ("ὅ", "ὃ", "ἥ", "ἣ", "οἵ", "οἳ", "αἵ", "ἅ", "ἃ"):
+        assert closed_class_lemma(form) == "ὅς", form
+
+
+def test_accent_separates_the_article_from_the_relative():
+    """The one place in this module where accent is CONTRASTIVE rather than
+    positional. The article is proclitic and unaccented; the relative carries an
+    accent on the same letters. Every other rule here strips the accent as noise,
+    and doing that would fuse exactly the pair this rule exists to separate."""
+    assert closed_class_lemma("ὁ") == "ὁ" and closed_class_lemma("ὅ") == "ὅς"
+    assert closed_class_lemma("ἡ") == "ὁ" and closed_class_lemma("ἥ") == "ὅς"
+    assert closed_class_lemma("οἱ") == "ὁ" and closed_class_lemma("οἵ") == "ὅς"
+    assert closed_class_lemma("αἱ") == "ὁ" and closed_class_lemma("αἵ") == "ὅς"
+
+
+def test_the_tau_forms_are_matched_on_the_bare_skeleton():
+    # no other Greek word is spelled τοῦ, so the OCR tail is safe to sweep in:
+    # dropped diacritics, a lunate sigma, an editorial dot
+    for form in ("το", "του", "τῆϲ", "ΤΟΥ", "Τὸ", "τῆν", "τ̣οῦ"):
+        assert closed_class_lemma(form) == "ὁ", form
+
+
+def test_toi_is_left_alone():
+    """τοι is the particle far more often than it is Homer's τοί for οἱ, and
+    14,498 occurrences is too many to guess at."""
+    assert closed_class_lemma("τοι") is None
+    assert closed_class_lemma("τοί") is None
+
+
+def test_a_word_that_merely_starts_with_tau_is_untouched():
+    for form in ("τότε", "τοῦτο", "τῆλε", "ταῦτα", "τῶνδε", "τις", "τίς"):
+        assert closed_class_lemma(form) is None, form
+
+
+def test_the_article_rule_runs_before_the_graded_checks(bench):
+    """It needs no frequency evidence, so it must not be reachable by a rule
+    that does. τὰ sat on τίς and Τὸ on τοτέ; both are settled by paradigm."""
+    cache = {"τὰ": "τίς", "Τὸ": "τοτέ", "ἃ": "ὁ", "οἳ": "ἕ"}
+    repaired, dropped = validate_cache(cache, bench, label="test")
+    assert not dropped
+    assert cache == {"τὰ": "ὁ", "Τὸ": "ὁ", "ἃ": "ὅς", "οἳ": "ὅς"}
+    assert repaired == {"τὰ", "Τὸ", "ἃ", "οἳ"}
