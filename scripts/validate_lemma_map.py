@@ -293,6 +293,52 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
 # capitalized, the lemma is the form. 475 of the 560 rejects in the cache were
 # this, all ordinary words - ἀπόγονος, ἀκόλαστος, εὐσχήμων - and dropping them
 # traded a wrong lemma for no lemma.
+ARTICLE_LEMMA, RELATIVE_LEMMA = "ὁ", "ὅς"
+
+# The definite article, whose whole paradigm was lemmatized to ὅς, the relative
+# pronoun: 8,926,058 tokens, 13.4% of the corpus, and it made ὅς the published
+# #1 lemma. The relative went the other way in places - ἃ to ὁ, οἳ to ἕ - so the
+# two were partly swapped rather than merged.
+#
+# Both are closed class, so the answer is known and needs no frequency evidence,
+# the same ground the particle rule stands on. What is different here, and what
+# the rest of this module must not be allowed to do to it, is that ACCENT IS
+# CONTRASTIVE between the two: the article is proclitic and unaccented, ὁ ἡ οἱ
+# αἱ, while the relative carries an accent on the same letters, ὅ ἥ οἵ αἵ. Every
+# other rule in this file strips the accent as positional noise, and doing that
+# here would fuse the pair it exists to separate. So the vowel-initial forms are
+# matched EXACTLY, in both cases, and nothing else.
+_ARTICLE_EXACT = set("ὁ Ὁ ἡ Ἡ οἱ Οἱ αἱ Αἱ".split())
+_RELATIVE_EXACT = set("ὅ Ὅ ὃ Ὃ ἥ Ἥ ἣ Ἣ οἵ Οἵ οἳ Οἳ αἵ Αἵ αἳ Αἳ ἅ Ἅ ἃ Ἃ".split())
+
+# The tau forms have no such twin - no other Greek word is spelled τοῦ or τὴν -
+# so they can be matched on the bare skeleton, which is what reaches the OCR
+# tail: `το`, `του` with the diacritics dropped, `τῆϲ` with a lunate sigma.
+# τοι is deliberately absent. It is the particle far more often than it is
+# Homer's τοί for οἱ, and 14,498 occurrences is too many to guess at.
+def _sigma(s: str) -> str:
+    return s.replace("ς", "σ").replace("ϲ", "σ").replace("Ϲ", "σ")
+
+
+# Normalized on the way in, or the half of the paradigm that ends in a sigma
+# never matches: the skeletons are compared sigma-folded, and an entry written
+# with the word-final ς is not.
+_ARTICLE_TAU = {_sigma(f) for f in
+                ("το", "του", "της", "τω", "τη", "τον", "την", "τα", "των",
+                 "τοις", "ταις", "τους", "τας", "τοιν")}
+
+
+def closed_class_lemma(form: str) -> str | None:
+    """ὁ for a form of the article, ὅς for one of the relative, else None."""
+    if form in _ARTICLE_EXACT:
+        return ARTICLE_LEMMA
+    if form in _RELATIVE_EXACT:
+        return RELATIVE_LEMMA
+    if _sigma(deaccent(form)) in _ARTICLE_TAU:
+        return ARTICLE_LEMMA
+    return None
+
+
 CAPITALIZED_VARIANT = "capitalized variant of the form itself"
 
 
@@ -410,6 +456,18 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
         return (set(), set(tombstones))
     freq = load_lemma_frequencies(freq_path)
     for form, lemma in list(cache.items()):
+        # First, because it is the most certain rule here and the only one that
+        # needs no evidence at all: the article and the relative are closed
+        # paradigms, so their lemma is a fact about Greek rather than a reading
+        # of this corpus. Running it ahead of the graded checks also keeps those
+        # from getting an opinion about a form whose answer is already settled.
+        closed = closed_class_lemma(form)
+        if closed and closed != lemma:
+            repaired.append((form, lemma, closed))
+            cache[form] = closed
+            continue
+        if closed:
+            continue
         particle = particle_capture(form, lemma, freq)
         if particle:
             repaired.append((form, lemma, particle))
