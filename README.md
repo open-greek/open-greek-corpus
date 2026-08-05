@@ -166,6 +166,9 @@ scripts/
                             data/inventory/edition_string_normalization.json
   (OCR recognition, ingest and correction happen upstream and deliver text here)
 docs/
+  issue-policy.md           what the issue tracker holds: every known defect in
+                            the published data and every outstanding piece of
+                            work, with the labels and the close criterion
   identity-and-citation.md  how cog identifies works/authors + cites passages
   opaque-identifiers.md     the ogc/oga id model, WEMI leveling, rename/redirect
                             layer, and the work_index.json schema a consumer needs
