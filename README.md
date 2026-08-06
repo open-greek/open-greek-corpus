@@ -107,6 +107,15 @@ scripts/
                             unattested-token rate (the ocr_llm_correct.py suspect
                             filter) + witness-agreement estimates against
                             corpus_secondary, with a worst-first triage ranking
+  carve_edition_volume.py   split a printed volume served as one dump into its
+                            per-treatise files, per data/walz_carve_plan.json or
+                            another via --plan (data/spengel_carve_plan.json).
+                            Works carry a START locus and no end, so the
+                            partition is exact and a gap is not expressible;
+                            loci key to the printed page; duplicate scanned
+                            leaves are dropped and archived; a treatise already
+                            served from a better edition is written to
+                            corpus_secondary as a witness instead
   carve_cgpg_volume.py      split a multi-work CGPG Migne volume dump into
                             per-work corpus files per data/cgpg_carve_plan.json
                             (incipit-verified row ranges, token-exact, reversible
@@ -715,7 +724,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1359 OCR'd works/volumes: 177 manually corrected, 851 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 331 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1359 OCR'd works/volumes: 177 manually corrected, 850 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 332 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -737,6 +746,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | alexander-lyric.fragmenta | Alexander - Fragmenta | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 22,536 | auto-corrected |
 | alexander-medicine.dedicatio-ad-cosman | Alexander - Dedicatio Ad Cosman | qwen36-alex_trall_puschmann | Qwen3.6-27B | 43,309 | auto-corrected |
 | alexander-numenius.peri-ton-tes-dianoias-schematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,424 | manual |
+| alexander-rhetoric.ek-ton-alexandrou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,345 | raw OCR |
 | alexander.fragmenta | ALEXANDER - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
 | alexis-comedy.fragmenta | Alexis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
 | ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 80 | raw OCR |
@@ -1796,7 +1806,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | philyllius.fragmenta | Philyllius - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 559 | raw OCR |
 | phintys.fragmenta | Phintys - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 820 | auto-corrected |
 | phocylides.sententiae | PHOCYLIDES - Sententiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 909 | auto-corrected |
-| phoebammon.de-figuris-fort-auctore-phoebammone-alio | Phoebammon - De Figuris (Fort. Auctore Phoebammone Alio) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,156 | auto-corrected |
 | phoebammon.scholia-peri-schematon-rhetorikon-walz-viii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,587 | auto-corrected |
 | phoenicides.fragmenta | PHOENICIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |

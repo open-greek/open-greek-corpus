@@ -4992,6 +4992,10 @@
    "name": "anon-ocellus",
    "aliases": {}
   },
+  "anon-ocr": {
+   "name": "anon-ocr",
+   "aliases": {}
+  },
   "anon-oecumenius": {
    "name": "anon-oecumenius",
    "aliases": {}
@@ -36414,6 +36418,17 @@
    "tags": [],
    "editions": {}
   },
+  "anon-alexander-rhetoric.alexander-rhetoric-ek-ton-alexandrou": {
+   "author": "anon-alexander-rhetoric",
+   "title": "alexander-rhetoric.ek-ton-alexandrou",
+   "aliases": {
+    "cts": "urn:cts:greekLit:alexander-rhetoric.ek-ton-alexandrou"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
   "anon-alexander.alexander-fragmenta": {
    "author": "anon-alexander",
    "title": "alexander.fragmenta",
@@ -63771,6 +63786,17 @@
    "tags": [],
    "editions": {}
   },
+  "anon-ocr.ocr-spengel_rhetores_rg3": {
+   "author": "anon-ocr",
+   "title": "ocr.spengel_rhetores_rg3",
+   "aliases": {
+    "cts": "urn:cts:greekLit:ocr.spengel_rhetores_rg3"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
   "anon-oecumenius.oecumenius-commentarius-in-acta-apostolorum": {
    "author": "anon-oecumenius",
    "title": "oecumenius.commentarius-in-acta-apostolorum",
@@ -66306,17 +66332,6 @@
    "title": "phocylides.sententiae",
    "aliases": {
     "cts": "urn:cts:greekLit:phocylides.sententiae"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
-  "anon-phoebammon.phoebammon-de-figuris-fort-auctore-phoebammone-alio": {
-   "author": "anon-phoebammon",
-   "title": "phoebammon.de-figuris-fort-auctore-phoebammone-alio",
-   "aliases": {
-    "cts": "urn:cts:greekLit:phoebammon.de-figuris-fort-auctore-phoebammone-alio"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -252005,7 +252020,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2596.tlg001"
    },
-   "default_edition": "phoebammon.de-figuris-fort-auctore-phoebammone-alio.migne-ocr-qwen36",
+   "default_edition": null,
    "best_source": "pd_edition",
    "tags": [
     "century:5",
@@ -252013,18 +252028,6 @@
     "genre:rhetoric"
    ],
    "editions": {
-    "phoebammon.de-figuris-fort-auctore-phoebammone-alio.migne-ocr-qwen36": {
-     "name": "cog OCR (migne-ocr-qwen36)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {}
-    },
     "phoebammon.de-figuris-fort-auctore-phoebammone-alio.spengel-1856": {
      "name": "Rhetores Graeci, vol. 3",
      "provider": "tlg-e-reference",

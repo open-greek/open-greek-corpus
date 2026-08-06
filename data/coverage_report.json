@@ -7,8 +7,8 @@
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.36,
     "pct_ingested_actual": 66.05,
-    "ingested_words_actual": 49521393,
-    "ingested_complete_works": 2897,
+    "ingested_words_actual": 49518167,
+    "ingested_complete_works": 2896,
     "ingested_partial_works": 117,
     "pct_reachable_not_ingested": 14.28,
     "pct_locked": 11.81,
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3014,
-      "word_count": 54253596
+      "works": 3013,
+      "word_count": 54250370
     },
     "reachable_not_ingested": {
-      "works": 1599,
-      "word_count": 10706608
+      "works": 1600,
+      "word_count": 10709834
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2897,
-      "word_count": 51761707
+      "works": 2896,
+      "word_count": 51758481
     },
     "ingested_partial": {
       "works": 117,
@@ -51,8 +51,8 @@
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1169,
-      "word_count": 9226899
+      "works": 1170,
+      "word_count": 9230125
     },
     "migne_pd": {
       "works": 407,
@@ -3302,6 +3302,14 @@
       "author": "Syrianus",
       "title": "Praefatio In Hermogenis Librum περὶ ἰδεῶν [Sp.] (Fort",
       "word_count": 3230,
+      "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2596",
+      "work_id": "001",
+      "author": "Phoebammon",
+      "title": "De Figuris (Fort. Auctore Phoebammone Alio)",
+      "word_count": 3226,
       "best_source": "pd_edition"
     },
     {
@@ -19428,8 +19436,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 766,
-    "n_tokens": 9523747,
+    "works": 768,
+    "n_tokens": 9531188,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -21120,6 +21128,14 @@
         "n_tokens": 6135
       },
       {
+        "key": "ocr.spengel_rhetores_rg3",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 734,
+        "n_tokens": 6096
+      },
+      {
         "key": "scholia-in-euripidem.scholia-in-euripidis-troiades",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -22526,6 +22542,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 17,
         "n_tokens": 1348
+      },
+      {
+        "key": "alexander-rhetoric.ek-ton-alexandrou",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 13,
+        "n_tokens": 1345
       },
       {
         "key": "cogByz.porikologos",

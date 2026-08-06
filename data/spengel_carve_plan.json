@@ -1,0 +1,354 @@
+{
+ "what": "Curated carve plan for Spengel, Rhetores Graeci vol. III, served whole under one treatise's urn (issue #22); consumed by scripts/carve_edition_volume.py",
+ "date": "2026-08-06",
+ "issue": "open-greek/open-greek-corpus#22",
+ "boundary_form": "Same as the Walz plan: a work carries a START locus and no end, so the partition is exact by construction.",
+ "volumes": [
+  {
+   "volume": "rg3",
+   "urn": "phoebammon.de-figuris-fort-auctore-phoebammone-alio",
+   "edition_title": "Rhetores Graeci, vol. III, ed. L. Spengel (Leipzig, Teubner, 1856)",
+   "printed_to_scan_offset": 46,
+   "offset_note": "printed = scan - 46 at the start of the body, and the zones step the offset up by exactly the number of leaves dropped before them: 10 at the Demetrius repeat, 12 more at the Menander repeat, 7 and 8 in Nicolaus and the index. So there is really one offset and four repeated signatures, not five offsets. Dropping a scan removes it from the output but does not renumber the pages after it, which is why the drop has to be paid for in the zones as well. All nineteen ARGUMENTUM page numbers then land exactly on their display title, which is nineteen independent checks on the model.",
+   "drop_scans": [
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375,
+    436,
+    437,
+    438,
+    439,
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446,
+    447,
+    525,
+    526,
+    527,
+    528,
+    529,
+    530,
+    531,
+    566,
+    567,
+    568,
+    569,
+    570,
+    571,
+    572,
+    573
+   ],
+   "drop_scans_note": "Second copies of repeated signatures, confirmed by vocabulary overlap against the first copy (jaccard 0.65-0.89) and by the second copy being the worse OCR: scan 528 has lost every accent its twin at 520 still carries. Archived verbatim in the audit.",
+   "basis": "The ARGUMENTUM at scan 46 lists all nineteen items, numbered XVIII-XXXVI, each with its printed page range. That is the boundary source; every start was then verified at the row against the display title.",
+   "front_matter_before": "phoebammon_spengel_rg3_0047.1",
+   "front_matter_note": "scans 7-46, printed by roman numeral: Spengel's Latin praefatio and adnotationes, and the ARGUMENTUM itself. 4,060 tokens. Left in the volume file, like the Walz roman-numbered front matter, because the printed-page locus scheme has no way to express a roman folio.",
+   "trailing_residual_from": "phoebammon_spengel_rg3_0582.1",
+   "trailing_residual_note": "printed 499 onward is the index of terms over the whole Rhetores Graeci ('ἀντικατάστασις I, 366, 26; II, 146, 14'), 2,064 tokens. It indexes every volume, not this one, so it belongs to no work here.",
+   "disposition_note": "Eighteen of the nineteen are already served, five from First1KGreek and thirteen from our own OCR of Walz VIII, Roberts or Felten, so under the decision in issue #14 they are filed as secondary witnesses. That is the finding rather than a compromise: Spengel III and Walz VIII print substantially the same corpus of figure and trope treatises, which the 4-gram overlap confirms at 46-55% per work. Only item XVIII is served as primary, because nothing in the corpus matches it.",
+   "works": [
+    {
+     "n": "XVIII",
+     "slug": "alexander-rhetoric.ek-ton-alexandrou",
+     "title": "Ek ton Alexandrou (excerpts on thesis and hypothesis)",
+     "author_display": "Alexander (excerptor unnamed)",
+     "tlg": null,
+     "printed_pages": "1-6",
+     "start": "phoebammon_spengel_rg3_0047.1",
+     "incipit_check": "λέξανδρος φησιν",
+     "evidence": "ARGUMENTUM entry XVIII, printed 1-6. No display title: the volume opens straight into the text at printed 1, and the ARGUMENTUM is the boundary source. Its 4-grams match nothing else in the corpus, which is why it is the one item here served as primary.",
+     "author_note": "Spengel prints it as excerpts 'from the works of Alexander' rather than as a work of his, so the slug records the excerpt, not an attribution.",
+     "incipit_note": "Anchored below the initial capital on purpose: the OCR reads the alpha of Ἀλέξανδρος as a Latin A, so an anchor that included it would fail on a homoglyph rather than on a boundary."
+    },
+    {
+     "n": "XIX",
+     "slug": "alexander-rhetoric.de-figuris",
+     "title": "Peri schematon",
+     "author_display": "Alexander (Numenius)",
+     "tlg": null,
+     "printed_pages": "7-40",
+     "start": "phoebammon_spengel_rg3_0053.1",
+     "incipit_check": "ΑΛΕΞΑΝΔΡΟΥ",
+     "evidence": "ARGUMENTUM entry XIX. Display title ΑΛΕΞΑΝΔΡΟΥ / ΠΕΡΙ ΣΧΗΜΑΤΩΝ at printed 7, the page the page model puts at scan 53.",
+     "rank": "secondary",
+     "secondary_reason": "served as alexander-rhetoric.de-figuris from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Spengel witness is kept, not served",
+     "author_note": "The corpus also serves alexander-numenius.peri-ton-tes-dianoias-schematon from Walz VIII, and the two overlap at 49% of 4-grams, so they are very likely the same work under two slugs. Not resolved here; this witness is attached to the First1K one, which has precedence."
+    },
+    {
+     "n": "XX",
+     "slug": "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii",
+     "title": "Scholia peri schematon rhetorikon",
+     "author_display": "Phoebammon",
+     "tlg": null,
+     "printed_pages": "41-56",
+     "start": "phoebammon_spengel_rg3_0087.1",
+     "incipit_check": "ΦΟΙΒΑΜΜΩΝΟΣ",
+     "evidence": "ARGUMENTUM entry XX. Display title ΦΟΙΒΑΜΜΩΝΟΣ / ΣΧΟΛΙΑ ΠΕΡΙ ΣΧΗΜΑΤΩΝ ΡΗΤΟΡΙΚΩΝ at printed 41, the page the page model puts at scan 87.",
+     "rank": "secondary",
+     "secondary_reason": "served as phoebammon.scholia-peri-schematon-rhetorikon-walz-viii from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXI",
+     "slug": "tiberius.de-figuris-demosthenicis",
+     "title": "Peri schematon",
+     "author_display": "Tiberius Rhetor",
+     "tlg": null,
+     "printed_pages": "57-82",
+     "start": "phoebammon_spengel_rg3_0103.1",
+     "incipit_check": "ΤΙΒΕΡΙΟΥ",
+     "evidence": "ARGUMENTUM entry XXI. Display title ΤΙΒΕΡΙΟΥ ΡΗΤΟΡΟΣ / ΠΕΡΙ ΣΧΗΜΑΤΩΝ at printed 57, the page the page model puts at scan 103.",
+     "rank": "secondary",
+     "secondary_reason": "served as tiberius.de-figuris-demosthenicis from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXII",
+     "slug": "aelius-herodianus-et-pseudo-herodianus.de-figuris-peri-sxhma-twn-sp",
+     "title": "Peri schematon",
+     "author_display": "Aelius Herodianus",
+     "tlg": null,
+     "printed_pages": "83-104",
+     "start": "phoebammon_spengel_rg3_0129.1",
+     "incipit_check": "ΗΡΩΔΙΑΝΟΥ",
+     "evidence": "ARGUMENTUM entry XXII. Display title ΑΙΛΙΟΥ ΗΡΩΔΙΑΝΟΥ / ΠΕΡΙ ΣΧΗΜΑΤΩΝ at printed 83, the page the page model puts at scan 129.",
+     "rank": "secondary",
+     "secondary_reason": "served as aelius-herodianus-et-pseudo-herodianus.de-figuris-peri-sxhma-twn-sp from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXIII",
+     "slug": "polybius-sardianus.peri-schematismou",
+     "title": "Peri schematismou",
+     "author_display": "Polybius Sardianus",
+     "tlg": null,
+     "printed_pages": "105-109",
+     "start": "phoebammon_spengel_rg3_0151.1",
+     "incipit_check": "ΠΟΛΥΒΙΟΥ",
+     "evidence": "ARGUMENTUM entry XXIII. Display title ΠΟΛΥΒΙΟΥ ΣΑΡΔΙΑΝΟΥ ΠΕΡΙ ΣΧΗΜΑΤΙΣΜΟΥ at printed 105, the page the page model puts at scan 151.",
+     "rank": "secondary",
+     "secondary_reason": "served as polybius-sardianus.peri-schematismou from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXIV",
+     "slug": "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
+     "title": "Peri ton tou logou schematon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "110-160",
+     "start": "phoebammon_spengel_rg3_0156.1",
+     "incipit_check": "ΑΝΩΝΥΜΟΥ",
+     "evidence": "ARGUMENTUM entry XXIV. Display title ΑΝΩΝΥΜΟΥ / ΠΕΡΙ ΤΩΝ ΤΟΥ ΛΟΓΟΥ ΣΧΗΜΑΤΩΝ at printed 110, the page the page model puts at scan 156.",
+     "rank": "secondary",
+     "secondary_reason": "served as anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXV",
+     "slug": "zonaeus.peri-schematon-ton-kata-logon",
+     "title": "Peri schematon ton kata logon",
+     "author_display": "Zonaeus",
+     "tlg": null,
+     "printed_pages": "161-170",
+     "start": "phoebammon_spengel_rg3_0207.1",
+     "incipit_check": "ΖΩΝΑΙΟΥ",
+     "evidence": "ARGUMENTUM entry XXV. Display title ΖΩΝΑΙΟΥ / ΠΕΡΙ ΣΧΗΜΑΤΩΝ ΤΩΝ ΚΑΤΑ ΛΟΓΟΝ at printed 161, the page the page model puts at scan 207.",
+     "rank": "secondary",
+     "secondary_reason": "served as zonaeus.peri-schematon-ton-kata-logon from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXVI",
+     "slug": "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
+     "title": "Peri schematon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "171-173",
+     "start": "phoebammon_spengel_rg3_0217.1",
+     "incipit_check": "ΑΝΩΝΥΜΟΥ",
+     "evidence": "ARGUMENTUM entry XXVI. Display title Α Ν Ω Ν Υ Μ Ο Υ / ΠΕΡΙ ΣΧΗΜΑΤΩΝ (letter-spaced) at printed 171, the page the page model puts at scan 217.",
+     "rank": "secondary",
+     "secondary_reason": "served as anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694 from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXVII",
+     "slug": "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
+     "title": "Peri ton schematon tou logou",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "174-188",
+     "start": "phoebammon_spengel_rg3_0220.1",
+     "incipit_check": "ΑΝΩΝΥΜΟΥ",
+     "evidence": "ARGUMENTUM entry XXVII. Display title Α Ν Ω Ν Υ Μ Ο Υ / ΠΕΡΙ ΤΩΝ ΣΧΗΜΑΤΩΝ ΤΟΥ ΛΟΓΟΥ at printed 174, the page the page model puts at scan 220.",
+     "rank": "secondary",
+     "secondary_reason": "served as anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698 from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXVIII",
+     "slug": "tryphon-i.peri-tro-pwn",
+     "title": "Peri tropon",
+     "author_display": "Trypho",
+     "tlg": null,
+     "printed_pages": "189-206",
+     "start": "phoebammon_spengel_rg3_0235.1",
+     "incipit_check": "ΤΡΥΦΩΝΟΣ",
+     "evidence": "ARGUMENTUM entry XXVIII. Display title ΤΡΥΦΩΝΟΣ / ΠΕΡΙ ΤΡΟΠΩΝ at printed 189, the page the page model puts at scan 235.",
+     "rank": "secondary",
+     "secondary_reason": "served as tryphon-i.peri-tro-pwn from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXIX",
+     "slug": "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
+     "title": "Peri poietikon tropon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "207-214",
+     "start": "phoebammon_spengel_rg3_0253.1",
+     "incipit_check": "ΠΟΙΗΤΙΚΩΝ ΤΡΟΠΩΝ",
+     "evidence": "ARGUMENTUM entry XXIX. Display title ΑΝΩΝΥΜΟΥ / ΠΕΡΙ ΠΟΙΗΤΙΚΩΝ ΤΡΟΠΩΝ at printed 207, the page the page model puts at scan 253.",
+     "rank": "secondary",
+     "secondary_reason": "served as anonymi-in-artem-rhetoricam.peri-poietikon-tropon from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served",
+     "incipit_locus": "phoebammon_spengel_rg3_0253.2",
+     "incipit_note": "Anchored on the title's second line. The first reads ANΩNΥΜΟΥ with Latin A and N for the Greek, so it would fail on homoglyphs; the work still begins at the top of the page."
+    },
+    {
+     "n": "XXX",
+     "slug": "tryphon-ii.de-tropis-olim-sub-auctore-gregorio-corinthio",
+     "title": "Peri tropon",
+     "author_display": "Gregorius Corinthius (Trypho II)",
+     "tlg": null,
+     "printed_pages": "215-226",
+     "start": "phoebammon_spengel_rg3_0261.1",
+     "incipit_check": "ΓΡΗΓΟΡΙΟΥ",
+     "evidence": "ARGUMENTUM entry XXX. Display title ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΚΟΡΙΝΘΙΟΥ ΠΕΡΙ ΤΡΟΠΩΝ at printed 215, the page the page model puts at scan 261.",
+     "rank": "secondary",
+     "secondary_reason": "served as tryphon-ii.de-tropis-olim-sub-auctore-gregorio-corinthio from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXXI",
+     "slug": "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
+     "title": "Peri tropon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "227-229",
+     "start": "phoebammon_spengel_rg3_0273.1",
+     "incipit_check": "ΠΕΡΙ ΤΡΟΠΩΝ",
+     "evidence": "ARGUMENTUM entry XXXI. Display title ΠΕΡΙ ΤΡΟΠΩΝ at printed 227, the page the page model puts at scan 273.",
+     "rank": "secondary",
+     "secondary_reason": "served as anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779 from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXXII",
+     "slug": "cocondrius.peri-tropon",
+     "title": "Peri tropon",
+     "author_display": "Cocondrius",
+     "tlg": null,
+     "printed_pages": "230-243",
+     "start": "phoebammon_spengel_rg3_0276.1",
+     "incipit_check": "ΠΕΡΙ ΤΡΟΠΩΝ",
+     "evidence": "ARGUMENTUM entry XXXII. Display title ΠΕΡΙ ΤΡΟΠΩΝ at printed 230, the page the page model puts at scan 276.",
+     "rank": "secondary",
+     "secondary_reason": "served as cocondrius.peri-tropon from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXXIII",
+     "slug": "georgius-choeroboscus.peri-tropon-poietikon",
+     "title": "Peri tropon poietikon",
+     "author_display": "Georgius Choeroboscus",
+     "tlg": null,
+     "printed_pages": "244-256",
+     "start": "phoebammon_spengel_rg3_0290.1",
+     "incipit_check": "ΧΟΙΡΟΒΟΣΚΟΥ",
+     "evidence": "ARGUMENTUM entry XXXIII. Display title ΓΕΩΡΓΙΟΥ ΤΟΥ ΧΟΙΡΟΒΟΣΚΟΥ / ΠΕΡΙ ΤΡΟΠΩΝ ΠΟΙΗΤΙΚΩΝ at printed 244, the page the page model puts at scan 290.",
+     "rank": "secondary",
+     "secondary_reason": "served as georgius-choeroboscus.peri-tropon-poietikon from our OCR of Walz, Rhetores Graeci vol. VIII, carved in issue #10; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXXIV",
+     "slug": "demetrius-poet-phil.demetrius-de-eloc-roberts",
+     "title": "Peri hermeneias",
+     "author_display": "Demetrius",
+     "tlg": null,
+     "printed_pages": "257-328",
+     "start": "phoebammon_spengel_rg3_0303.1",
+     "incipit_check": "ΔΗΜΗΤΡΙΟΥ",
+     "evidence": "ARGUMENTUM entry XXXIV. Display title ΔΗΜΗΤΡΙΟΥ ΠΕΡΙ ΕΡΜΗΝΕΙΑΣ at printed 257, the page the page model puts at scan 303.",
+     "rank": "secondary",
+     "secondary_reason": "served as demetrius-poet-phil.demetrius-de-eloc-roberts from our OCR of the Roberts edition; this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXXV",
+     "slug": "menander-rhetoric.peri-e-pideiktikw-n",
+     "title": "Peri epideiktikon",
+     "author_display": "Menander Rhetor",
+     "tlg": null,
+     "printed_pages": "329-446",
+     "start": "phoebammon_spengel_rg3_0385.1",
+     "incipit_check": "ΜΕΝΑΝΔΡΟΥ",
+     "evidence": "ARGUMENTUM entry XXXV. Display title ΜΕΝΑΝΔΡΟΥ ΡΗΤΟΡΟΣ / ΠΕΡΙ ΕΠΙΔΕΙΚΤΙΚΩΝ at printed 329, the page the page model puts at scan 385.",
+     "rank": "secondary",
+     "secondary_reason": "served as menander-rhetoric.peri-e-pideiktikw-n from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Spengel witness is kept, not served"
+    },
+    {
+     "n": "XXXVI",
+     "slug": "nicolaus-history.nicolaus-progymnasmata-felten",
+     "title": "Progymnasmata",
+     "author_display": "Nicolaus Sophista",
+     "tlg": null,
+     "printed_pages": "447-498",
+     "start": "phoebammon_spengel_rg3_0515.1",
+     "incipit_check": "ΝΙΚΟΛΑΟΥ",
+     "evidence": "ARGUMENTUM entry XXXVI. Display title ΝΙΚΟΛΑΟΥ ΣΟΦΙΣΤΟΥ / ΠΡΟΓΥΜΝΑΣΜΑΤΑ at printed 447, the page the page model puts at scan 515.",
+     "rank": "secondary",
+     "secondary_reason": "served as nicolaus-history.nicolaus-progymnasmata-felten from our OCR of the Felten edition; this Spengel witness is kept, not served"
+    }
+   ],
+   "offset_zones": [
+    {
+     "scans": [
+      47,
+      365
+     ],
+     "offset": 46
+    },
+    {
+     "scans": [
+      376,
+      435
+     ],
+     "offset": 56
+    },
+    {
+     "scans": [
+      448,
+      524
+     ],
+     "offset": 68
+    },
+    {
+     "scans": [
+      532,
+      565
+     ],
+     "offset": 75
+    },
+    {
+     "scans": [
+      574,
+      624
+     ],
+     "offset": 83
+    }
+   ],
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#22",
+   "residual_urn": "ocr.spengel_rhetores_rg3",
+   "residual_urn_note": "The volume was served under phoebammon.de-figuris-..., one treatise's slug for a 578-page book whose first row is Latin apparatus. Phoebammon keeps printed 41-56, which is his; the front matter and the index move to a urn that says what they are."
+  }
+ ]
+}

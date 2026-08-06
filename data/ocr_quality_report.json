@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1373,
+   "ocr_works": 1374,
    "ocr_works_ranked": 801,
-   "ocr_works_with_witness": 181,
-   "secondary_files": 396,
+   "ocr_works_with_witness": 193,
+   "secondary_files": 410,
    "skipped": 30,
-   "tei_primary_ocr_secondary_pairs": 185
+   "tei_primary_ocr_secondary_pairs": 187
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -162,31 +162,31 @@
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9128,
-    "median": 0.7755,
+    "median": 0.7786,
     "min": 0.1072,
-    "n": 77,
-    "q1": 0.6858,
-    "q3": 0.8337
+    "n": 79,
+    "q1": 0.6912,
+    "q3": 0.8308
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9128,
-    "median": 0.7053,
+    "median": 0.7058,
     "min": 0.0192,
-    "n": 185,
-    "q1": 0.5446,
-    "q3": 0.7958
+    "n": 187,
+    "q1": 0.5583,
+    "q3": 0.7976
    },
-   "n_pairs": 185,
-   "n_pairs_summarized": 77,
+   "n_pairs": 187,
+   "n_pairs_summarized": 79,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.1351,
+   "median": 0.1352,
    "min": 0.0089,
    "n": 801,
    "q1": 0.096,
-   "q3": 0.1726
+   "q3": 0.1728
   }
  },
  "works": {
@@ -386,6 +386,15 @@
    "n_unattested": 692,
    "source": "ocr",
    "unattested_rate": 0.115065,
+   "witness": null
+  },
+  "alexander-rhetoric.ek-ton-alexandrou": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 1345,
+   "n_tokens_checked": 778,
+   "n_unattested": 48,
+   "source": "ocr",
+   "unattested_rate": 0.061697,
    "witness": null
   },
   "alexander.fragmenta": {
@@ -656,7 +665,13 @@
    "n_unattested": 127,
    "source": "ocr",
    "unattested_rate": 0.105482,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.67769,
+    "agreement_secondary_in_primary": 0.856499,
+    "n_bigrams_primary": 1905,
+    "n_bigrams_secondary": 1331,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen": {
    "edition": "migne-ocr-qwen36",
@@ -674,7 +689,13 @@
    "n_unattested": 34,
    "source": "ocr",
    "unattested_rate": 0.079439,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.902758,
+    "agreement_secondary_in_primary": 0.885387,
+    "n_bigrams_primary": 689,
+    "n_bigrams_secondary": 698,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "anonymi-in-artem-rhetoricam.peri-synekdoches": {
    "edition": "migne-ocr-qwen36",
@@ -701,7 +722,13 @@
    "n_unattested": 161,
    "source": "ocr",
    "unattested_rate": 0.097694,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.824235,
+    "agreement_secondary_in_primary": 0.807137,
+    "n_bigrams_primary": 2583,
+    "n_bigrams_secondary": 2634,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou": {
    "edition": "migne-ocr-qwen36",
@@ -719,7 +746,13 @@
    "n_unattested": 700,
    "source": "ocr",
    "unattested_rate": 0.112522,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.81806,
+    "agreement_secondary_in_primary": 0.819595,
+    "n_bigrams_primary": 9668,
+    "n_bigrams_secondary": 9717,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779": {
    "edition": "migne-ocr-qwen36",
@@ -728,7 +761,13 @@
    "n_unattested": 29,
    "source": "ocr",
    "unattested_rate": 0.126638,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.732804,
+    "agreement_secondary_in_primary": 0.725067,
+    "n_bigrams_primary": 378,
+    "n_bigrams_secondary": 371,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis": {
    "edition": "migne-ocr-qwen36",
@@ -3149,7 +3188,13 @@
    "n_unattested": 228,
    "source": "ocr",
    "unattested_rate": 0.154054,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.779392,
+    "agreement_secondary_in_primary": 0.782218,
+    "n_bigrams_primary": 2203,
+    "n_bigrams_secondary": 2227,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "cogPG.PG003": {
    "edition": "cgpg",
@@ -3923,7 +3968,13 @@
    "n_unattested": 1061,
    "source": "ocr",
    "unattested_rate": 0.08424,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.679759,
+    "agreement_secondary_in_primary": 0.847743,
+    "n_bigrams_primary": 20394,
+    "n_bigrams_secondary": 14909,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "demetrius-poet-phil.fragmenta-et-titulus": {
    "edition": "qwen36-empedocles_diels_ppf",
@@ -5453,7 +5504,13 @@
    "n_unattested": 220,
    "source": "ocr",
    "unattested_rate": 0.11879,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.763838,
+    "agreement_secondary_in_primary": 0.814689,
+    "n_bigrams_primary": 2981,
+    "n_bigrams_secondary": 2655,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de": {
    "edition": "qwen36-choeroboscus_hilgard_gg4-masked",
@@ -9731,7 +9788,13 @@
    "n_unattested": 816,
    "source": "ocr",
    "unattested_rate": 0.078902,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.624197,
+    "agreement_secondary_in_primary": 0.7199,
+    "n_bigrams_primary": 16349,
+    "n_bigrams_secondary": 12035,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "nicolaus.fragmenta": {
    "edition": "kock-caf3-ocr-frag",
@@ -9885,6 +9948,15 @@
     "n_bigrams_secondary": 201777,
     "secondary_edition": "migne-ocr-qwen36"
    }
+  },
+  "ocr.spengel_rhetores_rg3": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 6124,
+   "n_tokens_checked": 3935,
+   "n_unattested": 822,
+   "source": "ocr",
+   "unattested_rate": 0.208895,
+   "witness": null
   },
   "ocr.walz_rhetores_v1": {
    "edition": "qwen36-walz_rhetores_v1-masked",
@@ -10813,15 +10885,6 @@
    "unattested_rate": 0.156897,
    "witness": null
   },
-  "phoebammon.de-figuris-fort-auctore-phoebammone-alio": {
-   "edition": "migne-ocr-qwen36",
-   "n_tokens": 121156,
-   "n_tokens_checked": 71736,
-   "n_unattested": 7654,
-   "source": "ocr",
-   "unattested_rate": 0.106697,
-   "witness": null
-  },
   "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 3587,
@@ -10829,7 +10892,13 @@
    "n_unattested": 222,
    "source": "ocr",
    "unattested_rate": 0.105163,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.714747,
+    "agreement_secondary_in_primary": 0.790604,
+    "n_bigrams_primary": 3404,
+    "n_bigrams_secondary": 2980,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "phoenicides.fragmenta": {
    "edition": "kock-caf3-ocr-frag",
@@ -11033,7 +11102,13 @@
    "n_unattested": 92,
    "source": "ocr",
    "unattested_rate": 0.191667,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.758675,
+    "agreement_secondary_in_primary": 0.691643,
+    "n_bigrams_primary": 634,
+    "n_bigrams_secondary": 694,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "polyclitus.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
@@ -13622,7 +13697,13 @@
    "n_unattested": 270,
    "source": "ocr",
    "unattested_rate": 0.141287,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.538167,
+    "agreement_secondary_in_primary": 0.817329,
+    "n_bigrams_primary": 3131,
+    "n_bigrams_secondary": 1812,
+    "secondary_edition": "migne-ocr-qwen36"
+   }
   },
   "zosimus-alchemista.opera": {
    "edition": "qwen36-berthelot_alchimistes_grec-ocr",
@@ -13755,6 +13836,7 @@
   "joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum",
   "theophylactus-simocatta.epistulae",
   "cypria.cypria-fragmenta",
+  "ocr.spengel_rhetores_rg3",
   "astrampsychus-magus.astrampsychus-oracula-hercher",
   "hippiatrica.appendices-ad-hippiatrica-berolinensia",
   "dositheus-magister.ars-grammatica",
@@ -14193,7 +14275,6 @@
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum",
   "josephus-genesius.basilei-ai",
   "joannes-chrysostomus.fragmenta-in-epistulas-catholicas",
-  "phoebammon.de-figuris-fort-auctore-phoebammone-alio",
   "basilius-theology.quod-deus-non-est-auctor-malorum",
   "basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius",
   "nausiphanes.testimonia",
