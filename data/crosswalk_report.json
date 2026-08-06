@@ -1,14 +1,14 @@
 {
   "headline": {
-    "works": 11052,
-    "authors": 3304,
+    "works": 11053,
+    "authors": 3305,
     "editions": 10203,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
-    "pct_works_with_author_qid": 54.5,
+    "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.4,
-    "served_works": 3886,
+    "served_works": 3887,
     "pct_served_in_registry": 74.8,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.9,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11052,
+      "count": 11053,
       "pct": 100.0
     },
     "wikidata": {
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9086,
+      "count": 9087,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3886,
+    "served_works": 3887,
     "in_registry": 2907,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 979,
+      "count": 980,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -537,7 +537,7 @@
     "with_work_qid": 503,
     "with_author_qid": 2873,
     "with_any_external_anchor": 3331,
-    "with_logical_served_locus": 2120,
+    "with_logical_served_locus": 2121,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
       "count": 2370,
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1902,
+      "count": 1903,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",

@@ -724,7 +724,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1371 OCR'd works/volumes: 172 manually corrected, 864 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1372 OCR'd works/volumes: 172 manually corrected, 865 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1701,6 +1701,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | milon.fragmentum | Milon - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 54 | auto-corrected |
 | mimnermus-elegy.fragmenta | Mimnermus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 594 | auto-corrected |
 | mimnermus-tragedy.fragmenta | MIMNERMUS TRAGICUS - Fragmenta (TGF Nauck) | qwen36-nauck-tgf-mimnermus | Qwen3.6-27B | 1,088 | raw OCR |
+| minucianus.peri-epicheirematon |  | qwen36-walz_rhetores_v9 | Qwen3.6-27B | 2,297 | auto-corrected |
 | mnesimachus-comedy.fragmenta | Mnesimachus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 697 | raw OCR |
 | moderatus.fragmenta | Moderatus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 609 | auto-corrected |
 | moeris.lexicon-atticum | Moeris - Lexicon Atticum | [archive.org](https://archive.org/details/moeridisatticis00moergoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,061 | auto-corrected |

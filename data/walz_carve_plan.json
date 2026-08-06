@@ -1076,6 +1076,148 @@
      "evidence": "Display title ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ / ΑΠΟ ΤΗΣ ΕΞΗΓΗΣΕΩΣ / ΤΗΣ ΕΙΣ ΤΟ ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ / ΤΟΥ ΜΗΤΡΟΠΟΛΙΤΟΥ at printed 1088, the metropolitan being Gregory of Corinth. Running head ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΚΟΡΙΝΘ. from 1092 to 1352."
     }
    ]
+  },
+  {
+   "volume": "v9",
+   "urn": "ocr.walz_rhetores_v9",
+   "edition_title": "Rhetores Graeci, vol. IX, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1836)",
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#10",
+   "printed_to_scan_offset": 38,
+   "offset_zones": [
+    {
+     "scans": [
+      7,
+      167
+     ],
+     "offset": 36
+    },
+    {
+     "scans": [
+      170,
+      816
+     ],
+     "offset": 38
+    }
+   ],
+   "offset_note": "Two zones, and the reason is visible on the scan. Pages 131 and 132 were photographed twice: once with a paper strip lying across the leaf (scans 167 and 168) and once cleanly (169 and 170). That is the two-leaf insertion that takes the offset from 36 to 38. Measured, not inferred: eleven page numbers were read off the Internet Archive scan rhetoresgraeciem09walzuoft and every one agrees with these zones, from printed 1 at scan 37 to printed 143 at scan 181. An earlier attempt to settle this from the text alone failed, because the Demetrius running heads carry no page numbers at all.",
+   "drop_scans": [
+    168,
+    169
+   ],
+   "drop_scans_note": "The worse OCR of each duplicated page, which is not the same copy in both cases. Scan 167 (obstructed) read printed 131 cleanly while 169 degenerated into repetition; scan 170 has the correct διειλόμεθα where 168 reads διελέγομεθα. So 167 and 170 are kept and 168 and 169 dropped, archived verbatim in the audit.",
+   "basis": "No ARGUMENTUM. Every boundary is a display title, verified at the row, and the offset comes from page numbers read directly off the scan images.",
+   "front_matter_before": "walz_rhetores_v9_0037.1",
+   "front_matter_note": "scans 0007-0036, Walz's Latin praefatio and prolegomena, 1,230 tokens. Left in the volume file.",
+   "trailing_residual_from": "walz_rhetores_v9_0652.1",
+   "trailing_residual_note": "printed 614 onward is the alphabetical index over the whole Rhetores Graeci, opening at 'Achilles' and referencing every volume by roman numeral, 18,732 tokens. It belongs to no work here.",
+   "disposition_note": "Seven of the eight are already served and become secondary witnesses under #14, and unlike the v1 carve the text corroborates it: 4-gram overlap runs 20.6% to 48.3%, in the range a genuine second witness scores elsewhere in this corpus. Minucianus is the one work not held anywhere and is served primary.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "demetrius-rhetoric.de-elocutione",
+     "title": "Peri hermeneias",
+     "author_display": "Demetrius",
+     "tlg": null,
+     "printed_pages": "1-126",
+     "start": "walz_rhetores_v9_0037.1",
+     "incipit_check": "ΕΡΜΗΝΕΙΑΣ",
+     "evidence": "Display title ΔΗΜΗΤΡΙΟΥ / ΠΕΡΙ / ΕΡΜΗΝΕΙΑΣ at printed 1. Verified against the Internet Archive scan (rhetoresgraeciem09walzuoft page 37), which carries the printed 1 at the foot beside 'Rhetor. IX.'; our OCR read the same page but dropped the ΔΗΜΗΤΡΙΟΥ line.",
+     "incipit_locus": "walz_rhetores_v9_0037.2",
+     "rank": "secondary",
+     "secondary_reason": "served as demetrius-rhetoric.de-elocutione from the Perseus open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (36.1% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "II",
+     "slug": "menander-rhetoric.peri-e-pideiktikw-n",
+     "title": "Peri epideiktikon",
+     "author_display": "Menander Rhetor",
+     "tlg": null,
+     "printed_pages": "127-331",
+     "start": "walz_rhetores_v9_0163.1",
+     "incipit_check": "ΓΕΝΕΘΛΙΟΝ",
+     "evidence": "Display title ΠΡΟΣ ΓΕΝΕΘΛΙΟΝ / [ΠΕΡΙ] ΤΩΝ ΕΠΙΔΕΙΚΤ[ΙΚΩΝ] at printed 127; running head ΠΕΡΙ ΕΠΙΔΕΙΚΤΙΚΩΝ from 129.",
+     "rank": "secondary",
+     "secondary_reason": "served as menander-rhetoric.peri-e-pideiktikw-n from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (20.6% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "III",
+     "slug": "alexander-rhetoric.ek-ton-alexandrou",
+     "title": "Peri rhetorikon aphormon",
+     "author_display": "Alexander",
+     "tlg": null,
+     "printed_pages": "332-339",
+     "start": "walz_rhetores_v9_0370.1",
+     "incipit_check": "ΑΛΕΞΑΝΔΡΟΥ",
+     "evidence": "Display title ΑΛΕΞΑΝΔΡΟΥ at printed 332, running head ΠΕΡΙ ΡΗΤΟΡ. ΑΦΟΡΜΩΝ.",
+     "rank": "secondary",
+     "secondary_reason": "served as alexander-rhetoric.ek-ton-alexandrou from our OCR of Spengel, Rhetores Graeci vol. III, carved in issue #22; this Walz witness is kept, not served (43.0% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "IV",
+     "slug": "aelius-aristides.ars-rhetorica-sp",
+     "title": "Technon rhetorikon libri II",
+     "author_display": "Aelius Aristides",
+     "tlg": null,
+     "printed_pages": "340-466",
+     "start": "walz_rhetores_v9_0378.1",
+     "incipit_check": "ΑΡΙΣΤΕΙΔΟΥ",
+     "evidence": "Display title IV. ΑΡΙΣΤΕΙΔΟΥ / ΤΕΧΝΩΝ ΡΗΤΟΡΙΚΩΝ Α΄ at printed 340; book Β΄ running head from 434, confirmed by the numbered head '434 ΑΡΙΣΤΕΙΔΟΥ'.",
+     "rank": "secondary",
+     "secondary_reason": "served as aelius-aristides.ars-rhetorica-sp from the Perseus open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (48.3% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "V",
+     "slug": "valerius-apsines.ars-rhetorica",
+     "title": "Techne rhetorike",
+     "author_display": "Valerius Apsines",
+     "tlg": null,
+     "printed_pages": "467-534",
+     "start": "walz_rhetores_v9_0505.1",
+     "incipit_check": "ΑΨΙΝΟΥ",
+     "evidence": "Display title ΑΨΙΝΟΥ / ΤΕΧΝΗ ΡΗΤΟΡΙΚΗ ΠΕΡΙ ΠΡΟΟΙΜΙΟΥ at printed 467.",
+     "rank": "secondary",
+     "secondary_reason": "served as valerius-apsines.ars-rhetorica from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (29.3% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "VI",
+     "slug": "valerius-apsines.peri-tw-n-e-sxhmatisme-nwn-problhma-twn",
+     "title": "Peri ton eschematismenon problematon",
+     "author_display": "Valerius Apsines",
+     "tlg": null,
+     "printed_pages": "535-542",
+     "start": "walz_rhetores_v9_0573.1",
+     "incipit_check": "ΕΣΧΗΜΑΤ",
+     "evidence": "Display title ΠΕΡΙ ΤΩΝ ΕΣΧΗΜΑΤ[ΙΣΜΕΝΩΝ] ΠΡΟΒΛΗΜΑΤΩΝ at printed 535, confirmed by the numbered head '542 ΑΨΙΝΟΥ ΠΕΡΙ ΤΩΝ ΕΣΧΗΜ. ΠΡΟΒΛ.' at its last page.",
+     "rank": "secondary",
+     "secondary_reason": "served as valerius-apsines.peri-tw-n-e-sxhmatisme-nwn-problhma-twn from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (41.9% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "VII",
+     "slug": "cassius-longinus.ars-rhetorica",
+     "title": "Peri heureseos",
+     "author_display": "Cassius Longinus",
+     "tlg": null,
+     "printed_pages": "543-596",
+     "start": "walz_rhetores_v9_0581.1",
+     "incipit_check": "ΠΕΡΙ ΕΥΡΕΣΕΩΣ",
+     "evidence": "Display title ΠΕΡΙ ΕΥΡΕΣΕΩΣ at printed 543; ΛΟΓΓΙΝΟΥ appears as the verso running head from 552.",
+     "rank": "secondary",
+     "secondary_reason": "served as cassius-longinus.ars-rhetorica from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (24.6% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "VIII",
+     "slug": "minucianus.peri-epicheirematon",
+     "title": "Peri epicheirematon",
+     "author_display": "Minucianus",
+     "tlg": null,
+     "printed_pages": "597-613",
+     "start": "walz_rhetores_v9_0635.1",
+     "incipit_check": "ΜΙΝΟΥΚΙΑΝΟΥ",
+     "evidence": "Display title ΜΙΝΟΥΚΙΑΝΟΥ / ΠΕΡΙ / ΕΠΙΧΕΙΡΗΜΑΤΩΝ at printed 597; running head ΠΕΡΙ ΕΠΙΧΕΙΡΗΜΑΤΩΝ to 613.",
+     "author_note": "The only work in this volume the corpus does not already hold, so the one served as primary."
+    }
+   ]
   }
  ]
 }
