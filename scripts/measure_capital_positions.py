@@ -56,7 +56,7 @@ FREQ = DATA / "public_lemma_frequency.tsv"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
-from validate_lemma_map import lower_initial  # noqa: E402
+from validate_lemma_map import VARIA, lower_initial, to_acute  # noqa: E402
 
 MID_MAX = 0.25
 MIN_OCCURRENCES = 10
@@ -76,6 +76,32 @@ def load_frequencies() -> dict[str, int]:
         if len(parts) >= 2 and parts[1].isdigit():
             freq[parts[0]] = int(parts[1])
     return freq
+
+
+def target_twin(form: str, freq: dict[str, int]) -> str | None:
+    """The lowercase headword this capitalized lemma would fold into, or None.
+
+    Normally that is the lowercase spelling, and only when it is COMMONER: the
+    other direction is a word that really is usually capitalized, and folding it
+    down would be the same destruction in reverse.
+
+    A lemma carrying a GRAVE is the exception, and gets the weaker test of
+    merely being attested. No headword carries a grave, so such an entry is the
+    lemmatizer echoing a surface form back rather than a citation form, and its
+    count is large for exactly that reason: it swallowed the tokens its own
+    headword is missing. Χωρὶς stands at 13,884 against χωρίς at 876, so
+    demanding the twin be commoner asks the split to have healed itself before
+    it may be healed. That is the argument validate_lemma_map.grave_lemma_repair
+    already makes for not requiring the acute to be commoner either.
+    """
+    lower = lower_initial(form)
+    if lower != form and freq.get(lower, 0) > freq[form]:
+        return lower
+    if VARIA in unicodedata.normalize("NFD", form):
+        acute = to_acute(lower)
+        if acute != form and freq.get(acute, 0):
+            return acute
+    return None
 
 
 def count_positions() -> tuple[Counter[str], Counter[str]]:
@@ -114,11 +140,10 @@ def main() -> None:
 
     folds, kept, thin = {}, 0, 0
     for form in set(initial) | set(mid):
-        lower = lower_initial(form)
-        # Only a lemma whose lowercase twin is COMMONER is a candidate. The
-        # other direction is a word that really is usually capitalized, and
-        # folding it down would be the same destruction in reverse.
-        if form not in freq or freq.get(lower, 0) <= freq[form]:
+        if form not in freq:
+            continue
+        lower = target_twin(form, freq)
+        if not lower:
             continue
         n = initial[form] + mid[form]
         rate = mid[form] / n if n else 1.0
@@ -145,10 +170,20 @@ def main() -> None:
     if not args.write:
         print("\nreport only; re-run with --write.")
         return
+    # Merged, never overwritten, for the same reason the tombstones are kept:
+    # this reads the frequency table that the previous folds have already been
+    # applied to, so a fold once made is invisible to the next run. Πῶς is gone
+    # from the table and χωρίς has grown, and re-deriving from that would drop
+    # every earlier decision on the floor and let the next build make it again.
+    kept_before = json.loads(OUT.read_text(encoding="utf-8"))["folds"] \
+        if OUT.exists() else {}
+    new = {k: v for k, v in folds.items() if k not in kept_before}
+    kept_before.update(folds)
     OUT.write_text(json.dumps(
         {"mid_sentence_max": MID_MAX, "min_occurrences": MIN_OCCURRENCES,
-         "folds": dict(sorted(folds.items()))},
+         "folds": dict(sorted(kept_before.items()))},
         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"{len(new)} new, {len(kept_before)} folds recorded in total")
     print(f"\nwrote {OUT.relative_to(REPO)}")
 
 
