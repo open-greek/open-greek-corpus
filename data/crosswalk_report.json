@@ -1,15 +1,15 @@
 {
   "headline": {
-    "works": 11035,
-    "authors": 3297,
-    "editions": 10205,
+    "works": 11036,
+    "authors": 3298,
+    "editions": 10204,
     "pct_works_with_canonical_locus": 36.8,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.5,
     "pct_authors_with_wikidata": 42.5,
-    "served_works": 3869,
-    "pct_served_in_registry": 75.2,
+    "served_works": 3870,
+    "pct_served_in_registry": 75.1,
     "pct_served_with_work_qid": 13.0,
     "pct_served_with_author_qid": 74.2,
     "pct_served_with_any_anchor": 86.1,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11035,
+      "count": 11036,
       "pct": 100.0
     },
     "wikidata": {
@@ -90,7 +90,7 @@
     "pct": 36.8,
     "works_only_physical_or_none": 3167,
     "by_scheme": {
-      "(none)": 1555,
+      "(none)": 1554,
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9069,
+      "count": 9070,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3869,
-    "in_registry": 2909,
+    "served_works": 3870,
+    "in_registry": 2908,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 960,
+      "count": 962,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -500,6 +500,7 @@
         "aglaosthenes.fragmenta",
         "alcetas.fragmenta",
         "alexander-numenius.peri-ton-tes-dianoias-schematon",
+        "alexander-rhetoric.ek-ton-alexandrou",
         "alexander.fragmenta",
         "alexandrides-delphus.fragmenta",
         "alexis-samius.fragmenta",
@@ -530,14 +531,13 @@
         "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
         "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
         "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
-        "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri",
-        "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes"
+        "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri"
       ]
     },
     "with_work_qid": 503,
     "with_author_qid": 2870,
-    "with_any_external_anchor": 3333,
-    "with_logical_served_locus": 2102,
+    "with_any_external_anchor": 3332,
+    "with_logical_served_locus": 2103,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
       "count": 2367,
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1895,
+      "count": 1896,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
