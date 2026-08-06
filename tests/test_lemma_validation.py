@@ -106,6 +106,9 @@ def bench(tmp_path, monkeypatch):
     freq_file.write_text("\n".join(f"{k}\t{v}" for k, v in freq.items()) + "\n",
                          encoding="utf-8")
     monkeypatch.setattr(vlm, "REJECTED", tmp_path / "rejected.tsv")
+    # Isolated too, or every test here reads whatever the last measurement run
+    # wrote to data/capital_positions.json. The tests that want a fold set one.
+    monkeypatch.setattr(vlm, "CAPITAL_FOLDS", {})
     return freq_file
 
 
@@ -234,8 +237,11 @@ def test_a_grave_lemma_with_no_acute_headword_is_left_not_tombstoned(bench):
 
     This used to use τὸν, which is no longer an example of anything: the article
     is a closed paradigm, so closed_class_lemma settles it as ὁ without needing
-    an attested acute headword. Χωρὶς is the real shape of the limit - a grave
-    citation form whose acute twin the corpus never attests, left alone."""
+    an attested acute headword. Χωρὶς is the real shape of the limit, and note
+    what the limit actually is: the acute the rule looks for is the SAME-CASE
+    Χωρίς, which the corpus never attests, so the rule leaves it even though
+    lowercase χωρίς is sitting there at 876. Reaching it took the separate
+    measurement that the capital is positional (issue #4, then #19)."""
     cache = {"χωρὶς": "Χωρὶς"}
     repaired, dropped = validate_cache(cache, bench, label="test")
     assert cache == {"χωρὶς": "Χωρὶς"}
