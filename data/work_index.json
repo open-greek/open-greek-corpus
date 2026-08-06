@@ -9,9 +9,9 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3884,
-   "with_external_anchor": 3332,
-   "no_external_anchor": 552,
+   "works": 3886,
+   "with_external_anchor": 3331,
+   "no_external_anchor": 555,
    "redirects": 4
   }
  },
@@ -68435,28 +68435,6 @@
     "n_tokens": 155
    }
   },
-  "ocr.walz_rhetores_v7pt2": {
-   "id": "ogc002596",
-   "slug": "ocr.walz_rhetores_v7pt2",
-   "former_slugs": [],
-   "title": "Rhetores Graeci vol. 7 pars 2 (Walz)",
-   "author": {
-    "id": "oga001163",
-    "slug": "rhetores-graeci-walz",
-    "name": "Rhetores Graeci (Walz)"
-   },
-   "work_anchors": {
-    "cts": "urn:cts:greekLit:ocr.walz_rhetores_v7pt2",
-    "tlg": "ocr.walz_rhetores_v7pt2"
-   },
-   "manifestation": {
-    "edition": "qwen36-walz_rhetores_v7pt2",
-    "source": "ocr",
-    "license": "PD",
-    "n_passages": 8804,
-    "n_tokens": 161520
-   }
-  },
   "ocr.walz_rhetores_v8": {
    "id": "ogc002597",
    "slug": "ocr.walz_rhetores_v8",
@@ -100844,6 +100822,63 @@
     "license": "PD",
     "n_passages": 844,
     "n_tokens": 54208
+   }
+  },
+  "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863": {
+   "id": "ogc003905",
+   "slug": "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001472",
+    "slug": "anonymi-in-hermogenis-de-ideis",
+    "name": "anonymi-in-hermogenis-de-ideis"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-walz_rhetores_v7pt2",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 3466,
+    "n_tokens": 57537
+   }
+  },
+  "anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697": {
+   "id": "ogc003906",
+   "slug": "anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001473",
+    "slug": "anonymi-in-hermogenis-de-inventione",
+    "name": "anonymi-in-hermogenis-de-inventione"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-walz_rhetores_v7pt2",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 2171,
+    "n_tokens": 42918
+   }
+  },
+  "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos": {
+   "id": "ogc003907",
+   "slug": "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
+   "former_slugs": [],
+   "title": "",
+   "author": {
+    "id": "oga001497",
+    "slug": "gregorius-corinthius",
+    "name": "gregorius-corinthius"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "qwen36-walz_rhetores_v7pt2",
+    "source": "ocr",
+    "license": "PD",
+    "n_passages": 3148,
+    "n_tokens": 60981
    }
   }
  },

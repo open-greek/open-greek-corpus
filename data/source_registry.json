@@ -3688,6 +3688,10 @@
    "name": "anon-gregorius",
    "aliases": {}
   },
+  "anon-gregorius-corinthius": {
+   "name": "anon-gregorius-corinthius",
+   "aliases": {}
+  },
   "anon-gregorius-nazianzenus": {
    "name": "anon-gregorius-nazianzenus",
    "aliases": {}
@@ -37406,6 +37410,17 @@
    "tags": [],
    "editions": {}
   },
+  "anon-anonymi-in-hermogenis-de-ideis.anonymi-in-hermogenis-de-ideis-scholia-walz-vii-863": {
+   "author": "anon-anonymi-in-hermogenis-de-ideis",
+   "title": "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
+   "aliases": {
+    "cts": "urn:cts:greekLit:anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
   "anon-anonymi-in-hermogenis-de-inventione.anonymi-in-hermogenis-de-inventione-eis-to-peri-eureseos-epistasis-anepigraphos": {
    "author": "anon-anonymi-in-hermogenis-de-inventione",
    "title": "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
@@ -37422,6 +37437,17 @@
    "title": "anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon",
    "aliases": {
     "cts": "urn:cts:greekLit:anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-anonymi-in-hermogenis-de-inventione.anonymi-in-hermogenis-de-inventione-scholia-walz-vii-697": {
+   "author": "anon-anonymi-in-hermogenis-de-inventione",
+   "title": "anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697",
+   "aliases": {
+    "cts": "urn:cts:greekLit:anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -51854,6 +51880,17 @@
    "title": "gorgon.fragmenta",
    "aliases": {
     "cts": "urn:cts:greekLit:gorgon.fragmenta"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-gregorius-corinthius.gregorius-corinthius-exegesis-in-peri-methodou-deinotetos": {
+   "author": "anon-gregorius-corinthius",
+   "title": "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
+   "aliases": {
+    "cts": "urn:cts:greekLit:gregorius-corinthius.exegesis-in-peri-methodou-deinotetos"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -237205,32 +237242,6 @@
    "editions": {
     "ocr.walz_rhetores_v7pt1.migne-ocr-qwen36": {
      "name": "cog OCR (migne-ocr-qwen36)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "ocr.walz_rhetores_v7pt2": {
-   "author": "rhetores-graeci-walz",
-   "title": "Rhetores Graeci vol. 7 pars 2 (Walz)",
-   "aliases": {
-    "cts": "urn:cts:greekLit:ocr.walz_rhetores_v7pt2"
-   },
-   "default_edition": "ocr.walz_rhetores_v7pt2.qwen36-walz_rhetores_v7pt2",
-   "best_source": "open_corpus",
-   "tags": [
-    "genre:rhetoric"
-   ],
-   "editions": {
-    "ocr.walz_rhetores_v7pt2.qwen36-walz_rhetores_v7pt2": {
-     "name": "cog OCR (qwen36-walz_rhetores_v7pt2)",
      "provider": "ocr",
      "scheme": "",
      "editor": "",

@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1388,
-   "ocr_works_ranked": 807,
+   "ocr_works": 1390,
+   "ocr_works_ranked": 809,
    "ocr_works_with_witness": 195,
    "secondary_files": 414,
    "skipped": 30,
@@ -182,11 +182,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.135,
+   "median": 0.1349,
    "min": 0.0089,
-   "n": 807,
-   "q1": 0.0959,
-   "q3": 0.1721
+   "n": 809,
+   "q1": 0.096,
+   "q3": 0.1716
   }
  },
  "works": {
@@ -850,6 +850,15 @@
    "unattested_rate": 0.130382,
    "witness": null
   },
+  "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863": {
+   "edition": "qwen36-walz_rhetores_v7pt2",
+   "n_tokens": 57803,
+   "n_tokens_checked": 33337,
+   "n_unattested": 4194,
+   "source": "ocr",
+   "unattested_rate": 0.125806,
+   "witness": null
+  },
   "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 4351,
@@ -866,6 +875,15 @@
    "n_unattested": 17,
    "source": "ocr",
    "unattested_rate": 0.057047,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697": {
+   "edition": "qwen36-walz_rhetores_v7pt2",
+   "n_tokens": 43287,
+   "n_tokens_checked": 25238,
+   "n_unattested": 2963,
+   "source": "ocr",
+   "unattested_rate": 0.117402,
    "witness": null
   },
   "anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis": {
@@ -5647,6 +5665,15 @@
     "secondary_edition": "qwen36-protagoras_diels_vs1"
    }
   },
+  "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos": {
+   "edition": "qwen36-walz_rhetores_v7pt2",
+   "n_tokens": 61182,
+   "n_tokens_checked": 35568,
+   "n_unattested": 4194,
+   "source": "ocr",
+   "unattested_rate": 0.117915,
+   "witness": null
+  },
   "gregorius-nazianzenus.ad-eos-qui-ipsum-acciverant-nec-occurrerant-orat-3": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 785,
@@ -10132,15 +10159,6 @@
    "unattested_rate": 0.289474,
    "witness": null
   },
-  "ocr.walz_rhetores_v7pt2": {
-   "edition": "qwen36-walz_rhetores_v7pt2",
-   "n_tokens": 162356,
-   "n_tokens_checked": 94178,
-   "n_unattested": 11359,
-   "source": "ocr",
-   "unattested_rate": 0.120612,
-   "witness": null
-  },
   "ocr.walz_rhetores_v8": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 59,
@@ -14322,6 +14340,7 @@
   "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana",
   "eusebius-scr-eccl.fragmenta-in-lucam",
   "joannes-chrysostomus.de-christi-divinitate-contra-anomoeos-homilia-12",
+  "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
   "gregorius-nyssenus.in-canticum-canticorum-homiliae-15",
   "cyrillus-theology.libri-v-contra-nestorium",
   "dionysius-soph.epistulae",
@@ -14348,7 +14367,6 @@
   "joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7",
   "xenophanes.fragmenta-silli-et-de-natura",
   "joannes-damascenus.de-sacris-jejuniis",
-  "ocr.walz_rhetores_v7pt2",
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
   "athanasius-theology.homilia-de-semente-sp",
   "gorgias-rhetoric.testimonia",
@@ -14360,9 +14378,11 @@
   "georgius-choeroboscus.peri-tropon-poietikon",
   "gregorius-nyssenus.in-ecclesiasten-homiliae-8",
   "gregorius-nyssenus.epistula-canonica-ad-letoium",
+  "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
   "basilius-theology.de-spiritu-sancto",
   "joannes-siceliota.exegesis-eis-tas-ideas-prolegomena",
   "joannes-stobaeus-anthologus.anthologium",
+  "anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697",
   "ocr.walz_rhetores_v2",
   "joannes-chrysostomus.pg048",
   "antiphon-soph.testimonia",

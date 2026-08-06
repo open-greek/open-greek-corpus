@@ -724,7 +724,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1368 OCR'd works/volumes: 172 manually corrected, 861 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1371 OCR'd works/volumes: 172 manually corrected, 864 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -790,8 +790,10 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes-walz-v-606 |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,301 | raw OCR |
 | anonymi-in-artem-rhetoricam.synopseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 699 | auto-corrected |
 | anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
+| anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863 |  | qwen36-walz_rhetores_v7pt2 | Qwen3.6-27B | 57,803 | auto-corrected |
 | anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,351 | auto-corrected |
 | anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 515 | auto-corrected |
+| anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697 |  | qwen36-walz_rhetores_v7pt2 | Qwen3.6-27B | 43,287 | auto-corrected |
 | anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 595 | raw OCR |
 | anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 600 | auto-corrected |
 | anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591 |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,592 | raw OCR |
@@ -1275,6 +1277,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | georgius-pachymeres.progymnasmata |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 11,036 | auto-corrected |
 | gorgias-rhetoric.fragmenta | Gorgias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 982 | auto-corrected |
 | gorgias-rhetoric.testimonia | Gorgias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,888 | auto-corrected |
+| gregorius-corinthius.exegesis-in-peri-methodou-deinotetos |  | qwen36-walz_rhetores_v7pt2 | Qwen3.6-27B | 61,182 | auto-corrected |
 | gregorius-nazianzenus.ad-eos-qui-ipsum-acciverant-nec-occurrerant-orat-3 | Gregorius Nazianzenus - Ad Eos Qui Ipsum Acciverant Nec Occurrerant (Orat. 3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 785 | auto-corrected |
 | gregorius-nazianzenus.ad-gregorium-nyssenum-orat-11 | Gregorius Nazianzenus - Ad Gregorium Nyssenum (Orat. 11) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,542 | raw OCR |
 | gregorius-nazianzenus.ad-julianum-tributorum-exaequatorem-orat-19 | Gregorius Nazianzenus - Ad Julianum Tributorum Exaequatorem (Orat. 19) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,992 | auto-corrected |
