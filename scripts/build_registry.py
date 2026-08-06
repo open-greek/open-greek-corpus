@@ -157,7 +157,8 @@ except ImportError:                                  # pragma: no cover
 # A Canon title is TLG beta-code GREEK (not Latin) when it carries the "*" capital
 # marker or an accent (/ \ =) glued to a letter - markup a Latin title never has.
 # (Bare breathings ) ( are ambiguous with a Latin parenthesis, so are not a signal.)
-_BETA_GREEK = re.compile(r"\*[A-Za-z()/\\=]|[A-Za-z][/\\=]|[/\\=][A-Za-z]")
+_BETA_GREEK = re.compile(r"\*[A-Za-z()/\\=]|[A-Za-z][/\\=]|[/\\=][A-Za-z]"
+                         r"|(?:^|\s)\*?(?:[AEHIOUWaehiouw]{1,2}|[Rr])[()]")
 
 
 # Within a title, a whitespace token is beta-code Greek iff it carries an accent /
@@ -167,13 +168,23 @@ _BETA_GREEK = re.compile(r"\*[A-Za-z()/\\=]|[A-Za-z][/\\=]|[/\\=][A-Za-z]")
 # with a trailing Latin note, and a Latin title with an embedded Greek gloss alike.
 _BETA_TOKEN = re.compile(r"[/\\=*]")
 
-# Known gap: a token whose only beta marker is a BREATHING, with no accent and no
-# `*`, reads as Latin and survives undecoded - `H(` for ἡ, `O(` for ὁ, `E)N` for
-# ἐν. One title still shows it ("... H(τέχνη λελάληκεν"). Accepting breathings
-# here does not work: a trailing `)` is ambiguous between a smooth breathing and
-# a closing paren, so the same rule that recovers 70 real tokens also turns the
-# list marker `B)`, the siglum `HILPQ)` and the page reference `607A)` into Greek.
-# Deciding it needs paren-depth across the whole title, not a token-local test.
+# A token whose only beta marker is a BREATHING - `H(` for ἡ, `O(` for ὁ, `E)N`
+# for ἐν - used to read as Latin and survive undecoded, because a trailing `)` is
+# ambiguous between a smooth breathing and a closing paren. Paren depth is not
+# what settles it, though, since the counterexamples carry no opening paren at
+# all. Greek orthography settles it: a breathing sits on the word-INITIAL vowel,
+# or on a rho, and nowhere else. So `H(` is a breathing on eta and `EU)` one on a
+# diphthong, while the list marker `B)` puts it on a beta, the siglum `HILPQ)`
+# five letters in, and the page reference `607A)` after digits - none of them a
+# place a breathing can be. Digits are refused outright.
+_BETA_BREATHING = re.compile(r"^\*?(?:[AEHIOUWaehiouw]{1,2}|[Rr])[()]")
+
+
+def _is_beta_token(tok: str) -> bool:
+    """True if this whitespace token is beta-code Greek rather than Latin."""
+    if _BETA_TOKEN.search(tok):
+        return True
+    return bool(_BETA_BREATHING.match(tok)) and not any(c.isdigit() for c in tok)
 
 
 def _decode_beta_range(tok: str) -> str:
@@ -210,7 +221,7 @@ def decode_betacode_title(raw: str) -> str | None:
         if "_" in tok:                       # beta-code range: `*A_*O`, `word_word`
             toks.append(_decode_beta_range(tok))
             changed = True
-        elif _BETA_TOKEN.search(tok):
+        elif _is_beta_token(tok):
             toks.append(_betacode_conv.beta_to_uni(tok))
             changed = True
         else:

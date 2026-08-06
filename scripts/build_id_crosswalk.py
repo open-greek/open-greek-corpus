@@ -73,6 +73,24 @@ def main():
     cw_path = REPO / "data" / "tlg_crosswalk.json"
     crosswalk = json.loads(cw_path.read_text(encoding="utf-8")) if cw_path.exists() else {}
 
+    # Seeding preserves, which is what makes a re-run idempotent, and it also
+    # means a title stored once is never displaced by a better one. That kept 10
+    # titles reading `Τίς H(τῶν ἀρχαίων ἄσβεστος` long after the registry had
+    # learned to decode the breathing (issue #13). So a stored title that still
+    # carries undecoded beta-code loses to the registry's, and only that kind:
+    # anything already clean is left exactly as it was.
+    _BETA_LEFT = re.compile(r"[A-Za-z]+[()](?=[\u0370-\u03ff\u1f00-\u1fff])")
+    refreshed = 0
+    for stem, entry in crosswalk.items():
+        if not _BETA_LEFT.search(entry.get("title") or ""):
+            continue
+        better = ((reg["works"].get(stem) or {}).get("title") or "")
+        if better and not _BETA_LEFT.search(better):
+            entry["title"] = better
+            refreshed += 1
+    if refreshed:
+        print(f"refreshed {refreshed} crosswalk titles that still held beta-code")
+
     # Curated lettered sub-editions (tlg0007.tlg082a etc.): First1K/Perseus split
     # these out of a parent canon work, and the canon has no entry for a lettered
     # id, so their slugs come from the curated seed instead of a canon title.
