@@ -1,28 +1,28 @@
 {
   "headline": {
-    "works": 10988,
-    "authors": 3279,
+    "works": 11035,
+    "authors": 3297,
     "editions": 10205,
-    "pct_works_with_canonical_locus": 37.0,
-    "pct_works_with_logical_served_locus": 12.7,
-    "pct_works_with_work_qid": 5.3,
-    "pct_works_with_author_qid": 54.8,
-    "pct_authors_with_wikidata": 42.8,
-    "served_works": 3822,
-    "pct_served_in_registry": 76.1,
-    "pct_served_with_work_qid": 13.2,
-    "pct_served_with_author_qid": 75.0,
-    "pct_served_with_any_anchor": 87.2,
-    "pct_served_with_logical_served_locus": 53.7
+    "pct_works_with_canonical_locus": 36.8,
+    "pct_works_with_logical_served_locus": 12.6,
+    "pct_works_with_work_qid": 5.2,
+    "pct_works_with_author_qid": 54.5,
+    "pct_authors_with_wikidata": 42.5,
+    "served_works": 3869,
+    "pct_served_in_registry": 75.2,
+    "pct_served_with_work_qid": 13.0,
+    "pct_served_with_author_qid": 74.2,
+    "pct_served_with_any_anchor": 86.1,
+    "pct_served_with_logical_served_locus": 54.3
   },
   "work_aliases": {
     "cts": {
-      "count": 10988,
+      "count": 11035,
       "pct": 100.0
     },
     "wikidata": {
       "count": 579,
-      "pct": 5.3
+      "pct": 5.2
     },
     "trismegistos": {
       "count": 0,
@@ -40,19 +40,19 @@
   "author_aliases": {
     "wikidata": {
       "count": 1402,
-      "pct": 42.8
+      "pct": 42.5
     },
     "viaf": {
       "count": 1355,
-      "pct": 41.3
+      "pct": 41.1
     },
     "gnd": {
       "count": 1332,
-      "pct": 40.6
+      "pct": 40.4
     },
     "isni": {
       "count": 757,
-      "pct": 23.1
+      "pct": 23.0
     },
     "trismegistos": {
       "count": 0,
@@ -87,7 +87,7 @@
   },
   "canonical_locus": {
     "works_with_logical_locus": 4061,
-    "pct": 37.0,
+    "pct": 36.8,
     "works_only_physical_or_none": 3167,
     "by_scheme": {
       "(none)": 1555,
@@ -352,7 +352,7 @@
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
     "works_with_logical_served_locus": 1393,
-    "pct": 12.7,
+    "pct": 12.6,
     "served_logical_depth_distribution": {
       "1": 314,
       "2": 693,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9022,
+      "count": 9069,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3822,
+    "served_works": 3869,
     "in_registry": 2909,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 913,
+      "count": 960,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -499,6 +499,7 @@
         "agias-argivus.fragmenta",
         "aglaosthenes.fragmenta",
         "alcetas.fragmenta",
+        "alexander-numenius.peri-ton-tes-dianoias-schematon",
         "alexander.fragmenta",
         "alexandrides-delphus.fragmenta",
         "alexis-samius.fragmenta",
@@ -513,34 +514,33 @@
         "andron-halicarnassensis.fragmenta",
         "andron-tejus.fragmenta",
         "androtio.fragmenta",
-        "anonymi.fragmenta",
-        "anonymus-author-of-vita-cononis.vita-sancti-cononis-bidanae",
-        "anonymus-corinthius.fragmenta",
-        "anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis",
-        "anonymus-milesius.fragmenta",
-        "anonymus-pseudo-john-chrysostom-pseudo-basil-of-caesarea.homilia-de-sancta-dominica",
-        "anonymus-pseudo-john-chrysostom.homilia-de-dominica-die",
-        "anonymus-pseudo-john-chrysostom.in-paralyticum",
-        "anonymus-pseudo-john-chrysostom.in-paralyticum-pta",
-        "anonymus-qui-dionis-cassii-historias-continuavit.fragmenta",
-        "anonymus.fragmenta",
-        "anonymus.fragmenta-fhg5",
-        "antander-syracusanus.fragmenta",
-        "antenor.fragmenta",
-        "anthemius.dupuy-1777",
-        "antigonus.fragmenta",
-        "antileo.fragmenta",
-        "antilochus.fragmenta",
-        "antiochianus.fragmenta"
+        "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
+        "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
+        "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes",
+        "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610",
+        "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615",
+        "anonymi-in-artem-rhetoricam.excerpta-de-arte-rhetorica",
+        "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
+        "anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen",
+        "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
+        "anonymi-in-artem-rhetoricam.peri-synekdoches",
+        "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
+        "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
+        "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
+        "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
+        "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
+        "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
+        "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri",
+        "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes"
       ]
     },
     "with_work_qid": 503,
-    "with_author_qid": 2865,
-    "with_any_external_anchor": 3334,
-    "with_logical_served_locus": 2054,
+    "with_author_qid": 2870,
+    "with_any_external_anchor": 3333,
+    "with_logical_served_locus": 2102,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2362,
+      "count": 2367,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1877,
+      "count": 1895,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
