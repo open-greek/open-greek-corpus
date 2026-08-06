@@ -46,6 +46,14 @@ Verification is hard-fail and runs before anything is written:
     plan names as its start;
   * target loci unique within each new work.
 
+A work whose slug this corpus already serves as primary from a better edition
+carries rank "secondary" (issue #14) and is written to data/corpus_secondary/
+with rank and secondary_reason on every row, never competing with the served
+primary. In v3 that is 88,507 of 151,404 tokens, because 58% of the volume is
+Hermogenes already served from Rabe. Filing them secondary visibly cuts the
+published primary figure, and it should: serving the same work twice as primary
+is a defect this project already tracks elsewhere.
+
 A reversible audit lands in data/corpus_changes/, carrying the full locus map
 old to new, so the carve can be undone and any correction record keyed to the
 old locus can still be placed.
@@ -67,6 +75,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 CORPUS = DATA / "corpus"
+SECONDARY = DATA / "corpus_secondary"
 CHANGES = DATA / "corpus_changes"
 PLAN = DATA / "walz_carve_plan.json"
 
@@ -196,11 +205,16 @@ def carve(vol: dict, apply: bool) -> int:
             locus_map[r["locus"]] = f"{w['slug']}:{new_locus}"
             nr = dict(r)
             nr["locus"], nr["urn"] = new_locus, w["slug"]
+            if w.get("rank") == "secondary":
+                nr["rank"] = "secondary"
+                nr["secondary_reason"] = w["secondary_reason"]
             new_rows.append(nr)
         written.append((w["slug"], new_rows))
         t = sum(tokens(r["text"]) for r in got)
         first, last = new_rows[0]["locus"], new_rows[-1]["locus"]
-        print(f"{w['n']:>4s} {first:>5s}-{last:<9s} {len(got):>6,} {t:>9,}  {w['slug']}")
+        mark = " [secondary]" if w.get("rank") == "secondary" else ""
+        print(f"{w['n']:>4s} {first:>5s}-{last:<9s} {len(got):>6,} {t:>9,}  "
+              f"{w['slug']}{mark}")
     print(f"{'':>4s} {'residual':>10s} {len(residual):>7,} {res_tokens:>9,}  "
           f"stays in {urn}")
 
@@ -225,8 +239,11 @@ def carve(vol: dict, apply: bool) -> int:
         return 0
 
     old_hash = hashlib.sha256(src.read_bytes()).hexdigest()
+    rank_of = {w["slug"]: w.get("rank", "primary") for w in vol["works"]}
     for slug, new_rows in written:
-        (CORPUS / f"{slug}.jsonl").write_text(
+        dest = SECONDARY if rank_of[slug] == "secondary" else CORPUS
+        dest.mkdir(parents=True, exist_ok=True)
+        (dest / f"{slug}.jsonl").write_text(
             "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in new_rows),
             encoding="utf-8")
     src.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in residual),
@@ -246,6 +263,7 @@ def carve(vol: dict, apply: bool) -> int:
         "tokens_before": src_tokens,
         "works": [{"n": w["n"], "slug": w["slug"], "title": w["title"],
                    "tlg": w["tlg"], "printed_pages": w["printed_pages"],
+                   "rank": w.get("rank", "primary"),
                    "rows": len(buckets[w["slug"]]),
                    "tokens": sum(tokens(r["text"]) for r in buckets[w["slug"]])}
                   for w in vol["works"]],
