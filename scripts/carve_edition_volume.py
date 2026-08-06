@@ -107,6 +107,19 @@ def offset_for(scan: int, zones: list[dict], default: int) -> int | None:
     return default
 
 
+def _doc_key(locus: str) -> tuple:
+    """(scan, row) as numbers where possible, for true reading order.
+
+    Falls back to the raw string for an ordinal that is not a plain integer, so
+    an unexpected locus shape sorts predictably instead of raising.
+    """
+    scan, _, row = locus.rsplit("_", 1)[1].partition(".")
+    try:
+        return (int(scan), 0, int(row))
+    except ValueError:
+        return (int(scan) if scan.isdigit() else 0, 1, row)
+
+
 def scan_of(locus: str) -> int:
     return int(locus.rsplit("_", 1)[1].split(".")[0])
 
@@ -119,6 +132,25 @@ def carve(vol: dict, apply: bool, plan_path: Path) -> int:
     urn = vol["urn"]
     src = CORPUS / f"{urn}.jsonl"
     rows = [json.loads(l) for l in src.read_text(encoding="utf-8").splitlines() if l.strip()]
+    # Document order, not file order. The partition below slices this list
+    # between consecutive starts, so it has to be the order the text is READ in.
+    # Five of the Walz files are written with their rows sorted lexicographically
+    # inside a page - 1, 10, 11, ... 19, 2, 20 - which puts .9 last. A work
+    # starting mid-page at .9 would then have taken that row alone and jumped to
+    # the next page, leaving most of its first page in the previous work, and
+    # nothing would have caught it: every row still lands in exactly one bucket,
+    # so the partition is exact and token conservation passes. The five volumes
+    # carved so far happened to be in numeric order, which is the only reason
+    # this never fired (issue #10).
+    scrambled = sorted({scan_of(r["locus"]) for a, b in zip(rows, rows[1:])
+                        if _doc_key(a["locus"]) > _doc_key(b["locus"])
+                        for r in (a,) if scan_of(a["locus"]) == scan_of(b["locus"])})
+    rows.sort(key=lambda r: _doc_key(r["locus"]))
+    if scrambled:
+        print(f"  read order: {len(scrambled)} page(s) were not in numeric row "
+              f"order in the file and have been sorted "
+              f"({', '.join(str(p) for p in scrambled[:6])}"
+              f"{', ...' if len(scrambled) > 6 else ''})")
     order = [r["locus"] for r in rows]
     index = {loc: i for i, loc in enumerate(order)}
     zones = vol.get("offset_zones", [])
