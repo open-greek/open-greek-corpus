@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11036,
-    "authors": 3298,
+    "works": 11043,
+    "authors": 3302,
     "editions": 10204,
     "pct_works_with_canonical_locus": 36.8,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.5,
     "pct_authors_with_wikidata": 42.5,
-    "served_works": 3870,
-    "pct_served_in_registry": 75.1,
+    "served_works": 3877,
+    "pct_served_in_registry": 75.0,
     "pct_served_with_work_qid": 13.0,
-    "pct_served_with_author_qid": 74.2,
-    "pct_served_with_any_anchor": 86.1,
-    "pct_served_with_logical_served_locus": 54.3
+    "pct_served_with_author_qid": 74.1,
+    "pct_served_with_any_anchor": 85.9,
+    "pct_served_with_logical_served_locus": 54.4
   },
   "work_aliases": {
     "cts": {
-      "count": 11036,
+      "count": 11043,
       "pct": 100.0
     },
     "wikidata": {
@@ -44,15 +44,15 @@
     },
     "viaf": {
       "count": 1355,
-      "pct": 41.1
+      "pct": 41.0
     },
     "gnd": {
       "count": 1332,
-      "pct": 40.4
+      "pct": 40.3
     },
     "isni": {
       "count": 757,
-      "pct": 23.0
+      "pct": 22.9
     },
     "trismegistos": {
       "count": 0,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9070,
+      "count": 9077,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,15 +476,16 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3870,
+    "served_works": 3877,
     "in_registry": 2908,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 962,
+      "count": 969,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
         "achaeus.fragmenta-fhg4",
+        "adrianus-rhetor.meletai",
         "aelius-harpocration.fragmenta",
         "aelius-herodianus-et-pseudo-herodianus.de-passionibus-excerpta-e-didymo",
         "aenesidemus.fragmenta",
@@ -515,6 +516,7 @@
         "andron-halicarnassensis.fragmenta",
         "andron-tejus.fragmenta",
         "androtio.fragmenta",
+        "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton",
         "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
         "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
         "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes",
@@ -529,18 +531,16 @@
         "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
         "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
         "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
-        "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
-        "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
-        "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri"
+        "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779"
       ]
     },
     "with_work_qid": 503,
-    "with_author_qid": 2870,
+    "with_author_qid": 2871,
     "with_any_external_anchor": 3332,
-    "with_logical_served_locus": 2103,
+    "with_logical_served_locus": 2110,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2367,
+      "count": 2368,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1896,
+      "count": 1900,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -936,6 +936,7 @@
         "anon-acusilaus",
         "anon-adamantius-judaeus",
         "anon-adrianus",
+        "anon-adrianus-rhetor",
         "anon-aelius-aristides",
         "anon-aelius-dionysius",
         "anon-aelius-dius",
@@ -953,8 +954,7 @@
         "anon-agaclytus",
         "anon-agathange",
         "anon-agatharchides-geography",
-        "anon-agatharchides-samius",
-        "anon-agathemerus"
+        "anon-agatharchides-samius"
       ]
     },
     "works_without_canonical_locus": {
