@@ -724,7 +724,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1359 OCR'd works/volumes: 177 manually corrected, 850 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 332 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1354 OCR'd works/volumes: 172 manually corrected, 850 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 332 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1718,11 +1718,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicostratus.fragmenta | Nicostratus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 969 | auto-corrected |
 | nonnosus.fragmenta | Nonnosus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 881 | raw OCR |
 | ocellus.de-universi-natura-sp | Ocellus - De Universi Natura Sp. | qwen36-hierocl_aureum_mullach_fpg1-ocr | Qwen3.6-27B | 5,422 | auto-corrected |
-| ocr.walz_rhetores_v1 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 1 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem01walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 132,270 | manual |
-| ocr.walz_rhetores_v4 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 4 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem04walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 218,805 | manual |
-| ocr.walz_rhetores_v5 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 5 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem05walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 150,308 | manual |
-| ocr.walz_rhetores_v7pt2 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 7 pars 2 (Walz) | [archive.org](https://archive.org/details/p2rhetoresgraeci07walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 163,531 | manual |
-| ocr.walz_rhetores_v9 | Rhetores Graeci (Walz) - Rhetores Graeci vol. 9 (Walz) | [archive.org](https://archive.org/details/rhetoresgraeciem09walzuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 130,262 | manual |
 | oecumenius.commentarius-in-acta-apostolorum | Pseudo-Oecumenius - Commentarius in Acta apostolorum (catena-derived commentary printed under Oecumenius' name, CPG C151 sphere) (PG118 loci 29-162) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 53,570 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis | Oecumenius - Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary] (PG118 loci 594-638) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,393 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis | Oecumenius - Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary] (PG118 loci 556-593) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 15,415 | manual |

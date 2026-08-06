@@ -19437,7 +19437,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 768,
-    "n_tokens": 9531188,
+    "n_tokens": 9499740,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -19456,20 +19456,20 @@
         "n_tokens": 238878
       },
       {
-        "key": "ocr.walz_rhetores_v4",
-        "edition": "qwen36-walz_rhetores_v4-masked",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 35014,
-        "n_tokens": 226107
-      },
-      {
         "key": "cogPG.PG067",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
         "n_passages": 799,
         "n_tokens": 220457
+      },
+      {
+        "key": "ocr.walz_rhetores_v4",
+        "edition": "qwen36-walz_rhetores_v4",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 6402,
+        "n_tokens": 218317
       },
       {
         "key": "photius.amphilochia",
@@ -19497,11 +19497,11 @@
       },
       {
         "key": "ocr.walz_rhetores_v7pt2",
-        "edition": "qwen36-walz_rhetores_v7pt2-masked",
+        "edition": "qwen36-walz_rhetores_v7pt2",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 25170,
-        "n_tokens": 163069
+        "n_passages": 9039,
+        "n_tokens": 162695
       },
       {
         "key": "cogPG.PG003",
@@ -19512,20 +19512,20 @@
         "n_tokens": 160098
       },
       {
-        "key": "ocr.walz_rhetores_v5",
-        "edition": "qwen36-walz_rhetores_v5-masked",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 24559,
-        "n_tokens": 157587
-      },
-      {
         "key": "secundus-mullach-fpg1",
         "edition": "qwen36-secundus_mullach_fpg1",
         "source": "ocr",
         "license": "PD",
         "n_passages": 7683,
         "n_tokens": 151676
+      },
+      {
+        "key": "ocr.walz_rhetores_v5",
+        "edition": "qwen36-walz_rhetores_v5",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 5145,
+        "n_tokens": 149956
       },
       {
         "key": "cogPG.PG112",
@@ -19553,19 +19553,19 @@
       },
       {
         "key": "ocr.walz_rhetores_v1",
-        "edition": "qwen36-walz_rhetores_v1-masked",
+        "edition": "qwen36-walz_rhetores_v1",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 25084,
-        "n_tokens": 142191
+        "n_passages": 4619,
+        "n_tokens": 131976
       },
       {
         "key": "ocr.walz_rhetores_v9",
-        "edition": "qwen36-walz_rhetores_v9-masked",
+        "edition": "qwen36-walz_rhetores_v9",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 25120,
-        "n_tokens": 135196
+        "n_passages": 10715,
+        "n_tokens": 129758
       },
       {
         "key": "ocr.mansi_ephesus_t4",
@@ -19707,7 +19707,7 @@
         "key": "cogByz.erotokritos",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 10388,
         "n_tokens": 83543
       },
@@ -20763,7 +20763,7 @@
         "key": "cogByz.paidiophrastos",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 1085,
         "n_tokens": 7961
       },
@@ -21355,7 +21355,7 @@
         "key": "cogByz.poulologos",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 653,
         "n_tokens": 4969
       },
@@ -21403,7 +21403,7 @@
         "key": "cogByz.apokopos_bergadi",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 581,
         "n_tokens": 4782
       },
@@ -21499,7 +21499,7 @@
         "key": "cogByz.gadarou_lykou_aloupous",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 543,
         "n_tokens": 4296
       },
@@ -21563,7 +21563,7 @@
         "key": "cogByz.apokopos",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 491,
         "n_tokens": 4039
       },
@@ -22363,7 +22363,7 @@
         "key": "cogByz.peri_gerontos",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 201,
         "n_tokens": 1627
       },
@@ -22555,7 +22555,7 @@
         "key": "cogByz.porikologos",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 37,
         "n_tokens": 1310
       },
@@ -22843,7 +22843,7 @@
         "key": "cogByz.digenes_akritas_escorial",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 137,
         "n_tokens": 801
       },
@@ -23267,7 +23267,7 @@
         "key": "cogByz.digenes_death",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 52,
         "n_tokens": 393
       },
@@ -23323,7 +23323,7 @@
         "key": "cogByz.ptochoprodromika",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
-        "license": "Public domain / CC BY-SA 3.0 (Wikisource)",
+        "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 49,
         "n_tokens": 371
       },

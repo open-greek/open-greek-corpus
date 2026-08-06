@@ -111,13 +111,24 @@ def build(write: bool = True) -> dict:
                 if _row.get("urn"):
                     ledgers.setdefault(_row["urn"], _row)
 
+    def _tidy(title: str) -> str:
+        """Collapse the whitespace a vendored title brings with it.
+
+        A CTS `ti:title` is pretty-printed XML, so two of them reach here with an
+        embedded newline and the indent of the next line still attached. It is
+        never part of the name, and it breaks any consumer that treats the index
+        as tabular: build_corpus_catalog.py has to strip it again on the way into
+        a TSV, where a raw newline would end the row.
+        """
+        return " ".join((title or "").split())
+
     def title_for(work_slug: str) -> str:
         w = reg_works.get(work_slug)
         if w and w.get("title"):
-            return w["title"]
+            return _tidy(w["title"])
         pa = pseudo_works.get(work_slug)
         if pa and pa.get("title"):
-            return pa["title"]
+            return _tidy(pa["title"])
         # The registry only covers works the TLG Canon lists, so everything
         # ingested from elsewhere - carved CGPG volumes, byzantium.gr, the OCR'd
         # PD editions - reached the served index with an empty title, 913 of
@@ -125,24 +136,24 @@ def build(write: bool = True) -> dict:
         # publish a blank.
         cw = tc.get(work_slug)
         if cw and cw.get("title"):
-            return cw["title"]
+            return _tidy(cw["title"])
         # Neither the registry nor the crosswalk covers a work with no TLG
         # anchor, which left 479 of them blank (issue #3). Two sources in this
         # repo do describe them, and neither invents anything.
         led = ledgers.get(work_slug)
         if led:
             if (led.get("title") or "").strip():
-                return led["title"].strip()
+                return _tidy(led["title"].strip())
             from_desc = _title_from_desc(led.get("desc") or "")
             if from_desc:
-                return from_desc
+                return _tidy(from_desc)
         # The FGrH/FHG authors are served as their collected fragments, and that
         # IS the work: `abas.fragmenta` is Abas' Fragmenta. Reading it off the
         # slug states what the slug already says rather than supplying a title
         # from outside.
         if re.search(r"\.fragmenta(-|$)", work_slug):
-            return "Fragmenta"
-        return ""
+            return _tidy("Fragmenta")
+        return _tidy("")
 
     works = {}
     redirects = {}
