@@ -116,6 +116,40 @@ _ACCENTS = {OXIA, VARIA, PERISPOMENI}
 _IGNORABLE = {"̣"}                  # U+0323 combining dot below
 
 
+PSILI, DASIA = "̓", "̔"              # U+0313, U+0314
+_LOWER_VOWELS = set("αεηιουω")
+NOT_A_WORD = "a single unbreathed vowel, so a numeral or a letter name"
+
+
+def unbreathed_vowel(form: str) -> bool:
+    """True if `form` is one lowercase vowel carrying no breathing.
+
+    Such a form cannot be a Greek word, and the argument needs no appeal to
+    frequency. A word that begins with a vowel takes a breathing, and a
+    one-letter word is all beginning; lowercase type always writes it. Nor can
+    the missing breathing be blamed on elision, the usual reason a stray letter
+    is a real word after all: elision drops the FINAL vowel and leaves a
+    consonant behind, so `δ’` is a word and a bare vowel never is.
+
+    What these actually are is Greek numerals, which are written as letters, and
+    the letter names cited in the grammarians. The lemmatizer read them as
+    words: `α` was 26,785 tokens of the relative ὅς, `ο` another 14,314, `η`
+    12,199, on 120,837 tokens over 101 forms (issue #18). That is the same
+    mistake as the article filed under ὅς - a breathing that decides the word
+    being treated as noise - and it is refused the same way.
+
+    Capitals are deliberately excluded even though most of them are numerals
+    too. Display capitals drop the breathing as a matter of typography, so
+    `Η` in a heading may well be ἤ, and 3,159 of the 42,140 capital cases sit in
+    all-caps rows where that is exactly what has happened. Lowercase admits no
+    such exception, so the rule stops where the evidence does.
+    """
+    d = unicodedata.normalize("NFD", form)
+    base = [c for c in d if not unicodedata.combining(c)]
+    return (len(base) == 1 and base[0] in _LOWER_VOWELS
+            and PSILI not in d and DASIA not in d)
+
+
 def unaccent(s: str) -> str:
     """Lowercase, accent stripped, breathing and iota subscript kept.
 
@@ -509,7 +543,18 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
         # form it returns the same wrong answer.
         if form in tombstones:
             dropped.append((form, cache.pop(form), tombstones[form]))
+    # Also above the early return, and for the same reason as the tombstones:
+    # this one is a fact about how Greek is spelled, not a reading of the
+    # corpus, so there is nothing for a missing frequency table to withhold.
+    for form in list(cache):
+        if unbreathed_vowel(form):
+            dropped.append((form, cache.pop(form), NOT_A_WORD))
+            tombstones[form] = NOT_A_WORD
     if not freq_path.exists():
+        # Written even here. The sweep above can mint a tombstone the run had
+        # not seen before, and this return is the path a fresh clone takes, so
+        # not saving would decide the same form again on every build.
+        save_rejected(tombstones)
         print(f"no {freq_path.name}; {label}: applied {len(dropped):,} "
               f"tombstones, skipped the frequency checks", file=sys.stderr)
         return (set(), set(tombstones))

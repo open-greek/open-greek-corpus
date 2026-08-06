@@ -524,3 +524,40 @@ def test_a_stem_below_the_threshold_is_excluded(tmp_path):
     fp = tmp_path / "rates.json"
     fp.write_text(json.dumps(rates, ensure_ascii=False), encoding="utf-8")
     assert vlm.load_elision_rates(fp) == {}
+
+
+def test_an_unbreathed_lowercase_vowel_is_not_a_word():
+    """Numerals and letter names, which the lemmatizer read as the relative:
+    α alone carried 26,785 tokens of ὅς (issue #18)."""
+    for form in ("α", "ε", "η", "ι", "ο", "υ", "ω", "ὰ", "ό", "ᾱ", "ῑ", "ῳ"):
+        assert vlm.unbreathed_vowel(form), form
+
+
+def test_a_breathing_makes_it_a_word_again():
+    """The rule turns on the breathing and nothing else, so every genuine
+    one-letter Greek word has to survive it."""
+    for form in ("ὁ", "ἡ", "ὅ", "ἥ", "ἤ", "ἢ", "ἦ", "ᾗ", "ᾧ", "ὦ", "ὢ", "ἃ",
+                 "ἅ", "ὃ", "ἄ", "ἣ"):
+        assert not vlm.unbreathed_vowel(form), form
+
+
+def test_the_rule_stops_at_lowercase_and_at_one_letter():
+    """Capitals drop the breathing as typography, so they are out of scope;
+    and a consonant is out because elision can explain it (δ’ is δέ)."""
+    for form in ("Α", "Η", "Ο", "Ω", "Ι"):
+        assert not vlm.unbreathed_vowel(form), form
+    for form in ("δ", "τ", "γ", "μ", "κ"):
+        assert not vlm.unbreathed_vowel(form), form
+    for form in ("αι", "ου", "ἀπ", "εν"):
+        assert not vlm.unbreathed_vowel(form), form
+
+
+def test_the_drop_survives_a_missing_frequency_table(tmp_path, monkeypatch):
+    """It is a fact about Greek spelling, not a reading of the corpus, so it
+    must hold on a fresh clone where the frequency table is not built yet, and
+    it must be written down so the next build does not re-derive it."""
+    monkeypatch.setattr(vlm, "REJECTED", tmp_path / "rejected.tsv")
+    cache = {"α": "ὅς", "ο": "ὅς", "καὶ": "καί"}
+    vlm.validate_cache(cache, freq_path=tmp_path / "absent.tsv")
+    assert cache == {"καὶ": "καί"}
+    assert set(vlm.load_rejected(tmp_path / "rejected.tsv")) == {"α", "ο"}
