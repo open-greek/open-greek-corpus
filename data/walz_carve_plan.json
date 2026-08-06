@@ -692,6 +692,71 @@
      "gap_note": "printed 801 has no rows: the scan OCR'd blank."
     }
    ]
+  },
+  {
+   "volume": "v2",
+   "urn": "ocr.walz_rhetores_v2",
+   "edition_title": "Rhetores Graeci, vol. II, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1835)",
+   "printed_to_scan_offset": 24,
+   "offset_note": "printed = scan - 24 across the arabic-paginated body, scan 0025 = printed 1 to scan 0708 = printed 684. The roman-numbered front matter runs at -4 and is not carved, so one offset covers everything this plan touches.",
+   "basis": "v2 has NO ARGUMENTUM. Boundaries come from the display titles in the body, each verified at the row. Walz's Latin praefatio DE SCHOLIASTIS APHTHONII enumerates the pieces he is printing, but its numbering I-V does not map onto the body's display titles, so it is used as corroboration only, never as the boundary source.",
+   "front_matter_before": "walz_rhetores_v2_0025.1",
+   "front_matter_note": "scans 0007-0024, printed III-XX: Walz's Latin praefatio, and inside it the Ἕτερα σχόλια excerpted from cod. Vat. 108, which he prints as excerpts interleaved with his own Latin cross-references rather than as a continuous work. Left in the volume file: it is excerpt text on roman-numbered pages, and the printed-page locus scheme has no way to express a roman folio.",
+   "trailing_residual_from": "walz_rhetores_v2_0708.4",
+   "trailing_residual_note": "printed 684.4 onward is the corrigenda list ('p. 281, 6. εἰς ἐμὴν, l. ἐμὲ ex Vat. 108'). The last work ends at 684.3, 'Τέλος τῶν εἰς τὴν ῥητορικὴν προγυμνασμάτων.'",
+   "works": [
+    {
+     "n": "1",
+     "slug": "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
+     "title": "Prolegomena kai scholia eis ta tou Aphthoniou progymnasmata (the Aldine anonymous)",
+     "author_display": "Anonymus (Walz conjectures Maximus Planudes)",
+     "tlg": null,
+     "printed_pages": "1-68",
+     "start": "walz_rhetores_v2_0025.1",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕΝΑ",
+     "evidence": "Display title ΠΡΟΛΕΓΟΜΕΝΑ / ΕΙΣ ΤΑ / ΤΟΥ ΑΦΘΟΝΙΟΥ at printed 1, the first arabic-paginated page. Running head ΑΝΩΝΥΜΟΥ / ΣΧΟΛΙΑ ΕΙΣ ΑΦΘΟΝΙΟΝ unbroken to 68.",
+     "author_note": "Walz deliberately prints no author name ('nullum auctoris nomen in fronte posui') and only conjectures Planudes in the praefatio, so the slug is anonymous.",
+     "internal_seam": "Walz states at printed IV that pages 1-8 belong in the manuscripts with the commentary he printed at 565-684, and that he kept them here only because Aldus had joined them. So this is one printed unit and two textual units, with the seam at 8/9 documented by the editor himself. Not split, because the volume prints it as one; recorded here so it can be."
+    },
+    {
+     "n": "2",
+     "slug": "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri",
+     "title": "Prolegomena eis ten rhetoriken",
+     "author_display": "Anonymus (the manuscript heading gives Doxopatres)",
+     "tlg": null,
+     "printed_pages": "69-80",
+     "start": "walz_rhetores_v2_0093.1",
+     "incipit_check": "ΕΙΣ ΤΗΝ ΡΗΤΟΡΙΚΗΝ",
+     "incipit_locus": "walz_rhetores_v2_0093.2",
+     "evidence": "Display title ΠΡΟΛΕΓΟΜΕΝΑ / ΕΙΣ ΤΗΝ ΡΗΤΟΡΙΚΗΝ / ΤΟΥ ΔΟΞΟΠΑΤΡΙ at printed 69, with Walz's note that he copied it from Cod. Vat. CVI and collated CIII. Ends at printed 80 with the Διαίρεσις τῆς ῥητορικῆς diagram.",
+     "tlg_note": "tlg0598.005 is a plausible match on title (Prolegomena in artem rhetoricam, olim sub auctore Joanne Doxopatre) but Rabe prints 3,980 words against roughly 2,700 here, so the identification is not established and no id is asserted."
+    },
+    {
+     "n": "3",
+     "slug": "joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata",
+     "title": "Rhetorikai homiliai eis ta tou Aphthoniou progymnasmata",
+     "author_display": "Joannes Doxopatres",
+     "tlg": null,
+     "printed_pages": "81-564",
+     "start": "walz_rhetores_v2_0105.1",
+     "incipit_check": "ΡΗΤΟΡΙΚΑΙ ΟΜΙΛΙΑΙ",
+     "incipit_locus": "walz_rhetores_v2_0105.2",
+     "evidence": "Display title ΤΟΥ ΔΟΞΑΠΑΤΡΗ / ΡΗΤΟΡΙΚΑΙ ΟΜΙΛΙΑΙ / ΕΙΣ ΤΑ ... at printed 81. Runs to 564, where the next display title stands.",
+     "subdivision_note": "Rabe prints the opening prolegomena section (printed 81-144) separately as Doxopatres' Prolegomena in Aphthonii progymnasmata, and printed 145 does begin ΠΕΡΙ ΜΥΘΟΥ, the first progymnasma. But 145 is a chapter heading inside a work the volume titles once, at 81, so it is not carved here. Splitting it later needs no re-keying, the loci being page-keyed."
+    },
+    {
+     "n": "4",
+     "slug": "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
+     "title": "Scholia eis ta tou Aphthoniou progymnasmata (Walz II 565)",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "565-684",
+     "start": "walz_rhetores_v2_0589.1",
+     "incipit_check": "ΣΧΟΛΙΑ",
+     "evidence": "Display title ΣΧΟΛΙΑ / ΕΙΣ ΤΑ / ΤΟΥ ΑΦΘΟΝΙΟΥ at printed 565. Ends at 684.3 with 'Τέλος τῶν εἰς τὴν ῥητορικὴν προγυμνασμάτων.'",
+     "evidence_note": "Walz's praefatio calls this the commentary 'ab eodem auctore, qui commentarium ad Hermogenem tomo VII. contentum composuit', and says pages 1-8 of item 1 belong with it."
+    }
+   ]
   }
  ]
 }
