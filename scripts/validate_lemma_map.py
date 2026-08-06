@@ -385,6 +385,29 @@ def load_elision_rates(path: Path | None = None) -> dict[str, str]:
 # Loaded once. A test that wants a different set monkeypatches this.
 ELIDED_FOLDS = load_elision_rates()
 
+CAPITAL_POSITIONS = DATA / "capital_positions.json"
+
+
+def load_capital_folds(path: Path | None = None) -> dict[str, str]:
+    """Capitalized lemma -> its lowercase twin, for the capitals the corpus
+    says are only positional. Empty when the measurement has not been run, the
+    same quiet degradation as the elision rates.
+
+    scripts/measure_capital_positions.py decides which those are, by the same
+    argument the grave accent gets: a capital at the head of a sentence is put
+    there by the position, so it says nothing about the word, while one in the
+    middle of a sentence has nothing but the word to explain it. Θεός is
+    mid-sentence 97.8% of the time and stays; Πῶς 9.1% and folds.
+    """
+    path = path or CAPITAL_POSITIONS
+    if not path.exists():
+        return {}
+    folds = json.loads(path.read_text(encoding="utf-8")).get("folds", {})
+    return {cap: r["folds_to"] for cap, r in folds.items()}
+
+
+CAPITAL_FOLDS = load_capital_folds()
+
 
 ARTICLE_LEMMA, RELATIVE_LEMMA = "ὁ", "ὅς"
 
@@ -576,6 +599,15 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
         if particle:
             repaired.append((form, lemma, particle))
             cache[form] = particle
+            continue
+        # Two spellings of one word, kept apart by a capital that only the
+        # position put there. Measured, not assumed: the folds file holds just
+        # the capitals the corpus shows are positional, so Λέων and Θεός are
+        # not in it and do not fold into the lion and the god.
+        folded = CAPITAL_FOLDS.get(lemma)
+        if folded and folded != lemma:
+            repaired.append((form, lemma, folded))
+            cache[form] = folded
             continue
         # After the particles, so the 19 closed-class words are not handled
         # twice, and before the rejections, because a repair beats a drop.
