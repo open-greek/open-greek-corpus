@@ -175,6 +175,56 @@ def tier_for(ratio: float, headword_gain: int | None) -> str:
     return "keep-better" if ratio >= 0.95 else "keep-better-likely"
 
 
+# A page set in two columns can be read as two blocks instead of one text, and
+# then every fragment becomes its own row with the words cut at the column edge.
+# Nothing above sees that: the Greek-character ratio is barely touched, since the
+# same characters are present, and the token count actually RISES because half a
+# word counts as a word. That is how five Walz volumes were swapped for a text
+# with 63% of its token mass in rows under 40 characters, on a verdict reading
+# `greek_ratio=0.9727 ... rows 6294->35014` (issue #20). The row explosion was in
+# the evidence line and nothing acted on it.
+SHORT_ROW = 40
+# Generous on purpose. A genuine re-OCR that resegments legitimately can move
+# this a little; going from a tenth to two thirds is not that.
+SHORT_MASS_RISE = 0.20
+# And required together with it, because short rows alone are not the defect: a
+# lexicon is short rows by nature. The Photius swap in this same run raised
+# short-row mass 30.3% -> 56.1% and is NOT shredded, its rows ending at word
+# boundaries; it multiplied rows only 1.65x. The five Walz volumes multiplied
+# 2.7x to 6.4x. What the pair describes is the same text cut into many more,
+# much shorter pieces, which is what reading a two-column page as blocks does.
+ROW_MULTIPLIER = 2.0
+
+
+def short_row_mass(rows: list[dict]) -> tuple[int, float]:
+    """(Greek chars, share of them in rows too short to be a line of text)."""
+    total = short = 0
+    for r in rows:
+        text = r.get("text", "")
+        n = greek_chars(text)
+        total += n
+        if len(text) < SHORT_ROW:
+            short += n
+    return total, (short / total if total else 0.0)
+
+
+def reading_order_regressed(old_rows: list[dict],
+                            new_rows: list[dict]) -> tuple[bool, str]:
+    """Whether the candidate has shredded the text, and the numbers either way.
+
+    Measured on Greek-character mass rather than row counts, because rows vary in
+    length and a count says nothing about how much text is in the short ones.
+    """
+    _, old_share = short_row_mass(old_rows)
+    _, new_share = short_row_mass(new_rows)
+    mult = len(new_rows) / len(old_rows) if old_rows else 1.0
+    note = (f"short-row mass {old_share:.1%} -> {new_share:.1%}, "
+            f"rows {len(old_rows)} -> {len(new_rows)} ({mult:.2f}x)")
+    regressed = (new_share - old_share > SHORT_MASS_RISE
+                 and mult > ROW_MULTIPLIER)
+    return regressed, note
+
+
 def build_swap_record(cog: Path, urn: str, cts: str, run_slug: str,
                       old_rows: int, old_gc: int, old_sha: str,
                       new_rows: int, new_gc: int, new_sha: str,
@@ -256,6 +306,20 @@ def main() -> int:
         new_bytes = dump_jsonl(new_rows)
         new_sha = sha256_bytes(new_bytes)
         new_rows_n, new_gc = jsonl_stats(new_rows)
+        # Checked here, at the point of mutation, and not left to the staging
+        # verdict. The Walz swaps took their tier straight from the run's own
+        # VALIDATION.json, so a run that had shredded the text was the only thing
+        # asked whether it had shredded the text.
+        old_rows_parsed = [json.loads(l) for l in old_bytes.decode("utf-8").splitlines()
+                           if l.strip()]
+        shredded, note = reading_order_regressed(old_rows_parsed, new_rows)
+        if shredded:
+            errors.append(f"{urn}: refusing the swap, reading order regressed: {note}. "
+                          f"A two-column page read as separate blocks looks like this. "
+                          f"Override only with evidence about the ORDER of the text, "
+                          f"not its character count.")
+            return
+        extra_meta = {**extra_meta, "reading_order": note}
         rec = build_swap_record(cog, urn, cts, run_slug, old_stat_rows, old_gc, old_sha,
                                 new_rows_n, new_gc, new_sha, edition, verdict, extra_meta)
         ratio = round(new_gc / old_gc, 4) if old_gc else 0.0
