@@ -1023,6 +1023,59 @@
      "author_note": "Slugged -walz-v-606 because anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes is already taken by a different anonymous set, which this shares 0.8% of its 4-grams with."
     }
    ]
+  },
+  {
+   "volume": "v7pt2",
+   "urn": "ocr.walz_rhetores_v7pt2",
+   "edition_title": "Rhetores Graeci, vol. VII part 2, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1834)",
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#10",
+   "printed_to_scan_offset": -690,
+   "offset_note": "printed = scan + 690, constant, confirmed at the head numerals on printed 852 and 1304 and by continuity with v7pt1, which ended printed 696 where scan 0007 here is printed 697.",
+   "basis": "No ARGUMENTUM. Boundaries come from the display titles at printed 697 and 1088 and, for the one between them, from the two-part running head changing block; the three blocks were checked not to interleave.",
+   "drop_scans": [
+    666
+   ],
+   "drop_scans_note": "Scan 0666 is wholly fabricated: the model looped and produced a ΠΕΡΙΕΧΟΜΕΝΑ for a different book, in Modern Greek, about historiography (issue #27). The looped rows were stripped in 504fb8b; these nineteen are the same hallucination's surviving heading and list items, which that pass kept because they are not repeats. Archived verbatim in the carve audit.",
+   "front_matter_before": "walz_rhetores_v7pt2_0007.1",
+   "front_matter_note": "none: the volume opens directly on printed 697, so nothing precedes the first work.",
+   "disposition_note": "All three are served as primary. The corpus holds several small anonymous pieces on the same Hermogenean treatises, but they are different texts: the closest score 0.6%, 0.1% and 0.0% of 4-grams against these, and run 514 to 8,336 tokens against 43,287, 57,803 and 61,266 here.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697",
+     "title": "Scholia in Hermogenis Peri heureseos",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "697-862",
+     "start": "walz_rhetores_v7pt2_0007.1",
+     "incipit_check": "ΠΕΡΙ ΕΥΡΕΣΕΩΣ",
+     "evidence": "Display title ΕΡΜΟΓΕΝΟΥΣ / ΤΕΧΝΗΣ ΡΗΤΟΡΙΚΗΣ ΠΕΡΙ ΕΥΡΕΣΕΩΣ / ΠΕΡΙ ΠΡΟΟΙΜΙΩΝ ΤΟΜΟΣ α at printed 697, the volume's first page, which continues v7pt1 exactly: that part ended printed 696. Running head ΑΝΩΝΥΜΟΥ ΣΧΟΛΙΑ / ΕΙΣ ΕΥΡΕΣΕΩΝ ΤΟΜ. α-δ over 699-859.",
+     "incipit_locus": "walz_rhetores_v7pt2_0007.2"
+    },
+    {
+     "n": "II",
+     "slug": "anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863",
+     "title": "Scholia in Hermogenis Peri ideon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "863-1087",
+     "start": "walz_rhetores_v7pt2_0173.1",
+     "incipit_check": "ΙΛΕΩΝ",
+     "evidence": "No display title survives here; the boundary is the two-part running head changing from ΑΝΩΝΥΜΟΥ ΣΧΟΛΙΑ / ΕΙΣ ΕΥΡΕΣΕΩΝ, whose last page is printed 859, to ΑΝΩΝΥΜΟΥ ΣΧΟΛΙΑ / ΕΙΣ ΙΔΕΩΝ ΤΟΜ. α, whose first is 863. The two blocks do not interleave: every ΕΥΡΕΣΕΩΝ head precedes every ΙΔΕΩΝ head. That is weaker than a title page and it is not ambiguous, unlike the Walz III case in #21 where a head and a title page positively disagree."
+    },
+    {
+     "n": "III",
+     "slug": "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
+     "title": "Exegesis in Hermogenis Peri methodou deinotetos",
+     "author_display": "Gregorius Corinthius",
+     "tlg": null,
+     "printed_pages": "1088-1352",
+     "start": "walz_rhetores_v7pt2_0398.1",
+     "incipit_check": "ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ",
+     "evidence": "Display title ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ / ΑΠΟ ΤΗΣ ΕΞΗΓΗΣΕΩΣ / ΤΗΣ ΕΙΣ ΤΟ ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ / ΤΟΥ ΜΗΤΡΟΠΟΛΙΤΟΥ at printed 1088, the metropolitan being Gregory of Corinth. Running head ΓΡΗΓΟΡΙΟΥ ΤΟΥ ΚΟΡΙΝΘ. from 1092 to 1352."
+    }
+   ]
   }
  ]
 }

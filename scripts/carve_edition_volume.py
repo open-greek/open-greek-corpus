@@ -319,10 +319,21 @@ def carve(vol: dict, apply: bool, plan_path: Path) -> int:
     for r in residual:
         r["urn"] = res_urn
     res_fp = CORPUS / f"{res_urn}.jsonl"
-    res_fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
-                              for r in residual), encoding="utf-8")
-    if res_fp != src:
+    if residual:
+        res_fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
+                                  for r in residual), encoding="utf-8")
+        if res_fp != src:
+            src.unlink()
+    else:
+        # Nothing left over, so the volume urn stops existing rather than
+        # becoming an empty served file. v7pt2 is the first volume carved end to
+        # end with no front matter and no index, and a zero-row work in
+        # data/corpus would be counted, catalogued and served as a work.
         src.unlink()
+        if res_fp != src and res_fp.exists():
+            res_fp.unlink()
+        print(f"  residual is empty; {src.name} removed rather than left as a "
+              f"zero-row work")
 
     audit = {
         "what": f"per-treatise carve of {urn}, driven by {plan_name}",
@@ -330,7 +341,13 @@ def carve(vol: dict, apply: bool, plan_path: Path) -> int:
         "issue": vol.get("issue", "open-greek/open-greek-corpus#10"),
         "source_urn": urn,
         "source_sha256_before": old_hash,
-        "source_sha256_after": hashlib.sha256(res_fp.read_bytes()).hexdigest(),
+        # None when the volume was carved end to end and its urn no longer
+        # exists. Computed from the file only if it is still there: reading it
+        # unconditionally raised AFTER every work had been written, which is the
+        # audit-after-mutation trap this script was already fixed for once.
+        "source_sha256_after": (hashlib.sha256(res_fp.read_bytes()).hexdigest()
+                                if res_fp.exists() else None),
+        "residual_removed": not residual,
         "residual_urn": res_urn,
         "offset_zones": zones or [{"scans": None, "offset": default_offset}],
         "dropped_scans": sorted(drop_scans),
