@@ -30,6 +30,7 @@ filename.
 from __future__ import annotations
 
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -47,6 +48,21 @@ def _clean(d: dict) -> dict:
     """Drop empty values so the anchors block only lists what is actually known
     (a work with no external id gets an empty {} - that is the point)."""
     return {k: v for k, v in d.items() if v}
+
+
+def _title_from_desc(desc: str) -> str:
+    """The title out of a ledger desc written "Author - Title (note)".
+
+    The note is where the ledger records which volume and loci the unit came
+    from ("(PG005 loci 331-373)"), which is provenance rather than title, so a
+    trailing parenthetical is dropped. Anything without the separator is left
+    alone: it is prose about the work, not its name.
+    """
+    if " - " not in desc:
+        return ""
+    tail = desc.split(" - ", 1)[1].strip()
+    tail = re.sub(r"\s*\((?:PG|CPG|loci|cols?\.|pp?\.)[^()]*\)\s*$", "", tail)
+    return tail.strip(" .")
 
 
 def build(write: bool = True) -> dict:
@@ -85,6 +101,16 @@ def build(write: bool = True) -> dict:
             }),
         })
 
+    # urn -> ledger row, for the OCR and CGPG works. These files are hand-kept
+    # provenance records, so their `desc` is written "Author - Title (note)".
+    ledgers: dict[str, dict] = {}
+    for _fn in ("ocr_works.json", "cgpg_works.json"):
+        _fp = DATA / _fn
+        if _fp.exists():
+            for _row in json.loads(_fp.read_text(encoding="utf-8")):
+                if _row.get("urn"):
+                    ledgers.setdefault(_row["urn"], _row)
+
     def title_for(work_slug: str) -> str:
         w = reg_works.get(work_slug)
         if w and w.get("title"):
@@ -100,6 +126,22 @@ def build(write: bool = True) -> dict:
         cw = tc.get(work_slug)
         if cw and cw.get("title"):
             return cw["title"]
+        # Neither the registry nor the crosswalk covers a work with no TLG
+        # anchor, which left 479 of them blank (issue #3). Two sources in this
+        # repo do describe them, and neither invents anything.
+        led = ledgers.get(work_slug)
+        if led:
+            if (led.get("title") or "").strip():
+                return led["title"].strip()
+            from_desc = _title_from_desc(led.get("desc") or "")
+            if from_desc:
+                return from_desc
+        # The FGrH/FHG authors are served as their collected fragments, and that
+        # IS the work: `abas.fragmenta` is Abas' Fragmenta. Reading it off the
+        # slug states what the slug already says rather than supplying a title
+        # from outside.
+        if re.search(r"\.fragmenta(-|$)", work_slug):
+            return "Fragmenta"
         return ""
 
     works = {}

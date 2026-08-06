@@ -1132,7 +1132,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | diogenes-apolloniates.testimonia | Diogenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,568 | auto-corrected |
 | diogenes-oenoandensis.diogenes-oenoanda-william |  | qwen36-diogenes_oenoanda_william | Qwen3.6-27B | 10,112 | auto-corrected |
 | diogenes-philosophy.fragmenta | Diogenes - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 208 | raw OCR |
-| diogenes-sinopensis.fragmenta-et-apophthegmata |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 11,181 | auto-corrected |
+| diogenes-sinopensis.fragmenta-et-apophthegmata | Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 11,181 | auto-corrected |
 | diogenes-smyrnaeus.testimonium | Diogenes - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 24 | raw OCR |
 | diogenes.fragmentum | Fragmentum | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 243 | auto-corrected |
 | dionysius-chalcus.fragmenta | DIONYSIUS CHALCUS - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 436 | raw OCR |
@@ -1185,7 +1185,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | eudoxus.fragmenta | EUDOXUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 79 | raw OCR |
 | eudromus.fragmenta | Eudromus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 67 | raw OCR |
 | euenus.fragmenta | EUENUS - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 534 | raw OCR |
-| euhemerus.fragmenta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,136 | auto-corrected |
+| euhemerus.fragmenta | Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,136 | auto-corrected |
 | eumelus.fragmentum | Eumelus - Fragmentum | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 1,142 | auto-corrected |
 | eunicus.fragmentum | Eunicus - Fragmentum | kock-caf1-ocr-frag | Qwen3.6-27B | 117 | raw OCR |
 | euphorion.fragmenta | Euphorion - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,688 | auto-corrected |
@@ -1704,7 +1704,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | neophron.fragmenta | Neophron - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 336 | auto-corrected |
 | neoptolemus.fragmenta | NEOPTOLEMUS - Fragmenta | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 144 | raw OCR |
 | nessas.testimonia | Nessas - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 142 | auto-corrected |
-| nestorianus.fragmenta |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 216 | raw OCR |
+| nestorianus.fragmenta | Fragmenta | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 216 | raw OCR |
 | nicephorus-blemmydes.aper-xrh-zei-h-parou-sa-kataskeuh-fort-auctore | Nicephorus Blemmydes - Ἅπερ χρῄζει ἡ παροῦσα κατασκευή (Fort. Auctore | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 321 | raw OCR |
 | nicephorus-blemmydes.nikhfo-rou-tou-blemmu-dou-peri-th-s-xrusopoii-as-fort | Nicephorus Blemmydes - Νικηφόρου τοῦ Βλεμμύδου περὶ τῆς χρυσοποιίας (Fort | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,582 | auto-corrected |
 | nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14 | Nicephorus Callistus Xanthopulus - Historia ecclesiastica, libri VIII-XIV (PG 146; books 1-7 and 15-18 are in PG 145/147, not served) (PG146 loci 12-644) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 239,129 | manual |
