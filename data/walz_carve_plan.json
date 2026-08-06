@@ -757,6 +757,170 @@
      "evidence_note": "Walz's praefatio calls this the commentary 'ab eodem auctore, qui commentarium ad Hermogenem tomo VII. contentum composuit', and says pages 1-8 of item 1 belong with it."
     }
    ]
+  },
+  {
+   "volume": "v1",
+   "urn": "ocr.walz_rhetores_v1",
+   "edition_title": "Rhetores Graeci, vol. I, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1832)",
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#10",
+   "printed_to_scan_offset": 22,
+   "offset_note": "printed = scan - 22 throughout, agreeing at eleven of the twelve ARGUMENTUM entries exactly on their display title. The two that do not, the Theon scholia and Nicolaus, are each one page late in the contents rather than a change of offset, and both are settled at the row by the title page.",
+   "basis": "The ARGUMENTUM at scan 0019 lists nine numbered items and two sub-items, each with its printed page. Every boundary was then verified at the row against the display title, and the running heads checked between them.",
+   "front_matter_before": "walz_rhetores_v1_0029.1",
+   "front_matter_note": "scans 0010-0028, printed by roman numeral: Walz's Latin praefatio and the ARGUMENTUM itself, 457 tokens. Left in the volume file, like v2's, because the printed-page locus scheme cannot express a roman folio.",
+   "disposition_note": "Five are already served and become secondary witnesses under #14. The 4-gram corroboration that backed the Spengel dispositions is NOT available here: overlaps run 0-26% where Spengel scored 46-55%, so these rest on work identity alone and the per-work notes say so.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "hermogenes.progymnasmata-dub",
+     "title": "Progymnasmata",
+     "author_display": "Hermogenes",
+     "tlg": null,
+     "printed_pages": "7-54",
+     "start": "walz_rhetores_v1_0029.1",
+     "incipit_check": "Ἑρμογένο",
+     "evidence": "ARGUMENTUM entry I (scan 0019), printed 7. Display title '... τῶν Ἑρμογένους προγυ[μνασμάτων]' at printed 7.",
+     "rank": "secondary",
+     "secondary_reason": "served as hermogenes.progymnasmata-dub from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served"
+    },
+    {
+     "n": "II",
+     "slug": "aphthonius.progymnasmata",
+     "title": "Progymnasmata",
+     "author_display": "Aphthonius",
+     "tlg": null,
+     "printed_pages": "55-120",
+     "start": "walz_rhetores_v1_0077.1",
+     "incipit_check": "ΑΦΘΟΝΙΟ",
+     "evidence": "ARGUMENTUM entry II (scan 0019), printed 55. Display title 'Α Φ Θ Ο Ν Ι Ο[Υ] / Π Ρ Ο Γ Υ Μ Ν Α Σ[ΜΑΤΑ]' (letter-spaced) at printed 55.",
+     "rank": "secondary",
+     "secondary_reason": "served as aphthonius.progymnasmata from our OCR of another edition; this Walz witness is kept, not served"
+    },
+    {
+     "n": "II.1",
+     "slug": "matthaeus-camariota.rhetorikes-epitome",
+     "title": "Epitome eis ta tes rhetorikes progymnasmata",
+     "author_display": "Matthaeus Camariotes",
+     "tlg": null,
+     "printed_pages": "121-126",
+     "start": "walz_rhetores_v1_0143.1",
+     "incipit_check": "ΜΑΤΘΑΙΟΥ ΤΟΥ ΚΑΜΑΡΙΩΤΟΥ",
+     "evidence": "ARGUMENTUM entry sub-item 1 (scan 0019), printed 121. Display title 'ΜΑΤΘΑΙΟΥ ΤΟΥ ΚΑΜΑΡΙΩΤΟΥ / ΕΠΙΤΟΜΗ ΕΙΣ ΤΑ ΤΗΣ ΡΗΤΟΡΙΚΗΣ' at printed 121.",
+     "incipit_locus": "walz_rhetores_v1_0143.3",
+     "rank": "secondary",
+     "secondary_reason": "served as matthaeus-camariota.rhetorikes-epitome from our OCR of another edition; this Walz witness is kept, not served"
+    },
+    {
+     "n": "II.2",
+     "slug": "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton",
+     "title": "Peri ton tou Aphthoniou progymnasmaton",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "127-136",
+     "start": "walz_rhetores_v1_0149.1",
+     "incipit_check": "ΤΟΥ ΑΦΘΟΝΙΟΥ",
+     "evidence": "ARGUMENTUM sub-item 2 names it but its printed page is LOST: row 0019.6 is absent from the served file. The boundary comes instead from the display title ΠΕΡΙ ΤΩΝ / ΤΟΥ ΑΦΘΟΝΙΟΥ / ΠΡΟΓΥΜΝΑΣΜΑΤΩΝ at printed 127, which also fixes Matthaeus' end at 126.",
+     "incipit_locus": "walz_rhetores_v1_0149.2"
+    },
+    {
+     "n": "III",
+     "slug": "aelius-theon.progymnasmata",
+     "title": "Progymnasmata",
+     "author_display": "Aelius Theon",
+     "tlg": null,
+     "printed_pages": "137-257",
+     "start": "walz_rhetores_v1_0159.1",
+     "incipit_check": "ΘΕΩΝΟΣ",
+     "evidence": "ARGUMENTUM entry III (scan 0019), printed 137. Display title 'ΘΕΩΝΟΣ / ΠΡΟΓΥΜΝΑΣ[ΜΑΤΑ]' at printed 137.",
+     "rank": "secondary",
+     "secondary_reason": "served as aelius-theon.progymnasmata from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served"
+    },
+    {
+     "n": "III.1",
+     "slug": "scholia-in-theonem.scholia-in-progymnasmata",
+     "title": "Scholia in Theonis progymnasmata",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "258-262",
+     "start": "walz_rhetores_v1_0280.1",
+     "incipit_check": "ΣΧΟΛΙΑ ΕΙΣ",
+     "evidence": "ARGUMENTUM 'Σχόλια εἰς τὰ αὐτά' gives 257, but printed 257 is still Theon's own running text and the display title ΣΧΟΛΙΑ ΕΙΣ stands at 258, with the head ΣΧΟΛΙΑ ΕΙΣ / ΘΕΩΝΟΣ ΠΡΟΓΥΜΝΑΣΜΑΤΑ alternating over 258-261. The title wins, same shape as the v6 Plethon correction."
+    },
+    {
+     "n": "IV",
+     "slug": "nicolaus-history.nicolaus-progymnasmata-felten",
+     "title": "Progymnasmata",
+     "author_display": "Nicolaus Sophista",
+     "tlg": null,
+     "printed_pages": "263-420",
+     "start": "walz_rhetores_v1_0285.1",
+     "incipit_check": "ΣΟΦΙΣ",
+     "evidence": "ARGUMENTUM IV gives 262, which is still under the ΣΧΟΛΙΑ ΕΙΣ ΘΕΩΝΟΣ head; the title page is 263, OCR'd as the fragments ΣΟΦΙΣ / ΑΑΟΥ / ΣΤΟΥ / ΝΑΣΜΑΤΑ for ΝΙΚΟΛΑΟΥ ΣΟΦΙΣΤΟΥ ΠΡΟΓΥΜΝΑΣΜΑΤΑ. Running head ΝΙΚΟΛΑΟΥ confirmed at 296, 310 and 420.",
+     "rank": "secondary",
+     "secondary_reason": "served as nicolaus-history.nicolaus-progymnasmata-felten from our OCR of the Felten edition; this Walz witness is kept, not served",
+     "author_note": "Filed secondary on work identity, not on text agreement: this witness shares only 13.6% of its vocabulary with the served Felten text and 0% of its 4-grams, which is far below what two renderings of one text score elsewhere in this corpus (46-55% in the Spengel carve). Either the served Felten file is damaged or the two are different recensions; recorded here rather than resolved."
+    },
+    {
+     "n": "V",
+     "slug": "nicephorus-basilaces.progymnasmata",
+     "title": "Progymnasmata",
+     "author_display": "Nicephorus Basilakes",
+     "tlg": null,
+     "printed_pages": "421-525",
+     "start": "walz_rhetores_v1_0443.1",
+     "incipit_check": "ΤΟΥ ΒΑΣΙΛΑΚ",
+     "evidence": "ARGUMENTUM entry V (scan 0019), printed 421. Display title 'ΝΙΚΗΦΟΡ[ΟΥ] / ΤΟΥ ΒΑΣΙΛΑΚ[Η] / ΠΡΟΓΥΜΝΑΣ[ΜΑΤΑ]' at printed 421.",
+     "incipit_locus": "walz_rhetores_v1_0443.2"
+    },
+    {
+     "n": "VI",
+     "slug": "adrianus-rhetor.meletai",
+     "title": "Meletai",
+     "author_display": "Adrianus Rhetor",
+     "tlg": null,
+     "printed_pages": "526-533",
+     "start": "walz_rhetores_v1_0548.1",
+     "incipit_check": "ΑΔΡΙΑΝΟΥ",
+     "evidence": "ARGUMENTUM entry VI (scan 0019), printed 526. Display title 'ΑΔΡΙΑΝΟΥ / ΤΟΥ ΡΗΤΟΡΟΣ / ΜΕΛΕΤΑΙ ΤΙΝΕΣ' at printed 526.",
+     "author_note": "The corpus serves adrianus.declamatio from First1K at 260 tokens against this 1,501, sharing 9.5% of its 4-grams. Related but not established as the same work, so this takes its own slug rather than being filed as a witness to it."
+    },
+    {
+     "n": "VII",
+     "slug": "severus-rhetor.diegemata-kai-ethopoiiai",
+     "title": "Diegemata kai ethopoiiai",
+     "author_display": "Severus",
+     "tlg": null,
+     "printed_pages": "534-548",
+     "start": "walz_rhetores_v1_0556.1",
+     "incipit_check": "ΔΙΗΓΗΜΑΤΑ",
+     "evidence": "ARGUMENTUM entry VII (scan 0019), printed 534. Display title 'ΣΕΥΗΡ[ΟΥ] / ΔΙΗΓΗΜΑΤΑ ΚΑΙ [ΗΘΟΠΟΙΙΑΙ]' at printed 534.",
+     "incipit_locus": "walz_rhetores_v1_0556.2"
+    },
+    {
+     "n": "VIII",
+     "slug": "georgius-pachymeres.progymnasmata",
+     "title": "Progymnasmata",
+     "author_display": "Georgius Pachymeres",
+     "tlg": null,
+     "printed_pages": "549-596",
+     "start": "walz_rhetores_v1_0571.1",
+     "incipit_check": "ΠΑΧΥΜΕΡΟΥ",
+     "evidence": "ARGUMENTUM entry VIII (scan 0019), printed 549. Display title 'ΓΕΩΡΓΙΟΥ ΤΟΥ ΠΑΧΥΜΕΡΟΥ[Σ] ΠΡΟΓΥΜΝΑΣΜΑΤΑ' at printed 549.",
+     "author_note": "Not the Pachymeres this corpus already serves: that is his Historia, a different work, which shares 0.1% of its 4-grams with this."
+    },
+    {
+     "n": "IX",
+     "slug": "anonymi-in-artem-rhetoricam.progymnasmata-walz-i-597",
+     "title": "Progymnasmata",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "597-648",
+     "start": "walz_rhetores_v1_0619.1",
+     "incipit_check": "ΑΝΩΝΥΜΟΥ",
+     "evidence": "ARGUMENTUM entry IX (scan 0019), printed 597. Display title 'IX ΑΝΩΝΥΜΟΥ / ΠΡΟΓΥΜΝΑΣΜΑΤΑ', the printed roman numeral matching the contents item at printed 597."
+    }
+   ]
   }
  ]
 }
