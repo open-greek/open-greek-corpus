@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1374,
-   "ocr_works_ranked": 801,
-   "ocr_works_with_witness": 193,
-   "secondary_files": 410,
+   "ocr_works": 1381,
+   "ocr_works_ranked": 805,
+   "ocr_works_with_witness": 195,
+   "secondary_files": 414,
    "skipped": 30,
-   "tei_primary_ocr_secondary_pairs": 187
+   "tei_primary_ocr_secondary_pairs": 189
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -162,31 +162,31 @@
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9128,
-    "median": 0.7786,
+    "median": 0.7755,
     "min": 0.1072,
-    "n": 79,
-    "q1": 0.6912,
-    "q3": 0.8308
+    "n": 81,
+    "q1": 0.6789,
+    "q3": 0.8279
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9128,
-    "median": 0.7058,
+    "median": 0.7053,
     "min": 0.0192,
-    "n": 187,
-    "q1": 0.5583,
-    "q3": 0.7976
+    "n": 189,
+    "q1": 0.5546,
+    "q3": 0.7958
    },
-   "n_pairs": 187,
-   "n_pairs_summarized": 79,
+   "n_pairs": 189,
+   "n_pairs_summarized": 81,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.135,
+   "median": 0.1351,
    "min": 0.0089,
-   "n": 801,
+   "n": 805,
    "q1": 0.096,
-   "q3": 0.1728
+   "q3": 0.1726
   }
  },
  "works": {
@@ -222,6 +222,15 @@
     "n_bigrams_secondary": 424,
     "secondary_edition": "qwen36-protagoras_diels_vs1"
    }
+  },
+  "adrianus-rhetor.meletai": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 1501,
+   "n_tokens_checked": 909,
+   "n_unattested": 103,
+   "source": "ocr",
+   "unattested_rate": 0.113311,
+   "witness": null
   },
   "aelius-dionysius.attika-o-no-mata": {
    "edition": "qwen36-aelius_dionysius_schwabe-ocr",
@@ -604,6 +613,15 @@
     "secondary_edition": "qwen36-theopompus_hist_fhg1"
    }
   },
+  "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 2113,
+   "n_tokens_checked": 1291,
+   "n_unattested": 100,
+   "source": "ocr",
+   "unattested_rate": 0.077459,
+   "witness": null
+  },
   "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 15225,
@@ -776,6 +794,15 @@
    "n_unattested": 132,
    "source": "ocr",
    "unattested_rate": 0.096,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.progymnasmata-walz-i-597": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 12390,
+   "n_tokens_checked": 7802,
+   "n_unattested": 1035,
+   "source": "ocr",
+   "unattested_rate": 0.132658,
    "witness": null
   },
   "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri": {
@@ -1004,7 +1031,13 @@
    "n_unattested": 1468,
    "source": "ocr",
    "unattested_rate": 0.16487,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.519243,
+    "agreement_secondary_in_primary": 0.598091,
+    "n_bigrams_primary": 12420,
+    "n_bigrams_secondary": 9323,
+    "secondary_edition": "qwen36-walz_rhetores_v1 + qwen36-walz_rhetores_v1-masked"
+   }
   },
   "apollodorus-cyzicenus.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
@@ -5563,6 +5596,15 @@
    "unattested_rate": 0.178121,
    "witness": null
   },
+  "georgius-pachymeres.progymnasmata": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 11036,
+   "n_tokens_checked": 6832,
+   "n_unattested": 969,
+   "source": "ocr",
+   "unattested_rate": 0.141833,
+   "witness": null
+  },
   "gorgias-rhetoric.fragmenta": {
    "edition": "qwen36-archytas_mullach_fpg2",
    "n_tokens": 982,
@@ -9119,7 +9161,13 @@
    "n_unattested": 507,
    "source": "ocr",
    "unattested_rate": 0.08602,
-   "witness": null
+   "witness": {
+    "agreement_primary_in_secondary": 0.067651,
+    "agreement_secondary_in_primary": 0.224,
+    "n_bigrams_primary": 9416,
+    "n_bigrams_secondary": 1125,
+    "secondary_edition": "qwen36-walz_rhetores_v1"
+   }
   },
   "maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo": {
    "edition": "qwen36-archytas_mullach_fpg2",
@@ -9721,6 +9769,15 @@
    "unattested_rate": 0.10687,
    "witness": null
   },
+  "nicephorus-basilaces.progymnasmata": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 25181,
+   "n_tokens_checked": 15172,
+   "n_unattested": 2380,
+   "source": "ocr",
+   "unattested_rate": 0.156868,
+   "witness": null
+  },
   "nicephorus-blemmydes.aper-xrh-zei-h-parou-sa-kataskeuh-fort-auctore": {
    "edition": "qwen36-berthelot_alchimistes_grec",
    "n_tokens": 321,
@@ -9789,11 +9846,11 @@
    "source": "ocr",
    "unattested_rate": 0.078902,
    "witness": {
-    "agreement_primary_in_secondary": 0.624197,
-    "agreement_secondary_in_primary": 0.7199,
+    "agreement_primary_in_secondary": 0.647196,
+    "agreement_secondary_in_primary": 0.274902,
     "n_bigrams_primary": 16349,
-    "n_bigrams_secondary": 12035,
-    "secondary_edition": "migne-ocr-qwen36"
+    "n_bigrams_secondary": 47326,
+    "secondary_edition": "migne-ocr-qwen36 + qwen36-walz_rhetores_v1 + qwen36-walz_rhetores_v1-masked"
    }
   },
   "nicolaus.fragmenta": {
@@ -9960,11 +10017,11 @@
   },
   "ocr.walz_rhetores_v1": {
    "edition": "qwen36-walz_rhetores_v1",
-   "n_tokens": 132270,
-   "n_tokens_checked": 81327,
-   "n_unattested": 10375,
+   "n_tokens": 457,
+   "n_tokens_checked": 271,
+   "n_unattested": 59,
    "source": "ocr",
-   "unattested_rate": 0.127571,
+   "unattested_rate": 0.217712,
    "witness": null
   },
   "ocr.walz_rhetores_v2": {
@@ -11773,6 +11830,15 @@
    "unattested_rate": 0.219519,
    "witness": null
   },
+  "scholia-in-theonem.scholia-in-progymnasmata": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 1138,
+   "n_tokens_checked": 685,
+   "n_unattested": 49,
+   "source": "ocr",
+   "unattested_rate": 0.071533,
+   "witness": null
+  },
   "scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera": {
    "edition": "qwen36-expeditiocyri02xenogoog",
    "n_tokens": 4214,
@@ -11849,6 +11915,15 @@
    "n_unattested": 990,
    "source": "ocr",
    "unattested_rate": 0.071367,
+   "witness": null
+  },
+  "severus-rhetor.diegemata-kai-ethopoiiai": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 2265,
+   "n_tokens_checked": 1456,
+   "n_unattested": 199,
+   "source": "ocr",
+   "unattested_rate": 0.136676,
    "witness": null
   },
   "simias.fragmenta": {
@@ -13987,6 +14062,7 @@
   "basilius-theology.sermones-de-moribus-symeone-metaphrasta-collecti",
   "diogenes-sinopensis.fragmenta-et-apophthegmata",
   "joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp",
+  "nicephorus-basilaces.progymnasmata",
   "clearchus-philosophy.fragmenta",
   "joannes-chrysostomus.in-annuntiationem-beatae-virginis-sp",
   "cyrillus-theology.epistulae-paschales-sive-homiliae-paschales-epist-1-30",
@@ -14075,6 +14151,7 @@
   "basilius-theology.homilia-in-principium-proverbiorum",
   "maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo",
   "joannes-chrysostomus.ad-stagirium-daemone-vexatum-lib-1-3",
+  "georgius-pachymeres.progymnasmata",
   "theodoretus.interpretatio-in-jeremiam",
   "joannes-chrysostomus.in-epistulam-ad-romanos-homiliae-1-32",
   "gregorius-nyssenus.contra-fatum",
@@ -14105,6 +14182,7 @@
   "gregorius-nazianzenus.apologetica-orat-2",
   "gregorius-nyssenus.de-infantibus-praemature-abreptis",
   "joannes-chrysostomus.in-sanctum-eustathium-antiochenum",
+  "severus-rhetor.diegemata-kai-ethopoiiai",
   "joannes-chrysostomus.in-genesim-sermones-1-9",
   "joannes-chrysostomus.epistulae-18-242",
   "theodoretus.interpretatio-in-psalmos",
@@ -14138,6 +14216,7 @@
   "athanasius-theology.homilia-in-sanctum-pascha-et-in-recens-illuminatos-sp",
   "joannes-chrysostomus.in-epistulam-ad-titum-homiliae-1-6",
   "gregorius-nazianzenus.ad-julianum-tributorum-exaequatorem-orat-19",
+  "anonymi-in-artem-rhetoricam.progymnasmata-walz-i-597",
   "joannes-chrysostomus.in-epistulam-ad-ephesios-homiliae-1-24",
   "joannes-chrysostomus.in-principium-actorum-homiliae-1-4",
   "cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum",
@@ -14170,7 +14249,6 @@
   "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
   "theodoretus.commentaria-in-isaiam",
   "joannes-chrysostomus.de-precatione-orat-1-2-sp",
-  "ocr.walz_rhetores_v1",
   "joannes-chrysostomus.de-lazaro-homiliae-1-7",
   "joannes-chrysostomus.in-dictum-pauli-nolo-vos-ignorare",
   "joannes-chrysostomus.de-resurrectione-mortuorum",
@@ -14391,6 +14469,7 @@
   "theophylactus-achridensis.de-iis-quorum-latini-incusantur",
   "theophanes-continuatus.chronographia-lib-1-6",
   "joannes-zonaras.epitome-historiarum-lib-13-18",
+  "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton",
   "proclus.in-platonis-timaeum-commentaria",
   "theophylactus-achridensis.expositio-in-epistolam-ii-petri",
   "damianus-scriptor-de-opticis.optica",
