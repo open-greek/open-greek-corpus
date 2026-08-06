@@ -1,0 +1,856 @@
+{
+ "what": "reverted the 2026-07-12 masked-column re-OCR swap on ocr.walz_rhetores_v9, restoring the text from 02641c2^",
+ "date": "2026-08-06",
+ "issue": "open-greek/open-greek-corpus#20",
+ "why": "the masked run read a two-column page as separate blocks and emitted each fragment as a row, cutting words at the column edge; 59.8% of the served token mass sat in rows under 40 characters against 14.6% before it",
+ "overturns": {
+  "record": "data/corpus_changes/ocr.walz_rhetores_v9.reocr-swap.json",
+  "its_evidence": "keep-better: Greek 101% of served | greek_ratio=1.0179 (masked/served); masked_greek_chars=660677 vs served_greek_chars=649069; rows 9164->25120.",
+  "why_that_was_wrong": "the gate measured retained Greek characters and row count but never reading order, and its own line records losing Greek and a 5.6x row explosion while still passing"
+ },
+ "source_blob": {
+  "rev": "02641c2^",
+  "path": "data/corpus/ocr.walz_rhetores_v9.jsonl",
+  "sha256": "c2b2a73a81727c7eb116fb3d72300a6e426db61cfec687fcd989e182f8fa98a1",
+  "matched_swap_record_old_sha256": true
+ },
+ "sha256_before": "4870728ab55fd5d117d104ed87ef28bb3b185072bf5d073d0d6ff549376c75b9",
+ "sha256_after": "e53b6f45d86f43cc9af5c406a973af747f53322a53f619228db4a83ddd2527a1",
+ "rows_before": 25120,
+ "rows_after": 10715,
+ "tokens_before": 135644,
+ "tokens_after": 130262,
+ "worst_page_token_coverage": 0.0433,
+ "dropped_masked_only_rows": [
+  {
+   "locus": "walz_rhetores_v9_0001.1",
+   "text": "ἄνθρωπος, ὁ, ἄνθρωπος, ἄνθρωπος, ἄνθρωπος, ἄνθρωπος,"
+  },
+  {
+   "locus": "walz_rhetores_v9_0006.1",
+   "text": "ἸΛΙΟΝ"
+  },
+  {
+   "locus": "walz_rhetores_v9_0006.2",
+   "text": "ἸΛΙΟΝ"
+  },
+  {
+   "locus": "walz_rhetores_v9_0006.3",
+   "text": "ἸΛΙΟΝ"
+  },
+  {
+   "locus": "walz_rhetores_v9_0008.1",
+   "text": "oi ἀρχαῖοι ῥήτορες memo"
+  },
+  {
+   "locus": "walz_rhetores_v9_0008.2",
+   "text": "oi νῦν ῥήτορες §. 287. 3"
+  },
+  {
+   "locus": "walz_rhetores_v9_0008.3",
+   "text": "204. ἡ νέα χωρωδία memo-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0008.4",
+   "text": "m memorantur πορφύραι πλα-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0008.5",
+   "text": "§. 237. ὁ Γαδαρεὺς nomina-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0014.1",
+   "text": "ρὰ τῆς λέξεως ἐπὶ τῷ"
+  },
+  {
+   "locus": "walz_rhetores_v9_0014.2",
+   "text": "ἢ τε γὰρ ἐπαναφο-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0014.3",
+   "text": "ρὸ αὐτό:"
+  },
+  {
+   "locus": "walz_rhetores_v9_0017.1",
+   "text": "περὶ ἁ"
+  },
+  {
+   "locus": "walz_rhetores_v9_0021.1",
+   "text": "περὶ λόγου βασιλικοῦ, περὶ λαλιᾶς ὁ Ἀλέξανδρος"
+  },
+  {
+   "locus": "walz_rhetores_v9_0021.2",
+   "text": "g φησιν. Quis"
+  },
+  {
+   "locus": "walz_rhetores_v9_0026.1",
+   "text": "„Μέθoδος πῶς ἂν ἐργάσαι"
+  },
+  {
+   "locus": "walz_rhetores_v9_0026.2",
+   "text": "τοῦ ἐπιτάφιον λόγον. Er-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0030.1",
+   "text": "περὶ ὕψους"
+  },
+  {
+   "locus": "walz_rhetores_v9_0636.1",
+   "text": "ρος ἡμῖν ὁ λόγος γί"
+  },
+  {
+   "locus": "walz_rhetores_v9_0636.2",
+   "text": "ραχογράφους non paucos, ἄχων ἄχον-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0636.3",
+   "text": "ἵνα μὴ ἀμάχτυ-"
+  },
+  {
+   "locus": "walz_rhetores_v9_0666.1",
+   "text": "Ἐρατοσθένους φόνου ἀπολογία"
+  },
+  {
+   "locus": "walz_rhetores_v9_0822.1",
+   "text": "ἄνθρωπος, ὁ, ἄνθρωπος, ἄνθρωπος, ἄνθρωπος, ἄνθρωπος,"
+  }
+ ],
+ "dropped_masked_only_note": "pages the original run skipped and the masked run filled with degenerate repetition; archived here verbatim so the drop is reversible",
+ "corrections_reapplied": [
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0051.2",
+   "original": "ἐγὼν",
+   "corrected": "ἐγώ",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0051.3"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0171.1",
+   "original": "Μυθικοὶ",
+   "corrected": "μυθικοί",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> μυθικοί (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0171.2"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0201.1",
+   "original": "Ἐνέταξα",
+   "corrected": "ἐνέταξα",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἐνέταξα (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0201.2"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0270.1",
+   "original": "αἰσίοις",
+   "corrected": "αἰσίαις",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0270.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0309.2",
+   "original": "ἐλαΐαι",
+   "corrected": "ἐλαῖαι",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἐλαῖαι (freq 51); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0309.3"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0318.2",
+   "original": "ὠδίναι",
+   "corrected": "ὠδῖναι",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ὠδῖναι (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0318.2"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0341.1",
+   "original": "ὑποδοχὰς",
+   "corrected": "ὑποδοχάς",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0341.2"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0430.5",
+   "original": "Γλυκύτης",
+   "corrected": "γλυκύτης",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> γλυκύτης (freq 101); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0430.16"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0511.1",
+   "original": "διοικοῦ",
+   "corrected": "διοικοῦν",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0511.2"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0535.2",
+   "original": "μνεῖν",
+   "corrected": "μνειν",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> μνειν (freq 2); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0535.3"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0548.1",
+   "original": "ἡδίκησας",
+   "corrected": "ἠδίκησας",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἠδίκησας (freq 13); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0548.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0563.1",
+   "original": "ἄλλος",
+   "corrected": "ἄλλως",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0563.2"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0582.1",
+   "original": "ἐπαναμνήσομεν",
+   "corrected": "Ἐπαναμνήσομεν",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Ἐπαναμνήσομεν (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0582.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0592.1",
+   "original": "πανόμενα",
+   "corrected": "παυόμενα",
+   "by": "confusion",
+   "confidence": 0.65,
+   "status": "accepted",
+   "evidence": "OCR confusion [ν->υ] -> παυόμενα (dilemma lookup lemma παύω, clean-attest 10); original unresolved + absent from clean TEI (census: ocr 3, tei_all 0, 3 works) [2026-07-10] | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-07-10",
+   "reapplied_at": "walz_rhetores_v9_0592.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0592.1",
+   "original": "αἴθησιν",
+   "corrected": "αἴσθησιν",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0592.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0657.1",
+   "original": "Ἀρχαῖοι",
+   "corrected": "ἀρχαῖοι",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> ἀρχαῖοι (freq 240); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0657.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0658.1",
+   "original": "μνεῖν",
+   "corrected": "μνειν",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> μνειν (freq 2); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0658.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0658.3",
+   "original": "δρισμοῦ",
+   "corrected": "ὁρισμοῦ",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0658.3"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0672.1",
+   "original": "Ἐπαρχον",
+   "corrected": "ἔπαρχον",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> ἔπαρχον (freq 107); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0672.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0702.42",
+   "original": "ἀντιλαβὰς",
+   "corrected": "ἀντιλαβάς",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0702.43"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0710.9",
+   "original": "γνωματεύω",
+   "corrected": "Γνωματεύω",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Γνωματεύω (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0710.9"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0716.12",
+   "original": "ἐνδοιάζω",
+   "corrected": "Ἐνδοιάζω",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Ἐνδοιάζω (freq 2); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0716.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0716.26",
+   "original": "ἐνέα",
+   "corrected": "ἐνεὰ",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἐνεὰ (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0716.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0720.10",
+   "original": "ἔρημόπλανος",
+   "corrected": "ἐρημόπλανος",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἐρημόπλανος (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0720.10"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0725.19",
+   "original": "κατακυλίω",
+   "corrected": "κατακυλιῶ",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> κατακυλιῶ (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0725.21"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0758.1",
+   "original": "ἰσοκράτην",
+   "corrected": "Ἰσοκράτην",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Ἰσοκράτην (freq 33); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0758.1"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0803.4",
+   "original": "ἐνδοξα",
+   "corrected": "ἔνδοξα",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> ἔνδοξα (freq 151); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0803.4"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0810.2",
+   "original": "ἐπαναμνήσομεν",
+   "corrected": "Ἐπαναμνήσομεν",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Ἐπαναμνήσομεν (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "reapplied_at": "walz_rhetores_v9_0810.2"
+  }
+ ],
+ "corrections_retired": [
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0051.2",
+   "original": "πλανῶντι",
+   "corrected": "πλανῶν",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0060.2",
+   "original": "μαχρὰ",
+   "corrected": "μακρὰ",
+   "by": "confusion",
+   "confidence": 0.9,
+   "status": "accepted",
+   "evidence": "OCR confusion [χ->κ] -> μακρὰ (dilemma lookup lemma μακρός, clean-attest 1170); original unresolved + absent from clean TEI (census: ocr 39, tei_all 0, 29 works) [2026-07-10]",
+   "date": "2026-07-10",
+   "retired_because": "several rows on the page hold the original, so the row is ambiguous once the locus no longer places it"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0178.1",
+   "original": "Διατριβὴν",
+   "corrected": "διατριβὴν",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> διατριβὴν (freq 282); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0180.1",
+   "original": "ἐξηγηματικοὶ",
+   "corrected": "ἐξηγηματικοί",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἐξηγηματικοί (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0226.1",
+   "original": "δὸς",
+   "corrected": "Διὸς",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0250.2",
+   "original": "πλαταιαῖς",
+   "corrected": "Πλαταιαῖς",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Πλαταιαῖς (freq 73); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0250.2",
+   "original": "νιλύσιος",
+   "corrected": "ἐνιαύσιος",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0277.1",
+   "original": "ἡνιώμην",
+   "corrected": "ἠνιώμην",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἠνιώμην (freq 13); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0293.1",
+   "original": "τις",
+   "corrected": "τῆς",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "several rows on the page hold the original, so the row is ambiguous once the locus no longer places it"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0306.1",
+   "original": "ἑρεῖς",
+   "corrected": "ἐρεῖς",
+   "by": "freq",
+   "confidence": 0.95,
+   "status": "auto",
+   "evidence": "diacritic fix -> ἐρεῖς (freq 803); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0324.1",
+   "original": "ἀκροθίγως",
+   "corrected": "ἀκροθιγῶς",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> ἀκροθιγῶς (freq 7); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0341.1",
+   "original": "προειρηται",
+   "corrected": "προείρηται",
+   "by": "freq",
+   "confidence": 0.95,
+   "status": "auto",
+   "evidence": "diacritic fix -> προείρηται (freq 911); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0397.1",
+   "original": "Βαρύτητος",
+   "corrected": "βαρύτητος",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> βαρύτητος (freq 127); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0405.1",
+   "original": "Περιβολῆς",
+   "corrected": "περιβολῆς",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> περιβολῆς (freq 103); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "several rows on the page hold the original, so the row is ambiguous once the locus no longer places it"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0422.1",
+   "original": "Σφοδρότητα",
+   "corrected": "σφοδρότητα",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> σφοδρότητα (freq 159); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0477.5",
+   "original": "Γλυκύτητα",
+   "corrected": "γλυκύτητα",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> γλυκύτητα (freq 143); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0495.2",
+   "original": "καὶε",
+   "corrected": "καὶ",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0495.3",
+   "original": "Ἐξαρκεῖ",
+   "corrected": "ἐξαρκεῖ",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> ἐξαρκεῖ (freq 235); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0535.2",
+   "original": "ὤφειλέν",
+   "corrected": "ὤφειλεν",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> ὤφειλεν (freq 273); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0544.1",
+   "original": "μὴν",
+   "corrected": "μὲν",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0658.1",
+   "original": "ὁπάνει",
+   "corrected": "σπάνει",
+   "by": "freq",
+   "confidence": 0.7,
+   "status": "accepted",
+   "evidence": "letter fix -> σπάνει (freq 128); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0672.1",
+   "original": "βαπτίσμα",
+   "corrected": "βάπτισμα",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> βάπτισμα (freq 371); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0700.20",
+   "original": "ἀμφιςβητοῦντα",
+   "corrected": "ἀμφισβητοῦντα",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0700.21",
+   "original": "ἀμφιςβητισμὸς",
+   "corrected": "ἀμφισβητισμὸς",
+   "by": "prosodia",
+   "confidence": 0.98,
+   "status": "accepted",
+   "evidence": "prosodia sigma: sigma position normalization (deterministic) [2026-07-02]",
+   "date": "2026-07-02",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0700.22",
+   "original": "ἀμφορὰ",
+   "corrected": "Ἀμφορὰ",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> Ἀμφορὰ (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0700.24",
+   "original": "αἰμωδεῖν",
+   "corrected": "αἱμωδεῖν",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> αἱμωδεῖν (freq 1); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0714.7",
+   "original": "εἰδωλοποιΐα",
+   "corrected": "εἰδωλοποιία",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> εἰδωλοποιία (freq 2); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0745.23",
+   "original": "ςυνέστηκεν",
+   "corrected": "συνέστηκεν",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> συνέστηκεν (freq 399); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0745.37",
+   "original": "ςτρογγύλον",
+   "corrected": "στρογγύλον",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> στρογγύλον (freq 227); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0746.9",
+   "original": "σύζην",
+   "corrected": "συζῆν",
+   "by": "freq",
+   "confidence": 0.9,
+   "status": "auto",
+   "evidence": "diacritic fix -> συζῆν (freq 157); original unattested in clean cog sources",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0752.16",
+   "original": "ἀποσροφῆς",
+   "corrected": "ἀποστροφῆς",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0772.34",
+   "original": "διφθόγγος",
+   "corrected": "δίφθογγος",
+   "by": "freq",
+   "confidence": 0.5,
+   "status": "accepted",
+   "evidence": "diacritic fix -> δίφθογγος (freq 10); original unattested in clean cog sources | adjudication 2026-07-31: accept (judge)",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  },
+  {
+   "urn": "ocr.walz_rhetores_v9",
+   "locus": "walz_rhetores_v9_0773.12",
+   "original": "ὑφεξαιρέσει",
+   "corrected": "ὑπεξαιρέσει",
+   "by": "llm",
+   "confidence": 0.92,
+   "status": "auto",
+   "evidence": "Qwen/Qwen3.6-27B OCR fix; edit-validated, attested",
+   "date": "2026-06-28",
+   "retired_because": "neither string appears on that page, so it corrected text only the masked run produced"
+  }
+ ],
+ "reverse": "the pre-revert text is the blob at 02641c2, and sha256_before pins it"
+}
