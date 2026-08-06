@@ -180,9 +180,69 @@ _BETA_TOKEN = re.compile(r"[/\\=*]")
 _BETA_BREATHING = re.compile(r"^\*?(?:[AEHIOUWaehiouw]{1,2}|[Rr])[()]")
 
 
+# The other unmarked case: a preposition or conjunction elided before a vowel
+# writes only an apostrophe, no accent and no breathing, so `KAT\'` and `DI\'`
+# read as Latin the same way `H(` did. Here the apostrophe is genuinely
+# ambiguous - Italian edition titles in this registry carry `dall\'`, `dell\'`
+# and `un\'` - and no orthographic rule separates them, because both languages
+# elide. What does separate them is that Greek elision of this kind is a CLOSED
+# class: these are all of the words it can be. Anything else keeps its apostrophe.
+# Bare `D\'` is deliberately absent even though δ\' is the commonest elision in
+# Greek: elision drops the FINAL vowel, so δέ writes `D\'` and never `DE\'`, and
+# `D\'` alone is indistinguishable from the French article in an edition title.
+_BETA_ELIDED = {"KAT", "KAQ", "DI", "MET", "MEQ", "PAR", "EP", "EF", "AP", "AF",
+                "UP", "UF", "ANT", "ANQ", "OUD", "MHD", "ALL", "TAUT"}
+
+
+# A capital carries its breathing and accent BEFORE the letter and behind the
+# `*` marker: `*(/ELLHSI` is Ἕλλησι. Where the Canon writes the diacritics
+# without the marker the converter has nowhere to put them and leaves them
+# standing, so `(/ELLHSI` comes out `(/ελλησι`. Restoring the marker is safe
+# because two diacritics in a row can only be that: a single leading `(` before
+# a LETTER is an ordinary parenthesis, as in `(A)NA/BLHSIS)`, and is left alone.
+_BETA_CAPITAL_DIACRITICS = re.compile(r"^[()][/\\=]")
+
+
+def _restore_capital_marker(tok: str) -> str:
+    # Only where there is still beta-code to convert. A token whose letters are
+    # already Unicode Greek has nothing for the converter to do, and the marker
+    # would just hide the diacritics from _apply_stranded_diacritics below.
+    if not _BETA_CAPITAL_DIACRITICS.match(tok) or not re.search(r"[A-Za-z]", tok):
+        return tok
+    return "*" + tok
+
+
+# The same diacritics also turn up in front of a letter that is ALREADY Unicode
+# Greek, because the vendored title was decoded upstream by something that could
+# not place them: `(/Ελλησι` for Ἕλλησι, `(/Ωρῳ` for Ὥρῳ. There is no beta-code
+# left to convert there, so they are applied as combining marks to the letter
+# they belong to. Only a leading run before a Greek capital counts; anything
+# before a Latin letter is still beta-code and goes the ordinary way.
+_BETA_MARKS = {"(": "\u0314", ")": "\u0313", "/": "\u0301",
+               "\\": "\u0300", "=": "\u0342", "|": "\u0345"}
+_STRANDED = re.compile(r"^([()/\\=|]+)([\u0370-\u03ff\u1f00-\u1fff])")
+
+
+def _apply_stranded_diacritics(text: str) -> str:
+    """Attach beta-code diacritics left standing before an already-Greek letter."""
+    def fix(m: re.Match) -> str:
+        marks = "".join(_BETA_MARKS[c] for c in m.group(1) if c in _BETA_MARKS)
+        return unicodedata.normalize("NFC", m.group(2) + marks)
+    # Two marks minimum. A single leading `(` before Greek is an ordinary
+    # opening parenthesis - `De Figuris (περὶ σχημάτων)` - and eating it would
+    # put a rough breathing on the pi. Two in a row cannot be punctuation.
+    # `*` may lead the run, since it is how beta-code marks a capital and the
+    # letter here already is one; it carries no diacritic of its own, so the
+    # composer skips it.
+    return re.sub(r"(?:(?<=\s)|^)(\*?[()/\\=|]{2,})([\u0370-\u03ff\u1f00-\u1fff])",
+                  fix, text)
+
+
 def _is_beta_token(tok: str) -> bool:
     """True if this whitespace token is beta-code Greek rather than Latin."""
     if _BETA_TOKEN.search(tok):
+        return True
+    if tok.endswith("'") and tok[:-1].upper() in _BETA_ELIDED:
         return True
     return bool(_BETA_BREATHING.match(tok)) and not any(c.isdigit() for c in tok)
 
@@ -222,7 +282,7 @@ def decode_betacode_title(raw: str) -> str | None:
             toks.append(_decode_beta_range(tok))
             changed = True
         elif _is_beta_token(tok):
-            toks.append(_betacode_conv.beta_to_uni(tok))
+            toks.append(_betacode_conv.beta_to_uni(_restore_capital_marker(tok)))
             changed = True
         else:
             toks.append(_titlecase(tok))     # Latin word/note: Title-Case like clean_name
@@ -230,6 +290,7 @@ def decode_betacode_title(raw: str) -> str | None:
         return None
     out = re.sub(r"\s+", " ", " ".join(toks)).strip()
     out = re.sub(r"\(\s+", "(", out).replace(" )", ")")   # tidy "( x )" spacing
+    out = _apply_stranded_diacritics(out)
     return out or None
 
 

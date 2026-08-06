@@ -22,6 +22,7 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO))
 from source_identity import normalize_slug  # noqa: E402
+from build_registry import _BETA_GREEK, decode_betacode_title  # noqa: E402
 
 CANON = Path(os.path.expanduser("~/Documents/tlge-tools/data/tlg_canon.json"))
 
@@ -79,12 +80,23 @@ def main():
     # learned to decode the breathing (issue #13). So a stored title that still
     # carries undecoded beta-code loses to the registry's, and only that kind:
     # anything already clean is left exactly as it was.
-    _BETA_LEFT = re.compile(r"[A-Za-z]+[()](?=[\u0370-\u03ff\u1f00-\u1fff])")
+    _BETA_LEFT = re.compile(
+        r"[A-Za-z]+[()](?=[\u0370-\u03ff\u1f00-\u1fff])"      # H(τέχνη
+        r"|\*?[()/\\=|]{2,}[\u0370-\u03ff\u1f00-\u1fff]"     # (/Ελλησι
+        r"|\b(?:Kat|Kaq|Di|Met|Meq|Par|Ep|Ef|Ap|Af|Up|Uf|Ant|Anq|All|Taut)'")
     refreshed = 0
     for stem, entry in crosswalk.items():
-        if not _BETA_LEFT.search(entry.get("title") or ""):
+        stored = entry.get("title") or ""
+        # Either a title that was decoded and left remnants, or one that never
+        # reached the decoder and is still raw beta-code end to end.
+        if not (_BETA_LEFT.search(stored) or _BETA_GREEK.search(stored)):
             continue
         better = ((reg["works"].get(stem) or {}).get("title") or "")
+        if not better or _BETA_LEFT.search(better):
+            # Not every crosswalk entry has a registry counterpart to borrow
+            # from, and one title here is raw beta-code that never passed
+            # through the decoder at all, so fall back to decoding in place.
+            better = decode_betacode_title(entry["title"]) or ""
         if better and not _BETA_LEFT.search(better):
             entry["title"] = better
             refreshed += 1
