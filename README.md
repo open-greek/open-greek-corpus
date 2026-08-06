@@ -710,7 +710,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1341 OCR'd works/volumes: 166 manually corrected, 846 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 329 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1355 OCR'd works/volumes: 174 manually corrected, 850 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 331 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -731,6 +731,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | alcman.fragmenta | Alcman - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,854 | auto-corrected |
 | alexander-lyric.fragmenta | Alexander - Fragmenta | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 22,536 | auto-corrected |
 | alexander-medicine.dedicatio-ad-cosman | Alexander - Dedicatio Ad Cosman | qwen36-alex_trall_puschmann | Qwen3.6-27B | 43,309 | auto-corrected |
+| alexander-numenius.peri-ton-tes-dianoias-schematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,424 | manual |
 | alexander.fragmenta | ALEXANDER - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
 | alexis-comedy.fragmenta | Alexis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
 | ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 80 | raw OCR |
@@ -754,9 +755,16 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 858 | auto-corrected |
 | anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,154 | auto-corrected |
 | anonymi-in-artem-rhetoricam.excerpta-de-arte-rhetorica |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 348 | auto-corrected |
+| anonymi-in-artem-rhetoricam.peri-poietikon-tropon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,048 | manual |
 | anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,276 | auto-corrected |
+| anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 704 | manual |
+| anonymi-in-artem-rhetoricam.peri-synekdoches |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 141 | raw OCR |
 | anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,046 | manual |
+| anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,789 | auto-corrected |
 | anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,263 | manual |
+| anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,384 | manual |
+| anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 412 | raw OCR |
+| anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,152 | manual |
 | anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,958 | auto-corrected |
 | anonymi-in-artem-rhetoricam.synopseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 699 | auto-corrected |
 | anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
@@ -999,6 +1007,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | cleostratus.testimonia | CLEOSTRATUS - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 352 | auto-corrected |
 | clidemus-philosophy.testimonia | Clidemus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 314 | auto-corrected |
 | clinias.fragmenta | Clinias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 165 | raw OCR |
+| cocondrius.peri-tropon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,481 | manual |
 | PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 160,260 | manual |
 | PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,534 | manual |
 | PG067 | Socrates Scholasticus + Sozomen HE | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 220,569 | manual |
@@ -1071,6 +1080,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | cyrillus-theology.scholia-de-incarnatione-unigeniti-fragmenta | Cyrillus - Scholia De Incarnatione Unigeniti (Fragmenta) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,008 | auto-corrected |
 | cyrillus-theology.sermo-de-obitu-sanctorum-trium-puerorum-fragmenta-sp | Cyrillus - Sermo De Obitu Sanctorum Trium Puerorum (Fragmenta) Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,178 | auto-corrected |
 | cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate | Cyrillus - Thesaurus De Sancta Consubstantiali Trinitate | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 131,280 | auto-corrected |
+| cyrus-rhetor.peri-diaphoras-staseos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,360 | manual |
 | damascius.de-principiis | DAMASCIUS - De principiis (Ἀπορίαι καὶ λύσεις περὶ τῶν πρώτων ἀρχῶν) | [Damascius, ed. Ruelle (MDZ scan + HathiTrust, ROVER-merged; primary OCR Qwen3.6)](https://www.digitale-sammlungen.de/en/view/bsb00075170) | Qwen3.6-27B-FP8 | 119,302 | auto-corrected |
 | damascius.in-parmenidem | DAMASCIUS - In Parmenidem | [Damascius, ed. Ruelle (MDZ scan + HathiTrust, ROVER-merged; primary OCR Qwen3.6)](https://www.digitale-sammlungen.de/en/view/bsb00075170) | Qwen3.6-27B-FP8 | 132,536 | auto-corrected |
 | damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat | DAMASCIUS - Vita Isidori (fragmenta ap. Sudam etc.) | qwen36-damascius-boissonade | Qwen3.6-27B | 12,624 | raw OCR |
@@ -1233,6 +1243,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth | Gaius Suetonius Tranquillus - Περὶ βλασφημιῶν καὶ πόθεν ἑκάστη | qwen36-suetonius_reliquiae_reifferscheid | Qwen3.6-27B | 11,498 | auto-corrected |
 | geoponica.geoponica | Geoponica - Geoponica | qwen36-geoponica_beckh | Qwen3.6-27B | 124,636 | auto-corrected |
 | georgius-cedrenus.compendium-historiarum | Georgius Cedrenus - Compendium Historiarum | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 291,998 | manual |
+| georgius-choeroboscus.peri-tropon-poietikon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,179 | auto-corrected |
 | georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de | Georgius Choeroboscus - Prolegomena Et Scholia In Theodosii Alexandrini Canones Isagogicos De | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 143,024 | auto-corrected |
 | georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,352 | auto-corrected |
 | georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,891 | auto-corrected |
@@ -1777,6 +1788,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | phintys.fragmenta | Phintys - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 820 | auto-corrected |
 | phocylides.sententiae | PHOCYLIDES - Sententiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 909 | auto-corrected |
 | phoebammon.de-figuris-fort-auctore-phoebammone-alio | Phoebammon - De Figuris (Fort. Auctore Phoebammone Alio) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,156 | auto-corrected |
+| phoebammon.scholia-peri-schematon-rhetorikon-walz-viii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,587 | auto-corrected |
 | phoenicides.fragmenta | PHOENICIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 215,610 | manual |
@@ -1798,6 +1810,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | platonius.fragmenta-de-comoedia-graeca | Platonius - Fragmenta De Comoedia Graeca | qwen36-platonius_duebner_scholaristoph1 | Qwen3.6-27B | 355,282 | auto-corrected |
 | poliochus.fragmenta | POLIOCHUS - Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 193 | auto-corrected |
 | polus-lucanus.fragmentum |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 184 | raw OCR |
+| polybius-sardianus.peri-schematismou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 756 | auto-corrected |
 | polyclitus.testimonia | Polyclitus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 761 | auto-corrected |
 | polystratus.peri-lo-gou-katafronh-sews-p-herc-336-1150 | Polystratus - Περὶ ἀλόγου καταφρονήσεως (P. Herc. 336-1150) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,072 | auto-corrected |
 | polyzelus.fragmenta | Polyzelus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 312 | raw OCR |
@@ -1879,6 +1892,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | socrates-rhodius.socrates-hist-fhg4 |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 51,835 | auto-corrected |
 | solon.fragmenta | Solon - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 1,900 | auto-corrected |
 | sopater-comedy.fragmenta | Sopater - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 32,797 | auto-corrected |
+| sopater-rhetor.diairesis-zetematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,079 | manual |
 | sophilus.fragmenta | Sophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
 | sophron.fragmenta | SOPHRON - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 5,497 | auto-corrected |
 | sosicrates.fragmenta | SOSICRATES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |
@@ -2053,7 +2067,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | zeno-citieus.testimonia-et-fragmenta | Zeno - Testimonia Et Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,161 | auto-corrected |
 | zeno-philosophy.testimonia | Zeno - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,751 | auto-corrected |
 | zeno-tarsensis.fragmenta | Zeno - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 174 | raw OCR |
-| zonaeus-walz-rg8 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 154,278 | auto-corrected |
+| zonaeus.peri-schematon-ton-kata-logon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,305 | auto-corrected |
 | zosimus-alchemista.opera | Opera | qwen36-berthelot_alchimistes_grec-ocr | Qwen3.6-27B | 40,877 | auto-corrected |
 <!-- OCR-PROVENANCE:END -->
 

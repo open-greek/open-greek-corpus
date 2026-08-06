@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1355,
-   "ocr_works_ranked": 788,
-   "ocr_works_with_witness": 182,
-   "secondary_files": 391,
-   "skipped": 29,
-   "tei_primary_ocr_secondary_pairs": 180
+   "ocr_works": 1369,
+   "ocr_works_ranked": 797,
+   "ocr_works_with_witness": 181,
+   "secondary_files": 395,
+   "skipped": 30,
+   "tei_primary_ocr_secondary_pairs": 184
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -152,37 +152,41 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "zonaeus-walz-rg8"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "zosimus-history.hist-nova-mendelssohn"
    }
   ],
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9128,
-    "median": 0.7794,
+    "median": 0.7719,
     "min": 0.1072,
-    "n": 72,
-    "q1": 0.6939,
-    "q3": 0.8367
+    "n": 76,
+    "q1": 0.6841,
+    "q3": 0.8344
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9128,
     "median": 0.705,
     "min": 0.0192,
-    "n": 180,
+    "n": 184,
     "q1": 0.5443,
-    "q3": 0.7967
+    "q3": 0.7953
    },
-   "n_pairs": 180,
-   "n_pairs_summarized": 72,
+   "n_pairs": 184,
+   "n_pairs_summarized": 76,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.136,
+   "median": 0.1353,
    "min": 0.0089,
-   "n": 788,
-   "q1": 0.0958,
-   "q3": 0.1732
+   "n": 797,
+   "q1": 0.096,
+   "q3": 0.1728
   }
  },
  "works": {
@@ -373,6 +377,15 @@
    "n_unattested": 6181,
    "source": "ocr",
    "unattested_rate": 0.234716,
+   "witness": null
+  },
+  "alexander-numenius.peri-ton-tes-dianoias-schematon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 10424,
+   "n_tokens_checked": 6014,
+   "n_unattested": 692,
+   "source": "ocr",
+   "unattested_rate": 0.115065,
    "witness": null
   },
   "alexander.fragmenta": {
@@ -618,6 +631,15 @@
    "unattested_rate": 0.089888,
    "witness": null
   },
+  "anonymi-in-artem-rhetoricam.peri-poietikon-tropon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2048,
+   "n_tokens_checked": 1204,
+   "n_unattested": 127,
+   "source": "ocr",
+   "unattested_rate": 0.105482,
+   "witness": null
+  },
   "anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 1276,
@@ -625,6 +647,24 @@
    "n_unattested": 101,
    "source": "ocr",
    "unattested_rate": 0.129321,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 704,
+   "n_tokens_checked": 428,
+   "n_unattested": 34,
+   "source": "ocr",
+   "unattested_rate": 0.079439,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.peri-synekdoches": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 141,
+   "n_tokens_checked": 53,
+   "n_unattested": 9,
+   "source": "ocr",
+   "unattested_rate": 0.169811,
    "witness": null
   },
   "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou": {
@@ -636,6 +676,15 @@
    "unattested_rate": 0.113071,
    "witness": null
   },
+  "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2789,
+   "n_tokens_checked": 1648,
+   "n_unattested": 161,
+   "source": "ocr",
+   "unattested_rate": 0.097694,
+   "witness": null
+  },
   "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 4263,
@@ -643,6 +692,33 @@
    "n_unattested": 347,
    "source": "ocr",
    "unattested_rate": 0.13919,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 10384,
+   "n_tokens_checked": 6221,
+   "n_unattested": 700,
+   "source": "ocr",
+   "unattested_rate": 0.112522,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 412,
+   "n_tokens_checked": 229,
+   "n_unattested": 29,
+   "source": "ocr",
+   "unattested_rate": 0.126638,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2152,
+   "n_tokens_checked": 1375,
+   "n_unattested": 132,
+   "source": "ocr",
+   "unattested_rate": 0.096,
    "witness": null
   },
   "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes": {
@@ -3039,6 +3115,15 @@
    "unattested_rate": 0.197674,
    "witness": null
   },
+  "cocondrius.peri-tropon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2481,
+   "n_tokens_checked": 1480,
+   "n_unattested": 228,
+   "source": "ocr",
+   "unattested_rate": 0.154054,
+   "witness": null
+  },
   "cogPG.PG003": {
    "edition": "cgpg",
    "n_tokens": 160260,
@@ -3715,6 +3800,15 @@
    "n_unattested": 6923,
    "source": "ocr",
    "unattested_rate": 0.091148,
+   "witness": null
+  },
+  "cyrus-rhetor.peri-diaphoras-staseos": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2360,
+   "n_tokens_checked": 1352,
+   "n_unattested": 132,
+   "source": "ocr",
+   "unattested_rate": 0.097633,
    "witness": null
   },
   "damascius.de-principiis": {
@@ -5323,6 +5417,15 @@
    "n_unattested": 10582,
    "source": "cgpg",
    "unattested_rate": 0.058666,
+   "witness": null
+  },
+  "georgius-choeroboscus.peri-tropon-poietikon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3179,
+   "n_tokens_checked": 1852,
+   "n_unattested": 220,
+   "source": "ocr",
+   "unattested_rate": 0.11879,
    "witness": null
   },
   "georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de": {
@@ -9821,11 +9924,11 @@
   },
   "ocr.walz_rhetores_v8": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 153685,
-   "n_tokens_checked": 92803,
-   "n_unattested": 10340,
+   "n_tokens": 59,
+   "n_tokens_checked": 55,
+   "n_unattested": 13,
    "source": "ocr",
-   "unattested_rate": 0.111419,
+   "unattested_rate": 0.236364,
    "witness": null
   },
   "ocr.walz_rhetores_v9": {
@@ -10683,6 +10786,15 @@
    "unattested_rate": 0.106697,
    "witness": null
   },
+  "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3587,
+   "n_tokens_checked": 2111,
+   "n_unattested": 222,
+   "source": "ocr",
+   "unattested_rate": 0.105163,
+   "witness": null
+  },
   "phoenicides.fragmenta": {
    "edition": "kock-caf3-ocr-frag",
    "n_tokens": 285,
@@ -10876,6 +10988,15 @@
    "n_unattested": 26,
    "source": "ocr",
    "unattested_rate": 0.262626,
+   "witness": null
+  },
+  "polybius-sardianus.peri-schematismou": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 756,
+   "n_tokens_checked": 480,
+   "n_unattested": 92,
+   "source": "ocr",
+   "unattested_rate": 0.191667,
    "witness": null
   },
   "polyclitus.testimonia": {
@@ -11714,6 +11835,15 @@
     "n_bigrams_secondary": 4707,
     "secondary_edition": "qwen36-sopater_kaibel_cgf"
    }
+  },
+  "sopater-rhetor.diairesis-zetematon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 90079,
+   "n_tokens_checked": 54927,
+   "n_unattested": 5635,
+   "source": "ocr",
+   "unattested_rate": 0.102591,
+   "witness": null
   },
   "sophilus.fragmenta": {
    "edition": "kock-caf2-ocr-frag",
@@ -13449,20 +13579,14 @@
     "secondary_edition": "qwen36-archedemus_svf3"
    }
   },
-  "zonaeus-walz-rg8": {
+  "zonaeus.peri-schematon-ton-kata-logon": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 154278,
-   "n_tokens_checked": 92643,
-   "n_unattested": 13808,
+   "n_tokens": 3305,
+   "n_tokens_checked": 1911,
+   "n_unattested": 270,
    "source": "ocr",
-   "unattested_rate": 0.149045,
-   "witness": {
-    "agreement_primary_in_secondary": 0.087462,
-    "agreement_secondary_in_primary": 0.493728,
-    "n_bigrams_primary": 147995,
-    "n_bigrams_secondary": 1993,
-    "secondary_edition": "migne-ocr-qwen36"
-   }
+   "unattested_rate": 0.141287,
+   "witness": null
   },
   "zosimus-alchemista.opera": {
    "edition": "qwen36-berthelot_alchimistes_grec-ocr",
@@ -13767,6 +13891,7 @@
   "theodoretus.graecarum-affectionum-curatio",
   "joannes-chrysostomus.de-sancta-trinitate-sp",
   "gregorius-nazianzenus.epistulae",
+  "cocondrius.peri-tropon",
   "ctesias.fragmenta",
   "gregorius-nazianzenus.epistulae-theologicae",
   "joannes-chrysostomus.ad-theodorum-lapsum-lib-2-epistula-ad-theodorum",
@@ -13793,7 +13918,6 @@
   "tlg1595.tlg210",
   "basilius-theology.homilia-in-divites",
   "joannes-chrysostomus.synopsis-scripturae-sacrae-sp",
-  "zonaeus-walz-rg8",
   "joannes-chrysostomus.in-illud-vidua-eligatur",
   "thales.fragmenta",
   "basilius-theology.homiliae-in-hexaemeron",
@@ -13842,6 +13966,7 @@
   "gregorius-nyssenus.de-vita-gregorii-thaumaturgi",
   "joannes-chrysostomus.in-epistulam-i-ad-corinthios-homiliae-1-44",
   "athanasius-theology.in-caecum-nativitate-sp",
+  "zonaeus.peri-schematon-ton-kata-logon",
   "gregorius-nyssenus.dialogus-de-anima-et-resurrectione",
   "basilius-theology.homilia-de-invidia",
   "joannes-chrysostomus.in-sanctum-lucianum-martyrem",
@@ -13974,6 +14099,7 @@
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
   "gregorius-nyssenus.oratio-catechetica-magna",
   "gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti",
+  "georgius-choeroboscus.peri-tropon-poietikon",
   "gregorius-nyssenus.in-ecclesiasten-homiliae-8",
   "gregorius-nyssenus.epistula-canonica-ad-letoium",
   "basilius-theology.de-spiritu-sancto",
@@ -13983,6 +14109,7 @@
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
   "antiphon-soph.testimonia",
   "gregorius-nyssenus.de-oratione-dominica-orationes-v",
+  "alexander-numenius.peri-ton-tes-dianoias-schematon",
   "michael-psellus.opuscula-psychologica-theologica-daemonologica",
   "athanasius-theology.homilia-de-passione-et-cruce-domini-sp",
   "hecataeus-abderita.testimonia-2",
@@ -13998,11 +14125,11 @@
   "ocellus.de-universi-natura-sp",
   "joannes-chrysostomus.de-christi-precibus-contra-anomoeos-homilia-10",
   "parmenides.testimonia",
+  "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
   "michael-psellus.peri-rhetorikes",
   "carmina-convivialia-pmg.fragmenta",
   "athanasius-theology.synopsis-scripturae-sacrae-sp",
   "joannes-diaconus-hadrianopolitanus.carmen-politicum",
-  "ocr.walz_rhetores_v8",
   "cyrillus-theology.oratio-ad-pulcheriam-et-eudociam-augustas-de-fide",
   "gregorius-nyssenus.contra-eunomium",
   "heraclitus-philosophy.testimonia",
@@ -14033,7 +14160,9 @@
   "basilius-theology.quod-deus-non-est-auctor-malorum",
   "basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius",
   "nausiphanes.testimonia",
+  "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
   "democritus-philosophy.testimonia",
+  "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii",
   "joannes-chrysostomus.de-sancta-pentecoste-homiliae-1-2",
   "theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
@@ -14044,6 +14173,7 @@
   "epicurus.deperditorum-librorum-reliquiae",
   "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous",
   "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
+  "sopater-rhetor.diairesis-zetematon",
   "theodoretus.eranistes",
   "cratinus.fragmenta",
   "theophylactus-achridensis.epistulae",
@@ -14057,6 +14187,8 @@
   "michael-psellus.poemata",
   "joannes-tzetzes.epitome-rhetorikes",
   "athanasius-theology.de-virginitate-sp",
+  "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
+  "cyrus-rhetor.peri-diaphoras-staseos",
   "michael-psellus.de-operatione-daemonum-sp",
   "gregorius-nyssenus.de-perfectione-christiana-ad-olympium-monachum",
   "zeno-philosophy.testimonia",
@@ -14065,6 +14197,7 @@
   "xenophanes.testimonia",
   "diophantus-mathematics.arithmeticorum-libri-sex",
   "georgius-monachus-continuatus.chronicon-continuatio-redactio",
+  "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
   "athanasius-theology.de-sancta-trinitate-dialogi-2-and-4-sp",
   "andronicus-rhodius.de-passionibus-lib-1-sp",
   "anaximenes-philosophy.testimonia",
