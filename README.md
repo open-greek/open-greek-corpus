@@ -710,7 +710,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1355 OCR'd works/volumes: 174 manually corrected, 850 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 331 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1359 OCR'd works/volumes: 177 manually corrected, 851 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 331 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -751,6 +751,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | andreas.fragmentum | Andreas - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
 | andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) Sp. | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,269 | manual |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
+| anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,225 | manual |
+| anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,757 | manual |
 | anonymi-in-artem-rhetoricam.ektheseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,663 | manual |
 | anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 858 | auto-corrected |
 | anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,154 | auto-corrected |
@@ -765,6 +767,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,384 | manual |
 | anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 412 | raw OCR |
 | anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,152 | manual |
+| anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,669 | auto-corrected |
 | anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,958 | auto-corrected |
 | anonymi-in-artem-rhetoricam.synopseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 699 | auto-corrected |
 | anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
@@ -1579,6 +1582,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae | Joannes Damascenus - Sacra Parallela (Recensiones Secundum Alphabeti Litteras Dispositae, | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 116,283 | auto-corrected |
 | joannes-diaconus-hadrianopolitanus.carmen-politicum | Joannes Diaconus Hadrianopolitanus - Carmen politicum (encomiastic political verses to the emperor Palaiologos) (PG158 loci 515-520) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,075 | manual |
 | joannes-doxopatres.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,607 | manual |
+| joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,656 | manual |
 | joannes-epiphaniensis.fragmentum | Joannes Epiphaniensis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,699 | auto-corrected |
 | joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 200,842 | auto-corrected |
 | joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno | Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,938 | manual |

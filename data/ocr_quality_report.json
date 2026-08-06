@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1369,
-   "ocr_works_ranked": 797,
+   "ocr_works": 1373,
+   "ocr_works_ranked": 801,
    "ocr_works_with_witness": 181,
    "secondary_files": 395,
    "skipped": 30,
@@ -182,11 +182,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.1353,
+   "median": 0.1351,
    "min": 0.0089,
-   "n": 797,
+   "n": 801,
    "q1": 0.096,
-   "q3": 0.1728
+   "q3": 0.1726
   }
  },
  "works": {
@@ -595,6 +595,24 @@
     "secondary_edition": "qwen36-theopompus_hist_fhg1"
    }
   },
+  "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 15225,
+   "n_tokens_checked": 8667,
+   "n_unattested": 848,
+   "source": "ocr",
+   "unattested_rate": 0.097842,
+   "witness": null
+  },
+  "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 29757,
+   "n_tokens_checked": 17595,
+   "n_unattested": 1659,
+   "source": "ocr",
+   "unattested_rate": 0.094288,
+   "witness": null
+  },
   "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 5663,
@@ -719,6 +737,15 @@
    "n_unattested": 132,
    "source": "ocr",
    "unattested_rate": 0.096,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2669,
+   "n_tokens_checked": 1456,
+   "n_unattested": 107,
+   "source": "ocr",
+   "unattested_rate": 0.073489,
    "witness": null
   },
   "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes": {
@@ -8557,6 +8584,15 @@
    "unattested_rate": 0.108452,
    "witness": null
   },
+  "joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 121656,
+   "n_tokens_checked": 71068,
+   "n_unattested": 5910,
+   "source": "ocr",
+   "unattested_rate": 0.08316,
+   "witness": null
+  },
   "joannes-epiphaniensis.fragmentum": {
    "edition": "qwen36-socrates_hist_fhg4",
    "n_tokens": 1699,
@@ -9861,11 +9897,11 @@
   },
   "ocr.walz_rhetores_v2": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 172161,
-   "n_tokens_checked": 100394,
-   "n_unattested": 8712,
+   "n_tokens": 2854,
+   "n_tokens_checked": 1608,
+   "n_unattested": 188,
    "source": "ocr",
-   "unattested_rate": 0.086778,
+   "unattested_rate": 0.116915,
    "witness": null
   },
   "ocr.walz_rhetores_v3": {
@@ -14105,6 +14141,7 @@
   "basilius-theology.de-spiritu-sancto",
   "joannes-siceliota.exegesis-eis-tas-ideas-prolegomena",
   "joannes-stobaeus-anthologus.anthologium",
+  "ocr.walz_rhetores_v2",
   "joannes-chrysostomus.pg048",
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
   "antiphon-soph.testimonia",
@@ -14187,6 +14224,7 @@
   "michael-psellus.poemata",
   "joannes-tzetzes.epitome-rhetorikes",
   "athanasius-theology.de-virginitate-sp",
+  "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
   "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
   "cyrus-rhetor.peri-diaphoras-staseos",
   "michael-psellus.de-operatione-daemonum-sp",
@@ -14208,6 +14246,7 @@
   "proclus.institutio-theologica",
   "aristophanes-comedy.fragmenta-2",
   "cyrillus-theology.dialogus-cum-nestorio-sp",
+  "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
   "athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria",
   "michael-psellus.de-actionum-nominibus",
   "michael-psellus.epistulae",
@@ -14232,7 +14271,6 @@
   "ocr.walz_rhetores_v3",
   "leo-vi-sapiens.novellae-constitutiones",
   "athanasius-theology.sermo-in-nativitatem-christi-sp",
-  "ocr.walz_rhetores_v2",
   "cogPG.PG112",
   "pythagoristae-d-k.testimonia-et-fragmenta",
   "basilius-theology.prologus-8-de-fide",
@@ -14248,6 +14286,7 @@
   "demetrius-poet-phil.demetrius-de-eloc-roberts",
   "gregorius-nyssenus.de-anima-sp",
   "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
+  "joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata",
   "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i",
   "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
   "melissus.testimonia",
@@ -14287,6 +14326,7 @@
   "empedocles.epigramma",
   "theophylactus-achridensis.expositio-in-prophetam-habacuc",
   "joannes-cameniates.de-expugnatione-thessalonicae",
+  "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri",
   "athanasius-theology.epistulae-quattuor-ad-serapionem",
   "athanasius-theology.epistula-ad-epictetum",
   "gregorius-nyssenus.ad-graecos-ex-communibus-notionibus",
