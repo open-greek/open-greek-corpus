@@ -290,6 +290,168 @@
     "30"
    ],
    "shared_pages_note": "Printed pages a mid-page boundary makes two works share. Declared rather than inferred: an undeclared page produced twice is how a wrong offset zone shows up, so the check has to fail on anything not listed here."
+  },
+  {
+   "volume": "v3",
+   "urn": "ocr.walz_rhetores_v3",
+   "edition_title": "Rhetores Graeci, vol. III, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1834)",
+   "printed_to_scan_offset": 14,
+   "offset_note": "A single constant, printed = scan - 14, holding for 100% of body pages. Verified independently at all thirteen treatise title pages: every one falls at exactly printed + 14.",
+   "basis": "ARGUMENTUM VOLUMINIS TERTII at scan 0007 lists thirteen entries with contiguous printed ranges. Every start below was confirmed against the display title standing at that row.",
+   "front_matter_before": "walz_rhetores_v3_0460.1",
+   "front_matter_note": "Scans 0007-0459 stay in the volume file: the front matter, and then printed 1-445, the whole Hermogenean corpus, which is NOT one work. This repo already serves Hermogenes as five separate works from First1K (peri-sta-sewn, peri-eu-re-sews-sp, peri-i-dew-n-lo-gou, peri-meqo-dou-deino-thtos-sp, progymnasmata-dub), so filing 445 pages as a single secondary witness under one slug would be wrong. The block's internal work boundaries - where Peri heureseos ends and Peri ideon begins, and where Peri methodou deinotetos begins - are not established: the chapter titles are dense and two of the intervening title pages are OCR'd as 'ΕΡΜΟΙ ΕΝΟΥΣ'. Deferred to its own pass rather than guessed at. 88,507 tokens.",
+   "skipped_work": {
+    "n": "I",
+    "title": "Techne rhetorike (the Hermogenean corpus)",
+    "printed_pages": "1-445",
+    "reason": "needs its four internal work boundaries established before it can be filed as secondary witnesses against the five served First1K works"
+   },
+   "works": [
+    {
+     "n": "II",
+     "slug": "rufus-soph.ars-rhetorica",
+     "title": "Techne rhetorike",
+     "author_display": "Rufus Sophista",
+     "tlg": null,
+     "printed_pages": "446-460",
+     "start": "walz_rhetores_v3_0460.1",
+     "incipit_check": "ΤΕΧΝΗ ΡΗΤΟΡΙΚΗ",
+     "evidence": "ARGUMENTUM entry 2. Display title ΤΕΧΝΗ ΡΗΤΟΡΙΚΗ at printed 446.",
+     "rank": "secondary",
+     "secondary_reason": "served as rufus-soph.ars-rhetorica from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served",
+     "author_note": "'Rufus' is ambiguous in the canon: tlg0606 RUFUS the rhetor against tlg0564 RUFUS of Ephesus the physician. The slug follows the served work, which is the rhetor."
+    },
+    {
+     "n": "III",
+     "slug": "anonymi-in-artem-rhetoricam.synopseis-rhetorikes",
+     "title": "Anonymon synopseis rhetorikes",
+     "author_display": "Anonymi",
+     "tlg": null,
+     "printed_pages": "461-464",
+     "start": "walz_rhetores_v3_0475.1",
+     "incipit_check": "ΣΥΝΟΨΕΙΣ ΡΗΤΟΡΙΚΗΣ",
+     "evidence": "ARGUMENTUM entry 3. Display title at printed 461."
+    },
+    {
+     "n": "IV",
+     "slug": "josephus-rhacendyta.synopsis-rhetorikes",
+     "title": "Synopsis rhetorikes",
+     "author_display": "Josephus Rhacendyta",
+     "tlg": null,
+     "printed_pages": "465-569",
+     "start": "walz_rhetores_v3_0479.1",
+     "incipit_check": "ΡΑΚΕΝΔΥΤΟΥ",
+     "evidence": "ARGUMENTUM entry 4. Display title ΙΩΣΗΦ ΤΟΥ ΡΑΚΕΝΔΥΤΟΥ / ΣΥΝΟΨΙΣ ΡΗΤΟΡΙΚΗΣ at printed 465. The volume's largest new text.",
+     "tlg_note": "no canon record; unmapped."
+    },
+    {
+     "n": "V",
+     "slug": "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
+     "title": "Peri ton tessaron meron tou teleiou logou",
+     "author_display": "Anonymus",
+     "tlg": "tlg0598.tlg013",
+     "printed_pages": "570-587",
+     "start": "walz_rhetores_v3_0584.1",
+     "incipit_check": "ΤΕΣΣΑΡΩΝ ΜΕΡΩΝ",
+     "evidence": "ARGUMENTUM entry 5. Display title over two rows at printed 570."
+    },
+    {
+     "n": "VI",
+     "slug": "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
+     "title": "Peri ton okto meron tou rhetorikou logou",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "588-609",
+     "start": "walz_rhetores_v3_0602.1",
+     "incipit_check": "ΟΚΤΩ ΜΕΡΩΝ",
+     "evidence": "ARGUMENTUM entry 6. Display title at printed 588."
+    },
+    {
+     "n": "VII",
+     "slug": "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610",
+     "title": "Epitome rhetorikes (Walz III 610)",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "610-614",
+     "start": "walz_rhetores_v3_0624.1",
+     "incipit_check": "ΕΠΙΤΟΜΗ ΡΗΤΟΡΙΚΗΣ",
+     "evidence": "ARGUMENTUM entry 7. Display title at printed 610. Same title as entry 8, hence the page in the slug.",
+     "range_note": "The ARGUMENTUM gives 610-614 and the TLG gives 610-612; the boundary is taken from the next display title at 615 either way, so the discrepancy does not move the carve."
+    },
+    {
+     "n": "VIII",
+     "slug": "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615",
+     "title": "Anonymou epitome rhetorikes (Walz III 615)",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "615-669",
+     "start": "walz_rhetores_v3_0629.1",
+     "incipit_check": "ΕΠΙΤΟΜΗ ΡΗΤΟΡΙΚΗΣ",
+     "evidence": "ARGUMENTUM entry 8. Display title at printed 615.",
+     "gap_note": "printed 616 (scan 630) has no row in the served text: the OCR read it as Walz's Latin praefatio and the pipeline drops Latin-only pages. A gap in the scan sequence, not an offset shift."
+    },
+    {
+     "n": "IX",
+     "slug": "joannes-tzetzes.epitome-rhetorikes",
+     "title": "Epitome rhetorikes",
+     "author_display": "Joannes Tzetzes",
+     "tlg": null,
+     "printed_pages": "670-686",
+     "start": "walz_rhetores_v3_0684.1",
+     "incipit_check": "ΤΖΕΤΖΟΥ",
+     "evidence": "ARGUMENTUM entry 9. Display title ΙΩΑΝΝΟΥ ΤΟΥ ΤΖΕΤΖΟΥ / ΕΠΙΤΟΜΗ ΡΗΤΟΡΙΚΗΣ at printed 670.",
+     "tlg_note": "no canon record for this work; unmapped."
+    },
+    {
+     "n": "X",
+     "slug": "michael-psellus.peri-rhetorikes",
+     "title": "Peri rhetorikes",
+     "author_display": "Michael Psellus",
+     "tlg": null,
+     "printed_pages": "687-703",
+     "start": "walz_rhetores_v3_0701.1",
+     "incipit_check": "ΠΕΡΙ ΡΗΤΟΡΙΚΗΣ",
+     "evidence": "ARGUMENTUM entry 10. Display title ΠΕΡΙ ΡΗΤΟΡΙΚΗΣ / ΨΕΛΛΟΥ at printed 687.",
+     "duplicate_hazard": "michael-psellus.poemata is served (cgpg, 31,945 tokens) and this verse synopsis belongs to that same TLG work group. Carved primary here because the served poemata does not contain it, but check for overlap before either is re-keyed."
+    },
+    {
+     "n": "XI",
+     "slug": "anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen",
+     "title": "Peri schematon hon Hermogenes emnemoneusen",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "704-711",
+     "start": "walz_rhetores_v3_0718.1",
+     "incipit_check": "ΠΕΡΙ ΣΧΗΜΑΤΩΝ",
+     "evidence": "ARGUMENTUM entry 11. Display title at printed 704."
+    },
+    {
+     "n": "XII",
+     "slug": "castor-rhetor.peri-metron-rhetorikon",
+     "title": "Peri metron rhetorikon",
+     "author_display": "Castor Rhetor",
+     "tlg": null,
+     "printed_pages": "712-723",
+     "start": "walz_rhetores_v3_0726.1",
+     "incipit_check": "ΠΕΡΙ ΜΕΤΡΩΝ ΡΗΤΟΡΙΚΩΝ",
+     "evidence": "ARGUMENTUM entry 12. Display title at printed 712, over two rows; the author line is OCR'd 'ΡΟΛΙΟΥ ΡΗΤΟΡΟΣ ΤΟΥ ΚΑΙ ΦΙΛΟΡΩΜΑΙΟΥ', so the anchor is on the title line.",
+     "incipit_locus": "walz_rhetores_v3_0726.2",
+     "tlg_note": "no canon record; unmapped."
+    },
+    {
+     "n": "XIII",
+     "slug": "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes",
+     "title": "Ektheseis rhetorikes",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "724-748",
+     "start": "walz_rhetores_v3_0738.1",
+     "incipit_check": "opusculum",
+     "evidence": "ARGUMENTUM entry 13. Printed 724 opens with Walz's Latin praefatio ('Opusculum hoc e codice Bibl. Univ. Hafniensis Fabriciano No. 88'), Greek text from 725, following the v6 precedent of keeping a work's own title page and praefatio with it."
+    }
+   ],
+   "trailing_residual_from": "walz_rhetores_v3_0762.3",
+   "trailing_residual_note": "Addenda et Corrigenda from printed 748.3 ('p. 305. v. 16.'), then the back-of-volume index of orators on printed 749-750 ('- in Aristogitonem III. 221 228 ...'), which indexes the whole nine-volume set and belongs to none of these works. The ARGUMENTUM ends the last treatise at 748 and it is right."
   }
  ]
 }
