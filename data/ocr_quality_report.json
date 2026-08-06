@@ -25,9 +25,9 @@
    "ocr_works": 1373,
    "ocr_works_ranked": 801,
    "ocr_works_with_witness": 181,
-   "secondary_files": 395,
+   "secondary_files": 396,
    "skipped": 30,
-   "tei_primary_ocr_secondary_pairs": 184
+   "tei_primary_ocr_secondary_pairs": 185
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -162,22 +162,22 @@
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9128,
-    "median": 0.7719,
+    "median": 0.7755,
     "min": 0.1072,
-    "n": 76,
-    "q1": 0.6841,
-    "q3": 0.8344
+    "n": 77,
+    "q1": 0.6858,
+    "q3": 0.8337
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9128,
-    "median": 0.705,
+    "median": 0.7053,
     "min": 0.0192,
-    "n": 184,
-    "q1": 0.5443,
-    "q3": 0.7953
+    "n": 185,
+    "q1": 0.5446,
+    "q3": 0.7958
    },
-   "n_pairs": 184,
-   "n_pairs_summarized": 76,
+   "n_pairs": 185,
+   "n_pairs_summarized": 77,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
@@ -11571,11 +11571,11 @@
   },
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera": {
    "edition": "qwen36-schol_aeschin_dindorf",
-   "n_tokens": 31870,
-   "n_tokens_checked": 20363,
-   "n_unattested": 2377,
+   "n_tokens": 25750,
+   "n_tokens_checked": 16637,
+   "n_unattested": 2077,
    "source": "ocr",
-   "unattested_rate": 0.116731,
+   "unattested_rate": 0.124842,
    "witness": null
   },
   "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera": {
@@ -14108,6 +14108,7 @@
   "joannes-chrysostomus.in-epistulam-ad-philippenses-homiliae-1-15",
   "theodoretus.haereticarum-fabularum-compendium",
   "empedocles.testimonia",
+  "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
   "joannes-chrysostomus.in-illud-filius-ex-se-nihil-facit",
   "cyrillus-scr-eccl.mystagogiae-1-5-sp",
   "joannes-chrysostomus.in-illud-pater-si-possibile-est-transeat",
@@ -14143,7 +14144,6 @@
   "joannes-stobaeus-anthologus.anthologium",
   "ocr.walz_rhetores_v2",
   "joannes-chrysostomus.pg048",
-  "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
   "antiphon-soph.testimonia",
   "gregorius-nyssenus.de-oratione-dominica-orationes-v",
   "alexander-numenius.peri-ton-tes-dianoias-schematon",
