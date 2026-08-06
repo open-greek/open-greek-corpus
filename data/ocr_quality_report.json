@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1344,
-   "ocr_works_ranked": 780,
+   "ocr_works": 1355,
+   "ocr_works_ranked": 788,
    "ocr_works_with_witness": 182,
-   "secondary_files": 390,
+   "secondary_files": 391,
    "skipped": 29,
-   "tei_primary_ocr_secondary_pairs": 179
+   "tei_primary_ocr_secondary_pairs": 180
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -166,23 +166,23 @@
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9128,
-    "median": 0.7047,
+    "median": 0.705,
     "min": 0.0192,
-    "n": 179,
-    "q1": 0.544,
-    "q3": 0.7954
+    "n": 180,
+    "q1": 0.5443,
+    "q3": 0.7967
    },
-   "n_pairs": 179,
+   "n_pairs": 180,
    "n_pairs_summarized": 72,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.1363,
+   "median": 0.136,
    "min": 0.0089,
-   "n": 780,
+   "n": 788,
    "q1": 0.0958,
-   "q3": 0.1736
+   "q3": 0.1732
   }
  },
  "works": {
@@ -582,6 +582,33 @@
     "secondary_edition": "qwen36-theopompus_hist_fhg1"
    }
   },
+  "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 5663,
+   "n_tokens_checked": 3313,
+   "n_unattested": 231,
+   "source": "ocr",
+   "unattested_rate": 0.069725,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 858,
+   "n_tokens_checked": 540,
+   "n_unattested": 49,
+   "source": "ocr",
+   "unattested_rate": 0.090741,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 11154,
+   "n_tokens_checked": 6887,
+   "n_unattested": 688,
+   "source": "ocr",
+   "unattested_rate": 0.099898,
+   "witness": null
+  },
   "anonymi-in-artem-rhetoricam.excerpta-de-arte-rhetorica": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 348,
@@ -591,6 +618,33 @@
    "unattested_rate": 0.089888,
    "witness": null
   },
+  "anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 1276,
+   "n_tokens_checked": 781,
+   "n_unattested": 101,
+   "source": "ocr",
+   "unattested_rate": 0.129321,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 5046,
+   "n_tokens_checked": 2892,
+   "n_unattested": 327,
+   "source": "ocr",
+   "unattested_rate": 0.113071,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 4263,
+   "n_tokens_checked": 2493,
+   "n_unattested": 347,
+   "source": "ocr",
+   "unattested_rate": 0.13919,
+   "witness": null
+  },
   "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 1958,
@@ -598,6 +652,15 @@
    "n_unattested": 81,
    "source": "ocr",
    "unattested_rate": 0.072842,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.synopseis-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 699,
+   "n_tokens_checked": 411,
+   "n_unattested": 36,
+   "source": "ocr",
+   "unattested_rate": 0.087591,
    "witness": null
   },
   "anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon": {
@@ -2764,6 +2827,15 @@
    "n_unattested": 322,
    "source": "ocr",
    "unattested_rate": 0.232827,
+   "witness": null
+  },
+  "castor-rhetor.peri-metron-rhetorikon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2421,
+   "n_tokens_checked": 1425,
+   "n_unattested": 143,
+   "source": "ocr",
+   "unattested_rate": 0.100351,
    "witness": null
   },
   "cephisodorus.fragmenta": {
@@ -8460,6 +8532,15 @@
    "unattested_rate": 0.117402,
    "witness": null
   },
+  "joannes-tzetzes.epitome-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3453,
+   "n_tokens_checked": 2116,
+   "n_unattested": 209,
+   "source": "ocr",
+   "unattested_rate": 0.098771,
+   "witness": null
+  },
   "joannes-tzetzes.tzetzes-historiae-kiessling": {
    "edition": "qwen36-tzetzes_historiae_kiessling",
    "n_tokens": 103943,
@@ -8518,6 +8599,15 @@
    "n_unattested": 13,
    "source": "cgpg",
    "unattested_rate": 0.089041,
+   "witness": null
+  },
+  "josephus-rhacendyta.synopsis-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 23967,
+   "n_tokens_checked": 13915,
+   "n_unattested": 1671,
+   "source": "ocr",
+   "unattested_rate": 0.120086,
    "witness": null
   },
   "justinus-martyr.fragmenta-operum-deperditorum": {
@@ -9177,6 +9267,15 @@
    "unattested_rate": 0.11484,
    "witness": null
   },
+  "michael-psellus.peri-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3564,
+   "n_tokens_checked": 2213,
+   "n_unattested": 249,
+   "source": "ocr",
+   "unattested_rate": 0.112517,
+   "witness": null
+  },
   "michael-psellus.poemata": {
    "edition": "cgpg",
    "n_tokens": 31969,
@@ -9668,11 +9767,11 @@
   },
   "ocr.walz_rhetores_v3": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 151771,
-   "n_tokens_checked": 89059,
-   "n_unattested": 8585,
+   "n_tokens": 87969,
+   "n_tokens_checked": 51231,
+   "n_unattested": 4485,
    "source": "ocr",
-   "unattested_rate": 0.096397,
+   "unattested_rate": 0.087545,
    "witness": null
   },
   "ocr.walz_rhetores_v4": {
@@ -13751,6 +13850,7 @@
   "joannes-chrysostomus.pg052",
   "basilius-theology.enarratio-in-prophetam-isaiam-dub",
   "gregorius-nyssenus.apologia-in-hexaemeron",
+  "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
   "joannes-chrysostomus.de-virginitate",
   "gregorius-nazianzenus.de-moderatione-in-disputando-orat-32",
   "cyrillus-theology.expositio-in-psalmos",
@@ -13869,6 +13969,7 @@
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
   "athanasius-theology.homilia-de-semente-sp",
   "gorgias-rhetoric.testimonia",
+  "josephus-rhacendyta.synopsis-rhetorikes",
   "athanasius-theology.quaestiones-in-evangelia-sp",
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
   "gregorius-nyssenus.oratio-catechetica-magna",
@@ -13891,11 +13992,13 @@
   "joannes-chrysostomus.comparatio-regis-et-monachi-dub",
   "athanasius-theology.vita-antonii",
   "gregorius-nyssenus.antirrheticus-adversus-apollinarium",
+  "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
   "cyrillus-theology.explanatio-xii-capitulorum",
   "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
   "ocellus.de-universi-natura-sp",
   "joannes-chrysostomus.de-christi-precibus-contra-anomoeos-homilia-10",
   "parmenides.testimonia",
+  "michael-psellus.peri-rhetorikes",
   "carmina-convivialia-pmg.fragmenta",
   "athanasius-theology.synopsis-scripturae-sacrae-sp",
   "joannes-diaconus-hadrianopolitanus.carmen-politicum",
@@ -13946,17 +14049,19 @@
   "theophylactus-achridensis.epistulae",
   "athanasius-theology.fragmenta-varia",
   "pythagoras.testimonia",
+  "castor-rhetor.peri-metron-rhetorikon",
   "cyrillus-theology.fragmenta-in-canticum-canticorum",
   "athanasius-theology.epistula-ad-adelphium",
+  "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615",
   "theophylactus-achridensis.institutio-regia",
   "michael-psellus.poemata",
+  "joannes-tzetzes.epitome-rhetorikes",
   "athanasius-theology.de-virginitate-sp",
   "michael-psellus.de-operatione-daemonum-sp",
   "gregorius-nyssenus.de-perfectione-christiana-ad-olympium-monachum",
   "zeno-philosophy.testimonia",
   "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
   "leo-vi-sapiens.oracula",
-  "ocr.walz_rhetores_v3",
   "xenophanes.testimonia",
   "diophantus-mathematics.arithmeticorum-libri-sex",
   "georgius-monachus-continuatus.chronicon-continuatio-redactio",
@@ -13991,6 +14096,7 @@
   "joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae",
   "basilius-theology.regulae-morales",
   "gregorius-nyssenus.ad-ablabium-quod-non-sint-tres-dei",
+  "ocr.walz_rhetores_v3",
   "leo-vi-sapiens.novellae-constitutiones",
   "athanasius-theology.sermo-in-nativitatem-christi-sp",
   "ocr.walz_rhetores_v2",
@@ -14058,6 +14164,7 @@
   "symeon-thessalonicensis.de-poenitentia",
   "leo-vi-sapiens.orationes",
   "michael.in-ethica-nicomachea-ixx-commentaria",
+  "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes",
   "theophylactus-achridensis.expositio-in-prophetam-nahum",
   "symeon-thessalonicensis.de-sacris-ordinationibus",
   "damascius.in-parmenidem",
