@@ -710,7 +710,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1312 OCR'd works/volumes: 155 manually corrected, 830 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 327 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1321 OCR'd works/volumes: 159 manually corrected, 834 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 328 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -750,6 +750,14 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | andreas.fragmentum | Andreas - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
 | andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) Sp. | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,269 | manual |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
+| anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
+| anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,351 | auto-corrected |
+| anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 515 | auto-corrected |
+| anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 595 | raw OCR |
+| anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 600 | auto-corrected |
+| anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,516 | manual |
+| anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,373 | manual |
+| anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 144,816 | manual |
 | anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735 | Anonymi In Oppiani Opera - In Oppiani Halieutica Exegesis (E Cod. Paris. Gr. 2735) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 4,696 | raw OCR |
 | anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis | Anonymus - Narratio de vita Mohammedis (on Muhammad the pseudo-prophet) (PG158 loci 574-575) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,214 | auto-corrected |
 | anthemius.dupuy-1777 |  | qwen36-anthemius_dupuy_1777 | Qwen3.6-27B | 2,563 | raw OCR |
@@ -1886,6 +1894,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum | Symeon Thessalonicensis - Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters) (PG155 loci 420-481) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,609 | manual |
 | symmachus.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 39,549 | auto-corrected |
 | synesius-philosophy.epistulae | Synesius - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,822 | auto-corrected |
+| syrianus.eis-to-peri-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,199 | auto-corrected |
 | tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | auto-corrected |
 | teleclides.fragmenta | Teleclides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |
 | telephus.fragmenta | Telephus - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 136 | raw OCR |

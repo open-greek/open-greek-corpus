@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1326,
-   "ocr_works_ranked": 769,
+   "ocr_works": 1335,
+   "ocr_works_ranked": 774,
    "ocr_works_with_witness": 182,
    "secondary_files": 390,
    "skipped": 29,
@@ -178,11 +178,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.1373,
+   "median": 0.1369,
    "min": 0.0089,
-   "n": 769,
-   "q1": 0.0964,
-   "q3": 0.1745
+   "n": 774,
+   "q1": 0.0961,
+   "q3": 0.1739
   }
  },
  "works": {
@@ -581,6 +581,78 @@
     "n_bigrams_secondary": 1417,
     "secondary_edition": "qwen36-theopompus_hist_fhg1"
    }
+  },
+  "anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2727,
+   "n_tokens_checked": 1649,
+   "n_unattested": 215,
+   "source": "ocr",
+   "unattested_rate": 0.130382,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 4351,
+   "n_tokens_checked": 2616,
+   "n_unattested": 216,
+   "source": "ocr",
+   "unattested_rate": 0.082569,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 515,
+   "n_tokens_checked": 298,
+   "n_unattested": 17,
+   "source": "ocr",
+   "unattested_rate": 0.057047,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 595,
+   "n_tokens_checked": 336,
+   "n_unattested": 23,
+   "source": "ocr",
+   "unattested_rate": 0.068452,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 600,
+   "n_tokens_checked": 344,
+   "n_unattested": 40,
+   "source": "ocr",
+   "unattested_rate": 0.116279,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 7516,
+   "n_tokens_checked": 4443,
+   "n_unattested": 369,
+   "source": "ocr",
+   "unattested_rate": 0.083052,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3373,
+   "n_tokens_checked": 2000,
+   "n_unattested": 142,
+   "source": "ocr",
+   "unattested_rate": 0.071,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 144816,
+   "n_tokens_checked": 83394,
+   "n_unattested": 7076,
+   "source": "ocr",
+   "unattested_rate": 0.08485,
+   "witness": null
   },
   "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735": {
    "edition": "qwen36-scholia_oppianum_bussemaker_didot",
@@ -9560,11 +9632,11 @@
   },
   "ocr.walz_rhetores_v7pt1": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 167847,
-   "n_tokens_checked": 97046,
-   "n_unattested": 8279,
+   "n_tokens": 155,
+   "n_tokens_checked": 114,
+   "n_unattested": 33,
    "source": "ocr",
-   "unattested_rate": 0.08531,
+   "unattested_rate": 0.289474,
    "witness": null
   },
   "ocr.walz_rhetores_v7pt2": {
@@ -11796,6 +11868,15 @@
    "unattested_rate": 0.16925,
    "witness": null
   },
+  "syrianus.eis-to-peri-ideon": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3199,
+   "n_tokens_checked": 1852,
+   "n_unattested": 148,
+   "source": "ocr",
+   "unattested_rate": 0.079914,
+   "witness": null
+  },
   "tatianus.fragmenta": {
    "edition": "cgpg",
    "n_tokens": 290,
@@ -13651,6 +13732,7 @@
   "theodoretus.epistulae-collectio-sirmondiana-epistulae-1-95",
   "joannes-chrysostomus.in-epistulam-i-ad-timotheum-homiliae-1-18",
   "joannes-chrysostomus.in-psalmum-145",
+  "anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon",
   "joannes-damascenus.epistula-de-hymno-trisagio",
   "cyrillus-theology.de-sancta-trinitate-sp",
   "gregorius-nyssenus.adversus-macedonianos-de-spiritu-sancto",
@@ -13833,16 +13915,18 @@
   "basilius-theology.prologus-8-de-fide",
   "anaximander.testimonia",
   "basilius-i-macedo.paraenesis-ad-leonem-filium",
-  "ocr.walz_rhetores_v7pt1",
   "athanasius-theology.de-sancta-trinitate-dialogi-1-3-5-sp",
   "leucippus.testimonia",
   "joannes-damascenus.commentarii-in-epistulas-pauli-dub",
+  "anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis",
   "demetrius-poet-phil.demetrius-de-eloc-roberts",
   "gregorius-nyssenus.de-anima-sp",
   "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
+  "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i",
   "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
   "melissus.testimonia",
   "joannes-damascenus.adversus-iconoclastas-sp",
+  "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
   "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
   "gregorius-nyssenus.testimonia-adversus-judaeos-sp",
   "joannes-damascenus.passio-sancti-artemii-dub",
@@ -13850,6 +13934,7 @@
   "gregorius-nyssenus.in-illud-tunc-et-ipse-filius",
   "cyrillus-theology.oratio-ad-arcadiam-et-marinam-augustas-de-fide",
   "diphilus-comedy.fragmenta",
+  "syrianus.eis-to-peri-ideon",
   "diogenes-apolloniates.testimonia",
   "michael-psellus.quaestionum-naturalium-solutiones-sp",
   "leo-vi-sapiens.tactica",
@@ -13881,6 +13966,7 @@
   "gregorius-nyssenus.ad-graecos-ex-communibus-notionibus",
   "symeon-thessalonicensis.de-sacra-liturgia",
   "serenus.de-sectione-cylindri",
+  "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii",
   "theophylactus-achridensis.expositio-in-epistolam-i-petri",
   "symeon-thessalonicensis.de-poenitentia",
   "leo-vi-sapiens.orationes",

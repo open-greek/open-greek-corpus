@@ -1,0 +1,136 @@
+{
+ "what": "Curated per-volume carve plan for splitting the Walz Rhetores Graeci volume dumps (ocr.walz_rhetores_*) into per-treatise corpus files; consumed by scripts/carve_walz_volume.py",
+ "date": "2026-08-05",
+ "issue": "open-greek/open-greek-corpus#10",
+ "boundary_form": "Each work carries a START locus only, in the volume's own served loci. The script assigns every row from one start up to the next, so the partition is exact by construction and no gap or overlap is expressible. That matters most for the longest work: in v7pt1 item IX is 86% of the volume, and a range with an explicit end would let a one-page slip there mis-file more text than every other boundary combined.",
+ "locus_policy": "Target loci key to the PRINTED Walz page (issue #15), derived arithmetically as scan - offset, and keep the source row ordinal: printed 34 row 9 becomes 34.9. The ordinal is not renumbered per work, because two works share printed page 34 and renumbering would put both at 34.1 and stop the ordinal meaning a line on the page. pages_pg.json is deliberately NOT consulted per page: it misreads roughly 14 folios in this volume.",
+ "tlg_policy": "A tlg id is asserted only where the vendored canon carries a record keyed to this edition (\"Rhetores Graeci, vol. 7.1\"). Four of the nine rest on title plus word-count proximity in Rabe, which is not evidence, so they ship with tlg null rather than a guess that would read as a fact in tlg_crosswalk.json.",
+ "rank_policy": "A treatise this corpus already serves as primary from a better edition becomes a secondary witness (issue #14). Nothing in v7pt1 is so served, so every work here is primary and the carve moves no tokens out of the published primary figure.",
+ "lemma_policy": "A commentary that quotes its base text inline as lemmata is one work, not a work plus a citation of another. Item IX quotes Hermogenes peri staseon, which is served separately; those lemmata count toward item IX's own tokens.",
+ "volumes": [
+  {
+   "volume": "v7pt1",
+   "urn": "ocr.walz_rhetores_v7pt1",
+   "edition_title": "Rhetores Graeci, vol. VII pars I, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1834)",
+   "printed_to_scan_offset": 12,
+   "offset_note": "printed = scan - 12, a single constant across all 696 body pages, with no gap, no duplicated leaf and no missing leaf. Verified endpoint to endpoint.",
+   "basis": "ARGUMENTUM at scan 0011 lists items I-IX with printed page ranges; every boundary below was additionally confirmed against the display title standing at that exact row, and five of the nine ranges are reproduced in data/inventory/work_inventory.json as coming from Rhetores Graeci vol. 7.1.",
+   "front_matter_before": "walz_rhetores_v7pt1_0013.1",
+   "front_matter_note": "scan 0008-0012: a manuscript index, the Greek phrases quoted in Walz's Latin praefatio, and the ARGUMENTUM itself. Editorial apparatus, not a work; stays in the residual.",
+   "trailing_residual_from": "walz_rhetores_v7pt1_0708.4",
+   "trailing_residual_note": "Addenda et Corrigenda, six rows of the form 'p. 355. v. 24.' They fall on the last page of item IX and would otherwise be carved into it.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i",
+     "title": "Prolegomena ton staseon (Walz VII.1 I)",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "1-34a",
+     "start": "walz_rhetores_v7pt1_0013.1",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕΝΑ",
+     "evidence": "ARGUMENTUM 'I. Προλεγόμενα τῶν στάσεων - - - 1-34'. Display title ΠΡΟΛΕΓΟΜΕΝΑ / ΤΩΝ ΣΤΑΣΕΩΝ at 0013.1-.2, the first body page after the ARGUMENTUM.",
+     "tlg_note": "Rabe's Prolegomenon sylloge has candidates of this title but none the canon keys to Walz 7.1; shipped unmapped."
+    },
+    {
+     "n": "II",
+     "slug": "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii",
+     "title": "Prolegomena ton staseon (Walz VII.1 II)",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "34b-49a",
+     "start": "walz_rhetores_v7pt1_0046.9",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕΝΑ ΤΩΝ ΣΤΑΣΕΩΝ",
+     "evidence": "ARGUMENTUM 'II. Προλεγόμενα τῶν στάσεων - - - 34-49'. Starts MID-PAGE: 0046.8 ends item I's prose, 0046.9 is the display title. Same title as item I, hence the Walz numeral in the slug.",
+     "tlg_note": "unmapped, as I."
+    },
+    {
+     "n": "III",
+     "slug": "anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon",
+     "title": "Hetera prolegomena ton staseon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "49b-51",
+     "start": "walz_rhetores_v7pt1_0061.3",
+     "incipit_check": "ΕΤΕΡΑ ΠΡΟΛΕΓΟΜΕΝΑ ΤΩΝ ΣΤΑΣΕΩΝ",
+     "evidence": "ARGUMENTUM 'III. Ἕτερα προλεγόμενα τῶν στάσεων - - 49-51'. Starts MID-PAGE at 0061.3; 0061.2 ends item II.",
+     "tlg_note": "unmapped."
+    },
+    {
+     "n": "IV",
+     "slug": "anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon",
+     "title": "Prolegomena ton eureseon",
+     "author_display": "Anonymus",
+     "tlg": "tlg0598.008",
+     "printed_pages": "52-54",
+     "start": "walz_rhetores_v7pt1_0064.1",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕΝΑ",
+     "evidence": "ARGUMENTUM 'IV. Προλεγόμενα τῶν εὑρέσεων - - - 52-54'. Display title ΠΡΟΛΕΓΟΜΕΝΑ / ΤΩΝ ΕΥΡΕΣΕΩΝ at 0064.1-.2. The canon keys tlg0598.008 to Walz 7.1 52-54."
+    },
+    {
+     "n": "V",
+     "slug": "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
+     "title": "Eis to peri eureseos Hermogenous epistasis anepigraphos",
+     "author_display": "Anonymus",
+     "tlg": "tlg5024.017",
+     "printed_pages": "55-74a",
+     "start": "walz_rhetores_v7pt1_0067.1",
+     "incipit_check": "ΕΙΣ ΤΟ ΠΕΡΙ ΕΥΡΕΣΕΩΣ ΕΡΜΟΓΕΝΟΥΣ",
+     "evidence": "ARGUMENTUM 'V. Εἰς τὸ περὶ εὑρέσεων Ἑρμογένους ἐπίτασις ἀνεπίγραφος - 55-74'. The title stands at 0067.2; 0067.1 is the page's running head ΤΩΝ ΕΥΡΕΣΕΩΝ and belongs to this page, so the work starts at .1. Canon keys tlg5024.017 to Walz 7.1 55-74.",
+     "title_note": "The OCR reads ΕΠΙΤΑΣΙΣ; the word is almost certainly ΕΠΙΣΤΑΣΙΣ. Verify against the page image before this title is published anywhere.",
+     "incipit_locus": "walz_rhetores_v7pt1_0067.2",
+     "incipit_note": "the anchor is checked one row below the start: this page opens with the running head ΤΩΝ ΕΥΡΕΣΕΩΝ and the display title stands at .2. The work still starts at .1, because the running head is part of its page."
+    },
+    {
+     "n": "VI",
+     "slug": "anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis",
+     "title": "Semeiodes eis tas eureseis",
+     "author_display": "Anonymus",
+     "tlg": "tlg0598.009",
+     "printed_pages": "74b-76",
+     "start": "walz_rhetores_v7pt1_0086.3",
+     "incipit_check": "ΕΙΣ ΤΑΣ ΕΥΡΕΣΕΙΣ",
+     "evidence": "ARGUMENTUM 'VI. Σημειῶδες εἰς τὰς εὑρέσεις - - - 74-76'. Starts MID-PAGE at 0086.3; 0086.2 ends item V. Canon keys tlg0598.009 to Walz 7.1 74-76.",
+     "title_note": "The OCR reads ΣΗΜΕΙΩΛΕΣ for ΣΗΜΕΙΩΔΕΣ; the incipit check is anchored on the unambiguous half of the line."
+    },
+    {
+     "n": "VII",
+     "slug": "anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon",
+     "title": "Kephalaia tou a' bibliou ton ideon",
+     "author_display": "Anonymus",
+     "tlg": "tlg0598.010",
+     "printed_pages": "77-89",
+     "start": "walz_rhetores_v7pt1_0089.1",
+     "incipit_check": "ΠΕΡΙ ΙΔΕΩΝ",
+     "evidence": "ARGUMENTUM 'VII. Κεφάλαια τοῦ α βιβλίου τῶν ἰδεῶν - 77-89'. Title over two rows at 0089.1-.2. Canon keys tlg0598.010 to Walz 7.1 77-89.",
+     "title_note": "0089.1 is OCR'd with Latin homoglyph capitals (ANΩNΥMOY EIS TO), so the incipit check anchors on ΠΕΡΙ ΙΔΕΩΝ, which is unambiguous Greek."
+    },
+    {
+     "n": "VIII",
+     "slug": "syrianus.eis-to-peri-ideon",
+     "title": "Eis to peri ideon",
+     "author_display": "Syrianus",
+     "tlg": null,
+     "printed_pages": "90-103",
+     "start": "walz_rhetores_v7pt1_0102.1",
+     "incipit_check": "ΣΥΡΙΑΝΟΥ",
+     "evidence": "ARGUMENTUM 'VIII. Συριανοῦ εἰς τὸ περὶ ἰδεῶν - - - 90-103'. Display title ΣΥΡΙΑΝΟΥ / ΕΙΣ ΤΟ ΠΕΡΙ ΙΔΕΩΝ at 0102.1-.2.",
+     "tlg_note": "tlg4017.003 [Sp.] is plausible on title but the canon does not key it to Walz 7.1, and the piece is far too short for tlg4017.002. Shipped unmapped."
+    },
+    {
+     "n": "IX",
+     "slug": "anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis",
+     "title": "Anonymou scholia eis tas Hermogenous staseis",
+     "author_display": "Anonymus",
+     "tlg": "tlg5024.018",
+     "printed_pages": "104-696",
+     "start": "walz_rhetores_v7pt1_0116.1",
+     "incipit_check": "ΠΕΡΙ ΤΩΝ ΣΤΑΣΕΩΝ",
+     "evidence": "ARGUMENTUM 'IX. Ἀνωνύμου σχόλια εἰς τὰς Ἑρμογένους στάσεις - 104-696'. Title ΤΕΧΝΗΣ ΡΗΤΟΡΙΚΗΣ ΠΕΡΙ ΤΩΝ ΣΤΑΣΕΩΝ at 0116.1, and 0115.2 ends item VIII. Runs to 0708.3, ending Τέλος τῶν στάσεων. Canon keys tlg5024.018 to Walz 7.1 104-696.",
+     "size_note": "86% of the volume. Its end is the trailing residual boundary rather than a range endpoint, so no arithmetic can put it in the wrong place.",
+     "internal_attributions": "Chapters attributed to Georgius Diaeretes appear inside it at printed 655, 676 and 690. Recorded here as internal attributions; the work is not wholly anonymous and must not be described as such."
+    }
+   ]
+  }
+ ]
+}
