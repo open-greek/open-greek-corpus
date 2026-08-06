@@ -29,6 +29,8 @@ must produce the same bytes.
   python3 scripts/build_corpus_catalog.py          # first: the per-work table
   python3 scripts/build_corpus_release.py          # then: the release identity
   python3 scripts/build_corpus_release.py --date 2026-08-04 --sync-citation
+  python3 scripts/build_corpus_release.py --check   # before tagging: does the
+                                                   # stored record still describe the corpus?
 """
 
 from __future__ import annotations
@@ -347,6 +349,10 @@ def main() -> None:
                          "CITATION.cff")
     ap.add_argument("--print", dest="print_only", action="store_true",
                     help="print the release to stdout, write nothing")
+    ap.add_argument("--check", action="store_true",
+                    help="compare the stored release against the corpus as it "
+                         "is now and exit non-zero if it no longer describes "
+                         "it; writes nothing")
     args = ap.parse_args()
 
     rows = read_catalog(args.catalog)
@@ -385,6 +391,42 @@ def main() -> None:
     if args.print_only:
         print(text, end="")
         return
+
+    if args.check:
+        # For use BEFORE cutting a tag, and deliberately not part of `make`.
+        # Drift here is the normal state between releases: the record describes
+        # the last one and the corpus moves on, so a build that failed on it
+        # would be red permanently and teach everyone to ignore it. What it
+        # answers is the release-time question, whether the stored record still
+        # describes the corpus you are about to tag. It does not regenerate,
+        # because minting a release id is a decision, not a build step.
+        if not args.out.exists():
+            print(f"no {shown(args.out)}; nothing to check", file=sys.stderr)
+            raise SystemExit(0)
+        stored = json.loads(args.out.read_text(encoding="utf-8"))
+        drift = []
+        for path in (("pin", "corpus_sha256"), ("corpus", "tokens"),
+                     ("corpus", "works")):
+            was, now = stored, release
+            for k in path:
+                was = (was or {}).get(k)
+                now = (now or {}).get(k)
+            if was != now:
+                drift.append(f"{'.'.join(path)}: record {was}, corpus now {now}")
+        if drift:
+            print(f"{shown(args.out)} no longer describes the served corpus:",
+                  file=sys.stderr)
+            for d in drift:
+                print(f"    {d}", file=sys.stderr)
+            print(f"  It describes release {stored.get('release_id')}. If you "
+                  f"are about to cut a tag, rerun without --check and with the "
+                  f"date you mean, so the record describes what you are "
+                  f"tagging. Between releases this is expected.",
+                  file=sys.stderr)
+            raise SystemExit(1)
+        print(f"{shown(args.out)} still describes the served corpus "
+              f"({stored.get('release_id')})")
+        raise SystemExit(0)
 
     args.out.write_text(text, encoding="utf-8")
     if args.sync_citation:
