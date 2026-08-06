@@ -130,7 +130,166 @@
      "size_note": "86% of the volume. Its end is the trailing residual boundary rather than a range endpoint, so no arithmetic can put it in the wrong place.",
      "internal_attributions": "Chapters attributed to Georgius Diaeretes appear inside it at printed 655, 676 and 690. Recorded here as internal attributions; the work is not wholly anonymous and must not be described as such."
     }
-   ]
+   ],
+   "shared_pages": [
+    "34",
+    "49",
+    "74"
+   ],
+   "shared_pages_note": "Printed pages a mid-page boundary makes two works share. Declared rather than inferred: an undeclared page produced twice is how a wrong offset zone shows up, so the check has to fail on anything not listed here."
+  },
+  {
+   "volume": "v6",
+   "urn": "ocr.walz_rhetores_v6",
+   "edition_title": "Rhetores Graeci, vol. VI, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1834)",
+   "offset_zones": [
+    {
+     "scans": [
+      7,
+      585
+     ],
+     "offset": 20,
+     "note": "printed 1-565; front matter above printed 1 is residual"
+    },
+    {
+     "scans": [
+      588,
+      601
+     ],
+     "offset": 22,
+     "note": "printed 566-579. Two higher than the rest of the volume because scans 586-587 are a second image of printed 564-565 and are dropped."
+    },
+    {
+     "scans": [
+      602,
+      664
+     ],
+     "offset": 20,
+     "note": "printed 582-644. Back to -20 because printed 580-581 were never scanned, and that gap cancels the duplicate leaf above."
+    }
+   ],
+   "offset_note": "Three zones, not one. The duplicate leaf (+2) and the missing leaf (-2) cancel, so the offset is -20 at both ends of the volume and a carve that validates only its endpoints numbers the fourteen pages between them two too high. Verified by text continuity rather than by folio numbers, which the OCR reads on only 22 pages and none of them in the seam: scan 0585 ends 'σχη-' and scan 0588 opens 'μέτων', completing σχημάτων across the drop, while scan 0601 to 0602 genuinely breaks, which is the missing printed 580-581.",
+   "drop_scans": [
+    586,
+    587
+   ],
+   "drop_note": "Scans 586-587 are a second image of printed 564-565: difflib similarity 0.993 and 1.000 against scans 584-585, where a genuinely adjacent pair scores 0.168. Archived verbatim in the audit.",
+   "basis": "ARGUMENTUM VOLUMINIS SEXTI at scan 0007 lists seven numbered treatises with printed pages; every start below was confirmed against the display title standing at that row. Two units the argumentum does not number separately are carved on their own evidence, and one argumentum figure is wrong (see item 8).",
+   "front_matter_before": "walz_rhetores_v6_0021.1",
+   "front_matter_note": "scans 0007-0020: title page, the ARGUMENTUM itself, and Walz's Latin praefatio with its collation table. Editorial apparatus, not a work.",
+   "works": [
+    {
+     "n": "1",
+     "slug": "joannes-doxopatres.prolegomena-tes-rhetorikes",
+     "title": "Prolegomena tes rhetorikes",
+     "author_display": "Joannes Doxopatres (Walz's conjecture)",
+     "tlg": null,
+     "printed_pages": "1-30a",
+     "start": "walz_rhetores_v6_0021.1",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕ",
+     "evidence": "ARGUMENTUM 'I. Δοξοπάτρου προλεγόμενα τῆς ῥητορικῆς 1.' Display title at 0021.1-.2 (OCR reads ΑΟΞΟΠΑΤΡΟΥ for ΔΟΞΟΠΑΤΡΟΥ, ΠΡΟΛΕΓΟΜΕΜΑ for ΠΡΟΛΕΓΟΜΕΝΑ).",
+     "tlg_note": "The ascription is Walz's own conjecture and he says so in a footnote on printed 4: 'Titulus hic nullius codicis auctoritate nititur.' The slug keeps the traditional attribution because that is how the text is cited, but no tlg id is asserted.",
+     "incipit_locus": "walz_rhetores_v6_0021.2",
+     "incipit_note": "the title runs over two rows and the anchor is on the second: 0021.1 is 'I ΑΟΞΟΠΑΤΡΟΥ', whose first letter the OCR reads as Latin A for Δ, so the author name is not a safe anchor."
+    },
+    {
+     "n": "2",
+     "slug": "anonymi-in-artem-rhetoricam.excerpta-de-arte-rhetorica",
+     "title": "Excerpta de arte rhetorica",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "30b-32",
+     "start": "walz_rhetores_v6_0050.2",
+     "incipit_check": "ορος",
+     "evidence": "Starts MID-PAGE at 0050.2 with 'Ὅρος τοῦ ἁπλῶς προγυμνάσματος', a definition list, where 0050.1 ends the previous prolegomena at 'οὐδὲν ἀγνοήσαντα'. The argumentum does not number it and there is no display title or running-head change, so this is the weakest boundary in the volume; it rests on the change of genre from continuous prolegomena to an excerpt series.",
+     "confidence_note": "weakest boundary here; recorded as such rather than presented as confirmed"
+    },
+    {
+     "n": "3",
+     "slug": "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes",
+     "title": "Prolegomena tes rhetorikes (anonymi)",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "33-41",
+     "start": "walz_rhetores_v6_0053.1",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕΝΑ ΤΗΣ ΡΗΤΟΡΙΚΗΣ",
+     "evidence": "ARGUMENTUM 'II. Ἀνωνύμου προλεγόμενα τῆς ῥητορικῆς. 33.' Display title at 0053.1."
+    },
+    {
+     "n": "4",
+     "slug": "troilus-sophista.prolegomena-tes-rhetorikes-hermogenous",
+     "title": "Prolegomena tes rhetorikes Hermogenous",
+     "author_display": "Troilus Sophista",
+     "tlg": null,
+     "printed_pages": "42-55",
+     "start": "walz_rhetores_v6_0062.1",
+     "incipit_check": "ΤΡΩΙΛΟΥ ΣΟΦΙΣΤΟΥ",
+     "evidence": "ARGUMENTUM 'III. Τρωΐλου σοφιστοῦ προλεγόμενα τῆς ῥητορικῆς. 42.' Display title over three rows at 0062.1-.3."
+    },
+    {
+     "n": "5",
+     "slug": "joannes-siceliota.exegesis-eis-tas-ideas-prolegomena",
+     "title": "Exegesis eis tas ideas tou Hermogenous: prolegomena",
+     "author_display": "Joannes Siceliota",
+     "tlg": null,
+     "printed_pages": "56-79",
+     "start": "walz_rhetores_v6_0076.1",
+     "incipit_check": "ΕΞΗΓΗΣΙΣ",
+     "evidence": "ARGUMENTUM 'IV. Ἰωάννου τοῦ Σικελιώτου ἐξήγησις εἰς τὰς ἰδέας 56.' Display title over three rows at 0076.1-.3."
+    },
+    {
+     "n": "6",
+     "slug": "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous",
+     "title": "Scholia eis tas ideas tou Hermogenous",
+     "author_display": "Joannes Siceliota",
+     "tlg": null,
+     "printed_pages": "80-504",
+     "start": "walz_rhetores_v6_0100.1",
+     "incipit_check": "ειπερ",
+     "evidence": "The prolegomena end and the commentary proper begins at lemma alpha: 0100.2 opens 'ά. Εἴπερ ἄλλο τι τῷ ῥήτορι', and the running head becomes ΣΧΟΛΙΑ ΕΙΣ ΙΔΕΩΝ α. at 0101.1. Book beta (ΠΕΡΙ ΓΟΡΓΟΤΗΤΟΣ) begins at printed 355 and is kept inside this work as its second book.",
+     "incipit_locus": "walz_rhetores_v6_0100.2",
+     "incipit_note": "0100.1 is the page's running head ΙΩΑΝΝΟΥ ΤΟΥ ΣΙΚΕΛ.; the work still starts at the top of its page."
+    },
+    {
+     "n": "7",
+     "slug": "georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous",
+     "title": "Prolegomena kai scholia eis to peri eureseos Hermogenous",
+     "author_display": "Georgius Diaeretes",
+     "tlg": null,
+     "printed_pages": "505-543",
+     "start": "walz_rhetores_v6_0525.1",
+     "incipit_check": "ΓΕΩΡΓΙΟΥ ΤΟΥ ΔΙΑΙΡΕΤΟΥ",
+     "evidence": "ARGUMENTUM 'V. Γεωργίου τοῦ Διαιρέτου...' Display title at 0525.1 carrying the numeral V."
+    },
+    {
+     "n": "8",
+     "slug": "georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes",
+     "title": "Syntome peri tinon meron tes rhetorikes",
+     "author_display": "Georgius Gemistus Pletho",
+     "tlg": null,
+     "printed_pages": "544-598",
+     "start": "walz_rhetores_v6_0564.1",
+     "incipit_check": "ΠΛΗΘΩΝΟΣ",
+     "evidence": "Display title over three rows at 0564.1-.3, and the previous work ends on the facing page. NOTE: the ARGUMENTUM gives 542 as this treatise's start, and that is wrong - printed 542-543 still carry the Georgius Diaeretes running head. Carved from the title page at printed 544, not from the argumentum figure."
+    },
+    {
+     "n": "9",
+     "slug": "matthaeus-camariota.rhetorikes-epitome",
+     "title": "Rhetorikes epitome ek ton tou Hermogenous",
+     "author_display": "Matthaeus Camariota",
+     "tlg": null,
+     "printed_pages": "599-644",
+     "start": "walz_rhetores_v6_0619.1",
+     "incipit_check": "ΜΑΤΘΑΙΟΥ ΤΟΥ ΚΑΜΑΡΙΩΤΟΥ",
+     "evidence": "Display title over three rows at 0619.1-.3; the previous work closes at 0618 with 'Τέλος σὺν θεῷ.' Runs to the last row of the volume.",
+     "incipit_locus": "walz_rhetores_v6_0619.3",
+     "incipit_note": "the title runs over three rows: 0619.1 'ΤΟΥ ΣΟΦΩΤΑΤΟΥ ΚΑΙ ΛΟΓΙΩΤΑΤΟΥ', 0619.2 'ΚΥΡΙΟΥ', 0619.3 the name. The work starts at .1."
+    }
+   ],
+   "shared_pages": [
+    "30"
+   ],
+   "shared_pages_note": "Printed pages a mid-page boundary makes two works share. Declared rather than inferred: an undeclared page produced twice is how a wrong offset zone shows up, so the check has to fail on anything not listed here."
   }
  ]
 }

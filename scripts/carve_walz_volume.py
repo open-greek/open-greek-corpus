@@ -23,7 +23,16 @@ ordinal is NOT renumbered per work. Two works share printed page 34, and
 renumbering would put both of them at 34.1 and stop the ordinal meaning a line
 on the page, which is the whole reason for keying to the printed page. The
 run's pages_pg.json is deliberately not consulted: it misreads roughly fourteen
-folios in this volume, and the arithmetic is exact.
+folios in v7pt1, and the arithmetic is exact.
+
+The offset is a list of zones, because a scanned volume is not always a clean
+arithmetic sequence. v6 has both defects at once: scans 586-587 are a second
+image of printed 564-565, and printed 580-581 were never scanned. Their effects
+cancel, so the offset is -20 at both ends of the volume and -22 for the fourteen
+pages between them, and a carve that checks only its endpoints validates and
+then mis-numbers those fourteen. Dropped scans are archived verbatim in the
+audit; a page number produced twice anywhere in the volume is a hard failure,
+which is the check that would have caught a wrong zone.
 
 Verification is hard-fail and runs before anything is written:
 
@@ -77,6 +86,14 @@ def norm(s: str) -> str:
     return "".join(c for c in d if not unicodedata.combining(c) and c.isalnum())
 
 
+def offset_for(scan: int, zones: list[dict], default: int) -> int | None:
+    for z in zones:
+        lo, hi = z["scans"]
+        if lo <= scan <= hi:
+            return z["offset"]
+    return default
+
+
 def scan_of(locus: str) -> int:
     return int(locus.rsplit("_", 1)[1].split(".")[0])
 
@@ -91,7 +108,9 @@ def carve(vol: dict, apply: bool) -> int:
     rows = [json.loads(l) for l in src.read_text(encoding="utf-8").splitlines() if l.strip()]
     order = [r["locus"] for r in rows]
     index = {loc: i for i, loc in enumerate(order)}
-    offset = vol["printed_to_scan_offset"]
+    zones = vol.get("offset_zones", [])
+    default_offset = vol.get("printed_to_scan_offset")
+    drop_scans = set(vol.get("drop_scans", []))
 
     # The partition, by consecutive starts. Anything before the first work is
     # front matter and anything from the trailing marker on is the tail; both
@@ -106,15 +125,21 @@ def carve(vol: dict, apply: bool) -> int:
         print("  FAIL: the plan's start loci are not in document order")
         return 1
     head = index[vol["front_matter_before"]]
-    tail = index[vol["trailing_residual_from"]]
+    # Optional: v7pt1 ends with Addenda et Corrigenda that would otherwise be
+    # carved into its last work; v6 simply runs out of text, so its last work
+    # ends at the last row.
+    tail = index[vol["trailing_residual_from"]] if vol.get("trailing_residual_from") else len(rows)
 
+    dropped = [r for r in rows if scan_of(r["locus"]) in drop_scans]
     buckets: dict[str, list[dict]] = {}
     for i, w in enumerate(vol["works"]):
         stop = bounds[i + 1] if i + 1 < len(bounds) else tail
-        buckets[w["slug"]] = rows[bounds[i]:stop]
-    residual = rows[:head] + rows[tail:]
+        buckets[w["slug"]] = [r for r in rows[bounds[i]:stop]
+                              if scan_of(r["locus"]) not in drop_scans]
+    residual = [r for r in rows[:head] + rows[tail:]
+                if scan_of(r["locus"]) not in drop_scans]
 
-    assigned = sum(len(v) for v in buckets.values()) + len(residual)
+    assigned = sum(len(v) for v in buckets.values()) + len(residual) + len(dropped)
     if assigned != len(rows):
         print(f"  FAIL: partition covers {assigned} rows of {len(rows)}")
         return 1
@@ -122,8 +147,10 @@ def carve(vol: dict, apply: bool) -> int:
     src_tokens = sum(tokens(r["text"]) for r in rows)
     out_tokens = sum(tokens(r["text"]) for v in buckets.values() for r in v)
     res_tokens = sum(tokens(r["text"]) for r in residual)
-    if out_tokens + res_tokens != src_tokens:
-        print(f"  FAIL: token conservation {out_tokens} + {res_tokens} != {src_tokens}")
+    drop_tokens = sum(tokens(r["text"]) for r in dropped)
+    if out_tokens + res_tokens + drop_tokens != src_tokens:
+        print(f"  FAIL: token conservation {out_tokens} + {res_tokens} + "
+              f"{drop_tokens} != {src_tokens}")
         return 1
 
     # Incipit anchors. Checked on the row the plan names, which is usually the
@@ -142,8 +169,14 @@ def carve(vol: dict, apply: bool) -> int:
                   f"not in {at}: {rows[index[at]]['text'][:70]!r}")
             return 1
 
-    print(f"{urn}: {len(rows):,} rows, {src_tokens:,} tokens "
-          f"(corpus tokenizer), offset -{offset}")
+    zone_desc = (", ".join(f"scans {z['scans'][0]}-{z['scans'][1]} at -{z['offset']}"
+                           for z in zones)
+                 if zones else f"-{default_offset} throughout")
+    print(f"{urn}: {len(rows):,} rows, {src_tokens:,} tokens (corpus tokenizer)")
+    print(f"  offset {zone_desc}")
+    if dropped:
+        print(f"  dropping {len(dropped)} rows on duplicate scans "
+              f"{sorted(drop_scans)} ({drop_tokens:,} tokens), archived in the audit")
     print(f"{'item':>4s} {'printed':>10s} {'rows':>7s} {'tokens':>9s}  slug")
     locus_map: dict[str, str] = {}
     written: list[tuple[str, list[dict]]] = []
@@ -151,7 +184,11 @@ def carve(vol: dict, apply: bool) -> int:
         got = buckets[w["slug"]]
         new_rows, seen = [], set()
         for r in got:
-            new_locus = f"{scan_of(r['locus']) - offset}.{row_of(r['locus'])}"
+            off = offset_for(scan_of(r["locus"]), zones, default_offset)
+            if off is None:
+                print(f"  FAIL: no offset zone covers scan {scan_of(r['locus'])}")
+                return 1
+            new_locus = f"{scan_of(r['locus']) - off}.{row_of(r['locus'])}"
             if new_locus in seen:
                 print(f"  FAIL: duplicate target locus {new_locus} in {w['slug']}")
                 return 1
@@ -166,6 +203,22 @@ def carve(vol: dict, apply: bool) -> int:
         print(f"{w['n']:>4s} {first:>5s}-{last:<9s} {len(got):>6,} {t:>9,}  {w['slug']}")
     print(f"{'':>4s} {'residual':>10s} {len(residual):>7,} {res_tokens:>9,}  "
           f"stays in {urn}")
+
+    # A printed page must not be produced twice anywhere in the volume. This is
+    # the check that catches a wrong offset zone: v6's duplicate leaf and its
+    # missing leaf cancel, so the offset is the same at both ends of the volume
+    # and an endpoint check passes while the fourteen pages between them are
+    # numbered two too high. Here that shows up as printed 564 and 565 existing
+    # twice, which is not a thing a book does.
+    seen_pages: dict[str, str] = {}
+    for slug, new_rows in written:
+        for r in new_rows:
+            page = r["locus"].split(".")[0]
+            owner = seen_pages.setdefault(page, slug)
+            if owner != slug and page not in vol.get("shared_pages", []):
+                print(f"  FAIL: printed page {page} is produced by both "
+                      f"{owner} and {slug}")
+                return 1
 
     if not apply:
         print("\ncheck only; nothing written. Re-run with --apply.")
@@ -186,7 +239,9 @@ def carve(vol: dict, apply: bool) -> int:
         "source_urn": urn,
         "source_sha256_before": old_hash,
         "source_sha256_after": hashlib.sha256(src.read_bytes()).hexdigest(),
-        "printed_to_scan_offset": offset,
+        "offset_zones": zones or [{"scans": None, "offset": default_offset}],
+        "dropped_scans": sorted(drop_scans),
+        "dropped_rows": [{"locus": r["locus"], "text": r["text"]} for r in dropped],
         "rows_before": len(rows),
         "tokens_before": src_tokens,
         "works": [{"n": w["n"], "slug": w["slug"], "title": w["title"],
@@ -196,6 +251,7 @@ def carve(vol: dict, apply: bool) -> int:
                   for w in vol["works"]],
         "residual_rows": len(residual),
         "residual_tokens": res_tokens,
+        "dropped_tokens": drop_tokens,
         "locus_map": locus_map,
         "reverse": "restore by mapping each locus_map value back to its key and "
                    "concatenating the per-work files with the residual in locus order",
