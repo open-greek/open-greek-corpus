@@ -744,7 +744,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | alcmaeon.fragmenta | Alcmaeon - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 190 | raw OCR |
 | alcmaeon.testimonia | Alcmaeon - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,345 | auto-corrected |
 | alcman.fragmenta | Alcman - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,854 | auto-corrected |
-| alexander-lyric.fragmenta | Alexander - Fragmenta | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 22,536 | auto-corrected |
+| alexander-lyric.fragmenta | Alexander - Fragmenta | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 21,656 | auto-corrected |
 | alexander-medicine.dedicatio-ad-cosman | Alexander - Dedicatio Ad Cosman | qwen36-alex_trall_puschmann | Qwen3.6-27B | 43,309 | auto-corrected |
 | alexander-numenius.peri-ton-tes-dianoias-schematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,424 | manual |
 | alexander-rhetoric.ek-ton-alexandrou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,345 | raw OCR |
@@ -810,7 +810,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | antisthenes-atheniensis.testimonia | Antisthenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 68 | raw OCR |
 | antisthenes.declamationes-fragmenta | Declamationes (fragmenta) | qwen36-archytas_mullach_fpg2-ocr | Qwen3.6-27B | 8,562 | auto-corrected |
 | antonius-diogenes.hercher |  | qwen36-antonius_diogenes_hercher | Qwen3.6-27B | 114,457 | auto-corrected |
-| aphthonius.progymnasmata | Aphthonius - Progymnasmata | qwen36-aphthonius_progymnasmata | Qwen3.6-27B | 14,834 | auto-corrected |
+| aphthonius.progymnasmata | Aphthonius - Progymnasmata | qwen36-aphthonius_progymnasmata | Qwen3.6-27B | 14,810 | auto-corrected |
 | apollodorus-cyzicenus.testimonia | Apollodorus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 37 | raw OCR |
 | apollodorus-history.fragmenta | Apollodorus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,175 | auto-corrected |
 | apollodorus-philosophy.fragmenta | Apollodorus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 712 | auto-corrected |
@@ -1082,7 +1082,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | cyrillus-theology.contra-julianum-lib-1-2 | Cyrillus - Contra Julianum (Lib. 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,002 | auto-corrected |
 | cyrillus-theology.de-incarnatione-dei-verbi-homilia-diversa-15 | Cyrillus - De Incarnatione Dei Verbi (Homilia Diversa 15) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,122 | raw OCR |
 | cyrillus-theology.de-incarnatione-unigeniti | Cyrillus - De Incarnatione Unigeniti | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,121 | auto-corrected |
-| cyrillus-theology.de-sancta-trinitate-dialogi-ivii | Cyrillus - De Sancta Trinitate Dialogi Ivii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 81,783 | auto-corrected |
+| cyrillus-theology.de-sancta-trinitate-dialogi-ivii | Cyrillus - De Sancta Trinitate Dialogi Ivii | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 81,358 | auto-corrected |
 | cyrillus-theology.de-sancta-trinitate-sp | Cyrillus - De Sancta Trinitate Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 16,997 | auto-corrected |
 | cyrillus-theology.dialogus-cum-nestorio-sp | Cyrillus - Dialogus Cum Nestorio Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,252 | auto-corrected |
 | cyrillus-theology.epistulae-paschales-sive-homiliae-paschales-epist-1-30 | Cyrillus - Epistulae Paschales Sive Homiliae Paschales (Epist. 1-30) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 118,202 | auto-corrected |
@@ -1605,7 +1605,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | joannes-doxopatres.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,607 | manual |
 | joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,656 | manual |
 | joannes-epiphaniensis.fragmentum | Joannes Epiphaniensis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,699 | auto-corrected |
-| joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 200,842 | auto-corrected |
+| joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 199,397 | auto-corrected |
 | joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno | Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,938 | manual |
 | joannes-hierosolymitanus.narratio | Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 555 | auto-corrected |
 | joannes-laurentius-lydus.de-magistratibus-populi-romani | Joannes Laurentius Lydus - De Magistratibus Populi Romani | qwen36-lydus_mensibus_wuensch | Qwen3.6-27B | 44,112 | auto-corrected |
