@@ -6,8 +6,8 @@
     "ingested_via_cgpg_volume": 10,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.36,
-    "pct_ingested_actual": 66.06,
-    "ingested_words_actual": 49527482,
+    "pct_ingested_actual": 66.05,
+    "ingested_words_actual": 49521393,
     "ingested_complete_works": 2897,
     "ingested_partial_works": 117,
     "pct_reachable_not_ingested": 14.28,
@@ -17,9 +17,9 @@
       "actionable": 1165959,
       "structural": 562316
     },
-    "underfilled_50_90_works": 445,
+    "underfilled_50_90_works": 446,
     "underfilled_50_90_missing_words": {
-      "actionable": 1646808,
+      "actionable": 1653785,
       "structural": 179329
     }
   },
@@ -14693,6 +14693,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg5009",
+      "work_id": "001",
+      "author": "Scholia In Aeschinem",
+      "title": "Scholia In Aeschinem (Scholia Vetera)",
+      "word_count": 32536,
+      "ingested_tokens": 25559,
+      "coverage_ratio": 0.786,
+      "source": "ocr",
+      "missing_words": 6977
+    },
+    {
       "tlg_id": "tlg2042",
       "work_id": "017",
       "author": "Origenes",
@@ -19417,8 +19428,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 719,
-    "n_tokens": 9697748,
+    "works": 766,
+    "n_tokens": 9523747,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -19477,22 +19488,6 @@
         "n_tokens": 181577
       },
       {
-        "key": "ocr.walz_rhetores_v2",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 2551,
-        "n_tokens": 171694
-      },
-      {
-        "key": "ocr.walz_rhetores_v7pt1",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 2967,
-        "n_tokens": 167389
-      },
-      {
         "key": "ocr.walz_rhetores_v7pt2",
         "edition": "qwen36-walz_rhetores_v7pt2-masked",
         "source": "ocr",
@@ -19517,36 +19512,12 @@
         "n_tokens": 157587
       },
       {
-        "key": "zonaeus-walz-rg8",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 5763,
-        "n_tokens": 153758
-      },
-      {
-        "key": "ocr.walz_rhetores_v8",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 5856,
-        "n_tokens": 153108
-      },
-      {
         "key": "secundus-mullach-fpg1",
         "edition": "qwen36-secundus_mullach_fpg1",
         "source": "ocr",
         "license": "PD",
         "n_passages": 7683,
         "n_tokens": 151676
-      },
-      {
-        "key": "ocr.walz_rhetores_v3",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 5976,
-        "n_tokens": 151404
       },
       {
         "key": "cogPG.PG112",
@@ -19565,12 +19536,12 @@
         "n_tokens": 146028
       },
       {
-        "key": "ocr.walz_rhetores_v6",
+        "key": "anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 4583,
-        "n_tokens": 144054
+        "n_passages": 2450,
+        "n_tokens": 144422
       },
       {
         "key": "ocr.walz_rhetores_v1",
@@ -19605,6 +19576,14 @@
         "n_tokens": 121593
       },
       {
+        "key": "joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1557,
+        "n_tokens": 121319
+      },
+      {
         "key": "theophylactus-achridensis.enarratio-in-evangelium-joannis",
         "edition": "cgpg",
         "source": "cgpg",
@@ -19635,6 +19614,14 @@
         "license": "PD",
         "n_passages": 18474,
         "n_tokens": 105271
+      },
+      {
+        "key": "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 3160,
+        "n_tokens": 104971
       },
       {
         "key": "timosthenes-ggm1",
@@ -19677,12 +19664,28 @@
         "n_tokens": 97378
       },
       {
+        "key": "sopater-rhetor.diairesis-zetematon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1757,
+        "n_tokens": 89742
+      },
+      {
         "key": "fhg-vol3-mueller-diocles-rhodius",
         "edition": "qwen36-fhg_vol3_mueller_diocles_rhodius",
         "source": "ocr",
         "license": "PD",
         "n_passages": 3730,
         "n_tokens": 88967
+      },
+      {
+        "key": "ocr.walz_rhetores_v3",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2469,
+        "n_tokens": 87703
       },
       {
         "key": "leo-vi-sapiens.tactica",
@@ -20053,6 +20056,14 @@
         "n_tokens": 30114
       },
       {
+        "key": "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 504,
+        "n_tokens": 29705
+      },
+      {
         "key": "athanasius-theology.oratio-ii-contra-arianos",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -20139,6 +20150,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 67,
         "n_tokens": 24011
+      },
+      {
+        "key": "josephus-rhacendyta.synopsis-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 592,
+        "n_tokens": 23914
       },
       {
         "key": "syntipas.tlg3118-tlg001",
@@ -20317,6 +20336,14 @@
         "n_tokens": 15157
       },
       {
+        "key": "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 272,
+        "n_tokens": 15154
+      },
+      {
         "key": "aquila.fragmenta",
         "edition": "qwen36-field-hexapla-greek",
         "source": "ocr",
@@ -20485,6 +20512,14 @@
         "n_tokens": 11156
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 1172,
+        "n_tokens": 11148
+      },
+      {
         "key": "symeon-thessalonicensis.expositio-de-divino-templo",
         "edition": "cgpg",
         "source": "cgpg",
@@ -20499,6 +20534,22 @@
         "license": "CC-BY-4.0",
         "n_passages": 24,
         "n_tokens": 10379
+      },
+      {
+        "key": "alexander-numenius.peri-ton-tes-dianoias-schematon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 485,
+        "n_tokens": 10371
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 685,
+        "n_tokens": 10353
       },
       {
         "key": "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
@@ -20539,6 +20590,14 @@
         "license": "PD",
         "n_passages": 1524,
         "n_tokens": 9864
+      },
+      {
+        "key": "matthaeus-camariota.rhetorikes-epitome",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 405,
+        "n_tokens": 9821
       },
       {
         "key": "euripides.tlg0006-tlg015",
@@ -20651,6 +20710,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 1493,
         "n_tokens": 8390
+      },
+      {
+        "key": "georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 234,
+        "n_tokens": 8336
       },
       {
         "key": "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
@@ -20779,6 +20846,14 @@
         "license": "PD",
         "n_passages": 1059,
         "n_tokens": 7588
+      },
+      {
+        "key": "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 181,
+        "n_tokens": 7510
       },
       {
         "key": "tlg1595.tlg267",
@@ -21053,6 +21128,14 @@
         "n_tokens": 6041
       },
       {
+        "key": "joannes-siceliota.exegesis-eis-tas-ideas-prolegomena",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 141,
+        "n_tokens": 6003
+      },
+      {
         "key": "plutarchus.aetia-graeca-capitum-catalogus",
         "edition": "perseus-grc3",
         "source": "perseus",
@@ -21125,12 +21208,28 @@
         "n_tokens": 5666
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 156,
+        "n_tokens": 5656
+      },
+      {
         "key": "symeon-thessalonicensis.de-ordine-sepulturae",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
         "n_passages": 13,
         "n_tokens": 5642
+      },
+      {
+        "key": "joannes-doxopatres.prolegomena-tes-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 154,
+        "n_tokens": 5575
       },
       {
         "key": "euripides.tlg0006-tlg019",
@@ -21219,6 +21318,14 @@
         "license": "PD",
         "n_passages": 861,
         "n_tokens": 5107
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 107,
+        "n_tokens": 5019
       },
       {
         "key": "theophylactus-achridensis.institutio-regia",
@@ -21365,6 +21472,14 @@
         "n_tokens": 4342
       },
       {
+        "key": "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 89,
+        "n_tokens": 4331
+      },
+      {
         "key": "cogByz.gadarou_lykou_aloupous",
         "edition": "wikisource",
         "source": "byzantine_vernacular",
@@ -21379,6 +21494,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 12,
         "n_tokens": 4278
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 125,
+        "n_tokens": 4262
       },
       {
         "key": "arrianus-nicomedensis.fragmenta",
@@ -21541,6 +21664,22 @@
         "n_tokens": 3631
       },
       {
+        "key": "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 165,
+        "n_tokens": 3569
+      },
+      {
+        "key": "michael-psellus.peri-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 517,
+        "n_tokens": 3564
+      },
+      {
         "key": "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem",
         "edition": "cgpg",
         "source": "cgpg",
@@ -21563,6 +21702,22 @@
         "license": "CC-BY-4.0",
         "n_passages": 10,
         "n_tokens": 3481
+      },
+      {
+        "key": "joannes-tzetzes.epitome-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 397,
+        "n_tokens": 3450
+      },
+      {
+        "key": "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 38,
+        "n_tokens": 3365
       },
       {
         "key": "severian-of-gabala.encomium-in-sanctos-martyres",
@@ -21597,6 +21752,14 @@
         "n_tokens": 3323
       },
       {
+        "key": "zonaeus.peri-schematon-ton-kata-logon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 155,
+        "n_tokens": 3286
+      },
+      {
         "key": "severian-of-gabala.in-ascensionem-domini",
         "edition": "pta-grc1",
         "source": "pta",
@@ -21613,12 +21776,36 @@
         "n_tokens": 3238
       },
       {
+        "key": "troilus-sophista.prolegomena-tes-rhetorikes-hermogenous",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 43,
+        "n_tokens": 3227
+      },
+      {
         "key": "berosus-chaldaeus.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 25,
         "n_tokens": 3183
+      },
+      {
+        "key": "syrianus.eis-to-peri-ideon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 42,
+        "n_tokens": 3182
+      },
+      {
+        "key": "georgius-choeroboscus.peri-tropon-poietikon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 178,
+        "n_tokens": 3159
       },
       {
         "key": "euhemerus.fragmenta",
@@ -21693,12 +21880,28 @@
         "n_tokens": 2869
       },
       {
+        "key": "georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 171,
+        "n_tokens": 2864
+      },
+      {
         "key": "aristodemus.fragmenta-fhg5",
         "edition": "dfhg",
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 19,
         "n_tokens": 2850
+      },
+      {
+        "key": "ocr.walz_rhetores_v2",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 110,
+        "n_tokens": 2847
       },
       {
         "key": "severian-of-gabala.in-illud-in-principium-erat-verbum",
@@ -21717,12 +21920,36 @@
         "n_tokens": 2785
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 200,
+        "n_tokens": 2783
+      },
+      {
+        "key": "anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 83,
+        "n_tokens": 2715
+      },
+      {
         "key": "phanias-eresius.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 42,
         "n_tokens": 2684
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 108,
+        "n_tokens": 2669
       },
       {
         "key": "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
@@ -21781,12 +22008,28 @@
         "n_tokens": 2522
       },
       {
+        "key": "cocondrius.peri-tropon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 275,
+        "n_tokens": 2478
+      },
+      {
         "key": "severian-of-gabala.in-postremum-iudicium",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-4.0",
         "n_passages": 15,
         "n_tokens": 2478
+      },
+      {
+        "key": "castor-rhetor.peri-metron-rhetorikon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 153,
+        "n_tokens": 2419
       },
       {
         "key": "anthemius.dupuy-1777",
@@ -21811,6 +22054,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 15,
         "n_tokens": 2383
+      },
+      {
+        "key": "cyrus-rhetor.peri-diaphoras-staseos",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 112,
+        "n_tokens": 2352
       },
       {
         "key": "severian-of-gabala.homilia-de-pace",
@@ -21877,6 +22128,14 @@
         "n_tokens": 2150
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 90,
+        "n_tokens": 2149
+      },
+      {
         "key": "symeon-thessalonicensis.de-matrimonio",
         "edition": "cgpg",
         "source": "cgpg",
@@ -21885,12 +22144,28 @@
         "n_tokens": 2048
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 137,
+        "n_tokens": 2042
+      },
+      {
         "key": "severian-of-gabala.in-meretricem-et-pharisaeum",
         "edition": "pta-grc1",
         "source": "pta",
         "license": "CC-BY-SA-4.0",
         "n_passages": 2,
         "n_tokens": 2012
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 47,
+        "n_tokens": 1957
       },
       {
         "key": "hippocrates-et-corpus-hippocraticum.de-genitura",
@@ -22285,6 +22560,14 @@
         "n_tokens": 1280
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.peri-schematon-hon-hermogenes-emnemoneusen",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 123,
+        "n_tokens": 1276
+      },
+      {
         "key": "anonymi.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -22429,6 +22712,14 @@
         "n_tokens": 929
       },
       {
+        "key": "ocr.walz_rhetores_v6",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 201,
+        "n_tokens": 915
+      },
+      {
         "key": "menander.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -22467,6 +22758,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 3,
         "n_tokens": 867
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 49,
+        "n_tokens": 857
       },
       {
         "key": "carmina-delphis-inventa.carmina-delphis-inventa",
@@ -22557,6 +22856,14 @@
         "n_tokens": 757
       },
       {
+        "key": "polybius-sardianus.peri-schematismou",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 121,
+        "n_tokens": 755
+      },
+      {
         "key": "michael-psellus.de-legum-nominibus",
         "edition": "cgpg",
         "source": "cgpg",
@@ -22605,6 +22912,22 @@
         "n_tokens": 706
       },
       {
+        "key": "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 14,
+        "n_tokens": 703
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.synopseis-rhetorikes",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 38,
+        "n_tokens": 698
+      },
+      {
         "key": "aristocles.fragmenta",
         "edition": "qwen36-nicostratus_fhg4",
         "source": "ocr",
@@ -22651,6 +22974,22 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 11,
         "n_tokens": 605
+      },
+      {
+        "key": "anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 5,
+        "n_tokens": 600
+      },
+      {
+        "key": "anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 10,
+        "n_tokens": 595
       },
       {
         "key": "ocr.pg031",
@@ -22789,6 +23128,14 @@
         "n_tokens": 515
       },
       {
+        "key": "anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 25,
+        "n_tokens": 514
+      },
+      {
         "key": "callias-syracusanus.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -22867,6 +23214,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 7,
         "n_tokens": 413
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 34,
+        "n_tokens": 412
       },
       {
         "key": "harmodius.fragmenta",
@@ -23003,6 +23358,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 2,
         "n_tokens": 340
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.excerpta-de-arte-rhetorica",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 20,
+        "n_tokens": 335
       },
       {
         "key": "anonymus-pseudo-john-chrysostom.in-paralyticum-pta",
@@ -23549,6 +23912,14 @@
         "n_tokens": 157
       },
       {
+        "key": "ocr.walz_rhetores_v7pt1",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 44,
+        "n_tokens": 155
+      },
+      {
         "key": "philippus-theangelensis.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -23611,6 +23982,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 4,
         "n_tokens": 142
+      },
+      {
+        "key": "anonymi-in-artem-rhetoricam.peri-synekdoches",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 6,
+        "n_tokens": 140
       },
       {
         "key": "nicias-nicaeensis.fragmenta",
@@ -24306,6 +24685,14 @@
         "source": "dfhg",
         "license": "CC-BY-SA-4.0",
         "n_passages": 1,
+        "n_tokens": 59
+      },
+      {
+        "key": "ocr.walz_rhetores_v8",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 22,
         "n_tokens": 59
       },
       {

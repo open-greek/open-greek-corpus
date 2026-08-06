@@ -1,12 +1,12 @@
 {
  "corpus": {
-  "passages": 2108580,
-  "tokens": 66664829,
-  "tokens_lemmatized": 64944454,
-  "works": 3822
+  "passages": 2100850,
+  "tokens": 66484118,
+  "tokens_lemmatized": 64766996,
+  "works": 3869
  },
  "generated_from": {
-  "commit": "1ecdbc9ed8b6c1dad2eca4400c4fbfc0cea9f0cf",
+  "commit": "ae5d0b1c3c0a1e0b3f1713155390f9219eca7d1d",
   "commit_date": "2026-08-05",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -21,8 +21,8 @@
    "works": 2420
   },
   "PD": {
-   "tokens": 27493012,
-   "works": 1167
+   "tokens": 27312301,
+   "works": 1214
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
    "tokens": 7519,
@@ -59,39 +59,39 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3822,
-  "catalog_sha256": "86fa9cb096dbe31d21a7af65b002a3060fec712485e04bf18d15f68ab097efdc",
-  "corpus_sha256": "1e5d602ee970b712251826140f604b97edcb1faa35c8ef13582add326b7e9dd0",
+  "catalog_rows": 3869,
+  "catalog_sha256": "c3359112296f7ae3accfc59927369c598013086b2a58822306be7a2063274b97",
+  "corpus_sha256": "55f190e0ac844dfe14ddc85cd239c668e1891096b27a0bd1fd40ab4e76e01d02",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 19097126,
-    "works": 834
+    "tokens": 19011102,
+    "works": 855
    },
    "manual": {
-    "tokens": 8728724,
-    "works": 163
+    "tokens": 8629436,
+    "works": 185
    },
    "not-ocr": {
     "tokens": 36124268,
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 2714711,
-    "works": 329
+    "tokens": 2719312,
+    "works": 333
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.4581,
-   "ocr_tokens": 30540561,
-   "ocr_works": 1326,
-   "raw_share_of_corpus_tokens": 0.0407,
-   "raw_share_of_ocr_tokens": 0.0889,
-   "raw_tokens": 2714711,
-   "raw_works": 329,
+   "ocr_share_of_corpus_tokens": 0.4566,
+   "ocr_tokens": 30359850,
+   "ocr_works": 1373,
+   "raw_share_of_corpus_tokens": 0.0409,
+   "raw_share_of_ocr_tokens": 0.0896,
+   "raw_tokens": 2719312,
+   "raw_works": 333,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
@@ -141,8 +141,8 @@
    "wrong_rows_estimate": 40000
   }
  },
- "release_date": "2026-08-05",
- "release_id": "corpus-2026-08-05.1",
+ "release_date": "2026-08-06",
+ "release_id": "corpus-2026-08-06",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -173,8 +173,8 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25844084,
-   "works": 1148
+   "tokens": 25663373,
+   "works": 1195
   },
   "perseus": {
    "tokens": 9696027,
