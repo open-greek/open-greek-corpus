@@ -105,11 +105,25 @@ _BETA_HASH = re.compile(r"#\d+")
 _TITLE_WORD = re.compile(r"[^\W\d_][\w'’]*", re.UNICODE)
 
 
+# A Roman numeral is not a word and must not be Title-Cased into one: the Canon
+# numbers recensions and books that way, so `(typus II)` has to stay `II` and not
+# become `Ii`. Only an already-uppercase run of numeral letters qualifies, which
+# keeps ordinary words out - `Mix` and `Did` are lowercase or mixed in a title,
+# never all-caps - and the length cap keeps a shouted Latin word out too.
+_ROMAN = re.compile(r"^M{0,3}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})"
+                    r"(?:IX|IV|V?I{0,3})$")
+
+
 def _titlecase(s: str) -> str:
     """Capitalize each word's first letter, lowercasing the rest, without
-    breaking on an apostrophe (so a name keeps its interior structure)."""
-    return _TITLE_WORD.sub(
-        lambda m: m.group(0)[:1].upper() + m.group(0)[1:].lower(), s)
+    breaking on an apostrophe (so a name keeps its interior structure).
+    An uppercase Roman numeral is left exactly as it is."""
+    def one(m: re.Match) -> str:
+        w = m.group(0)
+        if len(w) <= 5 and w.isupper() and _ROMAN.match(w):
+            return w
+        return w[:1].upper() + w[1:].lower()
+    return _TITLE_WORD.sub(one, s)
 
 
 def clean_name(raw: str) -> str:
@@ -276,16 +290,40 @@ def decode_betacode_title(raw: str) -> str | None:
     # ` between two alphanumerics is a range dash, as in clean_name.
     s = re.sub(r"[\[\]{}]2|[{}]|#\d+|%\d*", "", raw)
     s = re.sub(r"(?<=\w)`(?=\w)", "-", s).replace("`", "")
-    toks, changed = [], False
+    toks, changed, depth = [], False, 0
     for tok in s.split(" "):
+        # Peel the LITERAL parentheses before deciding anything about the token.
+        # A `)` that closes a parenthesis opened earlier in the title is
+        # punctuation, and only a `)` at depth 0 can be a smooth breathing. Both
+        # halves of that matter: depth is what saves `(recensio A)`, which the
+        # breathing rule alone turned into `(Recensio ἀ`, and depth 0 is what
+        # keeps εἰ in `*EI) QE/LEIS`. The breathing rule is still needed under
+        # it, because `B)` and `HILPQ)` sit at depth 0 too and are not Greek.
+        lead = ""
+        while tok.startswith("(") and re.match(r"\(+[*A-Za-z]", tok):
+            lead += "("
+            depth += 1
+            tok = tok[1:]
+        trail = ""
+        while depth > 0 and tok.endswith(")"):
+            trail = ")" + trail
+            depth -= 1
+            tok = tok[:-1]
+        if lead or trail:
+            changed = True
+        if not tok:
+            toks.append(lead + trail)
+            continue
         if "_" in tok:                       # beta-code range: `*A_*O`, `word_word`
-            toks.append(_decode_beta_range(tok))
+            toks.append(lead + _decode_beta_range(tok) + trail)
             changed = True
         elif _is_beta_token(tok):
-            toks.append(_betacode_conv.beta_to_uni(_restore_capital_marker(tok)))
+            toks.append(lead + _betacode_conv.beta_to_uni(_restore_capital_marker(tok))
+                        + trail)
             changed = True
         else:
-            toks.append(_titlecase(tok))     # Latin word/note: Title-Case like clean_name
+            # Title-Case like clean_name
+            toks.append(lead + _titlecase(tok) + trail)
     if not changed:
         return None
     out = re.sub(r"\s+", " ", " ".join(toks)).strip()
