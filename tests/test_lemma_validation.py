@@ -561,3 +561,36 @@ def test_the_drop_survives_a_missing_frequency_table(tmp_path, monkeypatch):
     vlm.validate_cache(cache, freq_path=tmp_path / "absent.tsv")
     assert cache == {"καὶ": "καί"}
     assert set(vlm.load_rejected(tmp_path / "rejected.tsv")) == {"α", "ο"}
+
+
+def test_a_positional_capital_folds_into_its_lowercase_twin(bench, monkeypatch):
+    """Πῶς is mid-sentence 9.1% of the time, so the capital is the sentence
+    opening and not the word (issue #19)."""
+    monkeypatch.setattr(vlm, "CAPITAL_FOLDS", {"Πῶς": "πῶς"})
+    cache = {"Πῶς": "Πῶς", "πῶς": "πῶς"}
+    vlm.validate_cache(cache, bench, label="test")
+    assert cache == {"Πῶς": "πῶς", "πῶς": "πῶς"}
+
+
+def test_a_lexical_capital_is_left_alone(bench, monkeypatch):
+    """The measurement keeps Θεός and Λέων out of the folds, and the rule must
+    have no opinion of its own about a lemma that is not in there. Folding
+    Λέων would put the emperor under the lion."""
+    monkeypatch.setattr(vlm, "CAPITAL_FOLDS", {"Πῶς": "πῶς"})
+    cache = {"Θεός": "Θεός", "Λέων": "Λέων"}
+    vlm.validate_cache(cache, bench, label="test")
+    assert cache == {"Θεός": "Θεός", "Λέων": "Λέων"}
+
+
+def test_no_measurement_means_no_folding(tmp_path):
+    """Same degradation as the elision rates and the frequency table: with
+    nothing measured the rule goes quiet rather than lowercasing on a guess."""
+    assert vlm.load_capital_folds(tmp_path / "absent.json") == {}
+
+
+def test_the_fold_reads_the_measured_file(tmp_path):
+    fp = tmp_path / "capitals.json"
+    fp.write_text(json.dumps({"folds": {
+        "Πῶς": {"folds_to": "πῶς", "mid_sentence_rate": 0.091, "occurrences": 8958},
+    }}, ensure_ascii=False), encoding="utf-8")
+    assert vlm.load_capital_folds(fp) == {"Πῶς": "πῶς"}

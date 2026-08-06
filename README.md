@@ -92,6 +92,11 @@ scripts/
                             INCREMENTAL via data/cache/ (only new/changed works
                             re-tokenize; only never-seen forms lemmatize). Split
                             phases for remote GPU: --emit-missing / --lemma-map
+  measure_capital_positions.py  data/corpus -> data/capital_positions.json, which
+                            capitalized lemmas are only a sentence opening
+                            (Πῶς, 9.1% mid-sentence) and which are the word
+                            itself (Θεός, 97.8%). validate_lemma_map.py folds
+                            the first kind into its lowercase twin
   lemmatize_forms.py        forms list -> form/lemma TSV (self-contained, for a
                             GPU box; resumable)
   rebuild_matrix_remote.sh  the whole incremental rebuild with the lemmatization
