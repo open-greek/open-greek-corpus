@@ -1,0 +1,1179 @@
+{
+ "what": "removed looped OCR rows from joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos",
+ "date": "2026-08-06",
+ "issue": "open-greek/open-greek-corpus#27",
+ "why": "the vision model emitted one line repeatedly instead of reading the page; the text is not on the page in any form, so this is fabricated content rather than a bad reading",
+ "detector": "a page of at least 40 rows where one non-empty line recurs at least 20 times and fills at least 50% of it",
+ "pages": [
+  {
+   "page": "joannes_geometres_pg106_0004",
+   "line": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,",
+   "repeats": 289,
+   "page_rows": 293
+  }
+ ],
+ "sha256_before": "40deec96e156b008f8be533acb3238057363b67d9d90c46b6b5c0908be0d81a7",
+ "sha256_after": "5e90c572eab622090af5c96c33389930741c19d32aa1983f6ed172f670da427f",
+ "rows_before": 13395,
+ "rows_after": 13106,
+ "tokens_removed": 1445,
+ "removed_rows": [
+  {
+   "locus": "joannes_geometres_pg106_0004.10",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.100",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.101",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.102",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.103",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.104",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.105",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.106",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.107",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.108",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.109",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.11",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.110",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.111",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.112",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.113",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.114",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.115",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.116",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.117",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.118",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.119",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.12",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.120",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.121",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.122",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.123",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.124",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.125",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.126",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.127",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.128",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.129",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.13",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.130",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.131",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.132",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.133",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.134",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.135",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.136",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.137",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.138",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.139",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.14",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.140",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.141",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.142",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.143",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.144",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.145",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.146",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.147",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.148",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.149",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.15",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.150",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.151",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.152",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.153",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.154",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.155",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.156",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.157",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.158",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.159",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.16",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.160",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.161",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.162",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.163",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.164",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.165",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.166",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.167",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.168",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.169",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.17",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.170",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.171",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.172",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.173",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.174",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.175",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.176",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.177",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.178",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.179",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.18",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.180",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.181",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.182",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.183",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.184",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.185",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.186",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.187",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.188",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.189",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.19",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.190",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.191",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.192",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.193",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.194",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.195",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.196",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.197",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.198",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.199",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.20",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.200",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.201",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.202",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.203",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.204",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.205",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.206",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.207",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.208",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.209",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.21",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.210",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.211",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.212",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.213",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.214",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.215",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.216",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.217",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.218",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.219",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.22",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.220",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.221",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.222",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.223",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.224",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.225",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.226",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.227",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.228",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.229",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.23",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.230",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.231",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.232",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.233",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.234",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.235",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.236",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.237",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.238",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.239",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.24",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.240",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.241",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.242",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.243",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.244",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.245",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.246",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.247",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.248",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.249",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.25",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.250",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.251",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.252",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.253",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.254",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.255",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.256",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.257",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.258",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.259",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.26",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.260",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.261",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.262",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.263",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.264",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.265",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.266",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.267",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.268",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.269",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.27",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.270",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.271",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.272",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.273",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.274",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.275",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.276",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.277",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.278",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.279",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.28",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.280",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.281",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.282",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.283",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.284",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.285",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.286",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.287",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.288",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.289",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.29",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.290",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.291",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.292",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.293",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.30",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.31",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.32",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.33",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.34",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.35",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.36",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.37",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.38",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.39",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.40",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.41",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.42",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.43",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.44",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.45",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.46",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.47",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.48",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.49",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.5",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.50",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.51",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.52",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.53",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.54",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.55",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.56",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.57",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.58",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.59",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.6",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.60",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.61",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.62",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.63",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.64",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.65",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.66",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.67",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.68",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.69",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.7",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.70",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.71",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.72",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.73",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.74",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.75",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.76",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.77",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.78",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.79",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.8",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.80",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.81",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.82",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.83",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.84",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.85",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.86",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.87",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.88",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.89",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.9",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.90",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.91",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.92",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.93",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.94",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.95",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.96",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.97",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.98",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  },
+  {
+   "locus": "joannes_geometres_pg106_0004.99",
+   "text": "ΕΝ ΤΩΙ ΑΓΩΓΕΙΩΙ ΤΗΣ ΠΑΙΔΕΙΑΣ,"
+  }
+ ],
+ "reverse": "reinsert removed_rows at their loci, in locus order"
+}

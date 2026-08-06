@@ -1,0 +1,727 @@
+{
+ "what": "removed looped OCR rows from alexander-lyric.fragmenta",
+ "date": "2026-08-06",
+ "issue": "open-greek/open-greek-corpus#27",
+ "why": "the vision model emitted one line repeatedly instead of reading the page; the text is not on the page in any form, so this is fabricated content rather than a bad reading",
+ "detector": "a page of at least 40 rows where one non-empty line recurs at least 20 times and fills at least 50% of it",
+ "pages": [
+  {
+   "page": "alexander_aetolus_meineke_0016",
+   "line": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ",
+   "repeats": 176,
+   "page_rows": 178
+  }
+ ],
+ "sha256_before": "c6a813ee79f637d131a20d9a660c73054e2b3c9d8f3aa6d5a61f7221f68a7942",
+ "sha256_after": "6cdaab6bbc04cdb7c49b72af4c5c81cbab94870c8b186551751bbdaf9ee707a3",
+ "rows_before": 3612,
+ "rows_after": 3436,
+ "tokens_removed": 880,
+ "removed_rows": [
+  {
+   "locus": "alexander_aetolus_meineke_0016.10",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.100",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.101",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.102",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.103",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.104",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.105",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.106",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.107",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.108",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.109",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.11",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.110",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.111",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.112",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.113",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.114",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.115",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.116",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.117",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.118",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.119",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.12",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.120",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.121",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.122",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.123",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.124",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.125",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.126",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.127",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.128",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.129",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.13",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.130",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.131",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.132",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.133",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.134",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.135",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.136",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.137",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.138",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.139",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.14",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.140",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.141",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.142",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.143",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.144",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.145",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.146",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.147",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.148",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.149",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.15",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.150",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.151",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.152",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.153",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.154",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.155",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.156",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.157",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.158",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.159",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.16",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.160",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.161",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.162",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.163",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.164",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.165",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.166",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.167",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.168",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.169",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.17",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.170",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.171",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.172",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.173",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.174",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.175",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.176",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.177",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.18",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.19",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.2",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.20",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.21",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.22",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.23",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.24",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.25",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.26",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.27",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.28",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.29",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.3",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.30",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.31",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.32",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.33",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.34",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.35",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.36",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.37",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.38",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.39",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.4",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.40",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.41",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.42",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.43",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.44",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.45",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.46",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.47",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.48",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.49",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.5",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.50",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.51",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.52",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.53",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.54",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.55",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.56",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.57",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.58",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.59",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.6",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.60",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.61",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.62",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.63",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.64",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.65",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.66",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.67",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.68",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.69",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.7",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.70",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.71",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.72",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.73",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.74",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.75",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.76",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.77",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.78",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.79",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.8",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.80",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.81",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.82",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.83",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.84",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.85",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.86",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.87",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.88",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.89",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.9",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.90",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.91",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.92",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.93",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.94",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.95",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.96",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.97",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.98",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  },
+  {
+   "locus": "alexander_aetolus_meineke_0016.99",
+   "text": "ΠΕΡΙ ΤΩΝ ΕΝ ΤΩΙ ΑΙΘΕΡΙ"
+  }
+ ],
+ "reverse": "reinsert removed_rows at their loci, in locus order"
+}

@@ -1,0 +1,119 @@
+{
+ "what": "removed looped OCR rows from aphthonius.progymnasmata",
+ "date": "2026-08-06",
+ "issue": "open-greek/open-greek-corpus#27",
+ "why": "the vision model emitted one line repeatedly instead of reading the page; the text is not on the page in any form, so this is fabricated content rather than a bad reading",
+ "detector": "a page of at least 40 rows where one non-empty line recurs at least 20 times and fills at least 50% of it",
+ "pages": [
+  {
+   "page": "aphthonius_progymnasmata_0131",
+   "line": "ὀφά. 31.",
+   "repeats": 24,
+   "page_rows": 47
+  }
+ ],
+ "sha256_before": "716c03f49e2d4605fd2e753d26a3dc4588d9c597292d4ad07fa61809b6e47c4f",
+ "sha256_after": "18ee448e4024f96e23b8408c497d7f396757b4a6d529c87ac2b08537fa844800",
+ "rows_before": 2070,
+ "rows_after": 2046,
+ "tokens_removed": 24,
+ "removed_rows": [
+  {
+   "locus": "aphthonius_progymnasmata_0131.11",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.13",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.14",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.16",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.17",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.18",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.19",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.2",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.20",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.22",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.24",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.25",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.27",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.28",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.29",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.3",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.30",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.31",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.33",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.35",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.4",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.5",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.7",
+   "text": "ὀφά. 31."
+  },
+  {
+   "locus": "aphthonius_progymnasmata_0131.9",
+   "text": "ὀφά. 31."
+  }
+ ],
+ "reverse": "reinsert removed_rows at their loci, in locus order"
+}
