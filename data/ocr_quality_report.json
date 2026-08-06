@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1335,
-   "ocr_works_ranked": 774,
+   "ocr_works": 1344,
+   "ocr_works_ranked": 780,
    "ocr_works_with_witness": 182,
    "secondary_files": 390,
    "skipped": 29,
@@ -178,11 +178,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.1369,
+   "median": 0.1363,
    "min": 0.0089,
-   "n": 774,
-   "q1": 0.0961,
-   "q3": 0.1739
+   "n": 780,
+   "q1": 0.0958,
+   "q3": 0.1736
   }
  },
  "works": {
@@ -581,6 +581,24 @@
     "n_bigrams_secondary": 1417,
     "secondary_edition": "qwen36-theopompus_hist_fhg1"
    }
+  },
+  "anonymi-in-artem-rhetoricam.excerpta-de-arte-rhetorica": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 348,
+   "n_tokens_checked": 178,
+   "n_unattested": 16,
+   "source": "ocr",
+   "unattested_rate": 0.089888,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 1958,
+   "n_tokens_checked": 1112,
+   "n_unattested": 81,
+   "source": "ocr",
+   "unattested_rate": 0.072842,
+   "witness": null
   },
   "anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon": {
    "edition": "migne-ocr-qwen36",
@@ -5250,6 +5268,24 @@
     "secondary_edition": "qwen36-choeroboscus_hilgard_gg4"
    }
   },
+  "georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 8352,
+   "n_tokens_checked": 4895,
+   "n_unattested": 420,
+   "source": "ocr",
+   "unattested_rate": 0.085802,
+   "witness": null
+  },
+  "georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 2891,
+   "n_tokens_checked": 1708,
+   "n_unattested": 219,
+   "source": "ocr",
+   "unattested_rate": 0.12822,
+   "witness": null
+  },
   "georgius-monachus-continuatus.chronicon-continuatio-redactio": {
    "edition": "cgpg",
    "n_tokens": 29808,
@@ -8337,6 +8373,15 @@
    "unattested_rate": 0.111618,
    "witness": null
   },
+  "joannes-doxopatres.prolegomena-tes-rhetorikes": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 5607,
+   "n_tokens_checked": 3218,
+   "n_unattested": 349,
+   "source": "ocr",
+   "unattested_rate": 0.108452,
+   "witness": null
+  },
   "joannes-epiphaniensis.fragmentum": {
    "edition": "qwen36-socrates_hist_fhg4",
    "n_tokens": 1699,
@@ -8386,6 +8431,24 @@
    "n_unattested": 4726,
    "source": "ocr",
    "unattested_rate": 0.174533,
+   "witness": null
+  },
+  "joannes-siceliota.exegesis-eis-tas-ideas-prolegomena": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 6029,
+   "n_tokens_checked": 3471,
+   "n_unattested": 408,
+   "source": "ocr",
+   "unattested_rate": 0.117545,
+   "witness": null
+  },
+  "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 105227,
+   "n_tokens_checked": 59113,
+   "n_unattested": 6070,
+   "source": "ocr",
+   "unattested_rate": 0.102685,
    "witness": null
   },
   "joannes-stobaeus-anthologus.anthologium": {
@@ -8761,6 +8824,15 @@
    "n_unattested": 24,
    "source": "cgpg",
    "unattested_rate": 0.028708,
+   "witness": null
+  },
+  "matthaeus-camariota.rhetorikes-epitome": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 9874,
+   "n_tokens_checked": 5894,
+   "n_unattested": 507,
+   "source": "ocr",
+   "unattested_rate": 0.08602,
    "witness": null
   },
   "maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo": {
@@ -9623,11 +9695,11 @@
   },
   "ocr.walz_rhetores_v6": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 144509,
-   "n_tokens_checked": 82113,
-   "n_unattested": 8340,
+   "n_tokens": 919,
+   "n_tokens_checked": 555,
+   "n_unattested": 105,
    "source": "ocr",
-   "unattested_rate": 0.101567,
+   "unattested_rate": 0.189189,
    "witness": null
   },
   "ocr.walz_rhetores_v7pt1": {
@@ -13092,6 +13164,15 @@
    "unattested_rate": 0.159663,
    "witness": null
   },
+  "troilus-sophista.prolegomena-tes-rhetorikes-hermogenous": {
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 3254,
+   "n_tokens_checked": 1940,
+   "n_unattested": 164,
+   "source": "ocr",
+   "unattested_rate": 0.084536,
+   "witness": null
+  },
   "tyrtaeus.fragmenta": {
    "edition": "bergk-plg2-ocr-frag",
    "n_tokens": 953,
@@ -13743,6 +13824,7 @@
   "marcellinus.vita-thucydidis",
   "joannes-chrysostomus.de-perfecta-caritate-sp",
   "joannes-chrysostomus.de-coemeterio-et-de-cruce",
+  "georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes",
   "joannes-chrysostomus.de-decem-millium-talentorum-debitore",
   "joannes-chrysostomus.adversus-judaeos-orationes-1-8",
   "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
@@ -13794,6 +13876,7 @@
   "gregorius-nyssenus.in-ecclesiasten-homiliae-8",
   "gregorius-nyssenus.epistula-canonica-ad-letoium",
   "basilius-theology.de-spiritu-sancto",
+  "joannes-siceliota.exegesis-eis-tas-ideas-prolegomena",
   "joannes-stobaeus-anthologus.anthologium",
   "joannes-chrysostomus.pg048",
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",
@@ -13833,6 +13916,7 @@
   "athanasius-theology.sermo-contra-latinos-sp",
   "gregorius-nazianzenus.liturgia-sancti-gregorii-sp",
   "cyrillus-theology.apologia-xii-capitulorum-contra-orientales",
+  "joannes-doxopatres.prolegomena-tes-rhetorikes",
   "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp",
   "basilius-theology.adversus-eunomium-libri-5",
   "athanasius-theology.doctrina-ad-antiochum-ducem-sp",
@@ -13855,11 +13939,11 @@
   "athanasius-theology.syntagma-ad-quendam-politicum-sp",
   "athanasius-theology.disputatio-contra-arium-sp",
   "epicurus.deperditorum-librorum-reliquiae",
+  "joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous",
   "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
   "theodoretus.eranistes",
   "cratinus.fragmenta",
   "theophylactus-achridensis.epistulae",
-  "ocr.walz_rhetores_v6",
   "athanasius-theology.fragmenta-varia",
   "pythagoras.testimonia",
   "cyrillus-theology.fragmenta-in-canticum-canticorum",
@@ -13913,12 +13997,15 @@
   "cogPG.PG112",
   "pythagoristae-d-k.testimonia-et-fragmenta",
   "basilius-theology.prologus-8-de-fide",
+  "matthaeus-camariota.rhetorikes-epitome",
   "anaximander.testimonia",
+  "georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous",
   "basilius-i-macedo.paraenesis-ad-leonem-filium",
   "athanasius-theology.de-sancta-trinitate-dialogi-1-3-5-sp",
   "leucippus.testimonia",
   "joannes-damascenus.commentarii-in-epistulas-pauli-dub",
   "anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis",
+  "troilus-sophista.prolegomena-tes-rhetorikes-hermogenous",
   "demetrius-poet-phil.demetrius-de-eloc-roberts",
   "gregorius-nyssenus.de-anima-sp",
   "pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712",
