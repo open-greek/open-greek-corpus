@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Carve a Walz Rhetores Graeci volume dump into per-treatise corpus files.
+"""Carve a printed volume served as one dump into its per-treatise corpus files.
 
 About 1.29M tokens of Byzantine rhetorical commentary sit in ten volumes under
 fabricated urns of the form ocr.walz_rhetores_v7pt1, one per printed volume,
@@ -7,8 +7,11 @@ rather than as the roughly sixty distinct treatises they contain (issue #10).
 Most of those treatises have no other open digital text, and under a volume urn
 none of them can be cited, filtered or attributed.
 
-Driven by data/walz_carve_plan.json. Two things about that plan shape are
-deliberate.
+Driven by a carve plan, data/walz_carve_plan.json by default and any other with
+--plan. It was written for Walz and generalized when Spengel, Rhetores Graeci
+vol. III turned out to have the same defect under a different urn (issue #22),
+so nothing here is Walz-specific except that default. Two things about the plan
+shape are deliberate.
 
 A work carries a START locus and no end. The script assigns every row from one
 start up to the next, so the partition is exact by construction and a gap or an
@@ -58,8 +61,9 @@ A reversible audit lands in data/corpus_changes/, carrying the full locus map
 old to new, so the carve can be undone and any correction record keyed to the
 old locus can still be placed.
 
-  carve_walz_volume.py --volume v7pt1           # check only, writes nothing
-  carve_walz_volume.py --volume v7pt1 --apply
+  carve_edition_volume.py --volume v7pt1                 # check only, writes nothing
+  carve_edition_volume.py --volume v7pt1 --apply
+  carve_edition_volume.py --plan data/spengel_carve_plan.json --volume rg3
 """
 
 from __future__ import annotations
@@ -77,7 +81,7 @@ DATA = REPO / "data"
 CORPUS = DATA / "corpus"
 SECONDARY = DATA / "corpus_secondary"
 CHANGES = DATA / "corpus_changes"
-PLAN = DATA / "walz_carve_plan.json"
+DEFAULT_PLAN = DATA / "walz_carve_plan.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
@@ -111,7 +115,7 @@ def row_of(locus: str) -> str:
     return locus.rsplit(".", 1)[1]
 
 
-def carve(vol: dict, apply: bool) -> int:
+def carve(vol: dict, apply: bool, plan_path: Path) -> int:
     urn = vol["urn"]
     src = CORPUS / f"{urn}.jsonl"
     rows = [json.loads(l) for l in src.read_text(encoding="utf-8").splitlines() if l.strip()]
@@ -208,6 +212,11 @@ def carve(vol: dict, apply: bool) -> int:
             if w.get("rank") == "secondary":
                 nr["rank"] = "secondary"
                 nr["secondary_reason"] = w["secondary_reason"]
+                # Names the edition this witness is, so several can sit under
+                # one slug and a re-run replaces its own rows instead of the
+                # other edition's. Four slugs here already carried a Walz
+                # witness before Spengel arrived.
+                nr["witness"] = vol["edition_title"]
             new_rows.append(nr)
         written.append((w["slug"], new_rows))
         t = sum(tokens(r["text"]) for r in got)
@@ -215,8 +224,9 @@ def carve(vol: dict, apply: bool) -> int:
         mark = " [secondary]" if w.get("rank") == "secondary" else ""
         print(f"{w['n']:>4s} {first:>5s}-{last:<9s} {len(got):>6,} {t:>9,}  "
               f"{w['slug']}{mark}")
+    res_urn_shown = vol.get("residual_urn", urn)
     print(f"{'':>4s} {'residual':>10s} {len(residual):>7,} {res_tokens:>9,}  "
-          f"stays in {urn}")
+          f"{'stays in' if res_urn_shown == urn else 'moves to'} {res_urn_shown}")
 
     # A printed page must not be produced twice anywhere in the volume. This is
     # the check that catches a wrong offset zone: v6's duplicate leaf and its
@@ -238,24 +248,58 @@ def carve(vol: dict, apply: bool) -> int:
         print("\ncheck only; nothing written. Re-run with --apply.")
         return 0
 
+    # Resolved here, above the first write. It is only a label in the audit,
+    # but computing it afterwards is how a bad --plan path turned into a corpus
+    # mutated with no record of it: every file had already been rewritten when
+    # the audit raised. Anything that can fail belongs before the mutation.
+    try:
+        plan_name = str(plan_path.resolve().relative_to(REPO))
+    except ValueError:
+        plan_name = plan_path.name
     old_hash = hashlib.sha256(src.read_bytes()).hexdigest()
     rank_of = {w["slug"]: w.get("rank", "primary") for w in vol["works"]}
     for slug, new_rows in written:
         dest = SECONDARY if rank_of[slug] == "secondary" else CORPUS
         dest.mkdir(parents=True, exist_ok=True)
-        (dest / f"{slug}.jsonl").write_text(
-            "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in new_rows),
+        fp = dest / f"{slug}.jsonl"
+        keep: list[dict] = []
+        if rank_of[slug] == "secondary" and fp.exists():
+            # A work can be witnessed by more than one edition, so this adds a
+            # witness rather than replacing the file. Rows from THIS edition go
+            # first, which is what makes a re-run idempotent instead of piling
+            # up copies.
+            keep = [r for r in
+                    (json.loads(l) for l in fp.read_text(encoding="utf-8").splitlines()
+                     if l.strip())
+                    if r.get("witness") != vol["edition_title"]]
+            if keep:
+                print(f"  {slug}: keeping {len(keep)} rows from another witness")
+        fp.write_text(
+            "".join(json.dumps(r, ensure_ascii=False) + "\n"
+                    for r in keep + new_rows),
             encoding="utf-8")
-    src.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in residual),
-                   encoding="utf-8")
+    # The residual normally keeps the volume's own urn, because for Walz that
+    # urn already names the volume. Spengel III did not: the whole book was
+    # served under one treatise's slug, so leaving the front matter and the
+    # index there would keep the defect the carve exists to remove, just
+    # smaller. Where the plan gives a residual_urn, the leftovers move to it.
+    res_urn = vol.get("residual_urn", urn)
+    for r in residual:
+        r["urn"] = res_urn
+    res_fp = CORPUS / f"{res_urn}.jsonl"
+    res_fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
+                              for r in residual), encoding="utf-8")
+    if res_fp != src:
+        src.unlink()
 
     audit = {
-        "what": f"per-treatise carve of {urn}, driven by data/walz_carve_plan.json",
-        "date": "2026-08-05",
-        "issue": "open-greek/open-greek-corpus#10",
+        "what": f"per-treatise carve of {urn}, driven by {plan_name}",
+        "date": vol.get("date", "2026-08-05"),
+        "issue": vol.get("issue", "open-greek/open-greek-corpus#10"),
         "source_urn": urn,
         "source_sha256_before": old_hash,
-        "source_sha256_after": hashlib.sha256(src.read_bytes()).hexdigest(),
+        "source_sha256_after": hashlib.sha256(res_fp.read_bytes()).hexdigest(),
+        "residual_urn": res_urn,
         "offset_zones": zones or [{"scans": None, "offset": default_offset}],
         "dropped_scans": sorted(drop_scans),
         "dropped_rows": [{"locus": r["locus"], "text": r["text"]} for r in dropped],
@@ -286,13 +330,15 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--volume", required=True)
+    ap.add_argument("--plan", type=lambda p: Path(p).resolve(),
+                    default=DEFAULT_PLAN)
     ap.add_argument("--apply", action="store_true")
     args = ap.parse_args()
-    plan = json.loads(PLAN.read_text(encoding="utf-8"))
+    plan = json.loads(args.plan.read_text(encoding="utf-8"))
     vols = {v["volume"]: v for v in plan["volumes"]}
     if args.volume not in vols:
         raise SystemExit(f"no plan for {args.volume}; have {', '.join(sorted(vols))}")
-    raise SystemExit(carve(vols[args.volume], args.apply))
+    raise SystemExit(carve(vols[args.volume], args.apply, args.plan))
 
 
 if __name__ == "__main__":
