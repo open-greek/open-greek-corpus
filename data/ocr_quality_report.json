@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1381,
-   "ocr_works_ranked": 805,
+   "ocr_works": 1388,
+   "ocr_works_ranked": 807,
    "ocr_works_with_witness": 195,
    "secondary_files": 414,
    "skipped": 30,
@@ -182,11 +182,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4173,
-   "median": 0.1351,
+   "median": 0.135,
    "min": 0.0089,
-   "n": 805,
-   "q1": 0.096,
-   "q3": 0.1726
+   "n": 807,
+   "q1": 0.0959,
+   "q3": 0.1721
   }
  },
  "works": {
@@ -823,6 +823,15 @@
    "unattested_rate": 0.072842,
    "witness": null
   },
+  "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes-walz-v-606": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 1301,
+   "n_tokens_checked": 773,
+   "n_unattested": 60,
+   "source": "ocr",
+   "unattested_rate": 0.07762,
+   "witness": null
+  },
   "anonymi-in-artem-rhetoricam.synopseis-rhetorikes": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 699,
@@ -875,6 +884,15 @@
    "n_unattested": 40,
    "source": "ocr",
    "unattested_rate": 0.116279,
+   "witness": null
+  },
+  "anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 1592,
+   "n_tokens_checked": 912,
+   "n_unattested": 50,
+   "source": "ocr",
+   "unattested_rate": 0.054825,
    "witness": null
   },
   "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i": {
@@ -9169,6 +9187,24 @@
     "secondary_edition": "qwen36-walz_rhetores_v1"
    }
   },
+  "maximus-planudes.peri-ton-alyton-antitheseon": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 3022,
+   "n_tokens_checked": 1779,
+   "n_unattested": 188,
+   "source": "ocr",
+   "unattested_rate": 0.105677,
+   "witness": null
+  },
+  "maximus-planudes.scholia-eis-ten-hermogenous-technen": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 86789,
+   "n_tokens_checked": 48969,
+   "n_unattested": 5407,
+   "source": "ocr",
+   "unattested_rate": 0.110417,
+   "witness": null
+  },
   "maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo": {
    "edition": "qwen36-archytas_mullach_fpg2",
    "n_tokens": 2999,
@@ -9520,6 +9556,15 @@
    "unattested_rate": 0.112517,
    "witness": null
   },
+  "michael-psellus.peri-synthekes-ton-tou-logou-meron": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 812,
+   "n_tokens_checked": 450,
+   "n_unattested": 42,
+   "source": "ocr",
+   "unattested_rate": 0.093333,
+   "witness": null
+  },
   "michael-psellus.poemata": {
    "edition": "cgpg",
    "n_tokens": 31969,
@@ -9545,6 +9590,15 @@
    "n_unattested": 259,
    "source": "cgpg",
    "unattested_rate": 0.079472,
+   "witness": null
+  },
+  "michael-psellus.synopsis-ton-rhetorikon-meron": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 1138,
+   "n_tokens_checked": 621,
+   "n_unattested": 70,
+   "source": "ocr",
+   "unattested_rate": 0.112721,
    "witness": null
   },
   "michael-psellus.versus-in-sanctos-tres-hierarchas-sp": {
@@ -10053,11 +10107,11 @@
   },
   "ocr.walz_rhetores_v5": {
    "edition": "qwen36-walz_rhetores_v5",
-   "n_tokens": 150308,
-   "n_tokens_checked": 85619,
-   "n_unattested": 8437,
+   "n_tokens": 1321,
+   "n_tokens_checked": 794,
+   "n_unattested": 156,
    "source": "ocr",
-   "unattested_rate": 0.098541,
+   "unattested_rate": 0.196474,
    "witness": null
   },
   "ocr.walz_rhetores_v6": {
@@ -12029,6 +12083,15 @@
    "n_unattested": 5635,
    "source": "ocr",
    "unattested_rate": 0.102591,
+   "witness": null
+  },
+  "sopater-rhetor.hypomnema-eis-ten-hermogenous-technen": {
+   "edition": "qwen36-walz_rhetores_v5",
+   "n_tokens": 54333,
+   "n_tokens_checked": 31321,
+   "n_unattested": 2464,
+   "source": "ocr",
+   "unattested_rate": 0.078669,
    "witness": null
   },
   "sophilus.fragmenta": {
@@ -14329,6 +14392,7 @@
   "gregorius-nyssenus.contra-eunomium",
   "heraclitus-philosophy.testimonia",
   "prodicus.testimonia",
+  "maximus-planudes.scholia-eis-ten-hermogenous-technen",
   "porphyrius.chronica",
   "athanasius-theology.expositiones-in-psalmos",
   "basilius-theology.asceticon-magnum-sive-quaestiones-regulae-fusius",
@@ -14354,6 +14418,7 @@
   "basilius-theology.quod-deus-non-est-auctor-malorum",
   "basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius",
   "nausiphanes.testimonia",
+  "maximus-planudes.peri-ton-alyton-antitheseon",
   "anonymi-in-artem-rhetoricam.peri-poietikon-tropon",
   "democritus-philosophy.testimonia",
   "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii",
@@ -14380,7 +14445,6 @@
   "theophylactus-achridensis.institutio-regia",
   "michael-psellus.poemata",
   "joannes-tzetzes.epitome-rhetorikes",
-  "ocr.walz_rhetores_v5",
   "athanasius-theology.de-virginitate-sp",
   "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
   "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
@@ -14464,6 +14528,7 @@
   "leo-vi-sapiens.tactica",
   "nicolaus-history.nicolaus-progymnasmata-felten",
   "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",
+  "sopater-rhetor.hypomnema-eis-ten-hermogenous-technen",
   "dionysius-thrax-grammar.ars-grammatica",
   "porphyrius.epistula-ad-anebonem",
   "theophylactus-achridensis.de-iis-quorum-latini-incusantur",

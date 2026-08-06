@@ -724,7 +724,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1361 OCR'd works/volumes: 172 manually corrected, 857 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 332 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1368 OCR'd works/volumes: 172 manually corrected, 861 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -787,12 +787,14 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anonymi-in-artem-rhetoricam.progymnasmata-walz-i-597 |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 12,390 | auto-corrected |
 | anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,669 | auto-corrected |
 | anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,958 | auto-corrected |
+| anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes-walz-v-606 |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,301 | raw OCR |
 | anonymi-in-artem-rhetoricam.synopseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 699 | auto-corrected |
 | anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
 | anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,351 | auto-corrected |
 | anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 515 | auto-corrected |
 | anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 595 | raw OCR |
 | anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 600 | auto-corrected |
+| anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591 |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,592 | raw OCR |
 | anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,516 | manual |
 | anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,373 | manual |
 | anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 144,816 | manual |
@@ -1649,6 +1651,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | marcellinus.vita-thucydidis | Marcellinus - Vita Thucydidis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 97,683 | auto-corrected |
 | martyrium-ignatii.martyrium-ignatii-antiocheni-martyrium-antiochenum | Martyrium Ignatii - Martyrium Ignatii Antiocheni (martyrium Antiochenum, 'Colbertinum') (PG005 loci 499-503) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,280 | auto-corrected |
 | matthaeus-camariota.rhetorikes-epitome |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,874 | auto-corrected |
+| maximus-planudes.peri-ton-alyton-antitheseon |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 3,022 | auto-corrected |
+| maximus-planudes.scholia-eis-ten-hermogenous-technen |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 86,789 | auto-corrected |
 | maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo | Maximus - Περὶ τῶν ἀλύτων ἀντιθέσεων (Fort. Auctore Maximo | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,999 | auto-corrected |
 | maximus-theology.fragmentum-ex-libro-de-materia | Maximus - Fragmentum ex libro de materia (PG005 loci 679-687) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,066 | auto-corrected |
 | melanippides.fragmenta | MELANIPPIDES - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 268 | raw OCR |
@@ -1684,9 +1688,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | michael-psellus.monodia-in-sanctae-sophiae-collapsam | Michael Psellus - Monodia in Sanctae Sophiae (partem) collapsam (PG122 loci 466-467) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 757 | manual |
 | michael-psellus.opuscula-psychologica-theologica-daemonologica | Michael Psellus - Expositio in oracula Chaldaica + Expositio brevis dogmatum Chaldaicorum (the two Chaldaica of O'Meara's Philosophica minora II, partial) (PG122 loci 594-608) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,287 | manual |
 | michael-psellus.peri-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,564 | auto-corrected |
+| michael-psellus.peri-synthekes-ton-tou-logou-meron |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 812 | raw OCR |
 | michael-psellus.poemata | Michael Psellus - Poemata (PG 122 selection: In Canticum canticorum paraphrasis cum exegesi = poem 2; Versus de dogmate; Synopsis canonum; Synopsis legum = poem 8, first pages only) (PG122 loci 275-475) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 31,969 | manual |
 | michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp | Pseudo-Michael Psellus - Quaenam sunt Graecorum opiniones de daemonibus (PG122 loci 448-451) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,430 | auto-corrected |
 | michael-psellus.quaestionum-naturalium-solutiones-sp | Pseudo-Michael Psellus - Quaestionum naturalium solutiones (anonymous compendium, Migne's title; akin to Symeon Seth) (PG122 loci 401-414) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,699 | manual |
+| michael-psellus.synopsis-ton-rhetorikon-meron |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,138 | auto-corrected |
 | michael-psellus.versus-in-sanctos-tres-hierarchas-sp | Pseudo-Michael Psellus (fort. Joannes Mauropous) - Versus in sanctos tres hierarchas with epigrams (signed by a John, probably Mauropous; printed as Joannis Pselli) (PG122 loci 464-465) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 480 | manual |
 | michael.in-ethica-nicomachea-ixx-commentaria | MICHAEL EPHESIUS - In Ethica Nicomachea commentaria (CAG XX) | qwen36-commentariainari20bero | Qwen3.6-27B | 6,111 | raw OCR |
 | milon.fragmentum | Milon - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 54 | auto-corrected |
@@ -1913,6 +1919,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | solon.fragmenta | Solon - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 1,900 | auto-corrected |
 | sopater-comedy.fragmenta | Sopater - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 32,797 | auto-corrected |
 | sopater-rhetor.diairesis-zetematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,079 | manual |
+| sopater-rhetor.hypomnema-eis-ten-hermogenous-technen |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 54,333 | auto-corrected |
 | sophilus.fragmenta | Sophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
 | sophron.fragmenta | SOPHRON - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 5,497 | auto-corrected |
 | sosicrates.fragmenta | SOSICRATES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |

@@ -921,6 +921,108 @@
      "evidence": "ARGUMENTUM entry IX (scan 0019), printed 597. Display title 'IX ΑΝΩΝΥΜΟΥ / ΠΡΟΓΥΜΝΑΣΜΑΤΑ', the printed roman numeral matching the contents item at printed 597."
     }
    ]
+  },
+  {
+   "volume": "v5",
+   "urn": "ocr.walz_rhetores_v5",
+   "edition_title": "Rhetores Graeci, vol. V, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1833)",
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#10",
+   "printed_to_scan_offset": 8,
+   "offset_note": "printed = scan - 8 throughout, agreeing at every one of the six display titles and at the first page of the back matter.",
+   "basis": "The ARGUMENTUM at scans 0007-0008 lists six entries with their printed page ranges. The OCR has merged two columns there, so three of the entries are split across distant rows (0008.14 with 0008.30, and so on) and were reassembled before use; every boundary was then verified at the row against its display title.",
+   "front_matter_before": "walz_rhetores_v5_0009.1",
+   "front_matter_note": "scans 0007-0008, the ARGUMENTUM itself and the column-merged specimen text around it, 148 tokens. Left in the volume file.",
+   "trailing_residual_from": "walz_rhetores_v5_0619.1",
+   "trailing_residual_note": "printed 611 onward is the volume's Latin index (Aeschines, Alexander, ...) and a corrigenda list, 1,173 tokens, belonging to no work here.",
+   "shared_pages": [
+    "601"
+   ],
+   "disposition_note": "All seven are served as primary. Nothing here duplicates a work the corpus already holds: the closest candidates score 2.2%, 0.8% and 0.3% of 4-grams, against the 46-55% that a genuine second witness scores in the Spengel carve.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "sopater-rhetor.hypomnema-eis-ten-hermogenous-technen",
+     "title": "Hypomnema eis ten Hermogenous technen",
+     "author_display": "Sopater Rhetor",
+     "tlg": null,
+     "printed_pages": "1-211",
+     "start": "walz_rhetores_v5_0009.1",
+     "incipit_check": "ΣΩΠΑΤΡΟΥ",
+     "evidence": "ARGUMENTUM entry I (scan 0007). Display title ΣΩΠΑΤΡΟΥ / ΥΠΟΜΝΗΜΑ ΕΙΣ ΤΗΝ ΕΡΜΟΓΕΝΟΥΣ / ΤΕΧΝΗΝ at printed 1.",
+     "author_note": "Not the Sopater this corpus already serves: sopater-rhetor.diairesis-zetematon is a different work and shares 0.3% of its 4-grams with this."
+    },
+    {
+     "n": "II",
+     "slug": "maximus-planudes.scholia-eis-ten-hermogenous-technen",
+     "title": "Scholia eis ten Hermogenous technen",
+     "author_display": "Maximus Planudes",
+     "tlg": null,
+     "printed_pages": "212-576",
+     "start": "walz_rhetores_v5_0220.1",
+     "incipit_check": "ΜΑΞΙΜΟΥ ΤΟΥ ΠΛΑΝΟΥΔΗ",
+     "evidence": "ARGUMENTUM entry II gives 212-576 explicitly. Display title ΤΟΥ ΣΟΦΩΤΑΤΟΥ ΚΑΙ ΛΟΓΙΩΤΑΤΟΥ ΚΥΡΙΟΥ / ΜΑΞΙΜΟΥ ΤΟΥ ΠΛΑΝΟΥΔΗ / ΠΡΟΛΕΓΟΜΕΝΑ ΤΗΣ ΡΗΤΟΡΙΚΗΣ at printed 212.",
+     "incipit_locus": "walz_rhetores_v5_0220.2"
+    },
+    {
+     "n": "III",
+     "slug": "maximus-planudes.peri-ton-alyton-antitheseon",
+     "title": "Peri ton alyton antitheseon",
+     "author_display": "Maximus Planudes",
+     "tlg": null,
+     "printed_pages": "577-590",
+     "start": "walz_rhetores_v5_0585.1",
+     "incipit_check": "ΑΛΥΤΩΝ ΑΝΤΙΘΕΣΕΩΝ",
+     "evidence": "ARGUMENTUM entry III, whose page range 577-590 survives on row 0008.14 while its title is split across the column merge onto row 0008.30 (ΤΩΝ ΑΛΥΤΩΝ ANTIOE-). Display title ΠΕΡΙ ΤΩΝ / ΑΛΥΤΩΝ ΑΝΤΙΘΕΣΕΩΝ at printed 577.",
+     "incipit_locus": "walz_rhetores_v5_0585.2"
+    },
+    {
+     "n": "IV",
+     "slug": "anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591",
+     "title": "Peri ton staseon",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "591-597",
+     "start": "walz_rhetores_v5_0599.1",
+     "incipit_check": "ΠΕΡΙ ΤΩΝ ΣΤΑΣΕΩΝ",
+     "evidence": "ARGUMENTUM entry IV, page range 591-597 surviving on row 0008.31 (ΡΙ ΣΤΑΣΕΩΝ. p. 591-597.). Display title ΠΕΡΙ ΤΩΝ ΣΤΑΣΕΩΝ at printed 591."
+    },
+    {
+     "n": "V",
+     "slug": "michael-psellus.peri-synthekes-ton-tou-logou-meron",
+     "title": "Peri synthekes ton tou logou meron",
+     "author_display": "Michael Psellus",
+     "tlg": null,
+     "printed_pages": "598-601",
+     "start": "walz_rhetores_v5_0606.1",
+     "incipit_check": "ΠΕΡΙ ΣΥΝΘΗΚΗΣ",
+     "evidence": "ARGUMENTUM entry V, page range 598-601 surviving on rows 0008.32-33. Display title ΜΙΧΑΗΛ ΤΟΥ ΨΕΛΛΟΥ / ΠΕΡΙ ΣΥΝΘΗΚΗΣ ΤΩΝ ΤΟΥ ΛΟΓΟΥ ΜΕΡΩΝ at printed 598.",
+     "incipit_locus": "walz_rhetores_v5_0606.2"
+    },
+    {
+     "n": "Va",
+     "slug": "michael-psellus.synopsis-ton-rhetorikon-meron",
+     "title": "Synopsis ton rhetorikon meron",
+     "author_display": "Michael Psellus",
+     "tlg": null,
+     "printed_pages": "601-605",
+     "start": "walz_rhetores_v5_0609.3",
+     "incipit_check": "ΣΥΝΟΨΙΣ ΤΩΝ ΡΗΤΟΡΙΚΩΝ ΜΕΡΩΝ",
+     "evidence": "Starts MID-PAGE. The ARGUMENTUM groups it with the previous piece under V and gives its end as 605, and the display title ΣΥΝΟΨΙΣ ΤΩΝ ΡΗΤΟΡΙΚΩΝ ΜΕΡΩΝ stands at printed 601 row 3, not at the head of 602: the running head ΠΕΡΙ ΣΥΝΘ. ΤΩΝ ΤΟΥ ΛΟΓΟΥ ΜΕΡΩΝ lags it and is still printing at 603. Printed 601 is therefore shared with the previous work and declared below."
+    },
+    {
+     "n": "VI",
+     "slug": "anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes-walz-v-606",
+     "title": "Prolegomena tes rhetorikes",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "606-610",
+     "start": "walz_rhetores_v5_0614.1",
+     "incipit_check": "ΠΡΟΛΕΓΟΜΕΝΑ",
+     "evidence": "ARGUMENTUM entry VI, ending 610. Display title ΠΡΟΛΕΓΟΜΕΝΑ at printed 606.",
+     "author_note": "Slugged -walz-v-606 because anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes is already taken by a different anonymous set, which this shares 0.8% of its 4-grams with."
+    }
+   ]
   }
  ]
 }
