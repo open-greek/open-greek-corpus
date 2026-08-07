@@ -4493,6 +4493,54 @@
      "notes": "The first carved row, 238, carries no incipit anchor because this work does not start at the top of it. The row's first 571 characters finish the Narratio de imagine Edessena; this work's own head, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, is at character 571 and its text runs from there. The anchors are therefore set on 248 and 268, two rows the page scans were matched against directly."
     }
    ]
+  },
+  {
+   "volume": "PG113",
+   "pass": 4,
+   "date": "2026-08-07",
+   "basis": "fourth pass. Last pass left 284-313 uncarved because two different running heads ran over it and it was not established what they divided. They divide nothing: they alternate verso and recto over one work. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). col = 2*locus - 22, pinned on our locus 248 being column 474.",
+   "residual_ranges": [
+    [
+     284,
+     285
+    ],
+    [
+     318,
+     319
+    ],
+    [
+     321,
+     323
+    ],
+    [
+     328,
+     489
+    ]
+   ],
+   "residual_note": "284-285 BELONGS TO THE DELECTUS LEGUM and is a known under-claim, 631 tokens, not an open question. It is that work's back matter: the ΤΩ ΑΝΑΓΝΩΣΤΗ ΧΑΙΡΕΙΝ / LECTORI SALUTEM note and the index of its tituli 29 to 59, all under the DELECTUS LEGUM running head at columns 545-546. Pass 3 stopped at 283 because locus 284's tail reads ΛΕΟΥΟΕΙ ΘΑΟΤΗΜ, which I took for a following work's head; the scans show it is LECTORI SALUTEM, the Delectus's own. Moving those two rows needs a separate reversible step, since a carve cannot re-open an applied one. 318-323 is prosopographical and excerpt matter (Dexippus, Malchus) and 328 opens ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ, the Excerpta de legationibus; neither is researched here.",
+   "works": [
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.novellae-constitutiones",
+     "tlg": null,
+     "title": "Novellae constitutiones",
+     "author_display": "Constantinus VII Porphyrogenitus Imperator",
+     "ranges": [
+      [
+       286,
+       313
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 288,
+       "text": "γενείας διῃρημένως ἢ ἀδιαιρέτως, ἢ ὡς ἐκ κοινῆς ἀγορασίας"
+      }
+     ],
+     "notes": "The first carved row, 286, has no incipit anchor because the work does not begin at the top of it: the row opens with the Delectus legum's last sentence and the Novellae title block follows partway down column 549. Under the shared-row rule the row goes to the work whose head it carries.",
+     "evidence": "28 rows, 10,084 tokens. Columns 549-550 carry the full section title block, CONSTANTINI IMP. PORPHYROGENITI NOVELLAE CONSTITUTIONES, with its source line (Leunclavius, Jus Graeco-Romanum, Frankfurt 1596) and a MONITUM EDITORUM noting that these Novellae, like Leo the Wise's, largely concern ecclesiastical matters, and that the Delectus legum was printed earlier for the same reason. So Migne himself distinguishes the two works.\\n\\nThe previous pass left this block because NOVELLAE CONSTITUTIONES appeared at columns 553-554 and CONSTANTINI PORPHYROGENITI at 583-584 and 599-600, and whether that was one work or two was not established. It is one: pages 289, 290 and 291 are consecutive and read CONSTANTINI PORPHYROGENITI, NOVELLAE CONSTITUTIONES, CONSTANTINI PORPHYROGENITI, so the heads alternate verso and recto, author on one side and title on the other. No TLG anchor is claimed. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). col = 2*locus - 22, pinned on our locus 248 being column 474.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }
