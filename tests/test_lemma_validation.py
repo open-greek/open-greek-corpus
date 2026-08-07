@@ -237,15 +237,43 @@ def test_a_grave_lemma_with_no_acute_headword_is_left_not_tombstoned(bench):
 
     This used to use τὸν, which is no longer an example of anything: the article
     is a closed paradigm, so closed_class_lemma settles it as ὁ without needing
-    an attested acute headword. Χωρὶς is the real shape of the limit, and note
-    what the limit actually is: the acute the rule looks for is the SAME-CASE
-    Χωρίς, which the corpus never attests, so the rule leaves it even though
-    lowercase χωρίς is sitting there at 876. Reaching it took the separate
-    measurement that the capital is positional (issue #4, then #19)."""
+    an attested acute headword.
+
+    Χωρὶς now loses its CAPITAL here, which it did not before. The form the
+    corpus printed is lowercase, so nothing in that occurrence licenses a
+    capital, and that argument needs no frequency table. The grave survives,
+    because the acute the rule wants is still unattested in this bench, and
+    that is the limit this test is really about: the entry is repaired as far
+    as the evidence goes and is not tombstoned."""
     cache = {"χωρὶς": "Χωρὶς"}
     repaired, dropped = validate_cache(cache, bench, label="test")
-    assert cache == {"χωρὶς": "Χωρὶς"}
-    assert "χωρὶς" not in repaired and "χωρὶς" not in dropped
+    assert cache == {"χωρὶς": "χωρὶς"}
+    assert "χωρὶς" not in dropped
+
+
+def test_a_capitalized_grave_lemma_reaches_its_acute_headword_in_one_pass(bench):
+    """`Σοφιστὴς` carries both an unlicensed capital and a positional grave, and
+    each one used to shield the other: the grave rule wanted an attested acute
+    that the capitalized entry had swallowed the tokens of, and the capital rule
+    wanted a frequency comparison the same swallowing made unwinnable. Lowercase
+    first, then the grave rule, in one pass. Landing on `σοφιστὴς` and waiting
+    for the next build would look like a rule that never fired."""
+    freq_file = bench.parent / "freq2.tsv"
+    freq_file.write_text("σοφιστής\t3151\n", encoding="utf-8")
+    cache = {"σοφιστὴς": "Σοφιστὴς"}
+    validate_cache(cache, freq_file, label="test")
+    assert cache == {"σοφιστὴς": "σοφιστής"}
+
+
+def test_the_relaxation_does_not_reach_a_proper_noun(bench):
+    """The scope test, and the one that matters. Without the grave condition
+    this branch reaches 6,936 cache entries and 250,061 tokens, lowercasing
+    Φίλων, Μένων and Τύχη in a single build, which is what issue #19 exists to
+    prevent. Neither of these carries a grave, so neither may move on that
+    account."""
+    cache = {"φίλων": "Φίλων", "ἀβραάμ": "Ἀβραάμ"}
+    validate_cache(cache, bench, label="test")
+    assert cache == {"φίλων": "Φίλων", "ἀβραάμ": "Ἀβραάμ"}
 
 
 # --------------------------------------------------------------------------
