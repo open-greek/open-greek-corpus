@@ -1,7 +1,7 @@
 {
   "headline": {
     "works": 11055,
-    "authors": 3306,
+    "authors": 3307,
     "editions": 10203,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
@@ -11,7 +11,7 @@
     "served_works": 3889,
     "pct_served_in_registry": 74.7,
     "pct_served_with_work_qid": 12.9,
-    "pct_served_with_author_qid": 73.9,
+    "pct_served_with_author_qid": 73.8,
     "pct_served_with_any_anchor": 85.7,
     "pct_served_with_logical_served_locus": 54.6
   },
@@ -535,12 +535,12 @@
       ]
     },
     "with_work_qid": 503,
-    "with_author_qid": 2873,
+    "with_author_qid": 2872,
     "with_any_external_anchor": 3331,
     "with_logical_served_locus": 2123,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2370,
+      "count": 2369,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -598,7 +598,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5439,
+      "count": 5438,
       "examples": [
         {
           "work": "abydenus.fragmenta",
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1904,
+      "count": 1905,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",

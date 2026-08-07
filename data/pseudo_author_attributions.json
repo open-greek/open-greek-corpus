@@ -75,6 +75,11 @@
    "name": "Gregorius Palamas, Acindynus et Barlaam (PG 151)",
    "aliases": {},
    "note": "Collective for PG 151 (hesychast controversy volume). Served shares: Gregory Palamas homilies ~0-30%, Philotheus CP Encomium/Vita Palamae from 29.7%, then pro- and anti-Palamite controversy texts (Gregorius Acindynus, Barlaam of Calabria and related documents) to 100%. No author reaches 90%."
+  },
+  "dionysius-pachymeres-pg3": {
+   "name": "Pseudo-Dionysius Areopagita et Georgius Pachymeres (PG 3)",
+   "aliases": {},
+   "note": "Collective for PG 3, which Migne prints as the Corpus Dionysiacum WITH Pachymeres' paraphrase interleaved, not as Dionysius alone. Served shares: Pseudo-Dionysius 60,010 of 160,260 tokens, about 37%, taking the vendored canon's word counts for the five works (CH 11,488, EH 16,400, DN 24,104, MT 1,350, Ep 6,668); the remaining ~63% is Georgius Pachymeres' 13th-century paraphrase. Neither reaches the 90% this file's policy requires for a dominant-author attribution."
   }
  },
  "works": {
@@ -377,19 +382,19 @@
    ]
   },
   "cogPG.PG003": {
-   "author": "pseudo-dionysius-areopagita",
+   "author": "dionysius-pachymeres-pg3",
    "title": "Patrologia Graeca 3",
    "tags": {
-    "century": 6,
     "genre": [
      "theology"
     ]
    },
-   "attribution": "single-author volume",
+   "attribution": "collective (Pseudo-Dionysius ~37% of served tokens, Pachymeres' paraphrase ~63%, no author reaches 90%)",
    "evidence": [
-    "served rows: Corpus Dionysiacum (hierarchies, De divinis nominibus scope) ending with Epistula 10 to John the Theologian on Patmos at 99.8% (locus 566); Pachymeres' paraphrase is printed interleaved with the text in PG 3 and part of the served tokens",
-    "PG volume table: PG 3-4 = Pseudo-Dionysius the Areopagite (+ scholia in PG 4)",
-    "author entry reused: registry pseudo-dionysius-areopagita (wikidata Q312816)"
+    "measured: 160,260 served tokens by the corpus tokenizer against 60,010 words for the five Dionysian works in data/inventory/work_inventory.json (tlg2798.001, .002, .004, .005, .006), so Dionysius holds about 37% and cannot take the volume under this file's >=90% dominant-author rule",
+    "PG 3's own title page prints the text cum paraphrasi Pachymerae; the paraphrase is interleaved with the text rather than segregated, which is why the volume cannot be split by column and is tracked in issue #9",
+    "century tag deliberately absent: the two authors are about 700 years apart, so any single value misdates the majority of the volume. The other PG collectives keep a century because their authors sit in one period; this is the Walz-anthology case, where contents straddle periods and no century is asserted",
+    "previous attribution was 'single-author volume' under pseudo-dionysius-areopagita with century 6, which dated roughly 100,000 tokens of 13th-century paraphrase to the 6th and broke the policy stated in this file's own _meta"
    ]
   },
   "cogPG.PG005": {

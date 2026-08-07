@@ -328,7 +328,12 @@ PG112, PG113, PG139 and PG151. They are listed with their token counts in the
 OCR provenance table below. Only PG003 of those six is uncarved on the
 evidence: its Dionysius text is interleaved passage-by-passage with Pachymeres'
 paraphrase, which a column carve cannot separate
-(`data/corpus_changes/cogPG.PG003.split-deferred.json`). The other five are not
+(`data/corpus_changes/cogPG.PG003.split-deferred.json`). Its attribution has
+been corrected in the meantime: Dionysius holds about 37% of the volume's
+160,260 tokens against the paraphrase's 63%, so it carries a collective author
+label and NO century, the two being some 700 years apart. A consumer filtering
+PG003 by period will no longer see it, which is deliberate: the previous tag
+dated roughly 100,000 tokens of 13th-century paraphrase to the 6th. The other five are not
 in the plan at all, which covers 18 volumes; the column research for them has
 not been done. byzantium.gr historians are single works and key by their slug
 directly.
