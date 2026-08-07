@@ -1218,6 +1218,45 @@
      "author_note": "The only work in this volume the corpus does not already hold, so the one served as primary."
     }
    ]
+  },
+  {
+   "volume": "v4",
+   "urn": "ocr.walz_rhetores_v4",
+   "edition_title": "Rhetores Graeci, vol. IV, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1833)",
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#10",
+   "printed_to_scan_offset": 14,
+   "offset_note": "printed = scan - 14, constant, and measured rather than inferred: this volume prints no page numeral in any running head its OCR captured, so both anchors come from the scan images. Scan 120 carries a printed 106 and scan 858 a printed 844, 738 pages apart, and our OCR of each matches that page line for line.",
+   "basis": "No ARGUMENTUM. Two display titles, at printed 1 and 39, with the running head confirming each block runs unbroken to the next.",
+   "front_matter_before": "walz_rhetores_v4_0015.1",
+   "front_matter_note": "scans 0008-0014, Walz's roman-numbered Latin praefatio, 2,592 tokens. Left in the volume file, as in the other volumes, because the printed-page locus scheme cannot express a roman folio.",
+   "disposition_note": "Both served as primary. Neither duplicates anything the corpus holds, and the near-miss is worth naming: the Walz VII.1 scholia on the same Hermogenean treatise share only 6.2% of their 4-grams with these, which is two traditions rather than one text twice.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "anonymi-in-artem-rhetoricam.eisagoge-scholion-eis-ta-prolegomena-tes-hermogenous-rhetorikes",
+     "title": "Eisagoge scholion eis ta prolegomena tes Hermogenous rhetorikes",
+     "author_display": "Anonymus",
+     "tlg": null,
+     "printed_pages": "1-38",
+     "start": "walz_rhetores_v4_0015.1",
+     "incipit_check": "ΕΙΣΑΓΩΓΗ ΣΧΟΛΙΩΝ",
+     "evidence": "Display title ΕΙΣΑΓΩΓΗ ΣΧΟΛΙΩΝ ΕΚ ΔΙΑΦΟΡΩΝ ΤΕΧΝΟΓΡΑΦΩΝ ΕΙΣ ΤΑ ΠΡΟΛΕΓΟΜΕΝΑ ΤΗΣ ΕΡΜΟΓΕΝΟΥΣ ΡΗΤΟΡΙΚΗΣ at printed 1, with the running head ΠΡΟΛΕΓΟΜΕΝΑ / ΤΗΣ ΕΡΜΟΓΕΝΟΥΣ ΡΗΤΟΡΙΚΗΣ holding to printed 38.",
+     "author_note": "Not the prolegomena already served: this shares 0.2% of its 4-grams with anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i, so it takes its own slug."
+    },
+    {
+     "n": "II",
+     "slug": "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous",
+     "title": "Scholia eis staseis tou Hermogenous",
+     "author_display": "Syrianus, Sopater and Marcellinus",
+     "tlg": null,
+     "printed_pages": "39-846",
+     "start": "walz_rhetores_v4_0053.1",
+     "incipit_check": "ΣΥΡΙΑΝΟΥ ΚΑΙ",
+     "evidence": "Display title ΣΥΡΙΑΝΟΥ ΚΑΙ ΣΩΠΑΤΡΟΥ / ΚΑΙ ΜΑΡΚΕΛΛΙΝΟΥ / ΕΙΣ ΣΤΑΣΕΙΣ ΤΟΥ ΕΡΜΟΓΕΝΟΥΣ at printed 39, read off the Internet Archive scan (rhetoresgraeciem04walzuoft page 53), which our OCR truncates to ΣΥΡΙΑΝΟΥ ΚΑΙ. Running head ΣΧΟΛΙΑ / ΕΙΣ ΣΤΑΣΕΙΣ unbroken from there to the last page.",
+     "author_note": "Not the scholia on the same treatise already served: anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis is the Walz VII.1 collection, carved earlier under this issue, and shares 6.2% of its 4-grams with this one. Two commentary traditions on one text, not one text twice."
+    }
+   ]
   }
  ]
 }
