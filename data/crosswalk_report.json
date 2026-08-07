@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11055,
-    "authors": 3307,
+    "works": 11054,
+    "authors": 3306,
     "editions": 10203,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.4,
-    "served_works": 3889,
-    "pct_served_in_registry": 74.7,
+    "served_works": 3888,
+    "pct_served_in_registry": 74.8,
     "pct_served_with_work_qid": 12.9,
-    "pct_served_with_author_qid": 73.8,
+    "pct_served_with_author_qid": 73.9,
     "pct_served_with_any_anchor": 85.7,
     "pct_served_with_logical_served_locus": 54.6
   },
   "work_aliases": {
     "cts": {
-      "count": 11055,
+      "count": 11054,
       "pct": 100.0
     },
     "wikidata": {
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9089,
+      "count": 9088,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3889,
+    "served_works": 3888,
     "in_registry": 2907,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 982,
+      "count": 981,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -500,7 +500,6 @@
         "agias-argivus.fragmenta",
         "aglaosthenes.fragmenta",
         "alcetas.fragmenta",
-        "alexander-numenius.peri-ton-tes-dianoias-schematon",
         "alexander-rhetoric.ek-ton-alexandrou",
         "alexander.fragmenta",
         "alexandrides-delphus.fragmenta",
@@ -531,13 +530,14 @@
         "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
         "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
         "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
-        "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon"
+        "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
+        "anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779"
       ]
     },
     "with_work_qid": 503,
     "with_author_qid": 2872,
     "with_any_external_anchor": 3331,
-    "with_logical_served_locus": 2123,
+    "with_logical_served_locus": 2122,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
       "count": 2369,
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1905,
+      "count": 1904,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
