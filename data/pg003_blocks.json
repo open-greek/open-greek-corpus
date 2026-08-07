@@ -1,0 +1,99 @@
+{
+ "what": "display-head boundaries surviving in the PG003 OCR",
+ "issue": "open-greek/open-greek-corpus#9",
+ "note": "Migne prints a head at every switch between Dionysius and Pachymeres' paraphrase; the OCR read the Latin heads as Greek letter shapes, which is why they were reported absent. These are the ones still legible. The rest need the page images.",
+ "author_switches": 4,
+ "chapter_heads": 7,
+ "switches_opening_their_row": "4 of 4",
+ "count_is_a_floor": "the Latin heads were read by eye; no principled decoder recovers them, so more may survive",
+ "heads": [
+  {
+   "locus": 89,
+   "head": "caput",
+   "reading": "ΟΑΡΠΤ ΙΙΙ = CAPUT III",
+   "opening": "ΟΑΡΠΤ ΙΙΙ. ζήτησιν, οὐκ ἐῶν",
+   "run_to": 135,
+   "tokens": 15848
+  },
+  {
+   "locus": 136,
+   "head": "kephalaion",
+   "reading": "ΚΕΦΑΛΑΙΟΝ Οʹ. Λοιπὸς Τ",
+   "opening": "ΚΕΦΑΛΑΙΟΝ Οʹ. Λοιπὸς Τ ἡμῖν",
+   "run_to": 150,
+   "tokens": 4490
+  },
+  {
+   "locus": 151,
+   "head": "paraphrase",
+   "reading": "ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ = PARAPHRASIS PACHYMERAE",
+   "opening": "ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ. οἱτούτων δὲ διηυκρινημένων,",
+   "run_to": 167,
+   "tokens": 5682
+  },
+  {
+   "locus": 168,
+   "head": "kephalaion",
+   "reading": "ΚΕΦΑΛΑΙΟΝ ΙΔʹ. Καὶ τοῦτο",
+   "opening": "ΚΕΦΑΛΑΙΟΝ ΙΔʹ. Καὶ τοῦτο δὲ",
+   "run_to": 170,
+   "tokens": 832
+  },
+  {
+   "locus": 171,
+   "head": "synopsis",
+   "reading": "ΘΥΝΟΡΦΙΟ ΩΑΡΙΤΙΘ = SYNOPSIS CAPITIS",
+   "opening": "ΘΥΝΟΡΦΙΟ ΩΑΡΙΤΙΘ. ρεί νεσεέῖκ ἄἰνετιονκια",
+   "run_to": 299,
+   "tokens": 43328
+  },
+  {
+   "locus": 300,
+   "head": "kephalaion",
+   "reading": "ΚΕΦΑΛΑΙΟΝ Αʹ. Τ ΣΜΠΡΕΣΒΥΤΕΡΩ",
+   "opening": "ΚΕΦΑΛΑΙΟΝ Αʹ. Τ ΣΜΠΡΕΣΒΥΤΕΡΩ ΤΙΜΟΟΕΑ",
+   "run_to": 346,
+   "tokens": 15519
+  },
+  {
+   "locus": 347,
+   "head": "caput",
+   "reading": "ΛΑΡΗΤ ΙΙΙ = CAPUT III",
+   "opening": "ΚΕΦΑΛΑΙΟΝ Γ. ΛΑΡΗΤ ΙΙΙ. Καὶ",
+   "run_to": 353,
+   "tokens": 2206
+  },
+  {
+   "locus": 354,
+   "head": "caput",
+   "reading": "Α ΟΑΡΠΤ ΙΝʹ = CAPUT IV",
+   "opening": "ΚΕΦΑΛΑΙΟΝ Δʹ. Α ΟΑΡΠΤ ΙΝʹ.",
+   "run_to": 375,
+   "tokens": 7884
+  },
+  {
+   "locus": 381,
+   "head": "paraphrase",
+   "reading": "ΡΑΚΑΡΗΣΑΘΒ ΡΑΩΗΙΜΕΣΧθ = PARAPHRASIS PACHYMERAE",
+   "opening": "Φ ΡΑΚΑΡΗΣΑΘΒ ΡΑΩΗΙΜΕΣΧθ ἐΙ. Στικτέον",
+   "run_to": 485,
+   "tokens": 39175
+  },
+  {
+   "locus": 487,
+   "head": "paraphrase",
+   "reading": "ἔΙΘΡΑΓΑΡΙΛΑεΙΒ ΡΑΩΙΥΜΕΕΣ = PARAPHRASIS PACHYMERAE",
+   "opening": "ἔΙΘΡΑΓΑΡΙΛΑεΙΒ ΡΑΩΙΥΜΕΕΣ. ἔΙ. Φέρε καὶ",
+   "run_to": 491,
+   "tokens": 2009
+  },
+  {
+   "locus": 492,
+   "head": "kephalaion",
+   "reading": "ΚΕΦΑΛΑΙΟΝ ΠΒʹ. κυρίων, Θεοῦ",
+   "opening": "ΚΕΦΑΛΑΙΟΝ ΠΒʹ. κυρίων, Θεοῦ θρῶν.",
+   "run_to": 568,
+   "tokens": 17560
+  }
+ ]
+}

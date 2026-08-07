@@ -326,9 +326,21 @@ ranges did not claim). The other six are whole uncarved volumes and hold about
 1.06M Greek tokens, 23% of the 4.70M the CGPG delivery serves: PG003, PG112,
 PG113, PG139 and PG151. They are listed with their token counts in the
 OCR provenance table below. Only PG003 of those six is uncarved on the
-evidence: its Dionysius text is interleaved passage-by-passage with Pachymeres'
-paraphrase, which a column carve cannot separate
-(`data/corpus_changes/cogPG.PG003.split-deferred.json`). Its attribution has
+evidence, and the reason recorded for it was wrong until 2026-08-07. It said the
+Dionysius text interleaves passage-by-passage with Pachymeres' paraphrase so no
+column carve could separate them. Migne in fact prints a display head at every
+switch, and four of them survive in our OCR (plus seven that number a chapter
+inside a work). They were reported absent because the OCR read the Latin heads as
+Greek letter shapes, so PARAPHRASIS PACHYMERAE is sitting at locus 151 as
+`ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ` and no Greek search would ever find it. All four open their
+row rather than sitting mid-row, so the switches fall on locus boundaries and an
+ordinary carve can express them; intra-row segmentation is not what this needs.
+What blocks it is that the OCR dropped the rest of the heads, leaving most of the
+volume's 459 rows inside a run whose start we cannot see, and an unseen boundary
+is exactly the one that files a block under the wrong author. Recovering them
+needs the PG 3 page images
+(`scripts/measure_pg003_blocks.py`, `data/pg003_blocks.json`,
+`data/corpus_changes/cogPG.PG003.split-deferred.json`). Its attribution has
 been corrected in the meantime: Dionysius holds about 37% of the volume's
 160,260 tokens against the paraphrase's 63%, so it carries a collective author
 label and NO century, the two being some 700 years apart. A consumer filtering
@@ -2126,7 +2138,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
   `cogPG.*` files remain volume-keyed: nine leftovers of carved volumes
   (PG113 and PG139 join them, so 156,555 tokens between them) and three
   uncarved volumes (PG003, PG112, PG151, ~709,000 tokens). Only PG003 is deferred on the evidence
-  (Dionysius/Pachymeres passage-level interleave; see the split-deferred flag
+  (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not on the
+  passage-level interleave the record used to claim; see the split-deferred flag
   record); the other four are simply not researched yet.
   PG067 carved to TWO SECONDARY witnesses and no primary, so the published
   primary corpus is 220,569 tokens smaller than before it: the volume is
@@ -2134,8 +2147,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
   served from First1KGreek, so the precedence ladder keeps the Migne OCR as a
   witness rather than serving it twice. That is the ladder working, not text
   going missing, but it does move every downstream count.
-- Next: research and carve PG112, PG113, PG139 and PG151, passage-level
-  separation of PG003 (Dionysius vs Pachymeres paraphrase), then per-work
+- Next: research and carve PG112, PG113, PG139 and PG151, recover PG003's dropped
+  display heads from the page images and carve it on loci, then per-work
   citation loci for the carved CGPG works (now page-keyed `<VOL>.<page>`).
 
 ## License
