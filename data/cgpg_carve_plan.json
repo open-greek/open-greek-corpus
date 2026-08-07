@@ -4016,6 +4016,119 @@
      "secondary_reason": "work is served from the First1KGreek open TEI edition (source-precedence: open_corpus over our own OCR of a public-domain edition); this Migne witness is kept, not served"
     }
    ]
+  },
+  {
+   "volume": "PG139",
+   "basis": "read at the row. Four blocks: two unidentified head blocks, the Choniates Historia, and a tail index. Only the Historia is carved.",
+   "residual_ranges": [
+    [
+     13,
+     89
+    ],
+    [
+     92,
+     151
+    ],
+    [
+     554,
+     558
+    ]
+   ],
+   "residual_note": "13-89 is a set of homilies opening ΛΟΓΟΣ Αʹ and 92-151 a treatise opening ΠΡΟΟΙΜΙΟΝ; the volume's collective label names Isidore of Thessalonica and Joel, but which block is whose is not established here, so neither is carved. 554-558 is a table of contents (Τόμος πρῶτος. Ἐν τῷ πρώτῳ τόμῳ τὸ προοίμιον), not a work.",
+   "works": [
+    {
+     "slug": "nicetas-choniates.historia-xronikh-dih-ghsis",
+     "tlg": "tlg3094.tlg001",
+     "title": "Historia",
+     "author_display": "Nicetas Choniates",
+     "ranges": [
+      [
+       167,
+       536
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 167,
+       "text": "Αἰ ἱστορίαι δὲ ἄρα κοινωφελίς τι χρῆμα τῷ βίῳ ἐφεύρηται"
+      }
+     ],
+     "evidence": "Locus 167 opens the Historia's proem on the usefulness of history. Locus 527 is simply missing from the file, not a work boundary: 528-536 continues the same post-1204 narrative, Baldwin's death and the Frankish and Venetian occupation, and 536 ends mid-narrative. 154,180 tokens here against 159,273 served, a ratio of 0.97.",
+     "rank": "secondary",
+     "secondary_reason": "work is served from byzantium.gr's manual transcription, which beats OCR of the same text per the source-precedence tie-break (the precedent is scylitzes-continuatus.continuatio-scylitzae, filed the same way); this Migne witness is kept, not served"
+    }
+   ]
+  },
+  {
+   "volume": "PG113",
+   "basis": "read at the row. The two Constantine works sit inside one contiguous run of loci, so their internal boundary is taken at the display heads rather than at a gap.",
+   "residual_ranges": [
+    [
+     82,
+     89
+    ],
+    [
+     223,
+     313
+    ],
+    [
+     318,
+     319
+    ],
+    [
+     321,
+     323
+    ],
+    [
+     328,
+     489
+    ]
+   ],
+   "residual_note": "82-89 is Hierocles' Synecdemus, printed between the two Constantine works; 223-313 opens on a further Constantinian compilation head; 318-323 are Dexippus testimonia; 328-489 is the Excerpta de legationibus, whose text is already held under the individual historians and whose disposition is a call this carve does not make. None of these is carved here.",
+   "works": [
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.de-thematibus",
+     "tlg": "tlg3023.tlg008",
+     "title": "De thematibus",
+     "author_display": "Constantinus VII Porphyrogenitus",
+     "ranges": [
+      [
+       39,
+       81
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 39,
+       "text": "Περὶ τῶν θεμάτων τῶν ἀνηκόντων τῇ βασιλείᾳ τῶν Ῥωμαίων"
+      }
+     ],
+     "evidence": "Locus 39 is the work's own title line. 81 is the last page before the Synecdemus head at 82. 10,402 tokens against 9,330 served, a ratio of 1.11.",
+     "rank": "secondary",
+     "secondary_reason": "work is served from byzantium.gr's manual transcription, which beats OCR of the same text per the source-precedence tie-break (the precedent is scylitzes-continuatus.continuatio-scylitzae, filed the same way); this Migne witness is kept, not served"
+    },
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.de-administrando-imperio",
+     "tlg": "tlg3023.tlg007",
+     "title": "De administrando imperio",
+     "author_display": "Constantinus VII Porphyrogenitus",
+     "ranges": [
+      [
+       90,
+       222
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 90,
+       "text": "ΚΩΝΣΤΑΝΤΙΝΟΥ ΠΡΟΟΙΜΙΟΝ"
+      }
+     ],
+     "evidence": "Locus 90 carries the proem head and its opening, Υἱὸς σοφὸς εὐφραίνει πατέρα, which is how De administrando imperio begins. 223 opens a different Constantinian compilation head. 39,340 tokens against 39,545 served, a ratio of 0.99.",
+     "rank": "secondary",
+     "secondary_reason": "work is served from byzantium.gr's manual transcription, which beats OCR of the same text per the source-precedence tie-break (the precedent is scylitzes-continuatus.continuatio-scylitzae, filed the same way); this Migne witness is kept, not served"
+    }
+   ]
   }
  ]
 }

@@ -1694,24 +1694,67 @@
   "volume": "PG113",
   "urn": "cogPG.PG113",
   "kind": "volume",
-  "desc": "Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac.",
+  "desc": "Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 442,
-  "n_tokens": 146028,
+  "n_passages": 266,
+  "n_tokens": 96325,
+  "works": []
+ },
+ {
+  "volume": "PG113",
+  "urn": "constantinus-vii-porphyrogenitus-imperator.de-thematibus",
+  "kind": "work",
+  "desc": "Constantinus VII Porphyrogenitus - De thematibus (PG113 loci 39-81)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 34,
+  "n_tokens": 9330,
   "works": [
    {
-    "tlg_id": "tlg3125",
-    "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 6080,
-    "title": "De Creta capta",
-    "author": "THEODOSIUS Diaconus",
-    "cgpg_chosen": true
+    "tlg_id": "tlg3023",
+    "work_id": "008",
+    "title": "De thematibus",
+    "author": "Constantinus VII Porphyrogenitus",
+    "cgpg_chosen": false
    }
-  ]
+  ],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "constantinus-vii-porphyrogenitus-imperator.de-thematibus",
+   "source": "byzantium_gr",
+   "edition": "byzantium-gr",
+   "n_tokens": 9330
+  }
+ },
+ {
+  "volume": "PG113",
+  "urn": "constantinus-vii-porphyrogenitus-imperator.de-administrando-imperio",
+  "kind": "work",
+  "desc": "Constantinus VII Porphyrogenitus - De administrando imperio (PG113 loci 90-222)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 77,
+  "n_tokens": 39545,
+  "works": [
+   {
+    "tlg_id": "tlg3023",
+    "work_id": "007",
+    "title": "De administrando imperio",
+    "author": "Constantinus VII Porphyrogenitus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "constantinus-vii-porphyrogenitus-imperator.de-administrando-imperio",
+   "source": "byzantium_gr",
+   "edition": "byzantium-gr",
+   "n_tokens": 39545
+  }
  },
  {
   "volume": "PG118",
@@ -2877,24 +2920,40 @@
   "volume": "PG139",
   "urn": "cogPG.PG139",
   "kind": "volume",
-  "desc": "Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus",
+  "desc": "Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 511,
-  "n_tokens": 201766,
+  "n_passages": 142,
+  "n_tokens": 47766,
+  "works": []
+ },
+ {
+  "volume": "PG139",
+  "urn": "nicetas-choniates.historia-xronikh-dih-ghsis",
+  "kind": "work",
+  "desc": "Nicetas Choniates - Historia (PG139 loci 167-536)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 1249,
+  "n_tokens": 159273,
   "works": [
    {
-    "tlg_id": "tlg3140",
+    "tlg_id": "tlg3094",
     "work_id": "001",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 12994,
-    "title": "Chronographia compendiaria",
-    "author": "JOEL",
-    "cgpg_chosen": true
+    "title": "Historia",
+    "author": "Nicetas Choniates",
+    "cgpg_chosen": false
    }
-  ]
+  ],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "nicetas-choniates.historia-xronikh-dih-ghsis",
+   "source": "byzantium_gr",
+   "edition": "byzantium-gr",
+   "n_tokens": 159273
+  }
  },
  {
   "volume": "PG146",
