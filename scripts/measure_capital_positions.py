@@ -42,6 +42,7 @@ defect at all; the genuinely positional residue is about a tenth of the total.
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import sys
 import unicodedata
@@ -53,6 +54,7 @@ DATA = REPO / "data"
 CORPUS = DATA / "corpus"
 OUT = DATA / "capital_positions.json"
 FREQ = DATA / "public_lemma_frequency.tsv"
+WORK_LEMMAS = DATA / "work_lemma_counts.tsv.gz"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
@@ -67,6 +69,26 @@ CLOSERS = set(".;·:!?»)]’\"'")
 # An all-caps run capitalizes every word by typography, so it is evidence about
 # neither the word nor its position. Headings and inscriptions are full of them.
 ALLCAPS_SHARE, ALLCAPS_MIN = 0.8, 3
+
+
+def load_work_lemma_totals() -> dict[str, int]:
+    """lemma -> tokens, rolled up from the per-work table.
+
+    This is the table CAPITAL_FOLDS is actually applied to, and it is not the
+    same set as public_lemma_frequency.tsv: that one is built by a different
+    script from a different cache with its own min-count, and carries 1,224
+    grave lemmas where this carries 9,306. A capitalized lemma absent from the
+    frequency table was therefore invisible here no matter how large it was.
+    `Διὸ` is 6,270 tokens, 12.3% of the whole grave residue, and it is not in
+    the frequency table at all (issue #4).
+    """
+    out: dict[str, int] = {}
+    with gzip.open(WORK_LEMMAS, "rt", encoding="utf-8") as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 3 and parts[2].isdigit():
+                out[parts[1]] = out.get(parts[1], 0) + int(parts[2])
+    return out
 
 
 def load_frequencies() -> dict[str, int]:
@@ -95,7 +117,12 @@ def target_twin(form: str, freq: dict[str, int]) -> str | None:
     already makes for not requiring the acute to be commoner either.
     """
     lower = lower_initial(form)
-    if lower != form and freq.get(lower, 0) > freq[form]:
+    # The commoner-than test still requires the form to be IN the frequency
+    # table. Defaulting a missing count to 0 would make every absent capital
+    # look rarer than its lowercase twin and fold it, which is exactly the
+    # proper-noun destruction #19 exists to prevent. Out-of-table forms reach
+    # only the grave branch below, where the argument does not need a count.
+    if lower != form and form in freq and freq.get(lower, 0) > freq[form]:
         return lower
     if VARIA in unicodedata.normalize("NFD", form):
         acute = to_acute(lower)
@@ -136,11 +163,15 @@ def main() -> None:
     args = ap.parse_args()
 
     freq = load_frequencies()
+    # Membership and token counts come from the per-work table, which is what
+    # the folds are applied to. The old gate was `form not in freq`, and it hid
+    # every capitalized lemma the frequency table happens not to carry.
+    totals = load_work_lemma_totals()
     initial, mid = count_positions()
 
     folds, kept, thin = {}, 0, 0
     for form in set(initial) | set(mid):
-        if form not in freq:
+        if form not in totals:
             continue
         lower = target_twin(form, freq)
         if not lower:
@@ -154,7 +185,7 @@ def main() -> None:
             kept += 1
             continue
         folds[form] = {"folds_to": lower, "mid_sentence_rate": round(rate, 4),
-                       "occurrences": n, "tokens": freq[form]}
+                       "occurrences": n, "tokens": totals[form]}
 
     tokens = sum(v["tokens"] for v in folds.values())
     print(f"{len(folds):,} capitalized lemmas are positional only "
