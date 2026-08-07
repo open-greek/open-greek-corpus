@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1399,
-   "ocr_works_ranked": 815,
+   "ocr_works": 1400,
+   "ocr_works_ranked": 816,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -184,9 +184,9 @@
    "max": 0.4788,
    "median": 0.1348,
    "min": 0.0089,
-   "n": 815,
-   "q1": 0.095,
-   "q3": 0.1721
+   "n": 816,
+   "q1": 0.0948,
+   "q3": 0.1719
   }
  },
  "works": {
@@ -609,6 +609,15 @@
     "n_bigrams_secondary": 1417,
     "secondary_edition": "qwen36-theopompus_hist_fhg1"
    }
+  },
+  "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei": {
+   "edition": "cgpg",
+   "n_tokens": 10989,
+   "n_tokens_checked": 6274,
+   "n_unattested": 180,
+   "source": "cgpg",
+   "unattested_rate": 0.02869,
+   "witness": null
   },
   "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton": {
    "edition": "qwen36-walz_rhetores_v1",
@@ -3372,11 +3381,11 @@
   },
   "cogPG.PG151": {
    "edition": "cgpg",
-   "n_tokens": 65362,
-   "n_tokens_checked": 39282,
-   "n_unattested": 1953,
+   "n_tokens": 54373,
+   "n_tokens_checked": 33008,
+   "n_unattested": 1773,
    "source": "cgpg",
-   "unattested_rate": 0.049717,
+   "unattested_rate": 0.053714,
    "witness": null
   },
   "comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e": {
@@ -14730,13 +14739,13 @@
   "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
   "michael-glycas.epistolae",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
+  "cogPG.PG151",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",
   "theophylactus-achridensis.expositio-in-epistolam-ad-romanos",
   "ocr.pg026",
   "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
-  "cogPG.PG151",
   "theophylactus-achridensis.expositio-in-epistolam-ad-galatas",
   "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
   "basilius-theology.contra-sabellianos-et-arium-et-anomoeos",
@@ -14769,6 +14778,7 @@
   "philotheus-constantinopolitanus.encomium-gregorii-palamae",
   "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
   "pseudo-justinus-martyr.expositio-rectae-fidei",
+  "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei",
   "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
   "pseudo-justinus-martyr.de-resurrectione",
   "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
