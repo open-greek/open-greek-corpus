@@ -4401,6 +4401,45 @@
      "rank": "primary"
     }
    ]
+  },
+  {
+   "volume": "PG151",
+   "pass": 2,
+   "date": "2026-08-07",
+   "basis": "second pass. Migne's running heads over the three residual blocks were read off the scans. They give each block a title; none of them names an author, so only the one that is a titled treatise is carved. Read off the page scans (Internet Archive item patrologia.graeca.org, file _151.zip). Loci map to Migne columns as col = 2*locus - 14, pinned on our locus 314 being column 614 and locus 563 column 1112.",
+   "residual_ranges": [
+    [
+     347,
+     393
+    ],
+    [
+     577,
+     600
+    ]
+   ],
+   "residual_note": "Both stay because Migne himself prints them without an author, not because we failed to identify them. 347-393 is the synodal dossier: the running head at columns 705-706 reads CONTRA PROCHORUM CYDONIUM, the synodal tome against Prochoros Kydones, and the block also holds the Bucharest printer's colophon at 347, Cantacuzenus' prostagma and the bishops' report. Those are conciliar documents, not one authored work. 577-600 is headed APPENDIX at columns 1141-1142, which is Migne's own label for it; it refutes syllogisms of Akindynos' party and names nobody. Contrast the encomium, whose running head is ENCOMIUM AUCT. PHILOTHEO CP: where Migne knows an author he says so in the head, and here he does not. Read off the page scans (Internet Archive item patrologia.graeca.org, file _151.zip). Loci map to Migne columns as col = 2*locus - 14, pinned on our locus 314 being column 614 and locus 563 column 1112.",
+   "works": [
+    {
+     "slug": "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei",
+     "tlg": null,
+     "title": "De essentia et operatione Dei",
+     "author_display": "Anonymi",
+     "ranges": [
+      [
+       603,
+       628
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 603,
+       "text": "Προοίμιον τοῦ ποτοῦ βιβλίου. Ὅτι τὸ μὴ διελεῖν"
+      }
+     ],
+     "evidence": "26 rows, 10,989 tokens. The running head at columns 1193-1194 reads DE ESSENTIA ET OPERATIONE DEI, which is where the title comes from, and the same opening carries Κεφάλ. Βʹ. Περὶ τῆς διαιρέσεως καὶ τῆς τάξεως τῶν βιβλίων τῆς πραγματείας, glossed Cap. II. De divisione et ordine librorum hujus operis: a treatise announcing its own division into books, which is the two our OCR shows as ΛΙΒΕΚ ΡΗΙΜΟΘ at 603 and ΛΙΒΕΝ ΘΕΩΟΝΗ at 617 (LIBER PRIMUS, LIBER SECUNDUS read as Greek letter shapes). Migne prints no author in the head, so it takes an anonymi- slug on the pattern already used for anonymi-de-terrae-motibus and anonymi-de-barbarismo-et-soloecismo. No TLG anchor is claimed. Read off the page scans (Internet Archive item patrologia.graeca.org, file _151.zip). Loci map to Migne columns as col = 2*locus - 14, pinned on our locus 314 being column 614 and locus 563 column 1112.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }
