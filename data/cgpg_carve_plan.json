@@ -4277,6 +4277,74 @@
      "rank": "primary"
     }
    ]
+  },
+  {
+   "volume": "PG113",
+   "pass": 2,
+   "date": "2026-08-07",
+   "basis": "second pass over what pass 1 left. Two identified blocks come out of the residual; the legal material after them stays, because it is at least two works and neither is settled here.",
+   "residual_ranges": [
+    [
+     238,
+     313
+    ],
+    [
+     318,
+     319
+    ],
+    [
+     321,
+     323
+    ],
+    [
+     328,
+     489
+    ]
+   ],
+   "residual_note": "238-313 is legal, and it is NOT one work. A Latin running head ΚΟΜΑΝΟΚΟΜ ΙΜΡΡ. ... ΛΕΩΟΜ ΟΟΜΡΕΝΡΙΑΚΙΟΘ (ROMANORUM IMPP. ... LEGUM COMPENDIARIUS) opens at locus 238 character 571, a title list runs from 241 (ΤΙΤΛΟΣ ΠΡΩΤΟΣ beside its garbled Latin ΤΙΤΗΙΗΘ ΡΗΙΜΙΘ), and by 313 the text is imperial Novellae (ΠΒʹ. Νεαρὰ Κωνσταντίνου ἡ ἀποκειμένη ἐν τῇ σακέλλῃ). Where the compendium ends and the Novellae begin is not established here, so carving it as one work would file two things under one name. 328-489 and the short 318-323 runs are not researched.",
+   "works": [
+    {
+     "slug": "hierocles-grammaticus.synecdemus",
+     "tlg": null,
+     "title": "Synecdemus",
+     "author_display": "Hierocles Grammaticus",
+     "ranges": [
+      [
+       82,
+       89
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 82,
+       "text": "Ἐπαρχία Θρῴκης Εὐρώπης ὑπὸ κονοσουλάριον"
+      }
+     ],
+     "evidence": "8 rows, 1,600 tokens. Locus 82 opens with the work's own display title, ΓΡΑΜΜΑΤΙΚΟΥ. ΣΥΝΕΚΛΗΜΟΣ., and the text is the Synecdemus end to end: numbered provinces each with a governor's rank and a city count, Αʹ Ἐπαρχία Θρᾴκης Εὐρώπης ... πόλεις ιδʹ through ΝΘʹ Ἐπαρχία Αὐγούστα at 89. No TLG anchor is claimed: the vendored Canon has no Synecdemus and no record for this Hierocles at all. Its two Hierocles entries are other men, tlg1429 the Stoic (Ἠθικὴ στοιχείωσις, Fragmenta ap. Stobaeum) and tlg2571 the Neoplatonist (In aureum carmen), and the corpus already serves both. The author slug is new for that reason and follows the OCR's own ΓΡΑΜΜΑΤΙΚΟΥ.",
+     "rank": "primary"
+    },
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
+     "tlg": "tlg3023.tlg013",
+     "title": "Narratio de imagine Edessena",
+     "author_display": "Constantinus VII Porphyrogenitus Imperator",
+     "ranges": [
+      [
+       223,
+       237
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 223,
+       "text": "περὶ τῆς πρὸς Αὕγαρρν ἀπρσταλείσῃς"
+      }
+     ],
+     "evidence": "15 rows, 5,761 tokens against the Canon's 6,032 words for tlg3023.013, a ratio of 0.96. Locus 223 carries the work's title in Greek capitals, ΚΩΝΣΤΑΝΤΙΝΟΥ ... ΒΑΣΙΛΕΩΣ ΡΩΜΑΙΩΝ ΔΙΗΓΗΣΙΣ ἀπὸ διαφόρων ἀθροισθεῖσα ἱστοριῶν, περὶ τῆς πρὸς Αὔγαρον ἀποσταλείσης ... θείας εἰκόνος, καὶ ὡς ἐξ Ἐδέσσης μετεκομίσθη, and the narrative runs through the Saracen negotiation, the healing, and the image's entry into Constantinople in procession. Nothing in the corpus is anchored to tlg3023.013, so this carves primary.",
+     "shared_row_note": "The work does not end at a row boundary. Its closing prayer runs into locus 238 and stops at character 571, where the legal compendium's Latin running head begins. Under the plan's shared-row rule the row goes to the work whose head it carries, so 238 stays in the residual with the legal material and 86 tokens of the Narratio's ending stay with it. Claiming 238 instead would score 0.99 against the Canon rather than 0.96, which is the better-looking number, and would sweep 117 tokens of the compendium into Constantine VII. Under-claiming is the error that can be undone.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }

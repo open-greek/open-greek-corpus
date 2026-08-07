@@ -6,11 +6,11 @@
     "ingested_via_cgpg_volume": 6,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.21,
-    "pct_ingested_actual": 65.89,
-    "ingested_words_actual": 49403690,
-    "ingested_complete_works": 2893,
+    "pct_ingested_actual": 65.9,
+    "ingested_words_actual": 49409451,
+    "ingested_complete_works": 2894,
     "ingested_partial_works": 117,
-    "pct_reachable_not_ingested": 14.44,
+    "pct_reachable_not_ingested": 14.43,
     "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3010,
-      "word_count": 54136797
+      "works": 3011,
+      "word_count": 54142829
     },
     "reachable_not_ingested": {
-      "works": 1603,
-      "word_count": 10823407
+      "works": 1602,
+      "word_count": 10817375
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2893,
-      "word_count": 51644908
+      "works": 2894,
+      "word_count": 51650940
     },
     "ingested_partial": {
       "works": 117,
@@ -51,8 +51,8 @@
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1170,
-      "word_count": 9230125
+      "works": 1169,
+      "word_count": 9224093
     },
     "migne_pd": {
       "works": 407,
@@ -2109,14 +2109,6 @@
       "title": "Homilia In Transfigurationem Domini",
       "word_count": 6037,
       "best_source": "migne_pd"
-    },
-    {
-      "tlg_id": "tlg3023",
-      "work_id": "013",
-      "author": "Constantinus VII Porphyrogenitus Imperator",
-      "title": "Narratio De Imagine Edessena",
-      "word_count": 6032,
-      "best_source": "pd_edition"
     },
     {
       "tlg_id": "tlg0744",
@@ -19466,8 +19458,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 788,
-    "n_tokens": 8780731,
+    "works": 789,
+    "n_tokens": 8774970,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19654,14 +19646,6 @@
         "n_tokens": 97378
       },
       {
-        "key": "cogPG.PG113",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 266,
-        "n_tokens": 96325
-      },
-      {
         "key": "sopater-rhetor.diairesis-zetematon",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
@@ -19676,6 +19660,14 @@
         "license": "PD",
         "n_passages": 3730,
         "n_tokens": 88967
+      },
+      {
+        "key": "cogPG.PG113",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 243,
+        "n_tokens": 88966
       },
       {
         "key": "maximus-planudes.scholia-eis-ten-hermogenous-technen",
@@ -22516,6 +22508,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 20,
         "n_tokens": 1606
+      },
+      {
+        "key": "hierocles-grammaticus.synecdemus",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 8,
+        "n_tokens": 1598
       },
       {
         "key": "anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591",

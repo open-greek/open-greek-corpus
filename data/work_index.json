@@ -9,9 +9,9 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3891,
-   "with_external_anchor": 3331,
-   "no_external_anchor": 560,
+   "works": 3893,
+   "with_external_anchor": 3332,
+   "no_external_anchor": 561,
    "redirects": 4
   }
  },
@@ -22104,8 +22104,8 @@
     "edition": "cgpg",
     "source": "cgpg",
     "license": "CC-BY-4.0",
-    "n_passages": 266,
-    "n_tokens": 96325
+    "n_passages": 243,
+    "n_tokens": 88966
    }
   },
   "cogPG.PG118": {
@@ -100974,6 +100974,53 @@
     "license": "CC-BY-4.0",
     "n_passages": 33,
     "n_tokens": 12515
+   }
+  },
+  "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena": {
+   "id": "ogc003915",
+   "slug": "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
+   "former_slugs": [],
+   "title": "Narratio De Imagine Edessena",
+   "author": {
+    "id": "oga000392",
+    "slug": "constantinus-vii-porphyrogenitus-imperator",
+    "name": "Constantinus VII Porphyrogenitus Imperator",
+    "authorities": {
+     "wikidata": "Q41608",
+     "viaf": "13108540",
+     "gnd": "119022397",
+     "isni": "0000000120992009"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg3023.tlg013",
+    "tlg": "tlg3023.tlg013"
+   },
+   "manifestation": {
+    "edition": "cgpg",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "n_passages": 15,
+    "n_tokens": 5761
+   }
+  },
+  "hierocles-grammaticus.synecdemus": {
+   "id": "ogc003916",
+   "slug": "hierocles-grammaticus.synecdemus",
+   "former_slugs": [],
+   "title": "Synecdemus",
+   "author": {
+    "id": "oga001504",
+    "slug": "hierocles-grammaticus",
+    "name": "hierocles-grammaticus"
+   },
+   "work_anchors": {},
+   "manifestation": {
+    "edition": "cgpg",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "n_passages": 8,
+    "n_tokens": 1598
    }
   }
  },

@@ -3932,6 +3932,10 @@
    "name": "anon-hierocles",
    "aliases": {}
   },
+  "anon-hierocles-grammaticus": {
+   "name": "anon-hierocles-grammaticus",
+   "aliases": {}
+  },
   "anon-hierocles-philosophy": {
    "name": "anon-hierocles-philosophy",
    "aliases": {}
@@ -44224,6 +44228,17 @@
    "tags": [],
    "editions": {}
   },
+  "anon-constantinus-vii-porphyrogenitus-imperator.constantinus-vii-porphyrogenitus-imperator-narratio-de-imagine-edessena": {
+   "author": "anon-constantinus-vii-porphyrogenitus-imperator",
+   "title": "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
+   "aliases": {
+    "cts": "urn:cts:greekLit:constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
   "anon-corinna.corinna-fragmenta": {
    "author": "anon-corinna",
    "title": "corinna.fragmenta",
@@ -54096,6 +54111,17 @@
    "title": "hicetas.testimonia",
    "aliases": {
     "cts": "urn:cts:greekLit:hicetas.testimonia"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-hierocles-grammaticus.hierocles-grammaticus-synecdemus": {
+   "author": "anon-hierocles-grammaticus",
+   "title": "hierocles-grammaticus.synecdemus",
+   "aliases": {
+    "cts": "urn:cts:greekLit:hierocles-grammaticus.synecdemus"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -119441,7 +119467,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg3023.tlg013"
    },
-   "default_edition": null,
+   "default_edition": "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena.cgpg",
    "best_source": "pd_edition",
    "tags": [
     "century:10",
@@ -119449,6 +119475,18 @@
     "genre:ecclesiastical"
    ],
    "editions": {
+    "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena.von-dobschutz-1899": {
      "name": "Christusbilder. Untersuchungen zur christlichen Legende",
      "provider": "tlg-e-reference",

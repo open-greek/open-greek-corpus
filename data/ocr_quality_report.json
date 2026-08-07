@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1395,
-   "ocr_works_ranked": 813,
+   "ocr_works": 1397,
+   "ocr_works_ranked": 814,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -184,9 +184,9 @@
    "max": 0.4788,
    "median": 0.1348,
    "min": 0.0089,
-   "n": 813,
-   "q1": 0.0954,
-   "q3": 0.1726
+   "n": 814,
+   "q1": 0.0952,
+   "q3": 0.1724
   }
  },
  "works": {
@@ -3327,11 +3327,11 @@
   },
   "cogPG.PG113": {
    "edition": "cgpg",
-   "n_tokens": 96408,
-   "n_tokens_checked": 59976,
-   "n_unattested": 4028,
+   "n_tokens": 89047,
+   "n_tokens_checked": 55142,
+   "n_unattested": 3356,
    "source": "cgpg",
-   "unattested_rate": 0.06716,
+   "unattested_rate": 0.060861,
    "witness": null
   },
   "cogPG.PG118": {
@@ -3422,6 +3422,15 @@
    "n_unattested": 17343,
    "source": "ocr",
    "unattested_rate": 0.131655,
+   "witness": null
+  },
+  "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena": {
+   "edition": "cgpg",
+   "n_tokens": 5761,
+   "n_tokens_checked": 3506,
+   "n_unattested": 158,
+   "source": "cgpg",
+   "unattested_rate": 0.045066,
    "witness": null
   },
   "corinna.fragmenta": {
@@ -6861,6 +6870,15 @@
     "n_bigrams_secondary": 32,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
+  },
+  "hierocles-grammaticus.synecdemus": {
+   "edition": "cgpg",
+   "n_tokens": 1600,
+   "n_tokens_checked": 1328,
+   "n_unattested": 514,
+   "source": "cgpg",
+   "unattested_rate": 0.387048,
+   "witness": null
   },
   "hierocles-philosophy.hqikh-stoixei-wsis": {
    "edition": "qwen36-hierocl_aureum_mullach_fpg1",
@@ -14641,7 +14659,6 @@
   "cogPG.PG118",
   "michael-psellus.de-anima-celebres-opiniones",
   "symeon-thessalonicensis.de-ordine-sepulturae",
-  "cogPG.PG113",
   "symeon-thessalonicensis.de-sacramentis",
   "alcmaeon.testimonia",
   "athanasius-theology.testimonia-e-scriptura-de-communi-essentia-patris-et-filii-et-spiritus",
@@ -14667,6 +14684,7 @@
   "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
   "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
   "photius.commentarii-in-matthaeum-in-catenis",
+  "cogPG.PG113",
   "theophylactus-achridensis.expositio-in-prophetam-michaeam",
   "cyrillus-theology.scholia-de-incarnatione-unigeniti-fragmenta",
   "symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum",
@@ -14712,6 +14730,7 @@
   "joannes-chrysostomus.ad-viduam-juniorem",
   "joannes-chrysostomus.in-sanctum-barlaam-martyrem",
   "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
+  "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
   "symeon-thessalonicensis.de-sacerdotio",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-corinthios",

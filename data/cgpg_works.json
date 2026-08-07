@@ -1698,9 +1698,49 @@
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 266,
-  "n_tokens": 96325,
+  "n_passages": 243,
+  "n_tokens": 88966,
   "works": []
+ },
+ {
+  "volume": "PG113",
+  "urn": "hierocles-grammaticus.synecdemus",
+  "kind": "work",
+  "desc": "Hierocles Grammaticus - Synecdemus (PG113 loci 82-89)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 8,
+  "n_tokens": 1598,
+  "works": [],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "hierocles-grammaticus.synecdemus"
+  }
+ },
+ {
+  "volume": "PG113",
+  "urn": "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
+  "kind": "work",
+  "desc": "Constantinus VII Porphyrogenitus Imperator - Narratio de imagine Edessena (PG113 loci 223-237)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 15,
+  "n_tokens": 5761,
+  "works": [
+   {
+    "tlg_id": "tlg3023",
+    "work_id": "013",
+    "title": "Narratio de imagine Edessena",
+    "author": "Constantinus VII Porphyrogenitus Imperator",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena"
+  }
  },
  {
   "volume": "PG113",
@@ -2947,10 +2987,7 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false,
-  "superseded_by": {
-   "slug": "joel.chronographia-compendiaria"
-  }
+  "cgpg_chosen": true
  },
  {
   "volume": "PG139",
