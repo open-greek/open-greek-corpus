@@ -327,19 +327,21 @@ substantial residues that the carve deliberately did not attribute (PG113
 96,408, PG151 65,362, PG139 47,791). Only two whole volumes remain uncarved,
 holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
-evidence, and the reason recorded for it was wrong until 2026-08-07. It said the
-Dionysius text interleaves passage-by-passage with Pachymeres' paraphrase so no
-column carve could separate them. Migne in fact prints a display head at every
-switch, and four of them survive in our OCR (plus seven that number a chapter
-inside a work). They were reported absent because the OCR read the Latin heads as
-Greek letter shapes, so PARAPHRASIS PACHYMERAE is sitting at locus 151 as
-`ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ` and no Greek search would ever find it. All four open their
-row rather than sitting mid-row, so the switches fall on locus boundaries and an
-ordinary carve can express them; intra-row segmentation is not what this needs.
-What blocks it is that the OCR dropped the rest of the heads, leaving most of the
-volume's 459 rows inside a run whose start we cannot see, and an unseen boundary
-is exactly the one that files a block under the wrong author. Recovering them
-needs the PG 3 page images
+evidence, and the reason recorded for it has been corrected twice, in opposite
+directions. It originally said the Dionysius text interleaves passage-by-passage
+with Pachymeres' paraphrase and that no display titles survive in the OCR. The
+second half was wrong: 26 heads do survive, unfindable by a Greek search because
+the OCR read Migne's Latin as Greek letter shapes, so PARAPHRASIS PACHYMERAE sits
+at locus 151 as `ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ`. That discovery then produced a second wrong
+reason, recorded here until 2026-08-07: that the interleave was block scale and an
+ordinary locus carve could express it. It came from a detector that read only the
+first four words of each row, so it could not have found a mid-row head if one
+existed, and reporting that the heads it found all opened rows was circular.
+Scanning whole rows, 15 of the 26 heads fall mid-row, including an author switch
+at locus 481, character 1,713 of a 2,018-character row. So the original reason
+stands: the boundaries fall inside rows, `carve_cgpg_volume.py` moves whole rows,
+and a carve on loci would cut mid-block. On top of that the OCR dropped most of
+the heads, which needs the PG 3 page images
 (`scripts/measure_pg003_blocks.py`, `data/pg003_blocks.json`,
 `data/corpus_changes/cogPG.PG003.split-deferred.json`). Its attribution has
 been corrected in the meantime: Dionysius holds about 37% of the volume's
@@ -2152,9 +2154,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
   served from First1KGreek, so the precedence ladder keeps the Migne OCR as a
   witness rather than serving it twice. That is the ladder working, not text
   going missing, but it does move every downstream count.
-- Next: research and carve PG112, PG113, PG139 and PG151, recover PG003's dropped
-  display heads from the page images and carve it on loci, then per-work
-  citation loci for the carved CGPG works (now page-keyed `<VOL>.<page>`).
+- Next: settle PG112's rank, then per-work citation loci for the carved CGPG
+  works (now page-keyed `<VOL>.<page>`). PG003 is NOT a carve-on-loci job, which
+  an earlier version of this line said it was: its boundaries fall inside rows
+  and the splitter moves whole rows, so it needs intra-row segmentation as well
+  as a re-OCR that keeps the display heads.
 
 ## License
 
