@@ -2984,24 +2984,52 @@
   "volume": "PG151",
   "urn": "cogPG.PG151",
   "kind": "volume",
-  "desc": "Gregory Palamas v2; Acindynus; Barlaam",
+  "desc": "Gregory Palamas v2; Acindynus; Barlaam (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 617,
-  "n_tokens": 399517,
-  "works": [
-   {
-    "tlg_id": "tlg3159",
-    "work_id": "001",
-    "status": "locked",
-    "in_gap": false,
-    "word_count": 3416,
-    "title": "Paraphrasis in Euclidis elementorum librum secundum",
-    "author": "BARLAAM",
-    "cgpg_chosen": true
-   }
-  ]
+  "n_passages": 97,
+  "n_tokens": 65319,
+  "works": []
+ },
+ {
+  "volume": "PG151",
+  "urn": "gregorius-palamas.homiliae",
+  "kind": "work",
+  "desc": "Gregorius Palamas - Homiliae (PG151 loci 10-282)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 273,
+  "n_tokens": 118663,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG151",
+  "urn": "philotheus-constantinopolitanus.encomium-gregorii-palamae",
+  "kind": "work",
+  "desc": "Philotheus Constantinopolitanus - Encomium Gregorii Palamae (PG151 loci 283-346)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 64,
+  "n_tokens": 54411,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG151",
+  "urn": "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
+  "kind": "work",
+  "desc": "Philotheus Constantinopolitanus - Antirrhetici contra Gregoram (PG151 loci 394-576)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 183,
+  "n_tokens": 161124,
+  "works": [],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG155",
