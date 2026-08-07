@@ -1023,24 +1023,67 @@
   "volume": "PG067",
   "urn": "cogPG.PG067",
   "kind": "volume",
-  "desc": "Socrates Scholasticus + Sozomen HE",
+  "desc": "Socrates Scholasticus + Sozomen HE (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 799,
-  "n_tokens": 220457,
+  "n_passages": 0,
+  "n_tokens": 0,
+  "works": []
+ },
+ {
+  "volume": "PG067",
+  "urn": "socrates-scholasticus.historia-ecclesiastica-2",
+  "kind": "work",
+  "desc": "Socrates Scholasticus - Historia ecclesiastica (PG067 loci 22-426)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 293,
+  "n_tokens": 101824,
   "works": [
    {
     "tlg_id": "tlg2057",
-    "work_id": "001",
-    "status": "gap",
-    "in_gap": true,
-    "word_count": 104077,
+    "work_id": "002",
     "title": "Historia ecclesiastica",
-    "author": "SOCRATES Scholasticus",
-    "cgpg_chosen": true
+    "author": "Socrates Scholasticus",
+    "cgpg_chosen": false
    }
-  ]
+  ],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "socrates-scholasticus.historia-ecclesiastica-2",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 101824
+  }
+ },
+ {
+  "volume": "PG067",
+  "urn": "salaminius-hermias-sozomenus.historia-ecclesiastica",
+  "kind": "work",
+  "desc": "Salaminius Hermias Sozomenus - Historia ecclesiastica (PG067 loci 427-820)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 2414,
+  "n_tokens": 112961,
+  "works": [
+   {
+    "tlg_id": "tlg2048",
+    "work_id": "001",
+    "title": "Historia ecclesiastica",
+    "author": "Salaminius Hermias Sozomenus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "salaminius-hermias-sozomenus.historia-ecclesiastica",
+   "source": "first1k",
+   "edition": "1st1K-grc1",
+   "n_tokens": 112961
+  }
  },
  {
   "volume": "PG073",
