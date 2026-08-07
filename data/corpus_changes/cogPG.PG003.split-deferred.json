@@ -1,28 +1,37 @@
 {
-  "_meta": {
-    "change": "DEFERRED - not carved (Dionysius/Pachymeres interleave; per-work column carve impossible)",
-    "work": "cogPG.PG003",
-    "volume": "PG003",
-    "applied_by": "scripts/carve_cgpg_volume.py plan entry (status: defer) + this flag record",
-    "date": "2026-07-31",
-    "status": "flagged-for-manual-followup"
-  },
-  "served_left_unchanged": true,
-  "credited_works": [
-    "tlg2798.tlg001 De caelesti hierarchia (loci 71-192)",
-    "tlg2798.tlg002 De ecclesiastica hierarchia (193-299)",
-    "tlg2798.tlg004 De divinis nominibus (300-505)",
-    "tlg2798.tlg005 De mystica theologia (506-539)",
-    "tlg2798.tlg006 Epistulae 1-10 (540-568)",
-    "Georgius Pachymeres, Paraphrasis in omnia opera Dionysii Areopagitae (NEW, 71-568, interwoven)"
-  ],
-  "conclusive_evidence_this_pass": [
-    "data/pd_research/cgpg_split_proposals.json PG003: every work range interleaves Pseudo-Dionysius' text with Georgius Pachymeres' paraphrase chapter by chapter, plus embedded quotations (e.g. Gregory of Nazianzus' hymn at locus 310); word counts of the ranges are roughly double the TLG word counts for this reason.",
-    "The proposals' consistency review: the Pachymeres entry (71-568) fully overlaps all five Dionysius works and is self-flagged 'interwoven, not separable by column range; a splitter must treat it as an annotation, not a carve'.",
-    "The five Dionysius column ranges themselves verify (boundaries pinned by verbatim explicit+incipit pairs at 192/193, 299/300, 505/506, 539/540), but carving them would serve each Dionysius work with the Pachymeres paraphrase silently embedded, roughly doubling every work and mis-attributing the paraphrase text."
-  ],
-  "why_not_resolved": "A column-range carve cannot separate the two authors: each served row alternates Dionysius text and Pachymeres paraphrase at the passage level. Serving the ranges as the Dionysius works would embed a second author's text under the wrong urn; serving the whole volume as Pachymeres would mis-attribute Dionysius. The separation needs passage-level (intra-row) segmentation.",
-  "recommendation": "manual/passage-level follow-up: segment each row into Dionysius lemma vs Pachymeres paraphrase (the chapter headings and paraphrase formulas make this tractable), then carve tlg2798.tlg001/002/004/005/006 and a new georgius-pachymeres paraphrase work. Until then the volume stays served as cogPG.PG003 under the pseudo-author attribution.",
-  "precedent": "same flag pattern as data/corpus_changes/aelius_dionysius_schwabe.reocr-flag.json (interleaved series a range carve cannot separate)",
-  "source": "CGPG per-work carve run, 2026-07-31 (plan: data/cgpg_carve_plan.json)"
+ "_meta": {
+  "change": "DEFERRED - not carved (display heads dropped by OCR on most switches; needs page images)",
+  "work": "cogPG.PG003",
+  "volume": "PG003",
+  "applied_by": "scripts/carve_cgpg_volume.py plan entry (status: defer) + this flag record",
+  "date": "2026-07-31",
+  "status": "flagged-for-manual-followup"
+ },
+ "served_left_unchanged": true,
+ "credited_works": [
+  "tlg2798.tlg001 De caelesti hierarchia (loci 71-192)",
+  "tlg2798.tlg002 De ecclesiastica hierarchia (193-299)",
+  "tlg2798.tlg004 De divinis nominibus (300-505)",
+  "tlg2798.tlg005 De mystica theologia (506-539)",
+  "tlg2798.tlg006 Epistulae 1-10 (540-568)",
+  "Georgius Pachymeres, Paraphrasis in omnia opera Dionysii Areopagitae (NEW, 71-568, interwoven)"
+ ],
+ "conclusive_evidence_this_pass": [
+  "data/pd_research/cgpg_split_proposals.json PG003: every work range interleaves Pseudo-Dionysius' text with Georgius Pachymeres' paraphrase chapter by chapter, plus embedded quotations (e.g. Gregory of Nazianzus' hymn at locus 310); word counts of the ranges are roughly double the TLG word counts for this reason.",
+  "The proposals' consistency review: the Pachymeres entry (71-568) fully overlaps all five Dionysius works and is self-flagged 'interwoven, not separable by column range; a splitter must treat it as an annotation, not a carve'.",
+  "The five Dionysius column ranges themselves verify (boundaries pinned by verbatim explicit+incipit pairs at 192/193, 299/300, 505/506, 539/540), but carving them would serve each Dionysius work with the Pachymeres paraphrase silently embedded, roughly doubling every work and mis-attributing the paraphrase text."
+ ],
+ "why_not_resolved": "Not a passage-level problem and not impossible by column carve. Migne prints a display head at every switch, and 4 of them survive in our OCR (plus 7 chapter heads) (measured by scripts/measure_pg003_blocks.py, listed in data/pg003_blocks.json). Every one of them OPENS its row rather than sitting mid-row, so the switches fall on locus boundaries and a locus carve can express them; intra-row segmentation is not what this needs. What blocks the carve is coverage, not granularity: most of the volume's 459 rows sit inside a run whose opening head the OCR dropped, and a boundary we cannot see is exactly the one that would file a block under the wrong author. Recovering the dropped heads needs the PG 3 page images.",
+ "recommendation": "read the heads off the page images, then carve on loci like any other volume. The surviving heads in data/pg003_blocks.json give the shape to check that recovery against.",
+ "precedent": "same flag pattern as data/corpus_changes/aelius_dionysius_schwabe.reocr-flag.json (interleaved series a range carve cannot separate)",
+ "source": "CGPG per-work carve run, 2026-07-31 (plan: data/cgpg_carve_plan.json)",
+ "superseded": [
+  {
+   "date": "2026-08-07",
+   "issue": "open-greek/open-greek-corpus#9",
+   "field": "why_not_resolved",
+   "was": "A column-range carve cannot separate the two authors: each served row alternates Dionysius text and Pachymeres paraphrase at the passage level. Serving the ranges as the Dionysius works would embed a second author's text under the wrong urn; serving the whole volume as Pachymeres would mis-attribute Dionysius. The separation needs passage-level (intra-row) segmentation.",
+   "wrong_because": "the bytes do not show a passage-level alternation, and the display heads reported absent are present, garbled. Migne marks each switch with a printed head; the OCR read the Latin ones as Greek letter shapes (PARAPHRASIS PACHYMERAE -> ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ at locus 151), which is why a Greek search found none and the interleave was taken to be unmarked."
+  }
+ ]
 }
