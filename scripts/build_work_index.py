@@ -91,6 +91,74 @@ def _completes(truncated: str, candidate: str) -> bool:
     return len(b) > len(a) and b[:len(a)] == a
 
 
+def _split_open(title: str) -> tuple[str, str]:
+    """(text before the bracket that never closes, text inside it)."""
+    for op, cl in (("(", ")"), ("[", "]")):
+        if title.count(op) > title.count(cl):
+            i = title.rindex(op)
+            return title[:i].strip().rstrip(",;:- "), title[i + 1:].strip()
+    return title, ""
+
+
+def _confirms_head(truncated: str, candidate: str) -> bool:
+    """True if `candidate` says the title ends where the cut bracket begins.
+
+    `Catena In Epistulam Jacobi (Catena Andreae) (E Cod. Oxon. Coll. No` is cut
+    inside a manuscript siglum, and the crosswalk gives the title as `Catena In
+    Epistulam Jacobi (Catena Andreae)` - the same words, stopping short of the
+    siglum. That is a second source saying the head is the whole title, which is
+    what makes dropping the fragment a repair rather than a cover-up.
+
+    Dropping it WITHOUT that confirmation is not the same thing and is not done
+    here. `Testimonia E Scriptura (De Communi Essentia Patris Et Filii Et
+    Spiritus` would trim to `Testimonia E Scriptura`, which reads like a complete
+    title and is not one; the truncation is at least visible for what it is. Nor
+    can the fragment simply be trimmed off everywhere: `Asceticon Magnum Sive
+    Quaestiones (Regulae Brevius` and `(Regulae Fusius` are two different works
+    of Basil, and trimming both collapses them onto one title.
+    """
+    if not candidate or _unbalanced(candidate):
+        return False
+    head, tail = _split_open(truncated)
+    return bool(tail) and _fold_words(candidate) == _fold_words(head)
+
+
+def _completes_tail(truncated: str, candidate: str) -> str | None:
+    """The title with its cut parenthetical finished, or None.
+
+    The other shape the cut takes: the bracket holds the work's Greek title and
+    the cut lands inside it, so the crosswalk's Greek title IS the missing tail.
+    `De Adfinium Vocabulorum Differentia (Περὶ ὁμοίων καὶ` against a crosswalk
+    reading `περὶ ὁμοίων καὶ διαφόρων λέξεων` restores the four dropped words.
+
+    Only what is missing is appended. Taking the candidate wholesale would import
+    its lowercase π over the capital the edition prints.
+    """
+    if not candidate or _unbalanced(candidate):
+        return None
+    head, tail = _split_open(truncated)
+    a, b = _fold_words(tail), _fold_words(candidate)
+    # Two words minimum. A one-word fragment matches nearly any candidate, and
+    # `De Animi Cuiuslibet Peccatorum Dignotione Et Curatione ( De` against a
+    # crosswalk reading `De animi cuiuslibet...` matched on `de` alone and
+    # spliced the whole title back inside its own parenthesis.
+    if len(a) < 2 or len(b) <= len(a) or b[:len(a)] != a:
+        return None
+    # A candidate that just restates the head is confirming the head, not
+    # supplying the tail, and belongs to _confirms_head.
+    if b == _fold_words(head):
+        return None
+    # Walk the candidate to where our fragment stops, so the restored words keep
+    # the candidate's own spacing and punctuation.
+    seen, cut = 0, len(candidate)
+    for m in re.finditer(r"[0-9A-Za-zͰ-Ͽἀ-῿]+", candidate):
+        seen += 1
+        if seen == len(a):
+            cut = m.end()
+            break
+    return f"{head} ({tail}{candidate[cut:].rstrip()})"
+
+
 def _title_from_desc(desc: str) -> str:
     """The title out of a ledger desc written "Author - Title (note)".
 
@@ -176,9 +244,17 @@ def build(write: bool = True) -> dict:
             # I-XI` and `Epistulae` would become `Epistulae, Decretum,
             # Orationes`, which is a different scope, not a restored tail.
             if _unbalanced(w["title"]):
-                cw = (tc.get(work_slug) or {}).get("title")
+                cw = _tidy((tc.get(work_slug) or {}).get("title") or "")
                 if _completes(w["title"], cw):
                     return _tidy(cw)
+                # Head confirmation first: it is the stronger reading of the same
+                # evidence, and letting the tail rule see these cases produced a
+                # title restated inside its own parenthesis.
+                if _confirms_head(w["title"], cw):
+                    return _tidy(_split_open(w["title"])[0])
+                spliced = _completes_tail(w["title"], cw)
+                if spliced:
+                    return _tidy(spliced)
             return _tidy(w["title"])
         pa = pseudo_works.get(work_slug)
         if pa and pa.get("title"):
