@@ -163,6 +163,35 @@ def clean_name(raw: str) -> str:
     return _titlecase(s)
 
 
+# The Canon's %-codes as they appear in TITLES, and the editorial brackets
+# clean_name deletes. clean_name has to delete them: it feeds the slug, where
+# [ATH]ENODORUS must rejoin as Athenodorus and a "+" would become a hyphen. A
+# displayed title wants the opposite, so it gets its own pass.
+#
+# Without this, restoring a truncated title makes three of them worse than the
+# crosswalk string it displaces: "(E Cod. Oxon. Bodl. Auct. E.2.20 [= Misc. 48])"
+# loses its brackets and its "=", "(E Codd. Paris. Coislin. 23 + Oxon. Bodl.
+# Auct. T.1.4)" loses the "+" joining two sigla, and "[Sp.?]" stops being marked
+# as an editorial qualifier at all.
+_TITLE_PCT = {"19": "-", "20": "-", "6": "=", "7": "+", "3": "/"}
+_TITLE_PCT_RE = re.compile(r"%(\d+)")
+
+
+def clean_display_title(raw: str) -> str:
+    """clean_name, but keeping what a reader needs and a slug cannot have."""
+    if not raw:
+        return ""
+    # Brackets glued to a font number are markup; bare ones are editorial.
+    s = re.sub(r"[\[\]{}]2", "", raw)
+    s = _TITLE_PCT_RE.sub(lambda m: _TITLE_PCT.get(m.group(1), ""), s)
+    s = _BETA_HASH.sub("", s)
+    s = s.replace("*", "")
+    s = re.sub(r"(?<=\w)`(?=\w)", "-", s).replace("`", "")
+    s = re.sub(r"^2(?=[^\W\d_])", "", s)
+    s = re.sub(r"(?<=[^\W\d_])2$", "", s)
+    return re.sub(r"\s+", " ", s).strip()
+
+
 try:
     from betacode import conv as _betacode_conv      # type: ignore
 except ImportError:                                  # pragma: no cover
@@ -844,8 +873,15 @@ def build() -> Registry:
         anum = w["tlg_id"][3:]                        # tlg0001 -> 0001
         author_slug = slug_by_anum.get(anum)
         raw_title = w.get("title") or ""
+        # `title` is the slug and QID-match key and must stay on the truncated
+        # string the slugs were minted from; `title_full` is the same title with
+        # the tail the Canon parser used to drop restored (issue #24), and is for
+        # display only. Reading the full title here instead would rename 145
+        # slugs and unjoin them from the corpus files on disk.
+        raw_display = w.get("title_full") or raw_title
         title = clean_name(raw_title)                  # ASCII: drives the slug + QID matching
-        display = decode_betacode_title(raw_title) or title   # Greek display for beta-code titles
+        display = (decode_betacode_title(raw_display)
+                   or _titlecase(clean_display_title(raw_display)) or title)
         if not author_slug or not title:
             continue
         ck = (w["tlg_id"], w["work_id"])

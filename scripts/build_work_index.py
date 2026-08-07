@@ -234,11 +234,19 @@ def build(write: bool = True) -> dict:
     def title_for(work_slug: str) -> str:
         w = reg_works.get(work_slug)
         if w and w.get("title"):
-            # The Canon this repo vendors truncates: 84 of the 86 titles that
-            # end mid-parenthesis are already cut in work_inventory.json before
-            # any of our code reads them (issue #24). Where the crosswalk holds
-            # the same title whole, take it - but ONLY where the registry's is
-            # visibly truncated. Preferring the longer title generally would
+            # These fallbacks are now a backstop rather than the main repair.
+            # The titles were never truncated in the Canon: the parser that
+            # vendors work_inventory.json dropped any field the Canon wraps
+            # across a 0x80 separator, because a continuation chunk carries no
+            # 3-letter tag and the tag test rejected it. Fixing that restored
+            # 580 titles at the source and took the served count of titles
+            # ending mid-parenthesis from 55 to 0 (issue #24), so what reaches
+            # the branch below is whatever the Canon itself does not hold.
+            #
+            # Kept because it still fires for those, and because the reasoning
+            # is worth keeping: take the crosswalk's title ONLY where the
+            # registry's is visibly truncated. Preferring the longer title
+            # generally would
             # change 58 titles instead of 22, and the extra 36 are not repairs:
             # `De Usu Partium` would become `De usu partium corporis humani
             # I-XI` and `Epistulae` would become `Epistulae, Decretum,
