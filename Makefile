@@ -168,8 +168,13 @@ $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
 # Needs the Dilemma lemmatizer, like $(LEMMA_FREQ). Writes the .tsv.gz and its
 # stats sidecar; the persistent form->lemma cache is validated on load, so a bad
 # entry cannot survive a rebuild (scripts/validate_lemma_map.py holds the checks).
+# data/capital_positions.json is a prerequisite because validate_lemma_map reads
+# it as CAPITAL_FOLDS and applies it while this table is built. It was missing,
+# so re-running the measurement changed the folds and `make` reported the table
+# up to date, which is how a measured fold could sit on disk unapplied.
 $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
-                scripts/validate_lemma_map.py $(LEMMA_FREQ)
+                scripts/validate_lemma_map.py $(LEMMA_FREQ) \
+                data/capital_positions.json
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_work_lemma_counts.py
 
 # build_provenance.py rewrites the table between the OCR-PROVENANCE markers, so
