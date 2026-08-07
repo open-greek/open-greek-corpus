@@ -325,11 +325,11 @@ run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 21 volumes have been carved so
 far, and 12 `cogPG.*` files are still volume-keyed. Ten of those are the
-carved volumes' leftovers, 140,219 Greek tokens between them: seven are small
+carved volumes' leftovers, 130,135 Greek tokens between them: seven are small
 (PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
 tokens in total, the rows the plan's ranges did not claim), and three are
 substantial residues that the carve deliberately did not attribute (PG113
-72,033 and PG151 54,373; PG139 is down to a 1,349-token table of contents). Only two whole volumes remain uncarved,
+61,949 and PG151 54,373; PG139 is down to a 1,349-token table of contents). Only two whole volumes remain uncarved,
 holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it has been corrected twice, in opposite
@@ -749,7 +749,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1382 OCR'd works/volumes: 180 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1383 OCR'd works/volumes: 181 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1066,7 +1066,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
 | PG112 | Constantine VII v1 De ceremoniis | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 149,293 | manual |
-| PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 72,033 | manual |
+| PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 61,949 | manual |
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,630 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
@@ -1078,6 +1078,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | constantinus-siculus.versus-in-leonem-philosophum | Constantinus Siculus - Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione) (PG107 loci 40-41) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 257 | manual |
 | constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis | Constantinus VII Porphyrogenitus Imperator - De Virtutibus Et Vitiis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 212,990 | manual |
 | constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena | Constantinus VII Porphyrogenitus Imperator - Narratio de imagine Edessena (PG113 loci 223-237) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,761 | manual |
+| constantinus-vii-porphyrogenitus-imperator.novellae-constitutiones | Constantinus VII Porphyrogenitus Imperator - Novellae constitutiones (PG113 loci 286-313) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,084 | manual |
 | corinna.fragmenta | CORINNA - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 636 | auto-corrected |
 | cosmas-hieromonachus.ermhnei-th-s-e-pisth-mhs-th-s-xrusopoii-as-i-eromona-xou-tou | Cosmas Hieromonachus - Ἑρμηνεία τῆς ἐπιστήμης τῆς χρυσοποιίας ἱερομονάχου τοῦ Κοσμᾶ (E Cod. Paris. B.N. Gr. 2327, Fol. 159R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,176 | auto-corrected |
 | cougny-appendix-nova.didot-anthologia-v3 | Appendix nova epigrammatum (Didot Anthologia Graeca vol. 3) | qwen36-thomas_patricius_anthol_dubner_v3 | Qwen3.6-27B | 101,426 | auto-corrected |
@@ -2154,7 +2155,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed: ten leftovers of carved volumes
-  (PG113, PG139 and PG151 join them, so 140,219 tokens between them) and two
+  (PG113, PG139 and PG151 join them, so 130,135 tokens between them) and two
   uncarved volumes (PG003 and PG112, 309,553 tokens). PG003 is deferred on the
   evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
   on the passage-level interleave the record used to claim; see the
