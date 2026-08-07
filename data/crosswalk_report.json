@@ -1,14 +1,14 @@
 {
   "headline": {
-    "works": 11056,
-    "authors": 3307,
-    "editions": 10202,
+    "works": 11057,
+    "authors": 3308,
+    "editions": 10203,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.4,
-    "served_works": 3890,
+    "served_works": 3891,
     "pct_served_in_registry": 74.7,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.8,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11056,
+      "count": 11057,
       "pct": 100.0
     },
     "wikidata": {
@@ -90,7 +90,7 @@
     "pct": 36.7,
     "works_only_physical_or_none": 3166,
     "by_scheme": {
-      "(none)": 1553,
+      "(none)": 1554,
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9091,
+      "count": 9092,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,8 +476,8 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3890,
-    "in_registry": 2906,
+    "served_works": 3891,
+    "in_registry": 2907,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
       "count": 984,
@@ -535,12 +535,12 @@
       ]
     },
     "with_work_qid": 503,
-    "with_author_qid": 2872,
-    "with_any_external_anchor": 3330,
+    "with_author_qid": 2873,
+    "with_any_external_anchor": 3331,
     "with_logical_served_locus": 2121,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2369,
+      "count": 2370,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1905,
+      "count": 1906,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
