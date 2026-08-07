@@ -319,8 +319,17 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
 
     What this does NOT reach: the article. `τὸν` is doubly wrong, since the
     lemma of the article is the nominative, and taking the grave off leaves
-    `τόν`, an accusative that is no more a headword than `τὸν` was. So the acute
-    is unattested and the entry is left, deliberately. The rest of the article's
+    `τόν`, an accusative that is no more a headword than `τὸν` was. What keeps
+    it out is `closed_class_lemma`, which settles the whole paradigm on the form
+    (`τὸν` -> ὁ) before any of the graded checks run, and no cache entry carries
+    an article form as its lemma anyway.
+
+    It is worth being exact about that, because it used to be attestation doing
+    the work: `τόν` was absent from the lemma table this rule read, so the acute
+    test failed and the entry was left. The corpus PRINTS `τόν` 70,000 times, so
+    reading printed forms would have repaired it straight onto the accusative if
+    closed_class_lemma were not in front. Anyone loosening the closed-class path
+    should know it is the only thing holding this now. The rest of the article's
     paradigm sits under ὅς in this cache (`τὸ`, `τὴν`, `τοὺς`, and ὁ itself),
     which makes ὅς the only lemma the data would support, and inferring it from
     a paradigm this rule cannot see is a different rule with a different way of
@@ -329,10 +338,16 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
     if VARIA not in unicodedata.normalize("NFD", lemma):
         return None
     acute = to_acute(lemma)
-    a_freq = freq.get(acute, 0)
-    if a_freq == 0:              # nothing attested to repair TO: `τὸν`
+    # Attestation is "does the corpus PRINT the acute spelling", which is a fact
+    # about the text, not "is the acute a lemma in a table this same lemmatizer
+    # produced". Both the test and the guard read the one table; splitting them
+    # would leave the guard evaluating counts that are 0 for everything the
+    # widened test newly reaches, so it would silently stop applying.
+    ref = PRINTED_FORMS or freq
+    a_freq = ref.get(acute, 0)
+    if a_freq == 0:              # nothing printed to repair TO
         return None
-    if freq.get(unaccent(lemma), 0) > a_freq:   # the enclitic: `τὶς` under τις
+    if ref.get(unaccent(lemma), 0) > a_freq:    # the enclitic: `τὶς` under τις
         return None
     return acute
 
@@ -407,6 +422,42 @@ def load_capital_folds(path: Path | None = None) -> dict[str, str]:
 
 
 CAPITAL_FOLDS = load_capital_folds()
+
+
+PUBLIC_LEXICON = DATA / "public_lexicon.tsv"
+PRINTED_MIN = 2
+
+
+def load_printed_forms(path: Path | None = None) -> dict[str, int]:
+    """Surface form -> times the corpus PRINTS it. Empty if not built yet.
+
+    grave_lemma_repair used to read public_lemma_frequency.tsv for attestation,
+    and that is the wrong table twice over. It is a table of LEMMAS, when the
+    question the accent argument asks is whether the corpus prints the acute
+    spelling; and it is built at min-count 5 over 83,078 lemmas while the table
+    this rule governs is built at min-count 2 over 275,871, so the reference was
+    structurally blind to most of what it decided (issue #4).
+
+    PRINTED_MIN is not a tuned threshold. It is the floor
+    build_work_lemma_counts.py already applies to decide what gets lemmatized,
+    so a form below it is not in the governed table to begin with.
+
+    Same quiet degradation as ELIDED_FOLDS and CAPITAL_FOLDS: no file means the
+    rule goes silent, never that it guesses.
+    """
+    fp = path or PUBLIC_LEXICON
+    out: dict[str, int] = {}
+    if not fp.exists():
+        return out
+    with fp.open(encoding="utf-8") as f:
+        for line in f:
+            parts = line.rstrip("\n").split("\t")
+            if len(parts) >= 2 and parts[1].isdigit() and int(parts[1]) >= PRINTED_MIN:
+                out[parts[0]] = int(parts[1])
+    return out
+
+
+PRINTED_FORMS = load_printed_forms()
 
 
 ARTICLE_LEMMA, RELATIVE_LEMMA = "ὁ", "ὅς"
