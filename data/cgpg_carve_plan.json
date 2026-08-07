@@ -4129,6 +4129,90 @@
      "secondary_reason": "work is served from byzantium.gr's manual transcription, which beats OCR of the same text per the source-precedence tie-break (the precedent is scylitzes-continuatus.continuatio-scylitzae, filed the same way); this Migne witness is kept, not served"
     }
    ]
+  },
+  {
+   "volume": "PG151",
+   "basis": "read at the row. Six blocks: Palamas' homiliary, Philotheus' encomium of Palamas, the synodal dossier, Philotheus' antirrhetics against Gregoras, an anonymous refutation of Akindynist syllogisms, and an anonymous two-book quaestio on essence and energy. Three are carved; the dossier and the two anonymous treatises stay residual.",
+   "residual_ranges": [
+    [
+     347,
+     393
+    ],
+    [
+     577,
+     600
+    ],
+    [
+     603,
+     628
+    ]
+   ],
+   "residual_note": "347-393 is the synodal dossier, not one authored work: 347 is the Bucharest printer's colophon (ἐπὶ τῆς ἡγεμονίας ... βοεδβόδα πάσης Μολοοβλαχίας, Ἐτυπώσαμεν τὸν παρόντα τόμον), and the block runs the tome, Cantacuzenus' prostagma and the bishops' ἀναφορά. 577-600 refutes syllogisms of Akindynos' party (577 Οὓς ἀντιφέρουσι πρὸς τοὺς ὀρθοδόξους τινὲς τῆς μοίρας ὄντες τοῦ Ἀκινδύνου) and names no author. 603-628 is a scholastic quaestio on οὐσία and ἐνέργεια in two books (ΛΙΒΕΚ ΡΗΙΜΟΘ = LIBER PRIMUS at 603, ΛΙΒΕΝ ΘΕΩΟΝΗ = LIBER SECUNDUS at 617) and also names no author. Both have plausible attributions; a plausible attribution is not evidence, and filing one is the mis-attribution this work exists to remove.",
+   "works": [
+    {
+     "slug": "gregorius-palamas.homiliae",
+     "tlg": null,
+     "title": "Homiliae",
+     "author_display": "Gregorius Palamas",
+     "ranges": [
+      [
+       10,
+       282
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 10,
+       "text": "Ἀδελφοὶ μὲν ἡμεῖς πάντες, ὡς ἐνὸς δεσπότου καὶ κοινοῦ"
+      }
+     ],
+     "evidence": "273 rows, 118,734 tokens, one continuous numbered homiliary. The head is ΟΜΙΛΙΑ, but a Greek search badly undercounts it: the OCR spells it nine ways across the block (ΠΟΜΙΙΙΑ 21, ΗΟΜΙΗΙΑ 43, ΙΟΜΙΓΗΑ 57, ΙΟΜΙΙΑ 129, ΠΟΜΙΙΙΑ 182, ΧΟΜΙΝΙΑ 189, ΠΟΜΙΙ 200, ΙΟΜΙΗΙΑ 275, clean ΟΜΙΛΙΑ only at 100, 138, 143, 154, 208), some of them Migne's Latin HOMILIA running header read as Greek letter shapes. Scanned for capital runs in EITHER script, which is the check PG003 (#9) taught: nothing in 10-282 opens a head that is not a homily number. Every page-final Ἀμήν in the block (99, 137, 142, 153, 207, 282) is followed by one.",
+     "rank": "primary"
+    },
+    {
+     "slug": "philotheus-constantinopolitanus.encomium-gregorii-palamae",
+     "tlg": null,
+     "title": "Encomium Gregorii Palamae",
+     "author_display": "Philotheus Constantinopolitanus",
+     "ranges": [
+      [
+       283,
+       346
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 283,
+       "text": "ΤΟΥ ΑΓΙΟΤΑΤΟΥ ΚΑΙΣΟΦΩΤΑΤΟΥ ΑΡΧΙΕΠΙΣΚΟΗΘΥ"
+      }
+     ],
+     "evidence": "64 rows, 54,429 tokens. 283 opens with the display title in Greek capitals and the encomium proper (Γρηγόριος μὲν ὁ μέγας πανηγύρεως ὑπόθεσις; the OCR reads Ερηγόριος on that row). Migne's Latin running header ENCOMIUM S. GREG. PALAM. survives at 344 as ΕΝΟΟΜΙΟΜ ΑΕΣΤ. ΝΙΙΟ ΟΡ., corroborating the block from the other script. 282 ends mid-sentence in the last homily and 347 opens the printer's colophon, so both boundaries are clean.",
+     "rank": "primary"
+    },
+    {
+     "slug": "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
+     "tlg": null,
+     "title": "Antirrhetici contra Gregoram",
+     "author_display": "Philotheus Constantinopolitanus",
+     "ranges": [
+      [
+       394,
+       576
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 394,
+       "text": "Πρὸς τὰ συγγραφέντα τῷ φιλοσόφῳ Γρηγορᾷ"
+      }
+     ],
+     "evidence": "183 rows, 161,188 tokens, one continuous numbered series: ΛΟΓΟΣ ΑΝΤΙΡΡΗΤΙΚΟΣ ΤΕΤΑΡΤΟΣ at 417, ΕΒΔΟΜΟΣ at 468, ΔΕΚΑΤΟΣ and ΕΝΔΕΚΑΤΟΣ at 535, evenly spaced. No other author is named anywhere in the block (probed Ἀκίνδυν-, Βαρλαάμ, Καντακουζην-, Παλαμα-: zero pages each) and no page-final doxology falls inside it. Only four of the twelve ordinals are legible, so the series being continuous across 394-576 is an inference from their spacing, not a reading of every head.",
+     "shared_row_note": "394 is a shared row and NOT clean. Its first 1,406 chars finish the synodal dossier (the charges against the late patriarch); Migne's Latin header PHILOTHEI CONSTANTINOPOLITANI PATRIARCHAE sits at char 1,406, garbled to ΡΗΙΙΟΤΗΕΙ ΟΠΘΤΑΝΤΙΝΟΡΟΗΙΤΑΝΙ ΡΑΗΙΑΗΩΗ, and the Greek incipit follows at 1,462. Under the plan's shared-row rule the whole row goes to the antirrhetics, so 209 tokens of dossier travel with it against 197 of antirrhetics. That is 0.13% of the work and is recorded rather than silently carried.",
+     "rank": "primary"
+    }
+   ],
+   "token_counts": "Token figures in this entry are build_public_corpus._GK (maximal Greek runs), the repo's standard: 399,713 for the volume, 118,734 / 54,429 / 161,188 carved and 65,362 residual. carve_cgpg_volume.py reports its own whitespace-based count (399,517 = 118,663 + 54,411 + 161,124 + 65,319), which is 196 lower because a hyphen-split word counts once there and twice under _GK. Both conserve exactly; they are not the same measure and the audit record carries the script's.",
+   "date": "2026-08-07"
   }
  ]
 }
