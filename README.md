@@ -724,7 +724,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1372 OCR'd works/volumes: 172 manually corrected, 865 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1374 OCR'd works/volumes: 172 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -770,6 +770,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 2,113 | auto-corrected |
 | anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 15,225 | manual |
 | anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 29,757 | manual |
+| anonymi-in-artem-rhetoricam.eisagoge-scholion-eis-ta-prolegomena-tes-hermogenous-rhetorikes |  | qwen36-walz_rhetores_v4 | Qwen3.6-27B | 9,242 | auto-corrected |
 | anonymi-in-artem-rhetoricam.ektheseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,663 | manual |
 | anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-610 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 858 | auto-corrected |
 | anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,154 | auto-corrected |
@@ -1958,6 +1959,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum | Symeon Thessalonicensis - Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters) (PG155 loci 420-481) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,609 | manual |
 | symmachus.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 39,549 | auto-corrected |
 | synesius-philosophy.epistulae | Synesius - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,822 | auto-corrected |
+| syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous |  | qwen36-walz_rhetores_v4 | Qwen3.6-27B | 206,971 | auto-corrected |
 | syrianus.eis-to-peri-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,199 | auto-corrected |
 | tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | auto-corrected |
 | teleclides.fragmenta | Teleclides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |

@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1391,
-   "ocr_works_ranked": 810,
+   "ocr_works": 1393,
+   "ocr_works_ranked": 812,
    "ocr_works_with_witness": 196,
    "secondary_files": 420,
    "skipped": 30,
@@ -181,12 +181,12 @@
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
-   "max": 0.4173,
+   "max": 0.4788,
    "median": 0.1349,
    "min": 0.0089,
-   "n": 810,
-   "q1": 0.096,
-   "q3": 0.1724
+   "n": 812,
+   "q1": 0.0958,
+   "q3": 0.1727
   }
  },
  "works": {
@@ -644,6 +644,15 @@
    "n_unattested": 1659,
    "source": "ocr",
    "unattested_rate": 0.094288,
+   "witness": null
+  },
+  "anonymi-in-artem-rhetoricam.eisagoge-scholion-eis-ta-prolegomena-tes-hermogenous-rhetorikes": {
+   "edition": "qwen36-walz_rhetores_v4",
+   "n_tokens": 9242,
+   "n_tokens_checked": 5554,
+   "n_unattested": 451,
+   "source": "ocr",
+   "unattested_rate": 0.081203,
    "witness": null
   },
   "anonymi-in-artem-rhetoricam.ektheseis-rhetorikes": {
@@ -10140,11 +10149,11 @@
   },
   "ocr.walz_rhetores_v4": {
    "edition": "qwen36-walz_rhetores_v4",
-   "n_tokens": 218805,
-   "n_tokens_checked": 125690,
-   "n_unattested": 12130,
+   "n_tokens": 2592,
+   "n_tokens_checked": 1274,
+   "n_unattested": 610,
    "source": "ocr",
-   "unattested_rate": 0.096507,
+   "unattested_rate": 0.478807,
    "witness": null
   },
   "ocr.walz_rhetores_v5": {
@@ -12451,6 +12460,15 @@
    "unattested_rate": 0.16925,
    "witness": null
   },
+  "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous": {
+   "edition": "qwen36-walz_rhetores_v4",
+   "n_tokens": 206971,
+   "n_tokens_checked": 118862,
+   "n_unattested": 11069,
+   "source": "ocr",
+   "unattested_rate": 0.093125,
+   "witness": null
+  },
   "syrianus.eis-to-peri-ideon": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 3199,
@@ -13887,6 +13905,7 @@
   }
  },
  "worst_first": [
+  "ocr.walz_rhetores_v4",
   "phoenix.fragmenta",
   "diels-ppf-1901.paratexta",
   "phanocles.fragmenta",
@@ -14489,7 +14508,6 @@
   "zeno-philosophy.testimonia",
   "theophylactus-achridensis.oratio-in-praesentationem-deiparae",
   "leo-vi-sapiens.oracula",
-  "ocr.walz_rhetores_v4",
   "xenophanes.testimonia",
   "diophantus-mathematics.arithmeticorum-libri-sex",
   "minucianus.peri-epicheirematon",
@@ -14509,6 +14527,7 @@
   "athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria",
   "michael-psellus.de-actionum-nominibus",
   "michael-psellus.epistulae",
+  "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous",
   "athanasius-theology.liber-de-definitionibus-sp",
   "joannes-damascenus.de-duabus-in-christo-voluntatibus",
   "anaxagoras.testimonia",
@@ -14555,6 +14574,7 @@
   "gregorius-nyssenus.testimonia-adversus-judaeos-sp",
   "joannes-damascenus.passio-sancti-artemii-dub",
   "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+  "anonymi-in-artem-rhetoricam.eisagoge-scholion-eis-ta-prolegomena-tes-hermogenous-rhetorikes",
   "gregorius-nyssenus.in-illud-tunc-et-ipse-filius",
   "cyrillus-theology.oratio-ad-arcadiam-et-marinam-augustas-de-fide",
   "diphilus-comedy.fragmenta",
