@@ -17,26 +17,24 @@ a Greek search because the OCR read the Latin as Greek letter shapes:
 which is the same homoglyph failure the Walz carves kept hitting, here running
 the other way: Latin printed, Greek recorded.
 
-So this counts what is already pinned rather than asserting it. ΚΕΦΑΛΑΙΟΝ
-survived as Greek and is matched directly; the Latin heads are listed as read off
-the rows, because no letter-shape mapping recovers both ΡΑΗΑΡΗΚΑΘ (151) and
-ΡΑΚΑΡΗΣΑΘΒ (381) from PARAPHRASIS, and tuning one until it found the heads I
-already knew about would be fitting to the answer. The count is a floor.
+So this counts what is already pinned rather than asserting it, scanning WHOLE
+rows. That last part is the point. An earlier version of this script read only
+`text.split()[:4]`, found four author heads there, and concluded that switches
+land on row openings, which a four-word window could not possibly have
+established: it was incapable of seeing a mid-row head. Scanning whole rows, 15
+of the 26 heads fall mid-row, and one of them is an author switch (SYNOPSIS
+CAPITIS at locus 481, character 1,713 of a 2,018-character row).
 
-Four of the eleven mark a change of AUTHOR; the rest number a chapter inside a
-work, and at 347 and 354 Migne prints the number twice, once in Greek and once in
-Latin (ΚΕΦΑΛΑΙΟΝ Γ. ΛΑΡΗΤ ΙΙΙ.). Only the first kind is a carve boundary. What
-the four settle is that a switch OPENS its row rather than falling inside one, so
-a locus carve can express it and the "passage-level (intra-row) segmentation" the
-record asks for is not what this needs.
+That matters because carve_cgpg_volume.py moves WHOLE ROWS. A boundary inside a
+row cannot be expressed by it, so a carve on loci would cut mid-block and file
+the wrong author's text. The deferral record's original "needs passage-level
+(intra-row) segmentation" was right, and the correction that replaced it was
+not; both are kept in that record under `superseded`.
 
-Deliberately NOT reported: the gap between two surviving switch heads. It is long
-because the heads in between were dropped, so it measures our blindness rather
-than the block size.
-
-What this does NOT do is carve. The dropped heads still have to come off the page
-images, and a boundary this cannot see is exactly the kind that would mis-file a
-block.
+The Latin heads are matched by a fixed probe list, and the count is a floor:
+PG003 garbles the same head differently in different places, reading SYNOPSIS
+CAPITIS as ΘΥΝΟΡΦΙΟ ΩΑΡΙΤΙΘ at 171 and ΘΥΝΟΡΘΙΘ ΛΑΡΙΤΙΕ at 440, which is exactly
+how a fixed list misses one.
 
   python3 scripts/measure_pg003_blocks.py            # report
   python3 scripts/measure_pg003_blocks.py --write    # -> data/pg003_blocks.json
@@ -59,40 +57,61 @@ CHANGES = DATA / "corpus_changes"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
 
-# The Latin heads are visibly present but I could not build a principled decoder
-# for them. A shape table mapping Greek capitals back to the Latin the OCR saw
-# is guesswork: PARAPHRASIS comes through as ΡΑΗΑΡΗΚΑΘ at 151 and ΡΑΚΑΡΗΣΑΘΒ at
-# 381, and no single mapping produces both. Tuning one until it matched the
-# heads I already knew about would be fitting to the answer, so these are listed
-# as read, and the count below is a floor rather than a total.
-LATIN_HEADS = {
-    89:  ("caput", "ΟΑΡΠΤ ΙΙΙ = CAPUT III"),
-    151: ("paraphrase", "ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ = PARAPHRASIS PACHYMERAE"),
-    171: ("synopsis", "ΘΥΝΟΡΦΙΟ ΩΑΡΙΤΙΘ = SYNOPSIS CAPITIS"),
-    347: ("caput", "ΛΑΡΗΤ ΙΙΙ = CAPUT III"),
-    354: ("caput", "Α ΟΑΡΠΤ ΙΝʹ = CAPUT IV"),
-    381: ("paraphrase", "ΡΑΚΑΡΗΣΑΘΒ ΡΑΩΗΙΜΕΣΧθ = PARAPHRASIS PACHYMERAE"),
-    487: ("paraphrase", "ἔΙΘΡΑΓΑΡΙΛΑεΙΒ ΡΑΩΙΥΜΕΕΣ = PARAPHRASIS PACHYMERAE"),
+# Scanned over the WHOLE row, and that is the correction this file exists to
+# carry. The first version looked only at `text.split()[:4]`, found four author
+# heads there, and concluded that switches land on row openings. They were the
+# only four it could have found: a window on the first four words cannot report
+# anything about the other 2,000 characters, so the finding was an artifact of
+# the window and the conclusion drawn from it was circular.
+#
+# Scanning whole rows: ΚΕΦΑΛΑΙΟΝ occurs 20 times, 14 of them mid-row, and
+# SYNOPSIS CAPITIS turns up twice more at locus 440 char 335 and locus 481 char
+# 1,713, garbled differently from the spelling at 171 (ΘΥΝΟΡΘΙΘ ΛΑΡΙΤΙΕ against
+# ΘΥΝΟΡΦΙΟ ΩΑΡΙΤΙΘ) which is why a fixed list of spellings missed them.
+#
+# So author switches DO fall inside rows, and the deferral record's original
+# "needs passage-level (intra-row) segmentation" was closer to right than the
+# replacement that called it block scale.
+LATIN_PROBES = {
+    "paraphrase": ("PARAPHRASIS PACHYMERAE",
+                   ("ΡΑΗΑΡΗΚΑΘ", "ΡΑΚΑΡΗΣΑΘΒ", "ΡΑΓΑΡΙΛΑ", "ΡΑΩΙΥΜΕ", "ΡΑΩΗΙΜΕ")),
+    "synopsis": ("SYNOPSIS CAPITIS",
+                 ("ΘΥΝΟΡΦΙΟ", "ΘΥΝΟΡΘΙΘ", "ΩΑΡΙΤΙΘ", "ΛΑΡΙΤΙΕ", "ΣΑΡΙΤΙΘ")),
+    "caput": ("CAPUT", ("ΟΑΡΠΤ", "ΛΑΡΗΤ")),
 }
+HEAD_ZONE = 40   # a head at or before this offset opens its row
 
 
-def head_of(locus: int, text: str) -> tuple[str, str] | None:
-    """The display head this row opens with, if one is legible.
-
-    ΚΕΦΑΛΑΙΟΝ survived as Greek and is matched directly. The Latin heads are
-    taken from the list above, read by eye off the rows themselves.
-    """
-    if locus in LATIN_HEADS:
-        return LATIN_HEADS[locus]
-    opening = " ".join(text.split()[:4])
-    # Capitals REQUIRED, not folded to them. A display head is printed in caps,
-    # and κεφάλαιον is also just a common noun: folding case matches `Τὸ ζʹ
-    # κεφάλαιον, περὶ` and even `ἀνακεφαλαιούμενος`, which open no block at all.
-    bare = "".join(c for c in unicodedata.normalize("NFD", opening)
+def strip_marks(s: str) -> str:
+    return "".join(c for c in unicodedata.normalize("NFD", s)
                    if not unicodedata.combining(c))
-    if "ΚΕΦΑΛΑΙΟΝ" in bare:
-        return "kephalaion", opening[:40]
-    return None
+
+
+def heads_in(locus: int, text: str) -> list[dict]:
+    """Every display head in the row, with where in the row it falls."""
+    bare = strip_marks(text)
+    out, seen = [], set()
+    for i in _find_all(bare, "ΚΕΦΑΛΑΙΟΝ"):
+        out.append({"locus": locus, "head": "kephalaion", "at": i,
+                    "row_chars": len(bare), "reading": text[i:i + 26].strip()})
+        seen.add(i)
+    for label, (expansion, probes) in LATIN_PROBES.items():
+        for probe in probes:
+            for i in _find_all(bare, probe):
+                if any(abs(i - j) < 30 for j in seen):
+                    continue          # same head, matched by a second probe
+                seen.add(i)
+                out.append({"locus": locus, "head": label, "at": i,
+                            "row_chars": len(bare),
+                            "reading": f"{text[i:i + 24].strip()} = {expansion}"})
+    return sorted(out, key=lambda h: h["at"])
+
+
+def _find_all(hay: str, needle: str):
+    i = hay.find(needle)
+    while i >= 0:
+        yield i
+        i = hay.find(needle, i + 1)
 
 
 def main() -> None:
@@ -109,59 +128,35 @@ def main() -> None:
     loci = sorted(by)
     hits = []
     for k in loci:
-        h = head_of(k, by[k])
-        if h:
-            hits.append({"locus": k, "head": h[0], "reading": h[1],
-                         "opening": " ".join(by[k].split()[:5])})
-    # Each head opens a run that lasts until the next one.
+        hits.extend(heads_in(k, by[k]))
     for i, h in enumerate(hits):
         nxt = hits[i + 1]["locus"] if i + 1 < len(hits) else loci[-1] + 1
         span = [k for k in loci if h["locus"] <= k < nxt]
-        h["run_to"] = span[-1] if span else h["locus"]
         h["tokens"] = sum(len(_GK.findall(by[k])) for k in span)
 
-    # Two different things, and only one of them is the carve boundary. CAPUT and
-    # ΚΕΦΑΛΑΙΟΝ number a chapter INSIDE a work, and at 347 and 354 Migne prints
-    # both for the same chapter (ΚΕΦΑΛΑΙΟΝ Γ. ΛΑΡΗΤ ΙΙΙ.). PARAPHRASIS PACHYMERAE
-    # and SYNOPSIS CAPITIS are where the author changes. Counting all of them
-    # together would overstate how much of the author structure is pinned.
-    para = [h for h in hits if h["head"] == "paraphrase"]
-    kef = [h for h in hits if h["head"] == "kephalaion"]
     switches = [h for h in hits if h["head"] in ("paraphrase", "synopsis")]
+    chapters = [h for h in hits if h["head"] not in ("paraphrase", "synopsis")]
+    mid = [h for h in hits if h["at"] >= HEAD_ZONE]
+    mid_sw = [h for h in switches if h["at"] >= HEAD_ZONE]
     print(f"PG003: {len(rows)} rows, loci {loci[0]}-{loci[-1]}")
-    print(f"  {len(hits)} display heads survive in the OCR, of which "
-          f"{len(switches)} mark a change of AUTHOR and {len(hits) - len(switches)} "
-          f"number a chapter inside a work")
-    for label in ("paraphrase", "synopsis", "caput", "kephalaion"):
-        n = [h for h in hits if h["head"] == label]
-        print(f"    {label:12} {len(n):>3}  {sum(x['tokens'] for x in n):>7,} tokens "
-              f"in the runs they open")
-    # NOT the run lengths. The gap between two surviving switch heads is long
-    # because the heads between them were dropped, so it measures our blindness
-    # rather than the block size, and quoting it as "blocks are 105 loci" would
-    # be reading a hole as a fact. What the bytes do settle is where a switch
-    # LANDS: every one of them opens its row, none sits mid-row. That is what
-    # decides whether a locus carve can express the boundary at all.
-    HEAD_ZONE = 40
-    opens = 0
-    for h in switches:
-        probe = h["reading"].split(" = ")[0].split()[0]
-        at = by[h["locus"]].find(probe)
-        opens += 0 <= at < HEAD_ZONE
-    print(f"\n  {opens} of {len(switches)} author switches open their row "
-          f"(head within {HEAD_ZONE} chars); none sits mid-row, so the switches "
-          f"fall on locus boundaries and a locus carve can express them. That is "
-          f"what refutes the record's 'needs passage-level (intra-row) "
-          f"segmentation'.")
-    print(f"  first paraphrase head at {para[0]['locus'] if para else '-'}, "
-          f"first ΚΕΦΑΛΑΙΟΝ at {kef[0]['locus'] if kef else '-'}")
-    print(f"\n  NOT pinned: {len(loci) - sum(1 for h in hits)} rows sit inside a run "
-          f"whose opening head the OCR dropped; those boundaries need the page "
-          f"images before any carve can be trusted.")
-    for h in hits[:10]:
-        print(f"    {h['locus']:>4}-{h['run_to']:<4} {h['head']:11} "
-              f"{h['reading'][:56]}")
-
+    print(f"  {len(hits)} display heads survive, scanning WHOLE rows: "
+          f"{len(switches)} mark a change of author, {len(chapters)} number a "
+          f"chapter")
+    print(f"  {len(mid)} of {len(hits)} fall MID-ROW, including {len(mid_sw)} of "
+          f"the {len(switches)} author switches.")
+    print()
+    print("  This is the correction. An earlier version of this script read only")
+    print("  the first four words of each row, so it could only ever find heads")
+    print("  that opened a row, and it reported that as a finding: 'all four")
+    print("  author switches open their row, so a locus carve can express them'.")
+    print("  It cannot. A carve that moves whole rows would cut mid-block here,")
+    print("  and the deferral record's original 'needs passage-level (intra-row)")
+    print("  segmentation' was right after all.")
+    print()
+    print("  mid-row heads (locus, offset/row length):")
+    for h in mid[:14]:
+        print(f"    {h['locus']:>4} {h['at']:>5}/{h['row_chars']:<5} "
+              f"{h['head']:<11} {h['reading'][:44]}")
     if not args.write:
         print("\nreport only; re-run with --write.")
         return
@@ -172,11 +167,17 @@ def main() -> None:
                 "Pachymeres' paraphrase; the OCR read the Latin heads as Greek "
                 "letter shapes, which is why they were reported absent. These are "
                 "the ones still legible. The rest need the page images.",
+        "scanned": "whole row, not the first four words",
         "author_switches": len(switches),
+        "heads_mid_row": len(mid),
+        "author_switches_mid_row": len(mid_sw),
         "chapter_heads": len(hits) - len(switches),
-        "switches_opening_their_row": f"{opens} of {len(switches)}",
-        "count_is_a_floor": "the Latin heads were read by eye; no principled "
-                            "decoder recovers them, so more may survive",
+
+        "count_is_a_floor": "the Latin heads are matched by a fixed probe list, "
+                            "and PG003 garbles the same head differently in "
+                            "different places (SYNOPSIS CAPITIS reads ΘΥΝΟΡΦΙΟ "
+                            "ΩΑΡΙΤΙΘ at 171 and ΘΥΝΟΡΘΙΘ ΛΑΡΙΤΙΕ at 440), so "
+                            "more survive than this finds",
         "heads": hits,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"\nwrote {OUT.relative_to(REPO)}")
@@ -191,44 +192,43 @@ def main() -> None:
     rec = json.loads(flag.read_text(encoding="utf-8"))
     if "superseded" not in rec:
         rec["superseded"] = []
-    if rec["why_not_resolved"].startswith("Not a passage-level problem"):
-        # Already corrected. Appending again would file the correction itself as
-        # the thing superseded, which reads as if the old reason were right.
+    if rec["why_not_resolved"].startswith("The record has now been wrong twice"):
         print(f"{flag.name} already carries the correction; left alone")
         return
-    rec["superseded"].append({
+    rec.setdefault("superseded", []).append({
         "date": "2026-08-07",
         "issue": "open-greek/open-greek-corpus#9",
         "field": "why_not_resolved",
         "was": rec["why_not_resolved"],
-        "wrong_because": "the bytes do not show a passage-level alternation, and "
-                         "the display heads reported absent are present, garbled. "
-                         "Migne marks each switch with a printed head; the OCR read "
-                         "the Latin ones as Greek letter shapes (PARAPHRASIS "
-                         "PACHYMERAE -> ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ at locus 151), which is "
-                         "why a Greek search found none and the interleave was "
-                         "taken to be unmarked.",
+        "wrong_because": "this script measured it with a detector that read only "
+                         "the first four words of each row, so it could only find "
+                         "heads that opened a row, and the conclusion drawn from "
+                         "that ('every switch opens its row, so a locus carve can "
+                         "express them') was circular. Scanning whole rows, "
+                         f"{len(mid)} of {len(hits)} heads fall mid-row.",
     })
     rec["why_not_resolved"] = (
-        f"Not a passage-level problem and not impossible by column carve. Migne "
-        f"prints a display head at every switch, and {len(switches)} of them "
-        f"survive in our OCR (plus {len(hits) - len(switches)} chapter heads) "
-        f"(measured by scripts/measure_pg003_blocks.py, listed in "
-        f"data/pg003_blocks.json). Every one of them OPENS its row rather than "
-        f"sitting mid-row, so the switches fall on locus boundaries and a locus "
-        f"carve can express them; intra-row segmentation is not what this needs. "
-        f"What "
-        f"blocks the carve is coverage, not granularity: most of the volume's "
-        f"{len(loci)} rows "
-        f"sit inside a run whose opening head the OCR dropped, and a boundary we "
-        f"cannot see is exactly the one that would file a block under the wrong "
-        f"author. Recovering the dropped heads needs the PG 3 page images.")
+        f"The record has now been wrong twice, in opposite directions, and this is "
+        f"the second correction. The original said the two authors interleave "
+        f"passage by passage and that no display titles survive in the OCR. The "
+        f"first half was right and the second was not: {len(hits)} heads do survive, "
+        f"garbled where Migne printed Latin, and finding them prompted a correction "
+        f"on 2026-08-07 claiming the interleave was block scale and a locus carve "
+        f"could express it. That claim came from a detector reading only the first "
+        f"four words of each row, which could not have found a mid-row head if one "
+        f"existed. Scanning whole rows, {len(mid)} of {len(hits)} heads fall mid-row, "
+        f"including {len(mid_sw)} of the {len(switches)} author switches (SYNOPSIS "
+        f"CAPITIS at locus 481, character 1,713 of a 2,018-character row). So the "
+        f"original reason stands: this needs passage-level segmentation inside the "
+        f"row, which carve_cgpg_volume.py cannot express because it moves whole "
+        f"rows. The heads the OCR dropped still need the page images as well.")
     rec["recommendation"] = (
-        "read the heads off the page images, then carve on loci like any other "
-        "volume. The surviving heads in data/pg003_blocks.json give the shape to "
-        "check that recovery against.")
-    rec["_meta"]["change"] = ("DEFERRED - not carved (display heads dropped by OCR "
-                              "on most switches; needs page images)")
+        "do NOT carve this on loci. A whole-row carve cuts mid-block at every "
+        "boundary that falls inside a row, and at least one author switch does. "
+        "Segmenting inside the row needs both a re-OCR that keeps the dropped heads "
+        "and a splitter that can divide a row, neither of which exists here yet.")
+    rec["_meta"]["change"] = ("DEFERRED - not carved (boundaries fall inside rows; "
+                              "needs intra-row segmentation and the page images)")
     flag.write_text(json.dumps(rec, ensure_ascii=False, indent=1) + "\n",
                     encoding="utf-8")
     print(f"corrected the stated reason in {flag.relative_to(REPO)}")
