@@ -1257,6 +1257,78 @@
      "author_note": "Not the scholia on the same treatise already served: anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis is the Walz VII.1 collection, carved earlier under this issue, and shares 6.2% of its 4-grams with this one. Two commentary traditions on one text, not one text twice."
     }
    ]
+  },
+  {
+   "volume": "v3-hermogenes",
+   "urn": "ocr.walz_rhetores_v3",
+   "edition_title": "Rhetores Graeci, vol. III, ed. C. Walz (Stuttgart/Tubingen, Cotta, 1834)",
+   "date": "2026-08-06",
+   "issue": "open-greek/open-greek-corpus#21",
+   "printed_to_scan_offset": 14,
+   "offset_note": "printed = scan - 14, the same offset the volume's first carve used, re-confirmed here against the scan: page 191 sits on scan 205 and page 403 on scan 417. A '149' printed at the corner of the Peri methodou title page is a marginal reference to another edition, not a Walz page number; the two anchors either side of it both give 14.",
+   "basis": "A second carve of the same volume, taking the Hermogenean block its first carve deferred. Every boundary is a display title read off the Internet Archive scan rhetoresgraeciem03walzuoft, because in this volume the running head lags its title page by two or three pages and the OCR captures the head far more reliably than the title. Using the heads alone would have put three of the four boundaries late.",
+   "front_matter_before": "walz_rhetores_v3_0015.1",
+   "front_matter_note": "scans 0007-0014, the volume's ARGUMENTUM and Latin front matter, 616 tokens. Left in the volume file.",
+   "trailing_residual_from": "walz_rhetores_v3_0762.3",
+   "trailing_residual_note": "printed 748 onward, the corrigenda and index rows the volume's first carve left behind. The Hermogenean block ends with ΤΕΛΟΣ ΕΡΜΟΓΕΝΟΥΣ at printed 445, and nothing between that and here survived the first pass.",
+   "disposition_note": "All four are served from First1KGreek and become secondary witnesses under #14. The text corroborates it: 4-gram overlap runs 37.4% to 43.3%.",
+   "works": [
+    {
+     "n": "I",
+     "slug": "hermogenes.peri-sta-sewn",
+     "title": "Peri staseon",
+     "author_display": "Hermogenes",
+     "tlg": null,
+     "printed_pages": "1-64",
+     "start": "walz_rhetores_v3_0015.1",
+     "incipit_check": "ΠΕΡΙ ΤΩΝ ΣΤΑΣΕΩΝ",
+     "evidence": "Display title ΠΕΡΙ ΤΩΝ ΣΤΑΣΕΩΝ at printed 1, the volume's first arabic-paginated page.",
+     "rank": "secondary",
+     "secondary_reason": "served as hermogenes.peri-sta-sewn from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (37.4% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "II",
+     "slug": "hermogenes.peri-eu-re-sews-sp",
+     "title": "Peri heureseos",
+     "author_display": "Hermogenes",
+     "tlg": null,
+     "printed_pages": "65-188",
+     "start": "walz_rhetores_v3_0079.1",
+     "incipit_check": "ΕΡΜΟΓΕΝΟΥΣ",
+     "evidence": "Display title ΕΡΜΟΓΕΝΟΥΣ / ΠΕΡΙ ΕΥΡΕΣΕΩΝ ΤΟΜΟΣ ΠΡΩΤΟΣ at printed 65, read off the Internet Archive scan (rhetoresgraeciem03walzuoft page 79), which also carries 'Rhetor. III.' at the foot. The running head ΠΕΡΙ ΕΥΡΕΣΕΩΝ ΤΟΜ. α does not start until 67, which is why the OCR alone put the boundary two pages late.",
+     "rank": "secondary",
+     "secondary_reason": "served as hermogenes.peri-eu-re-sews-sp from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (41.4% of its 4-grams are shared with the served text)"
+    },
+    {
+     "n": "III",
+     "slug": "hermogenes.peri-i-dew-n-lo-gou",
+     "title": "Peri ideon logou",
+     "author_display": "Hermogenes",
+     "tlg": null,
+     "printed_pages": "189-401",
+     "start": "walz_rhetores_v3_0203.1",
+     "incipit_check": "λλο τι τῷ ῥήτορι",
+     "evidence": "Display title ΕΡΜΟΓΕΝΟΥΣ / ΠΕΡΙ ΙΔΕΩΝ ΤΟΜΟΣ ΠΡΩΤΟΣ at printed 189, with Cap. I and the treatise's opening words beneath it. This is the boundary the issue was opened over. The running head ΠΕΡΙ ΙΔΕΩΝ ΤΟΜ. α begins at 191, and the ΠΕΡΙ ΣΑΦΗΝΕΙΑΣ at 202 that looked like a rival title page is a chapter heading inside the work, Περὶ σαφηνείας being the first idea Hermogenes treats.",
+     "rank": "secondary",
+     "secondary_reason": "served as hermogenes.peri-i-dew-n-lo-gou from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (43.3% of its 4-grams are shared with the served text)",
+     "incipit_note": "Anchored on the treatise's opening words, not its title. The OCR did not capture the ΕΡΜΟΓΕΝΟΥΣ / ΠΕΡΙ ΙΔΕΩΝ ΤΟΜΟΣ ΠΡΩΤΟΣ block on this page at all, which is exactly why the boundary looked unsettled from the text alone; the title is on the scan and the body line is what our rows hold. The initial epsilon is left out because the OCR reads Εἰπερ for Εἴπερ."
+    },
+    {
+     "n": "IV",
+     "slug": "hermogenes.peri-meqo-dou-deino-thtos-sp",
+     "title": "Peri methodou deinotetos",
+     "author_display": "Hermogenes",
+     "tlg": null,
+     "printed_pages": "402-445",
+     "start": "walz_rhetores_v3_0416.1",
+     "incipit_check": "μέρος λόγου",
+     "incipit_locus": "walz_rhetores_v3_0416.1",
+     "evidence": "Display title ΕΡΜΟΓΕΝΟΥΣ / ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ at printed 402, with Cap. I beneath. Our OCR captured only the body line, so the anchor is that. The running head ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤ. that the OCR first shows at 405 lags the title page by three pages; printed 403 already carries it on the scan.",
+     "rank": "secondary",
+     "secondary_reason": "served as hermogenes.peri-meqo-dou-deino-thtos-sp from the First1KGreek open TEI edition (source precedence: open_corpus over our own OCR of a public-domain edition); this Walz witness is kept, not served (38.2% of its 4-grams are shared with the served text)",
+     "incipit_note": "Anchored on the opening body line for the same reason as item III: the ΕΡΜΟΓΕΝΟΥΣ / ΠΕΡΙ ΜΕΘΟΔΟΥ ΔΕΙΝΟΤΗΤΟΣ block on this page is on the scan and absent from our rows. Note the OCR reads ἐπὶ μνήμῃ where the page has ἐπὶ μηνύσει."
+    }
+   ]
   }
  ]
 }
