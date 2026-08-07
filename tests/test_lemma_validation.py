@@ -109,6 +109,12 @@ def bench(tmp_path, monkeypatch):
     # Isolated too, or every test here reads whatever the last measurement run
     # wrote to data/capital_positions.json. The tests that want a fold set one.
     monkeypatch.setattr(vlm, "CAPITAL_FOLDS", {})
+    # Same reason, and it matters more: grave_lemma_repair reads the printed-form
+    # census, which is 1,059,268 real forms. Left alone, these fixtures would be
+    # decided by the actual corpus rather than by the table each test sets up.
+    # Empty makes the rule fall back to the frequency file the fixture writes;
+    # the tests that are ABOUT printed forms set one explicitly.
+    monkeypatch.setattr(vlm, "PRINTED_FORMS", {})
     return freq_file
 
 
@@ -628,3 +634,42 @@ def test_the_fold_reads_the_measured_file(tmp_path):
         "Πῶς": {"folds_to": "πῶς", "mid_sentence_rate": 0.091, "occurrences": 8958},
     }}, ensure_ascii=False), encoding="utf-8")
     assert vlm.load_capital_folds(fp) == {"Πῶς": "πῶς"}
+
+
+# --------------------------------------------------------------------------
+# Attestation reads PRINTED forms, not a lemma table (issue #4).
+
+def test_a_grave_lemma_repairs_when_the_corpus_prints_the_acute(bench, monkeypatch):
+    """The argument is about the printed text, so the evidence is the printed
+    text. `Καυνεύς` is a lemma in no table this repo builds, but the corpus
+    prints it, and that is what licenses taking the grave off `Καυνεὺς`."""
+    monkeypatch.setattr(vlm, "PRINTED_FORMS", {"Καυνεύς": 9})
+    assert vlm.grave_lemma_repair("Καυνεὺς", {}) == "Καυνεύς"
+
+
+def test_the_enclitic_guard_reads_the_same_table_as_the_test(bench, monkeypatch):
+    """The guard is what keeps the indefinite τὶς out of the interrogative τίς,
+    and it only works if it is evaluated on the table attestation came from. On
+    a frequency table it would read 0 for everything the printed-form test newly
+    reaches, and stop applying without failing."""
+    monkeypatch.setattr(vlm, "PRINTED_FORMS", {"τίς": 23845, "τις": 109132})
+    assert vlm.grave_lemma_repair("τὶς", {}) is None
+
+
+def test_the_article_is_held_by_the_closed_class_path_not_by_attestation(bench):
+    """It used to be attestation: `τόν` was absent from the lemma table the rule
+    read, so the acute test failed. The corpus prints `τόν` tens of thousands of
+    times, so under printed forms nothing in THIS rule keeps the article off its
+    own accusative. closed_class_lemma does, ahead of every graded check."""
+    assert vlm.closed_class_lemma("τὸν") == vlm.ARTICLE_LEMMA
+    assert vlm.closed_class_lemma("τὴν") == vlm.ARTICLE_LEMMA
+
+
+def test_a_form_printed_once_is_below_the_floor(bench, monkeypatch):
+    """PRINTED_MIN mirrors the min-count the per-work table is built at, so a
+    form rarer than that is not in the governed table to be repaired anyway."""
+    import json
+    fp = bench.parent / "lex.tsv"
+    fp.write_text("σοφιστής\t1\n", encoding="utf-8")
+    monkeypatch.setattr(vlm, "PRINTED_FORMS", vlm.load_printed_forms(fp))
+    assert vlm.grave_lemma_repair("σοφιστὴς", {}) is None

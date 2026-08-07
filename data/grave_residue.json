@@ -3,17 +3,22 @@
  "issue": "open-greek/open-greek-corpus#4",
  "source": "data/work_lemma_counts.tsv.gz, and nothing else",
  "why_no_external_authority": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it",
- "lemmas": 9191,
- "tokens": 42732,
+ "lemmas": 8105,
+ "tokens": 32593,
  "reachable": {
-  "lemmas": 1142,
-  "tokens": 9662,
+  "lemmas": 281,
+  "tokens": 3675,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 8049,
-  "tokens": 33070,
-  "note": "no acute counterpart is attested under either case, so no rule that moves a grave lemma onto its acute can reach these regardless of threshold; they are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
+  "lemmas": 7824,
+  "tokens": 28918,
+  "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
+ },
+ "superseded": {
+  "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
+  "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
+  "measured_the_old_way_tokens": 30370
  },
  "largest_unreachable": [
   {
@@ -21,52 +26,20 @@
    "tokens": 601
   },
   {
-   "lemma": "ταὺτ",
-   "tokens": 401
-  },
-  {
    "lemma": "κᾀπὶ",
    "tokens": 383
-  },
-  {
-   "lemma": "πεποιθὼς",
-   "tokens": 327
   },
   {
    "lemma": "κλὴν",
    "tokens": 300
   },
   {
-   "lemma": "τοῦτὶ",
-   "tokens": 267
-  },
-  {
-   "lemma": "ὒ",
-   "tokens": 248
-  },
-  {
    "lemma": "μηδὲς",
    "tokens": 225
   },
   {
-   "lemma": "κὸ",
-   "tokens": 215
-  },
-  {
-   "lemma": "Ὀμηρικὸν",
-   "tokens": 198
-  },
-  {
    "lemma": "γεμὴν",
    "tokens": 193
-  },
-  {
-   "lemma": "Παντὸς",
-   "tokens": 174
-  },
-  {
-   "lemma": "παραστὰς",
-   "tokens": 172
   },
   {
    "lemma": "ἐπειδὴν",
@@ -85,32 +58,16 @@
    "tokens": 125
   },
   {
-   "lemma": "σὺγ",
-   "tokens": 109
-  },
-  {
    "lemma": "Οὐδὲς",
    "tokens": 109
-  },
-  {
-   "lemma": "ὁπὸ",
-   "tokens": 93
   },
   {
    "lemma": "οὐχὼν",
    "tokens": 91
   },
   {
-   "lemma": "ἐνὲρ",
-   "tokens": 87
-  },
-  {
    "lemma": "οὐδὲνς",
    "tokens": 77
-  },
-  {
-   "lemma": "οὒν",
-   "tokens": 73
   },
   {
    "lemma": "῾τὸ",
@@ -129,20 +86,8 @@
    "tokens": 58
   },
   {
-   "lemma": "λὰς",
-   "tokens": 58
-  },
-  {
-   "lemma": "ἐλὲ",
-   "tokens": 58
-  },
-  {
    "lemma": "καθὸς",
    "tokens": 53
-  },
-  {
-   "lemma": "περιὲ",
-   "tokens": 52
   },
   {
    "lemma": "πολλοχὸν",
@@ -157,32 +102,104 @@
    "tokens": 48
   },
   {
-   "lemma": "τοσαὺ",
-   "tokens": 45
-  },
-  {
-   "lemma": "καχὸν",
-   "tokens": 45
-  },
-  {
    "lemma": "καταλθὼν",
    "tokens": 45
   },
   {
-   "lemma": "ὡσαὺ",
-   "tokens": 43
-  },
-  {
    "lemma": "καὶτὸ",
    "tokens": 42
+  },
+  {
+   "lemma": "ποδὸν",
+   "tokens": 41
+  },
+  {
+   "lemma": "ὑπὶ",
+   "tokens": 41
+  },
+  {
+   "lemma": "Ἰσὺς",
+   "tokens": 41
+  },
+  {
+   "lemma": "ἐνθὺς",
+   "tokens": 40
+  },
+  {
+   "lemma": "ἐνδὰ",
+   "tokens": 40
+  },
+  {
+   "lemma": "ἐπεὶτ",
+   "tokens": 40
+  },
+  {
+   "lemma": "Μιὸς",
+   "tokens": 40
+  },
+  {
+   "lemma": "ταντὸν",
+   "tokens": 40
+  },
+  {
+   "lemma": "δακὺ",
+   "tokens": 39
+  },
+  {
+   "lemma": "οὐχὲς",
+   "tokens": 37
+  },
+  {
+   "lemma": "τεκαὶ",
+   "tokens": 35
+  },
+  {
+   "lemma": "᾿Επὶ",
+   "tokens": 34
+  },
+  {
+   "lemma": "ἰδὺς",
+   "tokens": 34
+  },
+  {
+   "lemma": "῾καὶ",
+   "tokens": 32
+  },
+  {
+   "lemma": "τριπλὴν",
+   "tokens": 32
+  },
+  {
+   "lemma": "αὐδὸς",
+   "tokens": 32
+  },
+  {
+   "lemma": "Κκαὶ",
+   "tokens": 32
+  },
+  {
+   "lemma": "Ἵπὲρ",
+   "tokens": 32
   }
  ],
  "largest_reachable": [
   {
-   "lemma": "Κυνὸς",
-   "tokens": 165,
-   "target": "κυνός",
-   "target_tokens": 39
+   "lemma": "ὒ",
+   "tokens": 248,
+   "target": "ὔ",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "κὸ",
+   "tokens": 215,
+   "target": "κό",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "Παντὸς",
+   "tokens": 174,
+   "target": "παντός",
+   "target_tokens": 0
   },
   {
    "lemma": "χὰρ",
@@ -197,34 +214,10 @@
    "target_tokens": 10
   },
   {
-   "lemma": "χοριαμβικὸν",
-   "tokens": 133,
-   "target": "χοριαμβικόν",
-   "target_tokens": 11
-  },
-  {
-   "lemma": "χαλὸν",
-   "tokens": 121,
-   "target": "χαλόν",
-   "target_tokens": 82
-  },
-  {
-   "lemma": "σαρκωθεὶς",
-   "tokens": 120,
-   "target": "σαρκωθείς",
-   "target_tokens": 45
-  },
-  {
-   "lemma": "κᾀπειδὰν",
-   "tokens": 116,
-   "target": "κᾀπειδάν",
-   "target_tokens": 4
-  },
-  {
-   "lemma": "μονονοχὶ",
-   "tokens": 108,
-   "target": "μονονοχί",
-   "target_tokens": 2
+   "lemma": "σὺγ",
+   "tokens": 109,
+   "target": "σύγ",
+   "target_tokens": 0
   },
   {
    "lemma": "ἢδ",
@@ -233,22 +226,16 @@
    "target_tokens": 137
   },
   {
-   "lemma": "μοναχικὸν",
-   "tokens": 94,
-   "target": "μοναχικόν",
-   "target_tokens": 6
-  },
-  {
-   "lemma": "Ρωμαϊκὸν",
+   "lemma": "ὁπὸ",
    "tokens": 93,
-   "target": "Ρωμαϊκόν",
-   "target_tokens": 8
+   "target": "ὁπό",
+   "target_tokens": 0
   },
   {
-   "lemma": "᾿Επειδὴ",
-   "tokens": 85,
-   "target": "᾿Επειδή",
-   "target_tokens": 4
+   "lemma": "ἐνὲρ",
+   "tokens": 87,
+   "target": "ἐνέρ",
+   "target_tokens": 0
   },
   {
    "lemma": "σὸ",
@@ -269,58 +256,16 @@
    "target_tokens": 155
   },
   {
+   "lemma": "οὒν",
+   "tokens": 73,
+   "target": "οὔν",
+   "target_tokens": 0
+  },
+  {
    "lemma": "σὲς",
    "tokens": 73,
    "target": "σές",
    "target_tokens": 5
-  },
-  {
-   "lemma": "᾿Ισαὰκ",
-   "tokens": 72,
-   "target": "᾿Ισαάκ",
-   "target_tokens": 4
-  },
-  {
-   "lemma": "κομικὸς",
-   "tokens": 70,
-   "target": "κομικός",
-   "target_tokens": 12
-  },
-  {
-   "lemma": "Ρωμαϊκὴν",
-   "tokens": 68,
-   "target": "Ρωμαϊκήν",
-   "target_tokens": 5
-  },
-  {
-   "lemma": "Σοφιστὴς",
-   "tokens": 63,
-   "target": "σοφιστής",
-   "target_tokens": 3748
-  },
-  {
-   "lemma": "ποὸς",
-   "tokens": 63,
-   "target": "ποός",
-   "target_tokens": 6
-  },
-  {
-   "lemma": "πλὺ",
-   "tokens": 62,
-   "target": "πλύ",
-   "target_tokens": 4
-  },
-  {
-   "lemma": "ὑπὸς",
-   "tokens": 60,
-   "target": "ὑπός",
-   "target_tokens": 7
-  },
-  {
-   "lemma": "ἐμὶ",
-   "tokens": 59,
-   "target": "ἐμί",
-   "target_tokens": 15
   },
   {
    "lemma": "ξὴν",
@@ -329,64 +274,22 @@
    "target_tokens": 5
   },
   {
-   "lemma": "ὑπερολὴν",
-   "tokens": 59,
-   "target": "ὑπερολήν",
-   "target_tokens": 2
+   "lemma": "λὰς",
+   "tokens": 58,
+   "target": "λάς",
+   "target_tokens": 0
   },
   {
-   "lemma": "κγὶ",
-   "tokens": 57,
-   "target": "κγί",
-   "target_tokens": 2
+   "lemma": "ἐλὲ",
+   "tokens": 58,
+   "target": "ἐλέ",
+   "target_tokens": 0
   },
   {
-   "lemma": "᾿Απὸ",
-   "tokens": 56,
-   "target": "᾿Από",
-   "target_tokens": 2
-  },
-  {
-   "lemma": "γρὴ",
-   "tokens": 51,
-   "target": "γρή",
-   "target_tokens": 17
-  },
-  {
-   "lemma": "κτὶ",
-   "tokens": 51,
-   "target": "κτί",
-   "target_tokens": 41
-  },
-  {
-   "lemma": "Μωσαϊκὸν",
-   "tokens": 48,
-   "target": "Μωσαϊκόν",
-   "target_tokens": 4
-  },
-  {
-   "lemma": "ταξὺ",
-   "tokens": 47,
-   "target": "ταξύ",
-   "target_tokens": 4
-  },
-  {
-   "lemma": "ἀρχιερατικὸν",
-   "tokens": 46,
-   "target": "ἀρχιερατικόν",
-   "target_tokens": 4
-  },
-  {
-   "lemma": "εἰπὶν",
-   "tokens": 45,
-   "target": "εἰπίν",
-   "target_tokens": 6
-  },
-  {
-   "lemma": "δενὸς",
-   "tokens": 44,
-   "target": "δενός",
-   "target_tokens": 10
+   "lemma": "περιὲ",
+   "tokens": 52,
+   "target": "περιέ",
+   "target_tokens": 0
   },
   {
    "lemma": "ἀφὸ",
@@ -395,28 +298,130 @@
    "target_tokens": 14
   },
   {
-   "lemma": "ἐκτὶ",
-   "tokens": 43,
-   "target": "ἐκτί",
-   "target_tokens": 21
-  },
-  {
-   "lemma": "ἐφερμηνευτικὸν",
-   "tokens": 43,
-   "target": "ἐφερμηνευτικόν",
-   "target_tokens": 13
-  },
-  {
    "lemma": "φὸν",
    "tokens": 43,
    "target": "φόν",
    "target_tokens": 48
   },
   {
-   "lemma": "Λιὶ",
-   "tokens": 41,
-   "target": "Λιί",
-   "target_tokens": 4
+   "lemma": "ὲς",
+   "tokens": 42,
+   "target": "ές",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "καὰ",
+   "tokens": 37,
+   "target": "καά",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "διὰρ",
+   "tokens": 36,
+   "target": "διάρ",
+   "target_tokens": 3
+  },
+  {
+   "lemma": "νιοὶ",
+   "tokens": 36,
+   "target": "νιοί",
+   "target_tokens": 14
+  },
+  {
+   "lemma": "νὸ",
+   "tokens": 33,
+   "target": "νό",
+   "target_tokens": 270
+  },
+  {
+   "lemma": "ὰτ",
+   "tokens": 32,
+   "target": "άτ",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "ὑδατὸς",
+   "tokens": 30,
+   "target": "ὑδατός",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "ἐσλὶ",
+   "tokens": 28,
+   "target": "ἐσλί",
+   "target_tokens": 17
+  },
+  {
+   "lemma": "ἀρχὶ",
+   "tokens": 27,
+   "target": "ἀρχί",
+   "target_tokens": 17
+  },
+  {
+   "lemma": "ριστὸς",
+   "tokens": 25,
+   "target": "ριστός",
+   "target_tokens": 7
+  },
+  {
+   "lemma": "ὐτὸ",
+   "tokens": 24,
+   "target": "ὐτό",
+   "target_tokens": 5
+  },
+  {
+   "lemma": "ριστὸν",
+   "tokens": 24,
+   "target": "ριστόν",
+   "target_tokens": 8
+  },
+  {
+   "lemma": "ἐσθὶν",
+   "tokens": 24,
+   "target": "ἐσθίν",
+   "target_tokens": 18
+  },
+  {
+   "lemma": "τεὶ",
+   "tokens": 23,
+   "target": "τεί",
+   "target_tokens": 0
+  },
+  {
+   "lemma": "ἐφεὶ",
+   "tokens": 23,
+   "target": "ἐφεί",
+   "target_tokens": 5
+  },
+  {
+   "lemma": "Κμὴ",
+   "tokens": 23,
+   "target": "κμή",
+   "target_tokens": 18
+  },
+  {
+   "lemma": "Σὲς",
+   "tokens": 19,
+   "target": "σές",
+   "target_tokens": 5
+  },
+  {
+   "lemma": "ὑτὸ",
+   "tokens": 18,
+   "target": "ὑτό",
+   "target_tokens": 3
+  },
+  {
+   "lemma": "σαυτὸ",
+   "tokens": 18,
+   "target": "σαυτό",
+   "target_tokens": 2
+  },
+  {
+   "lemma": "Ἰσὺν",
+   "tokens": 18,
+   "target": "ἰσύν",
+   "target_tokens": 10
   }
  ]
 }
