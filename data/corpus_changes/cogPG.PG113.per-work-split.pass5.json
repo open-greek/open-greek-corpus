@@ -1,0 +1,203 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG113 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG113",
+  "source_urn": "cogPG.PG113",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-08-07",
+  "plan_basis": "fifth pass. The Excerpta de legationibus at 328-489 is not one work: it is Constantine VII's compilation of excerpts from seven historians, and this corpus already serves six of them primary from DFHG and the seventh from byzantium.gr. So the precedence ladder settles them, the same way it settled PG067's two histories and PG139's Choniates: our Migne OCR is a witness, not a second primary. Six blocks move; the rest is held back and the note says why. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG113.' (delete the file when it was 'created'), strip the 'PG113.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG113.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG113": {
+   "rows": 167,
+   "greek_tokens": 61265,
+   "sha256": "2dd67761d826dcafc924ab2a33f547d20aeacf4fbf1ed0bc2fbab3867cb50a86"
+  }
+ },
+ "works": [
+  {
+   "slug": "publius-herennius-dexippus.fragmenta",
+   "tlg": null,
+   "title": "Excerpta de legationibus",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the DFHG edition, Berti/Leipzig's corrected transcription of the same Mueller FHG text (source precedence: a corrected digital edition over our own OCR of a public-domain reprint); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/publius-herennius-dexippus.fragmenta.jsonl",
+   "mode": "appended",
+   "rows": 5,
+   "greek_tokens": 1681,
+   "volume_loci": "331-335",
+   "locus_map": "cogPG.PG113 locus N -> publius-herennius-dexippus.fragmenta locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "331",
+     "incipit": "Ὅτι Αὐρηλιανὸς κατὰ κράτος νικήσας τοὺς Ἰουθούγγους Σκύθας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 51
+    }
+   ],
+   "evidence": "loci 331-335, 1,681 tokens. Containment against the served publius-herennius-dexippus.fragmenta is 0.941; against each of the other six historians in this block it is at most 0.17. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six."
+  },
+  {
+   "slug": "eunapius.fragmenta-historica",
+   "tlg": null,
+   "title": "Excerpta de legationibus",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the DFHG edition, Berti/Leipzig's corrected transcription of the same Mueller FHG text (source precedence: a corrected digital edition over our own OCR of a public-domain reprint); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/eunapius.fragmenta-historica.jsonl",
+   "mode": "appended",
+   "rows": 7,
+   "greek_tokens": 2370,
+   "volume_loci": "336-342",
+   "locus_map": "cogPG.PG113 locus N -> eunapius.fragmenta-historica locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "337",
+     "incipit": "νυνὶ δὲ ζητεῖν παρ´ αὐτῶν τοὺς ἀρίστους, εἰ μὴ τεχνάζουσι περὶ τὴν εἰρήνην",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 60
+    }
+   ],
+   "evidence": "loci 336-342, 2,371 tokens. Containment against the served eunapius.fragmenta-historica is 0.916; against each of the other six historians in this block it is at most 0.17. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six.",
+   "notes": "The block begins mid-row: no display head survives at the boundary, and the split is placed by the containment measurement plus the excerpt numbering restarting. That is an inference, not a reading, and is recorded as one."
+  },
+  {
+   "slug": "petrus-patricius.fragmenta",
+   "tlg": null,
+   "title": "Excerpta de legationibus",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the DFHG edition, Berti/Leipzig's corrected transcription of the same Mueller FHG text (source precedence: a corrected digital edition over our own OCR of a public-domain reprint); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/petrus-patricius.fragmenta.jsonl",
+   "mode": "appended",
+   "rows": 7,
+   "greek_tokens": 2237,
+   "volume_loci": "343-349",
+   "locus_map": "cogPG.PG113 locus N -> petrus-patricius.fragmenta locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "343",
+     "incipit": "Ὅτι οἱ Πάρθοι πρὸς Τιβέριον ἐπρεσβεύοντο, βασιλέα σφίσιν",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 48
+    }
+   ],
+   "evidence": "loci 343-349, 2,241 tokens. Containment against the served petrus-patricius.fragmenta is 0.893; against each of the other six historians in this block it is at most 0.17. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six."
+  },
+  {
+   "slug": "priscus-history.fragmenta",
+   "tlg": null,
+   "title": "Excerpta de legationibus",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the DFHG edition, Berti/Leipzig's corrected transcription of the same Mueller FHG text (source precedence: a corrected digital edition over our own OCR of a public-domain reprint); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/priscus-history.fragmenta.jsonl",
+   "mode": "appended",
+   "rows": 40,
+   "greek_tokens": 14564,
+   "volume_loci": "350-389",
+   "locus_map": "cogPG.PG113 locus N -> priscus-history.fragmenta locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "350",
+     "incipit": "ΙΣΤΟΡΙΑΣ ΒΥΖΑΝΤΙΚΗΣ ΕΚΛΟΓΑΙ ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΕΘΝΩΝ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 42
+    }
+   ],
+   "evidence": "loci 350-389, 14,573 tokens. Containment against the served priscus-history.fragmenta is 0.910; against each of the other six historians in this block it is at most 0.17. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six."
+  },
+  {
+   "slug": "malchus-philadelphensis.fragmenta",
+   "tlg": null,
+   "title": "Excerpta de legationibus",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the DFHG edition, Berti/Leipzig's corrected transcription of the same Mueller FHG text (source precedence: a corrected digital edition over our own OCR of a public-domain reprint); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/malchus-philadelphensis.fragmenta.jsonl",
+   "mode": "appended",
+   "rows": 17,
+   "greek_tokens": 6377,
+   "volume_loci": "390-406",
+   "locus_map": "cogPG.PG113 locus N -> malchus-philadelphensis.fragmenta locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "391",
+     "incipit": "Εἰς δὲ τὸ βυζάντιον ὡς ἦλθον οἱ παρ´ αὐτοῦ σταλέντες πρέσβεις",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 30
+    }
+   ],
+   "evidence": "loci 390-406, 6,378 tokens. Containment against the served malchus-philadelphensis.fragmenta is 0.885; against each of the other six historians in this block it is at most 0.17. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six.",
+   "notes": "The block begins mid-row. Malchus' head, ΜΑΛΧΟΥ ΡΗΤΟΡΟΣ ΦΙΛΑΔΕΛΦΕΩΣ, is at character 1,084 of locus 389's 1,110, so under the plan's shared-row rule that row would come here. It does not: 98% of it is Priscus, and sending it to Malchus would file 1,084 characters of one historian under another. 389 goes to Priscus and the 26 characters of Malchus' head travel with it, which is the smaller error and is recorded rather than carried silently."
+  },
+  {
+   "slug": "menander-protector.de-legationibus-romanorum-ad-gentes-fragmenta-ap-constantinum",
+   "tlg": null,
+   "title": "Excerpta de legationibus",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the DFHG edition, Berti/Leipzig's corrected transcription of the same Mueller FHG text (source precedence: a corrected digital edition over our own OCR of a public-domain reprint); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/menander-protector.de-legationibus-romanorum-ad-gentes-fragmenta-ap-constantinum.jsonl",
+   "mode": "appended",
+   "rows": 68,
+   "greek_tokens": 26229,
+   "volume_loci": "407-474",
+   "locus_map": "cogPG.PG113 locus N -> menander-protector.de-legationibus-romanorum-ad-gentes-fragmenta-ap-constantinum locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "408",
+     "incipit": "μέγιστόν τε καὶ ἀλκιμώτατον τῶν ἐθνῶν, καὶ ὡς τὸ φῦλον οἱ Ἄβαροι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 52
+    }
+   ],
+   "evidence": "loci 407-474, 26,253 tokens. Containment against the served menander-protector.de-legationibus-romanorum-ad-gentes-fragmenta-ap-constantinum is 0.833; against each of the other six historians in this block it is at most 0.17. Block identity is measured, not read off a head: word-bigram containment against the served primary, NFD-stripped, lowercased, final sigma folded, Greek tokens only, which is the method scripts/dedup_fhg_containment.py already codifies. Each block below scores far above the repo's 0.7 gate against its own historian and at most 0.17 against any of the other six.",
+   "notes": "The block begins mid-row: no display head survives at the boundary, and the split is placed by the containment measurement plus the excerpt numbering restarting. That is an inference, not a reading, and is recorded as one. Menander is the largest block at 26,253 tokens and scores lowest of the six at 0.833, so it is the one to re-check first if any number here is wrong."
+  }
+ ],
+ "residual": {
+  "rows": 23,
+  "greek_tokens": 7807,
+  "loci": [
+   "318",
+   "319",
+   "321",
+   "322",
+   "323",
+   "328",
+   "329",
+   "330",
+   "475",
+   "476",
+   "477",
+   "478",
+   "479",
+   "480",
+   "481",
+   "482",
+   "483",
+   "484",
+   "485",
+   "486",
+   "487",
+   "488",
+   "489"
+  ],
+  "note": "Three things stay, each on its own reason.\n\n475-487, Theophylact Simocatta, 4,856 tokens: containment against the served byzantium.gr Historiae is 0.697, which does not clear the 0.7 gate the other six blocks clear by a wide margin (0.833 to 0.941). Either the Excerpta preserve a divergent recension here or this OCR is worse; on this evidence it cannot be told, and demoting text that is not demonstrably the served text would remove it from the published corpus. So it is left primary.\n\n328-330 and 488-489, 1,243 tokens: Constantine's own prooemia to the collection (ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ ΠΡΟΟΙΜΙΟΝ at 328, and at 488 the list of sources excerpted). They score at most 0.20 against anything served, so they are not held elsewhere; but the only TLG anchor available is tlg3023.001 De legationibus at 181,366 Canon words, and 1,243 tokens cannot claim it.\n\n318-323 are Migne's prefatory dissertation and testimonia for the excerpted historians, under the EXCERPTA DE LEGATIONIBUS running head at columns 611-612, mostly Latin.",
+  "sha256": "e311f5f05c2c387260eb10e04f78378c7fc743b3082903c67916c5527b6e575f"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 61265,
+  "carved": 53458,
+  "residual": 7807,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG113; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG113, plan data/cgpg_carve_plan.json"
+}
