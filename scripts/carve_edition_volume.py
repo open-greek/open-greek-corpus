@@ -367,7 +367,19 @@ def carve(vol: dict, apply: bool, plan_path: Path) -> int:
         "reverse": "restore by mapping each locus_map value back to its key and "
                    "concatenating the per-work files with the residual in locus order",
     }
+    # A urn can be carved more than once: Walz III took its twelve non-Hermogenean
+    # treatises in one pass and the four Hermogenean ones in another. Writing both
+    # to the same filename silently replaced the first record, taking 3,507 locus
+    # mappings with it and leaving that carve unreversible, so a later carve of the
+    # same urn is named for the plan entry that produced it.
     out = CHANGES / f"{urn}.per-treatise-carve.json"
+    if out.exists():
+        try:
+            prior = json.loads(out.read_text(encoding="utf-8"))
+        except ValueError:
+            prior = {}
+        if (prior.get("issue"), prior.get("date")) != (audit["issue"], audit["date"]):
+            out = CHANGES / f"{urn}.per-treatise-carve.{vol['volume']}.json"
     out.write_text(json.dumps(audit, ensure_ascii=False, indent=1) + "\n",
                    encoding="utf-8")
     print(f"\ncarved {len(written)} works; audit -> {out.relative_to(REPO)}")
