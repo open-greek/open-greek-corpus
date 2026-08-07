@@ -1,0 +1,88 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG067 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG067",
+  "source_urn": "cogPG.PG067",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-07-31",
+  "plan_basis": "read at the row: the volume is exactly two Ecclesiastical Histories end to end, with no front matter and no residual. Loci 22-820 are contiguous with no gaps and no duplicates.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG067.' (delete the file when it was 'created'), strip the 'PG067.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG067.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG067": {
+   "rows": 799,
+   "greek_tokens": 220457,
+   "sha256": "726e00e0f6ffdf1e79000a0503477799ae25e9384ed8f47b17deeaad30b90b07"
+  }
+ },
+ "works": [
+  {
+   "slug": "socrates-scholasticus.historia-ecclesiastica-2",
+   "tlg": "tlg2057.tlg002",
+   "title": "Historia ecclesiastica",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek open TEI edition (source-precedence: open_corpus over our own OCR of a public-domain edition); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
+   "mode": "created",
+   "rows": 405,
+   "greek_tokens": 106277,
+   "volume_loci": "22-426",
+   "locus_map": "cogPG.PG067 locus N -> socrates-scholasticus.historia-ecclesiastica-2 locus 'PG067.N'",
+   "incipit_checks": [
+    {
+     "locus": "22",
+     "incipit": "ΤΟΜΟΣ ΠΡΩΤΟΣ. ΚΕΦΑΛΑΙΟΝ Αʹ. Τὸ τοῦ βιβλίου προοίμιον. Εὐσέβιος ὁ Παμφίλου",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 60
+    }
+   ],
+   "evidence": "Locus 22 opens Socrates HE 1.1 with the book's proem naming Eusebius. Locus 426 closes on his own chronological explicit, the history running to the second year of the 305th Olympiad and the seventeenth consulate of Theodosius, which is where Socrates ends; the served First1K text ends at 7.48. 106,338 tokens here against 101,946 served, a ratio of 1.04."
+  },
+  {
+   "slug": "salaminius-hermias-sozomenus.historia-ecclesiastica",
+   "tlg": "tlg2048.tlg001",
+   "title": "Historia ecclesiastica",
+   "rank": "secondary",
+   "secondary_reason": "work is served from the First1KGreek open TEI edition (source-precedence: open_corpus over our own OCR of a public-domain edition); this Migne witness is kept, not served",
+   "file": "data/corpus_secondary/salaminius-hermias-sozomenus.historia-ecclesiastica.jsonl",
+   "mode": "created",
+   "rows": 394,
+   "greek_tokens": 114180,
+   "volume_loci": "427-820",
+   "locus_map": "cogPG.PG067 locus N -> salaminius-hermias-sozomenus.historia-ecclesiastica locus 'PG067.N'",
+   "incipit_checks": [
+    {
+     "locus": "427",
+     "incipit": "ΕΡΜΕΙΟΥ ΣΩΖΟΜΕΝΟΥ ΣΑΛΑΜΟΝΟΥ",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 25
+    }
+   ],
+   "evidence": "Locus 427 is Sozomen's title line, ΕΡΜΕΙΟΥ ΣΩΖΟΜΕΝΟΥ ΣΑΛΑΜΟΝΟΥ, followed by the Latin half of the same heading badly OCR'd; it goes to Sozomen under the plan's shared-row rule, a row carrying the following work's heading belonging to that work. Locus 820 ends on the Zechariah larnax passage at Sozomen 9.17, which is the last locus of the served First1K text too (9.17.6). 114,231 tokens here against 112,963 served, a ratio of 1.01."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "none: every row belongs to one of the two histories.",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 220457,
+  "carved": 220457,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG067; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG067, plan data/cgpg_carve_plan.json"
+}
