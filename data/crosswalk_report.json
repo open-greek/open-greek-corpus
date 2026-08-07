@@ -1,14 +1,14 @@
 {
   "headline": {
-    "works": 11054,
-    "authors": 3306,
-    "editions": 10203,
+    "works": 11053,
+    "authors": 3305,
+    "editions": 10202,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.4,
-    "served_works": 3888,
+    "served_works": 3887,
     "pct_served_in_registry": 74.8,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.9,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11054,
+      "count": 11053,
       "pct": 100.0
     },
     "wikidata": {
@@ -86,7 +86,7 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4061,
+    "works_with_logical_locus": 4060,
     "pct": 36.7,
     "works_only_physical_or_none": 3166,
     "by_scheme": {
@@ -98,7 +98,7 @@
       "line": 774,
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
-      "ref": 175,
+      "ref": 174,
       "ref.sub": 153,
       "book.chapter.section.line": 151,
       "play.fragment.line": 141,
@@ -351,10 +351,10 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1393,
+    "works_with_logical_served_locus": 1392,
     "pct": 12.6,
     "served_logical_depth_distribution": {
-      "1": 314,
+      "1": 313,
       "2": 693,
       "3": 316,
       "4": 65,
@@ -476,8 +476,8 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3888,
-    "in_registry": 2907,
+    "served_works": 3887,
+    "in_registry": 2906,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
       "count": 981,
@@ -536,8 +536,8 @@
     },
     "with_work_qid": 503,
     "with_author_qid": 2872,
-    "with_any_external_anchor": 3331,
-    "with_logical_served_locus": 2122,
+    "with_any_external_anchor": 3330,
+    "with_logical_served_locus": 2121,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
       "count": 2369,
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1904,
+      "count": 1903,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",

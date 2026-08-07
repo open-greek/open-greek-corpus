@@ -323,8 +323,8 @@ far, and 13 `cogPG.*` files are still volume-keyed. Seven of those are the
 carved volumes' leftovers (PG005, PG101, PG107, PG109, PG118, PG124, PG125:
 2 to 20 rows each, 12,464 Greek tokens between them, the rows the plan's
 ranges did not claim). The other six are whole uncarved volumes and hold about
-1.28M Greek tokens, 27% of the 4.70M the CGPG delivery serves: PG003, PG067,
-PG112, PG113, PG139 and PG151. They are listed with their token counts in the
+1.06M Greek tokens, 23% of the 4.70M the CGPG delivery serves: PG003, PG112,
+PG113, PG139 and PG151. They are listed with their token counts in the
 OCR provenance table below. Only PG003 of those six is uncarved on the
 evidence: its Dionysius text is interleaved passage-by-passage with Pachymeres'
 paraphrase, which a column carve cannot separate
@@ -729,7 +729,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1373 OCR'd works/volumes: 171 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1372 OCR'd works/volumes: 170 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1040,7 +1040,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | cocondrius.peri-tropon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,481 | manual |
 | PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 160,260 | manual |
 | PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,534 | manual |
-| PG067 | Socrates Scholasticus + Sozomen HE | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 220,569 | manual |
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
@@ -2119,17 +2118,23 @@ below; regenerate it with `python scripts/build_provenance.py`.
   own markers (book/chapter, Psellos book.section, Theophanes annus mundi,
   Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
   structure, keeps page-paragraph indices.
-- The multi-work CGPG Migne volumes are carved into per-work files: 17 of the
-  18 researched volumes split (~160 primary works incl. the Theophylact of
+- The multi-work CGPG Migne volumes are carved into per-work files: 18 of the
+  19 researched volumes split (~160 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
-  Leo VI, the Psellus opuscula; 16 displaced witnesses to corpus_secondary),
-  each with a reversible token-exact audit in data/corpus_changes/. 13
+  Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
+  each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed: seven leftovers of carved volumes
-  (12,464 tokens between them) and six uncarved volumes (PG003, PG067, PG112,
-  PG113, PG139, PG151, ~1.28M tokens). Only PG003 is deferred on the evidence
+  (12,464 tokens between them) and five uncarved volumes (PG003, PG112,
+  PG113, PG139, PG151, ~1.06M tokens). Only PG003 is deferred on the evidence
   (Dionysius/Pachymeres passage-level interleave; see the split-deferred flag
-  record); the other five are simply not researched yet.
-- Next: research and carve PG067, PG112, PG113, PG139 and PG151, passage-level
+  record); the other four are simply not researched yet.
+  PG067 carved to TWO SECONDARY witnesses and no primary, so the published
+  primary corpus is 220,569 tokens smaller than before it: the volume is
+  Socrates Scholasticus and Sozomen end to end, and both histories are already
+  served from First1KGreek, so the precedence ladder keeps the Migne OCR as a
+  witness rather than serving it twice. That is the ladder working, not text
+  going missing, but it does move every downstream count.
+- Next: research and carve PG112, PG113, PG139 and PG151, passage-level
   separation of PG003 (Dionysius vs Pachymeres paraphrase), then per-work
   citation loci for the carved CGPG works (now page-keyed `<VOL>.<page>`).
 

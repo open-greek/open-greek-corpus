@@ -3966,6 +3966,56 @@
    "defer_reason": "every work range interleaves Pseudo-Dionysius' text with Georgius Pachymeres' paraphrase chapter by chapter (plus embedded quotations), so a clean split needs passage-level separation, not a column carve; see data/corpus_changes/cogPG.PG003.split-deferred.json",
    "basis": "cgpg_split_proposals.json PG003 (consistency review: ok as ranges, but the Pachymeres paraphrase entry is flagged \"interwoven, not separable by column range\")",
    "works": []
+  },
+  {
+   "volume": "PG067",
+   "basis": "read at the row: the volume is exactly two Ecclesiastical Histories end to end, with no front matter and no residual. Loci 22-820 are contiguous with no gaps and no duplicates.",
+   "residual_ranges": [],
+   "residual_note": "none: every row belongs to one of the two histories.",
+   "works": [
+    {
+     "slug": "socrates-scholasticus.historia-ecclesiastica-2",
+     "tlg": "tlg2057.tlg002",
+     "title": "Historia ecclesiastica",
+     "author_display": "Socrates Scholasticus",
+     "ranges": [
+      [
+       22,
+       426
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 22,
+       "text": "ΤΟΜΟΣ ΠΡΩΤΟΣ. ΚΕΦΑΛΑΙΟΝ Αʹ. Τὸ τοῦ βιβλίου προοίμιον. Εὐσέβιος ὁ Παμφίλου"
+      }
+     ],
+     "evidence": "Locus 22 opens Socrates HE 1.1 with the book's proem naming Eusebius. Locus 426 closes on his own chronological explicit, the history running to the second year of the 305th Olympiad and the seventeenth consulate of Theodosius, which is where Socrates ends; the served First1K text ends at 7.48. 106,338 tokens here against 101,946 served, a ratio of 1.04.",
+     "rank": "secondary",
+     "secondary_reason": "work is served from the First1KGreek open TEI edition (source-precedence: open_corpus over our own OCR of a public-domain edition); this Migne witness is kept, not served"
+    },
+    {
+     "slug": "salaminius-hermias-sozomenus.historia-ecclesiastica",
+     "tlg": "tlg2048.tlg001",
+     "title": "Historia ecclesiastica",
+     "author_display": "Salaminius Hermias Sozomenus",
+     "ranges": [
+      [
+       427,
+       820
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 427,
+       "text": "ΕΡΜΕΙΟΥ ΣΩΖΟΜΕΝΟΥ ΣΑΛΑΜΟΝΟΥ"
+      }
+     ],
+     "evidence": "Locus 427 is Sozomen's title line, ΕΡΜΕΙΟΥ ΣΩΖΟΜΕΝΟΥ ΣΑΛΑΜΟΝΟΥ, followed by the Latin half of the same heading badly OCR'd; it goes to Sozomen under the plan's shared-row rule, a row carrying the following work's heading belonging to that work. Locus 820 ends on the Zechariah larnax passage at Sozomen 9.17, which is the last locus of the served First1K text too (9.17.6). 114,231 tokens here against 112,963 served, a ratio of 1.01.",
+     "rank": "secondary",
+     "secondary_reason": "work is served from the First1KGreek open TEI edition (source-precedence: open_corpus over our own OCR of a public-domain edition); this Migne witness is kept, not served"
+    }
+   ]
   }
  ]
 }

@@ -3,14 +3,14 @@
     "total_works": 7209,
     "total_words": 74975998,
     "source_overrides_applied": 107,
-    "ingested_via_cgpg_volume": 10,
+    "ingested_via_cgpg_volume": 9,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.36,
-    "pct_ingested_actual": 66.04,
-    "ingested_words_actual": 49517742,
-    "ingested_complete_works": 2896,
+    "pct_ingested": 72.22,
+    "pct_ingested_actual": 65.91,
+    "ingested_words_actual": 49413665,
+    "ingested_complete_works": 2895,
     "ingested_partial_works": 117,
-    "pct_reachable_not_ingested": 14.28,
+    "pct_reachable_not_ingested": 14.42,
     "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3013,
-      "word_count": 54250370
+      "works": 3012,
+      "word_count": 54146293
     },
     "reachable_not_ingested": {
-      "works": 1600,
-      "word_count": 10709834
+      "works": 1601,
+      "word_count": 10813911
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2896,
-      "word_count": 51758481
+      "works": 2895,
+      "word_count": 51654404
     },
     "ingested_partial": {
       "works": 117,
@@ -59,8 +59,8 @@
       "word_count": 1137662
     },
     "migne_cgpg": {
-      "works": 23,
-      "word_count": 342047
+      "works": 24,
+      "word_count": 446124
     }
   },
   "gap_list": [
@@ -223,6 +223,16 @@
       "title": "Scholia In Thucydidem (Scholia Vetera Et Recentiora)",
       "word_count": 105107,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg2057",
+      "work_id": "001",
+      "author": "Socrates Scholasticus",
+      "title": "Historia Ecclesiastica",
+      "word_count": 104077,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG067); ready CC-BY text beats OCRing a PD edition ourselves"
     },
     {
       "tlg_id": "tlg0744",
@@ -19436,8 +19446,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 786,
-    "n_tokens": 9217406,
+    "works": 785,
+    "n_tokens": 8996949,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -19454,14 +19464,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 630,
         "n_tokens": 238878
-      },
-      {
-        "key": "cogPG.PG067",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 799,
-        "n_tokens": 220457
       },
       {
         "key": "photius.amphilochia",
