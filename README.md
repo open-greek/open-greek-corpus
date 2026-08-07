@@ -1759,7 +1759,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicetas-maroniensis.dialogi-de-processione-spiritus-sancti | Nicetas Maroniensis - Dialogi de processione Spiritus Sancti (PG139 loci 92-118) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 9,885 | manual |
 | nicias-history.fragmentum | Nicias - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 65 | raw OCR |
 | nicochares.fragmenta | Nicochares - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 320 | raw OCR |
-| nicolaus-history.nicolaus-progymnasmata-felten |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,289 | auto-corrected |
+| nicolaus-rhetoric.progymnasmata | Nicolaus - Progymnasmata | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,289 | auto-corrected |
 | nicolaus.fragmenta | NICOLAUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 141 | raw OCR |
 | nicomachus.fragmenta | NICOMACHUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 158 | raw OCR |
 | nicophon.fragmenta | Nicophon - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 560 | raw OCR |

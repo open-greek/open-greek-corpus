@@ -4980,6 +4980,10 @@
    "name": "anon-nicolaus-history",
    "aliases": {}
   },
+  "anon-nicolaus-rhetoric": {
+   "name": "anon-nicolaus-rhetoric",
+   "aliases": {}
+  },
   "anon-nicomachus": {
    "name": "anon-nicomachus",
    "aliases": {}
@@ -63593,11 +63597,11 @@
    "tags": [],
    "editions": {}
   },
-  "anon-nicolaus-history.nicolaus-history-nicolaus-progymnasmata-felten": {
-   "author": "anon-nicolaus-history",
-   "title": "nicolaus-history.nicolaus-progymnasmata-felten",
+  "anon-nicolaus-rhetoric.nicolaus-rhetoric-progymnasmata": {
+   "author": "anon-nicolaus-rhetoric",
+   "title": "nicolaus-rhetoric.progymnasmata",
    "aliases": {
-    "cts": "urn:cts:greekLit:nicolaus-history.nicolaus-progymnasmata-felten"
+    "cts": "urn:cts:greekLit:nicolaus-rhetoric.progymnasmata"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -234693,7 +234697,7 @@
     "cts": "urn:cts:greekLit:tlg2904.tlg001",
     "wikidata": "Q110814557"
    },
-   "default_edition": null,
+   "default_edition": "nicolaus-rhetoric.progymnasmata.migne-ocr-qwen36",
    "best_source": "pd_edition",
    "tags": [
     "century:5",
@@ -234712,6 +234716,18 @@
      "source": "",
      "servable": false,
      "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
+    "nicolaus-rhetoric.progymnasmata.migne-ocr-qwen36": {
+     "name": "cog OCR (migne-ocr-qwen36)",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
      "scheme_inferred": false,
      "aliases": {}
     }

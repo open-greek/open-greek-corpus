@@ -12,7 +12,7 @@
    "works": 3898,
    "with_external_anchor": 3332,
    "no_external_anchor": 566,
-   "redirects": 4
+   "redirects": 5
   }
  },
  "works": {
@@ -66766,25 +66766,28 @@
     "n_tokens": 34300
    }
   },
-  "nicolaus-history.nicolaus-progymnasmata-felten": {
+  "nicolaus-rhetoric.progymnasmata": {
    "id": "ogc002533",
-   "slug": "nicolaus-history.nicolaus-progymnasmata-felten",
-   "former_slugs": [],
-   "title": "nicolaus_progymnasmata_felten",
+   "slug": "nicolaus-rhetoric.progymnasmata",
+   "former_slugs": [
+    "nicolaus-history.nicolaus-progymnasmata-felten"
+   ],
+   "title": "Progymnasmata",
    "author": {
-    "id": "oga000952",
-    "slug": "nicolaus-history",
+    "id": "oga001509",
+    "slug": "nicolaus-rhetoric",
     "name": "Nicolaus",
     "authorities": {
-     "wikidata": "Q313924",
-     "viaf": "20044424",
-     "gnd": "119163594",
-     "isni": "000000008938555X"
+     "wikidata": "Q11938736",
+     "viaf": "76929869",
+     "gnd": "118588117",
+     "isni": "0000000402395966"
     }
    },
    "work_anchors": {
-    "cts": "urn:cts:greekLit:tlg0577.tlg001",
-    "tlg": "tlg0577.tlg001"
+    "cts": "urn:cts:greekLit:tlg2904.tlg001",
+    "tlg": "tlg2904.tlg001",
+    "wikidata": "Q110814557"
    },
    "manifestation": {
     "edition": "migne-ocr-qwen36",
@@ -101128,6 +101131,7 @@
  "redirects": {
   "choerilus.tituli-p-oxy-11-1399": "choerilus.fragmenta-epica",
   "flavius-justinianus-imperator.contra-monophysitas": "flavius-justinianus-imperator.novellae",
+  "nicolaus-history.nicolaus-progymnasmata-felten": "nicolaus-rhetoric.progymnasmata",
   "pausanias.attikw-n-o-noma-twn-sunagwgh": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
   "thomas-patricius-anthol-dubner-v3": "cougny-appendix-nova.didot-anthologia-v3"
  }
