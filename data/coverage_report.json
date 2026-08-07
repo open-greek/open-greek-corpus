@@ -3,14 +3,14 @@
     "total_works": 7209,
     "total_words": 74975998,
     "source_overrides_applied": 107,
-    "ingested_via_cgpg_volume": 9,
+    "ingested_via_cgpg_volume": 7,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.22,
-    "pct_ingested_actual": 65.91,
-    "ingested_words_actual": 49413665,
-    "ingested_complete_works": 2895,
+    "pct_ingested": 72.19,
+    "pct_ingested_actual": 65.88,
+    "ingested_words_actual": 49394591,
+    "ingested_complete_works": 2893,
     "ingested_partial_works": 117,
-    "pct_reachable_not_ingested": 14.42,
+    "pct_reachable_not_ingested": 14.45,
     "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3012,
-      "word_count": 54146293
+      "works": 3010,
+      "word_count": 54127219
     },
     "reachable_not_ingested": {
-      "works": 1601,
-      "word_count": 10813911
+      "works": 1603,
+      "word_count": 10832985
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2895,
-      "word_count": 51654404
+      "works": 2893,
+      "word_count": 51635330
     },
     "ingested_partial": {
       "works": 117,
@@ -59,8 +59,8 @@
       "word_count": 1137662
     },
     "migne_cgpg": {
-      "works": 24,
-      "word_count": 446124
+      "works": 26,
+      "word_count": 465198
     }
   },
   "gap_list": [
@@ -1309,6 +1309,16 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg3140",
+      "work_id": "001",
+      "author": "Joel",
+      "title": "Chronographia Compendiaria",
+      "word_count": 12994,
+      "best_source": "migne_cgpg",
+      "base_best_source": "pd_edition",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG139); ready CC-BY text beats OCRing a PD edition ourselves"
+    },
+    {
       "tlg_id": "tlg5010",
       "work_id": "020",
       "author": "Scholia In Aeschylum",
@@ -2091,6 +2101,16 @@
       "title": "De Alimentis",
       "word_count": 6111,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg3125",
+      "work_id": "001",
+      "author": "Theodosius Diaconus",
+      "title": "De Creta Capta",
+      "word_count": 6080,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG113); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg2934",
@@ -19447,7 +19467,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 785,
-    "n_tokens": 8996949,
+    "n_tokens": 8793246,
     "items": [
       {
         "key": "cogPG.PG151",
@@ -19482,14 +19502,6 @@
         "n_tokens": 206493
       },
       {
-        "key": "cogPG.PG139",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 511,
-        "n_tokens": 201766
-      },
-      {
         "key": "timotheus-history.timotheus-defluviis-ggm2",
         "edition": "qwen36-timotheus_defluviis_ggm2",
         "source": "ocr",
@@ -19520,14 +19532,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 682,
         "n_tokens": 149066
-      },
-      {
-        "key": "cogPG.PG113",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 442,
-        "n_tokens": 146028
       },
       {
         "key": "anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis",
@@ -19640,6 +19644,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 222,
         "n_tokens": 97378
+      },
+      {
+        "key": "cogPG.PG113",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 266,
+        "n_tokens": 96325
       },
       {
         "key": "sopater-rhetor.diairesis-zetematon",
@@ -19880,6 +19892,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 138,
         "n_tokens": 50199
+      },
+      {
+        "key": "cogPG.PG139",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 142,
+        "n_tokens": 47766
       },
       {
         "key": "theophylactus-achridensis.expositio-in-prophetam-oseam",
