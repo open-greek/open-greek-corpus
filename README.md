@@ -325,11 +325,11 @@ run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 21 volumes have been carved so
 far, and 12 `cogPG.*` files are still volume-keyed. Ten of those are the
-carved volumes' leftovers, 202,136 Greek tokens between them: seven are small
+carved volumes' leftovers, 168,222 Greek tokens between them: seven are small
 (PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
 tokens in total, the rows the plan's ranges did not claim), and three are
 substantial residues that the carve deliberately did not attribute (PG113
-89,047, PG151 65,362, PG139 35,263). Only two whole volumes remain uncarved,
+89,047 and PG151 65,362; PG139 is down to a 1,349-token table of contents). Only two whole volumes remain uncarved,
 holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it has been corrected twice, in opposite
@@ -749,7 +749,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1378 OCR'd works/volumes: 176 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1380 OCR'd works/volumes: 178 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1068,7 +1068,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,630 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
-| PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 35,263 | manual |
+| PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,349 | manual |
 | PG151 | Gregory Palamas v2; Acindynus; Barlaam (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 65,362 | manual |
 | comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e | Comarius - Περὶ τῆς θείας καὶ ἱερᾶς τέχνης τῶν φιλοσόφων (E Cod. Paris. B.N. Gr. 2327, Fol. 79V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
 | comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
@@ -1459,6 +1459,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | ion-philosophy.testimonia-2 | Ion - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,313 | auto-corrected |
 | iophon.fragmenta | Iophon - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 285 | auto-corrected |
 | isidorus-scholasticus-anthol-didot |  | qwen36-isidorus_scholasticus_anthol_didot | Qwen3.6-27B | 105,423 | auto-corrected |
+| isidorus-thessalonicensis.sermones-in-deiparam | Isidorus Thessalonicensis - Sermones in Deiparam (PG139 loci 13-89) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 24,029 | manual |
 | isyllus.fragmenta-ig-4-950 | Isyllus - Fragmenta (Ig 4.950) | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 75 | raw OCR |
 | jacobs-anthologia-graeca-t13.appendix-epigrammatum | Appendix epigrammatum (ed. Jacobs) | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 17,153 | auto-corrected |
 | joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs | Joannes Archiereus - Ἰωάννου ἀρχιερέως τοῦ ἐν Ἐβειγίᾳ περὶ τῆς θείας τέχνης (E Cod. Paris. B.N. Gr. 2327, Fol. 243R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,261 | raw OCR |
@@ -1752,6 +1753,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicephorus-blemmydes.nikhfo-rou-tou-blemmu-dou-peri-th-s-xrusopoii-as-fort | Nicephorus Blemmydes - Νικηφόρου τοῦ Βλεμμύδου περὶ τῆς χρυσοποιίας (Fort. Auctore Nicephoro Blemmyde Alio) (E Cod. Paris. B.N. Gr. 2509, Fol. 137R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,582 | auto-corrected |
 | nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14 | Nicephorus Callistus Xanthopulus - Historia ecclesiastica, libri VIII-XIV (PG 146; books 1-7 and 15-18 are in PG 145/147, not served) (PG146 loci 12-644) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 239,129 | manual |
 | nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni | Nicetas Heracleensis - Fragmenta commentariorum XVI orationum Gregorii Nazianzeni | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,346 | auto-corrected |
+| nicetas-maroniensis.dialogi-de-processione-spiritus-sancti | Nicetas Maroniensis - Dialogi de processione Spiritus Sancti (PG139 loci 92-118) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 9,885 | manual |
 | nicias-history.fragmentum | Nicias - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 65 | raw OCR |
 | nicochares.fragmenta | Nicochares - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 320 | raw OCR |
 | nicolaus-history.nicolaus-progymnasmata-felten |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,289 | auto-corrected |
@@ -2150,7 +2152,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed: ten leftovers of carved volumes
-  (PG113, PG139 and PG151 join them, so 202,136 tokens between them) and two
+  (PG113, PG139 and PG151 join them, so 168,222 tokens between them) and two
   uncarved volumes (PG003 and PG112, 309,553 tokens). PG003 is deferred on the
   evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
   on the passage-level interleave the record used to claim; see the

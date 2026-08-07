@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1397,
-   "ocr_works_ranked": 814,
+   "ocr_works": 1399,
+   "ocr_works_ranked": 815,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -184,9 +184,9 @@
    "max": 0.4788,
    "median": 0.1348,
    "min": 0.0089,
-   "n": 814,
-   "q1": 0.0952,
-   "q3": 0.1724
+   "n": 815,
+   "q1": 0.095,
+   "q3": 0.1721
   }
  },
  "works": {
@@ -3363,11 +3363,11 @@
   },
   "cogPG.PG139": {
    "edition": "cgpg",
-   "n_tokens": 35263,
-   "n_tokens_checked": 20539,
-   "n_unattested": 1088,
+   "n_tokens": 1349,
+   "n_tokens_checked": 850,
+   "n_unattested": 73,
    "source": "cgpg",
-   "unattested_rate": 0.052972,
+   "unattested_rate": 0.085882,
    "witness": null
   },
   "cogPG.PG151": {
@@ -7186,6 +7186,15 @@
     "secondary_edition": "qwen36-isidorus_scholasticus_anthol_didot"
    }
   },
+  "isidorus-thessalonicensis.sermones-in-deiparam": {
+   "edition": "cgpg",
+   "n_tokens": 24029,
+   "n_tokens_checked": 14523,
+   "n_unattested": 805,
+   "source": "cgpg",
+   "unattested_rate": 0.055429,
+   "witness": null
+  },
   "isyllus.fragmenta-ig-4-950": {
    "edition": "ig-iv-950-fraenkel-1902-diplomatic",
    "n_tokens": 75,
@@ -9935,6 +9944,15 @@
    "n_unattested": 645,
    "source": "ocr",
    "unattested_rate": 0.129388,
+   "witness": null
+  },
+  "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti": {
+   "edition": "cgpg",
+   "n_tokens": 9885,
+   "n_tokens_checked": 5166,
+   "n_unattested": 210,
+   "source": "cgpg",
+   "unattested_rate": 0.04065,
    "witness": null
   },
   "nicias-history.fragmentum": {
@@ -14705,13 +14723,13 @@
   "procopius-rhetoric.commentarii-in-octateuchum",
   "symeon-thessalonicensis.dialogus-contra-haereses",
   "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
+  "isidorus-thessalonicensis.sermones-in-deiparam",
   "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
   "cogPG.PG005",
   "theophylactus-achridensis.enarratio-in-evangelium-marci",
   "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
   "michael-glycas.epistolae",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
-  "cogPG.PG139",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",
@@ -14738,6 +14756,7 @@
   "oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
   "photius.amphilochia-supplementum",
   "athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp",
+  "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
   "oecumenius.commentarius-in-acta-apostolorum",
   "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
   "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
