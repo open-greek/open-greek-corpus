@@ -5,12 +5,12 @@
     "source_overrides_applied": 107,
     "ingested_via_cgpg_volume": 6,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.19,
-    "pct_ingested_actual": 65.88,
-    "ingested_words_actual": 49391175,
-    "ingested_complete_works": 2892,
+    "pct_ingested": 72.21,
+    "pct_ingested_actual": 65.89,
+    "ingested_words_actual": 49403690,
+    "ingested_complete_works": 2893,
     "ingested_partial_works": 117,
-    "pct_reachable_not_ingested": 14.45,
+    "pct_reachable_not_ingested": 14.44,
     "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3009,
-      "word_count": 54123803
+      "works": 3010,
+      "word_count": 54136797
     },
     "reachable_not_ingested": {
-      "works": 1604,
-      "word_count": 10836401
+      "works": 1603,
+      "word_count": 10823407
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2892,
-      "word_count": 51631914
+      "works": 2893,
+      "word_count": 51644908
     },
     "ingested_partial": {
       "works": 117,
@@ -59,8 +59,8 @@
       "word_count": 1137662
     },
     "migne_cgpg": {
-      "works": 27,
-      "word_count": 468614
+      "works": 26,
+      "word_count": 455620
     }
   },
   "gap_list": [
@@ -1307,16 +1307,6 @@
       "title": "Progymnasmata",
       "word_count": 13337,
       "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg3140",
-      "work_id": "001",
-      "author": "Joel",
-      "title": "Chronographia Compendiaria",
-      "word_count": 12994,
-      "best_source": "migne_cgpg",
-      "base_best_source": "pd_edition",
-      "override_reason": "CC-BY CGPG OCR of PD Migne (PG139); ready CC-BY text beats OCRing a PD edition ourselves"
     },
     {
       "tlg_id": "tlg5010",
@@ -19477,7 +19467,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 788,
-    "n_tokens": 8793246,
+    "n_tokens": 8780731,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19928,14 +19918,6 @@
         "n_tokens": 50199
       },
       {
-        "key": "cogPG.PG139",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 142,
-        "n_tokens": 47766
-      },
-      {
         "key": "theophylactus-achridensis.expositio-in-prophetam-oseam",
         "edition": "cgpg",
         "source": "cgpg",
@@ -20086,6 +20068,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 491,
         "n_tokens": 35395
+      },
+      {
+        "key": "cogPG.PG139",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 109,
+        "n_tokens": 35251
       },
       {
         "key": "scholia-in-callimachum.schol-callim-schneider",

@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1394,
-   "ocr_works_ranked": 812,
+   "ocr_works": 1395,
+   "ocr_works_ranked": 813,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -182,11 +182,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1349,
+   "median": 0.1348,
    "min": 0.0089,
-   "n": 812,
-   "q1": 0.0955,
-   "q3": 0.1727
+   "n": 813,
+   "q1": 0.0954,
+   "q3": 0.1726
   }
  },
  "works": {
@@ -3363,11 +3363,11 @@
   },
   "cogPG.PG139": {
    "edition": "cgpg",
-   "n_tokens": 47791,
-   "n_tokens_checked": 28019,
-   "n_unattested": 1561,
+   "n_tokens": 35263,
+   "n_tokens_checked": 20539,
+   "n_unattested": 1088,
    "source": "cgpg",
-   "unattested_rate": 0.055712,
+   "unattested_rate": 0.052972,
    "witness": null
   },
   "cogPG.PG151": {
@@ -8870,6 +8870,15 @@
    "n_unattested": 9,
    "source": "cgpg",
    "unattested_rate": 0.043689,
+   "witness": null
+  },
+  "joel.chronographia-compendiaria": {
+   "edition": "cgpg",
+   "n_tokens": 12528,
+   "n_tokens_checked": 7480,
+   "n_unattested": 473,
+   "source": "cgpg",
+   "unattested_rate": 0.063235,
    "witness": null
   },
   "josephus-genesius.basilei-ai": {
@@ -14648,6 +14657,7 @@
   "michael-glycas.annales",
   "basilius-theology.in-illud-in-principio-erat-verbum",
   "symeon-thessalonicensis.de-sancto-chrismate",
+  "joel.chronographia-compendiaria",
   "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium",
   "symeon-thessalonicensis.expositio-de-divino-templo",
   "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
@@ -14676,7 +14686,6 @@
   "theophylactus-achridensis.expositio-in-epistolam-i-joannis",
   "procopius-rhetoric.commentarii-in-octateuchum",
   "symeon-thessalonicensis.dialogus-contra-haereses",
-  "cogPG.PG139",
   "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
   "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
   "cogPG.PG005",
@@ -14684,6 +14693,7 @@
   "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
   "michael-glycas.epistolae",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
+  "cogPG.PG139",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",

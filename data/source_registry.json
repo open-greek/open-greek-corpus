@@ -4240,6 +4240,10 @@
    "name": "anon-job-monachus",
    "aliases": {}
   },
+  "anon-joel": {
+   "name": "anon-joel",
+   "aliases": {}
+  },
   "anon-josephus-genesius": {
    "name": "anon-josephus-genesius",
    "aliases": {}
@@ -58547,6 +58551,17 @@
    "title": "job-monachus.prooemium-in-psalmos",
    "aliases": {
     "cts": "urn:cts:greekLit:job-monachus.prooemium-in-psalmos"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-joel.joel-chronographia-compendiaria": {
+   "author": "anon-joel",
+   "title": "joel.chronographia-compendiaria",
+   "aliases": {
+    "cts": "urn:cts:greekLit:joel.chronographia-compendiaria"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -214073,7 +214088,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg3140.tlg001"
    },
-   "default_edition": null,
+   "default_edition": "joel.chronographia-compendiaria.cgpg",
    "best_source": "migne_cgpg",
    "tags": [
     "century:13",
@@ -214091,6 +214106,18 @@
      "source": "",
      "servable": false,
      "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
+    "joel.chronographia-compendiaria.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
      "scheme_inferred": false,
      "aliases": {}
     }

@@ -318,13 +318,18 @@ A work already served from a better source per the precedence ladder is carved
 to `data/corpus_secondary/` as a witness instead of competing. Each carve
 leaves a reversible audit in `data/corpus_changes/cogPG.<VOL>.per-work-split.json`
 (token-exact partition, dropped rescan leaves archived verbatim), and
-`cgpg_works.json` credits the per-work units. 21 volumes have been carved so
+`cgpg_works.json` credits the per-work units. A volume can be carved more than
+once: `--pass N` runs over what the previous pass left, so a block whose
+attribution firms up later is not stranded by the first carve having already
+run. Each pass writes its own audit (`.pass2.json` and so on), because writing
+one over another would destroy the earlier carve's reconstruction record while
+appearing to succeed. 21 volumes have been carved so
 far, and 12 `cogPG.*` files are still volume-keyed. Ten of those are the
-carved volumes' leftovers, 222,025 Greek tokens between them: seven are small
+carved volumes' leftovers, 209,497 Greek tokens between them: seven are small
 (PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
 tokens in total, the rows the plan's ranges did not claim), and three are
 substantial residues that the carve deliberately did not attribute (PG113
-96,408, PG151 65,362, PG139 47,791). Only two whole volumes remain uncarved,
+96,408, PG151 65,362, PG139 35,263). Only two whole volumes remain uncarved,
 holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it has been corrected twice, in opposite
@@ -744,7 +749,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1375 OCR'd works/volumes: 173 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1376 OCR'd works/volumes: 174 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1063,7 +1068,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,630 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
-| PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 47,791 | manual |
+| PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 35,263 | manual |
 | PG151 | Gregory Palamas v2; Acindynus; Barlaam (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 65,362 | manual |
 | comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e | Comarius - Περὶ τῆς θείας καὶ ἱερᾶς τέχνης τῶν φιλοσόφων (E Cod. Paris. B.N. Gr. 2327, Fol. 79V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
 | comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
@@ -1640,6 +1645,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 775 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 57,628 | manual |
 | job-monachus.prooemium-in-psalmos | Job monachus ('Iob peccator') - Prooemium (to an exposition of the Psalms) (PG158 loci 562-563) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 340 | auto-corrected |
+| joel.chronographia-compendiaria | Joel - Chronographia compendiaria (PG139 loci 119-151) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,528 | manual |
 | josephus-genesius.basilei-ai | Josephus Genesius - Basileiai (Regum libri quattuor) (PG109 loci 501-583) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,703 | manual |
 | josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 237 | auto-corrected |
 | josephus-rhacendyta.synopsis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,967 | manual |
@@ -2142,7 +2148,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed: ten leftovers of carved volumes
-  (PG113, PG139 and PG151 join them, so 222,025 tokens between them) and two
+  (PG113, PG139 and PG151 join them, so 209,497 tokens between them) and two
   uncarved volumes (PG003 and PG112, 309,553 tokens). PG003 is deferred on the
   evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
   on the passage-level interleave the record used to claim; see the

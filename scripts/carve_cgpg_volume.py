@@ -172,11 +172,34 @@ def fail(msg: str):
     raise CarveError(f"ERROR: {msg}")
 
 
+def audit_path(src_urn: str, pass_no: int) -> Path:
+    """Where this pass's audit record goes.
+
+    Pass 1 keeps the historical name so the 21 records already on disk stay
+    where every reference to them points. Later passes MUST NOT reuse it: the
+    audit is the only reconstruction record a carve leaves, so writing pass 2
+    over pass 1 would destroy the reversibility of the first carve while looking
+    like it succeeded. PG139's pass 1 is the Nicetas Choniates Historia, 369
+    rows and 154,180 tokens now serving as a witness; there is no recovering
+    that mapping from anywhere else.
+    """
+    suffix = "" if pass_no == 1 else f".pass{pass_no}"
+    return DATA / "corpus_changes" / f"{src_urn}.per-work-split{suffix}.json"
+
+
 def carve(vol_plan: dict, apply: bool) -> None:
     vol = vol_plan["volume"]
+    pass_no = int(vol_plan.get("pass", 1))
     src_urn = f"cogPG.{vol}"
     src_fp = DATA / "corpus" / f"{src_urn}.jsonl"
-    audit_fp = DATA / "corpus_changes" / f"{src_urn}.per-work-split.json"
+    audit_fp = audit_path(src_urn, pass_no)
+    # A later pass runs over what the earlier one LEFT, so the file it reads is
+    # the residual and token conservation is asserted against that, which is
+    # what the existing check already does since it reads src_fp. What it must
+    # not do is run before the pass it builds on.
+    if pass_no > 1 and not audit_path(src_urn, pass_no - 1).exists():
+        fail(f"{vol}: pass {pass_no} needs pass {pass_no - 1} applied first "
+             f"({audit_path(src_urn, pass_no - 1).name} is missing)")
 
     if vol_plan.get("status") == "defer":
         print(f"{vol}: DEFERRED by plan ({vol_plan.get('defer_reason', 'see plan')}); nothing to do")
@@ -563,9 +586,10 @@ def refresh_cgpg_works(vol_plan: dict) -> None:
     """Re-derive this volume's data/cgpg_works.json entries from its applied
     audit record (for repairing/regenerating the metadata without re-carving)."""
     vol = vol_plan["volume"]
-    audit_fp = DATA / "corpus_changes" / f"cogPG.{vol}.per-work-split.json"
+    audit_fp = audit_path(f"cogPG.{vol}", int(vol_plan.get("pass", 1)))
     if not audit_fp.exists():
-        fail(f"{vol}: no audit record; carve not applied")
+        fail(f"{vol}: no audit record for pass {vol_plan.get('pass', 1)}; "
+             f"carve not applied")
     audit = json.loads(audit_fp.read_text(encoding="utf-8"))
     update_cgpg_works(vol_plan, audit["works"], audit["residual"]["loci"],
                       audit["residual"]["greek_tokens"])
@@ -579,15 +603,20 @@ def main() -> int:
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--date", help="carve date for the audit record; overrides "
                                    "the plan entry's own `date`")
+    ap.add_argument("--pass", dest="pass_no", type=int, default=1,
+                    help="which carve pass over this volume (default 1); a "
+                         "later pass runs over what the earlier one left")
     ap.add_argument("--refresh-cgpg-works", action="store_true",
                     help="re-derive this volume's cgpg_works.json entries from "
                          "its applied audit record (no carving)")
     args = ap.parse_args()
 
     plan = json.loads(args.plan.read_text(encoding="utf-8"))
-    vol_plan = next((v for v in plan["volumes"] if v["volume"] == args.volume), None)
+    vol_plan = next((v for v in plan["volumes"]
+                     if v["volume"] == args.volume
+                     and int(v.get("pass", 1)) == args.pass_no), None)
     if vol_plan is None:
-        fail(f"plan has no volume {args.volume}")
+        fail(f"plan has no volume {args.volume} for pass {args.pass_no}")
     # NOT plan["_meta"]["date"]. That is the date the plan file was authored, and
     # falling back to it stamps every later carve with it: PG113 and PG139 were
     # carved on 2026-08-07 and their audit records claimed 2026-07-31, a week
