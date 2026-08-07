@@ -1,0 +1,17 @@
+{
+ "what": "alexander-numenius.peri-ton-tes-dianoias-schematon re-filed as a secondary witness on alexander-rhetoric.de-figuris",
+ "date": "2026-08-06",
+ "issue": "open-greek/open-greek-corpus#23",
+ "why": "one work under two slugs: Alexander Numenius, Peri schematon, witnessed by First1K (from Spengel III) and by our OCR of Walz VIII",
+ "evidence": {
+  "shared_incipit": "Ἔστι μὲν οὐχ ἡ τυχοῦσα δυσκολία",
+  "shared_explicit": "οὐ πατὴρ ἦν, μὰ Δία, ἀλλὰ τύραννος",
+  "walz_title_at_printed_421": "ΠΕΡΙ ΤΩΝ ΤΗΣ ΔΙΑΝΟΙΑΣ ΚΑΙ ΤΗΣ ΛΕΞΕΩΣ ΣΧΗΜΑΤΩΝ, the same treatise at greater length, which is where the second slug came from",
+  "why_the_4gram_figure_was_low": "the Walz slug carries paratext the First1K text cannot match: printed 414-420 is a half-title, an index of figures and Walz's testimonia (375 tokens), and every page from 421 has an apparatus criticus"
+ },
+ "rows_moved": 485,
+ "tokens_moved": 10424,
+ "source_sha256": "60c5b028ebab835a5f82ce35068874670c0e141ecf80a8a35cb5bc3ce7034e4a",
+ "archived": "data/corpus_changes/alexander-numenius.peri-ton-tes-dianoias-schematon.pre-witness-refile.jsonl",
+ "reverse": "restore the archived jsonl to data/corpus/ under its old name and drop the rows carrying this witness string from the secondary file"
+}
