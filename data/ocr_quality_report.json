@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1393,
-   "ocr_works_ranked": 811,
+   "ocr_works": 1391,
+   "ocr_works_ranked": 809,
    "ocr_works_with_witness": 196,
-   "secondary_files": 424,
+   "secondary_files": 426,
    "skipped": 30,
-   "tei_primary_ocr_secondary_pairs": 198
+   "tei_primary_ocr_secondary_pairs": 200
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -161,32 +161,32 @@
   ],
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
-    "max": 0.9128,
+    "max": 0.9205,
     "median": 0.7755,
     "min": 0.1072,
-    "n": 89,
-    "q1": 0.6858,
-    "q3": 0.8279
+    "n": 91,
+    "q1": 0.69,
+    "q3": 0.8312
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
-    "max": 0.9128,
+    "max": 0.9205,
     "median": 0.7102,
     "min": 0.0192,
-    "n": 198,
-    "q1": 0.5643,
-    "q3": 0.7956
+    "n": 200,
+    "q1": 0.569,
+    "q3": 0.7967
    },
-   "n_pairs": 198,
-   "n_pairs_summarized": 89,
+   "n_pairs": 200,
+   "n_pairs_summarized": 91,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1349,
+   "median": 0.135,
    "min": 0.0089,
-   "n": 811,
-   "q1": 0.0959,
-   "q3": 0.1727
+   "n": 809,
+   "q1": 0.096,
+   "q3": 0.1728
   }
  },
  "works": {
@@ -386,15 +386,6 @@
    "n_unattested": 6181,
    "source": "ocr",
    "unattested_rate": 0.234716,
-   "witness": null
-  },
-  "alexander-numenius.peri-ton-tes-dianoias-schematon": {
-   "edition": "migne-ocr-qwen36",
-   "n_tokens": 10424,
-   "n_tokens_checked": 6014,
-   "n_unattested": 692,
-   "source": "ocr",
-   "unattested_rate": 0.115065,
    "witness": null
   },
   "alexander-rhetoric.ek-ton-alexandrou": {
@@ -3296,15 +3287,6 @@
    "n_unattested": 87,
    "source": "cgpg",
    "unattested_rate": 0.054786,
-   "witness": null
-  },
-  "cogPG.PG067": {
-   "edition": "cgpg",
-   "n_tokens": 220569,
-   "n_tokens_checked": 138088,
-   "n_unattested": 3655,
-   "source": "cgpg",
-   "unattested_rate": 0.026469,
    "witness": null
   },
   "cogPG.PG101": {
@@ -14421,7 +14403,6 @@
   "joannes-chrysostomus.pg048",
   "antiphon-soph.testimonia",
   "gregorius-nyssenus.de-oratione-dominica-orationes-v",
-  "alexander-numenius.peri-ton-tes-dianoias-schematon",
   "michael-psellus.opuscula-psychologica-theologica-daemonologica",
   "athanasius-theology.homilia-de-passione-et-cruce-domini-sp",
   "hecataeus-abderita.testimonia-2",
@@ -14711,7 +14692,6 @@
   "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
   "pseudo-justinus-martyr.expositio-rectae-fidei",
   "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
-  "cogPG.PG067",
   "pseudo-justinus-martyr.de-resurrectione",
   "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
   "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",

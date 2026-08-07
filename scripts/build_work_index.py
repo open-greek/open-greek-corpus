@@ -32,6 +32,7 @@ from __future__ import annotations
 import json
 import re
 import sys
+import unicodedata
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
@@ -48,6 +49,38 @@ def _clean(d: dict) -> dict:
     """Drop empty values so the anchors block only lists what is actually known
     (a work with no external id gets an empty {} - that is the point)."""
     return {k: v for k, v in d.items() if v}
+
+
+def _unbalanced(title: str) -> bool:
+    return (title or "").count("(") != (title or "").count(")")
+
+
+def _fold_words(title: str) -> list[str]:
+    """Words only: diacritics, case and punctuation dropped.
+
+    Loose on purpose, because the two sources differ in exactly those things -
+    one prints `(= Περὶ διαφόρους` where the other has `(Περὶ διαφόρους`, and
+    one Title-Cases where the other does not. The looseness is why the extension
+    test alone is NOT enough to accept a title, and why the caller also requires
+    the current one to be visibly truncated.
+    """
+    t = "".join(c for c in unicodedata.normalize("NFD", title or "")
+                if not unicodedata.combining(c)).lower()
+    return re.sub(r"[^0-9a-z\u03b1-\u03c9 ]+", " ", t).split()
+
+
+def _completes(truncated: str, candidate: str) -> bool:
+    """True if `candidate` is `truncated` with its tail restored.
+
+    Both conditions matter. The candidate must be balanced, or it is truncated
+    too and swapping one cut title for another gains nothing; and it must extend
+    the current one word for word from the start, so a different work's title
+    cannot take its place.
+    """
+    if not candidate or _unbalanced(candidate):
+        return False
+    a, b = _fold_words(truncated), _fold_words(candidate)
+    return len(b) > len(a) and b[:len(a)] == a
 
 
 def _title_from_desc(desc: str) -> str:
@@ -125,6 +158,19 @@ def build(write: bool = True) -> dict:
     def title_for(work_slug: str) -> str:
         w = reg_works.get(work_slug)
         if w and w.get("title"):
+            # The Canon this repo vendors truncates: 84 of the 86 titles that
+            # end mid-parenthesis are already cut in work_inventory.json before
+            # any of our code reads them (issue #24). Where the crosswalk holds
+            # the same title whole, take it - but ONLY where the registry's is
+            # visibly truncated. Preferring the longer title generally would
+            # change 58 titles instead of 22, and the extra 36 are not repairs:
+            # `De Usu Partium` would become `De usu partium corporis humani
+            # I-XI` and `Epistulae` would become `Epistulae, Decretum,
+            # Orationes`, which is a different scope, not a restored tail.
+            if _unbalanced(w["title"]):
+                cw = (tc.get(work_slug) or {}).get("title")
+                if _completes(w["title"], cw):
+                    return _tidy(cw)
             return _tidy(w["title"])
         pa = pseudo_works.get(work_slug)
         if pa and pa.get("title"):
