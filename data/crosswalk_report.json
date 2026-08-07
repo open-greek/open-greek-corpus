@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11062,
-    "authors": 3312,
+    "works": 11063,
+    "authors": 3313,
     "editions": 10204,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3896,
+    "served_works": 3897,
     "pct_served_in_registry": 74.6,
     "pct_served_with_work_qid": 12.9,
-    "pct_served_with_author_qid": 73.8,
+    "pct_served_with_author_qid": 73.7,
     "pct_served_with_any_anchor": 85.5,
     "pct_served_with_logical_served_locus": 54.4
   },
   "work_aliases": {
     "cts": {
-      "count": 11062,
+      "count": 11063,
       "pct": 100.0
     },
     "wikidata": {
@@ -52,7 +52,7 @@
     },
     "isni": {
       "count": 757,
-      "pct": 22.9
+      "pct": 22.8
     },
     "trismegistos": {
       "count": 0,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9097,
+      "count": 9098,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3896,
+    "served_works": 3897,
     "in_registry": 2908,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 988,
+      "count": 989,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -516,6 +516,7 @@
         "andron-tejus.fragmenta",
         "androtio.fragmenta",
         "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei",
+        "anonymi-delectus-legum.delectus-legum-compendiarius",
         "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton",
         "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
         "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
@@ -530,8 +531,7 @@
         "anonymi-in-artem-rhetoricam.peri-synekdoches",
         "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
         "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
-        "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
-        "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon"
+        "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou"
       ]
     },
     "with_work_qid": 503,
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1910,
+      "count": 1911,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
