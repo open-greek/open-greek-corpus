@@ -1,0 +1,21 @@
+{
+ "what": "nicolaus-history.nicolaus-progymnasmata-felten repointed from tlg0577.tlg001 to tlg2904.tlg001",
+ "date": "2026-08-07",
+ "issue": "open-greek/open-greek-corpus#30",
+ "why": "tlg0577 is Nicolaus of Damascus (d. 4 CE), whose fragments are on the sibling slug as tlg0577.tlg003; the Progymnasmata is by Nicolaus Sophista, tlg2904 (b. 430). tlg0577.001 also does not exist in the vendored Canon, so the old anchor pointed at nothing.",
+ "target_evidence": "Canon tlg2904.001 Progymnasmata, 13,337 words against 17,289 served tokens; author slug nicolaus-rhetoric already carries tlg2904's wikidata Q11938736.",
+ "identity_evidence": "that the served text is the Progymnasmata (the open question in #26) rests on the Spengel III witness on the same slug agreeing with it at 45.7% of 4-grams and 77.6% of vocabulary",
+ "was": {
+  "cts": "urn:cts:greekLit:tlg0577.tlg001",
+  "tlg": "tlg0577.tlg001",
+  "author_slug": "nicolaus-history",
+  "title": "nicolaus_progymnasmata_felten"
+ },
+ "now": {
+  "cts": "urn:cts:greekLit:tlg2904.tlg001",
+  "tlg": "tlg2904.tlg001",
+  "author_slug": "nicolaus-rhetoric",
+  "title": "Progymnasmata"
+ },
+ "reverse": "restore the `was` values on this slug's entry in data/tlg_crosswalk.json and rebuild."
+}
