@@ -376,8 +376,7 @@ def carve(vol_plan: dict, apply: bool) -> None:
             "volume": vol,
             "source_urn": src_urn,
             "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
-            "date": vol_plan.get("date") or json.loads(
-                PLAN_PATH.read_text())["_meta"]["date"],
+            "date": vol_plan["date"],
             "plan_basis": vol_plan.get("basis", ""),
             "shared_row_rule": (
                 "a served row holding a work boundary is assigned to exactly one "
@@ -578,6 +577,8 @@ def main() -> int:
     ap.add_argument("--volume", required=True, help="e.g. PG005")
     ap.add_argument("--plan", type=Path, default=PLAN_PATH)
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--date", help="carve date for the audit record; overrides "
+                                   "the plan entry's own `date`")
     ap.add_argument("--refresh-cgpg-works", action="store_true",
                     help="re-derive this volume's cgpg_works.json entries from "
                          "its applied audit record (no carving)")
@@ -587,7 +588,18 @@ def main() -> int:
     vol_plan = next((v for v in plan["volumes"] if v["volume"] == args.volume), None)
     if vol_plan is None:
         fail(f"plan has no volume {args.volume}")
-    vol_plan.setdefault("date", plan["_meta"]["date"])
+    # NOT plan["_meta"]["date"]. That is the date the plan file was authored, and
+    # falling back to it stamps every later carve with it: PG113 and PG139 were
+    # carved on 2026-08-07 and their audit records claimed 2026-07-31, a week
+    # before the change they record (issue #29). The date is the one field in an
+    # audit that nothing else in the file can be checked against, so it is
+    # required rather than guessed.
+    if args.date:
+        vol_plan["date"] = args.date
+    if not vol_plan.get("date"):
+        fail(f"{args.volume} has no `date` in the plan; add the carve date to the "
+             f"volume entry (or pass --date) rather than inheriting the plan's "
+             f"authoring date")
     if args.refresh_cgpg_works:
         refresh_cgpg_works(vol_plan)
         return 0
