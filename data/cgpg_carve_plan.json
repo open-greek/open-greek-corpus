@@ -4440,6 +4440,59 @@
      "rank": "primary"
     }
    ]
+  },
+  {
+   "volume": "PG113",
+   "pass": 3,
+   "date": "2026-08-07",
+   "basis": "third pass. The legal block's first work is settled from Migne's running heads; what follows it is not, and is left. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
+   "residual_ranges": [
+    [
+     284,
+     313
+    ],
+    [
+     318,
+     319
+    ],
+    [
+     321,
+     323
+    ],
+    [
+     328,
+     489
+    ]
+   ],
+   "residual_note": "284-313 is a collection of imperial Novellae and is NOT carved, because the scans show two different running heads over it and where one stops is not established: NOVELLAE CONSTITUTIONES at columns 553-554 (our locus 288) and CONSTANTINI PORPHYROGENITI at 583-584 and 599-600 (loci 303 and 311). Those may be one work under an author head and a title head, or two works; settling it needs the intervening columns read, which this pass did not do. Locus 284 is where the Delectus ends, mid-row: it carries the closing note ΤΩ ΑΝΑΓΝΩΣΤΗ ΧΑΙΡΕΙΝ and Ἐνταῦθα τέλος ἔσχε τὸ ἓν τῶν ἀντιγράφων, then a Latin head at character 1,965. 328-489 is not researched. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
+   "works": [
+    {
+     "slug": "anonymi-delectus-legum.delectus-legum-compendiarius",
+     "tlg": null,
+     "title": "Delectus legum compendiarius",
+     "author_display": "Anonymi",
+     "ranges": [
+      [
+       238,
+       283
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 248,
+       "text": "Οἱ ἄρχοντες τοὺς ἐξ οἵου δήποτε δικαστηρίου, οὐκ ὀφείλουσιν συγχωρεῖν"
+      },
+      {
+       "locus": 268,
+       "text": "Εἰ ἔκ τινων ὀρφανοὶ καταλειφθῶσι, καὶ νήπιοι"
+      }
+     ],
+     "evidence": "46 rows, 17,014 tokens. The running head reads DELECTUS LEGUM, checked at three separated points, columns 473-474, 513-514 and 537-538, which are our loci 248, 268 and 280 (the anchors below are the first two of those, quoted from rows the scan was matched against). Locus 238 carries the fuller head, garbled from the Latin as ΚΟΜΑΝΟΚΟΜ ΙΜΡΡ. ΟΕΙΕΩΤΟΘ ΛΕΩΟΜ ΟΟΜΡΕΝΡΙΑΚΙΟΘ, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, which is the title. The text is a titulus-by-titulus compilation (ΤΙΤΛΟΣ Ζʹ Περὶ τοῦ χωρὶς δόσεων at column 473, ΤΙΤΛΟΣ ΙΘʹ Περὶ κουρατόρων at 513) and ends at locus 284 with a note to the reader. Migne prints no author over it, so it takes an anonymi- slug, as anonymi-de-terrae-motibus does; a selection of the emperors' laws is a compilation, not an authored work. No TLG anchor is claimed. Read off the page scans (Internet Archive item patrologia.graeca.org, file _113.zip). Loci map to Migne columns as col = 2*locus - 22, pinned on our locus 248 being column 474.",
+     "shared_row_note": "238 is shared and goes to this work under the plan's rule, since it carries this work's head at character 571. That brings 86 tokens of the Narratio de imagine Edessena's ending with it, the same 86 the previous pass deliberately left behind rather than over-claim for Constantine VII.",
+     "rank": "primary",
+     "notes": "The first carved row, 238, carries no incipit anchor because this work does not start at the top of it. The row's first 571 characters finish the Narratio de imagine Edessena; this work's own head, ROMANORUM IMPP. DELECTUS LEGUM COMPENDIARIUS, is at character 571 and its text runs from there. The anchors are therefore set on 248 and 268, two rows the page scans were matched against directly."
+    }
+   ]
   }
  ]
 }
