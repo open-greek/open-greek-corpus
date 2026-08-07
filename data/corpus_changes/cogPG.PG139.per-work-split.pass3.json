@@ -1,0 +1,95 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG139 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG139",
+  "source_urn": "cogPG.PG139",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-08-07",
+  "plan_basis": "third pass. The two blocks pass 2 left unattributed are settled by reading Migne's running heads off the page scans, which our OCR dropped. Migne's own running head, read off the page scan (Internet Archive item patrologia.graeca.org, file _139.zip, page PNGs). Our loci map to Migne columns as col = 2*locus - 14, pinned on two independent text matches: our locus 27 is column 40 and our locus 75 is column 136, and locus 93 is column 172.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG139.' (delete the file when it was 'created'), strip the 'PG139.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG139.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG139": {
+   "rows": 109,
+   "greek_tokens": 35251,
+   "sha256": "21869a922ce7dfb4bc5e8fa3b0eca17b44662f64a3a0f0a171a6f2a64214f1b4"
+  }
+ },
+ "works": [
+  {
+   "slug": "isidorus-thessalonicensis.sermones-in-deiparam",
+   "tlg": null,
+   "title": "Sermones in Deiparam",
+   "rank": "primary",
+   "file": "data/corpus/isidorus-thessalonicensis.sermones-in-deiparam.jsonl",
+   "mode": "created",
+   "rows": 77,
+   "greek_tokens": 24024,
+   "volume_loci": "13-89",
+   "locus_map": "cogPG.PG139 locus N -> isidorus-thessalonicensis.sermones-in-deiparam locus 'PG139.N'",
+   "incipit_checks": [
+    {
+     "locus": "13",
+     "incipit": "Μωσῆς ἐκεῖνος, ᾧ θάλασσα μὲν ὑπεχώρει",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 31
+    }
+   ],
+   "evidence": "77 rows, 24,029 tokens. The running head over these columns reads ISIDORI THESSALONICENSIS, checked at two widely separated points: columns 39-40, whose Greek is verbatim our locus 27 (Πάσαις τοίνυν ψήφοις ἄφθαρτος ἡ πανύμνητος), and columns 135-136, verbatim our locus 75. Column 17-18 carries the per-sermon head SERMO IN NATIVITATEM B. V. MARIAE. The collection is Marian throughout: ΛΟΓΟΣ Αʹ at 13 εἰς τὴν γέννησιν τῆς Θεοτόκου, ΛΟΓΟΣ Βʹ at column 40 εἰς τὴν εἰς τὰ Ἅγια τῶν ἁγίων εἴσοδον, ΛΟΓΟΣ Γʹ at 43 εἰς τὸν Εὐαγγελισμόν, which is where the title comes from; Migne prints no single title over the set. No TLG anchor: the vendored Canon has no record for this Isidore. Migne's own running head, read off the page scan (Internet Archive item patrologia.graeca.org, file _139.zip, page PNGs). Our loci map to Migne columns as col = 2*locus - 14, pinned on two independent text matches: our locus 27 is column 40 and our locus 75 is column 136, and locus 93 is column 172."
+  },
+  {
+   "slug": "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
+   "tlg": null,
+   "title": "Dialogi de processione Spiritus Sancti",
+   "rank": "primary",
+   "file": "data/corpus/nicetas-maroniensis.dialogi-de-processione-spiritus-sancti.jsonl",
+   "mode": "created",
+   "rows": 27,
+   "greek_tokens": 9879,
+   "volume_loci": "92-118",
+   "locus_map": "cogPG.PG139 locus N -> nicetas-maroniensis.dialogi-de-processione-spiritus-sancti locus 'PG139.N'",
+   "incipit_checks": [
+    {
+     "locus": "92",
+     "incipit": "Ο μὲν σκοπὸς τοῦ λόγου συζήτησις καὶ συνεξέτασις",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 41
+    }
+   ],
+   "evidence": "27 rows, 9,885 tokens. The running head reads NICETAE MARONIENSIS at columns 171-172, whose Greek is verbatim our locus 93 (ὅτι καὶ τοῦ ἤθους ἐστὶ τοῦ Λατίνου τὸ μὴ ἀνέχεσθαι τὸν ἥττονα λόγον ἔχειν δοκεῖν), and again at 175-176. Columns 167-168 carry Migne's Latin preface to the section, headed NICETAE MARONEAE, which describes the work as six dialogues in which a Greek objects to the procession of the Spirit from the Son and a Latin answers; that is the title's source. The block's own ΠΡΟΟΙΜΙΟΝ at 92 says the same, ὁ δὲ χαρακτὴρ διαλογικός, and ΓΡ./ΛΑΤ. speaker tags run to 118. No TLG anchor: the Canon has no record for him. Migne's own running head, read off the page scan (Internet Archive item patrologia.graeca.org, file _139.zip, page PNGs). Our loci map to Migne columns as col = 2*locus - 14, pinned on two independent text matches: our locus 27 is column 40 and our locus 75 is column 136, and locus 93 is column 172."
+  }
+ ],
+ "residual": {
+  "rows": 5,
+  "greek_tokens": 1348,
+  "loci": [
+   "554",
+   "555",
+   "556",
+   "557",
+   "558"
+  ],
+  "note": "554-558 is a table of contents listing the 25+ τόμοι of a heresiology running from Adam and the Greek mysteries through the councils to a dogma under Manuel. Its text is not in this volume, so it stays.",
+  "sha256": "58792ffab8aaf7f580856f934e2e8f00f9f708b774b2bad9aa492fe8ef906127"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 35251,
+  "carved": 33903,
+  "residual": 1348,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "isidorus-thessalonicensis.sermones-in-deiparam",
+  "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG139; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG139, plan data/cgpg_carve_plan.json"
+}
