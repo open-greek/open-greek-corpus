@@ -4,7 +4,7 @@
   "volume": "PG139",
   "source_urn": "cogPG.PG139",
   "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
-  "date": "2026-07-31",
+  "date": "2026-08-07",
   "plan_basis": "read at the row. Four blocks: two unidentified head blocks, the Choniates Historia, and a tail index. Only the Historia is carved.",
   "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
   "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG139.' (delete the file when it was 'created'), strip the 'PG139.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG139.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
@@ -205,5 +205,15 @@
  "crosswalk_entries_added": [],
  "corrections_provenance_flag": [],
  "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG139; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
- "source": "CGPG per-work carve of PG139, plan data/cgpg_carve_plan.json"
+ "source": "CGPG per-work carve of PG139, plan data/cgpg_carve_plan.json",
+ "superseded": [
+  {
+   "field": "_meta.date",
+   "was": "2026-07-31",
+   "now": "2026-08-07",
+   "corrected": "2026-08-07",
+   "issue": "open-greek/open-greek-corpus#29",
+   "why": "carve_cgpg_volume.py fell back to the carve plan's _meta.date when the volume entry had none, which no entry did, so this record was stamped with the date the plan file was written rather than the date the carve ran. The real date is the commit that first added this audit."
+  }
+ ]
 }
