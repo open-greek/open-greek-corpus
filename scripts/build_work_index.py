@@ -52,7 +52,15 @@ def _clean(d: dict) -> dict:
 
 
 def _unbalanced(title: str) -> bool:
-    return (title or "").count("(") != (title or "").count(")")
+    """True if a bracket opens and never closes, so the title is cut short.
+
+    Square brackets count as well as parentheses. The Canon uses them for
+    editorial qualifiers, and exactly one served title is cut inside one:
+    `Περὶ νοήσεως καὶ αἰσθήσεως. [ὅτι ἐν μόνῳ τῷ θεῷ τὸ`, whose tail the
+    crosswalk holds. Counting only parens missed it.
+    """
+    t = title or ""
+    return t.count("(") != t.count(")") or t.count("[") != t.count("]")
 
 
 def _fold_words(title: str) -> list[str]:

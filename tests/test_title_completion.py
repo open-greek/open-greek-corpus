@@ -58,3 +58,21 @@ def test_an_equal_title_is_not_an_extension():
 
 def test_the_fold_keeps_greek_and_drops_punctuation():
     assert _fold_words("(= Περὶ διαφόρους)") == ["περι", "διαφορους"]
+
+
+def test_a_square_bracket_counts_as_truncation_too():
+    """The Canon uses brackets for editorial qualifiers, and exactly one served
+    title is cut inside one rather than inside a parenthesis."""
+    assert _unbalanced("Περὶ νοήσεως καὶ αἰσθήσεως. [ὅτι ἐν μόνῳ τῷ θεῷ τὸ")
+    assert not _unbalanced("In Aristotelis Libros De Anima Commentaria [Sp.?]")
+
+
+def test_a_corrupted_title_is_not_treated_as_merely_truncated():
+    """The crosswalk still holds `Recensio ιἰ` from before the beta-code
+    decoder was fixed, where the CTS metadata has `Recensio ii`. Greek iotas
+    are not Latin ones, so the prefix test refuses it, and it should: making
+    the fold equate homoglyphs would weaken the test across every entry to
+    repair a single title."""
+    assert not _completes(
+        "Catena In Marcum (Recensio ιἰ (E Codd. Oxon. Bodl. Laud. 33",
+        "Catena In Marcum (Recensio ii) (E Codd. Oxon. Bodl. Laud. 33 + Paris. gr. 178)")
