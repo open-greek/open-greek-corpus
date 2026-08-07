@@ -462,8 +462,23 @@ def rejection_reason(form: str, lemma: str, freq: dict[str, int],
                      min_lemma: int = 1000) -> str | None:
     """Why this form -> lemma pair must not stand, or None if it may."""
     f_as_lemma, l_freq = freq.get(form, 0), freq.get(lemma, 0)
-    if lemma != lower_initial(lemma) and lower_initial(lemma) == form \
-            and f_as_lemma > l_freq:
+    if lemma != lower_initial(lemma) and lower_initial(lemma) == form and (
+            f_as_lemma > l_freq
+            # A GRAVE lemma needs no frequency argument, and cannot win one.
+            # The token is printed lowercase, so nothing in that occurrence
+            # licenses the capital; and the reference table cannot answer,
+            # because the capitalized grave lemma is holding the very counts
+            # the lowercase spelling would need to outweigh it. `Ἀριστερὸς`
+            # holds 140 tokens while occurring nowhere in the corpus as a
+            # surface form. This is the same "asks the split to have healed
+            # itself before it may be healed" trap that grave_lemma_repair and
+            # measure_capital_positions.target_twin each already document.
+            #
+            # The condition is `lemma carries a grave` and must stay that
+            # narrow. Dropping the gate outright would reach 6,936 cache
+            # entries and 250,061 tokens, lowercasing Φίλων, Μένων and Τύχη in
+            # one build, which is the destruction issue #19 exists to prevent.
+            or VARIA in unicodedata.normalize("NFD", lemma)):
         return CAPITALIZED_VARIANT
     if form in PARTICLES and lemma not in PARTICLES:
         return "closed-class particle reassigned to another lemma"
@@ -618,8 +633,14 @@ def validate_cache(cache: dict[str, str], freq_path: Path | None = None,
             continue
         reason = rejection_reason(form, lemma, freq)
         if reason == CAPITALIZED_VARIANT:
-            repaired.append((form, lemma, form))
-            cache[form] = form
+            # Compose with the grave rule in the SAME pass. Lowercasing alone
+            # lands `Σοφιστὴς` on `σοφιστὴς`, still grave, still not a headword,
+            # and it would only reach `σοφιστής` on the next build - so this
+            # build's own numbers would barely move and would read as a rule
+            # that did not fire.
+            fixed = grave_lemma_repair(form, freq) or form
+            repaired.append((form, lemma, fixed))
+            cache[form] = fixed
             continue
         if reason:
             dropped.append((form, lemma, reason))
