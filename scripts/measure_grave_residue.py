@@ -9,19 +9,24 @@ and which one it mostly is decides whether #4 is a `data-defect` or a
 `limitation`.
 
 The rules this repo has for the class all work the same way: they move a grave
-lemma onto its acute counterpart, and they can only do that when the acute is
-attested. So the reachable part of the residue is exactly the part whose acute
-counterpart exists as a lemma. Everything else is out of reach of ANY rule of
-that shape, no matter how the thresholds are set, because there is nothing to
-move it onto.
+lemma onto its acute counterpart, and only where the acute is attested. So
+reachability is a question about ATTESTATION, and the first version of this
+script asked it of the wrong table.
 
-What the unreachable part turns out to be is not a lemmatization problem at all.
-It is OCR shrapnel (οὐδὲς, ταὺτ, κλὴν, μηδὲς) and inflected forms that were
-never headwords (Παντὸς, παραστὰς). Those are not citation forms in the wrong
-accent; they are strings no lexicon holds under any accent. Repairing them is an
-OCR-quality question wearing a lemmatization costume, which is worth saying on
-the issue plainly, because three rounds have now gone looking for an accent rule
-that could reach them.
+It asked whether the acute exists as a LEMMA in the per-work table and reported
+77.4% of the residue unreachable "regardless of threshold". The accent argument
+is about the printed text - a grave is what a final acute becomes before a pause
+- so what settles it is whether the corpus PRINTS the acute spelling, which
+data/public_lexicon.tsv answers with no lemmatizer in the loop. Asked that way,
+on the same residue, the unreachable share was 52.3%, not 77.4%. The gap was the
+rule's reference table (83,078 lemmas) being narrower than the table it governs
+(275,871), and "regardless of threshold" was wrong.
+
+grave_lemma_repair now reads printed forms, which consumed most of that gap:
+10,135 tokens moved onto acute spellings the corpus actually prints. What is
+left is the genuinely unreachable part, and it is a larger SHARE of a smaller
+residue precisely because the reachable part has been taken. Both partitions
+are still printed, since the old one is what the issue was quoting.
 
 Counts come from the per-work table, which is the table the rules are applied
 to, and from nothing else. No external authority is consulted: the annotation
@@ -47,7 +52,8 @@ WORK_LEMMAS = DATA / "work_lemma_counts.tsv.gz"
 OUT = DATA / "grave_residue.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from validate_lemma_map import VARIA, lower_initial, to_acute  # noqa: E402
+from validate_lemma_map import (VARIA, PRINTED_FORMS,  # noqa: E402
+                                lower_initial, to_acute)
 
 
 def load_totals() -> dict[str, int]:
@@ -70,13 +76,18 @@ def main() -> None:
     grave = {k: v for k, v in totals.items()
              if VARIA in unicodedata.normalize("NFD", k)}
     reachable, unreachable = {}, {}
+    by_lemma_unreached = 0
     for lemma, n in grave.items():
         acute = to_acute(lemma)
         # Either spelling counts as the target: the capital may be positional,
         # and #19's fold handles that separately, so refusing to see the
         # lowercase acute here would understate what is reachable.
         cands = {acute, to_acute(lower_initial(lemma))} - {lemma}
-        hit = next((c for c in cands if totals.get(c, 0)), None)
+        # Printed attestation is the real test; the lemma-table one is kept only
+        # to show how much the old reference was hiding.
+        hit = next((c for c in cands if PRINTED_FORMS.get(c, 0)), None)
+        if not any(totals.get(c, 0) for c in cands):
+            by_lemma_unreached += n
         (reachable if hit else unreachable)[lemma] = (n, hit)
 
     # Slightly above audit_lemma_table's count, which classifies each lemma once
@@ -88,8 +99,13 @@ def main() -> None:
     print(f"  reachable   {len(reachable):>6,} lemmas {rt:>8,} tokens "
           f"{rt / gt:>6.1%}  an acute counterpart is attested to move them onto")
     print(f"  unreachable {len(unreachable):>6,} lemmas {ut:>8,} tokens "
-          f"{ut / gt:>6.1%}  no acute counterpart under either case, so no rule "
-          f"of this shape reaches them")
+          f"{ut / gt:>6.1%}  the corpus prints no acute counterpart under "
+          f"either case")
+    print(f"\n  measured the OLD way, against the lemma table rather than the "
+          f"printed text,\n  the unreachable share reads {by_lemma_unreached:,} "
+          f"tokens ({by_lemma_unreached / gt:.1%}). That difference is the "
+          f"reference\n  being narrower than the table it governs, not a fact "
+          f"about the residue.")
     print("\n  largest unreachable, which is what the residue actually is:")
     for lemma, (n, _) in sorted(unreachable.items(), key=lambda kv: -kv[1][0])[:12]:
         print(f"    {lemma:<16} {n:>6,}")
@@ -119,12 +135,22 @@ def main() -> None:
                                 "merging onto those empties the audit class without "
                                 "producing a headword"},
         "unreachable": {"lemmas": len(unreachable), "tokens": ut,
-                        "note": "no acute counterpart is attested under either "
-                                "case, so no rule that moves a grave lemma onto "
-                                "its acute can reach these regardless of "
-                                "threshold; they are OCR shrapnel and non-headword "
-                                "inflected forms, an OCR-quality problem rather "
-                                "than a lemmatization one"},
+                        "note": "the corpus prints no acute counterpart under "
+                                "either case, so a rule that moves a grave lemma "
+                                "onto its acute has nothing to move these onto. "
+                                "They are OCR shrapnel and non-headword inflected "
+                                "forms, an OCR-quality problem rather than a "
+                                "lemmatization one"},
+        "superseded": {"was": "an earlier version of this file reported the "
+                              "unreachable share as 77.4% and said no rule of "
+                              "this shape could reach it regardless of threshold",
+                       "wrong_because": "it tested whether the acute exists as a "
+                                        "LEMMA in the per-work table. The accent "
+                                        "argument is about the printed text, and "
+                                        "the rule's own reference table was "
+                                        "narrower than the table it governs "
+                                        "(83,078 lemmas against 275,871)",
+                       "measured_the_old_way_tokens": by_lemma_unreached},
         "largest_unreachable": [
             {"lemma": k, "tokens": n}
             for k, (n, _) in sorted(unreachable.items(),
