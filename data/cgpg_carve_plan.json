@@ -4345,6 +4345,62 @@
      "rank": "primary"
     }
    ]
+  },
+  {
+   "volume": "PG139",
+   "pass": 3,
+   "date": "2026-08-07",
+   "basis": "third pass. The two blocks pass 2 left unattributed are settled by reading Migne's running heads off the page scans, which our OCR dropped. Migne's own running head, read off the page scan (Internet Archive item patrologia.graeca.org, file _139.zip, page PNGs). Our loci map to Migne columns as col = 2*locus - 14, pinned on two independent text matches: our locus 27 is column 40 and our locus 75 is column 136, and locus 93 is column 172.",
+   "residual_ranges": [
+    [
+     554,
+     558
+    ]
+   ],
+   "residual_note": "554-558 is a table of contents listing the 25+ τόμοι of a heresiology running from Adam and the Greek mysteries through the councils to a dogma under Manuel. Its text is not in this volume, so it stays.",
+   "works": [
+    {
+     "slug": "isidorus-thessalonicensis.sermones-in-deiparam",
+     "tlg": null,
+     "title": "Sermones in Deiparam",
+     "author_display": "Isidorus Thessalonicensis",
+     "ranges": [
+      [
+       13,
+       89
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 13,
+       "text": "Μωσῆς ἐκεῖνος, ᾧ θάλασσα μὲν ὑπεχώρει"
+      }
+     ],
+     "evidence": "77 rows, 24,029 tokens. The running head over these columns reads ISIDORI THESSALONICENSIS, checked at two widely separated points: columns 39-40, whose Greek is verbatim our locus 27 (Πάσαις τοίνυν ψήφοις ἄφθαρτος ἡ πανύμνητος), and columns 135-136, verbatim our locus 75. Column 17-18 carries the per-sermon head SERMO IN NATIVITATEM B. V. MARIAE. The collection is Marian throughout: ΛΟΓΟΣ Αʹ at 13 εἰς τὴν γέννησιν τῆς Θεοτόκου, ΛΟΓΟΣ Βʹ at column 40 εἰς τὴν εἰς τὰ Ἅγια τῶν ἁγίων εἴσοδον, ΛΟΓΟΣ Γʹ at 43 εἰς τὸν Εὐαγγελισμόν, which is where the title comes from; Migne prints no single title over the set. No TLG anchor: the vendored Canon has no record for this Isidore. Migne's own running head, read off the page scan (Internet Archive item patrologia.graeca.org, file _139.zip, page PNGs). Our loci map to Migne columns as col = 2*locus - 14, pinned on two independent text matches: our locus 27 is column 40 and our locus 75 is column 136, and locus 93 is column 172.",
+     "rank": "primary"
+    },
+    {
+     "slug": "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
+     "tlg": null,
+     "title": "Dialogi de processione Spiritus Sancti",
+     "author_display": "Nicetas Maroniensis",
+     "ranges": [
+      [
+       92,
+       118
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 92,
+       "text": "Ο μὲν σκοπὸς τοῦ λόγου συζήτησις καὶ συνεξέτασις"
+      }
+     ],
+     "evidence": "27 rows, 9,885 tokens. The running head reads NICETAE MARONIENSIS at columns 171-172, whose Greek is verbatim our locus 93 (ὅτι καὶ τοῦ ἤθους ἐστὶ τοῦ Λατίνου τὸ μὴ ἀνέχεσθαι τὸν ἥττονα λόγον ἔχειν δοκεῖν), and again at 175-176. Columns 167-168 carry Migne's Latin preface to the section, headed NICETAE MARONEAE, which describes the work as six dialogues in which a Greek objects to the procession of the Spirit from the Son and a Latin answers; that is the title's source. The block's own ΠΡΟΟΙΜΙΟΝ at 92 says the same, ὁ δὲ χαρακτὴρ διαλογικός, and ΓΡ./ΛΑΤ. speaker tags run to 118. No TLG anchor: the Canon has no record for him. Migne's own running head, read off the page scan (Internet Archive item patrologia.graeca.org, file _139.zip, page PNGs). Our loci map to Migne columns as col = 2*locus - 14, pinned on two independent text matches: our locus 27 is column 40 and our locus 75 is column 136, and locus 93 is column 172.",
+     "gap_note": "Loci 90-91 are absent from our OCR, and the scans say why: columns 165-169 are Migne's Latin editorial preface to this section, with no Greek on them at all. So the gap is not a missing part of either work.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }
