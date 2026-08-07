@@ -4234,6 +4234,49 @@
    ],
    "token_counts": "Token figures in this entry are build_public_corpus._GK (maximal Greek runs), the repo's standard: 399,713 for the volume, 118,734 / 54,429 / 161,188 carved and 65,362 residual. carve_cgpg_volume.py reports its own whitespace-based count (399,517 = 118,663 + 54,411 + 161,124 + 65,319), which is 196 lower because a hyphen-split word counts once there and twice under _GK. Both conserve exactly; they are not the same measure and the audit record carries the script's.",
    "date": "2026-08-07"
+  },
+  {
+   "volume": "PG139",
+   "pass": 2,
+   "date": "2026-08-07",
+   "basis": "second pass over what pass 1 left. Pass 1 carved only the Nicetas Choniates Historia; this takes the chronicle at 119-151 out of the residual.",
+   "residual_ranges": [
+    [
+     13,
+     89
+    ],
+    [
+     92,
+     118
+    ],
+    [
+     554,
+     558
+    ]
+   ],
+   "residual_note": "13-89 is a set of homilies opening ΛΟΓΟΣ Αʹ. 92-118 is NOT part of the same treatise as 119-151, which the pass-1 note assumed: it is a Greek/Latin dialogue on the procession of the Holy Spirit, opening ΠΡΟΟΙΜΙΟΝ at 92 and running ΓΡ./ΛΑΤ. speaker tags through 118, where it closes on Athanasius and Cyril and the Symbol. Neither block's author is established here, so neither is carved. 554-558 is a table of contents.",
+   "works": [
+    {
+     "slug": "joel.chronographia-compendiaria",
+     "tlg": "tlg3140.tlg001",
+     "title": "Chronographia compendiaria",
+     "author_display": "Joel",
+     "ranges": [
+      [
+       119,
+       151
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 119,
+       "text": "Ἰστέον ὅτι ὁ μὲν Ἀδὰμ ἐπέθηκεν ὀνόματα τοῖς σαῖσιν αὐτοῦ"
+      }
+     ],
+     "evidence": "33 rows, 12,528 tokens, on three handles that do not depend on each other. (1) The incipit at 119 opens a universal chronicle at Adam naming his children and the animals, immediately after 118 closes the Holy Spirit dialogue on Athanasius, Cyril and the Symbol, so the boundary is a change of genre mid-volume and not a guess. (2) The explicit at 151 is Botaneiates and the monk Cosmas, the late 11th century, which is where this chronicle's surviving text runs to. (3) The vendored TLG Canon gives tlg3140.001, Joel, Chronographia compendiaria, as 12,994 words (DOCCAN2 wct, ed. Bonn 1836, pp. 3-66); our 12,528 is 0.96 of that. Handle 3 is read from data/inventory/work_inventory.json, i.e. from the Canon itself, NOT from data/pd_research/cgpg_coverage.json, whose provenance is not established.\\n\\nThe block ends at 151 because the volume does: pages 152-166 are absent from the calfa-co OCR entirely, and 167 is Choniates' proem. So the text is whatever of Joel our source holds, and the 0.96 ratio says that is nearly all of it rather than a fragment cut by the carve.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }
