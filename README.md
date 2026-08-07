@@ -19,7 +19,7 @@ Byzantine literary Greek.
 | [Galenus Verbatim](https://github.com/galenus-verbatim/galenus_cts) | CC BY-SA 4.0 | Galen and pseudo-Galen TEI (Sorbonne): verified Kuehn transcriptions plus revised First1K files (`galenus_verbatim`) |
 | Byzantine and early modern | PD / CC BY-SA | late vernacular verse/prose, 12th-17th c. (`byzantine_vernacular`) |
 | [byzantium.gr](https://byzantium.gr) | PD (Bonn/CSHB editions) | Byzantine historians, clean polytonic transcriptions (`byzantium_gr`) |
-| [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`); 17 multi-work volumes are carved into per-work files by `scripts/carve_cgpg_volume.py` (plan: `data/cgpg_carve_plan.json`), and 13 `cogPG.*` files still serve volume-keyed |
+| [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`); 21 multi-work volumes are carved into per-work files by `scripts/carve_cgpg_volume.py` (plan: `data/cgpg_carve_plan.json`), and 12 `cogPG.*` files still serve volume-keyed |
 | [PTA](https://github.com/PatristicTextArchive/pta_data) | CC BY-SA / CC BY, per file | Patristic Text Archive (BBAW): critical patristic TEI incl. the Severian of Gabala corpus (`pta`); pta ids resolve via `scripts/build_pta_crosswalk.py`, the single BY-NC-SA file is excluded |
 | [DFHG](https://dfhg-project.org) | CC BY-SA 4.0 | Mueller's Fragmenta Historicorum Graecorum vols 1-5 as corrected transcription (Berti/Leipzig), superseding our FHG OCR (`dfhg`); ingested by `scripts/ingest_dfhg.py`; the held-back specials (Diodorus' fragmentary books, homonym collisions) are resolved by `scripts/ingest_dfhg_specials.py`, and the carve slugs get TLG urns from the constrained canon pass `scripts/build_dfhg_canon_pass.py` (audit trail in `data/dfhg_canon_pass.json`) |
 | [SAWS](https://ancientwisdoms.ac.uk) | CC BY 4.0 (2025 KCL figshare deposit, doi:10.18742/28259054.v1; supersedes the project's 2013 in-file CC BY-NC-SA notices) | Sharing Ancient Wisdoms born-digital editions (`saws`): Roueche's Kekaumenos, the Searby et al. Apophthegmata et gnomae secundum alphabetum, and diplomatic transcriptions of the Gnomologium Vaticanum (Vat. gr. 743) and Corpus Parisinum VI (Par. gr. 1168 + Bodl. Digby 6); ingested by `scripts/ingest_saws.py` (which re-verifies the deposit license against the figshare API on every fetch) |
@@ -318,14 +318,15 @@ A work already served from a better source per the precedence ladder is carved
 to `data/corpus_secondary/` as a witness instead of competing. Each carve
 leaves a reversible audit in `data/corpus_changes/cogPG.<VOL>.per-work-split.json`
 (token-exact partition, dropped rescan leaves archived verbatim), and
-`cgpg_works.json` credits the per-work units. 17 volumes have been carved so
-far, and 13 `cogPG.*` files are still volume-keyed. Seven of those are the
-carved volumes' leftovers (PG005, PG101, PG107, PG109, PG118, PG124, PG125:
-2 to 20 rows each, 12,464 Greek tokens between them, the rows the plan's
-ranges did not claim). The other six are whole uncarved volumes and hold about
-1.06M Greek tokens, 23% of the 4.70M the CGPG delivery serves: PG003, PG112,
-PG113, PG139 and PG151. They are listed with their token counts in the
-OCR provenance table below. Only PG003 of those six is uncarved on the
+`cgpg_works.json` credits the per-work units. 21 volumes have been carved so
+far, and 12 `cogPG.*` files are still volume-keyed. Ten of those are the
+carved volumes' leftovers, 222,025 Greek tokens between them: seven are small
+(PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
+tokens in total, the rows the plan's ranges did not claim), and three are
+substantial residues that the carve deliberately did not attribute (PG113
+96,408, PG151 65,362, PG139 47,791). Only two whole volumes remain uncarved,
+holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
+in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it was wrong until 2026-08-07. It said the
 Dionysius text interleaves passage-by-passage with Pachymeres' paraphrase so no
 column carve could separate them. Migne in fact prints a display head at every
@@ -741,7 +742,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1372 OCR'd works/volumes: 170 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1375 OCR'd works/volumes: 173 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1061,7 +1062,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
 | PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 47,791 | manual |
-| PG151 | Gregory Palamas v2; Acindynus; Barlaam | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 399,713 | manual |
+| PG151 | Gregory Palamas v2; Acindynus; Barlaam (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 65,362 | manual |
 | comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e | Comarius - Περὶ τῆς θείας καὶ ἱερᾶς τέχνης τῶν φιλοσόφων (E | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 8 | raw OCR |
 | comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
 | commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana | Commentaria In Dionysii Thracis Artem Grammaticam - Prolegomena Vossiana | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,685 | auto-corrected |
@@ -1396,6 +1397,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | gregorius-nyssenus.orationes-viii-de-beatitudinibus | Gregorius Nyssenus - Orationes Viii De Beatitudinibus | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 21,619 | auto-corrected |
 | gregorius-nyssenus.testimonia-adversus-judaeos-sp | Gregorius Nyssenus - Testimonia Adversus Judaeos Sp. | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,087 | auto-corrected |
 | gregorius-nyssenus.vita-sanctae-macrinae | Gregorius Nyssenus - Vita Sanctae Macrinae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,592 | auto-corrected |
+| gregorius-palamas.homiliae | Gregorius Palamas - Homiliae (PG151 loci 10-282) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 118,734 | manual |
 | hecataeus-abderita.testimonia-2 | Hecataeus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,190 | auto-corrected |
 | hegemon-parodius.fragmentum | Hegemon - Fragmentum | kock-caf1-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
 | hegesippus-scr-eccl.fragmenta-ex-incerto-libro | Hegesippus - Fragmenta (ex incerto libro / Hypomnemata) (PG005 loci 663-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,511 | auto-corrected |
@@ -1828,6 +1830,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | philosophus-christianus.tou-xristianou-peri-tou-qei-ou-u-datos-e-cod-venet | Philosophus Christianus - Τοῦ Χριστιανοῦ περὶ τοῦ θείου ὕδατος (E Cod. Venet | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 134 | auto-corrected |
 | philosophus-christianus.tou-xristianou-su-noyis-ti-s-h-ai-ti-th-s-prokeime-nhs | Philosophus Christianus - Τοῦ Χριστιανοῦ σύνοψις. τίς ἡ αἰτία τῆς προκειμένης | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 85 | raw OCR |
 | philostephanus.fragmenta | Fragmenta | qwen36-aristobulus_fhg3-ocr | Qwen3.6-27B | 96 | raw OCR |
+| philotheus-constantinopolitanus.antirrhetici-contra-gregoram | Philotheus Constantinopolitanus - Antirrhetici contra Gregoram (PG151 loci 394-576) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 161,188 | manual |
+| philotheus-constantinopolitanus.encomium-gregorii-palamae | Philotheus Constantinopolitanus - Encomium Gregorii Palamae (PG151 loci 283-346) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 54,429 | manual |
 | philoxenus.fragmenta | PHILOXENUS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 977 | auto-corrected |
 | philyllius.fragmenta | Philyllius - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 559 | raw OCR |
 | phintys.fragmenta | Phintys - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 820 | auto-corrected |
@@ -2135,12 +2139,13 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
-  `cogPG.*` files remain volume-keyed: nine leftovers of carved volumes
-  (PG113 and PG139 join them, so 156,555 tokens between them) and three
-  uncarved volumes (PG003, PG112, PG151, ~709,000 tokens). Only PG003 is deferred on the evidence
-  (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not on the
-  passage-level interleave the record used to claim; see the split-deferred flag
-  record); the other four are simply not researched yet.
+  `cogPG.*` files remain volume-keyed: ten leftovers of carved volumes
+  (PG113, PG139 and PG151 join them, so 222,025 tokens between them) and two
+  uncarved volumes (PG003 and PG112, 309,553 tokens). PG003 is deferred on the
+  evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
+  on the passage-level interleave the record used to claim; see the
+  split-deferred flag record); PG112 is one work end to end and wants a
+  disposition, not research.
   PG067 carved to TWO SECONDARY witnesses and no primary, so the published
   primary corpus is 220,569 tokens smaller than before it: the volume is
   Socrates Scholasticus and Sozomen end to end, and both histories are already

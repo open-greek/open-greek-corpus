@@ -3,12 +3,12 @@
     "total_works": 7209,
     "total_words": 74975998,
     "source_overrides_applied": 107,
-    "ingested_via_cgpg_volume": 7,
+    "ingested_via_cgpg_volume": 6,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.19,
     "pct_ingested_actual": 65.88,
-    "ingested_words_actual": 49394591,
-    "ingested_complete_works": 2893,
+    "ingested_words_actual": 49391175,
+    "ingested_complete_works": 2892,
     "ingested_partial_works": 117,
     "pct_reachable_not_ingested": 14.45,
     "pct_locked": 11.81,
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3010,
-      "word_count": 54127219
+      "works": 3009,
+      "word_count": 54123803
     },
     "reachable_not_ingested": {
-      "works": 1603,
-      "word_count": 10832985
+      "works": 1604,
+      "word_count": 10836401
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2893,
-      "word_count": 51635330
+      "works": 2892,
+      "word_count": 51631914
     },
     "ingested_partial": {
       "works": 117,
@@ -59,8 +59,8 @@
       "word_count": 1137662
     },
     "migne_cgpg": {
-      "works": 26,
-      "word_count": 465198
+      "works": 27,
+      "word_count": 468614
     }
   },
   "gap_list": [
@@ -3213,6 +3213,16 @@
       "title": "Prooemium In Arati Phaenomena",
       "word_count": 3429,
       "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg3159",
+      "work_id": "001",
+      "author": "Barlaam",
+      "title": "Paraphrasis In Euclidis Elementorum Librum Secundum",
+      "word_count": 3416,
+      "best_source": "migne_cgpg",
+      "base_best_source": "locked",
+      "override_reason": "CC-BY CGPG OCR of PD Migne (PG151); unlocks a work otherwise behind an in-copyright edition"
     },
     {
       "tlg_id": "tlg0530",
@@ -19466,17 +19476,9 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 785,
+    "works": 788,
     "n_tokens": 8793246,
     "items": [
-      {
-        "key": "cogPG.PG151",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 617,
-        "n_tokens": 399517
-      },
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
         "edition": "cgpg",
@@ -19508,6 +19510,14 @@
         "license": "PD",
         "n_passages": 7086,
         "n_tokens": 181577
+      },
+      {
+        "key": "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 183,
+        "n_tokens": 161124
       },
       {
         "key": "cogPG.PG003",
@@ -19564,6 +19574,14 @@
         "license": "PD",
         "n_passages": 1557,
         "n_tokens": 121319
+      },
+      {
+        "key": "gregorius-palamas.homiliae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 273,
+        "n_tokens": 118663
       },
       {
         "key": "theophylactus-achridensis.enarratio-in-evangelium-joannis",
@@ -19774,6 +19792,14 @@
         "n_tokens": 71413
       },
       {
+        "key": "cogPG.PG151",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 97,
+        "n_tokens": 65319
+      },
+      {
         "key": "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
         "edition": "cgpg",
         "source": "cgpg",
@@ -19844,6 +19870,14 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 160,
         "n_tokens": 55030
+      },
+      {
+        "key": "philotheus-constantinopolitanus.encomium-gregorii-palamae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 64,
+        "n_tokens": 54411
       },
       {
         "key": "sopater-rhetor.hypomnema-eis-ten-hermogenous-technen",

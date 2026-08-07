@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1391,
-   "ocr_works_ranked": 809,
+   "ocr_works": 1394,
+   "ocr_works_ranked": 812,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -182,11 +182,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.135,
+   "median": 0.1349,
    "min": 0.0089,
-   "n": 809,
-   "q1": 0.096,
-   "q3": 0.1728
+   "n": 812,
+   "q1": 0.0955,
+   "q3": 0.1727
   }
  },
  "works": {
@@ -3372,11 +3372,11 @@
   },
   "cogPG.PG151": {
    "edition": "cgpg",
-   "n_tokens": 399713,
-   "n_tokens_checked": 239904,
-   "n_unattested": 9438,
+   "n_tokens": 65362,
+   "n_tokens_checked": 39282,
+   "n_unattested": 1953,
    "source": "cgpg",
-   "unattested_rate": 0.039341,
+   "unattested_rate": 0.049717,
    "witness": null
   },
   "comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e": {
@@ -6587,6 +6587,15 @@
    "n_unattested": 1177,
    "source": "ocr",
    "unattested_rate": 0.133841,
+   "witness": null
+  },
+  "gregorius-palamas.homiliae": {
+   "edition": "cgpg",
+   "n_tokens": 118734,
+   "n_tokens_checked": 71309,
+   "n_unattested": 2665,
+   "source": "cgpg",
+   "unattested_rate": 0.037373,
    "witness": null
   },
   "hecataeus-abderita.testimonia-2": {
@@ -10984,6 +10993,24 @@
     "secondary_edition": "qwen36-aristobulus_fhg3-ocr"
    }
   },
+  "philotheus-constantinopolitanus.antirrhetici-contra-gregoram": {
+   "edition": "cgpg",
+   "n_tokens": 161188,
+   "n_tokens_checked": 96377,
+   "n_unattested": 3770,
+   "source": "cgpg",
+   "unattested_rate": 0.039117,
+   "witness": null
+  },
+  "philotheus-constantinopolitanus.encomium-gregorii-palamae": {
+   "edition": "cgpg",
+   "n_tokens": 54429,
+   "n_tokens_checked": 32936,
+   "n_unattested": 1050,
+   "source": "cgpg",
+   "unattested_rate": 0.03188,
+   "witness": null
+  },
   "philoxenus.fragmenta": {
    "edition": "bergk-plg3-ocr-frag",
    "n_tokens": 977,
@@ -14663,6 +14690,7 @@
   "theophylactus-achridensis.expositio-in-epistolam-ad-romanos",
   "ocr.pg026",
   "oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis",
+  "cogPG.PG151",
   "theophylactus-achridensis.expositio-in-epistolam-ad-galatas",
   "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
   "basilius-theology.contra-sabellianos-et-arium-et-anomoeos",
@@ -14683,12 +14711,14 @@
   "athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp",
   "oecumenius.commentarius-in-acta-apostolorum",
   "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
-  "cogPG.PG151",
+  "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
   "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
   "pseudo-justinus-martyr.cohortatio-ad-gentiles",
+  "gregorius-palamas.homiliae",
   "basilius-theology.prologus-7-de-judicio-dei",
   "photius.fragmenta-in-epistulam-ad-romanos-in-catenis",
   "pseudo-justinus-martyr.quaestiones-gentilium-ad-christianos",
+  "philotheus-constantinopolitanus.encomium-gregorii-palamae",
   "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
   "pseudo-justinus-martyr.expositio-rectae-fidei",
   "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
