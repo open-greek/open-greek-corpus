@@ -1296,6 +1296,10 @@
    "name": "anon-ananius",
    "aliases": {}
   },
+  "anon-anaphora-archiereon-ad-annam-palaeologinam": {
+   "name": "anon-anaphora-archiereon-ad-annam-palaeologinam",
+   "aliases": {}
+  },
   "anon-anaxagoras": {
    "name": "anon-anaxagoras",
    "aliases": {}
@@ -15500,10 +15504,6 @@
     "gnd": "119460408",
     "isni": "0000000122644825"
    }
-  },
-  "palamas-acindynus-barlaam-pg151": {
-   "name": "Gregorius Palamas, Acindynus et Barlaam (PG 151)",
-   "aliases": {}
   },
   "palladius-medicine": {
    "name": "Palladius",
@@ -36790,6 +36790,17 @@
    "tags": [],
    "editions": {}
   },
+  "anon-anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon-ad-annam-palaeologinam-anaphora-archiereon": {
+   "author": "anon-anaphora-archiereon-ad-annam-palaeologinam",
+   "title": "anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon",
+   "aliases": {
+    "cts": "urn:cts:greekLit:anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
   "anon-anaxagoras.anaxagoras-testimonia": {
    "author": "anon-anaxagoras",
    "title": "anaxagoras.testimonia",
@@ -53218,6 +53229,17 @@
    "title": "gregorius-nyssenus.vita-sanctae-macrinae",
    "aliases": {
     "cts": "urn:cts:greekLit:gregorius-nyssenus.vita-sanctae-macrinae"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-gregorius-palamas.gregorius-palamas-confessio-fidei": {
+   "author": "anon-gregorius-palamas",
+   "title": "gregorius-palamas.confessio-fidei",
+   "aliases": {
+    "cts": "urn:cts:greekLit:gregorius-palamas.confessio-fidei"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -118010,34 +118032,6 @@
    ],
    "editions": {
     "cogPG.PG139.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG151": {
-   "author": "palamas-acindynus-barlaam-pg151",
-   "title": "Patrologia Graeca 151",
-   "aliases": {
-    "cts": "urn:cts:greekLit:cogPG.PG151"
-   },
-   "default_edition": "cogPG.PG151.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:14",
-    "era:byzantine",
-    "genre:theology"
-   ],
-   "editions": {
-    "cogPG.PG151.cgpg": {
      "name": "calfa-co Patrologia Graeca (cgpg)",
      "provider": "cgpg",
      "scheme": "ref",

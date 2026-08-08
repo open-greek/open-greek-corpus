@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1410,
-   "ocr_works_ranked": 823,
+   "ocr_works": 1411,
+   "ocr_works_ranked": 822,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -182,9 +182,9 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1338,
+   "median": 0.134,
    "min": 0.0089,
-   "n": 823,
+   "n": 822,
    "q1": 0.0943,
    "q3": 0.17
   }
@@ -473,6 +473,15 @@
    "n_unattested": 1,
    "source": "ocr",
    "unattested_rate": 0.02,
+   "witness": null
+  },
+  "anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon": {
+   "edition": "cgpg",
+   "n_tokens": 1844,
+   "n_tokens_checked": 1139,
+   "n_unattested": 55,
+   "source": "cgpg",
+   "unattested_rate": 0.048288,
    "witness": null
   },
   "anaxagoras.testimonia": {
@@ -3395,15 +3404,6 @@
    "n_unattested": 73,
    "source": "cgpg",
    "unattested_rate": 0.085882,
-   "witness": null
-  },
-  "cogPG.PG151": {
-   "edition": "cgpg",
-   "n_tokens": 3119,
-   "n_tokens_checked": 1876,
-   "n_unattested": 85,
-   "source": "cgpg",
-   "unattested_rate": 0.045309,
    "witness": null
   },
   "comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e": {
@@ -6668,6 +6668,15 @@
    "n_unattested": 1177,
    "source": "ocr",
    "unattested_rate": 0.133841,
+   "witness": null
+  },
+  "gregorius-palamas.confessio-fidei": {
+   "edition": "cgpg",
+   "n_tokens": 1547,
+   "n_tokens_checked": 899,
+   "n_unattested": 38,
+   "source": "cgpg",
+   "unattested_rate": 0.042269,
    "witness": null
   },
   "gregorius-palamas.homiliae": {
@@ -11112,11 +11121,11 @@
   },
   "philotheus-constantinopolitanus.antirrhetici-contra-gregoram": {
    "edition": "cgpg",
-   "n_tokens": 161188,
-   "n_tokens_checked": 96377,
-   "n_unattested": 3770,
+   "n_tokens": 160979,
+   "n_tokens_checked": 96250,
+   "n_unattested": 3763,
    "source": "cgpg",
-   "unattested_rate": 0.039117,
+   "unattested_rate": 0.039096,
    "witness": null
   },
   "philotheus-constantinopolitanus.encomium-gregorii-palamae": {
@@ -13812,11 +13821,11 @@
   },
   "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351": {
    "edition": "cgpg",
-   "n_tokens": 15257,
-   "n_tokens_checked": 9348,
-   "n_unattested": 470,
+   "n_tokens": 15194,
+   "n_tokens_checked": 9313,
+   "n_unattested": 469,
    "source": "cgpg",
-   "unattested_rate": 0.050278,
+   "unattested_rate": 0.05036,
    "witness": null
   },
   "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem": {
@@ -14853,7 +14862,6 @@
   "joannes-chrysostomus.in-sanctum-barlaam-martyrem",
   "joannes-chrysostomus.ad-viduam-juniorem",
   "oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis",
-  "cogPG.PG151",
   "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios",
   "symeon-thessalonicensis.de-sacerdotio",
