@@ -37,6 +37,18 @@
       "pct": 0.0
     }
   },
+  "work_cts_by_namespace": {
+    "greekLit": {
+      "count": 7194,
+      "pct": 65.0,
+      "external": true
+    },
+    "cogGreek": {
+      "count": 3880,
+      "pct": 35.0,
+      "external": false
+    }
+  },
   "author_aliases": {
     "wikidata": {
       "count": 1403,
@@ -536,7 +548,7 @@
     },
     "with_work_qid": 504,
     "with_author_qid": 2880,
-    "with_any_external_anchor": 3332,
+    "with_any_external_anchor": 3335,
     "with_logical_served_locus": 2119,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
