@@ -327,7 +327,10 @@ appearing to succeed. 21 volumes have been carved so
 far, and 12 `cogPG.*` files are still volume-keyed. Ten of those are the
 carved volumes' leftovers, 24,753 Greek tokens between them: seven are small
 (PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
-tokens in total, the rows the plan's ranges did not claim), and three are
+tokens in total, the rows the plan's ranges did not claim; each is identified in
+its plan entry's residual note, and the two largest are Greek apparatus, the
+Ignatius testimonia in PG005 and the Euthalian pieces in PG118, not the Latin
+monita an earlier summary called them), and three are
 substantial residues that the carve deliberately did not attribute (PG113
 7,821, and PG151 3,119, which is two identified works whose seams fall inside
 rows: Gregory Palamas' Homologia, attributed in Migne's printed title, and the
