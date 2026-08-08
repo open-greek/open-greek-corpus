@@ -82,7 +82,10 @@ def main() -> None:
         # Either spelling counts as the target: the capital may be positional,
         # and #19's fold handles that separately, so refusing to see the
         # lowercase acute here would understate what is reachable.
-        cands = {acute, to_acute(lower_initial(lemma))} - {lemma}
+        # sorted, not a bare set: which candidate wins when both are printed
+        # decided by set iteration order, so the published file changed between
+        # runs (Κμὴ resolved to κμή or Κμή depending on the process).
+        cands = sorted({acute, to_acute(lower_initial(lemma))} - {lemma})
         # Printed attestation is the real test; the lemma-table one is kept only
         # to show how much the old reference was hiding.
         hit = next((c for c in cands if PRINTED_FORMS.get(c, 0)), None)
