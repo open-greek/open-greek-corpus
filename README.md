@@ -286,6 +286,17 @@ edition, source, tokens) is `data/work_index.json` via
 Full model, WEMI leveling, and the index schema a consumer needs:
 `docs/opaque-identifiers.md`.
 
+A served work can also carry a `serving_deficit` block in `work_index.json`
+(and a `serving_deficit` column in the catalog): the served text is known to be
+shorter than a fuller text of the same work held in this repo, and the serving
+is meant to eventually grow into it. The curated decisions live in
+`data/serving_deficits.json`; every number is derived at build time from the
+named files, and the build fails if an entry's slug is not served, its fuller
+text is missing, or the fuller text is no longer larger, so a resolved deficit
+must be cleared in the same change that resolves it. First entry: De cerimoniis,
+which byzantium.gr serves complete for book 1 (75,843 tokens) while PG112 holds
+the whole work (149,293).
+
 External identifiers (TLG/CTS, Wikidata QID, VIAF/GND/ISNI, Trismegistos) are
 kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
@@ -2169,8 +2180,12 @@ below; regenerate it with `python scripts/build_provenance.py`.
   uncarved volumes (PG003 and PG112, 309,553 tokens). PG003 is deferred on the
   evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
   on the passage-level interleave the record used to claim; see the
-  split-deferred flag record); PG112 is one work end to end and wants a
-  disposition, not research.
+  split-deferred flag record); PG112 is TWO Canon works, not the one work an
+  earlier note called it: loci 44-353 are De cerimoniis lib. 1.1-83 with the
+  proem (the tlg3023.011 scope, verbatim the text byzantium.gr serves) and
+  354-730 are lib. 1.84-2.56 (tlg3023.010, served nowhere else). Its carve is
+  proposed on issue #8 and waits on the rank confirmation for displacing the
+  first block to a witness.
   PG067 carved to TWO SECONDARY witnesses and no primary, so the published
   primary corpus is 220,569 tokens smaller than before it: the volume is
   Socrates Scholasticus and Sozomen end to end, and both histories are already

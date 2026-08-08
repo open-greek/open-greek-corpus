@@ -44264,11 +44264,11 @@
    "tags": [],
    "editions": {}
   },
-  "anon-constantinus-vii-porphyrogenitus-imperator.constantinus-vii-porphyrogenitus-imperator-de-cerimoniis-aulae-byzantinae-lib-1-84-2-56": {
+  "anon-constantinus-vii-porphyrogenitus-imperator.constantinus-vii-porphyrogenitus-imperator-de-cerimoniis-aulae-byzantinae-lib-1-1-92": {
    "author": "anon-constantinus-vii-porphyrogenitus-imperator",
-   "title": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56",
+   "title": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
    "aliases": {
-    "cts": "urn:cts:greekLit:constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56"
+    "cts": "urn:cts:greekLit:constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -119198,14 +119198,26 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg3023.tlg011"
    },
-   "default_edition": null,
-   "best_source": "migne_cgpg",
+   "default_edition": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.byzantium-gr",
+   "best_source": "byzantium_gr",
    "tags": [
     "century:10",
     "era:byzantine",
     "genre:history"
    ],
    "editions": {
+    "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.byzantium-gr": {
+     "name": "byzantium.gr (byzantium-gr)",
+     "provider": "byzantium_gr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.vogt-1935": {
      "name": "Le livre des ce/re/monies, vols. 1%19`2",
      "provider": "tlg-e-reference",
@@ -119226,26 +119238,14 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg3023.tlg010"
    },
-   "default_edition": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56.byzantium-gr",
-   "best_source": "byzantium_gr",
+   "default_edition": null,
+   "best_source": "pd_edition",
    "tags": [
     "century:10",
     "era:byzantine",
     "genre:history"
    ],
    "editions": {
-    "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56.byzantium-gr": {
-     "name": "byzantium.gr (byzantium-gr)",
-     "provider": "byzantium_gr",
-     "scheme": "ref.sub.sub",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": true,
-     "aliases": {}
-    },
     "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56.reiske-1829": {
      "name": "Constantini Porphyrogeniti imperatoris de cerimoniis aulae Byzantinae libri duo, vol. 1",
      "provider": "tlg-e-reference",

@@ -98,7 +98,7 @@ ids:
 #    an upstream OCR delivery) can't drop each other's rows, because the per-work
 #    jsonl files never collide.
 ingest: $(CORPUS_EDITIONS)
-$(CORPUS_EDITIONS): $(INGESTERS) scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/work_id_aliases.json
+$(CORPUS_EDITIONS): $(INGESTERS) scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/work_id_aliases.json data/serving_deficits.json
 	$(PY) scripts/build_corpus_loci.py
 	$(PY) scripts/build_byzantine_vernacular_corpus.py
 	$(PY) scripts/build_byzantium_gr_corpus.py   # cache-first; fetches missing pages

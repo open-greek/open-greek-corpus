@@ -65,6 +65,8 @@ from crosswalk import slug_for  # noqa: E402
 CORPUS = DATA / "corpus"
 CE = DATA / "corpus_editions.json"
 SWEEP = DATA / "pd_research" / "byzantium_sweep.json"
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from compose_spacing_breathings import compose as _compose_breathings  # noqa: E402
 WORKS_OUT = DATA / "byzantium_gr_works.json"
 CACHE = DATA / "cache" / "byzantium_gr"
 BASE = "https://byzantium.gr/keimena/"
@@ -670,7 +672,10 @@ def build(only=None, refetch=False, dry_run=False):
         for locus, text in combined:
             n_tok += sum(1 for _ in _GK_TOK.finditer(text))
             records.append({"urn": key, "edition": EDITION, "locus": locus,
-                            "source": SOURCE, "license": LICENSE, "text": text})
+                            "source": SOURCE, "license": LICENSE,
+                            # same composition the TEI ingester applies; see the
+                            # note in build_corpus_loci.py (issue #4 regression)
+                            "text": _compose_breathings(text)[0]})
         n_struct += scheme is not None
 
         if dry_run:

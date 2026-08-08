@@ -1,302 +1,302 @@
 {
-  "_meta": {
-    "source": "byzantium.gr/keimena/keimena.php",
-    "description": "Byzantine historians hosted as running polytonic Greek (mostly from PD Bonn Corpus/CSHB editions). Matched against cog coverage_report gap_list to find gap works recoverable as TEXT instead of OCR.",
-    "license_caveat": "byzantium.gr shows NO explicit license; pages credit transcriber Manolis Papathanasiou (2011-2026) but no TLG number, no copyright notice, no modern-edition attribution on any page spot-checked. Reuse rests on the underlying PD editions (Bonn Corpus 1828-97, etc.). Verify the underlying edition is the PD one, not an in-copyright critical edition, before ingesting.",
-    "spot_checked": [
-      "grigoras11",
-      "choniatis",
-      "ierokles",
-      "pachymeris",
-      "kantakouzen1",
-      "theofanis1"
-    ],
-    "all_polytonic_running_text": true,
-    "total_byzantium_pages": 43
+ "_meta": {
+  "source": "byzantium.gr/keimena/keimena.php",
+  "description": "Byzantine historians hosted as running polytonic Greek (mostly from PD Bonn Corpus/CSHB editions). Matched against cog coverage_report gap_list to find gap works recoverable as TEXT instead of OCR.",
+  "license_caveat": "byzantium.gr shows NO explicit license; pages credit transcriber Manolis Papathanasiou (2011-2026) but no TLG number, no copyright notice, no modern-edition attribution on any page spot-checked. Reuse rests on the underlying PD editions (Bonn Corpus 1828-97, etc.). Verify the underlying edition is the PD one, not an in-copyright critical edition, before ingesting.",
+  "spot_checked": [
+   "grigoras11",
+   "choniatis",
+   "ierokles",
+   "pachymeris",
+   "kantakouzen1",
+   "theofanis1"
+  ],
+  "all_polytonic_running_text": true,
+  "total_byzantium_pages": 43
+ },
+ "gap_works_recoverable_as_text": [
+  {
+   "tlg_id": "tlg4145",
+   "work_id": "001",
+   "author": "NICEPHORUS GREGORAS",
+   "title": "Historia Romana",
+   "word_count": 353799,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/grigoras11.php",
+    "https://byzantium.gr/keimena/grigoras22.php",
+    "https://byzantium.gr/keimena/grigoras33.php",
+    "https://byzantium.gr/keimena/grigoras44.php",
+    "https://byzantium.gr/keimena/grigoras55.php",
+    "https://byzantium.gr/keimena/grigoras66.php",
+    "https://byzantium.gr/keimena/grigoras77.php",
+    "https://byzantium.gr/keimena/grigoras88.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "Nikephoros Gregoras Historia Romana in 8 parts (grigoras11..88); grigoras11=books 1-4 (1204-1259). Full work is 37 books; verify all parts cover the whole."
   },
-  "gap_works_recoverable_as_text": [
-    {
-      "tlg_id": "tlg4145",
-      "work_id": "001",
-      "author": "NICEPHORUS GREGORAS",
-      "title": "Historia Romana",
-      "word_count": 353799,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/grigoras11.php",
-        "https://byzantium.gr/keimena/grigoras22.php",
-        "https://byzantium.gr/keimena/grigoras33.php",
-        "https://byzantium.gr/keimena/grigoras44.php",
-        "https://byzantium.gr/keimena/grigoras55.php",
-        "https://byzantium.gr/keimena/grigoras66.php",
-        "https://byzantium.gr/keimena/grigoras77.php",
-        "https://byzantium.gr/keimena/grigoras88.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "Nikephoros Gregoras Historia Romana in 8 parts (grigoras11..88); grigoras11=books 1-4 (1204-1259). Full work is 37 books; verify all parts cover the whole."
-    },
-    {
-      "tlg_id": "tlg3169",
-      "work_id": "001",
-      "author": "JOANNES VI CANTACUZENUS",
-      "title": "Historiae",
-      "word_count": 316346,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/kantakouzen1.php",
-        "https://byzantium.gr/keimena/kantakouzen2.php",
-        "https://byzantium.gr/keimena/kantakouzen3.php",
-        "https://byzantium.gr/keimena/kantakouzen4.php"
-      ],
-      "complete": "yes",
-      "polytonic": "yes",
-      "note": "John VI Kantakouzenos Historiae in 4 parts = the work's 4 books (Book Α' 1320-1328 confirmed). Complete."
-    },
-    {
-      "tlg_id": "tlg4046",
-      "work_id": "001",
-      "author": "THEOPHANES CONFESSOR",
-      "title": "Chronographia",
-      "word_count": 135313,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/theofanis1.php",
-        "https://byzantium.gr/keimena/theofanis2.php",
-        "https://byzantium.gr/keimena/theofanis3.php",
-        "https://byzantium.gr/keimena/theofanis4.php"
-      ],
-      "complete": "yes",
-      "polytonic": "yes",
-      "note": "Theophanes Confessor Chronographia in 4 parts; spot-checked theofanis1 = \"ΘΕΟΦΑΝΟΥΣ...ΧΡΟΝΟΓΡΑΦΙΑ\" 284-813, fully polytonic."
-    },
-    {
-      "tlg_id": "tlg3139",
-      "work_id": "001",
-      "author": "Laonicus CHALCOCONDYLES",
-      "title": "Historiae",
-      "word_count": 106746,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/laonikos.php",
-        "https://byzantium.gr/keimena/laonikos2.php",
-        "https://byzantium.gr/keimena/laonikos3.php",
-        "https://byzantium.gr/keimena/laonikos4.php",
-        "https://byzantium.gr/keimena/laonikos5.php"
-      ],
-      "complete": "yes",
-      "polytonic": "yes",
-      "note": "Laonikos Chalkokondyles Historiae in 5 parts covering books Α-Ι (1-10) = full 10-book work. Complete."
-    },
-    {
-      "tlg_id": "tlg2702",
-      "work_id": "001",
-      "author": "Michael PSELLUS",
-      "title": "Chronographia",
-      "word_count": 78479,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/psellos.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "Michael Psellos Chronographia, single page."
-    },
-    {
-      "tlg_id": "tlg3023",
-      "work_id": "010",
-      "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
-      "title": "De cerimoniis aulae Byzantinae (lib. 1.84%19`2.56)",
-      "word_count": 76649,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/porfyrogen-ceremonis.php"
-      ],
-      "complete": "partial",
-      "polytonic": "yes",
-      "note": "De Ceremoniis: byzantium hosts only \"πρώτος τόμος\" (vol 1 of 2). TLG splits the work into .010 (gap) and .011 (locked); vol1 covers part of it."
-    },
-    {
-      "tlg_id": "tlg3130",
-      "work_id": "003",
-      "author": "THEOPHYLACTUS SIMOCATTA",
-      "title": "Historiae",
-      "word_count": 65428,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/simocatis.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "Theophylact Simocatta Historiae (Οικουμενική Ιστορία), single page; 8 books, verify all covered."
-    },
-    {
-      "tlg_id": "tlg3079",
-      "work_id": "001",
-      "author": "MICHAEL ATTALIATES",
-      "title": "Historia",
-      "word_count": 61983,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/attaleiates.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "Michael Attaleiates Historia, single page."
-    },
-    {
-      "tlg_id": "tlg3141",
-      "work_id": "002",
-      "author": "Georgius ACROPOLITES",
-      "title": "Annales",
-      "word_count": 39604,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/akropolitis.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "George Akropolites Annales (Χρονική Συγγραφή), single page."
-    },
-    {
-      "tlg_id": "tlg3069",
-      "work_id": "001",
-      "author": "LEO Diaconus",
-      "title": "Historia",
-      "word_count": 34643,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/diakonos.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "Leo the Deacon Historia, single page; 10 books."
-    },
-    {
-      "tlg_id": "tlg3141",
-      "work_id": "010",
-      "author": "Georgius ACROPOLITES",
-      "title": "Contra Latinos",
-      "word_count": 10561,
-      "best_source": "pd_edition",
-      "byzantium_urls": [
-        "https://byzantium.gr/keimena/akropolitis-latinos.php"
-      ],
-      "complete": "unknown",
-      "polytonic": "yes",
-      "note": "George Akropolites Contra Latinos, single page."
-    }
-  ],
-  "total_gap_words_recoverable": 1279551,
-  "gap_works_matched_count": 11,
-  "byzantium_already_ingested": [
-    {
-      "page": "procopius1.php",
-      "tlg_id": "tlg4029",
-      "work_id": "001",
-      "work": "Procopius, De bellis (Wars)",
-      "status": "already ingested (perseus)"
-    },
-    {
-      "page": "anekdota.php",
-      "tlg_id": "tlg4029",
-      "work_id": "002",
-      "work": "Procopius, Historia arcana (Secret History)",
-      "status": "already ingested (perseus)"
-    }
-  ],
-  "byzantium_locked_unlock_candidates": [
-    {
-      "pages": [
-        "ktismaton.php"
-      ],
-      "tlg_id": "tlg4029",
-      "work_id": "003",
-      "work": "Procopius, De aedificiis (Buildings)",
-      "note": "locked in cog; byzantium has it as text."
-    },
-    {
-      "pages": [
-        "choniatis.php",
-        "xoniates2.php",
-        "xoniates3.php",
-        "xoniates4.php",
-        "xoniates5.php"
-      ],
-      "tlg_id": "tlg3094",
-      "work_id": "001",
-      "work": "Niketas Choniates, Historia (Chronike Diegesis)",
-      "note": "locked in cog; byzantium has the full work in 5 parts (1118-1207), fully polytonic. Major unlock candidate."
-    },
-    {
-      "pages": [
-        "skylitzes.php"
-      ],
-      "tlg_id": "tlg3063",
-      "work_id": "001",
-      "work": "John Skylitzes, Synopsis Historiarum",
-      "note": "locked in cog; byzantium has it."
-    },
-    {
-      "pages": [
-        "skylitzes0.php"
-      ],
-      "tlg_id": "tlg3064",
-      "work_id": "002",
-      "work": "Scylitzes Continuatus, Continuatio",
-      "note": "locked in cog; byzantium has it."
-    },
-    {
-      "pages": [
-        "sfrantzes.php"
-      ],
-      "tlg_id": "tlg3143",
-      "work_id": "001",
-      "work": "George Sphrantzes, Chronicon (Minus)",
-      "note": "locked in cog; byzantium has it."
-    },
-    {
-      "pages": [
-        "pachymeris.php"
-      ],
-      "tlg_id": "tlg3142",
-      "work_id": "001",
-      "work": "George Pachymeres, Syngraphikai Historiai - De Michaele Palaeologo (books 1-6)",
-      "note": "locked in cog. NOTE: byzantium carries ONLY the De Michaele part (.001); the GAP work .002 (De Andronico, libri vii) is NOT on byzantium."
-    },
-    {
-      "pages": [
-        "porfyrogen-administrato.php"
-      ],
-      "tlg_id": "tlg3023",
-      "work_id": "008",
-      "work": "Constantine VII, De administrando imperio",
-      "note": "locked in cog; byzantium has it."
-    },
-    {
-      "pages": [
-        "porfyrogen-thematibus.php"
-      ],
-      "tlg_id": "tlg3023",
-      "work_id": "009",
-      "work": "Constantine VII, De thematibus",
-      "note": "locked in cog; byzantium has it."
-    }
-  ],
-  "byzantium_unmatched": [
-    {
-      "page": "ierokles.php",
-      "work": "Hierocles (Grammaticus), Synecdemus (Συνέκδημος) - 6th-c. province/city list",
-      "note": "FALSE-MATCH AVOIDED: this is the geographer Hierocles, NOT tlg1429/tlg2571 (both the philosopher Hierocles, Ethike Stoicheiosis / In aureum carmen). The Synecdemus author is not in this TLG canon subset; no confident gap match. Polytonic text confirmed."
-    }
-  ],
-  "gap_works_expected_but_byzantium_lacks": [
-    {
-      "tlg_id": "tlg3142",
-      "work_id": "002",
-      "work": "George Pachymeres, De Andronico Palaeologo (libri vii)",
-      "word_count": 112667,
-      "note": "GAP work; byzantium only has the De Michaele part (.001), not this one."
-    }
-  ]
+  {
+   "tlg_id": "tlg3169",
+   "work_id": "001",
+   "author": "JOANNES VI CANTACUZENUS",
+   "title": "Historiae",
+   "word_count": 316346,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/kantakouzen1.php",
+    "https://byzantium.gr/keimena/kantakouzen2.php",
+    "https://byzantium.gr/keimena/kantakouzen3.php",
+    "https://byzantium.gr/keimena/kantakouzen4.php"
+   ],
+   "complete": "yes",
+   "polytonic": "yes",
+   "note": "John VI Kantakouzenos Historiae in 4 parts = the work's 4 books (Book Α' 1320-1328 confirmed). Complete."
+  },
+  {
+   "tlg_id": "tlg4046",
+   "work_id": "001",
+   "author": "THEOPHANES CONFESSOR",
+   "title": "Chronographia",
+   "word_count": 135313,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/theofanis1.php",
+    "https://byzantium.gr/keimena/theofanis2.php",
+    "https://byzantium.gr/keimena/theofanis3.php",
+    "https://byzantium.gr/keimena/theofanis4.php"
+   ],
+   "complete": "yes",
+   "polytonic": "yes",
+   "note": "Theophanes Confessor Chronographia in 4 parts; spot-checked theofanis1 = \"ΘΕΟΦΑΝΟΥΣ...ΧΡΟΝΟΓΡΑΦΙΑ\" 284-813, fully polytonic."
+  },
+  {
+   "tlg_id": "tlg3139",
+   "work_id": "001",
+   "author": "Laonicus CHALCOCONDYLES",
+   "title": "Historiae",
+   "word_count": 106746,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/laonikos.php",
+    "https://byzantium.gr/keimena/laonikos2.php",
+    "https://byzantium.gr/keimena/laonikos3.php",
+    "https://byzantium.gr/keimena/laonikos4.php",
+    "https://byzantium.gr/keimena/laonikos5.php"
+   ],
+   "complete": "yes",
+   "polytonic": "yes",
+   "note": "Laonikos Chalkokondyles Historiae in 5 parts covering books Α-Ι (1-10) = full 10-book work. Complete."
+  },
+  {
+   "tlg_id": "tlg2702",
+   "work_id": "001",
+   "author": "Michael PSELLUS",
+   "title": "Chronographia",
+   "word_count": 78479,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/psellos.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "Michael Psellos Chronographia, single page."
+  },
+  {
+   "tlg_id": "tlg3023",
+   "work_id": "011",
+   "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
+   "title": "De cerimoniis aulae Byzantinae (lib. 1.1%19`92)",
+   "word_count": 78092,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/porfyrogen-ceremonis.php"
+   ],
+   "complete": "partial",
+   "polytonic": "yes",
+   "note": "De Ceremoniis: byzantium hosts the first volume only, which is the proem and book 1 chapters 1-83, i.e. the tlg3023.011 (Vogt, lib. 1.1-92) scope. An earlier version of this entry filed it under .010 because .010 was the gap being filled, while this note already said vol 1 covers only part of the work; corrected 2026-08-08 on the proem being verbatim identical to PG112 locus 44 (issue #8). lib. 1.84-2.56 (.010) is held only in cogPG.PG112."
+  },
+  {
+   "tlg_id": "tlg3130",
+   "work_id": "003",
+   "author": "THEOPHYLACTUS SIMOCATTA",
+   "title": "Historiae",
+   "word_count": 65428,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/simocatis.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "Theophylact Simocatta Historiae (Οικουμενική Ιστορία), single page; 8 books, verify all covered."
+  },
+  {
+   "tlg_id": "tlg3079",
+   "work_id": "001",
+   "author": "MICHAEL ATTALIATES",
+   "title": "Historia",
+   "word_count": 61983,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/attaleiates.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "Michael Attaleiates Historia, single page."
+  },
+  {
+   "tlg_id": "tlg3141",
+   "work_id": "002",
+   "author": "Georgius ACROPOLITES",
+   "title": "Annales",
+   "word_count": 39604,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/akropolitis.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "George Akropolites Annales (Χρονική Συγγραφή), single page."
+  },
+  {
+   "tlg_id": "tlg3069",
+   "work_id": "001",
+   "author": "LEO Diaconus",
+   "title": "Historia",
+   "word_count": 34643,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/diakonos.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "Leo the Deacon Historia, single page; 10 books."
+  },
+  {
+   "tlg_id": "tlg3141",
+   "work_id": "010",
+   "author": "Georgius ACROPOLITES",
+   "title": "Contra Latinos",
+   "word_count": 10561,
+   "best_source": "pd_edition",
+   "byzantium_urls": [
+    "https://byzantium.gr/keimena/akropolitis-latinos.php"
+   ],
+   "complete": "unknown",
+   "polytonic": "yes",
+   "note": "George Akropolites Contra Latinos, single page."
+  }
+ ],
+ "total_gap_words_recoverable": 1279551,
+ "gap_works_matched_count": 11,
+ "byzantium_already_ingested": [
+  {
+   "page": "procopius1.php",
+   "tlg_id": "tlg4029",
+   "work_id": "001",
+   "work": "Procopius, De bellis (Wars)",
+   "status": "already ingested (perseus)"
+  },
+  {
+   "page": "anekdota.php",
+   "tlg_id": "tlg4029",
+   "work_id": "002",
+   "work": "Procopius, Historia arcana (Secret History)",
+   "status": "already ingested (perseus)"
+  }
+ ],
+ "byzantium_locked_unlock_candidates": [
+  {
+   "pages": [
+    "ktismaton.php"
+   ],
+   "tlg_id": "tlg4029",
+   "work_id": "003",
+   "work": "Procopius, De aedificiis (Buildings)",
+   "note": "locked in cog; byzantium has it as text."
+  },
+  {
+   "pages": [
+    "choniatis.php",
+    "xoniates2.php",
+    "xoniates3.php",
+    "xoniates4.php",
+    "xoniates5.php"
+   ],
+   "tlg_id": "tlg3094",
+   "work_id": "001",
+   "work": "Niketas Choniates, Historia (Chronike Diegesis)",
+   "note": "locked in cog; byzantium has the full work in 5 parts (1118-1207), fully polytonic. Major unlock candidate."
+  },
+  {
+   "pages": [
+    "skylitzes.php"
+   ],
+   "tlg_id": "tlg3063",
+   "work_id": "001",
+   "work": "John Skylitzes, Synopsis Historiarum",
+   "note": "locked in cog; byzantium has it."
+  },
+  {
+   "pages": [
+    "skylitzes0.php"
+   ],
+   "tlg_id": "tlg3064",
+   "work_id": "002",
+   "work": "Scylitzes Continuatus, Continuatio",
+   "note": "locked in cog; byzantium has it."
+  },
+  {
+   "pages": [
+    "sfrantzes.php"
+   ],
+   "tlg_id": "tlg3143",
+   "work_id": "001",
+   "work": "George Sphrantzes, Chronicon (Minus)",
+   "note": "locked in cog; byzantium has it."
+  },
+  {
+   "pages": [
+    "pachymeris.php"
+   ],
+   "tlg_id": "tlg3142",
+   "work_id": "001",
+   "work": "George Pachymeres, Syngraphikai Historiai - De Michaele Palaeologo (books 1-6)",
+   "note": "locked in cog. NOTE: byzantium carries ONLY the De Michaele part (.001); the GAP work .002 (De Andronico, libri vii) is NOT on byzantium."
+  },
+  {
+   "pages": [
+    "porfyrogen-administrato.php"
+   ],
+   "tlg_id": "tlg3023",
+   "work_id": "008",
+   "work": "Constantine VII, De administrando imperio",
+   "note": "locked in cog; byzantium has it."
+  },
+  {
+   "pages": [
+    "porfyrogen-thematibus.php"
+   ],
+   "tlg_id": "tlg3023",
+   "work_id": "009",
+   "work": "Constantine VII, De thematibus",
+   "note": "locked in cog; byzantium has it."
+  }
+ ],
+ "byzantium_unmatched": [
+  {
+   "page": "ierokles.php",
+   "work": "Hierocles (Grammaticus), Synecdemus (Συνέκδημος) - 6th-c. province/city list",
+   "note": "FALSE-MATCH AVOIDED: this is the geographer Hierocles, NOT tlg1429/tlg2571 (both the philosopher Hierocles, Ethike Stoicheiosis / In aureum carmen). The Synecdemus author is not in this TLG canon subset; no confident gap match. Polytonic text confirmed."
+  }
+ ],
+ "gap_works_expected_but_byzantium_lacks": [
+  {
+   "tlg_id": "tlg3142",
+   "work_id": "002",
+   "work": "George Pachymeres, De Andronico Palaeologo (libri vii)",
+   "word_count": 112667,
+   "note": "GAP work; byzantium only has the De Michaele part (.001), not this one."
+  }
+ ]
 }

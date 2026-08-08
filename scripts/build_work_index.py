@@ -43,6 +43,59 @@ from build_id_registry import (  # noqa: E402
 
 TLG_CROSSWALK = DATA / "tlg_crosswalk.json"
 WORK_INDEX = DATA / "work_index.json"
+SERVING_DEFICITS = DATA / "serving_deficits.json"
+REPO = DATA.parent
+
+
+def load_serving_deficits(served: set[str]) -> dict[str, dict]:
+    """slug -> serving_deficit block with tokens DERIVED from the named files.
+
+    The curated file (data/serving_deficits.json) records only the human
+    decisions: that a fuller text of the same work is held, where, and what is
+    intended. Every number is computed here at build time, and every failure is
+    fatal rather than a silent no-op, because each is a specific accident that
+    has already happened in this repo in some form: a curated key going stale
+    when the thing it names is renamed (pseudo_author_attributions permits
+    that silently), a stored count going stale when the text changes (the
+    grave_residue case), and a deficit quietly surviving its own resolution
+    (if the fuller file is carved away, the reference dangles and the build
+    stops until this file is updated).
+    """
+    from build_public_corpus import _GK
+    cur = load_json(SERVING_DEFICITS, {})
+    out: dict[str, dict] = {}
+    for slug, e in (cur.get("works") or {}).items():
+        if slug not in served:
+            sys.exit(f"serving_deficits.json: {slug!r} is not a served work "
+                     f"(renamed or retired?); update the entry")
+        fuller_fp = REPO / e["fuller_in"]
+        if not fuller_fp.exists():
+            sys.exit(f"serving_deficits.json: {e['fuller_in']} does not exist; "
+                     f"the deficit on {slug} was probably resolved and this "
+                     f"entry needs updating or removing")
+
+        def toks(fp: Path) -> int:
+            n = 0
+            for line in fp.read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    n += len(_GK.findall(json.loads(line).get("text") or ""))
+            return n
+
+        served_tokens = toks(DATA / "corpus" / f"{slug}.jsonl")
+        fuller_tokens = toks(fuller_fp)
+        if fuller_tokens <= served_tokens:
+            sys.exit(f"serving_deficits.json: the text named for {slug} is not "
+                     f"fuller ({fuller_tokens:,} vs {served_tokens:,} served); "
+                     f"the deficit is stale")
+        out[slug] = {
+            "served_tokens": served_tokens,
+            "fuller_tokens": fuller_tokens,
+            "fuller_in": e["fuller_in"],
+            "scope": e.get("scope"),
+            "reason": e.get("reason"),
+            "intent": e.get("intent"),
+        }
+    return out
 
 
 def _clean(d: dict) -> dict:
@@ -296,6 +349,8 @@ def build(write: bool = True) -> dict:
     works = {}
     redirects = {}
     n_anchor = n_no_anchor = 0
+    served_slugs = {e["slug"] for e in work_ids.values() if e["status"] == "served"}
+    deficits = load_serving_deficits(served_slugs)
     for i, e in sorted(work_ids.items()):
         slug = e["slug"]
         if e["status"] != "served":
@@ -332,6 +387,12 @@ def build(write: bool = True) -> dict:
                 "n_tokens": man.get("n_tokens"),
             }),
         }
+        if slug in deficits:
+            # Served, but a fuller text of the same work is held in this repo
+            # and the serving is meant to grow into it. Curated intent in
+            # data/serving_deficits.json; the numbers here are derived fresh
+            # from the named files on every build.
+            works[slug]["serving_deficit"] = deficits[slug]
         for fs in e.get("former_slugs", []):
             redirects[fs] = slug
 

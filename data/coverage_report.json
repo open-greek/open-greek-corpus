@@ -2,15 +2,15 @@
   "headline": {
     "total_works": 7209,
     "total_words": 74975998,
-    "source_overrides_applied": 107,
-    "ingested_via_cgpg_volume": 6,
+    "source_overrides_applied": 106,
+    "ingested_via_cgpg_volume": 5,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.23,
-    "pct_ingested_actual": 65.92,
-    "ingested_words_actual": 49422788,
-    "ingested_complete_works": 2895,
+    "pct_ingested": 72.13,
+    "pct_ingested_actual": 65.81,
+    "ingested_words_actual": 49344696,
+    "ingested_complete_works": 2894,
     "ingested_partial_works": 117,
-    "pct_reachable_not_ingested": 14.41,
+    "pct_reachable_not_ingested": 14.51,
     "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
@@ -25,12 +25,12 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3012,
-      "word_count": 54156166
+      "works": 3011,
+      "word_count": 54079517
     },
     "reachable_not_ingested": {
-      "works": 1601,
-      "word_count": 10804038
+      "works": 1602,
+      "word_count": 10880687
     },
     "locked": {
       "works": 2192,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2895,
-      "word_count": 51664277
+      "works": 2894,
+      "word_count": 51587628
     },
     "ingested_partial": {
       "works": 117,
@@ -51,8 +51,8 @@
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1168,
-      "word_count": 9210756
+      "works": 1169,
+      "word_count": 9287405
     },
     "migne_pd": {
       "works": 407,
@@ -304,6 +304,14 @@
       "author": "Proclus",
       "title": "In Primum Euclidis Elementorum Librum Commentarii",
       "word_count": 84453,
+      "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg3023",
+      "work_id": "010",
+      "author": "Constantinus VII Porphyrogenitus Imperator",
+      "title": "De Cerimoniis Aulae Byzantinae (Lib. 1.84-2.56)",
+      "word_count": 76649,
       "best_source": "pd_edition"
     },
     {

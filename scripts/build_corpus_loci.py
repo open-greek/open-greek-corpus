@@ -59,6 +59,16 @@ import os
 import re
 import sys
 import unicodedata
+
+# The corpus stopped carrying spacing breathings before capitals on 2026-08-07
+# (compose_spacing_breathings.py, issue #4): the page prints one letter with a
+# breathing over it, and holding it as two characters split every such word in
+# two and minted junk lemmas beside the real ones. That fix was applied to the
+# corpus FILES, and this ingester kept emitting the legacy encoding, so the
+# first re-ingest quietly regressed 116 files. The rule the repo already states
+# is fixes-live-in-the-generator, and this is that: every row this script
+# writes goes through the same composition.
+from compose_spacing_breathings import compose as _compose_breathings  # noqa: E402
 from collections import defaultdict
 from pathlib import Path
 
@@ -1147,7 +1157,7 @@ def main() -> None:
                 "locus": locus,
                 "source": source,
                 "license": lic,
-                "text": text,
+                "text": _compose_breathings(text)[0],
             }
             # A disambiguated reading (a DISTINCT second reading that shared this
             # citation) carries its base citation, and the recension siglum when the

@@ -12,7 +12,7 @@
    "works": 3902,
    "with_external_anchor": 3332,
    "no_external_anchor": 570,
-   "redirects": 5
+   "redirects": 6
   }
  },
  "works": {
@@ -22404,11 +22404,13 @@
     "n_tokens": 39545
    }
   },
-  "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56": {
+  "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92": {
    "id": "ogc000869",
-   "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56",
-   "former_slugs": [],
-   "title": "De Cerimoniis Aulae Byzantinae (Lib. 1.84-2.56)",
+   "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
+   "former_slugs": [
+    "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56"
+   ],
+   "title": "De Cerimoniis Aulae Byzantinae (Lib. 1.1-92)",
    "author": {
     "id": "oga000392",
     "slug": "constantinus-vii-porphyrogenitus-imperator",
@@ -22421,8 +22423,8 @@
     }
    },
    "work_anchors": {
-    "cts": "urn:cts:greekLit:tlg3023.tlg010",
-    "tlg": "tlg3023.tlg010"
+    "cts": "urn:cts:greekLit:tlg3023.tlg011",
+    "tlg": "tlg3023.tlg011"
    },
    "manifestation": {
     "edition": "byzantium-gr",
@@ -22430,6 +22432,14 @@
     "license": "PD",
     "n_passages": 480,
     "n_tokens": 75831
+   },
+   "serving_deficit": {
+    "served_tokens": 75843,
+    "fuller_tokens": 149293,
+    "fuller_in": "data/corpus/cogPG.PG112.jsonl",
+    "scope": "serves the proem and lib. 1.1-83 of a work whose Canon scope is lib. 1.1-92; the missing chapters, and the whole of lib. 1.84-2.56 (tlg3023.010, a separate Canon work), are printed in PG112, verified by the served proem being verbatim identical to PG112 locus 44 and the book-2 head at locus 495",
+    "reason": "the served text is byzantium.gr's manual transcription and stays primary over our OCR of the same passages per the source-precedence ladder; the fuller text is uncorrected OCR",
+    "intent": "supplement the served work's missing tail from the PG112 text once it is carved and corrected, or replace the serving entirely if a fuller transcription or corrected edition becomes available"
    }
   },
   "constantinus-vii-porphyrogenitus-imperator.de-thematibus": {
@@ -101206,6 +101216,7 @@
  },
  "redirects": {
   "choerilus.tituli-p-oxy-11-1399": "choerilus.fragmenta-epica",
+  "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
   "flavius-justinianus-imperator.contra-monophysitas": "flavius-justinianus-imperator.novellae",
   "nicolaus-history.nicolaus-progymnasmata-felten": "nicolaus-rhetoric.progymnasmata",
   "pausanias.attikw-n-o-noma-twn-sunagwgh": "pausanias-attic.attikw-n-o-noma-twn-sunagwgh",
