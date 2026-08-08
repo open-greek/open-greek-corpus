@@ -4816,6 +4816,44 @@
      "rank": "primary"
     }
    ]
+  },
+  {
+   "volume": "PG112",
+   "pass": 1,
+   "basis": "read at the row, with the volume's two halves settled against the TLG Canon's own split and against the served byzantium.gr text. The Canon divides De cerimoniis into two works by EDITION, not by overlapping scope: tlg3023.011 is Vogt (lib. 1.1-92 in Vogt's chapter numbering) and tlg3023.010 is Reiske (lib. 1.84-2.56 in Reiske's). Vogt's 92 book-1 chapters are Reiske's 83, so the two are complementary halves of one text, not an overlap. Measured confirmation, not inference: the served byzantium.gr text's last row ends with the Gothic-game acclamation glossary (σῶσον δὴ σῶσον Ἑβραῖον ... ἡ τροφὴ τῶν στρατευμάτων Ῥωμαῖον), which is the same glossary that closes PG112 locus 354 immediately before its ΚΕΦΑΛ. ΠΔʹ head, and the served text contains nothing of chapter 84 (neither Ἐκ τῶν τοῦ Μαγίστρου Πέτρου nor κόμης τῶν ἀδμηνσιόνων). So the two texts meet exactly at Reiske's chapter 84, each holding one Canon work.",
+   "residual_ranges": [
+    [
+     44,
+     353
+    ]
+   ],
+   "works": [
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske",
+     "tlg": "tlg3023.tlg010",
+     "title": "De cerimoniis aulae Byzantinae (lib. 1.84-2.56)",
+     "author_display": "Constantinus VII Porphyrogenitus",
+     "ranges": [
+      [
+       354,
+       730
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 354,
+       "text": "ΚΕΦΑΛ. Πὸʹ. Ἐκ τῶν τοῦ Μαγίσερου Πέσρου. Ὅσα δε παραφυλάετειν ἐπὶ προαγωγῇ κόμητος ἀδμινσιόνων",
+       "notes": "the anchor is the ΚΕΦΑΛ. ΠΔʹ head as our OCR renders it (Πὸʹ for ΠΔʹ, Μαγίσερου Πέσρου for Μαγίστρου Πέτρου), quoted from the row rather than corrected, so the check tests the row we actually carve. It sits at character 249 of locus 354, not at the row's start: the first 249 characters are chapter 83's tail and belong to the served Vogt work."
+      }
+     ],
+     "evidence": "Reiske's chapters 84 to the end. The block opens mid-row: locus 354 carries the tail of chapter 83's Gothic ceremony and its acclamation glossary (37 tokens, the last thing the served Vogt text also holds) and then the ΚΕΦΑΛ. ΠΔʹ head at character 249, after which the row is chapter 84 (224 tokens). Under the shared-row rule the row goes to the work whose head it carries, so those 37 tokens travel with .010; the deviation is under-claimed nowhere and over-claimed here, and is recorded rather than smoothed. Book 2 opens at locus 495 (ΚΕΦΑΛΑΙΟΝ Αʹ). 73,431 tokens against the Canon's 76,649 words for this work, 0.958, and the shortfall is located: see partial_ceiling below.",
+     "rank": "primary",
+     "partial_ceiling": "incomplete at the tail. Our OCR's last locus is 730, which is scan page 731 (col = 2*page - 27, so cols 1435-1436), and that page is Reiske's ΚΕΦΑΛ. ΝΕʹ (CAPUT LV, De distributione sportularum consuetudinis praepositorum); the row ends mid-sentence at τάσσειν ἀφ´ αὐτῶν τὸν οἰονοῦν ἐν·. Migne keeps printing the work past that: scan page 733 (cols 1439-1440) is still chapter 55, and the INDEX IN LIBRUM DE CERIMONIIS begins at scan page 740 (cols 1453-1454). So the text runs to about col 1452 and we hold it only to col 1436: roughly eight pages, the rest of chapter 55 and the whole of chapter 56, are absent from our OCR of this volume. That accounts for the 0.958 ratio. Verified on the scans in Internet Archive item patrologia.graeca.org, _112.zip, 2026-08-08.",
+     "slug_note": "The obvious slug for this work, ...de-cerimoniis-aulae-byzantinae-lib-1-84-2-56, is taken: it is a FORMER slug of the byzantium.gr work (ogc000869), which was published under it until 2026-08-08 while actually serving Vogt's half, and it still redirects there. Dropping that redirect to free the name would make every citation written before the rename resolve silently to a different text, which is worse than an awkward slug, so this work takes the editor-qualified form. The suffix is not decoration: Reiske's numbering is exactly what distinguishes this Canon work from tlg3023.011, and the collision only exists because the other work wore this name by mistake."
+    }
+   ],
+   "residual_note": "44-353 is Reiske's chapters 1-83, the SAME text byzantium.gr serves as tlg3023.011 (75,862 tokens here against 75,843 served). It is left uncarved on purpose: displacing it to corpus_secondary as an edition witness is the disposition cisco reserved on issue #8, and the precedent (PG067, PG113's De thematibus) points that way because a manual transcription beats our OCR of the same text. Nothing about it is unknown; it is waiting on a decision, not on evidence.",
+   "date": "2026-08-08"
   }
  ]
 }

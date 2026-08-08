@@ -1,6 +1,6 @@
 {
   "headline": {
-    "works": 11068,
+    "works": 11069,
     "authors": 3318,
     "editions": 10205,
     "pct_works_with_canonical_locus": 36.7,
@@ -8,8 +8,8 @@
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3902,
-    "pct_served_in_registry": 74.6,
+    "served_works": 3903,
+    "pct_served_in_registry": 74.5,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
     "pct_served_with_any_anchor": 85.4,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11068,
+      "count": 11069,
       "pct": 100.0
     },
     "wikidata": {
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9104,
+      "count": 9105,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3902,
+    "served_works": 3903,
     "in_registry": 2909,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 993,
+      "count": 994,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -535,12 +535,12 @@
       ]
     },
     "with_work_qid": 504,
-    "with_author_qid": 2875,
-    "with_any_external_anchor": 3332,
+    "with_author_qid": 2876,
+    "with_any_external_anchor": 3333,
     "with_logical_served_locus": 2120,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2371,
+      "count": 2372,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",

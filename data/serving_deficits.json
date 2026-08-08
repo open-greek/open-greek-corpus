@@ -2,17 +2,12 @@
  "_meta": {
   "description": "Works whose served text is known to be shorter than a fuller text of the SAME work held in this repo, with the intent to eventually supplement or replace the served text from it. Curated: each entry is a human decision that the fuller text really is the same work (a token ratio alone cannot establish that; a witness can be bigger because it prints apparatus, or because it is a different work, as issues #23 and #28 showed). Consumed by scripts/build_work_index.py, which writes a serving_deficit block onto the work's index entry and a column into the catalog.",
   "policy": "Entries carry NO token counts or ratios; every number is derived at build time from the named files, so it cannot go stale (the grave_residue lesson). The build FAILS if an entry's slug is not served, if fuller_in does not exist, or if the fuller text is not actually larger than the served text, so a resolved deficit must be removed or updated here in the same change that resolves it. fuller_in must be a file held in this repo, which keeps this disjoint from data/partial_ceilings.json, whose ceilings are external editions we do not hold.",
-  "used_by": ["scripts/build_work_index.py", "scripts/build_corpus_catalog.py"],
-  "issue": "open-greek/open-greek-corpus#8"
+  "used_by": [
+   "scripts/build_work_index.py",
+   "scripts/build_corpus_catalog.py"
+  ],
+  "issue": "open-greek/open-greek-corpus#8",
+  "currently_empty": "No entry as of 2026-08-08. The file's first entry, on De cerimoniis, was WRONG and was removed the day after it was written: it read the Canon's two De cerimoniis works as overlapping scopes (tlg3023.011 lib. 1.1-92 against tlg3023.010 lib. 1.84-2.56) and concluded the served text was missing chapters 84-92. They do not overlap. They are two EDITIONS with different chapter numbering, Vogt for .011 and Reiske for .010, and Vogt's 92 book-1 chapters are Reiske's 83, so the two are complementary halves. The served text is essentially complete for its own work (0.971 of the Canon word count). Measured, not inferred: the served text's last row ends with the Gothic-game acclamation glossary that closes PG112 locus 354 immediately before its chapter 84 head, and holds nothing of chapter 84. The mechanism stands and its guards are tested; it is waiting for a case that survives this kind of check, which is exactly the check the first entry did not get."
  },
- "works": {
-  "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92": {
-   "fuller_in": "data/corpus/cogPG.PG112.jsonl",
-   "scope": "serves the proem and lib. 1.1-83 of a work whose Canon scope is lib. 1.1-92; the missing chapters, and the whole of lib. 1.84-2.56 (tlg3023.010, a separate Canon work), are printed in PG112, verified by the served proem being verbatim identical to PG112 locus 44 and the book-2 head at locus 495",
-   "reason": "the served text is byzantium.gr's manual transcription and stays primary over our OCR of the same passages per the source-precedence ladder; the fuller text is uncorrected OCR",
-   "intent": "supplement the served work's missing tail from the PG112 text once it is carved and corrected, or replace the serving entirely if a fuller transcription or corrected edition becomes available",
-   "recorded": "2026-08-08",
-   "issue": "open-greek/open-greek-corpus#8"
-  }
- }
+ "works": {}
 }
