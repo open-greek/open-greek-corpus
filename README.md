@@ -334,20 +334,21 @@ once: `--pass N` runs over what the previous pass left, so a block whose
 attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
-appearing to succeed. 21 volumes have been carved so
-far, and 12 `cogPG.*` files are still volume-keyed. Ten of those are the
-carved volumes' leftovers, 24,753 Greek tokens between them: seven are small
-(PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
-tokens in total, the rows the plan's ranges did not claim; each is identified in
-its plan entry's residual note, and the two largest are Greek apparatus, the
-Ignatius testimonia in PG005 and the Euthalian pieces in PG118, not the Latin
-monita an earlier summary called them), and three are
-substantial residues that the carve deliberately did not attribute (PG113
-7,821, and PG151 3,119, which is two identified works whose seams fall inside
-rows: Gregory Palamas' Homologia, attributed in Migne's printed title, and the
-confined archbishops' report to Anna Palaiologina, neither expressible by a
-whole-row carve; PG139 is down to a 1,349-token table of contents). Only two whole volumes remain uncarved,
-holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
+appearing to succeed. 22 volumes have been carved so
+far, and 12 `cogPG.*` files are still volume-keyed, holding 259,138 Greek
+tokens. Eleven of those are carved volumes' leftovers, 98,878 tokens between
+them, and 75,862 of that is PG112's uncarved half alone (the Vogt text
+byzantium.gr already serves, left volume-keyed pending a disposition). The rest
+is small: PG005, PG101, PG107, PG109, PG118, PG124 and PG125 hold 2 to 13 rows
+each, every one identified in its plan entry's residual note, and the largest
+are Greek apparatus rather than the Latin monita an earlier summary called them,
+the Ignatius testimonia in PG005 and the Oecumenius prefatory matter in PG118.
+PG113 keeps 7,821 and PG139 a 1,349-token table of contents. PG151's 3,119 are
+two identified works, Gregory Palamas' Homologia and the confined archbishops'
+report to Anna Palaiologina, whose seams fall inside rows; the splitter that
+serves such a work now exists (`scripts/split_carved_row.py`, first used on
+PG118's Euthalian pieces), and PG151 is the next volume for it. Only one whole
+volume remains uncarved, PG003 at 160,260 tokens. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it has been corrected twice, in opposite
 directions. It originally said the Dionysius text interleaves passage-by-passage
@@ -766,7 +767,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1388 OCR'd works/volumes: 186 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1391 OCR'd works/volumes: 189 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1085,7 +1086,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
 | PG112 | Constantine VII v1 De ceremoniis (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 75,862 | manual |
 | PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7,821 | manual |
-| PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,630 | manual |
+| PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,893 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
 | PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,349 | manual |
@@ -1259,6 +1260,9 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS - Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 539,821 | auto-corrected |
 | eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium | EUSTRATIUS - In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium | qwen36-inanalyticorumpo00eust | Qwen3.6-27B | 110,851 | raw OCR |
 | eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio | Eutecnius - Paraphrasis In Oppiani Cynegetica (Fort. Auctore Eutecnio) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 3,965 | raw OCR |
+| euthalius-diaconus.apodemiai-pauli | Euthalius Diaconus - Apodemiae Pauli (PG118 loci 165-167, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,027 | manual |
+| euthalius-diaconus.martyrium-pauli | Euthalius Diaconus - Martyrium Pauli (PG118 loci 167, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 67 | manual |
+| euthalius-diaconus.prologus-in-epistulas-pauli | Euthalius Diaconus - Prologus in epistulas Pauli (PG118 loci 163-165, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 643 | manual |
 | euthycles.fragmenta | EUTHYCLES - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 83 | raw OCR |
 | fhg-vol3-mueller-diocles-rhodius |  | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 89,233 | auto-corrected |
 | flavius-justinianus-imperator.novellae | Flavius Justinianus Imperator - Novellae | qwen36-justinian_novellae_schoell | Qwen3.6-27B | 234,311 | auto-corrected |
@@ -2171,15 +2175,17 @@ below; regenerate it with `python scripts/build_provenance.py`.
   own markers (book/chapter, Psellos book.section, Theophanes annus mundi,
   Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
   structure, keeps page-paragraph indices.
-- The multi-work CGPG Migne volumes are carved into per-work files: 20 of the
-  21 researched volumes split (~161 primary works incl. the Theophylact of
+- The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
+  22 researched volumes split (~164 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed: eleven leftovers of carved volumes
-  (PG113, PG139, PG151 and now PG112 join them, so 100,615 tokens between them,
+  (PG113, PG139, PG151 and now PG112 join them, so 98,878 tokens between them,
   75,862 of that PG112's uncarved half) and one uncarved volume (PG003,
-  160,260 tokens). PG003 is deferred on the
+  160,260 tokens). Where a work's boundary falls inside a row, which whole-row
+  carving cannot express, scripts/split_carved_row.py cuts the row at a
+  character offset; it was first used on PG118's three Euthalian pieces. PG003 is deferred on the
   evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
   on the passage-level interleave the record used to claim; see the
   split-deferred flag record). PG112 is CARVED as of 2026-08-08, but only half:

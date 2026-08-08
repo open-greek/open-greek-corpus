@@ -98,6 +98,25 @@ def load_serving_deficits(served: set[str]) -> dict[str, dict]:
     return out
 
 
+def _external_cts(cts: str | None) -> str | None:
+    """Drop a registry alias that claims greekLit for a key the TLG never issued.
+
+    build_registry mints urn:cts:greekLit:<key> for every ingested work not in
+    the Canon numbering, including keys that are ours rather than Perseus's
+    (euthalius-diaconus.apodemiai-pauli). Inside the registry that is a join
+    key and harmless. Published in work_anchors it is an EXTERNAL identifier
+    that resolves nowhere, which is worse than admitting the work has none.
+
+    Only the published boundary is guarded here. Fixing the mint itself would
+    rewrite the alias on 3,863 registry entries, almost none of which surface,
+    and that is its own change with its own verification.
+    """
+    if cts and cts.startswith("urn:cts:greekLit:") and \
+            not re.match(r"urn:cts:greekLit:tlg\d", cts):
+        return None
+    return cts
+
+
 def _clean(d: dict) -> dict:
     """Drop empty values so the anchors block only lists what is actually known
     (a work with no external id gets an empty {} - that is the point)."""
@@ -363,7 +382,7 @@ def build(write: bool = True) -> dict:
         rw = reg_works.get(slug, {})
         ral = rw.get("aliases", {})
         anchors = _clean({
-            "cts": cw.get("cts") or ral.get("cts"),
+            "cts": cw.get("cts") or _external_cts(ral.get("cts")),
             "tlg": cw.get("tlg"),
             "wikidata": ral.get("wikidata"),
         })
