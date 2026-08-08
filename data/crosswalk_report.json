@@ -1,14 +1,14 @@
 {
   "headline": {
-    "works": 11066,
-    "authors": 3316,
+    "works": 11068,
+    "authors": 3318,
     "editions": 10205,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3900,
+    "served_works": 3902,
     "pct_served_in_registry": 74.6,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11066,
+      "count": 11068,
       "pct": 100.0
     },
     "wikidata": {
@@ -44,11 +44,11 @@
     },
     "viaf": {
       "count": 1355,
-      "pct": 40.9
+      "pct": 40.8
     },
     "gnd": {
       "count": 1332,
-      "pct": 40.2
+      "pct": 40.1
     },
     "isni": {
       "count": 757,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9101,
+      "count": 9103,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3900,
+    "served_works": 3902,
     "in_registry": 2909,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 991,
+      "count": 993,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -903,7 +903,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1914,
+      "count": 1916,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",

@@ -1,0 +1,95 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG151 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG151",
+  "source_urn": "cogPG.PG151",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-08-07",
+  "plan_basis": "fourth pass. Two blocks pass 3 held back are settled by reading the pages they open on. Migne titles this whole dossier TOMI SYNODICI TRES IN CAUSA PALAMITARUM at columns 679-680 and numbers the three, running TOMUS SYNODICUS I. as the head. The same page carries the source note: they are taken from Dositheos of Jerusalem's Τόμος ἀγάπης, printed at Iaşi in Moldavia in March 1698. So the two acts carved in pass 3, against Prochoros Kydones and of 1351, are Migne's tomes II and III, and this is tome I.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG151.' (delete the file when it was 'created'), strip the 'PG151.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG151.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG151": {
+   "rows": 35,
+   "greek_tokens": 29163,
+   "sha256": "ca26717443c4962bbfb1ea3da5af159bef89a270bae57bc6d8282ecb55038966"
+  }
+ },
+ "works": [
+  {
+   "slug": "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum",
+   "tlg": null,
+   "title": "Tomus synodicus contra Barlaam et Acindynum",
+   "rank": "primary",
+   "file": "data/corpus/tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum.jsonl",
+   "mode": "created",
+   "rows": 7,
+   "greek_tokens": 5375,
+   "volume_loci": "347-353",
+   "locus_map": "cogPG.PG151 locus N -> tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum locus 'PG151.N'",
+   "incipit_checks": [
+    {
+     "locus": "348",
+     "incipit": "ἐτράπετο, ἀποφεύγων καὶ μὴ καττπειθὴς ὅλος γινόμενος",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 45
+    }
+   ],
+   "evidence": "7 rows, 5,379 tokens. Its full printed title is ΣΥΝΟΔΙΚΟΣ ΤΟΜΟΣ ΓΕΓΡΑΜΜΕΝΟΣ ΕΠΙ ΤΑΙΣ ΕΞΕΛΕΓΞΑΣΑΙΣ ΚΑΙ ΑΠΟΒΑΛΟΜΕΝΑΙΣ ΤΗΝ ΤΟΥ ΒΑΡΛΑΑΜ ΚΑΙ ΑΚΙΝΔΥΝΟΥ ΔΥΣΣΕΒΕΙΑΝ ΜΕΓΑΛΑΙΣ ΣΥΝΟΔΟΙΣ, read off the page; the title used here shortens it. It closes at 353 on its own collation clause, Ἀντεβλήθη τὸ παρὸν ἴσον τοῦ συνοδικοῦ τόμου ... ὑπεγράφη παρ᾽ ἐμοῦ δι᾽ ἀσφάλειαν. No personal author: a conciliar act is issued by the synod, so the document names itself, as its two companions do. Migne titles this whole dossier TOMI SYNODICI TRES IN CAUSA PALAMITARUM at columns 679-680 and numbers the three, running TOMUS SYNODICUS I. as the head. The same page carries the source note: they are taken from Dositheos of Jerusalem's Τόμος ἀγάπης, printed at Iaşi in Moldavia in March 1698. So the two acts carved in pass 3, against Prochoros Kydones and of 1351, are Migne's tomes II and III, and this is tome I.",
+   "notes": "347 is a shared row and carries no anchor of its own. Its first 446 characters are the dossier's collective title block and the source note for all three tomes; this work's own head, ΣΥΝΟΔΙΚΟΣ ΤΟΜΟΣ ΓΕΓΡΑΜΜΕΝΟΣ ΕΠΙ ΤΑΙΣ ΕΞΕΛΕΓΞΑΣΑΙΣ, begins at character 446 and its text at 493. Under the shared-row rule the row comes here, so the collective title block travels with tome I rather than staying in a residual that would otherwise hold nothing but it. That was the reason pass 3 left this block, and reading the page is what settled it: the 446 characters are not a separate document."
+  },
+  {
+   "slug": "anonymi-logoi-duo.logoi-duo",
+   "tlg": null,
+   "title": "Λόγοι δύο",
+   "rank": "primary",
+   "file": "data/corpus/anonymi-logoi-duo.logoi-duo.jsonl",
+   "mode": "created",
+   "rows": 24,
+   "greek_tokens": 20670,
+   "volume_loci": "577-600",
+   "locus_map": "cogPG.PG151 locus N -> anonymi-logoi-duo.logoi-duo locus 'PG151.N'",
+   "incipit_checks": [
+    {
+     "locus": "577",
+     "incipit": "Οὓς ἀντιφέρουσι πρὸς τοὺς ὀρθοδόξους τινὲς τῆς μοίρας",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 46
+    }
+   ],
+   "evidence": "24 rows, 20,680 tokens. Pass 2 left this because Migne heads the columns APPENDIX, which is a section label and not a title, and our bytes lose the work's own first line. The page supplies it: at columns 1139-1140 the block opens ΛΟΓΟΙ ΔΥΟ over the subtitle our text begins with, Οὓς ἀντιφέρουσι πρὸς τοὺς ὀρθοδόξους τινὲς τῆς μοίρας ὄντες τοῦ Ἀκινδύνου, then Ο ΠΡΩΤΟΣ ΛΟΓΟΣ. So the title is read rather than inferred from the tail, which is what the pass-2 note said would be needed. Two discourses answering syllogisms of Akindynos' party, the first on a saying of Basil, the second on the nature of the light seen by the apostles on Tabor. Migne names no author, so it takes an anonymi- slug as anonymi-de-essentia-et-operatione-dei does from this same volume."
+  }
+ ],
+ "residual": {
+  "rows": 4,
+  "greek_tokens": 3118,
+  "loci": [
+   "390",
+   "391",
+   "392",
+   "393"
+  ],
+  "note": "390-393 is a confession of faith and the bishops' report. It begins about 185 characters before the end of locus 389, which pass 3 assigned to the tome of 1351, so it does not start at a row edge and is left.",
+  "sha256": "8c06fccd88aaf1a3fcac5ac8b22c1b7cf50e90d8a655918f4985bd8dbb3917ef"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 29163,
+  "carved": 26045,
+  "residual": 3118,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum",
+  "anonymi-logoi-duo.logoi-duo"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG151; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG151, plan data/cgpg_carve_plan.json"
+}
