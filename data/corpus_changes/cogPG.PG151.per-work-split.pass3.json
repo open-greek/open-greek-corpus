@@ -1,0 +1,126 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG151 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG151",
+  "source_urn": "cogPG.PG151",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-08-07",
+  "plan_basis": "third pass. Pass 2 left the synodal dossier whole on the reasoning that Migne prints it without an author. That is right about authorship and does not follow for carvability: these are separate conciliar acts, each with its own proem and its own subscriptions, and they can be carved as the documents they are without anyone being named as their author.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG151.' (delete the file when it was 'created'), strip the 'PG151.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG151.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG151": {
+   "rows": 71,
+   "greek_tokens": 54336,
+   "sha256": "5db3d67bb2f0f099d6b5a255a335445d55bb1dac290421110c27142ec99e9ecb"
+  }
+ },
+ "works": [
+  {
+   "slug": "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem",
+   "tlg": null,
+   "title": "Tomus synodalis contra Prochorum Cydonem",
+   "rank": "primary",
+   "file": "data/corpus/tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem.jsonl",
+   "mode": "created",
+   "rows": 12,
+   "greek_tokens": 9924,
+   "volume_loci": "354-365",
+   "locus_map": "cogPG.PG151 locus N -> tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem locus 'PG151.N'",
+   "incipit_checks": [
+    {
+     "locus": "354",
+     "incipit": "Οὐδὲν τῆς ὑπερηφανίας χεῖρον καὶ τῆς οἰήσεως",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 38
+    }
+   ],
+   "evidence": "12 rows, 9,938 tokens. 354 opens a proem at the row head. Prochoros and Kydones are named at 354, 355, 359, 362, 364 and 365 and NOWHERE else in this volume's residual, which is what bounds the block; 365 closes on its own subscription list. Migne's running head over columns 705-706 reads CONTRA PROCHORUM CYDONIUM, read off the page scan in the pass-2 round, and those columns fall inside this block and nowhere near the tome before or after it. No personal author. Migne prints no author over it, and the obvious candidate is exactly the trap: Philotheos Kokkinos is generally credited with drafting the 1351 tome and is already an author slug from this same volume, which is a plausible attribution and not evidence. A conciliar act is issued by the synod, so the document names itself, on the precedent already in this corpus at fragmentum-synodicae-epistulae-concilii-caesariensis."
+  },
+  {
+   "slug": "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351",
+   "tlg": null,
+   "title": "Tomus synodalis anni 1351",
+   "rank": "primary",
+   "file": "data/corpus/tomus-synodalis-anni-1351.tomus-synodalis-anni-1351.jsonl",
+   "mode": "created",
+   "rows": 24,
+   "greek_tokens": 15249,
+   "volume_loci": "366-389",
+   "locus_map": "cogPG.PG151 locus N -> tomus-synodalis-anni-1351.tomus-synodalis-anni-1351 locus 'PG151.N'",
+   "incipit_checks": [
+    {
+     "locus": "366",
+     "incipit": "τὴν κατὰ τῆς Ἐκκλησίας τοῦ κοινοῦ πολεμίου μανίαν ἀγνοεῖν οὐδένα",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 55
+    }
+   ],
+   "evidence": "24 rows, 15,257 tokens, the Palamite tome of 1351. Barlaam and Akindynos run throughout, and 388-389 carry the subscriptions that date it: both emperors (ΚΑΝΤΑΚΟΥΖΗΝΟΣ at 388 character 791, ΠΑΛΑΙΟΛΟΓΟΣ), the patriarch Κάλλιστος at 388 character 931, Philotheos as metropolitan of Herakleia, then a programma subscribed Ματθαῖος ... Ἀσάνης ὁ Καντακουζηνός at 389 character 3,044, which is Matthew's subscription of 1354 added to the act of 1351. No personal author. Migne prints no author over it, and the obvious candidate is exactly the trap: Philotheos Kokkinos is generally credited with drafting the 1351 tome and is already an author slug from this same volume, which is a plausible attribution and not evidence. A conciliar act is issued by the synod, so the document names itself, on the precedent already in this corpus at fragmentum-synodicae-epistulae-concilii-caesariensis.",
+   "notes": "366's first word is missing, so the anchor is quoted from the row as it stands rather than from a title."
+  }
+ ],
+ "residual": {
+  "rows": 35,
+  "greek_tokens": 29163,
+  "loci": [
+   "347",
+   "348",
+   "349",
+   "350",
+   "351",
+   "352",
+   "353",
+   "390",
+   "391",
+   "392",
+   "393",
+   "577",
+   "578",
+   "579",
+   "580",
+   "581",
+   "582",
+   "583",
+   "584",
+   "585",
+   "586",
+   "587",
+   "588",
+   "589",
+   "590",
+   "591",
+   "592",
+   "593",
+   "594",
+   "595",
+   "596",
+   "597",
+   "598",
+   "599",
+   "600"
+  ],
+  "note": "347-353 is the synodal tome that opens at locus 347 character 446 (ΣΥΝΟΔΙΚΟΣ ΤΟΜΟΣ ΓΕΓΡΑΜΜΕΝΟΣ) and closes at 353 on its collation clause, Ἀντεβλήθη τὸ παρὸν ἴσον τοῦ συνοδικοῦ τόμου ... ὑπεγράφη παρ᾽ ἐμοῦ δι᾽ ἀσφάλειαν. It is carvable on the same argument as the two below and is held back only because locus 347's first 446 characters are the Bucharest printer's colophon, so its first row is shared and wants the page checked before it moves. 390-393 is a confession of faith and the bishops' report, which begins inside 389 rather than at a row edge. 577-600 is headed APPENDIX at columns 1141-1142, which is a label and not a title; our bytes carry its own title tail at 577 with the first word missing, and column 1140 has not been read, so minting a Greek title from the tail would be inventing one.",
+  "sha256": "ca26717443c4962bbfb1ea3da5af159bef89a270bae57bc6d8282ecb55038966"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 54336,
+  "carved": 25173,
+  "residual": 29163,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem",
+  "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG151; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG151, plan data/cgpg_carve_plan.json"
+}
