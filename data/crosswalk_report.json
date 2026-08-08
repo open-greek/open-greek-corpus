@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11072,
+    "works": 11073,
     "authors": 3319,
-    "editions": 10208,
-    "pct_works_with_canonical_locus": 36.7,
+    "editions": 10207,
+    "pct_works_with_canonical_locus": 36.6,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3906,
-    "pct_served_in_registry": 74.6,
+    "served_works": 3907,
+    "pct_served_in_registry": 74.5,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
     "pct_served_with_any_anchor": 85.3,
-    "pct_served_with_logical_served_locus": 54.3
+    "pct_served_with_logical_served_locus": 54.2
   },
   "work_aliases": {
     "cts": {
-      "count": 11072,
+      "count": 11073,
       "pct": 100.0
     },
     "wikidata": {
@@ -86,8 +86,8 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4059,
-    "pct": 36.7,
+    "works_with_logical_locus": 4058,
+    "pct": 36.6,
     "works_only_physical_or_none": 3170,
     "by_scheme": {
       "(none)": 1560,
@@ -98,7 +98,7 @@
       "line": 774,
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
-      "ref": 174,
+      "ref": 173,
       "ref.sub": 153,
       "book.chapter.section.line": 151,
       "play.fragment.line": 141,
@@ -351,10 +351,10 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1391,
+    "works_with_logical_served_locus": 1390,
     "pct": 12.6,
     "served_logical_depth_distribution": {
-      "1": 313,
+      "1": 312,
       "2": 693,
       "3": 315,
       "4": 65,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9108,
+      "count": 9110,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3906,
-    "in_registry": 2912,
+    "served_works": 3907,
+    "in_registry": 2911,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 994,
+      "count": 996,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -509,6 +509,7 @@
         "amphicrates-atheniensis.fragmenta",
         "amphilochus.fragmenta",
         "amphion-thespiensis.fragmenta",
+        "anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon",
         "andreas-panormitanus.fragmenta",
         "androetas-tenedius.fragmenta",
         "andron-alexandrinus.fragmenta",
@@ -530,14 +531,13 @@
         "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
         "anonymi-in-artem-rhetoricam.peri-synekdoches",
         "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
-        "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
-        "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou"
+        "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698"
       ]
     },
     "with_work_qid": 504,
     "with_author_qid": 2879,
-    "with_any_external_anchor": 3333,
-    "with_logical_served_locus": 2120,
+    "with_any_external_anchor": 3332,
+    "with_logical_served_locus": 2119,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
       "count": 2375,
