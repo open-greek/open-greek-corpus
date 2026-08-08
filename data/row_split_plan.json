@@ -1,0 +1,74 @@
+{
+ "_meta": {
+  "description": "Works whose printed head falls inside a row, so carve_cgpg_volume.py (which moves whole rows) cannot serve them. Applied by scripts/split_carved_row.py.",
+  "issue": "open-greek/open-greek-corpus#8"
+ },
+ "volumes": [
+  {
+   "volume": "PG118",
+   "date": "2026-08-08",
+   "basis": "The Euthalian apparatus Migne prints in the Oecumenius volume's front matter. Three pieces carry their own Greek head and a named author, Euthalius the Deacon, and all three heads fall mid-row, which is why the volume's pass-1 carve left them in the residual and the residual note recorded them as waiting on a splitter. Offsets read from the rows themselves on 2026-08-08 and asserted at run time against the head string and the text before it.",
+   "works": [
+    {
+     "slug": "euthalius-diaconus.prologus-in-epistulas-pauli",
+     "title": "Prologus in epistulas Pauli",
+     "author_display": "Euthalius Diaconus",
+     "head": "ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ",
+     "rank": "primary",
+     "from": {
+      "locus": "163",
+      "offset": 526,
+      "row_sha256": "fffe804e239b8af1736abdf3430f94140a8facce53de1f32003893c9b8eee46e",
+      "prev_ends_with": "ΡΑΟ ΑΡΟΘΤΟΙΟ"
+     },
+     "to": {
+      "locus": "165",
+      "offset": 82,
+      "row_sha256": "baea824e2c1ebd94fd7254c06b1b241b038e53b994622b2214eeb74fe117ab37",
+      "next_head": "ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ",
+      "prev_ends_with": "ὡς ἐν συντόμῳ εἰπεῖν, αὗται·"
+     },
+     "evidence": "Head at 163:526, verbatim ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ, followed by Παῦλος ὁ ἀπόστολος, Ἐβραῖος μὲν ἦν τὸ γένος. Runs to 165:82, where the Apodemiai head begins; the sentence before that cut, ὡς ἐν συντόμῳ εἰπεῖν, αὗται·, introduces the list, so it closes the prologue rather than opening the list."
+    },
+    {
+     "slug": "euthalius-diaconus.apodemiai-pauli",
+     "title": "Apodemiae Pauli",
+     "author_display": "Euthalius Diaconus",
+     "head": "ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ",
+     "rank": "primary",
+     "from": {
+      "locus": "165",
+      "offset": 82,
+      "row_sha256": "baea824e2c1ebd94fd7254c06b1b241b038e53b994622b2214eeb74fe117ab37",
+      "prev_ends_with": "ὡς ἐν συντόμῳ εἰπεῖν, αὗται·"
+     },
+     "to": {
+      "locus": "167",
+      "offset": 2302,
+      "row_sha256": "22b7218eea4f8310b008d364db7023873f0c3c9846a05050666cb5c83ca66c32",
+      "next_head": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
+      "prev_ends_with": "τριάκοντα καὶ πέντε"
+     },
+     "evidence": "Head at 165:82. Our OCR reads it ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΗΟΣΤΟΣΩν for ΑΠΟΔΗΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΛΟΥ; the anchor is quoted as printed here, not corrected, so the check tests the row that is actually cut. What follows is the itinerary itself, Ἀπὸ Δαμασκοῦ ἤρξατο, καὶ ἀνῆλθεν εἰς Ἰερουσαλήμ. Ends at 167:2302 where the Martyrion head begins."
+    },
+    {
+     "slug": "euthalius-diaconus.martyrium-pauli",
+     "title": "Martyrium Pauli",
+     "author_display": "Euthalius Diaconus",
+     "head": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
+     "rank": "primary",
+     "from": {
+      "locus": "167",
+      "offset": 2302,
+      "row_sha256": "22b7218eea4f8310b008d364db7023873f0c3c9846a05050666cb5c83ca66c32",
+      "prev_ends_with": "τριάκοντα καὶ πέντε"
+     },
+     "to": {
+      "locus": "167"
+     },
+     "evidence": "Head at 167:2302, ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΑΟΥ, followed by Ἐπὶ Νέρωνος τοῦ Καίσαρος Ῥωμαίων, ἐμαρτύρησεν αὐτόθι Παῦλος. Runs to the end of 167, the last row of the block."
+    }
+   ]
+  }
+ ]
+}

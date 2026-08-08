@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11069,
-    "authors": 3318,
-    "editions": 10205,
+    "works": 11072,
+    "authors": 3319,
+    "editions": 10208,
     "pct_works_with_canonical_locus": 36.7,
     "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3903,
-    "pct_served_in_registry": 74.5,
+    "served_works": 3906,
+    "pct_served_in_registry": 74.6,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
-    "pct_served_with_any_anchor": 85.4,
+    "pct_served_with_any_anchor": 85.3,
     "pct_served_with_logical_served_locus": 54.3
   },
   "work_aliases": {
     "cts": {
-      "count": 11069,
+      "count": 11072,
       "pct": 100.0
     },
     "wikidata": {
@@ -39,7 +39,7 @@
   },
   "author_aliases": {
     "wikidata": {
-      "count": 1402,
+      "count": 1403,
       "pct": 42.3
     },
     "viaf": {
@@ -88,9 +88,9 @@
   "canonical_locus": {
     "works_with_logical_locus": 4059,
     "pct": 36.7,
-    "works_only_physical_or_none": 3167,
+    "works_only_physical_or_none": 3170,
     "by_scheme": {
-      "(none)": 1557,
+      "(none)": 1560,
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9105,
+      "count": 9108,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,8 +476,8 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3903,
-    "in_registry": 2909,
+    "served_works": 3906,
+    "in_registry": 2912,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
       "count": 994,
@@ -535,12 +535,12 @@
       ]
     },
     "with_work_qid": 504,
-    "with_author_qid": 2876,
+    "with_author_qid": 2879,
     "with_any_external_anchor": 3333,
     "with_logical_served_locus": 2120,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2372,
+      "count": 2375,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -598,7 +598,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5438,
+      "count": 5441,
       "examples": [
         {
           "work": "abydenus.fragmenta",
@@ -959,7 +959,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3167,
+      "count": 3170,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",

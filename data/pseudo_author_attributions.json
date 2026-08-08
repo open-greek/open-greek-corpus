@@ -80,6 +80,13 @@
    "name": "Pseudo-Dionysius Areopagita et Georgius Pachymeres (PG 3)",
    "aliases": {},
    "note": "Collective for PG 3, which Migne prints as the Corpus Dionysiacum WITH Pachymeres' paraphrase interleaved, not as Dionysius alone. Served shares: Pseudo-Dionysius 60,010 of 160,260 tokens, about 37%, taking the vendored canon's word counts for the five works (CH 11,488, EH 16,400, DN 24,104, MT 1,350, Ep 6,668); the remaining ~63% is Georgius Pachymeres' 13th-century paraphrase. Neither reaches the 90% this file's policy requires for a dominant-author attribution."
+  },
+  "euthalius-diaconus": {
+   "name": "Euthalius Diaconus",
+   "aliases": {
+    "wikidata": "Q1378767"
+   },
+   "note": "Euthalius the Deacon, credited by the manuscript tradition with the prologue, travel summary and martyrdom notice that accompany Paul's epistles. Migne prints three of those with their own Greek heads in the Oecumenius volume (PG118). The vendored TLG Canon has no entry for him, so these works carry no external anchor."
   }
  },
  "works": {
@@ -583,6 +590,39 @@
    "evidence": [
     "served rows: Palamas homilies from served start ('Ἀδελφοὶ μὲν ἡμεῖς πάντες ...') to ~30%; Philotheus CP's Encomium/Vita of Palamas from 29.7% (ΤΟΥ ΑΓΙΟΤΑΤΟΥ ... ΠΑΤΡΙΑΡΧΟΥ header, Barlaam narrative at 33.2%); pro- and anti-Palamite controversy texts (Acindynus/Barlaam material, incl. anti-Palamite polemic 'Ὁ δὲ Παλαμᾶς ... ἀκτίστους ὀνομάζει θεότητας' at 77.6%) to 100%",
     "PG volume table: PG 151 = Gregory Palamas, Gregory Acindynus, Barlaam of Calabria"
+   ]
+  },
+  "euthalius-diaconus.prologus-in-epistulas-pauli": {
+   "author": "euthalius-diaconus",
+   "title": "Prologus in epistulas Pauli",
+   "slug": "euthalius-diaconus.prologus-in-epistulas-pauli",
+   "attribution": "named in the printed head",
+   "evidence": [
+    "printed head in Migne PG118's front matter",
+    "cut from cogPG.PG118 at a character offset 2026-08-08; see data/row_split_plan.json and data/corpus_changes/cogPG.PG118.row-split.json",
+    "no TLG Canon entry for Euthalius in the vendored inventory, so no anchor"
+   ]
+  },
+  "euthalius-diaconus.apodemiai-pauli": {
+   "author": "euthalius-diaconus",
+   "title": "Apodemiae Pauli",
+   "slug": "euthalius-diaconus.apodemiai-pauli",
+   "attribution": "named in the printed head",
+   "evidence": [
+    "printed head in Migne PG118's front matter",
+    "cut from cogPG.PG118 at a character offset 2026-08-08; see data/row_split_plan.json and data/corpus_changes/cogPG.PG118.row-split.json",
+    "no TLG Canon entry for Euthalius in the vendored inventory, so no anchor"
+   ]
+  },
+  "euthalius-diaconus.martyrium-pauli": {
+   "author": "euthalius-diaconus",
+   "title": "Martyrium Pauli",
+   "slug": "euthalius-diaconus.martyrium-pauli",
+   "attribution": "named in the printed head",
+   "evidence": [
+    "printed head in Migne PG118's front matter",
+    "cut from cogPG.PG118 at a character offset 2026-08-08; see data/row_split_plan.json and data/corpus_changes/cogPG.PG118.row-split.json",
+    "no TLG Canon entry for Euthalius in the vendored inventory, so no anchor"
    ]
   }
  }
