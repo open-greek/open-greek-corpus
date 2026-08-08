@@ -3,22 +3,22 @@
  "issue": "open-greek/open-greek-corpus#4",
  "source": "data/work_lemma_counts.tsv.gz, and nothing else",
  "why_no_external_authority": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it",
- "lemmas": 8105,
- "tokens": 32593,
+ "lemmas": 7960,
+ "tokens": 31758,
  "reachable": {
-  "lemmas": 281,
-  "tokens": 3675,
+  "lemmas": 282,
+  "tokens": 3669,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7824,
-  "tokens": 28918,
+  "lemmas": 7678,
+  "tokens": 28089,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 30370
+  "measured_the_old_way_tokens": 29539
  },
  "largest_unreachable": [
   {
@@ -50,10 +50,6 @@
    "tokens": 161
   },
   {
-   "lemma": "᾿Αλλὰ",
-   "tokens": 129
-  },
-  {
    "lemma": "Οὐχὼν",
    "tokens": 125
   },
@@ -72,14 +68,6 @@
   {
    "lemma": "῾τὸ",
    "tokens": 68
-  },
-  {
-   "lemma": "᾿Αντὶ",
-   "tokens": 65
-  },
-  {
-   "lemma": "᾿Επεὶ",
-   "tokens": 61
   },
   {
    "lemma": "πολλὸ",
@@ -154,10 +142,6 @@
    "tokens": 35
   },
   {
-   "lemma": "᾿Επὶ",
-   "tokens": 34
-  },
-  {
    "lemma": "ἰδὺς",
    "tokens": 34
   },
@@ -174,12 +158,28 @@
    "tokens": 32
   },
   {
-   "lemma": "Κκαὶ",
+   "lemma": "Ἵπὲρ",
    "tokens": 32
   },
   {
-   "lemma": "Ἵπὲρ",
-   "tokens": 32
+   "lemma": "δλὴν",
+   "tokens": 31
+  },
+  {
+   "lemma": "κγὴ",
+   "tokens": 31
+  },
+  {
+   "lemma": "ἐκποδὸν",
+   "tokens": 30
+  },
+  {
+   "lemma": "Κκαὶ",
+   "tokens": 30
+  },
+  {
+   "lemma": "ἐπιωνικὸν",
+   "tokens": 30
   }
  ],
  "largest_reachable": [
@@ -239,7 +239,7 @@
   },
   {
    "lemma": "σὸ",
-   "tokens": 83,
+   "tokens": 82,
    "target": "σό",
    "target_tokens": 32
   },
@@ -251,21 +251,21 @@
   },
   {
    "lemma": "δὸ",
-   "tokens": 76,
+   "tokens": 75,
    "target": "δό",
    "target_tokens": 155
-  },
-  {
-   "lemma": "οὒν",
-   "tokens": 73,
-   "target": "οὔν",
-   "target_tokens": 0
   },
   {
    "lemma": "σὲς",
    "tokens": 73,
    "target": "σές",
    "target_tokens": 5
+  },
+  {
+   "lemma": "οὒν",
+   "tokens": 71,
+   "target": "οὔν",
+   "target_tokens": 0
   },
   {
    "lemma": "ξὴν",
@@ -328,16 +328,16 @@
    "target_tokens": 14
   },
   {
-   "lemma": "νὸ",
-   "tokens": 33,
-   "target": "νό",
-   "target_tokens": 270
-  },
-  {
    "lemma": "ὰτ",
    "tokens": 32,
    "target": "άτ",
    "target_tokens": 0
+  },
+  {
+   "lemma": "νὸ",
+   "tokens": 31,
+   "target": "νό",
+   "target_tokens": 270
   },
   {
    "lemma": "ὑδατὸς",
@@ -395,9 +395,9 @@
   },
   {
    "lemma": "Κμὴ",
-   "tokens": 23,
-   "target": "κμή",
-   "target_tokens": 18
+   "tokens": 22,
+   "target": "Κμή",
+   "target_tokens": 2
   },
   {
    "lemma": "Σὲς",
