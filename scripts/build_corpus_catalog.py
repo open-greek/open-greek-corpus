@@ -65,6 +65,11 @@ COLUMNS = [
     "source", "edition", "license", "passages", "tokens", "tokens_lemmatized",
     "correction", "unattested_rate",
     "scheme_class", "scheme", "scheme_depth",
+    # Non-empty when the served text is known to be shorter than a fuller text
+    # of the same work held in this repo (curated in data/serving_deficits.json,
+    # numbers derived at build time by build_work_index.py). Format:
+    # "<served>/<fuller> tokens; <intent>". Empty for every other work.
+    "serving_deficit",
     "sha256",
 ]
 
@@ -81,6 +86,16 @@ COLUMNS = [
 KNOWN_TOTALS_KEY_ALIASES = {"tlg1595.tlg601": "philodemus.tlg1595-tlg601"}
 
 _WS = re.compile(r"\s+")
+
+
+def deficit_cell(d) -> str:
+    """One TSV cell for a serving deficit, or empty. The full block, with the
+    scope and evidence, lives on the work_index entry; the catalog carries just
+    enough for a reader scanning the table to see the serving is known-short."""
+    if not d:
+        return ""
+    intent = _WS.sub(" ", (d.get("intent") or "").strip())
+    return f"{d['served_tokens']}/{d['fuller_tokens']} tokens held; {intent}"
 
 
 def shown(fp: Path) -> str:
@@ -275,6 +290,7 @@ def build_rows() -> tuple[list[list[str]], dict]:
             cell(sch.get("class")),
             cell(sch.get("scheme")),
             cell(sch.get("depth")),
+            deficit_cell(idx.get("serving_deficit")),
             sha,
         ]
         rows.append(row)

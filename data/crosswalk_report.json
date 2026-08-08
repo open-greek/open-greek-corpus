@@ -13,7 +13,7 @@
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
     "pct_served_with_any_anchor": 85.4,
-    "pct_served_with_logical_served_locus": 54.4
+    "pct_served_with_logical_served_locus": 54.3
   },
   "work_aliases": {
     "cts": {
@@ -86,11 +86,11 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4060,
+    "works_with_logical_locus": 4059,
     "pct": 36.7,
-    "works_only_physical_or_none": 3166,
+    "works_only_physical_or_none": 3167,
     "by_scheme": {
-      "(none)": 1556,
+      "(none)": 1557,
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
@@ -177,7 +177,6 @@
       "hypothesis.scholion.line": 3,
       "oration.fragment.line": 3,
       "poem.line": 3,
-      "ref.sub.sub": 3,
       "section": 3,
       "section.fable.line": 3,
       "tome.volume.part.page.line": 3,
@@ -221,6 +220,7 @@
       "proverb.section.line": 2,
       "psalm.verse.line": 2,
       "question.answer.line": 2,
+      "ref.sub.sub": 2,
       "section.epistle or discourse.line": 2,
       "section.extract.excerpt.line": 2,
       "section.scholion.line": 2,
@@ -351,12 +351,12 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1392,
+    "works_with_logical_served_locus": 1391,
     "pct": 12.6,
     "served_logical_depth_distribution": {
       "1": 313,
       "2": 693,
-      "3": 316,
+      "3": 315,
       "4": 65,
       "5": 4,
       "6": 1
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9103,
+      "count": 9104,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -537,7 +537,7 @@
     "with_work_qid": 504,
     "with_author_qid": 2875,
     "with_any_external_anchor": 3332,
-    "with_logical_served_locus": 2121,
+    "with_logical_served_locus": 2120,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
       "count": 2371,
@@ -959,7 +959,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3166,
+      "count": 3167,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",

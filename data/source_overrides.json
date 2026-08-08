@@ -9,10 +9,10 @@
    "data/corpus_editions.json (galenus_verbatim works)"
   ],
   "as_of": "2026-06-28",
-  "count": 107,
+  "count": 106,
   "by_source": {
    "open_corpus": 23,
-   "migne_cgpg": 62,
+   "migne_cgpg": 61,
    "byzantium_gr": 19,
    "migne_pd": 3
   }
@@ -983,32 +983,19 @@
   },
   {
    "tlg_id": "tlg3023",
-   "work_id": "010",
-   "source": "byzantium_gr",
-   "over": "pd_edition",
-   "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
-   "title": "De cerimoniis aulae Byzantinae (lib. 1.84%19`2.56)",
-   "word_count": 76649,
-   "urls": [
-    "https://byzantium.gr/keimena/porfyrogen-ceremonis.php"
-   ],
-   "reason": "clean PD Bonn transcription on byzantium.gr; a manual transcription beats OCR",
-   "evidence": [
-    "byzantium_sweep.json"
-   ]
-  },
-  {
-   "tlg_id": "tlg3023",
    "work_id": "011",
-   "source": "migne_cgpg",
+   "source": "byzantium_gr",
    "over": "locked",
    "author": "CONSTANTINUS VII PORPHYROGENITUS Imperator",
    "title": "De cerimoniis aulae Byzantinae (lib. 1.1%19`92)",
    "word_count": 78092,
-   "pg_volume": "PG112",
-   "reason": "CC-BY CGPG OCR of PD Migne (PG112); unlocks a work otherwise behind an in-copyright edition",
+   "also_in_cgpg": "PG112",
+   "urls": [
+    "https://byzantium.gr/keimena/porfyrogen-ceremonis.php"
+   ],
+   "reason": "clean PD Bonn transcription on byzantium.gr; preferred over CGPG Migne OCR (PG112); unlocks a work otherwise behind an in-copyright edition",
    "evidence": [
-    "cgpg_coverage.json"
+    "byzantium_sweep.json"
    ]
   },
   {
