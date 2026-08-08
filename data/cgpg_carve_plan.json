@@ -20,7 +20,7 @@
      24
     ]
    ],
-   "residual_note": "loci 14-24 are the 'Testimonia veterum de S. Ignatio' editorial anthology (excerpts about Ignatius from Polycarp, Eusebius, Chrysostom and later writers): quotations, not an assignable work; they stay in the volume file",
+   "residual_note": "Residual identified 2026-08-08, and it is not Latin editorial matter: zero Latin letters in 2,534 Greek tokens. Rows 14-24 are the VETERUM TESTIMONIA about Ignatius that Migne prints before the letters: Polycarp on the letters sent to him (14), Eusebius on Ignatius as second in the Antiochene succession (15-18), the credal summary quoted from the letters (20), and later authors citing him (23-24). A florilegium the edition assembles from a dozen named authors is the edition's apparatus, not a work with an author, so it stays. The same class as PG113's testimonia rows 318-323.",
    "works": [
     {
      "slug": "ignatius-scr-eccl.epistulae-vii-genuinae-recensio-media",
@@ -517,7 +517,7 @@
      605
     ]
    ],
-   "residual_note": "376 is a garbled Latin section-title line before the Tactica; 602-605 are Migne's editorial dossier prefacing the Oracula (Latin heading + testimonia excerpted from Byzantine historians), not the Oracula proper",
+   "residual_note": "Residual rows 602-605 (1,047 tokens) are the oracles material in Leo's volume: χρησμοί about Constantinople with prose explanations (Οὐαί σοι, ὦ ἑπτάλοφε at 605, the ΑΙΜΑ acrostic at 604). Whether these rows belong to the Oracula attributed to Leo or to an editor's account of them is not established from the bytes; needs the page. Row 376 is a three-token garbled Latin head.",
    "works": [
     {
      "slug": "basilius-i-macedo.paraenesis-ad-leonem-filium",
@@ -739,7 +739,7 @@
     498,
     500
    ],
-   "residual_note": "498 is only the Latin word NOTITIA, 500 a garbled fragment: Latin notitia/front matter to Genesius (locus 499 not served)",
+   "residual_note": "Residual: 7 tokens across two rows, shards of Latin heads (ΝΟΤΙΤΙΑ; a name fragment). Nothing to identify.",
    "works": [
     {
      "slug": "theophanes-continuatus.chronographia-lib-1-6",
@@ -949,7 +949,7 @@
      167
     ]
    ],
-   "residual_note": "17-28: 1532 Verona-edition Greek preface + prefatory apparatus (hypothesis of Acts, verses on Paul, kephalaia); 163-167: post-Acts Paul-biography appendix (chronology, Apodemiai Paulou). Editorial paratext, kept in the volume file",
+   "residual_note": "Residual identified 2026-08-08, and the 'Latin monita' characterization was false: zero Latin letters in 6,630 Greek tokens. It is the prefatory and Euthalian apparatus of the Oecumenius volume, in two blocks. 17-28: a preface on the commentaries, the numbered κεφάλαια and hypothesis of Acts, and the epigram on Paul (printed twice, rows 21 and 23, a duplicated leaf the dropped-duplicate pass did not catch because the surrounding rows differ). 163-167: ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ survives mid-row at 163, the ΑΠΟΔΗΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΛΟΥ at 165, and ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΛΟΥ at 167. Those last three are real Euthalian pieces with a named author (Euthalius Diaconus), and every head falls inside a row, so carving them waits on the same row-splitter as PG003 and PG151's Homologia. Recorded so the next reader starts from the identification, not from the false summary.",
    "works": [
     {
      "slug": "oecumenius.commentarius-in-acta-apostolorum",
@@ -1959,7 +1959,7 @@
    "residual_loci": [
     293
    ],
-   "residual_note": "14-15: Greek excerpts quoted inside the Latin prolegomena (from Nicetas David Paphlagon's Vita Ignatii, PG 105); 293: the garbled Latin divider heading (ΒΙΘΘΕΛΤΑΤΙΟ = DISSERTATIO) inside the Amphilochia range, excluded per the consistency review's locus-293 rule",
+   "residual_note": "Residual: two rows of Greek quoted about the patriarch (the Photius volume's prefatory matter) and one two-token shard of a garbled Latin head. 515 tokens, apparatus, stays.",
    "works": [
     {
      "slug": "photius.amphilochia",
@@ -2230,7 +2230,7 @@
      170
     ]
    ],
-   "residual_note": "168-170: Latin editorial front matter to the Pauline commentaries (monitum + praefationes), OCR'd as pseudo-Greek; identified but not an ancient work, stays in the volume file",
+   "residual_note": "Residual: three rows, 99 tokens, and this one genuinely IS the garbled Latin apparatus (ΜΟΝΙΤΟΜ = MONITUM, ΡΗΑΕΑΤΙΟΝΕΘ = PRAEFATIONES read as Greek letter shapes). Stays.",
    "works": [
     {
      "slug": "theophylactus-achridensis.enarratio-in-evangelium-joannis",
@@ -2440,7 +2440,7 @@
      248
     ]
    ],
-   "residual_note": "the served rows inside 210-248 are the Latin prolegomena/dissertation prefixed to the Acts commentary (SECTIO I-XIII), OCR'd as pseudo-Greek; not an ancient work, stays in the volume file",
+   "residual_note": "Residual: 20 rows, 1,629 tokens, a Latin dissertation in numbered SECTIO divisions (ΘΕΩΤΙΟ Ι, ΙΙ, ... read as Greek shapes) whose Greek quotations the OCR kept while garbling the Latin around them. Editorial apparatus of the Theophylact volume, stays.",
    "works": [
     {
      "slug": "theophylactus-achridensis.expositio-in-epistolam-i-ad-timotheum",
