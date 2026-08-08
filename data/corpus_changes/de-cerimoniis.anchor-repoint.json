@@ -1,0 +1,17 @@
+{
+ "what": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56 repointed from tlg3023.tlg010 to tlg3023.tlg011",
+ "date": "2026-08-08",
+ "issue": "open-greek/open-greek-corpus#8",
+ "why": "the served text is the proem plus book 1 chapters 1-83, the tlg3023.011 (Vogt, lib. 1.1-92) scope, and holds nothing of lib. 1.84-2.56; its opening is verbatim identical to PG112 locus 44 and ΚΕΦΑΛΑΙΟΝ ΠΡΩΤΟΝ falls where book 1 chapter 1 begins. The old anchor claimed exactly the half it does not serve.",
+ "how_it_happened": "the curated sweep filed the page under .010 because .010 was the gap being filled, while its own note records that byzantium.gr hosts only the first volume; the halves' Canon word counts nearly coincide (76,649 vs 78,092), so mass checks could not catch it.",
+ "was": {
+  "cts": "urn:cts:greekLit:tlg3023.tlg010",
+  "tlg": "tlg3023.tlg010"
+ },
+ "now": {
+  "cts": "urn:cts:greekLit:tlg3023.tlg011",
+  "tlg": "tlg3023.tlg011",
+  "title": "De cerimoniis aulae Byzantinae (lib. 1.1-92)"
+ },
+ "reverse": "restore the `was` values on this slug's crosswalk entry and revert the sweep entry and rename in the same commit."
+}
