@@ -1,6 +1,6 @@
 {
   "headline": {
-    "works": 11073,
+    "works": 11074,
     "authors": 3319,
     "editions": 10207,
     "pct_works_with_canonical_locus": 36.6,
@@ -8,7 +8,7 @@
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3907,
+    "served_works": 3908,
     "pct_served_in_registry": 74.5,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11073,
+      "count": 11074,
       "pct": 100.0
     },
     "wikidata": {
@@ -418,7 +418,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9110,
+      "count": 9111,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -476,11 +476,11 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3907,
+    "served_works": 3908,
     "in_registry": 2911,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
-      "count": 996,
+      "count": 997,
       "examples": [
         "abas.fragmenta",
         "abron-vel-habron-batiensis.fragmenta",
@@ -535,12 +535,12 @@
       ]
     },
     "with_work_qid": 504,
-    "with_author_qid": 2879,
+    "with_author_qid": 2880,
     "with_any_external_anchor": 3332,
     "with_logical_served_locus": 2119,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2375,
+      "count": 2376,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
