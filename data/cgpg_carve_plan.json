@@ -4760,6 +4760,62 @@
      "rank": "primary"
     }
    ]
+  },
+  {
+   "volume": "PG151",
+   "pass": 4,
+   "date": "2026-08-07",
+   "basis": "fourth pass. Two blocks pass 3 held back are settled by reading the pages they open on. Migne titles this whole dossier TOMI SYNODICI TRES IN CAUSA PALAMITARUM at columns 679-680 and numbers the three, running TOMUS SYNODICUS I. as the head. The same page carries the source note: they are taken from Dositheos of Jerusalem's Τόμος ἀγάπης, printed at Iaşi in Moldavia in March 1698. So the two acts carved in pass 3, against Prochoros Kydones and of 1351, are Migne's tomes II and III, and this is tome I.",
+   "residual_ranges": [
+    [
+     390,
+     393
+    ]
+   ],
+   "residual_note": "390-393 is a confession of faith and the bishops' report. It begins about 185 characters before the end of locus 389, which pass 3 assigned to the tome of 1351, so it does not start at a row edge and is left.",
+   "works": [
+    {
+     "slug": "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum",
+     "tlg": null,
+     "title": "Tomus synodicus contra Barlaam et Acindynum",
+     "author_display": "Tomus synodicus contra Barlaam et Acindynum",
+     "ranges": [
+      [
+       347,
+       353
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 348,
+       "text": "ἐτράπετο, ἀποφεύγων καὶ μὴ καττπειθὴς ὅλος γινόμενος"
+      }
+     ],
+     "notes": "347 is a shared row and carries no anchor of its own. Its first 446 characters are the dossier's collective title block and the source note for all three tomes; this work's own head, ΣΥΝΟΔΙΚΟΣ ΤΟΜΟΣ ΓΕΓΡΑΜΜΕΝΟΣ ΕΠΙ ΤΑΙΣ ΕΞΕΛΕΓΞΑΣΑΙΣ, begins at character 446 and its text at 493. Under the shared-row rule the row comes here, so the collective title block travels with tome I rather than staying in a residual that would otherwise hold nothing but it. That was the reason pass 3 left this block, and reading the page is what settled it: the 446 characters are not a separate document.",
+     "evidence": "7 rows, 5,379 tokens. Its full printed title is ΣΥΝΟΔΙΚΟΣ ΤΟΜΟΣ ΓΕΓΡΑΜΜΕΝΟΣ ΕΠΙ ΤΑΙΣ ΕΞΕΛΕΓΞΑΣΑΙΣ ΚΑΙ ΑΠΟΒΑΛΟΜΕΝΑΙΣ ΤΗΝ ΤΟΥ ΒΑΡΛΑΑΜ ΚΑΙ ΑΚΙΝΔΥΝΟΥ ΔΥΣΣΕΒΕΙΑΝ ΜΕΓΑΛΑΙΣ ΣΥΝΟΔΟΙΣ, read off the page; the title used here shortens it. It closes at 353 on its own collation clause, Ἀντεβλήθη τὸ παρὸν ἴσον τοῦ συνοδικοῦ τόμου ... ὑπεγράφη παρ᾽ ἐμοῦ δι᾽ ἀσφάλειαν. No personal author: a conciliar act is issued by the synod, so the document names itself, as its two companions do. Migne titles this whole dossier TOMI SYNODICI TRES IN CAUSA PALAMITARUM at columns 679-680 and numbers the three, running TOMUS SYNODICUS I. as the head. The same page carries the source note: they are taken from Dositheos of Jerusalem's Τόμος ἀγάπης, printed at Iaşi in Moldavia in March 1698. So the two acts carved in pass 3, against Prochoros Kydones and of 1351, are Migne's tomes II and III, and this is tome I.",
+     "rank": "primary"
+    },
+    {
+     "slug": "anonymi-logoi-duo.logoi-duo",
+     "tlg": null,
+     "title": "Λόγοι δύο",
+     "author_display": "Anonymi",
+     "ranges": [
+      [
+       577,
+       600
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 577,
+       "text": "Οὓς ἀντιφέρουσι πρὸς τοὺς ὀρθοδόξους τινὲς τῆς μοίρας"
+      }
+     ],
+     "evidence": "24 rows, 20,680 tokens. Pass 2 left this because Migne heads the columns APPENDIX, which is a section label and not a title, and our bytes lose the work's own first line. The page supplies it: at columns 1139-1140 the block opens ΛΟΓΟΙ ΔΥΟ over the subtitle our text begins with, Οὓς ἀντιφέρουσι πρὸς τοὺς ὀρθοδόξους τινὲς τῆς μοίρας ὄντες τοῦ Ἀκινδύνου, then Ο ΠΡΩΤΟΣ ΛΟΓΟΣ. So the title is read rather than inferred from the tail, which is what the pass-2 note said would be needed. Two discourses answering syllogisms of Akindynos' party, the first on a saying of Basil, the second on the nature of the light seen by the apostles on Tabor. Migne names no author, so it takes an anonymi- slug as anonymi-de-essentia-et-operatione-dei does from this same volume.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }
