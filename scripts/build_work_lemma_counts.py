@@ -328,12 +328,17 @@ def main() -> None:
             totals[urn] = {"tokens": tokens, "tokens_lemmatized": lemmatized}
             n_pairs += len(lemmas)
             if sink:
-                # most_common() leaves equal counts in insertion order, which
-                # follows a set built earlier and so varies between processes:
-                # PYTHONHASHSEED is not fixed here. The rows were identical in
-                # content and shuffled in order, which made this 39 MB artifact
-                # non-reproducible and quietly defeated the byte-identical build
-                # check. Break ties on the lemma.
+                # Ties broken on the lemma so the row order cannot depend on
+                # anything upstream. This is insurance, not a fix: I first wrote
+                # it believing most_common() was reading a set and varying with
+                # PYTHONHASHSEED, and that was wrong. Counter ties come out in
+                # insertion order and the insertion order here is deterministic.
+                # What actually made this file differ between rebuilds was the
+                # lemma cache converging: validate_cache repairs the cache in
+                # memory and the repaired result feeds the next build, so the
+                # first rebuild after a rule change differs and later ones do
+                # not. Keeping the sort anyway, because a stable order should not
+                # rest on a dict's history.
                 for lem, n in sorted(lemmas.items(), key=lambda kv: (-kv[1], kv[0])):
                     sink.write(f"{urn}\t{lem}\t{n}\n")
     finally:
