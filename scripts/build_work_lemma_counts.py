@@ -328,7 +328,13 @@ def main() -> None:
             totals[urn] = {"tokens": tokens, "tokens_lemmatized": lemmatized}
             n_pairs += len(lemmas)
             if sink:
-                for lem, n in lemmas.most_common():
+                # most_common() leaves equal counts in insertion order, which
+                # follows a set built earlier and so varies between processes:
+                # PYTHONHASHSEED is not fixed here. The rows were identical in
+                # content and shuffled in order, which made this 39 MB artifact
+                # non-reproducible and quietly defeated the byte-identical build
+                # check. Break ties on the lemma.
+                for lem, n in sorted(lemmas.items(), key=lambda kv: (-kv[1], kv[0])):
                     sink.write(f"{urn}\t{lem}\t{n}\n")
     finally:
         if sink:

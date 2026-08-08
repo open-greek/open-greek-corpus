@@ -1,0 +1,1426 @@
+{
+ "what": "page-level estimate of the Dionysius/Pachymeres alternation in PG003",
+ "issue": "open-greek/open-greek-corpus#9",
+ "method": "a paraphrase replays the rare vocabulary of what it paraphrases, so a paraphrase page's closest neighbour by rare-word overlap lies behind it and a text page's lies ahead; the sign of that lag is the estimate",
+ "NOT_A_CARVE_INPUT": "page level only. It says which side of the alternation a page falls on, not where inside a row the switch is, and #9's binding problem is that most switches fall inside a row while the carve script moves whole rows.",
+ "params": {
+  "band": 40,
+  "rare_document_frequency": 6,
+  "min_rare_words": 8,
+  "margin": 0.1
+ },
+ "pages": 459,
+ "labelled": 228,
+ "declined": 231,
+ "tokens_paraphrase_side": 57385,
+ "tokens_text_side": 25206,
+ "held_out_agreement": "4/4 among labelled, 5/6 overall",
+ "held_out_check": {
+  "151": {
+   "what": "PARAPHRASIS PACHYMERAE",
+   "expected": -1,
+   "lag": -2,
+   "margin": 0.21052631578947367
+  },
+  "171": {
+   "what": "SYNOPSIS CAPITIS",
+   "expected": -1,
+   "lag": 7,
+   "margin": 0.07734056987788332
+  },
+  "300": {
+   "what": "DN 1.1 incipit",
+   "expected": 1,
+   "lag": 12,
+   "margin": 0.2777777777777778
+  },
+  "381": {
+   "what": "PARAPHRASIS PACHYMERAE",
+   "expected": -1,
+   "lag": -27,
+   "margin": 0.25458333333333333
+  },
+  "487": {
+   "what": "PARAPHRASIS PACHYMERAE",
+   "expected": -1,
+   "lag": -5,
+   "margin": 0.05
+  },
+  "506": {
+   "what": "MT 1.1 incipit",
+   "expected": 1,
+   "lag": 9,
+   "margin": 0.19047619047619047
+  }
+ },
+ "labels": {
+  "83": {
+   "lag": -7,
+   "margin": 0.1544,
+   "side": "paraphrase",
+   "tokens": 425
+  },
+  "87": {
+   "lag": -8,
+   "margin": 0.156,
+   "side": "paraphrase",
+   "tokens": 392
+  },
+  "89": {
+   "lag": -9,
+   "margin": 0.1638,
+   "side": "paraphrase",
+   "tokens": 318
+  },
+  "94": {
+   "lag": -4,
+   "margin": 0.1248,
+   "side": "paraphrase",
+   "tokens": 453
+  },
+  "95": {
+   "lag": -4,
+   "margin": 0.1359,
+   "side": "paraphrase",
+   "tokens": 400
+  },
+  "97": {
+   "lag": 6,
+   "margin": 0.1678,
+   "side": "text",
+   "tokens": 345
+  },
+  "98": {
+   "lag": 6,
+   "margin": 0.2663,
+   "side": "text",
+   "tokens": 330
+  },
+  "103": {
+   "lag": -6,
+   "margin": 0.2584,
+   "side": "paraphrase",
+   "tokens": 404
+  },
+  "104": {
+   "lag": -6,
+   "margin": 0.2636,
+   "side": "paraphrase",
+   "tokens": 442
+  },
+  "109": {
+   "lag": -2,
+   "margin": 0.1417,
+   "side": "paraphrase",
+   "tokens": 417
+  },
+  "111": {
+   "lag": 7,
+   "margin": 0.1507,
+   "side": "text",
+   "tokens": 353
+  },
+  "113": {
+   "lag": 12,
+   "margin": 0.1525,
+   "side": "text",
+   "tokens": 293
+  },
+  "118": {
+   "lag": -7,
+   "margin": 0.2054,
+   "side": "paraphrase",
+   "tokens": 442
+  },
+  "121": {
+   "lag": -9,
+   "margin": 0.241,
+   "side": "paraphrase",
+   "tokens": 438
+  },
+  "122": {
+   "lag": -10,
+   "margin": 0.1385,
+   "side": "paraphrase",
+   "tokens": 463
+  },
+  "124": {
+   "lag": -11,
+   "margin": 0.1096,
+   "side": "paraphrase",
+   "tokens": 482
+  },
+  "125": {
+   "lag": -12,
+   "margin": 0.2628,
+   "side": "paraphrase",
+   "tokens": 431
+  },
+  "126": {
+   "lag": 4,
+   "margin": 0.2045,
+   "side": "text",
+   "tokens": 222
+  },
+  "127": {
+   "lag": 6,
+   "margin": 0.1699,
+   "side": "text",
+   "tokens": 330
+  },
+  "128": {
+   "lag": 6,
+   "margin": 0.1571,
+   "side": "text",
+   "tokens": 321
+  },
+  "130": {
+   "lag": -4,
+   "margin": 0.2883,
+   "side": "paraphrase",
+   "tokens": 447
+  },
+  "133": {
+   "lag": -6,
+   "margin": 0.2197,
+   "side": "paraphrase",
+   "tokens": 431
+  },
+  "134": {
+   "lag": -6,
+   "margin": 0.3412,
+   "side": "paraphrase",
+   "tokens": 436
+  },
+  "135": {
+   "lag": -7,
+   "margin": 0.2116,
+   "side": "paraphrase",
+   "tokens": 470
+  },
+  "137": {
+   "lag": 4,
+   "margin": 0.1857,
+   "side": "text",
+   "tokens": 326
+  },
+  "139": {
+   "lag": -3,
+   "margin": 0.1429,
+   "side": "paraphrase",
+   "tokens": 75
+  },
+  "140": {
+   "lag": -4,
+   "margin": 0.1286,
+   "side": "paraphrase",
+   "tokens": 427
+  },
+  "141": {
+   "lag": -4,
+   "margin": 0.2143,
+   "side": "paraphrase",
+   "tokens": 429
+  },
+  "142": {
+   "lag": -4,
+   "margin": 0.1222,
+   "side": "paraphrase",
+   "tokens": 448
+  },
+  "143": {
+   "lag": -5,
+   "margin": 0.206,
+   "side": "paraphrase",
+   "tokens": 318
+  },
+  "147": {
+   "lag": -3,
+   "margin": 0.2036,
+   "side": "paraphrase",
+   "tokens": 453
+  },
+  "148": {
+   "lag": -4,
+   "margin": 0.1788,
+   "side": "paraphrase",
+   "tokens": 441
+  },
+  "149": {
+   "lag": 2,
+   "margin": 0.1142,
+   "side": "text",
+   "tokens": 271
+  },
+  "150": {
+   "lag": 2,
+   "margin": 0.4,
+   "side": "text",
+   "tokens": 87
+  },
+  "151": {
+   "lag": -2,
+   "margin": 0.2105,
+   "side": "paraphrase",
+   "tokens": 151
+  },
+  "152": {
+   "lag": -2,
+   "margin": 0.3177,
+   "side": "paraphrase",
+   "tokens": 440
+  },
+  "154": {
+   "lag": 2,
+   "margin": 0.1818,
+   "side": "text",
+   "tokens": 170
+  },
+  "156": {
+   "lag": -2,
+   "margin": 0.1982,
+   "side": "paraphrase",
+   "tokens": 428
+  },
+  "157": {
+   "lag": 5,
+   "margin": 0.1185,
+   "side": "text",
+   "tokens": 225
+  },
+  "158": {
+   "lag": 5,
+   "margin": 0.1651,
+   "side": "text",
+   "tokens": 377
+  },
+  "161": {
+   "lag": 6,
+   "margin": 0.6765,
+   "side": "text",
+   "tokens": 162
+  },
+  "162": {
+   "lag": -5,
+   "margin": 0.2246,
+   "side": "paraphrase",
+   "tokens": 349
+  },
+  "163": {
+   "lag": -5,
+   "margin": 0.2023,
+   "side": "paraphrase",
+   "tokens": 450
+  },
+  "165": {
+   "lag": -5,
+   "margin": 0.1388,
+   "side": "paraphrase",
+   "tokens": 450
+  },
+  "166": {
+   "lag": -6,
+   "margin": 0.123,
+   "side": "paraphrase",
+   "tokens": 446
+  },
+  "167": {
+   "lag": -6,
+   "margin": 0.6383,
+   "side": "paraphrase",
+   "tokens": 381
+  },
+  "168": {
+   "lag": 2,
+   "margin": 0.2188,
+   "side": "text",
+   "tokens": 113
+  },
+  "170": {
+   "lag": -2,
+   "margin": 0.2542,
+   "side": "paraphrase",
+   "tokens": 320
+  },
+  "173": {
+   "lag": 10,
+   "margin": 0.2097,
+   "side": "text",
+   "tokens": 329
+  },
+  "177": {
+   "lag": 15,
+   "margin": 0.25,
+   "side": "text",
+   "tokens": 197
+  },
+  "178": {
+   "lag": -7,
+   "margin": 0.1455,
+   "side": "paraphrase",
+   "tokens": 197
+  },
+  "180": {
+   "lag": -8,
+   "margin": 0.1102,
+   "side": "paraphrase",
+   "tokens": 423
+  },
+  "181": {
+   "lag": -9,
+   "margin": 0.1987,
+   "side": "paraphrase",
+   "tokens": 415
+  },
+  "183": {
+   "lag": -10,
+   "margin": 0.2933,
+   "side": "paraphrase",
+   "tokens": 389
+  },
+  "184": {
+   "lag": -10,
+   "margin": 0.1437,
+   "side": "paraphrase",
+   "tokens": 433
+  },
+  "185": {
+   "lag": -11,
+   "margin": 0.173,
+   "side": "paraphrase",
+   "tokens": 397
+  },
+  "187": {
+   "lag": -12,
+   "margin": 0.1441,
+   "side": "paraphrase",
+   "tokens": 452
+  },
+  "188": {
+   "lag": -12,
+   "margin": 0.2745,
+   "side": "paraphrase",
+   "tokens": 422
+  },
+  "190": {
+   "lag": -14,
+   "margin": 0.1465,
+   "side": "paraphrase",
+   "tokens": 395
+  },
+  "191": {
+   "lag": -14,
+   "margin": 0.2206,
+   "side": "paraphrase",
+   "tokens": 443
+  },
+  "192": {
+   "lag": -15,
+   "margin": 0.5,
+   "side": "paraphrase",
+   "tokens": 52
+  },
+  "193": {
+   "lag": 6,
+   "margin": 0.1465,
+   "side": "text",
+   "tokens": 358
+  },
+  "194": {
+   "lag": 6,
+   "margin": 0.1111,
+   "side": "text",
+   "tokens": 364
+  },
+  "195": {
+   "lag": 7,
+   "margin": 0.1014,
+   "side": "text",
+   "tokens": 357
+  },
+  "196": {
+   "lag": 6,
+   "margin": 0.1042,
+   "side": "text",
+   "tokens": 147
+  },
+  "199": {
+   "lag": -6,
+   "margin": 0.1772,
+   "side": "paraphrase",
+   "tokens": 441
+  },
+  "203": {
+   "lag": 10,
+   "margin": 0.1472,
+   "side": "text",
+   "tokens": 280
+  },
+  "204": {
+   "lag": 10,
+   "margin": 0.2162,
+   "side": "text",
+   "tokens": 262
+  },
+  "205": {
+   "lag": 10,
+   "margin": 0.189,
+   "side": "text",
+   "tokens": 345
+  },
+  "206": {
+   "lag": 10,
+   "margin": 0.2281,
+   "side": "text",
+   "tokens": 278
+  },
+  "213": {
+   "lag": -10,
+   "margin": 0.1472,
+   "side": "paraphrase",
+   "tokens": 447
+  },
+  "214": {
+   "lag": -10,
+   "margin": 0.2077,
+   "side": "paraphrase",
+   "tokens": 409
+  },
+  "215": {
+   "lag": -10,
+   "margin": 0.1568,
+   "side": "paraphrase",
+   "tokens": 411
+  },
+  "216": {
+   "lag": -10,
+   "margin": 0.1732,
+   "side": "paraphrase",
+   "tokens": 428
+  },
+  "218": {
+   "lag": -9,
+   "margin": 0.1345,
+   "side": "paraphrase",
+   "tokens": 412
+  },
+  "219": {
+   "lag": 13,
+   "margin": 0.1455,
+   "side": "text",
+   "tokens": 257
+  },
+  "220": {
+   "lag": 13,
+   "margin": 0.137,
+   "side": "text",
+   "tokens": 375
+  },
+  "221": {
+   "lag": 13,
+   "margin": 0.1646,
+   "side": "text",
+   "tokens": 306
+  },
+  "223": {
+   "lag": 14,
+   "margin": 0.1149,
+   "side": "text",
+   "tokens": 294
+  },
+  "225": {
+   "lag": 13,
+   "margin": 0.1197,
+   "side": "text",
+   "tokens": 356
+  },
+  "227": {
+   "lag": 13,
+   "margin": 0.1529,
+   "side": "text",
+   "tokens": 320
+  },
+  "229": {
+   "lag": 13,
+   "margin": 0.166,
+   "side": "text",
+   "tokens": 316
+  },
+  "230": {
+   "lag": 13,
+   "margin": 0.2344,
+   "side": "text",
+   "tokens": 233
+  },
+  "232": {
+   "lag": -13,
+   "margin": 0.1818,
+   "side": "paraphrase",
+   "tokens": 78
+  },
+  "233": {
+   "lag": -13,
+   "margin": 0.1193,
+   "side": "paraphrase",
+   "tokens": 423
+  },
+  "234": {
+   "lag": -13,
+   "margin": 0.1549,
+   "side": "paraphrase",
+   "tokens": 421
+  },
+  "237": {
+   "lag": -14,
+   "margin": 0.141,
+   "side": "paraphrase",
+   "tokens": 461
+  },
+  "238": {
+   "lag": -13,
+   "margin": 0.1029,
+   "side": "paraphrase",
+   "tokens": 456
+  },
+  "240": {
+   "lag": -13,
+   "margin": 0.1456,
+   "side": "paraphrase",
+   "tokens": 433
+  },
+  "241": {
+   "lag": -13,
+   "margin": 0.1219,
+   "side": "paraphrase",
+   "tokens": 390
+  },
+  "243": {
+   "lag": -13,
+   "margin": 0.1897,
+   "side": "paraphrase",
+   "tokens": 273
+  },
+  "244": {
+   "lag": 8,
+   "margin": 0.2952,
+   "side": "text",
+   "tokens": 348
+  },
+  "247": {
+   "lag": 7,
+   "margin": 0.1341,
+   "side": "text",
+   "tokens": 290
+  },
+  "248": {
+   "lag": 7,
+   "margin": 0.1884,
+   "side": "text",
+   "tokens": 299
+  },
+  "249": {
+   "lag": 7,
+   "margin": 0.113,
+   "side": "text",
+   "tokens": 325
+  },
+  "250": {
+   "lag": 7,
+   "margin": 0.1282,
+   "side": "text",
+   "tokens": 155
+  },
+  "252": {
+   "lag": -8,
+   "margin": 0.3286,
+   "side": "paraphrase",
+   "tokens": 449
+  },
+  "255": {
+   "lag": -7,
+   "margin": 0.1808,
+   "side": "paraphrase",
+   "tokens": 440
+  },
+  "256": {
+   "lag": -7,
+   "margin": 0.1344,
+   "side": "paraphrase",
+   "tokens": 420
+  },
+  "258": {
+   "lag": 9,
+   "margin": 0.1511,
+   "side": "text",
+   "tokens": 375
+  },
+  "261": {
+   "lag": 8,
+   "margin": 0.1385,
+   "side": "text",
+   "tokens": 348
+  },
+  "262": {
+   "lag": 8,
+   "margin": 0.1499,
+   "side": "text",
+   "tokens": 324
+  },
+  "263": {
+   "lag": 8,
+   "margin": 0.1637,
+   "side": "text",
+   "tokens": 311
+  },
+  "267": {
+   "lag": -9,
+   "margin": 0.1264,
+   "side": "paraphrase",
+   "tokens": 346
+  },
+  "269": {
+   "lag": -8,
+   "margin": 0.1167,
+   "side": "paraphrase",
+   "tokens": 420
+  },
+  "270": {
+   "lag": -8,
+   "margin": 0.1802,
+   "side": "paraphrase",
+   "tokens": 413
+  },
+  "271": {
+   "lag": -8,
+   "margin": 0.1589,
+   "side": "paraphrase",
+   "tokens": 424
+  },
+  "274": {
+   "lag": 6,
+   "margin": 0.1841,
+   "side": "text",
+   "tokens": 330
+  },
+  "276": {
+   "lag": 6,
+   "margin": 0.1,
+   "side": "text",
+   "tokens": 239
+  },
+  "280": {
+   "lag": -6,
+   "margin": 0.1359,
+   "side": "paraphrase",
+   "tokens": 401
+  },
+  "289": {
+   "lag": 8,
+   "margin": 0.1828,
+   "side": "text",
+   "tokens": 336
+  },
+  "291": {
+   "lag": 8,
+   "margin": 0.3453,
+   "side": "text",
+   "tokens": 387
+  },
+  "294": {
+   "lag": -9,
+   "margin": 0.1156,
+   "side": "paraphrase",
+   "tokens": 418
+  },
+  "295": {
+   "lag": -8,
+   "margin": 0.1247,
+   "side": "paraphrase",
+   "tokens": 418
+  },
+  "296": {
+   "lag": -8,
+   "margin": 0.1583,
+   "side": "paraphrase",
+   "tokens": 433
+  },
+  "297": {
+   "lag": -8,
+   "margin": 0.1286,
+   "side": "paraphrase",
+   "tokens": 450
+  },
+  "299": {
+   "lag": -8,
+   "margin": 0.1723,
+   "side": "paraphrase",
+   "tokens": 363
+  },
+  "300": {
+   "lag": 12,
+   "margin": 0.2778,
+   "side": "text",
+   "tokens": 70
+  },
+  "301": {
+   "lag": 12,
+   "margin": 0.1452,
+   "side": "text",
+   "tokens": 361
+  },
+  "304": {
+   "lag": 16,
+   "margin": 0.1579,
+   "side": "text",
+   "tokens": 364
+  },
+  "305": {
+   "lag": 18,
+   "margin": 0.125,
+   "side": "text",
+   "tokens": 339
+  },
+  "306": {
+   "lag": 18,
+   "margin": 0.1881,
+   "side": "text",
+   "tokens": 280
+  },
+  "312": {
+   "lag": -12,
+   "margin": 0.2849,
+   "side": "paraphrase",
+   "tokens": 441
+  },
+  "313": {
+   "lag": -12,
+   "margin": 0.2622,
+   "side": "paraphrase",
+   "tokens": 467
+  },
+  "314": {
+   "lag": -13,
+   "margin": 0.1017,
+   "side": "paraphrase",
+   "tokens": 420
+  },
+  "315": {
+   "lag": -13,
+   "margin": 0.131,
+   "side": "paraphrase",
+   "tokens": 420
+  },
+  "316": {
+   "lag": -14,
+   "margin": 0.1433,
+   "side": "paraphrase",
+   "tokens": 404
+  },
+  "317": {
+   "lag": -14,
+   "margin": 0.1138,
+   "side": "paraphrase",
+   "tokens": 440
+  },
+  "318": {
+   "lag": -15,
+   "margin": 0.1916,
+   "side": "paraphrase",
+   "tokens": 417
+  },
+  "320": {
+   "lag": -16,
+   "margin": 0.2076,
+   "side": "paraphrase",
+   "tokens": 434
+  },
+  "323": {
+   "lag": -18,
+   "margin": 0.2366,
+   "side": "paraphrase",
+   "tokens": 449
+  },
+  "324": {
+   "lag": -18,
+   "margin": 0.2925,
+   "side": "paraphrase",
+   "tokens": 424
+  },
+  "326": {
+   "lag": 11,
+   "margin": 0.3697,
+   "side": "text",
+   "tokens": 364
+  },
+  "327": {
+   "lag": 11,
+   "margin": 0.2836,
+   "side": "text",
+   "tokens": 341
+  },
+  "329": {
+   "lag": 13,
+   "margin": 0.1121,
+   "side": "text",
+   "tokens": 314
+  },
+  "330": {
+   "lag": 13,
+   "margin": 0.2785,
+   "side": "text",
+   "tokens": 363
+  },
+  "331": {
+   "lag": 13,
+   "margin": 0.1098,
+   "side": "text",
+   "tokens": 347
+  },
+  "332": {
+   "lag": 13,
+   "margin": 0.1305,
+   "side": "text",
+   "tokens": 352
+  },
+  "333": {
+   "lag": 13,
+   "margin": 0.1765,
+   "side": "text",
+   "tokens": 93
+  },
+  "337": {
+   "lag": -11,
+   "margin": 0.3744,
+   "side": "paraphrase",
+   "tokens": 430
+  },
+  "338": {
+   "lag": -11,
+   "margin": 0.3122,
+   "side": "paraphrase",
+   "tokens": 452
+  },
+  "340": {
+   "lag": -12,
+   "margin": 0.1182,
+   "side": "paraphrase",
+   "tokens": 461
+  },
+  "342": {
+   "lag": -13,
+   "margin": 0.1121,
+   "side": "paraphrase",
+   "tokens": 427
+  },
+  "343": {
+   "lag": -13,
+   "margin": 0.2442,
+   "side": "paraphrase",
+   "tokens": 411
+  },
+  "344": {
+   "lag": -13,
+   "margin": 0.1316,
+   "side": "paraphrase",
+   "tokens": 409
+  },
+  "345": {
+   "lag": -13,
+   "margin": 0.1684,
+   "side": "paraphrase",
+   "tokens": 505
+  },
+  "346": {
+   "lag": -13,
+   "margin": 0.1973,
+   "side": "paraphrase",
+   "tokens": 300
+  },
+  "347": {
+   "lag": 4,
+   "margin": 0.1954,
+   "side": "text",
+   "tokens": 292
+  },
+  "348": {
+   "lag": 4,
+   "margin": 0.2943,
+   "side": "text",
+   "tokens": 371
+  },
+  "349": {
+   "lag": 4,
+   "margin": 0.3068,
+   "side": "text",
+   "tokens": 301
+  },
+  "351": {
+   "lag": -4,
+   "margin": 0.1781,
+   "side": "paraphrase",
+   "tokens": 405
+  },
+  "352": {
+   "lag": -4,
+   "margin": 0.2747,
+   "side": "paraphrase",
+   "tokens": 435
+  },
+  "353": {
+   "lag": -4,
+   "margin": 0.3509,
+   "side": "paraphrase",
+   "tokens": 402
+  },
+  "354": {
+   "lag": 27,
+   "margin": 0.125,
+   "side": "text",
+   "tokens": 173
+  },
+  "355": {
+   "lag": 29,
+   "margin": 0.1094,
+   "side": "text",
+   "tokens": 351
+  },
+  "356": {
+   "lag": 29,
+   "margin": 0.1236,
+   "side": "text",
+   "tokens": 366
+  },
+  "357": {
+   "lag": 29,
+   "margin": 0.1765,
+   "side": "text",
+   "tokens": 371
+  },
+  "361": {
+   "lag": 32,
+   "margin": 0.1507,
+   "side": "text",
+   "tokens": 385
+  },
+  "363": {
+   "lag": 32,
+   "margin": 0.1343,
+   "side": "text",
+   "tokens": 382
+  },
+  "365": {
+   "lag": 33,
+   "margin": 0.1633,
+   "side": "text",
+   "tokens": 443
+  },
+  "368": {
+   "lag": 35,
+   "margin": 0.3023,
+   "side": "text",
+   "tokens": 381
+  },
+  "372": {
+   "lag": 38,
+   "margin": 0.1429,
+   "side": "text",
+   "tokens": 382
+  },
+  "373": {
+   "lag": 39,
+   "margin": 0.1321,
+   "side": "text",
+   "tokens": 396
+  },
+  "375": {
+   "lag": 39,
+   "margin": 0.2222,
+   "side": "text",
+   "tokens": 230
+  },
+  "381": {
+   "lag": -27,
+   "margin": 0.2546,
+   "side": "paraphrase",
+   "tokens": 401
+  },
+  "382": {
+   "lag": -28,
+   "margin": 0.1094,
+   "side": "paraphrase",
+   "tokens": 436
+  },
+  "384": {
+   "lag": -29,
+   "margin": 0.1704,
+   "side": "paraphrase",
+   "tokens": 421
+  },
+  "385": {
+   "lag": -29,
+   "margin": 0.135,
+   "side": "paraphrase",
+   "tokens": 475
+  },
+  "386": {
+   "lag": -29,
+   "margin": 0.1806,
+   "side": "paraphrase",
+   "tokens": 451
+  },
+  "387": {
+   "lag": -29,
+   "margin": 0.1388,
+   "side": "paraphrase",
+   "tokens": 425
+  },
+  "393": {
+   "lag": -32,
+   "margin": 0.1287,
+   "side": "paraphrase",
+   "tokens": 446
+  },
+  "394": {
+   "lag": -32,
+   "margin": 0.1096,
+   "side": "paraphrase",
+   "tokens": 461
+  },
+  "395": {
+   "lag": -32,
+   "margin": 0.144,
+   "side": "paraphrase",
+   "tokens": 460
+  },
+  "397": {
+   "lag": -33,
+   "margin": 0.1079,
+   "side": "paraphrase",
+   "tokens": 453
+  },
+  "398": {
+   "lag": -33,
+   "margin": 0.214,
+   "side": "paraphrase",
+   "tokens": 470
+  },
+  "399": {
+   "lag": -33,
+   "margin": 0.1017,
+   "side": "paraphrase",
+   "tokens": 498
+  },
+  "401": {
+   "lag": -34,
+   "margin": 0.1901,
+   "side": "paraphrase",
+   "tokens": 483
+  },
+  "402": {
+   "lag": -35,
+   "margin": 0.1347,
+   "side": "paraphrase",
+   "tokens": 505
+  },
+  "403": {
+   "lag": -35,
+   "margin": 0.4318,
+   "side": "paraphrase",
+   "tokens": 441
+  },
+  "404": {
+   "lag": -35,
+   "margin": 0.148,
+   "side": "paraphrase",
+   "tokens": 439
+  },
+  "406": {
+   "lag": -36,
+   "margin": 0.1374,
+   "side": "paraphrase",
+   "tokens": 420
+  },
+  "410": {
+   "lag": -38,
+   "margin": 0.1815,
+   "side": "paraphrase",
+   "tokens": 464
+  },
+  "412": {
+   "lag": -39,
+   "margin": 0.152,
+   "side": "paraphrase",
+   "tokens": 467
+  },
+  "414": {
+   "lag": -39,
+   "margin": 0.2657,
+   "side": "paraphrase",
+   "tokens": 394
+  },
+  "419": {
+   "lag": 12,
+   "margin": 0.1055,
+   "side": "text",
+   "tokens": 388
+  },
+  "425": {
+   "lag": -9,
+   "margin": 0.1109,
+   "side": "paraphrase",
+   "tokens": 456
+  },
+  "427": {
+   "lag": -10,
+   "margin": 0.1485,
+   "side": "paraphrase",
+   "tokens": 460
+  },
+  "431": {
+   "lag": -12,
+   "margin": 0.1542,
+   "side": "paraphrase",
+   "tokens": 432
+  },
+  "432": {
+   "lag": -12,
+   "margin": 0.1434,
+   "side": "paraphrase",
+   "tokens": 439
+  },
+  "433": {
+   "lag": -13,
+   "margin": 0.1045,
+   "side": "paraphrase",
+   "tokens": 455
+  },
+  "436": {
+   "lag": 3,
+   "margin": 0.1951,
+   "side": "text",
+   "tokens": 201
+  },
+  "439": {
+   "lag": -3,
+   "margin": 0.2058,
+   "side": "paraphrase",
+   "tokens": 466
+  },
+  "440": {
+   "lag": 6,
+   "margin": 0.1688,
+   "side": "text",
+   "tokens": 312
+  },
+  "446": {
+   "lag": -6,
+   "margin": 0.1965,
+   "side": "paraphrase",
+   "tokens": 431
+  },
+  "447": {
+   "lag": -6,
+   "margin": 0.1426,
+   "side": "paraphrase",
+   "tokens": 434
+  },
+  "448": {
+   "lag": -7,
+   "margin": 0.1468,
+   "side": "paraphrase",
+   "tokens": 468
+  },
+  "451": {
+   "lag": -8,
+   "margin": 0.1708,
+   "side": "paraphrase",
+   "tokens": 448
+  },
+  "452": {
+   "lag": 5,
+   "margin": 0.1954,
+   "side": "text",
+   "tokens": 275
+  },
+  "455": {
+   "lag": 5,
+   "margin": 0.1721,
+   "side": "text",
+   "tokens": 345
+  },
+  "456": {
+   "lag": 5,
+   "margin": 0.2957,
+   "side": "text",
+   "tokens": 261
+  },
+  "457": {
+   "lag": -5,
+   "margin": 0.2667,
+   "side": "paraphrase",
+   "tokens": 94
+  },
+  "461": {
+   "lag": -5,
+   "margin": 0.3097,
+   "side": "paraphrase",
+   "tokens": 426
+  },
+  "464": {
+   "lag": 8,
+   "margin": 0.1515,
+   "side": "text",
+   "tokens": 360
+  },
+  "466": {
+   "lag": 9,
+   "margin": 0.3182,
+   "side": "text",
+   "tokens": 97
+  },
+  "469": {
+   "lag": -7,
+   "margin": 0.1274,
+   "side": "paraphrase",
+   "tokens": 422
+  },
+  "472": {
+   "lag": -8,
+   "margin": 0.1727,
+   "side": "paraphrase",
+   "tokens": 429
+  },
+  "475": {
+   "lag": -9,
+   "margin": 0.311,
+   "side": "paraphrase",
+   "tokens": 322
+  },
+  "477": {
+   "lag": 4,
+   "margin": 0.1053,
+   "side": "text",
+   "tokens": 106
+  },
+  "483": {
+   "lag": 6,
+   "margin": 0.137,
+   "side": "text",
+   "tokens": 318
+  },
+  "488": {
+   "lag": -6,
+   "margin": 0.1397,
+   "side": "paraphrase",
+   "tokens": 411
+  },
+  "489": {
+   "lag": -6,
+   "margin": 0.118,
+   "side": "paraphrase",
+   "tokens": 400
+  },
+  "491": {
+   "lag": -6,
+   "margin": 0.1123,
+   "side": "paraphrase",
+   "tokens": 476
+  },
+  "494": {
+   "lag": -2,
+   "margin": 0.1333,
+   "side": "paraphrase",
+   "tokens": 208
+  },
+  "499": {
+   "lag": 6,
+   "margin": 0.2381,
+   "side": "text",
+   "tokens": 88
+  },
+  "502": {
+   "lag": -5,
+   "margin": 0.1726,
+   "side": "paraphrase",
+   "tokens": 478
+  },
+  "504": {
+   "lag": -6,
+   "margin": 0.123,
+   "side": "paraphrase",
+   "tokens": 387
+  },
+  "505": {
+   "lag": -6,
+   "margin": 0.1092,
+   "side": "paraphrase",
+   "tokens": 169
+  },
+  "506": {
+   "lag": 9,
+   "margin": 0.1905,
+   "side": "text",
+   "tokens": 119
+  },
+  "508": {
+   "lag": 11,
+   "margin": 0.2143,
+   "side": "text",
+   "tokens": 83
+  },
+  "515": {
+   "lag": -9,
+   "margin": 0.1905,
+   "side": "paraphrase",
+   "tokens": 456
+  },
+  "518": {
+   "lag": -11,
+   "margin": 0.1166,
+   "side": "paraphrase",
+   "tokens": 440
+  },
+  "519": {
+   "lag": -11,
+   "margin": 0.2143,
+   "side": "paraphrase",
+   "tokens": 335
+  },
+  "520": {
+   "lag": 3,
+   "margin": 0.1379,
+   "side": "text",
+   "tokens": 143
+  },
+  "523": {
+   "lag": -3,
+   "margin": 0.2734,
+   "side": "paraphrase",
+   "tokens": 314
+  },
+  "524": {
+   "lag": 2,
+   "margin": 0.1909,
+   "side": "text",
+   "tokens": 332
+  },
+  "526": {
+   "lag": -2,
+   "margin": 0.1909,
+   "side": "paraphrase",
+   "tokens": 447
+  },
+  "538": {
+   "lag": -7,
+   "margin": 0.1233,
+   "side": "paraphrase",
+   "tokens": 494
+  },
+  "541": {
+   "lag": -19,
+   "margin": 0.1111,
+   "side": "paraphrase",
+   "tokens": 32
+  }
+ }
+}
