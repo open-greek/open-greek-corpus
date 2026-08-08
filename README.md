@@ -329,7 +329,10 @@ carved volumes' leftovers, 24,753 Greek tokens between them: seven are small
 (PG005, PG101, PG107, PG109, PG118, PG124, PG125, 2 to 20 rows each and 12,464
 tokens in total, the rows the plan's ranges did not claim), and three are
 substantial residues that the carve deliberately did not attribute (PG113
-7,821 and PG151 3,119; PG139 is down to a 1,349-token table of contents). Only two whole volumes remain uncarved,
+7,821, and PG151 3,119, which is two identified works whose seams fall inside
+rows: Gregory Palamas' Homologia, attributed in Migne's printed title, and the
+confined archbishops' report to Anna Palaiologina, neither expressible by a
+whole-row carve; PG139 is down to a 1,349-token table of contents). Only two whole volumes remain uncarved,
 holding 309,553 tokens: PG003 and PG112. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it has been corrected twice, in opposite
