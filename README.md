@@ -293,9 +293,9 @@ is meant to eventually grow into it. The curated decisions live in
 `data/serving_deficits.json`; every number is derived at build time from the
 named files, and the build fails if an entry's slug is not served, its fuller
 text is missing, or the fuller text is no longer larger, so a resolved deficit
-must be cleared in the same change that resolves it. First entry: De cerimoniis,
-which byzantium.gr serves complete for book 1 (75,843 tokens) while PG112 holds
-the whole work (149,293).
+must be cleared in the same change that resolves it. The file is empty as of
+2026-08-08: its first entry, on De cerimoniis, turned out to rest on a misread
+of the TLG Canon and was removed the next day, which is recorded in the file.
 
 External identifiers (TLG/CTS, Wikidata QID, VIAF/GND/ISNI, Trismegistos) are
 kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
@@ -766,7 +766,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1387 OCR'd works/volumes: 185 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1388 OCR'd works/volumes: 186 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1083,7 +1083,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
-| PG112 | Constantine VII v1 De ceremoniis | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 149,293 | manual |
+| PG112 | Constantine VII v1 De ceremoniis (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 75,862 | manual |
 | PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7,821 | manual |
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,630 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
@@ -1094,6 +1094,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
 | commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana | Commentaria In Dionysii Thracis Artem Grammaticam - Prolegomena Vossiana | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,685 | auto-corrected |
 | constantinus-siculus.versus-in-leonem-philosophum | Constantinus Siculus - Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione) (PG107 loci 40-41) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 257 | manual |
+| constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske | Constantinus VII Porphyrogenitus - De cerimoniis aulae Byzantinae (lib. 1.84-2.56) (PG112 loci 354-730) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 73,431 | manual |
 | constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis | Constantinus VII Porphyrogenitus Imperator - De Virtutibus Et Vitiis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 212,990 | manual |
 | constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena | Constantinus VII Porphyrogenitus Imperator - Narratio de imagine Edessena (PG113 loci 223-237) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,761 | manual |
 | constantinus-vii-porphyrogenitus-imperator.novellae-constitutiones | Constantinus VII Porphyrogenitus Imperator - Novellae constitutiones (PG113 loci 286-313) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,084 | manual |
@@ -2171,21 +2172,24 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
   structure, keeps page-paragraph indices.
 - The multi-work CGPG Migne volumes are carved into per-work files: 20 of the
-  21 researched volumes split (~160 primary works incl. the Theophylact of
+  21 researched volumes split (~161 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
-  `cogPG.*` files remain volume-keyed: ten leftovers of carved volumes
-  (PG113, PG139 and PG151 join them, so 24,753 tokens between them) and two
-  uncarved volumes (PG003 and PG112, 309,553 tokens). PG003 is deferred on the
+  `cogPG.*` files remain volume-keyed: eleven leftovers of carved volumes
+  (PG113, PG139, PG151 and now PG112 join them, so 100,615 tokens between them,
+  75,862 of that PG112's uncarved half) and one uncarved volume (PG003,
+  160,260 tokens). PG003 is deferred on the
   evidence (Dionysius/Pachymeres, blocked on display heads the OCR dropped, not
   on the passage-level interleave the record used to claim; see the
-  split-deferred flag record); PG112 is TWO Canon works, not the one work an
-  earlier note called it: loci 44-353 are De cerimoniis lib. 1.1-83 with the
-  proem (the tlg3023.011 scope, verbatim the text byzantium.gr serves) and
-  354-730 are lib. 1.84-2.56 (tlg3023.010, served nowhere else). Its carve is
-  proposed on issue #8 and waits on the rank confirmation for displacing the
-  first block to a witness.
+  split-deferred flag record). PG112 is CARVED as of 2026-08-08, but only half:
+  the Canon splits De cerimoniis by edition, tlg3023.011 being Vogt (lib. 1.1-92
+  in his numbering) and tlg3023.010 Reiske (lib. 1.84-2.56 in his), and Vogt's 92
+  book-1 chapters are Reiske's 83, so the two are complementary halves rather
+  than overlapping scopes. Loci 354-730 are the Reiske half and are now served
+  as a work in their own right; loci 44-353 are the same text byzantium.gr
+  already serves and stay volume-keyed until the rank call on issue #8 says
+  whether to keep them as an edition witness.
   PG067 carved to TWO SECONDARY witnesses and no primary, so the published
   primary corpus is 220,569 tokens smaller than before it: the volume is
   Socrates Scholasticus and Sozomen end to end, and both histories are already

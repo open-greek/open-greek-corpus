@@ -1,34 +1,40 @@
 {
-  "comment": "Structural ceilings for the coverage report: ingested works whose 'missing' words cannot come from any PD/open route, because the sourcing-map expected count follows a copyright-locked modern edition. The report annotates matching partial/underfilled rows as structural so the actionable finish-this queue is visible; the annotation never changes a bucket verdict. The title_rule covers the fragment/testimonia collections wholesale (TLG counts follow Jacoby, Radt TrGF, Kassel-Austin, Theodoridis etc., while the served PD collections, e.g. Mueller FHG via DFHG, are different and smaller corpora); 'works' lists continuous works with a per-work reason and evidence.",
-  "title_rule": {
-    "pattern": "\\b([Ff]ragmenta|[Tt]estimonia|[Ff]ragmentum)\\b",
-    "reason": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+ "comment": "Structural ceilings for the coverage report: ingested works whose 'missing' words cannot come from any PD/open route, because the sourcing-map expected count follows a copyright-locked modern edition. The report annotates matching partial/underfilled rows as structural so the actionable finish-this queue is visible; the annotation never changes a bucket verdict. The title_rule covers the fragment/testimonia collections wholesale (TLG counts follow Jacoby, Radt TrGF, Kassel-Austin, Theodoridis etc., while the served PD collections, e.g. Mueller FHG via DFHG, are different and smaller corpora); 'works' lists continuous works with a per-work reason and evidence.",
+ "title_rule": {
+  "pattern": "\\b([Ff]ragmenta|[Tt]estimonia|[Ff]ragmentum)\\b",
+  "reason": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+ },
+ "rule_exceptions": [
+  {
+   "tlg_id": "tlg2042",
+   "work_id": "044",
+   "note": "Origenes, Fragmenta in Psalmos: completable from Pitra, Analecta Sacra vol. 2-3 (PD); First1K covers Pss 1-25 only"
+  }
+ ],
+ "works": [
+  {
+   "tlg_id": "tlg3063",
+   "work_id": "001",
+   "reason": "full Synopsis historiarum only in Thurn 1973 (in copyright); the byzantium.gr source page holds only ~30k Greek tokens",
+   "evidence": "data/pd_research/cgpg_coverage.json marks Thurn in_copyright; byzantium.gr page inspected 2026-07-31"
   },
-  "rule_exceptions": [
-    {
-      "tlg_id": "tlg2042",
-      "work_id": "044",
-      "note": "Origenes, Fragmenta in Psalmos: completable from Pitra, Analecta Sacra vol. 2-3 (PD); First1K covers Pss 1-25 only"
-    }
-  ],
-  "works": [
-    {
-      "tlg_id": "tlg3063",
-      "work_id": "001",
-      "reason": "full Synopsis historiarum only in Thurn 1973 (in copyright); the byzantium.gr source page holds only ~30k Greek tokens",
-      "evidence": "data/pd_research/cgpg_coverage.json marks Thurn in_copyright; byzantium.gr page inspected 2026-07-31"
-    },
-    {
-      "tlg_id": "tlg4089",
-      "work_id": "008",
-      "reason": "the PG 81 In Isaiam text is intrinsically partial; the full commentary survives only in Moehle 1932 / Guinot SC (both in copyright)",
-      "evidence": "2026-07-31 survey of partial ingestions; PG 81 prints the catena-derived torso only"
-    },
-    {
-      "tlg_id": "tlg1602",
-      "work_id": "001",
-      "reason": "expected count follows Theodoridis 1976 (in copyright); the served First1K text is the older, smaller collection",
-      "evidence": "2026-07-31 survey of partial ingestions"
-    }
-  ]
+  {
+   "tlg_id": "tlg4089",
+   "work_id": "008",
+   "reason": "the PG 81 In Isaiam text is intrinsically partial; the full commentary survives only in Moehle 1932 / Guinot SC (both in copyright)",
+   "evidence": "2026-07-31 survey of partial ingestions; PG 81 prints the catena-derived torso only"
+  },
+  {
+   "tlg_id": "tlg1602",
+   "work_id": "001",
+   "reason": "expected count follows Theodoridis 1976 (in copyright); the served First1K text is the older, smaller collection",
+   "evidence": "2026-07-31 survey of partial ingestions"
+  },
+  {
+   "tlg_id": "tlg3023",
+   "work_id": "010",
+   "reason": "our OCR of PG112 stops inside Reiske's book 2 chapter 55 and Migne keeps printing the work for about eight more pages, so the served text lacks the rest of chapter 55 and the whole of chapter 56. This is a gap in OUR scan-derived text, not an in-copyright ceiling: the pages are public domain and readable, so the ceiling lifts if they are re-OCR'd.",
+   "evidence": "scans read 2026-08-08, Internet Archive item patrologia.graeca.org, _112.zip, where col = 2*page - 27. Our last locus 730 is scan page 731 (cols 1435-1436), which prints ΚΕΦΑΛ. ΝΕʹ / CAPUT LV De distributione sportularum consuetudinis praepositorum, and our row ends mid-sentence at τάσσειν ἀφ´ αὐτῶν τὸν οἰονοῦν ἐν·. Scan page 733 (cols 1439-1440) is still chapter 55, and INDEX IN LIBRUM DE CERIMONIIS starts at scan page 740 (cols 1453-1454), so the text runs to about col 1452 against the col 1436 we hold. 73,431 tokens against the Canon's 76,649 words, 0.958, which the missing pages account for."
+  }
+ ]
 }

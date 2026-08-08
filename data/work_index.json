@@ -9,8 +9,8 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3902,
-   "with_external_anchor": 3332,
+   "works": 3903,
+   "with_external_anchor": 3333,
    "no_external_anchor": 570,
    "redirects": 6
   }
@@ -22076,8 +22076,8 @@
     "edition": "cgpg",
     "source": "cgpg",
     "license": "CC-BY-4.0",
-    "n_passages": 682,
-    "n_tokens": 149066
+    "n_passages": 305,
+    "n_tokens": 75758
    }
   },
   "cogPG.PG113": {
@@ -22432,14 +22432,6 @@
     "license": "PD",
     "n_passages": 480,
     "n_tokens": 75831
-   },
-   "serving_deficit": {
-    "served_tokens": 75843,
-    "fuller_tokens": 149293,
-    "fuller_in": "data/corpus/cogPG.PG112.jsonl",
-    "scope": "serves the proem and lib. 1.1-83 of a work whose Canon scope is lib. 1.1-92; the missing chapters, and the whole of lib. 1.84-2.56 (tlg3023.010, a separate Canon work), are printed in PG112, verified by the served proem being verbatim identical to PG112 locus 44 and the book-2 head at locus 495",
-    "reason": "the served text is byzantium.gr's manual transcription and stays primary over our OCR of the same passages per the source-precedence ladder; the fuller text is uncorrected OCR",
-    "intent": "supplement the served work's missing tail from the PG112 text once it is carved and corrected, or replace the serving entirely if a fuller transcription or corrected edition becomes available"
    }
   },
   "constantinus-vii-porphyrogenitus-imperator.de-thematibus": {
@@ -101211,6 +101203,34 @@
     "license": "CC-BY-4.0",
     "n_passages": 7,
     "n_tokens": 5375
+   }
+  },
+  "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske": {
+   "id": "ogc003926",
+   "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske",
+   "former_slugs": [],
+   "title": "De cerimoniis aulae Byzantinae (lib. 1.84-2.56)",
+   "author": {
+    "id": "oga000392",
+    "slug": "constantinus-vii-porphyrogenitus-imperator",
+    "name": "Constantinus VII Porphyrogenitus Imperator",
+    "authorities": {
+     "wikidata": "Q41608",
+     "viaf": "13108540",
+     "gnd": "119022397",
+     "isni": "0000000120992009"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg3023.tlg010",
+    "tlg": "tlg3023.tlg010"
+   },
+   "manifestation": {
+    "edition": "cgpg",
+    "source": "cgpg",
+    "license": "CC-BY-4.0",
+    "n_passages": 377,
+    "n_tokens": 73308
    }
   }
  },
