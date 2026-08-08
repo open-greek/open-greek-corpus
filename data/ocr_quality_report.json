@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1411,
-   "ocr_works_ranked": 822,
+   "ocr_works": 1412,
+   "ocr_works_ranked": 823,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -182,10 +182,10 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.134,
+   "median": 0.1342,
    "min": 0.0089,
-   "n": 822,
-   "q1": 0.0943,
+   "n": 823,
+   "q1": 0.0944,
    "q3": 0.17
   }
  },
@@ -3363,11 +3363,11 @@
   },
   "cogPG.PG113": {
    "edition": "cgpg",
-   "n_tokens": 7821,
-   "n_tokens_checked": 4969,
-   "n_unattested": 614,
+   "n_tokens": 3039,
+   "n_tokens_checked": 1900,
+   "n_unattested": 274,
    "source": "cgpg",
-   "unattested_rate": 0.123566,
+   "unattested_rate": 0.144211,
    "witness": null
   },
   "cogPG.PG118": {
@@ -13411,6 +13411,15 @@
    "unattested_rate": 0.21159,
    "witness": null
   },
+  "theophylactus-simocatta.excerpta-de-legationibus": {
+   "edition": "cgpg",
+   "n_tokens": 4782,
+   "n_tokens_checked": 3069,
+   "n_unattested": 340,
+   "source": "cgpg",
+   "unattested_rate": 0.110785,
+   "witness": null
+  },
   "theopompus-comedy.fragmenta": {
    "edition": "kock-caf1-ocr-frag",
    "n_tokens": 1876,
@@ -14421,6 +14430,7 @@
   "basilius-theology.in-quadraginta-martyres-sebastenses",
   "joannes-chrysostomus.in-matthaeum-homiliae-1-90",
   "joannes-damascenus.de-octo-spiritibus-nequitiae-fragmentum-sp",
+  "cogPG.PG113",
   "theodoretus.de-providentia-orationes-decem",
   "gregorius-nyssenus.de-opificio-hominis",
   "joannes-chrysostomus.in-epistulam-ii-ad-corinthios-homiliae-1-30",
@@ -14551,7 +14561,6 @@
   "theodoretus.haereticarum-fabularum-compendium",
   "euhemerus.fragmenta",
   "protagoras.testimonia",
-  "cogPG.PG113",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos",
   "eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum",
   "porphyrius.contra-christianos-fragmenta",
@@ -14604,6 +14613,7 @@
   "joannes-diaconus-hadrianopolitanus.carmen-politicum",
   "cyrillus-theology.oratio-ad-pulcheriam-et-eudociam-augustas-de-fide",
   "gregorius-nyssenus.contra-eunomium",
+  "theophylactus-simocatta.excerpta-de-legationibus",
   "prodicus.testimonia",
   "heraclitus-philosophy.testimonia",
   "maximus-planudes.scholia-eis-ten-hermogenous-technen",

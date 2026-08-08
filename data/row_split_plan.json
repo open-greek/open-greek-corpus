@@ -170,6 +170,90 @@
      ]
     }
    ]
+  },
+  {
+   "volume": "PG113",
+   "date": "2026-08-08",
+   "basis": "Theophylact Simocatta's block of Constantine VII's Excerpta de legationibus, the seventh and last historian in that Migne block. The other six were carved in pass 5 and displaced to corpus_secondary as witnesses of their served works on containment 0.833-0.941. Theophylact was held back at 0.697, below the 0.7 demotion gate, and the record answered the rank question and then left the block in the volume file, which answered a different question: whether to DEMOTE it, not whether it can be CARVED. It can. Its own head survives mid-row at 475:436, ΕΚ ΤΗΣ ΙΣΤΟΡΙΑΣ ΘΕΟΦΥΑΑΚΤΟΥ ΑΠΟΕΠΑΡΧΟΥ ΚΑΙ ΑΝΤΗΡΑΦΕΩΣ, that is ἐκ τῆς ἱστορίας Θεοφυλάκτου ἀπὸ ἐπάρχων καὶ ἀντιγραφέως, his own style, and the 436 characters before it are the tail of Menander's block (0.764 against the served Menander, 0.236 against the Historiae).\n\nRank is NOT reopened here: it stays primary, which is what pass 5 decided and what the text is already served as, so this carve changes citability and nothing else. But the number the decision rested on was measured over the block INCLUDING Menander's tail. Measured over the block alone it is 0.717, which clears the same gate rather than falling under it. Per row it is bimodal: 480-487 run 0.750-0.903 while 477, 478 and 479 sit at 0.501, 0.592 and 0.513, so the block is not uniformly the served text and the codified gate is a per-row shed rule anyway. Recorded rather than acted on; demoting it is the same entry with rank secondary and would take 4,782 tokens out of the published primary corpus, which is cisco's call.",
+   "works": [
+    {
+     "slug": "theophylactus-simocatta.excerpta-de-legationibus",
+     "title": "Excerpta de legationibus",
+     "author_display": "Theophylactus Simocatta",
+     "rank": "primary",
+     "evidence": "Head at 475:436 read from our own bytes. The block ends at 487, which closes on a complete sentence (οἱ Βάρβαροι.); 488 opens mid-sentence into Constantine's own closing proem and its containment against the Historiae falls from 0.750 to 0.218, so the boundary is sharp without a head. No TLG anchor: the Canon's tlg3130.X01/X02 for these Excerpta carry no TLG number and no word count, so nothing can be claimed (the precedent for a named author with no anchor is hierocles-grammaticus.synecdemus).",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "475",
+       "row_sha256": "18aca9454b04b28101d7e1611c8c442515a6933496807d520a8ebfaf6f94ac99",
+       "start": 436,
+       "at": "ΕΚ ΤΗΣ ΙΣΤΟΡΙΑΣ ΘΕΟΦΥΑΑΚΤΟΥ",
+       "prev_ends_with": "καὶ οὕτω σημῆναι."
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "476",
+       "row_sha256": "89cb138a9d43042536749af2f30de7f709637bb1a7473a4c4bf9fb6550406b54"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "477",
+       "row_sha256": "37764397ed94cd982a78e1f0e33e6acbc6d8944dba4cc325239aa99413e9e66c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "478",
+       "row_sha256": "fe0f93f6441f6a6af53b858f0f4067ccb9ea467b6b53496db65b63e2537dca8f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "479",
+       "row_sha256": "0a2202420d43c4524c25b4af97150ca71fd847efd36816fe28fbf597eb9cfaf5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "480",
+       "row_sha256": "548b24bdf658a56955b7a030c4370863ee58622c8f3a904c32a22ba42af59f65"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "481",
+       "row_sha256": "860afb897331b223185e66fd47729e3d529a17a56d85403b257ef5ec273dfdae"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "482",
+       "row_sha256": "bf9dfc1f583d60fe110092b2095c8c541a2c43f5fb651f47c060da06fa69e75b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "483",
+       "row_sha256": "240da000891f1a10fdc96e44dd7bf7bd20b3caa6283723466ea23dcbdbce4256"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "484",
+       "row_sha256": "98dbaad0e732de68136d2d20afadc1fe4a36339c70e8a6ce3e0fee2b19623a92"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "485",
+       "row_sha256": "154e07acdfc3963bef32e329b93a5ef0ca329c695ce5ca28d26d5f9d487ba747"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "486",
+       "row_sha256": "f9d7aa3ee459fc5dae9d4b1fb292ef820bce74a53ee47f65219ac1a9ac48c2e8"
+      },
+      {
+       "file": "data/corpus/cogPG.PG113.jsonl",
+       "locus": "487",
+       "row_sha256": "dce3b8a4d971be7fec42c1b24b86795ec7e6709cc1cae6eac9d07eb12db42a65"
+      }
+     ]
+    }
+   ]
   }
  ]
 }

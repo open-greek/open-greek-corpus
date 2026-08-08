@@ -335,19 +335,19 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 11 `cogPG.*` files are still volume-keyed, holding 256,019 Greek
+far, and 11 `cogPG.*` files are still volume-keyed, holding 251,237 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
 cuts a row at a character offset. Ten of the eleven remaining files are carved
-volumes' leftovers, 95,759 tokens between them, and 75,862 of that is PG112's
+volumes' leftovers, 90,977 tokens between them, and 75,862 of that is PG112's
 uncarved half alone (the Vogt text byzantium.gr already serves, left
 volume-keyed pending a disposition). The rest is small: PG005, PG101, PG107,
 PG109, PG118, PG124 and PG125 hold 2 to 13 rows each, every one identified in
 its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
-PG005 and the Oecumenius prefatory matter in PG118. PG113 keeps 7,821 and PG139
-a 1,349-token table of contents. Only one whole volume remains uncarved, PG003
+PG005 and the Oecumenius prefatory matter in PG118. PG113 keeps 3,039 after its Theophylact block was
+carved on 2026-08-08, and PG139 a 1,349-token table of contents. Only one whole volume remains uncarved, PG003
 at 160,260 tokens. They are listed with their token counts
 in the OCR provenance table below. Of those two, PG003 is uncarved on the
 evidence, and the reason recorded for it has been corrected twice, in opposite
@@ -767,7 +767,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1392 OCR'd works/volumes: 190 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1393 OCR'd works/volumes: 191 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1086,7 +1086,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
 | PG112 | Constantine VII v1 De ceremoniis (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 75,862 | manual |
-| PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7,821 | manual |
+| PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,039 | manual |
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,893 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
@@ -2103,6 +2103,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | theophylactus-achridensis.supplementum-in-evangelium-joannis | Theophylactus Achridensis (attributed) - Conclusion-fragment of a commentary on the Gospel of John (Jo 21:22-25 with account of John's death; supplement to the In Joannem) (PG126 loci 80-82) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 867 | auto-corrected |
 | theophylactus-achridensis.vita-clementis-ohridensis | Theophylactus Achridensis - Vita Clementis Ohridensis (the long life, BHG 355) (PG126 loci 604-633) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,716 | manual |
 | theophylactus-simocatta.epistulae | Theophylactus Simocatta - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,582 | auto-corrected |
+| theophylactus-simocatta.excerpta-de-legationibus | Theophylactus Simocatta - Excerpta de legationibus (PG113 loci 475-487, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,782 | manual |
 | theopompus-comedy.fragmenta | Theopompus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,876 | auto-corrected |
 | theopompus-history.testimonia | Theopompus - Testimonia | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 23,594 | auto-corrected |
 | thespis.fragmenta | Thespis - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 262 | raw OCR |
@@ -2177,12 +2178,12 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
   structure, keeps page-paragraph indices.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
-  22 researched volumes split (~166 primary works incl. the Theophylact of
+  22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed (11 files): ten leftovers of carved volumes
-  (PG113, PG139 and PG112 among them, so 95,759 tokens between them, 75,862 of
+  (PG113, PG139 and PG112 among them, so 90,977 tokens between them, 75,862 of
   that PG112's uncarved half) and one uncarved volume (PG003, 160,260 tokens).
   Where a work's boundary falls inside a row, which whole-row carving cannot
   express, scripts/split_carved_row.py cuts the row at a character offset; it
