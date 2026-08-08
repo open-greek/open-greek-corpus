@@ -1030,8 +1030,15 @@ def build() -> Registry:
         while ws in reg.works:
             n += 1
             ws = f"{base_ws}-{n}"
+        # greekLit is Perseus/OGL's namespace and only a TLG-numbered key may
+        # claim it. These are ingested works OUTSIDE the Canon numbering, so a
+        # key like cogPG.PG005 or ocr.walz_rhetores_v9 is ours; minting
+        # urn:cts:greekLit:cogPG.PG005 publishes an identifier that resolves
+        # nowhere. Use the cog-native namespace the cogByz works already use
+        # (issue #32).
+        _ns = "greekLit" if re.match(r"tlg\d", work_cts) else "cogGreek"
         work_slug = reg.mint_work(author_slug, title or work_cts, slug=ws,
-                                  aliases={"cts": f"urn:cts:greekLit:{work_cts}"})
+                                  aliases={"cts": f"urn:cts:{_ns}:{work_cts}"})
         reg.works[work_slug].best_source = "open_corpus"
         if att:
             att_tags = att.get("tags") or {}

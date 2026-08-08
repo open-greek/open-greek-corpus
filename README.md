@@ -297,6 +297,14 @@ must be cleared in the same change that resolves it. The file is empty as of
 2026-08-08: its first entry, on De cerimoniis, turned out to rest on a misread
 of the TLG Canon and was removed the next day, which is recorded in the file.
 
+A work the TLG never numbered gets a CTS id in this repo's own namespace,
+`urn:cts:cogGreek:<key>`, not in Perseus/OGL's `greekLit`. 3,880 of the 11,074
+CTS aliases are cog-native that way, and `data/crosswalk_report.json` splits the
+count by namespace so "100% cts" is not read as 100% externally identified.
+Until 2026-08-08 those ids claimed `greekLit` and 29 of them were published as
+work anchors, along with a `tlg` field holding the corpus key itself; both
+resolved nowhere (issue #32).
+
 External identifiers (TLG/CTS, Wikidata QID, VIAF/GND/ISNI, Trismegistos) are
 kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor

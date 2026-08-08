@@ -174,13 +174,38 @@ def main():
             continue
         w = reg["works"].get(stem) or {}
         w_cts = (w.get("aliases") or {}).get("cts") or ""
-        if "greekLit:" not in w_cts:
+        # cogGreek as well as greekLit: since #32 the registry mints the
+        # cog-native namespace for keys the TLG never numbered, and gating on
+        # "greekLit:" alone would silently stop those works entering the
+        # crosswalk at all rather than entering it with an honest id.
+        m = re.match(r"urn:cts:(greekLit|cogGreek):(.+)$", w_cts)
+        if not m:
             continue
-        tail = w_cts.split("greekLit:")[-1]
-        crosswalk[stem] = {"cts": w_cts, "tlg": tail,
+        tail = m.group(2)
+        # `tlg` is a TLG author.work number or nothing. It used to be filled
+        # with whatever followed the namespace, which published cogPG.PG003 as
+        # though it were a TLG id.
+        crosswalk[stem] = {"cts": w_cts,
+                           "tlg": tail if re.match(r"tlg\d", tail) else "",
                            "author_slug": stem.split(".")[0] if "." in stem else "",
                            "title": w.get("title", "")}
         alias_added.append(stem)
+
+    # Normalize identifiers that earlier runs grandfathered in. The loop above
+    # only fills keys the crosswalk does not already have, so rows written
+    # before #32 kept urn:cts:greekLit:<corpus key> and a `tlg` holding that
+    # same key. Rewriting them here rather than by hand keeps the file derived.
+    renamespaced = 0
+    for slug, d in crosswalk.items():
+        cts = str(d.get("cts") or "")
+        m = re.match(r"urn:cts:greekLit:(.+)$", cts)
+        if m and not re.match(r"tlg\d", m.group(1)):
+            d["cts"] = f"urn:cts:cogGreek:{m.group(1)}"
+            renamespaced += 1
+        if d.get("tlg") and not re.match(r"tlg\d", str(d["tlg"])):
+            d["tlg"] = ""
+    if renamespaced:
+        print(f"re-namespaced {renamespaced} non-TLG ids greekLit -> cogGreek (#32)")
 
     # write crosswalk (the TLG-mapping "page")
     json.dump(crosswalk, open(REPO / "data/tlg_crosswalk.json", "w"), ensure_ascii=False, indent=0)

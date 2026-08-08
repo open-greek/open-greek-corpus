@@ -67,6 +67,21 @@ def _is_logical(scheme):
     return bool(s) and not any(h in s for h in PHYSICAL_HINTS)
 
 
+def _cts_namespaces(entities):
+    """CTS aliases split by namespace. greekLit is Perseus/OGL's and means the
+    work has an external identifier; cogGreek is ours and means it does not."""
+    total = len(entities)
+    seen = {}
+    for e in entities:
+        cts = str((e.get("aliases") or {}).get("cts") or "")
+        if cts.startswith("urn:cts:"):
+            ns = cts.split(":")[2]
+            seen[ns] = seen.get(ns, 0) + 1
+    return {ns: {"count": n, "pct": _pct(n, total),
+                 "external": ns != "cogGreek"}
+            for ns, n in sorted(seen.items(), key=lambda kv: -kv[1])}
+
+
 def _ns_coverage(entities, namespaces):
     """count + pct of entities carrying each alias namespace, plus any namespace
     present in the data but not in the target list (so nothing is hidden)."""
@@ -206,6 +221,10 @@ def main():
             "pct_served_with_logical_served_locus": _pct(sv_logical, nS),
         },
         "work_aliases": _ns_coverage(work_list, WORK_NS),
+        # `cts` above counts any CTS urn, and a third of them are ids this repo
+        # minted for works the TLG never numbered. Splitting the namespace keeps
+        # "100% cts" from reading as 100% externally identified (issue #32).
+        "work_cts_by_namespace": _cts_namespaces(work_list),
         "author_aliases": _ns_coverage(author_list, AUTHOR_NS),
         "edition_aliases": _ns_coverage(editions, EDITION_NS),
         "canonical_locus": {
@@ -283,6 +302,9 @@ def main():
     print(f"  works {nW} | authors {nA} | editions {nE}", file=sys.stderr)
     print(f"  work aliases:   " + ", ".join(
         f"{ns} {report['work_aliases'][ns]['pct']}%" for ns in WORK_NS), file=sys.stderr)
+    print(f"    cts by namespace: " + ", ".join(
+        f"{ns} {d['count']} ({d['pct']}%{'' if d['external'] else ', cog-native'})"
+        for ns, d in report["work_cts_by_namespace"].items()), file=sys.stderr)
     print(f"  author aliases: " + ", ".join(
         f"{ns} {report['author_aliases'][ns]['pct']}%" for ns in AUTHOR_NS), file=sys.stderr)
     print(f"  canonical locus: {h['pct_works_with_canonical_locus']}% any-edition | "

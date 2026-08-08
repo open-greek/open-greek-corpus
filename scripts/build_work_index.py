@@ -117,6 +117,13 @@ def _external_cts(cts: str | None) -> str | None:
     return cts
 
 
+def _external_tlg(tlg: str | None) -> str | None:
+    """A TLG author.work number, or nothing. The crosswalk used to carry the
+    corpus key here for works the TLG never numbered, so work_index published
+    `tlg: cogPG.PG003` (issue #32)."""
+    return tlg if tlg and re.match(r"tlg\d", tlg) else None
+
+
 def _clean(d: dict) -> dict:
     """Drop empty values so the anchors block only lists what is actually known
     (a work with no external id gets an empty {} - that is the point)."""
@@ -382,8 +389,8 @@ def build(write: bool = True) -> dict:
         rw = reg_works.get(slug, {})
         ral = rw.get("aliases", {})
         anchors = _clean({
-            "cts": cw.get("cts") or _external_cts(ral.get("cts")),
-            "tlg": cw.get("tlg"),
+            "cts": _external_cts(cw.get("cts")) or _external_cts(ral.get("cts")),
+            "tlg": _external_tlg(cw.get("tlg")),
             "wikidata": ral.get("wikidata"),
         })
         if anchors:
