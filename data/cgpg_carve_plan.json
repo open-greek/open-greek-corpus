@@ -4695,6 +4695,71 @@
      "notes": "The block begins mid-row: no display head survives at the boundary, and the split is placed by the containment measurement plus the excerpt numbering restarting. That is an inference, not a reading, and is recorded as one. Menander is the largest block at 26,253 tokens and scores lowest of the six at 0.833, so it is the one to re-check first if any number here is wrong."
     }
    ]
+  },
+  {
+   "volume": "PG151",
+   "pass": 3,
+   "date": "2026-08-07",
+   "basis": "third pass. Pass 2 left the synodal dossier whole on the reasoning that Migne prints it without an author. That is right about authorship and does not follow for carvability: these are separate conciliar acts, each with its own proem and its own subscriptions, and they can be carved as the documents they are without anyone being named as their author.",
+   "residual_ranges": [
+    [
+     347,
+     353
+    ],
+    [
+     390,
+     393
+    ],
+    [
+     577,
+     600
+    ]
+   ],
+   "residual_note": "347-353 is the synodal tome that opens at locus 347 character 446 (ΣΥΝΟΔΙΚΟΣ ΤΟΜΟΣ ΓΕΓΡΑΜΜΕΝΟΣ) and closes at 353 on its collation clause, Ἀντεβλήθη τὸ παρὸν ἴσον τοῦ συνοδικοῦ τόμου ... ὑπεγράφη παρ᾽ ἐμοῦ δι᾽ ἀσφάλειαν. It is carvable on the same argument as the two below and is held back only because locus 347's first 446 characters are the Bucharest printer's colophon, so its first row is shared and wants the page checked before it moves. 390-393 is a confession of faith and the bishops' report, which begins inside 389 rather than at a row edge. 577-600 is headed APPENDIX at columns 1141-1142, which is a label and not a title; our bytes carry its own title tail at 577 with the first word missing, and column 1140 has not been read, so minting a Greek title from the tail would be inventing one.",
+   "works": [
+    {
+     "slug": "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem",
+     "tlg": null,
+     "title": "Tomus synodalis contra Prochorum Cydonem",
+     "author_display": "Tomus synodalis contra Prochorum Cydonem",
+     "ranges": [
+      [
+       354,
+       365
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 354,
+       "text": "Οὐδὲν τῆς ὑπερηφανίας χεῖρον καὶ τῆς οἰήσεως"
+      }
+     ],
+     "evidence": "12 rows, 9,938 tokens. 354 opens a proem at the row head. Prochoros and Kydones are named at 354, 355, 359, 362, 364 and 365 and NOWHERE else in this volume's residual, which is what bounds the block; 365 closes on its own subscription list. Migne's running head over columns 705-706 reads CONTRA PROCHORUM CYDONIUM, read off the page scan in the pass-2 round, and those columns fall inside this block and nowhere near the tome before or after it. No personal author. Migne prints no author over it, and the obvious candidate is exactly the trap: Philotheos Kokkinos is generally credited with drafting the 1351 tome and is already an author slug from this same volume, which is a plausible attribution and not evidence. A conciliar act is issued by the synod, so the document names itself, on the precedent already in this corpus at fragmentum-synodicae-epistulae-concilii-caesariensis.",
+     "rank": "primary"
+    },
+    {
+     "slug": "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351",
+     "tlg": null,
+     "title": "Tomus synodalis anni 1351",
+     "author_display": "Tomus synodalis anni 1351",
+     "ranges": [
+      [
+       366,
+       389
+      ]
+     ],
+     "incipit_checks": [
+      {
+       "locus": 366,
+       "text": "τὴν κατὰ τῆς Ἐκκλησίας τοῦ κοινοῦ πολεμίου μανίαν ἀγνοεῖν οὐδένα"
+      }
+     ],
+     "notes": "366's first word is missing, so the anchor is quoted from the row as it stands rather than from a title.",
+     "evidence": "24 rows, 15,257 tokens, the Palamite tome of 1351. Barlaam and Akindynos run throughout, and 388-389 carry the subscriptions that date it: both emperors (ΚΑΝΤΑΚΟΥΖΗΝΟΣ at 388 character 791, ΠΑΛΑΙΟΛΟΓΟΣ), the patriarch Κάλλιστος at 388 character 931, Philotheos as metropolitan of Herakleia, then a programma subscribed Ματθαῖος ... Ἀσάνης ὁ Καντακουζηνός at 389 character 3,044, which is Matthew's subscription of 1354 added to the act of 1351. No personal author. Migne prints no author over it, and the obvious candidate is exactly the trap: Philotheos Kokkinos is generally credited with drafting the 1351 tome and is already an author slug from this same volume, which is a plausible attribution and not evidence. A conciliar act is issued by the synod, so the document names itself, on the precedent already in this corpus at fragmentum-synodicae-epistulae-concilii-caesariensis.",
+     "shared_row_note": "389 is shared and stays here. The confession of faith that follows begins about 185 characters before its end (μόνος αἰτία καὶ ῥίζα καὶ / πηγὴ τῆς ἐν Υἱῷ), so those characters travel with this work rather than the row going to a block that is not being carved. Under-claiming is not available when only one side moves.",
+     "rank": "primary"
+    }
+   ]
   }
  ]
 }
