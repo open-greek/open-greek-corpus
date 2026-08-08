@@ -6,7 +6,7 @@
   "works": 3908
  },
  "generated_from": {
-  "commit": "fdbf098babdd82c97d99a32a91c8d15a1fd94188",
+  "commit": "e866eac709116dce6c6549b74f2c6b0e22684504",
   "commit_date": "2026-08-08",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,7 +60,7 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3908,
-  "catalog_sha256": "28f9ac8c61381b45261e066134214a2016ec72a078d6d663bf91f1b1fb1afce1",
+  "catalog_sha256": "1b92f1cd18843a84ec2f96b68ae1e825827905978c5d90e988b0fee3d88c1757",
   "corpus_sha256": "b862f36c0f785100c7b6e480c2c3298ea6eed957d227243ea283ca80e189c8f7",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
@@ -142,7 +142,7 @@
   }
  },
  "release_date": "2026-08-08",
- "release_id": "corpus-2026-08-08.5",
+ "release_id": "corpus-2026-08-08.6",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
