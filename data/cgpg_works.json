@@ -3254,13 +3254,39 @@
   "volume": "PG151",
   "urn": "cogPG.PG151",
   "kind": "volume",
-  "desc": "Gregory Palamas v2; Acindynus; Barlaam (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
+  "desc": "Gregory Palamas v2; Acindynus; Barlaam (fully split per-work; the last rows were cut at character offsets by scripts/split_carved_row.py and the volume file removed)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 0,
+  "n_tokens": 0,
+  "works": []
+ },
+ {
+  "volume": "PG151",
+  "urn": "gregorius-palamas.confessio-fidei",
+  "kind": "work",
+  "desc": "Gregorius Palamas - Confessio fidei (PG151 loci 389-391, cut at a character offset)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 3,
+  "n_tokens": 1546,
+  "works": [],
+  "cgpg_chosen": true
+ },
+ {
+  "volume": "PG151",
+  "urn": "anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon",
+  "kind": "work",
+  "desc": "Archiereis Constantinopolitani - Anaphora archiereorum ad Annam Palaeologinam (PG151 loci 391-394, cut at a character offset)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
   "n_passages": 4,
-  "n_tokens": 3118,
-  "works": []
+  "n_tokens": 1844,
+  "works": [],
+  "cgpg_chosen": true
  },
  {
   "volume": "PG151",
@@ -3316,7 +3342,7 @@
   "license": "CC-BY-4.0",
   "source": "cgpg",
   "n_passages": 24,
-  "n_tokens": 15249,
+  "n_tokens": 15186,
   "works": [],
   "cgpg_chosen": true
  },
@@ -3368,7 +3394,7 @@
   "license": "CC-BY-4.0",
   "source": "cgpg",
   "n_passages": 183,
-  "n_tokens": 161124,
+  "n_tokens": 160915,
   "works": [],
   "cgpg_chosen": true
  },

@@ -13,60 +13,161 @@
      "slug": "euthalius-diaconus.prologus-in-epistulas-pauli",
      "title": "Prologus in epistulas Pauli",
      "author_display": "Euthalius Diaconus",
-     "head": "ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ",
      "rank": "primary",
-     "from": {
-      "locus": "163",
-      "offset": 526,
-      "row_sha256": "fffe804e239b8af1736abdf3430f94140a8facce53de1f32003893c9b8eee46e",
-      "prev_ends_with": "ΡΑΟ ΑΡΟΘΤΟΙΟ"
-     },
-     "to": {
-      "locus": "165",
-      "offset": 82,
-      "row_sha256": "baea824e2c1ebd94fd7254c06b1b241b038e53b994622b2214eeb74fe117ab37",
-      "next_head": "ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ",
-      "prev_ends_with": "ὡς ἐν συντόμῳ εἰπεῖν, αὗται·"
-     },
-     "evidence": "Head at 163:526, verbatim ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ, followed by Παῦλος ὁ ἀπόστολος, Ἐβραῖος μὲν ἦν τὸ γένος. Runs to 165:82, where the Apodemiai head begins; the sentence before that cut, ὡς ἐν συντόμῳ εἰπεῖν, αὗται·, introduces the list, so it closes the prologue rather than opening the list."
+     "evidence": "Head at 163:526, verbatim ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ, followed by Παῦλος ὁ ἀπόστολος, Ἐβραῖος μὲν ἦν τὸ γένος. Runs to 165:82, where the Apodemiai head begins; the sentence before that cut, ὡς ἐν συντόμῳ εἰπεῖν, αὗται·, introduces the list, so it closes the prologue rather than opening the list.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "163",
+       "row_sha256": "fffe804e239b8af1736abdf3430f94140a8facce53de1f32003893c9b8eee46e",
+       "start": 526,
+       "at": "ΕΥΘΑΛΙΟΥ ΔΙΑΚΟΝΟΥ ΠΡΟΛΟΓΟΣ",
+       "prev_ends_with": "ΡΑΟ ΑΡΟΘΤΟΙΟ"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "164",
+       "row_sha256": "8ac550294d0cb68ef99848f0060b82affdfcb0345565f1b7825e99811683ee3e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "165",
+       "row_sha256": "baea824e2c1ebd94fd7254c06b1b241b038e53b994622b2214eeb74fe117ab37",
+       "end": 82,
+       "after": "ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ",
+       "ends_with": "ὡς ἐν συντόμῳ εἰπεῖν, αὗται·"
+      }
+     ]
     },
     {
      "slug": "euthalius-diaconus.apodemiai-pauli",
      "title": "Apodemiae Pauli",
      "author_display": "Euthalius Diaconus",
-     "head": "ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ",
      "rank": "primary",
-     "from": {
-      "locus": "165",
-      "offset": 82,
-      "row_sha256": "baea824e2c1ebd94fd7254c06b1b241b038e53b994622b2214eeb74fe117ab37",
-      "prev_ends_with": "ὡς ἐν συντόμῳ εἰπεῖν, αὗται·"
-     },
-     "to": {
-      "locus": "167",
-      "offset": 2302,
-      "row_sha256": "22b7218eea4f8310b008d364db7023873f0c3c9846a05050666cb5c83ca66c32",
-      "next_head": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
-      "prev_ends_with": "τριάκοντα καὶ πέντε"
-     },
-     "evidence": "Head at 165:82. Our OCR reads it ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΗΟΣΤΟΣΩν for ΑΠΟΔΗΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΛΟΥ; the anchor is quoted as printed here, not corrected, so the check tests the row that is actually cut. What follows is the itinerary itself, Ἀπὸ Δαμασκοῦ ἤρξατο, καὶ ἀνῆλθεν εἰς Ἰερουσαλήμ. Ends at 167:2302 where the Martyrion head begins."
+     "evidence": "Head at 165:82. Our OCR reads it ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΗΟΣΤΟΣΩν for ΑΠΟΔΗΜΙΑΙ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΛΟΥ; the anchor is quoted as printed here, not corrected, so the check tests the row that is actually cut. What follows is the itinerary itself, Ἀπὸ Δαμασκοῦ ἤρξατο, καὶ ἀνῆλθεν εἰς Ἰερουσαλήμ. Ends at 167:2302 where the Martyrion head begins.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "165",
+       "row_sha256": "baea824e2c1ebd94fd7254c06b1b241b038e53b994622b2214eeb74fe117ab37",
+       "start": 82,
+       "at": "ΛΠΩΝΙΜΙΑΙ ΠΑΥΛΟΥ",
+       "prev_ends_with": "ὡς ἐν συντόμῳ εἰπεῖν, αὗται·"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "166",
+       "row_sha256": "4443c446602c1d8feb4c8fbcc8467393ac9e7ad307aaac2f3044acb588dc2d0d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "167",
+       "row_sha256": "22b7218eea4f8310b008d364db7023873f0c3c9846a05050666cb5c83ca66c32",
+       "end": 2302,
+       "after": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
+       "ends_with": "τριάκοντα καὶ πέντε"
+      }
+     ]
     },
     {
      "slug": "euthalius-diaconus.martyrium-pauli",
      "title": "Martyrium Pauli",
      "author_display": "Euthalius Diaconus",
-     "head": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
      "rank": "primary",
-     "from": {
-      "locus": "167",
-      "offset": 2302,
-      "row_sha256": "22b7218eea4f8310b008d364db7023873f0c3c9846a05050666cb5c83ca66c32",
-      "prev_ends_with": "τριάκοντα καὶ πέντε"
-     },
-     "to": {
-      "locus": "167"
-     },
-     "evidence": "Head at 167:2302, ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΑΟΥ, followed by Ἐπὶ Νέρωνος τοῦ Καίσαρος Ῥωμαίων, ἐμαρτύρησεν αὐτόθι Παῦλος. Runs to the end of 167, the last row of the block."
+     "evidence": "Head at 167:2302, ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ ΤΟΥ ΑΠΟΣΤΟΑΟΥ, followed by Ἐπὶ Νέρωνος τοῦ Καίσαρος Ῥωμαίων, ἐμαρτύρησεν αὐτόθι Παῦλος. Runs to the end of 167, the last row of the block.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "167",
+       "row_sha256": "22b7218eea4f8310b008d364db7023873f0c3c9846a05050666cb5c83ca66c32",
+       "start": 2302,
+       "at": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
+       "prev_ends_with": "τριάκοντα καὶ πέντε"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "volume": "PG151",
+   "date": "2026-08-08",
+   "basis": "Gregory Palamas' Homologia and the confined archbishops' Anaphora to Anna Palaiologina, identified in 6c3a9e3 from Migne's printed titles at columns 764 and 768 (Internet Archive item patrologia.graeca.org, _151.zip, scan pages 377 and 379) and left uncarved because every seam falls inside a row. Two of the four seams sit in rows an earlier pass already moved into work files, so this cuts across three files at once.\n\nLocus 389 is the hard one and the reason this tool takes a list of parts rather than a range: Migne's page prints the tome's metropolitan subscriptions down the left column, the Homologia's head and opening at the bottom of that column, the tome's imperial subscription in the upper right, and the Homologia's continuation at the bottom right. Our OCR read the columns in that physical order, so the row holds Homologia text at 1207-1392 AND at 3068-end with 1,676 characters of the tome in between. Joining the two gives ...Μονὰς ἐν Τριάδι, καὶ Τριὰς ἐν Μονάδι ἀσυγχύτως ἑνουμένη, καὶ ἀμερίστως διαιρουμένῃ..., which is what column 764 prints. The ΟΜΟΛΟΓΙΑ head itself the OCR dropped; the anchor is the Greek that follows it.",
+   "works": [
+    {
+     "slug": "gregorius-palamas.confessio-fidei",
+     "title": "Confessio fidei",
+     "author_display": "Gregorius Palamas",
+     "rank": "primary",
+     "evidence": "Migne prints ΟΜΟΛΟΓΙΑ ΤΗΣ ΟΡΘΟΔΟΞΟΥ ΠΙΣΤΕΩΣ, ΕΚΤΕΘΕΙΣΑ ΠΑΡΑ ΤΟΥ ΙΕΡΩΤΑΤΟΥ ΜΗΤΡΟΠΟΛΙΤΟΥ ΘΕΣΣΑΛΟΝΙΚΗΣ ΚΥΡΙΟΥ ΓΡΗΓΟΡΙΟΥ ΠΑΛΑΜΑ at column 764, so the attribution is the edition's own, the same standard that filed the encomium under Philotheus. Ends at ζωὴν τοῦ μέλλοντος ἄληκτον αἰῶνος. Ἀμήν, verified against column 768C.",
+     "parts": [
+      {
+       "file": "data/corpus/tomus-synodalis-anni-1351.tomus-synodalis-anni-1351.jsonl",
+       "locus": "PG151.389",
+       "row_sha256": "a717b1ffcbd18ec7a676bae3abfde02d663df082218bee5550d9d0514b361e38",
+       "start": 1207,
+       "end": 1392,
+       "at": "Εἰς Θεὸς πρὸ πάντων",
+       "prev_ends_with": "διάκονος ὁ Χωνειἀτης.",
+       "after": "Εἶχεν ἑτέραν",
+       "ends_with": "Τριὰς ἐν Μονάδι"
+      },
+      {
+       "file": "data/corpus/tomus-synodalis-anni-1351.tomus-synodalis-anni-1351.jsonl",
+       "locus": "PG151.389",
+       "row_sha256": "a717b1ffcbd18ec7a676bae3abfde02d663df082218bee5550d9d0514b361e38",
+       "start": 3068,
+       "at": "ἀσυγχύτως ἑνουμένη",
+       "prev_ends_with": "Ἀσάνης ὁ Καντακουζηνός."
+      },
+      {
+       "file": "data/corpus/cogPG.PG151.jsonl",
+       "locus": "390",
+       "row_sha256": "500fbfc7b88bc809649ea48f0f64a965233ad44198a83efb972e357e11208556"
+      },
+      {
+       "file": "data/corpus/cogPG.PG151.jsonl",
+       "locus": "391",
+       "row_sha256": "1304de2493e6c8560ea35f64250ffc144db48f2cc8fdda5677157f1960890922",
+       "end": 3841,
+       "after": "ΑΝΑΦΟΡΑ ΤΩΝ ΑΡΧΙΕΡΕΩΝ",
+       "ends_with": "Ἀμήν."
+      }
+     ]
+    },
+    {
+     "slug": "anaphora-archiereon-ad-annam-palaeologinam.anaphora-archiereon",
+     "title": "Anaphora archiereorum ad Annam Palaeologinam",
+     "author_display": "Archiereis Constantinopolitani",
+     "rank": "primary",
+     "evidence": "Head ΑΝΑΦΟΡΑ ΤΩΝ ΑΡΧΙΕΡΕΩΝ πρὸς τὴν κρατίστην καὶ ἁγίαν ἡμῶν κυρίαν καὶ δέσποιναν κυρίαν Ἄνναν τὴν Παλαιολογίναν survives in our own bytes at 391:3841 (column 768). The report of the confined bishops is a collective document with no single author, so it is filed under a collective label the way the synodal tomes in this volume are.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG151.jsonl",
+       "locus": "391",
+       "row_sha256": "1304de2493e6c8560ea35f64250ffc144db48f2cc8fdda5677157f1960890922",
+       "start": 3841,
+       "at": "ΑΝΑΦΟΡΑ ΤΩΝ ΑΡΧΙΕΡΕΩΝ",
+       "prev_ends_with": "Ἀμήν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG151.jsonl",
+       "locus": "392",
+       "row_sha256": "0d663866cf90fb6c016dbd07d4c153e33acc7cb17ef55cc75fe5c5849d1e5298"
+      },
+      {
+       "file": "data/corpus/cogPG.PG151.jsonl",
+       "locus": "393",
+       "row_sha256": "9231a219e79eb4f23ca19a3af56e25cd99388ea038a546b2ffc757bf06a037c4"
+      },
+      {
+       "file": "data/corpus/philotheus-constantinopolitanus.antirrhetici-contra-gregoram.jsonl",
+       "locus": "PG151.394",
+       "row_sha256": "64ff637b620d5d8a1ba4996e64d04dda349b699a2d0a09909c50d36abe605710",
+       "end": 1406,
+       "after": "ΡΗΙΙΟΤΗΕΙ",
+       "ends_with": "Μακεδονίας, Φιλόθεος."
+      }
+     ]
     }
    ]
   }
