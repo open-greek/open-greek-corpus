@@ -3,10 +3,10 @@
   "passages": 1982167,
   "tokens": 65575281,
   "tokens_lemmatized": 63759999,
-  "works": 3902
+  "works": 3903
  },
  "generated_from": {
-  "commit": "624aced7569aa403e2900f467cc2ff73a905dda1",
+  "commit": "33925e297ea1bfb6c3991495d8e4cea7c806c1d5",
   "commit_date": "2026-08-08",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -14,7 +14,7 @@
  "licenses": {
   "CC-BY-4.0": {
    "tokens": 4402052,
-   "works": 228
+   "works": 229
   },
   "CC-BY-SA-4.0": {
    "tokens": 33781155,
@@ -59,9 +59,9 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3902,
-  "catalog_sha256": "f9a71a9ce2f5a249d9d1f3536ad015b0a7dc195604376a645ba6fbe38ce4a57b",
-  "corpus_sha256": "12101415121ede0fcb491cef2a946fb041760831bf2298106dc56e4ab0cad3e5",
+  "catalog_rows": 3903,
+  "catalog_sha256": "004abeb04422a5a3c41ebc74f7a85bfa00d32b4c486b6cdee14247080c8d75d7",
+  "corpus_sha256": "e7488db884263c6b85779fe889a97acb5a275ce6e3d8d20e7c5ce9825b3e0b1a",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -72,7 +72,7 @@
    },
    "manual": {
     "tokens": 7251667,
-    "works": 197
+    "works": 198
    },
    "not-ocr": {
     "tokens": 36124268,
@@ -87,7 +87,7 @@
   "raw_ocr": {
    "ocr_share_of_corpus_tokens": 0.4491,
    "ocr_tokens": 29451013,
-   "ocr_works": 1406,
+   "ocr_works": 1407,
    "raw_share_of_corpus_tokens": 0.0415,
    "raw_share_of_ocr_tokens": 0.0925,
    "raw_tokens": 2724362,
@@ -142,7 +142,7 @@
   }
  },
  "release_date": "2026-08-08",
- "release_id": "corpus-2026-08-08.1",
+ "release_id": "corpus-2026-08-08.2",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -154,7 +154,7 @@
   },
   "cgpg": {
    "tokens": 4218489,
-   "works": 192
+   "works": 193
   },
   "dfhg": {
    "tokens": 692799,
