@@ -1681,7 +1681,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | joannes-tzetzes.epitome-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,453 | raw OCR |
 | joannes-tzetzes.tzetzes-historiae-kiessling |  | qwen36-tzetzes_historiae_kiessling | Qwen3.6-27B | 103,943 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 775 | auto-corrected |
-| joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 57,628 | manual |
+| joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 57,001 | manual |
 | job-monachus.prooemium-in-psalmos | Job monachus ('Iob peccator') - Prooemium (to an exposition of the Psalms) (PG158 loci 562-563) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 340 | auto-corrected |
 | joel.chronographia-compendiaria | Joel - Chronographia compendiaria (PG139 loci 119-151) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,528 | manual |
 | josephus-genesius.basilei-ai | Josephus Genesius - Basileiai (Regum libri quattuor) (PG109 loci 501-583) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,703 | manual |
@@ -2198,10 +2198,10 @@ below; regenerate it with `python scripts/build_provenance.py`.
   inside a file by word-bigram containment, which ignores reading order, because
   a second read that walks the columns differently scores 0.482 by difflib and
   0.841 by containment. Its output,
-  data/duplicate_leaf_candidates.json, lists 45 remaining pairs in 15 files and
-  splits them by what dropping one would cost, in BOTH directions. 16 pairs have
-  a side that holds nothing the other lacks, 5,813 tokens, of which 9 pairs and
-  3,167 tokens are in served text; the other 29 pairs, 10,999 tokens, cannot be
+  data/duplicate_leaf_candidates.json, lists 43 remaining pairs in 15 files and
+  splits them by what dropping one would cost, in BOTH directions. 14 pairs have
+  a side that holds nothing the other lacks, 5,164 tokens, of which 7 pairs and
+  2,518 tokens are in served text; the other 29 pairs, 10,999 tokens, cannot be
   dropped from either side, because each holds text the other does not. Which
   side to drop is not decidable from the ordering: in PG118's first leaf the
   earlier copy was in sequence, in PG126 and PG118's 2 Corinthians leaf the later
@@ -2212,7 +2212,12 @@ below; regenerate it with `python scripts/build_provenance.py`.
   per-volume text layers (patrologiaecursu<NNNN>mign) OCR'd only Migne's Latin
   column and hold no Greek at all, so a row cannot be matched to a page through
   them, and the loci drift far enough from the scan's page numbers that finding
-  a leaf by eye takes several image fetches.
+  a leaf by eye takes several image fetches. Nor is every candidate decidable
+  without one: where the two copies end alike the join test returns the same
+  answer either way, and where a two-page leaf has one clean pair and one whose
+  sides each hold unique text, dropping half of it would leave the other half
+  duplicated. Both situations are common enough that most of what is left is
+  waiting on pages rather than on analysis.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
