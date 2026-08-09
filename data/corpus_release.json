@@ -1,12 +1,12 @@
 {
  "corpus": {
-  "passages": 1976208,
+  "passages": 1976234,
   "tokens": 65434228,
   "tokens_lemmatized": 63619465,
-  "works": 3908
+  "works": 3914
  },
  "generated_from": {
-  "commit": "dd053a646b2f7a331a5f13af6468328a8f5a81fe",
+  "commit": "3638cfdbd3290c900a86fedf5e0efecad4625d1e",
   "commit_date": "2026-08-09",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -14,7 +14,7 @@
  "licenses": {
   "CC-BY-4.0": {
    "tokens": 4320140,
-   "works": 233
+   "works": 239
   },
   "CC-BY-SA-4.0": {
    "tokens": 33781155,
@@ -59,9 +59,9 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3908,
-  "catalog_sha256": "00c0382354c376bfc55550a72a85972cd837bf7e5d26569731bbff75ad8b1b34",
-  "corpus_sha256": "163c22f91c8a696390196ebb7147cf905d4c0071634869c3d45190fb907eff4f",
+  "catalog_rows": 3914,
+  "catalog_sha256": "c793b788458a33be69e9630d94b81494643a7e8a36dd755b42474f038b2f9cac",
+  "corpus_sha256": "88bdef17fef35334850909908ac7691465873825044f60fcfe4bb0d6629661b5",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -72,7 +72,7 @@
    },
    "manual": {
     "tokens": 7162657,
-    "works": 202
+    "works": 208
    },
    "not-ocr": {
     "tokens": 36124268,
@@ -87,7 +87,7 @@
   "raw_ocr": {
    "ocr_share_of_corpus_tokens": 0.4479,
    "ocr_tokens": 29309960,
-   "ocr_works": 1412,
+   "ocr_works": 1418,
    "raw_share_of_corpus_tokens": 0.0414,
    "raw_share_of_ocr_tokens": 0.0925,
    "raw_tokens": 2711723,
@@ -142,7 +142,7 @@
   }
  },
  "release_date": "2026-08-09",
- "release_id": "corpus-2026-08-09.4",
+ "release_id": "corpus-2026-08-09.5",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -154,7 +154,7 @@
   },
   "cgpg": {
    "tokens": 4136577,
-   "works": 197
+   "works": 203
   },
   "dfhg": {
    "tokens": 692799,
