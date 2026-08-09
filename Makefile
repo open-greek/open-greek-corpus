@@ -220,7 +220,10 @@ $(PG003_HEADS): data/corpus/cogPG.PG003.jsonl data/pg003_blocks.json \
 # (a run of rows) rather than a row. Kept as its own artifact because the two
 # sources answer the same question about different things.
 # Quoted on issue #31, so it rebuilds whenever the text it counts changes.
-$(NONFINAL_GRAVES): $(CORPUS_FILES) scripts/measure_nonfinal_graves.py
+# Writes data/nonfinal_grave_tranche.json alongside it: the proposed repair,
+# not applied, whose figures are quoted on issue #31 and so must not go stale.
+$(NONFINAL_GRAVES) data/nonfinal_grave_tranche.json: $(CORPUS_FILES) \
+                scripts/measure_nonfinal_graves.py
 	$(PY) scripts/measure_nonfinal_graves.py --write
 
 $(DUP_PAGES): $(CORPUS_FILES) scripts/sweep_duplicate_leaves.py

@@ -65,3 +65,44 @@ def test_agrees_with_the_implementation_it_was_copied_from():
     mine = [m.has_nonfinal_grave(w) for w in words]
     theirs = [ref(w) for w in words]
     assert mine == theirs, [w for w, a, b in zip(words, mine, theirs) if a != b]
+
+
+# The skeleton class: which clean Greek word has these letters. The four-shape
+# space could not decide these, which is the whole reason this exists, so the
+# outcomes are pinned. Two of them must stay REFUSED; a rule that decides τὰλλα
+# is a rule that will decide anything.
+def _decided():
+    import json
+    fp = Path(__file__).resolve().parent.parent / "data" / "nonfinal_graves.json"
+    rows = json.loads(fp.read_text(encoding="utf-8"))["skeleton_class"]["decided"]
+    return {r["form"]: r for r in rows}
+
+
+@pytest.mark.parametrize("form,target", [
+    ("ἐπεὶδὴ", "ἐπειδή"),     # the grave is DROPPED, not moved
+    ("μὴτε", "μήτε"),
+    ("ἐγὼγε", "ἔγωγε"),       # not ἐγώγε, which is attested and wrong
+    ("τὰναντία", "τἀναντία"),  # not τάναντία, likewise
+])
+def test_the_counterexamples_that_sank_the_four_shape_rule_are_decided(form, target):
+    d = _decided()
+    assert form in d, f"{form} is no longer in the decided set"
+    assert d[form]["target"] == target
+    assert d[form]["share"] >= 0.90
+
+
+@pytest.mark.parametrize("form", ["τὰλλα", "ὰλλὰ"])
+def test_the_ambiguous_ones_stay_refused(form):
+    """τἄλλα against τἆλλα, and ἀλλά against ἄλλα, which shares its skeleton."""
+    assert form not in _decided(), f"{form} should not be decided by this rule"
+
+
+def test_the_tranche_never_moves_a_breathing_or_iota_subscript():
+    import json
+    fp = (Path(__file__).resolve().parent.parent / "data"
+          / "nonfinal_grave_tranche.json")
+    rows = json.loads(fp.read_text(encoding="utf-8"))["rows"]
+    assert rows, "the tranche is empty"
+    for r in rows:
+        assert r["accent_only"], r["form"]
+        assert m.without_accents(r["form"]) == m.without_accents(r["target"])
