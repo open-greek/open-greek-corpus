@@ -1,0 +1,71 @@
+{
+ "what": "scan pages the line-level OCR delivered more than once, byte for byte, inside a single served work",
+ "issue": "open-greek/open-greek-corpus#33",
+ "rule": "only byte-identical pages are listed. Two pages that differ are two readings of one page, and this repo prefers a merged reading to picking a winner, so those are a disposition question and are not here.",
+ "min_greek_tokens": 20,
+ "pages": 6,
+ "greek_tokens": 2001,
+ "drops": [
+  {
+   "file": "data/corpus_secondary/septuaginta.ecclesiastes.jsonl",
+   "served": false,
+   "item": "septuagint_ecclesiastes_swete_v2",
+   "keep_page": "septuagint_ecclesiastes_swete_v2_0099",
+   "drop_page": "septuagint_ecclesiastes_swete_v2_0101",
+   "page_sha256": "0fd72284021dd9b10f4601a8673a83a761c83673626266c1afa54f45c49eb8af",
+   "rows": 34,
+   "greek_tokens": 387
+  },
+  {
+   "file": "data/corpus_secondary/septuaginta.ecclesiastes.jsonl",
+   "served": false,
+   "item": "septuagint_ecclesiastes_swete_v2",
+   "keep_page": "septuagint_ecclesiastes_swete_v2_0165",
+   "drop_page": "septuagint_ecclesiastes_swete_v2_0167",
+   "page_sha256": "a3bd6e2b96f4529817de8d09255508998df0d3c4c272d5a5879a8f59dded0c7d",
+   "rows": 41,
+   "greek_tokens": 466
+  },
+  {
+   "file": "data/corpus_secondary/septuaginta.ecclesiastes.jsonl",
+   "served": false,
+   "item": "septuagint_ecclesiastes_swete_v2",
+   "keep_page": "septuagint_ecclesiastes_swete_v2_0542",
+   "drop_page": "septuagint_ecclesiastes_swete_v2_0544",
+   "page_sha256": "021cb069d265c159b6434e933519909e87dd795472d0cd0c512352368ec9b24a",
+   "rows": 72,
+   "greek_tokens": 298
+  },
+  {
+   "file": "data/corpus_secondary/septuaginta.ecclesiastes.jsonl",
+   "served": false,
+   "item": "septuagint_ecclesiastes_swete_v2",
+   "keep_page": "septuagint_ecclesiastes_swete_v2_0665",
+   "drop_page": "septuagint_ecclesiastes_swete_v2_0667",
+   "page_sha256": "e9a7558cc03e5e60b589115446f73b1ff59f2ea659fc81fa9616b2ab1c2ebb9c",
+   "rows": 62,
+   "greek_tokens": 303
+  },
+  {
+   "file": "data/corpus_secondary/septuaginta.ecclesiastes.jsonl",
+   "served": false,
+   "item": "septuagint_ecclesiastes_swete_v2",
+   "keep_page": "septuagint_ecclesiastes_swete_v2_0745",
+   "drop_page": "septuagint_ecclesiastes_swete_v2_0747",
+   "page_sha256": "3edc1e13dfa4bb4b46df786f93c85fd3ff53560a47f7490e0501c3e69e2493c9",
+   "rows": 81,
+   "greek_tokens": 288
+  },
+  {
+   "file": "data/corpus_secondary/zonaeus-walz-rg8.jsonl",
+   "served": false,
+   "item": "zonaeus_walz_rg8",
+   "keep_page": "zonaeus_walz_rg8_0152",
+   "drop_page": "zonaeus_walz_rg8_0153",
+   "page_sha256": "436ca6201cf88b954a9c8876b416829736d3dfc6ecb067973cbd549048233bf7",
+   "rows": 33,
+   "greek_tokens": 259
+  }
+ ],
+ "pages_touching_more_than_one_file": {}
+}
