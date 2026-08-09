@@ -1,0 +1,478 @@
+{
+ "what": "row pairs inside one corpus file whose word-bigram containment is high enough that they may be the same printed page delivered twice by the OCR",
+ "issue": "open-greek/open-greek-corpus#8",
+ "method": "bigram containment over min(|a|,|b|), which ignores reading order; the shed in carve_cgpg_volume.py uses difflib similarity, which a column-reordered second read defeats (PG118 loci 22 and 24 scored 0.482 there and 0.841 here)",
+ "NOT_A_DROP_LIST": "a candidate is a reason to read the page, not a reason to delete a row. Dropping one goes through data/duplicate_leaves.json, which requires the scan page and an enumeration of what the dropped copy has that the kept copy does not.",
+ "params": {
+  "gate": 0.4,
+  "min_bigrams": 150,
+  "common_bigram_share": 0.1,
+  "sources": [
+   "cgpg"
+  ]
+ },
+ "files_scanned": 4337,
+ "candidates": 55,
+ "by_file": {
+  "data/corpus/cogPG.PG112.jsonl": 9,
+  "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
+  "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl": 6,
+  "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": 6,
+  "data/corpus/photius.amphilochia.jsonl": 4,
+  "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": 3,
+  "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl": 2,
+  "data/corpus/gregorius-palamas.homiliae.jsonl": 2,
+  "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl": 2,
+  "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl": 2,
+  "data/corpus/michael-psellus.poemata.jsonl": 2,
+  "data/corpus/theophylactus-achridensis.epistulae.jsonl": 2,
+  "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl": 2,
+  "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl": 1,
+  "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl": 1,
+  "data/corpus/cogPG.PG113.jsonl": 1,
+  "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl": 1,
+  "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl": 1
+ },
+ "pairs": [
+  {
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "locus_a": "PG126.606",
+   "locus_b": "PG126.614",
+   "containment": 0.961,
+   "bigrams_a": 438,
+   "bigrams_b": 436
+  },
+  {
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
+   "locus_a": "PG113.45",
+   "locus_b": "PG113.47",
+   "containment": 0.961,
+   "bigrams_a": 282,
+   "bigrams_b": 282
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "locus_a": "PG126.607",
+   "locus_b": "PG126.615",
+   "containment": 0.9497,
+   "bigrams_a": 443,
+   "bigrams_b": 437
+  },
+  {
+   "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
+   "locus_a": "PG151.160",
+   "locus_b": "PG151.164",
+   "containment": 0.9478,
+   "bigrams_a": 403,
+   "bigrams_b": 402
+  },
+  {
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "locus_a": "PG118.519",
+   "locus_b": "PG118.521",
+   "containment": 0.9435,
+   "bigrams_a": 336,
+   "bigrams_b": 340
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "locus_a": "PG126.608",
+   "locus_b": "PG126.616",
+   "containment": 0.9409,
+   "bigrams_a": 423,
+   "bigrams_b": 425
+  },
+  {
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "locus_a": "PG118.520",
+   "locus_b": "PG118.522",
+   "containment": 0.935,
+   "bigrams_a": 354,
+   "bigrams_b": 360
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "locus_a": "PG126.605",
+   "locus_b": "PG126.613",
+   "containment": 0.9327,
+   "bigrams_a": 446,
+   "bigrams_b": 446
+  },
+  {
+   "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
+   "locus_a": "PG151.159",
+   "locus_b": "PG151.163",
+   "containment": 0.9172,
+   "bigrams_a": 435,
+   "bigrams_b": 444
+  },
+  {
+   "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
+   "locus_a": "PG122.363",
+   "locus_b": "PG122.365",
+   "containment": 0.911,
+   "bigrams_a": 382,
+   "bigrams_b": 382
+  },
+  {
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "locus_a": "PG101.378",
+   "locus_b": "PG101.380",
+   "containment": 0.9009,
+   "bigrams_a": 323,
+   "bigrams_b": 325
+  },
+  {
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "locus_a": "PG101.389",
+   "locus_b": "PG101.391",
+   "containment": 0.9006,
+   "bigrams_a": 332,
+   "bigrams_b": 340
+  },
+  {
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "locus_a": "PG101.379",
+   "locus_b": "PG101.381",
+   "containment": 0.8977,
+   "bigrams_a": 344,
+   "bigrams_b": 342
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "locus_a": "PG126.609",
+   "locus_b": "PG126.617",
+   "containment": 0.8976,
+   "bigrams_a": 412,
+   "bigrams_b": 410
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "locus_a": "PG126.610",
+   "locus_b": "PG126.618",
+   "containment": 0.8932,
+   "bigrams_a": 412,
+   "bigrams_b": 416
+  },
+  {
+   "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
+   "locus_a": "PG118.65",
+   "locus_b": "PG118.67",
+   "containment": 0.8917,
+   "bigrams_a": 351,
+   "bigrams_b": 361
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.508",
+   "locus_b": "PG134.510",
+   "containment": 0.8851,
+   "bigrams_a": 383,
+   "bigrams_b": 395
+  },
+  {
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "locus_a": "PG134.660",
+   "locus_b": "PG134.662",
+   "containment": 0.8802,
+   "bigrams_a": 334,
+   "bigrams_b": 335
+  },
+  {
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "locus_a": "PG101.390",
+   "locus_b": "PG101.392",
+   "containment": 0.8773,
+   "bigrams_a": 383,
+   "bigrams_b": 383
+  },
+  {
+   "file": "data/corpus/michael-psellus.poemata.jsonl",
+   "locus_a": "PG122.301",
+   "locus_b": "PG122.303",
+   "containment": 0.8696,
+   "bigrams_a": 345,
+   "bigrams_b": 375
+  },
+  {
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "locus_a": "PG134.633",
+   "locus_b": "PG134.635",
+   "containment": 0.8663,
+   "bigrams_a": 329,
+   "bigrams_b": 330
+  },
+  {
+   "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
+   "locus_a": "PG118.66",
+   "locus_b": "PG118.68",
+   "containment": 0.864,
+   "bigrams_a": 365,
+   "bigrams_b": 353
+  },
+  {
+   "file": "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl",
+   "locus_a": "PG122.435",
+   "locus_b": "PG122.436",
+   "containment": 0.8602,
+   "bigrams_a": 186,
+   "bigrams_b": 186
+  },
+  {
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "locus_a": "PG134.673",
+   "locus_b": "PG134.675",
+   "containment": 0.8464,
+   "bigrams_a": 384,
+   "bigrams_b": 403
+  },
+  {
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "locus_a": "PG134.634",
+   "locus_b": "PG134.636",
+   "containment": 0.8333,
+   "bigrams_a": 288,
+   "bigrams_b": 309
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.507",
+   "locus_b": "PG134.509",
+   "containment": 0.8304,
+   "bigrams_a": 395,
+   "bigrams_b": 419
+  },
+  {
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "locus_a": "PG134.674",
+   "locus_b": "PG134.676",
+   "containment": 0.8283,
+   "bigrams_a": 367,
+   "bigrams_b": 378
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.57",
+   "locus_b": "PG134.59",
+   "containment": 0.8222,
+   "bigrams_a": 433,
+   "bigrams_b": 438
+  },
+  {
+   "file": "data/corpus/cogPG.PG113.jsonl",
+   "locus_a": "328",
+   "locus_b": "488",
+   "containment": 0.8203,
+   "bigrams_a": 217,
+   "bigrams_b": 349
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.442",
+   "locus_b": "PG134.444",
+   "containment": 0.8169,
+   "bigrams_a": 366,
+   "bigrams_b": 369
+  },
+  {
+   "file": "data/corpus/michael-psellus.poemata.jsonl",
+   "locus_a": "PG122.302",
+   "locus_b": "PG122.304",
+   "containment": 0.8039,
+   "bigrams_a": 362,
+   "bigrams_b": 362
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.548",
+   "locus_b": "PG134.550",
+   "containment": 0.7866,
+   "bigrams_a": 411,
+   "bigrams_b": 403
+  },
+  {
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
+   "locus_a": "PG113.46",
+   "locus_b": "PG113.48",
+   "containment": 0.7791,
+   "bigrams_a": 172,
+   "bigrams_b": 174
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.441",
+   "locus_b": "PG134.443",
+   "containment": 0.7738,
+   "bigrams_a": 437,
+   "bigrams_b": 367
+  },
+  {
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "locus_a": "PG134.659",
+   "locus_b": "PG134.661",
+   "containment": 0.75,
+   "bigrams_a": 236,
+   "bigrams_b": 305
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.58",
+   "locus_b": "PG134.60",
+   "containment": 0.7426,
+   "bigrams_a": 470,
+   "bigrams_b": 470
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "locus_a": "PG126.161",
+   "locus_b": "PG126.261",
+   "containment": 0.7412,
+   "bigrams_a": 228,
+   "bigrams_b": 404
+  },
+  {
+   "file": "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl",
+   "locus_a": "PG122.650",
+   "locus_b": "PG122.638",
+   "containment": 0.7256,
+   "bigrams_a": 387,
+   "bigrams_b": 379
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "180",
+   "locus_b": "182",
+   "containment": 0.7247,
+   "bigrams_a": 178,
+   "bigrams_b": 325
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "229",
+   "locus_b": "236",
+   "containment": 0.6491,
+   "bigrams_a": 171,
+   "bigrams_b": 295
+  },
+  {
+   "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "locus_a": "PG134.547",
+   "locus_b": "PG134.549",
+   "containment": 0.6116,
+   "bigrams_a": 365,
+   "bigrams_b": 363
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "locus_a": "PG126.162",
+   "locus_b": "PG126.262",
+   "containment": 0.5203,
+   "bigrams_a": 369,
+   "bigrams_b": 374
+  },
+  {
+   "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "locus_a": "PG112.726",
+   "locus_b": "PG112.729",
+   "containment": 0.4855,
+   "bigrams_a": 173,
+   "bigrams_b": 271
+  },
+  {
+   "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "locus_a": "PG112.726",
+   "locus_b": "PG112.728",
+   "containment": 0.4624,
+   "bigrams_a": 173,
+   "bigrams_b": 293
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "287",
+   "locus_b": "289",
+   "containment": 0.4552,
+   "bigrams_a": 279,
+   "bigrams_b": 352
+  },
+  {
+   "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "locus_a": "PG112.530",
+   "locus_b": "PG112.596",
+   "containment": 0.4535,
+   "bigrams_a": 172,
+   "bigrams_b": 305
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "180",
+   "locus_b": "184",
+   "containment": 0.4494,
+   "bigrams_a": 178,
+   "bigrams_b": 243
+  },
+  {
+   "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
+   "locus_a": "PG067.39",
+   "locus_b": "PG067.249",
+   "containment": 0.4486,
+   "bigrams_a": 243,
+   "bigrams_b": 313
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "264",
+   "locus_b": "272",
+   "containment": 0.4472,
+   "bigrams_a": 199,
+   "bigrams_b": 270
+  },
+  {
+   "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
+   "locus_a": "PG067.39",
+   "locus_b": "PG067.42",
+   "containment": 0.4321,
+   "bigrams_a": 243,
+   "bigrams_b": 276
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "181",
+   "locus_b": "183",
+   "containment": 0.4207,
+   "bigrams_a": 290,
+   "bigrams_b": 325
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "224",
+   "locus_b": "225",
+   "containment": 0.4104,
+   "bigrams_a": 212,
+   "bigrams_b": 222
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "146",
+   "locus_b": "209",
+   "containment": 0.4085,
+   "bigrams_a": 235,
+   "bigrams_b": 311
+  },
+  {
+   "file": "data/corpus/cogPG.PG112.jsonl",
+   "locus_a": "300",
+   "locus_b": "327",
+   "containment": 0.4057,
+   "bigrams_a": 244,
+   "bigrams_b": 356
+  },
+  {
+   "file": "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl",
+   "locus_a": "PG146.132",
+   "locus_b": "PG146.179",
+   "containment": 0.4005,
+   "bigrams_a": 402,
+   "bigrams_b": 421
+  }
+ ]
+}
