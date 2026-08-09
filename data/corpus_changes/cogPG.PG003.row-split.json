@@ -6,15 +6,15 @@
   "tool": "scripts/split_carved_row.py",
   "reverse": "python3 scripts/split_carved_row.py --volume PG003 --unapply",
   "ordering": "reverse this BEFORE the per-work-split audit of any file listed under `sources`: this record's `original_rows` are that carve's output, not the volume's original text.",
-  "basis": "Migne PG 3 prints Pseudo-Dionysius alternating with Georgius Pachymeres' paraphrase and the switch usually falls inside a printed page. Boundaries are the volume's own display heads: from data/pg003_heads.json where the aligned table has them, and from our own bytes where our OCR kept the head (data/pg003_blocks.json). Every offset was read from data/corpus/cogPG.PG003.jsonl, never from the Internet Archive text.\nThe paraphrase is one work with 40 discontinuous parts: Migne numbers it PARAPHRASIS PACHYMERAE (1) to (60) continuously across the four treatises it accompanies, with no title page per treatise. It stops at (60) on the last chapter of the Mystical Theology; PG 3 prints no paraphrase of the Epistles and says so at col. 1064 (Vide Schol. S. Maximi et Paraphr. Pachym. in Epistola 1, tom. II), so loci 540-567 are Dionysius entire.\nTwo of those four switches are now in data/pg003_heads.json, which learned to read the head the scanner garbles worst: 146:0 is head (15) and 292:232 is head (28). The table's own ADNOTATIONES placement at 292:234 lands two characters later, inside a token, so it could not have been cut. The other two, 101:0 and 525:0, are not recoverable from the text OCR: head (9) is broken across two chunks and the number on the head at 525 is cut off at the scan edge. Both were instead read off the scan's own page layout, which carries a bounding box per word (data/pg003_head_geometry.json, and locus = leaf + 8, fitted on four independent column numbers). Leaf 93 is locus 101: its page header changes from DE COELESTI HIERARCHIA, CAP. 1. - CORDERII NOTAE on the leaf before to PARAPHRASIS PACHYMERAE (9), and the Greek printed under it is the Της ιεραρχιας αυτης απασης our row 101 opens with. Leaf 517 is locus 525: the display head sits 68 percent down the page, but everything above it there is Latin, which our Greek rows do not carry, so the paraphrase is still the first thing in the row. Both fall at the first character of a page for that reason, not by assumption.\nTwo boundaries are not taken and the four blocks they separate stay in the volume file: our OCR spliced the head into the middle of the preceding word, so the offset is not at a whitespace boundary and this tool would refuse it. 283:1586 reads ...to a)su/gKEFALAION Z'. and 440:321 reads ...LaIOIIFi/KEFALAION Z'. That leaves EH cap. VII (2,907 tokens), DN cap. VII (1,485) and their two paraphrase blocks (2,382 and 1,272) uncarved, plus locus 568, whose 20 tokens are Maximus quoted inside a Latin note and belong to neither author.\nCheck: against the TLG canon word counts in data/cgpg_works.json each work lands within 3 percent once its uncarved block is added back. CH 10,742 v 11,488 less the cap. I text absent from the dump; EH 13,074+2,907 v 16,400; DN 22,295+1,485 v 24,104; MT 1,313 v 1,350; Epistulae 6,569 v 6,668."
+  "basis": "Migne PG 3 prints Pseudo-Dionysius alternating with Georgius Pachymeres' paraphrase and the switch usually falls inside a printed page. Boundaries are the volume's own display heads: from data/pg003_heads.json where the aligned table has them, and from our own bytes where our OCR kept the head (data/pg003_blocks.json). Every offset was read from data/corpus/cogPG.PG003.jsonl, never from the Internet Archive text.\nThe paraphrase is one work with 40 discontinuous parts: Migne numbers it PARAPHRASIS PACHYMERAE (1) to (60) continuously across the four treatises it accompanies, with no title page per treatise. It stops at (60) on the last chapter of the Mystical Theology; PG 3 prints no paraphrase of the Epistles and says so at col. 1064 (Vide Schol. S. Maximi et Paraphr. Pachym. in Epistola 1, tom. II), so loci 540-567 are Dionysius entire.\nTwo of those four switches are now in data/pg003_heads.json, which learned to read the head the scanner garbles worst: 146:0 is head (15) and 292:232 is head (28). The table's own ADNOTATIONES placement at 292:234 lands two characters later, inside a token, so it could not have been cut. The other two, 101:0 and 525:0, are not recoverable from the text OCR: head (9) is broken across two chunks and the number on the head at 525 is cut off at the scan edge. Both were instead read off the scan's own page layout, which carries a bounding box per word (data/pg003_head_geometry.json, and locus = leaf + 8, fitted on four independent column numbers). Leaf 93 is locus 101: its page header changes from DE COELESTI HIERARCHIA, CAP. 1. - CORDERII NOTAE on the leaf before to PARAPHRASIS PACHYMERAE (9), and the Greek printed under it is the Της ιεραρχιας αυτης απασης our row 101 opens with. Leaf 517 is locus 525: the display head sits 68 percent down the page, but everything above it there is Latin, which our Greek rows do not carry, so the paraphrase is still the first thing in the row. Both fall at the first character of a page for that reason, not by assumption.\nTwo boundaries were left out at first and are now taken. Our OCR ran the head ΚΕΦΑΛΑΙΟΝ Ζʹ into the text before it at 283:1586 (...τὸ ἀσύγΚΕΦΑΛΑΙΟΝ Ζʹ.) and at 440:321 (...ΛαΙΟΙΙΦίΚΕΦΑΛΑΙΟΝ Ζʹ.), so neither offset sat at a whitespace boundary and this tool refused them, correctly: an offset inside a Greek run splits one word in half and gives half to the wrong author. The text was repaired instead of the guard, by scripts/unsplice_pg003_heads.py, which inserts one space at each and is recorded in data/corpus_changes/cogPG.PG003.head-splice.json. The second OCR of the volume prints both heads on a line of their own, and at 283 keeps the word ours lost, ἀσύγ- carrying over the column break to χυτον; that missing χυτον is deliberately NOT supplied from the other witness, so ἀσύγ stays a fragment and is recorded as one. What precedes the head at 440 is not Greek at all but Migne's Latin column read as Greek shapes, ἄεαηε, νεῖ οοαε αο οο for atque, vel quocunque alio modo, so about 30 junk tokens travel with the paraphrase there. Each splice turns one welded token into the two it always was, so the volume file goes from 160,260 Greek tokens to 160,262 before this carve runs, and the carve itself then conserves exactly. Locus 568 still stays: its 20 tokens are Maximus quoted inside a Latin note and belong to neither author, so PG003's file legitimately survives with one row.\nCheck: against the TLG canon word counts in data/cgpg_works.json each work lands within 3 percent once its uncarved block is added back. CH 10,742 v 11,488 less the cap. I text absent from the dump; EH 13,074+2,907 v 16,400; DN 22,295+1,485 v 24,104; MT 1,313 v 1,350; Epistulae 6,569 v 6,668."
  },
  "sources": {
   "data/corpus/cogPG.PG003.jsonl": {
-   "sha256_before": "0b3ba3e279408dddf273ae320bf1f001462ecb09eaf1e078b03aefb2d6fcb9f5",
-   "sha256_after": "5ad10b21e8db1ce46103e9dac9df1ec88b8b5fa610fcb399e0d79ff91d0feac2",
+   "sha256_before": "d7425fb8c42a5dd217fab110de37240e5b80d71baff9dcc49e1017862473edd3",
+   "sha256_after": "45602b7995433563fc6444eab96a69ed8a4905bd003b696eb20fa1e089ce9dd5",
    "removed": false,
    "rows_before": 459,
-   "rows_after": 24,
+   "rows_after": 1,
    "original_rows": [
     {
      "urn": "cogPG.PG003",
@@ -2372,7 +2372,7 @@
      "locus": "283",
      "source": "cgpg",
      "license": "CC-BY-4.0",
-     "text": "vΙΙ. ἱΡε ἱε αἄκι Οἰνέα εμησιοά. χώρησιν αὐτό φησιν, ὡς ἂν εἴποι τις, πάναγνοι μέν εἰσι καὶ ἀλώβητοι, καὶ οὐ δέονται καθάρσεως· πλὴν εἰ καὶ δῶμεν ἔν τινι βλάβην γενέσθαι αὐτῶν τινα, πάντως εἰς τὰς ἐναντίας ἐχώρει δυνάμεις, ὥστε τὰς λοιπὰς ὡσαύτως τὸ ἀλώβητον ἔχειν, καὶ ὁμοίως μὴ δεῖσθαι καθάρσεως. Καὶ ὅτι τοῦτό ἐστι, φασὶ, σαφῶς ἔδειξεν· εἰπών γὰρ πρὸς τὴν ἀντίθεσιν τὴν ἰδίαν γνώμην καὶ ἀληθῆ, ὅτι πάναγνοι εἰσι καὶ ἀλώβητοι, ἐπήγαγε τό· Εἰ γάρ τις, ἀντὶ τοῦ, Εἰ δέ καὶ τις δοίη τινὰ παρατραπῆναι, εὐθὺς τοῦ χοροῦ τούτου ἐξέπεσεν· ὅπερ οὐκ ἔστιν, ἀλλὰ τοὐναντίον, ὅτι πάναγνοι διαμένουσιν ἐσαεί· ἐπεὶ ἐκπέσοιμι τοῦ καθεστῶτος νοὸς, εἰ ταῦτα λέγοιμι. Μὴ οὖν τις τῶν Ὠριγενιαστῶν οἰέσθω, τὸν τοιοῦτον λόγον συνηγορεῖν τῆ κακοπίστῳ αὐτῶν δόξη, φάσκων κατὰ τὸν Ὠριγένην, ὅτι ἀεὶ πτῶσις καὶ ἀνάκλησις καὶ μετάπτωσις τῶν οὐρανίων γίνεται νοῶν· ἀλλὰ κάθαρσιν λέγομεν γί. νεσθαι καὶ παρὰ ταῖς οὐρανίαις δυνάμεσιν, ὅτε ἀπὸ τῶν ἀγνοουμένων ἐπὶ θειοτέραν ἐπιστήμην ἀνάγονται καὶ ἐλλάμπονται· οἷον γὰρ τὴν ἄγνοιαν ἀποκαθαίρονται διὰ τῶν πρὸ αὐτῶν θείων οὐσιῶν εἰς τὰς φανοτάτας μαρμαρυγὰς ἀναγόμεναι. Οὕτως εἰσὶν ἐκεῖσε καὶ καθαιρόμεναι, καὶ φωτιζόμεναι καὶ τελφιούμεναι τάξεις, αἱ ὑφειμέναι δηλαδή· καὶ πάλιν καθαίρουσαι, καὶ φωτίζουσαι, καὶ τελειοῦσαι, αἱ ὑπερβεβηκυῖαι δῆλον. Καὶ γὰρ καὶ παρ´ ἡμῶν ἐν τῷ Περὶ ρύρανίας ἱεραρχίας εἴρηται, καὶ ἐν τῇ θείᾳ Γραφῇ εὕρηται, τὸ μὴ ταύτας κατὰ τὰς ἐλλάμψεις εἶναε πάσας τῶν οὐρανίων διακοσμήσεις· ἀλλ´ αἱ πρῶται μὲν ἀμέσως ἐκ Θεοῦ ἐλλάμπονται, αἱ δεύτεραι δὲ διὰ τῶν μέσων, καὶ αἱ μετ´ αὐτὰς διὰ τῶν πρὸ αὐτῶν· καὶ οὕτω μένει κἀκεῖσε τῆς τάξεως τὸ ἀσύγΚΕΦΑΛΑΙΟΝ Ζʹ. Ι. Περὶ τῶν ἑπὶ ἐοῖς κεκοιμημένοις τελουμένων. Τούτων δὲ διωρισμένων, γκαῖον εἰπεῖν, ὡς οἰμαι, καὶ τὰ πρὸς ἡμῶν ἱερῶς ἐπὶ τῶν κεκοιμημένων τελούμενα. Καὶ γὰρ οὐδὲ τοῦτο κοινόν ἐστι τοῖς ἰεροῖς τε καὶ ἀνιέροις, ἀλλ´ ὥσπερ ἀλλοῖον εἶδός ἐστι τῆς ἐκατέρων ζωῆς, οὕτω καὶ πρὸς θάνατον όντες, οἱ μν",
+     "text": "vΙΙ. ἱΡε ἱε αἄκι Οἰνέα εμησιοά. χώρησιν αὐτό φησιν, ὡς ἂν εἴποι τις, πάναγνοι μέν εἰσι καὶ ἀλώβητοι, καὶ οὐ δέονται καθάρσεως· πλὴν εἰ καὶ δῶμεν ἔν τινι βλάβην γενέσθαι αὐτῶν τινα, πάντως εἰς τὰς ἐναντίας ἐχώρει δυνάμεις, ὥστε τὰς λοιπὰς ὡσαύτως τὸ ἀλώβητον ἔχειν, καὶ ὁμοίως μὴ δεῖσθαι καθάρσεως. Καὶ ὅτι τοῦτό ἐστι, φασὶ, σαφῶς ἔδειξεν· εἰπών γὰρ πρὸς τὴν ἀντίθεσιν τὴν ἰδίαν γνώμην καὶ ἀληθῆ, ὅτι πάναγνοι εἰσι καὶ ἀλώβητοι, ἐπήγαγε τό· Εἰ γάρ τις, ἀντὶ τοῦ, Εἰ δέ καὶ τις δοίη τινὰ παρατραπῆναι, εὐθὺς τοῦ χοροῦ τούτου ἐξέπεσεν· ὅπερ οὐκ ἔστιν, ἀλλὰ τοὐναντίον, ὅτι πάναγνοι διαμένουσιν ἐσαεί· ἐπεὶ ἐκπέσοιμι τοῦ καθεστῶτος νοὸς, εἰ ταῦτα λέγοιμι. Μὴ οὖν τις τῶν Ὠριγενιαστῶν οἰέσθω, τὸν τοιοῦτον λόγον συνηγορεῖν τῆ κακοπίστῳ αὐτῶν δόξη, φάσκων κατὰ τὸν Ὠριγένην, ὅτι ἀεὶ πτῶσις καὶ ἀνάκλησις καὶ μετάπτωσις τῶν οὐρανίων γίνεται νοῶν· ἀλλὰ κάθαρσιν λέγομεν γί. νεσθαι καὶ παρὰ ταῖς οὐρανίαις δυνάμεσιν, ὅτε ἀπὸ τῶν ἀγνοουμένων ἐπὶ θειοτέραν ἐπιστήμην ἀνάγονται καὶ ἐλλάμπονται· οἷον γὰρ τὴν ἄγνοιαν ἀποκαθαίρονται διὰ τῶν πρὸ αὐτῶν θείων οὐσιῶν εἰς τὰς φανοτάτας μαρμαρυγὰς ἀναγόμεναι. Οὕτως εἰσὶν ἐκεῖσε καὶ καθαιρόμεναι, καὶ φωτιζόμεναι καὶ τελφιούμεναι τάξεις, αἱ ὑφειμέναι δηλαδή· καὶ πάλιν καθαίρουσαι, καὶ φωτίζουσαι, καὶ τελειοῦσαι, αἱ ὑπερβεβηκυῖαι δῆλον. Καὶ γὰρ καὶ παρ´ ἡμῶν ἐν τῷ Περὶ ρύρανίας ἱεραρχίας εἴρηται, καὶ ἐν τῇ θείᾳ Γραφῇ εὕρηται, τὸ μὴ ταύτας κατὰ τὰς ἐλλάμψεις εἶναε πάσας τῶν οὐρανίων διακοσμήσεις· ἀλλ´ αἱ πρῶται μὲν ἀμέσως ἐκ Θεοῦ ἐλλάμπονται, αἱ δεύτεραι δὲ διὰ τῶν μέσων, καὶ αἱ μετ´ αὐτὰς διὰ τῶν πρὸ αὐτῶν· καὶ οὕτω μένει κἀκεῖσε τῆς τάξεως τὸ ἀσύγ ΚΕΦΑΛΑΙΟΝ Ζʹ. Ι. Περὶ τῶν ἑπὶ ἐοῖς κεκοιμημένοις τελουμένων. Τούτων δὲ διωρισμένων, γκαῖον εἰπεῖν, ὡς οἰμαι, καὶ τὰ πρὸς ἡμῶν ἱερῶς ἐπὶ τῶν κεκοιμημένων τελούμενα. Καὶ γὰρ οὐδὲ τοῦτο κοινόν ἐστι τοῖς ἰεροῖς τε καὶ ἀνιέροις, ἀλλ´ ὥσπερ ἀλλοῖον εἶδός ἐστι τῆς ἐκατέρων ζωῆς, οὕτω καὶ πρὸς θάνατον όντες, οἱ μν",
      "corrections": [
       "freq"
      ]
@@ -4070,7 +4070,7 @@
      "locus": "440",
      "source": "cgpg",
      "license": "CC-BY-4.0",
-     "text": "ζωῆς καὶ ἐπὶ πολλοῖς ἐτέροις παρ´ αὐτῆς χέεται· ἡ αντόζωος, καὶ ὑπέρζωος, ἡ ζωοποιὸς, ἢ ὅπως ἄλλως ἀνθρωπικῶς ἂν ὑμνήσοι τις τὴν ἄφθεγκτον ἐκείνην καὶ θείαν ζωήν. ἵαπεάῖἱμωη, ἅια οεὶ εείρεα νiνοωιε, εἰ ειρεινῖνειε, ΚΒiε Ιαμ νίαηαυε νἰίπιο ἰααιο ε ροσῖ ἱι αΙμ νiΙα Ικο ὓΙε ἱ ΠιΙία αΙα ἀἐ νῖνῖἄεαηε, νεῖ οοαε αο οο ΛαΙΟΙΙΦίΚΕΦΑΛΑΙΟΝ Ζʹ. ΘΥΝΟΡΘΙΘ ΛΑΡΙΤΙΕ. Φέρε δὲ, εἰ δοκεῖ, τὴν ἀγαθὴν και αἰωνίαν· ζωὴν. καὶ ὡς σοφὴν, καὶ ὡς αὐτοσοφίαν ὑμνῶμεν, μᾶλλον δὲ ὡς πάσης σοφίας ὑποστατικὴν, καὶ ὑπὲρ πᾶσαν σοφίαν καὶ σύνεσιν ὑπεροῦσαν. Οὐ γὰρ μόνον ὁ Θεὸς ὑπερπλήρης ἐστὶ σοφίας, καὶ τῆς συνέσεως αὐτοῦ οὐκ ἔστιν ἀριθμὸς, ἀλλὰ καὶ παντὸς λόγος, καὶ νοῦ, καὶ σοφίας ὑπερίδρυται. Καὶ τοῦτο ὑπερφυῶς ἐννοήσας ὁ θεῖος ὄντως ἀνὴρ, ὁ κοινὸς ἡμῶν καὶ τοῦ καθηγεμόνος ἤλιος, Τὸ μωρὸν τοῦ Θεοῦ σοφώτερον τῶν ἀνθρώπων, φησὶν, οὐ μόνον ὅτι πᾶσα ἀνθρωπίνη διάνοια πλάνη τίς ἐστι, κρινομένη πρὸς τὸ σταθερὸν καὶ μόνιμον τῶν θείων καὶ τελειοτάτων νοήσεων· ἀλλ´ ὅτι καὶ σύνηθές ἐστι τοῖς θεολόγοις, ἀντιπεπονθότως ἐπὶ Θεοῦ τὰ τῆς στερήσεως ἀποφάσκειν. Οὕτω καὶ ἀόρατόν φησι τὰ Λόγια τὸ παμφαὲς φῶς· καὶ τὸν πολυύμνητον καὶ πολυώνυμον, ἄῤῥητον καὶ ἀνώνυμον· καὶ τὸν πᾶσι παρόντα καὶ ἐκ πάντων εὐρισκόμενον, ἀκατάληπτον καὶ ἀνεξιχνίαστον. Τούτῳ δὴ τῷ τρόπῳ καὶ νῦν ὁ θεῖος Ἀπόστολος ὑμνῆσαι λέγεται μωρίαν Θεοῦ, τὸ φαινόμενον ἐν αὐτῇ παράλογον καὶ ἄτοπον, εἰς τὴν ἄῤῥητον καὶ πρὸ λόγου παντὸς ἀναγαγὼν ἀλήθειαν. Ἀλλὰ, ὅπερ ἐν ἄλλοις ἕφην, οἰκείως ἡμῖν τὰ ὑπὲρ ἡμᾶς παραλαμβάνοντες, καὶ τῷ συντρόφῳ τῶν αἰσθήσεων ἐνειλούμενοι, καὶ τοῖς καθ´ ἡμᾶς τὰ θεῖα παραβάλλοντες, ἀπατώμεθα, κατὰ τὸ φαινόμενον τὸν θεῖον καὶ ἀπόρρητον λόγον μεταδιώκοντες· δέον εἰδέναι τὸν καθ´ ἡμᾶς νουν, ἔχειν τὴν μὲν δύναμιν εἰς τὸ νοεῖν, δι´ ἧς τὰ νοητὰ βλέπει, τὴν δὲ ἕνωσιν ὑπεραίρουσαν τὴν τοῦ νοῦ φύσιν, δι´ ἧς συνάπτεται πρὸς τὰ ἐπέκεινα ἑαυτοῦ. Κατὰ ταύτην οὖν τὰ θεῖα νοητέον, οὐ καθ´ ἡμᾶς, ἀλλ´ ὅλους ἑαυτοὺς ὅλων ἐαυτῶν ἐξισταμένους, καὶ",
+     "text": "ζωῆς καὶ ἐπὶ πολλοῖς ἐτέροις παρ´ αὐτῆς χέεται· ἡ αντόζωος, καὶ ὑπέρζωος, ἡ ζωοποιὸς, ἢ ὅπως ἄλλως ἀνθρωπικῶς ἂν ὑμνήσοι τις τὴν ἄφθεγκτον ἐκείνην καὶ θείαν ζωήν. ἵαπεάῖἱμωη, ἅια οεὶ εείρεα νiνοωιε, εἰ ειρεινῖνειε, ΚΒiε Ιαμ νίαηαυε νἰίπιο ἰααιο ε ροσῖ ἱι αΙμ νiΙα Ικο ὓΙε ἱ ΠιΙία αΙα ἀἐ νῖνῖἄεαηε, νεῖ οοαε αο οο ΛαΙΟΙΙΦί ΚΕΦΑΛΑΙΟΝ Ζʹ. ΘΥΝΟΡΘΙΘ ΛΑΡΙΤΙΕ. Φέρε δὲ, εἰ δοκεῖ, τὴν ἀγαθὴν και αἰωνίαν· ζωὴν. καὶ ὡς σοφὴν, καὶ ὡς αὐτοσοφίαν ὑμνῶμεν, μᾶλλον δὲ ὡς πάσης σοφίας ὑποστατικὴν, καὶ ὑπὲρ πᾶσαν σοφίαν καὶ σύνεσιν ὑπεροῦσαν. Οὐ γὰρ μόνον ὁ Θεὸς ὑπερπλήρης ἐστὶ σοφίας, καὶ τῆς συνέσεως αὐτοῦ οὐκ ἔστιν ἀριθμὸς, ἀλλὰ καὶ παντὸς λόγος, καὶ νοῦ, καὶ σοφίας ὑπερίδρυται. Καὶ τοῦτο ὑπερφυῶς ἐννοήσας ὁ θεῖος ὄντως ἀνὴρ, ὁ κοινὸς ἡμῶν καὶ τοῦ καθηγεμόνος ἤλιος, Τὸ μωρὸν τοῦ Θεοῦ σοφώτερον τῶν ἀνθρώπων, φησὶν, οὐ μόνον ὅτι πᾶσα ἀνθρωπίνη διάνοια πλάνη τίς ἐστι, κρινομένη πρὸς τὸ σταθερὸν καὶ μόνιμον τῶν θείων καὶ τελειοτάτων νοήσεων· ἀλλ´ ὅτι καὶ σύνηθές ἐστι τοῖς θεολόγοις, ἀντιπεπονθότως ἐπὶ Θεοῦ τὰ τῆς στερήσεως ἀποφάσκειν. Οὕτω καὶ ἀόρατόν φησι τὰ Λόγια τὸ παμφαὲς φῶς· καὶ τὸν πολυύμνητον καὶ πολυώνυμον, ἄῤῥητον καὶ ἀνώνυμον· καὶ τὸν πᾶσι παρόντα καὶ ἐκ πάντων εὐρισκόμενον, ἀκατάληπτον καὶ ἀνεξιχνίαστον. Τούτῳ δὴ τῷ τρόπῳ καὶ νῦν ὁ θεῖος Ἀπόστολος ὑμνῆσαι λέγεται μωρίαν Θεοῦ, τὸ φαινόμενον ἐν αὐτῇ παράλογον καὶ ἄτοπον, εἰς τὴν ἄῤῥητον καὶ πρὸ λόγου παντὸς ἀναγαγὼν ἀλήθειαν. Ἀλλὰ, ὅπερ ἐν ἄλλοις ἕφην, οἰκείως ἡμῖν τὰ ὑπὲρ ἡμᾶς παραλαμβάνοντες, καὶ τῷ συντρόφῳ τῶν αἰσθήσεων ἐνειλούμενοι, καὶ τοῖς καθ´ ἡμᾶς τὰ θεῖα παραβάλλοντες, ἀπατώμεθα, κατὰ τὸ φαινόμενον τὸν θεῖον καὶ ἀπόρρητον λόγον μεταδιώκοντες· δέον εἰδέναι τὸν καθ´ ἡμᾶς νουν, ἔχειν τὴν μὲν δύναμιν εἰς τὸ νοεῖν, δι´ ἧς τὰ νοητὰ βλέπει, τὴν δὲ ἕνωσιν ὑπεραίρουσαν τὴν τοῦ νοῦ φύσιν, δι´ ἧς συνάπτεται πρὸς τὰ ἐπέκεινα ἑαυτοῦ. Κατὰ ταύτην οὖν τὰ θεῖα νοητέον, οὐ καθ´ ἡμᾶς, ἀλλ´ ὅλους ἑαυτοὺς ὅλων ἐαυτῶν ἐξισταμένους, καὶ",
      "corrections": [
       "freq"
      ]
@@ -5327,15 +5327,15 @@
   },
   "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia": {
    "file": "data/corpus/pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia.jsonl",
-   "rows": 45,
-   "greek_tokens": 13074,
-   "sha256": "1505979a36f6243061999f1063f022772370c04ed223bc3476d9bbda0d58e6a4"
+   "rows": 55,
+   "greek_tokens": 15981,
+   "sha256": "3502b849a4f49aa5bf6acbb713a6c48da103c58cfe5eb105b6477ecc18653d56"
   },
   "pseudo-dionysius-areopagita.de-divinis-nominibus": {
    "file": "data/corpus/pseudo-dionysius-areopagita.de-divinis-nominibus.jsonl",
-   "rows": 74,
-   "greek_tokens": 22295,
-   "sha256": "9b259f28104ac26b8b9af7c12b9bfe4c29c959200a4cefd4b86d49861f11d8a0"
+   "rows": 79,
+   "greek_tokens": 23780,
+   "sha256": "6242a354dbb09299e4525dc29044ef92846f3bfd746c6d130d741361676cd074"
   },
   "pseudo-dionysius-areopagita.de-mystica-theologia": {
    "file": "data/corpus/pseudo-dionysius-areopagita.de-mystica-theologia.jsonl",
@@ -5351,9 +5351,9 @@
   },
   "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae": {
    "file": "data/corpus/georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae.jsonl",
-   "rows": 263,
-   "greek_tokens": 98203,
-   "sha256": "2bd6cf02fc34c94b9e372cb5ec865e490a63d1cb211a51f9b20941e8e8809359"
+   "rows": 273,
+   "greek_tokens": 101857,
+   "sha256": "f3b71e25e85c0fb4cb1b2014db6cbcd1ee82a286927077d25236d00352c54cdb"
   }
  },
  "boundary_checks": [
@@ -6348,6 +6348,116 @@
    "ends_with": ""
   },
   {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "283",
+   "start": 1587,
+   "end": 1894,
+   "at": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+   "prev_ends_with": "τὸ ἀσύγ",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "284",
+   "start": 0,
+   "end": 2332,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "285",
+   "start": 0,
+   "end": 2362,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "286",
+   "start": 0,
+   "end": 2301,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "287",
+   "start": 0,
+   "end": 1976,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "288",
+   "start": 0,
+   "end": 2568,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "289",
+   "start": 0,
+   "end": 2244,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "290",
+   "start": 0,
+   "end": 2200,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "291",
+   "start": 0,
+   "end": 2473,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "292",
+   "start": 0,
+   "end": 232,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "Ι.Τούτων οὖν διωρισμένων,",
+   "ends_with": "ἀνασκαλεύσω σπινθῆρας."
+  },
+  {
    "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
    "file": "data/corpus/cogPG.PG003.jsonl",
    "locus": "300",
@@ -6892,6 +7002,61 @@
    "locus": "436",
    "start": 0,
    "end": 1203,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "440",
+   "start": 322,
+   "end": 1895,
+   "at": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+   "prev_ends_with": "ΛαΙΟΙΙΦί",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "441",
+   "start": 0,
+   "end": 2189,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "442",
+   "start": 0,
+   "end": 2323,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "443",
+   "start": 0,
+   "end": 2459,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "444",
+   "start": 0,
+   "end": 443,
    "at": "",
    "prev_ends_with": "",
    "after": "",
@@ -8902,6 +9067,72 @@
   {
    "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
    "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "278",
+   "start": 0,
+   "end": 2844,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "279",
+   "start": 0,
+   "end": 2903,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "280",
+   "start": 0,
+   "end": 2624,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "281",
+   "start": 0,
+   "end": 2704,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "282",
+   "start": 0,
+   "end": 2736,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "283",
+   "start": 0,
+   "end": 1587,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+   "ends_with": "τὸ ἀσύγ"
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
    "locus": "292",
    "start": 232,
    "end": 992,
@@ -9815,6 +10046,50 @@
   {
    "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
    "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "437",
+   "start": 0,
+   "end": 1660,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "438",
+   "start": 0,
+   "end": 2777,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "439",
+   "start": 0,
+   "end": 2699,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "",
+   "ends_with": ""
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
+   "locus": "440",
+   "start": 0,
+   "end": 322,
+   "at": "",
+   "prev_ends_with": "",
+   "after": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+   "ends_with": "ΛαΙΟΙΙΦί"
+  },
+  {
+   "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "file": "data/corpus/cogPG.PG003.jsonl",
    "locus": "446",
    "start": 0,
    "end": 2702,
@@ -10430,7 +10705,7 @@
   }
  ],
  "token_conservation": {
-  "original": 160260,
+  "original": 160262,
   "check": "sum over every work file and every source's remainder == original (exact, _GK), across all source files together"
  }
 }
