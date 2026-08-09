@@ -5752,6 +5752,10 @@
    "name": "anon-pseudo-codinus",
    "aliases": {}
   },
+  "anon-pseudo-dionysius-areopagita": {
+   "name": "anon-pseudo-dionysius-areopagita",
+   "aliases": {}
+  },
   "anon-pseudo-dioscorides": {
    "name": "anon-pseudo-dioscorides",
    "aliases": {}
@@ -51915,6 +51919,17 @@
    "tags": [],
    "editions": {}
   },
+  "anon-georgius-pachymeres.georgius-pachymeres-paraphrasis-in-omnia-opera-dionysii-areopagitae": {
+   "author": "anon-georgius-pachymeres",
+   "title": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
   "anon-georgius-pachymeres.georgius-pachymeres-progymnasmata": {
    "author": "anon-georgius-pachymeres",
    "title": "georgius-pachymeres.progymnasmata",
@@ -69894,6 +69909,61 @@
    "title": "pseudo-codinus.patria-constantinopoleos",
    "aliases": {
     "cts": "urn:cts:cogGreek:pseudo-codinus.patria-constantinopoleos"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-pseudo-dionysius-areopagita.pseudo-dionysius-areopagita-de-caelesti-hierarchia": {
+   "author": "anon-pseudo-dionysius-areopagita",
+   "title": "pseudo-dionysius-areopagita.de-caelesti-hierarchia",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:pseudo-dionysius-areopagita.de-caelesti-hierarchia"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-pseudo-dionysius-areopagita.pseudo-dionysius-areopagita-de-divinis-nominibus": {
+   "author": "anon-pseudo-dionysius-areopagita",
+   "title": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:pseudo-dionysius-areopagita.de-divinis-nominibus"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-pseudo-dionysius-areopagita.pseudo-dionysius-areopagita-de-ecclesiastica-hierarchia": {
+   "author": "anon-pseudo-dionysius-areopagita",
+   "title": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-pseudo-dionysius-areopagita.pseudo-dionysius-areopagita-de-mystica-theologia": {
+   "author": "anon-pseudo-dionysius-areopagita",
+   "title": "pseudo-dionysius-areopagita.de-mystica-theologia",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:pseudo-dionysius-areopagita.de-mystica-theologia"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-pseudo-dionysius-areopagita.pseudo-dionysius-areopagita-epistulae": {
+   "author": "anon-pseudo-dionysius-areopagita",
+   "title": "pseudo-dionysius-areopagita.epistulae",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:pseudo-dionysius-areopagita.epistulae"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -268495,7 +268565,7 @@
     "cts": "urn:cts:greekLit:tlg2798.tlg001",
     "wikidata": "Q5244319"
    },
-   "default_edition": null,
+   "default_edition": "pseudo-dionysius-areopagita.de-caelesti-hierarchia.cgpg",
    "best_source": "migne_cgpg",
    "tags": [
     "century:6",
@@ -268505,6 +268575,18 @@
     "language:ancient-greek"
    ],
    "editions": {
+    "pseudo-dionysius-areopagita.de-caelesti-hierarchia.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "pseudo-dionysius-areopagita.de-caelesti-hierarchia.heil-1991": {
      "name": "Corpus Dionysiacum ii: Pseudo%19Dionysius Areopagita. De coelesti hierarchia, de ecclesiastica hierarchia, de mystica theologia, epistulae",
      "provider": "tlg-e-reference",
@@ -268525,7 +268607,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2798.tlg004"
    },
-   "default_edition": null,
+   "default_edition": "pseudo-dionysius-areopagita.de-divinis-nominibus.cgpg",
    "best_source": "migne_cgpg",
    "tags": [
     "century:6",
@@ -268533,6 +268615,18 @@
     "genre:theology"
    ],
    "editions": {
+    "pseudo-dionysius-areopagita.de-divinis-nominibus.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "pseudo-dionysius-areopagita.de-divinis-nominibus.suchla-1990": {
      "name": "Corpus Dionysiacum i: Pseudo%19Dionysius Areopagita. De divinis nominibus",
      "provider": "tlg-e-reference",
@@ -268553,7 +268647,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2798.tlg002"
    },
-   "default_edition": null,
+   "default_edition": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia.cgpg",
    "best_source": "migne_cgpg",
    "tags": [
     "century:6",
@@ -268561,6 +268655,18 @@
     "genre:theology"
    ],
    "editions": {
+    "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia.heil-1991": {
      "name": "Corpus Dionysiacum ii: Pseudo%19Dionysius Areopagita. De coelesti hierarchia, de ecclesiastica hierarchia, de mystica theologia, epistulae",
      "provider": "tlg-e-reference",
@@ -268581,7 +268687,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2798.tlg005"
    },
-   "default_edition": null,
+   "default_edition": "pseudo-dionysius-areopagita.de-mystica-theologia.cgpg",
    "best_source": "migne_cgpg",
    "tags": [
     "century:6",
@@ -268589,6 +268695,18 @@
     "genre:theology"
    ],
    "editions": {
+    "pseudo-dionysius-areopagita.de-mystica-theologia.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "pseudo-dionysius-areopagita.de-mystica-theologia.heil-1991": {
      "name": "Corpus Dionysiacum ii: Pseudo%19Dionysius Areopagita. De coelesti hierarchia, de ecclesiastica hierarchia, de mystica theologia, epistulae",
      "provider": "tlg-e-reference",
@@ -268609,7 +268727,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2798.tlg006"
    },
-   "default_edition": null,
+   "default_edition": "pseudo-dionysius-areopagita.epistulae.cgpg",
    "best_source": "migne_cgpg",
    "tags": [
     "century:6",
@@ -268618,6 +268736,18 @@
     "genre:theology"
    ],
    "editions": {
+    "pseudo-dionysius-areopagita.epistulae.cgpg": {
+     "name": "calfa-co Patrologia Graeca (cgpg)",
+     "provider": "cgpg",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "pseudo-dionysius-areopagita.epistulae.heil-1991": {
      "name": "Corpus Dionysiacum ii: Pseudo%19Dionysius Areopagita. De coelesti hierarchia, de ecclesiastica hierarchia, de mystica theologia, epistulae",
      "provider": "tlg-e-reference",

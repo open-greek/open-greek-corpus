@@ -53,10 +53,20 @@ def test_running_heads_and_prose_are_refused(line):
     assert not r.paraphrase_heads(line + "\n"), f"took {line!r} for a head"
 
 
-def test_the_number_is_what_separates_them():
-    """Same words, same page, and only one of them opens a block."""
+def test_the_number_separates_a_head_from_the_abbreviated_header():
+    """Which is as far as the number goes, and no further.
+
+    Migne also prints a second header that spells the paraphrase in full and
+    carries its number, on leaves 93 and 343. This matcher gets past those two
+    only because the scanner broke both across lines. What actually separates a
+    head from a header is where it sits on the page, which is why
+    measure_pg003_head_geometry.py exists and why the test below asserts it.
+    """
     assert r.paraphrase_heads("PARAPHRASIS PACHYMERAE (22).\n")
     assert not r.paraphrase_heads("PARAPHRASIS PACHYMERAE.\n")
+    # The full-form header, as the scanner split it. Neither half is a head.
+    assert not r.paraphrase_heads("PARAPHRASIS\n")
+    assert not r.paraphrase_heads("PACHYMER £ (9),\n")
 
 
 def test_homoglyph_fold_is_a_fold_and_not_a_transliteration():

@@ -70,12 +70,21 @@ MAX_ANCHOR_GAP = 40      # words; beyond this the placement is declined
 # variants.
 #
 # What keeps that from inventing heads is the number. Migne numbers the
-# paraphrase (1) to (60) straight through the volume, and prints that number on
-# the display head only: the running head at every page top reads DE COELESTI
-# HIERARCHIA, CAP. I. - PARAPHR. PACHYMERÆ with no number. 115 of the 151
-# paraphrase-shaped lines in this witness are those page headers, and requiring
-# the number is what tells them apart. A page header placed as a boundary would
-# cut the text at the top of a page that is in the middle of a block.
+# paraphrase (1) to (60) straight through the volume, and the header he prints
+# at the top of most pages abbreviates it, DE COELESTI HIERARCHIA, CAP. I. -
+# PARAPHR. PACHYMERÆ, with no number. 115 of the 151 paraphrase-shaped lines in
+# this witness are those, and requiring the number is what tells them apart. A
+# page header placed as a boundary would cut the text at the top of a page that
+# is in the middle of a block.
+#
+# The number is not the whole story, and this comment used to say it was. Migne
+# also uses a second header, seen on leaves 93 and 343, that spells the head out
+# in full and does carry its number. What actually separates a head from a
+# header is where it sits on the page, and this matcher has no access to that:
+# it gets past those two only because the scanner broke both across lines, so
+# neither matches on one line. measure_pg003_head_geometry.py is what checks the
+# premise, by reading the position out of the scan, and it is the thing to
+# rerun if a boundary here ever looks like it landed at a page top.
 HOMOGLYPH = str.maketrans({"Α": "A", "Β": "B", "Ε": "E", "Ζ": "Z", "Η": "H",
                            "Ι": "I", "Κ": "K", "Μ": "M", "Ν": "N", "Ο": "O",
                            "Ρ": "P", "Τ": "T", "Υ": "Y", "Χ": "X", "Ϲ": "C",

@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1412,
-   "ocr_works_ranked": 822,
+   "ocr_works": 1418,
+   "ocr_works_ranked": 827,
    "ocr_works_with_witness": 196,
    "secondary_files": 470,
    "skipped": 70,
@@ -342,11 +342,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1342,
+   "median": 0.1338,
    "min": 0.0089,
-   "n": 822,
-   "q1": 0.0945,
-   "q3": 0.17
+   "n": 827,
+   "q1": 0.0943,
+   "q3": 0.1698
   }
  },
  "works": {
@@ -3469,11 +3469,11 @@
   },
   "cogPG.PG003": {
    "edition": "cgpg",
-   "n_tokens": 160260,
-   "n_tokens_checked": 95034,
-   "n_unattested": 5599,
+   "n_tokens": 8064,
+   "n_tokens_checked": 4846,
+   "n_unattested": 278,
    "source": "cgpg",
-   "unattested_rate": 0.058916,
+   "unattested_rate": 0.057367,
    "witness": null
   },
   "cogPG.PG005": {
@@ -5859,6 +5859,15 @@
    "n_unattested": 24344,
    "source": "ocr",
    "unattested_rate": 0.17532,
+   "witness": null
+  },
+  "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae": {
+   "edition": "cgpg",
+   "n_tokens": 98203,
+   "n_tokens_checked": 57311,
+   "n_unattested": 2982,
+   "source": "cgpg",
+   "unattested_rate": 0.052032,
    "witness": null
   },
   "georgius-pachymeres.progymnasmata": {
@@ -11843,6 +11852,51 @@
     "secondary_edition": "cgpg"
    }
   },
+  "pseudo-dionysius-areopagita.de-caelesti-hierarchia": {
+   "edition": "cgpg",
+   "n_tokens": 10742,
+   "n_tokens_checked": 6697,
+   "n_unattested": 500,
+   "source": "cgpg",
+   "unattested_rate": 0.07466,
+   "witness": null
+  },
+  "pseudo-dionysius-areopagita.de-divinis-nominibus": {
+   "edition": "cgpg",
+   "n_tokens": 22295,
+   "n_tokens_checked": 13139,
+   "n_unattested": 829,
+   "source": "cgpg",
+   "unattested_rate": 0.063095,
+   "witness": null
+  },
+  "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia": {
+   "edition": "cgpg",
+   "n_tokens": 13074,
+   "n_tokens_checked": 8230,
+   "n_unattested": 667,
+   "source": "cgpg",
+   "unattested_rate": 0.081045,
+   "witness": null
+  },
+  "pseudo-dionysius-areopagita.de-mystica-theologia": {
+   "edition": "cgpg",
+   "n_tokens": 1313,
+   "n_tokens_checked": 855,
+   "n_unattested": 58,
+   "source": "cgpg",
+   "unattested_rate": 0.067836,
+   "witness": null
+  },
+  "pseudo-dionysius-areopagita.epistulae": {
+   "edition": "cgpg",
+   "n_tokens": 6569,
+   "n_tokens_checked": 3956,
+   "n_unattested": 285,
+   "source": "cgpg",
+   "unattested_rate": 0.072042,
+   "witness": null
+  },
   "pseudo-justinus-martyr.cohortatio-ad-gentiles": {
    "edition": "cgpg",
    "n_tokens": 10716,
@@ -14906,6 +14960,7 @@
   "gregorius-nyssenus.testimonia-adversus-judaeos-sp",
   "joannes-damascenus.passio-sancti-artemii-dub",
   "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+  "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
   "gregorius-nyssenus.in-illud-tunc-et-ipse-filius",
   "cyrillus-theology.oratio-ad-arcadiam-et-marinam-augustas-de-fide",
   "diphilus-comedy.fragmenta",
@@ -14936,6 +14991,7 @@
   "athanasius-theology.orationes-tres-contra-arianos",
   "joannes-damascenus.contra-nestorianos",
   "eudemus-philosophy.fragmenta",
+  "pseudo-dionysius-areopagita.de-caelesti-hierarchia",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum",
   "anonymi-delectus-legum.delectus-legum-compendiarius",
   "empedocles.epigramma",
@@ -14944,6 +15000,7 @@
   "anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri",
   "athanasius-theology.epistulae-quattuor-ad-serapionem",
   "athanasius-theology.epistula-ad-epictetum",
+  "pseudo-dionysius-areopagita.epistulae",
   "gregorius-nyssenus.ad-graecos-ex-communibus-notionibus",
   "symeon-thessalonicensis.de-sacra-liturgia",
   "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii",
@@ -14974,6 +15031,7 @@
   "basilius-theology.in-illud-in-principio-erat-verbum",
   "symeon-thessalonicensis.de-sancto-chrismate",
   "joel.chronographia-compendiaria",
+  "pseudo-dionysius-areopagita.de-divinis-nominibus",
   "symeon-thessalonicensis.expositio-de-divino-templo",
   "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno",
   "damascius.de-principiis",
@@ -14992,12 +15050,12 @@
   "symeon-thessalonicensis.expositio-de-sacro-symbolo",
   "procopius-rhetoric.in-proverbia",
   "photius.fragmenta-in-lucam-in-catenis",
-  "cogPG.PG003",
   "cyrillus-theology.quod-unus-sit-christus",
   "georgius-cedrenus.compendium-historiarum",
   "cyrillus-theology.scholia-de-incarnatione-unigeniti-fragmenta",
   "theophylactus-achridensis.expositio-in-epistolam-ii-joannis",
   "theophylactus-achridensis.vita-clementis-ohridensis",
+  "cogPG.PG003",
   "philemon.fragmenta",
   "anonymi-logoi-duo.logoi-duo",
   "theodorus-agallianus.refutatio-contra-joannem-argyropulum",
@@ -15012,6 +15070,7 @@
   "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
   "michael-glycas.epistolae",
   "theophylactus-achridensis.expositio-in-epistolam-ii-ad-thessalonicenses",
+  "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
   "theophylactus-achridensis.expositio-in-epistolam-i-ad-thessalonicenses",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philippenses",

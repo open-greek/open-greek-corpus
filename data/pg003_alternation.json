@@ -1,5 +1,14 @@
 {
- "what": "page-level estimate of the Dionysius/Pachymeres alternation in PG003",
+ "what": "page-level estimate of the Dionysius/Pachymeres alternation in PG003, and, since the carve landed, how well it did",
+ "read_from": "data/corpus_changes/cogPG.PG003.row-split.json",
+ "graded_against_the_carve": {
+  "pages_with_a_single_owner": 411,
+  "scored": 407,
+  "agree": 370,
+  "labelled": 214,
+  "agree_among_labelled": 213
+ },
+ "graded_note": "PG003 is carved, so this estimate has a ground truth it did not have when it was made. Pages the carve split between two works are excluded: the estimate labels whole pages, so a split page has no single right answer. The estimator is kept rather than retired because the method is the only lead on other Migne volumes whose display heads our OCR dropped, and this is the evidence for whether to trust it there.",
  "issue": "open-greek/open-greek-corpus#9",
  "method": "a paraphrase replays the rare vocabulary of what it paraphrases, so a paraphrase page's closest neighbour by rare-word overlap lies behind it and a text page's lies ahead; the sign of that lag is the estimate",
  "NOT_A_CARVE_INPUT": "page level only. It says which side of the alternation a page falls on, not where inside a row the switch is, and #9's binding problem is that most switches fall inside a row while the carve script moves whole rows.",

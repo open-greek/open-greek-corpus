@@ -313,8 +313,8 @@ one level finer at the Expression, so the 4 TLG variant-edition pairs are two
 distinct `ogc` ids sharing one TLG anchor. 488 of the 3,822 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,343 works, `tlg` on 3,300,
-`wikidata` on 504), so joins against citation and lexicon data still work.
+`work_index.json` under `work_anchors` (`cts` on 3,349 works, `tlg` on 3,300,
+`wikidata` on 505), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
 source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`
@@ -395,8 +395,13 @@ capitals as their Greek lookalikes (ΡΑΟΠΥΜΕΒ ΑΣ) and the ligatured Æ 
 or LE, so a fixed list of spellings caught 20 of the 60 Migne prints. Folding
 the lookalikes and scoring similarity catches 35. What keeps a fuzzy match from
 inventing boundaries is Migne's own numbering: he numbers the paraphrase (1) to
-(60) straight through the volume and prints that number on the display head
-only, never on the page header, which is why the matcher requires it.
+(60) straight through the volume, and the page header he prints on most pages
+abbreviates it to PARAPHR. PACHYMERÆ and carries no number, so requiring the
+number separates the two. That was stated here too strongly at first. Migne also
+uses a second header, on at least two pages, that spells the paraphrase out in
+full and does carry its number, so the number alone is not what distinguishes a
+head from a header. What distinguishes them is position, and the matcher gets
+past those two only because the scanner broke both across lines.
 
 That the numbered line is a display head and not a page header is measured
 rather than assumed (`scripts/measure_pg003_head_geometry.py`,
@@ -809,7 +814,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1393 OCR'd works/volumes: 190 manually corrected, 868 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1399 OCR'd works/volumes: 196 manually corrected, 868 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1122,7 +1127,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | clidemus-philosophy.testimonia | Clidemus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 314 | auto-corrected |
 | clinias.fragmenta | Clinias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 165 | raw OCR |
 | cocondrius.peri-tropon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,481 | manual |
-| PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 160,260 | manual |
+| PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 8,064 | manual |
 | PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,534 | manual |
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
@@ -1366,6 +1371,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,891 | auto-corrected |
 | georgius-monachus-continuatus.chronicon-continuatio-redactio | Georgius Monachus Continuatus - Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum (PG109 loci 417-497) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 29,808 | manual |
 | georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior | Georgius Monachus - Chronicon Breve (Lib. 1-6) (Redactio Recentior) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 240,537 | auto-corrected |
+| georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae | Georgius Pachymeres - Paraphrasis in omnia opera Dionysii Areopagitae (PG003 loci 71-539, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 98,203 | manual |
 | georgius-pachymeres.progymnasmata |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 11,036 | auto-corrected |
 | gorgias-rhetoric.fragmenta | Gorgias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 982 | auto-corrected |
 | gorgias-rhetoric.testimonia | Gorgias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,332 | auto-corrected |
@@ -1967,6 +1973,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | pseudo-codinus.de-annis-ab-orbe-condito | Pseudo-Codinus - De annis ab orbe condito (Chronicon breve, from Adam to 1453) (PG157 loci 325-332) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,653 | manual |
 | pseudo-codinus.de-officiis-officia-palatii-constantinopoleos | Pseudo-Codinus - De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae) (PG157 loci 20-68) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,747 | manual |
 | pseudo-codinus.patria-constantinopoleos | Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,162 | manual |
+| pseudo-dionysius-areopagita.de-caelesti-hierarchia | Pseudo-Dionysius Areopagita - De caelesti hierarchia (PG003 loci 75-177, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,742 | manual |
+| pseudo-dionysius-areopagita.de-divinis-nominibus | Pseudo-Dionysius Areopagita - De divinis nominibus (PG003 loci 300-499, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,295 | manual |
+| pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia | Pseudo-Dionysius Areopagita - De ecclesiastica hierarchia (PG003 loci 193-276, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 13,074 | manual |
+| pseudo-dionysius-areopagita.de-mystica-theologia | Pseudo-Dionysius Areopagita - De mystica theologia (PG003 loci 506-531, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,313 | manual |
+| pseudo-dionysius-areopagita.epistulae | Pseudo-Dionysius Areopagita - Epistulae (PG003 loci 540-567, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,569 | manual |
 | pseudo-justinus-martyr.cohortatio-ad-gentiles | Pseudo-Justinus Martyr - Cohortatio ad gentiles (PG006 loci 128-163) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,716 | manual |
 | pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum | Pseudo-Justinus Martyr - Confutatio dogmatum quorundam Aristotelicorum (PG006 loci 753-789) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 15,140 | manual |
 | pseudo-justinus-martyr.de-monarchia | Pseudo-Justinus Martyr - De monarchia (PG006 loci 164-170) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,825 | auto-corrected |
@@ -2210,7 +2221,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 
 ## Status
 
-- 3,908 works served, 65.4M Greek tokens, twelve sources.
+- 3,914 works served, 65.4M Greek tokens, twelve sources.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

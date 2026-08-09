@@ -220,7 +220,8 @@ $(DUP_PAGES): $(CORPUS_FILES) scripts/sweep_duplicate_leaves.py
 $(DUP_LEAVES): $(CORPUS_FILES) scripts/sweep_duplicate_leaves.py
 	$(PY) scripts/sweep_duplicate_leaves.py --write
 
-$(PG003_ALT): data/corpus/cogPG.PG003.jsonl scripts/measure_pg003_alternation.py
+$(PG003_ALT): data/corpus/cogPG.PG003.jsonl data/corpus_changes/cogPG.PG003.row-split.json \
+                scripts/measure_pg003_alternation.py
 	$(PY) scripts/measure_pg003_alternation.py --write
 
 # Depends on the scan and on nothing of ours: it measures where Migne printed

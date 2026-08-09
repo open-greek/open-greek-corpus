@@ -3,11 +3,11 @@
     "total_works": 7209,
     "total_words": 74975998,
     "source_overrides_applied": 106,
-    "ingested_via_cgpg_volume": 5,
+    "ingested_via_cgpg_volume": 0,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.46,
-    "pct_ingested_actual": 66.11,
-    "ingested_words_actual": 49563930,
+    "pct_ingested_actual": 66.1,
+    "ingested_words_actual": 49557883,
     "ingested_complete_works": 2904,
     "ingested_partial_works": 117,
     "pct_reachable_not_ingested": 14.18,
@@ -17,9 +17,9 @@
       "actionable": 1166586,
       "structural": 562316
     },
-    "underfilled_50_90_works": 447,
+    "underfilled_50_90_works": 448,
     "underfilled_50_90_missing_words": {
-      "actionable": 1672396,
+      "actionable": 1675729,
       "structural": 179391
     }
   },
@@ -14936,6 +14936,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg2798",
+      "work_id": "002",
+      "author": "Pseudo-Dionysius Areopagita",
+      "title": "De Ecclesiastica Hierarchia",
+      "word_count": 16400,
+      "ingested_tokens": 13067,
+      "coverage_ratio": 0.797,
+      "source": "cgpg",
+      "missing_words": 3333
+    },
+    {
       "tlg_id": "tlg2946",
       "work_id": "002",
       "author": "Priscus",
@@ -19390,8 +19401,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 793,
-    "n_tokens": 8398382,
+    "works": 794,
+    "n_tokens": 8344419,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19432,14 +19443,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 183,
         "n_tokens": 160915
-      },
-      {
-        "key": "cogPG.PG003",
-        "edition": "cgpg",
-        "source": "cgpg",
-        "license": "CC-BY-4.0",
-        "n_passages": 459,
-        "n_tokens": 160098
       },
       {
         "key": "secundus-mullach-fpg1",
@@ -19552,6 +19555,14 @@
         "license": "PD",
         "n_passages": 16715,
         "n_tokens": 98427
+      },
+      {
+        "key": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 263,
+        "n_tokens": 98082
       },
       {
         "key": "theophylactus-achridensis.enarratio-in-evangelium-lucae",
@@ -20768,6 +20779,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 24,
         "n_tokens": 8150
+      },
+      {
+        "key": "cogPG.PG003",
+        "edition": "cgpg",
+        "source": "cgpg",
+        "license": "CC-BY-4.0",
+        "n_passages": 24,
+        "n_tokens": 8053
       },
       {
         "key": "cogByz.paidiophrastos",
