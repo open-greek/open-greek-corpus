@@ -2191,6 +2191,13 @@ below; regenerate it with `python scripts/build_provenance.py`.
   data/duplicate_leaves.json; an unlisted run stops the run, so what is removed
   is duplicated text rather than text. PG118 pages 21-22 were the first case,
   1,063 tokens that had been served and counted twice.
+  scripts/sweep_duplicate_leaves.py looks for the rest, comparing every pair of
+  page-level OCR rows inside a file by word-bigram containment, which ignores
+  reading order where the older difflib gate did not. Its output,
+  data/duplicate_leaf_candidates.json, currently lists 55 pairs in 19 Migne
+  volumes holding about 21,176 tokens of second copies, mostly in runs at a
+  fixed page offset (PG126 repeats six consecutive pages eight pages later).
+  Those are candidates, not a drop list: each still needs its page read.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
