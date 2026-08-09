@@ -1,0 +1,598 @@
+{
+ "what": "scan pages the line-level OCR delivered more than once, byte for byte, inside a single served work",
+ "issue": "open-greek/open-greek-corpus#33",
+ "rule": "only byte-identical pages are listed. Two pages that differ are two readings of one page, and this repo prefers a merged reading to picking a winner, so those are a disposition question and are not here.",
+ "min_greek_tokens": 20,
+ "pages": 64,
+ "greek_tokens": 16205,
+ "drops": [
+  {
+   "file": "data/corpus/alcmaeon.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0118",
+   "drop_page": "nausiphanes_diels_fvs2_0120",
+   "page_sha256": "afc1dcdc722c3115d3134ba2bb2ba7eba73d7a855fc1e1a1fe0134238df027e2",
+   "rows": 3,
+   "greek_tokens": 288
+  },
+  {
+   "file": "data/corpus/alcmaeon.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0119",
+   "drop_page": "nausiphanes_diels_fvs2_0121",
+   "page_sha256": "408cd653570c8fcef30951466d9cad82f34b8f74cd59e838d2e89eb3ce8552c6",
+   "rows": 6,
+   "greek_tokens": 290
+  },
+  {
+   "file": "data/corpus/ameinias.testimonia-et-fragmenta.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0123",
+   "drop_page": "nausiphanes_diels_fvs2_0125",
+   "page_sha256": "e013f2556c33c53d8a05f35b9e82c07b2f961ea11e259bbcab6d850a2233ef06",
+   "rows": 1,
+   "greek_tokens": 40
+  },
+  {
+   "file": "data/corpus/anaximander.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0031",
+   "drop_page": "nausiphanes_diels_fvs2_0033",
+   "page_sha256": "55d95f44f4a7a8518c590383dc30326241a467db50fa99874c0ae7f5132fa01d",
+   "rows": 3,
+   "greek_tokens": 383
+  },
+  {
+   "file": "data/corpus/anaximander.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0032",
+   "drop_page": "nausiphanes_diels_fvs2_0034",
+   "page_sha256": "a06683c0bea46c418c0120cb88da2733b5254561723812bcdd78ce8ab99cd127",
+   "rows": 6,
+   "greek_tokens": 367
+  },
+  {
+   "file": "data/corpus/calliphon-et-democedes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0052",
+   "drop_page": "nausiphanes_diels_fvs2_0054",
+   "page_sha256": "c211262793e3beac8acc56298ca39da61f64079a5ba77eb2b6c59274254b99e5",
+   "rows": 2,
+   "greek_tokens": 449
+  },
+  {
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0480",
+   "drop_page": "nausiphanes_diels_fvs2_0482",
+   "page_sha256": "3b95a0db6ed4d441dfc8d785c94438bf8d43b83de7c170a30ba783c8e5166b2c",
+   "rows": 8,
+   "greek_tokens": 350
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0059",
+   "drop_page": "diogenes_oenoanda_william_0060",
+   "page_sha256": "529e1520f88ac234cf1c71573b4d7578900ca25221c1971aacb4c98d21e3e8b9",
+   "rows": 62,
+   "greek_tokens": 209
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0064",
+   "drop_page": "diogenes_oenoanda_william_0065",
+   "page_sha256": "31a22b1c0295be12182c3198a714f4996d7fd6dbd2c5cf2d167e3958df08dd73",
+   "rows": 68,
+   "greek_tokens": 189
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0066",
+   "drop_page": "diogenes_oenoanda_william_0067",
+   "page_sha256": "6ca954f0eacaf93601937453c05b748d36a17e5c6761a394c1d37455370be749",
+   "rows": 58,
+   "greek_tokens": 156
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0083",
+   "drop_page": "diogenes_oenoanda_william_0084",
+   "page_sha256": "f62d54192533e7306a78a3d3cf7333575a3f67d0e294d03651aa308bdece16d1",
+   "rows": 29,
+   "greek_tokens": 135
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0090",
+   "drop_page": "diogenes_oenoanda_william_0091",
+   "page_sha256": "049fc0155a20e926d491e9654fe100a4faf173854d0bc5af31b9b2a4b19e9b43",
+   "rows": 47,
+   "greek_tokens": 133
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0097",
+   "drop_page": "diogenes_oenoanda_william_0098",
+   "page_sha256": "2b984b29412c278e337299baff4e92b9ae207f727b721c382055171e3b4cfddb",
+   "rows": 30,
+   "greek_tokens": 179
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0114",
+   "drop_page": "diogenes_oenoanda_william_0115",
+   "page_sha256": "32ebed0358120ba0759057b25ef3686581e608a641e71c970e3e8347e01a1272",
+   "rows": 61,
+   "greek_tokens": 212
+  },
+  {
+   "file": "data/corpus/diogenes-oenoandensis.diogenes-oenoanda-william.jsonl",
+   "item": "diogenes_oenoanda_william",
+   "keep_page": "diogenes_oenoanda_william_0117",
+   "drop_page": "diogenes_oenoanda_william_0118",
+   "page_sha256": "51c8181838369cbc697f268f3bfc7909b0e413420762a573fb138a97da3d3d0c",
+   "rows": 35,
+   "greek_tokens": 91
+  },
+  {
+   "file": "data/corpus/epicharmus-et-pseudepicharmea.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0108",
+   "drop_page": "nausiphanes_diels_fvs2_0110",
+   "page_sha256": "7b5ffabeb8bb207a2070c5ffedee1fe808a6dac04e9c4827878d68d2ecc4ec69",
+   "rows": 31,
+   "greek_tokens": 326
+  },
+  {
+   "file": "data/corpus/epicharmus-et-pseudepicharmea.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0109",
+   "drop_page": "nausiphanes_diels_fvs2_0111",
+   "page_sha256": "f72ac347cbf73aac0a56bd127ab8234a95620c0b4daadbdb4d4a1b94733942c5",
+   "rows": 25,
+   "greek_tokens": 225
+  },
+  {
+   "file": "data/corpus/epicharmus-et-pseudepicharmea.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0114",
+   "drop_page": "nausiphanes_diels_fvs2_0116",
+   "page_sha256": "83ff8b573b2367141d4a54782ef7123a3e787b9d25581fc6e68e06d0a11aaeff",
+   "rows": 15,
+   "greek_tokens": 92
+  },
+  {
+   "file": "data/corpus/epicharmus-et-pseudepicharmea.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0118",
+   "drop_page": "nausiphanes_diels_fvs2_0120",
+   "page_sha256": "a6dd09f4ee57524938b81a23f2ae333031d369d808441dd4a86cd4939ce675db",
+   "rows": 2,
+   "greek_tokens": 25
+  },
+  {
+   "file": "data/corpus/gorgias-rhetoric.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0545",
+   "drop_page": "nausiphanes_diels_fvs2_0547",
+   "page_sha256": "f96f115e8c0bcf83a166e54ebe3b7174ebdb17680df7003d7ed594fb42d8f233",
+   "rows": 46,
+   "greek_tokens": 556
+  },
+  {
+   "file": "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl",
+   "item": "aelian_heraclid_tauchnitz_1829",
+   "keep_page": "aelian_heraclid_tauchnitz_1829_0151",
+   "drop_page": "aelian_heraclid_tauchnitz_1829_0158",
+   "page_sha256": "775ef797e4036e033a941ac94b981a6c0688f95f74f92ad4f10a697ee936588a",
+   "rows": 7,
+   "greek_tokens": 233
+  },
+  {
+   "file": "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl",
+   "item": "aelian_heraclid_tauchnitz_1829",
+   "keep_page": "aelian_heraclid_tauchnitz_1829_0217",
+   "drop_page": "aelian_heraclid_tauchnitz_1829_0224",
+   "page_sha256": "6e96847e62841cef6c790e61848bc8ca4902a5881d817074a12d05e888056414",
+   "rows": 57,
+   "greek_tokens": 212
+  },
+  {
+   "file": "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl",
+   "item": "aelian_heraclid_tauchnitz_1829",
+   "keep_page": "aelian_heraclid_tauchnitz_1829_0258",
+   "drop_page": "aelian_heraclid_tauchnitz_1829_0265",
+   "page_sha256": "1a1915680296448aaef5d8aff5bb7ddc0b1171861440eea954d85b5ce4694637",
+   "rows": 58,
+   "greek_tokens": 273
+  },
+  {
+   "file": "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl",
+   "item": "aelian_heraclid_tauchnitz_1829",
+   "keep_page": "aelian_heraclid_tauchnitz_1829_0269",
+   "drop_page": "aelian_heraclid_tauchnitz_1829_0276",
+   "page_sha256": "a265887bddf79ea3cfeaa9ff0fa64d658e8434a1a170532e7140a3abf9e54e45",
+   "rows": 29,
+   "greek_tokens": 225
+  },
+  {
+   "file": "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl",
+   "item": "aelian_heraclid_tauchnitz_1829",
+   "keep_page": "aelian_heraclid_tauchnitz_1829_0314",
+   "drop_page": "aelian_heraclid_tauchnitz_1829_0321",
+   "page_sha256": "093cab1c7dd8a9eace4ee0fe110dbfe8cf8eac306cd924772e0d945db69ff7cf",
+   "rows": 29,
+   "greek_tokens": 162
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0074",
+   "drop_page": "nausiphanes_diels_fvs2_0076",
+   "page_sha256": "325ff0efaca354f650b7d10db44dc56e312b97c7867d5d36bcef76589ac9e3bb",
+   "rows": 1,
+   "greek_tokens": 357
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0075",
+   "drop_page": "nausiphanes_diels_fvs2_0077",
+   "page_sha256": "d396a16d54476bc0b5119d1c093b3c464580e4fece78de229b93eaa185de960e",
+   "rows": 40,
+   "greek_tokens": 395
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0078",
+   "drop_page": "nausiphanes_diels_fvs2_0080",
+   "page_sha256": "d7dd61ad3317ecd7679a825726c92a763d2a5bc30dc754014b82e1611871ffbd",
+   "rows": 7,
+   "greek_tokens": 447
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0083",
+   "drop_page": "nausiphanes_diels_fvs2_0085",
+   "page_sha256": "9885d8999270dc9137d509d7c52fe54f6a3a3d9942879bf935ab27e88afa182a",
+   "rows": 3,
+   "greek_tokens": 181
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0084",
+   "drop_page": "nausiphanes_diels_fvs2_0086",
+   "page_sha256": "ede4a2201a2c42ca9ffecc3ad56dbe9847ee109f098bae239e7b77f28f1f22cc",
+   "rows": 22,
+   "greek_tokens": 129
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0090",
+   "drop_page": "nausiphanes_diels_fvs2_0092",
+   "page_sha256": "bb90ec63e44eb245d55f9827d11738258592c069806c831924e587f278901508",
+   "rows": 7,
+   "greek_tokens": 151
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0091",
+   "drop_page": "nausiphanes_diels_fvs2_0093",
+   "page_sha256": "dd39a1a6093854356733e0614c3f2886663d8855b106e341303a5bd81725d656",
+   "rows": 6,
+   "greek_tokens": 147
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0100",
+   "drop_page": "nausiphanes_diels_fvs2_0102",
+   "page_sha256": "ec000be60a4d7d5eff384bfec865be93fab0573f647283604f9bcb0c1c1a0f02",
+   "rows": 5,
+   "greek_tokens": 495
+  },
+  {
+   "file": "data/corpus/heraclitus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0101",
+   "drop_page": "nausiphanes_diels_fvs2_0103",
+   "page_sha256": "5e9d33894552a56f18ed3e05732b91068e5084b383e2d0f715a84fb3b4edc0c3",
+   "rows": 6,
+   "greek_tokens": 476
+  },
+  {
+   "file": "data/corpus/hippasus.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0049",
+   "drop_page": "nausiphanes_diels_fvs2_0051",
+   "page_sha256": "6d97a3c12857fcbe53c5654787b28a289604dc7ce90546a5bbfc9ff681cd49cb",
+   "rows": 6,
+   "greek_tokens": 377
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0052",
+   "drop_page": "horapollo_leemans_0055",
+   "page_sha256": "dff0cce99e29b56ca199def302b316d73252246ee9a0530a8d7fa7b288463a29",
+   "rows": 29,
+   "greek_tokens": 125
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0117",
+   "drop_page": "horapollo_leemans_0120",
+   "page_sha256": "3541b68a3baf7e063338c398030970c5a9c6004d2a94f896a7d745c88bccb26a",
+   "rows": 27,
+   "greek_tokens": 87
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0129",
+   "drop_page": "horapollo_leemans_0132",
+   "page_sha256": "5b0b8d1a7415a7fb79a1b19addcfa9f5c578f8787f10a7c85595a1b9b443f5c7",
+   "rows": 31,
+   "greek_tokens": 119
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0134",
+   "drop_page": "horapollo_leemans_0137",
+   "page_sha256": "dcb7f42da0e94c9eb5670ebb024e61930a8ba8c7d0e6fb86256e71f4c3385147",
+   "rows": 32,
+   "greek_tokens": 118
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0142",
+   "drop_page": "horapollo_leemans_0145",
+   "page_sha256": "07b23dcb6c9583379465ca78cc819e2477318c02ad4479c1ac64a94bd3b07a8d",
+   "rows": 28,
+   "greek_tokens": 93
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0394",
+   "drop_page": "horapollo_leemans_0397",
+   "page_sha256": "726462eb278d2dc0e1c26b80f49af5a55a48ff61c38df27a96bcc040ce1ddf37",
+   "rows": 22,
+   "greek_tokens": 97
+  },
+  {
+   "file": "data/corpus/horapollo.hieroglyphica-translatio-philippi.jsonl",
+   "item": "horapollo_leemans",
+   "keep_page": "horapollo_leemans_0465",
+   "drop_page": "horapollo_leemans_0468",
+   "page_sha256": "3cdfa85676a1cc004d03f83a23b0493f4ad1727702702340cdd66cbcb512dca6",
+   "rows": 87,
+   "greek_tokens": 123
+  },
+  {
+   "file": "data/corpus/iccus.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0123",
+   "drop_page": "nausiphanes_diels_fvs2_0125",
+   "page_sha256": "2b7abfd8134671d6577db1bf20fd52a38937d602f7f7c64fa4fae3c23bceafcc",
+   "rows": 1,
+   "greek_tokens": 83
+  },
+  {
+   "file": "data/corpus/melissus.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0168",
+   "drop_page": "nausiphanes_diels_fvs2_0170",
+   "page_sha256": "d0d5a42c7149bf000e0daa9614752ec52c0dcb7e0c050a978f4f18524addbc41",
+   "rows": 1,
+   "greek_tokens": 165
+  },
+  {
+   "file": "data/corpus/musaeus-philosophy.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0513",
+   "drop_page": "nausiphanes_diels_fvs2_0515",
+   "page_sha256": "debc8ac31bb8d77d7a85c6754bc9ad3c6b2e3501244f64cd2d5dbc938ba63218",
+   "rows": 36,
+   "greek_tokens": 307
+  },
+  {
+   "file": "data/corpus/parmenides.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0123",
+   "drop_page": "nausiphanes_diels_fvs2_0125",
+   "page_sha256": "f684ace0545861254c327d8eb87be0284d2574327061716664879d2899b8da22",
+   "rows": 1,
+   "greek_tokens": 76
+  },
+  {
+   "file": "data/corpus/parmenides.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0124",
+   "drop_page": "nausiphanes_diels_fvs2_0126",
+   "page_sha256": "74816036868373269a1b1943e1bc0c9b7d8a093dd51099f1e57bf4fcc774038e",
+   "rows": 4,
+   "greek_tokens": 312
+  },
+  {
+   "file": "data/corpus/paron.testimonium.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0123",
+   "drop_page": "nausiphanes_diels_fvs2_0125",
+   "page_sha256": "88fe73b8adbd3bcab9eb2bff3c43609feb45c7c046745c92a503d92903442d38",
+   "rows": 1,
+   "greek_tokens": 61
+  },
+  {
+   "file": "data/corpus/pythagoras.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0039",
+   "drop_page": "nausiphanes_diels_fvs2_0041",
+   "page_sha256": "c28fc5059b3e85a392c96f5d82d7859d03a8fecac80b9c7e00c90b19cd6b084d",
+   "rows": 8,
+   "greek_tokens": 430
+  },
+  {
+   "file": "data/corpus/pythagoras.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0042",
+   "drop_page": "nausiphanes_diels_fvs2_0044",
+   "page_sha256": "b3d9117cb2da43826d0e969ec566b74a2a664950c74e21ae965341c155320e88",
+   "rows": 9,
+   "greek_tokens": 442
+  },
+  {
+   "file": "data/corpus/pythagoras.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0043",
+   "drop_page": "nausiphanes_diels_fvs2_0045",
+   "page_sha256": "9fdb38a30ed668e7a6fd2bb37e9bc34c56c4a26b2972300594a395a60b04dc77",
+   "rows": 2,
+   "greek_tokens": 470
+  },
+  {
+   "file": "data/corpus/pythagoras.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0046",
+   "drop_page": "nausiphanes_diels_fvs2_0048",
+   "page_sha256": "093dc46177071893d1b9d68d71656c0716196847472b6a30e7dbfb3ee7c9ec6c",
+   "rows": 2,
+   "greek_tokens": 444
+  },
+  {
+   "file": "data/corpus/rhinthon.fragmenta.jsonl",
+   "item": "rhinthon_kaibel_cgf_1899",
+   "keep_page": "rhinthon_kaibel_cgf_1899_0019",
+   "drop_page": "rhinthon_kaibel_cgf_1899_0028",
+   "page_sha256": "f4478afca2bce446164c4265b45aa5cd21e4b7e6ec781f33cbf2e578729db6b1",
+   "rows": 64,
+   "greek_tokens": 337
+  },
+  {
+   "file": "data/corpus/rhinthon.fragmenta.jsonl",
+   "item": "rhinthon_kaibel_cgf_1899",
+   "keep_page": "rhinthon_kaibel_cgf_1899_0138",
+   "drop_page": "rhinthon_kaibel_cgf_1899_0147",
+   "page_sha256": "4800758b4afd9fd5026e9ee28d86c71c336789c35bf5ac2464f30e3e863a4381",
+   "rows": 41,
+   "greek_tokens": 189
+  },
+  {
+   "file": "data/corpus/rhinthon.fragmenta.jsonl",
+   "item": "rhinthon_kaibel_cgf_1899",
+   "keep_page": "rhinthon_kaibel_cgf_1899_0220",
+   "drop_page": "rhinthon_kaibel_cgf_1899_0229",
+   "page_sha256": "fbea3a4f9f7250ce978229c277e5d532de44ff77b15608d694fb3dcff55e42c7",
+   "rows": 37,
+   "greek_tokens": 175
+  },
+  {
+   "file": "data/corpus/thales.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0019",
+   "drop_page": "nausiphanes_diels_fvs2_0021",
+   "page_sha256": "daef77c039e939cb318dcefea20bccd196dcfd4df4c653f744ebc76356de0ade",
+   "rows": 6,
+   "greek_tokens": 329
+  },
+  {
+   "file": "data/corpus/thales.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0020",
+   "drop_page": "nausiphanes_diels_fvs2_0022",
+   "page_sha256": "33509e06327dfefca26169399c32359439f609cabfa30d52775edb2614b4b1a5",
+   "rows": 1,
+   "greek_tokens": 311
+  },
+  {
+   "file": "data/corpus/thales.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0026",
+   "drop_page": "nausiphanes_diels_fvs2_0028",
+   "page_sha256": "d311a1eee62690bc69586e025ac471cdda5074d141224be3162a2b4e0c38d14f",
+   "rows": 4,
+   "greek_tokens": 478
+  },
+  {
+   "file": "data/corpus/xenophanes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0057",
+   "drop_page": "nausiphanes_diels_fvs2_0059",
+   "page_sha256": "3eeaa1928cad9e05e3334307d2b36cedd0cdc09d5aaf9bb3de44c9cebe3821f2",
+   "rows": 3,
+   "greek_tokens": 485
+  },
+  {
+   "file": "data/corpus/xenophanes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0058",
+   "drop_page": "nausiphanes_diels_fvs2_0060",
+   "page_sha256": "c02698cf4f891acf6482238e9613e9146e15e28c9f4e7ac53c529603b1071b7b",
+   "rows": 1,
+   "greek_tokens": 492
+  },
+  {
+   "file": "data/corpus/xenophanes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0061",
+   "drop_page": "nausiphanes_diels_fvs2_0063",
+   "page_sha256": "1b780e5b55a5be16ef7ddb8b7b6a41f388dee0019cb9327b8d5cb22f66103d49",
+   "rows": 6,
+   "greek_tokens": 502
+  },
+  {
+   "file": "data/corpus/xenophanes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0066",
+   "drop_page": "nausiphanes_diels_fvs2_0068",
+   "page_sha256": "71eab588f5fe3cb3706153eca2a88572add5f6e1f369a2aa389002ccba491d05",
+   "rows": 21,
+   "greek_tokens": 130
+  },
+  {
+   "file": "data/corpus/xenophanes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0067",
+   "drop_page": "nausiphanes_diels_fvs2_0069",
+   "page_sha256": "ca959f04cc0134ca1869b5547dfabc221de72084e7d6d9013c24d465aea4dbfe",
+   "rows": 21,
+   "greek_tokens": 151
+  },
+  {
+   "file": "data/corpus/xenophanes.testimonia.jsonl",
+   "item": "nausiphanes_diels_fvs2",
+   "keep_page": "nausiphanes_diels_fvs2_0070",
+   "drop_page": "nausiphanes_diels_fvs2_0072",
+   "page_sha256": "5651e1b8165170f50c8c739abfcf328f14b382d374b3bea02392f96239c770f5",
+   "rows": 16,
+   "greek_tokens": 119
+  }
+ ],
+ "pages_touching_more_than_one_file": {
+  "nausiphanes_diels_fvs2/nausiphanes_diels_fvs2_0120": [
+   "data/corpus/alcmaeon.testimonia.jsonl",
+   "data/corpus/epicharmus-et-pseudepicharmea.testimonia.jsonl"
+  ],
+  "nausiphanes_diels_fvs2/nausiphanes_diels_fvs2_0125": [
+   "data/corpus/ameinias.testimonia-et-fragmenta.jsonl",
+   "data/corpus/iccus.testimonia.jsonl",
+   "data/corpus/parmenides.testimonia.jsonl",
+   "data/corpus/paron.testimonium.jsonl"
+  ]
+ }
+}
