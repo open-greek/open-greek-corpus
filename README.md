@@ -2205,9 +2205,13 @@ below; regenerate it with `python scripts/build_provenance.py`.
   the lexicon, the frequency table and the released total. Only byte-identical
   pages move: two pages that differ are two readings of one page, and this repo
   prefers a merged reading to picking a winner, so those are a disposition
-  question and stay. The 229 files whose `ocr` loci are citation loci rather
+  question and stay, listed in `data/duplicate_page_candidates.json` with their
+  containment banded, because a single total would mislead: 131 served pairs
+  and 38,159 tokens sit above 0.90, another 293 pairs and 80,007 tokens between
+  0.80 and 0.90, and the bands below that are increasingly just neighbouring
+  pages of one book. The 229 files whose `ocr` loci are citation loci rather
   than page loci are skipped whole, since reading "3" as a page would compare
-  books.
+  books, which the first run of the sweep did before that guard existed.
 - A printed leaf the upstream OCR delivered twice is dropped by
   scripts/drop_duplicate_leaf.py, with the scan page cited and every run of 3+
   words the dropped copy has and the kept copy lacks enumerated in

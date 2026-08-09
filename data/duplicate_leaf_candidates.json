@@ -19,6 +19,33 @@
  "clean_second_copies_served_tokens": 2518,
  "overlapping_not_copies": 29,
  "overlapping_not_copies_tokens": 10999,
+ "served_droppable_by_containment": [
+  {
+   "band": "0.99+",
+   "pairs": 0,
+   "tokens": 0
+  },
+  {
+   "band": "0.90-0.99",
+   "pairs": 1,
+   "tokens": 424
+  },
+  {
+   "band": "0.80-0.90",
+   "pairs": 5,
+   "tokens": 1708
+  },
+  {
+   "band": "0.60-0.80",
+   "pairs": 1,
+   "tokens": 386
+  },
+  {
+   "band": "0.40-0.60",
+   "pairs": 0,
+   "tokens": 0
+  }
+ ],
  "by_file": {
   "data/corpus/cogPG.PG112.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,

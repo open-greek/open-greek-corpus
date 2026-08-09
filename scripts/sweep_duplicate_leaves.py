@@ -69,11 +69,48 @@ def bigrams(text: str) -> set:
     return set(zip(w, w[1:]))
 
 
+# In the line-level `ocr` source a printed page is a RUN of rows keyed
+# <item>_<page>.<line>, not a single row, so the unit has to be the page or the
+# whole class is invisible. This is the gap that hid 64 byte-identical duplicate
+# pages until 2026-08-09. A file whose loci are citation loci (a bare "1",
+# "3.2") is not page-keyed and is skipped ENTIRE rather than partially: reading
+# "3" as a page would compare whole books.
+PAGE_LOCUS = re.compile(r"^(.*_\d{2,})\.\d+$")
+
+
+def page_units(rows: list[dict]) -> list[tuple[str, str]] | None:
+    """[(page key, joined text)] for a page-keyed ocr file, else None."""
+    if not rows or any(r.get("source") != "ocr" for r in rows):
+        return None
+    out: dict[str, list[str]] = {}
+    for r in rows:
+        m = PAGE_LOCUS.match(str(r["locus"]))
+        if not m:
+            return None
+        out.setdefault(m.group(1), []).append(r.get("text") or "")
+    return [(k, " ".join(v)) for k, v in out.items()]
+
+
 def scan_file(fp: Path) -> list[dict]:
     rows = [json.loads(l) for l in fp.read_text(encoding="utf-8").splitlines()
             if l.strip()]
     sets, loci, texts = [], [], []
     served = fp.parent.name == "corpus"
+    units = page_units(rows) if "ocr" in SOURCES else None
+    if "ocr" in SOURCES and units is None:
+        # Not page-keyed. Falling through to the row loop here would compare
+        # citation units, which in these files are whole books, and the first
+        # run of this code did exactly that: antimachus 176~177 and a Menander
+        # pair that was two lines of one page. Skip the file entire.
+        return []
+    if units is not None:
+        for key, text in units:
+            b = bigrams(text)
+            if len(b) >= MIN_BIGRAMS:
+                sets.append(b)
+                loci.append(key)
+                texts.append(text)
+        rows = []
     for r in rows:
         if r.get("source") not in SOURCES:
             continue
@@ -142,9 +179,15 @@ def main() -> None:
     ap.add_argument("--write", action="store_true")
     ap.add_argument("--gate", type=float, default=GATE)
     ap.add_argument("--min-bigrams", type=int, default=MIN_BIGRAMS)
+    ap.add_argument("--source", default="cgpg",
+                    help="cgpg compares rows (a Migne page is a row); ocr "
+                         "compares pages (a page is a run of rows)")
+    ap.add_argument("--out", default=None)
     args = ap.parse_args()
     globals()["GATE"] = args.gate
     globals()["MIN_BIGRAMS"] = args.min_bigrams
+    globals()["SOURCES"] = {args.source}
+    out_fp = (REPO / args.out) if args.out else OUT
 
     files = sorted(list((DATA / "corpus").glob("*.jsonl"))
                    + list((DATA / "corpus_secondary").glob("*.jsonl")))
@@ -155,7 +198,12 @@ def main() -> None:
             hits.extend(scan_file(fp))
         except Exception as e:                      # a malformed row must not
             print(f"  ! {fp.name}: {e}", file=sys.stderr)   # hide the rest
-    hits.sort(key=lambda h: -h["containment"])
+    # Total order, not just by score. The candidate search walks a dict keyed
+    # by bigram, and set iteration order varies with PYTHONHASHSEED between
+    # processes, so ties left to insertion order made this file differ between
+    # runs. Same failure as data/grave_residue.json had.
+    hits.sort(key=lambda h: (-h["containment"], h["file"],
+                             h["locus_a"], h["locus_b"]))
 
     # A pair with no unique run is a clean second copy: dropping it costs
     # nothing. A pair with unique runs overlaps without being a copy, and
@@ -185,7 +233,7 @@ def main() -> None:
     if not args.write:
         print("\nreport only; re-run with --write.")
         return
-    OUT.write_text(json.dumps({
+    out_fp.write_text(json.dumps({
         "what": "row pairs inside one corpus file whose word-bigram containment "
                 "is high enough that they may be the same printed page delivered "
                 "twice by the OCR",
@@ -209,10 +257,23 @@ def main() -> None:
         "clean_second_copies_served_tokens": sum(h["tokens_b"] for h in served_clean),
         "overlapping_not_copies": len(overlapping),
         "overlapping_not_copies_tokens": sum(h["tokens_b"] for h in overlapping),
+        # By band, because a single total would mislead: containment falls off
+        # continuously and the low bands are ordinary neighbouring pages of one
+        # book, not duplicates. Only the top band is anywhere near decidable.
+        "served_droppable_by_containment": [
+            {"band": lbl, "pairs": len(sel),
+             "tokens": sum(h["tokens_b"] for h in sel)}
+            for lbl, sel in ((lbl, [h for h in served_clean
+                                    if lo <= h["containment"] < hi])
+                             for lbl, lo, hi in (("0.99+", 0.99, 1.01),
+                                                 ("0.90-0.99", 0.90, 0.99),
+                                                 ("0.80-0.90", 0.80, 0.90),
+                                                 ("0.60-0.80", 0.60, 0.80),
+                                                 ("0.40-0.60", 0.40, 0.60)))],
         "by_file": dict(by_file.most_common()),
         "pairs": hits,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
-    print(f"\nwrote {OUT.relative_to(REPO)}")
+    print(f"\nwrote {out_fp.relative_to(REPO)}")
 
 
 if __name__ == "__main__":
