@@ -40,7 +40,6 @@ REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 CORPUS = DATA / "corpus"
 PLAN = DATA / "duplicate_pages.json"
-AUDIT = DATA / "corpus_changes" / "ocr.duplicate-page.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
@@ -79,7 +78,11 @@ def pages_of(fp: Path):
 
 def find() -> list[dict]:
     hits = []
-    for fp in sorted(CORPUS.glob("*.jsonl")):
+    # Witness files as well as served ones. A witness is published data even
+    # though it is outside the served totals, and deduplicating half the corpus
+    # while leaving the other half is not a defensible place to stop.
+    for fp in sorted(list(CORPUS.glob("*.jsonl"))
+                     + list((DATA / "corpus_secondary").glob("*.jsonl"))):
         pages = pages_of(fp)
         if not pages or len(pages) < 2:
             continue
@@ -90,16 +93,22 @@ def find() -> list[dict]:
             if n < MIN_TOKENS:
                 continue
             h = sha(text)
-            if h in first:
+            # Same scan item only. Two different items sharing a page number
+            # and text is a different claim: in SVF one printed page carries
+            # several authors and was ingested once per author, so the text
+            # legitimately appears under two item keys rather than having been
+            # delivered twice. Collapsing that would be a disposition call.
+            if h in first and first[h].rsplit("_", 1)[0] == key.rsplit("_", 1)[0]:
                 hits.append({
                     "file": fp.relative_to(REPO).as_posix(),
+                    "served": fp.parent.name == "corpus",
                     "item": key.rsplit("_", 1)[0],
                     "keep_page": first[h], "drop_page": key,
                     "page_sha256": h,
                     "rows": len(rows),
                     "greek_tokens": n,
                 })
-            else:
+            elif h not in first:
                 first[h] = key
     return hits
 
@@ -110,7 +119,15 @@ def main() -> None:
     ap.add_argument("--plan", action="store_true", help="write the plan file")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--unapply", action="store_true")
+    ap.add_argument("--id", default="ocr",
+                    help="names this pass's plan and audit, so a later pass "
+                         "over files an earlier one did not cover gets its own "
+                         "reversible record instead of overwriting it")
     args = ap.parse_args()
+    global PLAN
+    PLAN = DATA / (f"duplicate_pages.json" if args.id == "ocr"
+                   else f"duplicate_pages.{args.id}.json")
+    AUDIT = DATA / "corpus_changes" / f"{args.id}.duplicate-page.json"
 
     if args.unapply:
         if not AUDIT.exists():
@@ -130,9 +147,10 @@ def main() -> None:
     hits = find()
     by_file = collections.Counter(h["file"] for h in hits)
     tot = sum(h["greek_tokens"] for h in hits)
-    print(f"byte-identical duplicate pages in served ocr files: {len(hits)}, "
-          f"{sum(h['rows'] for h in hits):,} rows, {tot:,} greek tokens, "
-          f"{len(by_file)} files")
+    srv = sum(h["greek_tokens"] for h in hits if h["served"])
+    print(f"byte-identical duplicate pages in ocr files: {len(hits)}, "
+          f"{sum(h['rows'] for h in hits):,} rows, {tot:,} greek tokens "
+          f"({srv:,} of them served), {len(by_file)} files")
     for h in hits[:12]:
         print(f"    {h['file'].split('/')[-1][:44]:<44} {h['drop_page']} "
               f"= {h['keep_page']}  {h['greek_tokens']:>5} tok")
@@ -201,10 +219,13 @@ def main() -> None:
     led = json.loads(lp.read_text(encoding="utf-8"))
     entries = led if isinstance(led, list) else led.get("works", led)
     seq = entries if isinstance(entries, list) else list(entries.values())
-    touched = {f.split("/")[-1][:-len(".jsonl")] for f in files}
+    touched = {f.split("/")[-1][:-len(".jsonl")] for f in files
+               if f.startswith("data/corpus/")}
     for e in seq:
         if e.get("urn") in touched:
             fp = CORPUS / f"{e['urn']}.jsonl"
+            if not fp.exists():
+                continue
             rows = [json.loads(l) for l in fp.read_text(encoding="utf-8").splitlines()
                     if l.strip()]
             e["n_passages"] = len(rows)
@@ -226,6 +247,8 @@ def main() -> None:
         },
         "pages_dropped": len(hits),
         "greek_tokens_dropped": tot,
+        "greek_tokens_dropped_served": sum(h["greek_tokens"] for h in hits
+                                           if h["served"]),
         "drops": hits,
         "files": files,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
