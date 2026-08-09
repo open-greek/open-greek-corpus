@@ -28,6 +28,65 @@
      ]
     }
    ]
+  },
+  {
+   "volume": "PG126",
+   "date": "2026-08-08",
+   "issue": "open-greek/open-greek-corpus#33",
+   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "basis": "Six consecutive pages of the Vita S. Clementis arrive twice, as loci 605-610 and again as 613-618. The EARLIER copy is the stray and the later one is the page in sequence, which is the opposite of what the candidate list's column order suggests, so it is spelled out here.\n\nRead from the scan (Internet Archive item patrologia.graeca.org, _126.zip): page 605, cols 1197-1198 under the running head VITA S. CLEMENTIS BULGARIAE ARCHIEP., opens πάσχων πρὸς τοὺς θείους ἄνδρας, ὃ Μωϋσῆς πρὸς Θεόν, which is our locus 612, so a locus is its page plus seven. That page ends καὶ φωτὶ, and both locus 605 and locus 613 open φῶς προσλαβὼν εἰς οὐρανοὺς μετέστη, so both hold page 606; only 613 sits where page 606 belongs, directly after 612.\n\nThe text agrees. Locus 618 ends τὸν Υἱὸν παρεισ and 619 opens Πατρὸς ἐκπορεύεται, continuing one Filioque argument, while 610 ends the same way and 611 opens on an unrelated new section. Loci 604 and 611 are not duplicates of 612 and 619 (containment 0.021 and 0.026), so the duplicated run is exactly these six pages and no more.",
+   "drops": [
+    {
+     "keep": "PG126.613",
+     "drop": "PG126.605",
+     "keep_sha256": "8805d2699f7627c84acaac9392b5cc6e1572e5153c73358bd1fce0ea32288b8b",
+     "drop_sha256": "70242bc19d621ed00b1c3064cfa8223e9f59517e1049d8c97133690d4b148457",
+     "page_evidence": "both hold Migne PG126 scan page 606; locus 613 is the copy in reading sequence",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "PG126.614",
+     "drop": "PG126.606",
+     "keep_sha256": "07ee87d6b106b7b9fce58bcfc3f390d39ef1b3dbf7fa0155525d862177fe6212",
+     "drop_sha256": "9fa7345a5f369eee6a43e1844e4b5617300a1496bd0f33ea23086bb2b79f2db0",
+     "page_evidence": "both hold Migne PG126 scan page 607; locus 614 is the copy in reading sequence",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "PG126.615",
+     "drop": "PG126.607",
+     "keep_sha256": "138f35b356459423bd0aaf9752c338b604c43dfd11e298fa159e61b9ceabe4b7",
+     "drop_sha256": "956f71acbe4031c95c2cddbd379b86afe11eed3d111c188ac9104ee2805672b9",
+     "page_evidence": "both hold Migne PG126 scan page 608; locus 615 is the copy in reading sequence",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "PG126.616",
+     "drop": "PG126.608",
+     "keep_sha256": "d94247ed902fce8f4a155bbf93a46b983595d1645a267fe26cdac19ae44e7aba",
+     "drop_sha256": "47d6b8057ea7c35f9de2735eb819235a291d96b9588d8a3c224418d1f223bef3",
+     "page_evidence": "both hold Migne PG126 scan page 609; locus 616 is the copy in reading sequence",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "PG126.617",
+     "drop": "PG126.609",
+     "keep_sha256": "330c810698af1e5207ac8480bc03b221d6513650de023975a04a234e7aab1ffc",
+     "drop_sha256": "a3e0825614949df705861ee585452e4a08d21dffab18f01652cc49936d439908",
+     "page_evidence": "both hold Migne PG126 scan page 610; locus 617 is the copy in reading sequence",
+     "expected_unique_runs": [
+      "μεθοαιοι λα γοις"
+     ]
+    },
+    {
+     "keep": "PG126.618",
+     "drop": "PG126.610",
+     "keep_sha256": "9bda8523494c46c6ecac4d296f5bbea416c6ce55a852e9e1c2868685a7a6bc92",
+     "drop_sha256": "7af53aab1fb88d73b076c972099dedc0079e438ba8c3c1c0df9e81632f7cfe4a",
+     "page_evidence": "both hold Migne PG126 scan page 611; locus 618 is the copy in reading sequence",
+     "expected_unique_runs": []
+    }
+   ]
   }
  ]
 }

@@ -12,17 +12,16 @@
   ]
  },
  "files_scanned": 4337,
- "candidates": 55,
- "clean_second_copies": 18,
- "clean_second_copies_tokens": 6829,
- "clean_second_copies_served": 15,
- "clean_second_copies_served_tokens": 5943,
- "overlapping_not_copies": 37,
- "overlapping_not_copies_tokens": 14347,
+ "candidates": 49,
+ "clean_second_copies": 19,
+ "clean_second_copies_tokens": 7007,
+ "clean_second_copies_served": 12,
+ "clean_second_copies_served_tokens": 4361,
+ "overlapping_not_copies": 30,
+ "overlapping_not_copies_tokens": 11469,
  "by_file": {
   "data/corpus/cogPG.PG112.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
-  "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl": 6,
   "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": 6,
   "data/corpus/photius.amphilochia.jsonl": 4,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": 3,
@@ -41,19 +40,6 @@
  },
  "pairs": [
   {
-   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
-   "served": true,
-   "locus_a": "PG126.606",
-   "locus_b": "PG126.614",
-   "containment": 0.961,
-   "bigrams_a": 438,
-   "bigrams_b": 436,
-   "tokens_b": 464,
-   "words_absent_from_a": 8,
-   "words_b": 464,
-   "unique_runs": []
-  },
-  {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
    "served": false,
    "locus_a": "PG113.45",
@@ -64,20 +50,8 @@
    "tokens_b": 295,
    "words_absent_from_a": 5,
    "words_b": 295,
-   "unique_runs": []
-  },
-  {
-   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
-   "served": true,
-   "locus_a": "PG126.607",
-   "locus_b": "PG126.615",
-   "containment": 0.9497,
-   "bigrams_a": 443,
-   "bigrams_b": 437,
-   "tokens_b": 452,
-   "words_absent_from_a": 10,
-   "words_b": 451,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
@@ -90,7 +64,8 @@
    "tokens_b": 430,
    "words_absent_from_a": 9,
    "words_b": 430,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
@@ -103,20 +78,8 @@
    "tokens_b": 372,
    "words_absent_from_a": 11,
    "words_b": 372,
-   "unique_runs": []
-  },
-  {
-   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
-   "served": true,
-   "locus_a": "PG126.608",
-   "locus_b": "PG126.616",
-   "containment": 0.9409,
-   "bigrams_a": 423,
-   "bigrams_b": 425,
-   "tokens_b": 434,
-   "words_absent_from_a": 11,
-   "words_b": 434,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
@@ -129,20 +92,8 @@
    "tokens_b": 392,
    "words_absent_from_a": 14,
    "words_b": 392,
-   "unique_runs": []
-  },
-  {
-   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
-   "served": true,
-   "locus_a": "PG126.605",
-   "locus_b": "PG126.613",
-   "containment": 0.9327,
-   "bigrams_a": 446,
-   "bigrams_b": 446,
-   "tokens_b": 466,
-   "words_absent_from_a": 12,
-   "words_b": 466,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
@@ -155,8 +106,11 @@
    "tokens_b": 470,
    "words_absent_from_a": 21,
    "words_b": 470,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "λαξς ε ιγνε πιμα"
+   ],
+   "unique_runs_if_a_dropped": [
+    "κα απεργασομνη λιαν"
    ]
   },
   {
@@ -170,7 +124,8 @@
    "tokens_b": 424,
    "words_absent_from_a": 15,
    "words_b": 424,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
@@ -183,9 +138,13 @@
    "tokens_b": 360,
    "words_absent_from_a": 17,
    "words_b": 360,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "πραγματεια εαιαιυα νοινο οοιανο",
     "οα ιιιο αοιουαροσιοιοτω"
+   ],
+   "unique_runs_if_a_dropped": [
+    "πραγχατεια εδαδ ανοινο οοιανοο",
+    "ωρ ιαιο αοιαροειοιοτ"
    ]
   },
   {
@@ -199,9 +158,12 @@
    "tokens_b": 350,
    "words_absent_from_a": 26,
    "words_b": 350,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "παιατωμπ α ολο ροιαα σωιαο μ τιεθ αιιαμ",
     "τ πι ιηιοω ινα ινα σεφη"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ια ιοο ν ιο σεσατο"
    ]
   },
   {
@@ -215,33 +177,8 @@
    "tokens_b": 361,
    "words_absent_from_a": 13,
    "words_b": 361,
-   "unique_runs": []
-  },
-  {
-   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
-   "served": true,
-   "locus_a": "PG126.609",
-   "locus_b": "PG126.617",
-   "containment": 0.8976,
-   "bigrams_a": 412,
-   "bigrams_b": 410,
-   "tokens_b": 421,
-   "words_absent_from_a": 17,
-   "words_b": 421,
-   "unique_runs": []
-  },
-  {
-   "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
-   "served": true,
-   "locus_a": "PG126.610",
-   "locus_b": "PG126.618",
-   "containment": 0.8932,
-   "bigrams_a": 412,
-   "bigrams_b": 416,
-   "tokens_b": 463,
-   "words_absent_from_a": 25,
-   "words_b": 463,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
@@ -254,7 +191,8 @@
    "tokens_b": 370,
    "words_absent_from_a": 21,
    "words_b": 370,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -267,9 +205,12 @@
    "tokens_b": 400,
    "words_absent_from_a": 27,
    "words_b": 400,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "καπιτωλιον εξεβοησεν αγαθη τυχη",
     "δημου μαρκον ουλπιον νερουαν"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ελααβανον διδαναι αυτοιο"
    ]
   },
   {
@@ -283,8 +224,11 @@
    "tokens_b": 346,
    "words_absent_from_a": 23,
    "words_b": 346,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "οιεφυγον βοραιοι οε στασιασαντες"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ανειλον πων αντιονεων"
    ]
   },
   {
@@ -298,8 +242,12 @@
    "tokens_b": 397,
    "words_absent_from_a": 25,
    "words_b": 397,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "ραπμε ρερεεβυε αοιωη ιηωνιογα ρουτιραωρ ιροοιαιη ειι οι οοποε ριεριοοο οα ωρειιρβαι"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ξεημε ροιρεεε βοια ιο ιιοια ριουτε υ ιρροιαυιιπ",
+    "ι οοποιε ριοριοεο πο ειευαι"
    ]
   },
   {
@@ -313,9 +261,12 @@
    "tokens_b": 398,
    "words_absent_from_a": 38,
    "words_b": 398,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "αιισις εεμο ρττιηι εγω αιτω ινα",
     "ηδειε δηλαδη γλσκεια"
+   ],
+   "unique_runs_if_a_dropped": [
+    "τιωπ ροιφωι ει οε ιμα"
    ]
   },
   {
@@ -329,7 +280,8 @@
    "tokens_b": 337,
    "words_absent_from_a": 19,
    "words_b": 337,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
@@ -342,8 +294,11 @@
    "tokens_b": 374,
    "words_absent_from_a": 17,
    "words_b": 374,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "αδελφου σου ντι"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ποε εκωε ιρει ιοσιοε βοιιη"
    ]
   },
   {
@@ -357,7 +312,8 @@
    "tokens_b": 189,
    "words_absent_from_a": 12,
    "words_b": 189,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -370,11 +326,12 @@
    "tokens_b": 420,
    "words_absent_from_a": 36,
    "words_b": 420,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "μαθοντες κακεινοι καταλυσαι",
     "πολεμους σπουδην εθεντο",
     "ες ονο δασεν"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -387,12 +344,13 @@
    "tokens_b": 312,
    "words_absent_from_a": 40,
    "words_b": 312,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "μακολν λεγομενον τειχος απο",
     "μεγαλης θαλασσης διηκον αχρι",
     "ωηλυβριας δια τας εφοδους",
     "εκεινον κλωνται θασιλεα"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -405,12 +363,13 @@
    "tokens_b": 429,
    "words_absent_from_a": 49,
    "words_b": 429,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "κοσμικην αυτην ειναι ουδ επιγειον απεκριναντο",
     "διωγμον προσταγματι επαυσεν",
     "κακιστος γεγονως βιαιως απερριψε",
     "κυδοα ναι ευνενεστατον"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -423,9 +382,13 @@
    "tokens_b": 391,
    "words_absent_from_a": 34,
    "words_b": 391,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "ιστρον περαιωθεντες εν γη",
     "ον βοων μανιμων"
+   ],
+   "unique_runs_if_a_dropped": [
+    "οι κγαρ καρδαιται",
+    "προε ρο μαιους"
    ]
   },
   {
@@ -439,9 +402,10 @@
    "tokens_b": 453,
    "words_absent_from_a": 40,
    "words_b": 454,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "εναντιων εξαγειν ηδη"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/cogPG.PG113.jsonl",
@@ -454,7 +418,7 @@
    "tokens_b": 365,
    "words_absent_from_a": 113,
    "words_b": 365,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "εις λεπτομερειαν ανεπιφθονως",
     "προθειναι πασι κοινη",
     "τουτων αναφυομενην ωφελειαν",
@@ -472,6 +436,9 @@
     "σασιλεων αναγορευσεως εμφαινει",
     "τινας οι λογοι πατερας κεκτηνται",
     "ωσιν αι κεφαλαιωδεις υποθεσεις ακατονομαστοι"
+   ],
+   "unique_runs_if_a_dropped": [
+    "παλαι ποτε βασιληων"
    ]
   },
   {
@@ -485,9 +452,10 @@
    "tokens_b": 390,
    "words_absent_from_a": 36,
    "words_b": 390,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "ροβδουχος προση νεγκε"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/michael-psellus.poemata.jsonl",
@@ -500,7 +468,8 @@
    "tokens_b": 368,
    "words_absent_from_a": 31,
    "words_b": 368,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -513,7 +482,8 @@
    "tokens_b": 413,
    "words_absent_from_a": 37,
    "words_b": 413,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
@@ -526,7 +496,10 @@
    "tokens_b": 178,
    "words_absent_from_a": 20,
    "words_b": 178,
-   "unique_runs": []
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": [
+    "β εριριοηια τρια"
+   ]
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -539,8 +512,14 @@
    "tokens_b": 395,
    "words_absent_from_a": 37,
    "words_b": 395,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "εκινδηνευς αιαομκων ευ"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ροσυλλαβων απεκτεινε βρουτος",
+    "πλειους αμαχεω προσηγαγετο ξανθον",
+    "λοιπους ηλευθερωσεν ιδοντες",
+    "εστρατοπεδευσαντο υπερτερουντε γε"
    ]
   },
   {
@@ -554,12 +533,15 @@
    "tokens_b": 309,
    "words_absent_from_a": 94,
    "words_b": 309,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "δαρασιανης εκτοιιας επι",
     "κοιτωνος γεγονως ιουστινιανου επεγραφησαν",
     "ηρωελεγεια λ ερφο ποιιιε ηοας νησοι ειεεγακαα αονμκα μαμτιοιε σοημμπ",
     "τιθεντι εασμε νοαιπα εαις εομηααμμε πααρτ ος ιη ηεμιονηα οοβοαα οερινα αομηι ειξαι ιασεο οραιισεε μονε",
     "πιευιπ οοκικα νοσειεεφε αορι φημιερνφ νιουεε ρο εκκι οιιαιε ααι ριν ακε οιεεειε ριμα νοσαεια ιη σιο ρ ρηιργς ομν ιηπονα σαυοα πεοαβιμν μακιαπι ριονεε πεερια θα αοιι ρ ιανη πονα πειε σαγρει απνομιθη μιυτα ενμεα τηηειοιο ειιηρε δμιοε αρει ιδ"
+   ],
+   "unique_runs_if_a_dropped": [
+    "οαρασμανης εκτομιας δλζ εοοο νυκ ιασο"
    ]
   },
   {
@@ -573,9 +555,10 @@
    "tokens_b": 488,
    "words_absent_from_a": 56,
    "words_b": 488,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "αωθσης ουκ οιθαμεν"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
@@ -588,7 +571,7 @@
    "tokens_b": 415,
    "words_absent_from_a": 147,
    "words_b": 415,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "διηθλει εως ειμαρμενοι χρονοι",
     "δουλειας αυτον απελυσαν",
     "σσα ακοσμιας καθαρσια εμαυτον εγραψα σοι εν οιοις ειμι πλην οσον ου βασιλιδι δουλευω πλουσια καθαριω",
@@ -608,6 +591,9 @@
     "καθαρων ακτινων αις",
     "φωτιζεις ους αετιδεις απογεννας φιλοσοφωτατε ανθρωπων",
     "μεθ υμων διαγειν τωσν μακαριων ενθα μαλ αιθρη πεπταται"
+   ],
+   "unique_runs_if_a_dropped": [
+    "οαμοος ουθ αι"
    ]
   },
   {
@@ -621,9 +607,14 @@
    "tokens_b": 398,
    "words_absent_from_a": 50,
    "words_b": 398,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "θερμας ουδε φανουσα κωριζομαι",
     "χορος ισοπερ αημεινων"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ιορας οδε θανουσα χωριζομαι",
+    "χοιρος ιοτκερ ημεινων",
+    "κραιωτην φα ειπκιανο μενεο εονιωκα μνοια φμο εη οιεηισιι εον αοι ασαοαι"
    ]
   },
   {
@@ -637,7 +628,7 @@
    "tokens_b": 386,
    "words_absent_from_a": 95,
    "words_b": 386,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "θεοδωρου κακεισε περιβαλλονται",
     "χρυσοτρικλινω μικρον τι",
     "ευθεως γινεται μεταστασιμον",
@@ -646,7 +637,8 @@
     "τα αγια θυρια ειτα",
     "αγιας τραπεζης ενδυτην",
     "καθ ενα εκαστον βημα"
-   ]
+   ],
+   "unique_runs_if_a_dropped": []
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
@@ -659,7 +651,7 @@
    "tokens_b": 468,
    "words_absent_from_a": 128,
    "words_b": 468,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "συνηθους πασης ταξεως τελουμενης",
     "ειωθοτα τυπον οψικευομενης",
     "αυγουστη υπο πασης",
@@ -676,6 +668,10 @@
     "πολλοι υμιν χρονοι",
     "πολλοι υμιν χρονοι δεσποται",
     "πολλοι υμιν χρονοι"
+   ],
+   "unique_runs_if_a_dropped": [
+    "αριστερα ενθεν κακειθεν",
+    "προς ανατολην δεξιω μερει"
    ]
   },
   {
@@ -689,11 +685,18 @@
    "tokens_b": 370,
    "words_absent_from_a": 74,
    "words_b": 370,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "κεσων θυτος αολλακιε αθεικο",
     "καταβροχθισις ευθεως απεδωκε",
     "ενεδωκεν αλλα γαλλων ενα",
     "βαρβαροις επιβουλευων δεκιω πλησιον τελματος βαθεος οντος εκει παραταξασθαι"
+   ],
+   "unique_runs_if_a_dropped": [
+    "αεσων ουτος πολλακις εδειτο",
+    "λαι αλω ρον",
+    "ευ χαριστιας δεοωκε",
+    "φαταβρογθισαι ευβεων απεθωκε",
+    "ρωμαιων ανυσας αρχη αισχιστα δ εφθαρη"
    ]
   },
   {
@@ -707,7 +710,7 @@
    "tokens_b": 377,
    "words_absent_from_a": 115,
    "words_b": 377,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "τοσουτων μει γεμουσι",
     "ποσεως ειιστ γ",
     "μεγαλης εκκλησιας κιρω νικητα",
@@ -728,6 +731,19 @@
     "δικαιον ουτως υπερ δουλου μακρα πεπονηκοτος",
     "ρηματων ακουσεται επιστ",
     "εριθτ ι εριθτ γ"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ηλιος μαρτυρα ποιεισθαι",
+    "εστιν αυτω δυσωπειν",
+    "τοιουτον τοιουτοις παιζεσθαι",
+    "ηλιου τουτου καθαρων ακτινων αις αυτος",
+    "φωτιζεις ους αετιδεις απογεννας φιλοσοφωτατε ανθρωπων",
+    "υβριζομενος αετος ματην ποθει",
+    "μεθ υμων διαγειν",
+    "μακαριων ενθα μαλ αιθρη πεπταται",
+    "τελματος ουκ εγωγε",
+    "κυριε επεβλεψας δε",
+    "υιον ανθρωπου ον εκραταιωσας εαυτω"
    ]
   },
   {
@@ -741,7 +757,7 @@
    "tokens_b": 393,
    "words_absent_from_a": 119,
    "words_b": 390,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "εν ιααιε εν κιονθωε",
     "τοις ασελιοις ν",
     "λοικων προσωπων τω καστρενσιων",
@@ -751,6 +767,9 @@
     "αγιοι σοε φανου",
     "το παν εξοδ λιτρ",
     "αναπρ κε εστιν δε"
+   ],
+   "unique_runs_if_a_dropped": [
+    "λλισιλαι ζα ρρ βοτιαις κροιιαγιι ωαιγαοιονι"
    ]
   },
   {
@@ -764,7 +783,7 @@
    "tokens_b": 454,
    "words_absent_from_a": 159,
    "words_b": 446,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "το παν κ",
     "ουτοι λαμβανουσι καθως",
     "πρωτου κομβιου ομοιως",
@@ -783,6 +802,9 @@
     "τω νουμεραριω ν",
     "τοις δεκανοις τουιπποδρομιου ν",
     "κββ ρο εινοο"
+   ],
+   "unique_runs_if_a_dropped": [
+    "λλισιλαι ζα ρρ βοτιαις κροιιαγιι ωαιγαοιονι"
    ]
   },
   {
@@ -796,12 +818,16 @@
    "tokens_b": 443,
    "words_absent_from_a": 93,
    "words_b": 443,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "η συγκλητος πασα πιπτουσι",
     "προειρηται προσκυνησαντων παντων",
     "λεγει κελευσατε ζ",
     "φωχοβολος κουβικουλαριος εφαπλοι",
     "οργανου ανακραζει μεγαλως"
+   ],
+   "unique_runs_if_a_dropped": [
+    "κακεισε ειθ ουτως",
+    "καγκελλου μη επερειδομενοι επ αυτοις αλλ"
    ]
   },
   {
@@ -815,7 +841,7 @@
    "tokens_b": 333,
    "words_absent_from_a": 157,
    "words_b": 333,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "κεφαλ αη περι",
     "γιωτατου πατριαρχοω ενι φεβρουαριω β",
     "κυριου ημων ιησου χριστου ετους υμβ εχειροτονηθη θεοφυλακτος",
@@ -839,6 +865,17 @@
     "εκκλησιαστικον καταλογου τυγχανοντα",
     "βασιλεως ασφαλειας ην εποιησε",
     "οαριτ χλχν ι ξειιι εθοαριτ σχιχ"
+   ],
+   "unique_runs_if_a_dropped": [
+    "εκκλησιαστικων δηριγευομενος απερχεται",
+    "κυριακης γινεται προκενσον",
+    "μεγαλη εκκλησια καθως",
+    "οπισθοποδουσιν εως αν τελεσθη",
+    "αποχαιρετισαντες εξελθοντες ει μεν εστιν μεγαλη κυριακη",
+    "πεντηκοστη ειτε αλλη",
+    "μεγαλη εκκλησια εισερχονται",
+    "ταις λοιπαις προελευσεσιν ει",
+    "παγανη κυριακη ανερχονται"
    ]
   },
   {
@@ -852,7 +889,7 @@
    "tokens_b": 273,
    "words_absent_from_a": 94,
    "words_b": 273,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "χρυσοτρικλινου ιστεον οτι εξιοντων",
     "δηριγευουσι τους δεσποτας ιστεον οτι ενεον",
     "δεσποτων διερχομενων πιπτουσιν",
@@ -862,6 +899,12 @@
     "δοξα σοι χριστε",
     "θεος αποστολων καυχημα",
     "διερχομενος οθεν κακεισε απηει διερχεται"
+   ],
+   "unique_runs_if_a_dropped": [
+    "εξερχομενοι εισαγουσιν αυτον",
+    "ειωθος ασπαζομενοι εισερχονται μετ",
+    "εκνευοντες δεξια κατερχονται",
+    "νεας μεγαλης εκκλησιασκεισε γαρ"
    ]
   },
   {
@@ -875,7 +918,7 @@
    "tokens_b": 332,
    "words_absent_from_a": 127,
    "words_b": 332,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "δυτικους επισκοπους γραμμα κομιζομεν",
     "νικαεων συνοδω επι",
     "μακαριου κωνσταντινου υπο τριακοσιων δεκα",
@@ -895,6 +938,17 @@
     "κωνσταντινου πολει κομισθεισαν απο νικης α",
     "θρακης υπεγραψαν εστι",
     "αυτων ων προειρηται ων"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ομονοιαν αγων ομογνωμονας",
+    "ομοδοξους κατεστησεν αλλα σαβινου μεν ει που χρεια καλεσοι ποιησομεθα μνημην",
+    "μεγαλης ουνοδου μεγαλοφωνως εξενεχθεισα συμφωνια",
+    "τριακοσιοι μεν προς",
+    "φησιν ο ευσεβιος ομοφωνησαντες",
+    "ομοδοξησαντες εγραφον πεντε",
+    "ομοουσιου επιλαβομενοι ευσεβιος",
+    "θεογνις νικαιας μαρις χαλ κηδονος θεωνας μαρμαρικης σεκουνδος π τολεμαιδος επει γαρ εφασαν",
+    "οι πατρικοι παιδες"
    ]
   },
   {
@@ -908,7 +962,7 @@
    "tokens_b": 380,
    "words_absent_from_a": 139,
    "words_b": 380,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "ποιη μα δρομικον ηχ δ",
     "νικαις κοσμοποθητοι δεσποται",
     "πιστοτατον δουλον προεβιβασαν αξιως εν υπερτεροις αξιαις πρωτοσπαθαριον εντιμον",
@@ -925,6 +979,12 @@
     "καλως ηλθες ποθητε",
     "καλως ηλθες η",
     "ως οντα κα θαρον"
+   ],
+   "unique_runs_if_a_dropped": [
+    "αυτος πατρικιος οψικευομενος",
+    "λεβα πατρικιε ελωκ",
+    "τας σχολας εκδεχομενον",
+    "ευσεβεστατων εα αυγουστων"
    ]
   },
   {
@@ -938,7 +998,7 @@
    "tokens_b": 310,
    "words_absent_from_a": 96,
    "words_b": 310,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "γραφης υπ αυτων υπαγορευθεισης οπως ειρηται αυτοις",
     "ανεξεταστον αυτοις καταλιμπανομεν επερωτησεις τοιγαρουν",
     "αποκρισεις εντευθεν ανεκινουντο εβασανιζεν",
@@ -955,6 +1015,17 @@
     "διο δη μη",
     "αυτου γενομενοις ομοιον κρειττονος",
     "παν ποιημα τυγχανειν"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ομονοιαν αγων ομογνωμονας",
+    "ομοδοξους κατεστησεν αλλα σαβινου",
+    "ει που χρεια καλεσοι ποιησομεθα μνημην",
+    "μεγαλης ουνοδου μεγαλοφωνως εξενεχθεισα συμφωνια",
+    "πιστεως εστιν αυτη πιστευομεν",
+    "πατερα παντοκρατορα παντων ορατων",
+    "ομοδοξησαντες εγραφον πεντε",
+    "θεογνις νικαιας μαρις χαλ κηδονος θεωνας μαρμαρικης σεκουνδος π τολεμαιδος επει γαρ εφασαν",
+    "οι πατρικοι παιδες"
    ]
   },
   {
@@ -968,11 +1039,21 @@
    "tokens_b": 378,
    "words_absent_from_a": 101,
    "words_b": 378,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "θεοδωρου κακεισε περιβαλλονται",
     "χρυσοτρικλινου μικρον τι ζαροτ χκι",
     "οτε παντα καλως ευτρεπισθωσιν",
     "ειωθοτα τουτοις τυπον"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ειωθυια εκκλησιαστικη ακολουθια",
+    "μεν πατοιαρχης προεισερχεται",
+    "αγιων θυρων λαμβανουσι",
+    "τρισσης προσκυνησεως απευχαριστουσι",
+    "πρωτοις μεν ασπαζονται",
+    "αγια θυρια ειτα",
+    "αποχαιρετιζοντες πον πατοιαρχην",
+    "νεας μεγαλης εκκλησιας"
    ]
   },
   {
@@ -986,7 +1067,7 @@
    "tokens_b": 377,
    "words_absent_from_a": 89,
    "words_b": 377,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "ευαγγελιου υποστρεφουσιν εφιπποι",
     "τοις ιππικοις πασιν ιπποδρομιοις",
     "ειτα ουτως ανερχομενοι",
@@ -996,6 +1077,13 @@
     "σκευη προς το οψικευσαι τους δεσποτας",
     "οτε πανταετοιμασθωσιν εξερχεται ο βασιλευς εκ",
     "αυγουστεως φορων το σκαραμαγγιον αυτου"
+   ],
+   "unique_runs_if_a_dropped": [
+    "θυρων κεκλεισμενων ομοιως επιτελειται πολλακις",
+    "λευκων χρυσων σκαραμαγγιων περιβαλλονται",
+    "παλα ιου εξερχονται",
+    "νεας μεγαλης εκκλησιας",
+    "αποστολων ομοιως τελειται"
    ]
   },
   {
@@ -1009,13 +1097,20 @@
    "tokens_b": 362,
    "words_absent_from_a": 95,
    "words_b": 362,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "σωλαιαν επιδιδωσιν αυτω",
     "κηοια απαν τες",
     "βασιλικων πυλων διερχομενος",
     "φορου ενθεν κακεισε",
     "οε λοιποι κληρικοι",
     "ναρθηκι καθεζεται προσμλενων"
+   ],
+   "unique_runs_if_a_dropped": [
+    "στασιν ως προειρηται",
+    "προσκυνησας επιδιδωσι τους",
+    "αυτου καθ εκαστην",
+    "λοιπους αρχοντας τους μελλοντας δηριγευειν",
+    "ψαλται χριστος ανεστη δ"
    ]
   },
   {
@@ -1029,7 +1124,7 @@
    "tokens_b": 402,
    "words_absent_from_a": 136,
    "words_b": 402,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "κατερχονται επ οχημασιν εκ",
     "νικησαντος μερους δημοται αιρουσι δαφνας εκ",
     "δεχονται τους ηνιοχους επιδιφριους εμπροσθεν",
@@ -1044,6 +1139,10 @@
     "αμαξης πληθος ιχθυων",
     "νι τους πλ αυτους",
     "οοαν αω ιμιυκι οομμεντακιγθ"
+   ],
+   "unique_runs_if_a_dropped": [
+    "δειλινου ιπποδρομιου κα ειτα εισελθων",
+    "δυο μαγλαβιτων σπαθαριων βασταζοντωνε"
    ]
   },
   {
@@ -1057,7 +1156,7 @@
    "tokens_b": 449,
    "words_absent_from_a": 160,
    "words_b": 449,
-   "unique_runs": [
+   "unique_runs_if_b_dropped": [
     "μεν ουν μιαν ελληνων γλωσση",
     "ασυμφωνοι παμπαν καθα",
     "συνθεσιν ησαν προς",
@@ -1077,6 +1176,30 @@
     "ητις υστερον ανεγνωσθη",
     "αριμινω γενομενα διηγεισθαι με γενοιτο ι κγε μην ρηθεισα",
     "μαρκω ουτωσι διηγορευε πι στευομεν"
+   ],
+   "unique_runs_if_a_dropped": [
+    "ιταλιαν αφιγμενοι επειθον βασιλεα δικαιαν",
+    "επ αυτοις πεποαγμενων",
+    "οπως πιστευουσιν εξηταζοντο ετεραν παρα",
+    "αντιοχεια συνθεμενοι επιδιδουσι",
+    "ρημα διεξιουσαν πστευομεν",
+    "απεστειλε δια δαξαι",
+    "καθολικη εκκλησια ταυτην δεδωκοσι",
+    "θειοις εκεινοις ανδρασι συνεστησαν",
+    "εγκληματων χαριν ουδε βιου φαυλοτητι",
+    "εκεινων απεστραφησαν κοινωνιαν",
+    "υπομνηματα αλλ ολον",
+    "ων εληλυθεισαν οπισω ανεπεμπε",
+    "οωτεινον αιρεσις επεγενετο ος",
+    "μικρας γαλατιας ων",
+    "πατριδος επισκοπω μαθητευθεις",
+    "εκεισε ηγειτο εκκλησιων ιλον ανθρωπον δογματιζων",
+    "χωραν ερουμεν κεφαλ ιδ ος",
+    "τρισιν ετεσιν οι ανα",
+    "τριων ετων διαγεγονοτων οι",
+    "εω επισκοποι ετεραν γραφην συθεμενοι",
+    "εσπεραν επεμπον ιερευσιν",
+    "μακροστιχοιν θθι οαιιγ χσι"
    ]
   }
  ]
