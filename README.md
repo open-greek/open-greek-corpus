@@ -1440,7 +1440,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | gregorius-nyssenus.testimonia-adversus-judaeos-sp | Gregorius Nyssenus - Testimonia Adversus Judaeos [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,087 | auto-corrected |
 | gregorius-nyssenus.vita-sanctae-macrinae | Gregorius Nyssenus - Vita Sanctae Macrinae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,592 | auto-corrected |
 | gregorius-palamas.confessio-fidei | Gregorius Palamas - Confessio fidei (PG151 loci 389-391, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,547 | manual |
-| gregorius-palamas.homiliae | Gregorius Palamas - Homiliae (PG151 loci 10-282) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 118,734 | manual |
+| gregorius-palamas.homiliae | Gregorius Palamas - Homiliae (PG151 loci 10-282) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 117,841 | manual |
 | hecataeus-abderita.testimonia-2 | Hecataeus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,190 | auto-corrected |
 | hegemon-parodius.fragmentum | Hegemon - Fragmentum | kock-caf1-ocr-frag | Qwen3.6-27B | 119 | raw OCR |
 | hegesippus-scr-eccl.fragmenta-ex-incerto-libro | Hegesippus - Fragmenta (ex incerto libro / Hypomnemata) (PG005 loci 663-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,511 | auto-corrected |
@@ -2198,16 +2198,21 @@ below; regenerate it with `python scripts/build_provenance.py`.
   inside a file by word-bigram containment, which ignores reading order, because
   a second read that walks the columns differently scores 0.482 by difflib and
   0.841 by containment. Its output,
-  data/duplicate_leaf_candidates.json, lists 47 remaining pairs in 16 files and
-  splits them by what dropping one would cost, in BOTH directions. 17 pairs have
-  a side that holds nothing the other lacks, 6,243 tokens, of which 10 pairs and
-  3,597 tokens are in served text; the other 30 pairs, 11,469 tokens, cannot be
+  data/duplicate_leaf_candidates.json, lists 45 remaining pairs in 15 files and
+  splits them by what dropping one would cost, in BOTH directions. 16 pairs have
+  a side that holds nothing the other lacks, 5,813 tokens, of which 9 pairs and
+  3,167 tokens are in served text; the other 29 pairs, 10,999 tokens, cannot be
   dropped from either side, because each holds text the other does not. Which
   side to drop is not decidable from the ordering: in PG118's first leaf the
   earlier copy was in sequence, in PG126 and PG118's 2 Corinthians leaf the later
   one was. Where the two copies end differently the file settles it, because only
   the copy in sequence completes its sentence into the next row; where they end
-  alike, as in PG118's Acts leaf, nothing but the printed page can.
+  alike, as in PG118's Acts leaf, nothing but the printed page can. Locating a
+  page is the expensive step and there is no shortcut: the Internet Archive's
+  per-volume text layers (patrologiaecursu<NNNN>mign) OCR'd only Migne's Latin
+  column and hold no Greek at all, so a row cannot be matched to a page through
+  them, and the loci drift far enough from the scan's page numbers that finding
+  a leaf by eye takes several image fetches.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
