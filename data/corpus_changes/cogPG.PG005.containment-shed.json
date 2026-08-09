@@ -1,0 +1,73 @@
+{
+ "what": "rows of cogPG.PG005 displaced to data/corpus_secondary because a served work already carries them",
+ "issue": "open-greek/open-greek-corpus#8",
+ "reverse": "restore the rows from the witness file to data/corpus/cogPG.PG005.jsonl and delete them there",
+ "sheds": {
+  "eusebius-scr-eccl.historia-ecclesiastica:2026-08-09": {
+   "covered_by": "eusebius-scr-eccl.historia-ecclesiastica",
+   "gate": "flat containment floor 0.7",
+   "numeral_normalized": true,
+   "n_rows": 2,
+   "greek_chars": 2806,
+   "sha256_before": "e156cd38f869eb9593063aefa60f89de9619dbaf3e6aebde17b12a03f8e8525d",
+   "sha256_after": "4c28581d852645f271afdcc5fac4088fcf41f7b367f64ab159f32c0ec6282cfc",
+   "rows": [
+    {
+     "locus": "15",
+     "containment": 0.878,
+     "words": 269,
+     "greek_chars": 1483,
+     "edition": "cgpg"
+    },
+    {
+     "locus": "16",
+     "containment": 0.848,
+     "words": 256,
+     "greek_chars": 1323,
+     "edition": "cgpg"
+    }
+   ]
+  },
+  "theodoretus.eranistes:2026-08-09": {
+   "covered_by": "theodoretus.eranistes",
+   "gate": "flat containment floor 0.7",
+   "numeral_normalized": true,
+   "n_rows": 1,
+   "greek_chars": 1814,
+   "sha256_before": "4c28581d852645f271afdcc5fac4088fcf41f7b367f64ab159f32c0ec6282cfc",
+   "sha256_after": "22259514489dfe5245e72c7d2fc0c81bed1eacf75c1c3580b31d3eabdfb23d75",
+   "rows": [
+    {
+     "locus": "19",
+     "containment": 0.748,
+     "words": 358,
+     "greek_chars": 1814,
+     "edition": "cgpg"
+    }
+   ]
+  }
+ },
+ "held_deliberately": {
+  "why": "these three clear the repo's codified FHG gate (>=0.6 with >=20 words) and are NOT shed. Taking a row out of the served corpus is a stronger claim than matching two fragment collections, and this issue already set the standard: PG113 kept Theophylact Simocatta primary at 0.697 because it missed 0.7. At 0.6 a third of the row is not in the work it would be shed against, and that third would leave the corpus.",
+  "rows": [
+   {
+    "locus": "14",
+    "containment": 0.607,
+    "against": "eusebius-scr-eccl.historia-ecclesiastica",
+    "note": "a stitched florilegium row: Polycarp Philippians 13 and then Ignatius. It scores only 0.346 against the served polycarpus.epistula-ad-philippenses, which is not evidence against Eusebius being the right source: that file's chapters 10-14 are Latin transliterated into Greek script, because the Greek of Philippians 13 survives only in Eusebius' quotation of it."
+   },
+   {
+    "locus": "20",
+    "containment": 0.673,
+    "against": "theodoretus.eranistes"
+   },
+   {
+    "locus": "23",
+    "containment": 0.614,
+    "against": "ignatius-scr-eccl.epistulae-interpolatae-et-epistulae-suppositiciae-recensio-longior",
+    "note": "0.739 only on a union of the two Ignatian recensions. The gate is single-source by rule, so a union score does not count."
+   }
+  ],
+  "if_the_rule_changes": "shedding all three would move 1,462 tokens instead of 886. That is a disposition call about how much of a row may be absent from its source before it stops being the same text, not a measurement, and it is cisco's."
+ }
+}
