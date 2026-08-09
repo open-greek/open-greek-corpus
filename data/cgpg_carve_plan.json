@@ -4886,6 +4886,43 @@
      "evidence": "Loci 44-353, 75,862 tokens. Ends at 353 because 354 carries the ΚΕΦΑΛ. ΠΔʹ head at character 249 and was carved to the Reiske half in pass 1; the served Vogt text ends at exactly that point too, with the Gothic-game acclamation glossary."
     }
    ]
+  },
+  {
+   "volume": "PG113",
+   "pass": 6,
+   "date": "2026-08-09",
+   "basis": "Constantine VII's own prooemium to the Excerpta de legationibus, the one part of that compilation still under the volume urn after pass 5 carved its seven historians. It was left because the recorded reason conflated two questions: 1,243 tokens cannot claim the TLG anchor tlg3023.001 (De legationibus, 181,366 Canon words), which answers whether an anchor applies and not whether the block is a work. This repo already serves three works with tlg null.\nLocus 328 opens at character 0 with its own printed head, ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ ΠΡΟΟΙΜΙΟΝ, and the text names its author in the Excerpta's standard formula, ὁ τῆς πορφύρας ἀπόγονος Κωνσταντῖνος. 329 says which section this is, τυγχάνει οὖσα ἑβδόμη ἐπὶ τοῖς εἴκοσι.\nThe 329/330 seam is settled from our own bytes and needed no page read: 329 ends Εἰ δὶ παρ´ ἡμῶν πρέσβεις ἀποστέλλονται, χρῆ τούτονς and 330 opens πρῶτον μὲν εὐσεβεία γνωρίζεσθαι, one sentence, so 330's advice on choosing envoys belongs to the proem rather than being a separate appended piece.\n330 is taken whole under the shared-row rule, so one token of the following block's head, ΔΕΞΙΠΠΟΥ, travels with the proem. Our OCR had welded it to the proem's last word; that was separated first (data/corpus_changes/cogPG.PG113.head-splice.json) so it travels as a head and not as a corrupt word.\nLoci 488-489 are NOT part of this work. 488 is a second print of the same proem, word-bigram containment 0.831 in 328-330, and is shed to corpus_secondary rather than carved, because carving both ranges into one work would serve the same proem twice. 489, at 0.118, is the list of fourteen chronicle sources the compilation excerpts and is a different thing; it stays in the residual.",
+   "residual_ranges": [
+    [
+     318,
+     323
+    ],
+    [
+     475,
+     487
+    ],
+    [
+     488,
+     489
+    ]
+   ],
+   "residual_note": "After pass 6 the volume file keeps 318-323 (Migne's prefatory dissertation and testimonia for the excerpted historians), 475-487 (Theophylact Simocatta, held primary because containment against the served byzantium.gr Historiae is 0.697 and does not clear 0.7), and 488-489.",
+   "works": [
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus",
+     "tlg": null,
+     "title": "Prooemium excerptorum de legationibus",
+     "author_display": "Constantinus VII Porphyrogenitus Imperator",
+     "ranges": [
+      [
+       328,
+       330
+      ]
+     ],
+     "rank": "primary",
+     "evidence": "loci 328-330. Printed head at 328 character 0, ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ ΠΡΟΟΙΜΙΟΝ; the Excerpta's self-naming formula ὁ τῆς πορφύρας ἀπόγονος Κωνσταντῖνος; the section number at 329, τυγχάνει οὖσα ἑβδόμη ἐπὶ τοῖς εἴκοσι. The 329/330 seam is one sentence broken across the rows, χρῆ τούτονς / πρῶτον μὲν εὐσεβεία γνωρίζεσθαι."
+    }
+   ]
   }
  ]
 }

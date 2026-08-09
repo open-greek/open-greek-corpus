@@ -343,7 +343,7 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 10 `cogPG.*` files are still volume-keyed, holding 13,116 Greek
+far, and 10 `cogPG.*` files are still volume-keyed, holding 13,117 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
@@ -351,7 +351,7 @@ cuts a row at a character offset. PG112 was finished on 2026-08-09 and its file 
 gone too: its remaining half was the same text byzantium.gr already serves, and
 since nothing may be served twice it became an edition witness in
 `data/corpus_secondary`, outside the served counts. All ten remaining
-files are carved volumes' leftovers, 13,116 tokens between them: PG003, PG005,
+files are carved volumes' leftovers, 13,117 tokens between them: PG003, PG005,
 PG101, PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 1 to 20 rows
 each, every one identified in its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
