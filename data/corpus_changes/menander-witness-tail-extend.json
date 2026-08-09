@@ -1,0 +1,35 @@
+{
+ "what": "Migne PG113 locus 475 moved from the volume residual into the Menander Protector witness, whose block it ends",
+ "date": "2026-08-09",
+ "issue": "open-greek/open-greek-corpus#8",
+ "why": "the witness ends on ἦ γὰρ ἂν and this row opens ἄλλως μὴ ἀνέξεσθαι, one sentence in two files. Word-bigram containment is 0.944 against the SERVED menander-protector primary, so the volume file was serving 74 tokens the corpus already holds under Menander's slug.",
+ "corrects": "the plan recorded 0.764 for this row and attributed it to Theophylact Simocatta's block. That was measured against the Menander witness (0.750 here), not the served primary. Against Theophylact the row scores 0.236.",
+ "greek_tokens_moved": 74,
+ "moved_row": {
+  "locus": "PG113.475",
+  "as_residual": {
+   "urn": "cogPG.PG113",
+   "edition": "cgpg",
+   "locus": "475",
+   "source": "cgpg",
+   "license": "CC-BY-4.0",
+   "text": "ἄλλως μὴ ἀνέξεσθαι ἰδεῖν ἐς σπονδάς· ὁ δε γε ἀντὰ ἐσήμηνεν, ὡς ἡ γῆ τοῦ Ῥωμαίων βασιλέως μεγίστη τέ ἐστι καὶ ἄπλετος, καὶ ὡς δυσεύρετόν τι φυγὰς ἀνὴρ ἐν αὐτῇ ἀλώμενος, τυχὸν δὲ ὅτι καὶ ὀλέθρῳ ἥλω. Πρὸς ταῦτα ἀντέλεξεν ὁ Βαϊανὸς ὀμνύναι τοὺς Ῥωμαίων ἡγεμόνας, ὅς ἀναμαστεύσωσι, καὶ εἴ τι εὕροιεν τὸν φυγάδα, ἀποκρύψοιντο οὐδαμῶς, ἀλλ´ ἐκ παντὸς τρόπου ἐγχειριεῖν αὐτὸν τῷ τῶν Ἀβάρων μονάρχῳ. Εἰ δέ γε τετελευτηκὼς εἴη, καὶ οὕτω σημῆναι.",
+   "corrections": [
+    "confusion",
+    "freq"
+   ],
+   "row_part": "the part of Migne PG113 page 475 that no carved work claims; see data/corpus_changes/cogPG.PG113.row-split.json"
+  }
+ },
+ "volume": {
+  "file": "data/corpus/cogPG.PG113.jsonl",
+  "sha256_before": "5479918165d4ebbf41aab643138648445ccdb23fef6ed9ca662ff2a12a0adc78",
+  "sha256_after": "59e4c5f199fb39abf7b9662c83a5e0b0fe304f58912440e7093e25c50956c79c"
+ },
+ "witness": {
+  "file": "data/corpus_secondary/menander-protector.de-legationibus-romanorum-ad-gentes-fragmenta-ap-constantinum.jsonl",
+  "sha256_before": "5fc91a28b9dde5bf16749eed5e8eef3d7fefdcfd5a319c4dd304400e0472a7df",
+  "sha256_after": "40de7fc7018b4f070868329d0d3f41f66317cb4dd9d151324b45a2bc242637f6"
+ },
+ "reverse": "python3 scripts/extend_menander_witness_tail.py --unapply"
+}
