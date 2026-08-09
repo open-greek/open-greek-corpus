@@ -44,6 +44,13 @@ REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 SRC = DATA / "corpus" / "cogPG.PG003.jsonl"
 OUT = DATA / "pg003_alternation.json"
+# The carve this estimator stood in for, and the record that lets it keep
+# running afterwards. Once PG003 was carved the volume file held 24 residual
+# rows, so estimating from it divided by zero. The pre-carve pages are archived
+# in the audit, which is also what makes the estimate scoreable: the carve is
+# the ground truth this never had.
+CARVE = DATA / "corpus_changes" / "cogPG.PG003.row-split.json"
+PARAPHRASE = "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
@@ -98,17 +105,53 @@ def label(rows: dict[int, str]) -> dict[int, tuple]:
     return out
 
 
+def locus_number(v) -> int:
+    return int(str(v).split(".")[-1])
+
+
+def pages() -> tuple[dict[int, str], str]:
+    """The volume's pages, from the carve audit once the carve has run."""
+    if CARVE.exists():
+        rows = json.loads(CARVE.read_text(encoding="utf-8"))["sources"][
+            "data/corpus/cogPG.PG003.jsonl"]["original_rows"]
+        return ({locus_number(r["locus"]): r.get("text") or "" for r in rows},
+                str(CARVE.relative_to(REPO)))
+    rows = [json.loads(l) for l in SRC.read_text(encoding="utf-8").splitlines()
+            if l.strip()]
+    return ({locus_number(r["locus"]): r.get("text") or "" for r in rows},
+            str(SRC.relative_to(REPO)))
+
+
+def carve_truth() -> dict[int, int]:
+    """Who each page went to, +1 for Dionysius and -1 for the paraphrase.
+
+    Pages the carve split between two works are dropped rather than assigned to
+    the larger half: the estimator labels whole pages, so a split page has no
+    single right answer and counting one would flatter or punish it at random.
+    """
+    if not CARVE.exists():
+        return {}
+    truth: dict[int, int] = {}
+    for slug, block in json.loads(CARVE.read_text(encoding="utf-8"))["works"].items():
+        side = -1 if slug == PARAPHRASE else 1
+        fp = REPO / block["file"]
+        if not fp.exists():
+            continue
+        for line in fp.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            k = locus_number(json.loads(line)["locus"])
+            truth[k] = side if k not in truth else (0 if truth[k] != side else side)
+    return {k: v for k, v in truth.items() if v}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true")
     args = ap.parse_args()
 
-    rows = {}
-    for line in SRC.read_text(encoding="utf-8").splitlines():
-        if line.strip():
-            r = json.loads(line)
-            rows[int(r["locus"])] = r.get("text") or ""
+    rows, source = pages()
     scored = label(rows)
     kept = {k: v for k, v in scored.items() if v[1] >= MARGIN}
     tok = {k: len(_GK.findall(t)) for k, t in rows.items()}
@@ -149,11 +192,52 @@ def main() -> None:
           f"the text itself and lands near it,\n  which corroborates both; it does "
           f"not replace either.")
 
+    # The carve is the answer this was estimating, so once it exists the
+    # estimate stops being a finding and becomes a scoreable one. Worth keeping
+    # rather than deleting: the same trick is the only lead on other Migne
+    # volumes whose heads our OCR dropped, and this says whether to trust it.
+    truth = carve_truth()
+    graded = None
+    if truth:
+        t_agree = t_seen = t_lab_agree = t_lab_seen = 0
+        for k, want in sorted(truth.items()):
+            v = scored.get(k)
+            if not v:
+                continue
+            got = 1 if v[0] > 0 else -1
+            t_seen += 1
+            t_agree += got == want
+            if v[1] >= MARGIN:
+                t_lab_seen += 1
+                t_lab_agree += got == want
+        graded = {"pages_with_a_single_owner": len(truth), "scored": t_seen,
+                  "agree": t_agree, "labelled": t_lab_seen,
+                  "agree_among_labelled": t_lab_agree}
+        print(f"\n  scored against the carve that replaced it "
+              f"({len(truth)} pages held by one work):")
+        print(f"    {t_agree}/{t_seen} = {t_agree / max(t_seen, 1):.1%} of every page it scored")
+        print(f"    {t_lab_agree}/{t_lab_seen} = "
+              f"{t_lab_agree / max(t_lab_seen, 1):.1%} where it was willing to label")
+        print(f"    Declining to guess is what earned that second number, and it is "
+              f"the reason\n    to reuse the method on a volume that has no carve yet.")
+
     if not args.write:
         print("\nreport only; re-run with --write.")
         return
     OUT.write_text(json.dumps({
-        "what": "page-level estimate of the Dionysius/Pachymeres alternation in PG003",
+        "what": "page-level estimate of the Dionysius/Pachymeres alternation in PG003, "
+                "and, since the carve landed, how well it did",
+        "read_from": source,
+        "graded_against_the_carve": graded,
+        "graded_note": "PG003 is carved, so this estimate has a ground truth it did "
+                       "not have when it was made. Pages the carve split between two "
+                       "works are excluded: the estimate labels whole pages, so a "
+                       "split page has no single right answer. The estimator is kept "
+                       "rather than retired because the method is the only lead on "
+                       "other Migne volumes whose display heads our OCR dropped, and "
+                       "this is the evidence for whether to trust it there."
+                       if graded else "PG003 is not carved, so there is nothing to "
+                                      "grade this against yet.",
         "issue": "open-greek/open-greek-corpus#9",
         "method": "a paraphrase replays the rare vocabulary of what it paraphrases, "
                   "so a paraphrase page's closest neighbour by rare-word overlap "
