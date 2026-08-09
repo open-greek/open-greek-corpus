@@ -1898,7 +1898,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | philodemus.tlg1595-tlg289 | PHILODEMUS - De poematis (Peri poiematon) | qwen36-philodemiperipoi00haus | Qwen3.6-27B | 2,053 | raw OCR |
 | philodemus.tlg1595-tlg472 | PHILODEMUS - De signis (Peri semeion kai semeioseon) | qwen36-philodemberindu00gompgoog | Qwen3.6-27B | 4,581 | raw OCR |
 | philodemus.tlg1595-tlg492 | PHILODEMUS - De bono rege secundum Homerum | qwen36-philodemiperitou00philuoft | Qwen3.6-27B | 9,500 | raw OCR |
-| philodemus.tlg1595-tlg601 |  | [Philodemus, Academicorum index Herculanensis, ed. Mekler, Berlin 1902](https://archive.org/details/academicorumphil00mekluoft) | Qwen3.6-27B | 9,689 | auto-corrected |
+| philodemus.tlg1595-tlg601 |  | [Philodemus, Academicorum index Herculanensis, ed. Mekler, Berlin 1902](https://archive.org/details/academicorumphil00mekluoft) | Qwen3.6-27B | 12,301 | auto-corrected |
 | philodemus.volumina-rhetorica | De rhetorica (Volumina rhetorica) | [Philodemus, Volumina rhetorica vol.1, ed. Sudhaus, Teubner 1892](https://archive.org/details/philodemivolumi00schugoog) | Qwen3.6-27B | 99,070 | auto-corrected |
 | philolaus.testimonia | Philolaus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,426 | auto-corrected |
 | philonides.fragmenta | Philonides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 118 | raw OCR |

@@ -71,7 +71,8 @@ INGESTERS := scripts/build_corpus_loci.py scripts/build_byzantine_vernacular_cor
              scripts/build_byzantium_gr_corpus.py
 SWEEPS    := data/pd_research/byzantium_sweep.json data/pd_research/cgpg_coverage.json
 
-.PHONY: all yardstick sourcing ingest ids reports check clean oga-metadata
+.PHONY: all yardstick sourcing ingest ids reports check clean oga-metadata \
+        capital-positions
 all: yardstick sourcing reports check
 
 # OGA (Opera Graeca Adnotata v0.2.0) metadata: per-work dating + the PTA/TLG
@@ -179,6 +180,14 @@ $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
 # it as CAPITAL_FOLDS and applies it while this table is built. It was missing,
 # so re-running the measurement changed the folds and `make` reported the table
 # up to date, which is how a measured fold could sit on disk unapplied.
+#
+# The prerequisite fixed make's ORDER and not the staleness itself: nothing here
+# builds capital_positions.json, and nothing can, because the measurement reads
+# work_lemma_counts.tsv.gz and would close a cycle that make resolves by dropping
+# an edge without erroring. So it is a phony target run on purpose, and `check`
+# is what notices it has gone stale. It sat unbuilt from 2026-08-06 to
+# 2026-08-09 with three measured folds unapplied (Κόσμος 80 tokens, Ἐπιστάτης
+# 18, Ἐγχειρίδιον 10).
 $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
                 scripts/validate_lemma_map.py $(LEMMA_FREQ) \
                 data/capital_positions.json
@@ -259,8 +268,14 @@ $(CROSSWALK): $(REGISTRY) scripts/build_id_crosswalk.py scripts/backfill_crosswa
 #    deliberately leaves source/edition/license alone, since a row reading
 #    `ocr` / PD against a corpus reading first1k / CC-BY-SA-4.0 is a work we
 #    OCR'd that an open edition later displaced, and both are true.
+# Rebuild the capital folds. Phony on purpose, see the note above $(WORK_LEMMAS):
+# a real rule would be a cycle. Run it, then `make` to carry the folds through.
+capital-positions:
+	$(PY) scripts/measure_capital_positions.py --write
+
 check:
 	$(PY) scripts/check_ocr_ledgers.py
+	$(PY) scripts/check_capital_positions_fresh.py
 
 clean:
 	rm -f $(LEXICON) data/coverage.json $(LEMMA_FREQ) $(OVERRIDES) \
