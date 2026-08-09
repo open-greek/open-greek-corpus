@@ -343,7 +343,7 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 10 `cogPG.*` files are still volume-keyed, holding 8,815 Greek
+far, and 10 `cogPG.*` files are still volume-keyed, holding 8,741 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
@@ -351,7 +351,7 @@ cuts a row at a character offset. PG112 was finished on 2026-08-09 and its file 
 gone too: its remaining half was the same text byzantium.gr already serves, and
 since nothing may be served twice it became an edition witness in
 `data/corpus_secondary`, outside the served counts. All ten remaining
-files are carved volumes' leftovers, 8,815 tokens between them: PG003, PG005,
+files are carved volumes' leftovers, 8,741 tokens between them: PG003, PG005,
 PG101, PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 1 to 20 rows
 each, every one identified in its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
@@ -1137,7 +1137,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
-| PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,867 | manual |
+| PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,793 | manual |
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 631 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
