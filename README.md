@@ -847,26 +847,26 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anonymi-in-artem-rhetoricam.peri-synekdoches |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 141 | raw OCR |
 | anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,046 | manual |
 | anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,789 | auto-corrected |
-| anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,263 | manual |
+| anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou | Peri ton tessaron meron tou teleiou logou | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,263 | manual |
 | anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,384 | manual |
 | anonymi-in-artem-rhetoricam.peri-tropon-walz-viii-779 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 412 | raw OCR |
 | anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,152 | manual |
-| anonymi-in-artem-rhetoricam.progymnasmata-walz-i-597 |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 12,390 | auto-corrected |
+| anonymi-in-artem-rhetoricam.progymnasmata-walz-i-597 | Progymnasmata | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 12,390 | auto-corrected |
 | anonymi-in-artem-rhetoricam.prolegomena-eis-ten-rhetoriken-doxopatri |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,669 | auto-corrected |
 | anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,958 | auto-corrected |
 | anonymi-in-artem-rhetoricam.prolegomena-tes-rhetorikes-walz-v-606 |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,301 | raw OCR |
 | anonymi-in-artem-rhetoricam.synopseis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 699 | auto-corrected |
-| anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
+| anonymi-in-hermogenis-de-ideis.kephalaia-tou-protou-bibliou-ton-ideon | Kephalaia tou a' bibliou ton ideon | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,727 | manual |
 | anonymi-in-hermogenis-de-ideis.scholia-walz-vii-863 |  | qwen36-walz_rhetores_v7pt2 | Qwen3.6-27B | 57,803 | auto-corrected |
-| anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,351 | auto-corrected |
-| anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 515 | auto-corrected |
+| anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos | Eis to peri eureseos Hermogenous epistasis anepigraphos | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,351 | auto-corrected |
+| anonymi-in-hermogenis-de-inventione.prolegomena-ton-eureseon | Prolegomena ton eureseon | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 515 | auto-corrected |
 | anonymi-in-hermogenis-de-inventione.scholia-walz-vii-697 |  | qwen36-walz_rhetores_v7pt2 | Qwen3.6-27B | 43,287 | auto-corrected |
-| anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 595 | raw OCR |
+| anonymi-in-hermogenis-de-inventione.semeiodes-eis-tas-eureseis | Semeiodes eis tas eureseis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 595 | raw OCR |
 | anonymi-in-hermogenis-de-statibus.hetera-prolegomena-ton-staseon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 600 | auto-corrected |
 | anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591 |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 1,592 | raw OCR |
 | anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,516 | manual |
 | anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-ii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,373 | manual |
-| anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 144,816 | manual |
+| anonymi-in-hermogenis-de-statibus.scholia-eis-tas-hermogenous-staseis | Anonymou scholia eis tas Hermogenous staseis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 144,816 | manual |
 | anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735 | Anonymi In Oppiani Opera - In Oppiani Halieutica Exegesis (E Cod. Paris. Gr. 2735) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 4,696 | raw OCR |
 | anonymi-logoi-duo.logoi-duo | Anonymi - Λόγοι δύο (PG151 loci 577-600) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 20,680 | manual |
 | anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis | Anonymus - Narratio de vita Mohammedis (on Muhammad the pseudo-prophet) (PG158 loci 574-575) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,214 | auto-corrected |
@@ -1984,7 +1984,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Halieutica (Scholia Vetera Et Recentiora) | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 65,351 | auto-corrected |
 | scholia-in-platonem.scholia-in-platonem-scholia-vetera | Scholia In Platonem - Scholia In Platonem (Scholia Vetera) | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,660 | auto-corrected |
 | scholia-in-theocritum.scholia-vetera-et-recentiora | Scholia In Theocritum - Scholia vetera et recentiora | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 92,656 | auto-corrected |
-| scholia-in-theonem.scholia-in-progymnasmata |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 1,138 | auto-corrected |
+| scholia-in-theonem.scholia-in-progymnasmata | Scholia in Theonis progymnasmata | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 1,138 | auto-corrected |
 | scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera | SCHOLIA IN XENOPHONTEM - Scholia in Xenophontis Anabasin | qwen36-expeditiocyri02xenogoog | Qwen3.6-27B | 4,214 | raw OCR |
 | scythinus-poet-phil.fragmenta | Scythinus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 315 | auto-corrected |
 | scythinus-poet-phil.testimonia | Scythinus - Testimonia | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 249 | raw OCR |
@@ -1993,7 +1993,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | semonides.fragmenta | SEMONIDES - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 524 | raw OCR |
 | serapion-scr-eccl.fragmenta | Serapion Antiochenus - Fragmenta (PG005 loci 696-697) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 194 | auto-corrected |
 | serenus.de-sectione-cylindri | Serenus - De Sectione Cylindri | qwen36-serenus_heiberg_opuscula | Qwen3.6-27B | 34,332 | auto-corrected |
-| severus-rhetor.diegemata-kai-ethopoiiai |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 2,265 | auto-corrected |
+| severus-rhetor.diegemata-kai-ethopoiiai | Diegemata kai ethopoiiai | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 2,265 | auto-corrected |
 | simias.fragmenta | Simias - Fragmenta | qwen36-simias_fraenkel | Qwen3.6-27B | 6,904 | auto-corrected |
 | simonides-lyric.fragmenta-2 | Simonides - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,763 | auto-corrected |
 | simus-myonides-euphranor.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 104 | raw OCR |
