@@ -2109,7 +2109,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | theophylactus-achridensis.oratio-in-praesentationem-deiparae | Theophylactus Achridensis - Oratio in praesentationem Deiparae (PG126 loci 72-79) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,639 | manual |
 | theophylactus-achridensis.oratio-in-venerationem-crucis | Theophylactus Achridensis - Oratio in venerationem crucis (mid-Lent sermon; conventional title) (PG126 loci 60-71) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,289 | manual |
 | theophylactus-achridensis.supplementum-in-evangelium-joannis | Theophylactus Achridensis (attributed) - Conclusion-fragment of a commentary on the Gospel of John (Jo 21:22-25 with account of John's death; supplement to the In Joannem) (PG126 loci 80-82) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 867 | auto-corrected |
-| theophylactus-achridensis.vita-clementis-ohridensis | Theophylactus Achridensis - Vita Clementis Ohridensis (the long life, BHG 355) (PG126 loci 604-633) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,716 | manual |
+| theophylactus-achridensis.vita-clementis-ohridensis | Theophylactus Achridensis - Vita Clementis Ohridensis (the long life, BHG 355) (PG126 loci 604-633) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,012 | manual |
 | theophylactus-simocatta.epistulae | Theophylactus Simocatta - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,582 | auto-corrected |
 | theophylactus-simocatta.excerpta-de-legationibus | Theophylactus Simocatta - Excerpta de legationibus (PG113 loci 475-487, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,782 | manual |
 | theopompus-comedy.fragmenta | Theopompus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,876 | auto-corrected |
@@ -2191,18 +2191,21 @@ below; regenerate it with `python scripts/build_provenance.py`.
   data/duplicate_leaves.json; an unlisted run stops the run, so what is removed
   is duplicated text rather than text. PG118 pages 21-22 were the first case,
   1,063 tokens that had been served and counted twice.
-  scripts/sweep_duplicate_leaves.py looks for the rest, comparing every pair of
-  page-level OCR rows inside a file by word-bigram containment, which ignores
-  reading order where the older difflib gate did not. Its output,
-  data/duplicate_leaf_candidates.json, lists 55 pairs in 18 files and splits
-  them by what dropping one would cost. 18 pairs are clean second copies whose
-  later row holds nothing the earlier one lacks, 6,829 tokens, of which 15
-  pairs and 5,943 tokens are in served text; the other 37 pairs overlap heavily
-  without being copies, 14,347 tokens, and must not be dropped from either side
-  because each holds text the other does not. Several run at a fixed page
-  offset (PG126 repeats six consecutive pages eight pages later). Even the clean
-  ones are candidates rather than a drop list: each still needs its page read,
-  and in some leaves one page is a clean copy while its neighbour is not.
+  scripts/sweep_duplicate_leaves.py looks for the rest, and is the first search
+  for them: the drop_duplicates list inside carve_cgpg_volume.py is curated by
+  hand (ten groups in two volumes) and its difflib test only verifies pairs
+  somebody already named. The sweep compares every pair of page-level OCR rows
+  inside a file by word-bigram containment, which ignores reading order, because
+  a second read that walks the columns differently scores 0.482 by difflib and
+  0.841 by containment. Its output,
+  data/duplicate_leaf_candidates.json, lists 49 remaining pairs in 17 files and
+  splits them by what dropping one would cost, in BOTH directions. 19 pairs have
+  a side that holds nothing the other lacks, 7,007 tokens, of which 12 pairs and
+  4,361 tokens are in served text; the other 30 pairs, 11,469 tokens, cannot be
+  dropped from either side, because each holds text the other does not. Which
+  side to drop is never the earlier one by default: in PG126 the earlier copy
+  was the stray and the later was the page that continues the text. Each pair
+  still needs its page read.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,

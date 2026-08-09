@@ -2,15 +2,17 @@
 """Find printed leaves the OCR delivered twice, anywhere in the corpus.
 
 One was found by hand in PG118 (pages 21 and 22 arrived twice, 1,063 tokens
-served and counted twice). The only detector that had ever run is the
-rescanned-leaf shed inside carve_cgpg_volume.py, which gates on difflib
-similarity >= 0.60 against the row it keeps, and that gate is exactly what let
-this one through: the second read of page 22 walked the columns in a different
-order, so two rows of one page score 0.482.
+served and counted twice). Nothing had ever looked for the rest. The
+rescanned-leaf machinery inside carve_cgpg_volume.py is not a detector: its
+drop_duplicates list is curated by hand, ten groups across two volumes in the
+whole plan, and its difflib >= 0.60 test only verifies pairs a human already
+named. So this is the first search, and the reason PG118's leaf survived is that
+nobody listed it, not that a threshold was set wrong.
 
-So this asks a different question. Word BIGRAM containment ignores order almost
-entirely while staying specific enough not to fire on two pages of the same
-author. On the known case the separation is not marginal: the two duplicate
+Word BIGRAM containment is used rather than difflib similarity because it
+ignores reading order: the second read of PG118 page 22 walked the columns
+differently and scores 0.482 by difflib against 0.841 by containment, so an
+order-sensitive search would miss that whole class. On the known case the separation is not marginal: the two duplicate
 pairs score 0.960 and 0.841, and the worst non-duplicate pair in the same block
 scores 0.079, with a median of 0.022.
 
@@ -107,7 +109,14 @@ def scan_file(fp: Path) -> list[dict]:
             cont = inter / floor
             if cont >= GATE:
                 a, b = texts[i], texts[j]
+                # BOTH directions. locus_a is simply the earlier locus, never a
+                # verdict about which copy to keep, and assuming otherwise is a
+                # live trap: in PG126 the earlier copy is the interloper and the
+                # later one is the page that continues the text, so a reader
+                # taking "drop the second" from this file would have deleted the
+                # in-sequence page and kept the stray.
                 runs = unique_runs(b, a)
+                runs_a = unique_runs(a, b)
                 wa = set(words(a))
                 wb = words(b)
                 out.append({"file": fp.relative_to(REPO).as_posix(),
@@ -122,7 +131,8 @@ def scan_file(fp: Path) -> list[dict]:
                             # has plenty, and must not be dropped either way.
                             "words_absent_from_a": sum(1 for w in wb if w not in wa),
                             "words_b": len(wb),
-                            "unique_runs": runs})
+                            "unique_runs_if_b_dropped": runs,
+                            "unique_runs_if_a_dropped": runs_a})
     return out
 
 
@@ -151,17 +161,19 @@ def main() -> None:
     # nothing. A pair with unique runs overlaps without being a copy, and
     # dropping either side would lose text, so it is NOT a candidate for the
     # drop tool no matter how high the containment.
-    clean = [h for h in hits if not h["unique_runs"]]
-    overlapping = [h for h in hits if h["unique_runs"]]
+    clean = [h for h in hits
+             if not (h["unique_runs_if_b_dropped"] and h["unique_runs_if_a_dropped"])]
+    overlapping = [h for h in hits
+                   if h["unique_runs_if_b_dropped"] and h["unique_runs_if_a_dropped"]]
     served_clean = [h for h in clean if h["served"]]
     by_file = Counter(h["file"] for h in hits)
     print(f"scanned {scanned:,} files at containment gate {args.gate}")
     print(f"candidate row pairs: {len(hits):,} in {len(by_file)} files")
-    print(f"  clean second copies (nothing unique in the later row): {len(clean)}, "
+    print(f"  droppable one way (one side holds nothing the other lacks): {len(clean)}, "
           f"{sum(h['tokens_b'] for h in clean):,} tok")
     print(f"    of those in SERVED text: {len(served_clean)}, "
           f"{sum(h['tokens_b'] for h in served_clean):,} tok")
-    print(f"  overlapping but not copies (each side has text the other lacks): "
+    print(f"  not droppable either way (each side has text the other lacks): "
           f"{len(overlapping)}, {sum(h['tokens_b'] for h in overlapping):,} tok "
           f"- do not drop these")
     for h in hits[:25]:

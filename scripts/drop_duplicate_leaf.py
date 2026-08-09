@@ -91,24 +91,29 @@ def main() -> None:
     args = ap.parse_args()
 
     vol = args.volume
-    fp = CORPUS / f"cogPG.{vol}.jsonl"
     ap_fp = audit_path(vol)
+    # The rows are not always still in the volume file: a duplicated leaf can
+    # sit inside a work an earlier carve already moved them into, which is where
+    # PG126's is. The plan names the file; the volume dump is only the default.
+    plan_all = json.loads(PLAN.read_text(encoding="utf-8"))
+    _p = next((v for v in plan_all["volumes"] if v["volume"] == vol), None)
+    fp = REPO / _p["file"] if (_p and _p.get("file")) else CORPUS / f"cogPG.{vol}.jsonl"
 
     if args.unapply:
         if not ap_fp.exists():
             fail(f"no audit at {ap_fp.relative_to(REPO)}")
         rec = json.loads(ap_fp.read_text(encoding="utf-8"))
+        fp = REPO / rec["file"]["path"]
         fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
                               for r in rec["original_rows"]), encoding="utf-8")
         got = sha(fp.read_text(encoding="utf-8"))
         if got != rec["file"]["sha256_before"]:
-            fail(f"unapply did not restore cogPG.{vol} byte-for-byte")
+            fail(f"unapply did not restore {fp.name} byte-for-byte")
         ap_fp.unlink()
-        print(f"UNAPPLIED: cogPG.{vol} restored to {got[:12]}")
+        print(f"UNAPPLIED: {fp.name} restored to {got[:12]}")
         return
 
-    plan_all = json.loads(PLAN.read_text(encoding="utf-8"))
-    plan = next((v for v in plan_all["volumes"] if v["volume"] == vol), None)
+    plan = _p
     if plan is None:
         fail(f"no duplicate-leaf plan entry for {vol}")
     if ap_fp.exists():
@@ -170,8 +175,9 @@ def main() -> None:
     # use the whitespace-split metric that file is keyed on, not _GK.
     lp = DATA / "cgpg_works.json"
     vols = json.loads(lp.read_text(encoding="utf-8"))
+    stem = fp.name[:-len(".jsonl")]
     for e in vols:
-        if e.get("urn") == f"cogPG.{vol}":
+        if e.get("urn") == stem:
             e["n_passages"] = len(kept_rows)
             e["n_tokens"] = sum(_ledger_tokens(r["text"]) for r in kept_rows)
     lp.write_text(json.dumps(vols, ensure_ascii=False, indent=1) + "\n",
@@ -188,7 +194,7 @@ def main() -> None:
                     "and more correct at once",
         },
         "file": {
-            "path": f"data/corpus/cogPG.{vol}.jsonl",
+            "path": fp.relative_to(REPO).as_posix(),
             "sha256_before": sha(before_text),
             "sha256_after": sha(fp.read_text(encoding="utf-8")),
             "rows_before": len(rows), "rows_after": len(kept_rows),
