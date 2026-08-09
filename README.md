@@ -343,7 +343,7 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 10 `cogPG.*` files are still volume-keyed, holding 13,186 Greek
+far, and 10 `cogPG.*` files are still volume-keyed, holding 13,116 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
@@ -351,7 +351,7 @@ cuts a row at a character offset. PG112 was finished on 2026-08-09 and its file 
 gone too: its remaining half was the same text byzantium.gr already serves, and
 since nothing may be served twice it became an edition witness in
 `data/corpus_secondary`, outside the served counts. All ten remaining
-files are carved volumes' leftovers, 13,186 tokens between them: PG003, PG005,
+files are carved volumes' leftovers, 13,116 tokens between them: PG003, PG005,
 PG101, PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 1 to 20 rows
 each, every one identified in its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
@@ -1134,7 +1134,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
 | PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,039 | manual |
-| PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,830 | manual |
+| PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,760 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
 | PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,349 | manual |
@@ -1839,7 +1839,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicostratus.fragmenta | Nicostratus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 969 | auto-corrected |
 | nonnosus.fragmenta | Nonnosus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 881 | raw OCR |
 | ocellus.de-universi-natura-sp | Ocellus - De Universi Natura [Sp.] | qwen36-hierocl_aureum_mullach_fpg1-ocr | Qwen3.6-27B | 5,422 | auto-corrected |
-| oecumenius.commentarius-in-acta-apostolorum | Pseudo-Oecumenius - Commentarius in Acta apostolorum (catena-derived commentary printed under Oecumenius' name, CPG C151 sphere) (PG118 loci 29-162) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 53,570 | manual |
+| oecumenius.commentarius-in-acta-apostolorum | Pseudo-Oecumenius - Commentarius in Acta apostolorum (catena-derived commentary printed under Oecumenius' name, CPG C151 sphere) (PG118 loci 29-162) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 53,640 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis | Oecumenius - Fragmenta in epistulam ad Ephesios (in catenis) [served text = full catena commentary] (PG118 loci 594-638) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,393 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-galatas-in-catenis | Oecumenius - Fragmenta in epistulam ad Galatas (in catenis) [served text = full catena commentary] (PG118 loci 556-593) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 15,415 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis | Oecumenius - Fragmenta in epistulam ad Philippenses (in catenis) [served text = full catena commentary] (PG118 loci 639-674) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 14,427 | manual |
