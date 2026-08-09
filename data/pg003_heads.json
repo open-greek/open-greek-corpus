@@ -11,15 +11,15 @@
   "max_anchor_gap_words": 40,
   "paraphrase_similarity": 0.62
  },
- "anchor_matches": 3670,
- "anchor_chain": 3504,
+ "anchor_matches": 8,
+ "anchor_chain": 7,
  "heads_found": 185,
- "placed": 8,
- "declined": 177,
+ "placed": 1,
+ "declined": 184,
  "paraphrase_numbering": {
   "what": "Migne numbers the paraphrase (1) to 60 straight through the volume and prints the number on the display head only, never on the page's running head. Requiring it is what separates the two, and reading it back is a check the alignment cannot fake.",
   "printed_last": 60,
-  "placed": 2,
+  "placed": 0,
   "never_recovered": [
    1,
    2,
@@ -47,6 +47,7 @@
    24,
    25,
    26,
+   27,
    28,
    29,
    30,
@@ -61,6 +62,7 @@
    39,
    40,
    41,
+   42,
    43,
    44,
    45,
@@ -86,8 +88,8 @@
   "source": "data/pg003_blocks.json heads",
   "note": "locus 89's recorded head is a running head at offset 0, not a boundary; the placement at ~1,566 matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552, so the alignment is right and the record is not. Locus 171 is a genuine miss, 516 characters late.",
   "heads": 26,
-  "sharing_a_locus_with_a_placement": 2,
-  "within_200_chars": 2,
+  "sharing_a_locus_with_a_placement": 0,
+  "within_200_chars": 0,
   "checks": [
    {
     "locus": "89",
@@ -171,7 +173,7 @@
     "our_offset": 1586,
     "head": "kephalaion",
     "reading": "ΚΕΦΑΛΑΙΟΝ Ζʹ. Ι. Περὶ τῶν",
-    "nearest_placement_chars": 17
+    "nearest_placement_chars": null
    },
    {
     "locus": "300",
@@ -213,7 +215,7 @@
     "our_offset": 321,
     "head": "kephalaion",
     "reading": "ΚΕΦΑΛΑΙΟΝ Ζʹ. ΘΥΝΟΡΘΙΘ ΛΑΡ",
-    "nearest_placement_chars": 85
+    "nearest_placement_chars": null
    },
    {
     "locus": "462",
@@ -275,62 +277,6 @@
  },
  "placements": [
   {
-   "head": "PARAPHRASIS. PACHYMERJE (27).",
-   "printed_number": 27,
-   "anchor_gap_words": 24,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των"
-  },
-  {
-   "head": "CAPUT VII",
-   "printed_number": null,
-   "anchor_gap_words": 1,
-   "locus": "283",
-   "offset": 1603,
-   "incipit": "περι των επι εοις κεκοιμημενοις τελουμενων"
-  },
-  {
-   "head": "SYNOPSIS CAPITIS. Prima",
-   "printed_number": null,
-   "anchor_gap_words": 8,
-   "locus": "283",
-   "offset": 1677,
-   "incipit": "ειπειν ως οιμαι και τα προς"
-  },
-  {
-   "head": "ADNOTATIONES",
-   "printed_number": null,
-   "anchor_gap_words": 27,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της"
-  },
-  {
-   "head": "PARAPHRASIS PACHYMERUE",
-   "printed_number": 42,
-   "anchor_gap_words": 3,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της"
-  },
-  {
-   "head": "CAPUT VII",
-   "printed_number": null,
-   "anchor_gap_words": 13,
-   "locus": "440",
-   "offset": 406,
-   "incipit": "ως σοφην και ως αυτοσοφιαν υμνωμεν"
-  },
-  {
-   "head": "SYNOPSIS CAPITIS. V. Docet",
-   "printed_number": null,
-   "anchor_gap_words": 13,
-   "locus": "440",
-   "offset": 406,
-   "incipit": "ως σοφην και ως αυτοσοφιαν υμνωμεν"
-  },
-  {
    "head": "ADNOTATIONES",
    "printed_number": null,
    "anchor_gap_words": 27,
@@ -343,1055 +289,1118 @@
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 73780,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73780 words away (limit 40)"
+   "anchor_gap_words": 170489,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170489 words away (limit 40)"
   },
   {
    "head": "CAPUT VI",
    "printed_number": null,
-   "anchor_gap_words": 73773,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73773 words away (limit 40)"
+   "anchor_gap_words": 170482,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170482 words away (limit 40)"
   },
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 73766,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73766 words away (limit 40)"
+   "anchor_gap_words": 170475,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170475 words away (limit 40)"
   },
   {
    "head": "CAPUT IX",
    "printed_number": null,
-   "anchor_gap_words": 73756,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73756 words away (limit 40)"
+   "anchor_gap_words": 170465,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170465 words away (limit 40)"
   },
   {
    "head": "CAPUT X",
    "printed_number": null,
-   "anchor_gap_words": 73746,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73746 words away (limit 40)"
+   "anchor_gap_words": 170455,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170455 words away (limit 40)"
   },
   {
    "head": "CAPUT XL",
    "printed_number": null,
-   "anchor_gap_words": 73744,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73744 words away (limit 40)"
+   "anchor_gap_words": 170453,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170453 words away (limit 40)"
   },
   {
    "head": "CAPUT X",
    "printed_number": null,
-   "anchor_gap_words": 73718,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73718 words away (limit 40)"
+   "anchor_gap_words": 170427,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170427 words away (limit 40)"
   },
   {
    "head": "CAPUT XIII",
    "printed_number": null,
-   "anchor_gap_words": 73713,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73713 words away (limit 40)"
+   "anchor_gap_words": 170422,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170422 words away (limit 40)"
   },
   {
    "head": "CAPUT XIV",
    "printed_number": null,
-   "anchor_gap_words": 73685,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73685 words away (limit 40)"
+   "anchor_gap_words": 170394,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170394 words away (limit 40)"
   },
   {
    "head": "CAPUT X",
    "printed_number": null,
-   "anchor_gap_words": 73656,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73656 words away (limit 40)"
+   "anchor_gap_words": 170365,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170365 words away (limit 40)"
   },
   {
    "head": "CAPUT X",
    "printed_number": null,
-   "anchor_gap_words": 73642,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73642 words away (limit 40)"
+   "anchor_gap_words": 170351,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170351 words away (limit 40)"
   },
   {
    "head": "CAPUT XVII",
    "printed_number": null,
-   "anchor_gap_words": 73633,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73633 words away (limit 40)"
+   "anchor_gap_words": 170342,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170342 words away (limit 40)"
   },
   {
    "head": "CAPUT XVIII",
    "printed_number": null,
-   "anchor_gap_words": 73628,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73628 words away (limit 40)"
+   "anchor_gap_words": 170337,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170337 words away (limit 40)"
   },
   {
    "head": "CAPUT XIX",
    "printed_number": null,
-   "anchor_gap_words": 73616,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73616 words away (limit 40)"
+   "anchor_gap_words": 170325,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170325 words away (limit 40)"
   },
   {
    "head": "CAPUT XX",
    "printed_number": null,
-   "anchor_gap_words": 73568,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73568 words away (limit 40)"
+   "anchor_gap_words": 170277,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170277 words away (limit 40)"
   },
   {
    "head": "CAPUT XXI",
    "printed_number": null,
-   "anchor_gap_words": 73561,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73561 words away (limit 40)"
+   "anchor_gap_words": 170270,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170270 words away (limit 40)"
   },
   {
    "head": "CAPUT XXII",
    "printed_number": null,
-   "anchor_gap_words": 73555,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73555 words away (limit 40)"
+   "anchor_gap_words": 170264,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170264 words away (limit 40)"
   },
   {
    "head": "CAPUT IV",
    "printed_number": null,
-   "anchor_gap_words": 73353,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73353 words away (limit 40)"
+   "anchor_gap_words": 170062,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170062 words away (limit 40)"
   },
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 73326,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 73326 words away (limit 40)"
+   "anchor_gap_words": 170035,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 170035 words away (limit 40)"
   },
   {
    "head": "CAPUT II",
    "printed_number": null,
-   "anchor_gap_words": 72667,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 72667 words away (limit 40)"
+   "anchor_gap_words": 169376,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 169376 words away (limit 40)"
   },
   {
    "head": "CAPUT VI",
    "printed_number": null,
-   "anchor_gap_words": 72650,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 72650 words away (limit 40)"
+   "anchor_gap_words": 169359,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 169359 words away (limit 40)"
   },
   {
    "head": "CAPUT I",
    "printed_number": null,
-   "anchor_gap_words": 70844,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 70844 words away (limit 40)"
+   "anchor_gap_words": 167553,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 167553 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS",
    "printed_number": null,
-   "anchor_gap_words": 70844,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 70844 words away (limit 40)"
+   "anchor_gap_words": 167553,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 167553 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 70326,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 70326 words away (limit 40)"
+   "anchor_gap_words": 167035,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 167035 words away (limit 40)"
   },
   {
    "head": "FARAPHRASIS PACHYMERLE (1).",
    "printed_number": 1,
-   "anchor_gap_words": 70288,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 70288 words away (limit 40)"
+   "anchor_gap_words": 166997,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 166997 words away (limit 40)"
   },
   {
    "head": "CAPUT I",
    "printed_number": null,
-   "anchor_gap_words": 68645,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 68645 words away (limit 40)"
+   "anchor_gap_words": 165354,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 165354 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS",
    "printed_number": null,
-   "anchor_gap_words": 68645,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 68645 words away (limit 40)"
+   "anchor_gap_words": 165354,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 165354 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 66893,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 66893 words away (limit 40)"
+   "anchor_gap_words": 163602,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 163602 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMEIUE (8).",
    "printed_number": 8,
-   "anchor_gap_words": 66864,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 66864 words away (limit 40)"
+   "anchor_gap_words": 163573,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 163573 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS Y. Defiuit.",
    "printed_number": null,
-   "anchor_gap_words": 64098,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 64098 words away (limit 40)"
+   "anchor_gap_words": 160807,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 160807 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 63577,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 63577 words away (limit 40)"
+   "anchor_gap_words": 160286,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 160286 words away (limit 40)"
   },
   {
    "head": "32 PARAPHRASIS PACHYMETLE (87).",
    "printed_number": 87,
-   "anchor_gap_words": 63517,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 63517 words away (limit 40)"
+   "anchor_gap_words": 160226,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 160226 words away (limit 40)"
   },
   {
    "head": "CAPUT IV",
    "printed_number": null,
-   "anchor_gap_words": 62200,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 62200 words away (limit 40)"
+   "anchor_gap_words": 158909,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 158909 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 62200,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 62200 words away (limit 40)"
+   "anchor_gap_words": 158909,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 158909 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 61270,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 61270 words away (limit 40)"
+   "anchor_gap_words": 157979,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 157979 words away (limit 40)"
   },
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 59464,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 59464 words away (limit 40)"
+   "anchor_gap_words": 156173,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 156173 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 59199,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 59199 words away (limit 40)"
+   "anchor_gap_words": 155908,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 155908 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
    "printed_number": null,
-   "anchor_gap_words": 59180,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 59180 words away (limit 40)"
+   "anchor_gap_words": 155889,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 155889 words away (limit 40)"
   },
   {
    "head": "CAPUT VI",
    "printed_number": null,
-   "anchor_gap_words": 58827,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 58827 words away (limit 40)"
+   "anchor_gap_words": 155536,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 155536 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 58813,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 58813 words away (limit 40)"
+   "anchor_gap_words": 155522,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 155522 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 58572,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 58572 words away (limit 40)"
+   "anchor_gap_words": 155281,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 155281 words away (limit 40)"
   },
   {
    "head": "CAPUT VII",
    "printed_number": null,
-   "anchor_gap_words": 57990,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 57990 words away (limit 40)"
+   "anchor_gap_words": 154699,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 154699 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS",
    "printed_number": null,
-   "anchor_gap_words": 57977,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 57977 words away (limit 40)"
+   "anchor_gap_words": 154686,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 154686 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 56704,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 56704 words away (limit 40)"
+   "anchor_gap_words": 153413,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 153413 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMETRLE (12).",
    "printed_number": 12,
-   "anchor_gap_words": 56684,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 56684 words away (limit 40)"
+   "anchor_gap_words": 153393,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 153393 words away (limit 40)"
   },
   {
    "head": "CAPUT VIII",
    "printed_number": null,
-   "anchor_gap_words": 51607,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 51607 words away (limit 40)"
+   "anchor_gap_words": 148316,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 148316 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 51605,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 51605 words away (limit 40)"
+   "anchor_gap_words": 148314,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 148314 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 50748,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 50748 words away (limit 40)"
+   "anchor_gap_words": 147457,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 147457 words away (limit 40)"
   },
   {
    "head": "PARAPIIRASIS ΡΑΘΠΥΜΕΙ (12).",
    "printed_number": 12,
-   "anchor_gap_words": 50733,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 50733 words away (limit 40)"
+   "anchor_gap_words": 147442,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 147442 words away (limit 40)"
   },
   {
    "head": "CAPUT IX",
    "printed_number": null,
-   "anchor_gap_words": 47821,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 47821 words away (limit 40)"
+   "anchor_gap_words": 144530,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 144530 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 47821,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 47821 words away (limit 40)"
+   "anchor_gap_words": 144530,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 144530 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 46820,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 46820 words away (limit 40)"
+   "anchor_gap_words": 143529,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 143529 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
    "printed_number": 14,
-   "anchor_gap_words": 46812,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 46812 words away (limit 40)"
+   "anchor_gap_words": 143521,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 143521 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 45168,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 45168 words away (limit 40)"
+   "anchor_gap_words": 141877,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 141877 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 44854,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 44854 words away (limit 40)"
+   "anchor_gap_words": 141563,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 141563 words away (limit 40)"
   },
   {
    "head": "TARAPIIRASI: CI YMEILE (15).",
    "printed_number": 15,
-   "anchor_gap_words": 44840,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 44840 words away (limit 40)"
+   "anchor_gap_words": 141549,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 141549 words away (limit 40)"
   },
   {
    "head": "CAPUT XI",
    "printed_number": null,
-   "anchor_gap_words": 43396,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 43396 words away (limit 40)"
+   "anchor_gap_words": 140105,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 140105 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 43384,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 43384 words away (limit 40)"
+   "anchor_gap_words": 140093,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 140093 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 43131,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 43131 words away (limit 40)"
+   "anchor_gap_words": 139840,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 139840 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
    "printed_number": 16,
-   "anchor_gap_words": 43038,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 43038 words away (limit 40)"
+   "anchor_gap_words": 139747,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 139747 words away (limit 40)"
   },
   {
    "head": "CAPUT XII",
    "printed_number": null,
-   "anchor_gap_words": 42295,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 42295 words away (limit 40)"
+   "anchor_gap_words": 139004,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 139004 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 42287,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 42287 words away (limit 40)"
+   "anchor_gap_words": 138996,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 138996 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 41989,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 41989 words away (limit 40)"
+   "anchor_gap_words": 138698,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 138698 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
    "printed_number": 17,
-   "anchor_gap_words": 41977,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 41977 words away (limit 40)"
+   "anchor_gap_words": 138686,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 138686 words away (limit 40)"
   },
   {
    "head": "CAPUT XIII",
    "printed_number": null,
-   "anchor_gap_words": 41318,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 41318 words away (limit 40)"
+   "anchor_gap_words": 138027,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 138027 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 41270,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 41270 words away (limit 40)"
+   "anchor_gap_words": 137979,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 137979 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 39726,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 39726 words away (limit 40)"
+   "anchor_gap_words": 136435,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 136435 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
    "printed_number": 18,
-   "anchor_gap_words": 39704,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 39704 words away (limit 40)"
+   "anchor_gap_words": 136413,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 136413 words away (limit 40)"
   },
   {
    "head": "CAPUT XIV",
    "printed_number": null,
-   "anchor_gap_words": 37153,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 37153 words away (limit 40)"
+   "anchor_gap_words": 133862,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 133862 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 37153,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 37153 words away (limit 40)"
+   "anchor_gap_words": 133862,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 133862 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 37043,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 37043 words away (limit 40)"
+   "anchor_gap_words": 133752,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 133752 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMEILE (19).",
    "printed_number": 19,
-   "anchor_gap_words": 37003,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 37003 words away (limit 40)"
+   "anchor_gap_words": 133712,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 133712 words away (limit 40)"
   },
   {
    "head": "CAPUT XV",
    "printed_number": null,
-   "anchor_gap_words": 36279,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 36279 words away (limit 40)"
+   "anchor_gap_words": 132988,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 132988 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS. L Angeli",
    "printed_number": null,
-   "anchor_gap_words": 36121,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 36121 words away (limit 40)"
+   "anchor_gap_words": 132830,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 132830 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 34026,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 34026 words away (limit 40)"
+   "anchor_gap_words": 130735,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 130735 words away (limit 40)"
   },
   {
    "head": "136 PARAPIRASIS PACHYMERJE. (20).",
    "printed_number": 20,
-   "anchor_gap_words": 33998,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 33998 words away (limit 40)"
+   "anchor_gap_words": 130707,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 130707 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS. V. Ecclesiasticam",
    "printed_number": null,
-   "anchor_gap_words": 28324,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 28324 words away (limit 40)"
+   "anchor_gap_words": 125033,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 125033 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 27058,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 27058 words away (limit 40)"
+   "anchor_gap_words": 123767,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 123767 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERAE",
    "printed_number": 22,
-   "anchor_gap_words": 26987,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 26987 words away (limit 40)"
+   "anchor_gap_words": 123696,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 123696 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS. Prima",
    "printed_number": null,
-   "anchor_gap_words": 24961,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 24961 words away (limit 40)"
+   "anchor_gap_words": 121670,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 121670 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 22580,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 22580 words away (limit 40)"
+   "anchor_gap_words": 119289,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 119289 words away (limit 40)"
   },
   {
    "head": "178 PARAPIRASIS PACHYMERJE (25).",
    "printed_number": 25,
-   "anchor_gap_words": 22452,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 22452 words away (limit 40)"
+   "anchor_gap_words": 119161,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 119161 words away (limit 40)"
   },
   {
    "head": "CAPUT III",
    "printed_number": null,
-   "anchor_gap_words": 19755,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 19755 words away (limit 40)"
+   "anchor_gap_words": 116464,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 116464 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS Prima",
    "printed_number": null,
-   "anchor_gap_words": 19755,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 19755 words away (limit 40)"
+   "anchor_gap_words": 116464,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 116464 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 15855,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 15855 words away (limit 40)"
+   "anchor_gap_words": 112564,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 112564 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACIIYMEILE (24).",
    "printed_number": 24,
-   "anchor_gap_words": 15820,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 15820 words away (limit 40)"
+   "anchor_gap_words": 112529,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 112529 words away (limit 40)"
   },
   {
    "head": "CAPUT IV",
    "printed_number": null,
-   "anchor_gap_words": 11163,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 11163 words away (limit 40)"
+   "anchor_gap_words": 107872,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 107872 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS Prima",
    "printed_number": null,
-   "anchor_gap_words": 11163,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 11163 words away (limit 40)"
+   "anchor_gap_words": 107872,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 107872 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 8801,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 8801 words away (limit 40)"
+   "anchor_gap_words": 105510,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 105510 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
    "printed_number": 25,
-   "anchor_gap_words": 8775,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 8775 words away (limit 40)"
+   "anchor_gap_words": 105484,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 105484 words away (limit 40)"
   },
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 6318,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 6318 words away (limit 40)"
+   "anchor_gap_words": 103027,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 103027 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS Prima",
    "printed_number": null,
-   "anchor_gap_words": 6318,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 6318 words away (limit 40)"
+   "anchor_gap_words": 103027,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 103027 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 3647,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 3647 words away (limit 40)"
+   "anchor_gap_words": 100356,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 100356 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
    "printed_number": 26,
-   "anchor_gap_words": 3623,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 3623 words away (limit 40)"
+   "anchor_gap_words": 100332,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 100332 words away (limit 40)"
   },
   {
    "head": "CAPUT VI",
    "printed_number": null,
-   "anchor_gap_words": 1353,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 1353 words away (limit 40)"
+   "anchor_gap_words": 98062,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 98062 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS",
    "printed_number": null,
-   "anchor_gap_words": 1353,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 1353 words away (limit 40)"
+   "anchor_gap_words": 98062,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 98062 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 51,
-   "locus": "278",
-   "offset": 55,
-   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
-   "reason": "nearest anchor is 51 words away (limit 40)"
+   "anchor_gap_words": 96760,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 96760 words away (limit 40)"
+  },
+  {
+   "head": "PARAPHRASIS. PACHYMERJE (27).",
+   "printed_number": 27,
+   "anchor_gap_words": 96733,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 96733 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT VII",
+   "printed_number": null,
+   "anchor_gap_words": 94360,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 94360 words away (limit 40)"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. Prima",
+   "printed_number": null,
+   "anchor_gap_words": 94352,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 94352 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 54067,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 54067 words away (limit 40)"
+   "anchor_gap_words": 91181,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 91181 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS ΡΑΟΠΥΜΕΒ ΑΣ (28).",
    "printed_number": 28,
-   "anchor_gap_words": 54056,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 54056 words away (limit 40)"
+   "anchor_gap_words": 91170,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 91170 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 50938,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 50938 words away (limit 40)"
+   "anchor_gap_words": 88052,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 88052 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 48690,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 48690 words away (limit 40)"
+   "anchor_gap_words": 85804,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 85804 words away (limit 40)"
   },
   {
    "head": "297 PARAPHRASIS PACIIYMERJE (21).",
    "printed_number": 21,
-   "anchor_gap_words": 48500,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 48500 words away (limit 40)"
+   "anchor_gap_words": 85614,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 85614 words away (limit 40)"
   },
   {
    "head": "CAPUT I",
    "printed_number": null,
-   "anchor_gap_words": 42307,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 42307 words away (limit 40)"
+   "anchor_gap_words": 79421,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 79421 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 42292,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 42292 words away (limit 40)"
+   "anchor_gap_words": 79406,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 79406 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 39342,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 39342 words away (limit 40)"
+   "anchor_gap_words": 76456,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 76456 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERLE",
    "printed_number": 55,
-   "anchor_gap_words": 39267,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 39267 words away (limit 40)"
+   "anchor_gap_words": 76381,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 76381 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS. CAPUT III.",
    "printed_number": null,
-   "anchor_gap_words": 34602,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 34602 words away (limit 40)"
+   "anchor_gap_words": 71716,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 71716 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 33592,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 33592 words away (limit 40)"
+   "anchor_gap_words": 70706,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 70706 words away (limit 40)"
   },
   {
    "head": "CAPUT IV",
    "printed_number": null,
-   "anchor_gap_words": 32288,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 32288 words away (limit 40)"
+   "anchor_gap_words": 69402,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 69402 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS",
    "printed_number": null,
-   "anchor_gap_words": 32288,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 32288 words away (limit 40)"
+   "anchor_gap_words": 69402,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 69402 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 23928,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 23928 words away (limit 40)"
+   "anchor_gap_words": 61042,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 61042 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERLE",
    "printed_number": 39,
-   "anchor_gap_words": 23827,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 23827 words away (limit 40)"
+   "anchor_gap_words": 60941,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 60941 words away (limit 40)"
   },
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 8110,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 8110 words away (limit 40)"
+   "anchor_gap_words": 45224,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 45224 words away (limit 40)"
   },
   {
    "head": "SYNOPSIS CAPITIS.",
    "printed_number": null,
-   "anchor_gap_words": 8110,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 8110 words away (limit 40)"
+   "anchor_gap_words": 45224,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 45224 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",
    "printed_number": null,
-   "anchor_gap_words": 5967,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 5967 words away (limit 40)"
+   "anchor_gap_words": 43081,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 43081 words away (limit 40)"
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
    "printed_number": 41,
-   "anchor_gap_words": 5916,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 5916 words away (limit 40)"
+   "anchor_gap_words": 43030,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 43030 words away (limit 40)"
   },
   {
    "head": "CAPUT V",
    "printed_number": null,
-   "anchor_gap_words": 583,
-   "locus": "437",
-   "offset": 13,
-   "incipit": "περι της αιωνιου λεγειν ζωης της",
-   "reason": "nearest anchor is 583 words away (limit 40)"
+   "anchor_gap_words": 37697,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 37697 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "printed_number": null,
+   "anchor_gap_words": 37141,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 37141 words away (limit 40)"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 42,
+   "anchor_gap_words": 37117,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 37117 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT VII",
+   "printed_number": null,
+   "anchor_gap_words": 35885,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 35885 words away (limit 40)"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. V. Docet",
+   "printed_number": null,
+   "anchor_gap_words": 35885,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε",
+   "reason": "nearest anchor is 35885 words away (limit 40)"
   },
   {
    "head": "ADNOTATIONES",

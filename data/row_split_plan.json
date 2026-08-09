@@ -258,7 +258,7 @@
   {
    "volume": "PG003",
    "date": "2026-08-09",
-   "basis": "Migne PG 3 prints Pseudo-Dionysius alternating with Georgius Pachymeres' paraphrase and the switch usually falls inside a printed page. Boundaries are the volume's own display heads: from data/pg003_heads.json where the aligned table has them, and from our own bytes where our OCR kept the head (data/pg003_blocks.json). Every offset was read from data/corpus/cogPG.PG003.jsonl, never from the Internet Archive text.\nThe paraphrase is one work with 40 discontinuous parts: Migne numbers it PARAPHRASIS PACHYMERAE (1) to (60) continuously across the four treatises it accompanies, with no title page per treatise. It stops at (60) on the last chapter of the Mystical Theology; PG 3 prints no paraphrase of the Epistles and says so at col. 1064 (Vide Schol. S. Maximi et Paraphr. Pachym. in Epistola 1, tom. II), so loci 540-567 are Dionysius entire.\nTwo of those four switches are now in data/pg003_heads.json, which learned to read the head the scanner garbles worst: 146:0 is head (15) and 292:232 is head (28). The table's own ADNOTATIONES placement at 292:234 lands two characters later, inside a token, so it could not have been cut. The other two, 101:0 and 525:0, are not recoverable from the text OCR: head (9) is broken across two chunks and the number on the head at 525 is cut off at the scan edge. Both were instead read off the scan's own page layout, which carries a bounding box per word (data/pg003_head_geometry.json, and locus = leaf + 8, fitted on four independent column numbers). Leaf 93 is locus 101: its page header changes from DE COELESTI HIERARCHIA, CAP. 1. - CORDERII NOTAE on the leaf before to PARAPHRASIS PACHYMERAE (9), and the Greek printed under it is the Της ιεραρχιας αυτης απασης our row 101 opens with. Leaf 517 is locus 525: the display head sits 68 percent down the page, but everything above it there is Latin, which our Greek rows do not carry, so the paraphrase is still the first thing in the row. Both fall at the first character of a page for that reason, not by assumption.\nTwo boundaries are not taken and the four blocks they separate stay in the volume file: our OCR spliced the head into the middle of the preceding word, so the offset is not at a whitespace boundary and this tool would refuse it. 283:1586 reads ...to a)su/gKEFALAION Z'. and 440:321 reads ...LaIOIIFi/KEFALAION Z'. That leaves EH cap. VII (2,907 tokens), DN cap. VII (1,485) and their two paraphrase blocks (2,382 and 1,272) uncarved, plus locus 568, whose 20 tokens are Maximus quoted inside a Latin note and belong to neither author.\nCheck: against the TLG canon word counts in data/cgpg_works.json each work lands within 3 percent once its uncarved block is added back. CH 10,742 v 11,488 less the cap. I text absent from the dump; EH 13,074+2,907 v 16,400; DN 22,295+1,485 v 24,104; MT 1,313 v 1,350; Epistulae 6,569 v 6,668.",
+   "basis": "Migne PG 3 prints Pseudo-Dionysius alternating with Georgius Pachymeres' paraphrase and the switch usually falls inside a printed page. Boundaries are the volume's own display heads: from data/pg003_heads.json where the aligned table has them, and from our own bytes where our OCR kept the head (data/pg003_blocks.json). Every offset was read from data/corpus/cogPG.PG003.jsonl, never from the Internet Archive text.\nThe paraphrase is one work with 40 discontinuous parts: Migne numbers it PARAPHRASIS PACHYMERAE (1) to (60) continuously across the four treatises it accompanies, with no title page per treatise. It stops at (60) on the last chapter of the Mystical Theology; PG 3 prints no paraphrase of the Epistles and says so at col. 1064 (Vide Schol. S. Maximi et Paraphr. Pachym. in Epistola 1, tom. II), so loci 540-567 are Dionysius entire.\nTwo of those four switches are now in data/pg003_heads.json, which learned to read the head the scanner garbles worst: 146:0 is head (15) and 292:232 is head (28). The table's own ADNOTATIONES placement at 292:234 lands two characters later, inside a token, so it could not have been cut. The other two, 101:0 and 525:0, are not recoverable from the text OCR: head (9) is broken across two chunks and the number on the head at 525 is cut off at the scan edge. Both were instead read off the scan's own page layout, which carries a bounding box per word (data/pg003_head_geometry.json, and locus = leaf + 8, fitted on four independent column numbers). Leaf 93 is locus 101: its page header changes from DE COELESTI HIERARCHIA, CAP. 1. - CORDERII NOTAE on the leaf before to PARAPHRASIS PACHYMERAE (9), and the Greek printed under it is the Της ιεραρχιας αυτης απασης our row 101 opens with. Leaf 517 is locus 525: the display head sits 68 percent down the page, but everything above it there is Latin, which our Greek rows do not carry, so the paraphrase is still the first thing in the row. Both fall at the first character of a page for that reason, not by assumption.\nTwo boundaries were left out at first and are now taken. Our OCR ran the head ΚΕΦΑΛΑΙΟΝ Ζʹ into the text before it at 283:1586 (...τὸ ἀσύγΚΕΦΑΛΑΙΟΝ Ζʹ.) and at 440:321 (...ΛαΙΟΙΙΦίΚΕΦΑΛΑΙΟΝ Ζʹ.), so neither offset sat at a whitespace boundary and this tool refused them, correctly: an offset inside a Greek run splits one word in half and gives half to the wrong author. The text was repaired instead of the guard, by scripts/unsplice_pg003_heads.py, which inserts one space at each and is recorded in data/corpus_changes/cogPG.PG003.head-splice.json. The second OCR of the volume prints both heads on a line of their own, and at 283 keeps the word ours lost, ἀσύγ- carrying over the column break to χυτον; that missing χυτον is deliberately NOT supplied from the other witness, so ἀσύγ stays a fragment and is recorded as one. What precedes the head at 440 is not Greek at all but Migne's Latin column read as Greek shapes, ἄεαηε, νεῖ οοαε αο οο for atque, vel quocunque alio modo, so about 30 junk tokens travel with the paraphrase there. Each splice turns one welded token into the two it always was, so the volume file goes from 160,260 Greek tokens to 160,262 before this carve runs, and the carve itself then conserves exactly. Locus 568 still stays: its 20 tokens are Maximus quoted inside a Latin note and belong to neither author, so PG003's file legitimately survives with one row.\nCheck: against the TLG canon word counts in data/cgpg_works.json each work lands within 3 percent once its uncarved block is added back. CH 10,742 v 11,488 less the cap. I text absent from the dump; EH 13,074+2,907 v 16,400; DN 22,295+1,485 v 24,104; MT 1,313 v 1,350; Epistulae 6,569 v 6,668.",
    "works": [
     {
      "slug": "pseudo-dionysius-areopagita.de-caelesti-hierarchia",
@@ -776,6 +776,62 @@
        "file": "data/corpus/cogPG.PG003.jsonl",
        "locus": "276",
        "row_sha256": "14f5148b930700ca33f352a6367d3ae145ebf8f73b7f1fc1d2484a123f212edb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "283",
+       "row_sha256": "2347f88f79008a3a5d05481efd8bf7c5d1e11ad914ebcfbbf549d274b128985c",
+       "start": 1587,
+       "at": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+       "prev_ends_with": "τὸ ἀσύγ"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "284",
+       "row_sha256": "01d1a0d5475a18cc838f1237aa85091033ded937486c97eb0aae75e4b28dfd3f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "285",
+       "row_sha256": "4d3b6438107b83bc9d5291f5218c7e6bbe92a446022692de69526ea278180ba7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "286",
+       "row_sha256": "2be3e91fa3ddb6e1dc86398a14c3e084cbf939c7a6b01bc4730882370d57e7d9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "287",
+       "row_sha256": "aba5bbb04ac7ec6fbaf063d437bb6543c1302d4ce92b61ee19a12d95ba62a0c3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "288",
+       "row_sha256": "2274c233579c92ada40ce2893918218ede0e42df6825c4b0364a44552d50e9d1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "289",
+       "row_sha256": "f6feec9ffeec89837faa69ca50a58ad18c9e39ee5b697c8cc135f73f19ef4b77"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "290",
+       "row_sha256": "8c73de43c66ad2c33443304490ebf86ff29458d977a3ad69a05518c733619661"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "291",
+       "row_sha256": "4e1ed292e1841bfe98c9bd05462323df555033379cc3d8755222e44f5e6f4d83"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "292",
+       "row_sha256": "d4a9e43de32a90d12cfb7d4a52e2f58269e424b6807ff4d02274d4dee5e2d8a2",
+       "end": 232,
+       "after": "Ι.Τούτων οὖν διωρισμένων,",
+       "ends_with": "ἀνασκαλεύσω σπινθῆρας."
       }
      ]
     },
@@ -1038,6 +1094,34 @@
        "file": "data/corpus/cogPG.PG003.jsonl",
        "locus": "436",
        "row_sha256": "7b16635c8ba689e03e929b3b4038e7f8c7f43b8607bcf40c7b672e2827e9b872"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "440",
+       "row_sha256": "383b31c29f35644799d238acf72706b7931f128f4f5e87642ae8f68f9605cb9f",
+       "start": 322,
+       "at": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+       "prev_ends_with": "ΛαΙΟΙΙΦί"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "441",
+       "row_sha256": "a4e981a0574dc80e697deeb023114c8939afbfb666233e7b0ebec21447fa286e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "442",
+       "row_sha256": "b199bf523e06bbe59fb0f2bb62a4e0927501a9858684dd67105501dc868dffd9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "443",
+       "row_sha256": "24853f8e0c90092003286467dd989bcce97f6525435b4b6f7a5e86eaeefbff12"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "444",
+       "row_sha256": "a936a5ab973f18efab18843a3b4d8086ab2c78823b469edffb4e76c53a98a449"
       },
       {
        "file": "data/corpus/cogPG.PG003.jsonl",
@@ -2050,6 +2134,39 @@
       },
       {
        "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "278",
+       "row_sha256": "b2ee8d377d3b2f430700427450cd037bc7b235a6c4089a4eb9d84ef2e98b959b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "279",
+       "row_sha256": "8bd7d56203b719b9f1e7704844d84fa479387e047850228d91290c690e491788"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "280",
+       "row_sha256": "845f9c6b6335a9663bcc8d7fc167924eb172c0df11c8b87b438229c4442a6fc5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "281",
+       "row_sha256": "fb7d07204b87a1201b84d200439cda58484bf610ba52b0f282ba56731cdfc748"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "282",
+       "row_sha256": "e0dac08cccaa61730fe6033422cf328583f9809f8c9bf72c9364f42d3b56ca63"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "283",
+       "row_sha256": "2347f88f79008a3a5d05481efd8bf7c5d1e11ad914ebcfbbf549d274b128985c",
+       "end": 1587,
+       "after": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+       "ends_with": "τὸ ἀσύγ"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
        "locus": "292",
        "row_sha256": "d4a9e43de32a90d12cfb7d4a52e2f58269e424b6807ff4d02274d4dee5e2d8a2",
        "start": 232,
@@ -2468,6 +2585,29 @@
        "file": "data/corpus/cogPG.PG003.jsonl",
        "locus": "434",
        "row_sha256": "4fd651d53a7fc91072d9f447f12b84818fa993eae66de63aaa996108de5b1b44"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "437",
+       "row_sha256": "8f786646328fb9955289e27b62512992bc48fc05aee25fe5216cb4406f62f889"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "438",
+       "row_sha256": "04365d280ee3b9bb5a9e7aac24b7c4a6b82459053a4e978d6d6b598c9f0f67eb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "439",
+       "row_sha256": "a55a9844a65ddb4b1c7636b3ad0d61be1420e41ea9b05dd4db20016ecce54e99"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "440",
+       "row_sha256": "383b31c29f35644799d238acf72706b7931f128f4f5e87642ae8f68f9605cb9f",
+       "end": 322,
+       "after": "ΚΕΦΑΛΑΙΟΝ Ζʹ.",
+       "ends_with": "ΛαΙΟΙΙΦί"
       },
       {
        "file": "data/corpus/cogPG.PG003.jsonl",
