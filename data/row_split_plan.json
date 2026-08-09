@@ -254,6 +254,2525 @@
      ]
     }
    ]
+  },
+  {
+   "volume": "PG003",
+   "date": "2026-08-09",
+   "basis": "Migne PG 3 prints Pseudo-Dionysius alternating with Georgius Pachymeres' paraphrase and the switch usually falls inside a printed page. Boundaries are the volume's own display heads: from data/pg003_heads.json where the aligned table has them, and from our own bytes where our OCR kept the head (data/pg003_blocks.json). Every offset was read from data/corpus/cogPG.PG003.jsonl, never from the Internet Archive text.\nThe paraphrase is one work with 40 discontinuous parts: Migne numbers it PARAPHRASIS PACHYMERAE (1) to (60) continuously across the four treatises it accompanies, with no title page per treatise. It stops at (60) on the last chapter of the Mystical Theology; PG 3 prints no paraphrase of the Epistles and says so at col. 1064 (Vide Schol. S. Maximi et Paraphr. Pachym. in Epistola 1, tom. II), so loci 540-567 are Dionysius entire.\nTwo of those four switches are now in data/pg003_heads.json, which learned to read the head the scanner garbles worst: 146:0 is head (15) and 292:232 is head (28). The table's own ADNOTATIONES placement at 292:234 lands two characters later, inside a token, so it could not have been cut. The other two, 101:0 and 525:0, are not recoverable from the text OCR: head (9) is broken across two chunks and the number on the head at 525 is cut off at the scan edge. Both were instead read off the scan's own page layout, which carries a bounding box per word (data/pg003_head_geometry.json, and locus = leaf + 8, fitted on four independent column numbers). Leaf 93 is locus 101: its page header changes from DE COELESTI HIERARCHIA, CAP. 1. - CORDERII NOTAE on the leaf before to PARAPHRASIS PACHYMERAE (9), and the Greek printed under it is the Της ιεραρχιας αυτης απασης our row 101 opens with. Leaf 517 is locus 525: the display head sits 68 percent down the page, but everything above it there is Latin, which our Greek rows do not carry, so the paraphrase is still the first thing in the row. Both fall at the first character of a page for that reason, not by assumption.\nTwo boundaries are not taken and the four blocks they separate stay in the volume file: our OCR spliced the head into the middle of the preceding word, so the offset is not at a whitespace boundary and this tool would refuse it. 283:1586 reads ...to a)su/gKEFALAION Z'. and 440:321 reads ...LaIOIIFi/KEFALAION Z'. That leaves EH cap. VII (2,907 tokens), DN cap. VII (1,485) and their two paraphrase blocks (2,382 and 1,272) uncarved, plus locus 568, whose 20 tokens are Maximus quoted inside a Latin note and belong to neither author.\nCheck: against the TLG canon word counts in data/cgpg_works.json each work lands within 3 percent once its uncarved block is added back. CH 10,742 v 11,488 less the cap. I text absent from the dump; EH 13,074+2,907 v 16,400; DN 22,295+1,485 v 24,104; MT 1,313 v 1,350; Epistulae 6,569 v 6,668.",
+   "works": [
+    {
+     "slug": "pseudo-dionysius-areopagita.de-caelesti-hierarchia",
+     "title": "De caelesti hierarchia",
+     "author_display": "Pseudo-Dionysius Areopagita",
+     "rank": "primary",
+     "evidence": "Fifteen blocks, loci 71-192, each opened by its KEFALAION head; ours kept it at 89:1552, 107:865, 110:178, 136:0, 143:1521, 168:0 and 171:0. The dump starts mid-paraphrase, so cap. I's own text (Migne cols 119-126) is absent and is not claimed. Cap. XV's printed title (170:1847 to end of row) stays with the paraphrase: its head sits 128 words from the nearest anchor and the table declines it.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "75",
+       "row_sha256": "2586e6946e0bbd9de07b8744e5c99310c126ad4db7ebb49389f44034df6cd0cf",
+       "start": 1302,
+       "at": "Χρὴ τοιγαροῦν, ὡς οἷμαι,",
+       "prev_ends_with": "οὐκ ἀπεικότως ἀκρότης ἐστί."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "76",
+       "row_sha256": "077c16a85c09ff87ca23c4b0748a5b595da2e5577dc95d5a14bcaad3c593d541"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "77",
+       "row_sha256": "a4db40421252cd18ad2b80ff49dc7431136fba6bc5f3122c5fb2adcc62831eee"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "78",
+       "row_sha256": "818c5ffb2f01a4b8358438748c56a7ad14d21732e362a29ce550e52060349870"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "79",
+       "row_sha256": "40b5a94071210e29de2683488cbf04bbeb7e4f17b122b7c5715df5505bd4b79e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "80",
+       "row_sha256": "80ae3c2c4e9bada0d163efba4f7069be70862896fd5fead82f9619da087e423c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "89",
+       "row_sha256": "b8819e0d889962ee68634276eb7f491a7fa5d7a5455d3977c93cc05107b01249",
+       "start": 1552,
+       "at": "ΚΕΦΑΛΑΙΟΝ Γʹ. Τί ἐστιν",
+       "prev_ends_with": "ὅτι τῇ ἀκακία ἐσεμνύνετα"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "90",
+       "row_sha256": "7f429397ea3184ccb14373a7f17f0a6cd321ea403ac5672e5e52472a17fbe805"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "91",
+       "row_sha256": "a9829d82a579e5267333ced96b062f1bd10c2c745ff05ad6c7dc03bb61e270d1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "96",
+       "row_sha256": "1596dda91a4ad991fdde6cb0e69e0356cbde5fdfa5e45e52a95bf9a1a4989983",
+       "start": 529,
+       "at": "Τῆς τοίνυν ἱεραρχίας αὐτῆς, ὅ",
+       "prev_ends_with": "δὴ τῆς θείας μακαριότητος."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "97",
+       "row_sha256": "54648e2a221ecb49e81ff58374e71958a1e516ee36c2a267acf1de2b1177e6c4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "98",
+       "row_sha256": "7bf5b8a86afe528ccc2b4e83b213665b68548ee8354b19ef3c0b2f9c73fa7675"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "105",
+       "row_sha256": "67802a4050c8305fc908533fe7eb1e59e6217691e731e07c505e13e8d9182f7e",
+       "start": 65,
+       "at": "Αὕτη μὲν οὖν ἐστιν, ὡς ἡ καθ´",
+       "prev_ends_with": "γάρ ἑστιν ἡ ἐκφαντορία."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "106",
+       "row_sha256": "4199d0942c5652f2db4b0afde8533cbfffe0ea54e5768d93b2ec33e0ad578995",
+       "end": 64,
+       "after": "ἡμετέραν δύναμιν εἰπεῖν, ἡ",
+       "ends_with": "μὲν, ὡς καθ´ ἡμᾶς καὶ τὴν"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "107",
+       "row_sha256": "72e8f013ae2ba5367353701e85bc8b72ffc17e3ae5acc58d228271c8b6b77321",
+       "start": 865,
+       "at": "ΚΕΦΑΛΑΙΟΝ Ϛʹ. Ὃσοι μέν εἰσι,",
+       "prev_ends_with": "ἑκάστης οὐρανίας τάξεως."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "108",
+       "row_sha256": "aaa04a0a71b82d4d65263f9ee93939886e42c0a0c451c6e320d879c0699a224a",
+       "end": 624,
+       "after": "τὴν ποιότητα οἱ τῶν οὐρανίων",
+       "ends_with": "κατὰ πλῆθος, καὶ οἷοι κατὰ"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "110",
+       "row_sha256": "98d331f913429c0d760e446ca43eaad7011203770f2bcb6bdd0e5494b5562dfc",
+       "start": 178,
+       "at": "ΚΕΦΑΛΑΙΟΝ Ζʹ. Ταύτην ἡμεῖς",
+       "prev_ends_with": "τὴν ὑπερκειμένην ἐγγύτητα."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "111",
+       "row_sha256": "9241b83aa38b9c4ea779f1f9537f9fca4c75291afcbd559dc65937c31f10bbbb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "112",
+       "row_sha256": "0bdc5360859783efb0f7083885f9229f7197a552b4ea2d280cf83fcc8d4b4c72"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "113",
+       "row_sha256": "d20b4b744d71ee0335160daa75daec047de4caa424f5d2ae5fa1f30178147b67"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "126",
+       "row_sha256": "1c2d90e688ff3b54128bb8698ca36ee6f3b9e14f5078c22ebb8c90cbd76eecaf",
+       "start": 417,
+       "at": "Μετιτέον δὲ νῦν ἡμῖν ἐπὶ τὴν",
+       "prev_ends_with": "καθὼς καὶ ἡμεῖς ἔν ἐσμεν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "127",
+       "row_sha256": "e015ac61c4af6d0e9c539407df757aab223e6075bd5aa4d756ec16055fbfdb92"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "128",
+       "row_sha256": "03436a1d4e5a7da8add90cecda801897c04872700316d9eb9c5136498a2fcc03"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "136",
+       "row_sha256": "9e78732866046de8854bd17a97df86674268053251e2f4703f0a549547ce1d27"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "137",
+       "row_sha256": "ed1fac0ce811103456cc00e1722434d516c0079fe992a45fece81d99990d3c60"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "138",
+       "row_sha256": "fff901de23513b4545f6ec8fe880c353a13e04f30b5b819f6b672771e1090523"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "143",
+       "row_sha256": "c0a8220a3dad95bbaec4c6675438e0d381ecc49bbab7f2928db1d131d4988b22",
+       "start": 1521,
+       "at": "ΚΕΦΑΛΑΙΟΝ Ιʹ. Ἐπανάληψις καὶ",
+       "prev_ends_with": "τὴν πάντων ἀρχὴν, τὸν Θεόν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "144",
+       "row_sha256": "a970839fdca6d06e1a8f2a65086d23eab8621500a5cc20b785dbbac6846ad3b0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "149",
+       "row_sha256": "3912eaaa00ef8feed2f53dc79e11ae1ad70ecec265ebd7a1adf1db66d2b9a038",
+       "start": 628,
+       "at": "Τούτων δὲ διωρισμένων, ἐκεῖνο",
+       "prev_ends_with": "καὶ ἐπὶ τοῦ οὐρανίου νοός."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "150",
+       "row_sha256": "ccbc4e4d4b9115683547229e1f65278142b2c531dbf6aa518ee04726bdd095f7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "153",
+       "row_sha256": "8f460a0aa09e4299a109d4081bfb01c647bc8b54902e5109b42c37e88cf8a375",
+       "start": 851,
+       "at": "Ζητεῖται δὲ καὶ τοῦτο τοῖς",
+       "prev_ends_with": "θεῖα καὶ σοφωτάτου Μαξίμου."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "154",
+       "row_sha256": "33c659b60964bf18db9ab1adc0d2f4204fe7836877a99ffccd2a10ee77f5a2f2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "157",
+       "row_sha256": "90c87601ba1c67b70c9b14ae006b556a3c8a06544e38692b9515355104b4721b",
+       "start": 246,
+       "at": "Ἀγε δὴ καὶ τοῦτο κατὰ δύναμιν",
+       "prev_ends_with": "τῆς θεωνυμίας ἀξιοῦνται."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "158",
+       "row_sha256": "391289b71f740b2d53e475445c3beed22c31b49fc1d47ed57edeacd6c43750d4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "159",
+       "row_sha256": "063666d26dee153e22213bcae4f851b4f94b7a1a97253bd8eee25b7bd949957f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "160",
+       "row_sha256": "3f5095597eb9007f67501200df6791f51621dac3227d23cc6ac03082904d976b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "161",
+       "row_sha256": "1407a97ddd9a500a3cdf6f0d8317c22866fddb6825ef87be2dec3937ea3c0f7c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "168",
+       "row_sha256": "718bb514836a37b497064430a5e370b3f8dbb1a14ffa810e4c22e66468de0d7f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "171",
+       "row_sha256": "aba31a449a29fbbd160f5d150584bc582e24a10621cc0cb9890e9a4daec06b93"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "172",
+       "row_sha256": "54cf0e7fd55bbef6d95d3340e2cc7fad045ad7a01610aa1d724f4776379453a2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "173",
+       "row_sha256": "328c094908e6d7bd62b1769e1b12c8bbeba39c470289c62cdf9f0f340cafef58"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "174",
+       "row_sha256": "d1007ce1e15c0ec4f07d47b43fb20c92e7e9ab5a8df54ce1368768cf81637c60"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "175",
+       "row_sha256": "6fd6bd9740205e26a67ea553e37cd6154f3a59892d36adbc648a9d73a32b1876"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "176",
+       "row_sha256": "0ae9593820c0129a5e057db76d34b8b3e2df491fa7d4e424f578230a27555a78"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "177",
+       "row_sha256": "125fead36d26acdae3f326dedb9a0cb3f15e79ccaf472949f23ecd5d2041ca57"
+      }
+     ]
+    },
+    {
+     "slug": "pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia",
+     "title": "De ecclesiastica hierarchia",
+     "author_display": "Pseudo-Dionysius Areopagita",
+     "rank": "primary",
+     "evidence": "Seven chapters, 193-299; 193:0 is the treatise's first surviving row, its title and the opening of 1.1 having gone with the lost tail of 192. Heads at 243:1346 and 257:1239 are our own bytes. Cap. VII is not here: its head at 283:1586 is glued to the preceding word.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "193",
+       "row_sha256": "42b299696c9a97c426cd8493b1b62598747af5feb84f98beba63a8d7df0b4498"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "194",
+       "row_sha256": "e16d8b1c3dc9320809923c0ada0870a885b9cd9758ddc3df94d49109b7f2471f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "195",
+       "row_sha256": "3734de58eb33419cc17e9f3df97a4bb0e96aa153d5ea1ac03cb08125a0b2bbb3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "196",
+       "row_sha256": "eb87d526ac86ec6e51753c1f18cd5e2254e8eb66df8396d68cdda98f3e04e117"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "203",
+       "row_sha256": "48ab44458ab0804be5ecf99880d24c83a7d4e4020ecc2463075fc02d92e545db"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "204",
+       "row_sha256": "66f1559831ade5deeb1f6b56dc7eccb7320da445b0bae79b6cc43bce33e47f2e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "205",
+       "row_sha256": "3db3270f9ffe154504416a553a325d2b347595415d181be0ccc4d71aedf54acd"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "206",
+       "row_sha256": "46bdc5aa65750b5c241ef4f0234ce6609be619b834eef68b1cdbfb98c3c61acd"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "207",
+       "row_sha256": "5950957eb308371a371c69cfba29820a3194096468079f56db7908b791764464"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "208",
+       "row_sha256": "de9202d807ae038387648c7f1bc986e7dc3501ae064840da3e26cbe8f76c5346"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "209",
+       "row_sha256": "bcb0f7e767612140ae45ad2c3eca7cd05acffe7f1605fba42cdfe3102e8b6dad"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "219",
+       "row_sha256": "90f481f8c87854d95681cfc317cb3ff5e8c926df786637df2930edf452ba2709",
+       "start": 631,
+       "at": "Ἀλλ´ εὖγε, ὅτι ταύτης",
+       "prev_ends_with": "ἄνθρωπον διαπράττεσθαι."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "220",
+       "row_sha256": "7716617f136093c6927f37b326aacc71d2cd4b5491267a1f2e2d9261e50f39f5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "221",
+       "row_sha256": "356bcc5fc3d79ef94847fdb9d3560e9c06251b23efcd40390c797b03c450a171"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "222",
+       "row_sha256": "297d24cf02effdbe1dbf292d525874be8ceae98743566acfc185d633de20f98a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "223",
+       "row_sha256": "cb14af12a95682210fc4427efb3184566b1abff85052a791ed63bd3b9c23d883"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "224",
+       "row_sha256": "6c5afd33380fc089aef2fce67a278ce93705876f20e483bacd040c74b2f7a279"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "225",
+       "row_sha256": "45bfa62829aec7a75812a6d0bc06f2643bcd0301ce2f614afab27508fd16ea86"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "226",
+       "row_sha256": "02a557f664a03d8a8fa2d0828333fbffd4a07720ef00d21a2472465033e0187f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "227",
+       "row_sha256": "3fd1b9c8b97c1a0b2286636639d836607696692e868ce152899e77b26c71080a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "228",
+       "row_sha256": "a0eb8f3ee77683274873323ebc377152105e989a5c38d960e4ca722d8460db27"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "229",
+       "row_sha256": "0a47f5cff485afb4f76802b9fcb2d4d24b3d0b3cd12d93834bfbc1aee727e83b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "230",
+       "row_sha256": "76d317b4657c33c4b65649741c884ffcb46947248ac9886e66ef0182158b17fb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "243",
+       "row_sha256": "39b84cd46ee1267a06379d762ce60f2b72440fb92987be974b68396d0137c144",
+       "start": 1346,
+       "at": "ΚΕΦΑΛΑΙΟΝ Δ. νν ἐν τῷ μύρῳ",
+       "prev_ends_with": "οὐ διαλείποιεν πώποτε,"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "244",
+       "row_sha256": "d01b683237bf700ce94d1e4cf45c580ed74ebf112c2691c6414e463b6b7729eb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "245",
+       "row_sha256": "22b22f774c525367bab7b9ee19c535426071e240ab8f1d24b123cd56d26f07fd"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "246",
+       "row_sha256": "4692b0fb96a7e48080c7358796a0e0fd2a4222c7f3443f17a740d1d5c872f2e2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "247",
+       "row_sha256": "0af6324717c99825f59dfcd4b9fdc7363a68311b80adcf3b0164dc42f739faf3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "248",
+       "row_sha256": "22fd7ef38aea3b83e76c6379e7cbe5f44fa265cbca3e4110042f1779f77ce5a6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "249",
+       "row_sha256": "a68003a0f292a54ca5e960ef565452459c63a9ca06bc23358a527fd8f86947a6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "250",
+       "row_sha256": "1c1fa357f89676921dccf172d716b8628f9c1d27ec21d8ab8f67cf450e5049c9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "257",
+       "row_sha256": "3b532282da5dfdc23d7050b48e3c13c921394dfea81108633ab662926475702f",
+       "start": 1239,
+       "at": "ΚΕΦΑΛΑΙΟΝ Εʹ. Περὶ τῶν",
+       "prev_ends_with": "ἐν τῇ τοῦ μύρου ἱερουργίᾳ."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "258",
+       "row_sha256": "7acbe76a66bf6720f024cd75be4dc35c8941e4112468aa89a004f1b1d614a728"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "259",
+       "row_sha256": "0928cc9dd19394e8602c581923b8f7092ab9272ce3b5dbe341a743c14da31aa0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "260",
+       "row_sha256": "eb57ade6c1fadc1d6e7914eab1d6fa5a3b1e91a3946a1cb3a9de9e824f12cd8e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "261",
+       "row_sha256": "c3c5603dd1248628d0fd6c7760b7132ce528bf317c99abd2f6c77632444019a6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "262",
+       "row_sha256": "3ba6175054688fe0eb1ab226de98e0fb424cea14f8c4f22f6e93515f54368dcb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "263",
+       "row_sha256": "e0998e65ce22803d2b3c9de638ca22e41a7665d6ccd96f36dbe7b85a506a3a2c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "264",
+       "row_sha256": "9f28ba1199c7ac7ab8908528c91e54af7291ca72fced762d0bfcb59a5bcbfa84"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "265",
+       "row_sha256": "4cd50f53b2f09df61ba5714e4106346a02d5fd99fa5f33910ac26a0038e7e423"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "272",
+       "row_sha256": "80eb3a0fb7f19065253f9ebc6edb06bd3ed464e8d8d6986c02f65649f69827c7",
+       "start": 1728,
+       "at": "Αὗται μὲν αἱ ἱερατικαὶ τάξεις",
+       "prev_ends_with": "τὸν προσαγόμενον."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "273",
+       "row_sha256": "9be8cd464c47f9cd4d04ff116be974c5828e82b5583ae0de45f8b11ecab8eb15"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "274",
+       "row_sha256": "70782b1ecf0ed85d57b4aea9d08178deba06091ccb1a60479f1c7a2c4044b00e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "275",
+       "row_sha256": "a4427b45fe20a03adfbbec72bdd80da6755ed8af2964c1e29f522a4778e00757"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "276",
+       "row_sha256": "14f5148b930700ca33f352a6367d3ae145ebf8f73b7f1fc1d2484a123f212edb"
+      }
+     ]
+    },
+    {
+     "slug": "pseudo-dionysius-areopagita.de-divinis-nominibus",
+     "title": "De divinis nominibus",
+     "author_display": "Pseudo-Dionysius Areopagita",
+     "rank": "primary",
+     "evidence": "Thirteen chapters, 300-505. 300:0 carries the treatise head in our own bytes (KEFALAION A'. TW SUMPRESBUTERW TIMOQEW) with DN 1.1 following; 325:782, 462:290, 475:1635, 481:1589 and 492:0 are ours too. Cap. IV runs 354-380 with no paraphrase break, which the running heads of those 27 pages confirm. Cap. VII is not here: its head at 440:321 is glued to the preceding word.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "300",
+       "row_sha256": "5a33ffdce603f89f11ea63137e272c3ecd2069372eab777e81a1a4ffd09bb7fe"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "301",
+       "row_sha256": "fce6cd52577f80dc446f19a7c1b4ae092c57b4aa90d81706f95eea3cae7825ed"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "302",
+       "row_sha256": "2ebcdcff269fe806a6edd67addf9ae6a53a4a110192d7b326fbe3118c0c99463"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "303",
+       "row_sha256": "5157e749aed418ecc264f83bcaab7a85c39d25b069f83bf7dfd9a8019265b1d1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "304",
+       "row_sha256": "ecd792df305376e524b44a20f9f6d91abfdd67fee65c1f459ca753cfa87323f9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "305",
+       "row_sha256": "96847161e7f4ded69eb06305a996a96fee34b7edae1372eac30d50c76ea5f4b5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "306",
+       "row_sha256": "477ccd8ef12bf04213b0e6e9cd7de061451dca9e8da7358f2a065e72aae51110"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "310",
+       "row_sha256": "481fa64e85568bcca1ef83dfad45741309839e3ded426bdfc437cd12665d280e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "325",
+       "row_sha256": "ce558bb20bc67641163ee1bb00c80d9cc201f0811e439b7f45469c332466cc75",
+       "start": 782,
+       "at": "ΚΕΦΑΛΑΙΟΝ Βʹ. Τὴν θεαρχικὴν",
+       "prev_ends_with": "ὁ προφήτης καὶ βασιλεύς."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "326",
+       "row_sha256": "2e6b4669aa27095939610c4c69edd4f41c57bdb06ca3fbe3531a3d840bc22ed1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "327",
+       "row_sha256": "82816a730869cac631bc802d728ccdaab1a542e03bf0cfab3832dd465f696837"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "328",
+       "row_sha256": "29a450239eda2f3b2fea062ba84cc0ecb8ecbb14b5f42b1ccc7214fb2fb94677"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "329",
+       "row_sha256": "ef761892d42d03bd2efc918d85ace0c5f5568d4eb9e1998c5908eabf0bf516be"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "330",
+       "row_sha256": "c0a9767fa014ac2f913d1d102e92c990395aaecde66c76c35cff9a31747209d4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "331",
+       "row_sha256": "3210a68ae7c0d83444a07175b3cf86eff1068a6840ba1f66d3e21995802b8d2d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "332",
+       "row_sha256": "7a2006337f97d4fdfed31a5001e769f8f768705282130c7f61c4cb27dc2b0f8b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "333",
+       "row_sha256": "7d9951c2c358bab3e58269abed93140b73546c143c045c65c8370619fbd32400"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "347",
+       "row_sha256": "fcd3479699e19aa51d866a89c616168ee3d96012be72807e095312d0b9be0767"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "348",
+       "row_sha256": "42d16fbe8a358440c7ad0d5be0414f7fe7dcad278915c7c0894760e4b3ec9d3e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "349",
+       "row_sha256": "65f9ea0318b5e5b6628850bc12fa0bae9c444575d63273dd25f8b1d51e540b21"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "354",
+       "row_sha256": "d160c7ffb2a87e7bd705bb4041588367d0807ca3a986f68c09fe7eea5f12e07b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "355",
+       "row_sha256": "c998ca3cb615d35b541bbdadd2bb58c97bdbe6967255884fc8e7e89ccea18080"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "356",
+       "row_sha256": "6af4e86411369c6c909957a8f0726badb18b7ba8b38efe40695f6656fc8f6e76"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "357",
+       "row_sha256": "973689d10bd3a0b1aced91282d09d1f77f9d705ae38d1cdf399058f9d3df27cc"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "358",
+       "row_sha256": "6fb0a2fb635c376fea38e5f0c2f29d56443ed2ff307cbcb6f6c0433caba96c86"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "359",
+       "row_sha256": "06433e2a164a124c37dbd522feb4afc53c1cf90c1b4b98d0789b2cabfe022c4f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "360",
+       "row_sha256": "8d9a3244422df040494f87caac34b645b64611e71be798a5a7b7595ee666f89b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "361",
+       "row_sha256": "609896cd9044982f0db2fa619b08a8a7d09328e3c967f05c491d040cac6484f5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "362",
+       "row_sha256": "4ed9bcb1a1bf15afaef771bbe7a57f85c79b9c526eb2f752563b3eff645ce5c1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "363",
+       "row_sha256": "645860e42f5896bdf7759f30477105a4bc8e6a88346d30988b9b8be3251f6ae2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "364",
+       "row_sha256": "82691be2593acfcbd4289878408a7c987e57a51aeadba18ba16ff8f8082e33e9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "365",
+       "row_sha256": "041b6200b5ce96e7c4eda2e37afb2c6a1dcec43f626a357d95779e122b53bf39"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "366",
+       "row_sha256": "3d03270f01b04fe0bf68e395578e7e45b9acce3a0dbaf8114d060bb5e31731c2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "367",
+       "row_sha256": "6af9366fbafd10962ccdf7826b7725dd78129e2298ce2cf5475eb6284cc23739"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "368",
+       "row_sha256": "5d3b55f985477fbfcaaa755d304b9846382e9b78ebc9fc0966512d85ef63374e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "369",
+       "row_sha256": "bbe3ec5c5d988f05571f2d5e785e8c9ff5eb47c4c2a3321b1586278d2fe9125b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "370",
+       "row_sha256": "4d169d5034f9fec1b9190b987e1ebf67893f7ef4f931dce692bc15193a3984d4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "371",
+       "row_sha256": "fca8eb9d75c102df88c92eeb85d730cba5e544a387f77e0fd6e3a2ef78177112"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "372",
+       "row_sha256": "041d7d83bbae078f569b7c45244c5fe9407fcf47c9eb638ffd90699d04df1f71"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "373",
+       "row_sha256": "5091bd648dedd2d6ffabab5c2015b94eb2061adfc80cc073aae1e4bb46249af6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "374",
+       "row_sha256": "9ed355911c783d253f7500f27597fdc7cb5ca33b0dc12862d96819d07e531c1a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "375",
+       "row_sha256": "77af8135ab7c987c67dfee6dd02bdfb6d56cea2bd6aa542e1bd0cea965fb6a19"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "415",
+       "row_sha256": "bab95cd519389d8356740c7668d196cddd15597a7a518ec21681b9504130e458"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "416",
+       "row_sha256": "bb0609d5b75f1727c21e5e043e24790006e6a034dce95b9b5f2439ee9b390dbc"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "417",
+       "row_sha256": "a1495fa18baa4bd08baef2b21370879a2ee68cf2dfba10e7b19021f846ee1706"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "418",
+       "row_sha256": "813dea5cd38c8e56cccc105832d455d302d48a9ac466842c6f55cafb6f2cc7f6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "419",
+       "row_sha256": "96bf694042a3c1cdf802ac6c2bd72d7cd92c33979e2bfbdb2d18f0eb6e34a491"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "420",
+       "row_sha256": "1469830d6d461cae5f12aa266ef483e787e1b34958fd49dea03caaddb7f5920e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "435",
+       "row_sha256": "9fe90040ff1b9ec7aa2ba6556c6d73bbc171acb635e13bd7ad8b55ddcaf30cfe"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "436",
+       "row_sha256": "7b16635c8ba689e03e929b3b4038e7f8c7f43b8607bcf40c7b672e2827e9b872"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "452",
+       "row_sha256": "5705dbe3854456b4cbc171aaed80e0025f5fb8debe830802c709ac784f72b597",
+       "start": 607,
+       "at": "Ἀλλ´ ἐπειδὴ τὴν θείαν",
+       "prev_ends_with": "Χριστιανοὶ μαρτυρούμενοι."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "453",
+       "row_sha256": "8d1e98ea0197b7fc53edffaa5527f3a10ac78079ed053cee6839f291d2cce4a9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "454",
+       "row_sha256": "4c6b0efb154d20c66f2eff8b2a950a891aa502cea0dd59632d62605179266e7a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "455",
+       "row_sha256": "49b6b41a5b0778f937460d9d5b6728f60c9459b1aa0524481d77a932a2ab50bb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "456",
+       "row_sha256": "d4e2507a045ca54497bd6ef962d66df3a07b926fd275b22673cf4c7a85705ce9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "462",
+       "row_sha256": "2be429f4d8e9bbc04c30630de6c80d89c6dc7cae178d6d7552f50d2ca332971c",
+       "start": 290,
+       "at": "ΚΕΦΑΛΑΙΟΝ Οʹ. Ἐπειδὴ δὲ καὶ",
+       "prev_ends_with": "καὶ ὡς ἐξ ἀρχῆς ἐγένοντο."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "463",
+       "row_sha256": "a292294f3a30b5b556157dad6497d3b6cdb748129439a3ae72ed1faf5f5b0478"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "464",
+       "row_sha256": "7858f27a84f897121eed5c4eaab0ddf90bf5c5bc423cb67f414ac1bc403714b0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "465",
+       "row_sha256": "2c93a2758cc759f7812f9ffe02dd54fec6c7aa79675eb99002335dd48be8d608"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "466",
+       "row_sha256": "9fbab4fe83848eac0a8925d158f6a7deb8f0c7010ec01cd150f1821ec340b814"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "475",
+       "row_sha256": "ee78729e2e76da0c7e5d7b3edaf468fbfa007f348450246898413762174b4a6a",
+       "start": 1635,
+       "at": "ΚΕΦΑΛΑΙΟΝΙʹ. Ὥρα δὴ τῷ λόγῳ",
+       "prev_ends_with": "τὰ δίκαια ἐργαζόμεθα."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "476",
+       "row_sha256": "ae289a300d0ec44be314991eed08f16d43d76b3b4b9c5679a62c2d8bd0ff35d9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "477",
+       "row_sha256": "b181ea443b804f7406796d67f4166a0fc90f8d8a19d81ec409049ac0bc2ec780"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "481",
+       "row_sha256": "cf0e03d812da1c875ada92f29884583e21abfa10686cc57518485082ba7a3b9b",
+       "start": 1589,
+       "at": "ΚΕΦΑΛΑΙΟΝ ΙΑʹ. Περὶ εἰρήνης,",
+       "prev_ends_with": "αἰώνων, αὐτῷ ἡ δόξα. Ἀμήν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "482",
+       "row_sha256": "ae4f3d76ab633b1990c12599101dec12142a8bc93f772a5873975669c3f1d0fc"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "483",
+       "row_sha256": "a3062d96bb4c0f91cdde63cc5873dd66aaed0e32692d34c4921858c21e0d4315"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "484",
+       "row_sha256": "54d9f325476fe43e2c668bb02ccfca758c105e08f6a722762e6243772bd4e51c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "485",
+       "row_sha256": "d16b0466f294c28db47a443f880c92b8d8b5f97d9a70dedd6b920c8a0e41aeae"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "492",
+       "row_sha256": "8102b2b11e266ea28754f64955e93a52e7f95fd1c9bffe019f04c6be50352c1b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "493",
+       "row_sha256": "bb2ca2532a408cc526a5090bb7ee7447654abffdb25bcec318b474acca0029d1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "496",
+       "row_sha256": "1781876c20ba19c501413356c726cd320b98d01482e14c77a937727c4bca45f6",
+       "start": 456,
+       "at": "Ἐπ´ αὐτὸ  δὲ λοιπὸν, εἰ δοκεῖ",
+       "prev_ends_with": "Τοσαῦτα καὶ περὶ τούτων."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "497",
+       "row_sha256": "d0b5989d51cf1690d26cdd62b93c9dd225a0ed6f4b70adc1c755d6e46cc807be"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "498",
+       "row_sha256": "bedb1429423ee3b898eb9bfa8f42c22e442923d495538fc3ea5ce7cbee45dd13"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "499",
+       "row_sha256": "ff19d195a9fad2d802de9974aef8448b33215986151a0baf14c3e3f89aad432e"
+      }
+     ]
+    },
+    {
+     "slug": "pseudo-dionysius-areopagita.de-mystica-theologia",
+     "title": "De mystica theologia",
+     "author_display": "Pseudo-Dionysius Areopagita",
+     "rank": "primary",
+     "evidence": "Five chapters, 506-539. 506:0 opens Trias u(perou/sie (MT 1.1) on the first row after the De divinis nominibus paraphrase; 527:1404 and 530:1840 are our own KEFALAION heads.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "506",
+       "row_sha256": "415d2b0e33c2b66045397be9cffb4209a9c5284f039dfa191ade43ac2329012a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "507",
+       "row_sha256": "c375356ff1aa91419a89d829f633e6833a77c70e40c2487ea49bbf78cc4c8efd"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "508",
+       "row_sha256": "3afd41130ec7b156e5347aa107297924355bbaef705a538ae260b5807322ad8a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "520",
+       "row_sha256": "252cfe0e0c2a53b23df1d47b60531552be27b02e71d104a8b7c5fe3c83f411f1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "524",
+       "row_sha256": "8fcb353c1edd492d57d70c9e4954883f94907763a42ec99703cd520f881aaf80"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "527",
+       "row_sha256": "49bff134c3e1465ac69b50852499cf1809d1193fb82a4af07ff0fffc48ddbeb9",
+       "start": 1404,
+       "at": "ΚΕΦΑΛΑΙΟΝ Δʹ. Λέγομεν οὖν, ὡς",
+       "prev_ends_with": "λεπτὴ, καὶ ἑκεῖ Κύριος,"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "530",
+       "row_sha256": "dfa7fd6722b3c06bc1efeb3f4eee1689d184e0091a9993515215e3e7233766b8",
+       "start": 1840,
+       "at": "ΚΕΦΑΛΑΙΟΝ Ε Ὅτι οὐδὲν τῶν",
+       "prev_ends_with": "σωματικὰς ποιότητας."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "531",
+       "row_sha256": "0cb96ad808f09ae52dc55b65a3262aa83d5a482c1748c143662a918e134a8d66"
+      }
+     ]
+    },
+    {
+     "slug": "pseudo-dionysius-areopagita.epistulae",
+     "title": "Epistulae",
+     "author_display": "Pseudo-Dionysius Areopagita",
+     "rank": "primary",
+     "evidence": "Loci 540-567 entire, ten epistles with no paraphrase between them. 540:0 opens Ep. 1 (To sko/tos a)fane\\s gi/netai tw=| fwti/) on the row after the Mystical Theology paraphrase ends; 567 closes Ep. 10. Locus 568 is excluded on purpose: its 20 tokens are Maximus quoted inside a Latin note.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "540",
+       "row_sha256": "3f135b673b67dc57f25c063a4e256bae9ead23059831b4956cef9c9d0aaad0d6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "541",
+       "row_sha256": "1a266e817d7f3198eb5d5945f86b1e01040df77dbcb85afdb5ef1acf949e9adf"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "542",
+       "row_sha256": "22922ea1a0f4f6fe4e4829ba6bb4a5a13dd2ef092c342caecee7e950acf6eb16"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "543",
+       "row_sha256": "b811308cc9d444665d3e511eadf945b2a0218d6b5ae9c17d28b7bba01fc57d96"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "544",
+       "row_sha256": "798ccbeb525596500c54a22270076c13e8b29155200a1bb5aad7ff1ee0d3222e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "545",
+       "row_sha256": "b9acc815d746cfc59777f244fb10a80ef058eebdb674aa7a70787dff77815b76"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "546",
+       "row_sha256": "0521d11fc82c87390bd2d36da5844f5de33674fa530e9e9734159f53cfb9ec83"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "547",
+       "row_sha256": "7755de8c7fb814122ac9f3f396f6995090240dd7c7612d4a7b7c78c006cc4c85"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "548",
+       "row_sha256": "5d362c508533637bcb0064f69f1c5c692854eb72300f0c8ac12db34d18cddb17"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "549",
+       "row_sha256": "4b96097f45588877cd1836f3080bd42cf949b40830e9687f22546c2ef8313ce4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "550",
+       "row_sha256": "a77e955e980c98a5500235ab0b22e2e069411991ce340a52475bffa6ad9dcbe6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "551",
+       "row_sha256": "de8d69a98b7cd3cf83c63b7950a26c7ca4e01875a1a9687c97a0904017187d8b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "552",
+       "row_sha256": "69a04b215df822311f3a18f214e4dfdfd2cc1b3df6962406aed43a2e0548ac53"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "553",
+       "row_sha256": "3a344dbff4491b22d2e9ee55866c1de7af3c589d22c3daf6f5663302edd3370d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "554",
+       "row_sha256": "393d56cf2b8131bc81dc21f3b911f0fb9f371d26b9fc1215b604e626ed975688"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "555",
+       "row_sha256": "f56e5b23e6ea73d6e4051815d8b9e5ca3a5feddd55847fb5a28cfec25e56429f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "556",
+       "row_sha256": "2af6d9d4a9b49ff0d62979f57df671a42c0f427b91729b7b42e2158da28e4d4a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "557",
+       "row_sha256": "67fcca9c1fb34b07d53b9bba258507bddecabdc3c7497a54ec2844304fb1d641"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "559",
+       "row_sha256": "23f8b3f5da997c42fc6e9fcf436b110300e3a913039aa2267377694051ade9cf"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "560",
+       "row_sha256": "21912ddd334b2946ca7dcf01a1a42f2b8ff155851aa0820990704d24e89fe9d4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "561",
+       "row_sha256": "871ed895f7aa2973a7b43eaf10d88673bfe4ab9e0ccc0485bd57c6be700be934"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "562",
+       "row_sha256": "27bfe995cf591f47e3cbc1ab60daab5770d0ba9560438d36995dbd7860b86858"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "563",
+       "row_sha256": "a4ed1589c99bfd703cb126246093829a83452f882b59662a1dd4d9c1e210ad8c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "564",
+       "row_sha256": "44f5092421289fa693ba25dd13aaceedf17424450b493a1c5c549c6e70fae280"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "566",
+       "row_sha256": "9687e8aff79a85fb297ca32f506fa34b8cd6c97e755dca5cff4093f99dacaeec"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "567",
+       "row_sha256": "214b27486b47a20353c7b15cdd7221b163ff9380824d2c3c71fab4cc22751707"
+      }
+     ]
+    },
+    {
+     "slug": "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae",
+     "title": "Paraphrasis in omnia opera Dionysii Areopagitae",
+     "author_display": "Georgius Pachymeres",
+     "rank": "primary",
+     "evidence": "Forty blocks opened by a PARAPHRASIS PACHYMERAE head, from (1) at the first row of the dump to (60) at 536. Our own OCR kept the head as garbled Latin at 151:0, 381:0 and 487:0; the rest come from the aligned table, four from the same witness but not from the table (101, 146, 292, 525; see basis). Two blocks are missing, the ones facing the two heads that cannot be cut at a whitespace boundary.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "71",
+       "row_sha256": "68a7c80991b84cc57664b155f27ccd192457549cc3e841e5f1f3e36bfabd590c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "72",
+       "row_sha256": "56a8e5e5522b46dd98a67d6575589a789744c0651df898a33f7dd10748a3ac55"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "73",
+       "row_sha256": "966fe65b8ba083f8193fd85785d70b46c5af2fa53ec392ea596208c0fd554fb9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "74",
+       "row_sha256": "df00328bc14d3af20f0fb40baefa69e55a01153d9efe9e3710371df9987181e7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "75",
+       "row_sha256": "2586e6946e0bbd9de07b8744e5c99310c126ad4db7ebb49389f44034df6cd0cf",
+       "end": 1302,
+       "after": "Χρὴ τοιγαροῦν, ὡς οἷμαι,",
+       "ends_with": "οὐκ ἀπεικότως ἀκρότης ἐστί."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "82",
+       "row_sha256": "310e1aeff5bb12c502f351846331968cab228b159f70d6968091a165bf26cbc6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "83",
+       "row_sha256": "1a6409e3dec590f0d9dccb32342b179e4c4bc5d55094c5bed560829fca4b7577"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "84",
+       "row_sha256": "ac86d22125aea7189e89bf26cf669e9d47101be5923ba8781ab94a026b40402c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "85",
+       "row_sha256": "0e20ebef64cab95a835c9b1b96196460e6e65fdb18883b38a34abbc7eda12f8e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "86",
+       "row_sha256": "1e535ee9cfae3fded39050ef1dd8b468de0ba4efc6627417c7f60a26d61a5596"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "87",
+       "row_sha256": "6c5f44ca3c213246fa25df9cb41293586f8a0d191aee1f5f7f6a8196f8693f3f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "88",
+       "row_sha256": "9c5bd380758e090dd181ccc45e12712a5877234cdb2045ae51341a93c1c9f47a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "89",
+       "row_sha256": "b8819e0d889962ee68634276eb7f491a7fa5d7a5455d3977c93cc05107b01249",
+       "end": 1552,
+       "after": "ΚΕΦΑΛΑΙΟΝ Γʹ. Τί ἐστιν",
+       "ends_with": "ὅτι τῇ ἀκακία ἐσεμνύνετα"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "92",
+       "row_sha256": "fdc766adc12c9d1d367c8c16a7523cadb8d81f6f50faeda517839df0a9421172"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "93",
+       "row_sha256": "ba3ba48a71e504e3089757bc00a6cda7b68fc8984b5d34615bd4e740296240f7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "94",
+       "row_sha256": "b0238e64b07eaeb2a774562cc80af285c82e8983d087d9472f38f812f481fd9a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "95",
+       "row_sha256": "bdb06a8d3815a8a5dfd8bdd0c47e4439cddb7739dee6fba0eab9750880666f5b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "96",
+       "row_sha256": "1596dda91a4ad991fdde6cb0e69e0356cbde5fdfa5e45e52a95bf9a1a4989983",
+       "end": 529,
+       "after": "Τῆς τοίνυν ἱεραρχίας αὐτῆς, ὅ",
+       "ends_with": "δὴ τῆς θείας μακαριότητος."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "101",
+       "row_sha256": "7f9ef6b609a6d5f92294d679f24aa21d0d2769e86bd390f399663d08384b9f09"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "102",
+       "row_sha256": "d4e916e9cf717c90c422bc59a493e7e62bdf2d084aab9e0cafa716439df00351"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "103",
+       "row_sha256": "9f1c92a74b6451bc329180088b35bc7e509dd1a45ce96148cd32d398f8670c2d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "104",
+       "row_sha256": "233dce01304055b0550d1811f8ac75da83cd2a726578162f1f5411585dc2a468"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "105",
+       "row_sha256": "67802a4050c8305fc908533fe7eb1e59e6217691e731e07c505e13e8d9182f7e",
+       "end": 65,
+       "after": "Αὕτη μὲν οὖν ἐστιν, ὡς ἡ καθ´",
+       "ends_with": "γάρ ἑστιν ἡ ἐκφαντορία."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "106",
+       "row_sha256": "4199d0942c5652f2db4b0afde8533cbfffe0ea54e5768d93b2ec33e0ad578995",
+       "start": 64,
+       "at": "ἡμετέραν δύναμιν εἰπεῖν, ἡ",
+       "prev_ends_with": "μὲν, ὡς καθ´ ἡμᾶς καὶ τὴν"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "107",
+       "row_sha256": "72e8f013ae2ba5367353701e85bc8b72ffc17e3ae5acc58d228271c8b6b77321",
+       "end": 865,
+       "after": "ΚΕΦΑΛΑΙΟΝ Ϛʹ. Ὃσοι μέν εἰσι,",
+       "ends_with": "ἑκάστης οὐρανίας τάξεως."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "108",
+       "row_sha256": "aaa04a0a71b82d4d65263f9ee93939886e42c0a0c451c6e320d879c0699a224a",
+       "start": 624,
+       "at": "τὴν ποιότητα οἱ τῶν οὐρανίων",
+       "prev_ends_with": "κατὰ πλῆθος, καὶ οἷοι κατὰ"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "109",
+       "row_sha256": "b5121d1a200dcb0be1436ac05200c166068cec18b9e437101781d90a9afbfe9d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "110",
+       "row_sha256": "98d331f913429c0d760e446ca43eaad7011203770f2bcb6bdd0e5494b5562dfc",
+       "end": 178,
+       "after": "ΚΕΦΑΛΑΙΟΝ Ζʹ. Ταύτην ἡμεῖς",
+       "ends_with": "τὴν ὑπερκειμένην ἐγγύτητα."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "114",
+       "row_sha256": "390d748725dee543d0ee9f9d38a40ebdb15d37d937c5f72914cf69945fe99bde"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "115",
+       "row_sha256": "33e8f678eba720dfc73b25fd72376971bcfde8f0901909beb47b71588da2fb35"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "116",
+       "row_sha256": "d1c781c85ae4844a7432c87cb27d0a9140cef229a1470f4c79c503c7f36ed754"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "117",
+       "row_sha256": "4b12823e15e8f182cdc04a9418ef93f45ef8634181db0bf6c5999890c189c0d7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "118",
+       "row_sha256": "abc56479526b0099434845a5b8604afb8dd4604019d63338792647d38cfb2055"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "119",
+       "row_sha256": "4c59bcaa98a5722e9b3218944e1cb09ef303232f3489a712dc5330b6a37d0120"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "120",
+       "row_sha256": "b2b00f9198d492cb3ddc0edce3fd2b27a63b3cadedb1024af42523f12ff9234d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "121",
+       "row_sha256": "e84b3ac5a6581641b58a5bca814f604eb6e4e3241c2de5a4503e8c8f025c9380"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "122",
+       "row_sha256": "43e738ea07443e2bcdc23cede8acb68fdd69e142fa6158f9fd6d68e31c3abbcf"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "123",
+       "row_sha256": "f57e215a670443e88a02f6814ca6dddf1c3602ae5eaf26712d9a8b049917cd00"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "124",
+       "row_sha256": "aacd21292a7f3a12d8c4c0e876d72940050666f448b18ebcad1688441852f60e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "125",
+       "row_sha256": "f3f314e06d9fd83d1d2c6ce42eb2b628d6f2989575df832e42afbaa458483da0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "126",
+       "row_sha256": "1c2d90e688ff3b54128bb8698ca36ee6f3b9e14f5078c22ebb8c90cbd76eecaf",
+       "end": 417,
+       "after": "Μετιτέον δὲ νῦν ἡμῖν ἐπὶ τὴν",
+       "ends_with": "καθὼς καὶ ἡμεῖς ἔν ἐσμεν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "129",
+       "row_sha256": "f23f26df05f67ee8c33bb7e630416bc75bda735ec504261f578d495f175c32b9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "130",
+       "row_sha256": "1a4ef40a24307acf5cdca647c4febf12a19930fd94d6f1a2ccfa54e9a042bab6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "131",
+       "row_sha256": "b192048dc6fddbdc12ea5ecf58fbb4a06577e1d298ad6031f41b3b5dc26122d8"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "132",
+       "row_sha256": "6c4f7a59fc2c6d19ab13a64c55c954b3b72c9d2f9de48d081b379342998d9c4c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "133",
+       "row_sha256": "d2df102b291dd7d0294237cdf449ddf9209a16187028bdd036812082c56af9eb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "134",
+       "row_sha256": "da81cec573846c4947a51a5ddf8d2f5df8399a7ccc730e7c4734ba1ecbd8c412"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "135",
+       "row_sha256": "0a64385cbd1c0939d77ae491dbce895d487affc2d5e3b630deb88f2edf3a34a2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "139",
+       "row_sha256": "9643f57ad78627d98d7562f35c0efe796dea50447b1c039d17e0edba4368682b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "140",
+       "row_sha256": "b2e5564ce7d72b1a741f31d49a1b252ea6fd1d217b4efcd3ab913a6be60dbe62"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "141",
+       "row_sha256": "806a285ea018d206408c4220bfaca6aad238d65a736a4beac882c8816a158dd3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "142",
+       "row_sha256": "4a6c973d6b511ccf89d384042fa8d18266ee1a158d04c0b937127c1ab2d9c089"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "143",
+       "row_sha256": "c0a8220a3dad95bbaec4c6675438e0d381ecc49bbab7f2928db1d131d4988b22",
+       "end": 1521,
+       "after": "ΚΕΦΑΛΑΙΟΝ Ιʹ. Ἐπανάληψις καὶ",
+       "ends_with": "τὴν πάντων ἀρχὴν, τὸν Θεόν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "146",
+       "row_sha256": "cbf27c1a8ee1ec29d3cedbaf6a40c0eb539c6f74f8a86b6d0d178c56c8bc6be0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "147",
+       "row_sha256": "53c6e5ccd42e5d78105bb7e667061802d1418714cb2a88699556f8d3073cc32b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "148",
+       "row_sha256": "4066316b4112815a8d235af774c2dd05c902b33dbdeace98b612630f4d534c26"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "149",
+       "row_sha256": "3912eaaa00ef8feed2f53dc79e11ae1ad70ecec265ebd7a1adf1db66d2b9a038",
+       "end": 628,
+       "after": "Τούτων δὲ διωρισμένων, ἐκεῖνο",
+       "ends_with": "καὶ ἐπὶ τοῦ οὐρανίου νοός."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "151",
+       "row_sha256": "ae7ac2096444fd8f8756bd839230ed8ea188588575c68076ac8ef7f82df16707"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "152",
+       "row_sha256": "9c24d331e1b131d665662b114f8189e0815f844c4faa9cf5c397c3bdc086972c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "153",
+       "row_sha256": "8f460a0aa09e4299a109d4081bfb01c647bc8b54902e5109b42c37e88cf8a375",
+       "end": 851,
+       "after": "Ζητεῖται δὲ καὶ τοῦτο τοῖς",
+       "ends_with": "θεῖα καὶ σοφωτάτου Μαξίμου."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "155",
+       "row_sha256": "c9e6e2283ace1a64e1a8313745865340124aa7fe5ac62e879d85791bc4a47363"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "156",
+       "row_sha256": "44e369f1202491c87ccb718867f5d4753fb5e22a19a74b9045e84027cfaf1024"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "157",
+       "row_sha256": "90c87601ba1c67b70c9b14ae006b556a3c8a06544e38692b9515355104b4721b",
+       "end": 246,
+       "after": "Ἀγε δὴ καὶ τοῦτο κατὰ δύναμιν",
+       "ends_with": "τῆς θεωνυμίας ἀξιοῦνται."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "162",
+       "row_sha256": "12d06598b87286775c887419d121690de3ffab3a17ba906ac49bb5f31515a1d2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "163",
+       "row_sha256": "46de1568b59778e898905ad3529d42b03c5fc58f2eaee973c62f0f0df99df091"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "164",
+       "row_sha256": "9e4de4c280b70588062c8ecba8dd2d8caa0d7043b87ea8756c1cb79f3b8b0a23"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "165",
+       "row_sha256": "17942c87bd5f5384c1ed1ec5fe8e722db91ae30ce25b7cbea071176d3a9cf376"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "166",
+       "row_sha256": "6a16a6c7f97987940ac364c1602ac760b993561efe816337b105ff60236c7461"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "167",
+       "row_sha256": "5b49c339aa98a266ba230d169d73b45f73c51fbdd483dbcbdf6906869c5c5173"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "169",
+       "row_sha256": "086c37fdb22cdb1130455aaacea54a55f0ed969071f623abb7ceb04c0644f555"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "170",
+       "row_sha256": "4a55510d116513087c9b2102aeeada0ce982bec3fe8159ec34bdbb6eef8ce5bb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "178",
+       "row_sha256": "bb08ca7af568fd93aaa2e9d93ae96f82d9d925490def9dbc6f6a45d52a67195d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "179",
+       "row_sha256": "e4f6ee922fd2fec2f596fb45a68782a79a9de19d111fdbe32ab22a444306c3c7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "180",
+       "row_sha256": "cb757f83061a4fe959cebb3cfdcc9af27b5897d18746675c623386a4cfe932af"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "181",
+       "row_sha256": "e0efe1f42f90faeecf7f531495c4f9fea03726f216bd9ac5f13fd75ddcfb4c20"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "182",
+       "row_sha256": "ae797f9bd3220e40d43c49d6d0c8fd9972f070c8c74123132c7be7636e972076"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "183",
+       "row_sha256": "bd45f1cedc113f2e9d3b497699f901822344d233ecd2f7392edf2f35ff268d1e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "184",
+       "row_sha256": "9e12a161464f1b7ef8b239b1c76048b902a76b419fd1c2461454996042056a1d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "185",
+       "row_sha256": "b75b107867efde55f925959abb2103faa23f835e3961afdeef705d210f7cfa59"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "186",
+       "row_sha256": "95d010abc93fdbc636987d58fc31d3634e6280b53a1a37c4b7137c18598895f1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "187",
+       "row_sha256": "ba4f020caffec9eb4061458f1d75b7cdeb1181473aa4eed8acc36e583dc58430"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "188",
+       "row_sha256": "88a4d0caa8cb5e9fa66c203e2e9741ca2d6bc9071965282f29d6217f1a9a0811"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "189",
+       "row_sha256": "ba52704ca8ab2a87f5a20d1bddfd34dce88feaf86bde102f11fc9459d164e8a5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "190",
+       "row_sha256": "8602f4a5e161a9244a4a823c5b6e0e74a3945f1a07e4523afc3f05050b6f5e34"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "191",
+       "row_sha256": "4cc9d392dc6244bf0979d88fc5feaeafed4b311d70938a7f4bad59c44c95c37d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "192",
+       "row_sha256": "6d56363f7daa4158abae907a892741f9b0539ef6e762bbf15e6301194eadd76d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "198",
+       "row_sha256": "0644241b25ebf0d15e95d873f7127a2205aaa6a7291037e9e24ece95eacce89f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "199",
+       "row_sha256": "ec5173e8af0e601c707e6811b491c51f01070370fd091e06a24ecd158eb3f45e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "200",
+       "row_sha256": "5b105d4ea2d49649bf0b3eb401f55220512d6f09a3723c01464b0807c57d2edf"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "201",
+       "row_sha256": "c8cf1801a7a3b46b4b38db4ad2db3f20a70d8cfc594cd595954eff66a8f25292"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "202",
+       "row_sha256": "1c2b3526221afa2a4c34ab73a519e1d97cedae40172bdca967be236c4309f3eb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "212",
+       "row_sha256": "6db4a66496a15424b0d762c979ed3f2cf761ee61b3570dd4297e8e74a7a3617a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "213",
+       "row_sha256": "6e43f4f805ca0235375a92f755db87f432b12543daa8e927c74f2a1411c5470f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "214",
+       "row_sha256": "e6d57fee52654760eb3ebec87a9424a4104823873180edba38eb3ffc55b28e4f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "215",
+       "row_sha256": "f983fb7a3976bf3259a47dd880a06501d6fb6d910772db1827f8c7fec2a8872d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "216",
+       "row_sha256": "8e8e328bc41e0d818e8597ba4fa77a6ca09dc68c7cd82c2ced09b3fb367345f6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "217",
+       "row_sha256": "c6e2962befcd62c8b15f628a24001bb013ab66cf4412b84c043c5d334dbf5c8c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "218",
+       "row_sha256": "46a08bc8a1ff2186355f92e6a11e8901b376e61c28a789e96d5ba72c9b88716e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "219",
+       "row_sha256": "90f481f8c87854d95681cfc317cb3ff5e8c926df786637df2930edf452ba2709",
+       "end": 631,
+       "after": "Ἀλλ´ εὖγε, ὅτι ταύτης",
+       "ends_with": "ἄνθρωπον διαπράττεσθαι."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "232",
+       "row_sha256": "7c7eb31e58b97d610c3747464da696cd13f96c49085e0b784985e0117161f0ae"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "233",
+       "row_sha256": "b93ad7c82669154df1298525bf9e76860b251f10c3a3130ac215013b0c4bf30b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "234",
+       "row_sha256": "3d56536403c24f42c85057012e95a54c3db0ae8395a549bbebcddd22163d7506"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "235",
+       "row_sha256": "326fbf5684cf8a80a47e2d7d0dbe4feaab7b7eedc4c20bebd2cd134f268073eb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "236",
+       "row_sha256": "ac1f07e76b0efb623cccba58fb1e2b8961ecd16a4a5376fbe7d038d54193a222"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "237",
+       "row_sha256": "8327ece9f816528a717bbc3457d9ae5f18739c732e1f6479d8d6aa884bcb99bd"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "238",
+       "row_sha256": "4fd2cdb5b086855282aaf6fa91e46336e60c87773cdc13994a1e22d06e22d383"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "239",
+       "row_sha256": "d27ae1e0d4869c4e67011d1154e82f6f658238d3ad1b29ff402392d0e435f22b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "240",
+       "row_sha256": "edcf36566043cefec1225461ad016dd775134a80f43c74dc882a7462a4ad4065"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "241",
+       "row_sha256": "6450bd702cbe6388e69cf2ef5a80adf349016fe83785478fed0d0f219a4d2c6e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "242",
+       "row_sha256": "d32e6fa4b7c64fba89ca163b8811d2ca8028a769607907ccbf0a6229116ee0c2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "243",
+       "row_sha256": "39b84cd46ee1267a06379d762ce60f2b72440fb92987be974b68396d0137c144",
+       "end": 1346,
+       "after": "ΚΕΦΑΛΑΙΟΝ Δ. νν ἐν τῷ μύρῳ",
+       "ends_with": "οὐ διαλείποιεν πώποτε,"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "251",
+       "row_sha256": "90ac217e3573539188da578fa9094db58291b57c9d4648c69af647db2e5984db"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "252",
+       "row_sha256": "16316ef979fe13dea7ef7a7814ea56efbc3f59353dc4e800d62a72a37c69134e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "253",
+       "row_sha256": "c6a1260a48332e0fb6e7ca8b3d7e7eba0d283e02e2c99ae1ee6136a430486795"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "254",
+       "row_sha256": "60d9c8cf7b8172df3364802b1914616f5d05cbc04089b0f4d7669ac0cf606077"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "255",
+       "row_sha256": "1c17fbe0b1a62cfbbb90f43407f4ef23f4e3ba7bf01ae9e5b13d5b6c23f045cb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "256",
+       "row_sha256": "0a1c4e554c6bcfbf210909cd8eabf754589361b81396fe8bd4f510510d6cc7a4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "257",
+       "row_sha256": "3b532282da5dfdc23d7050b48e3c13c921394dfea81108633ab662926475702f",
+       "end": 1239,
+       "after": "ΚΕΦΑΛΑΙΟΝ Εʹ. Περὶ τῶν",
+       "ends_with": "ἐν τῇ τοῦ μύρου ἱερουργίᾳ."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "267",
+       "row_sha256": "f5ba544891bccd7902f0f925f3880d144dd1ad77fcf088d6aca8194f04945360"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "268",
+       "row_sha256": "15a802f57cc5ca505979fb5ee1be7616ec8c22243dd1f8e13098de57140c4d78"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "269",
+       "row_sha256": "f4568cb6c345509e10824b3471c77da05313ce59f42d11539d3dfa3d465f5564"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "270",
+       "row_sha256": "3fa5e927d6c3fc7cc5af3c58f5f93132f6c1949332543b511ee6390d6375adab"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "271",
+       "row_sha256": "76f22c7e7cd9c0e2cdefde14eced7bb1bc11b8c23f139897fc56bd5edbf6a573"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "272",
+       "row_sha256": "80eb3a0fb7f19065253f9ebc6edb06bd3ed464e8d8d6986c02f65649f69827c7",
+       "end": 1728,
+       "after": "Αὗται μὲν αἱ ἱερατικαὶ τάξεις",
+       "ends_with": "τὸν προσαγόμενον."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "292",
+       "row_sha256": "d4a9e43de32a90d12cfb7d4a52e2f58269e424b6807ff4d02274d4dee5e2d8a2",
+       "start": 232,
+       "at": "Ι.Τούτων οὖν διωρισμένων,",
+       "prev_ends_with": "ἀνασκαλεύσω σπινθῆρας."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "293",
+       "row_sha256": "dada4cf89bbfe1f9c1be16506d7e8354778633898635e69f25cf46de0a3d9137"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "294",
+       "row_sha256": "eb3ef94d2475330340f75b92ad038cf627b47bea0ef24b3bfcba5bd428fa8941"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "295",
+       "row_sha256": "21ab904aa2fb39b336560931a7bbecc0cfac2f842d4a50b66f1454eaa8c6a45a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "296",
+       "row_sha256": "dc3590b955bcd32b730dd5b8ba39b354a1cbf7c379682441194c6b6486dc0d33"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "297",
+       "row_sha256": "710279cb0cf6335ea8f10ed7b5505b8c31a33b937ac6bfc089d00f54866b2cd0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "298",
+       "row_sha256": "d8f5cc6395c4a7be7f760377fec90fe4f6407258685bb2289e9e2c3a3c68d596"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "299",
+       "row_sha256": "dc28ea873c433bc8ccf381e74bfee12013dafd1288473465458ff3f18fdeb641"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "311",
+       "row_sha256": "821aee751c0951116a8002ab3c54ca9841db1360a8e217c18b85df1885e55176"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "312",
+       "row_sha256": "2cca80714e8bcd886855996d027e70f3ade019e70db77576bf0a439ae7b51fd3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "313",
+       "row_sha256": "f05d682b0d7d6917b8286add55f3a4166e9021efe0b69ab9a05ce127ceae3dd5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "314",
+       "row_sha256": "c18a902e5e6e0fb4087957a0d01d0e515b61f1c979df5ab954d8b950c580aa8a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "315",
+       "row_sha256": "dcf6f8d4e7271d3c024477d3b37f043cc499e1b00ea48f9ecfcada82409cb47c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "316",
+       "row_sha256": "4cb9b04a17d1fd191e5ecceb734fe4e3c06f35de7b14a87076e8afcb195be59b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "317",
+       "row_sha256": "5c5c4c4c824eac0144a39d28aa6c59000f050d3cb7611949418b278bb1aeb896"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "318",
+       "row_sha256": "a9b28270d8053ed0dd536a4adde92321fd752e44f8a4ed66820b30b59c17b8bc"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "319",
+       "row_sha256": "5d1f0cdb68194bfdc6feb8b431767f3a6e12986902906ed6a4c90009e35ff3d3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "320",
+       "row_sha256": "68bcd8bb910df4441147b9b2a5f55fc282f810b93241e2d0262c7ba88d97d6c8"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "321",
+       "row_sha256": "ba81d678955c22a58ede3422a9d0cbf84a9c3b6287b58672b53e4025c7f9ff55"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "322",
+       "row_sha256": "001c87b8e1f20c8539eae6e413b07a707d9a1d94cfd5c07448f3d4ea839cdefe"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "323",
+       "row_sha256": "0d23427723a2f037f1830c9797dd7284cc15e120e4c74229e12a4d23eb5b49c1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "324",
+       "row_sha256": "a16e29f475704b61f76883ee0af53b09787a860314774f2ecc533e579b0d53fe"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "325",
+       "row_sha256": "ce558bb20bc67641163ee1bb00c80d9cc201f0811e439b7f45469c332466cc75",
+       "end": 782,
+       "after": "ΚΕΦΑΛΑΙΟΝ Βʹ. Τὴν θεαρχικὴν",
+       "ends_with": "ὁ προφήτης καὶ βασιλεύς."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "336",
+       "row_sha256": "2f5062bd28d061130e4d35257057182a89d9030314afd881c2a04029df087395"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "337",
+       "row_sha256": "32b0d849b9a4c23d02e0d48c1de3f5a31129f0ac9d1aa539cf07d50090192892"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "338",
+       "row_sha256": "86cd4b0b32d5180af41b6606cdfd849987bce914ca61cbb5d486818bc94ec644"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "339",
+       "row_sha256": "bd4d997adda7c6234c3700de62e3f481db46650b1f3822d55429a57f6ee3f985"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "340",
+       "row_sha256": "e3eeb46a9226e2b544edcb50b229482a94483738d2536a149036f234a450e82a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "341",
+       "row_sha256": "1c805dfbb8e7d208f8ef9d1cb323c1377235bf21233b252f212e7355b5d9b57f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "342",
+       "row_sha256": "c3a77da7ae55356971313fee966e85a7fda3e8b2297b8786608d386c968b0db0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "343",
+       "row_sha256": "3692d21df7614d354f38788b9a4d1392a864e3a2e90a635fe7c6084d4eef5653"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "344",
+       "row_sha256": "4b88b27ab80e4ec3ca7f74e104534f3eca5e80ce657eb994582b6bf9ff58c7a3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "345",
+       "row_sha256": "a6f9160f24fb604ea40232c7c92db80edf479d7119842df3714a1b503a797954"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "346",
+       "row_sha256": "629b8b0294d0e45f5920478f8b536246e799fe54d7843bd6ae01fc8b5a9fe2ed"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "351",
+       "row_sha256": "34f7d5b357542e2799ba09b5f05d550e6e6167a1dae32fe36bd500c3c4c507e0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "352",
+       "row_sha256": "c8dda26c19e0d3ace14eab63d1991fe6fd3180f72007e297d5064071afcd3310"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "353",
+       "row_sha256": "92d8aeff9cb73e61d808bed18fdbc6b88c9ffbed7f8e7087a56401f39c0cbcaf"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "381",
+       "row_sha256": "d9076bf4d8263e4df776af4b6abd16ed6713ef1589272de7819060889b4a02f2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "382",
+       "row_sha256": "43596753c18272b34444a7e2e99db22d08eed059ee101e04f85bc9873d6791b1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "383",
+       "row_sha256": "c544817c93bfd682e8b7f18f6c83a0d0743eabe9de9832942bcc65edd0f00352"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "384",
+       "row_sha256": "16a0602b8876b3a559e67f111d22e1fd4c4fcba62ebc641df76e19357cad283e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "385",
+       "row_sha256": "539e2bcc6681a5786440d72c1d95cfe4703dc216ae9611869657078cee03637c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "386",
+       "row_sha256": "ef976da86cd99a846a4fdedf6b394aebfa233149146486369ccfff18d0484378"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "387",
+       "row_sha256": "07df80608ffeadef94dc3906ebbe29a0b3aa8f2886dc413d664c3d87a03ce9a5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "388",
+       "row_sha256": "a09b57aa2804386a7d9e17040729e9b9f993d597a3af255788475ec617f96804"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "389",
+       "row_sha256": "8c1b522ba5ad2aeb6ff49a648968aad67c4d6974211113f6f31c5aaa9b50bce2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "390",
+       "row_sha256": "51927a7c5a170fb12697cdfe4aab685e950fc0610e809a097b2a9b8cac19ef13"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "391",
+       "row_sha256": "6ed3cc918515d0ad6689fabcc7678bbabc4333894b0df895ca2b5aed95c306e3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "392",
+       "row_sha256": "64483f2e29e8eb2c13a08a5e328d79ad89501d475782410a268bd3214d592eee"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "393",
+       "row_sha256": "ffc0942eed8188da6abe2444bb8aca0d1b1b88271a2ca44934b491b4bb336bae"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "394",
+       "row_sha256": "92dfdcf84228a00daee5b7345d658c57a56b648f6fedc048f61f143b3b9a1229"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "395",
+       "row_sha256": "e0209fcdcb7c8525f3616f9d163b8554fbc09cdf8dff87df1b31f0c7ceec08cb"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "396",
+       "row_sha256": "ff368026c2d070a98475ddc3fa248bedf2d212e3b9ec4d45ad95f17ef559be6d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "397",
+       "row_sha256": "b71f52633b958e8daae50a49e57beafa358ff50f36a3be04b8760b8bc3a87fc6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "398",
+       "row_sha256": "77243545485b81abba36454188a82d9b006aed7b99d88637357214aceafbfc03"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "399",
+       "row_sha256": "3e457fe23523a84be30c6aef55dbdf49439195d574da67d77ff452b4d58f439e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "400",
+       "row_sha256": "776f893612649da40420d26ec1b47961ca581087b40ddfb607c62e9eeb015003"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "401",
+       "row_sha256": "af60a3986199f4a9603c7c58ccedb9470d3b915e88be75b345ea0b241ff1eab4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "402",
+       "row_sha256": "0f4ff1ce259901d6f31591637007aef67eb067f23b1e15069a5f0b6b8c0156e6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "403",
+       "row_sha256": "18ba30bf695f92346f65e5dd36cde46111a557b4e95060b242158208a62918dc"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "404",
+       "row_sha256": "340447df83cb3abe5ae26e63b5b774c257ab5780456d6bef97818acb8f70ebbf"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "405",
+       "row_sha256": "02cdff48fab307b810fc1b09c66dc294c9b5ff5b16ec5a39898921171d524ff9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "406",
+       "row_sha256": "aeba1a8c7031f0d7339b9e8e67f23f8c2a7f7d9d3de1230fecae4a3171834256"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "407",
+       "row_sha256": "37aecb3086b7b89ce7fd099412e778d513fbd75e7627abb677a6bf175a3ce217"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "408",
+       "row_sha256": "3d8a9c5272c5d8d387f73476c06667b60df69e781be5f0426f162725a7f25ff7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "409",
+       "row_sha256": "826ce4afd14b32915d12804487c89eb4ae098fb8fc43b1c27f8ddb495fa6d5e2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "410",
+       "row_sha256": "363f90947533621852085f74e99e72a217f662fbe0781df8d87fb918e9161e62"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "411",
+       "row_sha256": "0d7692a23cfb835974de7a6715f3f0bb9e8448fa33f9a3ca0fced8adf5a46a78"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "412",
+       "row_sha256": "6e675c1436491e440b4a14168c7e20d8470165c58c7f79df9627c0ffccc1fe72"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "413",
+       "row_sha256": "ea67c32b1c02391e97790679c0182132bbad8f90dd7cf0a204c09bacd45188e0"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "414",
+       "row_sha256": "39ee646f0fe9f696505691d57a02e3e336df61f512861ccdcf5af1dc248639c4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "423",
+       "row_sha256": "ca8aa2208a53db814527fdafeb20bbe1bce49b809e18775256afa2d697321cc5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "424",
+       "row_sha256": "7f9017275b7a395a5eeeffec6aa5a5cb227d5073b770a15c9f390601c0933100"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "425",
+       "row_sha256": "8c222ed2a35ca1c6406615bba1cbe66451ddbadb70d04a2811ea9ec2c9c725c4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "426",
+       "row_sha256": "cd50a148596b74b0ba2cb6eba100bdca7edd01fe5f3a55b211034cb44233bc01"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "427",
+       "row_sha256": "c2e938efa65f74361e5e7290619879a5bf771d5cf6b39abe285f64ad1e52fdd4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "428",
+       "row_sha256": "9add761b5afa1568cb5f5943cd6b76cdda67e32d924dbc57ff7cebd5aca9132e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "429",
+       "row_sha256": "fe4fd943ebe77a642de3556038ff4507b915c51e8ece08ac8e9ddc27ffd0561a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "430",
+       "row_sha256": "908afba2e3a2bc657990364ee3704ad38e8bf9b1940829e0dfc9f6a9eec11150"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "431",
+       "row_sha256": "6f7da085a6e2fe67e762b84d37231d9acd4976516adade31138d0c34cfaaaa4d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "432",
+       "row_sha256": "f54159b2bacd6f96aefd4071428403c1ed3744a572c59c5f20168e27be603b9c"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "433",
+       "row_sha256": "7ec99434b16d1a05daf9e4111929a60009412370f2c79115c0045287b2d1d07e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "434",
+       "row_sha256": "4fd651d53a7fc91072d9f447f12b84818fa993eae66de63aaa996108de5b1b44"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "446",
+       "row_sha256": "b6401917c4a8f95eb08417a4e77ad52645f89157ad522b64ff84da81481e5b6f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "447",
+       "row_sha256": "5b6fb12dddbaa3463b5a17fe1cf796d8fd6b2d17f5ca48692c85ce75886b407a"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "448",
+       "row_sha256": "241edafdeb9f8dc4dd4caec97bbd320da6f0f702af993367f01f487eae4bb200"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "449",
+       "row_sha256": "763eb05ebc6c014d3967e7f0938453ece8bb223502d790d1229b845b52a3bdce"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "450",
+       "row_sha256": "9f94448a6782301904a893821142ab53765e2ac3a360846da5074615c2fe2117"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "451",
+       "row_sha256": "2cc6636e615fdd3ccf9af0b7b1251724b6491914959f8c215f54979ffcafd692"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "452",
+       "row_sha256": "5705dbe3854456b4cbc171aaed80e0025f5fb8debe830802c709ac784f72b597",
+       "end": 607,
+       "after": "Ἀλλ´ ἐπειδὴ τὴν θείαν",
+       "ends_with": "Χριστιανοὶ μαρτυρούμενοι."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "457",
+       "row_sha256": "a7c894f5607ba700f0c0dbb4aabd6aa02a7cc0335f5de5814a6ad248c90383f4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "458",
+       "row_sha256": "3223a2118e014bb44b0a1547c06691423565e4b12166b3d880150743d6d0c023"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "459",
+       "row_sha256": "72a8d591ed5f5a6bce1be51d9904a714c4c9d4f03f475b173c40cd5160ac9554"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "460",
+       "row_sha256": "aca10b3675e6769a7643cc7dc06ff15127d30195209474b20aa9f6a1d47f4f5e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "461",
+       "row_sha256": "d67df0bf482eb19998b300bc53d199d55fcdfa0c98b03d7b69fc9c59d1576fd7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "462",
+       "row_sha256": "2be429f4d8e9bbc04c30630de6c80d89c6dc7cae178d6d7552f50d2ca332971c",
+       "end": 290,
+       "after": "ΚΕΦΑΛΑΙΟΝ Οʹ. Ἐπειδὴ δὲ καὶ",
+       "ends_with": "καὶ ὡς ἐξ ἀρχῆς ἐγένοντο."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "468",
+       "row_sha256": "aef5b3066f121929f28c2483a089340a5c9128597c4f2bf8dd6e5168cac83882"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "469",
+       "row_sha256": "1c7713a63208bbd817e244228d030184b47187f3e319265ca1ca21bfda0c7ca3"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "470",
+       "row_sha256": "ec1bdd32ac710a0ab22a76f6c4c09e405747d51a1a259d6d00f427b2b1e08ea8"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "471",
+       "row_sha256": "5b68fb396143b5e2863467c254b31f7092e1b79b91fbd6c5f08b849a1ad2fca6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "472",
+       "row_sha256": "6913cb68113e4c49ddcd43e2b6fbbccb9dddd7386fa6289cfb540d2f4b978db1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "473",
+       "row_sha256": "bde8e7be27116d65aa9e96f51b292c5c6d4ed23afc93625b0212729fd88db282"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "474",
+       "row_sha256": "d0cdee8b199917d8a5367f6df866d7ff3be561895503f203ccaaa79a33ed52ef"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "475",
+       "row_sha256": "ee78729e2e76da0c7e5d7b3edaf468fbfa007f348450246898413762174b4a6a",
+       "end": 1635,
+       "after": "ΚΕΦΑΛΑΙΟΝΙʹ. Ὥρα δὴ τῷ λόγῳ",
+       "ends_with": "τὰ δίκαια ἐργαζόμεθα."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "479",
+       "row_sha256": "13177eb3b405345c94f488259e1d2ab994ddefb147c06812257d6ee151de3031"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "480",
+       "row_sha256": "c07b0ae32cc1a3e3566e66f1661d521cee9e9a4ee68b967b17af27137b4831e1"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "481",
+       "row_sha256": "cf0e03d812da1c875ada92f29884583e21abfa10686cc57518485082ba7a3b9b",
+       "end": 1589,
+       "after": "ΚΕΦΑΛΑΙΟΝ ΙΑʹ. Περὶ εἰρήνης,",
+       "ends_with": "αἰώνων, αὐτῷ ἡ δόξα. Ἀμήν."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "487",
+       "row_sha256": "03ead2d89f3d0fa0bdd284a9950cec2bddd9c0212fe803b31636c87852961c0d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "488",
+       "row_sha256": "ec0ba9373078467db435db6cefd4cf634ab1463fe4d890e12e68ff0dfb755a21"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "489",
+       "row_sha256": "f7f9ef6af03997befc22c4cc808da64d0191533bae868d01e5f988aaa7a80454"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "490",
+       "row_sha256": "9871d6f1b3309d925f9c3945d6dc332d97dcbd4ea59d48dff2edc367a0400d9f"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "491",
+       "row_sha256": "628f0a15ce38512358d4b33e970535a50a4d1592791631eefa83628534ce60c6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "494",
+       "row_sha256": "948e28782976c63195a8bf52334231c97853fb0781982de7ae0e1100f97a49d2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "495",
+       "row_sha256": "1fdcb6e83f69a081c680a857c8e6e2a78a61732404a6173e489fec4c48270f1b"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "496",
+       "row_sha256": "1781876c20ba19c501413356c726cd320b98d01482e14c77a937727c4bca45f6",
+       "end": 456,
+       "after": "Ἐπ´ αὐτὸ  δὲ λοιπὸν, εἰ δοκεῖ",
+       "ends_with": "Τοσαῦτα καὶ περὶ τούτων."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "500",
+       "row_sha256": "b1aa77bec4bff4d34601e27b0f234c2b82e66bf897a3d8294e3fde918d339963"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "501",
+       "row_sha256": "94c34bf6d58508b5bdb717aba499898533e1426169bad578fb68647ad392b424"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "502",
+       "row_sha256": "77b90f2ee28632f5eb77f61d3608cf5ad6398141b56a9931f845344340786193"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "503",
+       "row_sha256": "872284b736f33b8670807bb4d0cba1009d3b68bb8b15d2fb604b3fc86143e858"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "504",
+       "row_sha256": "590be21375f7e3a26644f3f9481b3071b2a9363f2b372da208a2710346960d25"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "505",
+       "row_sha256": "09da76e4b4fdf574e0f8ab0722126e277e1c5fe98c742412fe972e6974e3bcc2"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "514",
+       "row_sha256": "b24a478204ee345dd81891901f84521ca156ebd2c6a5bd50b7cc3ec415a21db5"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "515",
+       "row_sha256": "f089402e786138bdd47277735a7e4992a3bc43ca0707f9a1b0dc9146df780f45"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "516",
+       "row_sha256": "3a4fe99960afd8089f5c7df047b419b77b7e401c26dbc11750a7b24a3d2e0f6d"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "517",
+       "row_sha256": "8b6565f6c46e40ccd0cc625305fd24a1163fbda82f206c33cbe66c0acd4d9e21"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "518",
+       "row_sha256": "482172a2c2a4779debbbda0f622627375a6859a5ba6bec217cd7fb097d699ec9"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "519",
+       "row_sha256": "39ddec238f63dc17936f33d1c360febba0e8f64f822f81e1bac5ccd0803b8801"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "521",
+       "row_sha256": "52071bdf4c771b5f10075e16dc9fda363ed49b75689f73cb93947fa74c359575"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "522",
+       "row_sha256": "74e856c8e49ed92a9bbea97f7911eb46101ed076569eb74598b2b9b65faef603"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "523",
+       "row_sha256": "01d4b220c01c4967539375b5c968fe0b927be566941d116581662824bffeccc7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "525",
+       "row_sha256": "5000155e5667c3aecb5aabb46b4b091d395be16e81b8b1d645035cb363252403"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "526",
+       "row_sha256": "9609074ad19ddafcab5b8e274881287cdda2b4d1bdb0364061bff7812f178aba"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "527",
+       "row_sha256": "49bff134c3e1465ac69b50852499cf1809d1193fb82a4af07ff0fffc48ddbeb9",
+       "end": 1404,
+       "after": "ΚΕΦΑΛΑΙΟΝ Δʹ. Λέγομεν οὖν, ὡς",
+       "ends_with": "λεπτὴ, καὶ ἑκεῖ Κύριος,"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "529",
+       "row_sha256": "d0cbf793c3854bc1729bcb56cc3868165eb552551cb86a31acbfcc02955cf8e7"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "530",
+       "row_sha256": "dfa7fd6722b3c06bc1efeb3f4eee1689d184e0091a9993515215e3e7233766b8",
+       "end": 1840,
+       "after": "ΚΕΦΑΛΑΙΟΝ Ε Ὅτι οὐδὲν τῶν",
+       "ends_with": "σωματικὰς ποιότητας."
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "536",
+       "row_sha256": "9fd0211c39c54033561606e93ab6f0711ddd324a6a46569110d1ae0046e54702"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "537",
+       "row_sha256": "8ba594341b0987a75b9f411bd226f4b0535d82d20b8b71d3a2f1c762710ab7bc"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "538",
+       "row_sha256": "289560fc267a92482d8cc6ca6519ed7ce0da247442cc051514b639de6b1136a4"
+      },
+      {
+       "file": "data/corpus/cogPG.PG003.jsonl",
+       "locus": "539",
+       "row_sha256": "f56ccfc10d3211d38228aa59105199b00e8c4a86e3eae07d6d74c30d6085ed61"
+      }
+     ]
+    }
+   ]
   }
  ]
 }
