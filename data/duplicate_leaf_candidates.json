@@ -12,18 +12,18 @@
   ]
  },
  "files_scanned": 4337,
- "candidates": 45,
- "clean_second_copies": 16,
- "clean_second_copies_tokens": 5813,
- "clean_second_copies_served": 9,
- "clean_second_copies_served_tokens": 3167,
+ "candidates": 43,
+ "clean_second_copies": 14,
+ "clean_second_copies_tokens": 5164,
+ "clean_second_copies_served": 7,
+ "clean_second_copies_served_tokens": 2518,
  "overlapping_not_copies": 29,
  "overlapping_not_copies_tokens": 10999,
  "by_file": {
   "data/corpus/cogPG.PG112.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
-  "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": 6,
   "data/corpus/photius.amphilochia.jsonl": 4,
+  "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": 4,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": 3,
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl": 2,
   "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl": 2,
@@ -208,20 +208,6 @@
    ]
   },
   {
-   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
-   "served": true,
-   "locus_a": "PG134.633",
-   "locus_b": "PG134.635",
-   "containment": 0.8663,
-   "bigrams_a": 329,
-   "bigrams_b": 330,
-   "tokens_b": 337,
-   "words_absent_from_a": 19,
-   "words_b": 337,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
-  },
-  {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
    "served": true,
    "locus_a": "PG118.66",
@@ -268,25 +254,6 @@
     "μαθοντες κακεινοι καταλυσαι",
     "πολεμους σπουδην εθεντο",
     "ες ονο δασεν"
-   ],
-   "unique_runs_if_a_dropped": []
-  },
-  {
-   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
-   "served": true,
-   "locus_a": "PG134.634",
-   "locus_b": "PG134.636",
-   "containment": 0.8333,
-   "bigrams_a": 288,
-   "bigrams_b": 309,
-   "tokens_b": 312,
-   "words_absent_from_a": 40,
-   "words_b": 312,
-   "unique_runs_if_b_dropped": [
-    "μακολν λεγομενον τειχος απο",
-    "μεγαλης θαλασσης διηκον αχρι",
-    "ωηλυβριας δια τας εφοδους",
-    "εκεινον κλωνται θασιλεα"
    ],
    "unique_runs_if_a_dropped": []
   },

@@ -141,6 +141,32 @@
      "expected_unique_runs": []
     }
    ]
+  },
+  {
+   "volume": "PG134",
+   "id": "PG134-zonaras",
+   "date": "2026-08-08",
+   "issue": "open-greek/open-greek-corpus#33",
+   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "basis": "Two pages of Zonaras' Epitome arrive twice, as loci 633-634 and again as 635-636. The earlier copy is the stray.\n\nWhat does NOT decide it, and is worth saying because it decided the last two leaves: the join test is useless here. Loci 634 and 636 end with the same words (Εὐφημίαν μετονομάσας), and 633 and 635 open with the same words, so 632 joins to either opening and either ending joins to 637. Both hypotheses survive.\n\nWhat decides it is the vocabulary gate, which is asymmetric on this pair: dropping 634 costs nothing, while dropping 636 would lose text, so 636 is the fuller reading. Reading the two confirms which: 636 has Ἐν τοῖς χρόνοις τούτου γέγονε σεισμὸς φοβερώτατος where 634 has γέγι «ὸς φοβερώτ, and 636 gives the regnal figure ἐπὶ μησὶ τρισίν where 634 garbles it to κπι. The 633/635 pair is clean in both directions and follows the same choice.\n\nNo printed page is cited, for the reason recorded on the PG151 entry: the Internet Archive text layers hold no Greek, and the loci drift too far from the scan's page numbers to find a leaf cheaply by image.",
+   "drops": [
+    {
+     "keep": "PG134.635",
+     "drop": "PG134.633",
+     "keep_sha256": "e56beeff67f64c26885c142f74a7199eefd7d7029a281736412751bbe44fc619",
+     "drop_sha256": "9a7e2bbc7d694a2eb4ddb8fca54d4d0444beb7c0b3f019112e9b39194d633fe1",
+     "page_evidence": "no page located; direction from the vocabulary gate, which allows dropping the earlier copy and refuses the later, and from the later copy carrying the readings the earlier garbles",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "PG134.636",
+     "drop": "PG134.634",
+     "keep_sha256": "461d7bc1ca4bd233d96013c973fef3b5226d8d7da0989f7f4f7c50876d1ba4e3",
+     "drop_sha256": "34dec5c2510439353e2793e696c0ea2cb1a7cc10275a7848fc41a3bb49f1fafc",
+     "page_evidence": "no page located; direction from the vocabulary gate, which allows dropping the earlier copy and refuses the later, and from the later copy carrying the readings the earlier garbles",
+     "expected_unique_runs": []
+    }
+   ]
   }
  ]
 }
