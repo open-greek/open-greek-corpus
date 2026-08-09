@@ -1,0 +1,33 @@
+{
+ "_meta": {
+  "description": "Printed leaves the upstream OCR delivered twice, dropped from the served corpus by scripts/drop_duplicate_leaf.py. Each entry cites the scan page that proves the duplication, and lists every run of 3+ consecutive words in the dropped row that the kept row does not have, so what is lost is enumerated rather than assumed."
+ },
+ "volumes": [
+  {
+   "volume": "PG118",
+   "date": "2026-08-08",
+   "issue": "open-greek/open-greek-corpus#8",
+   "basis": "Migne PG118 pages 21 and 22 arrive twice in our OCR, as loci 21-22 and again as loci 23-24. Read from the scan (Internet Archive item patrologia.graeca.org, _118.zip): page 21 (cols 21-22) prints Η ΤΩΝ ΕΠΙΣΤΟΛΩΝ ΥΠΟΘΕΣΙΣ ΔΙΑ ΙΑΜΒΩΝ opening Ὁ Παῦλος ὁ αὐλὸς ἐκ τῶν πραγμάτων, which is loci 21 and 23 alike; page 22 (cols 33-34) prints Τούτου μέχρι γράφει δέ in its left column and Ἀλλ᾽ οὖν μανεὶς ἀνεῖλεν Ὀκταουίαν in its right, which are the openings of loci 22 and 24 respectively, and closes with Ἐῤῥωσθε, which is where locus 22 ends. Page 23 prints ΚΕΦΑΛΑΙΑ ΤΩΝ ΠΡΑΞΕΩΝ ΤΩΝ ΑΠΟΣΤΟΛΩΝ, which is our locus 25, so the loci after the duplicate run two behind the pages.\n\nThe second read of page 22 walked the columns in a different order, so loci 22 and 24 score only 0.482 on the similarity gate carve_cgpg_volume.py uses for rescanned leaves and were never shed. That is why the gate here is vocabulary rather than similarity.",
+   "drops": [
+    {
+     "keep": "21",
+     "drop": "23",
+     "keep_sha256": "6d841eb2e1c1efd0206c3baf02260fb58aae85642125aab82af88daa2209d629",
+     "drop_sha256": "2bfec47e2b0a141aa3cd8a69a3cb922c84e3af509e91d1577b8487d9abf5b3a7",
+     "page_evidence": "both are Migne PG118 page 21, cols 21-22, the iambic hypothesis of the epistles",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "22",
+     "drop": "24",
+     "keep_sha256": "f0b05da617a5c1a07882c888797caff74acf6e0dee5043d15be955118c492bc8",
+     "drop_sha256": "c7433d6500fc00b3047ddfd8dace82c73f59522e7aa3ba0409d449c8e4384311",
+     "page_evidence": "both are Migne PG118 page 22, cols 33-34. Locus 22 reads the columns in printed order and ends on the page's last word Ἐῤῥωσθε; locus 24 reads them in another order and breaks off mid-word. Only 36 of locus 24's 546 words are absent from locus 22's vocabulary, and the single run of three or more is the same display head garbled differently, ΟΠΙΝ ΒΙΕΑΟΝ ΕΠΛΝΟΡΘΩΣΑ against ΟΠΠΝ ΒΙΒΑΟΝ ΕΗΑΝΟΡΘΟΣΑΣ for Ο ΤΩΝ ΒΙΒΛΩΝ ΕΠΑΝΟΡΘΩΣΑΣ ΤΟΙΣ ΑΝΑΓΙΝΩΣΚΟΥΣΙ.",
+     "expected_unique_runs": [
+      "οππν βιβαον εηανορθοσας ιετεον"
+     ]
+    }
+   ]
+  }
+ ]
+}
