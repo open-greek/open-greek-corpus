@@ -1,3 +1,4 @@
+import hashlib
 """Guards on cutting a row at a character offset.
 
 Two failure modes matter here and neither is caught by token conservation.
@@ -67,3 +68,45 @@ def test_whitespace_cut_does_not_change_the_token_count():
     assert scr.n_tok(TEXT[:OFF]) + scr.n_tok(TEXT[OFF:]) == scr.n_tok(TEXT)
     bad = TEXT.index("Νέρωνος") + 3
     assert scr.n_tok(TEXT[:bad]) + scr.n_tok(TEXT[bad:]) == scr.n_tok(TEXT) + 1
+
+
+def test_unapply_refuses_when_a_later_pass_sits_on_top(tmp_path, monkeypatch):
+    """The check that would have caught 2026-08-09's silent double-serving.
+
+    Unapplying a split restores the source file from the rows the audit
+    archived. If anything has touched that file since, restoring reverses it
+    too, and nothing fails: the corpus quietly loses or duplicates text and both
+    audits stay individually consistent. It happened twice in one command, an
+    extension reversed out of a volume while its work file kept the rows, and a
+    duplicate leaf resurrected, and only a total against the last tag caught it.
+
+    So unapply now hashes every file the audit names against what it recorded,
+    and refuses rather than write. This asserts the refusal, not the message.
+    """
+    import json
+    import subprocess
+    import sys
+
+    repo = Path(__file__).resolve().parent.parent
+    audit = repo / "data" / "corpus_changes" / "cogPG.PG118.row-split.json"
+    if not audit.exists():
+        pytest.skip("PG118 split not applied in this tree")
+    rec = json.loads(audit.read_text(encoding="utf-8"))
+    src = rec.get("sources") or {}
+    # The tree really is in the state the guard is meant to refuse: PG118's
+    # split was followed by a duplicate-leaf drop and a tail extension.
+    moved = [f for f, b in src.items()
+             if b.get("sha256_after")
+             and hashlib.sha256((repo / f).read_bytes()).hexdigest()
+             != b["sha256_after"]]
+    if not moved:
+        pytest.skip("nothing has been applied on top of PG118's split here")
+
+    out = subprocess.run(
+        [sys.executable, str(repo / "scripts" / "split_carved_row.py"),
+         "--volume", "PG118", "--unapply"],
+        capture_output=True, text=True, cwd=repo)
+    assert "applied on top of this pass" in (out.stdout + out.stderr)
+    # and it must not have touched anything
+    for f, b in src.items():
+        assert hashlib.sha256((repo / f).read_bytes()).hexdigest() != b["sha256_before"]

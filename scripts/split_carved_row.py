@@ -309,6 +309,41 @@ def main() -> None:
         if not ap_fp.exists():
             fail(f"no audit at {ap_fp.relative_to(REPO)}")
         rec = json.loads(ap_fp.read_text(encoding="utf-8"))
+
+        # Refuse if anything has been applied on top of this pass. The audit
+        # records what every file looked like when it was written; if a file has
+        # moved since, restoring its archived rows silently reverses whatever
+        # moved it, and nothing fails.
+        #
+        # That is not hypothetical. On 2026-08-09 unapplying PG118's split to add
+        # four works to it also took the Oecumenius tail extension back out of the
+        # volume file while its work file kept the rows, serving 70 tokens twice,
+        # and resurrected loci 23-24 that the duplicate-leaf drop had removed,
+        # 1,063 tokens. Both passed every check this tool had. They were caught
+        # only by comparing the corpus total against the last tag.
+        #
+        # Unwind in LIFO order instead: reverse what was applied after this,
+        # reverse this, then re-apply forwards.
+        stale = []
+        for f, rec_f in (rec.get("sources") or {}).items():
+            want = rec_f.get("sha256_after")
+            if want and (REPO / f).exists():
+                got = sha((REPO / f).read_text(encoding="utf-8"))
+                if got != want:
+                    stale.append(f"{f} ({got[:12]} != {want[:12]})")
+        for slug, blk in (rec.get("works") or {}).items():
+            f = CORPUS / f"{slug}.jsonl"
+            want = blk.get("sha256") if isinstance(blk, dict) else None
+            if want and f.exists():
+                got = sha(f.read_text(encoding="utf-8"))
+                if got != want:
+                    stale.append(f"{f.name} ({got[:12]} != {want[:12]})")
+        if stale:
+            fail("something has been applied on top of this pass, so unapplying "
+                 "it would silently reverse that too. Reverse the later change "
+                 "first, newest first, then this.\n  moved since this audit: "
+                 + "\n                          ".join(stale))
+
         for slug in rec["works"]:
             f = CORPUS / f"{slug}.jsonl"
             if f.exists():
