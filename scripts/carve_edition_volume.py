@@ -382,9 +382,60 @@ def carve(vol: dict, apply: bool, plan_path: Path) -> int:
             out = CHANGES / f"{urn}.per-treatise-carve.{vol['volume']}.json"
     out.write_text(json.dumps(audit, ensure_ascii=False, indent=1) + "\n",
                    encoding="utf-8")
+
+    # Register the TLG ids this carve just claimed. Recording them in the audit
+    # and nowhere else is what left nine Walz works published with no external
+    # anchor although the plan had identified six of them all along: the id was
+    # found and then lost between two scripts (21d77cd, issue #28). Same
+    # behaviour and same guards as carve_cgpg_volume.update_crosswalk.
+    xw = update_crosswalk(vol)
+    if xw:
+        print(f"crosswalk: {len(xw)} TLG anchor(s) registered "
+              + ", ".join(f"{e['slug'].split('.')[-1][:28]}={e['tlg']}" for e in xw))
+
     print(f"\ncarved {len(written)} works; audit -> {out.relative_to(REPO)}")
     print("run `make ids` to mint the ogc ids and rebuild the work index.")
     return 0
+
+
+def update_crosswalk(vol_plan: dict) -> list[dict]:
+    """Publish each carved work's TLG id, mirroring carve_cgpg_volume.py.
+
+    Refuses rather than overwrites: a slug already mapped to a different id, or
+    an id already held by another slug, is a hard error. A work whose plan entry
+    has no tlg is skipped, never guessed at.
+    """
+    cw_path = DATA / "tlg_crosswalk.json"
+    cw = json.loads(cw_path.read_text(encoding="utf-8"))
+    added = []
+    for w in vol_plan["works"]:
+        tlg = w.get("tlg")
+        if not tlg or w.get("rank") == "secondary":
+            continue
+        a, b = tlg.split(".")
+        tlg = f"{a}.{b}" if b.startswith("tlg") else f"{a}.tlg{b}"
+        slug = w["slug"]
+        cur = cw.get(slug)
+        if cur:
+            if cur.get("tlg") not in (None, "", tlg):
+                raise SystemExit(f"crosswalk: {slug} already maps to {cur['tlg']}")
+            continue
+        for other, oe in cw.items():
+            if isinstance(oe, dict) and oe.get("tlg") == tlg:
+                raise SystemExit(f"crosswalk: {tlg} already claimed by {other}")
+        cw[slug] = {"cts": f"urn:cts:greekLit:{tlg}", "tlg": tlg,
+                    "author_slug": slug.split(".")[0], "title": w.get("title", "")}
+        added.append({"slug": slug, "tlg": tlg})
+    if added:
+        cw_path.write_text(json.dumps(cw, ensure_ascii=False, indent=0) + "\n",
+                           encoding="utf-8")
+        with open(DATA / "tlg_crosswalk.tsv", "w", encoding="utf-8") as f:
+            f.write("slug\tcts_urn\ttlg\n")
+            for slug, d in sorted(cw.items()):
+                other = next((f"{k}:{v}" for k, v in d.items()
+                              if k not in ("cts", "tlg", "author_slug", "title")), "")
+                f.write(f"{slug}\t{d.get('cts', '')}\t{d.get('tlg', other)}\n")
+    return added
 
 
 def main() -> None:
