@@ -11,7 +11,7 @@
    "cgpg"
   ]
  },
- "files_scanned": 4384,
+ "files_scanned": 4389,
  "candidates": 43,
  "clean_second_copies": 14,
  "clean_second_copies_tokens": 5164,
@@ -23,29 +23,48 @@
   {
    "band": "0.99+",
    "pairs": 0,
-   "tokens": 0
+   "tokens": 0,
+   "same_item_pairs": 0,
+   "same_item_tokens": 0
   },
   {
    "band": "0.90-0.99",
    "pairs": 1,
-   "tokens": 424
+   "tokens": 424,
+   "same_item_pairs": 0,
+   "same_item_tokens": 0
   },
   {
    "band": "0.80-0.90",
    "pairs": 5,
-   "tokens": 1708
+   "tokens": 1708,
+   "same_item_pairs": 0,
+   "same_item_tokens": 0
   },
   {
    "band": "0.60-0.80",
    "pairs": 0,
-   "tokens": 0
+   "tokens": 0,
+   "same_item_pairs": 0,
+   "same_item_tokens": 0
   },
   {
    "band": "0.40-0.60",
    "pairs": 0,
-   "tokens": 0
+   "tokens": 0,
+   "same_item_pairs": 0,
+   "same_item_tokens": 0
   }
  ],
+ "duplicate_runs": {
+  "what": "consecutive pages repeating at a fixed offset inside one scan item: a leaf-run the OCR delivered twice",
+  "why": "containment asks whether two pages say the same thing, and a second read garbled differently enough fails that test however safe the gate is. Position asks something the garbling cannot touch, so a run admits a pair the score alone would refuse. It admits it for CONSIDERATION only; every post-condition in collapse_duplicate_reads.py still has to pass before any page is displaced.",
+  "min_links": 3,
+  "runs": 0,
+  "served_runs": 0,
+  "served_tokens_in_second_reads": 0,
+  "detail": []
+ },
  "by_file": {
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
@@ -76,7 +95,10 @@
    "words_absent_from_a": 5,
    "words_b": 295,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
@@ -90,7 +112,10 @@
    "words_absent_from_a": 15,
    "words_b": 424,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
@@ -110,7 +135,10 @@
    "unique_runs_if_a_dropped": [
     "πραγχατεια εδαδ ανοινο οοιανοο",
     "ωρ ιαιο αοιαροειοιοτ"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
@@ -129,7 +157,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "ια ιοο ν ιο σεσατο"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
@@ -143,7 +174,10 @@
    "words_absent_from_a": 13,
    "words_b": 361,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
@@ -157,7 +191,10 @@
    "words_absent_from_a": 21,
    "words_b": 370,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -176,7 +213,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "ελααβανον διδαναι αυτοιο"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -194,7 +234,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "ανειλον πων αντιονεων"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
@@ -213,7 +256,10 @@
    "unique_runs_if_a_dropped": [
     "ξεημε ροιρεεε βοια ιο ιιοια ριουτε υ ιρροιαυιιπ",
     "ι οοποιε ριοριοεο πο ειευαι"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/michael-psellus.poemata.jsonl",
@@ -232,7 +278,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "τιωπ ροιφωι ει οε ιμα"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
@@ -250,7 +299,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "ποε εκωε ιρει ιοσιοε βοιιη"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl",
@@ -264,7 +316,10 @@
    "words_absent_from_a": 12,
    "words_b": 189,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -282,7 +337,10 @@
     "πολεμους σπουδην εθεντο",
     "ες ονο δασεν"
    ],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -301,7 +359,10 @@
     "κακιστος γεγονως βιαιως απερριψε",
     "κυδοα ναι ευνενεστατον"
    ],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -321,7 +382,10 @@
    "unique_runs_if_a_dropped": [
     "οι κγαρ καρδαιται",
     "προε ρο μαιους"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -337,7 +401,10 @@
    "unique_runs_if_b_dropped": [
     "εναντιων εξαγειν ηδη"
    ],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/cogPG.PG113.jsonl",
@@ -371,7 +438,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "παλαι ποτε βασιληων"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -387,7 +457,10 @@
    "unique_runs_if_b_dropped": [
     "ροβδουχος προση νεγκε"
    ],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/michael-psellus.poemata.jsonl",
@@ -401,7 +474,10 @@
    "words_absent_from_a": 31,
    "words_b": 368,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -415,7 +491,10 @@
    "words_absent_from_a": 37,
    "words_b": 413,
    "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
@@ -431,7 +510,10 @@
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [
     "β εριριοηια τρια"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -452,7 +534,10 @@
     "πλειους αμαχεω προσηγαγετο ξανθον",
     "λοιπους ηλευθερωσεν ιδοντες",
     "εστρατοπεδευσαντο υπερτερουντε γε"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
@@ -474,7 +559,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "οαρασμανης εκτομιας δλζ εοοο νυκ ιασο"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -490,7 +578,10 @@
    "unique_runs_if_b_dropped": [
     "αωθσης ουκ οιθαμεν"
    ],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
@@ -526,7 +617,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "οαμοος ουθ αι"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl",
@@ -547,7 +641,10 @@
     "ιορας οδε θανουσα χωριζομαι",
     "χοιρος ιοτκερ ημεινων",
     "κραιωτην φα ειπκιανο μενεο εονιωκα μνοια φμο εη οιεηισιι εον αοι ασαοαι"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -570,7 +667,10 @@
     "αγιας τραπεζης ενδυτην",
     "καθ ενα εκαστον βημα"
    ],
-   "unique_runs_if_a_dropped": []
+   "unique_runs_if_a_dropped": [],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -604,7 +704,10 @@
    "unique_runs_if_a_dropped": [
     "αριστερα ενθεν κακειθεν",
     "προς ανατολην δεξιω μερει"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
@@ -629,7 +732,10 @@
     "ευ χαριστιας δεοωκε",
     "φαταβρογθισαι ευβεων απεθωκε",
     "ρωμαιων ανυσας αρχη αισχιστα δ εφθαρη"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
@@ -676,7 +782,10 @@
     "τελματος ουκ εγωγε",
     "κυριε επεβλεψας δε",
     "υιον ανθρωπου ον εκραταιωσας εαυτω"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
@@ -702,7 +811,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "λλισιλαι ζα ρρ βοτιαις κροιιαγιι ωαιγαοιονι"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
@@ -737,7 +849,10 @@
    ],
    "unique_runs_if_a_dropped": [
     "λλισιλαι ζα ρρ βοτιαις κροιιαγιι ωαιγαοιονι"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -760,7 +875,10 @@
    "unique_runs_if_a_dropped": [
     "κακεισε ειθ ουτως",
     "καγκελλου μη επερειδομενοι επ αυτοις αλλ"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
@@ -808,7 +926,10 @@
     "μεγαλη εκκλησια εισερχονται",
     "ταις λοιπαις προελευσεσιν ει",
     "παγανη κυριακη ανερχονται"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -837,7 +958,10 @@
     "ειωθος ασπαζομενοι εισερχονται μετ",
     "εκνευοντες δεξια κατερχονται",
     "νεας μεγαλης εκκλησιασκεισε γαρ"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
@@ -881,7 +1005,10 @@
     "ομοουσιου επιλαβομενοι ευσεβιος",
     "θεογνις νικαιας μαρις χαλ κηδονος θεωνας μαρμαρικης σεκουνδος π τολεμαιδος επει γαρ εφασαν",
     "οι πατρικοι παιδες"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -917,7 +1044,10 @@
     "λεβα πατρικιε ελωκ",
     "τας σχολας εκδεχομενον",
     "ευσεβεστατων εα αυγουστων"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
@@ -958,7 +1088,10 @@
     "ομοδοξησαντες εγραφον πεντε",
     "θεογνις νικαιας μαρις χαλ κηδονος θεωνας μαρμαρικης σεκουνδος π τολεμαιδος επει γαρ εφασαν",
     "οι πατρικοι παιδες"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -986,7 +1119,10 @@
     "αγια θυρια ειτα",
     "αποχαιρετιζοντες πον πατοιαρχην",
     "νεας μεγαλης εκκλησιας"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -1016,7 +1152,10 @@
     "παλα ιου εξερχονται",
     "νεας μεγαλης εκκλησιας",
     "αποστολων ομοιως τελειται"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -1043,7 +1182,10 @@
     "αυτου καθ εκαστην",
     "λοιπους αρχοντας τους μελλοντας δηριγευειν",
     "ψαλται χριστος ανεστη δ"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
@@ -1075,7 +1217,10 @@
    "unique_runs_if_a_dropped": [
     "δειλινου ιπποδρομιου κα ειτα εισελθων",
     "δυο μαγλαβιτων σπαθαριων βασταζοντωνε"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl",
@@ -1132,7 +1277,10 @@
     "εω επισκοποι ετεραν γραφην συθεμενοι",
     "εσπεραν επεμπον ιερευσιν",
     "μακροστιχοιν θθι οαιιγ χσι"
-   ]
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
   }
  ]
 }
