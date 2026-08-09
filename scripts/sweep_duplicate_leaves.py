@@ -43,6 +43,7 @@ OUT = DATA / "duplicate_leaf_candidates.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
+from drop_duplicate_leaf import unique_runs, words  # noqa: E402
 
 GATE = 0.40        # containment above this is a candidate; known cases are 0.84+
 MIN_BIGRAMS = 150  # a printed Migne page runs ~350 bigrams; below this a row is
@@ -69,7 +70,8 @@ def bigrams(text: str) -> set:
 def scan_file(fp: Path) -> list[dict]:
     rows = [json.loads(l) for l in fp.read_text(encoding="utf-8").splitlines()
             if l.strip()]
-    sets, loci = [], []
+    sets, loci, texts = [], [], []
+    served = fp.parent.name == "corpus"
     for r in rows:
         if r.get("source") not in SOURCES:
             continue
@@ -77,6 +79,7 @@ def scan_file(fp: Path) -> list[dict]:
         if len(b) >= MIN_BIGRAMS:
             sets.append(b)
             loci.append(str(r["locus"]))
+            texts.append(r.get("text") or "")
     n = len(sets)
     if n < 2:
         return []
@@ -103,10 +106,23 @@ def scan_file(fp: Path) -> list[dict]:
             inter = len(sets[i] & sets[j])
             cont = inter / floor
             if cont >= GATE:
+                a, b = texts[i], texts[j]
+                runs = unique_runs(b, a)
+                wa = set(words(a))
+                wb = words(b)
                 out.append({"file": fp.relative_to(REPO).as_posix(),
+                            "served": served,
                             "locus_a": loci[i], "locus_b": loci[j],
                             "containment": round(cont, 4),
-                            "bigrams_a": len(sets[i]), "bigrams_b": len(sets[j])})
+                            "bigrams_a": len(sets[i]), "bigrams_b": len(sets[j]),
+                            "tokens_b": len(_GK.findall(b)),
+                            # what dropping b would cost: the same test
+                            # drop_duplicate_leaf.py gates on. A clean rescanned
+                            # leaf has none of this; a pair that merely overlaps
+                            # has plenty, and must not be dropped either way.
+                            "words_absent_from_a": sum(1 for w in wb if w not in wa),
+                            "words_b": len(wb),
+                            "unique_runs": runs})
     return out
 
 
@@ -131,9 +147,23 @@ def main() -> None:
             print(f"  ! {fp.name}: {e}", file=sys.stderr)   # hide the rest
     hits.sort(key=lambda h: -h["containment"])
 
+    # A pair with no unique run is a clean second copy: dropping it costs
+    # nothing. A pair with unique runs overlaps without being a copy, and
+    # dropping either side would lose text, so it is NOT a candidate for the
+    # drop tool no matter how high the containment.
+    clean = [h for h in hits if not h["unique_runs"]]
+    overlapping = [h for h in hits if h["unique_runs"]]
+    served_clean = [h for h in clean if h["served"]]
     by_file = Counter(h["file"] for h in hits)
     print(f"scanned {scanned:,} files at containment gate {args.gate}")
     print(f"candidate row pairs: {len(hits):,} in {len(by_file)} files")
+    print(f"  clean second copies (nothing unique in the later row): {len(clean)}, "
+          f"{sum(h['tokens_b'] for h in clean):,} tok")
+    print(f"    of those in SERVED text: {len(served_clean)}, "
+          f"{sum(h['tokens_b'] for h in served_clean):,} tok")
+    print(f"  overlapping but not copies (each side has text the other lacks): "
+          f"{len(overlapping)}, {sum(h['tokens_b'] for h in overlapping):,} tok "
+          f"- do not drop these")
     for h in hits[:25]:
         print(f"    {h['containment']:.3f}  {h['file'].split('/')[-1][:44]:<44} "
               f"{h['locus_a']} ~ {h['locus_b']}")
@@ -161,6 +191,12 @@ def main() -> None:
                    "common_bigram_share": COMMON, "sources": sorted(SOURCES)},
         "files_scanned": scanned,
         "candidates": len(hits),
+        "clean_second_copies": len(clean),
+        "clean_second_copies_tokens": sum(h["tokens_b"] for h in clean),
+        "clean_second_copies_served": len(served_clean),
+        "clean_second_copies_served_tokens": sum(h["tokens_b"] for h in served_clean),
+        "overlapping_not_copies": len(overlapping),
+        "overlapping_not_copies_tokens": sum(h["tokens_b"] for h in overlapping),
         "by_file": dict(by_file.most_common()),
         "pairs": hits,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

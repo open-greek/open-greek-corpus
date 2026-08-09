@@ -13,6 +13,12 @@
  },
  "files_scanned": 4337,
  "candidates": 55,
+ "clean_second_copies": 18,
+ "clean_second_copies_tokens": 6829,
+ "clean_second_copies_served": 15,
+ "clean_second_copies_served_tokens": 5943,
+ "overlapping_not_copies": 37,
+ "overlapping_not_copies_tokens": 14347,
  "by_file": {
   "data/corpus/cogPG.PG112.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
@@ -36,443 +42,1042 @@
  "pairs": [
   {
    "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "served": true,
    "locus_a": "PG126.606",
    "locus_b": "PG126.614",
    "containment": 0.961,
    "bigrams_a": 438,
-   "bigrams_b": 436
+   "bigrams_b": 436,
+   "tokens_b": 464,
+   "words_absent_from_a": 8,
+   "words_b": 464,
+   "unique_runs": []
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
+   "served": false,
    "locus_a": "PG113.45",
    "locus_b": "PG113.47",
    "containment": 0.961,
    "bigrams_a": 282,
-   "bigrams_b": 282
+   "bigrams_b": 282,
+   "tokens_b": 295,
+   "words_absent_from_a": 5,
+   "words_b": 295,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "served": true,
    "locus_a": "PG126.607",
    "locus_b": "PG126.615",
    "containment": 0.9497,
    "bigrams_a": 443,
-   "bigrams_b": 437
+   "bigrams_b": 437,
+   "tokens_b": 452,
+   "words_absent_from_a": 10,
+   "words_b": 451,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
+   "served": true,
    "locus_a": "PG151.160",
    "locus_b": "PG151.164",
    "containment": 0.9478,
    "bigrams_a": 403,
-   "bigrams_b": 402
+   "bigrams_b": 402,
+   "tokens_b": 430,
+   "words_absent_from_a": 9,
+   "words_b": 430,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "served": true,
    "locus_a": "PG118.519",
    "locus_b": "PG118.521",
    "containment": 0.9435,
    "bigrams_a": 336,
-   "bigrams_b": 340
+   "bigrams_b": 340,
+   "tokens_b": 372,
+   "words_absent_from_a": 11,
+   "words_b": 372,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "served": true,
    "locus_a": "PG126.608",
    "locus_b": "PG126.616",
    "containment": 0.9409,
    "bigrams_a": 423,
-   "bigrams_b": 425
+   "bigrams_b": 425,
+   "tokens_b": 434,
+   "words_absent_from_a": 11,
+   "words_b": 434,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "served": true,
    "locus_a": "PG118.520",
    "locus_b": "PG118.522",
    "containment": 0.935,
    "bigrams_a": 354,
-   "bigrams_b": 360
+   "bigrams_b": 360,
+   "tokens_b": 392,
+   "words_absent_from_a": 14,
+   "words_b": 392,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "served": true,
    "locus_a": "PG126.605",
    "locus_b": "PG126.613",
    "containment": 0.9327,
    "bigrams_a": 446,
-   "bigrams_b": 446
+   "bigrams_b": 446,
+   "tokens_b": 466,
+   "words_absent_from_a": 12,
+   "words_b": 466,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
+   "served": true,
    "locus_a": "PG151.159",
    "locus_b": "PG151.163",
    "containment": 0.9172,
    "bigrams_a": 435,
-   "bigrams_b": 444
+   "bigrams_b": 444,
+   "tokens_b": 470,
+   "words_absent_from_a": 21,
+   "words_b": 470,
+   "unique_runs": [
+    "λαξς ε ιγνε πιμα"
+   ]
   },
   {
    "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
+   "served": true,
    "locus_a": "PG122.363",
    "locus_b": "PG122.365",
    "containment": 0.911,
    "bigrams_a": 382,
-   "bigrams_b": 382
+   "bigrams_b": 382,
+   "tokens_b": 424,
+   "words_absent_from_a": 15,
+   "words_b": 424,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
+   "served": true,
    "locus_a": "PG101.378",
    "locus_b": "PG101.380",
    "containment": 0.9009,
    "bigrams_a": 323,
-   "bigrams_b": 325
+   "bigrams_b": 325,
+   "tokens_b": 360,
+   "words_absent_from_a": 17,
+   "words_b": 360,
+   "unique_runs": [
+    "πραγματεια εαιαιυα νοινο οοιανο",
+    "οα ιιιο αοιουαροσιοιοτω"
+   ]
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
+   "served": true,
    "locus_a": "PG101.389",
    "locus_b": "PG101.391",
    "containment": 0.9006,
    "bigrams_a": 332,
-   "bigrams_b": 340
+   "bigrams_b": 340,
+   "tokens_b": 350,
+   "words_absent_from_a": 26,
+   "words_b": 350,
+   "unique_runs": [
+    "παιατωμπ α ολο ροιαα σωιαο μ τιεθ αιιαμ",
+    "τ πι ιηιοω ινα ινα σεφη"
+   ]
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
+   "served": true,
    "locus_a": "PG101.379",
    "locus_b": "PG101.381",
    "containment": 0.8977,
    "bigrams_a": 344,
-   "bigrams_b": 342
+   "bigrams_b": 342,
+   "tokens_b": 361,
+   "words_absent_from_a": 13,
+   "words_b": 361,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "served": true,
    "locus_a": "PG126.609",
    "locus_b": "PG126.617",
    "containment": 0.8976,
    "bigrams_a": 412,
-   "bigrams_b": 410
+   "bigrams_b": 410,
+   "tokens_b": 421,
+   "words_absent_from_a": 17,
+   "words_b": 421,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/theophylactus-achridensis.vita-clementis-ohridensis.jsonl",
+   "served": true,
    "locus_a": "PG126.610",
    "locus_b": "PG126.618",
    "containment": 0.8932,
    "bigrams_a": 412,
-   "bigrams_b": 416
+   "bigrams_b": 416,
+   "tokens_b": 463,
+   "words_absent_from_a": 25,
+   "words_b": 463,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
+   "served": true,
    "locus_a": "PG118.65",
    "locus_b": "PG118.67",
    "containment": 0.8917,
    "bigrams_a": 351,
-   "bigrams_b": 361
+   "bigrams_b": 361,
+   "tokens_b": 370,
+   "words_absent_from_a": 21,
+   "words_b": 370,
+   "unique_runs": []
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.508",
    "locus_b": "PG134.510",
    "containment": 0.8851,
    "bigrams_a": 383,
-   "bigrams_b": 395
+   "bigrams_b": 395,
+   "tokens_b": 400,
+   "words_absent_from_a": 27,
+   "words_b": 400,
+   "unique_runs": [
+    "καπιτωλιον εξεβοησεν αγαθη τυχη",
+    "δημου μαρκον ουλπιον νερουαν"
+   ]
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "served": true,
    "locus_a": "PG134.660",
    "locus_b": "PG134.662",
    "containment": 0.8802,
    "bigrams_a": 334,
-   "bigrams_b": 335
+   "bigrams_b": 335,
+   "tokens_b": 346,
+   "words_absent_from_a": 23,
+   "words_b": 346,
+   "unique_runs": [
+    "οιεφυγον βοραιοι οε στασιασαντες"
+   ]
   },
   {
    "file": "data/corpus/photius.amphilochia.jsonl",
+   "served": true,
    "locus_a": "PG101.390",
    "locus_b": "PG101.392",
    "containment": 0.8773,
    "bigrams_a": 383,
-   "bigrams_b": 383
+   "bigrams_b": 383,
+   "tokens_b": 397,
+   "words_absent_from_a": 25,
+   "words_b": 397,
+   "unique_runs": [
+    "ραπμε ρερεεβυε αοιωη ιηωνιογα ρουτιραωρ ιροοιαιη ειι οι οοποε ριεριοοο οα ωρειιρβαι"
+   ]
   },
   {
    "file": "data/corpus/michael-psellus.poemata.jsonl",
+   "served": true,
    "locus_a": "PG122.301",
    "locus_b": "PG122.303",
    "containment": 0.8696,
    "bigrams_a": 345,
-   "bigrams_b": 375
+   "bigrams_b": 375,
+   "tokens_b": 398,
+   "words_absent_from_a": 38,
+   "words_b": 398,
+   "unique_runs": [
+    "αιισις εεμο ρττιηι εγω αιτω ινα",
+    "ηδειε δηλαδη γλσκεια"
+   ]
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "served": true,
    "locus_a": "PG134.633",
    "locus_b": "PG134.635",
    "containment": 0.8663,
    "bigrams_a": 329,
-   "bigrams_b": 330
+   "bigrams_b": 330,
+   "tokens_b": 337,
+   "words_absent_from_a": 19,
+   "words_b": 337,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
+   "served": true,
    "locus_a": "PG118.66",
    "locus_b": "PG118.68",
    "containment": 0.864,
    "bigrams_a": 365,
-   "bigrams_b": 353
+   "bigrams_b": 353,
+   "tokens_b": 374,
+   "words_absent_from_a": 17,
+   "words_b": 374,
+   "unique_runs": [
+    "αδελφου σου ντι"
+   ]
   },
   {
    "file": "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl",
+   "served": true,
    "locus_a": "PG122.435",
    "locus_b": "PG122.436",
    "containment": 0.8602,
    "bigrams_a": 186,
-   "bigrams_b": 186
+   "bigrams_b": 186,
+   "tokens_b": 189,
+   "words_absent_from_a": 12,
+   "words_b": 189,
+   "unique_runs": []
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "served": true,
    "locus_a": "PG134.673",
    "locus_b": "PG134.675",
    "containment": 0.8464,
    "bigrams_a": 384,
-   "bigrams_b": 403
+   "bigrams_b": 403,
+   "tokens_b": 420,
+   "words_absent_from_a": 36,
+   "words_b": 420,
+   "unique_runs": [
+    "μαθοντες κακεινοι καταλυσαι",
+    "πολεμους σπουδην εθεντο",
+    "ες ονο δασεν"
+   ]
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "served": true,
    "locus_a": "PG134.634",
    "locus_b": "PG134.636",
    "containment": 0.8333,
    "bigrams_a": 288,
-   "bigrams_b": 309
+   "bigrams_b": 309,
+   "tokens_b": 312,
+   "words_absent_from_a": 40,
+   "words_b": 312,
+   "unique_runs": [
+    "μακολν λεγομενον τειχος απο",
+    "μεγαλης θαλασσης διηκον αχρι",
+    "ωηλυβριας δια τας εφοδους",
+    "εκεινον κλωνται θασιλεα"
+   ]
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.507",
    "locus_b": "PG134.509",
    "containment": 0.8304,
    "bigrams_a": 395,
-   "bigrams_b": 419
+   "bigrams_b": 419,
+   "tokens_b": 429,
+   "words_absent_from_a": 49,
+   "words_b": 429,
+   "unique_runs": [
+    "κοσμικην αυτην ειναι ουδ επιγειον απεκριναντο",
+    "διωγμον προσταγματι επαυσεν",
+    "κακιστος γεγονως βιαιως απερριψε",
+    "κυδοα ναι ευνενεστατον"
+   ]
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "served": true,
    "locus_a": "PG134.674",
    "locus_b": "PG134.676",
    "containment": 0.8283,
    "bigrams_a": 367,
-   "bigrams_b": 378
+   "bigrams_b": 378,
+   "tokens_b": 391,
+   "words_absent_from_a": 34,
+   "words_b": 391,
+   "unique_runs": [
+    "ιστρον περαιωθεντες εν γη",
+    "ον βοων μανιμων"
+   ]
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.57",
    "locus_b": "PG134.59",
    "containment": 0.8222,
    "bigrams_a": 433,
-   "bigrams_b": 438
+   "bigrams_b": 438,
+   "tokens_b": 453,
+   "words_absent_from_a": 40,
+   "words_b": 454,
+   "unique_runs": [
+    "εναντιων εξαγειν ηδη"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG113.jsonl",
+   "served": true,
    "locus_a": "328",
    "locus_b": "488",
    "containment": 0.8203,
    "bigrams_a": 217,
-   "bigrams_b": 349
+   "bigrams_b": 349,
+   "tokens_b": 365,
+   "words_absent_from_a": 113,
+   "words_b": 365,
+   "unique_runs": [
+    "εις λεπτομερειαν ανεπιφθονως",
+    "προθειναι πασι κοινη",
+    "τουτων αναφυομενην ωφελειαν",
+    "ενδελεχεστερον κατεντυγχανειν τους τροφιμους",
+    "μονιμωτερον εντυπουσθαι τουτοις",
+    "εις υποθεσεις διαφορους τρεις επι",
+    "αριθμον ουσας εν αις",
+    "υφ αις απασα ιστορικη μεγαλουργια συγκλειεται",
+    "ουκ εστιν ουδεν",
+    "υποθεσεων απαριθμησιν ουδεν",
+    "του λογου ακολουθιας τη διαιρεσει",
+    "εκαστη υποθεσει προσαρμοζομενης τηλικαυτης ου συνοψεως αληθεστερον",
+    "ειπειν οικειωσεως ων κεφαλαιωδων υποθεσεων",
+    "κακιας πεντηκοστη ουσα τυγχανει",
+    "σασιλεων αναγορευσεως εμφαινει",
+    "τινας οι λογοι πατερας κεκτηνται",
+    "ωσιν αι κεφαλαιωδεις υποθεσεις ακατονομαστοι"
+   ]
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.442",
    "locus_b": "PG134.444",
    "containment": 0.8169,
    "bigrams_a": 366,
-   "bigrams_b": 369
+   "bigrams_b": 369,
+   "tokens_b": 390,
+   "words_absent_from_a": 36,
+   "words_b": 390,
+   "unique_runs": [
+    "ροβδουχος προση νεγκε"
+   ]
   },
   {
    "file": "data/corpus/michael-psellus.poemata.jsonl",
+   "served": true,
    "locus_a": "PG122.302",
    "locus_b": "PG122.304",
    "containment": 0.8039,
    "bigrams_a": 362,
-   "bigrams_b": 362
+   "bigrams_b": 362,
+   "tokens_b": 368,
+   "words_absent_from_a": 31,
+   "words_b": 368,
+   "unique_runs": []
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.548",
    "locus_b": "PG134.550",
    "containment": 0.7866,
    "bigrams_a": 411,
-   "bigrams_b": 403
+   "bigrams_b": 403,
+   "tokens_b": 413,
+   "words_absent_from_a": 37,
+   "words_b": 413,
+   "unique_runs": []
   },
   {
    "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl",
+   "served": false,
    "locus_a": "PG113.46",
    "locus_b": "PG113.48",
    "containment": 0.7791,
    "bigrams_a": 172,
-   "bigrams_b": 174
+   "bigrams_b": 174,
+   "tokens_b": 178,
+   "words_absent_from_a": 20,
+   "words_b": 178,
+   "unique_runs": []
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.441",
    "locus_b": "PG134.443",
    "containment": 0.7738,
    "bigrams_a": 437,
-   "bigrams_b": 367
+   "bigrams_b": 367,
+   "tokens_b": 395,
+   "words_absent_from_a": 37,
+   "words_b": 395,
+   "unique_runs": [
+    "εκινδηνευς αιαομκων ευ"
+   ]
   },
   {
    "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
+   "served": true,
    "locus_a": "PG134.659",
    "locus_b": "PG134.661",
    "containment": 0.75,
    "bigrams_a": 236,
-   "bigrams_b": 305
+   "bigrams_b": 305,
+   "tokens_b": 309,
+   "words_absent_from_a": 94,
+   "words_b": 309,
+   "unique_runs": [
+    "δαρασιανης εκτοιιας επι",
+    "κοιτωνος γεγονως ιουστινιανου επεγραφησαν",
+    "ηρωελεγεια λ ερφο ποιιιε ηοας νησοι ειεεγακαα αονμκα μαμτιοιε σοημμπ",
+    "τιθεντι εασμε νοαιπα εαις εομηααμμε πααρτ ος ιη ηεμιονηα οοβοαα οερινα αομηι ειξαι ιασεο οραιισεε μονε",
+    "πιευιπ οοκικα νοσειεεφε αορι φημιερνφ νιουεε ρο εκκι οιιαιε ααι ριν ακε οιεεειε ριμα νοσαεια ιη σιο ρ ρηιργς ομν ιηπονα σαυοα πεοαβιμν μακιαπι ριονεε πεερια θα αοιι ρ ιανη πονα πειε σαγρει απνομιθη μιυτα ενμεα τηηειοιο ειιηρε δμιοε αρει ιδ"
+   ]
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.58",
    "locus_b": "PG134.60",
    "containment": 0.7426,
    "bigrams_a": 470,
-   "bigrams_b": 470
+   "bigrams_b": 470,
+   "tokens_b": 488,
+   "words_absent_from_a": 56,
+   "words_b": 488,
+   "unique_runs": [
+    "αωθσης ουκ οιθαμεν"
+   ]
   },
   {
    "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "served": true,
    "locus_a": "PG126.161",
    "locus_b": "PG126.261",
    "containment": 0.7412,
    "bigrams_a": 228,
-   "bigrams_b": 404
+   "bigrams_b": 404,
+   "tokens_b": 415,
+   "words_absent_from_a": 147,
+   "words_b": 415,
+   "unique_runs": [
+    "διηθλει εως ειμαρμενοι χρονοι",
+    "δουλειας αυτον απελυσαν",
+    "σσα ακοσμιας καθαρσια εμαυτον εγραψα σοι εν οιοις ειμι πλην οσον ου βασιλιδι δουλευω πλουσια καθαριω",
+    "συνολως αφροδιτη χρυση",
+    "δουλοις βαρβαροις ακαθαρτοις κιναυρας κωδιων αποζουσιν",
+    "πενητεροις τον βιον",
+    "κακοηθειαν πλουσιοι μαλλον",
+    "κακοηθεια συμπαντων ομου βασιλευσι λυσατε με",
+    "αισχρας ταυτης δουλειας",
+    "εχθησομαι χθεσθης υμιν προωρας μα δια τον χριστον υιος μηδεν δρασας",
+    "πατρος αξιον τουτο",
+    "ανασχομενοις τυχον δυσκλεες",
+    "ηλιος τον μαρτυρα ποιεισθαι",
+    "αυτο ποιειν τουτο",
+    "νεμεσητον δεικνυναι τον τοιουτον",
+    "παιζεσθαι ειτα ω",
+    "καθαρων ακτινων αις",
+    "φωτιζεις ους αετιδεις απογεννας φιλοσοφωτατε ανθρωπων",
+    "μεθ υμων διαγειν τωσν μακαριων ενθα μαλ αιθρη πεπταται"
+   ]
   },
   {
    "file": "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl",
+   "served": false,
    "locus_a": "PG122.650",
    "locus_b": "PG122.638",
    "containment": 0.7256,
    "bigrams_a": 387,
-   "bigrams_b": 379
+   "bigrams_b": 379,
+   "tokens_b": 398,
+   "words_absent_from_a": 50,
+   "words_b": 398,
+   "unique_runs": [
+    "θερμας ουδε φανουσα κωριζομαι",
+    "χορος ισοπερ αημεινων"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "180",
    "locus_b": "182",
    "containment": 0.7247,
    "bigrams_a": 178,
-   "bigrams_b": 325
+   "bigrams_b": 325,
+   "tokens_b": 386,
+   "words_absent_from_a": 95,
+   "words_b": 386,
+   "unique_runs": [
+    "θεοδωρου κακεισε περιβαλλονται",
+    "χρυσοτρικλινω μικρον τι",
+    "ευθεως γινεται μεταστασιμον",
+    "κορια λι τανικια",
+    "γινεται η ακολουθια",
+    "τα αγια θυρια ειτα",
+    "αγιας τραπεζης ενδυτην",
+    "καθ ενα εκαστον βημα"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "229",
    "locus_b": "236",
    "containment": 0.6491,
    "bigrams_a": 171,
-   "bigrams_b": 295
+   "bigrams_b": 295,
+   "tokens_b": 468,
+   "words_absent_from_a": 128,
+   "words_b": 468,
+   "unique_runs": [
+    "συνηθους πασης ταξεως τελουμενης",
+    "ειωθοτα τυπον οψικευομενης",
+    "αυγουστη υπο πασης",
+    "αυτω τριβουναλιω ενθα ισταται",
+    "αυγουστη οψικευομενης υπο τε",
+    "αγιος αγιος αγιος",
+    "τους βασιλεας αεειαηααιιο αιμεγαιονες",
+    "πολλα πολλα πολλα",
+    "πολλοι υμιν χρονοι",
+    "πολλοι υμιν χρονοι",
+    "πολλοι υμιν χρονοι",
+    "επολλοι υμιν χρονοι",
+    "πολλοι υμιν χοονοι",
+    "πολλοι υμιν χρονοι",
+    "πολλοι υμιν χρονοι δεσποται",
+    "πολλοι υμιν χρονοι"
+   ]
   },
   {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
+   "served": false,
    "locus_a": "PG134.547",
    "locus_b": "PG134.549",
    "containment": 0.6116,
    "bigrams_a": 365,
-   "bigrams_b": 363
+   "bigrams_b": 363,
+   "tokens_b": 370,
+   "words_absent_from_a": 74,
+   "words_b": 370,
+   "unique_runs": [
+    "κεσων θυτος αολλακιε αθεικο",
+    "καταβροχθισις ευθεως απεδωκε",
+    "ενεδωκεν αλλα γαλλων ενα",
+    "βαρβαροις επιβουλευων δεκιω πλησιον τελματος βαθεος οντος εκει παραταξασθαι"
+   ]
   },
   {
    "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "served": true,
    "locus_a": "PG126.162",
    "locus_b": "PG126.262",
    "containment": 0.5203,
    "bigrams_a": 369,
-   "bigrams_b": 374
+   "bigrams_b": 374,
+   "tokens_b": 377,
+   "words_absent_from_a": 115,
+   "words_b": 377,
+   "unique_runs": [
+    "τοσουτων μει γεμουσι",
+    "ποσεως ειιστ γ",
+    "μεγαλης εκκλησιας κιρω νικητα",
+    "σερρων εβουληθην μεν",
+    "σην αγιοτητα μακροις ενευκαιρειν λογοις",
+    "εμπαθεσιν οφθαλμοις πλατυτεραν",
+    "τραγωδιων αλλ επειδη",
+    "μεγαν δομεστικον γραμματιου ηλικα",
+    "παρ εκεινου διδασκαλια",
+    "ση συνεσει γενου",
+    "ημετερων διδασκαλος αλλοις",
+    "διεξοδικωτερων δει λογων ηηκτησας",
+    "δεησεων επιστολην ημων",
+    "αδελφος εμος επιδωσει",
+    "γυμνοτερον πλην αλλ οποτερως",
+    "οιοις ειμι αλλοιωσαι",
+    "ευχαις σπουδασον παντως ος μακρους επ εκκλησιας κηρυττεις",
+    "δικαιον ουτως υπερ δουλου μακρα πεπονηκοτος",
+    "ρηματων ακουσεται επιστ",
+    "εριθτ ι εριθτ γ"
+   ]
   },
   {
    "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "served": true,
    "locus_a": "PG112.726",
    "locus_b": "PG112.729",
    "containment": 0.4855,
    "bigrams_a": 173,
-   "bigrams_b": 271
+   "bigrams_b": 271,
+   "tokens_b": 393,
+   "words_absent_from_a": 119,
+   "words_b": 390,
+   "unique_runs": [
+    "εν ιααιε εν κιονθωε",
+    "τοις ασελιοις ν",
+    "λοικων προσωπων τω καστρενσιων",
+    "τω ρεφερενδαριω ν",
+    "αγιας σοφιας ν",
+    "εκκλησιαιτων ακοιμητων ν",
+    "αγιοι σοε φανου",
+    "το παν εξοδ λιτρ",
+    "αναπρ κε εστιν δε"
+   ]
   },
   {
    "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "served": true,
    "locus_a": "PG112.726",
    "locus_b": "PG112.728",
    "containment": 0.4624,
    "bigrams_a": 173,
-   "bigrams_b": 293
+   "bigrams_b": 293,
+   "tokens_b": 454,
+   "words_absent_from_a": 159,
+   "words_b": 446,
+   "unique_runs": [
+    "το παν κ",
+    "ουτοι λαμβανουσι καθως",
+    "πρωτου κομβιου ομοιως",
+    "αι φωταψιαι ηγουν αι εκκλησιαι νοιλαωειιε ερ οοοιεειιε",
+    "οιπεια αιαυ ευρετιοιο οοιο δι οο λο τερειοιο ορε αοιιε τρικιου",
+    "λιτρων ουτως λι",
+    "καυικλειου ν κδ",
+    "δυο δημαρχοι ν μη ανα ν κδ",
+    "καταστασεως ν κδ",
+    "σιλεντιαριοι ν κδ",
+    "σχολων ν κδ",
+    "σκευαζων το κανικκλειον ν",
+    "δυο μεσων βενετων τε",
+    "δευτερευων βενετων ν",
+    "το οργανον βενετων",
+    "τω νουμεραριω ν",
+    "τοις δεκανοις τουιπποδρομιου ν",
+    "κββ ρο εινοο"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "287",
    "locus_b": "289",
    "containment": 0.4552,
    "bigrams_a": 279,
-   "bigrams_b": 352
+   "bigrams_b": 352,
+   "tokens_b": 443,
+   "words_absent_from_a": 93,
+   "words_b": 443,
+   "unique_runs": [
+    "η συγκλητος πασα πιπτουσι",
+    "προειρηται προσκυνησαντων παντων",
+    "λεγει κελευσατε ζ",
+    "φωχοβολος κουβικουλαριος εφαπλοι",
+    "οργανου ανακραζει μεγαλως"
+   ]
   },
   {
    "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "served": true,
    "locus_a": "PG112.530",
    "locus_b": "PG112.596",
    "containment": 0.4535,
    "bigrams_a": 172,
-   "bigrams_b": 305
+   "bigrams_b": 305,
+   "tokens_b": 333,
+   "words_absent_from_a": 157,
+   "words_b": 333,
+   "unique_runs": [
+    "κεφαλ αη περι",
+    "γιωτατου πατριαρχοω ενι φεβρουαριω β",
+    "κυριου ημων ιησου χριστου ετους υμβ εχειροτονηθη θεοφυλακτος",
+    "υιος ρωμανου δεσποτου αρχιεπισκοπος κωνσταντινουπολεως",
+    "αυτη ημερα ετελεσθη",
+    "εξαγουσης επι την",
+    "κουβουκλειου εισελ θοντος",
+    "απο σκαραμαγγιων περιβεβλημενοι",
+    "χρυσοπερικλειστα τουτων σαγια",
+    "απιασι δηριγευααενοι υπο τε",
+    "τουτων διβητησια αλλαξαντες εκαθεσθησαν",
+    "την ειωθυιαν ακολουθιαν ευτρεπισθη υπεμνησθησαν",
+    "εξιοντων αυτων εξω",
+    "εκεισε κρεμαμενου βηλου εδεξαντο",
+    "αγιωτατης εκκλησιας εις την ωραιαν πυλην εδεξατο",
+    "κιβωριου ως ετελεσθη",
+    "κατηχουμενιων εκδεχομενοι την",
+    "κεφαλ λθ περι",
+    "παλαιον ιδιον ειχε πραιποσιτον ιστεον οτι",
+    "παλαιον ιδιον ειχε πραιποσιτον πρωτοστατουντα",
+    "εκκλησιαστικον καταλογου τυγχανοντα",
+    "βασιλεως ασφαλειας ην εποιησε",
+    "οαριτ χλχν ι ξειιι εθοαριτ σχιχ"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "180",
    "locus_b": "184",
    "containment": 0.4494,
    "bigrams_a": 178,
-   "bigrams_b": 243
+   "bigrams_b": 243,
+   "tokens_b": 273,
+   "words_absent_from_a": 94,
+   "words_b": 273,
+   "unique_runs": [
+    "χρυσοτρικλινου ιστεον οτι εξιοντων",
+    "δηριγευουσι τους δεσποτας ιστεον οτι ενεον",
+    "δεσποτων διερχομενων πιπτουσιν",
+    "εδαφους τουτους προσκυνουντες",
+    "αποστολου πετρου οδε πατφιορχης",
+    "λαθων ετεχθης οπερ εποιησε λεων",
+    "δοξα σοι χριστε",
+    "θεος αποστολων καυχημα",
+    "διερχομενος οθεν κακεισε απηει διερχεται"
+   ]
   },
   {
    "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
+   "served": false,
    "locus_a": "PG067.39",
    "locus_b": "PG067.249",
    "containment": 0.4486,
    "bigrams_a": 243,
-   "bigrams_b": 313
+   "bigrams_b": 313,
+   "tokens_b": 332,
+   "words_absent_from_a": 127,
+   "words_b": 332,
+   "unique_runs": [
+    "δυτικους επισκοπους γραμμα κομιζομεν",
+    "νικαεων συνοδω επι",
+    "μακαριου κωνσταντινου υπο τριακοσιων δεκα",
+    "οκτω επισκοπων βεβαιωθεισα ακεραια",
+    "ασαλευτω καταστασει εως νυν",
+    "διηνεκως διαμενει αν",
+    "ευσεβως κειται υπεναντιως",
+    "αρειου διαστροφης ομοιως",
+    "αχρι τελους φυλασσειν ιδια χειρι ομολογουμεν κατακρινοντες αρειον",
+    "ασεβη διδαχην αυτου συν",
+    "πασαν αιρεσιν σαβελλιου πατροπασσιανους μαρκιωνιστας φωτιανους μαρκελλιανους",
+    "πασας τας αιρεσεις τας εναντιουμενας",
+    "πιστει ητις ευσεβως",
+    "καθολικως υπο των αγιων εξετεθη πατερων",
+    "αριμηνω συνοδω αναγνωσθεισαν εκθεσιν",
+    "πραχθεισαν οις δολω",
+    "κωνσταντινου πολει κομισθεισαν απο νικης α",
+    "θρακης υπεγραψαν εστι",
+    "αυτων ων προειρηται ων"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "264",
    "locus_b": "272",
    "containment": 0.4472,
    "bigrams_a": 199,
-   "bigrams_b": 270
+   "bigrams_b": 270,
+   "tokens_b": 380,
+   "words_absent_from_a": 139,
+   "words_b": 380,
+   "unique_runs": [
+    "ποιη μα δρομικον ηχ δ",
+    "νικαις κοσμοποθητοι δεσποται",
+    "πιστοτατον δουλον προεβιβασαν αξιως εν υπερτεροις αξιαις πρωτοσπαθαριον εντιμον",
+    "υπερτιμον δοξαν τη",
+    "υπαρχου ανυψωσαν αξια",
+    "ευσεατ στασων αυνουστων",
+    "τοιουτους δεδωκοτα υμιν",
+    "υπαρχου περιδοξω αξια",
+    "υπαρχον ρωμαιων εισε",
+    "εισε υπαρχος εισε",
+    "καλως ηλθες θεοστεπτων",
+    "καλως ηλθες προβολη ευεργετων",
+    "καλως ηλ θες",
+    "καλως ηλθες ποθητε",
+    "καλως ηλθες η",
+    "ως οντα κα θαρον"
+   ]
   },
   {
    "file": "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
+   "served": false,
    "locus_a": "PG067.39",
    "locus_b": "PG067.42",
    "containment": 0.4321,
    "bigrams_a": 243,
-   "bigrams_b": 276
+   "bigrams_b": 276,
+   "tokens_b": 310,
+   "words_absent_from_a": 96,
+   "words_b": 310,
+   "unique_runs": [
+    "γραφης υπ αυτων υπαγορευθεισης οπως ειρηται αυτοις",
+    "ανεξεταστον αυτοις καταλιμπανομεν επερωτησεις τοιγαρουν",
+    "αποκρισεις εντευθεν ανεκινουντο εβασανιζεν",
+    "διανοιαν των ειρημενων",
+    "ημιν εδοκει καλως εχειν συγκατατιθεσθαι",
+    "ευσεβους διδασκαλιας υπαγορευουσης",
+    "αυτου τυγχανειν διοπερ",
+    "αυτοι συντιθεμεθα ουδε",
+    "ειρηνης σκοπου προ οφθαλμων ημιν κειμενου",
+    "ορθης εκπεσειν διανοιας",
+    "ποιηθεν κοινον εφασκον",
+    "προσρημα των λοιπων κτισματων των",
+    "υιου γενομενων ων ουδεν ομοιον εχειν",
+    "διο δη μη",
+    "αυτου γενομενοις ομοιον κρειττονος",
+    "παν ποιημα τυγχανειν"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "181",
    "locus_b": "183",
    "containment": 0.4207,
    "bigrams_a": 290,
-   "bigrams_b": 325
+   "bigrams_b": 325,
+   "tokens_b": 378,
+   "words_absent_from_a": 101,
+   "words_b": 378,
+   "unique_runs": [
+    "θεοδωρου κακεισε περιβαλλονται",
+    "χρυσοτρικλινου μικρον τι ζαροτ χκι",
+    "οτε παντα καλως ευτρεπισθωσιν",
+    "ειωθοτα τουτοις τυπον"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "224",
    "locus_b": "225",
    "containment": 0.4104,
    "bigrams_a": 212,
-   "bigrams_b": 222
+   "bigrams_b": 222,
+   "tokens_b": 377,
+   "words_absent_from_a": 89,
+   "words_b": 377,
+   "unique_runs": [
+    "ευαγγελιου υποστρεφουσιν εφιπποι",
+    "τοις ιππικοις πασιν ιπποδρομιοις",
+    "ειτα ουτως ανερχομενοι",
+    "τοις κατηχουμενειοις ακουουσι",
+    "ευαγγελιου υποστρεφουσιν εφιπποι",
+    "χιωματων κεφαλ λι ωσα δει παραφυλαττειν επι στεψιμω βασιλεως α προερχονται παντες",
+    "σκευη προς το οψικευσαι τους δεσποτας",
+    "οτε πανταετοιμασθωσιν εξερχεται ο βασιλευς εκ",
+    "αυγουστεως φορων το σκαραμαγγιον αυτου"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "146",
    "locus_b": "209",
    "containment": 0.4085,
    "bigrams_a": 235,
-   "bigrams_b": 311
+   "bigrams_b": 311,
+   "tokens_b": 362,
+   "words_absent_from_a": 95,
+   "words_b": 362,
+   "unique_runs": [
+    "σωλαιαν επιδιδωσιν αυτω",
+    "κηοια απαν τες",
+    "βασιλικων πυλων διερχομενος",
+    "φορου ενθεν κακεισε",
+    "οε λοιποι κληρικοι",
+    "ναρθηκι καθεζεται προσμλενων"
+   ]
   },
   {
    "file": "data/corpus/cogPG.PG112.jsonl",
+   "served": true,
    "locus_a": "300",
    "locus_b": "327",
    "containment": 0.4057,
    "bigrams_a": 244,
-   "bigrams_b": 356
+   "bigrams_b": 356,
+   "tokens_b": 402,
+   "words_absent_from_a": 136,
+   "words_b": 402,
+   "unique_runs": [
+    "κατερχονται επ οχημασιν εκ",
+    "νικησαντος μερους δημοται αιρουσι δαφνας εκ",
+    "δεχονται τους ηνιοχους επιδιφριους εμπροσθεν",
+    "τοις προειρημενοις λοιποις τοποις",
+    "ευριπου ενθα αι στοιβαι",
+    "πλακουντων εισιν ελθοντες",
+    "ακτολογουσι μετ ευφημιας",
+    "ευφημιας αποστελλει αυτοις τοις νικηταις ηνιοχοις",
+    "κατελθοντες στεφουσι τους ηνιοχους",
+    "μερος αιτεισθαι ταυ εξελθειν",
+    "φερουσι χελανδον φερομενον",
+    "αμαξης πληθος ιχθυων",
+    "νι τους πλ αυτους",
+    "οοαν αω ιμιυκι οομμεντακιγθ"
+   ]
   },
   {
    "file": "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl",
+   "served": true,
    "locus_a": "PG146.132",
    "locus_b": "PG146.179",
    "containment": 0.4005,
    "bigrams_a": 402,
-   "bigrams_b": 421
+   "bigrams_b": 421,
+   "tokens_b": 449,
+   "words_absent_from_a": 160,
+   "words_b": 449,
+   "unique_runs": [
+    "μεν ουν μιαν ελληνων γλωσση",
+    "ασυμφωνοι παμπαν καθα",
+    "συνθεσιν ησαν προς",
+    "αρεθλιι λιου ουτε μην ταις προτεραις",
+    "ελληνιστι λεχθεισα ουτε ομοουσιον ουτε ομοιοουσιον",
+    "γε μην ειποντας",
+    "πατρι εκκηρυκτους ποιει επισης",
+    "ουσιας πν σουναταντιαν ρωμαιοι καλουσιν ειτε ομοουσιος ειτε ομοιοουσιος πανταπασι λεγειν απαγορευει",
+    "ουτε ταις ιεραις ειρημενα γραφαις ουτε ανθρωπων εννοιαις",
+    "γνωσει ληπτα διατασσεται γε μην μειζονα",
+    "υιου γεννησιν αγνωστον",
+    "πολλους εκδοσιν αναλαβειν αυθις σπουδασαι",
+    "βασιλει σφοδρως κολασιν απειλουντα",
+    "μεν ουν μιαν σων ρωμαικων",
+    "αρεθουσης μαρκου εκδοθειση συναψας",
+    "παροντι εκθησω θατεραν",
+    "ητις υστερον ανεγνωσθη",
+    "αριμινω γενομενα διηγεισθαι με γενοιτο ι κγε μην ρηθεισα",
+    "μαρκω ουτωσι διηγορευε πι στευομεν"
+   ]
   }
  ]
 }
