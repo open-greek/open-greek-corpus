@@ -624,6 +624,18 @@
     "cut from cogPG.PG118 at a character offset 2026-08-08; see data/row_split_plan.json and data/corpus_changes/cogPG.PG118.row-split.json",
     "no TLG Canon entry for Euthalius in the vendored inventory, so no anchor"
    ]
+  },
+  "nicolaus-rhetoric.progymnasmata-walz-i-263": {
+   "author": "nicolaus-rhetoric",
+   "title": "Progymnasmata (paradigmata, Walz I 263-420)",
+   "slug": "nicolaus-rhetoric.progymnasmata-walz-i-263",
+   "attribution": "named in the printed title and defended by the editor",
+   "evidence": [
+    "Walz, Rhetores Graeci I, printed 263: ΝΙΚΟΛΑΟΥ ΣΟΦΙΣΤΟΥ ΠΡΟΓΥΜΝΑΣΜΑΤΑ, no qualifier; every verso running head across 263-420 reads ΝΙΚΟΛΑΟΥ; the volume's contents entry is a bare Νικολάου προγυμνάσματα in a list where Walz writes Ἀνωνύμου for the anonymous items",
+    "Walz at printed 265 defends the ascription against Schoell, citing the authority of Par. 2918; at 264 he says what he prints are the paradigmata from that manuscript and that Nicolaus' theoria is a separate work he has not found",
+    "Felten, praefatio to the 1913 Teubner Progymnasmata, from the other side: in codicibus Nicolao tribuuntur exempla, Μελέται Suidae, quae praecepta illa illustrant (cf. Walz I 266 sq.), sed qui nexus huic Nicolao cum illis intercedat, nondum constat",
+    "NOT the same work as the served nicolaus-rhetoric.progymnasmata: word-bigram containment 0.123 against it, where the genuine other edition (Spengel III) scores 0.720 and unrelated progymnasmata of the same genre land at 0.11-0.17. Do not merge the two on the strength of their shared title."
+   ]
   }
  }
 }

@@ -1,0 +1,19 @@
+{
+ "what": "Walz Rhetores Graeci I 263-420 promoted from a witness of nicolaus-rhetoric.progymnasmata to the served work nicolaus-rhetoric.progymnasmata-walz-i-263",
+ "date": "2026-08-09",
+ "issue": "open-greek/open-greek-corpus#28",
+ "why": "the rows share almost none of the text they were filed against (containment 0.123, where the genuine other edition scores 0.720), so the witness relation asserted an identity the bytes refuse",
+ "author_evidence": {
+  "walz": "title at printed 263 ΝΙΚΟΛΑΟΥ ΣΟΦΙΣΤΟΥ ΠΡΟΓΥΜΝΑΣΜΑΤΑ with no qualifier; every verso running head across 263-420 reads ΝΙΚΟΛΑΟΥ; contents entry a bare Νικολάου προγυμνάσματα where Walz writes Ἀνωνύμου for anonymous items; at 265 he defends the ascription against Schöll, citing Par. 2918",
+  "walz_caveat": "at 264 Walz says he prints the paradigmata from Par. 2918 and that Nicolaus' theoria is a separate work he has not found, and closes that among these men ownership is so uncertain that he has no hope of restoring to each what is his own",
+  "felten": "praefatio to the 1913 Teubner handbook: in codicibus Nicolao tribuuntur exempla, Μελέται Suidae, quae praecepta illa illustrant et ipsa quoque Προγυμνάσματα nominantur (cf. Walz I 266 sq.), sed qui nexus huic Nicolao cum illis intercedat, nondum constat",
+  "conclusion": "Nicolaus for the author on both editors' authority and the manuscripts', but a DIFFERENT work from the handbook, which is what both of them say in their own words"
+ },
+ "rows": 932,
+ "greek_tokens": 36298,
+ "containment_against_served_primary": 0.1231,
+ "retained_witness_containment": 0.72,
+ "archived_pre_state": "data/corpus_changes/nicolaus-rhetoric.progymnasmata-walz-i-263.pre-promote.jsonl",
+ "sha256_before": "aa425d345ad867e6884691db3ad1bbd245446339a56560f95ee95baeb44965ef",
+ "reverse": "restore nicolaus-rhetoric.progymnasmata-walz-i-263.pre-promote.jsonl over nicolaus-rhetoric.progymnasmata.jsonl and delete data/corpus/nicolaus-rhetoric.progymnasmata-walz-i-263.jsonl"
+}
