@@ -343,24 +343,25 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 10 `cogPG.*` files are still volume-keyed, holding 174,312 Greek
+far, and 10 `cogPG.*` files are still volume-keyed, holding 14,072 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
 cuts a row at a character offset. PG112 was finished on 2026-08-09 and its file is
 gone too: its remaining half was the same text byzantium.gr already serves, and
 since nothing may be served twice it became an edition witness in
-`data/corpus_secondary`, outside the served counts. Nine of the ten remaining
-files are carved volumes' leftovers, 14,052 tokens between them: PG005, PG101,
-PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 2 to 13 rows each, every one identified in
-its plan entry's residual note, and the largest are Greek apparatus rather than
+`data/corpus_secondary`, outside the served counts. All ten remaining
+files are carved volumes' leftovers, 14,072 tokens between them: PG003, PG005,
+PG101, PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 1 to 20 rows
+each, every one identified in its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
 PG005 and the Oecumenius prefatory matter in PG118. PG113 keeps 3,039 after its Theophylact block was
-carved on 2026-08-08, and PG139 a 1,349-token table of contents. Only one whole volume remains uncarved, PG003
-at 160,260 tokens. They are listed with their token counts
-in the OCR provenance table below. Of those two, PG003 is uncarved on the
-evidence, and the reason recorded for it has been corrected twice, in opposite
-directions. It originally said the Dionysius text interleaves passage-by-passage
+carved on 2026-08-08, and PG139 a 1,349-token table of contents, and PG003 a single 20-token row,
+which is Maximus quoted inside a Latin note and belongs to neither of that
+volume's authors. They are listed with their token counts
+in the OCR provenance table below. PG003 was the last whole volume uncarved and
+was finished on 2026-08-09; the reason recorded for it while it was open had
+been corrected twice, in opposite directions. It originally said the Dionysius text interleaves passage-by-passage
 with Pachymeres' paraphrase and that no display titles survive in the OCR. The
 second half was wrong: 26 heads do survive, unfindable by a Greek search because
 the OCR read Migne's Latin as Greek letter shapes, so PARAPHRASIS PACHYMERAE sits
@@ -1127,7 +1128,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | clidemus-philosophy.testimonia | Clidemus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 314 | auto-corrected |
 | clinias.fragmenta | Clinias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 165 | raw OCR |
 | cocondrius.peri-tropon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,481 | manual |
-| PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 8,064 | manual |
+| PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 20 | manual |
 | PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,534 | manual |
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
@@ -1371,7 +1372,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,891 | auto-corrected |
 | georgius-monachus-continuatus.chronicon-continuatio-redactio | Georgius Monachus Continuatus - Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum (PG109 loci 417-497) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 29,808 | manual |
 | georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior | Georgius Monachus - Chronicon Breve (Lib. 1-6) (Redactio Recentior) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 240,537 | auto-corrected |
-| georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae | Georgius Pachymeres - Paraphrasis in omnia opera Dionysii Areopagitae (PG003 loci 71-539, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 98,203 | manual |
+| georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae | Georgius Pachymeres - Paraphrasis in omnia opera Dionysii Areopagitae (PG003 loci 71-539, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 101,857 | manual |
 | georgius-pachymeres.progymnasmata |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 11,036 | auto-corrected |
 | gorgias-rhetoric.fragmenta | Gorgias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 982 | auto-corrected |
 | gorgias-rhetoric.testimonia | Gorgias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,332 | auto-corrected |
@@ -1974,8 +1975,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | pseudo-codinus.de-officiis-officia-palatii-constantinopoleos | Pseudo-Codinus - De officiis (De officialibus palatii Constantinopolitani et de officiis magnae ecclesiae) (PG157 loci 20-68) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 18,747 | manual |
 | pseudo-codinus.patria-constantinopoleos | Pseudo-Codinus - Patria Constantinopoleos (Excerpta de antiquitatibus Constantinopolitanis) (PG157 loci 225-324) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,162 | manual |
 | pseudo-dionysius-areopagita.de-caelesti-hierarchia | Pseudo-Dionysius Areopagita - De caelesti hierarchia (PG003 loci 75-177, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,742 | manual |
-| pseudo-dionysius-areopagita.de-divinis-nominibus | Pseudo-Dionysius Areopagita - De divinis nominibus (PG003 loci 300-499, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,295 | manual |
-| pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia | Pseudo-Dionysius Areopagita - De ecclesiastica hierarchia (PG003 loci 193-276, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 13,074 | manual |
+| pseudo-dionysius-areopagita.de-divinis-nominibus | Pseudo-Dionysius Areopagita - De divinis nominibus (PG003 loci 300-499, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 23,780 | manual |
+| pseudo-dionysius-areopagita.de-ecclesiastica-hierarchia | Pseudo-Dionysius Areopagita - De ecclesiastica hierarchia (PG003 loci 193-292, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 15,981 | manual |
 | pseudo-dionysius-areopagita.de-mystica-theologia | Pseudo-Dionysius Areopagita - De mystica theologia (PG003 loci 506-531, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,313 | manual |
 | pseudo-dionysius-areopagita.epistulae | Pseudo-Dionysius Areopagita - Epistulae (PG003 loci 540-567, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 6,569 | manual |
 | pseudo-justinus-martyr.cohortatio-ad-gentiles | Pseudo-Justinus Martyr - Cohortatio ad gentiles (PG006 loci 128-163) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,716 | manual |
@@ -2235,13 +2236,15 @@ below; regenerate it with `python scripts/build_provenance.py`.
   page is a run of rows keyed `<item>_<page>.<line>` rather than a single row;
   64 pages were in the served corpus twice or more, 16,205 tokens counted into
   the lexicon, the frequency table and the released total. Only byte-identical
-  pages move: two pages that differ are two readings of one page, and this repo
-  prefers a merged reading to picking a winner, so those are a disposition
-  question and stay only below the cut, listed in
-  `data/duplicate_page_candidates.json` with their containment banded, because a single total would mislead: 131 served pairs
-  and 38,159 tokens sit above 0.90, another 293 pairs and 80,007 tokens between
-  0.80 and 0.90, and the bands below that are increasingly just neighbouring
-  pages of one book. The 229 files whose `ocr` loci are citation loci rather
+  pages move here: two pages that differ are two readings of one page, and
+  which reading to serve is a question this drop cannot answer, so it is left
+  to the collapse described next. Nothing is served twice either way; an earlier
+  version of this line said the repo prefers a merged reading to picking a
+  winner, which is not the rule and was retracted on 2026-08-09. What remains
+  is listed in `data/duplicate_page_candidates.json` with containment banded,
+  because a single total would mislead: 7 served pairs and 2,575 tokens sit
+  above 0.90, another 78 pairs and 26,549 tokens between 0.80 and 0.90, and the
+  bands below that are increasingly just neighbouring pages of one book. The 229 files whose `ocr` loci are citation loci rather
   than page loci are skipped whole, since reading "3" as a page would compare
   books, which the first run of the sweep did before that guard existed.
 - Where the OCR read one page more than once and the reads DIFFER, one is
@@ -2274,8 +2277,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
   0.841 by containment. Its output,
   data/duplicate_leaf_candidates.json, lists 43 remaining pairs in 15 files and
   splits them by what dropping one would cost, in BOTH directions. 14 pairs have
-  a side that holds nothing the other lacks, 5,164 tokens, of which 7 pairs and
-  2,518 tokens are in served text; the other 29 pairs, 10,999 tokens, cannot be
+  a side that holds nothing the other lacks, 5,164 tokens, of which 6 pairs and
+  2,132 tokens are in served text; the other 29 pairs, 10,999 tokens, cannot be
   dropped from either side, because each holds text the other does not. Which
   side to drop is not decidable from the ordering: in PG118's first leaf the
   earlier copy was in sequence, in PG126 and PG118's 2 Corinthians leaf the later
@@ -2325,7 +2328,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
   served from First1KGreek, so the precedence ladder keeps the Migne OCR as a
   witness rather than serving it twice. That is the ladder working, not text
   going missing, but it does move every downstream count.
-- Next: settle PG112's rank, then per-work citation loci for the carved CGPG
+- Next: per-work citation loci for the carved CGPG
   works (now page-keyed `<VOL>.<page>`). PG003 is NOT a carve-on-loci job, which
   an earlier version of this line said it was: its boundaries fall inside rows.
   It needs intra-row segmentation, which `scripts/split_carved_row.py` now does,
