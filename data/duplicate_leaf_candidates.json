@@ -15,8 +15,8 @@
  "candidates": 43,
  "clean_second_copies": 14,
  "clean_second_copies_tokens": 5164,
- "clean_second_copies_served": 7,
- "clean_second_copies_served_tokens": 2518,
+ "clean_second_copies_served": 6,
+ "clean_second_copies_served_tokens": 2132,
  "overlapping_not_copies": 29,
  "overlapping_not_copies_tokens": 10999,
  "served_droppable_by_containment": [
@@ -37,8 +37,8 @@
   },
   {
    "band": "0.60-0.80",
-   "pairs": 1,
-   "tokens": 386
+   "pairs": 0,
+   "tokens": 0
   },
   {
    "band": "0.40-0.60",
@@ -47,7 +47,7 @@
   }
  ],
  "by_file": {
-  "data/corpus/cogPG.PG112.jsonl": 9,
+  "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
   "data/corpus/photius.amphilochia.jsonl": 4,
   "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": 4,
@@ -550,10 +550,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "180",
-   "locus_b": "182",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.180",
+   "locus_b": "PG112.182",
    "containment": 0.7247,
    "bigrams_a": 178,
    "bigrams_b": 325,
@@ -573,10 +573,10 @@
    "unique_runs_if_a_dropped": []
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "229",
-   "locus_b": "236",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.229",
+   "locus_b": "PG112.236",
    "containment": 0.6491,
    "bigrams_a": 171,
    "bigrams_b": 295,
@@ -740,10 +740,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "287",
-   "locus_b": "289",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.287",
+   "locus_b": "PG112.289",
    "containment": 0.4552,
    "bigrams_a": 279,
    "bigrams_b": 352,
@@ -811,10 +811,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "180",
-   "locus_b": "184",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.180",
+   "locus_b": "PG112.184",
    "containment": 0.4494,
    "bigrams_a": 178,
    "bigrams_b": 243,
@@ -884,10 +884,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "264",
-   "locus_b": "272",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.264",
+   "locus_b": "PG112.272",
    "containment": 0.4472,
    "bigrams_a": 199,
    "bigrams_b": 270,
@@ -961,10 +961,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "181",
-   "locus_b": "183",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.181",
+   "locus_b": "PG112.183",
    "containment": 0.4207,
    "bigrams_a": 290,
    "bigrams_b": 325,
@@ -989,10 +989,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "224",
-   "locus_b": "225",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.224",
+   "locus_b": "PG112.225",
    "containment": 0.4104,
    "bigrams_a": 212,
    "bigrams_b": 222,
@@ -1019,10 +1019,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "146",
-   "locus_b": "209",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.146",
+   "locus_b": "PG112.209",
    "containment": 0.4085,
    "bigrams_a": 235,
    "bigrams_b": 311,
@@ -1046,10 +1046,10 @@
    ]
   },
   {
-   "file": "data/corpus/cogPG.PG112.jsonl",
-   "served": true,
-   "locus_a": "300",
-   "locus_b": "327",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "served": false,
+   "locus_a": "PG112.300",
+   "locus_b": "PG112.327",
    "containment": 0.4057,
    "bigrams_a": 244,
    "bigrams_b": 356,

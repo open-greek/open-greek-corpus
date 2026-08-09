@@ -1671,13 +1671,34 @@
   "volume": "PG112",
   "urn": "cogPG.PG112",
   "kind": "volume",
-  "desc": "Constantine VII v1 De ceremoniis (split per-work by scripts/carve_cgpg_volume.py; residual rows only)",
+  "desc": "Constantine VII v1 De ceremoniis (fully split per-work by scripts/carve_cgpg_volume.py; volume file removed)",
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 305,
-  "n_tokens": 75758,
+  "n_passages": 0,
+  "n_tokens": 0,
   "works": []
+ },
+ {
+  "volume": "PG112",
+  "urn": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
+  "kind": "work",
+  "desc": "Constantinus VII Porphyrogenitus - De cerimoniis aulae Byzantinae (lib. 1.1-92) (PG112 loci 44-353)",
+  "edition": "cgpg",
+  "license": "CC-BY-4.0",
+  "source": "cgpg",
+  "n_passages": 480,
+  "n_tokens": 75831,
+  "works": [
+   {
+    "tlg_id": "tlg3023",
+    "work_id": "011",
+    "title": "De cerimoniis aulae Byzantinae (lib. 1.1-92)",
+    "author": "Constantinus VII Porphyrogenitus",
+    "cgpg_chosen": false
+   }
+  ],
+  "cgpg_chosen": false
  },
  {
   "volume": "PG112",
