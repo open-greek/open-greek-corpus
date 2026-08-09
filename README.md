@@ -806,14 +806,14 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | alcaeus-comedy.fragmenta | Alcaeus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 587 | raw OCR |
 | alcaeus-lyric.fragmenta | Alcaeus - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 5,308 | auto-corrected |
 | alcmaeon.fragmenta | Alcmaeon - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 190 | raw OCR |
-| alcmaeon.testimonia | Alcmaeon - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,345 | auto-corrected |
+| alcmaeon.testimonia | Alcmaeon - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,767 | auto-corrected |
 | alcman.fragmenta | Alcman - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 3,854 | auto-corrected |
 | alexander-lyric.fragmenta | Alexander - Fragmenta | qwen36-alexander_aetolus_meineke | Qwen3.6-27B | 21,656 | auto-corrected |
 | alexander-medicine.dedicatio-ad-cosman | Alexander - Dedicatio Ad Cosman | qwen36-alex_trall_puschmann | Qwen3.6-27B | 43,309 | auto-corrected |
 | alexander-rhetoric.ek-ton-alexandrou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,345 | raw OCR |
 | alexander.fragmenta | ALEXANDER - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
 | alexis-comedy.fragmenta | Alexis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
-| ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 80 | raw OCR |
+| ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 40 | raw OCR |
 | amipsias.fragmenta | Amipsias - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 766 | raw OCR |
 | amphis.fragmenta | Amphis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,086 | auto-corrected |
 | anacreon.fragmenta-2 | Anacreon - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,215 | auto-corrected |
@@ -824,7 +824,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | anaxandrides.fragmenta | Anaxandrides - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 2,581 | auto-corrected |
 | anaxarchus.testimonia | Anaxarchus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 2,944 | auto-corrected |
 | anaxilas.fragmenta | Anaxilas - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,084 | auto-corrected |
-| anaximander.testimonia | Anaximander - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,482 | auto-corrected |
+| anaximander.testimonia | Anaximander - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,732 | auto-corrected |
 | anaximenes-philosophy.testimonia | Anaximenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,812 | auto-corrected |
 | anaximenis-milesii-epistulae.epistulae | Anaximenis Milesii Epistulae - Epistulae | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
 | anaxippus.fragmenta | ANAXIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
@@ -1074,7 +1074,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | callicratidas.fragmenta | Callicratidas - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 1,336 | auto-corrected |
 | callimachus.callimachea-schneider-v1 |  | qwen36-callimachea_schneider_v1 | Qwen3.6-27B | 18,253 | auto-corrected |
 | callinus.fragmenta | Callinus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 149 | raw OCR |
-| calliphon-et-democedes.testimonia | Calliphon Et Democedes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,465 | auto-corrected |
+| calliphon-et-democedes.testimonia | Calliphon Et Democedes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,016 | auto-corrected |
 | callixenus.fragmenta | Callixenus - Fragmenta | qwen36-fhg_vol3_mueller_diocles_rhodius-ocr | Qwen3.6-27B | 3,805 | auto-corrected |
 | cantharus.fragmenta | Cantharus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 149 | auto-corrected |
 | carcinus-junior.fragmenta | Carcinus Junior - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 665 | raw OCR |
@@ -1188,7 +1188,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | demochares.fhg2 |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 111,581 | auto-corrected |
 | demochares.fragmenta | Demochares - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 1,356 | auto-corrected |
 | democritus-history.fragmentum | Democritus - Fragmentum | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 135 | raw OCR |
-| democritus-philosophy.testimonia | Democritus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 48,936 | auto-corrected |
+| democritus-philosophy.testimonia | Democritus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 48,586 | auto-corrected |
 | demodocus.fragmenta | Demodocus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 2,007 | auto-corrected |
 | demon.fragmenta | Demon - Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 334 | raw OCR |
 | demonax-philosophy.fragmenta | Demonax - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,374 | auto-corrected |
@@ -1206,7 +1206,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | diodorus-aspendius.fragmentum | Diodorus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 16 | raw OCR |
 | diodorus-comedy.fragmenta | Diodorus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 152 | raw OCR |
 | diogenes-apolloniates.testimonia | Diogenes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,568 | auto-corrected |
-| diogenes-oenoandensis.diogenes-oenoanda-william |  | qwen36-diogenes_oenoanda_william | Qwen3.6-27B | 10,112 | auto-corrected |
+| diogenes-oenoandensis.diogenes-oenoanda-william |  | qwen36-diogenes_oenoanda_william | Qwen3.6-27B | 8,808 | auto-corrected |
 | diogenes-philosophy.fragmenta | Diogenes - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 208 | raw OCR |
 | diogenes-sinopensis.fragmenta-et-apophthegmata | Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 11,181 | auto-corrected |
 | diogenes-smyrnaeus.testimonium | Diogenes - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 24 | raw OCR |
@@ -1236,7 +1236,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | empedocles.epigramma | Empedocles - Epigramma | bergk-plg2-ocr-frag | Qwen3.6-27B | 5,446 | raw OCR |
 | empedocles.testimonia | Empedocles - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 40,656 | auto-corrected |
 | ephippus.fragmenta | Ephippus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,026 | raw OCR |
-| epicharmus-et-pseudepicharmea.testimonia | Epicharmus Et Pseudepicharmea - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 5,241 | auto-corrected |
+| epicharmus-et-pseudepicharmea.testimonia | Epicharmus Et Pseudepicharmea - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,573 | auto-corrected |
 | epicrates.fragmenta | Epicrates - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 373 | raw OCR |
 | epicurus.deperditorum-librorum-reliquiae | EPICURUS - Deperditorum librorum reliquiae (Usener, Epicurea) | qwen36-usener-epicurea-1887 | Qwen3.6-27B | 64,436 | raw OCR |
 | epigenes.fragmenta | Epigenes - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 219 | raw OCR |
@@ -1348,7 +1348,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior | Georgius Monachus - Chronicon Breve (Lib. 1-6) (Redactio Recentior) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 240,537 | auto-corrected |
 | georgius-pachymeres.progymnasmata |  | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 11,036 | auto-corrected |
 | gorgias-rhetoric.fragmenta | Gorgias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 982 | auto-corrected |
-| gorgias-rhetoric.testimonia | Gorgias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,888 | auto-corrected |
+| gorgias-rhetoric.testimonia | Gorgias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 4,332 | auto-corrected |
 | gregorius-corinthius.exegesis-in-peri-methodou-deinotetos |  | qwen36-walz_rhetores_v7pt2 | Qwen3.6-27B | 61,182 | auto-corrected |
 | gregorius-nazianzenus.ad-eos-qui-ipsum-acciverant-nec-occurrerant-orat-3 | Gregorius Nazianzenus - Ad Eos Qui Ipsum Acciverant Nec Occurrerant (Orat. 3) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 785 | auto-corrected |
 | gregorius-nazianzenus.ad-gregorium-nyssenum-orat-11 | Gregorius Nazianzenus - Ad Gregorium Nyssenum (Orat. 11) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,542 | raw OCR |
@@ -1462,8 +1462,8 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | hellanicus.fragmenta | Hellanicus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 981 | auto-corrected |
 | heniochus.fragmenta | Heniochus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 76 | raw OCR |
 | heraclides-comedy.fragmentum | Heraclides - Fragmentum | [Kock, Comicorum Atticorum Fragmenta II](https://archive.org/search?query=Comicorum+Atticorum+Fragmenta+Kock) | Qwen3.6-27B | 130 | raw OCR |
-| heraclides-ponticus-junior-grammar.fragmenta | Heraclides Ponticus Junior - Fragmenta | qwen36-aelian_heraclid_tauchnitz_1829 | Qwen3.6-27B | 57,798 | auto-corrected |
-| heraclitus-philosophy.testimonia | Heraclitus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 15,745 | auto-corrected |
+| heraclides-ponticus-junior-grammar.fragmenta | Heraclides Ponticus Junior - Fragmenta | qwen36-aelian_heraclid_tauchnitz_1829 | Qwen3.6-27B | 56,693 | auto-corrected |
+| heraclitus-philosophy.testimonia | Heraclitus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 12,967 | auto-corrected |
 | herillus.fragmenta | Herillus - Fragmenta | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 219 | raw OCR |
 | hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos | Hermes - Αἴνιγμα τοῦ φιλοσοφικοῦ λίθου Ἑρμοῦ καὶ Ἀγαθοδαίμονος (E Cod. Paris. B.N. Gr. 2327, Fol. 234R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 57 | raw OCR |
 | hermesianax.fragmenta | Fragmenta | qwen36-philetas_bach_1829-ocr | Qwen3.6-27B | 6,546 | auto-corrected |
@@ -1488,17 +1488,17 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | himerius.declamationes-et-orationes | Himerius - Declamationes Et Orationes | qwen36-himerius_dubner_didot | Qwen3.6-27B | 257,196 | auto-corrected |
 | hipparchus-comedy.fragmenta | Hipparchus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 216 | raw OCR |
 | hipparchus-philosophy.fragmentum | Hipparchus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 634 | auto-corrected |
-| hippasus.testimonia | Hippasus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,786 | raw OCR |
+| hippasus.testimonia | Hippasus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,409 | raw OCR |
 | hippias-soph.testimonia-2 | Hippias - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,920 | auto-corrected |
 | hippiatrica.appendices-ad-hippiatrica-berolinensia | Appendices ad Hippiatrica Berolinensia | [Oder-Hoppe, Corpus Hippiatricorum Graecorum vol. 1 (Berolinensia), Teubner 1924](https://digital.slub-dresden.de/werkansicht/dlf/303101) | Qwen3.6-27B | 2,800 | auto-corrected |
 | hippiatrica.hippiatrica-berolinensia | Hippiatrica Berolinensia | [Oder-Hoppe, Corpus Hippiatricorum Graecorum vol. 1 (Berolinensia), Teubner 1924](https://digital.slub-dresden.de/werkansicht/dlf/303101) | Qwen3.6-27B | 94,957 | auto-corrected |
 | hippocrates.testimonia | Hippocrates - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,425 | auto-corrected |
 | hippodamus.fragmenta-sp | Hippodamus - Fragmenta [Sp.] | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,677 | auto-corrected |
 | hippon.testimonia | Hippon - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,993 | auto-corrected |
-| horapollo.hieroglyphica-translatio-philippi | Horapollo - Hieroglyphica (Translatio Philippi) | qwen36-horapollo_leemans | Qwen3.6-27B | 17,898 | auto-corrected |
+| horapollo.hieroglyphica-translatio-philippi | Horapollo - Hieroglyphica (Translatio Philippi) | qwen36-horapollo_leemans | Qwen3.6-27B | 17,136 | auto-corrected |
 | hyperochus.fragmenta | Hyperochus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 83 | raw OCR |
 | ibycus.fragmenta | IBYCUS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,628 | auto-corrected |
-| iccus.testimonia | Iccus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 611 | raw OCR |
+| iccus.testimonia | Iccus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 528 | raw OCR |
 | idaeus-philosophy.testimonium | Idaeus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 765 | auto-corrected |
 | ignatius-scr-eccl.fragmenta-ex-epistolis | Ignatius Antiochenus - Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section) (PG005 loci 483-489) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,281 | manual |
 | ilias-parva.ilias-parva-fragmenta | Ilias Parva - Ilias Parva (Fragmenta) | [Kinkel, Epicorum Graecorum Fragmenta I](https://archive.org/search?query=Epicorum+Graecorum+Fragmenta+Kinkel) | Qwen3.6-27B | 1,894 | auto-corrected |
@@ -1738,7 +1738,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | melanippides.fragmenta | MELANIPPIDES - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 268 | raw OCR |
 | melanthius-elegy.fragmentum | Melanthius - Fragmentum | bergk-plg2-ocr-frag | Qwen3.6-27B | 73 | raw OCR |
 | melanthius.fragmentum | Fragmentum | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 277 | auto-corrected |
-| melissus.testimonia | Melissus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,146 | auto-corrected |
+| melissus.testimonia | Melissus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,981 | auto-corrected |
 | melito-apologetics.fragmenta | Melito Sardensis - Fragmenta (PG005 loci 614-620) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 931 | manual |
 | menander-comedy.fragmenta-2 | Menander - Fragmenta | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 27,049 | raw OCR |
 | menecrates-elaita.fragmenta | Menecrates - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 573 | auto-corrected |
@@ -1786,7 +1786,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | moschion.fragmenta | Moschion - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 491 | raw OCR |
 | moses.eu-poi-kai-eu-tuxi-tou-ktisame-nou-kai-e-pituxi-kama-tou-kai | Moses - Εὐποία καὶ εὐτυχία τοῦ κτισαμένου καὶ ἐπιτυχία καμάτου καὶ μακροχρονία βίου (E Cod. Paris. B.N. Gr. 2327, Fol. 268V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,753 | auto-corrected |
 | mullach-fpg2.paratexta |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 37,591 | auto-corrected |
-| musaeus-philosophy.testimonia | Musaeus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 857 | auto-corrected |
+| musaeus-philosophy.testimonia | Musaeus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 550 | auto-corrected |
 | myron.fragmenta | Myron - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 371 | auto-corrected |
 | myrtilus.fragmenta | MYRTILUS - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 143 | raw OCR |
 | nausicrates.fragmenta | Nausicrates - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 69 | raw OCR |
@@ -1835,9 +1835,9 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | pantaenus.fragmenta | Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 225 | raw OCR |
 | panyassis.fragmenta-epica | Panyassis - Fragmenta Epica | qwen36-panyassis_kinkel_egf | Qwen3.6-27B | 33,197 | auto-corrected |
 | papias.fragmenta | Papias Hierapolitanus - Fragmenta (PG005 loci 637-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 708 | manual |
-| parmenides.testimonia | Parmenides - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,863 | auto-corrected |
+| parmenides.testimonia | Parmenides - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,475 | auto-corrected |
 | parmiscus.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 133 | raw OCR |
-| paron.testimonium | Paron - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 184 | raw OCR |
+| paron.testimonium | Paron - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 123 | raw OCR |
 | patria-constantinopoleos.de-sepulcris-imperatorum-quae-sunt-in-templo-sanctorum-apostolorum | Patria Constantinopoleos (anonymous, printed under Codinus) - De sepulcris imperatorum quae sunt in templo sanctorum apostolorum (PG157 loci 370-377) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 746 | manual |
 | patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai | Patria Constantinopoleos (anonymous, printed under Codinus) - Parastaseis syntomoi chronikai (with Peri theamaton section) (PG157 loci 333-369) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7,797 | manual |
 | patrocles.fragmenta | Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 131 | auto-corrected |
@@ -1960,11 +1960,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | pseudo-symeon.chronographia-partim-edita-e-cod-paris-gr-1712 | Pseudo-Symeon (Symeon Magister ac Logothetes) - Chronographia / Annales a Leone Armenio ad Nicephorum Phocam (PG109 loci 337-416) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 30,963 | manual |
 | pseudo-zonaras.lexicon | Pseudo-Zonaras - Lexicon | [archive.org](https://archive.org/details/lexiconextribus00albegoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 164,809 | manual |
 | ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius |  | qwen36-ptolemaeus_gramm_valckenaer_ammonius | Qwen3.6-27B | 55,321 | auto-corrected |
-| pythagoras.testimonia | Pythagoras - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 6,587 | auto-corrected |
+| pythagoras.testimonia | Pythagoras - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,801 | auto-corrected |
 | pythagoristae-d-k.testimonia-et-fragmenta | Pythagoristae (D-K) - Testimonia Et Fragmenta | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 23,896 | auto-corrected |
 | quadratus-apologeta.fragmentum-apologiae | Quadratus Apologeta - Fragmentum apologiae (apud Eusebium, HE 4.3) (PG005 loci 642-642) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 48 | raw OCR |
 | rhianus.fragmenta | Rhianus - Fragmenta | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 2,075 | auto-corrected |
-| rhinthon.fragmenta | Rhinthon - Fragmenta | qwen36-rhinthon_kaibel_cgf_1899 | Qwen3.6-27B | 37,598 | auto-corrected |
+| rhinthon.fragmenta | Rhinthon - Fragmenta | qwen36-rhinthon_kaibel_cgf_1899 | Qwen3.6-27B | 36,897 | auto-corrected |
 | rhodon.fragmenta | Rhodon - Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13) (PG005 loci 676-678) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 343 | auto-corrected |
 | salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza | Salmanas - Μέθοδος δῑ ἧς ἀποτελεῖται ἡ σφαιροειδὴς χάλαζα κατασκευασθεῖσα παρὰ τοῦ ἐν τεχνουργίᾳ περιβοήτου Ἄραβος τοῦ Σαλμανᾶ (E Cod.Paris. B.N. Gr. 2327, Fol. 141R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 955 | raw OCR |
 | sannyrion.fragmenta | Sannyrion - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
@@ -2047,7 +2047,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | telestes.fragmenta | TELESTES - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 243 | auto-corrected |
 | terpander.fragmenta-fort-auctore-terpandro | Terpander - Fragmenta (Fort. Auctore Terpandro) | bergk-plg3-ocr-frag | Qwen3.6-27B | 45 | raw OCR |
 | thales.fragmenta | Thales - Fragmenta | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,008 | auto-corrected |
-| thales.testimonia | Thales - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 7,246 | auto-corrected |
+| thales.testimonia | Thales - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 6,128 | auto-corrected |
 | theagenes-philosophy.testimonia | Theagenes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 231 | raw OCR |
 | theages.fragmenta | Theages - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,220 | auto-corrected |
 | theano.fragmenta | Theano - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 587 | auto-corrected |
@@ -2177,7 +2177,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | xenomedes.fragmenta | Xenomedes - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 840 | auto-corrected |
 | xenophanes.fragmenta | Xenophanes - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 491 | raw OCR |
 | xenophanes.fragmenta-silli-et-de-natura | Xenophanes - Fragmenta (Silli Et De Natura) | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,887 | auto-corrected |
-| xenophanes.testimonia | Xenophanes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 11,571 | auto-corrected |
+| xenophanes.testimonia | Xenophanes - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 9,692 | auto-corrected |
 | xenophilus.testimonia | Xenophilus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 110 | raw OCR |
 | xuthus.testimonium | Xuthus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 140 | raw OCR |
 | zeno-citieus.testimonia-et-fragmenta | Zeno - Testimonia Et Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 14,161 | auto-corrected |
@@ -2198,6 +2198,16 @@ below; regenerate it with `python scripts/build_provenance.py`.
   own markers (book/chapter, Psellos book.section, Theophanes annus mundi,
   Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
   structure, keeps page-paragraph indices.
+- A scan page the OCR delivered more than once, byte for byte, is dropped by
+  scripts/drop_duplicate_page.py. That is the line-level `ocr` source, where a
+  page is a run of rows keyed `<item>_<page>.<line>` rather than a single row;
+  64 pages were in the served corpus twice or more, 16,205 tokens counted into
+  the lexicon, the frequency table and the released total. Only byte-identical
+  pages move: two pages that differ are two readings of one page, and this repo
+  prefers a merged reading to picking a winner, so those are a disposition
+  question and stay. The 229 files whose `ocr` loci are citation loci rather
+  than page loci are skipped whole, since reading "3" as a page would compare
+  books.
 - A printed leaf the upstream OCR delivered twice is dropped by
   scripts/drop_duplicate_leaf.py, with the scan page cited and every run of 3+
   words the dropped copy has and the kept copy lacks enumerated in

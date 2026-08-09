@@ -58,8 +58,8 @@
   "share_of_residue": 0.0208,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.2224,
-   "grave_lemmas_le_10_tokens_backed": 0.0142
+   "non_grave_lemmas_le_10_tokens_backed": 0.2226,
+   "grave_lemmas_le_10_tokens_backed": 0.0143
   },
   "largest": [
    {
@@ -164,22 +164,22 @@
    }
   ]
  },
- "lemmas": 7955,
- "tokens": 31746,
+ "lemmas": 7942,
+ "tokens": 31711,
  "reachable": {
   "lemmas": 282,
-  "tokens": 3669,
+  "tokens": 3665,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7673,
-  "tokens": 28077,
+  "lemmas": 7660,
+  "tokens": 28046,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 29527
+  "measured_the_old_way_tokens": 29494
  },
  "largest_unreachable": [
   {
@@ -370,7 +370,7 @@
   },
   {
    "lemma": "λλὰ",
-   "tokens": 145,
+   "tokens": 144,
    "target": "λλά",
    "target_tokens": 10
   },
@@ -382,7 +382,7 @@
   },
   {
    "lemma": "ἢδ",
-   "tokens": 98,
+   "tokens": 97,
    "target": "ἤδ",
    "target_tokens": 137
   },
@@ -414,7 +414,7 @@
    "lemma": "δὸ",
    "tokens": 75,
    "target": "δό",
-   "target_tokens": 154
+   "target_tokens": 153
   },
   {
    "lemma": "σὲς",
@@ -424,7 +424,7 @@
   },
   {
    "lemma": "οὒν",
-   "tokens": 71,
+   "tokens": 70,
    "target": "οὔν",
    "target_tokens": 0
   },
@@ -489,16 +489,16 @@
    "target_tokens": 14
   },
   {
-   "lemma": "ὰτ",
-   "tokens": 32,
-   "target": "άτ",
-   "target_tokens": 0
-  },
-  {
    "lemma": "νὸ",
    "tokens": 31,
    "target": "νό",
    "target_tokens": 269
+  },
+  {
+   "lemma": "ὰτ",
+   "tokens": 31,
+   "target": "άτ",
+   "target_tokens": 0
   },
   {
    "lemma": "ὑδατὸς",

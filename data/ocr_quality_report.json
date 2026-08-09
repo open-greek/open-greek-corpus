@@ -23,7 +23,7 @@
   },
   "counts": {
    "ocr_works": 1412,
-   "ocr_works_ranked": 823,
+   "ocr_works_ranked": 822,
    "ocr_works_with_witness": 196,
    "secondary_files": 429,
    "skipped": 30,
@@ -184,7 +184,7 @@
    "max": 0.4788,
    "median": 0.1342,
    "min": 0.0089,
-   "n": 823,
+   "n": 822,
    "q1": 0.0944,
    "q3": 0.17
   }
@@ -342,15 +342,15 @@
   },
   "alcmaeon.testimonia": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 2345,
-   "n_tokens_checked": 1376,
-   "n_unattested": 89,
+   "n_tokens": 1767,
+   "n_tokens_checked": 1036,
+   "n_unattested": 70,
    "source": "ocr",
-   "unattested_rate": 0.06468,
+   "unattested_rate": 0.067568,
    "witness": {
-    "agreement_primary_in_secondary": 0.892747,
+    "agreement_primary_in_secondary": 0.892145,
     "agreement_secondary_in_primary": 0.856322,
-    "n_bigrams_primary": 2275,
+    "n_bigrams_primary": 1706,
     "n_bigrams_secondary": 2262,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -423,9 +423,9 @@
   },
   "ameinias.testimonia-et-fragmenta": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 80,
-   "n_tokens_checked": 44,
-   "n_unattested": 12,
+   "n_tokens": 40,
+   "n_tokens_checked": 22,
+   "n_unattested": 6,
    "source": "ocr",
    "unattested_rate": 0.272727,
    "witness": null
@@ -534,15 +534,15 @@
   },
   "anaximander.testimonia": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 4482,
-   "n_tokens_checked": 2630,
-   "n_unattested": 218,
+   "n_tokens": 3732,
+   "n_tokens_checked": 2177,
+   "n_unattested": 186,
    "source": "ocr",
-   "unattested_rate": 0.08289,
+   "unattested_rate": 0.085439,
    "witness": {
-    "agreement_primary_in_secondary": 0.90378,
+    "agreement_primary_in_secondary": 0.896247,
     "agreement_secondary_in_primary": 0.856012,
-    "n_bigrams_primary": 4365,
+    "n_bigrams_primary": 3624,
     "n_bigrams_secondary": 4549,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -3017,16 +3017,16 @@
    "witness": null
   },
   "calliphon-et-democedes.testimonia": {
-   "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 1465,
-   "n_tokens_checked": 918,
-   "n_unattested": 158,
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 1016,
+   "n_tokens_checked": 635,
+   "n_unattested": 104,
    "source": "ocr",
-   "unattested_rate": 0.172113,
+   "unattested_rate": 0.16378,
    "witness": {
-    "agreement_primary_in_secondary": 0.859551,
+    "agreement_primary_in_secondary": 0.867076,
     "agreement_secondary_in_primary": 0.830097,
-    "n_bigrams_primary": 1424,
+    "n_bigrams_primary": 978,
     "n_bigrams_secondary": 1030,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -4146,15 +4146,15 @@
   },
   "democritus-philosophy.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 48936,
-   "n_tokens_checked": 29049,
-   "n_unattested": 3031,
+   "n_tokens": 48586,
+   "n_tokens_checked": 28844,
+   "n_unattested": 3003,
    "source": "ocr",
-   "unattested_rate": 0.104341,
+   "unattested_rate": 0.104112,
    "witness": {
-    "agreement_primary_in_secondary": 0.900101,
+    "agreement_primary_in_secondary": 0.900357,
     "agreement_secondary_in_primary": 0.895655,
-    "n_bigrams_primary": 46527,
+    "n_bigrams_primary": 46185,
     "n_bigrams_secondary": 46164,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -4350,11 +4350,11 @@
   },
   "diogenes-oenoandensis.diogenes-oenoanda-william": {
    "edition": "qwen36-diogenes_oenoanda_william",
-   "n_tokens": 10112,
-   "n_tokens_checked": 4704,
-   "n_unattested": 852,
+   "n_tokens": 8808,
+   "n_tokens_checked": 4169,
+   "n_unattested": 735,
    "source": "ocr",
-   "unattested_rate": 0.181122,
+   "unattested_rate": 0.176301,
    "witness": null
   },
   "diogenes-philosophy.fragmenta": {
@@ -4662,15 +4662,15 @@
   },
   "epicharmus-et-pseudepicharmea.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 5241,
-   "n_tokens_checked": 3110,
-   "n_unattested": 333,
+   "n_tokens": 4573,
+   "n_tokens_checked": 2735,
+   "n_unattested": 295,
    "source": "ocr",
-   "unattested_rate": 0.107074,
+   "unattested_rate": 0.107861,
    "witness": {
-    "agreement_primary_in_secondary": 0.716754,
+    "agreement_primary_in_secondary": 0.689274,
     "agreement_secondary_in_primary": 0.874392,
-    "n_bigrams_primary": 4745,
+    "n_bigrams_primary": 4158,
     "n_bigrams_secondary": 3702,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -5730,15 +5730,15 @@
   },
   "gorgias-rhetoric.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 4888,
-   "n_tokens_checked": 2763,
-   "n_unattested": 331,
+   "n_tokens": 4332,
+   "n_tokens_checked": 2460,
+   "n_unattested": 301,
    "source": "ocr",
-   "unattested_rate": 0.119797,
+   "unattested_rate": 0.122358,
    "witness": {
-    "agreement_primary_in_secondary": 0.829967,
+    "agreement_primary_in_secondary": 0.834432,
     "agreement_secondary_in_primary": 0.770604,
-    "n_bigrams_primary": 4605,
+    "n_bigrams_primary": 4095,
     "n_bigrams_secondary": 9185,
     "secondary_edition": "qwen36-protagoras_diels_vs1"
    }
@@ -6774,24 +6774,24 @@
   },
   "heraclides-ponticus-junior-grammar.fragmenta": {
    "edition": "qwen36-aelian_heraclid_tauchnitz_1829",
-   "n_tokens": 57798,
-   "n_tokens_checked": 35831,
-   "n_unattested": 6059,
+   "n_tokens": 56693,
+   "n_tokens_checked": 35194,
+   "n_unattested": 5861,
    "source": "ocr",
-   "unattested_rate": 0.169099,
+   "unattested_rate": 0.166534,
    "witness": null
   },
   "heraclitus-philosophy.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 15745,
-   "n_tokens_checked": 9650,
-   "n_unattested": 1068,
+   "n_tokens": 12967,
+   "n_tokens_checked": 7985,
+   "n_unattested": 878,
    "source": "ocr",
-   "unattested_rate": 0.110674,
+   "unattested_rate": 0.109956,
    "witness": {
-    "agreement_primary_in_secondary": 0.896568,
+    "agreement_primary_in_secondary": 0.897274,
     "agreement_secondary_in_primary": 0.865757,
-    "n_bigrams_primary": 14889,
+    "n_bigrams_primary": 12217,
     "n_bigrams_secondary": 14064,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -7037,16 +7037,16 @@
    "witness": null
   },
   "hippasus.testimonia": {
-   "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 1786,
-   "n_tokens_checked": 1033,
-   "n_unattested": 100,
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 1409,
+   "n_tokens_checked": 808,
+   "n_unattested": 73,
    "source": "ocr",
-   "unattested_rate": 0.096805,
+   "unattested_rate": 0.090347,
    "witness": {
-    "agreement_primary_in_secondary": 0.906356,
+    "agreement_primary_in_secondary": 0.90798,
     "agreement_secondary_in_primary": 0.87084,
-    "n_bigrams_primary": 1762,
+    "n_bigrams_primary": 1391,
     "n_bigrams_secondary": 1773,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -7125,11 +7125,11 @@
   },
   "horapollo.hieroglyphica-translatio-philippi": {
    "edition": "qwen36-horapollo_leemans",
-   "n_tokens": 17898,
-   "n_tokens_checked": 11577,
-   "n_unattested": 1846,
+   "n_tokens": 17136,
+   "n_tokens_checked": 11065,
+   "n_unattested": 1693,
    "source": "ocr",
-   "unattested_rate": 0.159454,
+   "unattested_rate": 0.153005,
    "witness": null
   },
   "hyperochus.fragmenta": {
@@ -7158,15 +7158,15 @@
   },
   "iccus.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 611,
-   "n_tokens_checked": 349,
-   "n_unattested": 40,
+   "n_tokens": 528,
+   "n_tokens_checked": 305,
+   "n_unattested": 35,
    "source": "ocr",
-   "unattested_rate": 0.114613,
+   "unattested_rate": 0.114754,
    "witness": {
-    "agreement_primary_in_secondary": 0.387687,
+    "agreement_primary_in_secondary": 0.33526,
     "agreement_secondary_in_primary": 0.89604,
-    "n_bigrams_primary": 601,
+    "n_bigrams_primary": 519,
     "n_bigrams_secondary": 202,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -9402,15 +9402,15 @@
   },
   "melissus.testimonia": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 9146,
-   "n_tokens_checked": 4965,
-   "n_unattested": 408,
+   "n_tokens": 8981,
+   "n_tokens_checked": 4867,
+   "n_unattested": 401,
    "source": "ocr",
-   "unattested_rate": 0.082175,
+   "unattested_rate": 0.082392,
    "witness": {
-    "agreement_primary_in_secondary": 0.909828,
+    "agreement_primary_in_secondary": 0.908841,
     "agreement_secondary_in_primary": 0.896665,
-    "n_bigrams_primary": 8883,
+    "n_bigrams_primary": 8721,
     "n_bigrams_secondary": 9416,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -9870,15 +9870,15 @@
   },
   "musaeus-philosophy.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 857,
-   "n_tokens_checked": 486,
-   "n_unattested": 73,
+   "n_tokens": 550,
+   "n_tokens_checked": 314,
+   "n_unattested": 47,
    "source": "ocr",
-   "unattested_rate": 0.150206,
+   "unattested_rate": 0.149682,
    "witness": {
-    "agreement_primary_in_secondary": 0.743692,
+    "agreement_primary_in_secondary": 0.74645,
     "agreement_secondary_in_primary": 0.445614,
-    "n_bigrams_primary": 753,
+    "n_bigrams_primary": 493,
     "n_bigrams_secondary": 855,
     "secondary_edition": "qwen36-protagoras_diels_vs1"
    }
@@ -10554,15 +10554,15 @@
   },
   "parmenides.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 18863,
-   "n_tokens_checked": 10718,
-   "n_unattested": 1207,
+   "n_tokens": 18475,
+   "n_tokens_checked": 10484,
+   "n_unattested": 1182,
    "source": "ocr",
-   "unattested_rate": 0.112614,
+   "unattested_rate": 0.112743,
    "witness": {
-    "agreement_primary_in_secondary": 0.865261,
+    "agreement_primary_in_secondary": 0.864309,
     "agreement_secondary_in_primary": 0.907145,
-    "n_bigrams_primary": 17827,
+    "n_bigrams_primary": 17444,
     "n_bigrams_secondary": 11308,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -10584,15 +10584,15 @@
   },
   "paron.testimonium": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 184,
-   "n_tokens_checked": 106,
-   "n_unattested": 6,
+   "n_tokens": 123,
+   "n_tokens_checked": 71,
+   "n_unattested": 5,
    "source": "ocr",
-   "unattested_rate": 0.056604,
+   "unattested_rate": 0.070423,
    "witness": {
-    "agreement_primary_in_secondary": 0.927778,
+    "agreement_primary_in_secondary": 0.925,
     "agreement_secondary_in_primary": 0.966667,
-    "n_bigrams_primary": 180,
+    "n_bigrams_primary": 120,
     "n_bigrams_secondary": 60,
     "secondary_edition": "migne-ocr-qwen36"
    }
@@ -11810,16 +11810,16 @@
    "witness": null
   },
   "pythagoras.testimonia": {
-   "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 6587,
-   "n_tokens_checked": 4091,
-   "n_unattested": 405,
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 4801,
+   "n_tokens_checked": 3000,
+   "n_unattested": 295,
    "source": "ocr",
-   "unattested_rate": 0.098998,
+   "unattested_rate": 0.098333,
    "witness": {
-    "agreement_primary_in_secondary": 0.796524,
+    "agreement_primary_in_secondary": 0.830272,
     "agreement_secondary_in_primary": 0.865471,
-    "n_bigrams_primary": 6502,
+    "n_bigrams_primary": 4737,
     "n_bigrams_secondary": 5129,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -11859,15 +11859,15 @@
   },
   "rhinthon.fragmenta": {
    "edition": "qwen36-rhinthon_kaibel_cgf_1899",
-   "n_tokens": 37598,
-   "n_tokens_checked": 23874,
-   "n_unattested": 6289,
+   "n_tokens": 36897,
+   "n_tokens_checked": 23439,
+   "n_unattested": 6158,
    "source": "ocr",
-   "unattested_rate": 0.263425,
+   "unattested_rate": 0.262725,
    "witness": {
-    "agreement_primary_in_secondary": 0.012175,
+    "agreement_primary_in_secondary": 0.012231,
     "agreement_secondary_in_primary": 0.316832,
-    "n_bigrams_primary": 32690,
+    "n_bigrams_primary": 32131,
     "n_bigrams_secondary": 202,
     "secondary_edition": "qwen36-rhinthon_kaibel_cgf_1899"
    }
@@ -12684,15 +12684,15 @@
   },
   "thales.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 7246,
-   "n_tokens_checked": 4613,
-   "n_unattested": 507,
+   "n_tokens": 6128,
+   "n_tokens_checked": 3898,
+   "n_unattested": 437,
    "source": "ocr",
-   "unattested_rate": 0.109907,
+   "unattested_rate": 0.112109,
    "witness": {
-    "agreement_primary_in_secondary": 0.883606,
+    "agreement_primary_in_secondary": 0.880622,
     "agreement_secondary_in_primary": 0.863718,
-    "n_bigrams_primary": 7088,
+    "n_bigrams_primary": 5981,
     "n_bigrams_secondary": 6670,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -13967,16 +13967,16 @@
    "witness": null
   },
   "xenophanes.testimonia": {
-   "edition": "qwen36-nausiphanes_diels_fvs2",
-   "n_tokens": 11571,
-   "n_tokens_checked": 6837,
-   "n_unattested": 653,
+   "edition": "migne-ocr-qwen36",
+   "n_tokens": 9692,
+   "n_tokens_checked": 5732,
+   "n_unattested": 547,
    "source": "ocr",
-   "unattested_rate": 0.09551,
+   "unattested_rate": 0.095429,
    "witness": {
-    "agreement_primary_in_secondary": 0.925682,
+    "agreement_primary_in_secondary": 0.925202,
     "agreement_secondary_in_primary": 0.903908,
-    "n_bigrams_primary": 11074,
+    "n_bigrams_primary": 9265,
     "n_bigrams_secondary": 10927,
     "secondary_edition": "migne-ocr-qwen36 + qwen36-protagoras_diels_vs1"
    }
@@ -14132,8 +14132,8 @@
   "sophron.fragmenta",
   "theodosius.canones-isagogici-de-flexione-nominum",
   "ocr.walz_rhetores_v9",
-  "rhinthon.fragmenta",
   "archilochus.fragmenta",
+  "rhinthon.fragmenta",
   "erotianus.vocum-hippocraticarum-collectio",
   "timotheus-lyric.fragmenta",
   "anacreon.fragmenta-2",
@@ -14251,7 +14251,6 @@
   "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp",
   "gregorius-nazianzenus.in-machabaeorum-laudem-orat-15",
   "joannes-chrysostomus.epistula-ad-cyriacum-epist-125-recensiones",
-  "diogenes-oenoandensis.diogenes-oenoanda-william",
   "joannes-chrysostomus.de-sacerdotio-lib-7-sp",
   "oribasius.libri-ad-eunapium-lib-1-4",
   "joannes-chrysostomus.in-psalmum-100-sp",
@@ -14264,6 +14263,7 @@
   "oribasius.collectiones-medicae-lib-1-16-24-25-43-50",
   "joannes-chrysostomus.in-psalmos-101-107-sp",
   "didymus.schmidt",
+  "diogenes-oenoandensis.diogenes-oenoanda-william",
   "gregorius-nazianzenus.in-novam-dominicam-orat-44",
   "georgius-monachus.chronicon-breve-lib-1-6-redactio-recentior",
   "hierocles-philosophy.hqikh-stoixei-wsis",
@@ -14284,7 +14284,6 @@
   "panyassis.fragmenta-epica",
   "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera",
   "demonax-philosophy.fragmenta",
-  "heraclides-ponticus-junior-grammar.fragmenta",
   "synesius-philosophy.epistulae",
   "crates-poet-phil.fragmenta",
   "cyrillus-theology.fragmenta-in-libros-regum",
@@ -14294,6 +14293,7 @@
   "joannes-chrysostomus.in-heliam-et-viduam",
   "joannes-chrysostomus.homilia-habita-postquam-presbyter-gothus-concionatus-fuerat",
   "theopompus-history.testimonia",
+  "heraclides-ponticus-junior-grammar.fragmenta",
   "tlg1140.tlg001",
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40",
   "orphica.testimonia",
@@ -14331,7 +14331,6 @@
   "joannes-chrysostomus.ad-illuminandos-catecheses-1-2-series-prima-et-secunda",
   "antimachus-elegy.fragmenta",
   "joannes-chrysostomus.ad-populum-antiochenum-homiliae-1-21",
-  "horapollo.hieroglyphica-translatio-philippi",
   "tragica-adespota.fragmenta",
   "paulus-medicine.epitomae-medicae-libri-septem",
   "theodoretus.quaestiones-in-libros-regnorum-et-paralipomenon",
@@ -14371,6 +14370,7 @@
   "ctesias.fragmenta",
   "theodoretus.graecarum-affectionum-curatio",
   "joannes-chrysostomus.ad-theodorum-lapsum-lib-2-epistula-ad-theodorum",
+  "horapollo.hieroglyphica-translatio-philippi",
   "gregorius-nyssenus.de-occursu-domini-sp",
   "joannes-chrysostomus.contra-eos-qui-subintroductas-habent-virgines",
   "joannes-chrysostomus.contra-ludos-et-theatra",
@@ -14566,6 +14566,7 @@
   "porphyrius.contra-christianos-fragmenta",
   "gregorius-nyssenus.encomium-in-sanctum-stephanum-protomartyrem-i",
   "gregorius-nyssenus.de-professione-christiana-ad-harmonium",
+  "gorgias-rhetoric.testimonia",
   "apollonius-philosophy.apollonii-epistulae-dub",
   "theodoretus.interpretatio-in-ezechielem",
   "aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione",
@@ -14576,7 +14577,6 @@
   "joannes-damascenus.de-sacris-jejuniis",
   "josephus-rhacendyta.synopsis-rhetorikes",
   "athanasius-theology.quaestiones-in-evangelia-sp",
-  "gorgias-rhetoric.testimonia",
   "gregorius-nyssenus.oratio-catechetica-magna",
   "gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti",
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
@@ -14604,22 +14604,22 @@
   "anonymi-in-artem-rhetoricam.peri-ton-okto-meron-tou-rhetorikou-logou",
   "cyrillus-theology.explanatio-xii-capitulorum",
   "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
-  "ocellus.de-universi-natura-sp",
   "parmenides.testimonia",
+  "ocellus.de-universi-natura-sp",
   "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
   "michael-psellus.peri-rhetorikes",
   "gregorius-nyssenus.antirrheticus-adversus-apollinarium",
   "carmina-convivialia-pmg.fragmenta",
+  "thales.testimonia",
   "joannes-diaconus-hadrianopolitanus.carmen-politicum",
   "cyrillus-theology.oratio-ad-pulcheriam-et-eudociam-augustas-de-fide",
   "gregorius-nyssenus.contra-eunomium",
   "theophylactus-simocatta.excerpta-de-legationibus",
   "prodicus.testimonia",
-  "heraclitus-philosophy.testimonia",
   "maximus-planudes.scholia-eis-ten-hermogenous-technen",
   "basilius-theology.asceticon-magnum-sive-quaestiones-regulae-fusius",
   "joannes-chrysostomus.de-christi-precibus-contra-anomoeos-homilia-10",
-  "thales.testimonia",
+  "heraclitus-philosophy.testimonia",
   "cyrillus-theology.oratio-ad-theodosium-imperatorem-de-recta-fide",
   "athanasius-theology.sermo-contra-omnes-haereses-sp",
   "athanasius-theology.expositiones-in-psalmos",
@@ -14630,12 +14630,12 @@
   "cyrillus-theology.apologia-xii-capitulorum-contra-orientales",
   "joannes-doxopatres.prolegomena-tes-rhetorikes",
   "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp",
+  "epicharmus-et-pseudepicharmea.testimonia",
   "basilius-theology.adversus-eunomium-libri-5",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum",
   "ducas.historia-turcobyzantina",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum",
   "heron.definitiones",
-  "epicharmus-et-pseudepicharmea.testimonia",
   "josephus-genesius.basilei-ai",
   "joannes-chrysostomus.fragmenta-in-epistulas-catholicas",
   "basilius-theology.quod-deus-non-est-auctor-malorum",
@@ -14668,10 +14668,10 @@
   "athanasius-theology.epistula-ad-adelphium",
   "anonymi-in-artem-rhetoricam.epitome-rhetorikes-walz-iii-615",
   "theophylactus-achridensis.institutio-regia",
-  "pythagoras.testimonia",
   "michael-psellus.poemata",
   "joannes-tzetzes.epitome-rhetorikes",
   "scholia-in-demosthenem.scholia-demosthenem-dindorf-v8",
+  "pythagoras.testimonia",
   "athanasius-theology.de-virginitate-sp",
   "anonymi-in-aphthonium.prolegomena-kai-scholia-eis-ta-progymnasmata",
   "anonymi-in-artem-rhetoricam.peri-ton-schematon-tou-logou-walz-viii-698",
@@ -14724,6 +14724,7 @@
   "matthaeus-camariota.rhetorikes-epitome",
   "georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous",
   "pythagoristae-d-k.testimonia-et-fragmenta",
+  "anaximander.testimonia",
   "basilius-i-macedo.paraenesis-ad-leonem-filium",
   "basilius-theology.prologus-8-de-fide",
   "leucippus.testimonia",
@@ -14737,11 +14738,10 @@
   "anonymi-in-hermogenis-de-statibus.prolegomena-ton-staseon-walz-i",
   "theophylactus-achridensis.expositio-in-epistolam-ad-titum",
   "demetrius-poet-phil.demetrius-de-eloc-roberts",
-  "anaximander.testimonia",
   "joannes-damascenus.adversus-iconoclastas-sp",
   "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
-  "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
   "melissus.testimonia",
+  "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
   "gregorius-nyssenus.testimonia-adversus-judaeos-sp",
   "joannes-damascenus.passio-sancti-artemii-dub",
   "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
@@ -14802,7 +14802,6 @@
   "athanasius-theology.testimonia-e-scriptura-de-communi-essentia-patris-et-filii-et-spiritus",
   "symeon-thessalonicensis.de-sacra-precatione",
   "theophylactus-achridensis.expositio-in-prophetam-oseam",
-  "alcmaeon.testimonia",
   "theophylactus-achridensis.historia-martyrii-xv-martyrum-tiberiopolitanorum",
   "athanasius-theology.symbolum-quicumque-sp",
   "michael-psellus.de-omnifaria-doctrina",
