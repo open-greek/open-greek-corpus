@@ -1,19 +1,19 @@
 {
  "corpus": {
-  "passages": 1982172,
-  "tokens": 65574218,
-  "tokens_lemmatized": 63758945,
+  "passages": 1982166,
+  "tokens": 65571514,
+  "tokens_lemmatized": 63756235,
   "works": 3908
  },
  "generated_from": {
-  "commit": "fc9090ea8928a25d539e672f082a7b8b07b67673",
+  "commit": "714d63e57134da089f700360dc4be0e0a571b2a5",
   "commit_date": "2026-08-08",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
  "licenses": {
   "CC-BY-4.0": {
-   "tokens": 4400989,
+   "tokens": 4398285,
    "works": 234
   },
   "CC-BY-SA-4.0": {
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3908,
-  "catalog_sha256": "d178cb839b0067a4fbd5ac5809933776923a7713b1ac3df8c0eab1fc9275bd1c",
-  "corpus_sha256": "2d453cd1beb42ff7fbeb9e2627c0b122f71f2483038420e810230374fe95ce4f",
+  "catalog_sha256": "20f263fe6ba61a83e9b74e4101f076b5c626a5f1bb5036b93b4008e68e211eca",
+  "corpus_sha256": "f6cd827499d0d6a0d405fd9bedefff542097fc785d2c197ca6aebd54f7847d44",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -71,7 +71,7 @@
     "works": 872
    },
    "manual": {
-    "tokens": 7250604,
+    "tokens": 7247900,
     "works": 203
    },
    "not-ocr": {
@@ -86,7 +86,7 @@
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
    "ocr_share_of_corpus_tokens": 0.4491,
-   "ocr_tokens": 29449950,
+   "ocr_tokens": 29447246,
    "ocr_works": 1412,
    "raw_share_of_corpus_tokens": 0.0415,
    "raw_share_of_ocr_tokens": 0.0925,
@@ -142,7 +142,7 @@
   }
  },
  "release_date": "2026-08-08",
- "release_id": "corpus-2026-08-08.7",
+ "release_id": "corpus-2026-08-08.8",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -153,7 +153,7 @@
    "works": 19
   },
   "cgpg": {
-   "tokens": 4217426,
+   "tokens": 4214722,
    "works": 198
   },
   "dfhg": {
