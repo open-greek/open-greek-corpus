@@ -148,8 +148,8 @@
   "edition": "cgpg",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 11,
-  "n_tokens": 2529,
+  "n_passages": 8,
+  "n_tokens": 1646,
   "works": []
  },
  {
@@ -1776,7 +1776,13 @@
     "cgpg_chosen": false
    }
   ],
-  "cgpg_chosen": false
+  "cgpg_chosen": false,
+  "superseded_by": {
+   "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
+   "source": "byzantium_gr",
+   "edition": "byzantium-gr",
+   "n_tokens": 75831
+  }
  },
  {
   "volume": "PG112",
@@ -3411,10 +3417,7 @@
   "n_passages": 7,
   "n_tokens": 5375,
   "works": [],
-  "cgpg_chosen": false,
-  "superseded_by": {
-   "slug": "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum"
-  }
+  "cgpg_chosen": true
  },
  {
   "volume": "PG151",
@@ -3427,10 +3430,7 @@
   "n_passages": 24,
   "n_tokens": 20670,
   "works": [],
-  "cgpg_chosen": false,
-  "superseded_by": {
-   "slug": "anonymi-logoi-duo.logoi-duo"
-  }
+  "cgpg_chosen": true
  },
  {
   "volume": "PG151",

@@ -19,7 +19,7 @@ Byzantine literary Greek.
 | [Galenus Verbatim](https://github.com/galenus-verbatim/galenus_cts) | CC BY-SA 4.0 | Galen and pseudo-Galen TEI (Sorbonne): verified Kuehn transcriptions plus revised First1K files (`galenus_verbatim`) |
 | Byzantine and early modern | PD / CC BY-SA | late vernacular verse/prose, 12th-17th c. (`byzantine_vernacular`) |
 | [byzantium.gr](https://byzantium.gr) | PD (Bonn/CSHB editions) | Byzantine historians, clean polytonic transcriptions (`byzantium_gr`) |
-| [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`); 21 multi-work volumes are carved into per-work files by `scripts/carve_cgpg_volume.py` (plan: `data/cgpg_carve_plan.json`), and 12 `cogPG.*` files still serve volume-keyed |
+| [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | CC BY 4.0 | patristic gap: CC-BY OCR of public-domain Migne (`cgpg`); 22 multi-work volumes are carved into per-work files by `scripts/carve_cgpg_volume.py` (plan: `data/cgpg_carve_plan.json`), and 10 `cogPG.*` files still serve volume-keyed |
 | [PTA](https://github.com/PatristicTextArchive/pta_data) | CC BY-SA / CC BY, per file | Patristic Text Archive (BBAW): critical patristic TEI incl. the Severian of Gabala corpus (`pta`); pta ids resolve via `scripts/build_pta_crosswalk.py`, the single BY-NC-SA file is excluded |
 | [DFHG](https://dfhg-project.org) | CC BY-SA 4.0 | Mueller's Fragmenta Historicorum Graecorum vols 1-5 as corrected transcription (Berti/Leipzig), superseding our FHG OCR (`dfhg`); ingested by `scripts/ingest_dfhg.py`; the held-back specials (Diodorus' fragmentary books, homonym collisions) are resolved by `scripts/ingest_dfhg_specials.py`, and the carve slugs get TLG urns from the constrained canon pass `scripts/build_dfhg_canon_pass.py` (audit trail in `data/dfhg_canon_pass.json`) |
 | [SAWS](https://ancientwisdoms.ac.uk) | CC BY 4.0 (2025 KCL figshare deposit, doi:10.18742/28259054.v1; supersedes the project's 2013 in-file CC BY-NC-SA notices) | Sharing Ancient Wisdoms born-digital editions (`saws`): Roueche's Kekaumenos, the Searby et al. Apophthegmata et gnomae secundum alphabetum, and diplomatic transcriptions of the Gnomologium Vaticanum (Vat. gr. 743) and Corpus Parisinum VI (Par. gr. 1168 + Bodl. Digby 6); ingested by `scripts/ingest_saws.py` (which re-verifies the deposit license against the figshare API on every fetch) |
@@ -343,7 +343,7 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 10 `cogPG.*` files are still volume-keyed, holding 14,072 Greek
+far, and 10 `cogPG.*` files are still volume-keyed, holding 13,186 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
@@ -351,7 +351,7 @@ cuts a row at a character offset. PG112 was finished on 2026-08-09 and its file 
 gone too: its remaining half was the same text byzantium.gr already serves, and
 since nothing may be served twice it became an edition witness in
 `data/corpus_secondary`, outside the served counts. All ten remaining
-files are carved volumes' leftovers, 14,072 tokens between them: PG003, PG005,
+files are carved volumes' leftovers, 13,186 tokens between them: PG003, PG005,
 PG101, PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 1 to 20 rows
 each, every one identified in its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
@@ -1129,7 +1129,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | clinias.fragmenta | Clinias - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 165 | raw OCR |
 | cocondrius.peri-tropon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,481 | manual |
 | PG003 | Pseudo-Dionysius Areopagita v1 | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 20 | manual |
-| PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,534 | manual |
+| PG005 | Ignatius, Polycarp, Melito, 2nd-c. popes (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,648 | manual |
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |

@@ -23,9 +23,9 @@
   },
   "counts": {
    "ocr_works": 1418,
-   "ocr_works_ranked": 826,
-   "ocr_works_with_witness": 196,
-   "secondary_files": 475,
+   "ocr_works_ranked": 825,
+   "ocr_works_with_witness": 197,
+   "secondary_files": 476,
    "skipped": 75,
    "tei_primary_ocr_secondary_pairs": 204
   },
@@ -364,9 +364,9 @@
    "max": 0.4788,
    "median": 0.1338,
    "min": 0.0089,
-   "n": 826,
+   "n": 825,
    "q1": 0.0943,
-   "q3": 0.1699
+   "q3": 0.17
   }
  },
  "works": {
@@ -3498,12 +3498,18 @@
   },
   "cogPG.PG005": {
    "edition": "cgpg",
-   "n_tokens": 2534,
-   "n_tokens_checked": 1588,
-   "n_unattested": 87,
+   "n_tokens": 1648,
+   "n_tokens_checked": 1045,
+   "n_unattested": 67,
    "source": "cgpg",
-   "unattested_rate": 0.054786,
-   "witness": null
+   "unattested_rate": 0.064115,
+   "witness": {
+    "agreement_primary_in_secondary": 0.100122,
+    "agreement_secondary_in_primary": 0.156818,
+    "n_bigrams_primary": 1638,
+    "n_bigrams_secondary": 880,
+    "secondary_edition": "cgpg"
+   }
   },
   "cogPG.PG101": {
    "edition": "cgpg",
@@ -15084,7 +15090,6 @@
   "pseudo-justinus-martyr.epistula-ad-zenam-et-serenum",
   "isidorus-thessalonicensis.sermones-in-deiparam",
   "theophylactus-achridensis.expositio-in-acta-apostolorum-sp",
-  "cogPG.PG005",
   "theophylactus-achridensis.enarratio-in-evangelium-marci",
   "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
   "michael-glycas.epistolae",
