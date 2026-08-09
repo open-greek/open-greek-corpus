@@ -1,0 +1,1436 @@
+{
+ "what": "Migne PG003 display heads located in our rows by aligning a second, independent OCR of the same volume",
+ "issue": "open-greek/open-greek-corpus#9",
+ "NOT_A_CARVE_INPUT_YET": "a placement is a candidate boundary. A boundary that is close but wrong conserves every token and still files Dionysius under Pachymeres, so each entry carries the distance to the anchor that placed it and split_carved_row.py's own head assertion must confirm it before any cut.",
+ "witness": {
+  "item": "https://archive.org/details/Patrologia_Graeca_vol_003",
+  "file": "data/cache/ia/PG003_djvu.txt",
+  "sha256": "c3f4056dcf99ef76ac08d0e16445f01bcd43b5a1d75a52b757b545d045ab855e"
+ },
+ "params": {
+  "max_anchor_gap_words": 40
+ },
+ "anchor_matches": 69200,
+ "anchor_chain": 68313,
+ "heads_found": 169,
+ "placed": 129,
+ "declined": 40,
+ "held_out": {
+  "source": "data/pg003_blocks.json heads",
+  "note": "locus 89's recorded head is a running head at offset 0, not a boundary; the placement at ~1,566 matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552, so the alignment is right and the record is not. Locus 171 is a genuine miss, 516 characters late.",
+  "heads": 26,
+  "sharing_a_locus_with_a_placement": 26,
+  "within_200_chars": 24,
+  "checks": [
+   {
+    "locus": "89",
+    "our_offset": 0,
+    "head": "caput",
+    "reading": "ΟΑΡΠΤ ΙΙΙ. ζήτησιν, οὐκ = CAPUT",
+    "nearest_placement_chars": 1566
+   },
+   {
+    "locus": "89",
+    "our_offset": 1552,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Γʹ. Τί ἐστιν ἱερ",
+    "nearest_placement_chars": 14
+   },
+   {
+    "locus": "107",
+    "our_offset": 865,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Ϛʹ. Ὃσοι μέν εἰσ",
+    "nearest_placement_chars": 23
+   },
+   {
+    "locus": "110",
+    "our_offset": 178,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Ζʹ. Ταύτην ἡμεῖς",
+    "nearest_placement_chars": 14
+   },
+   {
+    "locus": "136",
+    "our_offset": 0,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Οʹ. Λοιπὸς Τ ἡμῖ",
+    "nearest_placement_chars": 23
+   },
+   {
+    "locus": "143",
+    "our_offset": 1521,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Ιʹ. Ἐπανάληψις κ",
+    "nearest_placement_chars": 69
+   },
+   {
+    "locus": "151",
+    "our_offset": 0,
+    "head": "paraphrase",
+    "reading": "ΡΑΗΑΡΗΚΑΘ ΡΑΩΙΥΜΕΛ. οἱτο = PARAPHRASIS PACHY",
+    "nearest_placement_chars": 48
+   },
+   {
+    "locus": "168",
+    "our_offset": 0,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ ΙΔʹ. Καὶ τοῦτο δ",
+    "nearest_placement_chars": 28
+   },
+   {
+    "locus": "171",
+    "our_offset": 0,
+    "head": "synopsis",
+    "reading": "ΘΥΝΟΡΦΙΟ ΩΑΡΙΤΙΘ. ρεί νε = SYNOPSIS CAPITIS",
+    "nearest_placement_chars": 516
+   },
+   {
+    "locus": "243",
+    "our_offset": 1346,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Δ. νν ἐν τῷ μύρῳ",
+    "nearest_placement_chars": 16
+   },
+   {
+    "locus": "257",
+    "our_offset": 1239,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Εʹ. Περὶ τῶν ἱερ",
+    "nearest_placement_chars": 14
+   },
+   {
+    "locus": "283",
+    "our_offset": 1586,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Ζʹ. Ι. Περὶ τῶν",
+    "nearest_placement_chars": 17
+   },
+   {
+    "locus": "300",
+    "our_offset": 0,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Αʹ. Τ ΣΜΠΡΕΣΒΥΤΕ",
+    "nearest_placement_chars": 60
+   },
+   {
+    "locus": "325",
+    "our_offset": 782,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Βʹ. Τὴν θεαρχικὴ",
+    "nearest_placement_chars": 28
+   },
+   {
+    "locus": "347",
+    "our_offset": 0,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Γ. ΛΑΡΗΤ ΙΙΙ. Κα",
+    "nearest_placement_chars": 24
+   },
+   {
+    "locus": "354",
+    "our_offset": 0,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Δʹ. Α ΟΑΡΠΤ ΙΝʹ.",
+    "nearest_placement_chars": 45
+   },
+   {
+    "locus": "381",
+    "our_offset": 2,
+    "head": "paraphrase",
+    "reading": "ΡΑΚΑΡΗΣΑΘΒ ΡΑΩΗΙΜΕΣΧθ ἐΙ = PARAPHRASIS PACHY",
+    "nearest_placement_chars": 26
+   },
+   {
+    "locus": "440",
+    "our_offset": 321,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Ζʹ. ΘΥΝΟΡΘΙΘ ΛΑΡ",
+    "nearest_placement_chars": 85
+   },
+   {
+    "locus": "462",
+    "our_offset": 290,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Οʹ. Ἐπειδὴ δὲ κα",
+    "nearest_placement_chars": 72
+   },
+   {
+    "locus": "475",
+    "our_offset": 1635,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝΙʹ. Ὥρα δὴ τῷ λόγ",
+    "nearest_placement_chars": 17
+   },
+   {
+    "locus": "481",
+    "our_offset": 1589,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ ΙΑʹ. Περὶ εἰρήνη",
+    "nearest_placement_chars": 36
+   },
+   {
+    "locus": "481",
+    "our_offset": 1713,
+    "head": "synopsis",
+    "reading": "ΘΥΝΟΡΘΙΘ ΣΑΡΙΤΙΘ. Ἄγε δὴ = SYNOPSIS CAPITIS",
+    "nearest_placement_chars": 22
+   },
+   {
+    "locus": "487",
+    "our_offset": 3,
+    "head": "paraphrase",
+    "reading": "ΡΑΓΑΡΙΛΑεΙΒ ΡΑΩΙΥΜΕΕΣ. ἔ = PARAPHRASIS PACHY",
+    "nearest_placement_chars": 36
+   },
+   {
+    "locus": "492",
+    "our_offset": 0,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ ΠΒʹ. κυρίων, Θεο",
+    "nearest_placement_chars": 71
+   },
+   {
+    "locus": "527",
+    "our_offset": 1404,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Δʹ. Λέγομεν οὖν,",
+    "nearest_placement_chars": 22
+   },
+   {
+    "locus": "530",
+    "our_offset": 1840,
+    "head": "kephalaion",
+    "reading": "ΚΕΦΑΛΑΙΟΝ Ε Ὅτι οὐδὲν τῶν",
+    "nearest_placement_chars": 129
+   }
+  ]
+ },
+ "placements": [
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 39,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια"
+  },
+  {
+   "head": "CAPUT I",
+   "anchor_gap_words": 18,
+   "locus": "75",
+   "offset": 1317,
+   "incipit": "ως οιμαι πρωτον εκοεσθαι τινα μεν"
+  },
+  {
+   "head": "SYNOPSIS",
+   "anchor_gap_words": 18,
+   "locus": "75",
+   "offset": 1317,
+   "incipit": "ως οιμαι πρωτον εκοεσθαι τινα μεν"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 29,
+   "locus": "82",
+   "offset": 0,
+   "incipit": "πρεπει τοιγαρουν ως υπολαιμβανωιστακτινως δι ασφαλειαν"
+  },
+  {
+   "head": "SYNOPSIS Y. Defiuit.",
+   "anchor_gap_words": 6,
+   "locus": "89",
+   "offset": 1566,
+   "incipit": "τι εστιν ιεραρχια και τις η"
+  },
+  {
+   "head": "CAPUT IV",
+   "anchor_gap_words": 3,
+   "locus": "96",
+   "offset": 529,
+   "incipit": "της τοινυν ιεραρχιας αυτης ο τι"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 3,
+   "locus": "96",
+   "offset": 529,
+   "incipit": "της τοινυν ιεραρχιας αυτης ο τι"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 17,
+   "locus": "105",
+   "offset": 90,
+   "incipit": "καθ ημας αιτια της αγγελικης αυτοις"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 20,
+   "locus": "106",
+   "offset": 64,
+   "incipit": "ημετεραν δυναμιν ειπειν η αιτια της"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 1,
+   "locus": "106",
+   "offset": 64,
+   "incipit": "ημετεραν δυναμιν ειπειν η αιτια της"
+  },
+  {
+   "head": "CAPUT VI",
+   "anchor_gap_words": 24,
+   "locus": "107",
+   "offset": 888,
+   "incipit": "εισι και οιοι των υπερουρανιωνθουσιων οι"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 10,
+   "locus": "107",
+   "offset": 888,
+   "incipit": "εισι και οιοι των υπερουρανιωνθουσιων οι"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 12,
+   "locus": "108",
+   "offset": 624,
+   "incipit": "την ποιοτητα οι των ουρανιων διακοσμοι"
+  },
+  {
+   "head": "CAPUT VII",
+   "anchor_gap_words": 14,
+   "locus": "110",
+   "offset": 192,
+   "incipit": "ταυτην ημεις αποδεχομενοι την των αγιων"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS",
+   "anchor_gap_words": 1,
+   "locus": "110",
+   "offset": 192,
+   "incipit": "ταυτην ημεις αποδεχομενοι την των αγιων"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 29,
+   "locus": "114",
+   "offset": 50,
+   "incipit": "των ταξεων τριαδος των σεραφιμ και"
+  },
+  {
+   "head": "CAPUT VIII",
+   "anchor_gap_words": 3,
+   "locus": "126",
+   "offset": 426,
+   "incipit": "δε νυν ημιν επι την μεσην"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 1,
+   "locus": "126",
+   "offset": 426,
+   "incipit": "δε νυν ημιν επι την μεσην"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 17,
+   "locus": "129",
+   "offset": 12,
+   "incipit": "τον λογον απαρτι και επι την"
+  },
+  {
+   "head": "CAPUT IX",
+   "anchor_gap_words": 2,
+   "locus": "136",
+   "offset": 23,
+   "incipit": "ημιν εις θεωριαν ιεραν διακοσμος ο"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 2,
+   "locus": "136",
+   "offset": 23,
+   "incipit": "ημιν εις θεωριαν ιεραν διακοσμος ο"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 9,
+   "locus": "139",
+   "offset": 10,
+   "incipit": "αν ειη λεγειν και περι της"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 1,
+   "locus": "139",
+   "offset": 10,
+   "incipit": "αν ειη λεγειν και περι της"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 3,
+   "locus": "143",
+   "offset": 1590,
+   "incipit": "ημιν ως η μεν πρεσβυτατη των"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 23,
+   "locus": "146",
+   "offset": 13,
+   "incipit": "κατα χρονον αλλα κατα ταξιν παντοως"
+  },
+  {
+   "head": "CAPUT XI",
+   "anchor_gap_words": 19,
+   "locus": "149",
+   "offset": 658,
+   "incipit": "αξιον εννοησαι δι ην αιτιαν απασας"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 7,
+   "locus": "149",
+   "offset": 658,
+   "incipit": "αξιον εννοησαι δι ην αιτιαν απασας"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "anchor_gap_words": 7,
+   "locus": "151",
+   "offset": 48,
+   "incipit": "εκεινο αξιον απορησαι τι δη ποτε"
+  },
+  {
+   "head": "CAPUT XII",
+   "anchor_gap_words": 10,
+   "locus": "153",
+   "offset": 851,
+   "incipit": "ζητειται δε και τουτο τοις των"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 2,
+   "locus": "153",
+   "offset": 851,
+   "incipit": "ζητειται δε και τουτο τοις των"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 14,
+   "locus": "155",
+   "offset": 9,
+   "incipit": "ο αγιος παρα τω θεοληπτικωτατω μαλαχια"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "anchor_gap_words": 2,
+   "locus": "155",
+   "offset": 9,
+   "incipit": "ο αγιος παρα τω θεοληπτικωτατω μαλαχια"
+  },
+  {
+   "head": "CAPUT XIII",
+   "anchor_gap_words": 2,
+   "locus": "157",
+   "offset": 13,
+   "incipit": "το πασης συντελειας ειδον περας κλατεια"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 10,
+   "locus": "157",
+   "offset": 291,
+   "incipit": "οτου ενεκα προς ενα των θεολογων"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 22,
+   "locus": "162",
+   "offset": 6,
+   "incipit": "και ετεραν αποριαν ζητησωμεν επει εναντιοφανες"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "anchor_gap_words": 0,
+   "locus": "162",
+   "offset": 6,
+   "incipit": "και ετεραν αποριαν ζητησωμεν επει εναντιοφανες"
+  },
+  {
+   "head": "CAPUT XIV",
+   "anchor_gap_words": 2,
+   "locus": "168",
+   "offset": 28,
+   "incipit": "αξιον ως οιμαι νοερας επιστασιας οτι"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 2,
+   "locus": "168",
+   "offset": 28,
+   "incipit": "αξιον ως οιμαι νοερας επιστασιας οτι"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. L Angeli",
+   "anchor_gap_words": 8,
+   "locus": "171",
+   "offset": 516,
+   "incipit": "δη λοιπον αναπαυοντες ημων ει δοκει"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 29,
+   "locus": "178",
+   "offset": 8,
+   "incipit": "λοιπον αναπαυσωμεν τον ημετερον νουν απο"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. V. Ecclesiasticam",
+   "anchor_gap_words": 14,
+   "locus": "193",
+   "offset": 0,
+   "incipit": "υπερκοσμιων και ιερωτατων ημας αποδειξαι λογιων"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERAE",
+   "anchor_gap_words": 0,
+   "locus": "198",
+   "offset": 0,
+   "incipit": "μετα την ουρανιαν ιεραρχιαν διαλαμβανει και"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. Prima",
+   "anchor_gap_words": 18,
+   "locus": "203",
+   "offset": 10,
+   "incipit": "ειρηται τοινυν ημιν ιερως ως ουτος"
+  },
+  {
+   "head": "CAPUT III",
+   "anchor_gap_words": 17,
+   "locus": "219",
+   "offset": 642,
+   "incipit": "οτι ταυτης εμνησθημεν ην ου θεμιτον"
+  },
+  {
+   "head": "SYNOPSIS Prima",
+   "anchor_gap_words": 17,
+   "locus": "219",
+   "offset": 642,
+   "incipit": "οτι ταυτης εμνησθημεν ην ου θεμιτον"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 36,
+   "locus": "232",
+   "offset": 6,
+   "incipit": "οτι ταυτης επεμνησθημεν της τελετης δηλαδη"
+  },
+  {
+   "head": "CAPUT IV",
+   "anchor_gap_words": 6,
+   "locus": "243",
+   "offset": 1362,
+   "incipit": "εν τω μυρω τελουμενων και των"
+  },
+  {
+   "head": "SYNOPSIS Prima",
+   "anchor_gap_words": 6,
+   "locus": "243",
+   "offset": 1362,
+   "incipit": "εν τω μυρω τελουμενων και των"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 28,
+   "locus": "251",
+   "offset": 26,
+   "incipit": "νοητα θεαματα της ιερας συναξεως εισι"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "anchor_gap_words": 2,
+   "locus": "251",
+   "offset": 26,
+   "incipit": "νοητα θεαματα της ιερας συναξεως εισι"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 1,
+   "locus": "257",
+   "offset": 1253,
+   "incipit": "περι των ιερατικων ταξεων δυναμεων τε"
+  },
+  {
+   "head": "SYNOPSIS Prima",
+   "anchor_gap_words": 1,
+   "locus": "257",
+   "offset": 1253,
+   "incipit": "περι των ιερατικων ταξεων δυναμεων τε"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 29,
+   "locus": "267",
+   "offset": 3,
+   "incipit": "ταυτα τα περι του θειου και"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "anchor_gap_words": 5,
+   "locus": "267",
+   "offset": 3,
+   "incipit": "ταυτα τα περι του θειου και"
+  },
+  {
+   "head": "CAPUT VI",
+   "anchor_gap_words": 3,
+   "locus": "272",
+   "offset": 1734,
+   "incipit": "μεν αι ιερατικαι ταξεις τε και"
+  },
+  {
+   "head": "SYNOPSIS",
+   "anchor_gap_words": 3,
+   "locus": "272",
+   "offset": 1734,
+   "incipit": "μεν αι ιερατικαι ταξεις τε και"
+  },
+  {
+   "head": "CAPUT VII",
+   "anchor_gap_words": 1,
+   "locus": "283",
+   "offset": 1603,
+   "incipit": "περι των επι εοις κεκοιμημενοις τελουμενων"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. Prima",
+   "anchor_gap_words": 8,
+   "locus": "283",
+   "offset": 1677,
+   "incipit": "ειπειν ως οιμαι και τα προς"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 11,
+   "locus": "292",
+   "offset": 234,
+   "incipit": "τουτων ουν διωρισμενων αναγκαιον ειπειν και"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 7,
+   "locus": "300",
+   "offset": 60,
+   "incipit": "νυν δη ω μακαριε μετα τας"
+  },
+  {
+   "head": "CAPUT I",
+   "anchor_gap_words": 20,
+   "locus": "325",
+   "offset": 810,
+   "incipit": "ολην υπαρξιν ο τι ποτε εστιν"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 5,
+   "locus": "325",
+   "offset": 810,
+   "incipit": "ολην υπαρξιν ο τι ποτε εστιν"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERLE",
+   "anchor_gap_words": 0,
+   "locus": "336",
+   "offset": 4,
+   "incipit": "το παρον κεφαλαιον εστι περι ηνωμενης"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. CAPUT III.",
+   "anchor_gap_words": 5,
+   "locus": "347",
+   "offset": 24,
+   "incipit": "και πρωτην ει δοκει την παντελη"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 19,
+   "locus": "351",
+   "offset": 2,
+   "incipit": "πρωτον ει δοκει την εκφαντορικην των"
+  },
+  {
+   "head": "CAPUT IV",
+   "anchor_gap_words": 9,
+   "locus": "354",
+   "offset": 45,
+   "incipit": "ειεν δη ουν επ αυτην ηδη"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS",
+   "anchor_gap_words": 9,
+   "locus": "354",
+   "offset": 45,
+   "incipit": "ειεν δη ουν επ αυτην ηδη"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERLE",
+   "anchor_gap_words": 2,
+   "locus": "381",
+   "offset": 28,
+   "incipit": "στικτεον εις το ουν τελειαν το"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 3,
+   "locus": "415",
+   "offset": 9,
+   "incipit": "δε νυν επι την οντος ουσαν"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 3,
+   "locus": "415",
+   "offset": 9,
+   "incipit": "δε νυν επι την οντος ουσαν"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 2,
+   "locus": "423",
+   "offset": 18,
+   "incipit": "λογον επι την οντως ουσαν ουσιωνυμιαν"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 5,
+   "locus": "435",
+   "offset": 0,
+   "incipit": "νυν δε υμνητεον ημιν την ζωην"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 27,
+   "locus": "437",
+   "offset": 13,
+   "incipit": "περι της αιωνιου λεγειν ζωης της"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERUE",
+   "anchor_gap_words": 3,
+   "locus": "437",
+   "offset": 13,
+   "incipit": "περι της αιωνιου λεγειν ζωης της"
+  },
+  {
+   "head": "CAPUT VII",
+   "anchor_gap_words": 13,
+   "locus": "440",
+   "offset": 406,
+   "incipit": "ως σοφην και ως αυτοσοφιαν υμνωμεν"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. V. Docet",
+   "anchor_gap_words": 13,
+   "locus": "440",
+   "offset": 406,
+   "incipit": "ως σοφην και ως αυτοσοφιαν υμνωμεν"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 19,
+   "locus": "446",
+   "offset": 3,
+   "incipit": "ειποντες περι αγαθου περι οντος περνζωης"
+  },
+  {
+   "head": "CAPUT VII",
+   "anchor_gap_words": 4,
+   "locus": "452",
+   "offset": 612,
+   "incipit": "επειδη την θειαν αληθοτητα και υπερσοφον"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS",
+   "anchor_gap_words": 4,
+   "locus": "452",
+   "offset": 612,
+   "incipit": "επειδη την θειαν αληθοτητα και υπερσοφον"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 24,
+   "locus": "457",
+   "offset": 5,
+   "incipit": "επειδη την υπερσοφον αληθοτητα τον θεον"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERAJE",
+   "anchor_gap_words": 2,
+   "locus": "457",
+   "offset": 5,
+   "incipit": "επειδη την υπερσοφον αληθοτητα τον θεον"
+  },
+  {
+   "head": "CAPUT IX",
+   "anchor_gap_words": 12,
+   "locus": "462",
+   "offset": 362,
+   "incipit": "αιτιω και το ταυτον και το"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. I. Dicit",
+   "anchor_gap_words": 12,
+   "locus": "462",
+   "offset": 362,
+   "incipit": "αιτιω και το ταυτον και το"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 37,
+   "locus": "468",
+   "offset": 5,
+   "incipit": "επειδη και τα προκειμενα ονοματα εν"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 0,
+   "locus": "468",
+   "offset": 5,
+   "incipit": "επειδη και τα προκειμενα ονοματα εν"
+  },
+  {
+   "head": "CAPUT X",
+   "anchor_gap_words": 16,
+   "locus": "475",
+   "offset": 1652,
+   "incipit": "δη τω λογω τον πολυωνυμον θεον"
+  },
+  {
+   "head": "SYNOPSIS",
+   "anchor_gap_words": 15,
+   "locus": "475",
+   "offset": 1652,
+   "incipit": "δη τω λογω τον πολυωνυμον θεον"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 2,
+   "locus": "479",
+   "offset": 8,
+   "incipit": "εστι και περι παντοκρατορος και οπως"
+  },
+  {
+   "head": "CAPUT XI",
+   "anchor_gap_words": 4,
+   "locus": "481",
+   "offset": 1625,
+   "incipit": "βουλεται αυτο το αυτοειναι τις η"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. Y. Descripsit",
+   "anchor_gap_words": 3,
+   "locus": "481",
+   "offset": 1735,
+   "incipit": "δη την θειαν και αρχισυναγωγον ειρηνην"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 27,
+   "locus": "487",
+   "offset": 39,
+   "incipit": "την αιτιαν συναγωγης απασης εις ρηνην"
+  },
+  {
+   "head": "CAPUT XII",
+   "anchor_gap_words": 3,
+   "locus": "492",
+   "offset": 71,
+   "incipit": "περι τουτων οσα ειπειν εδει το"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 3,
+   "locus": "492",
+   "offset": 71,
+   "incipit": "περι τουτων οσα ειπειν εδει το"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 15,
+   "locus": "494",
+   "offset": 25,
+   "incipit": "τουτων ικανως ως οιμαι λολεκται υμνητεον"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. X. Docet",
+   "anchor_gap_words": 6,
+   "locus": "496",
+   "offset": 460,
+   "incipit": "αυτο δε λοιπον ει δοκει τω"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 29,
+   "locus": "500",
+   "offset": 3,
+   "incipit": "επ αυτο χωρει το ισχυροτατον κεφαλαιον"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 0,
+   "locus": "500",
+   "offset": 3,
+   "incipit": "επ αυτο χωρει το ισχυροτατον κεφαλαιον"
+  },
+  {
+   "head": "CAPUT I",
+   "anchor_gap_words": 7,
+   "locus": "506",
+   "offset": 30,
+   "incipit": "και υπεραγαθε της χριστιανων εφορε θεοσοφιας"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS.",
+   "anchor_gap_words": 3,
+   "locus": "506",
+   "offset": 30,
+   "incipit": "και υπεραγαθε της χριστιανων εφορε θεοσοφιας"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERA",
+   "anchor_gap_words": 1,
+   "locus": "514",
+   "offset": 2,
+   "incipit": "μεν ιερος διονυσιος του περι θειων"
+  },
+  {
+   "head": "CAPUT II",
+   "anchor_gap_words": 0,
+   "locus": "520",
+   "offset": 0,
+   "incipit": "κατα τουτον ημεις γενεσθαι τον υπερφωτον"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 0,
+   "locus": "521",
+   "offset": 0,
+   "incipit": "μαθοντες περι του θειου γνοφου εις"
+  },
+  {
+   "head": "SYNOPSIS",
+   "anchor_gap_words": 7,
+   "locus": "524",
+   "offset": 6,
+   "incipit": "θεια και αγαθη φυσις ενικη λεγεται"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 22,
+   "locus": "525",
+   "offset": 7,
+   "incipit": "ουν ταις θεολογικαις υποτυπωσεσιν αι καταφατικαι"
+  },
+  {
+   "head": "CAPUT IV",
+   "anchor_gap_words": 10,
+   "locus": "527",
+   "offset": 1426,
+   "incipit": "ουν ως η παντων αιτια υπερ"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. Exempla",
+   "anchor_gap_words": 0,
+   "locus": "527",
+   "offset": 1426,
+   "incipit": "ουν ως η παντων αιτια υπερ"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 35,
+   "locus": "529",
+   "offset": 32,
+   "incipit": "θεος εστιν αυτη γουν ουτε ανουσιος"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERAE",
+   "anchor_gap_words": 6,
+   "locus": "529",
+   "offset": 32,
+   "incipit": "θεος εστιν αυτη γουν ουτε ανουσιος"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 10,
+   "locus": "530",
+   "offset": 1969,
+   "incipit": "ουτε φαντασιαν η δοξαν η λογον"
+  },
+  {
+   "head": "SYNOPSIS CAPITIS. Docet",
+   "anchor_gap_words": 10,
+   "locus": "530",
+   "offset": 1969,
+   "incipit": "ουτε φαντασιαν η δοξαν η λογον"
+  },
+  {
+   "head": "PARAPHRASIS PACHYMERJE",
+   "anchor_gap_words": 0,
+   "locus": "536",
+   "offset": 0,
+   "incipit": "αποφηναμενος πρωτον μεν τας στερησεις μετεπειτα"
+  },
+  {
+   "head": "SYNOPSIS",
+   "anchor_gap_words": 3,
+   "locus": "540",
+   "offset": 10,
+   "incipit": "αφανες γινεται τω φωτι και μαλλον"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 16,
+   "locus": "541",
+   "offset": 0,
+   "incipit": "πως ο παντων επεκεινα και υπερ"
+  },
+  {
+   "head": "SYNOPSIS EPISTOLAE. Explicat",
+   "anchor_gap_words": 0,
+   "locus": "541",
+   "offset": 0,
+   "incipit": "πως ο παντων επεκεινα και υπερ"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 9,
+   "locus": "542",
+   "offset": 365,
+   "incipit": "εξαιφνης εστι το παρ ελπιδα και"
+  },
+  {
+   "head": "SYNOPSIS EPISTOL.E. Quid",
+   "anchor_gap_words": 1,
+   "locus": "542",
+   "offset": 365,
+   "incipit": "εξαιφνης εστι το παρ ελπιδα και"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 2,
+   "locus": "543",
+   "offset": 0,
+   "incipit": "πως φης ιησους ο παντων επεκεινα"
+  },
+  {
+   "head": "SYNOPSIS EPISTOL",
+   "anchor_gap_words": 0,
+   "locus": "543",
+   "offset": 0,
+   "incipit": "πως φης ιησους ο παντων επεκεινα"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 10,
+   "locus": "544",
+   "offset": 21,
+   "incipit": "θειος γνοφος εστι το απροσιτον φως"
+  },
+  {
+   "head": "SYNOPSIS EPISTOLAE",
+   "anchor_gap_words": 1,
+   "locus": "544",
+   "offset": 21,
+   "incipit": "θειος γνοφος εστι το απροσιτον φως"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 18,
+   "locus": "546",
+   "offset": 0,
+   "incipit": "μη τουτο οιου νικην ιερε σωσιπατρε"
+  },
+  {
+   "head": "SYNOPSIS EPISTOLAE. Suadet Sosipatro",
+   "anchor_gap_words": 0,
+   "locus": "546",
+   "offset": 0,
+   "incipit": "μη τουτο οιου νικην ιερε σωσιπατρε"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 9,
+   "locus": "546",
+   "offset": 510,
+   "incipit": "οιδα προς ελληνας η προς ετερους"
+  },
+  {
+   "head": "SYNOPSIS EPISTOLAE.",
+   "anchor_gap_words": 5,
+   "locus": "546",
+   "offset": 510,
+   "incipit": "οιδα προς ελληνας η προς ετερους"
+  },
+  {
+   "head": "SYNOPSIS EPISTOLAE.",
+   "anchor_gap_words": 5,
+   "locus": "549",
+   "offset": 15,
+   "incipit": "ιστοριαι φασιν ω γενναιε δημοφιλε και"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 40,
+   "locus": "559",
+   "offset": 11,
+   "incipit": "δι επιστολης τις ο της σοφιας"
+  },
+  {
+   "head": "SYNOPSIS EPISTOLAE.",
+   "anchor_gap_words": 3,
+   "locus": "559",
+   "offset": 108,
+   "incipit": "μεν ιερος τιμοθεος ω καλε τιτε"
+  },
+  {
+   "head": "SYNOPSIS EPISTOL E. Beato",
+   "anchor_gap_words": 2,
+   "locus": "566",
+   "offset": 91,
+   "incipit": "σε την ιεραν ψυχην ηγαπημενε και"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 27,
+   "locus": "568",
+   "offset": 0,
+   "incipit": "υποθωμεθα δε τον θειον διονυσιον οτε"
+  }
+ ],
+ "declined_placements": [
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 3493,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3493 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT VI",
+   "anchor_gap_words": 3486,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3486 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 3479,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3479 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT IX",
+   "anchor_gap_words": 3469,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3469 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT X",
+   "anchor_gap_words": 3459,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3459 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XL",
+   "anchor_gap_words": 3457,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3457 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT X",
+   "anchor_gap_words": 3431,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3431 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XIII",
+   "anchor_gap_words": 3426,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3426 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XIV",
+   "anchor_gap_words": 3398,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3398 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT X",
+   "anchor_gap_words": 3369,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3369 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT X",
+   "anchor_gap_words": 3355,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3355 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XVII",
+   "anchor_gap_words": 3346,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3346 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XVIII",
+   "anchor_gap_words": 3341,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3341 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XIX",
+   "anchor_gap_words": 3329,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3329 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XX",
+   "anchor_gap_words": 3281,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3281 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XXI",
+   "anchor_gap_words": 3274,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3274 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XXII",
+   "anchor_gap_words": 3268,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3268 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT IV",
+   "anchor_gap_words": 3066,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3066 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT V",
+   "anchor_gap_words": 3039,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 3039 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT II",
+   "anchor_gap_words": 2380,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 2380 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT VI",
+   "anchor_gap_words": 2363,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 2363 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT I",
+   "anchor_gap_words": 557,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 557 words away (limit 40)"
+  },
+  {
+   "head": "SYNOPSIS",
+   "anchor_gap_words": 557,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια",
+   "reason": "nearest anchor is 557 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 75,
+   "locus": "92",
+   "offset": 97,
+   "incipit": "οτι εστιν ιεραρχια ως εγω λεγω",
+   "reason": "nearest anchor is 75 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 102,
+   "locus": "101",
+   "offset": 4,
+   "incipit": "ιεραρχιας αυτης απασης και καθολικης καν",
+   "reason": "nearest anchor is 102 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 100,
+   "locus": "151",
+   "offset": 48,
+   "incipit": "εκεινο αξιον απορησαι τι δη ποτε",
+   "reason": "nearest anchor is 100 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 50,
+   "locus": "169",
+   "offset": 18,
+   "incipit": "ζητησεως νοερας οιονει οκαι πρωην ελεγομεν",
+   "reason": "nearest anchor is 50 words away (limit 40)"
+  },
+  {
+   "head": "CAPUT XV",
+   "anchor_gap_words": 122,
+   "locus": "170",
+   "offset": 1847,
+   "incipit": "δες τι το αετοειδες τινες οι",
+   "reason": "nearest anchor is 122 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 71,
+   "locus": "198",
+   "offset": 0,
+   "incipit": "μετα την ουρανιαν ιεραρχιαν διαλαμβανει και",
+   "reason": "nearest anchor is 71 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 131,
+   "locus": "212",
+   "offset": 45,
+   "incipit": "λογοις επιμεριζει πρωτον μεν διαλαμβανων περι",
+   "reason": "nearest anchor is 131 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 51,
+   "locus": "278",
+   "offset": 55,
+   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των",
+   "reason": "nearest anchor is 51 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 174,
+   "locus": "310",
+   "offset": 464,
+   "incipit": "και παντων τελος εσσι και εις",
+   "reason": "nearest anchor is 174 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 75,
+   "locus": "336",
+   "offset": 4,
+   "incipit": "το παρον κεφαλαιον εστι περι ηνωμενης",
+   "reason": "nearest anchor is 75 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 103,
+   "locus": "381",
+   "offset": 28,
+   "incipit": "στικτεον εις το ουν τελειαν το",
+   "reason": "nearest anchor is 103 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 53,
+   "locus": "423",
+   "offset": 18,
+   "incipit": "λογον επι την οντως ουσαν ουσιωνυμιαν",
+   "reason": "nearest anchor is 53 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 69,
+   "locus": "479",
+   "offset": 8,
+   "incipit": "εστι και περι παντοκρατορος και οπως",
+   "reason": "nearest anchor is 69 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 119,
+   "locus": "514",
+   "offset": 2,
+   "incipit": "μεν ιερος διονυσιος του περι θειων",
+   "reason": "nearest anchor is 119 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 73,
+   "locus": "536",
+   "offset": 0,
+   "incipit": "αποφηναμενος πρωτον μεν τας στερησεις μετεπειτα",
+   "reason": "nearest anchor is 73 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 98,
+   "locus": "549",
+   "offset": 15,
+   "incipit": "ιστοριαι φασιν ω γενναιε δημοφιλε και",
+   "reason": "nearest anchor is 98 words away (limit 40)"
+  },
+  {
+   "head": "ADNOTATIONES",
+   "anchor_gap_words": 46,
+   "locus": "566",
+   "offset": 91,
+   "incipit": "σε την ιεραν ψυχην ηγαπημενε και",
+   "reason": "nearest anchor is 46 words away (limit 40)"
+  }
+ ]
+}
