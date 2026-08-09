@@ -370,9 +370,22 @@ first four words of each row, so it could not have found a mid-row head if one
 existed, and reporting that the heads it found all opened rows was circular.
 Scanning whole rows, 15 of the 26 heads fall mid-row, including an author switch
 at locus 481, character 1,713 of a 2,018-character row. So the original reason
-stands: the boundaries fall inside rows, `carve_cgpg_volume.py` moves whole rows,
-and a carve on loci would cut mid-block. On top of that the OCR dropped most of
-the heads, which needs the PG 3 page images
+stands in part: the boundaries fall inside rows, so a carve on loci would cut
+mid-block. Two of the three reasons have since expired.
+`scripts/split_carved_row.py` cuts a row at a character offset, so moving whole
+rows is no longer the constraint; and the dropped heads do not need the PG 3
+page images, because a second public-domain OCR of the same volume (Internet
+Archive item `Patrologia_Graeca_vol_003`) reads Migne's Latin display heads as
+Latin. What remains is the disposition call. The head table now exists:
+`scripts/recover_pg003_heads.py` aligns our rows against that second OCR by
+unique-trigram anchors (68,313 monotone anchors, one per 2.3 words) and places
+129 of its 169 Latin display heads at a locus and character offset, declining 40
+whose nearest anchor is too far to trust. `data/pg003_heads.json` carries the
+anchor distance for every placement. Held out and never read while aligning, the
+26 heads our own OCR kept: 24 land within 200 characters, and both outliers are
+explained, one of them because the alignment is right where the record is not
+(locus 89's recorded head is a stray Latin running head at offset 0, while the
+placement matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552)
 (`scripts/measure_pg003_blocks.py`, `data/pg003_blocks.json`,
 `data/corpus_changes/cogPG.PG003.split-deferred.json`). Its attribution has
 been corrected in the meantime: Dionysius holds about 37% of the volume's
@@ -2208,11 +2221,15 @@ below; regenerate it with `python scripts/build_provenance.py`.
   one was. Where the two copies end differently the file settles it, because only
   the copy in sequence completes its sentence into the next row; where they end
   alike, as in PG118's Acts leaf, nothing but the printed page can. Locating a
-  page is the expensive step and there is no shortcut: the Internet Archive's
-  per-volume text layers (patrologiaecursu<NNNN>mign) OCR'd only Migne's Latin
-  column and hold no Greek at all, so a row cannot be matched to a page through
-  them, and the loci drift far enough from the scan's page numbers that finding
-  a leaf by eye takes several image fetches. Nor is every candidate decidable
+  page is the expensive step for these volumes. The Internet Archive's
+  `patrologiaecursu<NNNN>mign` scans OCR'd only Migne's Latin column and hold no
+  Greek at all, so a row cannot be matched to a page through them, and the loci
+  drift far enough from the scan's page numbers that finding a leaf by eye takes
+  several image fetches. That is a fact about those particular scans and not
+  about the Archive: PG003 has a second item, `Patrologia_Graeca_vol_003`, whose
+  text layer carries 634,748 Greek characters and is good enough to align
+  against our rows. No such item exists for PG101, PG112, PG118, PG122, PG126,
+  PG134 or PG151, which is why those leaves stay expensive. Nor is every candidate decidable
   without one: where the two copies end alike the join test returns the same
   answer either way, and where a two-page leaf has one clean pair and one whose
   sides each hold unique text, dropping half of it would leave the other half
@@ -2248,9 +2265,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
   going missing, but it does move every downstream count.
 - Next: settle PG112's rank, then per-work citation loci for the carved CGPG
   works (now page-keyed `<VOL>.<page>`). PG003 is NOT a carve-on-loci job, which
-  an earlier version of this line said it was: its boundaries fall inside rows
-  and the splitter moves whole rows, so it needs intra-row segmentation as well
-  as a re-OCR that keeps the display heads.
+  an earlier version of this line said it was: its boundaries fall inside rows.
+  It needs intra-row segmentation, which `scripts/split_carved_row.py` now does,
+  and a head table, which the second OCR of the volume can supply without a
+  re-OCR. This paragraph said the splitter moves whole rows two lines after the
+  paragraph describing the splitter that does not.
 
 ## License
 
