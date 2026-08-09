@@ -87,6 +87,32 @@
      "expected_unique_runs": []
     }
    ]
+  },
+  {
+   "volume": "PG118",
+   "id": "PG118-2cor",
+   "date": "2026-08-08",
+   "issue": "open-greek/open-greek-corpus#33",
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis.jsonl",
+   "basis": "Two pages of the 2 Corinthians catena arrive twice, as loci 519-520 and again as 521-522. The EARLIER copy is the stray, and here that is settled from the bytes rather than from the scan, because the two copies do not end alike: locus 520 breaks off mid-word at Οὐκ ἀλλαχοῦ κατ- and the row that follows it in the file, 521, opens a different lemma, so that copy's sentence is never finished. Locus 522 ends Οὐκ ἀλλαχοῦ καταισχυνθῶμεν, and locus 523 opens ἀλλὰ ἐν μόνῃ τῇ περὶ τῆς ἐλεημοσύνης καυχήσει, completing it. So 521-522 sit in reading order and 519-520 are the duplicate.\n\nNo printed page is cited for this one. The volume's loci have drifted several pages ahead of the scan by this point (scan page 521 is still 2 Cor 8:1-8 while these loci are at 8:21), and locating the leaf would take more page fetches than the evidence needs: the vocabulary gate below shows the dropped copy holds nothing the kept one lacks, so the worst case is that a duplicate rendering goes rather than a duplicate leaf.",
+   "drops": [
+    {
+     "keep": "PG118.521",
+     "drop": "PG118.519",
+     "keep_sha256": "37a063f92e110f389b805dd062d1d23987aa0e2ca1b1df4f7b4c93a262d62301",
+     "drop_sha256": "2faa20c859a149770c63cc472c59a79b809cbd8d613d97e5dcc9b6243b9c6582",
+     "page_evidence": "no page located; direction established from the file, where locus 520 breaks off mid-word and 522 completes the sentence into 523",
+     "expected_unique_runs": []
+    },
+    {
+     "keep": "PG118.522",
+     "drop": "PG118.520",
+     "keep_sha256": "03ce4582e49ee4286a34dec384effea7c88d24d7da8d807113a3a4746a2953a7",
+     "drop_sha256": "59db8c531cf2f00016b0b4229852749c08f3b99cb80b1c45856662a7f1719fe1",
+     "page_evidence": "no page located; direction established from the file, where locus 520 breaks off mid-word and 522 completes the sentence into 523",
+     "expected_unique_runs": []
+    }
+   ]
   }
  ]
 }

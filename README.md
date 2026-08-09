@@ -1804,7 +1804,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis | Oecumenius - Fragmenta in epistulam ad Philippenses (in catenis) [served text = full catena commentary] (PG118 loci 639-674) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 14,427 | manual |
 | oecumenius.fragmenta-in-epistulam-ad-romanos-in-catenis | Oecumenius (ps.-Oecumenius catena) - Fragmenta in epistulam ad Romanos (in catenis) [served text = full ps.-Oecumenius catena commentary on Romans] (PG118 loci 168-326) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 66,155 | manual |
 | oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam i ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 327-461) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,233 | manual |
-| oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 462-555) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 37,734 | manual |
+| oecumenius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis | Oecumenius - Fragmenta in epistulam ii ad Corinthios (in catenis) [served text = full catena commentary] (PG118 loci 462-555) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 36,971 | manual |
 | oenopides.testimonia | Oenopides - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,451 | auto-corrected |
 | onatas.fragmenta | Onatas - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 425 | auto-corrected |
 | ophelio.fragmenta | Ophelio - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 132 | auto-corrected |
@@ -2198,14 +2198,16 @@ below; regenerate it with `python scripts/build_provenance.py`.
   inside a file by word-bigram containment, which ignores reading order, because
   a second read that walks the columns differently scores 0.482 by difflib and
   0.841 by containment. Its output,
-  data/duplicate_leaf_candidates.json, lists 49 remaining pairs in 17 files and
-  splits them by what dropping one would cost, in BOTH directions. 19 pairs have
-  a side that holds nothing the other lacks, 7,007 tokens, of which 12 pairs and
-  4,361 tokens are in served text; the other 30 pairs, 11,469 tokens, cannot be
+  data/duplicate_leaf_candidates.json, lists 47 remaining pairs in 16 files and
+  splits them by what dropping one would cost, in BOTH directions. 17 pairs have
+  a side that holds nothing the other lacks, 6,243 tokens, of which 10 pairs and
+  3,597 tokens are in served text; the other 30 pairs, 11,469 tokens, cannot be
   dropped from either side, because each holds text the other does not. Which
-  side to drop is never the earlier one by default: in PG126 the earlier copy
-  was the stray and the later was the page that continues the text. Each pair
-  still needs its page read.
+  side to drop is not decidable from the ordering: in PG118's first leaf the
+  earlier copy was in sequence, in PG126 and PG118's 2 Corinthians leaf the later
+  one was. Where the two copies end differently the file settles it, because only
+  the copy in sequence completes its sentence into the next row; where they end
+  alike, as in PG118's Acts leaf, nothing but the printed page can.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,

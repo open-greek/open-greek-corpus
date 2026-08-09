@@ -79,25 +79,29 @@ def unique_runs(dropped: str, kept: str, n: int = 3) -> list[str]:
 
 
 def audit_path(vol: str) -> Path:
+    # Keyed by the plan entry's id, not the volume: one volume can have several
+    # duplicated leaves in different works, and each needs its own reversible
+    # record rather than being folded into a single file.
     return CHANGES / f"cogPG.{vol}.duplicate-leaf.json"
 
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--volume", required=True)
+    ap.add_argument("--volume", required=True,
+                    help="a plan entry's id, which defaults to its volume")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--unapply", action="store_true")
     args = ap.parse_args()
 
     vol = args.volume
-    ap_fp = audit_path(vol)
     # The rows are not always still in the volume file: a duplicated leaf can
     # sit inside a work an earlier carve already moved them into, which is where
     # PG126's is. The plan names the file; the volume dump is only the default.
     plan_all = json.loads(PLAN.read_text(encoding="utf-8"))
-    _p = next((v for v in plan_all["volumes"] if v["volume"] == vol), None)
+    _p = next((v for v in plan_all["volumes"] if v.get("id", v["volume"]) == vol), None)
     fp = REPO / _p["file"] if (_p and _p.get("file")) else CORPUS / f"cogPG.{vol}.jsonl"
+    ap_fp = audit_path(vol)
 
     if args.unapply:
         if not ap_fp.exists():
@@ -115,7 +119,7 @@ def main() -> None:
 
     plan = _p
     if plan is None:
-        fail(f"no duplicate-leaf plan entry for {vol}")
+        fail(f"no duplicate-leaf plan entry with id {vol!r}")
     if ap_fp.exists():
         fail(f"{ap_fp.relative_to(REPO)} already exists; --unapply first")
 
