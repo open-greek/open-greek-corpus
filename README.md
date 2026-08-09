@@ -313,7 +313,7 @@ one level finer at the Expression, so the 4 TLG variant-edition pairs are two
 distinct `ogc` ids sharing one TLG anchor. 488 of the 3,822 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,344 works, `tlg` on 3,300,
+`work_index.json` under `work_anchors` (`cts` on 3,343 works, `tlg` on 3,300,
 `wikidata` on 504), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
@@ -343,15 +343,16 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 11 `cogPG.*` files are still volume-keyed, holding 250,174 Greek
+far, and 10 `cogPG.*` files are still volume-keyed, holding 174,312 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
-cuts a row at a character offset. Ten of the eleven remaining files are carved
-volumes' leftovers, 89,914 tokens between them, and 75,862 of that is PG112's
-uncarved half alone (the Vogt text byzantium.gr already serves, left
-volume-keyed pending a disposition). The rest is small: PG005, PG101, PG107,
-PG109, PG118, PG124 and PG125 hold 2 to 13 rows each, every one identified in
+cuts a row at a character offset. PG112 was finished on 2026-08-09 and its file is
+gone too: its remaining half was the same text byzantium.gr already serves, and
+since nothing may be served twice it became an edition witness in
+`data/corpus_secondary`, outside the served counts. Nine of the ten remaining
+files are carved volumes' leftovers, 14,052 tokens between them: PG005, PG101,
+PG107, PG109, PG113, PG118, PG124, PG125 and PG139 hold 2 to 13 rows each, every one identified in
 its plan entry's residual note, and the largest are Greek apparatus rather than
 the Latin monita an earlier summary called them, the Ignatius testimonia in
 PG005 and the Oecumenius prefatory matter in PG118. PG113 keeps 3,039 after its Theophylact block was
@@ -788,7 +789,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1393 OCR'd works/volumes: 191 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1392 OCR'd works/volumes: 190 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1106,7 +1107,6 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG101 | Photius (Amphilochia, NT commentary) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 515 | manual |
 | PG107 | Leo VI the Wise (homilies, Tactica) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,050 | manual |
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
-| PG112 | Constantine VII v1 De ceremoniis (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 75,862 | manual |
 | PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,039 | manual |
 | PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,830 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
@@ -2189,7 +2189,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 
 ## Status
 
-- 3,908 works served, 65.6M Greek tokens, twelve sources.
+- 3,907 works served, 65.5M Greek tokens, twelve sources.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
@@ -2254,9 +2254,9 @@ below; regenerate it with `python scripts/build_provenance.py`.
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
-  `cogPG.*` files remain volume-keyed (11 files): ten leftovers of carved volumes
-  (PG113, PG139 and PG112 among them, so 89,914 tokens between them, 75,862 of
-  that PG112's uncarved half) and one uncarved volume (PG003, 160,260 tokens).
+  `cogPG.*` files remain volume-keyed (10 files): nine leftovers of carved volumes
+  (PG113, PG118 and PG139 among them, so 14,052 tokens between them) and one
+  uncarved volume (PG003, 160,260 tokens).
   Where a work's boundary falls inside a row, which whole-row carving cannot
   express, scripts/split_carved_row.py cuts the row at a character offset; it
   served PG118's three Euthalian pieces and then finished PG151, whose last row
@@ -2267,10 +2267,11 @@ below; regenerate it with `python scripts/build_provenance.py`.
   the Canon splits De cerimoniis by edition, tlg3023.011 being Vogt (lib. 1.1-92
   in his numbering) and tlg3023.010 Reiske (lib. 1.84-2.56 in his), and Vogt's 92
   book-1 chapters are Reiske's 83, so the two are complementary halves rather
-  than overlapping scopes. Loci 354-730 are the Reiske half and are now served
-  as a work in their own right; loci 44-353 are the same text byzantium.gr
-  already serves and stay volume-keyed until the rank call on issue #8 says
-  whether to keep them as an edition witness.
+  than overlapping scopes. Loci 354-730 are the Reiske half and are served
+  as a work in their own right; loci 44-353, the same text byzantium.gr already
+  serves, became an edition witness in data/corpus_secondary on 2026-08-09,
+  because no text is served twice: one best primary is picked and the other
+  reading is kept available but left out of the counts.
   PG067 carved to TWO SECONDARY witnesses and no primary, so the published
   primary corpus is 220,569 tokens smaller than before it: the volume is
   Socrates Scholasticus and Sozomen end to end, and both histories are already

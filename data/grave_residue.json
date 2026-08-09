@@ -53,13 +53,13 @@
    "mg_headwords": "Modern Greek, a different question"
   },
   "headwords": 281178,
-  "lemmas": 102,
-  "tokens": 660,
-  "share_of_residue": 0.0208,
+  "lemmas": 100,
+  "tokens": 655,
+  "share_of_residue": 0.0207,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.2226,
-   "grave_lemmas_le_10_tokens_backed": 0.0143
+   "non_grave_lemmas_le_10_tokens_backed": 0.2227,
+   "grave_lemmas_le_10_tokens_backed": 0.014
   },
   "largest": [
    {
@@ -164,22 +164,22 @@
    }
   ]
  },
- "lemmas": 7942,
- "tokens": 31711,
+ "lemmas": 7931,
+ "tokens": 31662,
  "reachable": {
-  "lemmas": 282,
-  "tokens": 3665,
+  "lemmas": 281,
+  "tokens": 3661,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7660,
-  "tokens": 28046,
+  "lemmas": 7650,
+  "tokens": 28001,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 29494
+  "measured_the_old_way_tokens": 29448
  },
  "largest_unreachable": [
   {
@@ -412,9 +412,9 @@
   },
   {
    "lemma": "δὸ",
-   "tokens": 75,
+   "tokens": 74,
    "target": "δό",
-   "target_tokens": 153
+   "target_tokens": 152
   },
   {
    "lemma": "σὲς",

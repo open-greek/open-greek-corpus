@@ -4855,6 +4855,37 @@
    ],
    "residual_note": "44-353 is Reiske's chapters 1-83, the SAME text byzantium.gr serves as tlg3023.011 (75,862 tokens here against 75,843 served). It is left uncarved on purpose: displacing it to corpus_secondary as an edition witness is the disposition cisco reserved on issue #8, and the precedent (PG067, PG113's De thematibus) points that way because a manual transcription beats our OCR of the same text. Nothing about it is unknown; it is waiting on a decision, not on evidence.",
    "date": "2026-08-08"
+  },
+  {
+   "volume": "PG112",
+   "pass": 2,
+   "date": "2026-08-09",
+   "basis": "The half of PG112 that pass 1 left volume-keyed: Reiske's chapters 1-83 of De cerimoniis, which is the same text byzantium.gr already serves as tlg3023.011 (75,862 tokens here against 75,843 there, containment 0.783 block level with 295 of 305 rows clearing the 0.7 row gate). Pass 1 recorded this as waiting on a disposition rather than on evidence.\n\nDisposition given by cisco 2026-08-09: no text is to be served twice. Pick one best primary and keep the other available as a witness, out of the main counts. The served byzantium.gr text is a manual transcription and beats our OCR of the same pages on the source-precedence ladder, so it stays primary and this becomes the witness. Precedent: PG067's two histories and PG113's De thematibus, both displaced the same way for the same reason.",
+   "residual_ranges": [],
+   "works": [
+    {
+     "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
+     "tlg": "tlg3023.tlg011",
+     "title": "De cerimoniis aulae Byzantinae (lib. 1.1-92)",
+     "author_display": "Constantinus VII Porphyrogenitus",
+     "ranges": [
+      [
+       44,
+       353
+      ]
+     ],
+     "rank": "secondary",
+     "secondary_reason": "work is served from byzantium.gr's manual transcription, which beats OCR of the same text per the source-precedence tie-break; this Migne witness is kept and excluded from the served counts so the text is not served twice (cisco, 2026-08-09)",
+     "incipit_checks": [
+      {
+       "locus": 44,
+       "text": "Ἄλλοις μέν τισιν ἴσως ἔδοξεν ἂν τουτὶ τὸ ἐγχείρημα περιττὸν, οἷς οὐ τοσαύτη τῶν ἀναγκαίων φροντὶς",
+       "notes": "the proem, verbatim identical to the served text's first body row porfyrogen-ceremonis.2, which is how the two halves were identified in the first place"
+      }
+     ],
+     "evidence": "Loci 44-353, 75,862 tokens. Ends at 353 because 354 carries the ΚΕΦΑΛ. ΠΔʹ head at character 249 and was carved to the Reiske half in pass 1; the served Vogt text ends at exactly that point too, with the Gothic-game acclamation glossary."
+    }
+   ]
   }
  ]
 }

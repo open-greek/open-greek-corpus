@@ -22,12 +22,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1412,
-   "ocr_works_ranked": 822,
+   "ocr_works": 1411,
+   "ocr_works_ranked": 821,
    "ocr_works_with_witness": 196,
-   "secondary_files": 429,
+   "secondary_files": 430,
    "skipped": 30,
-   "tei_primary_ocr_secondary_pairs": 203
+   "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -162,29 +162,29 @@
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9205,
-    "median": 0.7806,
+    "median": 0.7815,
     "min": 0.1076,
-    "n": 94,
-    "q1": 0.6943,
-    "q3": 0.8363
+    "n": 95,
+    "q1": 0.6946,
+    "q3": 0.8371
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9205,
-    "median": 0.73,
+    "median": 0.7307,
     "min": 0.0192,
-    "n": 203,
+    "n": 204,
     "q1": 0.5741,
-    "q3": 0.801
+    "q3": 0.8025
    },
-   "n_pairs": 203,
-   "n_pairs_summarized": 94,
+   "n_pairs": 204,
+   "n_pairs_summarized": 95,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
    "median": 0.1342,
    "min": 0.0089,
-   "n": 822,
+   "n": 821,
    "q1": 0.0944,
    "q3": 0.17
   }
@@ -3350,15 +3350,6 @@
    "n_unattested": 1,
    "source": "cgpg",
    "unattested_rate": 1.0,
-   "witness": null
-  },
-  "cogPG.PG112": {
-   "edition": "cgpg",
-   "n_tokens": 75862,
-   "n_tokens_checked": 43003,
-   "n_unattested": 2046,
-   "source": "cgpg",
-   "unattested_rate": 0.047578,
    "witness": null
   },
   "cogPG.PG113": {
@@ -14863,7 +14854,6 @@
   "theophylactus-achridensis.enarratio-in-evangelium-matthaei",
   "basilius-theology.contra-sabellianos-et-arium-et-anomoeos",
   "theophylactus-achridensis.expositio-in-epistolam-ad-colossenses",
-  "cogPG.PG112",
   "joannes-chrysostomus.de-sancta-pelagia-virgine-et-martyre",
   "theophylactus-achridensis.enarratio-in-evangelium-lucae",
   "theophylactus-achridensis.enarratio-in-evangelium-joannis",

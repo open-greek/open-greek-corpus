@@ -1,0 +1,66 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG112 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG112",
+  "source_urn": "cogPG.PG112",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-08-09",
+  "plan_basis": "The half of PG112 that pass 1 left volume-keyed: Reiske's chapters 1-83 of De cerimoniis, which is the same text byzantium.gr already serves as tlg3023.011 (75,862 tokens here against 75,843 there, containment 0.783 block level with 295 of 305 rows clearing the 0.7 row gate). Pass 1 recorded this as waiting on a disposition rather than on evidence.\n\nDisposition given by cisco 2026-08-09: no text is to be served twice. Pick one best primary and keep the other available as a witness, out of the main counts. The served byzantium.gr text is a manual transcription and beats our OCR of the same pages on the source-precedence ladder, so it stays primary and this becomes the witness. Precedent: PG067's two histories and PG113's De thematibus, both displaced the same way for the same reason.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG112.' (delete the file when it was 'created'), strip the 'PG112.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG112.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG112": {
+   "rows": 305,
+   "greek_tokens": 75758,
+   "sha256": "e9dca6ea18c9f4abd21dbd77d536c455ed68d3a5febc4f0e7b4e4c4010282653"
+  }
+ },
+ "works": [
+  {
+   "slug": "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92",
+   "tlg": "tlg3023.tlg011",
+   "title": "De cerimoniis aulae Byzantinae (lib. 1.1-92)",
+   "rank": "secondary",
+   "secondary_reason": "work is served from byzantium.gr's manual transcription, which beats OCR of the same text per the source-precedence tie-break; this Migne witness is kept and excluded from the served counts so the text is not served twice (cisco, 2026-08-09)",
+   "file": "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl",
+   "mode": "created",
+   "rows": 305,
+   "greek_tokens": 75758,
+   "volume_loci": "44-353",
+   "locus_map": "cogPG.PG112 locus N -> constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92 locus 'PG112.N'",
+   "incipit_checks": [
+    {
+     "locus": "44",
+     "incipit": "Ἄλλοις μέν τισιν ἴσως ἔδοξεν ἂν τουτὶ τὸ ἐγχείρημα περιττὸν, οἷς οὐ τοσαύτη τῶν ἀναγκαίων φροντὶς",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 81
+    }
+   ],
+   "evidence": "Loci 44-353, 75,862 tokens. Ends at 353 because 354 carries the ΚΕΦΑΛ. ΠΔʹ head at character 249 and was carved to the Reiske half in pass 1; the served Vogt text ends at exactly that point too, with the Gothic-game acclamation glossary."
+  }
+ ],
+ "residual": {
+  "rows": 0,
+  "greek_tokens": 0,
+  "loci": [],
+  "note": "",
+  "volume_file": "deleted (fully carved)"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 75758,
+  "carved": 75758,
+  "residual": 0,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG112; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG112, plan data/cgpg_carve_plan.json"
+}
