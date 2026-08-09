@@ -1,0 +1,25 @@
+{
+ "what": "rows of cogPG.PG113 displaced to data/corpus_secondary because a served work already carries them",
+ "issue": "open-greek/open-greek-corpus#8",
+ "reverse": "restore the rows from the witness file to data/corpus/cogPG.PG113.jsonl and delete them there",
+ "sheds": {
+  "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus:2026-08-09": {
+   "covered_by": "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus",
+   "gate": "flat containment floor 0.7",
+   "numeral_normalized": true,
+   "n_rows": 1,
+   "greek_chars": 2217,
+   "sha256_before": "957333edc6d896df20cd5d348fe99cb89298517f646dc5b29a76b465d23e7857",
+   "sha256_after": "5479918165d4ebbf41aab643138648445ccdb23fef6ed9ca662ff2a12a0adc78",
+   "rows": [
+    {
+     "locus": "488",
+     "containment": 0.831,
+     "words": 365,
+     "greek_chars": 2217,
+     "edition": "cgpg"
+    }
+   ]
+  }
+ }
+}
