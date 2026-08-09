@@ -1,0 +1,409 @@
+{
+ "what": "served rows that are Latin spelled in Greek letters, so they tokenize as Greek and are counted as Greek",
+ "issue": "open-greek/open-greek-corpus#34",
+ "why_these_two_works": "both survive only partly in Greek. Polycarp's Philippians has chapters 10-12 and 14 in Latin alone (13 is Greek, preserved in Eusebius' quotation), and the Shepherd of Hermas loses its Greek partway through the Similitudes. The editions print the Latin and it was transliterated into Greek script upstream.",
+ "test": {
+  "why_two_signals": "accent-poverty alone over-reports, because display heads, all-caps OCR and some inscriptions are unaccented Greek. A few Latin-looking tokens alone prove nothing either, since damaged Greek produces such shapes. A row must be both.",
+  "min_tokens": 20,
+  "min_distinct_markers": 5,
+  "max_accent_rate": 0.05,
+  "markers_exclude_greek_words": "no marker is also a Greek word. προ, περι and και transliterate onto real Greek and would convict Greek text of being Latin."
+ },
+ "NOT_A_DISPOSITION": "nothing is deleted or re-encoded here. Drop, keep but flag, or keep and exclude from the Greek counts are three different published totals, and which one is right is a call for cisco.",
+ "run_context": "a low-accent row too short or too marker-poor to confirm on its own is included when its neighbour in the same work is confirmed. Polycarp 10.1 is exactly that case: it is 'in his ergo state et domini exemplar sequimini' and carries four markers where five are asked. Lowering the floor instead would start convicting Greek, so the floor stays and position does the rest.",
+ "rows": 37,
+ "tokens": 1640,
+ "confirmed_rows": 30,
+ "confirmed_tokens": 1463,
+ "by_run_rows": 7,
+ "by_run_tokens": 177,
+ "by_work": [
+  {
+   "work": "hermas.pastor",
+   "tokens": 1196
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "tokens": 444
+  }
+ ],
+ "detail": [
+  {
+   "work": "hermas.pastor",
+   "locus": "26.30.5",
+   "tokens": 56,
+   "distinct_markers": 9,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ηορυμ εργο μεντεμ ξυμ ϝιδισσετ δομινυς ποσσε εος ϝεριτατι φανερε, βονο"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.31.1",
+   "tokens": 26,
+   "distinct_markers": 3,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "ξετερι ϝερο, #3υι αδηυξ ροτυνδι ρεμανσερυντ νε#3υε απτατι συντ ιν εαμ ",
+   "by_run": true
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.31.2",
+   "tokens": 57,
+   "distinct_markers": 10,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "οπορτετ αυτεμ ξιρξυμξιδι ηοξ σαεξυλυμ αβ ιλλις ετ ϝανιτατες οπυμ συαρυ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.31.3",
+   "tokens": 22,
+   "distinct_markers": 6,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "φελιξες ϝος ιυδιξο ομνες, εγο νυντιυς παενιτεντιαε, #3υιξυμ#3υε εστις "
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.31.4",
+   "tokens": 48,
+   "distinct_markers": 10,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "διξο αυτεμ ομνιβυς, ϝοβις, #3υιξυμ#3υε σιγιλλυμ ηοξ αξξεπιστις, σιμπλι"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.32.2",
+   "tokens": 26,
+   "distinct_markers": 4,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "δομινυς ηαβιτατ ιν ϝιρις αμαντιβυς παξεμ; ει ενιμϝερο παχ ξαρα εστ ; α",
+   "by_run": true
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.32.3",
+   "tokens": 67,
+   "distinct_markers": 9,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "σι ενιμ δεδερις φυλλονι ϝεστιμεντυμ νοϝυμ ιντεγρυμ ιδ#3υε ιντεγρυμ ιτε"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.32.4",
+   "tokens": 63,
+   "distinct_markers": 11,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "σι σιξ ιγιτυρ τυ δολες δε ϝεστιμεντο τυο ετ #3υερερις, #3υοδ νον ιλλυδ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.32.5",
+   "tokens": 40,
+   "distinct_markers": 13,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "πλανε, ιν#3υαμ, ομνες εος, #3υοσξυμ#3υε ινϝενεριτ ιν μεμορια οφφενσαρυ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.33.1",
+   "tokens": 54,
+   "distinct_markers": 11,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ηαεξ ομνια, #3υαε συπρα σξριπτα συντ, εγο παστορ νυντιυς παενιτεντιαε "
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.33.2",
+   "tokens": 31,
+   "distinct_markers": 6,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "αιτ μιηι ιπσε παστορ: ομνια α με ιντερρογαστι ? ετ διχι : ιτα, δομινε."
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "26.33.3",
+   "tokens": 53,
+   "distinct_markers": 7,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "αυδι νυνξ, ιν#3υιτ, δε ιλλις. ηι συντ #3υι νυνξ μανδατα μεα αυδιερυντ "
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.1.1",
+   "tokens": 35,
+   "distinct_markers": 4,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "ποστ#3υαμ περσξριπσεραμ λιβρυμ ηυνξ, ϝενιτ νυντιυς ιλλε, #3υι με τραδι",
+   "by_run": true
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.1.2",
+   "tokens": 59,
+   "distinct_markers": 8,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "τραδιδι τε, ιν#3υιτ, ετ δομυμ τυαμ ηυιξ παστορι, υτ αβ εο προτεγι ποσσ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.1.3",
+   "tokens": 76,
+   "distinct_markers": 9,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ξυστοδιεντι ενιμ τιβι μανδατα ηυιυς συβιεξτα εριτ ομνις ξυπιδιτας ετ δ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.2.1",
+   "tokens": 21,
+   "distinct_markers": 3,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "διξο ει : ιντερρογα ιπσυμ, δονιινε, εχ #3υο ιν δομο μεα εστ, αν αλι#3υ",
+   "by_run": true
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.2.2",
+   "tokens": 61,
+   "distinct_markers": 10,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ετ εγο, ιν#3υιτ, σξιο νιηιλ εχτρα ορδινεμ φεξισσε τε νε#3υε εσσε φαξτυ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.2.3",
+   "tokens": 26,
+   "distinct_markers": 6,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ετ εγο, ιν#3υαμ, δομινε, ομνι ηομινι ινδιξο μαγναλια δομινι; σπερο αυτ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.2.4",
+   "tokens": 68,
+   "distinct_markers": 12,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "περμανε εργο, ιν#3υιτ, ιν ηοξ μινιστεριο ετ ξονσυινμα ιλλυδ. θυιξυμ#3υ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.3.1",
+   "tokens": 52,
+   "distinct_markers": 9,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "μισι αυτεμ τιβι ηας ϝιργινες, υτ ηαβιτεντ τεξυμ; ϝιδι ενιμ εας αφφαβιλ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.3.2",
+   "tokens": 54,
+   "distinct_markers": 9,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "τυ ταντυμ ξομμυνδα δομυμ τυαμ; ιν μυνδα ενιμ δομο λιβεντερ ηαβιταβυντ;"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.4.1",
+   "tokens": 45,
+   "distinct_markers": 6,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "αιτ δεινδε μιηι: Ωιριλιτερ ιν μινιστεριο ηοξ ξονϝερσαρε, ομνι ηομινι ι"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.4.2",
+   "tokens": 40,
+   "distinct_markers": 8,
+   "accent_rate": 0.025,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "διξ ομνιβυς, υτ νον ξεσσεντ, θυιξυμθυε ρεξτε φαξερε ποσσυντ; βονα οπερ"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.4.3",
+   "tokens": 58,
+   "distinct_markers": 8,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "θυι ιγιτυρ ηυιυσμοδι ανιμαμ εριπιτ δε νεξεσσιτατε, μαγνυμ γαυδιυμ σιβι"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.4.4",
+   "tokens": 32,
+   "distinct_markers": 6,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "φαξιτε ιγιτυρ οπερα βονα, θυιξυμθυε αξξεπιστις α δομινο, νε, δυμ ταρδα"
+  },
+  {
+   "work": "hermas.pastor",
+   "locus": "27.4.5",
+   "tokens": 26,
+   "distinct_markers": 4,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "ποστθυαμ ϝερο λοξυτυς εστ μεξυμ, συρρεχιτ δε λεξτο ετ αππρεηενσο παστο",
+   "by_run": true
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "10.1",
+   "tokens": 27,
+   "distinct_markers": 4,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "ιν ηις εργο στατε ετ δομινι εχεμπλαρ σε#3υιμινι, φιρμι ιν φιδε ετ ιμμυ",
+   "by_run": true
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "10.2",
+   "tokens": 37,
+   "distinct_markers": 8,
+   "accent_rate": 0.027,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ξυμ ποσσιτις βενεφαξερε, νολιτε διλφερρε, #3υια ελεëμοσψνα δε μορτε λι"
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "10.3",
+   "tokens": 16,
+   "distinct_markers": 6,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": false,
+   "opens": "Ωαε αυτεμ, περ #3υεμ νομεν δομινι βλασπηεματυρ. σοβριξτατεμ εργο δοξετ",
+   "by_run": true
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "11.1",
+   "tokens": 39,
+   "distinct_markers": 7,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "νιμις ξοντριστατυς συμ προ Ωαλεντε, #3υι πρεσβψτερ φαξτυς εστ αλι#3υαν"
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "11.2",
+   "tokens": 42,
+   "distinct_markers": 9,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "θυι αυτεμ νον ποτεστ σε ιν ηις γυβερναρε, #3υομοδο αλιι προνυντιατ ηοε"
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "11.3",
+   "tokens": 36,
+   "distinct_markers": 7,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "εγο αυτεμ νιηιλ ταλε σενσι ιν ϝοβις ϝελ αυδιϝι, ιν #3υιβυς λαβοραϝιτ β"
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "11.4",
+   "tokens": 47,
+   "distinct_markers": 12,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "Ωαλδε εργο, φρατρες, ξοντριστορ προ ιλλο ετ προ ξονιυγε ειυς, #3υιβυς "
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "12.1",
+   "tokens": 44,
+   "distinct_markers": 12,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ξονφιδο ενιμ ϝος βενε εχερξιτατος εσσε ιν σαξρις λιτερις ετ νιηιλ ϝος "
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "12.2",
+   "tokens": 76,
+   "distinct_markers": 10,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "δευς αυτεμ ετ πατερ δομινι νοστρι ιεσυ ξηριστι, ετ ιπσε σεμπιτερνυς πο"
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "12.3",
+   "tokens": 36,
+   "distinct_markers": 7,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "προ ομνιβυς σανξτις ορατε. ορατε ετιαμ προ ρεγιβυς ετ ποτεστατιβυς ετ "
+  },
+  {
+   "work": "polycarpus.epistula-ad-philippenses",
+   "locus": "14.1",
+   "tokens": 44,
+   "distinct_markers": 10,
+   "accent_rate": 0.0,
+   "low_accent": true,
+   "confirmed": true,
+   "opens": "ηαξξ ϝοβις σξριπσι περ ξρεσξεντεμ, θυεμ ιν πραεσεντι ξορνμευδαϝι ϝοβις"
+  }
+ ]
+}
