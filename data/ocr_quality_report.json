@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1411,
-   "ocr_works_ranked": 821,
+   "ocr_works": 1412,
+   "ocr_works_ranked": 822,
    "ocr_works_with_witness": 196,
    "secondary_files": 430,
    "skipped": 30,
@@ -184,8 +184,8 @@
    "max": 0.4788,
    "median": 0.1342,
    "min": 0.0089,
-   "n": 821,
-   "q1": 0.0944,
+   "n": 822,
+   "q1": 0.0945,
    "q3": 0.17
   }
  },
@@ -10059,12 +10059,21 @@
    "source": "ocr",
    "unattested_rate": 0.078515,
    "witness": {
-    "agreement_primary_in_secondary": 0.647257,
-    "agreement_secondary_in_primary": 0.274923,
+    "agreement_primary_in_secondary": 0.624258,
+    "agreement_secondary_in_primary": 0.719983,
     "n_bigrams_primary": 16349,
-    "n_bigrams_secondary": 47326,
-    "secondary_edition": "migne-ocr-qwen36 + qwen36-walz_rhetores_v1 + qwen36-walz_rhetores_v1-masked"
+    "n_bigrams_secondary": 12035,
+    "secondary_edition": "migne-ocr-qwen36"
    }
+  },
+  "nicolaus-rhetoric.progymnasmata-walz-i-263": {
+   "edition": "qwen36-walz_rhetores_v1",
+   "n_tokens": 36298,
+   "n_tokens_checked": 23117,
+   "n_unattested": 2732,
+   "source": "ocr",
+   "unattested_rate": 0.118181,
+   "witness": null
   },
   "nicolaus.fragmenta": {
    "edition": "kock-caf3-ocr-frag",
@@ -14574,6 +14583,7 @@
   "gregorius-nyssenus.in-ecclesiasten-homiliae-8",
   "georgius-choeroboscus.peri-tropon-poietikon",
   "athanasius-theology.homilia-de-semente-sp",
+  "nicolaus-rhetoric.progymnasmata-walz-i-263",
   "gregorius-nyssenus.epistula-canonica-ad-letoium",
   "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera",

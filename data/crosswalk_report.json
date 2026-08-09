@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11073,
+    "works": 11074,
     "authors": 3319,
-    "editions": 10206,
+    "editions": 10207,
     "pct_works_with_canonical_locus": 36.6,
-    "pct_works_with_logical_served_locus": 12.5,
+    "pct_works_with_logical_served_locus": 12.6,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.4,
     "pct_authors_with_wikidata": 42.3,
-    "served_works": 3907,
+    "served_works": 3908,
     "pct_served_in_registry": 74.5,
     "pct_served_with_work_qid": 12.9,
     "pct_served_with_author_qid": 73.7,
-    "pct_served_with_any_anchor": 85.6,
+    "pct_served_with_any_anchor": 85.5,
     "pct_served_with_logical_served_locus": 54.2
   },
   "work_aliases": {
     "cts": {
-      "count": 11073,
+      "count": 11074,
       "pct": 100.0
     },
     "wikidata": {
@@ -44,7 +44,7 @@
       "external": true
     },
     "cogGreek": {
-      "count": 3879,
+      "count": 3880,
       "pct": 35.0,
       "external": false
     }
@@ -98,7 +98,7 @@
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4057,
+    "works_with_logical_locus": 4058,
     "pct": 36.6,
     "works_only_physical_or_none": 3170,
     "by_scheme": {
@@ -111,7 +111,7 @@
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
       "ref": 172,
-      "ref.sub": 153,
+      "ref.sub": 154,
       "book.chapter.section.line": 151,
       "play.fragment.line": 141,
       "jebb page.line": 108,
@@ -363,11 +363,11 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1389,
-    "pct": 12.5,
+    "works_with_logical_served_locus": 1390,
+    "pct": 12.6,
     "served_logical_depth_distribution": {
       "1": 311,
-      "2": 693,
+      "2": 694,
       "3": 315,
       "4": 65,
       "5": 4,
@@ -488,8 +488,8 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3907,
-    "in_registry": 2910,
+    "served_works": 3908,
+    "in_registry": 2911,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
       "count": 997,
@@ -547,12 +547,12 @@
       ]
     },
     "with_work_qid": 504,
-    "with_author_qid": 2879,
+    "with_author_qid": 2880,
     "with_any_external_anchor": 3343,
-    "with_logical_served_locus": 2118,
+    "with_logical_served_locus": 2119,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2375,
+      "count": 2376,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -610,7 +610,7 @@
   "enrichment_targets": {
     "work_qid_via_author": {
       "what": "work has no Wikidata QID but its author does (cheapest to fill)",
-      "count": 5440,
+      "count": 5441,
       "examples": [
         {
           "work": "abydenus.fragmenta",

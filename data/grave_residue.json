@@ -58,7 +58,7 @@
   "share_of_residue": 0.0207,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.2227,
+   "non_grave_lemmas_le_10_tokens_backed": 0.2226,
    "grave_lemmas_le_10_tokens_backed": 0.014
   },
   "largest": [
@@ -164,22 +164,22 @@
    }
   ]
  },
- "lemmas": 7931,
- "tokens": 31662,
+ "lemmas": 7932,
+ "tokens": 31675,
  "reachable": {
   "lemmas": 281,
-  "tokens": 3661,
+  "tokens": 3662,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7650,
-  "tokens": 28001,
+  "lemmas": 7651,
+  "tokens": 28013,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 29448
+  "measured_the_old_way_tokens": 29460
  },
  "largest_unreachable": [
   {
@@ -220,7 +220,7 @@
   },
   {
    "lemma": "οὐχὼν",
-   "tokens": 91
+   "tokens": 93
   },
   {
    "lemma": "οὐδὲνς",

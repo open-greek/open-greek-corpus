@@ -789,7 +789,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1392 OCR'd works/volumes: 190 manually corrected, 867 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1393 OCR'd works/volumes: 190 manually corrected, 868 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 335 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1805,6 +1805,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | nicias-history.fragmentum | Nicias - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 65 | raw OCR |
 | nicochares.fragmenta | Nicochares - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 320 | raw OCR |
 | nicolaus-rhetoric.progymnasmata | Nicolaus - Progymnasmata | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 17,289 | auto-corrected |
+| nicolaus-rhetoric.progymnasmata-walz-i-263 | Nicolaus - Progymnasmata (paradigmata, Walz I 263-420) | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 36,298 | auto-corrected |
 | nicolaus.fragmenta | NICOLAUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 141 | raw OCR |
 | nicomachus.fragmenta | NICOMACHUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 158 | raw OCR |
 | nicophon.fragmenta | Nicophon - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 560 | raw OCR |
@@ -2189,7 +2190,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 
 ## Status
 
-- 3,907 works served, 65.5M Greek tokens, twelve sources.
+- 3,908 works served, 65.5M Greek tokens, twelve sources.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
