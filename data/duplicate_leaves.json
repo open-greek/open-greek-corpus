@@ -113,6 +113,34 @@
      "expected_unique_runs": []
     }
    ]
+  },
+  {
+   "volume": "PG151",
+   "id": "PG151-homiliae",
+   "date": "2026-08-08",
+   "issue": "open-greek/open-greek-corpus#33",
+   "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
+   "basis": "Two pages of Palamas' homilies arrive twice, as loci 159-160 and again as 163-164. The earlier copy is the stray, settled from the file by two independent signals rather than from the scan.\n\nFirst, truncation: locus 159 breaks off at ἀλλ᾽ ὡς ἀπὸ παραδείνμα· while 163 carries the word whole, ἀλλ᾽ ὡς ἀπὸ παραδείγματος. Second, the join: locus 164 ends Ταῦτα λελάληκα ὑμῖν, παρ᾽ ὑμῖν and locus 165 opens μένων· ὁ δὲ Παράκλητος, τὸ Πνεῦμα τὸ ἅγιον, which completes John 14:25-26 across the row boundary, while locus 161, which follows 160, opens on unrelated matter.\n\nNo printed page is cited. The route that would have made pages cheap is closed: the Internet Archive's per-volume text layers (patrologiaecursu<NNNN>mign) recognized only Migne's Latin column and contain no Greek at all, 0 Greek characters in 3 MB for PG118, so a row cannot be matched to a page through them. Locating this leaf by image would mean hunting the drift by hand: pages 154 and 160 of the scan are Homilies XXII and XXIII at columns 293-294 and 305-306, nowhere near these loci.",
+   "drops": [
+    {
+     "keep": "PG151.163",
+     "drop": "PG151.159",
+     "keep_sha256": "67ffe179c7d601d7c2153c8c4ff7f1506a47020ba7137b8fd74834e78334661b",
+     "drop_sha256": "d7d3f0354cd43690b0c489b990710be39d8f74ed1fdb46d3f5c57b35cafe029b",
+     "page_evidence": "no page located; direction from the file, where 159 is truncated mid-word and 164 completes John 14:25-26 into 165",
+     "expected_unique_runs": [
+      "κα απεργασομνη λιαν"
+     ]
+    },
+    {
+     "keep": "PG151.164",
+     "drop": "PG151.160",
+     "keep_sha256": "f4d021b83a9df5d966acf69b063e33b2eee799a98d5723cadccb063f65e38dcd",
+     "drop_sha256": "cd3a1ff3c875ddd70e94417ca3a41658681e179ed5fddf41025823e8f5fd3184",
+     "page_evidence": "no page located; direction from the file, where 159 is truncated mid-word and 164 completes John 14:25-26 into 165",
+     "expected_unique_runs": []
+    }
+   ]
   }
  ]
 }

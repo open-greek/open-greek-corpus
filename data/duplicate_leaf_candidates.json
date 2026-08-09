@@ -12,13 +12,13 @@
   ]
  },
  "files_scanned": 4337,
- "candidates": 47,
- "clean_second_copies": 17,
- "clean_second_copies_tokens": 6243,
- "clean_second_copies_served": 10,
- "clean_second_copies_served_tokens": 3597,
- "overlapping_not_copies": 30,
- "overlapping_not_copies_tokens": 11469,
+ "candidates": 45,
+ "clean_second_copies": 16,
+ "clean_second_copies_tokens": 5813,
+ "clean_second_copies_served": 9,
+ "clean_second_copies_served_tokens": 3167,
+ "overlapping_not_copies": 29,
+ "overlapping_not_copies_tokens": 10999,
  "by_file": {
   "data/corpus/cogPG.PG112.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
@@ -26,7 +26,6 @@
   "data/corpus/photius.amphilochia.jsonl": 4,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": 3,
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl": 2,
-  "data/corpus/gregorius-palamas.homiliae.jsonl": 2,
   "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl": 2,
   "data/corpus/michael-psellus.poemata.jsonl": 2,
   "data/corpus/theophylactus-achridensis.epistulae.jsonl": 2,
@@ -51,38 +50,6 @@
    "words_b": 295,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": []
-  },
-  {
-   "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
-   "served": true,
-   "locus_a": "PG151.160",
-   "locus_b": "PG151.164",
-   "containment": 0.9478,
-   "bigrams_a": 403,
-   "bigrams_b": 402,
-   "tokens_b": 430,
-   "words_absent_from_a": 9,
-   "words_b": 430,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": []
-  },
-  {
-   "file": "data/corpus/gregorius-palamas.homiliae.jsonl",
-   "served": true,
-   "locus_a": "PG151.159",
-   "locus_b": "PG151.163",
-   "containment": 0.9172,
-   "bigrams_a": 435,
-   "bigrams_b": 444,
-   "tokens_b": 470,
-   "words_absent_from_a": 21,
-   "words_b": 470,
-   "unique_runs_if_b_dropped": [
-    "λαξς ε ιγνε πιμα"
-   ],
-   "unique_runs_if_a_dropped": [
-    "κα απεργασομνη λιαν"
-   ]
   },
   {
    "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
