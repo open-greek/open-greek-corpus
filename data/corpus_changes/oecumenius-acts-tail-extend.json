@@ -1,0 +1,33 @@
+{
+ "what": "the first 478 characters of Migne PG118 page 163 moved from the volume residual into oecumenius.commentarius-in-acta-apostolorum",
+ "date": "2026-08-09",
+ "issue": "open-greek/open-greek-corpus#8",
+ "why": "the work's last row ends on the verb προχειρίζονται and this row opens with its subject and object, οἱ ἀπόστολοι εἰς διακονίαν Στέφανον. One sentence with its halves in two files, so the end of a served work was not citable under it.",
+ "not_moved": "the last 47 characters, ΔΙΗ Γ Η Σ ΙΣ ΠΕΡΙ ΝΑΚΚΑΤΙΟ ΒΕ ΡΓνΟ ΡΑΟ ΑΡΟΘΤΟΙΟ, a display line whose second half is Latin read as Greek shapes. It heads neither work, since Euthalius' Prologos carries its own head, so it stays in the residual.",
+ "corrects": "the PG118 plan entry called this residual part 'a garbled Latin title line that no work claims'. That is true of its last 47 characters and not of the other 478.",
+ "greek_tokens": {
+  "row_before": 81,
+  "moved": 70,
+  "left_in_residual": 11
+ },
+ "moved_row": {
+  "locus": "PG118.163",
+  "text": "οἱ ἀπόστολοι εἰς διακονίαν Στέφανον καὶ τοὺς ἀμφὶ αὐτόν. Ἔπειτα τὸν Στέφανον εὐθέως εὑρίσκομεν λιθαζόμενον, καὶ τὸν Παῦλον συνευδοκοῦντα τῷ φόνῳ. Ὃς μικρὸν ὕστερον εἰς Δαμασκὸν ὁρμᾷ, ὡς τοὺς ἐκεῖσε ὄντας ἁγίους ἀναιρήσων. Κατὰ μέσην δὲ τὴν ὁδὸν ἡ κλῆσις αὐτῷ γεγένηται παρὰ Θεοῦ, ὡς μικρῷ προσαναλωθῆναι τὸ ἔτος ἐκεῖνο. Εὐθέως δὲ ἤρξατο κηρύσσειν ἐπιλαβομένου ἐννεακαιδεκάτου ἔτους Τιβερίου Καίσαρος, καὶ τῷ τρισκαι δεκάτῳ ἔτει Νέρωνος τελειοῦται, ξίφει τὴν κεφαλὴν ἀποτμηθείς."
+ },
+ "residual_row": {
+  "locus": "163",
+  "text_before": "οἱ ἀπόστολοι εἰς διακονίαν Στέφανον καὶ τοὺς ἀμφὶ αὐτόν. Ἔπειτα τὸν Στέφανον εὐθέως εὑρίσκομεν λιθαζόμενον, καὶ τὸν Παῦλον συνευδοκοῦντα τῷ φόνῳ. Ὃς μικρὸν ὕστερον εἰς Δαμασκὸν ὁρμᾷ, ὡς τοὺς ἐκεῖσε ὄντας ἁγίους ἀναιρήσων. Κατὰ μέσην δὲ τὴν ὁδὸν ἡ κλῆσις αὐτῷ γεγένηται παρὰ Θεοῦ, ὡς μικρῷ προσαναλωθῆναι τὸ ἔτος ἐκεῖνο. Εὐθέως δὲ ἤρξατο κηρύσσειν ἐπιλαβομένου ἐννεακαιδεκάτου ἔτους Τιβερίου Καίσαρος, καὶ τῷ τρισκαι δεκάτῳ ἔτει Νέρωνος τελειοῦται, ξίφει τὴν κεφαλὴν ἀποτμηθείς. ΔΙΗ Γ Η Σ ΙΣ ΠΕΡΙ ΝΑΚΚΑΤΙΟ ΒΕ ΡΓνΟ ΡΑΟ ΑΡΟΘΤΟΙΟ",
+  "text_after": "ΔΙΗ Γ Η Σ ΙΣ ΠΕΡΙ ΝΑΚΚΑΤΙΟ ΒΕ ΡΓνΟ ΡΑΟ ΑΡΟΘΤΟΙΟ"
+ },
+ "work": {
+  "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
+  "sha256_before": "7e0c07610235dda54154dc605c27eb2f0e6b4f09c2e155a793ccc0db30562a29",
+  "sha256_after": "9248c78b3e745b5fa4caea9a1dd0b2fbc4db6d7e9299a58a80cf04eaacefa1d8"
+ },
+ "volume": {
+  "file": "data/corpus/cogPG.PG118.jsonl",
+  "sha256_before": "be638e8b013e1d3385d1d2f78557b694689648a34c338b2df3a201bca2f2045b",
+  "sha256_after": "7bc24298746ce47596ac964d2f277b45a0bac685ab745ec48f0ccd6f39f3011a"
+ },
+ "reverse": "python3 scripts/extend_oecumenius_acts_tail.py --unapply"
+}
