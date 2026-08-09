@@ -22,8 +22,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1419,
-   "ocr_works_ranked": 824,
+   "ocr_works": 1423,
+   "ocr_works_ranked": 823,
    "ocr_works_with_witness": 198,
    "secondary_files": 477,
    "skipped": 75,
@@ -364,8 +364,8 @@
    "max": 0.4788,
    "median": 0.1338,
    "min": 0.0089,
-   "n": 824,
-   "q1": 0.0943,
+   "n": 823,
+   "q1": 0.0944,
    "q3": 0.17
   }
  },
@@ -815,6 +815,42 @@
    "n_unattested": 793,
    "source": "cgpg",
    "unattested_rate": 0.073802,
+   "witness": null
+  },
+  "anonymi-in-acta-apostolorum.capita-actorum": {
+   "edition": "cgpg",
+   "n_tokens": 1198,
+   "n_tokens_checked": 758,
+   "n_unattested": 84,
+   "source": "cgpg",
+   "unattested_rate": 0.110818,
+   "witness": null
+  },
+  "anonymi-in-acta-apostolorum.hypothesis-actorum": {
+   "edition": "cgpg",
+   "n_tokens": 521,
+   "n_tokens_checked": 315,
+   "n_unattested": 14,
+   "source": "cgpg",
+   "unattested_rate": 0.044444,
+   "witness": null
+  },
+  "anonymi-in-acta-apostolorum.hypothesis-actorum-altera": {
+   "edition": "cgpg",
+   "n_tokens": 340,
+   "n_tokens_checked": 204,
+   "n_unattested": 6,
+   "source": "cgpg",
+   "unattested_rate": 0.029412,
+   "witness": null
+  },
+  "anonymi-in-acta-apostolorum.hypothesis-epistularum-iambica": {
+   "edition": "cgpg",
+   "n_tokens": 1071,
+   "n_tokens_checked": 714,
+   "n_unattested": 56,
+   "source": "cgpg",
+   "unattested_rate": 0.078431,
    "witness": null
   },
   "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton": {
@@ -3555,11 +3591,11 @@
   },
   "cogPG.PG118": {
    "edition": "cgpg",
-   "n_tokens": 3760,
-   "n_tokens_checked": 2374,
-   "n_unattested": 182,
+   "n_tokens": 631,
+   "n_tokens_checked": 384,
+   "n_unattested": 21,
    "source": "cgpg",
-   "unattested_rate": 0.076664,
+   "unattested_rate": 0.054688,
    "witness": null
   },
   "cogPG.PG124": {
@@ -15020,7 +15056,6 @@
   "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton",
   "proclus.in-platonis-timaeum-commentaria",
   "theophylactus-achridensis.expositio-in-epistolam-ii-petri",
-  "cogPG.PG118",
   "damianus-scriptor-de-opticis.optica",
   "basilius-theology.de-baptismo-libri-duo",
   "theophylactus-achridensis.expositio-in-epistolam-judae",

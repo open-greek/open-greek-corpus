@@ -7,7 +7,7 @@
   {
    "volume": "PG118",
    "date": "2026-08-08",
-   "basis": "The Euthalian apparatus Migne prints in the Oecumenius volume's front matter. Three pieces carry their own Greek head and a named author, Euthalius the Deacon, and all three heads fall mid-row, which is why the volume's pass-1 carve left them in the residual and the residual note recorded them as waiting on a splitter. Offsets read from the rows themselves on 2026-08-08 and asserted at run time against the head string and the text before it.",
+   "basis": "The Euthalian apparatus Migne prints in the Oecumenius volume's front matter. Three pieces carry their own Greek head and a named author, Euthalius the Deacon, and all three heads fall mid-row, which is why the volume's pass-1 carve left them in the residual and the residual note recorded them as waiting on a splitter. Offsets read from the rows themselves on 2026-08-08 and asserted at run time against the head string and the text before it.\n2026-08-09: loci 17-28 were called undifferentiated prefatory matter and left whole, on the recorded ground that PG118 had no locus-to-column pin and needed page images. The images were fetched and the pin falls straight out, col = 2*page - 11, and the block is not one thing: it is the 1532 Verona editor's preface (locus 17 and both ends of 18, naming Giberti of Verona as the man who supplied the manuscript) plus four separately headed Greek pieces, each with its printed title on the page. The preface stays residual as early-modern paratext. Migne prints no author over any of the four, so they take anonymi- slugs.",
    "works": [
     {
      "slug": "euthalius-diaconus.prologus-in-epistulas-pauli",
@@ -83,6 +83,93 @@
        "start": 2302,
        "at": "ΜΑΡΤΥΡΙΟΝ ΠΑΥΛΟΥ",
        "prev_ends_with": "τριάκοντα καὶ πέντε"
+      }
+     ]
+    },
+    {
+     "slug": "anonymi-in-acta-apostolorum.hypothesis-actorum",
+     "title": "Ὑπόθεσις τῆς βίβλου τῶν Πράξεων",
+     "author_display": "Anonymi",
+     "rank": "primary",
+     "evidence": "Printed head ΥΠΟΘΕΣΙΣ ΤΗΣ ΒΙΒΛΟΥ ΤΩΝ ΠΡΑΞΕΩΝ / ARGUMENTUM LIBRI ACTORUM on Migne PG 118 scan page 18 (columns 25-26), read from the scan; the pin is col = 2*page - 11. Locus 18 interleaves it with the 1532 Verona editor's preface, the PG151.389 shape: chars 0-228 and 1860-end are the preface, 228-1860 the hypothesis.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "18",
+       "row_sha256": "afb0dfbc67801ab3541dbc406d05e5e10fa7bbc8b185d8f27fe2921c3ed1ebe1",
+       "start": 228,
+       "end": 1860,
+       "at": "Ἔστιν ὁ διηγούμενος τὰς Πράξεις",
+       "prev_ends_with": "πολλοὺς",
+       "after": "ἄλλους τοιούτους",
+       "ends_with": "πολλὰ πνεύ"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "19",
+       "row_sha256": "b6f8903fb7b13b93f5644f7b02b721d6f404d9effa1cc153492f2596ac65fa45"
+      }
+     ]
+    },
+    {
+     "slug": "anonymi-in-acta-apostolorum.hypothesis-actorum-altera",
+     "title": "Ὑπόθεσις τῶν Πράξεων τῶν ἀποστόλων (καὶ ἄλλως)",
+     "author_display": "Anonymi",
+     "rank": "primary",
+     "evidence": "Printed head ΚΑΙ ΑΛΛΩΣ, ΥΠΟΘΕΣΙΣ ΤΩΝ ΠΡΑΞΕΩΝ ΤΩΝ ΑΠΟΣΤΟΛΩΝ / ITEM ET ALIO MODO ARGUMENTUM on scan page 20 (columns 29-30); its opening Εἰ καὶ Πράξεις τὸ βιβλίον ἐπιγέγραπται is locus 20 at character 0. A second, distinct hypothesis, which is why Migne heads it καὶ ἄλλως.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "20",
+       "row_sha256": "6c2d56be77b3b7741065a20f5c67d7eced77cf18504156db02e2276c2f6da5e2"
+      }
+     ]
+    },
+    {
+     "slug": "anonymi-in-acta-apostolorum.hypothesis-epistularum-iambica",
+     "title": "Ἡ τῶν ἐπιστολῶν ὑπόθεσις διὰ ἰάμβων",
+     "author_display": "Anonymi",
+     "rank": "primary",
+     "evidence": "Printed head Η ΤΩΝ ΕΠΙΣΤΟΛΩΝ ΥΠΟΘΕΣΙΣ ΔΙΑ ΙΑΜΒΩΝ on scan page 21, already recorded in data/duplicate_leaves.json from the duplicate-leaf round. Verse: it opens Ὁ Παῦλος ὁ αὐλὸς ἐκ τῶν πραγμάτων and the block ends on Ἔῤῥωσθε.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "21",
+       "row_sha256": "6d841eb2e1c1efd0206c3baf02260fb58aae85642125aab82af88daa2209d629"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "22",
+       "row_sha256": "f0b05da617a5c1a07882c888797caff74acf6e0dee5043d15be955118c492bc8"
+      }
+     ]
+    },
+    {
+     "slug": "anonymi-in-acta-apostolorum.capita-actorum",
+     "title": "Κεφάλαια τῶν Πράξεων τῶν ἀποστόλων",
+     "author_display": "Anonymi",
+     "rank": "primary",
+     "evidence": "Printed head ΚΕΦΑΛΑΙΑ ΤΩΝ ΠΡΑΞΕΩΝ ΤΩΝ ΑΠΟΣΤΟΛΩΝ / ACTORUM APOSTOLORUM CAPITA on scan page 23 (columns 35-36), whose αʹ is locus 25 at character 0. The numbered chapter list of Acts, not a commentary on it.",
+     "parts": [
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "25",
+       "row_sha256": "fcf5e549da45b413ef35486b8a991bc337fffadcaa07cba511388c58a4bb6aac"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "26",
+       "row_sha256": "2f1d6038c768dadda22fcc9160dbfe1c197bdb3ae4a6bc61db03e4b012303f7e"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "27",
+       "row_sha256": "92a60d41f44edc5bdd198af4efdf1bd678510b07d8fcbcbd8a940c2d940e37d6"
+      },
+      {
+       "file": "data/corpus/cogPG.PG118.jsonl",
+       "locus": "28",
+       "row_sha256": "b1ee8b24a54f70b7402f61b00a37a85eefdc4b519c3c9f1e1f2c60aebe3b0ba6"
       }
      ]
     }
