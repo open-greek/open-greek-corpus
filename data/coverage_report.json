@@ -7,7 +7,7 @@
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.46,
     "pct_ingested_actual": 66.1,
-    "ingested_words_actual": 49562273,
+    "ingested_words_actual": 49561341,
     "ingested_complete_works": 2904,
     "ingested_partial_works": 117,
     "pct_reachable_not_ingested": 14.18,
@@ -19,7 +19,7 @@
     },
     "underfilled_50_90_works": 447,
     "underfilled_50_90_missing_words": {
-      "actionable": 1672396,
+      "actionable": 1673328,
       "structural": 179391
     }
   },
@@ -14291,10 +14291,10 @@
       "author": "Pseudo-Zonaras",
       "title": "Lexicon",
       "word_count": 239532,
-      "ingested_tokens": 161067,
-      "coverage_ratio": 0.672,
+      "ingested_tokens": 160552,
+      "coverage_ratio": 0.67,
       "source": "ocr",
-      "missing_words": 78465
+      "missing_words": 78980
     },
     {
       "tlg_id": "tlg5017",
@@ -14324,10 +14324,10 @@
       "author": "Scholia In Aelium Aristidem",
       "title": "Scholia In Aelium Aristidem (Scholia Vetera)",
       "word_count": 185676,
-      "ingested_tokens": 114685,
-      "coverage_ratio": 0.618,
+      "ingested_tokens": 114268,
+      "coverage_ratio": 0.615,
       "source": "ocr",
-      "missing_words": 70991
+      "missing_words": 71408
     },
     {
       "tlg_id": "tlg2934",
@@ -19391,7 +19391,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 794,
-    "n_tokens": 8340031,
+    "n_tokens": 8337669,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19514,14 +19514,6 @@
         "n_tokens": 104454
       },
       {
-        "key": "joannes-tzetzes.tzetzes-historiae-kiessling",
-        "edition": "qwen36-tzetzes_historiae_kiessling",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 16128,
-        "n_tokens": 103501
-      },
-      {
         "key": "socrates-scholasticus.historia-ecclesiastica-2",
         "edition": "1st1K-grc1",
         "source": "first1k",
@@ -19544,6 +19536,14 @@
         "license": "PD",
         "n_passages": 2965,
         "n_tokens": 101357
+      },
+      {
+        "key": "joannes-tzetzes.tzetzes-historiae-kiessling",
+        "edition": "qwen36-tzetzes_historiae_kiessling",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 15759,
+        "n_tokens": 101139
       },
       {
         "key": "cougny-appendix-nova.didot-anthologia-v3",

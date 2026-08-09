@@ -25,8 +25,8 @@
    "ocr_works": 1418,
    "ocr_works_ranked": 826,
    "ocr_works_with_witness": 196,
-   "secondary_files": 470,
-   "skipped": 70,
+   "secondary_files": 475,
+   "skipped": 75,
    "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -168,6 +168,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "geoponica.geoponica.duplicate-read-ocr-runs"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "hecataeus-abderita.fragmenta-fhg"
    },
    {
@@ -209,6 +213,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read-ocr-runs"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -268,7 +276,15 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "pseudo-zonaras.lexicon.duplicate-read-ocr-runs"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-ocr-runs"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -289,6 +305,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-ocr-runs"
    },
    {
     "reason": "secondary is not OCR (sources: perseus); not an OCR-error pair",
@@ -5779,11 +5799,11 @@
   },
   "geoponica.geoponica": {
    "edition": "qwen36-geoponica_beckh",
-   "n_tokens": 122099,
-   "n_tokens_checked": 77796,
-   "n_unattested": 19752,
+   "n_tokens": 121678,
+   "n_tokens_checked": 77541,
+   "n_unattested": 19688,
    "source": "ocr",
-   "unattested_rate": 0.253895,
+   "unattested_rate": 0.253904,
    "witness": null
   },
   "georgius-cedrenus.compendium-historiarum": {
@@ -9100,15 +9120,15 @@
   },
   "joannes-tzetzes.tzetzes-historiae-kiessling": {
    "edition": "qwen36-tzetzes_historiae_kiessling",
-   "n_tokens": 103554,
-   "n_tokens_checked": 64489,
-   "n_unattested": 13736,
+   "n_tokens": 101190,
+   "n_tokens_checked": 62933,
+   "n_unattested": 13390,
    "source": "ocr",
-   "unattested_rate": 0.212998,
+   "unattested_rate": 0.212766,
    "witness": {
-    "agreement_primary_in_secondary": 0.002747,
+    "agreement_primary_in_secondary": 0.002741,
     "agreement_secondary_in_primary": 0.365533,
-    "n_bigrams_primary": 87373,
+    "n_bigrams_primary": 85380,
     "n_bigrams_secondary": 2205,
     "secondary_edition": "qwen36-tzetzes_historiae_kiessling"
    }
@@ -12007,11 +12027,11 @@
   },
   "pseudo-zonaras.lexicon": {
    "edition": "qwen36-zonaras_lexicon_v1-masked",
-   "n_tokens": 162560,
-   "n_tokens_checked": 102999,
-   "n_unattested": 29227,
+   "n_tokens": 162045,
+   "n_tokens_checked": 102672,
+   "n_unattested": 29104,
    "source": "ocr",
-   "unattested_rate": 0.28376,
+   "unattested_rate": 0.283466,
    "witness": null
   },
   "ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius": {
@@ -12139,11 +12159,11 @@
   },
   "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera": {
    "edition": "qwen36-scholia_aristidem_frommel1826-masked",
-   "n_tokens": 115267,
-   "n_tokens_checked": 65989,
-   "n_unattested": 10909,
+   "n_tokens": 114850,
+   "n_tokens_checked": 65741,
+   "n_unattested": 10859,
    "source": "ocr",
-   "unattested_rate": 0.165315,
+   "unattested_rate": 0.165179,
    "witness": null
   },
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera": {
@@ -12961,11 +12981,11 @@
   },
   "themistius.peri-filanqrwpi-as-h-kwnsta-ntios": {
    "edition": "qwen36-themistiioratio01dindgoog",
-   "n_tokens": 153145,
-   "n_tokens_checked": 90740,
-   "n_unattested": 18901,
+   "n_tokens": 150548,
+   "n_tokens_checked": 89216,
+   "n_unattested": 18612,
    "source": "ocr",
-   "unattested_rate": 0.208298,
+   "unattested_rate": 0.208617,
    "witness": null
   },
   "theodectas.fragmenta": {
@@ -14410,9 +14430,9 @@
   "joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum",
   "philosophus-anonymus.anepigra-fou-filoso-fou-kata-kolouqi-xrh-sews-e-mfai-non",
   "ocr.spengel_rhetores_rg3",
+  "themistius.peri-filanqrwpi-as-h-kwnsta-ntios",
   "hesiodus.fragmenta",
   "astrampsychus-magus.astrampsychus-oracula-hercher",
-  "themistius.peri-filanqrwpi-as-h-kwnsta-ntios",
   "dositheus-magister.ars-grammatica",
   "cypria.cypria-fragmenta",
   "hippiatrica.appendices-ad-hippiatrica-berolinensia",

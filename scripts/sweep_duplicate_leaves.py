@@ -173,6 +173,83 @@ def scan_file(fp: Path) -> list[dict]:
     return out
 
 
+PAGE_KEY = re.compile(r"^(.*?)_(\d{2,})$")
+MIN_RUN_LINKS = 3    # pairs in a row at one offset before it counts as a run
+
+
+def page_of(key: str) -> tuple[str, int] | None:
+    m = PAGE_KEY.match(str(key))
+    return (m.group(1), int(m.group(2))) if m else None
+
+
+def find_runs(hits: list[dict]) -> list[dict]:
+    """Group pairs into runs of consecutive pages repeating at a fixed offset.
+
+    Containment answers "do these two pages say the same thing", and on a
+    rescanned leaf that is exactly the question a differently-garbled second
+    read fails: the two copies of Nicetas' page 504 read Ἐπηγγέλατο and
+    Ἐπηγεμῶτο, and enough of the page goes that way to drag the score under any
+    gate that is safe for a single pair.
+
+    Position answers a different question, and this one the garbling cannot
+    touch. Ten consecutive pages each matching the page ten later is not ten
+    coincidences; it is one leaf-run delivered twice. The offsets bear that out
+    corpus-wide: 292 same-item pairs sit at offset 10 and the histogram is
+    almost entirely even, while offset 1, which is what genuinely neighbouring
+    pages would produce, has 9.
+
+    A run is EVIDENCE, not a verdict. It says a pair is worth considering
+    despite its score; every post-condition downstream still applies to it.
+    """
+    by_offset: dict[tuple, set] = defaultdict(set)
+    for h in hits:
+        pa, pb = page_of(h["locus_a"]), page_of(h["locus_b"])
+        h["same_item"] = bool(pa and pb and pa[0] == pb[0])
+        h["page_offset"] = abs(pb[1] - pa[1]) if h["same_item"] else None
+        if h["same_item"] and h["page_offset"]:
+            by_offset[(h["file"], pa[0], h["page_offset"])].add(min(pa[1], pb[1]))
+
+    runs, member = [], {}
+    for (f, item, off), starts in sorted(by_offset.items()):
+        block: list[int] = []
+        for p in sorted(starts) + [None]:
+            if block and p is not None and p == block[-1] + 1:
+                block.append(p)
+                continue
+            if len(block) >= MIN_RUN_LINKS:
+                rid = f"{item}+{off}@{block[0]}"
+                runs.append({"run": rid, "file": f, "item": item,
+                             "page_offset": off, "first_page": block[0],
+                             "last_page": block[-1], "links": len(block)})
+                for s in block:
+                    member[(f, item, off, s)] = rid
+            block = [p] if p is not None else []
+
+    for h in hits:
+        h["run"] = None
+        if h["same_item"] and h["page_offset"]:
+            pa = page_of(h["locus_a"])
+            h["run"] = member.get((h["file"], pa[0], h["page_offset"],
+                                   min(pa[1], page_of(h["locus_b"])[1])))
+    for r in runs:
+        sel = [h for h in hits if h["run"] == r["run"]]
+        r["pairs"] = len(sel)
+        # Distinct later pages, not a sum over pairs. A page read three times
+        # (Themistius 198-204 is) appears in several pairs, and adding tokens_b
+        # each time would report more duplicate text than the file contains.
+        # This is the figure that gets published, so it has to be the honest one.
+        seen = {}
+        for h in sel:
+            seen[h["locus_b"]] = h["tokens_b"]
+        r["second_copy_pages"] = len(seen)
+        r["tokens_b"] = sum(seen.values())
+        r["containment_min"] = min(h["containment"] for h in sel)
+        r["containment_max"] = max(h["containment"] for h in sel)
+        r["served"] = any(h["served"] for h in sel)
+    runs.sort(key=lambda r: (-r["tokens_b"], r["file"], r["run"]))
+    return runs
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -204,6 +281,8 @@ def main() -> None:
     # runs. Same failure as data/grave_residue.json had.
     hits.sort(key=lambda h: (-h["containment"], h["file"],
                              h["locus_a"], h["locus_b"]))
+    runs = find_runs(hits)
+    served_runs = [r for r in runs if r["served"]]
 
     # A pair with no unique run is a clean second copy: dropping it costs
     # nothing. A pair with unique runs overlaps without being a copy, and
@@ -221,6 +300,14 @@ def main() -> None:
           f"{sum(h['tokens_b'] for h in clean):,} tok")
     print(f"    of those in SERVED text: {len(served_clean)}, "
           f"{sum(h['tokens_b'] for h in served_clean):,} tok")
+    print(f"  leaf-runs (consecutive pages repeating at a fixed offset): "
+          f"{len(runs)}, of which {len(served_runs)} touch served text, "
+          f"{sum(r['tokens_b'] for r in served_runs):,} tok in second reads")
+    for r in served_runs[:8]:
+        print(f"    {r['file'].split('/')[-1][:44]:<44} {r['item']} "
+              f"{r['first_page']}-{r['last_page']} +{r['page_offset']} "
+              f"({r['links']} links, containment {r['containment_min']:.2f}"
+              f"-{r['containment_max']:.2f})")
     print(f"  not droppable either way (each side has text the other lacks): "
           f"{len(overlapping)}, {sum(h['tokens_b'] for h in overlapping):,} tok "
           f"- do not drop these")
@@ -258,11 +345,20 @@ def main() -> None:
         "overlapping_not_copies": len(overlapping),
         "overlapping_not_copies_tokens": sum(h["tokens_b"] for h in overlapping),
         # By band, because a single total would mislead: containment falls off
-        # continuously and the low bands are ordinary neighbouring pages of one
-        # book, not duplicates. Only the top band is anywhere near decidable.
+        # continuously. Split same-item from cross-item, because both drop
+        # tools refuse a cross-item pair by rule, so a combined figure counts
+        # pairs nothing can act on. In the 0.90 band that is most of them.
+        #
+        # An earlier version of this comment said the low bands were "ordinary
+        # neighbouring pages of one book". That was wrong, and the run block
+        # below is what disproves it: the same-item offsets are almost all even
+        # and pile up at 10, while offset 1, which is what a neighbouring page
+        # would give, appears 9 times corpus-wide.
         "served_droppable_by_containment": [
             {"band": lbl, "pairs": len(sel),
-             "tokens": sum(h["tokens_b"] for h in sel)}
+             "tokens": sum(h["tokens_b"] for h in sel),
+             "same_item_pairs": len([h for h in sel if h["same_item"]]),
+             "same_item_tokens": sum(h["tokens_b"] for h in sel if h["same_item"])}
             for lbl, sel in ((lbl, [h for h in served_clean
                                     if lo <= h["containment"] < hi])
                              for lbl, lo, hi in (("0.99+", 0.99, 1.01),
@@ -270,6 +366,21 @@ def main() -> None:
                                                  ("0.80-0.90", 0.80, 0.90),
                                                  ("0.60-0.80", 0.60, 0.80),
                                                  ("0.40-0.60", 0.40, 0.60)))],
+        "duplicate_runs": {
+            "what": "consecutive pages repeating at a fixed offset inside one "
+                    "scan item: a leaf-run the OCR delivered twice",
+            "why": "containment asks whether two pages say the same thing, and "
+                   "a second read garbled differently enough fails that test "
+                   "however safe the gate is. Position asks something the "
+                   "garbling cannot touch, so a run admits a pair the score "
+                   "alone would refuse. It admits it for CONSIDERATION only; "
+                   "every post-condition in collapse_duplicate_reads.py still "
+                   "has to pass before any page is displaced.",
+            "min_links": MIN_RUN_LINKS,
+            "runs": len(runs), "served_runs": len(served_runs),
+            "served_tokens_in_second_reads": sum(r["tokens_b"] for r in served_runs),
+            "detail": runs,
+        },
         "by_file": dict(by_file.most_common()),
         "pairs": hits,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")

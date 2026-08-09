@@ -73,6 +73,35 @@ def test_duplicate_page_bands_match_the_artifact_named_beside_them():
     assert (_n(m.group(3)), _n(m.group(4))) == (lo["pairs"], lo["tokens"])
 
 
+def test_same_item_band_figures_match_the_artifact():
+    """The actionable half of the banded figures.
+
+    The combined totals beside these count cross-item pairs, which both drop
+    tools refuse by rule, so quoting only those overstated what could be acted
+    on by 4.3x in the top band. Both numbers are in the prose now and both are
+    bound here.
+    """
+    m = re.search(r"same-item ones beside them, (\d+) pairs\n\s*and ([\d,]+) tokens "
+                  r"in the top band and (\d+) and ([\d,]+) in the next", README)
+    assert m, "the same-item sentence moved; update this test with it"
+    hi = _band("duplicate_page_candidates.json", "0.90-0.99")
+    lo = _band("duplicate_page_candidates.json", "0.80-0.90")
+    assert (int(m.group(1)), _n(m.group(2))) == (hi["same_item_pairs"],
+                                                 hi["same_item_tokens"])
+    assert (int(m.group(3)), _n(m.group(4))) == (lo["same_item_pairs"],
+                                                 lo["same_item_tokens"])
+
+
+def test_leaf_run_residual_matches_the_artifact():
+    m = re.search(r"(\d+) runs are recorded in `duplicate_runs`, (\d+) of them "
+                  r"touching served\n\s*text, and about ([\d,]+) tokens", README)
+    assert m, "the leaf-run sentence moved; update this test with it"
+    runs = json.loads((REPO / "data" / "duplicate_page_candidates.json")
+                      .read_text(encoding="utf-8"))["duplicate_runs"]
+    assert (int(m.group(1)), int(m.group(2)), _n(m.group(3))) == (
+        runs["runs"], runs["served_runs"], runs["served_tokens_in_second_reads"])
+
+
 def test_duplicate_leaf_served_figure_matches_the_artifact():
     m = re.search(r"of which (\d+) pairs and\n\s*([\d,]+) tokens are in served text",
                   README)

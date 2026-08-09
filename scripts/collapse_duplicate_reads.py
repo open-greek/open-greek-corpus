@@ -68,6 +68,12 @@ CORPUS = DATA / "corpus"
 SECONDARY = DATA / "corpus_secondary"
 CANDIDATES = DATA / "duplicate_page_candidates.json"
 AUDIT = DATA / "corpus_changes" / "ocr.duplicate-read-collapse.json"
+# A later pass names itself, so it writes its own audit and its own witness
+# files instead of refusing because the first pass's audit exists. Writing one
+# audit over another would destroy the earlier pass's reconstruction record
+# while appearing to succeed, which is the same reason carve_cgpg_volume.py
+# takes --pass. Each pass stays independently reversible, newest first.
+WITNESS_SUFFIX = "duplicate-read"
 
 GATE = 0.80              # containment below this is not collapsed at all
 MIN_SHARED_RUN_MASS = 0.60
@@ -125,7 +131,15 @@ def main() -> None:
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--unapply", action="store_true")
     ap.add_argument("--gate", type=float, default=GATE)
+    ap.add_argument("--id", default=None,
+                    help="name this pass; it writes <id>.duplicate-read-collapse"
+                         ".json and its own witness files, leaving an earlier "
+                         "pass's audit and witnesses intact")
     args = ap.parse_args()
+    if args.id:
+        globals()["AUDIT"] = (DATA / "corpus_changes"
+                              / f"{args.id}.duplicate-read-collapse.json")
+        globals()["WITNESS_SUFFIX"] = f"duplicate-read-{args.id}"
 
     if args.unapply:
         if not AUDIT.exists():
@@ -152,10 +166,26 @@ def main() -> None:
         return
 
     cand = json.loads(CANDIDATES.read_text(encoding="utf-8"))
+    # Two ways in, and the second one is why this pass exists. A pair clears on
+    # containment as before, OR it belongs to a leaf-run: consecutive pages
+    # repeating at a fixed offset inside one scan item, which the sweep detects
+    # from position rather than from wording. The run is what catches a second
+    # read the scanner garbled differently: Nicetas' page 504 reads Ἐπηγγέλατο
+    # in one copy and Ἐπηγεμῶτο in the other, and enough of the page goes that
+    # way to hold the score under any gate a single pair could safely use.
+    #
+    # This widens what is CONSIDERED and nothing else. The winner rule, the
+    # shared-run-mass floor and the attested-loss cap are untouched, so a run
+    # member that cannot be shown to be a repetition of the page that beat it is
+    # held back exactly like any other.
     pairs = [h for h in cand["pairs"]
-             if h["served"] and h["containment"] >= args.gate
+             if h["served"]
+             and (h["containment"] >= args.gate or h.get("run"))
              and h["locus_a"].rsplit("_", 1)[0] == h["locus_b"].rsplit("_", 1)[0]]
-    print(f"pairs at containment >= {args.gate}, served, same item: {len(pairs)}")
+    by_run = len([h for h in pairs if h["containment"] < args.gate])
+    print(f"pairs served, same item: {len(pairs)} "
+          f"({len(pairs) - by_run} at containment >= {args.gate}, "
+          f"{by_run} admitted on a leaf-run below it)")
 
     # connected components per file
     per_file: dict[str, list] = collections.defaultdict(list)
@@ -273,7 +303,7 @@ def main() -> None:
         files[f]["sha256_after"] = sha(fp.read_text(encoding="utf-8"))
 
         slug = fp.name[:-len(".jsonl")]
-        wfp = SECONDARY / f"{slug}.duplicate-read.jsonl"
+        wfp = SECONDARY / f"{slug}.{WITNESS_SUFFIX}.jsonl"
         moved = [dict(r) for r in moved]
         for r in moved:
             r["rank"] = "secondary"
