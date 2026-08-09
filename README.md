@@ -343,12 +343,12 @@ attribution firms up later is not stranded by the first carve having already
 run. Each pass writes its own audit (`.pass2.json` and so on), because writing
 one over another would destroy the earlier carve's reconstruction record while
 appearing to succeed. 22 volumes have been carved so
-far, and 11 `cogPG.*` files are still volume-keyed, holding 251,237 Greek
+far, and 11 `cogPG.*` files are still volume-keyed, holding 250,174 Greek
 tokens. PG151 was finished on 2026-08-08 and its file is gone: its last two
 works, Gregory Palamas' Homologia and the confined archbishops' report to Anna
 Palaiologina, had every seam inside a row, and `scripts/split_carved_row.py`
 cuts a row at a character offset. Ten of the eleven remaining files are carved
-volumes' leftovers, 90,977 tokens between them, and 75,862 of that is PG112's
+volumes' leftovers, 89,914 tokens between them, and 75,862 of that is PG112's
 uncarved half alone (the Vogt text byzantium.gr already serves, left
 volume-keyed pending a disposition). The rest is small: PG005, PG101, PG107,
 PG109, PG118, PG124 and PG125 hold 2 to 13 rows each, every one identified in
@@ -1095,7 +1095,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | PG109 | Theophanes Cont.; Cameniates; Symeon Logothete; Genesius (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 7 | manual |
 | PG112 | Constantine VII v1 De ceremoniis (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 75,862 | manual |
 | PG113 | Constantine VII v2 De them./De admin./Vita Basilii; Theodosius Diac. (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,039 | manual |
-| PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,893 | manual |
+| PG118 | Oecumenius (catenae on Acts, Pauline & Catholic epistles) (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,830 | manual |
 | PG124 | Theophylact of Ohrid v2 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 99 | manual |
 | PG125 | Theophylact of Ohrid v3 (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,629 | manual |
 | PG139 | Joel; Nicetas Choniates (+Thesaurus); Isidore Thess.; Maroneia; John of Citrus (split per-work by scripts/carve_cgpg_volume.py; residual rows only) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,349 | manual |
@@ -2185,13 +2185,19 @@ below; regenerate it with `python scripts/build_provenance.py`.
   own markers (book/chapter, Psellos book.section, Theophanes annus mundi,
   Skylitzes reign.chapter, ...); only Attaliates, whose page prints no
   structure, keeps page-paragraph indices.
+- A printed leaf the upstream OCR delivered twice is dropped by
+  scripts/drop_duplicate_leaf.py, with the scan page cited and every run of 3+
+  words the dropped copy has and the kept copy lacks enumerated in
+  data/duplicate_leaves.json; an unlisted run stops the run, so what is removed
+  is duplicated text rather than text. PG118 pages 21-22 were the first case,
+  1,063 tokens that had been served and counted twice.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,
   Leo VI, the Psellus opuscula; 18 displaced witnesses to corpus_secondary),
   each with a reversible token-exact audit in data/corpus_changes/. 12
   `cogPG.*` files remain volume-keyed (11 files): ten leftovers of carved volumes
-  (PG113, PG139 and PG112 among them, so 90,977 tokens between them, 75,862 of
+  (PG113, PG139 and PG112 among them, so 89,914 tokens between them, 75,862 of
   that PG112's uncarved half) and one uncarved volume (PG003, 160,260 tokens).
   Where a work's boundary falls inside a row, which whole-row carving cannot
   express, scripts/split_carved_row.py cuts the row at a character offset; it
