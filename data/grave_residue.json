@@ -2,7 +2,168 @@
  "what": "the grave-lemma residue partitioned by whether any accent rule could reach it",
  "issue": "open-greek/open-greek-corpus#4",
  "source": "data/work_lemma_counts.tsv.gz, and nothing else",
- "why_no_external_authority": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it",
+ "why_not_the_annotation_exports": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it. Dictionary headword inventories can, and the headword_backed block below is that test.",
+ "headword_backed": {
+  "what": "grave lemmas whose acute counterpart is a headword in a published lexicon, which is an authority independent of the lemmatizer that produced this residue",
+  "NOT_A_REPAIR_RULE": "the union is deliberately over-inclusive, so it bounds the residue from above and a stricter list would back less. Nothing here feeds validate_lemma_map.py, and a repair built on it would validate whatever noise the lists carry.",
+  "sources": [
+   {
+    "source": "lsj",
+    "entries": 118764,
+    "sha256": "b0686ceecf689d754a7b3f8d10c77a7bc1a482edf07f025926ba37f65046cb9a"
+   },
+   {
+    "source": "lsj10",
+    "entries": 121237,
+    "sha256": "d90d63d5dac12e58172df86147ddcb29f3c57298209384da7ef1e3f87551fafa"
+   },
+   {
+    "source": "lbg",
+    "entries": 86280,
+    "sha256": "d4abfda095c75ff89b2430f3491fed145cf161ac48780dedba813e74f05dee3f"
+   },
+   {
+    "source": "dge",
+    "entries": 52398,
+    "sha256": "8159190c95c046b7f6a2f0f1492b113d1360a026357133671b3c16d3b54e6f66"
+   },
+   {
+    "source": "vlg",
+    "entries": 132608,
+    "sha256": "6e638f46f71799bdb7b849b9b0e36bb890695f02cd8c2016358fcb052d3c04ce"
+   },
+   {
+    "source": "cunliffe",
+    "entries": 12170,
+    "sha256": "7b4ddc2d7ba135bbf45a99544492f472c1c78a048be27b02bc6e7ed4dd04233e"
+   },
+   {
+    "source": "pd",
+    "entries": 176194,
+    "sha256": "7c59bf5501905d9f75927f9cd3098c47d1003fa370c16e5929db735b61117a32"
+   },
+   {
+    "source": "wip",
+    "entries": 3981,
+    "sha256": "f798d75180860a46e9091e1bc90ce2cc991a734288fb1fd1ed048bcf6031202f"
+   }
+  ],
+  "excluded_sources": {
+   "ag_headwords": "Wiktionary-derived, and lists 72 of these grave lemmas as headwords themselves, which no lexicon does",
+   "mg_headwords": "Modern Greek, a different question"
+  },
+  "headwords": 281178,
+  "lemmas": 102,
+  "tokens": 660,
+  "share_of_residue": 0.0208,
+  "control": {
+   "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
+   "non_grave_lemmas_le_10_tokens_backed": 0.2224,
+   "grave_lemmas_le_10_tokens_backed": 0.0142
+  },
+  "largest": [
+   {
+    "lemma": "ὒ",
+    "tokens": 248,
+    "headword": "ὔ"
+   },
+   {
+    "lemma": "τεὶ",
+    "tokens": 23,
+    "headword": "τεί"
+   },
+   {
+    "lemma": "γοὶ",
+    "tokens": 15,
+    "headword": "γοί"
+   },
+   {
+    "lemma": "Κτιστὸς",
+    "tokens": 13,
+    "headword": "κτιστός"
+   },
+   {
+    "lemma": "καταμικρὸν",
+    "tokens": 12,
+    "headword": "καταμικρόν"
+   },
+   {
+    "lemma": "πανδημὶ",
+    "tokens": 11,
+    "headword": "πανδημί"
+   },
+   {
+    "lemma": "ἀῤῥεπὴς",
+    "tokens": 11,
+    "headword": "ἀῤῥεπής"
+   },
+   {
+    "lemma": "ἀμφαδὴν",
+    "tokens": 10,
+    "headword": "ἀμφαδήν"
+   },
+   {
+    "lemma": "δακτυλεὺς",
+    "tokens": 10,
+    "headword": "δακτυλεύς"
+   },
+   {
+    "lemma": "Μουκιανὸς",
+    "tokens": 10,
+    "headword": "Μουκιανός"
+   },
+   {
+    "lemma": "Εἰγὰρ",
+    "tokens": 10,
+    "headword": "εἰγάρ"
+   },
+   {
+    "lemma": "μαρὰν",
+    "tokens": 9,
+    "headword": "μαράν"
+   },
+   {
+    "lemma": "οὐμὴ",
+    "tokens": 9,
+    "headword": "οὐμή"
+   },
+   {
+    "lemma": "κατευθὺς",
+    "tokens": 8,
+    "headword": "κατευθύς"
+   },
+   {
+    "lemma": "οὐμὴν",
+    "tokens": 8,
+    "headword": "οὐμήν"
+   },
+   {
+    "lemma": "Ἀψὶχ",
+    "tokens": 8,
+    "headword": "Ἀψίχ"
+   },
+   {
+    "lemma": "ψὲ",
+    "tokens": 8,
+    "headword": "ψέ"
+   },
+   {
+    "lemma": "εἰγὰρ",
+    "tokens": 7,
+    "headword": "εἰγάρ"
+   },
+   {
+    "lemma": "Σαπρὸς",
+    "tokens": 7,
+    "headword": "σαπρός"
+   },
+   {
+    "lemma": "Ἓρκειος",
+    "tokens": 7,
+    "headword": "ἕρκειος"
+   }
+  ]
+ },
  "lemmas": 7955,
  "tokens": 31746,
  "reachable": {
