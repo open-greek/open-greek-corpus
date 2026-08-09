@@ -156,12 +156,13 @@ def count_positions() -> tuple[Counter[str], Counter[str]]:
     return initial, mid
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser(description=__doc__,
-                                 formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--write", action="store_true")
-    args = ap.parse_args()
+def measure() -> dict[str, dict]:
+    """The folds the corpus supports right now.
 
+    Split out of main() so check_capital_positions_fresh.py can ask the same
+    question without writing anything. A second implementation of this would be
+    a second answer, and the artifact it guards is applied to the lemma table.
+    """
     freq = load_frequencies()
     # Membership and token counts come from the per-work table, which is what
     # the folds are applied to. The old gate was `form not in freq`, and it hid
@@ -186,7 +187,18 @@ def main() -> None:
             continue
         folds[form] = {"folds_to": lower, "mid_sentence_rate": round(rate, 4),
                        "occurrences": n, "tokens": totals[form]}
+    measure.kept, measure.thin = kept, thin
+    return folds
 
+
+def main() -> None:
+    ap = argparse.ArgumentParser(description=__doc__,
+                                 formatter_class=argparse.RawDescriptionHelpFormatter)
+    ap.add_argument("--write", action="store_true")
+    args = ap.parse_args()
+
+    folds = measure()
+    kept, thin = measure.kept, measure.thin
     tokens = sum(v["tokens"] for v in folds.values())
     print(f"{len(folds):,} capitalized lemmas are positional only "
           f"({tokens:,} tokens), folding to their lowercase twin")
