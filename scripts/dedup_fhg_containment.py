@@ -36,6 +36,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import hashlib
 import subprocess
 import sys
 import unicodedata
@@ -44,7 +45,12 @@ from pathlib import Path
 
 COG = Path(__file__).resolve().parent.parent
 CORPUS = COG / "data" / "corpus"
-SHED = COG / "data" / "dfhg_dedup_shed.json"
+# Per-volume, under the audit directory, and created if absent. It used to be a
+# single data/dfhg_dedup_shed.json that has never existed in this repo: --apply
+# displaced the rows through a subprocess FIRST and only then read that file, so
+# the one batch that most needed a record would have mutated the corpus and died
+# with FileNotFoundError, leaving no reversal trail at all.
+CHANGES = COG / "data" / "corpus_changes"
 GK = re.compile(r"[Ͱ-Ͽἀ-῿]")
 
 KERAIA = dict.fromkeys(map(ord, "ʹ͵ʹ'’"))
@@ -77,6 +83,12 @@ def main() -> None:
     ap.add_argument("--carve", required=True, help="served carve slug (coverage text)")
     ap.add_argument("--numfix", action="store_true", help="Greek-numeral normalization")
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--min-containment", type=float, default=None,
+                    help="override the codified gate with a flat floor. The "
+                         "0.6/20-word arm is right for matching fragment "
+                         "collections; taking a row OUT of the served corpus is "
+                         "a stronger claim, and PG113 kept Theophylact primary "
+                         "at 0.697 on exactly that reasoning.")
     args = ap.parse_args()
 
     old = [json.loads(l) for l in (CORPUS / f"{args.old}.jsonl").open() if l.strip()]
@@ -91,7 +103,9 @@ def main() -> None:
         b, w = bigrams(r.get("text", ""), args.numfix)
         cont = len(b & ctext) / len(b) if b else 0.0
         gk = len(GK.findall(r.get("text", "")))
-        if passes(cont, w):
+        ok = (cont >= args.min_containment and w >= 20
+              if args.min_containment is not None else passes(cont, w))
+        if ok:
             shed_rows.append({"locus": r["locus"], "containment": round(cont, 3),
                               "words": w, "greek_chars": gk,
                               "edition": r.get("edition", "")})
@@ -100,7 +114,10 @@ def main() -> None:
 
     print(f"{args.old}: {len(old)} rows vs {args.carve} "
           f"(numfix={'on' if args.numfix else 'off'})")
-    print(f"  pass gate (>=0.7/4w or >=0.6/20w): {len(shed_rows)} rows, "
+    gate_label = (f">={args.min_containment}/20w"
+                  if args.min_containment is not None
+                  else ">=0.7/4w or >=0.6/20w")
+    print(f"  pass gate ({gate_label}): {len(shed_rows)} rows, "
           f"{sum(r['greek_chars'] for r in shed_rows)} greek chars")
     print(f"  0.45-0.7 band (still primary):     {len(band)} rows")
     for loc, c, w in band[:15]:
@@ -113,28 +130,49 @@ def main() -> None:
         print("nothing passes the gate; no displacement, shed file untouched")
         return
 
+    shed_fp = CHANGES / f"{args.old}.containment-shed.json"
+    src = COG / "data" / "corpus" / f"{args.old}.jsonl"
+    sha_before = hashlib.sha256(src.read_bytes()).hexdigest()
+
     loci_file = COG / "data" / f"_shed_loci_{args.old.replace('.', '_')}.txt"
     loci_file.write_text("\n".join(r["locus"] for r in shed_rows) + "\n")
-    reason = (f"row verified >= 0.7 bigram containment in {args.carve} "
-              f"({'numeral-normalized, ' if args.numfix else ''}"
-              f"method: data/dfhg_dedup_shed.json)")
+    floor = args.min_containment if args.min_containment is not None else 0.7
+    reason = (f"row verified >= {floor} word-bigram containment in {args.carve}, "
+              f"which this corpus serves; kept verbatim as a witness rather than "
+              f"served twice"
+              f"{' (Greek numerals normalized)' if args.numfix else ''}. "
+              f"Measurements per row in "
+              f"data/corpus_changes/{args.old}.containment-shed.json")
     subprocess.run([sys.executable, str(COG / "scripts" / "displace_to_secondary.py"),
                     args.old, "--loci", f"@{loci_file}", "--reason", reason],
                    check=True)
     loci_file.unlink()
 
-    shed = json.loads(SHED.read_text(encoding="utf-8"))
-    key = f"{args.old}:numfix-{date.today().isoformat()}"
+    shed = (json.loads(shed_fp.read_text(encoding="utf-8"))
+            if shed_fp.exists() else
+            {"what": f"rows of {args.old} displaced to data/corpus_secondary "
+                     f"because a served work already carries them",
+             "issue": "open-greek/open-greek-corpus#8",
+             "reverse": "restore the rows from the witness file to "
+                        f"data/corpus/{args.old}.jsonl and delete them there",
+             "sheds": {}})
+    key = f"{args.carve}:{date.today().isoformat()}"
     shed["sheds"][key] = {
         "covered_by": args.carve,
-        "note": ("re-verification with Greek-numeral normalization "
-                 "(keraia strip + stigma/koppa/sampi mapping)"),
+        "gate": (f"flat containment floor {args.min_containment}"
+                 if args.min_containment is not None
+                 else "codified: >=0.7/4w or >=0.6/20w"),
+        "numeral_normalized": bool(args.numfix),
         "n_rows": len(shed_rows),
         "greek_chars": sum(r["greek_chars"] for r in shed_rows),
+        "sha256_before": sha_before,
+        "sha256_after": hashlib.sha256(src.read_bytes()).hexdigest(),
         "rows": shed_rows,
     }
-    SHED.write_text(json.dumps(shed, ensure_ascii=False, indent=1), encoding="utf-8")
-    print(f"displaced {len(shed_rows)} rows; shed entry {key} appended")
+    shed_fp.write_text(json.dumps(shed, ensure_ascii=False, indent=1) + "\n",
+                       encoding="utf-8")
+    print(f"displaced {len(shed_rows)} rows; recorded in "
+          f"{shed_fp.relative_to(COG)} under {key}")
 
 
 if __name__ == "__main__":
