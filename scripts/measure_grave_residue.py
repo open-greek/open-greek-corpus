@@ -41,6 +41,7 @@ from __future__ import annotations
 
 import argparse
 import gzip
+import hashlib
 import json
 import sys
 import unicodedata
@@ -64,6 +65,41 @@ def load_totals() -> dict[str, int]:
             if len(p) >= 3 and p[2].isdigit():
                 out[p[1]] = out.get(p[1], 0) + int(p[2])
     return out
+
+
+# Dictionary headword inventories from the sibling public repo open-greek/dilemma
+# (https://github.com/open-greek/dilemma), checked out beside this one. These are
+# an authority INDEPENDENT of the lemmatizer that produced this residue, which is
+# the gap the `why_no_external_authority` note used to record.
+#
+# Which lists, and why not all eleven. Included are the scholarly ancient and
+# Byzantine lexica: LSJ and LSJ10, the Lexikon zur byzantinischen Graezitaet,
+# DGE, Montanari's VLG, Cunliffe's Homeric lexicon, the Perseus aggregate of
+# L&S/Pape/Bailly, and Aristarchus' Words in Progress. Excluded are
+# ag_headwords, which is Wiktionary-derived and lists 72 of these grave lemmas
+# as headwords themselves, which no real lexicon does, and mg_headwords, which
+# is Modern Greek and answers a different question.
+HEADWORD_FILES = ("lsj", "lsj10", "lbg", "dge", "vlg", "cunliffe", "pd", "wip")
+DILEMMA = REPO.parent / "dilemma" / "data"
+
+
+def load_headwords() -> tuple[set, list[dict]]:
+    """(headword set, per-source provenance). Empty when the sibling checkout is
+    absent, and the caller must then omit the partition rather than publish it
+    as zero, which would read as a far stronger claim than no data supports."""
+    words: set[str] = set()
+    prov = []
+    for name in HEADWORD_FILES:
+        fp = DILEMMA / f"{name}_headwords.json"
+        if not fp.exists():
+            continue
+        raw = json.loads(fp.read_text(encoding="utf-8"))
+        got = {e["lemma"] if isinstance(e, dict) else e for e in raw}
+        got = {unicodedata.normalize("NFC", w) for w in got if isinstance(w, str)}
+        words |= got
+        prov.append({"source": name, "entries": len(got),
+                     "sha256": hashlib.sha256(fp.read_bytes()).hexdigest()})
+    return words, prov
 
 
 def main() -> None:
@@ -97,6 +133,41 @@ def main() -> None:
     # and lets an earlier class claim some of these first. Same population.
     gt, rt = sum(grave.values()), sum(n for n, _ in reachable.values())
     ut = sum(n for n, _ in unreachable.values())
+
+    # Independent authority: is the repair TARGET a dictionary headword at all?
+    # This is a measurement, not a rule. Nothing here feeds validate_lemma_map.py,
+    # and it must not: the union is deliberately over-inclusive, so it bounds the
+    # residue from above and a cleaner list would back less, but anything built
+    # into a repair on the strength of it would validate whatever noise it holds.
+    heads, prov = load_headwords()
+    backed = {}
+    if heads:
+        for lemma, n in grave.items():
+            cands = sorted({to_acute(lemma), to_acute(lower_initial(lemma))} - {lemma})
+            hit = next((c for c in cands if c in heads), None)
+            if hit:
+                backed[lemma] = (n, hit)
+        # Control: comparably rare lemmas that carry no grave. Without it the
+        # headline share means nothing, because rare lemmas are rare in
+        # dictionaries too.
+        rare_other = {k: v for k, v in totals.items()
+                      if v <= 10 and VARIA not in unicodedata.normalize("NFD", k)}
+        ctrl = sum(1 for k in rare_other if k in heads)
+        rare_grave = {k: v for k, v in grave.items() if v <= 10}
+        gctrl = sum(1 for k in rare_grave if k in heads or
+                    any(c in heads for c in
+                        sorted({to_acute(k), to_acute(lower_initial(k))} - {k})))
+        print(f"  headword-backed {len(backed):>6,} lemmas "
+              f"{sum(n for n, _ in backed.values()):>8,} tokens "
+              f"({sum(n for n, _ in backed.values()) / gt:.1%} of the residue), "
+              f"against {len(heads):,} headwords from {len(prov)} lexica")
+        print(f"    control: {ctrl / max(len(rare_other), 1):.1%} of non-grave "
+              f"lemmas at <=10 tokens are headwords, against "
+              f"{gctrl / max(len(rare_grave), 1):.1%} of grave ones")
+    else:
+        print("  headword-backed: sibling checkout open-greek/dilemma absent, "
+              "partition omitted")
+
     print(f"grave residue: {len(grave):,} lemmas, {gt:,} tokens "
           f"({gt / sum(totals.values()):.3%} of the lemmatized corpus)")
     print(f"  reachable   {len(reachable):>6,} lemmas {rt:>8,} tokens "
@@ -126,9 +197,42 @@ def main() -> None:
                 "could reach it",
         "issue": "open-greek/open-greek-corpus#4",
         "source": "data/work_lemma_counts.tsv.gz, and nothing else",
-        "why_no_external_authority": "the annotation exports come from the same "
-            "lemmatizer that produced this residue, so they cannot independently "
-            "confirm a headword for it",
+        "why_not_the_annotation_exports": "the annotation exports come from the "
+            "same lemmatizer that produced this residue, so they cannot "
+            "independently confirm a headword for it. Dictionary headword "
+            "inventories can, and the headword_backed block below is that test.",
+        "headword_backed": ({
+            "what": "grave lemmas whose acute counterpart is a headword in a "
+                    "published lexicon, which is an authority independent of the "
+                    "lemmatizer that produced this residue",
+            "NOT_A_REPAIR_RULE": "the union is deliberately over-inclusive, so it "
+                                 "bounds the residue from above and a stricter "
+                                 "list would back less. Nothing here feeds "
+                                 "validate_lemma_map.py, and a repair built on it "
+                                 "would validate whatever noise the lists carry.",
+            "sources": prov,
+            "excluded_sources": {
+                "ag_headwords": "Wiktionary-derived, and lists 72 of these grave "
+                                "lemmas as headwords themselves, which no lexicon "
+                                "does",
+                "mg_headwords": "Modern Greek, a different question",
+            },
+            "headwords": len(heads),
+            "lemmas": len(backed),
+            "tokens": sum(n for n, _ in backed.values()),
+            "share_of_residue": round(sum(n for n, _ in backed.values()) / gt, 4),
+            "control": {
+                "what": "the same test on lemmas that carry no grave, at the same "
+                        "rarity, because rare lemmas are rare in dictionaries too",
+                "non_grave_lemmas_le_10_tokens_backed": round(
+                    ctrl / max(len(rare_other), 1), 4),
+                "grave_lemmas_le_10_tokens_backed": round(
+                    gctrl / max(len(rare_grave), 1), 4),
+            },
+            "largest": [{"lemma": k, "tokens": n, "headword": h}
+                        for k, (n, h) in sorted(
+                            backed.items(), key=lambda kv: -kv[1][0])[:20]],
+        } if heads else "sibling checkout open-greek/dilemma absent; not measured"),
         "lemmas": len(grave), "tokens": gt,
         "reachable": {"lemmas": len(reachable), "tokens": rt,
                       "caveat": "reachable is an upper bound on what a rule could "
