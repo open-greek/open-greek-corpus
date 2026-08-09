@@ -8,13 +8,94 @@
   "sha256": "c3f4056dcf99ef76ac08d0e16445f01bcd43b5a1d75a52b757b545d045ab855e"
  },
  "params": {
-  "max_anchor_gap_words": 40
+  "max_anchor_gap_words": 40,
+  "paraphrase_similarity": 0.62
  },
  "anchor_matches": 69200,
  "anchor_chain": 68313,
- "heads_found": 169,
- "placed": 129,
+ "heads_found": 185,
+ "placed": 145,
  "declined": 40,
+ "paraphrase_numbering": {
+  "what": "Migne numbers the paraphrase (1) to 60 straight through the volume and prints the number on the display head only, never on the page's running head. Requiring it is what separates the two, and reading it back is a check the alignment cannot fake.",
+  "printed_last": 60,
+  "placed": 35,
+  "never_recovered": [
+   2,
+   3,
+   4,
+   5,
+   6,
+   7,
+   9,
+   10,
+   11,
+   13,
+   23,
+   29,
+   31,
+   32,
+   33,
+   34,
+   35,
+   36,
+   37,
+   38,
+   40,
+   43,
+   48,
+   50,
+   51,
+   52,
+   56,
+   58,
+   59
+  ],
+  "number_goes_backwards": [
+   {
+    "head": "PARAPHRASIS PACHYMETRLE (12).",
+    "locus": "114",
+    "printed_number": 12,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   },
+   {
+    "head": "PARAPIIRASIS ΡΑΘΠΥΜΕΙ (12).",
+    "locus": "129",
+    "printed_number": 12,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   },
+   {
+    "head": "PARAPHRASIS PACIIYMEILE (24).",
+    "locus": "232",
+    "printed_number": 24,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   },
+   {
+    "head": "297 PARAPHRASIS PACIIYMERJE (21).",
+    "locus": "311",
+    "printed_number": 21,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   },
+   {
+    "head": "PARAPHRASIS PACHYMERLE",
+    "locus": "381",
+    "printed_number": 39,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   },
+   {
+    "head": "PARAPHRASIS PACHYMERAJE",
+    "locus": "457",
+    "printed_number": 44,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   },
+   {
+    "head": "PARAPHRASIS PACHYMERJE",
+    "locus": "500",
+    "printed_number": 30,
+    "note": "a misread digit; the head's position is the alignment's, not this number's"
+   }
+  ]
+ },
  "held_out": {
   "source": "data/pg003_blocks.json heads",
   "note": "locus 89's recorded head is a running head at offset 0, not a boundary; the placement at ~1,566 matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552, so the alignment is right and the record is not. Locus 171 is a genuine miss, 516 characters late.",
@@ -209,13 +290,23 @@
  "placements": [
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 39,
    "locus": "71",
    "offset": 17,
    "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια"
   },
   {
+   "head": "FARAPHRASIS PACHYMERLE (1).",
+   "printed_number": 1,
+   "anchor_gap_words": 1,
+   "locus": "71",
+   "offset": 17,
+   "incipit": "η επιγραφη εχει ιστεον οτι ιεραρχια"
+  },
+  {
    "head": "CAPUT I",
+   "printed_number": null,
    "anchor_gap_words": 18,
    "locus": "75",
    "offset": 1317,
@@ -223,6 +314,7 @@
   },
   {
    "head": "SYNOPSIS",
+   "printed_number": null,
    "anchor_gap_words": 18,
    "locus": "75",
    "offset": 1317,
@@ -230,20 +322,39 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 29,
    "locus": "82",
    "offset": 0,
    "incipit": "πρεπει τοιγαρουν ως υπολαιμβανωιστακτινως δι ασφαλειαν"
   },
   {
+   "head": "PARAPHRASIS PACHYMEIUE (8).",
+   "printed_number": 8,
+   "anchor_gap_words": 0,
+   "locus": "82",
+   "offset": 0,
+   "incipit": "πρεπει τοιγαρουν ως υπολαιμβανωιστακτινως δι ασφαλειαν"
+  },
+  {
    "head": "SYNOPSIS Y. Defiuit.",
+   "printed_number": null,
    "anchor_gap_words": 6,
    "locus": "89",
    "offset": 1566,
    "incipit": "τι εστιν ιεραρχια και τις η"
   },
   {
+   "head": "32 PARAPHRASIS PACHYMETLE (87).",
+   "printed_number": 87,
+   "anchor_gap_words": 15,
+   "locus": "92",
+   "offset": 97,
+   "incipit": "οτι εστιν ιεραρχια ως εγω λεγω"
+  },
+  {
    "head": "CAPUT IV",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "96",
    "offset": 529,
@@ -251,6 +362,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "96",
    "offset": 529,
@@ -258,6 +370,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 17,
    "locus": "105",
    "offset": 90,
@@ -265,6 +378,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 20,
    "locus": "106",
    "offset": 64,
@@ -272,6 +386,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "106",
    "offset": 64,
@@ -279,6 +394,7 @@
   },
   {
    "head": "CAPUT VI",
+   "printed_number": null,
    "anchor_gap_words": 24,
    "locus": "107",
    "offset": 888,
@@ -286,6 +402,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "107",
    "offset": 888,
@@ -293,6 +410,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 12,
    "locus": "108",
    "offset": 624,
@@ -300,6 +418,7 @@
   },
   {
    "head": "CAPUT VII",
+   "printed_number": null,
    "anchor_gap_words": 14,
    "locus": "110",
    "offset": 192,
@@ -307,6 +426,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "110",
    "offset": 192,
@@ -314,13 +434,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 29,
    "locus": "114",
    "offset": 50,
    "incipit": "των ταξεων τριαδος των σεραφιμ και"
   },
   {
+   "head": "PARAPHRASIS PACHYMETRLE (12).",
+   "printed_number": 12,
+   "anchor_gap_words": 9,
+   "locus": "114",
+   "offset": 50,
+   "incipit": "των ταξεων τριαδος των σεραφιμ και"
+  },
+  {
    "head": "CAPUT VIII",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "126",
    "offset": 426,
@@ -328,6 +458,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "126",
    "offset": 426,
@@ -335,13 +466,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 17,
    "locus": "129",
    "offset": 12,
    "incipit": "τον λογον απαρτι και επι την"
   },
   {
+   "head": "PARAPIIRASIS ΡΑΘΠΥΜΕΙ (12).",
+   "printed_number": 12,
+   "anchor_gap_words": 2,
+   "locus": "129",
+   "offset": 12,
+   "incipit": "τον λογον απαρτι και επι την"
+  },
+  {
    "head": "CAPUT IX",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "136",
    "offset": 23,
@@ -349,6 +490,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "136",
    "offset": 23,
@@ -356,6 +498,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 9,
    "locus": "139",
    "offset": 10,
@@ -363,6 +506,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 14,
    "anchor_gap_words": 1,
    "locus": "139",
    "offset": 10,
@@ -370,6 +514,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "143",
    "offset": 1590,
@@ -377,13 +522,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 23,
    "locus": "146",
    "offset": 13,
    "incipit": "κατα χρονον αλλα κατα ταξιν παντοως"
   },
   {
+   "head": "TARAPIIRASI: CI YMEILE (15).",
+   "printed_number": 15,
+   "anchor_gap_words": 9,
+   "locus": "146",
+   "offset": 13,
+   "incipit": "κατα χρονον αλλα κατα ταξιν παντοως"
+  },
+  {
    "head": "CAPUT XI",
+   "printed_number": null,
    "anchor_gap_words": 19,
    "locus": "149",
    "offset": 658,
@@ -391,6 +546,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 7,
    "locus": "149",
    "offset": 658,
@@ -398,6 +554,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 16,
    "anchor_gap_words": 7,
    "locus": "151",
    "offset": 48,
@@ -405,6 +562,7 @@
   },
   {
    "head": "CAPUT XII",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "153",
    "offset": 851,
@@ -412,6 +570,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "153",
    "offset": 851,
@@ -419,6 +578,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 14,
    "locus": "155",
    "offset": 9,
@@ -426,6 +586,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 17,
    "anchor_gap_words": 2,
    "locus": "155",
    "offset": 9,
@@ -433,6 +594,7 @@
   },
   {
    "head": "CAPUT XIII",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "157",
    "offset": 13,
@@ -440,6 +602,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "157",
    "offset": 291,
@@ -447,6 +610,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 22,
    "locus": "162",
    "offset": 6,
@@ -454,6 +618,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 18,
    "anchor_gap_words": 0,
    "locus": "162",
    "offset": 6,
@@ -461,6 +626,7 @@
   },
   {
    "head": "CAPUT XIV",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "168",
    "offset": 28,
@@ -468,13 +634,23 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "168",
    "offset": 28,
    "incipit": "αξιον ως οιμαι νοερας επιστασιας οτι"
   },
   {
+   "head": "PARAPHRASIS PACHYMEILE (19).",
+   "printed_number": 19,
+   "anchor_gap_words": 10,
+   "locus": "169",
+   "offset": 18,
+   "incipit": "ζητησεως νοερας οιονει οκαι πρωην ελεγομεν"
+  },
+  {
    "head": "SYNOPSIS CAPITIS. L Angeli",
+   "printed_number": null,
    "anchor_gap_words": 8,
    "locus": "171",
    "offset": 516,
@@ -482,13 +658,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 29,
    "locus": "178",
    "offset": 8,
    "incipit": "λοιπον αναπαυσωμεν τον ημετερον νουν απο"
   },
   {
+   "head": "136 PARAPIRASIS PACHYMERJE. (20).",
+   "printed_number": 20,
+   "anchor_gap_words": 1,
+   "locus": "178",
+   "offset": 8,
+   "incipit": "λοιπον αναπαυσωμεν τον ημετερον νουν απο"
+  },
+  {
    "head": "SYNOPSIS CAPITIS. V. Ecclesiasticam",
+   "printed_number": null,
    "anchor_gap_words": 14,
    "locus": "193",
    "offset": 0,
@@ -496,6 +682,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERAE",
+   "printed_number": 22,
    "anchor_gap_words": 0,
    "locus": "198",
    "offset": 0,
@@ -503,13 +690,23 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. Prima",
+   "printed_number": null,
    "anchor_gap_words": 18,
    "locus": "203",
    "offset": 10,
    "incipit": "ειρηται τοινυν ημιν ιερως ως ουτος"
   },
   {
+   "head": "178 PARAPIRASIS PACHYMERJE (25).",
+   "printed_number": 25,
+   "anchor_gap_words": 3,
+   "locus": "212",
+   "offset": 45,
+   "incipit": "λογοις επιμεριζει πρωτον μεν διαλαμβανων περι"
+  },
+  {
    "head": "CAPUT III",
+   "printed_number": null,
    "anchor_gap_words": 17,
    "locus": "219",
    "offset": 642,
@@ -517,6 +714,7 @@
   },
   {
    "head": "SYNOPSIS Prima",
+   "printed_number": null,
    "anchor_gap_words": 17,
    "locus": "219",
    "offset": 642,
@@ -524,13 +722,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 36,
    "locus": "232",
    "offset": 6,
    "incipit": "οτι ταυτης επεμνησθημεν της τελετης δηλαδη"
   },
   {
+   "head": "PARAPHRASIS PACIIYMEILE (24).",
+   "printed_number": 24,
+   "anchor_gap_words": 1,
+   "locus": "232",
+   "offset": 6,
+   "incipit": "οτι ταυτης επεμνησθημεν της τελετης δηλαδη"
+  },
+  {
    "head": "CAPUT IV",
+   "printed_number": null,
    "anchor_gap_words": 6,
    "locus": "243",
    "offset": 1362,
@@ -538,6 +746,7 @@
   },
   {
    "head": "SYNOPSIS Prima",
+   "printed_number": null,
    "anchor_gap_words": 6,
    "locus": "243",
    "offset": 1362,
@@ -545,6 +754,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 28,
    "locus": "251",
    "offset": 26,
@@ -552,6 +762,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 25,
    "anchor_gap_words": 2,
    "locus": "251",
    "offset": 26,
@@ -559,6 +770,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "257",
    "offset": 1253,
@@ -566,6 +778,7 @@
   },
   {
    "head": "SYNOPSIS Prima",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "257",
    "offset": 1253,
@@ -573,6 +786,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 29,
    "locus": "267",
    "offset": 3,
@@ -580,6 +794,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 26,
    "anchor_gap_words": 5,
    "locus": "267",
    "offset": 3,
@@ -587,6 +802,7 @@
   },
   {
    "head": "CAPUT VI",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "272",
    "offset": 1734,
@@ -594,13 +810,23 @@
   },
   {
    "head": "SYNOPSIS",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "272",
    "offset": 1734,
    "incipit": "μεν αι ιερατικαι ταξεις τε και"
   },
   {
+   "head": "PARAPHRASIS. PACHYMERJE (27).",
+   "printed_number": 27,
+   "anchor_gap_words": 24,
+   "locus": "278",
+   "offset": 55,
+   "incipit": "ταξεις των ιεραρχων των πρεσβυτερων των"
+  },
+  {
    "head": "CAPUT VII",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "283",
    "offset": 1603,
@@ -608,6 +834,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. Prima",
+   "printed_number": null,
    "anchor_gap_words": 8,
    "locus": "283",
    "offset": 1677,
@@ -615,20 +842,39 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 11,
    "locus": "292",
    "offset": 234,
    "incipit": "τουτων ουν διωρισμενων αναγκαιον ειπειν και"
   },
   {
+   "head": "PARAPHRASIS ΡΑΟΠΥΜΕΒ ΑΣ (28).",
+   "printed_number": 28,
+   "anchor_gap_words": 0,
+   "locus": "292",
+   "offset": 234,
+   "incipit": "τουτων ουν διωρισμενων αναγκαιον ειπειν και"
+  },
+  {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 7,
    "locus": "300",
    "offset": 60,
    "incipit": "νυν δη ω μακαριε μετα τας"
   },
   {
+   "head": "297 PARAPHRASIS PACIIYMERJE (21).",
+   "printed_number": 21,
+   "anchor_gap_words": 3,
+   "locus": "311",
+   "offset": 17,
+   "incipit": "ο μεγας συντιθησι διονυσιος προς τον"
+  },
+  {
    "head": "CAPUT I",
+   "printed_number": null,
    "anchor_gap_words": 20,
    "locus": "325",
    "offset": 810,
@@ -636,6 +882,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 5,
    "locus": "325",
    "offset": 810,
@@ -643,6 +890,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERLE",
+   "printed_number": 55,
    "anchor_gap_words": 0,
    "locus": "336",
    "offset": 4,
@@ -650,6 +898,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. CAPUT III.",
+   "printed_number": null,
    "anchor_gap_words": 5,
    "locus": "347",
    "offset": 24,
@@ -657,6 +906,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 19,
    "locus": "351",
    "offset": 2,
@@ -664,6 +914,7 @@
   },
   {
    "head": "CAPUT IV",
+   "printed_number": null,
    "anchor_gap_words": 9,
    "locus": "354",
    "offset": 45,
@@ -671,6 +922,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS",
+   "printed_number": null,
    "anchor_gap_words": 9,
    "locus": "354",
    "offset": 45,
@@ -678,6 +930,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERLE",
+   "printed_number": 39,
    "anchor_gap_words": 2,
    "locus": "381",
    "offset": 28,
@@ -685,6 +938,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "415",
    "offset": 9,
@@ -692,6 +946,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "415",
    "offset": 9,
@@ -699,6 +954,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 41,
    "anchor_gap_words": 2,
    "locus": "423",
    "offset": 18,
@@ -706,6 +962,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 5,
    "locus": "435",
    "offset": 0,
@@ -713,6 +970,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 27,
    "locus": "437",
    "offset": 13,
@@ -720,6 +978,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERUE",
+   "printed_number": 42,
    "anchor_gap_words": 3,
    "locus": "437",
    "offset": 13,
@@ -727,6 +986,7 @@
   },
   {
    "head": "CAPUT VII",
+   "printed_number": null,
    "anchor_gap_words": 13,
    "locus": "440",
    "offset": 406,
@@ -734,6 +994,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. V. Docet",
+   "printed_number": null,
    "anchor_gap_words": 13,
    "locus": "440",
    "offset": 406,
@@ -741,13 +1002,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 19,
    "locus": "446",
    "offset": 3,
    "incipit": "ειποντες περι αγαθου περι οντος περνζωης"
   },
   {
+   "head": "PARAPIIRASIS ΡΑΟΗΥΜΕΒῈ (45).",
+   "printed_number": 45,
+   "anchor_gap_words": 0,
+   "locus": "446",
+   "offset": 3,
+   "incipit": "ειποντες περι αγαθου περι οντος περνζωης"
+  },
+  {
    "head": "CAPUT VII",
+   "printed_number": null,
    "anchor_gap_words": 4,
    "locus": "452",
    "offset": 612,
@@ -755,6 +1026,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS",
+   "printed_number": null,
    "anchor_gap_words": 4,
    "locus": "452",
    "offset": 612,
@@ -762,6 +1034,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 24,
    "locus": "457",
    "offset": 5,
@@ -769,6 +1042,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERAJE",
+   "printed_number": 44,
    "anchor_gap_words": 2,
    "locus": "457",
    "offset": 5,
@@ -776,6 +1050,7 @@
   },
   {
    "head": "CAPUT IX",
+   "printed_number": null,
    "anchor_gap_words": 12,
    "locus": "462",
    "offset": 362,
@@ -783,6 +1058,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. I. Dicit",
+   "printed_number": null,
    "anchor_gap_words": 12,
    "locus": "462",
    "offset": 362,
@@ -790,6 +1066,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 37,
    "locus": "468",
    "offset": 5,
@@ -797,6 +1074,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 45,
    "anchor_gap_words": 0,
    "locus": "468",
    "offset": 5,
@@ -804,6 +1082,7 @@
   },
   {
    "head": "CAPUT X",
+   "printed_number": null,
    "anchor_gap_words": 16,
    "locus": "475",
    "offset": 1652,
@@ -811,6 +1090,7 @@
   },
   {
    "head": "SYNOPSIS",
+   "printed_number": null,
    "anchor_gap_words": 15,
    "locus": "475",
    "offset": 1652,
@@ -818,6 +1098,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 46,
    "anchor_gap_words": 2,
    "locus": "479",
    "offset": 8,
@@ -825,6 +1106,7 @@
   },
   {
    "head": "CAPUT XI",
+   "printed_number": null,
    "anchor_gap_words": 4,
    "locus": "481",
    "offset": 1625,
@@ -832,6 +1114,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. Y. Descripsit",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "481",
    "offset": 1735,
@@ -839,13 +1122,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 27,
    "locus": "487",
    "offset": 39,
    "incipit": "την αιτιαν συναγωγης απασης εις ρηνην"
   },
   {
+   "head": "516 PARAPIIRASIS PACIYMETRAE (47).",
+   "printed_number": 47,
+   "anchor_gap_words": 5,
+   "locus": "487",
+   "offset": 39,
+   "incipit": "την αιτιαν συναγωγης απασης εις ρηνην"
+  },
+  {
    "head": "CAPUT XII",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "492",
    "offset": 71,
@@ -853,6 +1146,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "492",
    "offset": 71,
@@ -860,13 +1154,23 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 15,
    "locus": "494",
    "offset": 25,
    "incipit": "τουτων ικανως ως οιμαι λολεκται υμνητεον"
   },
   {
+   "head": "PARAPHHASIS PACHYMERE (49).",
+   "printed_number": 49,
+   "anchor_gap_words": 3,
+   "locus": "494",
+   "offset": 25,
+   "incipit": "τουτων ικανως ως οιμαι λολεκται υμνητεον"
+  },
+  {
    "head": "SYNOPSIS CAPITIS. X. Docet",
+   "printed_number": null,
    "anchor_gap_words": 6,
    "locus": "496",
    "offset": 460,
@@ -874,6 +1178,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 29,
    "locus": "500",
    "offset": 3,
@@ -881,6 +1186,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 30,
    "anchor_gap_words": 0,
    "locus": "500",
    "offset": 3,
@@ -888,6 +1194,7 @@
   },
   {
    "head": "CAPUT I",
+   "printed_number": null,
    "anchor_gap_words": 7,
    "locus": "506",
    "offset": 30,
@@ -895,6 +1202,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS.",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "506",
    "offset": 30,
@@ -902,6 +1210,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERA",
+   "printed_number": 53,
    "anchor_gap_words": 1,
    "locus": "514",
    "offset": 2,
@@ -909,6 +1218,7 @@
   },
   {
    "head": "CAPUT II",
+   "printed_number": null,
    "anchor_gap_words": 0,
    "locus": "520",
    "offset": 0,
@@ -916,6 +1226,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 54,
    "anchor_gap_words": 0,
    "locus": "521",
    "offset": 0,
@@ -923,6 +1234,7 @@
   },
   {
    "head": "SYNOPSIS",
+   "printed_number": null,
    "anchor_gap_words": 7,
    "locus": "524",
    "offset": 6,
@@ -930,6 +1242,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 22,
    "locus": "525",
    "offset": 7,
@@ -937,6 +1250,7 @@
   },
   {
    "head": "CAPUT IV",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "527",
    "offset": 1426,
@@ -944,6 +1258,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. Exempla",
+   "printed_number": null,
    "anchor_gap_words": 0,
    "locus": "527",
    "offset": 1426,
@@ -951,6 +1266,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 35,
    "locus": "529",
    "offset": 32,
@@ -958,6 +1274,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERAE",
+   "printed_number": 57,
    "anchor_gap_words": 6,
    "locus": "529",
    "offset": 32,
@@ -965,6 +1282,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "530",
    "offset": 1969,
@@ -972,6 +1290,7 @@
   },
   {
    "head": "SYNOPSIS CAPITIS. Docet",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "530",
    "offset": 1969,
@@ -979,6 +1298,7 @@
   },
   {
    "head": "PARAPHRASIS PACHYMERJE",
+   "printed_number": 60,
    "anchor_gap_words": 0,
    "locus": "536",
    "offset": 0,
@@ -986,6 +1306,7 @@
   },
   {
    "head": "SYNOPSIS",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "540",
    "offset": 10,
@@ -993,6 +1314,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 16,
    "locus": "541",
    "offset": 0,
@@ -1000,6 +1322,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOLAE. Explicat",
+   "printed_number": null,
    "anchor_gap_words": 0,
    "locus": "541",
    "offset": 0,
@@ -1007,6 +1330,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 9,
    "locus": "542",
    "offset": 365,
@@ -1014,6 +1338,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOL.E. Quid",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "542",
    "offset": 365,
@@ -1021,6 +1346,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "543",
    "offset": 0,
@@ -1028,6 +1354,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOL",
+   "printed_number": null,
    "anchor_gap_words": 0,
    "locus": "543",
    "offset": 0,
@@ -1035,6 +1362,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 10,
    "locus": "544",
    "offset": 21,
@@ -1042,6 +1370,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOLAE",
+   "printed_number": null,
    "anchor_gap_words": 1,
    "locus": "544",
    "offset": 21,
@@ -1049,6 +1378,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 18,
    "locus": "546",
    "offset": 0,
@@ -1056,6 +1386,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOLAE. Suadet Sosipatro",
+   "printed_number": null,
    "anchor_gap_words": 0,
    "locus": "546",
    "offset": 0,
@@ -1063,6 +1394,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 9,
    "locus": "546",
    "offset": 510,
@@ -1070,6 +1402,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOLAE.",
+   "printed_number": null,
    "anchor_gap_words": 5,
    "locus": "546",
    "offset": 510,
@@ -1077,6 +1410,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOLAE.",
+   "printed_number": null,
    "anchor_gap_words": 5,
    "locus": "549",
    "offset": 15,
@@ -1084,6 +1418,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 40,
    "locus": "559",
    "offset": 11,
@@ -1091,6 +1426,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOLAE.",
+   "printed_number": null,
    "anchor_gap_words": 3,
    "locus": "559",
    "offset": 108,
@@ -1098,6 +1434,7 @@
   },
   {
    "head": "SYNOPSIS EPISTOL E. Beato",
+   "printed_number": null,
    "anchor_gap_words": 2,
    "locus": "566",
    "offset": 91,
@@ -1105,6 +1442,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 27,
    "locus": "568",
    "offset": 0,
@@ -1114,6 +1452,7 @@
  "declined_placements": [
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 3493,
    "locus": "71",
    "offset": 17,
@@ -1122,6 +1461,7 @@
   },
   {
    "head": "CAPUT VI",
+   "printed_number": null,
    "anchor_gap_words": 3486,
    "locus": "71",
    "offset": 17,
@@ -1130,6 +1470,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 3479,
    "locus": "71",
    "offset": 17,
@@ -1138,6 +1479,7 @@
   },
   {
    "head": "CAPUT IX",
+   "printed_number": null,
    "anchor_gap_words": 3469,
    "locus": "71",
    "offset": 17,
@@ -1146,6 +1488,7 @@
   },
   {
    "head": "CAPUT X",
+   "printed_number": null,
    "anchor_gap_words": 3459,
    "locus": "71",
    "offset": 17,
@@ -1154,6 +1497,7 @@
   },
   {
    "head": "CAPUT XL",
+   "printed_number": null,
    "anchor_gap_words": 3457,
    "locus": "71",
    "offset": 17,
@@ -1162,6 +1506,7 @@
   },
   {
    "head": "CAPUT X",
+   "printed_number": null,
    "anchor_gap_words": 3431,
    "locus": "71",
    "offset": 17,
@@ -1170,6 +1515,7 @@
   },
   {
    "head": "CAPUT XIII",
+   "printed_number": null,
    "anchor_gap_words": 3426,
    "locus": "71",
    "offset": 17,
@@ -1178,6 +1524,7 @@
   },
   {
    "head": "CAPUT XIV",
+   "printed_number": null,
    "anchor_gap_words": 3398,
    "locus": "71",
    "offset": 17,
@@ -1186,6 +1533,7 @@
   },
   {
    "head": "CAPUT X",
+   "printed_number": null,
    "anchor_gap_words": 3369,
    "locus": "71",
    "offset": 17,
@@ -1194,6 +1542,7 @@
   },
   {
    "head": "CAPUT X",
+   "printed_number": null,
    "anchor_gap_words": 3355,
    "locus": "71",
    "offset": 17,
@@ -1202,6 +1551,7 @@
   },
   {
    "head": "CAPUT XVII",
+   "printed_number": null,
    "anchor_gap_words": 3346,
    "locus": "71",
    "offset": 17,
@@ -1210,6 +1560,7 @@
   },
   {
    "head": "CAPUT XVIII",
+   "printed_number": null,
    "anchor_gap_words": 3341,
    "locus": "71",
    "offset": 17,
@@ -1218,6 +1569,7 @@
   },
   {
    "head": "CAPUT XIX",
+   "printed_number": null,
    "anchor_gap_words": 3329,
    "locus": "71",
    "offset": 17,
@@ -1226,6 +1578,7 @@
   },
   {
    "head": "CAPUT XX",
+   "printed_number": null,
    "anchor_gap_words": 3281,
    "locus": "71",
    "offset": 17,
@@ -1234,6 +1587,7 @@
   },
   {
    "head": "CAPUT XXI",
+   "printed_number": null,
    "anchor_gap_words": 3274,
    "locus": "71",
    "offset": 17,
@@ -1242,6 +1596,7 @@
   },
   {
    "head": "CAPUT XXII",
+   "printed_number": null,
    "anchor_gap_words": 3268,
    "locus": "71",
    "offset": 17,
@@ -1250,6 +1605,7 @@
   },
   {
    "head": "CAPUT IV",
+   "printed_number": null,
    "anchor_gap_words": 3066,
    "locus": "71",
    "offset": 17,
@@ -1258,6 +1614,7 @@
   },
   {
    "head": "CAPUT V",
+   "printed_number": null,
    "anchor_gap_words": 3039,
    "locus": "71",
    "offset": 17,
@@ -1266,6 +1623,7 @@
   },
   {
    "head": "CAPUT II",
+   "printed_number": null,
    "anchor_gap_words": 2380,
    "locus": "71",
    "offset": 17,
@@ -1274,6 +1632,7 @@
   },
   {
    "head": "CAPUT VI",
+   "printed_number": null,
    "anchor_gap_words": 2363,
    "locus": "71",
    "offset": 17,
@@ -1282,6 +1641,7 @@
   },
   {
    "head": "CAPUT I",
+   "printed_number": null,
    "anchor_gap_words": 557,
    "locus": "71",
    "offset": 17,
@@ -1290,6 +1650,7 @@
   },
   {
    "head": "SYNOPSIS",
+   "printed_number": null,
    "anchor_gap_words": 557,
    "locus": "71",
    "offset": 17,
@@ -1298,6 +1659,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 75,
    "locus": "92",
    "offset": 97,
@@ -1306,6 +1668,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 102,
    "locus": "101",
    "offset": 4,
@@ -1314,6 +1677,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 100,
    "locus": "151",
    "offset": 48,
@@ -1322,6 +1686,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 50,
    "locus": "169",
    "offset": 18,
@@ -1330,6 +1695,7 @@
   },
   {
    "head": "CAPUT XV",
+   "printed_number": null,
    "anchor_gap_words": 122,
    "locus": "170",
    "offset": 1847,
@@ -1338,6 +1704,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 71,
    "locus": "198",
    "offset": 0,
@@ -1346,6 +1713,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 131,
    "locus": "212",
    "offset": 45,
@@ -1354,6 +1722,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 51,
    "locus": "278",
    "offset": 55,
@@ -1362,6 +1731,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 174,
    "locus": "310",
    "offset": 464,
@@ -1370,6 +1740,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 75,
    "locus": "336",
    "offset": 4,
@@ -1378,6 +1749,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 103,
    "locus": "381",
    "offset": 28,
@@ -1386,6 +1758,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 53,
    "locus": "423",
    "offset": 18,
@@ -1394,6 +1767,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 69,
    "locus": "479",
    "offset": 8,
@@ -1402,6 +1776,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 119,
    "locus": "514",
    "offset": 2,
@@ -1410,6 +1785,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 73,
    "locus": "536",
    "offset": 0,
@@ -1418,6 +1794,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 98,
    "locus": "549",
    "offset": 15,
@@ -1426,6 +1803,7 @@
   },
   {
    "head": "ADNOTATIONES",
+   "printed_number": null,
    "anchor_gap_words": 46,
    "locus": "566",
    "offset": 91,

@@ -380,13 +380,33 @@ Archive item `Patrologia_Graeca_vol_003`) reads Migne's Latin display heads as
 Latin. What remains is the disposition call. The head table now exists:
 `scripts/recover_pg003_heads.py` aligns our rows against that second OCR by
 unique-trigram anchors (68,313 monotone anchors, one per 2.3 words) and places
-129 of its 169 Latin display heads at a locus and character offset, declining 40
+145 of its 185 Latin display heads at a locus and character offset, declining 40
 whose nearest anchor is too far to trust. `data/pg003_heads.json` carries the
 anchor distance for every placement. Held out and never read while aligning, the
 26 heads our own OCR kept: 24 land within 200 characters, and both outliers are
 explained, one of them because the alignment is right where the record is not
 (locus 89's recorded head is a stray Latin running head at offset 0, while the
-placement matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552)
+placement matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552).
+
+Sixteen of those heads are the ones that matter most and were the hardest to
+find. The head that marks an author switch is PARAPHRASIS PACHYMERAE, and the
+scanner garbles it a different way almost every time: it reads Latin display
+capitals as their Greek lookalikes (ΡΑΟΠΥΜΕΒ ΑΣ) and the ligatured Æ as JE, UE
+or LE, so a fixed list of spellings caught 20 of the 60 Migne prints. Folding
+the lookalikes and scoring similarity catches 35. What keeps a fuzzy match from
+inventing boundaries is Migne's own numbering: he numbers the paraphrase (1) to
+(60) straight through the volume and prints that number on the display head
+only, never on the page header, which is why the matcher requires it.
+
+That the numbered line is a display head and not a page header is measured
+rather than assumed (`scripts/measure_pg003_head_geometry.py`,
+`data/pg003_head_geometry.json`). Two things in the text OCR suggested it might
+be a header, which would have put every switch at a page top instead of where
+the text changes hands: the same number comes back on a later page, and one head
+is split across a spread with a column number between its halves. The scan's own
+per-word bounding boxes settle it. The numbered form sits a median 64% down its
+page and is never the first line on it, on any occurrence; the abbreviated form,
+which is the page header, sits at 1.4% and opens its page 54 times in 57
 (`scripts/measure_pg003_blocks.py`, `data/pg003_blocks.json`,
 `data/corpus_changes/cogPG.PG003.split-deferred.json`). Its attribution has
 been corrected in the meantime: Dionysius holds about 37% of the volume's

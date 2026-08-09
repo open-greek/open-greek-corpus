@@ -38,6 +38,7 @@ from __future__ import annotations
 
 import argparse
 import bisect
+import difflib
 import hashlib
 import json
 import re
@@ -58,6 +59,31 @@ HEAD_RX = re.compile(
     r"|CAPUT\s+[IVXL]+|ADNOTATIONES)")
 GK = re.compile(r"[Ͱ-Ͽἀ-῿]+")
 MAX_ANCHOR_GAP = 40      # words; beyond this the placement is declined
+
+# The paraphrase head is the one that marks an author switch, and it is also the
+# one HEAD_RX reads worst: it caught 20 of the 60 Migne prints, because the same
+# three words are garbled a different way almost every time. Two mechanical
+# confusions do most of it. The scanner reads Latin display capitals as their
+# Greek lookalikes (ΡΑΟΠΥΜΕΒ ΑΣ for PACHYMERAE), and it reads the ligatured Æ of
+# PACHYMERÆ as JE, UE, LE or IUE. Neither is guessable as a spelling, so the
+# match folds the lookalikes and then scores similarity instead of enumerating
+# variants.
+#
+# What keeps that from inventing heads is the number. Migne numbers the
+# paraphrase (1) to (60) straight through the volume, and prints that number on
+# the display head only: the running head at every page top reads DE COELESTI
+# HIERARCHIA, CAP. I. - PARAPHR. PACHYMERÆ with no number. 115 of the 151
+# paraphrase-shaped lines in this witness are those page headers, and requiring
+# the number is what tells them apart. A page header placed as a boundary would
+# cut the text at the top of a page that is in the middle of a block.
+HOMOGLYPH = str.maketrans({"Α": "A", "Β": "B", "Ε": "E", "Ζ": "Z", "Η": "H",
+                           "Ι": "I", "Κ": "K", "Μ": "M", "Ν": "N", "Ο": "O",
+                           "Ρ": "P", "Τ": "T", "Υ": "Y", "Χ": "X", "Ϲ": "C",
+                           "Σ": "C"})
+PARAPHRASE_HEAD = "PARAPHRASISPACHYMERAE"
+PARAPHRASE_RATIO = 0.62
+PARAPHRASE_MAX = 60      # Migne's own last number, on the Mystical Theology
+HEAD_NUM = re.compile(r"\(\s*(\d{1,2})\s*[\).]")
 
 
 def fold(w: str) -> str:
@@ -82,6 +108,36 @@ def unique_trigrams(words: list[str]) -> dict[tuple, int]:
     for k in dupe:
         del seen[k]
     return seen
+
+
+def latin_key(s: str) -> str:
+    return re.sub(r"[^A-Z]", "", s.translate(HOMOGLYPH).upper())
+
+
+def paraphrase_heads(wit: str) -> list[tuple[int, int, str, int]]:
+    """(start, end, text, printed number) for each numbered paraphrase head.
+
+    Display heads sit on their own line, so this scans lines rather than the
+    whole text: it keeps the fuzzy comparison against a bounded string, and a
+    line that happens to contain the words mid-sentence (the volume's own front
+    matter mentions the Paraphrasis twice in running prose) is not the shape of
+    a head and does not score.
+    """
+    out = []
+    pos = 0
+    for line in wit.split("\n"):
+        start, pos = pos, pos + len(line) + 1
+        k = latin_key(line)
+        if not (10 <= len(k) <= 70):
+            continue
+        m = HEAD_NUM.search(line)
+        if not m or not 1 <= int(m.group(1)) <= 99:
+            continue
+        if difflib.SequenceMatcher(None, k, PARAPHRASE_HEAD).ratio() < PARAPHRASE_RATIO:
+            continue
+        out.append((start, start + len(line), " ".join(line.split()),
+                    int(m.group(1))))
+    return out
 
 
 def lis(pairs: list[tuple[int, int]]) -> list[tuple[int, int]]:
@@ -143,21 +199,42 @@ def main() -> None:
           f"{len(chain):,} monotone ({len(chain) / max(len(ow), 1):.2f} per our word)")
 
     their_idx = [t for t, _ in chain]
-    heads = list(HEAD_RX.finditer(wit))
+    # Exact matches first, then the fuzzy paraphrase heads the expression cannot
+    # spell. Where the two land on the same line the exact one wins, so widening
+    # the search can add heads but never restate one differently.
+    def printed_number(m: re.Match) -> int | None:
+        """A verbatim paraphrase match stops at the word, so its number is still
+        ahead of it on the line. Read it the same way as for a fuzzy match, or
+        the sequence check would only cover the heads that were hard to find."""
+        if "PACHYMER" not in m.group():
+            return None
+        n = HEAD_NUM.match(wit[m.end():wit.find("\n", m.end())].lstrip())
+        return int(n.group(1)) if n else None
+
+    heads = [(m.start(), m.end(), " ".join(m.group().split()), printed_number(m))
+             for m in HEAD_RX.finditer(wit)]
+    exact = {(s, e) for s, e, _, _ in heads}
+    fuzzy = [h for h in paraphrase_heads(wit)
+             if not any(h[0] < e and s < h[1] for s, e in exact)]
+    heads = sorted(heads + fuzzy)
+    print(f"heads in the witness: {len(heads)} "
+          f"({len(heads) - len(fuzzy)} matched verbatim, {len(fuzzy)} by "
+          f"folding the scanner's Greek lookalikes)")
+
     placed, declined = [], []
-    for h in heads:
+    for h_start, h_end, h_text, h_num in heads:
         # first witness word after the head, then the nearest anchor at or after it
-        j = bisect.bisect_left([off for _, off in their], h.end())
+        j = bisect.bisect_left([off for _, off in their], h_end)
         if j >= len(their):
             continue
         k = bisect.bisect_left(their_idx, j)
         if k >= len(chain):
-            declined.append({"head": " ".join(h.group().split()),
+            declined.append({"head": h_text, "printed_number": h_num,
                              "reason": "no anchor after this head"})
             continue
         t_i, o_i = chain[k]
         gap = t_i - j
-        rec = {"head": " ".join(h.group().split()),
+        rec = {"head": h_text, "printed_number": h_num,
                "anchor_gap_words": gap,
                "locus": ours[o_i][1], "offset": ours[o_i][2],
                "incipit": " ".join(w for w, _, _ in ours[o_i:o_i + 6])}
@@ -165,8 +242,21 @@ def main() -> None:
             rec if gap <= args.max_gap
             else {**rec, "reason": f"nearest anchor is {gap} words away "
                                    f"(limit {args.max_gap})"})
-    print(f"heads in the witness: {len(heads)}; placed {len(placed)}, "
-          f"declined {len(declined)}")
+    print(f"  placed {len(placed)}, declined {len(declined)}")
+
+    # The paraphrase numbering is a check the alignment cannot fake: Migne runs
+    # it 1..60 in print order, so a recovered number that goes backwards is a
+    # misread digit, not a head out of place. They are reported, never quietly
+    # renumbered, because a renumber would hide a head placed in the wrong half
+    # of the volume.
+    seq = [p for p in placed if p["printed_number"] is not None]
+    backwards = [b for a, b in zip(seq, seq[1:])
+                 if b["printed_number"] <= a["printed_number"]]
+    got = {p["printed_number"] for p in seq}
+    print(f"paraphrase heads: {len(seq)} of Migne's {PARAPHRASE_MAX} placed, "
+          f"{len(backwards)} carrying a number that goes backwards, "
+          f"{len([n for n in range(1, PARAPHRASE_MAX + 1) if n not in got])} "
+          f"of 1..{PARAPHRASE_MAX} never recovered")
 
     # Held out: the 26 heads our own OCR kept, recorded independently in
     # data/pg003_blocks.json and never read while aligning. Each is reported
@@ -214,9 +304,26 @@ def main() -> None:
             "file": str(WITNESS.relative_to(REPO)),
             "sha256": hashlib.sha256(WITNESS.read_bytes()).hexdigest(),
         },
-        "params": {"max_anchor_gap_words": args.max_gap},
+        "params": {"max_anchor_gap_words": args.max_gap,
+                   "paraphrase_similarity": PARAPHRASE_RATIO},
         "anchor_matches": len(common), "anchor_chain": len(chain),
         "heads_found": len(heads), "placed": len(placed), "declined": len(declined),
+        "paraphrase_numbering": {
+            "what": "Migne numbers the paraphrase (1) to 60 straight through the "
+                    "volume and prints the number on the display head only, "
+                    "never on the page's running head. Requiring it is what "
+                    "separates the two, and reading it back is a check the "
+                    "alignment cannot fake.",
+            "printed_last": PARAPHRASE_MAX,
+            "placed": len(seq),
+            "never_recovered": [n for n in range(1, PARAPHRASE_MAX + 1)
+                                if n not in got],
+            "number_goes_backwards": [
+                {"head": b["head"], "locus": b["locus"],
+                 "printed_number": b["printed_number"],
+                 "note": "a misread digit; the head's position is the alignment's, "
+                         "not this number's"} for b in backwards],
+        },
         "held_out": {"source": "data/pg003_blocks.json heads",
                      "note": "locus 89's recorded head is a running head at "
                              "offset 0, not a boundary; the placement at ~1,566 "
