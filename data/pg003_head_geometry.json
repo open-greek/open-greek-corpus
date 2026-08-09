@@ -1,0 +1,776 @@
+{
+ "what": "where on the printed page each PG003 paraphrase head sits, measured from the scan's own per-word bounding boxes",
+ "issue": "open-greek/open-greek-corpus#9",
+ "why": "recover_pg003_heads.py treats PARAPHRASIS PACHYMERAE (N) as the point a paraphrase block begins. If it were a running head instead, every boundary taken from one would be wrong the same way, putting the switch at a page top when the text changes hands on the page before. Two things in the text OCR suggest exactly that: a number that comes back on a later page, and one head split across a spread with a column number between its halves. Position decides it and the two readings do not.",
+ "witness": {
+  "item": "https://archive.org/details/Patrologia_Graeca_vol_003",
+  "file": "data/cache/ia/PG003_djvu.xml",
+  "sha256": "0507e8951bfb1531ab5c4f640c06c6debf29960abbc722a9fc20cf6b7549210a"
+ },
+ "leaves": 596,
+ "params": {
+  "paraphrase_similarity": 0.62,
+  "abbreviated_similarity": 0.78,
+  "top_of_page_fraction": 0.1
+ },
+ "summary": {
+  "numbered_full_form": {
+   "lines": 25,
+   "median_top_of_page_fraction": 0.6388,
+   "is_first_line_on_its_page": 0,
+   "within_top_10_percent": 0
+  },
+  "abbreviated": {
+   "lines": 57,
+   "median_top_of_page_fraction": 0.0141,
+   "is_first_line_on_its_page": 13,
+   "within_top_10_percent": 54
+  }
+ },
+ "verdict": "display head: it has text above it on every page it appears on, so it marks where a block begins",
+ "reading": "The abbreviated form is a running head: it opens its page and sits hard against the top edge. The numbered full form never does either, on any of its occurrences, so it is a display head printed where the paraphrase block starts. That is also why the boundaries it gives are character offsets into a row rather than whole pages.",
+ "occurrences": {
+  "numbered_full_form": [
+   {
+    "leaf": 63,
+    "line": 42,
+    "lines_on_page": 83,
+    "top_of_page_fraction": 0.5662,
+    "is_first_line": false,
+    "printed_number": 1,
+    "reading": "FARAPHRASIS PACHYMERLE (1)."
+   },
+   {
+    "leaf": 74,
+    "line": 69,
+    "lines_on_page": 73,
+    "top_of_page_fraction": 0.8695,
+    "is_first_line": false,
+    "printed_number": 8,
+    "reading": "PARAPHRASIS PACHYMEIUE (8)."
+   },
+   {
+    "leaf": 84,
+    "line": 46,
+    "lines_on_page": 70,
+    "top_of_page_fraction": 0.6594,
+    "is_first_line": false,
+    "printed_number": 87,
+    "reading": "32 PARAPHRASIS PACHYMETLE (87)."
+   },
+   {
+    "leaf": 98,
+    "line": 30,
+    "lines_on_page": 66,
+    "top_of_page_fraction": 0.4107,
+    "is_first_line": false,
+    "printed_number": 40,
+    "reading": "PARAPHRASIS PACHYMERJE. (40)."
+   },
+   {
+    "leaf": 106,
+    "line": 59,
+    "lines_on_page": 71,
+    "top_of_page_fraction": 0.7577,
+    "is_first_line": false,
+    "printed_number": 12,
+    "reading": "PARAPHRASIS PACHYMETRLE (12)."
+   },
+   {
+    "leaf": 121,
+    "line": 34,
+    "lines_on_page": 88,
+    "top_of_page_fraction": 0.4659,
+    "is_first_line": false,
+    "printed_number": 12,
+    "reading": "PARAPIIRASIS ΡΑΘΠΥΜΕΙ (12)."
+   },
+   {
+    "leaf": 131,
+    "line": 55,
+    "lines_on_page": 67,
+    "top_of_page_fraction": 0.7384,
+    "is_first_line": false,
+    "printed_number": 14,
+    "reading": "PARAPHRASIS PACHYMERJE (14)."
+   },
+   {
+    "leaf": 137,
+    "line": 69,
+    "lines_on_page": 76,
+    "top_of_page_fraction": 0.8895,
+    "is_first_line": false,
+    "printed_number": 15,
+    "reading": "TARAPIIRASI: CI YMEILE (15)."
+   },
+   {
+    "leaf": 143,
+    "line": 47,
+    "lines_on_page": 94,
+    "top_of_page_fraction": 0.6041,
+    "is_first_line": false,
+    "printed_number": 16,
+    "reading": "PARAPHRASIS PACHYMERUE (16)."
+   },
+   {
+    "leaf": 147,
+    "line": 22,
+    "lines_on_page": 85,
+    "top_of_page_fraction": 0.34,
+    "is_first_line": false,
+    "printed_number": 17,
+    "reading": "PARAPHRASIS PACHYMERUE (17)."
+   },
+   {
+    "leaf": 154,
+    "line": 9,
+    "lines_on_page": 104,
+    "top_of_page_fraction": 0.1607,
+    "is_first_line": false,
+    "printed_number": 18,
+    "reading": "PARAPHRASIS PACHYMERUE (18)."
+   },
+   {
+    "leaf": 204,
+    "line": 58,
+    "lines_on_page": 73,
+    "top_of_page_fraction": 0.7455,
+    "is_first_line": false,
+    "printed_number": 25,
+    "reading": "178 PARAPIRASIS PACHYMERJE (25)."
+   },
+   {
+    "leaf": 224,
+    "line": 54,
+    "lines_on_page": 71,
+    "top_of_page_fraction": 0.7198,
+    "is_first_line": false,
+    "printed_number": 24,
+    "reading": "PARAPHRASIS PACIIYMEILE (24)."
+   },
+   {
+    "leaf": 243,
+    "line": 37,
+    "lines_on_page": 85,
+    "top_of_page_fraction": 0.5058,
+    "is_first_line": false,
+    "printed_number": 25,
+    "reading": "22/4 PARAPHRASIS PACHYMERUE (25),"
+   },
+   {
+    "leaf": 269,
+    "line": 66,
+    "lines_on_page": 72,
+    "top_of_page_fraction": 0.8419,
+    "is_first_line": false,
+    "printed_number": 27,
+    "reading": "PARAPHRASIS. PACHYMERJE (27)."
+   },
+   {
+    "leaf": 284,
+    "line": 47,
+    "lines_on_page": 65,
+    "top_of_page_fraction": 0.6388,
+    "is_first_line": false,
+    "printed_number": 28,
+    "reading": "PARAPHRASIS ΡΑΟΠΥΜΕΒ ΑΣ (28)."
+   },
+   {
+    "leaf": 415,
+    "line": 14,
+    "lines_on_page": 100,
+    "top_of_page_fraction": 0.2147,
+    "is_first_line": false,
+    "printed_number": 41,
+    "reading": "A437 PARAPHRASIS PACHYMERJE (41)."
+   },
+   {
+    "leaf": 449,
+    "line": 52,
+    "lines_on_page": 79,
+    "top_of_page_fraction": 0.6793,
+    "is_first_line": false,
+    "printed_number": 44,
+    "reading": "PARAPHRASIS PACHYMERAJE (44)."
+   },
+   {
+    "leaf": 460,
+    "line": 47,
+    "lines_on_page": 82,
+    "top_of_page_fraction": 0.6183,
+    "is_first_line": false,
+    "printed_number": 45,
+    "reading": "PARAPHRASIS PACHYMERJE (45)."
+   },
+   {
+    "leaf": 486,
+    "line": 31,
+    "lines_on_page": 94,
+    "top_of_page_fraction": 0.4415,
+    "is_first_line": false,
+    "printed_number": 49,
+    "reading": "PARAPHHASIS PACHYMERE (49)."
+   },
+   {
+    "leaf": 492,
+    "line": 40,
+    "lines_on_page": 66,
+    "top_of_page_fraction": 0.5482,
+    "is_first_line": false,
+    "printed_number": 30,
+    "reading": "PARAPHRASIS PACHYMERJE (30)."
+   },
+   {
+    "leaf": 506,
+    "line": 44,
+    "lines_on_page": 67,
+    "top_of_page_fraction": 0.5707,
+    "is_first_line": false,
+    "printed_number": 53,
+    "reading": "PARAPHRASIS PACHYMERA (53)."
+   },
+   {
+    "leaf": 513,
+    "line": 43,
+    "lines_on_page": 66,
+    "top_of_page_fraction": 0.705,
+    "is_first_line": false,
+    "printed_number": 54,
+    "reading": "PARAPHRASIS PACHYMERJE (54)."
+   },
+   {
+    "leaf": 521,
+    "line": 56,
+    "lines_on_page": 69,
+    "top_of_page_fraction": 0.7384,
+    "is_first_line": false,
+    "printed_number": 57,
+    "reading": "PARAPHRASIS PACHYMERAE (57)."
+   },
+   {
+    "leaf": 528,
+    "line": 64,
+    "lines_on_page": 71,
+    "top_of_page_fraction": 0.822,
+    "is_first_line": false,
+    "printed_number": 60,
+    "reading": "581 PARAPHRASIS PACHYMERJE (60)"
+   }
+  ],
+  "abbreviated": [
+   {
+    "leaf": 28,
+    "line": 25,
+    "lines_on_page": 89,
+    "top_of_page_fraction": 0.5996,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "Mazimi, εἰ Pavaphrasi. Pachymere, a. Balthasare"
+   },
+   {
+    "leaf": 28,
+    "line": 34,
+    "lines_on_page": 89,
+    "top_of_page_fraction": 0.7564,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "Scholia S. Maximi, et Paraprasis Pachymera: sub-"
+   },
+   {
+    "leaf": 74,
+    "line": 0,
+    "lines_on_page": 73,
+    "top_of_page_fraction": 0.0116,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "149 DE COELESTI HIERARCIIIA, CAP. Il. — PARAPHR. PACHYMERJE."
+   },
+   {
+    "leaf": 116,
+    "line": 64,
+    "lines_on_page": 127,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "VII. — PARAPHR. PACHYMEIUE. 954"
+   },
+   {
+    "leaf": 122,
+    "line": 65,
+    "lines_on_page": 126,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "Vill. — PARAPHR. PACHYMERJE. 246"
+   },
+   {
+    "leaf": 126,
+    "line": 65,
+    "lines_on_page": 124,
+    "top_of_page_fraction": 0.0122,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "VIL — PARAPUR. PACHYMERAE. 384"
+   },
+   {
+    "leaf": 132,
+    "line": 60,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.0161,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "ΙΧ. — PARAPIR, PACHYMEAE. 26"
+   },
+   {
+    "leaf": 134,
+    "line": 47,
+    "lines_on_page": 127,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "—- PARAPHR, PACHYMERJE. 97)."
+   },
+   {
+    "leaf": 138,
+    "line": 60,
+    "lines_on_page": 121,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPHR. PACHYMERAE. 218"
+   },
+   {
+    "leaf": 144,
+    "line": 61,
+    "lines_on_page": 121,
+    "top_of_page_fraction": 0.0167,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "ΧΙ. — PARAPIIR. PACHYMERLE. 290"
+   },
+   {
+    "leaf": 148,
+    "line": 65,
+    "lines_on_page": 126,
+    "top_of_page_fraction": 0.0161,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "ΧΗ. — PARAPHAR. PACHYMERUE. 938"
+   },
+   {
+    "leaf": 154,
+    "line": 0,
+    "lines_on_page": 104,
+    "top_of_page_fraction": 0.0193,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "309 DE COELESTI IlERARCIHA , CAP. XIII. — PARAPHR. PACHYMERA"
+   },
+   {
+    "leaf": 158,
+    "line": 60,
+    "lines_on_page": 119,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "XII. — PARAPHR, PACHYMETUE, 318"
+   },
+   {
+    "leaf": 170,
+    "line": 0,
+    "lines_on_page": 88,
+    "top_of_page_fraction": 0.0167,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "S4 DE COELESTI HIERARCHIA, CAP, XV. — PARAPHR. PACHYMEIUE, 5"
+   },
+   {
+    "leaf": 176,
+    "line": 66,
+    "lines_on_page": 125,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "XV, — PARAPHR, PACHYMERUE, 554"
+   },
+   {
+    "leaf": 178,
+    "line": 62,
+    "lines_on_page": 122,
+    "top_of_page_fraction": 0.0154,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": ". — PARAPHR. PACHYMEIE, Ed"
+   },
+   {
+    "leaf": 190,
+    "line": 1,
+    "lines_on_page": 109,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "1. — PARAPHR. PACHYMERA."
+   },
+   {
+    "leaf": 192,
+    "line": 50,
+    "lines_on_page": 118,
+    "top_of_page_fraction": 0.0129,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPHR. PACHYMER.E. $86"
+   },
+   {
+    "leaf": 204,
+    "line": 0,
+    "lines_on_page": 73,
+    "top_of_page_fraction": 0.0186,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "409 DE ECCLES. HIERARCH., CAP. IJ. — PARAPER, PACHYMERLE. A0"
+   },
+   {
+    "leaf": 208,
+    "line": 59,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "H. — PARAPHR. PACIIYMERJE. 418"
+   },
+   {
+    "leaf": 210,
+    "line": 61,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.0109,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "Tl. — PARAPHR. ΡΑΟΗΥΜΕΒ ΑΛ. 422"
+   },
+   {
+    "leaf": 226,
+    "line": 60,
+    "lines_on_page": 119,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "ΤΙ. — ΡΑΒΑΡΗΠ. PACIYMERUE, 454"
+   },
+   {
+    "leaf": 228,
+    "line": 59,
+    "lines_on_page": 119,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "IH. — PARAPHR. PACHYMER,E 458"
+   },
+   {
+    "leaf": 230,
+    "line": 60,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "Hi. — PARAPHR. PACHYMEIUE, wt"
+   },
+   {
+    "leaf": 234,
+    "line": 26,
+    "lines_on_page": 114,
+    "top_of_page_fraction": 0.0129,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "MI, — PARAPHR. PACHYMEIUE,"
+   },
+   {
+    "leaf": 244,
+    "line": 69,
+    "lines_on_page": 127,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPIIR, PACHYMER.E. 490"
+   },
+   {
+    "leaf": 248,
+    "line": 1,
+    "lines_on_page": 112,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "ΤΥ. — PARAPIR. PACHYMERAE. 498"
+   },
+   {
+    "leaf": 262,
+    "line": 73,
+    "lines_on_page": 131,
+    "top_of_page_fraction": 0.0161,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "V. — PARAPHR. PACHYMERJE. 596"
+   },
+   {
+    "leaf": 270,
+    "line": 68,
+    "lines_on_page": 130,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "VI. — ΡΑΠΑΡΗΠ, PACHYMEIUE. 5i2"
+   },
+   {
+    "leaf": 274,
+    "line": 61,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "VI. — PARAPHR. PACHYMETUE, 550"
+   },
+   {
+    "leaf": 306,
+    "line": 0,
+    "lines_on_page": 109,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "615 DE DIVINIS NOMINIBUS, CAP. IJ. — PARAPHA, PACHYMERJE. 6"
+   },
+   {
+    "leaf": 314,
+    "line": 34,
+    "lines_on_page": 117,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPIIR. PACHYMERAE, 000"
+   },
+   {
+    "leaf": 316,
+    "line": 9,
+    "lines_on_page": 110,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPIIR. PACIIYMER.E. 634"
+   },
+   {
+    "leaf": 328,
+    "line": 0,
+    "lines_on_page": 100,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "651 DE DIYINIS NOMINIBUS, CAP. I. — PARAPHR. PACHYMERUE. 658"
+   },
+   {
+    "leaf": 330,
+    "line": 56,
+    "lines_on_page": 117,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "M. -—— PARAPHR. PACHYMERJE. 602"
+   },
+   {
+    "leaf": 334,
+    "line": 63,
+    "lines_on_page": 124,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "ΤΠ. — PARAPHR, ΡΑΟΗΧΜΕΒΑΕ. 670"
+   },
+   {
+    "leaf": 336,
+    "line": 58,
+    "lines_on_page": 118,
+    "top_of_page_fraction": 0.0161,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "W. — PARAPHR. PACHYMERJE. 674"
+   },
+   {
+    "leaf": 338,
+    "line": 41,
+    "lines_on_page": 88,
+    "top_of_page_fraction": 0.0167,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "PARAPHR. PACITYMETUE. 678‏ — ,]ܐ"
+   },
+   {
+    "leaf": 374,
+    "line": 55,
+    "lines_on_page": 115,
+    "top_of_page_fraction": 0.0129,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "jV. — PARAPHR, PACHYMERZE. 780"
+   },
+   {
+    "leaf": 384,
+    "line": 60,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "IV. -- PARAPIIR. PACHYMETUE. πο"
+   },
+   {
+    "leaf": 392,
+    "line": 60,
+    "lines_on_page": 120,
+    "top_of_page_fraction": 0.018,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "1Υ. — PARAPHR, PACHYMETUE. ܚ‎"
+   },
+   {
+    "leaf": 398,
+    "line": 50,
+    "lines_on_page": 113,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "V. — PARAPHR. PACITYMERAE., 38"
+   },
+   {
+    "leaf": 416,
+    "line": 19,
+    "lines_on_page": 111,
+    "top_of_page_fraction": 0.0141,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "V. -- PARAPHR, PACHYMEIUE. 834"
+   },
+   {
+    "leaf": 420,
+    "line": 33,
+    "lines_on_page": 123,
+    "top_of_page_fraction": 0.0161,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPIIR. PACIIYMER,E, 849"
+   },
+   {
+    "leaf": 422,
+    "line": 1,
+    "lines_on_page": 119,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPHR. PACHYMBR/E. 810"
+   },
+   {
+    "leaf": 424,
+    "line": 68,
+    "lines_on_page": 128,
+    "top_of_page_fraction": 0.0148,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "¥, — PARAPHR. PACHYMERGE, 850"
+   },
+   {
+    "leaf": 426,
+    "line": 41,
+    "lines_on_page": 88,
+    "top_of_page_fraction": 0.018,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "V. — PARAPHR. ΡΑΓΗΥΜΈΕΒΕ. 855"
+   },
+   {
+    "leaf": 442,
+    "line": 0,
+    "lines_on_page": 61,
+    "top_of_page_fraction": 0.0122,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "ess DE DIVINIS NOMINIBUS, CAP. ΥΗ. — PARAPHR. PACHYMEILE. 88"
+   },
+   {
+    "leaf": 460,
+    "line": 0,
+    "lines_on_page": 82,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "921 DE DIVINIS NOMINIBUS, CAP. IX. — PARAPHR. PACHYMERJE, 92"
+   },
+   {
+    "leaf": 464,
+    "line": 1,
+    "lines_on_page": 107,
+    "top_of_page_fraction": 0.0199,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "— PARAPIIR. PACHYMETUE, 933"
+   },
+   {
+    "leaf": 482,
+    "line": 59,
+    "lines_on_page": 119,
+    "top_of_page_fraction": 0.0193,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "επ PARAPIIR. PACHYMETUE, 966"
+   },
+   {
+    "leaf": 486,
+    "line": 0,
+    "lines_on_page": 94,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "915 ΡΕ DIVINIS NOMINIBUS, CAP. XI.—PARAPIR. PACITYMER,E."
+   },
+   {
+    "leaf": 492,
+    "line": 0,
+    "lines_on_page": 66,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "DE DIVINIS NOMINIBUS, CAP. Xlil, — PARAPBR. PACHYMERJE 986"
+   },
+   {
+    "leaf": 506,
+    "line": 0,
+    "lines_on_page": 67,
+    "top_of_page_fraction": 0.0109,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "10156 LE MYSTICA THEOLOGIA, CAP. |, — PARAPHR. PACHYMEILE jo"
+   },
+   {
+    "leaf": 508,
+    "line": 0,
+    "lines_on_page": 59,
+    "top_of_page_fraction": 0.0167,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "4011 DE MYSTICA TIIEOLOGIA, CAP, 1, — PARAPHR. PACHYMETUE, 1"
+   },
+   {
+    "leaf": 517,
+    "line": 52,
+    "lines_on_page": 79,
+    "top_of_page_fraction": 0.6754,
+    "is_first_line": false,
+    "printed_number": null,
+    "reading": "565 PARAPHRASIS PACHYMEILE ("
+   },
+   {
+    "leaf": 528,
+    "line": 0,
+    "lines_on_page": 71,
+    "top_of_page_fraction": 0.0135,
+    "is_first_line": true,
+    "printed_number": null,
+    "reading": "4051 DE MYSTICA THEOLOGI, CAP. V. — PARAPHR. PACHYMEILE. 103"
+   }
+  ]
+ }
+}
