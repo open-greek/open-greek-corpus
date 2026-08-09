@@ -1,0 +1,82 @@
+{
+ "_meta": {
+  "change": "split the cogPG.PG113 whole-volume CGPG dump into per-work corpus files",
+  "volume": "PG113",
+  "source_urn": "cogPG.PG113",
+  "applied_by": "scripts/carve_cgpg_volume.py (plan: data/cgpg_carve_plan.json)",
+  "date": "2026-08-09",
+  "plan_basis": "Constantine VII's own prooemium to the Excerpta de legationibus, the one part of that compilation still under the volume urn after pass 5 carved its seven historians. It was left because the recorded reason conflated two questions: 1,243 tokens cannot claim the TLG anchor tlg3023.001 (De legationibus, 181,366 Canon words), which answers whether an anchor applies and not whether the block is a work. This repo already serves three works with tlg null.\nLocus 328 opens at character 0 with its own printed head, ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ ΠΡΟΟΙΜΙΟΝ, and the text names its author in the Excerpta's standard formula, ὁ τῆς πορφύρας ἀπόγονος Κωνσταντῖνος. 329 says which section this is, τυγχάνει οὖσα ἑβδόμη ἐπὶ τοῖς εἴκοσι.\nThe 329/330 seam is settled from our own bytes and needed no page read: 329 ends Εἰ δὶ παρ´ ἡμῶν πρέσβεις ἀποστέλλονται, χρῆ τούτονς and 330 opens πρῶτον μὲν εὐσεβεία γνωρίζεσθαι, one sentence, so 330's advice on choosing envoys belongs to the proem rather than being a separate appended piece.\n330 is taken whole under the shared-row rule, so one token of the following block's head, ΔΕΞΙΠΠΟΥ, travels with the proem. Our OCR had welded it to the proem's last word; that was separated first (data/corpus_changes/cogPG.PG113.head-splice.json) so it travels as a head and not as a corrupt word.\nLoci 488-489 are NOT part of this work. 488 is a second print of the same proem, word-bigram containment 0.831 in 328-330, and is shed to corpus_secondary rather than carved, because carving both ranges into one work would serve the same proem twice. 489, at 0.118, is the list of fourteen chronicle sources the compilation excerpts and is a different thing; it stays in the residual.",
+  "shared_row_rule": "a served row holding a work boundary is assigned to exactly one work, normally the one whose incipit the row carries; the plan records the decision as the ranges themselves",
+  "reversible": "To revert: for every carved work file listed under 'works', drop its rows whose locus starts 'PG113.' (delete the file when it was 'created'), strip the 'PG113.' prefix from their loci, re-insert them and the archived 'dropped_duplicates' rows into data/corpus/cogPG.PG113.jsonl together with the residual rows, sorted by locus, and restore data/cgpg_works.json, data/tlg_crosswalk.json/.tsv, and data/corrections_log/provenance.json from the parent commit (or simply git revert the commit; old sha256 below verifies). Every moved row's text is byte-identical; only urn and locus changed."
+ },
+ "old": {
+  "cogPG.PG113": {
+   "rows": 11,
+   "greek_tokens": 3027,
+   "sha256": "05590c963a334394b034d6c33ac1e3069d2937bddc2598750fcddf01f184e446"
+  }
+ },
+ "works": [
+  {
+   "slug": "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus",
+   "tlg": null,
+   "title": "Prooemium excerptorum de legationibus",
+   "rank": "primary",
+   "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus.jsonl",
+   "mode": "created",
+   "rows": 3,
+   "greek_tokens": 807,
+   "volume_loci": "328-330",
+   "locus_map": "cogPG.PG113 locus N -> constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus locus 'PG113.N'",
+   "incipit_checks": [
+    {
+     "locus": "328",
+     "incipit": "ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ ΠΡΟΟΙΜΙΟΝ.",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 40
+    },
+    {
+     "locus": "330",
+     "incipit": "πρῶτον μὲν εὐσεβεία γνωρίζεσθαι",
+     "matched_normalized_offset": 0,
+     "matched_normalized_chars": 28
+    }
+   ],
+   "evidence": "loci 328-330. Printed head at 328 character 0, ΠΕΡΙ ΠΡΕΣΒΕΩΝ ΡΩΜΑΙΩΝ ΠΡΟΣ ΕΘΝΙΚΟΥΣ ΠΡΟΟΙΜΙΟΝ; the Excerpta's self-naming formula ὁ τῆς πορφύρας ἀπόγονος Κωνσταντῖνος; the section number at 329, τυγχάνει οὖσα ἑβδόμη ἐπὶ τοῖς εἴκοσι. The 329/330 seam is one sentence broken across the rows, χρῆ τούτονς / πρῶτον μὲν εὐσεβεία γνωρίζεσθαι."
+  }
+ ],
+ "residual": {
+  "rows": 8,
+  "greek_tokens": 2220,
+  "loci": [
+   "318",
+   "319",
+   "321",
+   "322",
+   "323",
+   "475",
+   "488",
+   "489"
+  ],
+  "note": "After pass 6 the volume file keeps 318-323 (Migne's prefatory dissertation and testimonia for the excerpted historians), 475-487 (Theophylact Simocatta, held primary because containment against the served byzantium.gr Historiae is 0.697 and does not clear 0.7), and 488-489.",
+  "sha256": "957333edc6d896df20cd5d348fe99cb89298517f646dc5b29a76b465d23e7857"
+ },
+ "dropped_duplicates": {
+  "note": "",
+  "pairs": [],
+  "rows_archived_verbatim": []
+ },
+ "token_conservation": {
+  "original": 3027,
+  "carved": 807,
+  "residual": 2220,
+  "dropped": 0,
+  "check": "carved + residual + dropped == original (exact)"
+ },
+ "crosswalk_entries_added": [],
+ "corrections_provenance_flag": [
+  "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus"
+ ],
+ "corrections_mirror_note": "data/corrections_log/applied.jsonl keys this volume's corrections by bare column locus under cogPG.PG113; per the rekey_corrections_log.py convention for cogPG.* bare-locus rows they are left unchanged (historical). The locus map above makes the linkage reconstructable.",
+ "source": "CGPG per-work carve of PG113, plan data/cgpg_carve_plan.json"
+}
