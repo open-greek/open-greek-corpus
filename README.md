@@ -313,8 +313,8 @@ one level finer at the Expression, so the 4 TLG variant-edition pairs are two
 distinct `ogc` ids sharing one TLG anchor. 488 of the 3,822 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,334 works, `tlg` on 3,322,
-`wikidata` on 503), so joins against citation and lexicon data still work.
+`work_index.json` under `work_anchors` (`cts` on 3,344 works, `tlg` on 3,300,
+`wikidata` on 504), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
 source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`
@@ -2189,7 +2189,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 
 ## Status
 
-- ~3,820 works ingested, ~66.7M Greek tokens, twelve sources.
+- 3,908 works served, 65.6M Greek tokens, twelve sources.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
