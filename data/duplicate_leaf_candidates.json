@@ -11,14 +11,14 @@
    "cgpg"
   ]
  },
- "files_scanned": 4390,
- "candidates": 43,
+ "files_scanned": 4392,
+ "candidates": 42,
  "clean_second_copies": 14,
  "clean_second_copies_tokens": 5164,
  "clean_second_copies_served": 6,
  "clean_second_copies_served_tokens": 2132,
- "overlapping_not_copies": 29,
- "overlapping_not_copies_tokens": 10999,
+ "overlapping_not_copies": 28,
+ "overlapping_not_copies_tokens": 10634,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -78,7 +78,6 @@
   "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl": 2,
   "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl": 1,
   "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl": 1,
-  "data/corpus/cogPG.PG113.jsonl": 1,
   "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl": 1,
   "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl": 1
  },
@@ -402,43 +401,6 @@
     "εναντιων εξαγειν ηδη"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cogPG.PG113.jsonl",
-   "served": true,
-   "locus_a": "328",
-   "locus_b": "488",
-   "containment": 0.8203,
-   "bigrams_a": 217,
-   "bigrams_b": 349,
-   "tokens_b": 365,
-   "words_absent_from_a": 113,
-   "words_b": 365,
-   "unique_runs_if_b_dropped": [
-    "εις λεπτομερειαν ανεπιφθονως",
-    "προθειναι πασι κοινη",
-    "τουτων αναφυομενην ωφελειαν",
-    "ενδελεχεστερον κατεντυγχανειν τους τροφιμους",
-    "μονιμωτερον εντυπουσθαι τουτοις",
-    "εις υποθεσεις διαφορους τρεις επι",
-    "αριθμον ουσας εν αις",
-    "υφ αις απασα ιστορικη μεγαλουργια συγκλειεται",
-    "ουκ εστιν ουδεν",
-    "υποθεσεων απαριθμησιν ουδεν",
-    "του λογου ακολουθιας τη διαιρεσει",
-    "εκαστη υποθεσει προσαρμοζομενης τηλικαυτης ου συνοψεως αληθεστερον",
-    "ειπειν οικειωσεως ων κεφαλαιωδων υποθεσεων",
-    "κακιας πεντηκοστη ουσα τυγχανει",
-    "σασιλεων αναγορευσεως εμφαινει",
-    "τινας οι λογοι πατερας κεκτηνται",
-    "ωσιν αι κεφαλαιωδεις υποθεσεις ακατονομαστοι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "παλαι ποτε βασιληων"
-   ],
    "same_item": false,
    "page_offset": null,
    "run": null

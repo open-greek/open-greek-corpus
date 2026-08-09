@@ -22,10 +22,10 @@
    ]
   },
   "counts": {
-   "ocr_works": 1418,
-   "ocr_works_ranked": 825,
-   "ocr_works_with_witness": 197,
-   "secondary_files": 476,
+   "ocr_works": 1419,
+   "ocr_works_ranked": 824,
+   "ocr_works_with_witness": 198,
+   "secondary_files": 477,
    "skipped": 75,
    "tei_primary_ocr_secondary_pairs": 204
   },
@@ -364,7 +364,7 @@
    "max": 0.4788,
    "median": 0.1338,
    "min": 0.0089,
-   "n": 825,
+   "n": 824,
    "q1": 0.0943,
    "q3": 0.17
   }
@@ -3540,12 +3540,18 @@
   },
   "cogPG.PG113": {
    "edition": "cgpg",
-   "n_tokens": 3039,
-   "n_tokens_checked": 1900,
-   "n_unattested": 274,
+   "n_tokens": 1867,
+   "n_tokens_checked": 1149,
+   "n_unattested": 227,
    "source": "cgpg",
-   "unattested_rate": 0.144211,
-   "witness": null
+   "unattested_rate": 0.197563,
+   "witness": {
+    "agreement_primary_in_secondary": 0.012987,
+    "agreement_secondary_in_primary": 0.046703,
+    "n_bigrams_primary": 1848,
+    "n_bigrams_secondary": 364,
+    "secondary_edition": "cgpg"
+   }
   },
   "cogPG.PG118": {
    "edition": "cgpg",
@@ -3653,6 +3659,15 @@
    "n_unattested": 424,
    "source": "cgpg",
    "unattested_rate": 0.068156,
+   "witness": null
+  },
+  "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus": {
+   "edition": "cgpg",
+   "n_tokens": 808,
+   "n_tokens_checked": 514,
+   "n_unattested": 28,
+   "source": "cgpg",
+   "unattested_rate": 0.054475,
    "witness": null
   },
   "corinna.fragmenta": {
@@ -14670,7 +14685,6 @@
   "basilius-theology.in-quadraginta-martyres-sebastenses",
   "joannes-chrysostomus.in-matthaeum-homiliae-1-90",
   "joannes-damascenus.de-octo-spiritibus-nequitiae-fragmentum-sp",
-  "cogPG.PG113",
   "theodoretus.de-providentia-orationes-decem",
   "gregorius-nyssenus.de-opificio-hominis",
   "joannes-chrysostomus.in-epistulam-ii-ad-corinthios-homiliae-1-30",
