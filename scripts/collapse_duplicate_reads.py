@@ -182,6 +182,37 @@ def main() -> None:
              if h["served"]
              and (h["containment"] >= args.gate or h.get("run"))
              and h["locus_a"].rsplit("_", 1)[0] == h["locus_b"].rsplit("_", 1)[0]]
+    # Both pages must live in the file the pair names. This tool resolves a
+    # locus to text through that one file, so a pair whose two pages sit in
+    # different files would look up the absent one, get "", and then sail
+    # through every post-condition: shared_run_mass returns 1.0 on an empty
+    # loser by its own guard at the top, and the attested-loss list is empty
+    # because there are no tokens to lose. The result is an audited
+    # displacement that removes nothing, in the one script here allowed to take
+    # rows out of the served corpus.
+    #
+    # The sweep does not emit cross-file pairs today, because it compares rows
+    # inside one file. 90 of the 244 served scan items are carved across more
+    # than one file, so widening it to see them is real work that is wanted;
+    # this is the guard that has to exist first. A cross-file duplicate is also
+    # not this tool's decision: it means two WORKS carry the same page, which is
+    # an attribution question, not a choice between two readings.
+    dropped = []
+    for f in {h["file"] for h in pairs}:
+        keys = set()
+        for line in (REPO / f).read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                m = PAGE.match(str(json.loads(line)["locus"]))
+                if m:
+                    keys.add(m.group(1))
+        for h in [x for x in pairs if x["file"] == f]:
+            if h["locus_a"] not in keys or h["locus_b"] not in keys:
+                dropped.append(h)
+    if dropped:
+        pairs = [h for h in pairs if h not in dropped]
+        print(f"  refused {len(dropped)} pair(s) whose pages are not both in the "
+              f"file named: this tool cannot displace across files")
+
     by_run = len([h for h in pairs if h["containment"] < args.gate])
     print(f"pairs served, same item: {len(pairs)} "
           f"({len(pairs) - by_run} at containment >= {args.gate}, "

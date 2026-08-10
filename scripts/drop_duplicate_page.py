@@ -12,7 +12,7 @@ data/ocr_works.json) and it reads 0 on every affected work, so it never fired.
 
 Only the BYTE-IDENTICAL class moves here, and that is the whole design. When two
 pages differ, they are two readings of one page, and this repo's rule is to
-prefer a merged reading over picking a winner, so deleting the loser would be a
+pick one best primary and keep the loser as a witness, so displacing the loser is a
 disposition question rather than a defect fix. When they are identical there is
 no reading to choose and the file itself is the evidence: the tool refuses
 unless the two joined page texts hash the same.

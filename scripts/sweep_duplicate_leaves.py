@@ -324,7 +324,7 @@ def main() -> None:
         "what": "row pairs inside one corpus file whose word-bigram containment "
                 "is high enough that they may be the same printed page delivered "
                 "twice by the OCR",
-        "issue": "open-greek/open-greek-corpus#8",
+        "issue": "open-greek/open-greek-corpus#33",
         "method": "bigram containment over min(|a|,|b|), which ignores reading "
                   "order; the shed in carve_cgpg_volume.py uses difflib "
                   "similarity, which a column-reordered second read defeats "
