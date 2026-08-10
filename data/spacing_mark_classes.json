@@ -1,13 +1,8 @@
 {
  "what": "spacing breathing marks that tokenize as Greek words, split by what each one actually is",
  "issue": "open-greek/open-greek-corpus#35",
- "why_split": "the issue said the disposition needs care because ᾿ς is genuine aphaeresis and must not be stripped. Reading the contexts, it is four things, not two, and only one of them is aphaeresis. The discriminator is the mark and what follows it: a dasia cannot sit before a consonant as a breathing, and a mark before a letter that already carries its own breathing cannot be one either.",
- "classes": {
-  "punctuation_only": "the mark standing alone as a token, or repeated. Not a word under any reading; it is a quotation mark the tokenizer counted.",
-  "quotation_mark": "an opening or closing quote welded to the quoted word, which is how the Aristotle commentators mark quotation. Splits the quoted word's count between two lemmas.",
-  "uncomposed_breathing": "a breathing that belongs ON the following vowel or rho: ῾υμετἑρα is ὑμετέρα, ῾ρωγαλέῳ is ῥωγαλέῳ. The same class compose_spacing_breathings.py fixed for capitals in 2026-08-07 and explicitly left before lowercase letters, calling them apostrophes. For these it was wrong.",
-  "aphaeresis": "a psili standing for an elided syllable in the Byzantine vernacular, ᾿ς, ᾿κ, ᾿γὼ. Genuine text. Must not be touched."
- },
+ "discriminator": "only vowels and rho take a breathing, so a dasia before a consonant is not one; and a mark before a word that already carries its own breathing is not one either. A breathing sits on the second vowel of a diphthong, so ῾εἰ is already breathed: testing only the letter after the mark misses that and mis-files 267 tokens.",
+ "NOT_A_DISPOSITION": "three of the four are mechanically fixable and the fourth, aphaeresis, must not be touched. Which to act on is not a measurement.",
  "total": 5356,
  "by_class": {
   "punctuation_only": {
@@ -63,7 +58,7 @@
     "᾿Γ",
     "᾿Δ",
     "᾿καὶ",
-    "᾿γὼ"
+    "᾿ν"
    ]
   },
   "uncomposed_breathing": {
@@ -78,14 +73,12 @@
    },
    "examples": [
     "῾η",
-    "᾿Υμεῖς",
     "᾿Υπόθεσις",
+    "᾿Υμεῖς",
     "῾ιζ",
-    "῾ω",
-    "᾿η"
+    "᾿η",
+    "῾ω"
    ]
   }
- },
- "NOT_APPLIED": "nothing is changed. Three of the four classes are mechanically fixable and the fourth must not be; which of the three to act on is cisco's call.",
- "discriminator": "the mark and what follows it. A breathing sits on the second vowel of a diphthong, so ῾εἰ already carries one and the spacing mark cannot be a breathing; checking only the first letter after the mark got that wrong and put ῾εἰ and ῾οὐκ under uncomposed breathings. A dasia before a consonant cannot be a breathing either, since only vowels and rho take one."
+ }
 }
