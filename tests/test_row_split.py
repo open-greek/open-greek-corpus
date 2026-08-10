@@ -97,8 +97,9 @@ def test_unapply_refuses_when_a_later_pass_sits_on_top(tmp_path, monkeypatch):
     # split was followed by a duplicate-leaf drop and a tail extension.
     moved = [f for f, b in src.items()
              if b.get("sha256_after")
-             and hashlib.sha256((repo / f).read_bytes()).hexdigest()
-             != b["sha256_after"]]
+             and (not (repo / f).exists()
+                  or hashlib.sha256((repo / f).read_bytes()).hexdigest()
+                  != b["sha256_after"])]
     if not moved:
         pytest.skip("nothing has been applied on top of PG118's split here")
 
@@ -109,4 +110,5 @@ def test_unapply_refuses_when_a_later_pass_sits_on_top(tmp_path, monkeypatch):
     assert "applied on top of this pass" in (out.stdout + out.stderr)
     # and it must not have touched anything
     for f, b in src.items():
-        assert hashlib.sha256((repo / f).read_bytes()).hexdigest() != b["sha256_before"]
+        if (repo / f).exists():
+            assert hashlib.sha256((repo / f).read_bytes()).hexdigest() != b["sha256_before"]

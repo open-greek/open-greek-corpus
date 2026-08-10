@@ -49,6 +49,10 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 SRC = DATA / "corpus" / "cogPG.PG003.jsonl"
+# The volume file no longer exists: the carve took its works and 2026-08-10
+# moved its one apparatus row to data/paratext. The rows it had are archived in
+# the carve audit, which is the state this alignment was measured against.
+CARVE = DATA / "corpus_changes" / "cogPG.PG003.row-split.json"
 WITNESS = DATA / "cache" / "ia" / "PG003_djvu.txt"
 OUT = DATA / "pg003_heads.json"
 WITNESS_URL = ("https://archive.org/download/Patrologia_Graeca_vol_003/"
@@ -190,8 +194,12 @@ def main() -> None:
             WITNESS.write_bytes(r.read())
     wit = WITNESS.read_text(encoding="utf-8", errors="replace")
 
-    rows = [json.loads(l) for l in SRC.read_text(encoding="utf-8").splitlines()
-            if l.strip()]
+    if SRC.exists():
+        rows = [json.loads(l) for l in SRC.read_text(encoding="utf-8").splitlines()
+                if l.strip()]
+    else:
+        rows = json.loads(CARVE.read_text(encoding="utf-8"))["sources"][
+            "data/corpus/cogPG.PG003.jsonl"]["original_rows"]
     # our stream, carrying which row and which offset inside it each word is at
     ours: list[tuple[str, str, int]] = []
     for r in rows:

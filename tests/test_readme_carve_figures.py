@@ -37,29 +37,16 @@ def _band(artifact: str, band: str) -> dict:
     raise AssertionError(f"{artifact} has no band {band}")
 
 
-def test_volume_keyed_sentence_matches_the_corpus():
-    m = re.search(r"(\d+) `cogPG\.\*` files are still volume-keyed, holding "
-                  r"([\d,]+) Greek\ntokens", README)
-    assert m, "the volume-keyed sentence moved; update this test with it"
-    files = sorted(glob.glob(str(REPO / "data" / "corpus" / "cogPG.*.jsonl")))
-    total = 0
-    for fp in files:
-        with open(fp, encoding="utf-8") as f:
-            for line in f:
-                if line.strip():
-                    total += len(_GK.findall(json.loads(line).get("text") or ""))
-    assert (int(m.group(1)), _n(m.group(2))) == (len(files), total)
+def test_nothing_is_volume_keyed_any_more():
+    """The class this file was written to watch is empty.
 
-
-def test_leftovers_sentence_matches_the_same_files():
-    """The follow-up sentence counts the same mass a second way; both must agree,
-    which is what caught nine files being called ten's worth of leftovers."""
-    m = re.search(r"remaining\nfiles are carved volumes' leftovers, ([\d,]+) tokens",
-                  README)
-    assert m, "the leftovers sentence moved; update this test with it"
-    said = re.search(r"(\d+) `cogPG\.\*` files are still volume-keyed, holding "
-                     r"([\d,]+) Greek\ntokens", README)
-    assert _n(m.group(1)) == _n(said.group(2))
+    It used to bind two prose figures against a live count. On 2026-08-10 the
+    last 8,741 tokens, which were the edition's own apparatus, moved to
+    data/paratext, so there is no count left to drift. What has to stay true is
+    that none comes back without the README saying so.
+    """
+    assert not glob.glob(str(REPO / "data" / "corpus" / "cogPG.*.jsonl"))
+    assert "no `cogPG.*` file is volume-keyed any more" in README
 
 
 def test_duplicate_page_bands_match_the_artifact_named_beside_them():

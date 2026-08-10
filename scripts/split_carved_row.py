@@ -327,10 +327,19 @@ def main() -> None:
         stale = []
         for f, rec_f in (rec.get("sources") or {}).items():
             want = rec_f.get("sha256_after")
-            if want and (REPO / f).exists():
-                got = sha((REPO / f).read_text(encoding="utf-8"))
-                if got != want:
-                    stale.append(f"{f} ({got[:12]} != {want[:12]})")
+            if not want:
+                continue
+            if not (REPO / f).exists():
+                # Gone entirely, which is also something applied on top. On
+                # 2026-08-10 the volume files were emptied into data/paratext;
+                # restoring archived rows into a file that no longer exists
+                # would put that text back into the served corpus while the
+                # paratext copy stayed, serving it twice.
+                stale.append(f"{f} (no longer exists)")
+                continue
+            got = sha((REPO / f).read_text(encoding="utf-8"))
+            if got != want:
+                stale.append(f"{f} ({got[:12]} != {want[:12]})")
         for slug, blk in (rec.get("works") or {}).items():
             f = CORPUS / f"{slug}.jsonl"
             want = blk.get("sha256") if isinstance(blk, dict) else None

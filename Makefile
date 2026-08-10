@@ -216,7 +216,10 @@ $(GRAVE_RESIDUE): $(WORK_LEMMAS) $(CATALOG) scripts/measure_grave_residue.py \
 # a leaf the OCR delivered twice with the columns read in a different order.
 # Depends on the vendored second OCR as well as our rows: if either moves the
 # head table has to be rebuilt, and it is quoted on issue #9.
-$(PG003_HEADS): data/corpus/cogPG.PG003.jsonl data/pg003_blocks.json \
+# The volume file is gone: its text is in the carved works and its apparatus in
+# data/paratext. Both PG003 measurements read the carve audit's archived rows
+# instead, which is the volume as it stood before any of this.
+$(PG003_HEADS): data/corpus_changes/cogPG.PG003.row-split.json data/pg003_blocks.json \
                 data/cache/ia/PG003_djvu.txt scripts/recover_pg003_heads.py
 	$(PY) scripts/recover_pg003_heads.py --write
 
@@ -240,7 +243,7 @@ $(DUP_PAGES): $(CORPUS_FILES) scripts/sweep_duplicate_leaves.py
 $(DUP_LEAVES): $(CORPUS_FILES) scripts/sweep_duplicate_leaves.py
 	$(PY) scripts/sweep_duplicate_leaves.py --write
 
-$(PG003_ALT): data/corpus/cogPG.PG003.jsonl data/corpus_changes/cogPG.PG003.row-split.json \
+$(PG003_ALT): data/corpus_changes/cogPG.PG003.row-split.json \
                 scripts/measure_pg003_alternation.py
 	$(PY) scripts/measure_pg003_alternation.py --write
 
