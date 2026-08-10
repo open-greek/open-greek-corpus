@@ -231,7 +231,8 @@ $(PG003_HEADS): data/corpus_changes/cogPG.PG003.row-split.json data/pg003_blocks
 # Quoted on issue #31, so it rebuilds whenever the text it counts changes.
 # Writes data/nonfinal_grave_tranche.json alongside it: the proposed repair,
 # not applied, whose figures are quoted on issue #31 and so must not go stale.
-$(NONFINAL_GRAVES) data/nonfinal_grave_tranche.json: $(CORPUS_FILES) \
+$(NONFINAL_GRAVES) data/nonfinal_grave_tranche.json \
+data/nonfinal_grave_tranche_marks.json: $(CORPUS_FILES) \
                 scripts/measure_nonfinal_graves.py
 	$(PY) scripts/measure_nonfinal_graves.py --write
 
