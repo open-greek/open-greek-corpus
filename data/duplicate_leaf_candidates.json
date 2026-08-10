@@ -1,6 +1,6 @@
 {
  "what": "row pairs inside one corpus file whose word-bigram containment is high enough that they may be the same printed page delivered twice by the OCR",
- "issue": "open-greek/open-greek-corpus#8",
+ "issue": "open-greek/open-greek-corpus#33",
  "method": "bigram containment over min(|a|,|b|), which ignores reading order; the shed in carve_cgpg_volume.py uses difflib similarity, which a column-reordered second read defeats (PG118 loci 22 and 24 scored 0.482 there and 0.841 here)",
  "NOT_A_DROP_LIST": "a candidate is a reason to read the page, not a reason to delete a row. Dropping one goes through data/duplicate_leaves.json, which requires the scan page and an enumeration of what the dropped copy has that the kept copy does not.",
  "params": {
