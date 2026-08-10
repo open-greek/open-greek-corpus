@@ -102,6 +102,80 @@ def load_headwords() -> tuple[set, list[dict]]:
     return words, prov
 
 
+def by_correction_status(grave: dict) -> dict:
+    """Where the residue physically sits, by how the text under it was made.
+
+    This is the evidence the `limitation` label rests on, and until now it
+    existed only in a comment on the issue: no script, no build rule, nothing to
+    invalidate it. That is the failure this file was itself written to fix, one
+    artifact over, so leaving it in a comment was the same mistake twice.
+
+    The join is total or it is nothing. work_lemma_counts.tsv.gz is keyed on the
+    row's urn, corpus_catalog.tsv on the slug, and those agreed for every work
+    only after 2026-08-09 (philodemus.tlg1595-tlg601 carried a stale urn and its
+    10,043 lemmatized tokens sat under a key the catalog does not have). So the
+    unmatched bucket is published rather than dropped, and the buckets have to
+    sum to the class or this refuses to write.
+    """
+    import csv
+    import gzip
+
+    cls, lem_total = {}, {}
+    with open(DATA / "corpus_catalog.tsv", encoding="utf-8") as f:
+        for row in csv.DictReader(f, delimiter="\t"):
+            cls[row["slug"]] = row.get("correction") or "unknown"
+            lem_total[row["slug"]] = int(row.get("tokens_lemmatized") or 0)
+
+    tok: dict = {}
+    lem: dict = {}
+    unmatched = {"tokens": 0, "lemmas": 0, "keys": set()}
+    with gzip.open(DATA / "work_lemma_counts.tsv.gz", "rt", encoding="utf-8") as f:
+        for row in csv.reader(f, delimiter="\t"):
+            if len(row) < 3 or row[1] not in grave:
+                continue
+            k, n = row[0], int(row[2])
+            if k not in cls:
+                unmatched["tokens"] += n
+                unmatched["lemmas"] += 1
+                unmatched["keys"].add(k)
+                continue
+            c = cls[k]
+            tok[c] = tok.get(c, 0) + n
+            lem.setdefault(c, set()).add(row[1])
+
+    stratum = {}
+    for c in sorted(set(cls.values())):
+        mass = sum(v for k, v in lem_total.items() if cls[k] == c)
+        stratum[c] = {"grave_tokens": tok.get(c, 0),
+                      "grave_lemmas": len(lem.get(c, ())),
+                      "lemmatized_tokens_in_this_class": mass,
+                      "rate": round(tok.get(c, 0) / mass, 6) if mass else None}
+    ocr = sum(v["grave_tokens"] for c, v in stratum.items() if c != "not-ocr")
+    ocr_mass = sum(v["lemmatized_tokens_in_this_class"]
+                   for c, v in stratum.items() if c != "not-ocr")
+    born = stratum.get("not-ocr", {})
+    total = sum(v["grave_tokens"] for v in stratum.values()) + unmatched["tokens"]
+    return {"what": "the grave-lemma class split by how the text under it was "
+                    "produced, which is the evidence the `limitation` label "
+                    "rests on",
+            "classes_come_from": "the `correction` column of "
+                                 "data/corpus_catalog.tsv, which is itself "
+                                 "derived and not intrinsic to the text",
+            "by_class": stratum,
+            "unmatched": {"tokens": unmatched["tokens"],
+                          "lemmas": unmatched["lemmas"],
+                          "keys": sorted(unmatched["keys"])},
+            "ocr_derived_rate": round(ocr / ocr_mass, 6) if ocr_mass else None,
+            "born_digital_rate": born.get("rate"),
+            "lift": (round((ocr / ocr_mass) / born["rate"], 2)
+                     if ocr_mass and born.get("rate") else None),
+            "reading": "the class is not an OCR problem that belongs to another "
+                       "issue. It sits over born-digital text at a floor no text "
+                       "repair reaches, and the raw-OCR stratum #2 scopes holds "
+                       "only a small part of it.",
+            "_sum": total}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -189,6 +263,19 @@ def main() -> None:
     for lemma, (n, hit) in sorted(reachable.items(), key=lambda kv: -kv[1][0])[:8]:
         print(f"    {lemma:<16} {n:>6,} -> {hit} ({totals.get(hit, 0):,})")
 
+    split = by_correction_status(grave)
+    if split["_sum"] != sum(grave.values()):
+        raise SystemExit(f"ERROR: correction-status buckets sum to "
+                         f"{split['_sum']}, class holds {sum(grave.values())}")
+    del split["_sum"]
+    print(f"  by correction status: " + ", ".join(
+        f"{c} {v['grave_tokens']:,} ({v['rate']:.4%})" if v["rate"] is not None
+        else f"{c} {v['grave_tokens']:,}"
+        for c, v in sorted(split["by_class"].items())))
+    print(f"    OCR-derived {split['ocr_derived_rate']:.4%} against born-digital "
+          f"{split['born_digital_rate']:.4%}, a {split['lift']}x lift; "
+          f"unmatched {split['unmatched']['tokens']}")
+
     if not args.write:
         print("\nreport only; re-run with --write.")
         return
@@ -196,7 +283,9 @@ def main() -> None:
         "what": "the grave-lemma residue partitioned by whether any accent rule "
                 "could reach it",
         "issue": "open-greek/open-greek-corpus#4",
-        "source": "data/work_lemma_counts.tsv.gz, and nothing else",
+        "source": "data/work_lemma_counts.tsv.gz, plus the `correction` column "
+                  "of data/corpus_catalog.tsv for the by_correction_status block",
+        "by_correction_status": split,
         "why_not_the_annotation_exports": "the annotation exports come from the "
             "same lemmatizer that produced this residue, so they cannot "
             "independently confirm a headword for it. Dictionary headword "
