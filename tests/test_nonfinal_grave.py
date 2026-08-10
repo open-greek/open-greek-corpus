@@ -10,6 +10,7 @@ and one nucleus, so its grave IS final and the word is fine; a bare-vowel test
 calls it a violation. Getting that wrong inflates a published defect count.
 """
 
+import json
 import sys
 import unicodedata
 from pathlib import Path
@@ -71,38 +72,48 @@ def test_agrees_with_the_implementation_it_was_copied_from():
 # space could not decide these, which is the whole reason this exists, so the
 # outcomes are pinned. Two of them must stay REFUSED; a rule that decides τὰλλα
 # is a rule that will decide anything.
-def _decided():
-    import json
-    fp = Path(__file__).resolve().parent.parent / "data" / "nonfinal_graves.json"
-    rows = json.loads(fp.read_text(encoding="utf-8"))["skeleton_class"]["decided"]
-    return {r["form"]: r for r in rows}
+
+APPLIED = (Path(__file__).resolve().parent.parent / "data" / "corpus_changes"
+           / "nonfinal_grave_tranche.applied.json")
+
+
+def _applied() -> dict:
+    """form -> target, from the repair that ran rather than the live class.
+
+    These used to be asserted against data/nonfinal_graves.json's decided set.
+    They have since been repaired out of the corpus, so that set no longer holds
+    them and could not: the artifact measures what is still wrong. The decisions
+    live in the audit, which is also what a reader would use to reverse them.
+    """
+    return json.loads(APPLIED.read_text(encoding="utf-8"))["substitutions"]
 
 
 @pytest.mark.parametrize("form,target", [
-    ("ἐπεὶδὴ", "ἐπειδή"),     # the grave is DROPPED, not moved
-    ("μὴτε", "μήτε"),
-    ("ἐγὼγε", "ἔγωγε"),       # not ἐγώγε, which is attested and wrong
-    ("τὰναντία", "τἀναντία"),  # not τάναντία, likewise
+    ("\u1f10\u03c0\u03b5\u1f76\u03b4\u1f74", "\u1f10\u03c0\u03b5\u03b9\u03b4\u03ae"),
+    ("\u03bc\u1f74\u03c4\u03b5", "\u03bc\u03ae\u03c4\u03b5"),
+    ("\u1f10\u03b3\u1f7c\u03b3\u03b5", "\u1f14\u03b3\u03c9\u03b3\u03b5"),
 ])
-def test_the_counterexamples_that_sank_the_four_shape_rule_are_decided(form, target):
-    d = _decided()
-    assert form in d, f"{form} is no longer in the decided set"
-    assert d[form]["target"] == target
-    assert d[form]["share"] >= 0.90
+def test_the_counterexamples_were_repaired_to_the_right_word(form, target):
+    """ἐπεὶδὴ is ἐπειδή, the grave dropped rather than moved; ἐγὼγε is ἔγωγε and
+    not the attested-and-wrong ἐγώγε. These sank the four-shape rule and the
+    repair had to get them right."""
+    assert _applied().get(form) == target
 
 
-@pytest.mark.parametrize("form", ["τὰλλα", "ὰλλὰ"])
-def test_the_ambiguous_ones_stay_refused(form):
-    """τἄλλα against τἆλλα, and ἀλλά against ἄλλα, which shares its skeleton."""
-    assert form not in _decided(), f"{form} should not be decided by this rule"
+@pytest.mark.parametrize("form", [
+    "\u03c4\u1f70\u03bb\u03bb\u03b1",
+    "\u1f70\u03bb\u03bb\u1f70",
+    "\u03c4\u1f70\u03bd\u03b1\u03bd\u03c4\u03af\u03b1",
+])
+def test_the_ones_the_rule_must_refuse_were_not_repaired(form):
+    """τἄλλα against τἆλλα; ἀλλά against ἄλλα, which shares its skeleton; and
+    τὰναντία, whose repair moves a breathing and not only an accent."""
+    assert form not in _applied()
 
 
-def test_the_tranche_never_moves_a_breathing_or_iota_subscript():
-    import json
-    fp = (Path(__file__).resolve().parent.parent / "data"
-          / "nonfinal_grave_tranche.json")
-    rows = json.loads(fp.read_text(encoding="utf-8"))["rows"]
-    assert rows, "the tranche is empty"
-    for r in rows:
-        assert r["accent_only"], r["form"]
-        assert m.without_accents(r["form"]) == m.without_accents(r["target"])
+def test_every_applied_repair_moved_only_an_accent():
+    for name in ("nonfinal_grave_tranche", "nonfinal_grave_tranche_thirdparty"):
+        fp = APPLIED.with_name(f"{name}.applied.json")
+        for f, t in json.loads(fp.read_text(encoding="utf-8"))["substitutions"].items():
+            assert m.without_accents(f) == m.without_accents(t), (f, t)
+            assert m.has_nonfinal_grave(f) and not m.has_nonfinal_grave(t)

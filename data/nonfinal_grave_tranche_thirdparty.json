@@ -1,0 +1,1240 @@
+{
+ "what": "the stricter tranche for text this repo republishes from other editions",
+ "issue": "open-greek/open-greek-corpus#31",
+ "status": "applied 2026-08-10",
+ "decision": "cisco, 2026-08-10: we may correct other people's editions where we are SURE they are wrong. This is the bar set for 'sure' and the number it earns.",
+ "rule": "share >= 0.99 of a skeleton class holding >= 100 clean non-OCR tokens, and accent-only. Our own OCR went at >= 0.95; this is an order of magnitude stricter in expected error, because a wrong correction here is our error inside someone else's edition.",
+ "sources": [
+  "byzantium_gr",
+  "cgpg",
+  "dfhg",
+  "first1k",
+  "perseus",
+  "pta",
+  "saws",
+  "wikisource"
+ ],
+ "forms": 73,
+ "tokens": 2224,
+ "token_weighted_share": 0.99432,
+ "expected_wrong_tokens": 13,
+ "not_touched": "the other flagged tokens in these sources sit below the bar and stay wrong and recorded rather than guessed at.",
+ "rows": [
+  {
+   "form": "ὃτι",
+   "target": "ὅτι",
+   "share": 0.994,
+   "clean_class": 155802,
+   "clean_hits": 154861,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄτι",
+    "clean_tokens": 475
+   },
+   "tokens_in_third_party": 524,
+   "by_source": {
+    "cgpg": 58,
+    "first1k": 461,
+    "perseus": 3,
+    "saws": 1,
+    "pta": 1
+   }
+  },
+  {
+   "form": "οὓτως",
+   "target": "οὕτως",
+   "share": 0.9917,
+   "clean_class": 54410,
+   "clean_hits": 53956,
+   "accent_only": true,
+   "runner_up": {
+    "form": "οὔτως",
+    "clean_tokens": 195
+   },
+   "tokens_in_third_party": 150,
+   "by_source": {
+    "first1k": 134,
+    "cgpg": 16
+   }
+  },
+  {
+   "form": "ὃπερ",
+   "target": "ὅπερ",
+   "share": 0.9949,
+   "clean_class": 17367,
+   "clean_hits": 17279,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄπερ",
+    "clean_tokens": 41
+   },
+   "tokens_in_third_party": 98,
+   "by_source": {
+    "cgpg": 34,
+    "first1k": 63,
+    "byzantium_gr": 1
+   }
+  },
+  {
+   "form": "οὓτω",
+   "target": "οὕτω",
+   "share": 0.9921,
+   "clean_class": 37874,
+   "clean_hits": 37575,
+   "accent_only": true,
+   "runner_up": {
+    "form": "οὔτω",
+    "clean_tokens": 124
+   },
+   "tokens_in_third_party": 96,
+   "by_source": {
+    "first1k": 73,
+    "cgpg": 18,
+    "perseus": 4,
+    "pta": 1
+   }
+  },
+  {
+   "form": "ἢδη",
+   "target": "ἤδη",
+   "share": 0.9907,
+   "clean_class": 27631,
+   "clean_hits": 27374,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ᾔδη",
+    "clean_tokens": 113
+   },
+   "tokens_in_third_party": 94,
+   "by_source": {
+    "first1k": 48,
+    "perseus": 30,
+    "cgpg": 15,
+    "pta": 1
+   }
+  },
+  {
+   "form": "ὣστε",
+   "target": "ὥστε",
+   "share": 0.9961,
+   "clean_class": 33757,
+   "clean_hits": 33625,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὤστε",
+    "clean_tokens": 64
+   },
+   "tokens_in_third_party": 92,
+   "by_source": {
+    "first1k": 91,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "ἒσται",
+   "target": "ἔσται",
+   "share": 0.9939,
+   "clean_class": 23330,
+   "clean_hits": 23187,
+   "accent_only": true,
+   "runner_up": {
+    "form": "έσται",
+    "clean_tokens": 55
+   },
+   "tokens_in_third_party": 68,
+   "by_source": {
+    "first1k": 68
+   }
+  },
+  {
+   "form": "ἒχει",
+   "target": "ἔχει",
+   "share": 0.9911,
+   "clean_class": 38438,
+   "clean_hits": 38096,
+   "accent_only": true,
+   "runner_up": {
+    "form": "έχει",
+    "clean_tokens": 258
+   },
+   "tokens_in_third_party": 65,
+   "by_source": {
+    "first1k": 65
+   }
+  },
+  {
+   "form": "ὃταν",
+   "target": "ὅταν",
+   "share": 0.995,
+   "clean_class": 27632,
+   "clean_hits": 27493,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄταν",
+    "clean_tokens": 62
+   },
+   "tokens_in_third_party": 64,
+   "by_source": {
+    "first1k": 58,
+    "cgpg": 5,
+    "pta": 1
+   }
+  },
+  {
+   "form": "ἂλλων",
+   "target": "ἄλλων",
+   "share": 0.9969,
+   "clean_class": 22179,
+   "clean_hits": 22110,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅλλων",
+    "clean_tokens": 39
+   },
+   "tokens_in_third_party": 59,
+   "by_source": {
+    "first1k": 59
+   }
+  },
+  {
+   "form": "κὰὶ",
+   "target": "καί",
+   "share": 0.9964,
+   "clean_class": 2001506,
+   "clean_hits": 1994220,
+   "accent_only": true,
+   "runner_up": {
+    "form": "και",
+    "clean_tokens": 5569
+   },
+   "tokens_in_third_party": 59,
+   "by_source": {
+    "cgpg": 58,
+    "first1k": 1
+   }
+  },
+  {
+   "form": "ἒτι",
+   "target": "ἔτι",
+   "share": 0.9973,
+   "clean_class": 35985,
+   "clean_hits": 35888,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἕτι",
+    "clean_tokens": 40
+   },
+   "tokens_in_third_party": 56,
+   "by_source": {
+    "first1k": 56
+   }
+  },
+  {
+   "form": "ἣτις",
+   "target": "ἥτις",
+   "share": 0.9917,
+   "clean_class": 4479,
+   "clean_hits": 4442,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἤτις",
+    "clean_tokens": 26
+   },
+   "tokens_in_third_party": 51,
+   "by_source": {
+    "cgpg": 35,
+    "first1k": 9,
+    "perseus": 6,
+    "pta": 1
+   }
+  },
+  {
+   "form": "κὰι",
+   "target": "καί",
+   "share": 0.9964,
+   "clean_class": 2001506,
+   "clean_hits": 1994220,
+   "accent_only": true,
+   "runner_up": {
+    "form": "και",
+    "clean_tokens": 5569
+   },
+   "tokens_in_third_party": 44,
+   "by_source": {
+    "first1k": 42,
+    "dfhg": 2
+   }
+  },
+  {
+   "form": "εἲη",
+   "target": "εἴη",
+   "share": 0.9945,
+   "clean_class": 21832,
+   "clean_hits": 21712,
+   "accent_only": true,
+   "runner_up": {
+    "form": "εἵη",
+    "clean_tokens": 58
+   },
+   "tokens_in_third_party": 41,
+   "by_source": {
+    "first1k": 41
+   }
+  },
+  {
+   "form": "ὃσα",
+   "target": "ὅσα",
+   "share": 0.9941,
+   "clean_class": 17691,
+   "clean_hits": 17587,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄσα",
+    "clean_tokens": 51
+   },
+   "tokens_in_third_party": 41,
+   "by_source": {
+    "cgpg": 4,
+    "first1k": 36,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "ἒχειν",
+   "target": "ἔχειν",
+   "share": 0.9975,
+   "clean_class": 22463,
+   "clean_hits": 22407,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἕχειν",
+    "clean_tokens": 23
+   },
+   "tokens_in_third_party": 40,
+   "by_source": {
+    "first1k": 39,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "ὃλως",
+   "target": "ὅλως",
+   "share": 0.9961,
+   "clean_class": 10302,
+   "clean_hits": 10262,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄλως",
+    "clean_tokens": 30
+   },
+   "tokens_in_third_party": 33,
+   "by_source": {
+    "first1k": 32,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ἢτοι",
+   "target": "ἤτοι",
+   "share": 0.9963,
+   "clean_class": 12859,
+   "clean_hits": 12812,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἥτοι",
+    "clean_tokens": 19
+   },
+   "tokens_in_third_party": 32,
+   "by_source": {
+    "first1k": 19,
+    "perseus": 1,
+    "cgpg": 12
+   }
+  },
+  {
+   "form": "ὃπως",
+   "target": "ὅπως",
+   "share": 0.995,
+   "clean_class": 16117,
+   "clean_hits": 16037,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄπως",
+    "clean_tokens": 42
+   },
+   "tokens_in_third_party": 32,
+   "by_source": {
+    "cgpg": 4,
+    "first1k": 27,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "ὂντων",
+   "target": "ὄντων",
+   "share": 0.9929,
+   "clean_class": 10619,
+   "clean_hits": 10544,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὅντων",
+    "clean_tokens": 34
+   },
+   "tokens_in_third_party": 31,
+   "by_source": {
+    "first1k": 31
+   }
+  },
+  {
+   "form": "ἂλλως",
+   "target": "ἄλλως",
+   "share": 0.9962,
+   "clean_class": 11299,
+   "clean_hits": 11256,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅλλως",
+    "clean_tokens": 19
+   },
+   "tokens_in_third_party": 29,
+   "by_source": {
+    "first1k": 27,
+    "cgpg": 2
+   }
+  },
+  {
+   "form": "ἂνω",
+   "target": "ἄνω",
+   "share": 0.9917,
+   "clean_class": 9501,
+   "clean_hits": 9422,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἀνω",
+    "clean_tokens": 23
+   },
+   "tokens_in_third_party": 28,
+   "by_source": {
+    "perseus": 2,
+    "first1k": 23,
+    "pta": 1,
+    "cgpg": 2
+   }
+  },
+  {
+   "form": "ὂντα",
+   "target": "ὄντα",
+   "share": 0.993,
+   "clean_class": 14558,
+   "clean_hits": 14456,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὅντα",
+    "clean_tokens": 64
+   },
+   "tokens_in_third_party": 26,
+   "by_source": {
+    "first1k": 25,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "ἂνευ",
+   "target": "ἄνευ",
+   "share": 0.9923,
+   "clean_class": 7654,
+   "clean_hits": 7595,
+   "accent_only": true,
+   "runner_up": {
+    "form": "άνευ",
+    "clean_tokens": 31
+   },
+   "tokens_in_third_party": 24,
+   "by_source": {
+    "first1k": 24
+   }
+  },
+  {
+   "form": "ἂλλοις",
+   "target": "ἄλλοις",
+   "share": 0.9978,
+   "clean_class": 9517,
+   "clean_hits": 9496,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅλλοις",
+    "clean_tokens": 9
+   },
+   "tokens_in_third_party": 24,
+   "by_source": {
+    "first1k": 24
+   }
+  },
+  {
+   "form": "ὓλην",
+   "target": "ὕλην",
+   "share": 0.9957,
+   "clean_class": 4144,
+   "clean_hits": 4126,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὔλην",
+    "clean_tokens": 14
+   },
+   "tokens_in_third_party": 19,
+   "by_source": {
+    "first1k": 18,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ὃθεν",
+   "target": "ὅθεν",
+   "share": 0.9966,
+   "clean_class": 9588,
+   "clean_hits": 9555,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὄθεν",
+    "clean_tokens": 20
+   },
+   "tokens_in_third_party": 18,
+   "by_source": {
+    "first1k": 15,
+    "cgpg": 3
+   }
+  },
+  {
+   "form": "ὓλης",
+   "target": "ὕλης",
+   "share": 0.9946,
+   "clean_class": 4812,
+   "clean_hits": 4786,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὔλης",
+    "clean_tokens": 13
+   },
+   "tokens_in_third_party": 17,
+   "by_source": {
+    "first1k": 17
+   }
+  },
+  {
+   "form": "ἂνδρας",
+   "target": "ἄνδρας",
+   "share": 0.9973,
+   "clean_class": 4487,
+   "clean_hits": 4475,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἀνδράς",
+    "clean_tokens": 3
+   },
+   "tokens_in_third_party": 17,
+   "by_source": {
+    "first1k": 16,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ἒχον",
+   "target": "ἔχον",
+   "share": 0.9956,
+   "clean_class": 6303,
+   "clean_hits": 6275,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἐχόν",
+    "clean_tokens": 16
+   },
+   "tokens_in_third_party": 15,
+   "by_source": {
+    "first1k": 15
+   }
+  },
+  {
+   "form": "ἒφη",
+   "target": "ἔφη",
+   "share": 0.9977,
+   "clean_class": 17570,
+   "clean_hits": 17530,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἕφη",
+    "clean_tokens": 12
+   },
+   "tokens_in_third_party": 13,
+   "by_source": {
+    "pta": 1,
+    "first1k": 12
+   }
+  },
+  {
+   "form": "ἢγουν",
+   "target": "ἤγουν",
+   "share": 0.994,
+   "clean_class": 4022,
+   "clean_hits": 3998,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἥγουν",
+    "clean_tokens": 10
+   },
+   "tokens_in_third_party": 13,
+   "by_source": {
+    "first1k": 4,
+    "cgpg": 9
+   }
+  },
+  {
+   "form": "ὂντος",
+   "target": "ὄντος",
+   "share": 0.9926,
+   "clean_class": 10605,
+   "clean_hits": 10527,
+   "accent_only": true,
+   "runner_up": {
+    "form": "όντος",
+    "clean_tokens": 28
+   },
+   "tokens_in_third_party": 13,
+   "by_source": {
+    "first1k": 13
+   }
+  },
+  {
+   "form": "ἒχων",
+   "target": "ἔχων",
+   "share": 0.9975,
+   "clean_class": 12983,
+   "clean_hits": 12951,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἕχων",
+    "clean_tokens": 16
+   },
+   "tokens_in_third_party": 12,
+   "by_source": {
+    "perseus": 1,
+    "first1k": 11
+   }
+  },
+  {
+   "form": "τὸπον",
+   "target": "τόπον",
+   "share": 0.9988,
+   "clean_class": 9888,
+   "clean_hits": 9876,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τοπον",
+    "clean_tokens": 10
+   },
+   "tokens_in_third_party": 11,
+   "by_source": {
+    "cgpg": 10,
+    "first1k": 1
+   }
+  },
+  {
+   "form": "τοὺτων",
+   "target": "τούτων",
+   "share": 0.9989,
+   "clean_class": 50381,
+   "clean_hits": 50328,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τουτων",
+    "clean_tokens": 22
+   },
+   "tokens_in_third_party": 11,
+   "by_source": {
+    "first1k": 8,
+    "perseus": 2,
+    "pta": 1
+   }
+  },
+  {
+   "form": "ἲσως",
+   "target": "ἴσως",
+   "share": 0.9953,
+   "clean_class": 7370,
+   "clean_hits": 7335,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ίσως",
+    "clean_tokens": 20
+   },
+   "tokens_in_third_party": 11,
+   "by_source": {
+    "first1k": 11
+   }
+  },
+  {
+   "form": "μὴτε",
+   "target": "μήτε",
+   "share": 0.9993,
+   "clean_class": 17558,
+   "clean_hits": 17545,
+   "accent_only": true,
+   "runner_up": {
+    "form": "μήτέ",
+    "clean_tokens": 11
+   },
+   "tokens_in_third_party": 10,
+   "by_source": {
+    "cgpg": 7,
+    "byzantium_gr": 1,
+    "first1k": 2
+   }
+  },
+  {
+   "form": "ὓδωρ",
+   "target": "ὕδωρ",
+   "share": 0.9962,
+   "clean_class": 10971,
+   "clean_hits": 10929,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὔδωρ",
+    "clean_tokens": 29
+   },
+   "tokens_in_third_party": 10,
+   "by_source": {
+    "first1k": 8,
+    "perseus": 2
+   }
+  },
+  {
+   "form": "ἒτη",
+   "target": "ἔτη",
+   "share": 0.994,
+   "clean_class": 6973,
+   "clean_hits": 6931,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἕτη",
+    "clean_tokens": 10
+   },
+   "tokens_in_third_party": 10,
+   "by_source": {
+    "first1k": 10
+   }
+  },
+  {
+   "form": "ἂλλην",
+   "target": "ἄλλην",
+   "share": 0.9924,
+   "clean_class": 4991,
+   "clean_hits": 4953,
+   "accent_only": true,
+   "runner_up": {
+    "form": "άλλην",
+    "clean_tokens": 28
+   },
+   "tokens_in_third_party": 9,
+   "by_source": {
+    "first1k": 9
+   }
+  },
+  {
+   "form": "τρὸπον",
+   "target": "τρόπον",
+   "share": 0.9988,
+   "clean_class": 15635,
+   "clean_hits": 15617,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τροπον",
+    "clean_tokens": 14
+   },
+   "tokens_in_third_party": 9,
+   "by_source": {
+    "first1k": 8,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ἂλλαι",
+   "target": "ἄλλαι",
+   "share": 0.9965,
+   "clean_class": 2004,
+   "clean_hits": 1997,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅλλαι",
+    "clean_tokens": 4
+   },
+   "tokens_in_third_party": 9,
+   "by_source": {
+    "first1k": 9
+   }
+  },
+  {
+   "form": "ἂλλας",
+   "target": "ἄλλας",
+   "share": 0.9969,
+   "clean_class": 3565,
+   "clean_hits": 3554,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἀλλᾶς",
+    "clean_tokens": 5
+   },
+   "tokens_in_third_party": 9,
+   "by_source": {
+    "first1k": 9
+   }
+  },
+  {
+   "form": "ἂνδρες",
+   "target": "ἄνδρες",
+   "share": 0.9941,
+   "clean_class": 6943,
+   "clean_hits": 6902,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅνδρες",
+    "clean_tokens": 28
+   },
+   "tokens_in_third_party": 9,
+   "by_source": {
+    "first1k": 8,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "δὴθεν",
+   "target": "δῆθεν",
+   "share": 0.9969,
+   "clean_class": 982,
+   "clean_hits": 979,
+   "accent_only": true,
+   "runner_up": {
+    "form": "δῆθέν",
+    "clean_tokens": 3
+   },
+   "tokens_in_third_party": 8,
+   "by_source": {
+    "first1k": 1,
+    "cgpg": 7
+   }
+  },
+  {
+   "form": "ἂνδρα",
+   "target": "ἄνδρα",
+   "share": 0.9939,
+   "clean_class": 6916,
+   "clean_hits": 6874,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅνδρα",
+    "clean_tokens": 17
+   },
+   "tokens_in_third_party": 7,
+   "by_source": {
+    "first1k": 6,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "δὺο",
+   "target": "δύο",
+   "share": 0.993,
+   "clean_class": 28593,
+   "clean_hits": 28392,
+   "accent_only": true,
+   "runner_up": {
+    "form": "δυό",
+    "clean_tokens": 184
+   },
+   "tokens_in_third_party": 6,
+   "by_source": {
+    "cgpg": 1,
+    "first1k": 4,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "ὂντες",
+   "target": "ὄντες",
+   "share": 0.9916,
+   "clean_class": 5499,
+   "clean_hits": 5453,
+   "accent_only": true,
+   "runner_up": {
+    "form": "οντες",
+    "clean_tokens": 29
+   },
+   "tokens_in_third_party": 6,
+   "by_source": {
+    "first1k": 6
+   }
+  },
+  {
+   "form": "δὶα",
+   "target": "διά",
+   "share": 0.993,
+   "clean_class": 156412,
+   "clean_hits": 155319,
+   "accent_only": true,
+   "runner_up": {
+    "form": "δια",
+    "clean_tokens": 734
+   },
+   "tokens_in_third_party": 5,
+   "by_source": {
+    "pta": 2,
+    "perseus": 2,
+    "first1k": 1
+   }
+  },
+  {
+   "form": "τοὺτους",
+   "target": "τούτους",
+   "share": 0.9999,
+   "clean_class": 8751,
+   "clean_hits": 8750,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τουτους",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 4,
+   "by_source": {
+    "first1k": 3,
+    "perseus": 1
+   }
+  },
+  {
+   "form": "τὰδὲ",
+   "target": "τάδε",
+   "share": 0.9906,
+   "clean_class": 4974,
+   "clean_hits": 4927,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τᾷδε",
+    "clean_tokens": 40
+   },
+   "tokens_in_third_party": 4,
+   "by_source": {
+    "cgpg": 1,
+    "first1k": 3
+   }
+  },
+  {
+   "form": "μὲτὰ",
+   "target": "μετά",
+   "share": 0.991,
+   "clean_class": 61858,
+   "clean_hits": 61299,
+   "accent_only": true,
+   "runner_up": {
+    "form": "μετα",
+    "clean_tokens": 313
+   },
+   "tokens_in_third_party": 4,
+   "by_source": {
+    "perseus": 1,
+    "cgpg": 3
+   }
+  },
+  {
+   "form": "ὂντως",
+   "target": "ὄντως",
+   "share": 0.9953,
+   "clean_class": 2776,
+   "clean_hits": 2763,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὅντως",
+    "clean_tokens": 10
+   },
+   "tokens_in_third_party": 4,
+   "by_source": {
+    "first1k": 4
+   }
+  },
+  {
+   "form": "ὂντι",
+   "target": "ὄντι",
+   "share": 0.9917,
+   "clean_class": 3621,
+   "clean_hits": 3591,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ὅντι",
+    "clean_tokens": 18
+   },
+   "tokens_in_third_party": 4,
+   "by_source": {
+    "first1k": 4
+   }
+  },
+  {
+   "form": "μὲντοι",
+   "target": "μέντοι",
+   "share": 0.9996,
+   "clean_class": 16592,
+   "clean_hits": 16585,
+   "accent_only": true,
+   "runner_up": {
+    "form": "μεντοι",
+    "clean_tokens": 4
+   },
+   "tokens_in_third_party": 3,
+   "by_source": {
+    "cgpg": 2,
+    "first1k": 1
+   }
+  },
+  {
+   "form": "καὶτοι",
+   "target": "καίτοι",
+   "share": 0.9989,
+   "clean_class": 8481,
+   "clean_hits": 8472,
+   "accent_only": true,
+   "runner_up": {
+    "form": "καίτοί",
+    "clean_tokens": 6
+   },
+   "tokens_in_third_party": 3,
+   "by_source": {
+    "first1k": 2,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ὃστις",
+   "target": "ὅστις",
+   "share": 0.9934,
+   "clean_class": 3967,
+   "clean_hits": 3941,
+   "accent_only": true,
+   "runner_up": {
+    "form": "όστις",
+    "clean_tokens": 14
+   },
+   "tokens_in_third_party": 3,
+   "by_source": {
+    "cgpg": 1,
+    "first1k": 2
+   }
+  },
+  {
+   "form": "Καὶτοι",
+   "target": "Καίτοι",
+   "share": 0.9969,
+   "clean_class": 326,
+   "clean_hits": 325,
+   "accent_only": true,
+   "runner_up": {
+    "form": "Καἰτοῖ",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 2,
+   "by_source": {
+    "first1k": 1,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "οὐδὲνα",
+   "target": "οὐδένα",
+   "share": 0.9985,
+   "clean_class": 2597,
+   "clean_hits": 2593,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ουδένα",
+    "clean_tokens": 3
+   },
+   "tokens_in_third_party": 2,
+   "by_source": {
+    "perseus": 1,
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "τὴνδε",
+   "target": "τήνδε",
+   "share": 0.9994,
+   "clean_class": 1679,
+   "clean_hits": 1678,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τῆνδε",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 2,
+   "by_source": {
+    "cgpg": 1,
+    "first1k": 1
+   }
+  },
+  {
+   "form": "μηδὲνα",
+   "target": "μηδένα",
+   "share": 0.9987,
+   "clean_class": 2365,
+   "clean_hits": 2362,
+   "accent_only": true,
+   "runner_up": {
+    "form": "μηδενα",
+    "clean_tokens": 3
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "καὶρῷ",
+   "target": "καιρῷ",
+   "share": 0.9925,
+   "clean_class": 2519,
+   "clean_hits": 2500,
+   "accent_only": true,
+   "runner_up": {
+    "form": "καιρῶ",
+    "clean_tokens": 10
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "δὲον",
+   "target": "δέον",
+   "share": 0.9946,
+   "clean_class": 2579,
+   "clean_hits": 2565,
+   "accent_only": true,
+   "runner_up": {
+    "form": "δεόν",
+    "clean_tokens": 10
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "πὸδα",
+   "target": "πόδα",
+   "share": 0.9934,
+   "clean_class": 1216,
+   "clean_hits": 1208,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ποδα",
+    "clean_tokens": 7
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "ἡδὲως",
+   "target": "ἡδέως",
+   "share": 1.0,
+   "clean_class": 1432,
+   "clean_hits": 1432,
+   "accent_only": true,
+   "runner_up": null,
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "μὴλων",
+   "target": "μήλων",
+   "share": 1.0,
+   "clean_class": 297,
+   "clean_hits": 297,
+   "accent_only": true,
+   "runner_up": null,
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "καὶπερ",
+   "target": "καίπερ",
+   "share": 1.0,
+   "clean_class": 2009,
+   "clean_hits": 2009,
+   "accent_only": true,
+   "runner_up": null,
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "perseus": 1
+   }
+  },
+  {
+   "form": "Τὰδὲ",
+   "target": "Τάδε",
+   "share": 1.0,
+   "clean_class": 393,
+   "clean_hits": 393,
+   "accent_only": true,
+   "runner_up": null,
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "πρὸσθεν",
+   "target": "πρόσθεν",
+   "share": 0.9941,
+   "clean_class": 3884,
+   "clean_hits": 3861,
+   "accent_only": true,
+   "runner_up": {
+    "form": "προσθεν",
+    "clean_tokens": 17
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "διὸπερ",
+   "target": "διόπερ",
+   "share": 1.0,
+   "clean_class": 2544,
+   "clean_hits": 2544,
+   "accent_only": true,
+   "runner_up": null,
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  },
+  {
+   "form": "καὶροῦ",
+   "target": "καιροῦ",
+   "share": 0.9931,
+   "clean_class": 2175,
+   "clean_hits": 2160,
+   "accent_only": true,
+   "runner_up": {
+    "form": "καιρού",
+    "clean_tokens": 13
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "first1k": 1
+   }
+  }
+ ]
+}
