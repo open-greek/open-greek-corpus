@@ -1420,6 +1420,10 @@
    "name": "anon-anonymi-geographiae-expositio-compendiaria",
    "aliases": {}
   },
+  "anon-anonymi-in-acta-apostolorum": {
+   "name": "anon-anonymi-in-acta-apostolorum",
+   "aliases": {}
+  },
   "anon-anonymi-in-aphthonium": {
    "name": "anon-anonymi-in-aphthonium",
    "aliases": {}
@@ -10718,10 +10722,6 @@
     "isni": "0000000010741401"
    }
   },
-  "dionysius-pachymeres-pg3": {
-   "name": "Pseudo-Dionysius Areopagita et Georgius Pachymeres (PG 3)",
-   "aliases": {}
-  },
   "dionysius-periegesis": {
    "name": "Dionysius",
    "aliases": {
@@ -13084,10 +13084,6 @@
     "isni": "0000000369645950"
    }
   },
-  "ignatius-polycarpus-melito-pg5": {
-   "name": "Ignatius, Polycarpus, Melito et alii (PG 5)",
-   "aliases": {}
-  },
   "ignatius-scr-eccl": {
    "name": "Ignatius",
    "aliases": {
@@ -13155,10 +13151,6 @@
     "viaf": "34843865",
     "gnd": "102396442"
    }
-  },
-  "isidorus-joel-choniates-pg139": {
-   "name": "Isidorus Thessalonicensis, Joel et Nicetas Choniates (PG 139)",
-   "aliases": {}
   },
   "isidorus-scriptor-hymnorum": {
    "name": "Isidorus Scriptor Hymnorum",
@@ -13620,12 +13612,6 @@
   "leo-philosophy": {
    "name": "Leo",
    "aliases": {}
-  },
-  "leo-vi-sapiens": {
-   "name": "Leo VI Sapiens",
-   "aliases": {
-    "wikidata": "Q41618"
-   }
   },
   "leontius-mechanics": {
    "name": "Leontius",
@@ -17518,10 +17504,6 @@
    "name": "Scriptor Incertus De Leone Armenio",
    "aliases": {}
   },
-  "scriptores-post-theophanem": {
-   "name": "Scriptores post Theophanem (PG 109)",
-   "aliases": {}
-  },
   "scylax": {
    "name": "Scylax",
    "aliases": {
@@ -18780,12 +18762,6 @@
     "viaf": "9419159109716206900003",
     "gnd": "118621793",
     "isni": "0000000398650994"
-   }
-  },
-  "theophylactus-achridensis": {
-   "name": "Theophylactus Achridensis",
-   "aliases": {
-    "wikidata": "Q1247278"
    }
   },
   "theophylactus-simocatta": {
@@ -37162,6 +37138,50 @@
    "title": "anonymi-geographiae-expositio-compendiaria.geographiae-expositio-compendiaria",
    "aliases": {
     "cts": "urn:cts:cogGreek:anonymi-geographiae-expositio-compendiaria.geographiae-expositio-compendiaria"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-anonymi-in-acta-apostolorum.anonymi-in-acta-apostolorum-capita-actorum": {
+   "author": "anon-anonymi-in-acta-apostolorum",
+   "title": "anonymi-in-acta-apostolorum.capita-actorum",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:anonymi-in-acta-apostolorum.capita-actorum"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-anonymi-in-acta-apostolorum.anonymi-in-acta-apostolorum-hypothesis-actorum": {
+   "author": "anon-anonymi-in-acta-apostolorum",
+   "title": "anonymi-in-acta-apostolorum.hypothesis-actorum",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:anonymi-in-acta-apostolorum.hypothesis-actorum"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-anonymi-in-acta-apostolorum.anonymi-in-acta-apostolorum-hypothesis-actorum-altera": {
+   "author": "anon-anonymi-in-acta-apostolorum",
+   "title": "anonymi-in-acta-apostolorum.hypothesis-actorum-altera",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:anonymi-in-acta-apostolorum.hypothesis-actorum-altera"
+   },
+   "default_edition": null,
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {}
+  },
+  "anon-anonymi-in-acta-apostolorum.anonymi-in-acta-apostolorum-hypothesis-epistularum-iambica": {
+   "author": "anon-anonymi-in-acta-apostolorum",
+   "title": "anonymi-in-acta-apostolorum.hypothesis-epistularum-iambica",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:anonymi-in-acta-apostolorum.hypothesis-epistularum-iambica"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -117826,285 +117846,6 @@
      "servable": true,
      "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG003": {
-   "author": "dionysius-pachymeres-pg3",
-   "title": "Patrologia Graeca 3",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG003"
-   },
-   "default_edition": "cogPG.PG003.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "genre:theology"
-   ],
-   "editions": {
-    "cogPG.PG003.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG005": {
-   "author": "ignatius-polycarpus-melito-pg5",
-   "title": "Patrologia Graeca 5",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG005"
-   },
-   "default_edition": "cogPG.PG005.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:2",
-    "era:imperial",
-    "genre:epistolography",
-    "genre:theology"
-   ],
-   "editions": {
-    "cogPG.PG005.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG101": {
-   "author": "photius",
-   "title": "Patrologia Graeca 101",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG101"
-   },
-   "default_edition": "cogPG.PG101.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:9",
-    "era:byzantine",
-    "genre:theology"
-   ],
-   "editions": {
-    "cogPG.PG101.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG107": {
-   "author": "leo-vi-sapiens",
-   "title": "Patrologia Graeca 107",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG107"
-   },
-   "default_edition": "cogPG.PG107.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:9",
-    "era:byzantine",
-    "genre:homiletics",
-    "genre:tactics"
-   ],
-   "editions": {
-    "cogPG.PG107.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG109": {
-   "author": "scriptores-post-theophanem",
-   "title": "Patrologia Graeca 109",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG109"
-   },
-   "default_edition": "cogPG.PG109.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:10",
-    "era:byzantine",
-    "genre:history"
-   ],
-   "editions": {
-    "cogPG.PG109.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG113": {
-   "author": "constantinus-vii-porphyrogenitus-imperator",
-   "title": "Patrologia Graeca 113",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG113"
-   },
-   "default_edition": "cogPG.PG113.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:10",
-    "era:byzantine",
-    "genre:history"
-   ],
-   "editions": {
-    "cogPG.PG113.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG118": {
-   "author": "oecumenius",
-   "title": "Patrologia Graeca 118",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG118"
-   },
-   "default_edition": "cogPG.PG118.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "genre:exegesis"
-   ],
-   "editions": {
-    "cogPG.PG118.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG124": {
-   "author": "theophylactus-achridensis",
-   "title": "Patrologia Graeca 124",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG124"
-   },
-   "default_edition": "cogPG.PG124.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:11",
-    "era:byzantine",
-    "genre:exegesis"
-   ],
-   "editions": {
-    "cogPG.PG124.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG125": {
-   "author": "theophylactus-achridensis",
-   "title": "Patrologia Graeca 125",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG125"
-   },
-   "default_edition": "cogPG.PG125.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:11",
-    "era:byzantine",
-    "genre:exegesis"
-   ],
-   "editions": {
-    "cogPG.PG125.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
-     "aliases": {}
-    }
-   }
-  },
-  "cogPG.PG139": {
-   "author": "isidorus-joel-choniates-pg139",
-   "title": "Patrologia Graeca 139",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:cogPG.PG139"
-   },
-   "default_edition": "cogPG.PG139.cgpg",
-   "best_source": "open_corpus",
-   "tags": [
-    "century:13",
-    "era:byzantine",
-    "genre:history",
-    "genre:homiletics"
-   ],
-   "editions": {
-    "cogPG.PG139.cgpg": {
-     "name": "calfa-co Patrologia Graeca (cgpg)",
-     "provider": "cgpg",
-     "scheme": "ref",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "CC-BY-4.0",
-     "scheme_inferred": true,
      "aliases": {}
     }
    }

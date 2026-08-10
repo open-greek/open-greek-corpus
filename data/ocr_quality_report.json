@@ -5,8 +5,8 @@
     "cgpg",
     "ocr"
    ],
-   "n_token_occurrences": 36124268,
-   "n_unique_forms": 1166532,
+   "n_token_occurrences": 36122262,
+   "n_unique_forms": 1165703,
    "n_works": 2496,
    "sources": [
     "byzantine_vernacular",
@@ -22,11 +22,11 @@
    ]
   },
   "counts": {
-   "ocr_works": 1423,
+   "ocr_works": 1413,
    "ocr_works_ranked": 823,
-   "ocr_works_with_witness": 198,
+   "ocr_works_with_witness": 196,
    "secondary_files": 477,
-   "skipped": 75,
+   "skipped": 77,
    "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -85,6 +85,14 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "basilius-theology.regulae-morales.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "cogPG.PG005"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "cogPG.PG113"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -1478,9 +1486,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 45993,
    "n_tokens_checked": 28331,
-   "n_unattested": 9946,
+   "n_unattested": 9948,
    "source": "ocr",
-   "unattested_rate": 0.351064,
+   "unattested_rate": 0.351135,
    "witness": null
   },
   "arcesilaus-comedy.fragmentum": {
@@ -1679,9 +1687,9 @@
    "edition": "qwen36-aristides_quintilianus_meibom",
    "n_tokens": 64826,
    "n_tokens_checked": 32810,
-   "n_unattested": 11844,
+   "n_unattested": 11845,
    "source": "ocr",
-   "unattested_rate": 0.360988,
+   "unattested_rate": 0.361018,
    "witness": null
   },
   "aristippus-cyrenaicus.sententiae-et-apophthegmata": {
@@ -3523,108 +3531,6 @@
     "secondary_edition": "migne-ocr-qwen36"
    }
   },
-  "cogPG.PG003": {
-   "edition": "cgpg",
-   "n_tokens": 20,
-   "n_tokens_checked": 9,
-   "n_unattested": 1,
-   "source": "cgpg",
-   "unattested_rate": 0.111111,
-   "witness": null
-  },
-  "cogPG.PG005": {
-   "edition": "cgpg",
-   "n_tokens": 1648,
-   "n_tokens_checked": 1045,
-   "n_unattested": 67,
-   "source": "cgpg",
-   "unattested_rate": 0.064115,
-   "witness": {
-    "agreement_primary_in_secondary": 0.100122,
-    "agreement_secondary_in_primary": 0.156818,
-    "n_bigrams_primary": 1638,
-    "n_bigrams_secondary": 880,
-    "secondary_edition": "cgpg"
-   }
-  },
-  "cogPG.PG101": {
-   "edition": "cgpg",
-   "n_tokens": 515,
-   "n_tokens_checked": 316,
-   "n_unattested": 16,
-   "source": "cgpg",
-   "unattested_rate": 0.050633,
-   "witness": null
-  },
-  "cogPG.PG107": {
-   "edition": "cgpg",
-   "n_tokens": 1050,
-   "n_tokens_checked": 627,
-   "n_unattested": 53,
-   "source": "cgpg",
-   "unattested_rate": 0.08453,
-   "witness": null
-  },
-  "cogPG.PG109": {
-   "edition": "cgpg",
-   "n_tokens": 7,
-   "n_tokens_checked": 1,
-   "n_unattested": 1,
-   "source": "cgpg",
-   "unattested_rate": 1.0,
-   "witness": null
-  },
-  "cogPG.PG113": {
-   "edition": "cgpg",
-   "n_tokens": 1793,
-   "n_tokens_checked": 1109,
-   "n_unattested": 227,
-   "source": "cgpg",
-   "unattested_rate": 0.204689,
-   "witness": {
-    "agreement_primary_in_secondary": 0.013521,
-    "agreement_secondary_in_primary": 0.046703,
-    "n_bigrams_primary": 1775,
-    "n_bigrams_secondary": 364,
-    "secondary_edition": "cgpg"
-   }
-  },
-  "cogPG.PG118": {
-   "edition": "cgpg",
-   "n_tokens": 631,
-   "n_tokens_checked": 384,
-   "n_unattested": 21,
-   "source": "cgpg",
-   "unattested_rate": 0.054688,
-   "witness": null
-  },
-  "cogPG.PG124": {
-   "edition": "cgpg",
-   "n_tokens": 99,
-   "n_tokens_checked": 58,
-   "n_unattested": 53,
-   "source": "cgpg",
-   "unattested_rate": 0.913793,
-   "witness": null
-  },
-  "cogPG.PG125": {
-   "edition": "cgpg",
-   "n_tokens": 1629,
-   "n_tokens_checked": 1027,
-   "n_unattested": 826,
-   "source": "cgpg",
-   "unattested_rate": 0.804284,
-   "witness": null
-  },
-  "cogPG.PG139": {
-   "edition": "cgpg",
-   "n_tokens": 1349,
-   "n_tokens_checked": 850,
-   "n_unattested": 73,
-   "source": "cgpg",
-   "unattested_rate": 0.085882,
-   "witness": null
-  },
   "comarius.peri-th-s-qei-as-kai-i-era-s-te-xnhs-tw-n-filoso-fwn-e": {
    "edition": "qwen36-berthelot_alchimistes_grec",
    "n_tokens": 8,
@@ -3638,18 +3544,18 @@
    "edition": "qwen36-comica_adespota_caf3",
    "n_tokens": 54499,
    "n_tokens_checked": 33907,
-   "n_unattested": 6877,
+   "n_unattested": 6878,
    "source": "ocr",
-   "unattested_rate": 0.202819,
+   "unattested_rate": 0.202849,
    "witness": null
   },
   "commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 229685,
    "n_tokens_checked": 132036,
-   "n_unattested": 16556,
+   "n_unattested": 16557,
    "source": "ocr",
-   "unattested_rate": 0.12539,
+   "unattested_rate": 0.125398,
    "witness": null
   },
   "constantinus-siculus.versus-in-leonem-philosophum": {
@@ -3728,9 +3634,9 @@
    "edition": "qwen36-thomas_patricius_anthol_dubner_v3",
    "n_tokens": 101426,
    "n_tokens_checked": 66906,
-   "n_unattested": 16855,
+   "n_unattested": 16857,
    "source": "ocr",
-   "unattested_rate": 0.251921,
+   "unattested_rate": 0.25195,
    "witness": null
   },
   "crates-comedy.fragmenta": {
@@ -4001,9 +3907,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 293813,
    "n_tokens_checked": 175936,
-   "n_unattested": 26483,
+   "n_unattested": 26484,
    "source": "ocr",
-   "unattested_rate": 0.150526,
+   "unattested_rate": 0.150532,
    "witness": null
   },
   "cyrillus-theology.contra-julianum-lib-1-2": {
@@ -4790,9 +4696,9 @@
    "edition": "qwen36-dositheus_ars_tolkiehn-masked",
    "n_tokens": 6492,
    "n_tokens_checked": 4171,
-   "n_unattested": 866,
+   "n_unattested": 867,
    "source": "ocr",
-   "unattested_rate": 0.207624,
+   "unattested_rate": 0.207864,
    "witness": null
   },
   "dromo.fragmenta": {
@@ -5105,9 +5011,9 @@
    "edition": "qwen36-eudoxus_ars_astronomica_blass",
    "n_tokens": 3807,
    "n_tokens_checked": 1677,
-   "n_unattested": 272,
+   "n_unattested": 273,
    "source": "ocr",
-   "unattested_rate": 0.162194,
+   "unattested_rate": 0.162791,
    "witness": null
   },
   "eudoxus.fragmenta": {
@@ -5306,9 +5212,9 @@
    "edition": "eustathius-odyssey-stallbaum-qwen36-pagekey",
    "n_tokens": 539821,
    "n_tokens_checked": 310134,
-   "n_unattested": 83665,
+   "n_unattested": 83666,
    "source": "ocr",
-   "unattested_rate": 0.26977,
+   "unattested_rate": 0.269774,
    "witness": null
   },
   "eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium": {
@@ -5384,9 +5290,9 @@
    "edition": "qwen36-justinian_novellae_schoell",
    "n_tokens": 234311,
    "n_tokens_checked": 146729,
-   "n_unattested": 29370,
+   "n_unattested": 29376,
    "source": "ocr",
-   "unattested_rate": 0.200165,
+   "unattested_rate": 0.200206,
    "witness": {
     "agreement_primary_in_secondary": 0.618446,
     "agreement_secondary_in_primary": 0.697546,
@@ -5867,9 +5773,9 @@
    "edition": "cgpg",
    "n_tokens": 291998,
    "n_tokens_checked": 180376,
-   "n_unattested": 10582,
+   "n_unattested": 10583,
    "source": "cgpg",
-   "unattested_rate": 0.058666,
+   "unattested_rate": 0.058672,
    "witness": null
   },
   "georgius-choeroboscus.peri-tropon-poietikon": {
@@ -5933,9 +5839,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 240537,
    "n_tokens_checked": 138855,
-   "n_unattested": 24344,
+   "n_unattested": 24345,
    "source": "ocr",
-   "unattested_rate": 0.17532,
+   "unattested_rate": 0.175327,
    "witness": null
   },
   "georgius-pachymeres.paraphrasis-in-omnia-opera-dionysii-areopagitae": {
@@ -7115,9 +7021,9 @@
    "edition": "qwen36-heron_definitiones_teubner4",
    "n_tokens": 56184,
    "n_tokens_checked": 29869,
-   "n_unattested": 3205,
+   "n_unattested": 3206,
    "source": "ocr",
-   "unattested_rate": 0.107302,
+   "unattested_rate": 0.107335,
    "witness": null
   },
   "heron.geometrica": {
@@ -7160,9 +7066,9 @@
    "edition": "qwen36-hesychius_schmidt_masked",
    "n_tokens": 58090,
    "n_tokens_checked": 41754,
-   "n_unattested": 9552,
+   "n_unattested": 9553,
    "source": "ocr",
-   "unattested_rate": 0.228769,
+   "unattested_rate": 0.228792,
    "witness": null
   },
   "hexapla-anonymi.lectiones": {
@@ -7250,9 +7156,9 @@
    "edition": "qwen36-himerius_dubner_didot",
    "n_tokens": 257196,
    "n_tokens_checked": 150371,
-   "n_unattested": 33259,
+   "n_unattested": 33260,
    "source": "ocr",
-   "unattested_rate": 0.22118,
+   "unattested_rate": 0.221186,
    "witness": null
   },
   "hipparchus-comedy.fragmenta": {
@@ -7493,9 +7399,9 @@
    "edition": "qwen36-isidorus_scholasticus_anthol_didot",
    "n_tokens": 105423,
    "n_tokens_checked": 70937,
-   "n_unattested": 19012,
+   "n_unattested": 19013,
    "source": "ocr",
-   "unattested_rate": 0.268012,
+   "unattested_rate": 0.268027,
    "witness": {
     "agreement_primary_in_secondary": 0.011325,
     "agreement_secondary_in_primary": 0.245679,
@@ -7922,9 +7828,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 4855,
    "n_tokens_checked": 2991,
-   "n_unattested": 385,
+   "n_unattested": 386,
    "source": "ocr",
-   "unattested_rate": 0.128719,
+   "unattested_rate": 0.129054,
    "witness": null
   },
   "joannes-chrysostomus.de-precatione-orat-1-2-sp": {
@@ -9428,9 +9334,9 @@
    "edition": "qwen36-cornutus_lang",
    "n_tokens": 23228,
    "n_tokens_checked": 14283,
-   "n_unattested": 3051,
+   "n_unattested": 3052,
    "source": "ocr",
-   "unattested_rate": 0.213611,
+   "unattested_rate": 0.213681,
    "witness": null
   },
   "lycon-tarentinus-vel-iasensis.testimonia": {
@@ -9536,9 +9442,9 @@
    "edition": "qwen36-mantissa_proverbiorum_paroemiogr2-masked",
    "n_tokens": 167532,
    "n_tokens_checked": 99921,
-   "n_unattested": 19710,
+   "n_unattested": 19711,
    "source": "ocr",
-   "unattested_rate": 0.197256,
+   "unattested_rate": 0.197266,
    "witness": null
   },
   "marcellinus.vita-thucydidis": {
@@ -10064,9 +9970,9 @@
    "edition": "qwen36-moeris_koch1830-masked",
    "n_tokens": 58061,
    "n_tokens_checked": 37894,
-   "n_unattested": 11252,
+   "n_unattested": 11253,
    "source": "ocr",
-   "unattested_rate": 0.296934,
+   "unattested_rate": 0.29696,
    "witness": null
   },
   "monimus-cynicus.fragmenta": {
@@ -10385,9 +10291,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 129333,
    "n_tokens_checked": 77749,
-   "n_unattested": 21181,
+   "n_unattested": 21184,
    "source": "ocr",
-   "unattested_rate": 0.272428,
+   "unattested_rate": 0.272467,
    "witness": null
   },
   "ocr.mansi_ephesus_t5": {
@@ -10883,9 +10789,9 @@
    "edition": "qwen36-paulsilent_descriptio_bekker",
    "n_tokens": 45017,
    "n_tokens_checked": 30109,
-   "n_unattested": 6495,
+   "n_unattested": 6496,
    "source": "ocr",
-   "unattested_rate": 0.215716,
+   "unattested_rate": 0.215749,
    "witness": null
   },
   "pausanias-attic.attikw-n-o-noma-twn-sunagwgh": {
@@ -11186,9 +11092,9 @@
    "edition": "sudhaus-volrhet1-1892",
    "n_tokens": 99070,
    "n_tokens_checked": 39445,
-   "n_unattested": 11804,
+   "n_unattested": 11806,
    "source": "ocr",
-   "unattested_rate": 0.299252,
+   "unattested_rate": 0.299303,
    "witness": null
   },
   "philolaus.testimonia": {
@@ -11714,9 +11620,9 @@
    "edition": "qwen36-porphyry-in-ptol-bub",
    "n_tokens": 64280,
    "n_tokens_checked": 31713,
-   "n_unattested": 8106,
+   "n_unattested": 8107,
    "source": "ocr",
-   "unattested_rate": 0.255605,
+   "unattested_rate": 0.255636,
    "witness": null
   },
   "porphyrius.epistula-ad-anebonem": {
@@ -12236,9 +12142,9 @@
    "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
    "n_tokens": 119911,
    "n_tokens_checked": 71976,
-   "n_unattested": 20360,
+   "n_unattested": 20361,
    "source": "ocr",
-   "unattested_rate": 0.282872,
+   "unattested_rate": 0.282886,
    "witness": null
   },
   "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera": {
@@ -12263,9 +12169,9 @@
    "edition": "qwen36-scholia_aristoph_dubner-masked",
    "n_tokens": 354055,
    "n_tokens_checked": 218014,
-   "n_unattested": 37364,
+   "n_unattested": 37365,
    "source": "ocr",
-   "unattested_rate": 0.171383,
+   "unattested_rate": 0.171388,
    "witness": null
   },
   "scholia-in-callimachum.schol-callim-schneider": {
@@ -12296,9 +12202,9 @@
    "edition": "qwen36-scholia_hesiod_gaisford-masked",
    "n_tokens": 174839,
    "n_tokens_checked": 92533,
-   "n_unattested": 15728,
+   "n_unattested": 15730,
    "source": "ocr",
-   "unattested_rate": 0.169972,
+   "unattested_rate": 0.169993,
    "witness": null
   },
   "scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et": {
@@ -12509,9 +12415,9 @@
    "edition": "qwen36-socrates_hist_fhg4",
    "n_tokens": 51835,
    "n_tokens_checked": 32973,
-   "n_unattested": 5446,
+   "n_unattested": 5447,
    "source": "ocr",
-   "unattested_rate": 0.165165,
+   "unattested_rate": 0.165196,
    "witness": {
     "agreement_primary_in_secondary": 0.243794,
     "agreement_secondary_in_primary": 0.25564,
@@ -14436,8 +14342,8 @@
   "simias.fragmenta",
   "aristophanes-byzantii-nauck",
   "alcaeus-lyric.fragmenta",
-  "tlg1595.tlg271",
   "cougny-appendix-nova.didot-anthologia-v3",
+  "tlg1595.tlg271",
   "manetho.fragmenta",
   "orphica.argonautica",
   "theognostus.canones-sive-de-orthographia",
@@ -14572,8 +14478,8 @@
   "gregorius-nyssenus.ad-imaginem-dei-et-ad-similitudinem-sp",
   "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
   "joannes-chrysostomus.de-babyla-contra-julianum-et-gentiles",
-  "panyassis.fragmenta-epica",
   "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera",
+  "panyassis.fragmenta-epica",
   "demonax-philosophy.fragmenta",
   "synesius-philosophy.epistulae",
   "crates-poet-phil.fragmenta",
@@ -14590,8 +14496,8 @@
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40",
   "orphica.testimonia",
   "gregorius-nyssenus.in-sanctum-ephraim",
-  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "socrates-rhodius.socrates-hist-fhg4",
+  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "aphthonius.progymnasmata",
   "joannes-chrysostomus.in-ascensionem-sermo-2-sp",
   "cyrillus-theology.contra-julianum-lib-1-2",
@@ -14599,13 +14505,13 @@
   "pseudo-archytas.fragmenta",
   "antiphanes.fragmenta",
   "joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp",
+  "eudoxus-astronomy.fragmenta",
   "joannes-chrysostomus.ad-stelechium-de-compunctione-lib-2",
   "gregorius-nazianzenus.funebris-oratio-in-laudem-basilii-magni-caesareae-in-cappadocia",
   "ocr.pg036",
   "joannes-chrysostomus.in-eutropium",
   "scholia-in-aratum.scholia-in-aratum-scholia-vetera",
   "cyrillus-scr-eccl.homilia-in-occursum-domini-sp",
-  "eudoxus-astronomy.fragmenta",
   "gregorius-nyssenus.de-sancto-theodoro",
   "gregorius-nazianzenus.supremum-vale-orat-42",
   "gregorius-nyssenus.in-sanctum-pascha-vulgo-in-christi-resurrectionem-oratio",
@@ -14814,8 +14720,8 @@
   "joannes-chrysostomus.interpretatio-in-danielem-prophetam-sp",
   "ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas",
   "gregorius-nyssenus.adversus-macedonianos-de-spiritu-sancto",
-  "cyrillus-theology.de-sancta-trinitate-sp",
   "joannes-chrysostomus.de-perfecta-caritate-sp",
+  "cyrillus-theology.de-sancta-trinitate-sp",
   "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
   "georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes",
   "joannes-chrysostomus.de-decem-millium-talentorum-debitore",
@@ -14925,8 +14831,8 @@
   "basilius-theology.adversus-eunomium-libri-5",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum",
   "ducas.historia-turcobyzantina",
-  "eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum",
   "heron.definitiones",
+  "eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum",
   "josephus-genesius.basilei-ai",
   "joannes-chrysostomus.fragmenta-in-epistulas-catholicas",
   "basilius-theology.quod-deus-non-est-auctor-malorum",

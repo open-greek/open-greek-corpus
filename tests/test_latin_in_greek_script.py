@@ -40,6 +40,11 @@ def _row(locus: str) -> str:
     raise AssertionError(f"{locus} is not in {POLYCARP.name}")
 
 
+GREEK_SAMPLE = ("Ἐγράψατέ μοι καὶ ὑμεῖς καὶ Ἰγνάτιος, ἵν᾽, ἐάν τις ἀπέρχηται εἰς "
+                "Συρίαν, καὶ τὰ παῤ ὑμῶν ἀποκομίσῃ γράμματα: ὅπερ ποιήσω, ἐὰν "
+                "λάβω καιρὸν εὔθετον, εἴτε ἐγώ, εἴτε ὄν πέμπω πρεσβεύσοντα.")
+
+
 def _flags(text: str) -> bool:
     toks = m._GK.findall(text)
     hits = {w for w in (t.lower() for t in toks) if w in m.MARKERS}
@@ -47,24 +52,47 @@ def _flags(text: str) -> bool:
             and m.accent_rate(text, len(toks)) < m.MAX_ACCENT)
 
 
-def test_transliterated_latin_is_caught():
-    """Polycarp 11.1, "nimis contristatus sum pro Valente"."""
-    assert _flags(_row("11.1"))
+PARATEXT = REPO / "data" / "paratext" / "latin_in_greek_script.jsonl"
 
 
-def test_a_short_latin_row_is_reached_by_its_run_not_by_a_lower_floor():
-    """Polycarp 10.1 carries four markers where five are asked, so the row
-    alone cannot say it, and the strict test is right to refuse. It is Latin,
-    and the scan reaches it because 10.2 beside it is confirmed."""
-    assert not _flags(_row("10.1"))
-    got = {(r["work"], r["locus"]) for r in m.scan()}
-    assert ("polycarpus.epistula-ad-philippenses", "10.1") in got
+def test_the_served_corpus_holds_none_of_it():
+    """The class is out of data/corpus, so out of every Greek rollup."""
+    assert m.scan() == []
 
 
-def test_the_greek_chapter_in_the_same_work_is_not():
-    """Polycarp 13 is Greek and sits between Latin chapters; it must survive."""
-    assert not _flags(_row("13.1"))
-    assert not _flags(_row("13.2"))
+def test_it_was_kept_not_dropped():
+    rows = [json.loads(l) for l in
+            PARATEXT.read_text(encoding="utf-8").splitlines() if l.strip()]
+    assert sum(len(m._GK.findall(r["text"])) for r in rows) == 2006
+    assert {r["slug"] for r in rows} == {
+        "hermas.pastor", "polycarpus.epistula-ad-philippenses",
+        "polybius-history.historiae"}
+
+
+def test_the_greek_sharing_those_rows_stayed_in_the_corpus():
+    """The reason this was done by span. Moving the 16 mixed rows whole would
+    have taken their Greek with the Latin; 497 tokens of it are still served."""
+    rows = [json.loads(l) for l in
+            PARATEXT.read_text(encoding="utf-8").splitlines() if l.strip()]
+    mixed = [r for r in rows if r["greek_remaining_in_this_row"]]
+    assert mixed, "no row recorded Greek left behind"
+    assert sum(r["greek_remaining_in_this_row"] for r in mixed) == 497
+    poly = _row("13.2")
+    assert "Ἐγράψατέ" in poly or "ἐπιστολὰς" in poly
+
+
+def test_the_detector_still_knows_latin_from_greek():
+    """Kept because the rule still gates this file and any text delivered later.
+
+    Tested against text that actually moved, not a paste: an earlier version
+    repeated one sentence three times and failed, because repeating it does not
+    add distinct markers and the floor counts distinct ones.
+    """
+    rows = [json.loads(l) for l in
+            PARATEXT.read_text(encoding="utf-8").splitlines() if l.strip()]
+    longest = max(rows, key=lambda r: len(r["text"]))["text"]
+    assert _flags(longest)
+    assert not _flags(GREEK_SAMPLE)
 
 
 def test_unaccented_greek_alone_is_not_enough():
@@ -81,23 +109,13 @@ def test_no_marker_is_also_a_greek_word():
 
 
 @pytest.mark.skipif(not ARTIFACT.exists(), reason="artifact not built")
-def test_the_artifact_names_the_three_works_and_no_others():
-    """Three, not two. Polybius joined when the gate stopped asking one row to
-    carry the whole case: its Latin is bracketed apparatus sigla in rows of
-    five tokens, so no row cleared the floor while the work plainly does."""
-    d = json.loads(ARTIFACT.read_text(encoding="utf-8"))
-    assert {w["work"] for w in d["by_work"]} == {
-        "hermas.pastor", "polycarpus.epistula-ad-philippenses",
-        "polybius-history.historiae"}
-    assert set(d["work_gate"]["admitted"]) == {w["work"] for w in d["by_work"]}
-    assert d["tokens"] == sum(w["tokens"] for w in d["by_work"])
+def test_the_artifact_is_empty_and_says_why():
+    """The measurement now scans a corpus the class has left.
 
-
-def test_greek_sharing_a_row_with_latin_is_not_swept_up():
-    """The reason spans replaced rows. Polycarp 13.2 is Greek with a Latin tail;
-    counting the row would take 58 tokens of Greek with it."""
+    It used to name three works and 2,006 tokens. Those went to
+    data/paratext/latin_in_greek_script.jsonl on 2026-08-10, so the artifact
+    reporting zero is the class being gone rather than the detector breaking.
+    test_the_detector_still_knows_latin_from_greek is what keeps those apart.
+    """
     d = json.loads(ARTIFACT.read_text(encoding="utf-8"))
-    assert d["rows_sharing_with_greek"] > 0
-    for r in d["detail"]:
-        if not r["whole_row"]:
-            assert r["span_tokens"] < r["tokens"], r["locus"]
+    assert d["tokens"] == 0 and d["by_work"] == []
