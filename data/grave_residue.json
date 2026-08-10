@@ -1,7 +1,46 @@
 {
  "what": "the grave-lemma residue partitioned by whether any accent rule could reach it",
  "issue": "open-greek/open-greek-corpus#4",
- "source": "data/work_lemma_counts.tsv.gz, and nothing else",
+ "source": "data/work_lemma_counts.tsv.gz, plus the `correction` column of data/corpus_catalog.tsv for the by_correction_status block",
+ "by_correction_status": {
+  "what": "the grave-lemma class split by how the text under it was produced, which is the evidence the `limitation` label rests on",
+  "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
+  "by_class": {
+   "auto-corrected": {
+    "grave_tokens": 17056,
+    "grave_lemmas": 5407,
+    "lemmatized_tokens_in_this_class": 18507167,
+    "rate": 0.000922
+   },
+   "manual": {
+    "grave_tokens": 5370,
+    "grave_lemmas": 2237,
+    "lemmatized_tokens_in_this_class": 6925800,
+    "rate": 0.000775
+   },
+   "not-ocr": {
+    "grave_tokens": 6264,
+    "grave_lemmas": 2239,
+    "lemmatized_tokens_in_this_class": 35622464,
+    "rate": 0.000176
+   },
+   "raw-ocr": {
+    "grave_tokens": 2883,
+    "grave_lemmas": 1534,
+    "lemmatized_tokens_in_this_class": 2556528,
+    "rate": 0.001128
+   }
+  },
+  "unmatched": {
+   "tokens": 0,
+   "lemmas": 0,
+   "keys": []
+  },
+  "ocr_derived_rate": 0.000904,
+  "born_digital_rate": 0.000176,
+  "lift": 5.14,
+  "reading": "the class is not an OCR problem that belongs to another issue. It sits over born-digital text at a floor no text repair reaches, and the raw-OCR stratum #2 scopes holds only a small part of it."
+ },
  "why_not_the_annotation_exports": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it. Dictionary headword inventories can, and the headword_backed block below is that test.",
  "headword_backed": {
   "what": "grave lemmas whose acute counterpart is a headword in a published lexicon, which is an authority independent of the lemmatizer that produced this residue",

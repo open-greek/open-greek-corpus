@@ -201,7 +201,10 @@ $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
 # figures, with nothing failing. That is the same failure the capital_positions
 # prerequisite above was added for, one artifact over: a measurement quoted on
 # the tracker has to be rebuilt by the thing that invalidates it.
-$(GRAVE_RESIDUE): $(WORK_LEMMAS) scripts/measure_grave_residue.py \
+# $(CATALOG) too, since the by_correction_status block reads its `correction`
+# column: that column can move from an OCR-ledger edit that leaves the corpus
+# files alone, and this artifact is quoted on issue #4.
+$(GRAVE_RESIDUE): $(WORK_LEMMAS) $(CATALOG) scripts/measure_grave_residue.py \
                   scripts/validate_lemma_map.py
 	$(PY) scripts/measure_grave_residue.py --write
 
