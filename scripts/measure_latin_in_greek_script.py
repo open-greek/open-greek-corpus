@@ -71,49 +71,108 @@ def accent_rate(text: str, tokens: int) -> float:
     return marks / max(tokens, 1)
 
 
-def scan() -> list[dict]:
-    """Rows the two signals confirm, plus short rows inside a confirmed run.
+MIN_WORK_MARKERS = 6   # distinct markers a work must reach, over
+MIN_WORK_ROWS = 2      # at least this many low-accent rows
+SPAN_MIN = 6           # unaccented tokens in a row before a run is a span
 
-    The floors are strict on purpose and they under-report: Polycarp 10.1 is
-    "in his ergo state et domini exemplar sequimini" and carries four distinct
-    markers where five are required, and Hermas has five more like it. Rather
-    than lower the floor, which would start convicting Greek, a low-accent row
-    whose neighbour in the same work is confirmed joins it. A short Latin
-    sentence in the middle of a Latin chapter is Latin; position settles what
-    the row alone is too short to say, and it cannot reach outside a run.
+
+ACCENTS = ("\u0301", "\u0300", "\u0342")   # oxia, varia, perispomeni
+
+
+def _unaccented(tok: str) -> bool:
+    return not any(c in ACCENTS for c in unicodedata.normalize("NFD", tok))
+
+
+def admitted_works() -> dict[str, dict]:
+    """Works whose low-accent rows, taken together, carry enough Latin.
+
+    The row gate alone under-reports, because a work's Latin can be spread over
+    short rows none of which clears it on its own. Pooling a work's evidence
+    admits Polybius, whose bracketed apparatus sigla are Latin but sit in rows
+    of five tokens.
+
+    On the margin, honestly: the corpus splits 33, 33, 7, then 2. That looks
+    like a cliff and it partly is, but MARKERS was built by reading Hermas and
+    Polycarp, so the gap between 7 and 2 measures the marker list as well as the
+    text. It is evidence that no fourth work is close, not proof that none
+    exists.
     """
+    out: dict[str, dict] = {}
+    for fp in sorted((DATA / "corpus").glob("*.jsonl")):
+        markers: set = set()
+        low = 0
+        for line in fp.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            text = json.loads(line).get("text") or ""
+            toks = _GK.findall(text)
+            if len(toks) < MIN_TOKENS or accent_rate(text, len(toks)) >= MAX_ACCENT:
+                continue
+            low += 1
+            markers |= {w for w in (t.lower() for t in toks) if w in MARKERS}
+        if len(markers) >= MIN_WORK_MARKERS and low >= MIN_WORK_ROWS:
+            out[fp.name[:-len(".jsonl")]] = {"distinct_markers": len(markers),
+                                             "low_accent_rows": low}
+    return out
+
+
+def spans(text: str) -> list[dict]:
+    """Runs of unaccented tokens carrying a Latin marker, inside one row.
+
+    Rows are the wrong unit where the two languages share one. Polycarp 13.2 is
+    Greek with a Latin tail and Hermas 26.30.4 is the reverse, and a row-level
+    list forces a disposition to keep the Latin or throw away the Greek beside
+    it. A span has an address, so it can act on the Latin alone.
+    """
+    toks = _GK.findall(text)
+    out, run = [], []
+    for t in toks + [None]:
+        if t is not None and _unaccented(t):
+            run.append(t)
+            continue
+        if len(run) >= SPAN_MIN and any(w.lower() in MARKERS for w in run):
+            out.append({"tokens": len(run), "opens": " ".join(run[:8])[:60]})
+        run = []
+    return out
+
+
+def scan() -> list[dict]:
+    """Rows and spans of Latin, inside works the work gate admits.
+
+    Two numbers come out and both are published. The row-level `confirmed` set
+    is what the strict two-signal test says on its own; the span set is what is
+    actually Latin once a row holding both languages is allowed to be split.
+    """
+    works = admitted_works()
     out = []
     for fp in sorted((DATA / "corpus").glob("*.jsonl")):
-        rows = [json.loads(l) for l in fp.read_text(encoding="utf-8").splitlines()
-                if l.strip()]
-        marked = []
-        for r in rows:
+        work = fp.name[:-len(".jsonl")]
+        if work not in works:
+            continue
+        for line in fp.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            r = json.loads(line)
             text = r.get("text") or ""
             toks = _GK.findall(text)
             if not toks:
-                marked.append(None)
                 continue
             hits = {w for w in (t.lower() for t in toks) if w in MARKERS}
             rate = accent_rate(text, len(toks))
-            low = rate < MAX_ACCENT
-            sure = low and len(toks) >= MIN_TOKENS and len(hits) >= MIN_MARKERS
-            marked.append({"work": fp.name[:-len(".jsonl")],
-                           "locus": str(r["locus"]), "tokens": len(toks),
-                           "distinct_markers": len(hits),
-                           "accent_rate": round(rate, 4), "low_accent": low,
-                           "confirmed": sure,
-                           "opens": " ".join(text.split())[:70]})
-        if not any(m and m["confirmed"] for m in marked):
-            continue
-        for i, m in enumerate(marked):
-            if not m or m["confirmed"] or not m["low_accent"]:
+            sp = spans(text)
+            if not sp:
                 continue
-            nb = [marked[j] for j in (i - 1, i + 1)
-                  if 0 <= j < len(marked) and marked[j]]
-            if any(n["confirmed"] for n in nb):
-                m["by_run"] = True
-        out.extend(m for m in marked
-                   if m and (m["confirmed"] or m.get("by_run")))
+            out.append({"work": work, "locus": str(r["locus"]),
+                        "tokens": len(toks),
+                        "span_tokens": sum(x["tokens"] for x in sp),
+                        "spans": len(sp),
+                        "distinct_markers": len(hits),
+                        "accent_rate": round(rate, 4),
+                        "confirmed": (rate < MAX_ACCENT
+                                      and len(toks) >= MIN_TOKENS
+                                      and len(hits) >= MIN_MARKERS),
+                        "whole_row": sum(x["tokens"] for x in sp) == len(toks),
+                        "opens": sp[0]["opens"]})
     out.sort(key=lambda r: (r["work"], r["locus"]))
     return out
 
@@ -127,7 +186,7 @@ def main() -> None:
     rows = scan()
     by_work: collections.Counter = collections.Counter()
     for r in rows:
-        by_work[r["work"]] += r["tokens"]
+        by_work[r["work"]] += r["span_tokens"]
     total = sum(by_work.values())
     print(f"Latin in Greek script: {len(rows)} rows, {total:,} tokens, "
           f"{len(by_work)} works")
@@ -171,10 +230,27 @@ def main() -> None:
             "where five are asked. Lowering the floor instead would start "
             "convicting Greek, so the floor stays and position does the rest.",
         "rows": len(rows), "tokens": total,
-        "confirmed_rows": sum(1 for r in rows if r["confirmed"]),
-        "confirmed_tokens": sum(r["tokens"] for r in rows if r["confirmed"]),
-        "by_run_rows": sum(1 for r in rows if r.get("by_run")),
-        "by_run_tokens": sum(r["tokens"] for r in rows if r.get("by_run")),
+        "measured_as": "spans, not rows. A span is a run of at least "
+                       f"{SPAN_MIN} unaccented tokens carrying a Latin marker. "
+                       "Rows are the wrong unit where both languages share one: "
+                       "Polycarp 13.2 is Greek with a Latin tail and Hermas "
+                       "26.30.4 is the reverse, and a row-level list forces a "
+                       "disposition to keep the Latin or discard the Greek "
+                       "beside it.",
+        "work_gate": {"min_distinct_markers": MIN_WORK_MARKERS,
+                      "min_low_accent_rows": MIN_WORK_ROWS,
+                      "admitted": admitted_works(),
+                      "margin": "the corpus splits 33, 33, 7, then 2 distinct "
+                                "markers per work. That is a real gap, but "
+                                "MARKERS was built by reading Hermas and "
+                                "Polycarp, so it measures the marker list as "
+                                "well as the text: evidence that no fourth work "
+                                "is close, not proof that none exists."},
+        "rows_wholly_latin": sum(1 for r in rows if r["whole_row"]),
+        "rows_sharing_with_greek": sum(1 for r in rows if not r["whole_row"]),
+        "tokens_in_rows_sharing_with_greek": sum(
+            r["span_tokens"] for r in rows if not r["whole_row"]),
+        "row_level_confirmed_rows": sum(1 for r in rows if r["confirmed"]),
         "by_work": [{"work": w, "tokens": n} for w, n in by_work.most_common()],
         "detail": rows,
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
