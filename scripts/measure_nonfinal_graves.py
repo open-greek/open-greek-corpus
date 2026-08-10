@@ -39,6 +39,7 @@ REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 OUT = DATA / "nonfinal_graves.json"
 SHEET = DATA / "nonfinal_grave_tranche.json"
+MARK_SHEET = DATA / "nonfinal_grave_tranche_marks.json"
 
 # Sources this repo OCR'd or republishes someone else's OCR of. They are kept
 # out of the attestation base: the class exists because OCR mis-set accents, so
@@ -356,6 +357,39 @@ def main() -> None:
             "decided": decided[:400],
         },
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    # The second tranche: repairs the accent-only rail excludes. That rail was
+    # mine, not a finding, and it was right to have while nothing had measured
+    # what it held back. This is that measurement. These move a breathing or a
+    # coronis as well as an accent, which is a lexical claim (τὰναντία is the
+    # crasis τἀναντία, and τάναντία is not a word at all), so it is published
+    # separately and at a stricter share rather than folded into the first.
+    marks = [d for d in decided if not d["accent_only"]
+             and d["share"] >= 0.99 and d["clean_hits"] >= TRANCHE_CLEAN
+             and forms[d["form"]]]
+    m_tok = sum(forms[d["form"]] for d in marks)
+    m_w = (sum(forms[d["form"]] * d["share"] for d in marks) / m_tok) if m_tok else 0
+    MARK_SHEET.write_text(json.dumps({
+        "what": "the repairs the accent-only rail holds back, NOT APPLIED",
+        "issue": "open-greek/open-greek-corpus#31",
+        "status": "waiting on cisco. He approved repairing this class; the "
+                  "accent-only restriction was mine, described to him when the "
+                  "first tranche was applied, so widening it is a change to what "
+                  "he agreed to and not mine to make quietly.",
+        "what_moves": "a breathing or a coronis as well as an accent. τὰναντία is "
+                      "the crasis τἀναντία and τάναντία is not a word; ὲπὶ is ἐπί "
+                      "with the smooth breathing it lost; κἂι is καί.",
+        "why_stricter": f"share >= 0.99 over >= {TRANCHE_CLEAN} clean tokens, the "
+                        "bar used for other people's editions rather than the "
+                        "0.95 used for our own, because this changes a lexical "
+                        "mark and not only a stress.",
+        "forms": len(marks), "tokens": m_tok,
+        "token_weighted_share": round(m_w, 5),
+        "expected_wrong_tokens": round(m_tok * (1 - m_w)),
+        "rows": [{**d, "tokens": forms[d["form"]]} for d in marks],
+    }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"    mark-moving tranche (not applied): {len(marks)} forms, "
+          f"{m_tok:,} tokens, weighted {m_w:.4f}")
+
     SHEET.write_text(json.dumps({
         "what": "the repair tranche proposed for issue #31, NOT APPLIED",
         "issue": "open-greek/open-greek-corpus#31",
