@@ -182,6 +182,89 @@ def page_of(key: str) -> tuple[str, int] | None:
     return (m.group(1), int(m.group(2))) if m else None
 
 
+def cross_file_hits(files: list[Path]) -> list[dict]:
+    """Pages of one scan item that the per-file sweep can never compare.
+
+    scan_file compares units inside one file, which is what a duplicated leaf
+    was assumed to be. But a carve splits a scan item across the works printed
+    in it, and 90 of the 244 served items are split that way. So a printed page
+    delivered twice, once into each of two works, is invisible: neither file
+    holds both copies and nothing ever puts them side by side.
+
+    This adds that comparison and only that one. A page's rows are joined across
+    every file that holds them, since a page straddling a carve boundary is one
+    printed page in two pieces rather than two pages; then pages of one item are
+    compared, and a pair is emitted only when the two sides come from different
+    files. Everything the per-file sweep already found is untouched, so this can
+    add candidates and can never revise or remove one.
+
+    Served and witness text are kept apart. After the collapse passes 4,078 page
+    keys have rows in both data/corpus and data/corpus_secondary, and joining
+    across the two would rejoin a displaced read with the read that beat it and
+    then report the pair as a duplicate of itself.
+    """
+    if "ocr" not in SOURCES:
+        # Page units exist only in the line-level `ocr` source. In cgpg mode the
+        # unit is a row, and letting this run there mixed ocr page pairs into
+        # the leaf artifact, taking its served figure from 6 pairs to 45.
+        return []
+    out: list[dict] = []
+    for universe in ("corpus", "corpus_secondary"):
+        # item -> page key -> {files, texts}
+        items: dict[str, dict[str, dict]] = defaultdict(dict)
+        for fp in files:
+            if fp.parent.name != universe:
+                continue
+            rows = [json.loads(l) for l in fp.read_text(encoding="utf-8").splitlines()
+                    if l.strip()]
+            units = page_units(rows)
+            if units is None:
+                continue
+            rel = fp.relative_to(REPO).as_posix()
+            for key, text in units:
+                item = key.rsplit("_", 1)[0]
+                u = items[item].setdefault(key, {"files": set(), "parts": []})
+                u["files"].add(rel)
+                u["parts"].append((rel, text))
+        for item, pages in sorted(items.items()):
+            if len({f for u in pages.values() for f in u["files"]}) < 2:
+                continue                      # item lives in one file; already done
+            keys, sets, texts, srcs = [], [], [], []
+            for key in sorted(pages):
+                u = pages[key]
+                text = " ".join(t for _f, t in sorted(u["parts"]))
+                b = bigrams(text)
+                if len(b) < MIN_BIGRAMS:
+                    continue
+                keys.append(key)
+                sets.append(b)
+                texts.append(text)
+                srcs.append(sorted(u["files"]))
+            for i in range(len(keys)):
+                for j in range(i + 1, len(keys)):
+                    if srcs[i] == srcs[j]:
+                        continue              # same file(s): scan_file had it
+                    floor = min(len(sets[i]), len(sets[j]))
+                    cont = len(sets[i] & sets[j]) / floor
+                    if cont < GATE:
+                        continue
+                    a, b = texts[i], texts[j]
+                    wa, wb = set(words(a)), words(b)
+                    out.append({
+                        "file": srcs[i][0], "files_a": srcs[i], "files_b": srcs[j],
+                        "cross_file": True,
+                        "served": universe == "corpus",
+                        "locus_a": keys[i], "locus_b": keys[j],
+                        "containment": round(cont, 4),
+                        "bigrams_a": len(sets[i]), "bigrams_b": len(sets[j]),
+                        "tokens_b": len(_GK.findall(b)),
+                        "words_absent_from_a": sum(1 for w in wb if w not in wa),
+                        "words_b": len(wb),
+                        "unique_runs_if_b_dropped": unique_runs(b, a),
+                        "unique_runs_if_a_dropped": unique_runs(a, b)})
+    return out
+
+
 def find_runs(hits: list[dict]) -> list[dict]:
     """Group pairs into runs of consecutive pages repeating at a fixed offset.
 
@@ -203,6 +286,14 @@ def find_runs(hits: list[dict]) -> list[dict]:
     """
     by_offset: dict[tuple, set] = defaultdict(set)
     for h in hits:
+        if h.get("cross_file"):
+            # A run is one scanner handing the same stretch of leaves to one
+            # file twice. A cross-file pair is a different claim, and letting it
+            # chain would admit a within-file pair below the containment gate on
+            # the strength of a neighbour that is not evidence for it.
+            h["same_item"] = True
+            h["page_offset"] = None
+            continue
         pa, pb = page_of(h["locus_a"]), page_of(h["locus_b"])
         h["same_item"] = bool(pa and pb and pa[0] == pb[0])
         h["page_offset"] = abs(pb[1] - pa[1]) if h["same_item"] else None
@@ -279,6 +370,7 @@ def main() -> None:
     # by bigram, and set iteration order varies with PYTHONHASHSEED between
     # processes, so ties left to insertion order made this file differ between
     # runs. Same failure as data/grave_residue.json had.
+    hits.extend(cross_file_hits(files))
     hits.sort(key=lambda h: (-h["containment"], h["file"],
                              h["locus_a"], h["locus_b"]))
     runs = find_runs(hits)
