@@ -81,8 +81,23 @@ def test_no_marker_is_also_a_greek_word():
 
 
 @pytest.mark.skipif(not ARTIFACT.exists(), reason="artifact not built")
-def test_the_artifact_names_only_the_two_works_that_survive_in_latin():
+def test_the_artifact_names_the_three_works_and_no_others():
+    """Three, not two. Polybius joined when the gate stopped asking one row to
+    carry the whole case: its Latin is bracketed apparatus sigla in rows of
+    five tokens, so no row cleared the floor while the work plainly does."""
     d = json.loads(ARTIFACT.read_text(encoding="utf-8"))
     assert {w["work"] for w in d["by_work"]} == {
-        "hermas.pastor", "polycarpus.epistula-ad-philippenses"}
+        "hermas.pastor", "polycarpus.epistula-ad-philippenses",
+        "polybius-history.historiae"}
+    assert set(d["work_gate"]["admitted"]) == {w["work"] for w in d["by_work"]}
     assert d["tokens"] == sum(w["tokens"] for w in d["by_work"])
+
+
+def test_greek_sharing_a_row_with_latin_is_not_swept_up():
+    """The reason spans replaced rows. Polycarp 13.2 is Greek with a Latin tail;
+    counting the row would take 58 tokens of Greek with it."""
+    d = json.loads(ARTIFACT.read_text(encoding="utf-8"))
+    assert d["rows_sharing_with_greek"] > 0
+    for r in d["detail"]:
+        if not r["whole_row"]:
+            assert r["span_tokens"] < r["tokens"], r["locus"]
