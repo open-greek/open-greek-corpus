@@ -2,12 +2,12 @@
  "_meta": {
   "by_class": {
    "edition-prefixed": 986,
-   "logical-numeric": 2624,
-   "mixed": 305
+   "logical-numeric": 2614,
+   "mixed": 309
   },
   "dominance": 0.9,
   "what": "Classify every served work's loci and infer a citation scheme where the",
-  "works": 3915
+  "works": 3909
  },
  "works": {
   "abas.fragmenta": {
@@ -2485,6 +2485,34 @@
     "2.3"
    ],
    "scheme": "ref.sub"
+  },
+  "anonymi-in-acta-apostolorum.capita-actorum": {
+   "class": "mixed",
+   "sample": [
+    "PG118.25",
+    "PG118.26",
+    "PG118.27"
+   ]
+  },
+  "anonymi-in-acta-apostolorum.hypothesis-actorum": {
+   "class": "mixed",
+   "sample": [
+    "PG118.18",
+    "PG118.19"
+   ]
+  },
+  "anonymi-in-acta-apostolorum.hypothesis-actorum-altera": {
+   "class": "mixed",
+   "sample": [
+    "PG118.20"
+   ]
+  },
+  "anonymi-in-acta-apostolorum.hypothesis-epistularum-iambica": {
+   "class": "mixed",
+   "sample": [
+    "PG118.21",
+    "PG118.22"
+   ]
   },
   "anonymi-in-aphthonium.peri-ton-tou-aphthoniou-progymnasmaton": {
    "basis": "generic (canon scheme absent or depth mismatch)",
@@ -8793,113 +8821,6 @@
     "1",
     "2",
     "3"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG003": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "568"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG005": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "14",
-    "17",
-    "18"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG101": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "14",
-    "15",
-    "293"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG107": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "376",
-    "602",
-    "603"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG109": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "498",
-    "500"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG113": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "318",
-    "319",
-    "321"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG118": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "17",
-    "18",
-    "19"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG124": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "168",
-    "169",
-    "170"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG125": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "211",
-    "212",
-    "214"
-   ],
-   "scheme": "ref"
-  },
-  "cogPG.PG139": {
-   "basis": "generic (canon scheme absent or depth mismatch)",
-   "class": "logical-numeric",
-   "depth": 1,
-   "sample": [
-    "554",
-    "555",
-    "556"
    ],
    "scheme": "ref"
   },
