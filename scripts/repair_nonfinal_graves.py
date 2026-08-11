@@ -10,13 +10,18 @@ an acute because that alternation is positional, drop every flagged form from
 the base so an illegal form cannot vote, and take the reading holding almost all
 of its class.
 
-WHAT THIS WILL NOT DO. Only accent marks move: breathings, iota subscript and
-diaeresis are asserted byte-identical between form and target, because moving
-one of those is a lexical claim (ὰπὸ to ἀπό, τὰναντία to τἀναντία) and belongs
-in its own tranche with its own evidence. Only the sources a tranche names are
-edited. And a target must be DOMINANT over a real class, not merely attested: an
-attested-target gate passes on ἐγώγε and τάναντία, which is how #1's forty
-thousand wrong corrections happened.
+WHAT THIS WILL NOT DO. By default only accent marks move: breathings, iota
+subscript and diaeresis are asserted byte-identical between form and target,
+because moving one of those is a lexical claim (ὰπὸ to ἀπό, τὰναντία to
+τἀναντία). --allow-mark-moves lifts that for a tranche built to carry the
+claim, and the assertion becomes the weaker one that the two words have the
+SAME LETTERS and differ only in their marks, which is the skeleton class the
+targets were chosen from to begin with. It is opt-in per run because it changes
+what a repair is allowed to assert; cisco decided it tranche by tranche, the
+mark-moving one on 2026-08-11. Only the sources a tranche names are edited. And
+a target must be DOMINANT over a real class, not merely attested: an
+attested-target gate passes on ἐγώγε and τάναντία, which is how #1's forty thousand
+wrong corrections happened.
 
 Token counts do not change. An accent lives inside its token, so a swap
 conserves under _GK and a delta means something else moved.
@@ -27,16 +32,18 @@ redundant anyway: an accent swap reverses from the pair of texts alone.
 
   python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche.json
   python3 scripts/repair_nonfinal_graves.py --tranche ... --apply
+  python3 scripts/repair_nonfinal_graves.py --tranche ... --allow-mark-moves --apply
   python3 scripts/repair_nonfinal_graves.py --tranche ... --unapply
 """
 from __future__ import annotations
-import argparse, hashlib, json, sys
+import argparse, datetime as dt, hashlib, json, sys
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
-from measure_nonfinal_graves import has_nonfinal_grave, without_accents  # noqa: E402
+from measure_nonfinal_graves import (  # noqa: E402
+    has_nonfinal_grave, skeleton, without_accents)
 sha = lambda s: hashlib.sha256(s.encode()).hexdigest()
 def fail(m): raise SystemExit(f"ERROR: {m}")
 
@@ -46,6 +53,11 @@ def main() -> None:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--tranche", required=True)
     ap.add_argument("--sources", default="ocr")
+    ap.add_argument("--allow-mark-moves", action="store_true",
+                    help="permit a target that moves a breathing or coronis as "
+                         "well as an accent, as long as the letters do not change")
+    ap.add_argument("--date", default=dt.date.today().isoformat())
+    ap.add_argument("--decision", default="")
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--apply", action="store_true"); g.add_argument("--unapply", action="store_true")
     a = ap.parse_args()
@@ -64,9 +76,15 @@ def main() -> None:
                     p.read_text(encoding="utf-8").splitlines() if l.strip()]
             for e in blk["edits"]:
                 t = rows[e["index"]]["text"]
-                for off, orig in reversed(e["was"]):
-                    # the replacement sits at the same offset, since everything
-                    # before it is unchanged; its length may differ from orig's
+                for off, orig in e["was"]:
+                    # FORWARD, not reversed. The offsets are into the ORIGINAL
+                    # text, so they are only correct once everything earlier in
+                    # the row is back to its original length. Reversed works
+                    # while every repair is the same length as what it replaced,
+                    # which every accent-only tranche was, and silently corrupts
+                    # the row the first time one is not: 7 of the mark-moving
+                    # forms are a vowel wearing two accents that composes to one
+                    # character shorter.
                     m = _GK.match(t, off)
                     if not m:
                         fail(f"{p.name}: no token at offset {off}")
@@ -81,8 +99,15 @@ def main() -> None:
     repl = {}
     for r in tranche["rows"]:
         f, t = r["form"], r["target"]
-        if not r.get("accent_only") or without_accents(f) != without_accents(t):
-            fail(f"{f!r} -> {t!r} moves more than an accent")
+        if a.allow_mark_moves:
+            # The letters have to be the same word. That is the entire content of
+            # the claim: κἂι and καί are one skeleton wearing different marks.
+            # Anything failing this is a different word, not a repair.
+            if skeleton(f) != skeleton(t):
+                fail(f"{f!r} -> {t!r} changes letters, not just marks")
+        elif not r.get("accent_only") or without_accents(f) != without_accents(t):
+            fail(f"{f!r} -> {t!r} moves more than an accent; a tranche built "
+                 "to assert that needs --allow-mark-moves")
         if not has_nonfinal_grave(f): fail(f"{f!r} carries no non-final grave")
         if has_nonfinal_grave(t): fail(f"target {t!r} is itself illegal")
         repl[f] = t
@@ -132,17 +157,25 @@ def main() -> None:
         b["sha256_after"] = sha(p.read_text(encoding="utf-8"))
     AUDIT.write_text(json.dumps({
         "what": f"non-final grave repairs from {a.tranche}",
-        "date": "2026-08-10", "issue": "open-greek/open-greek-corpus#31",
-        "decision": "cisco, 2026-08-10",
+        "date": a.date, "issue": "open-greek/open-greek-corpus#31",
+        "decision": a.decision or f"cisco, {a.date}",
         "rule": tranche.get("rule"), "sources_edited": sorted(sources),
         "token_weighted_share": tranche.get("token_weighted_share"),
         "expected_wrong_tokens": tranche.get("expected_wrong_tokens"),
-        "accent_only": "breathings, iota subscript and diaeresis are byte-identical "
-                       "between every form and its target; only accents moved",
+        "marks_moved": ("a breathing or coronis moved as well as an accent; every "
+                        "form and its target were asserted here to have identical "
+                        "letters, so nothing but the marks changed")
+                       if a.allow_mark_moves else
+                       ("breathings, iota subscript and diaeresis are byte-identical "
+                        "between every form and its target; only accents moved"),
         "tokens_changed": changed, "rows_touched": rows_touched, "forms": len(repl),
         "substitutions": dict(sorted(repl.items())),
         "files": blocks,
         "reverse": f"python3 scripts/repair_nonfinal_graves.py --tranche {a.tranche} --unapply",
+        "forward": ("python3 scripts/repair_nonfinal_graves.py --tranche "
+                    f"{a.tranche} --sources {a.sources}"
+                    + (" --allow-mark-moves" if a.allow_mark_moves else "")
+                    + f" --date {a.date} --apply"),
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"\nAPPLIED: {changed:,} tokens, audit {AUDIT.relative_to(REPO)}")
 
