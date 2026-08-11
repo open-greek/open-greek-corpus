@@ -114,9 +114,16 @@ def compose_word(w: str) -> str | None:
     return merged + w[2:] if len(merged) == 1 else None
 
 
-def compose(text: str) -> tuple[str, Counter]:
-    """Return the text with composable spacing breathings folded in."""
-    out, subs, i = [], Counter(), 0
+def compose(text: str) -> tuple[str, Counter, list]:
+    """The text with composable spacing breathings folded in, what was folded,
+    and WHERE: offsets into the returned text, with the pair that was there.
+
+    The 2026-08-07 run recorded only the counts, which is why that pass could
+    not be reversed and #36 had to recover its sites from git. Anything that
+    edits served text has to say where it edited.
+    """
+    out, subs, sites, i = [], Counter(), [], 0
+    n_out = 0
     while i < len(text):
         c = text[i]
         nxt = text[i + 1] if i + 1 < len(text) else ""
@@ -132,13 +139,62 @@ def compose(text: str) -> tuple[str, Counter]:
             # with psili have none, and NFC leaves them as letter + mark; taking
             # that would change the bytes without composing anything.
             if len(merged) == 1:
-                out.append(merged)
+                sites.append([n_out, c + nxt])
+                out.append(merged); n_out += 1
                 subs[f"{c}{nxt} -> {merged}"] += 1
                 i += 2
                 continue
-        out.append(c)
+        out.append(c); n_out += 1
         i += 1
-    return "".join(out), subs
+    return "".join(out), subs, sites
+
+
+def capitals_unapply() -> None:
+    """Reverse the 2026-08-07 capitals pass from its recovered site list.
+
+    The audit shipped without one and could not be reversed at all (#36);
+    recover_spacing_breathing_sites.py rebuilt it from the commit that applied
+    the pass. Refuses any file whose sha256 has moved since, exactly as
+    split_carved_row.py does, because restoring one silently reverses whatever
+    was applied on top of it. Most of them have moved, so in practice this needs
+    the newer passes unwound first; that is the same rule every audit here obeys
+    and not a special weakness of this one.
+    """
+    audit = CHANGES / "spacing-breathing-composition.json"
+    if not audit.exists():
+        fail(f"no audit at {audit.relative_to(REPO)}")
+    rec = json.loads(audit.read_text(encoding="utf-8"))
+    if not rec.get("files") or isinstance(rec["files"], dict):
+        fail("this audit has no site list; run "
+             "scripts/recover_spacing_breathing_sites.py --write first")
+    moved = [b["file"] for b in rec["files"]
+             if not (REPO / b["file"]).exists()
+             or sha(( REPO / b["file"]).read_text(encoding="utf-8")) != b["sha256_after"]]
+    if moved:
+        fail(f"{len(moved)} of {len(rec['files'])} files have been applied on "
+             f"top of this pass since, e.g. {moved[:3]}. Unwind those first; "
+             f"restoring these would silently reverse them too.")
+    n = 0
+    for b in rec["files"]:
+        fp = REPO / b["file"]
+        rows = [json.loads(l) for l in
+                fp.read_text(encoding="utf-8").splitlines() if l.strip()]
+        for i, spots in b["edits"]:
+            t = rows[i]["text"]
+            # Backwards here, unlike every other unapply in this repo: these
+            # offsets are into the text AFTER the pass, not before it, because
+            # they were recovered from the committed result. Later offsets are
+            # the ones that move when an earlier one grows from 1 char to 2.
+            for off, pair in reversed(spots):
+                t = t[:off] + pair + t[off + 1:]
+            rows[i]["text"] = t
+            n += len(spots)
+        fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
+                              for r in rows), encoding="utf-8")
+        if sha(fp.read_text(encoding="utf-8")) != b["sha256_before"]:
+            fail(f"unapply did not restore {b['file']} byte-for-byte")
+    print(f"UNAPPLIED: {n:,} compositions split back across "
+          f"{len(rec['files'])} files")
 
 
 def lowercase_pass(apply: bool, unapply: bool) -> None:
@@ -273,11 +329,12 @@ def main() -> None:
     if args.lowercase:
         lowercase_pass(args.apply, args.unapply); return
     if args.unapply:
-        fail("--unapply is only implemented for --lowercase")
+        capitals_unapply(); return
 
     files = sorted(list((DATA / "corpus").glob("*.jsonl"))
                    + list((DATA / "corpus_secondary").glob("*.jsonl")))
     per_file: dict[str, int] = {}
+    edits: dict[Path, list] = {}
     subs: Counter = Counter()
     rows_touched = tok_before = tok_after = 0
     pending: dict[Path, str] = {}
@@ -292,7 +349,7 @@ def main() -> None:
                 continue
             row = json.loads(line)
             text = row.get("text") or ""
-            new, s = compose(text)
+            new, s, spots = compose(text)
             if new != text:
                 tok_before += len(_GK.findall(text))
                 tok_after += len(_GK.findall(new))
@@ -300,9 +357,14 @@ def main() -> None:
                 subs.update(s)
                 n_here += sum(s.values())
                 rows_touched += 1
+                edits.setdefault(fp, []).append([len(out_lines), spots])
             out_lines.append(json.dumps(row, ensure_ascii=False))
         if n_here:
-            per_file[fp.name] = n_here
+            # By PATH. Keying on fp.name lost 60 files from the 2026-08-07
+            # record, 2,043 substitutions in 1,056 rows, because 60 slugs exist
+            # in both data/corpus and data/corpus_secondary and each pair
+            # overwrote the other (#36).
+            per_file[fp.relative_to(REPO).as_posix()] = n_here
             pending[fp] = "\n".join(out_lines) + "\n"
 
     total = sum(subs.values())
@@ -318,8 +380,13 @@ def main() -> None:
     if not args.apply:
         print("\nreport only; nothing written. Re-run with --apply.")
         return
+    if (CHANGES / "spacing-breathing-composition.json").exists():
+        fail("data/corpus_changes/spacing-breathing-composition.json exists; "
+             "--unapply first. Overwriting it would throw away the site list "
+             "recovered for #36 and leave the pass irreversible again.")
 
-    before = {fp.name: hashlib.sha256(fp.read_bytes()).hexdigest() for fp in pending}
+    before = {fp.relative_to(REPO).as_posix():
+              hashlib.sha256(fp.read_bytes()).hexdigest() for fp in pending}
     for fp, body in pending.items():
         fp.write_text(body, encoding="utf-8")
     (CHANGES / "spacing-breathing-composition.json").write_text(json.dumps({
@@ -338,11 +405,19 @@ def main() -> None:
                     "tokens) and are left rather than half-normalized.",
         "substitutions": total,
         "rows_touched": rows_touched,
+        "files": [{"file": fp.relative_to(REPO).as_posix(),
+                   "sha256_before": before[fp.relative_to(REPO).as_posix()],
+                   "sha256_after": hashlib.sha256(fp.read_bytes()).hexdigest(),
+                   "edits": edits.get(fp, [])}
+                  for fp in sorted(pending)],
         "greek_tokens_before": tok_before, "greek_tokens_after": tok_after,
         "distinct_substitutions": dict(sorted(subs.items())),
-        "files": dict(sorted(per_file.items())),
+        "substitutions_per_file": dict(sorted(per_file.items())),
+        # kept for continuity with the 2026-08-07 record; "files" above is
+        # the authoritative one, keyed by path and carrying the sites.
         "sha256_before": before,
-        "sha256_after": {fp.name: hashlib.sha256(fp.read_bytes()).hexdigest()
+        "sha256_after": {fp.relative_to(REPO).as_posix():
+                         hashlib.sha256(fp.read_bytes()).hexdigest()
                          for fp in pending},
         "reverse": "for each substitution listed, split the composed letter back "
                    "into its spacing mark and bare capital; the mapping is 1:1 and "
