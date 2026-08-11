@@ -76,6 +76,52 @@ LEMMA_META = CACHE / "form_lemma_meta.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
+from measure_spacing_marks import classify, PSILI, DASIA  # noqa: E402
+
+
+def spacing_mark_forms(forms) -> tuple[set[str], dict[str, str]]:
+    """Forms whose leading spacing breathing is not part of the word.
+
+    U+1FBF and U+1FFE are spacing diacritics sitting inside the Greek block, so
+    _GK reads them as Greek and a bare one becomes a "word": four of them hold
+    2,411 tokens in the lemma table. A mark in front of a word that already
+    carries its own breathing is the Aristotle commentators' quotation mark, and
+    gluing it on mints a lemma beside the real one, ῾τὸ beside τό, 174 of them.
+
+    Issue #35. Cisco's call on 2026-08-11 was that both are a TOKENIZER problem
+    and not a text one, so this drops the first class from lemmatization and
+    routes the second to the lemma of the word under the mark. Nothing in
+    data/corpus changes and the served token count does not move; `tokens` in
+    work_token_totals.json is the _GK count either way, and only
+    `tokens_lemmatized` and the lemma rows move.
+
+    The other two classes measure_spacing_marks.py names are deliberately left
+    alone. Aphaeresis (᾿ς, ᾿κ) is genuine Byzantine vernacular text, and giving
+    it a different lemma would be a lexical claim rather than a tokenizer fix.
+    uncomposed_breathing is a defect in the TEXT, which
+    compose_spacing_breathings.py repairs where the mark really is a breathing;
+    papering over the residue here would hide it.
+    """
+    drop: set[str] = set()
+    alias: dict[str, str] = {}
+    for f in forms:
+        if not f or f[0] not in (PSILI, DASIA):
+            continue
+        k = classify(f)
+        if k == "punctuation_only":
+            drop.add(f)
+        elif k == "quotation_mark":
+            # Strip the whole wrapper, both ends and however many marks deep.
+            # ῾῾ὡς is ὡς under two of them, and taking one off leaves ῾ὡς, which
+            # lemmatizes to itself and stays in the class. The closing mark
+            # matters as much as the opening one: ῾ἔστι᾿ reaches ἑστία with it
+            # and εἰμί without, ῾ποτέ᾿ reaches ποτέω with it and ποτέ without.
+            # U+1FBD koronis is a DIFFERENT character and is not stripped, so
+            # elided forms like δ᾽ are untouched.
+            bare = f.strip(PSILI + DASIA)
+            if bare:
+                alias[f] = bare
+    return drop, alias
 
 
 def file_key(fp: Path) -> dict:
@@ -231,8 +277,18 @@ def main() -> None:
     corpus_forms: Counter[str] = Counter()
     for c in works.values():
         corpus_forms.update(c)
-    keep = [f for f, n in corpus_forms.items() if n >= args.min_count]
+    mark_drop, mark_alias = spacing_mark_forms(corpus_forms)
+    keep = [f for f, n in corpus_forms.items()
+            if n >= args.min_count and f not in mark_drop]
+    # The word under a quotation mark has to be lemmatized even where it never
+    # occurs bare often enough to clear min_count, or the alias points at
+    # nothing and the form silently stops being counted at all.
+    have = set(keep)
+    keep += sorted(t for t in set(mark_alias.values()) if t not in have)
     skipped = len(corpus_forms) - len(keep)
+    print(f"spacing marks: {len(mark_drop)} bare-mark forms dropped, "
+          f"{len(mark_alias)} quotation-marked forms routed to the word "
+          f"under the mark (issue #35)", file=sys.stderr)
 
     lemma_cache = load_lemma_cache() if use_cache else {}
     if args.lemma_map:
@@ -318,9 +374,14 @@ def main() -> None:
             tokens = lemmatized = 0
             for form, n in forms.items():
                 tokens += n
-                if form not in keep_set:
+                if form in mark_drop:
                     continue
-                lem = lemma_cache.get(form)
+                # A quotation-marked form reaches the lemma of the word under
+                # the mark, so ῾τὸ lands on τό's count instead of beside it.
+                lookup = mark_alias.get(form, form)
+                if lookup not in keep_set:
+                    continue
+                lem = lemma_cache.get(lookup)
                 if lem:
                     lemmas[lem] += n
                     lemmatized += n
