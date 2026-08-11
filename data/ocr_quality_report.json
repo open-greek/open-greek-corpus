@@ -25,8 +25,8 @@
    "ocr_works": 1413,
    "ocr_works_ranked": 823,
    "ocr_works_with_witness": 196,
-   "secondary_files": 477,
-   "skipped": 77,
+   "secondary_files": 493,
+   "skipped": 93,
    "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -68,11 +68,27 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "arcadius.de-accentibus-sp.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "aristarchus-ludwich.duplicate-read"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "athanasius-theology.expositiones-in-psalmos.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "basilius-scr-eccl.sermones-xli.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "basilius-theology.adversus-eunomium-libri-5.duplicate-read-merged"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -180,6 +196,14 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "gregorius-nazianzenus.in-sancta-lumina-orat-39.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "gregorius-nyssenus.in-inscriptiones-psalmorum.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "hecataeus-abderita.fragmenta-fhg"
    },
    {
@@ -197,6 +221,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "hesychius-lexicography.lexicon-p-w.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "himerius.declamationes-et-orationes.duplicate-read-merged"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -224,6 +252,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read-ocr-runs"
    },
    {
@@ -237,6 +269,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "macedonius-consul-anthgraeca-didot1"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni.duplicate-read-merged"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -264,6 +300,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "platonius.fragmenta-de-comoedia-graeca.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "polemon.fragmenta"
    },
    {
@@ -284,6 +324,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "pseudo-zonaras.lexicon.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "pseudo-zonaras.lexicon.duplicate-read-ocr-runs"
    },
    {
@@ -292,7 +336,15 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-ocr-runs"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera.duplicate-read-merged"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -316,11 +368,23 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-ocr-runs"
    },
    {
     "reason": "secondary is not OCR (sources: perseus); not an OCR-error pair",
     "slug": "theocritus-bucolic.epigrammata"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "theodoretus.de-providentia-orationes-decem.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "theodoretus.interpretatio-in-ezechielem.duplicate-read-merged"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -373,8 +437,8 @@
    "median": 0.1328,
    "min": 0.0089,
    "n": 823,
-   "q1": 0.0934,
-   "q3": 0.1693
+   "q1": 0.0932,
+   "q3": 0.1688
   }
  },
  "works": {
@@ -1484,11 +1548,11 @@
   },
   "arcadius.de-accentibus-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 45993,
-   "n_tokens_checked": 28331,
-   "n_unattested": 9939,
+   "n_tokens": 45468,
+   "n_tokens_checked": 28014,
+   "n_unattested": 9786,
    "source": "ocr",
-   "unattested_rate": 0.350817,
+   "unattested_rate": 0.349325,
    "witness": null
   },
   "arcesilaus-comedy.fragmentum": {
@@ -2582,29 +2646,29 @@
   },
   "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 33777,
-   "n_tokens_checked": 19561,
-   "n_unattested": 3546,
+   "n_tokens": 28431,
+   "n_tokens_checked": 16492,
+   "n_unattested": 2741,
    "source": "ocr",
-   "unattested_rate": 0.181279,
+   "unattested_rate": 0.166202,
    "witness": null
   },
   "basilius-scr-eccl.sermones-xli": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 69840,
-   "n_tokens_checked": 43707,
-   "n_unattested": 7505,
+   "n_tokens": 67484,
+   "n_tokens_checked": 42286,
+   "n_unattested": 7166,
    "source": "ocr",
-   "unattested_rate": 0.171712,
+   "unattested_rate": 0.169465,
    "witness": null
   },
   "basilius-theology.adversus-eunomium-libri-5": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 45618,
-   "n_tokens_checked": 26605,
-   "n_unattested": 2831,
+   "n_tokens": 43350,
+   "n_tokens_checked": 25251,
+   "n_unattested": 2605,
    "source": "ocr",
-   "unattested_rate": 0.106409,
+   "unattested_rate": 0.103164,
    "witness": null
   },
   "basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius": {
@@ -6185,11 +6249,11 @@
   },
   "gregorius-nazianzenus.in-sancta-lumina-orat-39": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 5596,
-   "n_tokens_checked": 3333,
-   "n_unattested": 658,
+   "n_tokens": 4102,
+   "n_tokens_checked": 2412,
+   "n_unattested": 373,
    "source": "ocr",
-   "unattested_rate": 0.19742,
+   "unattested_rate": 0.154643,
    "witness": null
   },
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40": {
@@ -6698,11 +6762,11 @@
   },
   "gregorius-nyssenus.in-inscriptiones-psalmorum": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 39897,
-   "n_tokens_checked": 23112,
-   "n_unattested": 2916,
+   "n_tokens": 36081,
+   "n_tokens_checked": 20920,
+   "n_unattested": 2537,
    "source": "ocr",
-   "unattested_rate": 0.126168,
+   "unattested_rate": 0.121272,
    "witness": null
   },
   "gregorius-nyssenus.in-luciferam-sanctam-domini-resurrectionem-vulgo-in": {
@@ -7154,11 +7218,11 @@
   },
   "himerius.declamationes-et-orationes": {
    "edition": "qwen36-himerius_dubner_didot",
-   "n_tokens": 257196,
-   "n_tokens_checked": 150371,
-   "n_unattested": 33148,
+   "n_tokens": 232084,
+   "n_tokens_checked": 135586,
+   "n_unattested": 28967,
    "source": "ocr",
-   "unattested_rate": 0.220441,
+   "unattested_rate": 0.213643,
    "witness": null
   },
   "hipparchus-comedy.fragmenta": {
@@ -9083,15 +9147,15 @@
   },
   "joannes-tzetzes.tzetzes-historiae-kiessling": {
    "edition": "qwen36-tzetzes_historiae_kiessling",
-   "n_tokens": 101190,
-   "n_tokens_checked": 62933,
-   "n_unattested": 13376,
+   "n_tokens": 100677,
+   "n_tokens_checked": 62619,
+   "n_unattested": 13283,
    "source": "ocr",
-   "unattested_rate": 0.212543,
+   "unattested_rate": 0.212124,
    "witness": {
-    "agreement_primary_in_secondary": 0.002741,
+    "agreement_primary_in_secondary": 0.002755,
     "agreement_secondary_in_primary": 0.365533,
-    "n_bigrams_primary": 85380,
+    "n_bigrams_primary": 84950,
     "n_bigrams_secondary": 2205,
     "secondary_edition": "qwen36-tzetzes_historiae_kiessling"
    }
@@ -10163,11 +10227,11 @@
   },
   "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 8346,
-   "n_tokens_checked": 4984,
-   "n_unattested": 638,
+   "n_tokens": 4363,
+   "n_tokens_checked": 2607,
+   "n_unattested": 230,
    "source": "ocr",
-   "unattested_rate": 0.12801,
+   "unattested_rate": 0.088224,
    "witness": null
   },
   "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti": {
@@ -11504,15 +11568,15 @@
   },
   "platonius.fragmenta-de-comoedia-graeca": {
    "edition": "qwen36-platonius_duebner_scholaristoph1",
-   "n_tokens": 355282,
-   "n_tokens_checked": 219126,
-   "n_unattested": 52414,
+   "n_tokens": 337096,
+   "n_tokens_checked": 207865,
+   "n_unattested": 49398,
    "source": "ocr",
-   "unattested_rate": 0.239196,
+   "unattested_rate": 0.237645,
    "witness": {
-    "agreement_primary_in_secondary": 0.083081,
-    "agreement_secondary_in_primary": 0.465213,
-    "n_bigrams_primary": 333819,
+    "agreement_primary_in_secondary": 0.082786,
+    "agreement_secondary_in_primary": 0.455937,
+    "n_bigrams_primary": 316405,
     "n_bigrams_secondary": 2156,
     "secondary_edition": "qwen36-platonius_duebner_scholaristoph1"
    }
@@ -11990,11 +12054,11 @@
   },
   "pseudo-zonaras.lexicon": {
    "edition": "qwen36-zonaras_lexicon_v1-masked",
-   "n_tokens": 162045,
-   "n_tokens_checked": 102672,
-   "n_unattested": 29055,
+   "n_tokens": 160930,
+   "n_tokens_checked": 101960,
+   "n_unattested": 28836,
    "source": "ocr",
-   "unattested_rate": 0.282989,
+   "unattested_rate": 0.282817,
    "witness": null
   },
   "ptolemaeus-grammar.ptolemaeus-gramm-valckenaer-ammonius": {
@@ -12122,11 +12186,11 @@
   },
   "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera": {
    "edition": "qwen36-scholia_aristidem_frommel1826-masked",
-   "n_tokens": 114850,
-   "n_tokens_checked": 65741,
-   "n_unattested": 10755,
+   "n_tokens": 114201,
+   "n_tokens_checked": 65364,
+   "n_unattested": 10678,
    "source": "ocr",
-   "unattested_rate": 0.163597,
+   "unattested_rate": 0.163362,
    "witness": null
   },
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera": {
@@ -12149,11 +12213,11 @@
   },
   "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera": {
    "edition": "qwen36-scholia_apollonius_schaefer-masked",
-   "n_tokens": 120592,
-   "n_tokens_checked": 67618,
-   "n_unattested": 19207,
+   "n_tokens": 119849,
+   "n_tokens_checked": 67222,
+   "n_unattested": 19100,
    "source": "ocr",
-   "unattested_rate": 0.284052,
+   "unattested_rate": 0.284133,
    "witness": null
   },
   "scholia-in-aratum.scholia-in-aratum-scholia-vetera": {
@@ -12944,11 +13008,11 @@
   },
   "themistius.peri-filanqrwpi-as-h-kwnsta-ntios": {
    "edition": "qwen36-themistiioratio01dindgoog",
-   "n_tokens": 150548,
-   "n_tokens_checked": 89216,
-   "n_unattested": 18558,
+   "n_tokens": 131695,
+   "n_tokens_checked": 78072,
+   "n_unattested": 15699,
    "source": "ocr",
-   "unattested_rate": 0.208012,
+   "unattested_rate": 0.201084,
    "witness": null
   },
   "theodectas.fragmenta": {
@@ -12971,11 +13035,11 @@
   },
   "theodoretus.de-providentia-orationes-decem": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 46560,
-   "n_tokens_checked": 28363,
-   "n_unattested": 4042,
+   "n_tokens": 45043,
+   "n_tokens_checked": 27436,
+   "n_unattested": 3854,
    "source": "ocr",
-   "unattested_rate": 0.14251,
+   "unattested_rate": 0.140472,
    "witness": null
   },
   "theodoretus.epistulae-collectio-sirmondiana-epistulae-1-95": {
@@ -13025,11 +13089,11 @@
   },
   "theodoretus.interpretatio-in-ezechielem": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 132992,
-   "n_tokens_checked": 78710,
-   "n_unattested": 9528,
+   "n_tokens": 130016,
+   "n_tokens_checked": 76990,
+   "n_unattested": 9202,
    "source": "ocr",
-   "unattested_rate": 0.121052,
+   "unattested_rate": 0.119522,
    "witness": null
   },
   "theodoretus.interpretatio-in-jeremiam": {
@@ -14280,8 +14344,8 @@
   "anthemius.dupuy-1777",
   "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
   "aristides-quintilianus-music.de-musica",
-  "arcadius.de-accentibus-sp",
   "aeschines-socraticus.fragmenta",
+  "arcadius.de-accentibus-sp",
   "rhianus.fragmenta",
   "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio",
   "apollonius-soph.lexicon-homericum",
@@ -14314,8 +14378,8 @@
   "gregorius-nazianzenus.carmina-dogmatica",
   "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera",
   "epigonus-ap-cougny-v1",
-  "pseudo-zonaras.lexicon",
   "scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera",
+  "pseudo-zonaras.lexicon",
   "etymologicum-gudianum.etymologicum-gudianum-lion-zeiai",
   "philetas.fragmenta",
   "gregorius-nazianzenus.carmina-de-se-ipso",
@@ -14357,11 +14421,11 @@
   "aelius-dionysius.attika-o-no-mata",
   "timaeus-philosophy.fragmenta-et-titulus-sp",
   "tlg1595.tlg003",
-  "platonius.fragmenta-de-comoedia-graeca",
   "ocr.oribasius_v3",
   "zosimus-alchemista.opera",
   "lyrica-adespota-ca.fragmenta-lyrica",
   "philodemus.tlg1595-tlg003",
+  "platonius.fragmenta-de-comoedia-graeca",
   "aristarchus-ludwich",
   "alexander-lyric.fragmenta",
   "alexander-medicine.dedicatio-ad-cosman",
@@ -14375,7 +14439,6 @@
   "eubulus.fragmenta",
   "archestratus-parodius.fragmenta",
   "lamprocles.fragmenta",
-  "himerius.declamationes-et-orationes",
   "anacreontea.anacreontea",
   "scholia-in-theocritum.scholia-vetera-et-recentiora",
   "herodas.mimiambi",
@@ -14385,9 +14448,10 @@
   "philodemus.tlg1595-tlg267",
   "euphorion.fragmenta",
   "paulus-silentiarius.descriptio-sanctae-sophiae",
-  "joannes-tzetzes.tzetzes-historiae-kiessling",
+  "himerius.declamationes-et-orationes",
   "lucius-annaeus-cornutus.cornutus-lang",
   "pherecrates.fragmenta",
+  "joannes-tzetzes.tzetzes-historiae-kiessling",
   "gaius-suetonius-tranquillus.peri-blasfhmiw-n-kai-po-qen-e-ka-sth",
   "joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum",
   "theophylactus-simocatta.epistulae",
@@ -14395,7 +14459,6 @@
   "ocr.spengel_rhetores_rg3",
   "astrampsychus-magus.astrampsychus-oracula-hercher",
   "hesiodus.fragmenta",
-  "themistius.peri-filanqrwpi-as-h-kwnsta-ntios",
   "cypria.cypria-fragmenta",
   "dositheus-magister.ars-grammatica",
   "hippiatrica.appendices-ad-hippiatrica-berolinensia",
@@ -14403,6 +14466,7 @@
   "lexicon-sabbaiticum.lexicon-sabbaiticum-e-cod-sabbaitico-137",
   "oracula-chaldaica.oracula-fragmenta-olim-sub-auctore-juliano-theurgo",
   "comica-adespota-caf.fragmenta-incertorum-poetarum",
+  "themistius.peri-filanqrwpi-as-h-kwnsta-ntios",
   "joannes-chrysostomus.in-sanctum-romanum-homilia-1",
   "joannes-chrysostomus.in-novam-dominicam-et-in-apostolum-thomam-sp",
   "flavius-justinianus-imperator.novellae",
@@ -14412,7 +14476,6 @@
   "demodocus.fragmenta",
   "gregorius-nazianzenus.de-pace-1-orat-6",
   "joannes-chrysostomus.in-epistulam-ad-philemonem-homiliae-1-3",
-  "gregorius-nazianzenus.in-sancta-lumina-orat-39",
   "aristonicus-friedlaender",
   "telesilla.fragmenta",
   "mantissa-proverbiorum.mantissa-proverbiorum",
@@ -14444,7 +14507,6 @@
   "basilius-theology.consolatoria-ad-aegrotum-sp-sub-auctore-proclo",
   "priscianus.metaphrasis-in-theophrastum",
   "basilius-theology.homilia-adversus-eos-qui-irascuntur",
-  "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp",
   "gregorius-nazianzenus.in-machabaeorum-laudem-orat-15",
   "joannes-chrysostomus.epistula-ad-cyriacum-epist-125-recensiones",
   "joannes-chrysostomus.de-sacerdotio-lib-7-sp",
@@ -14473,11 +14535,11 @@
   "basilius-theology.homilia-in-illud-destruam-horrea-mea",
   "basilius-theology.sermo-11-sermo-asceticus-et-exhortatio-de-renuntiatione-mundi",
   "joannes-laurentius-lydus.de-magistratibus-populi-romani",
-  "basilius-scr-eccl.sermones-xli",
   "scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii",
   "joannes-chrysostomus.in-sanctos-petrum-et-heliam-sp",
   "gregorius-nyssenus.ad-imaginem-dei-et-ad-similitudinem-sp",
   "panyassis.fragmenta-epica",
+  "basilius-scr-eccl.sermones-xli",
   "scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera",
   "demonax-philosophy.fragmenta",
   "joannes-chrysostomus.de-babyla-contra-julianum-et-gentiles",
@@ -14487,6 +14549,7 @@
   "cyrillus-scr-eccl.procatechesis",
   "cyrillus-theology.fragmenta-in-libros-regum",
   "alexis-comedy.fragmenta",
+  "basilius-scr-eccl.de-vita-et-miraculis-sanctae-theclae-libri-ii-sp",
   "gregorius-nazianzenus.contra-julianum-imperatorem-1-orat-4",
   "theopompus-history.testimonia",
   "heraclides-ponticus-junior-grammar.fragmenta",
@@ -14499,8 +14562,8 @@
   "aphthonius.progymnasmata",
   "joannes-chrysostomus.in-ascensionem-sermo-2-sp",
   "antigonus-paradoxography.historiarum-mirabilium-collectio",
-  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "pseudo-archytas.fragmenta",
+  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40",
   "antiphanes.fragmenta",
   "cyrillus-theology.contra-julianum-lib-1-2",
@@ -14550,6 +14613,7 @@
   "cyrillus-theology.epistulae-paschales-sive-homiliae-paschales-epist-1-30",
   "choricius.opera",
   "clearchus-philosophy.fragmenta",
+  "gregorius-nazianzenus.in-sancta-lumina-orat-39",
   "timosthenes-ggm1",
   "joannes-chrysostomus.de-chananaea-dub",
   "gregorius-nyssenus.de-creatione-hominis-sermo-primus-sp",
@@ -14628,7 +14692,6 @@
   "joannes-chrysostomus.in-illud-habentes-eundem-spiritum-homiliae-1-3",
   "joannes-chrysostomus.in-matthaeum-homiliae-1-90",
   "maximus-rhetoric.peri-tw-n-lu-twn-ntiqe-sewn-fort-auctore-maximo",
-  "theodoretus.de-providentia-orationes-decem",
   "joannes-chrysostomus.in-epistulam-ii-ad-corinthios-homiliae-1-30",
   "basilius-theology.homilia-in-principium-proverbiorum",
   "gregorius-nyssenus.de-opificio-hominis",
@@ -14640,6 +14703,7 @@
   "joannes-chrysostomus.ad-stagirium-daemone-vexatum-lib-1-3",
   "antonius-diogenes.hercher",
   "gregorius-nyssenus.de-vita-gregorii-thaumaturgi",
+  "theodoretus.de-providentia-orationes-decem",
   "zonaeus.peri-schematon-ton-kata-logon",
   "critias.testimonia",
   "joannes-chrysostomus.pg052",
@@ -14720,7 +14784,6 @@
   "gregorius-nyssenus.de-virginitate",
   "georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes",
   "joannes-chrysostomus.de-perfecta-caritate-sp",
-  "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
   "ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas",
   "cyrillus-theology.de-sancta-trinitate-sp",
   "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
@@ -14731,7 +14794,6 @@
   "joannes-chrysostomus.in-dictum-pauli-nolo-vos-ignorare",
   "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske",
   "athanasius-theology.quaestiones-ad-antiochum-ducem-sp",
-  "gregorius-nyssenus.in-inscriptiones-psalmorum",
   "joannes-chrysostomus.de-decem-millium-talentorum-debitore",
   "joannes-chrysostomus.de-resurrectione-mortuorum",
   "joannes-chrysostomus.de-lazaro-homiliae-1-7",
@@ -14763,8 +14825,8 @@
   "gregorius-nyssenus.encomium-in-sanctum-stephanum-protomartyrem-i",
   "protagoras.testimonia",
   "joannes-chrysostomus.in-epistulam-ii-ad-thessalonicenses-homiliae-1-5",
+  "gregorius-nyssenus.in-inscriptiones-psalmorum",
   "gorgias-rhetoric.testimonia",
-  "theodoretus.interpretatio-in-ezechielem",
   "joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7",
   "gregorius-nyssenus.de-professione-christiana-ad-harmonium",
   "apollonius-philosophy.apollonii-epistulae-dub",
@@ -14772,6 +14834,7 @@
   "xenophanes.fragmenta-silli-et-de-natura",
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
   "josephus-rhacendyta.synopsis-rhetorikes",
+  "theodoretus.interpretatio-in-ezechielem",
   "athanasius-theology.quaestiones-in-evangelia-sp",
   "gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti",
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
@@ -14832,7 +14895,6 @@
   "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp",
   "heron.definitiones",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum",
-  "basilius-theology.adversus-eunomium-libri-5",
   "joannes-chrysostomus.fragmenta-in-epistulas-catholicas",
   "joannes-doxopatres.prolegomena-tes-rhetorikes",
   "hecataeus-abderita.testimonia-2",
@@ -14847,6 +14909,7 @@
   "joannes-chrysostomus.de-sancta-pentecoste-homiliae-1-2",
   "democritus-philosophy.testimonia",
   "athanasius-theology.syntagma-ad-quendam-politicum-sp",
+  "basilius-theology.adversus-eunomium-libri-5",
   "theodoretus.interpretatio-in-xiv-epistulas-sancti-pauli",
   "heron.geometrica",
   "cratinus.fragmenta",
@@ -14912,6 +14975,7 @@
   "arius-didymus.physica-fragmenta",
   "anaximenes-philosophy.testimonia",
   "joannes-chrysostomus.in-ascensionem-domini-nostri-jesu-christi",
+  "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
   "athanasius-theology.quaestiones-aliae-sp",
   "gregorius-nyssenus.ad-ablabium-quod-non-sint-tres-dei",
   "basilius-theology.regulae-morales",

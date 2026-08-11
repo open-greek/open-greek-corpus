@@ -80,8 +80,10 @@ def test_same_item_band_figures_match_the_artifact():
 
 
 def test_leaf_run_residual_matches_the_artifact():
+    # "about" was dropped from the sentence when the residual went to zero and
+    # there was nothing left to round.
     m = re.search(r"(\d+) runs are recorded in `duplicate_runs`, (\d+) of them "
-                  r"touching served\n\s*text, and about ([\d,]+) tokens", README)
+                  r"touching served\n\s*text, and (?:about )?([\d,]+) tokens", README)
     assert m, "the leaf-run sentence moved; update this test with it"
     runs = json.loads((REPO / "data" / "duplicate_page_candidates.json")
                       .read_text(encoding="utf-8"))["duplicate_runs"]
