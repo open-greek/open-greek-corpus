@@ -43,8 +43,36 @@ Audit: data/corpus_changes/spacing-breathing-composition.json, with the per-file
 counts and every distinct substitution, so the change is reversible by splitting
 each composed letter back into mark plus bare capital.
 
+THE SECOND PASS, --lowercase, 2026-08-11. The rule above refuses everything
+before a lowercase letter because `᾿ς` and `῾τὸ` are an apostrophe and a stray
+mark. That was right as a blanket rule and wrong for part of the class:
+measure_spacing_marks.py splits those tokens four ways and one of the four,
+uncomposed_breathing, IS the same thing this file composes for capitals, just
+lower down. #35 put the class at 372 tokens. It composes 64 of them, and the
+gap is the finding rather than a shortfall:
+
+  250  no precomposed character exists (psili on capital upsilon or rho, the
+       same class the first pass left alone rather than half-normalize)
+   53  the composed form is attested nowhere in the non-OCR text. ῾οὺκ composes
+       to ὁὺκ, which is not a word; the mark there is a quotation mark and the
+       word under it is a misaccented οὐκ. Refusing these is what keeps a
+       Unicode identity from turning into a guess about Greek.
+    5  psili on upsilon or rho, which take the rough breathing by rule. The
+       first pass refuses these for capitals; the same reasoning holds here.
+
+Composition never changes the reading, only its encoding, which is why the bar
+is lower than for a repair that picks a different word. The one risk is the
+classifier being wrong about the mark, and the attestation gate covers it.
+
+Worth saying because the issue says otherwise: composing does NOT fix
+῾υμετἑρα. It gives ὑμετἑρα, which still carries the wrong accent, so that token
+needs an accent repair as well and is not in the 64.
+
   python3 scripts/compose_spacing_breathings.py            # report
   python3 scripts/compose_spacing_breathings.py --apply
+  python3 scripts/compose_spacing_breathings.py --lowercase
+  python3 scripts/compose_spacing_breathings.py --lowercase --apply
+  python3 scripts/compose_spacing_breathings.py --lowercase --unapply
 """
 
 from __future__ import annotations
@@ -67,6 +95,23 @@ from build_public_corpus import _GK  # noqa: E402
 PSILI, DASIA = "᾿", "῾"          # spacing marks
 COMBINING = {PSILI: "̓", DASIA: "̔"}
 CAPITALS = set("ΑΕΗΙΟΥΩΡ")
+LOWER_AUDIT = CHANGES / "spacing-breathing-composition.lowercase.json"
+sha = lambda t: hashlib.sha256(t.encode("utf-8")).hexdigest()
+def fail(m): raise SystemExit(f"ERROR: {m}")
+
+
+def compose_word(w: str) -> str | None:
+    """A leading spacing breathing folded onto the letter after it.
+
+    None when there is no single precomposed character for the pair, which is
+    the capital-upsilon-and-rho case the first pass documents: NFC would leave
+    letter plus combining mark and taking that would change the bytes without
+    composing anything.
+    """
+    if len(w) < 2 or w[0] not in COMBINING:
+        return None
+    merged = unicodedata.normalize("NFC", w[1] + COMBINING[w[0]])
+    return merged + w[2:] if len(merged) == 1 else None
 
 
 def compose(text: str) -> tuple[str, Counter]:
@@ -96,11 +141,139 @@ def compose(text: str) -> tuple[str, Counter]:
     return "".join(out), subs
 
 
+def lowercase_pass(apply: bool, unapply: bool) -> None:
+    """Compose the uncomposed_breathing class measure_spacing_marks.py names."""
+    sys.path.insert(0, str(Path(__file__).resolve().parent))
+    from measure_spacing_marks import classify  # noqa: E402
+    from build_ocr_quality_report import build_attestation  # noqa: E402
+
+    if unapply:
+        if not LOWER_AUDIT.exists():
+            fail(f"no audit at {LOWER_AUDIT.relative_to(REPO)}")
+        rec = json.loads(LOWER_AUDIT.read_text(encoding="utf-8"))
+        for blk in rec["files"]:
+            fp = REPO / blk["file"]
+            if not fp.exists() or sha(fp.read_text(encoding="utf-8")) != blk["sha256_after"]:
+                fail(f"{blk['file']} has moved since this audit; reverse that first")
+            rows = [json.loads(l) for l in
+                    fp.read_text(encoding="utf-8").splitlines() if l.strip()]
+            for i, spots in blk["edits"]:
+                t = rows[i]["text"]
+                # Forward: the offsets are into the original text, so they are
+                # only right once everything earlier is back to its own length,
+                # and composing always shortens the token by one character.
+                for start, was in spots:
+                    m = _GK.match(t, start)
+                    if not m:
+                        fail(f"{blk['file']}: no token at offset {start}")
+                    t = t[:start] + was + t[m.end():]
+                rows[i]["text"] = t
+            fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
+                                  for r in rows), encoding="utf-8")
+            if sha(fp.read_text(encoding="utf-8")) != blk["sha256_before"]:
+                fail(f"unapply did not restore {blk['file']} byte-for-byte")
+        LOWER_AUDIT.unlink()
+        print(f"UNAPPLIED: {len(rec['files'])} file(s) restored")
+        return
+
+    editions = json.loads((DATA / "corpus_editions.json").read_text(encoding="utf-8"))
+    editions = editions["works"] if "works" in editions else editions
+    attested, st = build_attestation(editions)
+    print(f"attestation: {st['n_unique_forms']:,} forms from {st['n_works']:,} "
+          f"non-OCR works")
+
+    held = Counter()
+    subs: Counter = Counter()
+    blocks, changed = [], 0
+    for fp in sorted((DATA / "corpus").glob("*.jsonl")):
+        raw = fp.read_text(encoding="utf-8")
+        if PSILI not in raw and DASIA not in raw:
+            continue
+        rows = [json.loads(l) for l in raw.splitlines() if l.strip()]
+        edits = []
+        for i, r in enumerate(rows):
+            text = r.get("text") or ""
+            spots, out, prev = [], [], 0
+            for m in _GK.finditer(text):
+                w = m.group()
+                if not w or w[0] not in COMBINING or len(w) < 2:
+                    continue
+                if classify(w) != "uncomposed_breathing":
+                    continue
+                t = compose_word(w)
+                if t is None:
+                    held["no precomposed character"] += 1; continue
+                if w[0] == PSILI and unicodedata.normalize("NFD", w[1])[0] in "υΥρΡ":
+                    held["psili on upsilon or rho, which take the rough breathing"] += 1
+                    continue
+                if t not in attested:
+                    held["composed form attested nowhere in the non-OCR text"] += 1
+                    continue
+                spots.append([m.start(), w])
+                out.append(text[prev:m.start()] + t); prev = m.end()
+                subs[f"{w} -> {t}"] += 1
+            if not spots:
+                continue
+            new = "".join(out) + text[prev:]
+            if len(_GK.findall(new)) != len(_GK.findall(text)):
+                fail(f"{fp.name} {r['locus']}: token count changed")
+            edits.append([i, spots]); r["text"] = new; changed += len(spots)
+        if edits:
+            blocks.append({"file": fp.relative_to(REPO).as_posix(),
+                           "sha256_before": sha(raw), "edits": edits,
+                           "rows": rows})
+
+    print(f"\n{changed:,} tokens compose, {len(subs)} distinct, in "
+          f"{sum(len(b['edits']) for b in blocks):,} rows across {len(blocks)} works")
+    for k, n in held.most_common():
+        print(f"  held back {n:>4}  {k}")
+    for k, n in subs.most_common(8):
+        print(f"    {k}   x{n}")
+    if not apply:
+        print("\nCHECK only (pass --apply to write)")
+        return
+    if LOWER_AUDIT.exists():
+        fail("audit exists; --unapply first")
+    for b in blocks:
+        fpath = REPO / b["file"]
+        fpath.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
+                                 for r in b.pop("rows")), encoding="utf-8")
+        b["sha256_after"] = sha(fpath.read_text(encoding="utf-8"))
+    LOWER_AUDIT.write_text(json.dumps({
+        "what": "spacing psili/dasia composed onto the LOWERCASE vowel or rho "
+                "after it, for the uncomposed_breathing class only",
+        "date": "2026-08-11", "issue": "open-greek/open-greek-corpus#35",
+        "decision": "cisco, 2026-08-11",
+        "rule": "measure_spacing_marks.classify says the mark is a breathing "
+                "(an unbreathed vowel or rho follows, and a dasia does not stand "
+                "before a consonant); a single precomposed character exists; the "
+                "letter is not upsilon or rho under a psili, which take the rough "
+                "breathing; and the composed form is attested in the non-OCR text.",
+        "not_a_repair": "composition changes the encoding and never the reading, "
+                        "so this does not pick a different word. Where the reading "
+                        "is also wrong the token is left alone: ῾υμετἑρα composes "
+                        "to ὑμετἑρα, which still carries the wrong accent.",
+        "tokens_composed": changed,
+        "held_back": dict(held.most_common()),
+        "distinct_substitutions": dict(sorted(subs.items())),
+        "files": blocks,
+        "reverse": "python3 scripts/compose_spacing_breathings.py --lowercase --unapply",
+    }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
+    print(f"\nAPPLIED: {changed:,} tokens, audit {LOWER_AUDIT.relative_to(REPO)}")
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--apply", action="store_true")
+    ap.add_argument("--lowercase", action="store_true",
+                    help="the uncomposed_breathing class before lowercase letters")
+    ap.add_argument("--unapply", action="store_true")
     args = ap.parse_args()
+    if args.lowercase:
+        lowercase_pass(args.apply, args.unapply); return
+    if args.unapply:
+        fail("--unapply is only implemented for --lowercase")
 
     files = sorted(list((DATA / "corpus").glob("*.jsonl"))
                    + list((DATA / "corpus_secondary").glob("*.jsonl")))

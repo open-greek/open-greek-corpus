@@ -3,11 +3,11 @@
  "issue": "open-greek/open-greek-corpus#35",
  "discriminator": "only vowels and rho take a breathing, so a dasia before a consonant is not one; and a mark before a word that already carries its own breathing is not one either. A breathing sits on the second vowel of a diphthong, so ῾εἰ is already breathed: testing only the letter after the mark misses that and mis-files 267 tokens.",
  "NOT_A_DISPOSITION": "three of the four are mechanically fixable and the fourth, aphaeresis, must not be touched. Which to act on is not a measurement.",
- "total": 5356,
+ "total": 5292,
  "by_class": {
   "punctuation_only": {
    "tokens": 2412,
-   "share": 0.4503,
+   "share": 0.4558,
    "forms": 5,
    "works": 196,
    "by_source": {
@@ -24,7 +24,7 @@
   },
   "quotation_mark": {
    "tokens": 1859,
-   "share": 0.3471,
+   "share": 0.3513,
    "forms": 834,
    "works": 196,
    "by_source": {
@@ -44,7 +44,7 @@
   },
   "aphaeresis": {
    "tokens": 713,
-   "share": 0.1331,
+   "share": 0.1347,
    "forms": 419,
    "works": 137,
    "by_source": {
@@ -62,22 +62,22 @@
    ]
   },
   "uncomposed_breathing": {
-   "tokens": 372,
-   "share": 0.0695,
-   "forms": 264,
-   "works": 150,
+   "tokens": 308,
+   "share": 0.0582,
+   "forms": 231,
+   "works": 133,
    "by_source": {
-    "ocr": 311,
-    "first1k": 60,
+    "ocr": 263,
+    "first1k": 44,
     "byzantine_vernacular": 1
    },
    "examples": [
-    "῾η",
     "᾿Υπόθεσις",
     "᾿Υμεῖς",
     "῾ιζ",
-    "᾿η",
-    "῾ω"
+    "᾿Υπὲρ",
+    "᾿Υψίσθαι",
+    "᾿Ρωμαίοις"
    ]
   }
  }
