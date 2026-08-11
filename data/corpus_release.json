@@ -1,13 +1,13 @@
 {
  "corpus": {
   "passages": 1975500,
-  "tokens": 65415846,
-  "tokens_lemmatized": 63603817,
+  "tokens": 65326394,
+  "tokens_lemmatized": 63518530,
   "works": 3909
  },
  "generated_from": {
-  "commit": "436a74d88ef651f1494dabd01805a29d0fa92166",
-  "commit_date": "2026-08-10",
+  "commit": "bf4fa51b877b1e5686986b57025e116a49c144e6",
+  "commit_date": "2026-08-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -21,7 +21,7 @@
    "works": 2420
   },
   "PD": {
-   "tokens": 26815997,
+   "tokens": 26726545,
    "works": 1234
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -60,18 +60,18 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "03aa14d9b5fdf06e30d855d25b37ec852bf86a124408b6fef1d17d987208e2ed",
-  "corpus_sha256": "4153be4076c0ca41a1a0a55c7c1af397a0272b9b458ce82d6d7d212e9d1e2cb9",
+  "catalog_sha256": "c7b223b6cb889c2cc526c4d0d17a11746c6b761072272865c33086a3fc294772",
+  "corpus_sha256": "3fd1f511c0716be2d35c29ec8bd94ea767123730a915269c678add96aeffef58",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 19432378,
+    "tokens": 19362894,
     "works": 873
    },
    "manual": {
-    "tokens": 7150021,
+    "tokens": 7148906,
     "works": 200
    },
    "not-ocr": {
@@ -79,18 +79,18 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 2711185,
+    "tokens": 2692332,
     "works": 340
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.4478,
-   "ocr_tokens": 29293584,
+   "ocr_share_of_corpus_tokens": 0.447,
+   "ocr_tokens": 29204132,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0414,
-   "raw_share_of_ocr_tokens": 0.0926,
-   "raw_tokens": 2711185,
+   "raw_share_of_corpus_tokens": 0.0412,
+   "raw_share_of_ocr_tokens": 0.0922,
+   "raw_tokens": 2692332,
    "raw_works": 340,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
@@ -141,8 +141,8 @@
    "wrong_rows_estimate": 40000
   }
  },
- "release_date": "2026-08-10",
- "release_id": "corpus-2026-08-10.3",
+ "release_date": "2026-08-11",
+ "release_id": "corpus-2026-08-11",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -173,7 +173,7 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25167069,
+   "tokens": 25077617,
    "works": 1215
   },
   "perseus": {
