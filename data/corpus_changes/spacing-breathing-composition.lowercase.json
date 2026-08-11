@@ -1,0 +1,682 @@
+{
+ "what": "spacing psili/dasia composed onto the LOWERCASE vowel or rho after it, for the uncomposed_breathing class only",
+ "date": "2026-08-11",
+ "issue": "open-greek/open-greek-corpus#35",
+ "decision": "cisco, 2026-08-11",
+ "rule": "measure_spacing_marks.classify says the mark is a breathing (an unbreathed vowel or rho follows, and a dasia does not stand before a consonant); a single precomposed character exists; the letter is not upsilon or rho under a psili, which take the rough breathing; and the composed form is attested in the non-OCR text.",
+ "not_a_repair": "composition changes the encoding and never the reading, so this does not pick a different word. Where the reading is also wrong the token is left alone: ῾υμετἑρα composes to ὑμετἑρα, which still carries the wrong accent.",
+ "tokens_composed": 64,
+ "held_back": {
+  "no precomposed character": 250,
+  "composed form attested nowhere in the non-OCR text": 53,
+  "psili on upsilon or rho, which take the rough breathing": 5
+ },
+ "distinct_substitutions": {
+  "᾿α -> ἀ": 4,
+  "᾿αβραὰμ -> ἀβραὰμ": 1,
+  "᾿αγ -> ἀγ": 1,
+  "᾿αγαπᾷς -> ἀγαπᾷς": 1,
+  "᾿αν -> ἀν": 1,
+  "᾿ανατολὴν -> ἀνατολὴν": 1,
+  "᾿απάτωρ -> ἀπάτωρ": 1,
+  "᾿ας -> ἀς": 1,
+  "᾿αὶ -> ἀὶ": 3,
+  "᾿ενίοις -> ἐνίοις": 1,
+  "᾿επειδὴ -> ἐπειδὴ": 1,
+  "᾿εϲτι -> ἐϲτι": 1,
+  "᾿η -> ἠ": 6,
+  "᾿ηθέτουν -> ἠθέτουν": 1,
+  "᾿ι -> ἰ": 1,
+  "᾿ιησοῦ -> ἰησοῦ": 1,
+  "᾿ισραὴλ -> ἰσραὴλ": 1,
+  "᾿ιωάννης -> ἰωάννης": 1,
+  "᾿ω -> ὠ": 4,
+  "᾿ωνόμασεν -> ὠνόμασεν": 1,
+  "᾿ῃ -> ᾐ": 1,
+  "῾αμαρτάνουσιν -> ἁμαρτάνουσιν": 1,
+  "῾ε -> ἑ": 2,
+  "῾εφθημιμερές -> ἑφθημιμερές": 1,
+  "῾η -> ἡ": 10,
+  "῾ησαΐας -> ἡσαΐας": 1,
+  "῾ια -> ἱα": 3,
+  "῾ιεροσολύμοις -> ἱεροσολύμοις": 1,
+  "῾ιεροσολύμων -> ἱεροσολύμων": 1,
+  "῾ο -> ὁ": 2,
+  "῾ος -> ὁς": 1,
+  "῾ρ -> ῥ": 1,
+  "῾ω -> ὡ": 6
+ },
+ "files": [
+  {
+   "file": "data/corpus/anthemius.dupuy-1777.jsonl",
+   "sha256_before": "5adc3b9702877969138592fbb8293b723f93f914adf448192fd8114fcb4b261e",
+   "edits": [
+    [
+     52,
+     [
+      [
+       35,
+       "᾿η"
+      ],
+      [
+       126,
+       "᾿η"
+      ],
+      [
+       223,
+       "᾿η"
+      ],
+      [
+       305,
+       "᾿η"
+      ],
+      [
+       490,
+       "᾿η"
+      ],
+      [
+       509,
+       "᾿η"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "5753fee9c1b65fc22badaf2f3e9eecde2cdd6292a4ef80c62326ba8ecf72da1c"
+  },
+  {
+   "file": "data/corpus/apollonius-dyscolus-grammar.de-adverbiis.jsonl",
+   "sha256_before": "6da7e566bb3bc95c896995988914f48b02e7500fefc52e696b87fe79a3dc0e7c",
+   "edits": [
+    [
+     38,
+     [
+      [
+       877,
+       "᾿εϲτι"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "b9639a3203c998c237e647bf508a9a9cdcb4a55494555968a540a618e9454226"
+  },
+  {
+   "file": "data/corpus/aristoteles-et-corpus-aristotelicum.mirabilium-auscultationes.jsonl",
+   "sha256_before": "0984e0c7951f481f59b5d1cb2462bf7e0c38083e07ce60cfe27ff2b2b5b18340",
+   "edits": [
+    [
+     207,
+     [
+      [
+       166,
+       "῾αμαρτάνουσιν"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "bee1c380f8a7f66c658c21bc5cb8696d07ff5f327254a339702691cb07a6f3bc"
+  },
+  {
+   "file": "data/corpus/cyrillus-theology.commentarius-in-xii-prophetas-minores.jsonl",
+   "sha256_before": "ac6bef2018dc1a288c0322bd67c2f3bdee82956353b61e8e14a6d0f8f2b84cf1",
+   "edits": [
+    [
+     185,
+     [
+      [
+       124,
+       "᾿ισραὴλ"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "ceba77a68d37b9c771f1304a7e8ec899a2a9f18fc87bc57b3642b734d61146ad"
+  },
+  {
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "sha256_before": "c484ca950c063c0e34e574f630027a49c78d66246eeb48652a7aac7075e6b0b7",
+   "edits": [
+    [
+     11,
+     [
+      [
+       41,
+       "᾿ῃ"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "b0cbb50044dcd394731ab20ab0dc415f1357a6eeb87a278e0f30e7349f936bdd"
+  },
+  {
+   "file": "data/corpus/didymus.schmidt.jsonl",
+   "sha256_before": "a7c4157413a9ff3058eb19d97c9c1ff6b6fc622fcf434b40a809ce6c91b63889",
+   "edits": [
+    [
+     1731,
+     [
+      [
+       7,
+       "᾿ηθέτουν"
+      ]
+     ]
+    ],
+    [
+     2376,
+     [
+      [
+       269,
+       "᾿ω"
+      ],
+      [
+       404,
+       "᾿ω"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "7724de3b661a2fecbe2caa5e8be89ae2457fc78f971b405af33512bf270e1917"
+  },
+  {
+   "file": "data/corpus/dindorf-hgm1.paratexta.jsonl",
+   "sha256_before": "f6922579c90b94368dbb1089a6d52b682cf970e041a0c4f0605e84896536d38f",
+   "edits": [
+    [
+     230,
+     [
+      [
+       44,
+       "᾿α"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "34e24f9fa07487408f579d0c9bf8535fbac252466fa4f538a1d396f4b63575f4"
+  },
+  {
+   "file": "data/corpus/epiphanius.panarion-adversus-haereses.jsonl",
+   "sha256_before": "22614809c23f5364a6fd2ddd6ca990db5821b3a52cda3fc50a34667fdbd5f66b",
+   "edits": [
+    [
+     3202,
+     [
+      [
+       90,
+       "᾿απάτωρ"
+      ]
+     ]
+    ],
+    [
+     3430,
+     [
+      [
+       221,
+       "᾿αγαπᾷς"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "325fdad54a28baee9d485defb7b0f0ce3f38a8f53d1a1d31cb07c3c3a876b88b"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.onomasticon.jsonl",
+   "sha256_before": "23268cd468c4993939068f9e32cb70168d3595bffb7597991454874a3f30935e",
+   "edits": [
+    [
+     22,
+     [
+      [
+       8905,
+       "῾ησαΐας"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "558b254371e8c571a346aedd0fc366d2ec7cda9f2b6a20382da148943e585b4b"
+  },
+  {
+   "file": "data/corpus/geoponica.geoponica.jsonl",
+   "sha256_before": "39449e673576a3f7b02087cb8e42d267565f926a0b7100a73d189ee9408fb18e",
+   "edits": [
+    [
+     3103,
+     [
+      [
+       0,
+       "᾿ας"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "a08fa842219ce2b32f7119169ed4453a382e3da94d60926bb3ea02097ef3dcd6"
+  },
+  {
+   "file": "data/corpus/gregorius-nyssenus.contra-eunomium.jsonl",
+   "sha256_before": "c5739207c389ad9060fd02c4d2ccc65dd5b5cb61c0936bf10c877fed54cf6cd0",
+   "edits": [
+    [
+     941,
+     [
+      [
+       751,
+       "᾿ω"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "1a588eb2fccb8d0b308f4473ffe59ed8ccf354baa969f5f27286afeafdd4c4a3"
+  },
+  {
+   "file": "data/corpus/heron.definitiones.jsonl",
+   "sha256_before": "a4e9b36bffb52458a061758c5afcf75c2a6b0bae7f3a802405b74d75b9d62cd4",
+   "edits": [
+    [
+     9,
+     [
+      [
+       79,
+       "᾿αγ"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "0031d699e2c3248fe6d902590ccdb1edb591843a0f839daadcc998115b32f0ba"
+  },
+  {
+   "file": "data/corpus/heron.geometrica.jsonl",
+   "sha256_before": "032b830d9bf72958ce859b8fd9c43cac3a2632b9a403f2edefa66702dc9ad2e3",
+   "edits": [
+    [
+     2261,
+     [
+      [
+       78,
+       "῾η"
+      ],
+      [
+       179,
+       "῾η"
+      ],
+      [
+       333,
+       "῾η"
+      ],
+      [
+       500,
+       "῾η"
+      ],
+      [
+       507,
+       "῾η"
+      ],
+      [
+       542,
+       "῾ω"
+      ],
+      [
+       609,
+       "῾η"
+      ],
+      [
+       715,
+       "῾ρ"
+      ],
+      [
+       853,
+       "῾ε"
+      ],
+      [
+       910,
+       "῾ε"
+      ],
+      [
+       988,
+       "῾η"
+      ],
+      [
+       995,
+       "῾η"
+      ],
+      [
+       1041,
+       "῾ω"
+      ],
+      [
+       1085,
+       "῾ω"
+      ],
+      [
+       1169,
+       "῾ια"
+      ],
+      [
+       1173,
+       "῾ω"
+      ],
+      [
+       1353,
+       "῾ια"
+      ],
+      [
+       1357,
+       "῾ω"
+      ],
+      [
+       1383,
+       "῾ια"
+      ],
+      [
+       1402,
+       "῾ω"
+      ]
+     ]
+    ],
+    [
+     2263,
+     [
+      [
+       39,
+       "῾η"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "1f139d1efbc66d47e83a155bd83e10e0e1e81bdc218c50885641171e1132a397"
+  },
+  {
+   "file": "data/corpus/hesiodus.fragmenta.jsonl",
+   "sha256_before": "f21873c95b6f324441818b5e16f46fceadc0240d3b5571a43d84e73325c971f8",
+   "edits": [
+    [
+     897,
+     [
+      [
+       223,
+       "᾿ω"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "858a63d4d6beae91b19df496f1dec9c993f6a9de987a65f28f6b8a075d9a1790"
+  },
+  {
+   "file": "data/corpus/hierocles-philosophy.hqikh-stoixei-wsis.jsonl",
+   "sha256_before": "57048e6733e5bcada039fcadd55415e5cd8501db85d074398e70f9c2d88bb6b9",
+   "edits": [
+    [
+     4656,
+     [
+      [
+       37,
+       "᾿ενίοις"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "11b58fcfd28aa4de0b2e5b97f28ffd5474968cadb9b4f805571a00cdb5c1b808"
+  },
+  {
+   "file": "data/corpus/joannes-philoponus.in-libros-de-generatione-animalium-commentaria.jsonl",
+   "sha256_before": "65fb5930f4ad1b84655bb64d1b1dbfd14740e4d0bf1b03e2eebf8d0ed77e8d9f",
+   "edits": [
+    [
+     168,
+     [
+      [
+       2032,
+       "᾿επειδὴ"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "b257788d90610cf85681fb1674d3237f5c011973f3dd7018bba85c4c211b1385"
+  },
+  {
+   "file": "data/corpus/moeris.lexicon-atticum.jsonl",
+   "sha256_before": "d86e75d7a92386156cc8c400ed6a61e22784f87aa2a97b6826608c92efd00a79",
+   "edits": [
+    [
+     6867,
+     [
+      [
+       335,
+       "᾿αὶ"
+      ]
+     ]
+    ],
+    [
+     7084,
+     [
+      [
+       19,
+       "᾿α"
+      ]
+     ]
+    ],
+    [
+     7087,
+     [
+      [
+       17,
+       "᾿α"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "bf88b12073a2b97636b10bb68ec1b76bf21fb021823e0c03499f0d512a455781"
+  },
+  {
+   "file": "data/corpus/oribasius.synopsis-ad-eustathium-filium.jsonl",
+   "sha256_before": "25965d3c6735c79716d5b75dcb8e7ccd0180e9fe54b01849ed65ed284c0ec9f5",
+   "edits": [
+    [
+     3808,
+     [
+      [
+       9,
+       "῾ο"
+      ],
+      [
+       63,
+       "῾ο"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "2239bc89881dbe75fa0ca66a265b24123983641381f057e86d44dc63fdf4a43f"
+  },
+  {
+   "file": "data/corpus/origenes.commentarii-in-evangelium-joannis-lib-1-2-4-5-6-10-13.jsonl",
+   "sha256_before": "7186feab79a79c04ed33cf3a17d699f23a379d667e914489eda54dd065e6f0cb",
+   "edits": [
+    [
+     1814,
+     [
+      [
+       394,
+       "᾿αβραὰμ"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "328367c38dbbe10d867b23202f9779d5503e1d42cdd8ebec3f28e865c7c93f64"
+  },
+  {
+   "file": "data/corpus/origenes.commentarii-in-evangelium-joannis-lib-19-20-28-32.jsonl",
+   "sha256_before": "bd670e6571e513207f3c6620c503990274cb07d4380b03aea2531cfdf5030f2d",
+   "edits": [
+    [
+     748,
+     [
+      [
+       103,
+       "῾η"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "a0e1c9f4ec9e8887c2afd2236a86338986e857cefd0add63af921b37fca6ebd1"
+  },
+  {
+   "file": "data/corpus/parmenides.testimonia.jsonl",
+   "sha256_before": "04807f10c5fdebf264e491a968130ff617c4c720edce05e5434188e99be1a6e2",
+   "edits": [
+    [
+     254,
+     [
+      [
+       6,
+       "᾿αὶ"
+      ]
+     ]
+    ],
+    [
+     256,
+     [
+      [
+       42,
+       "᾿αὶ"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "ec92ae25863dfd33a705d7dbd59780d1c72b64f623be644a22d18cc9904ab36b"
+  },
+  {
+   "file": "data/corpus/scholia-in-euripidem.scholia-in-euripidis-phoenissas-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma.jsonl",
+   "sha256_before": "d5883c1ccdc2eb8bad32f6db175fceab50005008492bf160a7f343a3f123a285",
+   "edits": [
+    [
+     32,
+     [
+      [
+       212,
+       "῾εφθημιμερές"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "8203e115da23928d114803f22217940a55e9923b1f1e69ea4477216f5790c7ab"
+  },
+  {
+   "file": "data/corpus/scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et.jsonl",
+   "sha256_before": "9cd081cfe974bf4e40e120ca382f546254693e6c26a1e1854275a95a996c6239",
+   "edits": [
+    [
+     3032,
+     [
+      [
+       0,
+       "᾿αν"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "5bb776501f9f28a00b0694852285a48de7cf99b4378e6032f7de537d1ca6c0aa"
+  },
+  {
+   "file": "data/corpus/sextus-empiricus.adversus-mathematicos.jsonl",
+   "sha256_before": "30e7ffd8745961de67c4da52d9a9149d3c0d9fb1c20a49b73f703aa4136c8cf9",
+   "edits": [
+    [
+     443,
+     [
+      [
+       315,
+       "῾ος"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "ed09a32d958947e83ab0cd7febce08b667ba41e4eca87ed6e1fbe3ac7a91bf77"
+  },
+  {
+   "file": "data/corpus/sopater-comedy.fragmenta.jsonl",
+   "sha256_before": "39d30af94231e38238f96491c4e3d5591579d049d4b6f6f5e6e10b36c25010a9",
+   "edits": [
+    [
+     962,
+     [
+      [
+       207,
+       "᾿ωνόμασεν"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "bb4ec16c2d36fe5f12c5b0d81c48ddf8f3a97cb8a9c447ef7c44893ac23ee4c5"
+  },
+  {
+   "file": "data/corpus/theodoretus.historia-ecclesiastica.jsonl",
+   "sha256_before": "be01a24777e80245e4ca220e18289cb2c8eca9c86195f90d257d202d6689907b",
+   "edits": [
+    [
+     727,
+     [
+      [
+       190,
+       "῾ιεροσολύμων"
+      ]
+     ]
+    ],
+    [
+     817,
+     [
+      [
+       545,
+       "᾿ανατολὴν"
+      ]
+     ]
+    ],
+    [
+     846,
+     [
+      [
+       67,
+       "᾿ιησοῦ"
+      ]
+     ]
+    ],
+    [
+     1311,
+     [
+      [
+       130,
+       "῾ιεροσολύμοις"
+      ]
+     ]
+    ],
+    [
+     1345,
+     [
+      [
+       42,
+       "᾿ιωάννης"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "6f9c28b713e7a0e211e123f131d87714b79ca0e8c4b991a110d2773a98dccd73"
+  },
+  {
+   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
+   "sha256_before": "e26c0723af2b54be4d7656aac6ba914c499c47ed01a233dc960563d4df2d31a8",
+   "edits": [
+    [
+     432,
+     [
+      [
+       429,
+       "᾿α"
+      ],
+      [
+       610,
+       "᾿ι"
+      ]
+     ]
+    ]
+   ],
+   "sha256_after": "dd1386532132903efe51487e7efe25325665e2a80468ec4e1d884209b60a2d91"
+  }
+ ],
+ "reverse": "python3 scripts/compose_spacing_breathings.py --lowercase --unapply"
+}
