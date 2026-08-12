@@ -568,37 +568,61 @@ other source.
 
 ### How good are the corrections?
 
-Measured by blind philological rating of stratified samples of the corrections
-actually present in the served text (first pass 2026-08-02, largest cell
-remeasured at n=295 on 2026-08-03). By corrector: `confusion` 93%, `freq`/auto
-85%, `freq`/accepted 80% (95% CI 74-87), `llm`/auto 78%. Weighted overall,
-roughly 40,000 of the corrections are wrong; the `freq`/accepted term of that is
-measured to ~13,000 (range 9,000-17,600) and the other cells still rest on their
-original n≈30 samples.
+Measured on 2026-08-12 over the served overlay itself: 990 of the 245,362
+applied corrections drawn at random, stratified by the route that applied them,
+each read by two independent blind raters who saw the passage with the applied
+form marked and the OCR reading it replaced, and nothing else. A correction
+counts sound only when both call it right and wrong only when both call it
+wrong; 803 were readable after carve routing.
 
-The measurement's own noise floor is known: independent raters shown identical
-items disagree on 8.6% of them (kappa 0.78), so no figure here is finer than a
-few points. That floor cannot explain away the one revert taken on these
-numbers: for `llm`/accepted's 10-of-30 to have come from an acceptable cell,
-rater error would have to be several times what was measured (P < 1e-4 at every
-plausible rate).
+| route | applied | rated | sound | 95% CI | wrong |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `agent`/accepted | 1,376 | 143 | 97.9% | 94.0-99.3 | 1.4% |
+| `confusion`/accepted | 16,455 | 144 | 84.7% | 78.0-89.7 | 11.8% |
+| `freq`/accepted | 85,451 | 150 | 70.0% | 62.2-76.8 | 18.7% |
+| `freq`/auto | 75,547 | 106 | 76.4% | 67.5-83.5 | 20.8% |
+| `llm`/accepted | 2,522 | 140 | 53.6% | 45.3-61.6 | 35.0% |
+| `llm`/auto | 64,011 | 120 | 82.5% | 74.7-88.3 | 14.2% |
 
-The worst cell, `llm`/accepted, measured 33% and has been reverted to its OCR
-readings and requeued. A full-population check found 48% of it produced strings
-unattested in 1.17M clean Greek forms. The 2,496 of its fixes that turned an
-unattested string into an attested one were restored, since that is positive
-evidence; the rest await re-adjudication behind a lexicon gate.
+Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
+where the raters split or were unsure. That is roughly 43,000 wrong corrections
+in the served text.
 
-`prosodia`/accepted looked like a second such cell at 43% unattested, but it is
-not: that pass normalizes sigma (medial to `σ`, final to `ς`, lunate to either),
-which is correct Greek orthography whatever else is wrong with the token, so
-applying it to an already-broken word leaves the word broken and unattested
-without making it worse. None of its corrections made a token rarer.
+Everything before this was measured over slices picked for being hard, one
+rater per item, mostly at n≈30, so those figures said how a corner behaved
+rather than how the text behaves. Compared one rater to one rater, the old
+numbers were optimistic in every cell but one: `confusion` 93% against 85.4%,
+`freq`/auto 85% against 77.8%, `freq`/accepted 80% against 72.3%, while
+`llm`/auto goes the other way, 78% against 83.8%. The two raters here disagree
+on 5.5% of items, so nothing above is finer than a few points.
 
-`freq`/accepted remains the largest single block of damage (~13,000 wrong rows)
-purely by size. A ten-stratum analysis found no slice of it bad enough to revert
-wholesale and no factor (edit kind, target rarity, genre) that gates it, so what
-remains needs per-record judgment or nothing.
+`agent`/accepted is the only cell that reads clean, and it is also the only one
+where something adjudicated every single record rather than a confidence
+threshold waving it through. `llm`/accepted was reverted wholesale in August
+2026 and requeued behind a lexicon gate, but 2,522 of its records survived that
+revert and still measure 53.6%, so the revert did not reach all of it.
+`prosodia`/accepted (682 records) and `engine`/accepted (4) fall below the
+sampling floor and no figure here covers them.
+
+`prosodia`/accepted once looked like a second bad cell at 43% unattested, but it
+is not: that pass normalizes sigma (medial to `σ`, final to `ς`, lunate to
+either), which is correct Greek orthography whatever else is wrong with the
+token, so applying it to an already-broken word leaves the word broken and
+unattested without making it worse. None of its corrections made a token rarer.
+
+`freq`/accepted remains the largest single block of damage, about 25,600 wrong
+rows, purely by size. A ten-stratum analysis found no slice of it bad enough to
+revert wholesale and no factor (edit kind, target rarity, genre) that gates it,
+so what remains needs per-record judgment or nothing.
+
+Two campaigns in August 2026 did exactly that per-record judgment on 5,494
+already-applied corrections from the letters-rare class, sending them back to a
+Qwen3.6-27B-FP8 judge and then reading every one of the judge's verdicts with
+two blind raters. The judge turned out to be a pre-filter and not an arbiter:
+its reject cell measured 73% and its accept cell 61.3%, so the raters decide and
+the judge verdict is only recorded. 2,026 corrections came back unanimously
+wrong and were reverted. Evidence and reverse instructions are upstream in the
+greek-ocr pipeline under `data/precision/`.
 
 The overlay is also kept honest about its own reach. 35,008 corrections marked
 active could no longer apply at all - the July 2026 re-OCR or a later carve had
