@@ -61,39 +61,63 @@ OCR_SOURCES = {"ocr", "cgpg"}
 # population size is recorded alongside and checked against the local audit
 # mirror at run time (see corrections_block).
 MEASURED = {
-    "method": ("blind philological rating of stratified samples of the "
-               "corrections actually present in the served text"),
-    "measured_on": ["2026-08-02", "2026-08-03"],
+    "method": ("two independent blind raters per item over a random sample of "
+               "the served overlay, stratified by the route that applied each "
+               "correction; a correction counts sound only when both raters "
+               "call it right and wrong only when both call it wrong"),
+    "measured_on": ["2026-08-12"],
+    "sample": {"drawn": 990, "rated": 803, "population": 245362,
+               "seed": 20260812,
+               "tool": "greek-ocr scripts/sample_applied_overlay.py"},
+    # both-raters-right per route. The earlier 2026-08-02/03 figures used one
+    # rater, so single_rater_rate below is what they compare against.
     "precision_by_corrector": {
-        "confusion": 0.93,
-        "freq/auto": 0.85,
-        "freq/accepted": 0.80,
-        "llm/auto": 0.78,
+        "agent/accepted": 0.979,
+        "confusion/accepted": 0.847,
+        "freq/accepted": 0.700,
+        "freq/auto": 0.764,
+        "llm/accepted": 0.536,
+        "llm/auto": 0.825,
     },
-    "freq_accepted": {
-        "precision": 0.80,
-        "ci95": [0.74, 0.87],
-        "n": 295,
-        "remeasured_on": "2026-08-03",
-        "wrong_rows": 13000,
-        "wrong_rows_range": [9000, 17600],
+    "corpus_weighted": {
+        "sound": 0.762,
+        "wrong": 0.177,
+        "split_or_unsure": 0.060,
+        "single_rater_rate": 0.779,
     },
-    "wrong_rows_estimate": 40000,
+    "superseded": {
+        "measured_on": ["2026-08-02", "2026-08-03"],
+        "precision_by_corrector": {"confusion": 0.93, "freq/auto": 0.85,
+                                   "freq/accepted": 0.80, "llm/auto": 0.78},
+        "why": ("those samples were drawn per corrector from slices chosen for "
+                "being hard and mostly rested on n around 30 with one rater; "
+                "compared one-rater to one-rater every cell but llm/auto was "
+                "optimistic by 6 to 8 points"),
+    },
+    "wrong_rows_estimate": 43400,
     "corrections_present": 120894,
     "corrections_present_works": 890,
-    "active_records": 192151,
-    "rater_disagreement": 0.086,
+    "active_records": 225125,
+    "rater_disagreement": 0.055,
     "rater_kappa": 0.78,
     "caveats": [
-        "Only the freq/accepted cell has been remeasured (n=295); the other "
-        "cells still rest on their original samples of about 30 items each.",
-        "Independent raters shown identical items disagree on 8.6% of them "
-        "(kappa 0.78), so no figure here is finer than a few points.",
+        "Sampling stratifies by route and reweights to the overlay, so the "
+        "corpus figure is not the sample average: freq/accepted holds 85,451 "
+        "records and agent/accepted 1,376, and both were sampled to the same "
+        "depth.",
+        "6.0% of items are neither sound nor wrong but a split or unsure "
+        "reading, and are reported as their own band rather than rounded into "
+        "either side.",
+        "The two raters disagree on 5.5% of items, so no figure here is finer "
+        "than a few points.",
         "The estimate counts corrections that are wrong, not OCR errors that "
         "survive: a raw-OCR work has had no correction pass at all and none of "
         "these rates say anything about it.",
-        "The worst cell measured, llm/accepted at 33%, was reverted to its OCR "
-        "readings and is excluded from the figures above.",
+        "llm/accepted was reverted wholesale in August 2026, but 2,522 records "
+        "survived that revert and measure 53.6%; the revert did not reach all "
+        "of it.",
+        "prosodia/accepted (682 records) and engine/accepted (4) were below "
+        "the sampling floor and are not covered by any figure here.",
         "The per-work unattested_rate in data/corpus_catalog.tsv is a triage "
         "signal, not a character error rate: a lexicon or a dialect glossary "
         "scores high on rare vocabulary without being misread.",

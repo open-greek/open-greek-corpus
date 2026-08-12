@@ -1,20 +1,20 @@
 {
  "corpus": {
   "passages": 1975500,
-  "tokens": 65325781,
-  "tokens_lemmatized": 63523718,
+  "tokens": 65309158,
+  "tokens_lemmatized": 63506453,
   "works": 3909
  },
  "generated_from": {
-  "commit": "ec9f4a1ac6f082d999a12ce003f737055e2a567a",
-  "commit_date": "2026-08-11",
+  "commit": "56a4ee6e1e3863d7b83eb39f3d130bb3a814b99b",
+  "commit_date": "2026-08-12",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin",
-  "uncommitted_corpus_files": 129
+  "uncommitted_corpus_files": 130
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
  "licenses": {
   "CC-BY-4.0": {
-   "tokens": 4309465,
+   "tokens": 4305054,
    "works": 234
   },
   "CC-BY-SA-4.0": {
@@ -22,7 +22,7 @@
    "works": 2420
   },
   "PD": {
-   "tokens": 26726545,
+   "tokens": 26714333,
    "works": 1234
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -61,18 +61,18 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "8e8d73d0e799500c5e081b8b40b244821f9b89d1e03bd1e7accbdd37e80e2e6b",
-  "corpus_sha256": "fcb91037d546f426d05b473df98ca42fa4052307561dd218a703642adeb990ab",
+  "catalog_sha256": "cc2181a50331e4af1afb24480c38497784923eb9739b0e865ccc3ffbd1dc9965",
+  "corpus_sha256": "a17da402d69eebe21f66d3837856af1a95430a2d7e109c7412e59b4b98701cc7",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20117588,
+    "tokens": 20109145,
     "works": 886
    },
    "manual": {
-    "tokens": 7148293,
+    "tokens": 7143882,
     "works": 200
    },
    "not-ocr": {
@@ -80,70 +80,85 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 1937638,
+    "tokens": 1933869,
     "works": 327
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.447,
-   "ocr_tokens": 29203519,
+   "ocr_share_of_corpus_tokens": 0.4469,
+   "ocr_tokens": 29186896,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0297,
+   "raw_share_of_corpus_tokens": 0.0296,
    "raw_share_of_ocr_tokens": 0.0663,
-   "raw_tokens": 1937638,
+   "raw_tokens": 1933869,
    "raw_works": 327,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
-   "active_records": 192151,
+   "active_records": 225125,
    "caveats": [
-    "Only the freq/accepted cell has been remeasured (n=295); the other cells still rest on their original samples of about 30 items each.",
-    "Independent raters shown identical items disagree on 8.6% of them (kappa 0.78), so no figure here is finer than a few points.",
+    "Sampling stratifies by route and reweights to the overlay, so the corpus figure is not the sample average: freq/accepted holds 85,451 records and agent/accepted 1,376, and both were sampled to the same depth.",
+    "6.0% of items are neither sound nor wrong but a split or unsure reading, and are reported as their own band rather than rounded into either side.",
+    "The two raters disagree on 5.5% of items, so no figure here is finer than a few points.",
     "The estimate counts corrections that are wrong, not OCR errors that survive: a raw-OCR work has had no correction pass at all and none of these rates say anything about it.",
-    "The worst cell measured, llm/accepted at 33%, was reverted to its OCR readings and is excluded from the figures above.",
+    "llm/accepted was reverted wholesale in August 2026, but 2,522 records survived that revert and measure 53.6%; the revert did not reach all of it.",
+    "prosodia/accepted (682 records) and engine/accepted (4) were below the sampling floor and are not covered by any figure here.",
     "The per-work unattested_rate in data/corpus_catalog.tsv is a triage signal, not a character error rate: a lexicon or a dialect glossary scores high on rare vocabulary without being misread."
    ],
+   "corpus_weighted": {
+    "single_rater_rate": 0.779,
+    "sound": 0.762,
+    "split_or_unsure": 0.06,
+    "wrong": 0.177
+   },
    "corrections_present": 120894,
    "corrections_present_works": 890,
-   "freq_accepted": {
-    "ci95": [
-     0.74,
-     0.87
-    ],
-    "n": 295,
-    "precision": 0.8,
-    "remeasured_on": "2026-08-03",
-    "wrong_rows": 13000,
-    "wrong_rows_range": [
-     9000,
-     17600
-    ]
-   },
    "measured_on": [
-    "2026-08-02",
-    "2026-08-03"
+    "2026-08-12"
    ],
-   "method": "blind philological rating of stratified samples of the corrections actually present in the served text",
+   "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
    "population_check": {
     "checked": true,
     "records_now": 225125,
-    "records_when_measured": 192151,
-    "stale": true
+    "records_when_measured": 225125,
+    "stale": false
    },
    "precision_by_corrector": {
-    "confusion": 0.93,
-    "freq/accepted": 0.8,
-    "freq/auto": 0.85,
-    "llm/auto": 0.78
+    "agent/accepted": 0.979,
+    "confusion/accepted": 0.847,
+    "freq/accepted": 0.7,
+    "freq/auto": 0.764,
+    "llm/accepted": 0.536,
+    "llm/auto": 0.825
    },
-   "rater_disagreement": 0.086,
+   "rater_disagreement": 0.055,
    "rater_kappa": 0.78,
-   "wrong_rows_estimate": 40000
+   "sample": {
+    "drawn": 990,
+    "population": 245362,
+    "rated": 803,
+    "seed": 20260812,
+    "tool": "greek-ocr scripts/sample_applied_overlay.py"
+   },
+   "superseded": {
+    "measured_on": [
+     "2026-08-02",
+     "2026-08-03"
+    ],
+    "precision_by_corrector": {
+     "confusion": 0.93,
+     "freq/accepted": 0.8,
+     "freq/auto": 0.85,
+     "llm/auto": 0.78
+    },
+    "why": "those samples were drawn per corrector from slices chosen for being hard and mostly rested on n around 30 with one rater; compared one-rater to one-rater every cell but llm/auto was optimistic by 6 to 8 points"
+   },
+   "wrong_rows_estimate": 43400
   }
  },
- "release_date": "2026-08-11",
- "release_id": "corpus-2026-08-11",
+ "release_date": "2026-08-12",
+ "release_id": "corpus-2026-08-12",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -154,7 +169,7 @@
    "works": 19
   },
   "cgpg": {
-   "tokens": 4125902,
+   "tokens": 4121491,
    "works": 198
   },
   "dfhg": {
@@ -174,7 +189,7 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25077617,
+   "tokens": 25065405,
    "works": 1215
   },
   "perseus": {
