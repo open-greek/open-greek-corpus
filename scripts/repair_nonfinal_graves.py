@@ -58,11 +58,18 @@ def main() -> None:
                          "well as an accent, as long as the letters do not change")
     ap.add_argument("--date", default=dt.date.today().isoformat())
     ap.add_argument("--decision", default="")
+    ap.add_argument("--audit-tag", default="",
+                    help="suffix for the audit filename. A tranche sheet is "
+                         "regenerated and drains to zero once applied, but its "
+                         "audit is permanent; a second apply from the same "
+                         "sheet path needs its own audit rather than a fight "
+                         "over the first one's name")
     g = ap.add_mutually_exclusive_group()
     g.add_argument("--apply", action="store_true"); g.add_argument("--unapply", action="store_true")
     a = ap.parse_args()
     tranche = json.loads((REPO / a.tranche).read_text(encoding="utf-8"))
-    AUDIT = DATA / "corpus_changes" / f"{Path(a.tranche).stem}.applied.json"
+    stem = Path(a.tranche).stem + (f".{a.audit_tag}" if a.audit_tag else "")
+    AUDIT = DATA / "corpus_changes" / f"{stem}.applied.json"
     sources = set(a.sources.split(","))
 
     if a.unapply:
@@ -171,10 +178,13 @@ def main() -> None:
         "tokens_changed": changed, "rows_touched": rows_touched, "forms": len(repl),
         "substitutions": dict(sorted(repl.items())),
         "files": blocks,
-        "reverse": f"python3 scripts/repair_nonfinal_graves.py --tranche {a.tranche} --unapply",
+        "reverse": (f"python3 scripts/repair_nonfinal_graves.py --tranche {a.tranche}"
+                    + (f" --audit-tag {a.audit_tag}" if a.audit_tag else "")
+                    + " --unapply"),
         "forward": ("python3 scripts/repair_nonfinal_graves.py --tranche "
                     f"{a.tranche} --sources {a.sources}"
                     + (" --allow-mark-moves" if a.allow_mark_moves else "")
+                    + (f" --audit-tag {a.audit_tag}" if a.audit_tag else "")
                     + f" --date {a.date} --apply"),
     }, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"\nAPPLIED: {changed:,} tokens, audit {AUDIT.relative_to(REPO)}")
