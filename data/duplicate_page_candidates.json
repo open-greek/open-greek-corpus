@@ -15066,30 +15066,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/hesychius-lexicography.lexicon-p-w.jsonl",
-   "served": true,
-   "locus_a": "hesychius_masked_0859",
-   "locus_b": "hesychius_masked_0861",
-   "containment": 0.7438,
-   "bigrams_a": 257,
-   "bigrams_b": 242,
-   "tokens_b": 247,
-   "words_absent_from_a": 32,
-   "words_b": 247,
-   "unique_runs_if_b_dropped": [
-    "ωραισμενη καλ λωπισμενη",
-    "εκαστου ετους αναπολειν αναπολειν",
-    "βεν εκεθυμησεν ωρμησεν"
-   ],
-   "unique_runs_if_a_dropped": [
-    "εκατην τας οικιας",
-    "απαντων εγινοντο απαρχαι"
-   ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/nicolaus-history.fragmenta.jsonl",
    "served": false,
    "locus_a": "aristobulus_fhg3_0439",
@@ -15913,6 +15889,30 @@
    ],
    "same_item": true,
    "page_offset": 30,
+   "run": null
+  },
+  {
+   "file": "data/corpus/hesychius-lexicography.lexicon-p-w.jsonl",
+   "served": true,
+   "locus_a": "hesychius_masked_0859",
+   "locus_b": "hesychius_masked_0861",
+   "containment": 0.7355,
+   "bigrams_a": 257,
+   "bigrams_b": 242,
+   "tokens_b": 247,
+   "words_absent_from_a": 33,
+   "words_b": 247,
+   "unique_runs_if_b_dropped": [
+    "ωραισμενη καλ λωπισμενη",
+    "εκαστου ετους αναπολειν αναπολειν",
+    "βεν εκεθυμησεν ωρμησεν"
+   ],
+   "unique_runs_if_a_dropped": [
+    "εκατην τας οικιας",
+    "απαντων εγινοντο απαρχαι"
+   ],
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -48400,9 +48400,9 @@
    "locus_b": "scholia_aeschylum_depauw_stanley_0068",
    "containment": 0.4503,
    "bigrams_a": 322,
-   "bigrams_b": 327,
+   "bigrams_b": 326,
    "tokens_b": 351,
-   "words_absent_from_a": 87,
+   "words_absent_from_a": 86,
    "words_b": 351,
    "unique_runs_if_b_dropped": [
     "νεοχωοις δι ορμοις",
