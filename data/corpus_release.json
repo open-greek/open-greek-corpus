@@ -2,13 +2,14 @@
  "corpus": {
   "passages": 1975500,
   "tokens": 65325781,
-  "tokens_lemmatized": 63516425,
+  "tokens_lemmatized": 63523718,
   "works": 3909
  },
  "generated_from": {
-  "commit": "55c96819a03cac372ddae9aa8f32cf04df2793ac",
+  "commit": "ec9f4a1ac6f082d999a12ce003f737055e2a567a",
   "commit_date": "2026-08-11",
-  "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
+  "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin",
+  "uncommitted_corpus_files": 129
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
  "licenses": {
@@ -60,15 +61,15 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "e97fb6c3b859c6f40d5b3c48aa47c1953adf0ca04a020908fc3dd9684864b280",
-  "corpus_sha256": "dcdabf421a7bb4660743b3c81fa956e4e6e36afda48ebf8508cc985141a116d9",
+  "catalog_sha256": "8e8d73d0e799500c5e081b8b40b244821f9b89d1e03bd1e7accbdd37e80e2e6b",
+  "corpus_sha256": "fcb91037d546f426d05b473df98ca42fa4052307561dd218a703642adeb990ab",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 19362894,
-    "works": 873
+    "tokens": 20117588,
+    "works": 886
    },
    "manual": {
     "tokens": 7148293,
@@ -79,8 +80,8 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 2692332,
-    "works": 340
+    "tokens": 1937638,
+    "works": 327
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
@@ -88,10 +89,10 @@
    "ocr_share_of_corpus_tokens": 0.447,
    "ocr_tokens": 29203519,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0412,
-   "raw_share_of_ocr_tokens": 0.0922,
-   "raw_tokens": 2692332,
-   "raw_works": 340,
+   "raw_share_of_corpus_tokens": 0.0297,
+   "raw_share_of_ocr_tokens": 0.0663,
+   "raw_tokens": 1937638,
+   "raw_works": 327,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
@@ -126,9 +127,9 @@
    "method": "blind philological rating of stratified samples of the corrections actually present in the served text",
    "population_check": {
     "checked": true,
-    "records_now": 192151,
+    "records_now": 225125,
     "records_when_measured": 192151,
-    "stale": false
+    "stale": true
    },
    "precision_by_corrector": {
     "confusion": 0.93,
