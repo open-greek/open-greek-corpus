@@ -12,11 +12,11 @@
   ]
  },
  "files_scanned": 4402,
- "candidates": 42,
- "clean_second_copies": 14,
- "clean_second_copies_tokens": 5164,
- "clean_second_copies_served": 6,
- "clean_second_copies_served_tokens": 2132,
+ "candidates": 40,
+ "clean_second_copies": 12,
+ "clean_second_copies_tokens": 4551,
+ "clean_second_copies_served": 4,
+ "clean_second_copies_served_tokens": 1519,
  "overlapping_not_copies": 28,
  "overlapping_not_copies_tokens": 10634,
  "served_droppable_by_containment": [
@@ -29,15 +29,15 @@
   },
   {
    "band": "0.90-0.99",
-   "pairs": 1,
-   "tokens": 424,
+   "pairs": 0,
+   "tokens": 0,
    "same_item_pairs": 0,
    "same_item_tokens": 0
   },
   {
    "band": "0.80-0.90",
-   "pairs": 5,
-   "tokens": 1708,
+   "pairs": 4,
+   "tokens": 1519,
    "same_item_pairs": 0,
    "same_item_tokens": 0
   },
@@ -76,8 +76,6 @@
   "data/corpus/michael-psellus.poemata.jsonl": 2,
   "data/corpus/theophylactus-achridensis.epistulae.jsonl": 2,
   "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl": 2,
-  "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl": 1,
-  "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl": 1,
   "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl": 1,
   "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl": 1
  },
@@ -93,23 +91,6 @@
    "tokens_b": 295,
    "words_absent_from_a": 5,
    "words_b": 295,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
-   "served": true,
-   "locus_a": "PG122.363",
-   "locus_b": "PG122.365",
-   "containment": 0.911,
-   "bigrams_a": 382,
-   "bigrams_b": 382,
-   "tokens_b": 424,
-   "words_absent_from_a": 15,
-   "words_b": 424,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
@@ -299,23 +280,6 @@
    "unique_runs_if_a_dropped": [
     "ποε εκωε ιρει ιοσιοε βοιιη"
    ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl",
-   "served": true,
-   "locus_a": "PG122.435",
-   "locus_b": "PG122.436",
-   "containment": 0.8602,
-   "bigrams_a": 186,
-   "bigrams_b": 186,
-   "tokens_b": 189,
-   "words_absent_from_a": 12,
-   "words_b": 189,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
    "run": null

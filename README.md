@@ -2310,10 +2310,10 @@ below; regenerate it with `python scripts/build_provenance.py`.
   inside a file by word-bigram containment, which ignores reading order, because
   a second read that walks the columns differently scores 0.482 by difflib and
   0.841 by containment. Its output,
-  data/duplicate_leaf_candidates.json, lists 43 remaining pairs in 15 files and
-  splits them by what dropping one would cost, in BOTH directions. 14 pairs have
-  a side that holds nothing the other lacks, 5,164 tokens, of which 6 pairs and
-  2,132 tokens are in served text; the other 29 pairs, 10,999 tokens, cannot be
+  data/duplicate_leaf_candidates.json, lists 40 remaining pairs in 12 files and
+  splits them by what dropping one would cost, in BOTH directions. 12 pairs have
+  a side that holds nothing the other lacks, 4,551 tokens, of which 4 pairs and
+  1,519 tokens are in served text; the other 28 pairs, 10,634 tokens, cannot be
   dropped from either side, because each holds text the other does not. Which
   side to drop is not decidable from the ordering: in PG118's first leaf the
   earlier copy was in sequence, in PG126 and PG118's 2 Corinthians leaf the later
@@ -2333,7 +2333,9 @@ below; regenerate it with `python scripts/build_provenance.py`.
   answer either way, and where a two-page leaf has one clean pair and one whose
   sides each hold unique text, dropping half of it would leave the other half
   duplicated. Both situations are common enough that most of what is left is
-  waiting on pages rather than on analysis.
+  waiting on pages or on a ruling for the half-clean leaves rather than on
+  analysis: since the 2026-08-11 PG122 drops, every clean pair still in served
+  text sits on a leaf whose sibling pair holds unique text on both sides.
 - The multi-work CGPG Migne volumes are carved into per-work files: 21 of the
   22 researched volumes split (~167 primary works incl. the Theophylact of
   Ohrid corpus, Symeon of Thessalonica, Nicephorus Callistus' church history,

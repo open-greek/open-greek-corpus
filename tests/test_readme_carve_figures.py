@@ -99,3 +99,27 @@ def test_duplicate_leaf_served_figure_matches_the_artifact():
                       .read_text(encoding="utf-8"))
     assert (int(m.group(1)), _n(m.group(2))) == (
         leaf["clean_second_copies_served"], leaf["clean_second_copies_served_tokens"])
+
+
+def test_duplicate_leaf_partition_matches_the_artifact():
+    """The whole sentence, not just its served clause. 8c56a56 fixed this
+    paragraph's drift once, and the 2026-08-11 rebuild caught four figures it
+    had left unbound (43/15/29/10,999 in prose against the artifact's
+    42/14/28/10,634). Now every number in the sentence fails on the same
+    rebuild that moves it."""
+    leaf = json.loads((REPO / "data" / "duplicate_leaf_candidates.json")
+                      .read_text(encoding="utf-8"))
+    m = re.search(r"lists ([\d,]+) remaining pairs in ([\d,]+) files", README)
+    assert m, "the leaf candidates sentence moved; update this test with it"
+    assert (_n(m.group(1)), _n(m.group(2))) == (leaf["candidates"],
+                                                len(leaf["by_file"]))
+    m = re.search(r"([\d,]+) pairs have\s+a side that holds nothing the other "
+                  r"lacks, ([\d,]+) tokens", README)
+    assert m, "the one-way droppable sentence moved; update this test with it"
+    assert (_n(m.group(1)), _n(m.group(2))) == (leaf["clean_second_copies"],
+                                                leaf["clean_second_copies_tokens"])
+    m = re.search(r"the other ([\d,]+) pairs, ([\d,]+) tokens, cannot be\s+"
+                  r"dropped from either side", README)
+    assert m, "the overlap sentence moved; update this test with it"
+    assert (_n(m.group(1)), _n(m.group(2))) == (leaf["overlapping_not_copies"],
+                                                leaf["overlapping_not_copies_tokens"])
