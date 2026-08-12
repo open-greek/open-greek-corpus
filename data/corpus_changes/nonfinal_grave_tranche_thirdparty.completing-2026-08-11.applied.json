@@ -1,0 +1,8118 @@
+{
+ "what": "non-final grave repairs from data/nonfinal_grave_tranche_thirdparty.json",
+ "date": "2026-08-11",
+ "issue": "open-greek/open-greek-corpus#31",
+ "decision": "cisco, 2026-08-10: we may correct other people's editions where we are SURE they are wrong. This apply completes that pass: the sheet applied on 2026-08-10 was generated from the artifact's 400-row decided sample by an uncommitted one-off, and these are the eligible forms the sample window missed.",
+ "rule": "share >= 0.99 of a skeleton class holding >= 100 clean non-OCR tokens, and accent-only. Our own OCR went at >= 0.95; this is an order of magnitude stricter in expected error, because a wrong correction here is our error inside someone else's edition.",
+ "sources_edited": [
+  "byzantium_gr",
+  "cgpg",
+  "dfhg",
+  "first1k",
+  "perseus",
+  "pta",
+  "saws",
+  "wikisource"
+ ],
+ "token_weighted_share": 0.99614,
+ "expected_wrong_tokens": 3,
+ "marks_moved": "breathings, iota subscript and diaeresis are byte-identical between every form and its target; only accents moved",
+ "tokens_changed": 688,
+ "rows_touched": 595,
+ "forms": 418,
+ "substitutions": {
+  "Αἲας": "Αἴας",
+  "Δὶωνα": "Δίωνα",
+  "Ζὴνων": "Ζήνων",
+  "Θεὸυ": "Θεοῦ",
+  "Κρὴτηϲ": "Κρήτηϲ",
+  "Λὲγω": "Λέγω",
+  "Μὺσίας": "Μυσίας",
+  "Νὼε": "Νῶε",
+  "Ξὲρξης": "Ξέρξης",
+  "Πὲρσῶν": "Περσῶν",
+  "Σελὴνην": "Σελήνην",
+  "Σκὸρπίου": "Σκορπίου",
+  "Τιμοθὲου": "Τιμοθέου",
+  "Τὸτε": "Τότε",
+  "Φρὰγγων": "Φράγγων",
+  "αἲγλην": "αἴγλην",
+  "αὐτὸὶ": "αὐτοί",
+  "αὒξειν": "αὔξειν",
+  "βαρβὰρους": "βαρβάρους",
+  "βασιλὲα": "βασιλέα",
+  "γενομὲνους": "γενομένους",
+  "γραφ̀ομὲνων": "γραφομένων",
+  "γὲνικὴν": "γενικήν",
+  "γὲνος": "γένος",
+  "γὶνονται": "γίνονται",
+  "δαιμὸνων": "δαιμόνων",
+  "δαὶμων": "δαίμων",
+  "δευτὲραν": "δευτέραν",
+  "διαβὸλου": "διαβόλου",
+  "διαφορὰι": "διαφοραί",
+  "διαφὲρει": "διαφέρει",
+  "διδὰσκει": "διδάσκει",
+  "διηγεὶται": "διηγεῖται",
+  "δικαὶως": "δικαίως",
+  "δικὰιοσύνην": "δικαιοσύνην",
+  "διὴκει": "διήκει",
+  "δοὺλης": "δούλης",
+  "δυνατὸι": "δυνατοί",
+  "δὲει": "δέει",
+  "δὶαθηκης": "διαθήκης",
+  "δὶκας": "δίκας",
+  "δὶὰ": "διά",
+  "δὼροις": "δώροις",
+  "εἰδὲναι": "εἰδέναι",
+  "εἰδὼλων": "εἰδώλων",
+  "εἰκὸνα": "εἰκόνα",
+  "εἰκὸνας": "εἰκόνας",
+  "εἰκὸνι": "εἰκόνι",
+  "εἰσὴλθεν": "εἰσῆλθεν",
+  "εἲγε": "εἴγε",
+  "εἲθε": "εἴθε",
+  "εἲπεῖν": "εἰπεῖν",
+  "εἲποιμεν": "εἴποιμεν",
+  "εἲρηκεν": "εἴρηκεν",
+  "εἲσω": "εἴσω",
+  "εἲωθεν": "εἴωθεν",
+  "ζητὴσει": "ζητήσει",
+  "ζὼντων": "ζώντων",
+  "θετὲον": "θετέον",
+  "θεὸῦ": "θεοῦ",
+  "θὲλεις": "θέλεις",
+  "θὲος": "θεός",
+  "καθὸλου": "καθόλου",
+  "κακὶας": "κακίας",
+  "κατηγορὶας": "κατηγορίας",
+  "κατὰγίνεται": "καταγίνεται",
+  "κατὰλύειν": "καταλύειν",
+  "κατὲστησαν": "κατέστησαν",
+  "καὶροὺς": "καιρούς",
+  "κεὶσθω": "κείσθω",
+  "κινδύνὸυς": "κινδύνους",
+  "κινοὺσαν": "κινοῦσαν",
+  "κνὴμης": "κνήμης",
+  "κυρὶως": "κυρίως",
+  "κὰτω": "κάτω",
+  "κὲκλήνται": "κέκληνται",
+  "κὸλπος": "κόλπος",
+  "κὼνου": "κώνου",
+  "λευκὸυ": "λευκοῦ",
+  "λὰβὼν": "λαβών",
+  "λὲγειν": "λέγειν",
+  "λὲγεις": "λέγεις",
+  "λὲγομεν": "λέγομεν",
+  "λὲγουσιν": "λέγουσιν",
+  "λὲγων": "λέγων",
+  "λὸγον": "λόγον",
+  "λὸγῳ": "λόγῳ",
+  "λὺσεις": "λύσεις",
+  "μέλὶτι": "μέλιτι",
+  "μεγὰλην": "μεγάλην",
+  "μερὶστόν": "μεριστόν",
+  "μετρεὶται": "μετρεῖται",
+  "μετὰβαίνει": "μεταβαίνει",
+  "μετὰβολῆς": "μεταβολῆς",
+  "μετὲβη": "μετέβη",
+  "μνηστὴρας": "μνηστῆρας",
+  "μὰλα": "μάλα",
+  "μὰτην": "μάτην",
+  "μὲρει": "μέρει",
+  "μὲρη": "μέρη",
+  "μὲϲον": "μέϲον",
+  "μὶαν": "μίαν",
+  "μὸγις": "μόγις",
+  "νὰον": "ναόν",
+  "νὲου": "νέου",
+  "οἰκεὶται": "οἰκεῖται",
+  "οἲει": "οἴει",
+  "οἲνου": "οἴνου",
+  "οἲνῳ": "οἴνῳ",
+  "οὐδὲμίαν": "οὐδεμίαν",
+  "οὐδὲνος": "οὐδενός",
+  "οὐδὲτέρων": "οὐδετέρων",
+  "οὐδὲτέρῳ": "οὐδετέρῳ",
+  "οὒσας": "οὔσας",
+  "οὓσπερ": "οὕσπερ",
+  "παιδεὶας": "παιδείας",
+  "παραδειγμὰτων": "παραδειγμάτων",
+  "παρὸντα": "παρόντα",
+  "πατὰξας": "πατάξας",
+  "πατὲρες": "πατέρες",
+  "παυσαμὲνου": "παυσαμένου",
+  "παὶδος": "παιδός",
+  "πεποὶηκεν": "πεποίηκεν",
+  "περὶφανῶς": "περιφανῶς",
+  "πλεὶω": "πλείω",
+  "πλησὶον": "πλησίον",
+  "ποιοτὴτων": "ποιοτήτων",
+  "ποιὴσω": "ποιήσω",
+  "πονηρὶας": "πονηρίας",
+  "πραγμὰτων": "πραγμάτων",
+  "προφὴτου": "προφήτου",
+  "προϲὼπου": "προϲώπου",
+  "πρὰττειν": "πράττειν",
+  "πρὸσθέσεως": "προσθέσεως",
+  "πρὸφήτην": "προφήτην",
+  "πρὸφητείας": "προφητείας",
+  "πρὼτης": "πρώτης",
+  "πτὼματος": "πτώματος",
+  "πὰθεσιν": "πάθεσιν",
+  "πὰθος": "πάθος",
+  "πὰλαι": "πάλαι",
+  "πὰλιν": "πάλιν",
+  "πὰντα": "πάντα",
+  "πὰντας": "πάντας",
+  "πὰντων": "πάντων",
+  "πὰντὶ": "παντί",
+  "πὰνυ": "πάνυ",
+  "πὲντε": "πέντε",
+  "πὲποιηκὼς": "πεποιηκώς",
+  "πὶστεις": "πίστεις",
+  "πὸδαϲ": "πόδαϲ",
+  "πὸλεις": "πόλεις",
+  "πὸλεωϲ": "πόλεωϲ",
+  "πὸλις": "πόλις",
+  "πὸρνης": "πόρνης",
+  "πὸτοὺς": "πότους",
+  "σημαὶνων": "σημαίνων",
+  "στοιχεὶων": "στοιχείων",
+  "στὴθεσσι": "στήθεσσι",
+  "σωματικὰι": "σωματικαί",
+  "σωτὴρίαν": "σωτηρίαν",
+  "σὼμὰτικῶν": "σωματικῶν",
+  "ταὺτην": "ταύτην",
+  "ταὺτῃ": "ταύτῃ",
+  "τελευτὴσαντος": "τελευτήσαντος",
+  "τοὒμπαλιν": "τοὔμπαλιν",
+  "τοὶνυν": "τοίνυν",
+  "τοὺ́των": "τούτων",
+  "τοὺσδὲ": "τούσδε",
+  "τοὺτοις": "τούτοις",
+  "τοὺτου": "τούτου",
+  "τριγὼνῳ": "τριγώνῳ",
+  "τριὰδα": "τριάδα",
+  "τριὴρεις": "τριήρεις",
+  "τρὶα": "τρία",
+  "τυφλὸυ": "τυφλοῦ",
+  "τὰλαντα": "τάλαντα",
+  "τὰνῦν": "τανῦν",
+  "τὰξις": "τάξις",
+  "τὰχέως": "ταχέως",
+  "τὲλος": "τέλος",
+  "τὲως": "τέως",
+  "τὴι": "τῆι",
+  "τὶθεσθαι": "τίθεσθαι",
+  "τὸδὲ": "τόδε",
+  "τὸκος": "τόκος",
+  "τὸνδὲ": "τόνδε",
+  "τὸξα": "τόξα",
+  "τὸποϲ": "τόποϲ",
+  "τὸῖς": "τοῖς",
+  "τὺχην": "τύχην",
+  "τὺχοι": "τύχοι",
+  "υἱὸυ": "υἱοῦ",
+  "υἳοὶ": "υἱοί",
+  "υἳὼν": "υἱῶν",
+  "φιλανθρωπὶας": "φιλανθρωπίας",
+  "φυγὸντες": "φυγόντες",
+  "φὰος": "φάος",
+  "φὰσκοντες": "φάσκοντες",
+  "χαὶρων": "χαίρων",
+  "χρὴσει": "χρήσει",
+  "χρὸας": "χρόας",
+  "χρὸνον": "χρόνον",
+  "χρὸνῳ": "χρόνῳ",
+  "χὰριν": "χάριν",
+  "χὼρας": "χώρας",
+  "χὼρην": "χώρην",
+  "ϲημαὶνει": "ϲημαίνει",
+  "ἀγὸντῶν": "ἀγόντων",
+  "ἀκοὺσας": "ἀκούσας",
+  "ἀληθεὶας": "ἀληθείας",
+  "ἀληθεὺει": "ἀληθεύει",
+  "ἀλλὴλαις": "ἀλλήλαις",
+  "ἀλλὴλοις": "ἀλλήλοις",
+  "ἀλλὴλους": "ἀλλήλους",
+  "ἀλλὴλων": "ἀλλήλων",
+  "ἀναστὰσει": "ἀναστάσει",
+  "ἀνθρὼποις": "ἀνθρώποις",
+  "ἀνθρὼπου": "ἀνθρώπου",
+  "ἀντιλογὶαν": "ἀντιλογίαν",
+  "ἀντιλὲγειν": "ἀντιλέγειν",
+  "ἀπογὸνους": "ἀπογόνους",
+  "ἀπὲδειξεν": "ἀπέδειξεν",
+  "ἀπὲχεσθαι": "ἀπέχεσθαι",
+  "ἀπὸβάλλει": "ἀποβάλλει",
+  "ἀπὸβαλεῖν": "ἀποβαλεῖν",
+  "ἀπὸθανεῖν": "ἀποθανεῖν",
+  "ἀπὸθανεῖται": "ἀποθανεῖται",
+  "ἀπὸτείνεται": "ἀποτείνεται",
+  "ἀρχὰῖς": "ἀρχαῖς",
+  "ἀρὶθμὸν": "ἀριθμόν",
+  "ἀὲρος": "ἀέρος",
+  "ἂβυσσον": "ἄβυσσον",
+  "ἂγαθός": "ἀγαθός",
+  "ἂγαν": "ἄγαν",
+  "ἂγει": "ἄγει",
+  "ἂγειν": "ἄγειν",
+  "ἂεὶ": "ἀεί",
+  "ἂεῖ": "ἀεί",
+  "ἂκροις": "ἄκροις",
+  "ἂκρον": "ἄκρον",
+  "ἂκρου": "ἄκρου",
+  "ἂκρους": "ἄκρους",
+  "ἂκρων": "ἄκρων",
+  "ἂκων": "ἄκων",
+  "ἂλλαις": "ἄλλαις",
+  "ἂλλης": "ἄλλης",
+  "ἂμυναν": "ἄμυναν",
+  "ἂμφω": "ἄμφω",
+  "ἂνακτα": "ἄνακτα",
+  "ἂνδρείας": "ἀνδρείας",
+  "ἂνθεσιν": "ἄνθεσιν",
+  "ἂξίως": "ἀξίως",
+  "ἂποδείκνυσιν": "ἀποδείκνυσιν",
+  "ἂρδην": "ἄρδην",
+  "ἂριστερὸν": "ἀριστερόν",
+  "ἂρκτον": "ἄρκτον",
+  "ἂρτι": "ἄρτι",
+  "ἂρτοι": "ἄρτοι",
+  "ἂρτους": "ἄρτους",
+  "ἂρχειν": "ἄρχειν",
+  "ἂστυ": "ἄστυ",
+  "ἂφες": "ἄφες",
+  "ἂφρων": "ἄφρων",
+  "ἂχρι": "ἄχρι",
+  "ἂχρις": "ἄχρις",
+  "ἃπαξ": "ἅπαξ",
+  "ἃπας": "ἅπας",
+  "Ἀλεξὰνδρου": "Ἀλεξάνδρου",
+  "Ἀχὰιῶν": "Ἀχαιῶν",
+  "Ἂπολλον": "Ἄπολλον",
+  "ἐλαὶῳ": "ἐλαίῳ",
+  "ἐλεὺθερίας": "ἐλευθερίας",
+  "ἐλπὶδος": "ἐλπίδος",
+  "ἐνιαυτὸυ": "ἐνιαυτοῦ",
+  "ἐπικαλεὶται": "ἐπικαλεῖται",
+  "ἐπινοὶας": "ἐπινοίας",
+  "ἐπὲι": "ἐπεί",
+  "ἐπὲων": "ἐπέων",
+  "ἐσχὰτων": "ἐσχάτων",
+  "ἐφαρμὸζειν": "ἐφαρμόζειν",
+  "ἑαυτὸυς": "ἑαυτούς",
+  "ἒβη": "ἔβη",
+  "ἒγνω": "ἔγνω",
+  "ἒδει": "ἔδει",
+  "ἒθνη": "ἔθνη",
+  "ἒθνος": "ἔθνος",
+  "ἒθνους": "ἔθνους",
+  "ἒθους": "ἔθους",
+  "ἒλαβέν": "ἔλαβεν",
+  "ἒλαβεν": "ἔλαβεν",
+  "ἒλεγεν": "ἔλεγεν",
+  "ἒμελλεν": "ἔμελλεν",
+  "ἒμμεναι": "ἔμμεναι",
+  "ἒμπης": "ἔμπης",
+  "ἒμφρων": "ἔμφρων",
+  "ἒνδον": "ἔνδον",
+  "ἒνεστιν": "ἔνεστιν",
+  "ἒνθεν": "ἔνθεν",
+  "ἒξαπιναίως": "ἐξαπιναίως",
+  "ἒοικεν": "ἔοικεν",
+  "ἒπήγαγεν": "ἐπήγαγεν",
+  "ἒπεα": "ἔπεα",
+  "ἒπεμπον": "ἔπεμπον",
+  "ἒπεμψεν": "ἔπεμψεν",
+  "ἒπιστήμην": "ἐπιστήμην",
+  "ἒπος": "ἔπος",
+  "ἒπραττον": "ἔπραττον",
+  "ἒπὶ": "ἐπί",
+  "ἒργοις": "ἔργοις",
+  "ἒργον": "ἔργον",
+  "ἒργου": "ἔργου",
+  "ἒργων": "ἔργων",
+  "ἒριν": "ἔριν",
+  "ἒρως": "ἔρως",
+  "ἒστω": "ἔστω",
+  "ἒσχε": "ἔσχε",
+  "ἒσχεν": "ἔσχεν",
+  "ἒταξάν": "ἔταξαν",
+  "ἒτεσιν": "ἔτεσιν",
+  "ἒφασαν": "ἔφασαν",
+  "ἒφείσατο": "ἐφείσατο",
+  "ἒφην": "ἔφην",
+  "ἒχητε": "ἔχητε",
+  "ἒχοι": "ἔχοι",
+  "ἒχρησεν": "ἔχρησεν",
+  "ἓαυτοῦ": "ἑαυτοῦ",
+  "ἓκαστην": "ἑκάστην",
+  "ἓξειν": "ἕξειν",
+  "ἓψε": "ἕψε",
+  "Ἒρως": "Ἔρως",
+  "ἢθη": "ἤθη",
+  "ἢρκει": "ἤρκει",
+  "ἣκειν": "ἥκειν",
+  "ἣκοντας": "ἥκοντας",
+  "ἣκω": "ἥκω",
+  "ἣμέρας": "ἡμέρας",
+  "ἣξειν": "ἥξειν",
+  "ἣρως": "ἥρως",
+  "ἣττης": "ἥττης",
+  "ἤξὶου": "ἠξίου",
+  "Ἣφαιστον": "Ἥφαιστον",
+  "ἰδὶως": "ἰδίως",
+  "ἱκὰνὰ": "ἱκανά",
+  "ἱστορὶας": "ἱστορίας",
+  "ἲδοι": "ἴδοι",
+  "ἲθι": "ἴθι",
+  "ἲσας": "ἴσας",
+  "ἲσασιν": "ἴσασιν",
+  "ἲσην": "ἴσην",
+  "ἲσης": "ἴσης",
+  "ἲσμεν": "ἴσμεν",
+  "ἲσοσκελὲς": "ἰσοσκελές",
+  "ἲσων": "ἴσων",
+  "ἳδρυται": "ἵδρυται",
+  "ἳπποι": "ἵπποι",
+  "ἳπποις": "ἵπποις",
+  "ἳππον": "ἵππον",
+  "ἳππος": "ἵππος",
+  "ἳππου": "ἵππου",
+  "ἳππους": "ἵππους",
+  "ἳστατο": "ἵστατο",
+  "Ἰλιὰδι": "Ἰλιάδι",
+  "ὀλὶγα": "ὀλίγα",
+  "ὀλὶγους": "ὀλίγους",
+  "ὁμολογὶαν": "ὁμολογίαν",
+  "ὁπὸσα": "ὁπόσα",
+  "ὂγκου": "ὄγκου",
+  "ὂμμα": "ὄμμα",
+  "ὂντας": "ὄντας",
+  "ὂξος": "ὄξος",
+  "ὂρνις": "ὄρνις",
+  "ὂσμὴν": "ὀσμήν",
+  "ὂφεις": "ὄφεις",
+  "ὂφις": "ὄφις",
+  "ὂχλον": "ὄχλον",
+  "ὂχλος": "ὄχλος",
+  "ὂψει": "ὄψει",
+  "ὂψεις": "ὄψεις",
+  "ὂψεσι": "ὄψεσι",
+  "ὂψιν": "ὄψιν",
+  "ὃλαι": "ὅλαι",
+  "ὃλοις": "ὅλοις",
+  "ὃπλα": "ὅπλα",
+  "ὃπλοις": "ὅπλοις",
+  "ὃροι": "ὅροι",
+  "ὃσαι": "ὅσαι",
+  "ὃσαις": "ὅσαις",
+  "ὃσπερ": "ὅσπερ",
+  "ὃσων": "ὅσων",
+  "ὃτὶ": "ὅτι",
+  "ὃτῳ": "ὅτῳ",
+  "Ὀλὺμπου": "Ὀλύμπου",
+  "ὑμετὲρας": "ὑμετέρας",
+  "ὑποστρὸφῆς": "ὑποστροφῆς",
+  "ὑπὲράνω": "ὑπεράνω",
+  "ὑπὴρχεν": "ὑπῆρχεν",
+  "ὑπὴρχον": "ὑπῆρχον",
+  "ὓβρει": "ὕβρει",
+  "ὓβριν": "ὕβριν",
+  "ὓβρις": "ὕβρις",
+  "ὓλας": "ὕλας",
+  "ὓπνον": "ὕπνον",
+  "ὓπνου": "ὕπνου",
+  "ὓψιστον": "ὕψιστον",
+  "ὓψος": "ὕψος",
+  "ὓψους": "ὕψους",
+  "ὣδὶ": "ὡδί",
+  "ὣρας": "ὥρας",
+  "ὣϲτε": "ὥϲτε",
+  "ὰἰτίαν": "αἰτίαν",
+  "ὸὐδαμοῦ": "οὐδαμοῦ",
+  "ὸὐδὲ": "οὐδέ",
+  "ὸὐδὲν": "οὐδέν",
+  "ὸὐδ᾿": "οὐδ᾿",
+  "ὸὕτω": "οὕτω",
+  "ὺἱὸν": "υἱόν",
+  "ῥὰβδον": "ῥάβδον"
+ },
+ "files": [
+  {
+   "file": "data/corpus/adamantius-judaeus.physiognomonica.jsonl",
+   "sha256_before": "ec6e279986d6de80a7418824268f6456f50c1afe6c1de2912571d2dfb1d00266",
+   "edits": [
+    {
+     "index": 45,
+     "was": [
+      [
+       819,
+       "ὓβρει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "7dd5cce00f5490c4d612a795ccd5e1fb4c568be06ca96f914e62c3db43170225"
+  },
+  {
+   "file": "data/corpus/aelius-herodianus-et-pseudo-herodianus.peri-paqw-n.jsonl",
+   "sha256_before": "9f58d982d4b3ef89bd2506eaf0c5baacca606394bbb8cc38abe9855d025d4b43",
+   "edits": [
+    {
+     "index": 312,
+     "was": [
+      [
+       262,
+       "ἀπὸβάλλει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "b271b14b4f729d4c082920768923e42d3d5c283a6ea23dbf6696211935724f56"
+  },
+  {
+   "file": "data/corpus/aeschines.de-falsa-legatione.jsonl",
+   "sha256_before": "c14958440d804e5931e363cb676e19da06c920c9c137425f4f5847dabd833fa5",
+   "edits": [
+    {
+     "index": 156,
+     "was": [
+      [
+       262,
+       "ὓβριν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "e8d62422cf229f13e2c7ba8e8ab95b00b3a5fc5a5b7a304d55b0a454a6c0c279"
+  },
+  {
+   "file": "data/corpus/aesopus-et-aesopica.fabulae.jsonl",
+   "sha256_before": "9ccfa5764d22141739d4c8f801c1d448456570458d37c743fdc5c98c4b17065a",
+   "edits": [
+    {
+     "index": 292,
+     "was": [
+      [
+       621,
+       "κινδύνὸυς"
+      ]
+     ]
+    },
+    {
+     "index": 366,
+     "was": [
+      [
+       126,
+       "ἂμυναν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "c0e107a7f3782d860e032ae597cbf3f99123d13a854b3ec4d0ffb92bb0bdf33a"
+  },
+  {
+   "file": "data/corpus/agathias-scholasticus.historiae.jsonl",
+   "sha256_before": "e83c7f9cdd307cff2885b55053c85e2aa97cb33b89d8ae5b94a7fd7637b77691",
+   "edits": [
+    {
+     "index": 30,
+     "was": [
+      [
+       18,
+       "Φρὰγγων"
+      ]
+     ]
+    },
+    {
+     "index": 33,
+     "was": [
+      [
+       279,
+       "πὰλαι"
+      ]
+     ]
+    },
+    {
+     "index": 112,
+     "was": [
+      [
+       2555,
+       "ἂρχειν"
+      ],
+      [
+       2880,
+       "ἂρδην"
+      ]
+     ]
+    },
+    {
+     "index": 113,
+     "was": [
+      [
+       2663,
+       "ἒγνω"
+      ]
+     ]
+    },
+    {
+     "index": 116,
+     "was": [
+      [
+       1730,
+       "ἀλλὴλαις"
+      ]
+     ]
+    },
+    {
+     "index": 119,
+     "was": [
+      [
+       750,
+       "ἂκρον"
+      ]
+     ]
+    },
+    {
+     "index": 122,
+     "was": [
+      [
+       2300,
+       "ἒργου"
+      ]
+     ]
+    },
+    {
+     "index": 123,
+     "was": [
+      [
+       564,
+       "ἒξαπιναίως"
+      ],
+      [
+       1730,
+       "ἂξίως"
+      ]
+     ]
+    },
+    {
+     "index": 125,
+     "was": [
+      [
+       1260,
+       "εἲγε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 9,
+   "sha256_after": "b57644bc345ab6b27ba6478dad8bb0be4b4e262d6c93d6ad054745341fa8ac4a"
+  },
+  {
+   "file": "data/corpus/alexander-philosophy.in-aristotelis-analyticorum-priorum-librum-i-commentarium.jsonl",
+   "sha256_before": "be9a4f0efea0ab998361cc84a338a6c0ba468d261510b2e9681beaaff98059b8",
+   "edits": [
+    {
+     "index": 139,
+     "was": [
+      [
+       2632,
+       "ὸὐδ᾿"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "7fe833558f265673099bd6bc91256fcd47e1448a2f01e7613cfb80cb310c06f7"
+  },
+  {
+   "file": "data/corpus/alexander-philosophy.in-aristotelis-metaphysica-commentaria.jsonl",
+   "sha256_before": "f9b5dacf4e2c952236736ca4b83d1b6df6d3539921ca62296d2cfb977ff90ac5",
+   "edits": [
+    {
+     "index": 402,
+     "was": [
+      [
+       1134,
+       "ἀρὶθμὸν"
+      ]
+     ]
+    },
+    {
+     "index": 475,
+     "was": [
+      [
+       1290,
+       "πρὸσθέσεως"
+      ]
+     ]
+    },
+    {
+     "index": 684,
+     "was": [
+      [
+       934,
+       "ὣδὶ"
+      ]
+     ]
+    },
+    {
+     "index": 762,
+     "was": [
+      [
+       1703,
+       "πὰθος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "7df4de9c35229c9c3a2bdaeda4ae3b8c4ff8554ca4956733ee099bca12d997d1"
+  },
+  {
+   "file": "data/corpus/alexander-philosophy.in-aristotelis-meteorologicorum-libros-commentaria.jsonl",
+   "sha256_before": "423d224f54f893ecce04c4275c1b4b910bf5a43dd1d6a9f78187c27a3a9434c3",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       97,
+       "σὼμὰτικῶν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0ea69698735d5d09a92e2b6a0231efdc0641edee0e4f83d5b31e9ddbd819946f"
+  },
+  {
+   "file": "data/corpus/alexander-philosophy.in-aristotelis-topicorum-libros-octo-commentaria.jsonl",
+   "sha256_before": "3307996d9f0f9369be249abb8761d2e9ee94231a51b47acba2797344e177e98f",
+   "edits": [
+    {
+     "index": 184,
+     "was": [
+      [
+       1068,
+       "ὂψει"
+      ]
+     ]
+    },
+    {
+     "index": 263,
+     "was": [
+      [
+       271,
+       "ἂνδρείας"
+      ]
+     ]
+    },
+    {
+     "index": 361,
+     "was": [
+      [
+       547,
+       "οὐδὲνος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "413f9f30e0f9575aa0b73e874564613ab8ef2336521d1569fb49f5df72bb1f43"
+  },
+  {
+   "file": "data/corpus/alexander-philosophy.in-librum-de-sensu-commentarium.jsonl",
+   "sha256_before": "58813da8a12a938651ee977c93c1a5bcd274d1174e6218fe348bdb6565dabfa9",
+   "edits": [
+    {
+     "index": 78,
+     "was": [
+      [
+       755,
+       "τὸῖς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "de786afccd5a7cf32bdcc9302299181190272d4f5c67aa3d0f1bab0968fa6943"
+  },
+  {
+   "file": "data/corpus/ammonius-philosophy.in-aristotelis-librum-de-interpretatione-commentarius.jsonl",
+   "sha256_before": "1f76edd41289ae6fe387d808c7da59ecd2ef2ae688d5e549fa934c0ade465786",
+   "edits": [
+    {
+     "index": 23,
+     "was": [
+      [
+       805,
+       "γραφ̀ομὲνων"
+      ],
+      [
+       1726,
+       "τοὺ́των"
+      ]
+     ]
+    },
+    {
+     "index": 259,
+     "was": [
+      [
+       151,
+       "θετὲον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "0ff80e8d1f4add70acbb359ac7683bd44b4c8cd6d7cd7b4c969d9cc788c5c621"
+  },
+  {
+   "file": "data/corpus/anacharsidis-epistulae.epistulae.jsonl",
+   "sha256_before": "069203765d6a667e77daf28caa56e1018a8f7c6ac80f0d9f04abd52fc59ce7d7",
+   "edits": [
+    {
+     "index": 5,
+     "was": [
+      [
+       147,
+       "θὲλεις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a349e2485100858a5bdae30e9a18a20e1ea8bd37333da4d0a5a585b1e8cc1d21"
+  },
+  {
+   "file": "data/corpus/anna-comnena.alexias.jsonl",
+   "sha256_before": "6e2dae05131abd413bc304d6f697e65c6367b02270a0f7efdecd7867eb5613da",
+   "edits": [
+    {
+     "index": 25,
+     "was": [
+      [
+       3490,
+       "μὰλα"
+      ]
+     ]
+    },
+    {
+     "index": 26,
+     "was": [
+      [
+       3456,
+       "κνὴμης"
+      ],
+      [
+       4132,
+       "ἤξὶου"
+      ],
+      [
+       4992,
+       "τοὺτοις"
+      ]
+     ]
+    },
+    {
+     "index": 142,
+     "was": [
+      [
+       16,
+       "ἃπας"
+      ]
+     ]
+    },
+    {
+     "index": 195,
+     "was": [
+      [
+       879,
+       "ἓκαστην"
+      ]
+     ]
+    },
+    {
+     "index": 197,
+     "was": [
+      [
+       58,
+       "ὓλας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 5,
+   "sha256_after": "14bada5050dd28403f54b96306d54034cdcc287addb66a93a0ad5a4e4041253d"
+  },
+  {
+   "file": "data/corpus/anonymi-in-aristotelis-ethica-nicomachea.in-ethica-nicomachea-paraphrasis-pseudepigraphum-olim-constantino.jsonl",
+   "sha256_before": "630c21f8fd53b3b158539e687f898695863111b18d0f3731fb0fe0f4ec4f6995",
+   "edits": [
+    {
+     "index": 21,
+     "was": [
+      [
+       638,
+       "δὶὰ"
+      ]
+     ]
+    },
+    {
+     "index": 30,
+     "was": [
+      [
+       1281,
+       "κατὰγίνεται"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "1c2f5e84a3ed78d3f42fc8b9bb6937eae84ee2c4351a12d532ea2e1ba089c9d5"
+  },
+  {
+   "file": "data/corpus/anonymus-londinensis.iatrica-fort-auctore-menone-brit-mus-inv-137.jsonl",
+   "sha256_before": "beb544d386eca00ed3b4e0e8cf730dd1db9528d6dbd9fd700f43ac54b882f404",
+   "edits": [
+    {
+     "index": 780,
+     "was": [
+      [
+       25,
+       "οὓσπερ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f6291ef6c082d85199e27c1ee9d3d2dcf0da03b2d939417941de8405f74a588c"
+  },
+  {
+   "file": "data/corpus/apollodorus-atheniensis.fragmenta.jsonl",
+   "sha256_before": "ed7053745a48a66d0358e27be724869fc9e6a2bf3c29814da75013a1fc4c754a",
+   "edits": [
+    {
+     "index": 95,
+     "was": [
+      [
+       11,
+       "ἐνιαυτὸυ"
+      ]
+     ]
+    },
+    {
+     "index": 122,
+     "was": [
+      [
+       151,
+       "παὶδος"
+      ]
+     ]
+    },
+    {
+     "index": 837,
+     "was": [
+      [
+       32,
+       "μνηστὴρας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "d7067adac554654a5f01f3a71669388881177c257018cc11caf8eb3e847ad3f6"
+  },
+  {
+   "file": "data/corpus/apollonius-dyscolus-grammar.de-adverbiis.jsonl",
+   "sha256_before": "b9639a3203c998c237e647bf508a9a9cdcb4a55494555968a540a618e9454226",
+   "edits": [
+    {
+     "index": 129,
+     "was": [
+      [
+       304,
+       "γὲνικὴν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d1a39ca5b99b28b5a6b08ea889907083d63798b8d3227a4cdffcc0d24fa6bb98"
+  },
+  {
+   "file": "data/corpus/appendix-proverbiorum.appendix-proverbiorum.jsonl",
+   "sha256_before": "f1a3ffb32517180037bd00b7974f0c22872a8262707d5e2ac84b28a0afd18197",
+   "edits": [
+    {
+     "index": 92,
+     "was": [
+      [
+       80,
+       "πὰνυ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "92631186ce0000df8eb8460afcf6685f4e369ce4070005d5a8c6b36372b77978"
+  },
+  {
+   "file": "data/corpus/appianus.samnitica-fragmenta.jsonl",
+   "sha256_before": "e7c8da8b48381e5a9f416b62ab176a5b01059f3715dc5a47c69cc467590e4718",
+   "edits": [
+    {
+     "index": 6,
+     "was": [
+      [
+       2095,
+       "ἐλεὺθερίας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "314ee74312c3279c6cf6d206cd4eb01ac0f62e674a79d90289593c83351d2010"
+  },
+  {
+   "file": "data/corpus/aratus-astronomy.phaenomena.jsonl",
+   "sha256_before": "8ea2d686088195ac2bc58d437fa813252767cec2b72b20e0310da07caedf8afa",
+   "edits": [
+    {
+     "index": 1013,
+     "was": [
+      [
+       26,
+       "φὰος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "1986cb95d7850862e8f4a1f084b6de1a18c81200030aff6acd9e2a38101b8f5f"
+  },
+  {
+   "file": "data/corpus/archimedes.de-corporibus-fluitantibus.jsonl",
+   "sha256_before": "bc49cfa17bd5ba1b4a92299a98a526fa24e7ded8b8d8a6ed5684c2cb178e380f",
+   "edits": [
+    {
+     "index": 11,
+     "was": [
+      [
+       2312,
+       "τὸκος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "04a7f6d252f323b364df754c27d4608d6df0b872992b7b36b2c560f5d124bf68"
+  },
+  {
+   "file": "data/corpus/archimedes.de-sphaera-et-cylindro.jsonl",
+   "sha256_before": "54149720e1a69b0d95b2e14c92ee410e56879cdfe342345d430bc4f5fbe709e6",
+   "edits": [
+    {
+     "index": 38,
+     "was": [
+      [
+       1108,
+       "κὼνου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "b593e2a35d66c8203f5321539a88d86700997695e76654e11b1435b60517a5de"
+  },
+  {
+   "file": "data/corpus/archimedes.fragmenta.jsonl",
+   "sha256_before": "eeacc8bf0df1aaec66dd9cb322f9ab730559f03b24c28096f0d0ff0dac9a5c2d",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       553,
+       "ἀπὲδειξεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "42ad8ea28aa3052ab2b7d69a1f5966143257eb300c9cf52ad6f6432a131a2597"
+  },
+  {
+   "file": "data/corpus/archimedes.stomachion.jsonl",
+   "sha256_before": "b515a46bf871057a03c5afc41e42c9d6490e29cd7f3a568b1acca87f01b26f65",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       2340,
+       "δὲει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8a5a33c10ba9da1e56fb2db87e1a00323fa446850f7e66bc97cfc502d7c48ae5"
+  },
+  {
+   "file": "data/corpus/aristophanes-comedy.plutus.jsonl",
+   "sha256_before": "6dedc4f2490f7076652444febfea20c3c2e6d461a0cfe3abdb61205992c49d95",
+   "edits": [
+    {
+     "index": 469,
+     "was": [
+      [
+       0,
+       "λὲγεις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "bcb884c1b920150a3a741081d096adfd3c8b8c48a0d30e4743099b9588c9c91e"
+  },
+  {
+   "file": "data/corpus/aristophanes-grammar.aristophanis-historiae-animalium-epitome-subjunctis-aeliani-timothei.jsonl",
+   "sha256_before": "ee271ba1071c46520cffb09ebcf879da9506b0c0def5a0496fa2c0041e988e7e",
+   "edits": [
+    {
+     "index": 447,
+     "was": [
+      [
+       281,
+       "ἂκων"
+      ]
+     ]
+    },
+    {
+     "index": 492,
+     "was": [
+      [
+       739,
+       "ἂγαν"
+      ]
+     ]
+    },
+    {
+     "index": 636,
+     "was": [
+      [
+       14,
+       "ἂγαν"
+      ]
+     ]
+    },
+    {
+     "index": 662,
+     "was": [
+      [
+       62,
+       "ἂγει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "3340c6e959e4bf550b758ad7bdebb7e4367ddae083ebea3cf8614c95f2268cc2"
+  },
+  {
+   "file": "data/corpus/aristoteles-et-corpus-aristotelicum.aqhnai-wn-politei.jsonl",
+   "sha256_before": "9b28d82904490c474c20b1bfa9ee97d5e4d079ac4f204ee47c05b6c6c00f277f",
+   "edits": [
+    {
+     "index": 16,
+     "was": [
+      [
+       468,
+       "τελευτὴσαντος"
+      ],
+      [
+       800,
+       "ἒσχεν"
+      ]
+     ]
+    },
+    {
+     "index": 17,
+     "was": [
+      [
+       147,
+       "ἒμφρων"
+      ]
+     ]
+    },
+    {
+     "index": 18,
+     "was": [
+      [
+       571,
+       "ἒπραττον"
+      ],
+      [
+       1424,
+       "τελευτὴσαντος"
+      ]
+     ]
+    },
+    {
+     "index": 20,
+     "was": [
+      [
+       742,
+       "ἂστυ"
+      ]
+     ]
+    },
+    {
+     "index": 21,
+     "was": [
+      [
+       2130,
+       "τριὴρεις"
+      ]
+     ]
+    },
+    {
+     "index": 23,
+     "was": [
+      [
+       498,
+       "ἂρχειν"
+      ]
+     ]
+    },
+    {
+     "index": 26,
+     "was": [
+      [
+       358,
+       "ἂγειν"
+      ],
+      [
+       604,
+       "ἂκων"
+      ]
+     ]
+    },
+    {
+     "index": 27,
+     "was": [
+      [
+       150,
+       "ἒλαβεν"
+      ],
+      [
+       1402,
+       "εἲωθεν"
+      ],
+      [
+       2250,
+       "ἒργον"
+      ]
+     ]
+    },
+    {
+     "index": 28,
+     "was": [
+      [
+       1769,
+       "ἂρχειν"
+      ]
+     ]
+    },
+    {
+     "index": 29,
+     "was": [
+      [
+       1176,
+       "ἓξειν"
+      ]
+     ]
+    },
+    {
+     "index": 30,
+     "was": [
+      [
+       643,
+       "ὃπλοις"
+      ],
+      [
+       702,
+       "ἂρχειν"
+      ],
+      [
+       1018,
+       "ἃπαξ"
+      ]
+     ]
+    },
+    {
+     "index": 31,
+     "was": [
+      [
+       304,
+       "ἒδει"
+      ],
+      [
+       448,
+       "ἒτεσιν"
+      ]
+     ]
+    },
+    {
+     "index": 32,
+     "was": [
+      [
+       653,
+       "ἒπραττον"
+      ]
+     ]
+    },
+    {
+     "index": 33,
+     "was": [
+      [
+       498,
+       "ἂγειν"
+      ]
+     ]
+    },
+    {
+     "index": 36,
+     "was": [
+      [
+       181,
+       "ὃπλα"
+      ],
+      [
+       819,
+       "ὃπλα"
+      ]
+     ]
+    },
+    {
+     "index": 37,
+     "was": [
+      [
+       377,
+       "ἒπραττον"
+      ],
+      [
+       387,
+       "ἒπεμπον"
+      ]
+     ]
+    },
+    {
+     "index": 38,
+     "was": [
+      [
+       163,
+       "ὂντας"
+      ],
+      [
+       366,
+       "ἂστυ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 17,
+   "sha256_after": "eec3eeb2ceaa8b55a180c2fe71584d3f30f313e0758bcd2a1e9bf74996731538"
+  },
+  {
+   "file": "data/corpus/aristoteles-et-corpus-aristotelicum.de-generatione-animalium.jsonl",
+   "sha256_before": "116872b02d8e19fdd5be7f279774db689d128aa85523d023c75400c826d6b442",
+   "edits": [
+    {
+     "index": 24,
+     "was": [
+      [
+       1401,
+       "ἐλαὶῳ"
+      ]
+     ]
+    },
+    {
+     "index": 44,
+     "was": [
+      [
+       6929,
+       "οὐδὲτέρῳ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "cc563da6970c956c47796e68ba53645de2fd209ad689a747e6e54c508c36bc39"
+  },
+  {
+   "file": "data/corpus/aristoteles-et-corpus-aristotelicum.de-partibus-animalium.jsonl",
+   "sha256_before": "8e9d3fe0b07cdb5002569e77bad524140b8149809fe6a51cde0d01e5aceac82b",
+   "edits": [
+    {
+     "index": 90,
+     "was": [
+      [
+       346,
+       "χρὸας"
+      ]
+     ]
+    },
+    {
+     "index": 164,
+     "was": [
+      [
+       175,
+       "ὑπὴρχεν"
+      ]
+     ]
+    },
+    {
+     "index": 219,
+     "was": [
+      [
+       279,
+       "λὸγον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "9357ed215777dbfa347ca677eabcef0523e3bdbeeb8567840152c528f06bb4e9"
+  },
+  {
+   "file": "data/corpus/aristoteles-et-corpus-aristotelicum.magna-moralia.jsonl",
+   "sha256_before": "ccee711435b92dedac5a1c9dfacdafec361cbc45825ca0612b8f5c078676472b",
+   "edits": [
+    {
+     "index": 348,
+     "was": [
+      [
+       246,
+       "ἂεὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "17ca2c3b18c45947b54b9e5575dac7cb20e9d77e3a3242b2633ed701b73191c2"
+  },
+  {
+   "file": "data/corpus/aristoteles-et-corpus-aristotelicum.problemata.jsonl",
+   "sha256_before": "f4840b552fab9d195164cb3ffd0289c9b32a8645e36d40a9855210013643d5c0",
+   "edits": [
+    {
+     "index": 542,
+     "was": [
+      [
+       80,
+       "ἂκρον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "15e3232a16f073c108df118f5f10dc6ebc9ea639094f87323dce8eccc10103e1"
+  },
+  {
+   "file": "data/corpus/artemidorus-oneirocritica.onirocriticon.jsonl",
+   "sha256_before": "da55ccb8d278c9df610213d880bd2dabedb34635ef03d61d87bfaea5f4d209db",
+   "edits": [
+    {
+     "index": 374,
+     "was": [
+      [
+       167,
+       "ὣρας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "361905b68943180d737658fde372035de6d3e9d8dbef9d4a8eddaf060a96d142"
+  },
+  {
+   "file": "data/corpus/asclepius.in-aristotelis-metaphysicorum-libros-az-commentaria.jsonl",
+   "sha256_before": "6f1cfe651277b879dae2383a902cab3efca06078495b75ba99d7a6a9c91caea9",
+   "edits": [
+    {
+     "index": 397,
+     "was": [
+      [
+       651,
+       "ἳπποι"
+      ]
+     ]
+    },
+    {
+     "index": 419,
+     "was": [
+      [
+       1791,
+       "ἒργον"
+      ]
+     ]
+    },
+    {
+     "index": 436,
+     "was": [
+      [
+       741,
+       "ἳππου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "7813e3dc3901df9e7caebbfd9079e0371fb43d0f3f0e698bae6a42a21020a694"
+  },
+  {
+   "file": "data/corpus/athenaeus-soph.deipnosophistae.jsonl",
+   "sha256_before": "787647b113bf463056fd8cec33d6dab04f3562ca9105e23a1566a12c96344677",
+   "edits": [
+    {
+     "index": 705,
+     "was": [
+      [
+       594,
+       "ἒβη"
+      ]
+     ]
+    },
+    {
+     "index": 1294,
+     "was": [
+      [
+       799,
+       "ἒμπης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "254dc60686bc8300115a93ecc0be2da21f2bad6055b0c6a5b54190e37df2e553"
+  },
+  {
+   "file": "data/corpus/basilius-i-macedo.paraenesis-ad-leonem-filium.jsonl",
+   "sha256_before": "3df99a229a929df85b6a373d20961db9cd01fc04501762bde6ab6d52a7409774",
+   "edits": [
+    {
+     "index": 14,
+     "was": [
+      [
+       1421,
+       "πραγμὰτων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a74fdb744ba4ffbf182318099ae207ad32211363ee188e8db5d12226286dc86b"
+  },
+  {
+   "file": "data/corpus/callimachus.epigrammata.jsonl",
+   "sha256_before": "51a1f6a399e842c041fd273914b8a68ed0c2a6ec76aa09c0e90d12b2dfde065c",
+   "edits": [
+    {
+     "index": 12,
+     "was": [
+      [
+       21,
+       "ἒφείσατο"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d5b4b0efc7e1dc663e001589a5eca83da0652cf64dc0c5bcd99c8f14d37a3425"
+  },
+  {
+   "file": "data/corpus/cassius-longinus.excerpta.jsonl",
+   "sha256_before": "c43b2bf690423d2c87e7654fa367ae10ac48927a1fea458c95a3d33eb86b5f74",
+   "edits": [
+    {
+     "index": 21,
+     "was": [
+      [
+       173,
+       "Ἀχὰιῶν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "28af95a4b62592467085441b8dc1369f821f950a06fdec8164b35db6c87168bc"
+  },
+  {
+   "file": "data/corpus/catenae-novum-testamentum.catena-in-acta-catena-andreae-e-cod-oxon-coll-nov-58.jsonl",
+   "sha256_before": "2ec12cd936ed3bf4c6946cf18a4415998014d268321f6c41cc8957af51673c5f",
+   "edits": [
+    {
+     "index": 324,
+     "was": [
+      [
+       700,
+       "ὸὐδὲ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "48d32493cd981029a420220d4000306df517f684b19c636d60e7f7839316be1e"
+  },
+  {
+   "file": "data/corpus/catenae-novum-testamentum.catena-in-epistulam-ad-colossenses-typus-parisinus-e-cod.jsonl",
+   "sha256_before": "963a4b1fc20d9aa803a560e96a206293387bd8972c36ebddcff217e4c4605def",
+   "edits": [
+    {
+     "index": 19,
+     "was": [
+      [
+       6555,
+       "ἀπὲχεσθαι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a3a3d8d1787c4eedba3026dfab0d7f5e66e17aceb85abb342f25401f024f6ed9"
+  },
+  {
+   "file": "data/corpus/catenae-novum-testamentum.catena-in-epistulam-ad-romanos-typus-monacensis-e-cod-monac-gr.jsonl",
+   "sha256_before": "f9eac8cc9f9f10c91931b4a392aeb96b6c5bf657b654edccd8ec4effcd46cccb",
+   "edits": [
+    {
+     "index": 224,
+     "was": [
+      [
+       814,
+       "κὲκλήνται"
+      ]
+     ]
+    },
+    {
+     "index": 510,
+     "was": [
+      [
+       170,
+       "ὸὐδαμοῦ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "cc44b4c852eb1685505572c855ce097684a81d92af49d6cfae138a5cf5b88de0"
+  },
+  {
+   "file": "data/corpus/catenae-novum-testamentum.catena-in-epistulam-i-ad-corinthios-typus-vaticanus-e-cod-paris.jsonl",
+   "sha256_before": "385dde79743d0d1e7f8a5418075e20bd4794d412cab800735f60673c5a0f6433",
+   "edits": [
+    {
+     "index": 36,
+     "was": [
+      [
+       873,
+       "ἒπήγαγεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "4bad8d67ea9c89a95767dab43171434941b62d3ee597f94218e482cdcef592f0"
+  },
+  {
+   "file": "data/corpus/catenae-novum-testamentum.catena-in-epistulam-joannis-i-catena-andreae-e-cod-oxon-coll.jsonl",
+   "sha256_before": "c8d7b0c6ab43320b32f531c9ebaadadc22e93514ccd9a85f0d4ea91c8a72621b",
+   "edits": [
+    {
+     "index": 27,
+     "was": [
+      [
+       1300,
+       "εἰδὼλων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "ee2c93b66caf558800f9e29c21c9bc8ccf44c58cb87c30e3be0a90950771d457"
+  },
+  {
+   "file": "data/corpus/catenae-novum-testamentum.catena-in-joannem-catena-integra-e-codd-paris-coislin-23.jsonl",
+   "sha256_before": "b121043e71ef2d4ceac2632f8190b12d4c97713d68f39853393bc0cb20c08ef1",
+   "edits": [
+    {
+     "index": 97,
+     "was": [
+      [
+       188,
+       "ἣκω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c1dadda8582a57511f2a2169f6b3c5dc781f75003e9d5e7535396bc18b8e90d9"
+  },
+  {
+   "file": "data/corpus/chronicon-paschale.chronicon-paschale.jsonl",
+   "sha256_before": "a47ae55270bfa4b568090ead1b919f6cc41cfa8644d1a9c33dc80e250c446df5",
+   "edits": [
+    {
+     "index": 281,
+     "was": [
+      [
+       1063,
+       "ὀλὶγα"
+      ]
+     ]
+    },
+    {
+     "index": 427,
+     "was": [
+      [
+       389,
+       "ἣμέρας"
+      ]
+     ]
+    },
+    {
+     "index": 431,
+     "was": [
+      [
+       178,
+       "ἀλλὴλους"
+      ]
+     ]
+    },
+    {
+     "index": 463,
+     "was": [
+      [
+       270,
+       "ἳππου"
+      ]
+     ]
+    },
+    {
+     "index": 693,
+     "was": [
+      [
+       730,
+       "ὂχλον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 5,
+   "sha256_after": "3807fbdd015013370d96a4e215ec886d20604cf167f98e0d30301e1fa0942a42"
+  },
+  {
+   "file": "data/corpus/chrysippus-philosophy.fragmenta-logica-et-physica.jsonl",
+   "sha256_before": "a63cbbcd4e7001eb6ab0c4d96c400794701325b7acc69ee50441efea1070a0d4",
+   "edits": [
+    {
+     "index": 111,
+     "was": [
+      [
+       114,
+       "οὐδὲτέρων"
+      ]
+     ]
+    },
+    {
+     "index": 374,
+     "was": [
+      [
+       814,
+       "Δὶωνα"
+      ]
+     ]
+    },
+    {
+     "index": 717,
+     "was": [
+      [
+       150,
+       "λὺσεις"
+      ]
+     ]
+    },
+    {
+     "index": 793,
+     "was": [
+      [
+       1635,
+       "πὰλιν"
+      ]
+     ]
+    },
+    {
+     "index": 801,
+     "was": [
+      [
+       413,
+       "λὲγομεν"
+      ]
+     ]
+    },
+    {
+     "index": 805,
+     "was": [
+      [
+       1372,
+       "Ζὴνων"
+      ]
+     ]
+    },
+    {
+     "index": 812,
+     "was": [
+      [
+       1597,
+       "στὴθεσσι"
+      ],
+      [
+       2185,
+       "στὴθεσσι"
+      ],
+      [
+       2978,
+       "παραδειγμὰτων"
+      ],
+      [
+       3044,
+       "στὴθεσσι"
+      ]
+     ]
+    },
+    {
+     "index": 836,
+     "was": [
+      [
+       1280,
+       "πὰντα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 8,
+   "sha256_after": "af36728638b5a53cb4fc4ae570f991f240ef88def2acb455d9505cd65d7e5c3b"
+  },
+  {
+   "file": "data/corpus/chrysippus-philosophy.fragmenta-moralia.jsonl",
+   "sha256_before": "3d74764217dcad229b08ccb6821b191373bc8dca4534a50c6efff063ab6ce0ff",
+   "edits": [
+    {
+     "index": 340,
+     "was": [
+      [
+       308,
+       "ἒργον"
+      ]
+     ]
+    },
+    {
+     "index": 363,
+     "was": [
+      [
+       374,
+       "ὂντας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "dc6dbf197e2b7f4f57550c89b4703884661d13d1caeadd7f8163e42e07bff2af"
+  },
+  {
+   "file": "data/corpus/claudius-aelianus.fragmenta.jsonl",
+   "sha256_before": "3adcbccd48a6fb5a85d43689b0f971b3a798de39db1bae17aec7143c9988b581",
+   "edits": [
+    {
+     "index": 38,
+     "was": [
+      [
+       234,
+       "αἲγλην"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c6cfdc31d9ef4187d8dfbabc4d02c6d30236ba761097c321129bae8eb99f0330"
+  },
+  {
+   "file": "data/corpus/claudius-ptolemaeus.apotelesmatica-tetrabiblos.jsonl",
+   "sha256_before": "621fd14d6047c99959a0b0f29bdf4dc6ffc76dc949b33d706f7d1a5d38d1c67e",
+   "edits": [
+    {
+     "index": 286,
+     "was": [
+      [
+       47,
+       "πὰθεσιν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "af318b97787b85388879a11ff0b5b9a6c568341da652a6637e04400a043e24b5"
+  },
+  {
+   "file": "data/corpus/claudius-ptolemaeus.syntaxis-mathematica.jsonl",
+   "sha256_before": "5eece9ee2a3938d043eaff330e9dc7477b7f2cc85f274c65ee63fe9abfec906c",
+   "edits": [
+    {
+     "index": 373,
+     "was": [
+      [
+       305,
+       "Σκὸρπίου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "b6dd56e9adef926d3e5af24bed035a36f5355a908f687084c197b62c70b42a56"
+  },
+  {
+   "file": "data/corpus/clemens-alexandrinus.stromata.jsonl",
+   "sha256_before": "3cf3fe9c772a2068b31b7df1fd8c812941350eaf36423296eee8089aae8d292f",
+   "edits": [
+    {
+     "index": 431,
+     "was": [
+      [
+       630,
+       "ὂφις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d9af65a1953f0198a3f83f5e12441fa54ead03233e870e9469a4913331c9b8fc"
+  },
+  {
+   "file": "data/corpus/clemens-romanus-et-clementina.pseudoclementina-epitome-de-gestis-petri-praemetaphrastica-sp.jsonl",
+   "sha256_before": "e4f2d8cf711863afbabe5b1b9c02ebbf5a4c5248a5fdb3df41d4802ba5b7b7cf",
+   "edits": [
+    {
+     "index": 24,
+     "was": [
+      [
+       6,
+       "ἀκοὺσας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8db714ab88a1c37d9859ba2626eee3429c64dc37aee0e98aeb2c43dc9cc33fd6"
+  },
+  {
+   "file": "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl",
+   "sha256_before": "a3a2442860a76ea29311f35431bc0100cef706d88ee637eb3953704450a72ef6",
+   "edits": [
+    {
+     "index": 136,
+     "was": [
+      [
+       293,
+       "τὰνῦν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "32c7d32d53183a44e492d567eb236b46a77d09a25f55ba5cbb34116c4aadcbf6"
+  },
+  {
+   "file": "data/corpus/cornelius-alexander.fragmenta.jsonl",
+   "sha256_before": "87fdbc9cf4205e973376e6d0598ea9188824fdd8d29030e8cdbb4dd684c65ec9",
+   "edits": [
+    {
+     "index": 79,
+     "was": [
+      [
+       198,
+       "τὸξα"
+      ]
+     ]
+    },
+    {
+     "index": 89,
+     "was": [
+      [
+       20,
+       "πὸλις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "04e22456b0272d9d3a1d6f455948856211c3f010690d3c3eac9ee47d437a7fa8"
+  },
+  {
+   "file": "data/corpus/corpus-hermeticum.oroi-asklhpiou-pro-s-ammwna-basile.jsonl",
+   "sha256_before": "7f39cd5c6e47e3da81de60fb03bcceef3d2649057ab6c5692407906e11410aee",
+   "edits": [
+    {
+     "index": 12,
+     "was": [
+      [
+       9,
+       "ἀνθρὼποις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "323d98d62cc6f419a1ec6f1aa32967b1c8b904e79f0f5738f954b548c69ff580"
+  },
+  {
+   "file": "data/corpus/corpus-parisinum.pars-vi-cod-par-gr-1168.jsonl",
+   "sha256_before": "d672bcafead61e8145058a996f80377b5290896132cb199630723d277ce59947",
+   "edits": [
+    {
+     "index": 96,
+     "was": [
+      [
+       148,
+       "μὸγις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "7c01f2bf67da975b4f880641d32f0c9dde55d31ee21f881c576b5415010ecb00"
+  },
+  {
+   "file": "data/corpus/critobulus.fragmenta.jsonl",
+   "sha256_before": "bc926bfb659a429d7237f3f925e7c8f420057641fcc17cea720ca84596f516be",
+   "edits": [
+    {
+     "index": 80,
+     "was": [
+      [
+       228,
+       "δὼροις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f6990553c31f7de77ee5b7c2689edf83077a70b3d712a771a3a34070e8b4612a"
+  },
+  {
+   "file": "data/corpus/cyrillus-theology.commentarius-in-xii-prophetas-minores.jsonl",
+   "sha256_before": "ceba77a68d37b9c771f1304a7e8ec899a2a9f18fc87bc57b3642b734d61146ad",
+   "edits": [
+    {
+     "index": 30,
+     "was": [
+      [
+       2198,
+       "ἳπποις"
+      ]
+     ]
+    },
+    {
+     "index": 560,
+     "was": [
+      [
+       180,
+       "υἳὼν"
+      ]
+     ]
+    },
+    {
+     "index": 1030,
+     "was": [
+      [
+       988,
+       "ἒργον"
+      ]
+     ]
+    },
+    {
+     "index": 1174,
+     "was": [
+      [
+       90,
+       "ὓβριν"
+      ],
+      [
+       108,
+       "ὓβριν"
+      ]
+     ]
+    },
+    {
+     "index": 1178,
+     "was": [
+      [
+       859,
+       "ὃπλα"
+      ]
+     ]
+    },
+    {
+     "index": 1195,
+     "was": [
+      [
+       2,
+       "πὸλις"
+      ]
+     ]
+    },
+    {
+     "index": 1377,
+     "was": [
+      [
+       70,
+       "ἒργον"
+      ]
+     ]
+    },
+    {
+     "index": 1581,
+     "was": [
+      [
+       2117,
+       "πατὲρες"
+      ]
+     ]
+    },
+    {
+     "index": 1748,
+     "was": [
+      [
+       428,
+       "δὶαθηκης"
+      ]
+     ]
+    },
+    {
+     "index": 1785,
+     "was": [
+      [
+       129,
+       "ὓβρις"
+      ]
+     ]
+    },
+    {
+     "index": 1823,
+     "was": [
+      [
+       1956,
+       "ἒθνη"
+      ]
+     ]
+    },
+    {
+     "index": 1825,
+     "was": [
+      [
+       59,
+       "ἳππον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 12,
+   "sha256_after": "8434c6a9c2d5770f44536af6a8221c5d14c324a355228716059e953bff0f5a36"
+  },
+  {
+   "file": "data/corpus/cyrillus-theology.de-adoratione-et-cultu-in-spiritu-et-veritate.jsonl",
+   "sha256_before": "f63f30d127ff00856f022a4aa79c214b14fe5b4549ff5e82c14a30ab7c44afc8",
+   "edits": [
+    {
+     "index": 366,
+     "was": [
+      [
+       1781,
+       "δευτὲραν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "6a92a8b1b7ae339580ae0bc51147621163c3acdd3f868976586fb13c4d9b0c51"
+  },
+  {
+   "file": "data/corpus/cyrillus-theology.glaphyra-in-pentateuchum.jsonl",
+   "sha256_before": "bd7a9fba307ed29cc187cd525644ba84af2e8010bb70612e4c11c402d5485950",
+   "edits": [
+    {
+     "index": 113,
+     "was": [
+      [
+       5673,
+       "αὐτὸὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a678dc1c140a9598129c419228666641da503e6de11164700ddebdafece9ebdc"
+  },
+  {
+   "file": "data/corpus/david.in-porphyrii-isagogen-commentarium.jsonl",
+   "sha256_before": "9ee2ad4d826b4cf4f2a8619251b1b16f02d8b79cf2460b5a87b04f77400ae562",
+   "edits": [
+    {
+     "index": 63,
+     "was": [
+      [
+       299,
+       "τὰξις"
+      ]
+     ]
+    },
+    {
+     "index": 67,
+     "was": [
+      [
+       1390,
+       "ἀλλὴλοις"
+      ]
+     ]
+    },
+    {
+     "index": 106,
+     "was": [
+      [
+       66,
+       "γὶνονται"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "12522426c878faa99352eb122592ec113cf385b8e626e3592869f880cadfa763"
+  },
+  {
+   "file": "data/corpus/democritus-philosophy.fragmenta.jsonl",
+   "sha256_before": "a8bbf732a4e54d64030d0fc3cbde57d2a01058759af398657f164e829817d958",
+   "edits": [
+    {
+     "index": 329,
+     "was": [
+      [
+       1351,
+       "τὴι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f168e64392365d477854771925707381d8e4b1da5b01fb949e55644605dcdcb6"
+  },
+  {
+   "file": "data/corpus/dio-chrysostomus.orationes.jsonl",
+   "sha256_before": "889e180e6ea0d96aebaaaa514a08662159a1ec263a8f7384441132f3f536ebdd",
+   "edits": [
+    {
+     "index": 565,
+     "was": [
+      [
+       51,
+       "τοὺσδὲ"
+      ]
+     ]
+    },
+    {
+     "index": 1392,
+     "was": [
+      [
+       356,
+       "τὰνῦν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "7463165b3f9f64b7986e8f3495da9c5eea070bd8e5f738da3d281f6a4d2800f1"
+  },
+  {
+   "file": "data/corpus/diodorus-siculus.bibliotheca-historica-lib-1-20.jsonl",
+   "sha256_before": "613ffadcc85b8a576363378314f4ea0ac10d953c186ae091d9e55a8d3c849f02",
+   "edits": [
+    {
+     "index": 7051,
+     "was": [
+      [
+       178,
+       "χρὸνον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "af3f4a09e2158166623b0e52c0b50c55caac150b336339f51822c09dde2fd2e5"
+  },
+  {
+   "file": "data/corpus/diogenes-laertius-biography.vitae-philosophorum.jsonl",
+   "sha256_before": "49f721d10e1a313de7a5722e663b22871be5380e65d926be63b0fb8dc0b166b6",
+   "edits": [
+    {
+     "index": 957,
+     "was": [
+      [
+       167,
+       "πεποὶηκεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "41dec3fa5a6cf45537841f7906750b6dbd61e3bb5191d9709c63bad5d1dab375"
+  },
+  {
+   "file": "data/corpus/diogenianus-grammar.paroemiae-epitome-operis-sub-nomine-diogeniani-e-cod-mazarinco.jsonl",
+   "sha256_before": "6ac9c053d74d5bad6c2f84d71bc6f01a4d5574c5eb1815fcb9190a1abc5a6dcd",
+   "edits": [
+    {
+     "index": 233,
+     "was": [
+      [
+       12,
+       "δαὶμων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "85c3050af2b75c1ef697624270607aa3757d27c29f8b7472707dd41fb2f2b273"
+  },
+  {
+   "file": "data/corpus/diogenis-sinopensis-epistulae.epistulae.jsonl",
+   "sha256_before": "7ce531dfbb9fa406528f284dc152bcaae1eab013bb526588e53a917610912057",
+   "edits": [
+    {
+     "index": 21,
+     "was": [
+      [
+       413,
+       "ζὼντων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8e5579b956252610a2e4946be447831186049c15f0dddfe4cf1a99b8500eb873"
+  },
+  {
+   "file": "data/corpus/dionysius-halicarnassensis-history.ars-rhetorica-sp.jsonl",
+   "sha256_before": "5edcdae780b8b85573771732de8a43809965d87de8e606a341c86487f8269367",
+   "edits": [
+    {
+     "index": 43,
+     "was": [
+      [
+       354,
+       "ὀλὶγους"
+      ],
+      [
+       440,
+       "ἀληθεὶας"
+      ]
+     ]
+    },
+    {
+     "index": 74,
+     "was": [
+      [
+       8,
+       "Αἲας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "6614b1cc7bf0265a7f51718c597fa1b81596086bc44337c3bfe56ee520241f2f"
+  },
+  {
+   "file": "data/corpus/dionysius-halicarnassensis-history.de-demosthenis-dictione.jsonl",
+   "sha256_before": "212efb619950c0db93ea81315c7e76bec88b74482e0d26486c5c50393c91b321",
+   "edits": [
+    {
+     "index": 29,
+     "was": [
+      [
+       4601,
+       "ἱκὰνὰ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "55af5ab35bf92f94aefc787b5ea85a74770b8a3ab0f8a4c8874ecb7c30afa233"
+  },
+  {
+   "file": "data/corpus/dioscorides-pedanius.de-materia-medica.jsonl",
+   "sha256_before": "0ec7840089486c7df2a833d0851d6518b22fd97d58857ab58dda448daac24ca8",
+   "edits": [
+    {
+     "index": 116,
+     "was": [
+      [
+       151,
+       "ἓψε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0595cd0904701e0d2bfc0ee41d84b19d163c6ae63c17ff2724998a35084b695b"
+  },
+  {
+   "file": "data/corpus/ducas.historia-turcobyzantina.jsonl",
+   "sha256_before": "dc0ed8b1b0ee4e0cbcba3a74b42a6c473b0f86724437184a6f28315306febd2d",
+   "edits": [
+    {
+     "index": 58,
+     "was": [
+      [
+       1848,
+       "Τὸτε"
+      ]
+     ]
+    },
+    {
+     "index": 82,
+     "was": [
+      [
+       1710,
+       "τὴι"
+      ]
+     ]
+    },
+    {
+     "index": 184,
+     "was": [
+      [
+       2524,
+       "ὃπλα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "fe0cc61b1956c81d1b29e1e2825a4fd346a013bfd9f91383f4fe4b2287feb1da"
+  },
+  {
+   "file": "data/corpus/elias.in-porphyrii-isagogen.jsonl",
+   "sha256_before": "d6bc1246a0f365b01e2ccfcbe26a453794cfec3e64a6a1e9effb8054c03c2afe",
+   "edits": [
+    {
+     "index": 27,
+     "was": [
+      [
+       1791,
+       "εἲθε"
+      ]
+     ]
+    },
+    {
+     "index": 38,
+     "was": [
+      [
+       1039,
+       "εἰδὲναι"
+      ],
+      [
+       1212,
+       "πὲντε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "5c9994af6a20f0ada3e198c28f24b3fe700abe191aa5f146372ce2ca95eed1b3"
+  },
+  {
+   "file": "data/corpus/epiphanius.ancoratus.jsonl",
+   "sha256_before": "22a53d2faa2ea296ab19d6ee2898f4006b1db3c4bcd558b23a61fcd0fea773b0",
+   "edits": [
+    {
+     "index": 200,
+     "was": [
+      [
+       104,
+       "τριὰδα"
+      ]
+     ]
+    },
+    {
+     "index": 678,
+     "was": [
+      [
+       69,
+       "ἃπαξ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "724f94a512122fd61a5a8f69b799eb693ae4c9fc1d28f0305b1180b1868f81c0"
+  },
+  {
+   "file": "data/corpus/epiphanius.panarion-adversus-haereses.jsonl",
+   "sha256_before": "325fdad54a28baee9d485defb7b0f0ce3f38a8f53d1a1d31cb07c3c3a876b88b",
+   "edits": [
+    {
+     "index": 821,
+     "was": [
+      [
+       143,
+       "ἀναστὰσει"
+      ]
+     ]
+    },
+    {
+     "index": 1386,
+     "was": [
+      [
+       16,
+       "χρὴσει"
+      ]
+     ]
+    },
+    {
+     "index": 1723,
+     "was": [
+      [
+       108,
+       "ἑαυτὸυς"
+      ]
+     ]
+    },
+    {
+     "index": 2033,
+     "was": [
+      [
+       325,
+       "ἓαυτοῦ"
+      ]
+     ]
+    },
+    {
+     "index": 2406,
+     "was": [
+      [
+       417,
+       "λὸγῳ"
+      ]
+     ]
+    },
+    {
+     "index": 2709,
+     "was": [
+      [
+       8,
+       "ἀληθεὺει"
+      ]
+     ]
+    },
+    {
+     "index": 3045,
+     "was": [
+      [
+       162,
+       "μὰτην"
+      ]
+     ]
+    },
+    {
+     "index": 3352,
+     "was": [
+      [
+       213,
+       "διηγεὶται"
+      ]
+     ]
+    },
+    {
+     "index": 4160,
+     "was": [
+      [
+       47,
+       "ὸὐδὲν"
+      ]
+     ]
+    },
+    {
+     "index": 4242,
+     "was": [
+      [
+       178,
+       "φιλανθρωπὶας"
+      ]
+     ]
+    },
+    {
+     "index": 4250,
+     "was": [
+      [
+       89,
+       "ὓπνου"
+      ]
+     ]
+    },
+    {
+     "index": 4342,
+     "was": [
+      [
+       147,
+       "ἃπαξ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 12,
+   "sha256_after": "7d5aafc10248122ae9d430fd0cde58f3dfbab028322d1042e5796a59c48cedef"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.commentaria-in-psalmos.jsonl",
+   "sha256_before": "d15242acf61ecf669b413ada8c8ab2af0110bd2324e55bc3dea6068220cf3ce5",
+   "edits": [
+    {
+     "index": 483,
+     "was": [
+      [
+       332,
+       "ἐλπὶδος"
+      ]
+     ]
+    },
+    {
+     "index": 961,
+     "was": [
+      [
+       1132,
+       "ἀντιλογὶαν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "a01965bb5b512b391044a18e012acf9e1d6e6a50cadcc3c5c947981e7da262c6"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.constantini-imperatoris-oratio-ad-coetum-sanctorum.jsonl",
+   "sha256_before": "c2645e108f93abe7381d6cacf78de988abdd9abd236dbd5fba8983250429551a",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       171,
+       "ἐπὲι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "2032e321030d968f3ef5b3f2c50501c5bb84c9257ca65c18dfbbba157a585211"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.de-laudibus-constantini.jsonl",
+   "sha256_before": "65f4ac560687e79eb1c07a85856360dc4188527424fd2cda5338f39c3ccd69e0",
+   "edits": [
+    {
+     "index": 34,
+     "was": [
+      [
+       0,
+       "μὶαν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "064c074979d9a2c26cf341836a26ff4cfe580d6337d1a67693a2a3b6561fe60d"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.de-theophania-fragmenta.jsonl",
+   "sha256_before": "aab865fa4eb84431b6707302f390bddfed10d981859075633a3e43db898a22b1",
+   "edits": [
+    {
+     "index": 22,
+     "was": [
+      [
+       37,
+       "ἒχρησεν"
+      ],
+      [
+       461,
+       "ὂρνις"
+      ],
+      [
+       600,
+       "ἂρτι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "4a9db448c6cc723e9a011666ee6660f8808156ac491eebc285186fccdeec9269"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.demonstratio-evangelica.jsonl",
+   "sha256_before": "50699c6ece1429c901943eeb0e02b070228ddbecb4d21e703b3315b7473ccb04",
+   "edits": [
+    {
+     "index": 109,
+     "was": [
+      [
+       145,
+       "ὓπνον"
+      ]
+     ]
+    },
+    {
+     "index": 1004,
+     "was": [
+      [
+       376,
+       "ἂλλης"
+      ]
+     ]
+    },
+    {
+     "index": 1035,
+     "was": [
+      [
+       413,
+       "ἣξειν"
+      ],
+      [
+       454,
+       "ἣξειν"
+      ]
+     ]
+    },
+    {
+     "index": 1845,
+     "was": [
+      [
+       171,
+       "οἲνῳ"
+      ]
+     ]
+    },
+    {
+     "index": 1846,
+     "was": [
+      [
+       12,
+       "οἲνου"
+      ],
+      [
+       333,
+       "οἲνῳ"
+      ]
+     ]
+    },
+    {
+     "index": 1847,
+     "was": [
+      [
+       40,
+       "οἲνου"
+      ],
+      [
+       213,
+       "οἲνου"
+      ],
+      [
+       450,
+       "οἲνου"
+      ]
+     ]
+    },
+    {
+     "index": 2456,
+     "was": [
+      [
+       732,
+       "ἒλεγεν"
+      ]
+     ]
+    },
+    {
+     "index": 2488,
+     "was": [
+      [
+       328,
+       "ἂλλης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 8,
+   "sha256_after": "0c2d4c5b63d5fbe05faacb0287d1a6aff4eb600524c7e341368c2a13811a032f"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.generalis-elementaria-introductio-eclogae-propheticae.jsonl",
+   "sha256_before": "b3f06cbc99d6cdc308e9f973b26003e0d9d58f7f50e0d284eca74148534a732b",
+   "edits": [
+    {
+     "index": 84,
+     "was": [
+      [
+       564,
+       "ἀπὸτείνεται"
+      ]
+     ]
+    },
+    {
+     "index": 137,
+     "was": [
+      [
+       2130,
+       "πρὸφητείας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "dae09dfa18e7a4f09a66cf9d3db3cbc97dc15a7d48148acb2487d343ab4080c3"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.onomasticon.jsonl",
+   "sha256_before": "558b254371e8c571a346aedd0fc366d2ec7cda9f2b6a20382da148943e585b4b",
+   "edits": [
+    {
+     "index": 22,
+     "was": [
+      [
+       8329,
+       "πὸλεις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "82a4b791b9a5e5277cb87063267a1266c7fb472c9400e8a7fc3f63131556d84a"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.praeparatio-evangelica.jsonl",
+   "sha256_before": "cdcbc5e166d5b7e2047299728238e08a2406fe0377c69a3555c789b532d24853",
+   "edits": [
+    {
+     "index": 149,
+     "was": [
+      [
+       430,
+       "Ἣφαιστον"
+      ]
+     ]
+    },
+    {
+     "index": 162,
+     "was": [
+      [
+       158,
+       "Ἒρως"
+      ]
+     ]
+    },
+    {
+     "index": 1063,
+     "was": [
+      [
+       41,
+       "ὂγκου"
+      ]
+     ]
+    },
+    {
+     "index": 1196,
+     "was": [
+      [
+       40,
+       "Ἂπολλον"
+      ]
+     ]
+    },
+    {
+     "index": 2846,
+     "was": [
+      [
+       550,
+       "ἒπος"
+      ]
+     ]
+    },
+    {
+     "index": 2883,
+     "was": [
+      [
+       56,
+       "ἒργων"
+      ]
+     ]
+    },
+    {
+     "index": 2986,
+     "was": [
+      [
+       499,
+       "ὃσπερ"
+      ]
+     ]
+    },
+    {
+     "index": 3231,
+     "was": [
+      [
+       124,
+       "ἒταξάν"
+      ]
+     ]
+    },
+    {
+     "index": 3404,
+     "was": [
+      [
+       156,
+       "ἂνακτα"
+      ]
+     ]
+    },
+    {
+     "index": 3414,
+     "was": [
+      [
+       86,
+       "ὓψιστον"
+      ],
+      [
+       532,
+       "ὓψος"
+      ],
+      [
+       570,
+       "ὂμμα"
+      ]
+     ]
+    },
+    {
+     "index": 4037,
+     "was": [
+      [
+       21,
+       "αὒξειν"
+      ],
+      [
+       134,
+       "αὒξειν"
+      ]
+     ]
+    },
+    {
+     "index": 4057,
+     "was": [
+      [
+       203,
+       "τὶθεσθαι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 12,
+   "sha256_after": "16ed2f1c4e862a253b124fd4dd8ce5852583ce3eacf6f09195e227201cbac3c3"
+  },
+  {
+   "file": "data/corpus/eusebius-scr-eccl.vita-constantini.jsonl",
+   "sha256_before": "1817cff7eb4371ce2cab8952bf5f0e6ac14d164229a3ef95948c65f3faa260a4",
+   "edits": [
+    {
+     "index": 36,
+     "was": [
+      [
+       440,
+       "σωτὴρίαν"
+      ]
+     ]
+    },
+    {
+     "index": 457,
+     "was": [
+      [
+       691,
+       "ὑπὴρχον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "43a28e2ed6b4bfd41920051615e6ba293ba699c436e1661012a90dcaa003fe3e"
+  },
+  {
+   "file": "data/corpus/eustratius.in-aristotelis-ethica-nicomachea-i-commentaria.jsonl",
+   "sha256_before": "2c4805a82b666d62a6b6762e4b558062f2e3e586c8ae852ecd879f3b7a2fc186",
+   "edits": [
+    {
+     "index": 324,
+     "was": [
+      [
+       619,
+       "ἒπιστήμην"
+      ]
+     ]
+    },
+    {
+     "index": 573,
+     "was": [
+      [
+       1689,
+       "τὲλος"
+      ]
+     ]
+    },
+    {
+     "index": 583,
+     "was": [
+      [
+       485,
+       "εἲποιμεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "60b9a192291aa16193edc65076134aa393f832f38f8bde1024bf26cd7b1825f5"
+  },
+  {
+   "file": "data/corpus/eutocius.commentarii-in-libros-de-sphaera-et-cylindro.jsonl",
+   "sha256_before": "b962e57f5b1a2d95fb7eeab2203a275b2f6f0b322d5bb3c87504d53466e77a86",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       701,
+       "Λὲγω"
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "was": [
+      [
+       228,
+       "Λὲγω"
+      ]
+     ]
+    },
+    {
+     "index": 14,
+     "was": [
+      [
+       488,
+       "Λὲγω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "8bbdf191af2d208d3e2a4d19d171ebd901234364bfb102bb6db9ae040cf58b15"
+  },
+  {
+   "file": "data/corpus/faustus-de-byzance.fragmenta.jsonl",
+   "sha256_before": "9f72b1fb072af7d07155ac503c8517f4ef2cb1665ff697f3c602b30af7372f04",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       306,
+       "Πὲρσῶν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f0aabfb90694d36c240d758842354b70d5f3f8d75499ee58a5edfe89792d2a66"
+  },
+  {
+   "file": "data/corpus/favorinus.fragmenta.jsonl",
+   "sha256_before": "d81275851df47ea9f979bb4bac1e5149409937341f8ed49ed881f12b8480373a",
+   "edits": [
+    {
+     "index": 15,
+     "was": [
+      [
+       5,
+       "τοὶνυν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0cfd53faa3e93c7244e05e273a6f3f22fe0fd8bdc869bff84768973c7697fa19"
+  },
+  {
+   "file": "data/corpus/flavius-arrianus.alexandri-anabasis.jsonl",
+   "sha256_before": "a6929d57f4850966afced9f52ded339c5e3780692b1dbb3431c70a4b6859d055",
+   "edits": [
+    {
+     "index": 529,
+     "was": [
+      [
+       9,
+       "τὲως"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "485a71a97ca3780e5a854812d89876b539cdea5cc356c988a9c43274221e77a4"
+  },
+  {
+   "file": "data/corpus/flavius-philostratus.de-gymnastica.jsonl",
+   "sha256_before": "4bdbd0ef5a073bcecea3d63106d411b5fb5712e20409466492fef174dbac58c4",
+   "edits": [
+    {
+     "index": 11,
+     "was": [
+      [
+       892,
+       "ὁπὸσα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "11990ecb8cfb8f93dac4ba146301ec186c50cbe34792d5d2a7287843f5b070b0"
+  },
+  {
+   "file": "data/corpus/georgius-cedrenus.compendium-historiarum.jsonl",
+   "sha256_before": "58fa014bf2cddf36fd4a9a579f49b9558d345bc9be060406fb21c0b6e6c57a48",
+   "edits": [
+    {
+     "index": 42,
+     "was": [
+      [
+       982,
+       "τὸῖς"
+      ]
+     ]
+    },
+    {
+     "index": 241,
+     "was": [
+      [
+       88,
+       "Θεὸυ"
+      ],
+      [
+       513,
+       "Θεὸυ"
+      ],
+      [
+       674,
+       "Θεὸυ"
+      ]
+     ]
+    },
+    {
+     "index": 523,
+     "was": [
+      [
+       726,
+       "ἀπογὸνους"
+      ]
+     ]
+    },
+    {
+     "index": 548,
+     "was": [
+      [
+       12,
+       "βασιλὲα"
+      ]
+     ]
+    },
+    {
+     "index": 600,
+     "was": [
+      [
+       1653,
+       "πὸτοὺς"
+      ]
+     ]
+    },
+    {
+     "index": 626,
+     "was": [
+      [
+       2476,
+       "ἓαυτοῦ"
+      ]
+     ]
+    },
+    {
+     "index": 651,
+     "was": [
+      [
+       583,
+       "γὲνος"
+      ]
+     ]
+    },
+    {
+     "index": 663,
+     "was": [
+      [
+       2195,
+       "ἓαυτοῦ"
+      ]
+     ]
+    },
+    {
+     "index": 665,
+     "was": [
+      [
+       1643,
+       "πὲντε"
+      ]
+     ]
+    },
+    {
+     "index": 712,
+     "was": [
+      [
+       996,
+       "γὲνος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 10,
+   "sha256_after": "e5ab716f1fcf8ba724677fce98fdba7c45f10ca2b470fc2ead30a739ceb948f4"
+  },
+  {
+   "file": "data/corpus/georgius-monachus-continuatus.chronicon-continuatio-redactio.jsonl",
+   "sha256_before": "7b680061e969d508433b0c5ca4b654db13712f4e3064dbbd3b1230b83e4e3b7f",
+   "edits": [
+    {
+     "index": 6,
+     "was": [
+      [
+       2005,
+       "πὰντων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "1dbde3280c0451d6fbf7b9bf87b2cc9d0eb2df5793d46b0a35db2f658ff8cc55"
+  },
+  {
+   "file": "data/corpus/gnomologium-vaticanum.gnomologium-vaticanum.jsonl",
+   "sha256_before": "c8bc76f94190f7b34fcb23ac9ad457c81b3aa5f4dc207e901c20329f0df88547",
+   "edits": [
+    {
+     "index": 379,
+     "was": [
+      [
+       33,
+       "ἀὲρος"
+      ]
+     ]
+    },
+    {
+     "index": 477,
+     "was": [
+      [
+       133,
+       "λὲγων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "1cbd6bba84e547a854078a9fd83cdd7e535c4f2789108c9b5ec60317c9d54c29"
+  },
+  {
+   "file": "data/corpus/gregorius-nazianzenus.de-filio-orat-30.jsonl",
+   "sha256_before": "4b49aeef6c54718e98436989bf24272b2b3fb207681a5a0cda3ccb1902cb7419",
+   "edits": [
+    {
+     "index": 12,
+     "was": [
+      [
+       115,
+       "ἂγαθός"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8d05c016a2ee40a4dd657f8660cdacf2d5ba1c9ed8177f0aad419a96f56cf031"
+  },
+  {
+   "file": "data/corpus/gregorius-palamas.confessio-fidei.jsonl",
+   "sha256_before": "0aa7cfd3511e4dedeb63ce9b94944b5d70d41f8a0b371c7965cf486e06aef4d0",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       2043,
+       "ἣξειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "ae6f2266e0c677dbde925df30ef0785dc9a355a800f595a100dc0a704b947747"
+  },
+  {
+   "file": "data/corpus/hecataeus.testimonia.jsonl",
+   "sha256_before": "a73689a11474eb5ce14913ed3caf56644f2527f23f17c9004d7deab3898a38af",
+   "edits": [
+    {
+     "index": 370,
+     "was": [
+      [
+       237,
+       "χὼρην"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "ad42fc6ef973b549f1fcf76d56fce42f9b7bde53c41e6c632f4546810083307c"
+  },
+  {
+   "file": "data/corpus/hellanicus.testimonia.jsonl",
+   "sha256_before": "867aeebc99fd1e146dd31fee618606a87bd52314b792423102f623b6f60dfd4f",
+   "edits": [
+    {
+     "index": 39,
+     "was": [
+      [
+       463,
+       "ἳππον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c8969c35d80b6a9e96d511843aebc33644b820d4cfbd451a5ad06e2e0856855d"
+  },
+  {
+   "file": "data/corpus/heraclitus-1ce.allegoriae-quaestiones-homericae.jsonl",
+   "sha256_before": "6d883c3742318f3674b9e7251211c0680c6942fd7b51bddfb13a7f79db7a99f4",
+   "edits": [
+    {
+     "index": 36,
+     "was": [
+      [
+       792,
+       "τοὒμπαλιν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f47735063bda95c090a4f105a1376aace087bc33652b4aedf4320b518b201fcc"
+  },
+  {
+   "file": "data/corpus/hereas.fragmenta.jsonl",
+   "sha256_before": "4d8714e363d4860a5b25b94445831e4da7f78cdfbc5e18b6f35ea5b588ea0b19",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       66,
+       "υἱὸυ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "61ebba9a7d9fb5a6c6e7ede582acbc1f70627c581d4eda6e2c35859b2599e6a2"
+  },
+  {
+   "file": "data/corpus/herodotus.historiae.jsonl",
+   "sha256_before": "ce7ba9a6e077749c7fb9072da23116b31714abb5555c7a80f28f49f3534248a7",
+   "edits": [
+    {
+     "index": 74,
+     "was": [
+      [
+       115,
+       "ἐπὲων"
+      ]
+     ]
+    },
+    {
+     "index": 2173,
+     "was": [
+      [
+       296,
+       "γενομὲνους"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "9380cbdf16f08da52ef826ec3b8b56c6dda51911ecb0238a32d54830641df19d"
+  },
+  {
+   "file": "data/corpus/hippocrates-et-corpus-hippocraticum.de-morbis-popularibus-epidemiae.jsonl",
+   "sha256_before": "666387934f53d50d658fc808122f6c4ab70a35dc31961be0335c920e35a42b13",
+   "edits": [
+    {
+     "index": 8,
+     "was": [
+      [
+       3343,
+       "ὑποστρὸφῆς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "22ef140fe411e31071c7c288f2991ff7db18d0f062733e5af3af7da479bb6ae0"
+  },
+  {
+   "file": "data/corpus/hippocrates-et-corpus-hippocraticum.de-mulierum-affectibus-iiii.jsonl",
+   "sha256_before": "721e2995a47e963595c053e39d8ba5cf4cca07e3589eeb257208cd7080b3b026",
+   "edits": [
+    {
+     "index": 73,
+     "was": [
+      [
+       1032,
+       "λὰβὼν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "ca75ac4a29d64059907edf192c967f54d352d396ad3115d597d2d9d3bf5182af"
+  },
+  {
+   "file": "data/corpus/hippocrates-et-corpus-hippocraticum.de-superfetatione.jsonl",
+   "sha256_before": "77036cc06a3d9f9b4be63e1ca9ccccb57481731669cdfbcd69fb69b76e11c8c8",
+   "edits": [
+    {
+     "index": 32,
+     "was": [
+      [
+       1018,
+       "μέλὶτι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a7cf8a24f5d45883c4fcc753953033fd9760a5e186faeb805c12079b87dd1bd2"
+  },
+  {
+   "file": "data/corpus/hippolytus-of-rome.commentarii-in-danielem.jsonl",
+   "sha256_before": "093519254848a3aaf6bc108e9e08a109b6999f6b9e9c9ffb6f5069d72c936ed7",
+   "edits": [
+    {
+     "index": 43,
+     "was": [
+      [
+       68,
+       "χὼρας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "534c171fea79aef4b8ce992f21cb3a44359b841a581890c5262f494045a5ac80"
+  },
+  {
+   "file": "data/corpus/hippolytus.refutatio-omnium-haeresium-philosophumena.jsonl",
+   "sha256_before": "cf908ff53bf4edbb9f75c0ba41f3a2a1108b310b7167c83e3f7c0b93ca1e909a",
+   "edits": [
+    {
+     "index": 82,
+     "was": [
+      [
+       410,
+       "αὒξειν"
+      ]
+     ]
+    },
+    {
+     "index": 968,
+     "was": [
+      [
+       186,
+       "ὂσμὴν"
+      ]
+     ]
+    },
+    {
+     "index": 1147,
+     "was": [
+      [
+       333,
+       "φὰσκοντες"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "62d04dc42d622a77a7dff5d7db00b19b9a40b6adfdcf86df6659a86345a3249c"
+  },
+  {
+   "file": "data/corpus/homerus-epic.odyssea.jsonl",
+   "sha256_before": "c877c4828d8d3885f0386c3ac4e5004be0431fe1bb3a013c2f33398e2e943755",
+   "edits": [
+    {
+     "index": 3592,
+     "was": [
+      [
+       0,
+       "χαὶρων"
+      ]
+     ]
+    },
+    {
+     "index": 11268,
+     "was": [
+      [
+       16,
+       "μὰλα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "b6e4c55889716f335deecc03e9b103e36878da68b34c73131d89f55bd44a25db"
+  },
+  {
+   "file": "data/corpus/isidorus-thessalonicensis.sermones-in-deiparam.jsonl",
+   "sha256_before": "ed2d1145c388eea68b5901a9f8aee03a27c5e3d9a69b71fd48e299bb6615fcb6",
+   "edits": [
+    {
+     "index": 54,
+     "was": [
+      [
+       1118,
+       "τὸκος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0d2798ed4f29297d7b3f32dbebc46bb620c707d35c99bdc7f6708be86d72af95"
+  },
+  {
+   "file": "data/corpus/isocrates.de-pace-orat-8.jsonl",
+   "sha256_before": "2e90c6d760d94f6558fc7f89246efc9dd50efc2927b390d0d83438edc471bf4f",
+   "edits": [
+    {
+     "index": 83,
+     "was": [
+      [
+       14,
+       "κατὲστησαν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8c382cba54ae80dd5dce21e60ff2ae3b719be2b4c7f72085f61bed9c124ec730"
+  },
+  {
+   "file": "data/corpus/isocrates.helenae-encomium-orat-10.jsonl",
+   "sha256_before": "80348932735133077b9c9586ba49ce86c9e75a2efbc3fb475bf192d7fb32ecda",
+   "edits": [
+    {
+     "index": 66,
+     "was": [
+      [
+       340,
+       "βαρβὰρους"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a6b0397f1b35243e19f1e982396dd18bf8fe0e5730b51761e8671e459b74f4b6"
+  },
+  {
+   "file": "data/corpus/isocrates.in-callimachum-orat-18.jsonl",
+   "sha256_before": "49a7c1342f34e3e2be9ed9946486770a5929821d8febc011631977394d227a0b",
+   "edits": [
+    {
+     "index": 38,
+     "was": [
+      [
+       8,
+       "τοὺτοις"
+      ],
+      [
+       65,
+       "ὑμετὲρας"
+      ]
+     ]
+    },
+    {
+     "index": 45,
+     "was": [
+      [
+       14,
+       "πὶστεις"
+      ]
+     ]
+    },
+    {
+     "index": 50,
+     "was": [
+      [
+       170,
+       "δὶκας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "bc31d0cb10249e62c235175381f18412d98c67ee8e1b1bc827d236f7a7ef2650"
+  },
+  {
+   "file": "data/corpus/isocrates.panathenaicus-orat-12.jsonl",
+   "sha256_before": "7f2538b9c68650d7e8da564df6a578b144fbc99eeaee126b7eefb4a2a228baa9",
+   "edits": [
+    {
+     "index": 18,
+     "was": [
+      [
+       190,
+       "παιδεὶας"
+      ]
+     ]
+    },
+    {
+     "index": 107,
+     "was": [
+      [
+       330,
+       "ἀντιλὲγειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "b1790958316f2540885717ca00f18ef5c66f575ac68774bebb9619e1c960e54d"
+  },
+  {
+   "file": "data/corpus/isocrates.trapeziticus-orat-17.jsonl",
+   "sha256_before": "66e98c13e61e2f1e9b71138f12c10217bbae6a4fabb2167ecd9699224d902b51",
+   "edits": [
+    {
+     "index": 23,
+     "was": [
+      [
+       170,
+       "τοὺτοις"
+      ]
+     ]
+    },
+    {
+     "index": 24,
+     "was": [
+      [
+       141,
+       "τοὺτου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "81449b79d87de74273618c965192a015a453d13f44beeaef4a2fd900d8eb7034"
+  },
+  {
+   "file": "data/corpus/joannes-philoponus.in-aristotelis-analytica-posteriora-commentaria.jsonl",
+   "sha256_before": "2217cc0495d3ac308c5885c358f99bcd00820f80b41b3bb30fbcaa3cee662733",
+   "edits": [
+    {
+     "index": 132,
+     "was": [
+      [
+       71,
+       "τὺχοι"
+      ]
+     ]
+    },
+    {
+     "index": 133,
+     "was": [
+      [
+       1263,
+       "κυρὶως"
+      ],
+      [
+       1301,
+       "τοὺτου"
+      ]
+     ]
+    },
+    {
+     "index": 156,
+     "was": [
+      [
+       17,
+       "βασιλὲα"
+      ]
+     ]
+    },
+    {
+     "index": 200,
+     "was": [
+      [
+       561,
+       "ἒπὶ"
+      ]
+     ]
+    },
+    {
+     "index": 229,
+     "was": [
+      [
+       82,
+       "ἂμφω"
+      ],
+      [
+       1157,
+       "ἓαυτοῦ"
+      ]
+     ]
+    },
+    {
+     "index": 232,
+     "was": [
+      [
+       381,
+       "ἂκρων"
+      ],
+      [
+       1768,
+       "ἒλαβεν"
+      ]
+     ]
+    },
+    {
+     "index": 248,
+     "was": [
+      [
+       1711,
+       "ὃροι"
+      ]
+     ]
+    },
+    {
+     "index": 249,
+     "was": [
+      [
+       45,
+       "ὃροι"
+      ],
+      [
+       670,
+       "ὃροι"
+      ]
+     ]
+    },
+    {
+     "index": 250,
+     "was": [
+      [
+       52,
+       "ὃροι"
+      ],
+      [
+       120,
+       "ὃροι"
+      ],
+      [
+       713,
+       "εἲποιμεν"
+      ],
+      [
+       1167,
+       "ἂκρους"
+      ]
+     ]
+    },
+    {
+     "index": 251,
+     "was": [
+      [
+       1392,
+       "ἒλεγεν"
+      ],
+      [
+       1616,
+       "ἒλεγεν"
+      ]
+     ]
+    },
+    {
+     "index": 253,
+     "was": [
+      [
+       1658,
+       "ἂκρων"
+      ]
+     ]
+    },
+    {
+     "index": 255,
+     "was": [
+      [
+       667,
+       "ἲσας"
+      ],
+      [
+       699,
+       "ἲσας"
+      ],
+      [
+       1072,
+       "ἒνθεν"
+      ],
+      [
+       1669,
+       "ἲσας"
+      ]
+     ]
+    },
+    {
+     "index": 257,
+     "was": [
+      [
+       100,
+       "ἲσοσκελὲς"
+      ],
+      [
+       351,
+       "ἲσας"
+      ]
+     ]
+    },
+    {
+     "index": 258,
+     "was": [
+      [
+       334,
+       "ἳππος"
+      ],
+      [
+       1753,
+       "ἲσας"
+      ]
+     ]
+    },
+    {
+     "index": 262,
+     "was": [
+      [
+       1837,
+       "ἲσμεν"
+      ]
+     ]
+    },
+    {
+     "index": 266,
+     "was": [
+      [
+       34,
+       "ἲσμεν"
+      ],
+      [
+       138,
+       "ἲσμεν"
+      ]
+     ]
+    },
+    {
+     "index": 267,
+     "was": [
+      [
+       0,
+       "ἲσμεν"
+      ],
+      [
+       152,
+       "ἲσμεν"
+      ],
+      [
+       159,
+       "ἲσμεν"
+      ]
+     ]
+    },
+    {
+     "index": 268,
+     "was": [
+      [
+       1477,
+       "ἲσας"
+      ],
+      [
+       1743,
+       "ἒστω"
+      ]
+     ]
+    },
+    {
+     "index": 269,
+     "was": [
+      [
+       1289,
+       "ὃροι"
+      ]
+     ]
+    },
+    {
+     "index": 270,
+     "was": [
+      [
+       1260,
+       "ἲσων"
+      ]
+     ]
+    },
+    {
+     "index": 277,
+     "was": [
+      [
+       75,
+       "ἒστω"
+      ],
+      [
+       446,
+       "ἒστω"
+      ],
+      [
+       730,
+       "ἒδει"
+      ]
+     ]
+    },
+    {
+     "index": 278,
+     "was": [
+      [
+       212,
+       "ἒστω"
+      ]
+     ]
+    },
+    {
+     "index": 279,
+     "was": [
+      [
+       1098,
+       "ἒστω"
+      ],
+      [
+       1225,
+       "ἂκρων"
+      ],
+      [
+       1367,
+       "ὃροι"
+      ]
+     ]
+    },
+    {
+     "index": 282,
+     "was": [
+      [
+       1492,
+       "ἲσασιν"
+      ]
+     ]
+    },
+    {
+     "index": 286,
+     "was": [
+      [
+       136,
+       "ὃσων"
+      ],
+      [
+       633,
+       "ἂποδείκνυσιν"
+      ],
+      [
+       1193,
+       "ὃσων"
+      ],
+      [
+       1262,
+       "ὃσων"
+      ],
+      [
+       1657,
+       "ὃσων"
+      ]
+     ]
+    },
+    {
+     "index": 287,
+     "was": [
+      [
+       1439,
+       "ἂλλης"
+      ],
+      [
+       1449,
+       "ἂλλης"
+      ]
+     ]
+    },
+    {
+     "index": 288,
+     "was": [
+      [
+       1341,
+       "ὃσαις"
+      ],
+      [
+       1457,
+       "ἂλλης"
+      ],
+      [
+       1467,
+       "ἂλλης"
+      ]
+     ]
+    },
+    {
+     "index": 290,
+     "was": [
+      [
+       664,
+       "ἲσας"
+      ]
+     ]
+    },
+    {
+     "index": 292,
+     "was": [
+      [
+       505,
+       "ἒδει"
+      ]
+     ]
+    },
+    {
+     "index": 293,
+     "was": [
+      [
+       874,
+       "ὂψεις"
+      ]
+     ]
+    },
+    {
+     "index": 294,
+     "was": [
+      [
+       155,
+       "ἒλεγεν"
+      ],
+      [
+       383,
+       "ὃσων"
+      ]
+     ]
+    },
+    {
+     "index": 295,
+     "was": [
+      [
+       1527,
+       "ἃπαξ"
+      ]
+     ]
+    },
+    {
+     "index": 296,
+     "was": [
+      [
+       1242,
+       "ἳππον"
+      ]
+     ]
+    },
+    {
+     "index": 297,
+     "was": [
+      [
+       1540,
+       "εἲσω"
+      ],
+      [
+       1801,
+       "ἂκρων"
+      ],
+      [
+       1987,
+       "ἂκροις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 34,
+   "sha256_after": "63dd10cf7bf8b8d1a4a6c10b4ef571cca726a8cd443ac13256f219bfc57c20c6"
+  },
+  {
+   "file": "data/corpus/joannes-philoponus.in-aristotelis-analytica-priora-commentaria.jsonl",
+   "sha256_before": "cacd8b2b9d5b890273c7a1a7a7a0b404d032b28bc79c8e44948d0d0bb36f56eb",
+   "edits": [
+    {
+     "index": 264,
+     "was": [
+      [
+       601,
+       "ὃροι"
+      ]
+     ]
+    },
+    {
+     "index": 359,
+     "was": [
+      [
+       1226,
+       "πὰντὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "0e9168fc58635f2d6852c817158a4e48ee7756de879675e0e2bd709d7a1fd32b"
+  },
+  {
+   "file": "data/corpus/joannes-philoponus.in-aristotelis-libros-de-anima-commentaria.jsonl",
+   "sha256_before": "6eba3fd2f8fb729c68e8b46c57c9736574a7c63812bcfcd5fe5761a7dc3a37c5",
+   "edits": [
+    {
+     "index": 389,
+     "was": [
+      [
+       1387,
+       "ὂντας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "320f50d3b5f2f7d9d9f3b52a73c29711c3a0cec9e3f91526d79a797b6cfcda1d"
+  },
+  {
+   "file": "data/corpus/joannes-philoponus.in-aristotelis-libros-de-generatione-et-corruptione-commentaria.jsonl",
+   "sha256_before": "6e5f496c38f8a145e4ab69a79729029d95e2afadcef7f41956cf769d72229099",
+   "edits": [
+    {
+     "index": 276,
+     "was": [
+      [
+       831,
+       "μετὰβολῆς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0097f7fac24012d53892db3f8703d9aed220465be461638fe6a863a0ae5fe372"
+  },
+  {
+   "file": "data/corpus/joannes-philoponus.in-aristotelis-physicorum-libros-commentaria.jsonl",
+   "sha256_before": "00ff8c97d9494f035b4a50f9d47f20d3384145e1fff03584fcc6eddda0948f2d",
+   "edits": [
+    {
+     "index": 23,
+     "was": [
+      [
+       695,
+       "σημαὶνων"
+      ]
+     ]
+    },
+    {
+     "index": 442,
+     "was": [
+      [
+       1459,
+       "διὴκει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "3f9f3e8085c728349d1fb98db60d69a77cd6e5860b2a27748ba464173c6e2d41"
+  },
+  {
+   "file": "data/corpus/joannes-vi-cantacuzenus.historiae.jsonl",
+   "sha256_before": "005d04e28268bc8666bdd2896fcdee5aaf72d12e0fc1cf3634f7119046540fa3",
+   "edits": [
+    {
+     "index": 242,
+     "was": [
+      [
+       5,
+       "Τὸτε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a2ceaadbf312ba9ef8c2805081dab0f61e6a8a9ffb25dafa7e43b966dcc29815"
+  },
+  {
+   "file": "data/corpus/justinus-martyr.dialogus-cum-tryphone.jsonl",
+   "sha256_before": "4fc6af474e4136374af88426c878e3793cd0340d8a89e1d0bce8805532241258",
+   "edits": [
+    {
+     "index": 160,
+     "was": [
+      [
+       13,
+       "παυσαμὲνου"
+      ]
+     ]
+    },
+    {
+     "index": 355,
+     "was": [
+      [
+       31,
+       "κακὶας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "a14df72d8a40fac7c4e139514fd705e51612adc2d642c3e61414661f97c6a642"
+  },
+  {
+   "file": "data/corpus/kekaumenos.consilia-et-narrationes.jsonl",
+   "sha256_before": "1a7d8994dd3c8ae1c90733e19571919af50da5254372f1e36c860495c24f4a0c",
+   "edits": [
+    {
+     "index": 2190,
+     "was": [
+      [
+       55,
+       "εἰκὸνα"
+      ]
+     ]
+    },
+    {
+     "index": 2192,
+     "was": [
+      [
+       10,
+       "εἰκὸνι"
+      ]
+     ]
+    },
+    {
+     "index": 2194,
+     "was": [
+      [
+       4,
+       "εἰκὸνας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "139826d07e5c4ee31f82746af82d287cc206d4fe5df341a371420e30806dff16"
+  },
+  {
+   "file": "data/corpus/leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia.jsonl",
+   "sha256_before": "7f5d5c1aa06050fa0a61023998caa52fecccfebbb091f119b68501a07a83499d",
+   "edits": [
+    {
+     "index": 33,
+     "was": [
+      [
+       158,
+       "τὰνῦν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "b515e5a372de356b81046fea3d27e11f283bc3d5be152a44867c0bc3ac50b62c"
+  },
+  {
+   "file": "data/corpus/leo-vi-sapiens.tactica.jsonl",
+   "sha256_before": "8876b1d522368ac3f0b103cc70756f5defb3fa456ea64537593e8c49a1bac36f",
+   "edits": [
+    {
+     "index": 57,
+     "was": [
+      [
+       398,
+       "μὲρη"
+      ]
+     ]
+    },
+    {
+     "index": 187,
+     "was": [
+      [
+       2136,
+       "ἣττης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "aac56356635e69840010fbe4b02696d5a82718454519d96c0497acaf10a252b9"
+  },
+  {
+   "file": "data/corpus/libanius.epistulae-1-1544.jsonl",
+   "sha256_before": "6baa4868ab5c39e5ae5e5c8271d8e7cb61ad9d04371d167b3604df89bfb8abe0",
+   "edits": [
+    {
+     "index": 1156,
+     "was": [
+      [
+       65,
+       "ὸὕτω"
+      ]
+     ]
+    },
+    {
+     "index": 3811,
+     "was": [
+      [
+       149,
+       "νὲου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "33979cdcf7845c987715a77ef8a70050e1e012c7ed220bfaea89b471a57f4030"
+  },
+  {
+   "file": "data/corpus/libanius.oratio-59.jsonl",
+   "sha256_before": "276db127ff5d29f6179cc35afae17d09b4d09daff04d485dfeca06295c133097",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       258,
+       "ἒργον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "1bda8928ffe5eea2cffeb7b9edbe43fe843f12a1fba8199e3af1410fc361e0f8"
+  },
+  {
+   "file": "data/corpus/liber-enoch.apocalypsis-enochi.jsonl",
+   "sha256_before": "7f9a49d7ab42822f8e8a43a0c66a123fda9e08b0b05d0ad39bda5cdfc9c92be9",
+   "edits": [
+    {
+     "index": 8,
+     "was": [
+      [
+       154,
+       "ἒργων"
+      ]
+     ]
+    },
+    {
+     "index": 49,
+     "was": [
+      [
+       76,
+       "ἒπεμψεν"
+      ]
+     ]
+    },
+    {
+     "index": 55,
+     "was": [
+      [
+       1767,
+       "ἒργοις"
+      ]
+     ]
+    },
+    {
+     "index": 56,
+     "was": [
+      [
+       37,
+       "ἒργοις"
+      ]
+     ]
+    },
+    {
+     "index": 73,
+     "was": [
+      [
+       59,
+       "ἒγνω"
+      ]
+     ]
+    },
+    {
+     "index": 80,
+     "was": [
+      [
+       84,
+       "ἒργων"
+      ]
+     ]
+    },
+    {
+     "index": 81,
+     "was": [
+      [
+       69,
+       "ἒλαβεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 7,
+   "sha256_after": "c7605be25ad723dd36e69c22e3f8b1588381f16cc3237ce09ed8549b66c76288"
+  },
+  {
+   "file": "data/corpus/lucianus.dialogi-mortuorum.jsonl",
+   "sha256_before": "cadf2d07106c4fb317d346e3b6799e149de0b8084ca71a54a8d1931512548e28",
+   "edits": [
+    {
+     "index": 43,
+     "was": [
+      [
+       458,
+       "τὰχέως"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a59ff7d21c40d9e7c7527ee6e9edded74ab777b23341a6e6d9b97fc8c16a571d"
+  },
+  {
+   "file": "data/corpus/lucianus.soloecista.jsonl",
+   "sha256_before": "8fe2b6b37284f80792014a28dd4cbaf02c1ef4ca8e838f03a33de8dd987a5ecf",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       158,
+       "λὲγεις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "2016cc518382741f45b8d10e015f45c8027a550d280f90ea2d6092c5ccc40b50"
+  },
+  {
+   "file": "data/corpus/manetho-sebennyta.fragmenta.jsonl",
+   "sha256_before": "2e737f2bb766163b63efa36b747bc90486c22b2b76972d2c763b0cd256d28526",
+   "edits": [
+    {
+     "index": 56,
+     "was": [
+      [
+       6121,
+       "μετὲβη"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c19b83b8927c9d0489d57d42d39f82ff91ec265d730749454f61ee60328c2190"
+  },
+  {
+   "file": "data/corpus/marcellus-theology.fragmenta.jsonl",
+   "sha256_before": "81a90ac042e3b723c808df685fd02b59189b6dedca3191c18e510b937ab29736",
+   "edits": [
+    {
+     "index": 14,
+     "was": [
+      [
+       119,
+       "ἂρτι"
+      ]
+     ]
+    },
+    {
+     "index": 72,
+     "was": [
+      [
+       55,
+       "ἣκω"
+      ]
+     ]
+    },
+    {
+     "index": 75,
+     "was": [
+      [
+       541,
+       "ὺἱὸν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "4efc78e535bcd8f84942dbac6ea4a2bbbd1e59596538d02cad842ba1271555f8"
+  },
+  {
+   "file": "data/corpus/memnon.fragmenta.jsonl",
+   "sha256_before": "cf10c3cf9ce986c2d55a8a6504a53d23255eafcd10f5203944ef677c5f8311ae",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       76,
+       "Τιμοθὲου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "5c0829651f343a76a9bf536ba3cb02c566b58421a1baf37622caf709d030dacd"
+  },
+  {
+   "file": "data/corpus/methodius.symposium-sive-convivium-decem-virginum.jsonl",
+   "sha256_before": "6f3cbfa3a1215df6e8302f2f7c29c219fc0256af6cd111813f7e5e88b078c09c",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       59,
+       "ἒλεγεν"
+      ],
+      [
+       1468,
+       "οὒσας"
+      ],
+      [
+       3373,
+       "ἒρως"
+      ]
+     ]
+    },
+    {
+     "index": 3,
+     "was": [
+      [
+       779,
+       "ἒστω"
+      ],
+      [
+       900,
+       "ἳππους"
+      ],
+      [
+       1275,
+       "ἒθους"
+      ]
+     ]
+    },
+    {
+     "index": 5,
+     "was": [
+      [
+       1747,
+       "ἒθνους"
+      ],
+      [
+       1823,
+       "ἒφην"
+      ]
+     ]
+    },
+    {
+     "index": 6,
+     "was": [
+      [
+       919,
+       "ἂρτι"
+      ]
+     ]
+    },
+    {
+     "index": 8,
+     "was": [
+      [
+       95,
+       "οἲει"
+      ]
+     ]
+    },
+    {
+     "index": 10,
+     "was": [
+      [
+       423,
+       "ἒφην"
+      ],
+      [
+       445,
+       "ἒνδον"
+      ]
+     ]
+    },
+    {
+     "index": 11,
+     "was": [
+      [
+       122,
+       "ἒργον"
+      ]
+     ]
+    },
+    {
+     "index": 12,
+     "was": [
+      [
+       2315,
+       "ἂνθεσιν"
+      ]
+     ]
+    },
+    {
+     "index": 18,
+     "was": [
+      [
+       1085,
+       "ἒφην"
+      ]
+     ]
+    },
+    {
+     "index": 19,
+     "was": [
+      [
+       478,
+       "ἂκρον"
+      ]
+     ]
+    },
+    {
+     "index": 20,
+     "was": [
+      [
+       1409,
+       "ἒφην"
+      ]
+     ]
+    },
+    {
+     "index": 21,
+     "was": [
+      [
+       624,
+       "ἂχρις"
+      ]
+     ]
+    },
+    {
+     "index": 25,
+     "was": [
+      [
+       776,
+       "ὃτῳ"
+      ]
+     ]
+    },
+    {
+     "index": 26,
+     "was": [
+      [
+       1772,
+       "ἲθι"
+      ]
+     ]
+    },
+    {
+     "index": 27,
+     "was": [
+      [
+       63,
+       "ἳστατο"
+      ]
+     ]
+    },
+    {
+     "index": 28,
+     "was": [
+      [
+       820,
+       "ἒφασαν"
+      ],
+      [
+       945,
+       "εἲσω"
+      ],
+      [
+       1916,
+       "ἒσχε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 16,
+   "sha256_after": "5da84241e6e7119c1eae434680a9ec5726d00ec0007ee6746a6607c88677d1e4"
+  },
+  {
+   "file": "data/corpus/michael-glycas.annales.jsonl",
+   "sha256_before": "011aca767cdab145b4b0126819a431ea2489a2fab2b6c109d887b1b72f2c8c22",
+   "edits": [
+    {
+     "index": 142,
+     "was": [
+      [
+       2009,
+       "ἣμέρας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "185fcc618af9e2f126ebd41b21d7d7f6f0c1ec2b0e44e24780988d38591e20a3"
+  },
+  {
+   "file": "data/corpus/michael-glycas.epistolae.jsonl",
+   "sha256_before": "862602cbf264a39b3b3edb1e226bb0319e0ace1f7b1b6fd22da08bd311180d17",
+   "edits": [
+    {
+     "index": 155,
+     "was": [
+      [
+       308,
+       "τὸῖς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "54885d9b6fff79df6995bbcc410513fb468d8fedad2b16e4828c362c4f88f08e"
+  },
+  {
+   "file": "data/corpus/michael-psellus.de-anima-celebres-opiniones.jsonl",
+   "sha256_before": "c7280f3de9ab1563c9c82f1a57dc61d397e159436d516361ec66b40ed66664e9",
+   "edits": [
+    {
+     "index": 13,
+     "was": [
+      [
+       1554,
+       "ἢθη"
+      ]
+     ]
+    },
+    {
+     "index": 17,
+     "was": [
+      [
+       968,
+       "εἰδὲναι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "3aca0f4ffdec6f7e59ef9d1d3ed8578dc7731b0e67ff6057d84e602838c10004"
+  },
+  {
+   "file": "data/corpus/michael-psellus.de-locis-et-nominibus-atticis-sp.jsonl",
+   "sha256_before": "00334a177274caa7f0f0ed720c2b28a58c4e522bb55f4ef328377503188f8933",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       677,
+       "βασιλὲα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "4c88064112a366e0d03fe689de0884c823f4912bdb2c07ebf1233a11e67e1381"
+  },
+  {
+   "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
+   "sha256_before": "1e6ee0431cac5f03dfe75cc186334e757fa4a6964fe1a07dcfe8cbb2af0bd07e",
+   "edits": [
+    {
+     "index": 7,
+     "was": [
+      [
+       593,
+       "πὰντα"
+      ]
+     ]
+    },
+    {
+     "index": 28,
+     "was": [
+      [
+       2403,
+       "στοιχεὶων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "dfeb3843c06207936d373820cbadda7043dd03dbdd70b7e3c9e1ec25d9f47fe2"
+  },
+  {
+   "file": "data/corpus/michael-psellus.opuscula-psychologica-theologica-daemonologica.jsonl",
+   "sha256_before": "ec36065f0f86caecc8521a145df8cc38d2ba16739f1a77c0f548a7392e7e4f00",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       2457,
+       "ἓαυτοῦ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "230a67df487e1b41a7e93489bf584b6124895f63b29ff5af32e839af62b24cc2"
+  },
+  {
+   "file": "data/corpus/michael-psellus.poemata.jsonl",
+   "sha256_before": "8417d290c7a8f4799f623c664a52024629081308f37aab6e1d7c16310375cc43",
+   "edits": [
+    {
+     "index": 42,
+     "was": [
+      [
+       2502,
+       "ὃσπερ"
+      ]
+     ]
+    },
+    {
+     "index": 83,
+     "was": [
+      [
+       499,
+       "μὲρη"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "4c687b40a9df3ade8a6fcbcde896afa6e9e39f719382c03fec1a690d79df802e"
+  },
+  {
+   "file": "data/corpus/michael-psellus.quaestionum-naturalium-solutiones-sp.jsonl",
+   "sha256_before": "71fd46ffcaec3d929eef001c78a9382dce7d84d567dfbbe593dbc43307b8eda6",
+   "edits": [
+    {
+     "index": 7,
+     "was": [
+      [
+       1065,
+       "μὲρει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c4bc8c5d4d443e231c625e2eda64a768ffaf65f7f6a540d05107a89efdb06c6e"
+  },
+  {
+   "file": "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl",
+   "sha256_before": "ff760519dd85d75f53b4d6cefd6616d4a1e1ef98363b1200dee53ee189454a8a",
+   "edits": [
+    {
+     "index": 110,
+     "was": [
+      [
+       639,
+       "Ἀλεξὰνδρου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "7edad4c402e92a066da47f999cb261c4909b58caf409e3f9dae43dbe8ede6f40"
+  },
+  {
+   "file": "data/corpus/nonnus.dionysiaca.jsonl",
+   "sha256_before": "5b65fd2c178cdd6a71909b5bfbc5ab2040162b8f868d139c094c7eefceb29d16",
+   "edits": [
+    {
+     "index": 15069,
+     "was": [
+      [
+       12,
+       "τὰλαντα"
+      ]
+     ]
+    },
+    {
+     "index": 19014,
+     "was": [
+      [
+       34,
+       "Ὀλὺμπου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "a482ef99b4c5905899aa93976f4bcd6802d23954efba473924e68391e1ee2f3f"
+  },
+  {
+   "file": "data/corpus/novum-testamentum.epistula-pauli-ad-romanos.jsonl",
+   "sha256_before": "8f81c94a9654ec25f3b022e27990ae7e3fb97bf95944e3c93626aa7d1d11fbcb",
+   "edits": [
+    {
+     "index": 254,
+     "was": [
+      [
+       75,
+       "δικὰιοσύνην"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "69ca7441bf3e869962e0fa1ebdc87e5ca3c575588c700c182acb82a1282656e2"
+  },
+  {
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-ad-ephesios-in-catenis.jsonl",
+   "sha256_before": "844f4cebf660f085035dc66f3d2316c0592cfd3abd2fdf8306052d162c86988b",
+   "edits": [
+    {
+     "index": 6,
+     "was": [
+      [
+       1607,
+       "λὸγον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "bf3bbc1808143472efba28e054004bd87f428f3ed8530497a6e7046631c65d3d"
+  },
+  {
+   "file": "data/corpus/oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis.jsonl",
+   "sha256_before": "471face07c98239a127d27b6ba85aaf59b575d0363bf4e81f2f77b29c38e5d66",
+   "edits": [
+    {
+     "index": 112,
+     "was": [
+      [
+       1890,
+       "ἀλλὴλοις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a7d4e8ed4360ff6301084194842dd0ff25eecc7692decc49b32d6d1a8a0cb195"
+  },
+  {
+   "file": "data/corpus/olympiodorus-philosophy.in-aristotelis-meteora-commentaria.jsonl",
+   "sha256_before": "b5a7dca2ef0e0b1d30e006850b0ed1cfc2c1ac33c3641c7297832cc783cb5686",
+   "edits": [
+    {
+     "index": 206,
+     "was": [
+      [
+       269,
+       "ἒπεα"
+      ]
+     ]
+    },
+    {
+     "index": 228,
+     "was": [
+      [
+       460,
+       "ἲσης"
+      ]
+     ]
+    },
+    {
+     "index": 240,
+     "was": [
+      [
+       1442,
+       "ὂψιν"
+      ]
+     ]
+    },
+    {
+     "index": 241,
+     "was": [
+      [
+       1213,
+       "ἒσχε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "21ed6446b3b683a8bceda6b1a41e91c4db61088e8f687728506364251433d6d7"
+  },
+  {
+   "file": "data/corpus/oracula-sibyllina.oracula.jsonl",
+   "sha256_before": "00110936fd36b6ddf13910d755f8ac36ab3b5fc2e546d2e975801a219eadd3eb",
+   "edits": [
+    {
+     "index": 43,
+     "was": [
+      [
+       82,
+       "ἂρκτον"
+      ],
+      [
+       238,
+       "ὂφεις"
+      ]
+     ]
+    },
+    {
+     "index": 44,
+     "was": [
+      [
+       878,
+       "ἂρτι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "5e1c338a16aa302c946f7660ca80204f8fde46bf71d469f886a32baa5bd374ac"
+  },
+  {
+   "file": "data/corpus/origenes.commentarii-in-evangelium-joannis-lib-1-2-4-5-6-10-13.jsonl",
+   "sha256_before": "328367c38dbbe10d867b23202f9779d5503e1d42cdd8ebec3f28e865c7c93f64",
+   "edits": [
+    {
+     "index": 226,
+     "was": [
+      [
+       179,
+       "ἐπινοὶας"
+      ]
+     ]
+    },
+    {
+     "index": 548,
+     "was": [
+      [
+       275,
+       "χὰριν"
+      ]
+     ]
+    },
+    {
+     "index": 585,
+     "was": [
+      [
+       336,
+       "πὰντα"
+      ]
+     ]
+    },
+    {
+     "index": 2302,
+     "was": [
+      [
+       112,
+       "κατὰλύειν"
+      ]
+     ]
+    },
+    {
+     "index": 2325,
+     "was": [
+      [
+       140,
+       "κατὰλύειν"
+      ]
+     ]
+    },
+    {
+     "index": 2737,
+     "was": [
+      [
+       18,
+       "δὶὰ"
+      ]
+     ]
+    },
+    {
+     "index": 2846,
+     "was": [
+      [
+       226,
+       "ἣκειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 7,
+   "sha256_after": "dabcd0cbe002330c16cc99b2bbb45aea502b14132ebd145e2f3c2177077d07a9"
+  },
+  {
+   "file": "data/corpus/origenes.commentarium-in-evangelium-matthaei-lib-12-17.jsonl",
+   "sha256_before": "74e226f72afd85ee325b2743e30b907f4cb1ed87489f58bd5e308fc86d9c16a8",
+   "edits": [
+    {
+     "index": 59,
+     "was": [
+      [
+       2068,
+       "καὶροὺς"
+      ]
+     ]
+    },
+    {
+     "index": 68,
+     "was": [
+      [
+       362,
+       "πρὰττειν"
+      ]
+     ]
+    },
+    {
+     "index": 80,
+     "was": [
+      [
+       1564,
+       "τὰλαντα"
+      ]
+     ]
+    },
+    {
+     "index": 152,
+     "was": [
+      [
+       4249,
+       "ἒμελλεν"
+      ]
+     ]
+    },
+    {
+     "index": 154,
+     "was": [
+      [
+       1653,
+       "ὂχλος"
+      ]
+     ]
+    },
+    {
+     "index": 156,
+     "was": [
+      [
+       854,
+       "ἒθνους"
+      ]
+     ]
+    },
+    {
+     "index": 157,
+     "was": [
+      [
+       2663,
+       "εἲθε"
+      ]
+     ]
+    },
+    {
+     "index": 158,
+     "was": [
+      [
+       328,
+       "εἲθε"
+      ]
+     ]
+    },
+    {
+     "index": 162,
+     "was": [
+      [
+       2164,
+       "ἒχητε"
+      ],
+      [
+       2501,
+       "ἒθνη"
+      ],
+      [
+       3152,
+       "ἂβυσσον"
+      ]
+     ]
+    },
+    {
+     "index": 165,
+     "was": [
+      [
+       3215,
+       "ἒστω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 10,
+   "sha256_after": "edea901fd82aa60f2ad4e29a8ceaf0cd21003c47d6fa8bd0265eaeacb151661e"
+  },
+  {
+   "file": "data/corpus/origenes.fragmenta-in-evangelium-joannis-in-catenis.jsonl",
+   "sha256_before": "757e4d6fe1121fc8326a4d3459b5bc007690f1e8799cc72e918ddc5ed57b9fb6",
+   "edits": [
+    {
+     "index": 28,
+     "was": [
+      [
+       421,
+       "ὁμολογὶαν"
+      ]
+     ]
+    },
+    {
+     "index": 60,
+     "was": [
+      [
+       1382,
+       "στοιχεὶων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "bb241ffb3d902cab5f2139c8b9ee77f5c97039fb2b80ff4ad51f04f4088c112c"
+  },
+  {
+   "file": "data/corpus/origenes.fragmenta-in-lamentationes-in-catenis.jsonl",
+   "sha256_before": "dd17b600445e933949615edb89c05bad6d6f3445145d43f70861554d51e7e32e",
+   "edits": [
+    {
+     "index": 113,
+     "was": [
+      [
+       157,
+       "οὓσπερ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0f69d871ec8c170698374da74fa40de959550701a7b98472640418961a49b565"
+  },
+  {
+   "file": "data/corpus/origenes.fragmenta-in-lucam-in-catenis.jsonl",
+   "sha256_before": "8d92ed97f0438458465a71deb2fc42400949f6ddc4a931c6328bbc2a6e220a8d",
+   "edits": [
+    {
+     "index": 61,
+     "was": [
+      [
+       201,
+       "πονηρὶας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "06e3a820f72c6c691447b69768bf077c56042ddd85e7e5ea3125c3639e180798"
+  },
+  {
+   "file": "data/corpus/origenes.fragmenta-in-psalmos-1-150-dub.jsonl",
+   "sha256_before": "012a0c67c2b3b6486256f7fb7939379c054d91bb60009f92d37589722b8c89a1",
+   "edits": [
+    {
+     "index": 105,
+     "was": [
+      [
+       788,
+       "ἐπὲι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "07df3a718a1b97d27bf4770a8265aecd7fdf02ceee958fceef155264b77b3cb7"
+  },
+  {
+   "file": "data/corpus/origenes.philocalia-sive-ecloga-de-operibus-origenis-basilio-et.jsonl",
+   "sha256_before": "16e219377f92313f457031bbebc143634ed627210a5c580eff1696fb8706649b",
+   "edits": [
+    {
+     "index": 5,
+     "was": [
+      [
+       1008,
+       "υἳοὶ"
+      ]
+     ]
+    },
+    {
+     "index": 8,
+     "was": [
+      [
+       575,
+       "δυνατὸι"
+      ]
+     ]
+    },
+    {
+     "index": 66,
+     "was": [
+      [
+       974,
+       "υἳοὶ"
+      ]
+     ]
+    },
+    {
+     "index": 176,
+     "was": [
+      [
+       672,
+       "καθὸλου"
+      ],
+      [
+       782,
+       "καθὸλου"
+      ]
+     ]
+    },
+    {
+     "index": 195,
+     "was": [
+      [
+       371,
+       "θὲος"
+      ]
+     ]
+    },
+    {
+     "index": 211,
+     "was": [
+      [
+       221,
+       "θεὸῦ"
+      ]
+     ]
+    },
+    {
+     "index": 221,
+     "was": [
+      [
+       2122,
+       "λευκὸυ"
+      ]
+     ]
+    },
+    {
+     "index": 238,
+     "was": [
+      [
+       517,
+       "ποιὴσω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 8,
+   "sha256_after": "1e5861a9d6b3dd1110639615e7ff602fe8b88d332f53738c5ae9a5c73933c709"
+  },
+  {
+   "file": "data/corpus/origenes.scholia-in-canticum-canticorum.jsonl",
+   "sha256_before": "94403087b84f7ff9b5964e9a7cd852b0f1080b1ac645c022c30e68070979ebb8",
+   "edits": [
+    {
+     "index": 27,
+     "was": [
+      [
+       574,
+       "πλησὶον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "396156413c51d7ea73e276d8ce8c26d9969900d5664d57aa1c551563fb7ceb5a"
+  },
+  {
+   "file": "data/corpus/origenes.selecta-in-psalmos-dub-fragmenta-e-catenis.jsonl",
+   "sha256_before": "65879cd815d3c21f3d0faa04fbe8dbecaf24e587eec0b615141d4a3539d9e2cd",
+   "edits": [
+    {
+     "index": 291,
+     "was": [
+      [
+       37,
+       "πὰντα"
+      ]
+     ]
+    },
+    {
+     "index": 311,
+     "was": [
+      [
+       183,
+       "πὰντας"
+      ]
+     ]
+    },
+    {
+     "index": 557,
+     "was": [
+      [
+       322,
+       "Θεὸυ"
+      ]
+     ]
+    },
+    {
+     "index": 698,
+     "was": [
+      [
+       118,
+       "διαβὸλου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "0ad81703946915da47c987211e5ec30f5b8609d3daf12356b766ff9537827ddd"
+  },
+  {
+   "file": "data/corpus/pappus-mathematics.synagoge.jsonl",
+   "sha256_before": "da72153985e31ba99e85cf3f62f7534b081c22829152f0783cf927226a5d7e6f",
+   "edits": [
+    {
+     "index": 158,
+     "was": [
+      [
+       262,
+       "χρὸνῳ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "3ca2c31f5ed68da0929451312d3de552e20f9d975a7f06618f8e17f70e61a043"
+  },
+  {
+   "file": "data/corpus/paraphrases-in-dionysium-periegetam.in-dionysii-periegetae-orbis-descriptionem.jsonl",
+   "sha256_before": "6f7e315a7b178ee97c77a7dd342230a6b40f450e516fad39aba5f8dc286fa647",
+   "edits": [
+    {
+     "index": 14,
+     "was": [
+      [
+       498,
+       "ὑπὲράνω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "cca711e9aa2a7c251743786511f04c080b66ccf2204513a546f9f6f58d4b3843"
+  },
+  {
+   "file": "data/corpus/periplus-ponti-euxini.anonymi-arriani-ut-fertur-periplus-ponti-euxini.jsonl",
+   "sha256_before": "ced5a6e9d7ef8992393f65dacc019cc2a8731697df6dcebace99f2180f674f2a",
+   "edits": [
+    {
+     "index": 25,
+     "was": [
+      [
+       367,
+       "οἰκεὶται"
+      ]
+     ]
+    },
+    {
+     "index": 33,
+     "was": [
+      [
+       20,
+       "κὸλπος"
+      ]
+     ]
+    },
+    {
+     "index": 40,
+     "was": [
+      [
+       55,
+       "πὰλαι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "78b25574bc6c63d41285ea921e74b75f83cf2d59f7e1a4ccffe192033fc52f6b"
+  },
+  {
+   "file": "data/corpus/phalaridis-epistulae.epistulae.jsonl",
+   "sha256_before": "30c055693a4a9adf8953371ce495365a0cdb5176a06999c2dddb39e5234b4886",
+   "edits": [
+    {
+     "index": 142,
+     "was": [
+      [
+       101,
+       "παρὸντα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a0cc5e7d579296b8a534c3bc9d30a1c6b47e489f6f4e74d51f8b3d83e04f683c"
+  },
+  {
+   "file": "data/corpus/philo-judaeus-philosophy.de-ebrietate.jsonl",
+   "sha256_before": "5d45c788911ff069202c9ad18d25437d0cbb279d9f0487a5f962847bc60d7347",
+   "edits": [
+    {
+     "index": 133,
+     "was": [
+      [
+       72,
+       "τὸνδὲ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "ca1017e8d1ed35726142a8a4dceeb930eb6ca671c7f229e88b4896f37510cba3"
+  },
+  {
+   "file": "data/corpus/philodemus.de-musica-librorum-quae-exstant.jsonl",
+   "sha256_before": "7fc9f065db64382b009d296999874101063a2ec16b7a759f7634e3dbdbf38e30",
+   "edits": [
+    {
+     "index": 7,
+     "was": [
+      [
+       293,
+       "καθὸλου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "5a8c1d9fbae433c5c3168e31b439452a3a6de9bd6c8bb391f84ce49b9fdab8b0"
+  },
+  {
+   "file": "data/corpus/philostorgius.historia-ecclesiastica-fragmenta-ap-photium.jsonl",
+   "sha256_before": "ff9310e6d4be5e8b2ecada1242327d9efdbaf97da1a2ee91b9deb2d3880ba80e",
+   "edits": [
+    {
+     "index": 18,
+     "was": [
+      [
+       4368,
+       "ἒθνος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "570080c0837e094739308a9bba70b1209e1e31d14fb8aefbb8309a5e59305ceb"
+  },
+  {
+   "file": "data/corpus/philotheus-constantinopolitanus.antirrhetici-contra-gregoram.jsonl",
+   "sha256_before": "055e1f9f71c2990dd562972349a88ca33b22b660c09e11ab2133a7a6c33178b5",
+   "edits": [
+    {
+     "index": 59,
+     "was": [
+      [
+       3974,
+       "δὶὰ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "07dcc1e742ff568e541b458ee0804523dd73465ff27c70a906e789e68ba19355"
+  },
+  {
+   "file": "data/corpus/philotheus-constantinopolitanus.encomium-gregorii-palamae.jsonl",
+   "sha256_before": "5226601e0a80794c78ad3b5ccafaf9d6920e64896574655c35922a39023b6a87",
+   "edits": [
+    {
+     "index": 43,
+     "was": [
+      [
+       4214,
+       "μὲρει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "20275eba7785a33568e98a47d6739a490330c96e96192a152dc835ff85d5ffac"
+  },
+  {
+   "file": "data/corpus/plutarchus.ad-principem-ineruditum-779d-782f.jsonl",
+   "sha256_before": "8097b741d7a4d2e7074715ff65c1974a14159ca10bae433115a6729c870ef0eb",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       1291,
+       "ἣττης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a18bac29ad71a33b2de2560f2ad0683b402b101266513c13a430952efde55a55"
+  },
+  {
+   "file": "data/corpus/plutarchus.adversus-colotem-1107d-1127e.jsonl",
+   "sha256_before": "38ce94c3d2d0ef025f429148d2512ce3717b46f50127d77399b42a428e9b9fcf",
+   "edits": [
+    {
+     "index": 25,
+     "was": [
+      [
+       758,
+       "ἣκειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "85e90755cb4ba8c7fb91939775756bdcd71fa9847d1387caebc6ac3ef4e8ab2d"
+  },
+  {
+   "file": "data/corpus/plutarchus.brutus.jsonl",
+   "sha256_before": "932eb461c5f0ed674b28fae7b9eaa80ac920fdbca0355f4ace532455ea142400",
+   "edits": [
+    {
+     "index": 4,
+     "was": [
+      [
+       264,
+       "πατὰξας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "63818a23b1ae316fb758a94b7e9761b3e64a45242689af00a57e88074278a64b"
+  },
+  {
+   "file": "data/corpus/plutarchus.caesar.jsonl",
+   "sha256_before": "137b6a05235bd2511ee729fce96db1523aa5d2036179cc1c703385385339ffd5",
+   "edits": [
+    {
+     "index": 72,
+     "was": [
+      [
+       0,
+       "ἢρκει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "7007d91cf5f42923f0fb0ef52196f884372c96a251a29c1f1c1c27af3ef7f317"
+  },
+  {
+   "file": "data/corpus/plutarchus.comparationis-aristophanis-et-menandri-compendium-853a-854d.jsonl",
+   "sha256_before": "c3ff12b38b4fa4fd2c868a6332939f5dd6d7358728ed72cb3047508280ccbe0f",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       1516,
+       "ἣρως"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "b7c5e9d7ae65c07a2d8c2c637160c5808a4830aa7f32e6bf8ca4be75559275f1"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-animae-procreatione-in-timaeo-1012b-1030c.jsonl",
+   "sha256_before": "0fb4174a7837349781cd2943bd7233ff3480d5645571276dd54ca07632bd5de3",
+   "edits": [
+    {
+     "index": 29,
+     "was": [
+      [
+       113,
+       "πὲποιηκὼς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "789e237542f2d288bb735ea9a285952c929c12cb35b076e8416727621535c089"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-curiositate-515b-523b.jsonl",
+   "sha256_before": "df2f4fe4ed010b5a94f3d797739e8b579787502ac9f7736cfa186465efdb3e9d",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       1262,
+       "λὲγων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f59ad78cec57f155c0eee2bc94493a50b684fe3c53b2114e636036c860fe9e4d"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-defectu-oraculorum-409e-438d.jsonl",
+   "sha256_before": "1b19e0c43e5fdf0c9834defdcef8279d8aab9f2cf4e0ef90a939c2ce79e529d4",
+   "edits": [
+    {
+     "index": 49,
+     "was": [
+      [
+       1446,
+       "ὂψεσι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "9f1f46fb9a9bb6680c7b33f2d7abd3b48609d3196a4c9c4f32099ffa3a09bfbe"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-fraterno-amore-478a-492d.jsonl",
+   "sha256_before": "b1218d2e32f1d6e2b0295252cd9f5e4993a5be084ac8daca7af44ba97db68689",
+   "edits": [
+    {
+     "index": 17,
+     "was": [
+      [
+       4063,
+       "ἣκειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "1dbde1b4b4a6cbd594f6a335cab6e1b8378ac13dc43a3201c1c7ff690f5ca9c4"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-genio-socratis-575a-598f.jsonl",
+   "sha256_before": "dff2fa63be4635f22642c8309efaf829b4d4314f5ff2c2091575c4ab77753928",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       1011,
+       "τοὺτου"
+      ]
+     ]
+    },
+    {
+     "index": 17,
+     "was": [
+      [
+       1682,
+       "ἣκειν"
+      ]
+     ]
+    },
+    {
+     "index": 26,
+     "was": [
+      [
+       547,
+       "ἣκειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "329cddb124885f2f0d882dba96f0b0a1d2113f4a9ca40e467b55aacd3c48cdc5"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-herodoti-malignitate-854e-874c.jsonl",
+   "sha256_before": "4ae29432f395a9c36eeb7870ce785b237f6a6474900108e26da3aff6bf1436d0",
+   "edits": [
+    {
+     "index": 26,
+     "was": [
+      [
+       245,
+       "ἂστυ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "3955d028f8540ba3f6649dbae976cef48884d394443abc7afea24d91942a4e33"
+  },
+  {
+   "file": "data/corpus/plutarchus.de-sera-numinis-vindicta-548a-568a.jsonl",
+   "sha256_before": "37a9c4b0a059a5186c682ea7ffc1c90c2280414429a6e3bcb698ae4590e1b089",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       374,
+       "ὂντας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "7d210d25d87b62aee48380c7c0d18376c46317b30780c109065f388b69393646"
+  },
+  {
+   "file": "data/corpus/plutarchus.marcius-coriolanus.jsonl",
+   "sha256_before": "b0026eac9e4b882f6f18804b6b5bb570dde82ea787a1bfea36e8a3613d7f411f",
+   "edits": [
+    {
+     "index": 152,
+     "was": [
+      [
+       418,
+       "περὶφανῶς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "733772a9db7c7b7771d235e0d9ff45139fce411a0185093bf585c93fbff62f42"
+  },
+  {
+   "file": "data/corpus/plutarchus.non-posse-suaviter-vivi-secundum-epicurum-1086c-1107c.jsonl",
+   "sha256_before": "7d0fe065b09f5a3060997a34a1e05e77d4054aa9233f0de8674f4f3c5d8e2cc4",
+   "edits": [
+    {
+     "index": 12,
+     "was": [
+      [
+       2860,
+       "ἢθη"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a4ef2fd8521333958ea3bc8794b9f537ccd912cbe6c1b9ee9d08a3054c074df7"
+  },
+  {
+   "file": "data/corpus/plutarchus.parallela-minora-sp-305a-316b.jsonl",
+   "sha256_before": "fb3053de6eb14cca3625fe63330bb0ba00de0d224b5dcb9570a58fec17eeae64",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       699,
+       "Ξὲρξης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "af157798aa82af9c4d5acae1b4f9fb80f16de444ee0bf10085bd0409cf945ce8"
+  },
+  {
+   "file": "data/corpus/plutarchus.praecepta-gerendae-reipublicae-798a-825f.jsonl",
+   "sha256_before": "c6280d62ffe5dcd5fae02bf406572f78f00bef4e1cd994aa7495bef120d70933",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       2620,
+       "ἢθη"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "af94b33eff2034e6161ed044600605f996e2f6ac23a11aca3a0a6e5c50382b75"
+  },
+  {
+   "file": "data/corpus/plutarchus.quaestiones-convivales-612c-748d.jsonl",
+   "sha256_before": "b0dc9e51ca0d6aca70bfbbf56c362e5a9912864c101acdb0bcb222cb2897e8c1",
+   "edits": [
+    {
+     "index": 119,
+     "was": [
+      [
+       126,
+       "ἣκοντας"
+      ]
+     ]
+    },
+    {
+     "index": 249,
+     "was": [
+      [
+       260,
+       "ἣττης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "ba80929ab731397b52e71770baf38f204dde7f68424b26eef7816dafaeed546c"
+  },
+  {
+   "file": "data/corpus/plutarchus.stoicos-absurdiora-poetis-dicere-1057c-1058e.jsonl",
+   "sha256_before": "6389665b0c32585c8d8646c449cafc84fea5b89e684ea51a34a4a4ea81b40435",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       569,
+       "ἣρως"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d6c915c477399fd13ba020945d3219c187e1c7d7d3b693d018d43456e47e8370"
+  },
+  {
+   "file": "data/corpus/porphyrius.de-abstinentia.jsonl",
+   "sha256_before": "3cd6f2f197a6305db739c2fc66c9e0cab1e60b0c33db02a6538c567ab85a1534",
+   "edits": [
+    {
+     "index": 10,
+     "was": [
+      [
+       491,
+       "τοὺτου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "71fe85c5aa4232789e320b6293ce4c8bb1dd49ba7a9f8c642c90536124587688"
+  },
+  {
+   "file": "data/corpus/porphyrius.in-aristotelis-categorias-expositio-per-interrogationem-et.jsonl",
+   "sha256_before": "630623f8392612dab8e228ee08ad4de44273c02a574c75cd8c734453679638a9",
+   "edits": [
+    {
+     "index": 4,
+     "was": [
+      [
+       478,
+       "διαφορὰι"
+      ]
+     ]
+    },
+    {
+     "index": 26,
+     "was": [
+      [
+       1546,
+       "διαφορὰι"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "5e891427202ffd103dbe26c9eb2bfb501ca943b7153ef8e5bd2ba84f75322099"
+  },
+  {
+   "file": "data/corpus/porphyrius.isagoge-sive-quinque-voces.jsonl",
+   "sha256_before": "9636fe59656f7117979662e1ea8b35308f2dd6ea41a1b6015bc7144b7d665f10",
+   "edits": [
+    {
+     "index": 5,
+     "was": [
+      [
+       873,
+       "ἂχρι"
+      ]
+     ]
+    },
+    {
+     "index": 6,
+     "was": [
+      [
+       667,
+       "εἲπεῖν"
+      ],
+      [
+       1721,
+       "πὰντων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "7ad7f168163e4fc11ded937afe92d468d856f40fb1d6266467b0f9804c413b47"
+  },
+  {
+   "file": "data/corpus/porphyrius.quaestionum-homericarum-ad-iliadem-pertinentium-reliquiae.jsonl",
+   "sha256_before": "990f94f1964e4121fc1d22d1065df539d4d7142a4bf83f55cace89ce520b700c",
+   "edits": [
+    {
+     "index": 94,
+     "was": [
+      [
+       1641,
+       "προϲὼπου"
+      ]
+     ]
+    },
+    {
+     "index": 98,
+     "was": [
+      [
+       1510,
+       "πὸλεωϲ"
+      ]
+     ]
+    },
+    {
+     "index": 179,
+     "was": [
+      [
+       795,
+       "ταὺτῃ"
+      ]
+     ]
+    },
+    {
+     "index": 504,
+     "was": [
+      [
+       2278,
+       "δαιμὸνων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "a1a8b1a806cacdef50ea08c48ed6535137021feedef3bfd6dc7bf89649b425f5"
+  },
+  {
+   "file": "data/corpus/porphyrius.zetemata-codicis-vaticani.jsonl",
+   "sha256_before": "4341d15c997bc93dfc34477e80937d6b5238e001750f41880cc11cd4c6bb4dce",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       1022,
+       "πὸδαϲ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "5cb8e29b5969e4ca6370e9318addb562944963bc41d11caeaa4742c0b0536fa6"
+  },
+  {
+   "file": "data/corpus/proclus.in-platonis-rem-publicam-commentarii.jsonl",
+   "sha256_before": "a9d9634c0d92a2a399165f848f23880441d09ba424450a04e1d53d831d278868",
+   "edits": [
+    {
+     "index": 88,
+     "was": [
+      [
+       169,
+       "ὃλοις"
+      ]
+     ]
+    },
+    {
+     "index": 89,
+     "was": [
+      [
+       983,
+       "ἒμμεναι"
+      ]
+     ]
+    },
+    {
+     "index": 95,
+     "was": [
+      [
+       418,
+       "ἂγει"
+      ]
+     ]
+    },
+    {
+     "index": 102,
+     "was": [
+      [
+       556,
+       "ἒριν"
+      ]
+     ]
+    },
+    {
+     "index": 107,
+     "was": [
+      [
+       263,
+       "ἳππον"
+      ],
+      [
+       338,
+       "ἳππου"
+      ]
+     ]
+    },
+    {
+     "index": 111,
+     "was": [
+      [
+       1323,
+       "ἒφην"
+      ]
+     ]
+    },
+    {
+     "index": 119,
+     "was": [
+      [
+       769,
+       "ἳδρυται"
+      ]
+     ]
+    },
+    {
+     "index": 121,
+     "was": [
+      [
+       176,
+       "ὂντας"
+      ]
+     ]
+    },
+    {
+     "index": 122,
+     "was": [
+      [
+       696,
+       "Ἣφαιστον"
+      ]
+     ]
+    },
+    {
+     "index": 129,
+     "was": [
+      [
+       940,
+       "εἲωθεν"
+      ]
+     ]
+    },
+    {
+     "index": 131,
+     "was": [
+      [
+       1039,
+       "ὓπνου"
+      ]
+     ]
+    },
+    {
+     "index": 247,
+     "was": [
+      [
+       7106,
+       "ταὺτην"
+      ]
+     ]
+    },
+    {
+     "index": 310,
+     "was": [
+      [
+       162,
+       "ἓαυτοῦ"
+      ]
+     ]
+    },
+    {
+     "index": 514,
+     "was": [
+      [
+       1023,
+       "ὰἰτίαν"
+      ]
+     ]
+    },
+    {
+     "index": 549,
+     "was": [
+      [
+       249,
+       "κινοὺσαν"
+      ]
+     ]
+    },
+    {
+     "index": 578,
+     "was": [
+      [
+       508,
+       "ἀγὸντῶν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 16,
+   "sha256_after": "b0c259024ea0915492ea5d883ce65c970b707c33a4802db912a0c0a9016c7369"
+  },
+  {
+   "file": "data/corpus/procopius-rhetoric.commentarii-in-octateuchum.jsonl",
+   "sha256_before": "a9c966a87e0534015dc97cb8870e5307a9c6e63f03916f8125e3592ba934dac4",
+   "edits": [
+    {
+     "index": 130,
+     "was": [
+      [
+       57,
+       "Νὼε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8ccfa1e6638205453a8a6df583b4dcabc269a2acbe5ce0e75a68cb8365c1138f"
+  },
+  {
+   "file": "data/corpus/pseudo-apollodorus.bibliotheca-sub-nomine-apollodori.jsonl",
+   "sha256_before": "0cd68aa8728284a3bd05372d1e157b8399bbadc954235572ea9ed3151d287289",
+   "edits": [
+    {
+     "index": 141,
+     "was": [
+      [
+       366,
+       "φυγὸντες"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "e80e09d9dd5d92223c126f55860d959254ca3615819dfb186e75f51aa35840ab"
+  },
+  {
+   "file": "data/corpus/pseudo-plutarchus.placita-philosophorum-874d-911c.jsonl",
+   "sha256_before": "37eb6998ae55a28eaceb7828f0719219c58205afef61785cc8134e501b871fbc",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       316,
+       "λὲγομεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "aee40d3870fa5ffbd58cb8c6fd7679d6ece10f1e59f1a19ff51f54d58bd65f06"
+  },
+  {
+   "file": "data/corpus/pyrrhus-epirota.fragmenta.jsonl",
+   "sha256_before": "03b3f5c86a00c91ee530d0cbf39783a8dc524f26f6186f25c2ada691eb04f95e",
+   "edits": [
+    {
+     "index": 1,
+     "was": [
+      [
+       498,
+       "ὂψιν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "e372407d06ff04dec15c27a52307bd1eff99e242c63b01e1b163197d3c8cff98"
+  },
+  {
+   "file": "data/corpus/sallustius.de-deis-et-mundo.jsonl",
+   "sha256_before": "8b4b9811feff15e9d158a47a98b9884fb032395f7b2a2a329a7eea85d6ef6cd2",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       3077,
+       "ἐσχὰτων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "e6557f6e570dede3e069a0572989f6027d0aa4380fa3bbfe74559d49fdfa422b"
+  },
+  {
+   "file": "data/corpus/scholia-in-euripidem.scholia-in-euripidis-orestem-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma.jsonl",
+   "sha256_before": "57aa2a49e9fc66284daa5c3edfb223941de26ada2cd6e70da47867a6d2824d95",
+   "edits": [
+    {
+     "index": 867,
+     "was": [
+      [
+       108,
+       "ἀπὸθανεῖν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "9b0dc3d08a84de82ba92812bdb79563fa6917d6d5c0804b0fe7c2c623441c2dc"
+  },
+  {
+   "file": "data/corpus/scholia-in-euripidem.scholia-in-euripidis-phoenissas-scholia-vetera-et-scholia-recentiora-thomae-magistri-triclinii-moschopuli-et-anonyma.jsonl",
+   "sha256_before": "8203e115da23928d114803f22217940a55e9923b1f1e69ea4477216f5790c7ab",
+   "edits": [
+    {
+     "index": 441,
+     "was": [
+      [
+       116,
+       "Ἂπολλον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "2f8a32f512201aae2a46bc26db09ec4d1e4607097f6780f5b7149d22a1223ef7"
+  },
+  {
+   "file": "data/corpus/scholia-in-homerum.scholia-in-iliadem-scholia-vetera.jsonl",
+   "sha256_before": "dde6fd7ea523f2799c27177d24b8ed275da2009dd9f61f0331d4daa00ba47c02",
+   "edits": [
+    {
+     "index": 4303,
+     "was": [
+      [
+       280,
+       "δὶὰ"
+      ]
+     ]
+    },
+    {
+     "index": 9225,
+     "was": [
+      [
+       188,
+       "Ἀλεξὰνδρου"
+      ]
+     ]
+    },
+    {
+     "index": 17320,
+     "was": [
+      [
+       80,
+       "τὸδὲ"
+      ]
+     ]
+    },
+    {
+     "index": 18273,
+     "was": [
+      [
+       170,
+       "τὸδὲ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "48a631efc824bca3d99e4877a0e97a103822a18831f4545d19f8ecc823bdb6dd"
+  },
+  {
+   "file": "data/corpus/scholia-in-homerum.scholia-in-odysseam-scholia-vetera.jsonl",
+   "sha256_before": "7cdc92c708c9e7d7c22095d0ebe2782cd83b432baaa59e4ec865a603ad7059ca",
+   "edits": [
+    {
+     "index": 103,
+     "was": [
+      [
+       247,
+       "ἐπικαλεὶται"
+      ]
+     ]
+    },
+    {
+     "index": 430,
+     "was": [
+      [
+       197,
+       "Ἰλιὰδι"
+      ]
+     ]
+    },
+    {
+     "index": 435,
+     "was": [
+      [
+       112,
+       "νὰον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "221bdfb587b1049c2c638c21651972595f4c79d6711ff1b28c8f6f73ccfa8aa4"
+  },
+  {
+   "file": "data/corpus/scholia-in-lucianum.scholia-in-lucianum-scholia-vetera-et-recentiora-arethae.jsonl",
+   "sha256_before": "13b70ec2fbba9186ca8df0afffcea46b4e70dc1b439ca8e27e0fa7436f85cdd4",
+   "edits": [
+    {
+     "index": 705,
+     "was": [
+      [
+       501,
+       "εἲωθεν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f1991c238b8bc056bbfacadd477dc365ad34e6967f892789c81fb5e398aa3e2f"
+  },
+  {
+   "file": "data/corpus/scholia-in-nicandrum.scholia-et-glossae-in-nicandri-alexipharmaca-scholia-vetera-et.jsonl",
+   "sha256_before": "94fda9766c778d26dd9b7556518ad8ae24379c049dc31a90b78d84c3599983e7",
+   "edits": [
+    {
+     "index": 31,
+     "was": [
+      [
+       118,
+       "οἲνῳ"
+      ]
+     ]
+    },
+    {
+     "index": 34,
+     "was": [
+      [
+       145,
+       "οἲνῳ"
+      ]
+     ]
+    },
+    {
+     "index": 36,
+     "was": [
+      [
+       179,
+       "ὂξος"
+      ]
+     ]
+    },
+    {
+     "index": 132,
+     "was": [
+      [
+       51,
+       "οἲνῳ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "98d816277b58d41245906c7b2f50925d5e67cc8325075b40d052eb7a3193d896"
+  },
+  {
+   "file": "data/corpus/septuaginta.aggaeus.jsonl",
+   "sha256_before": "456362cd495b3b6be31f9cec65cc0c6ead5ac0b88a1323936fe9330350b93d6f",
+   "edits": [
+    {
+     "index": 33,
+     "was": [
+      [
+       54,
+       "πρὸφήτην"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "95487a25e937d5108859ed90b2b12521a56cc7a4d855f0073381e4061291893f"
+  },
+  {
+   "file": "data/corpus/septuaginta.deuteronomium.jsonl",
+   "sha256_before": "ea59f1b402a7575aa026226b74f3fc5696ad2c7aa800677db8397ef9fb9b8ec9",
+   "edits": [
+    {
+     "index": 468,
+     "was": [
+      [
+       0,
+       "δικαὶως"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "875feaf5a80c2e13ec1c09013ce0f7541be21d545cd628b1fdb0366fe23e2e8f"
+  },
+  {
+   "file": "data/corpus/septuaginta.epistula-jeremiae.jsonl",
+   "sha256_before": "229da2d8875603e30e176a787a212ceb8962cde40c29f257662fa171eabbc7cd",
+   "edits": [
+    {
+     "index": 36,
+     "was": [
+      [
+       9,
+       "τυφλὸυ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d7db0dc90a8a1d5d1cbc2432d554e53a14a1ac1f3ff7fdfab19e37a9074e9df7"
+  },
+  {
+   "file": "data/corpus/septuaginta.ezechiel.jsonl",
+   "sha256_before": "28805995d674814f25bb1bfa0a84951f4ed53a500cb959729d1c71df36b238fc",
+   "edits": [
+    {
+     "index": 814,
+     "was": [
+      [
+       137,
+       "ἀπὸθανεῖται"
+      ]
+     ]
+    },
+    {
+     "index": 938,
+     "was": [
+      [
+       121,
+       "ῥὰβδον"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "313bc926a3ee40844c024442acdd2535630f05f1f013a92aacf8aa99b0b777f2"
+  },
+  {
+   "file": "data/corpus/septuaginta.genesis.jsonl",
+   "sha256_before": "4184b34c28782d774eb6be6b2afde966d29ede0091b6973589662e0779ed3083",
+   "edits": [
+    {
+     "index": 1112,
+     "was": [
+      [
+       60,
+       "ἒλαβεν"
+      ]
+     ]
+    },
+    {
+     "index": 1126,
+     "was": [
+      [
+       83,
+       "ἒγνω"
+      ]
+     ]
+    },
+    {
+     "index": 1240,
+     "was": [
+      [
+       120,
+       "ἂρτοι"
+      ]
+     ]
+    },
+    {
+     "index": 1313,
+     "was": [
+      [
+       171,
+       "ἂρτους"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "3f0fafde652151aa40619ae1284cb71c4bac86dcb32b3b2a829449a0ad17417b"
+  },
+  {
+   "file": "data/corpus/septuaginta.job.jsonl",
+   "sha256_before": "f68968affb1a6c1df3a43df4f6098bdbff8c4549551ce01109b33efe4db0a721",
+   "edits": [
+    {
+     "index": 217,
+     "was": [
+      [
+       0,
+       "εἲθε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "894e20b601ad28216cc3e3c23af97b1dce7b8cff8fe480ed1eb979975487c469"
+  },
+  {
+   "file": "data/corpus/septuaginta.josue-cod-vaticanus-cod-alexandrinus.jsonl",
+   "sha256_before": "1086c97bd23ce7acf283ab5a9be1bba94d25bcfe6a7c776536afa2d2cc625195",
+   "edits": [
+    {
+     "index": 392,
+     "was": [
+      [
+       29,
+       "ὃσαι"
+      ]
+     ]
+    },
+    {
+     "index": 436,
+     "was": [
+      [
+       45,
+       "ἳππος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "975bef5563cc4dbac1faaefc7c9964590cb4393be2c0c717f0e88d85aea1c0f2"
+  },
+  {
+   "file": "data/corpus/septuaginta.judith.jsonl",
+   "sha256_before": "783e74e76b5745a95123c6b343dd80dc36f2f6f6463b45e3e613581ab2b6cc52",
+   "edits": [
+    {
+     "index": 173,
+     "was": [
+      [
+       0,
+       "ὃτὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8f9aadff5a9e9790d2a19a1375bf45a46d876455ee5c5b539a91675940affb0e"
+  },
+  {
+   "file": "data/corpus/septuaginta.numeri.jsonl",
+   "sha256_before": "c28b8f5c3cb8cd4a90cc657dc5bb0e21a5e523204a7f21a2cd431aaec648dcb3",
+   "edits": [
+    {
+     "index": 522,
+     "was": [
+      [
+       0,
+       "ἂφες"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "37e50e73de85257fcaa4b1f9d36ae06db7e7a74311e6064f5ae539ac4d9a9ba5"
+  },
+  {
+   "file": "data/corpus/septuaginta.psalmi-salomonis.jsonl",
+   "sha256_before": "3aa47a5985b80f64f9dba68c0e1255620de4b7afd8ac36a38bdd15ce66d12190",
+   "edits": [
+    {
+     "index": 190,
+     "was": [
+      [
+       73,
+       "αὐτὸὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0c6cc412cca1195cc42ced3cfead916028cd9bd2662e7da0f0c69434bce1ec41"
+  },
+  {
+   "file": "data/corpus/septuaginta.psalmi.jsonl",
+   "sha256_before": "da510cd287afbef1b900af36864fe5ab50da36e0d01933e0ceea861de7459f82",
+   "edits": [
+    {
+     "index": 286,
+     "was": [
+      [
+       45,
+       "ἀνθρὼπου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "3031107eef28c93992f41ad3384bdc65daf2546e2f6bdeea3ac0fac4d6000a76"
+  },
+  {
+   "file": "data/corpus/septuaginta.regnorum-ii-samuelis-ii-in-textu-masoretico.jsonl",
+   "sha256_before": "7ecdf2c9db48811dc9b0549e574b86b53e4131518d2b9150cd3592eafb57dd31",
+   "edits": [
+    {
+     "index": 279,
+     "was": [
+      [
+       84,
+       "εἰσὴλθεν"
+      ]
+     ]
+    },
+    {
+     "index": 352,
+     "was": [
+      [
+       288,
+       "δοὺλης"
+      ]
+     ]
+    },
+    {
+     "index": 410,
+     "was": [
+      [
+       10,
+       "ἒλεγεν"
+      ]
+     ]
+    },
+    {
+     "index": 415,
+     "was": [
+      [
+       7,
+       "ἲδοι"
+      ]
+     ]
+    },
+    {
+     "index": 425,
+     "was": [
+      [
+       52,
+       "εἰσὴλθεν"
+      ]
+     ]
+    },
+    {
+     "index": 595,
+     "was": [
+      [
+       14,
+       "ὓψους"
+      ],
+      [
+       24,
+       "ἒλαβέν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 6,
+   "sha256_after": "cfcea50183afd9da0550f9cf0e164729f6e07a764fc56fc21e07216301219033"
+  },
+  {
+   "file": "data/corpus/septuaginta.regnorum-iii-regum-i-in-textu-masoretico.jsonl",
+   "sha256_before": "ad803ce49e9c125778398da81437855cdf350fbc24971e2e1cd22b78140676b7",
+   "edits": [
+    {
+     "index": 38,
+     "was": [
+      [
+       4,
+       "ἒλαβεν"
+      ]
+     ]
+    },
+    {
+     "index": 206,
+     "was": [
+      [
+       140,
+       "ὓψος"
+      ]
+     ]
+    },
+    {
+     "index": 215,
+     "was": [
+      [
+       67,
+       "ὓψος"
+      ]
+     ]
+    },
+    {
+     "index": 217,
+     "was": [
+      [
+       38,
+       "ἂκρου"
+      ]
+     ]
+    },
+    {
+     "index": 417,
+     "was": [
+      [
+       141,
+       "ἂρτους"
+      ]
+     ]
+    },
+    {
+     "index": 453,
+     "was": [
+      [
+       36,
+       "βασιλὲα"
+      ]
+     ]
+    },
+    {
+     "index": 643,
+     "was": [
+      [
+       63,
+       "ἒλαβεν"
+      ]
+     ]
+    },
+    {
+     "index": 649,
+     "was": [
+      [
+       31,
+       "ἒθνος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 8,
+   "sha256_after": "bac037fdaa1bc7f717113ee311d63566bcb1e27ac03b00297981ce4de27afda4"
+  },
+  {
+   "file": "data/corpus/severian-of-gabala.de-christo-pastore-et-ove.jsonl",
+   "sha256_before": "4df194187df05df984c25912769f7cde4eb12e72b32365d09ba88ecbb55adf28",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       5687,
+       "μεγὰλην"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "35914ca0987152bc63f4d51b2ec572b5add2267238f1b1d26eca64b228e9ae47"
+  },
+  {
+   "file": "data/corpus/severian-of-gabala.in-ascensionem-domini-nostri-iesu-christi-et-in-principium-actorum.jsonl",
+   "sha256_before": "6b5a0492f71c51866f8c28b65a50d8b06ef84b78f18839a9b0202b5d37786efe",
+   "edits": [
+    {
+     "index": 31,
+     "was": [
+      [
+       343,
+       "προφὴτου"
+      ]
+     ]
+    },
+    {
+     "index": 34,
+     "was": [
+      [
+       935,
+       "ζητὴσει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "ee49003b9112836722d648f29876b9e9caa844e7f670d696f07d1955daa400e7"
+  },
+  {
+   "file": "data/corpus/sextus-empiricus.adversus-mathematicos.jsonl",
+   "sha256_before": "ed09a32d958947e83ab0cd7febce08b667ba41e4eca87ed6e1fbe3ac7a91bf77",
+   "edits": [
+    {
+     "index": 536,
+     "was": [
+      [
+       273,
+       "μερὶστόν"
+      ]
+     ]
+    },
+    {
+     "index": 2080,
+     "was": [
+      [
+       40,
+       "ἳππου"
+      ],
+      [
+       70,
+       "ἳππος"
+      ]
+     ]
+    },
+    {
+     "index": 2516,
+     "was": [
+      [
+       129,
+       "ἳππος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "933443978780a55c16e4b4b4d47ae821213e148ffcffae76dd089dc280d3e6c1"
+  },
+  {
+   "file": "data/corpus/sextus-empiricus.pyrrhoniae-hypotyposes.jsonl",
+   "sha256_before": "6d118fdcde1e994296e40b2b74c98d016873128313dafb0561502b94e45afdc4",
+   "edits": [
+    {
+     "index": 442,
+     "was": [
+      [
+       220,
+       "εἲγε"
+      ]
+     ]
+    },
+    {
+     "index": 493,
+     "was": [
+      [
+       451,
+       "εἲγε"
+      ]
+     ]
+    },
+    {
+     "index": 496,
+     "was": [
+      [
+       197,
+       "εἲγε"
+      ]
+     ]
+    },
+    {
+     "index": 519,
+     "was": [
+      [
+       297,
+       "ἲσην"
+      ]
+     ]
+    },
+    {
+     "index": 586,
+     "was": [
+      [
+       240,
+       "εἲγε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 5,
+   "sha256_after": "0e36c933d1e8732e509497d2ef2980ae0c8a94f0d399abdb58c70014cd4a4931"
+  },
+  {
+   "file": "data/corpus/simplicius.in-aristotelis-categorias-commentarium.jsonl",
+   "sha256_before": "b64869ab4ef55480564fe7915586b3bac4c8a5fda4e9d51ced370bb6ef27682e",
+   "edits": [
+    {
+     "index": 19,
+     "was": [
+      [
+       591,
+       "μὲρη"
+      ]
+     ]
+    },
+    {
+     "index": 29,
+     "was": [
+      [
+       422,
+       "ἳπποις"
+      ],
+      [
+       490,
+       "ἳππος"
+      ]
+     ]
+    },
+    {
+     "index": 77,
+     "was": [
+      [
+       1157,
+       "ἒοικεν"
+      ]
+     ]
+    },
+    {
+     "index": 81,
+     "was": [
+      [
+       1478,
+       "ἂμφω"
+      ]
+     ]
+    },
+    {
+     "index": 82,
+     "was": [
+      [
+       268,
+       "ἒδει"
+      ]
+     ]
+    },
+    {
+     "index": 83,
+     "was": [
+      [
+       798,
+       "ἒστω"
+      ]
+     ]
+    },
+    {
+     "index": 85,
+     "was": [
+      [
+       1191,
+       "ἳππον"
+      ],
+      [
+       1295,
+       "ὃροι"
+      ],
+      [
+       1422,
+       "ἳππος"
+      ],
+      [
+       1492,
+       "ἳππος"
+      ],
+      [
+       2112,
+       "ἳππον"
+      ]
+     ]
+    },
+    {
+     "index": 86,
+     "was": [
+      [
+       2079,
+       "ἒλαβεν"
+      ]
+     ]
+    },
+    {
+     "index": 88,
+     "was": [
+      [
+       414,
+       "ἂλλαις"
+      ]
+     ]
+    },
+    {
+     "index": 90,
+     "was": [
+      [
+       442,
+       "ἒλεγεν"
+      ]
+     ]
+    },
+    {
+     "index": 91,
+     "was": [
+      [
+       1491,
+       "ἒνεστιν"
+      ]
+     ]
+    },
+    {
+     "index": 92,
+     "was": [
+      [
+       1730,
+       "ἂλλης"
+      ],
+      [
+       2191,
+       "ἂμφω"
+      ]
+     ]
+    },
+    {
+     "index": 93,
+     "was": [
+      [
+       1332,
+       "ἳππου"
+      ],
+      [
+       1431,
+       "ἳππου"
+      ],
+      [
+       2011,
+       "οὒσας"
+      ]
+     ]
+    },
+    {
+     "index": 94,
+     "was": [
+      [
+       1580,
+       "ἂμφω"
+      ]
+     ]
+    },
+    {
+     "index": 97,
+     "was": [
+      [
+       15,
+       "ἂλλαις"
+      ]
+     ]
+    },
+    {
+     "index": 98,
+     "was": [
+      [
+       1882,
+       "ἲσην"
+      ]
+     ]
+    },
+    {
+     "index": 99,
+     "was": [
+      [
+       1885,
+       "ἂλλης"
+      ]
+     ]
+    },
+    {
+     "index": 104,
+     "was": [
+      [
+       2054,
+       "εἲρηκεν"
+      ]
+     ]
+    },
+    {
+     "index": 105,
+     "was": [
+      [
+       1693,
+       "ἂλλαις"
+      ]
+     ]
+    },
+    {
+     "index": 106,
+     "was": [
+      [
+       81,
+       "ἂλλαις"
+      ],
+      [
+       1579,
+       "εἲωθεν"
+      ]
+     ]
+    },
+    {
+     "index": 107,
+     "was": [
+      [
+       1637,
+       "ἂλλαις"
+      ]
+     ]
+    },
+    {
+     "index": 109,
+     "was": [
+      [
+       1046,
+       "ἒσχεν"
+      ]
+     ]
+    },
+    {
+     "index": 111,
+     "was": [
+      [
+       1999,
+       "ὃλαι"
+      ]
+     ]
+    },
+    {
+     "index": 117,
+     "was": [
+      [
+       2226,
+       "ἂφρων"
+      ]
+     ]
+    },
+    {
+     "index": 118,
+     "was": [
+      [
+       2460,
+       "ἒχοι"
+      ]
+     ]
+    },
+    {
+     "index": 121,
+     "was": [
+      [
+       1811,
+       "ἀλλὴλων"
+      ]
+     ]
+    },
+    {
+     "index": 126,
+     "was": [
+      [
+       1332,
+       "ἒοικεν"
+      ],
+      [
+       1870,
+       "ἒχοι"
+      ]
+     ]
+    },
+    {
+     "index": 199,
+     "was": [
+      [
+       415,
+       "σωματικὰι"
+      ]
+     ]
+    },
+    {
+     "index": 363,
+     "was": [
+      [
+       383,
+       "κατηγορὶας"
+      ]
+     ]
+    },
+    {
+     "index": 379,
+     "was": [
+      [
+       1468,
+       "ἰδὶως"
+      ]
+     ]
+    },
+    {
+     "index": 380,
+     "was": [
+      [
+       616,
+       "ἀλλὴλοις"
+      ]
+     ]
+    },
+    {
+     "index": 389,
+     "was": [
+      [
+       638,
+       "πὰντα"
+      ]
+     ]
+    },
+    {
+     "index": 391,
+     "was": [
+      [
+       846,
+       "πὰντων"
+      ]
+     ]
+    },
+    {
+     "index": 405,
+     "was": [
+      [
+       2164,
+       "πρὼτης"
+      ]
+     ]
+    },
+    {
+     "index": 420,
+     "was": [
+      [
+       424,
+       "πὰντων"
+      ]
+     ]
+    },
+    {
+     "index": 443,
+     "was": [
+      [
+       1746,
+       "γὲνος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 36,
+   "sha256_after": "bd20805983f89ec5212e11564d0e5685f3db68270ef953a4541e03349ff0cc97"
+  },
+  {
+   "file": "data/corpus/simplicius.in-aristotelis-libros-de-anima-commentaria-sp-fort-auctore.jsonl",
+   "sha256_before": "d2d68ab1ef821042603c7f63a634367dc8bbd1d2f9329cf9c40a8b813221c9ba",
+   "edits": [
+    {
+     "index": 177,
+     "was": [
+      [
+       1876,
+       "ὃσων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "300a00a5ebedd04ef52ae7190d64ef1e7dcdf7e9e9d672c4a7ce34d2d77721a6"
+  },
+  {
+   "file": "data/corpus/simplicius.in-aristotelis-physicorum-libros-commentaria.jsonl",
+   "sha256_before": "a724badf627dcdf5e3a869753026e0c1ea22978cbb19621491b1e4ccc4b65011",
+   "edits": [
+    {
+     "index": 537,
+     "was": [
+      [
+       1430,
+       "ποιοτὴτων"
+      ]
+     ]
+    },
+    {
+     "index": 1080,
+     "was": [
+      [
+       2566,
+       "λὲγειν"
+      ]
+     ]
+    },
+    {
+     "index": 1081,
+     "was": [
+      [
+       1244,
+       "λὲγουσιν"
+      ]
+     ]
+    },
+    {
+     "index": 1090,
+     "was": [
+      [
+       236,
+       "μετρεὶται"
+      ]
+     ]
+    },
+    {
+     "index": 1091,
+     "was": [
+      [
+       1210,
+       "εἲωθεν"
+      ]
+     ]
+    },
+    {
+     "index": 1092,
+     "was": [
+      [
+       1903,
+       "ἒλεγεν"
+      ],
+      [
+       2195,
+       "ἒστω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 6,
+   "sha256_after": "aad87e1c1edab681272575e02981bf595a963b4ee208d2c1bf642249542597e3"
+  },
+  {
+   "file": "data/corpus/socrates-scholasticus.historia-ecclesiastica-2.jsonl",
+   "sha256_before": "b36e0c5d37cee075ea176b5b156198cf3cb2c48ba159d113a0ada82f5c76a14f",
+   "edits": [
+    {
+     "index": 123,
+     "was": [
+      [
+       3977,
+       "διδὰσκει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "b9cc56a790e36ea1f1da472bdeb4a7421e386dd875ce5d8ac5ba5322280b473b"
+  },
+  {
+   "file": "data/corpus/strabo.strabonis-geographiae-chrestomathia-geographia-selections-chrestomathia.jsonl",
+   "sha256_before": "b19287e876a258192a55546ce6c86506f0d1024db131dd79e37ed8aca561dd96",
+   "edits": [
+    {
+     "index": 690,
+     "was": [
+      [
+       665,
+       "πλεὶω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "18d5e613e54a55ee7ab860336d5509b091c45e2547d7b75783e820a869836a9b"
+  },
+  {
+   "file": "data/corpus/suda.lexicon.jsonl",
+   "sha256_before": "3eb219e58b30cc170495ab5b2aaef2dfa42dd22fab21df9c708bc22c58e6c799",
+   "edits": [
+    {
+     "index": 1001,
+     "was": [
+      [
+       406,
+       "ἐφαρμὸζειν"
+      ]
+     ]
+    },
+    {
+     "index": 1958,
+     "was": [
+      [
+       9,
+       "μὲϲον"
+      ]
+     ]
+    },
+    {
+     "index": 2759,
+     "was": [
+      [
+       3230,
+       "ὃπλα"
+      ]
+     ]
+    },
+    {
+     "index": 4146,
+     "was": [
+      [
+       95,
+       "τὺχην"
+      ]
+     ]
+    },
+    {
+     "index": 9091,
+     "was": [
+      [
+       125,
+       "ὣϲτε"
+      ]
+     ]
+    },
+    {
+     "index": 9341,
+     "was": [
+      [
+       17,
+       "ἳππον"
+      ]
+     ]
+    },
+    {
+     "index": 15842,
+     "was": [
+      [
+       14,
+       "κὰτω"
+      ]
+     ]
+    },
+    {
+     "index": 15994,
+     "was": [
+      [
+       78,
+       "ἀπὸβαλεῖν"
+      ]
+     ]
+    },
+    {
+     "index": 16078,
+     "was": [
+      [
+       11,
+       "τὸποϲ"
+      ]
+     ]
+    },
+    {
+     "index": 16224,
+     "was": [
+      [
+       30,
+       "διαφὲρει"
+      ]
+     ]
+    },
+    {
+     "index": 17166,
+     "was": [
+      [
+       280,
+       "ϲημαὶνει"
+      ]
+     ]
+    },
+    {
+     "index": 19305,
+     "was": [
+      [
+       60,
+       "χρὸνον"
+      ]
+     ]
+    },
+    {
+     "index": 20108,
+     "was": [
+      [
+       62,
+       "Κρὴτηϲ"
+      ]
+     ]
+    },
+    {
+     "index": 22039,
+     "was": [
+      [
+       138,
+       "Νὼε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 14,
+   "sha256_after": "c21d0b74b36fdbe81c2ed11a47396f08d2154f0755b930c44bdcab9af486ad62"
+  },
+  {
+   "file": "data/corpus/symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum.jsonl",
+   "sha256_before": "0e6e913756204f615ec837fdc187d5d29d767ca375d214720ee9c99e0bf37519",
+   "edits": [
+    {
+     "index": 32,
+     "was": [
+      [
+       413,
+       "πὰντων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c623941fb9582775b44d89a3fcd2074b2a5f60ebaabb498c0b99d6a4cd86098a"
+  },
+  {
+   "file": "data/corpus/syrianus.in-aristotelis-metaphysica-commentaria.jsonl",
+   "sha256_before": "9d3ad76ad6f79434a6a4e9492cbe2febb05e338ece3d5887cf22db5e36e8d090",
+   "edits": [
+    {
+     "index": 33,
+     "was": [
+      [
+       1139,
+       "ἀρχὰῖς"
+      ]
+     ]
+    },
+    {
+     "index": 80,
+     "was": [
+      [
+       2270,
+       "πραγμὰτων"
+      ]
+     ]
+    },
+    {
+     "index": 93,
+     "was": [
+      [
+       306,
+       "κεὶσθω"
+      ],
+      [
+       1045,
+       "μὲρει"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "89ae0c85b12539b8d6961fde9d60da5c09de297a04a0198af11aa37d48153253"
+  },
+  {
+   "file": "data/corpus/thallus.fragmenta.jsonl",
+   "sha256_before": "5af4c325fecf1fe81f4a98c0cc35111a265bbebff5f816aca262f1108c70f270",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       464,
+       "ἱστορὶας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "bc56240fd7fd7a779c12600e93c9f7c64b036028b3be2de990b2d76f42b3a95e"
+  },
+  {
+   "file": "data/corpus/theodoretus.historia-ecclesiastica.jsonl",
+   "sha256_before": "6f9c28b713e7a0e211e123f131d87714b79ca0e8c4b991a110d2773a98dccd73",
+   "edits": [
+    {
+     "index": 396,
+     "was": [
+      [
+       211,
+       "Μὺσίας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a7dfffbf0ce11b27104bf1464990e621f6c201790537cfe4db9329cfd4452c2e"
+  },
+  {
+   "file": "data/corpus/theodoretus.interpretatio-in-danielem.jsonl",
+   "sha256_before": "7ba10618fe3bffba233a35222f973a1ec64a098ed7f14bba3959a86a4ae8512c",
+   "edits": [
+    {
+     "index": 34,
+     "was": [
+      [
+       544,
+       "μετὰβαίνει"
+      ]
+     ]
+    },
+    {
+     "index": 59,
+     "was": [
+      [
+       519,
+       "οὐδὲμίαν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "d1ec563255ebde59b1786af74e17e00b8e226f883ff329d2dc811e9795945e52"
+  },
+  {
+   "file": "data/corpus/theodorus-agallianus.refutatio-contra-joannem-argyropulum.jsonl",
+   "sha256_before": "2ddd39ae8e4882fa943a24b287c2a8cf3632bd60d5e7ff8393f8008017038058",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       1663,
+       "τὸῖς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "28262a24297aa84be624c2c974d24d40e1f19712be9ced77a72e53b5e48ed883"
+  },
+  {
+   "file": "data/corpus/theophanes-continuatus.chronographia-lib-1-6.jsonl",
+   "sha256_before": "cf9123d4fe29d0d67bf4b92603db26162efbfd833c6fdbf44c27a95715b1e4eb",
+   "edits": [
+    {
+     "index": 162,
+     "was": [
+      [
+       951,
+       "πτὼματος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "1887f8a9a22a792c675274e23e88ad7971eec7a63bd120a3ce312a55342645cf"
+  },
+  {
+   "file": "data/corpus/theophrastus-philosophy.historia-plantarum.jsonl",
+   "sha256_before": "52a38787b13a8d42175021cf549f5b9bf95b4e4635aca420dfc2bae47de526bc",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       272,
+       "μὲρη"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0e9a01516561ca813d6f420195c98d03c08ce3f3f7b53a35f9aa8ff7b0db7d10"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-joannis.jsonl",
+   "sha256_before": "6ccbee74f31bced4b540a5f32cd749f923dafc9187f3ec8423d1be42cb28c5a9",
+   "edits": [
+    {
+     "index": 95,
+     "was": [
+      [
+       708,
+       "χὰριν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "30627f563a5a301886aaefa417d4fb30523c986426f0767d56ddc9955f4f9388"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-lucae.jsonl",
+   "sha256_before": "3c34bbac5dbd3780629e1f853fadca05087655f939828a012957dd358f3633b7",
+   "edits": [
+    {
+     "index": 5,
+     "was": [
+      [
+       1874,
+       "ἂεῖ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "8c54460bb010e4f2ff8ef82f48f5fb720bf812cf7a4ad2743156a06c927e74ae"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-matthaei.jsonl",
+   "sha256_before": "8dba20b4608794ee577a9da9ff9d406c57350f44da99128d73cde38f9816957b",
+   "edits": [
+    {
+     "index": 7,
+     "was": [
+      [
+       1612,
+       "ταὺτην"
+      ]
+     ]
+    },
+    {
+     "index": 49,
+     "was": [
+      [
+       2372,
+       "ἂεῖ"
+      ]
+     ]
+    },
+    {
+     "index": 144,
+     "was": [
+      [
+       696,
+       "τὰλαντα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 3,
+   "sha256_after": "56cb1f7be9345ae2853052cc7437af5fe009f2112b661233668d96057711aa42"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "sha256_before": "878956207290fcee41a2731ce1f0717a638af200cf3ebac5d6086d9798856c97",
+   "edits": [
+    {
+     "index": 107,
+     "was": [
+      [
+       632,
+       "πὰντα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "95eb9c837c3782ccdad6a3d95d4d9c065f95d8884ded38f86f364c3978a1a322"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-philemonem.jsonl",
+   "sha256_before": "f5264d11e31d0c5f76d21c65b25079ed42be0e682ace02b628584af902003a88",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       2172,
+       "τὸῖς"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "0d5e4ea0201493c3d4e15c3ddbf23daad2c1f47ade8db13a2a24bd79567af494"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-romanos.jsonl",
+   "sha256_before": "591383e29ac47ee8fb3565d3b0b1c76517bfaccb5c40ec7d519623b97a330df3",
+   "edits": [
+    {
+     "index": 63,
+     "was": [
+      [
+       2358,
+       "τὸδὲ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "e194e67899ffb410866c3a39361ed7817a680c1b53267cb965b800dab5ad301e"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios.jsonl",
+   "sha256_before": "fb8a217e15e7f7089269274b3f900f2c0cac2ca46bc7d6f92a35085dedc4f6e6",
+   "edits": [
+    {
+     "index": 38,
+     "was": [
+      [
+       1073,
+       "πὸρνης"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f9fa452f59409f902c9d5a4c0a55d9a10c855436eca6eb5ed202e9f54ffcd8e6"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-petri.jsonl",
+   "sha256_before": "af900c0239df29c3302730fde4ffca84bbaf47440db2e148f92cfbde5e873432",
+   "edits": [
+    {
+     "index": 13,
+     "was": [
+      [
+       808,
+       "κακὶας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "9fb55fe918d2bdc737b0d3018dcf5c7d255aacf2fe0ab68d613f98a00967fea8"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-iii-joannis.jsonl",
+   "sha256_before": "d6ddce506fb89a4cd8c247e72da724264bd4fcc71e885b8b28db4228624c3fc2",
+   "edits": [
+    {
+     "index": 0,
+     "was": [
+      [
+       515,
+       "πὰντων"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d9bda7e529fe048f9240314fab4d7c9300a791c6b873b9135ef2ec7e7bb6503c"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-michaeam.jsonl",
+   "sha256_before": "12a72298663a2c1f999375b69f377ba31956aca63c658f4a0a477d11f3575b3d",
+   "edits": [
+    {
+     "index": 18,
+     "was": [
+      [
+       1127,
+       "πὰλιν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "874d4fd06491e8b68aab13bb11b3930b132d34d88e0be1046d06107efdbc1771"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-oseam.jsonl",
+   "sha256_before": "87094d457cf3ffa3a806075a15eb7d102b5adef9e445ad7183d207416a97a47c",
+   "edits": [
+    {
+     "index": 77,
+     "was": [
+      [
+       433,
+       "ἣκω"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c0cb9f6c47e5967b92cd6b02aff1abe12b6dbe5f6b485b0be3a886eb7e5a8c72"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp.jsonl",
+   "sha256_before": "427f47f22268b82717e2bd197ab95d268332a804b8a264b2dd46f21f0b1c0d94",
+   "edits": [
+    {
+     "index": 75,
+     "was": [
+      [
+       1751,
+       "λὸγον"
+      ]
+     ]
+    },
+    {
+     "index": 96,
+     "was": [
+      [
+       1806,
+       "λὲγειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "d9ea5022fb44e108877fc43f499eb109dcb479ce3bbecfcd92c4bbf07be25602"
+  },
+  {
+   "file": "data/corpus/tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum.jsonl",
+   "sha256_before": "e6e8f91801ee131e3ffcb2e6a0d09ec1a6ebc4cb2351b29e519d7bc43234ad77",
+   "edits": [
+    {
+     "index": 4,
+     "was": [
+      [
+       49,
+       "ἃπαξ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "52655cbb62643c5a7a3a4ca5e7360c78663ab041e9ebded6fa1a144dad2f6bfd"
+  },
+  {
+   "file": "data/corpus/vettius-valens.anthologiarum-libri-ix.jsonl",
+   "sha256_before": "69e46f99016ba888692a25a99dc983592c1a07998935fcdad240e001350eb401",
+   "edits": [
+    {
+     "index": 143,
+     "was": [
+      [
+       1068,
+       "Σελὴνην"
+      ]
+     ]
+    },
+    {
+     "index": 199,
+     "was": [
+      [
+       358,
+       "τριγὼνῳ"
+      ]
+     ]
+    },
+    {
+     "index": 494,
+     "was": [
+      [
+       346,
+       "ὣρας"
+      ]
+     ]
+    },
+    {
+     "index": 646,
+     "was": [
+      [
+       685,
+       "ἀνθρὼποις"
+      ]
+     ]
+    },
+    {
+     "index": 658,
+     "was": [
+      [
+       946,
+       "ὣρας"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 5,
+   "sha256_after": "91b51ee7c258b38923363956770dfa0525c5bac9b3e385bfa4b04fc97bedb04d"
+  },
+  {
+   "file": "data/corpus/zenobius-sophista.epitome-collectionum-lucilli-tarrhaei-et-didymi.jsonl",
+   "sha256_before": "96343565d28c671a3cc369220da9cb87d5e148203a13adacdc6e7b438424ff0d",
+   "edits": [
+    {
+     "index": 235,
+     "was": [
+      [
+       20,
+       "ἂριστερὸν"
+      ]
+     ]
+    },
+    {
+     "index": 510,
+     "was": [
+      [
+       3,
+       "τρὶα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "d3ade8956f0fc4b86ef50541add25e93484f6000724dacb30d8d00c097579beb"
+  }
+ ],
+ "reverse": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_thirdparty.json --audit-tag completing-2026-08-11 --unapply",
+ "forward": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_thirdparty.json --sources byzantium_gr,cgpg,dfhg,first1k,perseus,pta,saws,wikisource --audit-tag completing-2026-08-11 --date 2026-08-11 --apply"
+}
