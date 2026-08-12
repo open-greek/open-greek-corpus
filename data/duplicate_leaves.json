@@ -167,6 +167,42 @@
      "expected_unique_runs": []
     }
    ]
+  },
+  {
+   "volume": "PG122",
+   "id": "PG122-omnifaria",
+   "date": "2026-08-11",
+   "issue": "open-greek/open-greek-corpus#33",
+   "file": "data/corpus/michael-psellus.de-omnifaria-doctrina.jsonl",
+   "basis": "The scan itself contains the leaf twice: zip pages 0363 and 0365 of the Internet Archive item patrologia.graeca.org (_122.zip) are two photographs of the one page printing cols 711-712 under the running head MICHAELIS PSELLI, chapters λϛʹ-ληʹ of De omnifaria doctrina, identical down to the NOTAE footnote. Read from the scan: Greek col 712 opens μένων οὐσιῶν, κατὰ τοῦτο γενητὴν δογματίζει, completing locus 362's hyphenated ending ἀπὸ τῶν ὑπερκει-, and ends καὶ κυριότητας καὶ ἄλλα τοιαῦτα ἢ μείζονα ἢ ἐλάττονα, where both served copies end. Under this work's own anchor (first printed column = twice the locus minus 15, so col 687 at locus 351) that leaf is locus 363's page; the page printing locus 365's address, cols 715-716, is the one served at locus 367, whose Greek col 716 opens ὁμολογίαν καὶ τὴν φιλοσοφίαν Μάξιμος οὔτε πρεσβυτέραν. Neighbor anchor: zip page 0362 prints cols 709-710, its Greek col 709 opening ζωῆς εἰς ἄλληλα. Οὐ γάρ ἐστιν ὅμοια τὰ γεννητὰ, which is served locus 362.\n\nThe same scan doubles the next leaf too: zip 0364 and 0366 are both the cols 713-714 page, and the two reads each captured a different partial slice of Greek col 713 (locus 364 its lower part, locus 366 its upper), so that pair holds text on both sides and is not droppable this way; it stays recorded on issue #33. From locus 367 to the work's end the first printed column is twice the locus minus 19, self-consistent through the last row, locus 401 = cols 783-784.",
+   "drops": [
+    {
+     "keep": "PG122.363",
+     "drop": "PG122.365",
+     "keep_sha256": "a29cc855db525630e31bc00dd76547284e13fdddea4be069fc6a2f7a44eac4f9",
+     "drop_sha256": "24ac5a8e65da99fb9b7257ebec0e4e52935941822d8a49fd124dead83cf28614",
+     "page_evidence": "both are the leaf printing Migne PG122 cols 711-712; the kept read matches the print from οὐσιῶν onward (the print's first word μένων is the tail of locus 362's hyphenated ὑπερκειμένων, which locus 362's OCR already joined in full), and the dropped copy holds no run of 3+ words the kept one lacks",
+     "expected_unique_runs": []
+    }
+   ]
+  },
+  {
+   "volume": "PG122",
+   "id": "PG122-daemonum",
+   "date": "2026-08-11",
+   "issue": "open-greek/open-greek-corpus#33",
+   "file": "data/corpus/michael-psellus.de-operatione-daemonum-sp.jsonl",
+   "basis": "Zip pages 0435 and 0436 of the Internet Archive item patrologia.graeca.org (_122.zip) are two photographs of the one page printing cols 851-852 under the running head DE DÆMONUM OPERATIONE, which is why the two served reads garble the same 189 words differently: the read at locus 435 has ἐσχάτως and δύναμιν as printed, the read at 436 ἐχάτως and δόναμιν. Read from the scan, the page opens ξηρὸν ἐσχάτως, καὶ ὅτῳ ἂν εἰσπέσῃ λαβὸν, πᾶσαν δύναμιν ψυχικὴν ἀμβλύνει καὶ ἀμαυροῖ, continuing page 0434's last printed words ψυχρόν τε καὶ, and breaks off καί τι, which page 0437 continues τῶν μελλόντων. In this file locus n is zip page n throughout (verified at 0434, 0435, 0437, 0447, 0448), and the head-anchored rule (locus 419 = cols 819-820, the work's citation PG 122, 819-876; verified in-image at locus 434 = cols 849-850) puts cols 851-852 at locus 435, so 435 keeps its locus and 436 is the second capture. Neighbor anchors: page 0434 prints cols 849-850, Greek opening κατὰ φύσιν ἕξεις ἐκτρέποντα, served locus 434; page 0437 prints cols 853-854, Greek opening τῶν μελλόντων ἔστιν ὅτε προαγορεῦον, served locus 437.\n\nAfter the drop, loci 437-447 of this file and 448-451 of the next work still sit one page-slot above their printed columns (served 437 holds cols 853-854), the same downstream drift PG118's entry records; and the work's closing exchange, atop cols 875-876 on zip page 0448, is served as the first row of michael-psellus.quaenam-sunt-graecorum-opiniones-de-daemonibus-sp.jsonl (PG122.448), a carve-boundary quirk rather than lost text.",
+   "drops": [
+    {
+     "keep": "PG122.435",
+     "drop": "PG122.436",
+     "keep_sha256": "671e46afbad85ed49ed0075de386dbcc602aecf14ae1ef88c711991453a1239d",
+     "drop_sha256": "29f61c5852c492b18a420fb8e2f99a46067abf65c1c7a28aef9725d768f93b46",
+     "page_evidence": "both are the leaf printing Migne PG122 cols 851-852; the kept read matches the print (ἐσχάτως, δύναμιν, ὅτῳ ἂν εἰσπέσῃ), the dropped read garbles those same words (ἐχάτως, δόναμιν, ὅτω ᾧ εἰσπέσῃ) and holds no run of 3+ words the kept one lacks",
+     "expected_unique_runs": []
+    }
+   ]
   }
  ]
 }
