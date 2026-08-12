@@ -2255,10 +2255,10 @@ below; regenerate it with `python scripts/build_provenance.py`.
   winner, which is not the rule and was retracted on 2026-08-09. What remains
   is listed in `data/duplicate_page_candidates.json` with containment banded,
   because a single total would mislead: 7 served pairs and 2,575 tokens sit
-  above 0.90, another 80 pairs and 27,979 tokens between 0.80 and 0.90. Those
+  above 0.90, another 64 pairs and 21,972 tokens between 0.80 and 0.90. Those
   totals count pairs across two scan items, which both drop tools refuse by
   rule, so the actionable figures are the same-item ones beside them, 2 pairs
-  and 600 tokens in the top band and 57 and 18,903 in the next. An earlier
+  and 600 tokens in the top band and 41 and 12,896 in the next. An earlier
   version of this line called the lower bands "increasingly just neighbouring
   pages of one book"; they are not, and the page offsets say so plainly: 292
   same-item pairs sit at an offset of 10 pages and the histogram is almost all
