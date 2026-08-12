@@ -196,15 +196,23 @@ def main() -> None:
         print("\nDRY RUN; nothing written. --apply after the previews are approved.")
         return
 
+    # One write per FILE, never per leaf: amphilochia and the Zonaras volume
+    # each hold two doubled leaves, and a per-leaf write would rebuild the file
+    # from that leaf's own pre-apply row list, resurrecting the rows the
+    # earlier leaf dropped. Group first, then read-modify-write once.
+    by_file: dict[str, list] = {}
+    for plan in plans:
+        by_file.setdefault(plan["file"], []).extend(plan["pairs"])
+
     audit_files, witness_files = {}, {}
     ledger_before = (DATA / "cgpg_works.json").read_text(encoding="utf-8")
-    for plan in plans:
-        fp = REPO / plan["file"]
+    for file_rel, pairs_of_file in sorted(by_file.items()):
+        fp = REPO / file_rel
         before = fp.read_text(encoding="utf-8")
-        rows = plan["rows"]
+        rows = [json.loads(l) for l in before.splitlines() if l.strip()]
         by_locus = {str(r["locus"]): r for r in rows}
         drop_loci, displaced = set(), []
-        for m in plan["pairs"]:
+        for m in pairs_of_file:
             keep = by_locus[m["keep_locus"]]
             keep["text"] = m["merged"]
             keep["merged_read"] = {
@@ -222,7 +230,7 @@ def main() -> None:
         kept_rows = [r for r in rows if str(r["locus"]) not in drop_loci]
         fp.write_text("".join(json.dumps(r, ensure_ascii=False) + "\n"
                               for r in kept_rows), encoding="utf-8")
-        audit_files[plan["file"]] = {
+        audit_files[file_rel] = {
             "sha256_before": sha(before),
             "sha256_after": sha(fp.read_text(encoding="utf-8")),
             "original_text": before,
