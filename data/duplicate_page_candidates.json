@@ -11,14 +11,14 @@
    "ocr"
   ]
  },
- "files_scanned": 4402,
- "candidates": 1921,
- "clean_second_copies": 722,
- "clean_second_copies_tokens": 210482,
- "clean_second_copies_served": 283,
- "clean_second_copies_served_tokens": 84840,
- "overlapping_not_copies": 1199,
- "overlapping_not_copies_tokens": 409737,
+ "files_scanned": 4417,
+ "candidates": 1888,
+ "clean_second_copies": 690,
+ "clean_second_copies_tokens": 198288,
+ "clean_second_copies_served": 251,
+ "clean_second_copies_served_tokens": 72646,
+ "overlapping_not_copies": 1198,
+ "overlapping_not_copies_tokens": 409483,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -36,17 +36,17 @@
   },
   {
    "band": "0.80-0.90",
-   "pairs": 80,
-   "tokens": 27979,
-   "same_item_pairs": 57,
-   "same_item_tokens": 18903
+   "pairs": 64,
+   "tokens": 21972,
+   "same_item_pairs": 41,
+   "same_item_tokens": 12896
   },
   {
    "band": "0.60-0.80",
-   "pairs": 171,
-   "tokens": 48226,
-   "same_item_pairs": 156,
-   "same_item_tokens": 44152
+   "pairs": 155,
+   "tokens": 42039,
+   "same_item_pairs": 140,
+   "same_item_tokens": 37965
   },
   {
    "band": "0.40-0.60",
@@ -388,7 +388,6 @@
   "data/corpus_secondary/scholia-in-sophoclem.scholia-in-sophoclis-ajacem-scholia-vetera.jsonl": 26,
   "data/corpus/himerius.declamationes-et-orationes.jsonl": 26,
   "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl": 22,
-  "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl": 21,
   "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": 21,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-merged.jsonl": 19,
   "data/corpus_secondary/parmenides.testimonia.jsonl": 19,
@@ -398,7 +397,6 @@
   "data/corpus/diogenes-apolloniates.testimonia.jsonl": 15,
   "data/corpus_secondary/diogenes-apolloniates.testimonia.jsonl": 15,
   "data/corpus_secondary/heraclitus-philosophy.testimonia.jsonl": 14,
-  "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl": 14,
   "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": 14,
   "data/corpus_secondary/libanius.orationes-1-64.jsonl": 13,
   "data/corpus/philolaus.testimonia.jsonl": 13,
@@ -418,10 +416,11 @@
   "data/corpus/leucippus.testimonia.jsonl": 9,
   "data/corpus_secondary/xenophanes.testimonia.jsonl": 9,
   "data/corpus_secondary/thales.testimonia.jsonl": 9,
+  "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl": 9,
   "data/corpus_secondary/leucippus.testimonia.jsonl": 9,
+  "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl": 9,
   "data/corpus/pseudo-zonaras.lexicon.jsonl": 8,
   "data/corpus/thales.testimonia.jsonl": 8,
-  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl": 8,
   "data/corpus/xenophanes.testimonia.jsonl": 8,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-ocr-runs.jsonl": 8,
   "data/corpus_secondary/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.duplicate-read.jsonl": 7,
@@ -433,8 +432,6 @@
   "data/corpus_secondary/theognostus.canones-sive-de-orthographia.duplicate-read.jsonl": 6,
   "data/corpus_secondary/anaximander.testimonia.jsonl": 6,
   "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl": 6,
-  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl": 6,
-  "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl": 6,
   "data/corpus_secondary/pausanias.fragmenta.jsonl": 6,
   "data/corpus_secondary/eusebius-scr-eccl.commentaria-in-psalmos.jsonl": 6,
   "data/corpus/ocr.pg036.jsonl": 6,
@@ -444,6 +441,7 @@
   "data/corpus/hecataeus-abderita.testimonia-2.jsonl": 6,
   "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": 6,
   "data/corpus/heron.definitiones.jsonl": 6,
+  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl": 5,
   "data/corpus_secondary/epicharmus-et-pseudepicharmea.testimonia.jsonl": 5,
   "data/corpus/joannes-stobaeus-anthologus.anthologium.jsonl": 5,
   "data/corpus/anaxarchus.testimonia.jsonl": 5,
@@ -464,19 +462,20 @@
   "data/corpus_secondary/hippon.testimonia.jsonl": 4,
   "data/corpus/pythagoras.testimonia.jsonl": 4,
   "data/corpus_secondary/cyrillus-theology.de-adoratione-et-cultu-in-spiritu-et-veritate.jsonl": 4,
+  "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl": 4,
   "data/corpus/philodemus.volumina-rhetorica.jsonl": 4,
   "data/corpus/heron.geometrica.jsonl": 4,
   "data/corpus/anaximander.testimonia.jsonl": 3,
   "data/corpus_secondary/joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae.duplicate-read.jsonl": 3,
   "data/corpus/hippocrates.testimonia.jsonl": 3,
   "data/corpus/oenopides.testimonia.jsonl": 3,
-  "data/corpus/joannes-damascenus.institutio-elementaris.jsonl": 3,
   "data/corpus/sopater-comedy.fragmenta.jsonl": 3,
   "data/corpus_secondary/anaxarchus.testimonia.jsonl": 3,
   "data/corpus/serenus.de-sectione-cylindri.jsonl": 3,
   "data/corpus_secondary/hippocrates.testimonia.jsonl": 3,
   "data/corpus_secondary/nausiphanes.testimonia.jsonl": 3,
   "data/corpus/epicurus.deperditorum-librorum-reliquiae.jsonl": 3,
+  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl": 3,
   "data/corpus/hippon.testimonia.jsonl": 3,
   "data/corpus/gregorius-nazianzenus.contra-julianum-imperatorem-1-orat-4.jsonl": 3,
   "data/corpus/joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl": 3,
@@ -491,9 +490,7 @@
   "data/corpus_secondary/geoponica.geoponica.duplicate-read.jsonl": 2,
   "data/corpus/didymus.schmidt.jsonl": 2,
   "data/corpus/scholia-in-theocritum.scholia-vetera-et-recentiora.jsonl": 2,
-  "data/corpus/joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl": 2,
   "data/corpus/idaeus-philosophy.testimonium.jsonl": 2,
-  "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl": 2,
   "data/corpus/archelaus-philosophy.testimonia.jsonl": 2,
   "data/corpus/anaximenes-philosophy.testimonia.jsonl": 2,
   "data/corpus_secondary/cratylus.testimonia.jsonl": 2,
@@ -501,13 +498,11 @@
   "data/corpus/eustathius-philol.commentarii-ad-homeri-iliadem.jsonl": 2,
   "data/corpus/alcmaeon.testimonia.jsonl": 2,
   "data/corpus/cratylus.testimonia.jsonl": 2,
-  "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl": 2,
   "data/corpus/apollonius-philosophy.apotelesmata-sp.jsonl": 2,
   "data/corpus/phaleas-et-hippodamus.testimonia-et-fragmenta.jsonl": 2,
   "data/corpus/theodoretus.eranistes.jsonl": 2,
   "data/corpus/joannes-laurentius-lydus.de-magistratibus-populi-romani.jsonl": 2,
   "data/corpus/cyrillus-scr-eccl.mystagogiae-1-5-sp.jsonl": 2,
-  "data/corpus/hesychius-lexicography.lexicon-o.jsonl": 2,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis.jsonl": 2,
   "data/corpus/priscianus.metaphrasis-in-theophrastum.jsonl": 2,
   "data/corpus/basilius-theology.adversus-eunomium-libri-5.jsonl": 2,
@@ -547,28 +542,31 @@
   "data/corpus/joannes-chrysostomus.in-illud-filius-ex-se-nihil-facit.jsonl": 1,
   "data/corpus/basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius.jsonl": 1,
   "data/corpus_secondary/chrysippus-philosophy.fragmenta-quae-ad-explicationem-carminum-homericorum-pertinent.jsonl": 1,
+  "data/corpus/joannes-damascenus.institutio-elementaris.jsonl": 1,
   "data/corpus/joannes-damascenus.passio-sancti-artemii-dub.jsonl": 1,
   "data/corpus/philodemus.tlg1595-tlg289.jsonl": 1,
   "data/corpus/tlg1595.tlg289.jsonl": 1,
   "data/corpus/joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum.jsonl": 1,
+  "data/corpus/hesychius-lexicography.lexicon-o.jsonl": 1,
   "data/corpus/scholia-in-platonem.scholia-in-platonem-scholia-vetera.jsonl": 1,
   "data/corpus/athanasius-theology.narratio-de-cruce-seu-imagine-berytensi-sp.jsonl": 1,
   "data/corpus/theodoretus.quaestiones-in-octateuchum.jsonl": 1,
   "data/corpus/menestor.testimonia.jsonl": 1,
   "data/corpus_secondary/eurytus.testimonia.jsonl": 1,
   "data/corpus/philodemus.tlg1595-tlg267.jsonl": 1,
-  "data/corpus/basilius-theology.homilia-de-spiritu-sancto-sp.jsonl": 1,
   "data/corpus/tlg1595.tlg267.jsonl": 1,
   "data/corpus/joannes-chrysostomus.in-dictum-pauli-oportet-haereses-esse.jsonl": 1,
   "data/corpus/eurytus.testimonia.jsonl": 1,
   "data/corpus/aristophanes-byzantii-nauck.jsonl": 1,
   "data/corpus/joannes-damascenus.adversus-iconoclastas-sp.jsonl": 1,
   "data/corpus/gregorius-nazianzenus.in-sancta-lumina-orat-39.jsonl": 1,
+  "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl": 1,
   "data/corpus/theodoretus.commentaria-in-isaiam.jsonl": 1,
   "data/corpus/alexander-lyric.fragmenta.jsonl": 1,
   "data/corpus_secondary/nonnosus.fragmenta.jsonl": 1,
   "data/corpus/euhemerus.fragmenta.jsonl": 1,
   "data/corpus/joannes-chrysostomus.quales-ducendae-sint-uxores-encomium-ad-maximum.jsonl": 1,
+  "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl": 1,
   "data/corpus/athanasius-theology.liber-de-definitionibus-sp.jsonl": 1,
   "data/corpus/aristippus-cyrenaicus.sententiae-et-apophthegmata.jsonl": 1,
   "data/corpus_secondary/septuaginta.ecclesiastes.jsonl": 1,
@@ -3420,30 +3418,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.de-azymis-fragmenta-duo-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0204",
-   "locus_b": "pg095_0208",
-   "containment": 0.8856,
-   "bigrams_a": 403,
-   "bigrams_b": 402,
-   "tokens_b": 487,
-   "words_absent_from_a": 21,
-   "words_b": 487,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/diogenes-babylonius.testimonia-et-fragmenta.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0218",
@@ -4133,30 +4107,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.epistula-de-hymno-trisagio.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0011",
-   "locus_b": "pg095_0015",
-   "containment": 0.8727,
-   "bigrams_a": 330,
-   "bigrams_b": 330,
-   "tokens_b": 355,
-   "words_absent_from_a": 19,
-   "words_b": 355,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0065",
@@ -4722,32 +4672,6 @@
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-damascenus.institutio-elementaris.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.institutio-elementaris.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0057",
-   "locus_b": "pg095_0061",
-   "containment": 0.8638,
-   "bigrams_a": 348,
-   "bigrams_b": 345,
-   "tokens_b": 402,
-   "words_absent_from_a": 19,
-   "words_b": 402,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "αισθη τικον μεις"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -5943,30 +5867,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-canticum-canticorum.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg069_0655",
-   "locus_b": "pg069_0659",
-   "containment": 0.8463,
-   "bigrams_a": 399,
-   "bigrams_b": 397,
-   "tokens_b": 413,
-   "words_absent_from_a": 28,
-   "words_b": 413,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/alcmaeon.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0119",
@@ -6138,30 +6038,6 @@
    ],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl",
-   "files_a": [
-    "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg026_0606",
-   "locus_b": "pg026_0736",
-   "containment": 0.8446,
-   "bigrams_a": 302,
-   "bigrams_b": 296,
-   "tokens_b": 326,
-   "words_absent_from_a": 18,
-   "words_b": 326,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -6589,30 +6465,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0621",
-   "locus_b": "pg077_0655",
-   "containment": 0.8393,
-   "bigrams_a": 361,
-   "bigrams_b": 362,
-   "tokens_b": 398,
-   "words_absent_from_a": 29,
-   "words_b": 398,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0181",
@@ -6762,54 +6614,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 28,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0640",
-   "locus_b": "pg077_0674",
-   "containment": 0.8369,
-   "bigrams_a": 374,
-   "bigrams_b": 374,
-   "tokens_b": 394,
-   "words_absent_from_a": 26,
-   "words_b": 394,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0515",
-   "locus_b": "pg074_0545",
-   "containment": 0.8369,
-   "bigrams_a": 423,
-   "bigrams_b": 424,
-   "tokens_b": 453,
-   "words_absent_from_a": 36,
-   "words_b": 453,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -8039,30 +7843,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg075_0339",
-   "locus_b": "pg075_0355",
-   "containment": 0.8212,
-   "bigrams_a": 388,
-   "bigrams_b": 386,
-   "tokens_b": 417,
-   "words_absent_from_a": 32,
-   "words_b": 417,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/ocr.dindorf_aristides_v2.jsonl",
    "served": false,
    "locus_a": "dindorf_aristides_v2_0815",
@@ -8369,30 +8149,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/joannes-damascenus.institutio-elementaris.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.institutio-elementaris.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0055",
-   "locus_b": "pg095_0059",
-   "containment": 0.8167,
-   "bigrams_a": 301,
-   "bigrams_b": 300,
-   "tokens_b": 361,
-   "words_absent_from_a": 22,
-   "words_b": 361,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/archytas-philosophy.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0283",
@@ -8444,32 +8200,6 @@
     "ε στεμμα εχων"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0499",
-   "locus_b": "pg074_0537",
-   "containment": 0.8159,
-   "bigrams_a": 240,
-   "bigrams_b": 239,
-   "tokens_b": 249,
-   "words_absent_from_a": 18,
-   "words_b": 249,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "χακεινων τις λογισται"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -8993,30 +8723,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0525",
-   "locus_b": "pg074_0550",
-   "containment": 0.8087,
-   "bigrams_a": 236,
-   "bigrams_b": 230,
-   "tokens_b": 253,
-   "words_absent_from_a": 21,
-   "words_b": 253,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/geoponica.geoponica.duplicate-read.jsonl",
    "served": false,
    "locus_a": "geoponica_beckh_0426",
@@ -9076,54 +8782,6 @@
     "πρωτον επιχειρημα πολυσημον"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0639",
-   "locus_b": "pg077_0673",
-   "containment": 0.8076,
-   "bigrams_a": 369,
-   "bigrams_b": 370,
-   "tokens_b": 405,
-   "words_absent_from_a": 35,
-   "words_b": 405,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0628",
-   "locus_b": "pg077_0662",
-   "containment": 0.8075,
-   "bigrams_a": 348,
-   "bigrams_b": 359,
-   "tokens_b": 380,
-   "words_absent_from_a": 39,
-   "words_b": 380,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -9535,37 +9193,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0627",
-   "locus_b": "pg077_0661",
-   "containment": 0.8014,
-   "bigrams_a": 368,
-   "bigrams_b": 277,
-   "tokens_b": 293,
-   "words_absent_from_a": 26,
-   "words_b": 293,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "πεπλημμελημενοις κολασεων επει",
-    "πασχα λεγομενη θεωρια",
-    "λευιτικου προδειληπται ανεστη",
-    "μετ εκεινην κυριακη πεντακις οκτω μετρησεις",
-    "μη πιστευσας μαστιζεται",
-    "τελευτησαντων φ νευσασαι"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/xenophanes.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0061",
@@ -9628,30 +9255,6 @@
    ],
    "same_item": true,
    "page_offset": 4,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0619",
-   "locus_b": "pg077_0653",
-   "containment": 0.8,
-   "bigrams_a": 390,
-   "bigrams_b": 391,
-   "tokens_b": 421,
-   "words_absent_from_a": 40,
-   "words_b": 421,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -11068,44 +10671,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0643",
-   "locus_b": "pg077_0677",
-   "containment": 0.7849,
-   "bigrams_a": 383,
-   "bigrams_b": 279,
-   "tokens_b": 576,
-   "words_absent_from_a": 56,
-   "words_b": 576,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "τι καθ ολον",
-    "ποτε τροπον πασχομεναι",
-    "νουν νοη σωμεν τοτε",
-    "θεωρητικην συμπασχειν πιστευομεν",
-    "υποκειμενω συμπασχουσιν υποκειμενον",
-    "νουν συμβεβηκοτων λογω επεχουσι διο",
-    "αυτην ποιαν κινησιν αρχην",
-    "οικειας αλλοιωσεως εχουσαι καλως ουν",
-    "φαινομενον απορον μονος",
-    "νους υψουται μεγαλοφρονων επι κατορθωμασι",
-    "παφυχασι τουτο πασχειν",
-    "θεωρουμεναι καθ εαυτας υποστατικως ομως",
-    "τι μαλυνομενη συγγαιρονται κ"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0176",
@@ -11189,32 +10754,6 @@
     "κατη γοροι μην"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0505",
-   "locus_b": "pg074_0540",
-   "containment": 0.784,
-   "bigrams_a": 384,
-   "bigrams_b": 375,
-   "tokens_b": 389,
-   "words_absent_from_a": 34,
-   "words_b": 389,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "εγκλη ματα οφθη"
-   ],
    "same_item": true,
    "page_offset": null,
    "run": null
@@ -11748,30 +11287,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0635",
-   "locus_b": "pg077_0669",
-   "containment": 0.779,
-   "bigrams_a": 365,
-   "bigrams_b": 362,
-   "tokens_b": 397,
-   "words_absent_from_a": 38,
-   "words_b": 397,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl",
    "served": true,
    "locus_a": "aeneasgazaeuset00zachgoog_0092",
@@ -11995,30 +11510,6 @@
     "αρι στευσαντες δωδεκα αποστολοι",
     "στερεαν υλην λαμ βανομενην"
    ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-canticum-canticorum.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg069_0656",
-   "locus_b": "pg069_0660",
-   "containment": 0.7767,
-   "bigrams_a": 410,
-   "bigrams_b": 403,
-   "tokens_b": 430,
-   "words_absent_from_a": 47,
-   "words_b": 430,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": null,
    "run": null
@@ -12865,32 +12356,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0626",
-   "locus_b": "pg077_0660",
-   "containment": 0.7686,
-   "bigrams_a": 384,
-   "bigrams_b": 350,
-   "tokens_b": 369,
-   "words_absent_from_a": 34,
-   "words_b": 369,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "ουκ ερεις κακως κωφον"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni.duplicate-read-merged.jsonl",
    "files_a": [
     "data/corpus_secondary/nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni.duplicate-read-merged.jsonl",
@@ -13298,30 +12763,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.de-azymis-fragmenta-duo-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0202",
-   "locus_b": "pg095_0206",
-   "containment": 0.7664,
-   "bigrams_a": 304,
-   "bigrams_b": 308,
-   "tokens_b": 334,
-   "words_absent_from_a": 36,
-   "words_b": 334,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/cyrillus-scr-eccl.mystagogiae-1-5-sp.jsonl",
    "served": true,
    "locus_a": "pg033_0563",
@@ -13610,63 +13051,6 @@
     "αναδεξαμενος ωστερ εαν"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/basilius-theology.homilia-de-spiritu-sancto-sp.jsonl",
-   "files_a": [
-    "data/corpus/basilius-theology.homilia-de-spiritu-sancto-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/basilius-theology.de-baptismo-libri-duo.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg031_0732",
-   "locus_b": "pg031_0801",
-   "containment": 0.7638,
-   "bigrams_a": 389,
-   "bigrams_b": 326,
-   "tokens_b": 368,
-   "words_absent_from_a": 34,
-   "words_b": 368,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "αναβαινοντα οπου ην",
-    "ωφελει ουδεν τα ρηματα",
-    "εισι τινες εξ υμων",
-    "ου πιστευοντες ηδει",
-    "ιησους εξ αρχης τινες εισιν"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0636",
-   "locus_b": "pg077_0670",
-   "containment": 0.7636,
-   "bigrams_a": 385,
-   "bigrams_b": 398,
-   "tokens_b": 422,
-   "words_absent_from_a": 56,
-   "words_b": 422,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "ειδεν ε ιας",
-    "ε ιας κρατος"
-   ],
    "same_item": true,
    "page_offset": null,
    "run": null
@@ -14368,30 +13752,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0501",
-   "locus_b": "pg074_0538",
-   "containment": 0.7573,
-   "bigrams_a": 415,
-   "bigrams_b": 412,
-   "tokens_b": 437,
-   "words_absent_from_a": 43,
-   "words_b": 437,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
    "served": true,
    "locus_a": "scholia_aristidem_frommel1826_0381",
@@ -14433,30 +13793,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 18,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0624",
-   "locus_b": "pg077_0658",
-   "containment": 0.757,
-   "bigrams_a": 391,
-   "bigrams_b": 392,
-   "tokens_b": 417,
-   "words_absent_from_a": 46,
-   "words_b": 417,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -14780,32 +14116,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0629",
-   "locus_b": "pg077_0663",
-   "containment": 0.7545,
-   "bigrams_a": 334,
-   "bigrams_b": 334,
-   "tokens_b": 361,
-   "words_absent_from_a": 40,
-   "words_b": 361,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "πατ αρχης πυρωθεις"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl",
    "served": true,
    "locus_a": "pg027_0052",
@@ -14935,30 +14245,6 @@
    "same_item": true,
    "page_offset": 6,
    "run": "libanius_orationes_v4+6@123"
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg075_0329",
-   "locus_b": "pg075_0345",
-   "containment": 0.7529,
-   "bigrams_a": 258,
-   "bigrams_b": 255,
-   "tokens_b": 266,
-   "words_absent_from_a": 26,
-   "words_b": 266,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
   },
   {
    "file": "data/corpus/isidorus-scholasticus-anthol-didot.jsonl",
@@ -15174,32 +14460,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 2,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg075_0330",
-   "locus_b": "pg075_0346",
-   "containment": 0.7513,
-   "bigrams_a": 193,
-   "bigrams_b": 189,
-   "tokens_b": 208,
-   "words_absent_from_a": 22,
-   "words_b": 207,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "ειπερ τις ελοτο"
-   ],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -16959,32 +16219,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0521",
-   "locus_b": "pg074_0548",
-   "containment": 0.7335,
-   "bigrams_a": 394,
-   "bigrams_b": 405,
-   "tokens_b": 428,
-   "words_absent_from_a": 46,
-   "words_b": 428,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "βασιλια κηδος αυτης"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/epigonus-ap-cougny-v1.jsonl",
    "served": true,
    "locus_a": "epigonus_ap_cougny_v1_0041",
@@ -18283,35 +17517,6 @@
    "unique_runs_if_a_dropped": [
     "ασελιας υπαρχων ομουν α αρτιαν",
     "εφελωτη σιμος επι πεισις υποκρινη"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg075_0336",
-   "locus_b": "pg075_0352",
-   "containment": 0.7225,
-   "bigrams_a": 401,
-   "bigrams_b": 346,
-   "tokens_b": 370,
-   "words_absent_from_a": 41,
-   "words_b": 370,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "τουν τευθεν ευρομεθα",
-    "ετωσιον αχθος αρουσης",
-    "εαυτους ετερογνωμουντες αλυονται κακουργητας",
-    "παρατιθομενοι την λεξιν"
    ],
    "same_item": true,
    "page_offset": null,
@@ -20131,35 +19336,6 @@
     "της απνου διηγησαμενος"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
-   "files_a": [
-    "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
-    "data/corpus/hesychius-lexicography.lexicon-p-w.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/hesychius-lexicography.lexicon-p-w.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "hesychius_masked_0692",
-   "locus_b": "hesychius_masked_0696",
-   "containment": 0.7012,
-   "bigrams_a": 252,
-   "bigrams_b": 251,
-   "tokens_b": 254,
-   "words_absent_from_a": 40,
-   "words_b": 254,
-   "unique_runs_if_b_dropped": [
-    "ραγα ραγανον ραδιον"
-   ],
-   "unique_runs_if_a_dropped": [
-    "υαθαμη υαστωνη υαθυμια υαθαινεται υαινεται"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -25050,32 +24226,6 @@
     "πρηστηρα περιιστησιν απο"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg075_0334",
-   "locus_b": "pg075_0350",
-   "containment": 0.6514,
-   "bigrams_a": 393,
-   "bigrams_b": 395,
-   "tokens_b": 415,
-   "words_absent_from_a": 65,
-   "words_b": 415,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "υπουν αληθες εννοιας"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
