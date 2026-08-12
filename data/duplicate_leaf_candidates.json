@@ -11,14 +11,14 @@
    "cgpg"
   ]
  },
- "files_scanned": 4402,
- "candidates": 40,
- "clean_second_copies": 12,
- "clean_second_copies_tokens": 4551,
- "clean_second_copies_served": 4,
- "clean_second_copies_served_tokens": 1519,
- "overlapping_not_copies": 28,
- "overlapping_not_copies_tokens": 10634,
+ "files_scanned": 4406,
+ "candidates": 28,
+ "clean_second_copies": 8,
+ "clean_second_copies_tokens": 3032,
+ "clean_second_copies_served": 0,
+ "clean_second_copies_served_tokens": 0,
+ "overlapping_not_copies": 20,
+ "overlapping_not_copies_tokens": 7709,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -36,8 +36,8 @@
   },
   {
    "band": "0.80-0.90",
-   "pairs": 4,
-   "tokens": 1519,
+   "pairs": 0,
+   "tokens": 0,
    "same_item_pairs": 0,
    "same_item_tokens": 0
   },
@@ -68,12 +68,8 @@
  "by_file": {
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-1-92.jsonl": 9,
   "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl": 8,
-  "data/corpus/photius.amphilochia.jsonl": 4,
-  "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl": 4,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske.jsonl": 3,
   "data/corpus_secondary/constantinus-vii-porphyrogenitus-imperator.de-thematibus.jsonl": 2,
-  "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl": 2,
-  "data/corpus/michael-psellus.poemata.jsonl": 2,
   "data/corpus/theophylactus-achridensis.epistulae.jsonl": 2,
   "data/corpus_secondary/socrates-scholasticus.historia-ecclesiastica-2.jsonl": 2,
   "data/corpus_secondary/pseudo-codinus.patria-constantinopoleos.jsonl": 1,
@@ -91,85 +87,6 @@
    "tokens_b": 295,
    "words_absent_from_a": 5,
    "words_b": 295,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/photius.amphilochia.jsonl",
-   "served": true,
-   "locus_a": "PG101.378",
-   "locus_b": "PG101.380",
-   "containment": 0.9009,
-   "bigrams_a": 323,
-   "bigrams_b": 325,
-   "tokens_b": 360,
-   "words_absent_from_a": 17,
-   "words_b": 360,
-   "unique_runs_if_b_dropped": [
-    "πραγματεια εαιαιυα νοινο οοιανο",
-    "οα ιιιο αοιουαροσιοιοτω"
-   ],
-   "unique_runs_if_a_dropped": [
-    "πραγχατεια εδαδ ανοινο οοιανοο",
-    "ωρ ιαιο αοιαροειοιοτ"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/photius.amphilochia.jsonl",
-   "served": true,
-   "locus_a": "PG101.389",
-   "locus_b": "PG101.391",
-   "containment": 0.9006,
-   "bigrams_a": 332,
-   "bigrams_b": 340,
-   "tokens_b": 350,
-   "words_absent_from_a": 26,
-   "words_b": 350,
-   "unique_runs_if_b_dropped": [
-    "παιατωμπ α ολο ροιαα σωιαο μ τιεθ αιιαμ",
-    "τ πι ιηιοω ινα ινα σεφη"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ια ιοο ν ιο σεσατο"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/photius.amphilochia.jsonl",
-   "served": true,
-   "locus_a": "PG101.379",
-   "locus_b": "PG101.381",
-   "containment": 0.8977,
-   "bigrams_a": 344,
-   "bigrams_b": 342,
-   "tokens_b": 361,
-   "words_absent_from_a": 13,
-   "words_b": 361,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
-   "served": true,
-   "locus_a": "PG118.65",
-   "locus_b": "PG118.67",
-   "containment": 0.8917,
-   "bigrams_a": 351,
-   "bigrams_b": 361,
-   "tokens_b": 370,
-   "words_absent_from_a": 21,
-   "words_b": 370,
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
@@ -199,113 +116,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
-   "served": true,
-   "locus_a": "PG134.660",
-   "locus_b": "PG134.662",
-   "containment": 0.8802,
-   "bigrams_a": 334,
-   "bigrams_b": 335,
-   "tokens_b": 346,
-   "words_absent_from_a": 23,
-   "words_b": 346,
-   "unique_runs_if_b_dropped": [
-    "οιεφυγον βοραιοι οε στασιασαντες"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ανειλον πων αντιονεων"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/photius.amphilochia.jsonl",
-   "served": true,
-   "locus_a": "PG101.390",
-   "locus_b": "PG101.392",
-   "containment": 0.8773,
-   "bigrams_a": 383,
-   "bigrams_b": 383,
-   "tokens_b": 397,
-   "words_absent_from_a": 25,
-   "words_b": 397,
-   "unique_runs_if_b_dropped": [
-    "ραπμε ρερεεβυε αοιωη ιηωνιογα ρουτιραωρ ιροοιαιη ειι οι οοποε ριεριοοο οα ωρειιρβαι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ξεημε ροιρεεε βοια ιο ιιοια ριουτε υ ιρροιαυιιπ",
-    "ι οοποιε ριοριοεο πο ειευαι"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/michael-psellus.poemata.jsonl",
-   "served": true,
-   "locus_a": "PG122.301",
-   "locus_b": "PG122.303",
-   "containment": 0.8696,
-   "bigrams_a": 345,
-   "bigrams_b": 375,
-   "tokens_b": 398,
-   "words_absent_from_a": 38,
-   "words_b": 398,
-   "unique_runs_if_b_dropped": [
-    "αιισις εεμο ρττιηι εγω αιτω ινα",
-    "ηδειε δηλαδη γλσκεια"
-   ],
-   "unique_runs_if_a_dropped": [
-    "τιωπ ροιφωι ει οε ιμα"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/oecumenius.commentarius-in-acta-apostolorum.jsonl",
-   "served": true,
-   "locus_a": "PG118.66",
-   "locus_b": "PG118.68",
-   "containment": 0.864,
-   "bigrams_a": 365,
-   "bigrams_b": 353,
-   "tokens_b": 374,
-   "words_absent_from_a": 17,
-   "words_b": 374,
-   "unique_runs_if_b_dropped": [
-    "αδελφου σου ντι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ποε εκωε ιρει ιοσιοε βοιιη"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
-   "served": true,
-   "locus_a": "PG134.673",
-   "locus_b": "PG134.675",
-   "containment": 0.8464,
-   "bigrams_a": 384,
-   "bigrams_b": 403,
-   "tokens_b": 420,
-   "words_absent_from_a": 36,
-   "words_b": 420,
-   "unique_runs_if_b_dropped": [
-    "μαθοντες κακεινοι καταλυσαι",
-    "πολεμους σπουδην εθεντο",
-    "ες ονο δασεν"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/joannes-zonaras.epitome-historiarum-lib-1-12.jsonl",
    "served": false,
    "locus_a": "PG134.507",
@@ -323,29 +133,6 @@
     "κυδοα ναι ευνενεστατον"
    ],
    "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
-   "served": true,
-   "locus_a": "PG134.674",
-   "locus_b": "PG134.676",
-   "containment": 0.8283,
-   "bigrams_a": 367,
-   "bigrams_b": 378,
-   "tokens_b": 391,
-   "words_absent_from_a": 34,
-   "words_b": 391,
-   "unique_runs_if_b_dropped": [
-    "ιστρον περαιωθεντες εν γη",
-    "ον βοων μανιμων"
-   ],
-   "unique_runs_if_a_dropped": [
-    "οι κγαρ καρδαιται",
-    "προε ρο μαιους"
-   ],
    "same_item": false,
    "page_offset": null,
    "run": null
@@ -383,23 +170,6 @@
    "unique_runs_if_b_dropped": [
     "ροβδουχος προση νεγκε"
    ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/michael-psellus.poemata.jsonl",
-   "served": true,
-   "locus_a": "PG122.302",
-   "locus_b": "PG122.304",
-   "containment": 0.8039,
-   "bigrams_a": 362,
-   "bigrams_b": 362,
-   "tokens_b": 368,
-   "words_absent_from_a": 31,
-   "words_b": 368,
-   "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
@@ -460,31 +230,6 @@
     "πλειους αμαχεω προσηγαγετο ξανθον",
     "λοιπους ηλευθερωσεν ιδοντες",
     "εστρατοπεδευσαντο υπερτερουντε γε"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-zonaras.epitome-historiarum-lib-13-18.jsonl",
-   "served": true,
-   "locus_a": "PG134.659",
-   "locus_b": "PG134.661",
-   "containment": 0.7458,
-   "bigrams_a": 236,
-   "bigrams_b": 305,
-   "tokens_b": 309,
-   "words_absent_from_a": 95,
-   "words_b": 309,
-   "unique_runs_if_b_dropped": [
-    "δαρασιανης εκτοιιας επι",
-    "κοιτωνος γεγονως ιουστινιανου επεγραφησαν",
-    "ηρωελεγεια λ ερφο ποιιιε ηοας νησοι ειεεγακαα αονμκα μαμτιοιε σοημμπ",
-    "τιθενιι εασμε νοαιπα εαις εομηααμμε πααρτ ος ιη ηεμιονηα οοβοαα οερινα αομηι ειξαι ιασεο οραιισεε μονε",
-    "πιευιπ οοκικα νοσειεεφε αορι φημιερνφ νιουεε ρο εκκι οιιαιε ααι ριν ακε οιεεειε ριμα νοσαεια ιη σιο ρ ρηιργς ομν ιηπονα σαυοα πεοαβιμν μακιαπι ριονεε πεερια θα αοιι ρ ιανη πονα πειε σαγρει απνομιθη μιυτα ενμεα τηηειοιο ειιηρε δμιοε αρει ιδ"
-   ],
-   "unique_runs_if_a_dropped": [
-    "οαρασμανης εκτομιας δλζ εοοο νυκ ιασο"
    ],
    "same_item": false,
    "page_offset": null,
