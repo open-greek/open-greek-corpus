@@ -1,0 +1,3430 @@
+{
+ "_meta": {
+  "what": "cross-file duplicate pages attributed per cisco's 2026-08-12 rulings; clean losing copies displaced to witnesses, the rest recorded",
+  "issue": "open-greek/open-greek-corpus#33",
+  "date": "2026-08-12",
+  "tool": "scripts/resolve_crossfile_pages.py",
+  "inputs": [
+   "data/crossfile_page_evidence.json",
+   "data/crossfile_page_decisions.json"
+  ],
+  "reverse": "python3 scripts/resolve_crossfile_pages.py --unapply"
+ },
+ "displaced": [
+  {
+   "pair": "pg095_0204 ~ pg095_0208",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl",
+   "loser_file": "joannes-damascenus.de-azymis-fragmenta-duo-sp.jsonl",
+   "loser_page": "pg095_0208",
+   "loser_rows": 1,
+   "loser_tokens_ws": 495,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg095_0011 ~ pg095_0015",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl",
+   "loser_file": "joannes-damascenus.epistula-de-hymno-trisagio.jsonl",
+   "loser_page": "pg095_0015",
+   "loser_rows": 3,
+   "loser_tokens_ws": 354,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg095_0057 ~ pg095_0061",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "joannes-damascenus.institutio-elementaris.jsonl",
+   "loser_file": "joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl",
+   "loser_page": "pg095_0061",
+   "loser_rows": 6,
+   "loser_tokens_ws": 430,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg069_0655 ~ pg069_0659",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.expositio-in-psalmos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-canticum-canticorum.jsonl",
+   "loser_page": "pg069_0659",
+   "loser_rows": 9,
+   "loser_tokens_ws": 419,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg026_0606 ~ pg026_0736",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl",
+   "loser_file": "athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum.jsonl",
+   "loser_page": "pg026_0736",
+   "loser_rows": 3,
+   "loser_tokens_ws": 332,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0621 ~ pg077_0655",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0655",
+   "loser_rows": 4,
+   "loser_tokens_ws": 425,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0640 ~ pg077_0674",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0674",
+   "loser_rows": 4,
+   "loser_tokens_ws": 398,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg074_0515 ~ pg074_0545",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0545",
+   "loser_rows": 5,
+   "loser_tokens_ws": 453,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg075_0339 ~ pg075_0355",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0355",
+   "loser_rows": 6,
+   "loser_tokens_ws": 454,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg095_0055 ~ pg095_0059",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "joannes-damascenus.institutio-elementaris.jsonl",
+   "loser_file": "joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl",
+   "loser_page": "pg095_0059",
+   "loser_rows": 10,
+   "loser_tokens_ws": 373,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg074_0499 ~ pg074_0537",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0537",
+   "loser_rows": 7,
+   "loser_tokens_ws": 250,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg074_0525 ~ pg074_0550",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0550",
+   "loser_rows": 8,
+   "loser_tokens_ws": 259,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0639 ~ pg077_0673",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0673",
+   "loser_rows": 1,
+   "loser_tokens_ws": 405,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0628 ~ pg077_0662",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0662",
+   "loser_rows": 9,
+   "loser_tokens_ws": 401,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0627 ~ pg077_0661",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0661",
+   "loser_rows": 6,
+   "loser_tokens_ws": 295,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0619 ~ pg077_0653",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0653",
+   "loser_rows": 1,
+   "loser_tokens_ws": 824,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0643 ~ pg077_0677",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0677",
+   "loser_rows": 4,
+   "loser_tokens_ws": 576,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg074_0505 ~ pg074_0540",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0540",
+   "loser_rows": 6,
+   "loser_tokens_ws": 392,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0635 ~ pg077_0669",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0669",
+   "loser_rows": 4,
+   "loser_tokens_ws": 399,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg069_0656 ~ pg069_0660",
+   "belongs": "B",
+   "basis": "content inspection: content: the page is Song of Songs exegesis (the bridegroom's arrow, the daughters of Jerusalem), fragmenta-in-canticum material. The expositio-in-psalmos copy is the same printed page garbled into 58 fragment rows and holds no unique 3+-word runs; displace it.",
+   "winner_file": "cyrillus-theology.fragmenta-in-canticum-canticorum.jsonl",
+   "loser_file": "cyrillus-theology.expositio-in-psalmos.jsonl",
+   "loser_page": "pg069_0656",
+   "loser_rows": 58,
+   "loser_tokens_ws": 443,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0626 ~ pg077_0660",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0660",
+   "loser_rows": 4,
+   "loser_tokens_ws": 373,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg095_0202 ~ pg095_0206",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp.jsonl",
+   "loser_file": "joannes-damascenus.de-azymis-fragmenta-duo-sp.jsonl",
+   "loser_page": "pg095_0206",
+   "loser_rows": 2,
+   "loser_tokens_ws": 342,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg031_0732 ~ pg031_0801",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "basilius-theology.homilia-de-spiritu-sancto-sp.jsonl",
+   "loser_file": "basilius-theology.de-baptismo-libri-duo.jsonl",
+   "loser_page": "pg031_0801",
+   "loser_rows": 4,
+   "loser_tokens_ws": 390,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0636 ~ pg077_0670",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0670",
+   "loser_rows": 8,
+   "loser_tokens_ws": 422,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg074_0501 ~ pg074_0538",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0538",
+   "loser_rows": 2,
+   "loser_tokens_ws": 459,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0624 ~ pg077_0658",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0658",
+   "loser_rows": 3,
+   "loser_tokens_ws": 419,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg077_0629 ~ pg077_0663",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0663",
+   "loser_rows": 7,
+   "loser_tokens_ws": 363,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg075_0329 ~ pg075_0345",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0345",
+   "loser_rows": 4,
+   "loser_tokens_ws": 272,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg075_0330 ~ pg075_0346",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0346",
+   "loser_rows": 16,
+   "loser_tokens_ws": 211,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg074_0521 ~ pg074_0548",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0548",
+   "loser_rows": 3,
+   "loser_tokens_ws": 441,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg075_0336 ~ pg075_0352",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0352",
+   "loser_rows": 5,
+   "loser_tokens_ws": 376,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "hesychius_masked_0692 ~ hesychius_masked_0696",
+   "belongs": "B",
+   "basis": "content inspection: content: the page is the rho section (its entries run from hyaga/rhaga through rhadamos), which is lexicon-p-w range; lexicon-o's copy is a single 12-word stray row with no unique runs; displace it.",
+   "winner_file": "hesychius-lexicography.lexicon-p-w.jsonl",
+   "loser_file": "hesychius-lexicography.lexicon-o.jsonl",
+   "loser_page": "hesychius_masked_0692",
+   "loser_rows": 1,
+   "loser_tokens_ws": 12,
+   "action": "displaced to corpus_secondary"
+  },
+  {
+   "pair": "pg075_0334 ~ pg075_0350",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0350",
+   "loser_rows": 4,
+   "loser_tokens_ws": 423,
+   "action": "displaced to corpus_secondary"
+  }
+ ],
+ "attribution_only": [
+  {
+   "pair": "pg074_0523 ~ pg074_0549",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0549",
+   "loser_rows": 2,
+   "loser_tokens_ws": 356,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0533 ~ pg074_0554",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0554",
+   "loser_rows": 11,
+   "loser_tokens_ws": 313,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg095_0058 ~ pg095_0062",
+   "belongs": "A",
+   "basis": "content inspection: content: both copies carry the same elementary-logic page (genus and species, division of substance), which is institutio-elementaris material, not two-wills christology; the de-duabus copy at page 62 is the stray. Each copy holds one small garble-run the other lacks, so no displacement, attribution only.",
+   "winner_file": "joannes-damascenus.institutio-elementaris.jsonl",
+   "loser_file": "joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl",
+   "loser_page": "pg095_0062",
+   "loser_rows": 4,
+   "loser_tokens_ws": 378,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0641 ~ pg077_0675",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0675",
+   "loser_rows": 3,
+   "loser_tokens_ws": 368,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0618 ~ pg077_0652",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0652",
+   "loser_rows": 1,
+   "loser_tokens_ws": 326,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0341 ~ pg075_0357",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0357",
+   "loser_rows": 5,
+   "loser_tokens_ws": 423,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0638 ~ pg077_0672",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0672",
+   "loser_rows": 1,
+   "loser_tokens_ws": 311,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0527 ~ pg074_0551",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0551",
+   "loser_rows": 8,
+   "loser_tokens_ws": 380,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0611 ~ pg077_0645",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0645",
+   "loser_rows": 8,
+   "loser_tokens_ws": 424,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0620 ~ pg077_0654",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0654",
+   "loser_rows": 4,
+   "loser_tokens_ws": 382,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0615 ~ pg077_0649",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0649",
+   "loser_rows": 8,
+   "loser_tokens_ws": 366,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0531 ~ pg074_0553",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0553",
+   "loser_rows": 5,
+   "loser_tokens_ws": 357,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0509 ~ pg074_0542",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0542",
+   "loser_rows": 6,
+   "loser_tokens_ws": 417,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg036_0180 ~ pg036_0190",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.in-theophania-orat-38.jsonl",
+   "loser_file": "gregorius-nazianzenus.in-sancta-lumina-orat-39.jsonl",
+   "loser_page": "pg036_0190",
+   "loser_rows": 2,
+   "loser_tokens_ws": 302,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0625 ~ pg077_0659",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0659",
+   "loser_rows": 10,
+   "loser_tokens_ws": 386,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0622 ~ pg077_0656",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0656",
+   "loser_rows": 4,
+   "loser_tokens_ws": 403,
+   "action": "attribution only: the losing copy holds 5 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0343 ~ pg075_0359",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0359",
+   "loser_rows": 3,
+   "loser_tokens_ws": 456,
+   "action": "attribution only: the losing copy holds 3 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg076_0545 ~ pg076_0571",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.contra-julianum-lib-1-2.jsonl",
+   "loser_file": "cyrillus-theology.ad-calosyrium-epist-83.jsonl",
+   "loser_page": "pg076_0571",
+   "loser_rows": 3,
+   "loser_tokens_ws": 490,
+   "action": "attribution only: the losing copy holds 4 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0338 ~ pg075_0354",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0354",
+   "loser_rows": 2,
+   "loser_tokens_ws": 165,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0331 ~ pg075_0347",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0347",
+   "loser_rows": 12,
+   "loser_tokens_ws": 393,
+   "action": "attribution only: the losing copy holds 5 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0529 ~ pg074_0552",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0552",
+   "loser_rows": 8,
+   "loser_tokens_ws": 372,
+   "action": "attribution only: the losing copy holds 18 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg095_0012 ~ pg095_0016",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl",
+   "loser_file": "joannes-damascenus.epistula-de-hymno-trisagio.jsonl",
+   "loser_page": "pg095_0016",
+   "loser_rows": 2,
+   "loser_tokens_ws": 315,
+   "action": "attribution only: the losing copy holds 11 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0340 ~ pg075_0356",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0356",
+   "loser_rows": 6,
+   "loser_tokens_ws": 408,
+   "action": "attribution only: the losing copy holds 3 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0507 ~ pg074_0541",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0541",
+   "loser_rows": 4,
+   "loser_tokens_ws": 389,
+   "action": "attribution only: the losing copy holds 22 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg074_0517 ~ pg074_0546",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
+   "loser_file": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl",
+   "loser_page": "pg074_0546",
+   "loser_rows": 9,
+   "loser_tokens_ws": 328,
+   "action": "attribution only: the losing copy holds 1 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg076_0544 ~ pg076_0570",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.contra-julianum-lib-1-2.jsonl",
+   "loser_file": "cyrillus-theology.ad-calosyrium-epist-83.jsonl",
+   "loser_page": "pg076_0570",
+   "loser_rows": 1,
+   "loser_tokens_ws": 537,
+   "action": "attribution only: the losing copy holds 3 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg036_0178 ~ pg036_0354",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.in-theophania-orat-38.jsonl",
+   "loser_file": "gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl",
+   "loser_page": "pg036_0354",
+   "loser_rows": 3,
+   "loser_tokens_ws": 347,
+   "action": "attribution only: the losing copy holds 3 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0337 ~ pg075_0353",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0353",
+   "loser_rows": 6,
+   "loser_tokens_ws": 356,
+   "action": "attribution only: the losing copy holds 4 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg026_0605 ~ pg026_0735",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl",
+   "loser_file": "athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum.jsonl",
+   "loser_page": "pg026_0735",
+   "loser_rows": 7,
+   "loser_tokens_ws": 331,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0332 ~ pg075_0348",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0348",
+   "loser_rows": 4,
+   "loser_tokens_ws": 393,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg076_0543 ~ pg076_0569",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.contra-julianum-lib-1-2.jsonl",
+   "loser_file": "cyrillus-theology.ad-calosyrium-epist-83.jsonl",
+   "loser_page": "pg076_0569",
+   "loser_rows": 1,
+   "loser_tokens_ws": 224,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg077_0612 ~ pg077_0646",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.de-sancta-trinitate-sp.jsonl",
+   "loser_file": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl",
+   "loser_page": "pg077_0646",
+   "loser_rows": 1,
+   "loser_tokens_ws": 300,
+   "action": "attribution only: the losing copy holds 7 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg028_0284 ~ pg028_0726",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "athanasius-theology.liber-de-definitionibus-sp.jsonl",
+   "loser_file": "athanasius-theology.de-corpore-et-anima-sp.jsonl",
+   "loser_page": "pg028_0726",
+   "loser_rows": 40,
+   "loser_tokens_ws": 346,
+   "action": "attribution only: the losing copy holds 12 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg063_0130 ~ pg063_0788",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl",
+   "loser_file": "joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.jsonl",
+   "loser_page": "pg063_0788",
+   "loser_rows": 2,
+   "loser_tokens_ws": 971,
+   "action": "attribution only: the losing copy holds 11 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg036_0176 ~ pg036_0340",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.in-theophania-orat-38.jsonl",
+   "loser_file": "gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl",
+   "loser_page": "pg036_0340",
+   "loser_rows": 2,
+   "loser_tokens_ws": 346,
+   "action": "attribution only: the losing copy holds 9 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg056_0168 ~ pg056_0261",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl",
+   "loser_file": "joannes-chrysostomus.de-melchisedech-sp.jsonl",
+   "loser_page": "pg056_0261",
+   "loser_rows": 5,
+   "loser_tokens_ws": 691,
+   "action": "attribution only: the losing copy holds 42 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg036_0177 ~ pg036_0341",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.in-theophania-orat-38.jsonl",
+   "loser_file": "gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl",
+   "loser_page": "pg036_0341",
+   "loser_rows": 2,
+   "loser_tokens_ws": 362,
+   "action": "attribution only: the losing copy holds 6 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0333 ~ pg075_0349",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0349",
+   "loser_rows": 12,
+   "loser_tokens_ws": 398,
+   "action": "attribution only: the losing copy holds 2 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg036_0174 ~ pg036_0338",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.in-theophania-orat-38.jsonl",
+   "loser_file": "gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl",
+   "loser_page": "pg036_0338",
+   "loser_rows": 2,
+   "loser_tokens_ws": 320,
+   "action": "attribution only: the losing copy holds 13 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg036_0175 ~ pg036_0339",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.in-theophania-orat-38.jsonl",
+   "loser_file": "gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl",
+   "loser_page": "pg036_0339",
+   "loser_rows": 4,
+   "loser_tokens_ws": 316,
+   "action": "attribution only: the losing copy holds 6 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg075_0309 ~ pg075_0595",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
+   "loser_file": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl",
+   "loser_page": "pg075_0595",
+   "loser_rows": 4,
+   "loser_tokens_ws": 335,
+   "action": "attribution only: the losing copy holds 11 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg083_0222 ~ pg083_0600",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "theodoretus.haereticarum-fabularum-compendium.jsonl",
+   "loser_file": "theodoretus.libellus-contra-nestorium-ad-sporacium-sp.jsonl",
+   "loser_page": "pg083_0600",
+   "loser_rows": 5,
+   "loser_tokens_ws": 214,
+   "action": "attribution only: the losing copy holds 6 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg056_0169 ~ pg056_0261",
+   "belongs": "A",
+   "basis": "neighbor anchor, medium (belongs to side A)",
+   "winner_file": "joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl",
+   "loser_file": "joannes-chrysostomus.de-melchisedech-sp.jsonl",
+   "loser_page": "pg056_0261",
+   "loser_rows": 5,
+   "loser_tokens_ws": 691,
+   "action": "attribution only: the losing copy holds 11 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg035_0257 ~ pg035_0547",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "gregorius-nazianzenus.apologetica-orat-2.jsonl",
+   "loser_file": "gregorius-nazianzenus.de-dogmate-et-constitutione-episcoporum-orat-20.jsonl",
+   "loser_page": "pg035_0547",
+   "loser_rows": 5,
+   "loser_tokens_ws": 431,
+   "action": "attribution only: the losing copy holds 13 unique run(s) of 3+ words, so it stays served until merged"
+  },
+  {
+   "pair": "pg031_0378 ~ pg031_0802",
+   "belongs": "A",
+   "basis": "neighbor anchor, high (belongs to side A)",
+   "winner_file": "basilius-theology.regulae-morales.jsonl",
+   "loser_file": "basilius-theology.de-baptismo-libri-duo.jsonl",
+   "loser_page": "pg031_0802",
+   "loser_rows": 2,
+   "loser_tokens_ws": 452,
+   "action": "attribution only: the losing copy holds 11 unique run(s) of 3+ words, so it stays served until merged"
+  }
+ ],
+ "files": {
+  "data/corpus/athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum.jsonl": {
+   "sha256_before": "e73922dab26faa42eee4c5c7b0221488f84ad441bae0c48aa1b6d8d47b5ad665",
+   "sha256_after": "dca30e84e21aae50d94a7788252c30939d4f2c99751b3ff46c458b3de6209404",
+   "removed": [
+    [
+     23,
+     {
+      "urn": "athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg026_0736.1",
+      "text": "Κριταὶ· καὶ μετὰ τοῦτο ἡ Ῥοῦθ· καὶ πάλιν ἐξῆς Ἀ Βασιλειῶν· τέσσαρα βιβλία· καὶ τούτων τὸ μὲν πρῶτον καὶ δεύτερον εἰς ἓν βιβλίον ἀριθμεῖται· τὸ δὲ τρίτον καὶ τέταρτον ὁμοίως εἰς μὲν μετὰ δὲ ταῦτα Παραλειπομένων α' καὶ β', ὁμοίως εἰς ἓν βιβλίον ἀριθμουμένα· εἶτα Ἔσδρας α' καὶ β', ὁμοίως εἰς ἓν· μετὰ δὲ ταῦτα βιβλίον Ψαλμῶν, καὶ ἐξῆς Παροιμίαι· εἶτα Ἐκκλησιαστὴς, καὶ Ἄσμα ἀσμάτων· πρὸς τούτους ἐστὶ καὶ Ἰώβ, καὶ λοιπὸν Προφῆται· οἱ μὲν δώδεκα εἰς ἓν βιβλίον ἀριθμουμένοι· εἶτα Ἠσαΐας, Ἰερεμίας, καὶ σὺν αὐτῷ Βαρούχ, Θρήνοι, Ἐπιστολή, καὶ μετ' αὐτὸν Ἰεζεκιήλ καὶ Δανιήλ· ἄχρι τούτων τὰ τῆς Παλαιᾶς· Διαθήκης ἑσταται."
+     }
+    ],
+    [
+     24,
+     {
+      "urn": "athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg026_0736.2",
+      "text": "Τὰ δὲ τῆς Καινῆς πάλιν οὐχ ὀκνητέον εἰπεῖν· ἐστι γὰρ ταῦτα· Ἐὐαγγέλια τέσσαρα, κατὰ Ματθαῖον, κατὰ Μάρκον, κατὰ Λουκᾶν, κατὰ Ἰωάννην· εἶτα Β μετὰ ταῦτα Πράξεις ἀποστόλων, καὶ ἐπιστολαὶ Καθολικαὶ καλούμεναι τῶν ἀποστόλων ἑπτά· οὕτως μὲν, Ἰακώβου α', Πέτρου δὲ β', εἶτα Ἰωάννου γ', καὶ μετὰ ταύτας Ἰούδα α'· πρὸς τούτους Παύλου ἀποστόλου εἰσὶν ἐπιστολαὶ δεκατὸςσαρες, τῇ τάξει γραφόμεναι· οὕτως· πρώτη πρὸς Ῥωμαίους· εἶτα πρὸς Κορινθίους δύο· καὶ μετὰ ταῦτα πρὸς Γαλάτας· καὶ ἐξῆς πρὸς Ἐφεσίους· εἶτα πρὸς Φιλιππησίους, καὶ πρὸς Κολασσαεῖς· καὶ μετὰ ταύτας πρὸς Θεσσαλονικεῖς 156 δύο· καὶ ἡ πρὸς Ἑβραίους· καὶ εὐθὺς πρὸς μὲν Τιμόθεον δύο· πρὸς δὲ Τίτον μία· καὶ τελευταία ἡ πρὸς Φιλήμονα· καὶ πάλιν Ἰωάννου Ἀποκάλυψις."
+     }
+    ],
+    [
+     25,
+     {
+      "urn": "athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg026_0736.3",
+      "text": "Ταῦτα πηγὰ τοῦ σωτηρίου, ὥστε τὸν διψῶντα τῶν ἐν τούτοις ἐμφορεῖσθαι λογίων· ἐν τούτοις μὲγοις τὸ τῆς εὐσεβείας διδασκαλεῖον εὐαγγελίζεται. Μηδὲς τούτους ἐπιβάλλετω, μηδὲ τούτων ἀφαιρείσθω τι. Περὶ δὲ τούτων ὁ Κύριος Σαδδουκαίους μὲν ἔδωσ, ὅψει, λέγων· « Πλανᾶσθε μὴ εἰδότες τὰς Γραφὰς τοὺς δὲ Ἰουδαίους (27) παρήγγει· « Ἐρευνᾶτε τὰς Γραφὰς, ὅτι αὗται εἰσὶν αἱ μαρτυροῦσαι περὶ ἐμοῦ. » Ἄλλ' ἕνεκά γε πλείονος ἀκριβείας προστιθῆμι δὴ τοῦτο γράφων·ἀναγκαίως, ὡς (28) ὅτι ἐστι καὶ ἕτερα βιβλία τούτων ἔξωθεν, οὐ κανονιζόμενα μὲν, τετυπωμένα δὲ παρὰ τῶν Πατέρων ἀναγιγνώσκεσθαι τοῖς ἄρτι προσερχομένοις καὶ βουλομένοις κατηχεῖσθαι τὸν τῆς εὐσεβείας λόγον· Σοφία Σολομώντος, καὶ Σοφία Σιρᾶχ, καὶ Ἔσθὴρ, καὶ Ἰουδίθ, καὶ Τοβίας, καὶ διδαχὴ καλουμένη τῶν Ἀποστόλων (29), καὶ ὁ Ποιμήν. Καὶ"
+     }
+    ]
+   ]
+  },
+  "data/corpus/basilius-theology.de-baptismo-libri-duo.jsonl": {
+   "sha256_before": "0d94f98dd75b315b9521e0c5a8c934969ee4cef20d9b5642aa3c37636054750b",
+   "sha256_after": "3712a36a5b1bc2375bb271e83d00be8180c5599700ca37ccae57c09aa13b5861",
+   "removed": [
+    [
+     241,
+     {
+      "urn": "basilius-theology.de-baptismo-libri-duo",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg031_0801.1",
+      "text": "A ΛΟΓΟΣ Γ' (57)."
+     }
+    ],
+    [
+     242,
+     {
+      "urn": "basilius-theology.de-baptismo-libri-duo",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg031_0801.2",
+      "text": "\"Ὅτι δὲ τὸν ἀναγεννηθέντα διὰ τοῦ βαπτίσματος (58), τρέφεσθαι λοιπὸν τῇ μεταλήψει τῶν θείων μυστηρίων."
+     }
+    ],
+    [
+     243,
+     {
+      "urn": "basilius-theology.de-baptismo-libri-duo",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg031_0801.3",
+      "text": "1. Θεοῦ τοῦ ἀγαθοῦ χάριτι, τῇ ῥημῇ τῶν τοῦ μονογενοῦς Υἱοῦ τοῦ Θεοῦ τοῦ ζῶντος ῥημάτων, καὶ τῶν ἀγίων αὐτοῦ εὐαγγελιστῶν τε καὶ προφητῶν, καὶ τοῦ Ἀποστόλου αὐτάρκως ἡμῖν σαφηνιζάντων τὸν περὶ τοῦ κατὰ τὸ Εὐαγγέλιον τοῦ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ βαπτίσματος λόγον, ἐπαιδεύθηνεν, ὅτι τὸ μὲν ἐν τῷ πυρὶ βάπτισμα ἐλεγκτικὸν μὲν ἐστὶ πάσης κακίας, δεκτικὸν δὲ τῆς κατὰ Χριστὸν δικαιοσύνης, μέζος μὲν ἐμποιοῦν τῆς κακίας, ἐπι-οῦμας δὲ τῆς ἀρετῆς. Διὰ δὲ τῆς πίστεως ὑπὸ τοῦ αἵματος τοῦ Χριστοῦ ἐκαθαρίσθημεν ἀπὸ πάσης ἁμαρτίας, ἐν δὲ τῷ ὕδατι βαπτισθέντες εἰς τὸν θάνατον τοῦ Κυρίου, ὥσπερ ἔγραψαν ὁμολογίαν κατεθέμεθα, νεκρωθῆναι μὲν τῇ ἁμαρτίᾳ καὶ τῷ κόσμῳ, ζωοποιηθῆναι δὲ τῇ δικαιοσύνῃ· καὶ οὕτως ἐν τῷ ὀνόματι τοῦ ἁγίου Πνεύματος βαπτισθέντες, ἀνώθεν ἐγεννήθημεν· γεννηθέντες δὲ, καὶ ἐν τῷ ὀνόματι τοῦ Υἱοῦ βαπτισθέντες, τὸν Χριστὸν ἐνεδυ-σάμεθα, ἐνδυσάμενοι δὲ τὸν καινὸν ἄνθρωπον τὸν κατὰ Θεὸν κτισθέντα, ἐν τῷ ὀνόματι τοῦ Πατρὸς ἐβαπτίσθημεν, καὶ τέκνα Θεοῦ ἀνηγευεύθηνεν. Χρεία οὖν λοιπὸν (59) τρέφεσθαι ἡμᾶς τροφὴν ζωῆς αἰωνίου, ἣντινα παρέδωκεν ἡμῖν πάλιν ὁ αὐτὸς μονογενὴς Υἱὸς τοῦ Θεοῦ τοῦ ζῶντος, ποτὲ μὲν εἰπών· « Οὐκ ἐπ' ἄρτῳ μόνῳ ζήσεται ἄνθρωπος, ἀλλ' ἐπὶ παντὶ ῥήματι ἐκπορευομένῳ διὰ στόματος τοῦ Θεοῦ. » Καὶ πῶς τοῦτο γένηται (60), ἐδίδαξεν ἐν τῷ εἰπεῖν· « Ἐμοῦ βρῶμά ἐστιν, ἵνα ποιῶ τὸ θέλημα τοῦ πέμ-ψαντός με Πατρός. » Καὶ πάλιν προσθεῖς· τὸ « Ἀμὴν ἡ δεύτερον πρὸς βεβαίωσιν τῶν ἐπιφερομένων, καὶ πληροφορίαν τῶν ἀκούοντων, φησίν· « Ἀμὴν ἀμὴν λέγω ὑμῖν, ὅτι ἐὰν μὴ φάγητε τὴν σάρκα τοῦ Υἱοῦ τοῦ ἀνθρώπου, καὶ πίητε αὐτοῦ τὸ αἷμα, οὐκ ἔχετε ζωήν ἐν ἑαυτοῖς. Ὁ τρώγων μου τὴν σάρκα, καὶ πίνων μου τὸ αἷμα, ἔχει ζωὴν αἰώνιον, κἀγὼ ἀναστήσω αὐτὸν ἐν τῇ ἐσχάτῃ ἡμέρᾳ. Ἡ γὰρ σὰρξ μου ἀληθῶς ἐστι (61) βρῶσις, καὶ τὸ αἷμά μου ἀληθῶς ἐστὶ πόσις. Ὁ τρώγων μου τὴν σάρκα, καὶ πίνων μου τὸ αἷμα ἐν ἐμοὶ μένει, κἀγὼ ἐν αὐτῷ. » Καὶ μετ' ὀλίγα γέγραπται· « Πολλοὶ οὖν, ἀκούσαν-τες τὸν λόγον (62) τῶν μαθητῶν αὐτοῦ, εἶπον· Σκληρὸς ἐστιν ὁ λόγος οὗτος· τίς δύναται αὐτοῦ ἀκούειν; Εἰδὼς δὲ ὁ Κύριος ἐν ἑαυτῷ, ὅτι γογγύ-ζουσι περὶ τούτου οἱ μαθηταὶ αὐτοῦ, εἶπεν αὐτοῖς·"
+     }
+    ],
+    [
+     244,
+     {
+      "urn": "basilius-theology.de-baptismo-libri-duo",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg031_0801.4",
+      "text": "(58) Veteres duo libri διὰ τοῦ ἁγίου βαπτίσματος. Mox idem mass. εὐαγγελιστῶν τε, καὶ ἀποστόλων καὶ προφητῶν καὶ τοῦ Ἀποστόλου. Subinde hi ipsi cu-"
+     }
+    ]
+   ]
+  },
+  "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl": {
+   "sha256_before": "c9de38333b94149ac6013630bc73e71c49ecb4a7b46945993d5d685ece97693c",
+   "sha256_after": "30ad045633e53da7ef98f6c331caeb73b4cd46573522ce4061ede1982ed9e240",
+   "removed": [
+    [
+     28,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0653.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "παρασκευὴ τῆς καθάρσεως, ἢ καὶ αὐτὴ ἡ κάθαρσις A τῶν ἁγίων. Οὗτοι γὰρ ἱμάτια κατὰ Χριστὸν, οὓς τρόπον τινὰ περιβάλλεται, ἐνοικῶν αὐτοῖς.  Τῶν λαφύρων τῆς αἰχμαλώσεως διανεμηθέντων εἷς τε τοὺς ἀριστεῖς ναὶ εἰς τὴν ἄλλην συναγωγὴν τοῦ λαοῦ, προσέταξεν ὁ Θεὸς ἀποδιελεῖν τῷ Θεῷ καὶ τοῖς Λευΐταις μοίρας ἀπὸ τῆς αἰχμαλωσίας, ἵκτε ἀνθρώπων, καὶ ἐκ τετραπόδων· καὶ τοὺς μὲν ἀριστεῖς προσαγάγειν τῷ Θεῷ, ἐκ πεντακοσίων ἕν· τὸν δὲ λοιπὸν λαὸν προσαγαγεῖν τοῖς Λευΐταις, ἐκ πεντήκοντα ἕν. Οἱ μὲν γὰρ ὀλίγα ἔχοντες ἁμαρτήματα ὀλίγα ὀφελούσιν. Οἱ δὲ πλείοσιν ὑπεύθυνοι πλημμελήμασι, πάντως πλείονα. Καίτοι ἐν τῇ διανομῇ οἱ μὲν ἀριστεῖς μόνοι, τὸ ἥμισυ τῆς ὅλης αἰχμαλωσίας ἔλαβον· ἡ δὲ ἄλλη σύναγωγὴ πᾶσα, τὸ ἥμισυ. Τοῖς γὰρ εὐκαιριωτέροις πλείονα χαρίσματα δίδωσιν ὁ Θεός. Ἀλλ’ οἱ μὲν ἀριστεῖς τῷ Θεῷ προσάγουσι τὸ λάχος, ἡ δὲ λοιπὴ σύναγωγὴ τοῖς Λεύιταις, ὡς εἴρηται. Καὶ γὰρ οἱ μὲν εὐδοκιμώτεροι ἀμέσως κατοπορροῦσι τῷ Θεῷ τὰ ἑαυτῶν κατορθώματα· οἱ δὲ μετ’ ἐκείνους εὐδόκιμοι, διὰ μέσων τῶν ἀνακειμένων Θεῷ ἁγίων δωροφοροῦσι θεῷ, τοῖς προσεδρεύουσιν αὐτῷ τὰ πρὸς τὴν χρείαν παράγοντες, καὶ ταῖς ἁγίαις Ἐκκλησίαις ἐπικουροῦντες. Ἀλλὰ ταῦτα μὲν ἐκ θείου προστάγματος. Οἴκοθεν δὲ καὶ ἀφ’ ἑαυτῶν οἱ τῶν ἀριστέων ἀφηγούμενοι προσήγαγον τῷ Θεῷ χρυσοῦς χλιδόνας καὶ ψέλλια, καὶ δακτύλια, καὶ σεριβέλια, καὶ ἐμπλόκια. Οἱ γὰρ ἐν Χριστῷ καθηγούμενοι τοῦ λαοῦ καὶ προήγοντες ὑπερβαίνουσι πολλάκις τὰς εὐαγγελικὰς ἐντολὰς εἰς κατορθώματα, παρθενίαν οἴκοθεν ἐπιτηδεύοντες· τὴν μὴ νενομοθετημένην, καὶ ἄλλα τοιαῦτα. Καὶ γὰρ καὶ Παῦλος κελευσθεὶς ἀπὸ τοῦ Εὐαγγελίου τρέφεσθαι, ταῖς ἰδίαις ἐτρέφετο χερσί. Διὰ δὲ τῶν ἀπηριθμημένων χρυσῶν σκευῶν, τὰ διάφορα τῆς τιμίας καὶ λαμπροτάτης ἀρετῆς εἴδη ὑποσημαίνεται· Ταῦτα δὲ πάντα εἰς τὴν σκηνὴν τοῦ Θεοῦ εἰσήχθησαν, φησὶν, εἰς μνημόσυνον αὐτῶν. Τὰ γὰρ τοιαῦτα κατορθώματα τῶν ἁγίων τῇ Ἐκκλησίᾳ θησαυρίζονται κόσμος, εἰς μνημόσυνον τῶν κατορθωσάντων. Ἀλλὰ καὶ ὅτε ἡ σκηνὴ πρότερον κατεσκευάζετο, προσέταξε μὲν ὁ Θεὸς ἐπισκοπηθῆναι τὸν λαόν· καὶ προσαγαγεῖν ἕκαστον ἄρσενα τῷ Θεῷ, ἀπὸ εἰκοσαετοῦς καὶ ἐπάνω τὸ ἥμισυ τοῦ διδράχμου. Οἱ δὲ ἄρχοντες οἴκοθεν καὶ ἀφ’ ἑαυτῶν προσῆγαν τοὺς τιμίους  λίθους, καὶ τὸ ἔλαιον τῆς χρίσεως, καὶ τὴν τοῦ θυμιάματος σύνθεσιν. Λίθοι μὲν οὖν τίμιοι, αὐτοὶ οἱ ἐκλεκτοὶ καθηγούμενοι τῶν Ἐκκλησιῶν τοῦ Χριστοῦ, διὰ τὸ στεῤῥὸν καὶ καθαρὸν καὶ λαμπρὸν καὶ πρὸς τοὺς ἄλλους διαφορώτατον· περὶ ὧν εἴρηται τῷ προφήτῃ, ὅτι « Λίθοι κυλίονται ἐπὶ τῆς γῆς. » Οἱ δ’ αὐτοὶ καὶ ἔλαιον βασιλικόν τε καὶ ἱερατικὸν, οὐ μόνον χύοντες [f. χρίοντες] βασιλεῖς καὶ ἱερεῖς, ἀλλὰ καὶ παίνοντες τὰς ψυχὰς πανσόφοις διδασκαλίαις, καὶ καθιλαρύνοντες. Οἱ αὐτοὶ δὲ καὶ θυμίαμα διὰ τὴν εὐωδίαν τῶν ἀρετῶν· σύνθετον δὲ ὡς ἐκ πράξεως καὶ θεωρίας εὐωδιάζοντας. Περὶ μέν τοι τῶν εἰκοσαετῶν καὶ ἐπάνω, προειρήκαμεν ἐν τοῖς προλαβοῦσι.   rum. li enim sunt vestimenta Christi, quos quodammodo induit, in ipsis inhabitans.  Captivitatis spoliis divisis inter eos qui se fortiter gesserunt et inter alium populi caenum, iussit Deus dividere Deo et Levitis partem ex captivitate, tam ex hominibus, quam ex quadrupedibus, et eos quidem qui se fortiter gesserunt Deo offerre, ex quinquaginta quidem unum: reliquum autem populum offerre Levitis, ex quinquaginta unum. Nam qui pauca quidem habent peccata, paucα debent. Qui sunt autem pluribus delictis obnōtii, plane plura. Atqui in distributione, viri quidem fortes soli acceperunt dimidium omnium captivorum, alius autem universus populi caetus, dimidium. Nam probationibus quidem Deus dat plura charismata. Sed viri quidem fortes Deo sortem offerunt: reliquus autem populi caetus, Levitis, ut dictum est. Nam qui sunt quidem probationes, eitra medium Deo offerunt quae a se recte facta sunt. Qui pōst illos autem sunt probati, per eos intermedios sanctos qui Deo sunt dedicati, Deo dona offerunt, iis qui ipsi assident praebentes ea quae sunt usui, et sanctis opem ferentes Ecclesiae. Sed haec quidem ex Dei praecepto. E domo autem sua et a seipsis, virorum fortium duces Deo obtulerunt armillas, torques, monilia, annulos, et brachalia. Nam qui in Christo sunt populi duces et presides, in recte factis sapp. supercruit praecepta evangelica, ut qui ex se exercarent virginitatem quae non est lege decreta, et alia hujusmodi. Paulus enim iussus ali ex Evangelio, propriis alebatur manibus. Per enuuerata autem vasa aurea, significantur diversa genera veneranda et preclare virtutis. Haec autem omnia, inquit, sunt introducta in Dei tabernacula ad eorum monimentum. Ejusmodi enim recte facta sanctorum instar thesauri reconduntur ornamentum Ecclesiae, ad monimentum eorum qui se recte gesserunt. Sed et quando tabernaculum prius constituebatur, iussit quidem Deus visitari ac recenseri populum: et unumquemque masculum offerre Deo a viginti annos nato et supra dimidium didrschmi. Principes autem e domo et a se offerebant pretiosos lapides, et oleum unctio‐ nis, et compositionem thymiamatis. Atque lapides quidem electi sunt ipsi electi duces Ecclesiarum Christi, propterea quod sint solidi et puri et splen‐ didi, et aliis excellentiores. De quibus dictum est per prophetam: « Lapides voluntur super ter‐ ram. » Idem autem sunt oleum regale et sacer‐ dotale, non solum ungentes reges et sacerdotes, sed etiam sapientissimis doctrinis punguefacientes et exhiarantes animas. Idem autem sunt etiam thymia‐ mia, propter bonum odorem virtutum. Compositum autem, ut qui redoleant ex actione et contempla‐ tione. De viginti autem annos natis et supra, prius diximus in iis quae præcesserunt."
+     }
+    ],
+    [
+     33,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0655.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐάν τις ἐκτυφλώσῃ τὸν ὀφθαλμὸν τοῦ οἰκέτου A αὑτοῦ ἢ τῆς θεραπαίνης αὑτοῦ, ἐλευθέρους ἐξακοστελεῖ αὐτούς· καὶ ἐὰν τὸν ὀδόντα τοῦ οἰκέτου ἢ τῆς θεραπαίνης αὑτοῦ ἐκκόψῃ, ἐλευθέρους ἐξακοστελεῖ αὐτούς."
+     }
+    ],
+    [
+     34,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0655.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Οἰκέτης μὲν καὶ θεράπαινα, οἱ τινὸς ὑπεξούσιοι, ὧν οἱ μὲν ἄνδρες, οἱ δὲ γυναῖκες. Τούτων δὲ τῶν ὑπεξουσίων, ὀφθαλμὸς μὲν ὁ νοῦς, φωτίζων τὰς ψυχὰς αὐτῶν· ὠθοὺς δὲ ἡ διάνοια, δι’ ἧς λεπτύνουσι τὴν πνευματικὴν τροφήν. Εἴ τις τοιγαροῦν ἢ τὸν νοῦν ἐκτυφλώσῃ τῶν ὑπεξουσίων πληγῇ ἀσεβείας, ἢ ἑτέρας ἁμαρτίας, ἢ τὴν διάνοιαν αὐτῶν καταβλάψῃ, ἐκπίπτειν καταδικάζεται τῆς κατ’ αὐτῶν ἐξουσίας, καὶ ἀνάξιον τοῦ ἄρχειν θαντὸν ἀποδείκνυσιν."
+     }
+    ],
+    [
+     35,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0655.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐάν τις κοιμηθῇ μετὰ γυναικὸς συνῳκισμένης ἀνδρὶ, ἀποστενεῖτε ἀρρωστέρους."
+     }
+    ],
+    [
+     36,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0655.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὁ τὴν ψυχὴν συνημμένην τῷ θεῷ διὰ πίστεως καὶ ἁγιασμοῦ τολμῶν καταμίξαινι τῷ σπερματισμῷ τῆς ἐν αὐτῷ δυσσεβοῦς αἱρέσεως, τὴν ἐσχάτην ὑφέξει δίκην σὺν αὐτῇ· ὁ μὲν, ὡς ἐπιβουλεύσας ἀλλοτρίῳ γάμῳ· ἡ δὲ, ὡς ἀτιμάσασα τὴν εἰς τὸν ἄνδρα συνάρειαν. «Ἐὰν δὲ, φησὶ, τὴν μεμνηστευμένην ἀνδρὶ παρθένον εὑρὼν τις ἐν πόλει κοιμηθῇ μετ’ αὐτῆς, ἀποθανῶνται καὶ ἄμφω. Ἡ νεᾶνις, ὅτι οὐκ ἐβόησεν ἐν τῇ πόλει· καὶ ὁ ἄνθρωπος, ὅτι ἐταπείνωσε τὴν γυναῖκα τοῦ πλησίον αὑτοῦ.» Παρθένος ἐστὶ μεμνηστευμένη ἀνδρὶ, ἡ κεκλημένη μὲν εἰς εὐσέβειαν ψυχὴ, καὶ κατηχουμένη, μήπω δὲ συναφθεῖσα τελείως τῷ Χριστῷ διὰ τοῦ ἁγίου βαπτίσμα‐ C τος. Ἀῤῥαβῶνος γὰρ ἐπέγει· λόγον ὁ λόγος τῆς κατηχήσεως. Ὁ τοίνυν διαφθείρων ταὐτὴν διὰ μίξεως ἀσεβῶν δογμάτων, τὴν ἐσχάτην καὶ αὐτὸς ἀποτίσει δίκην σὺν αὐτῇ, καὶ ὑποπεσοῦνται τῇ κολάσει τῶν, ὡς εἴρηται, μοιχευσάντων· ὁ μὲν, ὡς πλημμελήσας εἰς τὴν γυναῖκα τὴν ὑπὸ χεῖρα λοιπὸν τοῦ μεταθραχὺ νυμφίου τοῦ πλησίον αὑτοῦ, κατά γε τὸν λόγον τῆς ἀνθρωπότητος· ἡ δὲ, ὡς ἐν πόλει τοῦτο παθοῦσα, λέγω δὴ τῇ Ἐκκλησίᾳ, ἔνθα πολλοὶ οἱ ἐξελέσθαι δυνάμενοι· καὶ διὰ τοῦ μὴ βοῆσαι καταδεξαμένη. «Ἐὰν δὲ, φησὶν, ἐν πεδίῳ εὕρῃ ἄνθρωπος τὴν παῖδα τὴν μεμνηστευμένην ἑτέρῳ, καὶ βιασάμενος κοιμηθῇ μετ’ αὐτῆς, ἀποκτενεῖτε τὸν κοιμηθέντα μετ’ αὐτῆς μόνον. Τῇ δὲ νεάνιδι οὐκ ἔσται ἁμάρτημα θανάτου· ὅτι ἐν τῷ ἀγρῷ εὗρεν αὐτήν. Ἔβόησεν ἡ νεᾶνις ἡ μεμνηστευμένη, καὶ ὁ βοηθήσων οὐκ ἦν.» Ἀγρὸς γὰρ ἡ ἐρημία τῶν ἐπαμῦναι δυναμένων, καὶ ἡ σπάνις τῶν διδασκάλων· ἐνταῦθα τὸ πάθος βλαινὲν καὶ ἀνεπικούρητον. Διὸ καὶ ὡς ἀβούλητον, ἀκατάγνωστον. «Ἐὰν δὲ, φησὶν, εὕρῃ τις παῖδα παρθένον, καὶ βιασάμενος αὐτὴν κοιμηθῇ μετ’ αὐτῆς, καὶ εὑρεθῇ, δώσει τῷ πατρὶ τῆς νεάνιδος ν δίδραχμα ἀργυρίου, καὶ αὐτοῦ ἔσται γυνή.» Παρθένον ἐνταῦθα λέγει, τὴν μήπω κατεγνησθεῖσαν Χριστῷ διὰ πίστεως, ἀσυναφῆ δὲ πρὸς αὐτὸν ἔτι παντελῶς μένουσαν. Εἴ τις οὖν ἀπατεὼν ἑωθὶνῇ τῇ A Si quis exaecaverit oculum famuli sui aut ancillae sua, emitteit eos liberos: et si famuli aut ancillae ex ea deintem excusserit, emitteit eos liberos."
+     }
+    ],
+    [
+     41,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0658.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Aθεσι καταξουλοῦσιν αὐτὸν, ἀνάλογον τῇ προτέρᾳ ἀρετῇ τοῦ κλαπέντος, ἀποτίσει δίκην. Τοῦτο γὰρ δηλοῦται διὰ τῆς μείζονος ζημίας καὶ μείονος. «Ἐὰν δὲ ἐν τῷ ἐκρύγματι, φησὶν, εὑρεθῇ ὁ κλέπτης, [f. d. καὶ] πληγεὶς ἀποθάνῃ, οὐ λογισθήσεται φόνος.» Τὸν γὰρ εὑρισκόμενον ἀκρώτευστα τὴν Ἐκκλησίαν, ἵνα κλέψῃ ψυχὴν, εἰ τύχῃ τις ἀνελὼν, οὐκ ἐνέχεται φάνῳ, ὅσον ἐπὶ τῷ πολιτικῷ νόμῳ, ὡς φανερώτερον καὶ ἀναισχύντως λῃστεύοντα. «Ἐὰν δὲ ἀνατείλῃ, φησὶν, ἐπ’ αὐτὸν ὁ ἥλιος, ἔνοχος ἔσται ὁ ἀνελών.» Εἰ γὰρ ἐπὶ τὸν, ὡς εἴρηται, κλέπτοντα ἀνατείλῃ ὁ ἥλιος τῆς μετανοίας καὶ τῆς εὐσεβείας, ἔνοχος ἔσται ὁ ἀνελὼν, ὡς εὐσεβῆ καὶ ὁμόπιστον ἀνῃρηκώς. «Ἐὰν δὲ μὴ ὑπάρχῃ αὐτῷ, φησὶ, πραθῆτιν ἀντὶ τοῦ κλέμματος.» Τὸν γὰρ μὴ ἔχοντα λύτροις ἀποκρούεσθαι τὰ ἐγκλήματα κλέπτην, λέγω δὴ τρόπους μετανοίας καὶ ἀντιστηκώσεις τῶν ἡμαρτημένων, ἄτιμον οἶδεν ὁ λόγος· ὁ γὰρ πιπρασκόμενος, ἄτιμος. «Ἐὰν δὲ καταληφθῇ, φησὶ, καὶ εὑρεθῇ ἐν τῇ χειρὶ αὐτοῦ τὸ κλέμμα, διπλοῦν ἀποΐσει.» Μή πω γὰρ ἀποκρίσεις εἰς ὄλεθρον, ὀλίγην ὑποστήσεται ζημίαν· ἀναλήψεται γὰρ πάλιν τὸ οἰκεῖον ὁ δεσπότης, καὶ προσαπατήσει τὸν κλέπτην λόγους τῆς κλοπῆς."
+     }
+    ],
+    [
+     42,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0658.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐκέλευσεν ὁ διὰ Μωσέως νόμος μὴ ἐξελθεῖν εἰς πόλεμον, μήτε τὸν οἰκοδομήσαντα οἰκίαν καινὴν, καὶ μὴ ἐγκαινίσαντα αὐτὴν, μήτε τὸν φυτεύσαντα ἀμπελῶνα, καὶ μὴ εὐφρανθέντα ἐπ’ αὐτοῦ, μήτε τὸν μνηστευσάμενον γυναῖκα, καὶ μὴ λαβόντα αὐτὴν, μήτε τὸν δειλὸν τῇ καρδίᾳ. Τύπος δὲ τοῦ μὲν κατ’ οἰκίαν, ἀλλ’ οὐ παροικίαν, τὸν παρόντα βίον ἡτουμένου, τὴν καινὴν οἰκίαν· οἰκοδομήσαντα· τοῦ δὲ φιλοκερδοῦς ὁ τὸν ἀμπελῶνα φυτεύσας· τοῦ φιλοσάρκου ὁ τὴν γυναῖκα μνηστευσάμενος. Ἢ καὶ ἑτέρως· Ὁ πρῶτος μὲν τοῦ φιλοδόξου. Ὁ ἑσύετρος δὲ τοῦ φιλαργύρου. Ὁ τρίτος δὲ τοῦ φιληδόνου. Διὰ τῶν τριῶν δὲ τούτων τὰ τρία γενικὰ εἴδη τῆς κακίας ἐφαίνετο. Ὁ γὰρ δειλὸς τοῖς τρισὶ τούτοις ἐπιμαρίζεται. Δειλοὶ γὰρ πάντες οἱ τούτοις ἐνεχόμενοι, καὶ οὐ μόνον ἀδόκιμοι πρὸς νοητὸν πόλεμον, ἀλλὰ καὶ ἄλλοις αἴτιοι γένοιντ’ ἂν δειλίας καὶ φυγῆς. Ἐπιστρέφει γὰρ αὐτοὺς ἡ τῶν εἰρημένων παθῶν σχέσις, καὶ φθείρουσιν ἤθη χρηστὰ ὁμιλίαι κακαί. Διὸ καὶ ὁ μέγας Παῦλος ἐπιτιμῶν τοῖς κωλύουσιν αὐτὸν ἀναβαίνειν εἰς Ἱεροσόλυμα, Εἶσγε· «Τί ποιεῖτε κλαίοντας καὶ συνθρύπτοντές μου τὴν καρδίαν; Ἐγὼ γὰρ οὐ μόνον δεθῆναι, ἀλλὰ καὶ ἀποθανεῖν ἑτοίμως ἔχω ὑπὲρ τοῦ ὀνόματος τοῦ Κυρίου ἡμῶν Ἰησοῦ Χριστοῦ.»"
+     }
+    ],
+    [
+     43,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0658.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐὰν δέ τις λάβῃ γυναῖκα προσφύτως, οὐκ ἐξελεύσεται εἰς πόλεμον· ἐνιαυτὸν ἕνα εὐφρανεῖ τὴν γυναῖκα αὐτοῦ, ἣν ἔλαβεν. Οὐ χρὴ γὰρ τὸν ἄρτι σύνοικον ἑαυτῷ λαβόντα τὴν ἀρετὴν εἰς πόνους καὶ διωγμούς· ἐξάγεσθαι, μάχας ἂν καταδεσμηθείη ταῖς φιλοστοργίαις αὐτῆς· τοῦτο γὰρ ἡ ἐνιαύσιος ὑπεδήλωσεν εὐφροσύνη. Τοιοῦτόν τι παράγασι καὶ οἱ σκόστολοι τοῖς ἐξ ἐθνῶν ἄρτι πρὸς τὴν εὐσέβειαν ἐλθοῦσιν ἐπιστέλλοντες. «Ἔδοξε γὰρ, φησὶ, τῷ ἁγίῳ Πνεύματι",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     54,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0660.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ἑτέρως δὲ παραινεῖ ὁ νόμος, κερδαίνειν μὲν καὶ ὡφελεῖσθαι ἀπὸ τῆς ὁμιλίας τῶν ἐν ταῖς Ἐκκλησίαις διδασκάλων· αἱ γὰρ Ἐκκλησίαι, λήϊά τε καὶ ἀμπελῶνες· μὴ ἐπιβουλῇς [f. ἐπιβάλλῃς] τοῦ ὀρεσάνου, μηδὲ τὸ φαινόμενον ὑπὲρ τὴν χρείαν καὶ περιττὸν, ἐναπογράφεσθαι βίβλῳ, καθάπερ ἐμβάλλοντας εἰς ἄγγος. Ἴσως γὰρ εὑρεθήσονται ἐν αὐτῷ ἀβόκκιμα φωναὶ, καθάπερ τινὲς ἄχρηστοι ῥάγες, μὴ ἐπισκοπηθεῖσαι, μηδὲ τῆς προσηκούσης ἐπιμελείας ἀξιωθεῖσαι, διὰ τὸ αὐτοσχίδιόν τε καὶ πρόχειρον· καὶ γενήσονται σκανδάλου πρόφασις. Εἰς τοῦτο δὲ φέρει καὶ τό· «Ἐὰν συναντήσῃ νοσσιᾷ ὀρνέων, καὶ ἡ μήτηρ θάλπῃ ἐπὶ τῶν νεοσσῶν, οὐ λήψῃ τὴν μητέρα μετὰ τῶν τέκνων. Ἀποστείλεις τὴν μητέρα, τὰ δὲ παιδία λήψῃ σεαυτῷ.» Πᾶσα μὲν γὰρ ἀρετὴ μήτηρ ἐστὶ τῶν ἐξ αὐτῆς κατορθωμάτων. Νοσσιὰ δὲ αὐτῆς, ἡ ψυχὴ ἐν ᾗ κατοικεῖ. Χρὴ δὲ τοῖς μὲν κατορθώμασι τῆς ἀρετῆς ὡφελεῖσθαι τοὺς ἐντυγχάνοντας· καὶ ἀπολάυειν αὐτῶν, μὴ ἐπιβουλεύειν δὲ τῇ ἀρετῇ τοῦ κατορθοῦντος, μηδὲ ἐπιχειρεῖν ἀνελεῖν, καὶ ἀποσβέσαι αὐτὴν, διά τινος τρόπου."
+     }
+    ],
+    [
+     55,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0660.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Κελεύει μὴ παριδεῖν τοὺς ὑπερουσίους [sc. ὑπεξουσίους] τοῦ κατὰ πίστιν ἀδελφοῦ, πλανωμένους ἐν τῇ ὁδῷ τῆς πολιτείας τῶν δογμάτων· ἀλλ’ ἀποστρέφειν αὐτοὺς τῆς πλάνης, καὶ ἐπανασῴζειν τῷ ἀδελφῷ, καὶ τὸ ὑστέρημα ἐκείνου ἀναπληροῦντα τὴν ἀδελφίαν. «Ἐὰν  δὲ, φησὶ, συναντήσῃς τῷ βοῒ τοῦ ἐχθροῦ σου, ἢ τῷ ὑποζυγίῳ αὐτοῦ, πλανωμένοις ἐν τῇ ὁδῷ, ἀποστρέψας ἀποδώσεις αὐτῷ.» Ὁ αὐτὸς μὲν γὰρ κἀνταῦθα περὶ τῶν ὑπεξουσίων λόγος· «Ἀγαπᾶτε δὲ, φησὶ, τοὺς ἐχθροὺς ὑμῶν, εὖ ποιεῖτε τοῖς μισοῦσιν ὑμᾶς.» Ἐὰν δὲ ἴδῃς, φησὶ, τὸ ὑποζύγιον τοῦ ἐχθροῦ σου πεπτωκὸς ὑπὸ τὸν γόμον αὐτοῦ, οὐ παρελεύσῃ αὐτῷ, ἀλλὰ συνεγερεῖς αὐτὸ μετ’ αὐτοῦ. Πίπτει γὰρ ὁ καταβαρούμενος τῷ ἄχθει τῶν πειρασμῶν, καὶ τῶν θλίψεων· ὃν δεῖ συνεγείρειν, καὶ διὰ παρακλήσεως καὶ ψυχαγωγίας. Εἰ δὲ [f. d. δεῖ] τὸν βοῦν τοῦ ἐχθροῦ σου καὶ τὸ ὑποζύγιον αὐτοῦ ἐπιμελείας ἀξιοῦν· πολλῷ μᾶλλον αὐτὸν δή που τὸν ἐχθρὸν, τὸν τῆς αὐτῆς κεκοινωνηκότα φύσεως."
+     }
+    ],
+    [
+     56,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0660.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Παραινεῖ μὴ καταλαλεῖν τοῦ ἀπάντος, καὶ διὰ τοῦτο μὴ ἀκούοντος, μηδ’ ἐπιβουλεύειν τῷ ἀγνοοῦντι. Διὰ μὲν γὰρ τῆς κωφότητος τὸ μὴ ἀκούειν, διὰ δὲ τῆς τυφλότητος, τὸ μὴ γινώσκειν ὑποδηλοῦται."
+     }
+    ],
+    [
+     57,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0660.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐκέλευσεν ὁ νόμος τοῖς μαστιγοῦσι τοὺς ἁμαρτήσαντας, μὴ ὑπερβαίνειν τὸν τεσσαρακοστὸν ἀριθμὸν τῶν πληγῶν· αἰνιττόμενος ὅτι αἱ μάστιγες τῶν ἁμαρτησάντων ἄχρις τῆς ἐνανθρωπήσεως τοῦ Χριστοῦ, καὶ τῆς ἐκ νεκρῶν ἀναστάσεως αὐτοῦ, τὸ ἐνεργὸν εἶχον, παραιτέρω δὲ οὐ προέβησαν· διοργασμένου πᾶσι τοῖς θέλουσι πιπτέσιν εἰς αὐτὸν διὰ τοῦ ἁγίου"
+     }
+    ],
+    [
+     58,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0661.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Οὐ καταστήσεις ἐπὶ σεαυτῷ ἄρχοντα ἄνθρωπον ἀλλότριον."
+     }
+    ],
+    [
+     59,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0661.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Διὰ τοῦ ἀλλοτρίου ἀνθρώπου, τὸν διάβολον ὑποδηλοῖ· ὃν παρανόμως καθιστῶσιν ἑαυτοῖς ἄρχοντα, οἱ παιδαρχοῦντες ἀνοήτως ταῖς πονηραῖς αὐτοῦ εἰσηγήσεσιν· «Ἀλλ’ ἐκ τῶν ἀδελφῶν σου, φησὶν, ἐκλέξῃ σεαυτῷ ἄρχοντα.» Οὗτος δέ ἐστιν ὁ Χριστὸς, ἀδελφὸς ἡμῶν, κατὰ τὴν ἀναθρώπησιν γενόμενος, καὶ ἄρχων τῶν παιδομένων ταῖς ἐντολαῖς αὐτοῦ."
+     }
+    ],
+    [
+     60,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0661.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Νόμιμον ἦν τοὺς ἀκουσίως φονεύσαντας εἰς τοὺς τόπους τῶν ὁρισθέντων φυγαδευτηρίων ἀπάγεσθαι καὶ φυλάττεσθαι, τοῦ ἀρχιερέως ἐξ τελευτήσαντος ἀπολύεσθαι."
+     }
+    ],
+    [
+     61,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0661.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Εἶεν δ’ ἂν τοιοῦτοι φονεῖς αἱ ψυχαὶ τῶν πρὸ τῆς κανθάρωπησας τοῦ Χριστοῦ τετελευτηκότων, φονεύσασαι μὲν ἑαυτὰς διὰ τὰς ἁμαρτίας· ἀκουσίως δὲ, ὡς παρ’ αὐτῆς ἐκβιασθείσας εἰς τοῦτο. C Αἱ τῆς ἰδίας γῆς διωχθεῖσαι, καὶ εἰς τὸν ᾅδην ἀπαχθεῖσαι, καθάπερ εἰς φυγαδευτήριον, ἀσφαλῶς κατείχοντο. Τοῦ δὲ μεγάλου ἀρχιερέως Ἰησοῦ Χριστοῦ ἀποθανόντος, ἀφείθησαν ἐκ τῆς κατὰ τὸν ᾅδην εἱρκτῆς."
+     }
+    ],
+    [
+     62,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0661.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὅταν εἰσέλθητε εἰς τὴν γῆν ἣν Κύριος ὁ Θεὸς δίδωσιν ὑμῖν, καὶ καταφυτεύσητε πᾶν ξύλον βρώσιμον, περικαθαριεῖτε τὴν ἀκαθαρσίαν αὐτοῦ. ὁ δὲ καρπὸς αὐτοῦ τρία ἔτη ἔσται ὑμῖν ἀπερικάθαρτος. Οὐ βρωθήσεται, καὶ τῷ ἔτει τῷ τετάρτῳ ἔσται πᾶς ὁ καρπὸς αὐτοῦ ἅγιος τῷ Κυρίῳ. Ἐν δὲ τῷ πέμπτῳ ἔτει, φάγεσθε τὸν καρπὸν αὐτοῦ."
+     }
+    ],
+    [
+     63,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0661.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὁ παρὰδ ισος μὲν ἡ Μωσαϊκὴ συγγραφὴ, καθάπερ τισὶ φυτοῖς πολυειδέσι καὶ ὡραίοις βρύουσα τοῖς καλλίστοις καὶ ποικίλοις νομοθετήμασι. Κελεύει δὲ ὁ Θεὸς περιελεῖν τὴν ἑκάστου φυτοῦ ἀκαθαρσίαν· τοῦτ’ ἔστι, τὸ ἑκάστου νόμου σωματικόν τε καὶ αἰσθητόν. Ἀκαθαρσία γὰρ τοῦτο τοῖς πνευματικοῖς φυτοκόμοις, ὡς ἄχρηστόν τε καὶ βλαβερόν. Πρὸς τούτους γὰρ ὁ λόγος. Τρία μὲν οὖν ἔτη, καθ’ οὓς ἦν ὁ καρπὸς τῶν φυτῶν ἀπερικάθαρτος, οἱ τρεῖς καιροί· ὁ κατὰ Μωσέα, ὁ κατὰ τὸν Ἰησοῦν τοῦ Ναυῆ, ὁ κατὰ τοὺς νηστείας. καθ’ οὓς ἦν ὁ καρπὸς τῶν νόμων ἀσυμφανής· ἤτοι τὸ κεκρυμμένον αὐτοῦ, καὶ πνευματικῶς νοούμενον, τῷ πάγει τῆς ἱστορίας καὶ τῇ σκιᾷ καλυπτόμενον. Τέταρτον δὲ ἔτος ὁ καιρὸς τῶν προφη‐"
+     }
+    ],
+    [
+     64,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "prophetarum, quo qui ostensus fructus factus est  tūn, καθ’ ὃν ὁ δηλωθεὶς καρπὸς αἴγιος γέγονε τῷ Κυ‐ rίῳ, λοιπὸν ἀναφερόμενος εἰς τὸν Χριστὸν, διὰ τῆς μαρτυρίας τῶν προφητικῶν φωνῶν. Πέμπτον δὲ ἕτοι‐, ὁ πέμπτος καιρός· καθ’ ὃν ὁ Χριστὸς ἐνηνθρώπησεν, ὡς ἀνωτέρω δεδήλωται. Ἔκτοτε γὰρ κεριατρεβόντος τοῦ καλύμματος, μεταλαμβάνομεν οἱ πιστοὶ χρησίμως τοῦ καρποῦ τῆς Μωσαϊκῆς νομοθεσίας."
+     }
+    ],
+    [
+     65,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "EX THE BIBAOY ΙΗΣΟΥ ΤΟΥ ΝΑΥΗ"
+     }
+    ],
+    [
+     66,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Γαβαὼ μὲν ἔστιν ὁ ὑψηλὸς νοῦς· φάραγξ δὲ, ἡ τῷ θανάτῳ ταπεινωθεῖσα σάρξ· καὶ ὁ ἥλιος μὲν, ὁ φωτίζων τὸν νοῦν λόγος καὶ χορηγῶν αὐτῷ θεωρημάτων δύναμιν, καὶ πάσης ἀγνοίας ἀπαλλάττων· σελήνη δὲ ὁ φυσικὸς νόμος, ἤγουν ἡ φυσικὴ διάκρισις, μετρίως φωτίζουσα καὶ πείθουσα τὴν σάρξα, ὑποταγῆναι τῇ ψυχῇ. Φύσεως γὰρ σύμβολον ἡ σελήνη, διὰ τὸ τρεπτόν. Ὅστις γοῦν δι’ εὐσεβοῦς πολιτείας ταραττόσεται πρὸς τοὺς ἀοράτους ἐχθροὺς, Ἰησοῦς ὁ τοῦ Ναυῆ γίνεται· καὶ εὔχεται στῆναι αὐτῷ τὸν μὲν ἥλιον, ὡς εἴρηται, κατὰ Γαβαὼ, τὴν δὲ σελήνην κατὰ φάραγγα· τοῦτ’ ἔστι, παραμεῖναι αὐτῷ πρὸς καθαίρεσιν τῶν τῆς κακίας ὀχυρωμάτων, καὶ ἀναίσεσιν τῶν πολεμίων."
+     }
+    ],
+    [
+     67,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὥσπερ μετὰ τὴν τελευτὴν Μωσέως Ἰησοῦς ὁ τοῦ Ναυῆ τὴν ἡγεμονίαν παρέλαβεν· οὕτω μετὰ τὴν τελευτὴν τοῦ νομικοῦ γράμματος, Ἰησοῦς ὁ Χριστὸς τὴν ἡγεμονίαν τοῦ νέου λαοῦ παρέλαβε· καὶ ὥσπερ διὰ τῶν πετρίνων μαχαιρῶν, διὰ τοῦ στεῤῥοῦ λόγου τῶν ἐντολῶν αὐτοῦ περιέτεμε τούτου τὴν πρὸς τὰ αἰσθητὰ σχέσιν, καὶ παρεσκεύασεν αὐτὸν διαπεράσαι τὸ ῥέον καὶ ἄστατον τοῦ παρόντος βίου, μὴ βραχέντα, τοῦτ’ ἔστι, μὴ ἐνοχλεθέντα τούτῳ· τοῖς ὤμοις δὲ τῶν ἀρετῶν ἐπικειμένην φέροντα τὴν κιβωτόν· λέγω δὴ τὴν δεκτικὴν τῶν θείων μυστηρίων γνῶσιν."
+     }
+    ],
+    [
+     68,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "THE ΠΡΟΤΗΣ ΤΟΝ ΒΑΣΙΛΕΙΟΝ."
+     }
+    ],
+    [
+     69,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Περὶ Σαοὺλ καὶ Δαβίδ."
+     }
+    ],
+    [
+     70,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὁ παλαιὸς νόμος κατὰ μόνον τὸ γράμμα λαμβανόμενος, Σαοὺλ ἐστὶν, ἐπίληπτος, ἅτε μυρίαις δονεύμενος ἐναντιώσεσι, καὶ μηδεμίαν ἔχων πρὸς ἑαυτὸν συμφωνίαν. Ἡνίκα δὲ ἐπηχήσῃ αὐτῷ ἡ κιθάρα τοῦ Δαβὶδ, ἤγουν ἡ σοφία τοῦ ὑποκεκρυμμένου πνεύματος· τοῦτ’ ἔστιν, ὁ πνευματικὸς νοῦς· εὐθὺ σωφρονεῖ, τοῦ πονηροῦ πνεύματος τῆς ἐναντιώσεως ἀπελαυνομένου."
+     }
+    ],
+    [
+     71,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.8",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Et dabo, inquit, regnum proximo tuo bono supra te.  Καὶ δώσω, φησὶ, τὴν βασιλείαν τῷ πλησίον σου, τῷ ἀγαθῷ ὑπὲρ σέ."
+     }
+    ],
+    [
+     72,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0662.9",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καθάπερ γὰρ ὁ Δαβὶδ πλησίον ἦν τοῦ Σαοὺλ, ὡς καὶ αὐτὸς εἰς βασιλέα χρισθείς· οὕτω καὶ τὸ πνεῦμα πλησίον ἦν τοῦ ἐν τῷ νόμῳ γράμματος, ὡς ὑποκεκρυμμένον αὐτῷ. ᾯ καὶ ὀβέσται λοιπὸν τὸ κράτος, σβεσθέντος μὲν τοῦ κατὰ τὸ γράμμα λαμβανομένου νόμου, λάμψαντος δὲ τοῦ κατὰ τὸ πνεῦμα νοουμένου· ὃς καὶ ἀγαθὸς ἦν ὑπὲρ ἐκεῖνον, ὅσῳ καὶ πολλὰ καλλιόνα τῶν αἰσθητῶν τὰ νοητὰ, καὶ τῶν κατασπώντων εἰς γῆν, τὰ εἰς οὐρανὸν ἐνελίκοντα. Ὁ Σαοὺλ, ὁ φυσ‐"
+     }
+    ],
+    [
+     73,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "κός ἐστι νόμος, ὁ κατ’ ἀρχὰς κυριεύειν τῆς φύσεως  παρὰ τοῦ Κυρίου λαχών. Ἐπεὶ δὲ παρέβη τὴν ἐντολὴν διὰ παρακοῆς, φεισάμενος τοῦ Ἀγὰγ βασιλέως· Ἀμαλὴκ, τοῦτ’ ἔστι τοῦ σώματος, καὶ πρὸς τὰ πάθη κατώλισθεν, ἐξωθεῖται τῆς βασιλείας, ἵνα παραλάβῃ τὸν Ἰσραὴλ ὁ Δαβὶδ, τοῦτ’ ἔστιν, ὁ νόμος τοῦ πνεύματος ὁ γεννῶν τὴν εἰρήνην τὴν οἰκοδομοῦσαν περιφανῶς τῷ θεῷ τὸν τῆς θεωρίας ναόν.",
+      "corrections": [
+       "confusion"
+      ]
+     }
+    ],
+    [
+     74,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Σαμουὴλ ὑπακοὴ Θεοῦ ἑρμηνεύεται. Οὐκοῦν ἕως ἂν ὁ καθ’ ὑπακοὴν λόγος ἐν ἡμῖν ἱερατεύῃ, κἂν φείσηται τοῦ Ἀγὰγ ὁ Σαοὺλ, τοῦτ’ ἔστι, τοῦ χοϊκοῦ φρονήματος· ἀλλ’ οὖν ἀποκτενεῖ τοῦτον ζηλώσας ὁ ἱερεὺς λόγος, καὶ πλήξει καταισχύνων τὸν φιλαμαρτήμονα νοῦν, ὡς παραβάτην τῶν θείων δικαιωμάτων."
+     }
+    ],
+    [
+     75,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐπὰν ὁ νοῦς ὑψηλοφρονήσας, τὸν κατὰ τῶν παθῶν αὐτὸν χρίσαντα τῆς διδασκαλίας λόγον, διὰ τῆς προσηκούσης ἐρεύνης ἐπερωτᾷν περὶ τῶν ποιητέων καὶ οὐ ποιητέων παύσαιτο, τοῖς πάθεσι πάντως ἐξ ἀγνοίας ἁλίσκεται, δι’ ὧν κατὰ μέρος του Θεοῦ χωριζόμενος, ἐν ταῖς ἀκουσίοις περιστάσεσι προσχωρεῖται τοῖς ἀείμοσι, τὴν κοιλίαν θεοποιῶν, κἀκεῖθεν εὑρέσθαι θέλων τῶν πιεζόντων παράκλησιν. Καὶ πειθέτω σε Σαοὺλ ἐν πᾶσι σύμβουλον μὴ λαμβάνων τὸν Σαμουὴλ, καὶ ἐξ ἀνάγκης εἰδωλολατρίαν μεταστρεφόμενος, καὶ τὴν ἐγγαστρίμυθον, ὡς δή τινα τὸν θεὸν, ἐπερωτᾷν ἀνεχόμενος."
+     }
+    ],
+    [
+     76,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "C THE ΔΕΥΤΕΡΑΣ ΤΩΝ ΒΑΣΙΛΕΙΩΝ."
+     }
+    ],
+    [
+     77,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Περὶ Δαβὶδ καὶ Ἀβεσσαλώμ."
+     }
+    ],
+    [
+     78,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Δαβὶδ μὲν ὁ πρακτικὸς νοῦς, Ἀβεσσαλὼμ δὲ ἡ οἴησις, ἣν ἀπεγέννησεν ἐκ τῆς πρὸς τὴν αἴσθησιν συνουσίας. Ἐρρηνεύεται μὲν γὰρ Ἀβεσσαλὼμ πατρὸς εἰρήνη νομιζομένη· νομίζοντες δὲ εἰρηνεύειν παθῶν, συνιστῶμεν τὴν οἴησιν· ἢν ἐπαναστᾶσαν αὐτῷ ννοῦς ὁ δηλωθεὶς Δαβὶδ, ἅτε μετὰ γνώσεως πράττων, ἀφεὶς τὴν ἁγίαν σκηνὴν, καὶ τὴν Ἱερουσαλὴμ καὶ τὴν Ἰουδαίαν, τοῦτ’ ἔστιν, τὴν μυστικὴν θεολογίαν καὶ τὴν εἰρηνικὴν τῶν θείων θεωρίαν, καὶ τὴν ἐπὶ τοῖς προλαβοῦσι καλοῖς εὐχαριστήριον ἐξομολόγησιν, φεύγει πρὸς τὴν Γαλαὰδ, ἥτοι μετοικίζεται πρὸς τὸ πένθος. Γαλαὰδ γὰρ μετοικεσία μαρτυρίου... καὶ πρὸς τοῖς εἰρημένοις ἀποκαλύψις· μετοικίζεται καὶ πρὸς τὸν διὰ τοῦ συνειδότος ἔλεγχον, καὶ πρὸς τὴν  κατ’ εἶδος τῶν ἁμαρτημάτων φανέρωσιν, καὶ οὕτως ἐν συναισθήσει τῆς ἑαυτοῦ γενόμενος ἀσθενείας, καὶ τὴν ταπεινοφροσύνην εἰς βοήθειαν ἐπισπασάμενος, ἀναιρεῖ τὴν τοῦ τυράννου οἴησιν, καὶ πάλιν ἐπανέρχεται πρὸς τὴν Ἰουδαίαν, καὶ τὴν Ἱερουσαλὴμ, καὶ τὴν ἁγίαν σκηνήν· λέγω δὴ, πρὸς τὴν ἐξομολογητικὴν εὐχαριστίαν, καὶ εἰρηνικὴν καὶ ἀπαθῆ τῶν ὄντων θεωρίαν, καὶ τὴν ὑψηλὴν θεολογίαν."
+     }
+    ],
+    [
+     79,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0663.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἀβεσσαλώμ ἐστι, πᾶς οἰηματίας καὶ ὑπερήφανος, ὃς τὴν κόμην τρέφων, ἤτοι τὴν φαινομένην ἀρετὴν"
+     }
+    ],
+    [
+     83,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0669.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "e Καὶ ᾠκοδόμησεν Ὁζίας πύργους ἐν Ἱερουσαλὴμ καὶ ἐπὶ τὴν πύλην τῆς γωνίας, καὶ ἐπὶ τὴν γωνίαν τῆς φάραγγος, καὶ ἐπὶ τῶν γωνιῶν, καὶ ᾠκοδόμησε πύργους ἐν τῇ ἐρήμῳ. « Ὥσπερ Σολομὼν μέχρι τινὸς ὑπῆρχε Χριστοῦ· οὕτω καὶ Ὁζίας ἕως τινός. Ὁζίας γὰρ ἰσχὺς Θεοῦ ἑρμηνεύεται, ἰσχὺς δὲ καὶ δύναμις ἐνυπόστατος τοῦ Θεοῦ καὶ Πατρὸς ὁ Χριστὸς, οἰκοδομῶν ἐν μὲν τῇ ὁράσει τῆς εἰρήνης· τοῦτο γὰρ ἑρμηνεύεται Ἱερουσαλὴμ, λέγω δὴ τοῖς τελειοτέροις εἰς θεωρίας κατάστασιν· πύργους τῶν περὶ τῆς θεότητος αὐτοῦ δογμάτων. Ἐπεὶ δὲ γωνία ἐστὶν ἡ Ἐχκλησία τῶν πιστῶν, καθάπερ βʹ τοίχους ἐνοῦσα καὶ συνέχουσα, τόν τε ἐξ Ἰουδαίων λαὸν, καὶ τὸν ἐξ ἐλνῶν· πύλαι ἂν αὐτῆς νοηθεῖεν, οἱ εἰσαγωγικοὶ καὶ τῶν θεωρητικωτέρων ὑποδεέστεροι· ἐφ' οὓς αὖθις οἰκοδομεῖ πύργους· τῶν περὶ τῆς ἐνανθρωπήσεως αὐτοῦ δογμάτων. Ἐπεὶ δὲ νοεῖται φάραγξ ἡ σὰρξ ἡμῶν, διὰ τὸ εἶναι κάτωθεν, εἴη ἂν γωνία ταύτης, ἡ πρὸς τὴν ψυχὴν ἐν πνεύματι συνάφεια· ἐφ' ἣν οἰκοδομεῖ πύργους τῶν εὐαγγελικῶν ἰντολῶν. Πύργοι δὲ τά τε ῥηθέντα δόγματα καὶ εὐαγγελικαὶ ἐντολαί· ὡς ὑψηλὰ, καὶ φρουροῦντα καὶ φυλάττοντα καὶ ἀσφαλιζόμενα. Ἐπεὶ δὲ καὶ ἐπὶ τῶν γωνιῶν ᾠκοδόμησε πύργους, γωνίας νοήσομεν, τὰς διὰ Χριστοῦ γενομένας διαφόρους ἑνώσεις τῶν διῃρημένων· λέγω δὴ τῆς κτιστῆς καὶ ἀκτίστου φύσεως· ἔτι δὲ τῶν ἀνθρώπων καὶ τῶν ἀγγέλων καὶ ὅσα τοιαῦτα, ἐφ' ὧν οἰκοδομεῖ πύργους τῶν ἐφ' ἑκάστῃ ἑνώσει λέγων καὶ τρόπων. Ἔρημος δέ ἐστιν, ἡ τῶν φαινομένων φύσις, ἤτοι ὁ κόσμος οὗτος, ἐν ᾧ πύργους ᾠκοδόμησε τοὺς λόγους τῶν ὄντων, τὴν γνῶσιν τῆς φυσικῆς ἐν πνεύματι θεωρίας."
+     }
+    ],
+    [
+     84,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0669.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καὶ ἐλατόμησε λάκκους πολλοὺς, ὅτι κτήνη πολλὰ ὑπῆρχεν αὐτῷ, ἐν Σεριλᾷ ἐν τῇ πεδινῇ, καὶ ἀμπελουργοὶ ἐν τῇ ὀρεινῇ, καὶ ἐν τῇ Καρμήλῳ, ὅτι γεωργὸς ἦν."
+     }
+    ],
+    [
+     85,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0669.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Λάκκους λατομεῖ ὁ Κύριος ἐν τῇ ἐρήμῳ· λέγω δὲ τῷ κόσμῳ, καὶ τῇ φύσει τῶν ἀνθρώπων, τὰς τῶν ἀξίων καρδίας ἐκχοΐτων καὶ ἀποκαθαίρων τοῦ ὑλικοῦ βάρους τε καὶ φρονήματος, καὶ ποιῶν εὐρυχώρους πρὸς ὑποδοχὴν τῶν θείων τῆς σοφίας καὶ τῆς γνώσεως θετῶν· ἵνα ποτίζωσι τὰ κτήνη τοῦ Χριστοῦ· τοὺς θεομένους λέγω, διὰ ψυχῆς νηπιότητα, τῆς ἠθικῆς ἐβασκαλίας."
+     }
+    ],
+    [
+     86,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0669.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Λάκκους καλεῖ ἡ Γραφὴ τὰς δαπικὰς τῶν οὐρανίων χαρισμάτων τῆς αὐτοῦ γνώσεως καρδίας, λαμπομένας τῷ στεῤῥῷ λόγῳ τῶν ἐντολῶν, καὶ ἀποβαλλομένας καθάπερ πωρώματα, τήν τε πρὸς τὰ πάθη φιλίαν, καὶ τὴν πρὸς τὰ αἰσθητὰ τῆς φύσεως σχέσιν, καὶ πληρουμένας τῆς ἄνωθεν φερομένης ῥυπτικῆς τῶν ἀρετῶν ἐν πνεύματι γνώσεως. Ἐπεὶ δὲ τὸ Σεφιλὰ στερνὴν Δευδνὴν ἑρμηνεύει· κτήνη τοῦ Σεριλᾶ εἶεν ἂν οἱ διὰ τῆς στενοχωρίας τῶν ἀκουσίων παρασμῶν ἀποκαθειρόμενοι τῶν ψυχικῶν κηλίδων, καὶ"
+     }
+    ],
+    [
+     87,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "σπουδῆς καὶ ἐπιμελείας, τὰ θεῖα τῶν ἀγαθῶν σπέρματα συντηρῶν."
+     }
+    ],
+    [
+     88,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "δεόμενοι ποτισθῆναι τὸν περὶ καρτερίας καὶ ἐπορο νῆς λόγον. Ἐν τῇ πεδινῇ δὲ οἱ εὐδρομοῦντες κατ’ ἀρετὴν, ἢ οἱ ἐμπλατυνόμενοι τῇ κατὰ τὸν βίον εὐ πραγίᾳ, δεόμενοι ποτισθῆναι, οἱ μὲν, τὸν περὶ ἐλεη μοσύνης καὶ μεταδόσεως. Ἀμπελουργοὶ δὲ τῆς εἰρή νης εἰσὶν οἱ ἐν τῷ ὄψει τῆς θεωρίας γεωργοῦντες τὸν θεὸν λόγον τῆς γνώσεως, εὑρραίνοντα ζυχὴν, καὶ ἐξιστῶντα τῆς ὑλικῆς σχέσεως. Ἐπεὶ δὲ καὶ ὁ Κάρμηλος ἀπίγνωσις κεριτομῆς ἑρμηνεύεται, ἀμ πελουργοὺς αὐτοῦ φήσομεν, τοὺς κατ’ ἐπίγνωσιν τῆς περιτομῆς τῶν ὑλικῶν πραγμάτων, γεωργοῦντας τὸν λόγον τὸν περιτείμοντα τὴν ψυχὴν τῶν περιττῶν καὶ ἀνωφελῶν φροντίδων καὶ τῆς φιληδονίας. Χρήζουσι δὲ καὶ οὗτοι κἀκεῖνοι ὑβασκαλίας τῶν παλαιοτέρων τε καὶ τελεωτέρων. Γεωργὸς δὲ ἀληθινὸς ὁ Χριστὸς, γεωργῶν διὰ τοῦ Εὐαγγελίου τοὺς σωζομένους. Ἀλλὰ πῶς Ὄζιας ἠδύνατο ἀμπελουργοὺς ἔχειν ἐν τῷ Καρ μήλῳ, αὐτὸς μὲν τὴν τοῦ Ἰούδα βασιλείαν διέπων, τοῦ Καρμήλου δὲ κειμένου ὑπὸ τὴν βασιλείαν τοῦ Ἰσραήλ; Οὐδαμῶς ἑτέρως ἢ κατὰ λόγον ἀναγωγῆς."
+     }
+    ],
+    [
+     89,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καὶ ἦν Ὄζιας ἐκζητῶν τὸν Κύριον ἐν ταῖς ἡμέ ραις Ζαχαρίου τοῦ συνιάντος ἐν φόβῳ Κυρίου· καὶ εὐώδωσαν αὐτῷ ὁ Κύριος."
+     }
+    ],
+    [
+     90,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐπείπερ Ὄζιας ἰσχὺς Θεοῦ ἑρμηνεύεται, λοιπὸν πᾶς νοῦς ἰσχὺν ἐκ Θεοῦ λαβὼν εἰς θεωρίαν ἐκζητεῖ τὸν Θεὸν δι’ αὐτῆς. Ἐκζητεῖ δὲ αὐτὸν οὐχ ἁπλῶς, ἀλλὰ ἐν ταῖς ἡμέραις τῆς μνήμης τοῦ Θεοῦ, ἐν αἷς μνημονεύει Θεοῦ. Ζαχαρίας γὰρ μνήμη Θεοῦ ἑρμη νεύεται· ἥτις μνήμη συνετίζει τοὺς ἴχνοντας αὐτήν. Συνετίζει δὲ αὐτοὺς ἐν φόβῳ τοῦ Κυρίου, τοῦτ’ ἔστιν, ἐν τῇ πράξει τῶν ἐντολῶν. «Ἀρχὴ γὰρ, φησὶ, σοφίας φόβος Κυρίου.» «Ἡ καὶ εὐοδοῖ ὁ Κύριος εἰς εὕρεσιν, τούς τε τῶν ἐντολῶν τρόπους διδάσκων, καὶ τοὺς τῶν ὄντων λόγους ἀποκαλύπτων. Τοιγαροῦν ὁ δίχα πράξεως τῶν θείων ἐντολῶν ἐκζητῶν τὸν Θεὸν, οὐχ εὑρίσκει αὐτὸν, μὴ εὐοδούμενος εἰς τοῦτο."
+     }
+    ],
+    [
+     91,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὁ τοιοῦτος νοῦς ἀποτειχίζει τὴν γινομένην πρὸς τὴν νοῦν διὰ μέσων τῶν αἰσθητῶν εἴσοδον τοῦ δια βόλου, πηξάμενος ἐν τῇ ἐρήμῳ, λέγω δὲ τῇ φυσικῇ θεωρίᾳ, καθάπερ πύργους ἀσφαλεῖς τὰ εὐσεβῆ περὶ τῶν ὄντων δόγματα. Εἰς ἃ ὁ καταφεύγων οὐ φοβεῖ ται τοὺς κατὰ τὴν ἔρημον ταύτην, φημὶ δὴ τὴν φύ σιν τῶν ὁρωμένων, λῃστεύοντας δαίμονας καὶ πλα νῶντας τὸν νοῦν διὰ τῆς αἰσθήσεως, καὶ πρὸς ἀπ ώλειαν κατασύροντας. Ὁ τοιοῦτος νοῦς καὶ ἀληθής ἐστι γεωργὸς, καθαρὰ ζιζανίων, διὰ τῆς οἰκείας"
+     }
+    ],
+    [
+     92,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΕΚ ΤΗΣ ΑΥΤΗΣ ΕΒΔΟΥ."
+     }
+    ],
+    [
+     93,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Περὶ Ἐζεχίου."
+     }
+    ],
+    [
+     94,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0670.8",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καὶ εἶθεν Ἐζεχίας ὅτι ἤκει Σαναχηρεὶμ τοῦ πο λεμῆσαι ἐν Ἰερουσαλὴμ· καὶ ἐβουλεύσατο μετὰ τῶν πρεσβυτέρων αὐτοῦ καὶ δυνατῶν, ἐμφράξαι τὰ ὕδατα τῶν πηγῶν, ἃ ἦν ἔξω τῆς πόλεως. Καὶ συνεπίσχυσαν αὐτὸν, καὶ συνή γησε λαὸν πολὺν, καὶ ἐξέφραξε τὰ ὕδατα τῶν πηγῶν, καὶ τὸν ποταμὸν τὸν διορίζοντα διὰ τῆς πόλεως."
+     }
+    ],
+    [
+     97,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0673.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ται ἡ μὲν ἰσχὺς εἰς τὴν πρᾶξιν τῶν ἁγίων ἐντολῶν· τὸ δὲ θεῖον κράτος εἰς τὴν ἀρετήν. Καὶ ὥσπερ ὁ Ἄχαζ ἐγέννησε τὸν Ἔσχελαν, οὕτω καὶ ἡ πρᾶξις τὴν ἀρετήν· ὑφ’ ἧς διαφθείρεται ἡ κακία. Πάλιν οὖν, Ἀμμὼν ἐγέννησε τὸν Ἠσαΐαν. Ἐρμηνεύεται δὲ Ἀμμὼν μὲν Ἰαοῦ κόνοσ· Ἠσαΐας δὲ ὕψος θεῖον, καὶ λαμβάνεται ὁ μὲν πόνος εἰς τοὺς ἐπὶ τῇ πράξει τῶν ἀρετῶν ἱδρῶτας, ἡ τοὺς ἐπὶ τῇ φυσικῇ θεωρίᾳ καμάτους, τὸ δὲ ὕψος εἰς τὴν γνῶσιν τῆς ἀληθείας, ἣν γεννῶσιν οἱ ἐπὶ τῇ πράξει τῶν ἀρετῶν ἱδρῶτες, ἡ τῆς τῶν γεγονότων θεωρίας οἱ πόνοι, διαφθείρουσαν τὴν ἀντικειμένην αὐτῇ δύναμιν τοῦ ψεύδους. Ὥσπερ εὐχή ἐστιν ὑπόσχεσις τῶν ἐξ ἀνθρώπων Θεῷ κατ’ ἐπαγγελίαν προσαγομένων καλῶν· οὕτω προσευχὴ, κατὰ τὸν εἰκότα λόγον, ἔσται σαφῶς ἡ τῶν ἐκ Θεοῦ πρὸς σωτηρίαν χορηγουμένων τοῖς ἀνθρώποις ἀγαθῶν ἐξαίτησις, ἀντίβοσιν φέρουσα τῆς τῶν προηγουμένων καλῆς βιαθέσεως. Βοὴ δέ ἐστιν ἡ τῶν κατὰ τὴν πρᾶξιν ἀναρέτων τρόπων καὶ τῶν κατὰ τὴν θεωρίαν γνωστικῶν θεωρημάτων, ἐν τῷ καιρῷ τῆς τῶν πονηρῶν δαιμόνων ἐπαναστάσεως, ἐπίδοσίς τε καὶ ἐπαύξησις· ἧς πάντων οὐχ ἥκιστα φυσικῶς ἀκούει Θεὸς, ἀντὶ μεγάλης φωνῆς τὴν τῶν ἀρετῆς καὶ τῆς γνώσεως ἐπιμελουμένων λαμβάνων διάθεσιν. Οὐρανὸς δὲ πολλάκις κατὰ τὴν Γραφὴν λέγεται αὐτὸς ὁ Θεὸς, ὡς τὸ, «Οὐ δύναται ἄνθρωπος λαμβάνειν ἀφ’ ἑαυτοῦ οὐδὲν, ἐὰν μὴ ᾖ δεδομένον αὐτῷ ἐκ τοῦ οὐρανοῦ,» ἀντὶ τοῦ, ἐκ τοῦ Θεοῦ. Καλεῖ δὲ οὐρανὸν αὕτη καὶ τὰς οὐρανίας δυνάμεις. Ὡς τὸ, «Ὁ οὐρανός μου θρόνος.» Λέγεται δὲ οὐρανὸς καὶ τὸ ὕψος τῆς ἐν ἀνθρώποις ἀληθοῦς γνώσεως. Ὃ γὰρ μετὰ πράξεως γινώσκειν, καὶ μετὰ γνώσεως πράττων, θρόνος καὶ ὑποπόδιόν ἐστι τοῦ Θεοῦ. Θρόνος μὲν διὰ τὴν γνῶσιν, ᾗ ὁ Θεὸς ἐνδρονίζεται· ὑποπόδιον δὲ διὰ τὴν πρᾶξιν, ἐφ’ ἑαυτῆς δεχομένην τὰς θείας βάσεις. Τούτων οὕτω προβεωρηθέντων, λοιπὸν πᾶς εὐσεβὴς ἀρετῇ καὶ γνώσει, ἢ πράξει καὶ θεωρίᾳ φρουρούμενος, ἐπειδὰν ἴδῃ διὰ τῶν παθῶν ἐπαναστᾶσαν αὐτῷ τὴν πονηρὰν καὶ ὀλέθριον δύναμιν, καθάπερ καὶ Ἐζεχία; καὶ Ἠσαΐας εἶδον ἐπερχόμενον αὐτοῖς· τὸν βασιλέα τῶν Ἀσσυρίων, καταφεύγει πρὸς τὸν Θεὸν, καὶ ἀλαλήτως βοᾷ πρὸς αὐτὸν, διὰ τῆς κατ’ ἀρετὴν καὶ γνῶσιν ἐπιβίωσις, καὶ δέχεται σύμμαχον ἄγγελον· δηλονότι μείζονα σοφίας καὶ γνώσεως λόγον ἐκτρίβοντα τοὺς πολεμίους. Παρεμβολὴ δὲ βασιλέως Ἀσσούρ ἐστιν ὁ πρὸς ἡδονὴν τὰς φυσικὰς ὀρέξεις κινῶν. Πολεμιστὴς δὲ ὁ τὸ θυμικὸν διεγείρων, εἰς τὴν τῶν ἡδονῶν φυλακήν. Ἄρχων δὲ ὁ ταῖς ἐπιφανείαις τῶν ἀρετῶν τὰς αἰσθήσεις διερεθίζων. Στρατηγὸς δὲ ὁ εἰδοποιὸς τῶν παθῶν, καὶ τῆς ἐνεργείας αὐτῶν ἐπινοητικός. Πρόσωπον δὲ τοῦ διαβόλου, τὸ λεῖον τῆς ἡδονῆς, καὶ τὰ θελκτικὰ τῶν αἰσθήσεων αἰσθητά."
+     }
+    ],
+    [
+     98,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0674.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A βασιλεύων Ἱερουσαλὴμ, ἤτοι τῆς εἰρήνην ὁρώσης ἕξεως· λέγω δὴ τῆς τῶν στασιαζόντων παθῶν ἀπηλλαγμένης καταστάσεως (ὁρῶσις γὰρ εἰρήνης Ἱερουσαλὴμ ἑρμηνεύεται)· πάντως ἔχει τὴν φαινομένην κτίσιν προσφέρουσαν αὐτῷ μὲν δόματα, τῷ δὲ Θεῷ δῶρα δι’ αὐτοῦ. Κυρίως γὰρ δόματα μὲν τὰ τοῖς ἐνδεέσι διδόμενα· δῶρα δὲ, τὰ τοῖς ἀπροσδεέσιν εἰσαφμιζόμενα. Διὸ τῷ μὲν Κυρίῳ δῶρα ὡς πάντων ἀπροσδεσί, τῷ δὲ Ἐζεχίᾳ δόματα, διότι τὰς ἄνθρωπος ἐπιδεῖται, καὶ τρόπων εἰς ἀρετὴν, καὶ λόγων εἰς γνῶσιν. Ἀλλὰ δῶρα μὲν, οἱ ἐνυπάρχοντες ἑκάστῳ εἴδει τῶν συμπληρούντων τὴν κτίσιν πνευματικοὶ λόγοι, δι’ ὧν ὁ τῆς κτίσεως γνωρίζεται ποιητὴς, διδασκάντων, ὅτι ἐστί τις τῶν φαινομένων κτίστης καὶ δεσπότης. Δόματα δὲ οἱ ἐνόντες ἑκάστῳ τούτων αὖθις B φυσικοὶ νόμοι· τοῦτ’ ἔστι, τὰ φυσικὰ πλεονεκτήματα, δι’ ὧν παιδεύεταί τις πρὸς ἀρετὴν· ἐκλεγόμενος τοῦ μὲν τόδε, τοῦ δὲ τόδε· καὶ τοὺς φυσικοὺς αὐτῶν νόμους τοῖς προαιρετικοῖς αὐτοῦ τρόποις ἀπομιμούμενος. Ἐγκατέσπειρε γὰρ ὁ Θεὸς τοῖς κατὰ μέρος εἴδεσι τῆς κτίσεως· καὶ σοφίας λόγους πνευματικούς, μηνύοντας τὸν ποιητὴν αὐτῶν Θεόν· καὶ φυσικοὺς νόμους παιδαγωγοῦντας εἰς ἀρετὴν τὸν θεατὴν αὐτῶν ἄνθρωπον. Ἵνα δὲ ἐκ πολλῶν ὀλίγα παραθῶμεν, ἀκτοῦ φυσικὸς νόμος, τὸ πρὸς τὴν ἡλιακὴν μαρμαρυγὴν ἰθυτινῶς ἀτενίζειν. Ὃ μιμήσεταί τις, ἀπευθύνων τὸν νοῦν εἰς τὸ θεῖον φῶς. Μιμήσεται καὶ τὴν ἔλαφον, τὰ ὕψη τῶν θείων θεωρημάτων, καθάπερ ἐκείνη τὰ ὄρη, μεταδιώκων, καὶ τὰ ἐμφο‐ C λεόντα τοῖς ὁρωμένοις εἴδεσι πάθη, καθάπερ ὄφεις, τῷ λόγῳ διαφθείρων τῆς διακρίσεως, καὶ τὸν τῇ μνήμῃ ἐναπολαμβανόμενον ἰὸν τῆς κακίας, ταῖς πολλαῖς καὶ διαφόροις κατασβεννύων πηγαῖς τῆς γνώσεως. Μιμήσεται καὶ τῆς δορκάδος τὴν ὀξυωπίαν, τοὺς βρόχους τῶν ἐπιβουλευόντων τῇ ἀρετῇ δαιμόνων ὑπερπηδῶν. Ἔτι δὲ καὶ τοῦ ὀρνέου τὴν ἀσφάλειαν, τὰς παγίδας τῶν τῇ γνώσει πολεμούντων πονηρῶν πνευμάτων ὑπεριπτάμενος."
+     }
+    ],
+    [
+     99,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0674.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Οἱ μὲν θειότεροι τῆς κτίσεως λόγοι φαίνονται ἐν τῇ προνοίᾳ καὶ συνοχῇ τῆς τοῦ καθ’ ἕκαστον εἴδους μονιμότητος, οἱ δὲ φυσικοὶ νόμοι ταύτης, ἐν τῇ ταυτότητι τῆς τοῦ καθ’ ἕκαστον εἴδους φυσικῆς ἐνεργείας. Δι’ ὧν ὁμοῦ πάντων δοξάζεται μὲν ὁ Θεὸς, D παρ’ οὗ γεγόνασι· προκόπτει δὲ ὁ ἄνθρωπος δι’ ὧν αὖθις γεγόνασι."
+     }
+    ],
+    [
+     100,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0674.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καὶ ὑπερήρθη κατ’ ὀρθαλμοὺς πάντων τῶν ἐθνῶν."
+     }
+    ],
+    [
+     101,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0674.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὃ διὰ πράξεως καὶ θεωρίας μεγαλυνθεὶς, ὑπεραίρεται διὰ πράξεως μὲν πάντων τῶν σαρκικῶν καὶ διαβεβλημένων παθῶν, ὑπεράνω τούτων γινόμενος τῶν δι’ φυσικῶν λεγομένων σωμάτων, ἤτοι τῶν ὑπὸ γένεσιν ὄντων καὶ φθοράν· καὶ ἁπλῶς εἰπεῖν ὅσα ὑπὸ τὴν αἴσθησιν· διὰ θεωρίας τοὺς ἐν αὐτοῖς λόγους γνωστικῶς διατεράσας, καὶ πρὸς τὰ συγγενῆ νοητὰ καὶ θεῖα τὸν νοῦν ἀγαγών. Καὶ γὰρ ἡ πρακτικὴ μὲν φιλοσοφία τὸν πρακτικὸν ὑπεράνω που!"
+     }
+    ],
+    [
+     105,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0677.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καὶ ἔσαγε τὸν Ἐζεχίαν ἐν ἀναβάσει τάχων υἱῶν Δαβὶδ, καὶ δόξαν καὶ τιμὴν ἔδωκαν αὐτῷ ἐν τῷ θανάτῳ αὐτοῦ πᾶς Ἰούδα, καὶ οἱ κατοικοῦντες Ἱερουσαλήμ."
+     }
+    ],
+    [
+     106,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0677.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Δαβὶδ ἑρμηνεύεται μὲν ἐξουδένωσις, ἑρμηνεύεται δὲ καὶ ἱκανὸς χειρί. Εἴη δ’ ἂν τοιοῦτος ὁ Χριστὸς, ὃν ἀποδοκιμάσαντες ἐξουδένωσαν οἱ τῶν Ἰουδαίων ἱερεῖς τε καὶ ἄρχοντες, γενόμενον δι’ ἡμᾶς δνειδὸς ἀνθρώπων ἀπιστούντων τῇ ἀληθείᾳ, καὶ ἐξουδένωμα λαοῦ πλήρους ἁμαρτιῶν. Ὁ ποιμὴν ὁ καλὸς, ὁ τιθεὶς τὴν ψυχὴν ὑπὲρ ἡμῶν τῶν αὐτοῦ προβάτων· ὁ ἀποκτείνας τὸν λέοντα καὶ τὴν ἄρχτον, τὸν θυμὸν λέγω, καὶ τὴν ἐπιθυμίαν, τὰ σπαρττόντα τῆς ἐν ἡμῖν θείας εἰκόνος τὸ κάλλος. Ὁ πυῤῥάκης, διὰ τὸ πάθημα τῆς σφαγῆς. Μετὰ κάλλους ὀφθαλμιῶν, τοῦτ’ ἔστι, μετὰ δόξης τῶν κατὰ πρόνοιαν καὶ κρίσιν ὑψηλοτέρων λόγων. Ὀφθαλμοὶ γὰρ εἶεν ἂν τοῦ λόγου ἡ πρόνοια καὶ ἡ κρίσις, δι’ ὧν ποιεῖται τοῦ παντὸς τὴν ἐπισκοπήν. Ἡ πυῤῥάκης μὲν διὰ τὴν φαιδρότητα τοῦ βίου. Μετὰ κάλλους δὲ ὀφθαλμιῶν, διὰ τὸν ἄμεμπτον λόγον τῆς γνώσεως. Ὁ τοῦ νοητοῦ καὶ ὑπερηφάνου, φημὶ δὴ τοῦ διαβόλου σφαγεὶς, τοῦ παντάπηχυν ἔχοντος τὴν ἡλικίαν, διὰ τὴν περὶ τὰς πέντε τοῦ σώματος αἰσθήσεις αὔξησιν τῆς αὐτοῦ κακίας· ὁ βασιλεὺς τοῦ ἀληθινοῦ Ἰσραὴλ, καὶ ὁρῶντος Θεὸν, ὅσον ἐφικτόν· εἰ καὶ Σαοὺλ, ὁ παλαιὸς κατὰ τὸν νόμον λαὸς, μαίνεται φθόνῳ, διὰ τὴν ἀπιστίαν τηκόμενος, καὶ μὴ φέρων τῆς προσκαίρου δόξης τὴν στέρησιν. Οὗ ἀφαιρεῖται τὸ δῶρον καὶ τοῦ ὕδατος τὸν φακόν· τοῦτ’ ἔστιν, τὸ κράτος τῆς πρακτικῆς ἀρετῆς, καὶ τὴν χάριν τῆς γνωστικῆς θεωρίας, εἰ καὶ ταῦτα πάλιν δίδωσι τοῖς πρὸς αὐτὸν κατὰ τὴν πίστιν διαβαίνουσι, διὰ τοὺς ἐξ Ἰουδαίων μέλλοντας κληρονομεῖν σωτηρίαν. Οὗπερ πάλιν ἐν τῷ σπηλαίῳ τὸ τῆς διπλοΐδος ἀφαιρεῖται πιερύγιον· τοῦτ’ ἔστι, τὸ ἦθος τῆς κατὰ τὴν ἠθικὴν φιλοσοφίαν ἀσχημοσύνης· ἢ τὸ ἐν νοήμασιν ὑψηλὸν τῆς τῶν νομικῶν συμβόλων καὶ οἰωνισμάτων περι‐"
+     }
+    ],
+    [
+     107,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0677.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καὶ ἔσαγε τὸν Ἐζεχίαν ἐν ἀναβάσει τάχων υἱῶν Δαβὶδ, καὶ δόξαν καὶ τιμὴν ἔδωκαν αὐτῷ ἐν τῷ θανάτῳ αὐτοῦ πᾶς Ἰούδα, καὶ οἱ κατοικοῦντες Ἱερουσαλήμ."
+     }
+    ],
+    [
+     108,
+     {
+      "urn": "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg077_0677.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Δαβὶδ ἑρμηνεύεται μὲν ἐξουδένωσις, ἑρμηνεύεται δὲ καὶ ἱκανὸς χειρί. Εἴη δ’ ἂν τοιοῦτος ὁ Χριστὸς, ὃν ἀποδοκιμάσαντες ἐξουδένωσαν οἱ τῶν Ἰουδαίων ἱερεῖς τε καὶ ἄρχοντες, γενόμενον δι’ ἡμᾶς δνειδὸς ἀνθρώπων ἀπιστούντων τῇ ἀληθείᾳ, καὶ ἐξουδένωμα λαοῦ πλήρους ἁμαρτιῶν. Ὁ ποιμὴν ὁ καλὸς, ὁ τιθεὶς τὴν ψυχὴν ὑπὲρ ἡμῶν τῶν αὐτοῦ προβάτων· ὁ ἀποκτείνας τὸν λέοντα καὶ τὴν ἄρχτον, τὸν θυμὸν λέγω, καὶ τὴν ἐπιθυμίαν, τὰ σπαρττόντα τῆς ἐν ἡμῖν θείας εἰκόνος τὸ κάλλος. Ὁ πυῤῥάκης, διὰ τὸ πάθημα τῆς σφαγῆς. Μετὰ κάλλους ὀφθαλμιῶν, τοῦτ’ ἔστι, μετὰ δόξης τῶν κατὰ πρόνοιαν καὶ κρίσιν ὑψηλοτέρων λόγων. Ὀφθαλμοὶ γὰρ εἶεν ἂν τοῦ λόγου ἡ πρόνοια καὶ ἡ κρίσις, δι’ ὧν ποιεῖται τοῦ παντὸς τὴν ἐπισκοπήν. Ἡ πυῤῥάκης μὲν διὰ τὴν φαιδρότητα τοῦ βίου. Μετὰ κάλλους δὲ ὀφθαλμιῶν, διὰ τὸν ἄμεμπτον λόγον τῆς γνώσεως. Ὁ τοῦ νοητοῦ καὶ ὑπερηφάνου, φημὶ δὴ τοῦ διαβόλου σφαγεὶς, τοῦ παντάπηχυν ἔχοντος τὴν ἡλικίαν, διὰ τὴν περὶ τὰς πέντε τοῦ σώματος αἰσθήσεις αὔξησιν τῆς αὐτοῦ κακίας· ὁ βασιλεὺς τοῦ ἀληθινοῦ Ἰσραὴλ, καὶ ὁρῶντος Θεὸν, ὅσον ἐφικτόν· εἰ καὶ Σαοὺλ, ὁ παλαιὸς κατὰ τὸν νόμον λαὸς, μαίνεται φθόνῳ, διὰ τὴν ἀπιστίαν τηκόμενος, καὶ μὴ φέρων τῆς προσκαίρου δόξης τὴν στέρησιν. Οὗ ἀφαιρεῖται τὸ δῶρον καὶ τοῦ ὕδατος τὸν φακόν· τοῦτ’ ἔστιν, τὸ κράτος τῆς πρακτικῆς ἀρετῆς, καὶ τὴν χάριν τῆς γνωστικῆς θεωρίας, εἰ καὶ ταῦτα πάλιν δίδωσι τοῖς πρὸς αὐτὸν κατὰ τὴν πίστιν διαβαίνουσι, διὰ τοὺς ἐξ Ἰουδαίων μέλλοντας κληρονομεῖν σωτηρίαν. Οὗπερ πάλιν ἐν τῷ σπηλαίῳ τὸ τῆς διπλοΐδος ἀφαιρεῖται πιερύγιον· τοῦτ’ ἔστι, τὸ ἦθος τῆς κατὰ τὴν ἠθικὴν φιλοσοφίαν ἀσχημοσύνης· ἢ τὸ ἐν νοήμασιν ὑψηλὸν τῆς τῶν νομικῶν συμβόλων καὶ οἰωνισμάτων περι‐"
+     }
+    ]
+   ]
+  },
+  "data/corpus/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.jsonl": {
+   "sha256_before": "1e8240beaba8dd17918bb521f9100475f177734b9f3813dbea19b298bc977765",
+   "sha256_after": "3fef5c3465b2ddf321e68d12dce896ed69fa35bc281092aca18f335c397259c4",
+   "removed": [
+    [
+     0,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0345.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ ΚΥΡΙΛΛΟΥ"
+     }
+    ],
+    [
+     1,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0345.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ, ΠΕΡΙ ΑΓΙΑΣ ΤΕ ΚΑΙ ΟΜΟΟΥΣΙΟΥ ΤΡΙΑΔΟΣ."
+     }
+    ],
+    [
+     2,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0345.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΠΡΟΛΟΓΟΣ ΤΗΣ ΠΑΡΟΥΣΗΣ ΒΙΒΛΟΥ."
+     }
+    ],
+    [
+     3,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0345.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Δυσέρικτα μὲν κομιδῇ τὰ περὶ Θεοῦ καὶ τοῖς ἄγαν ἐξησκημένοις καὶ ἀρτίως ἔχουσιν εἰς τὸ δύνασθαι καταθρεῖν μυστήρια, καὶ τὰ παντὸς ἐπέκεινα νοῦ καὶ γοῦν ἐν ἐσόπτρῳ καὶ αἰνίγματι βλέπειν, κατὰ τὸν σοφώτατον Παῦλον. Παχὺς δὲ δὴ λίαν ὁ ἀνθρώπινος λόγος ἐπὶ τῇ τῶν ἐννοιῶν ἰσχύστητι συμπαρομαρτεῖν οὐχ οἷός τε. Τοιγάρτοι πολὺ τὸ δέος φάναι τὰ περὶ Θεοῦ, καὶ σοφὸν μὲν λίαν τὸ ἕν γε τούτοις ἑλέσθαι σιγᾷν· πλὴν οὗ τί που τοῖς διδάσκειν ἐπιτεταγμένοις, ἀζήμιον. Καὶ τοῦτο εἰδὼς ὁ θεσπέσιος ἔφη Παῦλος· « Οὐαὶ γάρ μοί ἐστιν, ἐὰν μὴ εὐαγγελίζωμαι. » Ἀφῖγμαι δὴ οὖν ἐπὶ τὴν τοῦδε τοῦ προκειμένου βιβλίου συγγραφήν, καί σοι πάλιν, ὦ φιλομαθέστατε ἀδελφὲ Νεμεσῖνε, τὸν περὶ τῆς ἁγίας τε καὶ ὁμοουσίου Τριάδος ἐκπεπόνηκα λόγον. Κατὰ B γένος δὲ ὥσπερ, ἤτοι κατ' εἶδος, τὰς ἐφ' ἑκάστῳ τῶν ζητουμένων συνενεγκόντες ἐννοίας, ἐν ἑπτὰ λογιδίοις τὸ σύμπαν τοῦ βιβλίου συντεθείκαμεν σῶμα· φιλολογωτάτῳ δὲ ὄντι λίαν καὶ φιλοπευστοῦντι, τὰ τοιάδε συγκῶς τῷ ἐπιεικεστάτῳ Ἑρμείᾳ προσπεφωνήκαμεν. Καὶ ἔστι μὲν ἀνειμένος ὁ λόγος, ὡς πρὸς πεῦσιν δὲ καὶ ἀπόκρισιν διὰ δυοῖν προσώποιν ἔρχεται· καὶ τοῦ μὲν πρώτου τὸ A, πρότερον τῶν στοιχείων, τοῦ δὲ δευτέρου τὸ B. Ἐπειδὴ γὰρ πολλή τις ἄγαν ἐν τοῖς ζητουμένοις ἐστὶν ἡ λεπτότης, ἵνα ταῖς ἐρωτήσεσι καὶ ταῖς ἀποκρίσεσιν ἀεὶ τὸ βασανιζόμενον κατασκευάζηταί τε καὶ ἀνασκευάζηται πικρῶς, ἀναγκαία γέγονεν ἡ τῶν προσώπων εἰσομιδή. Παραφυλακτέον οὖν ἀκριβῶς τὰ προτεταγμένα αὐτῶν στοιχεῖα. Ἀσύγχυτον γὰρ οὕτω καὶ ἐν τάξει τῇ C παναρίστῃ κειμένην τηρήσομεν τὴν τῶν ἐννοιῶν εὕρεσιν, καὶ τὴν τοῦ παντὸς βιβλίου σύνταξίν τε καὶ δύναμιν. Ἐῤῥῶσθαί σε ἐν Κυρίῳ εὔχομαι, ἀγαπητέ."
+     }
+    ],
+    [
+     4,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΤΆΔΕ ἜΝΕΣΤΙΝ ἘΝ ΤΗ͂ΑΕ ΤΗ͂ ΒΙΒΛῷ."
+     }
+    ],
+    [
+     5,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.10",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΚΥΡΙΛΛΟΥ"
+     }
+    ],
+    [
+     6,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.11",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΠΡΟΣ ΕΡΜΕΙΑΝ ΠΡΕΣΒΥΤΕΡΟΝ, ΚΑΤΑ ΠΕΥΣΙΝ ΚΑΙ ΑΠΟΚΡΙΣΙΝ,"
+     }
+    ],
+    [
+     7,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.12",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΛΟΓΟΣ Αʹ."
+     }
+    ],
+    [
+     8,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.13",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὅτι ὁμοούσιος καὶ συναΐδιος τῷ Θεῷ καὶ Πατρὶ ὁ Υἱός."
+     }
+    ],
+    [
+     9,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.14",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A Tὸν ἱερὸν ἡμῖν Ἑρμείαν χθές τε καὶ τρίτην ἰδεῖν μὲν οὐκ ἦν, μήτε ἀγοράζειν, οἶμαί που, μήτε μὴν ἐξαίχεσθαι δοκοῦν, ἀλλ' οἴκοι μὲν δὴ κατεσόβει τὸ γέμα· πεπρᾶχθαι γὰρ ὧδε καὶ μάλα εἰκός. Λαμπρὰ δὲ νῦν μόλις ἔδειξεν εἰδία."
+     }
+    ],
+    [
+     10,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.15",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Λέγεις ἀληθῆ. Γῆράς τε γὰρ ἀεὶ δυσπέμφελον, καὶ ἐς τὸ ἔξω λένα δυσοικότατα ἔχον, ἦν μάλιστα ἶοι."
+     }
+    ],
+    [
+     11,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.16",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A Εὔχαρι δὴ οὖν καὶ εὐθυεπὲς τὸ, εἵπαρτις ἔλογο, τοῖς ἐν τῇ ἁλὶ σὲ παρεικάζειν ἰχθύσιν, οἱ πνεύματος"
+     }
+    ],
+    [
+     12,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "αʹ. Ὅτι συναΐδιός τε καὶ ὁμοούσιος τῷ Θεῷ καὶ Πατρὶ ὁ Υἱός."
+     }
+    ],
+    [
+     13,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "βʹ. Ὅτι καὶ ἐξ αὐτοῦ κατὰ φύσιν γεννητὸς ὁ Υἱός."
+     }
+    ],
+    [
+     14,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "γʹ. Ὅτι Θεὸς ἀληθινὸς, καθὰ καὶ ὁ Πατήρ."
+     }
+    ],
+    [
+     15,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "δʹ. Ὅτι οὐ κτίσμα ὁ Υἱὸς, οὐδὲ σώλημα."
+     }
+    ],
+    [
+     16,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "εʹ. Ὅτι τὰ τῆς θεότητος ἴδια, καὶ ἡ δόξα, φυσικῶς ἐν τῷ Υἱῷ, καθὰ καὶ ἐν τῷ Πατρί."
+     }
+    ],
+    [
+     17,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ϛʹ. Ὅτι τὰ τῆς ἀνθρωπότητος ἴδια, καὶ τὰ μὴ σφόδρα θεοπρεπῶς εἰρημένα περὶ τοῦ Υἱοῦ, πρέποι ἂν μᾶλλον τῇ μετὰ σαρκὸς οἰκονομίᾳ, καὶ οὐκ αὐτῇ τῇ φύσει τοῦ Λόγου, καθ' ὃ τοσαῖαι καὶ ἔστι Θεός."
+     }
+    ],
+    [
+     18,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.8",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ζʹ. Περὶ τοῦ ἁγίου Πνεύματος, ὅτι καὶ Θεὸς, καὶ ἐκ Θεοῦ κατὰ φύσιν."
+     }
+    ],
+    [
+     19,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0346.9",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΩΣ ΗΜΩΝ"
+     }
+    ],
+    [
+     48,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0350.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A φέρε δὴ, φέρε, παροισθέντων εἰς μέσον τῶν ἀκριδῶν καὶ ἐξητασμένως διωρισμένων ἐν τῇ ἁγίᾳ τε καὶ πανευφήμῳ συνόδῳ, τῇ συνειλεγμένῃ κατὰ καιροὺς ἐν πόλει τῇ Νικαίων, καταθρήσωμεν, εἰ δοκεῖ, τί τοῖς ἑλομένοις ἑτεροδοξεῖν οὐκ ἀδιαθλήτως ἔχειν δοκεῖ. Τὴν γὰρ ἀριστά τε καὶ μετὰ Θεοῦ διωρισμένην τε καὶ ἐκτεθεῖσαν πίστιν παρὰ τῆς ἁγίας καὶ μεγάλης ἐκείνης συνόδου, κρηπῖδα καὶ ὑποβάθραν ἀκατάσειστόν τε καὶ ἐρηρεισμένην τῶν ἡμετέρων, ψυχῶν εἴ γέ τῳ φάναι σκοπὸς, δοκιμώτατα μὲν ἐρεῖ, καὶ ἐπαίνου τεύξεται τῶν παρὰ Χριστῷ, πιστότατος δὲ καὶ ἀληθινὸς ἀναλάμψει προσκυνητής. Ἐπ’ αὐτῆς δὲ ἡμῖν ἀναγεγράφθω λέξεως τὸ θεῖον καὶ ἱερώτατον τῆς ἁγίας ἐκείνης συνόδου χρησμώδημα, τουτέστι, τὸ ἀπεξεσμένον καὶ τετορωμένον ταῖς εἰς πᾶν ὁτιοῦν B ἀληθῶς ἐννοίαις, τῆς πίστεως Σύμβολον, ὡς ἂν τοῖς ἐθέλουσι φιλοψογεῖν, τῆς καθ’ ἡμῶν γλωσσαλγίας μηδεὶς τὸ παράπαν εἰσδεχθείη λόγος, ὡς ὄθνειοι, τισὶν ἐπιπηδώντων δόγμασι, καὶ παρέντων μὲν λέναι τὴν βασιλικὴν, ἐπὶ θάτερα δὲ παρεκτετραμμένων, κατὰ τὸ μόνῳ καὶ ἰδίᾳ δοκοῦν. Τουτὶ γὰρ καὶ αὐτὸς ἐγὼ λογισαίμην ἂν οὐκ εὐμεταχείριστον ἀληθῶς ἀῤῥώστημα νοῦ. « Σοφία γὰρ ἀνεξέλεγκτος πλανᾶται, » κατὰ τὸ γεγραμμένον. Ἔχει δὲ οὕτως ἡμῖν ἡ τῆς πίστεως ἰκέδεσις· Πιστεύομεν εἰς ἕνα Θεὸν, Πατέρα παντοκράτορα, κάντωρ ὁρατῶν τε καὶ ἀοράτων ποιητήν· καὶ εἰς ἕνα Κύριον Ἰησοῦν Χριστὸν, τὸν Υἱὸν τοῦ Θεοῦ, γεννηθέντα ἐκ τοῦ Πατρὸς Μορογενῆ, τουτέστιν, ἐκ τῆς οὐσίας αὐτοῦ, Θεὸν ἐκ Θεοῦ, φῶς ἐκ φωτὸς, Θεὸν ἀληθινὸν ἐκ Θεοῦ ἀληθινοῦ· γεννηθέντα, οὐ πονη‐ C θέντα, ὁμοούσιον τῷ Πατρὶ, δι’ οὗ τὰ πάντα ἐγένετο, τά τε ἐν τῷ οὐρανῷ, καὶ τὰ ἐν τῇ τῇ τὸν δι’ ἡμᾶς τοὺς ἀνθρώπους, καὶ διὰ τὴν ἡμετέραν σωτηρίαν κατελθόντα, καὶ σαρκωθέντα, καὶ ἐνανθρωπήσαντα, παθόντα, καὶ ταράντα, καὶ ἀναστάντα τῇ τρίτῃ ἡμέρᾳ· ἀνελθόντα εἰς οὐρανοὺς, ἐρχόμενον κρῖναι ζῶντας καὶ νεκρούς· καὶ εἰς τὸ ἅγιον Πνεῦμα. Τοὺς δὲ λέγοντας· Ἦν ποτε, ὅτε οὐκ ἦν, ἢ, Οὐκ ἦν πρὶν γεννηθῇ, ἢ, Ἐξ οὐκ ὄντων ἐγένετο, ἢ ἐξ ἑτέρας ὑποστάσεως ἢ οὐσίας, Ἰουατὸν τὸν Υἱὸν τοῦ Θεοῦ, τοὺς τοιούτους ἀναθεματίζει ἡ καθολικὴ καὶ ἀποστολικὴ Ἐκκλησία."
+     }
+    ],
+    [
+     49,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0350.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Βαβαὶ τῆς ἀκράτου νήψεως, καὶ εἰς λῆξιν ἡκούσης τὴν ἀνωτάτω. Βοανεργὲς, τουτέστιν, υἱὸς βροντῆς, ἕκαστον, οἶμαί που, διακεκλήσεται τῶν ταῦτα τεθεσπικότων. Ἐξαίγιον γάρ τι καὶ ὑπερφυὲς ἐφθέγξαντο."
+     }
+    ],
+    [
+     50,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0350.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A Ἄριστα δὴ οὖν μοι διεσκέφθαι τε οὕτω καὶ δράσαι δοκῶ. Τὸ γάρ τοι μὴ δεῖν ἕτερα ἅττα παρὰ ταῦτα φρονεῖν, ἤγουν ἐπὶ γλώττης ἔχειν, ἕπεσθαι δὲ μᾶλλον κρίσει τε καὶ λόγοις, τοῖς διὰ τοῦ Πνεύματος εὑρημένοις τιμησαίμην ἂν, εὖ ἐσθι, τοῦ παντὸς λόγου."
+     }
+    ],
+    [
+     51,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0350.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Ὀρθῶς ἔφης· ἀλλ’ οὐκ ἂν ἀναπείσαις ταυτό σοι φρονεῖν ἑλέσθαι τοὺς διεναντίας. Μόσχοι γὰρ ὥσπερ ἀτιμαγίλαι· καὶ ἀγέρωχοί τινες, ἵενται μὲν εὐτόνως ἐπὶ τὸ τρίσιν αὐτοῖς δικοῦν, τὴν ἀρίστην δὲ"
+     }
+    ],
+    [
+     52,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0352.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "D xal τὰς ἑτέρας φωνὰς, δι’ ὧνπερ ἂν ἡμῖν ὑπάρξαι τὸ, κἂν γοῦν δι’ ἑσόπτρου καὶ αἰνίγματος καθορᾷν, καὶ ἰσχνὰς τῆς θεότητος φαντασίας εἰσδέχεσθαι τὸν νοῦν."
+     }
+    ],
+    [
+     53,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0352.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A εἰ παραιτεῖσθαι μέλλοιμεν τὰ δι’ ὧνπερ ἄν τις κἂν γοῦν εἰς βραχεῖαν καλοῖτο γνῶσιν τῆς τὰ πάντα ὑπερκειμένης οὐσίας, ἄπιστοί τε καὶ ἀμαθεῖς τοίνυταῦθεν ἐσόμεθα, τίς μὲν ὁ φύσει καὶ ἀληθῶς ὑπἀρχει Θεὸς οὐδαμόθεν ἐκπαιδευόμενοι, κλυδωνιζόμενοι δὲ ὥσπερ καὶ περιφερόμενοι παντὶ ἀνέμῳ, ο κατὰ τὸ γεγραμμένον. Καταδείσαντες δὲ, καὶ διωσάμενοι, καὶ τοῦτο εἰσάπαν, τὸ κἂν γοῦν ἐν ἐσόπτρῳ καὶ αἰνίγματι βλέπειν, καὶ γινώσκειν ἐκ μέρους, κωφοῖς τε καὶ ἀναισθήτοις ἐν ἴσῳ που πάντες ἐσόμεθα λίθοις,"
+     }
+    ],
+    [
+     54,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0352.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A καθάπερ τις ἔφη τῶν παρ’ Ἕλλησι ποιητῶν."
+     }
+    ],
+    [
+     55,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0352.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Ἀλλὰ γὰρ, ποῦ, φασὶν, ἡ Γραφὴ τὸ ὁμοούσιον λέγει;"
+     }
+    ],
+    [
+     56,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0352.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A Ἐπὶ τὸν αὐτὸν ἡμᾶς ὑπονοστῆσαι λόγον ἀναπείθεις, ὦ τᾶν. Ποῦ γὰρ ὠνόμασε τῶν ὅλων Θεὸν, ἀσώματόν τε καὶ ἀσχημάτιστον, καὶ ἀπεριόριστον καὶ ἀβασίλευτον; Ἀλλ’ ἔστι ταῦτα τῇ φύσει, καὶ οὐχ ἑκόντων ἐκείνων. Εἴπερ οὖν ἑλοίμεθα φρονεῖν ὀρθῶς, παραιτητέον οὔτι πρὸν τὰ εἰς ἐπίγνωσιν τῆς ἀληθείας τελοῦντα τῶν ὀνομάτων. Ἆρα γὰρ οὐκ εἰηθεῖεν ἂν οὐ ψευδοσεπῆσαι τὸν Θεὸν, τὸ, Ἐγώ εἰμι ὁ ὢν, πρὸς τὸν ἱερὸν εἰ λέγοι Μωσέα; Τοῦτο γάρ μού ἐστι τὸ ὄνομα, φησὶ, καὶ μνημόσυνον αἰώνιον γενέσιν γενεαῖς. Ἀλλ’ οἶμαί γε δεῖν, μὴ ἂν εἰς τοῦτο κατολισθεῖν ἀποπληξίας αὐτοὺς, ὡς μηδὲ ὅτι ὧν ἐστιν ὁ Θεὸς, καταλολμῆσαι φρονεῖν. Ὧν γάρ ἐστιν ἀληθῶς, ὧδέ τε καλεῖσθαι πρέποι ἂν αὐτῷ τε καὶ μόνῳ κυρίως τε καὶ ἰδικῶς, εἰ καὶ καθ’ ἑτέρων διῄττοι τυχὸν ὡς ἐν καταχρήσει τοὔνομα. Ἐκ δὲ τουτοῦ, καὶ τὸ τῆς οὐσίας ὄνομα τοῖς ἀρχαιοτέροις ἐκπεποιῆσθαί φαμεν, καὶ μάλιστα εἰκότως, ὥστε εἰ καί τις ὁμοομᾶ τε καὶ ὁμοούσιον εἶναι λέγοι τῷ Πατρὶ τὸν Υἱὸν, οὐκ ἀσύνηθές τι κεκαινουργηκὼς ὡς ἐν ὀνομάτων θέσει νοοῖτ’ ἂν ἡμῖν, ἀλλ’ ἵν’ οὕτως εἴπωμεν, τὰς πρώτας ἑδρας ἐχούσῃ παρά γε τῇ θεοπνεύστῳ Γραφῇ, τῇ τοιᾷδε λέξει χρήσεται. Τὰ γάρ τοι τῶν ὀνομάτων εἰς παραγωγὴν ἡγμένα, οὐκ αὐτά που πάντως ἐφ’ ἑαυτοῖς διεφήρεισται κατὰ θέσιν ἰδίαν, ῥίζης δὲ ὥσπερ ἐξέφυ τῆς πρώτης καὶ ἐν ἀρχαῖς. Εἰ τοίνυν ἔξω τριβῆς τε καὶ συνηθείας τῆς ἱερᾶς, τὸ ὁμοούσιον εἶναι διισχυρίσαιντο, μάλιστα μὲν ἀδικοῦσι τῆς τῶν ὀνομάτων παραγωγῆς τὸν εὐφυᾶ τρόπον. Ἐκ γάρ τοι τοῦ ὄντος, οὐσία καὶ ὁμοούσιον. Ἀμαθαίνοντες δὲ οὕτω λίαν, συναναιροῦσιν αὐτῷ. Ἐκεῖνος δὲ χρῆναι λέγειν, κατὰ τὸ ἐκείνοις"
+     }
+    ],
+    [
+     65,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0355.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "677 77A πεσον ἡμᾶς , καθάπερ οἴονται καί φασιν, ἐξ ἀγράφου παποληταὶ λέξεως, ἀλλ’ ὅτι τῆς ἀληθείας ἐστὶ καρατατική, οὐχ ἑτέρας εἶναι φύσεως τὸν Υἱὸν ἀποφαίνουσα, πλὴν ἐξ αὐτῆς ἀληθῶς τῆς τοῦ Θεοῦ καὶ Πατρός."
+     }
+    ],
+    [
+     66,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0355.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Ἄριστα ἔφης."
+     }
+    ],
+    [
+     67,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0355.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A Ἐπιλελῆσθαι γὰρ οἶμαι, κατά γε τὸ εἰκός, τοὺς θεομαχεῖν ᾑρημένους τῆς τοῦ Σωτῆρος φωνῆς, διαῤῥήδην ἀνακεκραγότος, ὡς τῆς ἀῤῥήτου φύσεως εἴη καρπός, καὶ οὐχὶ τῆς εἰς τὸ εἶναι παρενηνεγμένης, καὶ τὴν ἐν χρόνῳ λαχούσης ὑπαρξίν. «Ἐγὼ γάρ, ἔφασκεν, οὐκ εἰμὶ ἐκ τοῦ κόσμου τούτου· ὑμεῖς ἐκ τοῦ κόσμου τούτου ἐστέ.» Καὶ αὖ· «Ὑμεῖς ἐκ τῶν κάτω ἐστέ, ἐγὼ ἐκ τῶν ἄνω εἰμί.» Καὶ μὴν καὶ ὁ σοφὸς Ἰωάννης γράφει περὶ αὐτοῦ· «Ὁ ἄνωθεν ἐρχόμενος, ἐπάνω πάντων ἐστί.» Τί γὰρ ἂν εἴη τὸ ἄνωθεν, ἢ ὅτι που πάντως ἐκ τῆς ἀνωτάτω καὶ ὑπερανισχούσης τὰ πάντα φύσεως; Τί δὲ τὸ «μὴ εἶναι ἐκ τοῦ κόσμου,» ἢ ὅτι τῆς πρὸς πᾶν ὁτιοῦν τῶν γενητῶν ὁμοφυΐας ἀπήλλακται, πηγὴν ἔχων μόνος τὸν ἑαυτοῦ Πατέρα Θεόν;"
+     }
+    ],
+    [
+     68,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0355.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Εἰ δὲ δὴ βούλοιντο τὸ ἄνωθεν, οὐχ οὕτω νοεῖσθαι δεῖν, καθὰ νῦν ἔφης αὐτός, ἀλλ’ ὅτι οὐκ ἐκ τῆς κάτω καὶ περὶ τὴν γῆν ἀνθρωπότητος, ἀλλ’ ἢ ἐξ οὐρανοῦ τυχόν, ἢ ἐκ φύσεως ἑτέρας, πολὺ τὸ μεῖζον, ἢ καθ’ ἡμᾶς ἐχούσης, τί φαῖμεν ἂν καὶ πρὸς τοῦτο αὐτοῖς;"
+     }
+    ],
+    [
+     69,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0355.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A Τί δὲ ἕτερον ἢ τοῦτο; Καὶ τί τὸ ἐξαίρετον ἐν τῇ τοῦ Υἱοῦ καταθρῆσαί τις ἂν φύσει τε καὶ δόξῃ, εἰ τῇδε ἔχειν ἐροῦσι, καθὰ καὶ νοεῖν ἐγνώκασιν; Ἡ γὰρ οὐχὶ καὶ ἕκαστο· τῶν ἁγίων ἀγγέλων, ἄνωθέν τέ ἐστι, καὶ ὡς ἡμᾶς ἔρχεται, τουτέστιν ἐξ οὐρανοῦ; Ἐν ἀμείνοσι δὲ πολὺ λίαν ἡ καθ’ ἡμᾶς, κατά γε τοὺς ἐνόντας τῇ φύσει λόγους, Θρόνος τε καὶ Ἐξουσία, καὶ Κυριότης, καὶ αὐτὰ τὰ Σεραφίμ; Εἰ μηδὲν οὖν ἄρα τὸ ὑπερκείμενον ἐν Υἱῷ, ἀλλ’ ἐν τουτοισὶ καὶ αὐτὸς τοῖς φυσικοῖς ὁρῷτο μέτροις, δυσίασι μὲν δὴ, καθάπερ ἐγῴμαι, κατ’ οὐδὲν ἔτι τῶν λογικῶν κτισμάτων, ἅπερ ἄνωθεν ὡς ἡμᾶς ἥκει κατὰ καιρούς, «Εἰς διακονίαν ἀποστελλόμενα πνεύματα λειτουργικὰ, διὰ τοὺς μέλλοντας κληρονομεῖν σωτηρίαν·» ἐπακτὸν δὲ ὥσπερ τὸ τῆς θεότητος ἀξίωμα περικείσεται, καὶ ψευδομυθήσει λέγων· «Ἐγώ εἰμι ἡ ἀλήθεια.» Ποῦ γὰρ ἡ πῶς ἀλήθεια τὸ μὴ οὕτως ἔχον, ὡς ὀνομάζεται παρά γε ταῖς θεοπνεύστοις Γραφαῖς; Τί δὲ δὴ ὅλως καὶ τὸ μὴ εἶναί φασιν, ἀπὸ τοῦδε τοῦ κόσμου τὸν Υἱόν;"
+     }
+    ],
+    [
+     70,
+     {
+      "urn": "cyrillus-theology.de-sancta-trinitate-dialogi-ivii",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg075_0355.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Ἐγὼ φράσω. Ὁμοούσιον μὲν γὰρ οὐκ εἶναί φασι τῷ Θεῷ καὶ Πατρὶ, τῆς γε μὴν ἀῤῥήτου φύσεως οὐκ οἶδ’ ὅπως ὑποβιβάζοντες, τετηρήκασι τὸ ἐξαίρετον αὐτῷ παρὰ τὴν κτίσιν. Οὐ γὰρ εἶναι λέγουσιν ὁμοφυᾶ τοῖς πεποιημένοις, μέσην δὲ ὥσπερ τινὰ χώραν ἐπέχειν, ἤτοι φύσεως ἐκβεβηκέναι λόγον, οὔτε προσεχῶς εἰσάπαν καὶ οὐσιωδῶς συνείροντα τῷ γεγεννηκότι, A cionem confiata sit quae in Scriptura sacra non reperiatur, sed quod veritatem repraesentet, demon- strando non esse alterius naturae Filium, quam ex ipsa vere Dei ac Patris natura."
+     }
+    ]
+   ]
+  },
+  "data/corpus/cyrillus-theology.expositio-in-psalmos.jsonl": {
+   "sha256_before": "7657c3c186f1386c501723d0177cca92b743fcfee521e8bf56c780a1a35275a6",
+   "sha256_after": "f18bb8e5c5f22cd507546b77cd9bb4f53f57a05bb99b9ebebaa0ac22f7717ab6",
+   "removed": [
+    [
+     4472,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.1",
+      "text": "ἡν ἐπεσεχον καὶ συνθεῖσθαι φυλάττουσι τὴν"
+     }
+    ],
+    [
+     4473,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.2",
+      "text": "ληφθεῖσαν ὑπὸ τοῦ νυμφίου ψυχήν."
+     }
+    ],
+    [
+     4474,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.3",
+      "text": "Ἀ τὸν σκοπὸν τὸ μέλος· ἡ δὲ δεξιὰ αὐτοῦ πρὸς ἐαυτὴν"
+     }
+    ],
+    [
+     4475,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.4",
+      "text": "με διαλεδοῦσα καὶ ἐφελκυσάμενη, κοῦφην με πρὸς"
+     }
+    ],
+    [
+     4476,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.5",
+      "text": "ἀνω φοράν ἀπεργάζεται· καίει πεμφομένη, καὶ τοῦ"
+     }
+    ],
+    [
+     4477,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.6",
+      "text": "τοῦτο μὴ χωριζομένη, μᾶλλον ἐπαναπαύσεται."
+     }
+    ],
+    [
+     4478,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.7",
+      "text": "Εἶτα πρὸς τὰς θυγάτρας τῆς ἀνω Ἱερουσαλὴμ τρέχει",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4479,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.8",
+      "text": "τὸν λόγον. Ὁ δὲ λόγος παρακλήσις ἐστιν ἐν ὀρκῳ",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4480,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.9",
+      "text": "προσταγομένη, τοῦ πλεονάζειν καὶ ἀπαύξειν ἀεὶ",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4481,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.10",
+      "text": "τὴν ἀγάπην, ὡς ἂν ἐνεργὴν ἑαυτοῦ ποιήσῃ τὸ θέλημα,",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4482,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.11",
+      "text": "ὁ θέλων πάντας ἀνθρώπους σωθῆναι καὶ εἰς ἐπίγνωσιν",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4483,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.12",
+      "text": "ἀληθείας ἐλθεῖν. Διὰ μὲν τοῦ εὐωνύμου τὰ",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4484,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.13",
+      "text": "τοῦ παρόντος βίου αἱνίττεται, ὡς ἔοικα, καλὰ, ὧν"
+     }
+    ],
+    [
+     4485,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.14",
+      "text": "τὴν ἀπόλαυσιν ἤδη ἔχει· διὰ δὲ τῆς δεξιᾶς, τὴν τῶν"
+     }
+    ],
+    [
+     4486,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.15",
+      "text": "μελλόντων ἐν ἐπαγγελίαις προσδοκίαν· ὧν τὴν χρήσιν"
+     }
+    ],
+    [
+     4487,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.16",
+      "text": "ἐν ἐπαγγελίαις, ὡς εἴπομεν, καὶ ἐλπίσει προσκοιθᾶσθαι"
+     }
+    ],
+    [
+     4488,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.17",
+      "text": "φησιν. Εὖ δὲ καὶ τὸ φάναι, τῇ μὲν δεξιᾷ περιλαβό-"
+     }
+    ],
+    [
+     4489,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.18",
+      "text": "μεθα, τῇ δὲ ἀριστερᾷ τὴν κεφαλὴν ἐπαναπαύσεται·"
+     }
+    ],
+    [
+     4490,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.19",
+      "text": "δεῖ γὰρ τὰ τοῦ παρόντος, βίου κἂν πολὺ νομίζηται"
+     }
+    ],
+    [
+     4491,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.20",
+      "text": "χρυσὰ καὶ περιβλέπτα, ὑποτέταχθαι τῇ κεφαλῇ τῆς"
+     }
+    ],
+    [
+     4492,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.21",
+      "text": "τελείας ψυχῆς, μόνην τὴν ἀναγκαίαν χρείαν παρέχοντα",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4493,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.22",
+      "text": "τῷ σώματι, ὡς τὸ προσκεφάλαιον τῇ κεφαλῇ.",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4494,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.23",
+      "text": "Τὰ δὲ τοῦ μέλλοντος αἰῶνος, ἐπεὶ ἡ δεξιὰ δυνὰ ἐπάνω"
+     }
+    ],
+    [
+     4495,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.24",
+      "text": "τῆς ἀνθρωπίνης ἐφέστηκε φύσεως, διὰ τῆς περιλήψεως",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4496,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.25",
+      "text": "τὸ ὑπέρχον ἡνέχτο. Τάχα δὲ, ἐπειδὴ παρὰ αἱ",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4497,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.26",
+      "text": "χεῖρες πράξεων εἰσὶ σύμβολον· αἱ δὲ τῆς ἀριστερᾶς"
+     }
+    ],
+    [
+     4498,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.27",
+      "text": "χειρὸς πράξεις τὰ τοῦ σώματος σημαίνουσι, αἱ δὲ"
+     }
+    ],
+    [
+     4499,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.28",
+      "text": "τῆς δεξιᾶς, τὰ τῆς ψυχῆς· δεξιὰ δυνὰ τὸν ἀμείνω"
+     }
+    ],
+    [
+     4500,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.29",
+      "text": "χλῆρον εἴληχε, περιέχονται τὰς σωματικὰς ἀνάγκας."
+     }
+    ],
+    [
+     4501,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.30",
+      "text": "Ὡς γὰρ ἡ περιλαμβανοῦσα χεὶρ καὶ ἐπάνω ἐστὶ καὶ"
+     }
+    ],
+    [
+     4502,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.31",
+      "text": "ἔντος ἀγκάλῃ ἔχει τὸ περιληφθέν, οὕτως αἱ πρὸς"
+     }
+    ],
+    [
+     4503,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.32",
+      "text": "τὸν σκοπὸν τῆς μελλούσης ζωῆς ἀποσταθμεναι πράξεις,",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4504,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.33",
+      "text": "πᾶν κίνημα τοῦ σώματος ἄλογον περιεργύου-",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4505,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.34",
+      "text": "σαι· οὐδ' ἔνδὲ ἐπιβουλεύειν δυναμένου τῇ παρι-"
+     }
+    ],
+    [
+     4506,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.35",
+      "text": "Ταῦτα πρὸς τὴν τῶν δραματικῶς ἐπαγομένων πα-"
+     }
+    ],
+    [
+     4507,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.36",
+      "text": "φήναι, μέχρι τοῦ, « Ἡ φωνὴ σου ἡδεῖα, καὶ ἡ ὄψις"
+     }
+    ],
+    [
+     4508,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.37",
+      "text": "σου ὡραία. » Καὶ δῆλον ὡς ἡ νύμφη τοῦ Λόγου ψυχή,"
+     }
+    ],
+    [
+     4509,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.38",
+      "text": "ἤγουν Ἐκκλησία Χριστοῦ, φωνὴς πρὶν νοῆσαι αὐτὴν"
+     }
+    ],
+    [
+     4510,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.39",
+      "text": "ὡς θείας ἀντιλαμβάνεται, ὅπερ πάσχομεν οἱ πιστοὶ,"
+     }
+    ],
+    [
+     4511,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.40",
+      "text": "πρὶν νοῆσαι τὰς νομικὰς καὶ προφητικὰς φωνάς, ὡς"
+     }
+    ],
+    [
+     4512,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.41",
+      "text": "θείας χάριτος πλήρεις καταπλησόμενοι. Τοιούτων"
+     }
+    ],
+    [
+     4513,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.42",
+      "text": "ἐστὶ τὸ, « Φωνὴ τοῦ ἀδελφιδού μου, » προστεταγμένον",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4514,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.43",
+      "text": "τῆς μακρόθεν ἐπιφανείας τοῦ Λόγου· ὅν ἰδοῦσα",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4515,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.44",
+      "text": "μεγάλων δεσμιωμάτων ἀπτόμενον, μετὰ τοῦ μηδὲ"
+     }
+    ],
+    [
+     4516,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.45",
+      "text": "τῶν βραχυτέρων καταφρονεῖν, φησίν· «Ἰδοὺ αὐτὸς"
+     }
+    ],
+    [
+     4517,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.46",
+      "text": "ἔχει πηδῶν ἐπὶ ὄρη, διαλλόμενος ἐπὶ τοὺς βουνούς. »"
+     }
+    ],
+    [
+     4518,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.47",
+      "text": "Δι' ὅλου δὲ τοῦ λόγου, τινὰ μὲν ὡς παρόντι λέγεται"
+     }
+    ],
+    [
+     4519,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.48",
+      "text": "τῷ νυμφίῳ· τινὰ δὲ ὡσπερ ζητουμένου παρὰ τῆς"
+     }
+    ],
+    [
+     4520,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.49",
+      "text": "νύμφης· ἐπεὶ καὶ τῶν προβλημάτων ποτὲ μὲν τινὰ"
+     }
+    ],
+    [
+     4521,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.50",
+      "text": "ζητοῦμεν ἀπορούμενες τῆς λύσεως· ποτὲ δὲ τῆς λύσεως",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4522,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.51",
+      "text": "ἀπολαύομεν, τοῦ νυμφίου Λόγου καταυγάζοντος",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4523,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.52",
+      "text": "ἡμῶν τὰς καρδίας. Εἶτα πάλιν ἀπορούμεν ἐν",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4524,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.53",
+      "text": "ἑτέροις, καὶ πάλιν ἡμῖν ἐπιφαίνεται· καὶ τοῦτο πολλάκις,",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4525,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.54",
+      "text": "μέχρι τελειωθέντες τοῦ νυμφίου τύχωμεν οὐ",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4526,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.55",
+      "text": "μόνον ἐρχομένου πρὸς ἡμᾶς, ἀλλὰ καὶ μόνην πονο-"
+     }
+    ],
+    [
+     4527,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.56",
+      "text": "μένου. Καὶ ἡ Ἐκκλησία ποθεῖ μὲν ἐγκαταλειπόμενη",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4528,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.57",
+      "text": "τοῖς πειρασμοῖς, ἐπιφαίνεται δὲ αὐτῇ τοῖς χαρίσμασι.",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ],
+    [
+     4529,
+     {
+      "urn": "cyrillus-theology.expositio-in-psalmos",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0656.58",
+      "text": "Διὸ φησίν· « Ἰδοὺ, φησίν, οὗτος ἔκει πηδῶν",
+      "corrections": [
+       "dehyphenation"
+      ]
+     }
+    ]
+   ]
+  },
+  "data/corpus/cyrillus-theology.fragmenta-in-canticum-canticorum.jsonl": {
+   "sha256_before": "c4fac705a72a65dfe464c38d609e267df003a83ee338a3f6c4258607ee00179a",
+   "sha256_after": "6eaf3dc30314dd6108851cb938f2c21ae1cc187d590bbbeb5ad6fe7f51e705b6",
+   "removed": [
+    [
+     10,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "θεία διδασκαλία· χρυσίον δὲ, τὰ θεῖα χαρίσματα. A Πάντα δὲ, πρὸ τῆς ἐπιδημίας Χριστοῦ, ὁμοιώματα ἦν καὶ σκιὰ τῶν μελλόντων, κατὰ τὸν Ἀπόστολον, ἐγαθῶν. Ἀναστὰς δὲ Χριστὸς τὰ τέλεια τοῖς ἀνθρώποις δεδώρηται· πρὸ δὲ τῆς ἀναστάσεως ὁμοιώματα εἴχομεν, παρὰ τῶν ἐπαίνων [ita cod.] αὐτοῦ, ποῦ τε νόμου καὶ τῶν προφητῶν."
+     }
+    ],
+    [
+     11,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Νάρδῳ καὶ ἀποδέσμῳ στακτῆς ὁ ἐνταφιασμὸς σημαίνεται Χριστοῦ· ἃ Νικόδημος φέρων ἐνετύλιξε τὸ σῶμα αὐτοῦ. Μαστοὺς δὲ φέρει τὰς δύο Διαθήκας ἡ νύμφη, ὧν ὁ Χριστὸς ἀνὰ μέσον αὐλίζεται."
+     }
+    ],
+    [
+     12,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καλὴν αὐτὴν φησὶν, οὐχ ὡς πρότερον ἐν γυναιξὶ λέγων μόνον, ἀλλ’ ἤδη καὶ ὡς πλησίον αὐτοῦ, ἀναδιπλασιάζει τῆς νύμφης ὁ νυμφίος τὸν ἔπαινον, τό τε θεωρητικὸν αὐτῆς ἐπαινῶν καὶ τὸ πρακτικόν. Ὀφθαλμοὺς δὲ τοὺς εἰς νοῦν καὶ καρδίαν φησίν· καὶ B περιστερᾶς τὸ διορατικοὺς, καθ’ ὃ καὶ εἰς Πνεῦμα λαμβάνεται. Λέγει οὖν ὡς ἐδέξατο νοῦν ἡ νύμφη μόνον ὁρῶντα Θεόν. Ὀφθαλμοὶ δὲ καὶ οἱ ἄκακοι καὶ ὀξυδερκεῖς τῆς Ἐκκλησίας διδάσκαλοι."
+     }
+    ],
+    [
+     13,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐγὼ ἄνθος τοῦ πεδίου, κρίνον τῶν κοιλάδων."
+     }
+    ],
+    [
+     14,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὡς δεξαμένη ἡ νύμφη τὸν ἄνωθεν ὑετὸν, καὶ τεκοῦσα τὴν ἀρετὴν, ἄνθει ἑαυτὴν παραβάλλει πεδίου· δείκνυσι δὲ ὅσον ὠφέλησεν ἡ τοῦ Χριστοῦ ἐπιδημία, ὅσον γε καὶ τὰς κοιλάδας τὰς ἀνεπιτηδείους πρὸς ἅπαντα σπόρον, τοιούτων μεστὰς ἔδειξεν ἀνθέων. Κοιλάδα γὰρ λέγει τὴν ἀποκοιλανθεῖσαν ἀπὸ τῶν οἰκησάντων αὐτὴν πάλαι δαιμόνων."
+     }
+    ],
+    [
+     15,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Στοιβάσατέ με ἐν μήλοις."
+     }
+    ],
+    [
+     16,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Τοῖς εὐαγγελικοῖς με ἀσφαλίσατε λόγοις· οὗτοι C γὰρ ἡμῖν εὐωδιάζουσι Χριστόν. Συνταχθείην δὲ, φησὶ, κἀγὼ μετὰ τῶν ἁγίων αὐτοῦ· ὡς γὰρ αὐτὸς μῆλον, οὕτως σύσσωμοι καὶ συμμέτοχοι αὐτοῦ μῆλα."
+     }
+    ],
+    [
+     17,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.8",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Εὐώνυμος αὐτοῦ, κ. τ. λ."
+     }
+    ],
+    [
+     18,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-canticum-canticorum",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg069_0659.9",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Εὐώνυμος ὁ νόμος, δεξιὰ τὸ Εὐαγγέλιον. Ἢ καὶ εὐώνυμος ὁ παρὼν βίος, δεξιὰ ὁ μέλλων, ἥτις με περιλήψεται ὅταν τοῖς ἐκ δεξιῶν εἴπῃ· «Δεῦτε, οἱ εὐλογημένοι τοῦ Πατρός μου.» Λέγει δὲ καὶ ἑτέρωθι· «Μῆκος βίου καὶ ἔτη ζωῆς, ἐν δεξιᾷ τῆς σοφίας· ἐν δὲ τῇ ἀριστερᾷ, πλοῦτος καὶ δόξα.» Δεξιὰ γοῦν αὐτῆς ἡ τῶν θείων ἐπιστήμη, ἐξ ἧς ἡ αἰώνιος ζωή· ἀριστερὰ δὲ ἡ τῶν ἀνθρωπίνων γνῶσις, ἐξ ὧν πλοῦτος καὶ δόξα. Λέγει τοίνυν, ὅτι Ὑπερέχει D ὁ νοῦς μου τὰ ἀνθρώπινα· καὶ ἡ θεία γνῶσις καλύψει με. Καὶ γὰρ εἴρηται πάλιν· «Τίμησον αὐτὴν, ἵνα σε περιλάβῃ.» Δείκνυσι τοίνυν, ὅτι ὁ αὐτὸς καὶ νυμφίος καὶ τοξότης ἡμῶν ἐστι, νύμφῃ τε καὶ βέλος ἡ κεκαθαρμένη ψυχή· ὡς βέλος οὖν πρὸς τὸν ἀγαθὸν εὐθύνει σκοπόν. Ὡς νύμφην εἰς κοινωνίαν ἀναλαμβάνει τῆς ἀφθάρτου ἀϊδιότητος, μῆκος βίου καὶ ἔτη ζωῆς, ἐκ τῆς δεξιᾶς χαριζόμενος· διὰ δὲ τῆς ἀριστερᾶς, τὸν τῷν αἰωνίων ἀγαθῶν πλοῦτον καὶ τὴν τοῦ Θεοῦ δόξαν, ἧς οἱ τὴν τοῦ κόσμου ζητοῦντες δόξαν ἀμέτοχοι γίνονται. Διὰ τοῦτό φησιν, ὅτι «Εὐώνυμος αὐτοῦ ἐπὶ τὴν κεφαλήν μου,» δι’ ἧς εὐθύνεται ὑπὸ"
+     }
+    ]
+   ]
+  },
+  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl": {
+   "sha256_before": "617ad916e9ae7fad1493efa7f06916d1569fb984be4b350a9b572d0e91b97426",
+   "sha256_after": "bab176c110570c8386f6aa328585775ef6f508796f51361296e234ed9485fa2b",
+   "removed": [
+    [
+     0,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΤΟΥ ἉΓΙΟΥ ΚΥΡΙΛΛΟΥ"
+     }
+    ],
+    [
+     1,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ἈΡΧΙΕΠΙΣΚΟΠΟΥ ἈΛΕΞΑΝΔΡΕΙΑΣ"
+     }
+    ],
+    [
+     2,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΕΡΜΗΝΕΙΑ ΕΙΣ ΤΗΝ ΠΡΟΣ ΕΒΡΑΙΟΥΣ ΕΠΙΣΤΟΛΗΝ."
+     }
+    ],
+    [
+     3,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὃς ὢν ἀπαύγασμα τῆς δόξης."
+     }
+    ],
+    [
+     4,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἐλέγομεν ὅτι τοῖς μὲν ἀρχαιοτέροις ὁ Θεὸς διὰ Μωϋσέως τεθέσπικε καὶ τῶν προφητῶν· ἡμεῖς δὲ γεγόναμεν κατὰ τὴν τοῦ προφήτου φωνὴν διδακτοὶ Θεοῦ. Διδάσκαλον γὰρ ἐσχήκαμεν αὐτὸν τὸν ἐκ Θεοῦ Λόγον ἐνανθρωπήσαντα δι’ ἡμᾶς, τὸν ποιητὴν τῶν αἰώνων, τὸ τῆς πατρικῆς δόξης ἀπαύγασμα, τὸν χαρακτῆρα τῆς ὑποστάσεως. Ταῦτα παριδικῶς θεωρήσαντες προσθήσομεν τὰ ἐχόμενα, ἃ τάδε ἐστί."
+     }
+    ],
+    [
+     5,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "B Τοσούτῳ κρείττων γενόμενος τῶν ἀγγέλων."
+     }
+    ],
+    [
+     6,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0537.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Τὸ μὲν γὰρ ἄγγελος ὄνομα λειτουργίας ἐστὶ σημαντικὸν, οἰκετικόν τε ἡμῖν ὑπεμφαίνει μέτρον. Τὸ δέ γε Υἱός, τὴν ἐκ Πατρὸς ὕπαρξιν οὐσιώδη καὶ φυσικὴν δηλοῖ. Διὰ τοῦτο γοῦν οὐδὲ συγκριτικῶς εἴρηκε μείζων ἢ τιμιώτερος, ἵνα μὴ ὡς περὶ ὁμογενῶν τούτου κἀκείνων εἰς λογίσηται· ἀλλὰ, κρείττων, εἴρηκεν, ἵνα τὸ διαλλάττον τῆς φύσεως τοῦ Υἱοῦ πρὸς τὰ γενητὰ γνωρίσῃ. Καὶ τούτων ἔχομεν τὴν ἀπόδειξιν ἐκ τῶν θείων Γραφῶν, τοῦ μὲν Δαβὶδ ψάλλοντος· «Ὅτι κρείσσων ἡμέρα μία ἐν ταῖς αὐλαῖς σου ὑπὲρ χιλιάδας·» τοῦ δὲ Σολομῶντος ἀναφωνοῦντος· «Κρείσσων σοφία λίθων πολυτελῶν.» Πῶς γὰρ οὐχ ἱκετροούσια καὶ ἄλλα τὴν φύσιν, ἡ σοφία, καὶ οἱ ἀπὸ γῆς λίθοι; Ποία δὲ συγγένεια ταῖς ἐν οὐρανοῖς αὐλαῖς, καὶ τοῖς ἐπὶ γῆς οἴκοις; Οὕτως ἄρα οὐδεμία συγγένεια τοῦ Υἱοῦ πρὸς τοὺς ἀγγέλους ἐστί. Μηδεμιᾶς δὲ οὔσης τῆς συγγενείας, οὐκ ἄρα συγκριτικῶς ἐλέχθη τὸ «κρείττων,» ἀλλὰ διακριτικῶς διὰ τὸ διαλλάττον τῆς τούτου φύσεως ἀπ’ ἐκείνων. Καὶ αὐτὸς οὖν ὁ Ἀπόστολος τὸ «κρείττων» ἑρμηνεύων, οὐκ ἐν ἄλλῳ τινί, ἢ ἐν τῇ διαφορᾷ τοῦ Υἱοῦ πρὸς τὰ γενητὰ τίθησι λέγων, ὅτι ὁ μὲν,"
+     }
+    ],
+    [
+     7,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0538.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "των, ἀλλὰ τὸ μᾶλλον καὶ τὸ πλέον. Οὕτως Ἴωσὴφ ὡραῖος μᾶλλον ἦν παρὰ τοὺς ἀδελφοὺς αὑτοῦ, καὶ Ῥαχὴλ τῆς Λείας. Καὶ ἀστὴρ ἀστέρος οὐ κρείττων, ἀλλὰ μᾶλλον διαφέρει ἐν δόξῃ. Ἐπὶ δὲ τῶν ἑτερογενῶν, ὅταν τις ταῦτα παραβάλῃ πρὸς ἄλληλα, τότε τὸ κρείττων πρὸς τὸ διαλλάττον λέγεται, καθάπερ ἐπὶ τῆς σοφίας καὶ τῶν λίθων εἴρηται. Εἰ μὲν οὖν εἰρηκὼς ἦν ὁ Ἀπόστολος, Τοσούτῳ μᾶλλονb Ἰὸδς τῶν ἀγγέλων προάγει, ἢ Τοσούτῳ μείζων ἐστὶν, ἦν ἂν ὑμῖν πρόφασις ὡς συγκρινομένου τοῦ Υἱοῦ πρὸς τοὺς ἀγγέλους. Νῦν δὲ λέγων κρείττονα αὐτὸν εἶναι, καὶ τοσούτῳ διαφέρειν, ὅσῳ διέστηκεν Υἱὸς δούλων, δείκνυσιν αὐτὸν ἄλλον εἶναι τῆς τῶν ἀγγέλων φύσεως. Λέγων δὲ πάλιν αὐτὸν εἶναι τὸν θεμελιώσαντα τὰ πάντα, δείκνυσιν αὐτὸν ἄλλον εἶναι πάντων τῶν γενητῶν. Ἄλλου δὲ καὶ ἑτεροουσίου αὐτοῦ ὄντος παρὰ  τὴν τῶν γενητῶν φύσιν, ποία τῆς οὐσίας αὐτοῦ σύγκρισις ἢ ὁμοιότης πρὸς τὰ γενητά ; Διὰ τοῦτο γὰρ καὶ αὐτὸς ὁ Υἱὸς οὐκ εἴρηκεν · « Ὁ Πατήρ μου κρείττων μού ἐστιν, » ἵνα μὴ ξένον τις τῆς ἐκείνου φύσεως αὐτὸν ὑπολάβῃ, ἀλλὰ « μείζων » εἶπεν, οὐ μεγέθει τινὶ, οὐδὲ χρόνῳ, ἀλλὰ διὰ τὴν ἐξ αὐτοῦ τοῦ Πατρὸς γέννησιν. Πλὴν ὅτι καὶ ἐν τῷ εἰπεῖν « μείζων ἐστὶ » ἔδειξε πάλιν τῆς οὐσίας τὴν ἰδιότητα. Καὶὁ Ἀπόστολος δὲ, οὐ τὴν τοῦ Λόγου οὐσίαν προηγουμένως διακρίνει θέλων πρὸς τὰ γενητὰ ἔλεγε · « Τοσούτῳ κρείττων γενόμενος τῶν ἀγγέλων. » Ἀσύγκριτον γὰρ, μᾶλλον δὲ ἄλλο ἐστίν · ἀλλὰ πρὸς τὴν ἔνσαρκον οἰκονομίαν τοῦ Λόγου βλέπων καὶ τὴν τότε γενομένην παρ’ αὐτοῦ οἰκονομίαν, ἠθέλησε δεῖξαι  οὐχ ὅμοιον εἶναι τοῦτον τοῖς πρότερον, ἵνα ὅσῳ τῇ φύσει διαφέρει τῶν προαποσταλέντων παρ’ αὐτοῦ, τοσούτῳ καὶ πλέον ἢ παρὰ τούτου καὶ δι’ αὐτοῦ γενομένη χάρις, κρείττων τῆς δι’ ἀγγέλων διακονίας γένηται. Δοῦλον μὲν γὰρ ἦν ἀπαιτεῖν μόνον τοὺς καρπούς, υἱοῦ δὲ καὶ δεσπότου χαρίσασθαι τὰς ὀφειλὰς, καὶ μεταθῆναι τὸν ἀμπελῶνα."
+     }
+    ],
+    [
+     8,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0538.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἔστι μὲνοὖν ἱκανὰ ταῦτα δυσωπῆσαι τοῖς μαχομένους πρὸς τὴν ἀλήθειαν. Εἰ δ’ ὅτι γέγραπται γενόμενος, οὐ θέλουσιν ὡς περὶ Υἱοῦ λεγόμενον, ἴσον ἀκοῦσαι τῷ ἔστιν, ἢ διὰ τὸ γενέσθαι τὴν κρείττω διακονίαν τὸ γενόμενος λαβεῖν καὶ νοεῖν ὡς εἴπομεν, ἀλλὰ νομίζουσιν ἐκ ταύτης τῆς λέξεως γενητὸν εἰρῆσθαι τὸν Λόγον, ἀκουέτωσαν πάλιν. Εἰ μὲν ἐκ τῶν ἀγγέλων ἐστὶν ὁ Υἱὸς, ἔστω καὶ ἐπ’ αὐτοῦ ὡς ἐπ’ ἐκείνων τὸ, γενόμενος · καὶ μηδὲν αὐτῶν κατὰ τὴν φύσιν διαφερέτω, ἀλλ’ ἔστωσαν ἢ καὶ αὐτοὶ υἱοὶ, ἢ κἀκεῖνος ἄγγελος. Καὶ κοινῇ πάντες καθεζέσθωσαν ἐκ δεξιῶν τοῦ Πατρὸς, ἢ μετὰ πάντων καὶ ὁ Υἱὸς παρεστηκέτω ὡς λειτουργικὸν πνεῦμα, εἰς διακονίας ἀποστελλόμενος καὶ αὐτὸς τὰς ὁμοίας ἐκείνων. Εἰ δὲ διΐστησι τὸν Υἱὸν ὁ Παῦλος ἀπὸ τῶν γενητῶν λέγων · « Τίνι γὰρ εἶπέ ποτε τῶν ἀγγέλων · Υἱός μου εἶ σὺ, ἐγὼ σήμερον γεγέννηκά σε ; » καὶ πάλιν · « Ἐγὼ ἔσομαι αὐτῷ εἰς Πατέρα, καὶ αὐτὸς ἔσταί μοι εἰς Υἱόν (1).... »"
+     }
+    ],
+    [
+     9,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0540.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ἐνόησα τῶν ἀλλήλοις ἐναντίων κατὰ τὴν φύσιν. Βούλει, καθά φησιν Ἡσαΐας, μετρήσωμεν τῇ χειρὶ τὸ ὕδωρ, καὶ τὸν οὐρανὸν σπιθαμῇ, καὶ πᾶσαν τὴν γῆν δρακί· Βούλει τὰ ὑπὲρ ἡμᾶς ἴδωμεν ἐκ τῶν καθ’ ἡμᾶς· Οὐκοῦν παραθέντες εἰς παράδειγμα βραχὺ τὸν ἐκ ψυχῆς καὶ σώματος ἄνθρωπον, ἀναπηδήσωμεν εἰς ἐννοίας τὰς ἐπὶ Χριστῷ. Ἔνωσιν ἀληθῆ γενέσθαι φαμὲν προσλαβόντος τοῦ Λόγου τὸ ἀνθρώπινον. Ἴδιον δὲ ὡσανεὶ λέγοιτο τυχὸν καὶ ἡμῶν ἑκάστου τὸ αὐτοῦ· καὶ τοῦτο οἶμαι δηλοῦν τὸ γενέσθαι σάρκα αὐτὸν, οὐ κατὰ τροπὴν ἢ μετάστασιν· ἄτρεπτος γὰρ ἡ θεία φύσις· ἀλλ’ ὅτι τῇ θείᾳ Γραφῇ σύνηθές πως ἀεὶ καὶ ὅλον ἔσθ’ ὅτε τὸν ἄνθρωπον, τὸν ἐκ ψυχῆς δὴ λέγω καὶ σώματος, καὶ ὡς ἀπὸ μόνης καταδηλοῦν τῆς σαρκὸς, οἷόν ἐστι τὸ, «Ἐχεῶ ἀπὸ τοῦ Πνεύματός μου ἐπὶ πᾶσαν σάρκα.» Ἕνα τοίνυν ὁμολογοῦμεν Υἱὸν  [Mediol. Θεόν.], γεννηθέντα μὲν θεϊκῶς ἐκ Πατρὸς, καθ’ ὃ νοεῖται· καὶ ἔστι Λόγος, ἀποτεχθέντα δὲ τὸν αὐτὸν ἐκ γυναικὸς κατὰ σάρκα. Νοηθήσεται γὰρ οὕτων κεκοινωνηκὼς αἵματος καὶ σαρκὸς παραπλησίως ἡμῖν, ἵνα διὰ τοῦ οἰκείου θανάτου καταργήσῃ τὸν διάβολον, οὗ φθόνῳ θάνατος εἰς τὸν κόσμον εἰσἦλθε. Ῥίζα γὰρ ὥσπερ ζωῆς ὁ Χριστοῦ γέγονε θάνατος, καὶ φθορᾶς ἀναίρεσις, καὶ ἁμαρτίας ἀποτροπὴ καὶ πέρας ὀργῆς. Γεγόναμεν ἐπάρατοι, καὶ ὑπὸ θανάτου δίκην ἐν Ἀδὰμ, ἀλλὰ κεχρημάτικεν ὁ Λόγος, ὁ μὴ εἰδὼς ἁμαρτίαν, υἱὸς Ἀδὰμ, καὶ λέλυται δι’ αὐτοῦ τῆς τοῦ πρώτου παραβάσεως τὰ ἐγκλήματα. Ὤφθη γὰρ ἡ ἀνθρώπου φύσις ἐν Χριστῷ ὑγιῶς ἔχουσα· τὸ ἀπλημμελὲς τοῦτο σέσωκε τοὺς  ἐπὶ γῆς."
+     }
+    ],
+    [
+     10,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0540.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Κατὰ πάντα τοῖς ἀδελφοῖς ὁμοιωθῆναι."
+     }
+    ],
+    [
+     11,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0540.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὡμοιώθη κατὰ πάντα τοῖς ἀδελφοῖς, κατά γε τὸ ἀνασχέσθαι λαβεῖν τὴν τοῦ δούλου μορφήν. Κεχρημάτικε γὰρ οὕτω καὶ Υἱὸς ἀνθρώπου, καὶ γέγονεν ἀδελφὸς τοῖς ἐκ σπέρματος Ἀβραὰμ, ἤγουν τοῖς ἐν αἵματι καὶ σαρκί."
+     }
+    ],
+    [
+     12,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0540.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἵνα ἀλεήμων γένηται καὶ πιστὸς ἀρχιερεύς."
+     }
+    ],
+    [
+     13,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0540.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Αὐτὸς γέγονεν ἀρχιερεὺς κατὰ τὸ ἀνθρώπινον. Καίτοι παρὰ πάντων τὰς θυσίας δεχόμενος θεϊκῶς, αὐτὸς τὸ δῶρα κατὰ τὴν σάρκα· αὐτὸς ὁ ταῖς ἁμαρτίαις ἡμῶν ἱλασκόμενος, κατά γε τὴν τῆς θεότητος ἐξουσίαν. Εἷς οὖν ἄρα Κύριος Ἰησοῦς Χριστός."
+     }
+    ],
+    [
+     14,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0540.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Οὐκ αὐτῇ (1) μέντοι τῇ τοῦ Λόγου φύσει, τὸ ἀρχιερέα κεκλῆσθαι καὶ τὰ τοιάδε τῶν ὀνομάτων, ἀλλὰ τῇ μετὰ σαρκὸς οἰκονομίᾳ καὶ μέτροις τοῖς καθ’ ἡμᾶς. Καὶ φέρε πρῶτον ἐκεῖνο ζητήσωμεν, τίς ἦν ὁ δυνάμενος μὲν καὶ ἐμβουσίαν ἔχων [Mediol. ἀνέχων] ἐπιλαβέσθαι ἀγγέλων, εἰ τοῦτο χρήσιμον ἦν, οὐκ ἐπιλαβόμενος δὲ μᾶλλον ἐκείνων, ἀλλὰ σπέρματος Ἀβραάμ· Εἰ μὲν οὖν οἴονταί τινες περὶ ἀνθρώπου ταῦτα λέγεσθαι κοινοῦ, πῶς ἐνεδέχετο τὸν οὕτω γεγεννημένον μηδὲ ὑπάρχοντα, φύσεως ἐπιλαβέσθαι"
+     }
+    ],
+    [
+     25,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0545.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ἐμαυτόν, «τουτέστι προσάγω καὶ προσφέρω, Ἐπιτιθεμένων δὲ τῶν χειρῶν τοῦ ἡμαρτηκότος, ἡ σφαγὴ γίνεται. Αὐτὸς γὰρ ἡμῶν αἴρει τὰς ἁμαρτίας, καὶ ὑπὲρ ἡμῶν ὀδυνᾶται, καὶ ὑπὲρ τῶν ἡμετέρων ἔργων· ἔργου γὰρ καὶ πράξεως τύπος ἡ χείρ. Ἐνώπιον δὲ Κυρίου ἐσφάζετο ὁ ἀμνός· θελήσει γὰρ Πατρὸς τοῦ Σωτῆρος Χριστοῦ τὸ πάθος ἐγένετο. Λαμβάνει δὲ ἀπὸ τοῦ αἵματος αὐτοῦ, καὶ ῥαίνει ἑπτάκις ἐπὶ τὸ ἱλαστήριον τῆς κιβωτοῦ· γέγονε γὰρ ἡμῖν Χριστὸς ἱλασμὸς ἐν αἵματι διαθήκης αἰωνίου. Ἑπτάκις δέ· τελεία γὰρ ἡμῖν ἡ ἄφεσις ἐδόθη ἐν τῷ αἵματι αὐτοῦ· τέλειος γὰρ ἀριθμὸς ὁ ἑπτά. Χρίει δὲ καὶ τὰ κέρατα τοῦ θυσιαστηρίου τοῦ θυμιάματος· εὐωδία γὰρ αὐτοῦ ὁ θάνατος [ὑπὲρ] τῆς τοῦ κόσμου σωτηρίας. Καὶ τὸ λοιπὸν δὲ αἶμα ἐχέετο ἐπὶ τὸ θυσιαστήριον τῶν ὁλοκαυτωμάτων· ἔπαθε γὰρ οὐχ ὑπὲρ τῶν ἐθνῶν μόνον, ἀλλὰ καὶ ὑπὲρ τῶν Ἰουδαίων, ἵνα σώσῃ Ἰουδαίους τε καὶ Ἕλληνας. Αἱρομένων δὲ αὐτοῦ τῶν ἐντοσθίων προσεφέρετο· ὁ γὰρ Χριστὸς τὴν μὲν σάρκα ἔξω τῆς πύλης ἔπαθε, τὴν δὲ ψυχὴν τῷ Πατρὶ παρατίθησι. Χρίεται δὲ καὶ τὸ ἔξω θυσιαστήριον· ἅγιος γὰρ ὁ νόμος, καλῶν πρὸς ἐπίγνωσιν Χριστοῦ τοὺς ἀκούοντας. Πλὴν ὁ μὲν κατὰ νόμον ἀρχιερεὺς ἅπαξ εἰσῄει εἰς τὰ ἄδυτα, μετὰ αἵματος ταύρων καὶ τράγων· ὁ δὲ Χριστὸς διὰ τοῦ ἰδίου αἵματος· εἰσῆλθεν ἐφ’ ἅπαξ εἰς τὰ ἅγια, τουτέστιν εἰς τὸν οὐρανόν· ἅγια γὰρ νῦν αὐτὸν ἐκάλεσε."
+     }
+    ],
+    [
+     26,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0545.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Οὐ γὰρ εἰς χειροποίητα ἅγια εἰσῆλθεν ὁ Χριστός, κ. τ. λ."
+     }
+    ],
+    [
+     27,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0545.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Τοῦ Θεοῦ λέγοντος· «Ὁ οὐρανός μοι θρόνος,» ἐπαναπαύεσθαι καὶ αὐτὸν τοί; ἄνω πνεύμασί φαμεν τὸν Υἱὸν, σκηνὴν ὥσπερ ἁγίαν ἔχοντα τὸν οὐρανὸν, καὶ οὐ κατὰ τοὺς ἐπὶ γῆς ἱερουργοῦντας σωματικῶς, καὶ τοὺς δι’ αἱμάτων τελοῦντας θυσίας, εἰς ἀντίτυπα τῶν ἀληθινῶν εἰστρέχοντα κατὰ τὸ τῷ νόμῳ δοκοῦν. Ἐμφανίζεται δὲ νῦν ὑπὲρ ἡμῶν τῷ προσώπῳ τοῦ Θεοῦ τίνα τρόπον; Ἆρα οὐκ ἀεὶ καὶ πρὸ τῆς ἐνανθρωπήσεως ὑπάρχων ἐμφανής; Καίτοι καταθρῆσαι ῥᾷον, ὡς αὐτός ἐστιν ἡ δημιουργὸς σοφία τοῦ Πατρὸς, δι’ ἧς τὰ πάντα παρεκομίσθη πρὸς ὕπαρξιν, ᾗ προσέχαιρεν. Ἐμφανίζεται δὲ νῦν οὐκέτι γυμνὸς καὶ ἄσαρκος Λόγος, καθάπερ ἐν ἀρχῇ ἦν, ἀλλ’ ἐν μορφῇ τε καὶ φύσει τῇ καθ’ ἡμᾶς. Φαμὲν γὰρ οὕτως αὐτὸν ἐμφανισθῆναι νυνὶ ὑπὲρ ἡμῶν, καὶ οἷον ἐν ὄψει τοῦ Θεοῦ καὶ Πατρὸς τὴν αὐτῶν φύσιν ἀγαγεῖν, καίτοι γενομένην ἐν ἀποστροφῇ διὰ τὴν ἐν  Ἀδὰμ παράβασιν. Ἡμᾶς οὖν ἄρα παρίστησιν ἐν ὀφθαλμοῖς τοῦ Πατρὸς ὡς ἐν ἑαυτῷ καὶ πρώτῳ, καθ’ ὃ γέγονεν ἄνθρωπος, ἵν’ ἡμᾶς προσαγάγῃ τῷ Πατρὶ, καὶ τῶν ἀρχαίων αἰτιαμάτων ἀπαλλάξας, καὶ εἰς καινότητα ζωῆς μεταστοιχειώσας ἐν Πνεύματι, ὥστε καὶ ἀξίους ὁρᾶσθαι λοιπὸν τῆς παρὰ τοῦ Πατρὸς ἐποπτείας, ὡς ἐν υἱῶν τάξει παρειλημμένους."
+     }
+    ],
+    [
+     28,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0545.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἀδύνατον γὰρ αἶμα ταύρων καὶ τράγων ἀραιρεῖν ἁμαρτίας."
+     }
+    ],
+    [
+     29,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0545.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Καθοριοῦμεν οὖν ἄρα τοῦ νόμου τὸ ψεῦδος; Εἰ μὴ γὰρ αἶμα ταύρων καὶ τράγων ἀρκέσειεν εἰς ἀπόνην ἁμαρτίας, ἀνθ’ ὅτου φησὶν ὁ νομοθέτης, ὅτι «ῥανεῖ τὸ αἶμα καὶ ἐξιλάσεται ἀπὸ τῶν ἀκαθαρσιῶν τῶν υἱῶν"
+     }
+    ],
+    [
+     41,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0548.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "καὶ αὐτοῦ φανήσονται τοῦ Χριστοῦ, καὶ μοῖραν ἤδη  λαχόντες τὴν ἐπιέχεια τῶν αὐτοῦ, εἰ ὁ μὲν ἀπόβλητον ποιήσεται τὴν ἀρχήν, οἱ δὲ ἀμήρυτον λαχόντες τὴν εὐθυμίαν καὶ τὸ ἐν βαθαίῳ κεῖσθαι τῆς ἐδής διακεκτήσονται. Τὸ δὲ δὴ καὶ ἄγροικον ποιεῖσθαι τὴν συκοφαντίαν, πῶς οὐκ ἀπέβλητον κομιδῇ; Τὸ μὲν γὰρ χρῆναι κρατεῖν καὶ βασιλεύειν τῶν ὅλων, προσήκοι ἂν οὐχ ἑτέρῳ μᾶλλον ἢ αὐτῷ τῷ Χριστῷ, οὐκ ἐπίκτητον ἢ ὀστὸν πλουτοῦντι τὸ χρῆμα, καθάπερ ἡμεῖς, ἀλλὰ τοῖς τῆς φυσικῆς κυριότητος ἑπόμενον λόγοις. Οἱ δέ γε συμπάσχοντες καὶ συμβασιλεύσομεν αὐτῷ, καθὼς γέγραπται. Οὐκοῦν ὁ μὲν τοῦ κατάρχειν Κύριος, εἰσοποίητο δὲ ἡμεῖς καὶ τρόπῳ τῷ κατὰ μέθεξιν ἐκτετιμημένοι· συμβασιλεύσουσι γὰρ βασιλεύοντι τῷ Κυρίῳ. Εἶτα πῶς ἀσάλευτον ἕξουσι τὴν ἐπὶ τῷδε φιλοτιμίαν, καὶ διηνεκῶς βασιλεύσουσιν, εἰ κατασεισθήσεται καὶ καταλήξει τὸ τοῦ Χριστοῦ κράτος, οὗ μετόχους αὐτοὺς εἶναί φαμεν; Καὶ εἰ τῆς βασιλείας αὐτοῖς ὁ χορηγὸς καὶ πρύτανις ἀποπεπαύσεται τῆς ἀρχῆς, ποῦ τὰ αὐτῶν ἔτι κείσεται τοῖον ἔχοντα βάραθρον; Ποῦ γὰρ ἔτι συμμεθέξουσιν, εἰ τὸ κεκληκὸς εἰς ἐδένει ἀσθενεῖ; Ἢ οὐκ ἀνάγκη συγκατολίσθειν τοῖς ἀνέχουσι τὸν ἀνεχόμενον, καὶ τοῖς κατωτάντοις βόθροις ἐνιζῆσαι τὰ ἐπερηρεισμένα, ὑποσπασθέντος τοῦ ἐρείδοντος; Ὅτε τοίνυν ἡ τῆς εὐκλείας κρηπὶς καὶ ὁ τῆς εὐημερίας θεμέλιος κατασεισθήσεται κατ’ αὐτούς, συνοιχήσεταί που πάντως εἰς τὸ δυσκλεές τε καὶ ἐν ὑφέσει καὶ ἡ τῶν ἄλλων ἐλπίς. Τὸ οὖν, ὅ ὅταν παραδῷ τὴν βασιλείαν, ὁ οὐ τοιοῦτόν ἐστιν, ὅτι ταύτην ἀποθήσει, ἀλλ’ ὅτι ὑφ’ ἑτέρων ἐχομένην ἐκσπάσας προσάξει τῷ Πατρὶ· συγκατάρξει γε μὴν τούτῳ καὶ αὐτός."
+     }
+    ],
+    [
+     42,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0548.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ἰησοῦς Χριστὸς χθὲς καὶ σήμερον· ὁ αὐτὸς καὶ  XIII, 8 Jesus Christus heri et hodie, ipse et in saecula. εἷς αἰῶνας."
+     }
+    ],
+    [
+     43,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0548.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Τῶν φωνῶν αἱ μὲν θεοπρεπεῖς (1), ὡς τὸ, «Ἐγὼ ἐν τῷ Πατρὶ, καὶ ὁ Πατὴρ ἐν ἐμοί·» αἱ δὲ ἀνθρωποπρεπεῖς, ὡς τὸ, «Νῦν δὲ ζητεῖτέ με ἀποκτεῖναι ἄνθρωπον, ὃς τὴν ἀληθείαν λελάληκα ὑμῖν·» [αἱ δὲ μέσαι, ὧν αὕτη. Χριστὸν γὰρ εἰπὼν (2)] χθὲς καὶ σήμερον εἶναί φησι καὶ εἰς τοὺς αἰῶνας· ἰδοὺ δὴ σαφῶς ὁ πνευματοφόρος, ὁ παρὰ αὐτοῦ Χριστοῦ τὸ περὶ αὐτοῦ μεμαθηκὼς μυστήριον, τὸ ἐν ἀτρέπτῳ καὶ ἀμεταποιήτῳ φύσει κεῖσθαι τὸν Υἱὸν ὁμολογεῖ, ὅπερ ἴδιόν ἐστι μόνου τοῦ Θεοῦ καὶ Πατρός, ἑτέρῳ δὲ πρόσεστι τῶν γενητῶν οὐδενί. Οὐκοῦν εἰ μόνος ἄτρεπτος ὁ Θεὸς καὶ Πατὴρ, ἐν ταυτότητι δὲ φύσεως καὶ ὁ Υἱὸς, ἀεὶ τοῦτο ὢν ὅπερ καὶ ὁ γεννήσας αὐτὸν, πῶς ἂν εἴη τῶν γεννητῶν εἷς ὁ μόνος τῷ φύσαντι κατὰ τὸν ἄφραστον τῆς οὐσίας λόγον ἁμιλλώμενος, καὶ τοῦτο ὢν κατὰ φύσιν, ὅπερ ἐστὶν ὁ Πατὴρ, δίχα μόνου τοῦ εἶναι Πατήρ; Ὅτι γὰρ οὐκ ἀλλοιοῦται γεγονὼς ἄνθρωπος  καθ’ ἡμᾶς ὁ Λόγος, ἐν τούτοις διαμεμήνυκεν ὁ πνευματοφόρος· καὶ σημαντικὸν μὲν τοῦ παρῳχηκότος χρόνου ποιεῖται τὸ «χθὲς,» τοῦ γε μὴν ἐνεστῶτος τὸ «σήμερον,» τοῦ δὲ ἐσομένου καὶ μέλλοντος τὸ «εἰς τοὺς"
+     }
+    ],
+    [
+     46,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "τινὰ συμβῆναι περὶ τὰς φύσεις, ὡς μεταστῆναι μὲν τὴν τοῦ Λόγου φύσιν εἰς τὴν τοῦ ἀνθρώπου τυχόν· ἀλλ’ οὐδὲ τὴν ἀνθρωπίνην εἰς τὴν Θεοῦ· νοουμένης δὲ μᾶλλον καὶ ὑπαρχούσης ἑκατέρας ἐν τῷ τῆς ἰδίας φύσεως ὅρῳ, πεπρᾶχθαί φαμεν τὴν ἕνωσιν, ἐνοικήσαντος τοῦ Λόγου σωματικῶς τῷ ἐκ Παρθένου ναῷ. Καὶ μετ’ ὀλίγα· Εἴ τις οὖν ἄρα λέγει μόνων προσώπων τὴν ἕνωσιν, ἀποδιστὰς ὁλοτρόπως ἀλλήλων τὰς φύσεις, ἔξω τῆς εὐθείας φέρεται τρίβου."
+     }
+    ],
+    [
+     47,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ὅρα τοίνυν καὶ ἐν δυσὶ τοῖς χιτάροις τὸν ἕνα Χριστὸν, τουτέστι Θεὸν ἐνανθρωπηκότα, καὶ ἀποθνήσκοντα μὲν σαρκικῶς ὑπὲρ ἁμαρτίας, ἵνα τῷ ῥαντισμῷ τοῦ ἰδίου αἵματος ὅλην ἁγιάσῃ τὴν Ἐκκλησίαν, μεμενηκότα δὲ πάλιν ἀπαθῆ θεϊκῶς."
+     }
+    ],
+    [
+     48,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.3",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Kuprillou en tῆς ἑρμηνείας τῆς πρὸς Ἐβραίους Ἐπιστολῆς"
+     }
+    ],
+    [
+     49,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.4",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Εἰ δὲ τετελείωκεν ἡμᾶς δι’ ὕδατος καὶ Πνεύματος, πῶς οὐκ ἐνήργει θεϊκῶς τε ἅμα καὶ ἀνθρωπίνως ὁ αὐτὸς ὑπάρχων, καὶ ὡς ἐν ἑνὶ Θεός τε ὁμοῦ καὶ ἄνθρωπος;"
+     }
+    ],
+    [
+     50,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Kuprillou en tῆς ἑρμηνείας τῆς πρὸς Ἐβραίους, δευτέρου τόμου"
+     }
+    ],
+    [
+     51,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.6",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Συνέβησαν δὲ ἀλλήλαις ἀποῤῥήτως τε καὶ ὑπὲρ νοῦν θεότης καὶ ἀνθρωπότης. Καὶ διάφοροι μὲν αἱ φύσεις ὁμολογουμένως, πλὴν εἷς τε καὶ μόνος ἐξ ἀμφοῖν Τίος."
+     }
+    ],
+    [
+     52,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.7",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Kuprillou ἐκ τοῦ ὑπομνήματος τῆς πρὸς Ἐβραίους Ἐπιστολῆς"
+     }
+    ],
+    [
+     53,
+     {
+      "urn": "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg074_0550.8",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Εἰ γὰρ καὶ νοοῖντο διάφοροι καὶ ἀλλήλαις ἄνισοι τῶν εἰς ἑνότητα συνδεδραμηκότων αἱ φύσεις, σαρκὸς δὴ λέγω καὶ Θεοῦ, ἀλλ’ οὖν εἷς τε καὶ μόνος ἐξ ἀμφοῖν Υἱὸς ἀληθῶς· ἔχοντος ἡμῖν ἀραρότως τοῦ καὶ ἐμψυχῶσθαι ψυχῇ λογικῇ τὸν ἑνωθέντα τῷ Λόγῳ ναόν. — Καὶ οὐ διαιρετέον τὸν ἕνα Κύριον Ἰησοῦν Χριστὸν εἰς ἄνθρωπον ἰδικῶς, καὶ εἰς Θεὸν ἰδικῶς· ἀλλ’ ἕνα καὶ τὸν αὐτὸν εἶναί φαμεν Ἰησοῦν Χριστὸν, τὴν τῶν φύσεων εἰδότες διαφορὰν, καὶ ἀσυγχύτους ἀλλήλαις διατηροῦντες αὐτάς."
+     }
+    ]
+   ]
+  },
+  "data/corpus/hesychius-lexicography.lexicon-o.jsonl": {
+   "sha256_before": "76800eb3a68b02293a29db1711303b14c8d4e7aa8207d0090508a8c2137ced5c",
+   "sha256_after": "2b4807139c0cf436d1037ec44ce1829c1d9a90070f5fbc784de1698bb71df50d",
+   "removed": [
+    [
+     30418,
+     {
+      "urn": "hesychius-lexicography.lexicon-o",
+      "cts": "urn:cts:greekLit:tlg4085.tlg002",
+      "edition": "qwen36-hesychius_schmidt_masked",
+      "locus": "hesychius_masked_0692.5",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Ῥαδαμάνθυος ὅρκος (Cratin.)· τὸν ἐπὶ χηνὶ καὶ κυνὶ καὶ τοῖς τοιούτοις ὄρκον",
+      "corrections": [
+       "freq"
+      ]
+     }
+    ]
+   ]
+  },
+  "data/corpus/joannes-damascenus.de-azymis-fragmenta-duo-sp.jsonl": {
+   "sha256_before": "dc0df35be7640108a499151f528d1adeffc2f3f8ff1f33cd208510115429df87",
+   "sha256_after": "b95532cbc8f2e530315499409642d5f5fd75eafb5c722a4deb844858f9c7a644",
+   "removed": [
+    [
+     0,
+     {
+      "urn": "joannes-damascenus.de-azymis-fragmenta-duo-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0206.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "ΤΟΥ ἉΓΙΟΥ ἸΩΑΝΝΟΥ ΤΟΥ ΔΑΜΑΣΚΗΝΟΥ ΠΕΡΙ ΤΩΝ ΑΖΥΜΩΝ."
+     }
+    ],
+    [
+     1,
+     {
+      "urn": "joannes-damascenus.de-azymis-fragmenta-duo-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0206.2",
+      "source": "ocr",
+      "license": "PD",
+      "text": "Τανέον, ὅτι οἱ τὰ ἄζυμα προσακμίζοντες, νεκρὰν σάρκα, καὶ οὐχὶ ζῶσαν προσφέρουσιν. Ἡ γὰρ ζύμη ἀντὶ ψυχῆς τῷ σωράματι γίνεται, καὶ τὸ ἅλας ἀντὶ τοῦ νοός· ὁ γὰρ Κύριος σῶμα ἔμψυχόν τε καὶ ἔννουν ἐκ τῆς Ἀειπαρθένου προσλαβόμενος, διὰ τελείου ἄρτου εἰκότως παρέδωκε τὸ τῆς Καινῆς Διαθήκης μυστήριον· εὐλογήσας αὐτὸν, καὶ κλάσας, καὶ εἰπών· « Λάβετε, φάγετε· τοῦτό ἐστι τὸ σῶμά μου. » Καὶ ὁ λουκᾶς ἐν ἁγίῳ Εὐαγγελίῳ αὐτῷ, « Καὶ λαβὼν ἄρτον, φησὶν, εὐχαριστήσας, ἔκλασεν. » Ἰδοὺ δὲ καὶ αὐτὸς ἄρτον εἶπε λαβεῖν τὸν Χριστὸν, καὶ οὐκ ἄζομον. Οὐ γὰρ ἔτι ἦν, πέμπτης οὔσης τηνικαῦτα ἡμέρας· ἐκακαιτρίτη γὰρ ἦν ἡ σελήνη τότε, καὶ οὐκ ἦν ἄζυμον διὰ τὸ μήπω γενέσθαι. Τῇ ιαʹ γὰρ τῆς σελήνης νενομοθετημένον ἦν λοβίαν ταῦτα. Τῇ δὲ ιθʹ τὸν ἀμνὸν καὶ μόνον ἤσθιον· διὸ καὶ τὴν ἐκακαιτετάρτην τοῦ αὐτοῦ μηνὸς τῆς σελήνης, Πάσχα προσαγορεύει ὁ νόμος· τὴν δὲ ιαʹ αὐτὴν καὶ ἑβδομάτιν ὀνομάζει. Εἰ οὖν ὁ Χριστὸς ἐτόθη κατὰ τὴν ἐκακαιτετάρτην τῆς σελήνης, ἡμέρᾳ Παρασκευῇ· τὸ δὲ Σάββατον ἦν τῶν ἀζύμων ὄφρτη, ὅτε τὰ ἄζυμα ἤσθιον, πότε ταῦτα τοῖς ἀποστόλοις παρέδωκεν, ὅσι λάγνοσιν παρὰ τῶν ἀποστόλων ταῦτα λαβεῖν; Οὐδὲ γὰρ τὸ Πάσχα τὸ νόμιμον κατὰ τὸν χρόνον ἔφαγεν ὁ Χριστός. Καὶ γὰρ μετὰ τὸ δειπνῆσαι, παρέδωκε διὰ τῆς τοῦ ἄρτου κλάσεως, τὸ τῇ Καινῆς Διαθήκης μυστήριον κατὰ τὴν πέμπτην ἡμέραν. Ὅτε δὲ ἑορτὴ τῶν Ἀζύμων ἦν ἐν τῷ Σαββάτῳ κατὰ τὴν ιαʹ ἡμέραν τοῦ μηνὸς, ἐν τῷ τάφῳ ἔκειτο ὁ Κύριος. Ἀζύμων οὖν μὴ ὄντων πρὸ τῆς ὀραῆς τῶν Ἀζύμων ἐν ἄψῳ τῷ ἀνιαυτῷ, ποῦ εὑρέθησαν τότε τὰ ἄζυμα, ὅτε μετὰ τῶν αὐτοῦ μαθητῶν τὸ δεῖπνον, ἔφαγεν ὁ Χριστός; Παύσασθε οἱ τῇ ἀληθείᾳ ἀντιμαχόμενοι. Καὶ τὸ, « Ἦν δὲ Παρασκευὴ τοῦ Πάσχα, » οὕτω νοεῖται. Ἡτοίμαζον γὰρ, οἷον καὶ παρεσκεύαζον τὰ τῆς ἑορτῆς τοῦ Πάσχα· καὶ τὸ, « Αἰστοι οὐκ εἰσῆλθον εἰς τὸ πραιτώριον, ἵνα μὴ μιανθῶσιν, ἀλλ' ἵνα φάγωσι τὸ Πάσχα, » πῶς νοήσεις, εἰ τῇ πέμπτῃ ἦν τὸ Πάσχα; πῶς τῇ Παρασκευῇ πρὸς τὸ πραιτώριον οὐκ εἰσῆλθον, ἀλλ' εὐλαβοῦντο προκαθαιρόμενοί σως διὰ τὴν πρὸ Πάτχα μετάληψιν;"
+     }
+    ],
+    [
+     3,
+     {
+      "urn": "joannes-damascenus.de-azymis-fragmenta-duo-sp",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0208.1",
+      "source": "ocr",
+      "license": "PD",
+      "text": "A φυράματι γίνεται· τὸ δὲ ὅλας ἀντὶ νοός. Ἃ μὴ ἔχον τὸ ἄζυμον, νεκρὸν καὶ μωρόν ἐστι. Τοίνυν καὶ οἱ τὰ ἄζυμα ἐσθίοντες ἐν τῷ σκότει τοῦ νόμου περιπατοῦσι. Καὶ πῶ; κοινωνίαν ἕξουσι μετὰ τοῦ Χριστοῦ, οἱ μὴ ὄντες ἐν τῷ φωτὶ τῆς χάριτος αὐτοῦ; Οἱ γὰρ ἐν τῷ φωτὶ περιπατοῦντες τῆς αὐτοῦ χάριτος, ἄρτον ἐσθίουσι τὸ σῶμα τοῦ Χριστοῦ, καὶ πίνουσιν αἷμα τὸ ἄχραντον αὐτοῦ· καὶ οὕτως ἔχουσι μετ’ ἀλλήλων, καὶ μετὰ τοῦ Χριστοῦ καὶ Θεοῦ ἡμῶν κοινωνίαν, καθαριζόμενοι ἀπὸ πάσης ἁμαρτίας. Ἐν μὲν γὰρ τοῖς ἀζύμοις οὐδεμία τίς ἐστι ζωτικὴ δύναμις, νεκρὰ γάρ ἐστι· ἐν δὲ τῷ ἄρτῳ, ἤγουν τῷ σώματι τοῦ Χριστοῦ, τρία τὰ ζῶντα καὶ ζωὴν παρέχοντα αὐτὰ τοῖς ἀξίως ἐσθίουσι, τὸ πνεῦμα, τὸ ὕδωρ, καὶ τὸ αἷμα· ὅτι καὶ Ἰωάννης συμμαρτυρεῖ τῷ λόγῳ· « Τρεῖς οἱ μαρτυροῦντες, τὸ πνεῦμα, καὶ τὸ ὕδωρ, καὶ τὸ αἷμα, καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσι, » τουτέστι εἰς τὸ σῶμα τοῦ Χριστοῦ. Ὃ καὶ κατὰ τὸν καιρὸν τῆς σταυρώσεως δῆλον γέγονεν, ὁπηνίκα τὸ ὕδωρ καὶ τὸ αἷμα ἐκ τῆς πλευρᾶς αὐτοῦ ἔῤῥευσε, λόγχη νυγείσης αὐτοῦ τῆς σαρκὸς, τρία ἐξέῤῥευσε, ὃ δὲ ζῶν, καὶ ἅγιον Πνεῦμα ἔμεινε τῇ τεθεωμένῃ σαρκὶ αὐτοῦ, ἣν ἐσθίοντες ἡμεῖς ἐν τῷ μεταβαλλομένῳ ἄρτῳ διὰ τοῦ πνεύματος εἰ; σάρκα Χριστοῦ, ζῶμεν ἐν αὐτῷ, ὡς ζῶσαν καὶ τεθεωμένην σάρκα ἐσθίοντες· ὡσαύτως καὶ τὸ αὐτοῦ αἷμα τὸ ζῶν καὶ θερμότατον, ἐπαίδη ἐκ τῆς ζῶσης σαρκὸς τῷ πνεύματι, καὶ θερμότατον τοῦ Χριστοῦ τὸ αἷμα καὶ τὸ ὕδωρ ἐξέβλυσεν, ὅπερ ἐν τοῖς τὰ ἄζυμα ἐσθίουσι χώραν οὐκ ἔχει τοῦτο γίνεσθαι. Καὶ ὢ τῆς ἀτοπίας! νεκρὰν ζύμην ἐσθίοντες αὐγοῦσι, καὶ λέγουσι πρὸς ἡμᾶς, ὅτι οὐχ ὅπως ὑμεῖς ἅλατι καὶ προζύμῃ καὶ ὕδατι ἄλευρον φύρομεν, καὶ οὕτω; ποιοῦμεν τὴν ἀναφορὰν τῶν ἐνζύμων, ἀλλ’ ὕδατι μόνῳ καὶ ἀλεύρῳ, πυρὶ τὸ ἄζυμον ἀπαρτίζομεν, καὶ ἐν τοῖς τρισὶ τούτοις ἁγνὴν ποιοῦμεν τὴν θυσίαν. Τὰ τρία οὖν ταῦτα τὸ ὕδωρ, καὶ τὸ ἄλευρον καὶ τὸ πῦρ, εἰς τί λαμβάνεται; καὶ τίνος ἀντίτυπα εἶναι δοκεῖτε; ἀντὶ τῆς σαρκὸς τοῦ Κυρίου. Ἀλλ’ οὐκ εἶπεν ὁ ἡγαπημένος, « Τρεῖς εἰσιν οἱ μαρτυροῦντες, » τὸ ὕδωρ, τὸ ἄλευρον, καὶ τὸ πῦρ, ἀλλὰ « τὸ πνεῦμα καὶ τὸ ὕδωρ καὶ τὸ αἷμα, καὶ οἱ τρεῖς εἰς τὸ ἕν εἰσι, » δηλονότι τὸ σῶμα Χριστοῦ, ὡς προείρηται. Εἰ δὲ καὶ εἰς τὴν ἄκτιστον καὶ ἀσώματον φύσιν τῆς ἁγίας Τριάδος ταῦτα λαμβάνετε, σφάλλεσθε τίπποντες εἰς τὴν θεοπαγικὴν αἵρεσιν, οἵ φασι συμπεπονθέναι τῇ σαρκὶ τοῦ Λόγου καὶ τὴν αὐτοῦ θεότητα. Οὐ γὰρ ὁμοῦ ἡ Τριὰς ἐσαρκώθη, ὁ Πατὴρ, ὁ Υἱὸς, καὶ τὸ ἅγιον τὸ Πνεῦμα, ἵνα θεωρῆτε ταῦτα εἰς αὐτὴν τὰ τρία, τὸ ὕδωρ, ὥς φατε, καὶ τὸ ἄλευρον, καὶ τὸ πῦρ, καὶ ὡς ἀντίτυπα αὐτῆς ποιῆτε τὸ ἄζυμον, καὶ εἰς θυσίαν προσφέρητε· ἀλλ’ ὁ εἷς τῆς Τριάδος, ὁ Υἱὸς καὶ Δόγος τοῦ Θεοῦ σαρκωθεὶς ἐξ ἁγνῶν τῆς ἁγίας Παρθένου σεριῶν ἐνηνθρώπησε, καὶ πάντα τελέσας τὰ τῆς οἰκονομίας, ἐσταυρώθη τῇ σαρκὶ, μὴ παθούσῃ αὐτοῦ τῆς θεότητος. Σαρκὶ οὖν σταυρωθείς, παρέδωκεν ἡμῖν ἐσθίειν διὰ τοῦ ἄρτου τὴν σάρκα αὐτοῦ, τὴν ἐν Πνεύματι ζῶσαν ἁγίῳ, οὕτως εἰπών· « Λάβετε, φά‐"
+     }
+    ]
+   ]
+  },
+  "data/corpus/joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl": {
+   "sha256_before": "9641d093ba8cc3ce2605bf694e5f0ad2898f0d1333022f45b841aacd0f931f90",
+   "sha256_after": "85e9219581b0a091ac2625efe785e139278ed1d9adb2f890124469dd4673ecb4",
+   "removed": [
+    [
+     0,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.1",
+      "text": "πων, καὶ ἕτερα ἢ τῶν βοῶν · ὁμοίως καὶ ἐπὶ τῶν λοιπῶν."
+     }
+    ],
+    [
+     1,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.2",
+      "text": "ΚΕΦΑΛ. Β."
+     }
+    ],
+    [
+     2,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.3",
+      "text": "Περὶ ὑποστάσεως καὶ προσώπου καὶ ἀτόμου."
+     }
+    ],
+    [
+     3,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.4",
+      "text": "Ἐπειδὴ δὲ πολλοὶ εἰσὶν ἄνθρωποι, ὁ καλέντα ἄνθρωπος ὑπόστασις ἐστιν · σὼν, Ἄδὰμ ὑπόστασις ἐστι, καὶ Ἕσα ἄλλη ὑπόστασις, καὶ ὁ Σὴθ ἕτερα ὑπόστασις. Ὁμοίως καὶ ἐπὶ τῶν λοιπῶν, ἕκαστος ἄνθρωπος ὑπόστασις ἕτερα παρὰ τοὺς λοιποὺς ἀνθρώπους ἐστι · καὶ ἕκαστος βοῦς ὑπόστασις ἐστι, καὶ ἕκαστος ἄγγελος ὑπόστασις ἐστιν. Ἄστε φύσις, καὶ οὐσία, καὶ μορφὴ ἐστι τὸ κοινόν, καὶ περιέχον τὰς ὁμοούσιους ὑποστάσεις. Ὑπόστασις δὲ, καὶ ἄτομον, καὶ πρόσωπον, τὸ μερικόν, ἤγουν ἕκαστον τῶν ὑπὸ τὸ αὐτὸ εἶδος περιεχομένων."
+     }
+    ],
+    [
+     4,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.5",
+      "text": "ΚΕΦΑΛ. Γ."
+     }
+    ],
+    [
+     5,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.6",
+      "text": "Περὶ διαφορᾶς, καὶ ποιότητος, καὶ ἰδιώματος."
+     }
+    ],
+    [
+     6,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.7",
+      "text": "Εἴπομεν, ὅτι πολλὰ εἴδη εἰσι, καὶ διάφοροι οὐσίαι · ὁμοίως δὲ καὶ καθ' ἕκαστην οὐσίαν καὶ εἶδος, διάφοροι ὑποστάσεις. Διαφέρουσι δὲν ἕκαστη οὐσία τῆς ἕτέρας οὐσίας, καὶ ἕκαστη ὑπόστασις τῆς ἕτέρας ὑποστάσεως, ἐκεῖνο τοίνυν τὸ πρᾶγμα, ἐν ᾧ διαφέρει οὐσία οὐσίας, καὶ εἶδος εἴδους, καὶ ὑπόστασις ὑποστάσεως, λέγεται διαφορὰ, καὶ ποιότης, καὶ ἴδιωμα · σὼν, διαφέρει ὁ ἄγγελος τοῦ ἀνθρώπου, ὅτι ὁ μὲν ἄγγελος, ἀθάνατός ἐστι, ὁ δὲ ἄνθρωπος θνητός. Τὸ οὖν ἀθάνατον καὶ θνητόν, διαφορὰ, καὶ ποιότης, καὶ ἴδιωμα ἐστὶ. Πάλιν, διαφέρει ὁ Ἄδὰμ τοῦ Σὴθ, ὅτι ὁ μὲν Ἄδὰμ πατὴρ ἐστι τοῦ Σὴθ, ὁ δὲ Σὴθ, υἱὸς τοῦ Ἄδὰμ · [ καὶ ὅτι ὁ μὲν Ἄδὰμ ἀγέννητος, ὁ δὲ Σὴθ γεννητός. ] Ἡ πατρότης οὖν, καὶ ἡ υἱότης διαφοραὶ εἰσιν · ἐν τούτοις γὰρ διαφέρουσιν ἀλλήλων, ὁ Ἄδὰμ καὶ Σὴθ, ἢ κατὰ τὴν γεννητὸν καὶ ἀγέννητον · καὶ πάντα τὰ τοιαῦτα, διαφοραὶ λέγονται καὶ ποιότητες καὶ ἰδιώματα · σὼν, τὸ λογικόν, καὶ τὸ ἄλογον, τὸ θνητόν, καὶ τὸ ἀθάνατον, τὸ δίπονον, καὶ τὸ τετράπονον, τὸ αἰσθητικόν, καὶ τὸ ἀναίσθητον, τὸ σιμὸν, καὶ τὸ γρυπὸν, τὸ λευκὸν καὶ τὸ μέλαν, τὸ μικρόν καὶ τὸ κολεθόν, καὶ πάντα τὰ τοιαῦτα."
+     }
+    ],
+    [
+     7,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.8",
+      "text": "ΚΕΦΑΛ. Δ."
+     }
+    ],
+    [
+     8,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.9",
+      "text": "Περὶ οὐσιώδους καὶ ἐχουσῶν οὐσιώδους διαφορᾶς, ἤγουν φυσικῆς διαφορᾶς, καὶ συμβεβηκότος."
+     }
+    ],
+    [
+     9,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0059.10",
+      "text": "Πᾶν πρᾶγμα, ᾧ τινὶ διαφέρει εἶδος ἕτέρου εἴδους, καὶ οὐσία ἕτέρας οὐσίας, οὐσιώδης, καὶ φυσική, καὶ συστατική, λέγεται διαφορὰ, ποιότης, καὶ φυσικὸν ἴδιωμα, καὶ ἴδιωμα φύσεως. Οἷον διαφέρουσι ἄγγελος καὶ ἄνθρωπος ἀλλήλων, κατὰ τὸ ἀθάνατον καὶ τὸ θνητόν · τὸ ἀθάνατον οὐσιώδης διαφορὰ καὶ συστατικὴ τοῦ ἀγγέλου ἐστι, καὶ ἴδιωμα φυσικόν. Ὁμοίως καὶ τὸ θνητόν, τοῦ ἀνθρώπου. Διαφέρουσι πάλιν ὁ ἄνθρωπος καὶ ὁ"
+     }
+    ],
+    [
+     10,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0061.1",
+      "text": "οὐσία δὲ, καὶ ἑτεροφυΐα, καὶ ἑτερόμορφα, καὶ ἑτεροεἰδη, καὶ ἑτερογενῆ, τὰ ὑπὸ ἄλλο καὶ ἄλλο εἶδος, καὶ ἄλλην οὐσίαν ὄντα · οἷον, ἄνθρωπος, καὶ ἵππος, καὶ βοὺς, καὶ κύων, καὶ τὰ τοιαῦτα."
+     }
+    ],
+    [
+     11,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0061.2",
+      "text": "# Z ΚΕΦ."
+     }
+    ],
+    [
+     12,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0061.3",
+      "text": "# Περὶ γένους καὶ εἴδους."
+     }
+    ],
+    [
+     13,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0061.4",
+      "text": "Τὸ γένος εἰς εἰδὴ διαῖρεῖται · οἷον, τὸ ζῷον, εἰς λογικὸν καὶ ἄλογον. Ἰδοὺ τὸ μὲν ζῷον, γένος ἐστὶ τοῦ λογικοῦ καὶ τοῦ ἀλόγου · τὸ δὲ λογικὸν καὶ τὸ ἄλογον, εἴδη εἰσὶ τοῦ ζῴου. Πάλιν, τὸ λογικὸν διαῖρεῖται εἰς θνητὸν ἄνθρωπον, καὶ ἀθάνατον ἄγγελον. Τὸ γοῦν λογικὸν, γένος ἐστὶ τοῦ θνητοῦ καὶ τοῦ ἀθανάτου · τὸ δὲ θνητὸν καὶ τὸ ἀθάνατον, εἴδη τοῦ λογικοῦ. Ἵνα οὖν σαφέστερον γένηται τὸ λεγόμενον, ἀναθέν τὸν λόγον ποιησώμεθα."
+     }
+    ],
+    [
+     14,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0061.5",
+      "text": "Γένος ἐστὶ γενικώτατον, τὸ πρῶτον γένος, ὃ γένος δν, οὐκ ἔστιν εἶδος, διὰ τὸ μὴ ἔχειν ἐπάνω αὑτοῦ ἕτερον γένος. Εἰδικώτατον δὲ εἶδος, τὸ ἔσχατον καὶ ὑποδεέστερος εἶδος, ὕπερ εἶδος δν, οὐκ ἔστι γένος, διὰ τὸ μὴ ἔχειν ἕτερα εἴδη ὑπ’ αὑτοῦ τεμνόμενα. Εἰσὶ δὲ μεταξὺ τοῦ γενικωτάτου γένους καὶ τῶν εἰδικωτάτων εἰδῶν, γένη τε καὶ εἴδη · γέν μὲν τῶν ὑποκάτω, εἴδη δὲ τῶν ἐπάνω · ὅτινα καλεῖται ὑπάλληλα. Οἷον, γενικώτατον γένος ἐστὶν ἡ οὐσία · οὗ γὰρ ἔχει ἐπἄνω αὑτή· ἄλλο γένος · διὸ οὐδὲ ἔστιν εἶδος · αὕτη διαῖρεται, εἰς σῶμα καὶ ἀσώματον. Τὸ σῶμα, τέμνεται εἰς ἔμψυχον καὶ ἄψυχον · τὸ ἔμψυχον, τέμνεται εἰς αἰσθητικὸν καὶ ἀναίσθητον · τὸ αἰσθητικὸν, εἰς λογικὸν καὶ ἄλογον · τὸ λογικὸν, εἰς θνητὸν καὶ ἀθάνατον · ἔστι μὲν οὖν τὸ ἀσώματον, λογικὸν καὶ ἀθάνατον · ἀσώματον δὲ ἐνταῦθα λέγω, οὐσίαν · οἷον, ψυχὴν, ἄγγελον, δαίμονα · ἕκαστον τούτων εἰδικώτατον εἶδος ἐστι. Σῶμα δὲ ἔμψυχον αἰσθητικὸν, τὸ ζῷον · ζῷον δὲ λογικὸν θνητὸν, ὁ ἄνθρωπος · ὅς ἐστιν εἰδικώτατον εἶδος. Ζῷον δὲ ἄλογον ὀλκιτικὸν, κύων · ὅς ἐστιν εἰδικώτατον εἶδος. Εἰτα σῶμα ἄψυχον ἀναῖσθητον, τὸ φυτὸν · σῶμα παντελῶς ἄψυχον, γῆ, ἀήρ, ὕδωρ, πῦρ · ὧν ἕκαστον, εἰδικώτατον εἶδος ὑπάρχει. Πρὸς δὲ πλεῖονα σαφηνείαν, οὕτω λέγομεν."
+     }
+    ],
+    [
+     15,
+     {
+      "urn": "joannes-damascenus.de-duabus-in-christo-voluntatibus",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0061.6",
+      "text": "Ἡ οὐσία, ἥτις περιέχει ὑπερουσίως μὲν τὴν ἀκτίστον θεότητα, γνωστικῶς δὲ καὶ περιοχικῶς, πᾶσαν τὴν κτίσιν, γενικώτατον ἐστὶ γένος. Αὕτη ἡ ἀσώματος ἐστὶ καὶ νοερὰ καὶ ἀθάνατος, ὡς θεός, ἄγγελος, ψυχή, δαίμων · ἡ σῶμα ἄψυχον, ὡς πῦρ, ἀήρ, ὕδωρ, γῆ · ἡ σῶμα φυτικὸν, ὡς ἔρπελος, φοῖνιξ, ἐλαία, καὶ τὰ τοιαῦτα · ἡ σῶμα ἔμψυχον αἰσθητικὸν, τοὔστι ζῷον, ὡς ἵππος, κύων, ἐλέφας, καὶ τὰ τοιαῦτα · ἡ σύνθετον, ἐξ σώματος καὶ ἀσωμάτου ψυχῆς, ὡς ἄνθρωπος. Τούτων ἡ μὲν οὐσία, ὡς πρώτη καὶ καθολικωτέρα, καὶ περιεκτικὴ πάντων, γενικώτατον ἐστὶ γένος. Τούτου δὲ τοῦ γενικωτάτου γένους εἴδη εἰσὶ, τὸ ἀσώματον, τὸ ἄψυχον σῶμα, τὸ φυτικὸν σῶμα, τὸ ἔμψυχον καὶ αἰσθητικὸν σῶμα,"
+     }
+    ]
+   ]
+  },
+  "data/corpus/joannes-damascenus.epistula-de-hymno-trisagio.jsonl": {
+   "sha256_before": "50abe317d372498f391060a79202616ff24a7976c3658803f78104cea56d3d76",
+   "sha256_after": "c5a6c48fbe3dd14fbf890e28464256657e1a8656a428759f14a1cddb52733170",
+   "removed": [
+    [
+     0,
+     {
+      "urn": "joannes-damascenus.epistula-de-hymno-trisagio",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0015.1",
+      "text": "πρότερον μὲν οὐχ ὑπάρχον, ὑστερον δ' ἐπεισελθόν. Οὐτε γὰρ ἐνελπί· ποτε Υἱὸς Πατρὶ, οὔτε Υἱῷ Πνεῦμα· ἀλλ' ἀτρέπτως καὶ ἀναλλοίως ἡ αὐτὴ Τριάς ἀεὶ. Οὕτως γὰρ ἡμεῖς πιστεύομεν τὴν μακαρίαν καὶ ζωοποιὸν καὶ ἀδιαίρετον ἁγίαν Τριάδα. Πατῆρ, Υἱὸς, καὶ Πνεῦμα ἅγιον, τρία πρόσωπα, μία εἰκών· τρεῖς χαρακτῆρες, μία ἐκτύπωσις· τρεῖς ὑποστάσεις, μία θεότης· τρία ἰδιώματα, μία οὐσία· τρεῖς ἐνέργειαι, μία χάρις· τρεῖς ὑπάρσεις, μία ἰσότης· τρεῖς ἐπιγνώσεις, μία δόξα· τρία ὀνόματα, μία ὁμολογία· τρεῖς ὁμολογίαι, μία πίστις. Θεὸς ἐστιν, ἀδίος οὐσία καὶ ἀπαράλλακτος, δημιουργικὴ τῶν ὄντων. Θεὸς ἐστι φῶς ἀκρόατον καὶ ἀπρόσιτον, οὔτε νῷ καταληπτὸν, οὔτε λόγῳ ρητόν."
+     }
+    ],
+    [
+     1,
+     {
+      "urn": "joannes-damascenus.epistula-de-hymno-trisagio",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0015.2",
+      "text": "γ'. Ἐρώτ. Ὡσαύτως ὁ Θεός; Ἀποκρ. Θεὸς ὁ Πατὴρ· Θεὸς ὁ Υἱός· Θεὸς τὸ Πνεῦμα τὸ ἅγιον· ἡ μακαρία φύσις, ἡ ἀρθονος ἀγαθότης· τὸ ἀγαπητὸν πᾶσι τοῖς τοῦ λόγου μετείληφόσι, τὸ πολυπόθητον κάλλος, ἡ ἀρχὴ τῶν ὄντων, ἡ πηγὴ τῆς ζωῆς, ἡ ἀπρόσιτος σοφία, ἡ ἀρθονος φύσις, ἡ ἀνενοήλητος ζωή, ἡ ἀλυπος διαγωγή, περὶ ἣν οὐκ ἐστιν ἀλλοίωσις, ἧς οὐχ ἄπτεται μεταβολή· ἡ βρύουσα πηγὴ, ἡ ἀρθονος χάρις, ὁ ἀδαπάνητος θησαυρός."
+     }
+    ],
+    [
+     2,
+     {
+      "urn": "joannes-damascenus.epistula-de-hymno-trisagio",
+      "source": "ocr",
+      "license": "PD",
+      "edition": "migne-ocr-qwen36",
+      "locus": "pg095_0015.3",
+      "text": "δ'. Ὁμολογοῦμεν τὸν Κύριον ἡμῶν Ἰησοῦν Χριστὸν τὸν μονογενῆ Υἱὸν καὶ Λόγον τοῦ Πατρός, φῶς ἐκ φωτός, Θεὸν ἀληθινὸν ἐκ Θεοῦ ἀληθινοῦ, σαρκωθῆναι τε καὶ ἐνανθρωπήσαι ἐκ Πνεύματος ἁγίου, καὶ ἐκ τῆς ἁγίας ἐνδόξου Θεοτόκου καὶ ἀειπαρθένου Μαριάς. Θεὸν τέλειον τὸν αὐτόν, καὶ ἄνθρωπον τέ-λειον, ἕνα καὶ μόνον Υἱόν, καὶ πρὸ τῆς σαρκώσεως, καὶ μετὰ τὴν σάρκωσιν· ὁμοούσιον τῷ Πατρὶ κατὰ τὴν θεότητα, κατὰ πάντα ὁμοίον ἡμῖν, καὶ ὁμοούσιον ἡμῖν κατὰ τὴν ἀνθρωπότητα, χωρὶς ἁμαρτίας γενόμενον ἄνθρωπον· πρὸ αἰώνων μὲν ἐκ τοῦ Πατρὸς γεννηθέντα κατὰ τὴν Θεότητα, ἐπ' ἐσχάτων δὲ τῶν ἡμερῶν τὸν αὐτὸν δι' ἡμᾶς καὶ διὰ τὴν ἡμετέραν σωτηρίαν ἐκ τῆς ἁγίας Θεοτόκου καὶ Ἀειπαρθένου Μαριάς, ἕνα καὶ μόνον Υἱὸν ἐν δυσὶ φύσεσιν, ἀσυγχύτως, ἀτρέπτως, ἀδιαίρετως γνωριζόμενον. Δυὸ γὰρ φύσεις συνῆλθον ἀλλήλαις καὶ' ἑνὸςιν ἀδιάσπαστον, ἀσύγχυτον, ἀτρέπτον. Ἡ γὰρ σάρξ, σάρξ ἐστι, καὶ οὐ θεότης, εἰ καὶ γέγονε Θεοῦ σάρξ· ὁμοίως καὶ ὁ Λόγος, Θεὸς ἐστι καὶ οὐ σάρξ, εἰ καὶ μίαν ἐποιήσατο τὴν σάρκα διὰ τῆς οἰκονομίας· δύο τοίνυν τὰς φύσεις εἶναι φαμεν, ἕνα δὲ Χριστόν, καὶ Υἱόν, καὶ Κύριον τὸν τοῦ Θεοῦ Λόγον ἐνανθρωπήσαντα καὶ ἐσσαρκωμένον. Οὐ γὰρ τὴν ἑαυτοῦ δόξαν"
+     }
+    ]
+   ]
+  }
+ },
+ "witness_files": {
+  "data/corpus_secondary/athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum.crossfile-duplicate.jsonl": 3,
+  "data/corpus_secondary/basilius-theology.de-baptismo-libri-duo.crossfile-duplicate.jsonl": 4,
+  "data/corpus_secondary/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.crossfile-duplicate.jsonl": 55,
+  "data/corpus_secondary/cyrillus-theology.de-sancta-trinitate-dialogi-ivii.crossfile-duplicate.jsonl": 35,
+  "data/corpus_secondary/cyrillus-theology.expositio-in-psalmos.crossfile-duplicate.jsonl": 58,
+  "data/corpus_secondary/cyrillus-theology.fragmenta-in-canticum-canticorum.crossfile-duplicate.jsonl": 9,
+  "data/corpus_secondary/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.crossfile-duplicate.jsonl": 31,
+  "data/corpus_secondary/hesychius-lexicography.lexicon-o.crossfile-duplicate.jsonl": 1,
+  "data/corpus_secondary/joannes-damascenus.de-azymis-fragmenta-duo-sp.crossfile-duplicate.jsonl": 3,
+  "data/corpus_secondary/joannes-damascenus.de-duabus-in-christo-voluntatibus.crossfile-duplicate.jsonl": 16,
+  "data/corpus_secondary/joannes-damascenus.epistula-de-hymno-trisagio.crossfile-duplicate.jsonl": 3
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "what": "cisco's 2026-08-12 rulings over data/crossfile_page_evidence.json, consumed by scripts/resolve_crossfile_pages.py",
+ "issue": "open-greek/open-greek-corpus#33",
+ "approved": "the neighbor-anchor rule's verdicts at high and medium confidence, per the walkthrough recommendation cisco approved; displacement only where the losing copy holds no unique 3+-word runs, attribution record otherwise",
+ "tie_resolutions": {
+  "pg095_0058 ~ pg095_0062": {
+   "belongs": "A",
+   "basis": "content: both copies carry the same elementary-logic page (genus and species, division of substance), which is institutio-elementaris material, not two-wills christology; the de-duabus copy at page 62 is the stray. Each copy holds one small garble-run the other lacks, so no displacement, attribution only."
+  },
+  "pg069_0656 ~ pg069_0660": {
+   "belongs": "B",
+   "basis": "content: the page is Song of Songs exegesis (the bridegroom's arrow, the daughters of Jerusalem), fragmenta-in-canticum material. The expositio-in-psalmos copy is the same printed page garbled into 58 fragment rows and holds no unique 3+-word runs; displace it."
+  },
+  "hesychius_masked_0692 ~ hesychius_masked_0696": {
+   "belongs": "B",
+   "basis": "content: the page is the rho section (its entries run from hyaga/rhaga through rhadamos), which is lexicon-p-w range; lexicon-o's copy is a single 12-word stray row with no unique runs; displace it."
+  }
+ }
+}
