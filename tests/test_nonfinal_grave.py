@@ -112,8 +112,29 @@ def test_the_ones_the_rule_must_refuse_were_not_repaired(form):
 
 
 def test_every_applied_repair_moved_only_an_accent():
-    for name in ("nonfinal_grave_tranche", "nonfinal_grave_tranche_thirdparty"):
-        fp = APPLIED.with_name(f"{name}.applied.json")
+    audits = sorted(APPLIED.parent.glob("nonfinal_grave_tranche*.applied.json"))
+    assert len(audits) >= 3, "the applied audits are the record; where are they"
+    for fp in audits:
+        if "marks" in fp.name:
+            continue  # that tranche moves breathings by design, and says so
         for f, t in json.loads(fp.read_text(encoding="utf-8"))["substitutions"].items():
             assert m.without_accents(f) == m.without_accents(t), (f, t)
             assert m.has_nonfinal_grave(f) and not m.has_nonfinal_grave(t)
+
+
+COMPLETING = APPLIED.with_name(
+    "nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json")
+
+
+@pytest.mark.parametrize("form,target", [
+    ("ὃροι", "ὅροι"),
+    ("ἒστω", "ἔστω"),
+])
+def test_the_completing_pass_reached_below_the_sample_window(form, target):
+    """ὃροι (share 1.0) and ἒστω (0.997) cleared the third-party bar on
+    2026-08-10 and were not applied, because that sheet was generated from the
+    artifact's 400-row decided sample by an uncommitted one-off. The completing
+    apply must hold them: if they ever leave, a tranche was built from the
+    sample again."""
+    subs = json.loads(COMPLETING.read_text(encoding="utf-8"))["substitutions"]
+    assert subs.get(form) == target
