@@ -23,10 +23,10 @@
   },
   "counts": {
    "ocr_works": 1413,
-   "ocr_works_ranked": 823,
+   "ocr_works_ranked": 822,
    "ocr_works_with_witness": 196,
-   "secondary_files": 508,
-   "skipped": 108,
+   "secondary_files": 515,
+   "skipped": 115,
    "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -73,6 +73,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "aristarchus-ludwich.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "athanasius-theology.de-corpore-et-anima-sp.crossfile-duplicate"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -129,6 +133,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "cyrillus-scr-eccl.catecheses-ad-illuminandos-1-18.duplicate-read"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "cyrillus-theology.ad-calosyrium-epist-83.crossfile-duplicate"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -224,7 +232,15 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "gregorius-nazianzenus.de-dogmate-et-constitutione-episcoporum-orat-20.crossfile-duplicate"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "gregorius-nazianzenus.in-sancta-lumina-orat-39.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "gregorius-nazianzenus.in-sanctum-pascha-orat-45.crossfile-duplicate"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -257,6 +273,14 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "himerius.declamationes-et-orationes.duplicate-read-merged"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "joannes-chrysostomus.de-melchisedech-sp.crossfile-duplicate"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.crossfile-duplicate"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -452,6 +476,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "theodoretus.libellus-contra-nestorium-ad-sporacium-sp.crossfile-duplicate"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "theodoretus.quaestiones-in-octateuchum.duplicate-read"
    },
    {
@@ -494,11 +522,11 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1327,
+   "median": 0.1326,
    "min": 0.0089,
-   "n": 823,
-   "q1": 0.0937,
-   "q3": 0.1679
+   "n": 822,
+   "q1": 0.094,
+   "q3": 0.168
   }
  },
  "works": {
@@ -2010,20 +2038,20 @@
   },
   "athanasius-theology.de-corpore-et-anima-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 987,
-   "n_tokens_checked": 569,
-   "n_unattested": 53,
+   "n_tokens": 642,
+   "n_tokens_checked": 373,
+   "n_unattested": 27,
    "source": "ocr",
-   "unattested_rate": 0.093146,
+   "unattested_rate": 0.072386,
    "witness": null
   },
   "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 14352,
    "n_tokens_checked": 8597,
-   "n_unattested": 919,
+   "n_unattested": 916,
    "source": "ocr",
-   "unattested_rate": 0.106898,
+   "unattested_rate": 0.106549,
    "witness": null
   },
   "athanasius-theology.de-sabbatis-et-circumcisione-sp": {
@@ -2196,11 +2224,11 @@
   },
   "athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 992,
-   "n_tokens_checked": 602,
-   "n_unattested": 67,
+   "n_tokens": 667,
+   "n_tokens_checked": 389,
+   "n_unattested": 44,
    "source": "ocr",
-   "unattested_rate": 0.111296,
+   "unattested_rate": 0.113111,
    "witness": null
   },
   "athanasius-theology.epistulae-ad-castorem-sp": {
@@ -2365,10 +2393,10 @@
   "athanasius-theology.liber-de-definitionibus-sp": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 4144,
-   "n_tokens_checked": 2438,
-   "n_unattested": 226,
+   "n_tokens_checked": 2439,
+   "n_unattested": 223,
    "source": "ocr",
-   "unattested_rate": 0.092699,
+   "unattested_rate": 0.091431,
    "witness": null
   },
   "athanasius-theology.narratio-de-cruce-seu-imagine-berytensi-sp": {
@@ -3957,11 +3985,11 @@
   },
   "cyrillus-theology.ad-calosyrium-epist-83": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 1320,
-   "n_tokens_checked": 821,
-   "n_unattested": 62,
+   "n_tokens": 70,
+   "n_tokens_checked": 41,
+   "n_unattested": 4,
    "source": "ocr",
-   "unattested_rate": 0.075518,
+   "unattested_rate": 0.097561,
    "witness": null
   },
   "cyrillus-theology.ad-euoptium-episcopum-ptolemaidis-epist-84": {
@@ -4002,11 +4030,11 @@
   },
   "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 5750,
-   "n_tokens_checked": 3359,
-   "n_unattested": 307,
+   "n_tokens": 2510,
+   "n_tokens_checked": 1452,
+   "n_unattested": 135,
    "source": "ocr",
-   "unattested_rate": 0.091396,
+   "unattested_rate": 0.092975,
    "witness": null
   },
   "cyrillus-theology.commentarii-in-joannem": {
@@ -4039,10 +4067,10 @@
   "cyrillus-theology.contra-julianum-lib-1-2": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 121002,
-   "n_tokens_checked": 71912,
-   "n_unattested": 11728,
+   "n_tokens_checked": 71922,
+   "n_unattested": 11647,
    "source": "ocr",
-   "unattested_rate": 0.163088,
+   "unattested_rate": 0.161939,
    "witness": null
   },
   "cyrillus-theology.de-incarnatione-dei-verbi-homilia-diversa-15": {
@@ -4075,10 +4103,10 @@
   "cyrillus-theology.de-sancta-trinitate-sp": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 16997,
-   "n_tokens_checked": 9959,
-   "n_unattested": 1273,
+   "n_tokens_checked": 9970,
+   "n_unattested": 1141,
    "source": "ocr",
-   "unattested_rate": 0.127824,
+   "unattested_rate": 0.114443,
    "witness": null
   },
   "cyrillus-theology.dialogus-cum-nestorio-sp": {
@@ -4146,29 +4174,29 @@
   },
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 4109,
-   "n_tokens_checked": 2623,
-   "n_unattested": 167,
+   "n_tokens": 1244,
+   "n_tokens_checked": 865,
+   "n_unattested": 105,
    "source": "ocr",
-   "unattested_rate": 0.063668,
+   "unattested_rate": 0.121387,
    "witness": null
   },
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 27999,
    "n_tokens_checked": 16454,
-   "n_unattested": 2011,
+   "n_unattested": 1961,
    "source": "ocr",
-   "unattested_rate": 0.12222,
+   "unattested_rate": 0.119181,
    "witness": null
   },
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 4107,
-   "n_tokens_checked": 2518,
-   "n_unattested": 379,
+   "n_tokens_checked": 2519,
+   "n_unattested": 282,
    "source": "ocr",
-   "unattested_rate": 0.150516,
+   "unattested_rate": 0.111949,
    "witness": null
   },
   "cyrillus-theology.libri-v-contra-nestorium": {
@@ -6059,9 +6087,9 @@
    "edition": "migne-ocr-qwen36",
    "n_tokens": 13634,
    "n_tokens_checked": 8150,
-   "n_unattested": 1096,
+   "n_unattested": 1092,
    "source": "ocr",
-   "unattested_rate": 0.134479,
+   "unattested_rate": 0.133988,
    "witness": null
   },
   "gregorius-nazianzenus.apologeticus-ad-patrem-orat-9": {
@@ -6120,11 +6148,11 @@
   },
   "gregorius-nazianzenus.de-dogmate-et-constitutione-episcoporum-orat-20": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 1827,
-   "n_tokens_checked": 1072,
-   "n_unattested": 56,
+   "n_tokens": 1474,
+   "n_tokens_checked": 870,
+   "n_unattested": 42,
    "source": "ocr",
-   "unattested_rate": 0.052239,
+   "unattested_rate": 0.048276,
    "witness": null
   },
   "gregorius-nazianzenus.de-martyribus-et-adversus-arianos-orat-35-sp": {
@@ -6336,11 +6364,11 @@
   },
   "gregorius-nazianzenus.in-sanctum-pascha-orat-45": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 6189,
-   "n_tokens_checked": 3632,
-   "n_unattested": 540,
+   "n_tokens": 4560,
+   "n_tokens_checked": 2686,
+   "n_unattested": 421,
    "source": "ocr",
-   "unattested_rate": 0.148678,
+   "unattested_rate": 0.156739,
    "witness": null
   },
   "gregorius-nazianzenus.in-seipsum-ad-patrem-et-basilium-magnum-orat-10": {
@@ -6364,10 +6392,10 @@
   "gregorius-nazianzenus.in-theophania-orat-38": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 3425,
-   "n_tokens_checked": 2014,
-   "n_unattested": 305,
+   "n_tokens_checked": 2015,
+   "n_unattested": 281,
    "source": "ocr",
-   "unattested_rate": 0.15144,
+   "unattested_rate": 0.139454,
    "witness": null
   },
   "gregorius-nazianzenus.liturgia-sancti-gregorii-sp": {
@@ -7914,11 +7942,11 @@
   },
   "joannes-chrysostomus.de-melchisedech-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 1849,
-   "n_tokens_checked": 1105,
-   "n_unattested": 110,
+   "n_tokens": 1160,
+   "n_tokens_checked": 678,
+   "n_unattested": 70,
    "source": "ocr",
-   "unattested_rate": 0.099548,
+   "unattested_rate": 0.103245,
    "witness": null
   },
   "joannes-chrysostomus.de-non-iterando-conjugio": {
@@ -8112,11 +8140,11 @@
   },
   "joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 152854,
-   "n_tokens_checked": 93835,
-   "n_unattested": 14903,
+   "n_tokens": 151886,
+   "n_tokens_checked": 93232,
+   "n_unattested": 14778,
    "source": "ocr",
-   "unattested_rate": 0.158821,
+   "unattested_rate": 0.158508,
    "witness": null
   },
   "joannes-chrysostomus.epistula-ad-caesarium-sp": {
@@ -8329,10 +8357,10 @@
   "joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 99169,
-   "n_tokens_checked": 60753,
-   "n_unattested": 8885,
+   "n_tokens_checked": 60758,
+   "n_unattested": 8861,
    "source": "ocr",
-   "unattested_rate": 0.146248,
+   "unattested_rate": 0.145841,
    "witness": null
   },
   "joannes-chrysostomus.in-epistulam-ad-philemonem-homiliae-1-3": {
@@ -8500,10 +8528,10 @@
   "joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 21362,
-   "n_tokens_checked": 13008,
-   "n_unattested": 1952,
+   "n_tokens_checked": 13012,
+   "n_unattested": 1926,
    "source": "ocr",
-   "unattested_rate": 0.150062,
+   "unattested_rate": 0.148017,
    "witness": null
   },
   "joannes-chrysostomus.in-illud-ne-timueritis-cum-dives-factus-fuerit-homo": {
@@ -8967,11 +8995,11 @@
   },
   "joannes-damascenus.de-duabus-in-christo-voluntatibus": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 12037,
-   "n_tokens_checked": 6996,
-   "n_unattested": 661,
+   "n_tokens": 11652,
+   "n_tokens_checked": 6760,
+   "n_unattested": 642,
    "source": "ocr",
-   "unattested_rate": 0.094483,
+   "unattested_rate": 0.09497,
    "witness": null
   },
   "joannes-damascenus.de-immaculato-corpore-sp": {
@@ -9022,10 +9050,10 @@
   "joannes-damascenus.de-sancta-trinitate-fragmentum-dub": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 1057,
-   "n_tokens_checked": 669,
-   "n_unattested": 65,
+   "n_tokens_checked": 670,
+   "n_unattested": 51,
    "source": "ocr",
-   "unattested_rate": 0.09716,
+   "unattested_rate": 0.076119,
    "witness": null
   },
   "joannes-damascenus.disputatio-christiani-et-saraceni-dub": {
@@ -9039,20 +9067,20 @@
   },
   "joannes-damascenus.epistula-de-hymno-trisagio": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 4601,
-   "n_tokens_checked": 2692,
-   "n_unattested": 356,
+   "n_tokens": 4286,
+   "n_tokens_checked": 2484,
+   "n_unattested": 314,
    "source": "ocr",
-   "unattested_rate": 0.132244,
+   "unattested_rate": 0.126409,
    "witness": null
   },
   "joannes-damascenus.institutio-elementaris": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 1838,
    "n_tokens_checked": 1117,
-   "n_unattested": 35,
+   "n_unattested": 32,
    "source": "ocr",
-   "unattested_rate": 0.031334,
+   "unattested_rate": 0.028648,
    "witness": null
   },
   "joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp": {
@@ -13141,10 +13169,10 @@
   "theodoretus.haereticarum-fabularum-compendium": {
    "edition": "migne-ocr-qwen36",
    "n_tokens": 36689,
-   "n_tokens_checked": 22173,
-   "n_unattested": 2722,
+   "n_tokens_checked": 22175,
+   "n_unattested": 2714,
    "source": "ocr",
-   "unattested_rate": 0.122762,
+   "unattested_rate": 0.12239,
    "witness": null
   },
   "theodoretus.interpretatio-in-ezechielem": {
@@ -13194,11 +13222,11 @@
   },
   "theodoretus.libellus-contra-nestorium-ad-sporacium-sp": {
    "edition": "migne-ocr-qwen36",
-   "n_tokens": 1433,
-   "n_tokens_checked": 880,
-   "n_unattested": 89,
+   "n_tokens": 1224,
+   "n_tokens_checked": 749,
+   "n_unattested": 67,
    "source": "ocr",
-   "unattested_rate": 0.101136,
+   "unattested_rate": 0.089453,
    "witness": null
   },
   "theodoretus.quaestiones-in-libros-regnorum-et-paralipomenon": {
@@ -14625,10 +14653,10 @@
   "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40",
   "antiphanes.fragmenta",
-  "cyrillus-theology.contra-julianum-lib-1-2",
   "joannes-chrysostomus.ad-stelechium-de-compunctione-lib-2",
   "joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp",
   "eudoxus-astronomy.fragmenta",
+  "cyrillus-theology.contra-julianum-lib-1-2",
   "cyrillus-scr-eccl.homilia-in-occursum-domini-sp",
   "joannes-chrysostomus.in-eutropium",
   "gregorius-nazianzenus.supremum-vale-orat-42",
@@ -14647,9 +14675,9 @@
   "gregorius-nazianzenus.funebris-oratio-in-patrem-orat-18",
   "joannes-chrysostomus.ad-illuminandos-catecheses-1-2-series-prima-et-secunda",
   "joannes-chrysostomus.in-illud-pater-meus-usque-modo-operatur",
-  "joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp",
   "tragica-adespota.fragmenta",
   "joannes-chrysostomus.ad-populum-antiochenum-homiliae-1-21",
+  "joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp",
   "bion-philosophy.fragmenta",
   "paulus-medicine.epitomae-medicae-libri-septem",
   "basilius-theology.in-ebriosos",
@@ -14659,6 +14687,7 @@
   "empedocles.diels-ppf",
   "theodoretus.quaestiones-in-libros-regnorum-et-paralipomenon",
   "aristobulus.fhg3",
+  "gregorius-nazianzenus.in-sanctum-pascha-orat-45",
   "gregorius-nazianzenus.in-patrem-tacentem-orat-16",
   "basilius-theology.homilia-exhortatoria-ad-sanctum-baptisma",
   "basilius-theology.sermones-de-moribus-symeone-metaphrasta-collecti",
@@ -14695,7 +14724,6 @@
   "menander-comedy.fragmenta-2",
   "gregorius-nazianzenus.epistulae",
   "joannes-chrysostomus.contra-eos-qui-subintroductas-habent-virgines",
-  "gregorius-nazianzenus.in-theophania-orat-38",
   "gregorius-nyssenus.de-occursu-domini-sp",
   "metrodorus-koerte",
   "athanasius-theology.homilia-in-occursum-domini-sp",
@@ -14703,10 +14731,8 @@
   "cyrillus-theology.responsiones-ad-tiberium-diaconum-sociosque-suos",
   "basilius-theology.de-jejunio-homilia-2",
   "antisthenes.declamationes-fragmenta",
-  "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios",
   "gregorius-nyssenus.in-illud-quatenus-uni-ex-his-fecistis-mihi-fecistis",
   "gregorius-nazianzenus.in-laudem-heronis-philosophi-orat-25",
-  "joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen",
   "basilius-theology.homilia-in-divites",
   "secundus-mullach-fpg1",
   "gregorius-nyssenus.epistulae",
@@ -14714,9 +14740,9 @@
   "joannes-chrysostomus.in-isaiam",
   "tlg0129.fragmenta",
   "tlg1595.tlg210",
-  "gregorius-nazianzenus.in-sanctum-pascha-orat-45",
   "gregorius-nazianzenus.funebris-in-laudem-caesarii-fratris-oratio-orat-7",
   "joannes-chrysostomus.de-profectu-evangelii",
+  "joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen",
   "aeneas-philosophy.epistulae",
   "joannes-chrysostomus.de-paenitentia-homiliae-1-9",
   "basilius-theology.in-gordium-martyrem",
@@ -14731,9 +14757,9 @@
   "joannes-chrysostomus.in-genesim-homiliae-1-67",
   "joannes-chrysostomus.synopsis-scripturae-sacrae-sp",
   "symmachus.fragmenta",
-  "joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34",
   "polystratus.peri-lo-gou-katafronh-sews-p-herc-336-1150",
   "gregorius-nyssenus.de-vita-mosis",
+  "joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34",
   "joannes-chrysostomus.ad-theodorum-lapsum-lib-1",
   "gregorius-nazianzenus.in-laudem-sororis-gorgoniae-orat-8",
   "joannes-chrysostomus.de-beato-abraham-sp",
@@ -14769,6 +14795,7 @@
   "joannes-chrysostomus.pg052",
   "joannes-chrysostomus.in-sanctum-lucianum-martyrem",
   "theodoretus.interpretatio-in-jeremiam",
+  "gregorius-nazianzenus.in-theophania-orat-38",
   "basilius-theology.homilia-de-invidia",
   "gregorius-nyssenus.dialogus-de-anima-et-resurrectione",
   "anonymi-in-artem-rhetoricam.peri-ton-tessaron-meron-tou-teleiou-logou",
@@ -14793,11 +14820,11 @@
   "joannes-chrysostomus.in-sanctum-julianum-martyrem",
   "gregorius-nyssenus.oratio-consolatoria-in-pulcheriam",
   "joannes-chrysostomus.de-sancto-hieromartyre-phoca",
-  "gregorius-nazianzenus.apologetica-orat-2",
   "theodoretus.interpretatio-in-psalmos",
   "theodoretus.quaestiones-in-octateuchum",
   "joannes-chrysostomus.epistulae-18-242",
   "joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1",
+  "gregorius-nazianzenus.apologetica-orat-2",
   "joannes-chrysostomus.in-joannem-homiliae-1-88",
   "joannes-chrysostomus.commentarius-in-job",
   "procopius-rhetoric.epistulae-1-166",
@@ -14811,7 +14838,6 @@
   "ocr.pg048",
   "gregorius-nyssenus.oratio-in-diem-natalem-christi",
   "athanasius-theology.homilia-in-sanctum-pascha-et-in-recens-illuminatos-sp",
-  "joannes-damascenus.epistula-de-hymno-trisagio",
   "joannes-chrysostomus.in-epistulam-ad-titum-homiliae-1-6",
   "licymnius.fragmenta",
   "joannes-chrysostomus.ad-eos-qui-scandalizati-sunt",
@@ -14846,12 +14872,12 @@
   "joannes-chrysostomus.de-perfecta-caritate-sp",
   "ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas",
   "constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske",
-  "cyrillus-theology.de-sancta-trinitate-sp",
   "gregorius-nyssenus.adversus-macedonianos-de-spiritu-sancto",
   "patria-constantinopoleos.parasta-seis-su-ntomoi-xronikai",
   "joannes-chrysostomus.de-coemeterio-et-de-cruce",
   "joannes-chrysostomus.de-precatione-orat-1-2-sp",
   "joannes-chrysostomus.in-dictum-pauli-nolo-vos-ignorare",
+  "joannes-damascenus.epistula-de-hymno-trisagio",
   "athanasius-theology.quaestiones-ad-antiochum-ducem-sp",
   "joannes-chrysostomus.de-decem-millium-talentorum-debitore",
   "joannes-chrysostomus.de-resurrectione-mortuorum",
@@ -14874,11 +14900,10 @@
   "joannes-chrysostomus.in-illud-hoc-scitote-quod-in-novissimis-diebus",
   "joannes-chrysostomus.in-illud-pater-si-possibile-est-transeat",
   "gregorius-nyssenus.in-basilium-fratrem",
-  "theodoretus.haereticarum-fabularum-compendium",
   "euhemerus.fragmenta",
   "porphyrius.contra-christianos-fragmenta",
+  "theodoretus.haereticarum-fabularum-compendium",
   "basilius-theology.homiliae-super-psalmos",
-  "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos",
   "cyrillus-scr-eccl.mystagogiae-1-5-sp",
   "eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum",
   "gregorius-nyssenus.encomium-in-sanctum-stephanum-protomartyrem-i",
@@ -14894,6 +14919,7 @@
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
   "josephus-rhacendyta.synopsis-rhetorikes",
   "theodoretus.interpretatio-in-ezechielem",
+  "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos",
   "athanasius-theology.quaestiones-in-evangelia-sp",
   "gregorius-nyssenus.de-deitate-filii-et-spiritus-sancti",
   "athanasius-theology.quaestiones-in-scripturam-sacram-sp",
@@ -14915,6 +14941,7 @@
   "gregorius-nyssenus.de-oratione-dominica-orationes-v",
   "theophylactus-achridensis.in-acta-apostolorum-commentarius-sp",
   "ocr.walz_rhetores_v2",
+  "cyrillus-theology.de-sancta-trinitate-sp",
   "athanasius-theology.homilia-de-passione-et-cruce-domini-sp",
   "joannes-diaconus-hadrianopolitanus.carmen-politicum",
   "athanasius-theology.vita-antonii",
@@ -14927,6 +14954,7 @@
   "joannes-chrysostomus.contra-anomoeos-homilia-11",
   "basilius-theology.in-sanctam-christi-generationem",
   "ocellus.de-universi-natura-sp",
+  "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios",
   "michael-psellus.peri-rhetorikes",
   "anonymi-in-artem-rhetoricam.peri-ton-tou-logou-schematon",
   "thales.testimonia",
@@ -14951,9 +14979,9 @@
   "epicharmus-et-pseudepicharmea.testimonia",
   "gregorius-nazianzenus.liturgia-sancti-gregorii-sp",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum",
-  "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp",
   "heron.definitiones",
   "eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum",
+  "athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp",
   "joannes-chrysostomus.fragmenta-in-epistulas-catholicas",
   "joannes-doxopatres.prolegomena-tes-rhetorikes",
   "hecataeus-abderita.testimonia-2",
@@ -15005,11 +15033,11 @@
   "michael-psellus.de-actionum-nominibus",
   "xenophanes.testimonia",
   "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
+  "joannes-damascenus.de-duabus-in-christo-voluntatibus",
   "michael-psellus.epistulae",
   "gregorius-nyssenus.de-instituto-christiano",
   "athanasius-theology.de-sancta-trinitate-dialogi-2-and-4-sp",
   "andronicus-rhodius.de-passionibus-lib-1-sp",
-  "joannes-damascenus.de-duabus-in-christo-voluntatibus",
   "aristophanes-comedy.fragmenta-2",
   "zeno-philosophy.testimonia",
   "proclus.institutio-theologica",
@@ -15017,11 +15045,11 @@
   "athanasius-theology.dialogi-duo-contra-macedonianos-sp",
   "anonymi-in-aphthonium.scholia-eis-ta-progymnasmata-walz-ii-565",
   "cyrillus-theology.dialogus-cum-nestorio-sp",
-  "athanasius-theology.liber-de-definitionibus-sp",
+  "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
   "basilius-theology.prologus-5-sermo-asceticus-dub",
   "pseudo-codinus.de-annis-ab-orbe-condito",
   "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous",
-  "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp",
+  "athanasius-theology.liber-de-definitionibus-sp",
   "athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria",
   "pseudo-codinus.patria-constantinopoleos",
   "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum",
@@ -15137,7 +15165,6 @@
   "symeon-thessalonicensis.de-sancto-chrismate",
   "demetrius-cydones.occisorum-thessalonicae-monodia",
   "athanasius-theology.symbolum-quicumque-sp",
-  "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos",
   "procopius-rhetoric.in-libros-regum-et-paralipomenon-scholia",
   "theophylactus-achridensis.expositio-in-epistolam-catholicam-jacobi",
   "symeon-thessalonicensis.de-sacro-templo",

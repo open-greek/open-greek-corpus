@@ -11,14 +11,14 @@
    "ocr"
   ]
  },
- "files_scanned": 4417,
- "candidates": 1888,
- "clean_second_copies": 690,
- "clean_second_copies_tokens": 198288,
- "clean_second_copies_served": 251,
- "clean_second_copies_served_tokens": 72646,
- "overlapping_not_copies": 1198,
- "overlapping_not_copies_tokens": 409483,
+ "files_scanned": 4424,
+ "candidates": 1859,
+ "clean_second_copies": 686,
+ "clean_second_copies_tokens": 196897,
+ "clean_second_copies_served": 247,
+ "clean_second_copies_served_tokens": 71255,
+ "overlapping_not_copies": 1173,
+ "overlapping_not_copies_tokens": 400870,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -43,17 +43,17 @@
   },
   {
    "band": "0.60-0.80",
-   "pairs": 155,
-   "tokens": 42039,
-   "same_item_pairs": 140,
-   "same_item_tokens": 37965
+   "pairs": 152,
+   "tokens": 40872,
+   "same_item_pairs": 137,
+   "same_item_tokens": 36798
   },
   {
    "band": "0.40-0.60",
-   "pairs": 25,
-   "tokens": 6060,
-   "same_item_pairs": 24,
-   "same_item_tokens": 5868
+   "pairs": 24,
+   "tokens": 5836,
+   "same_item_pairs": 23,
+   "same_item_tokens": 5644
   }
  ],
  "duplicate_runs": {
@@ -377,8 +377,8 @@
   "data/corpus/parmenides.testimonia.jsonl": 50,
   "data/corpus_secondary/ocr.dindorf_aristides_v2.jsonl": 45,
   "data/corpus_secondary/anaxagoras.testimonia.jsonl": 38,
+  "data/corpus_secondary/ocr.pg036.jsonl": 38,
   "data/corpus/pythagoristae-d-k.testimonia-et-fragmenta.jsonl": 35,
-  "data/corpus_secondary/ocr.pg036.jsonl": 33,
   "data/corpus_secondary/pythagoristae-d-k.testimonia-et-fragmenta.jsonl": 31,
   "data/corpus/anaxagoras.testimonia.jsonl": 30,
   "data/corpus_secondary/diogenes-babylonius.testimonia-et-fragmenta.jsonl": 29,
@@ -416,7 +416,6 @@
   "data/corpus/leucippus.testimonia.jsonl": 9,
   "data/corpus_secondary/xenophanes.testimonia.jsonl": 9,
   "data/corpus_secondary/thales.testimonia.jsonl": 9,
-  "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl": 9,
   "data/corpus_secondary/leucippus.testimonia.jsonl": 9,
   "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl": 9,
   "data/corpus/pseudo-zonaras.lexicon.jsonl": 8,
@@ -436,12 +435,10 @@
   "data/corpus_secondary/eusebius-scr-eccl.commentaria-in-psalmos.jsonl": 6,
   "data/corpus/ocr.pg036.jsonl": 6,
   "data/corpus/theodoretus.interpretatio-in-ezechielem.jsonl": 6,
-  "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl": 6,
   "data/corpus/aristides-quintilianus-music.de-musica.jsonl": 6,
   "data/corpus/hecataeus-abderita.testimonia-2.jsonl": 6,
   "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": 6,
   "data/corpus/heron.definitiones.jsonl": 6,
-  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl": 5,
   "data/corpus_secondary/epicharmus-et-pseudepicharmea.testimonia.jsonl": 5,
   "data/corpus/joannes-stobaeus-anthologus.anthologium.jsonl": 5,
   "data/corpus/anaxarchus.testimonia.jsonl": 5,
@@ -475,11 +472,8 @@
   "data/corpus_secondary/hippocrates.testimonia.jsonl": 3,
   "data/corpus_secondary/nausiphanes.testimonia.jsonl": 3,
   "data/corpus/epicurus.deperditorum-librorum-reliquiae.jsonl": 3,
-  "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl": 3,
   "data/corpus/hippon.testimonia.jsonl": 3,
   "data/corpus/gregorius-nazianzenus.contra-julianum-imperatorem-1-orat-4.jsonl": 3,
-  "data/corpus/joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl": 3,
-  "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl": 3,
   "data/corpus/joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.jsonl": 3,
   "data/corpus/aristarchus-ludwich.jsonl": 3,
   "data/corpus/athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria.jsonl": 3,
@@ -519,6 +513,7 @@
   "data/corpus/metrodorus-philosophy.testimonia.jsonl": 2,
   "data/corpus_secondary/dosiadas-lyric.bwmo-s.jsonl": 2,
   "data/corpus/theodoretus.interpretatio-in-jeremiam.jsonl": 2,
+  "data/corpus/joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl": 2,
   "data/corpus/ion-philosophy.testimonia-2.jsonl": 2,
   "data/corpus_secondary/ion-philosophy.testimonia-2.jsonl": 2,
   "data/corpus_secondary/metrodorus-philosophy.testimonia.jsonl": 2,
@@ -529,7 +524,6 @@
   "data/corpus/calliphon-et-democedes.testimonia.jsonl": 2,
   "data/corpus/timosthenes-ggm1.jsonl": 2,
   "data/corpus_secondary/protagoras.testimonia.jsonl": 2,
-  "data/corpus/joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl": 2,
   "data/corpus/fhg-vol3-mueller-diocles-rhodius.jsonl": 2,
   "data/corpus/commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana.jsonl": 2,
   "data/corpus/gregorius-nyssenus.contra-eunomium.jsonl": 2,
@@ -542,7 +536,6 @@
   "data/corpus/joannes-chrysostomus.in-illud-filius-ex-se-nihil-facit.jsonl": 1,
   "data/corpus/basilius-theology.asceticon-magnum-sive-quaestiones-regulae-brevius.jsonl": 1,
   "data/corpus_secondary/chrysippus-philosophy.fragmenta-quae-ad-explicationem-carminum-homericorum-pertinent.jsonl": 1,
-  "data/corpus/joannes-damascenus.institutio-elementaris.jsonl": 1,
   "data/corpus/joannes-damascenus.passio-sancti-artemii-dub.jsonl": 1,
   "data/corpus/philodemus.tlg1595-tlg289.jsonl": 1,
   "data/corpus/tlg1595.tlg289.jsonl": 1,
@@ -557,29 +550,25 @@
   "data/corpus/tlg1595.tlg267.jsonl": 1,
   "data/corpus/joannes-chrysostomus.in-dictum-pauli-oportet-haereses-esse.jsonl": 1,
   "data/corpus/eurytus.testimonia.jsonl": 1,
+  "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl": 1,
   "data/corpus/aristophanes-byzantii-nauck.jsonl": 1,
   "data/corpus/joannes-damascenus.adversus-iconoclastas-sp.jsonl": 1,
   "data/corpus/gregorius-nazianzenus.in-sancta-lumina-orat-39.jsonl": 1,
-  "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl": 1,
   "data/corpus/theodoretus.commentaria-in-isaiam.jsonl": 1,
   "data/corpus/alexander-lyric.fragmenta.jsonl": 1,
   "data/corpus_secondary/nonnosus.fragmenta.jsonl": 1,
   "data/corpus/euhemerus.fragmenta.jsonl": 1,
   "data/corpus/joannes-chrysostomus.quales-ducendae-sint-uxores-encomium-ad-maximum.jsonl": 1,
-  "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl": 1,
-  "data/corpus/athanasius-theology.liber-de-definitionibus-sp.jsonl": 1,
   "data/corpus/aristippus-cyrenaicus.sententiae-et-apophthegmata.jsonl": 1,
   "data/corpus_secondary/septuaginta.ecclesiastes.jsonl": 1,
   "data/corpus/brotinus.testimonia.jsonl": 1,
   "data/corpus/rhinthon.fragmenta.jsonl": 1,
   "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl": 1,
-  "data/corpus/theodoretus.haereticarum-fabularum-compendium.jsonl": 1,
   "data/corpus/joannes-chrysostomus.in-genesim-sermones-1-9.jsonl": 1,
   "data/corpus/polyclitus.testimonia.jsonl": 1,
   "data/corpus/scholia-in-demosthenem.scholia-demosthenem-dindorf-v8.jsonl": 1,
   "data/corpus/scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera.jsonl": 1,
   "data/corpus/scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii.jsonl": 1,
-  "data/corpus/gregorius-nazianzenus.apologetica-orat-2.jsonl": 1,
   "data/corpus/hierocles-philosophy.hqikh-stoixei-wsis.jsonl": 1,
   "data/corpus/joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos.jsonl": 1,
   "data/corpus/basilius-theology.regulae-morales.jsonl": 1,
@@ -5549,34 +5538,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0523",
-   "locus_b": "pg074_0549",
-   "containment": 0.8519,
-   "bigrams_a": 324,
-   "bigrams_b": 324,
-   "tokens_b": 334,
-   "words_absent_from_a": 23,
-   "words_b": 334,
-   "unique_runs_if_b_dropped": [
-    "σφερουσιν ομβρον επιβροσι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "τρεφουσιν υμβρων επιρροαι"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/philolaus.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0264",
@@ -7277,34 +7238,6 @@
    "run": "dindorf_aristides_v2+18@766"
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0533",
-   "locus_b": "pg074_0554",
-   "containment": 0.8286,
-   "bigrams_a": 281,
-   "bigrams_b": 280,
-   "tokens_b": 313,
-   "words_absent_from_a": 24,
-   "words_b": 313,
-   "unique_runs_if_b_dropped": [
-    "παιδα κυριλλου ηδικιας"
-   ],
-   "unique_runs_if_a_dropped": [
-    "παιδια κυριλλιου ηλικιας"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/xenophanes.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0057",
@@ -8061,34 +7994,6 @@
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-damascenus.institutio-elementaris.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.institutio-elementaris.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.de-duabus-in-christo-voluntatibus.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0058",
-   "locus_b": "pg095_0062",
-   "containment": 0.8174,
-   "bigrams_a": 358,
-   "bigrams_b": 334,
-   "tokens_b": 385,
-   "words_absent_from_a": 33,
-   "words_b": 385,
-   "unique_runs_if_b_dropped": [
-    "πολ λων πτενινων"
-   ],
-   "unique_runs_if_a_dropped": [
-    "λιθος ανθρωπος βιος κτησις υπαρξις πλουτος τουτεστι"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -10556,35 +10461,6 @@
    "run": "libanius_orationes_v4+10@37"
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0641",
-   "locus_b": "pg077_0675",
-   "containment": 0.7869,
-   "bigrams_a": 363,
-   "bigrams_b": 352,
-   "tokens_b": 368,
-   "words_absent_from_a": 40,
-   "words_b": 368,
-   "unique_runs_if_b_dropped": [
-    "οιδεν υπερηφανιας νοημα"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ουδεν υπερφανιας νοσημα",
-    "αν ισ διασφηγω ισαν"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl",
    "served": true,
    "locus_a": "aeneasgazaeuset00zachgoog_0049",
@@ -11477,44 +11353,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0618",
-   "locus_b": "pg077_0652",
-   "containment": 0.7767,
-   "bigrams_a": 403,
-   "bigrams_b": 300,
-   "tokens_b": 327,
-   "words_absent_from_a": 33,
-   "words_b": 327,
-   "unique_runs_if_b_dropped": [
-    "στερραν ολην λαμβανομενης"
-   ],
-   "unique_runs_if_a_dropped": [
-    "εξ εθνων εκκλη σιαν εμηνυσευσατο",
-    "αμαρτιας εικος καρυτινην ειναι",
-    "εγρηγορσεως τω ιερεμια",
-    "ορωντι ραβδον καρυτινην φησιν",
-    "θεος ιδου εγρηγορα επι τους λογους μου εβλαστησε",
-    "ανδρος αρετης ενδον εχοντος",
-    "εαυτη ψυχη ουχ",
-    "επεσαχη τους μαδιανιους",
-    "μωυσην νο μος",
-    "αρι στευσαντες δωδεκα αποστολοι",
-    "στερεαν υλην λαμ βανομενην"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/geoponica.geoponica.jsonl",
    "served": true,
    "locus_a": "geoponica_beckh_0276",
@@ -11800,41 +11638,6 @@
    "same_item": true,
    "page_offset": 10,
    "run": "pg024+10@12"
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0638",
-   "locus_b": "pg077_0672",
-   "containment": 0.7734,
-   "bigrams_a": 368,
-   "bigrams_b": 278,
-   "tokens_b": 300,
-   "words_absent_from_a": 35,
-   "words_b": 300,
-   "unique_runs_if_b_dropped": [
-    "αφαραθεις παρακαυσεως παρατιθεασι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ησαιας υιος αμως",
-    "απεστειλε κυριος αγγελον",
-    "εξεκρωσε παντα δυνατον",
-    "παρεμβολη βασιλεως ασσυριου",
-    "θειαν γραφην ασκηθηναι",
-    "ονοματων ερμηνειας αυθοδεν δυναμενας",
-    "τετραμμενον διανοιαν ειπερ μελλοι μη",
-    "πνευματος αχας εγεννησε"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
   },
   {
    "file": "data/corpus/menestor.testimonia.jsonl",
@@ -13722,36 +13525,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0527",
-   "locus_b": "pg074_0551",
-   "containment": 0.7577,
-   "bigrams_a": 360,
-   "bigrams_b": 359,
-   "tokens_b": 376,
-   "words_absent_from_a": 47,
-   "words_b": 376,
-   "unique_runs_if_b_dropped": [
-    "γεγονασι τουτου ευηγορειν διαμεμνηνται",
-    "φιλοκερδειας ακορεστως κεχηνοτες"
-   ],
-   "unique_runs_if_a_dropped": [
-    "θεοπνευστον γραφην τη επικειαις",
-    "φιλοχρειας αχοριστως κεχυντος"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
    "served": true,
    "locus_a": "scholia_aristidem_frommel1826_0381",
@@ -14002,34 +13775,6 @@
    ],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0611",
-   "locus_b": "pg077_0645",
-   "containment": 0.7562,
-   "bigrams_a": 402,
-   "bigrams_b": 406,
-   "tokens_b": 423,
-   "words_absent_from_a": 48,
-   "words_b": 423,
-   "unique_runs_if_b_dropped": [
-    "σφαγιαζομενου χυμαρου ηγιαζε"
-   ],
-   "unique_runs_if_a_dropped": [
-    "γραμματων επισκιαζου σης"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -15210,34 +14955,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0620",
-   "locus_b": "pg077_0654",
-   "containment": 0.7418,
-   "bigrams_a": 368,
-   "bigrams_b": 369,
-   "tokens_b": 381,
-   "words_absent_from_a": 50,
-   "words_b": 381,
-   "unique_runs_if_b_dropped": [
-    "εβδομω ελευθεροις αφλεσθαι αλλοφυλους"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ευρεσαντο καιν εκτος"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae.jsonl",
    "served": true,
    "locus_a": "pg096_0051",
@@ -15278,32 +14995,6 @@
    ],
    "same_item": true,
    "page_offset": 20,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0615",
-   "locus_b": "pg077_0649",
-   "containment": 0.7406,
-   "bigrams_a": 347,
-   "bigrams_b": 347,
-   "tokens_b": 365,
-   "words_absent_from_a": 44,
-   "words_b": 365,
-   "unique_runs_if_b_dropped": [
-    "αρθαρτου καθ αμαρτιαν"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -15771,36 +15462,6 @@
    "unique_runs_if_b_dropped": [],
    "unique_runs_if_a_dropped": [],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0531",
-   "locus_b": "pg074_0553",
-   "containment": 0.7365,
-   "bigrams_a": 334,
-   "bigrams_b": 335,
-   "tokens_b": 355,
-   "words_absent_from_a": 49,
-   "words_b": 355,
-   "unique_runs_if_b_dropped": [
-    "φωνης ενεχθεισης αυτω τοιασδε",
-    "διενεγκοντες εφαινοντο κτηνων"
-   ],
-   "unique_runs_if_a_dropped": [
-    "φωνην ενεχουσαν αυτον τοιαυτην",
-    "διενεχθεντες εφανοντο κτηναν"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -16337,33 +15998,6 @@
     "εργασιμοτερον εργαστικωτερον κεκαθ"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0509",
-   "locus_b": "pg074_0542",
-   "containment": 0.7323,
-   "bigrams_a": 396,
-   "bigrams_b": 397,
-   "tokens_b": 415,
-   "words_absent_from_a": 50,
-   "words_b": 415,
-   "unique_runs_if_b_dropped": [
-    "ιδιου οντα υιον",
-    "τοις προτεροις ενδιετριβον"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -17098,34 +16732,6 @@
    "run": "dindorf_aristides_v2+26@745"
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0625",
-   "locus_b": "pg077_0659",
-   "containment": 0.7247,
-   "bigrams_a": 359,
-   "bigrams_b": 356,
-   "tokens_b": 377,
-   "words_absent_from_a": 48,
-   "words_b": 377,
-   "unique_runs_if_b_dropped": [
-    "ευστων δογματων σρεφοντας"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ευσεβων ανθρωπων τρεφοντας"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/empedocles.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0245",
@@ -17487,39 +17093,6 @@
    ],
    "same_item": true,
    "page_offset": 1,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0622",
-   "locus_b": "pg077_0656",
-   "containment": 0.7225,
-   "bigrams_a": 382,
-   "bigrams_b": 383,
-   "tokens_b": 401,
-   "words_absent_from_a": 60,
-   "words_b": 401,
-   "unique_runs_if_b_dropped": [
-    "δ τοιαυτη δι",
-    "ασεβων εσχατων απελθειν",
-    "αιβροητικαι ισ αιρετικαι",
-    "εξομολογη σαμνος επιτιμιοις υποπιση",
-    "παιδισκην αργυριου χ διδραχμα"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ασελιας υπαρχων ομουν α αρτιαν",
-    "εφελωτη σιμος επι πεισις υποκρινη"
-   ],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -20222,38 +19795,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.ad-calosyrium-epist-83.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg076_0545",
-   "locus_b": "pg076_0571",
-   "containment": 0.6933,
-   "bigrams_a": 477,
-   "bigrams_b": 476,
-   "tokens_b": 489,
-   "words_absent_from_a": 68,
-   "words_b": 489,
-   "unique_runs_if_b_dropped": [
-    "συναπτες συγγυστις ταις",
-    "αθανατου ζωης παρεκτινδιν",
-    "υπαρχουσιν αξια μην",
-    "μεταδιδους αυτοι ελεγε αδεετε"
-   ],
-   "unique_runs_if_a_dropped": [
-    "συναψαι συγγυεις ισως",
-    "υπαρχουσι δεια πλην"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae.jsonl",
    "served": true,
    "locus_a": "pg096_0051",
@@ -22621,51 +22162,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ii-ad-corinthios.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0529",
-   "locus_b": "pg074_0552",
-   "containment": 0.6649,
-   "bigrams_a": 185,
-   "bigrams_b": 324,
-   "tokens_b": 363,
-   "words_absent_from_a": 131,
-   "words_b": 363,
-   "unique_runs_if_b_dropped": [
-    "πιστις προξενος πασης σωτηριας",
-    "τη γραφη ιδου",
-    "καταισχυνθη υμιν ουν",
-    "κυριον ημων ιησουν χριστον αποκαλει τη",
-    "υπεροχη διαπρεποντα ακροχωνιαιον",
-    "εξ εθνων αλλ ε",
-    "λογω ου πταιει ουτος τελειος ανηρ",
-    "εγκρατες ωσπερ αμελει παγχαλεπον",
-    "ανεθυγασαι ποτε οτε απεβεβεχετο",
-    "ημεραις νωε κατασκευαζομενης κιβωτου",
-    "ενηνθρωπησε χρονων ιδου",
-    "τουτους οσοι πιστευειν",
-    "επι γης επεφοιτησεν ουτοι",
-    "οικονομιας λογον λεγων",
-    "δεσμοις εξελθετε εξελθατε",
-    "τω σκοτει ανακαλυφθητε",
-    "τουτους οσοι πιστευειν",
-    "σαρκωθεις επεθημησεν ουτοι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "σαρχωθεις επεδημησεν ουτω"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/empedocles.testimonia.jsonl",
    "served": true,
    "locus_a": "anaxagoras_diels_vs1_0231",
@@ -22860,44 +22356,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 8,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl",
-   "files_a": [
-    "data/corpus/joannes-damascenus.de-sancta-trinitate-fragmentum-dub.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-damascenus.epistula-de-hymno-trisagio.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg095_0012",
-   "locus_b": "pg095_0016",
-   "containment": 0.6635,
-   "bigrams_a": 208,
-   "bigrams_b": 287,
-   "tokens_b": 315,
-   "words_absent_from_a": 93,
-   "words_b": 315,
-   "unique_runs_if_b_dropped": [
-    "σαρκα ανελαβε προν μεν",
-    "ταπεινωσαι εαυτον αγγελοι μονον εγινωσκον αυτον επειδη",
-    "εταπεινωσεν εαυτον επασα",
-    "επεγνω αυτον ορα πως",
-    "ταπεινωσις ουχ ελαττωσιν εργασατο αλλα πλειον αυτου",
-    "δοξαν διαλαμψαι εποιησεν ει",
-    "τω σταυρω ην",
-    "ουκ ην ποιει αυτην μη",
-    "ενα τοπον ημεις",
-    "λεγομεν τον θεον απεριγραπτον",
-    "βεβαιον δεξι αμεριμον"
-   ],
-   "unique_runs_if_a_dropped": [
-    "αβαιον οξυ αμεριμνον"
-   ],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -25430,53 +24888,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0507",
-   "locus_b": "pg074_0541",
-   "containment": 0.6413,
-   "bigrams_a": 184,
-   "bigrams_b": 373,
-   "tokens_b": 387,
-   "words_absent_from_a": 148,
-   "words_b": 387,
-   "unique_runs_if_b_dropped": [
-    "αυτοις μηδεν υγιες",
-    "οικονομιας μυστηριον ακουοντες",
-    "αποστολου λεγοντος ε",
-    "εισδεχονται κατα νουν",
-    "γεγονως καθ ημας",
-    "μονογενης ωνομασται τοτε",
-    "αγγελου φωνης τοτε κεχρηματισε",
-    "αρχιερευς ουκουν η αρνεισθωσαν εναργως",
-    "λογος τουτεστιν ανθρωπος εμφυγωμενον τε",
-    "σκοπον η ει φοβουνται",
-    "μυστηριον θαυμαζετωσαν μεθ",
-    "καθ ημας γεγονοτα μεμενηκοτα",
-    "ουτω θεον τοτε",
-    "κηρυσσομενον θεικως παρα",
-    "θεον αληθινον αρ ουχι",
-    "αυτον οντα θεον",
-    "γεγονοτα θεωρησομεν αρα κατα",
-    "ααρων αρα κατα",
-    "εξ αγελης αμνους καταθυοντα",
-    "θεω αρα τρυγονας προσαγοντα",
-    "σεμιβαλιν ελαιω βραχη καιτοι",
-    "τοιουτων ουδεν πεπραχεν"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.jsonl",
    "served": true,
    "locus_a": "themistiioratio01dindgoog_0410",
@@ -26239,38 +25650,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-hebraeos.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg074_0517",
-   "locus_b": "pg074_0546",
-   "containment": 0.6334,
-   "bigrams_a": 327,
-   "bigrams_b": 311,
-   "tokens_b": 322,
-   "words_absent_from_a": 61,
-   "words_b": 322,
-   "unique_runs_if_b_dropped": [
-    "αβεβαιον καταγραψομεν ποιναις"
-   ],
-   "unique_runs_if_a_dropped": [
-    "αθετησας τις νομον μωυσεως",
-    "αδεδιον καταγραφουσι ποινας",
-    "φυ σεως τεγοναι",
-    "κορεν νυσιν εκεινος",
-    "θερμωτερας κε χρησθαι"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/himerius.declamationes-et-orationes.jsonl",
    "served": true,
    "locus_a": "himerius_dubner_didot_0272",
@@ -26997,36 +26376,6 @@
     "ταξιν προσηγορευσαν πεμπτην"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.ad-calosyrium-epist-83.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg076_0544",
-   "locus_b": "pg076_0570",
-   "containment": 0.6247,
-   "bigrams_a": 494,
-   "bigrams_b": 493,
-   "tokens_b": 537,
-   "words_absent_from_a": 86,
-   "words_b": 537,
-   "unique_runs_if_b_dropped": [
-    "θεολοιος οικειω θειω",
-    "ολοι ουκ ευλεπος",
-    "θειου συνεστησεν εμφυσηματος"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ολου συνθεσεως εμφαθηματος"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -27783,40 +27132,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl",
-   "files_a": [
-    "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg036_0178",
-   "locus_b": "pg036_0354",
-   "containment": 0.6171,
-   "bigrams_a": 316,
-   "bigrams_b": 316,
-   "tokens_b": 332,
-   "words_absent_from_a": 56,
-   "words_b": 332,
-   "unique_runs_if_b_dropped": [
-    "ωμων ανελαβεν εφ",
-    "νομισε εφ ον",
-    "χωριζεται τισιν οργισθη πλεον"
-   ],
-   "unique_runs_if_a_dropped": [
-    "φασι μην οι συκοφανται οι πικροι",
-    "θεοτητος λογισται οι κατηγοροι",
-    "επαινουμενων οι σκοτεινοι περι",
-    "σοφιαν απαιδευτοι υπερ",
-    "χριστος δωρεαν απεθανε"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/ocr.pg036.jsonl",
    "served": false,
    "locus_a": "pg036_0178",
@@ -27841,6 +27156,44 @@
    ],
    "same_item": true,
    "page_offset": 176,
+   "run": null
+  },
+  {
+   "file": "data/corpus_secondary/ocr.pg036.jsonl",
+   "files_a": [
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/gregorius-nazianzenus.in-sanctum-pascha-orat-45.crossfile-duplicate.jsonl",
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "pg036_0178",
+   "locus_b": "pg036_0354",
+   "containment": 0.6171,
+   "bigrams_a": 316,
+   "bigrams_b": 318,
+   "tokens_b": 664,
+   "words_absent_from_a": 112,
+   "words_b": 664,
+   "unique_runs_if_b_dropped": [
+    "ωμων ανελαβεν εφ",
+    "νομισε εφ ον",
+    "χωριζεται τισιν οργισθη πλεον δυσιας",
+    "ωμων ανελαβεν εφ",
+    "νομισε εφ ον",
+    "χωριζεται τισιν οργισθη πλεον"
+   ],
+   "unique_runs_if_a_dropped": [
+    "φασι μην οι συκοφανται οι πικροι",
+    "θεοτητος λογισται οι κατηγοροι",
+    "επαινουμενων οι σκοτεινοι περι",
+    "σοφιαν απαιδευτοι υπερ",
+    "χριστος δωρεαν απεθανε"
+   ],
+   "same_item": true,
+   "page_offset": null,
    "run": null
   },
   {
@@ -29251,51 +28604,6 @@
     "ειτα τι σοι δραν οι τοιουτοι δοκουσιν",
     "εποικιλιζοντες αριθμω εχων",
     "παν οποιον ισομετρως"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl",
-   "files_a": [
-    "data/corpus/athanasius-theology.de-incarnatione-contra-apollinarium-libri-ii-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/athanasius-theology.epistula-festalis-xxxix-fragmentum-in-collectione-canonum.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg026_0605",
-   "locus_b": "pg026_0735",
-   "containment": 0.6,
-   "bigrams_a": 311,
-   "bigrams_b": 250,
-   "tokens_b": 325,
-   "words_absent_from_a": 55,
-   "words_b": 325,
-   "unique_runs_if_b_dropped": [
-    "θεου αγαθοτης ου παυεται οθεν",
-    "μετα τουτο αριθμοι"
-   ],
-   "unique_runs_if_a_dropped": [
-    "κρατος συν αγιω πνευματι",
-    "τους αιωνας αμην μοι με περιεξωσι",
-    "πνευματι ηγεμονικω στηριξον με",
-    "καν ποτε λογισμοι με θορυβησωσι ισχυρα τις",
-    "σου δυναμις στηριξη με ωσπερ κρηπις τυγχανουσα",
-    "τοιαυτα συμβουλευων λεγε",
-    "αληθεια πειθομενους διδαξω ανομους",
-    "θαρρων κυριω οτι πεισεις αποσχεσθαι",
-    "τοιαυτης κακιας ψαλλε",
-    "ασεβεις επι σε επιστρεψουσιν γενοιτο",
-    "κακως ζητουντας παυσασθαι",
-    "τοιαυτης ματαιοπο νιας τους",
-    "δι ευδιαν ενδοσιως εχοντας ηγεμονικω πνευματι κρατυνωθηναι οσοι",
-    "αρρηγιστα ταυτην κατεχετε",
-    "ακαλευτον εν χριστω ιησου",
-    "αρξωσιναι τους λεγομενους αποκρυφους",
-    "παραδιδομενα πιστευ θοντα"
    ],
    "same_item": true,
    "page_offset": null,
@@ -30749,33 +30057,6 @@
     "εγραψαν γεγονεναι τουτον"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.contra-julianum-lib-1-2.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.ad-calosyrium-epist-83.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg076_0543",
-   "locus_b": "pg076_0569",
-   "containment": 0.589,
-   "bigrams_a": 219,
-   "bigrams_b": 220,
-   "tokens_b": 224,
-   "words_absent_from_a": 51,
-   "words_b": 224,
-   "unique_runs_if_b_dropped": [
-    "παραδοξως εδημιουργησεν ουδενι",
-    "δηλονοτι η φρονησις"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -32822,42 +32103,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl",
-   "files_a": [
-    "data/corpus/cyrillus-theology.de-sancta-trinitate-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg077_0612",
-   "locus_b": "pg077_0646",
-   "containment": 0.5685,
-   "bigrams_a": 197,
-   "bigrams_b": 277,
-   "tokens_b": 298,
-   "words_absent_from_a": 86,
-   "words_b": 298,
-   "unique_runs_if_b_dropped": [
-    "παρα φυσιν δυναμεις",
-    "δυναμεως εκτηκειν αυτας",
-    "ενεργειας αυτης ητις εστιν",
-    "δι ευσεβους λογου",
-    "γεγονεν ιερευς λαμβανων παρα",
-    "βραχιονα ανεπιτηδειος εις ιερουργιαν",
-    "δερματος οποιος εστιν"
-   ],
-   "unique_runs_if_a_dropped": [
-    "πνευματικας θυσιας ενομοθετησε νεκρωσιν λεγων παθων σφαιρομενων",
-    "δριμω ρευμα καταχεομενον",
-    "ψυχης εξ ηδονης"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/geoponica.geoponica.jsonl",
    "served": true,
    "locus_a": "geoponica_beckh_0425",
@@ -33045,46 +32290,6 @@
     "αμφοτερωθεν οτε σπερχολατο πεμπειν"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/athanasius-theology.liber-de-definitionibus-sp.jsonl",
-   "files_a": [
-    "data/corpus/athanasius-theology.liber-de-definitionibus-sp.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/athanasius-theology.de-corpore-et-anima-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg028_0284",
-   "locus_b": "pg028_0726",
-   "containment": 0.5665,
-   "bigrams_a": 203,
-   "bigrams_b": 295,
-   "tokens_b": 345,
-   "words_absent_from_a": 95,
-   "words_b": 345,
-   "unique_runs_if_b_dropped": [
-    "θερμωδης πηλον εξηρανται",
-    "κατα φυσιν πειθων τοιγαρουν",
-    "μηλε ευρισκονται χρυσταλλωδη",
-    "ουδεν ητον παθος χειμεριου εως",
-    "απορηση σιτιων αυτο",
-    "αντι τροφης αντεχει προς",
-    "ουτε αγγειον χαλκουν ητοι λεβης επι κλιδαιου",
-    "ανευ υδατος φερειν",
-    "πυρος εκαρυ γεται",
-    "διαλεεται τελειον ουτω",
-    "ουλης δοκιμαται μαθειν παρα τινος",
-    "βασιλικη φλεβ εκρευσει"
-   ],
-   "unique_runs_if_a_dropped": [
-    "αψυχον μελος εχειν",
-    "τμηθη υπο ξιφους παρευθες"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -33757,48 +32962,6 @@
     "ανισους ορους υφιστασιν"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl",
-   "files_a": [
-    "data/corpus/joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg063_0130",
-   "locus_b": "pg063_0788",
-   "containment": 0.56,
-   "bigrams_a": 859,
-   "bigrams_b": 923,
-   "tokens_b": 968,
-   "words_absent_from_a": 212,
-   "words_b": 968,
-   "unique_runs_if_b_dropped": [
-    "γεροντας α πολλακις διεδαρμηνους πολλω",
-    "ευτελεστερους παρακαθηται καλακισμων",
-    "θρασυνομενος ειδες επατερωθεν",
-    "κην μοναχος κην δοτιουν προτεινη",
-    "ουδτους εκωδεν επαρριμποι",
-    "παστας δυς περης εγενετο",
-    "αροτην δρ υμιν",
-    "αλγυν κατηργασθαι δειος",
-    "επεκινηθη σαφρα ουκ",
-    "λεγοντας ειδωμεν δακρυα",
-    "αποθνησκομεν ματαιοτης ματαιοτητων"
-   ],
-   "unique_runs_if_a_dropped": [
-    "καν ελευθερος καν μονομαχος καν οστισουν προτεινει",
-    "τοις εξωθεν εστριμμασι",
-    "δενς πορνης αφενεσθ",
-    "οδα ουδ αινιττομαι",
-    "επιτιμησει ταυτη γελαν"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -35023,50 +34186,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl",
-   "files_a": [
-    "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg036_0176",
-   "locus_b": "pg036_0340",
-   "containment": 0.5508,
-   "bigrams_a": 361,
-   "bigrams_b": 325,
-   "tokens_b": 334,
-   "words_absent_from_a": 88,
-   "words_b": 334,
-   "unique_runs_if_b_dropped": [
-    "δημιουργου λογου μεγαλειον",
-    "εαυτοις εφερον σιγωντες επαινεται",
-    "κραμα εξ αμφοτερων",
-    "εναντιων σοφιας μειζονος γνωρισμα",
-    "τεχνιτης επιδειξασθαι λογος",
-    "εξ αμφοτερων ορατου",
-    "σωμα ηδη προυποστασης παρ εαυτου",
-    "δη νοεραν ψυχην",
-    "μονως επιβαινειν ασφαλες"
-   ],
-   "unique_runs_if_a_dropped": [
-    "μονους επιδεικνυσι ασφαλως",
-    "ερεσιν λιγωτεροις ωσπερ",
-    "τροφη τελεια λυσιτελης",
-    "δεομενοις γαλακτος επει",
-    "πικρας γευσεως ομου",
-    "κακιαν εξεριπτος γινεται",
-    "τους δερματινους αμφιεννυται χιτωνας",
-    "γινεται φιληνιον πα",
-    "εγω πειθομαι κολαζειν"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/parmenides.testimonia.jsonl",
    "served": true,
    "locus_a": "anaxagoras_diels_vs1_0133",
@@ -36125,76 +35244,6 @@
     "τα μαλιστα καισαρι"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl",
-   "files_a": [
-    "data/corpus/joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-chrysostomus.de-melchisedech-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg056_0168",
-   "locus_b": "pg056_0261",
-   "containment": 0.5446,
-   "bigrams_a": 213,
-   "bigrams_b": 619,
-   "tokens_b": 689,
-   "words_absent_from_a": 324,
-   "words_b": 689,
-   "unique_runs_if_b_dropped": [
-    "παυλου φωνης διατειναι",
-    "γυμνους τους σωμασιν εκκυδιστωσι",
-    "αγριωτερα οιον ζαλην θυμον",
-    "πνευματα επιθυμιας πονηρας ποιουνα πολλην",
-    "οργης ευθυς θορυβειται ταραττεται κλονειται ορα γινομενην υποβρυχιον",
-    "ναυαγιον υπομενουσαν ο",
-    "τοιαυτα φερει γενναιως καθαπερ κυβερνητης",
-    "προτερον αφισταται παντα ποιων εως αν κατευθυνη",
-    "γραφων συμβαινει αναγκη θορυβεισθαι ταραττεσθαι",
-    "πλεοντες απειροι οτι",
-    "οντα δυσκολον γενεσθαι",
-    "παραστησομαι μαρτυρα ειπων",
-    "οτι ο χριστος εγενετο αρχιερευς",
-    "ουτος ο μελχισεδεκ επηγαγεν",
-    "πολυς ημιν ο λογος",
-    "λεγεις ω παυλε δυσερμηνευτος σοι",
-    "πνευματικην εχοντι σοφιαν",
-    "ει συ δυσερμηνευτος τινι καταληπτος εμοι δυσερμηνευτος φησιν",
-    "οικειαν μου ασθενειαν",
-    "δυσερμηνευτος επηγαγεν επειδη ρωβοι γεγονατε ταις ακοαις ορας οτι ουχ",
-    "πολυν ποιει αυτον βραχυν τη",
-    "αιτια διο ουδε δυσερμηνευτον εφησεν",
-    "αιτιαν τη ρωθροτητι",
-    "αρρωστων ουκ αναγκαιον συντονον",
-    "στιτια δοσιμα ινα αν",
-    "λαβη κλεινον προστιθεται",
-    "διακρουσθαι θατερου επιλαβηται",
-    "αχρασσεως δει ποιειν οταν ασθενεις ωμεν",
-    "πολυν παρασκευασαι χρη",
-    "παραδειγματα εχοντα κατασκευας",
-    "ετερα πολλα τοιαυτα ινα εκ παντων αρδια γενηται ημιν",
-    "πολυς ο λογος",
-    "δυσερμηνευτος ουχ απεστερησεν",
-    "δυσερμηνευτος αναστησας αυτων",
-    "ημεις ποιησωμεν ει",
-    "ανωθεν διδομενην ημιν χαριν",
-    "υμων ωφελειαν κατατολμησωμεν",
-    "τουτω παυλον μιμουμενοι οτι",
-    "πολυς ο λογος",
-    "δυσερμηνευτος επηγαγεν ουτος",
-    "ο μελχισεδεκ βασιλευς δικαιοσυνης επειτα",
-    "βασιλευς σαλημ ο δευτε βασιλευς"
-   ],
-   "unique_runs_if_a_dropped": [
-    "εκπτωσεως ιουδαιων προφητειας ασφαρης",
-    "αγιας σοφιας επαρκειν"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -40329,49 +39378,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl",
-   "files_a": [
-    "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg036_0177",
-   "locus_b": "pg036_0341",
-   "containment": 0.5091,
-   "bigrams_a": 330,
-   "bigrams_b": 338,
-   "tokens_b": 355,
-   "words_absent_from_a": 94,
-   "words_b": 355,
-   "unique_runs_if_b_dropped": [
-    "εφεσιν λιγυνοτεροις ωσπερ ουδε τροφη ταλεια λυσιτελει",
-    "δεομενοις γαλακτος επει",
-    "μικρας γευσεως ομου",
-    "τους δερματινους αμφιεννυται χιτωνας ισως",
-    "κανταυθα τον θανατον",
-    "πειθομαι κολαζειν θεον θ πολλοις"
-   ],
-   "unique_runs_if_a_dropped": [
-    "μισης ψυχης νοερας μεσιτευουσης θεοτητι",
-    "πλουτιζων πτωχευει πτωχευει",
-    "ιν εγω πλουτησω",
-    "πληρης κενουται κενουται",
-    "μικρον ιν εγω",
-    "εκεινου μεταλαβω πληρωσεως τις",
-    "ουκ εφυλαξα μεταλαβανει",
-    "αθανατιση δευτεραν κοινωνει κοινωνιαν πολλη",
-    "προτερας παραδοξοτεραν οσω τοτε",
-    "κρειττονος μετεδωκε νυν",
-    "νουν εχουσιν υψηλοτερον"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/ocr.pg036.jsonl",
    "served": false,
    "locus_a": "pg036_0177",
@@ -40406,6 +39412,56 @@
    "same_item": true,
    "page_offset": 164,
    "run": "pg036+164@174"
+  },
+  {
+   "file": "data/corpus_secondary/ocr.pg036.jsonl",
+   "files_a": [
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/gregorius-nazianzenus.in-sanctum-pascha-orat-45.crossfile-duplicate.jsonl",
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "pg036_0177",
+   "locus_b": "pg036_0341",
+   "containment": 0.5091,
+   "bigrams_a": 330,
+   "bigrams_b": 341,
+   "tokens_b": 710,
+   "words_absent_from_a": 188,
+   "words_b": 710,
+   "unique_runs_if_b_dropped": [
+    "εφεσιν λιγυνοτεροις ωσπερ ουδε τροφη ταλεια λυσιτελει",
+    "δεομενοις γαλακτος επει",
+    "μικρας γευσεως ομου",
+    "τους δερματινους αμφιεννυται χιτωνας ισως",
+    "κανταυθα τον θανατον",
+    "πειθομαι κολαζειν θεον θ πολλοις",
+    "εφεσιν λιγυνοτεροις ωσπερ ουδε τροφη ταλεια λυσιτελει",
+    "δεομενοις γαλακτος επει",
+    "μικρας γευσεως ομου",
+    "τους δερματινους αμφιεννυται χιτωνας ισως",
+    "κανταυθα τον θανατον",
+    "πειθομαι κολαζειν θεον θ πολλοις"
+   ],
+   "unique_runs_if_a_dropped": [
+    "μισης ψυχης νοερας μεσιτευουσης θεοτητι",
+    "πλουτιζων πτωχευει πτωχευει",
+    "ιν εγω πλουτησω",
+    "πληρης κενουται κενουται",
+    "μικρον ιν εγω",
+    "εκεινου μεταλαβω πληρωσεως τις",
+    "ουκ εφυλαξα μεταλαβανει",
+    "αθανατιση δευτεραν κοινωνει κοινωνιαν πολλη",
+    "προτερας παραδοξοτεραν οσω τοτε",
+    "κρειττονος μετεδωκε νυν",
+    "νουν εχουσιν υψηλοτερον"
+   ],
+   "same_item": true,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/phaleas-et-hippodamus.testimonia-et-fragmenta.jsonl",
@@ -42015,6 +41071,61 @@
     "το ελαχιστον σωμα"
    ],
    "same_item": false,
+   "page_offset": null,
+   "run": null
+  },
+  {
+   "file": "data/corpus_secondary/ocr.pg036.jsonl",
+   "files_a": [
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/gregorius-nazianzenus.in-sanctum-pascha-orat-45.crossfile-duplicate.jsonl",
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "pg036_0176",
+   "locus_b": "pg036_0340",
+   "containment": 0.5,
+   "bigrams_a": 374,
+   "bigrams_b": 326,
+   "tokens_b": 668,
+   "words_absent_from_a": 188,
+   "words_b": 668,
+   "unique_runs_if_b_dropped": [
+    "δημιουργου λογου μεγαλειον",
+    "εαυτοις εφερον σιγωντες επαινεται",
+    "κραμα εξ αμφοτερων",
+    "εναντιων σοφιας μειζονος γνωρισμα",
+    "τεχνιτης επιδειξασθαι λογος",
+    "εξ αμφοτερων ορατου",
+    "σωμα ηδη προυποστασης παρ εαυτου",
+    "δη νοεραν ψυχην",
+    "μονως επιβαινειν ασφαλες",
+    "δημιουργου λογου μεγαλειον",
+    "εαυτοις εφερον σιγωντες επαινεται",
+    "κραμα εξ αμφοτερων",
+    "εναντιων σοφιας μειζονος γνωρισμα",
+    "τεχνιτης επιδειξασθαι λογος",
+    "εξ αμφοτερων ορατου",
+    "σωμα ηδη προυποστασης παρ εαυτου",
+    "δη νοεραν ψυχην",
+    "μονως επιβαινειν ασφαλες"
+   ],
+   "unique_runs_if_a_dropped": [
+    "μονους επιδεικνυσι ασφαλως",
+    "ερεσιν λιγωτεροις ωσπερ",
+    "τροφη τελεια λυσιτελης",
+    "δεομενοις γα λακτος επει",
+    "γυναιχος επη ρεια",
+    "πικρας γευσεως ομου",
+    "κακιαν εξεριπτος γινεται",
+    "τους δερματινους αμφιεννυται χιτωνας",
+    "γινεται φιληνιον πα",
+    "εγω πειθομαι κολαζειν"
+   ],
+   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -44469,56 +43580,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl",
-   "files_a": [
-    "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg036_0174",
-   "locus_b": "pg036_0338",
-   "containment": 0.481,
-   "bigrams_a": 289,
-   "bigrams_b": 292,
-   "tokens_b": 306,
-   "words_absent_from_a": 92,
-   "words_b": 306,
-   "unique_runs_if_b_dropped": [
-    "ολην αστραπης ταχος",
-    "ισταμενης εμοι δοκειν",
-    "ελκη προς εαυτο",
-    "τελως ληπτον ανελπιστον",
-    "αληθες θαυμαζοντα θαυμαζομενον",
-    "παθηται πληον ποθουμεν",
-    "θεοειδες εργαζεται τοιουτοις",
-    "οικειως ηδη προσομιλη τολμα",
-    "λογος θεος θεοις ενουμενος",
-    "τοσουτον ισως οσον ηδη γινωσκει τους γινωσκομενους",
-    "παντη καταληπτον αυτου",
-    "τις οιηται τω απλης",
-    "αν απλης εστι φυσεως επιζητησωμεν ου"
-   ],
-   "unique_runs_if_a_dropped": [
-    "μιαν συνουσι κυριοτητι",
-    "υψηλωτατα θ επει",
-    "ικει τη αγαθοτητι",
-    "τη εαυτης θεωρια",
-    "ακρας ην αγαλοτητος πρωτον",
-    "εννοει τας αγγελικας δυναμεις",
-    "εννοησαι εργον ην λογω συμπληρουμενον",
-    "ουτως υπεστησαν λαμπροτητες δευτεραι λειτουργοι",
-    "πρωτης λαμπροτητος ειτε νοερα πνευματα ειτε πυρ",
-    "ασωματον ειτε τινα φυσιν αλλην",
-    "ειρημενων ταυτας υποληπτεον"
-   ],
-   "same_item": true,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/ocr.pg036.jsonl",
    "served": false,
    "locus_a": "pg036_0174",
@@ -44560,6 +43621,70 @@
    "same_item": true,
    "page_offset": 164,
    "run": "pg036+164@174"
+  },
+  {
+   "file": "data/corpus_secondary/ocr.pg036.jsonl",
+   "files_a": [
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/gregorius-nazianzenus.in-sanctum-pascha-orat-45.crossfile-duplicate.jsonl",
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "pg036_0174",
+   "locus_b": "pg036_0338",
+   "containment": 0.481,
+   "bigrams_a": 289,
+   "bigrams_b": 295,
+   "tokens_b": 612,
+   "words_absent_from_a": 184,
+   "words_b": 612,
+   "unique_runs_if_b_dropped": [
+    "ολην αστραπης ταχος",
+    "ισταμενης εμοι δοκειν",
+    "ελκη προς εαυτο",
+    "τελως ληπτον ανελπιστον",
+    "αληθες θαυμαζοντα θαυμαζομενον",
+    "παθηται πληον ποθουμεν",
+    "θεοειδες εργαζεται τοιουτοις",
+    "οικειως ηδη προσομιλη τολμα",
+    "λογος θεος θεοις ενουμενος",
+    "τοσουτον ισως οσον ηδη γινωσκει τους γινωσκομενους",
+    "παντη καταληπτον αυτου",
+    "τις οιηται τω απλης",
+    "αν απλης εστι φυσεως επιζητησωμεν ου",
+    "ολιν αστραπης ταχος",
+    "ισταμενης εμοι δοκειν",
+    "ελκη προς εαυτο",
+    "τελως ληπτον ανελπιστον",
+    "αληθες θαυμαζοντα θαυμαζομενον",
+    "παθηται πληον ποθουμεν",
+    "θεοειδες εργαζεται τοιουτοις",
+    "οικειως ηδη προσομιλη τολμα",
+    "λογος θεος θεοις ενουμενος",
+    "τοσουτον ισως οσον ηδη γινωσκει τους γινωσκομενους",
+    "παντη καταληπτον αυτου",
+    "τις οιηται τω απλης",
+    "αν απλης εστι φυσεως επιζητησωμεν ου"
+   ],
+   "unique_runs_if_a_dropped": [
+    "μιαν συνουσι κυριοτητι",
+    "υψηλωτατα θ επει",
+    "ικει τη αγαθοτητι",
+    "τη εαυτης θεωρια",
+    "ακρας ην αγαλοτητος πρωτον",
+    "εννοει τας αγγελικας δυναμεις",
+    "εννοησαι εργον ην λογω συμπληρουμενον",
+    "ουτως υπεστησαν λαμπροτητες δευτεραι λειτουργοι",
+    "πρωτης λαμπροτητος ειτε νοερα πνευματα ειτε πυρ",
+    "ασωματον ειτε τινα φυσιν αλλην",
+    "ειρημενων ταυτας υπο"
+   ],
+   "same_item": true,
+   "page_offset": null,
+   "run": null
   },
   {
    "file": "data/corpus_secondary/nicolaus-history.fragmenta.jsonl",
@@ -45377,50 +44502,6 @@
    ],
    "same_item": true,
    "page_offset": 10,
-   "run": null
-  },
-  {
-   "file": "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl",
-   "files_a": [
-    "data/corpus/gregorius-nazianzenus.in-theophania-orat-38.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/gregorius-nazianzenus.in-sanctum-pascha-orat-45.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg036_0175",
-   "locus_b": "pg036_0339",
-   "containment": 0.4746,
-   "bigrams_a": 331,
-   "bigrams_b": 295,
-   "tokens_b": 302,
-   "words_absent_from_a": 88,
-   "words_b": 302,
-   "unique_runs_if_b_dropped": [
-    "μιαν συνουσι κυριοτητα",
-    "προ ημων περιφασθησει καλλιστα",
-    "εαυτης θεωρια αλλ εδει τεθηναι",
-    "υπεστησαν λαμπροτητες δευτεραι λειτουργοι",
-    "πρωτης λαμπροτητος ειτε νοερα πνευματα ειτε πυρ",
-    "ασωματον ειτε τινα"
-   ],
-   "unique_runs_if_a_dropped": [
-    "καθ εκαστον ευφυας",
-    "ταχα αν ειποι τις",
-    "θεομυρων κεντει τον ποθον",
-    "οις προχαθεζομεθα σημερον",
-    "ει μικρον ανωθεν ηξεματη σων",
-    "δημιουργου λογου μεγαλειον",
-    "εαυτοις εφερον σιγωντες επαινεται",
-    "αμφοτερων ουδε τις μειζων",
-    "εναντιων σοφιας μειζονος γνωρισμα",
-    "τεχνιτης επιδειξασθαι λογος",
-    "ορατης φυσεως δημιουργει τον ανθρωπον",
-    "προυποστασης παρ εαυτου"
-   ],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -46292,6 +45373,57 @@
    "run": null
   },
   {
+   "file": "data/corpus_secondary/ocr.pg036.jsonl",
+   "files_a": [
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/gregorius-nazianzenus.in-sanctum-pascha-orat-45.crossfile-duplicate.jsonl",
+    "data/corpus_secondary/ocr.pg036.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "pg036_0175",
+   "locus_b": "pg036_0339",
+   "containment": 0.4698,
+   "bigrams_a": 332,
+   "bigrams_b": 298,
+   "tokens_b": 604,
+   "words_absent_from_a": 176,
+   "words_b": 604,
+   "unique_runs_if_b_dropped": [
+    "μιαν συνουσι κυριοτητα",
+    "προ ημων περιφασθησει καλλιστα",
+    "εαυτης θεωρια αλλ εδει τεθηναι",
+    "υπεστησαν λαμπροτητες δευτεραι λειτουργοι",
+    "πρωτης λαμπροτητος ειτε νοερα πνευματα ειτε πυρ",
+    "ασωματον ειτε τινα",
+    "μιαν συνουσι κυριοτητα",
+    "προ ημων περιφασθησει καλλιστα",
+    "εαυτης θεωρια αλλ εδει γεθηναι",
+    "υπεστησαν λαμπροτητες δευτεραι λειτουργοι",
+    "πρωτης λαμπροτητος ειτε νοερα πνευματα ειτε πυρ",
+    "ασωματον ειτε τινα"
+   ],
+   "unique_runs_if_a_dropped": [
+    "καθ εκαστον ευφυας",
+    "ταχα αν ειποι τις",
+    "θεομυρων κεντει τον ποθον",
+    "οις προχαθεζομεθα σημερον",
+    "ει μικρον ανωθεν ηξεματη σων",
+    "δημιουργου λογου μεγαλειον",
+    "εαυτοις εφερον σιγωντες επαινεται",
+    "αμφοτερων ουδε τις μειζων",
+    "εναντιων σοφιας μειζονος γνωρισμα",
+    "τεχνιτης επιδειξασθαι λογος",
+    "ορατης φυσεως δημιουργει τον ανθρωπον",
+    "προυποστασης παρ εαυτου"
+   ],
+   "same_item": true,
+   "page_offset": null,
+   "run": null
+  },
+  {
    "file": "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl",
    "files_a": [
     "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl"
@@ -46747,60 +45879,6 @@
     "παρμενιδης ουτως εφη δεξτεροισι κουρας"
    ],
    "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/theodoretus.haereticarum-fabularum-compendium.jsonl",
-   "files_a": [
-    "data/corpus/theodoretus.haereticarum-fabularum-compendium.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/theodoretus.libellus-contra-nestorium-ad-sporacium-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg083_0222",
-   "locus_b": "pg083_0600",
-   "containment": 0.4638,
-   "bigrams_a": 356,
-   "bigrams_b": 207,
-   "tokens_b": 209,
-   "words_absent_from_a": 61,
-   "words_b": 209,
-   "unique_runs_if_b_dropped": [
-    "θεοδωρητου επισκοπου κυρου",
-    "παντος επειγομενου λυσιν πας",
-    "ευσεβειας διδασκαλον εχει δια",
-    "αμαθιας τυφον ουδενες μαθοντες ανεχομενοι",
-    "πολεως αρμομενος ουκ οιδα ποδαπος",
-    "λυομενων χροτον ηρευσεν"
-   ],
-   "unique_runs_if_a_dropped": [
-    "πολιχης ορμωμενος ουχ ιδα ποταπος",
-    "κυομενων κροτων ωφελητης",
-    "οικειον εξεκαλεσατο ποδον φαινω περιδεδημενος ιματιον εστυγναχες βαδιζων",
-    "αγοραιους εκκλων θορυβους ωχροτητι σωματος δοκειν εγκρατης",
-    "θηρωμενος οιοι τα πολλα βιβλιους προσανεχων",
-    "εαυτω συγγιγνομενος τοιουτοις σχημασι",
-    "πολλους δελεαζων μεχρι πορρω προηλθε",
-    "εαυτου προτιμων επει",
-    "δεσποτη ουδεν κρυπτον",
-    "γνωσθησεται ουδε αποκρυφον",
-    "τα καλα εργα φροδηλα εστι",
-    "τα αλλως εχοντα κρυβηναι",
-    "περι τα βασιλεια",
-    "οικουμενης τα σχηπτρα διεποντος",
-    "προεδριαν πιστευεται ουδεν",
-    "οικουμενης απασης ενταυθα μαι",
-    "τα δραματα ων μικρου πληρης πασα γη",
-    "μεγιστον εκεινον κατελαβε θρονον",
-    "εξουσιας προσλαβων αμαθη παρηξισαν",
-    "προτιθησιν απασιν ην παλαι",
-    "αποστολικων αιρειται δογματων",
-    "αγιων πατερων αφ"
-   ],
-   "same_item": true,
    "page_offset": null,
    "run": null
   },
@@ -48557,68 +47635,6 @@
    ],
    "same_item": true,
    "page_offset": 10,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl",
-   "files_a": [
-    "data/corpus/joannes-chrysostomus.in-illud-isaiae-ego-dominus-deus-feci-lumen.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/joannes-chrysostomus.de-melchisedech-sp.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg056_0169",
-   "locus_b": "pg056_0261",
-   "containment": 0.4491,
-   "bigrams_a": 770,
-   "bigrams_b": 619,
-   "tokens_b": 689,
-   "words_absent_from_a": 167,
-   "words_b": 689,
-   "unique_runs_if_b_dropped": [
-    "σημερον βουλομαι παραθειναι",
-    "παυλου φωνης διατειναι",
-    "αποστολικων νοηματων ιλιγγιασωμεν",
-    "γην αφεντες εξ εκατερου μερους",
-    "πλοιον κυκλω νομιζουσι μετα",
-    "ιλιγγοι γινονται ετεροι",
-    "ναυτων γυμνους τους σωμασιν εκκυδιστωσι",
-    "βαθος καταδυντες αυτω",
-    "εδαφει καθημενων ασφαλεστερον διατριβουσι",
-    "θορυβουνται τοις κυμασιν",
-    "θαλαττιων αγριωτερα οιον ζαλην θυμον κατωθεν στρεφοντα"
-   ],
-   "unique_runs_if_a_dropped": [
-    "ειρηνης απατωρ αμητωρ αγενεαλογητος μητε αρχην ημερων μητε ζωης τελος εχων αρωιωωμενος",
-    "θεου μενει ιερευς",
-    "λεγων απατωρ αμητωρ",
-    "απατωρ πως υιος",
-    "απατωρ πως μονογενης",
-    "υιος οφειλει πατερα εχειν επει",
-    "αμητωρ πως απατωρ",
-    "κατω γεννησιν αμητωρ",
-    "εχει πατερα ουτε",
-    "ουρανω μητερα αγενεαλογητος ακουετε",
-    "πολυπραγμονουντας καιτοι τινες νομιζουσιν",
-    "ανω γεννησεως ειρηται",
-    "επαιχεστεροι τουτων εκεινην",
-    "κατω νομιζουσιν ειρησθαι",
-    "ευρισκομεν παυλω αμφοτερας ειποντι τας γεννησεις",
-    "απατωρ αμητωρ τοτε επηγαγε",
-    "γεννησιν καθ ην αμητωρ",
-    "καθ ην απατωρ ην",
-    "κατω λεγω αγενεαλογητον",
-    "αμφοτερας θεις τοτε ειπε",
-    "εκεινην μηδε παρακινειν τολμησωμεν",
-    "ειδως αγω πως",
-    "παρθενου εγεννηθη ομολογω",
-    "οιδας πως εγεννηθη",
-    "εγεννηθη ομολογησον δ καν λεγη"
-   ],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
@@ -52192,53 +51208,6 @@
    ],
    "same_item": true,
    "page_offset": 12,
-   "run": null
-  },
-  {
-   "file": "data/corpus/gregorius-nazianzenus.apologetica-orat-2.jsonl",
-   "files_a": [
-    "data/corpus/gregorius-nazianzenus.apologetica-orat-2.jsonl"
-   ],
-   "files_b": [
-    "data/corpus/gregorius-nazianzenus.de-dogmate-et-constitutione-episcoporum-orat-20.jsonl"
-   ],
-   "cross_file": true,
-   "served": true,
-   "locus_a": "pg035_0257",
-   "locus_b": "pg035_0547",
-   "containment": 0.4178,
-   "bigrams_a": 304,
-   "bigrams_b": 336,
-   "tokens_b": 353,
-   "words_absent_from_a": 110,
-   "words_b": 353,
-   "unique_runs_if_b_dropped": [
-    "καταστασεων επισκοπων κειμενον",
-    "ελαχιστου βατιλιεου μεγαλου",
-    "δεοντος δειλοτερον υπολαβοιτε",
-    "ετερων εδεηθησαν τοιχων",
-    "αναλισκεσθαι τοσουτου δειν",
-    "προσβλεπειν ειναι παντος",
-    "ουν ειδως εγω",
-    "αρχιερεως ος ημων ιησου χριστου λεγει αλλ ουχι",
-    "μεγαλου τω πατρι μονω περιγραφοντας τω",
-    "υιω τα δευτεραια διδοντας θυματος",
-    "ημετερας προσενεχθεντος σωτηριας",
-    "ουχ υπ αλλου",
-    "σφαγην εκουσιον προσεβεικοτος"
-   ],
-   "unique_runs_if_a_dropped": [
-    "γενεσθαι πλησιον πλην ει τις",
-    "χωρησαι δοξαν δυναμενος",
-    "καν θηριον θιγη",
-    "ξενω πυρι θυμιασαντες",
-    "ανηλωθησαν κολασθεντες δι",
-    "θυματων ανεξεταστους μενοντας",
-    "τελειους τελεια προσαγειν νενομισμενον συμβολον οιμαι",
-    "ψαυεν παντι θεμιτον"
-   ],
-   "same_item": true,
-   "page_offset": null,
    "run": null
   },
   {
