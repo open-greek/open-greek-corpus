@@ -1,12 +1,12 @@
 {
  "corpus": {
   "passages": 1975500,
-  "tokens": 65309158,
-  "tokens_lemmatized": 63506007,
+  "tokens": 65296585,
+  "tokens_lemmatized": 63493805,
   "works": 3909
  },
  "generated_from": {
-  "commit": "ad3c3ce203ce52a4668a446376f914e138acae12",
+  "commit": "d2a4f0157dc5dc79d42dfa5fcd34207035cf680f",
   "commit_date": "2026-08-12",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -21,7 +21,7 @@
    "works": 2420
   },
   "PD": {
-   "tokens": 26714333,
+   "tokens": 26701760,
    "works": 1234
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -60,15 +60,15 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "266718fea488cc2be4d96e1e659fb29b3985832ca8fc8855178e71b548f3fe5d",
-  "corpus_sha256": "14b91ca9b3b187879c3c218e3fb3315047738e917cb8838e04f18896b222d4e0",
+  "catalog_sha256": "ae42005dea1cfa2483084e2b0f28066d92ad2f91aee37b75cc90f709630aedfb",
+  "corpus_sha256": "3233ff79f2070d7e95bd2c4642a832bb0a758baaab8f1a779895b98b02492ce6",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20109145,
-    "works": 886
+    "tokens": 20101412,
+    "works": 885
    },
    "manual": {
     "tokens": 7143882,
@@ -79,19 +79,19 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 1933869,
-    "works": 327
+    "tokens": 1929029,
+    "works": 328
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.4469,
-   "ocr_tokens": 29186896,
+   "ocr_share_of_corpus_tokens": 0.4468,
+   "ocr_tokens": 29174323,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0296,
-   "raw_share_of_ocr_tokens": 0.0663,
-   "raw_tokens": 1933869,
-   "raw_works": 327,
+   "raw_share_of_corpus_tokens": 0.0295,
+   "raw_share_of_ocr_tokens": 0.0661,
+   "raw_tokens": 1929029,
+   "raw_works": 328,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
@@ -192,7 +192,7 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25065405,
+   "tokens": 25052832,
    "works": 1215
   },
   "perseus": {
