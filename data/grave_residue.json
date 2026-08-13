@@ -7,28 +7,28 @@
   "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
   "by_class": {
    "auto-corrected": {
-    "grave_tokens": 17824,
-    "grave_lemmas": 5609,
-    "lemmatized_tokens_in_this_class": 19121337,
+    "grave_tokens": 17820,
+    "grave_lemmas": 5607,
+    "lemmatized_tokens_in_this_class": 19120777,
     "rate": 0.000932
    },
    "manual": {
-    "grave_tokens": 5383,
-    "grave_lemmas": 2233,
-    "lemmatized_tokens_in_this_class": 6910782,
+    "grave_tokens": 5384,
+    "grave_lemmas": 2231,
+    "lemmatized_tokens_in_this_class": 6910336,
     "rate": 0.000779
    },
    "not-ocr": {
-    "grave_tokens": 6069,
-    "grave_lemmas": 2232,
-    "lemmatized_tokens_in_this_class": 35620668,
+    "grave_tokens": 6064,
+    "grave_lemmas": 2227,
+    "lemmatized_tokens_in_this_class": 35620224,
     "rate": 0.00017
    },
    "raw-ocr": {
-    "grave_tokens": 1928,
-    "grave_lemmas": 1063,
-    "lemmatized_tokens_in_this_class": 1841018,
-    "rate": 0.001047
+    "grave_tokens": 1929,
+    "grave_lemmas": 1064,
+    "lemmatized_tokens_in_this_class": 1841041,
+    "rate": 0.001048
    }
   },
   "unmatched": {
@@ -203,22 +203,22 @@
    }
   ]
  },
- "lemmas": 7847,
- "tokens": 31204,
+ "lemmas": 7849,
+ "tokens": 31197,
  "reachable": {
   "lemmas": 278,
-  "tokens": 3642,
+  "tokens": 3641,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7569,
-  "tokens": 27562,
+  "lemmas": 7571,
+  "tokens": 27556,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28991
+  "measured_the_old_way_tokens": 28984
  },
  "largest_unreachable": [
   {
@@ -290,11 +290,11 @@
    "tokens": 45
   },
   {
-   "lemma": "καὶτὸ",
-   "tokens": 42
+   "lemma": "ποδὸν",
+   "tokens": 41
   },
   {
-   "lemma": "ποδὸν",
+   "lemma": "καὶτὸ",
    "tokens": 41
   },
   {
@@ -487,7 +487,7 @@
   },
   {
    "lemma": "περιὲ",
-   "tokens": 52,
+   "tokens": 51,
    "target": "περιέ",
    "target_tokens": 0
   },
@@ -621,7 +621,7 @@
    "lemma": "Ὑπὸς",
    "tokens": 17,
    "target": "ὑπός",
-   "target_tokens": 67
+   "target_tokens": 65
   }
  ]
 }

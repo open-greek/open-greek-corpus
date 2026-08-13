@@ -11,15 +11,15 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26343,
- "tokens": 42595,
+ "forms": 26368,
+ "tokens": 42610,
  "served_tokens": 65296585,
- "share": 0.000652,
+ "share": 0.000653,
  "works_touched": 1641,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 25570,
+   "tokens": 25569,
    "rate": 0.001021
   },
   {
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7474,
-   "rate": 0.001813
+   "tokens": 7490,
+   "rate": 0.001817
   },
   {
    "source": "perseus",
@@ -71,7 +71,7 @@
  "by_edition": [
   {
    "edition": "migne-ocr-qwen36",
-   "tokens": 11684,
+   "tokens": 11685,
    "rate": 0.001006
   },
   {
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7474,
-   "rate": 0.001813
+   "tokens": 7490,
+   "rate": 0.001817
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -161,8 +161,8 @@
   },
   {
    "edition": "qwen36-etym-gudianum-sturz-bsb",
-   "tokens": 229,
-   "rate": 0.000708
+   "tokens": 233,
+   "rate": 0.000721
   },
   {
    "edition": "qwen36-joannes_geometres_pg106",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14790,
-  "tokens_with_exactly_one": 8860,
-  "tokens_with_none": 18945
+  "tokens_with_more_than_one_attested_shape": 14804,
+  "tokens_with_exactly_one": 8866,
+  "tokens_with_none": 18940
  },
  "largest_forms": [
   {
@@ -655,7 +655,7 @@
     },
     "crasis": {
      "form": "ἀλλὰ",
-     "attested": 184344
+     "attested": 184342
     },
     "circumflex": {
      "form": "ᾶλλὰ",
@@ -919,7 +919,7 @@
     },
     "crasis": {
      "form": "τἀμὰ",
-     "attested": 247
+     "attested": 246
     },
     "circumflex": {
      "form": "τᾶμὰ",
@@ -1237,7 +1237,7 @@
   },
   {
    "form": "καὶτὸ",
-   "tokens": 42,
+   "tokens": 41,
    "shapes": {
     "acute": {
      "form": "καίτὸ",
@@ -2715,7 +2715,7 @@
    "shapes": {
     "acute": {
      "form": "ὅλον",
-     "attested": 14921
+     "attested": 14920
     },
     "dropped": {
      "form": "ὁλον",
@@ -3397,7 +3397,7 @@
    "shapes": {
     "acute": {
      "form": "ἔσονται",
-     "attested": 4168
+     "attested": 4167
     },
     "dropped": {
      "form": "ἐσονται",
@@ -3476,28 +3476,6 @@
     "circumflex": {
      "form": "ἧξει",
      "attested": 4
-    }
-   }
-  },
-  {
-   "form": "καὶτὴν",
-   "tokens": 17,
-   "shapes": {
-    "acute": {
-     "form": "καίτὴν",
-     "attested": 0
-    },
-    "dropped": {
-     "form": "καιτὴν",
-     "attested": 0
-    },
-    "crasis": {
-     "form": "καἰτὴν",
-     "attested": 0
-    },
-    "circumflex": {
-     "form": "καῖτὴν",
-     "attested": 0
     }
    }
   },
@@ -3629,6 +3607,28 @@
     },
     "circumflex": {
      "form": "ἇπαντα",
+     "attested": 0
+    }
+   }
+  },
+  {
+   "form": "καὶτὴν",
+   "tokens": 16,
+   "shapes": {
+    "acute": {
+     "form": "καίτὴν",
+     "attested": 0
+    },
+    "dropped": {
+     "form": "καιτὴν",
+     "attested": 0
+    },
+    "crasis": {
+     "form": "καἰτὴν",
+     "attested": 0
+    },
+    "circumflex": {
+     "form": "καῖτὴν",
      "attested": 0
     }
    }
@@ -4431,7 +4431,7 @@
    "shapes": {
     "acute": {
      "form": "ὅλης",
-     "attested": 4711
+     "attested": 4710
     },
     "dropped": {
      "form": "ὁλης",
@@ -4622,34 +4622,34 @@
    },
    {
     "bucket": "below 0.70",
-    "forms": 650,
-    "tokens": 3084
+    "forms": 653,
+    "tokens": 3087
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 3945,
-    "tokens": 6370
+    "forms": 3957,
+    "tokens": 6379
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3439,
-    "tokens": 9824
+    "forms": 3440,
+    "tokens": 9827
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17530,
+    "forms": 17539,
     "tokens": 20550
    }
   ],
-  "accent_only_forms": 2657,
-  "accent_only_tokens": 8058,
+  "accent_only_forms": 2658,
+  "accent_only_tokens": 8061,
   "marks_moved_tokens": 1766,
   "page_diffusion": {
-   "distinct_scan_pages": 16111,
-   "tokens_on_the_densest_500_pages": 3929,
+   "distinct_scan_pages": 16108,
+   "tokens_on_the_densest_500_pages": 3930,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3439,
+  "decided_forms_total": 3440,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
