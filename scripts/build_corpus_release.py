@@ -95,6 +95,13 @@ MEASURED = {
                 "optimistic by 6 to 8 points"),
     },
     "wrong_rows_estimate": 43400,
+    "reverted_since_measurement": {
+        "records": 2315,
+        "what": ("1,447 from the re-adjudication accepts pass and 868 from the "
+                 "llm/accepted census, both on unanimous two-rater verdicts, so "
+                 "the wrong_rows_estimate above describes the overlay as "
+                 "sampled and the served text now carries that many fewer"),
+    },
     "corrections_present": 120894,
     "corrections_present_works": 890,
     "active_records": 225125,
@@ -113,9 +120,10 @@ MEASURED = {
         "The estimate counts corrections that are wrong, not OCR errors that "
         "survive: a raw-OCR work has had no correction pass at all and none of "
         "these rates say anything about it.",
-        "llm/accepted was reverted wholesale in August 2026, but 2,522 records "
-        "survived that revert and measure 53.6%; the revert did not reach all "
-        "of it.",
+        "llm/accepted's 53.6% is the 2,522 records that survived the August "
+        "2026 wholesale revert. All 2,114 of them still resolvable were then "
+        "read individually and the 868 both raters called wrong were reverted, "
+        "leaving 1,654 applied.",
         "prosodia/accepted (682 records) and engine/accepted (4) were below "
         "the sampling floor and are not covered by any figure here.",
         "The per-work unattested_rate in data/corpus_catalog.tsv is a triage "

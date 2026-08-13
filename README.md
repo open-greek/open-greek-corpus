@@ -585,8 +585,9 @@ wrong; 803 were readable after carve routing.
 | `llm`/auto | 64,011 | 120 | 82.5% | 74.7-88.3 | 14.2% |
 
 Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
-where the raters split or were unsure. That is roughly 43,000 wrong corrections
-in the served text.
+where the raters split or were unsure. That was roughly 43,000 wrong corrections
+when the sample was drawn; 2,315 have been taken out since, so read the table as
+the state it measured rather than a live figure.
 
 Everything before this was measured over slices picked for being hard, one
 rater per item, mostly at n≈30, so those figures said how a corner behaved
@@ -598,11 +599,22 @@ on 5.5% of items, so nothing above is finer than a few points.
 
 `agent`/accepted is the only cell that reads clean, and it is also the only one
 where something adjudicated every single record rather than a confidence
-threshold waving it through. `llm`/accepted was reverted wholesale in August
-2026 and requeued behind a lexicon gate, but 2,522 of its records survived that
-revert and still measure 53.6%, so the revert did not reach all of it.
-`prosodia`/accepted (682 records) and `engine`/accepted (4) fall below the
-sampling floor and no figure here covers them.
+threshold waving it through. `prosodia`/accepted (682 records) and
+`engine`/accepted (4) fall below the sampling floor and no figure here covers
+them.
+
+`llm`/accepted has since been finished off. It was reverted wholesale in August
+2026 and requeued behind a lexicon gate, but 2,522 records survived that revert,
+which is what the 53.6% above measures. Rather than revert the cell twice, all
+2,114 of them that still resolve to a served row were read individually by two
+blind raters: 49.7% sound, 41.1% unanimously wrong, 92.1% agreement. The 868
+both-wrong went back to their OCR readings across 113 works and 1,654 remain
+applied. That census also names the corrector's real failure mode, which is not
+glyph misreading: where the scan is unreadable it invents plausible Greek, so it
+wrote `Περὶ` and `Λόγῳ` into garbled Latin columns, read the heading fragment
+`ΚἄΑΛ` (of `ΚΕΦΑΛ`) as `Καὶ`, and finished the line-break fragment `ἀνθρώ-` as
+`παῖδας`. No attestation gate catches that, because the invented word is always
+a real word.
 
 `prosodia`/accepted once looked like a second bad cell at 43% unattested, but it
 is not: that pass normalizes sigma (medial to `σ`, final to `ς`, lunate to

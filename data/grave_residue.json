@@ -9,25 +9,25 @@
    "auto-corrected": {
     "grave_tokens": 17831,
     "grave_lemmas": 5611,
-    "lemmatized_tokens_in_this_class": 19128750,
+    "lemmatized_tokens_in_this_class": 19128768,
     "rate": 0.000932
    },
    "manual": {
-    "grave_tokens": 5350,
-    "grave_lemmas": 2223,
-    "lemmatized_tokens_in_this_class": 6911249,
-    "rate": 0.000774
+    "grave_tokens": 5383,
+    "grave_lemmas": 2233,
+    "lemmatized_tokens_in_this_class": 6910800,
+    "rate": 0.000779
    },
    "not-ocr": {
     "grave_tokens": 6069,
     "grave_lemmas": 2232,
-    "lemmatized_tokens_in_this_class": 35620699,
+    "lemmatized_tokens_in_this_class": 35620683,
     "rate": 0.00017
    },
    "raw-ocr": {
     "grave_tokens": 1928,
     "grave_lemmas": 1063,
-    "lemmatized_tokens_in_this_class": 1845755,
+    "lemmatized_tokens_in_this_class": 1845756,
     "rate": 0.001045
    }
   },
@@ -36,7 +36,7 @@
    "lemmas": 0,
    "keys": []
   },
-  "ocr_derived_rate": 0.0009,
+  "ocr_derived_rate": 0.000902,
   "born_digital_rate": 0.00017,
   "lift": 5.3,
   "reading": "the class is not an OCR problem that belongs to another issue. It sits over born-digital text at a floor no text repair reaches, and the raw-OCR stratum #2 scopes holds only a small part of it."
@@ -94,10 +94,10 @@
   "headwords": 281178,
   "lemmas": 107,
   "tokens": 669,
-  "share_of_residue": 0.0215,
+  "share_of_residue": 0.0214,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.2242,
+   "non_grave_lemmas_le_10_tokens_backed": 0.2241,
    "grave_lemmas_le_10_tokens_backed": 0.0151
   },
   "largest": [
@@ -203,22 +203,22 @@
    }
   ]
  },
- "lemmas": 7839,
- "tokens": 31178,
+ "lemmas": 7849,
+ "tokens": 31211,
  "reachable": {
   "lemmas": 278,
   "tokens": 3642,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7561,
-  "tokens": 27536,
+  "lemmas": 7571,
+  "tokens": 27569,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28965
+  "measured_the_old_way_tokens": 28998
  },
  "largest_unreachable": [
   {
