@@ -4,9 +4,24 @@
  "status": "waiting on cisco. He approved repairing this class; the accent-only restriction was mine, described to him when the first tranche was applied, so widening it is a change to what he agreed to and not mine to make quietly.",
  "what_moves": "a breathing or a coronis as well as an accent. τὰναντία is the crasis τἀναντία and τάναντία is not a word; ὲπὶ is ἐπί with the smooth breathing it lost; κἂι is καί.",
  "why_stricter": "share >= 0.99 over >= 100 clean tokens, the bar used for other people's editions rather than the 0.95 used for our own, because this changes a lexical mark and not only a stress.",
- "forms": 0,
- "tokens": 0,
- "token_weighted_share": 0,
+ "forms": 1,
+ "tokens": 1,
+ "token_weighted_share": 0.9934,
  "expected_wrong_tokens": 0,
- "rows": []
+ "rows": [
+  {
+   "form": "ἣθη",
+   "tokens": 1,
+   "ocr_tokens": 0,
+   "target": "ἤθη",
+   "clean_class": 908,
+   "clean_hits": 902,
+   "share": 0.9934,
+   "accent_only": false,
+   "runner_up": {
+    "form": "ήθη",
+    "clean_tokens": 4
+   }
+  }
+ ]
 }
