@@ -2,11 +2,11 @@
  "corpus": {
   "passages": 1975500,
   "tokens": 65296585,
-  "tokens_lemmatized": 63492378,
+  "tokens_lemmatized": 63491610,
   "works": 3909
  },
  "generated_from": {
-  "commit": "567a10d45f62c93becb0a6de48cffd2d6ede5edf",
+  "commit": "982ccbd16db976106d457f1cfaaa2318b1ea6e5b",
   "commit_date": "2026-08-13",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "11e79a961c31b78632a5cdc244b8fa2f2b530a2d1dd61e3f247db2fb1e7f5963",
-  "corpus_sha256": "c1e2dad0a1f62db939a494357983f1bc123004350faf43711257f6e6a45e5e17",
+  "catalog_sha256": "2ca5b34a784f961c76e5d9b3c1d5d7d80ec9beaa6fa4d07d22b594a89a8d6b7a",
+  "corpus_sha256": "e9c9fabe14575e5144a71454da7093443e25e26a1b1dcb270e5be3c6b270ca13",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
