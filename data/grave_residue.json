@@ -7,27 +7,27 @@
   "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
   "by_class": {
    "auto-corrected": {
-    "grave_tokens": 17821,
+    "grave_tokens": 17825,
     "grave_lemmas": 5607,
-    "lemmatized_tokens_in_this_class": 19120888,
+    "lemmatized_tokens_in_this_class": 19120761,
     "rate": 0.000932
    },
    "manual": {
-    "grave_tokens": 5393,
-    "grave_lemmas": 2232,
-    "lemmatized_tokens_in_this_class": 6909435,
+    "grave_tokens": 5395,
+    "grave_lemmas": 2234,
+    "lemmatized_tokens_in_this_class": 6909301,
     "rate": 0.000781
    },
    "not-ocr": {
-    "grave_tokens": 6061,
-    "grave_lemmas": 2224,
-    "lemmatized_tokens_in_this_class": 35620014,
+    "grave_tokens": 6060,
+    "grave_lemmas": 2223,
+    "lemmatized_tokens_in_this_class": 35619847,
     "rate": 0.00017
    },
    "raw-ocr": {
     "grave_tokens": 1929,
     "grave_lemmas": 1064,
-    "lemmatized_tokens_in_this_class": 1841050,
+    "lemmatized_tokens_in_this_class": 1841060,
     "rate": 0.001048
    }
   },
@@ -93,7 +93,7 @@
   },
   "headwords": 281178,
   "lemmas": 107,
-  "tokens": 669,
+  "tokens": 668,
   "share_of_residue": 0.0214,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
@@ -157,11 +157,6 @@
     "headword": "εἰγάρ"
    },
    {
-    "lemma": "κατευθὺς",
-    "tokens": 9,
-    "headword": "κατευθύς"
-   },
-   {
     "lemma": "μαρὰν",
     "tokens": 9,
     "headword": "μαράν"
@@ -170,6 +165,11 @@
     "lemma": "οὐμὴ",
     "tokens": 9,
     "headword": "οὐμή"
+   },
+   {
+    "lemma": "κατευθὺς",
+    "tokens": 8,
+    "headword": "κατευθύς"
    },
    {
     "lemma": "οὐμὴν",
@@ -203,22 +203,22 @@
    }
   ]
  },
- "lemmas": 7849,
- "tokens": 31204,
+ "lemmas": 7852,
+ "tokens": 31209,
  "reachable": {
   "lemmas": 278,
-  "tokens": 3641,
+  "tokens": 3644,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7571,
-  "tokens": 27563,
+  "lemmas": 7574,
+  "tokens": 27565,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28955
+  "measured_the_old_way_tokens": 28956
  },
  "largest_unreachable": [
   {
@@ -243,7 +243,7 @@
   },
   {
    "lemma": "ἐπειδὴν",
-   "tokens": 167
+   "tokens": 166
   },
   {
    "lemma": "αὐδὶς",
@@ -279,7 +279,7 @@
   },
   {
    "lemma": "ἐαντὸν",
-   "tokens": 50
+   "tokens": 51
   },
   {
    "lemma": "ὀψὴν",
@@ -339,7 +339,7 @@
   },
   {
    "lemma": "ἰδὺς",
-   "tokens": 33
+   "tokens": 34
   },
   {
    "lemma": "τριπλὴν",
@@ -612,16 +612,16 @@
    "target_tokens": 2
   },
   {
+   "lemma": "Ἰσὺν",
+   "tokens": 18,
+   "target": "ἰσύν",
+   "target_tokens": 10
+  },
+  {
    "lemma": "ὑτὸ",
    "tokens": 17,
    "target": "ὑτό",
    "target_tokens": 3
-  },
-  {
-   "lemma": "Ὑπὸς",
-   "tokens": 17,
-   "target": "ὑπός",
-   "target_tokens": 65
   }
  ]
 }

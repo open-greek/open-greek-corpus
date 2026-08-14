@@ -11,15 +11,15 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26406,
- "tokens": 42646,
+ "forms": 26421,
+ "tokens": 42669,
  "served_tokens": 65296585,
  "share": 0.000653,
  "works_touched": 1641,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 25568,
+   "tokens": 25583,
    "rate": 0.001021
   },
   {
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7527,
-   "rate": 0.001826
+   "tokens": 7535,
+   "rate": 0.001828
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7527,
-   "rate": 0.001826
+   "tokens": 7535,
+   "rate": 0.001828
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -136,8 +136,8 @@
   },
   {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "tokens": 289,
-   "rate": 0.001874
+   "tokens": 305,
+   "rate": 0.001978
   },
   {
    "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14817,
-  "tokens_with_exactly_one": 8879,
-  "tokens_with_none": 18950
+  "tokens_with_more_than_one_attested_shape": 14830,
+  "tokens_with_exactly_one": 8888,
+  "tokens_with_none": 18951
  },
  "largest_forms": [
   {
@@ -269,7 +269,7 @@
   },
   {
    "form": "τὸτο",
-   "tokens": 194,
+   "tokens": 198,
    "shapes": {
     "acute": {
      "form": "τότο",
@@ -285,7 +285,7 @@
     },
     "circumflex": {
      "form": "το͂το",
-     "attested": 7
+     "attested": 3
     }
    }
   },
@@ -1725,7 +1725,7 @@
    "shapes": {
     "acute": {
      "form": "ἴδιον",
-     "attested": 10526
+     "attested": 10525
     },
     "dropped": {
      "form": "ἰδιον",
@@ -3480,6 +3480,28 @@
    }
   },
   {
+   "form": "τὰντα",
+   "tokens": 17,
+   "shapes": {
+    "acute": {
+     "form": "τάντα",
+     "attested": 25
+    },
+    "dropped": {
+     "form": "ταντα",
+     "attested": 14
+    },
+    "crasis": {
+     "form": "τἀντα",
+     "attested": 0
+    },
+    "circumflex": {
+     "form": "τᾶντα",
+     "attested": 1
+    }
+   }
+  },
+  {
    "form": "ἣτε",
    "tokens": 17,
    "shapes": {
@@ -3563,6 +3585,28 @@
     },
     "circumflex": {
      "form": "Επεῖδὴ",
+     "attested": 0
+    }
+   }
+  },
+  {
+   "form": "καὶνταῦθα",
+   "tokens": 17,
+   "shapes": {
+    "acute": {
+     "form": "καίνταῦθα",
+     "attested": 0
+    },
+    "dropped": {
+     "form": "καινταῦθα",
+     "attested": 1
+    },
+    "crasis": {
+     "form": "καἰνταῦθα",
+     "attested": 1
+    },
+    "circumflex": {
+     "form": "καῖνταῦθα",
      "attested": 0
     }
    }
@@ -3806,28 +3850,6 @@
     "circumflex": {
      "form": "ὗλη",
      "attested": 1
-    }
-   }
-  },
-  {
-   "form": "καὶνταῦθα",
-   "tokens": 16,
-   "shapes": {
-    "acute": {
-     "form": "καίνταῦθα",
-     "attested": 0
-    },
-    "dropped": {
-     "form": "καινταῦθα",
-     "attested": 1
-    },
-    "crasis": {
-     "form": "καἰνταῦθα",
-     "attested": 2
-    },
-    "circumflex": {
-     "form": "καῖνταῦθα",
-     "attested": 0
     }
    }
   },
@@ -4578,28 +4600,6 @@
      "attested": 0
     }
    }
-  },
-  {
-   "form": "καὶνὴ",
-   "tokens": 14,
-   "shapes": {
-    "acute": {
-     "form": "καίνὴ",
-     "attested": 0
-    },
-    "dropped": {
-     "form": "καινὴ",
-     "attested": 341
-    },
-    "crasis": {
-     "form": "καἰνὴ",
-     "attested": 0
-    },
-    "circumflex": {
-     "form": "καῖνὴ",
-     "attested": 0
-    }
-   }
   }
  ],
  "skeleton_class": {
@@ -4622,13 +4622,13 @@
    },
    {
     "bucket": "below 0.70",
-    "forms": 655,
-    "tokens": 3089
+    "forms": 657,
+    "tokens": 3091
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 3979,
-    "tokens": 6404
+    "forms": 3987,
+    "tokens": 6425
    },
    {
     "bucket": "dominant >= 0.9",
@@ -4637,7 +4637,7 @@
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17548,
+    "forms": 17553,
     "tokens": 20553
    }
   ],
@@ -4645,8 +4645,8 @@
   "accent_only_tokens": 8066,
   "marks_moved_tokens": 1766,
   "page_diffusion": {
-   "distinct_scan_pages": 16108,
-   "tokens_on_the_densest_500_pages": 3930,
+   "distinct_scan_pages": 16112,
+   "tokens_on_the_densest_500_pages": 3931,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
   "decided_forms_total": 3444,
