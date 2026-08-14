@@ -7,27 +7,27 @@
   "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
   "by_class": {
    "auto-corrected": {
-    "grave_tokens": 17820,
+    "grave_tokens": 17821,
     "grave_lemmas": 5607,
-    "lemmatized_tokens_in_this_class": 19120877,
+    "lemmatized_tokens_in_this_class": 19120888,
     "rate": 0.000932
    },
    "manual": {
-    "grave_tokens": 5394,
-    "grave_lemmas": 2231,
-    "lemmatized_tokens_in_this_class": 6909621,
+    "grave_tokens": 5393,
+    "grave_lemmas": 2232,
+    "lemmatized_tokens_in_this_class": 6909435,
     "rate": 0.000781
    },
    "not-ocr": {
     "grave_tokens": 6061,
     "grave_lemmas": 2224,
-    "lemmatized_tokens_in_this_class": 35620064,
+    "lemmatized_tokens_in_this_class": 35620014,
     "rate": 0.00017
    },
    "raw-ocr": {
     "grave_tokens": 1929,
     "grave_lemmas": 1064,
-    "lemmatized_tokens_in_this_class": 1841048,
+    "lemmatized_tokens_in_this_class": 1841050,
     "rate": 0.001048
    }
   },
@@ -218,7 +218,7 @@
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28989
+  "measured_the_old_way_tokens": 28955
  },
  "largest_unreachable": [
   {

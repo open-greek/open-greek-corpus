@@ -11,15 +11,15 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26393,
- "tokens": 42633,
+ "forms": 26406,
+ "tokens": 42646,
  "served_tokens": 65296585,
  "share": 0.000653,
  "works_touched": 1641,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 25569,
+   "tokens": 25568,
    "rate": 0.001021
   },
   {
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7513,
-   "rate": 0.001823
+   "tokens": 7527,
+   "rate": 0.001826
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7513,
-   "rate": 0.001823
+   "tokens": 7527,
+   "rate": 0.001826
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -146,8 +146,8 @@
   },
   {
    "edition": "qwen36-bussemaker-daremberg-1851-rover",
-   "tokens": 267,
-   "rate": 0.001102
+   "tokens": 266,
+   "rate": 0.001098
   },
   {
    "edition": "qwen36-timotheus_defluviis_ggm2",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14816,
-  "tokens_with_exactly_one": 8870,
-  "tokens_with_none": 18947
+  "tokens_with_more_than_one_attested_shape": 14817,
+  "tokens_with_exactly_one": 8879,
+  "tokens_with_none": 18950
  },
  "largest_forms": [
   {
@@ -4617,39 +4617,39 @@
   "partition": [
    {
     "bucket": "0.70-0.90",
-    "forms": 779,
-    "tokens": 2767
+    "forms": 780,
+    "tokens": 2768
    },
    {
     "bucket": "below 0.70",
-    "forms": 654,
-    "tokens": 3088
+    "forms": 655,
+    "tokens": 3089
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 3972,
-    "tokens": 6395
+    "forms": 3979,
+    "tokens": 6404
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3442,
-    "tokens": 9830
+    "forms": 3444,
+    "tokens": 9832
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17546,
+    "forms": 17548,
     "tokens": 20553
    }
   ],
-  "accent_only_forms": 2660,
-  "accent_only_tokens": 8064,
+  "accent_only_forms": 2662,
+  "accent_only_tokens": 8066,
   "marks_moved_tokens": 1766,
   "page_diffusion": {
    "distinct_scan_pages": 16108,
    "tokens_on_the_densest_500_pages": 3930,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3442,
+  "decided_forms_total": 3444,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
