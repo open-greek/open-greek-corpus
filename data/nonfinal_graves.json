@@ -11,8 +11,8 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26368,
- "tokens": 42610,
+ "forms": 26393,
+ "tokens": 42633,
  "served_tokens": 65296585,
  "share": 0.000653,
  "works_touched": 1641,
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7490,
-   "rate": 0.001817
+   "tokens": 7513,
+   "rate": 0.001823
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7490,
-   "rate": 0.001817
+   "tokens": 7513,
+   "rate": 0.001823
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14804,
-  "tokens_with_exactly_one": 8866,
-  "tokens_with_none": 18940
+  "tokens_with_more_than_one_attested_shape": 14816,
+  "tokens_with_exactly_one": 8870,
+  "tokens_with_none": 18947
  },
  "largest_forms": [
   {
@@ -4431,7 +4431,7 @@
    "shapes": {
     "acute": {
      "form": "ὅλης",
-     "attested": 4710
+     "attested": 4709
     },
     "dropped": {
      "form": "ὁλης",
@@ -4622,34 +4622,34 @@
    },
    {
     "bucket": "below 0.70",
-    "forms": 653,
-    "tokens": 3087
+    "forms": 654,
+    "tokens": 3088
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 3957,
-    "tokens": 6379
+    "forms": 3972,
+    "tokens": 6395
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3440,
-    "tokens": 9827
+    "forms": 3442,
+    "tokens": 9830
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17539,
-    "tokens": 20550
+    "forms": 17546,
+    "tokens": 20553
    }
   ],
-  "accent_only_forms": 2658,
-  "accent_only_tokens": 8061,
+  "accent_only_forms": 2660,
+  "accent_only_tokens": 8064,
   "marks_moved_tokens": 1766,
   "page_diffusion": {
    "distinct_scan_pages": 16108,
    "tokens_on_the_densest_500_pages": 3930,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3440,
+  "decided_forms_total": 3442,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
