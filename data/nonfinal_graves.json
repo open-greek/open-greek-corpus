@@ -11,16 +11,16 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26584,
- "tokens": 42886,
+ "forms": 26599,
+ "tokens": 42910,
  "served_tokens": 65296585,
  "share": 0.000657,
  "works_touched": 1641,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 25590,
-   "rate": 0.001021
+   "tokens": 25593,
+   "rate": 0.001022
   },
   {
    "source": "first1k",
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7745,
-   "rate": 0.001879
+   "tokens": 7766,
+   "rate": 0.001884
   },
   {
    "source": "perseus",
@@ -76,8 +76,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7745,
-   "rate": 0.001879
+   "tokens": 7766,
+   "rate": 0.001884
   },
   {
    "edition": "1st1K-grc1",
@@ -161,8 +161,8 @@
   },
   {
    "edition": "qwen36-etym-gudianum-sturz-bsb",
-   "tokens": 233,
-   "rate": 0.000721
+   "tokens": 235,
+   "rate": 0.000727
   },
   {
    "edition": "qwen36-joannes_geometres_pg106",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14965,
-  "tokens_with_exactly_one": 8950,
-  "tokens_with_none": 18971
+  "tokens_with_more_than_one_attested_shape": 14978,
+  "tokens_with_exactly_one": 8955,
+  "tokens_with_none": 18977
  },
  "largest_forms": [
   {
@@ -229,7 +229,7 @@
    "shapes": {
     "acute": {
      "form": "ἤπερ",
-     "attested": 1890
+     "attested": 1889
     },
     "dropped": {
      "form": "ἠπερ",
@@ -625,7 +625,7 @@
    "shapes": {
     "acute": {
      "form": "ἄνθρωπος",
-     "attested": 21829
+     "attested": 21828
     },
     "dropped": {
      "form": "ἀνθρωπος",
@@ -2121,7 +2121,7 @@
    "shapes": {
     "acute": {
      "form": "εἴδους",
-     "attested": 3944
+     "attested": 3943
     },
     "dropped": {
      "form": "εἰδους",
@@ -2561,7 +2561,7 @@
    "shapes": {
     "acute": {
      "form": "ἄλλου",
-     "attested": 7542
+     "attested": 7541
     },
     "dropped": {
      "form": "ἀλλου",
@@ -3089,7 +3089,7 @@
    "shapes": {
     "acute": {
      "form": "ἤγου",
-     "attested": 95
+     "attested": 108
     },
     "dropped": {
      "form": "ἠγου",
@@ -3331,7 +3331,7 @@
    "shapes": {
     "acute": {
      "form": "ἄλλῳ",
-     "attested": 5776
+     "attested": 5773
     },
     "dropped": {
      "form": "ἀλλῳ",
@@ -3771,7 +3771,7 @@
    "shapes": {
     "acute": {
      "form": "ἔπειτα",
-     "attested": 10966
+     "attested": 10965
     },
     "dropped": {
      "form": "ἐπειτα",
@@ -4617,23 +4617,23 @@
   "partition": [
    {
     "bucket": "0.70-0.90",
-    "forms": 797,
-    "tokens": 2788
+    "forms": 798,
+    "tokens": 2792
    },
    {
     "bucket": "below 0.70",
-    "forms": 680,
-    "tokens": 3118
+    "forms": 683,
+    "tokens": 3121
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 4039,
-    "tokens": 6503
+    "forms": 4041,
+    "tokens": 6508
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3490,
-    "tokens": 9910
+    "forms": 3499,
+    "tokens": 9922
    },
    {
     "bucket": "no clean sibling",
@@ -4641,15 +4641,15 @@
     "tokens": 20567
    }
   ],
-  "accent_only_forms": 2684,
-  "accent_only_tokens": 8103,
-  "marks_moved_tokens": 1807,
+  "accent_only_forms": 2689,
+  "accent_only_tokens": 8108,
+  "marks_moved_tokens": 1814,
   "page_diffusion": {
-   "distinct_scan_pages": 16110,
+   "distinct_scan_pages": 16111,
    "tokens_on_the_densest_500_pages": 3931,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3490,
+  "decided_forms_total": 3499,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
