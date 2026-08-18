@@ -14,8 +14,8 @@
   "saws",
   "wikisource"
  ],
- "forms": 11,
- "tokens": 18,
+ "forms": 13,
+ "tokens": 20,
  "token_weighted_share": 0.99629,
  "expected_wrong_tokens": 0,
  "not_touched": "the other flagged tokens in these sources sit below the bar and stay wrong and recorded rather than guessed at.",
@@ -66,6 +66,38 @@
    "tokens_in_third_party": 2,
    "by_source": {
     "cgpg": 2
+   }
+  },
+  {
+   "form": "λαμπρὸὺ",
+   "target": "λαμπροῦ",
+   "share": 0.9942,
+   "clean_class": 171,
+   "clean_hits": 170,
+   "accent_only": true,
+   "runner_up": {
+    "form": "λαμπρού",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "τὸποῖ",
+   "target": "τόποι",
+   "share": 0.9985,
+   "clean_class": 659,
+   "clean_hits": 658,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τοποι",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
    }
   },
   {
