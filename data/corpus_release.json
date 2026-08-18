@@ -2,12 +2,12 @@
  "corpus": {
   "passages": 1975500,
   "tokens": 65296585,
-  "tokens_lemmatized": 63489474,
+  "tokens_lemmatized": 63489222,
   "works": 3909
  },
  "generated_from": {
-  "commit": "2cb2c947081a75f4082c27df05e27920cfe527c8",
-  "commit_date": "2026-08-17",
+  "commit": "9386fb29f5507dcf43bca41072f73dbb6fa05583",
+  "commit_date": "2026-08-18",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "0db05601d8d18e0ebccb0224600908c450a4482873e752422ba756b2d0584da3",
-  "corpus_sha256": "2de44857032df6c4ecf4e0a51b74c632512e86410b473ac698c18d1e160efb9f",
+  "catalog_sha256": "a9a08c57fe6bc3101b2be13f00df28d0d7495ec027d6333cce3de7f8bdd0b773",
+  "corpus_sha256": "c53b7211ac9c0d082989f7282451f71f2f99f1b3bbf8fbbf0edb57dbb0ea6a41",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -160,8 +160,8 @@
    "wrong_rows_estimate": 43400
   }
  },
- "release_date": "2026-08-17",
- "release_id": "corpus-2026-08-17.2",
+ "release_date": "2026-08-18",
+ "release_id": "corpus-2026-08-18",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
