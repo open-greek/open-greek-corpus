@@ -15,8 +15,8 @@
   "wikisource"
  ],
  "forms": 11,
- "tokens": 17,
- "token_weighted_share": 0.99628,
+ "tokens": 18,
+ "token_weighted_share": 0.99629,
  "expected_wrong_tokens": 0,
  "not_touched": "the other flagged tokens in these sources sit below the bar and stay wrong and recorded rather than guessed at.",
  "rows": [
@@ -50,6 +50,22 @@
    "tokens_in_third_party": 3,
    "by_source": {
     "cgpg": 3
+   }
+  },
+  {
+   "form": "ἀλλὰὶ",
+   "target": "ἄλλαι",
+   "share": 0.9965,
+   "clean_class": 2013,
+   "clean_hits": 2006,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅλλαι",
+    "clean_tokens": 4
+   },
+   "tokens_in_third_party": 2,
+   "by_source": {
+    "cgpg": 2
    }
   },
   {
@@ -126,22 +142,6 @@
    "runner_up": {
     "form": "λεγοις",
     "clean_tokens": 1
-   },
-   "tokens_in_third_party": 1,
-   "by_source": {
-    "cgpg": 1
-   }
-  },
-  {
-   "form": "ἀλλὰὶ",
-   "target": "ἄλλαι",
-   "share": 0.9965,
-   "clean_class": 2013,
-   "clean_hits": 2006,
-   "accent_only": true,
-   "runner_up": {
-    "form": "ἅλλαι",
-    "clean_tokens": 4
    },
    "tokens_in_third_party": 1,
    "by_source": {
