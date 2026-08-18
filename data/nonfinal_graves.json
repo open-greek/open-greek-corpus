@@ -11,8 +11,8 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26453,
- "tokens": 42707,
+ "forms": 26472,
+ "tokens": 42731,
  "served_tokens": 65296585,
  "share": 0.000654,
  "works_touched": 1641,
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7564,
-   "rate": 0.001835
+   "tokens": 7588,
+   "rate": 0.001841
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7564,
-   "rate": 0.001835
+   "tokens": 7588,
+   "rate": 0.001841
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14853,
-  "tokens_with_exactly_one": 8908,
-  "tokens_with_none": 18946
+  "tokens_with_more_than_one_attested_shape": 14870,
+  "tokens_with_exactly_one": 8904,
+  "tokens_with_none": 18957
  },
  "largest_forms": [
   {
@@ -4475,7 +4475,7 @@
    "shapes": {
     "acute": {
      "form": "ὅσον",
-     "attested": 19841
+     "attested": 19840
     },
     "dropped": {
      "form": "ὁσον",
@@ -4622,13 +4622,13 @@
    },
    {
     "bucket": "below 0.70",
-    "forms": 661,
-    "tokens": 3096
+    "forms": 662,
+    "tokens": 3097
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 4004,
-    "tokens": 6454
+    "forms": 4013,
+    "tokens": 6468
    },
    {
     "bucket": "dominant >= 0.9",
@@ -4637,8 +4637,8 @@
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17563,
-    "tokens": 20556
+    "forms": 17572,
+    "tokens": 20565
    }
   ],
   "accent_only_forms": 2662,

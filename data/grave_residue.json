@@ -7,27 +7,27 @@
   "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
   "by_class": {
    "auto-corrected": {
-    "grave_tokens": 17816,
-    "grave_lemmas": 5598,
-    "lemmatized_tokens_in_this_class": 19120461,
+    "grave_tokens": 17817,
+    "grave_lemmas": 5599,
+    "lemmatized_tokens_in_this_class": 19120513,
     "rate": 0.000932
    },
    "manual": {
-    "grave_tokens": 5407,
-    "grave_lemmas": 2241,
-    "lemmatized_tokens_in_this_class": 6908720,
-    "rate": 0.000783
+    "grave_tokens": 5414,
+    "grave_lemmas": 2243,
+    "lemmatized_tokens_in_this_class": 6908539,
+    "rate": 0.000784
    },
    "not-ocr": {
     "grave_tokens": 6049,
     "grave_lemmas": 2212,
-    "lemmatized_tokens_in_this_class": 35619378,
+    "lemmatized_tokens_in_this_class": 35619336,
     "rate": 0.00017
    },
    "raw-ocr": {
     "grave_tokens": 1929,
     "grave_lemmas": 1064,
-    "lemmatized_tokens_in_this_class": 1841082,
+    "lemmatized_tokens_in_this_class": 1841086,
     "rate": 0.001048
    }
   },
@@ -36,7 +36,7 @@
    "lemmas": 0,
    "keys": []
   },
-  "ocr_derived_rate": 0.000902,
+  "ocr_derived_rate": 0.000903,
   "born_digital_rate": 0.00017,
   "lift": 5.31,
   "reading": "the class is not an OCR problem that belongs to another issue. It sits over born-digital text at a floor no text repair reaches, and the raw-OCR stratum #2 scopes holds only a small part of it."
@@ -203,22 +203,22 @@
    }
   ]
  },
- "lemmas": 7852,
- "tokens": 31201,
+ "lemmas": 7855,
+ "tokens": 31209,
  "reachable": {
   "lemmas": 279,
   "tokens": 3648,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7573,
-  "tokens": 27553,
+  "lemmas": 7576,
+  "tokens": 27561,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28888
+  "measured_the_old_way_tokens": 28896
  },
  "largest_unreachable": [
   {
