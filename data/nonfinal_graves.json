@@ -11,8 +11,8 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26577,
- "tokens": 42878,
+ "forms": 26584,
+ "tokens": 42886,
  "served_tokens": 65296585,
  "share": 0.000657,
  "works_touched": 1641,
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7737,
-   "rate": 0.001877
+   "tokens": 7745,
+   "rate": 0.001879
   },
   {
    "source": "perseus",
@@ -76,8 +76,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7737,
-   "rate": 0.001877
+   "tokens": 7745,
+   "rate": 0.001879
   },
   {
    "edition": "1st1K-grc1",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14963,
-  "tokens_with_exactly_one": 8946,
-  "tokens_with_none": 18969
+  "tokens_with_more_than_one_attested_shape": 14965,
+  "tokens_with_exactly_one": 8950,
+  "tokens_with_none": 18971
  },
  "largest_forms": [
   {
@@ -229,7 +229,7 @@
    "shapes": {
     "acute": {
      "form": "ἤπερ",
-     "attested": 1891
+     "attested": 1890
     },
     "dropped": {
      "form": "ἠπερ",
@@ -695,7 +695,7 @@
     },
     "dropped": {
      "form": "ταῦτα",
-     "attested": 120140
+     "attested": 120139
     },
     "crasis": {
      "form": "τἀῦτα",
@@ -933,7 +933,7 @@
    "shapes": {
     "acute": {
      "form": "εἴδη",
-     "attested": 7372
+     "attested": 7371
     },
     "dropped": {
      "form": "εἰδη",
@@ -1421,7 +1421,7 @@
     },
     "dropped": {
      "form": "Ἐστι",
-     "attested": 183
+     "attested": 182
     },
     "crasis": {
      "form": "Ἐ̓στι",
@@ -2991,7 +2991,7 @@
     },
     "circumflex": {
      "form": "ταῦτα",
-     "attested": 120140
+     "attested": 120139
     }
    }
   },
@@ -3353,7 +3353,7 @@
    "shapes": {
     "acute": {
      "form": "ἕτερος",
-     "attested": 6258
+     "attested": 6257
     },
     "dropped": {
      "form": "ἑτερος",
@@ -4343,7 +4343,7 @@
    "shapes": {
     "acute": {
      "form": "ἔμψυχον",
-     "attested": 1060
+     "attested": 1059
     },
     "dropped": {
      "form": "ἐμψυχον",
@@ -4617,39 +4617,39 @@
   "partition": [
    {
     "bucket": "0.70-0.90",
-    "forms": 795,
-    "tokens": 2786
+    "forms": 797,
+    "tokens": 2788
    },
    {
     "bucket": "below 0.70",
-    "forms": 679,
-    "tokens": 3117
+    "forms": 680,
+    "tokens": 3118
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 4037,
-    "tokens": 6501
+    "forms": 4039,
+    "tokens": 6503
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3489,
-    "tokens": 9908
+    "forms": 3490,
+    "tokens": 9910
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17577,
-    "tokens": 20566
+    "forms": 17578,
+    "tokens": 20567
    }
   ],
   "accent_only_forms": 2684,
-  "accent_only_tokens": 8102,
-  "marks_moved_tokens": 1806,
+  "accent_only_tokens": 8103,
+  "marks_moved_tokens": 1807,
   "page_diffusion": {
    "distinct_scan_pages": 16110,
    "tokens_on_the_densest_500_pages": 3931,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3489,
+  "decided_forms_total": 3490,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
