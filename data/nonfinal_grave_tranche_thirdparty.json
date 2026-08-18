@@ -14,9 +14,9 @@
   "saws",
   "wikisource"
  ],
- "forms": 4,
- "tokens": 8,
- "token_weighted_share": 0.9965,
+ "forms": 11,
+ "tokens": 17,
+ "token_weighted_share": 0.99628,
  "expected_wrong_tokens": 0,
  "not_touched": "the other flagged tokens in these sources sit below the bar and stay wrong and recorded rather than guessed at.",
  "rows": [
@@ -31,9 +31,9 @@
     "form": "ὄπερ",
     "clean_tokens": 41
    },
-   "tokens_in_third_party": 3,
+   "tokens_in_third_party": 5,
    "by_source": {
-    "cgpg": 3
+    "cgpg": 5
    }
   },
   {
@@ -79,6 +79,112 @@
     "form": "ἁεί",
     "clean_tokens": 7
    },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "αὐτὸι",
+   "target": "αὐτοί",
+   "share": 0.9943,
+   "clean_class": 11502,
+   "clean_hits": 11437,
+   "accent_only": true,
+   "runner_up": {
+    "form": "αυτοί",
+    "clean_tokens": 31
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "μὲλλον",
+   "target": "μέλλον",
+   "share": 0.9958,
+   "clean_class": 1424,
+   "clean_hits": 1418,
+   "accent_only": true,
+   "runner_up": {
+    "form": "μελλόν",
+    "clean_tokens": 5
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "λὲγοις",
+   "target": "λέγοις",
+   "share": 0.9957,
+   "clean_class": 230,
+   "clean_hits": 229,
+   "accent_only": true,
+   "runner_up": {
+    "form": "λεγοις",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ἀλλὰὶ",
+   "target": "ἄλλαι",
+   "share": 0.9965,
+   "clean_class": 2013,
+   "clean_hits": 2006,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ἅλλαι",
+    "clean_tokens": 4
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "Διὰτί",
+   "target": "Διατί",
+   "share": 1.0,
+   "clean_class": 150,
+   "clean_hits": 150,
+   "accent_only": true,
+   "runner_up": null,
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "Σωτὴρος",
+   "target": "Σωτῆρος",
+   "share": 0.9924,
+   "clean_class": 792,
+   "clean_hits": 786,
+   "accent_only": true,
+   "runner_up": {
+    "form": "Σωτῆρός",
+    "clean_tokens": 5
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "Μὴποτε",
+   "target": "Μήποτε",
+   "share": 1.0,
+   "clean_class": 122,
+   "clean_hits": 122,
+   "accent_only": true,
+   "runner_up": null,
    "tokens_in_third_party": 1,
    "by_source": {
     "cgpg": 1
