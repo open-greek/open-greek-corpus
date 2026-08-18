@@ -11,16 +11,16 @@
   }
  },
  "syllable_test": "vendored here rather than imported from greek-ocr, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26472,
- "tokens": 42731,
+ "forms": 26481,
+ "tokens": 42739,
  "served_tokens": 65296585,
- "share": 0.000654,
+ "share": 0.000655,
  "works_touched": 1641,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 25592,
-   "rate": 0.001022
+   "tokens": 25590,
+   "rate": 0.001021
   },
   {
    "source": "first1k",
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7588,
-   "rate": 0.001841
+   "tokens": 7598,
+   "rate": 0.001844
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7588,
-   "rate": 0.001841
+   "tokens": 7598,
+   "rate": 0.001844
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14870,
-  "tokens_with_exactly_one": 8904,
-  "tokens_with_none": 18957
+  "tokens_with_more_than_one_attested_shape": 14874,
+  "tokens_with_exactly_one": 8910,
+  "tokens_with_none": 18955
  },
  "largest_forms": [
   {
@@ -269,7 +269,7 @@
   },
   {
    "form": "τὸτο",
-   "tokens": 201,
+   "tokens": 202,
    "shapes": {
     "acute": {
      "form": "τότο",
@@ -277,7 +277,7 @@
     },
     "dropped": {
      "form": "τοτο",
-     "attested": 5
+     "attested": 4
     },
     "crasis": {
      "form": "τὀτο",
@@ -2759,7 +2759,7 @@
    "shapes": {
     "acute": {
      "form": "αἴτιον",
-     "attested": 10491
+     "attested": 10490
     },
     "dropped": {
      "form": "αἰτιον",
@@ -4627,8 +4627,8 @@
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 4013,
-    "tokens": 6468
+    "forms": 4019,
+    "tokens": 6477
    },
    {
     "bucket": "dominant >= 0.9",
@@ -4637,15 +4637,15 @@
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17572,
-    "tokens": 20565
+    "forms": 17575,
+    "tokens": 20564
    }
   ],
   "accent_only_forms": 2662,
   "accent_only_tokens": 8066,
   "marks_moved_tokens": 1766,
   "page_diffusion": {
-   "distinct_scan_pages": 16112,
+   "distinct_scan_pages": 16110,
    "tokens_on_the_densest_500_pages": 3931,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
