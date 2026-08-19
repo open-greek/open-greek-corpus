@@ -178,17 +178,48 @@ def main() -> None:
     # so a work edited by a tool that bypassed the corrections-log overlay is
     # still marked. Manual methods (llm/agent) promote a work to "manual".
     MANUAL_TAGS = {"llm", "agent", "manual"}
+    # "auto-corrected" claims a pass ran over the work, so it takes a minimum
+    # share of rows actually stamped. The old test was a single stamped row,
+    # which let a cross-work pass that touched six rows of a 2,950-row Eustathius
+    # reclassify the whole thing and move the published raw-OCR share by a
+    # million tokens. The bands are clear in the data: works a pass really
+    # processed sit around 15% of rows stamped, works it merely grazed sit under
+    # 1%.
+    #
+    # The threshold does NOT gate the manual promotion. "Manually corrected"
+    # claims a person reviewed the text, which edit volume does not measure: a
+    # clean work rightly comes back with few edits, and four walz_rhetores
+    # volumes read near zero only because a per-treatise split re-keyed the rows
+    # their corrections were stamped on.
+    MIN_AUTO_COVERAGE = 0.01
     corpus_dir = DATA / "corpus"
     if corpus_dir.is_dir():
         for fp in corpus_dir.glob("*.jsonl"):
             tags: set = set()
+            stamped = rows_seen = 0
             for line in fp.read_text(encoding="utf-8").splitlines():
+                if not line.strip():
+                    continue
+                rows_seen += 1
                 if '"corrections"' in line:
-                    tags.update(json.loads(line).get("corrections", []))
-            if not tags:
+                    row_tags = json.loads(line).get("corrections", [])
+                    if row_tags:
+                        stamped += 1
+                        tags.update(row_tags)
+            if not rows_seen:
                 continue
             urn = fp.stem
-            (corrected if tags & MANUAL_TAGS else auto_corrected).add(urn)
+            if tags & MANUAL_TAGS:
+                corrected.add(urn)
+                continue
+            # The rows are authoritative in both directions for a work the corpus
+            # actually serves, so a seed list claiming a correction the text
+            # cannot show is treated as stale rather than believed.
+            if stamped / rows_seen >= MIN_AUTO_COVERAGE:
+                auto_corrected.add(urn)
+            else:
+                auto_corrected.discard(urn)
+                corrected.discard(urn)
 
     def downloaded_from(urn: str, edition: str, src: str) -> str:
         # a linked source label; drop the domain parentheticals (roger-pearse.com,
