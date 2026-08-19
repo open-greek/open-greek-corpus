@@ -58,6 +58,9 @@ OCR_SOURCES = {"ocr", "cgpg"}
 # MANUAL_TAGS on purpose: two tables describing the same works must not disagree
 # about which of them a person has looked at.
 MANUAL_TAGS = {"llm", "agent", "manual"}
+# Mirrors build_provenance.py: below this share of rows stamped, a pass grazed
+# the work rather than ran over it.
+MIN_AUTO_COVERAGE = 0.01
 
 COLUMNS = [
     "slug", "work_id", "title", "author", "author_id",
@@ -184,8 +187,9 @@ def cell(value) -> str:
     return _WS.sub(" ", str(value)).strip()
 
 
-def scan_work(fp: Path) -> tuple[str, set[str]]:
-    """(sha256 of the file, the union of its rows' `corrections` stamps).
+def scan_work(fp: Path) -> tuple[str, set[str], float]:
+    """(sha256 of the file, the union of its rows' `corrections` stamps, the
+    share of its rows that carry one).
 
     One read serves both: the hash is over the exact bytes git tracks, and the
     stamps are read from those same bytes, so the correction column can never
@@ -195,13 +199,21 @@ def scan_work(fp: Path) -> tuple[str, set[str]]:
     """
     raw = fp.read_bytes()
     tags: set[str] = set()
+    stamped = rows_seen = 0
     for line in raw.decode("utf-8").splitlines():
+        if not line.strip():
+            continue
+        rows_seen += 1
         if '"corrections"' in line:
-            tags.update(json.loads(line).get("corrections", []))
-    return hashlib.sha256(raw).hexdigest(), tags
+            row_tags = json.loads(line).get("corrections", [])
+            if row_tags:
+                stamped += 1
+                tags.update(row_tags)
+    coverage = stamped / rows_seen if rows_seen else 0.0
+    return hashlib.sha256(raw).hexdigest(), tags, coverage
 
 
-def correction_status(slug: str, source: str, tags: set[str],
+def correction_status(slug: str, source: str, tags: set[str], coverage: float,
                       manual_log: set[str], auto_log: set[str]) -> str:
     """manual / auto-corrected / raw-ocr / not-ocr, per build_provenance.py.
 
@@ -220,11 +232,19 @@ def correction_status(slug: str, source: str, tags: set[str],
 
     `not-ocr` is not "unedited": it means the served text is a digital edition,
     where a correction pass would be someone else's editorial work, not ours.
+
+    `auto-corrected` also takes a minimum share of rows stamped, the same
+    MIN_AUTO_COVERAGE build_provenance.py applies and for the same reason: a
+    single stamped row used to be enough, so a cross-work pass that touched 6
+    rows of a 2,950-row Eustathius moved the published raw-OCR share by a million
+    tokens. It does not gate `manual`, which claims a person read the work rather
+    than that they changed much of it.
     """
     is_ocr = source in OCR_SOURCES
     if tags & MANUAL_TAGS or (is_ocr and slug in manual_log):
         return "manual"
-    if tags or (is_ocr and slug in auto_log):
+    if (tags and coverage >= MIN_AUTO_COVERAGE) or (is_ocr and slug in auto_log
+                                                    and not tags):
         return "auto-corrected"
     return "raw-ocr" if is_ocr else "not-ocr"
 
@@ -265,7 +285,7 @@ def build_rows() -> tuple[list[list[str]], dict]:
         tot = totals.get(slug, {})
         qual = quality.get(slug, {})
         sch = schemes.get(slug, {})
-        sha, tags = scan_work(files[slug])
+        sha, tags, coverage = scan_work(files[slug])
         source = ed.get("source", "")
         rate = qual.get("unattested_rate")
         row = [
@@ -283,7 +303,8 @@ def build_rows() -> tuple[list[list[str]], dict]:
             cell(ed.get("n_passages")),
             cell(tot.get("tokens")),
             cell(tot.get("tokens_lemmatized")),
-            correction_status(slug, source, tags, manual_log, auto_log),
+            correction_status(slug, source, tags, coverage, manual_log,
+                              auto_log),
             # Fixed 6 decimals, matching the report's own rounding: a bare repr
             # would print 0.07064 and 0.2725320000000001 in the same column.
             "" if rate is None else f"{rate:.6f}",

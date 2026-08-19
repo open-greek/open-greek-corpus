@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "ac02e8420cb7cd8001b641e763d2d1681a116a9f",
+  "commit": "d990028f8cfcbd12e08d83a708f45993450ad11b",
   "commit_date": "2026-08-19",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,15 +60,15 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "b54c5258d2363c681e05fadcc7eb27b4f84eea52c84f90c24a0c59c2846ee3d3",
+  "catalog_sha256": "0e3c2b88afed7002808fab37167fa2c58ffe7fa3615dcf2d6d63ff61ec773110",
   "corpus_sha256": "370193fe771832e65a8ca468cab49a6def0244062980d79eee9f5ae5744e2abb",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 21169444,
-    "works": 885
+    "tokens": 17665125,
+    "works": 847
    },
    "manual": {
     "tokens": 7145311,
@@ -79,8 +79,8 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 859568,
-    "works": 327
+    "tokens": 4363887,
+    "works": 365
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
@@ -88,10 +88,10 @@
    "ocr_share_of_corpus_tokens": 0.4468,
    "ocr_tokens": 29174323,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0132,
-   "raw_share_of_ocr_tokens": 0.0295,
-   "raw_tokens": 859568,
-   "raw_works": 327,
+   "raw_share_of_corpus_tokens": 0.0668,
+   "raw_share_of_ocr_tokens": 0.1496,
+   "raw_tokens": 4363887,
+   "raw_works": 365,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
