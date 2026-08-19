@@ -9,13 +9,13 @@
    "auto-corrected": {
     "grave_tokens": 17819,
     "grave_lemmas": 5599,
-    "lemmatized_tokens_in_this_class": 19120549,
+    "lemmatized_tokens_in_this_class": 19120519,
     "rate": 0.000932
    },
    "manual": {
-    "grave_tokens": 5415,
+    "grave_tokens": 5414,
     "grave_lemmas": 2244,
-    "lemmatized_tokens_in_this_class": 6907441,
+    "lemmatized_tokens_in_this_class": 6907423,
     "rate": 0.000784
    },
    "not-ocr": {
@@ -27,7 +27,7 @@
    "raw-ocr": {
     "grave_tokens": 1929,
     "grave_lemmas": 1064,
-    "lemmatized_tokens_in_this_class": 1841116,
+    "lemmatized_tokens_in_this_class": 1841121,
     "rate": 0.001048
    }
   },
@@ -204,10 +204,10 @@
   ]
  },
  "lemmas": 7856,
- "tokens": 31212,
+ "tokens": 31211,
  "reachable": {
   "lemmas": 279,
-  "tokens": 3648,
+  "tokens": 3647,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
@@ -218,7 +218,7 @@
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28897
+  "measured_the_old_way_tokens": 28896
  },
  "largest_unreachable": [
   {
@@ -397,7 +397,7 @@
   },
   {
    "lemma": "Παντὸς",
-   "tokens": 173,
+   "tokens": 172,
    "target": "παντός",
    "target_tokens": 0
   },
