@@ -868,7 +868,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 189 manually corrected, 841 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 364 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 189 manually corrected, 842 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 363 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1351,7 +1351,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | eusebius-scr-eccl.quaestiones-evangelicae-ad-marinum | Eusebius - Quaestiones Evangelicae Ad Marinum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 4,142 | auto-corrected |
 | eusebius-scr-eccl.quaestiones-evangelicae-ad-stephanum | Eusebius - Quaestiones Evangelicae Ad Stephanum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,796 | auto-corrected |
 | eusebius-scr-eccl.supplementa-ad-quaestiones-ad-marinum | Eusebius - Supplementa Ad Quaestiones Ad Marinum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 10,492 | auto-corrected |
-| eustathius-philol.commentarii-ad-homeri-iliadem | Eustathius Thessalonicensis - Commentarii ad Homeri Iliadem | qwen36-eustathius-iliad-stallbaum | Qwen3.6-27B | 1,069,461 | raw OCR |
+| eustathius-philol.commentarii-ad-homeri-iliadem | Eustathius Thessalonicensis - Commentarii ad Homeri Iliadem | qwen36-eustathius-iliad-stallbaum | Qwen3.6-27B | 1,069,461 | auto-corrected |
 | eustathius-philol.commentarii-ad-homeri-odysseam | EUSTATHIUS - Commentarii ad Homeri Odysseam (ed. Stallbaum) | [Eustathius, Commentarii ad Homeri Odysseam, ed. Stallbaum (Leipzig 1825-26), re-keyed by Stallbaum edition page](https://archive.org/details/commentariiadhom01eust) | Qwen3.6-27B-FP8 | 539,821 | auto-corrected |
 | eustratius.in-aristotelis-analyticorum-posteriorum-librum-secundum-commentarium | EUSTRATIUS - In Aristotelis Analyticorum Posteriorum Librum Secundum Commentarium | qwen36-inanalyticorumpo00eust | Qwen3.6-27B | 110,851 | raw OCR |
 | eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio | Eutecnius - Paraphrasis In Oppiani Cynegetica (Fort. Auctore Eutecnio) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 3,965 | auto-corrected |
