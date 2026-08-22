@@ -2,12 +2,12 @@
  "corpus": {
   "passages": 1975500,
   "tokens": 65296585,
-  "tokens_lemmatized": 63488310,
+  "tokens_lemmatized": 63488610,
   "works": 3909
  },
  "generated_from": {
-  "commit": "d990028f8cfcbd12e08d83a708f45993450ad11b",
-  "commit_date": "2026-08-19",
+  "commit": "02ddeb3d6cca3d3f8929a4de13c9f03c926740b2",
+  "commit_date": "2026-08-21",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -60,27 +60,27 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "0e3c2b88afed7002808fab37167fa2c58ffe7fa3615dcf2d6d63ff61ec773110",
-  "corpus_sha256": "370193fe771832e65a8ca468cab49a6def0244062980d79eee9f5ae5744e2abb",
+  "catalog_sha256": "c2e04af17965e3d097f19735bbdd2a3215102d4401e83a25d6814a2abbf30a18",
+  "corpus_sha256": "ee0a6243725acdb7d764b7b830414afd7022cb57a25669f78d2163c24c8b54a1",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 17665125,
-    "works": 847
+    "tokens": 19358596,
+    "works": 874
    },
    "manual": {
-    "tokens": 7145311,
-    "works": 201
+    "tokens": 5782398,
+    "works": 137
    },
    "not-ocr": {
     "tokens": 36122262,
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 4363887,
-    "works": 365
+    "tokens": 4033329,
+    "works": 402
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
@@ -88,14 +88,38 @@
    "ocr_share_of_corpus_tokens": 0.4468,
    "ocr_tokens": 29174323,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0668,
-   "raw_share_of_ocr_tokens": 0.1496,
-   "raw_tokens": 4363887,
-   "raw_works": 365,
+   "raw_share_of_corpus_tokens": 0.0618,
+   "raw_share_of_ocr_tokens": 0.1382,
+   "raw_tokens": 4033329,
+   "raw_works": 402,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
    "active_records": 225125,
+   "applied_since_measurement": {
+    "records": 14017,
+    "survivor_precision": {
+     "confusion/accepted": {
+      "ci95": [
+       0.977,
+       1.0
+      ],
+      "rate": 1.0,
+      "rated": 165
+     },
+     "evidence": "greek-ocr data/precision/gate_verify_eustathius_*/",
+     "freq/auto": {
+      "ci95": [
+       0.944,
+       0.985
+      ],
+      "rate": 0.971,
+      "rated": 275
+     },
+     "what": "a second blind two-rater read of a random sample of the records the census KEPT, which is what the bake actually wrote; the cells themselves read 83.8% and 92.1%. Read it as reproducibility rather than truth, since the second pair shares a model family with the first"
+    },
+    "what": "the 2026-08-21 Eustathius bake. 16,570 records against the Iliad commentary said auto or accepted while the rows still held the OCR reading, so nothing had ever been applied. All 16,601 staged proposals were read by two blind raters, 2,610 were rejected, and the remaining 13,471 were written, plus 58 active records elsewhere that had gone unapplied"
+   },
    "caveats": [
     "Sampling stratifies by route and reweights to the overlay, so the corpus figure is not the sample average: freq/accepted holds 85,451 records and agent/accepted 1,376, and both were sampled to the same depth.",
     "6.0% of items are neither sound nor wrong but a split or unsure reading, and are reported as their own band rather than rounded into either side.",
@@ -119,9 +143,9 @@
    "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
    "population_check": {
     "checked": true,
-    "records_now": 225125,
+    "records_now": 219994,
     "records_when_measured": 225125,
-    "stale": false
+    "stale": true
    },
    "precision_by_corrector": {
     "agent/accepted": 0.979,
@@ -134,8 +158,9 @@
    "rater_disagreement": 0.055,
    "rater_kappa": 0.78,
    "reverted_since_measurement": {
-    "records": 2315,
-    "what": "1,447 from the re-adjudication accepts pass and 868 from the llm/accepted census, both on unanimous two-rater verdicts, so the wrong_rows_estimate above describes the overlay as sampled and the served text now carries that many fewer"
+    "audits": "greek-ocr data/corrections/cell_revert_*.json, whose record lists sum to these figures",
+    "records": 19033,
+    "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 10,933 from the freq/accepted census and 5,785 from the freq/auto census, every one on a unanimous two-rater verdict over a record read individually rather than sampled. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
    },
    "sample": {
     "drawn": 990,
@@ -160,8 +185,8 @@
    "wrong_rows_estimate": 43400
   }
  },
- "release_date": "2026-08-19",
- "release_id": "corpus-2026-08-19.2",
+ "release_date": "2026-08-21",
+ "release_id": "corpus-2026-08-21",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,

@@ -96,11 +96,36 @@ MEASURED = {
     },
     "wrong_rows_estimate": 43400,
     "reverted_since_measurement": {
-        "records": 2315,
-        "what": ("1,447 from the re-adjudication accepts pass and 868 from the "
-                 "llm/accepted census, both on unanimous two-rater verdicts, so "
-                 "the wrong_rows_estimate above describes the overlay as "
-                 "sampled and the served text now carries that many fewer"),
+        "records": 19033,
+        "what": ("1,447 from the re-adjudication accepts pass, 868 from the "
+                 "llm/accepted census, 10,933 from the freq/accepted census and "
+                 "5,785 from the freq/auto census, every one on a unanimous "
+                 "two-rater verdict over a record read individually rather than "
+                 "sampled. The wrong_rows_estimate above describes the overlay "
+                 "as it was sampled on 2026-08-12; the served text now carries "
+                 "that many fewer wrong corrections, and the estimate has not "
+                 "been remeasured since"),
+        "audits": ("greek-ocr data/corrections/cell_revert_*.json, whose record "
+                   "lists sum to these figures"),
+    },
+    "applied_since_measurement": {
+        "records": 14017,
+        "what": ("the 2026-08-21 Eustathius bake. 16,570 records against the "
+                 "Iliad commentary said auto or accepted while the rows still "
+                 "held the OCR reading, so nothing had ever been applied. All "
+                 "16,601 staged proposals were read by two blind raters, 2,610 "
+                 "were rejected, and the remaining 13,471 were written, plus 58 "
+                 "active records elsewhere that had gone unapplied"),
+        "survivor_precision": {
+            "freq/auto": {"rate": 0.971, "ci95": [0.944, 0.985], "rated": 275},
+            "confusion/accepted": {"rate": 1.0, "ci95": [0.977, 1.0], "rated": 165},
+            "what": ("a second blind two-rater read of a random sample of the "
+                     "records the census KEPT, which is what the bake actually "
+                     "wrote; the cells themselves read 83.8% and 92.1%. Read it "
+                     "as reproducibility rather than truth, since the second "
+                     "pair shares a model family with the first"),
+            "evidence": "greek-ocr data/precision/gate_verify_eustathius_*/",
+        },
     },
     "corrections_present": 120894,
     "corrections_present_works": 890,

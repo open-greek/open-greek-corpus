@@ -586,8 +586,15 @@ wrong; 803 were readable after carve routing.
 
 Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
 where the raters split or were unsure. That was roughly 43,000 wrong corrections
-when the sample was drawn; 2,315 have been taken out since, so read the table as
-the state it measured rather than a live figure.
+when the sample was drawn; 19,033 have been taken out since, so read the table
+as the state it measured rather than a live figure.
+
+Most of that removal is not sampling at all. The `freq`/accepted and `freq`/auto
+cells were censused record by record rather than estimated, every applied
+correction read by two blind raters: 75,259 read at 78.1% sound and 50,684 at
+83.4%, with 16,718 unanimous wrongs reverted between them. Where a whole cell has
+been read, that reading supersedes the row above it for the same route, and the
+sampled figure survives only for the cells nobody has finished.
 
 Everything before this was measured over slices picked for being hard, one
 rater per item, mostly at n≈30, so those figures said how a corner behaved
