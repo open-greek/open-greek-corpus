@@ -697,14 +697,14 @@ A further 23,380 point at text the corpus keeps but deliberately does not serve 
 the primary reading, 23,283 of them a second witness under `data/corpus_secondary`
 and 97 Migne's apparatus moved out to `data/paratext`. Those are neither lost nor
 re-keyable: they are corrections against a reading this corpus decided not to print.
-That leaves 594 records nothing anywhere accounts for, six tenths of one percent of
-the block, and those are the only ones worth calling lost. None of this has been
-re-keyed or counted above.
+That leaves 594 records no route resolves, six tenths of one percent of the block:
+536 with no audit entry anywhere, 42 whose carve target exists in no file, and the 16
+the convention cannot choose between. Those are the only ones worth calling lost.
+None of this has been re-keyed or counted above.
 
-Three things an earlier count here got wrong, all the same mistake. It reported the
-orphans as 71,254 split into 41,873 whose file was gone and 29,381 whose locus was
-gone, and sorted seventeen volumes into ten carved to nothing and seven that kept 2
-to 20 unclaimed rows. No `cogPG` volume file survives at all now: one commit moved
+Three things an earlier count here got wrong. It reported the orphans as 71,254 split
+into 41,873 whose file was gone and 29,381 whose locus was gone, and sorted seventeen
+volumes into ten carved to nothing and seven that kept 2 to 20 unclaimed rows. No `cogPG` volume file survives at all now: one commit moved
 Migne's apparatus out of the served corpus in August 2026 and took the last ten
 residual volumes with it, so one side of that distinction has no members left. The
 locus-gone half has moved to another collection entirely, the Walz Rhetores Graeci
