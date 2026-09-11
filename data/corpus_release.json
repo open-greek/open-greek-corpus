@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "f9a88aeda677485c5b9d8d466001a19abd493f9d",
+  "commit": "23737ca1952f5fe8707261a23c2dbff2c048446d",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -253,8 +253,10 @@
    },
    "stamp_gap": {
     "pairs": 49303,
+    "raw_share_lower_bound": 0.0556,
+    "raw_share_tokens_in_doubt": 564081,
     "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
-    "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for the method that made it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against 2.65% from the standing corrections, and ten works read zero where every row is corrected",
+    "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for the method that made it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against 2.65% from the standing corrections, and ten works read zero where every row is corrected. Taking the 25 of those works still classed raw at their word puts the raw-OCR share between 5.6% and the published 6.4%, 564,081 tokens apart",
     "works_affected": 264,
     "works_under_the_floor_only_because_of_it": 28
    },
@@ -275,7 +277,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11.6",
+ "release_id": "corpus-2026-09-11.7",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
