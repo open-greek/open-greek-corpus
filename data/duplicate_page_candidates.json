@@ -19865,33 +19865,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
-   "served": true,
-   "locus_a": "anaxagoras_diels_vs1_0366",
-   "locus_b": "nausiphanes_diels_fvs2_0382",
-   "containment": 0.6907,
-   "bigrams_a": 282,
-   "bigrams_b": 236,
-   "tokens_b": 243,
-   "words_absent_from_a": 40,
-   "words_b": 243,
-   "unique_runs_if_b_dropped": [
-    "ουδεν χρημα ματην γινεται αλλα",
-    "τουτο τουτον κακει νων"
-   ],
-   "unique_runs_if_a_dropped": [
-    "εκεινος διαναστησας προφασει",
-    "βουν διηρησατο δοκει",
-    "σπουδασαι γνωσθηναι δοξης καταφρονων",
-    "ουτις με εγνωκεν ειπερ",
-    "αντερασται πλατωνος εισι",
-    "παραγεγομενος ανωνυμος των"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
    "file": "data/corpus/empedocles.testimonia.jsonl",
    "served": true,
    "locus_a": "anaxagoras_diels_vs1_0235",
@@ -20696,6 +20669,33 @@
    "run": null
   },
   {
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "served": true,
+   "locus_a": "anaxagoras_diels_vs1_0366",
+   "locus_b": "nausiphanes_diels_fvs2_0382",
+   "containment": 0.6822,
+   "bigrams_a": 282,
+   "bigrams_b": 236,
+   "tokens_b": 243,
+   "words_absent_from_a": 41,
+   "words_b": 243,
+   "unique_runs_if_b_dropped": [
+    "ουδεν χρημα ματην γινεται αλλα",
+    "τουτο τουτον κακει νων"
+   ],
+   "unique_runs_if_a_dropped": [
+    "εκεινος διαναστησας προφασει",
+    "βουν διηρησατο δοκει",
+    "σπουδασαι γνωσθηναι δοξης καταφρονων",
+    "ουτις με εγνωκεν ειπερ",
+    "αντερασται πλατωνος εισι",
+    "παραγεγομενος ανωνυμος των"
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
+  },
+  {
    "file": "data/corpus_secondary/empedocles.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0182",
@@ -20716,6 +20716,35 @@
    "unique_runs_if_a_dropped": [
     "περα πνευσαντας ακηκως",
     "αυτον ξενδοχον αγχιτον"
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
+  },
+  {
+   "file": "data/corpus/empedocles.testimonia.jsonl",
+   "served": true,
+   "locus_a": "anaxagoras_diels_vs1_0173",
+   "locus_b": "nausiphanes_diels_fvs2_0182",
+   "containment": 0.6815,
+   "bigrams_a": 300,
+   "bigrams_b": 292,
+   "tokens_b": 306,
+   "words_absent_from_a": 49,
+   "words_b": 306,
+   "unique_runs_if_b_dropped": [
+    "ισμεν δ αμυθον",
+    "δ εμπεδοκλεους επη",
+    "γνωμολογιαι θεογνιδος λογοι εισι κιχραμενοι",
+    "ποιητικης ωσπερ οχημα"
+   ],
+   "unique_runs_if_a_dropped": [
+    "συμπαρανευσουσιν εροι σος",
+    "την θαλατταν οιεται",
+    "σαφες ειρηκεναι καθαπερ",
+    "ουτως ειπων ισως ειρηκεν ικανως",
+    "μεταφορα ποιητικον προς",
+    "γνωναι την φυσιν ουχ ικανως ταυτης"
    ],
    "same_item": false,
    "page_offset": null,
@@ -21105,35 +21134,6 @@
    "same_item": true,
    "page_offset": 2,
    "run": "dindorf_aristides_v2+2@812"
-  },
-  {
-   "file": "data/corpus/empedocles.testimonia.jsonl",
-   "served": true,
-   "locus_a": "anaxagoras_diels_vs1_0173",
-   "locus_b": "nausiphanes_diels_fvs2_0182",
-   "containment": 0.6781,
-   "bigrams_a": 300,
-   "bigrams_b": 292,
-   "tokens_b": 306,
-   "words_absent_from_a": 50,
-   "words_b": 306,
-   "unique_runs_if_b_dropped": [
-    "ισμεν δ αμυθον",
-    "δ εμπεδοκλεους επη",
-    "γνωμολογιαι θεογνιδος λογοι εισι κιχραμενοι",
-    "ποιητικης ωσπερ οχημα"
-   ],
-   "unique_runs_if_a_dropped": [
-    "συμπαρανευσουσιν εροι σος",
-    "την θαλατταν οιεται",
-    "σαφες ειρηκεναι καθαπερ",
-    "ουτως ειπων ισως ειρηκεν ικανως",
-    "μεταφορα ποιητικον προς",
-    "γνωναι την φυσιν ουχ ικανως ταυτης"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
   },
   {
    "file": "data/corpus/gregorius-nazianzenus.in-sancta-lumina-orat-39.jsonl",
@@ -29958,7 +29958,7 @@
    ],
    "unique_runs_if_a_dropped": [
     "πολλωι μαλλον εποιει διαχρινεσθαι",
-    "λιτην τινα διακοσμησιν υποτιθεται",
+    "διτην τινα διακοσμησιν υποτιθεται",
     "αισθητην απ εκεινης",
     "εκ των ειρημενων",
     "τοιι πολλωι περιεχοντι"
