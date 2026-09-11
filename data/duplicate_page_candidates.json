@@ -4239,6 +4239,27 @@
    "run": null
   },
   {
+   "file": "data/corpus/pseudo-zonaras.lexicon.jsonl",
+   "served": true,
+   "locus_a": "zonaras_lexicon_v1_0269",
+   "locus_b": "zonaras_lexicon_v1_0279",
+   "containment": 0.8704,
+   "bigrams_a": 270,
+   "bigrams_b": 278,
+   "tokens_b": 296,
+   "words_absent_from_a": 22,
+   "words_b": 296,
+   "unique_runs_if_b_dropped": [
+    "κυριον αρεστης κοπανον"
+   ],
+   "unique_runs_if_a_dropped": [
+    "πυριον αρεστηρ ποπανον"
+   ],
+   "same_item": true,
+   "page_offset": 10,
+   "run": null
+  },
+  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0119",
@@ -4700,27 +4721,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/pseudo-zonaras.lexicon.jsonl",
-   "served": true,
-   "locus_a": "zonaras_lexicon_v1_0269",
-   "locus_b": "zonaras_lexicon_v1_0279",
-   "containment": 0.863,
-   "bigrams_a": 270,
-   "bigrams_b": 278,
-   "tokens_b": 296,
-   "words_absent_from_a": 23,
-   "words_b": 296,
-   "unique_runs_if_b_dropped": [
-    "κυριον αρεστης κοπανον"
-   ],
-   "unique_runs_if_a_dropped": [
-    "πυριον αρεστηρ ποπανον"
-   ],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -19865,6 +19865,33 @@
    "run": null
   },
   {
+   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
+   "served": true,
+   "locus_a": "anaxagoras_diels_vs1_0366",
+   "locus_b": "nausiphanes_diels_fvs2_0382",
+   "containment": 0.6907,
+   "bigrams_a": 282,
+   "bigrams_b": 236,
+   "tokens_b": 243,
+   "words_absent_from_a": 40,
+   "words_b": 243,
+   "unique_runs_if_b_dropped": [
+    "ουδεν χρημα ματην γινεται αλλα",
+    "τουτο τουτον κακει νων"
+   ],
+   "unique_runs_if_a_dropped": [
+    "εκεινος διαναστησας προφασει",
+    "βουν διηρησατο δοκει",
+    "σπουδασαι γνωσθηναι δοξης καταφρονων",
+    "ουτις με εγνωκεν ειπερ",
+    "αντερασται πλατωνος εισι",
+    "παραγεγομενος ανωνυμος των"
+   ],
+   "same_item": false,
+   "page_offset": null,
+   "run": null
+  },
+  {
    "file": "data/corpus/empedocles.testimonia.jsonl",
    "served": true,
    "locus_a": "anaxagoras_diels_vs1_0235",
@@ -20663,33 +20690,6 @@
     "μιν αγους α επεδησεν αναγκη πειρατ εχειν",
     "αρξασθαι φησι λεγειν πως γαια",
     "ηλιος ηδε σεληνη αιθηρ"
-   ],
-   "same_item": false,
-   "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
-   "served": true,
-   "locus_a": "anaxagoras_diels_vs1_0366",
-   "locus_b": "nausiphanes_diels_fvs2_0382",
-   "containment": 0.6822,
-   "bigrams_a": 282,
-   "bigrams_b": 236,
-   "tokens_b": 243,
-   "words_absent_from_a": 41,
-   "words_b": 243,
-   "unique_runs_if_b_dropped": [
-    "ουδεν χρημα ματην γινεται αλλα",
-    "τουτο τουτον κακει νων"
-   ],
-   "unique_runs_if_a_dropped": [
-    "εκεινος διαναστησας προφασει",
-    "βουν διηρησατο δοκει",
-    "σπουδασαι γνωσθηναι δοξης καταφρονων",
-    "ουτις με εγνωκεν ειπερ",
-    "αντερασται πλατωνος εισι",
-    "παραγεγομενος ανωνυμος των"
    ],
    "same_item": false,
    "page_offset": null,
