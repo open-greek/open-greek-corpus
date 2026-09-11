@@ -304,6 +304,13 @@ $(CROSSWALK): $(REGISTRY) scripts/build_id_crosswalk.py scripts/backfill_crosswa
 #    deliberately leaves source/edition/license alone, since a row reading
 #    `ocr` / PD against a corpus reading first1k / CC-BY-SA-4.0 is a work we
 #    OCR'd that an open edition later displaced, and both are true.
+#    check_corrections_mirror_fresh is here for the same reason one target over:
+#    data/corrections_log/ is a local mirror of the upstream correction store that
+#    this repo cannot rebuild, and the catalog and the README table both read its
+#    provenance.json as enrichment. A mirror older than the served text therefore
+#    adds claims the text no longer supports - the 2026-08-21 confusion/accepted
+#    revert left 12 works published as auto-corrected after their corrections had
+#    gone - and the repair is upstream, so this reports and fails.
 # Rebuild the capital folds. Phony on purpose, see the note above $(WORK_LEMMAS):
 # a real rule would be a cycle. Run it, then `make` to carry the folds through.
 capital-positions:
@@ -312,6 +319,7 @@ capital-positions:
 check:
 	$(PY) scripts/check_ocr_ledgers.py
 	$(PY) scripts/check_capital_positions_fresh.py
+	$(PY) scripts/check_corrections_mirror_fresh.py
 
 clean:
 	rm -f $(LEXICON) data/coverage.json $(LEMMA_FREQ) $(OVERRIDES) \

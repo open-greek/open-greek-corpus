@@ -79,6 +79,54 @@ MEASURED = {
         "llm/accepted": 0.536,
         "llm/auto": 0.825,
     },
+    # Four of the six routes are no longer estimates. Each record was read on its
+    # own by two blind raters, so these supersede precision_by_corrector above for
+    # the same route - the README argues the same rule in prose. Kept as a nested
+    # block rather than a second flat float per route, because a census has to
+    # carry what a sample carries: how many were read, out of how many, and how
+    # often the two raters agreed.
+    #
+    # `rated` is short of `cell_records` in every cell, and the gap is not error.
+    # Staging drops a record that no longer resolves to a served row - the July
+    # 2026 re-OCR replaced the text, or a carve moved it - so a census reads the
+    # part of its cell the corpus still carries. Saying "the whole cell" would
+    # overclaim by 840 records in confusion/accepted and by 24,863 in freq/auto.
+    "censused_by_corrector": {
+        "freq/accepted": {"cell_records": 84004, "rated": 75259, "sound": 0.781,
+                          "ci95": [0.7781, 0.7840], "agreement": 0.937,
+                          "reverted": 10933, "measured_on": "2026-08-18"},
+        "freq/auto": {"cell_records": 75547, "rated": 50684, "sound": 0.834,
+                      "ci95": [0.8309, 0.8374], "agreement": 0.954,
+                      "reverted": 5785, "measured_on": "2026-08-19"},
+        "confusion/accepted": {"cell_records": 16414, "rated": 15573,
+                               "sound": 0.866, "ci95": [0.8607, 0.8714],
+                               "agreement": 0.972, "reverted": 1512,
+                               "measured_on": "2026-08-21",
+                               # 480 of the 15,573 were a second read of records
+                               # the Eustathius confusion census had already
+                               # called unanimously right, and they came back
+                               # 99.8% right. Since they were selected for being
+                               # right, including them lifts the cell by 0.42
+                               # points, which is as wide as the interval: the
+                               # 15,093 records read for the first time in this
+                               # cell are 86.2% sound.
+                               "sound_first_read_only": 0.862,
+                               "first_read_records": 15093},
+        "llm/accepted": {"cell_records": 2522, "rated": 2114, "sound": 0.497,
+                         "ci95": [0.4759, 0.5185], "agreement": 0.921,
+                         "reverted": 868, "measured_on": "2026-08-12"},
+        "what": ("both-raters-right over every staged record of the cell, read "
+                 "one at a time rather than sampled; `reverted` is the records "
+                 "both raters called wrong, which are out of the served text. "
+                 "agent/accepted and llm/auto have not been censused and rest on "
+                 "the sample above"),
+        "evidence": "data/precision/cell_*/cell_gate.json in the upstream pipeline",
+        "raters": ("two independent agent instances of one model family, each "
+                   "shown the passage, both forms and the corrector's note, with "
+                   "no verdict, corrector or status. Agreement is therefore a "
+                   "reproducibility bound and not evidence of correctness: a "
+                   "blind spot the model shares passes both raters"),
+    },
     "corpus_weighted": {
         "sound": 0.762,
         "wrong": 0.177,
@@ -96,15 +144,16 @@ MEASURED = {
     },
     "wrong_rows_estimate": 43400,
     "reverted_since_measurement": {
-        "records": 19033,
+        "records": 20545,
         "what": ("1,447 from the re-adjudication accepts pass, 868 from the "
-                 "llm/accepted census, 10,933 from the freq/accepted census and "
-                 "5,785 from the freq/auto census, every one on a unanimous "
-                 "two-rater verdict over a record read individually rather than "
-                 "sampled. The wrong_rows_estimate above describes the overlay "
-                 "as it was sampled on 2026-08-12; the served text now carries "
-                 "that many fewer wrong corrections, and the estimate has not "
-                 "been remeasured since"),
+                 "llm/accepted census, 10,933 from the freq/accepted census, "
+                 "5,785 from the freq/auto census and 1,512 from the "
+                 "confusion/accepted census, every one on a unanimous two-rater "
+                 "verdict over a record read individually rather than sampled. "
+                 "The wrong_rows_estimate above describes the overlay as it was "
+                 "sampled on 2026-08-12; the served text now carries that many "
+                 "fewer wrong corrections, and the estimate has not been "
+                 "remeasured since"),
         "audits": ("greek-ocr data/corrections/cell_revert_*.json, whose record "
                    "lists sum to these figures"),
     },
@@ -113,9 +162,10 @@ MEASURED = {
         "what": ("the 2026-08-21 Eustathius bake. 16,570 records against the "
                  "Iliad commentary said auto or accepted while the rows still "
                  "held the OCR reading, so nothing had ever been applied. All "
-                 "16,601 staged proposals were read by two blind raters, 2,610 "
-                 "were rejected, and the remaining 13,471 were written, plus 58 "
-                 "active records elsewhere that had gone unapplied"),
+                 "16,601 staged proposals were read by two blind raters across "
+                 "two gates, freq/auto (16,081 read) and confusion/accepted "
+                 "(520); 2,651 were rejected and 13,959 written, plus 58 active "
+                 "records elsewhere that had gone unapplied"),
         "survivor_precision": {
             "freq/auto": {"rate": 0.971, "ci95": [0.944, 0.985], "rated": 275},
             "confusion/accepted": {"rate": 1.0, "ci95": [0.977, 1.0], "rated": 165},
@@ -126,6 +176,29 @@ MEASURED = {
                      "pair shares a model family with the first"),
             "evidence": "greek-ocr data/precision/gate_verify_eustathius_*/",
         },
+    },
+    # Reverting is not the mirror image of applying. A record names one misread
+    # token and the rater judges that one occurrence, but the revert substitutes
+    # whole-token across the row, so where the scan read the corrected form
+    # correctly somewhere else in the same row the revert wrote the misreading
+    # over it. Applying cannot do this: the misreading stands only where it is
+    # wrong. Swept over every revert audit on 2026-09-11 and repaired against the
+    # pre-apply text the corpus history holds, so these are restorations of what
+    # the scan says, not new corrections.
+    "repaired_over_reverts": {
+        "rows": 1214,
+        "tokens": 3064,
+        "works": 131,
+        "passes": 17,
+        "what": ("tokens a revert overwrote although no correction had ever "
+                 "made them. 1,047 of the rows come from the wholesale "
+                 "llm/accepted revert of 2026-08-02 and the rest from the gated "
+                 "census payouts; the worst single row had eleven ordinary "
+                 "\u03ba\u03b1\u1f76 rewritten as \u039a\u1f22. No correction record "
+                 "changed, because these are positions no record named"),
+        "evidence": ("data/corrections/over_revert_repair_2026-09-11*.json in "
+                     "the upstream pipeline, each carrying the row before and "
+                     "after and the commit the fix was applied at"),
     },
     "corrections_present": 120894,
     "corrections_present_works": 890,

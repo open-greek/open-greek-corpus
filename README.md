@@ -586,15 +586,33 @@ wrong; 803 were readable after carve routing.
 
 Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
 where the raters split or were unsure. That was roughly 43,000 wrong corrections
-when the sample was drawn; 19,033 have been taken out since, so read the table
+when the sample was drawn; 20,545 have been taken out since, so read the table
 as the state it measured rather than a live figure.
 
-Most of that removal is not sampling at all. The `freq`/accepted and `freq`/auto
-cells were censused record by record rather than estimated, every applied
-correction read by two blind raters: 75,259 read at 78.1% sound and 50,684 at
-83.4%, with 16,718 unanimous wrongs reverted between them. Where a whole cell has
-been read, that reading supersedes the row above it for the same route, and the
-sampled figure survives only for the cells nobody has finished.
+Most of that removal is not sampling at all. The `freq`/accepted, `freq`/auto and
+`confusion`/accepted cells were censused rather than estimated, each correction
+read on its own by two blind raters: 75,259 read at 78.1% sound, 50,684 at 83.4%,
+and 15,573 at 86.6% (86.1-87.1), with 18,230 unanimous wrongs reverted between
+them. Where a cell has been read, that reading supersedes the row above it for the
+same route, and the sampled figure survives only for the cells nobody has
+finished, which are now `agent`/accepted and `llm`/auto. A census covers the part
+of its cell the corpus still carries rather than the whole of it: staging drops a
+record whose target text the July 2026 re-OCR replaced or a carve moved, 841 of
+them here and 24,863 in `freq`/auto, so none of the three read every record its
+route holds.
+
+Reverting a correction is not as safe as applying one. A record names one misread
+token, which is the unit a rater judges, but the revert replaces every occurrence
+of that form in the row, so where the scan itself read the form correctly
+somewhere else in the same row the revert wrote the misreading over it. Applying
+cannot go wrong that way, because the misreading stands only where it is wrong.
+Seventeen revert passes going back to the start of August 2026 did this in 1,214
+rows, 3,064 tokens across 131 works, and 1,047 of those rows come from the
+wholesale `llm`/accepted revert alone: one Procopius row had eleven ordinary
+καὶ rewritten as Κἢ, and three critical-apparatus lines lost the manuscript
+variant they were printed to record. Every one is now restored to what the scan
+reads, and the revert pass finds the case from this repository's own history
+rather than leaving it to be noticed.
 
 Everything before this was measured over slices picked for being hard, one
 rater per item, mostly at n≈30, so those figures said how a corner behaved
@@ -668,8 +686,8 @@ earlier Cedrenus split had already moved, and that split's own audit places
 every one of them. So the whole block is recoverable, and none of it has been
 re-keyed or counted above.
 
-That is a smaller number of works than the provenance table's 985 (155 manually
-corrected, 830 auto), and the gap is real rather than a discrepancy: the table
+That is a smaller number of works than the provenance table's 986 (125 manually
+corrected, 861 auto), and the gap is real rather than a discrepancy: the table
 counts what each row's own `corrections` stamp says, so it also sees works edited
 by passes that never went through this overlay.
 
@@ -875,7 +893,7 @@ Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 868 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 401 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 861 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 408 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1218,7 +1236,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | ctesias.fragmenta | Ctesias - Fragmenta | qwen36-ctesias_gilmore-ocr | Qwen3.6-27B | 31,082 | auto-corrected |
 | cypria.cypria-fragmenta | Cypria - Cypria (Fragmenta) | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 2,651 | auto-corrected |
 | cyrillus-scr-eccl.catecheses-ad-illuminandos-1-18 | Cyrillus - Catecheses Ad Illuminandos 1-18 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,356 | auto-corrected |
-| cyrillus-scr-eccl.epistula-ad-constantium-imperatorem | Cyrillus - Epistula Ad Constantium Imperatorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,737 | auto-corrected |
+| cyrillus-scr-eccl.epistula-ad-constantium-imperatorem | Cyrillus - Epistula Ad Constantium Imperatorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,737 | raw OCR |
 | cyrillus-scr-eccl.homilia-in-occursum-domini-sp | Cyrillus - Homilia In Occursum Domini [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,251 | auto-corrected |
 | cyrillus-scr-eccl.mystagogiae-1-5-sp | Cyrillus - Mystagogiae 1-5 [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,718 | auto-corrected |
 | cyrillus-scr-eccl.procatechesis | Cyrillus - Procatechesis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,577 | auto-corrected |
@@ -1338,7 +1356,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | eubulides.fragmentum | Eubulides - Fragmentum | kock-caf2-ocr-frag | Qwen3.6-27B | 72 | raw OCR |
 | eubulus.fragmenta | Eubulus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 4,383 | raw OCR |
 | eudemus-philosophy.fragmenta | Eudemus - Fragmenta | qwen36-eudemus_spengel_1866 | Qwen3.6-27B | 39,732 | auto-corrected |
-| eudoxus-astronomy.fragmenta | Eudoxus - Fragmenta | qwen36-eudoxus_ars_astronomica_blass | Qwen3.6-27B | 3,807 | auto-corrected |
+| eudoxus-astronomy.fragmenta | Eudoxus - Fragmenta | qwen36-eudoxus_ars_astronomica_blass | Qwen3.6-27B | 3,807 | raw OCR |
 | eudoxus.fragmenta | EUDOXUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 79 | raw OCR |
 | eudromus.fragmenta | Eudromus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 67 | raw OCR |
 | euenus.fragmenta | EUENUS - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 534 | raw OCR |
@@ -1553,7 +1571,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | hermias-history.fragmenta | Hermias - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 515 | auto-corrected |
 | hermippus-comedy.fragmenta | Hermippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,960 | auto-corrected |
 | hermippus-comedy.fragmenta-4 | Hermippus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
-| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam-Knox](https://archive.org/details/herodasmimesfrag00hero) | Qwen3.6-27B | 2,846 | auto-corrected |
+| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam-Knox](https://archive.org/details/herodasmimesfrag00hero) | Qwen3.6-27B | 2,846 | raw OCR |
 | heron.definitiones | Heron - Definitiones | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,184 | auto-corrected |
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
@@ -1579,7 +1597,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | hippon.testimonia | Hippon - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 1,993 | auto-corrected |
 | horapollo.hieroglyphica-translatio-philippi | Horapollo - Hieroglyphica (Translatio Philippi) | qwen36-horapollo_leemans | Qwen3.6-27B | 17,136 | auto-corrected |
 | hyperochus.fragmenta | Hyperochus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 83 | raw OCR |
-| ibycus.fragmenta | IBYCUS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,628 | auto-corrected |
+| ibycus.fragmenta | IBYCUS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 1,628 | raw OCR |
 | iccus.testimonia | Iccus - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 528 | raw OCR |
 | idaeus-philosophy.testimonium | Idaeus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 765 | auto-corrected |
 | ignatius-scr-eccl.fragmenta-ex-epistolis | Ignatius Antiochenus - Fragmenta ex epistolis (excerpts quoted in later writers; PG 5 fragment section) (PG005 loci 483-489) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,281 | manual |
@@ -1728,7 +1746,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | joannes-chrysostomus.in-sanctum-ignatium-martyrem | Joannes Chrysostomus - In Sanctum Ignatium Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,840 | auto-corrected |
 | joannes-chrysostomus.in-sanctum-julianum-martyrem | Joannes Chrysostomus - In Sanctum Julianum Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,939 | auto-corrected |
 | joannes-chrysostomus.in-sanctum-lucianum-martyrem | Joannes Chrysostomus - In Sanctum Lucianum Martyrem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,519 | auto-corrected |
-| joannes-chrysostomus.in-sanctum-pascha | Joannes Chrysostomus - In Sanctum Pascha | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,736 | auto-corrected |
+| joannes-chrysostomus.in-sanctum-pascha | Joannes Chrysostomus - In Sanctum Pascha | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,736 | raw OCR |
 | joannes-chrysostomus.in-sanctum-romanum-homilia-1 | Joannes Chrysostomus - In Sanctum Romanum (Homilia 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,535 | auto-corrected |
 | joannes-chrysostomus.in-triduanam-resurrectionem-domini-sp | Joannes Chrysostomus - In Triduanam Resurrectionem Domini [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,729 | auto-corrected |
 | joannes-chrysostomus.interpretatio-in-danielem-prophetam-sp | Joannes Chrysostomus - Interpretatio In Danielem Prophetam [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 20,891 | auto-corrected |
@@ -1826,7 +1844,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | menecrates-elaita.fragmenta | Menecrates - Fragmenta | qwen36-clearchus_soli_fhg2 | Qwen3.6-27B | 573 | auto-corrected |
 | menecrates-poet-phil.fragmentum-et-titulus | Menecrates - Fragmentum Et Titulus | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 148 | raw OCR |
 | menecrates.titulus | MENECRATES - Titulus | kock-caf3-ocr | Qwen3.6-27B | 92 | raw OCR |
-| menestor.testimonia | Menestor - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 668 | auto-corrected |
+| menestor.testimonia | Menestor - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 668 | raw OCR |
 | metagenes.fragmenta | Metagenes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 494 | auto-corrected |
 | metopus.fragmenta | Metopus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 461 | raw OCR |
 | metrodorus-koerte |  | qwen36-metrodorus_koerte | Qwen3.6-27B | 8,673 | auto-corrected |
@@ -2256,7 +2274,7 @@ below; regenerate it with `python scripts/build_provenance.py`.
 | tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum | Tomus synodicus contra Barlaam et Acindynum - Tomus synodicus contra Barlaam et Acindynum (PG151 loci 347-353) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,379 | raw OCR |
 | tragica-adespota.fragmenta | Tragica Adespota - Fragmenta | nauck-tgf-ocr-frag | Qwen3.6-27B | 11,439 | auto-corrected |
 | troilus-sophista.prolegomena-tes-rhetorikes-hermogenous |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,254 | auto-corrected |
-| tyrtaeus.fragmenta | Tyrtaeus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 953 | auto-corrected |
+| tyrtaeus.fragmenta | Tyrtaeus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 953 | raw OCR |
 | ulpianus.prolegomena-in-demosthenis-orationes-olynthiacas-et-philippicas | Ulpianus - Prolegomena In Demosthenis Orationes Olynthiacas Et Philippicas | qwen36-scholia_demosthenem_dindorf_v8-ocr | Qwen3.6-27B | 5,231 | auto-corrected |
 | vita-basilii-iunioris.excerpta | Anonymus (hagiographus) - Excerpta e Vita S. Basilii iunioris (BHG 263) (PG109 loci 332-336) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,727 | manual |
 | xenarchus.fragmenta | Xenarchus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 407 | raw OCR |
