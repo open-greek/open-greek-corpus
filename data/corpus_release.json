@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "84f86064fb4680b98da975f4a8bba60d805b9ef8",
+  "commit": "a9ce58407b2c62715b0ca65ab0e4c6d8aa79d057",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "d165729f73b45aa32e868c745ff922897b1a64f42870ecd1c60b51749f7e8c7c",
-  "corpus_sha256": "63d2cc38f149d57be352b92fff2be8a15708bbe5e5c2b8f08370e121bd020a9b",
+  "catalog_sha256": "d8f2de82493581b28f41bc9797316c571b6a12fbbdf9171ba5f2015be4fe8879",
+  "corpus_sha256": "7f56debcb9d6704ea6b6ae10e52213f0842fae5aa7c25af71cfab4fdc1f8c528",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -95,7 +95,7 @@
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
-   "active_records": 220346,
+   "active_records": 220345,
    "applied_since_measurement": {
     "by_bake": {
      "2026-08-21 Eustathius": 14017,
@@ -233,9 +233,9 @@
    "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
    "overlay_reach": {
     "accounted_for_but_not_served": 23550,
-    "caveats": "`placed` is weaker than `present`: 718 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,550 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
-    "orphans": 96718,
-    "placed_on_a_served_row": 72766,
+    "caveats": "`placed` is weaker than `present`: 717 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,550 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
+    "orphans": 96717,
+    "placed_on_a_served_row": 72765,
     "row_found_but_neither_form_standing": 120,
     "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
     "unaccounted": 402,
@@ -243,8 +243,8 @@
    },
    "population_check": {
     "checked": true,
-    "records_now": 220346,
-    "records_when_measured": 220346,
+    "records_now": 220345,
+    "records_when_measured": 220345,
     "stale": false
    },
    "precision_by_corrector": {
@@ -267,8 +267,8 @@
    },
    "reverted_since_measurement": {
     "audits": "data/corrections/cell_revert_*.json in the upstream pipeline, whose record lists sum to these figures",
-    "records": 20753,
-    "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 11,136 from the freq/accepted cell, 5,786 from freq/auto, 1,513 from confusion/accepted and 3 from llm/auto. All but the last three were reverted on a unanimous two-rater verdict over a record read individually rather than sampled. 205 of those are not census records: they are duplicates that carried an edit a census had already condemned on another record, and 169 of the condemned edits were still in the served text because reverting one record left the other active. The three llm/auto records are the wrong half of three rows where an active correction and its exact inverse were both live, so the served form depended on store order. Each was settled on evidence (the corpus's medial-sigma convention and an independent digital text of the same edition for two, and for the third a movable nu the scan never showed) and reverted with the maintainer's approval. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
+    "records": 20754,
+    "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 11,136 from the freq/accepted cell, 5,786 from freq/auto, 1,513 from confusion/accepted and 4 from llm/auto. All but the last four were reverted on a unanimous two-rater verdict over a record read individually rather than sampled. 205 of those are not census records: they are duplicates that carried an edit a census had already condemned on another record, and 169 of the condemned edits were still in the served text because reverting one record left the other active. The four llm/auto records are the wrong half of four rows where an active correction and its exact inverse were both live, so the served form depended on store order. Each was settled on evidence and reverted with the maintainer's approval: the corpus's medial-sigma convention and an independent digital text of the same edition for two, a movable nu the scan never showed for the third, and for the fourth the printed page itself, read from a microfilm of the edition, where the record had also turned a correct grave into an acute. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
    },
    "sample": {
     "drawn": 990,
@@ -303,7 +303,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11.10",
+ "release_id": "corpus-2026-09-11.11",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
