@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "23737ca1952f5fe8707261a23c2dbff2c048446d",
+  "commit": "b3da7d9b2db428f01278a987d72698c87764b41b",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -107,7 +107,7 @@
       "rate": 1.0,
       "rated": 165
      },
-     "evidence": "greek-ocr data/precision/gate_verify_eustathius_*/",
+     "evidence": "data/precision/gate_verify_eustathius_*/ in the upstream pipeline",
      "freq/auto": {
       "ci95": [
        0.944,
@@ -240,7 +240,7 @@
     "works": 131
    },
    "reverted_since_measurement": {
-    "audits": "greek-ocr data/corrections/cell_revert_*.json, whose record lists sum to these figures",
+    "audits": "data/corrections/cell_revert_*.json in the upstream pipeline, whose record lists sum to these figures",
     "records": 20545,
     "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 10,933 from the freq/accepted census, 5,785 from the freq/auto census and 1,512 from the confusion/accepted census, every one on a unanimous two-rater verdict over a record read individually rather than sampled. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
    },
@@ -249,7 +249,7 @@
     "population": 245362,
     "rated": 803,
     "seed": 20260812,
-    "tool": "greek-ocr scripts/sample_applied_overlay.py"
+    "tool": "scripts/sample_applied_overlay.py in the upstream pipeline"
    },
    "stamp_gap": {
     "pairs": 49303,
@@ -277,7 +277,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11.7",
+ "release_id": "corpus-2026-09-11.8",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
