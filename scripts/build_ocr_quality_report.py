@@ -8,7 +8,7 @@ only, no prebuilt lexicon file):
    data/corpus_editions.json): the fraction of Greek tokens of >= 4 chars that
    are not attested anywhere in the clean (non-OCR) part of data/corpus
    (first1k, perseus, pta, galenus_verbatim, byzantium_gr, dfhg, ...). This
-   mirrors the suspect-token filter of greek-ocr/scripts/ocr_llm_correct.py
+   mirrors the suspect-token filter of scripts/ocr_llm_correct.py upstream
    iter_passages exactly: tokens come from the same Greek-block regex, are
    NFC-normalized, all-uppercase tokens (headings) are excluded, and the
    attestation lookup is case-sensitive with accents kept (that script's
@@ -84,7 +84,7 @@ def greek_tokens(text: str) -> list[str]:
 
 def build_attestation(editions: dict) -> tuple[set[str], dict]:
     """One pass over the non-OCR works in data/corpus -> set of attested NFC
-    forms. Matches reference_from_corpus() in greek-ocr (which excludes the
+    forms. Matches reference_from_corpus() upstream (which excludes the
     NOISY_SOURCES {ocr, cgpg}), but self-contained here."""
     attested: set[str] = set()
     n_works = n_occ = 0

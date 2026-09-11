@@ -13,14 +13,13 @@ that stopped at the census before it, and went on presenting that cell as a
 144-item sample at 84.7% when the whole cell had been read at 86.6%. Both numbers
 are published in data/corpus_release.json, which a citation points at.
 
-The gates live in the upstream correction pipeline, which is a separate private
-checkout, so this test skips where that checkout is absent - the same fallback
-data/corrections_log/ gets. Point PRECISION_DIR at it to override the default
-sibling path.
+The gates live in the upstream correction pipeline, which is a separate checkout, so
+this test skips where that checkout is absent - the same fallback
+data/corrections_log/ gets. Set OCR_PIPELINE to enable it; see
+scripts/upstream_pipeline.py.
 """
 
 import json
-import os
 import re
 import sys
 from pathlib import Path
@@ -33,9 +32,10 @@ from build_corpus_release import MEASURED  # noqa: E402
 
 README = (REPO / "README.md").read_text(encoding="utf-8")
 
-PRECISION = Path(os.environ.get(
-    "PRECISION_DIR", REPO.parent / "greek-ocr" / "data" / "precision"))
-CORRECTIONS = PRECISION.parent / "corrections"
+from upstream_pipeline import ENV, upstream  # noqa: E402
+
+PRECISION = upstream("data", "precision")
+CORRECTIONS = upstream("data", "corrections")
 
 # The cell each censused route was read in. A route is one store plus one status;
 # the gate directory names it with an underscore.
@@ -51,8 +51,8 @@ GATE_DIR = {
 READJUDICATION = ("readjudication_2026-08-11-readj.accepts-pass.json", 1447)
 
 needs_gates = pytest.mark.skipif(
-    not PRECISION.is_dir(),
-    reason=f"no upstream precision dir at {PRECISION}; set PRECISION_DIR")
+    PRECISION is None,
+    reason=f"no upstream census gates; set {ENV} to enable this")
 
 
 def _n(s: str) -> int:
@@ -116,8 +116,8 @@ def test_rated_never_exceeds_the_cell_it_was_drawn_from():
 @needs_gates
 def test_reverted_since_measurement_is_the_sum_of_its_parts():
     audit, expected = READJUDICATION
-    fp = CORRECTIONS / audit
-    if not fp.is_file():
+    fp = (CORRECTIONS / audit) if CORRECTIONS else None
+    if fp is None or not fp.is_file():
         pytest.skip(f"no {audit}; data/corrections is local to the pipeline")
     blob = json.loads(fp.read_text(encoding="utf-8"))
     readj = blob.get("n_records") or len(blob.get("records", []))

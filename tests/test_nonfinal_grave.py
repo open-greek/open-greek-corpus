@@ -19,8 +19,11 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 import measure_nonfinal_graves as m  # noqa: E402
+from upstream_pipeline import ENV, upstream  # noqa: E402
 
-GREEK_OCR = Path.home() / "Documents" / "greek-ocr" / "scripts"
+# The implementation this rule was copied from lives in the upstream OCR pipeline,
+# a separate checkout this repository never requires. See scripts/upstream_pipeline.py.
+UPSTREAM_SCRIPTS = upstream("scripts", "corrections.py")
 
 
 @pytest.mark.parametrize("word,bad", [
@@ -51,10 +54,10 @@ def test_shapes_are_plural_and_exclude_the_form_itself():
     assert len({v for v in sh.values()}) > 1
 
 
-@pytest.mark.skipif(not (GREEK_OCR / "corrections.py").exists(),
-                    reason="greek-ocr checkout not present")
+@pytest.mark.skipif(UPSTREAM_SCRIPTS is None,
+                    reason=f"upstream pipeline not present; set {ENV}")
 def test_agrees_with_the_implementation_it_was_copied_from():
-    sys.path.insert(0, str(GREEK_OCR))
+    sys.path.insert(0, str(UPSTREAM_SCRIPTS.parent))
     import corrections  # noqa: E402
 
     def ref(tok: str) -> bool:

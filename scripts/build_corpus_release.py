@@ -68,7 +68,7 @@ MEASURED = {
     "measured_on": ["2026-08-12"],
     "sample": {"drawn": 990, "rated": 803, "population": 245362,
                "seed": 20260812,
-               "tool": "greek-ocr scripts/sample_applied_overlay.py"},
+               "tool": "scripts/sample_applied_overlay.py in the upstream pipeline"},
     # both-raters-right per route. The earlier 2026-08-02/03 figures used one
     # rater, so single_rater_rate below is what they compare against.
     "precision_by_corrector": {
@@ -174,7 +174,8 @@ MEASURED = {
                  "sampled on 2026-08-12; the served text now carries that many "
                  "fewer wrong corrections, and the estimate has not been "
                  "remeasured since"),
-        "audits": ("greek-ocr data/corrections/cell_revert_*.json, whose record "
+        "audits": ("data/corrections/cell_revert_*.json in the upstream "
+                   "pipeline, whose record "
                    "lists sum to these figures"),
     },
     "applied_since_measurement": {
@@ -194,7 +195,8 @@ MEASURED = {
                      "wrote; the cells themselves read 83.8% and 92.1%. Read it "
                      "as reproducibility rather than truth, since the second "
                      "pair shares a model family with the first"),
-            "evidence": "greek-ocr data/precision/gate_verify_eustathius_*/",
+            "evidence": ("data/precision/gate_verify_eustathius_*/ in the "
+                         "upstream pipeline"),
         },
     },
     # Reverting is not the mirror image of applying. A record names one misread

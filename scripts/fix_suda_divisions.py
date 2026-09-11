@@ -37,6 +37,10 @@ import unicodedata
 from collections import Counter
 from pathlib import Path
 
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from upstream_pipeline import ENV, WHY, upstream  # noqa: E402
+
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 URN = "suda.lexicon"
@@ -67,9 +71,16 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--write", action="store_true")
+    # No default naming the upstream checkout: it is a separate repository and a path
+    # to it does not belong in this tree. upstream_pipeline.py reads OCR_PIPELINE.
     ap.add_argument("--corrections-dir", type=Path,
-                    default=Path(os.path.expanduser("~/Documents/greek-ocr/data/corrections")))
+                    default=upstream("data", "corrections"),
+                    help="the upstream correction store; defaults to the one "
+                         f"{ENV} names, and is required when it names none")
     args = ap.parse_args()
+    if args.corrections_dir is None:
+        raise SystemExit(f"ERROR: no correction store. {WHY}, or pass "
+                         f"--corrections-dir")
     stamp = time.strftime("%Y-%m-%d")
 
     fp = DATA / "corpus" / f"{URN}.jsonl"

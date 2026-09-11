@@ -667,8 +667,8 @@ Qwen3.6-27B-FP8 judge and then reading every one of the judge's verdicts with
 two blind raters. The judge turned out to be a pre-filter and not an arbiter:
 its reject cell measured 73% and its accept cell 61.3%, so the raters decide and
 the judge verdict is only recorded. 2,026 corrections came back unanimously
-wrong and were reverted. Evidence and reverse instructions are upstream in the
-greek-ocr pipeline under `data/precision/`.
+wrong and were reverted. Evidence and reverse instructions are in the
+upstream OCR pipeline under `data/precision/`.
 
 The overlay is also kept honest about its own reach. 272,673 corrections have
 been retired from an active status because they could no longer apply at all,
