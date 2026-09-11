@@ -670,48 +670,56 @@ the judge verdict is only recorded. 2,026 corrections came back unanimously
 wrong and were reverted. Evidence and reverse instructions are upstream in the
 greek-ocr pipeline under `data/precision/`.
 
-The overlay is also kept honest about its own reach. 272,673 corrections have been
-retired from an active status because they could no longer apply at all, 221,093 of
-them on one day in July 2026 when the re-OCR replaced the text they targeted, and
-retirement is always on proof: the text absent AND a redo dir or an audit accounting
-for the removal. Everything a `data/corpus_changes/` audit can still place is
-re-keyed through that audit's own map rather than retired.
+The overlay is also kept honest about its own reach. 272,673 corrections have
+been retired from an active status because they could no longer apply at all,
+221,093 of them on one day in July 2026 when the re-OCR replaced the text they
+targeted, and retirement is always on proof: the text absent AND a redo dir or
+an audit accounting for the removal. Everything a `data/corpus_changes/` audit
+can still place is re-keyed through that audit's own map rather than retired.
 
-What remains does not claim only what the served text carries, and an earlier version
-of this paragraph said it did. Of 218,482 records still applied, counting the `auto`
-and `accepted` statuses as the pipeline counts them, 121,593 are verifiably present
-at their own key across 872 works, and 125 more sit on a row holding neither the
-correction nor the reading it replaced. The other 96,764 are keyed to a row that a
-carve moved, which is a different failure and is measured separately below.
+What remains does not claim only what the served text carries, and an earlier
+version of this paragraph said it did. Of 218,482 records still applied,
+counting the `auto` and `accepted` statuses as the pipeline counts them,
+121,593 are verifiably present at their own key across 872 works, and 125 more
+sit on a row holding neither the correction nor the reading it replaced. The
+other 96,764 are keyed to a row that a carve moved, which is a different
+failure and is measured separately below.
 
-Being an orphan is mostly not being lost, and the block can be shown where it went.
-72,790 of the 96,764 place onto a row the corpus serves. 68,551 of those go through a
-`data/corpus_changes/` audit, across 236 carved works. The other 4,239 go through a
-convention rather than an audit: a carved row keeps its Migne page identity, so a row
-taken out of `cogPG.PG003` at locus 141 is served as locus `PG003.141` under whatever
-work took it, and nothing records that per row. 188 of them needed the two halves of
-a row split at a character offset told apart by which half carries the corrected
-form, and 16 are undecidable because both halves carry it.
+Being an orphan is mostly not being lost, and the block can be shown where it
+went. 72,790 of the 96,764 place onto a row the corpus serves. 68,551 of those
+go through a `data/corpus_changes/` audit, across 236 carved works. The other
+4,239 go through a convention rather than an audit: a carved row keeps its
+Migne page identity, so a row taken out of `cogPG.PG003` at locus 141 is
+served as locus `PG003.141` under whatever work took it, and nothing records
+that per row. 188 of them needed the two halves of a row split at a character
+offset told apart by which half carries the corrected form, and 16 are
+undecidable because both halves carry it.
 
-A further 23,380 point at text the corpus keeps but deliberately does not serve as
-the primary reading, 23,283 of them a second witness under `data/corpus_secondary`
-and 97 Migne's apparatus moved out to `data/paratext`. Those are neither lost nor
-re-keyable: they are corrections against a reading this corpus decided not to print.
-That leaves 594 records no route resolves, six tenths of one percent of the block:
-536 with no audit entry anywhere, 42 whose carve target exists in no file, and the 16
-the convention cannot choose between. Those are the only ones worth calling lost.
-None of this has been re-keyed or counted above.
+A further 23,380 point at text the corpus keeps but deliberately does not
+serve as the primary reading, 23,283 of them a second witness under
+`data/corpus_secondary` and 97 Migne's apparatus moved out to `data/paratext`.
+Those are neither lost nor re-keyable: they are corrections against a reading
+this corpus decided not to print. That leaves 594 records no route resolves,
+six tenths of one percent of the block: 536 with no audit entry anywhere, 42
+whose carve target exists in no file, and the 16 the convention cannot choose
+between. Those are the only ones worth calling lost. None of this has been
+re-keyed or counted above.
 
-Three things an earlier count here got wrong. It reported the orphans as 71,254 split
-into 41,873 whose file was gone and 29,381 whose locus was gone, and sorted seventeen
-volumes into ten carved to nothing and seven that kept 2 to 20 unclaimed rows. No `cogPG` volume file survives at all now: one commit moved
-Migne's apparatus out of the served corpus in August 2026 and took the last ten
-residual volumes with it, so one side of that distinction has no members left. The
-locus-gone half has moved to another collection entirely, the Walz Rhetores Graeci
-volumes carved per treatise. And "the whole block is recoverable" was never a
-placement test. It counted records whose key appears in a carve map, which is not the
-same as a map entry whose target still holds the row: 718 of the records an audit
-does place land on a row that does not carry the correction at all.
+Three things an earlier count here got wrong. It reported the orphans as
+71,254 split into 41,873 whose file was gone and 29,381 whose locus was gone,
+and sorted seventeen volumes into ten carved to nothing and seven that kept 2
+to 20 unclaimed rows. No `cogPG` volume is served any more: one commit moved
+Migne's apparatus out of the served corpus in August 2026 and took the last
+ten residual volumes with it, so one side of that distinction has no members
+left. Two of them, `PG005` and `PG113`, survive as secondary witnesses, which
+is part of why so many records point there. The locus-gone half of the split
+has moved to another collection entirely, the Walz Rhetores Graeci volumes
+carved per treatise. And "the whole block is recoverable" was never a
+placement test: it counted records whose key appears in a carve map, which is
+not the same as a map entry whose target still holds the row. 718 of the
+records an audit does place land on a row that does not carry the correction
+at all.
+
 
 That is a smaller number of works than the provenance table's 986 (125 manually
 corrected, 861 auto), and the gap is real rather than a discrepancy: the table
