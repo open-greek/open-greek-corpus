@@ -2,11 +2,11 @@
  "corpus": {
   "passages": 1975500,
   "tokens": 65296585,
-  "tokens_lemmatized": 63488453,
+  "tokens_lemmatized": 63488417,
   "works": 3909
  },
  "generated_from": {
-  "commit": "b3da7d9b2db428f01278a987d72698c87764b41b",
+  "commit": "66d533985a57aaf6044d2dd039d7baa75df1356a",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "5de0153313a92cd817f6ed677f7ead5d149426938b438aa16c04f7813465deac",
-  "corpus_sha256": "c216404003944c3f4b1f4bd0d8aa0bbad2bf6f41a48e0e8debb782cb295bd575",
+  "catalog_sha256": "06f8c1d991856fe539d5ae9367a00b866340d97faee66f84a90e8bd452d4e95d",
+  "corpus_sha256": "24a2230839c507872adab94d16e89afcef44b0cd1c05e604580e477db5e8446a",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -95,7 +95,7 @@
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
-   "active_records": 218482,
+   "active_records": 218277,
    "applied_since_measurement": {
     "records": 14017,
     "survivor_precision": {
@@ -199,26 +199,26 @@
     "split_or_unsure": 0.06,
     "wrong": 0.177
    },
-   "corrections_present": 121593,
+   "corrections_present": 121436,
    "corrections_present_works": 872,
    "measured_on": [
     "2026-08-12"
    ],
    "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
    "overlay_reach": {
-    "accounted_for_but_not_served": 23572,
-    "caveats": "`placed` is weaker than `present`: 718 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,572 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
-    "orphans": 96764,
-    "placed_on_a_served_row": 72790,
-    "row_found_but_neither_form_standing": 125,
+    "accounted_for_but_not_served": 23550,
+    "caveats": "`placed` is weaker than `present`: 720 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,550 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
+    "orphans": 96720,
+    "placed_on_a_served_row": 72768,
+    "row_found_but_neither_form_standing": 121,
     "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
     "unaccounted": 402,
     "what": "where the active records sit relative to the served text. A record keyed to a row a carve moved is not lost: the carve audits, or the convention that a carved row keeps its Migne page identity, place most of them"
    },
    "population_check": {
     "checked": true,
-    "records_now": 218482,
-    "records_when_measured": 218482,
+    "records_now": 218277,
+    "records_when_measured": 218277,
     "stale": false
    },
    "precision_by_corrector": {
@@ -241,8 +241,8 @@
    },
    "reverted_since_measurement": {
     "audits": "data/corrections/cell_revert_*.json in the upstream pipeline, whose record lists sum to these figures",
-    "records": 20545,
-    "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 10,933 from the freq/accepted census, 5,785 from the freq/auto census and 1,512 from the confusion/accepted census, every one on a unanimous two-rater verdict over a record read individually rather than sampled. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
+    "records": 20750,
+    "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 11,136 from the freq/accepted cell, 5,786 from freq/auto and 1,513 from confusion/accepted, every one on a unanimous two-rater verdict over a record read individually rather than sampled. The last 205 of those are not census records: they are duplicates that carried an edit a census had already condemned on another record, and 169 of the condemned edits were still in the served text because reverting one record left the other active. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
    },
    "sample": {
     "drawn": 990,
@@ -252,12 +252,12 @@
     "tool": "scripts/sample_applied_overlay.py in the upstream pipeline"
    },
    "stamp_gap": {
-    "pairs": 49303,
+    "pairs": 49289,
     "raw_share_lower_bound": 0.0556,
     "raw_share_tokens_in_doubt": 564081,
     "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
     "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for the method that made it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against 2.65% from the standing corrections, and ten works read zero where every row is corrected. Taking the 25 of those works still classed raw at their word puts the raw-OCR share between 5.6% and the published 6.4%, 564,081 tokens apart",
-    "works_affected": 264,
+    "works_affected": 263,
     "works_under_the_floor_only_because_of_it": 28
    },
    "superseded": {
@@ -277,7 +277,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11.8",
+ "release_id": "corpus-2026-09-11.9",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
