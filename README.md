@@ -592,7 +592,7 @@ wrong; 803 were readable after carve routing.
 
 Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
 where the raters split or were unsure. That was roughly 43,000 wrong corrections
-when the sample was drawn; 20,753 have been taken out since, so read the table
+when the sample was drawn; 20,754 have been taken out since, so read the table
 as the state it measured rather than a live figure.
 
 Most of that removal is not sampling at all. The `freq`/accepted, `freq`/auto and
@@ -714,15 +714,15 @@ an audit accounting for the removal. Everything a `data/corpus_changes/` audit
 can still place is re-keyed through that audit's own map rather than retired.
 
 What remains does not claim only what the served text carries, and an earlier
-version of this paragraph said it did. Of 220,346 records still applied,
+version of this paragraph said it did. Of 220,345 records still applied,
 counting the `auto` and `accepted` statuses as the pipeline counts them,
 123,508 are verifiably present at their own key across 879 works, and 120 more
 sit on a row holding neither the correction nor the reading it replaced. The
-other 96,718 are keyed to a row that a carve moved, which is a different
+other 96,717 are keyed to a row that a carve moved, which is a different
 failure and is measured separately below.
 
 Being an orphan is mostly not being lost, and the block can be shown where it
-went. 72,766 of the 96,718 place onto a row the corpus serves. 68,538 of those
+went. 72,765 of the 96,717 place onto a row the corpus serves. 68,537 of those
 go through a `data/corpus_changes/` audit, across 236 carved works. The other
 4,228 go through a convention rather than an audit: a carved row keeps its
 Migne page identity, so a row taken out of `cogPG.PG003` at locus 141 is

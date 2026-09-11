@@ -164,23 +164,25 @@ MEASURED = {
     },
     "wrong_rows_estimate": 43400,
     "reverted_since_measurement": {
-        "records": 20753,
+        "records": 20754,
         "what": ("1,447 from the re-adjudication accepts pass, 868 from the "
                  "llm/accepted census, 11,136 from the freq/accepted cell, 5,786 "
-                 "from freq/auto, 1,513 from confusion/accepted and 3 from "
-                 "llm/auto. All but the last three were reverted on a unanimous "
+                 "from freq/auto, 1,513 from confusion/accepted and 4 from "
+                 "llm/auto. All but the last four were reverted on a unanimous "
                  "two-rater verdict over a record read individually rather than "
                  "sampled. 205 of those are not census records: they are "
                  "duplicates that carried an edit a census had already condemned "
                  "on another record, and 169 of the condemned edits were still in "
                  "the served text because reverting one record left the other "
-                 "active. The three llm/auto records are the wrong half of three "
+                 "active. The four llm/auto records are the wrong half of four "
                  "rows where an active correction and its exact inverse were both "
                  "live, so the served form depended on store order. Each was "
-                 "settled on evidence (the corpus's medial-sigma convention and an "
-                 "independent digital text of the same edition for two, and for "
-                 "the third a movable nu the scan never showed) and reverted with "
-                 "the maintainer's approval. "
+                 "settled on evidence and reverted with the maintainer's approval: "
+                 "the corpus's medial-sigma convention and an independent digital "
+                 "text of the same edition for two, a movable nu the scan never "
+                 "showed for the third, and for the fourth the printed page itself, "
+                 "read from a microfilm of the edition, where the record had also "
+                 "turned a correct grave into an acute. "
                  "The wrong_rows_estimate above describes the overlay as it was "
                  "sampled on 2026-08-12; the served text now carries that many "
                  "fewer wrong corrections, and the estimate has not been "
@@ -261,18 +263,18 @@ MEASURED = {
     # population_check compares this against the local audit mirror at build time,
     # and a baseline the mirror can never match again reports stale=true forever,
     # which is a check nobody reads. Against today's figure it flags real drift.
-    "active_records": 220346,
+    "active_records": 220345,
     "overlay_reach": {
         "what": ("where the active records sit relative to the served text. A "
                  "record keyed to a row a carve moved is not lost: the carve "
                  "audits, or the convention that a carved row keeps its Migne "
                  "page identity, place most of them"),
-        "orphans": 96718,
-        "placed_on_a_served_row": 72766,
+        "orphans": 96717,
+        "placed_on_a_served_row": 72765,
         "accounted_for_but_not_served": 23550,
         "unaccounted": 402,
         "row_found_but_neither_form_standing": 120,
-        "caveats": ("`placed` is weaker than `present`: 718 of the placed records "
+        "caveats": ("`placed` is weaker than `present`: 717 of the placed records "
                     "land on a row that does not carry the correction. 16 of the "
                     "convention placements are undecidable, because a row split at "
                     "a character offset leaves both halves carrying the form. The "
