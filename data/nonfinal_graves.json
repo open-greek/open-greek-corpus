@@ -11,8 +11,8 @@
   }
  },
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26584,
- "tokens": 42804,
+ "forms": 26590,
+ "tokens": 42810,
  "served_tokens": 65296585,
  "share": 0.000656,
  "works_touched": 1641,
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7710,
-   "rate": 0.001871
+   "tokens": 7716,
+   "rate": 0.001872
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7710,
-   "rate": 0.001871
+   "tokens": 7716,
+   "rate": 0.001872
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14911,
-  "tokens_with_exactly_one": 8940,
-  "tokens_with_none": 18953
+  "tokens_with_more_than_one_attested_shape": 14912,
+  "tokens_with_exactly_one": 8943,
+  "tokens_with_none": 18955
  },
  "largest_forms": [
   {
@@ -4627,29 +4627,29 @@
    },
    {
     "bucket": "class thinner than 20",
-    "forms": 4039,
-    "tokens": 6499
+    "forms": 4042,
+    "tokens": 6502
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3491,
-    "tokens": 9885
+    "forms": 3492,
+    "tokens": 9886
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17577,
-    "tokens": 20564
+    "forms": 17579,
+    "tokens": 20566
    }
   ],
   "accent_only_forms": 2682,
   "accent_only_tokens": 8079,
-  "marks_moved_tokens": 1806,
+  "marks_moved_tokens": 1807,
   "page_diffusion": {
    "distinct_scan_pages": 16085,
    "tokens_on_the_densest_500_pages": 3928,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3491,
+  "decided_forms_total": 3492,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {

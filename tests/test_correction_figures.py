@@ -114,7 +114,11 @@ def test_rated_never_exceeds_the_cell_it_was_drawn_from():
 
 
 @needs_gates
-def test_reverted_since_measurement_is_the_sum_of_its_parts():
+def test_reverted_since_measurement_is_the_sum_of_its_audits():
+    """Sum the audit trail rather than the census figures. Not every revert since the
+    sample came from a census: 205 records carried an edit a census had condemned on a
+    DIFFERENT record, and reverting those is a payout with its own audit and no gate of
+    its own. Summing censused_by_corrector would miss them and has."""
     audit, expected = READJUDICATION
     fp = (CORRECTIONS / audit) if CORRECTIONS else None
     if fp is None or not fp.is_file():
@@ -122,8 +126,28 @@ def test_reverted_since_measurement_is_the_sum_of_its_parts():
     blob = json.loads(fp.read_text(encoding="utf-8"))
     readj = blob.get("n_records") or len(blob.get("records", []))
     assert readj == expected, "the re-adjudication accepts pass moved"
-    total = readj + sum(v["reverted"] for v in _censused().values())
-    assert MEASURED["reverted_since_measurement"]["records"] == total
+
+    # The 2026-08-02 wholesale llm/accepted revert predates the 2026-08-12 sample, so
+    # its records were already out of the population the precision was measured over.
+    reverts = 0
+    for fp in sorted(CORRECTIONS.glob("cell_revert_*.json")):
+        if "2026-08-02" in fp.name:
+            continue
+        reverts += len(json.loads(fp.read_text(encoding="utf-8"))["records"])
+    assert MEASURED["reverted_since_measurement"]["records"] == readj + reverts
+
+
+@needs_gates
+def test_no_active_record_carries_an_edit_a_census_condemned():
+    """A census verdict is about the edit on the row, so a duplicate record from another
+    corrector carrying the same edit is condemned too. 205 were not, and 169 of those
+    edits were still in the served text, which is how a reverted correction comes back."""
+    gate = PRECISION / "condemned_duplicates_gate.json"
+    if not gate.is_file():
+        pytest.skip("no condemned_duplicates_gate.json; run "
+                    "find_condemned_duplicates.py")
+    blob = json.loads(gate.read_text(encoding="utf-8"))
+    assert blob["staged"] == len(blob["allowed"])
 
 
 def test_the_readme_quotes_the_same_reverted_total():

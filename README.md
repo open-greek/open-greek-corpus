@@ -455,7 +455,13 @@ make reports               # quality report, per-work lemma counts, this README'
                            # re-runs the ingest chain when it is stale, and that
                            # chain can go to the network)
 PY=.venv/bin/python DILEMMA=/path/to/dilemma make   # override interpreter / lemmatizer path
+python -m pytest tests/ -q                         # 251 tests; 7 skip without OCR_PIPELINE
 ```
+
+Nothing here needs the upstream OCR pipeline, which is where the raw OCR and the
+reversible correction overlay live. Seven tests cross-check a figure or a vendored
+rule against it and skip when it is absent; set `OCR_PIPELINE` to that checkout to
+enable them, and see `scripts/upstream_pipeline.py`.
 
 The chain is ingest, then the yardstick rollup, then the sourcing verdict (see
 the Makefile header). Ingest (`build_corpus_loci.py`) walks each open TEI
@@ -586,7 +592,7 @@ wrong; 803 were readable after carve routing.
 
 Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
 where the raters split or were unsure. That was roughly 43,000 wrong corrections
-when the sample was drawn; 20,545 have been taken out since, so read the table
+when the sample was drawn; 20,750 have been taken out since, so read the table
 as the state it measured rather than a live figure.
 
 Most of that removal is not sampling at all. The `freq`/accepted, `freq`/auto and
@@ -610,18 +616,34 @@ verdict. Read sound, reverted and this as three bands rather than two: the
 soundness rates above are both-raters-right, not both-raters-right plus the benefit
 of the doubt.
 
-Reverting a correction is not as safe as applying one. A record names one misread
-token, which is the unit a rater judges, but the revert replaces every occurrence
-of that form in the row, so where the scan itself read the form correctly
-somewhere else in the same row the revert wrote the misreading over it. Applying
-cannot go wrong that way, because the misreading stands only where it is wrong.
-Seventeen revert passes going back to the start of August 2026 did this in 1,214
-rows, 3,064 tokens across 131 works, and 1,047 of those rows come from the
-wholesale `llm`/accepted revert alone: one Procopius row had eleven ordinary
-καὶ rewritten as Κἢ, and three critical-apparatus lines lost the manuscript
-variant they were printed to record. Every one is now restored to what the scan
-reads, and the revert pass finds the case from this repository's own history
-rather than leaving it to be noticed.
+A reverted correction can also come back, and 169 of them had. A census
+verdict is about the edit on the row: two raters saw that passage, that OCR
+reading and that replacement, and both called it wrong. The payout then
+reverts the record carrying it. But two correctors can record the same edit on
+the same row, 330 such pairs are live, and reverting one leaves the other to
+write the edit back at the next bake. 205 records were in that state and 169
+of the condemned edits were in the served text again. One is an apparatus line
+reading `12 Μήλητος C, Μίλητος`, the manuscript beside the editor, where the
+record wanted to turn the first into the second and so make them agree. All
+205 are reverted on the verdict that condemned their twin.
+
+Reverting a correction is not as safe as applying one, and two of the three
+failures above come straight out of that. The third is a matter of scope: a
+payout reverts inside one corrector's cell while the verdict is about the
+edit. A record names one misread token, which is the unit a rater judges, but
+the revert replaces every occurrence of that form in the row. Applying cannot
+go wrong that way, because the misreading stands only where it is wrong. So a
+revert overwrites any other occurrence, whoever put it there: the scan itself,
+in 1,240 rows and 3,110 tokens across 131 works over seventeen passes since
+the start of August 2026, 1,047 of them from the wholesale `llm`/accepted
+revert alone, where one Procopius row had eleven ordinary καὶ rewritten as Κἢ
+and three critical-apparatus lines lost the variant they were printed to
+record; or another correction that produced the same form from a different
+misreading, which cost 75 good corrections in the payout above. The first kind
+is restored from this repository's own history, by finding the commit that
+applied the fix and keeping whatever stood before it. The second needs no
+repair: those records are still active, their misreadings are back in the row,
+and the next bake re-applies them.
 
 Everything before this was measured over slices picked for being hard, one
 rater per item, mostly at n≈30, so those figures said how a corner behaved
@@ -678,25 +700,25 @@ an audit accounting for the removal. Everything a `data/corpus_changes/` audit
 can still place is re-keyed through that audit's own map rather than retired.
 
 What remains does not claim only what the served text carries, and an earlier
-version of this paragraph said it did. Of 218,482 records still applied,
+version of this paragraph said it did. Of 218,277 records still applied,
 counting the `auto` and `accepted` statuses as the pipeline counts them,
-121,593 are verifiably present at their own key across 872 works, and 125 more
+121,436 are verifiably present at their own key across 872 works, and 121 more
 sit on a row holding neither the correction nor the reading it replaced. The
-other 96,764 are keyed to a row that a carve moved, which is a different
+other 96,720 are keyed to a row that a carve moved, which is a different
 failure and is measured separately below.
 
 Being an orphan is mostly not being lost, and the block can be shown where it
-went. 72,790 of the 96,764 place onto a row the corpus serves. 68,551 of those
+went. 72,768 of the 96,720 place onto a row the corpus serves. 68,540 of those
 go through a `data/corpus_changes/` audit, across 236 carved works. The other
-4,239 go through a convention rather than an audit: a carved row keeps its
+4,228 go through a convention rather than an audit: a carved row keeps its
 Migne page identity, so a row taken out of `cogPG.PG003` at locus 141 is
 served as locus `PG003.141` under whatever work took it, and nothing records
 that per row. 188 of them needed the two halves of a row split at a character
 offset told apart by which half carries the corrected form, and 16 are
 undecidable because both halves carry it.
 
-A further 23,572 point at text the corpus keeps but does not serve as the
-primary reading. 23,283 of them are a second witness under
+A further 23,550 point at text the corpus keeps but does not serve as the
+primary reading. 23,261 of them are a second witness under
 `data/corpus_secondary`, 103 sit on a leaf that was dropped as a repeat of
 another with the audit naming the twin that kept the text, 97 are Migne's
 apparatus moved out to `data/paratext`, and 89 are rows an audit archived
@@ -706,6 +728,7 @@ corrections against a reading this corpus decided not to print. That leaves
 that nothing anywhere accounts for, 42 whose carve target exists in no file,
 and the 16 the convention finds two candidate rows for with both halves
 carrying the form. None of this has been re-keyed or counted above.
+
 
 Three things an earlier count here got wrong. It reported the orphans as
 71,254 split into 41,873 whose file was gone and 29,381 whose locus was gone,
@@ -718,7 +741,7 @@ is part of why so many records point there. The locus-gone half of the split
 has moved to another collection entirely, the Walz Rhetores Graeci volumes
 carved per treatise. And "the whole block is recoverable" was never a
 placement test: it counted records whose key appears in a carve map, which is
-not the same as a map entry whose target still holds the row. 718 of the
+not the same as a map entry whose target still holds the row. 720 of the
 records an audit does place land on a row that does not carry the correction
 at all.
 
@@ -933,7 +956,7 @@ Read the raw-OCR count in that table as an upper bound. A work counts as
 corrected from its rows' own `corrections` stamps, and the stamps are
 incomplete in one direction: a correction stamps the row it edits, a carve
 then moves that row into a per-work file, and nothing re-stamps it there.
-49,303 row-and-method pairs across 264 works have a correction standing in the
+49,289 row-and-method pairs across 263 works have a correction standing in the
 served row with no stamp for the method that made it, and 28 works sit under
 the 1% floor only because of that. `pseudo-zonaras.lexicon` reads 0.45% of its
 rows stamped where the standing corrections put it at 2.65%, and ten works
