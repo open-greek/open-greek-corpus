@@ -266,11 +266,15 @@ MEASURED = {
         "pairs": 49303,
         "works_affected": 264,
         "works_under_the_floor_only_because_of_it": 28,
+        "raw_share_lower_bound": 0.0556,
+        "raw_share_tokens_in_doubt": 564081,
         "what": ("row-and-method pairs where an active correction is standing in the "
                  "served row and the row carries no stamp for the method that made "
                  "it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against "
                  "2.65% from the standing corrections, and ten works read zero where "
-                 "every row is corrected"),
+                 "every row is corrected. Taking the 25 of those works still classed "
+                 "raw at their word puts the raw-OCR share between 5.6% and the "
+                 "published 6.4%, 564,081 tokens apart"),
         "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
     },
     "rater_disagreement": 0.055,

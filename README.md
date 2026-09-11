@@ -937,11 +937,13 @@ then moves that row into a per-work file, and nothing re-stamps it there.
 served row with no stamp for the method that made it, and 28 works sit under
 the 1% floor only because of that. `pseudo-zonaras.lexicon` reads 0.45% of its
 rows stamped where the standing corrections put it at 2.65%, and ten works
-read zero where every row is corrected. The stamps are not repaired to match,
-because they cannot be: a corrected form standing in a row is equally
-consistent with the corrector having written it and with the scan having read
-it correctly all along, so stamping on presence would invent provenance rather
-than record it.
+read zero where every row is corrected. The stamps are not repaired to match, because they cannot be: a corrected form
+standing in a row is equally consistent with the corrector having written it
+and with the scan having read it correctly all along, so stamping on presence
+would invent provenance rather than record it. Taking the 25 of those works
+the table still calls raw at their word puts the raw-OCR share between 5.6%
+and 6.4% of the corpus, 564,081 tokens apart, and the published figure is the
+top of that range.
 
 <!-- OCR-PROVENANCE:START -->
 1394 OCR'd works/volumes: 125 manually corrected, 861 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 408 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
