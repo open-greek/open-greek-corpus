@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "768a35026043dd1b212e9400307328da18a6cb1c",
+  "commit": "5f770e018a1e86af86bb0e5c624a6876aefc78a8",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,15 +60,15 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "6c641354554a48d9a33e9834f6404963a6b29bf928ea857aeb363510ec320436",
+  "catalog_sha256": "5de0153313a92cd817f6ed677f7ead5d149426938b438aa16c04f7813465deac",
   "corpus_sha256": "c216404003944c3f4b1f4bd0d8aa0bbad2bf6f41a48e0e8debb782cb295bd575",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 19344221,
-    "works": 867
+    "tokens": 19198687,
+    "works": 865
    },
    "manual": {
     "tokens": 5782398,
@@ -79,8 +79,8 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 4047704,
-    "works": 409
+    "tokens": 4193238,
+    "works": 411
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
@@ -88,10 +88,10 @@
    "ocr_share_of_corpus_tokens": 0.4468,
    "ocr_tokens": 29174323,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.062,
-   "raw_share_of_ocr_tokens": 0.1387,
-   "raw_tokens": 4047704,
-   "raw_works": 409,
+   "raw_share_of_corpus_tokens": 0.0642,
+   "raw_share_of_ocr_tokens": 0.1437,
+   "raw_tokens": 4193238,
+   "raw_works": 411,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
@@ -268,7 +268,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11.3",
+ "release_id": "corpus-2026-09-11.4",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
