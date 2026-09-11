@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "5f770e018a1e86af86bb0e5c624a6876aefc78a8",
+  "commit": "3212956f6e84644b13eae2637cb399acf8f9f537",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -206,13 +206,13 @@
    ],
    "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
    "overlay_reach": {
-    "accounted_for_but_not_served": 23380,
-    "caveats": "`placed` is weaker than `present`: 718 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,380 point at a second witness under data/corpus_secondary or at Migne's apparatus in data/paratext, which this corpus keeps but does not serve as the primary reading",
+    "accounted_for_but_not_served": 23572,
+    "caveats": "`placed` is weaker than `present`: 718 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,572 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
     "orphans": 96764,
     "placed_on_a_served_row": 72790,
     "row_found_but_neither_form_standing": 125,
     "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
-    "unaccounted": 594,
+    "unaccounted": 402,
     "what": "where the active records sit relative to the served text. A record keyed to a row a carve moved is not lost: the carve audits, or the convention that a carved row keeps its Migne page identity, place most of them"
    },
    "population_check": {
@@ -268,7 +268,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11.4",
+ "release_id": "corpus-2026-09-11.5",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
