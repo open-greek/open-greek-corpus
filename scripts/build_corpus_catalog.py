@@ -54,7 +54,7 @@ OCR_SOURCES = {"ocr", "cgpg"}
 
 # A row stamped by one of these was edited by a human or an LLM acting as one, so
 # the work counts as manually corrected; anything else (confusion, dehyphenation,
-# freq, prosodia) is a deterministic pass. Kept identical to build_provenance.py's
+# freq, prosodia, collation) is a deterministic pass. Kept identical to build_provenance.py's
 # MANUAL_TAGS on purpose: two tables describing the same works must not disagree
 # about which of them a person has looked at.
 MANUAL_TAGS = {"llm", "agent", "manual"}
