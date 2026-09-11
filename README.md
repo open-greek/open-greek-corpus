@@ -592,7 +592,7 @@ wrong; 803 were readable after carve routing.
 
 Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
 where the raters split or were unsure. That was roughly 43,000 wrong corrections
-when the sample was drawn; 20,750 have been taken out since, so read the table
+when the sample was drawn; 20,753 have been taken out since, so read the table
 as the state it measured rather than a live figure.
 
 Most of that removal is not sampling at all. The `freq`/accepted, `freq`/auto and
@@ -644,6 +644,20 @@ is restored from this repository's own history, by finding the commit that
 applied the fix and keeping whatever stood before it. The second needs no
 repair: those records are still active, their misreadings are back in the row,
 and the next bake re-applies them.
+
+Some of the misreadings a census put back have since been corrected again by
+collation against an independent digital text of the same work. Where a served
+passage lines up with that text word for word, the misread word takes the
+other text's letters, while its case, movable nu, rho breathing and final
+accent follow this edition, because the two were typeset differently: Migne
+prints a grave before a comma 88% of the time, where the corpus's clean
+editions print it 31%. A form the scan ran together with its neighbor, split
+across two tokens or read as a real word is left alone, since there the other
+text may simply be a different edition. All 2,400 proposals were read by two
+blind raters who were not told where they came from, and only the 2,072 both
+called right were written, 86.3% (84.9-87.6); a second blind read of 165 of
+those found 162 sound and none wrong. The 328 others were rejected without
+being applied, and the rows that changed carry the `collation` stamp.
 
 Everything before this was measured over slices picked for being hard, one
 rater per item, mostly at n≈30, so those figures said how a corner behaved
@@ -700,15 +714,15 @@ an audit accounting for the removal. Everything a `data/corpus_changes/` audit
 can still place is re-keyed through that audit's own map rather than retired.
 
 What remains does not claim only what the served text carries, and an earlier
-version of this paragraph said it did. Of 218,277 records still applied,
+version of this paragraph said it did. Of 220,346 records still applied,
 counting the `auto` and `accepted` statuses as the pipeline counts them,
-121,436 are verifiably present at their own key across 872 works, and 121 more
+123,508 are verifiably present at their own key across 879 works, and 120 more
 sit on a row holding neither the correction nor the reading it replaced. The
-other 96,720 are keyed to a row that a carve moved, which is a different
+other 96,718 are keyed to a row that a carve moved, which is a different
 failure and is measured separately below.
 
 Being an orphan is mostly not being lost, and the block can be shown where it
-went. 72,768 of the 96,720 place onto a row the corpus serves. 68,540 of those
+went. 72,766 of the 96,718 place onto a row the corpus serves. 68,538 of those
 go through a `data/corpus_changes/` audit, across 236 carved works. The other
 4,228 go through a convention rather than an audit: a carved row keeps its
 Migne page identity, so a row taken out of `cogPG.PG003` at locus 141 is
@@ -956,20 +970,21 @@ Read the raw-OCR count in that table as an upper bound. A work counts as
 corrected from its rows' own `corrections` stamps, and the stamps are
 incomplete in one direction: a correction stamps the row it edits, a carve
 then moves that row into a per-work file, and nothing re-stamps it there.
-49,289 row-and-method pairs across 263 works have a correction standing in the
-served row with no stamp for the method that made it, and 28 works sit under
+49,290 row-and-method pairs across 263 works have a correction standing in the
+served row with no stamp for the method that made it, and 25 works sit under
 the 1% floor only because of that. `pseudo-zonaras.lexicon` reads 0.45% of its
-rows stamped where the standing corrections put it at 2.65%, and ten works
-read zero where every row is corrected. The stamps are not repaired to match, because they cannot be: a corrected form
+rows stamped where the standing corrections put it at 2.65%, and 16 works read
+zero although they hold at least as many standing corrections as rows. The
+stamps are not repaired to match, because they cannot be: a corrected form
 standing in a row is equally consistent with the corrector having written it
 and with the scan having read it correctly all along, so stamping on presence
-would invent provenance rather than record it. Taking the 25 of those works
+would invent provenance rather than record it. Taking the 22 of those works
 the table still calls raw at their word puts the raw-OCR share between 5.6%
-and 6.4% of the corpus, 564,081 tokens apart, and the published figure is the
+and 6.3% of the corpus, 472,361 tokens apart, and the published figure is the
 top of that range.
 
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 861 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 408 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 865 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 404 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1290,9 +1305,9 @@ top of that range.
 | comica-adespota-caf.fragmenta-incertorum-poetarum | Comica adespota - Fragmenta incertorum poetarum | qwen36-comica_adespota_caf3 | Qwen3.6-27B | 54,499 | raw OCR |
 | commentaria-in-dionysii-thracis-artem-grammaticam.prolegomena-vossiana | Commentaria In Dionysii Thracis Artem Grammaticam - Prolegomena Vossiana | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 229,685 | auto-corrected |
 | constantinus-siculus.versus-in-leonem-philosophum | Constantinus Siculus - Versus in Leonem Philosophum (carmina de apostasia Leonis, cum responsione) (PG107 loci 40-41) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 257 | manual |
-| constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske | Constantinus VII Porphyrogenitus - De cerimoniis aulae Byzantinae (lib. 1.84-2.56) (PG112 loci 354-730) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 73,431 | raw OCR |
+| constantinus-vii-porphyrogenitus-imperator.de-cerimoniis-aulae-byzantinae-lib-1-84-2-56-reiske | Constantinus VII Porphyrogenitus - De cerimoniis aulae Byzantinae (lib. 1.84-2.56) (PG112 loci 354-730) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 73,431 | auto-corrected |
 | constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis | Constantinus VII Porphyrogenitus Imperator - De Virtutibus Et Vitiis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 211,764 | manual |
-| constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena | Constantinus VII Porphyrogenitus Imperator - Narratio de imagine Edessena (PG113 loci 223-237) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,761 | raw OCR |
+| constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena | Constantinus VII Porphyrogenitus Imperator - Narratio de imagine Edessena (PG113 loci 223-237) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,761 | auto-corrected |
 | constantinus-vii-porphyrogenitus-imperator.novellae-constitutiones | Constantinus VII Porphyrogenitus Imperator - Novellae constitutiones (PG113 loci 286-313) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,084 | raw OCR |
 | constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus | Constantinus VII Porphyrogenitus Imperator - Prooemium excerptorum de legationibus (PG113 loci 328-330) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 808 | raw OCR |
 | corinna.fragmenta | CORINNA - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 636 | auto-corrected |
@@ -1312,7 +1327,7 @@ top of that range.
 | ctesias.fragmenta | Ctesias - Fragmenta | qwen36-ctesias_gilmore-ocr | Qwen3.6-27B | 31,082 | auto-corrected |
 | cypria.cypria-fragmenta | Cypria - Cypria (Fragmenta) | qwen36-panyassis_kinkel_egf-ocr | Qwen3.6-27B | 2,651 | auto-corrected |
 | cyrillus-scr-eccl.catecheses-ad-illuminandos-1-18 | Cyrillus - Catecheses Ad Illuminandos 1-18 | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 72,356 | auto-corrected |
-| cyrillus-scr-eccl.epistula-ad-constantium-imperatorem | Cyrillus - Epistula Ad Constantium Imperatorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,737 | raw OCR |
+| cyrillus-scr-eccl.epistula-ad-constantium-imperatorem | Cyrillus - Epistula Ad Constantium Imperatorem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,737 | auto-corrected |
 | cyrillus-scr-eccl.homilia-in-occursum-domini-sp | Cyrillus - Homilia In Occursum Domini [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,251 | auto-corrected |
 | cyrillus-scr-eccl.mystagogiae-1-5-sp | Cyrillus - Mystagogiae 1-5 [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,718 | auto-corrected |
 | cyrillus-scr-eccl.procatechesis | Cyrillus - Procatechesis | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,577 | auto-corrected |
@@ -1872,7 +1887,7 @@ top of that range.
 | joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 775 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,568 | manual |
 | job-monachus.prooemium-in-psalmos | Job monachus ('Iob peccator') - Prooemium (to an exposition of the Psalms) (PG158 loci 562-563) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 340 | auto-corrected |
-| joel.chronographia-compendiaria | Joel - Chronographia compendiaria (PG139 loci 119-151) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,528 | raw OCR |
+| joel.chronographia-compendiaria | Joel - Chronographia compendiaria (PG139 loci 119-151) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 12,528 | auto-corrected |
 | josephus-genesius.basilei-ai | Josephus Genesius - Basileiai (Regum libri quattuor) (PG109 loci 501-583) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,703 | manual |
 | josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 237 | auto-corrected |
 | josephus-rhacendyta.synopsis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,967 | auto-corrected |

@@ -289,8 +289,8 @@ def main() -> None:
     n_corr = sum(1 for r in rows if r[5] == "manual")
     n_auto = sum(1 for r in rows if r[5] == "auto-corrected")
     head = (f"{len(rows)} OCR'd works/volumes: {n_corr} manually corrected, "
-            f"{n_auto} auto-corrected (deterministic glyph-confusion / frequency "
-            f"passes; edited but not hand-reviewed), "
+            f"{n_auto} auto-corrected (deterministic glyph-confusion, frequency "
+            f"and collation passes; edited but not hand-reviewed), "
             f"{len(rows) - n_corr - n_auto} still raw OCR. Works are named by "
             f"their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.\n\n")
     table = ["| Work (slug) | Content | Downloaded | OCR model | Words | Correction |",

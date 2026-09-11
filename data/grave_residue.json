@@ -7,28 +7,28 @@
   "classes_come_from": "the `correction` column of data/corpus_catalog.tsv, which is itself derived and not intrinsic to the text",
   "by_class": {
    "auto-corrected": {
-    "grave_tokens": 17465,
-    "grave_lemmas": 5491,
-    "lemmatized_tokens_in_this_class": 18301121,
-    "rate": 0.000954
+    "grave_tokens": 17535,
+    "grave_lemmas": 5532,
+    "lemmatized_tokens_in_this_class": 18390593,
+    "rate": 0.000953
    },
    "manual": {
-    "grave_tokens": 4538,
-    "grave_lemmas": 2001,
-    "lemmatized_tokens_in_this_class": 5575126,
-    "rate": 0.000814
+    "grave_tokens": 4520,
+    "grave_lemmas": 1994,
+    "lemmatized_tokens_in_this_class": 5575723,
+    "rate": 0.000811
    },
    "not-ocr": {
     "grave_tokens": 6049,
     "grave_lemmas": 2212,
-    "lemmatized_tokens_in_this_class": 35619287,
+    "lemmatized_tokens_in_this_class": 35619293,
     "rate": 0.00017
    },
    "raw-ocr": {
-    "grave_tokens": 3134,
-    "grave_lemmas": 1696,
-    "lemmatized_tokens_in_this_class": 3992883,
-    "rate": 0.000785
+    "grave_tokens": 3045,
+    "grave_lemmas": 1652,
+    "lemmatized_tokens_in_this_class": 3903538,
+    "rate": 0.00078
    }
   },
   "unmatched": {
@@ -36,9 +36,9 @@
    "lemmas": 0,
    "keys": []
   },
-  "ocr_derived_rate": 0.000902,
+  "ocr_derived_rate": 0.000901,
   "born_digital_rate": 0.00017,
-  "lift": 5.31,
+  "lift": 5.3,
   "reading": "the class is not an OCR problem that belongs to another issue. It sits over born-digital text at a floor no text repair reaches, and the raw-OCR stratum #2 scopes holds only a small part of it."
  },
  "why_not_the_annotation_exports": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it. Dictionary headword inventories can, and the headword_backed block below is that test.",
@@ -97,7 +97,7 @@
   "share_of_residue": 0.0212,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.224,
+   "non_grave_lemmas_le_10_tokens_backed": 0.2241,
    "grave_lemmas_le_10_tokens_backed": 0.0147
   },
   "largest": [
@@ -203,22 +203,22 @@
    }
   ]
  },
- "lemmas": 7857,
- "tokens": 31186,
+ "lemmas": 7849,
+ "tokens": 31149,
  "reachable": {
   "lemmas": 281,
   "tokens": 3609,
   "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
-  "lemmas": 7576,
-  "tokens": 27577,
+  "lemmas": 7568,
+  "tokens": 27540,
   "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",
   "wrong_because": "it tested whether the acute exists as a LEMMA in the per-work table. The accent argument is about the printed text, and the rule's own reference table was narrower than the table it governs (83,078 lemmas against 275,871)",
-  "measured_the_old_way_tokens": 28870
+  "measured_the_old_way_tokens": 28902
  },
  "largest_unreachable": [
   {
@@ -279,7 +279,7 @@
   },
   {
    "lemma": "ἐαντὸν",
-   "tokens": 51
+   "tokens": 50
   },
   {
    "lemma": "ὀψὴν",
@@ -339,7 +339,7 @@
   },
   {
    "lemma": "ἰδὺς",
-   "tokens": 34
+   "tokens": 33
   },
   {
    "lemma": "τριπλὴν",

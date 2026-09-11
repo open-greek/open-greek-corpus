@@ -164,16 +164,23 @@ MEASURED = {
     },
     "wrong_rows_estimate": 43400,
     "reverted_since_measurement": {
-        "records": 20750,
+        "records": 20753,
         "what": ("1,447 from the re-adjudication accepts pass, 868 from the "
                  "llm/accepted census, 11,136 from the freq/accepted cell, 5,786 "
-                 "from freq/auto and 1,513 from confusion/accepted, every one on a "
-                 "unanimous two-rater verdict over a record read individually "
-                 "rather than sampled. The last 205 of those are not census "
-                 "records: they are duplicates that carried an edit a census had "
-                 "already condemned on another record, and 169 of the condemned "
-                 "edits were still in the served text because reverting one record "
-                 "left the other active. "
+                 "from freq/auto, 1,513 from confusion/accepted and 3 from "
+                 "llm/auto. All but the last three were reverted on a unanimous "
+                 "two-rater verdict over a record read individually rather than "
+                 "sampled. 205 of those are not census records: they are "
+                 "duplicates that carried an edit a census had already condemned "
+                 "on another record, and 169 of the condemned edits were still in "
+                 "the served text because reverting one record left the other "
+                 "active. The three llm/auto records are the wrong half of three "
+                 "rows where an active correction and its exact inverse were both "
+                 "live, so the served form depended on store order. Each was "
+                 "settled on evidence (the corpus's medial-sigma convention and an "
+                 "independent digital text of the same edition for two, and for "
+                 "the third a movable nu the scan never showed) and reverted with "
+                 "the maintainer's approval. "
                  "The wrong_rows_estimate above describes the overlay as it was "
                  "sampled on 2026-08-12; the served text now carries that many "
                  "fewer wrong corrections, and the estimate has not been "
@@ -183,23 +190,38 @@ MEASURED = {
                    "lists sum to these figures"),
     },
     "applied_since_measurement": {
-        "records": 14017,
-        "what": ("the 2026-08-21 Eustathius bake. 16,570 records against the "
-                 "Iliad commentary said auto or accepted while the rows still "
-                 "held the OCR reading, so nothing had ever been applied. All "
-                 "16,601 staged proposals were read by two blind raters across "
-                 "two gates, freq/auto (16,081 read) and confusion/accepted "
-                 "(520); 2,651 were rejected and 13,959 written, plus 58 active "
-                 "records elsewhere that had gone unapplied"),
+        "records": 16089,
+        "by_bake": {"2026-08-21 Eustathius": 14017, "2026-09-11 collation": 2072},
+        "what": ("two bakes of proposals a census kept. The 2026-08-21 Eustathius "
+                 "bake: 16,570 records against the Iliad commentary said auto or "
+                 "accepted while the rows still held the OCR reading, so nothing "
+                 "had ever been applied. All 16,601 staged proposals were read by "
+                 "two blind raters across two gates, freq/auto (16,081 read) and "
+                 "confusion/accepted (520); 2,651 were rejected and 13,959 written, "
+                 "plus 58 active records elsewhere that had gone unapplied. The "
+                 "2026-09-11 collation bake: OCR readings a census revert had put "
+                 "back in the text, corrected again by collation against an "
+                 "independent digital text of the same work, which supplies the "
+                 "letters while case, movable nu, rho breathing and final accent "
+                 "follow this edition's own usage. All 2,400 proposals were read "
+                 "by two blind raters who were not told where they came from, and "
+                 "only the 2,072 both called right were written"),
+        "collation": {"proposals": 2400, "rated": 2400, "sound": 0.863,
+                      "ci95": [0.8490, 0.8765], "agreement": 0.949,
+                      "kept": 2072, "rejected": 328, "written": 2072,
+                      "measured_on": "2026-09-11"},
         "survivor_precision": {
             "freq/auto": {"rate": 0.971, "ci95": [0.944, 0.985], "rated": 275},
             "confusion/accepted": {"rate": 1.0, "ci95": [0.977, 1.0], "rated": 165},
+            "collation/proposed": {"rate": 0.982, "ci95": [0.948, 0.994],
+                                   "rated": 165},
             "what": ("a second blind two-rater read of a random sample of the "
                      "records the census KEPT, which is what the bake actually "
-                     "wrote; the cells themselves read 83.8% and 92.1%. Read it "
-                     "as reproducibility rather than truth, since the second "
-                     "pair shares a model family with the first"),
-            "evidence": ("data/precision/gate_verify_eustathius_*/ in the "
+                     "wrote; the cells themselves read 83.8%, 92.1% and 86.3%. "
+                     "Read it as reproducibility rather than truth, since the "
+                     "second pair shares a model family with the first"),
+            "evidence": ("data/precision/gate_verify_eustathius_*/ and "
+                         "data/precision/gate_verify_collation_proposed/ in the "
                          "upstream pipeline"),
         },
     },
@@ -233,24 +255,24 @@ MEASURED = {
     # whole Greek token in the row its OWN key names, with no carve routing, which is
     # the definition the README argues; the records a carve moved are accounted for
     # separately in overlay_reach below.
-    "corrections_present": 121436,
-    "corrections_present_works": 872,
+    "corrections_present": 123508,
+    "corrections_present_works": 879,
     # Re-baselined to today, not left at the 2026-08-12 figure of 225,125.
     # population_check compares this against the local audit mirror at build time,
     # and a baseline the mirror can never match again reports stale=true forever,
     # which is a check nobody reads. Against today's figure it flags real drift.
-    "active_records": 218277,
+    "active_records": 220346,
     "overlay_reach": {
         "what": ("where the active records sit relative to the served text. A "
                  "record keyed to a row a carve moved is not lost: the carve "
                  "audits, or the convention that a carved row keeps its Migne "
                  "page identity, place most of them"),
-        "orphans": 96720,
-        "placed_on_a_served_row": 72768,
+        "orphans": 96718,
+        "placed_on_a_served_row": 72766,
         "accounted_for_but_not_served": 23550,
         "unaccounted": 402,
-        "row_found_but_neither_form_standing": 121,
-        "caveats": ("`placed` is weaker than `present`: 720 of the placed records "
+        "row_found_but_neither_form_standing": 120,
+        "caveats": ("`placed` is weaker than `present`: 718 of the placed records "
                     "land on a row that does not carry the correction. 16 of the "
                     "convention placements are undecidable, because a row split at "
                     "a character offset leaves both halves carrying the form. The "
@@ -269,18 +291,19 @@ MEASURED = {
     # it and with the scan having read it right all along, so stamping on presence
     # would invent provenance. restamp_rows.py is drop-only for the same reason.
     "stamp_gap": {
-        "pairs": 49289,
+        "pairs": 49290,
         "works_affected": 263,
-        "works_under_the_floor_only_because_of_it": 28,
+        "works_under_the_floor_only_because_of_it": 25,
         "raw_share_lower_bound": 0.0556,
-        "raw_share_tokens_in_doubt": 564081,
+        "raw_share_tokens_in_doubt": 472361,
         "what": ("row-and-method pairs where an active correction is standing in the "
                  "served row and the row carries no stamp for the method that made "
                  "it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against "
-                 "2.65% from the standing corrections, and ten works read zero where "
-                 "every row is corrected. Taking the 25 of those works still classed "
-                 "raw at their word puts the raw-OCR share between 5.6% and the "
-                 "published 6.4%, 564,081 tokens apart"),
+                 "2.65% from the standing corrections, and 16 works read zero "
+                 "although they hold at least as many standing corrections as rows. "
+                 "Taking the 22 of those works still classed raw at their word puts "
+                 "the raw-OCR share between 5.6% and the published 6.3%, 472,361 "
+                 "tokens apart"),
         "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
     },
     "rater_disagreement": 0.055,

@@ -240,3 +240,61 @@ def test_the_readme_quotes_the_split_residual():
         f"verdict")
     assert f"{carrying:,}" in README, (
         f"the README does not say {carrying:,} of them carry a wrong verdict")
+
+
+# The collation pass bakes new corrections rather than reverting old ones, through a
+# PENDING census: every proposal was inactive until two blind raters both called it
+# right, so the figures a reader needs are the kept count, the census precision and
+# the precision of what was kept, each of which a file upstream carries.
+COLLATION_CELL = "cell_collation_proposed"
+COLLATION_REREAD = "gate_verify_collation_proposed"
+
+
+@needs_gates
+def test_the_collation_census_matches_its_gate():
+    said = MEASURED["applied_since_measurement"]["collation"]
+    gate = json.loads((PRECISION / COLLATION_CELL / "cell_gate.json")
+                      .read_text(encoding="utf-8"))
+    assert gate["pending"] and gate["complete"] and not gate["batches_outstanding"]
+    rated = gate["agreement"]["items"]
+    assert said["rated"] == rated
+    assert said["kept"] == gate["bake"]
+    assert said["rejected"] == len(gate["allowed"])
+    assert said["kept"] + said["rejected"] == rated
+    assert said["sound"] == round(gate["precision"]["rate"], 3)
+    assert said["agreement"] == round(
+        gate["agreement"]["identical_verdict"] / rated, 3)
+
+
+@needs_gates
+def test_the_collation_survivors_match_their_reread():
+    said = MEASURED["applied_since_measurement"]["survivor_precision"][
+        "collation/proposed"]
+    got = json.loads((PRECISION / COLLATION_REREAD / "gate_verification.json")
+                     .read_text(encoding="utf-8"))
+    assert said["rated"] == got["sample"]["rated"]
+    assert said["rate"] == round(got["survivor_precision"]["rate"], 3)
+
+
+def test_collation_written_is_what_the_bake_says_fired():
+    """`written` is not the kept count. A kept record can fail to fire, and 205 of
+    these would have, keyed to a carved volume the bake cannot reach, had they not
+    been re-keyed to the row the census read. The bake audit lists what fired."""
+    applied = MEASURED["applied_since_measurement"]
+    said = applied["collation"]
+    assert applied["records"] == sum(applied["by_bake"].values())
+    assert applied["by_bake"]["2026-09-11 collation"] == said["written"]
+    if CORRECTIONS is None or not any(CORRECTIONS.glob("bake_*.json")):
+        pytest.skip("no bake audits; data/corrections is local to the pipeline")
+    fired = sum(1 for fp in CORRECTIONS.glob("bake_*.json")
+                for r in json.loads(fp.read_text(encoding="utf-8"))["records"]
+                if r.get("by") == "collation")
+    assert said["written"] == fired
+
+
+def test_the_readme_quotes_the_collation_figures():
+    said = MEASURED["applied_since_measurement"]["collation"]
+    para = re.search(r"corrected\s+again\s+by\s+collation(.+?)\n\n", README, re.S)
+    assert para, "the collation paragraph moved; update this test with it"
+    for n in (said["rated"], said["kept"]):
+        assert f"{n:,}" in para.group(0), f"the collation paragraph omits {n:,}"
