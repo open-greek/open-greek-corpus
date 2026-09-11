@@ -83,6 +83,17 @@ def test_every_censused_route_matches_its_gate():
         assert said["agreement"] == round(
             gate["agreement"]["identical_verdict"] / rated, 3), \
             f"{route}: rater agreement"
+        # The third band. A gate reverts only both-wrong, so everything the raters
+        # disagreed on is still in the served text, and the soundness rate alone
+        # does not say how much. Derived from the matrix rather than transcribed.
+        matrix = gate["agreement"]["matrix"]
+        both_right, both_wrong = matrix["right/right"], matrix["wrong/wrong"]
+        assert said["split_still_applied"] == rated - both_right - both_wrong, \
+            f"{route}: split still applied"
+        assert said["split_with_a_wrong_verdict"] == sum(
+            matrix[k] for k in ("right/wrong", "wrong/right",
+                                "unsure/wrong", "wrong/unsure")), \
+            f"{route}: split records carrying a wrong verdict"
 
 
 @needs_gates
@@ -139,3 +150,52 @@ def test_the_readme_names_every_censused_cell_with_its_own_figures():
     total = sum(v["reverted"] for k, v in _censused().items()
                 if k != "llm/accepted")
     assert f"{total:,}" in text, "the reverted total is not quoted"
+
+
+@needs_gates
+def test_overlay_reach_matches_the_upstream_measurement():
+    """The three population figures were a hand count for five weeks and drifted by
+    thousands because nothing could rebuild them. measure_overlay_reach.py can, so
+    its artifact is the authority and MEASURED is checked against it."""
+    fp = PRECISION / "overlay_reach.json"
+    if not fp.is_file():
+        pytest.skip("no overlay_reach.json; run measure_overlay_reach.py --write")
+    got = json.loads(fp.read_text(encoding="utf-8"))
+    counts = got["counts"]
+    present = counts["verifiably present in the served row"]
+    absent = counts["not in the text: row found, corrected form absent"]
+    orphans = sum(v for k, v in counts.items() if k.startswith("orphan"))
+    reach = MEASURED["overlay_reach"]
+
+    assert MEASURED["active_records"] == got["active_records"]
+    assert MEASURED["corrections_present"] == present
+    assert MEASURED["corrections_present_works"] == got["present_works"]
+    assert reach["orphans"] == orphans
+    assert reach["row_found_but_neither_form_standing"] == absent
+    # The partition has to close, or one of the figures is describing another run.
+    assert present + absent + orphans == got["active_records"]
+    assert (reach["placed_on_a_served_row"]
+            + reach["accounted_for_but_not_served"]
+            + reach["unaccounted"]) == reach["orphans"]
+
+
+def test_the_readme_quotes_the_reach_figures():
+    reach = MEASURED["overlay_reach"]
+    for n in (MEASURED["active_records"], MEASURED["corrections_present"],
+              MEASURED["corrections_present_works"], reach["orphans"],
+              reach["placed_on_a_served_row"],
+              reach["accounted_for_but_not_served"], reach["unaccounted"]):
+        assert f"{n:,}" in README, f"the README does not quote {n:,}"
+
+
+def test_the_readme_quotes_the_split_residual():
+    """The third band is the one a reader is most likely to miss, so the prose has
+    to carry it: a gate that reverts only both-wrong leaves every disagreement in
+    the text, and no soundness rate above says how many that is."""
+    split = sum(v["split_still_applied"] for v in _censused().values())
+    carrying = sum(v["split_with_a_wrong_verdict"] for v in _censused().values())
+    assert f"{split:,} records" in README, (
+        f"the README does not say {split:,} records are still applied on a split "
+        f"verdict")
+    assert f"{carrying:,}" in README, (
+        f"the README does not say {carrying:,} of them carry a wrong verdict")

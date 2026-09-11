@@ -94,13 +94,19 @@ MEASURED = {
     "censused_by_corrector": {
         "freq/accepted": {"cell_records": 84004, "rated": 75259, "sound": 0.781,
                           "ci95": [0.7781, 0.7840], "agreement": 0.937,
-                          "reverted": 10933, "measured_on": "2026-08-18"},
+                          "reverted": 10933, "split_still_applied": 5541,
+                          "split_with_a_wrong_verdict": 3238,
+                          "measured_on": "2026-08-18"},
         "freq/auto": {"cell_records": 75547, "rated": 50684, "sound": 0.834,
                       "ci95": [0.8309, 0.8374], "agreement": 0.954,
-                      "reverted": 5785, "measured_on": "2026-08-19"},
+                      "reverted": 5785, "split_still_applied": 2618,
+                      "split_with_a_wrong_verdict": 1790,
+                      "measured_on": "2026-08-19"},
         "confusion/accepted": {"cell_records": 16414, "rated": 15573,
                                "sound": 0.866, "ci95": [0.8607, 0.8714],
                                "agreement": 0.972, "reverted": 1512,
+                               "split_still_applied": 573,
+                               "split_with_a_wrong_verdict": 303,
                                "measured_on": "2026-08-21",
                                # 480 of the 15,573 were a second read of records
                                # the Eustathius confusion census had already
@@ -114,12 +120,26 @@ MEASURED = {
                                "first_read_records": 15093},
         "llm/accepted": {"cell_records": 2522, "rated": 2114, "sound": 0.497,
                          "ci95": [0.4759, 0.5185], "agreement": 0.921,
-                         "reverted": 868, "measured_on": "2026-08-12"},
+                         "reverted": 868, "split_still_applied": 195,
+                         "split_with_a_wrong_verdict": 131,
+                         "measured_on": "2026-08-12"},
         "what": ("both-raters-right over every staged record of the cell, read "
                  "one at a time rather than sampled; `reverted` is the records "
                  "both raters called wrong, which are out of the served text. "
                  "agent/accepted and llm/auto have not been censused and rest on "
                  "the sample above"),
+        "split_still_applied": ("a census gate is asymmetric on purpose: it "
+                                "reverts only where both raters call a record "
+                                "wrong, because a bad correction left in place is "
+                                "a measured defect while a reverted good one is "
+                                "fresh OCR damage in text that was right. So the "
+                                "records the raters disagreed on stay in the "
+                                "served text, 8,927 of them across the four "
+                                "cells, and 5,462 of those carry at least one "
+                                "wrong verdict. That is the censuses' own "
+                                "residual and it is not counted in any rate "
+                                "above: read sound, reverted and this as three "
+                                "bands, not two"),
         "evidence": "data/precision/cell_*/cell_gate.json in the upstream pipeline",
         "raters": ("two independent agent instances of one model family, each "
                    "shown the passage, both forms and the corrector's note, with "
@@ -200,9 +220,39 @@ MEASURED = {
                      "the upstream pipeline, each carrying the row before and "
                      "after and the commit the fix was applied at"),
     },
-    "corrections_present": 120894,
-    "corrections_present_works": 890,
-    "active_records": 225125,
+    # Re-measured 2026-09-11 by the upstream scripts/measure_overlay_reach.py, which
+    # is the first thing that could rebuild them: the previous trio was a 2026-08-03
+    # hand count, and all three were the counter lines of one retirement run rather
+    # than three measurements. `present` is the record's corrected form standing as a
+    # whole Greek token in the row its OWN key names, with no carve routing, which is
+    # the definition the README argues; the records a carve moved are accounted for
+    # separately in overlay_reach below.
+    "corrections_present": 121593,
+    "corrections_present_works": 872,
+    # Re-baselined to today, not left at the 2026-08-12 figure of 225,125.
+    # population_check compares this against the local audit mirror at build time,
+    # and a baseline the mirror can never match again reports stale=true forever,
+    # which is a check nobody reads. Against today's figure it flags real drift.
+    "active_records": 218482,
+    "overlay_reach": {
+        "what": ("where the active records sit relative to the served text. A "
+                 "record keyed to a row a carve moved is not lost: the carve "
+                 "audits, or the convention that a carved row keeps its Migne "
+                 "page identity, place most of them"),
+        "orphans": 96764,
+        "placed_on_a_served_row": 72790,
+        "accounted_for_but_not_served": 23380,
+        "unaccounted": 594,
+        "row_found_but_neither_form_standing": 125,
+        "caveats": ("`placed` is weaker than `present`: 718 of the placed records "
+                    "land on a row that does not carry the correction. 16 of the "
+                    "convention placements are undecidable, because a row split at "
+                    "a character offset leaves both halves carrying the form. The "
+                    "23,380 point at a second witness under data/corpus_secondary "
+                    "or at Migne's apparatus in data/paratext, which this corpus "
+                    "keeps but does not serve as the primary reading"),
+        "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
+    },
     "rater_disagreement": 0.055,
     "rater_kappa": 0.78,
     "caveats": [

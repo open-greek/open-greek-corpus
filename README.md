@@ -601,6 +601,15 @@ record whose target text the July 2026 re-OCR replaced or a carve moved, 841 of
 them here and 24,863 in `freq`/auto, so none of the three read every record its
 route holds.
 
+A census gate reverts only where both raters call a record wrong, and that is
+asymmetric on purpose: a bad correction left in place is a measured defect, while a
+reverted good one is fresh OCR damage in text that was right. So the records the two
+raters disagreed on stay in the served text. Across the four censused cells, counting
+`llm`/accepted, that is 8,927 records, and 5,462 of them carry at least one wrong
+verdict. Read sound, reverted and this as three bands rather than two: the
+soundness rates above are both-raters-right, not both-raters-right plus the benefit
+of the doubt.
+
 Reverting a correction is not as safe as applying one. A record names one misread
 token, which is the unit a rater judges, but the revert replaces every occurrence
 of that form in the row, so where the scan itself read the form correctly
@@ -661,30 +670,48 @@ the judge verdict is only recorded. 2,026 corrections came back unanimously
 wrong and were reverted. Evidence and reverse instructions are upstream in the
 greek-ocr pipeline under `data/precision/`.
 
-The overlay is also kept honest about its own reach. 35,008 corrections marked
-active could no longer apply at all - the July 2026 re-OCR or a later carve had
-replaced or dropped the text they targeted - and were retired on proof (text
-absent AND a redo dir or an audit accounting for the removal); everything a
-`data/corpus_changes/` audit can still place is re-keyed through that audit's
-own map rather than retired. What remains claims only what the text carries:
-of 192,151 records still marked active, 120,894 are verifiably present, spread
-over 890 works. Of the rest, three are simply not in the text and the other
-71,254 are all one thing, a carve orphan: every one is keyed to a `cogPG.<vol>`
-volume that no longer holds the row, because the per-work carve moved it. An
-earlier count split them in two, 41,873 whose file was gone and 29,381 whose
-locus was gone, as though those were different failures. They are not. The only
-difference is whether the carve left a residual file behind: the ten volumes
-carved to nothing (PG006, PG087_1, PG122, PG123, PG126, PG134, PG146, PG155,
-PG157, PG158) have no file for a record to miss, while the seven that kept 2 to
-20 unclaimed rows (PG005, PG101, PG107, PG109, PG118, PG124, PG125) still have a
-file, so the same orphan reports a missing locus instead.
+The overlay is also kept honest about its own reach. 272,673 corrections have been
+retired from an active status because they could no longer apply at all, 221,093 of
+them on one day in July 2026 when the re-OCR replaced the text they targeted, and
+retirement is always on proof: the text absent AND a redo dir or an audit accounting
+for the removal. Everything a `data/corpus_changes/` audit can still place is
+re-keyed through that audit's own map rather than retired.
 
-Being an orphan is not being lost. Replaying the loci through the carve audits
-in `data/corpus_changes/` places 68,744 of the 71,254 on exactly one surviving
-row, across 176 carved works; the remaining 2,510 are all PG122 rows that the
-earlier Cedrenus split had already moved, and that split's own audit places
-every one of them. So the whole block is recoverable, and none of it has been
+What remains does not claim only what the served text carries, and an earlier version
+of this paragraph said it did. Of 218,482 records still applied, counting the `auto`
+and `accepted` statuses as the pipeline counts them, 121,593 are verifiably present
+at their own key across 872 works, and 125 more sit on a row holding neither the
+correction nor the reading it replaced. The other 96,764 are keyed to a row that a
+carve moved, which is a different failure and is measured separately below.
+
+Being an orphan is mostly not being lost, and the block can be shown where it went.
+72,790 of the 96,764 place onto a row the corpus serves. 68,551 of those go through a
+`data/corpus_changes/` audit, across 236 carved works. The other 4,239 go through a
+convention rather than an audit: a carved row keeps its Migne page identity, so a row
+taken out of `cogPG.PG003` at locus 141 is served as locus `PG003.141` under whatever
+work took it, and nothing records that per row. 188 of them needed the two halves of
+a row split at a character offset told apart by which half carries the corrected
+form, and 16 are undecidable because both halves carry it.
+
+A further 23,380 point at text the corpus keeps but deliberately does not serve as
+the primary reading, 23,283 of them a second witness under `data/corpus_secondary`
+and 97 Migne's apparatus moved out to `data/paratext`. Those are neither lost nor
+re-keyable: they are corrections against a reading this corpus decided not to print.
+That leaves 594 records nothing anywhere accounts for, six tenths of one percent of
+the block, and those are the only ones worth calling lost. None of this has been
 re-keyed or counted above.
+
+Three things an earlier count here got wrong, all the same mistake. It reported the
+orphans as 71,254 split into 41,873 whose file was gone and 29,381 whose locus was
+gone, and sorted seventeen volumes into ten carved to nothing and seven that kept 2
+to 20 unclaimed rows. No `cogPG` volume file survives at all now: one commit moved
+Migne's apparatus out of the served corpus in August 2026 and took the last ten
+residual volumes with it, so one side of that distinction has no members left. The
+locus-gone half has moved to another collection entirely, the Walz Rhetores Graeci
+volumes carved per treatise. And "the whole block is recoverable" was never a
+placement test. It counted records whose key appears in a carve map, which is not the
+same as a map entry whose target still holds the row: 718 of the records an audit
+does place land on a row that does not carry the correction at all.
 
 That is a smaller number of works than the provenance table's 986 (125 manually
 corrected, 861 auto), and the gap is real rather than a discrepancy: the table
