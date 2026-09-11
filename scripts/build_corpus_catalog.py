@@ -239,12 +239,22 @@ def correction_status(slug: str, source: str, tags: set[str], coverage: float,
     rows of a 2,950-row Eustathius moved the published raw-OCR share by a million
     tokens. It does not gate `manual`, which claims a person read the work rather
     than that they changed much of it.
+
+    That rule used to have a hole the docstring did not admit to. The log could
+    promote a work with NO stamped rows at all, which is zero coverage and so the
+    furthest possible state from clearing a 1% floor, and this file and
+    build_provenance.py then published different answers for the same work.
+    build_provenance.py has the right rule and says so: for a work the corpus
+    actually serves, the rows are authoritative in BOTH directions, so a seed list
+    claiming a correction the text cannot show is stale rather than believed. The
+    log keeps its vote on `manual`, where the claim is that a person read the work
+    and edit volume does not measure that, and where a per-treatise split that
+    re-keyed the rows its stamps sat on is the known case.
     """
     is_ocr = source in OCR_SOURCES
     if tags & MANUAL_TAGS or (is_ocr and slug in manual_log):
         return "manual"
-    if (tags and coverage >= MIN_AUTO_COVERAGE) or (is_ocr and slug in auto_log
-                                                    and not tags):
+    if tags and coverage >= MIN_AUTO_COVERAGE:
         return "auto-corrected"
     return "raw-ocr" if is_ocr else "not-ocr"
 
