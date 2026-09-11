@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "357fd9bc71dca5157b5e1db4fb07a64a92d74551",
+  "commit": "10e959f8b8a64a5814c1c03f68c5e14e2e011c08",
   "commit_date": "2026-09-11",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -95,7 +95,7 @@
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
-   "active_records": 225125,
+   "active_records": 218482,
    "applied_since_measurement": {
     "records": 14017,
     "survivor_precision": {
@@ -142,7 +142,9 @@
      "rated": 15573,
      "reverted": 1512,
      "sound": 0.866,
-     "sound_first_read_only": 0.862
+     "sound_first_read_only": 0.862,
+     "split_still_applied": 573,
+     "split_with_a_wrong_verdict": 303
     },
     "evidence": "data/precision/cell_*/cell_gate.json in the upstream pipeline",
     "freq/accepted": {
@@ -155,7 +157,9 @@
      "measured_on": "2026-08-18",
      "rated": 75259,
      "reverted": 10933,
-     "sound": 0.781
+     "sound": 0.781,
+     "split_still_applied": 5541,
+     "split_with_a_wrong_verdict": 3238
     },
     "freq/auto": {
      "agreement": 0.954,
@@ -167,7 +171,9 @@
      "measured_on": "2026-08-19",
      "rated": 50684,
      "reverted": 5785,
-     "sound": 0.834
+     "sound": 0.834,
+     "split_still_applied": 2618,
+     "split_with_a_wrong_verdict": 1790
     },
     "llm/accepted": {
      "agreement": 0.921,
@@ -179,9 +185,12 @@
      "measured_on": "2026-08-12",
      "rated": 2114,
      "reverted": 868,
-     "sound": 0.497
+     "sound": 0.497,
+     "split_still_applied": 195,
+     "split_with_a_wrong_verdict": 131
     },
     "raters": "two independent agent instances of one model family, each shown the passage, both forms and the corrector's note, with no verdict, corrector or status. Agreement is therefore a reproducibility bound and not evidence of correctness: a blind spot the model shares passes both raters",
+    "split_still_applied": "a census gate is asymmetric on purpose: it reverts only where both raters call a record wrong, because a bad correction left in place is a measured defect while a reverted good one is fresh OCR damage in text that was right. So the records the raters disagreed on stay in the served text, 8,927 of them across the four cells, and 5,462 of those carry at least one wrong verdict. That is the censuses' own residual and it is not counted in any rate above: read sound, reverted and this as three bands, not two",
     "what": "both-raters-right over every staged record of the cell, read one at a time rather than sampled; `reverted` is the records both raters called wrong, which are out of the served text. agent/accepted and llm/auto have not been censused and rest on the sample above"
    },
    "corpus_weighted": {
@@ -190,17 +199,27 @@
     "split_or_unsure": 0.06,
     "wrong": 0.177
    },
-   "corrections_present": 120894,
-   "corrections_present_works": 890,
+   "corrections_present": 121593,
+   "corrections_present_works": 872,
    "measured_on": [
     "2026-08-12"
    ],
    "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
+   "overlay_reach": {
+    "accounted_for_but_not_served": 23380,
+    "caveats": "`placed` is weaker than `present`: 718 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,380 point at a second witness under data/corpus_secondary or at Migne's apparatus in data/paratext, which this corpus keeps but does not serve as the primary reading",
+    "orphans": 96764,
+    "placed_on_a_served_row": 72790,
+    "row_found_but_neither_form_standing": 125,
+    "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
+    "unaccounted": 594,
+    "what": "where the active records sit relative to the served text. A record keyed to a row a carve moved is not lost: the carve audits, or the convention that a carved row keeps its Migne page identity, place most of them"
+   },
    "population_check": {
     "checked": true,
     "records_now": 218482,
-    "records_when_measured": 225125,
-    "stale": true
+    "records_when_measured": 218482,
+    "stale": false
    },
    "precision_by_corrector": {
     "agent/accepted": 0.979,
@@ -249,7 +268,7 @@
   }
  },
  "release_date": "2026-09-11",
- "release_id": "corpus-2026-09-11",
+ "release_id": "corpus-2026-09-11.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
