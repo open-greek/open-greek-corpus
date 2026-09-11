@@ -241,16 +241,18 @@ MEASURED = {
                  "page identity, place most of them"),
         "orphans": 96764,
         "placed_on_a_served_row": 72790,
-        "accounted_for_but_not_served": 23380,
-        "unaccounted": 594,
+        "accounted_for_but_not_served": 23572,
+        "unaccounted": 402,
         "row_found_but_neither_form_standing": 125,
         "caveats": ("`placed` is weaker than `present`: 718 of the placed records "
                     "land on a row that does not carry the correction. 16 of the "
                     "convention placements are undecidable, because a row split at "
                     "a character offset leaves both halves carrying the form. The "
-                    "23,380 point at a second witness under data/corpus_secondary "
-                    "or at Migne's apparatus in data/paratext, which this corpus "
-                    "keeps but does not serve as the primary reading"),
+                    "23,572 point at text this corpus keeps but does not serve as "
+                    "the primary reading: a second witness under "
+                    "data/corpus_secondary, a leaf dropped as a repeat of another "
+                    "with the audit naming the twin that kept it, Migne's apparatus "
+                    "in data/paratext, or a row an audit archived verbatim"),
         "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
     },
     "rater_disagreement": 0.055,

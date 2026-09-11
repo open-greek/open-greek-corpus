@@ -695,18 +695,17 @@ that per row. 188 of them needed the two halves of a row split at a character
 offset told apart by which half carries the corrected form, and 16 are
 undecidable because both halves carry it.
 
-A further 23,380 point at text the corpus keeps but deliberately does not
-serve as the primary reading, 23,283 of them a second witness under
-`data/corpus_secondary` and 97 Migne's apparatus moved out to `data/paratext`.
-Those are neither lost nor re-keyable: they are corrections against a reading
-this corpus decided not to print. That leaves 594 records no route resolves,
-six tenths of one percent of the block: 536 with no audit entry anywhere, 42
-whose carve target exists in no file, and the 16 the convention cannot choose
-between. Those are the only candidates for being lost, and not all of them will
-be: a rough check places a couple of hundred in a duplicate-leaf audit's drop
-list or in a block of rows archived inside an audit, on a locus match alone with
-no slug check, so the honest hole is somewhere between none of the 594 and all of
-it. None of this has been re-keyed or counted above.
+A further 23,572 point at text the corpus keeps but does not serve as the
+primary reading. 23,283 of them are a second witness under
+`data/corpus_secondary`, 103 sit on a leaf that was dropped as a repeat of
+another with the audit naming the twin that kept the text, 97 are Migne's
+apparatus moved out to `data/paratext`, and 89 are rows an audit archived
+verbatim when it removed them. Those are neither lost nor re-keyable: they are
+corrections against a reading this corpus decided not to print. That leaves
+402 records no route resolves, four tenths of one percent of the block: 344
+that nothing anywhere accounts for, 42 whose carve target exists in no file,
+and the 16 the convention finds two candidate rows for with both halves
+carrying the form. None of this has been re-keyed or counted above.
 
 Three things an earlier count here got wrong. It reported the orphans as
 71,254 split into 41,873 whose file was gone and 29,381 whose locus was gone,
