@@ -702,8 +702,11 @@ Those are neither lost nor re-keyable: they are corrections against a reading
 this corpus decided not to print. That leaves 594 records no route resolves,
 six tenths of one percent of the block: 536 with no audit entry anywhere, 42
 whose carve target exists in no file, and the 16 the convention cannot choose
-between. Those are the only ones worth calling lost. None of this has been
-re-keyed or counted above.
+between. Those are the only candidates for being lost, and not all of them will
+be: a rough check places a couple of hundred in a duplicate-leaf audit's drop
+list or in a block of rows archived inside an audit, on a locus match alone with
+no slug check, so the honest hole is somewhere between none of the 594 and all of
+it. None of this has been re-keyed or counted above.
 
 Three things an earlier count here got wrong. It reported the orphans as
 71,254 split into 41,873 whose file was gone and 29,381 whose locus was gone,
