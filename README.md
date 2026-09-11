@@ -929,6 +929,20 @@ AMBIGUOUS.
 Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
+Read the raw-OCR count in that table as an upper bound. A work counts as
+corrected from its rows' own `corrections` stamps, and the stamps are
+incomplete in one direction: a correction stamps the row it edits, a carve
+then moves that row into a per-work file, and nothing re-stamps it there.
+49,303 row-and-method pairs across 264 works have a correction standing in the
+served row with no stamp for the method that made it, and 28 works sit under
+the 1% floor only because of that. `pseudo-zonaras.lexicon` reads 0.45% of its
+rows stamped where the standing corrections put it at 2.65%, and ten works
+read zero where every row is corrected. The stamps are not repaired to match,
+because they cannot be: a corrected form standing in a row is equally
+consistent with the corrector having written it and with the scan having read
+it correctly all along, so stamping on presence would invent provenance rather
+than record it.
+
 <!-- OCR-PROVENANCE:START -->
 1394 OCR'd works/volumes: 125 manually corrected, 861 auto-corrected (deterministic glyph-confusion / frequency passes; edited but not hand-reviewed), 408 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 

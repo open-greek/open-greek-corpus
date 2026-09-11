@@ -255,6 +255,24 @@ MEASURED = {
                     "in data/paratext, or a row an audit archived verbatim"),
         "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
     },
+    # The raw-OCR share above is an upper bound, and this is by how much. A work is
+    # classed from its rows' `corrections` stamps, and a correction stamps the row it
+    # edits before a carve moves that row into a per-work file, where nothing
+    # re-stamps it. The stamps are deliberately NOT repaired to match: a corrected
+    # form standing in a row is equally consistent with the corrector having written
+    # it and with the scan having read it right all along, so stamping on presence
+    # would invent provenance. restamp_rows.py is drop-only for the same reason.
+    "stamp_gap": {
+        "pairs": 49303,
+        "works_affected": 264,
+        "works_under_the_floor_only_because_of_it": 28,
+        "what": ("row-and-method pairs where an active correction is standing in the "
+                 "served row and the row carries no stamp for the method that made "
+                 "it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against "
+                 "2.65% from the standing corrections, and ten works read zero where "
+                 "every row is corrected"),
+        "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
+    },
     "rater_disagreement": 0.055,
     "rater_kappa": 0.78,
     "caveats": [

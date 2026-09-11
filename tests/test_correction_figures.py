@@ -188,6 +188,23 @@ def test_the_readme_quotes_the_reach_figures():
         assert f"{n:,}" in README, f"the README does not quote {n:,}"
 
 
+@needs_gates
+def test_stamp_gap_matches_the_upstream_measurement():
+    """The raw-OCR share is published as an upper bound, and this is the margin. If it
+    drifts, the README's caveat is quoting a number the measurement no longer gets."""
+    fp = PRECISION / "stamp_gap.json"
+    if not fp.is_file():
+        pytest.skip("no stamp_gap.json; run measure_stamp_gap.py --write")
+    got = json.loads(fp.read_text(encoding="utf-8"))
+    said = MEASURED["stamp_gap"]
+    for key in ("pairs", "works_affected",
+                "works_under_the_floor_only_because_of_it"):
+        assert said[key] == got[key], key
+    for n in (said["pairs"], said["works_affected"],
+              said["works_under_the_floor_only_because_of_it"]):
+        assert f"{n:,}" in README or str(n) in README, f"the README omits {n}"
+
+
 def test_the_readme_quotes_the_split_residual():
     """The third band is the one a reader is most likely to miss, so the prose has
     to carry it: a gate that reverts only both-wrong leaves every disagreement in
