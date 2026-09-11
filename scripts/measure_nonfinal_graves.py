@@ -17,7 +17,7 @@ never a single target column, because a "is the target attested" gate passes on
 τάναντία and ἐγώγε and would inject wrong words at scale. That is how #1's
 forty thousand wrong corrections happened.
 
-The syllable test is vendored rather than imported. The sibling greek-ocr
+The syllable test is vendored rather than imported. The upstream OCR pipeline
 checkout has the same logic, and tests/test_nonfinal_grave.py asserts the two
 agree, but a published count must not silently change depending on whether a
 directory next door exists.
@@ -336,7 +336,8 @@ def main() -> None:
                 "τὰναντία": "τἀναντία, not τάναντία",
                 "ἐπεὶδὴ": "ἐπειδὴ: the grave is dropped, not moved"},
         },
-        "syllable_test": "vendored here rather than imported from greek-ocr, so "
+        "syllable_test": "vendored here rather than imported from the upstream "
+                         "OCR pipeline, so "
                          "the count cannot change with whether a sibling "
                          "checkout exists; tests/test_nonfinal_grave.py asserts "
                          "the two agree",
