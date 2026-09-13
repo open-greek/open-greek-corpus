@@ -984,7 +984,7 @@ and 6.3% of the corpus, 472,361 tokens apart, and the published figure is the
 top of that range.
 
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 868 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 401 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 874 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 395 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1312,7 +1312,7 @@ top of that range.
 | constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus | Constantinus VII Porphyrogenitus Imperator - Prooemium excerptorum de legationibus (PG113 loci 328-330) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 808 | raw OCR |
 | corinna.fragmenta | CORINNA - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 636 | auto-corrected |
 | cosmas-hieromonachus.ermhnei-th-s-e-pisth-mhs-th-s-xrusopoii-as-i-eromona-xou-tou | Cosmas Hieromonachus - Ἑρμηνεία τῆς ἐπιστήμης τῆς χρυσοποιίας ἱερομονάχου τοῦ Κοσμᾶ (E Cod. Paris. B.N. Gr. 2327, Fol. 159R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,176 | auto-corrected |
-| cougny-appendix-nova.didot-anthologia-v3 | Appendix nova epigrammatum (Didot Anthologia Graeca vol. 3) | qwen36-thomas_patricius_anthol_dubner_v3 | Qwen3.6-27B | 101,426 | raw OCR |
+| cougny-appendix-nova.didot-anthologia-v3 | Appendix nova epigrammatum (Didot Anthologia Graeca vol. 3) | qwen36-thomas_patricius_anthol_dubner_v3 | Qwen3.6-27B | 101,426 | auto-corrected |
 | crates-comedy.fragmenta | Crates - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,024 | raw OCR |
 | crates-poet-phil.fragmenta | Crates - Fragmenta | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,268 | auto-corrected |
 | cratinus-junior.fragmenta | Cratinus Junior - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 266 | raw OCR |
@@ -2058,10 +2058,10 @@ top of that range.
 | philodemus.tlg1595-tlg003 | PHILODEMUS - Index Stoicorum Herculanensis | qwen36-rivistadifilolog03-p469-576 | Qwen3.6-27B | 2,744 | raw OCR |
 | philodemus.tlg1595-tlg241 | PHILODEMUS - De oeconomia | qwen36-philodemiperioik00phil | Qwen3.6-27B | 17,894 | raw OCR |
 | philodemus.tlg1595-tlg267 | PHILODEMUS - De ira | qwen36-philodemiepicur00philgoog | Qwen3.6-27B | 8,279 | raw OCR |
-| philodemus.tlg1595-tlg271 | PHILODEMUS - De libertate dicendi (Peri parrhesias) | qwen36-philodemiperipar00philuoft | Qwen3.6-27B | 9,795 | raw OCR |
+| philodemus.tlg1595-tlg271 | PHILODEMUS - De libertate dicendi (Peri parrhesias) | qwen36-philodemiperipar00philuoft | Qwen3.6-27B | 9,795 | auto-corrected |
 | philodemus.tlg1595-tlg289 | PHILODEMUS - De poematis (Peri poiematon) | qwen36-philodemiperipoi00haus | Qwen3.6-27B | 2,053 | raw OCR |
 | philodemus.tlg1595-tlg472 | PHILODEMUS - De signis (Peri semeion kai semeioseon) | qwen36-philodemberindu00gompgoog | Qwen3.6-27B | 4,581 | raw OCR |
-| philodemus.tlg1595-tlg492 | PHILODEMUS - De bono rege secundum Homerum | qwen36-philodemiperitou00philuoft | Qwen3.6-27B | 9,500 | raw OCR |
+| philodemus.tlg1595-tlg492 | PHILODEMUS - De bono rege secundum Homerum | qwen36-philodemiperitou00philuoft | Qwen3.6-27B | 9,500 | auto-corrected |
 | philodemus.tlg1595-tlg601 |  | [Philodemus, Academicorum index Herculanensis, ed. Mekler, Berlin 1902](https://archive.org/details/academicorumphil00mekluoft) | Qwen3.6-27B | 12,301 | auto-corrected |
 | philodemus.volumina-rhetorica | De rhetorica (Volumina rhetorica) | [Philodemus, Volumina rhetorica vol.1, ed. Sudhaus, Teubner 1892](https://archive.org/details/philodemivolumi00schugoog) | Qwen3.6-27B | 99,070 | auto-corrected |
 | philolaus.testimonia | Philolaus - Testimonia | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,426 | auto-corrected |
@@ -2117,7 +2117,7 @@ top of that range.
 | pompeius-macer.fragmentum | Pompeius Macer - Fragmentum | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 213 | raw OCR |
 | porphyrius.chronica | Porphyrius - Chronica | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 2,163 | auto-corrected |
 | porphyrius.contra-christianos-fragmenta | PORPHYRIUS - Contra Christianos (fragmenta, Harnack) | qwen36-harnack-porphyry | Qwen3.6-27B | 12,792 | raw OCR |
-| porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma | PORPHYRIUS - In Ptolemaei Harmonica commentarius | qwen36-porphyry-in-ptol-bub | Qwen3.6-27B | 64,280 | raw OCR |
+| porphyrius.ei-s-ta-rmonika-ptolemai-ou-u-po-mnhma | PORPHYRIUS - In Ptolemaei Harmonica commentarius | qwen36-porphyry-in-ptol-bub | Qwen3.6-27B | 64,280 | auto-corrected |
 | porphyrius.epistula-ad-anebonem | PORPHYRIUS - Epistula ad Anebonem | qwen36-parthey-anebonem | Qwen3.6-27B | 2,415 | raw OCR |
 | posidippus.fragmenta | POSIDIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 886 | raw OCR |
 | potamon.fragmenta | Potamon - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 43 | raw OCR |
@@ -2170,7 +2170,7 @@ top of that range.
 | scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera | Scholia In Aelium Aristidem - Scholia In Aelium Aristidem (Scholia Vetera) | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 114,201 | raw OCR |
 | scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera | Scholia In Aeschinem - Scholia In Aeschinem (Scholia Vetera) | qwen36-schol_aeschin_dindorf | Qwen3.6-27B | 25,750 | auto-corrected |
 | scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera | Scholia In Aeschylum - Scholia In Aeschylum (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 119,911 | auto-corrected |
-| scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 119,849 | raw OCR |
+| scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 119,849 | auto-corrected |
 | scholia-in-aratum.scholia-in-aratum-scholia-vetera | Scholia In Aratum - Scholia In Aratum (Scholia Vetera) | [archive.org](https://archive.org/details/Maass1898) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 157,686 | raw OCR |
 | scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii) | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 354,055 | raw OCR |
 | scholia-in-callimachum.schol-callim-schneider |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,582 | auto-corrected |
@@ -2347,7 +2347,7 @@ top of that range.
 | tlg1140.tlg001 | ANTICLIDES - Fragmenta | qwen36-anticlides-bub | Qwen3.6-27B | 2,785 | raw OCR |
 | tlg1235.fragmenta | Fragmenta | qwen36-clearchus_soli_fhg2-ocr | Qwen3.6-27B | 98 | raw OCR |
 | tlg1595.tlg003 | Stoicorum Historia / Index Stoicorum (P.Herc. 1018) | [Philodemus, Stoicorum Historia (Index Stoicorum), ed. Comparetti, Rivista di Filologia 3, 1875](https://archive.org/details/rivistadifilolog03toriuoft) | Qwen3.6-27B | 2,256 | auto-corrected |
-| tlg1595.tlg120 | PHILODEMUS - De morte liber IV | qwen36-sitzungsbericht308klasgoog | Qwen3.6-27B | 7,204 | raw OCR |
+| tlg1595.tlg120 | PHILODEMUS - De morte liber IV | qwen36-sitzungsbericht308klasgoog | Qwen3.6-27B | 7,204 | auto-corrected |
 | tlg1595.tlg210 | De musica lib. iv | [Philodemus, De musica, ed. Kemke, Teubner 1884](https://archive.org/details/philodemidemusic00phil) | Qwen3.6-27B | 13,240 | auto-corrected |
 | tlg1595.tlg241 | De oeconomia | [Philodemus, De oeconomia, ed. Jensen, Teubner 1906](https://archive.org/details/philodemiperioik00phil) | Qwen3.6-27B | 11,598 | auto-corrected |
 | tlg1595.tlg267 | De ira (Peri orges) | [Philodemus, De ira (editio princeps), ed. Gomperz 1864](https://archive.org/details/philodemiepicur00philgoog) | Qwen3.6-27B | 7,946 | auto-corrected |
