@@ -1,0 +1,324 @@
+{
+ "what": "non-final grave repairs from data/nonfinal_grave_tranche_thirdparty.json",
+ "date": "2026-09-12",
+ "issue": "open-greek/open-greek-corpus#31",
+ "decision": "cisco, 2026-08-10; revived rows after corpus-2026-09-11 text movement",
+ "rule": "share >= 0.99 of a skeleton class holding >= 100 clean non-OCR tokens, and accent-only. Our own OCR went at >= 0.95; this is an order of magnitude stricter in expected error, because a wrong correction here is our error inside someone else's edition.",
+ "sources_edited": [
+  "byzantium_gr",
+  "cgpg",
+  "dfhg",
+  "first1k",
+  "perseus",
+  "pta",
+  "saws",
+  "wikisource"
+ ],
+ "token_weighted_share": 0.99643,
+ "expected_wrong_tokens": 0,
+ "marks_moved": "breathings, iota subscript and diaeresis are byte-identical between every form and its target; only accents moved",
+ "tokens_changed": 19,
+ "rows_touched": 19,
+ "forms": 12,
+ "substitutions": {
+  "Διὰτί": "Διατί",
+  "Μὴποτε": "Μήποτε",
+  "Σωτὴρος": "Σωτῆρος",
+  "αὐτὸι": "αὐτοί",
+  "λαμπρὸὺ": "λαμπροῦ",
+  "λὲγοις": "λέγοις",
+  "μὲλλον": "μέλλον",
+  "τὸποῖ": "τόποι",
+  "ἀλλὰὶ": "ἄλλαι",
+  "ἂεί": "ἀεί",
+  "ἂεῖ": "ἀεί",
+  "ὃπὲρ": "ὅπερ"
+ },
+ "files": [
+  {
+   "file": "data/corpus/josephus-genesius.basilei-ai.jsonl",
+   "sha256_before": "cf3a52f06a7c83e697e724ed56a168c3601c14c1c552498cb4f421114a1f5fe2",
+   "edits": [
+    {
+     "index": 66,
+     "was": [
+      [
+       1466,
+       "ὃπὲρ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "5ad7adf460d70f5a9bef5d0bb4a3c02ff11abe56ba5e06c2d3657ec3f275890f"
+  },
+  {
+   "file": "data/corpus/leo-vi-sapiens.orationes.jsonl",
+   "sha256_before": "b56f389fb06ad84d9446d58452520aefca154c649488f8c3bcf6104bb6a079fe",
+   "edits": [
+    {
+     "index": 38,
+     "was": [
+      [
+       1640,
+       "ὃπὲρ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "20dcb5c9b071796e58f39d597c22397dfef0cca056341aaea7a7fb35e9062c38"
+  },
+  {
+   "file": "data/corpus/michael-glycas.epistolae.jsonl",
+   "sha256_before": "7eca10ec0bbd3f35993e0f247b303c0b1ba2c6d7cb75bdd0280dc9b52b175d64",
+   "edits": [
+    {
+     "index": 135,
+     "was": [
+      [
+       1507,
+       "λαμπρὸὺ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "5c2858fe4328dd9ae18bfcd32c76c9c9ab23d8bc85da7267e90f94ff46b9c747"
+  },
+  {
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "sha256_before": "c36272639421b8280132727fb58e7bba9d12e74ce0506231f6a53c38d52e53c5",
+   "edits": [
+    {
+     "index": 518,
+     "was": [
+      [
+       1853,
+       "ὃπὲρ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "99233a1dabefd8b2bd31de6c117db5e430b055f89b1a0b170228cb9320bca33a"
+  },
+  {
+   "file": "data/corpus/symeon-thessalonicensis.de-sacra-liturgia.jsonl",
+   "sha256_before": "4c03fba8a1de26fec0421c8d2f0c08649a98d151e901963a563254b1febd2efb",
+   "edits": [
+    {
+     "index": 5,
+     "was": [
+      [
+       1956,
+       "τὸποῖ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "ebc5a07690315b351d2918a55ecb48b1fab03a396c51a582f9266f1cd67bdc55"
+  },
+  {
+   "file": "data/corpus/theophanes-continuatus.chronographia-lib-1-6.jsonl",
+   "sha256_before": "0d31f91f9c82fadf12e24d9a3c58866914c2f9f2646733f38c77b9db67003360",
+   "edits": [
+    {
+     "index": 196,
+     "was": [
+      [
+       23,
+       "ἂεί"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d21e3ff79805188e484c8fe1cd0669d54d1753169014d03f2775871113f364aa"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-lucae.jsonl",
+   "sha256_before": "10ffffe6c6ae83dd25829d56e353c883b6bdf3a84fe81710ee6109b5d34e7c64",
+   "edits": [
+    {
+     "index": 29,
+     "was": [
+      [
+       2368,
+       "ἂεῖ"
+      ]
+     ]
+    },
+    {
+     "index": 36,
+     "was": [
+      [
+       1348,
+       "αὐτὸι"
+      ]
+     ]
+    },
+    {
+     "index": 60,
+     "was": [
+      [
+       2341,
+       "μὲλλον"
+      ]
+     ]
+    },
+    {
+     "index": 152,
+     "was": [
+      [
+       634,
+       "ἂεῖ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 4,
+   "sha256_after": "f637580df8ecac6c91ba1e64204a96c42b31d86000dc29e3379a211654e7f71a"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.enarratio-in-evangelium-marci.jsonl",
+   "sha256_before": "36c66e5cc4ebb382815848ab0b6973cd2224e3f2d990726146ed20af8c7ef7ed",
+   "edits": [
+    {
+     "index": 60,
+     "was": [
+      [
+       642,
+       "ὃπὲρ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d3a611e2f5d46f0381315ac5a347c186672d930d51b9fd2daaee2e37d02cc819"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.epistulae.jsonl",
+   "sha256_before": "36cb77156ef56289310d0299709c41c739ae0a25b9f2b7bc757aadaa41232af3",
+   "edits": [
+    {
+     "index": 104,
+     "was": [
+      [
+       1538,
+       "λὲγοις"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "f2a43d91c6fdffd21a46ef44f03766971059910c98d9cebd8de16fd392f2967a"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-acta-apostolorum-sp.jsonl",
+   "sha256_before": "352a5d86c63fcc32869b42ea0aad0fd8c21652d910b075d1c223a543b84dd05c",
+   "edits": [
+    {
+     "index": 6,
+     "was": [
+      [
+       3899,
+       "ἀλλὰὶ"
+      ]
+     ]
+    },
+    {
+     "index": 14,
+     "was": [
+      [
+       3024,
+       "Διὰτί"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "40e3afd15d6b7882370d2cfad471b12f2fd178cbdb463e5aeaa4b107b9417939"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ad-titum.jsonl",
+   "sha256_before": "ba4c1e72660895df031952d35a37031364c0412c5f652d2c35a3b3dfb1be1be5",
+   "edits": [
+    {
+     "index": 9,
+     "was": [
+      [
+       2011,
+       "Σωτὴρος"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "513b781ce8fbb76f9827bd9077482572a2426bcfdf0daec078bb8fcf5fe26391"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-prophetam-jonam.jsonl",
+   "sha256_before": "e7528537711a20f4ae7f6c038a06b00cc549e41aca981b3712a3df2d02a3293b",
+   "edits": [
+    {
+     "index": 23,
+     "was": [
+      [
+       1456,
+       "ἀλλὰὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "c5dd123f457bd40d90966ee7c5bffe1d7b71a3b625b7d988097c77aac7047274"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.in-acta-apostolorum-commentarius-alter-sp.jsonl",
+   "sha256_before": "96e32f09d4f7725618b4d9e2cd0e40e97ae7ba41398c3864acf69376b87e828f",
+   "edits": [
+    {
+     "index": 105,
+     "was": [
+      [
+       1786,
+       "Μὴποτε"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "9e5837d6ca7504c5e543271ebce2e0f6a01be4cbdfca09eee31799287e593a43"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.in-acta-apostolorum-commentarius-sp.jsonl",
+   "sha256_before": "917fc37be412fb0b612bf1e29188da495540ffb02e97d19d6d46a0b111d56ba4",
+   "edits": [
+    {
+     "index": 74,
+     "was": [
+      [
+       1452,
+       "ὃπὲρ"
+      ]
+     ]
+    },
+    {
+     "index": 142,
+     "was": [
+      [
+       1099,
+       "ἂεῖ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "b2bc845eed2b561ccbdb27f06faf78cf8bcec10ca31a8ee26ee88d944e28928b"
+  }
+ ],
+ "reverse": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_thirdparty.json --audit-tag revived-2026-09-12 --unapply",
+ "forward": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_thirdparty.json --sources byzantium_gr,cgpg,dfhg,first1k,perseus,pta,saws,wikisource --audit-tag revived-2026-09-12 --date 2026-09-12 --apply"
+}
