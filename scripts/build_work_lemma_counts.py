@@ -22,7 +22,8 @@ Two caches under data/cache/ make reruns cheap:
       with; a version change prints a loud warning (delete the cache file to
       relemmatize everything).
 
-The lemmatization phase can also run on a remote GPU box:
+The lemmatization phase can also run on a remote GPU box, or checkpoint local
+work in the same append-only map format:
 
   python build_work_lemma_counts.py --emit-missing missing.tsv
       tokenize (incrementally), then write the forms that still need
@@ -31,6 +32,10 @@ The lemmatization phase can also run on a remote GPU box:
   python build_work_lemma_counts.py --lemma-map lemma_map.tsv
       merge the returned map into the cache, then finish the build (any
       forms still missing are lemmatized locally; normally none).
+  python build_work_lemma_counts.py
+      local lemmatization appends every validated chunk to data/lemma_map.tsv,
+      so an interrupted run can resume by rerunning with
+      --lemma-map data/lemma_map.tsv.
 
 Outputs (under data/):
   work_lemma_counts.tsv.gz    work_urn<TAB>lemma<TAB>count
@@ -193,7 +198,7 @@ def dilemma_version() -> str:
 
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from validate_lemma_map import validate_cache  # noqa: E402
+from validate_lemma_map import load_rejected, validate_cache  # noqa: E402
 
 
 def load_lemma_cache() -> dict[str, str]:
@@ -224,20 +229,83 @@ def save_lemma_cache(cache: dict[str, str]) -> None:
         {"dilemma_version": dilemma_version(), "entries": len(cache)}, indent=1))
 
 
-def lemmatize_local(forms: list[str], cache: dict[str, str]) -> None:
+def merge_lemma_map(path: Path, cache: dict[str, str],
+                    rejected: set[str]) -> tuple[int, int, int]:
+    """Merge a form<TAB>lemma map into cache, filling gaps only.
+
+    Returns (new, kept, tombstoned). Tombstoned forms are ignored here rather
+    than reinserted only to be dropped again by validate_cache().
+    """
+    n_new = n_kept = n_rejected = 0
+    for line in path.read_text(encoding="utf-8").splitlines():
+        form, _, lemma = line.partition("\t")
+        lemma = lemma.strip()
+        if not form or not lemma:
+            continue
+        if form in rejected:
+            n_rejected += 1
+            continue
+        if form in cache:
+            # Fill gaps, never override. The map is whatever Dilemma returned
+            # on another process, with no confidence attached, so one bad row
+            # must not silently reassign every occurrence of a form.
+            n_kept += 1
+            continue
+        n_new += 1
+        cache[form] = lemma
+    return n_new, n_kept, n_rejected
+
+
+def append_lemma_map(path: Path, forms: list[str],
+                     derived: dict[str, str]) -> None:
+    """Append validated chunk results to a resumable form<TAB>lemma map."""
+    if not derived:
+        return
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("a", encoding="utf-8") as sink:
+        for form in forms:
+            lemma = derived.get(form)
+            if lemma:
+                sink.write(f"{form}\t{lemma}\n")
+
+
+def lemmatize_local(forms: list[str], cache: dict[str, str], *,
+                    rejected: set[str] | None = None,
+                    checkpoint_map: Path | None = None,
+                    chunk_size: int = 50000) -> None:
     """Lemmatize `forms` with local Dilemma, filling `cache` in place.
-    Forms Dilemma can't resolve (empty lemma) are left out of the cache, so
-    they retry on the next run (e.g. after a Dilemma upgrade)."""
+
+    Each chunk is validated before it touches the persistent cache, and accepted
+    rows are appended to `checkpoint_map` immediately. If the process is killed
+    before form_lemma.tsv.gz is rewritten, the accepted work can be merged back
+    with --lemma-map rather than recomputed.
+
+    Forms Dilemma can't resolve (empty lemma) are left out of the cache, so they
+    retry on the next run after a Dilemma upgrade. Validator-dropped forms go
+    through validate_cache(), which records tombstones in lemma_rejected.tsv; the
+    in-memory `rejected` set is updated too so the current run does not try to
+    rederive them.
+    """
     from dilemma import Dilemma  # noqa: PLC0415
     d = Dilemma(lang="grc")
-    CH = 50000
-    for i in range(0, len(forms), CH):
-        chunk = forms[i:i + CH]
+    for i in range(0, len(forms), chunk_size):
+        chunk = forms[i:i + chunk_size]
+        derived: dict[str, str] = {}
         for form, lemma in zip(chunk, d.lemmatize_batch(chunk)):
             lem = (lemma or "").strip()
             if lem:
-                cache[form] = lem
-        print(f"  {min(i + CH, len(forms)):,}/{len(forms):,} forms",
+                derived[form] = lem
+        before = set(derived)
+        _, dropped = validate_cache(derived, label="new lemmas")
+        if rejected is not None:
+            rejected |= dropped
+        cache.update(derived)
+        if checkpoint_map:
+            append_lemma_map(checkpoint_map, chunk, derived)
+        print(f"  {min(i + chunk_size, len(forms)):,}/{len(forms):,} forms "
+              f"({len(derived):,} accepted, "
+              f"{len(before - set(derived)):,} dropped, "
+              f"{len(chunk) - len(before):,} unanswered in chunk)",
               file=sys.stderr)
 
 
@@ -257,6 +325,14 @@ def main() -> None:
     ap.add_argument("--lemma-map", type=Path, metavar="FILE",
                     help="merge a form<TAB>lemma map (from lemmatize_forms.py) "
                          "into the cache before deciding what is missing")
+    ap.add_argument("--checkpoint-map", type=Path, default=DATA / "lemma_map.tsv",
+                    help="append locally derived, validator-approved "
+                         "form<TAB>lemma rows here as each chunk finishes "
+                         "(default: data/lemma_map.tsv)")
+    ap.add_argument("--no-checkpoint-map", action="store_true",
+                    help="do not append a resumable local lemma map")
+    ap.add_argument("--local-chunk", type=int, default=50000,
+                    help="local Dilemma batch/checkpoint size")
     ap.add_argument("--write-lemma-frequency", action="store_true",
                     help="also overwrite data/public_lemma_frequency.tsv and its "
                          "stats. Off by default: build_lemma_frequency.py owns "
@@ -291,23 +367,13 @@ def main() -> None:
           f"under the mark (issue #35)", file=sys.stderr)
 
     lemma_cache = load_lemma_cache() if use_cache else {}
+    pre_rejected = set(load_rejected()) if use_cache else set()
     if args.lemma_map:
-        n_new = n_kept = 0
-        for line in args.lemma_map.read_text(encoding="utf-8").splitlines():
-            form, _, lemma = line.partition("\t")
-            if form and lemma.strip():
-                if form in lemma_cache:
-                    # Fill gaps, never override. The map is whatever dilemma
-                    # returned on a remote box, with no confidence attached, so
-                    # one bad row used to silently reassign every occurrence of a
-                    # form - `ou -> ooun` would have moved 658,075 occurrences of
-                    # the commonest negative in Greek onto a service-berry.
-                    n_kept += 1
-                    continue
-                n_new += 1
-                lemma_cache[form] = lemma.strip()
+        n_new, n_kept, n_rejected = merge_lemma_map(
+            args.lemma_map, lemma_cache, pre_rejected)
         print(f"merged {args.lemma_map}: +{n_new} new cache entries, "
-              f"{n_kept} existing entries left as they were",
+              f"{n_kept} existing entries left as they were, "
+              f"{n_rejected} tombstoned rows skipped",
               file=sys.stderr)
 
     # After the merge, so both sources are covered by one pass: the cache may
@@ -341,22 +407,11 @@ def main() -> None:
 
     if missing:
         print(f"lemmatizing {len(missing):,} forms locally ...", file=sys.stderr)
-        # Into a dict of its own, so the checks below see only what the
-        # lemmatizer just said and not the million entries already vetted above.
-        # Without this pass the checks graded the cache and then published
-        # whatever came back fresh, unread: on a first build that is EVERY
-        # lemma, so `οὐ -> οὖον` would have gone out again on a clean clone with
-        # the validator sitting right there in the pipeline.
-        derived: dict[str, str] = {}
-        lemmatize_local(missing, derived)
-        # Deliberately after lemmatization and not a second round trip. A form
-        # dropped here must not be re-derived in the same run - the lemmatizer
-        # is deterministic, so it returns the same wrong answer and the drop
-        # undoes itself, which is how `βασκανία -> Βασκανία` survived three
-        # passes. Nothing below re-enters lemmatize_local, and the tombstone
-        # validate_cache just wrote keeps the form out of `missing` next run.
-        rejected |= validate_cache(derived, label="new lemmas")[1]
-        lemma_cache.update(derived)
+        checkpoint_map = (None if args.no_checkpoint_map or not use_cache
+                          else args.checkpoint_map)
+        lemmatize_local(
+            missing, lemma_cache, rejected=rejected,
+            checkpoint_map=checkpoint_map, chunk_size=args.local_chunk)
     if use_cache:
         save_lemma_cache(lemma_cache)
 

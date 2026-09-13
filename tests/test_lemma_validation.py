@@ -348,9 +348,8 @@ def test_a_first_build_checks_what_the_lemmatizer_just_returned(work_counts,
     lemmatizer. οὐ -> οὖον would have been published again from a clean clone,
     with the validator sitting right there in the pipeline."""
     bwlc, data = work_counts
-    monkeypatch.setattr(bwlc, "lemmatize_local",
-                        lambda forms, cache: cache.update(
-                            {f: "οὖον" for f in forms if f == "οὐ"}))
+    monkeypatch.setitem(sys.modules, "dilemma",
+                        _fake_dilemma({"οὐ": "οὖον"}))
     bwlc.main()
     assert _published(data) == {"οὐ"}
 
@@ -363,15 +362,37 @@ def test_a_first_build_still_honors_the_tombstones(work_counts, monkeypatch):
     (data / "cache" / "lemma_rejected.tsv").write_text(
         "κβ\tproposed lemma occurs nowhere in the corpus\n", encoding="utf-8")
     asked = []
-
-    def fake(forms, cache):
-        asked.extend(forms)
-        cache.update(dict.fromkeys(forms, "κβʹ"))
-
-    monkeypatch.setattr(bwlc, "lemmatize_local", fake)
+    monkeypatch.setitem(sys.modules, "dilemma",
+                        _fake_dilemma({"οὐ": "οὐ", "κβ": "κβʹ"}, asked))
     bwlc.main()
     assert "κβ" not in asked         # never re-derived, not merely re-dropped
     assert "κβʹ" not in _published(data)
+
+
+def test_local_work_lemma_build_checkpoints_validated_chunks(work_counts,
+                                                             monkeypatch):
+    """A local rebuild used to lose every fresh form->lemma answer if the
+    process died before save_lemma_cache(). Now each validated chunk is appended
+    to data/lemma_map.tsv, while validator-dropped rows become tombstones rather
+    than checkpoint entries."""
+    bwlc, data = work_counts
+    monkeypatch.setitem(sys.modules, "dilemma",
+                        _fake_dilemma({"οὐ": "οὖον", "κβ": "κβʹ"}))
+    monkeypatch.setattr(sys, "argv", [
+        "build_work_lemma_counts.py",
+        "--local-chunk", "1",
+        "--checkpoint-map", str(data / "lemma_map.tsv"),
+    ])
+
+    bwlc.main()
+
+    checkpoint = (data / "lemma_map.tsv").read_text(encoding="utf-8")
+    tombstones = (data / "cache" / "lemma_rejected.tsv").read_text(
+        encoding="utf-8")
+    assert "οὐ\tοὐ\n" in checkpoint
+    assert "οὖον" not in checkpoint
+    assert "κβ\tκβʹ" not in checkpoint
+    assert "κβ\tproposed lemma occurs nowhere in the corpus\n" in tombstones
 
 
 @pytest.fixture
