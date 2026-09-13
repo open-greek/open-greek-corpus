@@ -231,9 +231,10 @@ def main() -> None:
         gctrl = sum(1 for k in rare_grave if k in heads or
                     any(c in heads for c in
                         sorted({to_acute(k), to_acute(lower_initial(k))} - {k})))
+        backed_tokens = sum(n for n, _ in backed.values())
         print(f"  headword-backed {len(backed):>6,} lemmas "
-              f"{sum(n for n, _ in backed.values()):>8,} tokens "
-              f"({sum(n for n, _ in backed.values()) / gt:.1%} of the residue), "
+              f"{backed_tokens:>8,} tokens "
+              f"({backed_tokens / gt if gt else 0:.1%} of the residue), "
               f"against {len(heads):,} headwords from {len(prov)} lexica")
         print(f"    control: {ctrl / max(len(rare_other), 1):.1%} of non-grave "
               f"lemmas at <=10 tokens are headwords, against "
@@ -245,13 +246,13 @@ def main() -> None:
     print(f"grave residue: {len(grave):,} lemmas, {gt:,} tokens "
           f"({gt / sum(totals.values()):.3%} of the lemmatized corpus)")
     print(f"  reachable   {len(reachable):>6,} lemmas {rt:>8,} tokens "
-          f"{rt / gt:>6.1%}  an acute counterpart is attested to move them onto")
+          f"{rt / gt if gt else 0:>6.1%}  an acute counterpart is attested to move them onto")
     print(f"  unreachable {len(unreachable):>6,} lemmas {ut:>8,} tokens "
-          f"{ut / gt:>6.1%}  the corpus prints no acute counterpart under "
+          f"{ut / gt if gt else 0:>6.1%}  the corpus prints no acute counterpart under "
           f"either case")
     print(f"\n  measured the OLD way, against the lemma table rather than the "
           f"printed text,\n  the unreachable share reads {by_lemma_unreached:,} "
-          f"tokens ({by_lemma_unreached / gt:.1%}). That difference is the "
+          f"tokens ({by_lemma_unreached / gt if gt else 0:.1%}). That difference is the "
           f"reference\n  being narrower than the table it governs, not a fact "
           f"about the residue.")
     print("\n  largest unreachable, which is what the residue actually is:")
@@ -272,8 +273,9 @@ def main() -> None:
         f"{c} {v['grave_tokens']:,} ({v['rate']:.4%})" if v["rate"] is not None
         else f"{c} {v['grave_tokens']:,}"
         for c, v in sorted(split["by_class"].items())))
+    lift = f"{split['lift']}x" if split["lift"] is not None else "n/a"
     print(f"    OCR-derived {split['ocr_derived_rate']:.4%} against born-digital "
-          f"{split['born_digital_rate']:.4%}, a {split['lift']}x lift; "
+          f"{split['born_digital_rate']:.4%}, a {lift} lift; "
           f"unmatched {split['unmatched']['tokens']}")
 
     if not args.write:
@@ -309,7 +311,8 @@ def main() -> None:
             "headwords": len(heads),
             "lemmas": len(backed),
             "tokens": sum(n for n, _ in backed.values()),
-            "share_of_residue": round(sum(n for n, _ in backed.values()) / gt, 4),
+            "share_of_residue": round(
+                sum(n for n, _ in backed.values()) / gt if gt else 0, 4),
             "control": {
                 "what": "the same test on lemmas that carry no grave, at the same "
                         "rarity, because rare lemmas are rare in dictionaries too",
