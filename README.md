@@ -984,7 +984,7 @@ and 6.3% of the corpus, 472,361 tokens apart, and the published figure is the
 top of that range.
 
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 874 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 395 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 877 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 392 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1531,7 +1531,7 @@ top of that range.
 | geoponica.geoponica | Geoponica - Geoponica | qwen36-geoponica_beckh | Qwen3.6-27B | 121,678 | auto-corrected |
 | georgius-cedrenus.compendium-historiarum | Georgius Cedrenus - Compendium Historiarum | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 291,998 | manual |
 | georgius-choeroboscus.peri-tropon-poietikon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,179 | raw OCR |
-| georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de | Georgius Choeroboscus - Prolegomena Et Scholia In Theodosii Alexandrini Canones Isagogicos De Flexione Nominum | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 143,024 | raw OCR |
+| georgius-choeroboscus.prolegomena-et-scholia-in-theodosii-alexandrini-canones-isagogicos-de | Georgius Choeroboscus - Prolegomena Et Scholia In Theodosii Alexandrini Canones Isagogicos De Flexione Nominum | [archive.org](https://archive.org/details/GrammaticiGraeciVolume4) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 143,024 | auto-corrected |
 | georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 8,352 | auto-corrected |
 | georgius-gemistus-pletho.syntome-peri-tinon-meron-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,891 | auto-corrected |
 | georgius-monachus-continuatus.chronicon-continuatio-redactio | Georgius Monachus Continuatus - Chronicon (continuatio) (redactio A) / Vitae imperatorum recentiorum (PG109 loci 417-497) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 29,808 | manual |
@@ -2175,7 +2175,7 @@ top of that range.
 | scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii) | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 354,055 | raw OCR |
 | scholia-in-callimachum.schol-callim-schneider |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,582 | auto-corrected |
 | scholia-in-demosthenem.scholia-demosthenem-dindorf-v8 |  | qwen36-scholia_demosthenem_dindorf_v8 | Qwen3.6-27B | 109,808 | auto-corrected |
-| scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera | Scholia In Hesiodum - Scholia In Opera Et Dies (Scholia Vetera) | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,839 | raw OCR |
+| scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera | Scholia In Hesiodum - Scholia In Opera Et Dies (Scholia Vetera) | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,839 | auto-corrected |
 | scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et | Scholia In Lycophronem - Scholia In Lycophronem (Scholia Vetera Et Recentiora Partim Isaac Et Joannis Tzetzae) | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,688 | raw OCR |
 | scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Cynegetica (Scholia Vetera Et Recentiora) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,032 | auto-corrected |
 | scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Halieutica (Scholia Vetera Et Recentiora) | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 65,351 | auto-corrected |
@@ -2249,7 +2249,7 @@ top of that range.
 | theages.fragmenta | Theages - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,220 | auto-corrected |
 | theano.fragmenta | Theano - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 587 | auto-corrected |
 | themison.fragmentum | Themison - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 2 | raw OCR |
-| themistius.peri-filanqrwpi-as-h-kwnsta-ntios | THEMISTIUS - Orationes | qwen36-themistiioratio01dindgoog | Qwen3.6-27B | 131,695 | raw OCR |
+| themistius.peri-filanqrwpi-as-h-kwnsta-ntios | THEMISTIUS - Orationes | qwen36-themistiioratio01dindgoog | Qwen3.6-27B | 131,695 | auto-corrected |
 | theodectas.fragmenta | Theodectas - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 1,046 | auto-corrected |
 | theodoretus.commentaria-in-isaiam | Theodoretus - Commentaria In Isaiam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 44,728 | auto-corrected |
 | theodoretus.de-providentia-orationes-decem | Theodoretus - De Providentia Orationes Decem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 45,043 | auto-corrected |
