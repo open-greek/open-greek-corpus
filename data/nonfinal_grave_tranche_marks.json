@@ -1,111 +1,13 @@
 {
- "what": "the repairs the accent-only rail holds back, NOT APPLIED",
+ "what": "the stricter tranche for repairs that move a breathing or coronis as well as an accent",
  "issue": "open-greek/open-greek-corpus#31",
- "status": "waiting on cisco. He approved repairing this class; the accent-only restriction was mine, described to him when the first tranche was applied, so widening it is a change to what he agreed to and not mine to make quietly.",
+ "status": "rows here clear the recorded 2026-08-11 bar and are NOT applied; each apply is recorded under data/corpus_changes/.",
+ "decision": "cisco, 2026-08-11: the accent-only rail was lifted for forms that clear this stricter mark-moving bar.",
  "what_moves": "a breathing or a coronis as well as an accent. τὰναντία is the crasis τἀναντία and τάναντία is not a word; ὲπὶ is ἐπί with the smooth breathing it lost; κἂι is καί.",
  "why_stricter": "share >= 0.99 over >= 100 clean tokens, the bar used for other people's editions rather than the 0.95 used for our own, because this changes a lexical mark and not only a stress.",
- "forms": 7,
- "tokens": 7,
- "token_weighted_share": 0.99489,
+ "forms": 0,
+ "tokens": 0,
+ "token_weighted_share": 0,
  "expected_wrong_tokens": 0,
- "rows": [
-  {
-   "form": "ὰγαν",
-   "tokens": 1,
-   "ocr_tokens": 0,
-   "target": "ἄγαν",
-   "clean_class": 2042,
-   "clean_hits": 2027,
-   "share": 0.9927,
-   "accent_only": false,
-   "runner_up": {
-    "form": "ἅγαν",
-    "clean_tokens": 6
-   }
-  },
-  {
-   "form": "ἦλὶου",
-   "tokens": 1,
-   "ocr_tokens": 0,
-   "target": "ἡλίου",
-   "clean_class": 4772,
-   "clean_hits": 4755,
-   "share": 0.9964,
-   "accent_only": false,
-   "runner_up": {
-    "form": "ἠλίου",
-    "clean_tokens": 8
-   }
-  },
-  {
-   "form": "ἣθη",
-   "tokens": 1,
-   "ocr_tokens": 0,
-   "target": "ἤθη",
-   "clean_class": 908,
-   "clean_hits": 902,
-   "share": 0.9934,
-   "accent_only": false,
-   "runner_up": {
-    "form": "ήθη",
-    "clean_tokens": 4
-   }
-  },
-  {
-   "form": "κἂτα",
-   "tokens": 1,
-   "ocr_tokens": 1,
-   "target": "κατά",
-   "clean_class": 174576,
-   "clean_hits": 173403,
-   "share": 0.9933,
-   "accent_only": false,
-   "runner_up": {
-    "form": "κατα",
-    "clean_tokens": 720
-   }
-  },
-  {
-   "form": "ὸσπερ",
-   "tokens": 1,
-   "ocr_tokens": 0,
-   "target": "ὅσπερ",
-   "clean_class": 442,
-   "clean_hits": 440,
-   "share": 0.9955,
-   "accent_only": false,
-   "runner_up": {
-    "form": "όσπερ",
-    "clean_tokens": 1
-   }
-  },
-  {
-   "form": "πολλὰἵ",
-   "tokens": 1,
-   "ocr_tokens": 0,
-   "target": "πολλαί",
-   "clean_class": 2048,
-   "clean_hits": 2045,
-   "share": 0.9985,
-   "accent_only": false,
-   "runner_up": {
-    "form": "πολλαἰ",
-    "clean_tokens": 1
-   }
-  },
-  {
-   "form": "αὲτοῦ",
-   "tokens": 1,
-   "ocr_tokens": 0,
-   "target": "ἀετοῦ",
-   "clean_class": 180,
-   "clean_hits": 179,
-   "share": 0.9944,
-   "accent_only": false,
-   "runner_up": {
-    "form": "ἀέτου",
-    "clean_tokens": 1
-   }
-  }
- ]
+ "rows": []
 }
