@@ -1,0 +1,56 @@
+{
+ "what": "Corrective rebuild of the grave-citation lemma repair after the citation-form gate moved upstream into Dilemma.",
+ "date": "2026-09-13",
+ "issue": "open-greek/open-greek-corpus#4",
+ "dilemma_commit": "0b939973d94e429484f2610cf5f0c7209cca7f72",
+ "corpus_base_commit": "b210a55c923360ac4de30831b999c431a7526e2a",
+ "supersedes": {
+  "file": "data/corpus_changes/lemma-grave-citation-repair.json",
+  "note": "That earlier corpus-side repair cleared the audit class by post-processing lemma tables against Dilemma c9aed53. This rebuild uses the normal corpus builders against committed Dilemma 0b93997, whose default policy blocks untrusted grave citation lemmas and whose strict_ag policy is available for citation audits."
+ },
+ "commands": [
+  "PYTHONPATH=/Users/cisco/Documents/dilemma python3 scripts/build_work_lemma_counts.py",
+  "PYTHONPATH=/Users/cisco/Documents/dilemma python3 scripts/build_lemma_frequency.py --min-count 5",
+  "python3 scripts/build_corpus_catalog.py",
+  "python3 scripts/measure_grave_residue.py --write"
+ ],
+ "cache_policy": {
+  "form_lemma_cache_grave_rows_before_final_build": 0,
+  "remaining_missing_forms": 5160,
+  "remaining_missing_forms_policy": "Dilemma guess=False found no structured answer, so the forms were recorded in data/cache/lemma_rejected.tsv for this rebuild rather than sent through the local transformer/model guess path.",
+  "why": "The repair target is citation-form hygiene. No lemma is better than adding model-guessed headwords while proving the grave audit class is empty."
+ },
+ "tracked_effect_vs_corpus_base": {
+  "work_lemma_counts": {
+   "grave_lemmas_before": 0,
+   "grave_tokens_before": 0,
+   "grave_lemmas_after": 0,
+   "grave_tokens_after": 0,
+   "distinct_forms_delta": -1827,
+   "forms_above_min_delta": -1026,
+   "distinct_lemmas_delta": -111,
+   "work_lemma_pairs_delta": -1124,
+   "tokens_lemmatized_delta": -977,
+   "coverage_before_pct": 97.2,
+   "coverage_after_pct": 97.2
+  },
+  "public_lemma_frequency": {
+   "grave_lemmas_before": 0,
+   "grave_tokens_before": 0,
+   "grave_lemmas_after": 0,
+   "grave_tokens_after": 0,
+   "distinct_lemmas_delta": -138,
+   "tokens_lemmatized_delta": -6739,
+   "coverage_before_pct": 99.8,
+   "coverage_after_pct": 99.8
+  }
+ },
+ "after": {
+  "work_lemma_counts_grave_lemmas": 0,
+  "work_lemma_counts_grave_tokens": 0,
+  "public_lemma_frequency_grave_lemmas": 0,
+  "public_lemma_frequency_grave_tokens": 0,
+  "grave_residue_json_lemmas": 0,
+  "grave_residue_json_tokens": 0
+ }
+}
