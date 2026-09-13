@@ -1,0 +1,152 @@
+{
+ "what": "non-final grave repairs from data/nonfinal_grave_tranche_marks.json",
+ "date": "2026-09-12",
+ "issue": "open-greek/open-greek-corpus#31",
+ "decision": "cisco, 2026-08-11; revived rows after corpus-2026-09-11 text movement",
+ "rule": null,
+ "sources_edited": [
+  "cgpg",
+  "dfhg",
+  "first1k",
+  "ocr",
+  "perseus"
+ ],
+ "token_weighted_share": 0.99489,
+ "expected_wrong_tokens": 0,
+ "marks_moved": "a breathing or coronis moved as well as an accent; every form and its target were asserted here to have identical letters, so nothing but the marks changed",
+ "tokens_changed": 7,
+ "rows_touched": 7,
+ "forms": 7,
+ "substitutions": {
+  "αὲτοῦ": "ἀετοῦ",
+  "κἂτα": "κατά",
+  "πολλὰἵ": "πολλαί",
+  "ἣθη": "ἤθη",
+  "ἦλὶου": "ἡλίου",
+  "ὰγαν": "ἄγαν",
+  "ὸσπερ": "ὅσπερ"
+ },
+ "files": [
+  {
+   "file": "data/corpus/ducas.historia-turcobyzantina.jsonl",
+   "sha256_before": "6f19b015170e2743ae4f4dbd871332c5f0eca6931098d69a064c0406631b919d",
+   "edits": [
+    {
+     "index": 150,
+     "was": [
+      [
+       1780,
+       "ὰγαν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "4d487b7805a44adbed92edbe28ac5cb0ed480449f1f269def4c9cfc1ebc44d4d"
+  },
+  {
+   "file": "data/corpus/leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia.jsonl",
+   "sha256_before": "429a87fc5b7d3caa850c3ee5784886defd9032fbb05b155d6ee36d15c64149ea",
+   "edits": [
+    {
+     "index": 2,
+     "was": [
+      [
+       857,
+       "ἦλὶου"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "48fe19f689c89febb828e5f11a2f3e8f7f6fb9ef8c45581d73b71438f758ddef"
+  },
+  {
+   "file": "data/corpus/nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14.jsonl",
+   "sha256_before": "4792696484f20e7ee037aceebecd8f45b1d67505071ff845216727854b7729aa",
+   "edits": [
+    {
+     "index": 253,
+     "was": [
+      [
+       1119,
+       "ἣθη"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a1a8d938a38287617857fa0a9ca33171505b7d2c55b77c583ced1f934d958f11"
+  },
+  {
+   "file": "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl",
+   "sha256_before": "9a20729841fc845e6ec684595d53fe08947500a0d2de0a247628810e02c4bd82",
+   "edits": [
+    {
+     "index": 367,
+     "was": [
+      [
+       251,
+       "κἂτα"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "1e20e9b5423e2ed14bc2e96ce564bca36a420590ed70c5b1292904bc8f2ab7ce"
+  },
+  {
+   "file": "data/corpus/theodorus-agallianus.refutatio-contra-joannem-argyropulum.jsonl",
+   "sha256_before": "be5ca0817bb04bc07450acde9533f62f2122715e3ecf0206d5ec370f7620d601",
+   "edits": [
+    {
+     "index": 14,
+     "was": [
+      [
+       483,
+       "ὸσπερ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "df958c9626d4c9846fc49d2ad766bc2b79eff0fd967598a18fed11c28cfc960b"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-i-ad-corinthios.jsonl",
+   "sha256_before": "8318f723666035a2dba3b4ca15623f68835f53477226a0eb0d0f7b3b3fac50d4",
+   "edits": [
+    {
+     "index": 5,
+     "was": [
+      [
+       1676,
+       "πολλὰἵ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "a9ec644ce7234eb06e1dc41c0052d79e54aaf2a4f32717f874d2d3c0881f9189"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.in-acta-apostolorum-commentarius-sp.jsonl",
+   "sha256_before": "b2bc845eed2b561ccbdb27f06faf78cf8bcec10ca31a8ee26ee88d944e28928b",
+   "edits": [
+    {
+     "index": 80,
+     "was": [
+      [
+       1847,
+       "αὲτοῦ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "d429c6b8e201bae386f06a5ff5e4a507118b39f65c98f0553a28c18ad76ad006"
+  }
+ ],
+ "reverse": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_marks.json --audit-tag revived-2026-09-12 --unapply",
+ "forward": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_marks.json --sources ocr,cgpg,first1k,perseus,dfhg --allow-mark-moves --audit-tag revived-2026-09-12 --date 2026-09-12 --apply"
+}

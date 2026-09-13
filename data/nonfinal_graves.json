@@ -11,15 +11,15 @@
   }
  },
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26534,
- "tokens": 42741,
+ "forms": 26515,
+ "tokens": 42715,
  "served_tokens": 65296585,
- "share": 0.000655,
+ "share": 0.000654,
  "works_touched": 1641,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 25535,
+   "tokens": 25534,
    "rate": 0.001019
   },
   {
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7655,
-   "rate": 0.001857
+   "tokens": 7630,
+   "rate": 0.001851
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7655,
-   "rate": 0.001857
+   "tokens": 7630,
+   "rate": 0.001851
   },
   {
    "edition": "qwen36-eustathius-iliad-stallbaum",
@@ -141,8 +141,8 @@
   },
   {
    "edition": "qwen36-scholia_aeschylum_depauw_stanley-singlecol",
-   "tokens": 285,
-   "rate": 0.002377
+   "tokens": 284,
+   "rate": 0.002368
   },
   {
    "edition": "qwen36-bussemaker-daremberg-1851-rover",
@@ -196,9 +196,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14894,
-  "tokens_with_exactly_one": 8934,
-  "tokens_with_none": 18913
+  "tokens_with_more_than_one_attested_shape": 14878,
+  "tokens_with_exactly_one": 8928,
+  "tokens_with_none": 18909
  },
  "largest_forms": [
   {
@@ -4632,8 +4632,8 @@
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3488,
-    "tokens": 9880
+    "forms": 3469,
+    "tokens": 9854
    },
    {
     "bucket": "no clean sibling",
@@ -4641,15 +4641,15 @@
     "tokens": 20522
    }
   ],
-  "accent_only_forms": 2680,
-  "accent_only_tokens": 8076,
-  "marks_moved_tokens": 1804,
+  "accent_only_forms": 2668,
+  "accent_only_tokens": 8057,
+  "marks_moved_tokens": 1797,
   "page_diffusion": {
    "distinct_scan_pages": 16085,
    "tokens_on_the_densest_500_pages": 3926,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3488,
+  "decided_forms_total": 3469,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
@@ -9192,20 +9192,6 @@
     }
    },
    {
-    "form": "ὃπὲρ",
-    "tokens": 5,
-    "ocr_tokens": 0,
-    "target": "ὅπερ",
-    "clean_class": 17431,
-    "clean_hits": 17343,
-    "share": 0.995,
-    "accent_only": true,
-    "runner_up": {
-     "form": "ὄπερ",
-     "clean_tokens": 41
-    }
-   },
-   {
     "form": "ὼσεὶ",
     "tokens": 5,
     "ocr_tokens": 0,
@@ -10053,6 +10039,20 @@
     "share": 1.0,
     "accent_only": true,
     "runner_up": null
+   },
+   {
+    "form": "εἰδὲτε",
+    "tokens": 4,
+    "ocr_tokens": 4,
+    "target": "εἴδετε",
+    "clean_class": 88,
+    "clean_hits": 83,
+    "share": 0.9432,
+    "accent_only": true,
+    "runner_up": {
+     "form": "είδετε",
+     "clean_tokens": 3
+    }
    }
   ]
  }

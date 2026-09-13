@@ -405,12 +405,13 @@ def main() -> None:
     m_tok = sum(forms[d["form"]] for d in marks)
     m_w = (sum(forms[d["form"]] * d["share"] for d in marks) / m_tok) if m_tok else 0
     MARK_SHEET.write_text(json.dumps({
-        "what": "the repairs the accent-only rail holds back, NOT APPLIED",
+        "what": "the stricter tranche for repairs that move a breathing or "
+                "coronis as well as an accent",
         "issue": "open-greek/open-greek-corpus#31",
-        "status": "waiting on cisco. He approved repairing this class; the "
-                  "accent-only restriction was mine, described to him when the "
-                  "first tranche was applied, so widening it is a change to what "
-                  "he agreed to and not mine to make quietly.",
+        "status": "rows here clear the recorded 2026-08-11 bar and are NOT "
+                  "applied; each apply is recorded under data/corpus_changes/.",
+        "decision": "cisco, 2026-08-11: the accent-only rail was lifted for "
+                    "forms that clear this stricter mark-moving bar.",
         "what_moves": "a breathing or a coronis as well as an accent. τὰναντία is "
                       "the crasis τἀναντία and τάναντία is not a word; ὲπὶ is ἐπί "
                       "with the smooth breathing it lost; κἂι is καί.",
