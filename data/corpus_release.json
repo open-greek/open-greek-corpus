@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "b258286f57c260660513f5293c3aa59ea26ddd64",
+  "commit": "3406d2337c55403f1dbb7fa510fb6d101c1f36a7",
   "commit_date": "2026-09-12",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,15 +60,15 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "e355ec723415ba646cdd4be20957ef0785b8b9f5187c6b59c1b9790365ee7a03",
-  "corpus_sha256": "c0bea7fa884320adedce16e33650fbbc46e0276bca1f27b7e8631c67f4b7a892",
+  "catalog_sha256": "4c899299348a5d009363a5bc6b243143bd6ba5ecc02340a0f5457f29835002b9",
+  "corpus_sha256": "a56205eae85ddceb7d026cc4c4a07f70ee7734b50909dc67cb0937a3900145ae",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 19292144,
-    "works": 869
+    "tokens": 19400069,
+    "works": 872
    },
    "manual": {
     "tokens": 5782398,
@@ -79,8 +79,8 @@
     "works": 2496
    },
    "raw-ocr": {
-    "tokens": 4099781,
-    "works": 407
+    "tokens": 3991856,
+    "works": 404
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
@@ -88,10 +88,10 @@
    "ocr_share_of_corpus_tokens": 0.4468,
    "ocr_tokens": 29174323,
    "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0628,
-   "raw_share_of_ocr_tokens": 0.1405,
-   "raw_tokens": 4099781,
-   "raw_works": 407,
+   "raw_share_of_corpus_tokens": 0.0611,
+   "raw_share_of_ocr_tokens": 0.1368,
+   "raw_tokens": 3991856,
+   "raw_works": 404,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
@@ -243,9 +243,9 @@
    },
    "population_check": {
     "checked": true,
-    "records_now": 220345,
+    "records_now": 222053,
     "records_when_measured": 220345,
-    "stale": false
+    "stale": true
    },
    "precision_by_corrector": {
     "agent/accepted": 0.979,
@@ -302,8 +302,8 @@
    "wrong_rows_estimate": 43400
   }
  },
- "release_date": "2026-09-12",
- "release_id": "corpus-2026-09-12",
+ "release_date": "2026-09-13",
+ "release_id": "corpus-2026-09-13",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,

@@ -984,7 +984,7 @@ and 6.3% of the corpus, 472,361 tokens apart, and the published figure is the
 top of that range.
 
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 865 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 404 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 868 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 401 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1070,7 +1070,7 @@ top of that range.
 | anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735 | Anonymi In Oppiani Opera - In Oppiani Halieutica Exegesis (E Cod. Paris. Gr. 2735) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 430 dpi) | 4,696 | auto-corrected |
 | anonymi-logoi-duo.logoi-duo | Anonymi - Λόγοι δύο (PG151 loci 577-600) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 20,680 | raw OCR |
 | anonymus-de-vita-mohammedis.narratio-de-vita-mohammedis | Anonymus - Narratio de vita Mohammedis (on Muhammad the pseudo-prophet) (PG158 loci 574-575) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,214 | auto-corrected |
-| anthemius.dupuy-1777 |  | qwen36-anthemius_dupuy_1777 | Qwen3.6-27B | 2,563 | raw OCR |
+| anthemius.dupuy-1777 |  | qwen36-anthemius_dupuy_1777 | Qwen3.6-27B | 2,563 | auto-corrected |
 | antidotus.fragmenta | Antidotus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 91 | raw OCR |
 | antigonus-paradoxography.historiarum-mirabilium-collectio | Antigonus - Historiarum Mirabilium Collectio | qwen36-antigonus_keller_rnsgm1 | Qwen3.6-27B | 24,737 | auto-corrected |
 | antimachus-elegy.fragmenta | Antimachus - Fragmenta | qwen36-antimachus_kinkel_egf1 | Qwen3.6-27B | 29,708 | auto-corrected |
@@ -1089,7 +1089,7 @@ top of that range.
 | apollonius-philosophy.apollonii-epistulae-dub | Apollonius - Apollonii Epistulae [Dub.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,393 | auto-corrected |
 | apollonius-philosophy.apotelesmata-sp | Apollonius - Apotelesmata [Sp.] | qwen36-apollonius_parad_keller_v1 | Qwen3.6-27B | 21,760 | auto-corrected |
 | apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas | Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 557 | auto-corrected |
-| apollonius-soph.lexicon-homericum | Apollonius - Lexicon Homericum | [archive.org](https://archive.org/details/apolloniisophis00bekkgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 47,301 | raw OCR |
+| apollonius-soph.lexicon-homericum | Apollonius - Lexicon Homericum | [archive.org](https://archive.org/details/apolloniisophis00bekkgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 47,301 | auto-corrected |
 | apollophanes-comedy.fragmenta | Apollophanes - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 322 | auto-corrected |
 | apollophanes.fragmenta | Fragmenta | qwen36-persaeus_svf1_arnim-ocr | Qwen3.6-27B | 117 | auto-corrected |
 | aquila.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 14,764 | raw OCR |
@@ -1972,7 +1972,7 @@ top of that range.
 | minucianus.peri-epicheirematon |  | qwen36-walz_rhetores_v9 | Qwen3.6-27B | 2,297 | raw OCR |
 | mnesimachus-comedy.fragmenta | Mnesimachus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 697 | raw OCR |
 | moderatus.fragmenta | Moderatus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 609 | auto-corrected |
-| moeris.lexicon-atticum | Moeris - Lexicon Atticum | [archive.org](https://archive.org/details/moeridisatticis00moergoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,061 | raw OCR |
+| moeris.lexicon-atticum | Moeris - Lexicon Atticum | [archive.org](https://archive.org/details/moeridisatticis00moergoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,061 | auto-corrected |
 | monimus-cynicus.fragmenta | De Monimo + Monimi fragmenta (Cynic) | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 299 | auto-corrected |
 | moschion.fragmenta | Moschion - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 491 | raw OCR |
 | moses.eu-poi-kai-eu-tuxi-tou-ktisame-nou-kai-e-pituxi-kama-tou-kai | Moses - Εὐποία καὶ εὐτυχία τοῦ κτισαμένου καὶ ἐπιτυχία καμάτου καὶ μακροχρονία βίου (E Cod. Paris. B.N. Gr. 2327, Fol. 268V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,753 | auto-corrected |
