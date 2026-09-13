@@ -7,7 +7,12 @@
   "decision": "cisco, 2026-08-11, having seen the measured split (80.1% agree, 7.6% settled by attestation, 12.3% guessed)",
   "reverse": "python3 scripts/merge_duplicate_reads.py --unapply, then rebuild data/duplicate_page_candidates.json, which is swept from the corpus and so no longer lists the pages this pass merged",
   "what_subs_hold": "index of the row, offset into that row's text as it stood before this pass, and the token that was there. The replacement reverses from those alone.",
-  "what_guesses_hold": "index of the row in this file's numbering BEFORE the displaced pages were taken out, the offset into that row's SERVED text, the token now served, and the readings that lost. Nothing attests any of them; the served one is the better read's, which is a rank and not evidence. Recorded so the class can be found and re-decided later."
+  "what_guesses_hold": "index of the row in this file's numbering BEFORE the displaced pages were taken out, the offset into that row's SERVED text, the token now served, and the readings that lost. Nothing attests any of them; the served one is the better read's, which is a rank and not evidence. Recorded so the class can be found and re-decided later.",
+  "guess_restamp": {
+   "what": "served tokens in guesses restamped after later OCR corrections changed the token at the recorded offset",
+   "date": "2026-09-13",
+   "updates": 1
+  }
  },
  "attestation": {
   "n_works": 2496,
@@ -97769,7 +97774,7 @@
     [
      5407,
      0,
-     "Εὐξεινοῦ",
+     "Εὐξείνου",
      [
       "Ἐξείνου"
      ]
