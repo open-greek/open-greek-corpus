@@ -2,11 +2,11 @@
  "corpus": {
   "passages": 1972138,
   "tokens": 65295827,
-  "tokens_lemmatized": 63448300,
+  "tokens_lemmatized": 63448304,
   "works": 3909
  },
  "generated_from": {
-  "commit": "d132ecf",
+  "commit": "5691b3ec4b37cc3eeeacaaf8d3e9d7e9da8288e5",
   "commit_date": "2026-09-14",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "10858a28eec7657ebe93dc86462d23c80ef754ecdb767b2303d29bc0718fa674",
-  "corpus_sha256": "483aaabbf00ee75f665970daaf04095eb51099efe9d9869748892060dc61f1c9",
+  "catalog_sha256": "f85360fce7f915770c45497523c7cbe1a14cd78bcfa942b0895d505ba64775d3",
+  "corpus_sha256": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -310,8 +310,8 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "10858a28eec7657ebe93dc86462d23c80ef754ecdb767b2303d29bc0718fa674",
-     "corpus_sha256": "483aaabbf00ee75f665970daaf04095eb51099efe9d9869748892060dc61f1c9"
+     "catalog_sha256": "f85360fce7f915770c45497523c7cbe1a14cd78bcfa942b0895d505ba64775d3",
+     "corpus_sha256": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4"
     },
     "pairs": 43624,
     "raw_share_lower_bound": 0.0372,
@@ -343,7 +343,7 @@
   }
  },
  "release_date": "2026-09-14",
- "release_id": "corpus-2026-09-14",
+ "release_id": "corpus-2026-09-14.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
