@@ -80,7 +80,7 @@ MEASURED = {
         "llm/accepted": 0.536,
         "llm/auto": 0.825,
     },
-    # Four of the six routes are no longer estimates. Each record was read on its
+    # Five of the six routes are no longer estimates. Each record was read on its
     # own by two blind raters, so these supersede precision_by_corrector above for
     # the same route - the README argues the same rule in prose. Kept as a nested
     # block rather than a second flat float per route, because a census has to
@@ -91,7 +91,8 @@ MEASURED = {
     # Staging drops a record that no longer resolves to a served row - the July
     # 2026 re-OCR replaced the text, or a carve moved it - so a census reads the
     # part of its cell the corpus still carries. Saying "the whole cell" would
-    # overclaim by 840 records in confusion/accepted and by 24,863 in freq/auto.
+    # overclaim by 841 records in confusion/accepted, 24,863 in freq/auto and
+    # 14,753 in llm/auto.
     "censused_by_corrector": {
         "freq/accepted": {"cell_records": 84004, "rated": 75259, "sound": 0.781,
                           "ci95": [0.7781, 0.7840], "agreement": 0.937,
@@ -124,19 +125,24 @@ MEASURED = {
                          "reverted": 868, "split_still_applied": 195,
                          "split_with_a_wrong_verdict": 131,
                          "measured_on": "2026-08-12"},
+        "llm/auto": {"cell_records": 64004, "rated": 49251, "sound": 0.797,
+                     "ci95": [0.7932, 0.8003], "agreement": 0.959,
+                     "reverted": 7640, "split_still_applied": 2369,
+                     "split_with_a_wrong_verdict": 1550,
+                     "measured_on": "2026-09-14"},
         "what": ("both-raters-right over every staged record of the cell, read "
                  "one at a time rather than sampled; `reverted` is the records "
                  "both raters called wrong, which are out of the served text. "
-                 "agent/accepted and llm/auto have not been censused and rest on "
-                 "the sample above"),
+                 "agent/accepted has not been censused and rests on the sample "
+                 "above"),
         "split_still_applied": ("a census gate is asymmetric on purpose: it "
                                 "reverts only where both raters call a record "
                                 "wrong, because a bad correction left in place is "
                                 "a measured defect while a reverted good one is "
                                 "fresh OCR damage in text that was right. So the "
                                 "records the raters disagreed on stay in the "
-                                "served text, 8,927 of them across the four "
-                                "cells, and 5,462 of those carry at least one "
+                                "served text, 11,296 of them across the five "
+                                "cells, and 7,012 of those carry at least one "
                                 "wrong verdict. That is the censuses' own "
                                 "residual and it is not counted in any rate "
                                 "above: read sound, reverted and this as three "
@@ -165,13 +171,16 @@ MEASURED = {
     },
     "wrong_rows_estimate": 43400,
     "reverted_since_measurement": {
-        "records": 20754,
+        "records": 28395,
         "what": ("1,447 from the re-adjudication accepts pass, 868 from the "
                  "llm/accepted census, 11,136 from the freq/accepted cell, 5,786 "
-                 "from freq/auto, 1,513 from confusion/accepted and 4 from "
-                 "llm/auto. All but the last four were reverted on a unanimous "
-                 "two-rater verdict over a record read individually rather than "
-                 "sampled. 205 of those are not census records: they are "
+                 "from freq/auto, 1,513 from confusion/accepted and 7,645 from "
+                 "llm/auto. The llm/auto total is 7,640 census gate keys, one "
+                 "duplicate active record carrying a condemned edit, and four "
+                 "earlier records settled on independent evidence. All census "
+                 "records were reverted on a unanimous two-rater verdict over a "
+                 "record read individually rather than sampled. 205 of the "
+                 "overall total are not census records: they are "
                  "duplicates that carried an edit a census had already condemned "
                  "on another record, and 169 of the condemned edits were still in "
                  "the served text because reverting one record left the other "
@@ -193,9 +202,15 @@ MEASURED = {
                    "lists sum to these figures"),
     },
     "applied_since_measurement": {
-        "records": 16089,
-        "by_bake": {"2026-08-21 Eustathius": 14017, "2026-09-11 collation": 2072},
-        "what": ("two bakes of proposals a census kept. The 2026-08-21 Eustathius "
+        "records": 32291,
+        "by_bake": {"2026-08-21 Eustathius": 14017,
+                    "2026-09-11 census collateral": 105,
+                    "2026-09-11 collation": 2072,
+                    "2026-09-12 OCR frequency batch 1": 1708,
+                    "2026-09-12 OCR frequency batch 2": 5587,
+                    "2026-09-12 OCR frequency batch 3": 6545,
+                    "2026-09-13 OCR frequency batch 4": 2257},
+        "what": ("seven bakes after the sample. The 2026-08-21 Eustathius "
                  "bake: 16,570 records against the Iliad commentary said auto or "
                  "accepted while the rows still held the OCR reading, so nothing "
                  "had ever been applied. All 16,601 staged proposals were read by "
@@ -208,7 +223,10 @@ MEASURED = {
                  "letters while case, movable nu, rho breathing and final accent "
                  "follow this edition's own usage. All 2,400 proposals were read "
                  "by two blind raters who were not told where they came from, and "
-                 "only the 2,072 both called right were written"),
+                 "only the 2,072 both called right were written. A 105-record "
+                 "rebake restored census collateral after duplicate-edit cleanup. "
+                 "Four upstream OCR-frequency correction batches then wrote "
+                 "16,097 independently evidenced corrections"),
         "collation": {"proposals": 2400, "rated": 2400, "sound": 0.863,
                       "ci95": [0.8490, 0.8765], "agreement": 0.949,
                       "kept": 2072, "rejected": 328, "written": 2072,
@@ -237,45 +255,45 @@ MEASURED = {
     # pre-apply text the corpus history holds, so these are restorations of what
     # the scan says, not new corrections.
     "repaired_over_reverts": {
-        "rows": 1214,
-        "tokens": 3064,
-        "works": 131,
-        "passes": 17,
+        "rows": 1298,
+        "tokens": 3236,
+        "works": 135,
+        "passes": 20,
         "what": ("tokens a revert overwrote although no correction had ever "
                  "made them. 1,047 of the rows come from the wholesale "
                  "llm/accepted revert of 2026-08-02 and the rest from the gated "
                  "census payouts; the worst single row had eleven ordinary "
                  "\u03ba\u03b1\u1f76 rewritten as \u039a\u1f22. No correction record "
                  "changed, because these are positions no record named"),
-        "evidence": ("data/corrections/over_revert_repair_2026-09-11*.json in "
+        "evidence": ("data/corrections/over_revert_repair_*.json in "
                      "the upstream pipeline, each carrying the row before and "
                      "after and the commit the fix was applied at"),
     },
-    # Re-measured 2026-09-11 by the upstream scripts/measure_overlay_reach.py, which
+    # Re-measured 2026-09-14 by the upstream scripts/measure_overlay_reach.py, which
     # is the first thing that could rebuild them: the previous trio was a 2026-08-03
     # hand count, and all three were the counter lines of one retirement run rather
     # than three measurements. `present` is the record's corrected form standing as a
     # whole Greek token in the row its OWN key names, with no carve routing, which is
     # the definition the README argues; the records a carve moved are accounted for
     # separately in overlay_reach below.
-    "corrections_present": 123508,
-    "corrections_present_works": 879,
+    "corrections_present": 138458,
+    "corrections_present_works": 886,
     # Re-baselined to today, not left at the 2026-08-12 figure of 225,125.
     # population_check compares this against the local audit mirror at build time,
     # and a baseline the mirror can never match again reports stale=true forever,
     # which is a check nobody reads. Against today's figure it flags real drift.
-    "active_records": 220345,
+    "active_records": 228866,
     "overlay_reach": {
         "what": ("where the active records sit relative to the served text. A "
                  "record keyed to a row a carve moved is not lost: the carve "
                  "audits, or the convention that a carved row keeps its Migne "
                  "page identity, place most of them"),
-        "orphans": 96717,
-        "placed_on_a_served_row": 72765,
+        "orphans": 90276,
+        "placed_on_a_served_row": 66324,
         "accounted_for_but_not_served": 23550,
         "unaccounted": 402,
-        "row_found_but_neither_form_standing": 120,
-        "caveats": ("`placed` is weaker than `present`: 717 of the placed records "
+        "row_found_but_neither_form_standing": 132,
+        "caveats": ("`placed` is weaker than `present`: 641 of the placed records "
                     "land on a row that does not carry the correction. 16 of the "
                     "convention placements are undecidable, because a row split at "
                     "a character offset leaves both halves carrying the form. The "

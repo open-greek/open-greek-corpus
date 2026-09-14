@@ -44,6 +44,7 @@ GATE_DIR = {
     "freq/auto": "cell_freq_auto",
     "confusion/accepted": "cell_confusion_accepted",
     "llm/accepted": "cell_llm_accepted",
+    "llm/auto": "cell_llm_auto",
 }
 
 # The one revert since the 2026-08-12 sample that is not a cell census: the
