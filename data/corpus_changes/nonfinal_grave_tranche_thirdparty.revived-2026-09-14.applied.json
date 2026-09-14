@@ -1,0 +1,75 @@
+{
+ "what": "non-final grave repairs from data/nonfinal_grave_tranche_thirdparty.json",
+ "date": "2026-09-14",
+ "issue": "open-greek/open-greek-corpus#31",
+ "decision": "cisco, 2026-09-14",
+ "rule": "share >= 0.99 of a skeleton class holding >= 100 clean non-OCR tokens, and accent-only. Our own OCR went at >= 0.95; this is an order of magnitude stricter in expected error, because a wrong correction here is our error inside someone else's edition.",
+ "sources_edited": [
+  "byzantium_gr",
+  "cgpg",
+  "dfhg",
+  "first1k",
+  "perseus",
+  "pta",
+  "saws",
+  "wikisource"
+ ],
+ "token_weighted_share": 0.99553,
+ "expected_wrong_tokens": 0,
+ "marks_moved": "breathings, iota subscript and diaeresis are byte-identical between every form and its target; only accents moved",
+ "tokens_changed": 3,
+ "rows_touched": 3,
+ "forms": 3,
+ "substitutions": {
+  "τοὺτου": "τούτου",
+  "ἣκειν": "ἥκειν",
+  "ὃσπερ": "ὅσπερ"
+ },
+ "files": [
+  {
+   "file": "data/corpus/georgius-cedrenus.compendium-historiarum.jsonl",
+   "sha256_before": "6f2d9bcaf94fe89cae357ed834f5919afb4cd1e37033a0b37ef2f7859b0d3863",
+   "edits": [
+    {
+     "index": 587,
+     "was": [
+      [
+       84,
+       "τοὺτου"
+      ]
+     ]
+    },
+    {
+     "index": 688,
+     "was": [
+      [
+       857,
+       "ἣκειν"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 2,
+   "sha256_after": "c63109eea51e8ddc05efe963016135cd796e0021c7fe014910129522a309acea"
+  },
+  {
+   "file": "data/corpus/theophylactus-achridensis.expositio-in-epistolam-ii-ad-timotheum.jsonl",
+   "sha256_before": "bcfb1016a5b6eec1fa5860c79792db465d4ece22ebafede71e4288792d74cd99",
+   "edits": [
+    {
+     "index": 3,
+     "was": [
+      [
+       833,
+       "ὃσπερ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "35f7cff71eef5c9de0755f729cd413247f74e754ebdc4224559d4f6642581aac"
+  }
+ ],
+ "reverse": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_thirdparty.json --audit-tag revived-2026-09-14 --unapply",
+ "forward": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_thirdparty.json --sources byzantium_gr,cgpg,dfhg,first1k,perseus,pta,saws,wikisource --audit-tag revived-2026-09-14 --date 2026-09-14 --apply"
+}

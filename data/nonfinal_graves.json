@@ -11,8 +11,8 @@
   }
  },
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26567,
- "tokens": 42687,
+ "forms": 26563,
+ "tokens": 42683,
  "served_tokens": 65295827,
  "share": 0.000654,
  "works_touched": 1642,
@@ -29,8 +29,8 @@
   },
   {
    "source": "cgpg",
-   "tokens": 7737,
-   "rate": 0.001877
+   "tokens": 7733,
+   "rate": 0.001876
   },
   {
    "source": "perseus",
@@ -81,8 +81,8 @@
   },
   {
    "edition": "cgpg",
-   "tokens": 7737,
-   "rate": 0.001877
+   "tokens": 7733,
+   "rate": 0.001876
   },
   {
    "edition": "1st1K-grc1",
@@ -201,7 +201,7 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14845,
+  "tokens_with_more_than_one_attested_shape": 14841,
   "tokens_with_exactly_one": 8895,
   "tokens_with_none": 18947
  },
@@ -4637,8 +4637,8 @@
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3474,
-    "tokens": 9822
+    "forms": 3470,
+    "tokens": 9818
    },
    {
     "bucket": "no clean sibling",
@@ -4646,15 +4646,15 @@
     "tokens": 20553
    }
   ],
-  "accent_only_forms": 2672,
-  "accent_only_tokens": 8037,
-  "marks_moved_tokens": 1785,
+  "accent_only_forms": 2669,
+  "accent_only_tokens": 8034,
+  "marks_moved_tokens": 1784,
   "page_diffusion": {
    "distinct_scan_pages": 16020,
    "tokens_on_the_densest_500_pages": 3894,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3474,
+  "decided_forms_total": 3470,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {
