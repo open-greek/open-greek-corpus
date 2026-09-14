@@ -1,12 +1,12 @@
 {
  "corpus": {
   "passages": 1972138,
-  "tokens": 65295827,
-  "tokens_lemmatized": 63448304,
+  "tokens": 65295954,
+  "tokens_lemmatized": 63448467,
   "works": 3909
  },
  "generated_from": {
-  "commit": "5691b3ec4b37cc3eeeacaaf8d3e9d7e9da8288e5",
+  "commit": "d6d2bbbbdcf81bb8d5d87d799e7fd5282938a586",
   "commit_date": "2026-09-14",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -21,7 +21,7 @@
    "works": 2421
   },
   "PD": {
-   "tokens": 26696661,
+   "tokens": 26696788,
    "works": 1233
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -60,38 +60,38 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "f85360fce7f915770c45497523c7cbe1a14cd78bcfa942b0895d505ba64775d3",
-  "corpus_sha256": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4",
+  "catalog_sha256": "fc5958fa07c2d65e7db0afa874c2386ce9f3eb6f0ad4e2fe088f2bb68ee7203a",
+  "corpus_sha256": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20482606,
-    "works": 884
+    "tokens": 20699253,
+    "works": 888
    },
    "manual": {
-    "tokens": 5782398,
-    "works": 137
+    "tokens": 5560987,
+    "works": 129
    },
    "not-ocr": {
     "tokens": 36126603,
     "works": 2497
    },
    "raw-ocr": {
-    "tokens": 2904220,
-    "works": 391
+    "tokens": 2909111,
+    "works": 395
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
    "ocr_share_of_corpus_tokens": 0.4467,
-   "ocr_tokens": 29169224,
+   "ocr_tokens": 29169351,
    "ocr_works": 1412,
-   "raw_share_of_corpus_tokens": 0.0445,
-   "raw_share_of_ocr_tokens": 0.0996,
-   "raw_tokens": 2904220,
-   "raw_works": 391,
+   "raw_share_of_corpus_tokens": 0.0446,
+   "raw_share_of_ocr_tokens": 0.0997,
+   "raw_tokens": 2909111,
+   "raw_works": 395,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
@@ -262,10 +262,8 @@
     "what": "where the active records sit relative to the served text. A record keyed to a row a carve moved is not lost: the carve audits, or the convention that a carved row keeps its Migne page identity, place most of them"
    },
    "population_check": {
-    "checked": true,
-    "records_now": 228866,
-    "records_when_measured": 228866,
-    "stale": false
+    "checked": false,
+    "why": "data/corrections_log/ is a local audit mirror and is not published in this repository"
    },
    "precision_by_corrector": {
     "agent/accepted": 0.941,
@@ -306,7 +304,7 @@
      "llm": 32109,
      "prosodia": 516
     },
-    "correction_population_checked": true,
+    "correction_population_checked": false,
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
@@ -314,13 +312,19 @@
      "corpus_sha256": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4"
     },
     "pairs": 43624,
+    "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
     "raw_share_lower_bound": 0.0372,
     "raw_share_tokens_in_doubt": 472361,
     "raw_share_upper_bound": 0.0445,
     "raw_tokens_lower_bound": 2431859,
     "raw_tokens_upper_bound": 2904220,
     "raw_works_in_doubt": 22,
-    "stale": false,
+    "stale": true,
+    "stale_reasons": [
+     "catalog sha256 changed",
+     "corpus sha256 changed",
+     "raw-OCR bucket changed"
+    ],
     "tool": "scripts/measure_stamp_gap.py",
     "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
     "works_affected": 261,
@@ -343,7 +347,7 @@
   }
  },
  "release_date": "2026-09-14",
- "release_id": "corpus-2026-09-14.1",
+ "release_id": "corpus-2026-09-14.2",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -378,7 +382,7 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25047733,
+   "tokens": 25047860,
    "works": 1214
   },
   "perseus": {
