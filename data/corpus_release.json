@@ -6,7 +6,7 @@
   "works": 3909
  },
  "generated_from": {
-  "commit": "d6d2bbbbdcf81bb8d5d87d799e7fd5282938a586",
+  "commit": "c4afad137809c1e3bc194f2bab3e3c7bef1786f1",
   "commit_date": "2026-09-14",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -308,23 +308,18 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "f85360fce7f915770c45497523c7cbe1a14cd78bcfa942b0895d505ba64775d3",
-     "corpus_sha256": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4"
+     "catalog_sha256": "fc5958fa07c2d65e7db0afa874c2386ce9f3eb6f0ad4e2fe088f2bb68ee7203a",
+     "corpus_sha256": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc"
     },
     "pairs": 43624,
     "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
-    "raw_share_lower_bound": 0.0372,
+    "raw_share_lower_bound": 0.0373,
     "raw_share_tokens_in_doubt": 472361,
-    "raw_share_upper_bound": 0.0445,
-    "raw_tokens_lower_bound": 2431859,
-    "raw_tokens_upper_bound": 2904220,
+    "raw_share_upper_bound": 0.0446,
+    "raw_tokens_lower_bound": 2436750,
+    "raw_tokens_upper_bound": 2909111,
     "raw_works_in_doubt": 22,
-    "stale": true,
-    "stale_reasons": [
-     "catalog sha256 changed",
-     "corpus sha256 changed",
-     "raw-OCR bucket changed"
-    ],
+    "stale": false,
     "tool": "scripts/measure_stamp_gap.py",
     "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
     "works_affected": 261,
@@ -347,7 +342,7 @@
   }
  },
  "release_date": "2026-09-14",
- "release_id": "corpus-2026-09-14.2",
+ "release_id": "corpus-2026-09-14.3",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
