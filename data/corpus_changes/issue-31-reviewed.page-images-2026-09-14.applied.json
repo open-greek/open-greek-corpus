@@ -1,0 +1,1866 @@
+{
+  "schema_version": 1,
+  "what": "scan-reviewed, occurrence-specific non-final grave repairs",
+  "issue": "open-greek/open-greek-corpus#31",
+  "applied_at": "2026-09-14",
+  "queue": "data/review/issue-31.jsonl",
+  "queue_sha256": "b0bd4a49ce3847c193316e804d12c6aaa6907b8d16231d45ef80b4ae33fa4c0d",
+  "manifest": "data/review/issue-31.manifest.json",
+  "manifest_sha256": "49fe60642e6afa6f5dc1057490fbb3737702ea1b2c7b9a427eef5b2d4cd5c0c5",
+  "reviewed_decisions": "data/review/issue-31.reviewed.jsonl",
+  "reviewed_decisions_sha256": "75f46a41f5267d6a6d9db029fa1ac58ba64554db8eae5184c71b2ad4b9390e5b",
+  "release_reviewed": "corpus-2026-09-14.1",
+  "corpus_sha256_reviewed": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4",
+  "decision_counts": {
+    "replace": 16,
+    "split": 84
+  },
+  "edits_applied": 100,
+  "rows_touched": 50,
+  "files_touched": 6,
+  "files": [
+    {
+      "file": "data/corpus/andronicus-rhodius.de-passionibus-lib-1-sp.jsonl",
+      "sha256_before": "95ee38dff30845ffd3e985005616441e6bf6ca7f7fe43597bec80948facfdcfd",
+      "sha256_after": "652cee9047947acddac1a7cc6eb79b50f960a7298e7f7a44b0079479c1f04798",
+      "rows": [
+        {
+          "line": 2066,
+          "locus": "andronicus_mullach_fpg3_0266.1",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0266.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γενομένη διαστολὴ γένοι καὶ εἴδει καὶ ἀριθμῷ. Ἡ δτι οὐ μόνον τὰ γένει τὰ αὐτὰ πολλὴν ἐτι διαφορὰν ἀπο-λείπει, ἀλλὰ καὶ τὰ εἴδει ταῦτὰ λεγόμενα, εἰ τῷἀριθμῷ διαφέρει ὡς Πλάτων καὶ Σωκράτης πολλὴν λέγου-σι συμβεβηκότων διαφορὰν, αἱ δὲ κινήσεις αἱ πάλιν καὶπάλιν οὐχ αἱ αὐταί, καὶ τὰ νῦν, καὶ οἱ χρόνοι σχεδὸν τικαὶ τῷ ἀριθμῷ οἱ αὐτοὶ εἰσιν. Οὕτω δὲ καὶ οἱ Πυθαγό-ρειοι τὰ αὐτὰ πως καὶ τῷ ἀριθμῷ τῷ πάλιν καὶ πάλινἐλεγον γίνεσθαι. Οὐδὲν δὲ ἴσως χειρὸν καὶ τῆς Εὐδήμουδύσεως ἐκ τοῦ τρίτου τῶν Φυσικῶν τὰ ἐνταῦθα λεγό-μενα παραφραζούσης ἀκούειν. « Ὁ δὲ αὐτὸς χρόνοςπότερον γίνεται ὥσπερ ἐνιοὶ φασιν ἢ οὐ, ἀπορήσειενἄν τις. Πλεοναχῶς δὴ λεγομένου τοῦ ταύτῳ τῷ μὲνεἴδει φαίνεσθαι γίνεσθαι τὸ αὐτό, ὅσον θέρους καὶ χειμῶνκαὶ αἱ λοιπαὶ ὥραι τε καὶ περίοδοι, ὁμοίως δὲ αἱ κι-νήσεις αἱ αὐταὶ γίνονται τῷ εἴδει· τροπὰς γὰρ καὶἰσημερίας καὶ τὰς λοιπὰς πορείας ὁ ἥλιος ἀποτελεῖ.Εἰ δὲ τις πιστεύσειε τοῖς Πυθαγορείοις, ὡς πάλινταύτῳ ἀριθμῷ, κάγω μυθολογήσω τὸ βαδίσαν ἐγὼνὑμῖν καθημένοις, οὕτω καὶ τὰ ἄλλα πάντα ὁμοίωςἔξει, καὶ τὸν χρόνον εὐλογὸν ἐστι τὸν αὐτὸν εἶναι·μιᾶς γὰρ δὴ καὶ τῆς αὐτῆς κινήσεως, ὁμοίως δὲ καὶπολλῶν τῶν αὐτῶν τὸ πρότερον καὶ ὕστερον ἐν καὶταυτόν, καὶ ὁ τούτων δὴ ἀριθμός. Πάντα ἄρα ταῦτα,ὥστε καὶ ὁ χρόνος. » Καὶ ὅρα ὅτι μίαν καὶ τὴν αὐτὴνλέγει κίνησιν τὴν πάλιν καὶ πάλιν, καὶ τὸ πρότερον καὶἄλλο ὕστερον ἐν καὶ τὸ αὐτό. «Ὅτι δὲ καὶ οὕτως ἄλλοκαὶ ἄλλο τὸ ἀεὶ γινόμενον εἶναι φησι καὶ τῆς κινήσεωςκαὶ τοῦ χρόνου, ἀκούσον οἷα μετ’ ὀλίγον τῶν ἤδη παρατε-θέντων γέγραφε· « ὥσπερ δὲ τῆς κινήσεως τὸ ἀτομὸν ἐστιμὲν, τὸ δὲ παρεληλυθὸς ἔφθει, τὸ δὲ ἐσόμενον οὔπωἔστιν, οὕτω καὶ τοῦ χρόνου τὸ μὲν ἤγετο, τὸ δ’ οὔπωἔστι, τὸ δὲ παρὸν ἐστιν, ἄλλο καὶ ἄλλο γινόμενον ἀεί. )Cæterum consentanea praecedentibus hæc habetSimplicius fol. 171. b. τὸ δὲ οὕτω τῷ εἴδει τὸ αὐτό,ὡς κατὰ μηδὲν εἶναι διάφορον, καὶ τῷ ἀριθμῷ πως τὸαὐτὸ δοκεῖ, ὡς καὶ ἐπὶ τῶν μονάδων εἴρηται πρότερον,καὶ μετ’ ὀλίγον τῶν Εὐδήμου μάρτυρα παραθήσομαι. )52. Ἐν δὲ τῷ χρόνῳ πάντα γίνεται καὶ φθείρεται,διὸ καὶ οἱ μὲν σοφώτατον ἐλεγον, ὁ δὲ ΠυθαγόρειοςΠάρων ἀμαθέστατον, ὅτι ἐπιλανθάνονται ἐν τούτῳ,λέγων ὀρθότερον.(Aristoteles Phys. lib. IV, cap. 13 p. 222. b.17 ed. Bekker. Simplicius fol. 178. b. Σιμωνίδηςμὲν γὰρ σοφώτατον, ὅτι γίνονται ἐπιστήμονες ὑπὸ χρό-νου, Πάρων δὲ ὁ Πυθαγόρειος ἀμαθέστατον, ὅτι ἐπιλαν-θάνονται ὑπὸ χρόνου. Οὕτος δὲ εἴκειν εἶναι, οὗ καὶΕὐδήμους ἀνωμύμην ἐμνήσθη, λέγων ἐν Ὀλυμπία Σι-μωνίδου τὸν χρόνον ἐπαινούντος ὡς σοφώτατον, ἐπερεναὐτῷ αἱ μαθήσεις γίνονται καὶ αἱ ἀναμνήσεις, παρόντατινὰ τῶν σοφῶν εἰπεῖν· τί δέ, ὦ Σιμωνίδη, οὐχ ἐπι-λανθανόμεθα μέντοι ἐν τῷ χρόνῳ; καὶ μήποτε καὶπαρὰ Ἀριστοτέλει ἐν τῷ ὁ δὲ Πυθαγόρειος παρὰ τὸΠΑΡΩΝ οὐχ εἶναι ὄνομα κύριον, ἀλλὰ μετοχὴνπαρόντα γὰρ τὸν Πυθαγόρειον τῷ Σιμωνίδῃ λέγοντι,ὅτι σοφώτατος ὁ χρόνος, εἴπειν φασιν ὅτι ἀμαθέστα-τον. Quæ quum ita sint, tamen Πάρων nomenproprium est apud Aristotelem Politicorum, lib. V,cap. 10. )53. Ἔοικεν οὖν καὶ Ἀρχύτας ὥσπερ καὶ Ἀριστοτέ-λης τὴν τῶν νῦν συνεχῆ καὶ ἀδιάριeton ῥοὴν τίθεσθαιτὸν χρόνον, καὶ τούτων μάλιστα παραδιδόναι τὸν ἐν τῇγενέσει σύστοιχον καὶ κυρίως λεγόμενον χρόνον εἰκόναὄντως τοῦ αἰῶνος. Ὁ δὲ γε Πλάτων καὶ Ἀριστοτέληςἤν ἐσχέτην περὶ χρόνου δόξας, εἴρηται πρότερον.Καὶ Θεόφραστος δὲ καὶ Εὐδήμους οἱ τοῦ Ἀριστοτέλουςἑταῖροι τὰ αὐτὰ φαίνονται τῷ Ἀριστοτέλει περὶ χρό-νου δοξάσαντες τε καὶ διδάξαντες. Ὁ μέντοι Λαμψα-κηνὸς Στράτων αἰτιασάμενος τὸν ὑπ’ Ἀριστοτέλουςτε καὶ τῶν Ἀριστοτέλους ἑταίρων ἀποδοθέντα τοῦχρόνου ὁρισμόν, αὐτὸς καὶ τοῦ Θεοφράστου μαθητὴςὡν τοῦ πάντα ἀκολουθήσαντος τῷ Ἀριστοτέλει, και-νοτέραν ἐδίδαξεν ὁδόν.(Simplicius Comment. in Aristot. Phys. fol.187. )54. Ἐπεὶ δὲ πᾶσα μεταβολὴ ἐστιν ἐκ τινος εἰς τι(δηλοὶ δὲ καὶ τοῦνομα· μετ’ ἄλλο γὰρ τι καὶ τὸ μὲνπρότερον δηλοῖ, τὸ δ’ ὕστερον), μεταβάλλει ἄν τὸ με-ταβάλλον τετραχῶς· ἢ γὰρ ἐξ ὑποκειμένου εἰς ὑποκεί-μενον, ἢ ἐξ ὑποκειμένου εἰς μὴ ὑποκείμενον, ἢ οὐκ ἐξὑποκειμένου εἰς ὑποκείμενον, ἢ οὐκ ἐξ ὑποκειμένουεἰς μὴ ὑποκείμενον. Λέγω δὲ ὑποκείμενον τὸ κατα-φάσει δηλούμενον, ὥστε ἀνάγκη ἐκ τῶν εἰρημένωντρεῖς εἶναι μεταβολάς, τὴν τε ἐξ ὑποκειμένου εἰςὑποκείμενον, καὶ τὴν ἐξ ὑποκειμένου εἰς μὴ ὑποκεί-μενον, καὶ τὴν ἐκ μὴ ὑποκειμένου εἰς ὑποκείμενον.52. In tempore autem omnia fiunt et corrumpuntur;quapropter nonnulli quidem sapientissimum illud appel-larunt, sed Pythagoreus Paro indoctissimum, quia in eoetiam obliviscantur, rectius dicens.53. Videtur igitur etiam Archytas æque atque Aristo-teles continuum et inseparabilem rerum præsentiumfluxum tempus statuere, maximeque tradere id quodsimili ortu generatum sit, et proprie appelletur tempus,esse revera æternitatis imaginem. At Plato et Aristotelesquam sententiam de tempore habuerint, supra dictumest. Sed Theophrastus quoque et Eudemus, Aristotelissodales, idem quod Aristoteles de tempore sensisse etpræcepisse videntur. Verum Strato Lampascenus culpatatemporis definitione ab Aristotele ejusque sodalibus pro-dita, ipse quamvis Theophrasti in omnibus rebus Aristo-telem secuti discipulus esset, novam viam ingressus est.54. Cum autem omnis mutatio e quopiam in quidpiamsit, ( ut ipsum quoque nomen significat : quorum in-terposito alio aliud prius, aliud posterius est) id quodmutatur, mutari quatuor modis potest. Aut enim e sub-\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0266.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γενομένη διαστολὴ γένοι καὶ εἴδει καὶ ἀριθμῷ. Ἡ δτι οὐ μόνον τὰ γένει τὰ αὐτὰ πολλὴν ἐτι διαφορὰν ἀπο-λείπει, ἀλλὰ καὶ τὰ εἴδει ταῦτὰ λεγόμενα, εἰ τῷἀριθμῷ διαφέρει ὡς Πλάτων καὶ Σωκράτης πολλὴν λέγου-σι συμβεβηκότων διαφορὰν, αἱ δὲ κινήσεις αἱ πάλιν καὶ πάλιν οὐχ αἱ αὐταί, καὶ τὰ νῦν, καὶ οἱ χρόνοι σχεδὸν τικαὶ τῷ ἀριθμῷ οἱ αὐτοὶ εἰσιν. Οὕτω δὲ καὶ οἱ Πυθαγό-ρειοι τὰ αὐτὰ πως καὶ τῷ ἀριθμῷ τῷ πάλιν καὶ πάλινἐλεγον γίνεσθαι. Οὐδὲν δὲ ἴσως χειρὸν καὶ τῆς Εὐδήμουδύσεως ἐκ τοῦ τρίτου τῶν Φυσικῶν τὰ ἐνταῦθα λεγό-μενα παραφραζούσης ἀκούειν. « Ὁ δὲ αὐτὸς χρόνοςπότερον γίνεται ὥσπερ ἐνιοὶ φασιν ἢ οὐ, ἀπορήσειενἄν τις. Πλεοναχῶς δὴ λεγομένου τοῦ ταύτῳ τῷ μὲν εἴδει φαίνεσθαι γίνεσθαι τὸ αὐτό, ὅσον θέρους καὶ χειμῶνκαὶ αἱ λοιπαὶ ὥραι τε καὶ περίοδοι, ὁμοίως δὲ αἱ κι-νήσεις αἱ αὐταὶ γίνονται τῷ εἴδει· τροπὰς γὰρ καὶἰσημερίας καὶ τὰς λοιπὰς πορείας ὁ ἥλιος ἀποτελεῖ.Εἰ δὲ τις πιστεύσειε τοῖς Πυθαγορείοις, ὡς πάλινταύτῳ ἀριθμῷ, κάγω μυθολογήσω τὸ βαδίσαν ἐγὼν ὑμῖν καθημένοις, οὕτω καὶ τὰ ἄλλα πάντα ὁμοίωςἔξει, καὶ τὸν χρόνον εὐλογὸν ἐστι τὸν αὐτὸν εἶναι·μιᾶς γὰρ δὴ καὶ τῆς αὐτῆς κινήσεως, ὁμοίως δὲ καὶπολλῶν τῶν αὐτῶν τὸ πρότερον καὶ ὕστερον ἐν καὶ ταυτόν, καὶ ὁ τούτων δὴ ἀριθμός. Πάντα ἄρα ταῦτα,ὥστε καὶ ὁ χρόνος. » Καὶ ὅρα ὅτι μίαν καὶ τὴν αὐτὴν λέγει κίνησιν τὴν πάλιν καὶ πάλιν, καὶ τὸ πρότερον καὶ ἄλλο ὕστερον ἐν καὶ τὸ αὐτό. «Ὅτι δὲ καὶ οὕτως ἄλλοκαὶ ἄλλο τὸ ἀεὶ γινόμενον εἶναι φησι καὶ τῆς κινήσεωςκαὶ τοῦ χρόνου, ἀκούσον οἷα μετ’ ὀλίγον τῶν ἤδη παρατε-θέντων γέγραφε· « ὥσπερ δὲ τῆς κινήσεως τὸ ἀτομὸν ἐστιμὲν, τὸ δὲ παρεληλυθὸς ἔφθει, τὸ δὲ ἐσόμενον οὔπωἔστιν, οὕτω καὶ τοῦ χρόνου τὸ μὲν ἤγετο, τὸ δ’ οὔπωἔστι, τὸ δὲ παρὸν ἐστιν, ἄλλο καὶ ἄλλο γινόμενον ἀεί. )Cæterum consentanea praecedentibus hæc habetSimplicius fol. 171. b. τὸ δὲ οὕτω τῷ εἴδει τὸ αὐτό,ὡς κατὰ μηδὲν εἶναι διάφορον, καὶ τῷ ἀριθμῷ πως τὸ αὐτὸ δοκεῖ, ὡς καὶ ἐπὶ τῶν μονάδων εἴρηται πρότερον,καὶ μετ’ ὀλίγον τῶν Εὐδήμου μάρτυρα παραθήσομαι. )52. Ἐν δὲ τῷ χρόνῳ πάντα γίνεται καὶ φθείρεται,διὸ καὶ οἱ μὲν σοφώτατον ἐλεγον, ὁ δὲ ΠυθαγόρειοςΠάρων ἀμαθέστατον, ὅτι ἐπιλανθάνονται ἐν τούτῳ,λέγων ὀρθότερον.(Aristoteles Phys. lib. IV, cap. 13 p. 222. b.17 ed. Bekker. Simplicius fol. 178. b. Σιμωνίδηςμὲν γὰρ σοφώτατον, ὅτι γίνονται ἐπιστήμονες ὑπὸ χρό-νου, Πάρων δὲ ὁ Πυθαγόρειος ἀμαθέστατον, ὅτι ἐπιλαν-θάνονται ὑπὸ χρόνου. Οὕτος δὲ εἴκειν εἶναι, οὗ καὶ Εὐδήμους ἀνωμύμην ἐμνήσθη, λέγων ἐν Ὀλυμπία Σι-μωνίδου τὸν χρόνον ἐπαινούντος ὡς σοφώτατον, ἐπερεναὐτῷ αἱ μαθήσεις γίνονται καὶ αἱ ἀναμνήσεις, παρόντατινὰ τῶν σοφῶν εἰπεῖν· τί δέ, ὦ Σιμωνίδη, οὐχ ἐπι-λανθανόμεθα μέντοι ἐν τῷ χρόνῳ; καὶ μήποτε καὶ παρὰ Ἀριστοτέλει ἐν τῷ ὁ δὲ Πυθαγόρειος παρὰ τὸ ΠΑΡΩΝ οὐχ εἶναι ὄνομα κύριον, ἀλλὰ μετοχὴνπαρόντα γὰρ τὸν Πυθαγόρειον τῷ Σιμωνίδῃ λέγοντι,ὅτι σοφώτατος ὁ χρόνος, εἴπειν φασιν ὅτι ἀμαθέστα-τον. Quæ quum ita sint, tamen Πάρων nomenproprium est apud Aristotelem Politicorum, lib. V,cap. 10. )53. Ἔοικεν οὖν καὶ Ἀρχύτας ὥσπερ καὶ Ἀριστοτέ-λης τὴν τῶν νῦν συνεχῆ καὶ ἀδιάριeton ῥοὴν τίθεσθαιτὸν χρόνον, καὶ τούτων μάλιστα παραδιδόναι τὸν ἐν τῇγενέσει σύστοιχον καὶ κυρίως λεγόμενον χρόνον εἰκόναὄντως τοῦ αἰῶνος. Ὁ δὲ γε Πλάτων καὶ Ἀριστοτέληςἤν ἐσχέτην περὶ χρόνου δόξας, εἴρηται πρότερον.Καὶ Θεόφραστος δὲ καὶ Εὐδήμους οἱ τοῦ Ἀριστοτέλουςἑταῖροι τὰ αὐτὰ φαίνονται τῷ Ἀριστοτέλει περὶ χρό-νου δοξάσαντες τε καὶ διδάξαντες. Ὁ μέντοι Λαμψα-κηνὸς Στράτων αἰτιασάμενος τὸν ὑπ’ Ἀριστοτέλουςτε καὶ τῶν Ἀριστοτέλους ἑταίρων ἀποδοθέντα τοῦχρόνου ὁρισμόν, αὐτὸς καὶ τοῦ Θεοφράστου μαθητὴς ὡν τοῦ πάντα ἀκολουθήσαντος τῷ Ἀριστοτέλει, και-νοτέραν ἐδίδαξεν ὁδόν.(Simplicius Comment. in Aristot. Phys. fol.187. )54. Ἐπεὶ δὲ πᾶσα μεταβολὴ ἐστιν ἐκ τινος εἰς τι(δηλοὶ δὲ καὶ τοῦνομα· μετ’ ἄλλο γὰρ τι καὶ τὸ μὲν πρότερον δηλοῖ, τὸ δ’ ὕστερον), μεταβάλλει ἄν τὸ με-ταβάλλον τετραχῶς· ἢ γὰρ ἐξ ὑποκειμένου εἰς ὑποκεί-μενον, ἢ ἐξ ὑποκειμένου εἰς μὴ ὑποκείμενον, ἢ οὐκ ἐξὑποκειμένου εἰς ὑποκείμενον, ἢ οὐκ ἐξ ὑποκειμένουεἰς μὴ ὑποκείμενον. Λέγω δὲ ὑποκείμενον τὸ κατα-φάσει δηλούμενον, ὥστε ἀνάγκη ἐκ τῶν εἰρημένωντρεῖς εἶναι μεταβολάς, τὴν τε ἐξ ὑποκειμένου εἰςὑποκείμενον, καὶ τὴν ἐξ ὑποκειμένου εἰς μὴ ὑποκεί-μενον, καὶ τὴν ἐκ μὴ ὑποκειμένου εἰς ὑποκείμενον.52. In tempore autem omnia fiunt et corrumpuntur;quapropter nonnulli quidem sapientissimum illud appel-larunt, sed Pythagoreus Paro indoctissimum, quia in eoetiam obliviscantur, rectius dicens.53. Videtur igitur etiam Archytas æque atque Aristo-teles continuum et inseparabilem rerum præsentiumfluxum tempus statuere, maximeque tradere id quodsimili ortu generatum sit, et proprie appelletur tempus,esse revera æternitatis imaginem. At Plato et Aristotelesquam sententiam de tempore habuerint, supra dictumest. Sed Theophrastus quoque et Eudemus, Aristotelissodales, idem quod Aristoteles de tempore sensisse etpræcepisse videntur. Verum Strato Lampascenus culpatatemporis definitione ab Aristotele ejusque sodalibus pro-dita, ipse quamvis Theophrasti in omnibus rebus Aristo-telem secuti discipulus esset, novam viam ingressus est.54. Cum autem omnis mutatio e quopiam in quidpiamsit, ( ut ipsum quoque nomen significat : quorum in-terposito alio aliud prius, aliud posterius est) id quodmutatur, mutari quatuor modis potest. Aut enim e sub-\"}\n",
+          "original_line_sha256": "d7701a2e23b54d7e8910485815eea0cfb17266bbcf45af2e77ad7a9b6a01f26f",
+          "applied_line_sha256": "226735eb0f1465a7d9e271f74dbd983e4fb403ce6b2d9e7a054ac615356f5ad8",
+          "text_before": "γενομένη διαστολὴ γένοι καὶ εἴδει καὶ ἀριθμῷ. Ἡ δτι οὐ μόνον τὰ γένει τὰ αὐτὰ πολλὴν ἐτι διαφορὰν ἀπο-λείπει, ἀλλὰ καὶ τὰ εἴδει ταῦτὰ λεγόμενα, εἰ τῷἀριθμῷ διαφέρει ὡς Πλάτων καὶ Σωκράτης πολλὴν λέγου-σι συμβεβηκότων διαφορὰν, αἱ δὲ κινήσεις αἱ πάλιν καὶπάλιν οὐχ αἱ αὐταί, καὶ τὰ νῦν, καὶ οἱ χρόνοι σχεδὸν τικαὶ τῷ ἀριθμῷ οἱ αὐτοὶ εἰσιν. Οὕτω δὲ καὶ οἱ Πυθαγό-ρειοι τὰ αὐτὰ πως καὶ τῷ ἀριθμῷ τῷ πάλιν καὶ πάλινἐλεγον γίνεσθαι. Οὐδὲν δὲ ἴσως χειρὸν καὶ τῆς Εὐδήμουδύσεως ἐκ τοῦ τρίτου τῶν Φυσικῶν τὰ ἐνταῦθα λεγό-μενα παραφραζούσης ἀκούειν. « Ὁ δὲ αὐτὸς χρόνοςπότερον γίνεται ὥσπερ ἐνιοὶ φασιν ἢ οὐ, ἀπορήσειενἄν τις. Πλεοναχῶς δὴ λεγομένου τοῦ ταύτῳ τῷ μὲνεἴδει φαίνεσθαι γίνεσθαι τὸ αὐτό, ὅσον θέρους καὶ χειμῶνκαὶ αἱ λοιπαὶ ὥραι τε καὶ περίοδοι, ὁμοίως δὲ αἱ κι-νήσεις αἱ αὐταὶ γίνονται τῷ εἴδει· τροπὰς γὰρ καὶἰσημερίας καὶ τὰς λοιπὰς πορείας ὁ ἥλιος ἀποτελεῖ.Εἰ δὲ τις πιστεύσειε τοῖς Πυθαγορείοις, ὡς πάλινταύτῳ ἀριθμῷ, κάγω μυθολογήσω τὸ βαδίσαν ἐγὼνὑμῖν καθημένοις, οὕτω καὶ τὰ ἄλλα πάντα ὁμοίωςἔξει, καὶ τὸν χρόνον εὐλογὸν ἐστι τὸν αὐτὸν εἶναι·μιᾶς γὰρ δὴ καὶ τῆς αὐτῆς κινήσεως, ὁμοίως δὲ καὶπολλῶν τῶν αὐτῶν τὸ πρότερον καὶ ὕστερον ἐν καὶταυτόν, καὶ ὁ τούτων δὴ ἀριθμός. Πάντα ἄρα ταῦτα,ὥστε καὶ ὁ χρόνος. » Καὶ ὅρα ὅτι μίαν καὶ τὴν αὐτὴνλέγει κίνησιν τὴν πάλιν καὶ πάλιν, καὶ τὸ πρότερον καὶἄλλο ὕστερον ἐν καὶ τὸ αὐτό. «Ὅτι δὲ καὶ οὕτως ἄλλοκαὶ ἄλλο τὸ ἀεὶ γινόμενον εἶναι φησι καὶ τῆς κινήσεωςκαὶ τοῦ χρόνου, ἀκούσον οἷα μετ’ ὀλίγον τῶν ἤδη παρατε-θέντων γέγραφε· « ὥσπερ δὲ τῆς κινήσεως τὸ ἀτομὸν ἐστιμὲν, τὸ δὲ παρεληλυθὸς ἔφθει, τὸ δὲ ἐσόμενον οὔπωἔστιν, οὕτω καὶ τοῦ χρόνου τὸ μὲν ἤγετο, τὸ δ’ οὔπωἔστι, τὸ δὲ παρὸν ἐστιν, ἄλλο καὶ ἄλλο γινόμενον ἀεί. )Cæterum consentanea praecedentibus hæc habetSimplicius fol. 171. b. τὸ δὲ οὕτω τῷ εἴδει τὸ αὐτό,ὡς κατὰ μηδὲν εἶναι διάφορον, καὶ τῷ ἀριθμῷ πως τὸαὐτὸ δοκεῖ, ὡς καὶ ἐπὶ τῶν μονάδων εἴρηται πρότερον,καὶ μετ’ ὀλίγον τῶν Εὐδήμου μάρτυρα παραθήσομαι. )52. Ἐν δὲ τῷ χρόνῳ πάντα γίνεται καὶ φθείρεται,διὸ καὶ οἱ μὲν σοφώτατον ἐλεγον, ὁ δὲ ΠυθαγόρειοςΠάρων ἀμαθέστατον, ὅτι ἐπιλανθάνονται ἐν τούτῳ,λέγων ὀρθότερον.(Aristoteles Phys. lib. IV, cap. 13 p. 222. b.17 ed. Bekker. Simplicius fol. 178. b. Σιμωνίδηςμὲν γὰρ σοφώτατον, ὅτι γίνονται ἐπιστήμονες ὑπὸ χρό-νου, Πάρων δὲ ὁ Πυθαγόρειος ἀμαθέστατον, ὅτι ἐπιλαν-θάνονται ὑπὸ χρόνου. Οὕτος δὲ εἴκειν εἶναι, οὗ καὶΕὐδήμους ἀνωμύμην ἐμνήσθη, λέγων ἐν Ὀλυμπία Σι-μωνίδου τὸν χρόνον ἐπαινούντος ὡς σοφώτατον, ἐπερεναὐτῷ αἱ μαθήσεις γίνονται καὶ αἱ ἀναμνήσεις, παρόντατινὰ τῶν σοφῶν εἰπεῖν· τί δέ, ὦ Σιμωνίδη, οὐχ ἐπι-λανθανόμεθα μέντοι ἐν τῷ χρόνῳ; καὶ μήποτε καὶπαρὰ Ἀριστοτέλει ἐν τῷ ὁ δὲ Πυθαγόρειος παρὰ τὸΠΑΡΩΝ οὐχ εἶναι ὄνομα κύριον, ἀλλὰ μετοχὴνπαρόντα γὰρ τὸν Πυθαγόρειον τῷ Σιμωνίδῃ λέγοντι,ὅτι σοφώτατος ὁ χρόνος, εἴπειν φασιν ὅτι ἀμαθέστα-τον. Quæ quum ita sint, tamen Πάρων nomenproprium est apud Aristotelem Politicorum, lib. V,cap. 10. )53. Ἔοικεν οὖν καὶ Ἀρχύτας ὥσπερ καὶ Ἀριστοτέ-λης τὴν τῶν νῦν συνεχῆ καὶ ἀδιάριeton ῥοὴν τίθεσθαιτὸν χρόνον, καὶ τούτων μάλιστα παραδιδόναι τὸν ἐν τῇγενέσει σύστοιχον καὶ κυρίως λεγόμενον χρόνον εἰκόναὄντως τοῦ αἰῶνος. Ὁ δὲ γε Πλάτων καὶ Ἀριστοτέληςἤν ἐσχέτην περὶ χρόνου δόξας, εἴρηται πρότερον.Καὶ Θεόφραστος δὲ καὶ Εὐδήμους οἱ τοῦ Ἀριστοτέλουςἑταῖροι τὰ αὐτὰ φαίνονται τῷ Ἀριστοτέλει περὶ χρό-νου δοξάσαντες τε καὶ διδάξαντες. Ὁ μέντοι Λαμψα-κηνὸς Στράτων αἰτιασάμενος τὸν ὑπ’ Ἀριστοτέλουςτε καὶ τῶν Ἀριστοτέλους ἑταίρων ἀποδοθέντα τοῦχρόνου ὁρισμόν, αὐτὸς καὶ τοῦ Θεοφράστου μαθητὴςὡν τοῦ πάντα ἀκολουθήσαντος τῷ Ἀριστοτέλει, και-νοτέραν ἐδίδαξεν ὁδόν.(Simplicius Comment. in Aristot. Phys. fol.187. )54. Ἐπεὶ δὲ πᾶσα μεταβολὴ ἐστιν ἐκ τινος εἰς τι(δηλοὶ δὲ καὶ τοῦνομα· μετ’ ἄλλο γὰρ τι καὶ τὸ μὲνπρότερον δηλοῖ, τὸ δ’ ὕστερον), μεταβάλλει ἄν τὸ με-ταβάλλον τετραχῶς· ἢ γὰρ ἐξ ὑποκειμένου εἰς ὑποκεί-μενον, ἢ ἐξ ὑποκειμένου εἰς μὴ ὑποκείμενον, ἢ οὐκ ἐξὑποκειμένου εἰς ὑποκείμενον, ἢ οὐκ ἐξ ὑποκειμένουεἰς μὴ ὑποκείμενον. Λέγω δὲ ὑποκείμενον τὸ κατα-φάσει δηλούμενον, ὥστε ἀνάγκη ἐκ τῶν εἰρημένωντρεῖς εἶναι μεταβολάς, τὴν τε ἐξ ὑποκειμένου εἰςὑποκείμενον, καὶ τὴν ἐξ ὑποκειμένου εἰς μὴ ὑποκεί-μενον, καὶ τὴν ἐκ μὴ ὑποκειμένου εἰς ὑποκείμενον.52. In tempore autem omnia fiunt et corrumpuntur;quapropter nonnulli quidem sapientissimum illud appel-larunt, sed Pythagoreus Paro indoctissimum, quia in eoetiam obliviscantur, rectius dicens.53. Videtur igitur etiam Archytas æque atque Aristo-teles continuum et inseparabilem rerum præsentiumfluxum tempus statuere, maximeque tradere id quodsimili ortu generatum sit, et proprie appelletur tempus,esse revera æternitatis imaginem. At Plato et Aristotelesquam sententiam de tempore habuerint, supra dictumest. Sed Theophrastus quoque et Eudemus, Aristotelissodales, idem quod Aristoteles de tempore sensisse etpræcepisse videntur. Verum Strato Lampascenus culpatatemporis definitione ab Aristotele ejusque sodalibus pro-dita, ipse quamvis Theophrasti in omnibus rebus Aristo-telem secuti discipulus esset, novam viam ingressus est.54. Cum autem omnis mutatio e quopiam in quidpiamsit, ( ut ipsum quoque nomen significat : quorum in-terposito alio aliud prius, aliud posterius est) id quodmutatur, mutari quatuor modis potest. Aut enim e sub-",
+          "text_after": "γενομένη διαστολὴ γένοι καὶ εἴδει καὶ ἀριθμῷ. Ἡ δτι οὐ μόνον τὰ γένει τὰ αὐτὰ πολλὴν ἐτι διαφορὰν ἀπο-λείπει, ἀλλὰ καὶ τὰ εἴδει ταῦτὰ λεγόμενα, εἰ τῷἀριθμῷ διαφέρει ὡς Πλάτων καὶ Σωκράτης πολλὴν λέγου-σι συμβεβηκότων διαφορὰν, αἱ δὲ κινήσεις αἱ πάλιν καὶ πάλιν οὐχ αἱ αὐταί, καὶ τὰ νῦν, καὶ οἱ χρόνοι σχεδὸν τικαὶ τῷ ἀριθμῷ οἱ αὐτοὶ εἰσιν. Οὕτω δὲ καὶ οἱ Πυθαγό-ρειοι τὰ αὐτὰ πως καὶ τῷ ἀριθμῷ τῷ πάλιν καὶ πάλινἐλεγον γίνεσθαι. Οὐδὲν δὲ ἴσως χειρὸν καὶ τῆς Εὐδήμουδύσεως ἐκ τοῦ τρίτου τῶν Φυσικῶν τὰ ἐνταῦθα λεγό-μενα παραφραζούσης ἀκούειν. « Ὁ δὲ αὐτὸς χρόνοςπότερον γίνεται ὥσπερ ἐνιοὶ φασιν ἢ οὐ, ἀπορήσειενἄν τις. Πλεοναχῶς δὴ λεγομένου τοῦ ταύτῳ τῷ μὲν εἴδει φαίνεσθαι γίνεσθαι τὸ αὐτό, ὅσον θέρους καὶ χειμῶνκαὶ αἱ λοιπαὶ ὥραι τε καὶ περίοδοι, ὁμοίως δὲ αἱ κι-νήσεις αἱ αὐταὶ γίνονται τῷ εἴδει· τροπὰς γὰρ καὶἰσημερίας καὶ τὰς λοιπὰς πορείας ὁ ἥλιος ἀποτελεῖ.Εἰ δὲ τις πιστεύσειε τοῖς Πυθαγορείοις, ὡς πάλινταύτῳ ἀριθμῷ, κάγω μυθολογήσω τὸ βαδίσαν ἐγὼν ὑμῖν καθημένοις, οὕτω καὶ τὰ ἄλλα πάντα ὁμοίωςἔξει, καὶ τὸν χρόνον εὐλογὸν ἐστι τὸν αὐτὸν εἶναι·μιᾶς γὰρ δὴ καὶ τῆς αὐτῆς κινήσεως, ὁμοίως δὲ καὶπολλῶν τῶν αὐτῶν τὸ πρότερον καὶ ὕστερον ἐν καὶ ταυτόν, καὶ ὁ τούτων δὴ ἀριθμός. Πάντα ἄρα ταῦτα,ὥστε καὶ ὁ χρόνος. » Καὶ ὅρα ὅτι μίαν καὶ τὴν αὐτὴν λέγει κίνησιν τὴν πάλιν καὶ πάλιν, καὶ τὸ πρότερον καὶ ἄλλο ὕστερον ἐν καὶ τὸ αὐτό. «Ὅτι δὲ καὶ οὕτως ἄλλοκαὶ ἄλλο τὸ ἀεὶ γινόμενον εἶναι φησι καὶ τῆς κινήσεωςκαὶ τοῦ χρόνου, ἀκούσον οἷα μετ’ ὀλίγον τῶν ἤδη παρατε-θέντων γέγραφε· « ὥσπερ δὲ τῆς κινήσεως τὸ ἀτομὸν ἐστιμὲν, τὸ δὲ παρεληλυθὸς ἔφθει, τὸ δὲ ἐσόμενον οὔπωἔστιν, οὕτω καὶ τοῦ χρόνου τὸ μὲν ἤγετο, τὸ δ’ οὔπωἔστι, τὸ δὲ παρὸν ἐστιν, ἄλλο καὶ ἄλλο γινόμενον ἀεί. )Cæterum consentanea praecedentibus hæc habetSimplicius fol. 171. b. τὸ δὲ οὕτω τῷ εἴδει τὸ αὐτό,ὡς κατὰ μηδὲν εἶναι διάφορον, καὶ τῷ ἀριθμῷ πως τὸ αὐτὸ δοκεῖ, ὡς καὶ ἐπὶ τῶν μονάδων εἴρηται πρότερον,καὶ μετ’ ὀλίγον τῶν Εὐδήμου μάρτυρα παραθήσομαι. )52. Ἐν δὲ τῷ χρόνῳ πάντα γίνεται καὶ φθείρεται,διὸ καὶ οἱ μὲν σοφώτατον ἐλεγον, ὁ δὲ ΠυθαγόρειοςΠάρων ἀμαθέστατον, ὅτι ἐπιλανθάνονται ἐν τούτῳ,λέγων ὀρθότερον.(Aristoteles Phys. lib. IV, cap. 13 p. 222. b.17 ed. Bekker. Simplicius fol. 178. b. Σιμωνίδηςμὲν γὰρ σοφώτατον, ὅτι γίνονται ἐπιστήμονες ὑπὸ χρό-νου, Πάρων δὲ ὁ Πυθαγόρειος ἀμαθέστατον, ὅτι ἐπιλαν-θάνονται ὑπὸ χρόνου. Οὕτος δὲ εἴκειν εἶναι, οὗ καὶ Εὐδήμους ἀνωμύμην ἐμνήσθη, λέγων ἐν Ὀλυμπία Σι-μωνίδου τὸν χρόνον ἐπαινούντος ὡς σοφώτατον, ἐπερεναὐτῷ αἱ μαθήσεις γίνονται καὶ αἱ ἀναμνήσεις, παρόντατινὰ τῶν σοφῶν εἰπεῖν· τί δέ, ὦ Σιμωνίδη, οὐχ ἐπι-λανθανόμεθα μέντοι ἐν τῷ χρόνῳ; καὶ μήποτε καὶ παρὰ Ἀριστοτέλει ἐν τῷ ὁ δὲ Πυθαγόρειος παρὰ τὸ ΠΑΡΩΝ οὐχ εἶναι ὄνομα κύριον, ἀλλὰ μετοχὴνπαρόντα γὰρ τὸν Πυθαγόρειον τῷ Σιμωνίδῃ λέγοντι,ὅτι σοφώτατος ὁ χρόνος, εἴπειν φασιν ὅτι ἀμαθέστα-τον. Quæ quum ita sint, tamen Πάρων nomenproprium est apud Aristotelem Politicorum, lib. V,cap. 10. )53. Ἔοικεν οὖν καὶ Ἀρχύτας ὥσπερ καὶ Ἀριστοτέ-λης τὴν τῶν νῦν συνεχῆ καὶ ἀδιάριeton ῥοὴν τίθεσθαιτὸν χρόνον, καὶ τούτων μάλιστα παραδιδόναι τὸν ἐν τῇγενέσει σύστοιχον καὶ κυρίως λεγόμενον χρόνον εἰκόναὄντως τοῦ αἰῶνος. Ὁ δὲ γε Πλάτων καὶ Ἀριστοτέληςἤν ἐσχέτην περὶ χρόνου δόξας, εἴρηται πρότερον.Καὶ Θεόφραστος δὲ καὶ Εὐδήμους οἱ τοῦ Ἀριστοτέλουςἑταῖροι τὰ αὐτὰ φαίνονται τῷ Ἀριστοτέλει περὶ χρό-νου δοξάσαντες τε καὶ διδάξαντες. Ὁ μέντοι Λαμψα-κηνὸς Στράτων αἰτιασάμενος τὸν ὑπ’ Ἀριστοτέλουςτε καὶ τῶν Ἀριστοτέλους ἑταίρων ἀποδοθέντα τοῦχρόνου ὁρισμόν, αὐτὸς καὶ τοῦ Θεοφράστου μαθητὴς ὡν τοῦ πάντα ἀκολουθήσαντος τῷ Ἀριστοτέλει, και-νοτέραν ἐδίδαξεν ὁδόν.(Simplicius Comment. in Aristot. Phys. fol.187. )54. Ἐπεὶ δὲ πᾶσα μεταβολὴ ἐστιν ἐκ τινος εἰς τι(δηλοὶ δὲ καὶ τοῦνομα· μετ’ ἄλλο γὰρ τι καὶ τὸ μὲν πρότερον δηλοῖ, τὸ δ’ ὕστερον), μεταβάλλει ἄν τὸ με-ταβάλλον τετραχῶς· ἢ γὰρ ἐξ ὑποκειμένου εἰς ὑποκεί-μενον, ἢ ἐξ ὑποκειμένου εἰς μὴ ὑποκείμενον, ἢ οὐκ ἐξὑποκειμένου εἰς ὑποκείμενον, ἢ οὐκ ἐξ ὑποκειμένουεἰς μὴ ὑποκείμενον. Λέγω δὲ ὑποκείμενον τὸ κατα-φάσει δηλούμενον, ὥστε ἀνάγκη ἐκ τῶν εἰρημένωντρεῖς εἶναι μεταβολάς, τὴν τε ἐξ ὑποκειμένου εἰςὑποκείμενον, καὶ τὴν ἐξ ὑποκειμένου εἰς μὴ ὑποκεί-μενον, καὶ τὴν ἐκ μὴ ὑποκειμένου εἰς ὑποκείμενον.52. In tempore autem omnia fiunt et corrumpuntur;quapropter nonnulli quidem sapientissimum illud appel-larunt, sed Pythagoreus Paro indoctissimum, quia in eoetiam obliviscantur, rectius dicens.53. Videtur igitur etiam Archytas æque atque Aristo-teles continuum et inseparabilem rerum præsentiumfluxum tempus statuere, maximeque tradere id quodsimili ortu generatum sit, et proprie appelletur tempus,esse revera æternitatis imaginem. At Plato et Aristotelesquam sententiam de tempore habuerint, supra dictumest. Sed Theophrastus quoque et Eudemus, Aristotelissodales, idem quod Aristoteles de tempore sensisse etpræcepisse videntur. Verum Strato Lampascenus culpatatemporis definitione ab Aristotele ejusque sodalibus pro-dita, ipse quamvis Theophrasti in omnibus rebus Aristo-telem secuti discipulus esset, novam viam ingressus est.54. Cum autem omnis mutatio e quopiam in quidpiamsit, ( ut ipsum quoque nomen significat : quorum in-terposito alio aliud prius, aliud posterius est) id quodmutatur, mutari quatuor modis potest. Aut enim e sub-",
+          "edits": [
+            {
+              "item_id": "ogc-31-397b54f603a078ec",
+              "start": 251,
+              "end": 259,
+              "observed": "καὶπάλιν",
+              "decision": "split",
+              "reading": "καὶ πάλιν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-54c3ad1286d49124",
+              "start": 654,
+              "end": 662,
+              "observed": "μὲνεἴδει",
+              "decision": "split",
+              "reading": "μὲν εἴδει",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-635bf4b49387b975",
+              "start": 953,
+              "end": 961,
+              "observed": "ἐγὼνὑμῖν",
+              "decision": "split",
+              "reading": "ἐγὼν ὑμῖν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-de8cf88d71a08e00",
+              "start": 1146,
+              "end": 1155,
+              "observed": "καὶταυτόν",
+              "decision": "split",
+              "reading": "καὶ ταυτόν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-66c3faca8b9c66f4",
+              "start": 1244,
+              "end": 1254,
+              "observed": "αὐτὴνλέγει",
+              "decision": "split",
+              "reading": "αὐτὴν λέγει",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-4d857157ceedcb25",
+              "start": 1300,
+              "end": 1307,
+              "observed": "καὶἄλλο",
+              "decision": "split",
+              "reading": "καὶ ἄλλο",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-77c0ae468ad360f3",
+              "start": 1815,
+              "end": 1821,
+              "observed": "τὸαὐτὸ",
+              "decision": "split",
+              "reading": "τὸ αὐτὸ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-f375ff0fbe1ab9a3",
+              "start": 2323,
+              "end": 2334,
+              "observed": "καὶΕὐδήμους",
+              "decision": "split",
+              "reading": "καὶ Εὐδήμους",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-897c6019b6b6e388",
+              "start": 2569,
+              "end": 2576,
+              "observed": "καὶπαρὰ",
+              "decision": "split",
+              "reading": "καὶ παρὰ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-5d28934c1efe8273",
+              "start": 2617,
+              "end": 2624,
+              "observed": "τὸΠΑΡΩΝ",
+              "decision": "split",
+              "reading": "τὸ ΠΑΡΩΝ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-575d50b95591696c",
+              "start": 3439,
+              "end": 3448,
+              "observed": "μαθητὴςὡν",
+              "decision": "split",
+              "reading": "μαθητὴς ὡν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-66819c5693bc790b",
+              "start": 3659,
+              "end": 3670,
+              "observed": "μὲνπρότερον",
+              "decision": "split",
+              "reading": "μὲν πρότερον",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n265/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/apollonius-soph.lexicon-homericum.jsonl",
+      "sha256_before": "4edaf9541ee77e746edd6f241ff114fb8190a9a6b88f798a5a63104a2c2cc8ac",
+      "sha256_after": "e913e76457a6e469b2f19bc0e276122bea25ad9727f3d1371db064144da63de5",
+      "rows": [
+        {
+          "line": 3992,
+          "locus": "apollonius_sophista_bekker_0095.36",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρόν· “σηκοφόρον τ’ ἐμμεναι ὃάλλον τ’ ἐρί-\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρόν· “σηκοφόρον τ’ ἐμμεναι θάλλον τ’ ἐρί-\"}\n",
+          "original_line_sha256": "f7ca31799260fab0a52dca5e6bdd2d0f35198f6b00682e45efb6696b56f40af2",
+          "applied_line_sha256": "28deed779085648911570fcc26565e06b74b79f8ed9495e61062febe4428a0e5",
+          "text_before": "ρόν· “σηκοφόρον τ’ ἐμμεναι ὃάλλον τ’ ἐρί-",
+          "text_after": "ρόν· “σηκοφόρον τ’ ἐμμεναι θάλλον τ’ ἐρί-",
+          "edits": [
+            {
+              "item_id": "ogc-31-b1ca73fd0c180d47",
+              "start": 27,
+              "end": 33,
+              "observed": "ὃάλλον",
+              "decision": "replace",
+              "reading": "θάλλον",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 3996,
+          "locus": "apollonius_sophista_bekker_0095.40",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.40\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἀχεοϑ ἰαίνεοϑ λέγεϑ, δι’ ὧν φησὶν “ἰδὲσά\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.40\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἀχεοϑ ἰαίνεοϑ λέγεϑ, δι’ ὧν φησὶν “ἴδεσά\"}\n",
+          "original_line_sha256": "15b16448c94f4448f407350e6f597047fa93a164065763b4c44004ad05c6adeb",
+          "applied_line_sha256": "a219162fcc68b77c5ca6a7010ed1af7de6e577bcb15f433bed94ded15a89305a",
+          "text_before": "ἀχεοϑ ἰαίνεοϑ λέγεϑ, δι’ ὧν φησὶν “ἰδὲσά",
+          "text_after": "ἀχεοϑ ἰαίνεοϑ λέγεϑ, δι’ ὧν φησὶν “ἴδεσά",
+          "edits": [
+            {
+              "item_id": "ogc-31-3f9a9db0c7acfe60",
+              "start": 35,
+              "end": 40,
+              "observed": "ἰδὲσά",
+              "decision": "replace",
+              "reading": "ἴδεσά",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 3998,
+          "locus": "apollonius_sophista_bekker_0095.42",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"“ὅ οἱ ἔτι ὃαλύσια γενῶ ἀλωῆς γ” Οἰνεὺς\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"“ὅ οἱ ἔτι θαλύσια γενῶ ἀλωῆς γ” Οἰνεὺς\"}\n",
+          "original_line_sha256": "9c59c607bb6044b8da937a8202d53016ea869c2cf320ff49a06908f6d3cd8b91",
+          "applied_line_sha256": "1c9b67d066bafa09fc2e354ebc9db19fd0d4abd6a8eea04de6dd5d71cadffc0c",
+          "text_before": "“ὅ οἱ ἔτι ὃαλύσια γενῶ ἀλωῆς γ” Οἰνεὺς",
+          "text_after": "“ὅ οἱ ἔτι θαλύσια γενῶ ἀλωῆς γ” Οἰνεὺς",
+          "edits": [
+            {
+              "item_id": "ogc-31-18a299da067d9177",
+              "start": 10,
+              "end": 17,
+              "observed": "ὃαλύσια",
+              "decision": "replace",
+              "reading": "θαλύσια",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4000,
+          "locus": "apollonius_sophista_bekker_0095.44",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὃηλυνκῶς ὃαμειαὶ πυκναί. ἡ ἐπιρρηματι-\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"θηλυκῶς θαμειαὶ πυκναί. ἡ ἐπιρρηματι-\"}\n",
+          "original_line_sha256": "bba2e5c7bd80bcdbc1cc9b185c0cef2059372aba550c11396bf5d2cb9e806fbb",
+          "applied_line_sha256": "37bf010fae074c062f88d565069bef384600743487c0744fb4b04c6c8547f2e8",
+          "text_before": "ὃηλυνκῶς ὃαμειαὶ πυκναί. ἡ ἐπιρρηματι-",
+          "text_after": "θηλυκῶς θαμειαὶ πυκναί. ἡ ἐπιρρηματι-",
+          "edits": [
+            {
+              "item_id": "ogc-31-85c680132260e959",
+              "start": 0,
+              "end": 8,
+              "observed": "ὃηλυνκῶς",
+              "decision": "replace",
+              "reading": "θηλυκῶς",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            },
+            {
+              "item_id": "ogc-31-af8e67cfdbde30a2",
+              "start": 9,
+              "end": 16,
+              "observed": "ὃαμειαὶ",
+              "decision": "replace",
+              "reading": "θαμειαὶ",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4001,
+          "locus": "apollonius_sophista_bekker_0095.45",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.45\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὶ τῷ ταχέως, “ὃάμ’ ἐβάδιζε.” ἡ τὸ “πάρους\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.45\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὶ τῷ ταχέως, “θάμ’ ἐβάδιζε.” ἡ τὸ “πάρους\"}\n",
+          "original_line_sha256": "2e3c1eb86276b0eca9076364ebd508bad25f18ca60dba19d9fd2d70e9dcdf20e",
+          "applied_line_sha256": "4c5fc43409b2e9164a5706b29eb3b2633eb335d11b50c75961861566d3f5b7d8",
+          "text_before": "τὶ τῷ ταχέως, “ὃάμ’ ἐβάδιζε.” ἡ τὸ “πάρους",
+          "text_after": "τὶ τῷ ταχέως, “θάμ’ ἐβάδιζε.” ἡ τὸ “πάρους",
+          "edits": [
+            {
+              "item_id": "ogc-31-775a46cfdc900fc7",
+              "start": 15,
+              "end": 18,
+              "observed": "ὃάμ",
+              "decision": "replace",
+              "reading": "θάμ",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4003,
+          "locus": "apollonius_sophista_bekker_0095.47",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.47\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"; “ἐὃαύμαζε πυρὰ πολλά,” “ἡ γ” ὅ ὃανμά-\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.47\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"; “ἐθαύμαζε πυρὰ πολλά,” “ἡ γ” ὅ θαυμά-\"}\n",
+          "original_line_sha256": "967193aab2a5b0bc000d12e79c919a48acf6c8cc39daab8d41849bc3b2125ab2",
+          "applied_line_sha256": "2128b78ac14b061d3792796951a819ec842d205490403771d992367769d16fde",
+          "text_before": "; “ἐὃαύμαζε πυρὰ πολλά,” “ἡ γ” ὅ ὃανμά-",
+          "text_after": "; “ἐθαύμαζε πυρὰ πολλά,” “ἡ γ” ὅ θαυμά-",
+          "edits": [
+            {
+              "item_id": "ogc-31-16b0de5b2044840c",
+              "start": 3,
+              "end": 11,
+              "observed": "ἐὃαύμαζε",
+              "decision": "replace",
+              "reading": "ἐθαύμαζε",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            },
+            {
+              "item_id": "ogc-31-cc5f9f34e965ad40",
+              "start": 33,
+              "end": 38,
+              "observed": "ὃανμά",
+              "decision": "replace",
+              "reading": "θαυμά",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4005,
+          "locus": "apollonius_sophista_bekker_0095.49",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.49\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ε εῖσθαι, ἡ θεητὸς ὅ ὃανμασδός.\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.49\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ε εῖσθαι, ἡ θεητὸς ὅ θαυμαστός.\"}\n",
+          "original_line_sha256": "884ff4915a9a42f3df8b4d77c61404976a6a94011bde3f21bbabc7159ed437db",
+          "applied_line_sha256": "a1bf664801290258aa64c83e0ed172498b6d7379405645b700194df1e7b9c452",
+          "text_before": "ε εῖσθαι, ἡ θεητὸς ὅ ὃανμασδός.",
+          "text_after": "ε εῖσθαι, ἡ θεητὸς ὅ θαυμαστός.",
+          "edits": [
+            {
+              "item_id": "ogc-31-548723cfce3578c7",
+              "start": 21,
+              "end": 30,
+              "observed": "ὃανμασδός",
+              "decision": "replace",
+              "reading": "θαυμαστός",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4006,
+          "locus": "apollonius_sophista_bekker_0095.50",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.50\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἰς πυρὸς λέγει· ὃεῖ δὲ τῇτο, ὧςε κατὰ πα-\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.50\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἰς πυρὸς λέγει· θεῷ δὲ τῇτο, ὧςε κατὰ πα-\"}\n",
+          "original_line_sha256": "6abba4790e13110885eb90b0b992baf3f720477a8d73501fba22ef38b8953f11",
+          "applied_line_sha256": "588a498f89b334028c1d45a3f49d2c817d825c8fe5827b6aaf5cc36511103039",
+          "text_before": "ἰς πυρὸς λέγει· ὃεῖ δὲ τῇτο, ὧςε κατὰ πα-",
+          "text_after": "ἰς πυρὸς λέγει· θεῷ δὲ τῇτο, ὧςε κατὰ πα-",
+          "edits": [
+            {
+              "item_id": "ogc-31-62420f0e45202525",
+              "start": 16,
+              "end": 19,
+              "observed": "ὃεῖ",
+              "decision": "replace",
+              "reading": "θεῷ",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4007,
+          "locus": "apollonius_sophista_bekker_0095.51",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.51\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"“ἔν δὲ ὃεῖς πλητο, πέσον δ’ ἐκ νηὸς ἔται-\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.51\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"“ἔν δὲ θεῖα πλητο, πέσον δ’ ἐκ νηὸς ἔται-\"}\n",
+          "original_line_sha256": "f269241b1877a1adbe4058a8115172d2b634124fb895bab3c4f102029c209631",
+          "applied_line_sha256": "7763a402969d2f79978bb47ed8d047956c78d640229da68f99f600426ac03918",
+          "text_before": "“ἔν δὲ ὃεῖς πλητο, πέσον δ’ ἐκ νηὸς ἔται-",
+          "text_after": "“ἔν δὲ θεῖα πλητο, πέσον δ’ ἐκ νηὸς ἔται-",
+          "edits": [
+            {
+              "item_id": "ogc-31-185e93cba39f064e",
+              "start": 7,
+              "end": 11,
+              "observed": "ὃεῖς",
+              "decision": "replace",
+              "reading": "θεῖα",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4009,
+          "locus": "apollonius_sophista_bekker_0095.53",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.53\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"· “οἶσε δὲ μοι πῦρ ὄφρα ὃειψω μέγαρον.”\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.53\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"· “οἶσε δὲ μοι πῦρ ὄφρα θειώσω μέγαρον.”\"}\n",
+          "original_line_sha256": "a1b8b07904c17cf8b3bcc2e2448f130b7a5489f4646d99d0831c2a99ded46db8",
+          "applied_line_sha256": "479a9ba37eab2de08e571d2f67538e943d950b5a2f6540ed9dda9dfda8690536",
+          "text_before": "· “οἶσε δὲ μοι πῦρ ὄφρα ὃειψω μέγαρον.”",
+          "text_after": "· “οἶσε δὲ μοι πῦρ ὄφρα θειώσω μέγαρον.”",
+          "edits": [
+            {
+              "item_id": "ogc-31-dbc80b602cde7670",
+              "start": 24,
+              "end": 29,
+              "observed": "ὃειψω",
+              "decision": "replace",
+              "reading": "θειώσω",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4011,
+          "locus": "apollonius_sophista_bekker_0095.55",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.55\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ν, ὑπὸ τῷ ὃείνεοϑ τοῖς κύμασιν, ὅ ἐσι τύπ-\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.55\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ν, ὑπὸ τῷ θείνεσθαι τοῖς κύμασιν, ὅ ἐσι τύπ-\"}\n",
+          "original_line_sha256": "7f2866ed794bfc5ceeea15d4f39af5b74a27dcb8ef2fe084a17e054fe6cc9a01",
+          "applied_line_sha256": "6c073b0bdf17c23dd97b9cc7f6b9610a69d14ef9c59aba1ff89b8998c0efcde2",
+          "text_before": "ν, ὑπὸ τῷ ὃείνεοϑ τοῖς κύμασιν, ὅ ἐσι τύπ-",
+          "text_after": "ν, ὑπὸ τῷ θείνεσθαι τοῖς κύμασιν, ὅ ἐσι τύπ-",
+          "edits": [
+            {
+              "item_id": "ogc-31-a9906730f2d6eb7e",
+              "start": 10,
+              "end": 17,
+              "observed": "ὃείνεοϑ",
+              "decision": "replace",
+              "reading": "θείνεσθαι",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4015,
+          "locus": "apollonius_sophista_bekker_0095.59",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.59\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ δὲ “πολὺς δ’ ἄμφ’ ὀσεόφιν κεῖτο ὃῖς\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.59\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ δὲ “πολὺς δ’ ἄμφ’ ὀσεόφιν κεῖτο θὶς\"}\n",
+          "original_line_sha256": "d9e794aec43703863b826caf9f36c5975abf91b5dc2fe357adb6ec2c51ca9051",
+          "applied_line_sha256": "33d0659b07b287c982bf4498ee41ef1586a7b97f816964ed20dc5c1870dc21ef",
+          "text_before": "τὸ δὲ “πολὺς δ’ ἄμφ’ ὀσεόφιν κεῖτο ὃῖς",
+          "text_after": "τὸ δὲ “πολὺς δ’ ἄμφ’ ὀσεόφιν κεῖτο θὶς",
+          "edits": [
+            {
+              "item_id": "ogc-31-f4c90af4920aa418",
+              "start": 35,
+              "end": 38,
+              "observed": "ὃῖς",
+              "decision": "replace",
+              "reading": "θὶς",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        },
+        {
+          "line": 4019,
+          "locus": "apollonius_sophista_bekker_0095.63",
+          "original_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.63\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μον τῷ ὃέλγειν εἰς τὸ ὃέλειν ἄγειν.\"}\n",
+          "applied_line": "{\"urn\": \"apollonius-soph.lexicon-homericum\", \"cts\": \"urn:cts:greekLit:tlg1168.tlg001\", \"edition\": \"qwen36-apollonius_sophista_bekker-masked\", \"locus\": \"apollonius_sophista_bekker_0095.63\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μον τῷ θέλγειν εἰς τὸ θέλειν ἄγειν.\"}\n",
+          "original_line_sha256": "a7839b3958da118e16557df016d3f7017bcd8451e6f94efbfcd535fe8ca7354f",
+          "applied_line_sha256": "3ff26483ce434bbc14b5bdda09a479788b04209f78d2a18eef8f153d41f939f9",
+          "text_before": "μον τῷ ὃέλγειν εἰς τὸ ὃέλειν ἄγειν.",
+          "text_after": "μον τῷ θέλγειν εἰς τὸ θέλειν ἄγειν.",
+          "edits": [
+            {
+              "item_id": "ogc-31-eaa599fbc3512f6a",
+              "start": 7,
+              "end": 14,
+              "observed": "ὃέλγειν",
+              "decision": "replace",
+              "reading": "θέλγειν",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            },
+            {
+              "item_id": "ogc-31-1fccb7ddd9608d4d",
+              "start": 22,
+              "end": 28,
+              "observed": "ὃέλειν",
+              "decision": "replace",
+              "reading": "θέλειν",
+              "evidence_url": "https://archive.org/details/apolloniisophis00bekkgoog/page/n94/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed page 86 checked; reading transcribes only the flagged OCR token."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
+      "sha256_before": "93eae214f36b3ea53d31cc03de3728fe1e364434c936f4eb0534dfd9e226bba1",
+      "sha256_after": "a0a653e377baef21ace0ccabd0d71dd439cdc58d7ac4c33edfc6105ea9e3be68",
+      "rows": [
+        {
+          "line": 22242,
+          "locus": "hesychius_masked_0457.26",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"θησαυρός.κοῖλον,ἢκοιλᾶς\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"θησαυρός.κοῖλον,ἢ κοιλᾶς\"}\n",
+          "original_line_sha256": "71920d0ffdb7aaa47e1ac95bfb8f940456047fed4ce937adc14ad11ea3ac6ea1",
+          "applied_line_sha256": "e15703d5563659b83bd53f2c0987239f6f9ed5e02460ade3d0890567a4333f0e",
+          "text_before": "θησαυρός.κοῖλον,ἢκοιλᾶς",
+          "text_after": "θησαυρός.κοῖλον,ἢ κοιλᾶς",
+          "edits": [
+            {
+              "item_id": "ogc-31-dff76cfdd7287168",
+              "start": 16,
+              "end": 23,
+              "observed": "ἢκοιλᾶς",
+              "decision": "split",
+              "reading": "ἢ κοιλᾶς",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22243,
+          "locus": "hesychius_masked_0457.27",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κευθμῶνες(κ283)·καταδύσεις·ἀπὸτοῦ\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κευθμῶνες(κ283)·καταδύσεις·ἀπὸ τοῦ\"}\n",
+          "original_line_sha256": "7a30102e1b7db442248b4228d53252245ae17a6620a33cb2e010b2136be95059",
+          "applied_line_sha256": "949209cbd02573f1948950ed14d777f245e793137191c404a4c9feab424ab76a",
+          "text_before": "κευθμῶνες(κ283)·καταδύσεις·ἀπὸτοῦ",
+          "text_after": "κευθμῶνες(κ283)·καταδύσεις·ἀπὸ τοῦ",
+          "edits": [
+            {
+              "item_id": "ogc-31-608dc04fcc632872",
+              "start": 27,
+              "end": 33,
+              "observed": "ἀπὸτοῦ",
+              "decision": "split",
+              "reading": "ἀπὸ τοῦ",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22244,
+          "locus": "hesychius_masked_0457.28",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεῦθειν,ὃἔστινκρύπτειν·κρύφιοιτόποι\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεῦθειν,ὃ ἔστιν κρύπτειν·κρύφιοιτόποι\"}\n",
+          "original_line_sha256": "a63687ad6b15a0664108cec1faac75c4e59f3f058aaed0e5a0bcf520b44df1d3",
+          "applied_line_sha256": "cffd8699253134c71d51c59ada170623960b5ef8c425ba17d4322a3f04082159",
+          "text_before": "κεῦθειν,ὃἔστινκρύπτειν·κρύφιοιτόποι",
+          "text_after": "κεῦθειν,ὃ ἔστιν κρύπτειν·κρύφιοιτόποι",
+          "edits": [
+            {
+              "item_id": "ogc-31-3501a7cc1727fd90",
+              "start": 8,
+              "end": 22,
+              "observed": "ὃἔστινκρύπτειν",
+              "decision": "split",
+              "reading": "ὃ ἔστιν κρύπτειν",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22245,
+          "locus": "hesychius_masked_0457.29",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"[κέφαλα]κεφάλαιον·ἢκόσμοςτῶννέων.\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"[κέφαλα]κεφάλαιον·ἢ κόσμος τῶν νέων.\"}\n",
+          "original_line_sha256": "b4ebcd408aabb22f5824c6e0dc2ff344f024cc33347264c2d1954a2ff0a9d317",
+          "applied_line_sha256": "cd00588fb60cbbb7037c204891dce5ed55cd2e2f31091cf584044a0daf1e775f",
+          "text_before": "[κέφαλα]κεφάλαιον·ἢκόσμοςτῶννέων.",
+          "text_after": "[κέφαλα]κεφάλαιον·ἢ κόσμος τῶν νέων.",
+          "edits": [
+            {
+              "item_id": "ogc-31-10b268e895d22806",
+              "start": 18,
+              "end": 32,
+              "observed": "ἢκόσμοςτῶννέων",
+              "decision": "split",
+              "reading": "ἢ κόσμος τῶν νέων",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22246,
+          "locus": "hesychius_masked_0457.30",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἢκεφαλὴ.ἢσυναρίθμησις.ἢζήτημαἄχρου95\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἢ κεφαλὴ.ἢ συναρίθμησις.ἢ ζήτημα ἄχρου95\"}\n",
+          "original_line_sha256": "bea60c8882c00c0dbef23384df02b0aa1004f26196337322d8791d0737f48d8e",
+          "applied_line_sha256": "fb52cde73061c63f0698d551785785c6b15f181b58756ce0b1eeff3c1ea64f86",
+          "text_before": "ἢκεφαλὴ.ἢσυναρίθμησις.ἢζήτημαἄχρου95",
+          "text_after": "ἢ κεφαλὴ.ἢ συναρίθμησις.ἢ ζήτημα ἄχρου95",
+          "edits": [
+            {
+              "item_id": "ogc-31-656ea20a3a4252bb",
+              "start": 0,
+              "end": 7,
+              "observed": "ἢκεφαλὴ",
+              "decision": "split",
+              "reading": "ἢ κεφαλὴ",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-93da27b3b5ca754d",
+              "start": 8,
+              "end": 21,
+              "observed": "ἢσυναρίθμησις",
+              "decision": "split",
+              "reading": "ἢ συναρίθμησις",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-5aa7d41d399928b4",
+              "start": 22,
+              "end": 34,
+              "observed": "ἢζήτημαἄχρου",
+              "decision": "split",
+              "reading": "ἢ ζήτημα ἄχρου",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22247,
+          "locus": "hesychius_masked_0457.31",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεφαλὴ·τὸσύνθηδες.καὶὄνομα(δήμου?).\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεφαλὴ·τὸ σύνθηδες.καὶ ὄνομα(δήμου?).\"}\n",
+          "original_line_sha256": "ba2ae56109c45dcdd68cf33197be1ff565c97aa724a2a9334de62d66edf4c946",
+          "applied_line_sha256": "89917339b2f0d23279c2bf441e88e81af38bcebce8107ca8701a2ead4fea0edb",
+          "text_before": "κεφαλὴ·τὸσύνθηδες.καὶὄνομα(δήμου?).",
+          "text_after": "κεφαλὴ·τὸ σύνθηδες.καὶ ὄνομα(δήμου?).",
+          "edits": [
+            {
+              "item_id": "ogc-31-ae324dac51286eb2",
+              "start": 7,
+              "end": 17,
+              "observed": "τὸσύνθηδες",
+              "decision": "split",
+              "reading": "τὸ σύνθηδες",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-422c7ad3240d3bca",
+              "start": 18,
+              "end": 26,
+              "observed": "καὶὄνομα",
+              "decision": "split",
+              "reading": "καὶ ὄνομα",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22249,
+          "locus": "hesychius_masked_0457.34",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.34\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεφαλῖνος·ἰχθὺςποιός(Dorio)\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.34\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεφαλῖνος·ἰχθὺς ποιός(Dorio)\"}\n",
+          "original_line_sha256": "e73cce83ec2e3ba050ce6c0c8fa62d7e08aab3e48dc5c9a338122bb86b612c58",
+          "applied_line_sha256": "e454b60f88be445cc7b6a5bccf6fdd1ad3a1ea27b1dfe8ece4c028d0cf0d5a93",
+          "text_before": "κεφαλῖνος·ἰχθὺςποιός(Dorio)",
+          "text_after": "κεφαλῖνος·ἰχθὺς ποιός(Dorio)",
+          "edits": [
+            {
+              "item_id": "ogc-31-a55b3e1812392f5b",
+              "start": 10,
+              "end": 20,
+              "observed": "ἰχθὺςποιός",
+              "decision": "split",
+              "reading": "ἰχθὺς ποιός",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22251,
+          "locus": "hesychius_masked_0457.36",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"**Κεφα(λ)λῆνες**·ἔθνοςπερὶτὴνἸθάκην\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"**Κεφα(λ)λῆνες**·ἔθνος περὶ τὴν Ἰθάκην\"}\n",
+          "original_line_sha256": "1c37f12f786fde03d285a0945041c0f4af6d90a207c2c81909eada1b410bbb26",
+          "applied_line_sha256": "15451d170606a32c36221325f70c4a7d37711eaae70605a722cead491060e7a5",
+          "text_before": "**Κεφα(λ)λῆνες**·ἔθνοςπερὶτὴνἸθάκην",
+          "text_after": "**Κεφα(λ)λῆνες**·ἔθνος περὶ τὴν Ἰθάκην",
+          "edits": [
+            {
+              "item_id": "ogc-31-7caa88c5e4fbeb21",
+              "start": 17,
+              "end": 35,
+              "observed": "ἔθνοςπερὶτὴνἸθάκην",
+              "decision": "split",
+              "reading": "ἔθνος περὶ τὴν Ἰθάκην",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22253,
+          "locus": "hesychius_masked_0457.39",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέφαλον·μέροςἐντῷπλοίῳ,ἢκόσμος,ἢ\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέφαλον·μέροςἐντῷπλοίῳ,ἢ κόσμος,ἢ\"}\n",
+          "original_line_sha256": "f085f9143e6795ab3ec25b1d87ac4b82e4f0c057d8d1b8dc2fbe2f4800a6f923",
+          "applied_line_sha256": "98f05ca4bbfdc52ae4ddaeff2d56cc8065dfbd54d4fa6376e9d46abb264e7d39",
+          "text_before": "κέφαλον·μέροςἐντῷπλοίῳ,ἢκόσμος,ἢ",
+          "text_after": "κέφαλον·μέροςἐντῷπλοίῳ,ἢ κόσμος,ἢ",
+          "edits": [
+            {
+              "item_id": "ogc-31-4e43a7d3f9a9a86e",
+              "start": 23,
+              "end": 30,
+              "observed": "ἢκόσμος",
+              "decision": "split",
+              "reading": "ἢ κόσμος",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22254,
+          "locus": "hesychius_masked_0457.41",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.41\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέχανδε·χωρεῖ.διὰπλῆθοςψοφεῖ<2424>[5]\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.41\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέχανδε·χωρεῖ.διὰ πλῆθος ψοφεῖ<2424>[5]\"}\n",
+          "original_line_sha256": "7f794e12a973eba0ddd1c47c2fcd7144b513cfa65234c1e681901b1e690e955a",
+          "applied_line_sha256": "6b1c4e2043fb1a7217cef6d8041bec2bfefc74cb5b976d4e05754f4747d111b4",
+          "text_before": "κέχανδε·χωρεῖ.διὰπλῆθοςψοφεῖ<2424>[5]",
+          "text_after": "κέχανδε·χωρεῖ.διὰ πλῆθος ψοφεῖ<2424>[5]",
+          "edits": [
+            {
+              "item_id": "ogc-31-6aaba4855a627c97",
+              "start": 14,
+              "end": 28,
+              "observed": "διὰπλῆθοςψοφεῖ",
+              "decision": "split",
+              "reading": "διὰ πλῆθος ψοφεῖ",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22255,
+          "locus": "hesychius_masked_0457.42",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεχανότασῦκα·τὰαὐτομάτωςκεχηρότα\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κεχανότασῦκα·τὰ αὐτομάτως κεχηρότα\"}\n",
+          "original_line_sha256": "c81a931398004106cbe65e0b3edfce7ef6a9c8c695f2a69b18d642682e94cd9f",
+          "applied_line_sha256": "94cfbe72a557d57fb4ac8a9fa97b3900b9559b15f6198352a4fd4a4fca9867db",
+          "text_before": "κεχανότασῦκα·τὰαὐτομάτωςκεχηρότα",
+          "text_after": "κεχανότασῦκα·τὰ αὐτομάτως κεχηρότα",
+          "edits": [
+            {
+              "item_id": "ogc-31-af80e4dc4599ba69",
+              "start": 13,
+              "end": 32,
+              "observed": "τὰαὐτομάτωςκεχηρότα",
+              "decision": "split",
+              "reading": "τὰ αὐτομάτως κεχηρότα",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22263,
+          "locus": "hesychius_masked_0457.52",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.52\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νοςτοὺςπόδας·χηλεύεινγὰρτὸβά-\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.52\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νος τοὺς πόδας·χηλεύειν γὰρ τὸ βά-\"}\n",
+          "original_line_sha256": "3a10322514783f798e0f49103be7d7fbd6217cfeb3db4d3c04996af349007fea",
+          "applied_line_sha256": "24364ce3ab09f85b3959ec9e5a160a9a8a8d0338f81672aa7206ba41e347dd4d",
+          "text_before": "νοςτοὺςπόδας·χηλεύεινγὰρτὸβά-",
+          "text_after": "νος τοὺς πόδας·χηλεύειν γὰρ τὸ βά-",
+          "edits": [
+            {
+              "item_id": "ogc-31-de69579d463cd2b1",
+              "start": 0,
+              "end": 12,
+              "observed": "νοςτοὺςπόδας",
+              "decision": "split",
+              "reading": "νος τοὺς πόδας",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-f29f3b3d6c214b25",
+              "start": 13,
+              "end": 28,
+              "observed": "χηλεύεινγὰρτὸβά",
+              "decision": "split",
+              "reading": "χηλεύειν γὰρ τὸ βά",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22264,
+          "locus": "hesychius_masked_0457.54",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.54\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κρέων(Poll.VII172),καὶχῆλευμα<q.v.>\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.54\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κρέων(Poll.VII172),καὶ χῆλευμα<q.v.>\"}\n",
+          "original_line_sha256": "7a882dd6b16166dd2dc833a3a935aafff028d790386d5927a26250b4fd6596aa",
+          "applied_line_sha256": "b9e876091dc7753ab39fd75c9bfb84321ea1e90506e8fa2c0613f92c13577246",
+          "text_before": "κρέων(Poll.VII172),καὶχῆλευμα<q.v.>",
+          "text_after": "κρέων(Poll.VII172),καὶ χῆλευμα<q.v.>",
+          "edits": [
+            {
+              "item_id": "ogc-31-dfa3697bf4563ba6",
+              "start": 19,
+              "end": 29,
+              "observed": "καὶχῆλευμα",
+              "decision": "split",
+              "reading": "καὶ χῆλευμα",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22266,
+          "locus": "hesychius_masked_0457.57",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.57\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέχηνεν(Ar.Eqq.765)·ἔχασκε,τὸστόμα\"}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.57\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέχηνεν(Ar.Eqq.765)·ἔχασκε,τὸ στόμα\"}\n",
+          "original_line_sha256": "cd1b43f6eddf73ce7594720448ea1a0d57ba2b6c738ca2b85a9efb7867935e6d",
+          "applied_line_sha256": "d2ce141ea41cbe0ac00eea287dbed51d5aaa94b6017e008ed7415f5cd4f36140",
+          "text_before": "κέχηνεν(Ar.Eqq.765)·ἔχασκε,τὸστόμα",
+          "text_after": "κέχηνεν(Ar.Eqq.765)·ἔχασκε,τὸ στόμα",
+          "edits": [
+            {
+              "item_id": "ogc-31-57565142df7da421",
+              "start": 27,
+              "end": 34,
+              "observed": "τὸστόμα",
+              "decision": "split",
+              "reading": "τὸ στόμα",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 22277,
+          "locus": "hesychius_masked_0457.70",
+          "original_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.70\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐχάρη(σαν).ἢἔχώρησανAd9ἢχωρᾶ\", \"corrections\": [\"freq\"]}\n",
+          "applied_line": "{\"urn\": \"hesychius-lexicography.lexicon-o\", \"cts\": \"urn:cts:greekLit:tlg4085.tlg002\", \"edition\": \"qwen36-hesychius_schmidt_masked\", \"locus\": \"hesychius_masked_0457.70\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐχάρη(σαν).ἢ ἔχώρησανAd9ἢ χωρᾶ\", \"corrections\": [\"freq\"]}\n",
+          "original_line_sha256": "7ae1e394e229177120fcf40a8263d4fe92a17d35ee1f872d1ddfb6c5f2e9987f",
+          "applied_line_sha256": "104248a383ff741e1255a01398d8c48426177f4376d26bfa2bd54a1897c99c97",
+          "text_before": "ἐχάρη(σαν).ἢἔχώρησανAd9ἢχωρᾶ",
+          "text_after": "ἐχάρη(σαν).ἢ ἔχώρησανAd9ἢ χωρᾶ",
+          "edits": [
+            {
+              "item_id": "ogc-31-d9d98b9d833f4dea",
+              "start": 11,
+              "end": 20,
+              "observed": "ἢἔχώρησαν",
+              "decision": "split",
+              "reading": "ἢ ἔχώρησαν",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-34f9d9735be0266b",
+              "start": 23,
+              "end": 28,
+              "observed": "ἢχωρᾶ",
+              "decision": "split",
+              "reading": "ἢ χωρᾶ",
+              "evidence_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n456/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera.jsonl",
+      "sha256_before": "66c16729e37d458aa926a9dd028a55fb06eceb1b225ee67b1a777605d06c0020",
+      "sha256_after": "ae73ab2abd2765531ee8e0e2435087016a00709e80cd6cbac5e748984fd0def7",
+      "rows": [
+        {
+          "line": 794,
+          "locus": "scholia_hesiod_gaisford_0039.7",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἀλλιόπηποίησιν. Ὅθενκαὶδιὰ\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἀλλιόπηποίησιν. Ὅθεν καὶ διὰ\"}\n",
+          "original_line_sha256": "b315285bb964f17c27171aafe0f875ac20c8a3020366259ea9f6a375e4343685",
+          "applied_line_sha256": "3835a95e537c2f16266c41eb91f215887efd361f5265b58e5934fbec2c5cfde4",
+          "text_before": "ἀλλιόπηποίησιν. Ὅθενκαὶδιὰ",
+          "text_after": "ἀλλιόπηποίησιν. Ὅθεν καὶ διὰ",
+          "edits": [
+            {
+              "item_id": "ogc-31-f631d585b4731d0f",
+              "start": 16,
+              "end": 26,
+              "observed": "Ὅθενκαὶδιὰ",
+              "decision": "split",
+              "reading": "Ὅθεν καὶ διὰ",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 795,
+          "locus": "scholia_hesiod_gaisford_0039.8",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοὺςἐμυθεύσαντο,καὶΜοῦσας\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοὺς ἐμυθεύσαντο,καὶ Μοῦσας\"}\n",
+          "original_line_sha256": "d5f48d311f7747d7ca64ab2d4f201497951be3be4ed392e8fc64c16580ead68a",
+          "applied_line_sha256": "264d6697de73c47c5ab51fb9e8494c361bff5c5e4d958521fa21274a8b914e27",
+          "text_before": "τοὺςἐμυθεύσαντο,καὶΜοῦσας",
+          "text_after": "τοὺς ἐμυθεύσαντο,καὶ Μοῦσας",
+          "edits": [
+            {
+              "item_id": "ogc-31-c90919da11069822",
+              "start": 0,
+              "end": 15,
+              "observed": "τοὺςἐμυθεύσαντο",
+              "decision": "split",
+              "reading": "τοὺς ἐμυθεύσαντο",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-b6296abf8278cef3",
+              "start": 16,
+              "end": 25,
+              "observed": "καὶΜοῦσας",
+              "decision": "split",
+              "reading": "καὶ Μοῦσας",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 796,
+          "locus": "scholia_hesiod_gaisford_0039.9",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔσαν. Καὶνῦνδὲπᾶςἀνὴρκαὶ\", \"corrections\": [\"freq\"]}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔσαν. Καὶ νῦν δὲ πᾶς ἀνὴρ καὶ\", \"corrections\": [\"freq\"]}\n",
+          "original_line_sha256": "635dd1d6510be2d818a8acff50f076f15477239a9bf92946eb61a00102184f15",
+          "applied_line_sha256": "b6bbd66220bd3910a15cf2e7363e6f241fd3353b14ed62acc5340ef37dac1bb6",
+          "text_before": "ἔσαν. Καὶνῦνδὲπᾶςἀνὴρκαὶ",
+          "text_after": "ἔσαν. Καὶ νῦν δὲ πᾶς ἀνὴρ καὶ",
+          "edits": [
+            {
+              "item_id": "ogc-31-5f8f21d8763b08d9",
+              "start": 6,
+              "end": 24,
+              "observed": "Καὶνῦνδὲπᾶςἀνὴρκαὶ",
+              "decision": "split",
+              "reading": "Καὶ νῦν δὲ πᾶς ἀνὴρ καὶ",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 797,
+          "locus": "scholia_hesiod_gaisford_0039.10",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὶ*)ἐφευρετικοί,μουσικοὶκαὶ\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὶ*)ἐφευρετικοί,μουσικοὶ καὶ\"}\n",
+          "original_line_sha256": "ea0fb64b5556545d549e48d34ce2558cc43781949d751acd0e4ba28369568709",
+          "applied_line_sha256": "4642d7ba967250617d2ef30e3771a9c93e121d6c757e8150bdc36948e0b001bd",
+          "text_before": "αὶ*)ἐφευρετικοί,μουσικοὶκαὶ",
+          "text_after": "αὶ*)ἐφευρετικοί,μουσικοὶ καὶ",
+          "edits": [
+            {
+              "item_id": "ogc-31-92f8b3e514fb6939",
+              "start": 16,
+              "end": 27,
+              "observed": "μουσικοὶκαὶ",
+              "decision": "split",
+              "reading": "μουσικοὶ καὶ",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 798,
+          "locus": "scholia_hesiod_gaisford_0039.11",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὶπᾶςτέχνηςμουσικῆςἐπιμε-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὶ πᾶς τέχνης μουσικῆς ἐπιμε-\"}\n",
+          "original_line_sha256": "20a07848161979e2450f9662dc0f4d093f4fb70e60e2f42c8773a882b90d8f69",
+          "applied_line_sha256": "cebc9f03fd300d846e93cd8b075c90f650cc15d0542747737ff761c44427aadb",
+          "text_before": "αὶπᾶςτέχνηςμουσικῆςἐπιμε-",
+          "text_after": "αὶ πᾶς τέχνης μουσικῆς ἐπιμε-",
+          "edits": [
+            {
+              "item_id": "ogc-31-cc524e6cba2af255",
+              "start": 0,
+              "end": 24,
+              "observed": "αὶπᾶςτέχνηςμουσικῆςἐπιμε",
+              "decision": "split",
+              "reading": "αὶ πᾶς τέχνης μουσικῆς ἐπιμε",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 801,
+          "locus": "scholia_hesiod_gaisford_0039.14",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οῦσαςἐκάλουν. ἄ)Τινὲςδὲἑτε-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οῦσαςἐκάλουν. ἄ)Τινὲς δὲ ἑτε-\"}\n",
+          "original_line_sha256": "70a1b946a0a03ff0d3a984b0c69a3ac64ff504c96d046b05cde6464296a4d35e",
+          "applied_line_sha256": "c0d64f6d9df19dc29127a595f0ab9a1ac63e9157f9e4d1fbb8982ae8cd27b692",
+          "text_before": "οῦσαςἐκάλουν. ἄ)Τινὲςδὲἑτε-",
+          "text_after": "οῦσαςἐκάλουν. ἄ)Τινὲς δὲ ἑτε-",
+          "edits": [
+            {
+              "item_id": "ogc-31-b6a320e52447e002",
+              "start": 16,
+              "end": 26,
+              "observed": "Τινὲςδὲἑτε",
+              "decision": "split",
+              "reading": "Τινὲς δὲ ἑτε",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 805,
+          "locus": "scholia_hesiod_gaisford_0039.18",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \";)ἀνὴρἐφευρετικὸςτέχνηςτι-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \";)ἀνὴρ ἐφευρετικὸς τέχνης τι-\"}\n",
+          "original_line_sha256": "9785ba511d2a92fc19639a267ac9e99bd312ad41b433c64086c69bd82ca46ece",
+          "applied_line_sha256": "ec413e375690cb465ba5b2f0f7a9427c0ee4032a85a8c0a4af0965c2fa3a868b",
+          "text_before": ";)ἀνὴρἐφευρετικὸςτέχνηςτι-",
+          "text_after": ";)ἀνὴρ ἐφευρετικὸς τέχνης τι-",
+          "edits": [
+            {
+              "item_id": "ogc-31-1948db29f7ac231f",
+              "start": 2,
+              "end": 25,
+              "observed": "ἀνὴρἐφευρετικὸςτέχνηςτι",
+              "decision": "split",
+              "reading": "ἀνὴρ ἐφευρετικὸς τέχνης τι",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 806,
+          "locus": "scholia_hesiod_gaisford_0039.19",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἡ,μουσικοὶκαὶμοῦσαικαλοῦν-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἡ,μουσικοὶ καὶ μοῦσαι καλοῦν-\"}\n",
+          "original_line_sha256": "f687fdbebd1df8276da23808469e6af637640815ad1e6f01e47b1b9a3fcd76d2",
+          "applied_line_sha256": "2b2a02119cf5a96def7e54830cd5f37aa69cb3c24af4b32ea7ca57287e1283e5",
+          "text_before": "ἡ,μουσικοὶκαὶμοῦσαικαλοῦν-",
+          "text_after": "ἡ,μουσικοὶ καὶ μοῦσαι καλοῦν-",
+          "edits": [
+            {
+              "item_id": "ogc-31-14629b91c97a81e7",
+              "start": 2,
+              "end": 25,
+              "observed": "μουσικοὶκαὶμοῦσαικαλοῦν",
+              "decision": "split",
+              "reading": "μουσικοὶ καὶ μοῦσαι καλοῦν",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 807,
+          "locus": "scholia_hesiod_gaisford_0039.20",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"φασίν,ἀλλὰκαὶμυρίαιἑτεραι\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"φασίν,ἀλλὰ καὶ μυρίαι ἑτεραι\"}\n",
+          "original_line_sha256": "90f4031442cb342497fa276abfe95753309317b131ec5516138e8a9921e9d8aa",
+          "applied_line_sha256": "cb51f46b2b00f4a489006107b4fc95f7dcbfa28841daefbaf1edc9864a4fec6c",
+          "text_before": "φασίν,ἀλλὰκαὶμυρίαιἑτεραι",
+          "text_after": "φασίν,ἀλλὰ καὶ μυρίαι ἑτεραι",
+          "edits": [
+            {
+              "item_id": "ogc-31-9c087f6d22febcc2",
+              "start": 6,
+              "end": 25,
+              "observed": "ἀλλὰκαὶμυρίαιἑτεραι",
+              "decision": "split",
+              "reading": "ἀλλὰ καὶ μυρίαι ἑτεραι",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 808,
+          "locus": "scholia_hesiod_gaisford_0039.21",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σάσαςἃςἔφασανΜοῦσας,παρ-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σάσας ἃς ἔφασαν Μοῦσας,παρ-\"}\n",
+          "original_line_sha256": "11eff030d5c3decc6a1aa0d02726302546c729fafc10adcfc3508899e3639ecd",
+          "applied_line_sha256": "62607374dc09182a08478684a7add7dd083abdaca24661cd7c3eb5f1aad70f9c",
+          "text_before": "σάσαςἃςἔφασανΜοῦσας,παρ-",
+          "text_after": "σάσας ἃς ἔφασαν Μοῦσας,παρ-",
+          "edits": [
+            {
+              "item_id": "ogc-31-9734b4ef26490106",
+              "start": 0,
+              "end": 19,
+              "observed": "σάσαςἃςἔφασανΜοῦσας",
+              "decision": "split",
+              "reading": "σάσας ἃς ἔφασαν Μοῦσας",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 809,
+          "locus": "scholia_hesiod_gaisford_0039.22",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λοιπὰςμόνας,χωρὶςτῶνπαρ’\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λοιπὰς μόνας,χωρὶς τῶν παρ’\"}\n",
+          "original_line_sha256": "f7452e085eeb72d3817f6e77139937e7da320e885faefcd4588c819627201e03",
+          "applied_line_sha256": "6a4c52974cdd99767e5151593272697dd658c6815f56818019180a8751088ec9",
+          "text_before": "λοιπὰςμόνας,χωρὶςτῶνπαρ’",
+          "text_after": "λοιπὰς μόνας,χωρὶς τῶν παρ’",
+          "edits": [
+            {
+              "item_id": "ogc-31-ba0fa59133017381",
+              "start": 0,
+              "end": 11,
+              "observed": "λοιπὰςμόνας",
+              "decision": "split",
+              "reading": "λοιπὰς μόνας",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-790e7578cc038eb1",
+              "start": 12,
+              "end": 23,
+              "observed": "χωρὶςτῶνπαρ",
+              "decision": "split",
+              "reading": "χωρὶς τῶν παρ",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 810,
+          "locus": "scholia_hesiod_gaisford_0039.23",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΚλειοῦςμὲνκαὶΜάγνητος,Ἰά-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κλειοῦς μὲν καὶ Μάγνητος,Ἰά-\"}\n",
+          "original_line_sha256": "a3dca2c0bc8e175af484b6572661a80df3e3a4249942427f0ab282285cbb58b3",
+          "applied_line_sha256": "40acddc9bc9c8f82152f0105593af4eb57d754aeeada56d03ec0ed4ce7c182b0",
+          "text_before": "ΚλειοῦςμὲνκαὶΜάγνητος,Ἰά-",
+          "text_after": "Κλειοῦς μὲν καὶ Μάγνητος,Ἰά-",
+          "edits": [
+            {
+              "item_id": "ogc-31-ded072d69861b7f5",
+              "start": 0,
+              "end": 21,
+              "observed": "ΚλειοῦςμὲνκαὶΜάγνητος",
+              "decision": "split",
+              "reading": "Κλειοῦς μὲν καὶ Μάγνητος",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 811,
+          "locus": "scholia_hesiod_gaisford_0039.24",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σπηςδὲκαὶΣτρυμόνοςῬῆσος,\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σπης δὲ καὶ Στρυμόνος Ῥῆσος,\"}\n",
+          "original_line_sha256": "e3539b76b7c6cf9049541bb23eb3e979a698433fb2cb87fef88cbbba001a2f1e",
+          "applied_line_sha256": "01f26e4fca5b2dd307c9a0eee23e48c16c9b95cd345f0f2babbd813f062e36c6",
+          "text_before": "σπηςδὲκαὶΣτρυμόνοςῬῆσος,",
+          "text_after": "σπης δὲ καὶ Στρυμόνος Ῥῆσος,",
+          "edits": [
+            {
+              "item_id": "ogc-31-9be6828106811f88",
+              "start": 0,
+              "end": 23,
+              "observed": "σπηςδὲκαὶΣτρυμόνοςῬῆσος",
+              "decision": "split",
+              "reading": "σπης δὲ καὶ Στρυμόνος Ῥῆσος",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 812,
+          "locus": "scholia_hesiod_gaisford_0039.25",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἈπόλλωνοςδὲτοῦΚάρβαντος\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἀπόλλωνος δὲ τοῦ Κάρβαντος\"}\n",
+          "original_line_sha256": "60ef3f0bde9dd739440764268b40e25d32cfe09d46bc4e7451ec84c0e39d6cc7",
+          "applied_line_sha256": "ef4b28525a8831b3e3bab6ad9191d860be44fb3cd9d337fdcb95a70cdfb91b18",
+          "text_before": "ἈπόλλωνοςδὲτοῦΚάρβαντος",
+          "text_after": "Ἀπόλλωνος δὲ τοῦ Κάρβαντος",
+          "edits": [
+            {
+              "item_id": "ogc-31-bf648407a133cced",
+              "start": 0,
+              "end": 23,
+              "observed": "ἈπόλλωνοςδὲτοῦΚάρβαντος",
+              "decision": "split",
+              "reading": "Ἀπόλλωνος δὲ τοῦ Κάρβαντος",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 818,
+          "locus": "scholia_hesiod_gaisford_0039.31",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Eustathius:Ἰστέονδὲκαὶὅτιτὸν\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Eustathius:Ἰστέον δὲ καὶ ὅτι τὸν\"}\n",
+          "original_line_sha256": "7d3cda1b90fb0efa0decfa239020cd2852fb9ab258ee5dd63876a3914d39c9cb",
+          "applied_line_sha256": "41ec20483c8edc087aa651e2ec84452979127e3dc5c40774bd8e0e77aa561456",
+          "text_before": "Eustathius:Ἰστέονδὲκαὶὅτιτὸν",
+          "text_after": "Eustathius:Ἰστέον δὲ καὶ ὅτι τὸν",
+          "edits": [
+            {
+              "item_id": "ogc-31-bce0bb593b7b9a18",
+              "start": 11,
+              "end": 28,
+              "observed": "Ἰστέονδὲκαὶὅτιτὸν",
+              "decision": "split",
+              "reading": "Ἰστέον δὲ καὶ ὅτι τὸν",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 822,
+          "locus": "scholia_hesiod_gaisford_0039.35",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Θράκηνφασὶποταμοῦ,καὶΕὐ-\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Θράκην φασὶ ποταμοῦ,καὶ Εὐ-\"}\n",
+          "original_line_sha256": "babe2d927e5e531bb3ab1393cbd0b897b84125e57d7e172cf92bbdd816094a81",
+          "applied_line_sha256": "75f8d59347605e3363a504d2b36c5ba7ec948ac04b2abf55727062ac2d582765",
+          "text_before": "Θράκηνφασὶποταμοῦ,καὶΕὐ-",
+          "text_after": "Θράκην φασὶ ποταμοῦ,καὶ Εὐ-",
+          "edits": [
+            {
+              "item_id": "ogc-31-c847fb8f40ada52c",
+              "start": 0,
+              "end": 17,
+              "observed": "Θράκηνφασὶποταμοῦ",
+              "decision": "split",
+              "reading": "Θράκην φασὶ ποταμοῦ",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-4f2a9ebf40ed1ccb",
+              "start": 18,
+              "end": 23,
+              "observed": "καὶΕὐ",
+              "decision": "split",
+              "reading": "καὶ Εὐ",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 825,
+          "locus": "scholia_hesiod_gaisford_0039.38",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.38\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"7)ἈπόλλωνοςδὲτοῦΚάρβαντος\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.38\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"7)Ἀπόλλωνος δὲ τοῦ Κάρβαντος\"}\n",
+          "original_line_sha256": "ca76bae2d8e03de8a9428c099bc5614fae83ec524f6fed6993cc658033adb110",
+          "applied_line_sha256": "52f8d4dd87345027bd2154f30e5ef49343b3b9944ffd2a9edbdfb75ee47b4d8c",
+          "text_before": "7)ἈπόλλωνοςδὲτοῦΚάρβαντος",
+          "text_after": "7)Ἀπόλλωνος δὲ τοῦ Κάρβαντος",
+          "edits": [
+            {
+              "item_id": "ogc-31-49c851e2095387d3",
+              "start": 2,
+              "end": 25,
+              "observed": "ἈπόλλωνοςδὲτοῦΚάρβαντος",
+              "decision": "split",
+              "reading": "Ἀπόλλωνος δὲ τοῦ Κάρβαντος",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 826,
+          "locus": "scholia_hesiod_gaisford_0039.39",
+          "original_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶΘαλείαςΠαλαίφατος]Quissit\"}\n",
+          "applied_line": "{\"urn\": \"scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5025.tlg001\", \"edition\": \"qwen36-scholia_hesiod_gaisford-masked\", \"locus\": \"scholia_hesiod_gaisford_0039.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ Θαλείας Παλαίφατος]Quissit\"}\n",
+          "original_line_sha256": "70a450f895e94a24be64a7f9e46fe97cfc15f982c8fdb689ca5c4ad2ff867bea",
+          "applied_line_sha256": "be4eecf7292be620d90cdee3a5e49ae2fe5b5d198ac28661cf6f8735416752f1",
+          "text_before": "καὶΘαλείαςΠαλαίφατος]Quissit",
+          "text_after": "καὶ Θαλείας Παλαίφατος]Quissit",
+          "edits": [
+            {
+              "item_id": "ogc-31-01357eba3fec1898",
+              "start": 0,
+              "end": 20,
+              "observed": "καὶΘαλείαςΠαλαίφατος",
+              "decision": "split",
+              "reading": "καὶ Θαλείας Παλαίφατος",
+              "evidence_url": "https://archive.org/details/poetaeminoresgra02gais/page/n38/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/socrates-rhodius.socrates-hist-fhg4.jsonl",
+      "sha256_before": "cc7564485f57f064dc1c8433b5a385c0fad01d6d07487ba678be01521035c2c7",
+      "sha256_after": "be2b335baecad8eee323836a2de49645ba3be1b6299c0742eeeb569a931b5572",
+      "rows": [
+        {
+          "line": 1207,
+          "locus": "socrates_hist_fhg4_0605.1",
+          "original_line": "{\"urn\": \"socrates-rhodius.socrates-hist-fhg4\", \"edition\": \"qwen36-socrates_hist_fhg4\", \"locus\": \"socrates_hist_fhg4_0605.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"συνηδόμενοι τε ἀλλήλοις καὶ ἐς τὸν ἱππόδρομον συν-θέντες [ὅσπερ ἐκκλησιάζοντες χωρίῳ. Ὁ δὲ Βαλδίνος]καὶ αὐτὸς ἑκατόμβας ἔθυεν· ἀρχαὶ τε πᾶσαι καὶ ἡ σύγ-κλητος, ἕκαστος τε ὅσπερ ἀποσεισάμενος πελέκευν τοῖςἀγχέσιν ἐπιχείμενον, ὑπερευφραίνετο, εἰς τε τὰ ξυνὴἀγύελοι καὶ κήρυκες διετέμποντο. Καὶ ὁ Μάξιμος ἐπι-στάς τῇ Ἀκυλήᾳ, ὑπεδέχθη μεγαλοπρόως, προσειδίαςτε ἐκ πάσης τῆς Ἰταλίας δεχόμενος, εἰκόνας τε καὶἀγάλματα καὶ στεφάνους. Καὶ αὐτὸς δὲ ὁ στρατὸς ὁ τὴνἈκυλίαν πορθήσας προῆει ἐν εἰρηνικῷ σχήματι δια-φηνφορῶν ἀνάγκη· ἠγανάκτων γὰρ ὁρῶντες τὸν μὲνὑπ’ αὐτῶν ἐπιλεγθέντα βασιλεύειν καθηρημένον, κρα-τούντας δὲ τοὺς ὑπὸ τῆς συγχλήτου ἡρμημένους.13. Ὁ δὲ Μάξιμος, συγκαλέσας πάντας, βασιλικῶςἀπεφήνατο, ἀμνηστίας τε πάντων ὑποσχόμενος καὶχρημάτων πολλῶν διανομὰς· ὀλίγων τε ἡμερῶν διατρι-φας, τὴν εἰς τὴν Ῥώμην ἐπάνοδον συνεχρότει. Καὶ τὸμὲν ἄλλο στρατιωτικὸν ἀπέπεμψεν εἰς τὰ ξυνὴ καὶ εἰςτὰ οἰκεῖα στρατόπεδα, αὐτὸς δὲ ἐπανῆλθεν εἰς τὴνῬώμην σὺν τοῖς δορυφόροις καὶ τοῖς ὑπὸ Βαλδίνου στρα-τευομένοις. Ἐπανῆλθον δὲ καὶ οἱ ἀπὸ Γερμανίας ἐλη-λυθότες σύμμαχοι· εὐθάρρει γὰρ αὐτῶν τῇ εὐνοίᾳ, ὡς καὶτοῦ ξύνους ἐπικεικῶς πρότερον ἀρξας, ὅτε ἰδιώτευσεν. Εἰσ-ιόντι δὲ αὐτῷ εἰς τὴν Ῥώμην ὁ τε Βαλδίνος ὑπῆν-τετα, ἐπαγόμενος Γορδιανὸν Καῖσαρα, ἡ τε σύγκλητοςκαὶ ὁ δῆμος εὐφημοῦντες ὡσπερ θριαμβεύοντα ὑπεδέ-χοντο· ἐχαιρέ τε ὁ δῆμος αὐτοῖς, σεμνυνόμενος εὐπα-τρίδας καὶ ἀξίους τῆς βασιλείας.14. Οἱ δὲ στρατιῶται δλοῖδαινον τὰς ψυχὰς ἐδαροῦντο[τε] αὐτῶν αὐτὴν τὴν εὐγένειαν, καὶ ἠγανάκτων ὅτιδρα ἔγουν ἐκ συγχλήτου βουλῆς βασιλεῖας. Ἐλύπουδὲ αὐτοὺς καὶ οἱ Γερμανοὶ παρόντες· ἀντιπάλους γὰρἡλπίζον ἔχειν· τὸ τε Σεβήρου ὑπόδειγμα αὐτοὺς ἐτά-ρατεν, ὃς τοὺς Περτίνακα ἀποκτείναντας ἀπέσῳζεν.Ἐπιτελουμένου δὲ ἀγῶνος τοῦ τῶν Καπιτωλίων, πάν-των τε περὶ τὴν πανήγυριν ἀσχολουμένων, αἰφνιδίωςἦν εἴγον γνώμην λανθάνουσαν ἐξέφηναν, καὶ τοῦ θυμοῦμὴ κρατήσαντες ἀνῆλθον ὁμοθυμαδὸν εἰς τὰ βασιλεῖα,καὶ τοῖς πρεσβύταις βασιλεύσιν ἐπεισήλθον. Συνέβαινεδὲ χακέινους μὴ πᾶν τι ἀλλήλοις δυνοσεῖν, οἷσπερἡ μοναρχίας ἐπιθυμία εἴωθε ποιεῖν· ὅπερ αὐτοῖς γέγο-νεν ἀπωλείας αἴτιον. Ὡς γὰρ ἐπιθετο ὁ Μάξιμος ἀρι-νεῖσθαι τοὺς πρατωριανοὺς καλουμένους, ἐδούλετο με-ταπέμψασθαι τοὺς Γερμανοὺς συμμάχους. Ὁ δὲ Βαλ-δίνος οἴόμενος δόλον τινὰ εἶναι κατ’ αὐτοῦ καὶ σῶφισμα[ἤδει γὰρ τοὺς Γερμανοὺς τῷ Μάξιμῳ εὐνοοῦντας),ἐκάλων, φάσκων οὐ διὰ τοὺς πρατωριανοὺς αὐτοὺςἀφιέσεσθαι, ἀλλ’ εἰς τὸ περιποιεῖσθαι τῷ Μάξιμῳ τὴνμοναρχίαν. Ἐν ᾧ δὴ περὶ τούτων διεφέροντο, εἰσδραμόντες\", \"corrections\": [\"dehyphenation\"]}\n",
+          "applied_line": "{\"urn\": \"socrates-rhodius.socrates-hist-fhg4\", \"edition\": \"qwen36-socrates_hist_fhg4\", \"locus\": \"socrates_hist_fhg4_0605.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"συνηδόμενοι τε ἀλλήλοις καὶ ἐς τὸν ἱππόδρομον συν-θέντες [ὅσπερ ἐκκλησιάζοντες χωρίῳ. Ὁ δὲ Βαλδίνος]καὶ αὐτὸς ἑκατόμβας ἔθυεν· ἀρχαὶ τε πᾶσαι καὶ ἡ σύγ-κλητος, ἕκαστος τε ὅσπερ ἀποσεισάμενος πελέκευν τοῖςἀγχέσιν ἐπιχείμενον, ὑπερευφραίνετο, εἰς τε τὰ ξυνὴ ἀγύελοι καὶ κήρυκες διετέμποντο. Καὶ ὁ Μάξιμος ἐπι-στάς τῇ Ἀκυλήᾳ, ὑπεδέχθη μεγαλοπρόως, προσειδίαςτε ἐκ πάσης τῆς Ἰταλίας δεχόμενος, εἰκόνας τε καὶ ἀγάλματα καὶ στεφάνους. Καὶ αὐτὸς δὲ ὁ στρατὸς ὁ τὴν Ἀκυλίαν πορθήσας προῆει ἐν εἰρηνικῷ σχήματι δια-φηνφορῶν ἀνάγκη· ἠγανάκτων γὰρ ὁρῶντες τὸν μὲν ὑπ’ αὐτῶν ἐπιλεγθέντα βασιλεύειν καθηρημένον, κρα-τούντας δὲ τοὺς ὑπὸ τῆς συγχλήτου ἡρμημένους.13. Ὁ δὲ Μάξιμος, συγκαλέσας πάντας, βασιλικῶςἀπεφήνατο, ἀμνηστίας τε πάντων ὑποσχόμενος καὶ χρημάτων πολλῶν διανομὰς· ὀλίγων τε ἡμερῶν διατρι-φας, τὴν εἰς τὴν Ῥώμην ἐπάνοδον συνεχρότει. Καὶ τὸ μὲν ἄλλο στρατιωτικὸν ἀπέπεμψεν εἰς τὰ ξυνὴ καὶ εἰςτὰ οἰκεῖα στρατόπεδα, αὐτὸς δὲ ἐπανῆλθεν εἰς τὴν Ῥώμην σὺν τοῖς δορυφόροις καὶ τοῖς ὑπὸ Βαλδίνου στρα-τευομένοις. Ἐπανῆλθον δὲ καὶ οἱ ἀπὸ Γερμανίας ἐλη-λυθότες σύμμαχοι· εὐθάρρει γὰρ αὐτῶν τῇ εὐνοίᾳ, ὡς καὶ τοῦ ξύνους ἐπικεικῶς πρότερον ἀρξας, ὅτε ἰδιώτευσεν. Εἰσ-ιόντι δὲ αὐτῷ εἰς τὴν Ῥώμην ὁ τε Βαλδίνος ὑπῆν-τετα, ἐπαγόμενος Γορδιανὸν Καῖσαρα, ἡ τε σύγκλητοςκαὶ ὁ δῆμος εὐφημοῦντες ὡσπερ θριαμβεύοντα ὑπεδέ-χοντο· ἐχαιρέ τε ὁ δῆμος αὐτοῖς, σεμνυνόμενος εὐπα-τρίδας καὶ ἀξίους τῆς βασιλείας.14. Οἱ δὲ στρατιῶται δλοῖδαινον τὰς ψυχὰς ἐδαροῦντο[τε] αὐτῶν αὐτὴν τὴν εὐγένειαν, καὶ ἠγανάκτων ὅτιδρα ἔγουν ἐκ συγχλήτου βουλῆς βασιλεῖας. Ἐλύπουδὲ αὐτοὺς καὶ οἱ Γερμανοὶ παρόντες· ἀντιπάλους γὰρ ἡλπίζον ἔχειν· τὸ τε Σεβήρου ὑπόδειγμα αὐτοὺς ἐτά-ρατεν, ὃς τοὺς Περτίνακα ἀποκτείναντας ἀπέσῳζεν.Ἐπιτελουμένου δὲ ἀγῶνος τοῦ τῶν Καπιτωλίων, πάν-των τε περὶ τὴν πανήγυριν ἀσχολουμένων, αἰφνιδίωςἦν εἴγον γνώμην λανθάνουσαν ἐξέφηναν, καὶ τοῦ θυμοῦμὴ κρατήσαντες ἀνῆλθον ὁμοθυμαδὸν εἰς τὰ βασιλεῖα,καὶ τοῖς πρεσβύταις βασιλεύσιν ἐπεισήλθον. Συνέβαινεδὲ χακέινους μὴ πᾶν τι ἀλλήλοις δυνοσεῖν, οἷσπερἡ μοναρχίας ἐπιθυμία εἴωθε ποιεῖν· ὅπερ αὐτοῖς γέγο-νεν ἀπωλείας αἴτιον. Ὡς γὰρ ἐπιθετο ὁ Μάξιμος ἀρι-νεῖσθαι τοὺς πρατωριανοὺς καλουμένους, ἐδούλετο με-ταπέμψασθαι τοὺς Γερμανοὺς συμμάχους. Ὁ δὲ Βαλ-δίνος οἴόμενος δόλον τινὰ εἶναι κατ’ αὐτοῦ καὶ σῶφισμα[ἤδει γὰρ τοὺς Γερμανοὺς τῷ Μάξιμῳ εὐνοοῦντας),ἐκάλων, φάσκων οὐ διὰ τοὺς πρατωριανοὺς αὐτοὺς ἀφιέσεσθαι, ἀλλ’ εἰς τὸ περιποιεῖσθαι τῷ Μάξιμῳ τὴν μοναρχίαν. Ἐν ᾧ δὴ περὶ τούτων διεφέροντο, εἰσδραμόντες\", \"corrections\": [\"dehyphenation\"]}\n",
+          "original_line_sha256": "c597941ac186a405bf9564dfe4e41095a111eb1806faf224c99c9f24b525799d",
+          "applied_line_sha256": "4083f8179dd0190e56b0c205a0209cb21bb2d81abf629c1be0951b452a6b3f1f",
+          "text_before": "συνηδόμενοι τε ἀλλήλοις καὶ ἐς τὸν ἱππόδρομον συν-θέντες [ὅσπερ ἐκκλησιάζοντες χωρίῳ. Ὁ δὲ Βαλδίνος]καὶ αὐτὸς ἑκατόμβας ἔθυεν· ἀρχαὶ τε πᾶσαι καὶ ἡ σύγ-κλητος, ἕκαστος τε ὅσπερ ἀποσεισάμενος πελέκευν τοῖςἀγχέσιν ἐπιχείμενον, ὑπερευφραίνετο, εἰς τε τὰ ξυνὴἀγύελοι καὶ κήρυκες διετέμποντο. Καὶ ὁ Μάξιμος ἐπι-στάς τῇ Ἀκυλήᾳ, ὑπεδέχθη μεγαλοπρόως, προσειδίαςτε ἐκ πάσης τῆς Ἰταλίας δεχόμενος, εἰκόνας τε καὶἀγάλματα καὶ στεφάνους. Καὶ αὐτὸς δὲ ὁ στρατὸς ὁ τὴνἈκυλίαν πορθήσας προῆει ἐν εἰρηνικῷ σχήματι δια-φηνφορῶν ἀνάγκη· ἠγανάκτων γὰρ ὁρῶντες τὸν μὲνὑπ’ αὐτῶν ἐπιλεγθέντα βασιλεύειν καθηρημένον, κρα-τούντας δὲ τοὺς ὑπὸ τῆς συγχλήτου ἡρμημένους.13. Ὁ δὲ Μάξιμος, συγκαλέσας πάντας, βασιλικῶςἀπεφήνατο, ἀμνηστίας τε πάντων ὑποσχόμενος καὶχρημάτων πολλῶν διανομὰς· ὀλίγων τε ἡμερῶν διατρι-φας, τὴν εἰς τὴν Ῥώμην ἐπάνοδον συνεχρότει. Καὶ τὸμὲν ἄλλο στρατιωτικὸν ἀπέπεμψεν εἰς τὰ ξυνὴ καὶ εἰςτὰ οἰκεῖα στρατόπεδα, αὐτὸς δὲ ἐπανῆλθεν εἰς τὴνῬώμην σὺν τοῖς δορυφόροις καὶ τοῖς ὑπὸ Βαλδίνου στρα-τευομένοις. Ἐπανῆλθον δὲ καὶ οἱ ἀπὸ Γερμανίας ἐλη-λυθότες σύμμαχοι· εὐθάρρει γὰρ αὐτῶν τῇ εὐνοίᾳ, ὡς καὶτοῦ ξύνους ἐπικεικῶς πρότερον ἀρξας, ὅτε ἰδιώτευσεν. Εἰσ-ιόντι δὲ αὐτῷ εἰς τὴν Ῥώμην ὁ τε Βαλδίνος ὑπῆν-τετα, ἐπαγόμενος Γορδιανὸν Καῖσαρα, ἡ τε σύγκλητοςκαὶ ὁ δῆμος εὐφημοῦντες ὡσπερ θριαμβεύοντα ὑπεδέ-χοντο· ἐχαιρέ τε ὁ δῆμος αὐτοῖς, σεμνυνόμενος εὐπα-τρίδας καὶ ἀξίους τῆς βασιλείας.14. Οἱ δὲ στρατιῶται δλοῖδαινον τὰς ψυχὰς ἐδαροῦντο[τε] αὐτῶν αὐτὴν τὴν εὐγένειαν, καὶ ἠγανάκτων ὅτιδρα ἔγουν ἐκ συγχλήτου βουλῆς βασιλεῖας. Ἐλύπουδὲ αὐτοὺς καὶ οἱ Γερμανοὶ παρόντες· ἀντιπάλους γὰρἡλπίζον ἔχειν· τὸ τε Σεβήρου ὑπόδειγμα αὐτοὺς ἐτά-ρατεν, ὃς τοὺς Περτίνακα ἀποκτείναντας ἀπέσῳζεν.Ἐπιτελουμένου δὲ ἀγῶνος τοῦ τῶν Καπιτωλίων, πάν-των τε περὶ τὴν πανήγυριν ἀσχολουμένων, αἰφνιδίωςἦν εἴγον γνώμην λανθάνουσαν ἐξέφηναν, καὶ τοῦ θυμοῦμὴ κρατήσαντες ἀνῆλθον ὁμοθυμαδὸν εἰς τὰ βασιλεῖα,καὶ τοῖς πρεσβύταις βασιλεύσιν ἐπεισήλθον. Συνέβαινεδὲ χακέινους μὴ πᾶν τι ἀλλήλοις δυνοσεῖν, οἷσπερἡ μοναρχίας ἐπιθυμία εἴωθε ποιεῖν· ὅπερ αὐτοῖς γέγο-νεν ἀπωλείας αἴτιον. Ὡς γὰρ ἐπιθετο ὁ Μάξιμος ἀρι-νεῖσθαι τοὺς πρατωριανοὺς καλουμένους, ἐδούλετο με-ταπέμψασθαι τοὺς Γερμανοὺς συμμάχους. Ὁ δὲ Βαλ-δίνος οἴόμενος δόλον τινὰ εἶναι κατ’ αὐτοῦ καὶ σῶφισμα[ἤδει γὰρ τοὺς Γερμανοὺς τῷ Μάξιμῳ εὐνοοῦντας),ἐκάλων, φάσκων οὐ διὰ τοὺς πρατωριανοὺς αὐτοὺςἀφιέσεσθαι, ἀλλ’ εἰς τὸ περιποιεῖσθαι τῷ Μάξιμῳ τὴνμοναρχίαν. Ἐν ᾧ δὴ περὶ τούτων διεφέροντο, εἰσδραμόντες",
+          "text_after": "συνηδόμενοι τε ἀλλήλοις καὶ ἐς τὸν ἱππόδρομον συν-θέντες [ὅσπερ ἐκκλησιάζοντες χωρίῳ. Ὁ δὲ Βαλδίνος]καὶ αὐτὸς ἑκατόμβας ἔθυεν· ἀρχαὶ τε πᾶσαι καὶ ἡ σύγ-κλητος, ἕκαστος τε ὅσπερ ἀποσεισάμενος πελέκευν τοῖςἀγχέσιν ἐπιχείμενον, ὑπερευφραίνετο, εἰς τε τὰ ξυνὴ ἀγύελοι καὶ κήρυκες διετέμποντο. Καὶ ὁ Μάξιμος ἐπι-στάς τῇ Ἀκυλήᾳ, ὑπεδέχθη μεγαλοπρόως, προσειδίαςτε ἐκ πάσης τῆς Ἰταλίας δεχόμενος, εἰκόνας τε καὶ ἀγάλματα καὶ στεφάνους. Καὶ αὐτὸς δὲ ὁ στρατὸς ὁ τὴν Ἀκυλίαν πορθήσας προῆει ἐν εἰρηνικῷ σχήματι δια-φηνφορῶν ἀνάγκη· ἠγανάκτων γὰρ ὁρῶντες τὸν μὲν ὑπ’ αὐτῶν ἐπιλεγθέντα βασιλεύειν καθηρημένον, κρα-τούντας δὲ τοὺς ὑπὸ τῆς συγχλήτου ἡρμημένους.13. Ὁ δὲ Μάξιμος, συγκαλέσας πάντας, βασιλικῶςἀπεφήνατο, ἀμνηστίας τε πάντων ὑποσχόμενος καὶ χρημάτων πολλῶν διανομὰς· ὀλίγων τε ἡμερῶν διατρι-φας, τὴν εἰς τὴν Ῥώμην ἐπάνοδον συνεχρότει. Καὶ τὸ μὲν ἄλλο στρατιωτικὸν ἀπέπεμψεν εἰς τὰ ξυνὴ καὶ εἰςτὰ οἰκεῖα στρατόπεδα, αὐτὸς δὲ ἐπανῆλθεν εἰς τὴν Ῥώμην σὺν τοῖς δορυφόροις καὶ τοῖς ὑπὸ Βαλδίνου στρα-τευομένοις. Ἐπανῆλθον δὲ καὶ οἱ ἀπὸ Γερμανίας ἐλη-λυθότες σύμμαχοι· εὐθάρρει γὰρ αὐτῶν τῇ εὐνοίᾳ, ὡς καὶ τοῦ ξύνους ἐπικεικῶς πρότερον ἀρξας, ὅτε ἰδιώτευσεν. Εἰσ-ιόντι δὲ αὐτῷ εἰς τὴν Ῥώμην ὁ τε Βαλδίνος ὑπῆν-τετα, ἐπαγόμενος Γορδιανὸν Καῖσαρα, ἡ τε σύγκλητοςκαὶ ὁ δῆμος εὐφημοῦντες ὡσπερ θριαμβεύοντα ὑπεδέ-χοντο· ἐχαιρέ τε ὁ δῆμος αὐτοῖς, σεμνυνόμενος εὐπα-τρίδας καὶ ἀξίους τῆς βασιλείας.14. Οἱ δὲ στρατιῶται δλοῖδαινον τὰς ψυχὰς ἐδαροῦντο[τε] αὐτῶν αὐτὴν τὴν εὐγένειαν, καὶ ἠγανάκτων ὅτιδρα ἔγουν ἐκ συγχλήτου βουλῆς βασιλεῖας. Ἐλύπουδὲ αὐτοὺς καὶ οἱ Γερμανοὶ παρόντες· ἀντιπάλους γὰρ ἡλπίζον ἔχειν· τὸ τε Σεβήρου ὑπόδειγμα αὐτοὺς ἐτά-ρατεν, ὃς τοὺς Περτίνακα ἀποκτείναντας ἀπέσῳζεν.Ἐπιτελουμένου δὲ ἀγῶνος τοῦ τῶν Καπιτωλίων, πάν-των τε περὶ τὴν πανήγυριν ἀσχολουμένων, αἰφνιδίωςἦν εἴγον γνώμην λανθάνουσαν ἐξέφηναν, καὶ τοῦ θυμοῦμὴ κρατήσαντες ἀνῆλθον ὁμοθυμαδὸν εἰς τὰ βασιλεῖα,καὶ τοῖς πρεσβύταις βασιλεύσιν ἐπεισήλθον. Συνέβαινεδὲ χακέινους μὴ πᾶν τι ἀλλήλοις δυνοσεῖν, οἷσπερἡ μοναρχίας ἐπιθυμία εἴωθε ποιεῖν· ὅπερ αὐτοῖς γέγο-νεν ἀπωλείας αἴτιον. Ὡς γὰρ ἐπιθετο ὁ Μάξιμος ἀρι-νεῖσθαι τοὺς πρατωριανοὺς καλουμένους, ἐδούλετο με-ταπέμψασθαι τοὺς Γερμανοὺς συμμάχους. Ὁ δὲ Βαλ-δίνος οἴόμενος δόλον τινὰ εἶναι κατ’ αὐτοῦ καὶ σῶφισμα[ἤδει γὰρ τοὺς Γερμανοὺς τῷ Μάξιμῳ εὐνοοῦντας),ἐκάλων, φάσκων οὐ διὰ τοὺς πρατωριανοὺς αὐτοὺς ἀφιέσεσθαι, ἀλλ’ εἰς τὸ περιποιεῖσθαι τῷ Μάξιμῳ τὴν μοναρχίαν. Ἐν ᾧ δὴ περὶ τούτων διεφέροντο, εἰσδραμόντες",
+          "edits": [
+            {
+              "item_id": "ogc-31-9bbd67ce369e5ce8",
+              "start": 251,
+              "end": 262,
+              "observed": "ξυνὴἀγύελοι",
+              "decision": "split",
+              "reading": "ξυνὴ ἀγύελοι",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-6968b1a672fe6694",
+              "start": 400,
+              "end": 411,
+              "observed": "καὶἀγάλματα",
+              "decision": "split",
+              "reading": "καὶ ἀγάλματα",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-aa308f3d40410dd2",
+              "start": 452,
+              "end": 462,
+              "observed": "τὴνἈκυλίαν",
+              "decision": "split",
+              "reading": "τὴν Ἀκυλίαν",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-eafdc22173449424",
+              "start": 546,
+              "end": 551,
+              "observed": "μὲνὑπ",
+              "decision": "split",
+              "reading": "μὲν ὑπ",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-3b3f60fbe187593f",
+              "start": 733,
+              "end": 744,
+              "observed": "καὶχρημάτων",
+              "decision": "split",
+              "reading": "καὶ χρημάτων",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-fabeb0b26b971978",
+              "start": 834,
+              "end": 839,
+              "observed": "τὸμὲν",
+              "decision": "split",
+              "reading": "τὸ μὲν",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-b485ed173e3c6c1c",
+              "start": 932,
+              "end": 940,
+              "observed": "τὴνῬώμην",
+              "decision": "split",
+              "reading": "τὴν Ῥώμην",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-153bdbe70b8f8bdf",
+              "start": 1089,
+              "end": 1095,
+              "observed": "καὶτοῦ",
+              "decision": "split",
+              "reading": "καὶ τοῦ",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-1aa4d036ba8524bb",
+              "start": 1572,
+              "end": 1582,
+              "observed": "γὰρἡλπίζον",
+              "decision": "split",
+              "reading": "γὰρ ἡλπίζον",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-9e31370bd866d20a",
+              "start": 2312,
+              "end": 2328,
+              "observed": "αὐτοὺςἀφιέσεσθαι",
+              "decision": "split",
+              "reading": "αὐτοὺς ἀφιέσεσθαι",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-6dd37fda2f842026",
+              "start": 2366,
+              "end": 2378,
+              "observed": "τὴνμοναρχίαν",
+              "decision": "split",
+              "reading": "τὴν μοναρχίαν",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        },
+        {
+          "line": 1208,
+          "locus": "socrates_hist_fhg4_0605.2",
+          "original_line": "{\"urn\": \"socrates-rhodius.socrates-hist-fhg4\", \"edition\": \"qwen36-socrates_hist_fhg4\", \"locus\": \"socrates_hist_fhg4_0605.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οἱ στρατιῶται, ἐκστάντων αὐτοῖς τῶν πυλωρῶν,ἀρπάζουσι τοὺς πρεσβύτας· περιρρίξαντες δὲ ὅς εἴχονἐσθῆτας, γυμνοὺς τῆς βασιλείου αὐλῆς ἐξάγουσιν μετὰπάσης αἰσχύνης καὶ ὕβρεως, παίοντες καὶ ἀποσκώ-πτοντες, γενέαι τε καὶ ὀφρύων σπαργαλίζοντες [καὶ πάσαςταῖς τοῦ σώματος λώβας ἐμπαιροῦντες. Ἐπεὶ δὲταῦτα πυθόμενοι ] οἱ Γερμανοὶ ὅπλα ἐλάμβανον ὡςἀμυνόντες αὐτοῖς, μαθόντες οἱ πρατωριανοὶ ἀφικνου-μένους αὐτούς, [φονεύουσι]ν ἤδη πᾶν τὸ σῶμα λελω-θημένους τοὺς βασιλέας, [καὶ] ἐπὶ τῆς λεωφόρουἀπέρριψαν· ἀράμενοί τε τὸν Γορδιανὸν αὐτοκράτοραἀναγορεύουσι, ἐπειδὴ πρὸς τὸ παρὸν ἄλλον οὐχ εὕρονβοηθὸν τὸ πρὸς τὸν δῆμον, ὅτι ἄρα εἴησαν ἀποκτεῖ-ναντες, οὓς ὁ δῆμος ἐν ἀρχῇ οὐχ ἐδούλετο ἀρξαι, Γορ-διανὸν τε ἐπελέξαντο, ἐκείνου τε ἀπόγονον, καὶ ὃν αὐτοῖῬωμαῖοι ἐξεδίσαντο· ἔχοντές τε αὐτὸν ἀπῆλθον εἰς τὸστρατόπεδον, καὶ κλείσαντες τὰς θύρας ἠσῦγαν. Οἱ δὲΓερμανοὶ μαθόντες ἀνηρημένους καὶ ἐρριμμένους, τῶν χά-ριν ἤπειγοντο, οὐχ ἐλόμενοι πόλεμον μάταιον ὑπὲρ ἀνδρῶντεθνηκότων, ἐπανῆλθον ἐς τὸ αὐτῶν καταγώγιον. Τέλειμὲν δὴ τοιούτῳ ἐχρήσαντο οἱ προειρημένοι πρεσβύται.\", \"corrections\": [\"dehyphenation\"]}\n",
+          "applied_line": "{\"urn\": \"socrates-rhodius.socrates-hist-fhg4\", \"edition\": \"qwen36-socrates_hist_fhg4\", \"locus\": \"socrates_hist_fhg4_0605.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οἱ στρατιῶται, ἐκστάντων αὐτοῖς τῶν πυλωρῶν,ἀρπάζουσι τοὺς πρεσβύτας· περιρρίξαντες δὲ ὅς εἴχονἐσθῆτας, γυμνοὺς τῆς βασιλείου αὐλῆς ἐξάγουσιν μετὰ πάσης αἰσχύνης καὶ ὕβρεως, παίοντες καὶ ἀποσκώ-πτοντες, γενέαι τε καὶ ὀφρύων σπαργαλίζοντες [καὶ πάσαςταῖς τοῦ σώματος λώβας ἐμπαιροῦντες. Ἐπεὶ δὲ ταῦτα πυθόμενοι ] οἱ Γερμανοὶ ὅπλα ἐλάμβανον ὡςἀμυνόντες αὐτοῖς, μαθόντες οἱ πρατωριανοὶ ἀφικνου-μένους αὐτούς, [φονεύουσι]ν ἤδη πᾶν τὸ σῶμα λελω-θημένους τοὺς βασιλέας, [καὶ] ἐπὶ τῆς λεωφόρουἀπέρριψαν· ἀράμενοί τε τὸν Γορδιανὸν αὐτοκράτοραἀναγορεύουσι, ἐπειδὴ πρὸς τὸ παρὸν ἄλλον οὐχ εὕρονβοηθὸν τὸ πρὸς τὸν δῆμον, ὅτι ἄρα εἴησαν ἀποκτεῖ-ναντες, οὓς ὁ δῆμος ἐν ἀρχῇ οὐχ ἐδούλετο ἀρξαι, Γορ-διανὸν τε ἐπελέξαντο, ἐκείνου τε ἀπόγονον, καὶ ὃν αὐτοῖῬωμαῖοι ἐξεδίσαντο· ἔχοντές τε αὐτὸν ἀπῆλθον εἰς τὸ στρατόπεδον, καὶ κλείσαντες τὰς θύρας ἠσῦγαν. Οἱ δὲ Γερμανοὶ μαθόντες ἀνηρημένους καὶ ἐρριμμένους, τῶν χά-ριν ἤπειγοντο, οὐχ ἐλόμενοι πόλεμον μάταιον ὑπὲρ ἀνδρῶντεθνηκότων, ἐπανῆλθον ἐς τὸ αὐτῶν καταγώγιον. Τέλειμὲν δὴ τοιούτῳ ἐχρήσαντο οἱ προειρημένοι πρεσβύται.\", \"corrections\": [\"dehyphenation\"]}\n",
+          "original_line_sha256": "6fb2e4f3cce7ef71ee4c5de06492911df884eb48e08f0b73cbc8956e00bca14c",
+          "applied_line_sha256": "7e38dba51b3fe3ab9a15293f5377edd2a542e466664170761dafb570bb5cd7e8",
+          "text_before": "οἱ στρατιῶται, ἐκστάντων αὐτοῖς τῶν πυλωρῶν,ἀρπάζουσι τοὺς πρεσβύτας· περιρρίξαντες δὲ ὅς εἴχονἐσθῆτας, γυμνοὺς τῆς βασιλείου αὐλῆς ἐξάγουσιν μετὰπάσης αἰσχύνης καὶ ὕβρεως, παίοντες καὶ ἀποσκώ-πτοντες, γενέαι τε καὶ ὀφρύων σπαργαλίζοντες [καὶ πάσαςταῖς τοῦ σώματος λώβας ἐμπαιροῦντες. Ἐπεὶ δὲταῦτα πυθόμενοι ] οἱ Γερμανοὶ ὅπλα ἐλάμβανον ὡςἀμυνόντες αὐτοῖς, μαθόντες οἱ πρατωριανοὶ ἀφικνου-μένους αὐτούς, [φονεύουσι]ν ἤδη πᾶν τὸ σῶμα λελω-θημένους τοὺς βασιλέας, [καὶ] ἐπὶ τῆς λεωφόρουἀπέρριψαν· ἀράμενοί τε τὸν Γορδιανὸν αὐτοκράτοραἀναγορεύουσι, ἐπειδὴ πρὸς τὸ παρὸν ἄλλον οὐχ εὕρονβοηθὸν τὸ πρὸς τὸν δῆμον, ὅτι ἄρα εἴησαν ἀποκτεῖ-ναντες, οὓς ὁ δῆμος ἐν ἀρχῇ οὐχ ἐδούλετο ἀρξαι, Γορ-διανὸν τε ἐπελέξαντο, ἐκείνου τε ἀπόγονον, καὶ ὃν αὐτοῖῬωμαῖοι ἐξεδίσαντο· ἔχοντές τε αὐτὸν ἀπῆλθον εἰς τὸστρατόπεδον, καὶ κλείσαντες τὰς θύρας ἠσῦγαν. Οἱ δὲΓερμανοὶ μαθόντες ἀνηρημένους καὶ ἐρριμμένους, τῶν χά-ριν ἤπειγοντο, οὐχ ἐλόμενοι πόλεμον μάταιον ὑπὲρ ἀνδρῶντεθνηκότων, ἐπανῆλθον ἐς τὸ αὐτῶν καταγώγιον. Τέλειμὲν δὴ τοιούτῳ ἐχρήσαντο οἱ προειρημένοι πρεσβύται.",
+          "text_after": "οἱ στρατιῶται, ἐκστάντων αὐτοῖς τῶν πυλωρῶν,ἀρπάζουσι τοὺς πρεσβύτας· περιρρίξαντες δὲ ὅς εἴχονἐσθῆτας, γυμνοὺς τῆς βασιλείου αὐλῆς ἐξάγουσιν μετὰ πάσης αἰσχύνης καὶ ὕβρεως, παίοντες καὶ ἀποσκώ-πτοντες, γενέαι τε καὶ ὀφρύων σπαργαλίζοντες [καὶ πάσαςταῖς τοῦ σώματος λώβας ἐμπαιροῦντες. Ἐπεὶ δὲ ταῦτα πυθόμενοι ] οἱ Γερμανοὶ ὅπλα ἐλάμβανον ὡςἀμυνόντες αὐτοῖς, μαθόντες οἱ πρατωριανοὶ ἀφικνου-μένους αὐτούς, [φονεύουσι]ν ἤδη πᾶν τὸ σῶμα λελω-θημένους τοὺς βασιλέας, [καὶ] ἐπὶ τῆς λεωφόρουἀπέρριψαν· ἀράμενοί τε τὸν Γορδιανὸν αὐτοκράτοραἀναγορεύουσι, ἐπειδὴ πρὸς τὸ παρὸν ἄλλον οὐχ εὕρονβοηθὸν τὸ πρὸς τὸν δῆμον, ὅτι ἄρα εἴησαν ἀποκτεῖ-ναντες, οὓς ὁ δῆμος ἐν ἀρχῇ οὐχ ἐδούλετο ἀρξαι, Γορ-διανὸν τε ἐπελέξαντο, ἐκείνου τε ἀπόγονον, καὶ ὃν αὐτοῖῬωμαῖοι ἐξεδίσαντο· ἔχοντές τε αὐτὸν ἀπῆλθον εἰς τὸ στρατόπεδον, καὶ κλείσαντες τὰς θύρας ἠσῦγαν. Οἱ δὲ Γερμανοὶ μαθόντες ἀνηρημένους καὶ ἐρριμμένους, τῶν χά-ριν ἤπειγοντο, οὐχ ἐλόμενοι πόλεμον μάταιον ὑπὲρ ἀνδρῶντεθνηκότων, ἐπανῆλθον ἐς τὸ αὐτῶν καταγώγιον. Τέλειμὲν δὴ τοιούτῳ ἐχρήσαντο οἱ προειρημένοι πρεσβύται.",
+          "edits": [
+            {
+              "item_id": "ogc-31-09dfe1270a5494ff",
+              "start": 142,
+              "end": 151,
+              "observed": "μετὰπάσης",
+              "decision": "split",
+              "reading": "μετὰ πάσης",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-51616fa4ef25517b",
+              "start": 290,
+              "end": 297,
+              "observed": "δὲταῦτα",
+              "decision": "split",
+              "reading": "δὲ ταῦτα",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-47bc23de61ae7c06",
+              "start": 787,
+              "end": 800,
+              "observed": "τὸστρατόπεδον",
+              "decision": "split",
+              "reading": "τὸ στρατόπεδον",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-b1635fa30c9cebf9",
+              "start": 838,
+              "end": 848,
+              "observed": "δὲΓερμανοὶ",
+              "decision": "split",
+              "reading": "δὲ Γερμανοὶ",
+              "evidence_url": "https://archive.org/details/fragmentahistori04mueluoft/page/n608/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/theages.fragmenta.jsonl",
+      "sha256_before": "06fb9ea58f111fa307b631be66f97330ed89c086b955982c04b3d5af7e96c15d",
+      "sha256_after": "fc421979fa4e8c77c3328e58517bd3dd25d9be274bd8a97899f881f211705c34",
+      "rows": [
+        {
+          "line": 5,
+          "locus": "archytas_mullach_fpg2_0128.1",
+          "original_line": "{\"urn\": \"theages.fragmenta\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0128.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σῶτατες μέν, ὅτι ἐντὸς τῆς ὑπερβολᾶς καὶ τῆς ἐλλεί-ψιος πίπτουσι· ἀκρότατες δέ, ὅτι οὔτε προσθέσιος οὔτ'ἀφαίρεσιος δέονται· αὐτὰ γὰρ ἐντὶ ταῦτα, ἃ δεῖ αὐτὰἡμεν.Ἐπεὶ δὲ ἀ τῶν ἠθῶν ἀρεταὶ περὶ πάθη, τῶν δὲ πα-θῶν ἄδυνα καὶ λύπαι ὑπέρτατα, φανερὸν ὅτι οὐκ ἐν τῷὑπεξελέσθαι τὰ πάθη τῆς ψυχῆς, ἄδυναν καὶ λύπαν,ἡ ἀρετὰ πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα συναρμόζεσθαι.οὐδὲ γὰρ ὑγίεια, εὐκρασία τις ἕκαστα τῶν τοῦ σώματοςδυναμιῶν °, ἐν τῷ ὑπεξελέσθαι τὸ ψυχρόν καὶ τὸ θερμόνκαὶ τὸ ὕγρον καὶ τὸ ξηρόν, πέπτωκεν, ἀλλ' ἐν τῷ ταῦτασυγκερασθῆμεν· ἐντὶ γὰρ οἷον συμμετρία τις τούτωνοὐδ' ἐν τῇ μουσικῇ ἐν τῷ ὑπεξελέσθαι τὸ ὀξὺ καὶ τὸβαρὺ τὸ σύμφωνον πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα πωςσυναρμόζεσθαι. συναρμοσμένων γὰρ ἑ τῷ ὀξέος καὶτῷ βαρέος τὸ μὲν σύμφωνον ἐναπολαμβάνεται, τὸ δὲδιάφωνον ἐκκροῦεται· συναρμοσμένων δὲ καὶ τῷ θερμῷκαὶ τῷ ψυχρῷ καὶ τῷ ὑγρῷ καὶ τῷ ξηρῷ ἡ μὲν ὑγίειαγίνεται, ἡ δὲ νόσος ἀπόλλυται· συναρμοσμένων δὲ καὶτῷ θυμῷ καὶ τῆς ἐπιθυμίας ταὶ μὲν κακίαι καὶ τὰπάθη ἐξαιρέονται, ταὶ δ' ἀρεταὶ καὶ τὰ ἠθῆ ἐγγίνον-ται. Ἰδιαίτατον δὲ τῶν τῶν ἠθῶν ἀρετῶν ἡ προαίρεσιςἡ ἐν τοῖς καλοῖς. λόγῳ γὰρ καὶ δυνάμει β συγγχερέσθαιδυνατὸν καὶ ἄνευ ἀρετῶν, προαιρέσει δὲ οὐ δυνατὸντὸ γὰρ ἀξίωμα τῷ ἠθῶν ἡ προαίρεσις σαμαίνει. Διὸκαὶ μετὰ βίας μὲν ἐπικρατῶν ὁ λογισμὸς θυμῷ καὶἐπιθυμίαις ἐγκράτειαν καὶ καρτερίαν ἐμποιεῖ, μετὰβίας δὲ πάλιν ἐκδισθεὶς αὐτὸς ὑπὸ τοῦ ἀλόγου ἀκρασίανκαὶ μαλακίαν. Ταὶ δὲ τοιαῦται διαθέσεις τῆς ψυχῆςἡμιτελεῖς μὲν ἀρεταί, ἡμιτελεῖς δὲ κακίαι τυγχάνουσι.ὁ μὲν γὰρ λογισμὸς δυναίνει, τὰ δὲ ἄλογα μέρη τῆςψυχῆς νοσεῖ. καὶ καθὸ μὲν ἄρχεται καὶ ἄγεται ὁθυμὸς καὶ ἡ ἐπιθυμία ὑπὸ τοῦ λόγου ἔχοντος μέροςτῆς ψυχῆς, ἡ ἐγκράτεια καὶ ἡ καρτερία ἀρεταὶ τυγχά-νουσι, καθὸ δὲ μετὰ βίας ἀλλ' οὐχ ἑκουσίως τοῦτοπράσσουσι, κακίαι τυγχάνουσι· δεῖ γὰρ τὰν ἀρετὰν μὴμετὰ λύπας, ἀλλὰ μετὰ ἄδυνας τὰ δέοντα πράσσειν.πάλιν δὲ καθὸ μὲν ἐπικρατεῖ ὁ θυμὸς καὶ ἡ ἐπιθυμίατῷ λογισμῷ, μαλακίαν καὶ ἀκρασίαν ἐπιφέρουσι, κα-κίαι τινὲς τυγχάνουσι· καθὸ δὲ μετὰ λύπας χαρίζονταιτοῖς πάθεσιν, εἰδότα ὅτι ἀμβλακισανοῦσι τῷ ὀνὲς ἡμεντὸ δῆμα τῆς ψυχῆς, ταῦτα δὲ οὐ κακίαι. Πάλιν δὲαὐτὸ γε τοῦτο φανερὸν, ὅτι ἑκουσίως δεῖ τὰν ἀρετὰν τὰδέοντα πράσσειν. τὸ μὲν ἀκούσιον οὐχ ἄνευ λύπαςκαὶ φόβου, τὸ δὲ ἑκούσιον οὐχ ἄνευ ἄδυνας καὶ φιλο-φροσύνας. Αἴκᾳ δὲ καὶ ὁ λόγος τὰς διαιρεσίας ἐμπέπτει,ὁδηλον ὅτι κ ταύθ' οὐτως ἔχει. ἡ μὲν γὰρ γνῶσις καὶἡ ὁρασις τῶν πραγμάτων τῷ λόγῳ ἔχοντος μέρει ἐντὶτῆς ψυχῆς, ἡ δὲ δύναμις τῷ ἀλόγῳ· τὸ γὰρ ἀντέχεινμὴ δύνασθαι τοῖς πόνοις, ὑπακούειν μ τὰν ἄδυναν,οἰκεῖον ἐντὶ τῷ ἀλόγῳ μέρει τῆς ψυχῆς· ἡ δὲ προαί-ρεσις ἐν ἀμφοτέροις αὐτοῖς γίνεται, καὶ τῷ λόγῳἔχοντι μέρει τῆς ψυχῆς καὶ τῷ ἀλόγῳ. σύγκειταιγὰρ ἐκ διανοίας καὶ ὀρέξεως, ὧν ἡ μὲν διάνοια τῷ λόγῳἔχοντι ἐντὶ, ἡ δ' ὀρεξις τῷ ἀλόγῳ. Διὸ καὶ ἀρετὰπᾶσα ἐν συναρμογῇ γίνεται τῶν μερῶν τῆς ψυχῆς,\", \"corrections\": [\"confusion\"]}\n",
+          "applied_line": "{\"urn\": \"theages.fragmenta\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0128.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σῶτατες μέν, ὅτι ἐντὸς τῆς ὑπερβολᾶς καὶ τῆς ἐλλεί-ψιος πίπτουσι· ἀκρότατες δέ, ὅτι οὔτε προσθέσιος οὔτ'ἀφαίρεσιος δέονται· αὐτὰ γὰρ ἐντὶ ταῦτα, ἃ δεῖ αὐτὰ ἡμεν.Ἐπεὶ δὲ ἀ τῶν ἠθῶν ἀρεταὶ περὶ πάθη, τῶν δὲ πα-θῶν ἄδυνα καὶ λύπαι ὑπέρτατα, φανερὸν ὅτι οὐκ ἐν τῷὑπεξελέσθαι τὰ πάθη τῆς ψυχῆς, ἄδυναν καὶ λύπαν,ἡ ἀρετὰ πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα συναρμόζεσθαι.οὐδὲ γὰρ ὑγίεια, εὐκρασία τις ἕκαστα τῶν τοῦ σώματοςδυναμιῶν °, ἐν τῷ ὑπεξελέσθαι τὸ ψυχρόν καὶ τὸ θερμόνκαὶ τὸ ὕγρον καὶ τὸ ξηρόν, πέπτωκεν, ἀλλ' ἐν τῷ ταῦτασυγκερασθῆμεν· ἐντὶ γὰρ οἷον συμμετρία τις τούτωνοὐδ' ἐν τῇ μουσικῇ ἐν τῷ ὑπεξελέσθαι τὸ ὀξὺ καὶ τὸ βαρὺ τὸ σύμφωνον πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα πωςσυναρμόζεσθαι. συναρμοσμένων γὰρ ἑ τῷ ὀξέος καὶ τῷ βαρέος τὸ μὲν σύμφωνον ἐναπολαμβάνεται, τὸ δὲ διάφωνον ἐκκροῦεται· συναρμοσμένων δὲ καὶ τῷ θερμῷκαὶ τῷ ψυχρῷ καὶ τῷ ὑγρῷ καὶ τῷ ξηρῷ ἡ μὲν ὑγίειαγίνεται, ἡ δὲ νόσος ἀπόλλυται· συναρμοσμένων δὲ καὶ τῷ θυμῷ καὶ τῆς ἐπιθυμίας ταὶ μὲν κακίαι καὶ τὰ πάθη ἐξαιρέονται, ταὶ δ' ἀρεταὶ καὶ τὰ ἠθῆ ἐγγίνον-ται. Ἰδιαίτατον δὲ τῶν τῶν ἠθῶν ἀρετῶν ἡ προαίρεσιςἡ ἐν τοῖς καλοῖς. λόγῳ γὰρ καὶ δυνάμει β συγγχερέσθαιδυνατὸν καὶ ἄνευ ἀρετῶν, προαιρέσει δὲ οὐ δυνατὸν τὸ γὰρ ἀξίωμα τῷ ἠθῶν ἡ προαίρεσις σαμαίνει. Διὸ καὶ μετὰ βίας μὲν ἐπικρατῶν ὁ λογισμὸς θυμῷ καὶ ἐπιθυμίαις ἐγκράτειαν καὶ καρτερίαν ἐμποιεῖ, μετὰ βίας δὲ πάλιν ἐκδισθεὶς αὐτὸς ὑπὸ τοῦ ἀλόγου ἀκρασίανκαὶ μαλακίαν. Ταὶ δὲ τοιαῦται διαθέσεις τῆς ψυχῆςἡμιτελεῖς μὲν ἀρεταί, ἡμιτελεῖς δὲ κακίαι τυγχάνουσι.ὁ μὲν γὰρ λογισμὸς δυναίνει, τὰ δὲ ἄλογα μέρη τῆςψυχῆς νοσεῖ. καὶ καθὸ μὲν ἄρχεται καὶ ἄγεται ὁθυμὸς καὶ ἡ ἐπιθυμία ὑπὸ τοῦ λόγου ἔχοντος μέροςτῆς ψυχῆς, ἡ ἐγκράτεια καὶ ἡ καρτερία ἀρεταὶ τυγχά-νουσι, καθὸ δὲ μετὰ βίας ἀλλ' οὐχ ἑκουσίως τοῦτοπράσσουσι, κακίαι τυγχάνουσι· δεῖ γὰρ τὰν ἀρετὰν μὴ μετὰ λύπας, ἀλλὰ μετὰ ἄδυνας τὰ δέοντα πράσσειν.πάλιν δὲ καθὸ μὲν ἐπικρατεῖ ὁ θυμὸς καὶ ἡ ἐπιθυμίατῷ λογισμῷ, μαλακίαν καὶ ἀκρασίαν ἐπιφέρουσι, κα-κίαι τινὲς τυγχάνουσι· καθὸ δὲ μετὰ λύπας χαρίζονταιτοῖς πάθεσιν, εἰδότα ὅτι ἀμβλακισανοῦσι τῷ ὀνὲς ἡμεντὸ δῆμα τῆς ψυχῆς, ταῦτα δὲ οὐ κακίαι. Πάλιν δὲ αὐτὸ γε τοῦτο φανερὸν, ὅτι ἑκουσίως δεῖ τὰν ἀρετὰν τὰ δέοντα πράσσειν. τὸ μὲν ἀκούσιον οὐχ ἄνευ λύπαςκαὶ φόβου, τὸ δὲ ἑκούσιον οὐχ ἄνευ ἄδυνας καὶ φιλο-φροσύνας. Αἴκᾳ δὲ καὶ ὁ λόγος τὰς διαιρεσίας ἐμπέπτει,ὁδηλον ὅτι κ ταύθ' οὐτως ἔχει. ἡ μὲν γὰρ γνῶσις καὶ ἡ ὁρασις τῶν πραγμάτων τῷ λόγῳ ἔχοντος μέρει ἐντὶ τῆς ψυχῆς, ἡ δὲ δύναμις τῷ ἀλόγῳ· τὸ γὰρ ἀντέχεινμὴ δύνασθαι τοῖς πόνοις, ὑπακούειν μ τὰν ἄδυναν,οἰκεῖον ἐντὶ τῷ ἀλόγῳ μέρει τῆς ψυχῆς· ἡ δὲ προαί-ρεσις ἐν ἀμφοτέροις αὐτοῖς γίνεται, καὶ τῷ λόγῳἔχοντι μέρει τῆς ψυχῆς καὶ τῷ ἀλόγῳ. σύγκειταιγὰρ ἐκ διανοίας καὶ ὀρέξεως, ὧν ἡ μὲν διάνοια τῷ λόγῳἔχοντι ἐντὶ, ἡ δ' ὀρεξις τῷ ἀλόγῳ. Διὸ καὶ ἀρετὰ πᾶσα ἐν συναρμογῇ γίνεται τῶν μερῶν τῆς ψυχῆς,\", \"corrections\": [\"confusion\"]}\n",
+          "original_line_sha256": "89fe75f3c09a78f2b21e42b154868646ec0f1ce0d4ea5cb8cb83606302ac39bd",
+          "applied_line_sha256": "217c6a69147630d0be76a5cbbbd55cbf2f8f9e2307709b28346c7bb7dae6c56a",
+          "text_before": "σῶτατες μέν, ὅτι ἐντὸς τῆς ὑπερβολᾶς καὶ τῆς ἐλλεί-ψιος πίπτουσι· ἀκρότατες δέ, ὅτι οὔτε προσθέσιος οὔτ'ἀφαίρεσιος δέονται· αὐτὰ γὰρ ἐντὶ ταῦτα, ἃ δεῖ αὐτὰἡμεν.Ἐπεὶ δὲ ἀ τῶν ἠθῶν ἀρεταὶ περὶ πάθη, τῶν δὲ πα-θῶν ἄδυνα καὶ λύπαι ὑπέρτατα, φανερὸν ὅτι οὐκ ἐν τῷὑπεξελέσθαι τὰ πάθη τῆς ψυχῆς, ἄδυναν καὶ λύπαν,ἡ ἀρετὰ πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα συναρμόζεσθαι.οὐδὲ γὰρ ὑγίεια, εὐκρασία τις ἕκαστα τῶν τοῦ σώματοςδυναμιῶν °, ἐν τῷ ὑπεξελέσθαι τὸ ψυχρόν καὶ τὸ θερμόνκαὶ τὸ ὕγρον καὶ τὸ ξηρόν, πέπτωκεν, ἀλλ' ἐν τῷ ταῦτασυγκερασθῆμεν· ἐντὶ γὰρ οἷον συμμετρία τις τούτωνοὐδ' ἐν τῇ μουσικῇ ἐν τῷ ὑπεξελέσθαι τὸ ὀξὺ καὶ τὸβαρὺ τὸ σύμφωνον πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα πωςσυναρμόζεσθαι. συναρμοσμένων γὰρ ἑ τῷ ὀξέος καὶτῷ βαρέος τὸ μὲν σύμφωνον ἐναπολαμβάνεται, τὸ δὲδιάφωνον ἐκκροῦεται· συναρμοσμένων δὲ καὶ τῷ θερμῷκαὶ τῷ ψυχρῷ καὶ τῷ ὑγρῷ καὶ τῷ ξηρῷ ἡ μὲν ὑγίειαγίνεται, ἡ δὲ νόσος ἀπόλλυται· συναρμοσμένων δὲ καὶτῷ θυμῷ καὶ τῆς ἐπιθυμίας ταὶ μὲν κακίαι καὶ τὰπάθη ἐξαιρέονται, ταὶ δ' ἀρεταὶ καὶ τὰ ἠθῆ ἐγγίνον-ται. Ἰδιαίτατον δὲ τῶν τῶν ἠθῶν ἀρετῶν ἡ προαίρεσιςἡ ἐν τοῖς καλοῖς. λόγῳ γὰρ καὶ δυνάμει β συγγχερέσθαιδυνατὸν καὶ ἄνευ ἀρετῶν, προαιρέσει δὲ οὐ δυνατὸντὸ γὰρ ἀξίωμα τῷ ἠθῶν ἡ προαίρεσις σαμαίνει. Διὸκαὶ μετὰ βίας μὲν ἐπικρατῶν ὁ λογισμὸς θυμῷ καὶἐπιθυμίαις ἐγκράτειαν καὶ καρτερίαν ἐμποιεῖ, μετὰβίας δὲ πάλιν ἐκδισθεὶς αὐτὸς ὑπὸ τοῦ ἀλόγου ἀκρασίανκαὶ μαλακίαν. Ταὶ δὲ τοιαῦται διαθέσεις τῆς ψυχῆςἡμιτελεῖς μὲν ἀρεταί, ἡμιτελεῖς δὲ κακίαι τυγχάνουσι.ὁ μὲν γὰρ λογισμὸς δυναίνει, τὰ δὲ ἄλογα μέρη τῆςψυχῆς νοσεῖ. καὶ καθὸ μὲν ἄρχεται καὶ ἄγεται ὁθυμὸς καὶ ἡ ἐπιθυμία ὑπὸ τοῦ λόγου ἔχοντος μέροςτῆς ψυχῆς, ἡ ἐγκράτεια καὶ ἡ καρτερία ἀρεταὶ τυγχά-νουσι, καθὸ δὲ μετὰ βίας ἀλλ' οὐχ ἑκουσίως τοῦτοπράσσουσι, κακίαι τυγχάνουσι· δεῖ γὰρ τὰν ἀρετὰν μὴμετὰ λύπας, ἀλλὰ μετὰ ἄδυνας τὰ δέοντα πράσσειν.πάλιν δὲ καθὸ μὲν ἐπικρατεῖ ὁ θυμὸς καὶ ἡ ἐπιθυμίατῷ λογισμῷ, μαλακίαν καὶ ἀκρασίαν ἐπιφέρουσι, κα-κίαι τινὲς τυγχάνουσι· καθὸ δὲ μετὰ λύπας χαρίζονταιτοῖς πάθεσιν, εἰδότα ὅτι ἀμβλακισανοῦσι τῷ ὀνὲς ἡμεντὸ δῆμα τῆς ψυχῆς, ταῦτα δὲ οὐ κακίαι. Πάλιν δὲαὐτὸ γε τοῦτο φανερὸν, ὅτι ἑκουσίως δεῖ τὰν ἀρετὰν τὰδέοντα πράσσειν. τὸ μὲν ἀκούσιον οὐχ ἄνευ λύπαςκαὶ φόβου, τὸ δὲ ἑκούσιον οὐχ ἄνευ ἄδυνας καὶ φιλο-φροσύνας. Αἴκᾳ δὲ καὶ ὁ λόγος τὰς διαιρεσίας ἐμπέπτει,ὁδηλον ὅτι κ ταύθ' οὐτως ἔχει. ἡ μὲν γὰρ γνῶσις καὶἡ ὁρασις τῶν πραγμάτων τῷ λόγῳ ἔχοντος μέρει ἐντὶτῆς ψυχῆς, ἡ δὲ δύναμις τῷ ἀλόγῳ· τὸ γὰρ ἀντέχεινμὴ δύνασθαι τοῖς πόνοις, ὑπακούειν μ τὰν ἄδυναν,οἰκεῖον ἐντὶ τῷ ἀλόγῳ μέρει τῆς ψυχῆς· ἡ δὲ προαί-ρεσις ἐν ἀμφοτέροις αὐτοῖς γίνεται, καὶ τῷ λόγῳἔχοντι μέρει τῆς ψυχῆς καὶ τῷ ἀλόγῳ. σύγκειταιγὰρ ἐκ διανοίας καὶ ὀρέξεως, ὧν ἡ μὲν διάνοια τῷ λόγῳἔχοντι ἐντὶ, ἡ δ' ὀρεξις τῷ ἀλόγῳ. Διὸ καὶ ἀρετὰπᾶσα ἐν συναρμογῇ γίνεται τῶν μερῶν τῆς ψυχῆς,",
+          "text_after": "σῶτατες μέν, ὅτι ἐντὸς τῆς ὑπερβολᾶς καὶ τῆς ἐλλεί-ψιος πίπτουσι· ἀκρότατες δέ, ὅτι οὔτε προσθέσιος οὔτ'ἀφαίρεσιος δέονται· αὐτὰ γὰρ ἐντὶ ταῦτα, ἃ δεῖ αὐτὰ ἡμεν.Ἐπεὶ δὲ ἀ τῶν ἠθῶν ἀρεταὶ περὶ πάθη, τῶν δὲ πα-θῶν ἄδυνα καὶ λύπαι ὑπέρτατα, φανερὸν ὅτι οὐκ ἐν τῷὑπεξελέσθαι τὰ πάθη τῆς ψυχῆς, ἄδυναν καὶ λύπαν,ἡ ἀρετὰ πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα συναρμόζεσθαι.οὐδὲ γὰρ ὑγίεια, εὐκρασία τις ἕκαστα τῶν τοῦ σώματοςδυναμιῶν °, ἐν τῷ ὑπεξελέσθαι τὸ ψυχρόν καὶ τὸ θερμόνκαὶ τὸ ὕγρον καὶ τὸ ξηρόν, πέπτωκεν, ἀλλ' ἐν τῷ ταῦτασυγκερασθῆμεν· ἐντὶ γὰρ οἷον συμμετρία τις τούτωνοὐδ' ἐν τῇ μουσικῇ ἐν τῷ ὑπεξελέσθαι τὸ ὀξὺ καὶ τὸ βαρὺ τὸ σύμφωνον πέπτωκεν, ἀλλ' ἐν τῷ ταῦτα πωςσυναρμόζεσθαι. συναρμοσμένων γὰρ ἑ τῷ ὀξέος καὶ τῷ βαρέος τὸ μὲν σύμφωνον ἐναπολαμβάνεται, τὸ δὲ διάφωνον ἐκκροῦεται· συναρμοσμένων δὲ καὶ τῷ θερμῷκαὶ τῷ ψυχρῷ καὶ τῷ ὑγρῷ καὶ τῷ ξηρῷ ἡ μὲν ὑγίειαγίνεται, ἡ δὲ νόσος ἀπόλλυται· συναρμοσμένων δὲ καὶ τῷ θυμῷ καὶ τῆς ἐπιθυμίας ταὶ μὲν κακίαι καὶ τὰ πάθη ἐξαιρέονται, ταὶ δ' ἀρεταὶ καὶ τὰ ἠθῆ ἐγγίνον-ται. Ἰδιαίτατον δὲ τῶν τῶν ἠθῶν ἀρετῶν ἡ προαίρεσιςἡ ἐν τοῖς καλοῖς. λόγῳ γὰρ καὶ δυνάμει β συγγχερέσθαιδυνατὸν καὶ ἄνευ ἀρετῶν, προαιρέσει δὲ οὐ δυνατὸν τὸ γὰρ ἀξίωμα τῷ ἠθῶν ἡ προαίρεσις σαμαίνει. Διὸ καὶ μετὰ βίας μὲν ἐπικρατῶν ὁ λογισμὸς θυμῷ καὶ ἐπιθυμίαις ἐγκράτειαν καὶ καρτερίαν ἐμποιεῖ, μετὰ βίας δὲ πάλιν ἐκδισθεὶς αὐτὸς ὑπὸ τοῦ ἀλόγου ἀκρασίανκαὶ μαλακίαν. Ταὶ δὲ τοιαῦται διαθέσεις τῆς ψυχῆςἡμιτελεῖς μὲν ἀρεταί, ἡμιτελεῖς δὲ κακίαι τυγχάνουσι.ὁ μὲν γὰρ λογισμὸς δυναίνει, τὰ δὲ ἄλογα μέρη τῆςψυχῆς νοσεῖ. καὶ καθὸ μὲν ἄρχεται καὶ ἄγεται ὁθυμὸς καὶ ἡ ἐπιθυμία ὑπὸ τοῦ λόγου ἔχοντος μέροςτῆς ψυχῆς, ἡ ἐγκράτεια καὶ ἡ καρτερία ἀρεταὶ τυγχά-νουσι, καθὸ δὲ μετὰ βίας ἀλλ' οὐχ ἑκουσίως τοῦτοπράσσουσι, κακίαι τυγχάνουσι· δεῖ γὰρ τὰν ἀρετὰν μὴ μετὰ λύπας, ἀλλὰ μετὰ ἄδυνας τὰ δέοντα πράσσειν.πάλιν δὲ καθὸ μὲν ἐπικρατεῖ ὁ θυμὸς καὶ ἡ ἐπιθυμίατῷ λογισμῷ, μαλακίαν καὶ ἀκρασίαν ἐπιφέρουσι, κα-κίαι τινὲς τυγχάνουσι· καθὸ δὲ μετὰ λύπας χαρίζονταιτοῖς πάθεσιν, εἰδότα ὅτι ἀμβλακισανοῦσι τῷ ὀνὲς ἡμεντὸ δῆμα τῆς ψυχῆς, ταῦτα δὲ οὐ κακίαι. Πάλιν δὲ αὐτὸ γε τοῦτο φανερὸν, ὅτι ἑκουσίως δεῖ τὰν ἀρετὰν τὰ δέοντα πράσσειν. τὸ μὲν ἀκούσιον οὐχ ἄνευ λύπαςκαὶ φόβου, τὸ δὲ ἑκούσιον οὐχ ἄνευ ἄδυνας καὶ φιλο-φροσύνας. Αἴκᾳ δὲ καὶ ὁ λόγος τὰς διαιρεσίας ἐμπέπτει,ὁδηλον ὅτι κ ταύθ' οὐτως ἔχει. ἡ μὲν γὰρ γνῶσις καὶ ἡ ὁρασις τῶν πραγμάτων τῷ λόγῳ ἔχοντος μέρει ἐντὶ τῆς ψυχῆς, ἡ δὲ δύναμις τῷ ἀλόγῳ· τὸ γὰρ ἀντέχεινμὴ δύνασθαι τοῖς πόνοις, ὑπακούειν μ τὰν ἄδυναν,οἰκεῖον ἐντὶ τῷ ἀλόγῳ μέρει τῆς ψυχῆς· ἡ δὲ προαί-ρεσις ἐν ἀμφοτέροις αὐτοῖς γίνεται, καὶ τῷ λόγῳἔχοντι μέρει τῆς ψυχῆς καὶ τῷ ἀλόγῳ. σύγκειταιγὰρ ἐκ διανοίας καὶ ὀρέξεως, ὧν ἡ μὲν διάνοια τῷ λόγῳἔχοντι ἐντὶ, ἡ δ' ὀρεξις τῷ ἀλόγῳ. Διὸ καὶ ἀρετὰ πᾶσα ἐν συναρμογῇ γίνεται τῶν μερῶν τῆς ψυχῆς,",
+          "edits": [
+            {
+              "item_id": "ogc-31-ef4ac7b7166f0665",
+              "start": 151,
+              "end": 159,
+              "observed": "αὐτὰἡμεν",
+              "decision": "split",
+              "reading": "αὐτὰ ἡμεν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-4ef7932a684599b6",
+              "start": 610,
+              "end": 616,
+              "observed": "τὸβαρὺ",
+              "decision": "split",
+              "reading": "τὸ βαρὺ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-48c45fc446521c9d",
+              "start": 703,
+              "end": 708,
+              "observed": "καὶτῷ",
+              "decision": "split",
+              "reading": "καὶ τῷ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-533a15265c700a46",
+              "start": 752,
+              "end": 762,
+              "observed": "δὲδιάφωνον",
+              "decision": "split",
+              "reading": "δὲ διάφωνον",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-3240a32c5e5bd2fe",
+              "start": 901,
+              "end": 906,
+              "observed": "καὶτῷ",
+              "decision": "split",
+              "reading": "καὶ τῷ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-43a1322d634727c5",
+              "start": 949,
+              "end": 955,
+              "observed": "τὰπάθη",
+              "decision": "split",
+              "reading": "τὰ πάθη",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-cbf56700954206d3",
+              "start": 1148,
+              "end": 1157,
+              "observed": "δυνατὸντὸ",
+              "decision": "split",
+              "reading": "δυνατὸν τὸ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-796a3f8ef0864da3",
+              "start": 1200,
+              "end": 1206,
+              "observed": "Διὸκαὶ",
+              "decision": "split",
+              "reading": "Διὸ καὶ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-6f7e7372bec0eaa9",
+              "start": 1247,
+              "end": 1260,
+              "observed": "καὶἐπιθυμίαις",
+              "decision": "split",
+              "reading": "καὶ ἐπιθυμίαις",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-c22994a9bd006211",
+              "start": 1295,
+              "end": 1303,
+              "observed": "μετὰβίας",
+              "decision": "split",
+              "reading": "μετὰ βίας",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-ab1bf8f197029591",
+              "start": 1745,
+              "end": 1751,
+              "observed": "μὴμετὰ",
+              "decision": "split",
+              "reading": "μὴ μετὰ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-609e77e04f57f027",
+              "start": 2043,
+              "end": 2049,
+              "observed": "δὲαὐτὸ",
+              "decision": "split",
+              "reading": "δὲ αὐτὸ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-808542f4be5fa1ea",
+              "start": 2096,
+              "end": 2104,
+              "observed": "τὰδέοντα",
+              "decision": "split",
+              "reading": "τὰ δέοντα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-c97d6ec72a4c58e3",
+              "start": 2298,
+              "end": 2302,
+              "observed": "καὶἡ",
+              "decision": "split",
+              "reading": "καὶ ἡ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-1314aea8cb779cb5",
+              "start": 2346,
+              "end": 2353,
+              "observed": "ἐντὶτῆς",
+              "decision": "split",
+              "reading": "ἐντὶ τῆς",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            },
+            {
+              "item_id": "ogc-31-636518bc122faf93",
+              "start": 2686,
+              "end": 2695,
+              "observed": "ἀρετὰπᾶσα",
+              "decision": "split",
+              "reading": "ἀρετὰ πᾶσα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n127/mode/1up",
+              "reviewer": "Codex page-image review",
+              "reviewed_at": "2026-09-14",
+              "notes": "Printed scan checked; word boundary confirmed and other OCR spelling preserved."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reverse": "python3 scripts/apply_reviewed_nonfinal_graves.py --audit data/corpus_changes/issue-31-reviewed.page-images-2026-09-14.applied.json --unapply"
+}

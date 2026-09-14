@@ -49,6 +49,7 @@ DECISION_FIELDS = [
 ]
 ISSUES = {1, 2, 31, 33}
 PAGE_RE = re.compile(r"_(\d{4,6})(?:\.|$)")
+ARCHIVE_RE = re.compile(r"https?://archive\.org/(?:download|details)/([^/?#]+)")
 
 
 @dataclass(frozen=True)
@@ -88,8 +89,62 @@ def corpus_rows(paths: Paths) -> Iterator[tuple[Path, dict]]:
             yield path, row
 
 
+def archive_id(url: object) -> str | None:
+    match = ARCHIVE_RE.search(str(url or ""))
+    return match.group(1) if match else None
+
+
+def provenance_source_paths(paths: Paths) -> list[Path]:
+    inventory = paths.data / "inventory"
+    candidates = [
+        inventory / "reocr_provenance.json",
+        inventory / "ocr_edition_sources.json",
+        *sorted(paths.provenance.glob("*.json")),
+    ]
+    return [path for path in candidates if path.exists()]
+
+
 def provenance_indexes(paths: Paths) -> tuple[dict[str, dict], dict[str, dict]]:
     by_urn, by_edition = {}, {}
+
+    # These inventories cover far more OCR editions than the richer per-work
+    # records below. Only exact Archive item URLs become page links; a search
+    # result or an unresolved source is evidence for discovery, not alignment.
+    reocr_path = paths.data / "inventory" / "reocr_provenance.json"
+    if reocr_path.exists():
+        inventory = json.loads(reocr_path.read_text(encoding="utf-8"))
+        for entry in inventory.get("editions", []):
+            ident = archive_id(entry.get("source_url"))
+            if not ident or not entry.get("base"):
+                continue
+            content_offset = entry.get("content_offset")
+            # Re-OCR page N aligns to source PDF page N - content_offset.
+            # Archive leaves are zero-based while those PDF page keys are
+            # one-based, hence the additional -1.
+            page_offset = (-content_offset - 1
+                           if isinstance(content_offset, int) else None)
+            by_edition[f"qwen36-{entry['base']}"] = {
+                "edition": f"qwen36-{entry['base']}",
+                "source_scan": {"source": "archive.org", "public_id": ident},
+                "page_offset": page_offset,
+                "alignment": entry.get("align_method"),
+                "provenance_route": "reocr-inventory",
+            }
+
+    sources_path = paths.data / "inventory" / "ocr_edition_sources.json"
+    if sources_path.exists():
+        sources = json.loads(sources_path.read_text(encoding="utf-8"))
+        for edition, source in sources.items():
+            ident = archive_id(source.get("url"))
+            if ident:
+                by_edition.setdefault(edition, {
+                    "edition": edition,
+                    "source_scan": {"source": "archive.org", "public_id": ident},
+                    "page_offset": 0,
+                    "provenance_route": "edition-source-inventory",
+                })
+
+    # Dedicated records are the most specific evidence and intentionally win.
     for path in sorted(paths.provenance.glob("*.json")):
         record = json.loads(path.read_text(encoding="utf-8"))
         if record.get("urn"):
@@ -113,8 +168,14 @@ def scan_url(row: dict, indexes: tuple[dict[str, dict], dict[str, dict]]) -> str
     leaves = PAGE_RE.findall(str(row.get("locus", "")))
     if not leaves:
         return f"https://archive.org/details/{scan['public_id']}"
+    offset = record.get("page_offset", 0)
+    if not isinstance(offset, int):
+        return f"https://archive.org/details/{scan['public_id']}"
+    leaf = int(leaves[-1]) + offset
+    if leaf < 0:
+        return f"https://archive.org/details/{scan['public_id']}"
     return (f"https://archive.org/details/{scan['public_id']}/page/"
-            f"n{int(leaves[-1])}/mode/1up")
+            f"n{leaf}/mode/1up")
 
 
 def page_stem(locus: object) -> str:
@@ -199,7 +260,7 @@ def build_issue_31(paths: Paths, limit: int, seed: str) -> tuple[list[dict], lis
         row["page_defects"] = page_density[row.pop("_page_key")]
         row.pop("_frequency")
         row.pop("_tie")
-    return candidates[:limit], [artifact_path]
+    return candidates[:limit], [artifact_path, *provenance_source_paths(paths)]
 
 
 def page_rows(path: Path) -> dict[str, list[dict]]:
@@ -255,7 +316,7 @@ def build_issue_33(paths: Paths, limit: int, seed: str) -> tuple[list[dict], lis
             "reading_required_for": ["merge"],
             "evidence_required_for": ["keep_both", "drop_a", "drop_b", "merge"],
         })
-    return items, [artifact_path]
+    return items, [artifact_path, *provenance_source_paths(paths)]
 
 
 def stratified(records: Iterable[dict], seed: str) -> Iterator[dict]:
@@ -337,7 +398,7 @@ def build_issue_1(paths: Paths, limit: int, seed: str,
         })
         if len(items) >= limit:
             break
-    return items, audit, [corrections_log]
+    return items, audit, [corrections_log, *provenance_source_paths(paths)]
 
 
 def build_issue_2(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list[dict]]:
@@ -388,7 +449,7 @@ def build_issue_2(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list
         })
         if len(items) >= limit:
             break
-    return items, [catalog_path]
+    return items, [catalog_path, *provenance_source_paths(paths)]
 
 
 def file_sha256(path: Path) -> str:
