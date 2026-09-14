@@ -1,13 +1,13 @@
 {
  "corpus": {
-  "passages": 1975500,
-  "tokens": 65296585,
-  "tokens_lemmatized": 63458619,
+  "passages": 1972138,
+  "tokens": 65295827,
+  "tokens_lemmatized": 63448300,
   "works": 3909
  },
  "generated_from": {
-  "commit": "fb1954f789719c7c4120b8fd84e16172db8d1bfc",
-  "commit_date": "2026-09-13",
+  "commit": "d132ecf",
+  "commit_date": "2026-09-14",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -17,12 +17,12 @@
    "works": 234
   },
   "CC-BY-SA-4.0": {
-   "tokens": 33779149,
-   "works": 2420
+   "tokens": 33783490,
+   "works": 2421
   },
   "PD": {
-   "tokens": 26701760,
-   "works": 1234
+   "tokens": 26696661,
+   "works": 1233
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
    "tokens": 7519,
@@ -60,98 +60,48 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "076f9fb7cdec409a942c8ad5d056c40f9d1bb4ba1b4300731c8af26f5f5b68a5",
-  "corpus_sha256": "703d47b3d96ac763a5c0339922649bbe02459b1c50719f3e99203c6153207c79",
+  "catalog_sha256": "10858a28eec7657ebe93dc86462d23c80ef754ecdb767b2303d29bc0718fa674",
+  "corpus_sha256": "483aaabbf00ee75f665970daaf04095eb51099efe9d9869748892060dc61f1c9",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20161681,
-    "works": 881
+    "tokens": 20482606,
+    "works": 884
    },
    "manual": {
     "tokens": 5782398,
     "works": 137
    },
    "not-ocr": {
-    "tokens": 36122262,
-    "works": 2496
+    "tokens": 36126603,
+    "works": 2497
    },
    "raw-ocr": {
-    "tokens": 3230244,
-    "works": 395
+    "tokens": 2904220,
+    "works": 391
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.4468,
-   "ocr_tokens": 29174323,
-   "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0495,
-   "raw_share_of_ocr_tokens": 0.1107,
-   "raw_tokens": 3230244,
-   "raw_works": 395,
+   "ocr_share_of_corpus_tokens": 0.4467,
+   "ocr_tokens": 29169224,
+   "ocr_works": 1412,
+   "raw_share_of_corpus_tokens": 0.0445,
+   "raw_share_of_ocr_tokens": 0.0996,
+   "raw_tokens": 2904220,
+   "raw_works": 391,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
   "wrong_corrections": {
-   "active_records": 220345,
-   "applied_since_measurement": {
-    "by_bake": {
-     "2026-08-21 Eustathius": 14017,
-     "2026-09-11 collation": 2072
-    },
-    "collation": {
-     "agreement": 0.949,
-     "ci95": [
-      0.849,
-      0.8765
-     ],
-     "kept": 2072,
-     "measured_on": "2026-09-11",
-     "proposals": 2400,
-     "rated": 2400,
-     "rejected": 328,
-     "sound": 0.863,
-     "written": 2072
-    },
-    "records": 16089,
-    "survivor_precision": {
-     "collation/proposed": {
-      "ci95": [
-       0.948,
-       0.994
-      ],
-      "rate": 0.982,
-      "rated": 165
-     },
-     "confusion/accepted": {
-      "ci95": [
-       0.977,
-       1.0
-      ],
-      "rate": 1.0,
-      "rated": 165
-     },
-     "evidence": "data/precision/gate_verify_eustathius_*/ and data/precision/gate_verify_collation_proposed/ in the upstream pipeline",
-     "freq/auto": {
-      "ci95": [
-       0.944,
-       0.985
-      ],
-      "rate": 0.971,
-      "rated": 275
-     },
-     "what": "a second blind two-rater read of a random sample of the records the census KEPT, which is what the bake actually wrote; the cells themselves read 83.8%, 92.1% and 86.3%. Read it as reproducibility rather than truth, since the second pair shares a model family with the first"
-    },
-    "what": "two bakes of proposals a census kept. The 2026-08-21 Eustathius bake: 16,570 records against the Iliad commentary said auto or accepted while the rows still held the OCR reading, so nothing had ever been applied. All 16,601 staged proposals were read by two blind raters across two gates, freq/auto (16,081 read) and confusion/accepted (520); 2,651 were rejected and 13,959 written, plus 58 active records elsewhere that had gone unapplied. The 2026-09-11 collation bake: OCR readings a census revert had put back in the text, corrected again by collation against an independent digital text of the same work, which supplies the letters while case, movable nu, rho breathing and final accent follow this edition's own usage. All 2,400 proposals were read by two blind raters who were not told where they came from, and only the 2,072 both called right were written"
-   },
+   "active_records": 228866,
    "caveats": [
-    "Sampling stratifies by route and reweights to the overlay, so the corpus figure is not the sample average: freq/accepted holds 85,451 records and agent/accepted 1,376, and both were sampled to the same depth.",
-    "6.0% of items are neither sound nor wrong but a split or unsure reading, and are reported as their own band rather than rounded into either side.",
+    "Sampling stratifies by route and reweights to the overlay, so the corpus figure is not the sample average: freq/accepted holds 72,856 records and agent/accepted 1,376, and both were sampled to the same depth.",
+    "9.6% of items are neither sound nor wrong but a split or unsure reading, and are reported as their own band rather than rounded into either side.",
     "The two raters disagree on 5.5% of items, so no figure here is finer than a few points.",
     "The estimate counts corrections that are wrong, not OCR errors that survive: a raw-OCR work has had no correction pass at all and none of these rates say anything about it.",
-    "llm/accepted's 53.6% is the 2,522 records that survived the August 2026 wholesale revert. All 2,114 of them still resolvable were then read individually and the 868 both raters called wrong were reverted, leaving 1,654 applied.",
+    "llm/accepted's 74.0% is a sample of the 1,654 records left after its census reverted 868 unanimously wrong records.",
     "prosodia/accepted (682 records) and engine/accepted (4) were below the sampling floor and are not covered by any figure here.",
     "The per-work unattested_rate in data/corpus_catalog.tsv is a triage signal, not a character error rate: a lexicon or a dialect glossary scores high on rare vocabulary without being misread."
    ],
@@ -215,76 +165,166 @@
      "split_still_applied": 195,
      "split_with_a_wrong_verdict": 131
     },
+    "llm/auto": {
+     "agreement": 0.959,
+     "cell_records": 64004,
+     "ci95": [
+      0.7932,
+      0.8003
+     ],
+     "measured_on": "2026-09-14",
+     "rated": 49251,
+     "reverted": 7640,
+     "sound": 0.797,
+     "split_still_applied": 2369,
+     "split_with_a_wrong_verdict": 1550
+    },
     "raters": "two independent agent instances of one model family, each shown the passage, both forms and the corrector's note, with no verdict, corrector or status. Agreement is therefore a reproducibility bound and not evidence of correctness: a blind spot the model shares passes both raters",
-    "split_still_applied": "a census gate is asymmetric on purpose: it reverts only where both raters call a record wrong, because a bad correction left in place is a measured defect while a reverted good one is fresh OCR damage in text that was right. So the records the raters disagreed on stay in the served text, 8,927 of them across the four cells, and 5,462 of those carry at least one wrong verdict. That is the censuses' own residual and it is not counted in any rate above: read sound, reverted and this as three bands, not two",
-    "what": "both-raters-right over every staged record of the cell, read one at a time rather than sampled; `reverted` is the records both raters called wrong, which are out of the served text. agent/accepted and llm/auto have not been censused and rest on the sample above"
+    "split_still_applied": "a census gate is asymmetric on purpose: it reverts only where both raters call a record wrong, because a bad correction left in place is a measured defect while a reverted good one is fresh OCR damage in text that was right. So the records the raters disagreed on stay in the served text, 11,296 of them across the five cells, and 7,012 of those carry at least one wrong verdict. That is the censuses' own residual and it is not counted in any rate above: read sound, reverted and this as three bands, not two",
+    "what": "both-raters-right over every staged record of the cell, read one at a time rather than sampled; `reverted` is the records both raters called wrong, which are out of the served text. agent/accepted has not been censused and rests on the sample above"
    },
    "corpus_weighted": {
-    "single_rater_rate": 0.779,
-    "sound": 0.762,
-    "split_or_unsure": 0.06,
-    "wrong": 0.177
+    "single_rater_rate": 0.839,
+    "sound": 0.818,
+    "split_or_unsure": 0.096,
+    "wrong": 0.086
    },
-   "corrections_present": 123508,
-   "corrections_present_works": 879,
+   "corrections_present": 138458,
+   "corrections_present_works": 886,
+   "history_since_2026_08_12": {
+    "by_bake": {
+     "2026-08-21 Eustathius": 14017,
+     "2026-09-11 census collateral": 105,
+     "2026-09-11 collation": 2072,
+     "2026-09-12 OCR frequency batch 1": 1708,
+     "2026-09-12 OCR frequency batch 2": 5587,
+     "2026-09-12 OCR frequency batch 3": 6545,
+     "2026-09-13 OCR frequency batch 4": 2257
+    },
+    "collation": {
+     "agreement": 0.949,
+     "ci95": [
+      0.849,
+      0.8765
+     ],
+     "kept": 2072,
+     "measured_on": "2026-09-11",
+     "proposals": 2400,
+     "rated": 2400,
+     "rejected": 328,
+     "sound": 0.863,
+     "written": 2072
+    },
+    "records": 32291,
+    "reverted_records": 28395,
+    "survivor_precision": {
+     "collation/proposed": {
+      "ci95": [
+       0.948,
+       0.994
+      ],
+      "rate": 0.982,
+      "rated": 165
+     },
+     "confusion/accepted": {
+      "ci95": [
+       0.977,
+       1.0
+      ],
+      "rate": 1.0,
+      "rated": 165
+     },
+     "evidence": "data/precision/gate_verify_eustathius_*/ and data/precision/gate_verify_collation_proposed/ in the upstream pipeline",
+     "freq/auto": {
+      "ci95": [
+       0.944,
+       0.985
+      ],
+      "rate": 0.971,
+      "rated": 275
+     },
+     "what": "a second blind two-rater read of a random sample of the records the census KEPT, which is what the bake actually wrote; the cells themselves read 83.8%, 92.1% and 86.3%. Read it as reproducibility rather than truth, since the second pair shares a model family with the first"
+    },
+    "what": "seven bakes after the original 2026-08-12 sample and before the current 2026-09-13 sample. The 2026-08-21 Eustathius bake: 16,570 records against the Iliad commentary said auto or accepted while the rows still held the OCR reading, so nothing had ever been applied. All 16,601 staged proposals were read by two blind raters across two gates, freq/auto (16,081 read) and confusion/accepted (520); 2,651 were rejected and 13,959 written, plus 58 active records elsewhere that had gone unapplied. The 2026-09-11 collation bake: OCR readings a census revert had put back in the text, corrected again by collation against an independent digital text of the same work, which supplies the letters while case, movable nu, rho breathing and final accent follow this edition's own usage. All 2,400 proposals were read by two blind raters who were not told where they came from, and only the 2,072 both called right were written. A 105-record rebake restored census collateral after duplicate-edit cleanup. Four upstream OCR-frequency correction batches then wrote 16,097 independently evidenced corrections"
+   },
    "measured_on": [
-    "2026-08-12"
+    "2026-09-13"
    ],
    "method": "two independent blind raters per item over a random sample of the served overlay, stratified by the route that applied each correction; a correction counts sound only when both raters call it right and wrong only when both call it wrong",
    "overlay_reach": {
     "accounted_for_but_not_served": 23550,
-    "caveats": "`placed` is weaker than `present`: 717 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,550 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
-    "orphans": 96717,
-    "placed_on_a_served_row": 72765,
-    "row_found_but_neither_form_standing": 120,
+    "caveats": "`placed` is weaker than `present`: 641 of the placed records land on a row that does not carry the correction. 16 of the convention placements are undecidable, because a row split at a character offset leaves both halves carrying the form. The 23,550 point at text this corpus keeps but does not serve as the primary reading: a second witness under data/corpus_secondary, a leaf dropped as a repeat of another with the audit naming the twin that kept it, Migne's apparatus in data/paratext, or a row an audit archived verbatim",
+    "orphans": 90276,
+    "placed_on_a_served_row": 66324,
+    "row_found_but_neither_form_standing": 132,
     "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
     "unaccounted": 402,
     "what": "where the active records sit relative to the served text. A record keyed to a row a carve moved is not lost: the carve audits, or the convention that a carved row keeps its Migne page identity, place most of them"
    },
    "population_check": {
     "checked": true,
-    "records_now": 234185,
-    "records_when_measured": 220345,
-    "stale": true
+    "records_now": 228866,
+    "records_when_measured": 228866,
+    "stale": false
    },
    "precision_by_corrector": {
-    "agent/accepted": 0.979,
-    "confusion/accepted": 0.847,
-    "freq/accepted": 0.7,
-    "freq/auto": 0.764,
-    "llm/accepted": 0.536,
-    "llm/auto": 0.825
+    "agent/accepted": 0.941,
+    "confusion/accepted": 0.912,
+    "freq/accepted": 0.804,
+    "freq/auto": 0.839,
+    "llm/accepted": 0.74,
+    "llm/auto": 0.785
    },
    "rater_disagreement": 0.055,
    "rater_kappa": 0.78,
    "repaired_over_reverts": {
-    "evidence": "data/corrections/over_revert_repair_2026-09-11*.json in the upstream pipeline, each carrying the row before and after and the commit the fix was applied at",
-    "passes": 17,
-    "rows": 1214,
-    "tokens": 3064,
+    "evidence": "data/corrections/over_revert_repair_*.json in the upstream pipeline, each carrying the row before and after and the commit the fix was applied at",
+    "passes": 20,
+    "rows": 1298,
+    "tokens": 3236,
     "what": "tokens a revert overwrote although no correction had ever made them. 1,047 of the rows come from the wholesale llm/accepted revert of 2026-08-02 and the rest from the gated census payouts; the worst single row had eleven ordinary καὶ rewritten as Κἢ. No correction record changed, because these are positions no record named",
-    "works": 131
+    "works": 135
    },
    "reverted_since_measurement": {
     "audits": "data/corrections/cell_revert_*.json in the upstream pipeline, whose record lists sum to these figures",
-    "records": 20754,
-    "what": "1,447 from the re-adjudication accepts pass, 868 from the llm/accepted census, 11,136 from the freq/accepted cell, 5,786 from freq/auto, 1,513 from confusion/accepted and 4 from llm/auto. All but the last four were reverted on a unanimous two-rater verdict over a record read individually rather than sampled. 205 of those are not census records: they are duplicates that carried an edit a census had already condemned on another record, and 169 of the condemned edits were still in the served text because reverting one record left the other active. The four llm/auto records are the wrong half of four rows where an active correction and its exact inverse were both live, so the served form depended on store order. Each was settled on evidence and reverted with the maintainer's approval: the corpus's medial-sigma convention and an independent digital text of the same edition for two, a movable nu the scan never showed for the third, and for the fourth the printed page itself, read from a microfilm of the edition, where the record had also turned a correct grave into an acute. The wrong_rows_estimate above describes the overlay as it was sampled on 2026-08-12; the served text now carries that many fewer wrong corrections, and the estimate has not been remeasured since"
+    "records": 7641,
+    "what": "the complete llm/auto census payout after the 2026-09-13 sample: 7,640 unanimously wrong edit keys plus one duplicate active record carrying a condemned edit. The three payout audits hold 4,459, 2,059 and 1,123 records. The wrong_rows_estimate above describes the overlay before those reverts; subtracting them leaves roughly 12,700 estimated wrong records, with split and unsure verdicts deliberately retained"
    },
    "sample": {
     "drawn": 990,
-    "population": 245362,
-    "rated": 803,
-    "seed": 20260812,
+    "population": 237997,
+    "rated": 859,
+    "seed": 20260913,
     "tool": "scripts/sample_applied_overlay.py in the upstream pipeline"
    },
    "stamp_gap": {
-    "pairs": 49290,
-    "raw_share_lower_bound": 0.0556,
+    "artifact": "data/correction_stamp_gap.json",
+    "by_method": {
+     "agent": 1154,
+     "confusion": 741,
+     "freq": 9104,
+     "llm": 32109,
+     "prosodia": 516
+    },
+    "correction_population_checked": true,
+    "measured_against": {
+     "active_correction_records": 228866,
+     "catalog": "data/corpus_catalog.tsv",
+     "catalog_sha256": "10858a28eec7657ebe93dc86462d23c80ef754ecdb767b2303d29bc0718fa674",
+     "corpus_sha256": "483aaabbf00ee75f665970daaf04095eb51099efe9d9869748892060dc61f1c9"
+    },
+    "pairs": 43624,
+    "raw_share_lower_bound": 0.0372,
     "raw_share_tokens_in_doubt": 472361,
-    "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
-    "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for the method that made it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against 2.65% from the standing corrections, and 16 works read zero although they hold at least as many standing corrections as rows. Taking the 22 of those works still classed raw at their word puts the raw-OCR share between 5.6% and the published 6.3%, 472,361 tokens apart",
-    "works_affected": 263,
-    "works_under_the_floor_only_because_of_it": 25
+    "raw_share_upper_bound": 0.0445,
+    "raw_tokens_lower_bound": 2431859,
+    "raw_tokens_upper_bound": 2904220,
+    "raw_works_in_doubt": 22,
+    "stale": false,
+    "tool": "scripts/measure_stamp_gap.py",
+    "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
+    "works_affected": 261,
+    "works_under_the_floor_only_because_of_it": 24
    },
    "superseded": {
     "measured_on": [
@@ -299,11 +339,11 @@
     },
     "why": "those samples were drawn per corrector from slices chosen for being hard and mostly rested on n around 30 with one rater; compared one-rater to one-rater every cell but llm/auto was optimistic by 6 to 8 points"
    },
-   "wrong_rows_estimate": 43400
+   "wrong_rows_estimate": 20400
   }
  },
- "release_date": "2026-09-13",
- "release_id": "corpus-2026-09-13.3",
+ "release_date": "2026-09-14",
+ "release_id": "corpus-2026-09-14",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -316,6 +356,10 @@
   "cgpg": {
    "tokens": 4121491,
    "works": 198
+  },
+  "dcc": {
+   "tokens": 4341,
+   "works": 1
   },
   "dfhg": {
    "tokens": 692799,
@@ -334,8 +378,8 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25052832,
-   "works": 1215
+   "tokens": 25047733,
+   "works": 1214
   },
   "perseus": {
    "tokens": 9695795,
