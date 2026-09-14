@@ -970,6 +970,12 @@ then by sole locus holder); rows that stay genuinely ambiguous - e.g. a stem
 double-served byte-identically by two works - are left unchanged and reported
 AMBIGUOUS.
 
+The unresolved quality classes now have one evidence-preserving human-review
+entry point: `scripts/build_human_review_queue.py`. It builds scan-linked packets
+for non-final graves (#31), duplicate pages (#33), raw OCR (#2), and blind A/B
+correction audits (#1), plus pinned manifests and validated decision sheets. It
+never edits `data/corpus`; see [docs/human-review-workflow.md](docs/human-review-workflow.md).
+
 Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
