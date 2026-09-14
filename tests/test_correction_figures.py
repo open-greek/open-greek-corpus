@@ -47,9 +47,11 @@ GATE_DIR = {
     "llm/auto": "cell_llm_auto",
 }
 
-# The one revert since the 2026-08-12 sample that is not a cell census: the
-# re-adjudication accepts pass, which has its own audit rather than a gate.
-READJUDICATION = ("readjudication_2026-08-11-readj.accepts-pass.json", 1447)
+REVERT_AUDITS_SINCE_MEASUREMENT = {
+    "cell_revert_llm_auto_gated_2026-09-13.json": 4459,
+    "cell_revert_llm_auto_gated_2026-09-13.2.json": 2059,
+    "cell_revert_llm_auto_gated_2026-09-14.json": 1123,
+}
 
 needs_gates = pytest.mark.skipif(
     PRECISION is None,
@@ -70,6 +72,28 @@ def _censused() -> dict[str, dict]:
     """The per-route entries of MEASURED's censused block, without its prose."""
     return {k: v for k, v in MEASURED["censused_by_corrector"].items()
             if isinstance(v, dict)}
+
+
+@needs_gates
+def test_latest_overlay_sample_matches_the_upstream_measurement():
+    sample_dir = PRECISION / "overlay_2026-09-13"
+    precision = json.loads((sample_dir / "overlay_precision.json").read_text(
+        encoding="utf-8"))
+    keymap = json.loads((sample_dir / "overlay_keymap.json").read_text(
+        encoding="utf-8"))
+    meta = keymap["_meta"]
+    said = MEASURED["sample"]
+
+    assert said["seed"] == meta["seed"]
+    assert said["drawn"] == meta["per_route"] * len(meta["population"])
+    assert said["population"] == sum(meta["population"].values())
+    assert said["rated"] == precision["corpus_weighted"]["rated"]
+    for route, value in MEASURED["precision_by_corrector"].items():
+        assert value == round(precision["routes"][route]["both_right_rate"], 3)
+    for key in ("sound", "wrong", "split_or_unsure", "single_rater_rate"):
+        source = "bad" if key == "wrong" else key
+        assert MEASURED["corpus_weighted"][key] == round(
+            precision["corpus_weighted"][source], 3)
 
 
 @needs_gates
@@ -116,26 +140,17 @@ def test_rated_never_exceeds_the_cell_it_was_drawn_from():
 
 @needs_gates
 def test_reverted_since_measurement_is_the_sum_of_its_audits():
-    """Sum the audit trail rather than the census figures. Not every revert since the
-    sample came from a census: 205 records carried an edit a census had condemned on a
-    DIFFERENT record, and reverting those is a payout with its own audit and no gate of
-    its own. Summing censused_by_corrector would miss them and has."""
-    audit, expected = READJUDICATION
-    fp = (CORRECTIONS / audit) if CORRECTIONS else None
-    if fp is None or not fp.is_file():
-        pytest.skip(f"no {audit}; data/corrections is local to the pipeline")
-    blob = json.loads(fp.read_text(encoding="utf-8"))
-    readj = blob.get("n_records") or len(blob.get("records", []))
-    assert readj == expected, "the re-adjudication accepts pass moved"
-
-    # The 2026-08-02 wholesale llm/accepted revert predates the 2026-08-12 sample, so
-    # its records were already out of the population the precision was measured over.
-    reverts = 0
-    for fp in sorted(CORRECTIONS.glob("cell_revert_*.json")):
-        if "2026-08-02" in fp.name:
-            continue
-        reverts += len(json.loads(fp.read_text(encoding="utf-8"))["records"])
-    assert MEASURED["reverted_since_measurement"]["records"] == readj + reverts
+    """The September sample froze immediately before the three census payouts."""
+    if CORRECTIONS is None:
+        pytest.skip("data/corrections is local to the pipeline")
+    total = 0
+    for name, expected in REVERT_AUDITS_SINCE_MEASUREMENT.items():
+        fp = CORRECTIONS / name
+        assert fp.is_file(), name
+        count = len(json.loads(fp.read_text(encoding="utf-8"))["records"])
+        assert count == expected, name
+        total += count
+    assert MEASURED["reverted_since_measurement"]["records"] == total
 
 
 @needs_gates
@@ -162,7 +177,7 @@ def test_the_readme_names_every_censused_cell_with_its_own_figures():
     """The README's supersession rule only works if the reader can see which
     cells it covers. Naming two when three have been read leaves the third
     presented as the weaker sampled figure with nothing saying otherwise."""
-    para = re.search(r"Most of that removal is not sampling at all\.(.+?)\n\n",
+    para = re.search(r"Five routes now have stronger census evidence than sampling\.(.+?)\n\n",
                      README, re.S)
     assert para, "the census paragraph moved; update this test with it"
     text = para.group(1)
@@ -300,7 +315,7 @@ COLLATION_REREAD = "gate_verify_collation_proposed"
 
 @needs_gates
 def test_the_collation_census_matches_its_gate():
-    said = MEASURED["applied_since_measurement"]["collation"]
+    said = MEASURED["history_since_2026_08_12"]["collation"]
     gate = json.loads((PRECISION / COLLATION_CELL / "cell_gate.json")
                       .read_text(encoding="utf-8"))
     assert gate["pending"] and gate["complete"] and not gate["batches_outstanding"]
@@ -316,7 +331,7 @@ def test_the_collation_census_matches_its_gate():
 
 @needs_gates
 def test_the_collation_survivors_match_their_reread():
-    said = MEASURED["applied_since_measurement"]["survivor_precision"][
+    said = MEASURED["history_since_2026_08_12"]["survivor_precision"][
         "collation/proposed"]
     got = json.loads((PRECISION / COLLATION_REREAD / "gate_verification.json")
                      .read_text(encoding="utf-8"))
@@ -328,7 +343,7 @@ def test_collation_written_is_what_the_bake_says_fired():
     """`written` is not the kept count. A kept record can fail to fire, and 205 of
     these would have, keyed to a carved volume the bake cannot reach, had they not
     been re-keyed to the row the census read. The bake audit lists what fired."""
-    applied = MEASURED["applied_since_measurement"]
+    applied = MEASURED["history_since_2026_08_12"]
     said = applied["collation"]
     assert applied["records"] == sum(applied["by_bake"].values())
     assert applied["by_bake"]["2026-09-11 collation"] == said["written"]
@@ -341,7 +356,7 @@ def test_collation_written_is_what_the_bake_says_fired():
 
 
 def test_the_readme_quotes_the_collation_figures():
-    said = MEASURED["applied_since_measurement"]["collation"]
+    said = MEASURED["history_since_2026_08_12"]["collation"]
     para = re.search(r"corrected\s+again\s+by\s+collation(.+?)\n\n", README, re.S)
     assert para, "the collation paragraph moved; update this test with it"
     for n in (said["rated"], said["kept"]):

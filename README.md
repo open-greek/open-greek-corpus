@@ -575,28 +575,32 @@ other source.
 
 ### How good are the corrections?
 
-Measured on 2026-08-12 over the served overlay itself: 990 of the 245,362
+Measured on 2026-09-13 over the served overlay itself: 990 of the 237,997
 applied corrections drawn at random, stratified by the route that applied them,
 each read by two independent blind raters who saw the passage with the applied
 form marked and the OCR reading it replaced, and nothing else. A correction
 counts sound only when both call it right and wrong only when both call it
-wrong; 803 were readable after carve routing.
+wrong; 859 were readable after carve routing. This sample was frozen after the
+fourth OCR-frequency batch and before the final `llm`/auto census payouts.
 
 | route | applied | rated | sound | 95% CI | wrong |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `agent`/accepted | 1,376 | 143 | 97.9% | 94.0-99.3 | 1.4% |
-| `confusion`/accepted | 16,455 | 144 | 84.7% | 78.0-89.7 | 11.8% |
-| `freq`/accepted | 85,451 | 150 | 70.0% | 62.2-76.8 | 18.7% |
-| `freq`/auto | 75,547 | 106 | 76.4% | 67.5-83.5 | 20.8% |
-| `llm`/accepted | 2,522 | 140 | 53.6% | 45.3-61.6 | 35.0% |
-| `llm`/auto | 64,011 | 120 | 82.5% | 74.7-88.3 | 14.2% |
+| `agent`/accepted | 1,376 | 152 | 94.1% | 89.1-96.9 | 2.6% |
+| `confusion`/accepted | 14,901 | 159 | 91.2% | 85.8-94.7 | 4.4% |
+| `freq`/accepted | 72,856 | 148 | 80.4% | 73.3-86.0 | 6.1% |
+| `freq`/auto | 83,206 | 143 | 83.9% | 77.0-89.0 | 6.3% |
+| `llm`/accepted | 1,654 | 127 | 74.0% | 65.8-80.9 | 11.0% |
+| `llm`/auto | 64,004 | 130 | 78.5% | 70.6-84.7 | 15.4% |
 
-Weighted by each route's share of the overlay: 76.2% sound, 17.7% wrong, 6.0%
-where the raters split or were unsure. That was roughly 43,000 wrong corrections
-when the sample was drawn; 28,395 have been taken out since, so read the table
-as the state it measured rather than a live figure.
+Weighted by each route's share of the overlay: 81.8% sound, 8.6% wrong, 9.6%
+where the raters split or were unsure. That was roughly 20,400 wrong corrections
+when the sample was drawn; 7,641 have been taken out since in the complete
+`llm`/auto census payout, leaving roughly 12,700 by subtraction. Read the table
+as the state it measured rather than a live figure. Across the longer history
+since the original 2026-08-12 sample, 28,395 corrections have been reverted and
+32,291 independently supported corrections have been baked.
 
-Most of that removal is not sampling at all. The `freq`/accepted, `freq`/auto,
+Five routes now have stronger census evidence than sampling. The `freq`/accepted, `freq`/auto,
 `confusion`/accepted and `llm`/auto cells were censused rather than estimated,
 each correction read on its own by two blind raters: 75,259 read at 78.1% sound,
 50,684 at 83.4%, 15,573 at 86.6% (86.1-87.1), and 49,251 at 79.7%
@@ -665,13 +669,11 @@ wrote 16,097 conservative diacritic repairs (1,708, 5,587, 6,545 and 2,257).
 Each changed an unattested OCR form to a form attested in the clean corpus;
 the correction records retain the target frequency and evidence for reversal.
 
-Everything before this was measured over slices picked for being hard, one
-rater per item, mostly at n≈30, so those figures said how a corner behaved
-rather than how the text behaves. Compared one rater to one rater, the old
-numbers were optimistic in every cell but one: `confusion` 93% against 85.4%,
-`freq`/auto 85% against 77.8%, `freq`/accepted 80% against 72.3%, while
-`llm`/auto goes the other way, 78% against 83.8%. The two raters here disagree
-on 5.5% of items, so nothing above is finer than a few points.
+Everything before the two stratified overlay samples was measured over slices
+picked for being hard, one rater per item, mostly at n≈30, so those figures said
+how a corner behaved rather than how the text behaves. The two raters in the
+current sample disagree on 5.5% of items, so nothing above is finer than a few
+points.
 
 `agent`/accepted is the only cell that reads clean, and it is also the only one
 where something adjudicated every single record rather than a confidence
@@ -679,13 +681,12 @@ threshold waving it through. `prosodia`/accepted (682 records) and
 `engine`/accepted (4) fall below the sampling floor and no figure here covers
 them.
 
-`llm`/accepted has since been finished off. It was reverted wholesale in August
-2026 and requeued behind a lexicon gate, but 2,522 records survived that revert,
-which is what the 53.6% above measures. Rather than revert the cell twice, all
-2,114 of them that still resolve to a served row were read individually by two
-blind raters: 49.7% sound, 41.1% unanimously wrong, 92.1% agreement. The 868
-both-wrong went back to their OCR readings across 113 works and 1,654 remain
-applied. That census also names the corrector's real failure mode, which is not
+`llm`/accepted was reverted wholesale in August 2026 and requeued behind a
+lexicon gate. All 2,114 surviving records that still resolved to a served row
+were then read individually by two blind raters: 49.7% sound, 41.1% unanimously
+wrong, 92.1% agreement. The 868 both-wrong went back to their OCR readings across
+113 works and 1,654 remained applied; the 74.0% row above samples those survivors.
+That census also names the corrector's real failure mode, which is not
 glyph misreading: where the scan is unreadable it invents plausible Greek, so it
 wrote `Περὶ` and `Λόγῳ` into garbled Latin columns, read the heading fragment
 `ΚἄΑΛ` (of `ΚΕΦΑΛ`) as `Καὶ`, and finished the line-break fragment `ἀνθρώ-` as

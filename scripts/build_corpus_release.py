@@ -66,19 +66,19 @@ MEASURED = {
                "the served overlay, stratified by the route that applied each "
                "correction; a correction counts sound only when both raters "
                "call it right and wrong only when both call it wrong"),
-    "measured_on": ["2026-08-12"],
-    "sample": {"drawn": 990, "rated": 803, "population": 245362,
-               "seed": 20260812,
+    "measured_on": ["2026-09-13"],
+    "sample": {"drawn": 990, "rated": 859, "population": 237997,
+               "seed": 20260913,
                "tool": "scripts/sample_applied_overlay.py in the upstream pipeline"},
     # both-raters-right per route. The earlier 2026-08-02/03 figures used one
     # rater, so single_rater_rate below is what they compare against.
     "precision_by_corrector": {
-        "agent/accepted": 0.979,
-        "confusion/accepted": 0.847,
-        "freq/accepted": 0.700,
-        "freq/auto": 0.764,
-        "llm/accepted": 0.536,
-        "llm/auto": 0.825,
+        "agent/accepted": 0.941,
+        "confusion/accepted": 0.912,
+        "freq/accepted": 0.804,
+        "freq/auto": 0.839,
+        "llm/accepted": 0.740,
+        "llm/auto": 0.785,
     },
     # Five of the six routes are no longer estimates. Each record was read on its
     # own by two blind raters, so these supersede precision_by_corrector above for
@@ -155,10 +155,10 @@ MEASURED = {
                    "blind spot the model shares passes both raters"),
     },
     "corpus_weighted": {
-        "sound": 0.762,
-        "wrong": 0.177,
-        "split_or_unsure": 0.060,
-        "single_rater_rate": 0.779,
+        "sound": 0.818,
+        "wrong": 0.086,
+        "split_or_unsure": 0.096,
+        "single_rater_rate": 0.839,
     },
     "superseded": {
         "measured_on": ["2026-08-02", "2026-08-03"],
@@ -169,39 +169,22 @@ MEASURED = {
                 "compared one-rater to one-rater every cell but llm/auto was "
                 "optimistic by 6 to 8 points"),
     },
-    "wrong_rows_estimate": 43400,
+    "wrong_rows_estimate": 20400,
     "reverted_since_measurement": {
-        "records": 28395,
-        "what": ("1,447 from the re-adjudication accepts pass, 868 from the "
-                 "llm/accepted census, 11,136 from the freq/accepted cell, 5,786 "
-                 "from freq/auto, 1,513 from confusion/accepted and 7,645 from "
-                 "llm/auto. The llm/auto total is 7,640 census gate keys, one "
-                 "duplicate active record carrying a condemned edit, and four "
-                 "earlier records settled on independent evidence. All census "
-                 "records were reverted on a unanimous two-rater verdict over a "
-                 "record read individually rather than sampled. 205 of the "
-                 "overall total are not census records: they are "
-                 "duplicates that carried an edit a census had already condemned "
-                 "on another record, and 169 of the condemned edits were still in "
-                 "the served text because reverting one record left the other "
-                 "active. The four llm/auto records are the wrong half of four "
-                 "rows where an active correction and its exact inverse were both "
-                 "live, so the served form depended on store order. Each was "
-                 "settled on evidence and reverted with the maintainer's approval: "
-                 "the corpus's medial-sigma convention and an independent digital "
-                 "text of the same edition for two, a movable nu the scan never "
-                 "showed for the third, and for the fourth the printed page itself, "
-                 "read from a microfilm of the edition, where the record had also "
-                 "turned a correct grave into an acute. "
-                 "The wrong_rows_estimate above describes the overlay as it was "
-                 "sampled on 2026-08-12; the served text now carries that many "
-                 "fewer wrong corrections, and the estimate has not been "
-                 "remeasured since"),
+        "records": 7641,
+        "what": ("the complete llm/auto census payout after the 2026-09-13 "
+                 "sample: 7,640 unanimously wrong edit keys plus one duplicate "
+                 "active record carrying a condemned edit. The three payout "
+                 "audits hold 4,459, 2,059 and 1,123 records. The "
+                 "wrong_rows_estimate above describes the overlay before those "
+                 "reverts; subtracting them leaves roughly 12,700 estimated wrong "
+                 "records, with split and unsure verdicts deliberately retained"),
         "audits": ("data/corrections/cell_revert_*.json in the upstream "
                    "pipeline, whose record "
                    "lists sum to these figures"),
     },
-    "applied_since_measurement": {
+    "history_since_2026_08_12": {
+        "reverted_records": 28395,
         "records": 32291,
         "by_bake": {"2026-08-21 Eustathius": 14017,
                     "2026-09-11 census collateral": 105,
@@ -210,7 +193,8 @@ MEASURED = {
                     "2026-09-12 OCR frequency batch 2": 5587,
                     "2026-09-12 OCR frequency batch 3": 6545,
                     "2026-09-13 OCR frequency batch 4": 2257},
-        "what": ("seven bakes after the sample. The 2026-08-21 Eustathius "
+        "what": ("seven bakes after the original 2026-08-12 sample and before "
+                 "the current 2026-09-13 sample. The 2026-08-21 Eustathius "
                  "bake: 16,570 records against the Iliad commentary said auto or "
                  "accepted while the rows still held the OCR reading, so nothing "
                  "had ever been applied. All 16,601 staged proposals were read by "
@@ -308,10 +292,10 @@ MEASURED = {
     "rater_kappa": 0.78,
     "caveats": [
         "Sampling stratifies by route and reweights to the overlay, so the "
-        "corpus figure is not the sample average: freq/accepted holds 85,451 "
+        "corpus figure is not the sample average: freq/accepted holds 72,856 "
         "records and agent/accepted 1,376, and both were sampled to the same "
         "depth.",
-        "6.0% of items are neither sound nor wrong but a split or unsure "
+        "9.6% of items are neither sound nor wrong but a split or unsure "
         "reading, and are reported as their own band rather than rounded into "
         "either side.",
         "The two raters disagree on 5.5% of items, so no figure here is finer "
@@ -319,10 +303,8 @@ MEASURED = {
         "The estimate counts corrections that are wrong, not OCR errors that "
         "survive: a raw-OCR work has had no correction pass at all and none of "
         "these rates say anything about it.",
-        "llm/accepted's 53.6% is the 2,522 records that survived the August "
-        "2026 wholesale revert. All 2,114 of them still resolvable were then "
-        "read individually and the 868 both raters called wrong were reverted, "
-        "leaving 1,654 applied.",
+        "llm/accepted's 74.0% is a sample of the 1,654 records left after its "
+        "census reverted 868 unanimously wrong records.",
         "prosodia/accepted (682 records) and engine/accepted (4) were below "
         "the sampling floor and are not covered by any figure here.",
         "The per-work unattested_rate in data/corpus_catalog.tsv is a triage "
