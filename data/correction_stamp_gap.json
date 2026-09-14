@@ -1,0 +1,388 @@
+{
+ "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
+ "tool": "scripts/measure_stamp_gap.py",
+ "pairs": 49290,
+ "by_method": {
+  "llm": 37785,
+  "freq": 9098,
+  "agent": 1149,
+  "confusion": 742,
+  "prosodia": 516
+ },
+ "works_affected": 263,
+ "works_under_the_floor_only_because_of_it": 25,
+ "works": [
+  {
+   "urn": "pseudo-zonaras.lexicon",
+   "rows": 20509,
+   "coverage_now": 0.00449,
+   "coverage_if_stamped": 0.02648,
+   "missing": 451
+  },
+  {
+   "urn": "gregorius-palamas.homiliae",
+   "rows": 271,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 2208
+  },
+  {
+   "urn": "ocr.walz_rhetores_v5",
+   "rows": 224,
+   "coverage_now": 0.00893,
+   "coverage_if_stamped": 0.01339,
+   "missing": 1
+  },
+  {
+   "urn": "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
+   "rows": 183,
+   "coverage_now": 0.00546,
+   "coverage_if_stamped": 1.0,
+   "missing": 1628
+  },
+  {
+   "urn": "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
+   "rows": 90,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 0.08889,
+   "missing": 8
+  },
+  {
+   "urn": "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
+   "rows": 89,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 0.02247,
+   "missing": 2
+  },
+  {
+   "urn": "isidorus-thessalonicensis.sermones-in-deiparam",
+   "rows": 77,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 575
+  },
+  {
+   "urn": "philotheus-constantinopolitanus.encomium-gregorii-palamae",
+   "rows": 64,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 585
+  },
+  {
+   "urn": "anonymi-delectus-legum.delectus-legum-compendiarius",
+   "rows": 48,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 351
+  },
+  {
+   "urn": "syrianus.eis-to-peri-ideon",
+   "rows": 42,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 0.04762,
+   "missing": 2
+  },
+  {
+   "urn": "adrianus-rhetor.meletai",
+   "rows": 35,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 0.02857,
+   "missing": 1
+  },
+  {
+   "urn": "constantinus-vii-porphyrogenitus-imperator.novellae-constitutiones",
+   "rows": 28,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 171
+  },
+  {
+   "urn": "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
+   "rows": 27,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 184
+  },
+  {
+   "urn": "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei",
+   "rows": 26,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 216
+  },
+  {
+   "urn": "anonymi-logoi-duo.logoi-duo",
+   "rows": 24,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 342
+  },
+  {
+   "urn": "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351",
+   "rows": 24,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 313
+  },
+  {
+   "urn": "galenus.institutio-logica",
+   "rows": 19,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 0.05263,
+   "missing": 1
+  },
+  {
+   "urn": "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
+   "rows": 14,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 0.21429,
+   "missing": 3
+  },
+  {
+   "urn": "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem",
+   "rows": 12,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 143
+  },
+  {
+   "urn": "hierocles-grammaticus.synecdemus",
+   "rows": 8,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 126
+  },
+  {
+   "urn": "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum",
+   "rows": 7,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 95
+  },
+  {
+   "urn": "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus",
+   "rows": 3,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 15
+  },
+  {
+   "urn": "pantaenus.fragmenta",
+   "rows": 2,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 5
+  },
+  {
+   "urn": "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+   "rows": 1,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 3
+  },
+  {
+   "urn": "photius.fragmenta-in-marcum-in-catenis",
+   "rows": 1,
+   "coverage_now": 0.0,
+   "coverage_if_stamped": 1.0,
+   "missing": 6
+  }
+ ],
+ "reading": "the published raw-OCR share is an upper bound: these works are classed raw because their stamps were left behind, not because no correction pass touched them",
+ "not_a_repair_list": "stamping on presence would invent provenance. A corrected form standing in a row is consistent with the corrector having written it and with the scan having read it correctly all along, which the 2026-09-11 over-revert repair found in 1,214 rows. restamp_rows.py is drop-only on purpose",
+ "schema_version": 1,
+ "measured_against": {
+  "catalog": "data/corpus_catalog.tsv",
+  "catalog_sha256": "7a874bcd30d834fe1a223b6f66ca6c180763c033d290e2bec4a97c0f85c7dc20",
+  "corpus_sha256": "703d47b3d96ac763a5c0339922649bbe02459b1c50719f3e99203c6153207c79",
+  "active_correction_records": 234185
+ },
+ "raw_ocr": {
+  "upper_bound_works": 395,
+  "upper_bound_tokens": 3230244,
+  "upper_bound_share_of_corpus_tokens": 0.0495,
+  "lower_bound_works": 373,
+  "lower_bound_tokens": 2757883,
+  "lower_bound_share_of_corpus_tokens": 0.0422,
+  "works_in_doubt": 22,
+  "tokens_in_doubt": 472361,
+  "in_doubt": [
+   {
+    "urn": "gregorius-palamas.homiliae",
+    "rows": 271,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 2208,
+    "tokens": 117841
+   },
+   {
+    "urn": "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
+    "rows": 183,
+    "coverage_now": 0.00546,
+    "coverage_if_stamped": 1.0,
+    "missing": 1628,
+    "tokens": 160979
+   },
+   {
+    "urn": "anonymi-in-artem-rhetoricam.problemata-rhetorika-eis-staseis",
+    "rows": 90,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 0.08889,
+    "missing": 8,
+    "tokens": 2152
+   },
+   {
+    "urn": "anonymi-in-hermogenis-de-inventione.eis-to-peri-eureseos-epistasis-anepigraphos",
+    "rows": 89,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 0.02247,
+    "missing": 2,
+    "tokens": 4351
+   },
+   {
+    "urn": "isidorus-thessalonicensis.sermones-in-deiparam",
+    "rows": 77,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 575,
+    "tokens": 24029
+   },
+   {
+    "urn": "philotheus-constantinopolitanus.encomium-gregorii-palamae",
+    "rows": 64,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 585,
+    "tokens": 54429
+   },
+   {
+    "urn": "anonymi-delectus-legum.delectus-legum-compendiarius",
+    "rows": 48,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 351,
+    "tokens": 17645
+   },
+   {
+    "urn": "syrianus.eis-to-peri-ideon",
+    "rows": 42,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 0.04762,
+    "missing": 2,
+    "tokens": 3199
+   },
+   {
+    "urn": "adrianus-rhetor.meletai",
+    "rows": 35,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 0.02857,
+    "missing": 1,
+    "tokens": 1501
+   },
+   {
+    "urn": "constantinus-vii-porphyrogenitus-imperator.novellae-constitutiones",
+    "rows": 28,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 171,
+    "tokens": 10084
+   },
+   {
+    "urn": "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
+    "rows": 27,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 184,
+    "tokens": 9885
+   },
+   {
+    "urn": "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei",
+    "rows": 26,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 216,
+    "tokens": 10989
+   },
+   {
+    "urn": "anonymi-logoi-duo.logoi-duo",
+    "rows": 24,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 342,
+    "tokens": 20680
+   },
+   {
+    "urn": "tomus-synodalis-anni-1351.tomus-synodalis-anni-1351",
+    "rows": 24,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 313,
+    "tokens": 15194
+   },
+   {
+    "urn": "anonymi-in-artem-rhetoricam.peri-schematon-walz-viii-694",
+    "rows": 14,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 0.21429,
+    "missing": 3,
+    "tokens": 704
+   },
+   {
+    "urn": "tomus-synodalis-contra-prochorum-cydonem.tomus-synodalis-contra-prochorum-cydonem",
+    "rows": 12,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 143,
+    "tokens": 9938
+   },
+   {
+    "urn": "hierocles-grammaticus.synecdemus",
+    "rows": 8,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 126,
+    "tokens": 1600
+   },
+   {
+    "urn": "tomus-synodicus-contra-barlaam-et-acindynum.tomus-synodicus-contra-barlaam-et-acindynum",
+    "rows": 7,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 95,
+    "tokens": 5379
+   },
+   {
+    "urn": "constantinus-vii-porphyrogenitus-imperator.prooemium-excerptorum-de-legationibus",
+    "rows": 3,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 15,
+    "tokens": 808
+   },
+   {
+    "urn": "pantaenus.fragmenta",
+    "rows": 2,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 5,
+    "tokens": 225
+   },
+   {
+    "urn": "photius.fragmenta-in-epistulam-ii-ad-corinthios-in-catenis",
+    "rows": 1,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 3,
+    "tokens": 366
+   },
+   {
+    "urn": "photius.fragmenta-in-marcum-in-catenis",
+    "rows": 1,
+    "coverage_now": 0.0,
+    "coverage_if_stamped": 1.0,
+    "missing": 6,
+    "tokens": 383
+   }
+  ]
+ }
+}

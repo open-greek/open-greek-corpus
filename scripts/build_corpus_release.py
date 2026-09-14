@@ -49,6 +49,7 @@ DATA = REPO / "data"
 CATALOG = DATA / "corpus_catalog.tsv"
 OUT = DATA / "corpus_release.json"
 CITATION = REPO / "CITATION.cff"
+STAMP_GAP = DATA / "correction_stamp_gap.json"
 
 OCR_SOURCES = {"ocr", "cgpg"}
 
@@ -285,29 +286,6 @@ MEASURED = {
                     "in data/paratext, or a row an audit archived verbatim"),
         "tool": "scripts/measure_overlay_reach.py in the upstream pipeline",
     },
-    # The raw-OCR share above is an upper bound, and this is by how much. A work is
-    # classed from its rows' `corrections` stamps, and a correction stamps the row it
-    # edits before a carve moves that row into a per-work file, where nothing
-    # re-stamps it. The stamps are deliberately NOT repaired to match: a corrected
-    # form standing in a row is equally consistent with the corrector having written
-    # it and with the scan having read it right all along, so stamping on presence
-    # would invent provenance. restamp_rows.py is drop-only for the same reason.
-    "stamp_gap": {
-        "pairs": 49290,
-        "works_affected": 263,
-        "works_under_the_floor_only_because_of_it": 25,
-        "raw_share_lower_bound": 0.0556,
-        "raw_share_tokens_in_doubt": 472361,
-        "what": ("row-and-method pairs where an active correction is standing in the "
-                 "served row and the row carries no stamp for the method that made "
-                 "it. pseudo-zonaras.lexicon reads 0.45% of its rows stamped against "
-                 "2.65% from the standing corrections, and 16 works read zero "
-                 "although they hold at least as many standing corrections as rows. "
-                 "Taking the 22 of those works still classed raw at their word puts "
-                 "the raw-OCR share between 5.6% and the published 6.3%, 472,361 "
-                 "tokens apart"),
-        "tool": "scripts/measure_stamp_gap.py in the upstream pipeline",
-    },
     "rater_disagreement": 0.055,
     "rater_kappa": 0.78,
     "caveats": [
@@ -416,7 +394,74 @@ def resolve_date(explicit: str | None, cff_date: str | None,
              "date-released - pass --date YYYY-MM-DD")
 
 
-def corrections_block() -> dict:
+def stamp_gap_block(catalog_sha: str, corpus_sha: str, raw: dict,
+                    total_tokens: int, correction_records: int | None,
+                    artifact: Path = STAMP_GAP) -> dict:
+    """Load the upstream measurement and make any provenance drift explicit."""
+    if not artifact.exists():
+        return {
+            "stale": True,
+            "why": (f"{shown(artifact)} is missing; run the upstream "
+                    "measure_stamp_gap.py --write-corpus audit"),
+        }
+
+    measured = json.loads(artifact.read_text(encoding="utf-8"))
+    against = measured.get("measured_against") or {}
+    bounds = measured.get("raw_ocr") or {}
+    reasons = []
+    if measured.get("schema_version") != 1:
+        reasons.append(f"unsupported schema {measured.get('schema_version')!r}")
+    if against.get("catalog_sha256") != catalog_sha:
+        reasons.append("catalog sha256 changed")
+    if against.get("corpus_sha256") != corpus_sha:
+        reasons.append("corpus sha256 changed")
+    if (bounds.get("upper_bound_works") != raw["works"] or
+            bounds.get("upper_bound_tokens") != raw["tokens"]):
+        reasons.append("raw-OCR bucket changed")
+    if (correction_records is not None and
+            against.get("active_correction_records") != correction_records):
+        reasons.append("active correction population changed")
+
+    out = {
+        "what": measured.get("what"),
+        "tool": measured.get("tool"),
+        "artifact": shown(artifact),
+        "pairs": measured.get("pairs"),
+        "by_method": measured.get("by_method"),
+        "works_affected": measured.get("works_affected"),
+        "works_under_the_floor_only_because_of_it": measured.get(
+            "works_under_the_floor_only_because_of_it"),
+        "raw_works_in_doubt": bounds.get("works_in_doubt"),
+        "raw_share_tokens_in_doubt": bounds.get("tokens_in_doubt"),
+        "raw_tokens_lower_bound": bounds.get("lower_bound_tokens"),
+        "raw_tokens_upper_bound": bounds.get("upper_bound_tokens"),
+        "raw_share_lower_bound": bounds.get(
+            "lower_bound_share_of_corpus_tokens"),
+        "raw_share_upper_bound": bounds.get(
+            "upper_bound_share_of_corpus_tokens"),
+        "measured_against": against,
+        "correction_population_checked": correction_records is not None,
+        "stale": bool(reasons),
+    }
+    if reasons:
+        out["stale_reasons"] = reasons
+    if correction_records is None:
+        out["population_check_note"] = (
+            "data/corrections_log/ is not present in this checkout; catalog and "
+            "corpus pins were checked, but the private correction population was not")
+
+    # A malformed artifact must never publish a mathematically impossible range.
+    lower = out["raw_tokens_lower_bound"]
+    upper = out["raw_tokens_upper_bound"]
+    if not isinstance(lower, int) or not isinstance(upper, int) or not (
+            0 <= lower <= upper <= total_tokens):
+        out["stale"] = True
+        out.setdefault("stale_reasons", []).append("invalid raw-OCR token bounds")
+    return out
+
+
+def corrections_block(catalog_sha: str, corpus_sha: str, raw: dict,
+                      total_tokens: int) -> dict:
     """The measured wrong-correction estimate, plus whether it still applies.
 
     data/corrections_log/ is a local, gitignored audit mirror of the fixes the
@@ -431,26 +476,29 @@ def corrections_block() -> dict:
     """
     block = dict(MEASURED)
     log = DATA / "corrections_log" / "applied.jsonl"
+    records = None
     if not log.exists():
         block["population_check"] = {
             "checked": False,
             "why": ("data/corrections_log/ is a local audit mirror and is not "
                     "published in this repository"),
         }
-        return block
-    records = sum(1 for _ in log.open(encoding="utf-8"))
-    drifted = records != MEASURED["active_records"]
-    block["population_check"] = {
-        "checked": True,
-        "records_now": records,
-        "records_when_measured": MEASURED["active_records"],
-        "stale": drifted,
-    }
-    if drifted:
-        print(f"WARNING: the corrections log holds {records:,} records, but the "
-              f"published precision was measured over "
-              f"{MEASURED['active_records']:,}. The estimate is republished with "
-              f"stale=true; remeasure and update MEASURED.", file=sys.stderr)
+    else:
+        records = sum(1 for _ in log.open(encoding="utf-8"))
+        drifted = records != MEASURED["active_records"]
+        block["population_check"] = {
+            "checked": True,
+            "records_now": records,
+            "records_when_measured": MEASURED["active_records"],
+            "stale": drifted,
+        }
+        if drifted:
+            print(f"WARNING: the corrections log holds {records:,} records, but the "
+                  f"published precision was measured over "
+                  f"{MEASURED['active_records']:,}. The estimate is republished with "
+                  f"stale=true; remeasure and update MEASURED.", file=sys.stderr)
+    block["stamp_gap"] = stamp_gap_block(
+        catalog_sha, corpus_sha, raw, total_tokens, records)
     return block
 
 
@@ -496,6 +544,7 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
     def share(part: int, whole: int) -> float:
         return round(part / whole, 4) if whole else 0.0
 
+    catalog_sha = hashlib.sha256(catalog.read_bytes()).hexdigest()
     release = {
         "release_id": release_id,
         "release_date": release_date,
@@ -508,7 +557,7 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
                     "lines of data/corpus/*.jsonl; independent of the catalog's "
                     "columns and of where the bytes are hosted"),
             "catalog": shown(catalog),
-            "catalog_sha256": hashlib.sha256(catalog.read_bytes()).hexdigest(),
+            "catalog_sha256": catalog_sha,
             "catalog_rows": len(rows),
         },
         "generated_from": {
@@ -537,7 +586,8 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
                 "ocr_share_of_corpus_tokens": share(ocr["tokens"],
                                                     totals["tokens"]),
             },
-            "wrong_corrections": corrections_block(),
+            "wrong_corrections": corrections_block(
+                catalog_sha, corpus_sha, raw, totals["tokens"]),
             "per_work": ("data/corpus_catalog.tsv carries each work's source, "
                          "correction status, unattested-token rate and sha256; "
                          "quality is uneven by work and should be read there"),

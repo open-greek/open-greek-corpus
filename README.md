@@ -980,9 +980,12 @@ stamps are not repaired to match, because they cannot be: a corrected form
 standing in a row is equally consistent with the corrector having written it
 and with the scan having read it correctly all along, so stamping on presence
 would invent provenance rather than record it. Taking the 22 of those works
-the table still calls raw at their word puts the raw-OCR share between 5.6%
-and 6.3% of the corpus, 472,361 tokens apart, and the published figure is the
-top of that range.
+the catalog still calls raw at their word puts the raw-OCR share between 4.2%
+and 4.9% of the corpus, 472,361 tokens apart, and the published figure is the
+top of that range. `data/correction_stamp_gap.json` carries the generated
+measurement with the catalog hash, corpus hash and correction-population count
+that it was measured against; the release builder marks it stale if those pins
+move.
 
 <!-- OCR-PROVENANCE:START -->
 1394 OCR'd works/volumes: 125 manually corrected, 877 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 392 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.

@@ -28,7 +28,7 @@ import pytest
 
 REPO = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(REPO / "scripts"))
-from build_corpus_release import MEASURED  # noqa: E402
+from build_corpus_release import MEASURED, stamp_gap_block  # noqa: E402
 
 README = (REPO / "README.md").read_text(encoding="utf-8")
 
@@ -220,13 +220,60 @@ def test_stamp_gap_matches_the_upstream_measurement():
     if not fp.is_file():
         pytest.skip("no stamp_gap.json; run measure_stamp_gap.py --write")
     got = json.loads(fp.read_text(encoding="utf-8"))
-    said = MEASURED["stamp_gap"]
+    public = REPO / "data" / "correction_stamp_gap.json"
+    assert public.is_file(), "run measure_stamp_gap.py --write-corpus upstream"
+    said = json.loads(public.read_text(encoding="utf-8"))
+    assert said == got
     for key in ("pairs", "works_affected",
                 "works_under_the_floor_only_because_of_it"):
         assert said[key] == got[key], key
     for n in (said["pairs"], said["works_affected"],
               said["works_under_the_floor_only_because_of_it"]):
         assert f"{n:,}" in README or str(n) in README, f"the README omits {n}"
+
+
+def test_stamp_gap_artifact_refuses_drift_and_impossible_bounds(tmp_path):
+    fp = tmp_path / "stamp-gap.json"
+    fp.write_text(json.dumps({
+        "schema_version": 1,
+        "what": "test",
+        "tool": "test",
+        "pairs": 2,
+        "by_method": {"freq": 2},
+        "works_affected": 1,
+        "works_under_the_floor_only_because_of_it": 1,
+        "measured_against": {
+            "catalog_sha256": "catalog",
+            "corpus_sha256": "corpus",
+            "active_correction_records": 7,
+        },
+        "raw_ocr": {
+            "upper_bound_works": 3,
+            "upper_bound_tokens": 80,
+            "upper_bound_share_of_corpus_tokens": 0.8,
+            "lower_bound_tokens": 50,
+            "lower_bound_share_of_corpus_tokens": 0.5,
+            "works_in_doubt": 1,
+            "tokens_in_doubt": 30,
+        },
+    }), encoding="utf-8")
+
+    current = stamp_gap_block("catalog", "corpus", {"works": 3, "tokens": 80},
+                              100, 7, fp)
+    assert current["stale"] is False
+
+    drifted = stamp_gap_block("new-catalog", "corpus",
+                              {"works": 3, "tokens": 80}, 100, 8, fp)
+    assert drifted["stale"] is True
+    assert drifted["stale_reasons"] == [
+        "catalog sha256 changed", "active correction population changed"]
+
+    blob = json.loads(fp.read_text(encoding="utf-8"))
+    blob["raw_ocr"]["lower_bound_tokens"] = 81
+    fp.write_text(json.dumps(blob), encoding="utf-8")
+    impossible = stamp_gap_block("catalog", "corpus",
+                                 {"works": 3, "tokens": 80}, 100, 7, fp)
+    assert "invalid raw-OCR token bounds" in impossible["stale_reasons"]
 
 
 def test_the_readme_quotes_the_split_residual():
