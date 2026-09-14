@@ -36,7 +36,6 @@ work in the same append-only map format:
       local lemmatization appends every validated chunk to data/lemma_map.tsv,
       so an interrupted run can resume by rerunning with
       --lemma-map data/lemma_map.tsv.
-
 Outputs (under data/):
   work_lemma_counts.tsv.gz    work_urn<TAB>lemma<TAB>count
   work_token_totals.json      work_urn -> {tokens, tokens_lemmatized}
@@ -53,7 +52,9 @@ import argparse
 import gzip
 import io
 import json
+import os
 import sys
+import tempfile
 import unicodedata
 from collections import Counter
 from pathlib import Path
@@ -201,6 +202,13 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate_lemma_map import load_rejected, validate_cache  # noqa: E402
 
 
+def positive_int(value: str) -> int:
+    parsed = int(value)
+    if parsed < 1:
+        raise argparse.ArgumentTypeError("must be at least 1")
+    return parsed
+
+
 def load_lemma_cache() -> dict[str, str]:
     if not LEMMA_CACHE.exists():
         return {}
@@ -258,15 +266,28 @@ def merge_lemma_map(path: Path, cache: dict[str, str],
 
 def append_lemma_map(path: Path, forms: list[str],
                      derived: dict[str, str]) -> None:
-    """Append validated chunk results to a resumable form<TAB>lemma map."""
+    """Atomically append validated rows to the resumable lemma map."""
     if not derived:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("a", encoding="utf-8") as sink:
-        for form in forms:
-            lemma = derived.get(form)
-            if lemma:
-                sink.write(f"{form}\t{lemma}\n")
+    addition = "".join(
+        f"{form}\t{derived[form]}\n" for form in forms if derived.get(form)
+    ).encode("utf-8")
+    previous = path.read_bytes() if path.exists() else b""
+    fd, temporary = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp",
+    )
+    try:
+        with os.fdopen(fd, "wb") as sink:
+            sink.write(previous)
+            sink.write(addition)
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
 
 
 def lemmatize_local(forms: list[str], cache: dict[str, str], *,
@@ -331,7 +352,7 @@ def main() -> None:
                          "(default: data/lemma_map.tsv)")
     ap.add_argument("--no-checkpoint-map", action="store_true",
                     help="do not append a resumable local lemma map")
-    ap.add_argument("--local-chunk", type=int, default=50000,
+    ap.add_argument("--local-chunk", type=positive_int, default=50000,
                     help="local Dilemma batch/checkpoint size")
     ap.add_argument("--write-lemma-frequency", action="store_true",
                     help="also overwrite data/public_lemma_frequency.tsv and its "

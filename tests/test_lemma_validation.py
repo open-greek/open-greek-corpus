@@ -186,28 +186,32 @@ GRAVE_FREQ = {**FREQ, "ξύν": 20, "Ἐλπὶς": 1_100, "Ἐλπίς": 120,
               "τὸν": 610_395, "τις": 300_312, "τίς": 250_416}
 
 
-def test_a_grave_lemma_is_repaired_to_its_attested_acute_headword():
+def test_a_grave_lemma_is_repaired_to_its_attested_acute_headword(monkeypatch):
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"ξύν"})
     assert grave_lemma_repair("ξὺν", GRAVE_FREQ) == "ξύν"
 
 
-def test_the_acute_headword_need_not_be_the_commoner_of_the_two():
+def test_the_acute_headword_need_not_be_the_commoner_of_the_two(monkeypatch):
     """The grave entry's count IS the tokens it took off the acute headword, so
     demanding the acute be commoner asks the split to heal before healing it.
     Ἐλπὶς holds 1,100 and Ἐλπίς 120, and they are one word."""
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"Ἐλπίς"})
     assert grave_lemma_repair("Ἐλπὶς", GRAVE_FREQ) == "Ἐλπίς"
 
 
-def test_an_unattested_acute_leaves_the_entry_alone():
+def test_an_unattested_acute_leaves_the_entry_alone(monkeypatch):
     # τόν is nowhere in the table, and inventing it would only trade one
     # non-headword for another: the lemma of the article is the nominative
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: set())
     assert grave_lemma_repair("τὸν", GRAVE_FREQ) is None
 
 
-def test_the_enclitic_indefinite_is_not_merged_into_the_interrogative():
+def test_the_enclitic_indefinite_is_not_merged_into_the_interrogative(monkeypatch):
     """The one place a grave really does mark a distinct word. Editors print
     τὶς for the enclitic precisely to hold it apart from interrogative τίς, and
     the acute test cannot see it: τίς is attested and enormous. The corpus's own
     unaccented headword is what blocks it."""
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"τίς"})
     assert grave_lemma_repair("τὶς", GRAVE_FREQ) is None
 
 
@@ -226,17 +230,19 @@ def test_only_the_grave_moves():
     assert to_acute("οὗ") == "οὗ"
 
 
-def test_the_repair_reaches_a_grave_lemma_under_any_form(bench):
+def test_the_repair_reaches_a_grave_lemma_under_any_form(bench, monkeypatch):
     """The point of generalizing. particle_capture only ever saw forms whose own
     skeleton was a particle's, so καὶ as a LEMMA slipped past it on every form
     that was not itself καί: κάτα, καυτὸς, Κἀκείνων."""
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"καί"})
     assert particle_capture("κάτα", "καὶ", vlm.load_lemma_frequencies(bench)) is None
     cache = {"κάτα": "καὶ"}
     repaired, _ = validate_cache(cache, bench, label="test")
     assert repaired == {"κάτα"} and cache["κάτα"] == "καί"
 
 
-def test_a_grave_lemma_with_no_acute_headword_is_left_not_tombstoned(bench):
+def test_a_grave_lemma_with_no_acute_headword_is_left_not_tombstoned(
+        bench, monkeypatch):
     """A grave lemma is the right WORD in the wrong citation form: it still
     groups its occurrences, so a downstream join on it still finds them, and
     dropping it would trade lemmatized tokens for a blank.
@@ -251,19 +257,22 @@ def test_a_grave_lemma_with_no_acute_headword_is_left_not_tombstoned(bench):
     because the acute the rule wants is still unattested in this bench, and
     that is the limit this test is really about: the entry is repaired as far
     as the evidence goes and is not tombstoned."""
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: set())
     cache = {"χωρὶς": "Χωρὶς"}
     repaired, dropped = validate_cache(cache, bench, label="test")
     assert cache == {"χωρὶς": "χωρὶς"}
     assert "χωρὶς" not in dropped
 
 
-def test_a_capitalized_grave_lemma_reaches_its_acute_headword_in_one_pass(bench):
+def test_a_capitalized_grave_lemma_reaches_its_acute_headword_in_one_pass(
+        bench, monkeypatch):
     """`Σοφιστὴς` carries both an unlicensed capital and a positional grave, and
     each one used to shield the other: the grave rule wanted an attested acute
     that the capitalized entry had swallowed the tokens of, and the capital rule
     wanted a frequency comparison the same swallowing made unwinnable. Lowercase
     first, then the grave rule, in one pass. Landing on `σοφιστὴς` and waiting
     for the next build would look like a rule that never fired."""
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"σοφιστής"})
     freq_file = bench.parent / "freq2.tsv"
     freq_file.write_text("σοφιστής\t3151\n", encoding="utf-8")
     cache = {"σοφιστὴς": "Σοφιστὴς"}
@@ -453,6 +462,41 @@ def test_a_form_the_lemmatizer_declined_is_not_tombstoned(freq_build,
     assert not rejected.exists() or "κβ" not in rejected.read_text(encoding="utf-8")
     assert "κβ\t\n" in (data / "cache" / "lemma_cache.tsv").read_text(
         encoding="utf-8")
+
+
+def test_frequency_build_resumes_from_each_validated_chunk(freq_build,
+                                                           monkeypatch):
+    """A killed long run must retain every fully validated chunk."""
+    blf, data = freq_build
+    mod = types.ModuleType("dilemma")
+
+    class InterruptedDilemma:
+        calls = 0
+
+        def __init__(self, lang=None):
+            pass
+
+        def lemmatize_batch(self, forms):
+            self.calls += 1
+            if self.calls == 2:
+                raise RuntimeError("interrupted")
+            return ["οὐ" for _form in forms]
+
+    mod.Dilemma = InterruptedDilemma
+    monkeypatch.setitem(sys.modules, "dilemma", mod)
+    monkeypatch.setattr(sys, "argv", ["build_lemma_frequency.py", "--chunk-size", "1"])
+
+    with pytest.raises(RuntimeError, match="interrupted"):
+        blf.main()
+
+    checkpoint = data / "cache" / "lemma_cache.tsv"
+    assert checkpoint.read_text(encoding="utf-8") == "οὐ\tοὐ\n"
+
+    asked = []
+    monkeypatch.setitem(sys.modules, "dilemma",
+                        _fake_dilemma({"κβ": ""}, asked))
+    blf.main()
+    assert asked == ["κβ"]
 
 
 def test_a_tombstone_applies_without_the_frequency_table(bench, tmp_path):
@@ -660,12 +704,17 @@ def test_the_fold_reads_the_measured_file(tmp_path):
 # --------------------------------------------------------------------------
 # Attestation reads PRINTED forms, not a lemma table (issue #4).
 
-def test_a_grave_lemma_repairs_when_the_corpus_prints_the_acute(bench, monkeypatch):
-    """The argument is about the printed text, so the evidence is the printed
-    text. `Καυνεύς` is a lemma in no table this repo builds, but the corpus
-    prints it, and that is what licenses taking the grave off `Καυνεὺς`."""
+def test_a_printed_acute_form_is_not_automatically_a_headword(bench, monkeypatch):
+    """An inflection, punctuation mark, or OCR fragment can be frequent too."""
     monkeypatch.setattr(vlm, "PRINTED_FORMS", {"Καυνεύς": 9})
-    assert vlm.grave_lemma_repair("Καυνεὺς", {}) == "Καυνεύς"
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: set())
+    assert vlm.grave_lemma_repair("Καυνεὺς", {}) is None
+
+
+def test_a_standalone_grave_mark_is_not_repaired_as_a_headword(monkeypatch):
+    monkeypatch.setattr(vlm, "PRINTED_FORMS", {"́": 9})
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: set())
+    assert vlm.grave_lemma_repair("̀", {}) is None
 
 
 def test_the_enclitic_guard_reads_the_same_table_as_the_test(bench, monkeypatch):
@@ -674,6 +723,7 @@ def test_the_enclitic_guard_reads_the_same_table_as_the_test(bench, monkeypatch)
     a frequency table it would read 0 for everything the printed-form test newly
     reaches, and stop applying without failing."""
     monkeypatch.setattr(vlm, "PRINTED_FORMS", {"τίς": 23845, "τις": 109132})
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"τίς"})
     assert vlm.grave_lemma_repair("τὶς", {}) is None
 
 
@@ -686,11 +736,10 @@ def test_the_article_is_held_by_the_closed_class_path_not_by_attestation(bench):
     assert vlm.closed_class_lemma("τὴν") == vlm.ARTICLE_LEMMA
 
 
-def test_a_form_printed_once_is_below_the_floor(bench, monkeypatch):
-    """PRINTED_MIN mirrors the min-count the per-work table is built at, so a
-    form rarer than that is not in the governed table to be repaired anyway."""
-    import json
+def test_a_trusted_headword_does_not_need_surface_frequency(bench, monkeypatch):
+    """Dictionary evidence, rather than a circular corpus count, licenses it."""
     fp = bench.parent / "lex.tsv"
     fp.write_text("σοφιστής\t1\n", encoding="utf-8")
     monkeypatch.setattr(vlm, "PRINTED_FORMS", vlm.load_printed_forms(fp))
-    assert vlm.grave_lemma_repair("σοφιστὴς", {}) is None
+    monkeypatch.setattr(vlm, "trusted_citation_headwords", lambda: {"σοφιστής"})
+    assert vlm.grave_lemma_repair("σοφιστὴς", {}) == "σοφιστής"

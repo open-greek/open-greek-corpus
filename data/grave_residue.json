@@ -1,5 +1,5 @@
 {
- "what": "the grave-lemma residue partitioned by whether any accent rule could reach it",
+ "what": "grave-lemma residue measured by surface reachability, independent headword backing, and cache/emission route",
  "issue": "open-greek/open-greek-corpus#4",
  "source": "data/work_lemma_counts.tsv.gz, plus the `correction` column of data/corpus_catalog.tsv for the by_correction_status block",
  "by_correction_status": {
@@ -9,25 +9,25 @@
    "auto-corrected": {
     "grave_tokens": 0,
     "grave_lemmas": 0,
-    "lemmatized_tokens_in_this_class": 19487955,
+    "lemmatized_tokens_in_this_class": 19700203,
     "rate": 0.0
    },
    "manual": {
     "grave_tokens": 0,
     "grave_lemmas": 0,
-    "lemmatized_tokens_in_this_class": 5569539,
+    "lemmatized_tokens_in_this_class": 5352688,
     "rate": 0.0
    },
    "not-ocr": {
     "grave_tokens": 32,
     "grave_lemmas": 4,
-    "lemmatized_tokens_in_this_class": 35614777,
+    "lemmatized_tokens_in_this_class": 35614767,
     "rate": 1e-06
    },
    "raw-ocr": {
     "grave_tokens": 0,
     "grave_lemmas": 0,
-    "lemmatized_tokens_in_this_class": 2776033,
+    "lemmatized_tokens_in_this_class": 2780809,
     "rate": 0.0
    }
   },
@@ -41,10 +41,77 @@
   "lift": 0.0,
   "reading": "the class is not an OCR problem that belongs to another issue. It sits over born-digital text at a floor no text repair reaches, and the raw-OCR stratum #2 scopes holds only a small part of it."
  },
+ "cache_route_attribution": {
+  "what": "exclusive attribution of grave residue, with nonlexical lemmas decided directly and lexical mappings traced through the form-to-lemma cache",
+  "current_dilemma_version": "1.2.3",
+  "per_work_residue_tokens": 32,
+  "lexical_residue_lemmas": 0,
+  "lexical_residue_tokens": 0,
+  "by_route": {
+   "structured": {
+    "what": "live structured Dilemma emission",
+    "forms": 0,
+    "lemmas": 0,
+    "tokens": 0,
+    "surface_tokens": 0,
+    "examples": []
+   },
+   "fallback": {
+    "what": "OGC identity echo / no-guess fallback / model residue",
+    "forms": 0,
+    "lemmas": 0,
+    "tokens": 0,
+    "surface_tokens": 0,
+    "examples": []
+   },
+   "stale_cache": {
+    "what": "stale cache residue",
+    "forms": 0,
+    "lemmas": 0,
+    "tokens": 0,
+    "surface_tokens": 0,
+    "examples": []
+   },
+   "accepted_source": {
+    "what": "validator-accepted supplied or normalized lemma residue",
+    "forms": 0,
+    "lemmas": 0,
+    "tokens": 0,
+    "surface_tokens": 0,
+    "examples": []
+   },
+   "nonlexical": {
+    "what": "nonlexical/editorial garbage",
+    "forms": null,
+    "lemmas": 4,
+    "tokens": 32,
+    "surface_tokens": 0,
+    "examples": [
+     {
+      "lemma": "῝",
+      "tokens": 20
+     },
+     {
+      "lemma": "̔̀",
+      "tokens": 6
+     },
+     {
+      "lemma": "̀́",
+      "tokens": 3
+     },
+     {
+      "lemma": "̓̀",
+      "tokens": 3
+     }
+    ]
+   }
+  },
+  "cache_required": false
+ },
  "why_not_the_annotation_exports": "the annotation exports come from the same lemmatizer that produced this residue, so they cannot independently confirm a headword for it. Dictionary headword inventories can, and the headword_backed block below is that test.",
  "headword_backed": {
   "what": "grave lemmas whose acute counterpart is a headword in a published lexicon, which is an authority independent of the lemmatizer that produced this residue",
-  "NOT_A_REPAIR_RULE": "the union is deliberately over-inclusive, so it bounds the residue from above and a stricter list would back less. Nothing here feeds validate_lemma_map.py, and a repair built on it would validate whatever noise the lists carry.",
+  "repair_rule_relation": "the exact-case target set is the same independent inventory that gates OGC grave normalization. This measurement also checks a lowercase target, so its count is an upper bound that includes issue #19 candidates.",
   "sources": [
    {
     "source": "lsj",
@@ -91,28 +158,29 @@
    "ag_headwords": "Wiktionary-derived, and lists 72 of these grave lemmas as headwords themselves, which no lexicon does",
    "mg_headwords": "Modern Greek, a different question"
   },
-  "headwords": 281178,
+  "headwords": 281451,
   "lemmas": 0,
   "tokens": 0,
   "share_of_residue": 0.0,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.3309,
+   "non_grave_lemmas_le_10_tokens_backed": 0.3311,
    "grave_lemmas_le_10_tokens_backed": 0.0
   },
   "largest": []
  },
  "lemmas": 4,
  "tokens": 32,
+ "share_of_lemmatized_corpus": 5.043e-07,
  "reachable": {
   "lemmas": 0,
   "tokens": 0,
-  "caveat": "reachable is an upper bound on what a rule could touch, not an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
+  "caveat": "surface-reachable is not a repair gate or an estimate of what is worth touching: many targets are themselves shrapnel attested at a handful of tokens (λλά at 10, μονονοχί at 2), and merging onto those empties the audit class without producing a headword"
  },
  "unreachable": {
   "lemmas": 4,
   "tokens": 32,
-  "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has nothing to move these onto. They are OCR shrapnel and non-headword inflected forms, an OCR-quality problem rather than a lemmatization one"
+  "note": "the corpus prints no acute counterpart under either case, so a rule that moves a grave lemma onto its acute has no surface target. This does not by itself distinguish OCR, an inflected non-headword, or an editorial symbol; use cache_route_attribution for that distinction"
  },
  "superseded": {
   "was": "an earlier version of this file reported the unreachable share as 77.4% and said no rule of this shape could reach it regardless of threshold",

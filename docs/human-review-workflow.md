@@ -26,6 +26,16 @@ Each command writes under `data/review/`:
 Packets are local working data and gitignored. Select a different location with
 `--output`. Stable item IDs make separately completed sheets mergeable.
 
+For scan-first review, run the loopback-only browser interface:
+
+```bash
+python3 scripts/serve_human_review.py \
+  --queue data/review/issue-31.jsonl --open
+```
+
+It shows the source page beside the served context and writes each completed
+decision atomically to the packet's TSV sheet. It has no corpus-write endpoint.
+
 ## What each packet contains
 
 - **#31 non-final graves:** exact served row and offset, masked context,
@@ -61,3 +71,15 @@ reviewed decision only through the issue-specific reversible repair tool, with
 the packet manifest and sealed decisions named in its audit artifact. This
 separation prevents a spreadsheet typo or a single unreviewed answer from
 silently rewriting Greek.
+
+For issue #31, the occurrence-specific applicator enforces that separation. It
+requires a complete sealed packet and defaults to a dry run:
+
+```bash
+python3 scripts/apply_reviewed_nonfinal_graves.py
+python3 scripts/apply_reviewed_nonfinal_graves.py --apply
+```
+
+The applied audit stores every exact row preimage, reviewed reading, evidence
+URL, file hash, and the reverse command. A stale queue, shifted offset, changed
+row, foreign decision, or partial review is rejected before any file is written.

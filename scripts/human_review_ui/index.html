@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OGC Review</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand-block">
+      <h1>OGC Review</h1>
+      <span id="queue-name" class="queue-name"></span>
+    </div>
+    <div class="progress-block" aria-label="Review progress">
+      <span id="progress-label">0 / 0</span>
+      <div class="progress-track"><span id="progress-bar"></span></div>
+    </div>
+    <label class="reviewer-field">
+      <span>Reviewer</span>
+      <input id="reviewer" autocomplete="name" placeholder="Name">
+    </label>
+    <select id="filter" aria-label="Filter review items">
+      <option value="all">All items</option>
+      <option value="open">Open</option>
+      <option value="decided">Decided</option>
+      <option value="defer">Deferred</option>
+    </select>
+  </header>
+
+  <main class="workspace">
+    <aside class="queue-pane" aria-label="Review queue">
+      <div id="item-list" class="item-list"></div>
+    </aside>
+
+    <section class="scan-pane" aria-label="Source scan">
+      <div class="scan-toolbar">
+        <div class="scan-meta">
+          <strong id="work-name"></strong>
+          <span id="locus"></span>
+        </div>
+        <div class="scan-tools">
+          <button id="zoom-out" class="icon-button" title="Zoom out" aria-label="Zoom out">
+            <i data-lucide="zoom-out"></i>
+          </button>
+          <input id="zoom" type="range" min="50" max="240" step="10" value="100" aria-label="Scan zoom">
+          <button id="zoom-in" class="icon-button" title="Zoom in" aria-label="Zoom in">
+            <i data-lucide="zoom-in"></i>
+          </button>
+          <a id="scan-link" class="icon-button" target="_blank" rel="noreferrer" title="Open source scan" aria-label="Open source scan">
+            <i data-lucide="external-link"></i>
+          </a>
+        </div>
+      </div>
+      <div id="scan-stage" class="scan-stage">
+        <img id="scan-image" alt="Source scan page">
+        <div id="scan-empty" class="empty-state">No aligned page image</div>
+      </div>
+    </section>
+
+    <section class="decision-pane" aria-label="Review decision">
+      <div class="item-nav">
+        <button id="previous" class="icon-button" title="Previous item" aria-label="Previous item">
+          <i data-lucide="chevron-left"></i>
+        </button>
+        <span id="position"></span>
+        <button id="next" class="icon-button" title="Next item" aria-label="Next item">
+          <i data-lucide="chevron-right"></i>
+        </button>
+      </div>
+
+      <div class="evidence-section">
+        <div class="section-label">Observed</div>
+        <div id="observed" class="observed" lang="grc"></div>
+      </div>
+      <div class="evidence-section context-section">
+        <div class="section-label">Context</div>
+        <div id="context" class="context" lang="grc"></div>
+      </div>
+      <div class="evidence-section">
+        <div class="section-label">Candidates</div>
+        <div id="candidates" class="candidates"></div>
+      </div>
+
+      <form id="decision-form" class="decision-form">
+        <fieldset>
+          <legend>Decision</legend>
+          <div id="decision-options" class="segmented"></div>
+        </fieldset>
+        <label id="reading-field">
+          <span>Reviewed reading</span>
+          <textarea id="reading" rows="3" lang="grc"></textarea>
+        </label>
+        <label>
+          <span>Evidence</span>
+          <input id="evidence-url" type="url">
+        </label>
+        <label>
+          <span>Notes</span>
+          <textarea id="notes" rows="3"></textarea>
+        </label>
+        <div id="form-error" class="form-error" role="alert"></div>
+        <button type="submit" class="save-button">
+          <i data-lucide="save"></i>
+          <span>Save decision</span>
+        </button>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>

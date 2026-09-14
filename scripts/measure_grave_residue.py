@@ -1,37 +1,17 @@
 #!/usr/bin/env python3
-"""Partition the grave-lemma residue by whether any accent rule could reach it.
+"""Measure and attribute grave-accented lemma residue (issue #4).
 
-9,186 lemmas in the per-work table still carry a grave, holding 42,711 tokens
-(issue #4). No dictionary headword carries a grave, so each of them is either a
-headword in the wrong citation form or not a headword at all, and the issue has
-been treated as one defect throughout. It is two, in very different proportions,
-and which one it mostly is decides whether #4 is a `data-defect` or a
-`limitation`.
+The headline counts come from the per-work lemma table. Surface reachability is
+reported for continuity with earlier audits, but is not a repair gate: the
+corpus printing an acute spelling does not prove that spelling is a headword.
+The independently backed partition uses the same ancient/Byzantine dictionary
+inventories as Dilemma 1.2.1+ and OGC's validator.
 
-The rules this repo has for the class all work the same way: they move a grave
-lemma onto its acute counterpart, and only where the acute is attested. So
-reachability is a question about ATTESTATION, and the first version of this
-script asked it of the wrong table.
-
-It asked whether the acute exists as a LEMMA in the per-work table and reported
-77.4% of the residue unreachable "regardless of threshold". The accent argument
-is about the printed text - a grave is what a final acute becomes before a pause
-- so what settles it is whether the corpus PRINTS the acute spelling, which
-data/public_lexicon.tsv answers with no lemmatizer in the loop. Asked that way,
-on the same residue, the unreachable share was 52.3%, not 77.4%. The gap was the
-rule's reference table (83,078 lemmas) being narrower than the table it governs
-(275,871), and "regardless of threshold" was wrong.
-
-grave_lemma_repair now reads printed forms, which consumed most of that gap:
-10,135 tokens moved onto acute spellings the corpus actually prints. What is
-left is the genuinely unreachable part, and it is a larger SHARE of a smaller
-residue precisely because the reachable part has been taken. Both partitions
-are still printed, since the old one is what the issue was quoting.
-
-Counts come from the per-work table, which is the table the rules are applied
-to, and from nothing else. No external authority is consulted: the annotation
-exports are produced by the same lemmatizer that produced this residue, so they
-cannot independently confirm a headword here.
+When the fresh form->lemma cache is present, the audit also attributes mappings
+to five exclusive routes: a live structured Dilemma result, model/identity
+fallback, stale cache, an OGC-accepted supplied/normalized lemma, or a
+nonlexical/editorial token. Structured attribution runs with ``guess=False``;
+only unresolved forms need a batched default comparison.
 
   python3 scripts/measure_grave_residue.py            # report
   python3 scripts/measure_grave_residue.py --write    # -> data/grave_residue.json
@@ -45,16 +25,29 @@ import hashlib
 import json
 import sys
 import unicodedata
+from collections import defaultdict
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 WORK_LEMMAS = DATA / "work_lemma_counts.tsv.gz"
+FORM_LEMMAS = DATA / "cache" / "form_lemma.tsv.gz"
+FORM_LEMMA_META = DATA / "cache" / "form_lemma_meta.json"
 OUT = DATA / "grave_residue.json"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from validate_lemma_map import (VARIA, PRINTED_FORMS,  # noqa: E402
-                                lower_initial, to_acute)
+                                lower_initial, to_acute,
+                                trusted_citation_headwords)
+
+
+ROUTE_LABELS = {
+    "structured": "live structured Dilemma emission",
+    "fallback": "OGC identity echo / no-guess fallback / model residue",
+    "stale_cache": "stale cache residue",
+    "accepted_source": "validator-accepted supplied or normalized lemma residue",
+    "nonlexical": "nonlexical/editorial garbage",
+}
 
 
 def load_totals() -> dict[str, int]:
@@ -65,6 +58,164 @@ def load_totals() -> dict[str, int]:
             if len(p) >= 3 and p[2].isdigit():
                 out[p[1]] = out.get(p[1], 0) + int(p[2])
     return out
+
+
+def has_greek_letter(value: str) -> bool:
+    return any(
+        unicodedata.category(char).startswith("L")
+        and (0x0370 <= ord(char) <= 0x03FF or 0x1F00 <= ord(char) <= 0x1FFF)
+        for char in value
+    )
+
+
+def cache_version() -> str | None:
+    if not FORM_LEMMA_META.exists():
+        return None
+    return json.loads(FORM_LEMMA_META.read_text(encoding="utf-8")).get(
+        "dilemma_version")
+
+
+def installed_dilemma_version() -> str:
+    import dilemma
+
+    version_file = Path(dilemma.__file__).resolve().parent.parent / "VERSION"
+    return version_file.read_text().strip() if version_file.exists() else "unknown"
+
+
+def mapping_route(*, form: str, lemma: str, cache_is_current: bool,
+                  nonlexical: bool, structured: list[dict],
+                  current: str | None) -> str:
+    """Classify one cache mapping after higher-confidence routes go first."""
+    if nonlexical:
+        return "nonlexical"
+    if not cache_is_current:
+        return "stale_cache"
+    if any(candidate.get("lemma") == lemma
+           and candidate.get("source") not in {"identity", "model", "nonlexical"}
+           for candidate in structured):
+        return "structured"
+    if current == lemma:
+        return "fallback"
+    return "accepted_source"
+
+
+def classify_cache_routes(grave: dict[str, int]) -> dict | str:
+    """Attribute cache mappings that feed the grave residue.
+
+    ``surface_tokens`` uses public_lexicon.tsv and is a mapping-level diagnostic;
+    the authoritative residue token count remains the per-work rollup. The two
+    can differ for quotation-mark aliases handled after cache lookup.
+    """
+    try:
+        from dilemma import Dilemma
+    except ImportError:
+        return "Dilemma unavailable; route attribution omitted"
+
+    d = Dilemma(lang="grc")
+    by_route: dict[str, dict] = {
+        route: {"what": label, "forms": 0, "lemmas": 0, "tokens": 0,
+                "surface_tokens": 0, "examples": []}
+        for route, label in ROUTE_LABELS.items()
+    }
+    nonlexical_lemmas = {
+        lemma: tokens for lemma, tokens in grave.items()
+        if not d.is_lexical(lemma)
+    }
+    nonlexical = by_route["nonlexical"]
+    nonlexical["forms"] = None
+    nonlexical["lemmas"] = len(nonlexical_lemmas)
+    nonlexical["tokens"] = sum(nonlexical_lemmas.values())
+    nonlexical["examples"] = [
+        {"lemma": lemma, "tokens": tokens}
+        for lemma, tokens in sorted(
+            nonlexical_lemmas.items(), key=lambda item: -item[1]
+        )[:12]
+    ]
+    lexical_grave = set(grave) - set(nonlexical_lemmas)
+    base = {
+        "what": "exclusive attribution of grave residue, with nonlexical "
+                "lemmas decided directly and lexical mappings traced through "
+                "the form-to-lemma cache",
+        "current_dilemma_version": installed_dilemma_version(),
+        "per_work_residue_tokens": sum(grave.values()),
+        "lexical_residue_lemmas": len(lexical_grave),
+        "lexical_residue_tokens": sum(grave[lemma] for lemma in lexical_grave),
+        "by_route": by_route,
+    }
+    # This is the common post-1.2.3 result, and deliberately does not depend on
+    # an ignored local cache. A clean checkout reproduces the committed audit.
+    if not lexical_grave:
+        base["cache_required"] = False
+        return base
+    if not FORM_LEMMAS.exists() or not FORM_LEMMA_META.exists():
+        base["cache_required"] = True
+        base["unattributed"] = "form_lemma cache or metadata absent"
+        return base
+
+    mappings = []
+    with gzip.open(FORM_LEMMAS, "rt", encoding="utf-8") as handle:
+        for line in handle:
+            form, sep, lemma = line.rstrip("\n").partition("\t")
+            if sep and lemma in lexical_grave:
+                mappings.append((form, lemma))
+
+    current_version = installed_dilemma_version()
+    built_version = cache_version()
+    cache_is_current = built_version in {"unknown", current_version}
+    prepared = []
+    compare_forms = []
+    for form, lemma in mappings:
+        is_nonlexical = not d.is_lexical(form)
+        candidates = [] if is_nonlexical else [
+            {"lemma": candidate.lemma, "source": candidate.source,
+             "via": candidate.via}
+            for candidate in d.lemmatize_verbose(form, guess=False)
+        ]
+        prepared.append((form, lemma, is_nonlexical, candidates))
+        if cache_is_current and not is_nonlexical \
+                and not any(c["lemma"] == lemma for c in candidates):
+            compare_forms.append(form)
+
+    current_outputs = {}
+    for start in range(0, len(compare_forms), 5000):
+        chunk = compare_forms[start:start + 5000]
+        current_outputs.update(zip(chunk, d.lemmatize_batch(chunk)))
+
+    route_lemmas: dict[str, set[str]] = defaultdict(set)
+    for form, lemma, is_nonlexical, candidates in prepared:
+        current = (lemma if any(c["lemma"] == lemma for c in candidates)
+                   else current_outputs.get(form))
+        route = mapping_route(
+            form=form, lemma=lemma, cache_is_current=cache_is_current,
+            nonlexical=is_nonlexical, structured=candidates, current=current,
+        )
+        bucket = by_route[route]
+        bucket["forms"] += 1
+        bucket["surface_tokens"] += PRINTED_FORMS.get(form, 0)
+        route_lemmas[route].add(lemma)
+        if len(bucket["examples"]) < 12:
+            bucket["examples"].append({
+                "form": form, "lemma": lemma,
+                "surface_tokens": PRINTED_FORMS.get(form, 0),
+                "current_default": current,
+                "structured": candidates[:4],
+            })
+    for route, lemmas in route_lemmas.items():
+        by_route[route]["lemmas"] = len(lemmas)
+
+    mapped_tokens = sum(bucket["surface_tokens"] for bucket in by_route.values())
+    base.update({
+        "cache_required": True,
+        "cache_dilemma_version": built_version,
+        "cache_version_matches": cache_is_current,
+        "mappings": len(mappings),
+        "surface_tokens": mapped_tokens,
+        "surface_vs_lexical_rollup_delta": (
+            mapped_tokens - base["lexical_residue_tokens"]),
+        "surface_token_caveat": "surface counts are diagnostic; per-work rollup "
+                                "tokens are authoritative and may include aliases",
+    })
+    return base
 
 
 # Dictionary headword inventories from the sibling public repo open-greek/dilemma
@@ -87,7 +238,7 @@ def load_headwords() -> tuple[set, list[dict]]:
     """(headword set, per-source provenance). Empty when the sibling checkout is
     absent, and the caller must then omit the partition rather than publish it
     as zero, which would read as a far stronger claim than no data supports."""
-    words: set[str] = set()
+    words = trusted_citation_headwords()
     prov = []
     for name in HEADWORD_FILES:
         fp = DILEMMA / f"{name}_headwords.json"
@@ -96,7 +247,6 @@ def load_headwords() -> tuple[set, list[dict]]:
         raw = json.loads(fp.read_text(encoding="utf-8"))
         got = {e["lemma"] if isinstance(e, dict) else e for e in raw}
         got = {unicodedata.normalize("NFC", w) for w in got if isinstance(w, str)}
-        words |= got
         prov.append({"source": name, "entries": len(got),
                      "sha256": hashlib.sha256(fp.read_bytes()).hexdigest()})
     return words, prov
@@ -198,7 +348,8 @@ def main() -> None:
         cands = sorted({acute, to_acute(lower_initial(lemma))} - {lemma})
         # Printed attestation is the real test; the lemma-table one is kept only
         # to show how much the old reference was hiding.
-        hit = next((c for c in cands if PRINTED_FORMS.get(c, 0)), None)
+        hit = next((c for c in cands
+                    if has_greek_letter(c) and PRINTED_FORMS.get(c, 0)), None)
         if not any(totals.get(c, 0) for c in cands):
             by_lemma_unreached += n
         (reachable if hit else unreachable)[lemma] = (n, hit)
@@ -208,11 +359,10 @@ def main() -> None:
     gt, rt = sum(grave.values()), sum(n for n, _ in reachable.values())
     ut = sum(n for n, _ in unreachable.values())
 
-    # Independent authority: is the repair TARGET a dictionary headword at all?
-    # This is a measurement, not a rule. Nothing here feeds validate_lemma_map.py,
-    # and it must not: the union is deliberately over-inclusive, so it bounds the
-    # residue from above and a cleaner list would back less, but anything built
-    # into a repair on the strength of it would validate whatever noise it holds.
+    # Independent authority: is either case of the repair target a dictionary
+    # headword? The exact-case set also gates validate_lemma_map.py; allowing the
+    # lowercase candidate here makes this broader report an upper bound because
+    # positional-capital repair is measured separately by issue #19.
     heads, prov = load_headwords()
     backed = {}
     if heads:
@@ -243,11 +393,12 @@ def main() -> None:
         print("  headword-backed: sibling checkout open-greek/dilemma absent, "
               "partition omitted")
 
+    corpus_total = sum(totals.values())
     print(f"grave residue: {len(grave):,} lemmas, {gt:,} tokens "
-          f"({gt / sum(totals.values()):.3%} of the lemmatized corpus)")
-    print(f"  reachable   {len(reachable):>6,} lemmas {rt:>8,} tokens "
-          f"{rt / gt if gt else 0:>6.1%}  an acute counterpart is attested to move them onto")
-    print(f"  unreachable {len(unreachable):>6,} lemmas {ut:>8,} tokens "
+          f"({gt / corpus_total if corpus_total else 0:.6%} of the lemmatized corpus)")
+    print(f"  surface-reachable {len(reachable):>6,} lemmas {rt:>8,} tokens "
+          f"{rt / gt if gt else 0:>6.1%}  the corpus prints an acute counterpart")
+    print(f"  surface-unreachable {len(unreachable):>6,} lemmas {ut:>8,} tokens "
           f"{ut / gt if gt else 0:>6.1%}  the corpus prints no acute counterpart under "
           f"either case")
     print(f"\n  measured the OLD way, against the lemma table rather than the "
@@ -278,16 +429,38 @@ def main() -> None:
           f"{split['born_digital_rate']:.4%}, a {lift} lift; "
           f"unmatched {split['unmatched']['tokens']}")
 
+    routes = classify_cache_routes(grave)
+    if isinstance(routes, str):
+        print(f"  cache routes: {routes}")
+    else:
+        print("  cache routes:")
+        for route in ROUTE_LABELS:
+            bucket = routes["by_route"][route]
+            forms = ("n/a" if bucket["forms"] is None
+                     else f"{bucket['forms']:,}")
+            tokens = bucket["tokens"] or bucket["surface_tokens"]
+            print(f"    {route:<15} {forms:>6} forms "
+                  f"{bucket['lemmas']:>6,} lemmas {tokens:>8,} tokens")
+        if routes.get("cache_required"):
+            if routes.get("unattributed"):
+                print(f"    lexical attribution incomplete: "
+                      f"{routes['unattributed']}")
+            else:
+                print(f"    cache Dilemma {routes['cache_dilemma_version']}; "
+                      f"current {routes['current_dilemma_version']}; "
+                      f"version match={routes['cache_version_matches']}")
+
     if not args.write:
         print("\nreport only; re-run with --write.")
         return
     OUT.write_text(json.dumps({
-        "what": "the grave-lemma residue partitioned by whether any accent rule "
-                "could reach it",
+        "what": "grave-lemma residue measured by surface reachability, "
+                "independent headword backing, and cache/emission route",
         "issue": "open-greek/open-greek-corpus#4",
         "source": "data/work_lemma_counts.tsv.gz, plus the `correction` column "
                   "of data/corpus_catalog.tsv for the by_correction_status block",
         "by_correction_status": split,
+        "cache_route_attribution": routes,
         "why_not_the_annotation_exports": "the annotation exports come from the "
             "same lemmatizer that produced this residue, so they cannot "
             "independently confirm a headword for it. Dictionary headword "
@@ -296,11 +469,11 @@ def main() -> None:
             "what": "grave lemmas whose acute counterpart is a headword in a "
                     "published lexicon, which is an authority independent of the "
                     "lemmatizer that produced this residue",
-            "NOT_A_REPAIR_RULE": "the union is deliberately over-inclusive, so it "
-                                 "bounds the residue from above and a stricter "
-                                 "list would back less. Nothing here feeds "
-                                 "validate_lemma_map.py, and a repair built on it "
-                                 "would validate whatever noise the lists carry.",
+            "repair_rule_relation": "the exact-case target set is the same "
+                                    "independent inventory that gates OGC grave "
+                                    "normalization. This measurement also checks "
+                                    "a lowercase target, so its count is an upper "
+                                    "bound that includes issue #19 candidates.",
             "sources": prov,
             "excluded_sources": {
                 "ag_headwords": "Wiktionary-derived, and lists 72 of these grave "
@@ -326,9 +499,11 @@ def main() -> None:
                             backed.items(), key=lambda kv: -kv[1][0])[:20]],
         } if heads else "sibling checkout open-greek/dilemma absent; not measured"),
         "lemmas": len(grave), "tokens": gt,
+        "share_of_lemmatized_corpus": round(
+            gt / corpus_total if corpus_total else 0, 10),
         "reachable": {"lemmas": len(reachable), "tokens": rt,
-                      "caveat": "reachable is an upper bound on what a rule could "
-                                "touch, not an estimate of what is worth touching: "
+                      "caveat": "surface-reachable is not a repair gate or an "
+                                "estimate of what is worth touching: "
                                 "many targets are themselves shrapnel attested at a "
                                 "handful of tokens (λλά at 10, μονονοχί at 2), and "
                                 "merging onto those empties the audit class without "
@@ -336,10 +511,10 @@ def main() -> None:
         "unreachable": {"lemmas": len(unreachable), "tokens": ut,
                         "note": "the corpus prints no acute counterpart under "
                                 "either case, so a rule that moves a grave lemma "
-                                "onto its acute has nothing to move these onto. "
-                                "They are OCR shrapnel and non-headword inflected "
-                                "forms, an OCR-quality problem rather than a "
-                                "lemmatization one"},
+                                "onto its acute has no surface target. This does "
+                                "not by itself distinguish OCR, an inflected "
+                                "non-headword, or an editorial symbol; use "
+                                "cache_route_attribution for that distinction"},
         "superseded": {"was": "an earlier version of this file reported the "
                               "unreachable share as 77.4% and said no rule of "
                               "this shape could reach it regardless of threshold",

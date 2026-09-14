@@ -1000,7 +1000,7 @@ that it was measured against; the release builder marks it stale if those pins
 move.
 
 <!-- OCR-PROVENANCE:START -->
-1393 OCR'd works/volumes: 125 manually corrected, 880 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1393 OCR'd works/volumes: 124 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1041,7 +1041,7 @@ move.
 | anaximenis-milesii-epistulae.epistulae | Anaximenis Milesii Epistulae - Epistulae | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
 | anaxippus.fragmenta | ANAXIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
 | andreas.fragmentum | Andreas - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
-| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) [Sp.] | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,269 | manual |
+| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) [Sp.] | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,281 | auto-corrected |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
 | anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei | Anonymi - De essentia et operatione Dei (PG151 loci 603-628) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,989 | raw OCR |
 | anonymi-delectus-legum.delectus-legum-compendiarius | Anonymi - Delectus legum compendiarius (PG113 loci 238-283) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 17,645 | raw OCR |
@@ -1683,7 +1683,7 @@ move.
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
 | hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | auto-corrected |
-| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 149,744 | auto-corrected |
+| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 149,775 | auto-corrected |
 | hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,090 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,837 | raw OCR |
 | hicetas.testimonia | Hicetas - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
@@ -2190,7 +2190,7 @@ move.
 | scholia-in-aristophanem.scholia-in-acharnenses-scholia-vetera-et-recentiora-triclinii | Scholia In Aristophanem - Scholia In Acharnenses (Scholia Vetera Et Recentiora Triclinii) | [archive.org](https://archive.org/details/scholiagraecaina00dbuoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 354,055 | raw OCR |
 | scholia-in-callimachum.schol-callim-schneider |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 34,582 | auto-corrected |
 | scholia-in-demosthenem.scholia-demosthenem-dindorf-v8 |  | qwen36-scholia_demosthenem_dindorf_v8 | Qwen3.6-27B | 109,808 | auto-corrected |
-| scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera | Scholia In Hesiodum - Scholia In Opera Et Dies (Scholia Vetera) | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,839 | auto-corrected |
+| scholia-in-hesiodum.scholia-in-opera-et-dies-scholia-vetera | Scholia In Hesiodum - Scholia In Opera Et Dies (Scholia Vetera) | [archive.org](https://archive.org/details/poetaeminoresgra02gais) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 174,892 | auto-corrected |
 | scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et | Scholia In Lycophronem - Scholia In Lycophronem (Scholia Vetera Et Recentiora Partim Isaac Et Joannis Tzetzae) | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,688 | raw OCR |
 | scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Cynegetica (Scholia Vetera Et Recentiora) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,032 | auto-corrected |
 | scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Halieutica (Scholia Vetera Et Recentiora) | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 65,351 | auto-corrected |
@@ -2211,7 +2211,7 @@ move.
 | simus-myonides-euphranor.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 104 | raw OCR |
 | simylus.fragmentum | SIMYLUS - Fragmentum | kock-caf2-ocr-frag | Qwen3.6-27B | 35 | raw OCR |
 | sminthes.titulus | Sminthes - Titulus | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 34 | auto-corrected |
-| socrates-rhodius.socrates-hist-fhg4 |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 51,835 | auto-corrected |
+| socrates-rhodius.socrates-hist-fhg4 |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 51,850 | auto-corrected |
 | solon.fragmenta | Solon - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 1,900 | auto-corrected |
 | sopater-comedy.fragmenta | Sopater - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 32,524 | auto-corrected |
 | sopater-rhetor.diairesis-zetematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,079 | auto-corrected |
@@ -2261,7 +2261,7 @@ move.
 | thales.fragmenta | Thales - Fragmenta | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 4,008 | auto-corrected |
 | thales.testimonia | Thales - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 6,128 | auto-corrected |
 | theagenes-philosophy.testimonia | Theagenes - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 231 | raw OCR |
-| theages.fragmenta | Theages - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,220 | auto-corrected |
+| theages.fragmenta | Theages - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,236 | auto-corrected |
 | theano.fragmenta | Theano - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 587 | auto-corrected |
 | themison.fragmentum | Themison - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 2 | raw OCR |
 | themistius.peri-filanqrwpi-as-h-kwnsta-ntios | THEMISTIUS - Orationes | qwen36-themistiioratio01dindgoog | Qwen3.6-27B | 131,695 | auto-corrected |

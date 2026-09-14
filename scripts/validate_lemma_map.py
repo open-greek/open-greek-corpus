@@ -22,12 +22,11 @@ Four signatures, all measured against the corpus's own lemma frequencies:
                       the homograph test and carry most of the damage. This one
                       repairs rather than rejects, since a closed-class word is
                       its own lemma by definition.
-  grave lemma         the proposed LEMMA carries a grave, which no headword
-                      does, and the acute counterpart is attested - `ξὺν -> ξύν`,
-                      `ἓξ -> ἕξ`, `ὁτὲ -> ὁτέ`. The particle rule reached 19
-                      words under one accent; this reaches any word under the
-                      one accent that is never lexical. Repairs, for the same
-                      reason: a positional accent cannot be part of a headword.
+  grave lemma         the proposed LEMMA carries a positional grave and its
+                      acute counterpart is independently backed by Dilemma's
+                      ancient/Byzantine dictionary inventories - `ξὺν -> ξύν`,
+                      `ἓξ -> ἕξ`, `ὁτὲ -> ὁτέ`. A merely frequent surface
+                      spelling is not treated as a headword.
   capitalization      the proposed lemma is the form's own capitalized variant
                       and the lowercase lemma is commoner - εὔλογος -> Εὔλογος,
                       ἰατρικός -> Ἰατρικός, βασιλίς -> Βασιλίς. The same
@@ -56,6 +55,7 @@ import json
 import sys
 import unicodedata
 from collections import Counter
+from functools import lru_cache
 from pathlib import Path
 
 DATA = Path(__file__).resolve().parent.parent / "data"
@@ -269,6 +269,20 @@ def to_acute(s: str) -> str:
         "NFC", unicodedata.normalize("NFD", s).replace(VARIA, OXIA))
 
 
+@lru_cache(maxsize=1)
+def trusted_citation_headwords() -> set[str]:
+    """Independent dictionary headwords supplied by Dilemma 1.2.1+.
+
+    An older or unavailable Dilemma makes the optional repair go quiet. That is
+    safer than treating corpus surface-frequency as dictionary evidence.
+    """
+    try:
+        from dilemma.core import trusted_ag_citation_headwords
+    except (ImportError, AttributeError):
+        return set()
+    return trusted_ag_citation_headwords()
+
+
 def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
     """The acute headword a grave-accented lemma stands for, or None to leave it.
 
@@ -283,14 +297,12 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
     so they can be reproduced against public_lexicon.tsv. The whole cache,
     hapax forms included, holds 14,882 such entries.)
 
-    Repaired only where the corpus supplies the headword itself: the acute
-    counterpart must already be attested. That is the only positive evidence
-    going, because the frequency table is generated from these same caches, so a
-    grave lemma that has swallowed every token of its word looks impeccably
-    attested while its acute counterpart sits at zero for want of anything left
-    to carry - `τὸν` 610,395 against `τόν` 0. Attestation repairs 334 of the
-    9,821 lemmas and 16,330 tokens; the other 9,487 lemmas and 677,019 tokens
-    are left.
+    Repaired only where Dilemma's independent ancient/Byzantine dictionary
+    inventories contain the exact acute counterpart. Corpus surface frequency
+    is not headword evidence: punctuation, inflections, OCR debris, and a
+    lemmatizer's own output can all be frequent. Dilemma deliberately excludes
+    its Wiktionary-derived AG list from this trust set because it contains the
+    same grave citation contamination this gate is meant to block.
 
     Requiring the acute to be COMMONER as well is the obvious extra safeguard,
     and it is wrong here for the same reason it is wrong for `ἢ` above: the
@@ -300,7 +312,7 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
     (`᾿Αβραὰμ` 201 beside `᾿Αβραάμ` 122, `Ἐλπὶς` 1,100 beside `Ἐλπίς` 120,
     `Πολιτικὸς` 357 beside `Πολιτικός` 23), and leaves them split for good.
 
-    Leaving beats tombstoning for the 9,487 with no attested acute. A grave
+    Leaving beats tombstoning for an unbacked acute target. A grave
     lemma is the right WORD in the wrong citation form, so it still groups its
     occurrences correctly and every downstream join on it still returns the
     right passages, unlike `οὐ -> οὖον` or `κβ -> κβʹ` where the tokens land on
@@ -338,15 +350,13 @@ def grave_lemma_repair(lemma: str, freq: dict[str, int]) -> str | None:
     if VARIA not in unicodedata.normalize("NFD", lemma):
         return None
     acute = to_acute(lemma)
-    # Attestation is "does the corpus PRINT the acute spelling", which is a fact
-    # about the text, not "is the acute a lemma in a table this same lemmatizer
-    # produced". Both the test and the guard read the one table; splitting them
-    # would leave the guard evaluating counts that are 0 for everything the
-    # widened test newly reaches, so it would silently stop applying.
+    if acute not in trusted_citation_headwords():
+        return None
+    # Surface forms still supply the negative evidence that keeps the enclitic
+    # indefinite from being merged into the independently attested
+    # interrogative. They no longer supply the positive headword evidence.
     ref = PRINTED_FORMS or freq
     a_freq = ref.get(acute, 0)
-    if a_freq == 0:              # nothing printed to repair TO
-        return None
     if ref.get(unaccent(lemma), 0) > a_freq:    # the enclitic: `τὶς` under τις
         return None
     return acute
@@ -431,19 +441,18 @@ PRINTED_MIN = 2
 def load_printed_forms(path: Path | None = None) -> dict[str, int]:
     """Surface form -> times the corpus PRINTS it. Empty if not built yet.
 
-    grave_lemma_repair used to read public_lemma_frequency.tsv for attestation,
-    and that is the wrong table twice over. It is a table of LEMMAS, when the
-    question the accent argument asks is whether the corpus prints the acute
-    spelling; and it is built at min-count 5 over 83,078 lemmas while the table
-    this rule governs is built at min-count 2 over 275,871, so the reference was
-    structurally blind to most of what it decided (issue #4).
+    grave_lemma_repair uses this only for negative lexical evidence, notably the
+    unaccented indefinite `τις` that must not merge into interrogative `τίς`.
+    Positive evidence now comes from independent dictionary inventories: the
+    corpus printing an acute string proves neither that it is a headword nor
+    that an accompanying grave string is the same lexeme (issue #4).
 
     PRINTED_MIN is not a tuned threshold. It is the floor
     build_work_lemma_counts.py already applies to decide what gets lemmatized,
     so a form below it is not in the governed table to begin with.
 
     Same quiet degradation as ELIDED_FOLDS and CAPITAL_FOLDS: no file means the
-    rule goes silent, never that it guesses.
+    lexical guard goes silent, never that the positive headword gate guesses.
     """
     fp = path or PUBLIC_LEXICON
     out: dict[str, int] = {}

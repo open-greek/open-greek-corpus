@@ -123,7 +123,8 @@ $(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/recon
 yardstick: $(LEMMA_FREQ)
 $(LEXICON): $(CORPUS_EDITIONS) scripts/build_public_corpus.py
 	$(PY) scripts/build_public_corpus.py
-$(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py
+$(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
+               scripts/validate_lemma_map.py
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_lemma_frequency.py --min-count $(MIN_COUNT)
 
 # The whole OCR pipeline - ingesting the OCR output, cleaning it, and
@@ -209,7 +210,7 @@ $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
 # files alone, and this artifact is quoted on issue #4.
 $(GRAVE_RESIDUE): $(WORK_LEMMAS) $(CATALOG) scripts/measure_grave_residue.py \
                   scripts/validate_lemma_map.py
-	$(PY) scripts/measure_grave_residue.py --write
+	PYTHONPATH=$(DILEMMA) $(PY) scripts/measure_grave_residue.py --write
 
 # Same reasoning as $(GRAVE_RESIDUE) above: a measurement quoted on the tracker
 # has to be rebuilt by whatever invalidates it. This one reads the PG003 rows, so

@@ -56,6 +56,27 @@ def test_scan_url_prefers_exact_volume_edition(tmp_path):
     assert link == "https://archive.org/details/book-2/page/n42/mode/1up"
 
 
+def test_scan_url_uses_reocr_inventory_page_offset(tmp_path):
+    paths = fixture_paths(tmp_path)
+    inventory = paths.data / "inventory"
+    inventory.mkdir()
+    (inventory / "reocr_provenance.json").write_text(json.dumps({
+        "editions": [{
+            "base": "sample_run",
+            "source_url": "https://archive.org/download/source-book/source-book.pdf",
+            "align_method": "content-offset",
+            "content_offset": 7,
+        }],
+    }), encoding="utf-8")
+
+    link = review.scan_url({
+        "urn": "author.work", "edition": "qwen36-sample_run",
+        "locus": "sample_run_0042.1",
+    }, review.provenance_indexes(paths))
+
+    assert link == "https://archive.org/details/source-book/page/n34/mode/1up"
+
+
 def test_nonfinal_grave_queue_joins_context_candidates_and_scan(tmp_path):
     paths = fixture_paths(tmp_path)
     urn, edition = "author.work", "qwen-test"
@@ -71,7 +92,10 @@ def test_nonfinal_grave_queue_joins_context_candidates_and_scan(tmp_path):
 
     items, inputs = review.build_issue_31(paths, limit=10, seed="test")
 
-    assert inputs == [paths.data / "nonfinal_graves.json"]
+    assert inputs == [
+        paths.data / "nonfinal_graves.json",
+        paths.provenance / f"{urn}.json",
+    ]
     assert len(items) == 1
     item = items[0]
     assert item["observed"] == "ἐπεὶδὴ"

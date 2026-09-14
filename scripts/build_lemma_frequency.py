@@ -19,13 +19,18 @@ Outputs (next to the lexicon's stem):
 
   python build_lemma_frequency.py                       # public corpus (default)
   python build_lemma_frequency.py --lexicon data/tlg_lexicon.tsv --out data/tlg_lemma_frequency.tsv
+
+Fresh answers are validated and appended to data/cache/lemma_cache.tsv after
+each chunk. An interrupted run resumes from the last completed checkpoint.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
+import tempfile
 from collections import Counter
 from pathlib import Path
 
@@ -34,6 +39,33 @@ from validate_lemma_map import validate_cache  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
+
+
+def positive_int(value: str) -> int:
+    parsed = int(value)
+    if parsed < 1:
+        raise argparse.ArgumentTypeError("must be at least 1")
+    return parsed
+
+
+def atomic_append(path: Path, text: str) -> None:
+    """Append one complete checkpoint without exposing a partial UTF-8 row."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    previous = path.read_bytes() if path.exists() else b""
+    fd, temporary = tempfile.mkstemp(
+        dir=path.parent, prefix=f".{path.name}.", suffix=".tmp",
+    )
+    try:
+        with os.fdopen(fd, "wb") as handle:
+            handle.write(previous)
+            handle.write(text.encode("utf-8"))
+        os.replace(temporary, path)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
 
 
 def main() -> None:
@@ -50,6 +82,8 @@ def main() -> None:
     ap.add_argument("--no-cache", action="store_true",
                     help="ignore and do not update the persistent form->lemma "
                          "cache (force a full from-scratch lemmatization)")
+    ap.add_argument("--chunk-size", type=positive_int, default=50000,
+                    help="forms per validated cache checkpoint (default: 50000)")
     args = ap.parse_args()
     LEXICON, OUT = args.lexicon, args.out
 
@@ -116,46 +150,31 @@ def main() -> None:
     if misses:
         from dilemma import Dilemma  # noqa: PLC0415
         d = Dilemma(lang="grc")
-        CH = 50000
-        # Into a dict of its own, so the checks below read only what the
-        # lemmatizer just said and not the half-million entries already vetted.
-        derived: dict[str, str] = {}
-        for i in range(0, len(misses), CH):
-            chunk = misses[i:i + CH]
+        for i in range(0, len(misses), args.chunk_size):
+            chunk = misses[i:i + args.chunk_size]
+            # Isolate each chunk so validation sees only fresh answers and an
+            # interrupted run can resume from every completed checkpoint.
+            derived: dict[str, str] = {}
             lemmas = d.lemmatize_batch(chunk)
             for f, lemma in zip(chunk, lemmas):
                 derived[f] = (lemma or "").strip()
-            if (i // CH) % 5 == 0:
-                print(f"  {i + len(chunk):,}/{len(misses):,} new forms",
-                      file=sys.stderr)
-        # The same checks again, on what this run derived. Newly derived entries
-        # used to go into the table unread - the pass above graded the cache and
-        # nothing graded the lemmatizer - so on a first build from an empty cache
-        # the whole lexicon was published unchecked, `οὐ -> οὖον` included, with
-        # the validator sitting right there in the pipeline. An empty lemma is
-        # Dilemma declining to answer rather than answering badly, and stays out
-        # of the checks: it is the negative-cache row that stops the form being
-        # recomputed every run, and the unattested-target rule would tombstone
-        # every one of them.
-        answered = {f: lem for f, lem in derived.items() if lem}
-        rejected |= validate_cache(answered, OUT, label="new lemmas")[1]
-        # Dropped means no lemma, not a retry. Handing the form back to the
-        # lemmatizer in this same run would return the same wrong answer and
-        # quietly undo the drop, which is how `βασκανία -> Βασκανία` survived
-        # three passes; nothing below re-enters lemmatize, and the tombstone
-        # validate_cache just wrote keeps the form out of `misses` next run.
-        for f in list(derived):
-            if derived[f]:
-                derived[f] = answered.get(f, "")
-                if not derived[f]:
-                    del derived[f]
-        cache.update(derived)
-        if not args.no_cache:
-            CACHE.parent.mkdir(parents=True, exist_ok=True)
-            with CACHE.open("a", encoding="utf-8") as cf:  # append the new forms
-                for f in misses:
-                    if f in derived:
-                        cf.write(f"{f}\t{derived[f]}\n")
+            # Validate what this chunk derived before persisting it. Empty
+            # answers are negative-cache rows, not bad lemmas, and remain so a
+            # restart does not ask Dilemma the same declined form again.
+            answered = {f: lem for f, lem in derived.items() if lem}
+            rejected |= validate_cache(answered, OUT, label="new lemmas")[1]
+            for f in list(derived):
+                if derived[f]:
+                    derived[f] = answered.get(f, "")
+                    if not derived[f]:
+                        del derived[f]
+            if not args.no_cache:
+                atomic_append(CACHE, "".join(
+                    f"{f}\t{derived[f]}\n" for f in chunk if f in derived
+                ))
+            cache.update(derived)
+            print(f"  {i + len(chunk):,}/{len(misses):,} new forms checkpointed",
+                  file=sys.stderr)
 
     lemma_freq: Counter[str] = Counter()
     form_tokens = 0
