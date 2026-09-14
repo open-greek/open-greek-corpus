@@ -44,6 +44,10 @@ data/needs_*.json
 data/missing_forms.tsv
 data/lemma_map.tsv
 
+# Generated human-review packets and completed local decision sheets. Reviewed
+# decisions are published only through an explicit, issue-specific audit.
+data/review/
+
 # Annotation-export payloads (works/*.jsonl.gz + manifest + license audit) live on
 # the HF dataset repo, never in git (docs/annotation-export-contract.md, "Storage").
 # git keeps only the exporter and upload scripts and the per-release pointer stub
