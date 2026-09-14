@@ -53,14 +53,12 @@ STAMP_GAP = DATA / "correction_stamp_gap.json"
 
 OCR_SOURCES = {"ocr", "cgpg"}
 
-# Human measurement, not derivable from anything in this repo: the correction
-# records themselves live in the upstream OCR pipeline, and the precision
-# figures come from blind philological rating of samples drawn from them. They
-# are transcribed here from the README's "How good are the corrections?" section,
-# which is the one place they are argued. Update BOTH when a new measurement
-# lands; a stale number in a citable artifact is worse than no number, so the
-# population size is recorded alongside and checked against the local audit
-# mirror at run time (see corrections_block).
+# The correction records and blind-rating artifacts live in the upstream OCR
+# pipeline, so the citable release record carries a compact copy of their
+# measurement. Update this block and the README together when a new sample
+# lands. tests/test_correction_figures.py cross-checks the copy against the
+# upstream artifact when OCR_PIPELINE is available, and corrections_block also
+# checks the current active population against the local audit mirror.
 MEASURED = {
     "method": ("two independent blind raters per item over a random sample of "
                "the served overlay, stratified by the route that applied each "
