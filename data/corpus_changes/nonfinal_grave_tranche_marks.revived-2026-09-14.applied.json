@@ -1,0 +1,44 @@
+{
+ "what": "non-final grave repairs from data/nonfinal_grave_tranche_marks.json",
+ "date": "2026-09-14",
+ "issue": "open-greek/open-greek-corpus#31",
+ "decision": "cisco, 2026-09-14",
+ "rule": null,
+ "sources_edited": [
+  "cgpg",
+  "dfhg",
+  "first1k",
+  "ocr",
+  "perseus"
+ ],
+ "token_weighted_share": 0.992,
+ "expected_wrong_tokens": 0,
+ "marks_moved": "a breathing or coronis moved as well as an accent; every form and its target were asserted here to have identical letters, so nothing but the marks changed",
+ "tokens_changed": 1,
+ "rows_touched": 1,
+ "forms": 1,
+ "substitutions": {
+  "ὲπεὶ": "ἐπεί"
+ },
+ "files": [
+  {
+   "file": "data/corpus/photius.amphilochia.jsonl",
+   "sha256_before": "9cc4f01be81d1365f36b62757df44e2a0f0900404f3fcd92d7e1d80b892ba5f2",
+   "edits": [
+    {
+     "index": 310,
+     "was": [
+      [
+       398,
+       "ὲπεὶ"
+      ]
+     ]
+    }
+   ],
+   "rows_touched": 1,
+   "sha256_after": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234"
+  }
+ ],
+ "reverse": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_marks.json --audit-tag revived-2026-09-14 --unapply",
+ "forward": "python3 scripts/repair_nonfinal_graves.py --tranche data/nonfinal_grave_tranche_marks.json --sources ocr,cgpg,first1k,perseus,dfhg --allow-mark-moves --audit-tag revived-2026-09-14 --date 2026-09-14 --apply"
+}
