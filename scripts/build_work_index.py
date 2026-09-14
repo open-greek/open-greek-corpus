@@ -328,6 +328,12 @@ def build(write: bool = True) -> dict:
                 if _row.get("urn"):
                     ledgers.setdefault(_row["urn"], _row)
 
+    def ledger_for(work_slug: str) -> dict:
+        """Find a source ledger row through either the served slug or TLG id."""
+        cw = tc.get(work_slug) or {}
+        keys = (work_slug, cw.get("tlg"), _tlg_from_cts(cw.get("cts")))
+        return next((ledgers[key] for key in keys if key in ledgers), {})
+
     def _tidy(title: str) -> str:
         """Collapse the whitespace a vendored title brings with it.
 
@@ -343,7 +349,7 @@ def build(write: bool = True) -> dict:
         _metadata_slug, w = registry_work_for(
             work_slug, reg_works, metadata_remaps)
         if w and w.get("title"):
-            led = ledgers.get(work_slug)
+            led = ledger_for(work_slug)
             if (_raw_identifier_title(w["title"]) and led and
                     (led.get("title") or "").strip()):
                 return _tidy(led["title"])
@@ -391,7 +397,7 @@ def build(write: bool = True) -> dict:
         # Neither the registry nor the crosswalk covers a work with no TLG
         # anchor, which left 479 of them blank (issue #3). Two sources in this
         # repo do describe them, and neither invents anything.
-        led = ledgers.get(work_slug)
+        led = ledger_for(work_slug)
         if led:
             if (led.get("title") or "").strip():
                 return _tidy(led["title"].strip())

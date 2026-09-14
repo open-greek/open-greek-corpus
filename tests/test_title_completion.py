@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from build_work_index import (  # noqa: E402
     _completes, _completes_tail, _confirms_head, _fold_words,
-    _raw_identifier_title, _unbalanced,
+    _raw_identifier_title, _unbalanced, build,
 )
 
 
@@ -27,6 +27,14 @@ def test_raw_tlg_identifier_titles_are_recognized_for_ledger_fallback():
     assert _raw_identifier_title("tlg1595.tlg267")
     assert _raw_identifier_title("Tlg0006 Tlg001")
     assert not _raw_identifier_title("De ira")
+
+
+def test_ocr_ledger_title_resolves_through_tlg_alias():
+    """The served Philodemus slug and the older OCR ledger key differ."""
+    index = build(write=False)
+    work = index["works"]["philodemus.tlg1595-tlg601"]
+    assert work["work_anchors"]["tlg"] == "tlg1595.tlg601"
+    assert work["title"] == "Academicorum index (Syntaxis ton philosophon)"
 
 
 def test_case_and_diacritics_do_not_block_it():
