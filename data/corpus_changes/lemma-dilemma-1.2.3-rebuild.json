@@ -1,0 +1,85 @@
+{
+  "what": "full work-lemma rebuild against Dilemma 1.2.3 after invalidating the form-to-lemma cache",
+  "date": "2026-09-14",
+  "issue": "open-greek/open-greek-corpus#4",
+  "dilemma": {
+    "version": "1.2.3",
+    "commit": "44c927a",
+    "source": "https://github.com/open-greek/dilemma/releases/tag/1.2.3",
+    "citation_policy": "default"
+  },
+  "cache": {
+    "invalidated": [
+      "data/cache/form_lemma.tsv.gz",
+      "data/cache/form_lemma_meta.json"
+    ],
+    "checkpoint": "data/lemma_map.tsv",
+    "checkpoint_entries_before_final_validation": 1040351,
+    "validated_cache_entries": 1040350,
+    "forms_above_min_count": 1048118,
+    "unanswered_after_retry": 6625,
+    "reading": "unanswered forms remain unlemmatized; no identity or accent guess was inserted for them"
+  },
+  "result": {
+    "works": 3909,
+    "work_lemma_pairs": 5857639,
+    "distinct_lemmas": 212436,
+    "total_tokens": 65295827,
+    "tokens_lemmatized": 63448300,
+    "coverage_pct": 97.2
+  },
+  "grave_residue": {
+    "before": {
+      "lemmas": 4,
+      "tokens": 32,
+      "percent_of_lemmatized_tokens": 0.00005
+    },
+    "after": {
+      "lemmas": 4,
+      "tokens": 32,
+      "percent_of_lemmatized_tokens": 0.00005,
+      "reachable_lemmas": 0,
+      "reachable_tokens": 0,
+      "unreachable_lemmas": 4,
+      "unreachable_tokens": 32,
+      "headword_backed_lemmas": 0,
+      "headword_backed_tokens": 0
+    },
+    "classification": {
+      "live_structured_lexical_dilemma_emission": {
+        "lemmas": 0,
+        "tokens": 0
+      },
+      "ogc_identity_no_guess_or_model_residue": {
+        "lemmas": 0,
+        "tokens": 0
+      },
+      "stale_cache_residue": {
+        "lemmas": 0,
+        "tokens": 0
+      },
+      "validator_accepted_source_lemma_residue": {
+        "lemmas": 0,
+        "tokens": 0
+      },
+      "nonlexical_editorial_garbage": {
+        "lemmas": 4,
+        "tokens": 32,
+        "forms": {
+          "\u1fdd": 20,
+          "\u0314\u0300": 6,
+          "\u0300\u0301": 3,
+          "\u0313\u0300": 3
+        },
+        "dilemma_path": "live structured nonlexical source, via=symbol, identity output",
+        "correction_status": "all 32 tokens are in born-digital, non-OCR works"
+      }
+    },
+    "reading": "Dilemma emits the four remaining marks only as nonlexical symbols. They are not lexical citation outputs, acute targets, headwords, OCR residue, or stale-cache rows, so no grave-to-acute repair is authorized."
+  },
+  "commands": [
+    "PYTHONPATH=/path/to/dilemma python3 scripts/build_work_lemma_counts.py --lemma-map data/lemma_map.tsv --checkpoint-map data/lemma_map.tsv",
+    "PYTHONPATH=/path/to/dilemma python3 scripts/build_work_lemma_counts.py --write-lemma-frequency",
+    "PYTHONPATH=/path/to/dilemma python3 scripts/measure_grave_residue.py --write"
+  ]
+}

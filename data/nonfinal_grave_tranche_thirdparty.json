@@ -14,10 +14,59 @@
   "saws",
   "wikisource"
  ],
- "forms": 0,
- "tokens": 0,
- "token_weighted_share": 0,
+ "forms": 3,
+ "tokens": 3,
+ "token_weighted_share": 0.99553,
  "expected_wrong_tokens": 0,
  "not_touched": "the other flagged tokens in these sources sit below the bar and stay wrong and recorded rather than guessed at.",
- "rows": []
+ "rows": [
+  {
+   "form": "τοὺτου",
+   "target": "τούτου",
+   "share": 0.9987,
+   "clean_class": 28053,
+   "clean_hits": 28017,
+   "accent_only": true,
+   "runner_up": {
+    "form": "τοῦτου",
+    "clean_tokens": 16
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ἣκειν",
+   "target": "ἥκειν",
+   "share": 0.9924,
+   "clean_class": 1317,
+   "clean_hits": 1307,
+   "accent_only": true,
+   "runner_up": {
+    "form": "ήκειν",
+    "clean_tokens": 5
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  },
+  {
+   "form": "ὃσπερ",
+   "target": "ὅσπερ",
+   "share": 0.9955,
+   "clean_class": 442,
+   "clean_hits": 440,
+   "accent_only": true,
+   "runner_up": {
+    "form": "όσπερ",
+    "clean_tokens": 1
+   },
+   "tokens_in_third_party": 1,
+   "by_source": {
+    "cgpg": 1
+   }
+  }
+ ]
 }
