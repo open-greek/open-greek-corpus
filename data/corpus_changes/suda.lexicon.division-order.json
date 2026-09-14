@@ -1,0 +1,53 @@
+{
+ "_meta": {
+  "change": "stable-sort corpus rows into reviewed reading order",
+  "work": "suda.lexicon",
+  "applied_by": "scripts/corpus_order_overrides.py",
+  "date": "2026-09-13",
+  "evidence": "The source edition changes volumes after Omega and resumes with Pi, but the reader table of contents is alphabetical. Stable block ordering moves the intact Omega division after Tau.",
+  "reversible": "stable-sort the rows by previous_order instead of order"
+ },
+ "n_rows": 24076,
+ "before": [
+  "pr",
+  "Α",
+  "Β",
+  "Γ",
+  "Δ",
+  "Αι",
+  "Ε",
+  "Κ",
+  "Λ",
+  "Μ",
+  "Ν",
+  "Ξ",
+  "Ο",
+  "Ω",
+  "Π",
+  "Ρ",
+  "Σ",
+  "Τ"
+ ],
+ "after": [
+  "pr",
+  "Α",
+  "Β",
+  "Γ",
+  "Δ",
+  "Αι",
+  "Ε",
+  "Κ",
+  "Λ",
+  "Μ",
+  "Ν",
+  "Ξ",
+  "Ο",
+  "Π",
+  "Ρ",
+  "Σ",
+  "Τ",
+  "Ω"
+ ],
+ "sha256_before": "c21d0b74b36fdbe81c2ed11a47396f08d2154f0755b930c44bdcab9af486ad62",
+ "sha256_after": "ff6951bbc6959baf37b794c3232f669b6428e2d15a09057e17aab1cc17f599c9"
+}

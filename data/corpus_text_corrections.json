@@ -1,0 +1,18 @@
+{
+ "_meta": {
+  "description": "Auditable, reversible corrections applied to generated corpus passage text. Each rule is scoped to one work and locus, requires an exact occurrence count, and records the original substring, replacement, evidence, and date.",
+  "used_by": "scripts/build_corpus_loci.py"
+ },
+ "corrections": [
+  {
+   "work": "plato-philosophy.apologia-socratis",
+   "locus": "18",
+   "original": ">ἐμοῦ",
+   "correction": "ἐμοῦ",
+   "expected_occurrences": 1,
+   "evidence": "A literal XML-style closing angle bracket was emitted between sentences in the First1K/Perseus passage. It is markup residue, not part of the Greek text.",
+   "date": "2026-09-13",
+   "reversible": "replace the corrected substring with original at this work and locus"
+  }
+ ]
+}

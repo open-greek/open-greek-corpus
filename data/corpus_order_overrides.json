@@ -1,0 +1,54 @@
+{
+ "_meta": {
+  "description": "Auditable, reversible reading-order overrides for generated corpus rows. Components are zero-indexed locus components; unlisted divisions make the build fail closed instead of being placed silently.",
+  "used_by": "scripts/corpus_order_overrides.py and scripts/build_corpus_loci.py"
+ },
+ "works": {
+  "suda.lexicon": {
+   "component": 1,
+   "order": [
+    "pr",
+    "Α",
+    "Β",
+    "Γ",
+    "Δ",
+    "Αι",
+    "Ε",
+    "Κ",
+    "Λ",
+    "Μ",
+    "Ν",
+    "Ξ",
+    "Ο",
+    "Π",
+    "Ρ",
+    "Σ",
+    "Τ",
+    "Ω"
+   ],
+   "previous_order": [
+    "pr",
+    "Α",
+    "Β",
+    "Γ",
+    "Δ",
+    "Αι",
+    "Ε",
+    "Κ",
+    "Λ",
+    "Μ",
+    "Ν",
+    "Ξ",
+    "Ο",
+    "Ω",
+    "Π",
+    "Ρ",
+    "Σ",
+    "Τ"
+   ],
+   "evidence": "The source edition changes volumes after Omega and resumes with Pi, but the reader table of contents is alphabetical. Stable block ordering moves the intact Omega division after Tau.",
+   "date": "2026-09-13",
+   "reversible": "stable-sort the rows by previous_order instead of order"
+  }
+ }
+}
