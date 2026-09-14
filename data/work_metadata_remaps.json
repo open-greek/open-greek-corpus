@@ -1,0 +1,28 @@
+{
+ "_meta": {
+  "description": "Curated links from a served corpus slug whose source uses non-canonical work numbering to the same work in source_registry.json. The served expression keeps its own ogc id and filename; build_work_index.py takes title, author, tags, and external Work anchors from the named registry work.",
+  "used_by": "scripts/build_work_index.py",
+  "evidence": "The First1K Euripides files use CTS work numbers 001-019 in play order, while the vendored TLG canon assigns the same plays 034-052. Titles provide the explicit one-to-one concordance below; no heuristic matching occurs at build time."
+ },
+ "works": {
+  "euripides.tlg0006-tlg001": "euripides.cyclops",
+  "euripides.tlg0006-tlg002": "euripides.alcestis",
+  "euripides.tlg0006-tlg003": "euripides.medea",
+  "euripides.tlg0006-tlg004": "euripides.heraclidae",
+  "euripides.tlg0006-tlg005": "euripides.hippolytus",
+  "euripides.tlg0006-tlg006": "euripides.andromacha",
+  "euripides.tlg0006-tlg007": "euripides.hecuba",
+  "euripides.tlg0006-tlg008": "euripides.supplices",
+  "euripides.tlg0006-tlg009": "euripides.hercules",
+  "euripides.tlg0006-tlg010": "euripides.ion",
+  "euripides.tlg0006-tlg011": "euripides.troiades",
+  "euripides.tlg0006-tlg012": "euripides.electra",
+  "euripides.tlg0006-tlg013": "euripides.iphigenia-taurica",
+  "euripides.tlg0006-tlg014": "euripides.helena",
+  "euripides.tlg0006-tlg015": "euripides.phoenisae",
+  "euripides.tlg0006-tlg016": "euripides.orestes",
+  "euripides.tlg0006-tlg017": "euripides.bacchae",
+  "euripides.tlg0006-tlg018": "euripides.iphigenia-aulidensis",
+  "euripides.tlg0006-tlg019": "euripides.rhesus"
+ }
+}

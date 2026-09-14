@@ -119,6 +119,9 @@ Reproducible inputs / derived views:
 
 - `data/work_id_aliases.json` - curated rename seed (the source of truth for
   renames; `build_id_registry.py` replays it, `rename_work.py` appends to it).
+- `data/work_metadata_remaps.json` - reviewed concordances from a served
+  expression whose source uses different work numbering to its canonical
+  registry metadata and external Work anchors.
 - `data/work_index.json` - derived, reader-facing WEMI join (rebuild anytime).
 - `corpus_editions.json` - now also carries each work's `id`.
 

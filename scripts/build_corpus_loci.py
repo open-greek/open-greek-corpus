@@ -90,10 +90,15 @@ from build_public_corpus import (  # noqa: E402
     is_acceptable,
     is_dropped,
 )
+from corpus_order_overrides import (  # noqa: E402
+    apply_order_override,
+    load_order_overrides,
+)
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "sources"
 DATA = REPO / "data"
+TEXT_CORRECTIONS = DATA / "corpus_text_corrections.json"
 CORPUS = DATA / "corpus"
 
 L_TAG = f"{{{TEI_NS}}}l"
@@ -322,6 +327,36 @@ def _atomic_write_text(path: Path, text: str) -> None:
     tmp = path.with_name(path.name + ".tmp")
     tmp.write_text(text, encoding="utf-8")
     os.replace(tmp, path)
+
+
+def load_text_corrections(path: Path = TEXT_CORRECTIONS) -> dict[tuple[str, str], list[dict]]:
+    """Load exact, locus-scoped corpus text corrections."""
+    if not path.exists():
+        return {}
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    grouped: dict[tuple[str, str], list[dict]] = defaultdict(list)
+    for rule in raw.get("corrections", []):
+        required = {"work", "locus", "original", "correction", "evidence", "date"}
+        missing = required - rule.keys()
+        if missing:
+            raise SystemExit(f"{path.name}: correction missing {sorted(missing)}")
+        grouped[(rule["work"], str(rule["locus"]))].append(rule)
+    return grouped
+
+
+def apply_text_corrections(work: str, locus: str, text: str,
+                           corrections: dict[tuple[str, str], list[dict]]) -> str:
+    """Apply only exact corrections whose configured control count fires."""
+    for rule in corrections.get((work, str(locus)), []):
+        expected = int(rule.get("expected_occurrences", 1))
+        found = text.count(rule["original"])
+        if found != expected:
+            raise SystemExit(
+                f"corpus text correction {work} {locus}: expected {expected} "
+                f"occurrences of {rule['original']!r}, found {found}"
+            )
+        text = text.replace(rule["original"], rule["correction"])
+    return text
 
 
 def _book_sort_key(books: set[str]):
@@ -780,6 +815,8 @@ def main() -> None:
                     help="restrict to works whose key starts with this prefix, "
                          "e.g. tlg0012 or tlg0012.tlg001")
     args = ap.parse_args()
+    text_corrections = load_text_corrections()
+    order_overrides = load_order_overrides()
 
     files = sorted(SRC.glob("*/data/*/*/*grc*.xml"))
     if args.only:
@@ -1106,6 +1143,8 @@ def main() -> None:
                     base_of[i], witness_of[i])
                    for i, (parts, text, bekker, lines, source, lic, edition)
                    in enumerate(records) if final_locus[i] is not None]
+        records, _order_report = apply_order_override(
+            key, records, order_overrides, lambda row: row[0])
         n_disambiguated = sum(len(v["loci"]) - 1 for v in disamb_map.values())
 
         foreign = _served_foreign(key)
@@ -1151,6 +1190,7 @@ def main() -> None:
         out_lines: list[str] = []
         for (locus, text, bekker, lines, source, lic, edition,
              base_locus, witness) in records:
+            text = apply_text_corrections(key, locus, text, text_corrections)
             rec = {
                 "urn": key,
                 "edition": edition,

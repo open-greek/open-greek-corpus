@@ -44,6 +44,7 @@ from build_id_registry import (  # noqa: E402
 TLG_CROSSWALK = DATA / "tlg_crosswalk.json"
 WORK_INDEX = DATA / "work_index.json"
 SERVING_DEFICITS = DATA / "serving_deficits.json"
+WORK_METADATA_REMAPS = DATA / "work_metadata_remaps.json"
 REPO = DATA.parent
 
 
@@ -124,10 +125,22 @@ def _external_tlg(tlg: str | None) -> str | None:
     return tlg if tlg and re.match(r"tlg\d", tlg) else None
 
 
+def _tlg_from_cts(cts: str | None) -> str | None:
+    match = re.search(r"(tlg\d+\.tlg\w+)\Z", cts or "")
+    return match.group(1) if match else None
+
+
 def _clean(d: dict) -> dict:
     """Drop empty values so the anchors block only lists what is actually known
     (a work with no external id gets an empty {} - that is the point)."""
     return {k: v for k, v in d.items() if v}
+
+
+def registry_work_for(work_slug: str, reg_works: dict,
+                      remaps: dict[str, str]) -> tuple[str, dict]:
+    """Return reviewed registry metadata for a differently-numbered work."""
+    metadata_slug = remaps.get(work_slug, work_slug)
+    return metadata_slug, reg_works.get(metadata_slug, {})
 
 
 def _unbalanced(title: str) -> bool:
@@ -168,6 +181,14 @@ def _completes(truncated: str, candidate: str) -> bool:
         return False
     a, b = _fold_words(truncated), _fold_words(candidate)
     return len(b) > len(a) and b[:len(a)] == a
+
+
+_RAW_IDENTIFIER_TITLE = re.compile(
+    r"\Atlg\d+[\s._-]+(?:tlg)?\d+\Z", re.IGNORECASE)
+
+
+def _raw_identifier_title(title: str) -> bool:
+    return bool(_RAW_IDENTIFIER_TITLE.fullmatch((title or "").strip()))
 
 
 def _split_open(title: str) -> tuple[str, str]:
@@ -259,6 +280,11 @@ def build(write: bool = True) -> dict:
     reg = load_json(SOURCE_REGISTRY, {"works": {}, "authors": {}})
     reg_works = reg.get("works", {})
     reg_authors = reg.get("authors", {})
+    metadata_remaps = load_json(WORK_METADATA_REMAPS, {}).get("works", {})
+    missing_remaps = {slug: target for slug, target in metadata_remaps.items()
+                      if target not in reg_works}
+    if missing_remaps:
+        sys.exit(f"work_metadata_remaps.json targets missing from registry: {missing_remaps}")
     pseudo = load_json(PSEUDO_ATTR, {})
     pseudo_works = pseudo.get("works", {})
     pseudo_authors = pseudo.get("authors", {})
@@ -268,7 +294,10 @@ def build(write: bool = True) -> dict:
     author_slug_to_id = {e["slug"]: i for i, e in author_ids.items()}
 
     def author_block(work_slug: str) -> dict:
-        a_slug = author_slug_for(work_slug, reg_works, pseudo_works)
+        _metadata_slug, metadata_work = registry_work_for(
+            work_slug, reg_works, metadata_remaps)
+        a_slug = metadata_work.get("author") or \
+            author_slug_for(work_slug, reg_works, pseudo_works)
         auth = reg_authors.get(a_slug, {})
         name = auth.get("name")
         aliases = dict(auth.get("aliases", {}))
@@ -311,8 +340,13 @@ def build(write: bool = True) -> dict:
         return " ".join((title or "").split())
 
     def title_for(work_slug: str) -> str:
-        w = reg_works.get(work_slug)
+        _metadata_slug, w = registry_work_for(
+            work_slug, reg_works, metadata_remaps)
         if w and w.get("title"):
+            led = ledgers.get(work_slug)
+            if (_raw_identifier_title(w["title"]) and led and
+                    (led.get("title") or "").strip()):
+                return _tidy(led["title"])
             # These fallbacks are now a backstop rather than the main repair.
             # The titles were never truncated in the Canon: the parser that
             # vendors work_inventory.json dropped any field the Canon wraps
@@ -386,11 +420,14 @@ def build(write: bool = True) -> dict:
                 redirects[fs] = slug
             continue
         cw = tc.get(slug, {})
-        rw = reg_works.get(slug, {})
+        metadata_slug, rw = registry_work_for(slug, reg_works, metadata_remaps)
         ral = rw.get("aliases", {})
+        remapped = metadata_slug != slug
         anchors = _clean({
-            "cts": _external_cts(cw.get("cts")) or _external_cts(ral.get("cts")),
-            "tlg": _external_tlg(cw.get("tlg")),
+            "cts": (_external_cts(ral.get("cts")) if remapped else
+                    _external_cts(cw.get("cts")) or _external_cts(ral.get("cts"))),
+            "tlg": (_external_tlg(_tlg_from_cts(ral.get("cts"))) if remapped else
+                    _external_tlg(cw.get("tlg"))),
             "wikidata": ral.get("wikidata"),
         })
         if anchors:
@@ -413,6 +450,8 @@ def build(write: bool = True) -> dict:
                 "n_tokens": man.get("n_tokens"),
             }),
         }
+        if metadata_slug != slug:
+            works[slug]["metadata_from"] = metadata_slug
         if slug in deficits:
             # Served, but a fuller text of the same work is held in this repo
             # and the serving is meant to grow into it. Curated intent in

@@ -1,0 +1,28 @@
+{
+ "_meta": {
+  "change": "replace served text (apparatus-heavy OCR -> DCC Greek reading text)",
+  "work": "sappho.fragmenta",
+  "tlg": "tlg0009.tlg001",
+  "applied_by": "scripts/ingest_dcc_sappho.py",
+  "date": "2026-09-13",
+  "reversible": "restore data/corpus_changes/sappho.fragmenta.pre-dcc-ocr.jsonl verbatim to data/corpus/sappho.fragmenta.jsonl, then rerun reconcile_corpus_editions.py, build_registry.py, and build_work_index.py"
+ },
+ "old": {
+  "edition": "bergk-plg3-ocr-frag",
+  "rows": 135,
+  "greek_tokens": 5087,
+  "sha256": "14f9754bee6595573fd9fbbcacfbf4f35df2ae9f97b87d97bc4e7a828f7a2861",
+  "archived_to": "data/corpus_changes/sappho.fragmenta.pre-dcc-ocr.jsonl"
+ },
+ "new": {
+  "edition": "dcc-sappho",
+  "source": "dcc",
+  "license": "CC-BY-SA-4.0",
+  "rows": 205,
+  "greek_tokens": 3820,
+  "sha256": "cf3b4ff8cfed371008251ddf046032ff7968574c54558e26fcf02db1a415db29",
+  "source_pages": 99,
+  "source_manifest": "data/corpus_changes/sappho-fragmenta-dcc-sources.json"
+ },
+ "evidence": "The prior Bergk OCR rows intermixed Sappho's Greek with extensive Latin and German apparatus. DCC supplies the Greek reading text in a distinct article-body field; commentary, vocabulary, and translations are separate and are not ingested."
+}

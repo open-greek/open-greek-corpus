@@ -23,6 +23,7 @@ Byzantine literary Greek.
 | [PTA](https://github.com/PatristicTextArchive/pta_data) | CC BY-SA / CC BY, per file | Patristic Text Archive (BBAW): critical patristic TEI incl. the Severian of Gabala corpus (`pta`); pta ids resolve via `scripts/build_pta_crosswalk.py`, the single BY-NC-SA file is excluded |
 | [DFHG](https://dfhg-project.org) | CC BY-SA 4.0 | Mueller's Fragmenta Historicorum Graecorum vols 1-5 as corrected transcription (Berti/Leipzig), superseding our FHG OCR (`dfhg`); ingested by `scripts/ingest_dfhg.py`; the held-back specials (Diodorus' fragmentary books, homonym collisions) are resolved by `scripts/ingest_dfhg_specials.py`, and the carve slugs get TLG urns from the constrained canon pass `scripts/build_dfhg_canon_pass.py` (audit trail in `data/dfhg_canon_pass.json`) |
 | [SAWS](https://ancientwisdoms.ac.uk) | CC BY 4.0 (2025 KCL figshare deposit, doi:10.18742/28259054.v1; supersedes the project's 2013 in-file CC BY-NC-SA notices) | Sharing Ancient Wisdoms born-digital editions (`saws`): Roueche's Kekaumenos, the Searby et al. Apophthegmata et gnomae secundum alphabetum, and diplomatic transcriptions of the Gnomologium Vaticanum (Vat. gr. 743) and Corpus Parisinum VI (Par. gr. 1168 + Bodl. Digby 6); ingested by `scripts/ingest_saws.py` (which re-verifies the deposit license against the figshare API on every fetch) |
+| [Dickinson College Commentaries](https://dcc.dickinson.edu/sappho) | CC BY-SA 4.0 | peer-reviewed Greek reading text of Sappho's fragments (`dcc`), replacing apparatus-heavy Bergk OCR; ingested by `scripts/ingest_dcc_sappho.py` with per-page source hashes and an exact archive of the prior text |
 | [Greek Wikisource](https://el.wikisource.org) | PD base text; contributor layer CC BY-SA 4.0 | Proclus, Institutio physica (tlg4036.tlg006): the proofread-page transcription of Ritzenfeld's Teubner 1912 edition (the TLG edition), ingested per DjVu page by `scripts/ingest_proclus_institutiones.py` (which also ingests the Institutio theologica, tlg4036.tlg005, from our Qwen3.6 OCR of the Didot 1855 Creuzer-Moser text - no clean open digital text exists - and writes a same-edition 29-page OCR witness of the physica to `corpus_secondary` with per-page agreement stats). Also serves the Septuagint Ecclesiastes (`septuaginta.ecclesiastes`, tlg0527.tlg030): the verse-keyed el.wikisource LXX transcription, ingested by `scripts/ingest_wikisource_ecclesiastes.py`. Ecclesiastes is the one LXX book absent from First1K (an empty `__cts__` stub upstream), and the Wikisource text is an ecclesiastical-recension LXX (Δαβίδ), so it differs orthographically from the First1K Swete siblings (Δαυείδ). Also serves Musaeus Grammaticus, Hero and Leander (`musaeus-grammaticus.hero-et-leander`, tlg4082.tlg001): the complete continuous-verse transcription, ingested by `scripts/ingest_musaeus_hero_leander.py`, replacing a broken redo OCR of Dilthey 1874 (the page names no printed edition, so it is the PD ancient poem, not a claim on Dilthey/Kost/Livrea) |
 | [GLAUx](https://github.com/alekkeersmaekers/glaux) | PD base text; GLAUx corpus CC BY-SA 4.0 | Julius Pollux, Onomasticon (`julius-pollux.onomasticon`, tlg0542.tlg001): the full ten-book text (1,908 sections, ~115k Greek tokens), reconstructed from the GLAUx surface `<word>` forms in document order and keyed by GLAUx's `div_book`/`div_section` metadata, ingested by `scripts/ingest_glaux_pollux.py`, replacing a First1KGreek two-section sample (111 tokens). GLAUx is otherwise used only offline, for the Bekker concordance milestones below |
 | our OCR of PD editions | PD | Migne PG and classical editions OCR'd from public-domain scans (`ocr`); per-work download links in the OCR provenance table below |
@@ -310,11 +311,11 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 488 of the 3,822 served works have no
+distinct `ogc` ids sharing one TLG anchor. 570 of the 3,909 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
 `work_index.json` under `work_anchors` (`cts` on 3,339 works, `tlg` on 3,300,
-`wikidata` on 505), so joins against citation and lexicon data still work.
+`wikidata` on 517), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
 source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`
@@ -455,11 +456,11 @@ make reports               # quality report, per-work lemma counts, this README'
                            # re-runs the ingest chain when it is stale, and that
                            # chain can go to the network)
 PY=.venv/bin/python DILEMMA=/path/to/dilemma make   # override interpreter / lemmatizer path
-python -m pytest tests/ -q                         # 251 tests; 7 skip without OCR_PIPELINE
+python -m pytest tests/ -q                         # 258 tests; 11 skip without OCR_PIPELINE
 ```
 
 Nothing here needs the upstream OCR pipeline, which is where the raw OCR and the
-reversible correction overlay live. Seven tests cross-check a figure or a vendored
+reversible correction overlay live. Eleven tests cross-check a figure or a vendored
 rule against it and skip when it is absent; set `OCR_PIPELINE` to that checkout to
 enable them, and see `scripts/upstream_pipeline.py`.
 

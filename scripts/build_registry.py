@@ -450,6 +450,7 @@ PROVIDER_LABELS = {"first1k": "First1KGreek",
                    "byzantium_gr": "byzantium.gr",
                    "glaux": "GLAUx",
                    "saws": "Sharing Ancient Wisdoms",
+                   "dcc": "Dickinson College Commentaries",
                    "wikisource": "Wikisource"}
 
 

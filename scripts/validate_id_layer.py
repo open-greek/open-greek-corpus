@@ -25,6 +25,9 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from build_work_index import _tlg_from_cts  # noqa: E402
+
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 
@@ -94,16 +97,21 @@ def main() -> int:
     # 6: anchor round-trip
     for slug, w in idx_works.items():
         a = w["work_anchors"]
+        metadata_slug = w.get("metadata_from", slug)
+        metadata_work = reg_works.get(metadata_slug, {})
+        metadata_aliases = metadata_work.get("aliases", {})
         if a.get("tlg"):
-            check(tc.get(slug, {}).get("tlg") == a["tlg"],
+            source_tlg = (_tlg_from_cts(metadata_aliases.get("cts"))
+                          if metadata_slug != slug else tc.get(slug, {}).get("tlg"))
+            check(source_tlg == a["tlg"],
                   f"tlg anchor for {slug} does not round-trip")
         if a.get("cts"):
-            src = tc.get(slug, {}).get("cts") or \
-                  reg_works.get(slug, {}).get("aliases", {}).get("cts")
+            src = (metadata_aliases.get("cts") if metadata_slug != slug else
+                   tc.get(slug, {}).get("cts") or metadata_aliases.get("cts"))
             check(src == a["cts"], f"cts anchor for {slug} does not round-trip")
         if a.get("wikidata"):
-            check(reg_works.get(slug, {}).get("aliases", {}).get("wikidata")
-                  == a["wikidata"], f"wikidata anchor for {slug} broken")
+            check(metadata_aliases.get("wikidata") == a["wikidata"],
+                  f"wikidata anchor for {slug} broken")
 
     # 7: the 4 variant-edition pairs -> distinct ids, one shared TLG anchor
     from collections import defaultdict

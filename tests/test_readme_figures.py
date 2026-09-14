@@ -21,6 +21,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from build_public_corpus import _GK  # noqa: E402
+from build_work_index import _raw_identifier_title  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 README = (REPO / "README.md").read_text(encoding="utf-8")
@@ -41,6 +42,12 @@ def test_anchor_counts_match_work_index():
                          if (x.get("work_anchors") or {}).get(k))
     assert (said_cts, said_tlg, said_wd) == (have("cts"), have("tlg"),
                                             have("wikidata"))
+
+
+def test_served_work_titles_do_not_publish_raw_tlg_identifiers():
+    raw = [(slug, work.get("title")) for slug, work in WORKS.items()
+           if _raw_identifier_title(work.get("title") or "")]
+    assert raw == []
 
 
 def test_status_line_matches_the_served_corpus():
