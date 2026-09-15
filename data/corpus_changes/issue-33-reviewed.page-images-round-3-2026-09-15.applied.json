@@ -1,0 +1,991 @@
+{
+  "schema_version": 1,
+  "what": "scan-reviewed duplicate OCR pages moved from served text to secondary witnesses",
+  "issue": "open-greek/open-greek-corpus#33",
+  "applied_at": "2026-09-15",
+  "queue": "data/review/issue-33-round-3.jsonl",
+  "queue_sha256": "c7e76ff2c9eaae7f77113ec7722977f00c1fa822241a5cd336a1b91dc268ae0b",
+  "manifest": "data/review/issue-33-round-3.manifest.json",
+  "manifest_sha256": "c087d73a25b2efc831d11dcd9b2ffe747fb30251267a25ce7161241ae1526aea",
+  "reviewed_decisions": "data/review/issue-33-round-3.reviewed.jsonl",
+  "reviewed_decisions_sha256": "58f76770fa0394b040110f1b59fa13bc5cde974033be1101aa66b233d3bcd930",
+  "release_reviewed": "corpus-2026-09-14.5",
+  "corpus_sha256_reviewed": "3028431e7114a835397950855d914f7c699e13001629d397e5536ff4e7896af0",
+  "decision_counts": {
+    "defer": 3,
+    "drop_a": 2,
+    "drop_b": 1
+  },
+  "pages_displaced": 3,
+  "rows_displaced": 130,
+  "greek_tokens_displaced": 736,
+  "files_touched": 1,
+  "displacements": [
+    {
+      "item_id": "ogc-33-fd74bfd5a59f9557",
+      "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
+      "displaced_page": "scholia_aristidem_frommel1826_0233",
+      "retained_page_direct": "scholia_aristidem_frommel1826_0243",
+      "retained_page_terminal": "scholia_aristidem_frommel1826_0243",
+      "rows": 59,
+      "greek_tokens": 224,
+      "evidence_url": "https://archive.org/details/scholiainaeliia00unkngoog/page/n243/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Both scans show the same printed page. Retained B; the displaced OCR has no unique three-word run, and the neighboring run decision was used only for ranking."
+    },
+    {
+      "item_id": "ogc-33-557214e7e7a30e53",
+      "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
+      "displaced_page": "scholia_aristidem_frommel1826_0242",
+      "retained_page_direct": "scholia_aristidem_frommel1826_0232",
+      "retained_page_terminal": "scholia_aristidem_frommel1826_0232",
+      "rows": 38,
+      "greek_tokens": 267,
+      "evidence_url": "https://archive.org/details/scholiainaeliia00unkngoog/page/n232/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Both scans show the same printed page. Retained A; the displaced OCR has no unique three-word run, and the neighboring run decision was used only for ranking."
+    },
+    {
+      "item_id": "ogc-33-86e0b5b1e8ca1b7d",
+      "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
+      "displaced_page": "scholia_aristidem_frommel1826_0378",
+      "retained_page_direct": "scholia_aristidem_frommel1826_0388",
+      "retained_page_terminal": "scholia_aristidem_frommel1826_0388",
+      "rows": 33,
+      "greek_tokens": 245,
+      "evidence_url": "https://archive.org/details/scholiainaeliia00unkngoog/page/n388/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Both scans show the same printed page. Retained B; the displaced OCR has no unique three-word run, and the neighboring run decision was used only for ranking."
+    }
+  ],
+  "witness_files_written": [
+    "data/corpus_secondary/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-review-2026-09-15.jsonl"
+  ],
+  "files": {
+    "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": {
+      "sha256_before": "2a5d4452cdb0e01b675241263b53cbb21d4b91768afbab565bc2ff2be2ea07b9",
+      "sha256_after": "f309492a4000aa9602989f6af4276b0f78149c508c24b7584af46948c989eb41",
+      "rows_before": 19864,
+      "rows_after": 19734,
+      "removed_rows": [
+        {
+          "index": 6416,
+          "line": 6417,
+          "locus": "scholia_aristidem_frommel1826_0233.1",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"58, A. Οὐ Θρασύμαχον * ] Sch\"}\n",
+          "original_line_sha256": "2e323d742e6b6f5cda1c88db15ab7bdf68688ce1ae11da9a92e1531da552c8f8"
+        },
+        {
+          "index": 6417,
+          "line": 6418,
+          "locus": "scholia_aristidem_frommel1826_0233.2",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"χόντα, Θρασύμαχον εἶπε, τ\"}\n",
+          "original_line_sha256": "8ed71cde94fe75cd63a663d14b535eb8a6e987ca1b6102ba84e135685b8bf76c"
+        },
+        {
+          "index": 6418,
+          "line": 6419,
+          "locus": "scholia_aristidem_frommel1826_0233.3",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μνον ὑπὸ Σωκράτους καὶ\"}\n",
+          "original_line_sha256": "ec4cc6126dd6b9c5bdea9e677a0d9e62ea0d2adbbec8780665f0b1b4e872459e"
+        },
+        {
+          "index": 6419,
+          "line": 6420,
+          "locus": "scholia_aristidem_frommel1826_0233.4",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib. Ἀνδρειότεροι τοῦ δέον\"}\n",
+          "original_line_sha256": "95d43072425a41af03370282448fb5a21fb5187813a5765603a286d89f285e7a"
+        },
+        {
+          "index": 6420,
+          "line": 6421,
+          "locus": "scholia_aristidem_frommel1826_0233.5",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοῦ δέοντος ἀντὶ τοῦ Θρασύ\"}\n",
+          "original_line_sha256": "887e2e041d1096ee3ec1d74eb0ccd43521a2f9a1ca3ee52023c504a5a87d740a"
+        },
+        {
+          "index": 6421,
+          "line": 6422,
+          "locus": "scholia_aristidem_frommel1826_0233.6",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ψεις τῶν ἀρετῶν κακίζονται\"}\n",
+          "original_line_sha256": "3639c860de38123b0a015eb60a254a84a42fb87e8b0992ea6ae74657e4767c1e"
+        },
+        {
+          "index": 6422,
+          "line": 6423,
+          "locus": "scholia_aristidem_frommel1826_0233.7",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib. Καὶ δειλίας, ⁵ εἰ δὲ βα\"}\n",
+          "original_line_sha256": "4b7f56cb5623f85c945f3a47f2ad3e419a2942900d394cc2c34ce67b4f8a38a1"
+        },
+        {
+          "index": 6423,
+          "line": 6424,
+          "locus": "scholia_aristidem_frommel1826_0233.8",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λίας ⁴ ἐξ Αἴαντος τοῦ μα\"}\n",
+          "original_line_sha256": "f296db58b0c9afdd43f2242f45a53f94f8c4bf3cb07d151e2bc9a00ab55fc207"
+        },
+        {
+          "index": 6424,
+          "line": 6425,
+          "locus": "scholia_aristidem_frommel1826_0233.9",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σιωπῆς ἐκ Σιμωνίδου, ⁵\"}\n",
+          "original_line_sha256": "77a9434343325cd26382ee4ec7328278cc67dc32aeb09832b1047e189d393f7d"
+        },
+        {
+          "index": 6425,
+          "line": 6426,
+          "locus": "scholia_aristidem_frommel1826_0233.10",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μώτῃ. ⁶\"}\n",
+          "original_line_sha256": "134e933d31e8d41c8f7bb6be2457c670df627ac94dfec9d506f7e9bd88cbc1b3"
+        },
+        {
+          "index": 6426,
+          "line": 6427,
+          "locus": "scholia_aristidem_frommel1826_0233.11",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πολλοῖς γὰρ ἐστι\"}\n",
+          "original_line_sha256": "06384bdcca874719ca56b231fde6eaa0d642b16fbb0bccd51021a24752eb6ec1"
+        },
+        {
+          "index": 6427,
+          "line": 6428,
+          "locus": "scholia_aristidem_frommel1826_0233.12",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Sch. ed. Τὸ δειλίας γ\"}\n",
+          "original_line_sha256": "5d82795c470f9f1ad08b61252aec22267f1effd779a45505c3a316ea7a8f2293"
+        },
+        {
+          "index": 6428,
+          "line": 6429,
+          "locus": "scholia_aristidem_frommel1826_0233.13",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Αἴαντι τῷ μαστιγοφόρῳ λέγ\"}\n",
+          "original_line_sha256": "728a68b1b2669e166a06a329ea95a62d3d05ffc8e286f10afe5dfe520736d518"
+        },
+        {
+          "index": 6429,
+          "line": 6430,
+          "locus": "scholia_aristidem_frommel1826_0233.14",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μὴ Θρασύς, εἴληφεν ἂν γέρα\"}\n",
+          "original_line_sha256": "c1023212bd9d01f7541f25220df2c1b0d4dda49759c577cc4c916c982178273b"
+        },
+        {
+          "index": 6430,
+          "line": 6431,
+          "locus": "scholia_aristidem_frommel1826_0233.15",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αἰτοχειρία. Τὸ δὲ σιωπῆ\"}\n",
+          "original_line_sha256": "f98cb1acb0e6422842d9950a16230f1903739ab6e128cbe23a90a2b08d625085"
+        },
+        {
+          "index": 6431,
+          "line": 6432,
+          "locus": "scholia_aristidem_frommel1826_0233.16",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νίδου ἐστι τοῦ Κείου. ⁷ Καὶ\"}\n",
+          "original_line_sha256": "44f1b263a59d92f41a312099c3f5f822d9500dd9467dc1d597672ec17ed9fe84"
+        },
+        {
+          "index": 6432,
+          "line": 6433,
+          "locus": "scholia_aristidem_frommel1826_0233.17",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νον, τὰ γὰρ ἐν τοῖς ἀγῶσι\"}\n",
+          "original_line_sha256": "18416e6df8f17917a5ae854a5c72b8bacd4e929f2e218bde1e26c39ebc3e6597"
+        },
+        {
+          "index": 6433,
+          "line": 6434,
+          "locus": "scholia_aristidem_frommel1826_0233.18",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Λέγει γοῦν, ὡς εἰ καὶ σὺ,\"}\n",
+          "original_line_sha256": "6d95b21fb387ccc2113575f51d12b4e05349ea28d0de22b2ee6fa3283457d96f"
+        },
+        {
+          "index": 6434,
+          "line": 6435,
+          "locus": "scholia_aristidem_frommel1826_0233.19",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ τοῦναντίον, σίγα καὶ μ\"}\n",
+          "original_line_sha256": "8b824440c8c853ae419f7958ed076dc90ef873ad29c8fb106d49b08ca949e0cc"
+        },
+        {
+          "index": 6435,
+          "line": 6436,
+          "locus": "scholia_aristidem_frommel1826_0233.20",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib. Ἄινον λίην] Sch. ed.\"}\n",
+          "original_line_sha256": "01580ee81ff9621ca110e691ee9a59e55ffa888e3d85cc543d2a32db717c2cd3"
+        },
+        {
+          "index": 6436,
+          "line": 6437,
+          "locus": "scholia_aristidem_frommel1826_0233.21",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τέροις ἕτερα συνειρόντων, δ\"}\n",
+          "original_line_sha256": "a1ac4cbf72a29476d5ed1ed387160f9df32aa157d137250720cf6f2cff35329e"
+        },
+        {
+          "index": 6437,
+          "line": 6438,
+          "locus": "scholia_aristidem_frommel1826_0233.22",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μόνον δειλοὺς Ἀθηναίους, ἄ\"}\n",
+          "original_line_sha256": "5361e979d2ef08387936511bf5562073a2c760a6f898a9d5b36ec956ebe4fbe5"
+        },
+        {
+          "index": 6438,
+          "line": 6439,
+          "locus": "scholia_aristidem_frommel1826_0233.23",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νον ⁸ τὸν Περικλέα φήσαντο\"}\n",
+          "original_line_sha256": "a9c57df60735103e5573a11342f8ec878405632c01dfc480e45dd19cb841cb37"
+        },
+        {
+          "index": 6439,
+          "line": 6440,
+          "locus": "scholia_aristidem_frommel1826_0233.24",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"1) εἶδε, Palat. οἶδε. — 2)\"}\n",
+          "original_line_sha256": "5d28b861e2b4c213f78e2c0cee752b234afbc0aecf929d744fb3df4ad3e92eae"
+        },
+        {
+          "index": 6440,
+          "line": 6441,
+          "locus": "scholia_aristidem_frommel1826_0233.25",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ δειλίας subl. Valk. — 4) τ\"}\n",
+          "original_line_sha256": "e121445ee4e48b0d9aa05525973e1e9c5dbd3cd70edaac8d6c1924987c4c2261"
+        },
+        {
+          "index": 6441,
+          "line": 6442,
+          "locus": "scholia_aristidem_frommel1826_0233.26",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οὐ σῷγ’ ἀνέξει, μηδὲ\"}\n",
+          "original_line_sha256": "3b34b2385e0ddbc260aace607c7b4386f38f36b2dabbf0b2c9cfb4f306f31eec"
+        },
+        {
+          "index": 6442,
+          "line": 6443,
+          "locus": "scholia_aristidem_frommel1826_0233.27",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"t. I, p. 400. — 6) Ἀσχυλος,\"}\n",
+          "original_line_sha256": "28c33043ca67cafb9d42aeb6edcd06007501bb3872ac7e50d71c3af986cb1cf4"
+        },
+        {
+          "index": 6443,
+          "line": 6444,
+          "locus": "scholia_aristidem_frommel1826_0233.28",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὡς τις τῶν Κλῶν κ. τ. λ., cf. Bast\"}\n",
+          "original_line_sha256": "278afd4f177ce1f632dfac9116f118b55b7649c4527463b7b58258beffe4baeb"
+        },
+        {
+          "index": 6444,
+          "line": 6445,
+          "locus": "scholia_aristidem_frommel1826_0233.29",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ed. φήσαντας.\"}\n",
+          "original_line_sha256": "53bb45a7ee606a232164e97f3d079f36bfc0c1316a6b66a7c807c11f7abe461b"
+        },
+        {
+          "index": 6445,
+          "line": 6446,
+          "locus": "scholia_aristidem_frommel1826_0233.30",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"εἶδε ’ κατ’ ὄναρ ἑαυτὴν λέοντα\"}\n",
+          "original_line_sha256": "3a5afde4f025a7b4bf0d0e96ae7efdd6ffcc5dd2df5509e939535d9f1a69b755"
+        },
+        {
+          "index": 6446,
+          "line": 6447,
+          "locus": "scholia_aristidem_frommel1826_0233.31",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"h. ed. Λέον εἰπεῖν, οὐ τὸν τῶ-\"}\n",
+          "original_line_sha256": "4f8f7f66c1a72c190971cc9d9d0ad4b296007a41d2949be8f90518bec5e93145"
+        },
+        {
+          "index": 6447,
+          "line": 6448,
+          "locus": "scholia_aristidem_frommel1826_0233.32",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.32\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοῦτον γὰρ ἐν ταῖς πολιτείαις (p.\"}\n",
+          "original_line_sha256": "bb397942fddac10bd4ac5a284945094328a60fd2b90e5f68738ce849c39ecee9"
+        },
+        {
+          "index": 6448,
+          "line": 6449,
+          "locus": "scholia_aristidem_frommel1826_0233.33",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.33\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"seq.) εἰσάγει Πλάτων καταγελω-\"}\n",
+          "original_line_sha256": "b58dfb8f832b4f91f9012d8fb498a0dac29e74ba1903d818fe840c164c3ee4f5"
+        },
+        {
+          "index": 6449,
+          "line": 6450,
+          "locus": "scholia_aristidem_frommel1826_0233.34",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.34\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐλεγχόμενον.\"}\n",
+          "original_line_sha256": "27fb1eb0e04b52a56d9379376978286b77210ad6a4d3f6976174e2b47c32bbc7"
+        },
+        {
+          "index": 6450,
+          "line": 6451,
+          "locus": "scholia_aristidem_frommel1826_0233.35",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ντος] Cod. Palat. Ἀνδρειότερος\"}\n",
+          "original_line_sha256": "2840fff1b687e9335ded9e16773b9ea0d2bd6e84c08deb3b946612880d551b64"
+        },
+        {
+          "index": 6451,
+          "line": 6452,
+          "locus": "scholia_aristidem_frommel1826_0233.36",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ῥύς· αἱ γὰρ ὑπερβολαὶ καὶ ἐλλεί-\"}\n",
+          "original_line_sha256": "727f37751dc0fcec5d998e8bbc46579ad5f5252703f84f148530c7f08ddc793c"
+        },
+        {
+          "index": 6452,
+          "line": 6453,
+          "locus": "scholia_aristidem_frommel1826_0233.37",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.37\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μ·\"}\n",
+          "original_line_sha256": "b0ea0b5e09ba5678484e8a12f76f76f93aae6bc1ba1bf20bccef7a8dbfd2a322"
+        },
+        {
+          "index": 6453,
+          "line": 6454,
+          "locus": "scholia_aristidem_frommel1826_0233.38",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.38\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"βοῦλει] Arogr. Mon. Τὸ δει-\"}\n",
+          "original_line_sha256": "b51b2675d772c030e98ecafd8b740edd51bccf5e3c6ba6c4ea1896fee170cec3"
+        },
+        {
+          "index": 6454,
+          "line": 6455,
+          "locus": "scholia_aristidem_frommel1826_0233.39",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μαστιγοφόρου Σοφοκλέους, τὸ δὲ\"}\n",
+          "original_line_sha256": "6bcfa1aa505de73417d099edd068b93373f022a6c1a918cc7125e03075a7523d"
+        },
+        {
+          "index": 6455,
+          "line": 6456,
+          "locus": "scholia_aristidem_frommel1826_0233.40",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.40\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ Αἰσχύλος ἐν Προμηθεῖ δεσ-\"}\n",
+          "original_line_sha256": "99fba47961f9286ac85cb7515e558af07008d9334c7074f32dc71a9701f5b8fa"
+        },
+        {
+          "index": 6456,
+          "line": 6457,
+          "locus": "scholia_aristidem_frommel1826_0233.41",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.41\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κέρδος ἢ σιγὴ βροτοῖς.\"}\n",
+          "original_line_sha256": "bce25025006b7df61e32f209d7c12e327e9dad209ee4381545632a073a6cdc67"
+        },
+        {
+          "index": 6457,
+          "line": 6458,
+          "locus": "scholia_aristidem_frommel1826_0233.42",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"έρας ἀκίνδυνον Σοφοκλῆς ἐν\"}\n",
+          "original_line_sha256": "6972df40177ede43bb27b0504e0ff54ad7dda0e04baf9c2a8f7660aa3ffcd047"
+        },
+        {
+          "index": 6458,
+          "line": 6459,
+          "locus": "scholia_aristidem_frommel1826_0233.43",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.43\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"έγει· Αἴας γὰρ εἰ δειλὸς ἦν καὶ\"}\n",
+          "original_line_sha256": "67a58574f60a0abaf458f46adbdb0581f820a12d51042c571efccd2103069af7"
+        },
+        {
+          "index": 6459,
+          "line": 6460,
+          "locus": "scholia_aristidem_frommel1826_0233.44",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρας τῆς δειλίας τὸ μὴ κινδυνεύσαι\"}\n",
+          "original_line_sha256": "f5eacc0876936a821f737cfd8e63adc7efe9ca1b18977c36354a4092dc4214ef"
+        },
+        {
+          "index": 6460,
+          "line": 6461,
+          "locus": "scholia_aristidem_frommel1826_0233.45",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.45\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ῆς ἀκίνδυνον γέρας ἐκ Σιμων-\"}\n",
+          "original_line_sha256": "40d732950a2f6f21f08ce45a111c8161e760b8ef3ef5d1850e2ec330a113e0bd"
+        },
+        {
+          "index": 6461,
+          "line": 6462,
+          "locus": "scholia_aristidem_frommel1826_0233.46",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.46\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αλῶς δὲ προσετέθη τὸ ἀκίνδυν-\"}\n",
+          "original_line_sha256": "24c4af31e00844d422df84172e77d3e5cccf181938b8de8576f0a456c28fcafa"
+        },
+        {
+          "index": 6462,
+          "line": 6463,
+          "locus": "scholia_aristidem_frommel1826_0233.47",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.47\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ι διδόμενα γέρα κινδύνου μετέχει.\"}\n",
+          "original_line_sha256": "16a9c83aba780648eccbb19bd1e77bf56bc604e1ebfa528ecd1f6deb9e55bc7b"
+        },
+        {
+          "index": 6463,
+          "line": 6464,
+          "locus": "scholia_aristidem_frommel1826_0233.48",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.48\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \", ὦ Πλάτων, βούλει σόφος εἶναι\"}\n",
+          "original_line_sha256": "5fa9b0e87b9396bc8f23c2cde9ef3ab22d98ff82df45b6eab847130d1cf35b5d"
+        },
+        {
+          "index": 6464,
+          "line": 6465,
+          "locus": "scholia_aristidem_frommel1826_0233.49",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.49\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μὴ σκώπτε τὸν Περικλέα.\"}\n",
+          "original_line_sha256": "21a2c9bb1e0f831266e2cb6751f57bb1b586a9dd1e863195c15f8a070fc7cbe6"
+        },
+        {
+          "index": 6465,
+          "line": 6466,
+          "locus": "scholia_aristidem_frommel1826_0233.50",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.50\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \". Παροιμία ἐπὶ τῶν τοῖς προ-\"}\n",
+          "original_line_sha256": "cadcba3510268220df37bd5f3950a9d3ee136343d74feb3655ec9c89b384a5e2"
+        },
+        {
+          "index": 6466,
+          "line": 6467,
+          "locus": "scholia_aristidem_frommel1826_0233.51",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.51\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δοποῖον καὶ τὸ τοῦ Πλάτωνος, οὐ\"}\n",
+          "original_line_sha256": "7e7a5c8f18cbd31073094922c3bd137d5766f62e0a6727ec30237f9fd1686310"
+        },
+        {
+          "index": 6467,
+          "line": 6468,
+          "locus": "scholia_aristidem_frommel1826_0233.52",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.52\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἀλλὰ καὶ φιλαργύρους πεποιημέ-\"}\n",
+          "original_line_sha256": "97d3061af8dcd259f6a40209e8113da21705635f8be09ff7638e1a9e655af104"
+        },
+        {
+          "index": 6468,
+          "line": 6469,
+          "locus": "scholia_aristidem_frommel1826_0233.53",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.53\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τος. ⁹\"}\n",
+          "original_line_sha256": "6194be58763634a702cb42aa4f5db30f3c53f432359c2f10938e6358e43ca14e"
+        },
+        {
+          "index": 6469,
+          "line": 6470,
+          "locus": "scholia_aristidem_frommel1826_0233.54",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.54\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"1) Οἱ Θρασύμαχον, subl. Valk. — 5)\"}\n",
+          "original_line_sha256": "c5b64ee52547da65801a6f0425b440583c1cf750c43704484d95f548d6ed2f17"
+        },
+        {
+          "index": 6470,
+          "line": 6471,
+          "locus": "scholia_aristidem_frommel1826_0233.55",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.55\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ δειλίας, cf. Soph. Aj. 75.\"}\n",
+          "original_line_sha256": "f1c27ad93e9a9bf187f0fc05da07faab07f70cbfbebd8e0fa413a76d4f0c4c85"
+        },
+        {
+          "index": 6471,
+          "line": 6472,
+          "locus": "scholia_aristidem_frommel1826_0233.56",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.56\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δειλίαν ἄρεις;\"}\n",
+          "original_line_sha256": "abaa64dc9fd739b38ecda8507a7621f522fdf152f4c9a531a9fd9e615dd56aa4"
+        },
+        {
+          "index": 6472,
+          "line": 6473,
+          "locus": "scholia_aristidem_frommel1826_0233.57",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.57\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"3, ἐν Προμηθεῖ δεσμώτῃ, frustra in\"}\n",
+          "original_line_sha256": "c3a55de31b700d0617fd9d9931bb66f6f731fb37388929d72c02b1963b6eab5c"
+        },
+        {
+          "index": 6473,
+          "line": 6474,
+          "locus": "scholia_aristidem_frommel1826_0233.58",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.58\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"y. Sop. δ. ζητ. p. 337, 17. — 8) π-\"}\n",
+          "original_line_sha256": "c1a05dcfdbdcee7fef52b47ad64313a896edbdd7ecfb31065850ef4bc80ca67d"
+        },
+        {
+          "index": 6474,
+          "line": 6475,
+          "locus": "scholia_aristidem_frommel1826_0233.59",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0233.59\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"malim πεποιηκέται. — 9) φήσαντος,\"}\n",
+          "original_line_sha256": "7cd38f2498c77bbb0d9ea94c9056ce259b0db390cbcabf29d6299ca70d325e76"
+        },
+        {
+          "index": 6610,
+          "line": 6611,
+          "locus": "scholia_aristidem_frommel1826_0242.1",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"C. Palat. Αὐτὴ ἡ παροιμία (leg. αὐτῶν) νικησάντων.\"}\n",
+          "original_line_sha256": "87e9cc0ed46dde02b61424e1f8bbd009e24916f8bbdaf7a99290b6b57e0b04e0"
+        },
+        {
+          "index": 6611,
+          "line": 6612,
+          "locus": "scholia_aristidem_frommel1826_0242.2",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Εἰς ὑπὲρ πάντων κύβδ ἀποκινδυνευόντων· οἱ γὰρ ἢ εἰς ἥτταν, ἢ εἰς νίκην. εἴρηται ἐπὶ τῶν οὐκ εἰδότων τύχῃ τολμῶντων.\"}\n",
+          "original_line_sha256": "1f89e126c32b22b7ee5632b9e5609562b64633bb7c3f635a407298ead0cd56de"
+        },
+        {
+          "index": 6612,
+          "line": 6613,
+          "locus": "scholia_aristidem_frommel1826_0242.3",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πᾶσαν τὴν πολεμίαν] κυδίδης φροῖν, ὅτι ἀκούσαι ναίους τὴν περιοικίδα αὐτῶ οἴκου.\"}\n",
+          "original_line_sha256": "2ea8c7fd3e5c9ca3d3fe845253eabdc0f547f7cc02a0763371b2027140f5dcb9"
+        },
+        {
+          "index": 6613,
+          "line": 6614,
+          "locus": "scholia_aristidem_frommel1826_0242.4",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ παρὰ] In m. Sch.\"}\n",
+          "original_line_sha256": "b730faf81572fecf2a6d75279cbb9300c32f7275444eb52d74852f8b0b4571ea"
+        },
+        {
+          "index": 6614,
+          "line": 6615,
+          "locus": "scholia_aristidem_frommel1826_0242.5",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"\\\"Ὦμηρ τὸν Μελέαγρον] τὸ ἐπιχείρημα, ὅτι μᾶλλον κλῆς, θρασύτατος γὰρ ἄνθρω ἐκρινε τὸν Περικλέα τῷ Μι πόνθασιν, ἥτε γὰρ μήτηρ λαμπάδα τίκτειν σὺν τῷ Με ἢ Ἀργίστη ἐδοξε λέοντα τίκ κλέα τίκτειν. Ταῦτα δὲ κα πάντες οἱ τὸν Περικλέους γ τῖον δὲ λέγει διὰ τῆς ἀνδρε πιστον δὲ παραφέρει μάρτυ\"}\n",
+          "original_line_sha256": "dd5404182a02b35eb3799c71d9331d7f4c9eb796955d5521bc48d850584e41ba"
+        },
+        {
+          "index": 6615,
+          "line": 6616,
+          "locus": "scholia_aristidem_frommel1826_0242.6",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"\\\"Ωσθ' ὦρα μὴ λέοντα δὲ λέγεται ἐπὶ τῶν εἰς ἄδυ δυναῖ, τίς γὰρ ἐπιχειρεῖ λέον τὴν παροιμίαν, ἐπειδή καὶ εἶδε λέοντα τίκτουσαν. S ἐπικινδύνων ἡ παροιμία αὐτ ομία ἐπὶ τῶν ἀδυνάτοις\"}\n",
+          "original_line_sha256": "b527b8484928dbe1fe9458e40c9eb30dfcb01e0fa4cfb6023d038699755f6117"
+        },
+        {
+          "index": 6616,
+          "line": 6617,
+          "locus": "scholia_aristidem_frommel1826_0242.7",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"1) Εἰς ὑπὲρ π., sublineavi 3) Συγκριτικὸν κ. τ. λ. editus 4) πεπόνθασιν, ita Valk. ex συνέβη. — 5) Jebh. Ἀλθέα. — Pericl. III Ἀγαρίστη. — 7) Τα suot in ed. διὰ τῆς ἀνδρείας, A\"}\n",
+          "original_line_sha256": "03a18b069eea537d400c52292d9c7f478f42f9ac42a38e80550efcd688bb5497"
+        },
+        {
+          "index": 6617,
+          "line": 6618,
+          "locus": "scholia_aristidem_frommel1826_0242.8",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λέγεται ἐπὶ τῶν ἐπὶ βλάβῃ αὐτῶν\"}\n",
+          "original_line_sha256": "cd195e48dbbaff5bad3dd9ea61fbd2e21b385b0db142cb84a51132146d7b379c"
+        },
+        {
+          "index": 6618,
+          "line": 6619,
+          "locus": "scholia_aristidem_frommel1826_0242.9",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"[βος] Sch. ed. Παροιμία ἐπὶ τῶν ib.\"}\n",
+          "original_line_sha256": "4338bccaad5b66edbb1a31e3e857af4af067488642a1fded8e2abce0c8f75836"
+        },
+        {
+          "index": 6619,
+          "line": 6620,
+          "locus": "scholia_aristidem_frommel1826_0242.10",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κυβευόντες ἕνα κύβον ῥίπτουσι\"}\n",
+          "original_line_sha256": "ba50aa40a906a57ad1f11410c7e9431ec0a4b6b5885184996f37beeda31cf7e6"
+        },
+        {
+          "index": 6620,
+          "line": 6621,
+          "locus": "scholia_aristidem_frommel1826_0242.11",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"C. Palat. Αὕτη ἡ παροιμία\"}\n",
+          "original_line_sha256": "52ec13f98c8fd8e2135d506b1eaef1c923a65ffcec846692ea303bfbe984425d"
+        },
+        {
+          "index": 6621,
+          "line": 6622,
+          "locus": "scholia_aristidem_frommel1826_0242.12",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ν μὲν τὸ ἐκβησόμενον, ἐπὶ δὲ τῇ\"}\n",
+          "original_line_sha256": "293c18e559b550c1bc53991ec107123421f2dfc8ad1d8a1d64cae534e0aec063"
+        },
+        {
+          "index": 6622,
+          "line": 6623,
+          "locus": "scholia_aristidem_frommel1826_0242.13",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Aprogr. Mon. Καὶ γὰρ ὁ Θου- 236, A.\"}\n",
+          "original_line_sha256": "0cd90e3db318cd8400de9f9f58317c12914f0f9883c1ec2e172eb315445bbc7e"
+        },
+        {
+          "index": 6623,
+          "line": 6624,
+          "locus": "scholia_aristidem_frommel1826_0242.14",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αντες οἱ Λακεδαιμόνιοι τοὺς Ἀθη-\"}\n",
+          "original_line_sha256": "a35b6cccb209f3bcee64e11f995fed3c179e92ceb7b458927bbb6469e7d23b5c"
+        },
+        {
+          "index": 6624,
+          "line": 6625,
+          "locus": "scholia_aristidem_frommel1826_0242.15",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῶν πορθοῦντας ἀνεχώρησαν ἐπ’\"}\n",
+          "original_line_sha256": "7d5128d0e41339a8737c9a3e3a5d183d599eb3cbd992a3cde617d5bece1cabf9"
+        },
+        {
+          "index": 6625,
+          "line": 6626,
+          "locus": "scholia_aristidem_frommel1826_0242.16",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"a. Καὶ παρὰ τὰ συμβεβηκότα.\"}\n",
+          "original_line_sha256": "6b02ecc7742820f83805b23a9deb6c09b5594aab92be8a97670413c23b042034"
+        },
+        {
+          "index": 6626,
+          "line": 6627,
+          "locus": "scholia_aristidem_frommel1826_0242.17",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"] Aprogr. Mon. Συγκριτικὸν 5 237, C.\"}\n",
+          "original_line_sha256": "dcb3d2de23f2b1519877a4ee9d239f7088b0b6e9c880583d0d43d7b75c335877"
+        },
+        {
+          "index": 6627,
+          "line": 6628,
+          "locus": "scholia_aristidem_frommel1826_0242.18",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὁ Μελεάγρος δειλὸς ἦν ἢ Περι-\"}\n",
+          "original_line_sha256": "35bb60c2056aafa6ea327f736460ca8ba26d90e273d4152505ee585c1c38bcc9"
+        },
+        {
+          "index": 6628,
+          "line": 6629,
+          "locus": "scholia_aristidem_frommel1826_0242.19",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἦν ὁ Περικλῆς. Καλῶς δὲ συν-\"}\n",
+          "original_line_sha256": "565f89dba6b2da95fdadeb8c84bf8a919f6670f854eaee31773c8e4fda15fd4a"
+        },
+        {
+          "index": 6629,
+          "line": 6630,
+          "locus": "scholia_aristidem_frommel1826_0242.20",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τελεάγρω· καὶ γὰρ τὰ αὐτὰ πε-\"}\n",
+          "original_line_sha256": "8a693ec6759853e3e1355ca979de2017aa192425b86b6825845c30afbc6f9977"
+        },
+        {
+          "index": 6630,
+          "line": 6631,
+          "locus": "scholia_aristidem_frommel1826_0242.21",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρ Μελεάγρου ἡ Ἀλθαία 4 ἔδοξε\"}\n",
+          "original_line_sha256": "fda292803e2a451bcf9748a022b331924adcc5354f243bda8e1ff9d07cc21942"
+        },
+        {
+          "index": 6631,
+          "line": 6632,
+          "locus": "scholia_aristidem_frommel1826_0242.22",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ιελεάγρω, καὶ ἡ μήτηρ Περικλέους\"}\n",
+          "original_line_sha256": "1834316e27fdbaa82be4912a42bb80c7e63d8fb6eeb0675a96941a3a662955e0"
+        },
+        {
+          "index": 6632,
+          "line": 6633,
+          "locus": "scholia_aristidem_frommel1826_0242.23",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τίκτειν, ἡνίκα ἔμελλε τὸν Περι-\"}\n",
+          "original_line_sha256": "0690da537cf35de0dea7b946495db39fb715a2eb9ede06cd515b0e220334437d"
+        },
+        {
+          "index": 6633,
+          "line": 6634,
+          "locus": "scholia_aristidem_frommel1826_0242.24",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὶ Πλούταρχος 6 καὶ Σαβῖνος καὶ\"}\n",
+          "original_line_sha256": "f3b65a72ea834c57de67f583884356fc7c1722e61e9f1b53a99d3e394178bbbd"
+        },
+        {
+          "index": 6634,
+          "line": 6635,
+          "locus": "scholia_aristidem_frommel1826_0242.25",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γράψαντες βίον λέγουσιν. Ἐναν-\"}\n",
+          "original_line_sha256": "60d8d74d72819737cf08bfda8357295becf7ba66b6fd7ae379cc638f03e0b067"
+        },
+        {
+          "index": 6635,
+          "line": 6636,
+          "locus": "scholia_aristidem_frommel1826_0242.26",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σίας, ἐναντία γὰρ δειλία· ἀξιό-\"}\n",
+          "original_line_sha256": "55dcaf91e99d6ba38946af193a2f17076c523098c26762d89f608edd19e1ee63"
+        },
+        {
+          "index": 6636,
+          "line": 6637,
+          "locus": "scholia_aristidem_frommel1826_0242.27",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"υρα τὸν Ἀπόλλωνα.\"}\n",
+          "original_line_sha256": "da4e759fd684011e619a032580f3e403406d0d82c08df581abda4834244202fb"
+        },
+        {
+          "index": 6637,
+          "line": 6638,
+          "locus": "scholia_aristidem_frommel1826_0242.28",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ξυρεῖν] Aprogr. Mon. Κυρίως 237, D.\"}\n",
+          "original_line_sha256": "bbf1625d370d2cc54ab5e98cb3f04e44df6edd2669fa57ae82fad5de7f9b9f1b"
+        },
+        {
+          "index": 6638,
+          "line": 6639,
+          "locus": "scholia_aristidem_frommel1826_0242.29",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δύνατα ἐπιχειρούντων καὶ ἐπικίν-\"}\n",
+          "original_line_sha256": "48ed7b0887450efb9c4aa1086aa59eabd5e3bae4926741b270666842581f1da6"
+        },
+        {
+          "index": 6639,
+          "line": 6640,
+          "locus": "scholia_aristidem_frommel1826_0242.30",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οντα ξυρεῖν; κυρίως δὲ τέθεικε\"}\n",
+          "original_line_sha256": "fa184b655efad6b261e34d606b62aaf3e6763680afb4fd6f9fa347de5566997f"
+        },
+        {
+          "index": 6640,
+          "line": 6641,
+          "locus": "scholia_aristidem_frommel1826_0242.31",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἡ Περικλέους μήτηρ ὄναρ ἑαυτὴν\"}\n",
+          "original_line_sha256": "995fd6039bde5382fe7868c53850e441447a4d8ba2db1fec806597447458af4a"
+        },
+        {
+          "index": 6641,
+          "line": 6642,
+          "locus": "scholia_aristidem_frommel1826_0242.32",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.32\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Sch. ed. Ἐπὶ τῶν ἀδυνάτων καὶ\"}\n",
+          "original_line_sha256": "26c21bcb7bfaef645e14476d2ee2fa9358cd28051aa7c794b06cd35f089e8982"
+        },
+        {
+          "index": 6642,
+          "line": 6643,
+          "locus": "scholia_aristidem_frommel1826_0242.33",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.33\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὑτη λέγεται. Cod. Palat. Παρ-\"}\n",
+          "original_line_sha256": "2d9dfb08dda4d155bdcce1ad750837b98e0a1b9603829c5a46664b186c15f645"
+        },
+        {
+          "index": 6643,
+          "line": 6644,
+          "locus": "scholia_aristidem_frommel1826_0242.34",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.34\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ ἐπικινδίνοις ἐπιχειρούντων·\"}\n",
+          "original_line_sha256": "89e0a37b5a3d5a04b57cd776e798aac355ff1b0df57c85dfe3310ea0f7acb38e"
+        },
+        {
+          "index": 6644,
+          "line": 6645,
+          "locus": "scholia_aristidem_frommel1826_0242.35",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"vit Valk. — 2) Θουκυδίδης II, 56. —\"}\n",
+          "original_line_sha256": "f68589d90b1a5d197521a5bf5c1b01599a5b8b6a4e4c6f2316bcf50f371e061e"
+        },
+        {
+          "index": 6645,
+          "line": 6646,
+          "locus": "scholia_aristidem_frommel1826_0242.36",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"sch. incipit Καλῶς συνέκρινε τὸν Π.\"}\n",
+          "original_line_sha256": "d522f5ac41664699422f5ef03784e17f1430212ddb53fb281dbe45c004338d82"
+        },
+        {
+          "index": 6646,
+          "line": 6647,
+          "locus": "scholia_aristidem_frommel1826_0242.37",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.37\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὐτα δὲ καὶ Πλούταρχος κ. τ. λ. De-\"}\n",
+          "original_line_sha256": "b2adcf7a7b5bd8587455c59e40b04e394b8e412815334ae978bfd8126d5535a0"
+        },
+        {
+          "index": 6647,
+          "line": 6648,
+          "locus": "scholia_aristidem_frommel1826_0242.38",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0242.38\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ar. ἄνδρας. — 8) εἶδε, Ar. οἶδε.\"}\n",
+          "original_line_sha256": "b9c791d80946a4a39aac818fd1baca735b491afcd5b2131dc7a65d38d6bd4625"
+        },
+        {
+          "index": 11792,
+          "line": 11793,
+          "locus": "scholia_aristidem_frommel1826_0378.1",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οχέλλει, λιμένα δὲ, ἔνθα μετέωρον φαίνεται ἐπὶ τῶν· καλῶς δὲ ποιεῖν τὴν Ἀττικὴν ἐξ ἑαυτῆς καὶ λάττης τοὺς ὅρμους καὶ τοὺς λιμένας ἔφησιν, μόνῃ θαλάττῃ οὔτε μὲν χέρσος μόνη κατασκευάζει τοὺς, ἀλλ’ ἕτερα συνελθοῦσα τῇ λοιπῇ καὶ οὐδ’ ἄλλ’ ὅπου γε ὁ τόπος πρὸς τὰ τοιαῦτα ἐπιτηδεῖως\"}\n",
+          "original_line_sha256": "9acbb8c5618d3cb0d16bfb2150c3134edefa1048290cfaba34aa1a7ed4aacda4"
+        },
+        {
+          "index": 11793,
+          "line": 11794,
+          "locus": "scholia_aristidem_frommel1826_0378.2",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οὐ πλέον διαλείποντας] Paris. A. Γραμμικὸν τὸ σχῆμα· ὁ δὲ λέγει, τοιοῦτόν ἐστι, οὐκ ἀπέρχουσι vid ed., pergit Paris. A. post διεσῆτκασιν· τὸ πῦρ καὶ συνεχὲς βουλόμενος δηλῶσαι τοῦτο εἶπεν· πορεῖται ἡ ἀμφίγειος θάλασσα, ὥσπερ καὶ ἰσθμὸς ἡ λᾶσσος γῆ.\"}\n",
+          "original_line_sha256": "5a7750ceee171fefc3cc30cf4dea8985ebef65c0ff838e0abe6331a2f840d16e"
+        },
+        {
+          "index": 11794,
+          "line": 11795,
+          "locus": "scholia_aristidem_frommel1826_0378.3",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"“Ὡςπερ τῆς θαλάττης ἐξεπίτηδες ἀνείσης] Ἀντὶ . . . τῆς πόλεως, ἔνθα ἐστὶν ἡ θάλασσα τὰς κυκλοτ . . . . ἐθέλει δὲ δεῖξαι τὴν Ἀττικὴν εἰκόνα τῆς μένης καὶ τῷ σχήματι ἔχουσαν, ὡς δηλοὶ προϊῶν.\"}\n",
+          "original_line_sha256": "a560847e3943b1fcfc4de417ce45dd6e81599fdcb0aa3ff1b5a29a765f47dd40"
+        },
+        {
+          "index": 11795,
+          "line": 11796,
+          "locus": "scholia_aristidem_frommel1826_0378.4",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"“Ὅπερ τοῖς βασιλείοις] Paris. A. Ἀντὶ τοῦ τὰς χουσι αἱ νῆσοι πρὸς τὴν Ἀττικὴν, ἥν καὶ τὰ πρὸς τῶν βασιλείων πρὸς τὰ βασιλεῖα. Τεχνικῶς δὲ τὸ ἀποφέρεσθαι (sic) κέρδος· τὸ φέρειν ἀντὶ τοῦ λαμβάνειν, μείζον κέρδος ἐκ τοῦ προῦ ὅσον αὐταὶ παρέχουσιν.\"}\n",
+          "original_line_sha256": "758d0d83088e2c77cbb205b55f86b2bf4ebf0bc0bc5eec4cc9a5f7b8a13f2557"
+        },
+        {
+          "index": 11796,
+          "line": 11797,
+          "locus": "scholia_aristidem_frommel1826_0378.5",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐπὶ τῶν Ἑλληνικῶν Paris. A. ⁴ ut in ed., διὰ τοῦτο pro διὰ τοῦτον, Μακεδαίμονες pro Μακεδόνες, τινὲς δὲ τὸ φερ. et τῷ προσοικεῖν περὶ πλείους φέρουσι φόρους.\"}\n",
+          "original_line_sha256": "dd768b78b5219b2709fa373b5bfc83902cfd3066e03bb5655c18aa111e6fa7c5"
+        },
+        {
+          "index": 11797,
+          "line": 11798,
+          "locus": "scholia_aristidem_frommel1826_0378.6",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐπιμαρτύραιτο] Paris. A. Πλὴν ὅσον αὐτοὺς μαρτύρετο, ὡς μὴ δυνάμενος λόγῳ δεῖξαι τὸ τετραθεασαμένους μάρτυρας ἄγει τῆς ἡδονῆς.\"}\n",
+          "original_line_sha256": "fb3ec43e6f895ea86f7d9dbe79edfc235d163a70791aff861b51b2bfc98e62c4"
+        },
+        {
+          "index": 11798,
+          "line": 11799,
+          "locus": "scholia_aristidem_frommel1826_0378.7",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Προκαθαίρεται] Paris. A. Καθαρὰ λύπης γὰρ\"}\n",
+          "original_line_sha256": "3f9c0661cc6959e09a6bdd9d3e32a9f2b8fe0ee20a72cb3e3e1ada182f4b2aec"
+        },
+        {
+          "index": 11799,
+          "line": 11800,
+          "locus": "scholia_aristidem_frommel1826_0378.8",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τὸ φῶς] Paris. A. “Ὡςπερ ἕτερον ἥλιον τῶν Ἀθηναίων τὸ φῶς, ὅτι καὶ ὑψηλότερα ἐστὶν ἡ\"}\n",
+          "original_line_sha256": "1046d157944be7e8c22b61cb20c11f53bbe89e17c1ede16c225c2a7f5b895e55"
+        },
+        {
+          "index": 11800,
+          "line": 11801,
+          "locus": "scholia_aristidem_frommel1826_0378.9",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῶν ὑδά-\"}\n",
+          "original_line_sha256": "c18cf49ef561a910ac4ccb5b86dbfde4df7e3db5292f7ad9d9d2c8a2cb134dca"
+        },
+        {
+          "index": 11801,
+          "line": 11802,
+          "locus": "scholia_aristidem_frommel1826_0378.10",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς θα-\"}\n",
+          "original_line_sha256": "3cd8d6ad1a182045f90441a363e2783fa44564bff8d7a7ba6cf5ab690c5c4d44"
+        },
+        {
+          "index": 11802,
+          "line": 11803,
+          "locus": "scholia_aristidem_frommel1826_0378.11",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οὔτε γὰρ\"}\n",
+          "original_line_sha256": "ea6233483be364a589e76ad1ee3cfb511705df71447dac44adb4ef260c6096e6"
+        },
+        {
+          "index": 11803,
+          "line": 11804,
+          "locus": "scholia_aristidem_frommel1826_0378.12",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοὺς τοι-\"}\n",
+          "original_line_sha256": "e7d549895ef492b7184e932d2013bff4af1b568935f8b61f09b1159eff3a96f5"
+        },
+        {
+          "index": 11804,
+          "line": 11805,
+          "locus": "scholia_aristidem_frommel1826_0378.13",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"παντότε,\"}\n",
+          "original_line_sha256": "c1a5e03b601e015a7f3cab57af40c37b86439b146629df47db2d2a933aab5fe4"
+        },
+        {
+          "index": 11805,
+          "line": 11806,
+          "locus": "scholia_aristidem_frommel1826_0378.14",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔχει.\"}\n",
+          "original_line_sha256": "aa46a611051573d0d8d46696c986b9a7106fe27f9054c4e7a14293d02ce65cdb"
+        },
+        {
+          "index": 11806,
+          "line": 11807,
+          "locus": "scholia_aristidem_frommel1826_0378.15",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κόν ἔστι 167, C.\"}\n",
+          "original_line_sha256": "ef2e16615aa6643fb06b55b812192cce7ef75b0ed4f027c116ab52260e7bee36"
+        },
+        {
+          "index": 11807,
+          "line": 11808,
+          "locus": "scholia_aristidem_frommel1826_0378.16",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σιν κ. τ. λ.\"}\n",
+          "original_line_sha256": "70668e46bfab46ab69859de48e0d158803f26d129aaeae816b20b2318ce486d7"
+        },
+        {
+          "index": 11808,
+          "line": 11809,
+          "locus": "scholia_aristidem_frommel1826_0378.17",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὑχνὸν γὰρ\"}\n",
+          "original_line_sha256": "5f5ff3c3e4f6683aec6fd14e3bddc8a412d305b3f4dbd685be107afef677d781"
+        },
+        {
+          "index": 11809,
+          "line": 11810,
+          "locus": "scholia_aristidem_frommel1826_0378.18",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ριθμὸς λέ-\"}\n",
+          "original_line_sha256": "d84888edf524c6da7be58992ebf5507a351a8f877f0eaed8bdb84403bf48998f"
+        },
+        {
+          "index": 11810,
+          "line": 11811,
+          "locus": "scholia_aristidem_frommel1826_0378.19",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἄμφιθα-\"}\n",
+          "original_line_sha256": "15b066f5eeb3b551e55162c0ceadd54e0e1f25259423acd5953e108ade0219b2"
+        },
+        {
+          "index": 11811,
+          "line": 11812,
+          "locus": "scholia_aristidem_frommel1826_0378.20",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ς γείτονας\"}\n",
+          "original_line_sha256": "78d492a9158013d0bad7e3511e9f806a5ec5749ecfd190571c8cfd08bbb33e30"
+        },
+        {
+          "index": 11812,
+          "line": 11813,
+          "locus": "scholia_aristidem_frommel1826_0378.21",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς οἰκου-\"}\n",
+          "original_line_sha256": "e8d3b70f2a9e805c692804c7a39b2bde8c8d5d9f708774c3d64660f081f25b6f"
+        },
+        {
+          "index": 11813,
+          "line": 11814,
+          "locus": "scholia_aristidem_frommel1826_0378.22",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τάξιν ἐπέ- ib.\"}\n",
+          "original_line_sha256": "dcdfbf25da8ba8f6a993bebd6101a50f790feed788cba86202c4c45a40ecb1dd"
+        },
+        {
+          "index": 11814,
+          "line": 11815,
+          "locus": "scholia_aristidem_frommel1826_0378.23",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"προπύλαια\"}\n",
+          "original_line_sha256": "69e728d1f47806790403b43c2a00c066404c4fd051e6b391bb5a48d95afd9211"
+        },
+        {
+          "index": 11815,
+          "line": 11816,
+          "locus": "scholia_aristidem_frommel1826_0378.24",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ μεῖζον\"}\n",
+          "original_line_sha256": "3649f8788f74f985132f197b495edaca6ea43c690ba0d12cf0f02ad0158771fc"
+        },
+        {
+          "index": 11816,
+          "line": 11817,
+          "locus": "scholia_aristidem_frommel1826_0378.25",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐνταῦθα\"}\n",
+          "original_line_sha256": "435063a697e45c301fbcd57dae9ae0c5654ca07be638178a744d952c4c67cd61"
+        },
+        {
+          "index": 11817,
+          "line": 11818,
+          "locus": "scholia_aristidem_frommel1826_0378.26",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οἰκοῦν ἢ\"}\n",
+          "original_line_sha256": "901e1bd8fd74254ce87babff5a4bea26791427cac6ff41a4f545ae1f8072969e"
+        },
+        {
+          "index": 11818,
+          "line": 11819,
+          "locus": "scholia_aristidem_frommel1826_0378.27",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Μακεδαμό-\"}\n",
+          "original_line_sha256": "7cfbe617e39ce21f038469066cf23580889624c62dd241026a9685ce7276c039"
+        },
+        {
+          "index": 11819,
+          "line": 11820,
+          "locus": "scholia_aristidem_frommel1826_0378.28",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"είονας πα-\"}\n",
+          "original_line_sha256": "ea245ddafdd117943d875bf52dcba4b2d7b1c20c072285933c070b6233a09869"
+        },
+        {
+          "index": 11820,
+          "line": 11821,
+          "locus": "scholia_aristidem_frommel1826_0378.29",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ς τις ἐπε- 168, B.\"}\n",
+          "original_line_sha256": "afd9956ec1b7b4fc52c84491a265a58dd43485cc01e2c76287993480ed3b4d20"
+        },
+        {
+          "index": 11821,
+          "line": 11822,
+          "locus": "scholia_aristidem_frommel1826_0378.30",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρηνὸν τοὺς\"}\n",
+          "original_line_sha256": "cff93e61d17dce7b8cd8f69447e630c75a67b1211287e39ba45a04123842a62f"
+        },
+        {
+          "index": 11822,
+          "line": 11823,
+          "locus": "scholia_aristidem_frommel1826_0378.31",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γίνεται. 168, D.\"}\n",
+          "original_line_sha256": "9e412172b51f120456a69c3157d93fbb178f4a05ebc33a2725e7a8688e60c245"
+        },
+        {
+          "index": 11823,
+          "line": 11824,
+          "locus": "scholia_aristidem_frommel1826_0378.32",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.32\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὑπογράφει ib.\"}\n",
+          "original_line_sha256": "ae2b59b7b92b3d0bed1d985ac16cc5597133077e24b4594b70a43782cc2fbfbf"
+        },
+        {
+          "index": 11824,
+          "line": 11825,
+          "locus": "scholia_aristidem_frommel1826_0378.33",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0378.33\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἡ πόλις.\"}\n",
+          "original_line_sha256": "2a7a829ab887e9f87e6ebc93c921b98b20ac524e1119ae0d683a4016e69c9860"
+        }
+      ],
+      "witness_file": "data/corpus_secondary/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-review-2026-09-15.jsonl",
+      "witness_sha256": "6d7100602d339cf0398face5dc99faafc927be9ab23effb0e3823ec9dc46ecc5"
+    }
+  },
+  "policy": "Every displacement is a sealed page-image decision. No readings are merged or deleted; displaced rows remain published as secondary witnesses.",
+  "reverse": "python3 scripts/apply_reviewed_duplicate_pages.py --audit data/corpus_changes/issue-33-reviewed.page-images-round-3-2026-09-15.applied.json --unapply"
+}

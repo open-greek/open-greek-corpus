@@ -1,0 +1,732 @@
+{
+  "schema_version": 1,
+  "what": "scan-reviewed, occurrence-specific non-final grave repairs",
+  "issue": "open-greek/open-greek-corpus#31",
+  "applied_at": "2026-09-15",
+  "queue": "data/review/issue-31-round-4.jsonl",
+  "queue_sha256": "f76aa599b341a18e51b3ac6c330621716360d0c882505fe951fd666ace6b0153",
+  "manifest": "data/review/issue-31-round-4.manifest.json",
+  "manifest_sha256": "8aa5afa9c3c0670d7cea4d591a7970e6ab59b510c386e40b3c0b8a12fcdf510c",
+  "reviewed_decisions": "data/review/issue-31-round-4.reviewed.jsonl",
+  "reviewed_decisions_sha256": "14eb7ce5d58a90a1e2ac8843bbe35122108ad6478467da2f89ccb8e625215a52",
+  "release_reviewed": "corpus-2026-09-14.5",
+  "corpus_sha256_reviewed": "3028431e7114a835397950855d914f7c699e13001629d397e5536ff4e7896af0",
+  "decision_counts": {
+    "defer": 63,
+    "replace": 9,
+    "split": 28
+  },
+  "edits_applied": 37,
+  "rows_touched": 19,
+  "files_touched": 5,
+  "files": [
+    {
+      "file": "data/corpus/andronicus-rhodius.de-passionibus-lib-1-sp.jsonl",
+      "sha256_before": "6a79dd2cc42cb696c167ac763fd15b94a8feb0309e90022330fd197c06f1fc52",
+      "sha256_after": "c871dad6342de21d7dedabf03031939f5f7584e4130fd1c1424269808fe7709d",
+      "rows": [
+        {
+          "line": 2106,
+          "locus": "andronicus_mullach_fpg3_0275.10",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0275.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κίνησις, ἀλλ’ οὐχ ὅτὲ μὲν ἤν, ὅτὲ δ’ οὔ. Καὶ γὰροὐχ ὄντα ἡ αἰδία εἶναι. Εἰ μὲν τοίνυν ἐγένετο τῶν κινη-\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0275.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κίνησις, ἀλλ’ οὐχ ὅτὲ μὲν ἤν, ὅτὲ δ’ οὔ. Καὶ γὰρ οὐχ ὄντα ἡ αἰδία εἶναι. Εἰ μὲν τοίνυν ἐγένετο τῶν κινη-\"}\n",
+          "original_line_sha256": "28ea8e76bdfeb1d8876c65a0ac34ae6690b36b8c8bd9e2db48f3fa1b8438c739",
+          "applied_line_sha256": "8d877ceeadba15ab9d0290d35655544724885a304a934d23cabc6d352de79a52",
+          "text_before": "κίνησις, ἀλλ’ οὐχ ὅτὲ μὲν ἤν, ὅτὲ δ’ οὔ. Καὶ γὰροὐχ ὄντα ἡ αἰδία εἶναι. Εἰ μὲν τοίνυν ἐγένετο τῶν κινη-",
+          "text_after": "κίνησις, ἀλλ’ οὐχ ὅτὲ μὲν ἤν, ὅτὲ δ’ οὔ. Καὶ γὰρ οὐχ ὄντα ἡ αἰδία εἶναι. Εἰ μὲν τοίνυν ἐγένετο τῶν κινη-",
+          "edits": [
+            {
+              "item_id": "ogc-31-8465f64d12bddf68",
+              "start": 45,
+              "end": 51,
+              "observed": "γὰροὐχ",
+              "decision": "split",
+              "reading": "γὰρ οὐχ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n274/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 2112,
+          "locus": "andronicus_mullach_fpg3_0275.16",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0275.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸν μεταξὺ χρόνον. Τάχα δὲ καὶ οἱ μίαν ἀρχὴντοῦτο συμβαλεῖν ἀναγκαίων. Εἰ γὰρ τῶν μὲν κινη-\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0275.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸν μεταξὺ χρόνον. Τάχα δὲ καὶ οἱ μίαν ἀρχὴν τοῦτο συμβαλεῖν ἀναγκαίων. Εἰ γὰρ τῶν μὲν κινη-\"}\n",
+          "original_line_sha256": "0c698bd5e11912c1d2849c383442d3d737a07f88e222330e9ab5b1d51691a92a",
+          "applied_line_sha256": "fb5d37e8baeb512723aa6e8b7fceea8fe280df70a4e8118c2d7b2a7240fe277c",
+          "text_before": "τὸν μεταξὺ χρόνον. Τάχα δὲ καὶ οἱ μίαν ἀρχὴντοῦτο συμβαλεῖν ἀναγκαίων. Εἰ γὰρ τῶν μὲν κινη-",
+          "text_after": "τὸν μεταξὺ χρόνον. Τάχα δὲ καὶ οἱ μίαν ἀρχὴν τοῦτο συμβαλεῖν ἀναγκαίων. Εἰ γὰρ τῶν μὲν κινη-",
+          "edits": [
+            {
+              "item_id": "ogc-31-22b1249b7c35aa80",
+              "start": 39,
+              "end": 49,
+              "observed": "ἀρχὴντοῦτο",
+              "decision": "split",
+              "reading": "ἀρχὴν τοῦτο",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n274/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 2143,
+          "locus": "andronicus_mullach_fpg3_0276.1",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0276.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"73. \\\\\\\"Ωστε φανερὸν, ὅτι ἀδύνατον ὁμοίως τὸ πάντα ἡρεμεῖν καὶ τὸ πάντα κινεῖσθαι συνεχῶς, τῶν τὰ μὲν ἀεὶ κινεῖσθαι τὰ δ' ἡρεμεῖν ἀεί. Λοιπὸν οὖν θεωρήσοι πότερον πάντα τοιαῦτα ὅλα κινεῖσθαι καὶ ἡρεμεῖν, ἢ ἓνια μὲν οὕτως, ἓνια δ' ἀεὶ ἡρεμεῖ, ἓνια δ' ἀεὶ κινεῖται· τοῦτο γὰρ δεῖκτέον ἡμῖν. (Aristoteles Phys. lib. VIII cap. 3. p. 254. b. 1. ed. Bekker. Simplicius fol. 276. χρή δὲ ἐπιστάνειν, ὅτι καὶ ἄλλα δύο τμήματα ἦν ἐκ τῆς διαιρέσεως ἀναφαίνεισθαι, διχῇ τέμνοντα τὰ ὄντα, τῶν μὲν ἐπαμφοτερίζοντων καὶ ποτὲ μὲν κινουμένων ποτὲ δὲ ἡρεμουμένων, τῶν δὲ λοιπῶν ἢ ἀεὶ κινουμένων ἢ ἀεὶ ἡρεμουμένων. Καὶ ὁ γε Εὐδήμος παραφράζων σχεδὸν καὶ αὐτὸς τὰ Ἀριστοτέλους τίθησι καὶ ταῦτα τὰ τμήματα συντόμως λέγων· « ἡ πάντα ἐπαμφοτερίζει ἢ τινα αὐτῶν, τὰ δὲ λοιπὰ κινεῖται ἢ ἡρεμεῖ. » Res ita se habet. Tria commemorat Aristoteles philo- sophorum dogmata. Etenim aut omnia semper quiescunt, quæ Parmenidis et Melissii opinio fuit; aut omnia semper moventur, ut Heraclito placuit; aut alia moventur, alia quiescunt. Postremum vero hoc triplex est. Nimirum aut alia motu agitata semper moventur, alia quiescentia semper quiescunt; aut natura ita comparatum est, ut cuncta similter moveantur atque quiescant, aut denique quædam res semper immobiles, aliæ semper in motu, aliæ utriusque status participes sunt. Jam vero his alia duo addi posse, eaque Eu- demum indicasse monet Simplicius. Etenim ulti- mum sic amplificari potest, ut dicamus non solum τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ κινεῖται, sed etiam τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ ἡρεμεῖ. Quæ cur non scripserit philosophus, Simplicius ipse intellexit; Aristoteles vero bis hoc capite de eadem re disputat. Nam p. 253. a. 22 ait ἀρχὴ δὲ τῆς σκέψεως ἔσται ἢπερ καὶ περὶ τῆς λεχθείσης ἀπορίας, διὰ τί ποτε ἓνια τῶν ὄντων ὅτὲ μὲν κινεῖται, ὅτὲ δὲ ἡρεμεῖ πάλιν. Ἀνάγκη δ' ἦτοι πάντα ἡρεμεῖν ἀεί, ἢ πάντ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν κινεῖσθαι τὰ δ' ἡρεμεῖν, καὶ πάλιν τούτων ἦτοι τὰ μὲν κινούμενα κινεῖσθαι ἀεί, τὰ δ' ἡρεμοῦντα ἡρεμεῖν [adde ἀεί], ἢ πάντα πεφυκέναι ὁμοίως κινεῖσθαι καὶ ἡρεμεῖν, ἢ τὸ λοιπὸν ἐπὶ καὶ τρίτον· ἐνδέχεται γὰρ τὰ μὲν ἀεὶ τῶν ὄντων ἀκίνητα εἶναι, τὰ δ' ἀεὶ κινούμενα, τὰ δ' ἀμφοτέρων μεταλαμβάνειν. Deinde paucis interpositis p. 254. a. 16 ἀρχὴν δὲ πάλιν ποιητέον ἀπὸ τῶν νῦν διορισθέντων τὴν αὐτὴν ἢπερ ἠρξάμεθα πρότερον. Ἡ γὰρ τοι πάντα ἡρεμεῖ, ἢ πάντα κινεῖται, ἢ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται τῶν ὄντων· καὶ εἰ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται, ἀνάγκη ἦτοι πάντα ὅτὲ μὲν ἡρεμεῖν, ὅτὲ δὲ κινεῖσθαι, ἢ τὰ μὲν ἀεὶ ἡρεμεῖν τὰ δ' ἀεὶ κινεῖσθαι αὐτῶν, τὰ δὲ ὅτὲ μὲν ἡρεμεῖν ὅτὲ δὲ κινεῖσθαι. Hæc consideranti apparet, mancam Aristotelis orationem supplendam no- bis esse. Quippe desse integrum membrum jam Spengelius vidit, quum duo, non tria sint. Locus autem, de quo agitur, facillime videtur repetitione verborum ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι posse restitui aut alia ratione sanari, verbi causa ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν οὕτως, τὰ δὲ ὅτὲ μὲν κτλ. Adjicit vero Simplicius: δηλὸν δὲ ὅτι τῆς τριχῇ ταύτης διαιρέσεως δεῖκνυμένην ἀληθῆς καὶ τὰ νῦν διχῇ διαιρεθέντα ἐλέγχεται.)\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0276.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"73. \\\\\\\"Ωστε φανερὸν, ὅτι ἀδύνατον ὁμοίως τὸ πάντα ἡρεμεῖν καὶ τὸ πάντα κινεῖσθαι συνεχῶς, τῶν τὰ μὲν ἀεὶ κινεῖσθαι τὰ δ' ἡρεμεῖν ἀεί. Λοιπὸν οὖν θεωρήσοι πότερον πάντα τοιαῦτα ὅλα κινεῖσθαι καὶ ἡρεμεῖν, ἢ ἓνια μὲν οὕτως, ἓνια δ' ἀεὶ ἡρεμεῖ, ἓνια δ' ἀεὶ κινεῖται· τοῦτο γὰρ δεῖκτέον ἡμῖν. (Aristoteles Phys. lib. VIII cap. 3. p. 254. b. 1. ed. Bekker. Simplicius fol. 276. χρή δὲ ἐπιστάνειν, ὅτι καὶ ἄλλα δύο τμήματα ἦν ἐκ τῆς διαιρέσεως ἀναφαίνεισθαι, διχῇ τέμνοντα τὰ ὄντα, τῶν μὲν ἐπαμφοτερίζοντων καὶ ποτὲ μὲν κινουμένων ποτὲ δὲ ἡρεμουμένων, τῶν δὲ λοιπῶν ἢ ἀεὶ κινουμένων ἢ ἀεὶ ἡρεμουμένων. Καὶ ὁ γε Εὐδήμος παραφράζων σχεδὸν καὶ αὐτὸς τὰ Ἀριστοτέλους τίθησι καὶ ταῦτα τὰ τμήματα συντόμως λέγων· « ἡ πάντα ἐπαμφοτερίζει ἢ τινα αὐτῶν, τὰ δὲ λοιπὰ κινεῖται ἢ ἡρεμεῖ. » Res ita se habet. Tria commemorat Aristoteles philo- sophorum dogmata. Etenim aut omnia semper quiescunt, quæ Parmenidis et Melissii opinio fuit; aut omnia semper moventur, ut Heraclito placuit; aut alia moventur, alia quiescunt. Postremum vero hoc triplex est. Nimirum aut alia motu agitata semper moventur, alia quiescentia semper quiescunt; aut natura ita comparatum est, ut cuncta similter moveantur atque quiescant, aut denique quædam res semper immobiles, aliæ semper in motu, aliæ utriusque status participes sunt. Jam vero his alia duo addi posse, eaque Eu- demum indicasse monet Simplicius. Etenim ulti- mum sic amplificari potest, ut dicamus non solum τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ κινεῖται, sed etiam τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ ἡρεμεῖ. Quæ cur non scripserit philosophus, Simplicius ipse intellexit; Aristoteles vero bis hoc capite de eadem re disputat. Nam p. 253. a. 22 ait ἀρχὴ δὲ τῆς σκέψεως ἔσται ἥπερ καὶ περὶ τῆς λεχθείσης ἀπορίας, διὰ τί ποτε ἓνια τῶν ὄντων ὅτὲ μὲν κινεῖται, ὅτὲ δὲ ἡρεμεῖ πάλιν. Ἀνάγκη δ' ἦτοι πάντα ἡρεμεῖν ἀεί, ἢ πάντ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν κινεῖσθαι τὰ δ' ἡρεμεῖν, καὶ πάλιν τούτων ἦτοι τὰ μὲν κινούμενα κινεῖσθαι ἀεί, τὰ δ' ἡρεμοῦντα ἡρεμεῖν [adde ἀεί], ἢ πάντα πεφυκέναι ὁμοίως κινεῖσθαι καὶ ἡρεμεῖν, ἢ τὸ λοιπὸν ἐπὶ καὶ τρίτον· ἐνδέχεται γὰρ τὰ μὲν ἀεὶ τῶν ὄντων ἀκίνητα εἶναι, τὰ δ' ἀεὶ κινούμενα, τὰ δ' ἀμφοτέρων μεταλαμβάνειν. Deinde paucis interpositis p. 254. a. 16 ἀρχὴν δὲ πάλιν ποιητέον ἀπὸ τῶν νῦν διορισθέντων τὴν αὐτὴν ἥπερ ἠρξάμεθα πρότερον. Ἡ γὰρ τοι πάντα ἡρεμεῖ, ἢ πάντα κινεῖται, ἢ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται τῶν ὄντων· καὶ εἰ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται, ἀνάγκη ἦτοι πάντα ὅτὲ μὲν ἡρεμεῖν, ὅτὲ δὲ κινεῖσθαι, ἢ τὰ μὲν ἀεὶ ἡρεμεῖν τὰ δ' ἀεὶ κινεῖσθαι αὐτῶν, τὰ δὲ ὅτὲ μὲν ἡρεμεῖν ὅτὲ δὲ κινεῖσθαι. Hæc consideranti apparet, mancam Aristotelis orationem supplendam no- bis esse. Quippe desse integrum membrum jam Spengelius vidit, quum duo, non tria sint. Locus autem, de quo agitur, facillime videtur repetitione verborum ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι posse restitui aut alia ratione sanari, verbi causa ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν οὕτως, τὰ δὲ ὅτὲ μὲν κτλ. Adjicit vero Simplicius: δηλὸν δὲ ὅτι τῆς τριχῇ ταύτης διαιρέσεως δεῖκνυμένην ἀληθῆς καὶ τὰ νῦν διχῇ διαιρεθέντα ἐλέγχεται.)\"}\n",
+          "original_line_sha256": "8b271f174e3cc3d8f88df8bf976f0a24033ea3d5e8c0ba0d4dc4ed9137731404",
+          "applied_line_sha256": "99b7e3e33545cd92c1b0e77907be2d4f7539aa7a4feb6f0fd8018617bbfa3028",
+          "text_before": "73. \\\"Ωστε φανερὸν, ὅτι ἀδύνατον ὁμοίως τὸ πάντα ἡρεμεῖν καὶ τὸ πάντα κινεῖσθαι συνεχῶς, τῶν τὰ μὲν ἀεὶ κινεῖσθαι τὰ δ' ἡρεμεῖν ἀεί. Λοιπὸν οὖν θεωρήσοι πότερον πάντα τοιαῦτα ὅλα κινεῖσθαι καὶ ἡρεμεῖν, ἢ ἓνια μὲν οὕτως, ἓνια δ' ἀεὶ ἡρεμεῖ, ἓνια δ' ἀεὶ κινεῖται· τοῦτο γὰρ δεῖκτέον ἡμῖν. (Aristoteles Phys. lib. VIII cap. 3. p. 254. b. 1. ed. Bekker. Simplicius fol. 276. χρή δὲ ἐπιστάνειν, ὅτι καὶ ἄλλα δύο τμήματα ἦν ἐκ τῆς διαιρέσεως ἀναφαίνεισθαι, διχῇ τέμνοντα τὰ ὄντα, τῶν μὲν ἐπαμφοτερίζοντων καὶ ποτὲ μὲν κινουμένων ποτὲ δὲ ἡρεμουμένων, τῶν δὲ λοιπῶν ἢ ἀεὶ κινουμένων ἢ ἀεὶ ἡρεμουμένων. Καὶ ὁ γε Εὐδήμος παραφράζων σχεδὸν καὶ αὐτὸς τὰ Ἀριστοτέλους τίθησι καὶ ταῦτα τὰ τμήματα συντόμως λέγων· « ἡ πάντα ἐπαμφοτερίζει ἢ τινα αὐτῶν, τὰ δὲ λοιπὰ κινεῖται ἢ ἡρεμεῖ. » Res ita se habet. Tria commemorat Aristoteles philo- sophorum dogmata. Etenim aut omnia semper quiescunt, quæ Parmenidis et Melissii opinio fuit; aut omnia semper moventur, ut Heraclito placuit; aut alia moventur, alia quiescunt. Postremum vero hoc triplex est. Nimirum aut alia motu agitata semper moventur, alia quiescentia semper quiescunt; aut natura ita comparatum est, ut cuncta similter moveantur atque quiescant, aut denique quædam res semper immobiles, aliæ semper in motu, aliæ utriusque status participes sunt. Jam vero his alia duo addi posse, eaque Eu- demum indicasse monet Simplicius. Etenim ulti- mum sic amplificari potest, ut dicamus non solum τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ κινεῖται, sed etiam τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ ἡρεμεῖ. Quæ cur non scripserit philosophus, Simplicius ipse intellexit; Aristoteles vero bis hoc capite de eadem re disputat. Nam p. 253. a. 22 ait ἀρχὴ δὲ τῆς σκέψεως ἔσται ἢπερ καὶ περὶ τῆς λεχθείσης ἀπορίας, διὰ τί ποτε ἓνια τῶν ὄντων ὅτὲ μὲν κινεῖται, ὅτὲ δὲ ἡρεμεῖ πάλιν. Ἀνάγκη δ' ἦτοι πάντα ἡρεμεῖν ἀεί, ἢ πάντ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν κινεῖσθαι τὰ δ' ἡρεμεῖν, καὶ πάλιν τούτων ἦτοι τὰ μὲν κινούμενα κινεῖσθαι ἀεί, τὰ δ' ἡρεμοῦντα ἡρεμεῖν [adde ἀεί], ἢ πάντα πεφυκέναι ὁμοίως κινεῖσθαι καὶ ἡρεμεῖν, ἢ τὸ λοιπὸν ἐπὶ καὶ τρίτον· ἐνδέχεται γὰρ τὰ μὲν ἀεὶ τῶν ὄντων ἀκίνητα εἶναι, τὰ δ' ἀεὶ κινούμενα, τὰ δ' ἀμφοτέρων μεταλαμβάνειν. Deinde paucis interpositis p. 254. a. 16 ἀρχὴν δὲ πάλιν ποιητέον ἀπὸ τῶν νῦν διορισθέντων τὴν αὐτὴν ἢπερ ἠρξάμεθα πρότερον. Ἡ γὰρ τοι πάντα ἡρεμεῖ, ἢ πάντα κινεῖται, ἢ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται τῶν ὄντων· καὶ εἰ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται, ἀνάγκη ἦτοι πάντα ὅτὲ μὲν ἡρεμεῖν, ὅτὲ δὲ κινεῖσθαι, ἢ τὰ μὲν ἀεὶ ἡρεμεῖν τὰ δ' ἀεὶ κινεῖσθαι αὐτῶν, τὰ δὲ ὅτὲ μὲν ἡρεμεῖν ὅτὲ δὲ κινεῖσθαι. Hæc consideranti apparet, mancam Aristotelis orationem supplendam no- bis esse. Quippe desse integrum membrum jam Spengelius vidit, quum duo, non tria sint. Locus autem, de quo agitur, facillime videtur repetitione verborum ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι posse restitui aut alia ratione sanari, verbi causa ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν οὕτως, τὰ δὲ ὅτὲ μὲν κτλ. Adjicit vero Simplicius: δηλὸν δὲ ὅτι τῆς τριχῇ ταύτης διαιρέσεως δεῖκνυμένην ἀληθῆς καὶ τὰ νῦν διχῇ διαιρεθέντα ἐλέγχεται.)",
+          "text_after": "73. \\\"Ωστε φανερὸν, ὅτι ἀδύνατον ὁμοίως τὸ πάντα ἡρεμεῖν καὶ τὸ πάντα κινεῖσθαι συνεχῶς, τῶν τὰ μὲν ἀεὶ κινεῖσθαι τὰ δ' ἡρεμεῖν ἀεί. Λοιπὸν οὖν θεωρήσοι πότερον πάντα τοιαῦτα ὅλα κινεῖσθαι καὶ ἡρεμεῖν, ἢ ἓνια μὲν οὕτως, ἓνια δ' ἀεὶ ἡρεμεῖ, ἓνια δ' ἀεὶ κινεῖται· τοῦτο γὰρ δεῖκτέον ἡμῖν. (Aristoteles Phys. lib. VIII cap. 3. p. 254. b. 1. ed. Bekker. Simplicius fol. 276. χρή δὲ ἐπιστάνειν, ὅτι καὶ ἄλλα δύο τμήματα ἦν ἐκ τῆς διαιρέσεως ἀναφαίνεισθαι, διχῇ τέμνοντα τὰ ὄντα, τῶν μὲν ἐπαμφοτερίζοντων καὶ ποτὲ μὲν κινουμένων ποτὲ δὲ ἡρεμουμένων, τῶν δὲ λοιπῶν ἢ ἀεὶ κινουμένων ἢ ἀεὶ ἡρεμουμένων. Καὶ ὁ γε Εὐδήμος παραφράζων σχεδὸν καὶ αὐτὸς τὰ Ἀριστοτέλους τίθησι καὶ ταῦτα τὰ τμήματα συντόμως λέγων· « ἡ πάντα ἐπαμφοτερίζει ἢ τινα αὐτῶν, τὰ δὲ λοιπὰ κινεῖται ἢ ἡρεμεῖ. » Res ita se habet. Tria commemorat Aristoteles philo- sophorum dogmata. Etenim aut omnia semper quiescunt, quæ Parmenidis et Melissii opinio fuit; aut omnia semper moventur, ut Heraclito placuit; aut alia moventur, alia quiescunt. Postremum vero hoc triplex est. Nimirum aut alia motu agitata semper moventur, alia quiescentia semper quiescunt; aut natura ita comparatum est, ut cuncta similter moveantur atque quiescant, aut denique quædam res semper immobiles, aliæ semper in motu, aliæ utriusque status participes sunt. Jam vero his alia duo addi posse, eaque Eu- demum indicasse monet Simplicius. Etenim ulti- mum sic amplificari potest, ut dicamus non solum τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ κινεῖται, sed etiam τὰ μὲν ἀμφοτέρων μεταλαμβάνει, τὰ δ' ἀεὶ ἡρεμεῖ. Quæ cur non scripserit philosophus, Simplicius ipse intellexit; Aristoteles vero bis hoc capite de eadem re disputat. Nam p. 253. a. 22 ait ἀρχὴ δὲ τῆς σκέψεως ἔσται ἥπερ καὶ περὶ τῆς λεχθείσης ἀπορίας, διὰ τί ποτε ἓνια τῶν ὄντων ὅτὲ μὲν κινεῖται, ὅτὲ δὲ ἡρεμεῖ πάλιν. Ἀνάγκη δ' ἦτοι πάντα ἡρεμεῖν ἀεί, ἢ πάντ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν κινεῖσθαι τὰ δ' ἡρεμεῖν, καὶ πάλιν τούτων ἦτοι τὰ μὲν κινούμενα κινεῖσθαι ἀεί, τὰ δ' ἡρεμοῦντα ἡρεμεῖν [adde ἀεί], ἢ πάντα πεφυκέναι ὁμοίως κινεῖσθαι καὶ ἡρεμεῖν, ἢ τὸ λοιπὸν ἐπὶ καὶ τρίτον· ἐνδέχεται γὰρ τὰ μὲν ἀεὶ τῶν ὄντων ἀκίνητα εἶναι, τὰ δ' ἀεὶ κινούμενα, τὰ δ' ἀμφοτέρων μεταλαμβάνειν. Deinde paucis interpositis p. 254. a. 16 ἀρχὴν δὲ πάλιν ποιητέον ἀπὸ τῶν νῦν διορισθέντων τὴν αὐτὴν ἥπερ ἠρξάμεθα πρότερον. Ἡ γὰρ τοι πάντα ἡρεμεῖ, ἢ πάντα κινεῖται, ἢ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται τῶν ὄντων· καὶ εἰ τὰ μὲν ἡρεμεῖ τὰ δὲ κινεῖται, ἀνάγκη ἦτοι πάντα ὅτὲ μὲν ἡρεμεῖν, ὅτὲ δὲ κινεῖσθαι, ἢ τὰ μὲν ἀεὶ ἡρεμεῖν τὰ δ' ἀεὶ κινεῖσθαι αὐτῶν, τὰ δὲ ὅτὲ μὲν ἡρεμεῖν ὅτὲ δὲ κινεῖσθαι. Hæc consideranti apparet, mancam Aristotelis orationem supplendam no- bis esse. Quippe desse integrum membrum jam Spengelius vidit, quum duo, non tria sint. Locus autem, de quo agitur, facillime videtur repetitione verborum ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι posse restitui aut alia ratione sanari, verbi causa ἢ τὰ μὲν ἀεὶ ἡρεμεῖν, τὰ δ' ἀεὶ κινεῖσθαι, ἢ τὰ μὲν οὕτως, τὰ δὲ ὅτὲ μὲν κτλ. Adjicit vero Simplicius: δηλὸν δὲ ὅτι τῆς τριχῇ ταύτης διαιρέσεως δεῖκνυμένην ἀληθῆς καὶ τὰ νῦν διχῇ διαιρεθέντα ἐλέγχεται.)",
+          "edits": [
+            {
+              "item_id": "ogc-31-f7354807d5448931",
+              "start": 1708,
+              "end": 1712,
+              "observed": "ἢπερ",
+              "decision": "replace",
+              "reading": "ἥπερ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n275/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-448ccfe9e583acb4",
+              "start": 2270,
+              "end": 2274,
+              "observed": "ἢπερ",
+              "decision": "replace",
+              "reading": "ἥπερ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n275/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 2144,
+          "locus": "andronicus_mullach_fpg3_0276.2",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0276.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"74. Εἰ δὴ πάντα τὰ κινούμενα ἢ φύσει κινεῖται, ἢ παρὰ φύσιν καὶ βία, καὶ τὰ τε βία καὶ παρὰ φύσιν πάντα ὑπὸ τινος καὶ ὑπ' ἄλλου, τῶν δὲ φύσει πάλιν τὰ δ' ὑφ' αὐτῶν κινούμενα ὑπὸ τινος κινεῖται καὶ τὰ μὴ ὑφ' αὐτῶν, οἷον τὰ κούφια καὶ τὰ βαρέα (ἢ γὰρ ὑπὸ τοῦ γεννήσαντος καὶ ποιήσαντος κούφον ἢ βαρύ, ἢ ὑπὸ τοῦ τὰ ἐμποδίζοντα καὶ κωλύοντα λύσαντος), ἀπαντα ἂν τὰ κινούμενα ὑπὸ τινος κινεῖτο. (Aristoteles Phys. lib. VIII. cap. 4 p. 255. b. 31 ed. Bekker, Simplicius fol. 282. b.) φυσικώτερον δὲ νῦν ἐδείξεν ὅτι πᾶν τὸ κινούμενον ὑπὸ τινος κινεῖται, ἢπερ ἐν τῷ πρὸ τούτου βιβλίῳ. Ὁ δὲ Εὐδήμος ὅτι τὸ κινούμενον ὑπὸ τινος κινεῖται, δείκνυσι καὶ ἐκ τῆς τῶν πρὸς τι συνυποστάσεως· « ὡς γὰρ τὸ τεμνόμενον, φησίν, ἀλογον μὴ ὑπὸ τινος τέμνεσθαι, καὶ τὸ ἐλκόμενον μὴ ὑπὸ τινος ἕλκεσθαι, καὶ ὅλως τὸ ποιούμενον μὴ ὑπὸ τινος ποιεῖσθαι, οὕτω καὶ τὸ κινουμένον μὴ ὑπὸ τινος κινεῖσθαι. »\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0276.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"74. Εἰ δὴ πάντα τὰ κινούμενα ἢ φύσει κινεῖται, ἢ παρὰ φύσιν καὶ βία, καὶ τὰ τε βία καὶ παρὰ φύσιν πάντα ὑπὸ τινος καὶ ὑπ' ἄλλου, τῶν δὲ φύσει πάλιν τὰ δ' ὑφ' αὐτῶν κινούμενα ὑπὸ τινος κινεῖται καὶ τὰ μὴ ὑφ' αὐτῶν, οἷον τὰ κούφια καὶ τὰ βαρέα (ἢ γὰρ ὑπὸ τοῦ γεννήσαντος καὶ ποιήσαντος κούφον ἢ βαρύ, ἢ ὑπὸ τοῦ τὰ ἐμποδίζοντα καὶ κωλύοντα λύσαντος), ἀπαντα ἂν τὰ κινούμενα ὑπὸ τινος κινεῖτο. (Aristoteles Phys. lib. VIII. cap. 4 p. 255. b. 31 ed. Bekker, Simplicius fol. 282. b.) φυσικώτερον δὲ νῦν ἐδείξεν ὅτι πᾶν τὸ κινούμενον ὑπὸ τινος κινεῖται, ἥπερ ἐν τῷ πρὸ τούτου βιβλίῳ. Ὁ δὲ Εὐδήμος ὅτι τὸ κινούμενον ὑπὸ τινος κινεῖται, δείκνυσι καὶ ἐκ τῆς τῶν πρὸς τι συνυποστάσεως· « ὡς γὰρ τὸ τεμνόμενον, φησίν, ἀλογον μὴ ὑπὸ τινος τέμνεσθαι, καὶ τὸ ἐλκόμενον μὴ ὑπὸ τινος ἕλκεσθαι, καὶ ὅλως τὸ ποιούμενον μὴ ὑπὸ τινος ποιεῖσθαι, οὕτω καὶ τὸ κινουμένον μὴ ὑπὸ τινος κινεῖσθαι. »\"}\n",
+          "original_line_sha256": "3953c98605f1b66ef251436727d8fdd3abea467963e883a0108aeea84f77e32a",
+          "applied_line_sha256": "cf13832104f84cd04a25a586da930b0c2482652ebb427b8480b978665c5409dc",
+          "text_before": "74. Εἰ δὴ πάντα τὰ κινούμενα ἢ φύσει κινεῖται, ἢ παρὰ φύσιν καὶ βία, καὶ τὰ τε βία καὶ παρὰ φύσιν πάντα ὑπὸ τινος καὶ ὑπ' ἄλλου, τῶν δὲ φύσει πάλιν τὰ δ' ὑφ' αὐτῶν κινούμενα ὑπὸ τινος κινεῖται καὶ τὰ μὴ ὑφ' αὐτῶν, οἷον τὰ κούφια καὶ τὰ βαρέα (ἢ γὰρ ὑπὸ τοῦ γεννήσαντος καὶ ποιήσαντος κούφον ἢ βαρύ, ἢ ὑπὸ τοῦ τὰ ἐμποδίζοντα καὶ κωλύοντα λύσαντος), ἀπαντα ἂν τὰ κινούμενα ὑπὸ τινος κινεῖτο. (Aristoteles Phys. lib. VIII. cap. 4 p. 255. b. 31 ed. Bekker, Simplicius fol. 282. b.) φυσικώτερον δὲ νῦν ἐδείξεν ὅτι πᾶν τὸ κινούμενον ὑπὸ τινος κινεῖται, ἢπερ ἐν τῷ πρὸ τούτου βιβλίῳ. Ὁ δὲ Εὐδήμος ὅτι τὸ κινούμενον ὑπὸ τινος κινεῖται, δείκνυσι καὶ ἐκ τῆς τῶν πρὸς τι συνυποστάσεως· « ὡς γὰρ τὸ τεμνόμενον, φησίν, ἀλογον μὴ ὑπὸ τινος τέμνεσθαι, καὶ τὸ ἐλκόμενον μὴ ὑπὸ τινος ἕλκεσθαι, καὶ ὅλως τὸ ποιούμενον μὴ ὑπὸ τινος ποιεῖσθαι, οὕτω καὶ τὸ κινουμένον μὴ ὑπὸ τινος κινεῖσθαι. »",
+          "text_after": "74. Εἰ δὴ πάντα τὰ κινούμενα ἢ φύσει κινεῖται, ἢ παρὰ φύσιν καὶ βία, καὶ τὰ τε βία καὶ παρὰ φύσιν πάντα ὑπὸ τινος καὶ ὑπ' ἄλλου, τῶν δὲ φύσει πάλιν τὰ δ' ὑφ' αὐτῶν κινούμενα ὑπὸ τινος κινεῖται καὶ τὰ μὴ ὑφ' αὐτῶν, οἷον τὰ κούφια καὶ τὰ βαρέα (ἢ γὰρ ὑπὸ τοῦ γεννήσαντος καὶ ποιήσαντος κούφον ἢ βαρύ, ἢ ὑπὸ τοῦ τὰ ἐμποδίζοντα καὶ κωλύοντα λύσαντος), ἀπαντα ἂν τὰ κινούμενα ὑπὸ τινος κινεῖτο. (Aristoteles Phys. lib. VIII. cap. 4 p. 255. b. 31 ed. Bekker, Simplicius fol. 282. b.) φυσικώτερον δὲ νῦν ἐδείξεν ὅτι πᾶν τὸ κινούμενον ὑπὸ τινος κινεῖται, ἥπερ ἐν τῷ πρὸ τούτου βιβλίῳ. Ὁ δὲ Εὐδήμος ὅτι τὸ κινούμενον ὑπὸ τινος κινεῖται, δείκνυσι καὶ ἐκ τῆς τῶν πρὸς τι συνυποστάσεως· « ὡς γὰρ τὸ τεμνόμενον, φησίν, ἀλογον μὴ ὑπὸ τινος τέμνεσθαι, καὶ τὸ ἐλκόμενον μὴ ὑπὸ τινος ἕλκεσθαι, καὶ ὅλως τὸ ποιούμενον μὴ ὑπὸ τινος ποιεῖσθαι, οὕτω καὶ τὸ κινουμένον μὴ ὑπὸ τινος κινεῖσθαι. »",
+          "edits": [
+            {
+              "item_id": "ogc-31-079b12b3e6ab297e",
+              "start": 547,
+              "end": 551,
+              "observed": "ἢπερ",
+              "decision": "replace",
+              "reading": "ἥπερ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n275/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 4922,
+          "locus": "andronicus_mullach_fpg3_0581.1",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0581.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μὴ τυράννου ὄντος ἢ βασιλέως, οἱ λόγοι δύνανται το-σούτον, ὥστε μὴ βουλομένους ἐνάγειν ἐπὶ τὰ καλὰτοὺς πολλούς· μόνος δὲ ὁ νόμος ἀναγκαστικὴν τινὰδύναμιν ἔχει. Πιστεύεται γὰρ ἀπὸ τινος νοῦ καὶ φρο-νήσεως τεθῆναι τὸ ἐξ ἀρχῆς. ἄθεν τοὺς μὲν ἀνθρώ-πους ἐχθαίρουσιν οἱ πολλοὶ ταῖς ὁρμαῖς αὐτῶν ἐναν-τιουμένοις, κἂν ὁρθῶς αὐτὸ δρῶσι· τῷ νόμῳ δὲ οὐ-δεὶς ἄχθεται τάττοντι τὸ ἐπικεκές, καὶ τῶν πονηρῶνἀριστεύει· τοὺς μὲν γὰρ ζῶντας τῶν παιδευστῶν ἴσωςἔστι νομίσαι μίσει τινὶ ἢ φθόνῳ κινουμένους λυπεῖν·τοῖς νόμοις δὲ οὐ τοῦτο συμβαίνει. Φανερὸν μὲν οὖν,ὡς ἀρὰ δεῖ νόμους ῥυθμίζοντων καὶ διατιθέντων πρὸςτὴν ἀρετὴν εὐθὺς ἐκ παιδός* Τοιούτοι δὲ νόμοι μόνῃ τῃ Λακεδαιμονίων ἐγένοντοπόλει, καὶ τισιν ἄλλαις ὀλίγαις κοινῇ. ταῖς δὲ πλεί-σταις πόλεσιν οὐκ ἐμελήσε περὶ τῶν τοιούτων, ἀλλ'ἕκαστος ὡς βούλεται τάττει τὸν βίον καὶ τὴν οἰκίαν,Κυκλωπικῶς θεμιστεύων\", \"corrections\": [\"confusion\"]}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0581.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"μὴ τυράννου ὄντος ἢ βασιλέως, οἱ λόγοι δύνανται το-σούτον, ὥστε μὴ βουλομένους ἐνάγειν ἐπὶ τὰ καλὰ τοὺς πολλούς· μόνος δὲ ὁ νόμος ἀναγκαστικὴν τινὰ δύναμιν ἔχει. Πιστεύεται γὰρ ἀπὸ τινος νοῦ καὶ φρο-νήσεως τεθῆναι τὸ ἐξ ἀρχῆς. ἄθεν τοὺς μὲν ἀνθρώ-πους ἐχθαίρουσιν οἱ πολλοὶ ταῖς ὁρμαῖς αὐτῶν ἐναν-τιουμένοις, κἂν ὁρθῶς αὐτὸ δρῶσι· τῷ νόμῳ δὲ οὐ-δεὶς ἄχθεται τάττοντι τὸ ἐπικεκές, καὶ τῶν πονηρῶνἀριστεύει· τοὺς μὲν γὰρ ζῶντας τῶν παιδευστῶν ἴσωςἔστι νομίσαι μίσει τινὶ ἢ φθόνῳ κινουμένους λυπεῖν·τοῖς νόμοις δὲ οὐ τοῦτο συμβαίνει. Φανερὸν μὲν οὖν,ὡς ἀρὰ δεῖ νόμους ῥυθμίζοντων καὶ διατιθέντων πρὸς τὴν ἀρετὴν εὐθὺς ἐκ παιδός* Τοιούτοι δὲ νόμοι μόνῃ τῃ Λακεδαιμονίων ἐγένοντοπόλει, καὶ τισιν ἄλλαις ὀλίγαις κοινῇ. ταῖς δὲ πλεί-σταις πόλεσιν οὐκ ἐμελήσε περὶ τῶν τοιούτων, ἀλλ'ἕκαστος ὡς βούλεται τάττει τὸν βίον καὶ τὴν οἰκίαν,Κυκλωπικῶς θεμιστεύων\", \"corrections\": [\"confusion\"]}\n",
+          "original_line_sha256": "2851992dcc3bdfe29501c468e8003d478d40ea71e3b480c31c80cd964bb7d383",
+          "applied_line_sha256": "bdb474a5bfb876b30a3156683b25fb5407ebbe73ef3fb2007349d89f0f0ec901",
+          "text_before": "μὴ τυράννου ὄντος ἢ βασιλέως, οἱ λόγοι δύνανται το-σούτον, ὥστε μὴ βουλομένους ἐνάγειν ἐπὶ τὰ καλὰτοὺς πολλούς· μόνος δὲ ὁ νόμος ἀναγκαστικὴν τινὰδύναμιν ἔχει. Πιστεύεται γὰρ ἀπὸ τινος νοῦ καὶ φρο-νήσεως τεθῆναι τὸ ἐξ ἀρχῆς. ἄθεν τοὺς μὲν ἀνθρώ-πους ἐχθαίρουσιν οἱ πολλοὶ ταῖς ὁρμαῖς αὐτῶν ἐναν-τιουμένοις, κἂν ὁρθῶς αὐτὸ δρῶσι· τῷ νόμῳ δὲ οὐ-δεὶς ἄχθεται τάττοντι τὸ ἐπικεκές, καὶ τῶν πονηρῶνἀριστεύει· τοὺς μὲν γὰρ ζῶντας τῶν παιδευστῶν ἴσωςἔστι νομίσαι μίσει τινὶ ἢ φθόνῳ κινουμένους λυπεῖν·τοῖς νόμοις δὲ οὐ τοῦτο συμβαίνει. Φανερὸν μὲν οὖν,ὡς ἀρὰ δεῖ νόμους ῥυθμίζοντων καὶ διατιθέντων πρὸςτὴν ἀρετὴν εὐθὺς ἐκ παιδός* Τοιούτοι δὲ νόμοι μόνῃ τῃ Λακεδαιμονίων ἐγένοντοπόλει, καὶ τισιν ἄλλαις ὀλίγαις κοινῇ. ταῖς δὲ πλεί-σταις πόλεσιν οὐκ ἐμελήσε περὶ τῶν τοιούτων, ἀλλ'ἕκαστος ὡς βούλεται τάττει τὸν βίον καὶ τὴν οἰκίαν,Κυκλωπικῶς θεμιστεύων",
+          "text_after": "μὴ τυράννου ὄντος ἢ βασιλέως, οἱ λόγοι δύνανται το-σούτον, ὥστε μὴ βουλομένους ἐνάγειν ἐπὶ τὰ καλὰ τοὺς πολλούς· μόνος δὲ ὁ νόμος ἀναγκαστικὴν τινὰ δύναμιν ἔχει. Πιστεύεται γὰρ ἀπὸ τινος νοῦ καὶ φρο-νήσεως τεθῆναι τὸ ἐξ ἀρχῆς. ἄθεν τοὺς μὲν ἀνθρώ-πους ἐχθαίρουσιν οἱ πολλοὶ ταῖς ὁρμαῖς αὐτῶν ἐναν-τιουμένοις, κἂν ὁρθῶς αὐτὸ δρῶσι· τῷ νόμῳ δὲ οὐ-δεὶς ἄχθεται τάττοντι τὸ ἐπικεκές, καὶ τῶν πονηρῶνἀριστεύει· τοὺς μὲν γὰρ ζῶντας τῶν παιδευστῶν ἴσωςἔστι νομίσαι μίσει τινὶ ἢ φθόνῳ κινουμένους λυπεῖν·τοῖς νόμοις δὲ οὐ τοῦτο συμβαίνει. Φανερὸν μὲν οὖν,ὡς ἀρὰ δεῖ νόμους ῥυθμίζοντων καὶ διατιθέντων πρὸς τὴν ἀρετὴν εὐθὺς ἐκ παιδός* Τοιούτοι δὲ νόμοι μόνῃ τῃ Λακεδαιμονίων ἐγένοντοπόλει, καὶ τισιν ἄλλαις ὀλίγαις κοινῇ. ταῖς δὲ πλεί-σταις πόλεσιν οὐκ ἐμελήσε περὶ τῶν τοιούτων, ἀλλ'ἕκαστος ὡς βούλεται τάττει τὸν βίον καὶ τὴν οἰκίαν,Κυκλωπικῶς θεμιστεύων",
+          "edits": [
+            {
+              "item_id": "ogc-31-f5b1b7d70722ac26",
+              "start": 94,
+              "end": 102,
+              "observed": "καλὰτοὺς",
+              "decision": "split",
+              "reading": "καλὰ τοὺς",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-c29477277e4de40d",
+              "start": 142,
+              "end": 153,
+              "observed": "τινὰδύναμιν",
+              "decision": "split",
+              "reading": "τινὰ δύναμιν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-892ce32a079383ea",
+              "start": 591,
+              "end": 598,
+              "observed": "πρὸςτὴν",
+              "decision": "split",
+              "reading": "πρὸς τὴν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 4924,
+          "locus": "andronicus_mullach_fpg3_0581.3",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0581.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κράτιστον μὲν οὖν τὸ γίνεσθαι κοινὴν ἐπιμέλειαν καὶδρῆν, καὶ πάντας ζῆν δύνασθαι τεταγμένους, καὶ ὡςὁ ὁρθὸς ἀπατεῖ λόγος· εἰ δὲ μὴ τοῦτο γένοιτο, καὶ τὸκοινὸν ἀμελοῖτο, προσῆκειν ἕκάστῳ δοξεῖν ἂν τοῖςἑαυτοῦ τέκνοις καὶ φίλοις εἰς ἀρετὴν βοηθεῖν, ἢ βοηθεῖνπροθυμεῖσθαι· δυνηθεῖθ δ' ἂν ἕκαστος ταῦτα τοὺς οἰ-κείους εὐεργετεῖν νομοθετὸς γεγόνεως, ὡς φανερὸν ἐκτῶν εἰρημένων. Γίνεται γὰρ πᾶσα ἐπιμέλεια διὰ νό-μων· καὶ αἱ μὲν κοιναι ἐπιμέλειαι διὰ τῶν κοινῶν νό-μων, αἱ δὲ σπουδαῖαι καὶ ἐπικειεῖς ἐπιμέλειαι καὶ παι-δεῖαι διὰ τῶν καταλλήλων, τῶν σπουδαίων καὶ ἐπικει-κῶν, ἡμᾶ, νόμων.\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0581.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κράτιστον μὲν οὖν τὸ γίνεσθαι κοινὴν ἐπιμέλειαν καὶδρῆν, καὶ πάντας ζῆν δύνασθαι τεταγμένους, καὶ ὡςὁ ὁρθὸς ἀπατεῖ λόγος· εἰ δὲ μὴ τοῦτο γένοιτο, καὶ τὸ κοινὸν ἀμελοῖτο, προσῆκειν ἕκάστῳ δοξεῖν ἂν τοῖςἑαυτοῦ τέκνοις καὶ φίλοις εἰς ἀρετὴν βοηθεῖν, ἢ βοηθεῖνπροθυμεῖσθαι· δυνηθεῖθ δ' ἂν ἕκαστος ταῦτα τοὺς οἰ-κείους εὐεργετεῖν νομοθετὸς γεγόνεως, ὡς φανερὸν ἐκτῶν εἰρημένων. Γίνεται γὰρ πᾶσα ἐπιμέλεια διὰ νό-μων· καὶ αἱ μὲν κοιναι ἐπιμέλειαι διὰ τῶν κοινῶν νό-μων, αἱ δὲ σπουδαῖαι καὶ ἐπικειεῖς ἐπιμέλειαι καὶ παι-δεῖαι διὰ τῶν καταλλήλων, τῶν σπουδαίων καὶ ἐπικει-κῶν, ἡμᾶ, νόμων.\"}\n",
+          "original_line_sha256": "e4c5d825acc0d2bd951f81c00d63ccf7c6ac055a445a33016443f09a7d535448",
+          "applied_line_sha256": "3d5e75b40d73fd03fd71448f51297ae35a9e42f736117191a20c899ebad65b50",
+          "text_before": "Κράτιστον μὲν οὖν τὸ γίνεσθαι κοινὴν ἐπιμέλειαν καὶδρῆν, καὶ πάντας ζῆν δύνασθαι τεταγμένους, καὶ ὡςὁ ὁρθὸς ἀπατεῖ λόγος· εἰ δὲ μὴ τοῦτο γένοιτο, καὶ τὸκοινὸν ἀμελοῖτο, προσῆκειν ἕκάστῳ δοξεῖν ἂν τοῖςἑαυτοῦ τέκνοις καὶ φίλοις εἰς ἀρετὴν βοηθεῖν, ἢ βοηθεῖνπροθυμεῖσθαι· δυνηθεῖθ δ' ἂν ἕκαστος ταῦτα τοὺς οἰ-κείους εὐεργετεῖν νομοθετὸς γεγόνεως, ὡς φανερὸν ἐκτῶν εἰρημένων. Γίνεται γὰρ πᾶσα ἐπιμέλεια διὰ νό-μων· καὶ αἱ μὲν κοιναι ἐπιμέλειαι διὰ τῶν κοινῶν νό-μων, αἱ δὲ σπουδαῖαι καὶ ἐπικειεῖς ἐπιμέλειαι καὶ παι-δεῖαι διὰ τῶν καταλλήλων, τῶν σπουδαίων καὶ ἐπικει-κῶν, ἡμᾶ, νόμων.",
+          "text_after": "Κράτιστον μὲν οὖν τὸ γίνεσθαι κοινὴν ἐπιμέλειαν καὶδρῆν, καὶ πάντας ζῆν δύνασθαι τεταγμένους, καὶ ὡςὁ ὁρθὸς ἀπατεῖ λόγος· εἰ δὲ μὴ τοῦτο γένοιτο, καὶ τὸ κοινὸν ἀμελοῖτο, προσῆκειν ἕκάστῳ δοξεῖν ἂν τοῖςἑαυτοῦ τέκνοις καὶ φίλοις εἰς ἀρετὴν βοηθεῖν, ἢ βοηθεῖνπροθυμεῖσθαι· δυνηθεῖθ δ' ἂν ἕκαστος ταῦτα τοὺς οἰ-κείους εὐεργετεῖν νομοθετὸς γεγόνεως, ὡς φανερὸν ἐκτῶν εἰρημένων. Γίνεται γὰρ πᾶσα ἐπιμέλεια διὰ νό-μων· καὶ αἱ μὲν κοιναι ἐπιμέλειαι διὰ τῶν κοινῶν νό-μων, αἱ δὲ σπουδαῖαι καὶ ἐπικειεῖς ἐπιμέλειαι καὶ παι-δεῖαι διὰ τῶν καταλλήλων, τῶν σπουδαίων καὶ ἐπικει-κῶν, ἡμᾶ, νόμων.",
+          "edits": [
+            {
+              "item_id": "ogc-31-df7502f8a2b395e2",
+              "start": 150,
+              "end": 158,
+              "observed": "τὸκοινὸν",
+              "decision": "split",
+              "reading": "τὸ κοινὸν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 4925,
+          "locus": "andronicus_mullach_fpg3_0581.4",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0581.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Γεγραμμένους δὲ ἢ ἀγράφους εἶναι τοὺς νόμους,οὐδὲν διαφέρει· οὐδὲ τὸ πολλοὺς παιδεύειν, ἢ ἕναῥυθμίζειν εἰσαγάγοι ἂν τοῖς νόμοις διαφορὰν· ὥσπερἐπὶ τῆς μουσικῆς, καὶ γυμναστικῆς, καὶ τῶν ἄλλωνἐπιτηδευμάτων συμβαίνει· καὶ γὰρ ὁ τὸν ἕνα δύναταιγυμνᾶσαι, καὶ τοὺς πολλούς, καὶ δι' ὧν εἰς μουσικὸςκαὶ πολλοὺς οὐδὲν χωλύει γενέσθαι, καὶ τὸ ἀνάπαλιν.Διὰ τοῦτο καὶ τὸν οἰκίαν διατιθέντα μίαν καὶ ῥυθμί-ζοντα, ἢ ἕνα ἄνδρα παιδεύοντα, οὐδὲν χωλύει νόμουςτιθέναι, καὶ εἶναι νομοθετικόν, οὐδὲν ἧττον τοῦ πόλινδλὴν ἢ ἔθνους διατιθέντος. Καὶ γὰρ ὥσπερ ἐν ταῖς πό-λεσιν ἰσχύει τὰ νόμιμα καὶ τὰ ἔθη, οὕτω καὶ ἐν οἰ-κία μιᾷ οἱ πατρικοὶ λόγοι, καὶ τὰ ἔθη, οἷς φαίνε-ται χαίρων, μεγάλων ἐν τοῖς πασὶ καὶ τοῖς ἄλλοις,οἰκείοις δύναμιν ἔχει, καὶ πολλῷ πλεῖον διὰ τὴνσυγγένειαν καὶ τὰς εὐεργεσίας· εὐνοὶ γὰρ εἰσὶ διὰταῦτα τῷ πατρὶ μᾶλλον οἱ παῖδες, ἢ οἱ πολῖται τῷνομοθέτη. Καὶ διὰ τοῦτο βέβον ἀγώνται, καὶ τοῖς νό-μοις πείθονται μᾶλλον, κἂν ἄλλως ἀπειθεῖς ὦσι, φύσειτινὶ στέφαντες ἐξ ἀρχῆς· ἐτι δὲ καὶ ἀκριβέστεροι γίνοιντο\", \"corrections\": [\"dehyphenation\"]}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0581.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Γεγραμμένους δὲ ἢ ἀγράφους εἶναι τοὺς νόμους,οὐδὲν διαφέρει· οὐδὲ τὸ πολλοὺς παιδεύειν, ἢ ἕναῥυθμίζειν εἰσαγάγοι ἂν τοῖς νόμοις διαφορὰν· ὥσπερἐπὶ τῆς μουσικῆς, καὶ γυμναστικῆς, καὶ τῶν ἄλλωνἐπιτηδευμάτων συμβαίνει· καὶ γὰρ ὁ τὸν ἕνα δύναταιγυμνᾶσαι, καὶ τοὺς πολλούς, καὶ δι' ὧν εἰς μουσικὸς καὶ πολλοὺς οὐδὲν χωλύει γενέσθαι, καὶ τὸ ἀνάπαλιν.Διὰ τοῦτο καὶ τὸν οἰκίαν διατιθέντα μίαν καὶ ῥυθμί-ζοντα, ἢ ἕνα ἄνδρα παιδεύοντα, οὐδὲν χωλύει νόμουςτιθέναι, καὶ εἶναι νομοθετικόν, οὐδὲν ἧττον τοῦ πόλινδλὴν ἢ ἔθνους διατιθέντος. Καὶ γὰρ ὥσπερ ἐν ταῖς πό-λεσιν ἰσχύει τὰ νόμιμα καὶ τὰ ἔθη, οὕτω καὶ ἐν οἰ-κία μιᾷ οἱ πατρικοὶ λόγοι, καὶ τὰ ἔθη, οἷς φαίνε-ται χαίρων, μεγάλων ἐν τοῖς πασὶ καὶ τοῖς ἄλλοις,οἰκείοις δύναμιν ἔχει, καὶ πολλῷ πλεῖον διὰ τὴν συγγένειαν καὶ τὰς εὐεργεσίας· εὐνοὶ γὰρ εἰσὶ διὰ ταῦτα τῷ πατρὶ μᾶλλον οἱ παῖδες, ἢ οἱ πολῖται τῷνομοθέτη. Καὶ διὰ τοῦτο βέβον ἀγώνται, καὶ τοῖς νό-μοις πείθονται μᾶλλον, κἂν ἄλλως ἀπειθεῖς ὦσι, φύσειτινὶ στέφαντες ἐξ ἀρχῆς· ἐτι δὲ καὶ ἀκριβέστεροι γίνοιντο\", \"corrections\": [\"dehyphenation\"]}\n",
+          "original_line_sha256": "ef2d8a0a5435911c9ec5fe3954abe45690f83083486565d7ead61e5017be10f2",
+          "applied_line_sha256": "2ad72eaeabd64e359ee97de016875fa407507cb9e367e2946409b798843ad8c5",
+          "text_before": "Γεγραμμένους δὲ ἢ ἀγράφους εἶναι τοὺς νόμους,οὐδὲν διαφέρει· οὐδὲ τὸ πολλοὺς παιδεύειν, ἢ ἕναῥυθμίζειν εἰσαγάγοι ἂν τοῖς νόμοις διαφορὰν· ὥσπερἐπὶ τῆς μουσικῆς, καὶ γυμναστικῆς, καὶ τῶν ἄλλωνἐπιτηδευμάτων συμβαίνει· καὶ γὰρ ὁ τὸν ἕνα δύναταιγυμνᾶσαι, καὶ τοὺς πολλούς, καὶ δι' ὧν εἰς μουσικὸςκαὶ πολλοὺς οὐδὲν χωλύει γενέσθαι, καὶ τὸ ἀνάπαλιν.Διὰ τοῦτο καὶ τὸν οἰκίαν διατιθέντα μίαν καὶ ῥυθμί-ζοντα, ἢ ἕνα ἄνδρα παιδεύοντα, οὐδὲν χωλύει νόμουςτιθέναι, καὶ εἶναι νομοθετικόν, οὐδὲν ἧττον τοῦ πόλινδλὴν ἢ ἔθνους διατιθέντος. Καὶ γὰρ ὥσπερ ἐν ταῖς πό-λεσιν ἰσχύει τὰ νόμιμα καὶ τὰ ἔθη, οὕτω καὶ ἐν οἰ-κία μιᾷ οἱ πατρικοὶ λόγοι, καὶ τὰ ἔθη, οἷς φαίνε-ται χαίρων, μεγάλων ἐν τοῖς πασὶ καὶ τοῖς ἄλλοις,οἰκείοις δύναμιν ἔχει, καὶ πολλῷ πλεῖον διὰ τὴνσυγγένειαν καὶ τὰς εὐεργεσίας· εὐνοὶ γὰρ εἰσὶ διὰταῦτα τῷ πατρὶ μᾶλλον οἱ παῖδες, ἢ οἱ πολῖται τῷνομοθέτη. Καὶ διὰ τοῦτο βέβον ἀγώνται, καὶ τοῖς νό-μοις πείθονται μᾶλλον, κἂν ἄλλως ἀπειθεῖς ὦσι, φύσειτινὶ στέφαντες ἐξ ἀρχῆς· ἐτι δὲ καὶ ἀκριβέστεροι γίνοιντο",
+          "text_after": "Γεγραμμένους δὲ ἢ ἀγράφους εἶναι τοὺς νόμους,οὐδὲν διαφέρει· οὐδὲ τὸ πολλοὺς παιδεύειν, ἢ ἕναῥυθμίζειν εἰσαγάγοι ἂν τοῖς νόμοις διαφορὰν· ὥσπερἐπὶ τῆς μουσικῆς, καὶ γυμναστικῆς, καὶ τῶν ἄλλωνἐπιτηδευμάτων συμβαίνει· καὶ γὰρ ὁ τὸν ἕνα δύναταιγυμνᾶσαι, καὶ τοὺς πολλούς, καὶ δι' ὧν εἰς μουσικὸς καὶ πολλοὺς οὐδὲν χωλύει γενέσθαι, καὶ τὸ ἀνάπαλιν.Διὰ τοῦτο καὶ τὸν οἰκίαν διατιθέντα μίαν καὶ ῥυθμί-ζοντα, ἢ ἕνα ἄνδρα παιδεύοντα, οὐδὲν χωλύει νόμουςτιθέναι, καὶ εἶναι νομοθετικόν, οὐδὲν ἧττον τοῦ πόλινδλὴν ἢ ἔθνους διατιθέντος. Καὶ γὰρ ὥσπερ ἐν ταῖς πό-λεσιν ἰσχύει τὰ νόμιμα καὶ τὰ ἔθη, οὕτω καὶ ἐν οἰ-κία μιᾷ οἱ πατρικοὶ λόγοι, καὶ τὰ ἔθη, οἷς φαίνε-ται χαίρων, μεγάλων ἐν τοῖς πασὶ καὶ τοῖς ἄλλοις,οἰκείοις δύναμιν ἔχει, καὶ πολλῷ πλεῖον διὰ τὴν συγγένειαν καὶ τὰς εὐεργεσίας· εὐνοὶ γὰρ εἰσὶ διὰ ταῦτα τῷ πατρὶ μᾶλλον οἱ παῖδες, ἢ οἱ πολῖται τῷνομοθέτη. Καὶ διὰ τοῦτο βέβον ἀγώνται, καὶ τοῖς νό-μοις πείθονται μᾶλλον, κἂν ἄλλως ἀπειθεῖς ὦσι, φύσειτινὶ στέφαντες ἐξ ἀρχῆς· ἐτι δὲ καὶ ἀκριβέστεροι γίνοιντο",
+          "edits": [
+            {
+              "item_id": "ogc-31-7140d5bc83e91b4e",
+              "start": 284,
+              "end": 295,
+              "observed": "μουσικὸςκαὶ",
+              "decision": "split",
+              "reading": "μουσικὸς καὶ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-f811feea121a29cf",
+              "start": 741,
+              "end": 754,
+              "observed": "τὴνσυγγένειαν",
+              "decision": "split",
+              "reading": "τὴν συγγένειαν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-361e0470580ec14d",
+              "start": 790,
+              "end": 798,
+              "observed": "διὰταῦτα",
+              "decision": "split",
+              "reading": "διὰ ταῦτα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n580/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/diogenes-sinopensis.fragmenta-et-apophthegmata.jsonl",
+      "sha256_before": "3ae81f145dd97c9ac73c29b45bf00e634021de8d61d7a93ff35a46ffca4ae9e0",
+      "sha256_after": "f0dca40fffd0a052d2556c8f4cebc324283dbd92caa68b9715a64c592f064627",
+      "rows": [
+        {
+          "line": 5,
+          "locus": "archytas_mullach_fpg2_0405.1",
+          "original_line": "{\"urn\": \"diogenes-sinopensis.fragmenta-et-apophthegmata\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0405.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"gna frequentia Graeciae celebrabatur, jam senex pergeret, febrí in itinere dicitur apprehensus accubuisse in crepidine viae, volentibusque eum amicis aut in jumentum aut in vehiculum tollere, non acquievit, sed transiens ad arboris umbram locutus est: Abite quaeso et spectatum pergitè, haec me nox aut victorem probabit aut victum. Si febrem vicerò, ad agonem veniam; si me vicerit, ad inferna descendam. Ibiqne per noctem, eliso gutture, non tam mori se ait, quam febrem morte excludere. Athenaeus lib. VIII pag. 361 E: καὶ Διογένης· ὁ δὲ κύων ὡμὸν πολὺποδα καταφαγὼν ἐπιθυμεῖν αὐτῷ τῆς γαστροῦ· ἀπέθανε. Lucianus vitt. auct. cap. 10 sub persona Diogenis: καὶ τέλος, ἦν σοι δοκῇ, πολὺποδα ὠμὸν, ἡ σπητίαν φαγὼν, ἀπόθανε. Julianus orat. VI init.: ἀλλὰ καὶ τὴν ἐξωθὴν τοῦ πολὺποδος κυμμαθεῖ· καὶ φησι τὸν Διογένη τῆς ἀνοίας καὶ κενοδοξίας ἐκτετινέναι δίχας, ὥσπερ ὑπὸ κανοῦνιο, τῆς τροφῆς, διαφθοράντα. Plutarchus in Aqua et ignis comparatione cap. 2, vol. XIII p. 126: καὶ Διογένης ὁ δὲ κύων ἡμιστα προσεχρήτο πυρί, ὥστε καὶ πολὺποδα καταπιὼν ὡμὸν· Οὕτως ὑπὲρ ὑμῶν, εἶπε, ὦ ἄνδρες, παραβάλλομαι. Tatianus orat. ad Graecos init.: Διογένης· πίθηκος· καὶ σχήματι τὴν αὐταρκεῖαν σεμνυνόμενος, πολὺποδος ὠμοβορίης, παθὼν συγχθεῖς ἱλαῶ, διὰ τὴν ἄκρασίαν ἀποτέθνηκεν. Solates apud Stobaeum Floril. XCVIII, 9: πολὺποδα φαγὼν ὁ Διογένης ὡμὸν τέθνηκεν. Aelianus var. hist. lib. VIII cap. 14: Διογένης ὁ Σινωπεύς, ὅτε λοιπὸν ἔνοσε ἐπὶ θανάτου, ἐπαντὸν φάμεν μόγις ἐξέφθε κατὰ τινὸς γεραρίου πρὸς γεω-αστίου ὄντος, καὶ προτεταξὼ τῇ παλαιστρωφύλακι, ἐπειδὰν αἰσθεται ἀποπνεῦντα αὐτόν, βέβαι εἰς τὸν Ἡλιού. Οὕτως ἄρα ὀλίγον ἔμελε Διογένει καὶ θανάτου καὶ ταφῆς. — (8) Diogenes Laertius lib. VI, 33: ἔλεγεν ἐαυτὸν κύνα εἶναι τῶν ἐπανουμένων, ἀλλὰ μηδὲν τοὺς τῶν ἐπανουμένων συνεξίζειν ἐκὶ τὴν ὁρᾶν. Quapropter etiam canis marmoreus in Diogenis tumulo positus fuit teste Laertio VI, 78. Vid. annot. 7. In hunc incerti poetae epigramma est, insertum Anthologiae lib. III. Sunt autem versus graeci: Εἰπέ, κύων, τίνος ἄνδρός ἐραστὸς σῶμα φυλάττεις; Τοῦ Κυνός. Ἀλλὰ τίς τὸν οὕτως ἄνθρωπον ὁ κύων; Διογένης. Γίνος εἶπε. Σινωπεύς· δὲς πίδων φῦκε. Καὶ μέλη· νῦν δὲ θανὼν ἄσπίζει οἴκον ἔχει. Quos sic imitatus est Ausonius: Dic, Canis, hic cujus Tumulus? Canis. Ad Canis hic quis? Diogenes. Obiit? Non obiit, sed abit Diogenes; cui pera penus; cui dolia sedes. Ad manes abiit? Cerberus ire vetat. Quonam igitur? Clari fragrat qua stella Leonis, Additus est justae nunc Cani' Efigonae. — (9) Diogenes Laertius lib. VI, 22-23: τριβώνια διπλώσας πρώτως κατὰ τινος ὀκὼ τοῦ ἀναχῶν ἔχειν καὶ ἐναλίψαι αὐτῇ, πῆραν τ' ἐμορφαίσατο, ἔνθα αὐτῷ τὰ σῶμα ἦν, καὶ παντὶ τότρω ἐξήρθη εἰς πάντα, δεσμοῦν τε καὶ καθεδρῶν καὶ διαλεγόμενος. Ὅτε καὶ τοὺς Ἀθηναίους ἐκασίας, λαβὼν τὴν τοῦ Διὸς στολὴν καὶ τὸ πομπῶν, αὐτὸ κατασκευασάμενος ἐνδιαστάθαι. Βακτηρίης δ' ἀπεστηρίζοντο ἀσθενείας· ἐπειτα μέντοι καὶ διὰ παντὸς ἐφόρει, οὐ μὴν ἐν ἄστει, ἀλλὰ κατ' ὀδὸν αὐτῇ τε καὶ τῇ κνήμῃ, καθὼς φησιν Ἀθηναῖος· ὁ Ἀθηναῖος προστάττει· καὶ Πολυδευκῆς ὁ ῥήτωρ καὶ Λυσανίας ὁ Ἀλγειρόσιος. Ἐπιστελεῖς δὲ τὴν οἰκείαν οὐδὲ προνοήσασθαι, βεβαινόμενος, τὸν ἐν τῇ Μητρῶν πίδων ἔσχεσθαι οἰκίαν, ὡς καὶ αὐτὸν ἐν ταῖς ἐπιστολαῖς διασαφεῖ. Καὶ θέρους· μὲν ἐπὶ ψάμμω ἱστίης ἐκλινοῦντο, χειμῶνος δ' ἀνδριάν.\"}\n",
+          "applied_line": "{\"urn\": \"diogenes-sinopensis.fragmenta-et-apophthegmata\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0405.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"gna frequentia Graeciae celebrabatur, jam senex pergeret, febrí in itinere dicitur apprehensus accubuisse in crepidine viae, volentibusque eum amicis aut in jumentum aut in vehiculum tollere, non acquievit, sed transiens ad arboris umbram locutus est: Abite quaeso et spectatum pergitè, haec me nox aut victorem probabit aut victum. Si febrem vicerò, ad agonem veniam; si me vicerit, ad inferna descendam. Ibiqne per noctem, eliso gutture, non tam mori se ait, quam febrem morte excludere. Athenaeus lib. VIII pag. 361 E: καὶ Διογένης· ὁ δὲ κύων ὡμὸν πολύποδα καταφαγὼν ἐπιθυμεῖν αὐτῷ τῆς γαστροῦ· ἀπέθανε. Lucianus vitt. auct. cap. 10 sub persona Diogenis: καὶ τέλος, ἦν σοι δοκῇ, πολύποδα ὠμὸν, ἡ σπητίαν φαγὼν, ἀπόθανε. Julianus orat. VI init.: ἀλλὰ καὶ τὴν ἐξωθὴν τοῦ πολύποδος κυμμαθεῖ· καὶ φησι τὸν Διογένη τῆς ἀνοίας καὶ κενοδοξίας ἐκτετινέναι δίχας, ὥσπερ ὑπὸ κανοῦνιο, τῆς τροφῆς, διαφθοράντα. Plutarchus in Aqua et ignis comparatione cap. 2, vol. XIII p. 126: καὶ Διογένης ὁ δὲ κύων ἡμιστα προσεχρήτο πυρί, ὥστε καὶ πολὺποδα καταπιὼν ὡμὸν· Οὕτως ὑπὲρ ὑμῶν, εἶπε, ὦ ἄνδρες, παραβάλλομαι. Tatianus orat. ad Graecos init.: Διογένης· πίθηκος· καὶ σχήματι τὴν αὐταρκεῖαν σεμνυνόμενος, πολύποδος ὠμοβορίης, παθὼν συγχθεῖς ἱλαῶ, διὰ τὴν ἄκρασίαν ἀποτέθνηκεν. Solates apud Stobaeum Floril. XCVIII, 9: πολύποδα φαγὼν ὁ Διογένης ὡμὸν τέθνηκεν. Aelianus var. hist. lib. VIII cap. 14: Διογένης ὁ Σινωπεύς, ὅτε λοιπὸν ἔνοσε ἐπὶ θανάτου, ἐπαντὸν φάμεν μόγις ἐξέφθε κατὰ τινὸς γεραρίου πρὸς γεω-αστίου ὄντος, καὶ προτεταξὼ τῇ παλαιστρωφύλακι, ἐπειδὰν αἰσθεται ἀποπνεῦντα αὐτόν, βέβαι εἰς τὸν Ἡλιού. Οὕτως ἄρα ὀλίγον ἔμελε Διογένει καὶ θανάτου καὶ ταφῆς. — (8) Diogenes Laertius lib. VI, 33: ἔλεγεν ἐαυτὸν κύνα εἶναι τῶν ἐπανουμένων, ἀλλὰ μηδὲν τοὺς τῶν ἐπανουμένων συνεξίζειν ἐκὶ τὴν ὁρᾶν. Quapropter etiam canis marmoreus in Diogenis tumulo positus fuit teste Laertio VI, 78. Vid. annot. 7. In hunc incerti poetae epigramma est, insertum Anthologiae lib. III. Sunt autem versus graeci: Εἰπέ, κύων, τίνος ἄνδρός ἐραστὸς σῶμα φυλάττεις; Τοῦ Κυνός. Ἀλλὰ τίς τὸν οὕτως ἄνθρωπον ὁ κύων; Διογένης. Γίνος εἶπε. Σινωπεύς· δὲς πίδων φῦκε. Καὶ μέλη· νῦν δὲ θανὼν ἄσπίζει οἴκον ἔχει. Quos sic imitatus est Ausonius: Dic, Canis, hic cujus Tumulus? Canis. Ad Canis hic quis? Diogenes. Obiit? Non obiit, sed abit Diogenes; cui pera penus; cui dolia sedes. Ad manes abiit? Cerberus ire vetat. Quonam igitur? Clari fragrat qua stella Leonis, Additus est justae nunc Cani' Efigonae. — (9) Diogenes Laertius lib. VI, 22-23: τριβώνια διπλώσας πρώτως κατὰ τινος ὀκὼ τοῦ ἀναχῶν ἔχειν καὶ ἐναλίψαι αὐτῇ, πῆραν τ' ἐμορφαίσατο, ἔνθα αὐτῷ τὰ σῶμα ἦν, καὶ παντὶ τότρω ἐξήρθη εἰς πάντα, δεσμοῦν τε καὶ καθεδρῶν καὶ διαλεγόμενος. Ὅτε καὶ τοὺς Ἀθηναίους ἐκασίας, λαβὼν τὴν τοῦ Διὸς στολὴν καὶ τὸ πομπῶν, αὐτὸ κατασκευασάμενος ἐνδιαστάθαι. Βακτηρίης δ' ἀπεστηρίζοντο ἀσθενείας· ἐπειτα μέντοι καὶ διὰ παντὸς ἐφόρει, οὐ μὴν ἐν ἄστει, ἀλλὰ κατ' ὀδὸν αὐτῇ τε καὶ τῇ κνήμῃ, καθὼς φησιν Ἀθηναῖος· ὁ Ἀθηναῖος προστάττει· καὶ Πολυδευκῆς ὁ ῥήτωρ καὶ Λυσανίας ὁ Ἀλγειρόσιος. Ἐπιστελεῖς δὲ τὴν οἰκείαν οὐδὲ προνοήσασθαι, βεβαινόμενος, τὸν ἐν τῇ Μητρῶν πίδων ἔσχεσθαι οἰκίαν, ὡς καὶ αὐτὸν ἐν ταῖς ἐπιστολαῖς διασαφεῖ. Καὶ θέρους· μὲν ἐπὶ ψάμμω ἱστίης ἐκλινοῦντο, χειμῶνος δ' ἀνδριάν.\"}\n",
+          "original_line_sha256": "35d7d0dcb7e4d4705d8df6caecc3822b467bc88a390c14392868866ec9c2a1cc",
+          "applied_line_sha256": "147fc0d91df7ec04f74fc94b7f82298adc25d80eeeb6498abe4560ffc2b965c5",
+          "text_before": "gna frequentia Graeciae celebrabatur, jam senex pergeret, febrí in itinere dicitur apprehensus accubuisse in crepidine viae, volentibusque eum amicis aut in jumentum aut in vehiculum tollere, non acquievit, sed transiens ad arboris umbram locutus est: Abite quaeso et spectatum pergitè, haec me nox aut victorem probabit aut victum. Si febrem vicerò, ad agonem veniam; si me vicerit, ad inferna descendam. Ibiqne per noctem, eliso gutture, non tam mori se ait, quam febrem morte excludere. Athenaeus lib. VIII pag. 361 E: καὶ Διογένης· ὁ δὲ κύων ὡμὸν πολὺποδα καταφαγὼν ἐπιθυμεῖν αὐτῷ τῆς γαστροῦ· ἀπέθανε. Lucianus vitt. auct. cap. 10 sub persona Diogenis: καὶ τέλος, ἦν σοι δοκῇ, πολὺποδα ὠμὸν, ἡ σπητίαν φαγὼν, ἀπόθανε. Julianus orat. VI init.: ἀλλὰ καὶ τὴν ἐξωθὴν τοῦ πολὺποδος κυμμαθεῖ· καὶ φησι τὸν Διογένη τῆς ἀνοίας καὶ κενοδοξίας ἐκτετινέναι δίχας, ὥσπερ ὑπὸ κανοῦνιο, τῆς τροφῆς, διαφθοράντα. Plutarchus in Aqua et ignis comparatione cap. 2, vol. XIII p. 126: καὶ Διογένης ὁ δὲ κύων ἡμιστα προσεχρήτο πυρί, ὥστε καὶ πολὺποδα καταπιὼν ὡμὸν· Οὕτως ὑπὲρ ὑμῶν, εἶπε, ὦ ἄνδρες, παραβάλλομαι. Tatianus orat. ad Graecos init.: Διογένης· πίθηκος· καὶ σχήματι τὴν αὐταρκεῖαν σεμνυνόμενος, πολὺποδος ὠμοβορίης, παθὼν συγχθεῖς ἱλαῶ, διὰ τὴν ἄκρασίαν ἀποτέθνηκεν. Solates apud Stobaeum Floril. XCVIII, 9: πολὺποδα φαγὼν ὁ Διογένης ὡμὸν τέθνηκεν. Aelianus var. hist. lib. VIII cap. 14: Διογένης ὁ Σινωπεύς, ὅτε λοιπὸν ἔνοσε ἐπὶ θανάτου, ἐπαντὸν φάμεν μόγις ἐξέφθε κατὰ τινὸς γεραρίου πρὸς γεω-αστίου ὄντος, καὶ προτεταξὼ τῇ παλαιστρωφύλακι, ἐπειδὰν αἰσθεται ἀποπνεῦντα αὐτόν, βέβαι εἰς τὸν Ἡλιού. Οὕτως ἄρα ὀλίγον ἔμελε Διογένει καὶ θανάτου καὶ ταφῆς. — (8) Diogenes Laertius lib. VI, 33: ἔλεγεν ἐαυτὸν κύνα εἶναι τῶν ἐπανουμένων, ἀλλὰ μηδὲν τοὺς τῶν ἐπανουμένων συνεξίζειν ἐκὶ τὴν ὁρᾶν. Quapropter etiam canis marmoreus in Diogenis tumulo positus fuit teste Laertio VI, 78. Vid. annot. 7. In hunc incerti poetae epigramma est, insertum Anthologiae lib. III. Sunt autem versus graeci: Εἰπέ, κύων, τίνος ἄνδρός ἐραστὸς σῶμα φυλάττεις; Τοῦ Κυνός. Ἀλλὰ τίς τὸν οὕτως ἄνθρωπον ὁ κύων; Διογένης. Γίνος εἶπε. Σινωπεύς· δὲς πίδων φῦκε. Καὶ μέλη· νῦν δὲ θανὼν ἄσπίζει οἴκον ἔχει. Quos sic imitatus est Ausonius: Dic, Canis, hic cujus Tumulus? Canis. Ad Canis hic quis? Diogenes. Obiit? Non obiit, sed abit Diogenes; cui pera penus; cui dolia sedes. Ad manes abiit? Cerberus ire vetat. Quonam igitur? Clari fragrat qua stella Leonis, Additus est justae nunc Cani' Efigonae. — (9) Diogenes Laertius lib. VI, 22-23: τριβώνια διπλώσας πρώτως κατὰ τινος ὀκὼ τοῦ ἀναχῶν ἔχειν καὶ ἐναλίψαι αὐτῇ, πῆραν τ' ἐμορφαίσατο, ἔνθα αὐτῷ τὰ σῶμα ἦν, καὶ παντὶ τότρω ἐξήρθη εἰς πάντα, δεσμοῦν τε καὶ καθεδρῶν καὶ διαλεγόμενος. Ὅτε καὶ τοὺς Ἀθηναίους ἐκασίας, λαβὼν τὴν τοῦ Διὸς στολὴν καὶ τὸ πομπῶν, αὐτὸ κατασκευασάμενος ἐνδιαστάθαι. Βακτηρίης δ' ἀπεστηρίζοντο ἀσθενείας· ἐπειτα μέντοι καὶ διὰ παντὸς ἐφόρει, οὐ μὴν ἐν ἄστει, ἀλλὰ κατ' ὀδὸν αὐτῇ τε καὶ τῇ κνήμῃ, καθὼς φησιν Ἀθηναῖος· ὁ Ἀθηναῖος προστάττει· καὶ Πολυδευκῆς ὁ ῥήτωρ καὶ Λυσανίας ὁ Ἀλγειρόσιος. Ἐπιστελεῖς δὲ τὴν οἰκείαν οὐδὲ προνοήσασθαι, βεβαινόμενος, τὸν ἐν τῇ Μητρῶν πίδων ἔσχεσθαι οἰκίαν, ὡς καὶ αὐτὸν ἐν ταῖς ἐπιστολαῖς διασαφεῖ. Καὶ θέρους· μὲν ἐπὶ ψάμμω ἱστίης ἐκλινοῦντο, χειμῶνος δ' ἀνδριάν.",
+          "text_after": "gna frequentia Graeciae celebrabatur, jam senex pergeret, febrí in itinere dicitur apprehensus accubuisse in crepidine viae, volentibusque eum amicis aut in jumentum aut in vehiculum tollere, non acquievit, sed transiens ad arboris umbram locutus est: Abite quaeso et spectatum pergitè, haec me nox aut victorem probabit aut victum. Si febrem vicerò, ad agonem veniam; si me vicerit, ad inferna descendam. Ibiqne per noctem, eliso gutture, non tam mori se ait, quam febrem morte excludere. Athenaeus lib. VIII pag. 361 E: καὶ Διογένης· ὁ δὲ κύων ὡμὸν πολύποδα καταφαγὼν ἐπιθυμεῖν αὐτῷ τῆς γαστροῦ· ἀπέθανε. Lucianus vitt. auct. cap. 10 sub persona Diogenis: καὶ τέλος, ἦν σοι δοκῇ, πολύποδα ὠμὸν, ἡ σπητίαν φαγὼν, ἀπόθανε. Julianus orat. VI init.: ἀλλὰ καὶ τὴν ἐξωθὴν τοῦ πολύποδος κυμμαθεῖ· καὶ φησι τὸν Διογένη τῆς ἀνοίας καὶ κενοδοξίας ἐκτετινέναι δίχας, ὥσπερ ὑπὸ κανοῦνιο, τῆς τροφῆς, διαφθοράντα. Plutarchus in Aqua et ignis comparatione cap. 2, vol. XIII p. 126: καὶ Διογένης ὁ δὲ κύων ἡμιστα προσεχρήτο πυρί, ὥστε καὶ πολὺποδα καταπιὼν ὡμὸν· Οὕτως ὑπὲρ ὑμῶν, εἶπε, ὦ ἄνδρες, παραβάλλομαι. Tatianus orat. ad Graecos init.: Διογένης· πίθηκος· καὶ σχήματι τὴν αὐταρκεῖαν σεμνυνόμενος, πολύποδος ὠμοβορίης, παθὼν συγχθεῖς ἱλαῶ, διὰ τὴν ἄκρασίαν ἀποτέθνηκεν. Solates apud Stobaeum Floril. XCVIII, 9: πολύποδα φαγὼν ὁ Διογένης ὡμὸν τέθνηκεν. Aelianus var. hist. lib. VIII cap. 14: Διογένης ὁ Σινωπεύς, ὅτε λοιπὸν ἔνοσε ἐπὶ θανάτου, ἐπαντὸν φάμεν μόγις ἐξέφθε κατὰ τινὸς γεραρίου πρὸς γεω-αστίου ὄντος, καὶ προτεταξὼ τῇ παλαιστρωφύλακι, ἐπειδὰν αἰσθεται ἀποπνεῦντα αὐτόν, βέβαι εἰς τὸν Ἡλιού. Οὕτως ἄρα ὀλίγον ἔμελε Διογένει καὶ θανάτου καὶ ταφῆς. — (8) Diogenes Laertius lib. VI, 33: ἔλεγεν ἐαυτὸν κύνα εἶναι τῶν ἐπανουμένων, ἀλλὰ μηδὲν τοὺς τῶν ἐπανουμένων συνεξίζειν ἐκὶ τὴν ὁρᾶν. Quapropter etiam canis marmoreus in Diogenis tumulo positus fuit teste Laertio VI, 78. Vid. annot. 7. In hunc incerti poetae epigramma est, insertum Anthologiae lib. III. Sunt autem versus graeci: Εἰπέ, κύων, τίνος ἄνδρός ἐραστὸς σῶμα φυλάττεις; Τοῦ Κυνός. Ἀλλὰ τίς τὸν οὕτως ἄνθρωπον ὁ κύων; Διογένης. Γίνος εἶπε. Σινωπεύς· δὲς πίδων φῦκε. Καὶ μέλη· νῦν δὲ θανὼν ἄσπίζει οἴκον ἔχει. Quos sic imitatus est Ausonius: Dic, Canis, hic cujus Tumulus? Canis. Ad Canis hic quis? Diogenes. Obiit? Non obiit, sed abit Diogenes; cui pera penus; cui dolia sedes. Ad manes abiit? Cerberus ire vetat. Quonam igitur? Clari fragrat qua stella Leonis, Additus est justae nunc Cani' Efigonae. — (9) Diogenes Laertius lib. VI, 22-23: τριβώνια διπλώσας πρώτως κατὰ τινος ὀκὼ τοῦ ἀναχῶν ἔχειν καὶ ἐναλίψαι αὐτῇ, πῆραν τ' ἐμορφαίσατο, ἔνθα αὐτῷ τὰ σῶμα ἦν, καὶ παντὶ τότρω ἐξήρθη εἰς πάντα, δεσμοῦν τε καὶ καθεδρῶν καὶ διαλεγόμενος. Ὅτε καὶ τοὺς Ἀθηναίους ἐκασίας, λαβὼν τὴν τοῦ Διὸς στολὴν καὶ τὸ πομπῶν, αὐτὸ κατασκευασάμενος ἐνδιαστάθαι. Βακτηρίης δ' ἀπεστηρίζοντο ἀσθενείας· ἐπειτα μέντοι καὶ διὰ παντὸς ἐφόρει, οὐ μὴν ἐν ἄστει, ἀλλὰ κατ' ὀδὸν αὐτῇ τε καὶ τῇ κνήμῃ, καθὼς φησιν Ἀθηναῖος· ὁ Ἀθηναῖος προστάττει· καὶ Πολυδευκῆς ὁ ῥήτωρ καὶ Λυσανίας ὁ Ἀλγειρόσιος. Ἐπιστελεῖς δὲ τὴν οἰκείαν οὐδὲ προνοήσασθαι, βεβαινόμενος, τὸν ἐν τῇ Μητρῶν πίδων ἔσχεσθαι οἰκίαν, ὡς καὶ αὐτὸν ἐν ταῖς ἐπιστολαῖς διασαφεῖ. Καὶ θέρους· μὲν ἐπὶ ψάμμω ἱστίης ἐκλινοῦντο, χειμῶνος δ' ἀνδριάν.",
+          "edits": [
+            {
+              "item_id": "ogc-31-1fca58e5ca554ae4",
+              "start": 551,
+              "end": 559,
+              "observed": "πολὺποδα",
+              "decision": "replace",
+              "reading": "πολύποδα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n404/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-fb488ffd5d5477cb",
+              "start": 682,
+              "end": 690,
+              "observed": "πολὺποδα",
+              "decision": "replace",
+              "reading": "πολύποδα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n404/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-af7acf06525000c9",
+              "start": 772,
+              "end": 781,
+              "observed": "πολὺποδος",
+              "decision": "replace",
+              "reading": "πολύποδος",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n404/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-3ffa9c836715c402",
+              "start": 1190,
+              "end": 1199,
+              "observed": "πολὺποδος",
+              "decision": "replace",
+              "reading": "πολύποδος",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n404/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-579823ed9d2c4fec",
+              "start": 1303,
+              "end": 1311,
+              "observed": "πολὺποδα",
+              "decision": "replace",
+              "reading": "πολύποδα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n404/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 6,
+          "locus": "archytas_mullach_fpg2_0405.2",
+          "original_line": "{\"urn\": \"diogenes-sinopensis.fragmenta-et-apophthegmata\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0405.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τας κεχωνισμένους περιελάμβανε, πανταχόθεν ἐαυτὸν συνασκῶν. Hieronymus contra Jovinianum lib. II: Refert Salyrus, qui illustrium virorum scripsit historiam, quod Diogenes palliolo duplici usus sit propter frigus. Origines contra Celsum lib. II ἀλλὰ καὶ Διογένης· δι' ὑπερβολούσαν εὐτελείαν πίδων φῦκε, καὶ παρ' οὐδενὶ τῶν νοῦν ἔχοντων κἂν μέτριον, τοῦτο γε χάριν, Διογένης· ἐν παλκὶ ἦν. Diogenianus IV, 38: ζωὴν πίδων· ἐπὶ τῶν ἐπικεινῶς καὶ μετρίως καὶ ἀπραχμοῦνως βιούντων, ἀπὸ Διογένους, ὡς παῖδος ἡδίστη διαγωγῇ. Suidas v. ζεῖ γύτρα, ζῆ φιλία· ζωὴν πίδων· ἐπὶ τῶν μετρίως καὶ ταπεινῶς ζώντων, ἀπὸ Διογένους τοῦ φιλοσόφου, ὁ πίδος ἦν ἡ ἡδίστη καταγωγῇ. Juvenalis Sat. XIV, 308 seqq.: dolia nudì Non ardent Cynici: si frigeris, altera fiet Cras domus, aut eadem plumbo commissa manebit. Sensit Alexander, testa cum vidit in illa Magnum habitatorem: quanto felicior hic qui Nil cuperet, quam qui totum sibi posceret orbem, Passurus gestis aquanda pericula rebus. Lucianus in libello Quomodo scribenda sit historia: ὁ δὲ Διογένης ὁρῶν ταῦτα, ἐπεὶ μηδὲν εἶχεν δ, τι καὶ πράττοι, οὐδεὶς γὰρ αὐτῷ ἐς οὐδὲν ἐχρήστο, διαφασάμενος· τὸ τριβώνιον, σπουδὴν μείζα καὶ αὐτὸς ἐκὶλε τὸν πίδων, ἐν ᾧ ἐτύγχανεν οἰκῶν, ὅπου καὶ κάτω τοῦ Κρανοῦν. Καὶ τινος τῶν συνήθων ἐρωμίνου, Τί ταῦτα ποιεῖς ὡ Διογένης; Κυλίω, ἔφη, κατὰ τὸν πίδων, ὡς μη-μόνος ἀργεῖν δοκοῦν ἐν τοσοῦτοῖς ἐργαζομένους. Seneca epist. XC, 11: Quomodo, oro te, convenit, ut Diogenem mireria et Daedalum? Uter ex his sapiens tibi videtur? qui serrat commentus est, an ille qui quum vidisset puerum cava manu bibentem aquam, fregit prolinus exemtum e perula calicem hac obijuratione sui: Quamdiu homo stultus supervacuas sarcinulas habui! qui se complicit in dolo, et in eo cubitavit? — (10) Cicero Tusc. lib. V, 32. Similiter Plutarchus vit. Alexandri cap. XIV: εἰς δὲ τὸν Ἰσθμὸν τῶν Ἑλλήνων συλλεγέντων, καὶ ψηφισαμένων ἀπὶ Πύρρας μετ' Ἀλεξάνδρου στρατεῦσαι, ἠγεμὼν ἀνηγορεύθη. Πολλῶν δὲ καὶ πολιτικῶν ἀνδρῶν καὶ φιλοσόφων ἀπηνηγόρευσαν αὐτῷ, καὶ συννηδομένων, ἡλθε καὶ Διογένη τὸν Σινωπεῖα ταῦτο ποιήσεν, διατριβόντα περὶ Κόρινθον. Ὅς δ' ἐκεῖνος, διὰχιστον Ἀλεξάνδρου λόγον ἔχων, ἐν τῷ Κρανοῦν σχολὴν ἔχων, αὐτὸς ἐπορεύετο πρὸς αὐτόν. Ἐτυχὲ δὲ κατακεῖμενος ἐν ἡλίῳ, καὶ μικρὸν μὲν ἀναστάς, ἀναδεῦναι τοποῦτον ἐπεκρύψαν, καὶ διεξῆλθεν εἰς τὸν Ἀλεξάνδρου· ὡς δ' ἐκεῖνος· ἀσπαζόμενος καὶ προσεπών αὐτὸν ἡρώτισεν, εἰ τινος τυγχάνει δεόμενος; Μικρὸν, εἶπεν, ἀπὸ τοῦ ἡλίου μεταστήθι. Πρὸς τοῦτο λέγεται τὸν Ἀλέξανδρον οὕτω διατεθῆναι καὶ θαυμάσαι καταφρονηθέντα τῇν ὑπεροφίαν καὶ τὸ μέγεθος τοῦ ἀνδρός, ὥστε τῶν περὶ αὐτόν, ὡς ἀπηρέσεν, διαγελαίντων καὶ σκωπτούντων· Ἀλλὰ μὴν ἄγω, εἶπεν, εἰ μὴ Ἀλέξανδρος ἦμην, Διογένην ἄν ἤμην. Addo Diog. Laert. VI, 38 (fragm. 114); Simplic. ad Epictet. cap. 21 p. 123 ed. Salmas; Valer. Max. IV, 3; Anton. el Maxim. serm. de fortuna prospera et adversa (fragm. 275). — (11) Cicero de nat. deor. III, 34. — (12) Vid. fragm. 120.\"}\n",
+          "applied_line": "{\"urn\": \"diogenes-sinopensis.fragmenta-et-apophthegmata\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0405.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τας κεχωνισμένους περιελάμβανε, πανταχόθεν ἐαυτὸν συνασκῶν. Hieronymus contra Jovinianum lib. II: Refert Salyrus, qui illustrium virorum scripsit historiam, quod Diogenes palliolo duplici usus sit propter frigus. Origines contra Celsum lib. II ἀλλὰ καὶ Διογένης· δι' ὑπερβολούσαν εὐτελείαν πίδων φῦκε, καὶ παρ' οὐδενὶ τῶν νοῦν ἔχοντων κἂν μέτριον, τοῦτο γε χάριν, Διογένης· ἐν παλκὶ ἦν. Diogenianus IV, 38: ζωὴν πίδων· ἐπὶ τῶν ἐπικεινῶς καὶ μετρίως καὶ ἀπραχμοῦνως βιούντων, ἀπὸ Διογένους, ὡς παῖδος ἡδίστη διαγωγῇ. Suidas v. ζεῖ γύτρα, ζῆ φιλία· ζωὴν πίδων· ἐπὶ τῶν μετρίως καὶ ταπεινῶς ζώντων, ἀπὸ Διογένους τοῦ φιλοσόφου, ὁ πίδος ἦν ἡ ἡδίστη καταγωγῇ. Juvenalis Sat. XIV, 308 seqq.: dolia nudì Non ardent Cynici: si frigeris, altera fiet Cras domus, aut eadem plumbo commissa manebit. Sensit Alexander, testa cum vidit in illa Magnum habitatorem: quanto felicior hic qui Nil cuperet, quam qui totum sibi posceret orbem, Passurus gestis aquanda pericula rebus. Lucianus in libello Quomodo scribenda sit historia: ὁ δὲ Διογένης ὁρῶν ταῦτα, ἐπεὶ μηδὲν εἶχεν δ, τι καὶ πράττοι, οὐδεὶς γὰρ αὐτῷ ἐς οὐδὲν ἐχρήστο, διαφασάμενος· τὸ τριβώνιον, σπουδὴν μείζα καὶ αὐτὸς ἐκὶλε τὸν πίδων, ἐν ᾧ ἐτύγχανεν οἰκῶν, ὅπου καὶ κάτω τοῦ Κρανοῦν. Καὶ τινος τῶν συνήθων ἐρωμίνου, Τί ταῦτα ποιεῖς ὡ Διογένης; Κυλίω, ἔφη, κατὰ τὸν πίδων, ὡς μη-μόνος ἀργεῖν δοκοῦν ἐν τοσοῦτοῖς ἐργαζομένους. Seneca epist. XC, 11: Quomodo, oro te, convenit, ut Diogenem mireria et Daedalum? Uter ex his sapiens tibi videtur? qui serrat commentus est, an ille qui quum vidisset puerum cava manu bibentem aquam, fregit prolinus exemtum e perula calicem hac obijuratione sui: Quamdiu homo stultus supervacuas sarcinulas habui! qui se complicit in dolo, et in eo cubitavit? — (10) Cicero Tusc. lib. V, 32. Similiter Plutarchus vit. Alexandri cap. XIV: εἰς δὲ τὸν Ἰσθμὸν τῶν Ἑλλήνων συλλεγέντων, καὶ ψηφισαμένων ἀπὶ Πύρρας μετ' Ἀλεξάνδρου στρατεῦσαι, ἠγεμὼν ἀνηγορεύθη. Πολλῶν δὲ καὶ πολιτικῶν ἀνδρῶν καὶ φιλοσόφων ἀπηνηγόρευσαν αὐτῷ, καὶ συννηδομένων, ἡλθε καὶ Διογένη τὸν Σινωπεῖα ταῦτο ποιήσεν, διατριβόντα περὶ Κόρινθον. Ὅς δ' ἐκεῖνος, διάχιστον Ἀλεξάνδρου λόγον ἔχων, ἐν τῷ Κρανοῦν σχολὴν ἔχων, αὐτὸς ἐπορεύετο πρὸς αὐτόν. Ἐτυχὲ δὲ κατακεῖμενος ἐν ἡλίῳ, καὶ μικρὸν μὲν ἀναστάς, ἀναδεῦναι τοποῦτον ἐπεκρύψαν, καὶ διεξῆλθεν εἰς τὸν Ἀλεξάνδρου· ὡς δ' ἐκεῖνος· ἀσπαζόμενος καὶ προσεπών αὐτὸν ἡρώτισεν, εἰ τινος τυγχάνει δεόμενος; Μικρὸν, εἶπεν, ἀπὸ τοῦ ἡλίου μεταστήθι. Πρὸς τοῦτο λέγεται τὸν Ἀλέξανδρον οὕτω διατεθῆναι καὶ θαυμάσαι καταφρονηθέντα τῇν ὑπεροφίαν καὶ τὸ μέγεθος τοῦ ἀνδρός, ὥστε τῶν περὶ αὐτόν, ὡς ἀπηρέσεν, διαγελαίντων καὶ σκωπτούντων· Ἀλλὰ μὴν ἄγω, εἶπεν, εἰ μὴ Ἀλέξανδρος ἦμην, Διογένην ἄν ἤμην. Addo Diog. Laert. VI, 38 (fragm. 114); Simplic. ad Epictet. cap. 21 p. 123 ed. Salmas; Valer. Max. IV, 3; Anton. el Maxim. serm. de fortuna prospera et adversa (fragm. 275). — (11) Cicero de nat. deor. III, 34. — (12) Vid. fragm. 120.\"}\n",
+          "original_line_sha256": "40251aea222653fa56959712aa08dec068690542a009e2f32fe4f899546c0c68",
+          "applied_line_sha256": "528107ea4f9b5d2e47396c2f8d71d5b04fa16fbd9b0971f5a44448f972dd8b2c",
+          "text_before": "τας κεχωνισμένους περιελάμβανε, πανταχόθεν ἐαυτὸν συνασκῶν. Hieronymus contra Jovinianum lib. II: Refert Salyrus, qui illustrium virorum scripsit historiam, quod Diogenes palliolo duplici usus sit propter frigus. Origines contra Celsum lib. II ἀλλὰ καὶ Διογένης· δι' ὑπερβολούσαν εὐτελείαν πίδων φῦκε, καὶ παρ' οὐδενὶ τῶν νοῦν ἔχοντων κἂν μέτριον, τοῦτο γε χάριν, Διογένης· ἐν παλκὶ ἦν. Diogenianus IV, 38: ζωὴν πίδων· ἐπὶ τῶν ἐπικεινῶς καὶ μετρίως καὶ ἀπραχμοῦνως βιούντων, ἀπὸ Διογένους, ὡς παῖδος ἡδίστη διαγωγῇ. Suidas v. ζεῖ γύτρα, ζῆ φιλία· ζωὴν πίδων· ἐπὶ τῶν μετρίως καὶ ταπεινῶς ζώντων, ἀπὸ Διογένους τοῦ φιλοσόφου, ὁ πίδος ἦν ἡ ἡδίστη καταγωγῇ. Juvenalis Sat. XIV, 308 seqq.: dolia nudì Non ardent Cynici: si frigeris, altera fiet Cras domus, aut eadem plumbo commissa manebit. Sensit Alexander, testa cum vidit in illa Magnum habitatorem: quanto felicior hic qui Nil cuperet, quam qui totum sibi posceret orbem, Passurus gestis aquanda pericula rebus. Lucianus in libello Quomodo scribenda sit historia: ὁ δὲ Διογένης ὁρῶν ταῦτα, ἐπεὶ μηδὲν εἶχεν δ, τι καὶ πράττοι, οὐδεὶς γὰρ αὐτῷ ἐς οὐδὲν ἐχρήστο, διαφασάμενος· τὸ τριβώνιον, σπουδὴν μείζα καὶ αὐτὸς ἐκὶλε τὸν πίδων, ἐν ᾧ ἐτύγχανεν οἰκῶν, ὅπου καὶ κάτω τοῦ Κρανοῦν. Καὶ τινος τῶν συνήθων ἐρωμίνου, Τί ταῦτα ποιεῖς ὡ Διογένης; Κυλίω, ἔφη, κατὰ τὸν πίδων, ὡς μη-μόνος ἀργεῖν δοκοῦν ἐν τοσοῦτοῖς ἐργαζομένους. Seneca epist. XC, 11: Quomodo, oro te, convenit, ut Diogenem mireria et Daedalum? Uter ex his sapiens tibi videtur? qui serrat commentus est, an ille qui quum vidisset puerum cava manu bibentem aquam, fregit prolinus exemtum e perula calicem hac obijuratione sui: Quamdiu homo stultus supervacuas sarcinulas habui! qui se complicit in dolo, et in eo cubitavit? — (10) Cicero Tusc. lib. V, 32. Similiter Plutarchus vit. Alexandri cap. XIV: εἰς δὲ τὸν Ἰσθμὸν τῶν Ἑλλήνων συλλεγέντων, καὶ ψηφισαμένων ἀπὶ Πύρρας μετ' Ἀλεξάνδρου στρατεῦσαι, ἠγεμὼν ἀνηγορεύθη. Πολλῶν δὲ καὶ πολιτικῶν ἀνδρῶν καὶ φιλοσόφων ἀπηνηγόρευσαν αὐτῷ, καὶ συννηδομένων, ἡλθε καὶ Διογένη τὸν Σινωπεῖα ταῦτο ποιήσεν, διατριβόντα περὶ Κόρινθον. Ὅς δ' ἐκεῖνος, διὰχιστον Ἀλεξάνδρου λόγον ἔχων, ἐν τῷ Κρανοῦν σχολὴν ἔχων, αὐτὸς ἐπορεύετο πρὸς αὐτόν. Ἐτυχὲ δὲ κατακεῖμενος ἐν ἡλίῳ, καὶ μικρὸν μὲν ἀναστάς, ἀναδεῦναι τοποῦτον ἐπεκρύψαν, καὶ διεξῆλθεν εἰς τὸν Ἀλεξάνδρου· ὡς δ' ἐκεῖνος· ἀσπαζόμενος καὶ προσεπών αὐτὸν ἡρώτισεν, εἰ τινος τυγχάνει δεόμενος; Μικρὸν, εἶπεν, ἀπὸ τοῦ ἡλίου μεταστήθι. Πρὸς τοῦτο λέγεται τὸν Ἀλέξανδρον οὕτω διατεθῆναι καὶ θαυμάσαι καταφρονηθέντα τῇν ὑπεροφίαν καὶ τὸ μέγεθος τοῦ ἀνδρός, ὥστε τῶν περὶ αὐτόν, ὡς ἀπηρέσεν, διαγελαίντων καὶ σκωπτούντων· Ἀλλὰ μὴν ἄγω, εἶπεν, εἰ μὴ Ἀλέξανδρος ἦμην, Διογένην ἄν ἤμην. Addo Diog. Laert. VI, 38 (fragm. 114); Simplic. ad Epictet. cap. 21 p. 123 ed. Salmas; Valer. Max. IV, 3; Anton. el Maxim. serm. de fortuna prospera et adversa (fragm. 275). — (11) Cicero de nat. deor. III, 34. — (12) Vid. fragm. 120.",
+          "text_after": "τας κεχωνισμένους περιελάμβανε, πανταχόθεν ἐαυτὸν συνασκῶν. Hieronymus contra Jovinianum lib. II: Refert Salyrus, qui illustrium virorum scripsit historiam, quod Diogenes palliolo duplici usus sit propter frigus. Origines contra Celsum lib. II ἀλλὰ καὶ Διογένης· δι' ὑπερβολούσαν εὐτελείαν πίδων φῦκε, καὶ παρ' οὐδενὶ τῶν νοῦν ἔχοντων κἂν μέτριον, τοῦτο γε χάριν, Διογένης· ἐν παλκὶ ἦν. Diogenianus IV, 38: ζωὴν πίδων· ἐπὶ τῶν ἐπικεινῶς καὶ μετρίως καὶ ἀπραχμοῦνως βιούντων, ἀπὸ Διογένους, ὡς παῖδος ἡδίστη διαγωγῇ. Suidas v. ζεῖ γύτρα, ζῆ φιλία· ζωὴν πίδων· ἐπὶ τῶν μετρίως καὶ ταπεινῶς ζώντων, ἀπὸ Διογένους τοῦ φιλοσόφου, ὁ πίδος ἦν ἡ ἡδίστη καταγωγῇ. Juvenalis Sat. XIV, 308 seqq.: dolia nudì Non ardent Cynici: si frigeris, altera fiet Cras domus, aut eadem plumbo commissa manebit. Sensit Alexander, testa cum vidit in illa Magnum habitatorem: quanto felicior hic qui Nil cuperet, quam qui totum sibi posceret orbem, Passurus gestis aquanda pericula rebus. Lucianus in libello Quomodo scribenda sit historia: ὁ δὲ Διογένης ὁρῶν ταῦτα, ἐπεὶ μηδὲν εἶχεν δ, τι καὶ πράττοι, οὐδεὶς γὰρ αὐτῷ ἐς οὐδὲν ἐχρήστο, διαφασάμενος· τὸ τριβώνιον, σπουδὴν μείζα καὶ αὐτὸς ἐκὶλε τὸν πίδων, ἐν ᾧ ἐτύγχανεν οἰκῶν, ὅπου καὶ κάτω τοῦ Κρανοῦν. Καὶ τινος τῶν συνήθων ἐρωμίνου, Τί ταῦτα ποιεῖς ὡ Διογένης; Κυλίω, ἔφη, κατὰ τὸν πίδων, ὡς μη-μόνος ἀργεῖν δοκοῦν ἐν τοσοῦτοῖς ἐργαζομένους. Seneca epist. XC, 11: Quomodo, oro te, convenit, ut Diogenem mireria et Daedalum? Uter ex his sapiens tibi videtur? qui serrat commentus est, an ille qui quum vidisset puerum cava manu bibentem aquam, fregit prolinus exemtum e perula calicem hac obijuratione sui: Quamdiu homo stultus supervacuas sarcinulas habui! qui se complicit in dolo, et in eo cubitavit? — (10) Cicero Tusc. lib. V, 32. Similiter Plutarchus vit. Alexandri cap. XIV: εἰς δὲ τὸν Ἰσθμὸν τῶν Ἑλλήνων συλλεγέντων, καὶ ψηφισαμένων ἀπὶ Πύρρας μετ' Ἀλεξάνδρου στρατεῦσαι, ἠγεμὼν ἀνηγορεύθη. Πολλῶν δὲ καὶ πολιτικῶν ἀνδρῶν καὶ φιλοσόφων ἀπηνηγόρευσαν αὐτῷ, καὶ συννηδομένων, ἡλθε καὶ Διογένη τὸν Σινωπεῖα ταῦτο ποιήσεν, διατριβόντα περὶ Κόρινθον. Ὅς δ' ἐκεῖνος, διάχιστον Ἀλεξάνδρου λόγον ἔχων, ἐν τῷ Κρανοῦν σχολὴν ἔχων, αὐτὸς ἐπορεύετο πρὸς αὐτόν. Ἐτυχὲ δὲ κατακεῖμενος ἐν ἡλίῳ, καὶ μικρὸν μὲν ἀναστάς, ἀναδεῦναι τοποῦτον ἐπεκρύψαν, καὶ διεξῆλθεν εἰς τὸν Ἀλεξάνδρου· ὡς δ' ἐκεῖνος· ἀσπαζόμενος καὶ προσεπών αὐτὸν ἡρώτισεν, εἰ τινος τυγχάνει δεόμενος; Μικρὸν, εἶπεν, ἀπὸ τοῦ ἡλίου μεταστήθι. Πρὸς τοῦτο λέγεται τὸν Ἀλέξανδρον οὕτω διατεθῆναι καὶ θαυμάσαι καταφρονηθέντα τῇν ὑπεροφίαν καὶ τὸ μέγεθος τοῦ ἀνδρός, ὥστε τῶν περὶ αὐτόν, ὡς ἀπηρέσεν, διαγελαίντων καὶ σκωπτούντων· Ἀλλὰ μὴν ἄγω, εἶπεν, εἰ μὴ Ἀλέξανδρος ἦμην, Διογένην ἄν ἤμην. Addo Diog. Laert. VI, 38 (fragm. 114); Simplic. ad Epictet. cap. 21 p. 123 ed. Salmas; Valer. Max. IV, 3; Anton. el Maxim. serm. de fortuna prospera et adversa (fragm. 275). — (11) Cicero de nat. deor. III, 34. — (12) Vid. fragm. 120.",
+          "edits": [
+            {
+              "item_id": "ogc-31-d4d1ff29ba6a4cd1",
+              "start": 2096,
+              "end": 2105,
+              "observed": "διὰχιστον",
+              "decision": "replace",
+              "reading": "διάχιστον",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n404/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/heron.definitiones.jsonl",
+      "sha256_before": "0031d699e2c3248fe6d902590ccdb1edb591843a0f839daadcc998115b32f0ba",
+      "sha256_after": "9e20a3c3dccade55146a217b874239c491a1f1684a49a6df93352e6f8629c292",
+      "rows": [
+        {
+          "line": 3144,
+          "locus": "heron_definitiones_teubner4_0402.1",
+          "original_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ματος τὸ ὕψος ποδῶν γ γʹ, μεῖζονος τμήματος σχοι-νιῶν λ, τοῦ δὲ ἥττονοςσχοινίων γ γʹ. εὑρίσκεταιτοίνυν τοῦ ὅλου κύκλου τὸἔμβαδὸν ἀπὸ τοῦ προκει-μένου ὑποδείγματος σχοι-νίων ωογ καὶ λεπτοῦ ἐξη-κοστοτρίτον ἑνός. ὁμοίωςεὑρίσκεται καὶ τοῦ ἥττο-νος τμήματος τὸ ἔμβαδὸνἀπὸ τοῦ προκειμένου ὑπο-δείγματος σχοινίων μζ καὶλεπτῶν ἐξηκοστοτρίτων β.εἶτα ὑπεξαιρεῖται ἀπὸ τοῦὅλου κύκλου τὸ ἔμβαδὸντοῦ ἐλάττονος τμήματος,καὶ τὸ ὑπολιμπανόμενονἔσται τοῦ μεῖζονος τμή-ματος.\"}\n",
+          "applied_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ματος τὸ ὕψος ποδῶν γ γʹ, μεῖζονος τμήματος σχοι-νιῶν λ, τοῦ δὲ ἥττονοςσχοινίων γ γʹ. εὑρίσκεταιτοίνυν τοῦ ὅλου κύκλου τὸ ἔμβαδὸν ἀπὸ τοῦ προκει-μένου ὑποδείγματος σχοι-νίων ωογ καὶ λεπτοῦ ἐξη-κοστοτρίτον ἑνός. ὁμοίωςεὑρίσκεται καὶ τοῦ ἥττο-νος τμήματος τὸ ἔμβαδὸν ἀπὸ τοῦ προκειμένου ὑπο-δείγματος σχοινίων μζ καὶ λεπτῶν ἐξηκοστοτρίτων β.εἶτα ὑπεξαιρεῖται ἀπὸ τοῦὅλου κύκλου τὸ ἔμβαδὸν τοῦ ἐλάττονος τμήματος,καὶ τὸ ὑπολιμπανόμενονἔσται τοῦ μεῖζονος τμή-ματος.\"}\n",
+          "original_line_sha256": "8969a92b0669c8f5eecd53786fc1af7d8cf29c7d63abb44d84116ff6d0b1e64c",
+          "applied_line_sha256": "4ad5c6e2a601152a021c5e6f02d471922b53b7360ac9c994c6655c4ef9a32979",
+          "text_before": "ματος τὸ ὕψος ποδῶν γ γʹ, μεῖζονος τμήματος σχοι-νιῶν λ, τοῦ δὲ ἥττονοςσχοινίων γ γʹ. εὑρίσκεταιτοίνυν τοῦ ὅλου κύκλου τὸἔμβαδὸν ἀπὸ τοῦ προκει-μένου ὑποδείγματος σχοι-νίων ωογ καὶ λεπτοῦ ἐξη-κοστοτρίτον ἑνός. ὁμοίωςεὑρίσκεται καὶ τοῦ ἥττο-νος τμήματος τὸ ἔμβαδὸνἀπὸ τοῦ προκειμένου ὑπο-δείγματος σχοινίων μζ καὶλεπτῶν ἐξηκοστοτρίτων β.εἶτα ὑπεξαιρεῖται ἀπὸ τοῦὅλου κύκλου τὸ ἔμβαδὸντοῦ ἐλάττονος τμήματος,καὶ τὸ ὑπολιμπανόμενονἔσται τοῦ μεῖζονος τμή-ματος.",
+          "text_after": "ματος τὸ ὕψος ποδῶν γ γʹ, μεῖζονος τμήματος σχοι-νιῶν λ, τοῦ δὲ ἥττονοςσχοινίων γ γʹ. εὑρίσκεταιτοίνυν τοῦ ὅλου κύκλου τὸ ἔμβαδὸν ἀπὸ τοῦ προκει-μένου ὑποδείγματος σχοι-νίων ωογ καὶ λεπτοῦ ἐξη-κοστοτρίτον ἑνός. ὁμοίωςεὑρίσκεται καὶ τοῦ ἥττο-νος τμήματος τὸ ἔμβαδὸν ἀπὸ τοῦ προκειμένου ὑπο-δείγματος σχοινίων μζ καὶ λεπτῶν ἐξηκοστοτρίτων β.εἶτα ὑπεξαιρεῖται ἀπὸ τοῦὅλου κύκλου τὸ ἔμβαδὸν τοῦ ἐλάττονος τμήματος,καὶ τὸ ὑπολιμπανόμενονἔσται τοῦ μεῖζονος τμή-ματος.",
+          "edits": [
+            {
+              "item_id": "ogc-31-4bfd769c01ae2e89",
+              "start": 119,
+              "end": 128,
+              "observed": "τὸἔμβαδὸν",
+              "decision": "split",
+              "reading": "τὸ ἔμβαδὸν",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-833c093099a4644e",
+              "start": 256,
+              "end": 266,
+              "observed": "ἔμβαδὸνἀπὸ",
+              "decision": "split",
+              "reading": "ἔμβαδὸν ἀπὸ",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-22233379aef0f7ff",
+              "start": 309,
+              "end": 318,
+              "observed": "καὶλεπτῶν",
+              "decision": "split",
+              "reading": "καὶ λεπτῶν",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-1e853080edfa9880",
+              "start": 376,
+              "end": 386,
+              "observed": "ἔμβαδὸντοῦ",
+              "decision": "split",
+              "reading": "ἔμβαδὸν τοῦ",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 3145,
+          "locus": "heron_definitiones_teubner4_0402.2",
+          "original_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοιντέστιν ἡ κάθετος. ἄρτι9 εὑρίσκω ὅλου τοῦ κύκλουτὸ ἔμβαδόν· γίνεται πο-δῶν ωογ, ὡς προδέδειχται.καὶ τοῦ ἐλάσσονος τμήμα-τος εὑρίσκω τὸ ἔμβαδόν,ὡς προεῖδειξα, καὶ αἴρω ἀπὸὅλου τοῦ κύκλου· καὶ τὸλοιπὸν ἔστω τὸ ἔμβαδὸν τοῦμεῖζονος τμήματος,καθὼς προεἶπον.\", \"corrections\": [\"confusion\"]}\n",
+          "applied_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοιντέστιν ἡ κάθετος. ἄρτι9 εὑρίσκω ὅλου τοῦ κύκλουτὸ ἔμβαδόν· γίνεται πο-δῶν ωογ, ὡς προδέδειχται.καὶ τοῦ ἐλάσσονος τμήμα-τος εὑρίσκω τὸ ἔμβαδόν,ὡς προεῖδειξα, καὶ αἴρω ἀπὸ ὅλου τοῦ κύκλου· καὶ τὸ λοιπὸν ἔστω τὸ ἔμβαδὸν τοῦμεῖζονος τμήματος,καθὼς προεἶπον.\", \"corrections\": [\"confusion\"]}\n",
+          "original_line_sha256": "a505cb818a26874a692c536e7c64ba4248a59f9e7c60fb3a6caf721329e3e25a",
+          "applied_line_sha256": "d1953b6093e74e9a26cb48bfb21646ea9558b9571b315437cffc61a1733d1599",
+          "text_before": "τοιντέστιν ἡ κάθετος. ἄρτι9 εὑρίσκω ὅλου τοῦ κύκλουτὸ ἔμβαδόν· γίνεται πο-δῶν ωογ, ὡς προδέδειχται.καὶ τοῦ ἐλάσσονος τμήμα-τος εὑρίσκω τὸ ἔμβαδόν,ὡς προεῖδειξα, καὶ αἴρω ἀπὸὅλου τοῦ κύκλου· καὶ τὸλοιπὸν ἔστω τὸ ἔμβαδὸν τοῦμεῖζονος τμήματος,καθὼς προεἶπον.",
+          "text_after": "τοιντέστιν ἡ κάθετος. ἄρτι9 εὑρίσκω ὅλου τοῦ κύκλουτὸ ἔμβαδόν· γίνεται πο-δῶν ωογ, ὡς προδέδειχται.καὶ τοῦ ἐλάσσονος τμήμα-τος εὑρίσκω τὸ ἔμβαδόν,ὡς προεῖδειξα, καὶ αἴρω ἀπὸ ὅλου τοῦ κύκλου· καὶ τὸ λοιπὸν ἔστω τὸ ἔμβαδὸν τοῦμεῖζονος τμήματος,καθὼς προεἶπον.",
+          "edits": [
+            {
+              "item_id": "ogc-31-2f0cd17a4e66c42c",
+              "start": 170,
+              "end": 177,
+              "observed": "ἀπὸὅλου",
+              "decision": "split",
+              "reading": "ἀπὸ ὅλου",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-b2a585317bef0c33",
+              "start": 194,
+              "end": 202,
+              "observed": "τὸλοιπὸν",
+              "decision": "split",
+              "reading": "τὸ λοιπὸν",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 3146,
+          "locus": "heron_definitiones_teubner4_0402.3",
+          "original_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"10 Ὁλου δὲ τοῦ κύκλου τὸ ἔμβαδὸν εὑρήσεις οὕτως·τὰ λγ γʹ ἐφʹ ἑαυτά· γίνονται αρια θʹ· ταῦτα ἀεὶ δε-κάκις καὶ ἄπαξ· γίνονται ἄβσκη ζʹ ιηʹ. ὧν ἀεὶ τὸ ιδʹ·γίνονται ωογ καὶ ξγʹ· τοσούτων σχοινίων τὸ ἔμβαδὸντοῦ ὅλου κύκλου.\"}\n",
+          "applied_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"10 Ὁλου δὲ τοῦ κύκλου τὸ ἔμβαδὸν εὑρήσεις οὕτως·τὰ λγ γʹ ἐφʹ ἑαυτά· γίνονται αρια θʹ· ταῦτα ἀεὶ δε-κάκις καὶ ἄπαξ· γίνονται ἄβσκη ζʹ ιηʹ. ὧν ἀεὶ τὸ ιδʹ·γίνονται ωογ καὶ ξγʹ· τοσούτων σχοινίων τὸ ἔμβαδὸν τοῦ ὅλου κύκλου.\"}\n",
+          "original_line_sha256": "166cae969b90f728fbef3aba8ac9ca1dfd7699351393d23ef3a62dbb1731d4bd",
+          "applied_line_sha256": "eebf036915d46531b36811a859173226e158c3783a78a10c6abd9b24cafa7a56",
+          "text_before": "10 Ὁλου δὲ τοῦ κύκλου τὸ ἔμβαδὸν εὑρήσεις οὕτως·τὰ λγ γʹ ἐφʹ ἑαυτά· γίνονται αρια θʹ· ταῦτα ἀεὶ δε-κάκις καὶ ἄπαξ· γίνονται ἄβσκη ζʹ ιηʹ. ὧν ἀεὶ τὸ ιδʹ·γίνονται ωογ καὶ ξγʹ· τοσούτων σχοινίων τὸ ἔμβαδὸντοῦ ὅλου κύκλου.",
+          "text_after": "10 Ὁλου δὲ τοῦ κύκλου τὸ ἔμβαδὸν εὑρήσεις οὕτως·τὰ λγ γʹ ἐφʹ ἑαυτά· γίνονται αρια θʹ· ταῦτα ἀεὶ δε-κάκις καὶ ἄπαξ· γίνονται ἄβσκη ζʹ ιηʹ. ὧν ἀεὶ τὸ ιδʹ·γίνονται ωογ καὶ ξγʹ· τοσούτων σχοινίων τὸ ἔμβαδὸν τοῦ ὅλου κύκλου.",
+          "edits": [
+            {
+              "item_id": "ogc-31-719bcb1f0d276c84",
+              "start": 195,
+              "end": 205,
+              "observed": "ἔμβαδὸντοῦ",
+              "decision": "split",
+              "reading": "ἔμβαδὸν τοῦ",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 3147,
+          "locus": "heron_definitiones_teubner4_0402.4",
+          "original_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"11 Τοῦ δὲ ἐλάττονος τμήματος τὸ ἔμβαδὸν εὑρήσειςοὕτως· σύνθες τούτου τὴν βάσιν καὶ τὴν κάθετονἥρουν τὰ κ καὶ γ γʹ· γίνονται κγ γʹ· τούτων λαβὲ τὸἡμισυ· γίνονται ια ωʹ. ταῦτα πολυπλασίασον ἐπὶ τὰ γ γʹτῆς καθέτου· γίνονται λη ωʹ ζʹ ιηʹ. εἶτα λαβὲ τὸ ἡμισυτῆς βάσεως· γίνονται ι· ταῦτα πολυπλασίασον ἐφʹἑαυτά· γίνονται ρ· ὧν τὸ ιδʹ· γίνονται ξζʹ· ταῦτα σύνθες\"}\n",
+          "applied_line": "{\"urn\": \"heron.definitiones\", \"edition\": \"qwen36-heron_definitiones_teubner4\", \"locus\": \"heron_definitiones_teubner4_0402.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"11 Τοῦ δὲ ἐλάττονος τμήματος τὸ ἔμβαδὸν εὑρήσειςοὕτως· σύνθες τούτου τὴν βάσιν καὶ τὴν κάθετονἥρουν τὰ κ καὶ γ γʹ· γίνονται κγ γʹ· τούτων λαβὲ τὸ ἡμισυ· γίνονται ια ωʹ. ταῦτα πολυπλασίασον ἐπὶ τὰ γ γʹτῆς καθέτου· γίνονται λη ωʹ ζʹ ιηʹ. εἶτα λαβὲ τὸ ἡμισυτῆς βάσεως· γίνονται ι· ταῦτα πολυπλασίασον ἐφʹἑαυτά· γίνονται ρ· ὧν τὸ ιδʹ· γίνονται ξζʹ· ταῦτα σύνθες\"}\n",
+          "original_line_sha256": "ce1c33a8cd986a8ee7f35f9f11757532fe0e38903b3f2b10b0470f2db267f03b",
+          "applied_line_sha256": "50c6f1b33978f596aaddd59e26dd5eb80a29acb6645560ac5f9a06dcec61a877",
+          "text_before": "11 Τοῦ δὲ ἐλάττονος τμήματος τὸ ἔμβαδὸν εὑρήσειςοὕτως· σύνθες τούτου τὴν βάσιν καὶ τὴν κάθετονἥρουν τὰ κ καὶ γ γʹ· γίνονται κγ γʹ· τούτων λαβὲ τὸἡμισυ· γίνονται ια ωʹ. ταῦτα πολυπλασίασον ἐπὶ τὰ γ γʹτῆς καθέτου· γίνονται λη ωʹ ζʹ ιηʹ. εἶτα λαβὲ τὸ ἡμισυτῆς βάσεως· γίνονται ι· ταῦτα πολυπλασίασον ἐφʹἑαυτά· γίνονται ρ· ὧν τὸ ιδʹ· γίνονται ξζʹ· ταῦτα σύνθες",
+          "text_after": "11 Τοῦ δὲ ἐλάττονος τμήματος τὸ ἔμβαδὸν εὑρήσειςοὕτως· σύνθες τούτου τὴν βάσιν καὶ τὴν κάθετονἥρουν τὰ κ καὶ γ γʹ· γίνονται κγ γʹ· τούτων λαβὲ τὸ ἡμισυ· γίνονται ια ωʹ. ταῦτα πολυπλασίασον ἐπὶ τὰ γ γʹτῆς καθέτου· γίνονται λη ωʹ ζʹ ιηʹ. εἶτα λαβὲ τὸ ἡμισυτῆς βάσεως· γίνονται ι· ταῦτα πολυπλασίασον ἐφʹἑαυτά· γίνονται ρ· ὧν τὸ ιδʹ· γίνονται ξζʹ· ταῦτα σύνθες",
+          "edits": [
+            {
+              "item_id": "ogc-31-aa7d2589445bdf85",
+              "start": 143,
+              "end": 150,
+              "observed": "τὸἡμισυ",
+              "decision": "split",
+              "reading": "τὸ ἡμισυ",
+              "evidence_url": "https://archive.org/details/heronisalexandri0004hero/page/n401/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos.jsonl",
+      "sha256_before": "54a873f964b76f0466229ef7171fc63503b579865564b36cbfc350d5b4ec701a",
+      "sha256_after": "1e4878109a4f44b30a7a9eac9fb3f942783a16178e80d95017af8aaec4e92537",
+      "rows": [
+        {
+          "line": 1153,
+          "locus": "joannes_geometres_pg106_0065.11",
+          "original_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ζ'. Ἑρμηνεία, ἡ τοῦ ἁγίου Λουκιανοῦ τοῦ μεγάλουἀκητοῦ καὶ μάρτυρος. Ὦστις καὶ αὐτὸς ταῖς προ-γεγραμμέναις ἐκδόσεσι, καὶ τοῖς Ἑβραϊκοῖς ἐντυχὼν,καὶ ἐποπτεύσας μετὰ ἀκριβείας τὰ λεγόμενα, ἡ καὶπεριττὰ ὄντα τῆς ἀληθείας ῥήματα, διορθώσαςμενοςἐν τοῖς οἰκείοις τῶν Γραφῶν τόποις ἐξέδωτο τοῖςΧριστιανοῖς ἀδελφοῖς. Ἡτις μετὰ τὴν ἀύλην καὶμαρτυρίαν τοῦ ἁγίου Λουκιανοῦ, μετὰ τὸν διωγμὸντὸν γενόμενον ἐπὶ Μιξιμιανοῦ καὶ Διοκλητιανοῦ τῶντυράννων, τὸ ἰδίχηρον αὐτοῦ τῆς ἐκδόσεως· βιβλίον\"}\n",
+          "applied_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ζ'. Ἑρμηνεία, ἡ τοῦ ἁγίου Λουκιανοῦ τοῦ μεγάλουἀκητοῦ καὶ μάρτυρος. Ὦστις καὶ αὐτὸς ταῖς προ-γεγραμμέναις ἐκδόσεσι, καὶ τοῖς Ἑβραϊκοῖς ἐντυχὼν,καὶ ἐποπτεύσας μετὰ ἀκριβείας τὰ λεγόμενα, ἡ καὶ περιττὰ ὄντα τῆς ἀληθείας ῥήματα, διορθώσαςμενοςἐν τοῖς οἰκείοις τῶν Γραφῶν τόποις ἐξέδωτο τοῖςΧριστιανοῖς ἀδελφοῖς. Ἡτις μετὰ τὴν ἀύλην καὶ μαρτυρίαν τοῦ ἁγίου Λουκιανοῦ, μετὰ τὸν διωγμὸν τὸν γενόμενον ἐπὶ Μιξιμιανοῦ καὶ Διοκλητιανοῦ τῶντυράννων, τὸ ἰδίχηρον αὐτοῦ τῆς ἐκδόσεως· βιβλίον\"}\n",
+          "original_line_sha256": "82264f6b1d9397ab19744410a4a4b3918c33d285399fa6dbaa7a7bea8e400a2f",
+          "applied_line_sha256": "79a33369922f7edb226f0d91cab402b0b58cad309bfe564d229f7b9760838854",
+          "text_before": "ζ'. Ἑρμηνεία, ἡ τοῦ ἁγίου Λουκιανοῦ τοῦ μεγάλουἀκητοῦ καὶ μάρτυρος. Ὦστις καὶ αὐτὸς ταῖς προ-γεγραμμέναις ἐκδόσεσι, καὶ τοῖς Ἑβραϊκοῖς ἐντυχὼν,καὶ ἐποπτεύσας μετὰ ἀκριβείας τὰ λεγόμενα, ἡ καὶπεριττὰ ὄντα τῆς ἀληθείας ῥήματα, διορθώσαςμενοςἐν τοῖς οἰκείοις τῶν Γραφῶν τόποις ἐξέδωτο τοῖςΧριστιανοῖς ἀδελφοῖς. Ἡτις μετὰ τὴν ἀύλην καὶμαρτυρίαν τοῦ ἁγίου Λουκιανοῦ, μετὰ τὸν διωγμὸντὸν γενόμενον ἐπὶ Μιξιμιανοῦ καὶ Διοκλητιανοῦ τῶντυράννων, τὸ ἰδίχηρον αὐτοῦ τῆς ἐκδόσεως· βιβλίον",
+          "text_after": "ζ'. Ἑρμηνεία, ἡ τοῦ ἁγίου Λουκιανοῦ τοῦ μεγάλουἀκητοῦ καὶ μάρτυρος. Ὦστις καὶ αὐτὸς ταῖς προ-γεγραμμέναις ἐκδόσεσι, καὶ τοῖς Ἑβραϊκοῖς ἐντυχὼν,καὶ ἐποπτεύσας μετὰ ἀκριβείας τὰ λεγόμενα, ἡ καὶ περιττὰ ὄντα τῆς ἀληθείας ῥήματα, διορθώσαςμενοςἐν τοῖς οἰκείοις τῶν Γραφῶν τόποις ἐξέδωτο τοῖςΧριστιανοῖς ἀδελφοῖς. Ἡτις μετὰ τὴν ἀύλην καὶ μαρτυρίαν τοῦ ἁγίου Λουκιανοῦ, μετὰ τὸν διωγμὸν τὸν γενόμενον ἐπὶ Μιξιμιανοῦ καὶ Διοκλητιανοῦ τῶντυράννων, τὸ ἰδίχηρον αὐτοῦ τῆς ἐκδόσεως· βιβλίον",
+          "edits": [
+            {
+              "item_id": "ogc-31-bccfd536cfa200c6",
+              "start": 188,
+              "end": 198,
+              "observed": "καὶπεριττὰ",
+              "decision": "split",
+              "reading": "καὶ περιττὰ",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-dd28ae6b5d05232f",
+              "start": 328,
+              "end": 340,
+              "observed": "καὶμαρτυρίαν",
+              "decision": "split",
+              "reading": "καὶ μαρτυρίαν",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-f4b19c84f9bfa4a5",
+              "start": 371,
+              "end": 381,
+              "observed": "διωγμὸντὸν",
+              "decision": "split",
+              "reading": "διωγμὸν τὸν",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 1156,
+          "locus": "joannes_geometres_pg106_0065.3",
+          "original_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἕκτη δὲ ἄλλη εὑρέθη ἐν Νικοπόλει τῇ πρὸςἈρκετίους, μετὰ τὸν Οὐήρου (44) διωγμόν. Ἔς οὖν αἱἐρμηνεύεται τῶν Γραφῶν εἰσὶ καὶ σώζονται (45).\"}\n",
+          "applied_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἕκτη δὲ ἄλλη εὑρέθη ἐν Νικοπόλει τῇ πρὸς Ἀρκετίους, μετὰ τὸν Οὐήρου (44) διωγμόν. Ἔς οὖν αἱἐρμηνεύεται τῶν Γραφῶν εἰσὶ καὶ σώζονται (45).\"}\n",
+          "original_line_sha256": "0890ce5da7ae0c9eb40908d1dd6993c006549062ed9496ef93f77e90e6f18b5c",
+          "applied_line_sha256": "b2f16553f45f3d6efca56f66232264f955d360a67c2abbe4c3568918f58ffb6a",
+          "text_before": "Ἕκτη δὲ ἄλλη εὑρέθη ἐν Νικοπόλει τῇ πρὸςἈρκετίους, μετὰ τὸν Οὐήρου (44) διωγμόν. Ἔς οὖν αἱἐρμηνεύεται τῶν Γραφῶν εἰσὶ καὶ σώζονται (45).",
+          "text_after": "Ἕκτη δὲ ἄλλη εὑρέθη ἐν Νικοπόλει τῇ πρὸς Ἀρκετίους, μετὰ τὸν Οὐήρου (44) διωγμόν. Ἔς οὖν αἱἐρμηνεύεται τῶν Γραφῶν εἰσὶ καὶ σώζονται (45).",
+          "edits": [
+            {
+              "item_id": "ogc-31-0deacef0f83816d6",
+              "start": 36,
+              "end": 49,
+              "observed": "πρὸςἈρκετίους",
+              "decision": "split",
+              "reading": "πρὸς Ἀρκετίους",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 1158,
+          "locus": "joannes_geometres_pg106_0065.5",
+          "original_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πρῶτον ὑπὸ Ναβουχοδονόσορ τοῦ Βαβυλωνίου, ἐπὶΣεδεκίου βασιλέως καὶ 'Ιερεμίου τοῦ προφήτου,ἐπὶ ο' ἔτη.\"}\n",
+          "applied_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πρῶτον ὑπὸ Ναβουχοδονόσορ τοῦ Βαβυλωνίου, ἐπὶ Σεδεκίου βασιλέως καὶ 'Ιερεμίου τοῦ προφήτου,ἐπὶ ο' ἔτη.\"}\n",
+          "original_line_sha256": "f887834e3ca86a316de12d948b6cf5edf03e202bf0c330fa3257202d745d70c8",
+          "applied_line_sha256": "b53d518ad90806ae84033a013844a7c30b24588dcfa1dacdf76c4c0b0af61df9",
+          "text_before": "Πρῶτον ὑπὸ Ναβουχοδονόσορ τοῦ Βαβυλωνίου, ἐπὶΣεδεκίου βασιλέως καὶ 'Ιερεμίου τοῦ προφήτου,ἐπὶ ο' ἔτη.",
+          "text_after": "Πρῶτον ὑπὸ Ναβουχοδονόσορ τοῦ Βαβυλωνίου, ἐπὶ Σεδεκίου βασιλέως καὶ 'Ιερεμίου τοῦ προφήτου,ἐπὶ ο' ἔτη.",
+          "edits": [
+            {
+              "item_id": "ogc-31-ae84c4696ca0d550",
+              "start": 42,
+              "end": 53,
+              "observed": "ἐπὶΣεδεκίου",
+              "decision": "split",
+              "reading": "ἐπὶ Σεδεκίου",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 1159,
+          "locus": "joannes_geometres_pg106_0065.6",
+          "original_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πόσαι παραδόσεις εἰσὶ τῆς θείας Γραφῆς, εἴτ'οὖν ἀπὸ τοῦ 'Εβραϊκοῦ εἰς τὸ 'Ελληνικὸνἐρμηνείαι· καὶ τίνες οἱ ταύτην ἐρμηνεύσαντες ;\"}\n",
+          "applied_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πόσαι παραδόσεις εἰσὶ τῆς θείας Γραφῆς, εἴτ'οὖν ἀπὸ τοῦ 'Εβραϊκοῦ εἰς τὸ 'Ελληνικὸν ἐρμηνείαι· καὶ τίνες οἱ ταύτην ἐρμηνεύσαντες ;\"}\n",
+          "original_line_sha256": "d6ec57711bb9a2ed24842347edc0b2de81f7d0afaf1c8b51f75aae23511f73d2",
+          "applied_line_sha256": "ab345b28ae302090736266567a32b7a8df9fa949814ff7a8837572f37e7d81b9",
+          "text_before": "Πόσαι παραδόσεις εἰσὶ τῆς θείας Γραφῆς, εἴτ'οὖν ἀπὸ τοῦ 'Εβραϊκοῦ εἰς τὸ 'Ελληνικὸνἐρμηνείαι· καὶ τίνες οἱ ταύτην ἐρμηνεύσαντες ;",
+          "text_after": "Πόσαι παραδόσεις εἰσὶ τῆς θείας Γραφῆς, εἴτ'οὖν ἀπὸ τοῦ 'Εβραϊκοῦ εἰς τὸ 'Ελληνικὸν ἐρμηνείαι· καὶ τίνες οἱ ταύτην ἐρμηνεύσαντες ;",
+          "edits": [
+            {
+              "item_id": "ogc-31-0547b90a48639b53",
+              "start": 74,
+              "end": 92,
+              "observed": "Ελληνικὸνἐρμηνείαι",
+              "decision": "split",
+              "reading": "Ελληνικὸν ἐρμηνείαι",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        },
+        {
+          "line": 1160,
+          "locus": "joannes_geometres_pg106_0065.7",
+          "original_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πρώτη ἐστὶν ἡ τῶν οὗ' ἐρμηνευτῶν. ΟὗτοιἙβραῖοι ὄντες ἐξελέγχσαν ἀπὸ ἐκάστης φυλῆς σ'καὶ ἡρμήνευσαν τὴν Θείαν Γραφὴν ἐπὶ Πτολεμαίουτοῦ Φιλαδέλφου βασιλέως, πρὸ τα' ἐνιαυτοῦ τῆς κατὰσάρκα γεννήσεως τοῦ Κυρίου ἡμῶν 'Ιησοῦ Χριστοῦ.Δευτέρα ἐστὶν ἡ τοῦ Ἀκύλα. Οὗτος ἀπὸ Σινώπηςτοῦ Πόντου ὑπάρχων, καὶ Ἕλλην ὤν, ἐδαπίσθη ἐνἹεροσολύμοις, καὶ πάλιν τὸν Χριστιανισμὸν ἀναθε-ματίσας, καὶ τοῖς 'Ιουδαίοις προσδεράμων, ἡρμήνευσενκαὶ αὐτὸς τὴν Θείαν Γραφὴν ἐπὶ Ἀδριανοῦ τοῦ βα-σιλέως τοῦ ἐπιλεπρωθέντος, μετὰ ἔτη υλ', τῆςτῶν οὗ' ἐρμηνείας διεστραμμένω λογισμῷ.\"}\n",
+          "applied_line": "{\"urn\": \"joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos\", \"edition\": \"qwen36-joannes_geometres_pg106\", \"locus\": \"joannes_geometres_pg106_0065.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πρώτη ἐστὶν ἡ τῶν οὗ' ἐρμηνευτῶν. ΟὗτοιἙβραῖοι ὄντες ἐξελέγχσαν ἀπὸ ἐκάστης φυλῆς σ'καὶ ἡρμήνευσαν τὴν Θείαν Γραφὴν ἐπὶ Πτολεμαίουτοῦ Φιλαδέλφου βασιλέως, πρὸ τα' ἐνιαυτοῦ τῆς κατὰ σάρκα γεννήσεως τοῦ Κυρίου ἡμῶν 'Ιησοῦ Χριστοῦ.Δευτέρα ἐστὶν ἡ τοῦ Ἀκύλα. Οὗτος ἀπὸ Σινώπηςτοῦ Πόντου ὑπάρχων, καὶ Ἕλλην ὤν, ἐδαπίσθη ἐνἹεροσολύμοις, καὶ πάλιν τὸν Χριστιανισμὸν ἀναθε-ματίσας, καὶ τοῖς 'Ιουδαίοις προσδεράμων, ἡρμήνευσενκαὶ αὐτὸς τὴν Θείαν Γραφὴν ἐπὶ Ἀδριανοῦ τοῦ βα-σιλέως τοῦ ἐπιλεπρωθέντος, μετὰ ἔτη υλ', τῆςτῶν οὗ' ἐρμηνείας διεστραμμένω λογισμῷ.\"}\n",
+          "original_line_sha256": "c1f22267b4c0eecaac954131236377c11e0003955de8c79cc517ba0d44df3a7d",
+          "applied_line_sha256": "6a57746ffaccff67be414839d82686c6158d473e3ef0f6925ebeeb1c7e1c7dee",
+          "text_before": "Πρώτη ἐστὶν ἡ τῶν οὗ' ἐρμηνευτῶν. ΟὗτοιἙβραῖοι ὄντες ἐξελέγχσαν ἀπὸ ἐκάστης φυλῆς σ'καὶ ἡρμήνευσαν τὴν Θείαν Γραφὴν ἐπὶ Πτολεμαίουτοῦ Φιλαδέλφου βασιλέως, πρὸ τα' ἐνιαυτοῦ τῆς κατὰσάρκα γεννήσεως τοῦ Κυρίου ἡμῶν 'Ιησοῦ Χριστοῦ.Δευτέρα ἐστὶν ἡ τοῦ Ἀκύλα. Οὗτος ἀπὸ Σινώπηςτοῦ Πόντου ὑπάρχων, καὶ Ἕλλην ὤν, ἐδαπίσθη ἐνἹεροσολύμοις, καὶ πάλιν τὸν Χριστιανισμὸν ἀναθε-ματίσας, καὶ τοῖς 'Ιουδαίοις προσδεράμων, ἡρμήνευσενκαὶ αὐτὸς τὴν Θείαν Γραφὴν ἐπὶ Ἀδριανοῦ τοῦ βα-σιλέως τοῦ ἐπιλεπρωθέντος, μετὰ ἔτη υλ', τῆςτῶν οὗ' ἐρμηνείας διεστραμμένω λογισμῷ.",
+          "text_after": "Πρώτη ἐστὶν ἡ τῶν οὗ' ἐρμηνευτῶν. ΟὗτοιἙβραῖοι ὄντες ἐξελέγχσαν ἀπὸ ἐκάστης φυλῆς σ'καὶ ἡρμήνευσαν τὴν Θείαν Γραφὴν ἐπὶ Πτολεμαίουτοῦ Φιλαδέλφου βασιλέως, πρὸ τα' ἐνιαυτοῦ τῆς κατὰ σάρκα γεννήσεως τοῦ Κυρίου ἡμῶν 'Ιησοῦ Χριστοῦ.Δευτέρα ἐστὶν ἡ τοῦ Ἀκύλα. Οὗτος ἀπὸ Σινώπηςτοῦ Πόντου ὑπάρχων, καὶ Ἕλλην ὤν, ἐδαπίσθη ἐνἹεροσολύμοις, καὶ πάλιν τὸν Χριστιανισμὸν ἀναθε-ματίσας, καὶ τοῖς 'Ιουδαίοις προσδεράμων, ἡρμήνευσενκαὶ αὐτὸς τὴν Θείαν Γραφὴν ἐπὶ Ἀδριανοῦ τοῦ βα-σιλέως τοῦ ἐπιλεπρωθέντος, μετὰ ἔτη υλ', τῆςτῶν οὗ' ἐρμηνείας διεστραμμένω λογισμῷ.",
+          "edits": [
+            {
+              "item_id": "ogc-31-a749ae99e1b518af",
+              "start": 176,
+              "end": 185,
+              "observed": "κατὰσάρκα",
+              "decision": "split",
+              "reading": "κατὰ σάρκα",
+              "evidence_url": "https://archive.org/details/bim_early-english-books-1641-1700_1863_106/page/n64/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/photius.bibliotheca.jsonl",
+      "sha256_before": "95eca8c2429439f688841aa1d58e0aa2a26f668dc220be265a4b0578508f5738",
+      "sha256_after": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68",
+      "rows": [
+        {
+          "line": 649,
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0033.1",
+          "original_line": "{\"urn\": \"photius.bibliotheca\", \"cts\": \"urn:cts:greekLit:tlg4040.tlg001\", \"edition\": \"qwen36-helladius_chrestomathia_photius_bekker_v2-masked\", \"locus\": \"helladius_chrestomathia_photius_bekker_v2_0033.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σαβί, ἡ ἀθανασία ἐστίν. ἦν ἄν ἐπενδυσώμεθα, κατα-ποθήσω) πᾶν τὸ ἐν αὐτῇ ὀλοχερῶς ἀνενεῖς ὑπὸ τῆςἀχρόνου ζωῆς καταναλωθῆν καὶ θνητὸν.„διὰ πείσεις γὰ περιπατῶμεν, ἢ διὰ εἴδος,” ταῦτέςδιὰ πείσεις γὰ ἐπιβαίνωμεν ἢτι ἀτρανοτάτω λογισμῷτὰ ἐκεῖ πράγματα καταπτεύοντες, καὶ ἡ σαφῶς, ὡςκαὶ ὁρῶν καὶ ἀπολαύων καὶ ἐν αὐτοῖς εἶναι.„τὸτο δὲ φημ, ἀδελφοὶ, ὅτι σάρξ καὶ αἷμα κλη-ρονομήσουσι βασιλείαν θεοῦ οὐ δύναντ), ὅδὲ ἡ φθορὰ τὴνἀφθαρσίαν κληρονομεῖ.” σάρκα, φησίν, οὐ τὴν σάρκααὐτὴν ἐδήλωσεν, ἀλλὰ τὴν ἄλογον πρὸς τὰς μαχλώ-σας τῆς ψυχῆς ὀρμὴν ἡδονάς. εἰπὼν ἦν ὅτι „σάρξ καἷμα βασιλείαν θεοῦ κληρονομήσει οὐ δύνανται” ἐπα-φεῖνται „ὅδὲ ἡ φθορὰ τὴν ἀφθαρσίαν κληρονομεῖ.”φθορὰ δὲ ἐκ αὐτοῦ ἐς τὸ φθιρόμενον, ἀλλὰ τὸ φθι-ρορ. ἐπικρατήσαντος μὲν γὰ τῷ θανάτῳ κλίνεται τὸ458 Π.σάρκα “εἰς φθορὰν” ἐπιμενέσθης δὲ ἔμπαλιν τῆς ζωῆςἐν αὐτῷ ἔστηκε μὴ καθαιρόμενον. διὸ ἐπειδὴ μεθόριοντῆς ἀφθαρσίας ἐγενήθη καὶ τῆς φθορᾶς ἡ αὐτῆς, ἐκἧσα ὅδὲ φθορὰ τὴν ἀφθαρσίαν, ἐφανήθη τε διὰ τὴνἡδονὴν ὑπὸ τῆς φθορᾶς, ποίημα τῆς ἀφθαρσίας καὶκτῆμα ἐπάρχουσα, διὰ τίπο γεγένηθ) εἰς φθορὰν. καὶἐπεὶ συνεκροτήθη ὑπὸ τῆς φθορᾶς καὶ θανάτῳ διὰ παιδιῶν παρεδόθη, εἰς νίκος αὐτὴν τὴν φθορὰν καθ’ ἑαυτὴνκληρονομίαν ἡ κατέλειψεν, ἀλλὰ πάλιν διὰ τῆς ἀναστά-σεως νικήσας τὸν θάνατον ἀπέδωκε τῇ ἀφθαρσίᾳ, ἵναμὴ κληρονομήσῃ ἡ φθορὰ τὴν ἀφθαρσίαν, ἀλλ’ ἡἀφθαρσία τὸ φθαρτόν. ἐπαποκρίνει) γοῦν „ὅδὲ γὰ τὸφθαρτὸν τῷτο ἐνδύσαθ) τὴν ἀφθαρσίαν, κ) τὸ θνη-τὸν τὴν ἀθανασίαν.” φθαρτὸν δὲ καὶ θνητὸν ἐνδυ-μενον ἀδυνασίαν κ) ἀφθαρσίαν τί ἄν ἕτερον εἴη παρὰ τὸ σπειρόμενον ἐν φθορᾷ κ) ἀνεύμενον ἐν ἀφθαρσίᾳ,ἵνα „καθὼς ἐφορέσαμεν τὴν εἰκόνα τοῦ χοϊκοῦ, φορέ-σωμεν καὶ τὴν εἰκόνα τῷ ἐπουρανίῳ;” ἢ γὰ εἰκὼν τῷχοϊκῷ, ἣν ἐφορέσαμεν, τὸ „γὴ εἶ καὶ εἰς γὴν ἀπελεύσῃ”ἐστίν, ἡ δὲ εἰκὼν τῷ ἐπουρανίῳ ἢ ἐκ νεκρῶν ἀνάστασιςκαὶ ἡ ἀφθαρσία. Ἰωσῆτος δὲ ὁ Νεαπολίτης, ἀνὴρ ἐπετῶ χρόνῳ πρῶτος ὧν τῶν ἀποστόλων οὔτε τῇ ἀρετῇ,κληρονομεῖδ) μὲν τὸ ἀποθνῆσκον, κληρονομεῖν δὲ τὸζῶν λέγει, καὶ ἀποθνήσκωμεν μὲν σάρκα, ζῶν δὲ τὴνβασιλείαν τῶν οὐρανῶν. ὁπόταν δὲ σάρκα ὁ Πωλὸςa. 8. τοῦτο] 1 Cor. 15, 50. 11. τὰς om A. 12. δom A. 35. γῇ] Gen. 3, 19.41. δ Παῦλος] 1 Cor. 15, 50.b. 14. καὶ οἱ] 1 Thess. 4, 16.ἀγρος B et re A: αἰγιαρος c.39. κληρονομεῖν — ἀνα15. ἡμεῖς] καὶ ἡμεῖς Aἐκ φυτὸν B: 29. δον\", \"corrections\": [\"freq\"]}\n",
+          "applied_line": "{\"urn\": \"photius.bibliotheca\", \"cts\": \"urn:cts:greekLit:tlg4040.tlg001\", \"edition\": \"qwen36-helladius_chrestomathia_photius_bekker_v2-masked\", \"locus\": \"helladius_chrestomathia_photius_bekker_v2_0033.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σαβί, ἡ ἀθανασία ἐστίν. ἦν ἄν ἐπενδυσώμεθα, κατα-ποθήσω) πᾶν τὸ ἐν αὐτῇ ὀλοχερῶς ἀνενεῖς ὑπὸ τῆςἀχρόνου ζωῆς καταναλωθῆν καὶ θνητὸν.„διὰ πείσεις γὰ περιπατῶμεν, ἢ διὰ εἴδος,” ταῦτέςδιὰ πείσεις γὰ ἐπιβαίνωμεν ἢτι ἀτρανοτάτω λογισμῷτὰ ἐκεῖ πράγματα καταπτεύοντες, καὶ ἡ σαφῶς, ὡςκαὶ ὁρῶν καὶ ἀπολαύων καὶ ἐν αὐτοῖς εἶναι.„τὸτο δὲ φημ, ἀδελφοὶ, ὅτι σάρξ καὶ αἷμα κλη-ρονομήσουσι βασιλείαν θεοῦ οὐ δύναντ), ὅδὲ ἡ φθορὰ τὴνἀφθαρσίαν κληρονομεῖ.” σάρκα, φησίν, οὐ τὴν σάρκααὐτὴν ἐδήλωσεν, ἀλλὰ τὴν ἄλογον πρὸς τὰς μαχλώ-σας τῆς ψυχῆς ὀρμὴν ἡδονάς. εἰπὼν ἦν ὅτι „σάρξ καἷμα βασιλείαν θεοῦ κληρονομήσει οὐ δύνανται” ἐπα-φεῖνται „ὅδὲ ἡ φθορὰ τὴν ἀφθαρσίαν κληρονομεῖ.”φθορὰ δὲ ἐκ αὐτοῦ ἐς τὸ φθιρόμενον, ἀλλὰ τὸ φθι-ρορ. ἐπικρατήσαντος μὲν γὰ τῷ θανάτῳ κλίνεται τὸ458 Π.σάρκα “εἰς φθορὰν” ἐπιμενέσθης δὲ ἔμπαλιν τῆς ζωῆςἐν αὐτῷ ἔστηκε μὴ καθαιρόμενον. διὸ ἐπειδὴ μεθόριοντῆς ἀφθαρσίας ἐγενήθη καὶ τῆς φθορᾶς ἡ αὐτῆς, ἐκἧσα ὅδὲ φθορὰ τὴν ἀφθαρσίαν, ἐφανήθη τε διὰ τὴνἡδονὴν ὑπὸ τῆς φθορᾶς, ποίημα τῆς ἀφθαρσίας καὶκτῆμα ἐπάρχουσα, διὰ τίπο γεγένηθ) εἰς φθορὰν. καὶἐπεὶ συνεκροτήθη ὑπὸ τῆς φθορᾶς καὶ θανάτῳ διὰ παιδιῶν παρεδόθη, εἰς νίκος αὐτὴν τὴν φθορὰν καθ’ ἑαυτὴν κληρονομίαν ἡ κατέλειψεν, ἀλλὰ πάλιν διὰ τῆς ἀναστά-σεως νικήσας τὸν θάνατον ἀπέδωκε τῇ ἀφθαρσίᾳ, ἵναμὴ κληρονομήσῃ ἡ φθορὰ τὴν ἀφθαρσίαν, ἀλλ’ ἡἀφθαρσία τὸ φθαρτόν. ἐπαποκρίνει) γοῦν „ὅδὲ γὰ τὸ φθαρτὸν τῷτο ἐνδύσαθ) τὴν ἀφθαρσίαν, κ) τὸ θνη-τὸν τὴν ἀθανασίαν.” φθαρτὸν δὲ καὶ θνητὸν ἐνδυ-μενον ἀδυνασίαν κ) ἀφθαρσίαν τί ἄν ἕτερον εἴη παρὰ τὸ σπειρόμενον ἐν φθορᾷ κ) ἀνεύμενον ἐν ἀφθαρσίᾳ,ἵνα „καθὼς ἐφορέσαμεν τὴν εἰκόνα τοῦ χοϊκοῦ, φορέ-σωμεν καὶ τὴν εἰκόνα τῷ ἐπουρανίῳ;” ἢ γὰ εἰκὼν τῷχοϊκῷ, ἣν ἐφορέσαμεν, τὸ „γὴ εἶ καὶ εἰς γὴν ἀπελεύσῃ”ἐστίν, ἡ δὲ εἰκὼν τῷ ἐπουρανίῳ ἢ ἐκ νεκρῶν ἀνάστασιςκαὶ ἡ ἀφθαρσία. Ἰωσῆτος δὲ ὁ Νεαπολίτης, ἀνὴρ ἐπετῶ χρόνῳ πρῶτος ὧν τῶν ἀποστόλων οὔτε τῇ ἀρετῇ,κληρονομεῖδ) μὲν τὸ ἀποθνῆσκον, κληρονομεῖν δὲ τὸ ζῶν λέγει, καὶ ἀποθνήσκωμεν μὲν σάρκα, ζῶν δὲ τὴν βασιλείαν τῶν οὐρανῶν. ὁπόταν δὲ σάρκα ὁ Πωλὸςa. 8. τοῦτο] 1 Cor. 15, 50. 11. τὰς om A. 12. δom A. 35. γῇ] Gen. 3, 19.41. δ Παῦλος] 1 Cor. 15, 50.b. 14. καὶ οἱ] 1 Thess. 4, 16.ἀγρος B et re A: αἰγιαρος c.39. κληρονομεῖν — ἀνα15. ἡμεῖς] καὶ ἡμεῖς Aἐκ φυτὸν B: 29. δον\", \"corrections\": [\"freq\"]}\n",
+          "original_line_sha256": "eb3c11ea9dbb5cc18309fd1cfca61f93139a9cefaf86beef24941f9b414c2804",
+          "applied_line_sha256": "b64a3829525f39d03bb4166628b54ecc95fe119c448a4e1b218f1ce61d7e617b",
+          "text_before": "σαβί, ἡ ἀθανασία ἐστίν. ἦν ἄν ἐπενδυσώμεθα, κατα-ποθήσω) πᾶν τὸ ἐν αὐτῇ ὀλοχερῶς ἀνενεῖς ὑπὸ τῆςἀχρόνου ζωῆς καταναλωθῆν καὶ θνητὸν.„διὰ πείσεις γὰ περιπατῶμεν, ἢ διὰ εἴδος,” ταῦτέςδιὰ πείσεις γὰ ἐπιβαίνωμεν ἢτι ἀτρανοτάτω λογισμῷτὰ ἐκεῖ πράγματα καταπτεύοντες, καὶ ἡ σαφῶς, ὡςκαὶ ὁρῶν καὶ ἀπολαύων καὶ ἐν αὐτοῖς εἶναι.„τὸτο δὲ φημ, ἀδελφοὶ, ὅτι σάρξ καὶ αἷμα κλη-ρονομήσουσι βασιλείαν θεοῦ οὐ δύναντ), ὅδὲ ἡ φθορὰ τὴνἀφθαρσίαν κληρονομεῖ.” σάρκα, φησίν, οὐ τὴν σάρκααὐτὴν ἐδήλωσεν, ἀλλὰ τὴν ἄλογον πρὸς τὰς μαχλώ-σας τῆς ψυχῆς ὀρμὴν ἡδονάς. εἰπὼν ἦν ὅτι „σάρξ καἷμα βασιλείαν θεοῦ κληρονομήσει οὐ δύνανται” ἐπα-φεῖνται „ὅδὲ ἡ φθορὰ τὴν ἀφθαρσίαν κληρονομεῖ.”φθορὰ δὲ ἐκ αὐτοῦ ἐς τὸ φθιρόμενον, ἀλλὰ τὸ φθι-ρορ. ἐπικρατήσαντος μὲν γὰ τῷ θανάτῳ κλίνεται τὸ458 Π.σάρκα “εἰς φθορὰν” ἐπιμενέσθης δὲ ἔμπαλιν τῆς ζωῆςἐν αὐτῷ ἔστηκε μὴ καθαιρόμενον. διὸ ἐπειδὴ μεθόριοντῆς ἀφθαρσίας ἐγενήθη καὶ τῆς φθορᾶς ἡ αὐτῆς, ἐκἧσα ὅδὲ φθορὰ τὴν ἀφθαρσίαν, ἐφανήθη τε διὰ τὴνἡδονὴν ὑπὸ τῆς φθορᾶς, ποίημα τῆς ἀφθαρσίας καὶκτῆμα ἐπάρχουσα, διὰ τίπο γεγένηθ) εἰς φθορὰν. καὶἐπεὶ συνεκροτήθη ὑπὸ τῆς φθορᾶς καὶ θανάτῳ διὰ παιδιῶν παρεδόθη, εἰς νίκος αὐτὴν τὴν φθορὰν καθ’ ἑαυτὴνκληρονομίαν ἡ κατέλειψεν, ἀλλὰ πάλιν διὰ τῆς ἀναστά-σεως νικήσας τὸν θάνατον ἀπέδωκε τῇ ἀφθαρσίᾳ, ἵναμὴ κληρονομήσῃ ἡ φθορὰ τὴν ἀφθαρσίαν, ἀλλ’ ἡἀφθαρσία τὸ φθαρτόν. ἐπαποκρίνει) γοῦν „ὅδὲ γὰ τὸφθαρτὸν τῷτο ἐνδύσαθ) τὴν ἀφθαρσίαν, κ) τὸ θνη-τὸν τὴν ἀθανασίαν.” φθαρτὸν δὲ καὶ θνητὸν ἐνδυ-μενον ἀδυνασίαν κ) ἀφθαρσίαν τί ἄν ἕτερον εἴη παρὰ τὸ σπειρόμενον ἐν φθορᾷ κ) ἀνεύμενον ἐν ἀφθαρσίᾳ,ἵνα „καθὼς ἐφορέσαμεν τὴν εἰκόνα τοῦ χοϊκοῦ, φορέ-σωμεν καὶ τὴν εἰκόνα τῷ ἐπουρανίῳ;” ἢ γὰ εἰκὼν τῷχοϊκῷ, ἣν ἐφορέσαμεν, τὸ „γὴ εἶ καὶ εἰς γὴν ἀπελεύσῃ”ἐστίν, ἡ δὲ εἰκὼν τῷ ἐπουρανίῳ ἢ ἐκ νεκρῶν ἀνάστασιςκαὶ ἡ ἀφθαρσία. Ἰωσῆτος δὲ ὁ Νεαπολίτης, ἀνὴρ ἐπετῶ χρόνῳ πρῶτος ὧν τῶν ἀποστόλων οὔτε τῇ ἀρετῇ,κληρονομεῖδ) μὲν τὸ ἀποθνῆσκον, κληρονομεῖν δὲ τὸζῶν λέγει, καὶ ἀποθνήσκωμεν μὲν σάρκα, ζῶν δὲ τὴνβασιλείαν τῶν οὐρανῶν. ὁπόταν δὲ σάρκα ὁ Πωλὸςa. 8. τοῦτο] 1 Cor. 15, 50. 11. τὰς om A. 12. δom A. 35. γῇ] Gen. 3, 19.41. δ Παῦλος] 1 Cor. 15, 50.b. 14. καὶ οἱ] 1 Thess. 4, 16.ἀγρος B et re A: αἰγιαρος c.39. κληρονομεῖν — ἀνα15. ἡμεῖς] καὶ ἡμεῖς Aἐκ φυτὸν B: 29. δον",
+          "text_after": "σαβί, ἡ ἀθανασία ἐστίν. ἦν ἄν ἐπενδυσώμεθα, κατα-ποθήσω) πᾶν τὸ ἐν αὐτῇ ὀλοχερῶς ἀνενεῖς ὑπὸ τῆςἀχρόνου ζωῆς καταναλωθῆν καὶ θνητὸν.„διὰ πείσεις γὰ περιπατῶμεν, ἢ διὰ εἴδος,” ταῦτέςδιὰ πείσεις γὰ ἐπιβαίνωμεν ἢτι ἀτρανοτάτω λογισμῷτὰ ἐκεῖ πράγματα καταπτεύοντες, καὶ ἡ σαφῶς, ὡςκαὶ ὁρῶν καὶ ἀπολαύων καὶ ἐν αὐτοῖς εἶναι.„τὸτο δὲ φημ, ἀδελφοὶ, ὅτι σάρξ καὶ αἷμα κλη-ρονομήσουσι βασιλείαν θεοῦ οὐ δύναντ), ὅδὲ ἡ φθορὰ τὴνἀφθαρσίαν κληρονομεῖ.” σάρκα, φησίν, οὐ τὴν σάρκααὐτὴν ἐδήλωσεν, ἀλλὰ τὴν ἄλογον πρὸς τὰς μαχλώ-σας τῆς ψυχῆς ὀρμὴν ἡδονάς. εἰπὼν ἦν ὅτι „σάρξ καἷμα βασιλείαν θεοῦ κληρονομήσει οὐ δύνανται” ἐπα-φεῖνται „ὅδὲ ἡ φθορὰ τὴν ἀφθαρσίαν κληρονομεῖ.”φθορὰ δὲ ἐκ αὐτοῦ ἐς τὸ φθιρόμενον, ἀλλὰ τὸ φθι-ρορ. ἐπικρατήσαντος μὲν γὰ τῷ θανάτῳ κλίνεται τὸ458 Π.σάρκα “εἰς φθορὰν” ἐπιμενέσθης δὲ ἔμπαλιν τῆς ζωῆςἐν αὐτῷ ἔστηκε μὴ καθαιρόμενον. διὸ ἐπειδὴ μεθόριοντῆς ἀφθαρσίας ἐγενήθη καὶ τῆς φθορᾶς ἡ αὐτῆς, ἐκἧσα ὅδὲ φθορὰ τὴν ἀφθαρσίαν, ἐφανήθη τε διὰ τὴνἡδονὴν ὑπὸ τῆς φθορᾶς, ποίημα τῆς ἀφθαρσίας καὶκτῆμα ἐπάρχουσα, διὰ τίπο γεγένηθ) εἰς φθορὰν. καὶἐπεὶ συνεκροτήθη ὑπὸ τῆς φθορᾶς καὶ θανάτῳ διὰ παιδιῶν παρεδόθη, εἰς νίκος αὐτὴν τὴν φθορὰν καθ’ ἑαυτὴν κληρονομίαν ἡ κατέλειψεν, ἀλλὰ πάλιν διὰ τῆς ἀναστά-σεως νικήσας τὸν θάνατον ἀπέδωκε τῇ ἀφθαρσίᾳ, ἵναμὴ κληρονομήσῃ ἡ φθορὰ τὴν ἀφθαρσίαν, ἀλλ’ ἡἀφθαρσία τὸ φθαρτόν. ἐπαποκρίνει) γοῦν „ὅδὲ γὰ τὸ φθαρτὸν τῷτο ἐνδύσαθ) τὴν ἀφθαρσίαν, κ) τὸ θνη-τὸν τὴν ἀθανασίαν.” φθαρτὸν δὲ καὶ θνητὸν ἐνδυ-μενον ἀδυνασίαν κ) ἀφθαρσίαν τί ἄν ἕτερον εἴη παρὰ τὸ σπειρόμενον ἐν φθορᾷ κ) ἀνεύμενον ἐν ἀφθαρσίᾳ,ἵνα „καθὼς ἐφορέσαμεν τὴν εἰκόνα τοῦ χοϊκοῦ, φορέ-σωμεν καὶ τὴν εἰκόνα τῷ ἐπουρανίῳ;” ἢ γὰ εἰκὼν τῷχοϊκῷ, ἣν ἐφορέσαμεν, τὸ „γὴ εἶ καὶ εἰς γὴν ἀπελεύσῃ”ἐστίν, ἡ δὲ εἰκὼν τῷ ἐπουρανίῳ ἢ ἐκ νεκρῶν ἀνάστασιςκαὶ ἡ ἀφθαρσία. Ἰωσῆτος δὲ ὁ Νεαπολίτης, ἀνὴρ ἐπετῶ χρόνῳ πρῶτος ὧν τῶν ἀποστόλων οὔτε τῇ ἀρετῇ,κληρονομεῖδ) μὲν τὸ ἀποθνῆσκον, κληρονομεῖν δὲ τὸ ζῶν λέγει, καὶ ἀποθνήσκωμεν μὲν σάρκα, ζῶν δὲ τὴν βασιλείαν τῶν οὐρανῶν. ὁπόταν δὲ σάρκα ὁ Πωλὸςa. 8. τοῦτο] 1 Cor. 15, 50. 11. τὰς om A. 12. δom A. 35. γῇ] Gen. 3, 19.41. δ Παῦλος] 1 Cor. 15, 50.b. 14. καὶ οἱ] 1 Thess. 4, 16.ἀγρος B et re A: αἰγιαρος c.39. κληρονομεῖν — ἀνα15. ἡμεῖς] καὶ ἡμεῖς Aἐκ φυτὸν B: 29. δον",
+          "edits": [
+            {
+              "item_id": "ogc-31-f55b12a98fd3f449",
+              "start": 1151,
+              "end": 1168,
+              "observed": "ἑαυτὴνκληρονομίαν",
+              "decision": "split",
+              "reading": "ἑαυτὴν κληρονομίαν",
+              "evidence_url": "https://archive.org/details/bub_gb_NsiGxvHyQY0C/page/n33/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-c84cb1f483c01c8e",
+              "start": 1349,
+              "end": 1358,
+              "observed": "τὸφθαρτὸν",
+              "decision": "split",
+              "reading": "τὸ φθαρτὸν",
+              "evidence_url": "https://archive.org/details/bub_gb_NsiGxvHyQY0C/page/n33/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-b49937395138fab6",
+              "start": 1892,
+              "end": 1897,
+              "observed": "τὸζῶν",
+              "decision": "split",
+              "reading": "τὸ ζῶν",
+              "evidence_url": "https://archive.org/details/bub_gb_NsiGxvHyQY0C/page/n33/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            },
+            {
+              "item_id": "ogc-31-7614ca302a19c81d",
+              "start": 1940,
+              "end": 1952,
+              "observed": "τὴνβασιλείαν",
+              "decision": "split",
+              "reading": "τὴν βασιλείαν",
+              "evidence_url": "https://archive.org/details/bub_gb_NsiGxvHyQY0C/page/n33/mode/1up",
+              "reviewer": "Codex scan review",
+              "reviewed_at": "2026-09-15",
+              "notes": "Reading verified directly against the linked page image."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reverse": "python3 scripts/apply_reviewed_nonfinal_graves.py --audit data/corpus_changes/issue-31-reviewed.page-images-round-4-2026-09-15.applied.json --unapply"
+}
