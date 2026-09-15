@@ -976,6 +976,13 @@ for non-final graves (#31), duplicate pages (#33), raw OCR (#2), and blind A/B
 correction audits (#1), plus pinned manifests and validated decision sheets. It
 never edits `data/corpus`; see [docs/human-review-workflow.md](docs/human-review-workflow.md).
 
+Measured limitations whose approved bulk repairs are exhausted remain published
+in `data/known_limitations.json` even after their work item is closed. The
+registry pins the measurements, explains why no safe automatic action remains,
+and states what new evidence should reopen each item. Closing one of these as
+`not planned` accepts the documented release limitation; it does not claim the
+count is zero. See [docs/issue-policy.md](docs/issue-policy.md).
+
 The 2026-09-14 page-image round applied 43 exact non-final-grave repairs and
 moved 31 duplicate OCR pages (853 rows, 8,256 Greek tokens) to secondary
 witnesses. The duplicate sweep now finds zero served OCR leaf-runs and zero

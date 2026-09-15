@@ -12,7 +12,8 @@ a different question.
 - A defect in the served data or in a published table, described so a user can
   see it themselves. Give the counts.
 - A known limitation of a release, including anything a tag pins that has since
-  been found wrong.
+  been found wrong, until it is either repaired or accepted into the published
+  known-limitations registry.
 - Work this repo intends to do: a carve, a re-key, a source to bring in.
 - A decision that has to be made before work can proceed, with the options.
 
@@ -36,7 +37,21 @@ One issue per thing a reader can observe, not per task it takes to fix. The
 
 ## Closing
 
-Close when the fix is in a tagged release, and name the tag in the closing
-comment. Code landing on `main` is not enough: the tracker describes what a
-consumer gets, and until there is a tag they get the old bytes. A `limitation`
-closes only if it stops being true.
+Close a repaired defect only when the fix is in a tagged release, and name the
+tag in the closing comment. Code landing on `main` is not enough: the tracker
+describes what a consumer gets, and until there is a tag they get the old bytes.
+
+A limitation may instead close as `not planned` when all of the following are
+true:
+
+- its current measurement is generated into `data/known_limitations.json` and
+  exposed by the release's existing quality artifacts;
+- every approved automatic repair class is exhausted;
+- the remaining work needs a new evidence source, a new policy decision, or
+  occurrence-level human review; and
+- the closing comment names the tagged release and the condition that should
+  reopen the issue.
+
+That disposition does not mean the limitation stopped being true. It keeps the
+release caveat visible without using an issue with no currently safe action as
+an indefinite work queue.

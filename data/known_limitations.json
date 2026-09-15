@@ -1,0 +1,66 @@
+{
+ "schema_version": 1,
+ "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero.",
+ "decision_date": "2026-09-15",
+ "generated_from": {
+  "corpus_sha256": "7369350964b5baa948595a5b4ac45165ccf0c5f6812a07565233be11a4c32071",
+  "corpus_catalog": {
+   "path": "data/corpus_catalog.tsv",
+   "sha256": "91d4300cbe900929a2fbe0a33db51e51791da7a0e2cd724645a3513781b7a6d9"
+  },
+  "correction_stamp_gap": {
+   "path": "data/correction_stamp_gap.json",
+   "sha256": "5f3915a0fad42b91ba1ad7368f4a59f5496f457e469e615102aa010cf49d5ced"
+  },
+  "nonfinal_graves": {
+   "path": "data/nonfinal_graves.json",
+   "sha256": "f858bd72752293a4bed6464f8fbc7eb0fcd7907a85d20232d65c919abbf6ee6c"
+  }
+ },
+ "limitations": [
+  {
+   "key": "applied-correction-error",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/1",
+   "status": "accepted-measured-limitation",
+   "current_measurement": {
+    "estimated_wrong_records_at_sample": 20400,
+    "unanimously_wrong_records_reverted_after_sample": 7641,
+    "estimated_wrong_records_remaining_rounded": 12700,
+    "corpus_weighted_wrong_share_at_sample": 0.086,
+    "corpus_weighted_split_or_unsure_share_at_sample": 0.096
+   },
+   "why_no_bulk_action_remains": "Every major correction cell was sampled or censused by two blind raters and unanimous wrong verdicts were paid out. The remaining estimate does not identify which records are wrong; the strongest discovered rule would revert about one sound correction for every bad one.",
+   "reopen_when": "A new per-record evidence source or independently validated gate identifies a bounded correction class with an acceptable false-positive rate."
+  },
+  {
+   "key": "raw-ocr-coverage",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
+   "status": "accepted-measured-limitation",
+   "current_measurement": {
+    "lower_bound_works": 373,
+    "lower_bound_tokens": 2430995,
+    "lower_bound_share": 0.0372,
+    "upper_bound_works": 395,
+    "upper_bound_tokens": 2903356,
+    "upper_bound_share": 0.0445,
+    "works_in_stamp_gap": 22,
+    "tokens_in_stamp_gap": 472361
+   },
+   "why_no_bulk_action_remains": "The upstream correction workflow and boundary-safe page re-ingest path now exist, but untouched OCR cannot honestly be relabelled as corrected. Finishing the remainder means reading the source pages, not changing a confidence threshold.",
+   "reopen_when": "A funded or otherwise staffed source-page correction campaign is ready to ingest reviewed pages, or a newly validated correction method is approved for a defined tranche."
+  },
+  {
+   "key": "nonfinal-grave-source-errors",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/31",
+   "status": "accepted-measured-limitation",
+   "current_measurement": {
+    "forms": 26399,
+    "tokens": 42462,
+    "share": 0.00065,
+    "works": 1642
+   },
+   "why_no_bulk_action_remains": "All forms clearing the approved corpus-skeleton gates were repaired, and four scan-backed review rounds applied only exact readings. The residue is distributed over thousands of source pages; changing grave to acute blindly is known to choose the wrong word in common cases.",
+   "reopen_when": "Page images, an aligned independent edition, or another approved evidence type makes a bounded set of occurrences deterministically repairable."
+  }
+ ]
+}
