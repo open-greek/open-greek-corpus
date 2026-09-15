@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "what": "source-linked blind correction review and one scan-confirmed correction revert",
+  "issue": "open-greek/open-greek-corpus#1",
+  "reviewed_at": "2026-09-14",
+  "review_scope": {
+    "release_reviewed": "corpus-2026-09-14.1",
+    "corpus_sha256_reviewed": "c21bdffa8c17a91ff0be156ffe5e5f835f2609b9eb76c515743ce801185c38f4",
+    "queue": "data/review/issue-1.jsonl",
+    "queue_sha256": "a83dba5d719190bbc43821d93124087a85988539c879fd8f4947c697fddf59c0",
+    "reviewed_decisions": "data/review/issue-1.reviewed.jsonl",
+    "reviewed_decisions_sha256": "adbd04e186a728731291e2453b8127a485ede8ed2307b6a40e2773d383bd904f",
+    "blind_audit_key": "data/review/issue-1.audit.jsonl",
+    "blind_audit_key_sha256": "b1b6a3ab51362d2337542c3b329e44e50898614105292d3b7ab81d8497192e2b",
+    "drawn": 200,
+    "rated": 42,
+    "deferred_without_linked_page_evidence": 158,
+    "applied_correction_wins": 41,
+    "applied_correction_losses": 1,
+    "applied_correction_win_rate": 0.9761904761904762,
+    "by_method": {
+      "collation": {"wins": 20, "rated": 20},
+      "confusion": {"wins": 5, "rated": 5},
+      "engine": {"wins": 3, "rated": 3},
+      "freq": {"wins": 13, "rated": 14}
+    },
+    "by_status": {
+      "accepted": {"wins": 14, "rated": 15},
+      "auto": {"wins": 27, "rated": 27}
+    },
+    "limitations": "Supplemental one-rater result over the source-linked subset, not a replacement for the published two-rater stratified estimate. The audit key was opened only after all 200 decisions were sealed."
+  },
+  "revert": {
+    "item_id": "ogc-1-d92c455438e419b7",
+    "file": "data/corpus/hesychius-lexicography.lexicon-o.jsonl",
+    "line": 11440,
+    "locus": "hesychius_masked_0256.17",
+    "method": "freq",
+    "status": "accepted",
+    "original": "φάγια",
+    "wrong_correction": "φαγία",
+    "context_after": "ἐδέσματα· φάγια. βρώματα",
+    "queue_scan_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n256/mode/1up",
+    "queue_scan_note": "The queued link is one leaf late and does not contain the entry.",
+    "verified_scan_url": "https://archive.org/details/hesychiialexand00schmgoog/page/n255/mode/1up",
+    "verified_scan_reading": "ἐδέσματα· φάγια. βρώματα",
+    "evidence_note": "The exact printed entry is legible on Schmidt's page 465, left column. This is a page-image transcription, not a frequency inference.",
+    "correction_record": {
+      "original": "φάγια",
+      "corrected": "φαγία",
+      "by": "freq",
+      "confidence": 0.5,
+      "status": "accepted",
+      "date": "2026-08-01"
+    },
+    "file_sha256_before": "a0a653e377baef21ace0ccabd0d71dd439cdc58d7ac4c33edfc6105ea9e3be68",
+    "file_sha256_after": "244c0c51a5465b6c97d56a9cf811841ca84c4091a9aa1fbcbd496ab220a59d84",
+    "line_sha256_before": "cbaa3aa9b14c86f04f9c85093381c79a17543bd8f646dd8a6ad6aa3f7b830855",
+    "line_sha256_after": "44d2287289dbc5acd24085265cca7e0abc8a19a9fc445c38c76e9acfe45b65c1",
+    "correction_stamp_removed": "freq"
+  },
+  "upstream_mirror": "data/corrections_log is a gitignored read-only mirror owned by the OCR correction pipeline. Its matching row is intentionally not rewritten here; the next upstream mirror refresh must omit this reverted record.",
+  "reverse": "git revert the commit that adds this audit and restores the recorded preimage"
+}

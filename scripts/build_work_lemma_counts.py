@@ -9,7 +9,7 @@ inflected forms roll up to the lemma: every distinct surface form is
 lemmatized once with Dilemma; each work's form counts are mapped through that
 table.
 
-Two caches under data/cache/ make reruns cheap:
+Three caches under data/cache/ make reruns cheap:
 
   work_forms/<file>.tsv.gz + work_forms_manifest.json
       per-work form counts, keyed by the corpus file's (size, mtime). Only
@@ -21,6 +21,10 @@ Two caches under data/cache/ make reruns cheap:
       free. The meta file records the Dilemma version the cache was built
       with; a version change prints a loud warning (delete the cache file to
       relemmatize everything).
+  lemma_unanswered.tsv
+      forms for which this Dilemma version returned no lemma. These are skipped
+      on routine rebuilds and retried after a version change, or explicitly
+      with --retry-unanswered.
 
 The lemmatization phase can also run on a remote GPU box, or checkpoint local
 work in the same append-only map format:
@@ -79,6 +83,7 @@ WORK_FORMS = CACHE / "work_forms"
 MANIFEST = CACHE / "work_forms_manifest.json"
 LEMMA_CACHE = CACHE / "form_lemma.tsv.gz"
 LEMMA_META = CACHE / "form_lemma_meta.json"
+UNANSWERED = CACHE / "lemma_unanswered.tsv"
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
@@ -237,6 +242,44 @@ def save_lemma_cache(cache: dict[str, str]) -> None:
         {"dilemma_version": dilemma_version(), "entries": len(cache)}, indent=1))
 
 
+def load_unanswered() -> set[str]:
+    """Load no-answer markers only for the Dilemma version that made them."""
+    if not UNANSWERED.exists():
+        return set()
+    lines = UNANSWERED.read_text(encoding="utf-8").splitlines()
+    if not lines or not lines[0].startswith("# dilemma_version\t"):
+        print(f"WARNING: ignoring malformed {UNANSWERED}", file=sys.stderr)
+        return set()
+    recorded = lines[0].partition("\t")[2]
+    current = dilemma_version()
+    if recorded != current:
+        print(f"Dilemma changed from {recorded} to {current}; retrying "
+              f"{max(0, len(lines) - 1):,} previously unanswered forms",
+              file=sys.stderr)
+        return set()
+    return {line for line in lines[1:] if line and not line.startswith("#")}
+
+
+def save_unanswered(forms: set[str]) -> None:
+    """Atomically checkpoint all no-answer forms for the current version."""
+    CACHE.mkdir(parents=True, exist_ok=True)
+    body = (f"# dilemma_version\t{dilemma_version()}\n"
+            + "".join(f"{form}\n" for form in sorted(forms))).encode("utf-8")
+    fd, temporary = tempfile.mkstemp(
+        dir=UNANSWERED.parent, prefix=f".{UNANSWERED.name}.", suffix=".tmp",
+    )
+    try:
+        with os.fdopen(fd, "wb") as sink:
+            sink.write(body)
+        os.replace(temporary, UNANSWERED)
+    except BaseException:
+        try:
+            os.unlink(temporary)
+        except FileNotFoundError:
+            pass
+        raise
+
+
 def merge_lemma_map(path: Path, cache: dict[str, str],
                     rejected: set[str]) -> tuple[int, int, int]:
     """Merge a form<TAB>lemma map into cache, filling gaps only.
@@ -292,6 +335,7 @@ def append_lemma_map(path: Path, forms: list[str],
 
 def lemmatize_local(forms: list[str], cache: dict[str, str], *,
                     rejected: set[str] | None = None,
+                    unanswered: set[str] | None = None,
                     checkpoint_map: Path | None = None,
                     chunk_size: int = 50000) -> None:
     """Lemmatize `forms` with local Dilemma, filling `cache` in place.
@@ -301,9 +345,9 @@ def lemmatize_local(forms: list[str], cache: dict[str, str], *,
     before form_lemma.tsv.gz is rewritten, the accepted work can be merged back
     with --lemma-map rather than recomputed.
 
-    Forms Dilemma can't resolve (empty lemma) are left out of the cache, so they
-    retry on the next run after a Dilemma upgrade. Validator-dropped forms go
-    through validate_cache(), which records tombstones in lemma_rejected.tsv; the
+    Forms Dilemma can't resolve (empty lemma) are checkpointed separately and
+    retried after a Dilemma upgrade. Validator-dropped forms go through
+    validate_cache(), which records tombstones in lemma_rejected.tsv; the
     in-memory `rejected` set is updated too so the current run does not try to
     rederive them.
     """
@@ -317,9 +361,13 @@ def lemmatize_local(forms: list[str], cache: dict[str, str], *,
             if lem:
                 derived[form] = lem
         before = set(derived)
+        no_answer = set(chunk) - before
         _, dropped = validate_cache(derived, label="new lemmas")
         if rejected is not None:
             rejected |= dropped
+        if unanswered is not None:
+            unanswered |= no_answer
+            save_unanswered(unanswered)
         cache.update(derived)
         if checkpoint_map:
             append_lemma_map(checkpoint_map, chunk, derived)
@@ -354,6 +402,9 @@ def main() -> None:
                     help="do not append a resumable local lemma map")
     ap.add_argument("--local-chunk", type=positive_int, default=50000,
                     help="local Dilemma batch/checkpoint size")
+    ap.add_argument("--retry-unanswered", action="store_true",
+                    help="retry forms this same Dilemma version previously "
+                         "returned without a lemma")
     ap.add_argument("--write-lemma-frequency", action="store_true",
                     help="also overwrite data/public_lemma_frequency.tsv and its "
                          "stats. Off by default: build_lemma_frequency.py owns "
@@ -389,6 +440,8 @@ def main() -> None:
 
     lemma_cache = load_lemma_cache() if use_cache else {}
     pre_rejected = set(load_rejected()) if use_cache else set()
+    unanswered = (set() if args.retry_unanswered or not use_cache
+                  else load_unanswered())
     if args.lemma_map:
         n_new, n_kept, n_rejected = merge_lemma_map(
             args.lemma_map, lemma_cache, pre_rejected)
@@ -412,10 +465,12 @@ def main() -> None:
     # straight back in the cache - which is exactly what happened the first time
     # this was wired up, leaving `βασκανία -> Βασκανία` untouched by three
     # validated passes. Dropped means unlemmatized, so leave them out.
-    missing = [f for f in keep if f not in lemma_cache and f not in rejected]
+    missing = [f for f in keep if f not in lemma_cache and f not in rejected
+               and f not in unanswered]
     print(f"{len(keep):,} forms above min-count "
           f"(skipped {skipped:,} rarer than {args.min_count} of "
-          f"{len(corpus_forms):,}); {len(missing):,} not in lemma cache",
+          f"{len(corpus_forms):,}); {len(missing):,} not in lemma cache "
+          f"({len(unanswered):,} version-scoped unanswered skipped)",
           file=sys.stderr)
 
     if args.emit_missing:
@@ -432,6 +487,7 @@ def main() -> None:
                           else args.checkpoint_map)
         lemmatize_local(
             missing, lemma_cache, rejected=rejected,
+            unanswered=unanswered,
             checkpoint_map=checkpoint_map, chunk_size=args.local_chunk)
     if use_cache:
         save_lemma_cache(lemma_cache)

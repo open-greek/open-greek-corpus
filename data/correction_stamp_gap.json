@@ -1,12 +1,12 @@
 {
  "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
  "tool": "scripts/measure_stamp_gap.py",
- "pairs": 43624,
+ "pairs": 43619,
  "by_method": {
-  "llm": 32109,
-  "freq": 9104,
+  "llm": 32106,
+  "freq": 9105,
   "agent": 1154,
-  "confusion": 741,
+  "confusion": 738,
   "prosodia": 516
  },
  "works_affected": 261,
@@ -14,10 +14,10 @@
  "works": [
   {
    "urn": "pseudo-zonaras.lexicon",
-   "rows": 20509,
-   "coverage_now": 0.00449,
-   "coverage_if_stamped": 0.02638,
-   "missing": 449
+   "rows": 20380,
+   "coverage_now": 0.00451,
+   "coverage_if_stamped": 0.0264,
+   "missing": 446
   },
   {
    "urn": "gregorius-palamas.homiliae",
@@ -186,16 +186,16 @@
  "schema_version": 1,
  "measured_against": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_sha256": "fc5958fa07c2d65e7db0afa874c2386ce9f3eb6f0ad4e2fe088f2bb68ee7203a",
-  "corpus_sha256": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc",
+  "catalog_sha256": "bcbb939dfa986cdeb5ef5112fd7387be56ae6018a0bb9a31b773422628e0fdb6",
+  "corpus_sha256": "a69fe0440e85590096b201dd2ba99af9eeed078b3ceacdf3958eb86207fa8e17",
   "active_correction_records": 228866
  },
  "raw_ocr": {
   "upper_bound_works": 395,
-  "upper_bound_tokens": 2909111,
-  "upper_bound_share_of_corpus_tokens": 0.0446,
+  "upper_bound_tokens": 2905388,
+  "upper_bound_share_of_corpus_tokens": 0.0445,
   "lower_bound_works": 373,
-  "lower_bound_tokens": 2436750,
+  "lower_bound_tokens": 2433027,
   "lower_bound_share_of_corpus_tokens": 0.0373,
   "works_in_doubt": 22,
   "tokens_in_doubt": 472361,

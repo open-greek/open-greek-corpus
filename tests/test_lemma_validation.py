@@ -337,7 +337,8 @@ def work_counts(tmp_path, monkeypatch):
                         ("WORK_FORMS", data / "cache" / "work_forms"),
                         ("MANIFEST", data / "cache" / "manifest.json"),
                         ("LEMMA_CACHE", data / "cache" / "form_lemma.tsv.gz"),
-                        ("LEMMA_META", data / "cache" / "form_lemma_meta.json")):
+                        ("LEMMA_META", data / "cache" / "form_lemma_meta.json"),
+                        ("UNANSWERED", data / "cache" / "lemma_unanswered.tsv")):
         monkeypatch.setattr(bwlc, name, value)
     monkeypatch.setattr(vlm, "DATA", data)
     monkeypatch.setattr(vlm, "REJECTED", data / "cache" / "lemma_rejected.tsv")
@@ -402,6 +403,31 @@ def test_local_work_lemma_build_checkpoints_validated_chunks(work_counts,
     assert "οὖον" not in checkpoint
     assert "κβ\tκβʹ" not in checkpoint
     assert "κβ\tproposed lemma occurs nowhere in the corpus\n" in tombstones
+
+
+def test_local_work_lemma_build_skips_same_version_no_answers(work_counts,
+                                                              monkeypatch):
+    bwlc, data = work_counts
+    asked = []
+    monkeypatch.setitem(sys.modules, "dilemma", _fake_dilemma({"οὐ": "οὐ"}, asked))
+
+    bwlc.main()
+    first_asked = list(asked)
+    assert "κβ" in first_asked
+    assert "κβ" in (data / "cache" / "lemma_unanswered.tsv").read_text(
+        encoding="utf-8").splitlines()
+
+    bwlc.main()
+    assert asked == first_asked
+
+
+def test_unanswered_markers_expire_with_dilemma_version(work_counts, monkeypatch):
+    bwlc, data = work_counts
+    marker = data / "cache" / "lemma_unanswered.tsv"
+    marker.write_text("# dilemma_version\t1.2.1\nκβ\n", encoding="utf-8")
+    monkeypatch.setattr(bwlc, "dilemma_version", lambda: "1.2.2")
+
+    assert bwlc.load_unanswered() == set()
 
 
 @pytest.fixture

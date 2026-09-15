@@ -83,3 +83,21 @@ python3 scripts/apply_reviewed_nonfinal_graves.py --apply
 The applied audit stores every exact row preimage, reviewed reading, evidence
 URL, file hash, and the reverse command. A stale queue, shifted offset, changed
 row, foreign decision, or partial review is rejected before any file is written.
+
+Issue #33 has the same sealed apply boundary. Accepted `drop_a`/`drop_b`
+decisions move the losing page into a pass-specific secondary-witness file;
+they never delete a reading. Overlapping pairs are treated as a directed
+component, cycles and competing winners are rejected, and every chain must end
+at a page that remains served:
+
+```bash
+python3 scripts/apply_reviewed_duplicate_pages.py
+python3 scripts/apply_reviewed_duplicate_pages.py --apply
+```
+
+A #2 page transcription is upstream evidence, not automatically a corpus edit.
+The packet identifies the complete scan page and its current loci but does not
+invent offsets for distributing a replacement among those loci. Publish the
+sealed transcription in `data/corpus_changes/`, then re-ingest that page with
+explicit logical boundaries. This keeps a correct page transcription from
+becoming an incorrectly segmented corpus patch.

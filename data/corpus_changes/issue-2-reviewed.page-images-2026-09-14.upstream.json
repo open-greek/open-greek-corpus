@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "what": "scan-reviewed raw-OCR page evidence for an upstream correction workflow",
+  "issue": "open-greek/open-greek-corpus#2",
+  "published_at": "2026-09-14",
+  "release_reviewed": "corpus-2026-09-14.3",
+  "corpus_sha256_reviewed": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc",
+  "queue": "data/review/issue-2.jsonl",
+  "queue_sha256": "2ee278b7fdbd465b26afdee0feee7915288e9b254abc9d287376e65352eb075f",
+  "manifest": "data/review/issue-2.manifest.json",
+  "manifest_sha256": "d20eb68d692820228ce2afdc353bb1a96ffa27951e271f882902b86e8559a741",
+  "reviewed_decisions": "data/review/issue-2.reviewed.jsonl",
+  "reviewed_decisions_sha256": "f2d733aea4f40d0bd91a16ad59bb6f5ed29ff61d24c6f503d29cd45bbae99435",
+  "decision_counts": {
+    "defer": 99,
+    "transcribe": 1
+  },
+  "items_reviewed": 100,
+  "pages_with_exact_scan_links": 24,
+  "exact_page_images_retrieved": 14,
+  "aligned_pages_with_visible_ocr_defects": 12,
+  "decisive_items": [
+    {
+      "item_id": "ogc-2-f6a097305eb4e63e",
+      "decision": "transcribe",
+      "work": {
+        "author": "Joannes Archiereus",
+        "slug": "joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs",
+        "title": "Ἰωάννου ἀρχιερέως τοῦ ἐν Ἐβειγίᾳ περὶ τῆς θείας τέχνης (E Cod. Paris. B.N. Gr. 2327, Fol. 243R)",
+        "tokens": 1261,
+        "unattested_rate": 0.204756,
+        "work_id": "ogc001944"
+      },
+      "page": "berthelot_alchimistes_grec_0306",
+      "loci": [
+        "berthelot_alchimistes_grec_0306.1",
+        "berthelot_alchimistes_grec_0306.2",
+        "berthelot_alchimistes_grec_0306.3"
+      ],
+      "source_text_sha256": "baf2857d2d26ff1322d52868095f419491a48c3e08afd9678bbf05d9d2f6cfda",
+      "scan_url": "https://archive.org/details/collectiondesanc23bert/page/n305/mode/1up",
+      "evidence_url": "https://archive.org/details/collectiondesanc23bert/page/n305/mode/1up",
+      "transcription": "11] Τοῦτο ἀπέκρυψαν πᾶσαι αἱ γραφαί, καὶ διὰ μόνης τῆς ἐκστροφῆς ἐδογμάτισαν, ὡς ἔλεγον· «Ἔκστρεψον αὐτοῦ τὴν φύσιν, καὶ εὑρήσεις τὸ ζητούμενον· ἡ γὰρ φύσις ἔνδον κέκρυπται, τοῦτο γὰρ φύσιν ἔχει. Καὶ ὅτε βούλει κα-[f. 247 v.]τεργάσασθαι, μέτελθε διὰ πάσης στηλογραφίας ἢ ὡς αὐτὸ Δημόκριτος στηλιτεύει· καὶ διάσκεψον ὅτι τὸν ἰὸν λαμβάνων, ποτὲ μὲν ἐν στυπτηρίᾳ προσπλέκει, ποτὲ δὲ ὤχραν, ποτὲ δὲ ἐλύδριον, ἄλλοτε ἄλλως ἐπιτηδεύων, διανοίγων τὸν νοῦν. Ὅτι δὲ αὐτὸς δύναμιν ἔχει λυτικὴν ὁ ἰός, ὃς βιαζόμενος ἢ λύεται ἢ εἰσκρίνει καὶ διαδύει ἐν τῷ κινναβάρει, ἐπεὶ μηδὲν ἐπιβάλλεσθαι, διὰ τὸ [δὴ] πνεῦμα γίνεσθαι· καὶ ἐντεῦθεν τῆς σφοδρότητος τοῦ πυρὸς ἀποστρέφεται, μὴ φθάνων εἰς βάθος τῆς καρδίας τοῦ χωνευομένου σώματος. Καὶ ἵνα ὡς διὰ μιᾶς στήλης ἔχομεν τὴν ὑπόμνησιν, οὕτως διασκεπτέον ὑπὲρ φύσιν. Λαβὼν ῥᾶ ποντικόν, λείωσον οἴνῳ ἀμναίῳ σκληρῷ, καὶ ποίησον πάχος κηρωτῆς· καὶ δέξαι πέταλα μήνης, κατέργασον καὶ ποίησον ὀνυχόπαχον, ἢ καὶ τούτων ἰσχυρότερον, καὶ χρίσον τὸ ἥμισυ· καὶ ἐπίθες ἐν καινῷ ἀγγείῳ· καὶ περιπηλώσας πάντοθεν, καὶ καύσον ἁπλῶς ἕως καταπίῃ τὸ φάρμακον· καὶ οὕτω ποίησον καὶ πρὸς τὸ ἄλλο ἥμισυ, ἕως ἂν ἀραιώσῃ τὰ πέταλα· καὶ ὕστερον χώνευε.\n12] Τοιοῦτον δὲ καὶ Πέρσαις διηγούμενός φησιν· οὗτος δὲ ὁ ἀνὴρ ἰδίᾳ σοφίᾳ ἐτελεύτησεν, εἴδεσι δὲ κεχρημένος ἔξωθεν ἔχριε τὰς οὐσίας καὶ πυρὸν εἰσέκρινεν· οὕτως δὲ φησιν ἔθος Πέρσαις ποιεῖν. Διὸ καὶ ἐν πάσαις ταῖς στηλογραφίαις δι' ἐπιχρίσεως καταθάπτειν παραδίδωσι τοῖς πολλοῖς, διαφεύγων, ἐμποιεῖ καὶ τὰς ἀποτυχίας· πολλάκις γὰρ καὶ πλείονος ὄντος τοῦ φαρ-[f. 248 r.]μάκου διὰ τὸ μὴ τελεῖσθαι [διὰ] τὰς\n1. Ταῦτα δὲ ἀπ. Lc. — 2. ἔκστρεψον...] Cp. III, xxix, 22. — 3. τοῦτο...] ταύτην γὰρ τὴν φ. ἔχει Lc. — 6-7. εἰς ὤχρ... εἰς ἑλ. Lc. — 7. καὶ ἄλλοτε ἐπιτηδεύει, καὶ διανοίγει Lc. — 8. ὃς add. Lc. — 9. κινναβάρει] signe du cinabre A; χρυσῷ Lc. — ἐπεὶ...] διὸ μηδὲν ἐπιθ. δεῖ Lc. — τὸ δὴ] δὴ om. Lc. F. l. τοῦτ. — 10. ἀποστρέφεσθαι, μὴ φθάνον Lc. — 12. ἔχομεν Lc, f. mel. — ὑπὲρ φύσιν] F. l. ὑπὲρ φύσιν. — διασκεπταῖον A; διασκεψώμεθα ὡς φιλόσοφός φησι Lc. — 13. ἀμναίῳ A; ἀμναίῳ Lc. — Réd. de Lc : καὶ ποίησον πάχος κηρωτῆς ὀνυχόπαχον, ἢ καὶ ὀνύχων ἰσχυρότερον, καὶ χρίσον τὸ ἥμισυ τῶν πετάλων τῶν ἐξ ἀργύρου καὶ ἐπίθες ἐν καινῷ ἀγγείῳ. — 18. ἂν add. Lc. — 21. πυρὸν Lc, f. mel. — 22. τοῖς] τῆς A.",
+      "transcription_sha256": "2b5e5feaacd9746d0b0cf9ccc9e9988e68b7e36d99461f4ed4deaf9932a52452",
+      "reviewer": "codex/page-image",
+      "reviewed_at": "2026-09-14",
+      "notes": "Full main text and apparatus transcribed from the aligned, legible source page.",
+      "upstream_action": "Replace the OCR for this complete scan page during source-page re-ingest, then assign the resulting lines to the three listed loci without changing their order."
+    }
+  ],
+  "served_corpus_changed": false,
+  "why_not_applied_directly": "The accepted reading is one page-wide transcription spanning three corpus loci. The queue intentionally has no row offsets, so a direct edit could assign text to the wrong logical passage even while reproducing the page correctly.",
+  "remaining_review_outcome": "99 items deferred: most lacked an exact page image; four exact Archive leaves were unavailable, and two retrieved leaves were blank or did not match the queued text.",
+  "reproduce": "Validate data/review/issue-2.decisions.tsv against the pinned queue with scripts/build_human_review_queue.py, then export the sole non-deferred sealed decision."
+}

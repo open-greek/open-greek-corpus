@@ -32,12 +32,39 @@ from collapse_duplicate_reads import norm_elision  # noqa: E402
 import merge_duplicate_reads as mg  # noqa: E402
 
 AUDIT = REPO / "data" / "corpus_changes" / "ocr.duplicate-read-merge.json"
+REVIEWED_PAGE_AUDIT = (
+    REPO / "data" / "corpus_changes" /
+    "issue-33-reviewed.page-images-2026-09-14.applied.json"
+)
 
 
 def _audit():
     if not AUDIT.exists():
         pytest.skip("the duplicate-read merge is not applied in this tree")
     return json.loads(AUDIT.read_text(encoding="utf-8"))
+
+
+def _rows_before_reviewed_page_displacements(path, rows):
+    """Restore rows moved by the later scan-reviewed duplicate-page pass."""
+    if not REVIEWED_PAGE_AUDIT.exists():
+        return rows
+    review = json.loads(REVIEWED_PAGE_AUDIT.read_text(encoding="utf-8"))
+    blk = review["files"].get(path)
+    if not blk:
+        return rows
+
+    by_index = {
+        e["index"]: json.loads(e["original_line"])
+        for e in blk["removed_rows"]
+    }
+    j = 0
+    for i in range(blk["rows_before"]):
+        if i in by_index:
+            continue
+        by_index[i] = rows[j]
+        j += 1
+    assert j == len(rows)
+    return [by_index[i] for i in range(blk["rows_before"])]
 
 
 def test_span_stream_is_the_stream_the_merge_decided_on():
@@ -82,12 +109,13 @@ def test_overlapping_runs_are_one_component():
 
 
 def test_every_guess_names_a_token_that_is_actually_served():
-    """The record has to point at the served text, or it is not a record."""
+    """Each guess names text served after merge, even if later displaced."""
     rec = _audit()
     n = 0
     for f, blk in sorted(rec["files"].items()):
         rows = [json.loads(l) for l in
                 (REPO / f).read_text(encoding="utf-8").splitlines() if l.strip()]
+        rows = _rows_before_reviewed_page_displacements(f, rows)
         # row indices in the audit are pre-removal, so rebuild that numbering
         by_index = {}
         for e in blk["removed_rows"]:
