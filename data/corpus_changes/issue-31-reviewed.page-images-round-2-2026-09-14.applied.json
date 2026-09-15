@@ -1,0 +1,915 @@
+{
+  "schema_version": 1,
+  "what": "scan-reviewed, occurrence-specific non-final grave repairs",
+  "issue": "open-greek/open-greek-corpus#31",
+  "applied_at": "2026-09-14",
+  "queue": "data/review/issue-31-next.jsonl",
+  "queue_sha256": "d9be61b7b12ce6f57e5dfad0f463276753a734dd17429834f5fe7fc2b9a259a6",
+  "manifest": "data/review/issue-31-next.manifest.json",
+  "manifest_sha256": "f653f3670248f32426a2951a905afcd9ed3cbd50d0a4902f8db2057f8fb84907",
+  "reviewed_decisions": "data/review/issue-31-next.reviewed.jsonl",
+  "reviewed_decisions_sha256": "8892ce404348ce73fd3ec04ba259954b09918facd066a374f4928aac1d63c33a",
+  "release_reviewed": "corpus-2026-09-14.3",
+  "corpus_sha256_reviewed": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc",
+  "decision_counts": {
+    "defer": 57,
+    "replace": 35,
+    "split": 8
+  },
+  "edits_applied": 43,
+  "rows_touched": 30,
+  "files_touched": 2,
+  "files": [
+    {
+      "file": "data/corpus/andronicus-rhodius.de-passionibus-lib-1-sp.jsonl",
+      "sha256_before": "652cee9047947acddac1a7cc6eb79b50f960a7298e7f7a44b0079479c1f04798",
+      "sha256_after": "6a79dd2cc42cb696c167ac763fd15b94a8feb0309e90022330fd197c06f1fc52",
+      "rows": [
+        {
+          "line": 4125,
+          "locus": "andronicus_mullach_fpg3_0493.1",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δοῦ τι ἀμυδρὸν ἦχος· δι' ὃ ζῆται τῆς μὴ ὀρθῆς προαι-reσεως καὶ τῆς ψευδοῦς δόξης, ὡς ὀρθῆς καὶ ἀληθοῦς.Ἐπεὶ τοίνυν οὐ δι' ἑαυτὰ αἱρεῖται ἡ αἱρεῖται καὶ οἷςἐμμένει, ἀλλὰ διὰ τὸ ἀγαθόν, οὐ καθ' αὐτὸ ἐγχα-τῆς ἐστιν, ἀλλὰ κατὰ συμβεβηκός. Ὁμοίως δὲ καὶ ἐπὶτῶν ἀντικειμένων ἔχει· πῶςb μὲν ἀκρατὴς ὁ μὴ ἐμ-μένων ὁποιαοῦν δόξῃ, ἀπλῶς δὲ ὁ μὴ ἐμμένων τῇὀρθῇ· τὸ γὰρ ἀπλῶς καὶ τὸ καθ' αὐτὸ ταυτὸν ἐστιν.(Scripsi : a κάκεινο ] cod. κάκεινο. — b πῶς ]cod. πῶς. —)\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δοῦ τι ἀμυδρὸν ἦχος· δι' ὃ ζῆται τῆς μὴ ὀρθῆς προαι-reσεως καὶ τῆς ψευδοῦς δόξης, ὡς ὀρθῆς καὶ ἀληθοῦς.Ἐπεὶ τοίνυν οὐ δι' ἑαυτὰ αἱρεῖται ἡ αἱρεῖται καὶ οἷςἐμμένει, ἀλλὰ διὰ τὸ ἀγαθόν, οὐ καθ' αὐτὸ ἐγχα-τῆς ἐστιν, ἀλλὰ κατὰ συμβεβηκός. Ὁμοίως δὲ καὶ ἐπὶ τῶν ἀντικειμένων ἔχει· πῶςb μὲν ἀκρατὴς ὁ μὴ ἐμ-μένων ὁποιαοῦν δόξῃ, ἀπλῶς δὲ ὁ μὴ ἐμμένων τῇὀρθῇ· τὸ γὰρ ἀπλῶς καὶ τὸ καθ' αὐτὸ ταυτὸν ἐστιν.(Scripsi : a κάκεινο ] cod. κάκεινο. — b πῶς ]cod. πῶς. —)\"}\n",
+          "original_line_sha256": "c8af71021afc881b4e877eeae6491c370b9dceefda736e57d3c6ca00bb8cd0e0",
+          "applied_line_sha256": "4a932e5513d575cc433efa57ecb93af79c82921fdf4b56834adc3f46e6748d3d",
+          "text_before": "δοῦ τι ἀμυδρὸν ἦχος· δι' ὃ ζῆται τῆς μὴ ὀρθῆς προαι-reσεως καὶ τῆς ψευδοῦς δόξης, ὡς ὀρθῆς καὶ ἀληθοῦς.Ἐπεὶ τοίνυν οὐ δι' ἑαυτὰ αἱρεῖται ἡ αἱρεῖται καὶ οἷςἐμμένει, ἀλλὰ διὰ τὸ ἀγαθόν, οὐ καθ' αὐτὸ ἐγχα-τῆς ἐστιν, ἀλλὰ κατὰ συμβεβηκός. Ὁμοίως δὲ καὶ ἐπὶτῶν ἀντικειμένων ἔχει· πῶςb μὲν ἀκρατὴς ὁ μὴ ἐμ-μένων ὁποιαοῦν δόξῃ, ἀπλῶς δὲ ὁ μὴ ἐμμένων τῇὀρθῇ· τὸ γὰρ ἀπλῶς καὶ τὸ καθ' αὐτὸ ταυτὸν ἐστιν.(Scripsi : a κάκεινο ] cod. κάκεινο. — b πῶς ]cod. πῶς. —)",
+          "text_after": "δοῦ τι ἀμυδρὸν ἦχος· δι' ὃ ζῆται τῆς μὴ ὀρθῆς προαι-reσεως καὶ τῆς ψευδοῦς δόξης, ὡς ὀρθῆς καὶ ἀληθοῦς.Ἐπεὶ τοίνυν οὐ δι' ἑαυτὰ αἱρεῖται ἡ αἱρεῖται καὶ οἷςἐμμένει, ἀλλὰ διὰ τὸ ἀγαθόν, οὐ καθ' αὐτὸ ἐγχα-τῆς ἐστιν, ἀλλὰ κατὰ συμβεβηκός. Ὁμοίως δὲ καὶ ἐπὶ τῶν ἀντικειμένων ἔχει· πῶςb μὲν ἀκρατὴς ὁ μὴ ἐμ-μένων ὁποιαοῦν δόξῃ, ἀπλῶς δὲ ὁ μὴ ἐμμένων τῇὀρθῇ· τὸ γὰρ ἀπλῶς καὶ τὸ καθ' αὐτὸ ταυτὸν ἐστιν.(Scripsi : a κάκεινο ] cod. κάκεινο. — b πῶς ]cod. πῶς. —)",
+          "edits": [
+            {
+              "item_id": "ogc-31-c50234894c382d92",
+              "start": 249,
+              "end": 255,
+              "observed": "ἐπὶτῶν",
+              "decision": "split",
+              "reading": "ἐπὶ τῶν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 4128,
+          "locus": "andronicus_mullach_fpg3_0493.4",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"* Οἱ δὲ καλούμενοι ἰσχυρογνώμονες ἐμμένουσι μὲνδόξῃ τινί, ἐνίοτε δὲ καὶ ἀληθεῖ καὶ ἀγαθῇ προαιρέσει,ἐγκρατεῖς δὲ οὐκ εἰσίν· ἀλλ' ὥσπερ οἱ ἀσωτοὶ δοῦκασιντοῖς ἐλευθερίοις, καὶ οἱ θρασεῖς τοῖς ἀνδρείοις, τὸναὐτὸν τρόπον καὶ οὗτοι τοῖς ἐγκρατεσὶν καὶ εἰσινa οἷονδύσπειστοί τινες, καὶ οὐκ εὐμετάπειστοι. Καθ' ὅσονμὲν οὖν ἐμμενετικοί εἰσιν, δοῦκασιν τοῖς ἐγκρατεσὶνἀλλ' οἱ μὲν ἐγκρατεῖς μεταβάλλονται ὑπὸ λόγου τι-νὸς καὶ πειθοῦς, οἱ δὲ ἰσχυρογνώμονες ὑπὸ μὲν λόγουοὐ μεταβάλλονται, ὑπὸ δὲ ἐπιθυμίας καὶ ἡδονῶνπολλοὶ τούτων ἀγονται. Εἰσὶ δὲ ἰσχυρογνώμονες καὶοἱ ἰδιογνώμονες, καὶ οἱ ἀμαθεῖς, καὶ οἱ ἀγροικοί· οἱμὲν ἀμαθεῖς καὶ ἀγροικοί, διὰ τὸ μὴ εἰδέναι τὰς ἀρ-χὰς ὧν πεισθῆναι δυνατόν· οἱ δὲ ἰδιογνώμονες διὰἡδονὴν καὶ λύπην οὐ μεταπειθόνται· ἡδονται γὰρ μὴἠττώμενοι τῶν πειθόν ἐπιχειρούντων, καὶ λυποῦνταιἐὰν ἀκυρα γένωνται τὰ αὐτῶν ὥσπερ ψηφίσματα· καὶδιὰ τοῦτο μᾶλλον δοῦκασινb τοῖς ἀκρατεσὶν οἱ ἰδιο-γνώμονες ἢ τοῖς ἐγκρατεσὶν· οὐ γὰρ λόγῳ, ἀλλὰ πάθε-σιν ἀκολουθοῦσιν, ὥσπερ ἐκεῖνοι.\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"* Οἱ δὲ καλούμενοι ἰσχυρογνώμονες ἐμμένουσι μὲνδόξῃ τινί, ἐνίοτε δὲ καὶ ἀληθεῖ καὶ ἀγαθῇ προαιρέσει,ἐγκρατεῖς δὲ οὐκ εἰσίν· ἀλλ' ὥσπερ οἱ ἀσωτοὶ δοῦκασιντοῖς ἐλευθερίοις, καὶ οἱ θρασεῖς τοῖς ἀνδρείοις, τὸν αὐτὸν τρόπον καὶ οὗτοι τοῖς ἐγκρατεσὶν καὶ εἰσινa οἷονδύσπειστοί τινες, καὶ οὐκ εὐμετάπειστοι. Καθ' ὅσονμὲν οὖν ἐμμενετικοί εἰσιν, δοῦκασιν τοῖς ἐγκρατέσιν· ἀλλ' οἱ μὲν ἐγκρατεῖς μεταβάλλονται ὑπὸ λόγου τι-νὸς καὶ πειθοῦς, οἱ δὲ ἰσχυρογνώμονες ὑπὸ μὲν λόγουοὐ μεταβάλλονται, ὑπὸ δὲ ἐπιθυμίας καὶ ἡδονῶνπολλοὶ τούτων ἀγονται. Εἰσὶ δὲ ἰσχυρογνώμονες καὶ οἱ ἰδιογνώμονες, καὶ οἱ ἀμαθεῖς, καὶ οἱ ἀγροικοί· οἱμὲν ἀμαθεῖς καὶ ἀγροικοί, διὰ τὸ μὴ εἰδέναι τὰς ἀρ-χὰς ὧν πεισθῆναι δυνατόν· οἱ δὲ ἰδιογνώμονες διὰ ἡδονὴν καὶ λύπην οὐ μεταπειθόνται· ἡδονται γὰρ μὴ ἡττώμενοι τῶν πειθόν ἐπιχειρούντων, καὶ λυποῦνταιἐὰν ἀκυρα γένωνται τὰ αὐτῶν ὥσπερ ψηφίσματα· καὶ διὰ τοῦτο μᾶλλον δοῦκασινb τοῖς ἀκρατεσὶν οἱ ἰδιο-γνώμονες ἢ τοῖς ἐγκρατεσὶν· οὐ γὰρ λόγῳ, ἀλλὰ πάθε-σιν ἀκολουθοῦσιν, ὥσπερ ἐκεῖνοι.\"}\n",
+          "original_line_sha256": "ab281a87cae2d260e2c154749deae5ca6b82bf9b2ca4cfe92cb515f58e232e86",
+          "applied_line_sha256": "39fd43e40d2b50b00dd217e88c1cb7ad1231214e08f039eb275dbfddaf05116e",
+          "text_before": "* Οἱ δὲ καλούμενοι ἰσχυρογνώμονες ἐμμένουσι μὲνδόξῃ τινί, ἐνίοτε δὲ καὶ ἀληθεῖ καὶ ἀγαθῇ προαιρέσει,ἐγκρατεῖς δὲ οὐκ εἰσίν· ἀλλ' ὥσπερ οἱ ἀσωτοὶ δοῦκασιντοῖς ἐλευθερίοις, καὶ οἱ θρασεῖς τοῖς ἀνδρείοις, τὸναὐτὸν τρόπον καὶ οὗτοι τοῖς ἐγκρατεσὶν καὶ εἰσινa οἷονδύσπειστοί τινες, καὶ οὐκ εὐμετάπειστοι. Καθ' ὅσονμὲν οὖν ἐμμενετικοί εἰσιν, δοῦκασιν τοῖς ἐγκρατεσὶνἀλλ' οἱ μὲν ἐγκρατεῖς μεταβάλλονται ὑπὸ λόγου τι-νὸς καὶ πειθοῦς, οἱ δὲ ἰσχυρογνώμονες ὑπὸ μὲν λόγουοὐ μεταβάλλονται, ὑπὸ δὲ ἐπιθυμίας καὶ ἡδονῶνπολλοὶ τούτων ἀγονται. Εἰσὶ δὲ ἰσχυρογνώμονες καὶοἱ ἰδιογνώμονες, καὶ οἱ ἀμαθεῖς, καὶ οἱ ἀγροικοί· οἱμὲν ἀμαθεῖς καὶ ἀγροικοί, διὰ τὸ μὴ εἰδέναι τὰς ἀρ-χὰς ὧν πεισθῆναι δυνατόν· οἱ δὲ ἰδιογνώμονες διὰἡδονὴν καὶ λύπην οὐ μεταπειθόνται· ἡδονται γὰρ μὴἠττώμενοι τῶν πειθόν ἐπιχειρούντων, καὶ λυποῦνταιἐὰν ἀκυρα γένωνται τὰ αὐτῶν ὥσπερ ψηφίσματα· καὶδιὰ τοῦτο μᾶλλον δοῦκασινb τοῖς ἀκρατεσὶν οἱ ἰδιο-γνώμονες ἢ τοῖς ἐγκρατεσὶν· οὐ γὰρ λόγῳ, ἀλλὰ πάθε-σιν ἀκολουθοῦσιν, ὥσπερ ἐκεῖνοι.",
+          "text_after": "* Οἱ δὲ καλούμενοι ἰσχυρογνώμονες ἐμμένουσι μὲνδόξῃ τινί, ἐνίοτε δὲ καὶ ἀληθεῖ καὶ ἀγαθῇ προαιρέσει,ἐγκρατεῖς δὲ οὐκ εἰσίν· ἀλλ' ὥσπερ οἱ ἀσωτοὶ δοῦκασιντοῖς ἐλευθερίοις, καὶ οἱ θρασεῖς τοῖς ἀνδρείοις, τὸν αὐτὸν τρόπον καὶ οὗτοι τοῖς ἐγκρατεσὶν καὶ εἰσινa οἷονδύσπειστοί τινες, καὶ οὐκ εὐμετάπειστοι. Καθ' ὅσονμὲν οὖν ἐμμενετικοί εἰσιν, δοῦκασιν τοῖς ἐγκρατέσιν· ἀλλ' οἱ μὲν ἐγκρατεῖς μεταβάλλονται ὑπὸ λόγου τι-νὸς καὶ πειθοῦς, οἱ δὲ ἰσχυρογνώμονες ὑπὸ μὲν λόγουοὐ μεταβάλλονται, ὑπὸ δὲ ἐπιθυμίας καὶ ἡδονῶνπολλοὶ τούτων ἀγονται. Εἰσὶ δὲ ἰσχυρογνώμονες καὶ οἱ ἰδιογνώμονες, καὶ οἱ ἀμαθεῖς, καὶ οἱ ἀγροικοί· οἱμὲν ἀμαθεῖς καὶ ἀγροικοί, διὰ τὸ μὴ εἰδέναι τὰς ἀρ-χὰς ὧν πεισθῆναι δυνατόν· οἱ δὲ ἰδιογνώμονες διὰ ἡδονὴν καὶ λύπην οὐ μεταπειθόνται· ἡδονται γὰρ μὴ ἡττώμενοι τῶν πειθόν ἐπιχειρούντων, καὶ λυποῦνταιἐὰν ἀκυρα γένωνται τὰ αὐτῶν ὥσπερ ψηφίσματα· καὶ διὰ τοῦτο μᾶλλον δοῦκασινb τοῖς ἀκρατεσὶν οἱ ἰδιο-γνώμονες ἢ τοῖς ἐγκρατεσὶν· οὐ γὰρ λόγῳ, ἀλλὰ πάθε-σιν ἀκολουθοῦσιν, ὥσπερ ἐκεῖνοι.",
+          "edits": [
+            {
+              "item_id": "ogc-31-df3780d2aeb857ea",
+              "start": 202,
+              "end": 210,
+              "observed": "τὸναὐτὸν",
+              "decision": "split",
+              "reading": "τὸν αὐτὸν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-92aa8a5f56557c4d",
+              "start": 350,
+              "end": 363,
+              "observed": "ἐγκρατεσὶνἀλλ",
+              "decision": "replace",
+              "reading": "ἐγκρατέσιν· ἀλλ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-8257e6c28ee7cf12",
+              "start": 551,
+              "end": 556,
+              "observed": "καὶοἱ",
+              "decision": "split",
+              "reading": "καὶ οἱ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-d9e2f60b677eaffa",
+              "start": 702,
+              "end": 711,
+              "observed": "διὰἡδονὴν",
+              "decision": "split",
+              "reading": "διὰ ἡδονὴν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-5da9b87f7ea76e75",
+              "start": 752,
+              "end": 763,
+              "observed": "μὴἠττώμενοι",
+              "decision": "replace",
+              "reading": "μὴ ἡττώμενοι",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-1a55ac5860a1fba6",
+              "start": 848,
+              "end": 854,
+              "observed": "καὶδιὰ",
+              "decision": "split",
+              "reading": "καὶ διὰ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 4129,
+          "locus": "andronicus_mullach_fpg3_0493.5",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"** Εἰσὶ δὲ τινες, οἱ ἐμμένουσι τοῖς δεδογμένοις ἀλη-θέσιν, ἢ οὐκ ἐμμένουσι τοῖς ψευδεσὶ δι' ἡδονὴν, οἱ οὐκεἰσὶ φαῦλοι, ὅτι διὰ ἡδονὴν ἐπαινετὴν ἐμμένουσιν ἢοὐκ ἐμμένουσιν. Ὡσπερ δὲ Νεοπτόλεμος ἐποίησεν· οὐγὰρ ἐνέμεινεν οἷς συνέθετο τῷ Ὀδυσσῇ, καὶ οὐκ ἠπά-τησε τὸν Φιλοκτήτην ψευσάμενος, δι' ἡδονὴν καλὴνκαὶ οὐ φαύλῃν· οὐ γὰρ ὁ δι' ἡδονὴν τι ποιῶν ἀπλῶς,ἀκόλαστος, ἢ φαῦλος ἢ ἀκρατής, ἀλλ' ὁ δι' αἰσχρὰνἡδονὴν, οὕτως ψέγεται.Scripsi : a καὶ εἰσιν ] cod καὶ εἰσιν. — b δοί-κασιν ] cod. δοῦκασιν. —)\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"** Εἰσὶ δὲ τινες, οἱ ἐμμένουσι τοῖς δεδογμένοις ἀλη-θέσιν, ἢ οὐκ ἐμμένουσι τοῖς ψευδεσὶ δι' ἡδονὴν, οἱ οὐκεἰσὶ φαῦλοι, ὅτι διὰ ἡδονὴν ἐπαινετὴν ἐμμένουσιν ἢοὐκ ἐμμένουσιν. Ὡσπερ δὲ Νεοπτόλεμος ἐποίησεν· οὐγὰρ ἐνέμεινεν οἷς συνέθετο τῷ Ὀδυσσῇ, καὶ οὐκ ἠπά-τησε τὸν Φιλοκτήτην ψευσάμενος, δι' ἡδονὴν καλὴν καὶ οὐ φαύλῃν· οὐ γὰρ ὁ δι' ἡδονὴν τι ποιῶν ἀπλῶς,ἀκόλαστος, ἢ φαῦλος ἢ ἀκρατής, ἀλλ' ὁ δι' αἰσχρὰν ἡδονὴν, οὕτως ψέγεται.Scripsi : a καὶ εἰσιν ] cod καὶ εἰσιν. — b δοί-κασιν ] cod. δοῦκασιν. —)\"}\n",
+          "original_line_sha256": "088c5f9b4549c021c88bc59ede0b6c24cfa734717d23850d6d403672cabe3522",
+          "applied_line_sha256": "6082214606fa04c75e6c75957643a260170e82bdde031883d905df422d1cdccf",
+          "text_before": "** Εἰσὶ δὲ τινες, οἱ ἐμμένουσι τοῖς δεδογμένοις ἀλη-θέσιν, ἢ οὐκ ἐμμένουσι τοῖς ψευδεσὶ δι' ἡδονὴν, οἱ οὐκεἰσὶ φαῦλοι, ὅτι διὰ ἡδονὴν ἐπαινετὴν ἐμμένουσιν ἢοὐκ ἐμμένουσιν. Ὡσπερ δὲ Νεοπτόλεμος ἐποίησεν· οὐγὰρ ἐνέμεινεν οἷς συνέθετο τῷ Ὀδυσσῇ, καὶ οὐκ ἠπά-τησε τὸν Φιλοκτήτην ψευσάμενος, δι' ἡδονὴν καλὴνκαὶ οὐ φαύλῃν· οὐ γὰρ ὁ δι' ἡδονὴν τι ποιῶν ἀπλῶς,ἀκόλαστος, ἢ φαῦλος ἢ ἀκρατής, ἀλλ' ὁ δι' αἰσχρὰνἡδονὴν, οὕτως ψέγεται.Scripsi : a καὶ εἰσιν ] cod καὶ εἰσιν. — b δοί-κασιν ] cod. δοῦκασιν. —)",
+          "text_after": "** Εἰσὶ δὲ τινες, οἱ ἐμμένουσι τοῖς δεδογμένοις ἀλη-θέσιν, ἢ οὐκ ἐμμένουσι τοῖς ψευδεσὶ δι' ἡδονὴν, οἱ οὐκεἰσὶ φαῦλοι, ὅτι διὰ ἡδονὴν ἐπαινετὴν ἐμμένουσιν ἢοὐκ ἐμμένουσιν. Ὡσπερ δὲ Νεοπτόλεμος ἐποίησεν· οὐγὰρ ἐνέμεινεν οἷς συνέθετο τῷ Ὀδυσσῇ, καὶ οὐκ ἠπά-τησε τὸν Φιλοκτήτην ψευσάμενος, δι' ἡδονὴν καλὴν καὶ οὐ φαύλῃν· οὐ γὰρ ὁ δι' ἡδονὴν τι ποιῶν ἀπλῶς,ἀκόλαστος, ἢ φαῦλος ἢ ἀκρατής, ἀλλ' ὁ δι' αἰσχρὰν ἡδονὴν, οὕτως ψέγεται.Scripsi : a καὶ εἰσιν ] cod καὶ εἰσιν. — b δοί-κασιν ] cod. δοῦκασιν. —)",
+          "edits": [
+            {
+              "item_id": "ogc-31-4fedd155e9b75959",
+              "start": 298,
+              "end": 306,
+              "observed": "καλὴνκαὶ",
+              "decision": "split",
+              "reading": "καλὴν καὶ",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-5ccbb53ccbb35c1f",
+              "start": 395,
+              "end": 408,
+              "observed": "αἰσχρὰνἡδονὴν",
+              "decision": "split",
+              "reading": "αἰσχρὰν ἡδονὴν",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 4131,
+          "locus": "andronicus_mullach_fpg3_0493.7",
+          "original_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Περὶ τῆς ἀκρατίας, πῶς ἔχει πρὸς τὴν σωφροσύνην· καὶτίνα τρόπον ὁ ἀκρατὴς δοκεῖ φρόνιμος ἐνίοτε εἶναι.\"}\n",
+          "applied_line": "{\"urn\": \"andronicus-rhodius.de-passionibus-lib-1-sp\", \"edition\": \"qwen36-andronicus_mullach_fpg3\", \"locus\": \"andronicus_mullach_fpg3_0493.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Περὶ τῆς ἀκρατίας, πῶς ἔχει πρὸς τὴν σωφροσύνην· καὶ τίνα τρόπον ὁ ἀκρατὴς δοκεῖ φρόνιμος ἐνίοτε εἶναι.\"}\n",
+          "original_line_sha256": "2c8477b3a0a1a94db1bb458ff1aad7732b30ae9a9c84b7aa699a2d6ac9927892",
+          "applied_line_sha256": "36dedac43f678a12ea1e35b1a0f83e65d66876345dafb2cf9706ae2ef291330d",
+          "text_before": "Περὶ τῆς ἀκρατίας, πῶς ἔχει πρὸς τὴν σωφροσύνην· καὶτίνα τρόπον ὁ ἀκρατὴς δοκεῖ φρόνιμος ἐνίοτε εἶναι.",
+          "text_after": "Περὶ τῆς ἀκρατίας, πῶς ἔχει πρὸς τὴν σωφροσύνην· καὶ τίνα τρόπον ὁ ἀκρατὴς δοκεῖ φρόνιμος ἐνίοτε εἶναι.",
+          "edits": [
+            {
+              "item_id": "ogc-31-788f9179b868447c",
+              "start": 49,
+              "end": 56,
+              "observed": "καὶτίνα",
+              "decision": "split",
+              "reading": "καὶ τίνα",
+              "evidence_url": "https://archive.org/details/fragmentaphiloso03mulluoft/page/n492/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "data/corpus/ocr.mansi_ephesus_t5.jsonl",
+      "sha256_before": "9cbc78e6d4db0a9c1f3c0d867b614201ded4c5656f4de827b6db3d84a2a6c9a4",
+      "sha256_after": "ce6b07a70bdfa7741ad7125bf1b5ad22da1b9557a22216c2b364f22c5c39663a",
+      "rows": [
+        {
+          "line": 1098,
+          "locus": "mansi_ephesus_t5_0087.13",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐμμανουὴλ, ὁποῖαν περ ἄν λογισαὶτο τις & τλῳ\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐμμανουὴλ, ὁποῖαν περ ἄν λογίσαιτό τις & τλῳ\"}\n",
+          "original_line_sha256": "ac46d2af27b50d9d31dc0ca79af3f7a721906a6c2d77559d13e659c5e62ab4dd",
+          "applied_line_sha256": "d1804e9facc50b22e3b789ab8b7eba6c94542f99fd032f7ce6228333780fcbca",
+          "text_before": "Ἐμμανουὴλ, ὁποῖαν περ ἄν λογισαὶτο τις & τλῳ",
+          "text_after": "Ἐμμανουὴλ, ὁποῖαν περ ἄν λογίσαιτό τις & τλῳ",
+          "edits": [
+            {
+              "item_id": "ogc-31-9cc8de3988cca78e",
+              "start": 25,
+              "end": 34,
+              "observed": "λογισαὶτο",
+              "decision": "replace",
+              "reading": "λογίσαιτό",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1099,
+          "locus": "mansi_ephesus_t5_0087.14",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῷ ἀνθρώπῳ ψυχλῳ ἀφὸς τὸ ἴδιον σῶμα. οἷκεὺπὴν γὰρ ψυχὴ τὰ τὸ σώματος, κμὶ τῇ κατὰ\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῷ ἀνθρώπῳ ψυχλῳ ἀφὸς τὸ ἴδιον σῶμα. οἰκεῖται γὰρ ψυχὴ τὰ τὸ σώματος, κμὶ τῇ κατὰ\"}\n",
+          "original_line_sha256": "181359df75f3c2eb9add19bf2a5d947960333a5f7a4f2b453ad90c68c00d92b1",
+          "applied_line_sha256": "184939ddf13adc780bdcf0bd238e54c565735f963a10b0095a9ba64f0e869eb3",
+          "text_before": "τῷ ἀνθρώπῳ ψυχλῳ ἀφὸς τὸ ἴδιον σῶμα. οἷκεὺπὴν γὰρ ψυχὴ τὰ τὸ σώματος, κμὶ τῇ κατὰ",
+          "text_after": "τῷ ἀνθρώπῳ ψυχλῳ ἀφὸς τὸ ἴδιον σῶμα. οἰκεῖται γὰρ ψυχὴ τὰ τὸ σώματος, κμὶ τῇ κατὰ",
+          "edits": [
+            {
+              "item_id": "ogc-31-fbb96d12ff8cac55",
+              "start": 37,
+              "end": 45,
+              "observed": "οἷκεὺπὴν",
+              "decision": "replace",
+              "reading": "οἰκεῖται",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1100,
+          "locus": "mansi_ephesus_t5_0087.15",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"φύσιν ἰδίαν ἀμὲτοχος ὅσα ἡμὶ αὐτὴ παθὼν φυσικὼν τε ἄμα, κ, ἡμὶ ξεχὼν ἐπαγορμὴν. κινέται μὲν γὰρ εἰς ὁρέξεις τὸ σῶμα φυσικὰς, κ\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"φύσιν ἰδίαν ἀμέτοχος ὅσα ἡμὶ αὐτὴ παθὼν φυσικὼν τε ἄμα, κ, ἡμὶ ξεχὼν ἐπαγορμὴν. κινέται μὲν γὰρ εἰς ὁρέξεις τὸ σῶμα φυσικὰς, κ\"}\n",
+          "original_line_sha256": "b28aac849a6544735634d2d5516adb1c4ae52f57fe263a5674617d13728d25fd",
+          "applied_line_sha256": "d870fbc5b4ff22e2fd37e9d9f217c2ff0fe6b88df3303b06a64e2b59b21cb3f7",
+          "text_before": "φύσιν ἰδίαν ἀμὲτοχος ὅσα ἡμὶ αὐτὴ παθὼν φυσικὼν τε ἄμα, κ, ἡμὶ ξεχὼν ἐπαγορμὴν. κινέται μὲν γὰρ εἰς ὁρέξεις τὸ σῶμα φυσικὰς, κ",
+          "text_after": "φύσιν ἰδίαν ἀμέτοχος ὅσα ἡμὶ αὐτὴ παθὼν φυσικὼν τε ἄμα, κ, ἡμὶ ξεχὼν ἐπαγορμὴν. κινέται μὲν γὰρ εἰς ὁρέξεις τὸ σῶμα φυσικὰς, κ",
+          "edits": [
+            {
+              "item_id": "ogc-31-a108835ea7a38038",
+              "start": 12,
+              "end": 20,
+              "observed": "ἀμὲτοχος",
+              "decision": "replace",
+              "reading": "ἀμέτοχος",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1101,
+          "locus": "mansi_ephesus_t5_0087.16",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σωαιναζάμετι δὲ' τλὴν ζωὴν ἡ ζωὸσα ψυχὴ·\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σωαιναζάμετι δὲ' τλὴν ζωὴν ἡ ζῶσα ψυχὴ·\"}\n",
+          "original_line_sha256": "d0fc8e27800f2a0305054eed6121c43557b239ff46aa8de03b4b25586d44abe1",
+          "applied_line_sha256": "9e63bdaea493bef1e6702a5a30fb67480c9efaeb15e4b207a1f5b374ec09beaf",
+          "text_before": "σωαιναζάμετι δὲ' τλὴν ζωὴν ἡ ζωὸσα ψυχὴ·",
+          "text_after": "σωαιναζάμετι δὲ' τλὴν ζωὴν ἡ ζῶσα ψυχὴ·",
+          "edits": [
+            {
+              "item_id": "ogc-31-5cca339346210958",
+              "start": 29,
+              "end": 34,
+              "observed": "ζωὸσα",
+              "decision": "replace",
+              "reading": "ζῶσα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1102,
+          "locus": "mansi_ephesus_t5_0087.17",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"συμμετὶχει δὲ κατ' ἡδοὺα τρόπον, οἷστὶν γε μὴν\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"συμμετέχει δὲ κατ' ἰδίαν τρόπον, οἷστὶν γε μὴν\"}\n",
+          "original_line_sha256": "ba02ada3884e0b6cb96b498f3929c912e47d905bef73483f07e20c9808fabc23",
+          "applied_line_sha256": "ebf973d4d661740cb8149d50eb94d3b89d31ad26a24b2d1077eb14e00c20b63e",
+          "text_before": "συμμετὶχει δὲ κατ' ἡδοὺα τρόπον, οἷστὶν γε μὴν",
+          "text_after": "συμμετέχει δὲ κατ' ἰδίαν τρόπον, οἷστὶν γε μὴν",
+          "edits": [
+            {
+              "item_id": "ogc-31-18debb33d14a1f9b",
+              "start": 0,
+              "end": 10,
+              "observed": "συμμετὶχει",
+              "decision": "replace",
+              "reading": "συμμετέχει",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-10372f0da324cd80",
+              "start": 19,
+              "end": 24,
+              "observed": "ἡδοὺα",
+              "decision": "replace",
+              "reading": "ἰδίαν",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1103,
+          "locus": "mansi_ephesus_t5_0087.18",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἰδίαν ἀπόλαυσιν εἶναι τὸ τῆς ὁρέξεως ἀποτέλεσμα. κἄν εἰ κατασφαίτο τυχὼν τὸ σῶμα, κ σιδὴρῳ καταξαιοιτο, σωμαλγέι μὲν, ὡς ἰδὶς πά-\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἰδίαν ἀπόλαυσιν εἶναι τὸ τῆς ὁρέξεως ἀποτέλεσμα. κἄν εἰ κατασφαίτο τυχὼν τὸ σῶμα, κ σιδήρῳ καταξαιοιτο, σωμαλγέι μὲν, ὡς ἰδὶς πά-\"}\n",
+          "original_line_sha256": "890aff58c69d1239e3336282b1a0df24de6b6d7d478ab7e85719f79cffa9dc67",
+          "applied_line_sha256": "039040859e63d27f3fabefa4240afb051e6d20726ba796ef37d8dcab02998ac6",
+          "text_before": "ἰδίαν ἀπόλαυσιν εἶναι τὸ τῆς ὁρέξεως ἀποτέλεσμα. κἄν εἰ κατασφαίτο τυχὼν τὸ σῶμα, κ σιδὴρῳ καταξαιοιτο, σωμαλγέι μὲν, ὡς ἰδὶς πά-",
+          "text_after": "ἰδίαν ἀπόλαυσιν εἶναι τὸ τῆς ὁρέξεως ἀποτέλεσμα. κἄν εἰ κατασφαίτο τυχὼν τὸ σῶμα, κ σιδήρῳ καταξαιοιτο, σωμαλγέι μὲν, ὡς ἰδὶς πά-",
+          "edits": [
+            {
+              "item_id": "ogc-31-93ea4908e477d401",
+              "start": 84,
+              "end": 90,
+              "observed": "σιδὴρῳ",
+              "decision": "replace",
+              "reading": "σιδήρῳ",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1106,
+          "locus": "mansi_ephesus_t5_0087.4",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δὲ φαμὴν κ τῷ ἀλλήλοις κολλωμὴνα, ἡγοῦν συνλυεγμὴνα καὶ' ἐτὸρος τρόπος, ἡ κατὰ παραθεσιν, ἡ μίξιν, ἡ κράσιν. ὅτιν οὐὶ ζῶοῦνται λέγομεν τῇ καὶ' ἡμᾶς φύσει τὴν τῷ Θεὸ λόγον,\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δὲ φαμὴν κ τῷ ἀλλήλοις κολλωμένα, ἡγοῦν συμπλεγμένα καὶ' ἕτερον τρόπος, ἡ κατὰ παραθεσιν, ἡ μίξιν, ἡ κράσιν. ὅτιν οὐὶ ζῶοῦνται λέγομεν τῇ καὶ' ἡμᾶς φύσει τὴν τῷ Θεὸ λόγον,\"}\n",
+          "original_line_sha256": "7e7ae965a9c77dca6c203a4a66c979fec9f16d2a4d9998c179d6f3b681189521",
+          "applied_line_sha256": "7b44a8963f34bb921578f8d9b4361fc84c9d500b2ca5ad9660cc148d364ac189",
+          "text_before": "δὲ φαμὴν κ τῷ ἀλλήλοις κολλωμὴνα, ἡγοῦν συνλυεγμὴνα καὶ' ἐτὸρος τρόπος, ἡ κατὰ παραθεσιν, ἡ μίξιν, ἡ κράσιν. ὅτιν οὐὶ ζῶοῦνται λέγομεν τῇ καὶ' ἡμᾶς φύσει τὴν τῷ Θεὸ λόγον,",
+          "text_after": "δὲ φαμὴν κ τῷ ἀλλήλοις κολλωμένα, ἡγοῦν συμπλεγμένα καὶ' ἕτερον τρόπος, ἡ κατὰ παραθεσιν, ἡ μίξιν, ἡ κράσιν. ὅτιν οὐὶ ζῶοῦνται λέγομεν τῇ καὶ' ἡμᾶς φύσει τὴν τῷ Θεὸ λόγον,",
+          "edits": [
+            {
+              "item_id": "ogc-31-c3b9b4d15cc036e6",
+              "start": 23,
+              "end": 32,
+              "observed": "κολλωμὴνα",
+              "decision": "replace",
+              "reading": "κολλωμένα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-c0fd95552bf4d6db",
+              "start": 40,
+              "end": 51,
+              "observed": "συνλυεγμὴνα",
+              "decision": "replace",
+              "reading": "συμπλεγμένα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-0e621c1d008e4d7c",
+              "start": 57,
+              "end": 63,
+              "observed": "ἐτὸρος",
+              "decision": "replace",
+              "reading": "ἕτερον",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1108,
+          "locus": "mansi_ephesus_t5_0087.6",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐσίν, ἀπὸρρητος δὲ παντελὸς, κ ἡδοὺ πῖχα ἡμὶ\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐσίν, ἀπόρρητος δὲ παντελὸς, κ ἡδοὺ πῖχα ἡμὶ\"}\n",
+          "original_line_sha256": "2578dc540b1a6a59aff07f12623fb311e28680482b753000cbfc6147de32d5ed",
+          "applied_line_sha256": "30f8a133c1e113d252a256714cf4e93762702dbf2d4088ee0f7246bdf33a5ee0",
+          "text_before": "ἐσίν, ἀπὸρρητος δὲ παντελὸς, κ ἡδοὺ πῖχα ἡμὶ",
+          "text_after": "ἐσίν, ἀπόρρητος δὲ παντελὸς, κ ἡδοὺ πῖχα ἡμὶ",
+          "edits": [
+            {
+              "item_id": "ogc-31-44d9fe9aee1b134f",
+              "start": 6,
+              "end": 15,
+              "observed": "ἀπὸρρητος",
+              "decision": "replace",
+              "reading": "ἀπόρρητος",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1109,
+          "locus": "mansi_ephesus_t5_0087.7",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὄντων διεγνωσμέλος. πλὴν ὅτι μὴν τῷ παντὶ ἐδὸτε Θεὸ. κ ζαυμασὸν ἡδὼ, εἰ ἡμὶ τούτων ὁνοὺν ἡττουμεζα. ὅτε τὰ καὶ' ἡμᾶς αὐτὸς ὅπως ἄν\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὄντων διεγνωσμέλος. πλὴν ὅτι μὴν τῷ παντὶ εἰδότι Θεὸ. κ ζαυμασὸν ἡδὼ, εἰ ἡμὶ τούτων ὁνοὺν ἡττουμεζα. ὅτε τὰ καὶ' ἡμᾶς αὐτὸς ὅπως ἄν\"}\n",
+          "original_line_sha256": "7fa7fb79858ddeccc246890abd752ed5dbbfd5ee4d67f02df39cfd3f21348e78",
+          "applied_line_sha256": "cba2ebd1ec72f48e4fbc983b03382dc7811a3b9e5e05bbd34be918d6f57f2515",
+          "text_before": "ὄντων διεγνωσμέλος. πλὴν ὅτι μὴν τῷ παντὶ ἐδὸτε Θεὸ. κ ζαυμασὸν ἡδὼ, εἰ ἡμὶ τούτων ὁνοὺν ἡττουμεζα. ὅτε τὰ καὶ' ἡμᾶς αὐτὸς ὅπως ἄν",
+          "text_after": "ὄντων διεγνωσμέλος. πλὴν ὅτι μὴν τῷ παντὶ εἰδότι Θεὸ. κ ζαυμασὸν ἡδὼ, εἰ ἡμὶ τούτων ὁνοὺν ἡττουμεζα. ὅτε τὰ καὶ' ἡμᾶς αὐτὸς ὅπως ἄν",
+          "edits": [
+            {
+              "item_id": "ogc-31-58ce660e5b2420d7",
+              "start": 42,
+              "end": 47,
+              "observed": "ἐδὸτε",
+              "decision": "replace",
+              "reading": "εἰδότι",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1111,
+          "locus": "mansi_ephesus_t5_0087.9",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γὰρ τρόπον ζωῶνται νοεμὴν τλῳ τῷ ἀνθρώπῳ ζωχλῳ τῷ ἰδὶω σώματι; τὶς ὁ φράσαι δυναμέμος;\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0087.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γὰρ τρόπον ζωῶνται νοεμὴν τλῳ τῷ ἀνθρώπῳ ζωχλῳ τῷ ἰδίῳ σώματι; τὶς ὁ φράσαι δυναμέμος;\"}\n",
+          "original_line_sha256": "8291c19b23209bd910cea1a1d51072557341cb1b318474feca73b4dd63fc829d",
+          "applied_line_sha256": "31022bdf037ecde8f0ae00ddd5a89392baae70adf67908b593650bd736e67d51",
+          "text_before": "γὰρ τρόπον ζωῶνται νοεμὴν τλῳ τῷ ἀνθρώπῳ ζωχλῳ τῷ ἰδὶω σώματι; τὶς ὁ φράσαι δυναμέμος;",
+          "text_after": "γὰρ τρόπον ζωῶνται νοεμὴν τλῳ τῷ ἀνθρώπῳ ζωχλῳ τῷ ἰδίῳ σώματι; τὶς ὁ φράσαι δυναμέμος;",
+          "edits": [
+            {
+              "item_id": "ogc-31-874c830c7af98503",
+              "start": 50,
+              "end": 54,
+              "observed": "ἰδὶω",
+              "decision": "replace",
+              "reading": "ἰδίῳ",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n86/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1645,
+          "locus": "mansi_ephesus_t5_0157.11",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"* συνηχθη κατὰ τὴν Εἰφεσίων μηθὲσπολιν , τῆς κατὰ Νεσὸεῖον ὑποστέσεως χἀδεν . οἱ κ, συνεδρῶσαιντες , ἀμα τοῖς ἀποσολείσιν ἐνδίκους παρὰ· Τὲ τῆς μακαρείας νημῆς Κελεσίνας , τὲ ἡσωμβὺς ἐπισκόπου\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"* συνηχθη κατὰ τὴν Εἰφεσίων μητρόπολιν , τῆς κατὰ Νεστορίου ὑποστέσεως χἀδεν . οἱ κ, συνεδρῶσαιντες , ἀμα τοῖς ἀποσολείσιν ἐνδίκους παρὰ· Τὲ τῆς μακαρείας νημῆς Κελεσίνας , τὲ ἡσωμβὺς ἐπισκόπου\"}\n",
+          "original_line_sha256": "ab963c28011483e7bf9163cdd98aacef735cf5aff3e015993e0f06e94e1f5a24",
+          "applied_line_sha256": "a142efdd88a02e071d791610a863c924084a0162e707ab7ae0533490dffdd8aa",
+          "text_before": "* συνηχθη κατὰ τὴν Εἰφεσίων μηθὲσπολιν , τῆς κατὰ Νεσὸεῖον ὑποστέσεως χἀδεν . οἱ κ, συνεδρῶσαιντες , ἀμα τοῖς ἀποσολείσιν ἐνδίκους παρὰ· Τὲ τῆς μακαρείας νημῆς Κελεσίνας , τὲ ἡσωμβὺς ἐπισκόπου",
+          "text_after": "* συνηχθη κατὰ τὴν Εἰφεσίων μητρόπολιν , τῆς κατὰ Νεστορίου ὑποστέσεως χἀδεν . οἱ κ, συνεδρῶσαιντες , ἀμα τοῖς ἀποσολείσιν ἐνδίκους παρὰ· Τὲ τῆς μακαρείας νημῆς Κελεσίνας , τὲ ἡσωμβὺς ἐπισκόπου",
+          "edits": [
+            {
+              "item_id": "ogc-31-17e2e9aa132cc994",
+              "start": 28,
+              "end": 38,
+              "observed": "μηθὲσπολιν",
+              "decision": "replace",
+              "reading": "μητρόπολιν",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-16d6da8b25a44914",
+              "start": 50,
+              "end": 58,
+              "observed": "Νεσὸεῖον",
+              "decision": "replace",
+              "reading": "Νεστορίου",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1646,
+          "locus": "mansi_ephesus_t5_0157.12",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς ἀγίας Ρωμαίαν ἐκκλησίας , ἡψφω κασθαίρεσεως ὑποβεβληχάσει τὸν μνημονιδοὺντα Νεσὸεῖον ,\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς ἀγίας Ρωμαίαν ἐκκλησίας , ἡψφω κασθαίρεσεως ὑποβεβληχάσει τὸν μνημονευθέντα Νεστόριον ,\"}\n",
+          "original_line_sha256": "3021871ecefa3464cb2cceb0ecffb80a810c1a7d381ca38fce018a77989dc950",
+          "applied_line_sha256": "3c32b1fe374774f916992294838e57c194a62cb13844d08e5104be9f50337c2a",
+          "text_before": "τῆς ἀγίας Ρωμαίαν ἐκκλησίας , ἡψφω κασθαίρεσεως ὑποβεβληχάσει τὸν μνημονιδοὺντα Νεσὸεῖον ,",
+          "text_after": "τῆς ἀγίας Ρωμαίαν ἐκκλησίας , ἡψφω κασθαίρεσεως ὑποβεβληχάσει τὸν μνημονευθέντα Νεστόριον ,",
+          "edits": [
+            {
+              "item_id": "ogc-31-8b823116d6aa4de6",
+              "start": 66,
+              "end": 79,
+              "observed": "μνημονιδοὺντα",
+              "decision": "replace",
+              "reading": "μνημονευθέντα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-4e5a945e5c9bf59c",
+              "start": 80,
+              "end": 88,
+              "observed": "Νεσὸεῖον",
+              "decision": "replace",
+              "reading": "Νεστόριον",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1647,
+          "locus": "mansi_ephesus_t5_0157.13",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὡς βεβήλω διδασκαλίαις χρωμέψων , κ, σκανδαλίσαντα πολλὰς , κ, ἂκ ὁρδοποδοὺσαντι πεεὶ τὴν πὶσιν· συνδεδραμηκότες δὲ κ, ἡμεῖς , ἐπὶ τὲτο γεγόνος ἀφόντες , λελυπημέσθα . τούτης σῦνεκα τῆς\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὡς βεβήλω διδασκαλίαις χρωμέψων , κ, σκανδαλίσαντα πολλὰς , κ, ἂκ ὀρθοποδήσαντα πεεὶ τὴν πίστιν· συνδεδραμηκότες δὲ κ, ἡμεῖς , ἐπὶ τοῦτο γεγόνος ἀφόντες , λελυπημέσθα . τούτης σῦνεκα τῆς\"}\n",
+          "original_line_sha256": "7753ac00237807e3f67054692f45994e38881639483dc9845b244b2d18865345",
+          "applied_line_sha256": "a865a7d94deddbff1a95205a4641886bb644591a3835b475f3f18564aec2d721",
+          "text_before": "ὡς βεβήλω διδασκαλίαις χρωμέψων , κ, σκανδαλίσαντα πολλὰς , κ, ἂκ ὁρδοποδοὺσαντι πεεὶ τὴν πὶσιν· συνδεδραμηκότες δὲ κ, ἡμεῖς , ἐπὶ τὲτο γεγόνος ἀφόντες , λελυπημέσθα . τούτης σῦνεκα τῆς",
+          "text_after": "ὡς βεβήλω διδασκαλίαις χρωμέψων , κ, σκανδαλίσαντα πολλὰς , κ, ἂκ ὀρθοποδήσαντα πεεὶ τὴν πίστιν· συνδεδραμηκότες δὲ κ, ἡμεῖς , ἐπὶ τοῦτο γεγόνος ἀφόντες , λελυπημέσθα . τούτης σῦνεκα τῆς",
+          "edits": [
+            {
+              "item_id": "ogc-31-ea4ebabc0baffc0e",
+              "start": 66,
+              "end": 80,
+              "observed": "ὁρδοποδοὺσαντι",
+              "decision": "replace",
+              "reading": "ὀρθοποδήσαντα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-454eb2a7f226e16f",
+              "start": 90,
+              "end": 95,
+              "observed": "πὶσιν",
+              "decision": "replace",
+              "reading": "πίστιν",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            },
+            {
+              "item_id": "ogc-31-f916d427d872d0ca",
+              "start": 131,
+              "end": 135,
+              "observed": "τὲτο",
+              "decision": "replace",
+              "reading": "τοῦτο",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1649,
+          "locus": "mansi_ephesus_t5_0157.15",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς ἀγίας συνόδου , κ, πολλῶν μετεξὲ ἀσεφραγμβέων τε , κ, εἰρμωκῶν , εἰς τὰς ἑωνὶκὴ ἐκκλησίας\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς ἀγίας συνόδου , κ, πολλῶν μετεξὲ ἀσεφραγμβέων τε , κ, εἰρμωκῶν , εἰς τὰς ἑαυτῶν ἐκκλησίας\"}\n",
+          "original_line_sha256": "741773045b69335533c603e01ba95e4ef467e2aa39799df2ec8d260205c5c750",
+          "applied_line_sha256": "898f0d8e24447d77f996edce9502c0ac42e68e1deac9e7665a00d2f586479267",
+          "text_before": "τῆς ἀγίας συνόδου , κ, πολλῶν μετεξὲ ἀσεφραγμβέων τε , κ, εἰρμωκῶν , εἰς τὰς ἑωνὶκὴ ἐκκλησίας",
+          "text_after": "τῆς ἀγίας συνόδου , κ, πολλῶν μετεξὲ ἀσεφραγμβέων τε , κ, εἰρμωκῶν , εἰς τὰς ἑαυτῶν ἐκκλησίας",
+          "edits": [
+            {
+              "item_id": "ogc-31-6cddaaa7992e0bb9",
+              "start": 77,
+              "end": 83,
+              "observed": "ἑωνὶκὴ",
+              "decision": "replace",
+              "reading": "ἑαυτῶν",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1651,
+          "locus": "mansi_ephesus_t5_0157.17",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"πνινικαὺτι τῇ ἀγία συνόδῳ δι’ ὑποχραφὴς εἰς Ἰν\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κοινωνῆσαι τῇ ἀγία συνόδῳ δι’ ὑποχραφὴς εἰς Ἰν\"}\n",
+          "original_line_sha256": "d331c81b4a9741f5885f4ba468b67a2d016b89f1e353bbcdcf78aef603eae194",
+          "applied_line_sha256": "fd35a85d77068646f2a445883d4a1c640c7c32d7c5e3c4365d58cc3aaf395438",
+          "text_before": "πνινικαὺτι τῇ ἀγία συνόδῳ δι’ ὑποχραφὴς εἰς Ἰν",
+          "text_after": "κοινωνῆσαι τῇ ἀγία συνόδῳ δι’ ὑποχραφὴς εἰς Ἰν",
+          "edits": [
+            {
+              "item_id": "ogc-31-5fd097dbb0c24b9f",
+              "start": 0,
+              "end": 10,
+              "observed": "πνινικαὺτι",
+              "decision": "replace",
+              "reading": "κοινωνῆσαι",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1652,
+          "locus": "mansi_ephesus_t5_0157.18",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐξσνεχθεῖσαν κατὰ Νεσὸεῖον τῆς κασθαίρεσεως\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐξσνεχθεῖσαν κατὰ Νεστορίου τῆς κασθαίρεσεως\"}\n",
+          "original_line_sha256": "27b97eb100a41f4a19e382b73213dcfc93aa0de7faf5746ce54c0eb86f5adf29",
+          "applied_line_sha256": "e9067254638db5b402a55a6dac6b15917afd89c13b6e908ec806f8168edb7b2a",
+          "text_before": "ἐξσνεχθεῖσαν κατὰ Νεσὸεῖον τῆς κασθαίρεσεως",
+          "text_after": "ἐξσνεχθεῖσαν κατὰ Νεστορίου τῆς κασθαίρεσεως",
+          "edits": [
+            {
+              "item_id": "ogc-31-a3b2a1d4597cc1a2",
+              "start": 18,
+              "end": 26,
+              "observed": "Νεσὸεῖον",
+              "decision": "replace",
+              "reading": "Νεστορίου",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1659,
+          "locus": "mansi_ephesus_t5_0157.24",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κ, ἡμὰς αὐλὲς συνθεὸσαι τῇ δὲ τῇ ἡψφῳ τῆς\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κ, ἡμὰς αὐλὲς συνθέσθαι τῇ δὲ τῇ ἡψφῳ τῆς\"}\n",
+          "original_line_sha256": "96b6a7724ea877c218ce85928ef364c3dabad4d7de59d539865538861164ed5e",
+          "applied_line_sha256": "aa31000fc0e5e0d4e9d680edb5aa02d1bd0c3f7d0a958e2548211bac8fc0e2ec",
+          "text_before": "κ, ἡμὰς αὐλὲς συνθεὸσαι τῇ δὲ τῇ ἡψφῳ τῆς",
+          "text_after": "κ, ἡμὰς αὐλὲς συνθέσθαι τῇ δὲ τῇ ἡψφῳ τῆς",
+          "edits": [
+            {
+              "item_id": "ogc-31-29e8c1b002f60f8f",
+              "start": 14,
+              "end": 23,
+              "observed": "συνθεὸσαι",
+              "decision": "replace",
+              "reading": "συνθέσθαι",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1660,
+          "locus": "mansi_ephesus_t5_0157.25",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αγίας συνόδου , Ἰὴ ἐξσνεχθεῖσιν κατὰ Νεσὸεῖον ,\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αγίας συνόδου , Ἰὴ ἐξσνεχθεῖσιν κατὰ Νεστορίου ,\"}\n",
+          "original_line_sha256": "c7cf6b0ed18ed4618df21712959d51af1f452eff7266ac663d12be5868d5a78a",
+          "applied_line_sha256": "0594e2dd662c90807a5c73cc9b7cc9720f7b8c178290a4699d19e70173fe9db8",
+          "text_before": "αγίας συνόδου , Ἰὴ ἐξσνεχθεῖσιν κατὰ Νεσὸεῖον ,",
+          "text_after": "αγίας συνόδου , Ἰὴ ἐξσνεχθεῖσιν κατὰ Νεστορίου ,",
+          "edits": [
+            {
+              "item_id": "ogc-31-dd1a382003dce7a7",
+              "start": 37,
+              "end": 45,
+              "observed": "Νεσὸεῖον",
+              "decision": "replace",
+              "reading": "Νεστορίου",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 1661,
+          "locus": "mansi_ephesus_t5_0157.26",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔχειν τε αὐτὴν κασθηρημοὺσων , κ, ἀνασδημαλίσαι\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0157.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔχειν τε αὐτὴν καθηρημένον , κ, ἀνασδημαλίσαι\"}\n",
+          "original_line_sha256": "4fc3b4b7f62c49943022f0636b30704dca2ec1d0f861272d547c0a9e1b753ab8",
+          "applied_line_sha256": "759a6eaa4722f05bbf83ad96eed19847d48bbec0115fef711b358c4dc5173e1e",
+          "text_before": "ἔχειν τε αὐτὴν κασθηρημοὺσων , κ, ἀνασδημαλίσαι",
+          "text_after": "ἔχειν τε αὐτὴν καθηρημένον , κ, ἀνασδημαλίσαι",
+          "edits": [
+            {
+              "item_id": "ogc-31-6a8c4d9cd95559ec",
+              "start": 15,
+              "end": 28,
+              "observed": "κασθηρημοὺσων",
+              "decision": "replace",
+              "reading": "καθηρημένον",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n156/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2236,
+          "locus": "mansi_ephesus_t5_0208.18",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῶν σὲα κιεων Ἰησὺν Χριστόν. ὑπὲρ δὲ τὸ μὴ αὐνοεῖ-\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῶν ἕνα κιεων Ἰησὺν Χριστόν. ὑπὲρ δὲ τὸ μὴ αὐνοεῖ-\"}\n",
+          "original_line_sha256": "7dd35bef2746c6f84ae93f7da84e7a2bd8c2d42c1d106d2ffb7d9fb32e3fc658",
+          "applied_line_sha256": "cae26f00184ff0888e9ec65561f6557cb3564fc64f45e1ab8cc3e71856f722c1",
+          "text_before": "τῶν σὲα κιεων Ἰησὺν Χριστόν. ὑπὲρ δὲ τὸ μὴ αὐνοεῖ-",
+          "text_after": "τῶν ἕνα κιεων Ἰησὺν Χριστόν. ὑπὲρ δὲ τὸ μὴ αὐνοεῖ-",
+          "edits": [
+            {
+              "item_id": "ogc-31-d41f3e10bb0ea61e",
+              "start": 4,
+              "end": 7,
+              "observed": "σὲα",
+              "decision": "replace",
+              "reading": "ἕνα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2241,
+          "locus": "mansi_ephesus_t5_0208.22",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σλέτῃκα τοῖς αὐτὶσι πεσφρογμίοις ὑπομνήσασιν *\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σλέτῃκα τοῖς αὐτοῖς πεσφρογμίοις ὑπομνήσασιν *\"}\n",
+          "original_line_sha256": "eeb2b163f0c011b3e38e3aa932400c1b261a84b8722a5b4d37e881b7b2d06514",
+          "applied_line_sha256": "53846d0ff4a7a6fe2708ba135374acb2eabc891b02f4ae4dcf31cc117b5b1518",
+          "text_before": "σλέτῃκα τοῖς αὐτὶσι πεσφρογμίοις ὑπομνήσασιν *",
+          "text_after": "σλέτῃκα τοῖς αὐτοῖς πεσφρογμίοις ὑπομνήσασιν *",
+          "edits": [
+            {
+              "item_id": "ogc-31-cb99c2ec0bdbd377",
+              "start": 13,
+              "end": 19,
+              "observed": "αὐτὶσι",
+              "decision": "replace",
+              "reading": "αὐτοῖς",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2255,
+          "locus": "mansi_ephesus_t5_0208.35",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πισδομὼ εἰς σὲα Θεόν, πατέρα παντοκράτορα,\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πισδομὼ εἰς ἕνα Θεόν, πατέρα παντοκράτορα,\"}\n",
+          "original_line_sha256": "f832314f0fee822940e0e021c2ac740ca83a4453d76ee3b88b9b9873649edaf0",
+          "applied_line_sha256": "dc226fd98a7ab5ced9f690a8cafbfaffefe713744b3292aefe1c016783d72a0f",
+          "text_before": "Πισδομὼ εἰς σὲα Θεόν, πατέρα παντοκράτορα,",
+          "text_after": "Πισδομὼ εἰς ἕνα Θεόν, πατέρα παντοκράτορα,",
+          "edits": [
+            {
+              "item_id": "ogc-31-0b3e03379ef62a70",
+              "start": 12,
+              "end": 15,
+              "observed": "σὲα",
+              "decision": "replace",
+              "reading": "ἕνα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2256,
+          "locus": "mansi_ephesus_t5_0208.36",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"πάντων ὁρατῶν τε, ἡ ἀορατῶν ποιητήν· ἡ εἰς σὲα\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"πάντων ὁρατῶν τε, ἡ ἀορατῶν ποιητήν· ἡ εἰς ἕνα\"}\n",
+          "original_line_sha256": "9a8ba466ce07f706bc08480bef4b0b873c3f6e27cd026061c64883725f265cb7",
+          "applied_line_sha256": "0eb9b031e169e57478590ee829a4c70d4c1e6be9ebfd7ef7700b20c4eb7c2f9e",
+          "text_before": "πάντων ὁρατῶν τε, ἡ ἀορατῶν ποιητήν· ἡ εἰς σὲα",
+          "text_after": "πάντων ὁρατῶν τε, ἡ ἀορατῶν ποιητήν· ἡ εἰς ἕνα",
+          "edits": [
+            {
+              "item_id": "ogc-31-3a273874f7a476da",
+              "start": 43,
+              "end": 46,
+              "observed": "σὲα",
+              "decision": "replace",
+              "reading": "ἕνα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2265,
+          "locus": "mansi_ephesus_t5_0208.44",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σαρκοσὲσται, ἡ σὲα θρωπώσενται, παθόντα, καὶ\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σαρκωθέντα, ἡ σὲα θρωπώσενται, παθόντα, καὶ\"}\n",
+          "original_line_sha256": "55fa9475ba95e514072a41da2244fe52ac22812e9549ac065ea0e13fc0013aa2",
+          "applied_line_sha256": "5b6b284d1c68dd5971c7fa82d98ceb2d0d5b7aa6e343d2fb445b7ec9f5e563b1",
+          "text_before": "σαρκοσὲσται, ἡ σὲα θρωπώσενται, παθόντα, καὶ",
+          "text_after": "σαρκωθέντα, ἡ σὲα θρωπώσενται, παθόντα, καὶ",
+          "edits": [
+            {
+              "item_id": "ogc-31-9ae9a182569de027",
+              "start": 0,
+              "end": 11,
+              "observed": "σαρκοσὲσται",
+              "decision": "replace",
+              "reading": "σαρκωθέντα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2274,
+          "locus": "mansi_ephesus_t5_0208.52",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.52\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πισδεὶν ἐφασαν εἰς σὲα Θεόν, ἐν βαθὸν ἀσπερ\", \"corrections\": [\"dehyphenation\"]}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.52\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πισδεὶν ἐφασαν εἰς ἕνα Θεόν, ἐν βαθὸν ἀσπερ\", \"corrections\": [\"dehyphenation\"]}\n",
+          "original_line_sha256": "1f43728a099adb5e6097e7ba8a4b9eb62b75a3b293763b17f979de0e2d33c7e4",
+          "applied_line_sha256": "4b9aaeaabba20823410897119107c0f73c3e76249182e7267e9f39f9ee5265b0",
+          "text_before": "Πισδεὶν ἐφασαν εἰς σὲα Θεόν, ἐν βαθὸν ἀσπερ",
+          "text_after": "Πισδεὶν ἐφασαν εἰς ἕνα Θεόν, ἐν βαθὸν ἀσπερ",
+          "edits": [
+            {
+              "item_id": "ogc-31-90e7f2ac167e2908",
+              "start": 19,
+              "end": 22,
+              "observed": "σὲα",
+              "decision": "replace",
+              "reading": "ἕνα",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        },
+        {
+          "line": 2284,
+          "locus": "mansi_ephesus_t5_0208.7",
+          "original_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὐτὲ Γεὸνισαι, τὰ ἴσα φρονήσιν αὐτῷ, ἡ εἰπέν, ἡ\"}\n",
+          "applied_line": "{\"urn\": \"ocr.mansi_ephesus_t5\", \"edition\": \"qwen36-mansi_ephesus_t5\", \"locus\": \"mansi_ephesus_t5_0208.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὐτὲ γεγονόσι, τὰ ἴσα φρονήσιν αὐτῷ, ἡ εἰπέν, ἡ\"}\n",
+          "original_line_sha256": "eda4139b3a73e783f23b3c5bdf28e0e8b50151e811333f87d503cf824eec6140",
+          "applied_line_sha256": "07aabfb77830fee9e6348c8981511afeefc4fabe5af68664732b6be0d6770c75",
+          "text_before": "αὐτὲ Γεὸνισαι, τὰ ἴσα φρονήσιν αὐτῷ, ἡ εἰπέν, ἡ",
+          "text_after": "αὐτὲ γεγονόσι, τὰ ἴσα φρονήσιν αὐτῷ, ἡ εἰπέν, ἡ",
+          "edits": [
+            {
+              "item_id": "ogc-31-b3dd12686b111117",
+              "start": 5,
+              "end": 13,
+              "observed": "Γεὸνισαι",
+              "decision": "replace",
+              "reading": "γεγονόσι",
+              "evidence_url": "https://archive.org/details/sacrorumconcilio0005joan/page/n207/mode/1up",
+              "reviewer": "codex/page-image",
+              "reviewed_at": "2026-09-14",
+              "notes": "Reading transcribed from the aligned source scan."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "reverse": "python3 scripts/apply_reviewed_nonfinal_graves.py --audit data/corpus_changes/issue-31-reviewed.page-images-round-2-2026-09-14.applied.json --unapply"
+}
