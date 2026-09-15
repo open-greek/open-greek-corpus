@@ -32,10 +32,11 @@ from collapse_duplicate_reads import norm_elision  # noqa: E402
 import merge_duplicate_reads as mg  # noqa: E402
 
 AUDIT = REPO / "data" / "corpus_changes" / "ocr.duplicate-read-merge.json"
-REVIEWED_PAGE_AUDIT = (
-    REPO / "data" / "corpus_changes" /
-    "issue-33-reviewed.page-images-2026-09-14.applied.json"
-)
+REVIEWED_PAGE_AUDITS = tuple(sorted(
+    (REPO / "data" / "corpus_changes").glob(
+        "issue-33-reviewed.*.applied.json"
+    )
+))
 
 
 def _audit():
@@ -45,26 +46,32 @@ def _audit():
 
 
 def _rows_before_reviewed_page_displacements(path, rows):
-    """Restore rows moved by the later scan-reviewed duplicate-page pass."""
-    if not REVIEWED_PAGE_AUDIT.exists():
-        return rows
-    review = json.loads(REVIEWED_PAGE_AUDIT.read_text(encoding="utf-8"))
-    blk = review["files"].get(path)
-    if not blk:
-        return rows
+    """Restore every later scan-reviewed pass, newest state first."""
+    pending = []
+    for audit in REVIEWED_PAGE_AUDITS:
+        block = json.loads(audit.read_text(encoding="utf-8"))["files"].get(path)
+        if block:
+            pending.append(block)
 
-    by_index = {
-        e["index"]: json.loads(e["original_line"])
-        for e in blk["removed_rows"]
-    }
-    j = 0
-    for i in range(blk["rows_before"]):
-        if i in by_index:
-            continue
-        by_index[i] = rows[j]
-        j += 1
-    assert j == len(rows)
-    return [by_index[i] for i in range(blk["rows_before"])]
+    while pending:
+        matches = [block for block in pending if block["rows_after"] == len(rows)]
+        if not matches:
+            break
+        assert len(matches) == 1, f"ambiguous reviewed-page history for {path}"
+        block = matches[0]
+        by_index = {
+            entry["index"]: json.loads(entry["original_line"])
+            for entry in block["removed_rows"]
+        }
+        current = iter(rows)
+        for index in range(block["rows_before"]):
+            if index not in by_index:
+                by_index[index] = next(current)
+        with pytest.raises(StopIteration):
+            next(current)
+        rows = [by_index[index] for index in range(block["rows_before"])]
+        pending.remove(block)
+    return rows
 
 
 def test_span_stream_is_the_stream_the_merge_decided_on():

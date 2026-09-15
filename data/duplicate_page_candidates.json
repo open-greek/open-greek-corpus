@@ -11,12 +11,12 @@
    "ocr"
   ]
  },
- "files_scanned": 4437,
- "candidates": 1834,
- "clean_second_copies": 662,
- "clean_second_copies_tokens": 190696,
- "clean_second_copies_served": 219,
- "clean_second_copies_served_tokens": 64166,
+ "files_scanned": 4441,
+ "candidates": 1827,
+ "clean_second_copies": 655,
+ "clean_second_copies_tokens": 189069,
+ "clean_second_copies_served": 212,
+ "clean_second_copies_served_tokens": 62539,
  "overlapping_not_copies": 1172,
  "overlapping_not_copies_tokens": 401116,
  "served_droppable_by_containment": [
@@ -43,17 +43,17 @@
   },
   {
    "band": "0.60-0.80",
-   "pairs": 141,
-   "tokens": 38528,
-   "same_item_pairs": 126,
-   "same_item_tokens": 34454
+   "pairs": 135,
+   "tokens": 37254,
+   "same_item_pairs": 120,
+   "same_item_tokens": 33180
   },
   {
    "band": "0.40-0.60",
-   "pairs": 24,
-   "tokens": 5836,
-   "same_item_pairs": 23,
-   "same_item_tokens": 5644
+   "pairs": 23,
+   "tokens": 5483,
+   "same_item_pairs": 22,
+   "same_item_tokens": 5291
   }
  ],
  "duplicate_runs": {
@@ -383,17 +383,17 @@
   "data/corpus/anaxagoras.testimonia.jsonl": 30,
   "data/corpus_secondary/diogenes-babylonius.testimonia-et-fragmenta.jsonl": 29,
   "data/corpus_secondary/flavius-justinianus-imperator.novellae.jsonl": 28,
-  "data/corpus/theognostus.canones-sive-de-orthographia.jsonl": 27,
   "data/corpus_secondary/scholia-in-sophoclem.scholia-in-sophoclis-ajacem-scholia-vetera.jsonl": 26,
+  "data/corpus/theognostus.canones-sive-de-orthographia.jsonl": 26,
   "data/corpus/himerius.declamationes-et-orationes.jsonl": 26,
   "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl": 24,
   "data/corpus/geoponica.geoponica.jsonl": 23,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-merged.jsonl": 19,
   "data/corpus_secondary/parmenides.testimonia.jsonl": 19,
-  "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": 18,
   "data/corpus/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl": 17,
   "data/corpus/diogenes-apolloniates.testimonia.jsonl": 15,
   "data/corpus_secondary/diogenes-apolloniates.testimonia.jsonl": 15,
+  "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": 15,
   "data/corpus_secondary/heraclitus-philosophy.testimonia.jsonl": 14,
   "data/corpus/cyrillus-theology.commentarii-in-joannem.jsonl": 14,
   "data/corpus_secondary/libanius.orationes-1-64.jsonl": 13,
@@ -404,13 +404,13 @@
   "data/corpus/melissus.testimonia.jsonl": 12,
   "data/corpus_secondary/archytas-philosophy.testimonia.jsonl": 12,
   "data/corpus/archytas-philosophy.testimonia.jsonl": 12,
-  "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": 12,
   "data/corpus_secondary/himerius.declamationes-et-orationes.duplicate-read-merged.jsonl": 12,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read.jsonl": 11,
   "data/corpus_secondary/philolaus.testimonia.jsonl": 11,
   "data/corpus_secondary/antipater.testimonia-et-fragmenta.jsonl": 10,
   "data/corpus/zeno-philosophy.testimonia.jsonl": 10,
   "data/corpus/antonius-diogenes.hercher.jsonl": 10,
+  "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": 10,
   "data/corpus/heraclitus-philosophy.testimonia.jsonl": 9,
   "data/corpus_secondary/zeno-philosophy.testimonia.jsonl": 9,
   "data/corpus/leucippus.testimonia.jsonl": 9,
@@ -553,7 +553,6 @@
   "data/corpus/aristophanes-byzantii-nauck.jsonl": 1,
   "data/corpus/joannes-damascenus.adversus-iconoclastas-sp.jsonl": 1,
   "data/corpus/gregorius-nazianzenus.in-sancta-lumina-orat-39.jsonl": 1,
-  "data/corpus/didymus.schmidt.jsonl": 1,
   "data/corpus/theodoretus.commentaria-in-isaiam.jsonl": 1,
   "data/corpus/alexander-lyric.fragmenta.jsonl": 1,
   "data/corpus_secondary/nonnosus.fragmenta.jsonl": 1,
@@ -12034,23 +12033,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
-   "served": true,
-   "locus_a": "tzetzes_historiae_kiessling_0091",
-   "locus_b": "tzetzes_historiae_kiessling_0101",
-   "containment": 0.7667,
-   "bigrams_a": 151,
-   "bigrams_b": 150,
-   "tokens_b": 151,
-   "words_absent_from_a": 14,
-   "words_b": 151,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/nicolaus-history.fragmenta.jsonl",
    "served": false,
    "locus_a": "aristobulus_fhg3_0449",
@@ -12878,23 +12860,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 2,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
-   "served": true,
-   "locus_a": "tzetzes_historiae_kiessling_0570",
-   "locus_b": "tzetzes_historiae_kiessling_0578",
-   "containment": 0.7588,
-   "bigrams_a": 170,
-   "bigrams_b": 170,
-   "tokens_b": 176,
-   "words_absent_from_a": 21,
-   "words_b": 176,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 8,
    "run": null
   },
   {
@@ -14907,23 +14872,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
-   "served": true,
-   "locus_a": "tzetzes_historiae_kiessling_0098",
-   "locus_b": "tzetzes_historiae_kiessling_0108",
-   "containment": 0.7374,
-   "bigrams_a": 199,
-   "bigrams_b": 198,
-   "tokens_b": 202,
-   "words_absent_from_a": 28,
-   "words_b": 202,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -21157,25 +21105,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/didymus.schmidt.jsonl",
-   "served": true,
-   "locus_a": "didymus_schmidt_0131",
-   "locus_b": "didymus_schmidt_0133",
-   "containment": 0.6713,
-   "bigrams_a": 298,
-   "bigrams_b": 289,
-   "tokens_b": 301,
-   "words_absent_from_a": 44,
-   "words_b": 301,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "αχμαζει νε στωρ"
-   ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/anaxagoras.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0343",
@@ -21368,26 +21297,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0377",
-   "locus_b": "scholia_aristidem_frommel1826_0387",
-   "containment": 0.6683,
-   "bigrams_a": 208,
-   "bigrams_b": 225,
-   "tokens_b": 233,
-   "words_absent_from_a": 42,
-   "words_b": 233,
-   "unique_runs_if_b_dropped": [
-    "υπο χει λογον",
-    "προκεκλι προτεινου υπεφηνεν"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl",
    "served": true,
    "locus_a": "aeneasgazaeuset00zachgoog_0048",
@@ -21571,25 +21480,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0054",
-   "locus_b": "scholia_aristidem_frommel1826_0064",
-   "containment": 0.6667,
-   "bigrams_a": 192,
-   "bigrams_b": 203,
-   "tokens_b": 211,
-   "words_absent_from_a": 33,
-   "words_b": 211,
-   "unique_runs_if_b_dropped": [
-    "κα δω δεκατω"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -30244,23 +30134,6 @@
    ],
    "same_item": true,
    "page_offset": 2,
-   "run": null
-  },
-  {
-   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
-   "served": true,
-   "locus_a": "theognostus_canones_cramer_0204",
-   "locus_b": "theognostus_canones_cramer_0214",
-   "containment": 0.5822,
-   "bigrams_a": 292,
-   "bigrams_b": 297,
-   "tokens_b": 353,
-   "words_absent_from_a": 33,
-   "words_b": 353,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {

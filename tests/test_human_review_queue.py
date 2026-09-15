@@ -77,6 +77,13 @@ def test_scan_url_uses_reocr_inventory_page_offset(tmp_path):
     assert link == "https://archive.org/details/source-book/page/n34/mode/1up"
 
 
+def test_exact_scan_url_rejects_work_level_archive_link():
+    assert review.exact_scan_url(
+        "https://archive.org/details/source-book/page/n34/mode/1up"
+    )
+    assert not review.exact_scan_url("https://archive.org/details/source-book")
+
+
 def test_nonfinal_grave_queue_joins_context_candidates_and_scan(tmp_path):
     paths = fixture_paths(tmp_path)
     urn, edition = "author.work", "qwen-test"
@@ -105,13 +112,32 @@ def test_nonfinal_grave_queue_joins_context_candidates_and_scan(tmp_path):
     assert item["scan_url"].endswith("/scan-book/page/n42/mode/1up")
 
 
+def test_nonfinal_grave_queue_can_require_scan_evidence(tmp_path):
+    paths = fixture_paths(tmp_path)
+    write_jsonl(paths.corpus / "raw.work.jsonl", [{
+        "urn": "raw.work", "edition": "missing", "source": "ocr",
+        "locus": "scan_0042.1", "text": "λόγος ἐπεὶδὴ τέλος",
+    }])
+    (paths.data / "nonfinal_graves.json").write_text(json.dumps({
+        "largest_forms": [{"form": "ἐπεὶδὴ", "tokens": 10}],
+    }), encoding="utf-8")
+
+    items, _ = review.build_issue_31(paths, limit=10, seed="test", require_scan=True)
+
+    assert items == []
+
+
 def test_duplicate_queue_joins_complete_page_text(tmp_path):
     paths = fixture_paths(tmp_path)
     urn, edition = "author.work", "qwen-test"
     write_jsonl(paths.corpus / f"{urn}.jsonl", [
+        {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0009.1", "text": "before a"},
         {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0010.1", "text": "alpha"},
         {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0010.2", "text": "beta"},
+        {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0011.1", "text": "after a"},
+        {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0019.1", "text": "before b"},
         {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0020.1", "text": "alpha beta"},
+        {"urn": urn, "edition": edition, "source": "ocr", "locus": "scan_0021.1", "text": "after b"},
     ])
     add_scan(paths, urn, edition)
     artifact = paths.data / "duplicate_page_candidates.json"
@@ -127,6 +153,30 @@ def test_duplicate_queue_joins_complete_page_text(tmp_path):
     assert items[0]["page_a"]["text"] == "alpha\nbeta"
     assert items[0]["page_b"]["text"] == "alpha beta"
     assert items[0]["signals"]["same_item"] is True
+    assert items[0]["sequence"]["page_a"]["previous"]["locus"] == "scan_0009"
+    assert items[0]["sequence"]["page_a"]["next"]["text"] == "after a"
+    assert items[0]["sequence"]["page_b"]["previous"]["text"] == "before b"
+    assert items[0]["sequence"]["page_b"]["next"]["locus"] == "scan_0021"
+
+
+def test_duplicate_queue_can_require_both_scan_images(tmp_path):
+    paths = fixture_paths(tmp_path)
+    urn = "author.work"
+    write_jsonl(paths.corpus / f"{urn}.jsonl", [
+        {"urn": urn, "edition": "missing", "source": "ocr",
+         "locus": "scan_0010.1", "text": "alpha"},
+        {"urn": urn, "edition": "missing", "source": "ocr",
+         "locus": "scan_0020.1", "text": "alpha"},
+    ])
+    (paths.data / "duplicate_page_candidates.json").write_text(json.dumps({
+        "pairs": [{"file": f"data/corpus/{urn}.jsonl", "served": True,
+                   "locus_a": "scan_0010", "locus_b": "scan_0020",
+                   "containment": 1.0, "same_item": True}],
+    }), encoding="utf-8")
+
+    items, _ = review.build_issue_33(paths, 10, "test", require_scan=True)
+
+    assert items == []
 
 
 def test_correction_queue_hides_answer_key_and_method(tmp_path):
@@ -156,10 +206,12 @@ def test_correction_queue_hides_answer_key_and_method(tmp_path):
 
 def test_raw_ocr_queue_selects_only_raw_ocr_works(tmp_path):
     paths = fixture_paths(tmp_path)
-    write_jsonl(paths.corpus / "raw.work.jsonl", [{
-        "urn": "raw.work", "edition": "qwen-test", "source": "ocr",
-        "locus": "scan_0042.1", "text": "raw page text",
-    }])
+    write_jsonl(paths.corpus / "raw.work.jsonl", [
+        {"urn": "raw.work", "edition": "qwen-test", "source": "ocr",
+         "locus": "scan_0042.1", "text": "raw page text"},
+        {"urn": "raw.work", "edition": "qwen-test", "source": "ocr",
+         "locus": "scan_0042.2", "text": "apparatus"},
+    ])
     add_scan(paths, "raw.work", "qwen-test")
     with (paths.data / "corpus_catalog.tsv").open("w", encoding="utf-8", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=[
@@ -182,6 +234,11 @@ def test_raw_ocr_queue_selects_only_raw_ocr_works(tmp_path):
 
     assert [item["work"]["slug"] for item in items] == ["raw.work"]
     assert items[0]["scan_url"].endswith("/scan-book/page/n42/mode/1up")
+    assert items[0]["file"] == "data/corpus/raw.work.jsonl"
+    assert [row["line"] for row in items[0]["rows"]] == [1, 2]
+    assert [row["locus"] for row in items[0]["rows"]] == ["scan_0042.1", "scan_0042.2"]
+    assert items[0]["text"] == "raw page text\napparatus"
+    assert items[0]["segments_required_for"] == ["transcribe"]
 
 
 def test_decision_validator_requires_provenance_and_seals_valid_rows(tmp_path):
@@ -216,3 +273,51 @@ def test_decision_validator_requires_provenance_and_seals_valid_rows(tmp_path):
     record = json.loads(sealed.read_text(encoding="utf-8"))
     assert record["decision"] == "replace"
     assert record["queue_sha256"] == hashlib.sha256(queue.read_bytes()).hexdigest()
+
+
+def test_transcription_validator_requires_ordered_locus_segments(tmp_path):
+    queue = tmp_path / "queue.jsonl"
+    item = {
+        "item_id": "ogc-2-test", "issue": 2, "kind": "raw-ocr-page",
+        "allowed_decisions": ["transcribe"],
+        "reading_required_for": ["transcribe"],
+        "segments_required_for": ["transcribe"],
+        "evidence_required_for": ["transcribe"],
+        "rows": [
+            {"locus": "scan_1.1", "text": "old one"},
+            {"locus": "scan_1.2", "text": "old two"},
+        ],
+    }
+    write_jsonl(queue, [item])
+    decisions = tmp_path / "decisions.tsv"
+    row = {
+        "item_id": item["item_id"], "decision": "transcribe",
+        "reading": "new one\nnew two",
+        "segments": json.dumps([
+            {"locus": "scan_1.2", "text": "new two"},
+            {"locus": "scan_1.1", "text": "new one"},
+        ]),
+        "evidence_url": "https://example.test/scan",
+        "reviewer": "Reviewer", "reviewed_at": "2026-09-14",
+    }
+    with decisions.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=review.DECISION_FIELDS, delimiter="\t")
+        writer.writeheader()
+        writer.writerow(row)
+    with pytest.raises(SystemExit, match="every queued locus exactly once and in order"):
+        review.validate_decisions(queue, decisions)
+
+    row["segments"] = json.dumps([
+        {"locus": "scan_1.1", "text": "new one"},
+        {"locus": "scan_1.2", "text": "new two"},
+    ])
+    with decisions.open("w", encoding="utf-8", newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=review.DECISION_FIELDS, delimiter="\t")
+        writer.writeheader()
+        writer.writerow(row)
+    sealed = tmp_path / "sealed.jsonl"
+    review.validate_decisions(queue, decisions, sealed)
+    assert json.loads(sealed.read_text(encoding="utf-8"))["segments"] == [
+        {"locus": "scan_1.1", "text": "new one"},
+        {"locus": "scan_1.2", "text": "new two"},
+    ]

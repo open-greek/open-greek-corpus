@@ -1411,7 +1411,7 @@ move.
 | demonax-philosophy.fragmenta | Demonax - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 3,374 | auto-corrected |
 | dercyllus.fragmenta | Dercyllus - Fragmenta | qwen36-staphylus_fhg4-ocr | Qwen3.6-27B | 124 | auto-corrected |
 | diagoras.fragmenta | DIAGORAS - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 206 | auto-corrected |
-| didymus.schmidt |  | qwen36-didymus_schmidt | Qwen3.6-27B | 38,758 | auto-corrected |
+| didymus.schmidt |  | qwen36-didymus_schmidt | Qwen3.6-27B | 38,457 | auto-corrected |
 | diels-fdv2-1906-1.paratexta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 46 | auto-corrected |
 | diels-fvs-1903.paratexta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 199 | raw OCR |
 | diels-ppf-1901.paratexta |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,403 | auto-corrected |
@@ -1502,7 +1502,7 @@ move.
 | euthalius-diaconus.martyrium-pauli | Euthalius Diaconus - Martyrium Pauli (PG118 loci 167, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 67 | raw OCR |
 | euthalius-diaconus.prologus-in-epistulas-pauli | Euthalius Diaconus - Prologus in epistulas Pauli (PG118 loci 163-165, cut at a character offset) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 643 | raw OCR |
 | euthycles.fragmenta | EUTHYCLES - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 83 | raw OCR |
-| fhg-vol3-mueller-diocles-rhodius |  | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 89,233 | auto-corrected |
+| fhg-vol3-mueller-diocles-rhodius |  | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 89,238 | auto-corrected |
 | flavius-justinianus-imperator.novellae | Flavius Justinianus Imperator - Novellae | qwen36-justinian_novellae_schoell | Qwen3.6-27B | 234,311 | auto-corrected |
 | fragmenta-alchemica.bafh-tou-i-ndikou-sidh-rou-grafei-sa-tw-au-tw-xro-nw | Fragmenta Alchemica - Βαφὴ τοῦ Ἰνδικοῦ σιδήρου, γραφεῖσα τῷ αὐτῷ χρόνῳ | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 199 | raw OCR |
 | fragmenta-alchemica.bafh-tou-para-pe-rsais-e-ceurhme-nou-xalkou-grafei-sa-po | Fragmenta Alchemica - Βαφὴ τοῦ παρὰ Πέρσαις ἐξευρημένου χαλκοῦ γραφεῖσα ἀπὸ ἀρχῆς Φιλίππου (E Cod. Venet. Marc. 299, Fol. 118R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 269 | raw OCR |
@@ -1728,7 +1728,7 @@ move.
 | isidorus-thessalonicensis.sermones-in-deiparam | Isidorus Thessalonicensis - Sermones in Deiparam (PG139 loci 13-89) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 24,029 | raw OCR |
 | isyllus.fragmenta-ig-4-950 | Isyllus - Fragmenta (Ig 4.950) | ig-iv-950-fraenkel-1902-diplomatic | Qwen3.6-27B | 75 | raw OCR |
 | jacobs-anthologia-graeca-t13.appendix-epigrammatum | Appendix epigrammatum (ed. Jacobs) | qwen36-claudianus_epigr_anthologia_graeca | Qwen3.6-27B | 17,153 | auto-corrected |
-| joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs | Joannes Archiereus - Ἰωάννου ἀρχιερέως τοῦ ἐν Ἐβειγίᾳ περὶ τῆς θείας τέχνης (E Cod. Paris. B.N. Gr. 2327, Fol. 243R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,261 | raw OCR |
+| joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs | Joannes Archiereus - Ἰωάννου ἀρχιερέως τοῦ ἐν Ἐβειγίᾳ περὶ τῆς θείας τέχνης (E Cod. Paris. B.N. Gr. 2327, Fol. 243R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 1,260 | raw OCR |
 | joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem | Joannes Argyropulus - De processione Spiritus Sancti ad magnum ducem (Lucam Notaram), cum explanatione decreti synodi Florentinae (PG158 loci 531-539) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,552 | manual |
 | joannes-cameniates.de-expugnatione-thessalonicae | Joannes Cameniates - De expugnatione Thessalonicae (PG109 loci 268-324) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 22,490 | manual |
 | joannes-chrysostomus.ad-demetrium-de-compunctione-lib-1 | Joannes Chrysostomus - Ad Demetrium De Compunctione (Lib. 1) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 7,512 | auto-corrected |
@@ -1910,7 +1910,7 @@ move.
 | joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 105,227 | auto-corrected |
 | joannes-stobaeus-anthologus.anthologium | Joannes Stobaeus Anthologus - Anthologium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 435,325 | manual |
 | joannes-tzetzes.epitome-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,453 | raw OCR |
-| joannes-tzetzes.tzetzes-historiae-kiessling |  | qwen36-tzetzes_historiae_kiessling | Qwen3.6-27B | 100,107 | raw OCR |
+| joannes-tzetzes.tzetzes-historiae-kiessling |  | qwen36-tzetzes_historiae_kiessling | Qwen3.6-27B | 99,576 | raw OCR |
 | joannes-zonaras.epitome-historiarum-lib-12-clausula-varia-dub | Joannes Zonaras - Epitome historiarum (lib. 12, clausula varia) [Dub.] (PG134 loci 568-569) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 775 | auto-corrected |
 | joannes-zonaras.epitome-historiarum-lib-13-18 | Joannes Zonaras - Epitome historiarum (lib. 13-18) - only lib. 13-15 in this volume (PG134 loci 570-734) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 55,568 | manual |
 | job-monachus.prooemium-in-psalmos | Job monachus ('Iob peccator') - Prooemium (to an exposition of the Psalms) (PG158 loci 562-563) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 340 | auto-corrected |
@@ -2120,7 +2120,7 @@ move.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,191 | auto-corrected |
+| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,200 | auto-corrected |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
@@ -2150,7 +2150,7 @@ move.
 | potamon.fragmenta | Potamon - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 43 | raw OCR |
 | pratinas.fragmenta | Pratinas - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 107 | raw OCR |
 | praxilla.fragmenta | PRAXILLA - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 228 | raw OCR |
-| priscianus.metaphrasis-in-theophrastum | Priscianus - Metaphrasis In Theophrastum | qwen36-priscianus_lydus_bywater | Qwen3.6-27B | 107,825 | auto-corrected |
+| priscianus.metaphrasis-in-theophrastum | Priscianus - Metaphrasis In Theophrastum | qwen36-priscianus_lydus_bywater | Qwen3.6-27B | 107,834 | auto-corrected |
 | priscus-history.testimonia | Priscus - Testimonia | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 157 | auto-corrected |
 | proclus.in-platonis-timaeum-commentaria | Proclus - In Platonis Timaeum Commentaria | qwen36-proclus_timaeus_v1 | Qwen3.6-27B | 549,660 | manual |
 | proclus.institutio-theologica | Proclus - Institutio Theologica | qwen36-proclus_didot_et-1855 | Qwen3.6-27B | 29,050 | auto-corrected |
@@ -2193,7 +2193,7 @@ move.
 | salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza | Salmanas - Μέθοδος δῑ ἧς ἀποτελεῖται ἡ σφαιροειδὴς χάλαζα κατασκευασθεῖσα παρὰ τοῦ ἐν τεχνουργίᾳ περιβοήτου Ἄραβος τοῦ Σαλμανᾶ (E Cod.Paris. B.N. Gr. 2327, Fol. 141R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 955 | raw OCR |
 | sannyrion.fragmenta | Sannyrion - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
 | satyrus.vita-euripidis-p-oxy-9-1176 | Vita Euripidis (P. Oxy. 9.1176) | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 451 | raw OCR |
-| scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera | Scholia In Aelium Aristidem - Scholia In Aelium Aristidem (Scholia Vetera) | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 113,047 | raw OCR |
+| scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera | Scholia In Aelium Aristidem - Scholia In Aelium Aristidem (Scholia Vetera) | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 112,634 | raw OCR |
 | scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera | Scholia In Aeschinem - Scholia In Aeschinem (Scholia Vetera) | qwen36-schol_aeschin_dindorf | Qwen3.6-27B | 25,750 | auto-corrected |
 | scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera | Scholia In Aeschylum - Scholia In Aeschylum (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 119,911 | auto-corrected |
 | scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 119,849 | auto-corrected |
@@ -2205,7 +2205,7 @@ move.
 | scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et | Scholia In Lycophronem - Scholia In Lycophronem (Scholia Vetera Et Recentiora Partim Isaac Et Joannis Tzetzae) | [archive.org](https://archive.org/details/lycophronisalexa02lycouoft) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 107,688 | raw OCR |
 | scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Cynegetica (Scholia Vetera Et Recentiora) | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 6,032 | auto-corrected |
 | scholia-in-oppianum.scholia-et-glossae-in-halieutica-scholia-vetera-et-recentiora | Scholia In Oppianum - Scholia Et Glossae In Halieutica (Scholia Vetera Et Recentiora) | qwen36-scholia_oppianum_bussemaker_didot-masked | Qwen3.6-27B-FP8 | 65,351 | auto-corrected |
-| scholia-in-platonem.scholia-in-platonem-scholia-vetera | Scholia In Platonem - Scholia In Platonem (Scholia Vetera) | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,233 | raw OCR |
+| scholia-in-platonem.scholia-in-platonem-scholia-vetera | Scholia In Platonem - Scholia In Platonem (Scholia Vetera) | [archive.org](https://archive.org/details/platonisoperaom03wincgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 177,237 | raw OCR |
 | scholia-in-theocritum.scholia-vetera-et-recentiora | Scholia In Theocritum - Scholia vetera et recentiora | [archive.org](https://archive.org/details/scholiaintheocri00buss) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 91,181 | raw OCR |
 | scholia-in-theonem.scholia-in-progymnasmata | Scholia in Theonis progymnasmata | qwen36-walz_rhetores_v1 | Qwen3.6-27B | 1,138 | raw OCR |
 | scholia-in-xenophontem.scholia-in-anabasin-cyri-scholia-vetera | SCHOLIA IN XENOPHONTEM - Scholia in Xenophontis Anabasin | qwen36-expeditiocyri02xenogoog | Qwen3.6-27B | 4,214 | auto-corrected |
@@ -2301,7 +2301,7 @@ move.
 | theognis-elegy.elegiae | Theognis - Elegiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 3,239 | auto-corrected |
 | theognis-history.fragmentum | Theognis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 239 | auto-corrected |
 | theognis-tragedy.fragmentum | Theognis - Fragmentum | qwen36-nauck_tgf_1889 | Qwen3.6-27B | 113,477 | auto-corrected |
-| theognostus.canones-sive-de-orthographia | Theognostus - Canones Sive De Orthographia | [archive.org](https://archive.org/details/anecdotagrcaeco00fragoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 139,389 | raw OCR |
+| theognostus.canones-sive-de-orthographia | Theognostus - Canones Sive De Orthographia | [archive.org](https://archive.org/details/anecdotagrcaeco00fragoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 139,037 | raw OCR |
 | theophanes-continuatus.chronographia-lib-1-6 | Theophanes Continuatus - Chronographia (lib. 1-6) (PG109 loci 13-255) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 95,235 | manual |
 | theophilus-comedy.fragmenta | Theophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 414 | raw OCR |
 | theophylactus-achridensis.de-iis-quorum-latini-incusantur | Theophylactus Achridensis - De iis quorum Latini incusantur (Allocutio cuidam ex suis familiaribus) (PG126 loci 118-132) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 5,352 | manual |

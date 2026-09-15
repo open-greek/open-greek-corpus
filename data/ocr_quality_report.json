@@ -26,8 +26,8 @@
    "ocr_works": 1412,
    "ocr_works_ranked": 821,
    "ocr_works_with_witness": 196,
-   "secondary_files": 528,
-   "skipped": 128,
+   "secondary_files": 532,
+   "skipped": 132,
    "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -193,6 +193,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "didymus.schmidt.duplicate-read-review-page-images-round-2-2026-09-14"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "diels-wortindex-1910.index-verborum"
    },
    {
@@ -349,6 +353,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read-review-page-images-round-2-2026-09-14"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "joannes-zonaras.epitome-historiarum-lib-13-18.duplicate-read-merged"
    },
    {
@@ -461,6 +469,10 @@
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-review-page-images-round-2-2026-09-14"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera.duplicate-read-merged"
    },
    {
@@ -534,6 +546,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "theognostus.canones-sive-de-orthographia.duplicate-read-review-page-images-2026-09-14"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "theognostus.canones-sive-de-orthographia.duplicate-read-review-page-images-round-2-2026-09-14"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -4557,11 +4573,11 @@
   },
   "didymus.schmidt": {
    "edition": "qwen36-didymus_schmidt",
-   "n_tokens": 38758,
-   "n_tokens_checked": 23317,
-   "n_unattested": 4116,
+   "n_tokens": 38457,
+   "n_tokens_checked": 23146,
+   "n_unattested": 4095,
    "source": "ocr",
-   "unattested_rate": 0.176524,
+   "unattested_rate": 0.17692,
    "witness": null
   },
   "diels-fdv2-1906-1.paratexta": {
@@ -5478,15 +5494,15 @@
   },
   "fhg-vol3-mueller-diocles-rhodius": {
    "edition": "qwen36-fhg_vol3_mueller_diocles_rhodius",
-   "n_tokens": 89233,
-   "n_tokens_checked": 55348,
-   "n_unattested": 9569,
+   "n_tokens": 89238,
+   "n_tokens_checked": 55349,
+   "n_unattested": 9565,
    "source": "ocr",
-   "unattested_rate": 0.172888,
+   "unattested_rate": 0.172813,
    "witness": {
-    "agreement_primary_in_secondary": 0.273848,
-    "agreement_secondary_in_primary": 0.287201,
-    "n_bigrams_primary": 85237,
+    "agreement_primary_in_secondary": 0.273879,
+    "agreement_secondary_in_primary": 0.287259,
+    "n_bigrams_primary": 85242,
     "n_bigrams_secondary": 86570,
     "secondary_edition": "qwen36-fhg_vol3_mueller_diocles_rhodius"
    }
@@ -7644,11 +7660,11 @@
   },
   "joannes-archiereus.iwa-nnou-rxiere-ws-tou-e-n-ebeigi-peri-th-s-qei-as-te-xnhs": {
    "edition": "qwen36-berthelot_alchimistes_grec",
-   "n_tokens": 1261,
-   "n_tokens_checked": 757,
-   "n_unattested": 155,
+   "n_tokens": 1260,
+   "n_tokens_checked": 760,
+   "n_unattested": 130,
    "source": "ocr",
-   "unattested_rate": 0.204756,
+   "unattested_rate": 0.171053,
    "witness": null
   },
   "joannes-argyropulus.de-processione-spiritus-sancti-ad-magnum-ducem": {
@@ -9288,15 +9304,15 @@
   },
   "joannes-tzetzes.tzetzes-historiae-kiessling": {
    "edition": "qwen36-tzetzes_historiae_kiessling",
-   "n_tokens": 100107,
-   "n_tokens_checked": 62278,
-   "n_unattested": 13212,
+   "n_tokens": 99576,
+   "n_tokens_checked": 61944,
+   "n_unattested": 13148,
    "source": "ocr",
-   "unattested_rate": 0.212146,
+   "unattested_rate": 0.212256,
    "witness": {
-    "agreement_primary_in_secondary": 0.002759,
+    "agreement_primary_in_secondary": 0.002762,
     "agreement_secondary_in_primary": 0.365533,
-    "n_bigrams_primary": 84459,
+    "n_bigrams_primary": 84012,
     "n_bigrams_secondary": 2205,
     "secondary_edition": "qwen36-tzetzes_historiae_kiessling"
    }
@@ -11583,11 +11599,11 @@
   },
   "photius.bibliotheca": {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "n_tokens": 154191,
+   "n_tokens": 154200,
    "n_tokens_checked": 89592,
-   "n_unattested": 16851,
+   "n_unattested": 16844,
    "source": "ocr",
-   "unattested_rate": 0.188086,
+   "unattested_rate": 0.188008,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {
@@ -11883,11 +11899,11 @@
   },
   "priscianus.metaphrasis-in-theophrastum": {
    "edition": "qwen36-priscianus_lydus_bywater",
-   "n_tokens": 107825,
-   "n_tokens_checked": 66064,
-   "n_unattested": 12088,
+   "n_tokens": 107834,
+   "n_tokens_checked": 66059,
+   "n_unattested": 12084,
    "source": "ocr",
-   "unattested_rate": 0.182974,
+   "unattested_rate": 0.182927,
    "witness": null
   },
   "priscus-history.testimonia": {
@@ -12318,11 +12334,11 @@
   },
   "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera": {
    "edition": "qwen36-scholia_aristidem_frommel1826-masked",
-   "n_tokens": 113047,
-   "n_tokens_checked": 64708,
-   "n_unattested": 10583,
+   "n_tokens": 112634,
+   "n_tokens_checked": 64475,
+   "n_unattested": 10531,
    "source": "ocr",
-   "unattested_rate": 0.16355,
+   "unattested_rate": 0.163335,
    "witness": null
   },
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera": {
@@ -12438,11 +12454,11 @@
   },
   "scholia-in-platonem.scholia-in-platonem-scholia-vetera": {
    "edition": "qwen36-scholia_platonem_zurich-masked",
-   "n_tokens": 177233,
+   "n_tokens": 177237,
    "n_tokens_checked": 97749,
-   "n_unattested": 12764,
+   "n_unattested": 12760,
    "source": "ocr",
-   "unattested_rate": 0.130579,
+   "unattested_rate": 0.130538,
    "witness": null
   },
   "scholia-in-theocritum.scholia-vetera-et-recentiora": {
@@ -13392,11 +13408,11 @@
   },
   "theognostus.canones-sive-de-orthographia": {
    "edition": "qwen36-theognostus_canones_cramer-masked",
-   "n_tokens": 139389,
-   "n_tokens_checked": 72335,
-   "n_unattested": 17881,
+   "n_tokens": 139037,
+   "n_tokens_checked": 72182,
+   "n_unattested": 17842,
    "source": "ocr",
-   "unattested_rate": 0.247197,
+   "unattested_rate": 0.247181,
    "witness": null
   },
   "theophanes-continuatus.chronographia-lib-1-6": {
@@ -14659,8 +14675,8 @@
   "themistius.peri-filanqrwpi-as-h-kwnsta-ntios",
   "joannes-chrysostomus.de-maccabeis-homiliae-1-3",
   "basilius-theology.homilia-dicta-tempore-famis-et-siccitatis",
-  "fhg-vol3-mueller-diocles-rhodius",
   "eustathius-philol.commentarii-ad-homeri-iliadem",
+  "fhg-vol3-mueller-diocles-rhodius",
   "basilius-theology.homilia-in-illud-destruam-horrea-mea",
   "basilius-theology.sermo-11-sermo-asceticus-et-exhortatio-de-renuntiatione-mundi",
   "joannes-laurentius-lydus.de-magistratibus-populi-romani",
@@ -14690,10 +14706,10 @@
   "joannes-chrysostomus.in-ascensionem-sermo-2-sp",
   "pseudo-archytas.fragmenta",
   "antigonus-paradoxography.historiarum-mirabilium-collectio",
-  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40",
   "eudoxus-astronomy.fragmenta",
   "antiphanes.fragmenta",
+  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "aphthonius.progymnasmata",
   "joannes-chrysostomus.ad-stelechium-de-compunctione-lib-2",
   "joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp",

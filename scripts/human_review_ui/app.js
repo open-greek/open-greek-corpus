@@ -67,6 +67,21 @@ function renderList() {
 }
 
 function renderContext(item) {
+  if (item.page_a && item.page_b) {
+    const sequence = ["page_a", "page_b"].map((side, index) => {
+      const neighbors = item.sequence?.[side] || {};
+      const before = neighbors.previous;
+      const after = neighbors.next;
+      const neighbor = (value, direction) => value
+        ? `<div><b>${direction}: ${escapeHtml(value.locus || "")}</b><span>${escapeHtml(value.text || "")}</span></div>`
+        : `<div><b>${direction}</b><span>Boundary of work</span></div>`;
+      return `<section><strong>${index ? "B" : "A"}</strong><div class="sequence-neighbors">${neighbor(before, "Previous")}${neighbor(after, "Next")}</div></section>`;
+    }).join("");
+    el("context").innerHTML = `<div class="text-pair"><section><strong>A</strong><div>${escapeHtml(item.page_a.text || "")}</div></section>` +
+      `<section><strong>B</strong><div>${escapeHtml(item.page_b.text || "")}</div></section></div>` +
+      `<h3 class="context-subhead">Sequence context</h3><div class="text-pair sequence-pair">${sequence}</div>`;
+    return;
+  }
   const parts = String(item.context || "").split("<TARGET>");
   if (parts.length === 2) {
     el("context").innerHTML = `${escapeHtml(parts[0])}<mark>${escapeHtml(item.observed || "target")}</mark>${escapeHtml(parts[1])}`;
@@ -99,23 +114,59 @@ function renderDecisions(item, saved) {
     input.addEventListener("change", updateReadingVisibility);
   });
   el("reading").value = saved?.reading || "";
+  renderSegments(item, saved);
   el("evidence-url").value = saved?.evidence_url || item.scan_url || "";
   el("notes").value = saved?.notes || "";
   el("form-error").textContent = "";
   updateReadingVisibility();
 }
 
+function savedSegments(item, saved) {
+  if (Array.isArray(saved?.segments)) return saved.segments;
+  if (saved?.segments) {
+    try { return JSON.parse(saved.segments); } catch (_error) { return []; }
+  }
+  return (item.rows || []).map((row) => ({locus: row.locus, text: row.text || ""}));
+}
+
+function renderSegments(item, saved) {
+  const values = new Map(savedSegments(item, saved).map((row) => [row.locus, row.text]));
+  el("segments").innerHTML = (item.rows || []).map((row, index) => (
+    `<label><span>${escapeHtml(row.locus)}</span>` +
+    `<textarea rows="5" lang="grc" data-segment-index="${index}" ` +
+    `data-locus="${escapeHtml(row.locus)}">${escapeHtml(values.get(row.locus) ?? row.text ?? "")}</textarea></label>`
+  )).join("");
+}
+
 function updateReadingVisibility() {
   const item = currentItem();
   const choice = document.querySelector('input[name="decision"]:checked')?.value;
-  el("reading-field").hidden = !item?.reading_required_for?.includes(choice);
+  const needsSegments = item?.segments_required_for?.includes(choice);
+  el("segments-field").hidden = !needsSegments;
+  el("reading-field").hidden = needsSegments || !item?.reading_required_for?.includes(choice);
 }
 
 function renderScan(item) {
   const image = el("scan-image");
+  const pair = el("scan-pair");
   const empty = el("scan-empty");
   el("scan-link").href = item.scan_url || "#";
   el("scan-link").toggleAttribute("hidden", !item.scan_url);
+  if (item.page_a && item.page_b) {
+    image.removeAttribute("src");
+    image.style.display = "none";
+    pair.hidden = false;
+    for (const side of ["a", "b"]) {
+      const page = item[`page_${side}`];
+      const sideImage = el(`scan-${side}-image`);
+      sideImage.src = page.image_url || "";
+      sideImage.style.width = `${state.zoom}%`;
+      el(`scan-${side}-link`).href = page.scan_url || "#";
+    }
+    empty.hidden = Boolean(item.page_a.image_url || item.page_b.image_url);
+    return;
+  }
+  pair.hidden = true;
   if (item.image_url) {
     image.src = item.image_url;
     image.style.display = "block";
@@ -162,10 +213,16 @@ async function saveDecision(event) {
   event.preventDefault();
   const item = currentItem();
   const absoluteIndex = state.items.findIndex((row) => row.item_id === item.item_id);
+  const choice = document.querySelector('input[name="decision"]:checked')?.value || "";
+  const needsSegments = item?.segments_required_for?.includes(choice);
+  const segments = needsSegments ? Array.from(
+    document.querySelectorAll("[data-segment-index]")
+  ).map((field) => ({locus: field.dataset.locus, text: field.value.trim()})) : [];
   const candidate = {
     item_id: item.item_id,
-    decision: document.querySelector('input[name="decision"]:checked')?.value || "",
-    reading: el("reading").value.trim(),
+    decision: choice,
+    reading: needsSegments ? segments.map((row) => row.text).join("\n") : el("reading").value.trim(),
+    segments,
     evidence_url: el("evidence-url").value.trim(),
     reviewer: el("reviewer").value.trim(),
     reviewed_at: new Date().toISOString().slice(0, 10),
@@ -201,6 +258,10 @@ function setZoom(value) {
   el("zoom").value = state.zoom;
   const image = el("scan-image");
   if (image.src) image.style.width = `${state.zoom}%`;
+  for (const side of ["a", "b"]) {
+    const sideImage = el(`scan-${side}-image`);
+    if (sideImage.src) sideImage.style.width = `${state.zoom}%`;
+  }
 }
 
 async function init() {

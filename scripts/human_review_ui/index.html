@@ -54,6 +54,16 @@
       </div>
       <div id="scan-stage" class="scan-stage">
         <img id="scan-image" alt="Source scan page">
+        <div id="scan-pair" class="scan-pair" hidden>
+          <figure>
+            <a id="scan-a-link" target="_blank" rel="noreferrer"><img id="scan-a-image" alt="Source scan page A"></a>
+            <figcaption>A</figcaption>
+          </figure>
+          <figure>
+            <a id="scan-b-link" target="_blank" rel="noreferrer"><img id="scan-b-image" alt="Source scan page B"></a>
+            <figcaption>B</figcaption>
+          </figure>
+        </div>
         <div id="scan-empty" class="empty-state">No aligned page image</div>
       </div>
     </section>
@@ -91,6 +101,10 @@
           <span>Reviewed reading</span>
           <textarea id="reading" rows="3" lang="grc"></textarea>
         </label>
+        <div id="segments-field" hidden>
+          <div class="section-label">Reviewed Locus Segments</div>
+          <div id="segments" class="segment-fields"></div>
+        </div>
         <label>
           <span>Evidence</span>
           <input id="evidence-url" type="url">
