@@ -9,7 +9,11 @@ turns those measurements into review packets without changing served text.
 ```bash
 python3 scripts/build_human_review_queue.py build --issue 31 --limit 100
 python3 scripts/build_human_review_queue.py build --issue 33 --limit 100
+python3 scripts/build_human_review_queue.py build --issue 33 \
+  --run-extensions --require-scan --limit 25
 python3 scripts/build_human_review_queue.py build --issue 2 --limit 100
+python3 scripts/build_human_review_queue.py build --issue 2 --limit 100 \
+  --require-scan --pages-per-work 5 --exclude data/review/issue-2.jsonl
 python3 scripts/build_human_review_queue.py build --issue 1 \
   --corrections-log data/corrections_log/applied.jsonl --limit 200
 ```
@@ -53,14 +57,19 @@ decision atomically to the packet's TSV sheet. It has no corpus-write endpoint.
 - **#1 correction precision:** a deterministic method-stratified sample. The
   original and applied readings are randomized as A/B, the target is masked,
   and method/confidence/evidence stay only in the separate audit key.
-- **#2 raw OCR:** one substantive page from each of the largest raw-OCR works,
-  prioritized toward pages with a source-scan link. The packet includes every
+- **#2 raw OCR:** one substantive page from each of the largest raw-OCR works by
+  default, or multiple ranked pages with `--pages-per-work`, prioritized toward
+  pages with a source-scan link. The packet includes every
   current row on the page with its locus, line, text hash, and file hash. A
   transcription is entered as ordered per-locus segments whose newline join is
   the reviewed page text.
 
 The scan link is a candidate leaf derived from the OCR run's page key. Reviewers
 must confirm that the image and served row align before making a decisive call.
+For #33, `--run-extensions` narrows the queue to pairs whose two leaves move in
+lockstep within four page positions of a previously applied, scan-reviewed
+duplicate pair. Its prior decision is included as a ranking signal, not an
+inherited answer: both new page images still require independent review.
 
 ## Validate decisions
 

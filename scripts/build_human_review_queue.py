@@ -49,6 +49,7 @@ DECISION_FIELDS = [
 ]
 ISSUES = {1, 2, 31, 33}
 PAGE_RE = re.compile(r"_(\d{4,6})(?:\.|$)")
+PRINTED_PAGE_RE = re.compile(r"^(\d{1,6})(?:\.|$)")
 ARCHIVE_RE = re.compile(r"https?://archive\.org/(?:download|details)/([^/?#]+)")
 ARCHIVE_PAGE_RE = re.compile(
     r"^https?://archive\.org/details/[^/?#]+/page/n\d+/mode/1up$"
@@ -130,6 +131,7 @@ def provenance_indexes(paths: Paths) -> tuple[dict[str, dict], dict[str, dict]]:
                 "edition": f"qwen36-{entry['base']}",
                 "source_scan": {"source": "archive.org", "public_id": ident},
                 "page_offset": page_offset,
+                "printed_page_offset": entry.get("printed_page_offset"),
                 "alignment": entry.get("align_method"),
                 "provenance_route": "reocr-inventory",
             }
@@ -168,10 +170,16 @@ def scan_url(row: dict, indexes: tuple[dict[str, dict], dict[str, dict]]) -> str
     scan = record.get("source_scan") or {}
     if scan.get("source") != "archive.org" or not scan.get("public_id"):
         return None
-    leaves = PAGE_RE.findall(str(row.get("locus", "")))
-    if not leaves:
-        return f"https://archive.org/details/{scan['public_id']}"
+    locus = str(row.get("locus", ""))
+    leaves = PAGE_RE.findall(locus)
     offset = record.get("page_offset", 0)
+    if not leaves:
+        printed = PRINTED_PAGE_RE.match(locus)
+        printed_offset = record.get("printed_page_offset")
+        if not printed or not isinstance(printed_offset, int):
+            return f"https://archive.org/details/{scan['public_id']}"
+        leaves = [printed.group(1)]
+        offset = printed_offset
     if not isinstance(offset, int):
         return f"https://archive.org/details/{scan['public_id']}"
     leaf = int(leaves[-1]) + offset
@@ -297,8 +305,78 @@ def page_neighbor(pages: dict[str, list[dict]], locus: str, offset: int,
     }
 
 
+def locus_page_number(locus: object) -> tuple[str, int] | None:
+    match = PAGE_RE.search(str(locus or ""))
+    if not match:
+        return None
+    return str(locus)[:match.start(1)], int(match.group(1))
+
+
+def reviewed_duplicate_runs(paths: Paths) -> tuple[list[dict], list[Path]]:
+    runs, inputs = [], []
+    pattern = "issue-33-reviewed.page-images*.applied.json"
+    for path in sorted((paths.data / "corpus_changes").glob(pattern)):
+        audit = json.loads(path.read_text(encoding="utf-8"))
+        inputs.append(path)
+        for displacement in audit.get("displacements", []):
+            displaced = displacement.get("displaced_page")
+            retained = displacement.get("retained_page_direct")
+            displaced_page = locus_page_number(displaced)
+            retained_page = locus_page_number(retained)
+            if not displaced_page or not retained_page:
+                continue
+            if displaced_page[0] != retained_page[0]:
+                continue
+            if displaced_page[1] < retained_page[1]:
+                locus_a, locus_b = displaced, retained
+                decision = "drop_a"
+            elif retained_page[1] < displaced_page[1]:
+                locus_a, locus_b = retained, displaced
+                decision = "drop_b"
+            else:
+                continue
+            runs.append({
+                "file": displacement.get("file"),
+                "locus_a": locus_a,
+                "locus_b": locus_b,
+                "decision": decision,
+                "item_id": displacement.get("item_id"),
+            })
+    return runs, inputs
+
+
+def reviewed_run_neighbor(pair: dict, runs: list[dict], max_distance: int = 4) -> dict | None:
+    page_a = locus_page_number(pair.get("locus_a"))
+    page_b = locus_page_number(pair.get("locus_b"))
+    if not page_a or not page_b:
+        return None
+    matches = []
+    for run in runs:
+        if run["file"] != pair.get("file"):
+            continue
+        run_a = locus_page_number(run["locus_a"])
+        run_b = locus_page_number(run["locus_b"])
+        if not run_a or not run_b or page_a[0] != run_a[0] or page_b[0] != run_b[0]:
+            continue
+        delta_a, delta_b = page_a[1] - run_a[1], page_b[1] - run_b[1]
+        distance = abs(delta_a)
+        if delta_a == delta_b and 0 < distance <= max_distance:
+            matches.append((distance, run["item_id"], run))
+    if not matches:
+        return None
+    distance, _item_id, run = min(matches)
+    return {
+        "distance": distance,
+        "decision": run["decision"],
+        "item_id": run["item_id"],
+        "locus_a": run["locus_a"],
+        "locus_b": run["locus_b"],
+    }
+
+
 def build_issue_33(paths: Paths, limit: int, seed: str,
-                   require_scan: bool = False) -> tuple[list[dict], list[dict]]:
+                   require_scan: bool = False,
+                   run_extensions: bool = False) -> tuple[list[dict], list[dict]]:
     artifact_path = paths.data / "duplicate_page_candidates.json"
     artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
     indexes = provenance_indexes(paths)
@@ -306,13 +384,31 @@ def build_issue_33(paths: Paths, limit: int, seed: str,
     items = []
 
     pairs = [pair for pair in artifact.get("pairs", []) if pair.get("served")]
-    pairs.sort(key=lambda pair: (
-        not pair.get("same_item", False),
-        -float(pair.get("containment", 0)),
-        int(pair.get("words_absent_from_a", 0)),
-        stable_id(33, seed, pair.get("file"), pair.get("locus_a"), pair.get("locus_b")),
-    ))
-    for pair in pairs:
+    audit_inputs = []
+    if run_extensions:
+        runs, audit_inputs = reviewed_duplicate_runs(paths)
+        ranked_pairs = []
+        for pair in pairs:
+            neighbor = reviewed_run_neighbor(pair, runs)
+            if neighbor:
+                ranked_pairs.append((pair, neighbor))
+        ranked_pairs.sort(key=lambda value: (
+            value[1]["distance"],
+            not value[0].get("same_item", False),
+            -float(value[0].get("containment", 0)),
+            int(value[0].get("words_absent_from_a", 0)),
+            stable_id(33, seed, value[0].get("file"), value[0].get("locus_a"),
+                      value[0].get("locus_b")),
+        ))
+    else:
+        pairs.sort(key=lambda pair: (
+            not pair.get("same_item", False),
+            -float(pair.get("containment", 0)),
+            int(pair.get("words_absent_from_a", 0)),
+            stable_id(33, seed, pair.get("file"), pair.get("locus_a"), pair.get("locus_b")),
+        ))
+        ranked_pairs = [(pair, None) for pair in pairs]
+    for pair, reviewed_run in ranked_pairs:
         path = paths.root / pair["file"]
         pages = cache.setdefault(path, page_rows(path))
         rows_a, rows_b = pages.get(pair["locus_a"], []), pages.get(pair["locus_b"], [])
@@ -354,6 +450,8 @@ def build_issue_33(paths: Paths, limit: int, seed: str,
             "reading_required_for": ["merge"],
             "evidence_required_for": ["keep_both", "drop_a", "drop_b", "merge"],
         }
+        if reviewed_run:
+            item["signals"]["reviewed_run_neighbor"] = reviewed_run
         if require_scan and not (
             exact_scan_url(item["page_a"]["scan_url"])
             and exact_scan_url(item["page_b"]["scan_url"])
@@ -362,7 +460,7 @@ def build_issue_33(paths: Paths, limit: int, seed: str,
         items.append(item)
         if len(items) >= limit:
             break
-    return items, [artifact_path, *provenance_source_paths(paths)]
+    return items, [artifact_path, *audit_inputs, *provenance_source_paths(paths)]
 
 
 def stratified(records: Iterable[dict], seed: str) -> Iterator[dict]:
@@ -449,7 +547,8 @@ def build_issue_1(paths: Paths, limit: int, seed: str,
 
 def build_issue_2(paths: Paths, limit: int, seed: str,
                   works_only: set[str] | None = None,
-                  require_scan: bool = False) -> tuple[list[dict], list[dict]]:
+                  require_scan: bool = False,
+                  pages_per_work: int = 1) -> tuple[list[dict], list[dict]]:
     catalog_path = paths.data / "corpus_catalog.tsv"
     indexes = provenance_indexes(paths)
     with catalog_path.open(encoding="utf-8", newline="") as handle:
@@ -471,45 +570,52 @@ def build_issue_2(paths: Paths, limit: int, seed: str,
             link = scan_url(rows[0], indexes)
             ranked.append((not bool(link), -len(_GK.findall(text)),
                            stable_id(2, seed, work["slug"], page), page, rows, link, text))
+        if require_scan:
+            ranked = [candidate for candidate in ranked
+                      if exact_scan_url(candidate[5])]
         if not ranked:
             continue
-        _, _, _, page, rows, link, text = min(ranked)
-        if require_scan and not exact_scan_url(link):
-            continue
-        item_id = stable_id(2, work["slug"], page)
-        candidates.append({
-            "item_id": item_id,
-            "issue": 2,
-            "kind": "raw-ocr-page",
-            "file": str(path.relative_to(paths.root)),
-            "work": {
-                "slug": work["slug"],
-                "work_id": work.get("work_id"),
-                "author": work.get("author"),
-                "title": work.get("title"),
-                "tokens": int(work.get("tokens") or 0),
-                "unattested_rate": float(work.get("unattested_rate") or 0),
-            },
-            "page": page,
-            "loci": [row.get("locus") for row in rows],
-            "rows": [{
-                "line": row["_line"],
-                "locus": row.get("locus"),
-                "source": row.get("source"),
-                "edition": row.get("edition"),
-                "text": row.get("text") or "",
-                "text_sha256": hashlib.sha256(
-                    (row.get("text") or "").encode("utf-8")
+        for _, _, _, page, rows, link, text in sorted(ranked)[:pages_per_work]:
+            item_id = stable_id(2, work["slug"], page)
+            candidates.append({
+                "item_id": item_id,
+                "issue": 2,
+                "kind": "raw-ocr-page",
+                "file": str(path.relative_to(paths.root)),
+                "work": {
+                    "slug": work["slug"],
+                    "work_id": work.get("work_id"),
+                    "author": work.get("author"),
+                    "title": work.get("title"),
+                    "tokens": int(work.get("tokens") or 0),
+                    "unattested_rate": float(work.get("unattested_rate") or 0),
+                },
+                "page": page,
+                "loci": [row.get("locus") for row in rows],
+                "rows": [{
+                    "line": row["_line"],
+                    "locus": row.get("locus"),
+                    "source": row.get("source"),
+                    "edition": row.get("edition"),
+                    "text": row.get("text") or "",
+                    "text_sha256": hashlib.sha256(
+                        (row.get("text") or "").encode("utf-8")
+                    ).hexdigest(),
+                } for row in rows],
+                "text": text,
+                "source_text_sha256": hashlib.sha256(
+                    text.encode("utf-8")
                 ).hexdigest(),
-            } for row in rows],
-            "text": text,
-            "source_text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
-            "scan_url": link,
-            "allowed_decisions": ["accept_ocr", "transcribe", "non_text", "defer"],
-            "reading_required_for": ["transcribe"],
-            "segments_required_for": ["transcribe"],
-            "evidence_required_for": ["accept_ocr", "transcribe", "non_text"],
-        })
+                "scan_url": link,
+                "allowed_decisions": [
+                    "accept_ocr", "transcribe", "non_text", "defer",
+                ],
+                "reading_required_for": ["transcribe"],
+                "segments_required_for": ["transcribe"],
+                "evidence_required_for": [
+                    "accept_ocr", "transcribe", "non_text",
+                ],
+            })
     candidates.sort(key=lambda item: (
         not bool(item["scan_url"]),
         -item["work"]["tokens"],
@@ -691,8 +797,13 @@ def parse_args() -> argparse.Namespace:
                        default=Path("data/corrections_log/applied.jsonl"))
     build.add_argument("--work", action="append", default=[],
                        help="for issue #2, restrict the packet to this work slug")
+    build.add_argument("--pages-per-work", type=int, default=1,
+                       help="for issue #2, consider this many ranked pages per work")
     build.add_argument("--require-scan", action="store_true",
                        help="include only items with every required exact scan link")
+    build.add_argument("--run-extensions", action="store_true",
+                       help="for issue #33, select synchronized pages within four "
+                            "steps of a previously reviewed duplicate run")
     build.add_argument("--exclude", type=Path, action="append", default=[],
                        help="skip item IDs found in a prior queue or sealed JSONL")
     validate = sub.add_parser("validate", help="validate and optionally seal decisions")
@@ -710,9 +821,15 @@ def main() -> None:
 
     if args.limit < 1:
         raise SystemExit("--limit must be positive")
+    if args.pages_per_work < 1:
+        raise SystemExit("--pages-per-work must be positive")
     paths = Paths(REPO)
     if args.work and args.issue != 2:
         raise SystemExit("--work is only valid for issue #2")
+    if args.pages_per_work != 1 and args.issue != 2:
+        raise SystemExit("--pages-per-work is only valid for issue #2")
+    if args.run_extensions and args.issue != 33:
+        raise SystemExit("--run-extensions is only valid for issue #33")
     excluded = set()
     for excluded_path in args.exclude:
         if not excluded_path.is_absolute():
@@ -724,10 +841,13 @@ def main() -> None:
     if args.issue == 31:
         items, inputs = build_issue_31(paths, build_limit, args.seed, args.require_scan)
     elif args.issue == 33:
-        items, inputs = build_issue_33(paths, build_limit, args.seed, args.require_scan)
+        items, inputs = build_issue_33(
+            paths, build_limit, args.seed, args.require_scan, args.run_extensions,
+        )
     elif args.issue == 2:
         items, inputs = build_issue_2(
             paths, build_limit, args.seed, set(args.work), args.require_scan,
+            args.pages_per_work,
         )
     else:
         corrections_log = args.corrections_log

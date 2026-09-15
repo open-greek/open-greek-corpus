@@ -1052,7 +1052,7 @@ move.
 | anaximenis-milesii-epistulae.epistulae | Anaximenis Milesii Epistulae - Epistulae | qwen36-aristaenetus_hercher_epistolographi-ocr | Qwen3.6-27B | 164 | raw OCR |
 | anaxippus.fragmenta | ANAXIPPUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 613 | raw OCR |
 | andreas.fragmentum | Andreas - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 681 | auto-corrected |
-| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) [Sp.] | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,291 | auto-corrected |
+| andronicus-rhodius.de-passionibus-lib-1-sp | Andronicus Rhodius - De Passionibus (Lib. 1) [Sp.] | qwen36-andronicus_mullach_fpg3 | Qwen3.6-27B | 215,300 | auto-corrected |
 | androtion.fragmenta | Fragmenta | qwen36-theopompus_hist_fhg1 | Qwen3.6-27B | 119 | raw OCR |
 | anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei | Anonymi - De essentia et operatione Dei (PG151 loci 603-628) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 10,989 | raw OCR |
 | anonymi-delectus-legum.delectus-legum-compendiarius | Anonymi - Delectus legum compendiarius (PG113 loci 238-283) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 17,645 | raw OCR |
@@ -1513,14 +1513,14 @@ move.
 | fragmenta-alchemica.ei-qe-leis-poih-sai-fou-rmas-kai-tu-lous-po-bronthsi-ou-poi-ei | Fragmenta Alchemica - Εἰ θέλεις ποιῆσαι φούρμας καὶ τύλους ἀπὸ βροντησίου, ποίει οὕτως (E Cod. Venet. Marc. 299, Fol. 128V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 456 | raw OCR |
 | fragmenta-alchemica.eu-xh-ei-s-meli-ssion-e-cod-venet-marc-299-fol-3r | Fragmenta Alchemica - Εὐχὴ εἰς τὸ μελίσσιον (E Cod. Venet. Marc. 299, Fol. 3R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 195 | auto-corrected |
 | fragmenta-alchemica.excerptum-de-mensibus-sine-titulo-e-cod-paris-b-n-gr-2327 | Fragmenta Alchemica - Excerptum De Mensibus (Sine Titulo) (E Cod. Paris. B.N. Gr. 2327, Fol. 240V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 99 | auto-corrected |
-| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol. 99V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 49 | raw OCR |
+| fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol. 99V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 48 | raw OCR |
 | fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-2 | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol. 100R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 194 | auto-corrected |
 | fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-3 | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol. 100V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 107 | raw OCR |
 | fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-4 | Fragmenta Alchemica - Fragmentum Alchemicum (Sine Titulo) (E Cod. Venet. Marc. 299, Fol. 100V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 51 | raw OCR |
 | fragmenta-alchemica.fragmentum-peri-leukw-sews-xalkou-sine-titulo-e | Fragmenta Alchemica - Fragmentum περὶ λευκώσεως (χαλκοῦ) (Sine Titulo) (E Cod. Paris. Gr. 2327, Fol. 231V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 240 | raw OCR |
 | fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r | Fragmenta Alchemica - Ἡ ἀγωγή (E Cod. Venet. Marc. 299, 101R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 27 | raw OCR |
 | fragmenta-alchemica.h-oi-konomi-e-cod-venet-marc-299-fol-98v | Fragmenta Alchemica - Ἡ οἰκονομία (E Cod. Venet. Marc. 299, Fol. 98V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 196 | raw OCR |
-| fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v | Fragmenta Alchemica - Ἡ ποίησις (E Cod. Venet. Marc. 299, Fol. 100V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 35 | raw OCR |
+| fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v | Fragmenta Alchemica - Ἡ ποίησις (E Cod. Venet. Marc. 299, Fol. 100V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 34 | raw OCR |
 | fragmenta-alchemica.katabafh-li-qwn-kai-smara-gdwn-kai-lixnitw-n-kai | Fragmenta Alchemica - Καταβαφὴ λίθων καὶ σμαράγδων καὶ λιχνιτῶν καὶ ὑακίνθων (E Cod. Paris. B.N. Gr. 2327, Fol. 147R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 3,650 | auto-corrected |
 | fragmenta-alchemica.kinnaba-rews-skeuasi-e-cod-paris-b-n-gr-2327-fol | Fragmenta Alchemica - Κινναβάρεως σκευασία (E Cod. Paris. B.N. Gr. 2327, Fol. 232R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 286 | auto-corrected |
 | fragmenta-alchemica.leu-kwsis-u-datos-di-ou-leukai-netai-oi-konomou-menon | Fragmenta Alchemica - Λεύκωσις ὕδατος, δῑ οὗ λευκαίνεται οἰκονομούμενον τὸ ἀρσενικὸν καὶ ἡ σανδαράχη (E Cod. Paris. B.N. Gr. 2327, Fol. 279V) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 66 | auto-corrected |
@@ -1690,7 +1690,7 @@ move.
 | hermippus-comedy.fragmenta | Hermippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,960 | auto-corrected |
 | hermippus-comedy.fragmenta-4 | Hermippus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
 | herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam-Knox](https://archive.org/details/herodasmimesfrag00hero) | Qwen3.6-27B | 2,846 | raw OCR |
-| heron.definitiones | Heron - Definitiones | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,184 | auto-corrected |
+| heron.definitiones | Heron - Definitiones | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,192 | auto-corrected |
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
 | hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | auto-corrected |
@@ -1902,7 +1902,7 @@ move.
 | joannes-doxopatres.prolegomena-tes-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,607 | auto-corrected |
 | joannes-doxopatres.rhetorikai-homiliai-eis-ta-progymnasmata |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,656 | auto-corrected |
 | joannes-epiphaniensis.fragmentum | Joannes Epiphaniensis - Fragmentum | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 1,699 | auto-corrected |
-| joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 199,397 | auto-corrected |
+| joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 199,404 | auto-corrected |
 | joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno | Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,938 | manual |
 | joannes-hierosolymitanus.narratio | Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 555 | auto-corrected |
 | joannes-laurentius-lydus.de-magistratibus-populi-romani | Joannes Laurentius Lydus - De Magistratibus Populi Romani | qwen36-lydus_mensibus_wuensch | Qwen3.6-27B | 43,887 | auto-corrected |
@@ -2120,7 +2120,7 @@ move.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,200 | auto-corrected |
+| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,204 | auto-corrected |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
@@ -2193,7 +2193,7 @@ move.
 | salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza | Salmanas - Μέθοδος δῑ ἧς ἀποτελεῖται ἡ σφαιροειδὴς χάλαζα κατασκευασθεῖσα παρὰ τοῦ ἐν τεχνουργίᾳ περιβοήτου Ἄραβος τοῦ Σαλμανᾶ (E Cod.Paris. B.N. Gr. 2327, Fol. 141R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 955 | raw OCR |
 | sannyrion.fragmenta | Sannyrion - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
 | satyrus.vita-euripidis-p-oxy-9-1176 | Vita Euripidis (P. Oxy. 9.1176) | qwen36-fhg_vol3_mueller_diocles_rhodius | Qwen3.6-27B | 451 | raw OCR |
-| scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera | Scholia In Aelium Aristidem - Scholia In Aelium Aristidem (Scholia Vetera) | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 112,634 | raw OCR |
+| scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera | Scholia In Aelium Aristidem - Scholia In Aelium Aristidem (Scholia Vetera) | [archive.org](https://archive.org/details/scholiainaeliia00unkngoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 111,898 | raw OCR |
 | scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera | Scholia In Aeschinem - Scholia In Aeschinem (Scholia Vetera) | qwen36-schol_aeschin_dindorf | Qwen3.6-27B | 25,750 | auto-corrected |
 | scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera | Scholia In Aeschylum - Scholia In Aeschylum (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_aw-IxD1dCOwC) | Qwen3.6-27B-FP8 (masked 1-col pipeline, 350 dpi) | 119,911 | auto-corrected |
 | scholia-in-apollonium-rhodium.scholia-in-apollonii-rhodii-argonautica-scholia-vetera | Scholia In Apollonium Rhodium - Scholia In Apollonii Rhodii Argonautica (Scholia Vetera) | [archive.org](https://archive.org/details/bub_gb_oBI-AAAAcAAJ) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 119,849 | auto-corrected |

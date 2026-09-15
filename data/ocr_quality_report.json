@@ -26,8 +26,8 @@
    "ocr_works": 1412,
    "ocr_works_ranked": 821,
    "ocr_works_with_witness": 196,
-   "secondary_files": 532,
-   "skipped": 132,
+   "secondary_files": 533,
+   "skipped": 133,
    "tei_primary_ocr_secondary_pairs": 204
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
@@ -462,6 +462,10 @@
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
     "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-ocr-runs"
+   },
+   {
+    "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
+    "slug": "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-review-2026-09-15"
    },
    {
     "reason": "secondary file has no primary in corpus_editions.json (fully displaced or renamed slug); not paired",
@@ -1006,11 +1010,11 @@
   },
   "andronicus-rhodius.de-passionibus-lib-1-sp": {
    "edition": "qwen36-andronicus_mullach_fpg3",
-   "n_tokens": 215291,
-   "n_tokens_checked": 124461,
-   "n_unattested": 11755,
+   "n_tokens": 215300,
+   "n_tokens_checked": 124463,
+   "n_unattested": 11747,
    "source": "ocr",
-   "unattested_rate": 0.094447,
+   "unattested_rate": 0.094381,
    "witness": null
   },
   "androtion.fragmenta": {
@@ -4674,9 +4678,9 @@
    "edition": "qwen36-archytas_mullach_fpg2",
    "n_tokens": 16,
    "n_tokens_checked": 9,
-   "n_unattested": 1,
+   "n_unattested": 0,
    "source": "ocr",
-   "unattested_rate": 0.111111,
+   "unattested_rate": 0.0,
    "witness": null
   },
   "diodorus-comedy.fragmenta": {
@@ -4725,9 +4729,9 @@
    "edition": "qwen36-archytas_mullach_fpg2",
    "n_tokens": 11181,
    "n_tokens_checked": 7140,
-   "n_unattested": 1110,
+   "n_unattested": 1105,
    "source": "ocr",
-   "unattested_rate": 0.155462,
+   "unattested_rate": 0.154762,
    "witness": null
   },
   "diogenes-smyrnaeus.testimonium": {
@@ -5605,11 +5609,11 @@
   },
   "fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol": {
    "edition": "qwen36-berthelot_alchimistes_grec",
-   "n_tokens": 49,
+   "n_tokens": 48,
    "n_tokens_checked": 27,
-   "n_unattested": 6,
+   "n_unattested": 5,
    "source": "ocr",
-   "unattested_rate": 0.222222,
+   "unattested_rate": 0.185185,
    "witness": null
   },
   "fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol-2": {
@@ -5652,9 +5656,9 @@
    "edition": "qwen36-berthelot_alchimistes_grec",
    "n_tokens": 27,
    "n_tokens_checked": 12,
-   "n_unattested": 3,
+   "n_unattested": 2,
    "source": "ocr",
-   "unattested_rate": 0.25,
+   "unattested_rate": 0.166667,
    "witness": null
   },
   "fragmenta-alchemica.h-oi-konomi-e-cod-venet-marc-299-fol-98v": {
@@ -5668,11 +5672,11 @@
   },
   "fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v": {
    "edition": "qwen36-berthelot_alchimistes_grec",
-   "n_tokens": 35,
+   "n_tokens": 34,
    "n_tokens_checked": 17,
-   "n_unattested": 2,
+   "n_unattested": 1,
    "source": "ocr",
-   "unattested_rate": 0.117647,
+   "unattested_rate": 0.058824,
    "witness": null
   },
   "fragmenta-alchemica.katabafh-li-qwn-kai-smara-gdwn-kai-lixnitw-n-kai": {
@@ -5715,9 +5719,9 @@
    "edition": "qwen36-berthelot_alchimistes_grec",
    "n_tokens": 126,
    "n_tokens_checked": 72,
-   "n_unattested": 19,
+   "n_unattested": 13,
    "source": "ocr",
-   "unattested_rate": 0.263889,
+   "unattested_rate": 0.180556,
    "witness": null
   },
   "fragmenta-alchemica.oti-su-nqeton-kai-ou-x-plou-n-ei-dos-kai-ti-s-h": {
@@ -7173,9 +7177,9 @@
    "edition": "qwen36-berthelot_alchimistes_grec",
    "n_tokens": 57,
    "n_tokens_checked": 29,
-   "n_unattested": 5,
+   "n_unattested": 3,
    "source": "ocr",
-   "unattested_rate": 0.172414,
+   "unattested_rate": 0.103448,
    "witness": null
   },
   "hermesianax.fragmenta": {
@@ -7240,11 +7244,11 @@
   },
   "heron.definitiones": {
    "edition": "qwen36-heron_definitiones_teubner4",
-   "n_tokens": 56184,
+   "n_tokens": 56192,
    "n_tokens_checked": 29869,
-   "n_unattested": 3191,
+   "n_unattested": 3188,
    "source": "ocr",
-   "unattested_rate": 0.106833,
+   "unattested_rate": 0.106733,
    "witness": null
   },
   "heron.geometrica": {
@@ -9232,11 +9236,11 @@
   },
   "joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos": {
    "edition": "qwen36-joannes_geometres_pg106",
-   "n_tokens": 199397,
-   "n_tokens_checked": 118315,
-   "n_unattested": 18485,
+   "n_tokens": 199404,
+   "n_tokens_checked": 118318,
+   "n_unattested": 18480,
    "source": "ocr",
-   "unattested_rate": 0.156235,
+   "unattested_rate": 0.156189,
    "witness": null
   },
   "joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno": {
@@ -11599,11 +11603,11 @@
   },
   "photius.bibliotheca": {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "n_tokens": 154200,
+   "n_tokens": 154204,
    "n_tokens_checked": 89592,
-   "n_unattested": 16844,
+   "n_unattested": 16841,
    "source": "ocr",
-   "unattested_rate": 0.188008,
+   "unattested_rate": 0.187974,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {
@@ -12334,11 +12338,11 @@
   },
   "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera": {
    "edition": "qwen36-scholia_aristidem_frommel1826-masked",
-   "n_tokens": 112634,
-   "n_tokens_checked": 64475,
-   "n_unattested": 10531,
+   "n_tokens": 111898,
+   "n_tokens_checked": 64064,
+   "n_unattested": 10473,
    "source": "ocr",
-   "unattested_rate": 0.163335,
+   "unattested_rate": 0.163477,
    "witness": null
   },
   "scholia-in-aeschinem.scholia-in-aeschinem-scholia-vetera": {
@@ -14706,10 +14710,10 @@
   "joannes-chrysostomus.in-ascensionem-sermo-2-sp",
   "pseudo-archytas.fragmenta",
   "antigonus-paradoxography.historiarum-mirabilium-collectio",
+  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "gregorius-nazianzenus.in-sanctum-baptisma-orat-40",
   "eudoxus-astronomy.fragmenta",
   "antiphanes.fragmenta",
-  "scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera",
   "aphthonius.progymnasmata",
   "joannes-chrysostomus.ad-stelechium-de-compunctione-lib-2",
   "joannes-damascenus.oratio-de-his-qui-in-fide-dormierunt-sp",
@@ -14752,12 +14756,12 @@
   "joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos",
   "nicephorus-basilaces.progymnasmata",
   "joannes-chrysostomus.in-quatriduanum-lazarum",
-  "diogenes-sinopensis.fragmenta-et-apophthegmata",
   "joannes-chrysostomus.in-annuntiationem-beatae-virginis-sp",
   "joannes-damascenus.de-sacris-imaginibus-contra-constantinum-cabalinum-sp",
   "joannes-chrysostomus.in-illud-si-esurierit-inimicus",
   "cyrillus-theology.epistulae-paschales-sive-homiliae-paschales-epist-1-30",
   "choricius.opera",
+  "diogenes-sinopensis.fragmenta-et-apophthegmata",
   "clearchus-philosophy.fragmenta",
   "joannes-chrysostomus.de-chananaea-dub",
   "timosthenes-ggm1",
@@ -15100,8 +15104,8 @@
   "gregorius-nyssenus.de-instituto-christiano",
   "theophylactus-achridensis.oratio-in-imperatorem-alexium-i-comnenum",
   "athanasius-theology.de-sancta-trinitate-dialogi-2-and-4-sp",
-  "andronicus-rhodius.de-passionibus-lib-1-sp",
   "aristophanes-comedy.fragmenta-2",
+  "andronicus-rhodius.de-passionibus-lib-1-sp",
   "zeno-philosophy.testimonia",
   "proclus.institutio-theologica",
   "archytas-philosophy.testimonia",

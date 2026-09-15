@@ -6,21 +6,21 @@
     "ingested_via_cgpg_volume": 0,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.46,
-    "pct_ingested_actual": 66.1,
-    "ingested_words_actual": 49560422,
-    "ingested_complete_works": 2904,
-    "ingested_partial_works": 117,
+    "pct_ingested_actual": 66.05,
+    "ingested_words_actual": 49519336,
+    "ingested_complete_works": 2902,
+    "ingested_partial_works": 119,
     "pct_reachable_not_ingested": 14.18,
     "pct_locked": 11.81,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
-      "actionable": 1166586,
-      "structural": 562316
+      "actionable": 1177601,
+      "structural": 569032
     },
-    "underfilled_50_90_works": 447,
+    "underfilled_50_90_works": 451,
     "underfilled_50_90_missing_words": {
-      "actionable": 1673328,
-      "structural": 179391
+      "actionable": 1696390,
+      "structural": 179837
     }
   },
   "buckets": {
@@ -41,12 +41,12 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2904,
-      "word_count": 51835488
+      "works": 2902,
+      "word_count": 51832562
     },
     "ingested_partial": {
-      "works": 117,
-      "word_count": 2491889
+      "works": 119,
+      "word_count": 2494815
     }
   },
   "reachable_not_ingested_by_source": {
@@ -12869,10 +12869,10 @@
       "author": "Photius",
       "title": "Bibliotheca",
       "word_count": 360682,
-      "ingested_tokens": 153418,
+      "ingested_tokens": 153431,
       "coverage_ratio": 0.425,
       "source": "ocr",
-      "missing_words": 207264
+      "missing_words": 207251
     },
     {
       "tlg_id": "tlg3063",
@@ -12926,10 +12926,10 @@
       "author": "Joannes Zonaras",
       "title": "Epitome Historiarum (Lib. 13-18)",
       "word_count": 118917,
-      "ingested_tokens": 56934,
-      "coverage_ratio": 0.479,
+      "ingested_tokens": 55505,
+      "coverage_ratio": 0.467,
       "source": "cgpg",
-      "missing_words": 61983
+      "missing_words": 63412
     },
     {
       "tlg_id": "tlg0060",
@@ -12982,10 +12982,10 @@
       "author": "Michael Psellus",
       "title": "Poemata",
       "word_count": 80426,
-      "ingested_tokens": 31945,
-      "coverage_ratio": 0.397,
+      "ingested_tokens": 31179,
+      "coverage_ratio": 0.388,
       "source": "cgpg",
-      "missing_words": 48481
+      "missing_words": 49247
     },
     {
       "tlg_id": "tlg2702",
@@ -13055,6 +13055,17 @@
       "source": "ocr",
       "missing_words": 24580,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg4090",
+      "work_id": "124",
+      "author": "Cyrillus",
+      "title": "Collectio Dictorum Veteris Testamenti Sp.",
+      "word_count": 24084,
+      "ingested_tokens": 2503,
+      "coverage_ratio": 0.104,
+      "source": "ocr",
+      "missing_words": 21581
     },
     {
       "tlg_id": "tlg4040",
@@ -13162,14 +13173,15 @@
     },
     {
       "tlg_id": "tlg4090",
-      "work_id": "124",
+      "work_id": "006",
       "author": "Cyrillus",
-      "title": "Collectio Dictorum Veteris Testamenti Sp.",
-      "word_count": 24084,
-      "ingested_tokens": 10575,
-      "coverage_ratio": 0.439,
+      "title": "Fragmenta In Sancti Pauli Epistulam Ad Hebraeos",
+      "word_count": 14388,
+      "ingested_tokens": 1244,
+      "coverage_ratio": 0.086,
       "source": "ocr",
-      "missing_words": 13509
+      "missing_words": 13144,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
       "tlg_id": "tlg0634",
@@ -13227,18 +13239,6 @@
       "coverage_ratio": 0.074,
       "source": "ocr",
       "missing_words": 8424,
-      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
-    },
-    {
-      "tlg_id": "tlg4090",
-      "work_id": "006",
-      "author": "Cyrillus",
-      "title": "Fragmenta In Sancti Pauli Epistulam Ad Hebraeos",
-      "word_count": 14388,
-      "ingested_tokens": 6318,
-      "coverage_ratio": 0.439,
-      "source": "ocr",
-      "missing_words": 8070,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
@@ -13612,6 +13612,18 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg2934",
+      "work_id": "051",
+      "author": "Joannes Damascenus",
+      "title": "De Azymis (Fragmenta Duo) Sp.",
+      "word_count": 2095,
+      "ingested_tokens": 453,
+      "coverage_ratio": 0.216,
+      "source": "ocr",
+      "missing_words": 1642,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
       "tlg_id": "tlg0533",
       "work_id": "007",
       "author": "Callimachus",
@@ -13762,6 +13774,17 @@
       "coverage_ratio": 0.445,
       "source": "ocr",
       "missing_words": 838
+    },
+    {
+      "tlg_id": "tlg4090",
+      "work_id": "022",
+      "author": "Cyrillus",
+      "title": "Ad Calosyrium (Epist. 83)",
+      "word_count": 831,
+      "ingested_tokens": 70,
+      "coverage_ratio": 0.084,
+      "source": "ocr",
+      "missing_words": 761
     },
     {
       "tlg_id": "tlg0260",
@@ -14280,10 +14303,10 @@
       "author": "Hesychius",
       "title": "Lexicon (Α-Ο)",
       "word_count": 235261,
-      "ingested_tokens": 145537,
+      "ingested_tokens": 145557,
       "coverage_ratio": 0.619,
       "source": "ocr",
-      "missing_words": 89724
+      "missing_words": 89704
     },
     {
       "tlg_id": "tlg3136",
@@ -14291,10 +14314,10 @@
       "author": "Pseudo-Zonaras",
       "title": "Lexicon",
       "word_count": 239532,
-      "ingested_tokens": 160552,
-      "coverage_ratio": 0.67,
+      "ingested_tokens": 158731,
+      "coverage_ratio": 0.663,
       "source": "ocr",
-      "missing_words": 78980
+      "missing_words": 80801
     },
     {
       "tlg_id": "tlg5017",
@@ -14324,10 +14347,10 @@
       "author": "Scholia In Aelium Aristidem",
       "title": "Scholia In Aelium Aristidem (Scholia Vetera)",
       "word_count": 185676,
-      "ingested_tokens": 114268,
-      "coverage_ratio": 0.615,
+      "ingested_tokens": 111322,
+      "coverage_ratio": 0.6,
       "source": "ocr",
-      "missing_words": 71408
+      "missing_words": 74354
     },
     {
       "tlg_id": "tlg2934",
@@ -14376,6 +14399,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg4090",
+      "work_id": "023",
+      "author": "Cyrillus",
+      "title": "De Sancta Trinitate Dialogi Ivii",
+      "word_count": 101001,
+      "ingested_tokens": 77750,
+      "coverage_ratio": 0.77,
+      "source": "ocr",
+      "missing_words": 23251
+    },
+    {
       "tlg_id": "tlg0722",
       "work_id": "005",
       "author": "Oribasius",
@@ -14385,17 +14419,6 @@
       "coverage_ratio": 0.598,
       "source": "ocr",
       "missing_words": 23165
-    },
-    {
-      "tlg_id": "tlg4090",
-      "work_id": "023",
-      "author": "Cyrillus",
-      "title": "De Sancta Trinitate Dialogi Ivii",
-      "word_count": 101001,
-      "ingested_tokens": 79426,
-      "coverage_ratio": 0.786,
-      "source": "ocr",
-      "missing_words": 21575
     },
     {
       "tlg_id": "tlg2062",
@@ -14436,10 +14459,10 @@
       "author": "Cyrillus",
       "title": "Expositio In Psalmos",
       "word_count": 111497,
-      "ingested_tokens": 95492,
-      "coverage_ratio": 0.856,
+      "ingested_tokens": 95055,
+      "coverage_ratio": 0.853,
       "source": "ocr",
-      "missing_words": 16005
+      "missing_words": 16442
     },
     {
       "tlg_id": "tlg5031",
@@ -14652,6 +14675,17 @@
       "coverage_ratio": 0.786,
       "source": "ocr",
       "missing_words": 6977
+    },
+    {
+      "tlg_id": "tlg2800",
+      "work_id": "018",
+      "author": "Basilius",
+      "title": "De Vita Et Miraculis Sanctae Theclae Libri Ii Sp.",
+      "word_count": 35325,
+      "ingested_tokens": 28354,
+      "coverage_ratio": 0.803,
+      "source": "ocr",
+      "missing_words": 6971
     },
     {
       "tlg_id": "tlg2042",
@@ -14948,6 +14982,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg2934",
+      "work_id": "011",
+      "author": "Joannes Damascenus",
+      "title": "Epistula De Hymno Trisagio",
+      "word_count": 7455,
+      "ingested_tokens": 4285,
+      "coverage_ratio": 0.575,
+      "source": "ocr",
+      "missing_words": 3170
+    },
+    {
       "tlg_id": "tlg0526",
       "work_id": "003",
       "author": "Flavius Josephus",
@@ -14994,17 +15039,6 @@
       "missing_words": 2650
     },
     {
-      "tlg_id": "tlg2934",
-      "work_id": "011",
-      "author": "Joannes Damascenus",
-      "title": "Epistula De Hymno Trisagio",
-      "word_count": 7455,
-      "ingested_tokens": 4954,
-      "coverage_ratio": 0.665,
-      "source": "ocr",
-      "missing_words": 2501
-    },
-    {
       "tlg_id": "tlg1320",
       "work_id": "001",
       "author": "Diogenes",
@@ -15015,6 +15049,28 @@
       "source": "first1k",
       "missing_words": 2493,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg2934",
+      "work_id": "008",
+      "author": "Joannes Damascenus",
+      "title": "De Duabus In Christo Voluntatibus",
+      "word_count": 14124,
+      "ingested_tokens": 11632,
+      "coverage_ratio": 0.824,
+      "source": "ocr",
+      "missing_words": 2492
+    },
+    {
+      "tlg_id": "tlg2040",
+      "work_id": "052",
+      "author": "Basilius",
+      "title": "De Baptismo Libri Duo",
+      "word_count": 22009,
+      "ingested_tokens": 19528,
+      "coverage_ratio": 0.887,
+      "source": "ocr",
+      "missing_words": 2481
     },
     {
       "tlg_id": "tlg2050",
@@ -15073,6 +15129,17 @@
       "missing_words": 2321
     },
     {
+      "tlg_id": "tlg2022",
+      "work_id": "052",
+      "author": "Gregorius Nazianzenus",
+      "title": "In Sanctum Pascha (Orat. 45)",
+      "word_count": 6819,
+      "ingested_tokens": 4556,
+      "coverage_ratio": 0.668,
+      "source": "ocr",
+      "missing_words": 2263
+    },
+    {
       "tlg_id": "tlg0579",
       "work_id": "002",
       "author": "Orphica",
@@ -15127,6 +15194,18 @@
       "coverage_ratio": 0.615,
       "source": "first1k",
       "missing_words": 1947,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg0009",
+      "work_id": "001",
+      "author": "Sappho",
+      "title": "Fragmenta",
+      "word_count": 5740,
+      "ingested_tokens": 3820,
+      "coverage_ratio": 0.666,
+      "source": "dcc",
+      "missing_words": 1920,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
@@ -15449,6 +15528,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg2022",
+      "work_id": "033",
+      "author": "Gregorius Nazianzenus",
+      "title": "De Dogmate Et Constitutione Episcoporum (Orat. 20)",
+      "word_count": 2471,
+      "ingested_tokens": 1473,
+      "coverage_ratio": 0.596,
+      "source": "ocr",
+      "missing_words": 998
+    },
+    {
       "tlg_id": "tlg2934",
       "work_id": "014",
       "author": "Joannes Damascenus",
@@ -15514,6 +15604,17 @@
       "source": "dfhg",
       "missing_words": 946,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg4089",
+      "work_id": "033",
+      "author": "Theodoretus",
+      "title": "Libellus Contra Nestorium Ad Sporacium Sp.",
+      "word_count": 2168,
+      "ingested_tokens": 1224,
+      "coverage_ratio": 0.565,
+      "source": "ocr",
+      "missing_words": 944
     },
     {
       "tlg_id": "tlg2017",
@@ -15662,18 +15763,6 @@
       "missing_words": 823
     },
     {
-      "tlg_id": "tlg2934",
-      "work_id": "051",
-      "author": "Joannes Damascenus",
-      "title": "De Azymis (Fragmenta Duo) Sp.",
-      "word_count": 2095,
-      "ingested_tokens": 1274,
-      "coverage_ratio": 0.608,
-      "source": "ocr",
-      "missing_words": 821,
-      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
-    },
-    {
       "tlg_id": "tlg2424",
       "work_id": "003",
       "author": "Chaeremon",
@@ -15730,6 +15819,17 @@
       "missing_words": 789
     },
     {
+      "tlg_id": "tlg2062",
+      "work_id": "210",
+      "author": "Joannes Chrysostomus",
+      "title": "De Melchisedech Sp.",
+      "word_count": 1923,
+      "ingested_tokens": 1159,
+      "coverage_ratio": 0.603,
+      "source": "ocr",
+      "missing_words": 764
+    },
+    {
       "tlg_id": "tlg2022",
       "work_id": "040",
       "author": "Gregorius Nazianzenus",
@@ -15739,17 +15839,6 @@
       "coverage_ratio": 0.886,
       "source": "ocr",
       "missing_words": 752
-    },
-    {
-      "tlg_id": "tlg4089",
-      "work_id": "033",
-      "author": "Theodoretus",
-      "title": "Libellus Contra Nestorium Ad Sporacium Sp.",
-      "word_count": 2168,
-      "ingested_tokens": 1433,
-      "coverage_ratio": 0.661,
-      "source": "ocr",
-      "missing_words": 735
     },
     {
       "tlg_id": "tlg2062",
@@ -15877,18 +15966,6 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
-      "tlg_id": "tlg0009",
-      "work_id": "001",
-      "author": "Sappho",
-      "title": "Fragmenta",
-      "word_count": 5740,
-      "ingested_tokens": 5087,
-      "coverage_ratio": 0.886,
-      "source": "ocr",
-      "missing_words": 653,
-      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
-    },
-    {
       "tlg_id": "tlg2062",
       "work_id": "017",
       "author": "Joannes Chrysostomus",
@@ -15898,17 +15975,6 @@
       "coverage_ratio": 0.673,
       "source": "ocr",
       "missing_words": 649
-    },
-    {
-      "tlg_id": "tlg2022",
-      "work_id": "033",
-      "author": "Gregorius Nazianzenus",
-      "title": "De Dogmate Et Constitutione Episcoporum (Orat. 20)",
-      "word_count": 2471,
-      "ingested_tokens": 1826,
-      "coverage_ratio": 0.739,
-      "source": "ocr",
-      "missing_words": 645
     },
     {
       "tlg_id": "tlg2040",
@@ -19391,7 +19457,7 @@
   ],
   "ingested_not_in_sourcing_map": {
     "works": 789,
-    "n_tokens": 8327649,
+    "n_tokens": 8316813,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19406,8 +19472,8 @@
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 565,
-        "n_tokens": 215284
+        "n_passages": 561,
+        "n_tokens": 213820
       },
       {
         "key": "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous",
@@ -19422,8 +19488,8 @@
         "edition": "qwen36-timotheus_defluviis_ggm2",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 7083,
-        "n_tokens": 181420
+        "n_passages": 7079,
+        "n_tokens": 180894
       },
       {
         "key": "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
@@ -19534,16 +19600,16 @@
         "edition": "qwen36-antonius_diogenes_hercher",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 2965,
-        "n_tokens": 101357
+        "n_passages": 2841,
+        "n_tokens": 100018
       },
       {
         "key": "joannes-tzetzes.tzetzes-historiae-kiessling",
         "edition": "qwen36-tzetzes_historiae_kiessling",
         "source": "ocr",
         "license": "PD",
-        "n_passages": 15759,
-        "n_tokens": 101139
+        "n_passages": 15513,
+        "n_tokens": 99525
       },
       {
         "key": "cougny-appendix-nova.didot-anthologia-v3",
@@ -19575,7 +19641,7 @@
         "source": "ocr",
         "license": "PD",
         "n_passages": 3730,
-        "n_tokens": 88967
+        "n_tokens": 88972
       },
       {
         "key": "maximus-planudes.scholia-eis-ten-hermogenous-technen",
@@ -19774,8 +19840,8 @@
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 135,
-        "n_tokens": 53578
+        "n_passages": 133,
+        "n_tokens": 52837
       },
       {
         "key": "aristarchus-ludwich",
@@ -19791,7 +19857,7 @@
         "source": "ocr",
         "license": "PD",
         "n_passages": 2591,
-        "n_tokens": 51616
+        "n_tokens": 51631
       },
       {
         "key": "gelasius.historia-ecclesiastica",
@@ -19898,14 +19964,6 @@
         "n_tokens": 38962
       },
       {
-        "key": "didymus.schmidt",
-        "edition": "qwen36-didymus_schmidt",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 2902,
-        "n_tokens": 38807
-      },
-      {
         "key": "elias-cretensis.commentarii-in-sancti-gregorii-nazianzeni-orationes-xix",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
@@ -19920,6 +19978,14 @@
         "license": "PD",
         "n_passages": 498,
         "n_tokens": 38243
+      },
+      {
+        "key": "didymus.schmidt",
+        "edition": "qwen36-didymus_schmidt",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 2891,
+        "n_tokens": 38229
       },
       {
         "key": "mullach-fpg2.paratexta",
@@ -20222,8 +20288,8 @@
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 50,
-        "n_tokens": 20320
+        "n_passages": 49,
+        "n_tokens": 19897
       },
       {
         "key": "ocr.walz_rhetores_v9",
@@ -20738,14 +20804,6 @@
         "n_tokens": 8336
       },
       {
-        "key": "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
-        "edition": "migne-ocr-qwen36",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 192,
-        "n_tokens": 8330
-      },
-      {
         "key": "malchus-philadelphensis.fragmenta",
         "edition": "dfhg",
         "source": "dfhg",
@@ -21030,8 +21088,8 @@
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
-        "n_passages": 29,
-        "n_tokens": 6749
+        "n_passages": 28,
+        "n_tokens": 6560
       },
       {
         "key": "euripides.tlg0006-tlg002",
@@ -21504,6 +21562,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 15,
         "n_tokens": 4377
+      },
+      {
+        "key": "nicetas-heracleensis.fragmenta-commentariorum-xvi-orationum-gregorii-nazianzeni",
+        "edition": "migne-ocr-qwen36",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 97,
+        "n_tokens": 4348
       },
       {
         "key": "symeon-thessalonicensis.expositio-de-sacri-symboli-dictionibus",

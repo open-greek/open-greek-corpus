@@ -77,6 +77,49 @@ def test_scan_url_uses_reocr_inventory_page_offset(tmp_path):
     assert link == "https://archive.org/details/source-book/page/n34/mode/1up"
 
 
+def test_scan_url_uses_explicit_printed_page_offset(tmp_path):
+    paths = fixture_paths(tmp_path)
+    inventory = paths.data / "inventory"
+    inventory.mkdir()
+    (inventory / "reocr_provenance.json").write_text(json.dumps({
+        "editions": [{
+            "base": "sample_run",
+            "source_url": "https://archive.org/download/source-book/source-book.pdf",
+            "align_method": "content-offset",
+            "content_offset": 0,
+            "printed_page_offset": 8,
+        }],
+    }), encoding="utf-8")
+
+    link = review.scan_url({
+        "urn": "author.work", "edition": "qwen36-sample_run",
+        "locus": "599.1",
+    }, review.provenance_indexes(paths))
+
+    assert link == "https://archive.org/details/source-book/page/n607/mode/1up"
+
+
+def test_scan_url_does_not_guess_printed_page_alignment(tmp_path):
+    paths = fixture_paths(tmp_path)
+    inventory = paths.data / "inventory"
+    inventory.mkdir()
+    (inventory / "reocr_provenance.json").write_text(json.dumps({
+        "editions": [{
+            "base": "sample_run",
+            "source_url": "https://archive.org/download/source-book/source-book.pdf",
+            "align_method": "content-offset",
+            "content_offset": 0,
+        }],
+    }), encoding="utf-8")
+
+    link = review.scan_url({
+        "urn": "author.work", "edition": "qwen36-sample_run",
+        "locus": "599.1",
+    }, review.provenance_indexes(paths))
+
+    assert link == "https://archive.org/details/source-book"
+
+
 def test_exact_scan_url_rejects_work_level_archive_link():
     assert review.exact_scan_url(
         "https://archive.org/details/source-book/page/n34/mode/1up"
@@ -179,6 +222,59 @@ def test_duplicate_queue_can_require_both_scan_images(tmp_path):
     assert items == []
 
 
+def test_duplicate_queue_can_rank_reviewed_run_extensions(tmp_path):
+    paths = fixture_paths(tmp_path)
+    urn, edition = "author.work", "qwen-test"
+    loci = ("scan_0010", "scan_0020", "scan_0011", "scan_0021",
+            "scan_0030", "scan_0040")
+    write_jsonl(paths.corpus / f"{urn}.jsonl", [
+        {"urn": urn, "edition": edition, "source": "ocr",
+         "locus": f"{locus}.1", "text": locus}
+        for locus in loci
+    ])
+    prior = {
+        "file": f"data/corpus/{urn}.jsonl", "served": True,
+        "locus_a": "scan_0010", "locus_b": "scan_0020",
+        "containment": 0.9, "same_item": True,
+    }
+    extension = {
+        "file": f"data/corpus/{urn}.jsonl", "served": True,
+        "locus_a": "scan_0011", "locus_b": "scan_0021",
+        "containment": 0.5, "same_item": True,
+    }
+    unrelated = {
+        "file": f"data/corpus/{urn}.jsonl", "served": True,
+        "locus_a": "scan_0030", "locus_b": "scan_0040",
+        "containment": 1.0, "same_item": True,
+    }
+    artifact = paths.data / "duplicate_page_candidates.json"
+    artifact.write_text(json.dumps({"pairs": [prior, unrelated, extension]}),
+                        encoding="utf-8")
+    changes = paths.data / "corpus_changes"
+    changes.mkdir()
+    prior_id = review.stable_id(
+        33, prior["file"], prior["locus_a"], prior["locus_b"],
+    )
+    audit = changes / "issue-33-reviewed.page-images-test.applied.json"
+    audit.write_text(json.dumps({"displacements": [{
+        "item_id": prior_id, "file": prior["file"],
+        "displaced_page": prior["locus_a"],
+        "retained_page_direct": prior["locus_b"],
+    }]}), encoding="utf-8")
+
+    items, inputs = review.build_issue_33(
+        paths, 10, "test", run_extensions=True,
+    )
+
+    assert [item["page_a"]["locus"] for item in items] == ["scan_0011"]
+    neighbor = items[0]["signals"]["reviewed_run_neighbor"]
+    assert neighbor == {
+        "distance": 1, "decision": "drop_a", "item_id": prior_id,
+        "locus_a": "scan_0010", "locus_b": "scan_0020",
+    }
+    assert audit in inputs
+
+
 def test_correction_queue_hides_answer_key_and_method(tmp_path):
     paths = fixture_paths(tmp_path)
     urn, edition = "author.work", "qwen-test"
@@ -239,6 +335,36 @@ def test_raw_ocr_queue_selects_only_raw_ocr_works(tmp_path):
     assert [row["locus"] for row in items[0]["rows"]] == ["scan_0042.1", "scan_0042.2"]
     assert items[0]["text"] == "raw page text\napparatus"
     assert items[0]["segments_required_for"] == ["transcribe"]
+
+
+def test_raw_ocr_queue_can_select_multiple_pages_per_work(tmp_path):
+    paths = fixture_paths(tmp_path)
+    write_jsonl(paths.corpus / "raw.work.jsonl", [
+        {"urn": "raw.work", "edition": "qwen-test", "source": "ocr",
+         "locus": "scan_0042.1", "text": "longer first page"},
+        {"urn": "raw.work", "edition": "qwen-test", "source": "ocr",
+         "locus": "scan_0043.1", "text": "second page"},
+    ])
+    add_scan(paths, "raw.work", "qwen-test")
+    with (paths.data / "corpus_catalog.tsv").open(
+        "w", encoding="utf-8", newline="",
+    ) as handle:
+        writer = csv.DictWriter(handle, fieldnames=[
+            "slug", "work_id", "author", "title", "tokens", "source",
+            "correction", "unattested_rate",
+        ], delimiter="\t")
+        writer.writeheader()
+        writer.writerow({
+            "slug": "raw.work", "work_id": "ogc1", "author": "A", "title": "T",
+            "tokens": 100, "source": "ocr", "correction": "raw-ocr",
+            "unattested_rate": 0.2,
+        })
+
+    items, _ = review.build_issue_2(
+        paths, 10, "test", require_scan=True, pages_per_work=2,
+    )
+
+    assert {item["page"] for item in items} == {"scan_0042", "scan_0043"}
 
 
 def test_decision_validator_requires_provenance_and_seals_valid_rows(tmp_path):
