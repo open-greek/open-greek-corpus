@@ -11,12 +11,12 @@
    "ocr"
   ]
  },
- "files_scanned": 4441,
- "candidates": 1827,
- "clean_second_copies": 655,
- "clean_second_copies_tokens": 189069,
- "clean_second_copies_served": 212,
- "clean_second_copies_served_tokens": 62539,
+ "files_scanned": 4442,
+ "candidates": 1824,
+ "clean_second_copies": 652,
+ "clean_second_copies_tokens": 188320,
+ "clean_second_copies_served": 209,
+ "clean_second_copies_served_tokens": 61790,
  "overlapping_not_copies": 1172,
  "overlapping_not_copies_tokens": 401116,
  "served_droppable_by_containment": [
@@ -50,10 +50,10 @@
   },
   {
    "band": "0.40-0.60",
-   "pairs": 23,
-   "tokens": 5483,
-   "same_item_pairs": 22,
-   "same_item_tokens": 5291
+   "pairs": 20,
+   "tokens": 4734,
+   "same_item_pairs": 19,
+   "same_item_tokens": 4542
   }
  ],
  "duplicate_runs": {
@@ -410,7 +410,6 @@
   "data/corpus_secondary/antipater.testimonia-et-fragmenta.jsonl": 10,
   "data/corpus/zeno-philosophy.testimonia.jsonl": 10,
   "data/corpus/antonius-diogenes.hercher.jsonl": 10,
-  "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": 10,
   "data/corpus/heraclitus-philosophy.testimonia.jsonl": 9,
   "data/corpus_secondary/zeno-philosophy.testimonia.jsonl": 9,
   "data/corpus/leucippus.testimonia.jsonl": 9,
@@ -424,6 +423,7 @@
   "data/corpus_secondary/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.duplicate-read.jsonl": 7,
   "data/corpus_secondary/dialexeis-dissoi-logoi.fragmenta.jsonl": 7,
   "data/corpus/theodoretus.de-providentia-orationes-decem.jsonl": 7,
+  "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": 7,
   "data/corpus_secondary/pythagoras.testimonia.jsonl": 7,
   "data/corpus_secondary/antistius-ap-duebner-v2.jsonl": 7,
   "data/corpus_secondary/theognostus.canones-sive-de-orthographia.duplicate-read.jsonl": 6,
@@ -38503,25 +38503,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0233",
-   "locus_b": "scholia_aristidem_frommel1826_0243",
-   "containment": 0.5115,
-   "bigrams_a": 217,
-   "bigrams_b": 223,
-   "tokens_b": 233,
-   "words_absent_from_a": 37,
-   "words_b": 233,
-   "unique_runs_if_b_dropped": [
-    "πε πεποιηκε ναι"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/anaxagoras.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0327",
@@ -42028,25 +42009,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0232",
-   "locus_b": "scholia_aristidem_frommel1826_0242",
-   "containment": 0.4899,
-   "bigrams_a": 247,
-   "bigrams_b": 249,
-   "tokens_b": 267,
-   "words_absent_from_a": 45,
-   "words_b": 267,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "εν εκατεροις λοιταρχος"
-   ],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus/democritus-philosophy.testimonia.jsonl",
    "served": true,
    "locus_a": "anaxagoras_diels_vs1_0431",
@@ -45172,26 +45134,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0378",
-   "locus_b": "scholia_aristidem_frommel1826_0388",
-   "containment": 0.4661,
-   "bigrams_a": 236,
-   "bigrams_b": 241,
-   "tokens_b": 249,
-   "words_absent_from_a": 49,
-   "words_b": 249,
-   "unique_runs_if_b_dropped": [
-    "τουτου λακεδα νιοι",
-    "μακεδαιμο νες οικειν"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {

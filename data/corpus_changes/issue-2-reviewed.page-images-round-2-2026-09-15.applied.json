@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "what": "segmented scan-reviewed raw-OCR page transcriptions applied to served text",
+  "issue": "open-greek/open-greek-corpus#2",
+  "applied_at": "2026-09-15",
+  "queue": "data/review/issue-2-round-2.jsonl",
+  "queue_sha256": "f20ddb8180973b869baba90d2fcfafe17ea96706616c2254110425529285a88c",
+  "manifest": "data/review/issue-2-round-2.manifest.json",
+  "manifest_sha256": "0271a87c1e622c1651d06e16e1d9aae49baefc4903debd97d4e237652ecf8175",
+  "reviewed_decisions": "data/review/issue-2-round-2.reviewed.jsonl",
+  "reviewed_decisions_sha256": "2760ca165df7fa6d508174f29299a5f1ff50f4454fbdc8c240503676820bdc6b",
+  "release_reviewed": "corpus-2026-09-14.5",
+  "corpus_sha256_reviewed": "3028431e7114a835397950855d914f7c699e13001629d397e5536ff4e7896af0",
+  "decision_counts": {
+    "accept_ocr": 2,
+    "defer": 75,
+    "transcribe": 6
+  },
+  "pages_transcribed": 6,
+  "rows_changed": 14,
+  "files_touched": 6,
+  "pages": [
+    {
+      "item_id": "ogc-2-3fcd7174da80cd9f",
+      "file": "data/corpus/diodorus-aspendius.fragmentum.jsonl",
+      "page": "archytas_mullach_fpg2_0220",
+      "evidence_url": "https://archive.org/details/fragmentaphiloso02mulluoft/page/n219/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Full queued fragment checked against the printed page; independent CLLG OCR used only to focus visual collation.",
+      "rows_changed": 2,
+      "loci": [
+        "archytas_mullach_fpg2_0220.28",
+        "archytas_mullach_fpg2_0220.29",
+        "archytas_mullach_fpg2_0220.30"
+      ],
+      "source_text_sha256": "459fa18aa282ad65eaa100ce60c3c5e56f6373e3a23f957e3d91ac9ceae0fe09",
+      "transcription_sha256": "1d63d792c9f647381e64580a4c1e533b9ebbb14e7d0a74acb45518e623ceb220"
+    },
+    {
+      "item_id": "ogc-2-985e1af6465a0368",
+      "file": "data/corpus/fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol.jsonl",
+      "page": "berthelot_alchimistes_grec_0322",
+      "evidence_url": "https://archive.org/details/collectiondesanc23bert/page/n321/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Full queued fragment checked against the printed page; independent CLLG OCR used only to focus visual collation.",
+      "rows_changed": 1,
+      "loci": [
+        "berthelot_alchimistes_grec_0322.2"
+      ],
+      "source_text_sha256": "ec3c2051ec7589d2d21a37f4b1c7c0e8d3b59bd9c11bb25fb95e466722d652ec",
+      "transcription_sha256": "191b88835b4375fdcfbfc58c2c4f9f27e9798e65970de370dd4e96f791bb6a2d"
+    },
+    {
+      "item_id": "ogc-2-925be78b7fa4597a",
+      "file": "data/corpus/fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r.jsonl",
+      "page": "berthelot_alchimistes_grec_0326",
+      "evidence_url": "https://archive.org/details/collectiondesanc23bert/page/n325/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Full queued fragment checked against the printed page; independent CLLG OCR used only to focus visual collation.",
+      "rows_changed": 2,
+      "loci": [
+        "berthelot_alchimistes_grec_0326.3",
+        "berthelot_alchimistes_grec_0326.4"
+      ],
+      "source_text_sha256": "0a4d10fbf94dd22e30117930880b69142c5e74146fde329a8642d4002b6b4a80",
+      "transcription_sha256": "d220d446240d905eac080d7f44ddb7a7d4d95cf8040840c9d3f60a5c492a8c82"
+    },
+    {
+      "item_id": "ogc-2-0269feb45edcbdf5",
+      "file": "data/corpus/fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v.jsonl",
+      "page": "berthelot_alchimistes_grec_0326",
+      "evidence_url": "https://archive.org/details/collectiondesanc23bert/page/n325/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Full queued fragment checked against the printed page; independent CLLG OCR used only to focus visual collation.",
+      "rows_changed": 2,
+      "loci": [
+        "berthelot_alchimistes_grec_0326.1",
+        "berthelot_alchimistes_grec_0326.2"
+      ],
+      "source_text_sha256": "aa5dd999e6d88089302c7565c25aed49851b548f2a957341c070a9651984a98e",
+      "transcription_sha256": "d09cde6d5958f0bcef393289b53965fad462706f14e9df07b4b17ea6c82a1eed"
+    },
+    {
+      "item_id": "ogc-2-66edae857c178f71",
+      "file": "data/corpus/fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol.jsonl",
+      "page": "berthelot_alchimistes_grec_0322",
+      "evidence_url": "https://archive.org/details/collectiondesanc23bert/page/n321/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Full queued fragment checked against the printed page; independent CLLG OCR used only to focus visual collation.",
+      "rows_changed": 2,
+      "loci": [
+        "berthelot_alchimistes_grec_0322.3",
+        "berthelot_alchimistes_grec_0322.4"
+      ],
+      "source_text_sha256": "3868a88f40c616e7d53788fdfffdf5d702f5dc6ec87343cf4e4712b177ae1583",
+      "transcription_sha256": "57ce6ecfdcb48ca9c6a31a683f7aee1b548eb0b73c05356f81a607287cc7ac4f"
+    },
+    {
+      "item_id": "ogc-2-84629364fa7f0245",
+      "file": "data/corpus/hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos.jsonl",
+      "page": "berthelot_alchimistes_grec_0309",
+      "evidence_url": "https://archive.org/details/collectiondesanc23bert/page/n308/mode/1up",
+      "reviewer": "Codex scan review",
+      "reviewed_at": "2026-09-15",
+      "notes": "Full queued fragment checked against the printed page; independent CLLG OCR used only to focus visual collation.",
+      "rows_changed": 5,
+      "loci": [
+        "berthelot_alchimistes_grec_0309.3",
+        "berthelot_alchimistes_grec_0309.4",
+        "berthelot_alchimistes_grec_0309.5",
+        "berthelot_alchimistes_grec_0309.6",
+        "berthelot_alchimistes_grec_0309.7"
+      ],
+      "source_text_sha256": "2a7546e68d580eef335a000790fd1312c7fc4409c6de588c458c5bfacea004ed",
+      "transcription_sha256": "41f5e09eebe5d62254b6306ebed91105f86de00be8a292ea76e72ae3ecbd190d"
+    }
+  ],
+  "files": {
+    "data/corpus/diodorus-aspendius.fragmentum.jsonl": {
+      "sha256_before": "07f47080987f993a6b863d3d3a831da6a15db01fdf00ac34181bceb9cb048eb0",
+      "sha256_after": "6912ecd5842e8e320857b88c08f96c553e382e2dba0d85f7a92b1764769a2e14",
+      "rows_changed": [
+        {
+          "line": 2,
+          "locus": "archytas_mullach_fpg2_0220.29",
+          "original_line": "{\"urn\": \"diodorus-aspendius.fragmentum\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0220.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τινὲς κατ' εἰκόνα θεοῦ τὸν ἀνθρώπων ἐνόμισαν κατὰ\"}\n",
+          "applied_line": "{\"urn\": \"diodorus-aspendius.fragmentum\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0220.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τινὲς κατ’ εἰκόνα θεοῦ τὸν ἄνθρωπον ἐνόμισαν κατὰ\"}\n",
+          "original_line_sha256": "ba1d8e66575771c8c43d68dc64a793c84d1be833b6a34590ff6094e983a3cc3c",
+          "applied_line_sha256": "8920b39c17365dc12e22eb312a7214020802fc0b8ed192101a9ba990ac08b58d",
+          "text_before": "Τινὲς κατ' εἰκόνα θεοῦ τὸν ἀνθρώπων ἐνόμισαν κατὰ",
+          "text_after": "Τινὲς κατ’ εἰκόνα θεοῦ τὸν ἄνθρωπον ἐνόμισαν κατὰ"
+        },
+        {
+          "line": 3,
+          "locus": "archytas_mullach_fpg2_0220.30",
+          "original_line": "{\"urn\": \"diodorus-aspendius.fragmentum\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0220.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ τῆς ψυχῆς ἀόρατον (πεπλασθαι).\"}\n",
+          "applied_line": "{\"urn\": \"diodorus-aspendius.fragmentum\", \"edition\": \"qwen36-archytas_mullach_fpg2\", \"locus\": \"archytas_mullach_fpg2_0220.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ τῆς ψυχῆς ἀόρατον (πεπλάσθαι).\"}\n",
+          "original_line_sha256": "78a5ab4fd0af32bcbc5c55c59ecf5aba1968b05338a3262990f2d2e4d57fc00a",
+          "applied_line_sha256": "fce95fd2112c89e883372803f90da101e7bb4e043494f5ef1c8260af9b1ff707",
+          "text_before": "τὸ τῆς ψυχῆς ἀόρατον (πεπλασθαι).",
+          "text_after": "τὸ τῆς ψυχῆς ἀόρατον (πεπλάσθαι)."
+        }
+      ]
+    },
+    "data/corpus/fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol.jsonl": {
+      "sha256_before": "75a4e2a5b9a1cdee13d05d0c1d0914edbe9579630b09cf44476a7aa681ed46b4",
+      "sha256_after": "8d66c5c733c8f56559ac2c89cec3ee05f0fdcf7766fa9cbf9b103c6bb06b1f4d",
+      "rows_changed": [
+        {
+          "line": 1,
+          "locus": "berthelot_alchimistes_grec_0322.2",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0322.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τινὲς μὲν οὖν τὸν ἴον χαλκοῦ ἐπὶ τοσοῦτον ἀνάγουσιν ἕως ἂν καὶ τὴν πᾶσαν σχεδὸν σωηρίαν ταῖς πολλαῖς ἐκμυχήσεσι δαπανήσωσιν, λειοῦντες δ καὶ ἐπιβάλλοντες, καὶ ἀνάγοντες διὰ τὸ λέγειν ’Αγαθοδαίμονα · λάμβανε αἰθάλας καὶ αἰθάλας. Εὑρίσκουσι δὲ οὕτω τὸ μὲν πρῶτον, ξανθόν, τὸ δὲ δεύτερον, λευκόν, τὸ δὲ τρίτον, μέλαν.\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.fragmentum-alchemicum-sine-titulo-e-cod-venet-marc-299-fol\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0322.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τινὲς μὲν οὖν τὸν ἰὸν χαλκοῦ ἐπὶ τοσοῦτον ἀνάγουσιν ἕως ἂν καὶ τὴν πᾶσαν σχεδὸν σκωρίαν ταῖς πολλαῖς ἐκμυζήσεσι δαπανήσωσιν, λειοῦντες καὶ ἐπιβάλλοντες, καὶ ἀνάγοντες διὰ τὸ λέγειν Ἀγαθοδαίμονα· λάμβανε αἰθάλας καὶ αἰθάλας. Εὑρίσκουσι δὲ οὗτοι τὸ μὲν πρῶτον, ξανθόν, τὸ δὲ δεύτερον, λευκόν, τὸ δὲ τρίτον, μέλαν.\"}\n",
+          "original_line_sha256": "75a4e2a5b9a1cdee13d05d0c1d0914edbe9579630b09cf44476a7aa681ed46b4",
+          "applied_line_sha256": "8d66c5c733c8f56559ac2c89cec3ee05f0fdcf7766fa9cbf9b103c6bb06b1f4d",
+          "text_before": "Τινὲς μὲν οὖν τὸν ἴον χαλκοῦ ἐπὶ τοσοῦτον ἀνάγουσιν ἕως ἂν καὶ τὴν πᾶσαν σχεδὸν σωηρίαν ταῖς πολλαῖς ἐκμυχήσεσι δαπανήσωσιν, λειοῦντες δ καὶ ἐπιβάλλοντες, καὶ ἀνάγοντες διὰ τὸ λέγειν ’Αγαθοδαίμονα · λάμβανε αἰθάλας καὶ αἰθάλας. Εὑρίσκουσι δὲ οὕτω τὸ μὲν πρῶτον, ξανθόν, τὸ δὲ δεύτερον, λευκόν, τὸ δὲ τρίτον, μέλαν.",
+          "text_after": "Τινὲς μὲν οὖν τὸν ἰὸν χαλκοῦ ἐπὶ τοσοῦτον ἀνάγουσιν ἕως ἂν καὶ τὴν πᾶσαν σχεδὸν σκωρίαν ταῖς πολλαῖς ἐκμυζήσεσι δαπανήσωσιν, λειοῦντες καὶ ἐπιβάλλοντες, καὶ ἀνάγοντες διὰ τὸ λέγειν Ἀγαθοδαίμονα· λάμβανε αἰθάλας καὶ αἰθάλας. Εὑρίσκουσι δὲ οὗτοι τὸ μὲν πρῶτον, ξανθόν, τὸ δὲ δεύτερον, λευκόν, τὸ δὲ τρίτον, μέλαν."
+        }
+      ]
+    },
+    "data/corpus/fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r.jsonl": {
+      "sha256_before": "a79a4c9b7e1e92573c23971de813deb452514907dea87ddf473030dba35fd41e",
+      "sha256_after": "4a4d59e72df1e011cd3e52d97b66159c863f5ef5a03ffbb199ece1937ba30656",
+      "rows_changed": [
+        {
+          "line": 1,
+          "locus": "berthelot_alchimistes_grec_0326.3",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. XVII. ΕΤΕΡΩΣ. Η ΑΓΩΓΗ\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. XVII. — ΕΤΕΡΩΣ. Η ΑΓΩΓΗ\"}\n",
+          "original_line_sha256": "04cfba3d18350470253e24972bfad575b09135566888364bcb61e252f228182c",
+          "applied_line_sha256": "8f507bcd79f6663bcee3f5a392d611a5c7fe38e0f601235d4a812b79bcc803a7",
+          "text_before": "IV. XVII. ΕΤΕΡΩΣ. Η ΑΓΩΓΗ",
+          "text_after": "IV. XVII. — ΕΤΕΡΩΣ. Η ΑΓΩΓΗ"
+        },
+        {
+          "line": 2,
+          "locus": "berthelot_alchimistes_grec_0326.4",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄλλοι δὲ οὕτως ἐποίουν · ἀνέσπων ἐκ τρίτου τὰς αἰθάλας · καὶ τότε τῷ ὑπολείμματι ἔβαλλον ἐξ αὐτοῦ δύο καὶ τῇ γ°, καὶ εἷγον τὸ φάρμακον.\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.h-gwgh-e-cod-venet-marc-299-101r\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄλλοι δὲ οὕτως ἐποίουν· ἀνέσπων ἐκ τρίτου τὰς αἰθάλας· καὶ τότε τῷ ὑπολείμματι ἔβαλλον ἐξ αὐτοῦ δύο καὶ τῇ γ°, καὶ εἶχον τὸ φάρμακον.\"}\n",
+          "original_line_sha256": "9946cfdc26e47242ed4a7c5a1ad73457af3fd67b1fd32b0d83bb8878a96db4a1",
+          "applied_line_sha256": "e7dbc58cbf34423ea98886971a0848ced10b9a6fb54a9478b89b780009a5bf0a",
+          "text_before": "Ἄλλοι δὲ οὕτως ἐποίουν · ἀνέσπων ἐκ τρίτου τὰς αἰθάλας · καὶ τότε τῷ ὑπολείμματι ἔβαλλον ἐξ αὐτοῦ δύο καὶ τῇ γ°, καὶ εἷγον τὸ φάρμακον.",
+          "text_after": "Ἄλλοι δὲ οὕτως ἐποίουν· ἀνέσπων ἐκ τρίτου τὰς αἰθάλας· καὶ τότε τῷ ὑπολείμματι ἔβαλλον ἐξ αὐτοῦ δύο καὶ τῇ γ°, καὶ εἶχον τὸ φάρμακον."
+        }
+      ]
+    },
+    "data/corpus/fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v.jsonl": {
+      "sha256_before": "8dd9f8accd8575b933c4f545f09d15b388f4bd7490e318d538f9f9d14346031a",
+      "sha256_after": "bd1ce88d580c418a50432902c19341b196209d666b1136fd462855a565b6313d",
+      "rows_changed": [
+        {
+          "line": 1,
+          "locus": "berthelot_alchimistes_grec_0326.1",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. XVI. ΕΤΕΡΩΣ. Η ΠΟΙΗΣΙΣ\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. XVI. — ΕΤΕΡΩΣ. Η ΠΟΙΗΣΙΣ\"}\n",
+          "original_line_sha256": "9dea6e809f77d28f437918358350e939eb3d5e0f70ff61bb91cd79a6630462b2",
+          "applied_line_sha256": "0540e63663b7540628cffc060f76b0f7516490dbf51d1effad70e2fdb343110e",
+          "text_before": "IV. XVI. ΕΤΕΡΩΣ. Η ΠΟΙΗΣΙΣ",
+          "text_after": "IV. XVI. — ΕΤΕΡΩΣ. Η ΠΟΙΗΣΙΣ"
+        },
+        {
+          "line": 2,
+          "locus": "berthelot_alchimistes_grec_0326.2",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τινὲς δὲ οὐχ ἐν ἡμέρᾳ μιᾷ μόνον, ἀλλ’ ἐν ἡμέραις ἐννέα, διὰ τριῶν ἀποστάζοντες τῶν ὑγρῶν τὴν ποσότητα, καὶ προσπλέκοντες τὴν ἴσην καὶ ὁμοίαν ποσότητα τῶν ὑδάτων, ἐρύλαττον (101 r.) εἰς τὸν καιρὸν καταβαφῆς.\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.h-poi-hsis-e-cod-venet-marc-299-fol-100v\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0326.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τινὲς δὲ οὐκ ἐν ἡμέρᾳ μιᾷ μόνον, ἀλλ’ ἐν ἡμέραις ἐννέα, διὰ τριῶν ἀποστάζοντες τῶν ὑγρῶν τὴν ποσότητα, καὶ προσπλέκοντες τὴν ἴσην καὶ ὁμοίαν ποσότητα τῶν ὑδάτων, ἐφύλαττον (101 r.) εἰς καιρὸν καταβαφῆς.\"}\n",
+          "original_line_sha256": "e75d33d9c727fef1e64fdd9bb3fd90a45ffbbbe5fbec108fc1163ab0c6746067",
+          "applied_line_sha256": "85c322588173793ab3c8246fcf25bf76f12dd9086dd3c637aba9b2227e91ccfb",
+          "text_before": "Τινὲς δὲ οὐχ ἐν ἡμέρᾳ μιᾷ μόνον, ἀλλ’ ἐν ἡμέραις ἐννέα, διὰ τριῶν ἀποστάζοντες τῶν ὑγρῶν τὴν ποσότητα, καὶ προσπλέκοντες τὴν ἴσην καὶ ὁμοίαν ποσότητα τῶν ὑδάτων, ἐρύλαττον (101 r.) εἰς τὸν καιρὸν καταβαφῆς.",
+          "text_after": "Τινὲς δὲ οὐκ ἐν ἡμέρᾳ μιᾷ μόνον, ἀλλ’ ἐν ἡμέραις ἐννέα, διὰ τριῶν ἀποστάζοντες τῶν ὑγρῶν τὴν ποσότητα, καὶ προσπλέκοντες τὴν ἴσην καὶ ὁμοίαν ποσότητα τῶν ὑδάτων, ἐφύλαττον (101 r.) εἰς καιρὸν καταβαφῆς."
+        }
+      ]
+    },
+    "data/corpus/fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol.jsonl": {
+      "sha256_before": "4c7a033bd4d6915ab28aef670f97e5a71843a9d151aeee82e44d289c7774c67b",
+      "sha256_after": "40f60dfed98e30c519a3059640a8fb2fed9d7fcf659b6b5a706aba9ca724607e",
+      "rows_changed": [
+        {
+          "line": 1,
+          "locus": "berthelot_alchimistes_grec_0322.3",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0322.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. XI. ΛΛΛΗ ΟΙΚΟΝΟΜΙΑ ΤΗΣ ΑΣΒΕΣΤΟΥ\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0322.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. XI. — ΑΛΛΗ ΟΙΚΟΝΟΜΙΑ ΤΗΣ ΑΣΒΕΣΤΟΥ\"}\n",
+          "original_line_sha256": "039bac99aabd67f8e80f3ac9592b1b95fc3e974e3d3bd3902012984effe37200",
+          "applied_line_sha256": "39815f0ca57a9e2b729cd22b0cc96188d10a8197cde51d54eff098b9413e395e",
+          "text_before": "IV. XI. ΛΛΛΗ ΟΙΚΟΝΟΜΙΑ ΤΗΣ ΑΣΒΕΣΤΟΥ",
+          "text_after": "IV. XI. — ΑΛΛΗ ΟΙΚΟΝΟΜΙΑ ΤΗΣ ΑΣΒΕΣΤΟΥ"
+        },
+        {
+          "line": 2,
+          "locus": "berthelot_alchimistes_grec_0322.4",
+          "original_line": "{\"urn\": \"fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0322.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐνιοὶ δὲ ξανθὸν βαλόντες ὕδωρ ἐν ταῖς ἰώσεσιν, ἢ λευκὸν κατὰ φύσιν 10 ἅπαξ ἀνασπάσαντες ἠρχέσθησαν αἰθάλαις αἰθάλων, τὴν πρώτην καὶ τὴν δευτέραν μετὰ τὴν ἰωσιν κρῖναντες. Ἔλεγεν γὰρ ὅτι οὐ τὸ πολλάκις ἀνάγεσθαι χαρίζεται τοῖς ὑγροῖς τὸν κάτοχον καὶ τὴν εἰσχωρισιν, ἀλλ’ ἢ τῶν σωμάτων συμπλοκή, καὶ ἢ τῶν ὀργάνων ἰδιότης, καὶ ἢ διὰ τῆς κηροταχίδος διαφορὰ, καὶ ἢ ποσότης τῶν ἡμερῶν ἐν τῇ σήψει.\"}\n",
+          "applied_line": "{\"urn\": \"fragmenta-alchemica.oi-konomi-th-s-sbe-stou-e-cod-venet-marc-299-fol\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0322.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἔνιοι δὲ ξανθὸν βαλόντες ὕδωρ ἐν ταῖς ἰώσεσιν, ἢ λευκὸν κατὰ φύσιν ἅπαξ ἀνασπάσαντες ἠρκέσθησαν αἰθάλαις αἰθαλῶν, τὴν πρώτην καὶ τὴν δευτέραν μετὰ τὴν ἴωσιν κρίναντες. Ἔλεγεν γὰρ ὅτι οὐ τὸ πολλάκις ἀνάγεσθαι χαρίζεται τοῖς ὑγροῖς τὸν κάτοχον καὶ τὴν εἴσκρισιν, ἀλλ’ ἡ τῶν σωμάτων συμπλοκὴ, καὶ ἡ τῶν ὀργάνων ἰδιότης, καὶ ἡ διὰ τῆς κηροτακίδος διαφορὰ, καὶ ἡ ποσότης τῶν ἡμερῶν ἐν τῇ σήψει.\"}\n",
+          "original_line_sha256": "c1158bb0923ecec0befe60c872642835866e9a5698b48d2f9ec98aec72beb4b8",
+          "applied_line_sha256": "286dc6aa59d6ad4b960226fbdd9a2c2b7ce4930c38a31b914a5ca9368384bb36",
+          "text_before": "Ἐνιοὶ δὲ ξανθὸν βαλόντες ὕδωρ ἐν ταῖς ἰώσεσιν, ἢ λευκὸν κατὰ φύσιν 10 ἅπαξ ἀνασπάσαντες ἠρχέσθησαν αἰθάλαις αἰθάλων, τὴν πρώτην καὶ τὴν δευτέραν μετὰ τὴν ἰωσιν κρῖναντες. Ἔλεγεν γὰρ ὅτι οὐ τὸ πολλάκις ἀνάγεσθαι χαρίζεται τοῖς ὑγροῖς τὸν κάτοχον καὶ τὴν εἰσχωρισιν, ἀλλ’ ἢ τῶν σωμάτων συμπλοκή, καὶ ἢ τῶν ὀργάνων ἰδιότης, καὶ ἢ διὰ τῆς κηροταχίδος διαφορὰ, καὶ ἢ ποσότης τῶν ἡμερῶν ἐν τῇ σήψει.",
+          "text_after": "Ἔνιοι δὲ ξανθὸν βαλόντες ὕδωρ ἐν ταῖς ἰώσεσιν, ἢ λευκὸν κατὰ φύσιν ἅπαξ ἀνασπάσαντες ἠρκέσθησαν αἰθάλαις αἰθαλῶν, τὴν πρώτην καὶ τὴν δευτέραν μετὰ τὴν ἴωσιν κρίναντες. Ἔλεγεν γὰρ ὅτι οὐ τὸ πολλάκις ἀνάγεσθαι χαρίζεται τοῖς ὑγροῖς τὸν κάτοχον καὶ τὴν εἴσκρισιν, ἀλλ’ ἡ τῶν σωμάτων συμπλοκὴ, καὶ ἡ τῶν ὀργάνων ἰδιότης, καὶ ἡ διὰ τῆς κηροτακίδος διαφορὰ, καὶ ἡ ποσότης τῶν ἡμερῶν ἐν τῇ σήψει."
+        }
+      ]
+    },
+    "data/corpus/hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos.jsonl": {
+      "sha256_before": "12d430ce9098e0ca1886e13b8b06311a84be85b39dd93e30fc66b9f2c877043e",
+      "sha256_after": "80cc7992748f0a1fcbb516988e9816d1fa9cc05b8cf086549169eb1347c84aba",
+      "rows_changed": [
+        {
+          "line": 1,
+          "locus": "berthelot_alchimistes_grec_0309.3",
+          "original_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. IV. — ΑΙΝΙΓΜΑ ΤΟΥ ΦΙΛΟΣΟΦΙΚΟΥ ΑΙΘΟΥ ΕΡΜΟΥ ΚΑΙ ΑΓΑΘΟΔΑΙΜΟΝΟΣ\"}\n",
+          "applied_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"IV. IV. — ΑΙΝΙΓΜΑ ΤΟΥ ΦΙΛΟΣΟΦΙΚΟΥ ΛΙΘΟΥ ΕΡΜΟΥ ΚΑΙ ΑΓΑΘΟΔΑΙΜΟΝΟΣ\"}\n",
+          "original_line_sha256": "9a7f223fc284c907c540942c6363f7e8d18a36fbaece6380400e21714145fbe7",
+          "applied_line_sha256": "f3088eee40bb165cbe2b95b22fa7740d780b39becb64be962ec7be6bfb413415",
+          "text_before": "IV. IV. — ΑΙΝΙΓΜΑ ΤΟΥ ΦΙΛΟΣΟΦΙΚΟΥ ΑΙΘΟΥ ΕΡΜΟΥ ΚΑΙ ΑΓΑΘΟΔΑΙΜΟΝΟΣ",
+          "text_after": "IV. IV. — ΑΙΝΙΓΜΑ ΤΟΥ ΦΙΛΟΣΟΦΙΚΟΥ ΛΙΘΟΥ ΕΡΜΟΥ ΚΑΙ ΑΓΑΘΟΔΑΙΜΟΝΟΣ"
+        },
+        {
+          "line": 2,
+          "locus": "berthelot_alchimistes_grec_0309.4",
+          "original_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐννέα γράμματ ’ ἔχω · τετρασύλλαβός εἰμι · νόει με ·\"}\n",
+          "applied_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐννέα γράμματ’ ἔχω· τετρασύλλαβός εἰμι· νόει με·\"}\n",
+          "original_line_sha256": "8413a963637a434b818c36d45e8890f513104d4712c68c446bcf1247877c39de",
+          "applied_line_sha256": "f30462f290a22516359fa05d07c66a998133f0938477ec59b152eebe127ffe8e",
+          "text_before": "Ἐννέα γράμματ ’ ἔχω · τετρασύλλαβός εἰμι · νόει με ·",
+          "text_after": "Ἐννέα γράμματ’ ἔχω· τετρασύλλαβός εἰμι· νόει με·"
+        },
+        {
+          "line": 3,
+          "locus": "berthelot_alchimistes_grec_0309.5",
+          "original_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὶ τρεῖς [γὰρ] αὶ πρῶται δύο γράμματ ’ ἔχουσιν ἑκάστη ·\"}\n",
+          "applied_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αἱ τρεῖς [γὰρ] αἱ πρῶται δύο γράμματ’ ἔχουσιν ἑκάστη·\"}\n",
+          "original_line_sha256": "cba1179d5d6a4180858dbcd41e8aed9a2cedcb31631bf9771d68d36ca72ded62",
+          "applied_line_sha256": "5248053a53c73e27452a8f1639294ecb8342fb04a8ed9d753f6b49163344904e",
+          "text_before": "αὶ τρεῖς [γὰρ] αὶ πρῶται δύο γράμματ ’ ἔχουσιν ἑκάστη ·",
+          "text_after": "αἱ τρεῖς [γὰρ] αἱ πρῶται δύο γράμματ’ ἔχουσιν ἑκάστη·"
+        },
+        {
+          "line": 4,
+          "locus": "berthelot_alchimistes_grec_0309.6",
+          "original_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"20 ἡ λοιπὴ δὲ τὰ λοιπὰ · καὶ εἰσὶν ἀφωνα τὰ πέντε,\"}\n",
+          "applied_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἡ λοιπὴ δὲ τὰ λοιπά· καὶ εἰσὶν ἄφωνα τὰ πέντε,\"}\n",
+          "original_line_sha256": "955df05e9f1bc364a7649ba43d797e1b115317e274428a827f4ce73a143583c4",
+          "applied_line_sha256": "e5f83b84fe3032f447957fb0e843a03bce54332324d30420a68917a55499b7bf",
+          "text_before": "20 ἡ λοιπὴ δὲ τὰ λοιπὰ · καὶ εἰσὶν ἀφωνα τὰ πέντε,",
+          "text_after": "ἡ λοιπὴ δὲ τὰ λοιπά· καὶ εἰσὶν ἄφωνα τὰ πέντε,"
+        },
+        {
+          "line": 5,
+          "locus": "berthelot_alchimistes_grec_0309.7",
+          "original_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοῦ παντὸς δ ’ ἀριθμοῦ ἑκατόνταδὲς εἰσι δις ὀκτώ,\"}\n",
+          "applied_line": "{\"urn\": \"hermes.ai-nigma-tou-filosofikou-li-qou-ermou-kai-agaqodai-monos\", \"edition\": \"qwen36-berthelot_alchimistes_grec\", \"locus\": \"berthelot_alchimistes_grec_0309.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοῦ παντὸς δ’ ἀριθμοῦ ἑκατοντάδες εἰσὶ δὶς ὀκτώ,\"}\n",
+          "original_line_sha256": "d1961c24c03feeafdc5efc651dc717a04243b37a337111847f427c2de2b91314",
+          "applied_line_sha256": "4e899f8fb4410da71cf112d6cb59c12d0f5a2e25b9b266ca55eabade9355a244",
+          "text_before": "τοῦ παντὸς δ ’ ἀριθμοῦ ἑκατόνταδὲς εἰσι δις ὀκτώ,",
+          "text_after": "τοῦ παντὸς δ’ ἀριθμοῦ ἑκατοντάδες εἰσὶ δὶς ὀκτώ,"
+        }
+      ]
+    }
+  },
+  "policy": "Only explicit per-locus segments from a sealed scan review are applied; work-level raw-OCR status is not promoted by one reviewed page.",
+  "reverse": "python3 scripts/apply_reviewed_ocr_pages.py --audit data/corpus_changes/issue-2-reviewed.page-images-round-2-2026-09-15.applied.json --unapply"
+}
