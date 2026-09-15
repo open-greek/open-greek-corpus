@@ -44,12 +44,15 @@ from build_public_corpus import _GK  # noqa: E402
 from measure_nonfinal_graves import has_nonfinal_grave, shapes  # noqa: E402
 
 DECISION_FIELDS = [
-    "item_id", "decision", "reading", "evidence_url", "reviewer",
+    "item_id", "decision", "reading", "segments", "evidence_url", "reviewer",
     "reviewed_at", "notes",
 ]
 ISSUES = {1, 2, 31, 33}
 PAGE_RE = re.compile(r"_(\d{4,6})(?:\.|$)")
 ARCHIVE_RE = re.compile(r"https?://archive\.org/(?:download|details)/([^/?#]+)")
+ARCHIVE_PAGE_RE = re.compile(
+    r"^https?://archive\.org/details/[^/?#]+/page/n\d+/mode/1up$"
+)
 
 
 @dataclass(frozen=True)
@@ -178,6 +181,10 @@ def scan_url(row: dict, indexes: tuple[dict[str, dict], dict[str, dict]]) -> str
             f"n{leaf}/mode/1up")
 
 
+def exact_scan_url(value: object) -> bool:
+    return bool(ARCHIVE_PAGE_RE.match(str(value or "")))
+
+
 def page_stem(locus: object) -> str:
     value = str(locus or "")
     return value.rsplit(".", 1)[0] if PAGE_RE.search(value) else value
@@ -203,7 +210,8 @@ def row_reference(paths: Paths, path: Path, row: dict) -> dict:
     }
 
 
-def build_issue_31(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list[dict]]:
+def build_issue_31(paths: Paths, limit: int, seed: str,
+                   require_scan: bool = False) -> tuple[list[dict], list[dict]]:
     artifact_path = paths.data / "nonfinal_graves.json"
     artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
     frequencies = {row["form"]: row["tokens"] for row in artifact.get("largest_forms", [])}
@@ -260,6 +268,8 @@ def build_issue_31(paths: Paths, limit: int, seed: str) -> tuple[list[dict], lis
         row["page_defects"] = page_density[row.pop("_page_key")]
         row.pop("_frequency")
         row.pop("_tie")
+    if require_scan:
+        candidates = [row for row in candidates if exact_scan_url(row.get("scan_url"))]
     return candidates[:limit], [artifact_path, *provenance_source_paths(paths)]
 
 
@@ -270,7 +280,25 @@ def page_rows(path: Path) -> dict[str, list[dict]]:
     return pages
 
 
-def build_issue_33(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list[dict]]:
+def page_neighbor(pages: dict[str, list[dict]], locus: str, offset: int,
+                  indexes: tuple[dict[str, dict], dict[str, dict]]) -> dict | None:
+    ordered = list(pages)
+    try:
+        neighbor_locus = ordered[ordered.index(locus) + offset]
+    except (ValueError, IndexError):
+        return None
+    rows = pages[neighbor_locus]
+    text = "\n".join(row.get("text") or "" for row in rows)
+    first = rows[0] if rows else {"locus": neighbor_locus}
+    return {
+        "locus": neighbor_locus,
+        "text": text[-500:] if offset < 0 else text[:500],
+        "scan_url": scan_url(first, indexes),
+    }
+
+
+def build_issue_33(paths: Paths, limit: int, seed: str,
+                   require_scan: bool = False) -> tuple[list[dict], list[dict]]:
     artifact_path = paths.data / "duplicate_page_candidates.json"
     artifact = json.loads(artifact_path.read_text(encoding="utf-8"))
     indexes = provenance_indexes(paths)
@@ -284,14 +312,14 @@ def build_issue_33(paths: Paths, limit: int, seed: str) -> tuple[list[dict], lis
         int(pair.get("words_absent_from_a", 0)),
         stable_id(33, seed, pair.get("file"), pair.get("locus_a"), pair.get("locus_b")),
     ))
-    for pair in pairs[:limit]:
+    for pair in pairs:
         path = paths.root / pair["file"]
         pages = cache.setdefault(path, page_rows(path))
         rows_a, rows_b = pages.get(pair["locus_a"], []), pages.get(pair["locus_b"], [])
         first_a = rows_a[0] if rows_a else {"urn": path.stem, "locus": pair["locus_a"]}
         first_b = rows_b[0] if rows_b else {"urn": path.stem, "locus": pair["locus_b"]}
         item_id = stable_id(33, pair["file"], pair["locus_a"], pair["locus_b"])
-        items.append({
+        item = {
             "item_id": item_id,
             "issue": 33,
             "kind": "duplicate-page-pair",
@@ -307,6 +335,16 @@ def build_issue_33(paths: Paths, limit: int, seed: str) -> tuple[list[dict], lis
                 "text": "\n".join(row.get("text") or "" for row in rows_b),
                 "scan_url": scan_url(first_b, indexes),
             },
+            "sequence": {
+                "page_a": {
+                    "previous": page_neighbor(pages, pair["locus_a"], -1, indexes),
+                    "next": page_neighbor(pages, pair["locus_a"], 1, indexes),
+                },
+                "page_b": {
+                    "previous": page_neighbor(pages, pair["locus_b"], -1, indexes),
+                    "next": page_neighbor(pages, pair["locus_b"], 1, indexes),
+                },
+            },
             "signals": {key: pair.get(key) for key in (
                 "containment", "bigrams_a", "bigrams_b", "tokens_b",
                 "words_absent_from_a", "same_item", "page_offset",
@@ -315,7 +353,15 @@ def build_issue_33(paths: Paths, limit: int, seed: str) -> tuple[list[dict], lis
             "allowed_decisions": ["keep_both", "drop_a", "drop_b", "merge", "defer"],
             "reading_required_for": ["merge"],
             "evidence_required_for": ["keep_both", "drop_a", "drop_b", "merge"],
-        })
+        }
+        if require_scan and not (
+            exact_scan_url(item["page_a"]["scan_url"])
+            and exact_scan_url(item["page_b"]["scan_url"])
+        ):
+            continue
+        items.append(item)
+        if len(items) >= limit:
+            break
     return items, [artifact_path, *provenance_source_paths(paths)]
 
 
@@ -401,15 +447,17 @@ def build_issue_1(paths: Paths, limit: int, seed: str,
     return items, audit, [corrections_log, *provenance_source_paths(paths)]
 
 
-def build_issue_2(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list[dict]]:
+def build_issue_2(paths: Paths, limit: int, seed: str,
+                  works_only: set[str] | None = None,
+                  require_scan: bool = False) -> tuple[list[dict], list[dict]]:
     catalog_path = paths.data / "corpus_catalog.tsv"
     indexes = provenance_indexes(paths)
     with catalog_path.open(encoding="utf-8", newline="") as handle:
         works = [row for row in csv.DictReader(handle, delimiter="\t")
                  if row.get("source") == "ocr" and row.get("correction") == "raw-ocr"]
-    works.sort(key=lambda row: (-int(row.get("tokens") or 0),
-                                stable_id(2, seed, row.get("slug"))))
-    items = []
+    if works_only:
+        works = [row for row in works if row.get("slug") in works_only]
+    candidates = []
     for work in works:
         path = paths.corpus / f"{work['slug']}.jsonl"
         if not path.exists():
@@ -426,11 +474,14 @@ def build_issue_2(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list
         if not ranked:
             continue
         _, _, _, page, rows, link, text = min(ranked)
+        if require_scan and not exact_scan_url(link):
+            continue
         item_id = stable_id(2, work["slug"], page)
-        items.append({
+        candidates.append({
             "item_id": item_id,
             "issue": 2,
             "kind": "raw-ocr-page",
+            "file": str(path.relative_to(paths.root)),
             "work": {
                 "slug": work["slug"],
                 "work_id": work.get("work_id"),
@@ -441,15 +492,31 @@ def build_issue_2(paths: Paths, limit: int, seed: str) -> tuple[list[dict], list
             },
             "page": page,
             "loci": [row.get("locus") for row in rows],
-            "text": text[:5000],
+            "rows": [{
+                "line": row["_line"],
+                "locus": row.get("locus"),
+                "source": row.get("source"),
+                "edition": row.get("edition"),
+                "text": row.get("text") or "",
+                "text_sha256": hashlib.sha256(
+                    (row.get("text") or "").encode("utf-8")
+                ).hexdigest(),
+            } for row in rows],
+            "text": text,
+            "source_text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
             "scan_url": link,
             "allowed_decisions": ["accept_ocr", "transcribe", "non_text", "defer"],
             "reading_required_for": ["transcribe"],
+            "segments_required_for": ["transcribe"],
             "evidence_required_for": ["accept_ocr", "transcribe", "non_text"],
         })
-        if len(items) >= limit:
-            break
-    return items, [catalog_path, *provenance_source_paths(paths)]
+    candidates.sort(key=lambda item: (
+        not bool(item["scan_url"]),
+        -item["work"]["tokens"],
+        -len(_GK.findall(item["text"])),
+        stable_id(2, seed, item["work"]["slug"], item["page"]),
+    ))
+    return candidates[:limit], [catalog_path, *provenance_source_paths(paths)]
 
 
 def file_sha256(path: Path) -> str:
@@ -526,6 +593,31 @@ def load_queue(path: Path) -> tuple[dict[str, dict], str]:
     return rows, hashlib.sha256(body).hexdigest()
 
 
+def parse_review_segments(item: dict, raw: object, reading: str) -> list[dict]:
+    """Validate the explicit locus boundary map for a page transcription."""
+    if isinstance(raw, str):
+        try:
+            segments = json.loads(raw)
+        except json.JSONDecodeError as error:
+            raise ValueError(f"segments are not valid JSON: {error.msg}") from error
+    else:
+        segments = raw
+    if not isinstance(segments, list) or not segments:
+        raise ValueError("segments must be a non-empty JSON array")
+    expected = item.get("rows") or []
+    expected_loci = [row.get("locus") for row in expected]
+    observed_loci = [row.get("locus") if isinstance(row, dict) else None
+                     for row in segments]
+    if observed_loci != expected_loci:
+        raise ValueError("segments must name every queued locus exactly once and in order")
+    if any(not isinstance(row.get("text"), str) for row in segments):
+        raise ValueError("every segment must contain string text")
+    joined = "\n".join(row["text"] for row in segments)
+    if joined != reading:
+        raise ValueError("reading must equal the newline-joined segment texts")
+    return [{"locus": row["locus"], "text": row["text"]} for row in segments]
+
+
 def validate_decisions(queue_path: Path, decisions_path: Path,
                        write: Path | None = None) -> int:
     queue, queue_sha = load_queue(queue_path)
@@ -550,13 +642,22 @@ def validate_decisions(queue_path: Path, decisions_path: Path,
                 errors.append(f"line {line_number}: reviewer is required for {item_id}")
             if not (decision.get("reviewed_at") or "").strip():
                 errors.append(f"line {line_number}: reviewed_at is required for {item_id}")
-            if choice in item.get("reading_required_for", []) and not (decision.get("reading") or "").strip():
+            reading = (decision.get("reading") or "").strip()
+            if choice in item.get("reading_required_for", []) and not reading:
                 errors.append(f"line {line_number}: reading is required for {item_id}={choice}")
             if choice in item.get("evidence_required_for", []) and not (decision.get("evidence_url") or "").strip():
                 errors.append(f"line {line_number}: evidence_url is required for {item_id}={choice}")
             if choice == "defer" and not (decision.get("notes") or "").strip():
                 errors.append(f"line {line_number}: notes are required when deferring {item_id}")
-            accepted.append({key: (decision.get(key) or "").strip() for key in DECISION_FIELDS})
+            record = {key: (decision.get(key) or "").strip() for key in DECISION_FIELDS}
+            if choice in item.get("segments_required_for", []):
+                try:
+                    record["segments"] = parse_review_segments(
+                        item, decision.get("segments") or "", reading,
+                    )
+                except ValueError as error:
+                    errors.append(f"line {line_number}: {item_id}: {error}")
+            accepted.append(record)
     if errors:
         raise SystemExit("invalid decisions:\n  " + "\n  ".join(errors))
     if not accepted:
@@ -588,6 +689,12 @@ def parse_args() -> argparse.Namespace:
     build.add_argument("--output", type=Path)
     build.add_argument("--corrections-log", type=Path,
                        default=Path("data/corrections_log/applied.jsonl"))
+    build.add_argument("--work", action="append", default=[],
+                       help="for issue #2, restrict the packet to this work slug")
+    build.add_argument("--require-scan", action="store_true",
+                       help="include only items with every required exact scan link")
+    build.add_argument("--exclude", type=Path, action="append", default=[],
+                       help="skip item IDs found in a prior queue or sealed JSONL")
     validate = sub.add_parser("validate", help="validate and optionally seal decisions")
     validate.add_argument("--queue", type=Path, required=True)
     validate.add_argument("--decisions", type=Path, required=True)
@@ -604,21 +711,35 @@ def main() -> None:
     if args.limit < 1:
         raise SystemExit("--limit must be positive")
     paths = Paths(REPO)
+    if args.work and args.issue != 2:
+        raise SystemExit("--work is only valid for issue #2")
+    excluded = set()
+    for excluded_path in args.exclude:
+        if not excluded_path.is_absolute():
+            excluded_path = paths.root / excluded_path
+        excluded.update(row.get("item_id") for row in read_jsonl(excluded_path))
+    build_limit = args.limit + len(excluded)
     output = args.output or paths.data / "review" / f"issue-{args.issue}.jsonl"
     audit = None
     if args.issue == 31:
-        items, inputs = build_issue_31(paths, args.limit, args.seed)
+        items, inputs = build_issue_31(paths, build_limit, args.seed, args.require_scan)
     elif args.issue == 33:
-        items, inputs = build_issue_33(paths, args.limit, args.seed)
+        items, inputs = build_issue_33(paths, build_limit, args.seed, args.require_scan)
     elif args.issue == 2:
-        items, inputs = build_issue_2(paths, args.limit, args.seed)
+        items, inputs = build_issue_2(
+            paths, build_limit, args.seed, set(args.work), args.require_scan,
+        )
     else:
         corrections_log = args.corrections_log
         if not corrections_log.is_absolute():
             corrections_log = paths.root / corrections_log
         items, audit, inputs = build_issue_1(
-            paths, args.limit, args.seed, corrections_log,
+            paths, build_limit, args.seed, corrections_log,
         )
+    items = [item for item in items if item["item_id"] not in excluded][:args.limit]
+    if audit is not None:
+        keep = {item["item_id"] for item in items}
+        audit = [row for row in audit if row["item_id"] in keep]
     if not items:
         raise SystemExit(f"no reviewable items found for issue #{args.issue}")
     write_packet(paths, args.issue, items, output, inputs, audit)

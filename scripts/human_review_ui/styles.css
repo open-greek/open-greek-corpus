@@ -176,6 +176,11 @@ h1 {
   box-shadow: 0 2px 14px rgba(0, 0, 0, .32);
   transform-origin: top center;
 }
+.scan-pair { width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.scan-pair[hidden] { display: none; }
+.scan-pair figure { min-width: 0; margin: 0; position: relative; overflow: auto; background: #20221f; }
+.scan-pair img { display: block; width: 100%; }
+.scan-pair figcaption { position: sticky; left: 8px; bottom: 8px; width: 28px; height: 28px; display: grid; place-items: center; border-radius: 4px; background: rgba(255, 255, 255, .92); color: #20231f; font-weight: 800; }
 .empty-state { align-self: center; color: #c9cec6; font-size: 13px; }
 
 .decision-pane { overflow: auto; background: #ffffff; padding: 0 20px 28px; }
@@ -206,6 +211,15 @@ h1 {
 .observed { overflow-wrap: anywhere; font-family: Georgia, "Times New Roman", serif; font-size: 23px; line-height: 1.35; }
 .context { overflow-wrap: anywhere; font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.65; white-space: pre-wrap; }
 .context mark { background: #ffe29a; color: #171914; padding: 2px 1px; }
+.text-pair { display: grid; gap: 12px; }
+.text-pair section { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 8px; }
+.text-pair strong { color: #2f7554; font: 800 12px/1.6 Inter, sans-serif; }
+.text-pair div { white-space: pre-wrap; }
+.context-subhead { margin: 22px 0 10px; color: var(--muted); font: 800 11px/1.4 Inter, sans-serif; text-transform: uppercase; }
+.sequence-neighbors { display: grid; gap: 10px; }
+.sequence-neighbors div { display: grid; gap: 3px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+.sequence-neighbors b { font: 700 11px/1.4 Inter, sans-serif; color: var(--muted); }
+.sequence-neighbors span { display: block; white-space: pre-wrap; }
 .candidates { display: flex; flex-wrap: wrap; gap: 6px; }
 
 .candidate {
@@ -235,6 +249,9 @@ legend { padding: 0; }
 
 .decision-form input[type="url"], .decision-form textarea { width: 100%; border: 1px solid #c7ccc4; border-radius: 4px; background: #fbfcfa; padding: 9px 10px; color: #20231f; resize: vertical; }
 .decision-form textarea[lang="grc"] { font-family: Georgia, "Times New Roman", serif; font-size: 17px; line-height: 1.45; }
+.segment-fields { display: grid; gap: 12px; }
+.segment-fields label { display: grid; gap: 5px; }
+.segment-fields label > span { margin: 0; color: #596057; font-size: 11px; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; text-transform: none; }
 .form-error { min-height: 18px; color: #a32d2d; font-size: 12px; }
 
 .save-button {
@@ -267,5 +284,6 @@ legend { padding: 0; }
   .workspace { height: auto; min-height: calc(100vh - 116px); grid-template-columns: 1fr; }
   .queue-pane { max-height: 180px; border-right: 0; border-bottom: 1px solid #cfd3cc; }
   .scan-pane { min-height: 62vh; border-right: 0; }
+  .scan-pair { grid-template-columns: 1fr; }
   .decision-pane { min-height: 70vh; }
 }

@@ -24,7 +24,11 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import urlparse
 
-from build_human_review_queue import DECISION_FIELDS, output_family
+from build_human_review_queue import (
+    DECISION_FIELDS,
+    output_family,
+    parse_review_segments,
+)
 
 REPO = Path(__file__).resolve().parent.parent
 ASSETS = Path(__file__).resolve().parent / "human_review_ui"
@@ -82,8 +86,16 @@ class ReviewStore:
         return decisions
 
     def payload(self) -> dict:
-        items = [{**item, "image_url": archive_image_url(item.get("scan_url"))}
-                 for item in self.items]
+        items = []
+        for item in self.items:
+            prepared = {**item, "image_url": archive_image_url(item.get("scan_url"))}
+            for side in ("page_a", "page_b"):
+                if item.get(side):
+                    prepared[side] = {
+                        **item[side],
+                        "image_url": archive_image_url(item[side].get("scan_url")),
+                    }
+            items.append(prepared)
         return {
             "queue": self.queue_path.name,
             "queue_sha256": self.queue_sha256,
@@ -99,8 +111,12 @@ class ReviewStore:
         item = self.by_id.get(item_id)
         if not item:
             raise ReviewError(f"unknown item ID: {item_id}")
-        row = {field: str(candidate.get(field) or "").strip()
-               for field in DECISION_FIELDS}
+        row = {}
+        for field in DECISION_FIELDS:
+            value = candidate.get(field) or ""
+            if field == "segments" and not isinstance(value, str):
+                value = json.dumps(value, ensure_ascii=False, separators=(",", ":"))
+            row[field] = str(value).strip()
         choice = row["decision"]
         if choice not in item.get("allowed_decisions", []):
             raise ReviewError(f"{choice!r} is not allowed for {item_id}")
@@ -112,6 +128,11 @@ class ReviewStore:
             raise ReviewError("this decision requires an evidence URL")
         if choice == "defer" and not row["notes"]:
             raise ReviewError("a deferral requires a note")
+        if choice in item.get("segments_required_for", []):
+            try:
+                parse_review_segments(item, row["segments"], row["reading"])
+            except ValueError as error:
+                raise ReviewError(str(error)) from error
 
         with self.lock:
             self.decisions[item_id] = row
