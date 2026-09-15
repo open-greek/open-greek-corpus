@@ -1,0 +1,1622 @@
+{
+  "schema_version": 1,
+  "what": "scan-reviewed duplicate OCR pages moved from served text to secondary witnesses",
+  "issue": "open-greek/open-greek-corpus#33",
+  "applied_at": "2026-09-14",
+  "queue": "data/review/issue-33-next.jsonl",
+  "queue_sha256": "8b7f0054cb40a0a0b1b2da71dca5aa913c5cbd2c160859e24b8bd11d64a0cd66",
+  "manifest": "data/review/issue-33-next.manifest.json",
+  "manifest_sha256": "afafcca3011265e520cd3c7d410ced1e22d0dae16ccc4baaf33fc40f09182720",
+  "reviewed_decisions": "data/review/issue-33-next.reviewed.jsonl",
+  "reviewed_decisions_sha256": "24c932b09fdca0a513c61ab9d98953fe7a8f97602c83ddb472addecc6664ef49",
+  "release_reviewed": "corpus-2026-09-14.4",
+  "corpus_sha256_reviewed": "a69fe0440e85590096b201dd2ba99af9eeed078b3ceacdf3958eb86207fa8e17",
+  "decision_counts": {
+    "defer": 93,
+    "drop_a": 6,
+    "drop_b": 1
+  },
+  "pages_displaced": 7,
+  "rows_displaced": 208,
+  "greek_tokens_displaced": 1597,
+  "files_touched": 4,
+  "displacements": [
+    {
+      "item_id": "ogc-33-09b2229aef27c850",
+      "file": "data/corpus/didymus.schmidt.jsonl",
+      "displaced_page": "didymus_schmidt_0133",
+      "retained_page_direct": "didymus_schmidt_0131",
+      "retained_page_terminal": "didymus_schmidt_0131",
+      "rows": 4,
+      "greek_tokens": 301,
+      "evidence_url": "https://archive.org/details/didymichalcente00schmgoog/page/n130/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained A after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; B remains available as a secondary witness."
+    },
+    {
+      "item_id": "ogc-33-243b202c20309c7f",
+      "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
+      "displaced_page": "tzetzes_historiae_kiessling_0091",
+      "retained_page_direct": "tzetzes_historiae_kiessling_0101",
+      "retained_page_terminal": "tzetzes_historiae_kiessling_0101",
+      "rows": 24,
+      "greek_tokens": 152,
+      "evidence_url": "https://archive.org/details/historiarumvari00kiesgoog/page/n90/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained B after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; A remains available as a secondary witness."
+    },
+    {
+      "item_id": "ogc-33-32453a2a0e665308",
+      "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
+      "displaced_page": "tzetzes_historiae_kiessling_0098",
+      "retained_page_direct": "tzetzes_historiae_kiessling_0108",
+      "retained_page_terminal": "tzetzes_historiae_kiessling_0108",
+      "rows": 29,
+      "greek_tokens": 203,
+      "evidence_url": "https://archive.org/details/historiarumvari00kiesgoog/page/n97/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained B after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; A remains available as a secondary witness."
+    },
+    {
+      "item_id": "ogc-33-5d4d2e2c2d1f4ce0",
+      "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
+      "displaced_page": "tzetzes_historiae_kiessling_0570",
+      "retained_page_direct": "tzetzes_historiae_kiessling_0578",
+      "retained_page_terminal": "tzetzes_historiae_kiessling_0578",
+      "rows": 31,
+      "greek_tokens": 176,
+      "evidence_url": "https://archive.org/details/historiarumvari00kiesgoog/page/n569/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained B after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; A remains available as a secondary witness."
+    },
+    {
+      "item_id": "ogc-33-4b14847cb0e7d361",
+      "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
+      "displaced_page": "scholia_aristidem_frommel1826_0054",
+      "retained_page_direct": "scholia_aristidem_frommel1826_0064",
+      "retained_page_terminal": "scholia_aristidem_frommel1826_0064",
+      "rows": 45,
+      "greek_tokens": 197,
+      "evidence_url": "https://archive.org/details/scholiainaeliia00unkngoog/page/n54/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained B after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; A remains available as a secondary witness."
+    },
+    {
+      "item_id": "ogc-33-63d2386ca00db962",
+      "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
+      "displaced_page": "scholia_aristidem_frommel1826_0377",
+      "retained_page_direct": "scholia_aristidem_frommel1826_0387",
+      "retained_page_terminal": "scholia_aristidem_frommel1826_0387",
+      "rows": 9,
+      "greek_tokens": 216,
+      "evidence_url": "https://archive.org/details/scholiainaeliia00unkngoog/page/n377/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained B after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; A remains available as a secondary witness."
+    },
+    {
+      "item_id": "ogc-33-46cb5541cb803171",
+      "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
+      "displaced_page": "theognostus_canones_cramer_0204",
+      "retained_page_direct": "theognostus_canones_cramer_0214",
+      "retained_page_terminal": "theognostus_canones_cramer_0214",
+      "rows": 66,
+      "greek_tokens": 352,
+      "evidence_url": "https://archive.org/details/anecdotagrcaeco00fragoog/page/n204/mode/1up",
+      "reviewer": "OpenAI Codex",
+      "reviewed_at": "2026-09-14",
+      "notes": "Both source leaves are duplicate images of the same printed page. Retained B after full-page scan alignment, OCR-loss review, and continuity with the neighboring already-reviewed duplicate run; A remains available as a secondary witness."
+    }
+  ],
+  "witness_files_written": [
+    "data/corpus_secondary/didymus.schmidt.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+    "data/corpus_secondary/joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+    "data/corpus_secondary/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+    "data/corpus_secondary/theognostus.canones-sive-de-orthographia.duplicate-read-review-page-images-round-2-2026-09-14.jsonl"
+  ],
+  "files": {
+    "data/corpus/didymus.schmidt.jsonl": {
+      "sha256_before": "96ba9b058ff9c38affa5a9d6f55fdbbba1de34842a6657d16596621e5dc1ac34",
+      "sha256_after": "f5fb5423551ebd64552f32320c3290b70cca35b6e12ab5d2263da0105701e3f8",
+      "rows_before": 2895,
+      "rows_after": 2891,
+      "removed_rows": [
+        {
+          "index": 493,
+          "line": 494,
+          "locus": "didymus_schmidt_0133.1",
+          "original_line": "{\"urn\": \"didymus.schmidt\", \"edition\": \"qwen36-didymus_schmidt\", \"locus\": \"didymus_schmidt_0133.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ταῦτα λεγώμεθα. Καλλίστρατος δὲ ἐν τῷ α περὶ Ἰλιάδος οὕτως προφέρεται· μηκέτι δὴ νῦν αὐθι λεγώμεθα. καὶ ἔστιν εὖφραδὴς μᾶλλον, ἀλλ’ οὐχ Ἀριστάρχ(ει)ος. Ταῦτα ὁ Λίδυμος. A. Vid. Pluygers. p. 11.\"}\n",
+          "original_line_sha256": "410d35999ef5d8e5b93601086db095ea7adac47541f68ae13268273888886565"
+        },
+        {
+          "index": 494,
+          "line": 495,
+          "locus": "didymus_schmidt_0133.2",
+          "original_line": "{\"urn\": \"didymus.schmidt\", \"edition\": \"qwen36-didymus_schmidt\", \"locus\": \"didymus_schmidt_0133.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Γ 10 Διὰ τοῦ ε αἱ Ἀριστάρχου τὸ εὔτε καὶ τὸ ἐτέρωθί που λεγόμενον ‘τῷ δ’ εὔτε πτερὰ γίνεται’ (T 386), ἀντὶ τοῦ· ὡς πτερὰ ἔγινετο ἑλαφρὰ τὰ τοῦ Ἥφαιστον ὅπλα τῷ Ἀχιλλεῖ. ἐν ἐνίαις δὲ τῶν ἐκδόσεων τῇ τε Χίᾳ καὶ τῇ Μασσαλιωτικῇ καὶ τισιν ἄλλαις ἐκ πλήρους ἐγέγραπτο ‘ἥντε ὄρευν κορυφήσι’ παρὰ τὸ εἰωθὸς Ὀμήρῳ. ἐκ πλήρους γὰρ παρ’ ἑκάστα γράφειν ὄρεος. Εἰσὶ δὲ οἱ καὶ ἑτέρως ἀκούονσι τὸ εὔτε ἀντὶ τοῦ ὅτε, καθάπερ καὶ ἐν ἄλλοις ‘εὔτε γὰρ ἥλιος φαίδων’ (Il. A 735) καὶ ‘εὔτ’ ἀστέρ ὑπερέσχε’ (Od. v 93). Λαμβάνουσι δὲ ὑπὸ μίαν περιγραφὴν τὸ ὅλον. ‘εὔτ’ ὄρεος κορυφήσι νότος κατέχεεν ὁμίχλην ποιμέσιν οὔτε φίλην, κλέπτῃ δὲ τε νυκτὸς ἀμείνω, τόσσον τίς τ’ ἐπιλεύσσει, ὅσον ἐπὶ λᾶαν ἴησι.’ ὅπότε ὁ νότος ταῖς τοῦ ὄρους κορυφαῖς κατέχεεν ὁμίχλην τοῖς μὲν ποιμέσιν οὐ προσφιλῇ τῷ δὲ κλέπτῃ νυκτὸς κρείσσονα, τότε ἐπὶ τοσοῦτον δύναται τις βλέπειν, ὅσον ἐστὶ λίθου βολῆς διάστημα. Ἄμεινον δὲ τὸ πρότερον. Τῷ γὰρ ὥσπερ ἀνταποδίδεται τὸ· ὡς ἄρα τῶν ὑπὸ ποσσὶ κονίσσαλος. Ταῦτα ὁ Λίδυμος. A.\"}\n",
+          "original_line_sha256": "874f5378de708929e2171ab8a9c85da66df307181fb62189ed14bd474e0191b8"
+        },
+        {
+          "index": 495,
+          "line": 496,
+          "locus": "didymus_schmidt_0133.3",
+          "original_line": "{\"urn\": \"didymus.schmidt\", \"edition\": \"qwen36-didymus_schmidt\", \"locus\": \"didymus_schmidt_0133.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Z 71 Ἀρίσταρχος τεθνηῶτας, ὁ δὲ Ζηνόδοτος· Τρῳῶν ἀμπέδιον συλήσομεν ἑντεα νεκρῶν. Ἀθηνολέους δὲ ἐν τῷ περὶ Ὀμήρου παρατηρήσαντος, ὅτι τῷ μὲν καμάτῳ καὶ ἑαυτὸν ὁ Νέστωρ ὑποβάλλει, λέγων κτείνωμεν, τὸ δὲ κέρδος ἴδιον ποιεῖται τῶν στρατιωτῶν ἐν τῷ συλήσετε, ὁ Καῖρις Ὀμηρικὸν εἶναι φησι τὸν τῆς ἐρμηνείας χαρακτῆρα, ὡς ἐν τούτοις ‘ἄλλοι μὲν — ἑκαστος’ (E 878)· ἴδει γὰρ δέδηρται, ὡς πείθονται ἢ ἀνάπαλιν. καὶ πάλιν ‘ἄλλ’ ἄγεθ’ — πάντες’ (B 139) ‘νῦν μὲν — στρατόν’ (Σ 298) καὶ ἄλλαχοῦ· οὐδὲ γὰρ ἄλλως ἀκμάζει Νέστωρ, ἀλλ’ ὑπὸ γῆρας ἔοικεν ἀπειρηκέναι. Ταῦτα ὁ Λίδυμος. A.\"}\n",
+          "original_line_sha256": "fe3d43c20e0ce5d211502dda7089c1877df3553b75b3838941aab7907e55ca2d"
+        },
+        {
+          "index": 496,
+          "line": 497,
+          "locus": "didymus_schmidt_0133.4",
+          "original_line": "{\"urn\": \"didymus.schmidt\", \"edition\": \"qwen36-didymus_schmidt\", \"locus\": \"didymus_schmidt_0133.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"H 135 Φιὰ δὲ πόλις τῆς Ἠλίδος, οἱ δὲ τῆς Ἀρκαδίας, παρ’ ἣν ὁ Ἰάρδανος ῥεῖ. ἀλλὰ καὶ ἡ Φιὰ παραθαλάσσιός ἐστι καὶ Ἰάρδανος οὐχ ὁρᾶται ποταμὸς αὐτόθι. ἄμεινον οὖν\"}\n",
+          "original_line_sha256": "b435e84f6bb772e8135fd9af639e24556837d85b2d7618bbd3ffec91ab4cc263"
+        }
+      ],
+      "witness_file": "data/corpus_secondary/didymus.schmidt.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+      "witness_sha256": "c60fd6e9a0df7257e114d379c94f33e867932472c229354a35b9d8397faa65ea"
+    },
+    "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": {
+      "sha256_before": "e16d1b7301f72673e0956d76dffe147c0321eecb9249089f13786b6668d98679",
+      "sha256_after": "6c2053451b7a0e6ec6f74e0bfba4f5b7e98c99d6cafffef0d6de4d016ca4340d",
+      "rows_before": 15597,
+      "rows_after": 15513,
+      "removed_rows": [
+        {
+          "index": 1745,
+          "line": 1746,
+          "locus": "tzetzes_historiae_kiessling_0091.1",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΠΕΡΙ ΜΙΛΩΝΟΣ ΤΟΥ ΠΑΛΑΙΣΤΟΥ. λβ'.\"}\n",
+          "original_line_sha256": "dabb7ffc7af73c7b97676bee25e7dda550b1e5f99c53dae7e84a6131c998ccd9"
+        },
+        {
+          "index": 1746,
+          "line": 1747,
+          "locus": "tzetzes_historiae_kiessling_0091.10",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἡρόδοτος, καὶ ἕτεροι πολλοὶ τῶν συγγραφέων.\"}\n",
+          "original_line_sha256": "9c16c097ef0d156070ce7c1c139f4468e266fbe9e1e648b0115754f9a5d23f12"
+        },
+        {
+          "index": 1747,
+          "line": 1748,
+          "locus": "tzetzes_historiae_kiessling_0091.11",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΠΕΡΙ ΑΙΓΩΝΟΣ, ΙΛΟΥ, ΑΤΤΚΕΛΟΣ, ΗΡΑ-\"}\n",
+          "original_line_sha256": "9883abe4098a018f101e7049b23b60de2055451e0657e0c4a412897f104a38d4"
+        },
+        {
+          "index": 1748,
+          "line": 1749,
+          "locus": "tzetzes_historiae_kiessling_0091.12",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΚΛΕΟΣ ΚΑΙ ΑΤΤΙΕΡΤΟΥ. μ'.\"}\n",
+          "original_line_sha256": "c873d033859988234eae448e8e40fc4d601b1ef92f1830700e76a8417d7447e7"
+        },
+        {
+          "index": 1749,
+          "line": 1750,
+          "locus": "tzetzes_historiae_kiessling_0091.13",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Αἰγὼν Κροτωνιάτης ἦν, πανευσεβὴς πυγμάχος,\"}\n",
+          "original_line_sha256": "f2028aa0010470baac2634e09a1f180afc127e11b1733b6d4f2f837808038ef0"
+        },
+        {
+          "index": 1750,
+          "line": 1751,
+          "locus": "tzetzes_historiae_kiessling_0091.14",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τοῦ Ἰδοὺ καὶ Λυγέως μὲν οὐκ ἧλατον ἐσθίων,\"}\n",
+          "original_line_sha256": "b2aa49d9f676614fd96edae3b7fcbe26314c05f5f8514659ea60e096c6eff478"
+        },
+        {
+          "index": 1751,
+          "line": 1752,
+          "locus": "tzetzes_historiae_kiessling_0091.15",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐπίσης τῷ Βουθοίνᾳ δὲ καὶ γε τῷ Λυτιέρτῃ.\"}\n",
+          "original_line_sha256": "8346e6f834ee29e50a47d7fe6a6cc0050368a962e85fbae8616edb1a0e1a8f17"
+        },
+        {
+          "index": 1752,
+          "line": 1753,
+          "locus": "tzetzes_historiae_kiessling_0091.16",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Μάζας γὰρ ὀδοῦσόντα νεοφυράτους ἄρτους\"}\n",
+          "original_line_sha256": "78ce5c92f1656a412b222e48fef30453cdac737733a89cb2f6940a48f63fa533"
+        },
+        {
+          "index": 1753,
+          "line": 1754,
+          "locus": "tzetzes_historiae_kiessling_0091.17",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐν Λακινίῳ βέβρωκεν Αἰγὼν αὐτὸς ὁ πύκτης.\"}\n",
+          "original_line_sha256": "71cf4a67e9951819555470d316a9637e59249e898e3b4e37a9ec02bce025a848"
+        },
+        {
+          "index": 1754,
+          "line": 1755,
+          "locus": "tzetzes_historiae_kiessling_0091.18",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Μὴ γὰρ τὸ παξαμάδιον μάζαν, ἀλλ' ἄξαν λέγε,\"}\n",
+          "original_line_sha256": "89052743b999338f7cb4721601dee0b750b2ff6d69a94c085bc550b95bda4864"
+        },
+        {
+          "index": 1755,
+          "line": 1756,
+          "locus": "tzetzes_historiae_kiessling_0091.19",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τὸ μάζα γὰρ μὴ ἄξα τις, ἀλλ' ἀπαλὴ καὶ νέα.\"}\n",
+          "original_line_sha256": "eff106e28385dc69eb3be3648f39e91179e1554a2f7b22fe7ca2baa4f2de7b98"
+        },
+        {
+          "index": 1756,
+          "line": 1757,
+          "locus": "tzetzes_historiae_kiessling_0091.2",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὁ Μίλων οὗτος ἀθλητὴς ἐκ Κρότωνος ὑπῆρχε,\"}\n",
+          "original_line_sha256": "7744300131ada784d4afdbdbf608db358a497a9d0c1d9804665351f594c0cfa0"
+        },
+        {
+          "index": 1757,
+          "line": 1758,
+          "locus": "tzetzes_historiae_kiessling_0091.20",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ τρέχων οὕτως ὄρσει ταύρους ποσίν ἐνίκα\"}\n",
+          "original_line_sha256": "907a76669a0c9ba3fe540ce870581054713f753c2413ea71a3e858ad5f908d94"
+        },
+        {
+          "index": 1758,
+          "line": 1759,
+          "locus": "tzetzes_historiae_kiessling_0091.21",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ τὰς χηλὰς τὰς τῶν ποδῶν ζώντων χερσὶν ἀνέσπα.\"}\n",
+          "original_line_sha256": "fce0cf8865685771b8336e7372f026be38a4899b73ff90e1544d4c6646717948"
+        },
+        {
+          "index": 1759,
+          "line": 1760,
+          "locus": "tzetzes_historiae_kiessling_0091.22",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τοὺς ταύρους δ' ἐχαρίζετο τοῖς ὤμοις φέρων τούτους\"}\n",
+          "original_line_sha256": "3e32aa0d0a44e80dd3439776eeaa79304d59ef3e75eb3d7541a5016150747d7d"
+        },
+        {
+          "index": 1760,
+          "line": 1761,
+          "locus": "tzetzes_historiae_kiessling_0091.23",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Φίλους καὶ κόρας γυναιξίν, ὡς τῇ Ἀμαρυλλίδι,\"}\n",
+          "original_line_sha256": "07ec1be5677bb36497168c844bd6336b0c0ddbd39ee7d78e11d279616a28da1d"
+        },
+        {
+          "index": 1761,
+          "line": 1762,
+          "locus": "tzetzes_historiae_kiessling_0091.24",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὦς μέμνηται Θεόκριτος οὕτω τὰ ἐπὴ γράφων.\"}\n",
+          "original_line_sha256": "22e3ac431e7e4a56b7479b53dfba87753e59f283e89a426575aa8dbb9cf1a613"
+        },
+        {
+          "index": 1762,
+          "line": 1763,
+          "locus": "tzetzes_historiae_kiessling_0091.3",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τῷ φιλοσόφῳ σύγχρονος ἐκεῖνῳ Πυθαγόρᾳ.\"}\n",
+          "original_line_sha256": "6066f39fce184d8b7ed6a34bafe6dd61bb5a31c2171f1ed1f6aa2726073fe28e"
+        },
+        {
+          "index": 1763,
+          "line": 1764,
+          "locus": "tzetzes_historiae_kiessling_0091.4",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἑξάκις δὲ νενίκηκεν Ὀλύμπια παλαιῶν.\"}\n",
+          "original_line_sha256": "e6243a90e587131db89872e7092663f297cdac1487801178eb312422e2efc7d2"
+        },
+        {
+          "index": 1764,
+          "line": 1765,
+          "locus": "tzetzes_historiae_kiessling_0091.5",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κροτωνιάτας δὲ ποτε πολέμου προεξάρχον\"}\n",
+          "original_line_sha256": "e871e3e0615f0f63d64c08b32ec98f4391142165d80db033709770d1a5beb1d7"
+        },
+        {
+          "index": 1765,
+          "line": 1766,
+          "locus": "tzetzes_historiae_kiessling_0091.6",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ προφηδῶν ὡς Ἡρακλῆς ἐμπρόσθεν ἑστημένος,\"}\n",
+          "original_line_sha256": "6e3cb2759cc25b0231c79561686f5314f4675ed4e6d1b74c751df4cd4634f597"
+        },
+        {
+          "index": 1766,
+          "line": 1767,
+          "locus": "tzetzes_historiae_kiessling_0091.7",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Δέκα Κροτωνιάτιδας ἔχων μυριοστίνας,\"}\n",
+          "original_line_sha256": "801ad09c7810589de28728ff21aa19cc523a96447f626a8037847fe32a2b3639"
+        },
+        {
+          "index": 1767,
+          "line": 1768,
+          "locus": "tzetzes_historiae_kiessling_0091.8",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Συβαριτῶν ἀπέκτεινε μυρίας τριακάδας.\"}\n",
+          "original_line_sha256": "09ffb36c5ec6a35aa74f31604cf62cdcbd3d36761579b51f8479d93c3cb80208"
+        },
+        {
+          "index": 1768,
+          "line": 1769,
+          "locus": "tzetzes_historiae_kiessling_0091.9",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0091.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Διόδωρος καὶ ταύτην δὲ γράφει τὴν ἱστορίαν,\"}\n",
+          "original_line_sha256": "8b7ed5e2b2c882b5e61381135bc3453821f9c11d78ac28fcd671609763639fc8"
+        },
+        {
+          "index": 1846,
+          "line": 1847,
+          "locus": "tzetzes_historiae_kiessling_0098.1",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οι δὲ δραμόντες ὀδυμοὶ πάντες πρὸς τὸ χαλκεῖον,\"}\n",
+          "original_line_sha256": "88276dd8e45d56b9accf589f885b4e159d87418f57c13abb8e5236354a6d309d"
+        },
+        {
+          "index": 1847,
+          "line": 1848,
+          "locus": "tzetzes_historiae_kiessling_0098.10",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὦστε τοὺς ὑστερον εἰπεῖν· Ἡρόδοτε, σοὶς χρόνοις\"}\n",
+          "original_line_sha256": "5d82ae3b683be49461268e7469e6589e8135ea3e75503506033a35908e6a5eac"
+        },
+        {
+          "index": 1848,
+          "line": 1849,
+          "locus": "tzetzes_historiae_kiessling_0098.11",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οὕτως ὁ Προικονησίος ἔστιν ὁ Ἀριστέας,\"}\n",
+          "original_line_sha256": "3c18c90122c0f5f1d43cf0901ddb79a35bf8228f24fcb76866cfec6f6ae54b97"
+        },
+        {
+          "index": 1849,
+          "line": 1850,
+          "locus": "tzetzes_historiae_kiessling_0098.12",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὡς ἐκπαλαι μὲν τέθνηκε, νῦν δ᾽ ἀνεφάνη πάλιν;\"}\n",
+          "original_line_sha256": "80106adab57e316af1e6ff7345d62babd077c26be4d2350c54308b6575f14c9e"
+        },
+        {
+          "index": 1850,
+          "line": 1851,
+          "locus": "tzetzes_historiae_kiessling_0098.13",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Πλατὺς μοι λῆρος φαίνεται καὶ ψυχομυθουργία.\"}\n",
+          "original_line_sha256": "040a645eefebe702ebc5f8f4576ef44cbffebc2c450b8f06eac17f51c9d83845"
+        },
+        {
+          "index": 1851,
+          "line": 1852,
+          "locus": "tzetzes_historiae_kiessling_0098.14",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΠΕΡΙ ΘΗΣΕΩΣ. γα.\"}\n",
+          "original_line_sha256": "cae523fa68e01bf4a2e287b75281da0bab6743696aeec42fe44edc846813f7b2"
+        },
+        {
+          "index": 1852,
+          "line": 1853,
+          "locus": "tzetzes_historiae_kiessling_0098.15",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Θησεὺς υἱὸς ἦν Ἀττικοῦ Αἰγέως καὶ τῆς Αἴθρας,\"}\n",
+          "original_line_sha256": "fa2a6be2afdc1e846f2c7f215c32f98745496eb71db8bd4d6c0f1a54ae78a40e"
+        },
+        {
+          "index": 1853,
+          "line": 1854,
+          "locus": "tzetzes_historiae_kiessling_0098.16",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὡς δὲ ἀνδρείων, ἔφασαν παῖδα τοῦ Ποσειδῶνος·\"}\n",
+          "original_line_sha256": "df540327a1e44f120aa85b6320a40d89377ba60b1b883800210063e96c21a069"
+        },
+        {
+          "index": 1854,
+          "line": 1855,
+          "locus": "tzetzes_historiae_kiessling_0098.17",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τοὺς θυμικοὺς γὰρ σύμπαντας καὶ πάντας τοὺς ἀνδρείους\"}\n",
+          "original_line_sha256": "f3bde52ab5befb8ee1825904d8f5b6feccbc04794aa6f803c4e1cc00c18623ee"
+        },
+        {
+          "index": 1855,
+          "line": 1856,
+          "locus": "tzetzes_historiae_kiessling_0098.18",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τίους καὶ φίλους, ἐραστὰς φασὶ τοῦ Ποσειδῶνος.\"}\n",
+          "original_line_sha256": "45290664db35cabca26cead46d998b3238bd67d90ce3e0c66b96ac82b1019d93"
+        },
+        {
+          "index": 1856,
+          "line": 1857,
+          "locus": "tzetzes_historiae_kiessling_0098.19",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οὕτως ποτε συνέθετο τῷ φίλῳ Πειρίθῳ,\"}\n",
+          "original_line_sha256": "e7762d5fea5e1cc809f85b3955d67108322658e536d9a34fc8165518b1e9d1f2"
+        },
+        {
+          "index": 1857,
+          "line": 1858,
+          "locus": "tzetzes_historiae_kiessling_0098.2",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἀνολζάντες οὐδὲν εὗρον, οὐ νέκυν οὐδὲ ζῶντα.\"}\n",
+          "original_line_sha256": "d4d30bec30e4d272529675a201efc1c8a70eb83543c166a9a84195fbeaf17aa5"
+        },
+        {
+          "index": 1858,
+          "line": 1859,
+          "locus": "tzetzes_historiae_kiessling_0098.20",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὡπως Λιὸς ἀρπάξωσι, τουνέστι βασιλέως,\"}\n",
+          "original_line_sha256": "2c6a9c7e175403824769a08828b623b3d363f7c711e1bfdf2c2f7ab4a0917e43"
+        },
+        {
+          "index": 1859,
+          "line": 1860,
+          "locus": "tzetzes_historiae_kiessling_0098.21",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κόρην τινὰ καὶ γήμωσι. καὶ δή ποτε μολόντες\"}\n",
+          "original_line_sha256": "e494abbac55527b198810bacf5ec58b4613609deb67796d15ece46f061e1b952"
+        },
+        {
+          "index": 1860,
+          "line": 1861,
+          "locus": "tzetzes_historiae_kiessling_0098.22",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Εἰς χώραν γῆς τῶν Μολοσσῶν, ὧν βασιλεύς ἦν Ἄιδη,\"}\n",
+          "original_line_sha256": "35470704f71d6a59ae1ea5f4fdca40a9a233efbffc88f044df32a7893ca55243"
+        },
+        {
+          "index": 1861,
+          "line": 1862,
+          "locus": "tzetzes_historiae_kiessling_0098.23",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οὕπερ γυνὴ Δημήτηρ ἦν, θυγάτηρ κλῆσιν Κόρη,\"}\n",
+          "original_line_sha256": "020ce0454d6deb98da0c6ced0048fee92c96d68564c84bfd54dcd8d39046d1c1"
+        },
+        {
+          "index": 1862,
+          "line": 1863,
+          "locus": "tzetzes_historiae_kiessling_0098.24",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"(Τὰς γὰρ εὐμόρφους Μολοσσοὶ κόρας καλοῦσι πάσας)\"}\n",
+          "original_line_sha256": "8ba86d9f21239baaf7c0f2131391bffdd89dcf173aa07be2c8eb10bba0e58282"
+        },
+        {
+          "index": 1863,
+          "line": 1864,
+          "locus": "tzetzes_historiae_kiessling_0098.25",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ κύων δὲ τρικέρηρος, φρικώδης τῷ μεγέθει·\"}\n",
+          "original_line_sha256": "07a3d934c3e55e1442b13e08e20f60d5310b189d899ca794a3a01ceedd7b15f5"
+        },
+        {
+          "index": 1864,
+          "line": 1865,
+          "locus": "tzetzes_historiae_kiessling_0098.26",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Νῦνταρ ἐπέθεντο λαβεῖν αὐτοῦ τὴν θυγατέρα.\"}\n",
+          "original_line_sha256": "88808ab7f1bfb20028ac4e9b0daf131042968bc9fe12b40a4c1a9805a86e48c6"
+        },
+        {
+          "index": 1865,
+          "line": 1866,
+          "locus": "tzetzes_historiae_kiessling_0098.27",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κατασχεθέντων δὲ αὐτῶν, Πειρίθους μὲν ἐβρώθη\"}\n",
+          "original_line_sha256": "7d6010c2ee9572969601f25966ddb6ac465acd88f4bf775c0d82aa1c3715f6de"
+        },
+        {
+          "index": 1866,
+          "line": 1867,
+          "locus": "tzetzes_historiae_kiessling_0098.28",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τῷ τρικεράρῳ τῷ κυνί, Θησεὺς δ᾽ εἰρκτῇ κρατεῖται.\"}\n",
+          "original_line_sha256": "f187a6cf00f01faa9c163f59c147e665be66ca61dd1a250ef4e256bd79eedceb"
+        },
+        {
+          "index": 1867,
+          "line": 1868,
+          "locus": "tzetzes_historiae_kiessling_0098.29",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὡς δ᾽ Ἡρακλῆς ὡς πρὸς αὐτὸν ἦλθε ποτε τὸν Ἄιδη\"}\n",
+          "original_line_sha256": "d0b75888bb59ed5477d776089b8d4737035ef134710bd6fee45cb7d46fb66c8d"
+        },
+        {
+          "index": 1868,
+          "line": 1869,
+          "locus": "tzetzes_historiae_kiessling_0098.3",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Μετὰ δ᾽ ἐπτὰ χρόνους φαίνει πάλιν ὁ Ἀριστέας,\"}\n",
+          "original_line_sha256": "81c5f03ad4311bf4953f4a2e81fb18247aacdfffb3f2cffb82c554b92a0c630f"
+        },
+        {
+          "index": 1869,
+          "line": 1870,
+          "locus": "tzetzes_historiae_kiessling_0098.4",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἔπη τὰ Ἀρμαόσπεια λεγόμενα συγγράψας.\"}\n",
+          "original_line_sha256": "8490aa513d9d32297d0c353665087a7d174e1e7e3e9d4fbfee881e0c2ed3da59"
+        },
+        {
+          "index": 1870,
+          "line": 1871,
+          "locus": "tzetzes_historiae_kiessling_0098.5",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ πάλιν ἀφανίζεται τὸ δεύτερον καὶ ὧν ἡσκει.\"}\n",
+          "original_line_sha256": "2f9bbbbcd56f38728d51281cf1d9a205f345d5621020b34fff6e6812b1bbd77d"
+        },
+        {
+          "index": 1871,
+          "line": 1872,
+          "locus": "tzetzes_historiae_kiessling_0098.6",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ μετὰ διακόσια δὶς εἴκοσι τὰ ἔτη\"}\n",
+          "original_line_sha256": "c2db57476db8ce9be71aee975066a6c92c1e5fad695558fccceff787fd9aef65"
+        },
+        {
+          "index": 1872,
+          "line": 1873,
+          "locus": "tzetzes_historiae_kiessling_0098.7",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἔφη Ἡροδότου γέγονε, καὶ πάλιν ἀνεφάνη,\"}\n",
+          "original_line_sha256": "4932ac23c1dcd4118f5f9c8845a29dfb8b7f4a92404a74dbd62220a279cfe3d5"
+        },
+        {
+          "index": 1873,
+          "line": 1874,
+          "locus": "tzetzes_historiae_kiessling_0098.8",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὡσπερ φησίν Ἡρόδοτος· εἰ δ᾽ ἀλήθες οὐκ οἶδα.\"}\n",
+          "original_line_sha256": "7d14e1de7709c06d91f111a5e46bafa0824eb3a306fc5761bda0a0534cfc1693"
+        },
+        {
+          "index": 1874,
+          "line": 1875,
+          "locus": "tzetzes_historiae_kiessling_0098.9",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0098.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ τίς αὐτὸν ἐγνώρισε, τίς ἐξῆσε τοσούτῳ,\"}\n",
+          "original_line_sha256": "273fd9b5bbbcbe2538030b16fe62d5078cd5e1c577a62d6b4a21528ab3a03e0b"
+        },
+        {
+          "index": 14171,
+          "line": 14172,
+          "locus": "tzetzes_historiae_kiessling_0570.1",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τίθενται, ἀνάπαυσίς, βάσις καὶ ῥυθμός. ταῦτα πάντα συν-\"}\n",
+          "original_line_sha256": "1ca451eea085d93a1322bd9c90d351d28ed93e3a0df13beb348893f1e50ea19a"
+        },
+        {
+          "index": 14172,
+          "line": 14173,
+          "locus": "tzetzes_historiae_kiessling_0570.10",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τέχνας ἐφεύρον πρὸς τὸ χρήσιμον βίον.\"}\n",
+          "original_line_sha256": "33f358078d7d5cf1dffeab288d22a48db6609be435165d677fb4d8d27e2c5044"
+        },
+        {
+          "index": 14173,
+          "line": 14174,
+          "locus": "tzetzes_historiae_kiessling_0570.11",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"„ Εἰσὶ γάρ, εἰσίν, ὡς ὁ Κροῖσος πρὶν ἔφη,\"}\n",
+          "original_line_sha256": "7bba5c3cfb2469dd36101b426d98f4220dd3a7216acca7f811dcf1a20764629b"
+        },
+        {
+          "index": 14174,
+          "line": 14175,
+          "locus": "tzetzes_historiae_kiessling_0570.12",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"30 „Μαιευτήρια βίου τε καὶ καλῶν βρύσεις,\"}\n",
+          "original_line_sha256": "7b46c299852b244bfa269bd21d40111d1a0ece1c7f9851a0775620619af68372"
+        },
+        {
+          "index": 14175,
+          "line": 14176,
+          "locus": "tzetzes_historiae_kiessling_0570.13",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"„Ἀτεχνίαι δῆλον δὲ πᾶν τοῦναντίον·\"}\n",
+          "original_line_sha256": "d8f48747e1aa2063711669b900a3761ffb3c249f2899018fbb4d7bdd26a42683"
+        },
+        {
+          "index": 14176,
+          "line": 14177,
+          "locus": "tzetzes_historiae_kiessling_0570.14",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἐπεὶ δὲ τοῦτο τοὺς θαναύσους καὶ μόνους\"}\n",
+          "original_line_sha256": "2e1e971cfaaac75f8a76c3078eb30c35127f4b4b3a9cc5c167a62774a3b53dce"
+        },
+        {
+          "index": 14177,
+          "line": 14178,
+          "locus": "tzetzes_historiae_kiessling_0570.15",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Μένει πεπηγὸς καὶ κρατεῖ τὰ τῶν νόμων\"}\n",
+          "original_line_sha256": "44813672c865e71ed0e03bb90b6adadaaa0c1cdda70069b9a40806a4ac651dd2"
+        },
+        {
+          "index": 14178,
+          "line": 14179,
+          "locus": "tzetzes_historiae_kiessling_0570.16",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ μέχρις αὐτῶν τῶν τεχνῶν τῶν ἐσχάτων,\"}\n",
+          "original_line_sha256": "425645dcdeb564b2812e7083184d7e7d2bca069a36ccfd8994776e4d56d2561f"
+        },
+        {
+          "index": 14179,
+          "line": 14180,
+          "locus": "tzetzes_historiae_kiessling_0570.17",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"35 Εἰ τις παραπταίσειεν εἰς βραχὺ μέρος,\"}\n",
+          "original_line_sha256": "3ec738e42cf6f3584173ad6d708ffc12f3a75cd032cdbd51f83b5f55df58b095"
+        },
+        {
+          "index": 14180,
+          "line": 14181,
+          "locus": "tzetzes_historiae_kiessling_0570.18",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Σκυτεύς, ταριχεύς, δυσγενὴς ἐργάτης\"}\n",
+          "original_line_sha256": "be4adea3afc0b0fce714291223622ea794d3762e1e26e984a7304b0a28a11c8d"
+        },
+        {
+          "index": 14181,
+          "line": 14182,
+          "locus": "tzetzes_historiae_kiessling_0570.19",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ κοπραγωγῶν τῶν δυσόδμων ἐργάτης,\"}\n",
+          "original_line_sha256": "3dec55ed961bf9c728e289750d3a1af537167d2952bc859628b80749aaede7da"
+        },
+        {
+          "index": 14182,
+          "line": 14183,
+          "locus": "tzetzes_historiae_kiessling_0570.2",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"όλως εἰπεῖν καθαρὰ εἰσιν· ὅπη δὲ τινα καὶ ἑτέρων ἰδίων.\"}\n",
+          "original_line_sha256": "0b2a0409b550e7b464ba46b8e3f5bcacb6a40fd32a85185f9591aa700fdb30d4"
+        },
+        {
+          "index": 14183,
+          "line": 14184,
+          "locus": "tzetzes_historiae_kiessling_0570.20",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τρωθάζεται τε καὶ κακὸς κλήσιν φέρει·\"}\n",
+          "original_line_sha256": "5745c34974913e4ab33f9f608daa8472a9479b915edb6a7caad2d5048c8561cf"
+        },
+        {
+          "index": 14184,
+          "line": 14185,
+          "locus": "tzetzes_historiae_kiessling_0570.21",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τὰ τῶν λόγων ἔχει δὲ πᾶν τοῦναντίον·\"}\n",
+          "original_line_sha256": "26d3603a13319517c183a015aa540a39d964baaae00a21d648532a8fba5c8f7c"
+        },
+        {
+          "index": 14185,
+          "line": 14186,
+          "locus": "tzetzes_historiae_kiessling_0570.22",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"40 (Ὅσοι γάρ εἰσι τῶν ἀτέχνων, βαρβάρων,\"}\n",
+          "original_line_sha256": "1cba789231eee319313fca29001e50a103ee38c3f40773c95b28f9da86708e2f"
+        },
+        {
+          "index": 14186,
+          "line": 14187,
+          "locus": "tzetzes_historiae_kiessling_0570.23",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Στέγαις τε πορρών δυσγενῶς τεθραμμένοι\"}\n",
+          "original_line_sha256": "ea2de9c2dc0740e1802dc43d3674d09056014926ca0035c8a3ae44717b7bc811"
+        },
+        {
+          "index": 14187,
+          "line": 14188,
+          "locus": "tzetzes_historiae_kiessling_0570.24",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Καὶ ταῖς καπηλῶν παιδίαἰς ἠσκημένοι,\"}\n",
+          "original_line_sha256": "10390664fac8eff5402d27696cd086de89e6b51099a46b14935217205eaa3583"
+        },
+        {
+          "index": 14188,
+          "line": 14189,
+          "locus": "tzetzes_historiae_kiessling_0570.25",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Τοιχοφυγοῦντες καὶ τομετς βαλαντίων,\"}\n",
+          "original_line_sha256": "be69ddb08f179fa0b7bd148cd31dc1451fc61e054e9772b4edbf412ccf46a8c8"
+        },
+        {
+          "index": 14189,
+          "line": 14190,
+          "locus": "tzetzes_historiae_kiessling_0570.26",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Μᾶλλον δοκοῦσι τεχνικοὶ πεφυκέναι,\"}\n",
+          "original_line_sha256": "bfc5b197d54f38eccc4fdd1fc8db22c5a9600b533ace668ddc9b619004692f10"
+        },
+        {
+          "index": 14190,
+          "line": 14191,
+          "locus": "tzetzes_historiae_kiessling_0570.27",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"45 Παρασφοροῦνται δ’ εἰς ἀνάτορα κρότοις\"}\n",
+          "original_line_sha256": "e556bdad675640b5af95451e1ee6ff91f451f72ae1813b5e5a48244cc864cf03"
+        },
+        {
+          "index": 14191,
+          "line": 14192,
+          "locus": "tzetzes_historiae_kiessling_0570.28",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Συγκλητικοῖς, καὶ ταῦτα τοῖς περὶ λόγους)\"}\n",
+          "original_line_sha256": "d6945beb733d3cbb762ae5ade293bd6b97a3cc1071c6a59898b38ae25a182714"
+        },
+        {
+          "index": 14192,
+          "line": 14193,
+          "locus": "tzetzes_historiae_kiessling_0570.29",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Σύμβουλος ἦκω νοῦθετῶν τὸ συμφέρον·\"}\n",
+          "original_line_sha256": "565f91cb963da68afc41ac044554268bce43b5498dad2800abf0f49a24792aa5"
+        },
+        {
+          "index": 14193,
+          "line": 14194,
+          "locus": "tzetzes_historiae_kiessling_0570.3",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΠΑΙΔΩΝ ΑΓΩΓΗ ΣΥΝΤΕΛΗΣ ΤΩΝ ΝΤΝ\"}\n",
+          "original_line_sha256": "068e01efc216fb8896c8de5afec30ed2a6c26638f37391c03c233d222b19e19c"
+        },
+        {
+          "index": 14194,
+          "line": 14195,
+          "locus": "tzetzes_historiae_kiessling_0570.30",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Χρὴ τὸν πολίτην εὐνοεῖν γὰρ πατρίδι.\"}\n",
+          "original_line_sha256": "a3f66af04aa81a61896f2073cb3a182d867f58279b1690a28767d7bf31c8a957"
+        },
+        {
+          "index": 14195,
+          "line": 14196,
+          "locus": "tzetzes_historiae_kiessling_0570.31",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τίου.\"}\n",
+          "original_line_sha256": "e4219088a46a099678a0680f582940a665f4b277d83c98309be4e3c935f7d704"
+        },
+        {
+          "index": 14196,
+          "line": 14197,
+          "locus": "tzetzes_historiae_kiessling_0570.4",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ΒΙΩΝ.\"}\n",
+          "original_line_sha256": "29e2adefd0ad7078291bf39011e8c2bf05fb50a9e3e4b9726b206d396bebfc50"
+        },
+        {
+          "index": 14197,
+          "line": 14198,
+          "locus": "tzetzes_historiae_kiessling_0570.5",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Σύμπας παῖτῃρ ἄκουε τῶν Τζέττου λόγων,\"}\n",
+          "original_line_sha256": "ae5933e39e06438aa5aaa663be2131c08731f129f996deba49657f08c7f01757"
+        },
+        {
+          "index": 14198,
+          "line": 14199,
+          "locus": "tzetzes_historiae_kiessling_0570.6",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ὅπως χρυσῶν σε τῶν διδάσκειν τὰ τέκνα,\"}\n",
+          "original_line_sha256": "33f9be537641923380198aa5f90a40296cc58e2de10b6f420c7a47d327ed671d"
+        },
+        {
+          "index": 14199,
+          "line": 14200,
+          "locus": "tzetzes_historiae_kiessling_0570.7",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"25 Καὶ μητέρες πᾶσαι δὲ σὺν τοῖς πατράσιν\"}\n",
+          "original_line_sha256": "f9b10403f6b42f327aa3b49599b901b0f2eeff5e97cbd92fbe4f2673c29ca70a"
+        },
+        {
+          "index": 14200,
+          "line": 14201,
+          "locus": "tzetzes_historiae_kiessling_0570.8",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἀκουέτωσαν τῶν ἐμῶν διδαγμάτων.\"}\n",
+          "original_line_sha256": "ab22ce555bcb23d82e1a6ae7b56661e5f2baeabe93c3e02a01da85222e826ac5"
+        },
+        {
+          "index": 14201,
+          "line": 14202,
+          "locus": "tzetzes_historiae_kiessling_0570.9",
+          "original_line": "{\"urn\": \"joannes-tzetzes.tzetzes-historiae-kiessling\", \"edition\": \"qwen36-tzetzes_historiae_kiessling\", \"locus\": \"tzetzes_historiae_kiessling_0570.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Οἱ μὲν παλαιοὶ τὰς θαναύσους καὶ λόγων\"}\n",
+          "original_line_sha256": "a9e6d10f4dc9890413e2b5d07c492d8f00c360f03862063d56a9be3ab34751d5"
+        }
+      ],
+      "witness_file": "data/corpus_secondary/joannes-tzetzes.tzetzes-historiae-kiessling.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+      "witness_sha256": "9963f952253998c2eebc47d1de8eaf9b4b6357e830d08704c5f02a24e8163ecc"
+    },
+    "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": {
+      "sha256_before": "21104339b63894570ea4c109c0d3f9acb35a9f6589df72f57d430a6494c64d25",
+      "sha256_after": "2a5d4452cdb0e01b675241263b53cbb21d4b91768afbab565bc2ff2be2ea07b9",
+      "rows_before": 19918,
+      "rows_after": 19864,
+      "removed_rows": [
+        {
+          "index": 983,
+          "line": 984,
+          "locus": "scholia_aristidem_frommel1826_0054.1",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τρός ἐπεχείρησε κόψαι τὴν ἐλε\"}\n",
+          "original_line_sha256": "1ffc3ec242f41da5c4d2c52f181cd7fde454e00a4b8d9259f7b26c05f5c0262f"
+        },
+        {
+          "index": 984,
+          "line": 985,
+          "locus": "scholia_aristidem_frommel1826_0054.2",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἐτελεύτησεν, ὅθεν ὁ Ποσειδῶ\"}\n",
+          "original_line_sha256": "b55a589298bcc29c377cf91632fe2723ce2840b2bc84ce01e85b738b4098f25b"
+        },
+        {
+          "index": 985,
+          "line": 986,
+          "locus": "scholia_aristidem_frommel1826_0054.3",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὡς δεσπότου τοῦ σιδήρου.\"}\n",
+          "original_line_sha256": "0a4af8747762f059a91a5a6bbaa6c4d147748b1d802e25003b6e399e797b45e6"
+        },
+        {
+          "index": 986,
+          "line": 987,
+          "locus": "scholia_aristidem_frommel1826_0054.4",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"φησι, ὅτι πάγος πᾶς ὑψηλός\"}\n",
+          "original_line_sha256": "5ad64d302c3569ad6458dc27bb1fa94c90834b8d5cbf85a2dd3f6172fa51261c"
+        },
+        {
+          "index": 987,
+          "line": 988,
+          "locus": "scholia_aristidem_frommel1826_0054.5",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"παρὰ τοῖς Ἀθηναίοις ἐκρίνε\"}\n",
+          "original_line_sha256": "0ed34aa8a83ed49af00a53753dad2802d805fb46e1c25f3ab4a2d543cf9fdcaf"
+        },
+        {
+          "index": 988,
+          "line": 989,
+          "locus": "scholia_aristidem_frommel1826_0054.6",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τόπος, ἐλέγετο πάγος ὡς ὑψηλ\"}\n",
+          "original_line_sha256": "19d31de4d5524ea8a985645f636eadf8db11906fa533be903ab9473ddb6d211e"
+        },
+        {
+          "index": 989,
+          "line": 990,
+          "locus": "scholia_aristidem_frommel1826_0054.7",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"σιδηρῶ ἀπολεῖσθαι. Ἄρης δ\"}\n",
+          "original_line_sha256": "c06503572863744b7cb3f84419e2ca3f05f8a45324bd11d4f49813c42ae9f6de"
+        },
+        {
+          "index": 990,
+          "line": 991,
+          "locus": "scholia_aristidem_frommel1826_0054.8",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λα, καὶ ἐναφοὶ οἱ πεφονευμένοι,\"}\n",
+          "original_line_sha256": "2f95a09a58ead50d2f0f841cf49ea4de798ca74223d8ae4eb13bc43b52fc199a"
+        },
+        {
+          "index": 991,
+          "line": 992,
+          "locus": "scholia_aristidem_frommel1826_0054.9",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νιος τόπος ὡς καὶ Χαρωνία\"}\n",
+          "original_line_sha256": "56bd59bac2e5128b0e3e99a81eb235e6f86650f40c397412ef3a54eb1d833cf0"
+        },
+        {
+          "index": 992,
+          "line": 993,
+          "locus": "scholia_aristidem_frommel1826_0054.10",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"το ὄνομα, ἀφ’ ἧς οἱ πρὸς Χάρ\"}\n",
+          "original_line_sha256": "6a3f3f267eeab72443297c985fe22ec2f628a48e5f1f5c69d89748485cb74fc8"
+        },
+        {
+          "index": 993,
+          "line": 994,
+          "locus": "scholia_aristidem_frommel1826_0054.11",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τουτέστιν οἱ τὴν ἐπὶ θ\"}\n",
+          "original_line_sha256": "6ebf02df9b08b8b6c2bfea1f608aab9d0ec7b7474fef5f6dd3839d778a09f4f5"
+        },
+        {
+          "index": 994,
+          "line": 995,
+          "locus": "scholia_aristidem_frommel1826_0054.12",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Cod. bomb. Ἀλιζρόθιος, ὁ\"}\n",
+          "original_line_sha256": "3242b7dfaad67bdff8f9258f5f0de7526cc72d166897f7fd4534e7e49daaeee2"
+        },
+        {
+          "index": 995,
+          "line": 996,
+          "locus": "scholia_aristidem_frommel1826_0054.13",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄρεως, φθείρας ἄνδρας ὑπ’\"}\n",
+          "original_line_sha256": "0e0576b687883198276d01760653f56edefaeab95ff50dd2eb10a10d7b5d3828"
+        },
+        {
+          "index": 996,
+          "line": 997,
+          "locus": "scholia_aristidem_frommel1826_0054.14",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"στησι δικαστήριον ἐξ ἀπάντων\"}\n",
+          "original_line_sha256": "b661912c8ebdebc322249fdd23599f031d9632ea2804f1d02f12e524feb0f511"
+        },
+        {
+          "index": 997,
+          "line": 998,
+          "locus": "scholia_aristidem_frommel1826_0054.15",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δῶν· κέκληται γοῦν ὁ τόπος,\"}\n",
+          "original_line_sha256": "5c2195a127167abe6992397942711efe8122554b5c142d6c12046bd6a7226aa6"
+        },
+        {
+          "index": 998,
+          "line": 999,
+          "locus": "scholia_aristidem_frommel1826_0054.16",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄρης ἐνταυθοῖ καταδεδικαστα\"}\n",
+          "original_line_sha256": "086a21b11b48e36efee0d29d5736f39dd5ac40d62553b3d11691337e4cbdf6ec"
+        },
+        {
+          "index": 999,
+          "line": 1000,
+          "locus": "scholia_aristidem_frommel1826_0054.17",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς προσηγορίας τὴν τε τοῦ\"}\n",
+          "original_line_sha256": "305506efe8805df2c36290e2fc5fae55c195950e705cda0cc42ab34c0acfc769"
+        },
+        {
+          "index": 1000,
+          "line": 1001,
+          "locus": "scholia_aristidem_frommel1826_0054.18",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"1) ἐφ’ αὐτοῦ, Apogr. ὑπ’\"}\n",
+          "original_line_sha256": "010b4b594b9899e8eb8b9dc8e4106265fddfd11041b07dea690cc45e2e71141c"
+        },
+        {
+          "index": 1001,
+          "line": 1002,
+          "locus": "scholia_aristidem_frommel1826_0054.19",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"p. 31. — 2) κατηγορεῖ, noliui\"}\n",
+          "original_line_sha256": "a5a8fda7516a966044fcda4edb3d20dadeb3a2d0621bad1c892176f59414c694"
+        },
+        {
+          "index": 1002,
+          "line": 1003,
+          "locus": "scholia_aristidem_frommel1826_0054.20",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"iō, i. e. δεκάτφ, Χρονικῶν (cuj\"}\n",
+          "original_line_sha256": "b51d46a756ea0af580a229cf922c186de2bb8ea3032dcf10b0cf86edcac11f69"
+        },
+        {
+          "index": 1003,
+          "line": 1004,
+          "locus": "scholia_aristidem_frommel1826_0054.21",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Byz. s. v. Ἄρσα, Ἥφαιστεία, Κ\"}\n",
+          "original_line_sha256": "ef92a8f10b251334fd9f7ba66b79d12c90e9e5a059f792f06ee48cdbf552fa4a"
+        },
+        {
+          "index": 1004,
+          "line": 1005,
+          "locus": "scholia_aristidem_frommel1826_0054.22",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄθηραι, Αἴγυπτος. Gronovio qu\"}\n",
+          "original_line_sha256": "5fe0363dabdabaf1c7b243f7ea23225bd29a3081dcede20bbfc6576fdcaec082"
+        },
+        {
+          "index": 1005,
+          "line": 1006,
+          "locus": "scholia_aristidem_frommel1826_0054.23",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ληνικὰ referret. — 4) παρὰ τοῖς\"}\n",
+          "original_line_sha256": "4ebb44fa04ea142c713dfb889f41d7a5acb4d89b8eaf5873a4113b439bdfa7af"
+        },
+        {
+          "index": 1006,
+          "line": 1007,
+          "locus": "scholia_aristidem_frommel1826_0054.24",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"8) οἱ τὴν ἐπὶ κ. τ. λ. Werf. eme\"}\n",
+          "original_line_sha256": "54da5a29e8ea59560c7aac11fd0f8c6eb6527e135667b48bed9b6d8e1b7fcbde"
+        },
+        {
+          "index": 1007,
+          "line": 1008,
+          "locus": "scholia_aristidem_frommel1826_0054.25",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καίαν καὶ πληγὲς ὑφ’ αὐτοῦ\"}\n",
+          "original_line_sha256": "b26f19981a73a6cc66978303f42f1b0ef639cb47217ae3090eb1b77fc54b23e7"
+        },
+        {
+          "index": 1008,
+          "line": 1009,
+          "locus": "scholia_aristidem_frommel1826_0054.26",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ᾧν κατηγορεῖ τοῦ Ἄρεως,\"}\n",
+          "original_line_sha256": "47e46635af983d7effef498938c53f98113a4a1c05ab237bae65cc9b26f58050"
+        },
+        {
+          "index": 1009,
+          "line": 1010,
+          "locus": "scholia_aristidem_frommel1826_0054.27",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄριστα δὲ ὁ Χάρμαξ 3 ἰῶ\"}\n",
+          "original_line_sha256": "05a23c8aef3f6b6b05caae8f870d33cb95bd5c745c584815c6f381368aa4aa59"
+        },
+        {
+          "index": 1010,
+          "line": 1011,
+          "locus": "scholia_aristidem_frommel1826_0054.28",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔστι τόπος· ἐπεὶ οὖν ἐνταῦθα\"}\n",
+          "original_line_sha256": "e2f358f875d13f9b3ed966c3cc980354c091e9a191f03ba52c5afa210b7b807b"
+        },
+        {
+          "index": 1011,
+          "line": 1012,
+          "locus": "scholia_aristidem_frommel1826_0054.29",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔτο τὰ φονικά, ὑψηλὸς δὲ ἦν ὁ\"}\n",
+          "original_line_sha256": "f8cbb73b9e1483bd3f686e72ad25660a2b6b764fe1384a90e37b7309d0f78ed7"
+        },
+        {
+          "index": 1012,
+          "line": 1013,
+          "locus": "scholia_aristidem_frommel1826_0054.30",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λὸς, ἄρειος δὲ διὰ τὸν φόνον, ὃς\"}\n",
+          "original_line_sha256": "d77c9247f81ae170c0c0f9ec24eda46f9a61ca19f509a014dd140d8d07853f29"
+        },
+        {
+          "index": 1013,
+          "line": 1014,
+          "locus": "scholia_aristidem_frommel1826_0054.31",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"φόνος, ἀφ’ οὗ καὶ ἔναρα τὰ ὕπ-\"}\n",
+          "original_line_sha256": "4ab1ff77390d89016638017ae2a630b60c189111e6686306abee11b4f0c3c7c2"
+        },
+        {
+          "index": 1014,
+          "line": 1015,
+          "locus": "scholia_aristidem_frommel1826_0054.32",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.32\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"α, ὡς ἂν τις εἴποι μεταβαλὼν φό-\"}\n",
+          "original_line_sha256": "cf9dccfdd2ca8a1be665ad309b1de0c2fdd86d4f3869dd5003ff38a06b954d2a"
+        },
+        {
+          "index": 1015,
+          "line": 1016,
+          "locus": "scholia_aristidem_frommel1826_0054.33",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.33\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νον 6 ἢ τοῦ δεσμοτηρίου ἐλέγ-\"}\n",
+          "original_line_sha256": "bd0660397b74de095cfa2d3e6129150d8f8b4d8d0e6f11e64722fb2c44549379"
+        },
+        {
+          "index": 1016,
+          "line": 1017,
+          "locus": "scholia_aristidem_frommel1826_0054.34",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.34\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κφανα ἀγόμενοι τῶν καταδίκων,\"}\n",
+          "original_line_sha256": "b5817043fca220f123f783f9443a5cf316efbf3d628ed4f4de465f273cd8f098"
+        },
+        {
+          "index": 1017,
+          "line": 1018,
+          "locus": "scholia_aristidem_frommel1826_0054.35",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"θανάτῳ δεχόμενοι ψήφον ἥσαν.\"}\n",
+          "original_line_sha256": "0a3d9d65e302e2d7676ebe99b55ca95b54c6e17b3de1decd4e942590447b0545"
+        },
+        {
+          "index": 1018,
+          "line": 1019,
+          "locus": "scholia_aristidem_frommel1826_0054.36",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ποσειδῶνος, Ἀλκίππην 9, τὴν\"}\n",
+          "original_line_sha256": "fbde6e1bf24c2928419df48a61b57f7b67e0d7fa78a5c7d1c0e8eaf947bd3a6b"
+        },
+        {
+          "index": 1019,
+          "line": 1020,
+          "locus": "scholia_aristidem_frommel1826_0054.37",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.37\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αὐτοῦ τέθνηκεν· ὅδε συνί-\"}\n",
+          "original_line_sha256": "3db77dfbec254ea872bd037673790bedfe7a31dde56e9ca167fac67923493621"
+        },
+        {
+          "index": 1020,
+          "line": 1021,
+          "locus": "scholia_aristidem_frommel1826_0054.38",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.38\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ν τῶν θεῶν κατ’ αὐτοῦ Ποσει-\"}\n",
+          "original_line_sha256": "233a134e247e4cb920c87f7c3711a4fdd214ab2eceacdec1fb00adc57f2daff5"
+        },
+        {
+          "index": 1021,
+          "line": 1022,
+          "locus": "scholia_aristidem_frommel1826_0054.39",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"; ὅτι δρεινότερός ἐστι καὶ ὅτι\"}\n",
+          "original_line_sha256": "0fa1ccc9b8e5e85b6190268da91e2e22d6ddaa0ff5b7a45c6b014ac81a5c79d3"
+        },
+        {
+          "index": 1022,
+          "line": 1023,
+          "locus": "scholia_aristidem_frommel1826_0054.40",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.40\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"αι, ἄρειος πάγος, ἐμφαίνων διὰ\"}\n",
+          "original_line_sha256": "0004f7c7586f2888c3663e411fc3ed401e553f6bc05b4b3f84a6a5af0a565b41"
+        },
+        {
+          "index": 1023,
+          "line": 1024,
+          "locus": "scholia_aristidem_frommel1826_0054.41",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.41\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄρεως κρίσιν καὶ ὅτι ἀρετῆς\"}\n",
+          "original_line_sha256": "7e3caac62e8c5c13862f11f554e23ff9b8b4654a15f1242c2747fc54a5e9e1c5"
+        },
+        {
+          "index": 1024,
+          "line": 1025,
+          "locus": "scholia_aristidem_frommel1826_0054.42",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Κοσμάνα et Σαλύες) ἄν Ἑλληνικῶν,\"}\n",
+          "original_line_sha256": "547a2d24ced2c3d9a00eff0bcf39efe73d64f287a3ac5bf13b5ba559910947b2"
+        },
+        {
+          "index": 1025,
+          "line": 1026,
+          "locus": "scholia_aristidem_frommel1826_0054.43",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.43\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"α, Ταῖναρον, quartum s. v. Φήγεια,\"}\n",
+          "original_line_sha256": "26e538e5d4c704a0610446aa8adaec849a8e64e2407c89fd3fb4c0f439c7008d"
+        },
+        {
+          "index": 1026,
+          "line": 1027,
+          "locus": "scholia_aristidem_frommel1826_0054.44",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἀθηναίοις, Ap. περὶ τοῖς Ἀθ. —\"}\n",
+          "original_line_sha256": "4c28e168668f299f00393cea3a7d91834f744cbc2fc16a7f26a6556754c14a03"
+        },
+        {
+          "index": 1027,
+          "line": 1028,
+          "locus": "scholia_aristidem_frommel1826_0054.45",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0054.45\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"— 7) τούτῳ; Ap. τούτῳ. —\"}\n",
+          "original_line_sha256": "5f18e1154b8237cdfc36c30927c96d71eaabffea2790cd8e7d6ffc4104630a95"
+        },
+        {
+          "index": 11837,
+          "line": 11838,
+          "locus": "scholia_aristidem_frommel1826_0377.1",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib.\\tἌλλης ἀντί ταύτης] Paris. τῶν ἀνδρῶν καὶ οἱ ἄνδρες τῆς σαν αὐτὴν ἄει.\"}\n",
+          "original_line_sha256": "be3e3d1c6e62d0b421d788fe4eeb174f5299330ce858d8fd806bccde06a2fbbc"
+        },
+        {
+          "index": 11838,
+          "line": 11839,
+          "locus": "scholia_aristidem_frommel1826_0377.2",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib.\\tΟἱ τε γάρ] Paris. A. τῶν Ἀθηναίων, ἦν γὰρ καὶ ἀποφαίνει· τὴν μὲν τῇ πραό τοῖς κινδύνοις γενομένην.\"}\n",
+          "original_line_sha256": "cd6e8de81c2bc59d69c34fd5c5a06ab1fa969fcd1fa6ae24113876d9f6b66fde"
+        },
+        {
+          "index": 11839,
+          "line": 11840,
+          "locus": "scholia_aristidem_frommel1826_0377.3",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"166, C.\\tΤῷ παρασχόντι] Paris. ἐδόησεν, ἐπιδείξασθαι τοὺς ἀγαθίαν ἤτοι φιλανθρωπίαν· ἐπινίκεια σημαίνειν.\"}\n",
+          "original_line_sha256": "e7e922fb1913bf7fa70b1f22b4727e7b4b3549896966e9487787c0dc6d041c0d"
+        },
+        {
+          "index": 11840,
+          "line": 11841,
+          "locus": "scholia_aristidem_frommel1826_0377.4",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib.\\tἘν προβόλου] Paris. A. τιάς ἢ τινος τοιούτου ἀνα παντὶ χρόνῳ κ. τ. λ. vide, qua altero marg. Ἐπεὶ δὲ ἐστὶν θρωπίαν, ἐξηγεῖται καὶ οὕτως τιθέμενος ἀντί τούτου τὴν μέχρι δὲ ἢ δι’ ἔργων φιλανθρωπία, ἐπιτηδεία, ἢ δὲ πρὸς τὰς ἐπι μοδία.\"}\n",
+          "original_line_sha256": "f8dba921422839197eab453577044b16ab38a343e74202f002c4e98663632ddf"
+        },
+        {
+          "index": 11841,
+          "line": 11842,
+          "locus": "scholia_aristidem_frommel1826_0377.5",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"167, A.\\tΠρώτη] Paris. A. Καὶ πρώτη δὲ κ. τ. λ. vide ed.\"}\n",
+          "original_line_sha256": "71667e931bb864c88d1a16affb696406640b5822bb775f0046915400a3d3157d"
+        },
+        {
+          "index": 11842,
+          "line": 11843,
+          "locus": "scholia_aristidem_frommel1826_0377.6",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"167, B.\\tΝοτιωτέρα] Paris. D. ut Sed Paris. A. consentit cum τόπου (sic) — ἀντέπιπτε γὰρ κυδίδη — ἐνθα λέγει, χειμα Καὶ Ὅμηρος κ. τ. λ. cf. Ap.\"}\n",
+          "original_line_sha256": "ead6273eb5a839a7bc232407ee1fca1f0999979c261da4f6ca349101cdd02bf0"
+        },
+        {
+          "index": 11843,
+          "line": 11844,
+          "locus": "scholia_aristidem_frommel1826_0377.7",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ib.\\tΠαντοδαποὺς] Paris. A. τὸν αὐτὸν ἐκ παραλλήλων τι ῥκοδομηθέντα εἰς λιμένα, μὴ μένα δὲ φασὶ τὸν αὐτοφυῆ· ὅρμον ³ μέν, ἐνθα τὸ πλοῖον\"}\n",
+          "original_line_sha256": "a2faae3aac6eace3a88ac9bb5015dd2a58b6bfa4edec0a4eb356e6ec74779e16"
+        },
+        {
+          "index": 11844,
+          "line": 11845,
+          "locus": "scholia_aristidem_frommel1826_0377.8",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"1) Cod. στρατίας. — 2) Ead.\"}\n",
+          "original_line_sha256": "af724817ccedf99d77c1ce38b10b52c2a5f812279eacf258a1a91a17155e6302"
+        },
+        {
+          "index": 11845,
+          "line": 11846,
+          "locus": "scholia_aristidem_frommel1826_0377.9",
+          "original_line": "{\"urn\": \"scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera\", \"cts\": \"urn:cts:greekLit:tlg5008.tlg001\", \"edition\": \"qwen36-scholia_aristidem_frommel1826-masked\", \"locus\": \"scholia_aristidem_frommel1826_0377.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"is. Λ. Ὅτι καὶ ἡ χώρα ἄξιἡ χώρας, καὶ ὅτι οἱ αὐτοὶ ἔχΠροέταξεν τὴν φιλανθρωπίανἀκόλουθον· διπλὴν δὲ ταύτηνότητι τῶν τρόπων, τὴν δὲ ἐνΑ. Ἐν παντὶ χρόνῳ, ἐν ᾧἈθηναίους τὴν ἑαυτῶν καλοτοῦτο γὰρ βούλεται αὐτῷ ἡἈντὶ ἄλλης πόλεως ἢ στραπληροῦσα τὴν φυλακὴν ἢ ἐνuae proxime praeccdunt. Inεὑρεῖν καὶ ἄνευ ἔργων φιλαντὸ πρῶον τῶν τρόπων, ὑπολόγαν φιλανθρωπίαν· διττὴἡ μὲν γὰρ πρὸς τὰς ἐπιτυχίαςμουρίας τῶν ἀτυχησάντων ἀρτοῦτο ἐγκαύμιον τῆς πόλεως·t Ap. Mon. et παρὰ pro γάρ.ed., nisi quod οὐκ ἔστιν αὐ— ἐπάγει pro ἐπεὶγε — θουῶν ἢν νοτιώτερον (sic).Monac.Ἀντὶ τοῦ τῶν ἄλλων προκεκλιπροτείνου ὑπέφησεν.Λ. Τινὲς ὄρμον καὶ λιμένακαθέασιν, ἄλλοι δὲ ὄρμον τὸνὄντα πρότερον, λέγουσι, λιἕτεροι δὲ οὐδὲ τοῦτο, ἀλλμέχρι καὶ τῆς χέρσου προσd. ferme in D. — 5) Cod. ὁμον.\"}\n",
+          "original_line_sha256": "db31ee8404ccbbd26251259b75b0c3de01c338d57d2dc1a6a2452836ac3c6b6c"
+        }
+      ],
+      "witness_file": "data/corpus_secondary/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+      "witness_sha256": "6d485e317962397dc16b5d639a8f99a3a15199c749cee0b6ca5823ab022aebe9"
+    },
+    "data/corpus/theognostus.canones-sive-de-orthographia.jsonl": {
+      "sha256_before": "7530e8b54c9652ab9f8bbea1ffc3e0e675d82451cd558c91a0be09d1d96f58be",
+      "sha256_after": "c257f58959fec96026339a585b852e641339d82c9d1deb7de985a0df1192baa0",
+      "rows_before": 24045,
+      "rows_after": 23979,
+      "removed_rows": [
+        {
+          "index": 7236,
+          "line": 7237,
+          "locus": "theognostus_canones_cramer_0204.1",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.1\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄιτης : Διὰ τοῦ ι γρά\"}\n",
+          "original_line_sha256": "766606cadca295b1fc9c3607dbe04783a307780d30bde1340eb55ff8fb02090b"
+        },
+        {
+          "index": 7237,
+          "line": 7238,
+          "locus": "theognostus_canones_cramer_0204.2",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.2\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"διὰ τοῦ ι γράφεται κατὰ\"}\n",
+          "original_line_sha256": "800add3cf955b8fb0cdbc93cf93f627d2f668caf0be16c9879427b1569f31bdc"
+        },
+        {
+          "index": 7238,
+          "line": 7239,
+          "locus": "theognostus_canones_cramer_0204.3",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.3\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δέ ἐστι ὁ ἐρώμενος· οἷονεὶ\"}\n",
+          "original_line_sha256": "75dcaf4a64472ec208906f8490ff182933c3a6e10d63fb0e1426254abe48a6b0"
+        },
+        {
+          "index": 7239,
+          "line": 7240,
+          "locus": "theognostus_canones_cramer_0204.4",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.4\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄιτίασ : Σημαίνει δὲ τ\"}\n",
+          "original_line_sha256": "02fb94282315b7c251466fb9ffdba3cc2de9be7178154bf2828fa55ce2db3088"
+        },
+        {
+          "index": 7240,
+          "line": 7241,
+          "locus": "theognostus_canones_cramer_0204.5",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.5\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"5 τοῦ ὁ δεσπότης ἄρσενικοῦ\"}\n",
+          "original_line_sha256": "6bde7227443c008dc9221dfc7e5379974f1361e064d2e6f6f149ff0652aedcb5"
+        },
+        {
+          "index": 7241,
+          "line": 7242,
+          "locus": "theognostus_canones_cramer_0204.6",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.6\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ ἀπὸ τοῦ ἄιτης, ἡ ἄιτις\"}\n",
+          "original_line_sha256": "4b0ee8e8eae252b60d51acfa4e061a6b228cb0d541af25c7f5ab71f27d605709"
+        },
+        {
+          "index": 7242,
+          "line": 7243,
+          "locus": "theognostus_canones_cramer_0204.7",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.7\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄφιξις : Διὰ τοῦ ι γρά\"}\n",
+          "original_line_sha256": "02e702a8b20c0a79f1800542c34922a1c0f1e3941cdafc85f7a9963638d79899"
+        },
+        {
+          "index": 7243,
+          "line": 7244,
+          "locus": "theognostus_canones_cramer_0204.8",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.8\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρήμάτων ἐκ τοῦ ἄφίγμαι, ἄ\"}\n",
+          "original_line_sha256": "c552a394c19675927f60c1c0ea64b93eb9d466c3c1ba2159e28601bbf94a8d58"
+        },
+        {
+          "index": 7244,
+          "line": 7245,
+          "locus": "theognostus_canones_cramer_0204.9",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.9\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὸ ἰκέσθαι, εἰς πάντα γὰρ δ\"}\n",
+          "original_line_sha256": "f464230e1d17463901ccb91d8a6b108745145ede0f744b420c6ebc2f16b39150"
+        },
+        {
+          "index": 7245,
+          "line": 7246,
+          "locus": "theognostus_canones_cramer_0204.10",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.10\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"10 καὶ ἄφιξις διὰ τοῦ ι· κα\"}\n",
+          "original_line_sha256": "539db47b8d286fa5b27a13cb89c2937262ae922456a8c131045634a5ced23f55"
+        },
+        {
+          "index": 7246,
+          "line": 7247,
+          "locus": "theognostus_canones_cramer_0204.11",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.11\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὴν γραφήν, καὶ ἔχοντα ἡ\"}\n",
+          "original_line_sha256": "a71b2a0ad8a5b3cbefc974d3852038baae04f2c3a88c8c7a52b55cbea2759e92"
+        },
+        {
+          "index": 7247,
+          "line": 7248,
+          "locus": "theognostus_canones_cramer_0204.12",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.12\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοῦ ι γράφεται· οἷον, Ἦρις·\"}\n",
+          "original_line_sha256": "3a2135dd4fcb43a7af4baf18046716c18bc43e1870b9d1226b439d5f1d28ead2"
+        },
+        {
+          "index": 7248,
+          "line": 7249,
+          "locus": "theognostus_canones_cramer_0204.13",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.13\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οὕτως οὖν καὶ ἄφιξις διὰ τ\"}\n",
+          "original_line_sha256": "0ac24814480f375d2343a14903f8925f52c6c81acf6eeae052ce87983a0058d0"
+        },
+        {
+          "index": 7249,
+          "line": 7250,
+          "locus": "theognostus_canones_cramer_0204.14",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.14\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄργτριδιον : Διὰ τοῦ\"}\n",
+          "original_line_sha256": "34779b1aca923a890a765dcf835a66c2c888f857eedeb9a8a659aa2563d3f66b"
+        },
+        {
+          "index": 7250,
+          "line": 7251,
+          "locus": "theognostus_canones_cramer_0204.15",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.15\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"15 ἄργυρίδιον, τροπὴ τοῦ ο εἰς\"}\n",
+          "original_line_sha256": "5d7bed0c5e263f80fb2c7bb0258bf50dd7807924af310a001457bb941b04389b"
+        },
+        {
+          "index": 7251,
+          "line": 7252,
+          "locus": "theognostus_canones_cramer_0204.16",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.16\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄμφιτρίτη : Διὰ τοῦ\"}\n",
+          "original_line_sha256": "ed94318dff66f3e5fda1fbf246452ff9eb620f065a897ef159f15928453af7b7"
+        },
+        {
+          "index": 7252,
+          "line": 7253,
+          "locus": "theognostus_canones_cramer_0204.17",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.17\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄμφιτρίτη δὲ ἐστιν ἡ θάλα\"}\n",
+          "original_line_sha256": "cf7fb761bc38a0d93ca28fe3aa55e2f0f4af4d4bc06f754315abbafee9213ed0"
+        },
+        {
+          "index": 7253,
+          "line": 7254,
+          "locus": "theognostus_canones_cramer_0204.18",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.18\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"εἰς τὴν λήγοντα θηλυκὰ βα\"}\n",
+          "original_line_sha256": "4110937e7be23d8179c72f06a53a0188fe1f56e7ff72c876867d73916762d50f"
+        },
+        {
+          "index": 7254,
+          "line": 7255,
+          "locus": "theognostus_canones_cramer_0204.19",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.19\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"νθέντι παραλήγονται· οἷον,\"}\n",
+          "original_line_sha256": "0fa5b2b79159d2a81510b5a12de17bf63ab909ce7793caff74463645a0cc5ee8"
+        },
+        {
+          "index": 7255,
+          "line": 7256,
+          "locus": "theognostus_canones_cramer_0204.20",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.20\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"20 οὖν καὶ Ἄμφιτρίτη.\"}\n",
+          "original_line_sha256": "ce9f0c869507b5c515e1d2297873d1ecf672c86426bdd8fb644fcd436beb9a74"
+        },
+        {
+          "index": 7256,
+          "line": 7257,
+          "locus": "theognostus_canones_cramer_0204.21",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.21\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄνθρεῖδης : Διὰ τ\"}\n",
+          "original_line_sha256": "3abfed2102ad43a8f8b8e15b946cc538ec8d09074336f5bfe0c27745ea6e0126"
+        },
+        {
+          "index": 7257,
+          "line": 7258,
+          "locus": "theognostus_canones_cramer_0204.22",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.22\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τις· τοῦτο δὲ καὶ κατὰ τ\"}\n",
+          "original_line_sha256": "411cbee9c4b464fe00c097a1457055001fdb3352183f2e6535633e915209ed20"
+        },
+        {
+          "index": 7258,
+          "line": 7259,
+          "locus": "theognostus_canones_cramer_0204.23",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.23\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γράφεται· ἀπὸ τοῦ Ἄτρεύς\"}\n",
+          "original_line_sha256": "66251e1f9ef7bff405a0d989e3b1341930653c72a85b7298d1624d5c6110f150"
+        },
+        {
+          "index": 7259,
+          "line": 7260,
+          "locus": "theognostus_canones_cramer_0204.24",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.24\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λουσι γράφεσθαι· τὸ δὲ\"}\n",
+          "original_line_sha256": "574f785171a6a9e44baea6e5befd5ce3a667133e1303288329ce31b27a9ecab2"
+        },
+        {
+          "index": 7260,
+          "line": 7261,
+          "locus": "theognostus_canones_cramer_0204.25",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.25\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"25 αι διφθόγγου εἰς τὴν ει.\"}\n",
+          "original_line_sha256": "ac74f74ed030bbed8df94fe9197b2ba105eadd6460edc922772af4aa4462a09d"
+        },
+        {
+          "index": 7261,
+          "line": 7262,
+          "locus": "theognostus_canones_cramer_0204.26",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.26\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄργειος : Διὰ τῆς ει\"}\n",
+          "original_line_sha256": "cad1e605a01c0f59e8442fab160e234977c21f1f975ad862c88e08cd30923ec7"
+        },
+        {
+          "index": 7262,
+          "line": 7263,
+          "locus": "theognostus_canones_cramer_0204.27",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.27\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λέγουσιν διίστῶντες τὸ ι·\"}\n",
+          "original_line_sha256": "590c73b4192057b8ec32785fd567a87901faab64dbb98096c9163927318a23fa"
+        },
+        {
+          "index": 7263,
+          "line": 7264,
+          "locus": "theognostus_canones_cramer_0204.28",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.28\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λέγομεν Ἄργειος· καὶ ἄλλ\"}\n",
+          "original_line_sha256": "b9196dc37167c7ca09c9f7abd7cc8e3ee4a75d6ddd7207862efad8562e6e44d0"
+        },
+        {
+          "index": 7264,
+          "line": 7265,
+          "locus": "theognostus_canones_cramer_0204.29",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.29\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τόνον ἔχοντα, καὶ ἐν τῇ πρ\"}\n",
+          "original_line_sha256": "b5be17fc83bccbec6f6e8681edd35efa5a37c9de4bd3c01cde6f4c30c836d071"
+        },
+        {
+          "index": 7265,
+          "line": 7266,
+          "locus": "theognostus_canones_cramer_0204.30",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.30\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"30 σύμφωνα ἡ καὶ πλείονα, δ\"}\n",
+          "original_line_sha256": "f65d140c72ca04048f7b0abd709462dc5842d684d0df02d1523062cb15d365c8"
+        },
+        {
+          "index": 7266,
+          "line": 7267,
+          "locus": "theognostus_canones_cramer_0204.31",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.31\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἄστεῖος· Καδμεῖος· ἄνδρε\"}\n",
+          "original_line_sha256": "3dd27b41137bebf189bd66f841c9e23be18b96df41866cad4dd963e9d730a9c7"
+        },
+        {
+          "index": 7267,
+          "line": 7268,
+          "locus": "theognostus_canones_cramer_0204.32",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.32\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ναντίος· καὶ ἄλλως δὲ κατ\"}\n",
+          "original_line_sha256": "85627647ef676e46df60d0cbf2ef6190cfed36b2c0ad926b6eaded8c13220098"
+        },
+        {
+          "index": 7268,
+          "line": 7269,
+          "locus": "theognostus_canones_cramer_0204.33",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.33\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"Ἄργειος διὰ τῆς ει διφθ\"}\n",
+          "original_line_sha256": "41a6a0ca19bb971d97d22827d0117dc76301e19e499be1eb5214c79ec4d8523f"
+        },
+        {
+          "index": 7269,
+          "line": 7270,
+          "locus": "theognostus_canones_cramer_0204.34",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.34\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὰ ὑπὲρ δύο συλλαβὰς ἔχ\"}\n",
+          "original_line_sha256": "77231aa10837771019d4348c69517c7a5c3351a69cad9177405e2d592760ff91"
+        },
+        {
+          "index": 7270,
+          "line": 7271,
+          "locus": "theognostus_canones_cramer_0204.35",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.35\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γράφεται· πάντα γὰρ τὰ διὰ τοῦ ι της\"}\n",
+          "original_line_sha256": "af15fc3c3a547cc2a6b7cac5832061cbb782be5f7f11e68d077ace68765fa83f"
+        },
+        {
+          "index": 7271,
+          "line": 7272,
+          "locus": "theognostus_canones_cramer_0204.36",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.36\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"κανόνα τοῦ Ἀσκαλανίτης· αἴτης\"}\n",
+          "original_line_sha256": "2a03108a80ced70087c40e5810b96f362697d874bb340a8e55ba13e569aea3fe"
+        },
+        {
+          "index": 7272,
+          "line": 7273,
+          "locus": "theognostus_canones_cramer_0204.37",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.37\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὁμοίτης τις ὤν.\"}\n",
+          "original_line_sha256": "a84dc62fb14174aee19796ab10b4d02092249d148902ddd6761a1b89d7997072"
+        },
+        {
+          "index": 7273,
+          "line": 7274,
+          "locus": "theognostus_canones_cramer_0204.38",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.38\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὰς ἔρωτικὰς· διὰ τοῦ ι· ὥσπερ ἀπὸ\"}\n",
+          "original_line_sha256": "77d5f6e743ee25caaa05df1e593d21d2f39923ccf504631036a45224c0ef73b6"
+        },
+        {
+          "index": 7274,
+          "line": 7275,
+          "locus": "theognostus_canones_cramer_0204.39",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.39\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γίνεται ἡ δεσπότις διὰ τοῦ ι, οὕτως\"}\n",
+          "original_line_sha256": "9216f6f9c33cd2bc2d90e5e0a492b8e718fdbf1f65e60b70b8a7a4af45db2e14"
+        },
+        {
+          "index": 7275,
+          "line": 7276,
+          "locus": "theognostus_canones_cramer_0204.40",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.40\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ις, αἴτιδος, καὶ ἐκεῖθεν αἰτίας.\"}\n",
+          "original_line_sha256": "3cc06a7ce9d8559d31d173dbd9ce178bc24f2c6d64e8bf4816e8eb4fdc53d77b"
+        },
+        {
+          "index": 7276,
+          "line": 7277,
+          "locus": "theognostus_canones_cramer_0204.41",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.41\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"γράφεται· γέγονε δὲ ἀπὸ τῶν παθητικῶν\"}\n",
+          "original_line_sha256": "4036fd046c37cb5f7412637949bcad2eecd30e9f09c969ee81290abbcd4f8b55"
+        },
+        {
+          "index": 7277,
+          "line": 7278,
+          "locus": "theognostus_canones_cramer_0204.42",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.42\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἀφίζαι, ἀφίκται· καὶ τὸ ἰκανὸς παρὰ\"}\n",
+          "original_line_sha256": "0f8a459e5b54834ca62f59cd937186a373ee16944a541c7660d3a032b856f5a9"
+        },
+        {
+          "index": 7278,
+          "line": 7279,
+          "locus": "theognostus_canones_cramer_0204.43",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.43\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"δύναται παραγένεσθαι ὁ ἰκανός· οὕτως\"}\n",
+          "original_line_sha256": "33fe5bf5e4b80c7a5312a8c096973041662f1dbff8c4d90efe4dbc36e2f2b9fb"
+        },
+        {
+          "index": 7279,
+          "line": 7280,
+          "locus": "theognostus_canones_cramer_0204.44",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.44\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"καὶ ἄλλως· τὰ ἀμφιβαλλόμενα κατὰ\"}\n",
+          "original_line_sha256": "47451478399fb88c1eed8976d9848fac190d15ffcec855cb11657c6579646754"
+        },
+        {
+          "index": 7280,
+          "line": 7281,
+          "locus": "theognostus_canones_cramer_0204.45",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.45\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἢ τὸ ι, ἢ τὸ ν ἐπιφερόμενα, διὰ μόνου\"}\n",
+          "original_line_sha256": "dc5ae9af100d640dcc5fc2d6e933abf8c098955a8c9b6745b53fe4bd11773155"
+        },
+        {
+          "index": 7281,
+          "line": 7282,
+          "locus": "theognostus_canones_cramer_0204.46",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.46\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"· Ἰλιον· δριμύς· βριθύς· Τιφύς· ριπῖς·\"}\n",
+          "original_line_sha256": "7ee9d16518d782e6fcc794a06cacbeee3dfc8dfa041ef51b77ebc369292781ca"
+        },
+        {
+          "index": 7282,
+          "line": 7283,
+          "locus": "theognostus_canones_cramer_0204.47",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.47\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τοῦ ι.\"}\n",
+          "original_line_sha256": "9f0fc3d9a6d1d5702c897eca4308d2256e2bac5a7179f89676e09a4a1bec8041"
+        },
+        {
+          "index": 7283,
+          "line": 7284,
+          "locus": "theognostus_canones_cramer_0204.48",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.48\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οῦ ι τὸ ρι· ἐκ τοῦ ἄργυρός, ἄργύριον,\"}\n",
+          "original_line_sha256": "f391866ae02bfcc46481154bee83604df5b6ff8ee32289e2ad191a8f52dd1c68"
+        },
+        {
+          "index": 7284,
+          "line": 7285,
+          "locus": "theognostus_canones_cramer_0204.49",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.49\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"εἰς ι, καὶ μακρὸν αὐτὸ ἔχει.\"}\n",
+          "original_line_sha256": "eacc6e2afa7bcdaa4b7688c66dfca6d997c3cd49aed860c630017a2e59d4e69f"
+        },
+        {
+          "index": 7285,
+          "line": 7286,
+          "locus": "theognostus_canones_cramer_0204.50",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.50\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"οῦ ι γράφεται κατὰ τὴν παράδοσιν·\"}\n",
+          "original_line_sha256": "7f99adf2528f6b17543e9dcd4f8496a04802c4c92b0cc021e98f481cc43962d7"
+        },
+        {
+          "index": 7286,
+          "line": 7287,
+          "locus": "theognostus_canones_cramer_0204.51",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.51\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἰλασσα· γράφεται δὲ διὰ τοῦ ι, ὅτι τὰ\"}\n",
+          "original_line_sha256": "573ac8f2093319f44c0ecbf649e3f5334d59c253a663f84b216a79af5426e1f0"
+        },
+        {
+          "index": 7287,
+          "line": 7288,
+          "locus": "theognostus_canones_cramer_0204.52",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.52\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"βαρύτονα ὑπὲρ δύο συλλαβὰς ἐνὶ φων-\"}\n",
+          "original_line_sha256": "fac33a7885b84392e4f6573d2162acd51c9a58d8f3db4b4af3433c528421f7a6"
+        },
+        {
+          "index": 7288,
+          "line": 7289,
+          "locus": "theognostus_canones_cramer_0204.53",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.53\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ν, Θεοδότῃ· μελέτῃ· Ἀφροδίτῃ· οὕτως\"}\n",
+          "original_line_sha256": "cb283ac60be29201f438c2a474398f4932fb5860e7aa1199937e93f28c854ced"
+        },
+        {
+          "index": 7289,
+          "line": 7290,
+          "locus": "theognostus_canones_cramer_0204.54",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.54\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τῆς ει διφθόγγου· εἰς δ’ ἐπερείδεται\"}\n",
+          "original_line_sha256": "6371a3edf277f12e141eb737357df173e328fe5f936a74ce8ff004f762fb3d06"
+        },
+        {
+          "index": 7290,
+          "line": 7291,
+          "locus": "theognostus_canones_cramer_0204.55",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.55\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"τὴν παράδοσιν διὰ τῆς ει διφθόγγου\"}\n",
+          "original_line_sha256": "96be567fe0a6ef31bf971146323a361be161a93590cd9882c998e1c1c997a161"
+        },
+        {
+          "index": 7291,
+          "line": 7292,
+          "locus": "theognostus_canones_cramer_0204.56",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.56\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ὡς γὰρ καὶ Αἰγεὺς ὄντα, διὰ τῆς ει θέ-\"}\n",
+          "original_line_sha256": "1bd740e77267bab007ee4d8ae53e8fa514470e57685f84a6a93ead8ccc5f0451"
+        },
+        {
+          "index": 7292,
+          "line": 7293,
+          "locus": "theognostus_canones_cramer_0204.57",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.57\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"· Ἀλκείδης ἐκ τοῦ ἄλκαῖος τροπὴ τῆς\"}\n",
+          "original_line_sha256": "6b4f808488a6e2a89f0aa640760afcaaa901954382302c6c287e832c3c3257f6"
+        },
+        {
+          "index": 7293,
+          "line": 7294,
+          "locus": "theognostus_canones_cramer_0204.58",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.58\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ει διφθόγγου· οἱ γὰρ Αἰολεῖς Ἀργεῖος\"}\n",
+          "original_line_sha256": "2e5034bfa973a4d24d5d814e2e1c1de821296ac8336751a47a0fbfc5efc2f212"
+        },
+        {
+          "index": 7294,
+          "line": 7295,
+          "locus": "theognostus_canones_cramer_0204.59",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.59\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"· καὶ κατὰ κράσιν ἡμεῖς τοῦ ε καὶ ι\"}\n",
+          "original_line_sha256": "9de3b8504ce40cc9dc91485c5f7915aa04541e0a06f9a3a9a60d50a546970cdc"
+        },
+        {
+          "index": 7295,
+          "line": 7296,
+          "locus": "theognostus_canones_cramer_0204.60",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.60\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"λλως· τὰ γὰρ τοιαῦτα πρὸ μιᾶς τὸν\"}\n",
+          "original_line_sha256": "d608d06d9393f3abc8778b7080f95c02c96cc302ca7074cbacb3f44dd42844ba"
+        },
+        {
+          "index": 7296,
+          "line": 7297,
+          "locus": "theognostus_canones_cramer_0204.61",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.61\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"πρώτῃ συλλαβῇ τὸ α, μεθ’ οὗ ἐστι δύο\"}\n",
+          "original_line_sha256": "eefa5155d95a89d0495a32c15015e685b0daa0dc01bb2da1bbcb56a1a18d4916"
+        },
+        {
+          "index": 7297,
+          "line": 7298,
+          "locus": "theognostus_canones_cramer_0204.62",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.62\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"διὰ τῆς ει διφθόγγου γράφεται· οἷον,\"}\n",
+          "original_line_sha256": "a45917bd1edc05b78eff5a856d0ccf830db8f7a1c1c7645b129ecda3e09cbe8e"
+        },
+        {
+          "index": 7298,
+          "line": 7299,
+          "locus": "theognostus_canones_cramer_0204.63",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.63\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ρεῖος· Ἀργεῖος· Βακχεῖος· πλὴν τοῦ\"}\n",
+          "original_line_sha256": "ff21e7450461d8cfd950df8a2c635df10922b3a77be05746cb496d7b5df66c35"
+        },
+        {
+          "index": 7299,
+          "line": 7300,
+          "locus": "theognostus_canones_cramer_0204.64",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.64\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ατὰ ἰω τὸν χαρακτῆρα λέγοντα, ὅτι τὸ\"}\n",
+          "original_line_sha256": "3ef43cfc84b8fd95d13a5f1c0966602d35d06f4051bda277a90d08a9c3594a8c"
+        },
+        {
+          "index": 7300,
+          "line": 7301,
+          "locus": "theognostus_canones_cramer_0204.65",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.65\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"διφθόγγου γράφεται· ἐπειδή τὰ κτητικὰ\"}\n",
+          "original_line_sha256": "274eac2bd9cc0d00590737ba0625a45966db98a6cb7f30601a1a34c435e6f854"
+        },
+        {
+          "index": 7301,
+          "line": 7302,
+          "locus": "theognostus_canones_cramer_0204.66",
+          "original_line": "{\"urn\": \"theognostus.canones-sive-de-orthographia\", \"cts\": \"urn:cts:greekLit:tlg3128.tlg001\", \"edition\": \"qwen36-theognostus_canones_cramer-masked\", \"locus\": \"theognostus_canones_cramer_0204.66\", \"source\": \"ocr\", \"license\": \"PD\", \"text\": \"ἔχοντα μακρὰν τὴν παραλήγουσαν, οὐ-\"}\n",
+          "original_line_sha256": "6a50430b85d8438d0a612e6706fdf1af9b1da815240b7c05fc9fc7e70954f300"
+        }
+      ],
+      "witness_file": "data/corpus_secondary/theognostus.canones-sive-de-orthographia.duplicate-read-review-page-images-round-2-2026-09-14.jsonl",
+      "witness_sha256": "1e32d3382dfc10e30ee650a38c4a0fbdf1cce78e59ac7c7076cbfdd4d7e5a1ce"
+    }
+  },
+  "policy": "Every displacement is a sealed page-image decision. No readings are merged or deleted; displaced rows remain published as secondary witnesses.",
+  "reverse": "python3 scripts/apply_reviewed_duplicate_pages.py --audit data/corpus_changes/issue-33-reviewed.page-images-round-2-2026-09-14.applied.json --unapply"
+}
