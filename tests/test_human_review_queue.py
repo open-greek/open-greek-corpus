@@ -99,6 +99,23 @@ def test_scan_url_uses_explicit_printed_page_offset(tmp_path):
     assert link == "https://archive.org/details/source-book/page/n607/mode/1up"
 
 
+@pytest.mark.parametrize(("edition", "locus", "expected"), [
+    ("qwen36-walz_rhetores_v1", "530.2",
+     "https://archive.org/details/rhetoresgraeciem01walzuoft/page/n551/mode/1up"),
+    ("qwen36-walz_rhetores_v5", "594.1",
+     "https://archive.org/details/rhetoresgraeciem05walzuoft/page/n601/mode/1up"),
+    ("qwen36-walz_rhetores_v9", "610.1",
+     "https://archive.org/details/rhetoresgraeciem09walzuoft/page/n647/mode/1up"),
+])
+def test_verified_walz_printed_pages_resolve_to_matching_archive_leaves(
+        edition, locus, expected):
+    indexes = review.provenance_indexes(review.Paths(review.REPO))
+
+    assert review.scan_url({
+        "urn": "carved.walz.work", "edition": edition, "locus": locus,
+    }, indexes) == expected
+
+
 def test_scan_url_does_not_guess_printed_page_alignment(tmp_path):
     paths = fixture_paths(tmp_path)
     inventory = paths.data / "inventory"
@@ -365,6 +382,51 @@ def test_raw_ocr_queue_can_select_multiple_pages_per_work(tmp_path):
     )
 
     assert {item["page"] for item in items} == {"scan_0042", "scan_0043"}
+
+
+def test_raw_ocr_queue_can_select_an_exact_work_page(tmp_path):
+    paths = fixture_paths(tmp_path)
+    urn, edition = "raw.work", "qwen-test"
+    write_jsonl(paths.corpus / f"{urn}.jsonl", [
+        {"urn": urn, "edition": edition, "source": "ocr",
+         "locus": "scan_0041.1", "text": "first page"},
+        {"urn": urn, "edition": edition, "source": "ocr",
+         "locus": "scan_0042.1", "text": "requested page"},
+    ])
+    add_scan(paths, urn, edition)
+    with (paths.data / "corpus_catalog.tsv").open("w", encoding="utf-8",
+                                                        newline="") as handle:
+        writer = csv.DictWriter(handle, fieldnames=[
+            "slug", "work_id", "author", "title", "tokens", "source",
+            "correction", "unattested_rate",
+        ], delimiter="\t")
+        writer.writeheader()
+        writer.writerow({
+            "slug": urn, "work_id": "ogc1", "author": "A", "title": "T",
+            "tokens": 100, "source": "ocr", "correction": "raw-ocr",
+            "unattested_rate": 0.2,
+        })
+
+    items, _ = review.build_issue_2(
+        paths, 10, "test", require_scan=True,
+        pages_only={(urn, "scan_0042")},
+    )
+
+    assert [item["page"] for item in items] == ["scan_0042"]
+
+
+def test_raw_ocr_exact_page_selection_rejects_missing_page(tmp_path):
+    paths = fixture_paths(tmp_path)
+    (paths.data / "corpus_catalog.tsv").write_text(
+        "slug\twork_id\tauthor\ttitle\ttokens\tsource\tcorrection\t"
+        "unattested_rate\n",
+        encoding="utf-8",
+    )
+
+    with pytest.raises(SystemExit, match="raw.work=scan_0042"):
+        review.build_issue_2(
+            paths, 10, "test", pages_only={("raw.work", "scan_0042")},
+        )
 
 
 def test_decision_validator_requires_provenance_and_seals_valid_rows(tmp_path):

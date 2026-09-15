@@ -14,6 +14,9 @@ python3 scripts/build_human_review_queue.py build --issue 33 \
 python3 scripts/build_human_review_queue.py build --issue 2 --limit 100
 python3 scripts/build_human_review_queue.py build --issue 2 --limit 100 \
   --require-scan --pages-per-work 5 --exclude data/review/issue-2.jsonl
+python3 scripts/build_human_review_queue.py build --issue 2 --require-scan \
+  --page adrianus-rhetor.meletai=530.2 \
+  --page anonymi-in-hermogenis-de-statibus.peri-ton-staseon-walz-v-591=594.1
 python3 scripts/build_human_review_queue.py build --issue 1 \
   --corrections-log data/corrections_log/applied.jsonl --limit 200
 ```
@@ -22,6 +25,9 @@ Use `--require-scan` when a batch must have exact Archive.org leaf images,
 `--exclude` (repeatable) to omit IDs from earlier queue or sealed JSONL files,
 and `--work SLUG` to build a targeted issue #2 packet. These controls make
 review rounds resumable without changing stable item IDs.
+Use repeatable `--page WORK=PAGE` for a small packet of already identified
+issue #2 leaves. Every requested page must exist and have the required scan;
+the build fails instead of silently substituting a different page.
 
 Each command writes under `data/review/`:
 

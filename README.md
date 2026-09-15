@@ -1996,7 +1996,7 @@ move.
 | milon.fragmentum | Milon - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 54 | auto-corrected |
 | mimnermus-elegy.fragmenta | Mimnermus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 594 | auto-corrected |
 | mimnermus-tragedy.fragmenta | MIMNERMUS TRAGICUS - Fragmenta (TGF Nauck) | qwen36-nauck-tgf-mimnermus | Qwen3.6-27B | 1,088 | raw OCR |
-| minucianus.peri-epicheirematon |  | qwen36-walz_rhetores_v9 | Qwen3.6-27B | 2,297 | raw OCR |
+| minucianus.peri-epicheirematon |  | qwen36-walz_rhetores_v9 | Qwen3.6-27B | 2,296 | raw OCR |
 | mnesimachus-comedy.fragmenta | Mnesimachus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 697 | raw OCR |
 | moderatus.fragmenta | Moderatus - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 609 | auto-corrected |
 | moeris.lexicon-atticum | Moeris - Lexicon Atticum | [archive.org](https://archive.org/details/moeridisatticis00moergoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,061 | auto-corrected |

@@ -13,6 +13,8 @@ Build examples::
   python3 scripts/build_human_review_queue.py build --issue 1 \
       --corrections-log data/corrections_log/applied.jsonl --limit 200
   python3 scripts/build_human_review_queue.py build --issue 2 --limit 100
+  python3 scripts/build_human_review_queue.py build --issue 2 \
+      --page adrianus-rhetor.meletai=530.2
 
 Validate a completed sheet::
 
@@ -548,13 +550,18 @@ def build_issue_1(paths: Paths, limit: int, seed: str,
 def build_issue_2(paths: Paths, limit: int, seed: str,
                   works_only: set[str] | None = None,
                   require_scan: bool = False,
-                  pages_per_work: int = 1) -> tuple[list[dict], list[dict]]:
+                  pages_per_work: int = 1,
+                  pages_only: set[tuple[str, str]] | None = None,
+                  ) -> tuple[list[dict], list[dict]]:
     catalog_path = paths.data / "corpus_catalog.tsv"
     indexes = provenance_indexes(paths)
     with catalog_path.open(encoding="utf-8", newline="") as handle:
         works = [row for row in csv.DictReader(handle, delimiter="\t")
                  if row.get("source") == "ocr" and row.get("correction") == "raw-ocr"]
-    if works_only:
+    if pages_only:
+        works = [row for row in works
+                 if row.get("slug") in {slug for slug, _page in pages_only}]
+    elif works_only:
         works = [row for row in works if row.get("slug") in works_only]
     candidates = []
     for work in works:
@@ -564,6 +571,8 @@ def build_issue_2(paths: Paths, limit: int, seed: str,
         pages = page_rows(path)
         ranked = []
         for page, rows in pages.items():
+            if pages_only and (work["slug"], page) not in pages_only:
+                continue
             text = "\n".join(row.get("text") or "" for row in rows)
             if not text.strip():
                 continue
@@ -575,7 +584,10 @@ def build_issue_2(paths: Paths, limit: int, seed: str,
                       if exact_scan_url(candidate[5])]
         if not ranked:
             continue
-        for _, _, _, page, rows, link, text in sorted(ranked)[:pages_per_work]:
+        selected = sorted(ranked)
+        if not pages_only:
+            selected = selected[:pages_per_work]
+        for _, _, _, page, rows, link, text in selected:
             item_id = stable_id(2, work["slug"], page)
             candidates.append({
                 "item_id": item_id,
@@ -622,7 +634,20 @@ def build_issue_2(paths: Paths, limit: int, seed: str,
         -len(_GK.findall(item["text"])),
         stable_id(2, seed, item["work"]["slug"], item["page"]),
     ))
+    if pages_only:
+        found = {(item["work"]["slug"], item["page"]) for item in candidates}
+        missing = sorted(pages_only - found)
+        if missing:
+            rendered = ", ".join(f"{slug}={page}" for slug, page in missing)
+            raise SystemExit(f"requested issue #2 pages not found: {rendered}")
     return candidates[:limit], [catalog_path, *provenance_source_paths(paths)]
+
+
+def work_page(value: str) -> tuple[str, str]:
+    slug, separator, page = value.partition("=")
+    if not separator or not slug or not page:
+        raise argparse.ArgumentTypeError("expected WORK=PAGE")
+    return slug, page
 
 
 def file_sha256(path: Path) -> str:
@@ -797,6 +822,9 @@ def parse_args() -> argparse.Namespace:
                        default=Path("data/corrections_log/applied.jsonl"))
     build.add_argument("--work", action="append", default=[],
                        help="for issue #2, restrict the packet to this work slug")
+    build.add_argument("--page", type=work_page, action="append", default=[],
+                       metavar="WORK=PAGE",
+                       help="for issue #2, include this exact work page; repeatable")
     build.add_argument("--pages-per-work", type=int, default=1,
                        help="for issue #2, consider this many ranked pages per work")
     build.add_argument("--require-scan", action="store_true",
@@ -826,6 +854,14 @@ def main() -> None:
     paths = Paths(REPO)
     if args.work and args.issue != 2:
         raise SystemExit("--work is only valid for issue #2")
+    if args.page and args.issue != 2:
+        raise SystemExit("--page is only valid for issue #2")
+    if args.work and args.page:
+        raise SystemExit("--work and --page cannot be combined")
+    if args.page and args.pages_per_work != 1:
+        raise SystemExit("--pages-per-work cannot be combined with --page")
+    if args.page and args.limit < len(set(args.page)):
+        raise SystemExit("--limit is smaller than the number of requested pages")
     if args.pages_per_work != 1 and args.issue != 2:
         raise SystemExit("--pages-per-work is only valid for issue #2")
     if args.run_extensions and args.issue != 33:
@@ -847,7 +883,7 @@ def main() -> None:
     elif args.issue == 2:
         items, inputs = build_issue_2(
             paths, build_limit, args.seed, set(args.work), args.require_scan,
-            args.pages_per_work,
+            args.pages_per_work, set(args.page),
         )
     else:
         corrections_log = args.corrections_log
