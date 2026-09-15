@@ -1,12 +1,12 @@
 {
  "corpus": {
-  "passages": 1972138,
-  "tokens": 65295954,
-  "tokens_lemmatized": 63448467,
+  "passages": 1971285,
+  "tokens": 65287717,
+  "tokens_lemmatized": 63440389,
   "works": 3909
  },
  "generated_from": {
-  "commit": "c4afad137809c1e3bc194f2bab3e3c7bef1786f1",
+  "commit": "589f6b50d9aef409ff3156f29d2dc0ebf7c23c91",
   "commit_date": "2026-09-14",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -21,7 +21,7 @@
    "works": 2421
   },
   "PD": {
-   "tokens": 26696788,
+   "tokens": 26688551,
    "works": 1233
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -60,18 +60,18 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "fc5958fa07c2d65e7db0afa874c2386ce9f3eb6f0ad4e2fe088f2bb68ee7203a",
-  "corpus_sha256": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc",
+  "catalog_sha256": "bcbb939dfa986cdeb5ef5112fd7387be56ae6018a0bb9a31b773422628e0fdb6",
+  "corpus_sha256": "a69fe0440e85590096b201dd2ba99af9eeed078b3ceacdf3958eb86207fa8e17",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20699253,
+    "tokens": 20695464,
     "works": 888
    },
    "manual": {
-    "tokens": 5560987,
+    "tokens": 5560262,
     "works": 129
    },
    "not-ocr": {
@@ -79,18 +79,18 @@
     "works": 2497
    },
    "raw-ocr": {
-    "tokens": 2909111,
+    "tokens": 2905388,
     "works": 395
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
    "ocr_share_of_corpus_tokens": 0.4467,
-   "ocr_tokens": 29169351,
+   "ocr_tokens": 29161114,
    "ocr_works": 1412,
-   "raw_share_of_corpus_tokens": 0.0446,
-   "raw_share_of_ocr_tokens": 0.0997,
-   "raw_tokens": 2909111,
+   "raw_share_of_corpus_tokens": 0.0445,
+   "raw_share_of_ocr_tokens": 0.0996,
+   "raw_tokens": 2905388,
    "raw_works": 395,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
@@ -299,25 +299,25 @@
     "artifact": "data/correction_stamp_gap.json",
     "by_method": {
      "agent": 1154,
-     "confusion": 741,
-     "freq": 9104,
-     "llm": 32109,
+     "confusion": 738,
+     "freq": 9105,
+     "llm": 32106,
      "prosodia": 516
     },
     "correction_population_checked": false,
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "fc5958fa07c2d65e7db0afa874c2386ce9f3eb6f0ad4e2fe088f2bb68ee7203a",
-     "corpus_sha256": "83fdb2756a58723aebf6932e78490eb08030c373de17440703622714d6dec7cc"
+     "catalog_sha256": "bcbb939dfa986cdeb5ef5112fd7387be56ae6018a0bb9a31b773422628e0fdb6",
+     "corpus_sha256": "a69fe0440e85590096b201dd2ba99af9eeed078b3ceacdf3958eb86207fa8e17"
     },
-    "pairs": 43624,
+    "pairs": 43619,
     "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
     "raw_share_lower_bound": 0.0373,
     "raw_share_tokens_in_doubt": 472361,
-    "raw_share_upper_bound": 0.0446,
-    "raw_tokens_lower_bound": 2436750,
-    "raw_tokens_upper_bound": 2909111,
+    "raw_share_upper_bound": 0.0445,
+    "raw_tokens_lower_bound": 2433027,
+    "raw_tokens_upper_bound": 2905388,
     "raw_works_in_doubt": 22,
     "stale": false,
     "tool": "scripts/measure_stamp_gap.py",
@@ -342,7 +342,7 @@
   }
  },
  "release_date": "2026-09-14",
- "release_id": "corpus-2026-09-14.3",
+ "release_id": "corpus-2026-09-14.4",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -377,7 +377,7 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25047860,
+   "tokens": 25039623,
    "works": 1214
   },
   "perseus": {
