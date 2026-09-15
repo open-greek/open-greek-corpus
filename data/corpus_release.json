@@ -1,12 +1,12 @@
 {
  "corpus": {
   "passages": 1970947,
-  "tokens": 65285436,
-  "tokens_lemmatized": 63438250,
+  "tokens": 65285435,
+  "tokens_lemmatized": 63438253,
   "works": 3909
  },
  "generated_from": {
-  "commit": "c07d17f9f3de86c99e16bc4e32300be9955d8671",
+  "commit": "1fe04f007c6deff7b0cc1fdb9f4116395dc5ff89",
   "commit_date": "2026-09-15",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -21,7 +21,7 @@
    "works": 2421
   },
   "PD": {
-   "tokens": 26686270,
+   "tokens": 26686269,
    "works": 1233
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3909,
-  "catalog_sha256": "964f27fa57174514e4c349ef5dc9ce8cab4f017bb2b81050d142fc6409beb5c0",
-  "corpus_sha256": "c503aa08ec19d16871269e4344116f478ba7c642ada985772fb0694bf1185a18",
+  "catalog_sha256": "91d4300cbe900929a2fbe0a33db51e51791da7a0e2cd724645a3513781b7a6d9",
+  "corpus_sha256": "7369350964b5baa948595a5b4ac45165ccf0c5f6812a07565233be11a4c32071",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -79,18 +79,18 @@
     "works": 2497
    },
    "raw-ocr": {
-    "tokens": 2903357,
+    "tokens": 2903356,
     "works": 395
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
    "ocr_share_of_corpus_tokens": 0.4466,
-   "ocr_tokens": 29158833,
+   "ocr_tokens": 29158832,
    "ocr_works": 1412,
    "raw_share_of_corpus_tokens": 0.0445,
    "raw_share_of_ocr_tokens": 0.0996,
-   "raw_tokens": 2903357,
+   "raw_tokens": 2903356,
    "raw_works": 395,
    "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
   },
@@ -308,16 +308,16 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "964f27fa57174514e4c349ef5dc9ce8cab4f017bb2b81050d142fc6409beb5c0",
-     "corpus_sha256": "c503aa08ec19d16871269e4344116f478ba7c642ada985772fb0694bf1185a18"
+     "catalog_sha256": "91d4300cbe900929a2fbe0a33db51e51791da7a0e2cd724645a3513781b7a6d9",
+     "corpus_sha256": "7369350964b5baa948595a5b4ac45165ccf0c5f6812a07565233be11a4c32071"
     },
     "pairs": 43619,
     "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
     "raw_share_lower_bound": 0.0372,
     "raw_share_tokens_in_doubt": 472361,
     "raw_share_upper_bound": 0.0445,
-    "raw_tokens_lower_bound": 2430996,
-    "raw_tokens_upper_bound": 2903357,
+    "raw_tokens_lower_bound": 2430995,
+    "raw_tokens_upper_bound": 2903356,
     "raw_works_in_doubt": 22,
     "stale": false,
     "tool": "scripts/measure_stamp_gap.py",
@@ -342,7 +342,7 @@
   }
  },
  "release_date": "2026-09-15",
- "release_id": "corpus-2026-09-15",
+ "release_id": "corpus-2026-09-15.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -377,7 +377,7 @@
    "works": 5
   },
   "ocr": {
-   "tokens": 25037342,
+   "tokens": 25037341,
    "works": 1214
   },
   "perseus": {
