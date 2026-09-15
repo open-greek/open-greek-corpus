@@ -11,14 +11,14 @@
    "ocr"
   ]
  },
- "files_scanned": 4424,
- "candidates": 1859,
- "clean_second_copies": 686,
- "clean_second_copies_tokens": 196897,
- "clean_second_copies_served": 247,
- "clean_second_copies_served_tokens": 71255,
- "overlapping_not_copies": 1173,
- "overlapping_not_copies_tokens": 400870,
+ "files_scanned": 4437,
+ "candidates": 1834,
+ "clean_second_copies": 662,
+ "clean_second_copies_tokens": 190696,
+ "clean_second_copies_served": 219,
+ "clean_second_copies_served_tokens": 64166,
+ "overlapping_not_copies": 1172,
+ "overlapping_not_copies_tokens": 401116,
  "served_droppable_by_containment": [
   {
    "band": "0.99+",
@@ -36,17 +36,17 @@
   },
   {
    "band": "0.80-0.90",
-   "pairs": 64,
-   "tokens": 21972,
-   "same_item_pairs": 41,
-   "same_item_tokens": 12896
+   "pairs": 47,
+   "tokens": 17227,
+   "same_item_pairs": 24,
+   "same_item_tokens": 8151
   },
   {
    "band": "0.60-0.80",
-   "pairs": 152,
-   "tokens": 40872,
-   "same_item_pairs": 137,
-   "same_item_tokens": 36798
+   "pairs": 141,
+   "tokens": 38528,
+   "same_item_pairs": 126,
+   "same_item_tokens": 34454
   },
   {
    "band": "0.40-0.60",
@@ -382,17 +382,15 @@
   "data/corpus_secondary/pythagoristae-d-k.testimonia-et-fragmenta.jsonl": 31,
   "data/corpus/anaxagoras.testimonia.jsonl": 30,
   "data/corpus_secondary/diogenes-babylonius.testimonia-et-fragmenta.jsonl": 29,
-  "data/corpus/geoponica.geoponica.jsonl": 29,
   "data/corpus_secondary/flavius-justinianus-imperator.novellae.jsonl": 28,
-  "data/corpus/theognostus.canones-sive-de-orthographia.jsonl": 28,
+  "data/corpus/theognostus.canones-sive-de-orthographia.jsonl": 27,
   "data/corpus_secondary/scholia-in-sophoclem.scholia-in-sophoclis-ajacem-scholia-vetera.jsonl": 26,
   "data/corpus/himerius.declamationes-et-orationes.jsonl": 26,
-  "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl": 22,
-  "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": 21,
+  "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl": 24,
+  "data/corpus/geoponica.geoponica.jsonl": 23,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-merged.jsonl": 19,
   "data/corpus_secondary/parmenides.testimonia.jsonl": 19,
-  "data/corpus/antonius-diogenes.hercher.jsonl": 17,
-  "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": 17,
+  "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl": 18,
   "data/corpus/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.jsonl": 17,
   "data/corpus/diogenes-apolloniates.testimonia.jsonl": 15,
   "data/corpus_secondary/diogenes-apolloniates.testimonia.jsonl": 15,
@@ -406,11 +404,13 @@
   "data/corpus/melissus.testimonia.jsonl": 12,
   "data/corpus_secondary/archytas-philosophy.testimonia.jsonl": 12,
   "data/corpus/archytas-philosophy.testimonia.jsonl": 12,
+  "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl": 12,
   "data/corpus_secondary/himerius.declamationes-et-orationes.duplicate-read-merged.jsonl": 12,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read.jsonl": 11,
   "data/corpus_secondary/philolaus.testimonia.jsonl": 11,
   "data/corpus_secondary/antipater.testimonia-et-fragmenta.jsonl": 10,
   "data/corpus/zeno-philosophy.testimonia.jsonl": 10,
+  "data/corpus/antonius-diogenes.hercher.jsonl": 10,
   "data/corpus/heraclitus-philosophy.testimonia.jsonl": 9,
   "data/corpus_secondary/zeno-philosophy.testimonia.jsonl": 9,
   "data/corpus/leucippus.testimonia.jsonl": 9,
@@ -418,12 +418,10 @@
   "data/corpus_secondary/thales.testimonia.jsonl": 9,
   "data/corpus_secondary/leucippus.testimonia.jsonl": 9,
   "data/corpus/cyrillus-theology.thesaurus-de-sancta-consubstantiali-trinitate.jsonl": 9,
-  "data/corpus/pseudo-zonaras.lexicon.jsonl": 8,
   "data/corpus/thales.testimonia.jsonl": 8,
   "data/corpus/xenophanes.testimonia.jsonl": 8,
   "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read-ocr-runs.jsonl": 8,
   "data/corpus_secondary/aeneas-philosophy.theophrastus-sive-de-animarum-immortalitate-et-corporum-resurrectione.duplicate-read.jsonl": 7,
-  "data/corpus/timotheus-history.timotheus-defluviis-ggm2.jsonl": 7,
   "data/corpus_secondary/dialexeis-dissoi-logoi.fragmenta.jsonl": 7,
   "data/corpus/theodoretus.de-providentia-orationes-decem.jsonl": 7,
   "data/corpus_secondary/pythagoras.testimonia.jsonl": 7,
@@ -433,12 +431,14 @@
   "data/corpus/athanasius-theology.expositiones-in-psalmos.jsonl": 6,
   "data/corpus_secondary/pausanias.fragmenta.jsonl": 6,
   "data/corpus_secondary/eusebius-scr-eccl.commentaria-in-psalmos.jsonl": 6,
+  "data/corpus/timotheus-history.timotheus-defluviis-ggm2.jsonl": 6,
   "data/corpus/ocr.pg036.jsonl": 6,
   "data/corpus/theodoretus.interpretatio-in-ezechielem.jsonl": 6,
   "data/corpus/aristides-quintilianus-music.de-musica.jsonl": 6,
   "data/corpus/hecataeus-abderita.testimonia-2.jsonl": 6,
   "data/corpus/scholia-in-aeschylum.scholia-in-aeschylum-scholia-vetera.jsonl": 6,
   "data/corpus/heron.definitiones.jsonl": 6,
+  "data/corpus/pseudo-zonaras.lexicon.jsonl": 5,
   "data/corpus_secondary/epicharmus-et-pseudepicharmea.testimonia.jsonl": 5,
   "data/corpus/joannes-stobaeus-anthologus.anthologium.jsonl": 5,
   "data/corpus/anaxarchus.testimonia.jsonl": 5,
@@ -466,7 +466,6 @@
   "data/corpus_secondary/joannes-damascenus.sacra-parallela-recensiones-secundum-alphabeti-litteras-dispositae.duplicate-read.jsonl": 3,
   "data/corpus/hippocrates.testimonia.jsonl": 3,
   "data/corpus/oenopides.testimonia.jsonl": 3,
-  "data/corpus/sopater-comedy.fragmenta.jsonl": 3,
   "data/corpus_secondary/anaxarchus.testimonia.jsonl": 3,
   "data/corpus/serenus.de-sectione-cylindri.jsonl": 3,
   "data/corpus_secondary/hippocrates.testimonia.jsonl": 3,
@@ -474,6 +473,7 @@
   "data/corpus/epicurus.deperditorum-librorum-reliquiae.jsonl": 3,
   "data/corpus/hippon.testimonia.jsonl": 3,
   "data/corpus/gregorius-nazianzenus.contra-julianum-imperatorem-1-orat-4.jsonl": 3,
+  "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl": 3,
   "data/corpus/joannes-chrysostomus.eclogae-ixlviii-ex-diversis-homiliis-sp.jsonl": 3,
   "data/corpus/aristarchus-ludwich.jsonl": 3,
   "data/corpus/athanasius-theology.de-synodis-arimini-in-italia-et-seleuciae-in-isauria.jsonl": 3,
@@ -482,10 +482,9 @@
   "data/corpus_secondary/basilius-theology.sermo-11-sermo-asceticus-et-exhortatio-de-renuntiatione-mundi.jsonl": 2,
   "data/corpus_secondary/archelaus-philosophy.testimonia.jsonl": 2,
   "data/corpus_secondary/geoponica.geoponica.duplicate-read.jsonl": 2,
-  "data/corpus/didymus.schmidt.jsonl": 2,
-  "data/corpus/scholia-in-theocritum.scholia-vetera-et-recentiora.jsonl": 2,
   "data/corpus/idaeus-philosophy.testimonium.jsonl": 2,
   "data/corpus/archelaus-philosophy.testimonia.jsonl": 2,
+  "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read-review-page-images-2026-09-14.jsonl": 2,
   "data/corpus/anaximenes-philosophy.testimonia.jsonl": 2,
   "data/corpus_secondary/cratylus.testimonia.jsonl": 2,
   "data/corpus_secondary/phaleas-et-hippodamus.testimonia-et-fragmenta.jsonl": 2,
@@ -495,12 +494,11 @@
   "data/corpus/apollonius-philosophy.apotelesmata-sp.jsonl": 2,
   "data/corpus/phaleas-et-hippodamus.testimonia-et-fragmenta.jsonl": 2,
   "data/corpus/theodoretus.eranistes.jsonl": 2,
-  "data/corpus/joannes-laurentius-lydus.de-magistratibus-populi-romani.jsonl": 2,
   "data/corpus/cyrillus-scr-eccl.mystagogiae-1-5-sp.jsonl": 2,
   "data/corpus/constantinus-vii-porphyrogenitus-imperator.de-virtutibus-et-vitiis.jsonl": 2,
-  "data/corpus/priscianus.metaphrasis-in-theophrastum.jsonl": 2,
   "data/corpus/basilius-theology.adversus-eunomium-libri-5.jsonl": 2,
   "data/corpus/cyrillus-scr-eccl.epistula-ad-constantium-imperatorem.jsonl": 2,
+  "data/corpus_secondary/geoponica.geoponica.duplicate-read-review-page-images-2026-09-14.jsonl": 2,
   "data/corpus_secondary/praxagoras.fragmentum.jsonl": 2,
   "data/corpus/theodoretus.graecarum-affectionum-curatio.jsonl": 2,
   "data/corpus/isidorus-scholasticus-anthol-didot.jsonl": 2,
@@ -515,6 +513,7 @@
   "data/corpus/theodoretus.interpretatio-in-jeremiam.jsonl": 2,
   "data/corpus/joannes-chrysostomus.in-epistulam-ad-hebraeos-homiliae-1-34.jsonl": 2,
   "data/corpus/ion-philosophy.testimonia-2.jsonl": 2,
+  "data/corpus/sopater-comedy.fragmenta.jsonl": 2,
   "data/corpus_secondary/ion-philosophy.testimonia-2.jsonl": 2,
   "data/corpus_secondary/metrodorus-philosophy.testimonia.jsonl": 2,
   "data/corpus_secondary/calliphon-et-democedes.testimonia.jsonl": 2,
@@ -541,8 +540,8 @@
   "data/corpus/tlg1595.tlg289.jsonl": 1,
   "data/corpus/joannes-chrysostomus.homilia-dicta-postquam-reliquiae-martyrum.jsonl": 1,
   "data/corpus/hesychius-lexicography.lexicon-o.jsonl": 1,
-  "data/corpus/scholia-in-platonem.scholia-in-platonem-scholia-vetera.jsonl": 1,
   "data/corpus/athanasius-theology.narratio-de-cruce-seu-imagine-berytensi-sp.jsonl": 1,
+  "data/corpus/joannes-laurentius-lydus.de-magistratibus-populi-romani.jsonl": 1,
   "data/corpus/theodoretus.quaestiones-in-octateuchum.jsonl": 1,
   "data/corpus/menestor.testimonia.jsonl": 1,
   "data/corpus_secondary/eurytus.testimonia.jsonl": 1,
@@ -554,6 +553,7 @@
   "data/corpus/aristophanes-byzantii-nauck.jsonl": 1,
   "data/corpus/joannes-damascenus.adversus-iconoclastas-sp.jsonl": 1,
   "data/corpus/gregorius-nazianzenus.in-sancta-lumina-orat-39.jsonl": 1,
+  "data/corpus/didymus.schmidt.jsonl": 1,
   "data/corpus/theodoretus.commentaria-in-isaiam.jsonl": 1,
   "data/corpus/alexander-lyric.fragmenta.jsonl": 1,
   "data/corpus_secondary/nonnosus.fragmenta.jsonl": 1,
@@ -564,6 +564,7 @@
   "data/corpus/brotinus.testimonia.jsonl": 1,
   "data/corpus/rhinthon.fragmenta.jsonl": 1,
   "data/corpus/heraclides-ponticus-junior-grammar.fragmenta.jsonl": 1,
+  "data/corpus/priscianus.metaphrasis-in-theophrastum.jsonl": 1,
   "data/corpus/joannes-chrysostomus.in-genesim-sermones-1-9.jsonl": 1,
   "data/corpus/polyclitus.testimonia.jsonl": 1,
   "data/corpus/scholia-in-demosthenem.scholia-demosthenem-dindorf-v8.jsonl": 1,
@@ -573,8 +574,7 @@
   "data/corpus/joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos.jsonl": 1,
   "data/corpus/basilius-theology.regulae-morales.jsonl": 1,
   "data/corpus/cyrillus-scr-eccl.catecheses-ad-illuminandos-1-18.jsonl": 1,
-  "data/corpus_secondary/theopompus-history.testimonia.jsonl": 1,
-  "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl": 1
+  "data/corpus_secondary/theopompus-history.testimonia.jsonl": 1
  },
  "pairs": [
   {
@@ -2999,25 +2999,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/didymus.schmidt.jsonl",
-   "served": true,
-   "locus_a": "didymus_schmidt_0132",
-   "locus_b": "didymus_schmidt_0134",
-   "containment": 0.8945,
-   "bigrams_a": 256,
-   "bigrams_b": 266,
-   "tokens_b": 279,
-   "words_absent_from_a": 17,
-   "words_b": 279,
-   "unique_runs_if_b_dropped": [
-    "δεκα στος ουχ"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus/cyrillus-theology.quod-unus-sit-christus.jsonl",
    "served": true,
    "locus_a": "pg075_0663",
@@ -3107,23 +3088,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/scholia-in-theocritum.scholia-vetera-et-recentiora.jsonl",
-   "served": true,
-   "locus_a": "scholia_oppianum_bussemaker_didot_0059",
-   "locus_b": "scholia_oppianum_bussemaker_didot_0061",
-   "containment": 0.8907,
-   "bigrams_a": 677,
-   "bigrams_b": 686,
-   "tokens_b": 740,
-   "words_absent_from_a": 38,
-   "words_b": 740,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
    "run": null
   },
   {
@@ -4147,25 +4111,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/timotheus-history.timotheus-defluviis-ggm2.jsonl",
-   "served": true,
-   "locus_a": "timotheus_defluviis_ggm2_0545",
-   "locus_b": "timotheus_defluviis_ggm2_0547",
-   "containment": 0.8719,
-   "bigrams_a": 443,
-   "bigrams_b": 437,
-   "tokens_b": 526,
-   "words_absent_from_a": 26,
-   "words_b": 526,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "πεφωτισμενα καθ ολην"
-   ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus/archelaus-philosophy.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0354",
@@ -4377,8 +4322,8 @@
    "run": null
   },
   {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
+   "file": "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read-review-page-images-2026-09-14.jsonl",
+   "served": false,
    "locus_a": "antonius_diogenes_hercher_0152",
    "locus_b": "antonius_diogenes_hercher_0164",
    "containment": 0.869,
@@ -4480,29 +4425,6 @@
    "run": "dindorf_aristides_v2+26@745"
   },
   {
-   "file": "data/corpus/pseudo-zonaras.lexicon.jsonl",
-   "served": true,
-   "locus_a": "zonaras_lexicon_v1_0268",
-   "locus_b": "zonaras_lexicon_v1_0278",
-   "containment": 0.8667,
-   "bigrams_a": 240,
-   "bigrams_b": 276,
-   "tokens_b": 288,
-   "words_absent_from_a": 37,
-   "words_b": 288,
-   "unique_runs_if_b_dropped": [
-    "απαιρειτητως απρω δλονυκτως",
-    "απροιτως συν ημιν",
-    "ιεροτατος απρω διενυκτερειεν απεκος",
-    "απιτιον δει απεχεσθαι",
-    "ε μ ατοτομως αποστομως"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus/anaximenes-philosophy.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0037",
@@ -4527,23 +4449,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/pseudo-zonaras.lexicon.jsonl",
-   "served": true,
-   "locus_a": "zonaras_lexicon_v1_0665",
-   "locus_b": "zonaras_lexicon_v1_0673",
-   "containment": 0.8663,
-   "bigrams_a": 172,
-   "bigrams_b": 172,
-   "tokens_b": 177,
-   "words_absent_from_a": 12,
-   "words_b": 177,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 8,
    "run": null
   },
   {
@@ -5258,23 +5163,6 @@
    "run": "dindorf_aristides_v2+26@745"
   },
   {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
-   "locus_a": "antonius_diogenes_hercher_0286",
-   "locus_b": "antonius_diogenes_hercher_0288",
-   "containment": 0.8549,
-   "bigrams_a": 194,
-   "bigrams_b": 193,
-   "tokens_b": 199,
-   "words_absent_from_a": 13,
-   "words_b": 199,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/diogenes-babylonius.testimonia-et-fragmenta.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0238",
@@ -5313,6 +5201,30 @@
    "run": null
   },
   {
+   "file": "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl",
+   "files_a": [
+    "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read-review-page-images-2026-09-14.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "antonius_diogenes_hercher_0125",
+   "locus_b": "antonius_diogenes_hercher_0137",
+   "containment": 0.8539,
+   "bigrams_a": 221,
+   "bigrams_b": 219,
+   "tokens_b": 221,
+   "words_absent_from_a": 15,
+   "words_b": 221,
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": [],
+   "same_item": true,
+   "page_offset": null,
+   "run": null
+  },
+  {
    "file": "data/corpus_secondary/ocr.dindorf_aristides_v2.jsonl",
    "served": false,
    "locus_a": "dindorf_aristides_v2_0762",
@@ -5344,6 +5256,30 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 10,
+   "run": null
+  },
+  {
+   "file": "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read-review-page-images-2026-09-14.jsonl",
+   "files_a": [
+    "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read-review-page-images-2026-09-14.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "antonius_diogenes_hercher_0196",
+   "locus_b": "antonius_diogenes_hercher_0206",
+   "containment": 0.8532,
+   "bigrams_a": 218,
+   "bigrams_b": 221,
+   "tokens_b": 231,
+   "words_absent_from_a": 17,
+   "words_b": 231,
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": [],
+   "same_item": true,
+   "page_offset": null,
    "run": null
   },
   {
@@ -5791,23 +5727,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/sopater-comedy.fragmenta.jsonl",
-   "served": true,
-   "locus_a": "sopater_kaibel_cgf_0097",
-   "locus_b": "sopater_kaibel_cgf_0103",
-   "containment": 0.8471,
-   "bigrams_a": 157,
-   "bigrams_b": 157,
-   "tokens_b": 163,
-   "words_absent_from_a": 13,
-   "words_b": 163,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 6,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0059",
@@ -6003,23 +5922,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
-   "locus_a": "antonius_diogenes_hercher_0196",
-   "locus_b": "antonius_diogenes_hercher_0214",
-   "containment": 0.844,
-   "bigrams_a": 218,
-   "bigrams_b": 220,
-   "tokens_b": 230,
-   "words_absent_from_a": 18,
-   "words_b": 230,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 18,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0024",
@@ -6034,23 +5936,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
-   "locus_a": "antonius_diogenes_hercher_0164",
-   "locus_b": "antonius_diogenes_hercher_0174",
-   "containment": 0.8435,
-   "bigrams_a": 230,
-   "bigrams_b": 233,
-   "tokens_b": 237,
-   "words_absent_from_a": 17,
-   "words_b": 237,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -6731,26 +6616,6 @@
    "run": "justinian_novellae_v2+8@76"
   },
   {
-   "file": "data/corpus/theognostus.canones-sive-de-orthographia.jsonl",
-   "served": true,
-   "locus_a": "theognostus_canones_cramer_0201",
-   "locus_b": "theognostus_canones_cramer_0211",
-   "containment": 0.8351,
-   "bigrams_a": 297,
-   "bigrams_b": 291,
-   "tokens_b": 355,
-   "words_absent_from_a": 17,
-   "words_b": 355,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "παθη δ ηριμαι",
-    "προπαραξυτονα συστελλουο γινος"
-   ],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus/parmenides.testimonia.jsonl",
    "served": true,
    "locus_a": "empedocles_diels_ppf_0068",
@@ -6804,23 +6669,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
-   "locus_a": "antonius_diogenes_hercher_0152",
-   "locus_b": "antonius_diogenes_hercher_0174",
-   "containment": 0.8341,
-   "bigrams_a": 229,
-   "bigrams_b": 233,
-   "tokens_b": 237,
-   "words_absent_from_a": 20,
-   "words_b": 237,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 22,
    "run": null
   },
   {
@@ -7320,23 +7168,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 8,
-   "run": null
-  },
-  {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0384",
-   "locus_b": "scholia_aristidem_frommel1826_0394",
-   "containment": 0.8273,
-   "bigrams_a": 220,
-   "bigrams_b": 221,
-   "tokens_b": 227,
-   "words_absent_from_a": 17,
-   "words_b": 227,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -8797,6 +8628,34 @@
    "run": null
   },
   {
+   "file": "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl",
+   "files_a": [
+    "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/antonius-diogenes.hercher.duplicate-read-review-page-images-2026-09-14.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "antonius_diogenes_hercher_0131",
+   "locus_b": "antonius_diogenes_hercher_0137",
+   "containment": 0.8056,
+   "bigrams_a": 216,
+   "bigrams_b": 219,
+   "tokens_b": 221,
+   "words_absent_from_a": 24,
+   "words_b": 221,
+   "unique_runs_if_b_dropped": [
+    "φο νευει καυδαυλην"
+   ],
+   "unique_runs_if_a_dropped": [
+    "λος αγαμεμνον ποδη"
+   ],
+   "same_item": true,
+   "page_offset": null,
+   "run": null
+  },
+  {
    "file": "data/corpus_secondary/empedocles.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0235",
@@ -8863,23 +8722,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 32,
-   "run": null
-  },
-  {
-   "file": "data/corpus/geoponica.geoponica.jsonl",
-   "served": true,
-   "locus_a": "geoponica_beckh_0447",
-   "locus_b": "geoponica_beckh_0449",
-   "containment": 0.8047,
-   "bigrams_a": 169,
-   "bigrams_b": 173,
-   "tokens_b": 189,
-   "words_absent_from_a": 15,
-   "words_b": 189,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
    "run": null
   },
   {
@@ -8984,25 +8826,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
-   "locus_a": "antonius_diogenes_hercher_0115",
-   "locus_b": "antonius_diogenes_hercher_0137",
-   "containment": 0.8028,
-   "bigrams_a": 218,
-   "bigrams_b": 219,
-   "tokens_b": 221,
-   "words_absent_from_a": 24,
-   "words_b": 221,
-   "unique_runs_if_b_dropped": [
-    "φο νευει καυδαυλην"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 22,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-moralia.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0185",
@@ -9023,23 +8846,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/geoponica.geoponica.jsonl",
-   "served": true,
-   "locus_a": "geoponica_beckh_0422",
-   "locus_b": "geoponica_beckh_0434",
-   "containment": 0.802,
-   "bigrams_a": 198,
-   "bigrams_b": 197,
-   "tokens_b": 201,
-   "words_absent_from_a": 18,
-   "words_b": 201,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 12,
    "run": null
   },
   {
@@ -9076,23 +8882,6 @@
    "unique_runs_if_a_dropped": [
     "λυγηνας υποψιθυριζουσι τους δακτυλους"
    ],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0380",
-   "locus_b": "scholia_aristidem_frommel1826_0390",
-   "containment": 0.8017,
-   "bigrams_a": 232,
-   "bigrams_b": 233,
-   "tokens_b": 241,
-   "words_absent_from_a": 18,
-   "words_b": 241,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 10,
    "run": null
@@ -9232,23 +9021,6 @@
    ],
    "same_item": true,
    "page_offset": 24,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-laurentius-lydus.de-magistratibus-populi-romani.jsonl",
-   "served": true,
-   "locus_a": "lydus_mensibus_wuensch_0185",
-   "locus_b": "lydus_mensibus_wuensch_0187",
-   "containment": 0.7991,
-   "bigrams_a": 219,
-   "bigrams_b": 214,
-   "tokens_b": 225,
-   "words_absent_from_a": 22,
-   "words_b": 225,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
    "run": null
   },
   {
@@ -9672,27 +9444,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0229",
-   "locus_b": "scholia_aristidem_frommel1826_0239",
-   "containment": 0.7957,
-   "bigrams_a": 189,
-   "bigrams_b": 186,
-   "tokens_b": 202,
-   "words_absent_from_a": 22,
-   "words_b": 202,
-   "unique_runs_if_b_dropped": [
-    "ονου γωνιαι δυσιν ορθαις"
-   ],
-   "unique_runs_if_a_dropped": [
-    "δον γυνη διδυμον ορθως"
-   ],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus/parmenides.testimonia.jsonl",
    "served": true,
    "locus_a": "anaxagoras_diels_vs1_0134",
@@ -9799,31 +9550,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-theocritum.scholia-vetera-et-recentiora.jsonl",
-   "served": true,
-   "locus_a": "scholia_oppianum_bussemaker_didot_0058",
-   "locus_b": "scholia_oppianum_bussemaker_didot_0060",
-   "containment": 0.7935,
-   "bigrams_a": 678,
-   "bigrams_b": 691,
-   "tokens_b": 760,
-   "words_absent_from_a": 83,
-   "words_b": 760,
-   "unique_runs_if_b_dropped": [
-    "κλεψαντα κουαταν συδαρτα",
-    "ε ν υ",
-    "ε ν κακε χακοτροπε",
-    "κωδιων συνερραμμενα περιβολαια"
-   ],
-   "unique_runs_if_a_dropped": [
-    "χλεψαντα κοματαν συβαρτα",
-    "χυδιων συνεραμμενα περιβολεια"
-   ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/parmenides.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0136",
@@ -9849,23 +9575,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/priscianus.metaphrasis-in-theophrastum.jsonl",
-   "served": true,
-   "locus_a": "priscianus_lydus_bywater_0106",
-   "locus_b": "priscianus_lydus_bywater_0108",
-   "containment": 0.7928,
-   "bigrams_a": 304,
-   "bigrams_b": 305,
-   "tokens_b": 317,
-   "words_absent_from_a": 34,
-   "words_b": 317,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
    "run": null
   },
   {
@@ -9909,43 +9618,6 @@
    ],
    "same_item": true,
    "page_offset": 10,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
-   "served": true,
-   "locus_a": "tzetzes_historiae_kiessling_0569",
-   "locus_b": "tzetzes_historiae_kiessling_0577",
-   "containment": 0.7925,
-   "bigrams_a": 212,
-   "bigrams_b": 212,
-   "tokens_b": 219,
-   "words_absent_from_a": 24,
-   "words_b": 219,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 8,
-   "run": null
-  },
-  {
-   "file": "data/corpus/scholia-in-platonem.scholia-in-platonem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_platonem_zurich_0552",
-   "locus_b": "scholia_platonem_zurich_0554",
-   "containment": 0.7925,
-   "bigrams_a": 211,
-   "bigrams_b": 159,
-   "tokens_b": 173,
-   "words_absent_from_a": 11,
-   "words_b": 173,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "επει ουκ εστι",
-    "υχ οιον τ ουδενι"
-   ],
-   "same_item": true,
-   "page_offset": 2,
    "run": null
   },
   {
@@ -10154,25 +9826,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/geoponica.geoponica.jsonl",
-   "served": true,
-   "locus_a": "geoponica_beckh_0274",
-   "locus_b": "geoponica_beckh_0276",
-   "containment": 0.7901,
-   "bigrams_a": 182,
-   "bigrams_b": 181,
-   "tokens_b": 193,
-   "words_absent_from_a": 15,
-   "words_b": 193,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "ς ς ς"
-   ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read.jsonl",
    "files_a": [
     "data/corpus_secondary/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.duplicate-read.jsonl"
@@ -10266,42 +9919,6 @@
    "run": "pg024+10@12"
   },
   {
-   "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
-   "served": true,
-   "locus_a": "tzetzes_historiae_kiessling_0492",
-   "locus_b": "tzetzes_historiae_kiessling_0494",
-   "containment": 0.7892,
-   "bigrams_a": 166,
-   "bigrams_b": 169,
-   "tokens_b": 171,
-   "words_absent_from_a": 17,
-   "words_b": 172,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "παραφδια ωπερ εφερμηνευων"
-   ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
-   "file": "data/corpus/joannes-tzetzes.tzetzes-historiae-kiessling.jsonl",
-   "served": true,
-   "locus_a": "tzetzes_historiae_kiessling_0092",
-   "locus_b": "tzetzes_historiae_kiessling_0102",
-   "containment": 0.7889,
-   "bigrams_a": 180,
-   "bigrams_b": 180,
-   "tokens_b": 182,
-   "words_absent_from_a": 22,
-   "words_b": 182,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/zeno-philosophy.testimonia.jsonl",
    "served": false,
    "locus_a": "protagoras_diels_vs1_0156",
@@ -10358,28 +9975,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/pseudo-zonaras.lexicon.jsonl",
-   "served": true,
-   "locus_a": "zonaras_lexicon_v1_0262",
-   "locus_b": "zonaras_lexicon_v1_0272",
-   "containment": 0.7882,
-   "bigrams_a": 203,
-   "bigrams_b": 251,
-   "tokens_b": 261,
-   "words_absent_from_a": 47,
-   "words_b": 261,
-   "unique_runs_if_b_dropped": [
-    "αποισεσθαι αποισεσθαι ε απαιδοντες",
-    "αφηναι καπεδραυν διερο δ"
-   ],
-   "unique_runs_if_a_dropped": [
-    "θουκυδι δης απουσιασει"
-   ],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -10652,23 +10247,6 @@
    "unique_runs_if_a_dropped": [
     "πυρ αποδεικνυσα αυτον"
    ],
-   "same_item": true,
-   "page_offset": 2,
-   "run": null
-  },
-  {
-   "file": "data/corpus/geoponica.geoponica.jsonl",
-   "served": true,
-   "locus_a": "geoponica_beckh_0120",
-   "locus_b": "geoponica_beckh_0122",
-   "containment": 0.7836,
-   "bigrams_a": 172,
-   "bigrams_b": 171,
-   "tokens_b": 183,
-   "words_absent_from_a": 19,
-   "words_b": 183,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 2,
    "run": null
@@ -11200,23 +10778,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0050",
-   "locus_b": "scholia_aristidem_frommel1826_0060",
-   "containment": 0.7787,
-   "bigrams_a": 253,
-   "bigrams_b": 258,
-   "tokens_b": 269,
-   "words_absent_from_a": 24,
-   "words_b": 269,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus/oenopides.testimonia.jsonl",
    "served": true,
    "locus_a": "nausiphanes_diels_fvs2_0256",
@@ -11353,8 +10914,8 @@
    "run": null
   },
   {
-   "file": "data/corpus/geoponica.geoponica.jsonl",
-   "served": true,
+   "file": "data/corpus_secondary/geoponica.geoponica.duplicate-read-review-page-images-2026-09-14.jsonl",
+   "served": false,
    "locus_a": "geoponica_beckh_0276",
    "locus_b": "geoponica_beckh_0282",
    "containment": 0.7765,
@@ -11791,25 +11352,6 @@
    "run": null
   },
   {
-   "file": "data/corpus/scholia-in-aelium-aristidem.scholia-in-aelium-aristidem-scholia-vetera.jsonl",
-   "served": true,
-   "locus_a": "scholia_aristidem_frommel1826_0386",
-   "locus_b": "scholia_aristidem_frommel1826_0396",
-   "containment": 0.7718,
-   "bigrams_a": 206,
-   "bigrams_b": 210,
-   "tokens_b": 220,
-   "words_absent_from_a": 20,
-   "words_b": 220,
-   "unique_runs_if_b_dropped": [
-    "συγχωρει εστιαν ακινητον"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 10,
-   "run": null
-  },
-  {
    "file": "data/corpus_secondary/chrysippus-philosophy.fragmenta-ad-singulos-libros-relata.jsonl",
    "served": false,
    "locus_a": "apollodorus_seleuc_svf3_0206",
@@ -11935,31 +11477,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/antonius-diogenes.hercher.jsonl",
-   "served": true,
-   "locus_a": "antonius_diogenes_hercher_0110",
-   "locus_b": "antonius_diogenes_hercher_0120",
-   "containment": 0.77,
-   "bigrams_a": 218,
-   "bigrams_b": 213,
-   "tokens_b": 215,
-   "words_absent_from_a": 28,
-   "words_b": 215,
-   "unique_runs_if_b_dropped": [
-    "ψυχην αφνω προσπεσον",
-    "εις νεωτα ποιη",
-    "τυχη οναρ εδοκουν",
-    "μερη μεχρις ομφαλου"
-   ],
-   "unique_runs_if_a_dropped": [
-    "στρωμνης τον αγ δοκητον",
-    "δεξας ταις χερσι"
-   ],
-   "same_item": true,
-   "page_offset": 10,
    "run": null
   },
   {
@@ -13144,25 +12661,6 @@
    ],
    "same_item": false,
    "page_offset": null,
-   "run": null
-  },
-  {
-   "file": "data/corpus/geoponica.geoponica.jsonl",
-   "served": true,
-   "locus_a": "geoponica_beckh_0274",
-   "locus_b": "geoponica_beckh_0282",
-   "containment": 0.7598,
-   "bigrams_a": 182,
-   "bigrams_b": 179,
-   "tokens_b": 192,
-   "words_absent_from_a": 21,
-   "words_b": 192,
-   "unique_runs_if_b_dropped": [],
-   "unique_runs_if_a_dropped": [
-    "ς ς ς"
-   ],
-   "same_item": true,
-   "page_offset": 8,
    "run": null
   },
   {
@@ -14977,6 +14475,30 @@
    "run": null
   },
   {
+   "file": "data/corpus_secondary/geoponica.geoponica.duplicate-read-review-page-images-2026-09-14.jsonl",
+   "files_a": [
+    "data/corpus_secondary/geoponica.geoponica.duplicate-read-review-page-images-2026-09-14.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/geoponica.geoponica.duplicate-read-ocr-runs.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "geoponica_beckh_0422",
+   "locus_b": "geoponica_beckh_0424",
+   "containment": 0.7411,
+   "bigrams_a": 198,
+   "bigrams_b": 197,
+   "tokens_b": 201,
+   "words_absent_from_a": 22,
+   "words_b": 201,
+   "unique_runs_if_b_dropped": [],
+   "unique_runs_if_a_dropped": [],
+   "same_item": true,
+   "page_offset": null,
+   "run": null
+  },
+  {
    "file": "data/corpus/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.jsonl",
    "served": true,
    "locus_a": "themistiioratio01dindgoog_0605",
@@ -15227,6 +14749,25 @@
    ],
    "same_item": false,
    "page_offset": null,
+   "run": null
+  },
+  {
+   "file": "data/corpus/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.jsonl",
+   "served": true,
+   "locus_a": "themistiioratio01dindgoog_0432",
+   "locus_b": "themistiioratio01dindgoog_0434",
+   "containment": 0.7388,
+   "bigrams_a": 245,
+   "bigrams_b": 247,
+   "tokens_b": 250,
+   "words_absent_from_a": 32,
+   "words_b": 250,
+   "unique_runs_if_b_dropped": [
+    "προτε ραις ομοια"
+   ],
+   "unique_runs_if_a_dropped": [],
+   "same_item": true,
+   "page_offset": 2,
    "run": null
   },
   {
@@ -16084,25 +15625,6 @@
    "unique_runs_if_a_dropped": [],
    "same_item": true,
    "page_offset": 6,
-   "run": null
-  },
-  {
-   "file": "data/corpus/themistius.peri-filanqrwpi-as-h-kwnsta-ntios.jsonl",
-   "served": true,
-   "locus_a": "themistiioratio01dindgoog_0432",
-   "locus_b": "themistiioratio01dindgoog_0434",
-   "containment": 0.7306,
-   "bigrams_a": 245,
-   "bigrams_b": 247,
-   "tokens_b": 250,
-   "words_absent_from_a": 33,
-   "words_b": 250,
-   "unique_runs_if_b_dropped": [
-    "προτε ραις ομοια"
-   ],
-   "unique_runs_if_a_dropped": [],
-   "same_item": true,
-   "page_offset": 2,
    "run": null
   },
   {
@@ -21758,6 +21280,70 @@
    ],
    "same_item": true,
    "page_offset": 24,
+   "run": null
+  },
+  {
+   "file": "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl",
+   "files_a": [
+    "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl",
+    "data/corpus_secondary/scholia-in-theocritum.scholia-vetera-et-recentiora.duplicate-read-review-page-images-2026-09-14.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "scholia_oppianum_bussemaker_didot_0059",
+   "locus_b": "scholia_oppianum_bussemaker_didot_0061",
+   "containment": 0.6691,
+   "bigrams_a": 1085,
+   "bigrams_b": 683,
+   "tokens_b": 733,
+   "words_absent_from_a": 116,
+   "words_b": 733,
+   "unique_runs_if_b_dropped": [
+    "θειαν ηγου καταδου",
+    "βρομων ακουσων ηχων",
+    "ανδρον ηχουν ηζεσθαι",
+    "οφθες ομνησω απει πης απισιωπησης",
+    "αντειργοντων φιλονεικουντων αντιρεζοντων",
+    "ηγου φερον καταδου εριδον",
+    "ζωου πανουργου χινδαθος",
+    "εκειρε ποκιον ελογισσατο ξενεν"
+   ],
+   "unique_runs_if_a_dropped": [
+    "θεινασ ηγουν καταθω",
+    "πραξιλλας τονδον ιδρυμενων",
+    "ανεκραγεν ηγουν προσθεσι",
+    "καιται μ φης",
+    "φιλογιας καιωμενος παραοια",
+    "τοις μυχαισι προσελπεις ωνταπ",
+    "λαν αυτω συνεληφθαι",
+    "οχλονοτι ερωται ορεψαι εκφραμεν",
+    "καγω τουτου ειδειας ηδη αγαρισται",
+    "ωδες υμινον αει τινες αποσπουδασεις",
+    "αντερχοντων φιλανεικουντων αντιφεραζοντων",
+    "ερεις ηγουν φε ρων καταθω εριζω",
+    "κιναδον προσαγορευουσιν τοιουτον",
+    "ζωον πανουργον κιναδος",
+    "πορνη αναλαγνυμεν πορνη καστα εποκιζαστο",
+    "εκαιρε ποκους εποκισατο τε",
+    "ισως ις εκφαλλονων",
+    "εκερισε ποκον ελογισαστο εξεινε",
+    "βουλεσθαι κα ταχα τινες αγλεται",
+    "νικησεις χις τουτοσουτων",
+    "ωσιν τετιγχε σφηχων",
+    "θειναι ηγουν καταθου",
+    "οδης υμνησω απειπησ αποσιωπησης",
+    "τοις χρειττοσι ναντεριζοντων φιλονειχουντων αντιφεριζοντων",
+    "ηγουν φερων καταθου εριζω",
+    "ζωον πανουργον χιναδος",
+    "εχειρε ποχον ελογισατο εζενεν",
+    "βομβων αμουσως ηγων",
+    "βεβληται αδιον ηγουν ηδεως"
+   ],
+   "same_item": true,
+   "page_offset": null,
    "run": null
   },
   {
@@ -28107,6 +27693,53 @@
    ],
    "same_item": true,
    "page_offset": 10,
+   "run": null
+  },
+  {
+   "file": "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl",
+   "files_a": [
+    "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl",
+    "data/corpus_secondary/scholia-in-theocritum.scholia-vetera-et-recentiora.duplicate-read-review-page-images-2026-09-14.jsonl"
+   ],
+   "files_b": [
+    "data/corpus_secondary/scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora.jsonl"
+   ],
+   "cross_file": true,
+   "served": false,
+   "locus_a": "scholia_oppianum_bussemaker_didot_0058",
+   "locus_b": "scholia_oppianum_bussemaker_didot_0060",
+   "containment": 0.6071,
+   "bigrams_a": 1118,
+   "bigrams_b": 672,
+   "tokens_b": 730,
+   "words_absent_from_a": 122,
+   "words_b": 730,
+   "unique_runs_if_b_dropped": [
+    "χωδιω συναγραμμενα περιβολαια",
+    "συσφραις εγχεχορ δυλμημενος",
+    "ουλυμπου χαρινων χοουμενος χηρ"
+   ],
+   "unique_runs_if_a_dropped": [
+    "παραχλευσεις τουτοστιν αποστασιν συγριγγα",
+    "χθες λαβων κομζαταν σ",
+    "δωριεις συδαρτης ποιαν",
+    "τις καλαμης αυλων",
+    "τος σχοινος χαινων",
+    "κωδιων συνηρμμενας περιβολας",
+    "παντε σιφραις εχχεορολην ενος",
+    "κα τ α",
+    "ολυμπιον χαρυνων χωρομενος χερι",
+    "κραδιν μανει κραδιν",
+    "αινες ειμι προστενης ενειν",
+    "χλεψαντα κοματαν συβαρτα",
+    "δωριεις συβαρτης ποιαν",
+    "ειρωνειαν ειρηται εβα εβη",
+    "χυδιων συνεραμμενα περιβολεια",
+    "ουλυμποιο χαρηνων χωομενος κηρ",
+    "απεδυσ αφειλετο εχλεψε"
+   ],
+   "same_item": true,
+   "page_offset": null,
    "run": null
   },
   {
