@@ -58,27 +58,25 @@ _ELISION_CANONICAL = "’"
 # trailing elision mark has lost or detached the mark; treating it as evidence
 # is precisely how a frequency rollup makes a Hunspell dictionary accept junk.
 # Keep this aligned with Dilemma's export-side guard.  Valid unaccented forms
-# such as τε and περ are deliberately absent.
+# such as τε and περ are deliberately absent.  The first set is case-folded
+# only; accent changes can make a complete, distinct word.
 _BARE_ELISION_STEMS = frozenset((
     "δ", "ἀλλ", "δι", "καθ", "κατ", "παρ", "ἐπ", "ἐφ", "οὐδ", "ὑπ", "ἀπ", "μεθ", "τ",
 ))
-_BARE_ELISION_ACCENTS = frozenset(("\u0300", "\u0301", "\u0342"))
+_REVIEWED_ACCENTED_BARE_ELISION_STEMS = frozenset(("ἄλλ", "ἔπ", "ἔφ", "ὕπ", "μέθ", "οὔδ"))
+# Lowercase δί/δὶ are damaged δι’ in the source material, while capitalization
+# identifies the poetic dative of Ζεύς.  Do not case-fold this exception.
+_LOWERCASE_BARE_ELISION_STEMS = frozenset(("δί", "δὶ"))
 
 
 def _bare_elision_stem_key(token: str) -> str:
-    """Case- and accent-insensitive key for known detached elision stems.
-
-    Breathings remain significant, while an initial capital or acute in a
-    sentence-initial damaged form must not bypass the same exclusion.
-    """
-    decomposed = unicodedata.normalize("NFD", token.casefold())
-    return unicodedata.normalize(
-        "NFC", "".join(char for char in decomposed if char not in _BARE_ELISION_ACCENTS)
-    )
+    """Case-insensitive, accent-exact key for detached elision stems."""
+    return unicodedata.normalize("NFC", token.casefold())
 
 
 _BARE_ELISION_STEM_KEYS = frozenset(
-    _bare_elision_stem_key(stem) for stem in _BARE_ELISION_STEMS
+    _bare_elision_stem_key(stem)
+    for stem in _BARE_ELISION_STEMS | _REVIEWED_ACCENTED_BARE_ELISION_STEMS
 )
 # A one-letter form followed by a mark is generally a Greek numeral.  These are
 # the small set of unaccented one-letter elisions that the source can attest as
@@ -272,7 +270,8 @@ def public_lexicon_tokenization(text: str) -> tuple[list[str], Counter[tuple[str
             elif _is_unvocalized_numeral_like(stem):
                 exclusions[("invalid_numeral_sequence", token)] += 1
                 continue
-        if _bare_elision_stem_key(token) in _BARE_ELISION_STEM_KEYS:
+        if token in _LOWERCASE_BARE_ELISION_STEMS \
+                or _bare_elision_stem_key(token) in _BARE_ELISION_STEM_KEYS:
             exclusions[("bare_elision_stem", token)] += 1
             continue
         out.append(token)
