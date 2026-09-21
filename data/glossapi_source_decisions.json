@@ -35,21 +35,34 @@
       "license": "CC-BY-4.0",
       "source_url": "https://glt.goarch.org/#02",
       "source_url_scope": "The pinned dataset card identifies the GOARCH collection root only; its parquet rows do not retain per-record source URLs.",
+      "underlying_source_rights": {
+        "status": "blocked_pending_written_permission",
+        "operator": "Greek Orthodox Archdiocese of America",
+        "terms_url": "https://www.goarch.org/-/terms-of-use",
+        "checked_on": "2026-09-21",
+        "reuse_basis": "The GOARCH terms require prior written permission to reproduce, distribute, repurpose, or save site content. GlossAPI's CC-BY-4.0 dataset declaration does not establish a reuse license for the underlying GOARCH text.",
+        "commercial_redistribution_authorized": false,
+        "required_attribution": null,
+        "attribution_status": "No attribution string may be invented. Record the exact wording from a written GOARCH permission before any OGC, Dilemma, or Tonos use."
+      },
       "artifact": {
         "path": "litourgical_texts.parquet",
         "size": 17520011,
         "sha256": "ec4d18951392d90650f96fe5232d2527aa4deed2164b171a8501e50b408593ae"
       },
-      "decision": "conditional_ingest_after_dedup",
-      "reason": "The source is explicitly Medieval/Hellenistic Koine liturgical text and has useful title/category metadata, but it contains structural rubrics and run-together boundaries, while biblical, hymnographic, and service-book material is highly repetitive and overlaps sources OGC already serves.",
+      "decision": "blocked_pending_underlying_rights_and_identity",
+      "reason": "The source is explicitly Medieval/Hellenistic Koine liturgical text and has useful title/category metadata, but it contains structural rubrics and run-together boundaries, while biblical, hymnographic, and service-book material is highly repetitive and overlaps sources OGC already serves. More importantly, GlossAPI's CC-BY-4.0 declaration does not establish commercial redistribution rights for the underlying GOARCH text; GOARCH terms require written permission.",
       "required_gates": [
+        "Obtain written GOARCH permission covering OGC publication and downstream commercial dictionary use, or replace the text with an independently licensed edition. Pin the permission or replacement license to the admission evidence.",
+        "Record the exact required GOARCH attribution string from that permission in the admission evidence; do not invent a Dilemma NOTICE or Tonos credit while permission is absent.",
         "Map title/category/subcategory to a stable work or service unit and retain the GOARCH source URL.",
         "Strip structural rubrics and page or service identifiers before tokenization.",
         "Detect and repair or quarantine run-together sentence and section boundaries before lexical extraction.",
+        "For a form attested in one row only, require an independent witness or other explicit corroboration before it can enter a public lexicon; decide and record one corpus-wide ῤῥ versus ρρ normalization policy before lexical extraction.",
         "Separate biblical quotations/readings from independently authored liturgical material.",
         "Run exact and near-duplicate passage checks across Oktoechos tone cycles and against existing biblical, patristic, hymnographic, and liturgical works.",
         "Prefer OGC's existing identified edition where the GlossAPI row is only a duplicate witness.",
-        "Admit unique text as locus-keyed records with explicit CC-BY-4.0 provenance."
+        "Admit unique text as locus-keyed records only after the written underlying-text rights basis and required attribution are established."
       ],
       "admission_output": "Cleaned, deduplicated, identified passages in data/corpus; raw or duplicate-only rows contribute no token or n-gram frequency."
     },
