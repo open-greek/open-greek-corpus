@@ -33,7 +33,7 @@ def test_mark_only_runs_do_not_become_forms_and_initial_aphaeresis_survives():
 
 def test_numerals_are_audited_out_but_known_single_letter_elisions_survive():
     tokens, exclusions = public_lexicon_tokenization(
-        "α' β’ δ' αʹ Ἦχος β' τ’ θ’ γ’ μ’ σ’ κ’ ῥ’ ιε’ κα’"
+        "α' β’ δ' αʹ Ἦχος β' τ’ θ’ γ’ μ’ σ’ κ’ ῥ’ ιε’ κα’ ρκς’"
     )
 
     assert tokens == ["δ’", "Ἦχος", "τ’", "θ’", "γ’", "μ’", "σ’", "κ’", "ῥ’"]
@@ -42,6 +42,7 @@ def test_numerals_are_audited_out_but_known_single_letter_elisions_survive():
         ("greek_numeral", "β’"): 2,
         ("greek_numeral", "ιε’"): 1,
         ("greek_numeral", "κα’"): 1,
+        ("greek_numeral", "ρκς’"): 1,
     }
     assert not {"α", "β", "δ"} & set(tokens)
 
@@ -56,20 +57,32 @@ def test_final_sigma_and_grave_before_mark_are_quotes_or_numerals_not_elisions()
         ("final_sigma_mark", "ἄνθρωπος’"): 1,
         ("final_sigma_mark", "ὡς’"): 1,
         ("final_sigma_mark", "ας’"): 1,
-        ("final_sigma_mark", "ις’"): 1,
         ("final_sigma_mark", "ς’"): 1,
-        ("final_sigma_mark", "κς’"): 1,
-        ("final_sigma_mark", "λς’"): 1,
+        ("greek_numeral", "ις’"): 1,
+        ("greek_numeral", "κς’"): 1,
+        ("greek_numeral", "λς’"): 1,
         ("grave_before_mark", "καὶ’"): 1,
     }
 
 
 def test_known_detached_elision_stems_are_not_lexical_evidence():
     tokens = public_lexicon_tokens(
-        "δ ἀλλ δι καθ κατ παρ ἐπ ἐφ οὐδ ὑπ ἀπ μεθ τ τε περ"
+        "δ ἀλλ Ἀλλ Ἄλλ δι καθ κατ παρ ἐπ ἐφ οὐδ ὑπ ἀπ μεθ τ τε περ ἄλλος"
     )
 
-    assert tokens == ["τε", "περ"]
+    assert tokens == ["τε", "περ", "ἄλλος"]
+
+
+def test_numeral_places_do_not_exclude_real_elisions_or_promote_unvocalized_junk():
+    tokens, exclusions = public_lexicon_tokenization("μηδ’ ποθ’ τσ’ ιε’ κδ’ λβ’")
+
+    assert tokens == ["μηδ’", "ποθ’"]
+    assert exclusions == {
+        ("invalid_numeral_sequence", "τσ’"): 1,
+        ("greek_numeral", "ιε’"): 1,
+        ("greek_numeral", "κδ’"): 1,
+        ("greek_numeral", "λβ’"): 1,
+    }
 
 
 def test_bare_elision_candidates_need_same_lemma_validation():

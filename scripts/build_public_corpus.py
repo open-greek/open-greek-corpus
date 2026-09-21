@@ -62,6 +62,24 @@ _ELISION_CANONICAL = "’"
 _BARE_ELISION_STEMS = frozenset((
     "δ", "ἀλλ", "δι", "καθ", "κατ", "παρ", "ἐπ", "ἐφ", "οὐδ", "ὑπ", "ἀπ", "μεθ", "τ",
 ))
+_BARE_ELISION_ACCENTS = frozenset(("\u0300", "\u0301", "\u0342"))
+
+
+def _bare_elision_stem_key(token: str) -> str:
+    """Case- and accent-insensitive key for known detached elision stems.
+
+    Breathings remain significant, while an initial capital or acute in a
+    sentence-initial damaged form must not bypass the same exclusion.
+    """
+    decomposed = unicodedata.normalize("NFD", token.casefold())
+    return unicodedata.normalize(
+        "NFC", "".join(char for char in decomposed if char not in _BARE_ELISION_ACCENTS)
+    )
+
+
+_BARE_ELISION_STEM_KEYS = frozenset(
+    _bare_elision_stem_key(stem) for stem in _BARE_ELISION_STEMS
+)
 # A one-letter form followed by a mark is generally a Greek numeral.  These are
 # the small set of unaccented one-letter elisions that the source can attest as
 # lexical forms.  Keep this conservative: the lexicon is evidence for a spell
@@ -180,21 +198,41 @@ def _is_single_greek_letter(token: str) -> bool:
     return sum(char.isalpha() for char in unicodedata.normalize("NFD", token)) == 1
 
 
+def _greek_numeral_values(token: str) -> list[int] | None:
+    """Plain numeral values for ``token``, or ``None`` for non-numeral text."""
+    decomposed = unicodedata.normalize("NFD", token)
+    if any(unicodedata.combining(char) for char in decomposed):
+        return None
+    # ``lower`` preserves a final sigma, unlike ``casefold``.  In numeral
+    # notation a final sigma is commonly the stigma digit six.
+    letters = token.lower().replace("ς", "ϛ")
+    values = [_GREEK_NUMERAL_VALUES.get(char) for char in letters]
+    if len(values) <= 1 or any(value is None for value in values):
+        return None
+    return values
+
+
 def _is_greek_numeral_sequence(token: str) -> bool:
     """Recognize unaccented multi-letter Greek numerals before lexicon entry.
 
-    Greek numerals descend from hundreds through tens to units.  This accepts
-    forms such as ``ιε’`` and ``λε’`` but not lexical elisions like ``κατ’``
-    (20, 1, 300) or ``δι’`` (4, 10).  The final-sigma spelling of stigma is
-    accepted because it is common in the source material.
+    A well-formed numeral has at most one digit in each of the hundreds, tens,
+    and units places.  This accepts ``ιε’``, ``κδ’``, and ``ρκς’`` but does not
+    mistake elisions such as ``μηδ’`` or ``ποθ’`` for numerals merely because
+    their values happen to descend.
     """
-    decomposed = unicodedata.normalize("NFD", token)
-    if any(unicodedata.combining(char) for char in decomposed):
+    values = _greek_numeral_values(token)
+    if values is None:
         return False
-    letters = token.casefold().replace("ς", "ϛ")
-    values = [_GREEK_NUMERAL_VALUES.get(char) for char in letters]
-    return len(values) > 1 and all(value is not None for value in values) \
-        and all(left > right for left, right in zip(values, values[1:]))
+    places = [100 if value >= 100 else 10 if value >= 10 else 1 for value in values]
+    return places == sorted(places, reverse=True) and len(places) == len(set(places))
+
+
+def _is_unvocalized_numeral_like(token: str) -> bool:
+    """Flag impossible numeral-like abbreviations such as ``τσ’`` for audit."""
+    values = _greek_numeral_values(token)
+    if values is None:
+        return False
+    return not any(char in "αεηιουω" for char in token.lower())
 
 
 def public_lexicon_tokenization(text: str) -> tuple[list[str], Counter[tuple[str, str]]]:
@@ -216,6 +254,9 @@ def public_lexicon_tokenization(text: str) -> tuple[list[str], Counter[tuple[str
         if token[-1] in _TRAILING_ELISION_MARKS:
             token = token[:-1] + _ELISION_CANONICAL
             stem = token[:-1]
+            if _is_greek_numeral_sequence(stem):
+                exclusions[("greek_numeral", token)] += 1
+                continue
             # A final sigma cannot precede a lost vowel.  These are closing
             # quotation marks or numeral notation, never elisions.
             if stem.endswith("ς"):
@@ -228,10 +269,10 @@ def public_lexicon_tokenization(text: str) -> tuple[list[str], Counter[tuple[str
                 if stem not in _SINGLE_LETTER_ELISIONS:
                     exclusions[("greek_numeral", token)] += 1
                     continue
-            elif _is_greek_numeral_sequence(stem):
-                exclusions[("greek_numeral", token)] += 1
+            elif _is_unvocalized_numeral_like(stem):
+                exclusions[("invalid_numeral_sequence", token)] += 1
                 continue
-        if token in _BARE_ELISION_STEMS:
+        if _bare_elision_stem_key(token) in _BARE_ELISION_STEM_KEYS:
             exclusions[("bare_elision_stem", token)] += 1
             continue
         out.append(token)
