@@ -33,6 +33,34 @@ Ekklisiastika's raw token and n-gram counts are also excluded: its repeated
 Oktoechos cycles would overstate distinct language even after basic token
 cleaning.
 
+## Ekklisiastika staging
+
+`scripts/stage_glossapi_ekklisiastika.py` is the first intake step for the
+pinned Ekklisiastika artifact.  It verifies the pinned byte size and SHA-256
+before reading the parquet, retains its title/category/subcategory and the
+GOARCH collection URL as provenance, and assigns deterministic staging-only
+row and passage loci.  Those loci do not claim an edition or a source page.
+
+The stage removes explicit service and reading rubrics, repairs only known
+structural labels joined to a following word, keeps unresolved joins in
+quarantine, marks labelled biblical readings and quotations, and compares
+cleaned passages for exact and conservative near duplicates both within the
+artifact and against `data/corpus`.  Duplicate-only witnesses remain outside
+the corpus pending an edition-precedence decision.
+
+Run the complete, non-admitting audit with:
+
+```sh
+python3 scripts/stage_glossapi_ekklisiastika.py
+```
+
+It writes `data/glossapi_ekklisiastika_intake_report.json`.  The report is an
+audit artifact, not corpus data: every row stays quarantined until an editor
+supplies a citable per-record GOARCH URL, stable work and edition identity,
+and an explicit locus mapping.  The script never writes `data/corpus` or
+rebuilds `public_lexicon.tsv`; those normal OGC paths remain unavailable until
+that evidence exists.
+
 ## Classifier evidence
 
 The GlossAPI variety classifier is useful only as a triage signal.  In a
