@@ -42,8 +42,13 @@ GOARCH collection URL as provenance, and assigns deterministic staging-only
 row and passage loci.  Those loci do not claim an edition or a source page.
 
 The stage removes explicit service and reading rubrics, repairs only known
-structural labels joined to a following word, keeps unresolved joins in
-quarantine, marks labelled biblical readings and quotations, and compares
+structural labels joined to a following word, and keeps unresolved joins in
+quarantine.  Any lower-case Greek letter immediately followed by an upper-case
+Greek letter inside one token (for example `ΘεοτοκίονὉ`) is an unresolved welded
+boundary: the stage records the affected forms and counts, then quarantines the
+row rather than guessing a split.  It also removes the exact inline performance
+marker `ΤΟ ΑΚΟΥΤΕ`, recording every removal separately in the intake report.
+It marks labelled biblical readings and quotations, and compares
 cleaned passages for exact and conservative near duplicates both within the
 artifact and against `data/corpus`.  Duplicate-only witnesses remain outside
 the corpus pending an edition-precedence decision.
