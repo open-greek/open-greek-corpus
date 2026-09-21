@@ -63,10 +63,15 @@ _ELISION_CANONICAL = "’"
 _BARE_ELISION_STEMS = frozenset((
     "δ", "ἀλλ", "δι", "καθ", "κατ", "παρ", "ἐπ", "ἐφ", "οὐδ", "ὑπ", "ἀπ", "μεθ", "τ",
 ))
-_REVIEWED_ACCENTED_BARE_ELISION_STEMS = frozenset(("ἄλλ", "ἔπ", "ἔφ", "ὕπ", "μέθ", "οὔδ"))
+_REVIEWED_ACCENTED_BARE_ELISION_STEMS = frozenset((
+    "ἄλλ", "ἄπ", "ἔπ", "ἔφ", "ὕπ", "μέθ", "κάθ", "οὔδ", "δῖ",
+))
 # Lowercase δί/δὶ are damaged δι’ in the source material, while capitalization
 # identifies the poetic dative of Ζεύς.  Do not case-fold this exception.
 _LOWERCASE_BARE_ELISION_STEMS = frozenset(("δί", "δὶ"))
+# A circumflex cannot occur on the short alpha of the damaged παρ forms.  These
+# have no Dilemma lookup entry and are audit-only rather than spelling evidence.
+_MALFORMED_PUBLIC_LEXICON_FORMS = frozenset(("πᾶρ",))
 
 
 def _bare_elision_stem_key(token: str) -> str:
@@ -77,6 +82,9 @@ def _bare_elision_stem_key(token: str) -> str:
 _BARE_ELISION_STEM_KEYS = frozenset(
     _bare_elision_stem_key(stem)
     for stem in _BARE_ELISION_STEMS | _REVIEWED_ACCENTED_BARE_ELISION_STEMS
+)
+_MALFORMED_PUBLIC_LEXICON_KEYS = frozenset(
+    _bare_elision_stem_key(form) for form in _MALFORMED_PUBLIC_LEXICON_FORMS
 )
 # A one-letter form followed by a mark is generally a Greek numeral.  These are
 # the small set of unaccented one-letter elisions that the source can attest as
@@ -270,8 +278,11 @@ def public_lexicon_tokenization(text: str) -> tuple[list[str], Counter[tuple[str
             elif _is_unvocalized_numeral_like(stem):
                 exclusions[("invalid_numeral_sequence", token)] += 1
                 continue
-        if token in _LOWERCASE_BARE_ELISION_STEMS \
-                or _bare_elision_stem_key(token) in _BARE_ELISION_STEM_KEYS:
+        token_key = _bare_elision_stem_key(token)
+        if token_key in _MALFORMED_PUBLIC_LEXICON_KEYS:
+            exclusions[("malformed_public_form", token)] += 1
+            continue
+        if token in _LOWERCASE_BARE_ELISION_STEMS or token_key in _BARE_ELISION_STEM_KEYS:
             exclusions[("bare_elision_stem", token)] += 1
             continue
         out.append(token)

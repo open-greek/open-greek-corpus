@@ -68,7 +68,7 @@ def test_final_sigma_and_grave_before_mark_are_quotes_or_numerals_not_elisions()
 def test_known_detached_elision_stems_are_not_lexical_evidence():
     tokens = public_lexicon_tokens(
         "δ ἀλλ Ἀλλ ΠΑΡ δι καθ κατ παρ ἐπ ἐφ οὐδ ὑπ ἀπ μεθ τ "
-        "ἄλλ ἔπ ἔφ ὕπ μέθ οὔδ δί δὶ τε περ ἄλλος"
+        "ἄλλ ἄπ ἔπ ἔφ ὕπ μέθ κάθ οὔδ δῖ δί δὶ τε περ ἄλλος"
     )
 
     assert tokens == ["τε", "περ", "ἄλλος"]
@@ -83,6 +83,24 @@ def test_accented_words_survive_except_for_reviewed_detached_stems():
     assert tokens == [
         "πὰρ", "πάρ", "Πάρ", "Πὰρ", "κὰτ", "κάτ", "Κάτ", "Δί", "Δὶ", "Διί", "ἔπ’", "ὕπ’",
     ]
+
+
+def test_reviewed_accented_stems_and_malformed_par_forms_are_audited_out():
+    tokens, exclusions = public_lexicon_tokenization(
+        "ἄπ Ἄπ κάθ Κάθ δῖ Δῖ πᾶρ Πᾶρ πὰρ"
+    )
+
+    assert tokens == ["πὰρ"]
+    assert exclusions == {
+        ("bare_elision_stem", "ἄπ"): 1,
+        ("bare_elision_stem", "Ἄπ"): 1,
+        ("bare_elision_stem", "κάθ"): 1,
+        ("bare_elision_stem", "Κάθ"): 1,
+        ("bare_elision_stem", "δῖ"): 1,
+        ("bare_elision_stem", "Δῖ"): 1,
+        ("malformed_public_form", "πᾶρ"): 1,
+        ("malformed_public_form", "Πᾶρ"): 1,
+    }
 
 
 def test_numeral_places_do_not_exclude_real_elisions_or_promote_unvocalized_junk():
