@@ -56,3 +56,16 @@ def test_no_historical_candidate_is_a_direct_frequency_source():
     for source in data["sources"]:
         combined = " ".join(source["required_gates"] + [source["admission_output"]])
         assert "deduplic" in combined.lower() or "duplicate" in combined.lower()
+
+
+def test_ekklisiastika_requires_cleaning_and_cycle_deduplication():
+    data = _load()
+    source = next(
+        item for item in data["sources"]
+        if item["key"] == "glossapi_ekklisiastika"
+    )
+    policy = " ".join(source["required_gates"] + [source["admission_output"]])
+    assert "rubric" in policy.lower()
+    assert "run-together" in policy.lower()
+    assert "oktoechos" in policy.lower()
+    assert "n-gram frequency" in policy.lower()
