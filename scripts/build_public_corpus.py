@@ -41,6 +41,23 @@ DATA = REPO / "data"
 CORPUS = DATA / "corpus"
 TEI_NS = "http://www.tei-c.org/ns/1.0"
 _GK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]+")
+# The corpus-wide matcher above deliberately remains broad: many measurement and
+# ingest callers use it as an inclusive Greek-run counter.  The public lexicon
+# needs a stricter boundary, though.  A trailing apostrophe is part of an elided
+# form (``δ’``, ``κατ'``), not punctuation to discard before frequency
+# aggregation.  Keep the three non-Greek spacing forms here; U+1FBD/U+1FBF are
+# already in the Greek ranges and are canonicalized below when trailing.
+_LEXICON_GK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]+(?:['’ʼ´`ʹ])?")
+_TRAILING_ELISION_MARKS = frozenset(("'", "’", "ʼ", "´", "`", "᾽", "᾿", "̓"))
+_ELISION_CANONICAL = "’"
+# These are not independent lexical forms.  A source that emits one without a
+# trailing elision mark has lost or detached the mark; treating it as evidence
+# is precisely how a frequency rollup makes a Hunspell dictionary accept junk.
+# Keep this aligned with Dilemma's export-side guard.  Valid unaccented forms
+# such as τε and περ are deliberately absent.
+_BARE_ELISION_STEMS = frozenset((
+    "δ", "ἀλλ", "δι", "καθ", "κατ", "παρ", "ἐπ", "ἐφ", "οὐδ", "ὑπ", "ἀπ", "μεθ", "τ",
+))
 # elements whose text is NOT the running edition text
 DROP = {f"{{{TEI_NS}}}{t}" for t in ("note", "rdg", "bibl", "ref", "title",
                                      "speaker", "label", "head", "gap", "del")}
@@ -130,6 +147,31 @@ def body_text(root) -> str:
 
     walk(body)
     return " ".join(parts)
+
+
+def public_lexicon_tokens(text: str) -> list[str]:
+    """NFC public-lexicon forms, retaining a final elision mark.
+
+    A Greek numeral may use the same visible marks.  A U+02B9 keraia remains
+    distinct (``βʹ``), while an ASCII/right-quote form such as ``δ'`` remains
+    visibly marked until a source-aware heading/numeral pass can disambiguate
+    it from the elision of δέ.  Neither may manufacture bare lexical evidence.
+    Only a trailing elision mark is normalized.  An initial U+1FBF can carry
+    real aphaeresis (``᾿ς``), so it is intentionally untouched.
+    """
+    out = []
+    for raw in _LEXICON_GK.findall(text):
+        # The broad Greek blocks include spacing breathings/koronis.  A mark by
+        # itself is not a word and must not become a public-lexicon entry.
+        if not any(char.isalpha() for char in raw):
+            continue
+        token = unicodedata.normalize("NFC", raw)
+        if token[-1] in _TRAILING_ELISION_MARKS:
+            token = token[:-1] + _ELISION_CANONICAL
+        if token in _BARE_ELISION_STEMS:
+            continue
+        out.append(token)
+    return out
 
 
 def main() -> None:
@@ -224,7 +266,7 @@ def main() -> None:
                     continue
                 rec = json.loads(line)
                 text = rec.get("text", "")
-                toks = [unicodedata.normalize("NFC", t) for t in _GK.findall(text)]
+                toks = public_lexicon_tokens(text)
                 if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
                         and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
                     excluded_shared += 1          # shared with keeper: don't recount
@@ -234,7 +276,11 @@ def main() -> None:
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
                           "license": rec.get("license"), "tokens": 0, "passages": 0})
-                cov["tokens"] += len(toks)
+                # coverage.json is the inclusive corpus-count metric.  The
+                # public lexicon is intentionally stricter about bare marks and
+                # detached elision stems, so its token list is not the coverage
+                # accounting unit.
+                cov["tokens"] += len(_GK.findall(text))
                 cov["passages"] += 1
         if keeper and fp.stem in coverage:
             coverage[fp.stem]["lexicon_dedup"] = {
