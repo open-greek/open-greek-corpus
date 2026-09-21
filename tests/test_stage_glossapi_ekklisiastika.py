@@ -45,6 +45,11 @@ def test_stage_preserves_provenance_and_repairs_only_known_join_boundaries(tmp_p
     assert first["provenance"]["artifact_sha256"] == (
         "ec4d18951392d90650f96fe5232d2527aa4deed2164b171a8501e50b408593ae"
     )
+    assert first["provenance"]["dataset_license"] == "CC-BY-4.0"
+    assert first["provenance"]["underlying_source_rights"]["status"] == (
+        "blocked_pending_written_permission"
+    )
+    assert first["provenance"]["underlying_source_rights"]["required_attribution"] is None
     assert first["cleaning"]["known_join_repairs"] == 1
     assert first["cleaning"]["structural_rubrics_removed"] >= 3
     assert first["biblical_or_quotation_passages"] == 1
@@ -60,6 +65,7 @@ def test_stage_quarantines_unresolved_boundaries_and_never_admits_raw_rows(tmp_p
     assert report["dispositions"]["admitted"] == []
     assert report["admission_policy"]["corpus_write_attempted"] is False
     assert report["admission_policy"]["public_lexicon_rebuild_attempted"] is False
+    assert "written GOARCH reuse permission" in report["admission_policy"]["rule"]
 
 
 def test_stage_quarantines_lower_to_uppercase_token_joins_without_repairing_them():

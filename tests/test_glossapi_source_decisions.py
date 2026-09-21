@@ -43,7 +43,7 @@ def test_glossapi_decisions_preserve_the_ogc_consumer_boundary():
         "hold_for_identity_recovery"
     )
     assert by_key["glossapi_ekklisiastika"]["decision"] == (
-        "conditional_ingest_after_dedup"
+        "blocked_pending_underlying_rights_and_identity"
     )
     assert by_key["glossapi_archetai"]["decision"] == "ocr_quarantine"
 
@@ -71,3 +71,8 @@ def test_ekklisiastika_requires_cleaning_and_cycle_deduplication():
     assert "n-gram frequency" in policy.lower()
     assert source["source_url"] == "https://glt.goarch.org/#02"
     assert "per-record" in source["source_url_scope"]
+    rights = source["underlying_source_rights"]
+    assert rights["status"] == "blocked_pending_written_permission"
+    assert rights["commercial_redistribution_authorized"] is False
+    assert rights["required_attribution"] is None
+    assert rights["terms_url"] == "https://www.goarch.org/-/terms-of-use"
