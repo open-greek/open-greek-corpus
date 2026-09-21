@@ -69,3 +69,5 @@ def test_ekklisiastika_requires_cleaning_and_cycle_deduplication():
     assert "run-together" in policy.lower()
     assert "oktoechos" in policy.lower()
     assert "n-gram frequency" in policy.lower()
+    assert source["source_url"] == "https://glt.goarch.org/#02"
+    assert "per-record" in source["source_url_scope"]
