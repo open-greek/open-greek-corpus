@@ -82,6 +82,7 @@ JOINED_PRAYER_RE = re.compile(
     rf"(?P<label>ΕΥΧΗ\s+[{GREEK_UPPER}][{GREEK_UPPER}΄’']*)"
     rf"(?=[{GREEK_UPPER}][{GREEK_LOWER}])"
 )
+INLINE_EDITORIAL_MARKER_RE = re.compile(r"ΤΟ\s+ΑΚΟΥΤΕ")
 MIN_PASSAGE_TOKENS = 4
 NEAR_ANCHOR_WORDS = 8
 MAX_INTERNAL_ANCHOR_FANOUT = 64
@@ -123,6 +124,24 @@ def verify_artifact(path: Path, source: dict[str, Any]) -> None:
 def _is_greek(char: str) -> bool:
     point = ord(char)
     return 0x0370 <= point <= 0x03FF or 0x1F00 <= point <= 0x1FFF
+
+
+def _token_case_joins(text: str) -> list[str]:
+    """Return Greek tokens with an adjacent lower-case -> upper-case join.
+
+    The historical range constants deliberately include all polytonic letters
+    for structural-label matching, so they cannot distinguish upper from lower
+    case.  Unicode's case predicates can, and keep this detector confined to an
+    actual in-token transition such as ``ΘεοτοκίονὉ``.
+    """
+    return [
+        unicodedata.normalize("NFC", token)
+        for token in WORD_RE.findall(text)
+        if any(
+            _is_greek(left) and _is_greek(right) and left.islower() and right.isupper()
+            for left, right in zip(token, token[1:])
+        )
+    ]
 
 
 def greek_tokens(text: str) -> list[str]:
@@ -187,6 +206,22 @@ def _repair_known_label_boundaries(text: str) -> tuple[str, list[str]]:
     return JOINED_PRAYER_RE.sub(replace_prayer, text), repairs
 
 
+def _remove_inline_editorial_markers(text: str) -> tuple[str, list[str]]:
+    """Remove exact service instructions from staged running text only.
+
+    ``ΤΟ ΑΚΟΥΤΕ`` is a repeated performance instruction, not a Greek lexical
+    item.  A space separates a following word when the source welded it directly
+    to the marker without dropping the surrounding running text.
+    """
+    markers: list[str] = []
+
+    def replace_marker(match: re.Match[str]) -> str:
+        markers.append(match.group())
+        return " "
+
+    return INLINE_EDITORIAL_MARKER_RE.sub(replace_marker, text), markers
+
+
 def _normalise_text(text: str) -> str:
     text = unicodedata.normalize("NFC", text)
     text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\u00a0", " ")
@@ -196,11 +231,15 @@ def _normalise_text(text: str) -> str:
     return text.strip()
 
 
-def _paragraphs(text: str, record_id: str) -> tuple[list[dict[str, Any]], int, list[str], list[str]]:
+def _paragraphs(
+    text: str, record_id: str
+) -> tuple[list[dict[str, Any]], int, list[str], list[str], list[str], Counter[str]]:
+    text, markers = _remove_inline_editorial_markers(text)
     text, repairs = _repair_known_label_boundaries(text)
     passages: list[dict[str, Any]] = []
     rubrics: list[str] = []
     joins: list[str] = []
+    token_case_joins: Counter[str] = Counter()
     current: list[str] = []
     current_biblical = False
 
@@ -236,9 +275,10 @@ def _paragraphs(text: str, record_id: str) -> tuple[list[dict[str, Any]], int, l
             continue
         if UNKNOWN_JOIN_RE.search(line):
             joins.append(line[:160])
+        token_case_joins.update(_token_case_joins(line))
         current.append(line)
     flush()
-    return passages, len(rubrics), repairs, sorted(set(joins))
+    return passages, len(rubrics), repairs, markers, sorted(set(joins)), token_case_joins
 
 
 def _anchor_hashes(tokens: list[str]) -> set[bytes]:
@@ -382,7 +422,9 @@ def _record_summary(
     }
     service_material = "\0".join((metadata[key] or "") for key in sorted(metadata))
     source_text = _normalise_text(row.get("texts") or "")
-    passages, rubric_count, repairs, joins = _paragraphs(source_text, record_id)
+    passages, rubric_count, repairs, markers, joins, token_case_joins = _paragraphs(
+        source_text, record_id
+    )
     summary = {
         "source_record_id": record_id,
         "provisional_work_key": f"glossapi-ekklisiastika-{source['revision'][:12]}",
@@ -402,9 +444,12 @@ def _record_summary(
             "source_characters": len(row.get("texts") or ""),
             "cleaned_characters": sum(len(passage["canonical"]) for passage in passages),
             "structural_rubrics_removed": rubric_count,
+            "inline_editorial_markers_removed": len(markers),
+            "inline_editorial_markers": sorted(set(markers)),
             "known_join_repairs": len(repairs),
             "known_join_labels": sorted(set(repairs)),
             "unresolved_join_boundaries": joins,
+            "unresolved_token_case_join_forms": dict(sorted(token_case_joins.items())),
         },
         "passages": len(passages),
         "greek_tokens": sum(len(passage["tokens"]) for passage in passages),
@@ -452,7 +497,8 @@ def build_report(
         passage_ids = {passage["id"] for passage in row_passages}
         duplicate_ids = (within_exact | within_near | corpus_exact | corpus_near) & passage_ids
         reasons = ["unresolved_source_work_identity"]
-        if summary["cleaning"]["unresolved_join_boundaries"]:
+        if (summary["cleaning"]["unresolved_join_boundaries"]
+                or summary["cleaning"]["unresolved_token_case_join_forms"]):
             reasons.append("unresolved_join_boundary")
         if summary["biblical_or_quotation_passages"]:
             reasons.append("biblical_or_quotation_requires_separate_witness")
@@ -507,9 +553,20 @@ def build_report(
             "structural_rubrics_removed": sum(
                 item["cleaning"]["structural_rubrics_removed"] for item in summaries
             ),
+            "inline_editorial_markers_removed": sum(
+                item["cleaning"]["inline_editorial_markers_removed"] for item in summaries
+            ),
             "known_join_repairs": sum(item["cleaning"]["known_join_repairs"] for item in summaries),
             "unresolved_join_boundaries": sum(
                 len(item["cleaning"]["unresolved_join_boundaries"]) for item in summaries
+            ),
+            "unresolved_token_case_join_forms": sum(
+                len(item["cleaning"]["unresolved_token_case_join_forms"])
+                for item in summaries
+            ),
+            "unresolved_token_case_join_tokens": sum(
+                sum(item["cleaning"]["unresolved_token_case_join_forms"].values())
+                for item in summaries
             ),
             "biblical_or_quotation_passages": sum(
                 item["biblical_or_quotation_passages"] for item in summaries
