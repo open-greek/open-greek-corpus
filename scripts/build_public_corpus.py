@@ -18,6 +18,10 @@ only the lexicon rollup moved here off the TEI and onto the ingested corpus.
 
 Outputs (under data/):
   public_lexicon.tsv     form<TAB>count over every ingested passage
+  public_lexicon_exclusions.tsv
+                         nonlexical marked forms kept out of the lexicon
+  public_elision_stem_candidates.tsv
+                         bare/marked form pairs needing lemma-level review
   coverage.json          per work urn: source, license, tokens, passages
 
   python build_public_corpus.py      # run AFTER the ingesters populate data/corpus
@@ -41,6 +45,60 @@ DATA = REPO / "data"
 CORPUS = DATA / "corpus"
 TEI_NS = "http://www.tei-c.org/ns/1.0"
 _GK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]+")
+# The corpus-wide matcher above deliberately remains broad: many measurement and
+# ingest callers use it as an inclusive Greek-run counter.  The public lexicon
+# needs a stricter boundary, though.  A trailing apostrophe is part of an elided
+# form (``δ’``, ``κατ'``), not punctuation to discard before frequency
+# aggregation.  Keep the three non-Greek spacing forms here; U+1FBD/U+1FBF are
+# already in the Greek ranges and are canonicalized below when trailing.
+_LEXICON_GK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]+(?:['’ʼ´`ʹ])?")
+_TRAILING_ELISION_MARKS = frozenset(("'", "’", "ʼ", "´", "`", "ʹ", "᾽", "᾿", "̓"))
+_ELISION_CANONICAL = "’"
+# These are not independent lexical forms.  A source that emits one without a
+# trailing elision mark has lost or detached the mark; treating it as evidence
+# is precisely how a frequency rollup makes a Hunspell dictionary accept junk.
+# Keep this aligned with Dilemma's export-side guard.  Valid unaccented forms
+# such as τε and περ are deliberately absent.  The first set is case-folded
+# only; accent changes can make a complete, distinct word.
+_BARE_ELISION_STEMS = frozenset((
+    "δ", "ἀλλ", "δι", "καθ", "κατ", "παρ", "ἐπ", "ἐφ", "οὐδ", "ὑπ", "ἀπ", "μεθ", "τ",
+))
+_REVIEWED_ACCENTED_BARE_ELISION_STEMS = frozenset((
+    "ἄλλ", "ἄπ", "ἔπ", "ἔφ", "ὕπ", "μέθ", "κάθ", "οὔδ", "δῖ",
+))
+# Lowercase δί/δὶ are damaged δι’ in the source material, while capitalization
+# identifies the poetic dative of Ζεύς.  Do not case-fold this exception.
+_LOWERCASE_BARE_ELISION_STEMS = frozenset(("δί", "δὶ"))
+# A circumflex cannot occur on the short alpha of the damaged παρ forms.  These
+# have no Dilemma lookup entry and are audit-only rather than spelling evidence.
+_MALFORMED_PUBLIC_LEXICON_FORMS = frozenset(("πᾶρ",))
+
+
+def _bare_elision_stem_key(token: str) -> str:
+    """Case-insensitive, accent-exact key for detached elision stems."""
+    return unicodedata.normalize("NFC", token.casefold())
+
+
+_BARE_ELISION_STEM_KEYS = frozenset(
+    _bare_elision_stem_key(stem)
+    for stem in _BARE_ELISION_STEMS | _REVIEWED_ACCENTED_BARE_ELISION_STEMS
+)
+_MALFORMED_PUBLIC_LEXICON_KEYS = frozenset(
+    _bare_elision_stem_key(form) for form in _MALFORMED_PUBLIC_LEXICON_FORMS
+)
+# A one-letter form followed by a mark is generally a Greek numeral.  These are
+# the small set of unaccented one-letter elisions that the source can attest as
+# lexical forms.  Keep this conservative: the lexicon is evidence for a spell
+# checker, and an omitted rare form is safer than a spurious accepted word.
+_SINGLE_LETTER_ELISIONS = frozenset(("δ", "τ", "θ", "γ", "μ", "σ", "κ", "ῥ"))
+_GREEK_NUMERAL_VALUES = {
+    "α": 1, "β": 2, "γ": 3, "δ": 4, "ε": 5, "ϛ": 6, "ζ": 7, "η": 8, "θ": 9,
+    "ι": 10, "κ": 20, "λ": 30, "μ": 40, "ν": 50, "ξ": 60, "ο": 70, "π": 80,
+    "ϟ": 90, "ρ": 100, "σ": 200, "τ": 300, "υ": 400, "φ": 500, "χ": 600,
+    "ψ": 700, "ω": 800, "ϡ": 900,
+}
+_ELISION_CANDIDATE_MIN_MARKED = 100
+_ELISION_CANDIDATE_RATIO = 10
 # elements whose text is NOT the running edition text
 DROP = {f"{{{TEI_NS}}}{t}" for t in ("note", "rdg", "bibl", "ref", "title",
                                      "speaker", "label", "head", "gap", "del")}
@@ -132,6 +190,130 @@ def body_text(root) -> str:
     return " ".join(parts)
 
 
+def _has_final_grave(token: str) -> bool:
+    """Whether the final letter before a mark carries a grave accent.
+
+    In a genuine elision the accent moves back as an acute.  A grave directly
+    before a terminal quote is therefore punctuation, not a lexical elision.
+    """
+    return unicodedata.normalize("NFD", token).endswith("\u0300")
+
+
+def _is_single_greek_letter(token: str) -> bool:
+    """True for one Greek letter with optional breathing/accent marks."""
+    return sum(char.isalpha() for char in unicodedata.normalize("NFD", token)) == 1
+
+
+def _greek_numeral_values(token: str) -> list[int] | None:
+    """Plain numeral values for ``token``, or ``None`` for non-numeral text."""
+    decomposed = unicodedata.normalize("NFD", token)
+    if any(unicodedata.combining(char) for char in decomposed):
+        return None
+    # ``lower`` preserves a final sigma, unlike ``casefold``.  In numeral
+    # notation a final sigma is commonly the stigma digit six.
+    letters = token.lower().replace("ς", "ϛ")
+    values = [_GREEK_NUMERAL_VALUES.get(char) for char in letters]
+    if len(values) <= 1 or any(value is None for value in values):
+        return None
+    return values
+
+
+def _is_greek_numeral_sequence(token: str) -> bool:
+    """Recognize unaccented multi-letter Greek numerals before lexicon entry.
+
+    A well-formed numeral has at most one digit in each of the hundreds, tens,
+    and units places.  This accepts ``ιε’``, ``κδ’``, and ``ρκς’`` but does not
+    mistake elisions such as ``μηδ’`` or ``ποθ’`` for numerals merely because
+    their values happen to descend.
+    """
+    values = _greek_numeral_values(token)
+    if values is None:
+        return False
+    places = [100 if value >= 100 else 10 if value >= 10 else 1 for value in values]
+    return places == sorted(places, reverse=True) and len(places) == len(set(places))
+
+
+def _is_unvocalized_numeral_like(token: str) -> bool:
+    """Flag impossible numeral-like abbreviations such as ``τσ’`` for audit."""
+    values = _greek_numeral_values(token)
+    if values is None:
+        return False
+    return not any(char in "αεηιουω" for char in token.lower())
+
+
+def public_lexicon_tokenization(text: str) -> tuple[list[str], Counter[tuple[str, str]]]:
+    """Return lexical forms and classified nonlexical marked-form exclusions.
+
+    Final apostrophe-like marks are normalized to U+2019 for genuine elisions.
+    Numerals, final-sigma quote/numeral forms, and grave-before-quote forms are
+    recorded separately instead of becoming durable spell-checker evidence.
+    An initial U+1FBF can carry real aphaeresis (``᾿ς``), so it is untouched.
+    """
+    out = []
+    exclusions: Counter[tuple[str, str]] = Counter()
+    for raw in _LEXICON_GK.findall(text):
+        # The broad Greek blocks include spacing breathings/koronis.  A mark by
+        # itself is not a word and must not become a public-lexicon entry.
+        if not any(char.isalpha() for char in raw):
+            continue
+        token = unicodedata.normalize("NFC", raw)
+        if token[-1] in _TRAILING_ELISION_MARKS:
+            token = token[:-1] + _ELISION_CANONICAL
+            stem = token[:-1]
+            if _is_greek_numeral_sequence(stem):
+                exclusions[("greek_numeral", token)] += 1
+                continue
+            # A final sigma cannot precede a lost vowel.  These are closing
+            # quotation marks or numeral notation, never elisions.
+            if stem.endswith("ς"):
+                exclusions[("final_sigma_mark", token)] += 1
+                continue
+            if _has_final_grave(stem):
+                exclusions[("grave_before_mark", token)] += 1
+                continue
+            if _is_single_greek_letter(stem):
+                if stem not in _SINGLE_LETTER_ELISIONS:
+                    exclusions[("greek_numeral", token)] += 1
+                    continue
+            elif _is_unvocalized_numeral_like(stem):
+                exclusions[("invalid_numeral_sequence", token)] += 1
+                continue
+        token_key = _bare_elision_stem_key(token)
+        if token_key in _MALFORMED_PUBLIC_LEXICON_KEYS:
+            exclusions[("malformed_public_form", token)] += 1
+            continue
+        if token in _LOWERCASE_BARE_ELISION_STEMS or token_key in _BARE_ELISION_STEM_KEYS:
+            exclusions[("bare_elision_stem", token)] += 1
+            continue
+        out.append(token)
+    return out, exclusions
+
+
+def public_lexicon_tokens(text: str) -> list[str]:
+    """NFC public-lexicon forms, retaining only lexical final elision marks."""
+    return public_lexicon_tokenization(text)[0]
+
+
+def public_elision_stem_candidates(lex: Counter[str]) -> list[tuple[str, int, str, int]]:
+    """Bare/marked pairs whose frequency asymmetry merits lemma-level review.
+
+    The public corpus does not know whether the two surface forms share a
+    lemma.  This function deliberately *does not* exclude them.  Dilemma's
+    exporter can validate that identity against its lookup data before deciding
+    whether a bare stem is nonlexical.
+    """
+    candidates = []
+    for marked, marked_count in lex.items():
+        if not marked.endswith(_ELISION_CANONICAL):
+            continue
+        bare = marked[:-1]
+        bare_count = lex.get(bare, 0)
+        if bare_count and marked_count >= _ELISION_CANDIDATE_MIN_MARKED \
+                and marked_count >= bare_count * _ELISION_CANDIDATE_RATIO:
+            candidates.append((bare, bare_count, marked, marked_count))
+    return sorted(candidates, key=lambda row: (-row[3], row[0]))
+
+
 def main() -> None:
     files = sorted(CORPUS.glob("*.jsonl"))
     if not files:
@@ -207,6 +389,7 @@ def main() -> None:
               f"works counted via their fuller siblings only", file=sys.stderr)
 
     lex: Counter[str] = Counter()
+    lex_exclusions: Counter[tuple[str, str]] = Counter()
     coverage: dict[str, dict] = {}      # work urn -> {source, license, tokens, passages}
     for i, fp in enumerate(files):
         # An excluded work still contributes its rows that the keeper does NOT
@@ -224,17 +407,22 @@ def main() -> None:
                     continue
                 rec = json.loads(line)
                 text = rec.get("text", "")
-                toks = [unicodedata.normalize("NFC", t) for t in _GK.findall(text)]
+                toks, exclusions = public_lexicon_tokenization(text)
                 if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
                         and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
                     excluded_shared += 1          # shared with keeper: don't recount
                 else:
                     lex.update(toks)
+                    lex_exclusions.update(exclusions)
                 key = rec.get("urn") or fp.stem
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
                           "license": rec.get("license"), "tokens": 0, "passages": 0})
-                cov["tokens"] += len(toks)
+                # coverage.json is the inclusive corpus-count metric.  The
+                # public lexicon is intentionally stricter about bare marks and
+                # detached elision stems, so its token list is not the coverage
+                # accounting unit.
+                cov["tokens"] += len(_GK.findall(text))
                 cov["passages"] += 1
         if keeper and fp.stem in coverage:
             coverage[fp.stem]["lexicon_dedup"] = {
@@ -246,6 +434,17 @@ def main() -> None:
     with (DATA / "public_lexicon.tsv").open("w", encoding="utf-8") as f:
         for form, n in lex.most_common():
             f.write(f"{form}\t{n}\n")
+    with (DATA / "public_lexicon_exclusions.tsv").open("w", encoding="utf-8") as f:
+        f.write("reason\tform\tcount\n")
+        for (reason, form), n in sorted(lex_exclusions.items(),
+                                        key=lambda item: (item[0][0], -item[1], item[0][1])):
+            f.write(f"{reason}\t{form}\t{n}\n")
+    with (DATA / "public_elision_stem_candidates.tsv").open("w", encoding="utf-8") as f:
+        f.write("bare_form\tbare_count\tmarked_form\tmarked_count\tmarked_to_bare_ratio"
+                "\trequires_same_lemma_validation\n")
+        for bare, bare_count, marked, marked_count in public_elision_stem_candidates(lex):
+            ratio = marked_count / bare_count
+            f.write(f"{bare}\t{bare_count}\t{marked}\t{marked_count}\t{ratio:.2f}\tyes\n")
     (DATA / "coverage.json").write_text(
         json.dumps(coverage, ensure_ascii=False, indent=0, sort_keys=True))
 
@@ -257,7 +456,8 @@ def main() -> None:
     for v in coverage.values():
         bysource[v["source"]] += 1
     print(f"works by source: {dict(bysource)}", file=sys.stderr)
-    print("wrote data/public_lexicon.tsv, coverage.json", file=sys.stderr)
+    print("wrote data/public_lexicon.tsv, public_lexicon_exclusions.tsv, "
+          "public_elision_stem_candidates.tsv, coverage.json", file=sys.stderr)
 
 
 if __name__ == "__main__":

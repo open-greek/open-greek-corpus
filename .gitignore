@@ -9,6 +9,8 @@ __pycache__/
 # Large regenerable intermediate (the per-form lexicon; the per-lemma
 # frequency table in data/ is the committed deliverable)
 data/public_lexicon.tsv
+data/public_lexicon_exclusions.tsv
+data/public_elision_stem_candidates.tsv
 
 # The locus-keyed passage text (data/corpus, ~940 MB) is now tracked: it is the
 # corpus deliverable, and versioning it gives a native audit trail plus trivial
