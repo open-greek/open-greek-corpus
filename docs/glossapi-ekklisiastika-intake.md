@@ -6,6 +6,13 @@ title/category/subcategory metadata, but it identifies the GOARCH collection
 root rather than a source URL and edition for each row.  It cannot enter
 `data/corpus` on that evidence alone.
 
+The upstream dataset declaration also does not establish rights to redistribute
+the underlying GOARCH text.  GOARCH's [Terms of
+Use](https://www.goarch.org/-/terms-of-use) require prior written permission
+for reuse of site material.  Until written permission or an independently
+licensed edition supplies a commercial reuse basis and exact attribution text,
+this intake is blocked for OGC, Dilemma, and Tonos.
+
 ## Pinned artifact
 
 - Revision: `e3e66c08c7a51beb96dc642e012c5ed3de946100`
@@ -43,5 +50,7 @@ The staging command cannot admit rows.  It does not write `data/corpus`, does
 not change corpus counts, and does not rebuild `public_lexicon.tsv`.  An editor
 must first supply each accepted passage's per-record source URL, stable work
 and edition identity, explicit locus mapping, and duplicate-witness precedence
-decision.  Only then may the cleaned, identified passage enter the normal OGC
-corpus build and subsequently the public lexicon.
+decision.  It must also supply a written GOARCH reuse grant (or independently
+licensed replacement) and its exact required attribution.  Only then may the
+cleaned, identified passage enter the normal OGC corpus build and subsequently
+the public lexicon.

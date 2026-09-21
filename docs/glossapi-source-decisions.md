@@ -15,7 +15,7 @@ full commit and the selected artifact to its size and SHA-256, following
 | source | decision | why |
 |---|---|---|
 | Project Gutenberg Greek | hold for identity recovery | The collection mixes four varieties, lacks per-document source URLs, and uses an automatically generated variety label.  Recover a stable Gutenberg identity and edition/translation status before using any row. |
-| Ekklisiastika Keimena | conditional ingest after cleaning and deduplication | The material is in scope, but it includes structural rubrics, run-together boundaries, and heavily repeated service books, biblical readings, and hymn cycles.  Strip non-text structure, quarantine unresolved joins, map works/loci, and admit only unique or genuinely preferable witnesses. |
+| Ekklisiastika Keimena | blocked pending GOARCH rights and identity | The material is in scope, but it includes structural rubrics, run-together boundaries, and heavily repeated service books, biblical readings, and hymn cycles.  More importantly, GlossAPI's dataset declaration does not establish rights for the GOARCH source text; obtain written permission or an independently licensed edition before any admission. |
 | Archetai | OCR quarantine | Each row is volume-level OCR from publications spanning 1837-present.  Separate historical primary text from Modern commentary, apparatus, bibliography, and foreign-language material, then apply OGC's OCR quality and dedup gates per segment. |
 
 ## Dilemma boundary
@@ -65,6 +65,21 @@ supplies a citable per-record GOARCH URL, stable work and edition identity,
 and an explicit locus mapping.  The script never writes `data/corpus` or
 rebuilds `public_lexicon.tsv`; those normal OGC paths remain unavailable until
 that evidence exists.
+
+## Underlying-text rights
+
+The GlossAPI artifact declares CC-BY-4.0, but it identifies GOARCH as the
+underlying text collection.  On 2026-09-21, OGC checked GOARCH's [Terms of
+Use](https://www.goarch.org/-/terms-of-use), which require prior written
+permission to reproduce, distribute, repurpose, or save site material.  That
+does not establish the commercial redistribution required by downstream users
+such as Tonos.
+
+`data/glossapi_source_decisions.json` therefore records this source as
+`blocked_pending_written_permission`.  No row can be admitted, and no Dilemma
+NOTICE or Tonos credit can be authored, until written permission (or an
+independently licensed replacement edition) supplies both an explicit reuse
+basis and its exact required attribution text.
 
 ## Classifier evidence
 

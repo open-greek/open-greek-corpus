@@ -437,7 +437,8 @@ def _record_summary(
             "source_url_scope": "collection only; no per-record GOARCH URL in parquet",
             "repo": source["repo"],
             "revision": source["revision"],
-            "license": source["license"],
+            "dataset_license": source["license"],
+            "underlying_source_rights": source["underlying_source_rights"],
             "artifact_sha256": source["artifact"]["sha256"],
         },
         "cleaning": {
@@ -534,16 +535,19 @@ def build_report(
             "key": source["key"],
             "repo": source["repo"],
             "revision": source["revision"],
-            "license": source["license"],
+            "dataset_license": source["license"],
             "source_url": source["source_url"],
+            "underlying_source_rights": source["underlying_source_rights"],
             "artifact": source["artifact"],
         },
         "admission_policy": {
             "corpus_write_attempted": False,
             "public_lexicon_rebuild_attempted": False,
             "rule": (
-                "No row is admitted until an editor supplies a stable work identity, "
-                "per-record source URL, edition/locus mapping, and a precedence decision."
+                "No row is admitted until an editor supplies written GOARCH reuse permission "
+                "or an independently licensed replacement, its exact required attribution, a "
+                "stable work identity, per-record source URL, edition/locus mapping, and a "
+                "precedence decision."
             ),
         },
         "statistics": {
