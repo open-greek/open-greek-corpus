@@ -2,6 +2,7 @@ import json
 from pathlib import Path
 
 from scripts.stage_glossapi_ekklisiastika import (
+    _paragraphs,
     _corpus_family,
     _display_path,
     _load_source,
@@ -59,6 +60,39 @@ def test_stage_quarantines_unresolved_boundaries_and_never_admits_raw_rows(tmp_p
     assert report["dispositions"]["admitted"] == []
     assert report["admission_policy"]["corpus_write_attempted"] is False
     assert report["admission_policy"]["public_lexicon_rebuild_attempted"] is False
+
+
+def test_stage_quarantines_lower_to_uppercase_token_joins_without_repairing_them():
+    text = "ΘεοτοκίονὉ Κύριος ἐλέησον καὶ σῶσον ἡμᾶς."
+
+    passages, _rubrics, repairs, markers, joins, token_case_joins = _paragraphs(text, "test-row")
+
+    assert repairs == []
+    assert markers == []
+    assert joins == []
+    assert token_case_joins == {"ΘεοτοκίονὉ": 1}
+    assert passages[0]["tokens"][0] == "θεοτοκίονὁ"
+    assert not passages[0]["unresolved_join"]
+
+
+def test_token_case_join_requires_adjacent_greek_letters():
+    _passages, _rubrics, _repairs, _markers, _joins, case_joins = _paragraphs(
+        "ΘεοτοκίονὉ Στείβει σάλον,Ἤπειρον καὶ σῶσον ἡμᾶς.", "test-row"
+    )
+
+    assert case_joins == {"ΘεοτοκίονὉ": 1}
+
+
+def test_stage_removes_exact_inline_editorial_marker_and_separates_a_welded_word():
+    text = "Θεοτοκίον ΤΟ ΑΚΟΥΤΕὬφθη τὸ φῶς καὶ ἐλέησον ἡμᾶς."
+
+    passages, _rubrics, repairs, markers, joins, case_joins = _paragraphs(text, "test-row")
+
+    assert repairs == []
+    assert markers == ["ΤΟ ΑΚΟΥΤΕ"]
+    assert joins == []
+    assert case_joins == {}
+    assert passages[0]["tokens"][:3] == ["θεοτοκίον", "ὤφθη", "τὸ"]
 
 
 def test_stage_reports_within_source_and_existing_biblical_witnesses(tmp_path):
