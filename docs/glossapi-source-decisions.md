@@ -15,7 +15,7 @@ full commit and the selected artifact to its size and SHA-256, following
 | source | decision | why |
 |---|---|---|
 | Project Gutenberg Greek | hold for identity recovery | The collection mixes four varieties, lacks per-document source URLs, and uses an automatically generated variety label.  Recover a stable Gutenberg identity and edition/translation status before using any row. |
-| Ekklisiastika Keimena | conditional ingest after deduplication | The material is in scope, but service books, biblical readings, and hymns repeat heavily and overlap texts OGC already serves.  Map works/loci first and admit only unique or genuinely preferable witnesses. |
+| Ekklisiastika Keimena | conditional ingest after cleaning and deduplication | The material is in scope, but it includes structural rubrics, run-together boundaries, and heavily repeated service books, biblical readings, and hymn cycles.  Strip non-text structure, quarantine unresolved joins, map works/loci, and admit only unique or genuinely preferable witnesses. |
 | Archetai | OCR quarantine | Each row is volume-level OCR from publications spanning 1837-present.  Separate historical primary text from Modern commentary, apparatus, bibliography, and foreign-language material, then apply OGC's OCR quality and dedup gates per segment. |
 
 ## Dilemma boundary
@@ -29,6 +29,9 @@ as required by `docs/pinning-discipline.md`.
 
 Raw historical frequencies, supplied classifier labels, quarantined OCR, and
 duplicate-only rows are therefore outside the Dilemma input boundary.
+Ekklisiastika's raw token and n-gram counts are also excluded: its repeated
+Oktoechos cycles would overstate distinct language even after basic token
+cleaning.
 
 ## Classifier evidence
 

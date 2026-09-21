@@ -39,15 +39,17 @@
         "sha256": "ec4d18951392d90650f96fe5232d2527aa4deed2164b171a8501e50b408593ae"
       },
       "decision": "conditional_ingest_after_dedup",
-      "reason": "The source is explicitly Medieval/Hellenistic Koine liturgical text and has useful title/category metadata, but biblical, hymnographic, and service-book material is highly repetitive and overlaps sources OGC already serves.",
+      "reason": "The source is explicitly Medieval/Hellenistic Koine liturgical text and has useful title/category metadata, but it contains structural rubrics and run-together boundaries, while biblical, hymnographic, and service-book material is highly repetitive and overlaps sources OGC already serves.",
       "required_gates": [
         "Map title/category/subcategory to a stable work or service unit and retain the GOARCH source URL.",
+        "Strip structural rubrics and page or service identifiers before tokenization.",
+        "Detect and repair or quarantine run-together sentence and section boundaries before lexical extraction.",
         "Separate biblical quotations/readings from independently authored liturgical material.",
-        "Run exact and near-duplicate passage checks against existing biblical, patristic, hymnographic, and liturgical works.",
+        "Run exact and near-duplicate passage checks across Oktoechos tone cycles and against existing biblical, patristic, hymnographic, and liturgical works.",
         "Prefer OGC's existing identified edition where the GlossAPI row is only a duplicate witness.",
         "Admit unique text as locus-keyed records with explicit CC-BY-4.0 provenance."
       ],
-      "admission_output": "Deduplicated, identified passages in data/corpus; duplicate-only rows contribute no new frequency."
+      "admission_output": "Cleaned, deduplicated, identified passages in data/corpus; raw or duplicate-only rows contribute no token or n-gram frequency."
     },
     {
       "key": "glossapi_archetai",
