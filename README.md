@@ -491,6 +491,15 @@ does not justify replacing the current model; the 100-page set has not yet
 been run in full. The 100-page data-v2 set was released for Calfa training and
 cannot independently evaluate Calfa; Qwen pretraining overlap is unknown.
 
+The runner also supports a local vLLM server for concurrent page requests.
+`scripts/serve_ocr_benchmark.py --model REPOSITORY --revision SHA
+--runtime-manifest runtime.json` downloads the pinned checkpoint and records
+the server packages, GPU, and generation settings. Run the benchmark with
+`--backend http --runtime-manifest runtime.json --split all --workers 4`.
+HTTP failures remain scored as empty pages, and token-limit truncation is
+reported separately. Comparisons use the held-out test pages when present,
+keeping calibration scores separate.
+
 ## Build
 
 ```bash
