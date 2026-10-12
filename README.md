@@ -487,8 +487,8 @@ accent-folded diagnostic, empty pages, and length outliers. Failed outputs are
 included in aggregates. The separate two-page preflight in
 `data/evaluation/ocr-preflight/comparison.json` measured 4.44% character error
 for Qwen 3.6 and 5.38% for Qwen 3.8 with the same prompt. This small sample
-does not justify replacing the current model; the 100-page set has not yet
-been run in full. The 100-page data-v2 set was released for Calfa training and
+does not justify replacing the current model. The 100-page data-v2 set was
+released for Calfa training and
 cannot independently evaluate Calfa; Qwen pretraining overlap is unknown.
 
 The runner also supports a local vLLM server for concurrent page requests.
@@ -508,6 +508,14 @@ remain untrimmed, with no text removed after generation.
 Pass `compare --manifest data/evaluation/ocr-pages.json` to require all 100
 pages. The comparison retains page-level regressions, edition-level results,
 and paired confidence intervals from resampling pages within each edition.
+
+Four of the 100 PAGE XML files list their text regions or lines out of printed
+order. `scripts/rescore_page_ocr.py` sorts the line polygons in these
+single-column crops from top to bottom and writes a reversible audit to
+`data/evaluation/ocr-100/changes/reference-order.json`. Original XML, raw
+predictions, and original scores remain intact. Derived scores must use the
+same reference audit for both models; this repair changes line order only,
+never the transcribed characters or model output.
 
 ## Build
 
