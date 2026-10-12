@@ -45,12 +45,12 @@ THIRD_SHEET = DATA / "nonfinal_grave_tranche_thirdparty.json"
 # Sources this repo OCR'd or republishes someone else's OCR of. They are kept
 # out of the attestation base: the class exists because OCR mis-set accents, so
 # letting OCR text vote on the right accent would let the error attest itself.
-OCR_SOURCES = {"ocr", "cgpg"}
+OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 # The sources cisco's 2026-08-10 decision covered when he set the bar for
 # correcting other people's editions. Fixed rather than derived, so a source
 # added to the corpus later cannot slide into the tranche without its own
 # decision; byzantine_vernacular is deliberately absent.
-THIRD_PARTY_SOURCES = ("byzantium_gr", "cgpg", "dfhg", "first1k", "perseus",
+THIRD_PARTY_SOURCES = ("byzantium_gr", "cgpg", "dfhg", "first1k", "perseus", "greek_library",
                        "pta", "saws", "wikisource")
 # A reading has to hold this much of its skeleton class, over this many clean
 # tokens, before the class is treated as decided at all.
