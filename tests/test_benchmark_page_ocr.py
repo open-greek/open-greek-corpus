@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import time
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -103,3 +104,42 @@ def test_paired_diagnostics_exclude_calibration_and_preserve_editions():
     assert {r["id"] for r in result["page_changes"]} == {"test-a", "test-b"}
     assert result["paired_page_bootstrap"]["cer_change_ci95"] == [-0.4, -0.4]
     assert set(result["by_volume"]) == {"a", "b"}
+
+
+def test_concurrent_http_run_keeps_page_identity(tmp_path, monkeypatch):
+    pages = []
+    for index, gold in enumerate(("λόγος", "θεός")):
+        stem = f"page-{index}"
+        image, xml = tmp_path / f"{stem}.png", tmp_path / f"{stem}.xml"
+        image.write_bytes(bytes([index]))
+        xml.write_text(f'<PcGts xmlns="urn:test"><Page imageFilename="{image.name}">'
+                       f'<TextRegion><TextLine><TextEquiv><Unicode>{gold}</Unicode>'
+                       '</TextEquiv></TextLine></TextRegion></Page></PcGts>')
+        pages.append({"id": stem, "split": "calibration" if index == 0 else "test",
+                      "volume": "edition", "image": image.name, "xml": xml.name,
+                      "image_sha256": bench.sha256(image), "xml_sha256": bench.sha256(xml)})
+    manifest, runtime, output = (tmp_path / name for name in ("pages.json", "runtime.json", "output.jsonl"))
+    manifest.write_text(json.dumps({"pages": pages}))
+    runtime.write_text(json.dumps({"model": "pinned", "revision": "abc"}))
+    class ModelsResponse:
+        def __enter__(self):
+            return self
+        def __exit__(self, *args):
+            pass
+        def read(self):
+            return b'{"data":[{"id":"pinned"}]}'
+    monkeypatch.setattr(bench, "urlopen", lambda *args, **kwargs: ModelsResponse())
+    def completion(args, image):
+        first = image.name == "page-0.png"
+        if first:
+            time.sleep(0.02)
+        return {"raw_prediction": "λόγος" if first else "θεός", "finish_reason": "stop"}
+    monkeypatch.setattr(bench, "http_completion", completion)
+    bench.run(SimpleNamespace(root=tmp_path, manifest=manifest, out=output,
+        runtime_manifest=runtime, backend="http", base_url="http://localhost/v1",
+        model="pinned", revision="abc", workers=2, split="all", limit=None, max_tokens=12000))
+    rows = [json.loads(line) for line in output.read_text().splitlines()][1:]
+    assert [r["id"] for r in rows] == ["page-1", "page-0"]
+    assert all(r["metrics"]["cer"] == 0 for r in rows)
+    summary = json.loads(output.with_suffix(".summary.json").read_text())["metrics"]
+    assert summary["test"]["pages"] == summary["calibration"]["pages"] == 1
