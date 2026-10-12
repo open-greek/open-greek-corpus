@@ -287,6 +287,13 @@ edition, source, tokens) is `data/work_index.json` via
 Full model, WEMI leveling, and the index schema a consumer needs:
 `docs/opaque-identifiers.md`.
 
+Reviewed links in `data/work_metadata_remaps.json` connect differently named
+served expressions to their canonical Work metadata. The index and crosswalk
+rebuild from those links; coverage credits the served expression when its
+canonical catalog key has no separate text. This includes the Walz IV scholia
+of Syrianus, Sopater, and Marcellinus, verified against printed pages 39-846.
+The existing `ogc` and author identifiers are retained.
+
 A served work can also carry a `serving_deficit` block in `work_index.json`
 (and a `serving_deficit` column in the catalog): the served text is known to be
 shorter than a fuller text of the same work held in this repo, and the serving
@@ -299,7 +306,7 @@ must be cleared in the same change that resolves it. The file is empty as of
 of the TLG Canon and was removed the next day, which is recorded in the file.
 
 A work the TLG never numbered gets a CTS id in this repo's own namespace,
-`urn:cts:cogGreek:<key>`, not in Perseus/OGL's `greekLit`. 3,880 of the 11,074
+`urn:cts:cogGreek:<key>`, not in Perseus/OGL's `greekLit`. 3,881 of the 11,075
 CTS aliases are cog-native that way, and `data/crosswalk_report.json` splits the
 count by namespace so "100% cts" is not read as 100% externally identified.
 Until 2026-08-08 those ids claimed `greekLit` and 29 of them were published as
@@ -311,10 +318,10 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 570 of the 3,909 served works have no
+distinct `ogc` ids sharing one TLG anchor. 569 of the 3,909 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,339 works, `tlg` on 3,300,
+`work_index.json` under `work_anchors` (`cts` on 3,340 works, `tlg` on 3,306,
 `wikidata` on 517), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
@@ -2268,7 +2275,7 @@ move.
 | symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum | Symeon Thessalonicensis - Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters) (PG155 loci 420-481) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,609 | manual |
 | symmachus.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 39,549 | raw OCR |
 | synesius-philosophy.epistulae | Synesius - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,822 | auto-corrected |
-| syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous |  | qwen36-walz_rhetores_v4 | Qwen3.6-27B | 206,971 | auto-corrected |
+| syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous | Syriani, Sopatri Et Marcellini Scholia Ad Hermogenis Status - Scholia Ad Hermogenis Librum περὶ στάσεων | qwen36-walz_rhetores_v4 | Qwen3.6-27B | 206,971 | auto-corrected |
 | syrianus.eis-to-peri-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,199 | raw OCR |
 | tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | auto-corrected |
 | teleclides.fragmenta | Teleclides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |

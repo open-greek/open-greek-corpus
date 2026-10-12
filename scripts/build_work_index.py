@@ -296,9 +296,12 @@ def build(write: bool = True) -> dict:
     def author_block(work_slug: str) -> dict:
         _metadata_slug, metadata_work = registry_work_for(
             work_slug, reg_works, metadata_remaps)
-        a_slug = metadata_work.get("author") or \
-            author_slug_for(work_slug, reg_works, pseudo_works)
-        auth = reg_authors.get(a_slug, {})
+        served_author = author_slug_for(work_slug, reg_works, pseudo_works)
+        metadata_author = metadata_work.get("author")
+        # A reviewed Work identity must not discard the served author's opaque
+        # id when the canonical catalog uses a different collective name.
+        a_slug = metadata_author if metadata_author in author_slug_to_id else served_author
+        auth = reg_authors.get(a_slug) or reg_authors.get(metadata_author, {})
         name = auth.get("name")
         aliases = dict(auth.get("aliases", {}))
         if not name:  # curated pseudo-author label (collective volumes)
