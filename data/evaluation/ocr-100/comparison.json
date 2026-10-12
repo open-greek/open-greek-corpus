@@ -1,0 +1,899 @@
+{
+  "baseline": {
+    "manifest_sha256": "541168f70eac826140039c0642b9d092e4c1299613c7be976fd7a1a5ccf1e089",
+    "model": "Qwen/Qwen3.6-27B-FP8",
+    "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+    "prompt": "Transcribe only the printed Greek text in this image, in reading order, one line per printed line. Exclude Latin text, including Latin editorial words embedded in a Greek line, and exclude parenthesized Arabic-number reference markers. Keep Greek text inside editorial brackets and keep Greek headings and section numerals. Preserve Greek accents, breathing marks, punctuation, and printed hyphens. Do not correct, translate, summarize, or add explanations. Return only the Greek transcription.",
+    "temperature": 0,
+    "max_tokens": 12000,
+    "runner": "scripts/benchmark_page_ocr.py",
+    "runner_sha256": "080a4144041a771f7728c057c63a03a61971673656e5f4c48f7621606de44d05",
+    "backend": "http",
+    "runtime_versions": {
+      "python": "3.11.10"
+    },
+    "inference_runtime": {
+      "model": "Qwen/Qwen3.6-27B-FP8",
+      "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+      "versions": {
+        "vllm": "0.17.1",
+        "torch": "2.10.0",
+        "transformers": "4.57.6",
+        "huggingface-hub": "0.36.2"
+      },
+      "cuda": "12.8",
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "settings": {
+        "max_model_len": 16384,
+        "max_num_seqs": 8,
+        "gpu_memory_utilization": 0.9,
+        "reasoning_parser": "qwen3",
+        "images_per_prompt": 1
+      }
+    },
+    "workers": 6,
+    "reference_audit_sha256": "d99c422bb5b00786188fde5b0b04925b61c4fe0ad490aca6482671616ef0daa0",
+    "source_prediction_sha256": "bf089252603fb802cf754c4b4ca7257933aab27bf29894cea5884e8d94efc722",
+    "scorer": "scripts/rescore_page_ocr.py",
+    "scorer_sha256": "5b5f64e12760e40f4e90dfbcfd2700ec06e998ce645603670d53d88b23a3255c"
+  },
+  "candidate": {
+    "manifest_sha256": "541168f70eac826140039c0642b9d092e4c1299613c7be976fd7a1a5ccf1e089",
+    "model": "Qwen/Qwen3.8-27B-FP8",
+    "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+    "prompt": "Transcribe only the printed Greek text in this image, in reading order, one line per printed line. Exclude Latin text, including Latin editorial words embedded in a Greek line, and exclude parenthesized Arabic-number reference markers. Keep Greek text inside editorial brackets and keep Greek headings and section numerals. Preserve Greek accents, breathing marks, punctuation, and printed hyphens. Do not correct, translate, summarize, or add explanations. Return only the Greek transcription.",
+    "temperature": 0,
+    "max_tokens": 12000,
+    "runner": "scripts/benchmark_page_ocr.py",
+    "runner_sha256": "12593132d30de4b698d1f5bf657ad6ad4802b563a585d01d898d1ef033a50603",
+    "backend": "http",
+    "runtime_versions": {
+      "python": "3.11.10"
+    },
+    "inference_runtime": {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+      "versions": {
+        "vllm": "0.17.1",
+        "torch": "2.10.0",
+        "transformers": "4.57.6",
+        "huggingface-hub": "0.36.2"
+      },
+      "cuda": "12.8",
+      "gpu": "NVIDIA RTX 6000 Ada Generation",
+      "settings": {
+        "max_model_len": 16384,
+        "max_num_seqs": 8,
+        "gpu_memory_utilization": 0.9,
+        "reasoning_parser": "qwen3",
+        "images_per_prompt": 1
+      }
+    },
+    "workers": 6,
+    "reference_audit_sha256": "d99c422bb5b00786188fde5b0b04925b61c4fe0ad490aca6482671616ef0daa0",
+    "source_prediction_sha256": "eca96619ad42db65da126fa58ddbb0763f24f47d03cefd9261cf495d7520669e",
+    "scorer": "scripts/rescore_page_ocr.py",
+    "scorer_sha256": "5b5f64e12760e40f4e90dfbcfd2700ec06e998ce645603670d53d88b23a3255c"
+  },
+  "baseline_file_sha256": "b4b0d0e21929c714d98e0ab3f886baf4248b7ae609a89977bf0206ffa8e4fcfd",
+  "candidate_file_sha256": "41329b162db45a19aa0267462e255a7389eeea56c1ede0f3f483c643b41d81e8",
+  "pages": [
+    "grc_grna_or_396",
+    "grc_grna_or_399",
+    "grc_grna_or_407",
+    "grc_grna_or_417",
+    "grc_grna_or_421",
+    "grc_grna_or_423",
+    "grc_grna_or_431",
+    "grc_grna_or_433",
+    "grc_grna_or_437",
+    "grc_grna_or_441",
+    "grc_grna_or_443",
+    "grc_grna_or_447",
+    "grc_grna_or_457",
+    "grc_grna_or_463",
+    "grc_grna_or_473",
+    "grc_grna_or_481",
+    "grc_grna_or_485",
+    "grc_grna_or_501",
+    "grc_grna_or_511",
+    "grc_grna_or_517",
+    "grc_grna_or_519",
+    "grc_grna_or_539",
+    "grc_grna_or_545",
+    "grc_grna_or_549",
+    "grc_grna_or_553",
+    "grc_grna_or_561",
+    "grc_grna_or_565",
+    "grc_grna_or_579",
+    "grc_grna_or_593",
+    "grc_grna_or_605",
+    "grc_grna_or_613",
+    "grc_grna_or_617",
+    "grc_grna_or_627",
+    "grc_grna_or_635",
+    "grc_grna_or_643",
+    "grc_grna_or_647",
+    "grc_grna_or_667",
+    "grc_grna_or_671",
+    "grc_grna_or_675",
+    "grc_grna_or_681",
+    "grc_grna_or_683",
+    "grc_grna_or_687",
+    "grc_grna_or_689",
+    "grc_grna_or_691",
+    "grc_grna_or_695",
+    "grc_grna_or_697",
+    "grc_grna_or_701",
+    "grc_grna_or_709",
+    "grc_grna_or_713",
+    "grc_grna_or_715",
+    "grc_tlg_mpg145-216",
+    "grc_tlg_mpg145-218",
+    "grc_tlg_mpg145-220",
+    "grc_tlg_mpg145-222",
+    "grc_tlg_mpg145-224",
+    "grc_tlg_mpg145-226",
+    "grc_tlg_mpg145-228",
+    "grc_tlg_mpg145-230",
+    "grc_tlg_mpg145-232",
+    "grc_tlg_mpg145-236",
+    "grc_tlg_mpg145-240",
+    "grc_tlg_mpg145-242",
+    "grc_tlg_mpg145-244",
+    "grc_tlg_mpg145-246",
+    "grc_tlg_mpg145-248",
+    "grc_tlg_mpg145-250",
+    "grc_tlg_mpg145-252",
+    "grc_tlg_mpg145-260",
+    "grc_tlg_mpg145-262",
+    "grc_tlg_mpg145-264",
+    "grc_tlg_mpg145-266",
+    "grc_tlg_mpg145-268",
+    "grc_tlg_mpg145-270",
+    "grc_tlg_mpg145-272",
+    "grc_tlg_mpg145-274",
+    "grc_tlg_mpg145-278",
+    "grc_tlg_mpg145-280",
+    "grc_tlg_mpg145-282",
+    "grc_tlg_mpg145-284",
+    "grc_tlg_mpg145-286",
+    "grc_tlg_mpg145-288",
+    "grc_tlg_mpg145-290",
+    "grc_tlg_mpg145-294",
+    "grc_tlg_mpg145-296",
+    "grc_tlg_mpg145-300",
+    "grc_tlg_mpg145-304",
+    "grc_tlg_mpg145-308",
+    "grc_tlg_mpg145-312",
+    "grc_tlg_mpg145-314",
+    "grc_tlg_mpg145-320",
+    "grc_tlg_mpg145-322",
+    "grc_tlg_mpg145-324",
+    "grc_tlg_mpg145-326",
+    "grc_tlg_mpg145-328",
+    "grc_tlg_mpg145-332",
+    "grc_tlg_mpg145-336",
+    "grc_tlg_mpg145-342",
+    "grc_tlg_mpg145-344",
+    "grc_tlg_mpg145-348",
+    "grc_tlg_mpg145-352"
+  ],
+  "evaluation_split": "test",
+  "baseline_scores": {
+    "pages": 80,
+    "cer": 0.07371635667899258,
+    "wer": 0.2879896848572187,
+    "folded_cer": 0.04442602670436886,
+    "empty_pages": 0,
+    "failed_pages": 0,
+    "truncated_pages": 0,
+    "length_outliers": 0,
+    "max_page_cer": 0.23135593220338982
+  },
+  "candidate_scores": {
+    "pages": 80,
+    "cer": 0.07375315046820097,
+    "wer": 0.26758693920891957,
+    "folded_cer": 0.04871627674550407,
+    "empty_pages": 0,
+    "failed_pages": 0,
+    "truncated_pages": 0,
+    "length_outliers": 0,
+    "max_page_cer": 0.1333061557276804
+  },
+  "baseline_by_split": {
+    "calibration": {
+      "pages": 20,
+      "cer": 0.05955430946971528,
+      "wer": 0.23515296940611877,
+      "folded_cer": 0.04049215389421575,
+      "empty_pages": 0,
+      "failed_pages": 0,
+      "truncated_pages": 0,
+      "length_outliers": 0,
+      "max_page_cer": 0.09747292418772563
+    },
+    "test": {
+      "pages": 80,
+      "cer": 0.07371635667899258,
+      "wer": 0.2879896848572187,
+      "folded_cer": 0.04442602670436886,
+      "empty_pages": 0,
+      "failed_pages": 0,
+      "truncated_pages": 0,
+      "length_outliers": 0,
+      "max_page_cer": 0.23135593220338982
+    },
+    "all": {
+      "pages": 100,
+      "cer": 0.07085035095013328,
+      "wer": 0.2773254230105639,
+      "folded_cer": 0.04363022955091247,
+      "empty_pages": 0,
+      "failed_pages": 0,
+      "truncated_pages": 0,
+      "length_outliers": 0,
+      "max_page_cer": 0.23135593220338982
+    }
+  },
+  "candidate_by_split": {
+    "calibration": {
+      "pages": 20,
+      "cer": 0.09177261081838836,
+      "wer": 0.3797240551889622,
+      "folded_cer": 0.045754932352870495,
+      "empty_pages": 0,
+      "failed_pages": 0,
+      "truncated_pages": 0,
+      "length_outliers": 0,
+      "max_page_cer": 0.19610855094726062
+    },
+    "test": {
+      "pages": 80,
+      "cer": 0.07375315046820097,
+      "wer": 0.26758693920891957,
+      "folded_cer": 0.04871627674550407,
+      "empty_pages": 0,
+      "failed_pages": 0,
+      "truncated_pages": 0,
+      "length_outliers": 0,
+      "max_page_cer": 0.1333061557276804
+    },
+    "all": {
+      "pages": 100,
+      "cer": 0.07739978967448458,
+      "wer": 0.29022005630051156,
+      "folded_cer": 0.048117215832304355,
+      "empty_pages": 0,
+      "failed_pages": 0,
+      "truncated_pages": 0,
+      "length_outliers": 0,
+      "max_page_cer": 0.19610855094726062
+    }
+  },
+  "candidate_cer_change": 3.6793789208386385e-05,
+  "scope": "Held-out benchmark pages; results do not establish corpus-wide accuracy.",
+  "generated_by": "scripts/benchmark_page_ocr.py compare",
+  "by_volume": {
+    "gregory-nazianzus-orations": {
+      "baseline": {
+        "pages": 40,
+        "cer": 0.07270251083003723,
+        "wer": 0.2579454398127307,
+        "folded_cer": 0.045779005842903606,
+        "empty_pages": 0,
+        "failed_pages": 0,
+        "truncated_pages": 0,
+        "length_outliers": 0,
+        "max_page_cer": 0.2181122448979592
+      },
+      "candidate": {
+        "pages": 40,
+        "cer": 0.06847191434490953,
+        "wer": 0.22940487980552804,
+        "folded_cer": 0.04776501741357971,
+        "empty_pages": 0,
+        "failed_pages": 0,
+        "truncated_pages": 0,
+        "length_outliers": 0,
+        "max_page_cer": 0.11855364552459988
+      }
+    },
+    "pg-145": {
+      "baseline": {
+        "pages": 40,
+        "cer": 0.07446039340776182,
+        "wer": 0.3098545406892937,
+        "folded_cer": 0.043432304163539694,
+        "empty_pages": 0,
+        "failed_pages": 0,
+        "truncated_pages": 0,
+        "length_outliers": 0,
+        "max_page_cer": 0.23135593220338982
+      },
+      "candidate": {
+        "pages": 40,
+        "cer": 0.07762892078681552,
+        "wer": 0.2953741318306906,
+        "folded_cer": 0.049414948153942095,
+        "empty_pages": 0,
+        "failed_pages": 0,
+        "truncated_pages": 0,
+        "length_outliers": 0,
+        "max_page_cer": 0.1333061557276804
+      }
+    }
+  },
+  "page_changes": [
+    {
+      "id": "grc_grna_or_441",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.06046235921754594,
+      "candidate_cer": 0.11855364552459988,
+      "cer_change": 0.05809128630705394
+    },
+    {
+      "id": "grc_grna_or_423",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.04220398593200469,
+      "candidate_cer": 0.09202813599062133,
+      "cer_change": 0.049824150058616644
+    },
+    {
+      "id": "grc_tlg_mpg145-250",
+      "volume": "pg-145",
+      "baseline_cer": 0.05355648535564853,
+      "candidate_cer": 0.10209205020920502,
+      "cer_change": 0.048535564853556486
+    },
+    {
+      "id": "grc_grna_or_511",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.03217697335344394,
+      "candidate_cer": 0.07893413775766717,
+      "cer_change": 0.04675716440422323
+    },
+    {
+      "id": "grc_grna_or_443",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.017942583732057416,
+      "candidate_cer": 0.06339712918660287,
+      "cer_change": 0.045454545454545456
+    },
+    {
+      "id": "grc_tlg_mpg145-294",
+      "volume": "pg-145",
+      "baseline_cer": 0.08713692946058091,
+      "candidate_cer": 0.13029045643153528,
+      "cer_change": 0.04315352697095437
+    },
+    {
+      "id": "grc_tlg_mpg145-232",
+      "volume": "pg-145",
+      "baseline_cer": 0.05291222313371616,
+      "candidate_cer": 0.09269893355209188,
+      "cer_change": 0.039786710418375726
+    },
+    {
+      "id": "grc_tlg_mpg145-320",
+      "volume": "pg-145",
+      "baseline_cer": 0.09457806767223807,
+      "candidate_cer": 0.1333061557276804,
+      "cer_change": 0.038728088055442325
+    },
+    {
+      "id": "grc_tlg_mpg145-326",
+      "volume": "pg-145",
+      "baseline_cer": 0.06478537360890302,
+      "candidate_cer": 0.10214626391096979,
+      "cer_change": 0.03736089030206677
+    },
+    {
+      "id": "grc_grna_or_437",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.04602235371466141,
+      "candidate_cer": 0.08086785009861933,
+      "cer_change": 0.03484549638395792
+    },
+    {
+      "id": "grc_grna_or_683",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.039309112567004166,
+      "candidate_cer": 0.07206670637284097,
+      "cer_change": 0.03275759380583681
+    },
+    {
+      "id": "grc_tlg_mpg145-272",
+      "volume": "pg-145",
+      "baseline_cer": 0.04699612403100775,
+      "candidate_cer": 0.07800387596899225,
+      "cer_change": 0.031007751937984496
+    },
+    {
+      "id": "grc_grna_or_561",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.029381443298969072,
+      "candidate_cer": 0.05824742268041237,
+      "cer_change": 0.0288659793814433
+    },
+    {
+      "id": "grc_grna_or_433",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.053293413173652694,
+      "candidate_cer": 0.081437125748503,
+      "cer_change": 0.0281437125748503
+    },
+    {
+      "id": "grc_tlg_mpg145-252",
+      "volume": "pg-145",
+      "baseline_cer": 0.05898764447987246,
+      "candidate_cer": 0.08369868473495416,
+      "cer_change": 0.024711040255081702
+    },
+    {
+      "id": "grc_grna_or_593",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.057526881720430106,
+      "candidate_cer": 0.08172043010752689,
+      "cer_change": 0.02419354838709678
+    },
+    {
+      "id": "grc_tlg_mpg145-278",
+      "volume": "pg-145",
+      "baseline_cer": 0.05580357142857143,
+      "candidate_cer": 0.07946428571428571,
+      "cer_change": 0.023660714285714278
+    },
+    {
+      "id": "grc_tlg_mpg145-352",
+      "volume": "pg-145",
+      "baseline_cer": 0.06215578284815106,
+      "candidate_cer": 0.08575924468922108,
+      "cer_change": 0.02360346184107002
+    },
+    {
+      "id": "grc_tlg_mpg145-324",
+      "volume": "pg-145",
+      "baseline_cer": 0.041951664386684906,
+      "candidate_cer": 0.06520747834017328,
+      "cer_change": 0.023255813953488372
+    },
+    {
+      "id": "grc_tlg_mpg145-312",
+      "volume": "pg-145",
+      "baseline_cer": 0.08149111400086692,
+      "candidate_cer": 0.1035977459904638,
+      "cer_change": 0.022106631989596878
+    },
+    {
+      "id": "grc_grna_or_667",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.04729400292540224,
+      "candidate_cer": 0.06923451974646513,
+      "cer_change": 0.02194051682106289
+    },
+    {
+      "id": "grc_tlg_mpg145-216",
+      "volume": "pg-145",
+      "baseline_cer": 0.05828220858895705,
+      "candidate_cer": 0.07975460122699386,
+      "cer_change": 0.02147239263803681
+    },
+    {
+      "id": "grc_tlg_mpg145-242",
+      "volume": "pg-145",
+      "baseline_cer": 0.07589285714285714,
+      "candidate_cer": 0.09699675324675325,
+      "cer_change": 0.02110389610389611
+    },
+    {
+      "id": "grc_grna_or_549",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.0562273276904474,
+      "candidate_cer": 0.0761789600967352,
+      "cer_change": 0.019951632406287792
+    },
+    {
+      "id": "grc_tlg_mpg145-244",
+      "volume": "pg-145",
+      "baseline_cer": 0.06962025316455696,
+      "candidate_cer": 0.08565400843881857,
+      "cer_change": 0.01603375527426161
+    },
+    {
+      "id": "grc_tlg_mpg145-280",
+      "volume": "pg-145",
+      "baseline_cer": 0.043898156277436345,
+      "candidate_cer": 0.05970149253731343,
+      "cer_change": 0.015803336259877086
+    },
+    {
+      "id": "grc_grna_or_565",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.05587467362924282,
+      "candidate_cer": 0.07154046997389034,
+      "cer_change": 0.01566579634464752
+    },
+    {
+      "id": "grc_tlg_mpg145-286",
+      "volume": "pg-145",
+      "baseline_cer": 0.047517123287671235,
+      "candidate_cer": 0.062071917808219176,
+      "cer_change": 0.014554794520547941
+    },
+    {
+      "id": "grc_tlg_mpg145-240",
+      "volume": "pg-145",
+      "baseline_cer": 0.04376470588235294,
+      "candidate_cer": 0.05788235294117647,
+      "cer_change": 0.014117647058823526
+    },
+    {
+      "id": "grc_tlg_mpg145-230",
+      "volume": "pg-145",
+      "baseline_cer": 0.06055437100213219,
+      "candidate_cer": 0.07462686567164178,
+      "cer_change": 0.014072494669509591
+    },
+    {
+      "id": "grc_tlg_mpg145-264",
+      "volume": "pg-145",
+      "baseline_cer": 0.036032545524990314,
+      "candidate_cer": 0.04959318093762108,
+      "cer_change": 0.013560635412630764
+    },
+    {
+      "id": "grc_grna_or_675",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.08374875373878365,
+      "candidate_cer": 0.09720837487537388,
+      "cer_change": 0.01345962113659023
+    },
+    {
+      "id": "grc_grna_or_545",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.06512042818911686,
+      "candidate_cer": 0.07760927743086529,
+      "cer_change": 0.012488849241748437
+    },
+    {
+      "id": "grc_grna_or_697",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.07644946126218574,
+      "candidate_cer": 0.0887634684453566,
+      "cer_change": 0.012314007183170855
+    },
+    {
+      "id": "grc_grna_or_689",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.08360836083608361,
+      "candidate_cer": 0.09570957095709572,
+      "cer_change": 0.012101210121012104
+    },
+    {
+      "id": "grc_tlg_mpg145-332",
+      "volume": "pg-145",
+      "baseline_cer": 0.05702917771883289,
+      "candidate_cer": 0.06896551724137931,
+      "cer_change": 0.01193633952254642
+    },
+    {
+      "id": "grc_tlg_mpg145-284",
+      "volume": "pg-145",
+      "baseline_cer": 0.06993006993006994,
+      "candidate_cer": 0.08062525709584534,
+      "cer_change": 0.010695187165775402
+    },
+    {
+      "id": "grc_tlg_mpg145-228",
+      "volume": "pg-145",
+      "baseline_cer": 0.05024455313472655,
+      "candidate_cer": 0.0609159626500667,
+      "cer_change": 0.010671409515340152
+    },
+    {
+      "id": "grc_tlg_mpg145-270",
+      "volume": "pg-145",
+      "baseline_cer": 0.04414335664335664,
+      "candidate_cer": 0.054632867132867136,
+      "cer_change": 0.010489510489510495
+    },
+    {
+      "id": "grc_tlg_mpg145-290",
+      "volume": "pg-145",
+      "baseline_cer": 0.09688149688149689,
+      "candidate_cer": 0.10686070686070687,
+      "cer_change": 0.00997920997920998
+    },
+    {
+      "id": "grc_grna_or_421",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.04218362282878412,
+      "candidate_cer": 0.052109181141439205,
+      "cer_change": 0.009925558312655083
+    },
+    {
+      "id": "grc_grna_or_539",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.044760935910478125,
+      "candidate_cer": 0.05442522889114954,
+      "cer_change": 0.009664292980671417
+    },
+    {
+      "id": "grc_tlg_mpg145-220",
+      "volume": "pg-145",
+      "baseline_cer": 0.05638801261829653,
+      "candidate_cer": 0.06585173501577288,
+      "cer_change": 0.009463722397476344
+    },
+    {
+      "id": "grc_tlg_mpg145-246",
+      "volume": "pg-145",
+      "baseline_cer": 0.057476635514018694,
+      "candidate_cer": 0.06682242990654205,
+      "cer_change": 0.009345794392523359
+    },
+    {
+      "id": "grc_grna_or_517",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.0547945205479452,
+      "candidate_cer": 0.0639269406392694,
+      "cer_change": 0.0091324200913242
+    },
+    {
+      "id": "grc_grna_or_695",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.06404833836858007,
+      "candidate_cer": 0.07311178247734139,
+      "cer_change": 0.009063444108761323
+    },
+    {
+      "id": "grc_grna_or_617",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.07258485639686683,
+      "candidate_cer": 0.07989556135770234,
+      "cer_change": 0.00731070496083551
+    },
+    {
+      "id": "grc_grna_or_687",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.09131156613171001,
+      "candidate_cer": 0.09850581073602656,
+      "cer_change": 0.007194244604316544
+    },
+    {
+      "id": "grc_tlg_mpg145-308",
+      "volume": "pg-145",
+      "baseline_cer": 0.035864978902953586,
+      "candidate_cer": 0.043037974683544304,
+      "cer_change": 0.0071729957805907185
+    },
+    {
+      "id": "grc_tlg_mpg145-344",
+      "volume": "pg-145",
+      "baseline_cer": 0.058645968089693835,
+      "candidate_cer": 0.06554549374730487,
+      "cer_change": 0.006899525657611032
+    },
+    {
+      "id": "grc_tlg_mpg145-268",
+      "volume": "pg-145",
+      "baseline_cer": 0.06304248515303791,
+      "candidate_cer": 0.06943809958885336,
+      "cer_change": 0.006395614435815447
+    },
+    {
+      "id": "grc_grna_or_579",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.051462621885157094,
+      "candidate_cer": 0.05742145178764897,
+      "cer_change": 0.005958829902491879
+    },
+    {
+      "id": "grc_grna_or_671",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.07875264270613108,
+      "candidate_cer": 0.08456659619450317,
+      "cer_change": 0.0058139534883720895
+    },
+    {
+      "id": "grc_grna_or_447",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.08017960230917255,
+      "candidate_cer": 0.08595253367543297,
+      "cer_change": 0.00577293136626042
+    },
+    {
+      "id": "grc_tlg_mpg145-336",
+      "volume": "pg-145",
+      "baseline_cer": 0.04989858012170385,
+      "candidate_cer": 0.05517241379310345,
+      "cer_change": 0.005273833671399594
+    },
+    {
+      "id": "grc_tlg_mpg145-236",
+      "volume": "pg-145",
+      "baseline_cer": 0.058718224131757965,
+      "candidate_cer": 0.06301467955603295,
+      "cer_change": 0.004296455424274981
+    },
+    {
+      "id": "grc_tlg_mpg145-262",
+      "volume": "pg-145",
+      "baseline_cer": 0.06074551311550851,
+      "candidate_cer": 0.06304647952139898,
+      "cer_change": 0.0023009664058904686
+    },
+    {
+      "id": "grc_grna_or_396",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.03819095477386935,
+      "candidate_cer": 0.03919597989949749,
+      "cer_change": 0.0010050251256281395
+    },
+    {
+      "id": "grc_tlg_mpg145-248",
+      "volume": "pg-145",
+      "baseline_cer": 0.05921325051759834,
+      "candidate_cer": 0.05921325051759834,
+      "cer_change": 0.0
+    },
+    {
+      "id": "grc_grna_or_713",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.09473060982830077,
+      "candidate_cer": 0.0941385435168739,
+      "cer_change": -0.0005920663114268726
+    },
+    {
+      "id": "grc_tlg_mpg145-348",
+      "volume": "pg-145",
+      "baseline_cer": 0.04590570719602978,
+      "candidate_cer": 0.045078577336641855,
+      "cer_change": -0.0008271298593879248
+    },
+    {
+      "id": "grc_grna_or_431",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.09549274255156608,
+      "candidate_cer": 0.09243697478991597,
+      "cer_change": -0.003055767761650105
+    },
+    {
+      "id": "grc_tlg_mpg145-218",
+      "volume": "pg-145",
+      "baseline_cer": 0.08326429163214581,
+      "candidate_cer": 0.07870753935376967,
+      "cer_change": -0.004556752278376139
+    },
+    {
+      "id": "grc_grna_or_417",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.07494322482967448,
+      "candidate_cer": 0.06813020439061317,
+      "cer_change": -0.006813020439061318
+    },
+    {
+      "id": "grc_grna_or_681",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.057889344262295084,
+      "candidate_cer": 0.04252049180327869,
+      "cer_change": -0.015368852459016397
+    },
+    {
+      "id": "grc_tlg_mpg145-296",
+      "volume": "pg-145",
+      "baseline_cer": 0.10266613609231993,
+      "candidate_cer": 0.08515718265021886,
+      "cer_change": -0.017508953442101072
+    },
+    {
+      "id": "grc_grna_or_605",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.06589595375722543,
+      "candidate_cer": 0.04161849710982659,
+      "cer_change": -0.02427745664739884
+    },
+    {
+      "id": "grc_tlg_mpg145-314",
+      "volume": "pg-145",
+      "baseline_cer": 0.12525090325170615,
+      "candidate_cer": 0.09995985547972702,
+      "cer_change": -0.02529104777197913
+    },
+    {
+      "id": "grc_grna_or_399",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.06091370558375635,
+      "candidate_cer": 0.03553299492385787,
+      "cer_change": -0.025380710659898477
+    },
+    {
+      "id": "grc_grna_or_627",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.09101251422070535,
+      "candidate_cer": 0.06313993174061433,
+      "cer_change": -0.027872582480091015
+    },
+    {
+      "id": "grc_grna_or_553",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.06568047337278106,
+      "candidate_cer": 0.034911242603550295,
+      "cer_change": -0.030769230769230764
+    },
+    {
+      "id": "grc_grna_or_485",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.08237861429350792,
+      "candidate_cer": 0.044189852700491,
+      "cer_change": -0.038188761593016915
+    },
+    {
+      "id": "grc_grna_or_473",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.08358208955223881,
+      "candidate_cer": 0.04417910447761194,
+      "cer_change": -0.03940298507462687
+    },
+    {
+      "id": "grc_grna_or_643",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.08025682182985554,
+      "candidate_cer": 0.04012841091492777,
+      "cer_change": -0.04012841091492777
+    },
+    {
+      "id": "grc_grna_or_709",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.13508872352604465,
+      "candidate_cer": 0.031482541499713794,
+      "cer_change": -0.10360618202633085
+    },
+    {
+      "id": "grc_tlg_mpg145-222",
+      "volume": "pg-145",
+      "baseline_cer": 0.18804780876494023,
+      "candidate_cer": 0.07609561752988048,
+      "cer_change": -0.11195219123505976
+    },
+    {
+      "id": "grc_tlg_mpg145-266",
+      "volume": "pg-145",
+      "baseline_cer": 0.21808510638297873,
+      "candidate_cer": 0.09042553191489362,
+      "cer_change": -0.12765957446808512
+    },
+    {
+      "id": "grc_grna_or_463",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.2181122448979592,
+      "candidate_cer": 0.06760204081632654,
+      "cer_change": -0.15051020408163265
+    },
+    {
+      "id": "grc_tlg_mpg145-328",
+      "volume": "pg-145",
+      "baseline_cer": 0.23135593220338982,
+      "candidate_cer": 0.07542372881355933,
+      "cer_change": -0.1559322033898305
+    },
+    {
+      "id": "grc_grna_or_481",
+      "volume": "gregory-nazianzus-orations",
+      "baseline_cer": 0.2126829268292683,
+      "candidate_cer": 0.03951219512195122,
+      "cer_change": -0.17317073170731706
+    }
+  ],
+  "paired_page_bootstrap": {
+    "seed": 20261012,
+    "replicates": 2000,
+    "stratified_by": "edition",
+    "cer_change_ci95": [
+      -0.011081208490222639,
+      0.009163371230845279
+    ]
+  }
+}
