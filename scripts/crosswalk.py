@@ -38,6 +38,18 @@ def _load() -> dict[str, str]:
                 m[d["cts"]] = slug          # crosswalk wins (it reflects the delivered corpus)
             if d.get("pta"):                # PTA alias (see build_pta_crosswalk.py)
                 m[f"urn:cts:pta:{d['pta']}"] = slug
+    # Reviewed identity links also connect an unserved canonical inventory row
+    # to its served expression. Do not redirect away from a served canonical
+    # expression, and never infer this relation from a shared title.
+    remaps = REPO / "data/work_metadata_remaps.json"
+    if remaps.exists() and reg.exists():
+        works = json.loads(reg.read_text())["works"]
+        served = {p.stem for p in (REPO / "data/corpus").glob("*.jsonl")}
+        for slug, canonical in json.loads(remaps.read_text()).get("works", {}).items():
+            if slug in served and canonical not in served:
+                cts = (works.get(canonical, {}).get("aliases") or {}).get("cts")
+                if cts:
+                    m[cts] = slug
     _MAP = m
     return m
 

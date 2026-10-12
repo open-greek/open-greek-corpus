@@ -35,3 +35,10 @@ def test_metrics_come_from_the_current_source_artifacts():
         "upper_bound_tokens"] == stamp["raw_ocr"]["upper_bound_tokens"]
     assert limitations["nonfinal-grave-source-errors"]["current_measurement"][
         "tokens"] == graves["tokens"]
+
+
+def test_coverage_findings_remain_open_and_distinct_from_accepted_limitations():
+    findings = KNOWN.build()["active_coverage_findings"]
+    assert len(findings) == 5
+    assert all(row["status"] == "open-coverage-work" for row in findings)
+    assert all(row["evidence"] and row["corpus_file_sha256"] for row in findings)

@@ -57,7 +57,7 @@ CORPUS = REPO / "data" / "corpus"
 SECONDARY = REPO / "data" / "corpus_secondary"
 OUT = REPO / "data" / "ocr_quality_report.json"
 
-OCR_SOURCES = {"ocr", "cgpg"}
+OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 MIN_RANK_TOKENS = 2000          # worst_first / quartiles floor, so tiny fragmenta don't dominate
 MIN_SUSPECT_LEN = 4             # same floor as ocr_llm_correct.py iter_passages
 

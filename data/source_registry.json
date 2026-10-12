@@ -623,6 +623,13 @@
     "gnd": "102378878"
    }
   },
+  "alexius-studites": {
+   "name": "Alexius Studites",
+   "aliases": {
+    "wikidata": "Q2665053",
+    "gnd": "121165167"
+   }
+  },
   "amasis-epistulae": {
    "name": "Amasis Epistulae",
    "aliases": {
@@ -31053,6 +31060,35 @@
      "source": "",
      "servable": false,
      "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "alexius-studites.decreta-additamentum": {
+   "author": "alexius-studites",
+   "title": "Decreta Alexii patriarchae (additamentum)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:alexius-studites.decreta-additamentum"
+   },
+   "default_edition": "alexius-studites.decreta-additamentum.greek-library-ficker-1911",
+   "best_source": "open_corpus",
+   "tags": [
+    "century:11",
+    "era:byzantine",
+    "genre:ecclesiastical",
+    "genre:jurisprudence"
+   ],
+   "editions": {
+    "alexius-studites.decreta-additamentum.greek-library-ficker-1911": {
+     "name": "The Greek Library (greek-library-ficker-1911)",
+     "provider": "greek_library",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
      "aliases": {}
     }

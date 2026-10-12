@@ -1,0 +1,73 @@
+{
+  "review_date": "2026-10-12",
+  "scope": "Five existing work boundaries, not token-level proofreading. These decisions are evidence inputs; the generated report records current counts and source structure.",
+  "cases": [
+    {
+      "slug": "photius.bibliotheca",
+      "status": "partial-scan-and-paratext-review",
+      "source_scan": "https://archive.org/details/bub_gb_NsiGxvHyQY0C",
+      "evidence": [
+        "The served incipit matches codex 230 (Eulogius), Bekker printed page 267, in the independently checked combined-volume scan. Earlier codices are absent from the served file.",
+        "The served ending contains Greek index entries and page references. It must be separated from authorial text before adding the earlier material.",
+        "The delivery source pin must be checked against the actual second-volume scan; a different combined-volume scan is only a bibliographic reference."
+      ],
+      "reference_scan": "https://archive.org/details/bibliothecaexrec00photuoft",
+      "reference_scan_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "reference_printed_pages_checked": [
+        267,
+        268
+      ],
+      "issue": "https://github.com/open-greek/open-greek-corpus/issues/41"
+    },
+    {
+      "slug": "cyrillus-theology.commentarii-in-joannem",
+      "status": "partial-volume",
+      "source_scan": "https://archive.org/details/Patrologia_Graeca_vol_073",
+      "evidence": [
+        "Every served page locus comes from PG 74; PG 73 is absent.",
+        "The first substantive passage comments on John 10, not John 1. Later headings identify Books IX, X, XI, and XII.",
+        "The first four served rows are volume title-page text. These are paratext and need a reversible upstream repair."
+      ],
+      "issue": "https://github.com/open-greek/open-greek-corpus/issues/42"
+    },
+    {
+      "slug": "pappus-mathematics.synagoge",
+      "status": "partial-upstream-edition",
+      "source_root": "first1k",
+      "source_path": "data/tlg2032/tlg001/tlg2032.tlg001.1st1K-grc1.xml",
+      "source_scan": "https://archive.org/details/pappialexandrin00hultgoog",
+      "evidence": [
+        "The TEI source describes Hultsch 1876 volume 1 of 3 and explicitly says volumes 2 and 3 still need to be added.",
+        "Encoded books 1-4 are not reliable historical book labels: the second division is headed Book III and the fourth Book V. Preserve old loci until a reviewed citation mapping exists."
+      ],
+      "source_sha256": "97c19de67ffa6f15ca01bb0f47eae655354d4e1e3bfb7d9fb8837f572d40fe78",
+      "issue": "https://github.com/open-greek/open-greek-corpus/issues/43"
+    },
+    {
+      "slug": "apollonius-geom.conica",
+      "status": "partial-upstream-edition",
+      "source_root": "first1k",
+      "source_path": "data/tlg0550/tlg001/tlg0550.tlg001.1st1K-grc1.xml",
+      "source_scan": "https://archive.org/details/apolloniipergaei02apoluoft",
+      "evidence": [
+        "The TEI describes Heiberg 1893 volume 2 and contains 57 sections without a book-level citation.",
+        "The linked scan identifies the text as Conicorum Liber IV. Books I-III are not represented by this file."
+      ],
+      "source_sha256": "6d6d5bb17dea43ec238e777fb413af56137e49dcd76e8e02dbc515ae0a5db0eb",
+      "issue": "https://github.com/open-greek/open-greek-corpus/issues/44"
+    },
+    {
+      "slug": "cassius-dio.historiae-romanae",
+      "status": "partial-upstream-edition",
+      "source_root": "perseus",
+      "source_path": "data/tlg0385/tlg001/tlg0385.tlg001.perseus-grc2.xml",
+      "source_scan": "https://archive.org/details/diosromanhistory03cassuoft",
+      "evidence": [
+        "The source identifies Cary 1914-1917 volumes 3-6. The encoded books run from 36 through 55, ending at 55.9.4.",
+        "This is coverage of those transmitted books, not a complete representation of the surviving Roman History. Missing later books and epitomes require separately identified editions; ancient losses must not be fabricated."
+      ],
+      "source_sha256": "3cb28750f2a5d050ad973fe631952c4e3855ca57e40aa987e121133eed172535",
+      "issue": "https://github.com/open-greek/open-greek-corpus/issues/45"
+    }
+  ]
+}

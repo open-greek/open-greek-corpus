@@ -5,13 +5,13 @@
     "source_overrides_applied": 106,
     "ingested_via_cgpg_volume": 0,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.46,
-    "pct_ingested_actual": 66.05,
-    "ingested_words_actual": 49519336,
-    "ingested_complete_works": 2902,
+    "pct_ingested": 72.88,
+    "pct_ingested_actual": 66.5,
+    "ingested_words_actual": 49858338,
+    "ingested_complete_works": 2922,
     "ingested_partial_works": 119,
-    "pct_reachable_not_ingested": 14.18,
-    "pct_locked": 11.81,
+    "pct_reachable_not_ingested": 13.93,
+    "pct_locked": 11.64,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
       "actionable": 1177601,
@@ -25,24 +25,24 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3021,
-      "word_count": 54327377
+      "works": 3041,
+      "word_count": 54643704
     },
     "reachable_not_ingested": {
-      "works": 1592,
-      "word_count": 10632827
+      "works": 1591,
+      "word_count": 10440636
     },
     "locked": {
-      "works": 2192,
-      "word_count": 8851488
+      "works": 2173,
+      "word_count": 8727352
     },
     "duplicate": {
       "works": 404,
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2902,
-      "word_count": 51832562
+      "works": 2922,
+      "word_count": 52148889
     },
     "ingested_partial": {
       "works": 119,
@@ -51,8 +51,8 @@
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1159,
-      "word_count": 9039545
+      "works": 1158,
+      "word_count": 8847354
     },
     "migne_pd": {
       "works": 407,
@@ -78,14 +78,6 @@
       "author": "Concilia Oecumenica (Aco)",
       "title": "Concilium Universale Ephesenum Anno 431",
       "word_count": 350313,
-      "best_source": "pd_edition"
-    },
-    {
-      "tlg_id": "tlg2047",
-      "work_id": "001",
-      "author": "Syriani, Sopatri Et Marcellini Scholia Ad Hermogenis Status",
-      "title": "Scholia Ad Hermogenis Librum περὶ στάσεων",
-      "word_count": 192191,
       "best_source": "pd_edition"
     },
     {
@@ -19456,8 +19448,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 789,
-    "n_tokens": 8316813,
+    "works": 770,
+    "n_tokens": 7967003,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -19474,14 +19466,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 561,
         "n_tokens": 213820
-      },
-      {
-        "key": "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous",
-        "edition": "qwen36-walz_rhetores_v4",
-        "source": "ocr",
-        "license": "PD",
-        "n_passages": 6131,
-        "n_tokens": 206493
       },
       {
         "key": "timotheus-history.timotheus-defluviis-ggm2",
@@ -20644,28 +20628,12 @@
         "n_tokens": 9924
       },
       {
-        "key": "euripides.tlg0006-tlg014",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1719,
-        "n_tokens": 9884
-      },
-      {
         "key": "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
         "edition": "cgpg",
         "source": "cgpg",
         "license": "CC-BY-4.0",
         "n_passages": 27,
         "n_tokens": 9879
-      },
-      {
-        "key": "euripides.tlg0006-tlg016",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1733,
-        "n_tokens": 9878
       },
       {
         "key": "astrampsychus-magus.astrampsychus-oracula-hercher",
@@ -20682,14 +20650,6 @@
         "license": "PD",
         "n_passages": 405,
         "n_tokens": 9821
-      },
-      {
-        "key": "euripides.tlg0006-tlg015",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1784,
-        "n_tokens": 9743
       },
       {
         "key": "philodemus.tlg1595-tlg601",
@@ -20724,28 +20684,12 @@
         "n_tokens": 9431
       },
       {
-        "key": "euripides.tlg0006-tlg018",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1652,
-        "n_tokens": 9339
-      },
-      {
         "key": "anonymi-in-artem-rhetoricam.eisagoge-scholion-eis-ta-prolegomena-tes-hermogenous-rhetorikes",
         "edition": "qwen36-walz_rhetores_v4",
         "source": "ocr",
         "license": "PD",
         "n_passages": 264,
         "n_tokens": 9232
-      },
-      {
-        "key": "euripides.tlg0006-tlg010",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1680,
-        "n_tokens": 9208
       },
       {
         "key": "leo-vi-sapiens.notitiae-episcopatuum-et-documenta-de-praecedentia",
@@ -20788,14 +20732,6 @@
         "n_tokens": 8465
       },
       {
-        "key": "euripides.tlg0006-tlg013",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1493,
-        "n_tokens": 8390
-      },
-      {
         "key": "georgius-diaeretes.scholia-eis-to-peri-eureseos-hermogenous",
         "edition": "migne-ocr-qwen36",
         "source": "ocr",
@@ -20812,14 +20748,6 @@
         "n_tokens": 8198
       },
       {
-        "key": "euripides.tlg0006-tlg005",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1447,
-        "n_tokens": 8150
-      },
-      {
         "key": "severian-of-gabala.in-illud-genimina-viperarum",
         "edition": "pta-grc1",
         "source": "pta",
@@ -20834,22 +20762,6 @@
         "license": "Public domain / CC BY-SA 4.0 (Wikisource)",
         "n_passages": 1085,
         "n_tokens": 7961
-      },
-      {
-        "key": "euripides.tlg0006-tlg003",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1399,
-        "n_tokens": 7960
-      },
-      {
-        "key": "euripides.tlg0006-tlg009",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1449,
-        "n_tokens": 7930
       },
       {
         "key": "pseudo-apollodorus.tlg0548-tlg002",
@@ -20892,28 +20804,12 @@
         "n_tokens": 7734
       },
       {
-        "key": "euripides.tlg0006-tlg012",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1360,
-        "n_tokens": 7664
-      },
-      {
         "key": "philodemus.tlg1595-tlg267",
         "edition": "qwen36-philodemiepicur00philgoog",
         "source": "ocr",
         "license": "PD",
         "n_passages": 3134,
         "n_tokens": 7657
-      },
-      {
-        "key": "euripides.tlg0006-tlg017",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1406,
-        "n_tokens": 7624
       },
       {
         "key": "severian-of-gabala.de-serpente-homilia",
@@ -20972,14 +20868,6 @@
         "n_tokens": 7288
       },
       {
-        "key": "euripides.tlg0006-tlg006",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1263,
-        "n_tokens": 7258
-      },
-      {
         "key": "methodius.de-libero-arbitrio",
         "edition": "opp-grc1",
         "source": "first1k",
@@ -20996,22 +20884,6 @@
         "n_tokens": 7246
       },
       {
-        "key": "euripides.tlg0006-tlg007",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1268,
-        "n_tokens": 7232
-      },
-      {
-        "key": "euripides.tlg0006-tlg011",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1344,
-        "n_tokens": 7163
-      },
-      {
         "key": "philodemus.tlg1595-tlg271",
         "edition": "qwen36-philodemiperipar00philuoft",
         "source": "ocr",
@@ -21026,14 +20898,6 @@
         "license": "CC-BY-SA-4.0",
         "n_passages": 124,
         "n_tokens": 7118
-      },
-      {
-        "key": "euripides.tlg0006-tlg008",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1242,
-        "n_tokens": 7043
       },
       {
         "key": "severian-of-gabala.in-illud-in-qua-potestate-haec-facis",
@@ -21090,14 +20954,6 @@
         "license": "CC-BY-4.0",
         "n_passages": 28,
         "n_tokens": 6560
-      },
-      {
-        "key": "euripides.tlg0006-tlg002",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1167,
-        "n_tokens": 6556
       },
       {
         "key": "theophylactus-achridensis.expositio-in-epistolam-ii-petri",
@@ -21162,14 +21018,6 @@
         "license": "PD",
         "n_passages": 2304,
         "n_tokens": 6235
-      },
-      {
-        "key": "euripides.tlg0006-tlg004",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1052,
-        "n_tokens": 6228
       },
       {
         "key": "bardesane.fragmenta",
@@ -21314,14 +21162,6 @@
         "license": "PD",
         "n_passages": 154,
         "n_tokens": 5575
-      },
-      {
-        "key": "euripides.tlg0006-tlg019",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 1004,
-        "n_tokens": 5431
       },
       {
         "key": "severian-of-gabala.de-centurione-et-contra-manichaeos-et-apolinaristas",
@@ -21612,14 +21452,6 @@
         "n_tokens": 4133
       },
       {
-        "key": "euripides.tlg0006-tlg001",
-        "edition": "perseus-grc2",
-        "source": "perseus",
-        "license": "CC-BY-SA-4.0",
-        "n_passages": 744,
-        "n_tokens": 4130
-      },
-      {
         "key": "corpus-parisinum.pars-vi-cod-par-gr-1168",
         "edition": "saws-pargr1168",
         "source": "saws",
@@ -21778,6 +21610,14 @@
         "license": "CC-BY-4.0",
         "n_passages": 9,
         "n_tokens": 3549
+      },
+      {
+        "key": "alexius-studites.decreta-additamentum",
+        "edition": "greek-library-ficker-1911",
+        "source": "greek_library",
+        "license": "CC-BY-SA-4.0",
+        "n_passages": 15,
+        "n_tokens": 3495
       },
       {
         "key": "athanasius-of-alexandria.epistula-ad-afros",
@@ -22177,7 +22017,7 @@
         "source": "ocr",
         "license": "PD",
         "n_passages": 45,
-        "n_tokens": 2285
+        "n_tokens": 2284
       },
       {
         "key": "severian-of-gabala.in-iob-sermo-1",

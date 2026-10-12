@@ -27,6 +27,7 @@ Byzantine literary Greek.
 | [Greek Wikisource](https://el.wikisource.org) | PD base text; contributor layer CC BY-SA 4.0 | Proclus, Institutio physica (tlg4036.tlg006): the proofread-page transcription of Ritzenfeld's Teubner 1912 edition (the TLG edition), ingested per DjVu page by `scripts/ingest_proclus_institutiones.py` (which also ingests the Institutio theologica, tlg4036.tlg005, from our Qwen3.6 OCR of the Didot 1855 Creuzer-Moser text - no clean open digital text exists - and writes a same-edition 29-page OCR witness of the physica to `corpus_secondary` with per-page agreement stats). Also serves the Septuagint Ecclesiastes (`septuaginta.ecclesiastes`, tlg0527.tlg030): the verse-keyed el.wikisource LXX transcription, ingested by `scripts/ingest_wikisource_ecclesiastes.py`. Ecclesiastes is the one LXX book absent from First1K (an empty `__cts__` stub upstream), and the Wikisource text is an ecclesiastical-recension LXX (Δαβίδ), so it differs orthographically from the First1K Swete siblings (Δαυείδ). Also serves Musaeus Grammaticus, Hero and Leander (`musaeus-grammaticus.hero-et-leander`, tlg4082.tlg001): the complete continuous-verse transcription, ingested by `scripts/ingest_musaeus_hero_leander.py`, replacing a broken redo OCR of Dilthey 1874 (the page names no printed edition, so it is the PD ancient poem, not a claim on Dilthey/Kost/Livrea) |
 | [GLAUx](https://github.com/alekkeersmaekers/glaux) | PD base text; GLAUx corpus CC BY-SA 4.0 | Julius Pollux, Onomasticon (`julius-pollux.onomasticon`, tlg0542.tlg001): the full ten-book text (1,908 sections, ~115k Greek tokens), reconstructed from the GLAUx surface `<word>` forms in document order and keyed by GLAUx's `div_book`/`div_section` metadata, ingested by `scripts/ingest_glaux_pollux.py`, replacing a First1KGreek two-section sample (111 tokens). GLAUx is otherwise used only offline, for the Bekker concordance milestones below |
 | our OCR of PD editions | PD | Migne PG and classical editions OCR'd from public-domain scans (`ocr`); per-work download links in the OCR provenance table below |
+| [The Greek Library](https://thegreeklibrary.pages.lisn.upsaclay.fr/) | CC BY-SA 4.0 transcription; PD printed edition | Alexius Studites, Ficker 1911 additamentum (`greek_library`), reviewed against all 15 printed pages with a reversible correction record; the provider's undocumented OCR model is not identified as our own |
 | [Opera Graeca Adnotata](https://doi.org/10.5281/zenodo.14206061) | CC BY-SA 4.0 | metadata only, no text (the OGA texts are the Perseus / First1KGreek / PTA editions above): per-work composition dating and the PTA/TLG duplicate map, ingested by `scripts/ingest_oga_metadata.py`; pinned by version DOI in `sources/oga/manifest.json` |
 
 No non-commercial (CC BY-NC-SA) texts. A work only available under NC counts as
@@ -287,6 +288,13 @@ edition, source, tokens) is `data/work_index.json` via
 Full model, WEMI leveling, and the index schema a consumer needs:
 `docs/opaque-identifiers.md`.
 
+Reviewed links in `data/work_metadata_remaps.json` connect differently named
+served expressions to their canonical Work metadata. The index and crosswalk
+rebuild from those links; coverage credits the served expression when its
+canonical catalog key has no separate text. This includes the Walz IV scholia
+of Syrianus, Sopater, and Marcellinus, verified against printed pages 39-846.
+The existing `ogc` and author identifiers are retained.
+
 A served work can also carry a `serving_deficit` block in `work_index.json`
 (and a `serving_deficit` column in the catalog): the served text is known to be
 shorter than a fuller text of the same work held in this repo, and the serving
@@ -299,7 +307,7 @@ must be cleared in the same change that resolves it. The file is empty as of
 of the TLG Canon and was removed the next day, which is recorded in the file.
 
 A work the TLG never numbered gets a CTS id in this repo's own namespace,
-`urn:cts:cogGreek:<key>`, not in Perseus/OGL's `greekLit`. 3,880 of the 11,074
+`urn:cts:cogGreek:<key>`, not in Perseus/OGL's `greekLit`. 3,881 of the 11,075
 CTS aliases are cog-native that way, and `data/crosswalk_report.json` splits the
 count by namespace so "100% cts" is not read as 100% externally identified.
 Until 2026-08-08 those ids claimed `greekLit` and 29 of them were published as
@@ -311,10 +319,10 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 570 of the 3,909 served works have no
+distinct `ogc` ids sharing one TLG anchor. 569 of the 3,910 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,339 works, `tlg` on 3,300,
+`work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,306,
 `wikidata` on 517), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
@@ -435,6 +443,53 @@ numerics (marked `scheme_inferred`). The crosswalk report's
 edition we actually serve (`default_edition`); it runs well below the
 any-edition count because most works' logical scheme sits on a reference-only
 TLG edition.
+
+The lemma-frequency builder accepts `--lemma-map FILE` for existing TSV or
+gzip form/lemma caches. Only unanimously supplied missing answers are reused;
+disagreements are retained for review, and every imported answer passes the
+normal lemma validator before it contributes to counts.
+The command and Makefile both default to a minimum form count of five; a lower
+threshold requires an explicit `--min-count` argument.
+
+## Corpus improvement audits
+
+The current discovery lists are in `data/inventory/greek_library/`. They are
+rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
+work identities. Source Library entries remain discovery candidates until
+independent edition rights and scans are verified.
+
+`scripts/audit_completeness_batch.py` records the checked boundaries of Photius,
+Cyril, Pappus, Apollonius, and Cassius Dio. Its source hashes and observations
+are in `data/inventory/completeness-batch.json`; the issues linked there track
+unfinished coverage work. The five findings also appear as open coverage work
+in `data/known_limitations.json`, separate from accepted quality limitations.
+Rebuild with `--first1k-dir` and `--perseus-dir`.
+
+The Alexius Studites pilot compares the Greek text on all 15 printed pages
+28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
+recorded letter correction, two page-boundary word joins, and removal of folio
+markers from reading text. Original text, folio locations, evidence, and source
+checksums remain in `data/corpus_changes/alexius-ficker-1911/`; the importer can
+reconstruct the uncorrected text with `--uncorrected --out FILE`.
+
+The DCLP 63141 pilot under `data/pilots/dclp63141/` is not served text.
+`scripts/prepare_epidoc_pilot.py` retains the original EpiDoc byte-for-byte,
+all alternative readings, and 89 column/line loci. Damage and restorations
+remain explicit; neither alternatives nor editorial notes become ordinary
+reading words.
+
+`scripts/benchmark_page_ocr.py` prepares and runs a pinned OCR comparison. The
+100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
+and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.
+Its source is the manually transcribed Calfa dataset, not existing OCR output.
+The evaluator reports accent-sensitive character and word errors, a separate
+accent-folded diagnostic, empty pages, and length outliers. Failed outputs are
+included in aggregates. The separate two-page preflight in
+`data/evaluation/ocr-preflight/comparison.json` measured 4.44% character error
+for Qwen 3.6 and 5.38% for Qwen 3.8 with the same prompt. This small sample
+does not justify replacing the current model; the 100-page set has not yet
+been run in full. The 100-page data-v2 set was released for Calfa training and
+cannot independently evaluate Calfa; Qwen pretraining overlap is unknown.
 
 ## Build
 
@@ -1018,7 +1073,7 @@ that it was measured against; the release builder marks it stale if those pins
 move.
 
 <!-- OCR-PROVENANCE:START -->
-1393 OCR'd works/volumes: 124 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1043,6 +1098,7 @@ move.
 | alexander-rhetoric.ek-ton-alexandrou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,345 | raw OCR |
 | alexander.fragmenta | ALEXANDER - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
 | alexis-comedy.fragmenta | Alexis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
+| alexius-studites.decreta-additamentum | Alexius Studites - Decreta Alexii patriarchae (additamentum) | [Ficker 1911, reviewed Greek Library transcription](https://archive.org/details/erlasse-des-patriarchen-von-konstantinop) | The Greek Library (model not documented) | 3,502 | manual |
 | ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 40 | raw OCR |
 | amipsias.fragmenta | Amipsias - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 766 | raw OCR |
 | amphis.fragmenta | Amphis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,086 | auto-corrected |
@@ -2268,7 +2324,7 @@ move.
 | symeon-thessalonicensis.responsa-ad-gabrielem-pentapolitanum | Symeon Thessalonicensis - Responsa ad Gabrielem Pentapolitanum (questions and answers on liturgical and canonical matters) (PG155 loci 420-481) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 25,609 | manual |
 | symmachus.fragmenta | Fragmenta (Hexapla, Greek columns) | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 39,549 | raw OCR |
 | synesius-philosophy.epistulae | Synesius - Epistulae | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 32,822 | auto-corrected |
-| syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous |  | qwen36-walz_rhetores_v4 | Qwen3.6-27B | 206,971 | auto-corrected |
+| syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous | Syriani, Sopatri Et Marcellini Scholia Ad Hermogenis Status - Scholia Ad Hermogenis Librum περὶ στάσεων | qwen36-walz_rhetores_v4 | Qwen3.6-27B | 206,971 | auto-corrected |
 | syrianus.eis-to-peri-ideon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,199 | raw OCR |
 | tatianus.fragmenta | Tatianus - Fragmenta (Tatiani fragmenta, PG 6, 1601-1608) (PG006 loci 808-809) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 290 | auto-corrected |
 | teleclides.fragmenta | Teleclides - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,311 | raw OCR |
@@ -2419,7 +2475,7 @@ move.
 
 ## Status
 
-- 3,909 works served, 65.3M Greek tokens, twelve sources.
+- 3,910 works served, 65.3M Greek tokens, fourteen sources.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
