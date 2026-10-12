@@ -501,6 +501,9 @@ the server packages, GPU, and generation settings. Run the benchmark with
 HTTP failures remain scored as empty pages, and token-limit truncation is
 reported separately. Comparisons use the held-out test pages when present,
 keeping calibration scores separate.
+Pass `compare --manifest data/evaluation/ocr-pages.json` to require all 100
+pages. The comparison retains page-level regressions, edition-level results,
+and paired confidence intervals from resampling pages within each edition.
 
 ## Build
 
