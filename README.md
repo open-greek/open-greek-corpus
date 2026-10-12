@@ -492,6 +492,8 @@ been run in full. The 100-page data-v2 set was released for Calfa training and
 cannot independently evaluate Calfa; Qwen pretraining overlap is unknown.
 
 The runner also supports a local vLLM server for concurrent page requests.
+Install `scripts/requirements-ocr-benchmark.txt` in a separate environment;
+this server uses its own pinned PyTorch runtime.
 `scripts/serve_ocr_benchmark.py --model REPOSITORY --revision SHA
 --runtime-manifest runtime.json` downloads the pinned checkpoint and records
 the server packages, GPU, and generation settings. Run the benchmark with
