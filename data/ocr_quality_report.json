@@ -3,6 +3,7 @@
   "attestation": {
    "excluded_sources": [
     "cgpg",
+    "greek_library",
     "ocr"
    ],
    "n_token_occurrences": 36126603,
@@ -23,8 +24,8 @@
    ]
   },
   "counts": {
-   "ocr_works": 1412,
-   "ocr_works_ranked": 821,
+   "ocr_works": 1413,
+   "ocr_works_ranked": 822,
    "ocr_works_with_witness": 196,
    "secondary_files": 533,
    "skipped": 133,
@@ -595,10 +596,10 @@
   },
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1327,
+   "median": 0.1326,
    "min": 0.0112,
-   "n": 821,
-   "q1": 0.0944,
+   "n": 822,
+   "q1": 0.0943,
    "q3": 0.1676
   }
  },
@@ -832,6 +833,15 @@
    "n_unattested": 1089,
    "source": "ocr",
    "unattested_rate": 0.166641,
+   "witness": null
+  },
+  "alexius-studites.decreta-additamentum": {
+   "edition": "greek-library-ficker-1911",
+   "n_tokens": 3502,
+   "n_tokens_checked": 2259,
+   "n_unattested": 68,
+   "source": "greek_library",
+   "unattested_rate": 0.030102,
    "witness": null
   },
   "ameinias.testimonia-et-fragmenta": {
@@ -15304,6 +15314,7 @@
   "philotheus-constantinopolitanus.encomium-gregorii-palamae",
   "pseudo-justinus-martyr.quaestiones-christianorum-ad-gentiles",
   "pseudo-justinus-martyr.expositio-rectae-fidei",
+  "alexius-studites.decreta-additamentum",
   "pseudo-justinus-martyr.quaestiones-et-responsiones-ad-orthodoxos",
   "anonymi-de-essentia-et-operatione-dei.de-essentia-et-operatione-dei",
   "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",

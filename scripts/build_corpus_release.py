@@ -51,7 +51,7 @@ OUT = DATA / "corpus_release.json"
 CITATION = REPO / "CITATION.cff"
 STAMP_GAP = DATA / "correction_stamp_gap.json"
 
-OCR_SOURCES = {"ocr", "cgpg"}
+OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 
 # The correction records and blind-rating artifacts live in the upstream OCR
 # pipeline, so the citable release record carries a compact copy of their

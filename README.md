@@ -443,6 +443,49 @@ edition we actually serve (`default_edition`); it runs well below the
 any-edition count because most works' logical scheme sits on a reference-only
 TLG edition.
 
+The lemma-frequency builder accepts `--lemma-map FILE` for existing TSV or
+gzip form/lemma caches. Only unanimously supplied missing answers are reused;
+disagreements are retained for review, and every imported answer passes the
+normal lemma validator before it contributes to counts.
+
+## Corpus improvement audits
+
+The current discovery lists are in `data/inventory/greek_library/`. They are
+rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
+work identities. Source Library entries remain discovery candidates until
+independent edition rights and scans are verified.
+
+`scripts/audit_completeness_batch.py` records the checked boundaries of Photius,
+Cyril, Pappus, Apollonius, and Cassius Dio. Its source hashes and observations
+are in `data/inventory/completeness-batch.json`; the issues linked there track
+unfinished coverage work. Rebuild with `--first1k-dir` and `--perseus-dir`.
+
+The Alexius Studites pilot compares the Greek text on all 15 printed pages
+28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
+recorded letter correction, two page-boundary word joins, and removal of folio
+markers from reading text. Original text, folio locations, evidence, and source
+checksums remain in `data/corpus_changes/alexius-ficker-1911/`; the importer can
+reconstruct the uncorrected text with `--uncorrected --out FILE`.
+
+The DCLP 63141 pilot under `data/pilots/dclp63141/` is not served text.
+`scripts/prepare_epidoc_pilot.py` retains the original EpiDoc byte-for-byte,
+all alternative readings, and 89 column/line loci. Damage and restorations
+remain explicit; neither alternatives nor editorial notes become ordinary
+reading words.
+
+`scripts/benchmark_page_ocr.py` prepares and runs a pinned OCR comparison. The
+100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
+and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.
+Its source is the manually transcribed Calfa dataset, not existing OCR output.
+The evaluator reports accent-sensitive character and word errors, a separate
+accent-folded diagnostic, empty pages, and length outliers. Failed outputs are
+included in aggregates. The separate two-page preflight in
+`data/evaluation/ocr-preflight/comparison.json` measured 4.44% character error
+for Qwen 3.6 and 5.38% for Qwen 3.8 with the same prompt. This small sample
+does not justify replacing the current model; the 100-page set has not yet
+been run in full. The 100-page data-v2 set was released for Calfa training and
+cannot independently evaluate Calfa; Qwen pretraining overlap is unknown.
+
 ## Build
 
 ```bash

@@ -35,7 +35,8 @@ END = "<!-- OCR-PROVENANCE:END -->"
 # edition slug (qwen36-*-masked / -singlecol) or its per-work data/ocr_provenance/
 # record, which supplies the exact model, source scan, render DPI, and column
 # geometry. MASKED_MODEL is the default label for a masked work lacking that record.
-OCR_MODEL = {"cgpg": "calfa-co", "ocr": "Qwen3.6-27B"}
+OCR_MODEL = {"cgpg": "calfa-co", "ocr": "Qwen3.6-27B",
+             "greek_library": "The Greek Library (model not documented)"}
 MASKED_MODEL = "Qwen3.6-27B-FP8"
 
 

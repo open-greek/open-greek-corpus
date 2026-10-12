@@ -31,7 +31,7 @@ OUT = DATA / "known_limitations.json"
 STAMP_GAP = DATA / "correction_stamp_gap.json"
 NONFINAL_GRAVES = DATA / "nonfinal_graves.json"
 CATALOG = DATA / "corpus_catalog.tsv"
-OCR_SOURCES = {"ocr", "cgpg"}
+OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 
 
 def sha256(path: Path) -> str:

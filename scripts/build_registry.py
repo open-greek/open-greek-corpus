@@ -451,7 +451,8 @@ PROVIDER_LABELS = {"first1k": "First1KGreek",
                    "glaux": "GLAUx",
                    "saws": "Sharing Ancient Wisdoms",
                    "dcc": "Dickinson College Commentaries",
-                   "wikisource": "Wikisource"}
+                   "wikisource": "Wikisource",
+                   "greek_library": "The Greek Library"}
 
 
 def load_open_editions() -> tuple[dict, dict]:
