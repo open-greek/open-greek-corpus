@@ -1,7 +1,7 @@
 {
  "_meta": {
   "description": "Curated links from a served corpus slug whose source uses non-canonical work numbering to the same work in source_registry.json. The served expression keeps its own ogc id and filename; build_work_index.py takes title, author, tags, and external Work anchors from the named registry work.",
-  "used_by": "scripts/build_work_index.py",
+  "used_by": "scripts/build_work_index.py, scripts/build_id_crosswalk.py, scripts/crosswalk.py",
   "evidence": "The First1K Euripides files use CTS work numbers 001-019 in play order, while the vendored TLG canon assigns the same plays 034-052. Titles provide the explicit one-to-one concordance below; no heuristic matching occurs at build time."
  },
  "works": {
@@ -23,6 +23,17 @@
   "euripides.tlg0006-tlg016": "euripides.orestes",
   "euripides.tlg0006-tlg017": "euripides.bacchae",
   "euripides.tlg0006-tlg018": "euripides.iphigenia-aulidensis",
-  "euripides.tlg0006-tlg019": "euripides.rhesus"
+  "euripides.tlg0006-tlg019": "euripides.rhesus",
+  "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous": "syriani-sopatri-et-marcellini-scholia-ad-hermogenis-status.scholia-ad-hermogenis-librum-peri-sta-sewn"
+ },
+ "evidence": {
+  "syrianus-sopater-marcellinus.scholia-eis-staseis-tou-hermogenous": {
+   "reviewed": "2026-10-12",
+   "edition": "Rhetores Graeci, volume IV, Christian Walz, 1833, printed pages 39-846",
+   "source_url": "https://archive.org/details/rhetoresgraeciem04walzuoft",
+   "pdf_sha256": "584bb0fe249a5e7a4510d37f6f8c20e3508202f71dc2ad976edf57930ad6507b",
+   "checked_pdf_pages": [53, 54, 860],
+   "evidence": "Printed page 39 titles the work Syrianus, Sopater and Marcellinus, Eis staseis tou Hermogenous, and its incipit matches the served opening. Printed page 846 ends Telos ton staseon, matching the served ending. The vendored canon assigns this work tlg2047.tlg001 and identifies the Walz 1833 edition. The separate introduction on printed pages 1-38 is excluded. This is a Work-level identity link, not an assertion that OCR was proofread."
+  }
  }
 }

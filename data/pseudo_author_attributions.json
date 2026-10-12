@@ -87,6 +87,14 @@
     "wikidata": "Q1378767"
    },
    "note": "Euthalius the Deacon, credited by the manuscript tradition with the prologue, travel summary and martyrdom notice that accompany Paul's epistles. Migne prints three of those with their own Greek heads in the Oecumenius volume (PG118). The vendored TLG Canon has no entry for him, so these works carry no external anchor."
+  },
+  "alexius-studites": {
+   "name": "Alexius Studites",
+   "aliases": {
+    "wikidata": "Q2665053",
+    "gnd": "121165167"
+   },
+   "note": "Patriarch of Constantinople, died 1043 CE. Identity checked against Wikidata Q2665053 and Ficker 1911 title and introduction on 2026-10-12."
   }
  },
  "works": {
@@ -636,6 +644,18 @@
     "Felten, praefatio to the 1913 Teubner Progymnasmata, from the other side: in codicibus Nicolao tribuuntur exempla, Μελέται Suidae, quae praecepta illa illustrant (cf. Walz I 266 sq.), sed qui nexus huic Nicolao cum illis intercedat, nondum constat",
     "NOT the same work as the served nicolaus-rhetoric.progymnasmata: word-bigram containment 0.123 against it, where the genuine other edition (Spengel III) scores 0.720 and unrelated progymnasmata of the same genre land at 0.11-0.17. Do not merge the two on the strength of their shared title."
    ]
+  },
+  "alexius-studites.decreta-additamentum": {
+   "author": "alexius-studites",
+   "title": "Decreta Alexii patriarchae (additamentum)",
+   "tags": {
+    "century": 11,
+    "genre": [
+     "ecclesiastical",
+     "jurisprudence"
+    ]
+   },
+   "evidence": "Ficker 1911, printed pages 28-42, decree 5 on mixed marriages, inheritance, and witness testimony. Full Greek reading text reviewed against the scan; data/ingest_reviews/greek-library-alexius.json pins the source and decisions."
   }
  }
 }

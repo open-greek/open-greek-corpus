@@ -27,6 +27,8 @@ each chunk. An interrupted run resumes from the last completed checkpoint.
 from __future__ import annotations
 
 import argparse
+import gzip
+import hashlib
 import json
 import os
 import sys
@@ -68,12 +70,37 @@ def atomic_append(path: Path, text: str) -> None:
         raise
 
 
+def merge_maps(cache: dict[str, str], paths: list[Path]) -> tuple[int, list[dict]]:
+    """Fill missing answers only when the supplied maps agree, retaining ties."""
+    candidates: dict[str, dict[str, list[str]]] = {}
+    for path in paths:
+        opener = gzip.open if path.suffix == ".gz" else open
+        source = f"{path.name}:{hashlib.sha256(path.read_bytes()).hexdigest()}"
+        with opener(path, "rt", encoding="utf-8") as stream:
+            for line in stream:
+                form, separator, lemma = line.rstrip("\n").partition("\t")
+                if separator and form and lemma:
+                    candidates.setdefault(form, {}).setdefault(lemma, []).append(source)
+    added = 0
+    conflicts = []
+    for form, readings in candidates.items():
+        if form in cache:
+            if any(lemma != cache[form] for lemma in readings):
+                conflicts.append({"form": form, "active_lemma": cache[form], "readings": readings})
+        elif len(readings) == 1:
+            cache[form] = next(iter(readings))
+            added += 1
+        else:
+            conflicts.append({"form": form, "active_lemma": None, "readings": readings})
+    return added, conflicts
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--lexicon", type=Path, default=DATA / "public_lexicon.tsv")
     ap.add_argument("--out", type=Path,
                     default=DATA / "public_lemma_frequency.tsv")
-    ap.add_argument("--min-count", type=int, default=2,
+    ap.add_argument("--min-count", type=int, default=5,
                     help="skip forms rarer than this before lemmatizing. Hapax "
                          "forms (count 1) are dominated by OCR noise and each "
                          "misses the O(1) lookup -> the slow transformer; dropping "
@@ -82,6 +109,8 @@ def main() -> None:
     ap.add_argument("--no-cache", action="store_true",
                     help="ignore and do not update the persistent form->lemma "
                          "cache (force a full from-scratch lemmatization)")
+    ap.add_argument("--lemma-map", type=Path, action="append", default=[],
+                    help="reuse an existing form/lemma TSV (optionally gzip); conflicts are retained for review")
     ap.add_argument("--chunk-size", type=positive_int, default=50000,
                     help="forms per validated cache checkpoint (default: 50000)")
     args = ap.parse_args()
@@ -113,6 +142,16 @@ def main() -> None:
             f, sep, lem = line.partition("\t")
             if sep:
                 cache[f] = lem
+    maps_added = 0
+    if args.lemma_map:
+        added, conflicts = merge_maps(cache, args.lemma_map)
+        maps_added = added
+        conflict_path = DATA / "cache" / "lemma_map_conflicts.json"
+        conflict_path.parent.mkdir(parents=True, exist_ok=True)
+        conflict_path.write_text(json.dumps({"sources": [
+            {"name": p.name, "sha256": hashlib.sha256(p.read_bytes()).hexdigest()}
+            for p in args.lemma_map], "conflicts": conflicts}, ensure_ascii=False, indent=1) + "\n")
+        print(f"reused {added:,} map answers; retained {len(conflicts):,} disagreements", file=sys.stderr)
     # Same checks the other pipeline applies to its cache, for the same reason:
     # this one is append-only, so a bad entry can never be displaced by a good
     # one. It held 16 forms of the οὖον family (ὁὐ, ὀὐ, οὐα, ...); it happened
@@ -134,7 +173,7 @@ def main() -> None:
     # it is non-empty on nearly every run and rewriting 15 MB on it is churn.
     # A repair keeps the entry count and a drop lowers it, and between them that
     # is exactly the condition "what is on disk is now stale".
-    if (repaired or len(cache) != n_before) and not args.no_cache:
+    if (maps_added or repaired or len(cache) != n_before) and not args.no_cache:
         CACHE.parent.mkdir(parents=True, exist_ok=True)
         CACHE.write_text("".join(f"{f}\t{lem}\n" for f, lem in cache.items()),
                          encoding="utf-8")
