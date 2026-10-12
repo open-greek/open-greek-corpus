@@ -92,3 +92,14 @@ def test_failed_http_pages_remain_in_scores(tmp_path, monkeypatch):
     assert summary["cer"] == 1
     assert summary["failed_pages"] == 1
     assert "TimeoutError" in row["error"]
+
+
+def test_paired_diagnostics_exclude_calibration_and_preserve_editions():
+    left = [{"id": "cal", "split": "calibration", "volume": "a", "metrics": bench.score("abcde", "wrong")},
+            {"id": "test-a", "split": "test", "volume": "a", "metrics": bench.score("abcde", "abcxy")},
+            {"id": "test-b", "split": "test", "volume": "b", "metrics": bench.score("abcde", "abcxy")}]
+    right = [{**r, "metrics": bench.score("abcde", "abcde")} for r in left]
+    result = bench.paired_diagnostics(left, right, "test")
+    assert {r["id"] for r in result["page_changes"]} == {"test-a", "test-b"}
+    assert result["paired_page_bootstrap"]["cer_change_ci95"] == [-0.4, -0.4]
+    assert set(result["by_volume"]) == {"a", "b"}
