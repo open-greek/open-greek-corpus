@@ -1,0 +1,109 @@
+{
+  "slug": "alexius-studites.decreta-additamentum",
+  "title": "Decreta Alexii patriarchae (additamentum)",
+  "edition": "greek-library-ficker-1911",
+  "author": {
+    "slug": "alexius-studites",
+    "name": "Alexius Studites",
+    "wikidata": "Q2665053"
+  },
+  "source_id": "tlg9516.tlg002.local001",
+  "source_sha256": "c2e013c68988b11a9b5c36fe8c8e66dc54db3bd843abad65242d465c05818b59",
+  "source_url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg9516/tlg002/local001.json.gz",
+  "license": "CC-BY-SA-4.0",
+  "license_url": "https://thegreeklibrary.pages.lisn.upsaclay.fr/about/",
+  "scan_url": "https://archive.org/details/erlasse-des-patriarchen-von-konstantinop",
+  "scan_sha256": "a7aeaaa0b6075a210b73194c592781c6f0f86fd5ff2a76575cea1450f0a397e0",
+  "review_date": "2026-10-12",
+  "review_scope": "Visual comparison of the Greek reading text on all 15 printed pages 28-42, including the subscription. German commentary and footnotes are excluded. This is a single review, not an independently measured character-error rate.",
+  "printed_pages": [
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39,
+    40,
+    41,
+    42
+  ],
+  "corrections": [
+    {
+      "page": 29,
+      "original": "μήναιο",
+      "corrected": "μήνατο",
+      "evidence": "Printed page 29, first word; enlarged scan resolves tau, not iota."
+    }
+  ],
+  "page_joins": [
+    {
+      "left_page": 28,
+      "right_page": 29,
+      "left": "Ἐλυ-",
+      "right": "μήνατο",
+      "joined": "Ἐλυμήνατο",
+      "evidence": "Printed pages 28-29 split one word at the page boundary."
+    },
+    {
+      "left_page": 37,
+      "right_page": 38,
+      "left": "περι-",
+      "right": "ἔρχεσθαι",
+      "joined": "περιέρχεσθαι",
+      "evidence": "Printed pages 37-38 split περιέρχεσθαι; the OCR adds a breathing to the second part."
+    }
+  ],
+  "folio_markers": {
+    "29": [
+      "156a"
+    ],
+    "30": [
+      "156b",
+      "157a"
+    ],
+    "31": [
+      "157b"
+    ],
+    "32": [
+      "158a"
+    ],
+    "33": [
+      "158b",
+      "159a"
+    ],
+    "34": [
+      "159b"
+    ],
+    "35": [
+      "160a"
+    ],
+    "36": [
+      "160b"
+    ],
+    "37": [
+      "161a"
+    ],
+    "38": [
+      "161b",
+      "162a"
+    ],
+    "39": [
+      "162b"
+    ],
+    "40": [
+      "163a"
+    ],
+    "41": [
+      "163b",
+      "164a"
+    ]
+  },
+  "folio_policy": "Printed slashes indicate the manuscript folio boundaries named in the margin. Remove them from reading words and retain their source-page offsets and folio names in the audit.",
+  "identity_policy": "The Greek Library edition ID is retained as a provider identifier. It is not promoted to a canonical TLG work anchor without independent authority evidence."
+}

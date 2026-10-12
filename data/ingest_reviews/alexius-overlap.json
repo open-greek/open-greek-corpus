@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "candidate_sha256": "33dc66b268e2da4e2810cd6e26c79854caabac3da82d5873d847ac04d22ea00e",
+  "corpus_sha256": "61536ed4e25d3543d4d3590fcb0e499cc2b7972fe69c49a4f3141823ad917767",
+  "excluded_candidate_slugs": [
+    "alexius-studites.decreta-additamentum"
+  ],
+  "window_words": 12,
+  "candidate_windows": 291,
+  "screened_works": 3909,
+  "matches": [
+    {
+      "work": "flavius-justinianus-imperator.novellae",
+      "matched_windows": 3,
+      "candidate_window_starts": [
+        2328,
+        2364,
+        2676
+      ]
+    }
+  ],
+  "limitation": "Exact accent-insensitive word windows only. Quoted material can match; damaged OCR can fail to match. This report does not merge or reject works automatically.",
+  "generated_by": "scripts/audit_candidate_overlap.py"
+}
