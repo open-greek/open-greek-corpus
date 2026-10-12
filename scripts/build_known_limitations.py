@@ -31,6 +31,7 @@ OUT = DATA / "known_limitations.json"
 STAMP_GAP = DATA / "correction_stamp_gap.json"
 NONFINAL_GRAVES = DATA / "nonfinal_graves.json"
 CATALOG = DATA / "corpus_catalog.tsv"
+COMPLETENESS = DATA / "inventory/completeness-batch-report.json"
 OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 
 
@@ -64,6 +65,11 @@ def build() -> dict:
         failures.append("raw-OCR upper-bound token count is stale")
     if nonfinal["served_tokens"] != sum(int(row["tokens"]) for row in catalog):
         failures.append("non-final-grave served-token count is stale")
+    completeness = json.loads(COMPLETENESS.read_text(encoding="utf-8"))
+    catalog_by_slug = {row["slug"]: row for row in catalog}
+    for case in completeness["cases"]:
+        if catalog_by_slug.get(case["slug"], {}).get("sha256") != case["corpus_file_sha256"]:
+            failures.append(f"completeness review is stale: {case['slug']}")
     if failures:
         raise SystemExit("; ".join(failures))
 
@@ -78,6 +84,7 @@ def build() -> dict:
             "Known quality limitations of the served corpus whose safe automatic "
             "repair classes are exhausted. Closing the linked work item accepts "
             "the measured limitation; it does not assert that the count is zero."
+            " Active coverage findings are recorded separately and remain open work."
         ),
         "decision_date": "2026-09-15",
         "generated_from": {
@@ -94,7 +101,18 @@ def build() -> dict:
                 "path": NONFINAL_GRAVES.relative_to(REPO).as_posix(),
                 "sha256": sha256(NONFINAL_GRAVES),
             },
+            "completeness": {
+                "path": COMPLETENESS.relative_to(REPO).as_posix(),
+                "sha256": sha256(COMPLETENESS),
+            },
         },
+        "active_coverage_findings": [
+            {"slug": case["slug"], "id": case["edition"]["id"],
+             "status": "open-coverage-work", "finding": case["status"],
+             "issue": case["issue"], "evidence": case["evidence"],
+             "corpus_file_sha256": case["corpus_file_sha256"]}
+            for case in completeness["cases"]
+        ],
         "limitations": [
             {
                 "key": "applied-correction-error",

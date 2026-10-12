@@ -459,7 +459,9 @@ independent edition rights and scans are verified.
 `scripts/audit_completeness_batch.py` records the checked boundaries of Photius,
 Cyril, Pappus, Apollonius, and Cassius Dio. Its source hashes and observations
 are in `data/inventory/completeness-batch.json`; the issues linked there track
-unfinished coverage work. Rebuild with `--first1k-dir` and `--perseus-dir`.
+unfinished coverage work. The five findings also appear as open coverage work
+in `data/known_limitations.json`, separate from accepted quality limitations.
+Rebuild with `--first1k-dir` and `--perseus-dir`.
 
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
