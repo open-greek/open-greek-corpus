@@ -27,6 +27,7 @@ Byzantine literary Greek.
 | [Greek Wikisource](https://el.wikisource.org) | PD base text; contributor layer CC BY-SA 4.0 | Proclus, Institutio physica (tlg4036.tlg006): the proofread-page transcription of Ritzenfeld's Teubner 1912 edition (the TLG edition), ingested per DjVu page by `scripts/ingest_proclus_institutiones.py` (which also ingests the Institutio theologica, tlg4036.tlg005, from our Qwen3.6 OCR of the Didot 1855 Creuzer-Moser text - no clean open digital text exists - and writes a same-edition 29-page OCR witness of the physica to `corpus_secondary` with per-page agreement stats). Also serves the Septuagint Ecclesiastes (`septuaginta.ecclesiastes`, tlg0527.tlg030): the verse-keyed el.wikisource LXX transcription, ingested by `scripts/ingest_wikisource_ecclesiastes.py`. Ecclesiastes is the one LXX book absent from First1K (an empty `__cts__` stub upstream), and the Wikisource text is an ecclesiastical-recension LXX (Δαβίδ), so it differs orthographically from the First1K Swete siblings (Δαυείδ). Also serves Musaeus Grammaticus, Hero and Leander (`musaeus-grammaticus.hero-et-leander`, tlg4082.tlg001): the complete continuous-verse transcription, ingested by `scripts/ingest_musaeus_hero_leander.py`, replacing a broken redo OCR of Dilthey 1874 (the page names no printed edition, so it is the PD ancient poem, not a claim on Dilthey/Kost/Livrea) |
 | [GLAUx](https://github.com/alekkeersmaekers/glaux) | PD base text; GLAUx corpus CC BY-SA 4.0 | Julius Pollux, Onomasticon (`julius-pollux.onomasticon`, tlg0542.tlg001): the full ten-book text (1,908 sections, ~115k Greek tokens), reconstructed from the GLAUx surface `<word>` forms in document order and keyed by GLAUx's `div_book`/`div_section` metadata, ingested by `scripts/ingest_glaux_pollux.py`, replacing a First1KGreek two-section sample (111 tokens). GLAUx is otherwise used only offline, for the Bekker concordance milestones below |
 | our OCR of PD editions | PD | Migne PG and classical editions OCR'd from public-domain scans (`ocr`); per-work download links in the OCR provenance table below |
+| [The Greek Library](https://thegreeklibrary.pages.lisn.upsaclay.fr/) | CC BY-SA 4.0 transcription; PD printed edition | Alexius Studites, Ficker 1911 additamentum (`greek_library`), reviewed against all 15 printed pages with a reversible correction record; the provider's undocumented OCR model is not identified as our own |
 | [Opera Graeca Adnotata](https://doi.org/10.5281/zenodo.14206061) | CC BY-SA 4.0 | metadata only, no text (the OGA texts are the Perseus / First1KGreek / PTA editions above): per-work composition dating and the PTA/TLG duplicate map, ingested by `scripts/ingest_oga_metadata.py`; pinned by version DOI in `sources/oga/manifest.json` |
 
 No non-commercial (CC BY-NC-SA) texts. A work only available under NC counts as
@@ -318,10 +319,10 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 569 of the 3,909 served works have no
+distinct `ogc` ids sharing one TLG anchor. 569 of the 3,910 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,340 works, `tlg` on 3,306,
+`work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,306,
 `wikidata` on 517), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
@@ -2469,7 +2470,7 @@ move.
 
 ## Status
 
-- 3,909 works served, 65.3M Greek tokens, twelve sources.
+- 3,910 works served, 65.3M Greek tokens, fourteen sources.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
