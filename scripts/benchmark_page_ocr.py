@@ -24,10 +24,13 @@ from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
 SOURCE = "https://zenodo.org/records/20008699"
-PROMPT = ("Transcribe the printed text in this image exactly, in reading order, "
-          "one line per printed line. Preserve Greek accents, breathing marks, "
-          "punctuation, and printed hyphens. Do not correct, translate, summarize, "
-          "or add explanations. Return only the transcription.")
+PROMPT = ("Transcribe only the printed Greek text in this image, in reading order, "
+          "one line per printed line. Exclude Latin text, including Latin editorial "
+          "words embedded in a Greek line, and exclude parenthesized Arabic-number "
+          "reference markers. Keep Greek text inside editorial brackets and keep "
+          "Greek headings and section numerals. Preserve Greek accents, breathing "
+          "marks, punctuation, and printed hyphens. Do not correct, translate, "
+          "summarize, or add explanations. Return only the Greek transcription.")
 
 
 def sha256(path):
