@@ -8,22 +8,29 @@ predictions. The raw transcription is retained, including repetitions and errors
 from __future__ import annotations
 
 import argparse
+import base64
 from collections import Counter
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import hashlib
 import importlib.metadata
 import json
 from pathlib import Path
 import random
 import re
+import platform
 import time
 import unicodedata
+from urllib.request import Request, urlopen
 import xml.etree.ElementTree as ET
 
 SOURCE = "https://zenodo.org/records/20008699"
-PROMPT = ("Transcribe the printed text in this image exactly, in reading order, "
-          "one line per printed line. Preserve Greek accents, breathing marks, "
-          "punctuation, and printed hyphens. Do not correct, translate, summarize, "
-          "or add explanations. Return only the transcription.")
+PROMPT = ("Transcribe only the printed Greek text in this image, in reading order, "
+          "one line per printed line. Exclude Latin text, including Latin editorial "
+          "words embedded in a Greek line, and exclude parenthesized Arabic-number "
+          "reference markers. Keep Greek text inside editorial brackets and keep "
+          "Greek headings and section numerals. Preserve Greek accents, breathing "
+          "marks, punctuation, and printed hyphens. Do not correct, translate, "
+          "summarize, or add explanations. Return only the Greek transcription.")
 
 
 def sha256(path):
@@ -167,20 +174,103 @@ def summarize(rows):
                         "wer": sum(r["metrics"]["word_errors"] for r in subset) / max(1, words),
                         "folded_cer": sum(r["metrics"]["folded_char_errors"] for r in subset) / max(1, folded),
                         "empty_pages": sum(r["metrics"]["empty"] for r in subset),
+                        "failed_pages": sum(bool(r.get("error")) for r in subset),
+                        "truncated_pages": sum(r.get("finish_reason") == "length" for r in subset),
                         "length_outliers": sum(not 0.6 <= r["metrics"]["length_ratio"] <= 1.6 for r in subset),
                         "max_page_cer": max(r["metrics"]["cer"] for r in subset)}
     return result
 
 
+def http_completion(args, image):
+    """Send one complete page, with thinking explicitly disabled."""
+    mime = "image/png" if image.suffix.lower() == ".png" else "image/jpeg"
+    payload = {"model": args.model, "temperature": 0, "top_p": 1,
+               "max_tokens": args.max_tokens, "chat_template_kwargs": {"enable_thinking": False},
+               "messages": [{"role": "user", "content": [
+                   {"type": "image_url", "image_url": {"url":
+                    f"data:{mime};base64," + base64.b64encode(image.read_bytes()).decode()}},
+                   {"type": "text", "text": PROMPT}]}]}
+    request = Request(args.base_url.rstrip("/") + "/chat/completions",
+                      data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
+    with urlopen(request, timeout=900) as response:
+        result = json.load(response)
+    choice = result["choices"][0]
+    return {"raw_prediction": choice["message"].get("content") or "",
+            "finish_reason": choice.get("finish_reason"),
+            "generation_tokens": result.get("usage", {}).get("completion_tokens")}
+
+
+def paired_diagnostics(baseline, candidate, split):
+    """Compare matched pages, resampling within editions rather than tokens."""
+    left = {r["id"]: r for r in baseline if split == "all" or r["split"] == split}
+    right = {r["id"]: r for r in candidate if split == "all" or r["split"] == split}
+    groups = {}
+    changes = []
+    for key in sorted(left):
+        row = left[key]
+        other = right[key]
+        if row["metrics"]["gold_chars"] != other["metrics"]["gold_chars"] or row["volume"] != other["volume"]:
+            raise ValueError(f"Comparison ground truth differs: {key}")
+        groups.setdefault(row["volume"], []).append(key)
+        changes.append({"id": key, "volume": row["volume"],
+                        "baseline_cer": row["metrics"]["cer"],
+                        "candidate_cer": other["metrics"]["cer"],
+                        "cer_change": other["metrics"]["cer"] - row["metrics"]["cer"]})
+    by_volume = {name: {"baseline": summarize([left[k] for k in keys])["all"],
+                        "candidate": summarize([right[k] for k in keys])["all"]}
+                 for name, keys in groups.items()}
+    rng = random.Random(20261012)
+    draws = []
+    for _ in range(2000):
+        keys = [rng.choice(group) for group in groups.values() for _ in group]
+        denominator = sum(left[k]["metrics"]["gold_chars"] for k in keys)
+        draws.append(sum(right[k]["metrics"]["char_errors"] - left[k]["metrics"]["char_errors"]
+                         for k in keys) / max(1, denominator))
+    draws.sort()
+    return {"by_volume": by_volume,
+            "page_changes": sorted(changes, key=lambda r: (-r["cer_change"], r["id"])),
+            "paired_page_bootstrap": {"seed": 20261012, "replicates": len(draws),
+                                      "stratified_by": "edition", "cer_change_ci95": [draws[49], draws[1949]]}}
+
+
+def http_page(args, page):
+    image, xml = args.root / page["image"], args.root / page["xml"]
+    if sha256(image) != page["image_sha256"] or sha256(xml) != page["xml_sha256"]:
+        raise ValueError(f"Changed benchmark input: {page['id']}")
+    _, gold = page_gold(xml)
+    start = time.monotonic()
+    try:
+        prediction = http_completion(args, image)
+    except Exception as error:
+        # Failed pages remain in the denominator and keep their error evidence.
+        prediction = {"raw_prediction": "", "error": f"{type(error).__name__}: {error}",
+                      "finish_reason": "error", "generation_tokens": None}
+    return {"id": page["id"], "split": page["split"], "volume": page["volume"],
+            **prediction, "metrics": score(gold, prediction["raw_prediction"]),
+            "seconds": round(time.monotonic() - start, 3)}
+
+
 def run(args):
     manifest = json.loads(args.manifest.read_text())
+    backend = getattr(args, "backend", "mlx")
     metadata = {"manifest_sha256": sha256(args.manifest), "model": args.model,
                 "revision": args.revision, "prompt": PROMPT, "temperature": 0,
                 "max_tokens": args.max_tokens, "runner": "scripts/benchmark_page_ocr.py",
                 "runner_sha256": sha256(Path(__file__)),
+                "backend": backend,
                 "runtime_versions": {name: importlib.metadata.version(name)
-                                     for name in ("mlx", "mlx-vlm", "transformers")}}
-    pages = [p for p in manifest["pages"] if p["split"] == args.split]
+                                     for name in ("mlx", "mlx-vlm", "transformers")} if backend == "mlx"
+                                    else {"python": platform.python_version()}}
+    if backend == "http":
+        runtime = json.loads(args.runtime_manifest.read_text())
+        if runtime["model"] != args.model or runtime["revision"] != args.revision:
+            raise ValueError("Server runtime manifest belongs to a different model revision")
+        metadata.update(inference_runtime=runtime, workers=args.workers)
+        with urlopen(args.base_url.rstrip("/") + "/models", timeout=30) as response:
+            available = {item["id"] for item in json.load(response)["data"]}
+        if args.model not in available:
+            raise ValueError("Requested model is not served by this endpoint")
+    pages = [p for p in manifest["pages"] if args.split == "all" or p["split"] == args.split]
     if args.limit:
         pages = pages[:args.limit]
     rows = []
@@ -191,7 +281,19 @@ def run(args):
         rows = existing[1:]
     done = {row["id"] for row in rows}
     pending = [p for p in pages if p["id"] not in done]
-    if pending:
+    if pending and backend == "http":
+        args.out.parent.mkdir(parents=True, exist_ok=True)
+        if not args.out.exists():
+            args.out.write_text(json.dumps({"_meta": metadata}) + "\n")
+        with ThreadPoolExecutor(max_workers=args.workers) as pool:
+            futures = [pool.submit(http_page, args, page) for page in pending]
+            for future in as_completed(futures):
+                row = future.result()
+                rows.append(row)
+                with args.out.open("a") as stream:
+                    stream.write(json.dumps(row, ensure_ascii=False) + "\n")
+                print(json.dumps({k: v for k, v in row.items() if k != "raw_prediction"}), flush=True)
+    elif pending:
         from huggingface_hub import snapshot_download
         from mlx_vlm import load, generate
         from mlx_vlm.prompt_utils import apply_chat_template
@@ -241,18 +343,25 @@ def main():
         runner.add_argument(f"--{name}", type=Path, required=True)
     runner.add_argument("--model", required=True)
     runner.add_argument("--revision", required=True)
-    runner.add_argument("--split", choices=("calibration", "test"), default="calibration")
+    runner.add_argument("--split", choices=("calibration", "test", "all"), default="calibration")
+    runner.add_argument("--backend", choices=("mlx", "http"), default="mlx")
+    runner.add_argument("--base-url", default="http://127.0.0.1:8000/v1")
+    runner.add_argument("--runtime-manifest", type=Path)
+    runner.add_argument("--workers", type=int, default=4)
     runner.add_argument("--limit", type=int)
     runner.add_argument("--max-tokens", type=int, default=12000)
     comparison = sub.add_parser("compare")
     comparison.add_argument("--baseline", type=Path, required=True)
     comparison.add_argument("--candidate", type=Path, required=True)
     comparison.add_argument("--out", type=Path, required=True)
+    comparison.add_argument("--manifest", type=Path, help="Require every page in this fixed benchmark")
     args = parser.parse_args()
     if args.command == "prepare":
         data = prepare(args.root, args.out, args.count, args.seed, args.groups)
         print(json.dumps({"available": data["available_pages"], "selected": len(data["pages"])}))
     elif args.command == "run":
+        if args.backend == "http" and (not args.runtime_manifest or args.workers < 1):
+            parser.error("HTTP inference requires --runtime-manifest and positive --workers")
         run(args)
     else:
         def read(path):
@@ -263,17 +372,36 @@ def main():
         for key in ("manifest_sha256", "prompt", "temperature", "max_tokens"):
             if base_meta[key] != cand_meta[key]:
                 raise ValueError(f"Comparison conditions differ: {key}")
+        if base_meta.get("reference_audit_sha256") != cand_meta.get("reference_audit_sha256"):
+            raise ValueError("Comparison reference-order audits differ")
         if {r["id"] for r in baseline} != {r["id"] for r in candidate}:
             raise ValueError("Comparison page sets differ")
-        base_score, cand_score = summarize(baseline)["all"], summarize(candidate)["all"]
+        if args.manifest:
+            expected = json.loads(args.manifest.read_text())
+            if sha256(args.manifest) != base_meta["manifest_sha256"] or {p["id"] for p in expected["pages"]} != {r["id"] for r in baseline}:
+                raise ValueError("Comparison does not cover the entire pinned benchmark")
+        if any(len({r["id"] for r in rows}) != len(rows) for rows in (baseline, candidate)):
+            raise ValueError("Repeated page identities in comparison")
+        if {r["id"]: r["split"] for r in baseline} != {r["id"]: r["split"] for r in candidate}:
+            raise ValueError("Comparison page splits differ")
+        if base_meta.get("backend", "mlx") != cand_meta.get("backend", "mlx"):
+            raise ValueError("Comparison inference backends differ")
+        base_summary, cand_summary = summarize(baseline), summarize(candidate)
+        split = "test" if "test" in base_summary else "all"
+        base_score, cand_score = base_summary[split], cand_summary[split]
         result = {"baseline": base_meta, "candidate": cand_meta,
                   "baseline_file_sha256": sha256(args.baseline),
                   "candidate_file_sha256": sha256(args.candidate),
                   "pages": sorted(r["id"] for r in baseline),
+                  "evaluation_split": split,
                   "baseline_scores": base_score, "candidate_scores": cand_score,
+                  "baseline_by_split": base_summary, "candidate_by_split": cand_summary,
                   "candidate_cer_change": cand_score["cer"] - base_score["cer"],
-                  "scope": "Calibration preflight only; insufficient for corpus-wide accuracy claims.",
-                  "generated_by": "scripts/benchmark_page_ocr.py compare"}
+                  "scope": ("Held-out benchmark pages; results do not establish corpus-wide accuracy."
+                            if split == "test" else
+                            "Calibration preflight only; insufficient for corpus-wide accuracy claims."),
+                  "generated_by": "scripts/benchmark_page_ocr.py compare",
+                  **paired_diagnostics(baseline, candidate, split)}
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
         print(json.dumps({"baseline_cer": base_score["cer"], "candidate_cer": cand_score["cer"]}))

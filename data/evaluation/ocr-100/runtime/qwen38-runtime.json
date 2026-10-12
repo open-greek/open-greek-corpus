@@ -1,0 +1,19 @@
+{
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "versions": {
+    "vllm": "0.17.1",
+    "torch": "2.10.0",
+    "transformers": "4.57.6",
+    "huggingface-hub": "0.36.2"
+  },
+  "cuda": "12.8",
+  "gpu": "NVIDIA RTX 6000 Ada Generation",
+  "settings": {
+    "max_model_len": 16384,
+    "max_num_seqs": 8,
+    "gpu_memory_utilization": 0.9,
+    "reasoning_parser": "qwen3",
+    "images_per_prompt": 1
+  }
+}
