@@ -100,7 +100,7 @@ def main() -> None:
     ap.add_argument("--lexicon", type=Path, default=DATA / "public_lexicon.tsv")
     ap.add_argument("--out", type=Path,
                     default=DATA / "public_lemma_frequency.tsv")
-    ap.add_argument("--min-count", type=int, default=2,
+    ap.add_argument("--min-count", type=int, default=5,
                     help="skip forms rarer than this before lemmatizing. Hapax "
                          "forms (count 1) are dominated by OCR noise and each "
                          "misses the O(1) lookup -> the slow transformer; dropping "
