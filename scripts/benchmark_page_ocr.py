@@ -372,6 +372,8 @@ def main():
         for key in ("manifest_sha256", "prompt", "temperature", "max_tokens"):
             if base_meta[key] != cand_meta[key]:
                 raise ValueError(f"Comparison conditions differ: {key}")
+        if base_meta.get("reference_audit_sha256") != cand_meta.get("reference_audit_sha256"):
+            raise ValueError("Comparison reference-order audits differ")
         if {r["id"] for r in baseline} != {r["id"] for r in candidate}:
             raise ValueError("Comparison page sets differ")
         if args.manifest:
