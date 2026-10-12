@@ -203,7 +203,8 @@ def paired_diagnostics(baseline, candidate, split):
     right = {r["id"]: r for r in candidate if split == "all" or r["split"] == split}
     groups = {}
     changes = []
-    for key, row in left.items():
+    for key in sorted(left):
+        row = left[key]
         other = right[key]
         if row["metrics"]["gold_chars"] != other["metrics"]["gold_chars"] or row["volume"] != other["volume"]:
             raise ValueError(f"Comparison ground truth differs: {key}")
