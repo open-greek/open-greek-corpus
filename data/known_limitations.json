@@ -1,22 +1,90 @@
 {
  "schema_version": 1,
- "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero.",
+ "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings are recorded separately and remain open work.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "7369350964b5baa948595a5b4ac45165ccf0c5f6812a07565233be11a4c32071",
+  "corpus_sha256": "7823afa9a33e32ce8d76ee3fad4bb43219fbf8d1e627a3be7c60eee9c01bc8ed",
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "579e3177eedc7c7848391b75afaf89e54102a93e71c76aa894116cb2467da9a6"
+   "sha256": "e7484600095fba7f697ee23a658b2f41838b4a2c405dac22ff2d4522fa552c8c"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "67a96ae3f93f82e16b7cce8f578c711e3dfd3dcf8824e9e15f1d8cf7b9dd1803"
+   "sha256": "0f8d442b79a9c64377126d7d82fd1426f83d486a8be649578367aad45411123c"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "f858bd72752293a4bed6464f8fbc7eb0fcd7907a85d20232d65c919abbf6ee6c"
+   "sha256": "a7d49533cb3d32bd766435f1c6bd9b68949d996928a5e3672d4d088f71b61d3c"
+  },
+  "completeness": {
+   "path": "data/inventory/completeness-batch-report.json",
+   "sha256": "21361ce79e42bebaff02a26869df9b24522b73e567ab964a9a76101fde22262c"
   }
  },
+ "active_coverage_findings": [
+  {
+   "slug": "photius.bibliotheca",
+   "id": "ogc002810",
+   "status": "open-coverage-work",
+   "finding": "partial-scan-and-paratext-review",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/41",
+   "evidence": [
+    "The served incipit matches codex 230 (Eulogius), Bekker printed page 267, in the independently checked combined-volume scan. Earlier codices are absent from the served file.",
+    "The served ending contains Greek index entries and page references. It must be separated from authorial text before adding the earlier material.",
+    "The delivery source pin must be checked against the actual second-volume scan; a different combined-volume scan is only a bibliographic reference."
+   ],
+   "corpus_file_sha256": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68"
+  },
+  {
+   "slug": "cyrillus-theology.commentarii-in-joannem",
+   "id": "ogc000940",
+   "status": "open-coverage-work",
+   "finding": "partial-volume",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/42",
+   "evidence": [
+    "Every served page locus comes from PG 74; PG 73 is absent.",
+    "The first substantive passage comments on John 10, not John 1. Later headings identify Books IX, X, XI, and XII.",
+    "The first four served rows are volume title-page text. These are paratext and need a reversible upstream repair."
+   ],
+   "corpus_file_sha256": "b21757e5ce20209046ea548b25f1ffbaf31bb2666835657a4180a831d9e1a10e"
+  },
+  {
+   "slug": "pappus-mathematics.synagoge",
+   "id": "ogc002676",
+   "status": "open-coverage-work",
+   "finding": "partial-upstream-edition",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/43",
+   "evidence": [
+    "The TEI source describes Hultsch 1876 volume 1 of 3 and explicitly says volumes 2 and 3 still need to be added.",
+    "Encoded books 1-4 are not reliable historical book labels: the second division is headed Book III and the fourth Book V. Preserve old loci until a reviewed citation mapping exists."
+   ],
+   "corpus_file_sha256": "3ca2c31f5ed68da0929451312d3de552e20f9d975a7f06618f8e17f70e61a043"
+  },
+  {
+   "slug": "apollonius-geom.conica",
+   "id": "ogc000303",
+   "status": "open-coverage-work",
+   "finding": "partial-upstream-edition",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/44",
+   "evidence": [
+    "The TEI describes Heiberg 1893 volume 2 and contains 57 sections without a book-level citation.",
+    "The linked scan identifies the text as Conicorum Liber IV. Books I-III are not represented by this file."
+   ],
+   "corpus_file_sha256": "13a58ea70cd050f803334d7d9ca2ee0d89e449030ac1597ade22eb16aabcba6e"
+  },
+  {
+   "slug": "cassius-dio.historiae-romanae",
+   "id": "ogc000715",
+   "status": "open-coverage-work",
+   "finding": "partial-upstream-edition",
+   "issue": "https://github.com/open-greek/open-greek-corpus/issues/45",
+   "evidence": [
+    "The source identifies Cary 1914-1917 volumes 3-6. The encoded books run from 36 through 55, ending at 55.9.4.",
+    "This is coverage of those transmitted books, not a complete representation of the surviving Roman History. Missing later books and epitomes require separately identified editions; ancient losses must not be fabricated."
+   ],
+   "corpus_file_sha256": "cd32c06fb75deb60ebffef83d19cf7cf3b80f2352f787f1f6130b6271d3432e8"
+  }
+ ],
  "limitations": [
   {
    "key": "applied-correction-error",

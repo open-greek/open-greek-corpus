@@ -1,13 +1,13 @@
 {
  "corpus": {
-  "passages": 1970947,
-  "tokens": 65285435,
-  "tokens_lemmatized": 63438253,
-  "works": 3909
+  "passages": 1970962,
+  "tokens": 65288937,
+  "tokens_lemmatized": 63439093,
+  "works": 3910
  },
  "generated_from": {
-  "commit": "1d12c09340aa3309e8bfc0075070c0d7b90f4523",
-  "commit_date": "2026-09-15",
+  "commit": "db0c8b410653671f3222afee6e4e3033d7b28024",
+  "commit_date": "2026-10-12",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -17,8 +17,8 @@
    "works": 234
   },
   "CC-BY-SA-4.0": {
-   "tokens": 33783490,
-   "works": 2421
+   "tokens": 33786992,
+   "works": 2422
   },
   "PD": {
    "tokens": 26686269,
@@ -59,9 +59,9 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3909,
-  "catalog_sha256": "91d4300cbe900929a2fbe0a33db51e51791da7a0e2cd724645a3513781b7a6d9",
-  "corpus_sha256": "7369350964b5baa948595a5b4ac45165ccf0c5f6812a07565233be11a4c32071",
+  "catalog_rows": 3910,
+  "catalog_sha256": "e7484600095fba7f697ee23a658b2f41838b4a2c405dac22ff2d4522fa552c8c",
+  "corpus_sha256": "7823afa9a33e32ce8d76ee3fad4bb43219fbf8d1e627a3be7c60eee9c01bc8ed",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -71,8 +71,8 @@
     "works": 888
    },
    "manual": {
-    "tokens": 5560262,
-    "works": 129
+    "tokens": 5563764,
+    "works": 130
    },
    "not-ocr": {
     "tokens": 36126603,
@@ -85,9 +85,9 @@
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.4466,
-   "ocr_tokens": 29158832,
-   "ocr_works": 1412,
+   "ocr_share_of_corpus_tokens": 0.4467,
+   "ocr_tokens": 29162334,
+   "ocr_works": 1413,
    "raw_share_of_corpus_tokens": 0.0445,
    "raw_share_of_ocr_tokens": 0.0996,
    "raw_tokens": 2903356,
@@ -308,8 +308,8 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "91d4300cbe900929a2fbe0a33db51e51791da7a0e2cd724645a3513781b7a6d9",
-     "corpus_sha256": "7369350964b5baa948595a5b4ac45165ccf0c5f6812a07565233be11a4c32071"
+     "catalog_sha256": "e7484600095fba7f697ee23a658b2f41838b4a2c405dac22ff2d4522fa552c8c",
+     "corpus_sha256": "7823afa9a33e32ce8d76ee3fad4bb43219fbf8d1e627a3be7c60eee9c01bc8ed"
     },
     "pairs": 43619,
     "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
@@ -341,8 +341,8 @@
    "wrong_rows_estimate": 20400
   }
  },
- "release_date": "2026-09-15",
- "release_id": "corpus-2026-09-15.2",
+ "release_date": "2026-10-12",
+ "release_id": "corpus-2026-10-12",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -375,6 +375,10 @@
   "glaux": {
    "tokens": 137710,
    "works": 5
+  },
+  "greek_library": {
+   "tokens": 3502,
+   "works": 1
   },
   "ocr": {
    "tokens": 25037341,

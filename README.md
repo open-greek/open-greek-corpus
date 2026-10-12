@@ -448,6 +448,8 @@ The lemma-frequency builder accepts `--lemma-map FILE` for existing TSV or
 gzip form/lemma caches. Only unanimously supplied missing answers are reused;
 disagreements are retained for review, and every imported answer passes the
 normal lemma validator before it contributes to counts.
+The command and Makefile both default to a minimum form count of five; a lower
+threshold requires an explicit `--min-count` argument.
 
 ## Corpus improvement audits
 
@@ -1071,7 +1073,7 @@ that it was measured against; the release builder marks it stale if those pins
 move.
 
 <!-- OCR-PROVENANCE:START -->
-1393 OCR'd works/volumes: 124 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1394 OCR'd works/volumes: 125 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1096,6 +1098,7 @@ move.
 | alexander-rhetoric.ek-ton-alexandrou |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 1,345 | raw OCR |
 | alexander.fragmenta | ALEXANDER - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 225 | auto-corrected |
 | alexis-comedy.fragmenta | Alexis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 10,197 | auto-corrected |
+| alexius-studites.decreta-additamentum | Alexius Studites - Decreta Alexii patriarchae (additamentum) | [Ficker 1911, reviewed Greek Library transcription](https://archive.org/details/erlasse-des-patriarchen-von-konstantinop) | The Greek Library (model not documented) | 3,502 | manual |
 | ameinias.testimonia-et-fragmenta |  | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 40 | raw OCR |
 | amipsias.fragmenta | Amipsias - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 766 | raw OCR |
 | amphis.fragmenta | Amphis - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 1,086 | auto-corrected |
