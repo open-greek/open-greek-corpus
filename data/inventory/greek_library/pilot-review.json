@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-12",
+  "scope": "Initial source pilots were spot checks. Alexius now has a completed 15-page visual review and reversible import; DCLP 63141 has a structured, unserved EpiDoc pilot.",
+  "editions": {
+    "tlg4384.tlg001.local001": {
+      "status": "hold-quality",
+      "sample": "Achmet, Oneirocriticon; Source Library book 69bd9da16120d54bd03787c3; 1603 print",
+      "findings": [
+        "Opening at scan 401 (printed p. 6) is a genuine fragment: the Latin editorial text says only this survives of chapter I. Do not fabricate missing text.",
+        "Scan 402 (printed p. 7) contains Greek in the right column and Latin on the left. Greek-only extraction is appropriate, but the reading text has multiple recognition errors. For example θεόφιτον is printed θεόφητον.",
+        "Scan order is not reading order: scans 669, 670, 674 show printed pages 274, 27, 275. The TGL file follows that scan order, interrupting chapter 304 with chapter 32.",
+        "No quantitative error rate established. Hold until printed-page order, duplicates/missing leaves, and OCR are repaired."
+      ]
+    },
+    "tlg4319.tlg014.local002": {
+      "status": "overlap-needs-carve-and-correction",
+      "overlap_slug": "zosimus-alchemista.opera",
+      "sample": "Zosimus, De aqua divina composita; Source Library book 6994383a6879ff0184cb803a; scans 60-62 = printed pp. 154-156",
+      "findings": [
+        "Same passage already occurs in corpus/zosimus-alchemista.opera.jsonl under berthelot_alchimistes_grec_0060.* and following pages; not a new text gap.",
+        "TGL extraction correctly cuts the opening and ending at tract boundaries and omits French apparatus, but drops xiv from the title.",
+        "Full-page visual comparison found recognition differences and missing editorial markers; no quantitative error rate or complete correction set has been established. Candidate remains unapproved.",
+        "Local Opera text is visibly fragmented across records. A future carve/repair must compare both OCR witnesses to scans, rather than replacing it wholesale."
+      ]
+    },
+    "tlg0683.tlg001.local001": {
+      "status": "overlap-needs-identity-and-structure",
+      "overlap_slug": "panyassis.fragmenta-epica",
+      "sample": "Aethiopis, Evelyn-White 1920; Source Library book 69924f1aa1a76e4d5e5ed9e2; scans 560/562 = printed pp. 506/508",
+      "findings": [
+        "Proclus summary already occurs in corpus/panyassis.fragmenta-epica.jsonl at panyassis_kinkel_egf_0045.1. This is material inside a wider Kinkel volume, not an entirely absent text.",
+        "TGL removes the Latin witness labels Proclus, Chrestomathia and the scholia source labels; isolated 804 and 53 remain as if text.",
+        "First page is encoded as line blocks although this is a prose summary, while the continuation is a paragraph. Repair prose/witness structure before use."
+      ]
+    },
+    "tlg9516.tlg002.local001": {
+      "status": "imported-reviewed",
+      "sample": "Alexius Studites, Decreta additamentum; Ficker 1911, printed pp. 28-42",
+      "findings": [
+        "Internet Archive source metadata explicitly supplies Public Domain Mark 1.0 and year 1911. This resolves the catalogue sourceRights placeholder for the scan, while TGL claims CC BY-SA 4.0 for its own OCR.",
+        "TGL labels Page 33 through Page 47 are one-based scan positions, not printed pages. Verified label 33 = IA leaf 32 = printed 28; label 40 = leaf 39 = printed 35; label 47 = leaf 46 = printed 42.",
+        "Opening, middle and ending spot checks match the identified scan; adjacent-page split Ἐλυ- / μήναιο requires a documented policy for joining across page boundaries.",
+        "Exact incipit search found no served text, but this is not an exhaustive fuzzy overlap audit. Complete the 15-page text review and attribution/identity checks before promotion.",
+        "All 15 pages were visually compared with Ficker 1911. The letter correction μήναιο → μήνατο, explicit page joins, and folio-marker extraction are recorded in the reversible ingest audit.",
+        "The new expression uses a corpus-owned work anchor. The provider ID is preserved separately rather than asserted as an independently verified TLG number."
+      ],
+      "overlap_slug": "alexius-studites.decreta-additamentum",
+      "review_completed": "2026-10-12",
+      "review_input": "data/ingest_reviews/greek-library-alexius.json"
+    },
+    "pherc0000.dclp63141.local001": {
+      "status": "prefer-original-epidoc",
+      "sample": "P.Herc. 1026, DCLP/TM 63141",
+      "upstream_commit": "35b5e2279ad29c44824f6dc60d9fc748dc109305",
+      "findings": [
+        "Original DCLP XML explicitly licenses the document CC BY 3.0.",
+        "The edition contains 89 lb elements, 219 unclear elements, 140 gaps, 86 supplied elements, plus correction/variant markup. TGL reduces this to two column paragraphs.",
+        "Import original EpiDoc, preserving column.line loci and diplomatic markup; do not use plain itertext (it would concatenate variants and lose damage). No papyrus transcription has been promoted."
+      ]
+    }
+  }
+}

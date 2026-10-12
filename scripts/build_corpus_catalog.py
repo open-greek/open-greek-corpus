@@ -50,7 +50,7 @@ CORPUS = DATA / "corpus"
 OUT = DATA / "corpus_catalog.tsv"
 
 # Same two sources build_provenance.py and build_ocr_quality_report.py call OCR.
-OCR_SOURCES = {"ocr", "cgpg"}
+OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 
 # A row stamped by one of these was edited by a human or an LLM acting as one, so
 # the work counts as manually corrected; anything else (confusion, dehyphenation,

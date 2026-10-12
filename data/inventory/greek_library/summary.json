@@ -1,0 +1,50 @@
+{
+  "catalog_sha256": "d7c9853ce14d405c72c22fa8cef7716ff6f1eda9efa8e39b9ea98c45c091e4fa",
+  "pilot_review_sha256": "be57169d1067dbbd43a6a5d67194f2d99a93eca0ea639f1267edc81ad7d11b0a",
+  "local_inputs_sha256": {
+    "data/work_index.json": "51674109847240f8747dca055967f3fbdcdc86af39172eca04c9f4d343d04724",
+    "data/source_registry.json": "96c90b175e8ebca759a148a0571b98bf782a1751b20dd8ad6266d853fa06a687",
+    "data/corpus_catalog.tsv": "579e3177eedc7c7848391b75afaf89e54102a93e71c76aa894116cb2467da9a6"
+  },
+  "local_served_work_units": 3910,
+  "origin_editions": {
+    "anthologia-graeca": 2,
+    "cllg-freed": 4980,
+    "dfhg": 305,
+    "ig": 33,
+    "intf": 1,
+    "ocr-tgl": 585,
+    "ogl": 1076,
+    "papyri": 162,
+    "perseus": 961,
+    "pta": 286,
+    "source-library": 5359,
+    "tlg-e": 3,
+    "vesuvius": 3
+  },
+  "selections": {
+    "edition-audit": {
+      "editions": 13756,
+      "work_keys": 8616
+    },
+    "source-library-gaps": {
+      "editions": 1979,
+      "work_keys": 1341
+    },
+    "dclp-candidates": {
+      "editions": 162,
+      "work_keys": 162
+    },
+    "ocr-candidates": {
+      "editions": 582,
+      "work_keys": 582
+    }
+  },
+  "limitations": [
+    "Unmatched external anchors are candidates, not confirmed new works.",
+    "Title equality flags possible duplicates but never establishes identity.",
+    "Catalog-only anchor matches require reconciliation (notably Euripides' alternate numbering).",
+    "Catalog provenance is an upstream claim, not a completed rights/quality audit.",
+    "No text is downloaded, ingested or promoted by this script."
+  ]
+}
