@@ -197,6 +197,38 @@ def http_completion(args, image):
             "generation_tokens": result.get("usage", {}).get("completion_tokens")}
 
 
+def paired_diagnostics(baseline, candidate, split):
+    """Compare matched pages, resampling within editions rather than tokens."""
+    left = {r["id"]: r for r in baseline if split == "all" or r["split"] == split}
+    right = {r["id"]: r for r in candidate if split == "all" or r["split"] == split}
+    groups = {}
+    changes = []
+    for key, row in left.items():
+        other = right[key]
+        if row["metrics"]["gold_chars"] != other["metrics"]["gold_chars"] or row["volume"] != other["volume"]:
+            raise ValueError(f"Comparison ground truth differs: {key}")
+        groups.setdefault(row["volume"], []).append(key)
+        changes.append({"id": key, "volume": row["volume"],
+                        "baseline_cer": row["metrics"]["cer"],
+                        "candidate_cer": other["metrics"]["cer"],
+                        "cer_change": other["metrics"]["cer"] - row["metrics"]["cer"]})
+    by_volume = {name: {"baseline": summarize([left[k] for k in keys])["all"],
+                        "candidate": summarize([right[k] for k in keys])["all"]}
+                 for name, keys in groups.items()}
+    rng = random.Random(20261012)
+    draws = []
+    for _ in range(2000):
+        keys = [rng.choice(group) for group in groups.values() for _ in group]
+        denominator = sum(left[k]["metrics"]["gold_chars"] for k in keys)
+        draws.append(sum(right[k]["metrics"]["char_errors"] - left[k]["metrics"]["char_errors"]
+                         for k in keys) / max(1, denominator))
+    draws.sort()
+    return {"by_volume": by_volume,
+            "page_changes": sorted(changes, key=lambda r: (-r["cer_change"], r["id"])),
+            "paired_page_bootstrap": {"seed": 20261012, "replicates": len(draws),
+                                      "stratified_by": "edition", "cer_change_ci95": [draws[49], draws[1949]]}}
+
+
 def http_page(args, page):
     image, xml = args.root / page["image"], args.root / page["xml"]
     if sha256(image) != page["image_sha256"] or sha256(xml) != page["xml_sha256"]:
@@ -318,6 +350,7 @@ def main():
     comparison.add_argument("--baseline", type=Path, required=True)
     comparison.add_argument("--candidate", type=Path, required=True)
     comparison.add_argument("--out", type=Path, required=True)
+    comparison.add_argument("--manifest", type=Path, help="Require every page in this fixed benchmark")
     args = parser.parse_args()
     if args.command == "prepare":
         data = prepare(args.root, args.out, args.count, args.seed, args.groups)
@@ -337,6 +370,10 @@ def main():
                 raise ValueError(f"Comparison conditions differ: {key}")
         if {r["id"] for r in baseline} != {r["id"] for r in candidate}:
             raise ValueError("Comparison page sets differ")
+        if args.manifest:
+            expected = json.loads(args.manifest.read_text())
+            if sha256(args.manifest) != base_meta["manifest_sha256"] or {p["id"] for p in expected["pages"]} != {r["id"] for r in baseline}:
+                raise ValueError("Comparison does not cover the entire pinned benchmark")
         if any(len({r["id"] for r in rows}) != len(rows) for rows in (baseline, candidate)):
             raise ValueError("Repeated page identities in comparison")
         if {r["id"]: r["split"] for r in baseline} != {r["id"]: r["split"] for r in candidate}:
@@ -357,7 +394,8 @@ def main():
                   "scope": ("Held-out benchmark pages; results do not establish corpus-wide accuracy."
                             if split == "test" else
                             "Calibration preflight only; insufficient for corpus-wide accuracy claims."),
-                  "generated_by": "scripts/benchmark_page_ocr.py compare"}
+                  "generated_by": "scripts/benchmark_page_ocr.py compare",
+                  **paired_diagnostics(baseline, candidate, split)}
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
         print(json.dumps({"baseline_cer": base_score["cer"], "candidate_cer": cand_score["cer"]}))
