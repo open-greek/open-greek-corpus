@@ -14,14 +14,18 @@ def main():
     parser.add_argument("--revision", required=True)
     parser.add_argument("--runtime-manifest", type=Path, required=True)
     parser.add_argument("--port", type=int, default=8000)
+    parser.add_argument("--max-num-seqs", type=int, default=8,
+                        help="maximum concurrent sequences (default: 8)")
     args = parser.parse_args()
+    if args.max_num_seqs < 1:
+        parser.error("--max-num-seqs must be positive")
     from huggingface_hub import snapshot_download
     import torch
     path = snapshot_download(args.model, revision=args.revision)
     command = [sys.executable, "-m", "vllm.entrypoints.openai.api_server",
                "--model", path, "--served-model-name", args.model,
                "--host", "127.0.0.1", "--port", str(args.port),
-               "--max-model-len", "16384", "--max-num-seqs", "8",
+               "--max-model-len", "16384", "--max-num-seqs", str(args.max_num_seqs),
                "--gpu-memory-utilization", "0.90", "--reasoning-parser", "qwen3",
                "--limit-mm-per-prompt", '{"image":1}']
     # Store portable settings, not local checkpoint or executable paths.
@@ -29,7 +33,7 @@ def main():
                "versions": {name: importlib.metadata.version(name)
                             for name in ("vllm", "torch", "transformers", "huggingface-hub")},
                "cuda": torch.version.cuda, "gpu": torch.cuda.get_device_name(),
-               "settings": {"max_model_len": 16384, "max_num_seqs": 8,
+               "settings": {"max_model_len": 16384, "max_num_seqs": args.max_num_seqs,
                             "gpu_memory_utilization": 0.90, "reasoning_parser": "qwen3",
                             "images_per_prompt": 1}}
     args.runtime_manifest.parent.mkdir(parents=True, exist_ok=True)
