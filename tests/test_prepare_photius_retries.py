@@ -56,3 +56,14 @@ def test_new_failed_pages_are_scoped_to_their_actual_checkpoint():
         assert {p["scan_page"] for p in manifest["pages"]} == {number}
         assert [p["reading_order"] for p in manifest["pages"]] == list(range(6))
         assert encode(manifest) == (ROOT / prepare.manifest_path(number)).read_bytes()
+
+
+def test_page113_faint_source_uses_eight_parts_without_a_second_vote():
+    manifest = prepare.build_retry(113)
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+    assert len(manifest["pages"]) == 8
+    assert [p["reading_order"] for p in manifest["pages"]] == list(range(8))
+    for group in (manifest["pages"][:4], manifest["pages"][4:]):
+        assert group[0]["region"][1] == .065 and group[-1]["region"][3] == .813
+        assert all(a["region"][3] == b["region"][1] for a, b in zip(group, group[1:]))
+    assert encode(manifest) == (ROOT / prepare.manifest_path(113)).read_bytes()

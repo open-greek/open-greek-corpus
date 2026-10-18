@@ -46,6 +46,16 @@ REVIEWS = {
           "checkpoints": [CHECKPOINT36],
           "evidence": "Printed page100 continues the lexicon notices153–158. The left splits precede the154 and157 headings. The right splits lie between complete body lines, checked with enlarged source crops to preserve descenders. The bottom at.844 retains the final body lines in both columns and stops above the smaller apparatus. Every authorial line remains in left-then-right column order.",
           "failure": "The original Qwen3.6 page attempt reaches its output limit. The successful Qwen3.8 whole-page reading remains its vote."},
+    113: {"strips": [("left-first", [.045, .065, .495, .251]),
+                     ("left-second", [.045, .251, .495, .454]),
+                     ("left-third", [.045, .454, .495, .6575]),
+                     ("left-fourth", [.045, .6575, .495, .813]),
+                     ("right-first", [.505, .065, .97, .253]),
+                     ("right-second", [.505, .253, .97, .490]),
+                     ("right-third", [.505, .490, .97, .640]),
+                     ("right-fourth", [.505, .640, .97, .813])],
+          "evidence": "Printed page101 continues codex158 on Phrynichus and opens codex159 on Isocrates. The right column is especially faint. Eight shorter strips preserve each complete large Greek line in column order; the final right split precedes the159 heading. Enlarged boundary checks preserve descenders and the breathing marks above the following lines. The bottom at.813 excludes the smaller critical apparatus. The body contains no long dotted lacuna requiring a special ellipsis instruction.",
+          "failure": "The original Qwen3.8 attempt reaches its output limit and triggers the frozen mark-loss screen. The Qwen3.6 whole-page reading remains its independent vote; the retry still requires completed source and mark review."},
 }
 
 SUPPLEMENT_REVIEWS = {
