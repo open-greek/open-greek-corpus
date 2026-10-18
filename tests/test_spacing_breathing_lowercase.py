@@ -70,8 +70,14 @@ def test_the_composed_forms_are_gone_from_the_corpus():
     """Read the rows, not the audit: the point is what the corpus now holds."""
     rec = _audit()
     gone = {p.split(" -> ")[0] for p in rec["distinct_substitutions"]}
+    redirects = json.loads((REPO / "data/work_index.json").read_text())["redirects"]
     for blk in rec["files"]:
-        text = (REPO / blk["file"]).read_text(encoding="utf-8")
+        path = REPO / blk["file"]
+        if not path.exists():
+            # Audit paths retain the historical identity; current text follows
+            # the append-only work redirect rather than rewriting the audit.
+            path = path.with_name(redirects[path.stem] + ".jsonl")
+        text = path.read_text(encoding="utf-8")
         for line in text.splitlines():
             if not line.strip():
                 continue

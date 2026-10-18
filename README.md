@@ -345,7 +345,7 @@ one level finer at the Expression, so the 4 TLG variant-edition pairs are two
 distinct `ogc` ids sharing one TLG anchor. 569 of the 3,910 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,306,
+`work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,304,
 `wikidata` on 517), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
