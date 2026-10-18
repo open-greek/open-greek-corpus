@@ -177,3 +177,14 @@ def test_late_first_volume_length_and_apparatus_requests_keep_checkpoint_scope()
         supplement = prepare.build_supplement(page, name)
         assert supplement["replacement_condition"]["breathing_letters"] == 1
         assert encode(supplement) == (ROOT / prepare.supplement_path(page, name)).read_bytes()
+
+
+def test_last_four_failed_page_requests_preserve_complete_source_columns():
+    for page, count in [(245, 6), (250, 4), (252, 6), (255, 6)]:
+        request = build_retry(page)
+        assert request["checkpoints"] == [prepare.CHECKPOINT38]
+        assert len(request["pages"]) == count
+        assert [p["reading_order"] for p in request["pages"]] == list(range(count))
+        assert encode(request) == (ROOT / prepare.manifest_path(page)).read_bytes()
+    request = build_retry(250)
+    assert request["pages"][-1]["region"] == [.505, .062, .97, .846]
