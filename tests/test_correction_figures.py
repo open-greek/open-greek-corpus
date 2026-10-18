@@ -20,7 +20,9 @@ scripts/upstream_pipeline.py.
 """
 
 import json
+import os
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -232,10 +234,17 @@ def test_the_readme_quotes_the_reach_figures():
 def test_stamp_gap_matches_the_upstream_measurement():
     """The raw-OCR share is published as an upper bound, and this is the margin. If it
     drifts, the README's caveat is quoting a number the measurement no longer gets."""
-    fp = PRECISION / "stamp_gap.json"
-    if not fp.is_file():
-        pytest.skip("no stamp_gap.json; run measure_stamp_gap.py --write")
-    got = json.loads(fp.read_text(encoding="utf-8"))
+    # A saved measurement can belong to another corpus checkout. Recompute
+    # read-only against this worktree, including its current catalog identity.
+    script_dir = PRECISION.parent.parent / "scripts"
+    if not (script_dir / "measure_stamp_gap.py").is_file():
+        pytest.skip("upstream measurement script is unavailable")
+    environment = {**os.environ, "CORPUS_DIR": str(REPO)}
+    command = ("import json,sys; sys.path.insert(0,sys.argv[1]); "
+               "from measure_stamp_gap import measure; print(json.dumps(measure()))")
+    got = json.loads(subprocess.check_output(
+        [sys.executable, "-c", command, str(script_dir)],
+        env=environment, text=True))
     public = REPO / "data" / "correction_stamp_gap.json"
     assert public.is_file(), "run measure_stamp_gap.py --write-corpus upstream"
     said = json.loads(public.read_text(encoding="utf-8"))

@@ -42,6 +42,25 @@ def load_canon():
     return authors, wtitle
 
 
+def apply_metadata_remaps(crosswalk, registry, remaps, served):
+    """Link newly identified served works without overwriting legacy edition ids."""
+    added = []
+    for slug, canonical in remaps.items():
+        if slug not in served or slug in crosswalk:
+            continue
+        work = registry.get(canonical)
+        if work is None:
+            raise ValueError(f"metadata remap target is absent: {canonical}")
+        cts = (work.get("aliases") or {}).get("cts")
+        if not cts:
+            raise ValueError(f"metadata remap target has no CTS identity: {canonical}")
+        tail = cts.rsplit(":", 1)[-1]
+        crosswalk[slug] = {"cts": cts, "tlg": tail if tail.startswith("tlg") else "",
+                           "author_slug": work.get("author", ""), "title": work.get("title", "")}
+        added.append(slug)
+    return added
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--emit-rename-map", help="write tlg_stem->slug_stem JSON here (for migration)")
@@ -190,6 +209,13 @@ def main():
                            "author_slug": stem.split(".")[0] if "." in stem else "",
                            "title": w.get("title", "")}
         alias_added.append(stem)
+
+    remap_path = REPO / "data/work_metadata_remaps.json"
+    if remap_path.exists():
+        remaps = json.loads(remap_path.read_text()).get("works", {})
+        linked = apply_metadata_remaps(crosswalk, reg["works"], remaps, set(corpus))
+        if linked:
+            print(f"linked {len(linked)} served works through reviewed metadata remaps")
 
     # Normalize identifiers that earlier runs grandfathered in. The loop above
     # only fills keys the crosswalk does not already have, so rows written
