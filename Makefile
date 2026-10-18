@@ -291,7 +291,7 @@ $(LATIN_IN_GREEK): $(CORPUS_FILES) scripts/measure_latin_in_greek_script.py
 # grave residue, the README figures). data/spacing_mark_classes.json was worse
 # than unruled: it was produced from a shell heredoc and so could not be
 # rebuilt at all.
-$(SPACING_MARKS): $(CORPUS_FILES) scripts/measure_spacing_marks.py
+$(SPACING_MARKS): $(CORPUS_FILES) scripts/measure_spacing_marks.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/measure_spacing_marks.py --write
 
 # Depends on the candidates too: the merge is only attempted inside a leaf-run,

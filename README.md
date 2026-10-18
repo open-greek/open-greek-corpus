@@ -357,6 +357,11 @@ surface count. OCR quality rows expose `n_surface_tokens` beside eligible
 words across an excluded reading or gap; the archived secondary source text
 remains a separate witness-quality diagnostic. Restored or uncertain papyrus
 fragments and displayed OCR alternatives do not attest ordinary forms.
+Elision rates and spacing-mark form counts also use eligible text. Capital-case
+folds require reliable original context: projected or variant-bearing rows cast
+no positional vote, so removed words and uncertain punctuation cannot imply a
+sentence boundary. Latin-in-Greek-script spans remain an explicitly inclusive
+reader-surface diagnostic.
 The build graph tracks the shared projection and critical-text helper as count
 inputs, so changing eligibility also rebuilds the affected measurements.
 

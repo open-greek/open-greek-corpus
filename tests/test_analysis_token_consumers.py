@@ -11,6 +11,9 @@ import build_public_corpus as public
 import build_work_lemma_counts as matrix
 import measure_nonfinal_graves as graves
 import reconcile_corpus_editions as editions
+import measure_capital_positions as capitals
+import measure_elision_rates as elision
+import measure_spacing_marks as spacing
 from frequency_projection import FrequencyProjection
 from ocr_consensus import merge_witnesses
 
@@ -135,3 +138,53 @@ def test_attestation_uses_row_sources_when_a_work_contains_mixed_editions(tmp_pa
     assert attested == {"βίος"}
     assert stats["n_works"] == 2
     assert stats["n_token_occurrences"] == 2
+
+
+def write_rows(data, name, rows):
+    path = data / "corpus" / (name + ".jsonl")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n")
+
+
+def test_capital_case_folds_never_learn_position_from_display_variants_or_projection(tmp_path, monkeypatch):
+    data = tmp_path / "data"
+    write_rows(data, "contexts", [
+        {"urn": "raw", "locus": "1", "text": "Θεός λόγος"},
+        {"urn": "raw", "locus": "2", "text": "λόγος Θεός"},
+        {"urn": "variants", "locus": "1", "text": "⟦θεός ∥ Θεός⟧", "analysis_text": ""},
+        {"urn": "certain-fragment", "locus": "1", "text": "Θεός […]", "analysis_text": "Θεός"},
+        {"urn": "collated", "locus": "1", "text": "Θεός"}])
+    (data / "frequency_projection.json").write_text(json.dumps({
+        "source_sha256": {}, "rows": {"collated:1": [[0, 4]]}}))
+    monkeypatch.setattr(capitals, "CORPUS", data / "corpus")
+    initial, mid = capitals.count_positions()
+    assert initial == {"Θεός": 1}
+    assert mid == {"Θεός": 1}
+
+
+def test_elision_rates_count_only_the_eligible_spelling(tmp_path, monkeypatch):
+    data = tmp_path / "data"
+    write_rows(data, "elisions", [
+        {"text": "δ’ λόγος"}, {"text": "⟦δ’ ∥ δ⟧", "analysis_text": ""}])
+    monkeypatch.setattr(elision, "CORPUS", data / "corpus")
+    monkeypatch.setattr(elision, "candidates", lambda: {"δ": "δέ"})
+    out = data / "elision.json"
+    monkeypatch.setattr(sys, "argv", ["measure_elision_rates.py", "--min-occurrences", "1", "--out", str(out)])
+    elision.main()
+    row = json.loads(out.read_text())["stems"]["δ"]
+    assert row["occurrences"] == row["before_apostrophe"] == 1
+    assert row["rate"] == 1
+
+
+def test_spacing_mark_form_frequencies_exclude_displayed_uncertain_marks(tmp_path, monkeypatch):
+    data = tmp_path / "data"
+    write_rows(data, "marks", [
+        {"text": "᾿", "source": "first1k"}, {"text": "⟦᾿ ∥ ᾿⟧", "analysis_text": "", "source": "ocr"}])
+    monkeypatch.setattr(spacing, "DATA", data)
+    monkeypatch.setattr(spacing, "REPO", tmp_path)
+    monkeypatch.setattr(spacing, "OUT", data / "spacing.json")
+    monkeypatch.setattr(sys, "argv", ["measure_spacing_marks.py", "--write"])
+    spacing.main()
+    report = json.loads((data / "spacing.json").read_text())
+    assert report["total"] == 1
+    assert report["by_class"]["punctuation_only"]["tokens"] == 1

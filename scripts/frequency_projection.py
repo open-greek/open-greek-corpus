@@ -17,6 +17,12 @@ ANALYSIS_COUNT_BASIS = (
     "attestations count once; unresolved, damaged, restored, and incomplete "
     "readings are excluded where explicit lexical eligibility is supplied"
 )
+CONTEXT_COUNT_BASIS = (
+    "New positional evidence uses unprojected primary rows with complete contextual "
+    "text. Rows with explicit lexical projections or collated spans supply no "
+    "position vote because omitted readings or unresolved punctuation can "
+    "change the preceding context."
+)
 
 
 def lexical_text(rec: dict) -> str:
@@ -107,3 +113,11 @@ class FrequencyProjection:
         if "analysis_text" in rec and text != rec.get("text", ""):
             return []
         return [text]
+
+    def contextual_text(self, rec: dict) -> str | None:
+        """Conservative context for measurements that infer lexical case folds."""
+        text = lexical_text(rec)
+        key = rec.get("urn", "") + ":" + rec.get("locus", "")
+        if key in self.rows or "analysis_text" in rec or rec.get("critical_markup") or rec.get("ocr_consensus"):
+            return None
+        return text
