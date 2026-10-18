@@ -13,14 +13,14 @@
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
  "forms": 26399,
  "tokens": 42462,
- "served_tokens": 65288937,
+ "served_tokens": 65285478,
  "share": 0.00065,
  "works_touched": 1642,
  "by_source": [
   {
    "source": "ocr",
    "tokens": 25174,
-   "rate": 0.001005
+   "rate": 0.001006
   },
   {
    "source": "first1k",
@@ -201,9 +201,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 14824,
+  "tokens_with_more_than_one_attested_shape": 14823,
   "tokens_with_exactly_one": 8867,
-  "tokens_with_none": 18771
+  "tokens_with_none": 18772
  },
  "largest_forms": [
   {
@@ -392,7 +392,7 @@
     },
     "dropped": {
      "form": "ἀνὰ",
-     "attested": 8172
+     "attested": 8171
     },
     "crasis": {
      "form": "ἀ̓νὰ",
@@ -748,7 +748,7 @@
     },
     "crasis": {
      "form": "ἀπὸ",
-     "attested": 177022
+     "attested": 177021
     },
     "circumflex": {
      "form": "ᾶπὸ",
@@ -850,7 +850,7 @@
    "shapes": {
     "acute": {
      "form": "ἄλλο",
-     "attested": 27137
+     "attested": 27136
     },
     "dropped": {
      "form": "ἀλλο",
@@ -928,7 +928,7 @@
     },
     "circumflex": {
      "form": "εἶδη",
-     "attested": 256
+     "attested": 255
     }
    }
   },
@@ -1532,7 +1532,7 @@
    "shapes": {
     "acute": {
      "form": "σία",
-     "attested": 199
+     "attested": 198
     },
     "dropped": {
      "form": "σια",
@@ -1822,7 +1822,7 @@
     },
     "dropped": {
      "form": "ἀπειρον",
-     "attested": 558
+     "attested": 557
     },
     "crasis": {
      "form": "ἀ̓πειρον",
@@ -3626,7 +3626,7 @@
     },
     "dropped": {
      "form": "ἐπιτα",
-     "attested": 32
+     "attested": 31
     },
     "crasis": {
      "form": "ἐπἰτα",

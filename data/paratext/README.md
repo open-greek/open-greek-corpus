@@ -34,5 +34,11 @@ coverage, lemma, and frequency rollup.
   folding into the served works after the normal normalize/mopup/align/verify
   QA - not yet served, because the OCR of Greek in Latin founts is error-prone.
 
+- `hesychius-schmidt-ethnica.jsonl` - Schmidt's separately headed *Glossae
+  ethnicae* index, scan pages 865-874. Preserved exactly from the two formerly
+  mixed alphabetical files, with `lang: grc` and `class: edition_index`.
+  Historical destinations are in `data/passage_aliases.json`; the reversible
+  assignment audit is in `data/corpus_changes/ocr-work-assignments-54-55/`.
+
 Records: `{slug, page, lang, license, source, edition, text}` keyed by the OCR
 source volume slug and printed page. All from the Qwen3.6-27B re-OCR.

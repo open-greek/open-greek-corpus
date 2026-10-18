@@ -19512,6 +19512,10 @@
     "gnd": "100964354",
     "isni": "0000000371217816"
    }
+  },
+  "kaibel-cgf-1899": {
+   "name": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899)",
+   "aliases": {}
   }
  },
  "works": {
@@ -273785,46 +273789,6 @@
     }
    }
   },
-  "rhinthon.fragmenta": {
-   "author": "rhinthon",
-   "title": "Fragmenta",
-   "aliases": {
-    "cts": "urn:cts:greekLit:tlg1654.tlg001"
-   },
-   "default_edition": "rhinthon.fragmenta.qwen36-rhinthon_kaibel_cgf_1899",
-   "best_source": "pd_edition",
-   "tags": [
-    "century:-4",
-    "era:classical",
-    "genre:comedy"
-   ],
-   "editions": {
-    "rhinthon.fragmenta.kaibel-1899": {
-     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
-     "provider": "tlg-e-reference",
-     "scheme": "fragment.line",
-     "editor": "Kaibel, G",
-     "year": 1899,
-     "source": "",
-     "servable": false,
-     "license": "",
-     "scheme_inferred": false,
-     "aliases": {}
-    },
-    "rhinthon.fragmenta.qwen36-rhinthon_kaibel_cgf_1899": {
-     "name": "cog OCR (qwen36-rhinthon_kaibel_cgf_1899)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
   "rhinthon.titulus": {
    "author": "rhinthon",
    "title": "Titulus",
@@ -284794,46 +284758,6 @@
      "source": "",
      "servable": false,
      "license": "",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "sopater-comedy.fragmenta": {
-   "author": "sopater-comedy",
-   "title": "Fragmenta",
-   "aliases": {
-    "cts": "urn:cts:greekLit:tlg1682.tlg001"
-   },
-   "default_edition": "sopater-comedy.fragmenta.qwen36-sopater_kaibel_cgf",
-   "best_source": "pd_edition",
-   "tags": [
-    "century:-3",
-    "era:hellenistic",
-    "genre:comedy"
-   ],
-   "editions": {
-    "sopater-comedy.fragmenta.kaibel-1899": {
-     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
-     "provider": "tlg-e-reference",
-     "scheme": "fragment.line",
-     "editor": "Kaibel, G",
-     "year": 1899,
-     "source": "",
-     "servable": false,
-     "license": "",
-     "scheme_inferred": false,
-     "aliases": {}
-    },
-    "sopater-comedy.fragmenta.qwen36-sopater_kaibel_cgf": {
-     "name": "cog OCR (qwen36-sopater_kaibel_cgf)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
      "scheme_inferred": false,
      "aliases": {}
     }
@@ -305553,6 +305477,110 @@
      "scheme": "book.chapter.section.line",
      "editor": "Paschoud, F",
      "year": 1971,
+     "source": "",
+     "servable": false,
+     "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "kaibel-cgf-1899.volume-witness-r": {
+   "author": "kaibel-cgf-1899",
+   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:kaibel-cgf-1899.volume-witness-r"
+   },
+   "default_edition": "kaibel-cgf-1899.volume-witness-r.qwen36-rhinthon_kaibel_cgf_1899",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "kaibel-cgf-1899.volume-witness-r.qwen36-rhinthon_kaibel_cgf_1899": {
+     "name": "cog OCR (qwen36-rhinthon_kaibel_cgf_1899)",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "kaibel-cgf-1899.volume-witness-s": {
+   "author": "kaibel-cgf-1899",
+   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:kaibel-cgf-1899.volume-witness-s"
+   },
+   "default_edition": "kaibel-cgf-1899.volume-witness-s.qwen36-sopater_kaibel_cgf",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "kaibel-cgf-1899.volume-witness-s.qwen36-sopater_kaibel_cgf": {
+     "name": "cog OCR (qwen36-sopater_kaibel_cgf)",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "rhinthon.fragmenta": {
+   "author": "rhinthon",
+   "title": "Fragmenta",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg1654.tlg001"
+   },
+   "default_edition": null,
+   "best_source": "pd_edition",
+   "tags": [
+    "century:-4",
+    "era:classical",
+    "genre:comedy"
+   ],
+   "editions": {
+    "rhinthon.fragmenta.kaibel-1899": {
+     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
+     "provider": "tlg-e-reference",
+     "scheme": "fragment.line",
+     "editor": "Kaibel, G",
+     "year": 1899,
+     "source": "",
+     "servable": false,
+     "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "sopater-comedy.fragmenta": {
+   "author": "sopater-comedy",
+   "title": "Fragmenta",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg1682.tlg001"
+   },
+   "default_edition": null,
+   "best_source": "pd_edition",
+   "tags": [
+    "century:-3",
+    "era:hellenistic",
+    "genre:comedy"
+   ],
+   "editions": {
+    "sopater-comedy.fragmenta.kaibel-1899": {
+     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
+     "provider": "tlg-e-reference",
+     "scheme": "fragment.line",
+     "editor": "Kaibel, G",
+     "year": 1899,
      "source": "",
      "servable": false,
      "license": "",

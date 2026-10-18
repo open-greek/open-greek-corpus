@@ -7,7 +7,8 @@ Reads corpus_editions.json (which works are OCR), cgpg_works.json / ocr_works.js
 ledger description is blank or is a scan's running head), and
 data/corrections_log/provenance.json (the list of works that have had a correction
 pass, delivered by the OCR pipeline - a plain list of urns, nothing about how).
-Rewrites the table between the OCR-PROVENANCE markers in README.md.
+Rewrites the table between the OCR-PROVENANCE markers in README.md and the
+identity anchor counts derived from the current work index.
 
   python scripts/build_provenance.py
 """
@@ -24,6 +25,18 @@ DATA = REPO / "data"
 README = REPO / "README.md"
 START = "<!-- OCR-PROVENANCE:START -->"
 END = "<!-- OCR-PROVENANCE:END -->"
+
+
+def sync_anchor_counts(text: str, works: dict) -> str:
+    counts = {key: sum(bool(work.get("work_anchors", {}).get(key)) for work in works.values())
+              for key in ("cts", "tlg", "wikidata")}
+    pattern = r"`cts` on [\d,]+ works, `tlg` on [\d,]+,\s*\n`wikidata` on [\d,]+\)"
+    replacement = (f"`cts` on {counts['cts']:,} works, `tlg` on {counts['tlg']:,},\n"
+                   f"`wikidata` on {counts['wikidata']:,})")
+    result, count = re.subn(pattern, replacement, text)
+    if count != 1:
+        raise ValueError("README identity-anchor sentence is missing or ambiguous")
+    return result
 
 # The model that produced the recognition, per OCR source. The "ocr" default
 # reflects the 2026-07 re-OCR campaign that re-read every served OCR page with
@@ -304,7 +317,8 @@ def main() -> None:
     if START not in text or END not in text:
         raise SystemExit("README is missing the OCR-PROVENANCE markers")
     out = text[:text.index(START)] + block + text[text.index(END) + len(END):]
-    README.write_text(out, encoding="utf-8")
+    work_index = json.loads((DATA / "work_index.json").read_text(encoding="utf-8"))
+    README.write_text(sync_anchor_counts(out, work_index["works"]), encoding="utf-8")
     print(f"provenance: {len(rows)} OCR works ({n_corr} manual, {n_auto} "
           f"auto-corrected) -> README")
 

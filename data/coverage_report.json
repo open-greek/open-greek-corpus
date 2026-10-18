@@ -6,9 +6,9 @@
     "ingested_via_cgpg_volume": 0,
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.88,
-    "pct_ingested_actual": 66.5,
-    "ingested_words_actual": 49858338,
-    "ingested_complete_works": 2922,
+    "pct_ingested_actual": 66.49,
+    "ingested_words_actual": 49854596,
+    "ingested_complete_works": 2920,
     "ingested_partial_works": 119,
     "pct_reachable_not_ingested": 13.93,
     "pct_locked": 11.64,
@@ -19,18 +19,18 @@
     },
     "underfilled_50_90_works": 451,
     "underfilled_50_90_missing_words": {
-      "actionable": 1696390,
+      "actionable": 1699755,
       "structural": 179837
     }
   },
   "buckets": {
     "ingested": {
-      "works": 3041,
-      "word_count": 54643704
+      "works": 3039,
+      "word_count": 54643327
     },
     "reachable_not_ingested": {
-      "works": 1591,
-      "word_count": 10440636
+      "works": 1593,
+      "word_count": 10441013
     },
     "locked": {
       "works": 2173,
@@ -41,8 +41,8 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2922,
-      "word_count": 52148889
+      "works": 2920,
+      "word_count": 52148512
     },
     "ingested_partial": {
       "works": 119,
@@ -51,8 +51,8 @@
   },
   "reachable_not_ingested_by_source": {
     "pd_edition": {
-      "works": 1158,
-      "word_count": 8847354
+      "works": 1160,
+      "word_count": 8847731
     },
     "migne_pd": {
       "works": 407,
@@ -8459,6 +8459,14 @@
       "best_source": "pd_edition"
     },
     {
+      "tlg_id": "tlg1682",
+      "work_id": "001",
+      "author": "Sopater",
+      "title": "Fragmenta",
+      "word_count": 314,
+      "best_source": "pd_edition"
+    },
+    {
       "tlg_id": "tlg1374",
       "work_id": "001",
       "author": "Evangelium Secundum Hebraeos",
@@ -10892,6 +10900,14 @@
       "tlg_id": "tlg1425",
       "work_id": "001",
       "author": "Hermonax",
+      "title": "Fragmenta",
+      "word_count": 63,
+      "best_source": "pd_edition"
+    },
+    {
+      "tlg_id": "tlg1654",
+      "work_id": "001",
+      "author": "Rhinthon",
       "title": "Fragmenta",
       "word_count": 63,
       "best_source": "pd_edition"
@@ -14295,10 +14311,10 @@
       "author": "Hesychius",
       "title": "Lexicon (Α-Ο)",
       "word_count": 235261,
-      "ingested_tokens": 145557,
-      "coverage_ratio": 0.619,
+      "ingested_tokens": 143419,
+      "coverage_ratio": 0.61,
       "source": "ocr",
-      "missing_words": 89704
+      "missing_words": 91842
     },
     {
       "tlg_id": "tlg3136",
@@ -14490,6 +14506,17 @@
       "missing_words": 12885
     },
     {
+      "tlg_id": "tlg4085",
+      "work_id": "003",
+      "author": "Hesychius",
+      "title": "Lexicon (Π-Ω)",
+      "word_count": 67413,
+      "ingested_tokens": 55168,
+      "coverage_ratio": 0.818,
+      "source": "ocr",
+      "missing_words": 12245
+    },
+    {
       "tlg_id": "tlg4090",
       "work_id": "108",
       "author": "Cyrillus",
@@ -14510,17 +14537,6 @@
       "coverage_ratio": 0.896,
       "source": "ocr",
       "missing_words": 11175
-    },
-    {
-      "tlg_id": "tlg4085",
-      "work_id": "003",
-      "author": "Hesychius",
-      "title": "Lexicon (Π-Ω)",
-      "word_count": 67413,
-      "ingested_tokens": 56395,
-      "coverage_ratio": 0.837,
-      "source": "ocr",
-      "missing_words": 11018
     },
     {
       "tlg_id": "tlg2062",
@@ -19448,8 +19464,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 770,
-    "n_tokens": 7967003,
+    "works": 772,
+    "n_tokens": 8035841,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -20004,6 +20020,14 @@
         "n_tokens": 36825
       },
       {
+        "key": "kaibel-cgf-1899.volume-witness-r",
+        "edition": "qwen36-rhinthon_kaibel_cgf_1899",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 4558,
+        "n_tokens": 36689
+      },
+      {
         "key": "nicolaus-rhetoric.progymnasmata-walz-i-263",
         "edition": "qwen36-walz_rhetores_v1",
         "source": "ocr",
@@ -20026,6 +20050,14 @@
         "license": "PD",
         "n_passages": 6756,
         "n_tokens": 34499
+      },
+      {
+        "key": "kaibel-cgf-1899.volume-witness-s",
+        "edition": "qwen36-sopater_kaibel_cgf",
+        "source": "ocr",
+        "license": "PD",
+        "n_passages": 4280,
+        "n_tokens": 32149
       },
       {
         "key": "symeon-thessalonicensis.dialogus-contra-haereses",

@@ -67,11 +67,12 @@ def _write_crosswalk_tsv(cw: dict) -> None:
     with CW_TSV.open("w", encoding="utf-8") as f:
         f.write("slug\tcts_urn\ttlg\n")
         for s, d in sorted(cw.items()):
-            if d.get("cts"):
-                f.write(f"{s}\t{d['cts']}\t{d.get('tlg','')}\n")
+            other = next((f"{key}:{value}" for key, value in d.items()
+                          if key not in ("cts", "tlg", "author_slug", "title")), "")
+            f.write(f"{s}\t{d.get('cts', '')}\t{d.get('tlg', other)}\n")
 
 
-def rename(old: str, new: str, write: bool) -> None:
+def rename(old: str, new: str, write: bool, *, rebuild: bool = True) -> None:
     old_fp = CORPUS / f"{old}.jsonl"
     new_fp = CORPUS / f"{new}.jsonl"
     if not old_fp.exists():
@@ -168,6 +169,9 @@ def rename(old: str, new: str, write: bool) -> None:
     # 4. re-derive: ledger (id follows the work) FIRST - it scans the corpus dir,
     #    so the moved file is already the served truth - then reconcile
     #    corpus_editions (injects the id) and the work index.
+    if not rebuild:
+        print("  deferred id-layer rebuild to the calling migration")
+        return
     import build_id_registry
     import build_work_index
     import reconcile_corpus_editions
