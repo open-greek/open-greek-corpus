@@ -573,6 +573,12 @@ overlap review if the underlying digital edition changes.
 Primary rows keep compact positional word slots, including exclusions that
 break lexical adjacency; each row links to its full, hash-checked vote network
 in the compressed audit archive.
+`scripts/scan_title_reviews.py` records the scan-checked stigma (six) in Pappus
+VI's opening title as a named correction above the unchanged OCR votes. The
+audit pins the source and rendered image, retains both complete predictions
+and the original numeral votes, and links the corrected row to its raw network.
+`unapply_review()` reconstructs that raw consensus; the admission's `--undo`
+restores all pre-admission files.
 `scan_coverage_extensions.coverage_scope()` supplies the public manifestation
 scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.
