@@ -848,7 +848,9 @@ supplement part that still triggers the frozen mark-loss detector. Failed-strip
 supplements retain their existing rule.
 The scan113 right-first retry also stopped with an unprinted repetition loop.
 Its separate three-part request pins the exact successful file and record plus
-the measured241 repeated lines; the other seven strips remain unchanged.
+the measured 241 repeated lines; the other seven strips remain unchanged.
+That stop-loop exception requires its exact source-confirmed raw, record, text,
+checkpoint, and repetition measurements, and rejects new parts that still loop.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of

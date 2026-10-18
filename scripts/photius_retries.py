@@ -120,6 +120,25 @@ def confirmed_mark_stripping(replacement, raw, record_line, row):
             and marks["breathing_letters"] == condition.get("breathing_letters") == 0)
 
 
+def confirmed_repetition_loop(replacement, raw, record_line, row):
+    """Accept only the exact stop-loop record named by a known source authority."""
+    from audit_photius_fresh import REPETITION_POLICY, repetition
+    condition = replacement.get("replacement_condition", {})
+    if (condition.get("kind") != "source-confirmed-repetition-loop"
+            or condition.get("raw_file_sha256") != sha(raw)
+            or condition.get("prediction_record_sha256") != sha(record_line)
+            or condition.get("raw_prediction_sha256") != sha(row.get("raw_prediction", "").encode())
+            or condition.get("finish_reason") != "stop" or row.get("finish_reason") != "stop" or row.get("error")
+            or condition.get("repetition_policy_sha256") != sha(encode(REPETITION_POLICY))):
+        return False
+    measured = repetition(row["raw_prediction"])
+    return (measured["greek_word_runs"] == condition.get("greek_word_runs")
+            and measured["most_repeated_phrase"]["occurrences"] == condition.get("most_repeated_phrase_occurrences")
+            and measured["most_repeated_line"]["occurrences"] == condition.get("most_repeated_line_occurrences")
+            and measured["most_repeated_phrase"]["occurrences"] >= REPETITION_POLICY["minimum_identical_phrase_occurrences"]
+            and measured["most_repeated_line"]["occurrences"] >= REPETITION_POLICY["minimum_identical_line_occurrences"])
+
+
 def load_supplements(paths, review, manifest, originals):
     decisions = review.get("reviewed_supplements", [])
     wanted = {run["sha256"]: run for run in decisions}
@@ -172,6 +191,11 @@ def load_supplements(paths, review, manifest, originals):
                 from report_polytonic_loss import detect
                 if detect(row["raw_prediction"])["flag"]:
                     raise ValueError("Mark-loss supplement still strips polytonic marks")
+            if request.get("replacement_condition", {}).get("kind") == "source-confirmed-repetition-loop":
+                from audit_photius_fresh import screen
+                if set(screen(row["raw_prediction"])["review_flags"]) & {
+                        "identical-word-run", "repeated-eight-word-phrase", "repeated-output-line"}:
+                    raise ValueError("Repetition-loop supplement still repeats unreviewed text")
             ordered.append(row)
         key = (model, request["supplements"]["replaces_region"])
         if key in supplements:
@@ -250,8 +274,10 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
             validate_record(row, job, manifest)
             key = (model, job["id"])
             replacement = supplements.get(key)
-            if successful(row) and replacement is not None and not confirmed_mark_stripping(replacement, raw, lines_by_id[job["id"]], row):
-                raise ValueError("A successful retry strip cannot be silently replaced")
+            if successful(row) and replacement is not None:
+                if not (confirmed_mark_stripping(replacement, raw, lines_by_id[job["id"]], row)
+                        or confirmed_repetition_loop(replacement, raw, lines_by_id[job["id"]], row)):
+                    raise ValueError("A successful retry strip cannot be silently replaced")
             if not successful(row) or replacement is not None:
                 if replacement is None:
                     raise ValueError("Retry strip is failed, truncated, or lacks Greek text")

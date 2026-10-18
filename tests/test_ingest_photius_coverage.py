@@ -389,25 +389,36 @@ def test_supplement_cannot_bypass_its_reviewed_failure(tmp_path, change, message
                                    supplement_paths=[] if change == "missing" else [supplement])
 
 
-def test_exact_source_confirmed_mark_loss_exception_keeps_other_successful_readings(tmp_path, monkeypatch):
+@pytest.mark.parametrize("kind", ["mark-stripping", "repetition-loop"])
+def test_exact_source_confirmed_exception_keeps_other_successful_readings(tmp_path, monkeypatch, kind):
     paths, base_paths, reviews = multiple_retry_fixture(tmp_path)
     base = next(p for p in base_paths if p.name == "retry-13-1.jsonl")
     data = [json.loads(line) for line in base.read_bytes().splitlines()]
     target = next(r for r in data[1:] if r["id"].endswith("upper-preface"))
-    target["raw_prediction"] = "Ο ΛΟΓΟΣ\nο λογος σαφης και καλος εστιν. " * 20
+    target["raw_prediction"] = ("Ο ΛΟΓΟΣ\nο λογος σαφης και καλος εστιν. " * 20 if kind == "mark-stripping"
+                                else "τοὺς τοὺς ἰσμορφήσιν ἰσμορφήσιν ἰσμορφήσιν\n" * 20)
     base.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in data) + b"\n")
     source_line = next(line for line in base.read_bytes().splitlines()
                        if json.loads(line).get("id") == target["id"])
     marks = detect(target["raw_prediction"])
-    assert marks["flag"] and marks["breathing_letters"] == 0
+    if kind == "mark-stripping":
+        assert marks["flag"] and marks["breathing_letters"] == 0
     # The production request pins a real source-confirmed record. This synthetic
     # authority tests the same closed path without copying a full OCR run here.
     original_review = retry_requests.SUPPLEMENT_REVIEWS[(13, "upper-preface")]
-    condition = {**original_review["replacement_condition"],
+    source_condition = (original_review["replacement_condition"] if kind == "mark-stripping"
+                        else retry_requests.SUPPLEMENT_REVIEWS[(113, "right-first")]["replacement_condition"])
+    condition = {**source_condition,
                  "raw_file_sha256": ingest.sha(base.read_bytes()),
                  "prediction_record_sha256": ingest.sha(source_line),
                  "raw_prediction_sha256": ingest.sha(target["raw_prediction"].encode()),
                  "greek_letters": marks["greek_letters"]}
+    if kind == "repetition-loop":
+        from audit_photius_fresh import repetition
+        measured = repetition(target["raw_prediction"])
+        condition.update(greek_word_runs=measured["greek_word_runs"],
+                         most_repeated_phrase_occurrences=measured["most_repeated_phrase"]["occurrences"],
+                         most_repeated_line_occurrences=measured["most_repeated_line"]["occurrences"])
     monkeypatch.setitem(retry_requests.SUPPLEMENT_REVIEWS, (13, "upper-preface"),
                         {**original_review, "replacement_condition": condition})
     request = build_supplement(13, "upper-preface")
@@ -415,7 +426,7 @@ def test_exact_source_confirmed_mark_loss_exception_keeps_other_successful_readi
     rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"],
              "region": p["region"], "image_sha256": "d" * 64,
              "prompt_sha256": ingest.sha((request["prompt"] + " " + p["prompt_suffix"]).encode()),
-             "raw_prediction": "ὁ λόγος σαφὴς καὶ καλός ἐστιν. " * 20, "finish_reason": "stop"}
+             "raw_prediction": "ὁ λόγος σαφὴς καὶ καλός ἐστιν. " * (20 if kind == "mark-stripping" else 2), "finish_reason": "stop"}
             for p in request["pages"]]
     supplement = tmp_path / "mark-supplement.jsonl"
     supplement.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in [{"_meta": meta}, *rows]) + b"\n")
@@ -439,14 +450,15 @@ def test_exact_source_confirmed_mark_loss_exception_keeps_other_successful_readi
     assert len([p for p in assembly["strips"] if "-part" not in p["id"]]) == 4
     assert assembly["held_retry_strips"][0]["finish_reason"] == "stop"
     replacement = assembly["supplements"][0]
-    assert retries.confirmed_mark_stripping(replacement, base.read_bytes(), source_line, target)
-    assert not retries.confirmed_mark_stripping(replacement, base.read_bytes() + b"\n", source_line, target)
-    assert not retries.confirmed_mark_stripping(replacement, base.read_bytes(), source_line + b" ", target)
+    verifier = retries.confirmed_mark_stripping if kind == "mark-stripping" else retries.confirmed_repetition_loop
+    assert verifier(replacement, base.read_bytes(), source_line, target)
+    assert not verifier(replacement, base.read_bytes() + b"\n", source_line, target)
+    assert not verifier(replacement, base.read_bytes(), source_line + b" ", target)
     rows[1]["raw_prediction"] = "ο λογος σαφης και καλος εστιν. " * 20
     supplement.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in [{"_meta": meta}, *rows]) + b"\n")
     review = json.loads(review_path.read_bytes())
     review["reviewed_supplements"][0]["sha256"] = ingest.sha(supplement.read_bytes())
     review_path.write_bytes(ingest.encode(review))
-    with pytest.raises(ValueError, match="still strips polytonic"):
+    with pytest.raises(ValueError, match="still strips polytonic" if kind == "mark-stripping" else "still repeats"):
         ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], base_paths, reviews,
                                     supplement_paths=[supplement])
