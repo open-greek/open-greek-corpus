@@ -97,6 +97,16 @@ def report(manifest_path, predictions, prefixes, out):
         "reviewed_at": "2026-10-18", "extent": "Complete source page inspected because both detector results are sparse and this pair has the largest relative length difference",
         "finding": "The printed body is only four short lines at the end of BookI, with visible marks; detector inapplicability is expected. Qwen3.6 additionally includes the isolated running header ΚΩΝΙΚΩΝ α'. Qwen3.8 starts the actual body. No apparatus was included by either model.",
         "decision": "No new OCR retry; remove only the source-verified running header through the separately audited ingestion rule."})
+    from prepare_mathematical_qwen38_retry import OUTPUT as QWEN38_REQUEST, PAGE_ID, MODEL as QWEN38_MODEL
+    qwen38 = json.loads((ROOT / QWEN38_REQUEST).read_text())
+    page = scans[PAGE_ID]
+    if qwen38["retry_of"]["sha256"] != MANIFEST_SHA256 or qwen38["sources"] != manifest["sources"]:
+        raise ValueError("Additional Qwen3.8 source review no longer identifies the same edition")
+    reviews.append({"id": PAGE_ID, "model": QWEN38_MODEL, "scan_page": page["scan_page"],
+        "printed_page": page["printed_page"], "source_pdf_sha256": qwen38["review"]["source_pdf_sha256"],
+        "reviewed_at": qwen38["review"]["recorded_at"], "extent": qwen38["review"]["extent"],
+        "finding": qwen38["review"]["finding"], "decision": "Request bounded retry; preserve original shard and every model input",
+        "retry_request": QWEN38_REQUEST})
     result = {"schema_version": 1, "reviewed_at": "2026-10-18",
         "manifest": {"path": MANIFEST, "sha256": sha(manifest_raw)},
         "frozen_polytonic_policy": POLICY, "policy_sha256": sha(dump(POLICY)),
@@ -104,7 +114,7 @@ def report(manifest_path, predictions, prefixes, out):
         "inputs": [audit_predictions(p, manifest, prefixes.get(p.name)) for p in predictions],
         "source_reviews": reviews,
         "operating_limits": ["No independent complete transcription was made for these pages; source review confirms visible printed marks and layout, without reporting truth-aligned mark recall or error rates.",
-            "All supplied predictions were screened; only the five flagged/anomalous retry pages and the sparse Conica ending received complete pixel review. Remaining page pixels were not exhaustively reviewed for Greek-only apparatus leakage.",
+            "All supplied predictions were screened; only the specifically listed source_reviews received complete pixel review. Remaining page pixels were not exhaustively reviewed for Greek-only apparatus leakage.",
             "Model disagreement and detector scores do not authorize witness selection. A retry requires a separate completed scan comparison bound to its exact bytes.",
             "A numbered shard prefix is a snapshot; later records must be screened separately before their admission."]}
     out.parent.mkdir(parents=True, exist_ok=True)
