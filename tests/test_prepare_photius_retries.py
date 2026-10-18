@@ -158,3 +158,17 @@ def test_page192_coverage_omission_retries_only_the_affected_checkpoint():
     assert manifest["pages"][1]["region"] == [.505, .062, .975, .864]
     assert "omits and reorders" in manifest["review"]["failure"]
     assert encode(manifest) == (ROOT / prepare.manifest_path(192)).read_bytes()
+
+
+def test_late_first_volume_length_and_apparatus_requests_keep_checkpoint_scope():
+    for page, checkpoint, count in [(232, prepare.CHECKPOINT36, 6), (234, prepare.CHECKPOINT36, 6),
+                                     (239, prepare.CHECKPOINT38, 2)]:
+        manifest = build_retry(page)
+        assert manifest["checkpoints"] == [checkpoint]
+        assert len(manifest["pages"]) == count
+        assert encode(manifest) == (ROOT / prepare.manifest_path(page)).read_bytes()
+    supplement = prepare.build_supplement(381, "right-middle")
+    assert supplement["replacement_condition"]["greek_letters"] == 576
+    assert supplement["replacement_condition"]["breathing_letters"] == 0
+    assert len(supplement["pages"]) == 3
+    assert encode(supplement) == (ROOT / prepare.supplement_path(381, "right-middle")).read_bytes()

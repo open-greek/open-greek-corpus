@@ -932,6 +932,10 @@ supplement has its own named two-part request after another confirmed stop loop;
 it pins that immediate parent rather than changing the earlier request bytes.
 Separate six-strip requests cover scan385 in Qwen3.6 and scan396 in Qwen3.8
 after length termination with repeated text and frozen mark-loss flags.
+Scans232/234 likewise have Qwen3.6 length-failure requests, and scan239 has a
+Qwen3.8 body-only apparatus request. The completed scan381 Qwen3.8 right-middle
+retry stripped all breathings from576 Greek letters; its exact successful raw
+attempt is retained under a separately pinned three-part mark-loss supplement.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of

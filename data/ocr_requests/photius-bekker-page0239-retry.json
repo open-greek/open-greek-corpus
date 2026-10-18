@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Replace only a failed checkpoint's whole-page attempt with a separately reviewed strip assembly; retain successful checkpoint readings and all failed originals.",
+  "retry_of": {
+    "path": "data/ocr_requests/photius-bekker-first-volume.json",
+    "sha256": "92bb67209eaa7dcca53800c499c68b4c1a085cbb2d62f2909b27da99c0acdcd6",
+    "page_id": "photius-bekker-0239"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "review": {
+    "checked_scan_pages": [
+      239
+    ],
+    "accepted_for_primary_ingest": false,
+    "evidence": "Printed page227 continues codex224 on Memnon and the Heraclea narrative. The Qwen3.8 original appends the smaller apparatus, including addendus articulus, after the body. Source-checked full-column crops preserve every large Greek line. The upper boundary at.054 lies below the running header and above the first line's breathings; the lower boundary at.838 lies below both body feet and above the smaller notes.",
+    "failure": "The stop-terminated Qwen3.8 original leaks critical apparatus into its body reading. Keep that original as evidence and retain the independent Qwen3.6 whole-page reading.",
+    "admission_policy": "Only the listed checkpoint receives an assembled replacement vote after a completed output-to-scan review. Keep every original and retry prediction; no extra votes or arbitrary choice."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0239-left-body",
+      "source": "photius-bekker-combined",
+      "scan_page": 239,
+      "printed_page": 227,
+      "region": [
+        0.045,
+        0.054,
+        0.495,
+        0.838
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 0,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0239-right-body",
+      "source": "photius-bekker-combined",
+      "scan_page": 239,
+      "printed_page": 227,
+      "region": [
+        0.505,
+        0.054,
+        0.975,
+        0.838
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 1,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    }
+  ]
+}
