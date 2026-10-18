@@ -384,6 +384,7 @@ def test_comparison_only_admission_registers_paratext_without_primary_rows_and_u
     editions = ingest.encoded({work: {"n_passages": 0, "n_tokens": 0}})
     (root / "data/corpus_editions.json").write_bytes(editions)
     ingest.apply(root, request_raw, raws, *result, "separate-comparison")
+    assert (root / "data/corpus_editions.json").read_bytes() == editions
     audit = root / "data/corpus_changes/separate-comparison"
     ingest.verify(audit, root)
     index = json.loads((root / ingest.EXTENSION_INDEX).read_text())
