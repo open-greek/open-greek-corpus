@@ -546,6 +546,13 @@ audit. The combined scan repeats printed pages 334-335 in place of 434-435;
 those genuine pages remain in historical keys 169-170 from the separate 1825
 volume. Coverage positions therefore describe the complete printed sequence,
 while physical citations retain their actual scan source and exceptions.
+The unchanged historical OCR can still contain critical apparatus among its
+primary rows. `scripts/audit_photius_apparatus.py --write` reproduces the audit
+in `data/audits/photius-historical-apparatus.json`; `--check` verifies it. Ten
+rows are confirmed against printed page 334, while 189 rows across 96 pages
+are only screening candidates. Coverage of the printed sequence does not
+certify that every historical row is authorial text; no candidates are removed
+automatically.
 
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
