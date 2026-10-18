@@ -13,6 +13,8 @@ from pathlib import Path
 
 def lexical_text(rec: dict) -> str:
     if "analysis_text" in rec:
+        if not isinstance(rec["analysis_text"], str):
+            raise ValueError("analysis_text must be an explicit string")
         return rec["analysis_text"]
     if rec.get("ocr_consensus"):
         raise ValueError("OCR consensus record is missing its checked analysis_text")
