@@ -80,7 +80,16 @@ def _photius_resolution(root):
         return _pending(root, "Photius admission does not cover all 545 checked authorial scan pages.")
     if _sha(root / full_networks["path"]) != full_networks["sha256"]:
         raise ValueError("Photius archived full word networks changed")
-    from ingest_photius_coverage import load_prediction, load_source_library
+    from ingest_photius_coverage import load_prediction, load_source_library, LEGACY_SOURCE, SOURCE_SCAN_EXCEPTIONS
+    mapping = report.get("retained_page_mapping", {})
+    if (report.get("legacy_source") != LEGACY_SOURCE or report.get("source_scan_exceptions") != SOURCE_SCAN_EXCEPTIONS or
+            mapping.get("exceptions") != SOURCE_SCAN_EXCEPTIONS or mapping.get("printed_page_offset") != 265 or
+            mapping.get("logical_combined_position_offset") != 277 or mapping.get("logical_positions_are_physical_citations") is not False or
+            report.get("covered_authorial_printed_pages") != 545):
+        raise ValueError("Photius composite scan citations or duplicate-page exceptions changed")
+    comparison_audit = report["source_library"]["body_comparison_audit"]
+    if _sha(root / comparison_audit["path"]) != comparison_audit["sha256"]:
+        raise ValueError("Photius comparison body-window evidence changed")
     manifests = [json.loads((path.parent / name).read_text()) for name in
                  ("scan-request.json", "later-gap-request.json")]
     checkpoints, witnessed = set(), {}
@@ -110,7 +119,9 @@ def _photius_resolution(root):
             match = re.search(r"_(\d{4})[.]", row["locus"])
             if not match:
                 raise ValueError("Photius row lacks a reviewed physical citation")
-            physical = int(match[1]) + 277
+            # This is a logical edition position. Retained rows cite the legacy
+            # volume physically; the combined scan repeats two wrong pages.
+            physical = int(match[1]) + mapping["logical_combined_position_offset"]
         covered.add(physical)
     if covered != set(range(13, 558)):
         raise ValueError("Photius authorial scan range is incomplete")
@@ -119,9 +130,12 @@ def _photius_resolution(root):
     if index_report["index_rows"] != report["preserved_index_passages"]:
         raise ValueError("Photius index preservation count changed")
     return _resolved(root,
-        "The checked Bekker authorial scan range is represented, including the prefatory letter. Greek index matter remains separate paratext. Physical scan citations do not invent codex-level paragraph mappings, and unresolved OCR readings remain explicit.",
+        "The 545 checked Bekker authorial printed pages are represented across the combined and retained legacy scans, including the prefatory letter. Two repeated pages in the combined scan are supplied by the correct retained legacy pages, with explicit source exceptions. Greek index matter remains separate paratext. Physical scan citations do not invent codex-level paragraph mappings, and unresolved OCR readings remain explicit.",
         admission_audit={"path": str(path.relative_to(root)), "sha256": _sha(path)},
         covered_authorial_scan_pages=report["covered_authorial_scan_pages"],
+        covered_authorial_printed_pages=report["covered_authorial_printed_pages"],
+        coverage_position_meaning=report["coverage_position_meaning"],
+        source_scan_exceptions=report["source_scan_exceptions"],
         added_passages=report["added_passages"],
         preserved_index_passages=report["preserved_index_passages"])
 
