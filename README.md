@@ -887,6 +887,9 @@ Qwen3.8 and scan242 in Qwen3.6. Further exact-hash mark-loss requests address
 scan397's right-lower strip and scan381's first right-middle part, each retaining
 only one breathing despite many visible source marks. Their frozen flags and
 measured counts are pinned; unrelated successful readings stay protected.
+Scans245/250/252/255 have Qwen3.8 length-failure requests with reviewed body
+boundaries. Scan250 retains the tightly spaced right column as one enlarged
+crop, while three strips cover its left column, to avoid cutting printed marks.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of
