@@ -603,10 +603,13 @@ under `data/ingest_reviews/coverage/`. They identify the Greek leaves individual
 including alternate scan leaves where a scan repeats earlier Pappus pages;
 they are OCR inputs, not assertions that new text has already been served.
 
-`scripts/prepare_dio_ocr.py` selects 1,217 Greek panels from Cary volumes I,
-II, and VI–IX for the missing transmitted Dio material. English facing panels,
-modern front matter and indexes are excluded. Earlier fragments and their
-Zonaras comparison panels retain separate transmission and admission metadata;
+`scripts/prepare_dio_ocr.py` selects 1,500 Greek regions from 1,217 physical
+spreads in Cary volumes I, II, and VI–IX for the missing transmitted Dio
+material. English facing panels, modern front matter and indexes are excluded.
+`scripts/prepare_dio_panels.py` finds the full-width rules separating earlier
+fragments from comparative quotations, without confusing small apparatus rules
+with panel boundaries. The 341 fragment regions and 418 comparison regions in
+volumes I–II retain separate transmission and admission metadata;
 the first volume VI page overlaps the existing end at 55.9.4 and requires
 collation before its missing continuation can be admitted. Source credits and
 genuine losses must remain explicit. The jobs place six reviewed boundary pages
