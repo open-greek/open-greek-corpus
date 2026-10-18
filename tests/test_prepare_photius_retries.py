@@ -105,3 +105,16 @@ def test_page113_stop_loop_exception_pins_the_exact_repeated_attempt():
     assert condition["finish_reason"] == "stop"
     assert condition["most_repeated_phrase_occurrences"] == condition["most_repeated_line_occurrences"] == 241
     assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+
+
+def test_source_confirmed_apparatus_leaks_use_only_the_original_model_body_columns():
+    for page in [49, 83, 119, 147, 181, 188]:
+        manifest = build_retry(page)
+        assert manifest["checkpoints"] == [prepare.CHECKPOINT36]
+        assert len(manifest["pages"]) == 2
+        assert [p["reading_order"] for p in manifest["pages"]] == [0, 1]
+        assert manifest["pages"][0]["region"][2] < .5
+        assert manifest["pages"][1]["region"][0] > .5
+        assert all(p["scan_page"] == page for p in manifest["pages"])
+        assert "apparatus" in manifest["review"]["evidence"]
+        assert encode(manifest) == (ROOT / prepare.manifest_path(page)).read_bytes()

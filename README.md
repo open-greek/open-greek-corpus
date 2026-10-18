@@ -851,6 +851,10 @@ Its separate three-part request pins the exact successful file and record plus
 the measured 241 repeated lines; the other seven strips remain unchanged.
 That stop-loop exception requires its exact source-confirmed raw, record, text,
 checkpoint, and repetition measurements, and rejects new parts that still loop.
+Source checks also found small-type critical notes appended to Qwen3.6's
+otherwise completed scans49,83,119,147,181,188. Their separately pinned two-column
+body requests exclude those notes and running headers with reviewed boundaries;
+the original notes remain evidence and the other checkpoint stays intact.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of
