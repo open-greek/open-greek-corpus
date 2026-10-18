@@ -7,6 +7,8 @@ rather than having every ingester read-modify-write the shared file, avoids losi
 when two writers race: this repo's own ingest and the upstream OCR pipeline's delivery both
 touch it, and an interleaved write silently dropped ~90 delivered OCR works (~15M tokens).
 Run this after any ingest (or delivery) instead of trusting incremental updates.
+``n_tokens`` retains the inclusive whitespace-group count used historically;
+``n_analysis_tokens`` counts Greek regex runs in the checked lexical projection.
 
   python scripts/reconcile_corpus_editions.py
 """
@@ -17,6 +19,9 @@ import json
 import os
 import re
 from pathlib import Path
+from frequency_projection import FrequencyProjection
+
+_ANALYSIS_GK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]+")
 
 REPO = Path(__file__).resolve().parent.parent
 CORPUS = REPO / "data" / "corpus"
@@ -39,9 +44,10 @@ def main() -> None:
     from collections import defaultdict
 
     slug_to_id = _load_work_ids()
+    frequency = FrequencyProjection(CORPUS.parent)
     ce = {}
     for fp in sorted(CORPUS.glob("*.jsonl")):
-        n_pass = n_tok = 0
+        n_pass = n_tok = n_analysis = 0
         # A file can carry more than one edition (page-level upgrades leave a
         # work mostly on the new edition with a few pages on another). Label the
         # work by the edition serving the MOST Greek tokens (its dominant served
@@ -56,6 +62,7 @@ def main() -> None:
             n_pass += 1
             gk = sum(1 for t in r["text"].split() if _GK.search(t))
             n_tok += gk
+            n_analysis += len(_ANALYSIS_GK.findall(frequency.text(r)))
             ed = r.get("edition")
             by_ed_tok[ed] += gk
             ed_meta.setdefault(ed, (r.get("source"), r.get("license")))
@@ -74,7 +81,8 @@ def main() -> None:
                 source = "ocr"
             slug = fp.name[:-6]
             row = {"edition": edition, "license": license_, "source": source,
-                   "n_passages": n_pass, "n_tokens": n_tok}
+                   "n_passages": n_pass, "n_tokens": n_tok,
+                   "n_analysis_tokens": n_analysis}
             # The opaque work id (from the ledger) is the canonical anchor; keep
             # it alongside the derived edition metadata so consumers of this file
             # get the stable id without a second join.

@@ -14,7 +14,9 @@ Nothing here is newly measured. Every column is a join:
                                   CTS / TLG / Wikidata anchors
   data/corpus_editions.json       winning edition, source, license, passages
   data/work_token_totals.json     tokens + tokens_lemmatized, counted over the
-                                  served text itself (not the hand-edited ledgers)
+                                  checked lexical projection (shared collated
+                                  attestations once; unresolved readings excluded).
+                                  Inclusive surface counts remain in coverage.json.
   data/ocr_quality_report.json    unattested-token rate, for OCR-source works
   data/corpus/<slug>.jsonl        each row's own `corrections` stamp, read the way
                                   scripts/build_provenance.py reads it, plus the
