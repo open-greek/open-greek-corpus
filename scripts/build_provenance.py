@@ -19,6 +19,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from build_readme_figures import sync_identity_counts as sync_anchor_counts
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -26,17 +27,6 @@ README = REPO / "README.md"
 START = "<!-- OCR-PROVENANCE:START -->"
 END = "<!-- OCR-PROVENANCE:END -->"
 
-
-def sync_anchor_counts(text: str, works: dict) -> str:
-    counts = {key: sum(bool(work.get("work_anchors", {}).get(key)) for work in works.values())
-              for key in ("cts", "tlg", "wikidata")}
-    pattern = r"`cts` on [\d,]+ works, `tlg` on [\d,]+,\s*\n`wikidata` on [\d,]+\)"
-    replacement = (f"`cts` on {counts['cts']:,} works, `tlg` on {counts['tlg']:,},\n"
-                   f"`wikidata` on {counts['wikidata']:,})")
-    result, count = re.subn(pattern, replacement, text)
-    if count != 1:
-        raise ValueError("README identity-anchor sentence is missing or ambiguous")
-    return result
 
 # The model that produced the recognition, per OCR source. The "ocr" default
 # reflects the 2026-07 re-OCR campaign that re-read every served OCR page with

@@ -188,3 +188,16 @@ def test_spacing_mark_form_frequencies_exclude_displayed_uncertain_marks(tmp_pat
     report = json.loads((data / "spacing.json").read_text())
     assert report["total"] == 1
     assert report["by_class"]["punctuation_only"]["tokens"] == 1
+
+
+def test_coverage_preserves_every_primary_row_source_category(tmp_path, monkeypatch):
+    data = tmp_path / "data"
+    write_rows(data, "mixed", [
+        {"urn": "mixed", "locus": "1", "source": "cgpg", "text": "λόγος"},
+        {"urn": "mixed", "locus": "2", "source": "ocr", "text": "βίος"}])
+    monkeypatch.setattr(public, "DATA", data)
+    monkeypatch.setattr(public, "CORPUS", data / "corpus")
+    public.main()
+    coverage = json.loads((data / "coverage.json").read_text())["mixed"]
+    assert coverage["source"] == "cgpg"  # legacy first-row field is preserved
+    assert coverage["sources"] == ["cgpg", "ocr"]

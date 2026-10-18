@@ -364,6 +364,11 @@ sentence boundary. Latin-in-Greek-script spans remain an explicitly inclusive
 reader-surface diagnostic.
 The build graph tracks the shared projection and critical-text helper as count
 inputs, so changing eligibility also rebuilds the affected measurements.
+Refresh the README's status and identity figures with
+`python3 scripts/build_readme_figures.py --write` after rebuilding the public
+coverage report and Work index (`--check` verifies them). Status counts use
+eligible tokens and distinct row source categories recorded in `coverage.sources`;
+licensed digital components retain their separate credits in the Work composition.
 
 Merged OCR pages use `scripts/ocr_consensus.py` to retain the original witnesses,
 exact word votes, and all tied readings. Accents and case are ignored only for

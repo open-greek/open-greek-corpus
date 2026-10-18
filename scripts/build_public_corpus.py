@@ -422,7 +422,9 @@ def main() -> None:
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
                           "license": rec.get("license"), "tokens": 0,
-                          "analysis_tokens": 0, "passages": 0})
+                          "analysis_tokens": 0, "sources": set(), "passages": 0})
+                if rec.get("source"):
+                    cov["sources"].add(rec["source"])
                 # coverage.json is the inclusive corpus-count metric.  The
                 # public lexicon is intentionally stricter about bare marks and
                 # detached elision stems, so its token list is not the coverage
@@ -451,11 +453,15 @@ def main() -> None:
         for bare, bare_count, marked, marked_count in public_elision_stem_candidates(lex):
             ratio = marked_count / bare_count
             f.write(f"{bare}\t{bare_count}\t{marked}\t{marked_count}\t{ratio:.2f}\tyes\n")
+    for cov in coverage.values():
+        cov["sources"] = sorted(cov["sources"])
     (DATA / "coverage.json").write_text(
         json.dumps(coverage, ensure_ascii=False, indent=0, sort_keys=True))
 
     total_tokens = sum(v["tokens"] for v in coverage.values())
-    print(f"\nworks: {len(coverage)} | total Greek tokens: {total_tokens:,}",
+    analysis_tokens = sum(v["analysis_tokens"] for v in coverage.values())
+    print(f"\nworks: {len(coverage)} | Greek surface tokens: {total_tokens:,} | "
+          f"eligible Greek tokens: {analysis_tokens:,}",
           file=sys.stderr)
     print(f"distinct forms: {len(lex):,}", file=sys.stderr)
     bysource = defaultdict(int)
