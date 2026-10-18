@@ -24,6 +24,8 @@ def geometry_fixture(tmp_path, monkeypatch, nested=False, mutate=None, old_failu
     monkeypatch.setattr(retries, "known_geometry_supplement_manifests", lambda: {})
     monkeypatch.setattr(retries, "known_followup_geometry_manifests", lambda: {})
     monkeypatch.setattr(retries, "source_authorities", lambda: {})
+    monkeypatch.setattr(retries, "known_abstentions", lambda: {})
+    monkeypatch.setattr(retries, "abstention_authority", lambda: (None, None))
     if nested:
         paths, bases, reviews, first, second = nested_supplement_fixture(tmp_path, monkeypatch)
         supplements = [first, second]
