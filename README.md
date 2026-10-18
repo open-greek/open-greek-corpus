@@ -874,6 +874,8 @@ model's successful whole-page reading stays in the consensus.
 The especially faint scan113 uses eight shorter strips for Qwen3.8 after its
 retained original both terminated at the length limit and triggered the frozen
 mark-loss screen; accepting that assembly also requires a source mark review.
+Scan87's failed right-middle retry likewise has an exact three-part supplement;
+the other five successful strips remain in its single checkpoint assembly.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of
