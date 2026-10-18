@@ -113,9 +113,12 @@ def _relation(original_raw, effective_raw, reviews):
         expected = {"id": identifier, "source": old["source"], "scan_page": old["scan_page"],
                     "original_region": old.get("region", [0, 0, 1, 1]), "region": new.get("region", [0, 0, 1, 1])}
         source_sha = original["sources"][old["source"]]["sha256"]
+        reviewed_source = review.get("sources", {}).get(old["source"], {})
         if (any(entry.get(k) != v or evidence.get(k) != v for k, v in expected.items())
                 or not evidence.get("evidence") or not evidence.get("reviewed_at")
                 or evidence.get("source_pdf_sha256") != source_sha
+                or reviewed_source.get("sha256") != source_sha
+                or reviewed_source.get("url") != original["sources"][old["source"]]["url"]
                 or not re.fullmatch(r"[a-f0-9]{64}", evidence.get("contact_sheet_sha256", ""))):
             raise ValueError("Crop substitution differs from its source-reviewed evidence")
         changed.add(identifier)
@@ -131,6 +134,18 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
     returns its prediction dictionary. Failed outcomes remain archiveable with
     no callback; an admission callback must apply its usual success checks.
     """
+    def authorities(value, depth=0):
+        if depth > 16:
+            raise ValueError("OCR bundle nesting is too deep")
+        found = [unpack(value["effective_manifest"])]
+        found.extend(unpack(pin) for pin in value.get("authority_manifests", []))
+        for part in value.get("parts", []):
+            found.append(unpack(part["manifest"]))
+            prediction = unpack(part["prediction"])
+            if is_bundle(prediction):
+                found.extend(authorities(json.loads(prediction), depth + 1))
+        return found
+
     def walk(value, effective_raw, depth):
         if depth > 16:
             raise ValueError("OCR bundle nesting is too deep")
@@ -148,6 +163,12 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
         eligible, checkpoints, held, provenance = {}, set(), [], []
         effective = json.loads(effective_raw)
         substitutions = effective.get("reviewed_substitutions", {})
+        if "reviewed_substitutions" in effective:
+            original_raw = next((authority for authority in authorities(bundle)
+                if sha(authority) == substitutions.get("original_manifest_sha256")), None)
+            if original_raw is None:
+                raise ValueError("Reviewed crop manifest lacks its exact original authority bytes")
+            _relation(original_raw, effective_raw, reviews)
         substitution_by_id = {entry["id"]: entry for entry in substitutions.get("regions", [])}
         for part in bundle.get("parts", []):
             part_raw, original_raw = unpack(part["prediction"]), unpack(part["manifest"])
@@ -191,10 +212,11 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
     return walk(raw, effective_manifest_bytes, 0)
 
 
-def write_bundle(parts, effective_manifest_path, out, source_reviews=()):
+def write_bundle(parts, effective_manifest_path, out, source_reviews=(), authority_manifests=()):
     effective_raw = effective_manifest_path.read_bytes()
     value = {"kind": KIND, "schema_version": 1, "effective_manifest": retained(effective_raw),
              "source_reviews": [retained(path.read_bytes()) for path in source_reviews],
+             "authority_manifests": [retained(path.read_bytes()) for path in authority_manifests],
              "parts": [{"prediction": retained(raw_path.read_bytes()), "manifest": retained(manifest_path.read_bytes())}
                        for raw_path, manifest_path in parts]}
     raw = encode(value)
@@ -226,6 +248,7 @@ def main():
     write.add_argument("--manifest", type=Path, required=True)
     write.add_argument("--part", type=Path, nargs=2, action="append", required=True, metavar=("RAW", "ORIGINAL_MANIFEST"))
     write.add_argument("--source-review", type=Path, action="append", default=[])
+    write.add_argument("--authority-manifest", type=Path, action="append", default=[])
     write.add_argument("--out", type=Path, required=True)
     plan = commands.add_parser("plan")
     plan.add_argument("--manifest", type=Path, required=True)
@@ -236,7 +259,7 @@ def main():
     plan.add_argument("--out-dir", type=Path, required=True)
     args = parser.parse_args()
     if args.command == "write":
-        raw = write_bundle(args.part, args.manifest, args.out, args.source_review)
+        raw = write_bundle(args.part, args.manifest, args.out, args.source_review, args.authority_manifest)
         print(json.dumps({"bundle_sha256": sha(raw)}))
     else:
         groups = pending_partitions(args.manifest.read_bytes(),
