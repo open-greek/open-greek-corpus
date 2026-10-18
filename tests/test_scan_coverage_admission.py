@@ -67,6 +67,24 @@ def test_dio_overlap_requires_one_unambiguous_anchor():
             ingest.trim_shared_prefix(wrong)
 
 
+def test_dio_overlap_archives_all_variants_without_replacing_old_readings(tmp_path):
+    work = "cassius-dio.historiae-romanae"
+    (tmp_path / "data/corpus").mkdir(parents=True)
+    rows = [{"urn": work, "locus": "55.9.2", "text": "πρότερον ἐν τῇ πόλει"},
+            {"urn": work, "locus": "55.9.3", "text": "λόγος δίκαιος"},
+            {"urn": work, "locus": "55.9.4", "text": ingest.OVERLAP_ANCHOR}]
+    raw = ("\n".join(json.dumps(row, ensure_ascii=False) for row in rows) + "\n").encode()
+    path = tmp_path / f"data/corpus/{work}.jsonl"
+    path.write_bytes(raw)
+    manifest = {"pages": [{"id": "overlap", "work": work, "overlap": {"served_through": "55.9.4"}}]}
+    inputs = [{"overlap": {"id": str(i), "vote_group": str(i), "artifact_sha256": str(i),
+              "text": "πόλει λόγος δίκαιος " + ingest.OVERLAP_ANCHOR + " νέα λέξις"}} for i in (1, 2)]
+    comparison = ingest.collate_overlaps(manifest, inputs, tmp_path)["overlap"]
+    assert len(comparison["consensus"]["ocr_consensus"]["witnesses"]) == 3
+    assert all("νέα λέξις" not in value["original_text"] for value in comparison["prefix_decisions"])
+    assert path.read_bytes() == raw and comparison["existing_passages"] == rows
+
+
 def test_consensus_admission_replays_and_undoes_exact_bytes(tmp_path):
     work, manifest, raw_manifest, inputs, raw_inputs = fixture(tmp_path)
     result = ingest.collate(manifest, inputs)

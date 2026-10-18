@@ -544,6 +544,9 @@ collation before its missing continuation can be admitted. Source credits and
 genuine losses must remain explicit. The jobs place seven regions from six
 reviewed boundary pages first for a small OCR sanity check and preserve
 independent raw witnesses.
+The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
+separate overlap audit; its original passages and references stay unchanged,
+and only the uniquely anchored missing continuation adds new corpus text.
 
 `scripts/ingest_scan_coverage.py --manifest MANIFEST --witness RAW.jsonl`
 validates checkpoint, geometry and completion metadata before collating scan
