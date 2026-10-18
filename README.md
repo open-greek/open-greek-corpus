@@ -333,7 +333,15 @@ token spans, and explicit lower (zero) and upper (all unresolved occurrences)
 form counts remain in the companion concordance. Those bounds preserve
 alternatives without claiming that two conflicting OCR readings are two
 independent attestations. Frequency token totals therefore differ from the
-inclusive reader-text counts in the corpus catalog and coverage report.
+inclusive reader-text counts in the coverage report.
+
+Merged OCR pages use `scripts/ocr_consensus.py` to retain the original witnesses,
+exact word votes, and all tied readings. Accents and case are ignored only for
+positional alignment; they remain distinct readings in the vote. Repeated scan
+copies from one OCR run share a vote group. A short witness abstains outside
+its observed text, and unresolved words remain outside scalar counts through
+the row's `analysis_text`. Reader text exposes ties explicitly, and the
+structured `ocr_consensus` field preserves every supplied raw reading.
 
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
