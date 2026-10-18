@@ -213,3 +213,19 @@ def test_apparatus_screen_does_not_flag_uppercase_geometry(tmp_path, monkeypatch
     assert not result["pages"][0]["exploratory_apparatus_screen"]["candidate"]
     assert result["pages"][1]["exploratory_apparatus_screen"]["candidate"]
     assert result["pages"][0]["prediction_sha256"] == prepare.sha(records[1]["raw_prediction"].encode())
+
+
+def test_bundle_roundtrips_through_corpus_admission_loader(bundle_fixture, tmp_path):
+    admission = pytest.importorskip("ingest_scan_coverage")
+    bundle, original, retry, review, manifest, leaf, calls = bundle_fixture
+    manifest_raw = manifest.read_bytes()
+    document = json.loads(manifest_raw)
+    def strict_leaf(raw, request_raw, request):
+        return admission.load_predictions(None, request_raw, request, raw)
+    out = tmp_path / "reviewed.bundle.json"
+    bundle.write_bundle(original, retry, review, manifest, out, strict_leaf)
+    predictions, retained = admission.load_predictions(out, manifest_raw, document)
+    assert retained == out.read_bytes()
+    assert len(predictions) == 556
+    assert all(w["vote_group"] == "qwen3.6-27b" for w in predictions.values())
+    assert sum("preprocessing" in w for w in predictions.values()) == 5
