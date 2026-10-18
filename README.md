@@ -397,6 +397,16 @@ The request pins the original complete 556-page run, the source PDFs, and the
 four pages with severe mark loss plus one page with apparatus leakage. Original
 predictions remain immutable; completed retry strips require a separate source
 review before they can replace the same model's input to a vote.
+`scripts/audit_mathematical_ocr.py --prediction FILE` reproduces the frozen
+mark screen and the separate exploratory apparatus screen. For a growing shard,
+`--prefix FILE_NAME=RECORD_COUNT` pins an exact complete prefix. The report records
+the extent of pixel review and does not estimate corpus-wide accuracy.
+After comparing completed retry strips with the scan, use
+`scripts/mathematical_ocr_retries.py --original ORIGINAL36 --retry RETRY36 --review REVIEW.json --source-evidence EVIDENCE.json --out BUNDLE.json`.
+The evidence file maps all five reviewed page IDs to their completed source
+comparisons. The bundle embeds the original full run, all retry strips, the
+request, and the exact review. Its loader keeps one vote from the same pinned
+model and rejects changed, missing, failed, or unreviewed inputs.
 
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
