@@ -51,7 +51,12 @@ def load_prediction(path, manifests):
         if (row["scan_page"] != expected[identifier]["scan_page"] or row["source"] != expected[identifier]["source"]
                 or row.get("region", [0, 0, 1, 1]) != expected[identifier]["region"]):
             raise ValueError("OCR page geometry differs from the pinned request")
-        if row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip():
+        suffix = expected[identifier].get("prompt_suffix", manifest["sources"][row["source"]].get("prompt_suffix", ""))
+        prompt = manifest["prompt"] + (" " + suffix if suffix else "")
+        if row.get("prompt_sha256") != sha(prompt.encode()):
+            raise ValueError("OCR page prompt differs from the pinned request")
+        if (row.get("error") or row.get("finish_reason") != "stop"
+                or not isinstance(row.get("raw_prediction"), str) or not row["raw_prediction"].strip()):
             raise ValueError("Failed, empty, or truncated Photius prediction")
         if len(re.findall(r"[Ͱ-Ͽἀ-῿]+", row["raw_prediction"])) < 20:
             raise ValueError("Photius page lacks a substantive Greek transcription")

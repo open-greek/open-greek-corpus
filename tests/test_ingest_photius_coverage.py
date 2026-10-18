@@ -17,6 +17,7 @@ def prediction(tmp_path, manifest, model, *, missing=False, truncated=False):
     text = "ὁ λόγος σαφὴς καὶ καλὸς ἐστίν. " * 7
     rows = [{"id": page["id"], "source": page["source"], "scan_page": page["scan_page"],
              "region": page["region"], "image_sha256": "a" * 64,
+             "prompt_sha256": ingest.sha(manifest["prompt"].encode()),
              "raw_prediction": text, "finish_reason": "length" if truncated else "stop"}
             for page in manifest["pages"]]
     if missing:
@@ -51,6 +52,12 @@ def test_failed_truncated_missing_and_misidentified_predictions_are_rejected(tmp
         ingest.load_prediction(path, [manifest])
     with pytest.raises(ValueError, match="another scan"):
         ingest.load_prediction(prediction(tmp_path, manifest, "c"), [ingest.build_later_gap()])
+    path = prediction(tmp_path, manifest, "d")
+    lines = path.read_text().splitlines()
+    row = json.loads(lines[1]);row["prompt_sha256"] = "changed";lines[1] = json.dumps(row)
+    path.write_text("\n".join(lines) + "\n")
+    with pytest.raises(ValueError, match="page prompt"):
+        ingest.load_prediction(path, [manifest])
 
 
 def test_all_bekker_pages_are_covered_once_with_reversible_raw_readings(tmp_path, monkeypatch):
