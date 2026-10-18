@@ -26,6 +26,9 @@ CONTEXT_COUNT_BASIS = (
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("editorial_layer"):
+        from repair_photius_apparatus import lexical_segments
+        lexical_segments(rec)
     if "analysis_text" in rec:
         if not isinstance(rec["analysis_text"], str):
             raise ValueError("analysis_text must be an explicit string")
@@ -83,6 +86,9 @@ class FrequencyProjection:
                     runs.append(source[start:end])
                 previous = end
             return runs
+        if rec.get("editorial_layer"):
+            from repair_photius_apparatus import lexical_segments
+            return lexical_segments(rec)
         if rec.get("ocr_consensus"):
             if "slots" not in rec["ocr_consensus"]:
                 return []  # an older compact projection supplies no adjacency evidence

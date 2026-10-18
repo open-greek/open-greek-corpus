@@ -115,7 +115,9 @@ def _photius_resolution(root):
     _photius_fresh_witnesses(root, report, manifests, prepare_report_inputs)
     load_source_library(path.parent / "source-library-local002.json.gz")
     primary = root / "data/corpus/photius.bibliotheca.jsonl"
-    if _sha(primary) != report["new_corpus_sha256"]:
+    from repair_photius_apparatus import restore_legacy_bytes, active_metadata
+    legacy = restore_legacy_bytes(primary.read_bytes(), root)
+    if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
         raise ValueError("Photius primary text differs from its coverage admission")
     rows = [json.loads(line) for line in primary.read_text().splitlines()]
     covered = set()
@@ -138,6 +140,7 @@ def _photius_resolution(root):
     return _resolved(root,
         "The 545 checked Bekker authorial printed pages are represented across the combined and retained legacy scans, including the prefatory letter. Two repeated pages in the combined scan are supplied by the correct retained legacy pages, with explicit source exceptions. Greek index matter remains separate paratext. Physical scan citations do not invent codex-level paragraph mappings, and unresolved OCR readings remain explicit.",
         admission_audit={"path": str(path.relative_to(root)), "sha256": _sha(path)},
+        **({"editorial_layer": active_metadata(root)} if primary.read_bytes() != legacy else {}),
         covered_authorial_scan_pages=report["covered_authorial_scan_pages"],
         covered_authorial_printed_pages=report["covered_authorial_printed_pages"],
         coverage_position_meaning=report["coverage_position_meaning"],
