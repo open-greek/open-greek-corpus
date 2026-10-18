@@ -816,6 +816,11 @@ audit pins the source and rendered image, retains both complete predictions
 and the original numeral votes, and links the corrected row to its raw network.
 `unapply_review()` reconstructs that raw consensus; the admission's `--undo`
 restores all pre-admission files.
+`scripts/scan_fragment_reviews.py` likewise retains the leading `γενῆ` in
+Conica IV's letter as a visible continuation of the preceding leaf's `ὅμο-`,
+while excluding it from independent word counts. Its named eligibility review
+pins both cropped images, preserves the raw consensus, and supplies the same
+separate reversal operation without inventing a joined reading.
 `scan_coverage_extensions.coverage_scope()` supplies the public manifestation
 scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.
