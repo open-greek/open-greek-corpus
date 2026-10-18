@@ -1,0 +1,16 @@
+{
+ "schema_version": 1,
+ "page_requests": {
+  "qwen36_main": "data/ingest_reviews/coverage/cassius-dio-qwen36-retry-jobs.json",
+  "qwen36_supplementary": "data/ingest_reviews/coverage/cassius-dio-qwen36-supplementary-retry-jobs.json",
+  "qwen38_main": "data/ingest_reviews/coverage/cassius-dio-qwen38-retry-jobs.json",
+  "qwen38_supplementary": "data/ingest_reviews/coverage/cassius-dio-qwen38-supplementary-retry-jobs.json"
+ },
+ "child_requests": {
+  "qwen38_vi206_first": "data/ingest_reviews/coverage/cassius-dio-qwen38-child-strip-retry-jobs.json",
+  "qwen38_main": "data/ingest_reviews/coverage/cassius-dio-qwen38-main-finer-child-jobs.json",
+  "qwen36_supplementary": "data/ingest_reviews/coverage/cassius-dio-qwen36-supplementary-finer-child-jobs.json",
+  "qwen38_supplementary": "data/ingest_reviews/coverage/cassius-dio-qwen38-supplementary-finer-child-jobs.json",
+  "qwen38_child": "data/ingest_reviews/coverage/cassius-dio-qwen38-vi206-grandchild-jobs.json"
+ }
+}
