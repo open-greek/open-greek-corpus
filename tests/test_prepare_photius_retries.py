@@ -4,6 +4,7 @@ import sys
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 from prepare_photius_retries import build_retry, encode
+import prepare_photius_retries as prepare
 
 
 def test_checkpoint_specific_retries_pin_complete_source_body_in_order():
@@ -18,3 +19,30 @@ def test_checkpoint_specific_retries_pin_complete_source_body_in_order():
         assert result["pages"][2]["region"][3] == result["pages"][3]["region"][1] == cut
         assert not result["review"]["accepted_for_primary_ingest"]
         assert encode(result) == (ROOT / f"data/ocr_requests/photius-bekker-page{number:04d}-retry.json").read_bytes()
+
+
+def test_smaller_failed_strip_supplement_is_exact_partition():
+    manifest = prepare.build_supplement(50, "left-lower")
+    parent = prepare.build_retry(50)
+    target = next(p for p in parent["pages"] if p["id"] == manifest["supplements"]["replaces_region"])
+    strips = manifest["pages"]
+    assert len(strips) == 3
+    assert strips[0]["region"][1] == target["region"][1]
+    assert strips[-1]["region"][3] == target["region"][3]
+    assert all(a["region"][3] == b["region"][1] for a, b in zip(strips, strips[1:]))
+    assert all(p["region"][::2] == target["region"][::2] for p in strips)
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+    assert not manifest["review"]["accepted_for_primary_ingest"]
+    assert encode(manifest) == (ROOT / prepare.supplement_path(50, "left-lower")).read_bytes()
+
+
+def test_page87_six_strips_preserve_column_order_and_body_bounds():
+    manifest = prepare.build_retry(87)
+    strips = manifest["pages"]
+    assert len(strips) == 6
+    assert [p["reading_order"] for p in strips] == list(range(6))
+    assert all(p["region"][2] < .5 for p in strips[:3])
+    assert all(p["region"][0] > .5 for p in strips[3:])
+    assert strips[2]["region"][3] == strips[5]["region"][3] == .840
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+    assert encode(manifest) == (ROOT / prepare.manifest_path(87)).read_bytes()
