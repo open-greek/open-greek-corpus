@@ -354,6 +354,8 @@ surface count. OCR quality rows expose `n_surface_tokens` beside eligible
 words across an excluded reading or gap; the archived secondary source text
 remains a separate witness-quality diagnostic. Restored or uncertain papyrus
 fragments and displayed OCR alternatives do not attest ordinary forms.
+The build graph tracks the shared projection and critical-text helper as count
+inputs, so changing eligibility also rebuilds the affected measurements.
 
 Merged OCR pages use `scripts/ocr_consensus.py` to retain the original witnesses,
 exact word votes, and all tied readings. Accents and case are ignored only for

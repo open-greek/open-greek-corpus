@@ -68,6 +68,9 @@ CATALOG         := data/corpus_catalog.tsv
 # data/corpus without touching it. ocr_quality_report.json sat 524 corpus-file
 # changes behind, while the OCR pipeline gates on it.
 CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
+# Count eligibility can change while every served surface byte stays identical.
+FREQUENCY_INPUTS := scripts/frequency_projection.py \
+                    $(wildcard scripts/critical_text.py data/frequency_projection.json)
 
 # Only this repo's own (non-OCR) ingesters. The OCR text - calfa-co Patrologia
 # Graeca and our own Migne/edition OCR - is produced, cleaned, and DELIVERED
@@ -109,7 +112,7 @@ ids:
 #    an upstream OCR delivery) can't drop each other's rows, because the per-work
 #    jsonl files never collide.
 ingest: $(CORPUS_EDITIONS)
-$(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/corpus_order_overrides.json data/corpus_text_corrections.json data/work_id_aliases.json data/serving_deficits.json
+$(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/corpus_order_overrides.json data/corpus_text_corrections.json data/work_id_aliases.json data/serving_deficits.json $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_corpus_loci.py
 	$(PY) scripts/build_byzantine_vernacular_corpus.py
 	$(PY) scripts/build_byzantium_gr_corpus.py   # cache-first; fetches missing pages
@@ -122,7 +125,7 @@ $(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/recon
 #    up into the lexicon + coverage, then per-lemma frequency. The OCR text arrives
 #    clean from the upstream OCR pipeline, so there is no correction step here.
 yardstick: $(LEMMA_FREQ)
-$(LEXICON): $(CORPUS_EDITIONS) scripts/build_public_corpus.py
+$(LEXICON): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_public_corpus.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_public_corpus.py
 $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
                scripts/validate_lemma_map.py
@@ -163,7 +166,7 @@ $(CROSSWALK_REPORT): $(REGISTRY) $(CORPUS_EDITIONS) data/work_index.json scripts
 #    each drifted from the text they describe.
 reports: $(QUALITY_REPORT) $(WORK_LEMMAS) $(CATALOG) README.md $(GRAVE_RESIDUE) $(PG003_ALT) $(DUP_LEAVES) $(DUP_PAGES) $(PG003_HEADS) $(PG003_GEOM) $(NONFINAL_GRAVES) data/nonfinal_grave_tranche_thirdparty.json $(KNOWN_LIMITATIONS) $(LATIN_IN_GREEK) $(SPACING_MARKS) $(MERGE_SAMPLE) $(MERGE_GUESSES)
 
-$(QUALITY_REPORT): $(CORPUS_FILES) scripts/build_ocr_quality_report.py
+$(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_report.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_ocr_quality_report.py
 
 # The published per-work catalog. It had no rule at all and drifted nine commits
@@ -196,7 +199,7 @@ $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
 # 18, Ἐγχειρίδιον 10).
 $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
                 scripts/validate_lemma_map.py $(LEMMA_FREQ) \
-                data/capital_positions.json
+                data/capital_positions.json $(FREQUENCY_INPUTS)
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_work_lemma_counts.py
 
 # The grave-residue partition published on issue #4. It had no rule, so it went
@@ -237,7 +240,7 @@ $(PG003_HEADS): data/corpus_changes/cogPG.PG003.row-split.json data/pg003_blocks
 $(NONFINAL_GRAVES) data/nonfinal_grave_tranche.json \
 data/nonfinal_grave_tranche_marks.json \
 data/nonfinal_grave_tranche_thirdparty.json: $(CORPUS_FILES) \
-                scripts/measure_nonfinal_graves.py
+                scripts/measure_nonfinal_graves.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/measure_nonfinal_graves.py --write
 
 $(KNOWN_LIMITATIONS): $(NONFINAL_GRAVES) $(CATALOG) \
