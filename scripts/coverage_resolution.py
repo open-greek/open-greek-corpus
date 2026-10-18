@@ -87,7 +87,7 @@ def _photius_fresh_witnesses(root, report, manifests, prepare_report):
     return models
 
 
-def _photius_coverage_position(row, mapping):
+def _photius_coverage_position(row, mapping, body_positions=None):
     from repair_photius_index import PAGE
     legacy = PAGE.fullmatch(row["locus"])
     if legacy:
@@ -97,6 +97,11 @@ def _photius_coverage_position(row, mapping):
     physical = row.get("physical_refs", {}).get("scan_page")
     if type(physical) is not int:
         raise ValueError("Photius row lacks a reviewed physical citation")
+    if row["locus"].startswith("photius_bekker1825_recovery_"):
+        position = (body_positions or {}).get(row["locus"])
+        if position != physical + mapping["logical_combined_position_offset"]:
+            raise ValueError("Recovered Photius body lacks an exactly replayed logical position")
+        return position
     return physical
 
 
@@ -133,7 +138,10 @@ def _photius_resolution(root):
     if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
         raise ValueError("Photius primary text differs from its coverage admission")
     rows = [json.loads(line) for line in primary.read_text().splitlines()]
-    covered = {_photius_coverage_position(row, mapping) for row in rows}
+    from repair_photius_readings import active_metadata as reading_metadata
+    readings = reading_metadata(root)
+    body_positions = readings.get("body_recovery", {}).get("logical_coverage_positions", {}) if readings else {}
+    covered = {_photius_coverage_position(row, mapping, body_positions) for row in rows}
     if covered != set(range(13, 558)):
         raise ValueError("Photius authorial scan range is incomplete")
     from repair_photius_index import check as check_index
@@ -144,6 +152,7 @@ def _photius_resolution(root):
         "The 545 checked Bekker authorial printed pages are represented across the combined and retained legacy scans, including the prefatory letter. Two repeated pages in the combined scan are supplied by the correct retained legacy pages, with explicit source exceptions. Greek index matter remains separate paratext. Physical scan citations do not invent codex-level paragraph mappings, and unresolved OCR readings remain explicit.",
         admission_audit={"path": str(path.relative_to(root)), "sha256": _sha(path)},
         **({"editorial_layer": active_metadata(root)} if primary.read_bytes() != legacy else {}),
+        **({"reading_layer": readings} if readings else {}),
         covered_authorial_scan_pages=report["covered_authorial_scan_pages"],
         covered_authorial_printed_pages=report["covered_authorial_printed_pages"],
         coverage_position_meaning=report["coverage_position_meaning"],

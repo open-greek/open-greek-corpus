@@ -80,12 +80,19 @@ CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/repair_photius_apparatus.py \
                     scripts/repair_photius_body.py \
+                    scripts/repair_photius_readings.py scripts/photius_reading_vote.py \
+                    scripts/photius_body_vote.py \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     scripts/repair_photius_apparatus.py \
+    scripts/repair_photius_readings.py scripts/photius_reading_vote.py \
+    scripts/photius_body_vote.py \
     $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
                data/corpus_changes/photius-bekker-coverage/coverage.json \
                data/corpus_changes/photius-bekker-apparatus/changes.json \
+               data/corpus_changes/photius-bekker-readings/changes.json \
+               data/ingest_reviews/photius-bekker-reading-windows.json \
+               data/ingest_reviews/photius-bekker-body-recovery*.json \
                data/ingest_reviews/photius-bekker-apparatus.json \
                data/corpus_changes/cyril-john-coverage/changes.json \
                data/corpus_extension_index.json data/critical_editions/*/manifest.json)
@@ -388,6 +395,7 @@ capital-positions:
 check:
 	$(PY) scripts/check_ocr_ledgers.py
 	$(PY) scripts/repair_photius_apparatus.py --check
+	$(PY) scripts/repair_photius_readings.py --check
 	$(PY) scripts/audit_photius_apparatus.py --check
 	$(PY) scripts/build_source_components.py --check
 	$(PY) scripts/check_capital_positions_fresh.py

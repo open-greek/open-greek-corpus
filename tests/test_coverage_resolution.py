@@ -118,3 +118,14 @@ def test_legacy_photius_physical_citation_is_not_a_combined_scan_position():
     assert coverage._photius_coverage_position(fresh, mapping) == 245
     with pytest.raises(ValueError, match="physical citation"):
         coverage._photius_coverage_position({"locus": "unreviewed.1"}, mapping)
+
+
+def test_recovered_photius_positions_require_the_replayed_body_authority():
+    mapping = {"logical_combined_position_offset": 277}
+    row = {"locus": "photius_bekker1825_recovery_0066.left",
+           "physical_refs": {"scan_page": 66}}
+    with pytest.raises(ValueError, match="exactly replayed"):
+        coverage._photius_coverage_position(row, mapping)
+    with pytest.raises(ValueError, match="exactly replayed"):
+        coverage._photius_coverage_position(row, mapping, {row["locus"]: 66})
+    assert coverage._photius_coverage_position(row, mapping, {row["locus"]: 343}) == 343

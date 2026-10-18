@@ -330,14 +330,23 @@ def _validated_archive(root, require_current_review=True):
 def check(root=ROOT):
     root = Path(root)
     _, _, outputs, audit = _validated_archive(root)
-    if any(not (root / path).exists() or (root / path).read_bytes() != raw for path, raw in outputs.items()):
-        raise ValueError("A source-reviewed apparatus output changed independently")
+    from repair_photius_readings import restore_before_bytes
+    for path, raw in outputs.items():
+        if not (root / path).exists():
+            raise ValueError("A source-reviewed apparatus output is missing")
+        current = (root / path).read_bytes()
+        if path == CORPUS:
+            current = restore_before_bytes(current, root)
+        if current != raw:
+            raise ValueError("A source-reviewed apparatus output changed independently")
     return audit
 
 
 def restore_legacy_bytes(raw, root=ROOT):
     """Read-only unapply of this exact layer for earlier immutable admissions."""
     root = Path(root)
+    from repair_photius_readings import restore_before_bytes
+    raw = restore_before_bytes(raw, root)
     if not (root / AUDIT).exists():
         return raw
     audit = json.loads((root / AUDIT).read_bytes())

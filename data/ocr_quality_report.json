@@ -1745,6 +1745,21 @@
    "witness": null
   },
   "apollonius-geom.conica": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 227,
+    "rows_without_counted_consensus": 57,
+    "slot_counts": {
+     "agreement": 45376,
+     "continuation-fragment": 7,
+     "damaged-reading": 316,
+     "incomplete-reading": 13,
+     "scan-reviewed-fragment": 1,
+     "single-witness": 156,
+     "unresolved": 6193
+    }
+   },
    "edition": "scan-consensus-2026-10-18",
    "n_surface_tokens": 66102,
    "n_tokens": 54229,
@@ -2061,6 +2076,22 @@
    "witness": null
   },
   "aristides-quintilianus-music.de-musica": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 97,
+    "rows_without_counted_consensus": 0,
+    "slot_counts": {
+     "agreement": 25392,
+     "continuation-fragment": 15,
+     "damaged-reading": 4,
+     "incomplete-reading": 16,
+     "scan-reviewed": 14,
+     "single-witness": 4,
+     "source-reviewed-numeral": 6,
+     "unresolved": 4438
+    }
+   },
    "edition": "jahn-1882-consensus-2026-10",
    "n_surface_tokens": 34291,
    "n_tokens": 25410,
@@ -4493,6 +4524,18 @@
    "witness": null
   },
   "cyrillus-theology.commentarii-in-joannem": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 3,
+    "rows_without_counted_consensus": 3106,
+    "slot_counts": {
+     "agreement": 1166,
+     "incomplete-reading": 2,
+     "single-witness": 1,
+     "unresolved": 313
+    }
+   },
    "edition": "calfa-pg73-5895ab908dd4",
    "n_surface_tokens": 392780,
    "n_tokens": 392251,
@@ -12053,6 +12096,21 @@
    "witness": null
   },
   "pappus-mathematics.synagoge": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 331,
+    "rows_without_counted_consensus": 304,
+    "slot_counts": {
+     "agreement": 69458,
+     "continuation-fragment": 22,
+     "damaged-reading": 165,
+     "incomplete-reading": 30,
+     "scan-reviewed": 1,
+     "single-witness": 209,
+     "unresolved": 15928
+    }
+   },
    "edition": "scan-consensus-2026-10-18",
    "n_surface_tokens": 147577,
    "n_tokens": 121327,
@@ -12801,13 +12859,27 @@
    "witness": null
   },
   "photius.bibliotheca": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 319,
+    "rows_without_counted_consensus": 3475,
+    "slot_counts": {
+     "agreement": 152518,
+     "damaged-reading": 7,
+     "incomplete-reading": 98,
+     "omission": 7522,
+     "single-witness": 610,
+     "unresolved": 46973
+    }
+   },
    "edition": "bekker1824-independent-ocr-consensus",
-   "n_surface_tokens": 428049,
-   "n_tokens": 270038,
-   "n_tokens_checked": 146257,
-   "n_unattested": 19814,
+   "n_surface_tokens": 432568,
+   "n_tokens": 302194,
+   "n_tokens_checked": 169526,
+   "n_unattested": 20535,
    "source": "ocr",
-   "unattested_rate": 0.135474,
+   "unattested_rate": 0.121132,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {
@@ -16331,7 +16403,6 @@
   "severus-rhetor.diegemata-kai-ethopoiiai",
   "joannes-chrysostomus.de-eleemosyna",
   "gregorius-nyssenus.de-infantibus-praemature-abreptis",
-  "photius.bibliotheca",
   "gregorius-nyssenus.oratio-consolatoria-in-pulcheriam",
   "joannes-chrysostomus.in-genesim-sermones-1-9",
   "joannes-chrysostomus.in-sanctum-julianum-martyrem",
@@ -16428,6 +16499,7 @@
   "gregorius-nyssenus.in-inscriptiones-psalmorum",
   "joannes-chrysostomus.in-epistulam-ii-ad-thessalonicenses-homiliae-1-5",
   "gorgias-rhetoric.testimonia",
+  "photius.bibliotheca",
   "joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7",
   "gregorius-nyssenus.de-professione-christiana-ad-harmonium",
   "apollonius-philosophy.apollonii-epistulae-dub",

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Rebuild reviewed edition credits from active, hash-checked admission audits.
 
-This reads metadata and hashes corpus bytes. It never recomputes OCR votes or
-deserializes compressed word networks. Work titles and canonical identities
-remain independent of the coverage of an individual manifestation.
+This verifies active admission layers before rebuilding component credits.
+Work titles and canonical identities remain independent of the coverage of an
+individual manifestation.
 """
 from __future__ import annotations
 
@@ -393,6 +393,8 @@ def _photius(root):
     if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
         raise ValueError("Photius coverage changed outside its exact authorized later layer")
     editorial = active_metadata(root)
+    from repair_photius_readings import active_metadata as reading_metadata
+    readings = reading_metadata(root)
     if (report["covered_authorial_scan_pages"] != 545 or report["added_passages"] != 309 or
             report["historical_body_passages"] != 3846 or report["preserved_index_passages"] != 501 or
             report["added_scan_ranges"] != [[13, 278], [379, 421]] or
@@ -423,7 +425,8 @@ def _photius(root):
         note="Retained comparison witness; only bounded matching body text may vote. Attribution, source rights, and the separate API reservation notice are preserved in the admission audit.")
     components = [{"role": "retained-primary", "license": "PD",
         "passages": report["historical_body_passages"] - (editorial["counts"]["moved_rows"] if editorial else 0)
-            - (editorial.get("body_correction", {}).get("counts", {}).get("corrected_rows", 0) if editorial else 0),
+            - (editorial.get("body_correction", {}).get("counts", {}).get("corrected_rows", 0) if editorial else 0)
+            - (readings.get("body_recovery", {}).get("counts", {}).get("replaced_rows", 0) if readings else 0),
         "scan_ranges": report["retained_scan_ranges"]},
         {"edition": merged["key"], "role": "new-primary-consensus", "license": "CC-BY-SA-4.0",
             "passages": report["added_passages"], "scan_ranges": report["added_scan_ranges"]},
@@ -461,14 +464,41 @@ def _photius(root):
             components.append({"edition": edition["key"], "role": "fresh-witness-editorial-paratext",
                                "license": fresh["paratext"]["license"], "passages": fresh["paratext"]["rows"],
                                "source_review": fresh["source_review"], "paratext": fresh["paratext"]})
+    if readings:
+        components.append({"edition": merged["key"], "role": "source-reviewed-consensus-readings",
+                           "license": "CC-BY-SA-4.0", "source_review": readings["source_review"],
+                           "counts": readings["counts"], "networks": readings["networks"]})
+        if readings["counts"]["editorial_spans"]:
+            key = "bekker1824-reviewed-fresh-editorial-matter"
+            if not any(e["key"] == key for e in editions):
+                editions.append(_edition(key, "Bekker 1824, reviewed fresh-witness editorial matter",
+                    scheme="scan-page.witness-editorial-span", source=scan["url"], license="CC-BY-4.0",
+                    editor="Bekker, Immanuel", year=1824, storage="paratext", servable=False,
+                    note="Exact source-reviewed fresh OCR editorial spans retain their raw witness evidence."))
+            components.append({"edition": key, "role": "fresh-witness-editorial-paratext",
+                               "license": "CC-BY-4.0", "passages": readings["counts"]["editorial_spans"],
+                               "source_review": readings["source_review"], "paratext": readings["paratext"]})
+        body = readings.get("body_recovery")
+        if body:
+            recovered = _edition("bekker1825-reviewed-body-consensus", "Bekker 1825, recovered authorial body regions",
+                scheme="scan-page.reviewed-region", source=report["legacy_source"]["url"],
+                license="CC-BY-SA-4.0", editor="Bekker, Immanuel", year=1825,
+                note="Source-reviewed missing regions retain independent scan readings, bounded digital comparison, every original historical reading, and unresolved variants.")
+            editions.append(recovered)
+            components.append({"edition": recovered["key"], "role": "recovered-historical-body-regions",
+                               "license": "CC-BY-SA-4.0",
+                               "passages": body["counts"]["added_rows"] + body["counts"]["replaced_rows"],
+                               **body})
     return {slug: {"editions": editions, "default_edition": merged["key"],
-        "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus.", "coverage_composition": {
+        "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus."
+            + (" Reviewed recoveries within the retained ranges have their own licensed body component." if readings and readings.get("body_recovery") else ""), "coverage_composition": {
         "policy": "complementary-page-union-with-licensed-consensus", "manifest": relative, "manifest_sha256": _sha(path),
         "covered_authorial_scan_pages": 545, "index_passages_in_separate_paratext": report["preserved_index_passages"],
         "components": components,
         "source_editions": [scan] + ([report["legacy_source"]] if report.get("legacy_source") else []),
         "source_scan_exceptions": report.get("source_scan_exceptions", []),
         **({"editorial_layer": editorial} if editorial else {}),
+        **({"reading_layer": readings} if readings else {}),
         "qualification": report["edition_scope"]}}}
 
 

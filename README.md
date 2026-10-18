@@ -888,8 +888,8 @@ it does not classify text. The completed authority in
 `data/ingest_reviews/photius-bekker-apparatus.json` records exact Unicode spans,
 full original-row hashes, source regions, evidence, and review dates.
 The review separates 440 spans in 389 rows: 368 complete editorial rows move
-to paratext, while 21 mixed rows retain their body text. The primary file now
-contains 3,787 rows.
+to paratext, while 21 mixed rows retain their body text. That apparatus stage
+contains 3,787 primary rows, before the additional reading repair below.
 `python3 scripts/repair_photius_apparatus.py --apply` reproduces the separation;
 `--check` validates every output and `--undo` restores the exact corpus and
 passage-alias preimages. Apparatus-only rows, repeated running headers, printer
@@ -913,13 +913,64 @@ For fresh scan page 245 (printed page 233), the source review in
 retained witness's running header and critical apparatus before repeating the
 same two-model vote. Both exact spans remain readable in
 `data/paratext/photius-bekker-fresh-editorial-spans.jsonl`; the original raw
-witness and full vote remain archived. The other 308 fresh rows are unchanged.
+witness and full vote remain archived. That stage leaves the other 308 fresh
+rows unchanged.
 The initial screen in `data/audits/photius-historical-apparatus.json` remains
 an immutable pre-repair observation: ten confirmed rows and 189 candidates
 across 96 pages. Its checker and the earlier coverage/index checkers verify
 that historical stage by reversing only the fully reproduced later repair.
 Independent edits still fail validation. The boundary review does not certify
 a proofread critical text.
+The subsequent reading repair adds independently source-reviewed digital body
+windows from `data/ingest_reviews/photius-bekker-reading-windows.json` to the
+retained scan witnesses. The preparer records the exact original source section,
+Unicode bounds, inspected source-image hash, first and last body regions, and
+every held completion. A digital word completed beyond the printed leaf stays
+outside the vote. A missing digital prefix casts no omission vote. The digital
+edition contributes at most one source-family vote, and earlier exclusions
+remain excluded. Exact additional running-header spans are preserved separately
+in `data/paratext/photius-bekker-reading-editorial-spans.jsonl`; genuine internal
+codex headings remain in the body. Source-confirmed initial word fragments stay
+visible, with an audited lexical exclusion even when both OCR readings agree.
+
+The same repair recovers missing columns on physical pages 66, 73, 79, 90, 100,
+and 154 of the separate 1825 scan, and long omissions on pages 148 and 189.
+`scripts/prepare_photius_body_recovery.py` reproduces the original two-column
+request and, with `--remaining`, the separate six-region request. Contiguous
+strips follow complete printed lines and exclude running headers and apparatus.
+Each pinned checkpoint contributes one assembled reading; diagnostic pilots
+never add a vote. Crop PNG pins were produced with PyMuPDF 1.27.2.3 and verified
+byte for byte with 1.28.2; inference runtime versions remain in each raw file.
+Exact bounded Source Library readings remain comparison
+witnesses with their attribution, rights, and separate API reservation notice.
+Existing passage identities and raw text survive in the audit. The incomplete
+historical row on page 148 retains its identity and original editorial mask;
+the other recovered regions receive explicit physical-region citations without
+inventing canonical paragraph numbers. Source fragments and held contextual
+overlap are never silently completed or counted twice.
+
+`scripts/prepare_photius_body_outcomes.py` reproduces the completed paired/source
+review of every recovered strip. A successful generation status alone is not
+an admission. Recognition errors and lost polytonic marks remain explicit raw
+readings; source-confirmed wrong spans abstain without changing the original
+predictions. Occurrence-specific source observations bind repeated words to
+exact positions in the full digital section. When the printed observation and
+digital spelling differ, both remain explicit unresolved alternatives; the
+observation adds no witness or family vote. A strip that omits a printed
+authorial heading remains raw evidence and abstains as incomplete coverage.
+`python3 scripts/repair_photius_readings.py --apply` reproduces this
+later layer from pinned sources, requests, checkpoints, runtime versions, images,
+and occurrence reviews. `--check` repeats the vote and verifies every output;
+`--undo` restores the exact preceding corpus, including after a current source
+is invalidated. The structured original/corrected records, original networks,
+raw attempts, public-domain scan, and hash-linked pre-eligibility votes remain
+in `data/corpus_changes/photius-bekker-readings/`. Earlier admission checkers
+reverse only this fully verified layer in memory. Changed evidence or independent
+edits still fail verification.
+The quality report also publishes the current consensus slot counts and the
+number of rows outside that measurement. Agreement is not an error-rate
+estimate, and historical rows without consensus remain explicitly unassessed.
+
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
 pages; completed source reviews check body-line coverage, marks, repetition,
@@ -3147,7 +3198,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 270,038 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 302,194 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
