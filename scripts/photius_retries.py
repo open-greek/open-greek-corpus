@@ -26,10 +26,107 @@ def known_retry_manifests():
     return {sha(encode(manifest)): (path, manifest) for path, manifest in values}
 
 
+def known_gutter_manifests():
+    # Geometry authorities are generated only after the current source leaves
+    # have been inspected. Earlier retry installations need no such authority.
+    try:
+        from prepare_photius_geometry import known_gutter_manifests as known
+    except ModuleNotFoundError as error:
+        if error.name != "prepare_photius_geometry":
+            raise
+        return {}
+    return known()
+
+
+def source_authority():
+    try:
+        from prepare_photius_geometry import source_authority as authority
+    except ModuleNotFoundError as error:
+        if error.name != "prepare_photius_geometry":
+            raise
+        return None, None
+    return authority()
+
+
 def known_supplement_manifests():
-    return {sha(encode(build_supplement(page, name))):
-            (supplement_path(page, name).as_posix(), build_supplement(page, name))
-            for page, name in sorted(SUPPLEMENT_REVIEWS)}
+    values = {sha(encode(build_supplement(page, name))):
+              (supplement_path(page, name).as_posix(), build_supplement(page, name))
+              for page, name in sorted(SUPPLEMENT_REVIEWS)}
+    for digest, authority in known_gutter_manifests().items():
+        if digest != sha(encode(authority[1])) or (digest in values and values[digest] != authority):
+            raise ValueError("Ambiguous source-reviewed geometry authority")
+        values[digest] = authority
+    return values
+
+
+def replacement_targets(request):
+    parent = request["supplements"]
+    targets = parent.get("replaces_regions", [parent.get("replaces_region")])
+    if (not isinstance(targets, list) or not targets or len(set(targets)) != len(targets)
+            or any(not isinstance(target, str) or not target for target in targets)):
+        raise ValueError("Retry supplement needs distinct named parent regions")
+    return targets
+
+
+def geometry_source_authority(request):
+    if not request.get("replacement_conditions"):
+        return None
+    path, raw = source_authority()
+    pin = request.get("review", {}).get("source_authority")
+    if (not path or not isinstance(raw, bytes) or pin != {"path": path, "sha256": sha(raw)}
+            or Path(path).is_absolute() or ".." in Path(path).parts):
+        raise ValueError("Geometry replacement lacks its exact source authority")
+    return {"path": path, "sha256": sha(raw), "raw": raw}
+
+
+def validate_geometry_request(request, parent_request, parent_sha, catalog=None):
+    """A source review can shift either horizontal edge, never the printed lines."""
+    targets = replacement_targets(request)
+    conditions = request.get("replacement_conditions", {})
+    old_jobs = {job["id"]: job for job in parent_request["pages"]}
+    new_jobs = {job.get("replaces_region"): job for job in request["pages"]}
+    authority = geometry_source_authority(request)
+    if (not authority or set(conditions) != set(targets) or set(new_jobs) != set(targets)
+            or len(new_jobs) != len(request["pages"]) or len(request.get("checkpoints", [])) != 1):
+        raise ValueError("Geometry replacement must name each current leaf and one checkpoint")
+    checkpoint = request["checkpoints"][0]
+    checkpoint = (checkpoint["model"], checkpoint["revision"])
+    digest = sha(encode(request))
+    catalog = known_supplement_manifests() if catalog is None else catalog
+    for target in targets:
+        for other_sha, (_, other) in catalog.items():
+            if (other_sha != digest and other["supplements"]["manifest_sha256"] == parent_sha
+                    and target in replacement_targets(other) and checkpoint_selected(other, checkpoint)):
+                raise ValueError("Geometry replacement names a stale ancestor or a second remedy")
+        old, new, condition = old_jobs[target], new_jobs[target], conditions[target]
+        box = new.get("region", [])
+        source = parent_request["sources"][old["source"]]
+        if (condition.get("kind") != "source-confirmed-column-boundary-error"
+                or condition.get("old_manifest_sha256") != parent_sha
+                or condition.get("source_pdf_sha256") != source["sha256"]
+                or condition.get("original_region") != old["region"]
+                or condition.get("new_region") != box
+                or condition.get("source_review_sha256") != authority["sha256"]
+                or new.get("id") != target + "-gutter"
+                or new.get("source") != old["source"] or new.get("scan_page") != old["scan_page"]
+                or len(box) != 4 or not all(isinstance(x, (int, float)) for x in box)
+                or not (0 <= box[0] < box[2] <= 1 and 0 <= box[1] < box[3] <= 1)
+                or box[1::2] != old["region"][1::2] or box == old["region"]
+                or new.get("max_side") != 3600):
+            raise ValueError("Geometry replacement differs from its exact source-reviewed bounds")
+    return authority
+
+
+def confirmed_geometry(replacement, raw, record_line, row, job, request):
+    condition = replacement.get("replacement_condition", {})
+    return (condition.get("kind") == "source-confirmed-column-boundary-error"
+            and condition.get("old_manifest_sha256") == sha(encode(request))
+            and condition.get("source_pdf_sha256") == request["sources"][job["source"]]["sha256"]
+            and condition.get("original_region") == job["region"]
+            and condition.get("raw_file_sha256") == sha(raw)
+            and condition.get("prediction_record_sha256") == sha(record_line)
+            and condition.get("raw_prediction_sha256") == sha(row.get("raw_prediction", "").encode())
+            and condition.get("finish_reason") == row.get("finish_reason"))
 
 
 def review_paths(value):
@@ -166,7 +263,8 @@ def load_supplements(paths, review, manifest, originals):
         raise ValueError("Retry supplement lacks its exact completed review")
     supplements, retained = {}, {}
     base_sha = sha(encode(manifest))
-    authorities = {base_sha: (None, manifest), **known_supplement_manifests()}
+    catalog = known_supplement_manifests()
+    authorities = {base_sha: (known_retry_manifests()[base_sha][0], manifest), **catalog}
     for path in sorted(paths, key=lambda value: sha(value.read_bytes())):
         raw = path.read_bytes()
         lines = [line for line in raw.splitlines() if line.strip()]
@@ -175,7 +273,7 @@ def load_supplements(paths, review, manifest, originals):
             raise ValueError("Ambiguous retry supplement prediction metadata")
         meta, records = rows[0]["_meta"], rows[1:]
         decision = wanted[sha(raw)]
-        authority = known_supplement_manifests().get(meta.get("manifest_sha256"))
+        authority = catalog.get(meta.get("manifest_sha256"))
         if authority is None:
             raise ValueError("Unknown source-reviewed supplement authority")
         authority_path, request = authority
@@ -192,19 +290,25 @@ def load_supplements(paths, review, manifest, originals):
             raise ValueError("Retry supplement differs from its pinned parent or checkpoint")
         parent_sha = request["supplements"]["manifest_sha256"]
         parent_authority = authorities.get(parent_sha)
-        if (parent_authority is None or (parent_sha != base_sha
+        if (parent_authority is None or ((parent_sha != base_sha or request.get("replacement_conditions"))
                 and request["supplements"]["manifest_path"] != parent_authority[0])):
             raise ValueError("Retry supplement lacks its exact parent authority")
         parent_request = parent_authority[1]
-        if request["supplements"]["replaces_region"] not in {p["id"] for p in parent_request["pages"]}:
+        targets = replacement_targets(request)
+        if not set(targets) <= {p["id"] for p in parent_request["pages"]}:
             raise ValueError("Retry supplement names an unknown parent region")
+        geometry_authority = (validate_geometry_request(request, parent_request, parent_sha, catalog)
+                              if request.get("replacement_conditions") else None)
+        if len(targets) > 1 and geometry_authority is None:
+            raise ValueError("Only reviewed geometry can replace multiple current leaves")
         parent_decision = review if parent_sha == base_sha else next((d for d in decisions
             if d.get("model") == model and d.get("manifest_sha256") == parent_sha), {})
-        parent_review = next((r for r in parent_decision.get("strip_reviews", [])
-                              if r.get("id") == request["supplements"]["replaces_region"]), {})
-        if (parent_review.get("reading_basis") != "reviewed-supplement-parts"
-                or sha(encode(request)) not in parent_review.get("completed_by_supplements", [])):
-            raise ValueError("Failed retry strip lacks an explicit supplemental completion decision")
+        for target in targets:
+            parent_review = next((r for r in parent_decision.get("strip_reviews", [])
+                                  if r.get("id") == target), {})
+            if (parent_review.get("reading_basis") != "reviewed-supplement-parts"
+                    or sha(encode(request)) not in parent_review.get("completed_by_supplements", [])):
+                raise ValueError("Failed retry strip lacks an explicit supplemental completion decision")
         expected = {page["id"]: page for page in request["pages"]}
         if len(records) != len(expected) or {r.get("id") for r in records} != set(expected):
             raise ValueError("Retry supplement must contain every reviewed part exactly once")
@@ -219,17 +323,23 @@ def load_supplements(paths, review, manifest, originals):
             row = by_id[job["id"]]
             validate_record(row, job, request)
             ordered.append(row)
-        key = (model, request["supplements"]["replaces_region"])
-        if key in supplements:
-            raise ValueError("A retry strip cannot receive duplicate supplement votes")
-        supplements[key] = {"records": ordered, "manifest_sha256": sha(encode(request)),
-                            "raw_file_sha256": sha(raw), "review_decision_sha256": sha(encode(decision)),
-                            "_request": request, "_raw": raw,
-                            "_lines": {r["id"]: line for r, line in zip(records, lines[1:])}}
-        if request.get("replacement_condition"):
-            supplements[key]["replacement_condition"] = request["replacement_condition"]
+        for target in targets:
+            key = (model, target)
+            if key in supplements:
+                raise ValueError("A retry strip cannot receive duplicate supplement votes")
+            selected = [row for row in ordered if not geometry_authority or
+                        expected[row["id"]]["replaces_region"] == target]
+            supplements[key] = {"records": selected, "manifest_sha256": sha(encode(request)),
+                                "raw_file_sha256": sha(raw), "review_decision_sha256": sha(encode(decision)),
+                                "_request": request, "_raw": raw,
+                                "_lines": {r["id"]: line for r, line in zip(records, lines[1:])}}
+            condition = request.get("replacement_conditions", {}).get(target, request.get("replacement_condition"))
+            if condition:
+                supplements[key]["replacement_condition"] = condition
         group = retained.setdefault(sha(encode(request)), {"manifest": request, "manifest_path": authority_path,
                                                          "manifest_sha256": sha(encode(request)), "raw_files": []})
+        if geometry_authority:
+            group["source_authority"] = geometry_authority
         group["raw_files"].append({"raw": raw, "sha256": sha(raw), "metadata": meta})
     # Every nested authority must reach this base through supplied, reviewed raw
     # attempts for the same family; a known but absent parent is insufficient.
@@ -242,10 +352,32 @@ def load_supplements(paths, review, manifest, originals):
             visited.add(parent_sha)
             parents = [value for (family, _), value in supplements.items()
                        if family == model and value["manifest_sha256"] == parent_sha]
-            if len(parents) != 1:
+            if not parents:
                 raise ValueError("Nested retry supplement lacks its retained parent attempt")
             current = parents[0]["_request"]
     return supplements, [retained[key] for key in sorted(retained)]
+
+
+def require_geometry_repairs(supplements, manifest, originals):
+    """Known source-clipped leaves cannot remain eligible by omitting their remedy."""
+    base_sha = sha(encode(manifest))
+    authorities = {base_sha: (known_retry_manifests()[base_sha][0], manifest), **known_supplement_manifests()}
+    for digest, (_, request) in known_gutter_manifests().items():
+        current, visited = request, set()
+        while current.get("supplements", {}).get("manifest_sha256") != base_sha:
+            parent_sha = current.get("supplements", {}).get("manifest_sha256")
+            if parent_sha in visited or parent_sha not in authorities:
+                break
+            visited.add(parent_sha)
+            current = authorities[parent_sha][1]
+        else:
+            for model, (_, meta, _) in originals.items():
+                if not checkpoint_selected(request, (model, meta["revision"])):
+                    continue
+                for target in replacement_targets(request):
+                    replacement = supplements.get((model, target))
+                    if replacement is None or replacement["manifest_sha256"] != digest:
+                        raise ValueError("Known source-clipped leaf requires its reviewed geometry repair")
 
 
 def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
@@ -287,6 +419,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
             or set(runs) != {sha(path.read_bytes()) for path in paths}):
         raise ValueError("Retry review does not identify the exact prediction files")
     supplements, retained_supplements = load_supplements(supplement_paths, review, manifest, originals)
+    require_geometry_repairs(supplements, manifest, originals)
     images, used, used_supplements, retained = {}, set(), set(), []
     for path in sorted(paths, key=lambda value: sha(value.read_bytes())):
         raw = path.read_bytes()
@@ -318,7 +451,8 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
                 # retained attempt even if a caller changes its termination.
                 if replacement.get("replacement_condition"):
                     if not (confirmed_mark_stripping(replacement, source_raw, source_line, row)
-                            or confirmed_repetition_loop(replacement, source_raw, source_line, row)):
+                            or confirmed_repetition_loop(replacement, source_raw, source_line, row)
+                            or confirmed_geometry(replacement, source_raw, source_line, row, job, request)):
                         raise ValueError("A source-confirmed retry exception differs from its exact retained attempt")
                 elif successful(row):
                     raise ValueError("A successful retry strip cannot be silently replaced")
@@ -329,7 +463,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
                 used_supplements.add(key)
                 next_request = replacement["_request"]
                 next_jobs = {p["id"]: p for p in next_request["pages"]}
-                next_conditions = (*conditions, next_request.get("replacement_condition", {}).get("kind"))
+                next_conditions = (*conditions, replacement.get("replacement_condition", {}).get("kind"))
                 for part in replacement["records"]:
                     append_part(part, next_jobs[part["id"]], next_request, replacement["_raw"],
                                 replacement["_lines"][part["id"]], next_conditions)
@@ -424,10 +558,10 @@ def write_source_review(models, paths, output, source_evidence, strip_evidence, 
                 and d["manifest_sha256"] == parent_sha), None)
             if parent is None:
                 raise ValueError("Nested supplement lacks its reviewed parent attempt")
-            parent_review = next(r for r in parent["strip_reviews"]
-                                 if r["id"] == request["supplements"]["replaces_region"])
-            parent_review["reading_basis"] = "reviewed-supplement-parts"
-            parent_review.setdefault("completed_by_supplements", []).append(decision["manifest_sha256"])
+            for target in replacement_targets(request):
+                parent_review = next(r for r in parent["strip_reviews"] if r["id"] == target)
+                parent_review["reading_basis"] = "reviewed-supplement-parts"
+                parent_review.setdefault("completed_by_supplements", []).append(decision["manifest_sha256"])
     raw = encode(review)
     with tempfile.TemporaryDirectory() as temporary:
         path = Path(temporary) / "source-review.json"
