@@ -44,7 +44,7 @@ def test_boundary_review_changes_eligibility_without_supplying_a_word():
         unapply_review(compact, dict(before, text="ἄλλο"))
 
 
-@pytest.mark.parametrize("defect", ["one-group", "duplicate-group", "missing-hyphen", "different-ending", "different-beginning", "unverified-start", "missing-adjacency"])
+@pytest.mark.parametrize("defect", ["one-group", "duplicate-group", "missing-hyphen", "different-ending", "different-beginning", "unverified-start", "missing-adjacency", "existing-review"])
 def test_uncertain_boundaries_remain_unchanged(defect):
     previous, current, raw, arguments = fixture()
     if defect == "one-group":
@@ -59,6 +59,8 @@ def test_uncertain_boundaries_remain_unchanged(defect):
         current[0]["text"] = "ἄλλα κατὰ τὰ σημεῖα."
     elif defect == "unverified-start":
         arguments["body_start_evidence"] = {}
+    elif defect == "existing-review":
+        raw["ocr_consensus"]["reviewed_corrections"] = [{"review_id": "another-source"}]
     else:
         arguments["adjacency_evidence"] = ""
     assert exclude_leading_fragment(raw, previous, current, **arguments) == (raw, None, None)
