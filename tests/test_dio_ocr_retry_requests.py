@@ -8,6 +8,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import prepare_dio_ocr_retries as retry
+import prepare_dio_ocr_supplements as supplement
 
 
 def test_committed_retry_scope_preserves_every_pinned_original():
@@ -61,3 +62,21 @@ def test_changed_complete_manifest_is_rejected_before_any_output(tmp_path):
     with pytest.raises(ValueError, match="complete reviewed Dio manifest changed"):
         retry.prepare(path, [], tmp_path, tmp_path / "out")
     assert not (tmp_path / "out").exists()
+
+
+def test_supplements_keep_first_request_bytes_and_exact_parent_strip():
+    assert retry.sha((ROOT / supplement.PARENT).read_bytes()) == supplement.PARENT_SHA256
+    parent = json.loads((ROOT / supplement.PARENT).read_bytes())
+    target = "dio-cary-v6-pdf0206-reviewed-strip-1"
+    page = next(p for p in parent["pages"] if p["id"] == target)
+    regions = supplement.REGIONS[target]
+    assert regions[0][:3] == page["region"][:3]
+    assert regions[-1][3] == page["region"][3]
+    assert all(a[3] == b[1] for a, b in zip(regions, regions[1:]))
+    for key, pins in supplement.PINS.items():
+        suffix = "qwen38-child-strip" if key == "child" else key + "-supplementary"
+        request = json.loads((ROOT / retry.DIRECTORY / f"cassius-dio-{suffix}-retry-jobs.json").read_bytes())
+        assert set(request["review"]["original_predictions"]) == set(pins)
+        for identifier, pin in request["review"]["original_predictions"].items():
+            assert retry.sha(retry.encode({"metadata": pin["original_metadata"],
+                "prediction": pin["original_prediction"]})) == pins[identifier]
