@@ -127,6 +127,10 @@ def test_rejects_unknown_source_and_unaudited_edits(tmp_path):
 
 def test_critical_projection_cannot_silently_fall_back_to_marked_display():
     assert lexical_text({"text": "λόγος"}) == "λόγος"
+    assert lexical_text({"text": "⟦λόγος ∥ λογός⟧", "analysis_text": "", "ocr_consensus": {}}) == ""
+    assert lexical_text({"text": "uncertain", "analysis_text": "certain"}) == "certain"
+    with pytest.raises(ValueError, match="string"):
+        lexical_text({"text": "uncertain", "analysis_text": None})
     with pytest.raises(ValueError, match="projection"):
         lexical_text({"critical_markup": {"schema": "epidoc-spans-v1"}, "text": "δ[έ]"})
 
