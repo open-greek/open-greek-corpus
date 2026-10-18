@@ -783,6 +783,15 @@ prediction archives and all 60 distinct page identities, and includes false
 positives, missed cases, and operating limits. It also records that no automatic
 witness-selection rule is active.
 
+Before tagging, `python3 scripts/build_corpus_release.py --check` requires an
+existing release record and compares its complete stable contents with a fresh
+build: release ID and date, corpus and catalog pins, counts by source and
+license, and all quality measurements and evidence hashes. Only the recorded
+commit ID and commit date may differ after committing release metadata. Checks
+default to the version and date declared in `CITATION.cff`, preserving a suffix
+such as `.1`; explicit identity options must agree with those declarations.
+Creation still uses `corpus-<date>` unless `--release-id` is supplied.
+
 `make reports` refreshes the corpus polytonic report, the date comparison, and
 the five-work completeness review when their inputs change. For the latter,
 set `FIRST1K_DIR` and `PERSEUS_DIR` if the pinned source checkouts are outside
