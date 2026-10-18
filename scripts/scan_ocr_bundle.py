@@ -106,12 +106,20 @@ def _relation(original_raw, effective_raw, reviews):
         if old == new:
             continue
         identifier = old["id"]
-        if {k: v for k, v in old.items() if k != "region"} != {k: v for k, v in new.items() if k != "region"}:
-            raise ValueError("Reviewed substitution changes more than crop geometry")
+        allowed_fields = {"region", "prompt_suffix"}
+        if {k: v for k, v in old.items() if k not in allowed_fields} != {k: v for k, v in new.items() if k not in allowed_fields}:
+            raise ValueError("Reviewed substitution changes more than crop geometry or a page prompt suffix")
         entry = by_id.get(identifier, {})
         evidence = review.get("evidence", {}).get(entry.get("evidence_id"), {})
         expected = {"id": identifier, "source": old["source"], "scan_page": old["scan_page"],
                     "original_region": old.get("region", [0, 0, 1, 1]), "region": new.get("region", [0, 0, 1, 1])}
+        prompt_changed = old.get("prompt_suffix") != new.get("prompt_suffix") or ("prompt_suffix" in old) != ("prompt_suffix" in new)
+        if prompt_changed:
+            prompt_fields = {"original_prompt_suffix": old.get("prompt_suffix"), "prompt_suffix": new.get("prompt_suffix")}
+            if (any(key not in entry or key not in evidence for key in prompt_fields)
+                    or any(value is not None and not isinstance(value, str) for value in prompt_fields.values())):
+                raise ValueError("Page prompt change lacks exact original and reviewed suffix pins")
+            expected.update(prompt_fields)
         source_sha = original["sources"][old["source"]]["sha256"]
         reviewed_source = review.get("sources", {}).get(old["source"], {})
         if (any(entry.get(k) != v or evidence.get(k) != v for k, v in expected.items())
@@ -120,7 +128,7 @@ def _relation(original_raw, effective_raw, reviews):
                 or reviewed_source.get("sha256") != source_sha
                 or reviewed_source.get("url") != original["sources"][old["source"]]["url"]
                 or not re.fullmatch(r"[a-f0-9]{64}", evidence.get("contact_sheet_sha256", ""))):
-            raise ValueError("Crop substitution differs from its source-reviewed evidence")
+            raise ValueError("Crop or page-prompt substitution differs from its source-reviewed evidence")
         changed.add(identifier)
     if changed != set(by_id):
         raise ValueError("Crop review does not describe exactly the changed identities")
@@ -192,14 +200,18 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
                 if identifier not in pages:
                     raise ValueError("Nested bundle yielded an unknown source identity")
                 if identifier in changed:
-                    held.append({"id": identifier, "raw_part_sha256": sha(part_raw),
+                    decision = {"id": identifier, "raw_part_sha256": sha(part_raw),
                                  "original_manifest_sha256": sha(original_raw),
                                  "source_review_sha256": substitutions["source_review"]["sha256"],
                                  "source": pages[identifier]["source"], "scan_page": pages[identifier]["scan_page"],
                                  "original_region": substitution_by_id[identifier]["original_region"],
                                  "region": substitution_by_id[identifier]["region"],
                                  "evidence_id": substitution_by_id[identifier]["evidence_id"],
-                                 "reason": "Source-reviewed geometry superseded; original remains held evidence."})
+                                 "reason": "Source-reviewed geometry or page prompt superseded; original remains held evidence."}
+                    for field in ("original_prompt_suffix", "prompt_suffix"):
+                        if field in substitution_by_id[identifier]:
+                            decision[field] = substitution_by_id[identifier][field]
+                    held.append(decision)
                     continue
                 if identifier in eligible:
                     raise ValueError("Duplicate eligible OCR identity; explicit review is required")
