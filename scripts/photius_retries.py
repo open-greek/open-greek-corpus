@@ -102,6 +102,26 @@ def successful(row):
             and any("\u0370" <= c <= "\u03ff" or "\u1f00" <= c <= "\u1fff" for c in row["raw_prediction"]))
 
 
+def validate_retry_metadata(metadata, manifest):
+    """Keep the alternate decoding policy closed to its published runner."""
+    if not (metadata.get("generation_policy") or metadata.get("runner") == "scripts/run_reviewed_scan_retry.py"):
+        if metadata.get("temperature", 0) != 0:
+            raise ValueError("Unknown retry decoding policy")
+        return
+    from run_reviewed_scan_retry import POLICY
+    runtime = metadata.get("runtime", {})
+    if (not manifest.get("review") or metadata.get("generation_policy") != POLICY
+            or metadata.get("runner") != "scripts/run_reviewed_scan_retry.py"
+            or metadata.get("runner_sha256") != "70f0361c5dfcb8a2ec2e91385a4bf881afa93777c088a48a0435a52782334125"
+            or metadata.get("image_helper_sha256") != "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4"
+            or metadata.get("temperature") != POLICY["temperature"] or metadata.get("backend") != "http"
+            or (runtime.get("model"), runtime.get("revision")) != (metadata.get("model"), metadata.get("revision"))
+            or not isinstance(metadata.get("max_tokens"), int) or metadata["max_tokens"] < 1
+            or metadata.get("manifest_archive") != "manifests/" + sha(encode(manifest)) + ".json"
+            or not checkpoint_selected(manifest, (metadata.get("model"), metadata.get("revision")))):
+        raise ValueError("Retry decoding policy, runner, image helper, or runtime differs from its published authority")
+
+
 def confirmed_mark_stripping(replacement, raw, record_line, row):
     """Narrow exception for an exactly pinned, source-reviewed successful strip."""
     from report_polytonic_loss import POLICY, detect
@@ -135,8 +155,8 @@ def confirmed_repetition_loop(replacement, raw, record_line, row):
     return (measured["greek_word_runs"] == condition.get("greek_word_runs")
             and measured["most_repeated_phrase"]["occurrences"] == condition.get("most_repeated_phrase_occurrences")
             and measured["most_repeated_line"]["occurrences"] == condition.get("most_repeated_line_occurrences")
-            and measured["most_repeated_phrase"]["occurrences"] >= REPETITION_POLICY["minimum_identical_phrase_occurrences"]
-            and measured["most_repeated_line"]["occurrences"] >= REPETITION_POLICY["minimum_identical_line_occurrences"])
+            and (measured["most_repeated_phrase"]["occurrences"] >= REPETITION_POLICY["minimum_identical_phrase_occurrences"]
+                 or measured["most_repeated_line"]["occurrences"] >= REPETITION_POLICY["minimum_identical_line_occurrences"]))
 
 
 def load_supplements(paths, review, manifest, originals):
@@ -145,9 +165,12 @@ def load_supplements(paths, review, manifest, originals):
     if len(wanted) != len(decisions) or len(wanted) != len(paths) or set(wanted) != {sha(p.read_bytes()) for p in paths}:
         raise ValueError("Retry supplement lacks its exact completed review")
     supplements, retained = {}, {}
+    base_sha = sha(encode(manifest))
+    authorities = {base_sha: (None, manifest), **known_supplement_manifests()}
     for path in sorted(paths, key=lambda value: sha(value.read_bytes())):
         raw = path.read_bytes()
-        rows = [json.loads(line) for line in raw.splitlines() if line.strip()]
+        lines = [line for line in raw.splitlines() if line.strip()]
+        rows = [json.loads(line) for line in lines]
         if not rows or "_meta" not in rows[0] or any("_meta" in row for row in rows[1:]):
             raise ValueError("Ambiguous retry supplement prediction metadata")
         meta, records = rows[0]["_meta"], rows[1:]
@@ -156,6 +179,7 @@ def load_supplements(paths, review, manifest, originals):
         if authority is None:
             raise ValueError("Unknown source-reviewed supplement authority")
         authority_path, request = authority
+        validate_retry_metadata(meta, request)
         model = meta.get("model")
         original = originals.get(model)
         if (not original or meta.get("revision") != original[1]["revision"]
@@ -164,10 +188,19 @@ def load_supplements(paths, review, manifest, originals):
                 or not checkpoint_selected(request, (model, meta["revision"]))
                 or meta.get("prompt") != request["prompt"]
                 or request["sources"] != manifest["sources"]
-                or request["supplements"]["manifest_sha256"] != sha(encode(manifest))
                 or request["supplements"]["page_id"] != manifest["retry_of"]["page_id"]):
             raise ValueError("Retry supplement differs from its pinned parent or checkpoint")
-        parent_review = next((r for r in review.get("strip_reviews", [])
+        parent_sha = request["supplements"]["manifest_sha256"]
+        parent_authority = authorities.get(parent_sha)
+        if (parent_authority is None or (parent_sha != base_sha
+                and request["supplements"]["manifest_path"] != parent_authority[0])):
+            raise ValueError("Retry supplement lacks its exact parent authority")
+        parent_request = parent_authority[1]
+        if request["supplements"]["replaces_region"] not in {p["id"] for p in parent_request["pages"]}:
+            raise ValueError("Retry supplement names an unknown parent region")
+        parent_decision = review if parent_sha == base_sha else next((d for d in decisions
+            if d.get("model") == model and d.get("manifest_sha256") == parent_sha), {})
+        parent_review = next((r for r in parent_decision.get("strip_reviews", [])
                               if r.get("id") == request["supplements"]["replaces_region"]), {})
         if (parent_review.get("reading_basis") != "reviewed-supplement-parts"
                 or sha(encode(request)) not in parent_review.get("completed_by_supplements", [])):
@@ -185,28 +218,33 @@ def load_supplements(paths, review, manifest, originals):
         for job in sorted(expected.values(), key=lambda page: page["reading_order"]):
             row = by_id[job["id"]]
             validate_record(row, job, request)
-            if not successful(row):
-                raise ValueError("Retry supplement is failed, truncated, or lacks Greek text")
-            if request.get("replacement_condition", {}).get("kind") == "source-confirmed-polytonic-mark-stripping":
-                from report_polytonic_loss import detect
-                if detect(row["raw_prediction"])["flag"]:
-                    raise ValueError("Mark-loss supplement still strips polytonic marks")
-            if request.get("replacement_condition", {}).get("kind") == "source-confirmed-repetition-loop":
-                from audit_photius_fresh import screen
-                if set(screen(row["raw_prediction"])["review_flags"]) & {
-                        "identical-word-run", "repeated-eight-word-phrase", "repeated-output-line"}:
-                    raise ValueError("Repetition-loop supplement still repeats unreviewed text")
             ordered.append(row)
         key = (model, request["supplements"]["replaces_region"])
         if key in supplements:
             raise ValueError("A retry strip cannot receive duplicate supplement votes")
         supplements[key] = {"records": ordered, "manifest_sha256": sha(encode(request)),
-                            "raw_file_sha256": sha(raw), "review_decision_sha256": sha(encode(decision))}
+                            "raw_file_sha256": sha(raw), "review_decision_sha256": sha(encode(decision)),
+                            "_request": request, "_raw": raw,
+                            "_lines": {r["id"]: line for r, line in zip(records, lines[1:])}}
         if request.get("replacement_condition"):
             supplements[key]["replacement_condition"] = request["replacement_condition"]
         group = retained.setdefault(sha(encode(request)), {"manifest": request, "manifest_path": authority_path,
                                                          "manifest_sha256": sha(encode(request)), "raw_files": []})
         group["raw_files"].append({"raw": raw, "sha256": sha(raw), "metadata": meta})
+    # Every nested authority must reach this base through supplied, reviewed raw
+    # attempts for the same family; a known but absent parent is insufficient.
+    for (model, _), replacement in supplements.items():
+        current, visited = replacement["_request"], set()
+        while current["supplements"]["manifest_sha256"] != base_sha:
+            parent_sha = current["supplements"]["manifest_sha256"]
+            if parent_sha in visited:
+                raise ValueError("Cyclic retry supplement authority")
+            visited.add(parent_sha)
+            parents = [value for (family, _), value in supplements.items()
+                       if family == model and value["manifest_sha256"] == parent_sha]
+            if len(parents) != 1:
+                raise ValueError("Nested retry supplement lacks its retained parent attempt")
+            current = parents[0]["_request"]
     return supplements, [retained[key] for key in sorted(retained)]
 
 
@@ -257,6 +295,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
         if not rows or "_meta" not in rows[0] or any("_meta" in row for row in rows[1:]):
             raise ValueError("Ambiguous retry prediction metadata")
         meta, records = rows[0]["_meta"], rows[1:]
+        validate_retry_metadata(meta, manifest)
         model = meta.get("model")
         original = originals.get(model)
         run = runs[sha(raw)]
@@ -268,33 +307,58 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
             raise ValueError("Retry must contain every reviewed strip exactly once")
         by_id = {row["id"]: row for row in records}
         lines_by_id = {row["id"]: line for row, line in zip(records, record_lines[1:])}
-        ordered, held_strips, used_for_model = [], [], []
-        for job in sorted(expected.values(), key=lambda page: page["reading_order"]):
-            row = by_id[job["id"]]
-            validate_record(row, job, manifest)
+        ordered, held_strips, held_sources, used_for_model = [], [], [], []
+
+        def append_part(row, job, request, source_raw, source_line, conditions=()):
+            validate_record(row, job, request)
             key = (model, job["id"])
             replacement = supplements.get(key)
-            if successful(row) and replacement is not None:
-                if not (confirmed_mark_stripping(replacement, raw, lines_by_id[job["id"]], row)
-                        or confirmed_repetition_loop(replacement, raw, lines_by_id[job["id"]], row)):
+            if replacement is not None:
+                # Explicit successful-strip exceptions must match their exact
+                # retained attempt even if a caller changes its termination.
+                if replacement.get("replacement_condition"):
+                    if not (confirmed_mark_stripping(replacement, source_raw, source_line, row)
+                            or confirmed_repetition_loop(replacement, source_raw, source_line, row)):
+                        raise ValueError("A source-confirmed retry exception differs from its exact retained attempt")
+                elif successful(row):
                     raise ValueError("A successful retry strip cannot be silently replaced")
-            if not successful(row) or replacement is not None:
-                if replacement is None:
-                    raise ValueError("Retry strip is failed, truncated, or lacks Greek text")
                 held_strips.append(row)
-                ordered.extend(replacement["records"])
-                used_for_model.append(replacement)
+                held_sources.append({"id": row["id"], "manifest_sha256": sha(encode(request)),
+                                     "raw_file_sha256": sha(source_raw)})
+                used_for_model.append({k: v for k, v in replacement.items() if not k.startswith("_")})
                 used_supplements.add(key)
-                continue
+                next_request = replacement["_request"]
+                next_jobs = {p["id"]: p for p in next_request["pages"]}
+                next_conditions = (*conditions, next_request.get("replacement_condition", {}).get("kind"))
+                for part in replacement["records"]:
+                    append_part(part, next_jobs[part["id"]], next_request, replacement["_raw"],
+                                replacement["_lines"][part["id"]], next_conditions)
+                return
+            if not successful(row):
+                label = "Retry supplement" if request.get("supplements") else "Retry strip"
+                raise ValueError(label + " is failed, truncated, or lacks Greek text")
+            if "source-confirmed-polytonic-mark-stripping" in conditions:
+                from report_polytonic_loss import detect
+                if detect(row["raw_prediction"])["flag"]:
+                    raise ValueError("Mark-loss supplement still strips polytonic marks")
+            if "source-confirmed-repetition-loop" in conditions:
+                from audit_photius_fresh import screen
+                if set(screen(row["raw_prediction"])["review_flags"]) & {
+                        "identical-word-run", "repeated-eight-word-phrase", "repeated-output-line"}:
+                    raise ValueError("Repetition-loop supplement still repeats unreviewed text")
             image = row.get("image_sha256")
             if not isinstance(image, str) or len(image) != 64 or images.setdefault(job["id"], image) != image:
                 raise ValueError("Retry checkpoints used different source images")
             ordered.append(row)
+
+        for job in sorted(expected.values(), key=lambda page: page["reading_order"]):
+            append_part(by_id[job["id"]], job, manifest, raw, lines_by_id[job["id"]])
         text = "\n\n".join(row["raw_prediction"].strip() for row in ordered)
         identity = {"model": model, "revision": meta["revision"], "manifest_sha256": sha(manifest_raw),
                     "source_review_sha256": sha(review_raw), "raw_file_sha256": sha(raw), "strips": ordered}
         if held_strips:
-            identity.update(held_retry_strips=held_strips, supplements=used_for_model)
+            identity.update(held_retry_strips=held_strips, held_retry_strip_sources=held_sources,
+                            supplements=used_for_model)
         assembly = {**identity, "artifact_sha256": sha(encode(identity)), "accepted_text": text,
                     "reading_order": [row["id"] for row in ordered],
                     "original_record": original[2], "original_raw_file_sha256": sha(original[0]),
@@ -345,13 +409,24 @@ def write_source_review(models, paths, output, source_evidence, strip_evidence, 
             if authority is None:
                 raise ValueError("Unknown source-reviewed supplement authority")
             request = authority[1]
-            parent_review = next(r for r in review["strip_reviews"] if r["id"] == request["supplements"]["replaces_region"])
-            parent_review["reading_basis"] = "reviewed-supplement-parts"
-            parent_review.setdefault("completed_by_supplements", []).append(meta["manifest_sha256"])
             review["reviewed_supplements"].append({"sha256": sha(raw), "model": meta["model"],
                 "revision": meta["revision"], "manifest_sha256": meta["manifest_sha256"],
                 "strip_reviews": [{"id": page["id"], "source_evidence": (supplement_evidence or {})[page["id"]],
                                    "reading_complete": True, "apparatus_excluded": True} for page in request["pages"]]})
+        # Create every decision before linking its parent, so raw-file ordering
+        # cannot decide whether a nested completion is admissible.
+        for decision in review["reviewed_supplements"]:
+            request = known_supplement_manifests()[decision["manifest_sha256"]][1]
+            parent_sha = request["supplements"]["manifest_sha256"]
+            parent = review if parent_sha == review["manifest_sha256"] else next((d
+                for d in review["reviewed_supplements"] if d["model"] == decision["model"]
+                and d["manifest_sha256"] == parent_sha), None)
+            if parent is None:
+                raise ValueError("Nested supplement lacks its reviewed parent attempt")
+            parent_review = next(r for r in parent["strip_reviews"]
+                                 if r["id"] == request["supplements"]["replaces_region"])
+            parent_review["reading_basis"] = "reviewed-supplement-parts"
+            parent_review.setdefault("completed_by_supplements", []).append(decision["manifest_sha256"])
     raw = encode(review)
     with tempfile.TemporaryDirectory() as temporary:
         path = Path(temporary) / "source-review.json"

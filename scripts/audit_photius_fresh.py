@@ -10,7 +10,7 @@ import re
 import unicodedata
 
 from prepare_photius_coverage import ROOT, build, build_later_gap
-from photius_retries import known_retry_manifests, known_supplement_manifests
+from photius_retries import known_retry_manifests, known_supplement_manifests, validate_retry_metadata
 from report_polytonic_loss import POLICY, detect
 
 
@@ -109,6 +109,7 @@ def audit(paths):
         manifest = authority.get(meta.get("manifest_sha256"))
         if manifest is None or meta.get("prompt") != manifest["prompt"]:
             raise ValueError("Unknown pinned Photius request or prompt")
+        validate_retry_metadata(meta, manifest)
         jobs = {page["id"]: page for page in manifest["pages"]}
         present = set()
         for line, row in zip(lines[1:], values[1:]):
