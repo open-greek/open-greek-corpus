@@ -33,6 +33,13 @@ REPETITION_POLICY = {
     "purpose": "Source-review candidates only; intentional repetition and sparse source pages can trigger these rules. No text selection or correction.",
 }
 
+APPARATUS_POLICY = {
+    "editorial_terms": ["add", "om", "post", "corr", "malim", "cod", "mss", "Rothomagensis",
+                        "Hoeschel", "Schott", "Scaliger", "Casaubon", "Fabricius", "Ruhnken"],
+    "numbered_note_line_pattern": r"^[abαβ]\.\s*\d{1,2}\.",
+    "purpose": "Candidate screen for critical notes among fresh Photius body predictions. A source review must establish the role; Greek-only apparatus may escape this screen.",
+}
+
 
 def words(text):
     return re.findall(r"[Ͱ-Ͽἀ-῿]+", unicodedata.normalize("NFC", text))
@@ -56,6 +63,10 @@ def repetition(text):
 def screen(text, finish_reason="stop", error=None):
     marks = detect(text)
     repeat = repetition(text)
+    terms = {term: len(re.findall(r"\b" + re.escape(term) + r"\b", text, flags=re.I))
+             for term in APPARATUS_POLICY["editorial_terms"]}
+    terms = {term: count for term, count in terms.items() if count}
+    note_lines = len(re.findall(APPARATUS_POLICY["numbered_note_line_pattern"], text, flags=re.M))
     reasons = []
     if error or finish_reason != "stop":
         reasons.append("failed-or-length-terminated-outcome")
@@ -69,7 +80,11 @@ def screen(text, finish_reason="stop", error=None):
         reasons.append("repeated-output-line")
     if len(text) < REPETITION_POLICY["minimum_output_characters"]:
         reasons.append("short-output-needs-source-coverage-check")
-    return {"characters": len(text), "polytonic": marks, "repetition": repeat, "review_flags": reasons}
+    if terms or note_lines:
+        reasons.append("editorial-apparatus-candidate")
+    return {"characters": len(text), "polytonic": marks, "repetition": repeat,
+            "apparatus_candidates": {"editorial_term_occurrences": terms, "numbered_note_lines": note_lines},
+            "review_flags": reasons}
 
 
 def audit(paths):
@@ -136,7 +151,7 @@ def audit(paths):
     return {"schema_version": 1, "work": "photius.bibliotheca",
             "scope": "All supplied retained outcomes, including failures; a partial snapshot does not establish full page coverage.",
             "frozen_mark_policy": {"path": "data/evaluation/polytonic-loss/policy.json", "sha256": sha(policy_raw)},
-            "repetition_policy": REPETITION_POLICY, "raw_files": files,
+            "repetition_policy": REPETITION_POLICY, "apparatus_policy": APPARATUS_POLICY, "raw_files": files,
             "outcome_count": len(rows), "flagged_outcomes": sum(bool(row["review_flags"]) for row in rows),
             "flag_counts": dict(sorted(Counter(flag for row in rows for flag in row["review_flags"]).items())),
             "outcomes": rows, "selection_rule": None,
