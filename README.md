@@ -755,8 +755,13 @@ audit. The combined scan repeats printed pages 334-335 in place of 434-435;
 those genuine pages remain in historical keys 169-170 from the separate 1825
 volume. Coverage positions therefore describe the complete printed sequence,
 while physical citations retain their actual scan source and exceptions.
-The unchanged historical OCR can still contain Greek critical apparatus;
-complete edition-page coverage does not establish an apparatus-free text.
+The unchanged historical OCR can still contain critical apparatus among its
+primary rows. `scripts/audit_photius_apparatus.py --write` reproduces the audit
+in `data/audits/photius-historical-apparatus.json`; `--check` verifies it. Ten
+rows are confirmed against printed page 334, while 189 rows across 96 pages
+are only screening candidates. Coverage of the printed sequence does not
+certify that every historical row is authorial text; no candidates are removed
+automatically. The remaining separation is tracked in issue #60.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
