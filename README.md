@@ -837,6 +837,14 @@ Conica IV's letter as a visible continuation of the preceding leaf's `ὅμο-`,
 while excluding it from independent word counts. Its named eligibility review
 pins both cropped images, preserves the raw consensus, and supplies the same
 separate reversal operation without inventing a joined reading.
+The reusable `scripts/ocr_boundary_fragments.py` applies the same eligibility
+principle only after a caller verifies consecutive leaves in one reading stream
+and the current body start. At least two independent runs must agree on the
+preceding hyphenated token and following initial token. The mathematical importer
+checks consecutive printed pages within one book, removes only audited running
+headers, and holds title-like starts and proposition labels. Every admitted
+exclusion retains both boundary readings and the unchanged original network;
+uncertain boundaries remain untouched.
 `scan_coverage_extensions.coverage_scope()` supplies the public manifestation
 scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.
