@@ -174,8 +174,9 @@ def _scan_extensions(root):
     index_path = root / "data/corpus_extension_index.json"
     if not index_path.exists():
         return {}
-    output = {}
-    for slug, entry in sorted(_load(index_path).get("works", {}).items()):
+    output, comparative_ids = {}, {}
+    catalog = _load(index_path)
+    for slug, entry in sorted(catalog.get("works", {}).items()):
         if slug not in SCAN_WORKS:
             continue
         extension = _verify(root, entry["path"], entry["sha256"])
@@ -289,7 +290,88 @@ def _scan_extensions(root):
             "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. " +
                 ("Dio's direct text, excerpt supplements, epitomes, and unassigned early fragments remain distinct; the direct-text lacuna after 55.9.4 remains qualified." if editor == "Cary" else
                  "This edition's surviving book coverage does not redefine the complete ancient Work.")}}
+        comparative_ids[slug] = set(selected) - set(pages)
+    _attach_scan_comparisons(root, catalog, output, comparative_ids)
     return output
+
+
+def _attach_scan_comparisons(root, catalog, output, comparative_ids):
+    """Credit separately served comparisons without claiming primary coverage."""
+    for slug, entries in sorted(catalog.get("comparative_admissions", {}).items()):
+        if slug not in SCAN_WORKS:
+            continue
+        seen, datasets, sources, components, licenses = set(), [], {}, {}, set()
+        verified_digital = set()
+        for entry in entries:
+            dataset = _verify(root, entry["path"], entry["sha256"])
+            audit_path = _path(root, entry["audit"])
+            audit = _load(audit_path)
+            manifest_path = audit_path.parent / "manifest.json"
+            if _sha(manifest_path) != entry["manifest_sha256"] or audit["manifest_sha256"] != entry["manifest_sha256"]:
+                raise ValueError("Comparison admission manifest changed")
+            manifest = _load(manifest_path)
+            selected = {p["id"]: p for p in manifest["pages"] if p["work"] == slug and p.get("admission") == "comparative-paratext"}
+            expected = entry["regions"]
+            if len(set(expected)) != len(expected) or set(expected) != set(selected) or seen & set(expected):
+                raise ValueError("Comparison admission repeats or changes its source region set")
+            if audit.get("comparative_admissions", {}).get(slug) != entry or audit["outputs"].get(entry["path"]) != entry["sha256"]:
+                raise ValueError("Comparison dataset differs from its admission audit")
+            decisions = [d for d in audit["changes"] if d["work"] == slug and d["destination"] == "paratext"]
+            if len(decisions) != len(expected) or {d["region_id"] for d in decisions} != set(expected):
+                raise ValueError("Comparison source decisions are incomplete")
+            if audit.get("word_networks_sha256"):
+                _verify(root, str((audit_path.parent / "word-networks.json.gz").relative_to(root)), audit["word_networks_sha256"])
+            identities = []
+            with dataset.open(encoding="utf-8") as stream:
+                for line in stream:
+                    if not line.strip():
+                        continue
+                    row = json.loads(line)
+                    if row.get("urn") != slug:
+                        continue
+                    identifier = row["scan_region_id"]
+                    if identifier not in selected or row.get("kind") != "comparative-quotation":
+                        raise ValueError("Comparison source row changed its routing destination")
+                    identities.append(identifier)
+                    licenses.add(row["license"])
+                    for component in row.get("component_attribution", []):
+                        if audit.get("digital_sources", {}).get(component["id"]) != component:
+                            raise ValueError("Comparison digital-source credits changed")
+                        identity = (entry["audit"], component["id"])
+                        if identity not in verified_digital:
+                            _verify_compressed_source(root, str((audit_path.parent / ("digital-" + component["id"] + ".json.gz")).relative_to(root)), component["json_sha256"])
+                            verified_digital.add(identity)
+                        if component["id"] in components and components[component["id"]] != component:
+                            raise ValueError("Comparison digital-source identity changed")
+                        components[component["id"]] = component
+            if identities != expected:
+                raise ValueError("Comparison dataset region order or count changed")
+            for page in selected.values():
+                source = {"id": page["source"], **manifest["sources"][page["source"]]}
+                if source["id"] in sources and sources[source["id"]] != source:
+                    raise ValueError("Comparison source edition changed between admissions")
+                sources[source["id"]] = source
+            seen.update(expected)
+            datasets.append({**entry, "audit_sha256": _sha(audit_path), "comparative_regions": len(expected)})
+        if not datasets:
+            continue
+        source_editions = [sources[key] for key in sorted(sources)]
+        public_domain = {"PD", "public-domain", "CC0/PD"}
+        license = "PD" if licenses <= public_domain else "CC-BY-SA-4.0" if "CC-BY-SA-4.0" in licenses else "; ".join(sorted(licenses))
+        edition = _edition("scan-consensus-2026-10-18-comparisons", "Reviewed scan comparison quotations (separate from primary text)",
+            scheme="volume.printed-page", source="; ".join(s["url"] for s in source_editions), license=license,
+            storage="paratext", servable=False,
+            note="Comparative quotations retain their own authorship and transmission labels and do not extend primary Work coverage or ordinary frequency counts.")
+        value = output.setdefault(slug, {"editions": [], "coverage_composition": {
+            "policy": "reviewed-comparison-regions-only", "components": [],
+            "qualification": "Only separate comparison quotations have been admitted; this does not add primary Work passages or reconstruct ancient losses."}})
+        value["editions"].append(edition)
+        composition = value["coverage_composition"]
+        composition.update({"comparative_policy": "separate-comparison-datasets-excluded-from-primary-frequencies",
+            "comparative_admissions": datasets, "comparative_regions": len(seen | comparative_ids.get(slug, set())),
+            "comparative_source_editions": source_editions,
+            "comparative_digital_components": [components[key] for key in sorted(components)]})
+        composition["components"].append({"edition": edition["key"], "storage": "paratext", "passages": len(seen), "license": license})
 
 
 def _photius(root):

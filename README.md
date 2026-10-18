@@ -487,6 +487,10 @@ Successive scan admissions retain every manifest and audit, with each addition's
 reading digest verified within the consolidated extension. Conica's separately
 reviewed Book IV opening letter therefore retains its evidence when Books I–III
 are admitted in another batch.
+Separately served comparison quotations receive their own nonprimary edition
+credit and `comparative_admissions` metadata. Their exact dataset, manifest,
+audit, licenses, and source components are checked even when admitted before
+the primary additions; they do not add primary passages or frequency counts.
 Run `python3 scripts/reviewed_manifestations.py --write` to refresh an existing
 registry or `--check` to verify it. Photius's new consensus includes Source
 Library CC BY-SA 4.0 readings, alongside retained PD text and separately credited

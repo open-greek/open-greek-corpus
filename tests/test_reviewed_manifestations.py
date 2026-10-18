@@ -316,3 +316,66 @@ def test_cyril_complementary_volume_licenses_and_boundary_counts_survive(tmp_pat
     assert work.editions[slug + ".calfa-pg73-5895ab908dd4"].license == "CC-BY-4.0"
     assert work.editions[slug + ".migne-pg74-gap-consensus-2026-10"].license == "PD"
     assert "does not reconstruct lost" in work.coverage_composition["qualification"]
+
+
+def comparison_fixture(root, slug, license="PD"):
+    directory = "data/corpus_changes/scan-comparison-only"
+    dataset = "data/paratext/scan-comparison-only.jsonl"
+    source = {"url": "https://example.org/scan.pdf", "sha256": "source-digest",
+              "license": "public-domain", "citation": "Checked printed edition"}
+    manifest_sha = put(root, directory + "/manifest.json", {"sources": {"scan": source}, "pages": [
+        {"id": "comparison", "work": slug, "source": "scan", "admission": "comparative-paratext"}]})
+    row = {"urn": slug, "kind": "comparative-quotation", "scan_region_id": "comparison", "license": license,
+           "text": "Separate source comparison"}
+    data_sha = put(root, dataset, (json.dumps(row, ensure_ascii=False) + "\n").encode())
+    network_sha = put(root, directory + "/word-networks.json.gz", b"opaque retained network")
+    entry = {"audit": directory + "/changes.json", "path": dataset, "sha256": data_sha,
+             "manifest_sha256": manifest_sha, "regions": ["comparison"]}
+    put(root, directory + "/changes.json", {"manifest_sha256": manifest_sha,
+        "word_networks_sha256": network_sha, "comparative_admissions": {slug: entry},
+        "outputs": {dataset: data_sha}, "changes": [
+            {"work": slug, "region_id": "comparison", "destination": "paratext"}]})
+    index = root / "data/corpus_extension_index.json"
+    value = json.loads(index.read_text()) if index.exists() else {"works": {}}
+    value["comparative_admissions"] = {slug: [entry]}
+    put(root, "data/corpus_extension_index.json", value)
+    return dataset
+
+
+@pytest.mark.parametrize("license", ["PD", "CC-BY-SA-4.0"])
+def test_comparison_only_metadata_preserves_primary_and_exact_license(tmp_path, license):
+    slug = "cassius-dio.historiae-romanae"
+    dataset = comparison_fixture(tmp_path, slug, license)
+    reg = registry(slug)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    work = reg.works[slug]
+    assert work.default_edition == slug + ".base"
+    assert work.title == "Unqualified Work title"
+    assert work.coverage_composition["policy"] == "reviewed-comparison-regions-only"
+    assert "added_primary_regions" not in work.coverage_composition
+    assert work.coverage_composition["comparative_regions"] == 1
+    edition = work.editions[slug + ".scan-consensus-2026-10-18-comparisons"]
+    assert edition.storage == "paratext" and not edition.servable
+    assert edition.license == license
+    assert work.coverage_composition["comparative_source_editions"][0]["license"] == "public-domain"
+    before = json.dumps(work.coverage_composition, sort_keys=True)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    assert json.dumps(work.coverage_composition, sort_keys=True) == before
+    (tmp_path / dataset).write_bytes(b"changed")
+    with pytest.raises(ValueError, match="evidence changed"):
+        reviewed.register_reviewed_manifestations(reg, tmp_path)
+
+
+def test_primary_and_separate_comparison_metadata_do_not_double_count(tmp_path):
+    slug = "cassius-dio.historiae-romanae"
+    scan_fixture(tmp_path, slug)
+    comparison_fixture(tmp_path, slug)
+    reg = registry(slug)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    composition = reg.works[slug].coverage_composition
+    assert composition["policy"] == "reviewed-primary-region-union"
+    assert composition["added_primary_regions"] == 1
+    assert composition["comparative_regions"] == 1
+    assert len(composition["comparative_admissions"]) == 1
+    assert reg.works[slug].editions[slug + ".scan-consensus-2026-10-18"].license == "PD"
+    assert composition["components"][-1]["storage"] == "paratext"
