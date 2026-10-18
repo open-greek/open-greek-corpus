@@ -71,7 +71,7 @@ def validate_passage_aliases(aliases: dict, works: dict) -> dict:
                 directory = "corpus_secondary" if storage == "secondary" else "corpus"
                 if storage not in {"primary", "secondary"} or slug not in works or relative.as_posix() != f"data/{directory}/{slug}.jsonl":
                     raise ValueError(f"Invalid passage alias work: {slug}")
-            elif not relative.as_posix().startswith("data/paratext/"):
+            elif not relative.as_posix().startswith(("data/paratext/", "data/ocr_witnesses/")):
                 raise ValueError(f"Invalid passage alias destination: {relative}")
             if relative not in destinations:
                 destinations[relative] = {json.loads(line)["locus"]
@@ -335,6 +335,8 @@ def _title_from_desc(desc: str) -> str:
 
 
 def build(write: bool = True) -> dict:
+    from critical_text import load_critical_editions, index_metadata
+    critical = load_critical_editions(DATA)
     ce = load_json(CORPUS_EDITIONS, {})
     tc = load_json(TLG_CROSSWALK, {})
     reg = load_json(SOURCE_REGISTRY, {"works": {}, "authors": {}})
@@ -519,6 +521,8 @@ def build(write: bool = True) -> dict:
                 "n_tokens": man.get("n_tokens"),
             }),
         }
+        if slug in critical:
+            works[slug]["critical_edition"] = index_metadata(critical[slug])
         if metadata_slug != slug:
             works[slug]["metadata_from"] = metadata_slug
         witness = pseudo_works.get(slug, {}).get("volume_witness")

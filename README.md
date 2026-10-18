@@ -603,6 +603,16 @@ under `data/ingest_reviews/coverage/`. They identify the Greek leaves individual
 including alternate scan leaves where a scan repeats earlier Pappus pages;
 they are OCR inputs, not assertions that new text has already been served.
 
+Cyril's John commentary combines the complementary PG 73 and PG 74 witnesses
+through `scripts/repair_john_coverage.py`. Calfa's pinned CC BY 4.0 PG 73 OCR
+retains its original marker positions and spelling; raw bytes are archived under
+`data/reference/calfa-pg73/`. Three missing PG 74 leaves receive independent OCR
+witnesses with explicit unresolved readings. The four volume-title rows are
+paratext. The 474 Acts and Romans rows formerly appended to John remain in
+`data/ocr_witnesses/cyril-pg74-other-works.jsonl`, with historical passage
+redirects and a reversible audit. The edition's Books VII and VIII are transmitted
+as fragments; this import does not reconstruct their lost continuous text.
+
 `scripts/prepare_dio_ocr.py` selects 1,500 Greek regions from 1,217 physical
 spreads in Cary volumes I, II, and VI–IX for the missing transmitted Dio
 material. English facing panels, modern front matter and indexes are excluded.
