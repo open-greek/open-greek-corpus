@@ -8,6 +8,18 @@ from pathlib import Path
 from prepare_photius_coverage import ROOT, build, build_later_gap
 
 CHECKPOINT38 = {"model": "Qwen/Qwen3.8-27B-FP8", "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"}
+CHECKPOINT36 = {"model": "Qwen/Qwen3.6-27B", "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"}
+
+
+def column_strips(top, bottom, left_cuts, right_cuts):
+    result = []
+    for side, x0, x1, cuts in (("left", .045, .495, left_cuts), ("right", .505, .97, right_cuts)):
+        limits = [top, *cuts, bottom]
+        result.extend((f"{side}-{name}", [x0, low, x1, high])
+                      for name, low, high in zip(("upper", "middle", "lower"), limits, limits[1:]))
+    return result
+
+
 REVIEWS = {
     47: {"cut": .458, "top": .065, "bottom": .848,
          "evidence": "Printed page 35 begins codex 70, continues codex 71 from the left-column foot into the right-column top, then begins codex 72. The four crop boundaries retain complete authorial lines and stop above the smaller apparatus. The horizontal split at .458 lies in a blank interline gap in both columns.",
@@ -23,6 +35,17 @@ REVIEWS = {
                     ("right-lower", [.505, .580, .97, .840])],
          "evidence": "Printed page75 continues the dramatic narrative in two columns. The six strips retain every large Greek body line, including the lower right paragraph beginning Ἀλλ’ ὅ γε Τύρος καὶ Εὐφράτης. Both horizontal boundaries lie between complete lines; the bottom at.840 stops above the smaller apparatus beginning at.850. Reading order is the entire left column followed by the entire right column.",
          "failure": "The original Qwen3.8 page attempt reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
+    105: {"strips": column_strips(.061, .840, [.340, .601], [.322, .620]),
+          "evidence": "Printed page93 contains the continuation of the Origen-related notice, codex119 on Pierius, and the opening of codex120 on Epiphanius. The six strips retain the complete large body in column order. Left boundaries fall before a new paragraph and the119 heading; the lower right boundary falls before the120 heading. Enlarged boundary checks include descenders and exclude the smaller apparatus below.840.",
+          "failure": "The original Qwen3.8 page attempt reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
+    109: {"strips": column_strips(.070, .850, [.383, .588], [.387, .611]),
+          "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page97 includes codex131, the grouped132–135 notices, codices136/137 at the left foot, and codex138 on Eunomius in the right column. The enlarged boundary review preserves every large Greek line and heading, including descenders. Left splits fall between paragraphs and before the136 heading. The bottom at.850 falls between the last body line and smaller apparatus; column order is unchanged.",
+          "failure": "The original Qwen3.6 page attempt reaches its output limit. The successful Qwen3.8 whole-page reading remains its vote."},
+    112: {"strips": column_strips(.063, .844, [.285, .587], [.3425, .605]),
+          "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page100 continues the lexicon notices153–158. The left splits precede the154 and157 headings. The right splits lie between complete body lines, checked with enlarged source crops to preserve descenders. The bottom at.844 retains the final body lines in both columns and stops above the smaller apparatus. Every authorial line remains in left-then-right column order.",
+          "failure": "The original Qwen3.6 page attempt reaches its output limit. The successful Qwen3.8 whole-page reading remains its vote."},
 }
 
 SUPPLEMENT_REVIEWS = {

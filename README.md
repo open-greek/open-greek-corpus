@@ -828,6 +828,9 @@ completed review, rejects replacement of a successful strip, and retains the
 failed retry alongside the successful siblings. The report archives each
 supplement request and raw file. `prepare_report_inputs` replays these archive
 pins through the same strict admission checks used for the original import.
+The same preparation table pins six-strip requests for scan105 in Qwen3.8 and
+scans109/112 in Qwen3.6. Each request lists its own failed checkpoint; the other
+model's successful whole-page reading stays in the consensus.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
