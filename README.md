@@ -804,6 +804,11 @@ the retained retries with `--retry` and `--retry-review`; it validates every
 original run, crop, prompt, image, checkpoint, prediction hash, and review pin.
 The audit archives the failed original page, all retry readings, the request,
 and the completed source review. Retrying a model never creates another vote.
+Additional failed pages can have checkpoint-specific source-reviewed requests.
+`scripts/prepare_photius_retries.py` pins four enlarged body strips for scans
+47 and 50, where Qwen3.8 loops. These requests list only that checkpoint;
+the successful Qwen3.6 whole-page readings remain its votes. The original
+attempts and all retry outputs stay retained for a completed source review.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
