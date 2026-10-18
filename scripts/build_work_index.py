@@ -46,12 +46,17 @@ WORK_INDEX = DATA / "work_index.json"
 SERVING_DEFICITS = DATA / "serving_deficits.json"
 WORK_METADATA_REMAPS = DATA / "work_metadata_remaps.json"
 PASSAGE_ALIASES = DATA / "passage_aliases.json"
+CITATION_ALIASES = DATA / "citation_aliases.json"
 REPO = DATA.parent
 
 
 def load_passage_aliases(path: Path, works: dict) -> dict:
     """Validate historical passage destinations, including preserved paratext."""
     aliases = load_json(path, {}).get("aliases", {})
+    return validate_passage_aliases(aliases, works)
+
+
+def validate_passage_aliases(aliases: dict, works: dict) -> dict:
     destinations = {}
     for old, passages in aliases.items():
         if old not in works and not any(old in w.get("former_slugs", []) for w in works.values()):
@@ -72,6 +77,33 @@ def load_passage_aliases(path: Path, works: dict) -> dict:
             if target["locus"] not in destinations[relative]:
                 raise ValueError(f"Missing passage alias destination: {old}, {locus}")
     return aliases
+
+
+def load_citation_aliases(path: Path, works: dict) -> dict:
+    """Edition-bound aliases must not intercept current canonical citations."""
+    schemes = load_json(path, {}).get("schemes", {})
+    for name, scheme in schemes.items():
+        work = scheme["work"]
+        if work not in works:
+            raise ValueError(f"Unknown citation scheme work: {name}, {work}")
+        validate_passage_aliases({work: scheme["aliases"]}, works)
+    return schemes
+
+
+def resolve_citation(index: dict, work: str, locus: str, *, scheme: str | None = None) -> dict:
+    """Resolve a named historical scheme once, or a current work/locus pair."""
+    if scheme is not None:
+        entry = index["citation_aliases"][scheme]
+        if entry["work"] != work:
+            raise ValueError("Citation scheme belongs to a different work")
+        return entry["aliases"][locus]
+    target = index.get("passage_aliases", {}).get(work, {}).get(locus)
+    if target:
+        return target
+    current = index.get("redirects", {}).get(work, work)
+    if current not in index["works"]:
+        raise ValueError(f"Unknown citation work: {work}")
+    return {"slug": current, "path": f"data/corpus/{current}.jsonl", "locus": locus}
 
 
 def load_serving_deficits(served: set[str]) -> dict[str, dict]:
@@ -501,6 +533,7 @@ def build(write: bool = True) -> dict:
 
     out = {
         "passage_aliases": load_passage_aliases(PASSAGE_ALIASES, works),
+        "citation_aliases": load_citation_aliases(CITATION_ALIASES, works),
         "_meta": {
             "description": "Reader-facing WEMI-leveled index of served cog "
                            "work-units, keyed by current slug. The opaque `id` "

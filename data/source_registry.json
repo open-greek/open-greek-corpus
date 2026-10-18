@@ -212509,7 +212509,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2580.tlg001"
    },
-   "default_edition": "joannes-laurentius-lydus.de-magistratibus-populi-romani.qwen36-lydus_mensibus_wuensch",
+   "default_edition": null,
    "best_source": "locked",
    "tags": [
     "century:6",
@@ -212528,18 +212528,6 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
-    },
-    "joannes-laurentius-lydus.de-magistratibus-populi-romani.qwen36-lydus_mensibus_wuensch": {
-     "name": "cog OCR (qwen36-lydus_mensibus_wuensch)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {}
     }
    }
   },
@@ -212550,8 +212538,8 @@
     "cts": "urn:cts:greekLit:tlg2580.tlg002",
     "wikidata": "Q123477897"
    },
-   "default_edition": null,
-   "best_source": "pd_edition",
+   "default_edition": "joannes-laurentius-lydus.de-mensibus.qwen36-lydus_mensibus_wuensch",
+   "best_source": "open_corpus",
    "tags": [
     "century:6",
     "era:late-antique",
@@ -212568,6 +212556,18 @@
      "source": "",
      "servable": false,
      "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
+    "joannes-laurentius-lydus.de-mensibus.qwen36-lydus_mensibus_wuensch": {
+     "name": "cog OCR (qwen36-lydus_mensibus_wuensch)",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
      "scheme_inferred": false,
      "aliases": {}
     }

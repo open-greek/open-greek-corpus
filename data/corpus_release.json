@@ -6,8 +6,8 @@
   "works": 3910
  },
  "generated_from": {
-  "commit": "16af27ed9a4ed1079d70f2927a9096cf7ec24a7a",
-  "commit_date": "2026-10-17",
+  "commit": "3f064e63aed427dc1d6d33463f6309ee8f5f2c17",
+  "commit_date": "2026-10-18",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
@@ -60,8 +60,8 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3910,
-  "catalog_sha256": "745f3b3f6afbe09077a415a0ecf32409da3dc10a6a3a973837d94c3d3dd06977",
-  "corpus_sha256": "4fffd403a6179f71221ee53d752b4ee1d3e90a8c983f18d20d96e27294d6f94c",
+  "catalog_sha256": "910f5e9ee79ace5641cda3e6908dad15523f7154b035357dd1ed5483923da6de",
+  "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
@@ -308,8 +308,8 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "745f3b3f6afbe09077a415a0ecf32409da3dc10a6a3a973837d94c3d3dd06977",
-     "corpus_sha256": "4fffd403a6179f71221ee53d752b4ee1d3e90a8c983f18d20d96e27294d6f94c"
+     "catalog_sha256": "910f5e9ee79ace5641cda3e6908dad15523f7154b035357dd1ed5483923da6de",
+     "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829"
     },
     "pairs": 43619,
     "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
@@ -341,8 +341,8 @@
    "wrong_rows_estimate": 20400
   }
  },
- "release_date": "2026-10-17",
- "release_id": "corpus-2026-10-17",
+ "release_date": "2026-10-18",
+ "release_id": "corpus-2026-10-18",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,

@@ -280,6 +280,26 @@ data/
 
 ## Identity and citation
 
+Manetho's *Apotelesmatica* uses Koechly's principal printed book numerals.
+`python3 scripts/repair_manetho_citations.py --apply` maps First1K book
+attributes 4, 5, and 6 to printed books VI, IV, and V; books 1, 2, and 3 retain
+their numbers. `--check` replays the audit and `--undo` restores the inputs in
+`data/corpus_changes/manetho-citations-51/`. The TEI ingester applies the same
+mapping and refuses a changed source until its boundaries are reviewed again.
+Rows retain their original `source_citation`. Historical citations use the
+named `manetho-first1k-book-attributes` scheme in `data/citation_aliases.json`
+and `work_index.json.citation_aliases`; current citations use printed numerals.
+
+The Lydus repair in [issue 53](https://github.com/open-greek/open-greek-corpus/issues/53)
+is reproduced by `python3 scripts/repair_lydus_identity.py --apply` and verified
+with `--check`. The Wünsch 1898 OCR is assigned to *De mensibus*
+(`tlg2580.tlg002`), preserving expression ID `ogc002117` and historical passage
+links. *De magistratibus* remains an unserved inventory work. The audit and exact
+inputs are in `data/corpus_changes/lydus-identity-53/`; `--undo` restores them.
+Text readings and previously archived secondary readings are preserved.
+Apply repairs in chronological order and undo them in reverse order; undo
+refuses to overwrite files changed by a later repair.
+
 The reviewed repair for issues [54](https://github.com/open-greek/open-greek-corpus/issues/54)
 and [55](https://github.com/open-greek/open-greek-corpus/issues/55) is reproducible
 with `python3 scripts/repair_ocr_work_assignments.py --apply`; use `--check` to
@@ -354,7 +374,7 @@ distinct `ogc` ids sharing one TLG anchor. 569 of the 3,910 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
 `work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,304,
-`wikidata` on 517), so joins against citation and lexicon data still work.
+`wikidata` on 518), so joins against citation and lexicon data still work.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
 source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`
@@ -2071,7 +2091,7 @@ move.
 | joannes-grammar.ekfrasis-tou-kosmikou-pi-nakos | Joannes - Ἔκφρασις τοῦ κοσμικοῦ πίνακος | qwen36-joannes_geometres_pg106 | Qwen3.6-27B | 199,404 | auto-corrected |
 | joannes-hierosolymitanus.adversus-iconoclastas-olim-sub-auctore-joanne-damasceno | Joannes (olim sub auctore Joanne Damasceno) - Adversus iconoclastas (PG109 loci 256-263) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 2,938 | manual |
 | joannes-hierosolymitanus.narratio | Joannes Hierosolymitanus monachus - Narratio (de origine haereseos iconomachorum) (PG109 loci 264-265) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 555 | auto-corrected |
-| joannes-laurentius-lydus.de-magistratibus-populi-romani | Joannes Laurentius Lydus - De Magistratibus Populi Romani | qwen36-lydus_mensibus_wuensch | Qwen3.6-27B | 43,887 | auto-corrected |
+| joannes-laurentius-lydus.de-mensibus | Joannes Laurentius Lydus - De Mensibus | [Lydus, De mensibus (Wünsch 1898)](https://archive.org/details/ioannislaurenti02wuengoog) | Qwen3.6-27B | 43,887 | auto-corrected |
 | joannes-siceliota.exegesis-eis-tas-ideas-prolegomena |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 6,029 | auto-corrected |
 | joannes-siceliota.scholia-eis-tas-ideas-tou-hermogenous |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 105,227 | auto-corrected |
 | joannes-stobaeus-anthologus.anthologium | Joannes Stobaeus Anthologus - Anthologium | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 435,325 | manual |
