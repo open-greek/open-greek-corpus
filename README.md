@@ -803,6 +803,16 @@ word. Such fragments remain visible with their source support and are excluded
 from scalar lexical counts. A complete word divided across lines within the
 same source region is joined reproducibly before alignment.
 
+Source-reviewed invented output can abstain from voting through explicit
+`voting_segments` on a witness. These contain exact Unicode offsets and raw
+text slices; a hash-pinned `abstention_audit` records every excluded span and
+its source-review reference. The importer verifies that review artifact.
+The complete raw witness remains in the vote network. Retained fragments
+share one model vote group, and coverage outside each fragment abstains
+instead of voting for an omission. The remaining model's reading is labeled
+`single-witness` under the existing eligibility policy. Ordinary witnesses
+keep the same voting behavior and serialized output.
+
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
 work identities. Source Library entries remain discovery candidates until
