@@ -470,6 +470,35 @@ GEOMETRY_CHILD_REVIEWS.update({'252-right-lower': {'scan_page': 252,
                                       'source; do not insert uppercase blocks or a decree, reconstruct a '
                                       'paragraph, add material, or continue outside the crop.'}})
 
+GEOMETRY_CHILD_REVIEWS.update({'396-left-middle': {'scan_page': 396,
+                     'parent': 'photius-bekker-page0396-qwen38-3bff0fa8-gutter.json',
+                     'target': 'photius-bekker-0396-left-middle-gutter',
+                     'cuts': [0.33413, 0.42634, 0.51984, 0.5898],
+                     'condition': {'kind': 'source-confirmed-non-source-reading',
+                                   'finish_reason': 'stop',
+                                   'source_pdf_sha256': 'd7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6',
+                                   'source_evidence': 'Most of the source-shaped first twelve lines remain '
+                                                      'recognizable, but the final two printed lines are '
+                                                      'replaced by an unsupported chain repeating autou. The '
+                                                      'source instead continues historical prose without '
+                                                      'that chain. Three shorter complete-line spans '
+                                                      'preserve the same body box, with no apparatus or '
+                                                      'inserted paragraph.',
+                                   'raw_file_sha256': 'f9c0022afc9facfee06690736836d359483a60eb18ef32aa27131ce101483ab2',
+                                   'prediction_record_sha256': 'a550056334d47c22ab472f1b92cf4437866bb652cc7a84995d0412dfbb022a2f',
+                                   'raw_prediction_sha256': '4784ca5c22a5d6ee44c5430fc232a7b90641c3f61563680b237f075dc156bca3'},
+                     'evidence': 'Most of the source-shaped first twelve lines remain recognizable, but the '
+                                 'final two printed lines are replaced by an unsupported chain repeating '
+                                 'autou. The source instead continues historical prose without that chain. '
+                                 'Three shorter complete-line spans preserve the same body box, with no '
+                                 'apparatus or inserted paragraph.',
+                     'output': 'data/ocr_requests/photius-bekker-page0396-left-middle-gutter-supplement.json',
+                     'prompt_suffix': 'Transcribe only the complete printed Greek historical body lines '
+                                      'visible in this crop, exactly once, preserving polytonic marks. Read '
+                                      'the actual visible source, including every final printed line; do not '
+                                      'replace lines with repeated words, reconstruct a paragraph, add '
+                                      'material, or continue outside the crop.'}})
+
 FOLLOWUP_AUTHORITY = Path("data/ocr_requests/photius-followup-gutter-source-review.json")
 FOLLOWUP_BOUNDS = {147: [.017, .462, .467, .975]}
 
