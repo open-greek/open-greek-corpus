@@ -425,6 +425,9 @@ Dio additions likewise retain participating Source Library component credits,
 licenses, and separate rights notices. A licensed digital component is included
 only where the admission audit records its participation; other source text
 remains a separately identified comparison witness.
+Per-work source, edition, and license columns retain their dominant-component
+rollup. For a composite manifestation, use `coverage_composition` in the source
+registry or Work index for every component's license, source, and qualification.
 
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
