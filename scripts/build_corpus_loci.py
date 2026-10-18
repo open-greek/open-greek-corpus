@@ -94,7 +94,23 @@ from corpus_order_overrides import (  # noqa: E402
     apply_order_override,
     load_order_overrides,
 )
-from repair_manetho_citations import remap_record, validate_source  # noqa: E402
+from repair_manetho_citations import (  # noqa: E402
+    remap_record as remap_manetho_record,
+    validate_source as validate_manetho_source,
+)
+from repair_mathematical_citations import (  # noqa: E402
+    remap_record as remap_mathematical_record,
+    validate_source as validate_mathematical_source,
+)
+
+
+def validate_source(work, edition, source, path):
+    validate_manetho_source(work, edition, source, path)
+    validate_mathematical_source(work, edition, source, path)
+
+
+def remap_record(row):
+    return remap_mathematical_record(remap_manetho_record(row))
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "sources"

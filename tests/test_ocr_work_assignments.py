@@ -119,7 +119,8 @@ def test_repair_undo_restores_exact_primary_secondary_and_metadata_bytes(tmp_pat
     import repair_lydus_identity as lydus
     import repair_manetho_citations as manetho
     from migration_fixtures import copy_repair_state
-    copy_repair_state(ROOT, tmp_path, repair, [manetho, lydus])
+    import repair_mathematical_citations as mathematical
+    copy_repair_state(ROOT, tmp_path, repair, [mathematical, manetho, lydus])
     repair.run(tmp_path, "undo")
     for path, expected in snapshots.items():
         target = tmp_path / path
