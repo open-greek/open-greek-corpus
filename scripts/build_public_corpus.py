@@ -36,6 +36,7 @@ import sys
 import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
+from frequency_projection import FrequencyProjection
 
 import lxml.etree as ET
 
@@ -315,6 +316,7 @@ def public_elision_stem_candidates(lex: Counter[str]) -> list[tuple[str, int, st
 
 
 def main() -> None:
+    frequency = FrequencyProjection(DATA)
     files = sorted(CORPUS.glob("*.jsonl"))
     if not files:
         sys.exit(f"no ingested corpus in {CORPUS} - run the ingesters first "
@@ -407,7 +409,7 @@ def main() -> None:
                     continue
                 rec = json.loads(line)
                 text = rec.get("text", "")
-                toks, exclusions = public_lexicon_tokenization(text)
+                toks, exclusions = public_lexicon_tokenization(frequency.text(rec))
                 if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
                         and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
                     excluded_shared += 1          # shared with keeper: don't recount

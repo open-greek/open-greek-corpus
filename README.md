@@ -314,9 +314,26 @@ files are labeled as separate OCR witnesses of Kaibel's *Comicorum Graecorum
 Fragmenta* I.1 (1899), under `kaibel-cgf-1899.volume-witness-r` and
 `kaibel-cgf-1899.volume-witness-s`. They retain their opaque expression IDs and
 former-slug redirects, with no Rhinthon or Sopater Work anchor. The witnesses
-overlap and remain uncollated; their metadata exposes a shared volume identity.
-Their contribution to duplicate frequency counts is tracked in
-[issue 56](https://github.com/open-greek/open-greek-corpus/issues/56).
+overlap; their metadata exposes a shared volume identity. Reproduce their
+page/passage and token concordance with
+`python3 scripts/collate_kaibel_witnesses.py --write` (`--check` verifies it,
+`--unapply` removes the projection). Reader text remains unchanged and every
+reading is retained in `data/ocr_collations/kaibel-1899.json`. The concordance
+handles column-order and paragraph/line differences; OCR leaf keys are not
+assumed to be scan page numbers. It also links the separately carved Sophron,
+Dinolochus, and Blaesus rows from this volume. Carved fragments whose scan
+position remains uncertain retain their readings and explicit bounds, rather
+than being counted as additional independent text.
+
+Both the form lexicon and per-work lemma matrix use
+`data/frequency_projection.json`: an aligned agreed token occurrence counts
+once, and single-witness leaves count normally. Unresolved readings on aligned
+leaves stay outside scalar frequency tables. Their complete source rows,
+token spans, and explicit lower (zero) and upper (all unresolved occurrences)
+form counts remain in the companion concordance. Those bounds preserve
+alternatives without claiming that two conflicting OCR readings are two
+independent attestations. Frequency token totals therefore differ from the
+inclusive reader-text counts in the corpus catalog and coverage report.
 
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
