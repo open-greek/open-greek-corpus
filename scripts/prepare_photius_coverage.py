@@ -5,6 +5,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data/ocr_requests/photius-bekker-first-volume.json"
+LATER_OUT = ROOT / "data/ocr_requests/photius-bekker-later-gap.json"
 SCAN = "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf"
 SHA256 = "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6"
 PROMPT = """Transcribe the large Greek authorial text of this scanned page exactly,
@@ -47,7 +48,24 @@ def build():
     }
 
 
+def build_later_gap():
+    manifest = build()
+    order = [379, 421, 400] + [n for n in range(379, 422) if n not in {379, 421, 400}]
+    manifest["purpose"] = "Recover the missing later-volume printed pages 367-409, absent from all current historical OCR rows."
+    manifest["review"]["checked_scan_pages"] = [378, 379, 400, 421, 422]
+    manifest["review"]["evidence"] = [
+        "Historical OCR page keys 0102-0144 are absent from the served body, with no matching records elsewhere in the corpus.",
+        "The checked combined scan maps those missing keys to scan pages 379-421, printed pages 367-409.",
+        "Manual inspection of scan pages 379 and 421 confirms continuous authorial Greek text, not index or blank pages. Adjacent scan pages 378 and 422 retain the same body layout."
+    ]
+    manifest["pages"] = [{"id": f"photius-bekker-{n:04d}", "source": "photius-bekker-combined",
+                          "scan_page": n, "printed_page": n - 12, "region": [0, 0, 1, 1],
+                          "max_side": 2800, "role": "missing-primary-text"} for n in order]
+    return manifest
+
+
 if __name__ == "__main__":
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(build(), ensure_ascii=False, indent=2) + "\n")
-    print(f"Prepared {len(build()['pages'])} scan pages; run a four-page sanity check first.")
+    LATER_OUT.write_text(json.dumps(build_later_gap(), ensure_ascii=False, indent=2) + "\n")
+    print(f"Prepared {len(build()['pages'])} first-volume and {len(build_later_gap()['pages'])} later-gap scan pages; run a small sanity check first.")
