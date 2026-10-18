@@ -77,6 +77,10 @@ SUPPLEMENT_REVIEWS = {
         "cuts": [.456, .583, .712, .835],
         "evidence": "The lower left body on printed page38 is faint. Its first enlarged retry still repeats text and reaches the output limit. Three shorter strips retain the same complete source lines: the.583 boundary falls after the line ending τὴν, and the.712 boundary follows the line ending ἐκκαίει. The final strip includes the paragraph beginning Δαρεῖος νοσήσας through the left-column foot. The union is exactly the reviewed failed lower-left crop; all other successful retry strips remain unchanged.",
     },
+    (87, "right-middle"): {
+        "cuts": [.318, .412, .505, .580],
+        "evidence": "The first enlarged Qwen3.8 right-middle retry on printed page75 reaches its output limit. Three shorter strips exactly partition that crop. Enlarged source checks put both internal boundaries between complete Greek lines, preserving descenders and following breathing marks. These parts are entirely inside the large authorial body; the other five successful retry strips remain unchanged and the failed base strip remains evidence.",
+    },
 }
 
 
