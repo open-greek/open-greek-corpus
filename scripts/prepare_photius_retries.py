@@ -96,6 +96,15 @@ REVIEWS = {
     207: {"strips": body_columns(.058, .794), "checkpoints": [CHECKPOINT36],
           "evidence": "Printed page195 contains large Greek body above a substantial small-type apparatus with Greek quotations and Latin citations. The original Qwen3.6 includes the apparatus, including post and malim readings. Enlarged source inspection places the full-size body foot above.794 and the first smaller note below.805. The two column crops preserve all large body lines while excluding the notes and running header.",
           "failure": "The stop-terminated Qwen3.6 original includes critical apparatus. Preserve that attempt and all source readings; the independent Qwen3.8 whole-page reading remains intact."},
+    232: {"strips": column_strips(.064, .848, [.32855, .58702], [.32895, .58861]), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page220 continues codex223 on Diodorus. Six source-checked strips preserve both complete large Greek columns in left-then-right order. Enlarged interline checks place each split between full lines without clipping breathings or descenders. The top excludes the running header; the bottom at.848 lies below the final body lines and above the smaller apparatus. The original Qwen3.6's repeated function words are absent from the source.",
+          "failure": "The original Qwen3.6 reaches its output limit during a repetition loop. Preserve it as evidence and retain the independent Qwen3.8 whole-page reading."},
+    234: {"strips": column_strips(.065, .869, [.31382, .59100], [.31223, .58941]), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page222 finishes codex223 and begins codex224 on Memnon in the right column. The faint page retains complete large Greek columns and the224 heading inside six reviewed strips. Enlarged interline checks preserve accents, breathings, and descenders at each split. The bottom at.869 lies between the last body lines and smaller apparatus; the top excludes the running header.",
+          "failure": "The original Qwen3.6 reaches its output limit while repeating text. Preserve it as evidence and retain the independent Qwen3.8 whole-page reading."},
+    239: {"strips": body_columns(.054, .838), "checkpoints": [CHECKPOINT38],
+          "evidence": "Printed page227 continues codex224 on Memnon and the Heraclea narrative. The Qwen3.8 original appends the smaller apparatus, including addendus articulus, after the body. Source-checked full-column crops preserve every large Greek line. The upper boundary at.054 lies below the running header and above the first line's breathings; the lower boundary at.838 lies below both body feet and above the smaller notes.",
+          "failure": "The stop-terminated Qwen3.8 original leaks critical apparatus into its body reading. Keep that original as evidence and retain the independent Qwen3.6 whole-page reading."},
     381: {"strips": column_strips(.057, .818, [.31504, .58945], [.33096, .60530]),
           "evidence": "Printed page369 contains Himerius excerpts and their preface headings in two columns. The original Qwen3.8 repeats ὅτι in a stop-terminated loop absent from the scan. Enlarged interline checks preserve all large Greek lines and headings in six consecutive column strips. The lower boundary at.818 lies above the smaller apparatus; the first left split follows a preface heading and the right splits lie between complete lines.",
           "failure": "The stop-terminated Qwen3.8 original contains a source-confirmed repetition loop. Retain that original and the independent Qwen3.6 whole-page reading."},
@@ -123,6 +132,17 @@ EXTRA_REVIEWS = {
 }
 
 SUPPLEMENT_REVIEWS = {
+    (381, "right-middle"): {
+        "cuts": [.33096, .44141, .53246, .60530], "checkpoints": [CHECKPOINT38],
+        "evidence": "The completed provider-policy Qwen3.8 right-middle retry on printed page369 strips every breathing from576 Greek letters despite clearly printed breathings, including ἡ, ὑπ’, and Ἀγαῖος. Its accent rate remains.0972, so the frozen breathing rule identifies this specific loss. Three shorter source-checked crops exactly partition that strip at blank interline gaps, preserving all full Greek lines and marks. Retain the stripped attempt and the other five successful retry strips, with one assembled vote for this checkpoint.",
+        "replacement_condition": {"kind": "source-confirmed-polytonic-mark-stripping",
+            "raw_file_sha256": "5683e79ee59c21dea26865045cd5096691c85eafd6db164c4a04d50ccc16833d",
+            "prediction_record_sha256": "6ce30962a50d35844682cd261df919fd4ab61741ac0dc1fbe19dfa3217e5c2d0",
+            "raw_prediction_sha256": "869df708a58c398e1dee66c59ca6365035ae44d770ae29fc898797923a5a6d39",
+            "finish_reason": "stop", "greek_letters": 576, "breathing_letters": 0,
+            "frozen_policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9"},
+        "prompt_suffix": "Transcribe each complete Greek line exactly once, retaining every printed polytonic breathing and accent. Do not strip breathings, normalize orthography, repeat text, or continue beyond this crop.",
+    },
     (13, "upper-preface"): {
         "cuts": [.05, .235, .310, .441], "checkpoints": [CHECKPOINT38],
         "evidence": "The completed Qwen3.8 upper-preface retry systematically strips breathings from the lowercase letter on scan13, although they are visible in the source address and in Ἐπειδὴ, Ἀσσυρίας, and ὑποθέσεις. Its919 Greek letters include0 breathing marks; the frozen detector flags low breathing rate. The three shorter crops exactly partition the original upper-preface region: the first includes the deliberately unaccented capital title; the second begins with the letter address; the.310 boundary lies between complete letter lines. Retain the stripped successful attempt, all other good strips, and the unchanged Qwen3.6 reading.",
