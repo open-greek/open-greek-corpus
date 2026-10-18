@@ -1043,6 +1043,14 @@ collation before its missing continuation can be admitted. Source credits and
 genuine losses must remain explicit. The jobs place seven regions from six
 reviewed boundary pages first for a small OCR sanity check and preserve
 independent raw witnesses.
+The complete admitted repair adds 1,082 primary passages and retains 419
+comparative panels separately, including the additional Cary IX panel below
+the rule on printed page 470. All 4,403 historical primary passages remain
+unchanged, giving 5,485 primary passages. The main reversible admission is
+`data/corpus_changes/dio-greek-coverage-2026-10/`; its `--check` replay verifies
+the complete readings and word networks. This represents the surviving mixed
+transmission, with explicit ancient losses, rather than an intact eighty-book
+direct text.
 `prepare_dio_body_regions.py --pdf-dir SOURCE_PDFS` reproduces the subsequent
 source review of all 741 late Greek panels. It writes a separate effective
 1,500-region manifest with body boundaries above editorial notes, preserves the
