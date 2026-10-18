@@ -67,6 +67,20 @@ def test_failed_truncated_missing_and_misidentified_predictions_are_rejected(tmp
         ingest.load_prediction(path, [manifest])
 
 
+def test_two_revisions_of_one_family_cannot_supply_independent_votes(tmp_path):
+    manifests = [ingest.scan_manifest(), ingest.build_later_gap()]
+    paths = []
+    for label in ("a", "b"):
+        for manifest in manifests:
+            path = prediction(tmp_path, manifest, label)
+            rows = [json.loads(line) for line in path.read_bytes().splitlines()]
+            rows[0]["_meta"]["model"] = "same-model-family"
+            path.write_bytes(b"\n".join(json.dumps(row, ensure_ascii=False).encode() for row in rows) + b"\n")
+            paths.append(path)
+    with pytest.raises(ValueError, match="same model family"):
+        ingest.prepare_fresh_inputs(paths, manifests)
+
+
 def test_all_bekker_pages_are_covered_once_with_reversible_raw_readings(tmp_path, monkeypatch):
     body = root_fixture(tmp_path)
     manifests = [ingest.scan_manifest(), ingest.build_later_gap()]
