@@ -1,7 +1,7 @@
 {
   "headline": {
-    "works": 11076,
-    "authors": 3316,
+    "works": 11078,
+    "authors": 3317,
     "editions": 10203,
     "pct_works_with_canonical_locus": 36.5,
     "pct_works_with_logical_served_locus": 12.5,
@@ -17,7 +17,7 @@
   },
   "work_aliases": {
     "cts": {
-      "count": 11076,
+      "count": 11078,
       "pct": 100.0
     },
     "wikidata": {
@@ -40,12 +40,12 @@
   "work_cts_by_namespace": {
     "greekLit": {
       "count": 7194,
-      "pct": 65.0,
+      "pct": 64.9,
       "external": true
     },
     "cogGreek": {
-      "count": 3882,
-      "pct": 35.0,
+      "count": 3884,
+      "pct": 35.1,
       "external": false
     }
   },
@@ -100,7 +100,7 @@
   "canonical_locus": {
     "works_with_logical_locus": 4048,
     "pct": 36.5,
-    "works_only_physical_or_none": 3171,
+    "works_only_physical_or_none": 3173,
     "by_scheme": {
       "(none)": 1566,
       "fragment.line": 1445,
@@ -430,7 +430,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9123,
+      "count": 9125,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -547,12 +547,12 @@
       ]
     },
     "with_work_qid": 517,
-    "with_author_qid": 2882,
+    "with_author_qid": 2880,
     "with_any_external_anchor": 3341,
     "with_logical_served_locus": 2109,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2365,
+      "count": 2363,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -915,7 +915,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1914,
+      "count": 1915,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -971,7 +971,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3171,
+      "count": 3173,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",

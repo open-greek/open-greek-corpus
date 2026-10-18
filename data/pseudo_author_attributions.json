@@ -95,6 +95,11 @@
     "gnd": "121165167"
    },
    "note": "Patriarch of Constantinople, died 1043 CE. Identity checked against Wikidata Q2665053 and Ficker 1911 title and introduction on 2026-10-12."
+  },
+  "kaibel-cgf-1899": {
+   "name": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899)",
+   "aliases": {},
+   "note": "Collective edition label; the two OCR witnesses overlap and have not been collated."
   }
  },
  "works": {
@@ -656,6 +661,46 @@
     ]
    },
    "evidence": "Ficker 1911, printed pages 28-42, decree 5 on mixed marriages, inheritance, and witness testimony. Full Greek reading text reviewed against the scan; data/ingest_reviews/greek-library-alexius.json pins the source and decisions."
+  },
+  "kaibel-cgf-1899.volume-witness-r": {
+   "author": "kaibel-cgf-1899",
+   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R",
+   "evidence": {
+    "issue": "https://github.com/open-greek/open-greek-corpus/issues/55",
+    "source_url": "https://archive.org/details/comicorvmgraeco00kaibgoog",
+    "pdf_sha256": "59f1e3751f1eb18c25789ccbec3a2e491a2be171198ef87d3480f9789a2a31e5",
+    "checked_pdf_pages": [
+     8,
+     10,
+     65
+    ],
+    "evidence": "Manual scan inspection: the volume is Kaibel's Comicorum Graecorum Fragmenta I.1 (1899); printed page 42, scan 65, contains Tzetzes' Iambi technici, including verse 86. Both supposed author files contain this page and sections headed Epicharmus and Sophron. They are overlapping OCR witnesses of the anthology, not the collected fragments of either named author. Preserve both witnesses under a collective volume identity; do not infer author boundaries from drifting OCR page keys."
+   },
+   "volume_witness": {
+    "volume": "kaibel-cgf-i-1-1899",
+    "witness": "R",
+    "collation_status": "overlapping-uncollated-witness"
+   }
+  },
+  "kaibel-cgf-1899.volume-witness-s": {
+   "author": "kaibel-cgf-1899",
+   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S",
+   "evidence": {
+    "issue": "https://github.com/open-greek/open-greek-corpus/issues/55",
+    "source_url": "https://archive.org/details/comicorvmgraeco00kaibgoog",
+    "pdf_sha256": "59f1e3751f1eb18c25789ccbec3a2e491a2be171198ef87d3480f9789a2a31e5",
+    "checked_pdf_pages": [
+     8,
+     10,
+     65
+    ],
+    "evidence": "Manual scan inspection: the volume is Kaibel's Comicorum Graecorum Fragmenta I.1 (1899); printed page 42, scan 65, contains Tzetzes' Iambi technici, including verse 86. Both supposed author files contain this page and sections headed Epicharmus and Sophron. They are overlapping OCR witnesses of the anthology, not the collected fragments of either named author. Preserve both witnesses under a collective volume identity; do not infer author boundaries from drifting OCR page keys."
+   },
+   "volume_witness": {
+    "volume": "kaibel-cgf-i-1-1899",
+    "witness": "S",
+    "collation_status": "overlapping-uncollated-witness"
+   }
   }
  }
 }
