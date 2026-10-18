@@ -309,8 +309,16 @@ def validate_fresh(source_root, manifest_path, policy_path, predictions, review_
 
 
 def page_identity(row):
-    if row.get("physical_refs", {}).get("scan_page") is not None:
-        return str(row["physical_refs"]["scan_page"]), "explicit-scan-page"
+    refs = row.get("physical_refs", {})
+    if refs.get("scan_page") is not None:
+        source = refs.get("scan_sha256") or refs.get("source") or refs.get("edition")
+        # The same page number in two volumes is two different physical pages.
+        if source:
+            return f"{source}:{refs['scan_page']}", "explicit-scan-page"
+        return str(row.get("locus", refs["scan_page"])), "unresolved-physical-page"
+    refs = row.get("source_location", {})
+    if refs.get("scan_page") is not None and refs.get("source"):
+        return f"{refs['source']}:{refs['scan_page']}:{refs.get('region', 'whole-page')}", "explicit-source-region"
     locus = str(row.get("locus", ""))
     if re.search(r"_\d+[.]\d+$", locus):
         return locus.rsplit(".", 1)[0], "edition-page-prefix"
