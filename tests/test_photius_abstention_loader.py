@@ -95,7 +95,8 @@ def test_abstention_keeps_exact_ordered_text_and_only_masks_reviewed_parts(tmp_p
     ("original_text", "unreviewed"), ("voting_text", "invented replacement"), ("reason", ""),
 ])
 def test_abstention_requires_every_exact_source_and_outcome_pin(tmp_path, monkeypatch, field, value):
-    with pytest.raises(ValueError, match="exact current leaf or authority"):
+    message = "completed source review" if field == "reason" else "exact current leaf or authority"
+    with pytest.raises(ValueError, match=message):
         abstention_fixture(tmp_path, monkeypatch, lambda entry: entry.__setitem__(field, value))
 
 
