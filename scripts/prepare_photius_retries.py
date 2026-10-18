@@ -21,6 +21,14 @@ def column_strips(top, bottom, left_cuts, right_cuts):
 
 
 REVIEWS = {
+    27: {"strips": [("left-upper", [.035, .055, .49, .318]),
+                    ("left-middle", [.035, .318, .49, .574]),
+                    ("left-lower", [.035, .574, .49, .848]),
+                    ("right-upper", [.495, .055, .975, .295]),
+                    ("right-middle", [.495, .295, .975, .5895]),
+                    ("right-lower", [.495, .5895, .975, .848])],
+         "evidence": "Printed page15 continues codex54, then contains codices55–57. The sentence ἔσφαγη, ἢ ὡς ἄλλοι φασίν, ἠφανίσθη occurs once in codex57; the source then continues its account of the later Roman kings. The original Qwen3.8 instead repeats that sentence and the following phrase122 times despite stop termination. Enlarged interline checks preserve every body line and heading in these six strips; the lower boundary excludes smaller apparatus.",
+         "failure": "A stop-terminated Qwen3.8 original contains a source-confirmed repetition loop. The independent Qwen3.6 whole-page reading remains its vote."},
     47: {"cut": .458, "top": .065, "bottom": .848,
          "evidence": "Printed page 35 begins codex 70, continues codex 71 from the left-column foot into the right-column top, then begins codex 72. The four crop boundaries retain complete authorial lines and stop above the smaller apparatus. The horizontal split at .458 lies in a blank interline gap in both columns.",
          "failure": "Qwen3.8 repeats Greek function words and reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
@@ -56,6 +64,12 @@ REVIEWS = {
                      ("right-fourth", [.505, .640, .97, .813])],
           "evidence": "Printed page101 continues codex158 on Phrynichus and opens codex159 on Isocrates. The right column is especially faint. Eight shorter strips preserve each complete large Greek line in column order; the final right split precedes the159 heading. Enlarged boundary checks preserve descenders and the breathing marks above the following lines. The bottom at.813 excludes the smaller critical apparatus. The body contains no long dotted lacuna requiring a special ellipsis instruction.",
           "failure": "The original Qwen3.8 attempt reaches its output limit and triggers the frozen mark-loss screen. The Qwen3.6 whole-page reading remains its independent vote; the retry still requires completed source and mark review."},
+}
+
+# New checkpoint-specific requests never alter a previously queued manifest.
+EXTRA_REVIEWS = {
+    "0047-qwen36": {"page": 47, "checkpoints": [CHECKPOINT36],
+                    "failure": "The stop-terminated Qwen3.6 original ends codex72 with an unprinted repeated ἢ sequence. Source inspection confirms further body text after that point. Use the same reviewed four strip boundaries in this separately pinned checkpoint request; retain the original and the independent Qwen3.8 retry assembly."},
 }
 
 SUPPLEMENT_REVIEWS = {
@@ -100,6 +114,19 @@ def manifest_path(page):
     return Path(f"data/ocr_requests/photius-bekker-page{page:04d}-retry.json")
 
 
+def variant_path(name):
+    return Path(f"data/ocr_requests/photius-bekker-page{name}-retry.json")
+
+
+def build_variant(name):
+    import copy
+    review = EXTRA_REVIEWS[name]
+    manifest = copy.deepcopy(build_retry(review["page"]))
+    manifest["checkpoints"] = review["checkpoints"]
+    manifest["review"]["failure"] = review["failure"]
+    return manifest
+
+
 def supplement_path(page, name):
     return Path(f"data/ocr_requests/photius-bekker-page{page:04d}-{name}-supplement.json")
 
@@ -131,15 +158,20 @@ def build_supplement(page, name):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--page", type=int, action="append", choices=sorted(REVIEWS))
+    parser.add_argument("--variant", action="append", choices=sorted(EXTRA_REVIEWS))
     args = parser.parse_args()
-    for page in args.page or sorted(REVIEWS):
+    for page in args.page or ([] if args.variant else sorted(REVIEWS)):
         path = ROOT / manifest_path(page)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(encode(build_retry(page)))
         print(f"Pinned scan {page}: {len(build_retry(page)['pages'])} strips, listed checkpoint only")
     for page, name in sorted(SUPPLEMENT_REVIEWS):
-        if args.page and page not in args.page:
+        if args.variant or args.page and page not in args.page:
             continue
         path = ROOT / supplement_path(page, name)
         path.write_bytes(encode(build_supplement(page, name)))
         print(f"Pinned scan {page}: shorter {name} supplement")
+    for name in args.variant or ([] if args.page else sorted(EXTRA_REVIEWS)):
+        path = ROOT / variant_path(name)
+        path.write_bytes(encode(build_variant(name)))
+        print(f"Pinned checkpoint-specific variant {name}")
