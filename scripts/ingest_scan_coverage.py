@@ -418,7 +418,8 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         editions[work]["scan_extensions"] = [EDITION]
         editions[work]["scan_extension_licenses"] = sorted({row["license"] for row in combined})
     outputs[EXTENSION_INDEX] = encoded(extensions)
-    outputs["data/corpus_editions.json"] = encoded(editions)
+    outputs["data/corpus_editions.json"] = (encoded(editions) if primary
+        else before["data/corpus_editions.json"].encode())
     if paratext:
         if before[paratext_path] is not None:
             raise ValueError("Refusing to replace an existing comparison dataset")
