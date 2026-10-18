@@ -111,7 +111,7 @@ def coverage_scope(root: Path, work: str):
         if hashlib.sha256(data).hexdigest() != entry["sha256"]:
             raise ValueError("Scan extension changed outside its reviewed importer")
         rows = [json.loads(line) for line in data.splitlines() if line.strip()]
-    admitted = {row.get("ocr_consensus", {}).get("region_id") for row in rows}
+    admitted = {row.get("scan_region_id") for row in rows}
     if admitted - expected:
         raise ValueError("Coverage metadata found a scan region outside its reviewed manifestation")
     sources = sorted({page["source"] for page in selected})
