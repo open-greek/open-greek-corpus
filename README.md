@@ -668,6 +668,11 @@ Library witness, preserves all disagreements, and refuses failed or truncated
 pages. The overlap at codex 230 is retained for review and never counted twice.
 Its admission audit retains the source files, page coverage, all raw readings,
 and the exact previous body hash; `--undo` removes an unchanged addition.
+Complete vote networks are stored by physical scan page in the compressed
+`data/corpus_changes/photius-bekker-coverage/full-networks.json.gz` archive.
+The corpus retains every raw witness and lexical slot boundary, with a hash
+and archive reference for restoring the full network. Admission refuses a
+corpus file reaching 100 MB.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`

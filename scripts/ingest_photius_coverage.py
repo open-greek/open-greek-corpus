@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 import re
 
-from ocr_consensus import merge_witnesses
+from ocr_consensus import compact_corpus_consensus, merge_witnesses
 from prepare_photius_coverage import build as scan_manifest, build_later_gap
 from repair_photius_index import ROOT, SLUG, CORPUS, ARCHIVE as INDEX_ARCHIVE, generate as index_split
 
@@ -112,7 +112,8 @@ def generate(paths, source_library, root=ROOT):
     source_raw, source_document, source_rows = load_source_library(source_library)
     original = gzip.decompress((root / INDEX_ARCHIVE / "before.jsonl.gz").read_bytes())
     body, index, aliases, index_audit = index_split(original)
-    artifacts, added, page_reports = {}, [], []
+    artifacts, added, page_reports, networks = {}, [], [], {}
+    network_path = ARCHIVE / "full-networks.json.gz"
     for raw, metadata, rows in inputs:
         artifacts[ARCHIVE / "witnesses" / (sha(raw) + ".jsonl")] = raw
     artifacts[ARCHIVE / "source-library-local002.json.gz"] = source_raw
@@ -131,6 +132,9 @@ def generate(paths, source_library, root=ROOT):
         if page["scan_page"] in source_rows:
             witnesses.append(source_rows[page["scan_page"]])
         consensus = merge_witnesses(witnesses)
+        network_key = str(page["scan_page"])
+        networks[network_key] = consensus
+        compact = compact_corpus_consensus(consensus, {"path": network_path.as_posix(), "key": network_key})
         page_reports.append({"scan_page": page["scan_page"], "printed_page": page["printed_page"],
                              "role": page["role"], "witnesses": len(witnesses),
                              "counts": consensus["ocr_consensus"]["counts"],
@@ -143,7 +147,7 @@ def generate(paths, source_library, root=ROOT):
                "language": "grc", "locus": f"photius_bekker1824_{page['scan_page']:04d}.1",
                "physical_refs": {"scan_page": page["scan_page"], "printed_page": page["printed_page"],
                                  "edition": "Bekker 1824-1825", "scan_sha256": manifest["sources"][page["source"]]["sha256"]},
-               **consensus}
+               **compact}
         added.append(row)
     prefix = ("\n".join(json.dumps(r, ensure_ascii=False) for r in added) + "\n").encode()
     existing_lines = body.decode().splitlines(keepends=True)
@@ -156,6 +160,10 @@ def generate(paths, source_library, root=ROOT):
     if {page for page, line in existing + new} != set(range(13, 558)):
         raise ValueError("Photius still lacks pages from the checked authorial range")
     output = "".join(line for page, line in sorted(existing + new, key=lambda pair: pair[0])).encode()
+    if len(output) >= 100_000_000:
+        raise ValueError("The compact Photius corpus exceeds the 100 MB Git object limit")
+    network_raw = gzip.compress(encode(networks), mtime=0)
+    artifacts[network_path] = network_raw
     totals = Counter()
     for row in page_reports:
         if row["role"] == "missing-primary-text":
@@ -171,6 +179,8 @@ def generate(paths, source_library, root=ROOT):
               "fresh_ocr_files": [{"path": (ARCHIVE / "witnesses" / (sha(raw) + ".jsonl")).as_posix(),
                                    "sha256": sha(raw), "model": metadata["model"], "revision": metadata["revision"]}
                                   for raw, metadata, rows in inputs],
+              "full_networks": {"path": network_path.as_posix(), "sha256": sha(network_raw),
+                                "entries": len(networks), "key": "physical scan page as a decimal string"},
               "source_library": {"edition": source_document["id"], "url": SOURCE_URL,
                                  "sha256": SOURCE_LIBRARY_SHA256, "license": source_document["license"],
                                  "rights": source_document["sourceRights"],
