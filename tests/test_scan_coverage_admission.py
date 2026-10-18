@@ -8,7 +8,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import ingest_scan_coverage as ingest
-from scan_coverage_extensions import load_extensions
+from scan_coverage_extensions import load_extensions, coverage_scope
 
 
 def fixture(tmp_path):
@@ -99,3 +99,17 @@ def test_comparative_dio_regions_cannot_become_primary(tmp_path):
     assert primary == {} and len(paratext) == 1
     assert paratext[0]["kind"] == "comparative-quotation"
     assert paratext[0]["locus"] == "cary-v1-p0002-comparison"
+
+
+def test_public_scope_counts_admissions_without_claiming_intact_works():
+    pappus = coverage_scope(ROOT, "pappus-mathematics.synagoge")
+    conica = coverage_scope(ROOT, "apollonius-geom.conica")
+    dio = coverage_scope(ROOT, "cassius-dio.historiae-romanae")
+    assert pappus["reviewed_primary_regions"] == 331
+    assert conica["reviewed_primary_regions"] == 225
+    assert dio["reviewed_primary_regions"] == 1082
+    assert dio["reviewed_comparative_regions"] == 418
+    assert dio["admitted_primary_regions"] + dio["remaining_reviewed_primary_regions"] == 1082
+    assert "eighty-book" in dio["work_identity"] and "not an intact" in dio["transmission_limit"]
+    assert "Books I–IV" in conica["transmission_limit"]
+    assert coverage_scope(ROOT, "unrelated.work") is None
