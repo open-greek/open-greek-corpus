@@ -1019,6 +1019,10 @@ hash, and keeps every finite printed lacuna-dot row in three ordered strips.
 The request alone does not authorize admission: every completed strip must
 pass a separate comparison with the source before replacing that model's
 single input. The other checkpoint and all original attempts remain available.
+The guarded `dio_ocr_retries.py` bundle checks the complete 1,500-region source
+lineage and all exact original record pins before permitting any failed reading
+to be replaced. An unreviewed failed region still prevents admission. The audit
+retains both the full original bundle and the completed strip review.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.

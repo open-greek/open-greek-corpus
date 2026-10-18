@@ -314,6 +314,23 @@ def test_bundle_never_admits_failed_effective_crop_or_forged_review(tmp_path):
         ingest.load_predictions(None, effective_raw, effective, ingest.encoded(forged))
 
 
+def test_exact_private_failure_scope_reaches_retained_bundle_leaf_without_rewriting(tmp_path):
+    _, manifest, original_raw, _, raws = fixture(tmp_path)
+    rows = ingest.records(raws[0])
+    rows[1]["finish_reason"] = "length"
+    failed = ingest.jsonl_bytes(rows)
+    bundle, effective_raw, effective, new_raw = reviewed_crop_bundle(manifest, original_raw, raws[0], failed)
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.load_predictions(None, effective_raw, effective, bundle)
+    allowed = frozenset({"conica-1"})
+    loaded, retained = ingest.load_predictions(None, effective_raw, effective, bundle, allow_failed_ids=allowed)
+    direct, _ = ingest.load_predictions(None, effective_raw, effective, new_raw, allow_failed_ids=allowed)
+    assert retained == bundle and loaded == direct
+    assert loaded["conica-1"]["text"] == rows[1]["raw_prediction"]
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.load_predictions(None, effective_raw, effective, bundle, allow_failed_ids={"different-id"})
+
+
 def test_conica_running_header_removal_is_source_page_and_initial_position_guarded():
     manifest = json.loads((ROOT / "data/ingest_reviews/coverage/mathematical-ocr-jobs.json").read_text())
     page = next(p for p in manifest["pages"] if p["id"] == "apolloniipergaei01apoluoft-pdf0208")
@@ -350,7 +367,7 @@ def test_comparison_only_admission_registers_paratext_without_primary_rows_and_u
     root = tmp_path / "repo"
     directory = root / "data/ingest_reviews/coverage"
     directory.mkdir(parents=True)
-    for name in ["cassius-dio-body-ocr-jobs.json", "cassius-dio-late-comparison-jobs.json"]:
+    for name in ["cassius-dio-reviewed-ocr-jobs.json", "cassius-dio-late-comparison-jobs.json"]:
         (directory / name).write_bytes((ROOT / "data/ingest_reviews/coverage" / name).read_bytes())
     editions = ingest.encoded({work: {"n_passages": 0, "n_tokens": 0}})
     (root / "data/corpus_editions.json").write_bytes(editions)

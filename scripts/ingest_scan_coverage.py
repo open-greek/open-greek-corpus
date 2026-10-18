@@ -65,6 +65,9 @@ def prediction_bundle_audit(raw, manifest_bytes):
     if bundle_kind(raw) == "source-reviewed-mathematical-retry-bundle":
         from mathematical_ocr_retries import describe_bundle
         return describe_bundle(raw)
+    if bundle_kind(raw) == "source-reviewed-dio-retry-bundle":
+        from dio_ocr_retries import describe_bundle
+        return describe_bundle(raw)
     return None
 
 
@@ -83,12 +86,18 @@ def load_predictions(path, manifest_bytes, manifest, raw=None, *, allow_failed_i
                 and (page.get("region", [0, 0, 1, 1]) != effective[page["id"]].get("region", [0, 0, 1, 1])
                      or page.get("prompt_suffix") != effective[page["id"]].get("prompt_suffix"))}
             return load_predictions(None, original_manifest_bytes, original, original_raw,
-                                    allow_failed_ids=changed)[0]
+                                    allow_failed_ids=changed | allow_failed_ids)[0]
         return load_bundle(raw, manifest_bytes, load_leaf)[0], raw
     if kind == "source-reviewed-mathematical-retry-bundle":
         from mathematical_ocr_retries import load_bundle
         return load_bundle(raw, manifest_bytes, manifest,
             lambda value, request_raw, request: load_predictions(None, request_raw, request, value))
+    if kind == "source-reviewed-dio-retry-bundle":
+        from dio_ocr_retries import load_bundle
+        def load_dio_leaf(value, request_raw, request, *, allow_failed_ids=frozenset()):
+            return load_predictions(None, request_raw, request, value,
+                                    allow_failed_ids=allow_failed_ids)
+        return load_bundle(raw, manifest_bytes, manifest, load_dio_leaf)
     values = records(raw)
     if not values or set(values[0]) != {"_meta"}:
         raise ValueError("OCR output is missing its retained runtime metadata")
