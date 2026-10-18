@@ -79,6 +79,25 @@ def test_missing_already_served_musical_identities_use_crosswalk_and_primary(tmp
     assert all(w["default_edition"].endswith(".1st1K-grc1") for w in raw["works"].values())
 
 
+def test_admission_replay_accepts_derived_registry_credits_without_losing_audited_fields(tmp_path, monkeypatch):
+    old, fresh = meibom_fixture(tmp_path, monkeypatch, "jahn1882")
+    path = tmp_path / "data/source_registry.json"
+    document = json.loads(path.read_text())
+    document["authors"] = {}
+    for slug, work in document["works"].items():
+        author = slug.split(".")[0]
+        document["authors"][author] = {"name": author, "aliases": {}}
+        work.update(author=author, title="Canonical Work title", tags=[], best_source="open_corpus")
+        for key, edition in work["editions"].items():
+            edition.update(name="Historical edition")
+    put(tmp_path, "data/source_registry.json", document)
+    meibom.run_repair(tmp_path, "apply", fresh)
+    reg = Registry.load(path)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    reg.save(path)
+    meibom.run_repair(tmp_path, "check")
+
+
 def scan_fixture(root, slug):
     audit_dir = "data/corpus_changes/scan-example"
     source = {"url": "https://example.org/scan.pdf", "sha256": "source-digest",
