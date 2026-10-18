@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "locked_date": "2026-10-18",
+  "purpose": "Review flag only; no automatic witness selection or corpus text changes.",
+  "selection_seed": 20261018,
+  "calibration_pages": 20,
+  "test_pages": 40,
+  "detector": {
+    "minimum_greek_letters": 200,
+    "maximum_uppercase_fraction": 0.8,
+    "minimum_accented_letter_rate": 0.06,
+    "minimum_breathing_letter_rate": 0.012,
+    "flag_when": "either mark rate is below its minimum on an applicable page"
+  },
+  "truth_label": {
+    "minimum_matched_greek_letters": 200,
+    "minimum_base_text_recall": 0.7,
+    "minimum_accent_opportunities": 25,
+    "minimum_breathing_opportunities": 15,
+    "systematic_loss_mark_recall_below": 0.5,
+    "label_when": "accent or breathing recall below the threshold on matching base-letter positions"
+  },
+  "selection_policy": "No model or reading is selected. All raw predictions, failed pages, false positives and missed cases remain in the report.",
+  "operating_limits": [
+    "Counts alone cannot distinguish damaged polytonic text from intentional monotonic or all-capital orthography.",
+    "Sparse pages and pages with too little base-letter alignment need a source review rather than a diacritic-loss label.",
+    "Character-level reference order is checked separately; text-order errors are not diacritic loss.",
+    "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
+  ]
+}
