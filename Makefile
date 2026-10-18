@@ -42,6 +42,7 @@ PERSEUS_DIR ?= sources/perseus
 
 CORPUS_EDITIONS := data/corpus_editions.json
 LEXICON         := data/public_lexicon.tsv
+ELISION_RATES   := data/elision_rates.json
 GRAVE_RESIDUE   := data/grave_residue.json
 DUP_LEAVES      = data/duplicate_leaf_candidates.json
 DUP_PAGES       = data/duplicate_page_candidates.json
@@ -138,8 +139,11 @@ $(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/recon
 yardstick: $(LEMMA_FREQ)
 $(LEXICON): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_public_corpus.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_public_corpus.py
+$(ELISION_RATES): $(CORPUS_FILES) scripts/measure_elision_rates.py \
+                  scripts/validate_lemma_map.py $(FREQUENCY_INPUTS)
+	$(PY) scripts/measure_elision_rates.py
 $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
-               scripts/validate_lemma_map.py
+               scripts/validate_lemma_map.py $(ELISION_RATES)
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_lemma_frequency.py --min-count $(MIN_COUNT)
 
 # The whole OCR pipeline - ingesting the OCR output, cleaning it, and
