@@ -378,8 +378,10 @@ and the final index excluded. Regenerate those crops with
 `python3 scripts/prepare_jahn_aristides.py --pdf SOURCE.pdf`.
 `--original-dir` retains the original Meibom page OCR as additional source
 evidence. The script requires both fresh model readings for every Jahn page
-and checks the reviewed crops. Meibom's original readings remain separate
-secondary witnesses; historical citations keep their exact source loci.
+and checks the reviewed crops. It rejects failed, truncated, or empty attempts
+before admitting any changes.
+Meibom's original readings remain separate secondary witnesses; historical
+citations keep their exact source loci.
 Use `--check` to replay the archived witnesses and `--undo` to restore
 the exact original files. Originals and per-change evidence are retained in
 `data/corpus_changes/meibom-musical-anthology/`. Other constituent works receive

@@ -111,6 +111,23 @@ def test_fresh_ocr_requires_two_models_and_checked_geometry(tmp_path, monkeypatc
         repair.prepare_inputs(tmp_path, fresh, primary_source="meibom1652")
 
 
+@pytest.mark.parametrize("updates, message", [
+    ({"finish_reason": "length"}, "truncated"),
+    ({"finish_reason": "error", "error": "request failed"}, "complete successfully"),
+    ({"finish_reason": None}, "complete successfully"),
+    ({"raw_prediction": "   "}, "no Greek reading"),
+    ({"raw_prediction": "A failed request"}, "no Greek reading"),
+])
+def test_failed_fresh_attempts_cannot_satisfy_the_two_witness_requirement(tmp_path, monkeypatch, updates, message):
+    rows, fresh = fixture(tmp_path, monkeypatch)
+    records = [json.loads(line) for line in fresh[0].read_text().splitlines()]
+    records[1].update(updates)
+    fresh[0].write_bytes(repair.jsonl(records))
+    with pytest.raises(ValueError, match=message):
+        repair.prepare_inputs(tmp_path, fresh, primary_source="meibom1652")
+    assert not (tmp_path / repair.AUDIT_DIR).exists()
+
+
 def test_metadata_replay_allows_unrelated_changes_but_refuses_changed_assignments():
     before = {"works": {"old": {"title": "unchanged"}}}
     expected = {"works": {"old": {"title": "unchanged", "edition": "merged"}}}

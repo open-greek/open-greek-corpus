@@ -167,14 +167,19 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
             scan = record["scan_page"]
             if scan not in expected:
                 continue
-            if meta is None:
-                raise ValueError("Fresh OCR has no model and prompt metadata")
+            if meta is None or not all(isinstance(meta.get(field), str) and meta[field].strip()
+                                       for field in ["model", "revision", "prompt"]):
+                raise ValueError("Fresh OCR has no pinned model and prompt metadata")
             if record["region"] != expected[scan]["region"]:
                 raise ValueError(f"Fresh OCR used an unchecked crop on page {scan}")
             if record.get("finish_reason") in {"length", "max_tokens"}:
                 raise ValueError(f"Fresh OCR is truncated on page {scan}")
+            if record.get("error") or record.get("finish_reason") != "stop":
+                raise ValueError(f"Fresh OCR did not complete successfully on page {scan}")
             identifier = f"fresh-{meta['model'].rsplit('/', 1)[-1]}-{scan:04d}"
             prediction = record["raw_prediction"]
+            if not isinstance(prediction, str) or not re.search(r"[Ͱ-Ͽἀ-῿]", prediction):
+                raise ValueError(f"Fresh OCR has no Greek reading on page {scan}")
             identity = {k: meta.get(k) for k in ["model", "revision", "prompt", "backend"]}
             identity.update(image_sha256=record["image_sha256"], raw_prediction=prediction)
             witness = {"id": identifier, "vote_group": meta["model"], "text": prediction,
