@@ -115,7 +115,7 @@ def test_actual_pinned_requests_reproduce_without_invented_or_reordered_targets(
 def test_geometry_children_partition_only_exact_degraded_current_leaves():
     parents = geometry.known_gutter_manifests()
     children = geometry.known_geometry_supplement_manifests()
-    assert len(children) == 2
+    assert len(children) == 9
     for path, request in children.values():
         parent = parents[request["supplements"]["manifest_sha256"]][1]
         target = next(p for p in parent["pages"] if p["id"] == request["supplements"]["replaces_region"])
@@ -130,7 +130,25 @@ def test_geometry_children_partition_only_exact_degraded_current_leaves():
         assert request["review"]["source_pdf_sha256"] == geometry.SOURCE_SHA
         assert request["review"]["accepted_for_primary_ingest"] is False
         assert (geometry.ROOT / path).read_bytes() == geometry.encode(request)
-    conditions = {r["pages"][0]["scan_page"]: r["replacement_condition"] for _, r in children.values()}
-    assert conditions[233]["finish_reason"] == "length"
-    assert conditions[252]["finish_reason"] == "stop"
-    assert conditions[252]["greek_letters"] == 700 and conditions[252]["breathing_letters"] == 0
+    conditions = [r["replacement_condition"] for _, r in children.values()]
+    assert sum(c["kind"] == "source-confirmed-length-termination" for c in conditions) == 1
+    mark_loss = next(c for c in conditions if c["kind"] == "source-confirmed-polytonic-mark-stripping")
+    assert mark_loss["finish_reason"] == "stop"
+    assert mark_loss["greek_letters"] == 700 and mark_loss["breathing_letters"] == 0
+
+
+def test_followup_preserves_first_authority_and_repairs_only_current_147_leaves():
+    first = geometry.known_gutter_manifests()
+    followup = geometry.known_followup_geometry_manifests()
+    assert len(followup) == 1
+    for path, request in followup.values():
+        parent = first[request["supplements"]["manifest_sha256"]][1]
+        assert len(request["pages"]) == 2
+        assert request["review"]["source_authority"]["path"] == geometry.FOLLOWUP_AUTHORITY.as_posix()
+        assert request["review"]["source_authority"]["sha256"] == geometry.sha(geometry.source_authorities()[geometry.FOLLOWUP_AUTHORITY.as_posix()])
+        assert {p["replaces_region"] for p in request["pages"]} == {p["id"] for p in parent["pages"]}
+        for old, new in zip(parent["pages"], request["pages"]):
+            assert new["region"][1::2] == old["region"][1::2]
+        assert request["pages"][0]["region"][2] == .462
+        assert request["pages"][1]["region"][0] == .467
+        assert (geometry.ROOT / path).read_bytes() == geometry.encode(request)

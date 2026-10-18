@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Complete one exactly pinned degraded geometry leaf; preserve every ancestor and successful sibling, with one assembled vote per model family.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0232-qwen36-648ba3a3-gutter.json",
+    "manifest_sha256": "74004fea5ebe9c9438491a30ec8fac79b81d3fe7066a19fb80f0fea9ef596900",
+    "page_id": "photius-bekker-0232",
+    "replaces_region": "photius-bekker-0232-left-lower-gutter"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "replacement_condition": {
+    "kind": "source-confirmed-non-source-reading",
+    "finish_reason": "stop",
+    "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+    "source_evidence": "The faint source continues theological prose from Eulogius. The retained lower reading instead introduces unrelated inquiry involving a center and bow and theoretical discussion; equal line counts do not establish source coverage. White-gap cuts retain every complete printed body line and the unchanged source boundaries.",
+    "raw_file_sha256": "5fa49c95beb97952549c15ebad45de9d82c66f68a6aa6901da233c0bf965bdc5",
+    "prediction_record_sha256": "3eab363c0e738d675d10e17df842e80068e5407991998c9c10c27d852f291a0c",
+    "raw_prediction_sha256": "7cd6ee7ddf60cf8d3a0842376c340e917868f06c249c43fab2883351c12b2870"
+  },
+  "review": {
+    "accepted_for_primary_ingest": false,
+    "checked_scan_pages": [
+      232
+    ],
+    "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+    "evidence": "The faint source continues theological prose from Eulogius. The retained lower reading instead introduces unrelated inquiry involving a center and bow and theoretical discussion; equal line counts do not establish source coverage. White-gap cuts retain every complete printed body line and the unchanged source boundaries.",
+    "admission_policy": "Require the exact retained parent outcome and a completed output-to-source review. Keep all original readings and failures; no additional vote or lexical proofreading claim."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0232-left-lower-gutter-part01",
+      "source": "photius-bekker-combined",
+      "scan_page": 232,
+      "printed_page": 220,
+      "region": [
+        0.045,
+        0.58702,
+        0.505,
+        0.6787
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-failed-geometry-supplement",
+      "reading_order": 0,
+      "prompt_suffix": "Transcribe only the complete printed Greek body lines in this source crop, exactly once, preserving polytonic marks and headings. Read the actual visible text; do not substitute a narrative, reconstruct a paragraph, add material, or continue outside the crop.",
+      "replaces_region": "photius-bekker-0232-left-lower"
+    },
+    {
+      "id": "photius-bekker-0232-left-lower-gutter-part02",
+      "source": "photius-bekker-combined",
+      "scan_page": 232,
+      "printed_page": 220,
+      "region": [
+        0.045,
+        0.6787,
+        0.505,
+        0.7716
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-failed-geometry-supplement",
+      "reading_order": 1,
+      "prompt_suffix": "Transcribe only the complete printed Greek body lines in this source crop, exactly once, preserving polytonic marks and headings. Read the actual visible text; do not substitute a narrative, reconstruct a paragraph, add material, or continue outside the crop.",
+      "replaces_region": "photius-bekker-0232-left-lower"
+    },
+    {
+      "id": "photius-bekker-0232-left-lower-gutter-part03",
+      "source": "photius-bekker-combined",
+      "scan_page": 232,
+      "printed_page": 220,
+      "region": [
+        0.045,
+        0.7716,
+        0.505,
+        0.848
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-failed-geometry-supplement",
+      "reading_order": 2,
+      "prompt_suffix": "Transcribe only the complete printed Greek body lines in this source crop, exactly once, preserving polytonic marks and headings. Read the actual visible text; do not substitute a narrative, reconstruct a paragraph, add material, or continue outside the crop.",
+      "replaces_region": "photius-bekker-0232-left-lower"
+    }
+  ]
+}
