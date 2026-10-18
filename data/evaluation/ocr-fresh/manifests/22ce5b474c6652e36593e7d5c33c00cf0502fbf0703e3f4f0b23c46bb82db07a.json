@@ -1,0 +1,80 @@
+{
+ "schema_version": 1,
+ "purpose": "Two shorter source-reviewed subcrops replacing the still-truncated Qwen3.8 first strip of page112; all earlier attempts remain archived.",
+ "sources": {
+  "jahn1882": {
+   "url": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+   "sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+   "license": "PD (Jahn 1882)",
+   "citation": "Aristidis Quintiliani De musica libri III, edited by Albert Jahn (Berlin: Calvary, 1882)"
+  }
+ },
+ "retry_of": {
+  "path": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json",
+  "sha256": "0690f8957ba18fae60c0f5936a8fd0be52653ed717be68c2697d088244a67859",
+  "region_ids": [
+   "jahn-1882-0112-greek"
+  ]
+ },
+ "supplements": {
+  "manifest": "data/ingest_reviews/jahn-aristides-length-retry.json",
+  "manifest_sha256": "f5a69076fc85ec240ffc8031d101e3e56f02c36a5525d276b746e2e5f7c00454",
+  "replaces_region": "jahn-1882-0112-greek-retry-strip-1",
+  "original_region": [
+   0.13,
+   0.145,
+   0.8,
+   0.386
+  ],
+  "model_family": "qwen3.8-27b"
+ },
+ "review": {
+  "recorded_at": "2026-10-18",
+  "checked_scan_pages": [
+   112
+  ],
+  "extent": "The additional split inspected in the whitespace between complete printed lines6/7 of the first body strip.",
+  "finding": "The two adjacent subcrops exactly cover the earlier first strip with no overlap or gap. The remaining complete page112 strips and Qwen3.6 prediction remain available; this request does not replace them.",
+  "policy": "Require source review of the complete assembled page; replace only the explicitly identified failed model strip. Keep every original and failed retry prediction, and retain one model-family vote."
+ },
+ "pages": [
+  {
+   "id": "jahn-1882-0112-greek-retry-strip-1-sub-1",
+   "source": "jahn1882",
+   "scan_page": 112,
+   "printed_page": 39,
+   "book": 2,
+   "region": [
+    0.13,
+    0.145,
+    0.8,
+    0.2586
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Source-reviewed whitespace between complete lines; exact partition of the earlier failed strip",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0112-greek",
+   "replaces": "jahn-1882-0112-greek-retry-strip-1",
+   "text_role": "authorial-prose"
+  },
+  {
+   "id": "jahn-1882-0112-greek-retry-strip-1-sub-2",
+   "source": "jahn1882",
+   "scan_page": 112,
+   "printed_page": 39,
+   "book": 2,
+   "region": [
+    0.13,
+    0.2586,
+    0.8,
+    0.386
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Source-reviewed whitespace between complete lines; exact partition of the earlier failed strip",
+   "reading_order": 2,
+   "reconstructs": "jahn-1882-0112-greek",
+   "replaces": "jahn-1882-0112-greek-retry-strip-1",
+   "text_role": "authorial-prose"
+  }
+ ]
+}

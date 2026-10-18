@@ -1,0 +1,27 @@
+{
+ "manifest_sha256": "bb03fc47bcef32c5398b378c2b998d98f29336cc2e3ba430528d68d4f0be057d",
+ "source_pdf_sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+ "decision": "replace-source-reviewed-degraded-page",
+ "reviewed_at": "2026-10-18T07:33:21.891759+00:00",
+ "source_evidence": "All20 completed prose/caption predictions compared with source scans82/87/91 and all10 crop boundaries. Both model readings cover every intended prose line and the six separate mode captions; musical-sign tables are outside these text crops and remain explicit source-image regions. Word, accent and breathing disagreements in the prose remain variants. Several short mode captions are misspelled by both models and require the separately recorded named source adjudication; this review does not treat raw agreement as proof of correctness. The initial ται on scan82 is a page continuation, not a separate word.",
+ "original_artifacts_sha256": [
+  "7de74082ad102845ef4f7a0d18d6cddae894e47fdb7eba8a1c9d4d5c6945b7b8",
+  "1f776312129f336001161496e02c75306544c86f053bf96534f03573885985f7",
+  "30638205bdecc9e586a73af66f608a6c6780446ef62c227b1507e514d2b34828",
+  "5626a6308de5ffef86f0d7a38688c4fe6ad29a51d462b179885b4ca2357b8643",
+  "9725738fc923659e93678ab06e188bc40fd62ef1fc2d114b05433adebd042f86",
+  "643646847e8a80d690fa1f777c1d96fbd4a10b879a1d61a723993fdb579aed72"
+ ],
+ "reviewed_runs": [
+  {
+   "sha256": "383df76004e36c5cc446887d0c3422d437274609f8da9f68966cc6561a1b1483",
+   "model": "Qwen/Qwen3.6-27B",
+   "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+  },
+  {
+   "sha256": "f0ea7d379f8f8fa286ba6c9ad558006a341fa00c9ea2ae571b3b11c8ba8176c0",
+   "model": "Qwen/Qwen3.8-27B-FP8",
+   "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  }
+ ]
+}
