@@ -171,9 +171,11 @@ def collate_overlaps(manifest, inputs, root):
 
 def collate(manifest, inputs, allow_partial=False, network_path=None, digital=None):
     from ocr_consensus import merge_witnesses, compact_corpus_consensus
+    from scan_fragment_reviews import adjacent_mathematical_pages, reviewed_mathematical_boundary
     network_path = network_path or "data/corpus_changes/scan-coverage-preview/word-networks.json.gz"
     digital = digital or {"sources": {}, "pages": {}, "originals": {}}
     primary, paratext, audits, networks = {}, [], [], {}
+    adjacent_pages = adjacent_mathematical_pages(manifest)
     for page in manifest["pages"]:
         if page["work"] not in WORKS:
             raise ValueError("This importer accepts only the three reviewed coverage works")
@@ -216,6 +218,12 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
                 networks[raw_review[0]] = raw_review[1]
                 decisions.append(review)
                 reviews.append(review)
+        merged, raw_review, review = reviewed_mathematical_boundary(merged, page,
+            adjacent_pages.get(page["id"]), manifest, inputs, witnesses, network_path, clean_running_headers)
+        if raw_review is not None:
+            networks[raw_review[0]] = raw_review[1]
+            decisions.append(review)
+            reviews.append(review)
         networks[key] = merged
         compact = compact_corpus_consensus(merged, {"path": network_path, "key": key})
         row = {"urn": page["work"], "edition": EDITION, "locus": locus(page),
@@ -228,7 +236,8 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
         if page.get("text_role"):
             row["text_role"] = page["text_role"]
         if reviews:
-            row["corrections"] = ["manual"]
+            row["corrections"] = sorted({"manual" if review["source_kind"] == "manual-scan-review"
+                else "structural" for review in reviews})
             row["correction_sources"] = [review["review_id"] for review in reviews]
         if component is not None:
             row["license"] = "CC-BY-SA-4.0"

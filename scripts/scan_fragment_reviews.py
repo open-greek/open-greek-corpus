@@ -1,5 +1,6 @@
 """Source-verified eligibility reviews for fragments split across scan regions."""
 from copy import deepcopy
+import unicodedata
 
 PAGE = "apolloniipergaei02apoluoft-pdf0096-letter"
 PRECEDING_PAGE = "apolloniipergaei02apoluoft-pdf0094-letter"
@@ -75,3 +76,63 @@ def unapply_review(result, archived_raw_result):
     if actual != reference:
         raise ValueError("The original OCR network differs from the fragment review's retained evidence")
     return deepcopy(archived_raw_result)
+
+
+def adjacent_mathematical_pages(manifest):
+    """Identify same-book adjacent printed Greek leaves, not facing translations."""
+    works = {"pappus-mathematics.synagoge", "apollonius-geom.conica"}
+    ordered = sorted((page for page in manifest["pages"] if page["work"] in works),
+        key=lambda page: (page["work"], int(page["book"]), page["printed_page"]))
+    result = {}
+    for previous, current in zip(ordered, ordered[1:]):
+        if (previous["work"], previous["book"], previous["printed_page"] + 2) == (
+                current["work"], current["book"], current["printed_page"]):
+            result[current["id"]] = previous
+    return result
+
+
+def reviewed_mathematical_boundary(result, page, previous_page, manifest, inputs, witnesses,
+        network_path, clean_body):
+    """Verify mathematical body starts and preserve separately reviewed letters."""
+    if result["ocr_consensus"].get("reviewed_corrections") or previous_page is None:
+        return result, None, None
+    from ocr_consensus import alignment_key, greek_letter, tokenize
+    from ocr_boundary_fragments import exclude_leading_fragment
+    previous = []
+    body_start_evidence = {}
+    for values, current in zip(inputs, witnesses):
+        before = values.get(previous_page["id"])
+        if before is None:
+            return result, None, None
+        before_body, _ = clean_body(before["text"], page["work"])
+        previous.append(dict(before, text=before_body, original_text=before["text"]))
+        tokens = tokenize(current["text"])
+        if not tokens:
+            return result, None, None
+        initial = tokens[0][0]
+        letters = [char for char in initial if greek_letter(char)]
+        # A continuation starts within a word. Reject titles, running headers,
+        # capitalized opening words and one-letter proposition/section labels.
+        if (len(letters) < 2 or not letters[0].islower() or
+                alignment_key(initial) in {"κωνικων", "παππου", "συναγωγησ"}):
+            return result, None, None
+        prefix = current["text"].lstrip().split(initial, 1)[0]
+        if any(unicodedata.category(char).startswith("L") for char in prefix):
+            return result, None, None
+        body_start_evidence[current["id"]] = (
+            "The first Greek token begins the cleaned body after only punctuation or numeric labels, "
+            "contains at least two Greek letters and starts lowercase. Exact repeated Pappus headers "
+            "are removed in their own audit; capitalized/title-like starts and proposition labels are held.")
+    def region(value, values):
+        source = manifest["sources"][value["source"]]
+        return {"id": value["id"], "work": value["work"], "book": value["book"],
+            "printed_page": value["printed_page"], "url": source["url"], "sha256": source["sha256"],
+            "scan_page": value["scan_page"], "region": value["region"],
+            "image_sha256": sorted({item["image_sha256"] for item in values})}
+    review_id = "mathematical-leading-fragment:" + page["id"]
+    return exclude_leading_fragment(result, previous, witnesses,
+        previous_region=region(previous_page, previous), current_region=region(page, witnesses),
+        body_start_evidence=body_start_evidence,
+        raw_network_reference={"path": network_path, "key": page["id"] + ":raw-ocr"},
+        review_id=review_id, reviewed_at="2026-10-18",
+        adjacency_evidence="The hash-pinned reviewed source manifests place these leaves consecutively within the same printed book, with printed page numbers differing by two because Latin facing leaves are excluded. Both independent body witnesses show the preceding terminal hyphen and the same leading continuation; no intervening Greek leaf or book boundary is crossed.")

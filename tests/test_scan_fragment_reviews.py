@@ -70,3 +70,46 @@ def test_fragment_admission_replays_and_undoes_exact_previous_bytes(tmp_path):
     assert raw["analysis_text"].startswith("γενῆ ")
     ingest.undo(archive, tmp_path)
     assert path.read_bytes() == original
+
+
+def test_generic_same_book_boundary_replays_without_changing_the_letter_audit(tmp_path):
+    manifest, _, _, raws = fixture()
+    for number, page in enumerate(manifest["pages"]):
+        page.update(id=f"conica-body-{number}", book="1", printed_page=10 + 2 * number, scan_page=28 + 2 * number)
+        page.pop("text_role")
+    raw_manifest = ingest.encoded(manifest)
+    inputs, modified_raws = [], []
+    for raw in raws:
+        values = ingest.records(raw)
+        values[0]["_meta"]["manifest_sha256"] = ingest.sha(raw_manifest)
+        for row, page in zip(values[1:], manifest["pages"]):
+            row.update({key: page[key] for key in ("id", "scan_page")})
+        blob = ingest.jsonl_bytes(values)
+        inputs.append(ingest.load_predictions(None, raw_manifest, manifest, blob)[0])
+        modified_raws.append(blob)
+    result = ingest.collate(manifest, inputs)
+    rows = result[0]["apollonius-geom.conica"]
+    assert rows[0]["text"].endswith("ὅμο-") and not rows[0]["ocr_consensus"]["slots"][-1]["lexical_eligible"]
+    assert rows[1]["text"].startswith("γενῆ ") and not rows[1]["ocr_consensus"]["slots"][0]["lexical_eligible"]
+    assert rows[1]["corrections"] == ["structural"]
+    assert rows[1]["ocr_consensus"]["slots"][0]["status"] == "continuation-fragment"
+    work = "apollonius-geom.conica"
+    (tmp_path / "data/corpus").mkdir(parents=True)
+    path = tmp_path / f"data/corpus/{work}.jsonl"
+    original = ingest.jsonl_bytes([{"urn": work, "locus": "4.1", "text": "πρῶτον"}])
+    path.write_bytes(original)
+    (tmp_path / "data/corpus_editions.json").write_bytes(ingest.encoded({work: {"n_passages": 1, "n_tokens": 1}}))
+    ingest.apply(tmp_path, raw_manifest, modified_raws, *result, "body-fragment-test")
+    archive = tmp_path / "data/corpus_changes/body-fragment-test"
+    ingest.verify(archive, tmp_path)
+    ingest.undo(archive, tmp_path)
+    assert path.read_bytes() == original
+    # A book boundary cannot establish an incomplete word across the transition.
+    manifest["pages"][1]["book"] = "2"
+    rows = ingest.collate(manifest, inputs)[0][work]
+    assert rows[1]["analysis_text"].startswith("γενῆ ")
+    manifest["pages"][1]["book"] = "1"
+    for values in inputs:
+        values["conica-body-1"]["text"] = "ΚΩΝΙΚΩΝ γενῆ τούτοις"
+    rows = ingest.collate(manifest, inputs)[0][work]
+    assert "correction_sources" not in rows[1]
