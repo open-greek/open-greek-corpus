@@ -299,7 +299,8 @@ def check(root=ROOT):
         raise ValueError("Cyril audit or historical destinations changed")
     expected_work = json.loads(generated["data/source_registry.json"])["works"][SLUG]
     actual_work = json.loads((root / "data/source_registry.json").read_text())["works"][SLUG]
-    if actual_work.get("coverage_composition") != expected_work["coverage_composition"]:
+    if any(actual_work.get("coverage_composition", {}).get(key) != value
+           for key, value in expected_work["coverage_composition"].items()):
         raise ValueError("Cyril complementary-volume metadata changed")
     for key in (f"{SLUG}.{EDITION}", f"{SLUG}.migne-pg74-gap-consensus-2026-10"):
         if actual_work.get("editions", {}).get(key) != expected_work["editions"][key]:

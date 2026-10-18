@@ -630,6 +630,10 @@
     "gnd": "121165167"
    }
   },
+  "alypius": {
+   "name": "Alypius",
+   "aliases": {}
+  },
   "amasis-epistulae": {
    "name": "Amasis Epistulae",
    "aliases": {
@@ -8593,6 +8597,10 @@
     "gnd": "102382816"
    }
   },
+  "bacchius-geron": {
+   "name": "Bacchius Geron",
+   "aliases": {}
+  },
   "bacchylides": {
    "name": "Bacchylides",
    "aliases": {
@@ -11919,6 +11927,10 @@
     "isni": "0000000121302401"
    }
   },
+  "gaudentius": {
+   "name": "Gaudentius",
+   "aliases": {}
+  },
   "geminus": {
    "name": "Geminus",
    "aliases": {
@@ -13514,6 +13526,10 @@
     "gnd": "118714341",
     "isni": "0000000061707238"
    }
+  },
+  "kaibel-cgf-1899": {
+   "name": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899)",
+   "aliases": {}
   },
   "lachares": {
    "name": "Lachares",
@@ -19512,10 +19528,6 @@
     "gnd": "100964354",
     "isni": "0000000371217816"
    }
-  },
-  "kaibel-cgf-1899": {
-   "name": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899)",
-   "aliases": {}
   }
  },
  "works": {
@@ -31087,6 +31099,30 @@
     "alexius-studites.decreta-additamentum.greek-library-ficker-1911": {
      "name": "The Greek Library (greek-library-ficker-1911)",
      "provider": "greek_library",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "alypius.isagoge-musica": {
+   "author": "alypius",
+   "title": "Isagoge musica",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg2135.tlg001"
+   },
+   "default_edition": "alypius.isagoge-musica.1st1K-grc1",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "alypius.isagoge-musica.1st1K-grc1": {
+     "name": "First1KGreek (1st1K-grc1)",
+     "provider": "first1k",
      "scheme": "",
      "editor": "",
      "year": null,
@@ -81250,6 +81286,35 @@
     }
    }
   },
+  "anonymous.p-herc-1026": {
+   "author": "anonymous",
+   "title": "Ethical/epistemological fragment from an Epicurean treatise",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:anonymous.p-herc-1026"
+   },
+   "default_edition": "anonymous.p-herc-1026.dclp63141-35b5e227",
+   "best_source": "open_corpus",
+   "tags": [
+    "language:grc"
+   ],
+   "editions": {
+    "anonymous.p-herc-1026.dclp63141-35b5e227": {
+     "name": "Digital Corpus of Literary Papyri 63141",
+     "provider": "dclp",
+     "scheme": "column.line",
+     "editor": "Vincenzo Damiani; Holger Essler; Antonia Di Tuccio; Marzia D'Angelo",
+     "year": null,
+     "source": "https://raw.githubusercontent.com/papyri/idp.data/35b5e2279ad29c44824f6dc60d9fc748dc109305/DCLP/63/63141.xml",
+     "servable": true,
+     "license": "CC-BY-3.0",
+     "scheme_inferred": false,
+     "aliases": {
+      "trismegistos": "63141",
+      "ldab": "4345"
+     }
+    }
+   }
+  },
   "anonymus-ad-avircium-marcellum-contra-cataphrygas.ad-avircium-marcellum-contra-cataphrygas": {
    "author": "anonymus-ad-avircium-marcellum-contra-cataphrygas",
    "title": "Ad Avircium Marcellum Contra Cataphrygas",
@@ -102839,6 +102904,30 @@
      "source": "",
      "servable": false,
      "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "bacchius-geron.isagoge": {
+   "author": "bacchius-geron",
+   "title": "Isagoge artis musicae",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg2136.tlg001"
+   },
+   "default_edition": "bacchius-geron.isagoge.1st1K-grc1",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "bacchius-geron.isagoge.1st1K-grc1": {
+     "name": "First1KGreek (1st1K-grc1)",
+     "provider": "first1k",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
      "aliases": {}
     }
@@ -124702,13 +124791,81 @@
     "cts": "urn:cts:greekLit:tlg4090.tlg002"
    },
    "default_edition": "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36",
-   "best_source": "migne_cgpg",
+   "best_source": "open_corpus",
    "tags": [
     "century:5",
     "era:late-antique",
     "genre:exegesis"
    ],
+   "coverage_composition": {
+    "manifest": "data/corpus_changes/cyril-john-coverage/changes.json",
+    "manifest_sha256": "1d6e718a150d49ebc07e195e84f1e5da4d3769423dba21c47d6eb5f588cf94bf",
+    "volumes": [
+     "PG073",
+     "PG074"
+    ],
+    "policy": "complementary-volume-union",
+    "counts": {
+     "added_pg73": 528,
+     "retained_pg74_john": 2578,
+     "added_pg74_missing_leaves": 3,
+     "title_paratext": 4,
+     "held_other_works": 474
+    },
+    "components": [
+     {
+      "edition": "calfa-pg73-5895ab908dd4",
+      "volume": "PG073",
+      "passages": 528,
+      "license": "CC-BY-4.0",
+      "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+      "source_sha256": "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104",
+      "attribution": "Calfa, Patrologia Graeca OCR, PG073"
+     },
+     {
+      "edition": "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36",
+      "volume": "PG074",
+      "passages": 2578,
+      "license": "PD",
+      "storage": "primary",
+      "source": "",
+      "provider": "ocr",
+      "name": "cog OCR (migne-ocr-qwen36)"
+     },
+     {
+      "edition": "migne-pg74-gap-consensus-2026-10",
+      "volume": "PG074",
+      "passages": 3,
+      "license": "PD"
+     }
+    ],
+    "source_editions": [
+     {
+      "url": "https://archive.org/details/patrologiaecurs43hopfgoog",
+      "sha256": "9de7832e644fd6f9436f15b51c940f7601738a90339c29f3350210ffad2802ab",
+      "description": "Migne PG 73, 1859; scan 12 begins the commentary's prooimion; scan 569 ends John 10:17 above the Latin index."
+     },
+     {
+      "url": "https://archive.org/details/patrologiaecurs25hopfgoog",
+      "sha256": "0150e7ffadcf5836ba6198cebdec113effe9e655b652a54388f1e8e8802b2005",
+      "description": "Migne PG 74, 1859; scan 12 begins Books VII/VIII fragments; scan 473 ends John at columns 755–756; scan 474 begins Acts; scan 482 begins Romans below the end of Acts."
+     }
+    ],
+    "qualification": "PG074 Books VII and VIII survive as fragments in this edition; this does not reconstruct lost continuous books."
+   },
    "editions": {
+    "cyrillus-theology.commentarii-in-joannem.calfa-pg73-5895ab908dd4": {
+     "name": "Calfa PG073 OCR, complementary first volume",
+     "provider": "cgpg",
+     "scheme": "volume.marker-page",
+     "editor": "Migne, Jacques-Paul",
+     "year": 1859,
+     "source": "https://raw.githubusercontent.com/calfa-co/Patrologia-Graeca/5895ab908dd4cac5ee06cfc0e36f2ef77723e143/PG073/PG073_text.txt",
+     "servable": true,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36": {
      "name": "cog OCR (migne-ocr-qwen36)",
      "provider": "ocr",
@@ -124716,6 +124873,19 @@
      "editor": "",
      "year": null,
      "source": "",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "PG074 continuation beginning John 10:18; Books VII and VIII are fragmentary. Acts and Romans are separate works."
+    },
+    "cyrillus-theology.commentarii-in-joannem.migne-pg74-gap-consensus-2026-10": {
+     "name": "PG074 missing leaves, independent scan OCR consensus",
+     "provider": "ocr",
+     "scheme": "volume.reference-scan",
+     "editor": "Migne, Jacques-Paul",
+     "year": 1859,
+     "source": "https://archive.org/details/patrologiaecurs25hopfgoog",
      "servable": true,
      "license": "PD",
      "scheme_inferred": false,
@@ -168817,6 +168987,30 @@
     }
    }
   },
+  "gaudentius.harmonica-introductio": {
+   "author": "gaudentius",
+   "title": "Harmonica introductio",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg2137.tlg001"
+   },
+   "default_edition": "gaudentius.harmonica-introductio.1st1K-grc1",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "gaudentius.harmonica-introductio.1st1K-grc1": {
+     "name": "First1KGreek (1st1K-grc1)",
+     "provider": "first1k",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "CC-BY-SA-4.0",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
   "geminus.calendarium-sp": {
    "author": "geminus",
    "title": "Calendarium [Sp.?]",
@@ -212547,18 +212741,6 @@
     "language:ancient-greek"
    ],
    "editions": {
-    "joannes-laurentius-lydus.de-mensibus.wunsch-1898": {
-     "name": "Ioannis Lydi liber de mensibus",
-     "provider": "tlg-e-reference",
-     "scheme": "book.section.line",
-     "editor": "Wünsch, R",
-     "year": 1898,
-     "source": "",
-     "servable": false,
-     "license": "",
-     "scheme_inferred": false,
-     "aliases": {}
-    },
     "joannes-laurentius-lydus.de-mensibus.qwen36-lydus_mensibus_wuensch": {
      "name": "cog OCR (qwen36-lydus_mensibus_wuensch)",
      "provider": "ocr",
@@ -212568,6 +212750,18 @@
      "source": "",
      "servable": true,
      "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
+    "joannes-laurentius-lydus.de-mensibus.wunsch-1898": {
+     "name": "Ioannis Lydi liber de mensibus",
+     "provider": "tlg-e-reference",
+     "scheme": "book.section.line",
+     "editor": "Wünsch, R",
+     "year": 1898,
+     "source": "",
+     "servable": false,
+     "license": "",
      "scheme_inferred": false,
      "aliases": {}
     }
@@ -214795,6 +214989,54 @@
      "source": "",
      "servable": false,
      "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "kaibel-cgf-1899.volume-witness-r": {
+   "author": "kaibel-cgf-1899",
+   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:kaibel-cgf-1899.volume-witness-r"
+   },
+   "default_edition": "kaibel-cgf-1899.volume-witness-r.qwen36-rhinthon_kaibel_cgf_1899",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "kaibel-cgf-1899.volume-witness-r.qwen36-rhinthon_kaibel_cgf_1899": {
+     "name": "cog OCR (qwen36-rhinthon_kaibel_cgf_1899)",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "kaibel-cgf-1899.volume-witness-s": {
+   "author": "kaibel-cgf-1899",
+   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:kaibel-cgf-1899.volume-witness-s"
+   },
+   "default_edition": "kaibel-cgf-1899.volume-witness-s.qwen36-sopater_kaibel_cgf",
+   "best_source": "open_corpus",
+   "tags": [],
+   "editions": {
+    "kaibel-cgf-1899.volume-witness-s.qwen36-sopater_kaibel_cgf": {
+     "name": "cog OCR (qwen36-sopater_kaibel_cgf)",
+     "provider": "ocr",
+     "scheme": "",
+     "editor": "",
+     "year": null,
+     "source": "",
+     "servable": true,
+     "license": "PD",
      "scheme_inferred": false,
      "aliases": {}
     }
@@ -273789,6 +274031,34 @@
     }
    }
   },
+  "rhinthon.fragmenta": {
+   "author": "rhinthon",
+   "title": "Fragmenta",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg1654.tlg001"
+   },
+   "default_edition": null,
+   "best_source": "pd_edition",
+   "tags": [
+    "century:-4",
+    "era:classical",
+    "genre:comedy"
+   ],
+   "editions": {
+    "rhinthon.fragmenta.kaibel-1899": {
+     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
+     "provider": "tlg-e-reference",
+     "scheme": "fragment.line",
+     "editor": "Kaibel, G",
+     "year": 1899,
+     "source": "",
+     "servable": false,
+     "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
   "rhinthon.titulus": {
    "author": "rhinthon",
    "title": "Titulus",
@@ -284755,6 +285025,34 @@
      "scheme": "epistle.line",
      "editor": "Hercher, R",
      "year": 1873,
+     "source": "",
+     "servable": false,
+     "license": "",
+     "scheme_inferred": false,
+     "aliases": {}
+    }
+   }
+  },
+  "sopater-comedy.fragmenta": {
+   "author": "sopater-comedy",
+   "title": "Fragmenta",
+   "aliases": {
+    "cts": "urn:cts:greekLit:tlg1682.tlg001"
+   },
+   "default_edition": null,
+   "best_source": "pd_edition",
+   "tags": [
+    "century:-3",
+    "era:hellenistic",
+    "genre:comedy"
+   ],
+   "editions": {
+    "sopater-comedy.fragmenta.kaibel-1899": {
+     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
+     "provider": "tlg-e-reference",
+     "scheme": "fragment.line",
+     "editor": "Kaibel, G",
+     "year": 1899,
      "source": "",
      "servable": false,
      "license": "",
@@ -305477,110 +305775,6 @@
      "scheme": "book.chapter.section.line",
      "editor": "Paschoud, F",
      "year": 1971,
-     "source": "",
-     "servable": false,
-     "license": "",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "kaibel-cgf-1899.volume-witness-r": {
-   "author": "kaibel-cgf-1899",
-   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:kaibel-cgf-1899.volume-witness-r"
-   },
-   "default_edition": "kaibel-cgf-1899.volume-witness-r.qwen36-rhinthon_kaibel_cgf_1899",
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {
-    "kaibel-cgf-1899.volume-witness-r.qwen36-rhinthon_kaibel_cgf_1899": {
-     "name": "cog OCR (qwen36-rhinthon_kaibel_cgf_1899)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "kaibel-cgf-1899.volume-witness-s": {
-   "author": "kaibel-cgf-1899",
-   "title": "Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:kaibel-cgf-1899.volume-witness-s"
-   },
-   "default_edition": "kaibel-cgf-1899.volume-witness-s.qwen36-sopater_kaibel_cgf",
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {
-    "kaibel-cgf-1899.volume-witness-s.qwen36-sopater_kaibel_cgf": {
-     "name": "cog OCR (qwen36-sopater_kaibel_cgf)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "rhinthon.fragmenta": {
-   "author": "rhinthon",
-   "title": "Fragmenta",
-   "aliases": {
-    "cts": "urn:cts:greekLit:tlg1654.tlg001"
-   },
-   "default_edition": null,
-   "best_source": "pd_edition",
-   "tags": [
-    "century:-4",
-    "era:classical",
-    "genre:comedy"
-   ],
-   "editions": {
-    "rhinthon.fragmenta.kaibel-1899": {
-     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
-     "provider": "tlg-e-reference",
-     "scheme": "fragment.line",
-     "editor": "Kaibel, G",
-     "year": 1899,
-     "source": "",
-     "servable": false,
-     "license": "",
-     "scheme_inferred": false,
-     "aliases": {}
-    }
-   }
-  },
-  "sopater-comedy.fragmenta": {
-   "author": "sopater-comedy",
-   "title": "Fragmenta",
-   "aliases": {
-    "cts": "urn:cts:greekLit:tlg1682.tlg001"
-   },
-   "default_edition": null,
-   "best_source": "pd_edition",
-   "tags": [
-    "century:-3",
-    "era:hellenistic",
-    "genre:comedy"
-   ],
-   "editions": {
-    "sopater-comedy.fragmenta.kaibel-1899": {
-     "name": "Comicorum Graecorum fragmenta, vol. 1.1",
-     "provider": "tlg-e-reference",
-     "scheme": "fragment.line",
-     "editor": "Kaibel, G",
-     "year": 1899,
      "source": "",
      "servable": false,
      "license": "",
