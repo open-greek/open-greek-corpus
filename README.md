@@ -772,6 +772,14 @@ preparation script. Their reading order covers the heading, prefatory letter,
 and both columns of codex 1; a single ellipsis represents each printed dotted
 lacuna. Original attempts remain evidence, and accepting the retry requires a
 separate source review and one assembled vote per model family.
+After comparing every retry strip with the scan, `scripts/photius_retries.py`
+records that completed review from the original `--fresh` runs, both `--retry`
+runs, `--source-evidence`, and a `--strip-evidence` JSON object keyed by strip
+ID. It refuses to overwrite an existing review. The coverage importer accepts
+the retained retries with `--retry` and `--retry-review`; it validates every
+original run, crop, prompt, image, checkpoint, prediction hash, and review pin.
+The audit archives the failed original page, all retry readings, the request,
+and the completed source review. Retrying a model never creates another vote.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`

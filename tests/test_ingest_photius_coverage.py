@@ -9,6 +9,8 @@ ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import ingest_photius_coverage as ingest
 import repair_photius_index as index
+import photius_retries as retries
+from prepare_photius_coverage import build_page13_retry
 from ocr_consensus import restore_corpus_consensus
 
 
@@ -123,3 +125,91 @@ def test_source_comparison_checksum_is_enforced(tmp_path):
     source.write_bytes(b"changed")
     with pytest.raises(ValueError, match="comparison witness changed"):
         ingest.load_source_library(source)
+
+
+def retry_fixture(tmp_path):
+    root_fixture(tmp_path)
+    manifests = [ingest.scan_manifest(), ingest.build_later_gap()]
+    paths = [prediction(tmp_path, manifest, model) for model in ("a", "b") for manifest in manifests]
+    lines = paths[0].read_text().splitlines()
+    for i, line in enumerate(lines[1:], 1):
+        row = json.loads(line)
+        if row["id"] == "photius-bekker-0013":
+            row.update(finish_reason="length", raw_prediction="σκοποῦ … " + ". " * 200)
+            lines[i] = json.dumps(row, ensure_ascii=False)
+    paths[0].write_text("\n".join(lines) + "\n")
+    manifest = build_page13_retry()
+    retry_paths = []
+    for model in ("a", "b"):
+        meta = {"model": model, "revision": model * 40, "prompt": manifest["prompt"],
+                "manifest_sha256": ingest.sha(ingest.encode(manifest))}
+        records = [{"id": page["id"], "source": page["source"], "scan_page": page["scan_page"],
+                    "region": page["region"], "image_sha256": "b" * 64,
+                    "prompt_sha256": ingest.sha((manifest["prompt"] + " " + page["prompt_suffix"]).encode()),
+                    "raw_prediction": "ὁ λόγος σαφὴς καὶ καλὸς ἐστίν.", "finish_reason": "stop"}
+                   for page in manifest["pages"]]
+        path = tmp_path / (model + "-retry.jsonl")
+        path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in [{"_meta": meta}, *records]) + "\n")
+        retry_paths.append(path)
+    _, models, _ = ingest.prepare_fresh_inputs(paths, manifests, allow_unreviewed_retry_preparation=True)
+    review = tmp_path / "review.json"
+    retries.write_source_review(models, retry_paths, review, "Synthetic source-review fixture",
+        {page["id"]: "Synthetic reviewed complete lines with no apparatus" for page in manifest["pages"]},
+        "2026-10-18T07:00:00Z")
+    return paths, retry_paths, review
+
+
+def test_reviewed_strips_replace_one_vote_and_preserve_failed_original(tmp_path, monkeypatch):
+    paths, retry_paths, review = retry_fixture(tmp_path)
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()])
+    document = {"id": "test-source", "license": {"text": "CC BY-SA 4.0"}, "sourceRights": "Retained source rights"}
+    monkeypatch.setattr(ingest, "load_source_library", lambda path: (b"source", document, {}))
+    artifacts, report = ingest.generate(paths, tmp_path / "source", tmp_path, retry_paths=retry_paths, retry_review=review)
+    assert report["added_passages"] == 309
+    assert len(report["fresh_ocr_files"]) == 4
+    assert len(report["reviewed_retry"]["raw_files"]) == 2
+    assert artifacts[Path(report["reviewed_retry"]["source_review"]["path"])] == review.read_bytes()
+    networks = json.loads(gzip.decompress(artifacts[Path(report["full_networks"]["path"])]))
+    witnesses = networks["13"]["ocr_consensus"]["witnesses"]
+    assert len(witnesses) == 2
+    assert len({w["vote_group"] for w in witnesses}) == 2
+    assert all(w["text"].count("ὁ λόγος") == 5 for w in witnesses)
+    assert any(w["reviewed_retry"]["original_record"]["finish_reason"] == "length" for w in witnesses)
+    assert all(len(w["reviewed_retry"]["strips"]) == 5 for w in witnesses)
+    assert ingest.generate(list(reversed(paths)), tmp_path / "source", tmp_path,
+        retry_paths=list(reversed(retry_paths)), retry_review=review)[0] == artifacts
+    ingest.apply(artifacts, report, tmp_path)
+    ingest.undo(tmp_path)
+    assert (tmp_path / index.CORPUS).read_bytes() == index.generate(index.input_bytes(ROOT))[0]
+
+
+@pytest.mark.parametrize("change, message", [
+    ("geometry", "geometry"), ("prompt", "prompt"), ("truncated", "truncated"),
+    ("original", "original page attempts"), ("strip-review", "Every retry strip"),
+    ("image", "different source images"),
+])
+def test_retry_review_and_raw_input_pins_are_enforced(tmp_path, change, message):
+    paths, retry_paths, review_path = retry_fixture(tmp_path)
+    review = json.loads(review_path.read_text())
+    if change in {"geometry", "prompt", "truncated", "image"}:
+        path = retry_paths[0]
+        records = [json.loads(line) for line in path.read_text().splitlines()]
+        if change == "geometry": records[1]["region"] = [0, 0, 1, 1]
+        elif change == "prompt": records[1]["prompt_sha256"] = "unreviewed"
+        elif change == "truncated": records[1]["finish_reason"] = "length"
+        else: records[1]["image_sha256"] = "c" * 64
+        previous_sha = ingest.sha(path.read_bytes())
+        path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in records) + "\n")
+        next(run for run in review["reviewed_runs"] if run["sha256"] == previous_sha)["sha256"] = ingest.sha(path.read_bytes())
+    elif change == "original": review["original_artifacts_sha256"][0] = "unreviewed"
+    else: review["strip_reviews"][0]["reading_complete"] = False
+    review_path.write_text(json.dumps(review) + "\n")
+    with pytest.raises(ValueError, match=message):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], retry_paths, review_path)
+
+
+def test_retries_without_a_separate_review_do_not_bypass_failed_page(tmp_path):
+    paths, retry_paths, review_path = retry_fixture(tmp_path)
+    with pytest.raises(ValueError, match="separate completed source review"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], retry_paths)
