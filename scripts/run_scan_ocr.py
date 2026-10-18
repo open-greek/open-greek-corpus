@@ -65,13 +65,13 @@ def prepare_images(manifest, cache):
     return images
 
 
-def http_prediction(args, image):
+def http_prediction(args, image, prompt):
     payload = {"model": args.model, "temperature": 0, "top_p": 1,
                "max_tokens": args.max_tokens, "chat_template_kwargs": {"enable_thinking": False},
                "messages": [{"role": "user", "content": [
                    {"type": "image_url", "image_url": {"url": "data:image/png;base64," +
                                                            base64.b64encode(image.read_bytes()).decode()}},
-                   {"type": "text", "text": PROMPT}]}]}
+                   {"type": "text", "text": prompt}]}]}
     req = Request(args.base_url.rstrip("/") + "/chat/completions",
                   data=json.dumps(payload).encode(), headers={"Content-Type": "application/json"})
     with urlopen(req, timeout=1800) as response:
@@ -85,14 +85,20 @@ def http_prediction(args, image):
 def run(args):
     raw_manifest = args.manifest.read_bytes()
     manifest = json.loads(raw_manifest)
+    base_prompt = manifest.get("prompt", PROMPT)
     pages = manifest["pages"]
     if len({page["id"] for page in pages}) != len(pages):
         raise ValueError("Repeated scan page identity")
     if args.limit:
         pages = pages[:args.limit]
-    metadata = {"model": args.model, "revision": args.revision, "prompt": PROMPT,
+    metadata = {"model": args.model, "revision": args.revision, "prompt": base_prompt,
                 "temperature": 0, "max_tokens": args.max_tokens, "backend": args.backend,
                 "manifest_sha256": sha(raw_manifest), "runner_sha256": sha(Path(__file__).read_bytes())}
+    archive = args.out.parent / "manifests" / (sha(raw_manifest) + ".json")
+    archive.parent.mkdir(parents=True, exist_ok=True)
+    archive.write_bytes(raw_manifest)
+    metadata["manifest_archive"] = "manifests/" + archive.name
+    metadata["prompt_policy"] = "base prompt plus page prompt_suffix, falling back to the source prompt_suffix"
     if args.backend == "mlx":
         metadata["runtime"] = {name: importlib.metadata.version(name)
                                for name in ("mlx", "mlx-vlm", "transformers")}
@@ -127,8 +133,8 @@ def run(args):
         import mlx.core as mx
         path = snapshot_download(args.model, revision=args.revision)
         model, processor = load(path)
-        prompt = apply_chat_template(processor, model.config, PROMPT, num_images=1, enable_thinking=False)
-        def predict(image):
+        def predict(image, text):
+            prompt = apply_chat_template(processor, model.config, text, num_images=1, enable_thinking=False)
             result = generate(model, processor, prompt, image=str(image), max_tokens=args.max_tokens,
                               temperature=0, verbose=False)
             count = getattr(result, "generation_tokens", None)
@@ -136,20 +142,23 @@ def run(args):
             return {"raw_prediction": result.text, "generation_tokens": count,
                     "finish_reason": "length" if count is not None and count >= args.max_tokens else "stop"}
     else:
-        predict = lambda image: http_prediction(args, image)
+        predict = lambda image, text: http_prediction(args, image, text)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     if not args.out.exists():
         args.out.write_text(json.dumps({"_meta": metadata}, ensure_ascii=False) + "\n")
     def one(page):
         start = time.monotonic()
         image, digest = images[page["id"]]
+        suffix = page.get("prompt_suffix", manifest["sources"][page["source"]].get("prompt_suffix", ""))
+        prompt = base_prompt + (" " + suffix if suffix else "")
         try:
-            result = predict(image)
+            result = predict(image, prompt)
         except Exception as error:
             result = {"raw_prediction": "", "finish_reason": "error",
                       "error": f"{type(error).__name__}: {error}"}
         return {"id": page["id"], "source": page["source"], "scan_page": page["scan_page"],
                 "region": page.get("region", [0, 0, 1, 1]), "image_sha256": digest,
+                "prompt_sha256": sha(prompt.encode()),
                 **result, "seconds": round(time.monotonic() - start, 3)}
     with ThreadPoolExecutor(max_workers=1 if args.backend == "mlx" else args.workers) as pool:
         futures = [pool.submit(one, page) for page in pending]
