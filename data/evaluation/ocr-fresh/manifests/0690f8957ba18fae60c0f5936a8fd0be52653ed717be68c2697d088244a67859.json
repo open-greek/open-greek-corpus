@@ -1,0 +1,1488 @@
+{
+ "schema_version": 1,
+ "purpose": "Independent model witnesses for the complete Greek work in Jahn 1882, with modern editorial apparatus and final index excluded from primary text.",
+ "sources": {
+  "jahn1882": {
+   "url": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+   "sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+   "license": "PD (Jahn 1882)",
+   "citation": "Aristidis Quintiliani De musica libri III, edited by Albert Jahn (Berlin: Calvary, 1882)"
+  }
+ },
+ "layout_evidence": {
+  "checked_scan_pages": [
+   74,
+   75,
+   76,
+   77,
+   91,
+   93,
+   97,
+   109,
+   110,
+   111,
+   140,
+   141,
+   169,
+   170
+  ],
+  "evidence": "The Greek body occupies scan pages74-170, printed1-97; bookII begins printed38 and bookIII printed68. Clear nineteenth-century Greek type replaces the difficult Meibom ligatures. The apparatus separator is checked against the scan layout; page170 has the final Greek paragraph followed by a separately headed index. Meibom page numbers in the margins are edition concordance labels, not authorial Greek text."
+ },
+ "pages": [
+  {
+   "id": "jahn-1882-0074-greek",
+   "source": "jahn1882",
+   "scan_page": 74,
+   "printed_page": 1,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7976
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0075-greek",
+   "source": "jahn1882",
+   "scan_page": 75,
+   "printed_page": 2,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0076-greek",
+   "source": "jahn1882",
+   "scan_page": 76,
+   "printed_page": 3,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7717
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0077-greek",
+   "source": "jahn1882",
+   "scan_page": 77,
+   "printed_page": 4,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.6654
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0078-greek",
+   "source": "jahn1882",
+   "scan_page": 78,
+   "printed_page": 5,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7651
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0079-greek",
+   "source": "jahn1882",
+   "scan_page": 79,
+   "printed_page": 6,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7378
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0080-greek",
+   "source": "jahn1882",
+   "scan_page": 80,
+   "printed_page": 7,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7821
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0081-greek",
+   "source": "jahn1882",
+   "scan_page": 81,
+   "printed_page": 8,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0082-greek",
+   "source": "jahn1882",
+   "scan_page": 82,
+   "printed_page": 9,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.6728
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0083-greek",
+   "source": "jahn1882",
+   "scan_page": 83,
+   "printed_page": 10,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8087
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0084-greek",
+   "source": "jahn1882",
+   "scan_page": 84,
+   "printed_page": 11,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.802
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0085-greek",
+   "source": "jahn1882",
+   "scan_page": 85,
+   "printed_page": 12,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.6846
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0086-greek",
+   "source": "jahn1882",
+   "scan_page": 86,
+   "printed_page": 13,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7031
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0087-greek",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7592
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0088-greek",
+   "source": "jahn1882",
+   "scan_page": 88,
+   "printed_page": 15,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0089-greek",
+   "source": "jahn1882",
+   "scan_page": 89,
+   "printed_page": 16,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8124
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0090-greek",
+   "source": "jahn1882",
+   "scan_page": 90,
+   "printed_page": 17,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.6558
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0091-greek",
+   "source": "jahn1882",
+   "scan_page": 91,
+   "printed_page": 18,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.4808
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0092-greek",
+   "source": "jahn1882",
+   "scan_page": 92,
+   "printed_page": 19,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7488
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0093-greek",
+   "source": "jahn1882",
+   "scan_page": 93,
+   "printed_page": 20,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.5945
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0094-greek",
+   "source": "jahn1882",
+   "scan_page": 94,
+   "printed_page": 21,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7887
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0095-greek",
+   "source": "jahn1882",
+   "scan_page": 95,
+   "printed_page": 22,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8035
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0096-greek",
+   "source": "jahn1882",
+   "scan_page": 96,
+   "printed_page": 23,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7407
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0097-greek",
+   "source": "jahn1882",
+   "scan_page": 97,
+   "printed_page": 24,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.5228
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0098-greek",
+   "source": "jahn1882",
+   "scan_page": 98,
+   "printed_page": 25,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8109
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0099-greek",
+   "source": "jahn1882",
+   "scan_page": 99,
+   "printed_page": 26,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0100-greek",
+   "source": "jahn1882",
+   "scan_page": 100,
+   "printed_page": 27,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0101-greek",
+   "source": "jahn1882",
+   "scan_page": 101,
+   "printed_page": 28,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.6373
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0102-greek",
+   "source": "jahn1882",
+   "scan_page": 102,
+   "printed_page": 29,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7969
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0103-greek",
+   "source": "jahn1882",
+   "scan_page": 103,
+   "printed_page": 30,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0104-greek",
+   "source": "jahn1882",
+   "scan_page": 104,
+   "printed_page": 31,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0105-greek",
+   "source": "jahn1882",
+   "scan_page": 105,
+   "printed_page": 32,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0106-greek",
+   "source": "jahn1882",
+   "scan_page": 106,
+   "printed_page": 33,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7895
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0107-greek",
+   "source": "jahn1882",
+   "scan_page": 107,
+   "printed_page": 34,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7791
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0108-greek",
+   "source": "jahn1882",
+   "scan_page": 108,
+   "printed_page": 35,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7629
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0109-greek",
+   "source": "jahn1882",
+   "scan_page": 109,
+   "printed_page": 36,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0110-greek",
+   "source": "jahn1882",
+   "scan_page": 110,
+   "printed_page": 37,
+   "book": 1,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.5841
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0111-greek",
+   "source": "jahn1882",
+   "scan_page": 111,
+   "printed_page": 38,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0112-greek",
+   "source": "jahn1882",
+   "scan_page": 112,
+   "printed_page": 39,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0113-greek",
+   "source": "jahn1882",
+   "scan_page": 113,
+   "printed_page": 40,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8005
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0114-greek",
+   "source": "jahn1882",
+   "scan_page": 114,
+   "printed_page": 41,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7799
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0115-greek",
+   "source": "jahn1882",
+   "scan_page": 115,
+   "printed_page": 42,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0116-greek",
+   "source": "jahn1882",
+   "scan_page": 116,
+   "printed_page": 43,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0117-greek",
+   "source": "jahn1882",
+   "scan_page": 117,
+   "printed_page": 44,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.757
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0118-greek",
+   "source": "jahn1882",
+   "scan_page": 118,
+   "printed_page": 45,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0119-greek",
+   "source": "jahn1882",
+   "scan_page": 119,
+   "printed_page": 46,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0120-greek",
+   "source": "jahn1882",
+   "scan_page": 120,
+   "printed_page": 47,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0121-greek",
+   "source": "jahn1882",
+   "scan_page": 121,
+   "printed_page": 48,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.768
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0122-greek",
+   "source": "jahn1882",
+   "scan_page": 122,
+   "printed_page": 49,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0123-greek",
+   "source": "jahn1882",
+   "scan_page": 123,
+   "printed_page": 50,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0124-greek",
+   "source": "jahn1882",
+   "scan_page": 124,
+   "printed_page": 51,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0125-greek",
+   "source": "jahn1882",
+   "scan_page": 125,
+   "printed_page": 52,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0126-greek",
+   "source": "jahn1882",
+   "scan_page": 126,
+   "printed_page": 53,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0127-greek",
+   "source": "jahn1882",
+   "scan_page": 127,
+   "printed_page": 54,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0128-greek",
+   "source": "jahn1882",
+   "scan_page": 128,
+   "printed_page": 55,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7843
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0129-greek",
+   "source": "jahn1882",
+   "scan_page": 129,
+   "printed_page": 56,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7813
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0130-greek",
+   "source": "jahn1882",
+   "scan_page": 130,
+   "printed_page": 57,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8065
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0131-greek",
+   "source": "jahn1882",
+   "scan_page": 131,
+   "printed_page": 58,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7267
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0132-greek",
+   "source": "jahn1882",
+   "scan_page": 132,
+   "printed_page": 59,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7836
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0133-greek",
+   "source": "jahn1882",
+   "scan_page": 133,
+   "printed_page": 60,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0134-greek",
+   "source": "jahn1882",
+   "scan_page": 134,
+   "printed_page": 61,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7023
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0135-greek",
+   "source": "jahn1882",
+   "scan_page": 135,
+   "printed_page": 62,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7725
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0136-greek",
+   "source": "jahn1882",
+   "scan_page": 136,
+   "printed_page": 63,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8101
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0137-greek",
+   "source": "jahn1882",
+   "scan_page": 137,
+   "printed_page": 64,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0138-greek",
+   "source": "jahn1882",
+   "scan_page": 138,
+   "printed_page": 65,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0139-greek",
+   "source": "jahn1882",
+   "scan_page": 139,
+   "printed_page": 66,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0140-greek",
+   "source": "jahn1882",
+   "scan_page": 140,
+   "printed_page": 67,
+   "book": 2,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.5841
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0141-greek",
+   "source": "jahn1882",
+   "scan_page": 141,
+   "printed_page": 68,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0142-greek",
+   "source": "jahn1882",
+   "scan_page": 142,
+   "printed_page": 69,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7895
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0143-greek",
+   "source": "jahn1882",
+   "scan_page": 143,
+   "printed_page": 70,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0144-greek",
+   "source": "jahn1882",
+   "scan_page": 144,
+   "printed_page": 71,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7843
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0145-greek",
+   "source": "jahn1882",
+   "scan_page": 145,
+   "printed_page": 72,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8124
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0146-greek",
+   "source": "jahn1882",
+   "scan_page": 146,
+   "printed_page": 73,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8197
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0147-greek",
+   "source": "jahn1882",
+   "scan_page": 147,
+   "printed_page": 74,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7112
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0148-greek",
+   "source": "jahn1882",
+   "scan_page": 148,
+   "printed_page": 75,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0149-greek",
+   "source": "jahn1882",
+   "scan_page": 149,
+   "printed_page": 76,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0150-greek",
+   "source": "jahn1882",
+   "scan_page": 150,
+   "printed_page": 77,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7223
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0151-greek",
+   "source": "jahn1882",
+   "scan_page": 151,
+   "printed_page": 78,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0152-greek",
+   "source": "jahn1882",
+   "scan_page": 152,
+   "printed_page": 79,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0153-greek",
+   "source": "jahn1882",
+   "scan_page": 153,
+   "printed_page": 80,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0154-greek",
+   "source": "jahn1882",
+   "scan_page": 154,
+   "printed_page": 81,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0155-greek",
+   "source": "jahn1882",
+   "scan_page": 155,
+   "printed_page": 82,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0156-greek",
+   "source": "jahn1882",
+   "scan_page": 156,
+   "printed_page": 83,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7437
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0157-greek",
+   "source": "jahn1882",
+   "scan_page": 157,
+   "printed_page": 84,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0158-greek",
+   "source": "jahn1882",
+   "scan_page": 158,
+   "printed_page": 85,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0159-greek",
+   "source": "jahn1882",
+   "scan_page": 159,
+   "printed_page": 86,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.8028
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0160-greek",
+   "source": "jahn1882",
+   "scan_page": 160,
+   "printed_page": 87,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0161-greek",
+   "source": "jahn1882",
+   "scan_page": 161,
+   "printed_page": 88,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0162-greek",
+   "source": "jahn1882",
+   "scan_page": 162,
+   "printed_page": 89,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0163-greek",
+   "source": "jahn1882",
+   "scan_page": 163,
+   "printed_page": 90,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.7304
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0164-greek",
+   "source": "jahn1882",
+   "scan_page": 164,
+   "printed_page": 91,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0165-greek",
+   "source": "jahn1882",
+   "scan_page": 165,
+   "printed_page": 92,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.6957
+   ],
+   "max_side": 2600,
+   "crop_evidence": "thin apparatus or section-ending rule"
+  },
+  {
+   "id": "jahn-1882-0166-greek",
+   "source": "jahn1882",
+   "scan_page": 166,
+   "printed_page": 93,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0167-greek",
+   "source": "jahn1882",
+   "scan_page": 167,
+   "printed_page": 94,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0168-greek",
+   "source": "jahn1882",
+   "scan_page": 168,
+   "printed_page": 95,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0169-greek",
+   "source": "jahn1882",
+   "scan_page": 169,
+   "printed_page": 96,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.92
+   ],
+   "max_side": 2600,
+   "crop_evidence": "complete Greek body; no apparatus separator found"
+  },
+  {
+   "id": "jahn-1882-0170-greek",
+   "source": "jahn1882",
+   "scan_page": 170,
+   "printed_page": 97,
+   "book": 3,
+   "region": [
+    0.04,
+    0.04,
+    0.95,
+    0.4
+   ],
+   "max_side": 2600,
+   "crop_evidence": "Manual scan inspection: the Greek work ends above the rule; the separately headed INDEX below is excluded"
+  }
+ ]
+}
