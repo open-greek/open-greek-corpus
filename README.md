@@ -566,6 +566,10 @@ scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.
 Dio rows retain Latin attribution and numbered reference lines separately for
 each OCR witness; these references are excluded from Greek word counts.
+`scripts/bound_comparison_witness.py` can bound an unsegmented third OCR witness
+by unique beginning and ending phrases shared by two independent body witnesses.
+Unmatched source pages and all removed prefixes/footers remain comparison
+evidence; they cannot enter word votes through missing-witness abstention.
 
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
