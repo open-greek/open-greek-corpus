@@ -416,6 +416,18 @@ retains all original parts and checks that the replaced page is the exact
 artifact from the pinned shard. The same admission loader accepts either
 reviewed model bundle; each family still contributes one page reading.
 
+`scripts/dio_ocr_retries.py` applies the same review contract independently to
+the explicitly pinned Dio Qwen3.6 and Qwen3.8 checkpoint requests. Supply
+`--request REQUEST.json --original FULL_BUNDLE.json --retry STRIPS.jsonl --review REVIEW.json --source-evidence EVIDENCE.json --out REVIEWED_BUNDLE.json`.
+The evidence file maps every requested page to its completed scan comparison.
+Before loading a failed original, the helper verifies the complete 1,500-region
+source lineage and each exact metadata-plus-prediction artifact. Only the
+request's source-confirmed length failures receive a private exception, and
+every such input must be replaced by successful reviewed strips before the
+bundle returns any admitted readings. Other failures remain blocking. The
+bundle retains every original byte, source review, failed outcome, and finite
+gap reference; each checkpoint contributes one reading per physical region.
+
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
 historical 164-page OCR job list with
