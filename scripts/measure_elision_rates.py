@@ -30,6 +30,7 @@ after a re-OCR or an ingest; the rates move with the text.
 """
 
 from __future__ import annotations
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection
 
 import argparse
 import json
@@ -96,12 +97,13 @@ def main() -> None:
     token = re.compile(_GLET + "+")
 
     files = sorted(CORPUS.glob("*.jsonl"))
+    frequency = FrequencyProjection(CORPUS.parent)
     for n, fp in enumerate(files, 1):
         with fp.open(encoding="utf-8") as fh:
             for line in fh:
                 if not line.strip():
                     continue
-                text = json.loads(line).get("text", "")
+                text = frequency.text(json.loads(line))
                 for m in token.finditer(text):
                     stem = deaccent(m.group(0))
                     if stem not in seen:
@@ -122,6 +124,7 @@ def main() -> None:
              for stem in sorted(cand) if seen[stem] >= args.min_occurrences}
     args.out.write_text(json.dumps(
         {"min_occurrences": args.min_occurrences,
+         "counting_basis": ANALYSIS_COUNT_BASIS,
          "apostrophes": APOSTROPHES,
          "note": "rate = share of bare-stem occurrences written before an "
                  "apostrophe; validate_lemma_map.py folds a stem into its "

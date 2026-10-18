@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "purpose": "Three scan-checked missing Cyril John body pages; old key132 duplicates a surviving leaf and is excluded. Main Greek column only, apparatus excluded by prompt.",
+  "sources": {
+    "pg74": {
+      "url": "https://archive.org/download/patrologiaecurs25hopfgoog/patrologiaecurs25hopfgoog.pdf",
+      "sha256": "0150e7ffadcf5836ba6198cebdec113effe9e655b652a54388f1e8e8802b2005",
+      "license": "PD (Migne 1859)",
+      "citation": "Migne, Patrologia Graeca 74 (1859)"
+    }
+  },
+  "pages": [
+    {
+      "id": "cyril-pg74-0013",
+      "source": "pg74",
+      "scan_page": 13,
+      "region": [
+        0.5,
+        0.02,
+        1,
+        0.98
+      ],
+      "max_side": 2800,
+      "historical_missing_key": "pg074_0010"
+    },
+    {
+      "id": "cyril-pg74-0093",
+      "source": "pg74",
+      "scan_page": 93,
+      "region": [
+        0.5,
+        0.02,
+        1,
+        0.98
+      ],
+      "max_side": 2800,
+      "historical_missing_key": "pg074_0090"
+    },
+    {
+      "id": "cyril-pg74-0324",
+      "source": "pg74",
+      "scan_page": 324,
+      "region": [
+        0,
+        0.02,
+        0.5,
+        0.98
+      ],
+      "max_side": 2800,
+      "historical_missing_key": "pg074_0297"
+    }
+  ],
+  "prompt": "Transcribe only the main printed Greek commentary in this column, in reading order. Preserve all Greek accents, breathing marks, punctuation and printed hyphens. Exclude Latin translation, marginal reference letters, running headers, page numbers, and all small footnotes or apparatus, including Greek quoted in the apparatus. Do not correct, translate, summarize, or explain. Return only the Greek transcription."
+}

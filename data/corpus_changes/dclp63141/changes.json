@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "operation": "admit-critical-edition",
+  "work": "anonymous.p-herc-1026",
+  "date": "2026-10-18",
+  "source_url": "https://raw.githubusercontent.com/papyri/idp.data/35b5e2279ad29c44824f6dc60d9fc748dc109305/DCLP/63/63141.xml",
+  "source_sha256": "cd7cc2f997569f9469b7e99b52d1481cc8607ad7fcd2c791a2e3af3b0e8fcc25",
+  "corpus_sha256": "936d1f9b7ed535a1f8ec58c72d6f1904a3819f7a4730248a4339e4600f800879",
+  "text_corrections": [],
+  "evidence": "The pinned source EpiDoc explicitly selects lem/corr readings and records the rejected rdg/sic, unclear letters, restorations, apograph evidence, gaps, line breaks, and physical references. No reading has been corrected or normalized.",
+  "reversal": "Run scripts/ingest_dclp63141.py --undo to remove the unchanged admitted work and reader. The original EpiDoc stays in data/pilots/dclp63141/source.xml; --format tei exports its exact bytes. Rebuild shared corpus metadata after removal.",
+  "generated_by": "scripts/ingest_dclp63141.py"
+}

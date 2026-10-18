@@ -1165,14 +1165,14 @@
  },
  {
   "volume": "PG073",
-  "urn": "tlg4090.tlg002",
-  "kind": "work",
+  "urn": "cyrillus-theology.commentarii-in-joannem",
+  "kind": "complementary-volume",
   "desc": "Cyril of Alexandria v6 (Commentary on John)",
-  "edition": "cgpg",
+  "edition": "calfa-pg73-5895ab908dd4",
   "license": "CC-BY-4.0",
   "source": "cgpg",
-  "n_passages": 528,
-  "n_tokens": 228238,
+  "n_passages": 3109,
+  "n_tokens": 392203,
   "works": [
    {
     "tlg_id": "tlg4090",
@@ -1182,16 +1182,11 @@
     "word_count": 400935,
     "title": "Commentarii in Joannem",
     "author": "CYRILLUS",
-    "cgpg_chosen": false
+    "cgpg_chosen": true
    }
   ],
-  "cgpg_chosen": false,
-  "superseded_by": {
-   "slug": "cyrillus-theology.commentarii-in-joannem",
-   "source": "ocr",
-   "edition": "migne-ocr-qwen36",
-   "n_tokens": 178539
-  }
+  "cgpg_chosen": true,
+  "coverage_note": "PG073 complements the PG074 continuation; whole-work source replacement is invalid."
  },
  {
   "volume": "PG087_1",
