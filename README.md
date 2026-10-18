@@ -595,6 +595,15 @@ under `data/ingest_reviews/coverage/`. They identify the Greek leaves individual
 including alternate scan leaves where a scan repeats earlier Pappus pages;
 they are OCR inputs, not assertions that new text has already been served.
 
+`scripts/prepare_dio_ocr.py` selects 1,217 Greek panels from Cary volumes I,
+II, and VI–IX for the missing transmitted Dio material. English facing panels,
+modern front matter and indexes are excluded. Earlier fragments and their
+Zonaras comparison panels retain separate transmission and admission metadata;
+the first volume VI page overlaps the existing end at 55.9.4 and requires
+collation before its missing continuation can be admitted. Source credits and
+genuine losses must remain explicit. The jobs place six reviewed boundary pages
+first for a small OCR sanity check and preserve independent raw witnesses.
+
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
 recorded letter correction, two page-boundary word joins, and removal of folio
