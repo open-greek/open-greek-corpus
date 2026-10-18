@@ -422,7 +422,8 @@ def _photius(root):
         provider="greek_library", source=source_library["url"], license="CC-BY-SA-4.0", storage="audit", servable=False,
         note="Retained comparison witness; only bounded matching body text may vote. Attribution, source rights, and the separate API reservation notice are preserved in the admission audit.")
     components = [{"role": "retained-primary", "license": "PD",
-        "passages": report["historical_body_passages"] - (editorial["counts"]["moved_rows"] if editorial else 0),
+        "passages": report["historical_body_passages"] - (editorial["counts"]["moved_rows"] if editorial else 0)
+            - (editorial.get("body_correction", {}).get("counts", {}).get("corrected_rows", 0) if editorial else 0),
         "scan_ranges": report["retained_scan_ranges"]},
         {"edition": merged["key"], "role": "new-primary-consensus", "license": "CC-BY-SA-4.0",
             "passages": report["added_passages"], "scan_ranges": report["added_scan_ranges"]},
@@ -441,6 +442,12 @@ def _photius(root):
         components.append({"edition": edition["key"], "role": "historical-editorial-paratext", "license": "PD",
                            "passages": editorial["counts"]["paratext_rows"], "source_review": editorial["source_review"],
                            "paratext": editorial["paratext"]})
+        if editorial.get("body_correction"):
+            body = editorial["body_correction"]
+            components.append({"edition": merged["key"], "role": "reviewed-historical-body-correction",
+                               "license": body["license"], "passages": body["counts"]["corrected_rows"],
+                               "source_review": body["source_review"], "network": body["network"],
+                               "source_library": body["source_library"]})
     return {slug: {"editions": editions, "default_edition": merged["key"],
         "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus.", "coverage_composition": {
         "policy": "complementary-page-union-with-licensed-consensus", "manifest": relative, "manifest_sha256": _sha(path),

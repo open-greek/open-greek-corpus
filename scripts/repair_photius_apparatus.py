@@ -122,7 +122,7 @@ def _reading(retained):
     return "\n".join(span["text"] for span in retained)
 
 
-def plan(before, aliases_before, review_raw, historical_raw, historical):
+def plan(before, aliases_before, review_raw, historical_raw, historical, body_raw=None, library_raw=None):
     review, decisions = validate_review(review_raw, historical_raw, historical)
     rows = [json.loads(line) for line in before.splitlines()]
     by_locus = {row["locus"]: row for row in rows}
@@ -175,7 +175,12 @@ def plan(before, aliases_before, review_raw, historical_raw, historical):
                         "original_row": old, "corrected_row": after, "paratext": target,
                         "exclusions": excluded, "source": source, "source_review": review_pin,
                         "evidence": page["evidence"], "reviewed_at": page["reviewed_at"]})
-    outputs = {CORPUS: b"".join(primary), PARATEXT: jsonl(notes), ALIASES: encode(aliases)}
+    body_report, body_artifacts = None, {}
+    if body_raw is not None:
+        from repair_photius_body import correct, LOCUS
+        corrected, body_report, body_artifacts = correct(body_raw, historical, decisions, library_raw, ARCHIVE)
+        primary = [jsonl([corrected]) if json.loads(line)["locus"] == LOCUS else line for line in primary]
+    outputs = {CORPUS: b"".join(primary), PARATEXT: jsonl(notes), ALIASES: encode(aliases), **body_artifacts}
     audit = {"schema_version": 1, "operation": "separate-source-reviewed-photius-editorial-spans", "work": SLUG,
              "reviewed_at": review["reviewed_at"], "source_review": review_pin,
              "source": review["source"], "historical_body_sha256": sha(historical_raw),
@@ -190,6 +195,9 @@ def plan(before, aliases_before, review_raw, historical_raw, historical):
              "changes": changes,
              "reversal": "Run scripts/repair_photius_apparatus.py --undo before undoing the earlier coverage or index admissions.",
              "generated_by": "scripts/repair_photius_apparatus.py"}
+    if body_report:
+        audit["body_correction"] = body_report
+        audit["counts"]["body_corrected_rows"] = body_report["counts"]["corrected_rows"]
     return outputs, audit
 
 
@@ -206,10 +214,18 @@ def build(root=ROOT):
     before, aliases_before = _preimages(root)
     historical_raw, historical = _historical(root)
     review_raw = (root / REVIEW).read_bytes()
-    outputs, audit = plan(before, aliases_before, review_raw, historical_raw, historical)
+    from repair_photius_body import REVIEW as BODY_REVIEW, LIBRARY
+    body_raw = (root / BODY_REVIEW).read_bytes() if (root / BODY_REVIEW).exists() else None
+    if (root / ARCHIVE / "body-review.json").exists() and body_raw is None:
+        raise ValueError("Published body correction authority was removed or invalidated")
+    library_raw = (root / LIBRARY).read_bytes() if body_raw is not None else None
+    outputs, audit = plan(before, aliases_before, review_raw, historical_raw, historical, body_raw, library_raw)
     artifacts = {**outputs, AUDIT: encode(audit), ARCHIVE / "source-review.json": review_raw,
                  ARCHIVE / "before-corpus.jsonl.gz": gzip.compress(before, mtime=0),
                  ARCHIVE / "before-aliases.json.gz": gzip.compress(aliases_before, mtime=0)}
+    if body_raw is not None:
+        artifacts[ARCHIVE / "body-review.json"] = body_raw
+        artifacts[ARCHIVE / "body-source-library.json.gz"] = library_raw
     return artifacts, audit
 
 
@@ -227,7 +243,16 @@ def _validated_archive(root, require_current_review=True):
     if require_current_review and (root / REVIEW).read_bytes() != review_raw:
         raise ValueError("Published apparatus authority changed or was invalidated")
     historical_raw, historical = _historical(root)
-    outputs, reproduced = plan(before, aliases_before, review_raw, historical_raw, historical)
+    body_raw, library_raw = None, None
+    if audit.get("body_correction"):
+        from repair_photius_body import REVIEW as BODY_REVIEW
+        body_raw = (root / ARCHIVE / "body-review.json").read_bytes()
+        library_raw = (root / ARCHIVE / "body-source-library.json.gz").read_bytes()
+        if sha(body_raw) != audit["body_correction"]["source_review"]["sha256"]:
+            raise ValueError("Archived body correction source review changed")
+        if require_current_review and (root / BODY_REVIEW).read_bytes() != body_raw:
+            raise ValueError("Published body correction authority changed or was invalidated")
+    outputs, reproduced = plan(before, aliases_before, review_raw, historical_raw, historical, body_raw, library_raw)
     if encode(reproduced) != audit_raw:
         raise ValueError("Apparatus audit does not reproduce from its exact preimages and source review")
     return before, aliases_before, outputs, audit
@@ -268,7 +293,9 @@ def active_metadata(root=ROOT):
     return {"audit": {"path": AUDIT.as_posix(), "sha256": sha((root / AUDIT).read_bytes())},
             "source_review": audit["source_review"],
             "paratext": {"path": PARATEXT.as_posix(), "sha256": audit["outputs"][PARATEXT.as_posix()]},
-            "counts": audit["counts"], "source": audit["source"]}
+            "counts": audit["counts"], "source": audit["source"],
+            **({"body_correction": {k: v for k, v in audit["body_correction"].items() if k != "changes"}}
+               if audit.get("body_correction") else {})}
 
 
 def lexical_segments(row):
