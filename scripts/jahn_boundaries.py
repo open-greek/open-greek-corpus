@@ -7,6 +7,8 @@ import unicodedata
 def review_boundary(result, printed_page, inputs, network_path):
     if inputs.get("primary_source") != "jahn1882" or printed_page <= 1:
         return result, None, None
+    if result["ocr_consensus"].get("reviewed_corrections"):
+        return result, None, None
     pages = {page["printed_page"]: page for page in inputs["primary_manifest"]["pages"]}
     previous_page, page = pages[printed_page - 1], pages[printed_page]
     if (previous_page["book"] != page["book"] or previous_page["scan_page"] + 1 != page["scan_page"] or

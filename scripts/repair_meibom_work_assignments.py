@@ -157,7 +157,7 @@ def clean_jahn_running_headers(text, page):
 
 
 def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn1882", retry_paths=(), retry_review=None,
-                   allow_pending_retries=False):
+                   allow_pending_retries=False, retry_supplements=(), scan_review_path=None):
     primary = root / f"data/corpus/{OLD}.jsonl"
     raw = primary.read_bytes()
     if sha(raw) != INPUT_SHA256:
@@ -253,6 +253,8 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
         "original_corpus_sha256": sha(raw), "witnesses": {str(page): readings
             for page, readings in sorted(page_witnesses.items())},
         "meibom_source_witnesses": {str(page): readings for page, readings in sorted(meibom_witnesses.items())}}
+    if retry_supplements and not retry_paths:
+        raise ValueError("A retry supplement lacks its complete parent request")
     if retry_paths or retry_review:
         from jahn_retries import apply_reviewed_retries
         reviews = [retry_review] if isinstance(retry_review, Path) else list(retry_review or [])
@@ -269,11 +271,19 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
             grouped[meta.get("manifest_sha256")].append(path)
         if set(grouped) != set(review_by_manifest) or not set(grouped) <= set(authorities):
             raise ValueError("Every retry run needs its exact pinned manifest and source review")
+        supplement_manifest = json.loads((ROOT / "data/ingest_reviews/jahn-aristides-length-supplement-retry.json").read_text())
+        supplement_parent = supplement_manifest["supplements"]["manifest_sha256"]
+        if retry_supplements and supplement_parent not in grouped:
+            raise ValueError("A retry supplement lacks its complete parent request")
         for digest in sorted(grouped):
-            apply_reviewed_retries(inputs, grouped[digest], review_by_manifest[digest], authorities[digest])
+            apply_reviewed_retries(inputs, grouped[digest], review_by_manifest[digest], authorities[digest],
+                retry_supplements if digest == supplement_parent else ())
     pending = [w["id"] for ws in inputs["witnesses"].values() for w in ws if w.get("attempt_status", "successful") != "successful"]
     if pending and not allow_pending_retries:
         raise ValueError("Fresh OCR has failed or truncated attempts without reviewed replacements: " + ", ".join(pending))
+    if scan_review_path:
+        from jahn_scan_reviews import load_reviews
+        inputs["scan_review"] = load_reviews(inputs, scan_review_path)
     return inputs
 
 
@@ -320,7 +330,12 @@ def repaired_outputs(root, inputs, before):
     for page in range(1, page_limit + 1):
         result = merge_witnesses(inputs["witnesses"][str(page)])
         boundary_review = None
+        source_review = None
         if jahn_primary:
+            from jahn_scan_reviews import apply_review
+            result, raw_network, source_review = apply_review(result, page, inputs, AUDIT_DIR + "/word-networks.json.gz")
+            if raw_network:
+                full_networks[raw_network[0]] = raw_network[1]
             from jahn_boundaries import review_boundary
             result, raw_network, boundary_review = review_boundary(result, page, inputs, AUDIT_DIR + "/word-networks.json.gz")
             if raw_network:
@@ -337,10 +352,14 @@ def repaired_outputs(root, inputs, before):
         if boundary_review:
             row["corrections"].append("structural")
             row["correction_sources"] = [boundary_review["review_id"]]
+        if source_review:
+            row["corrections"].append("manual")
+            row["correction_sources"] = [source_review["review_id"]]
         primary.append(row)
         summaries.append({"printed_page": page, "locus": row["locus"],
             "held_original_attempts": inputs.get("held_primary_witnesses", {}).get(str(page), []),
             "boundary_review": boundary_review,
+            "source_review": source_review,
             "nonlexical_source_regions": inputs.get("nonlexical_source_regions", {}).get(str(page), []),
             "original_text": [{"witness": w["id"], "text": w.get("original_text", w["text"]),
                 "collation_input_text": w["text"], "preprocessing": w.get("preprocessing", []),
@@ -389,6 +408,7 @@ def repaired_outputs(root, inputs, before):
         "timestamp": "2026-10-18", "source": SOURCE, "primary_source": primary_source,
         "primary_edition": primary_edition,
         "retry_review": inputs.get("retry_evidence", {}).get("source_reviews"),
+        "scan_review": inputs.get("scan_review"),
         "issue": "https://github.com/open-greek/open-greek-corpus/issues/52",
         "assignments": changes, "text_changes": summaries,
         "outputs_sha256": {name: sha(raw) for name, raw in output_bytes.items()},
@@ -396,7 +416,8 @@ def repaired_outputs(root, inputs, before):
     return output_bytes
 
 
-def run_repair(root, mode, fresh_paths=(), original_dir=None, primary_source="jahn1882", retry_paths=(), retry_review=None):
+def run_repair(root, mode, fresh_paths=(), original_dir=None, primary_source="jahn1882", retry_paths=(), retry_review=None,
+               retry_supplements=(), scan_review_path=None):
     audit = root / AUDIT_DIR
     before_path, inputs_path = audit / "before.json.gz", audit / "witnesses.json.gz"
     if mode == "undo":
@@ -420,7 +441,8 @@ def run_repair(root, mode, fresh_paths=(), original_dir=None, primary_source="ja
     else:
         if mode == "check":
             raise ValueError("The Meibom repair has not been applied")
-        inputs = prepare_inputs(root, fresh_paths, original_dir, primary_source, retry_paths, retry_review)
+        inputs = prepare_inputs(root, fresh_paths, original_dir, primary_source, retry_paths, retry_review,
+            retry_supplements=retry_supplements, scan_review_path=scan_review_path)
         names = [f"data/corpus/{OLD}.jsonl", "data/source_registry.json", "data/passage_aliases.json",
             "data/inventory/ocr_edition_sources.json", PARATEXT]
         names += [f"data/corpus_secondary/{slug}.jsonl" for slug in {p[2] for p in RANGES}]
@@ -474,6 +496,8 @@ def main():
     ap.add_argument("--original-dir", type=Path)
     ap.add_argument("--retry", type=Path, action="append", default=[])
     ap.add_argument("--retry-review", type=Path, action="append", default=[])
+    ap.add_argument("--retry-supplement", type=Path, action="append", default=[])
+    ap.add_argument("--scan-review", type=Path)
     ap.add_argument("--primary-source", choices=["jahn1882", "meibom1652"], default="jahn1882")
     args = ap.parse_args()
     if args.write_manifest:
@@ -484,7 +508,7 @@ def main():
         jobs.parent.mkdir(parents=True, exist_ok=True)
         jobs.write_text(json.dumps(fresh_jobs(), ensure_ascii=False, indent=1) + "\n")
     if args.apply or args.check or args.undo:
-        run_repair(ROOT, "apply" if args.apply else "check" if args.check else "undo", args.fresh, args.original_dir, args.primary_source, args.retry, args.retry_review)
+        run_repair(ROOT, "apply" if args.apply else "check" if args.check else "undo", args.fresh, args.original_dir, args.primary_source, args.retry, args.retry_review, args.retry_supplement, args.scan_review)
     print(f"{len(manifest()['fresh_aristides_pages'])} unique Aristides leaves")
 
 

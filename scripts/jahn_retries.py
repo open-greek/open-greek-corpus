@@ -14,7 +14,7 @@ def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
-def apply_reviewed_retries(inputs, paths, review_path, authority_path):
+def apply_reviewed_retries(inputs, paths, review_path, authority_path, supplement_paths=()):
     if not paths or review_path is None:
         raise ValueError("Retry admission requires predictions and a separate source review")
     if inputs["primary_source"] != "jahn1882":
@@ -49,7 +49,47 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
     reviewed_runs = {r["sha256"]: r for r in review.get("reviewed_runs", [])}
     if len(reviewed_runs) != len(paths) or set(reviewed_runs) != {sha(path.read_bytes()) for path in paths}:
         raise ValueError("Retry source review does not identify the exact prediction files")
+    supplements, retained_supplements = {}, []
+    if supplement_paths:
+        supplement_raw = (known / "jahn-aristides-length-supplement-retry.json").read_bytes()
+        supplement = json.loads(supplement_raw)
+        expected_supplements = {p["id"]: p for p in supplement["pages"]}
+        reviewed_supplements = {r["sha256"]: r for r in review.get("reviewed_supplements", [])}
+        if (review.get("supplement_manifest_sha256") != sha(supplement_raw) or
+                supplement["supplements"]["manifest_sha256"] != sha(authority_raw) or
+                set(reviewed_supplements) != {sha(p.read_bytes()) for p in supplement_paths} or
+                len(reviewed_supplements) != len(supplement_paths)):
+            raise ValueError("Retry supplement lacks its exact source review")
+        for path in supplement_paths:
+            raw = path.read_bytes()
+            values = [json.loads(line) for line in raw.splitlines() if line.strip()]
+            meta, records = values[0].get("_meta", {}), values[1:]
+            original = original_models.get(meta.get("model"))
+            decision = reviewed_supplements[sha(raw)]
+            if (not original or original["vote_group"] != supplement["supplements"]["model_family"] or
+                    meta.get("manifest_sha256") != sha(supplement_raw) or
+                    meta.get("revision") != original["revision"] or meta.get("prompt") != original["prompt"] or
+                    decision.get("model") != meta.get("model") or decision.get("revision") != meta.get("revision") or
+                    len(records) != len(expected_supplements) or {r.get("id") for r in records} != set(expected_supplements)):
+                raise ValueError("Retry supplement differs from its pinned model or region set")
+            ordered = []
+            for job in sorted(expected_supplements.values(), key=lambda p: p["reading_order"]):
+                record = next(r for r in records if r["id"] == job["id"])
+                if (record.get("finish_reason") != "stop" or record.get("error") or
+                        record.get("scan_page") != job["scan_page"] or record.get("region") != job["region"] or
+                        not record.get("image_sha256") or not isinstance(record.get("raw_prediction"), str) or
+                        not any("\u0370" <= c <= "\u03ff" or "\u1f00" <= c <= "\u1fff" for c in record["raw_prediction"])):
+                    raise ValueError("Retry supplement is incomplete or used unchecked source geometry")
+                ordered.append(record)
+            key = (meta["model"], supplement["supplements"]["replaces_region"])
+            if key in supplements:
+                raise ValueError("A model strip cannot receive duplicate replacement votes")
+            supplements[key] = {"records": ordered, "manifest_sha256": sha(supplement_raw), "sha256": sha(raw)}
+            retained_supplements.append({"sha256": sha(raw), "metadata": meta, "records": records})
+    elif review.get("reviewed_supplements"):
+        raise ValueError("Reviewed retry supplements are missing")
     witnesses, retained, images, used_models = {page: [] for page in pages}, [], {}, set()
+    used_supplements = set()
     for path in paths:
         raw = path.read_bytes()
         records = [json.loads(line) for line in raw.splitlines() if line.strip()]
@@ -69,13 +109,21 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
         by_id = {row["id"]: row for row in rows}
         for page in pages:
             jobs = sorted((p for p in expected.values() if str(p["printed_page"]) == page), key=lambda p: p["reading_order"])
-            ordered = []
+            ordered, held_strips = [], []
             for job in jobs:
                 record = by_id[job["id"]]
                 if record.get("scan_page") != job["scan_page"] or record.get("region") != job["region"]:
                     raise ValueError("Retry used unchecked source crop geometry")
                 if record.get("finish_reason") != "stop" or record.get("error"):
-                    raise ValueError("Retry strip did not complete successfully")
+                    replacement = supplements.get((model, job["id"]))
+                    if replacement is None:
+                        raise ValueError("Retry strip did not complete successfully")
+                    held_strips.append(record)
+                    ordered.extend(replacement["records"])
+                    used_supplements.add((model, job["id"]))
+                    continue
+                if (model, job["id"]) in supplements:
+                    raise ValueError("A successful retry strip cannot be silently replaced")
                 prediction = record.get("raw_prediction")
                 if not isinstance(prediction, str) or not any("\u0370" <= c <= "\u03ff" or "\u1f00" <= c <= "\u1fff" for c in prediction):
                     raise ValueError("Retry strip has no Greek reading")
@@ -95,12 +143,16 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
                 "source_image_sha256s": [r["image_sha256"] for r in ordered], "attempt_status": "successful",
                 "source": "Source-reviewed enlarged body strips from the same printed page",
                 "preprocessing": [{"kind": "reviewed-strip-assembly", "reading_order": [r["id"] for r in ordered],
-                    "raw_strips": ordered, "source_evidence": review["source_evidence"],
+                    "raw_strips": ordered, "held_retry_strips": held_strips,
+                    "supplement_sources": [supplements[(model, r["id"])] for r in held_strips],
+                    "source_evidence": review["source_evidence"],
                     "timestamp": review["reviewed_at"], "policy": "Concatenate complete nonoverlapping source lines; retain original whole-page attempt without another vote."}]})
         retained.append({"sha256": sha(raw), "metadata": meta, "records": rows})
         used_models.add(model)
     if used_models != set(original_models) or len({w["vote_group"] for w in witnesses[pages[0]]}) < 2:
         raise ValueError("Reviewed retries must retain both independent model families")
+    if used_supplements != set(supplements):
+        raise ValueError("An unused retry supplement cannot enter the admission")
     inputs.setdefault("held_primary_witnesses", {}).update(originals)
     inputs["witnesses"].update(witnesses)
     for page in pages:
@@ -111,7 +163,7 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
     evidence["requests"].append({"manifest": manifest, "manifest_sha256": sha(authority_raw),
         "source_review_sha256": sha(review_path.read_bytes())})
     evidence["source_reviews"].append(review)
-    evidence["raw_files"].extend(retained)
+    evidence["raw_files"].extend(retained + retained_supplements)
     for region_id, regions in manifest.get("nonlexical_source_regions", {}).items():
         job = next(p for p in expected.values() if p["reconstructs"] == region_id)
         source = manifest["sources"][job["source"]]
@@ -122,7 +174,7 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
     return inputs
 
 
-def write_source_review(inputs, paths, authority_path, output, source_evidence, reviewed_at):
+def write_source_review(inputs, paths, authority_path, output, source_evidence, reviewed_at, supplement_paths=()):
     """Record an explicit completed scan review, then validate before saving."""
     import copy
     import tempfile
@@ -143,11 +195,19 @@ def write_source_review(inputs, paths, authority_path, output, source_evidence, 
         "source_evidence": source_evidence,
         "original_artifacts_sha256": [w["artifact_sha256"] for page in sorted({str(p["printed_page"]) for p in manifest["pages"]}, key=int) for w in inputs["witnesses"][page]],
         "reviewed_runs": runs}
+    if supplement_paths:
+        known = Path(__file__).resolve().parent.parent / "data/ingest_reviews"
+        review["supplement_manifest_sha256"] = sha((known / "jahn-aristides-length-supplement-retry.json").read_bytes())
+        review["reviewed_supplements"] = []
+        for path in supplement_paths:
+            raw = path.read_bytes()
+            meta = json.loads(raw.splitlines()[0])["_meta"]
+            review["reviewed_supplements"].append({"sha256": sha(raw), "model": meta["model"], "revision": meta["revision"]})
     raw = (json.dumps(review, ensure_ascii=False, indent=1) + "\n").encode()
     with tempfile.TemporaryDirectory() as temporary:
         candidate = Path(temporary) / "review.json"
         candidate.write_bytes(raw)
-        apply_reviewed_retries(copy.deepcopy(inputs), paths, candidate, authority_path)
+        apply_reviewed_retries(copy.deepcopy(inputs), paths, candidate, authority_path, supplement_paths)
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_bytes(raw)
     return review
@@ -161,6 +221,7 @@ def main():
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parents[1])
     parser.add_argument("--fresh", type=Path, action="append", required=True)
     parser.add_argument("--retry", type=Path, action="append", required=True)
+    parser.add_argument("--supplement", type=Path, action="append", default=[])
     parser.add_argument("--source-evidence", required=True,
         help="Describe the completed comparison of every retry strip with the source scan")
     parser.add_argument("--out", type=Path, required=True)
@@ -168,7 +229,7 @@ def main():
     args = parser.parse_args()
     inputs = prepare_inputs(args.root, args.fresh, allow_pending_retries=True)
     write_source_review(inputs, args.retry,
-        args.manifest, args.out, args.source_evidence, datetime.now(timezone.utc).isoformat())
+        args.manifest, args.out, args.source_evidence, datetime.now(timezone.utc).isoformat(), args.supplement)
     print("Pinned completed source review; original attempts remain archived at admission")
 
 

@@ -419,6 +419,15 @@ The notation request is reproduced with `--prepare-notation-retry` and reviewed
 with `--manifest data/ingest_reviews/jahn-aristides-notation-retry.json`. It keeps
 the prose on pages 82/87/91 and all six Greek mode captions on page 87, while
 linking their symbol tables as nonlexical source-image regions.
+The two shorter page 112 subcrops (`--prepare-length-supplement`) replace only
+the explicitly failed Qwen3.8 strip. Supply their raw file as `--supplement` when
+recording the length review and `--retry-supplement` at admission; every failed
+attempt remains archived, and successful strips keep their original readings.
+`scripts/jahn_scan_reviews.py` records direct source adjudications for the eight
+short notation headings and mode captions. Pass that record as `--scan-review`
+at admission. The pre-review model networks remain intact; the sixth caption's
+ambiguous stigma/final-sigma encoding keeps both glyph readings, and numeral
+labels are excluded from lexical counts.
 `--original-dir` retains the original Meibom page OCR as additional source
 evidence. The script requires both fresh model readings for every Jahn page
 and checks the reviewed crops. It rejects failed, truncated, or empty attempts
