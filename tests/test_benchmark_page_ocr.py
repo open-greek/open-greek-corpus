@@ -1,12 +1,34 @@
 import importlib.util
 import json
 import time
+import pytest
 from pathlib import Path
 from types import SimpleNamespace
 
 spec = importlib.util.spec_from_file_location("ocr_bench", Path(__file__).parents[1] / "scripts/benchmark_page_ocr.py")
 bench = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(bench)
+
+
+@pytest.mark.parametrize("field,value", [("split", "calibration"), ("volume", "other")])
+def test_manifest_rejects_changed_page_identity(field, value):
+    page = {"id": "test-page", "split": "test", "volume": "edition"}
+    with pytest.raises(ValueError, match="Changed benchmark identity"):
+        bench.validate_page_rows({"pages": [page]}, [{**page, field: value}], complete=True)
+
+
+def test_resume_rejects_pages_outside_selected_split():
+    page = {"id": "test-page", "split": "test", "volume": "edition"}
+    with pytest.raises(ValueError, match="outside selected benchmark"):
+        bench.validate_page_rows({"pages": []}, [page])
+
+
+def test_manifest_requires_unique_complete_results():
+    page = {"id": "test-page", "split": "test", "volume": "edition"}
+    with pytest.raises(ValueError, match="entire pinned benchmark"):
+        bench.validate_page_rows({"pages": [page]}, [], complete=True)
+    with pytest.raises(ValueError, match="Repeated page identity"):
+        bench.validate_page_rows({"pages": [page]}, [page, page])
 
 
 def test_scores_repetitions_without_trimming():

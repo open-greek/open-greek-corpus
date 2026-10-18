@@ -506,7 +506,9 @@ reference markers. The instruction follows that scope. This was checked on
 the calibration pages before running the held-out comparison; predictions
 remain untrimmed, with no text removed after generation.
 Pass `compare --manifest data/evaluation/ocr-pages.json` to require all 100
-pages. The comparison retains page-level regressions, edition-level results,
+pages and verify each page's calibration/test split and edition against the
+pinned manifest. Resuming a run also rejects pages outside the selected split.
+The comparison retains page-level regressions, edition-level results,
 and paired confidence intervals from resampling pages within each edition.
 
 Four of the 100 PAGE XML files list their text regions or lines out of printed
