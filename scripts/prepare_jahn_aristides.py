@@ -17,6 +17,32 @@ SOURCE_SHA256 = "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c
 OUTPUT = ROOT / "data/ingest_reviews/jahn-aristides-fresh-witnesses.json"
 
 
+def prepare_page81_retry(pdf_path, output, original=OUTPUT):
+    """Pin three reviewed body strips without replacing the original request."""
+    if hashlib.sha256(pdf_path.read_bytes()).hexdigest() != SOURCE_SHA256:
+        raise ValueError("Jahn source PDF differs from the reviewed edition")
+    prior = json.loads(original.read_text())
+    page = next(p for p in prior["pages"] if p["scan_page"] == 81)
+    regions = [[.19, .135, .86, .3965], [.19, .3965, .86, .6333],
+               [.19, .6333, .86, .84]]
+    manifest = {"schema_version": 1,
+        "purpose": "Independent retry after both original page81 witnesses lost printed polytonic marks; original attempts remain archived.",
+        "sources": prior["sources"],
+        "retry_of": {"path": str(original.relative_to(ROOT)),
+            "sha256": hashlib.sha256(original.read_bytes()).hexdigest(), "region_id": page["id"]},
+        "review": {"recorded_at": "2026-10-18", "scan_page": 81, "printed_page": 8,
+            "extent": "The complete Greek body and all three crop boundaries inspected against the source scan at fourfold PDF rendering.",
+            "finding": "Accents and breathings are visibly printed throughout, including the opening οἱ μὲν εἰσι. The original two whole-page predictions lose these marks. Three nonoverlapping strips retain every body line in reading order, exclude the running header and most marginal labels, and increase rendered letter size.",
+            "policy": "Retain original whole-page predictions and compare retry witnesses against the scan before admission; model retries do not create independent additional votes for the same model."},
+        "pages": [{**page, "id": page["id"] + f"-retry-strip-{index}",
+            "region": region, "max_side": 3200, "reading_order": index,
+            "reconstructs": page["id"], "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry"}
+            for index, region in enumerate(regions, 1)]}
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+    return manifest
+
+
 def body_bottom(page):
     import numpy as np
     import pymupdf
@@ -77,7 +103,13 @@ def main():
     ap.add_argument("--pdf", type=Path, required=True)
     ap.add_argument("--out", type=Path, default=OUTPUT)
     ap.add_argument("--record-layout-review", action="store_true")
+    ap.add_argument("--prepare-page81-retry", action="store_true")
     args = ap.parse_args()
+    if args.prepare_page81_retry:
+        output = args.out if args.out != OUTPUT else OUTPUT.with_name("jahn-aristides-page81-retry.json")
+        manifest = prepare_page81_retry(args.pdf, output)
+        print(f"Pinned {len(manifest['pages'])} reviewed page81 retry strips")
+        return
     manifest = prepare(args.pdf, args.out)
     if args.record_layout_review:
         review = {"schema_version": 1, "review_date": "2026-10-18",
