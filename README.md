@@ -1102,6 +1102,13 @@ child. Dot runs use one explicit ellipsis through a recorded punctuation
 normalization; the source pixels and every earlier reading remain available.
 The authority registry makes all known defective strips require their reviewed
 children, even when the frozen detector abstains on short text.
+One 34-letter comparison line on Cary II printed378 still loses polytonic
+marks after those attempts. `scan_dio_line_reviews.py` applies its named,
+scan-checked correction above the merged network. The audit pins both exact
+checkpoint records and images, keeps every original vote and variant, and can
+restore the uncorrected merge. The initial `τριος` continues the preceding
+page's `μέ-`; it remains visible but is excluded from independent word counts,
+without inventing a joined spelling. This review adds no model vote.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
