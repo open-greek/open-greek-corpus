@@ -125,4 +125,5 @@ def coverage_scope(root: Path, work: str):
         "scan_manifest_sha256": hashlib.sha256(raw).hexdigest(),
         "scan_sources": [{"id": source, **manifest["sources"][source]} for source in sources],
         "admission_audit": entry.get("audit") if entry else None,
+        "digital_components": entry.get("digital_components", []) if entry else [],
         "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"}
