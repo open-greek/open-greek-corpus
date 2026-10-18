@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "data/ingest_reviews/coverage"
 REVIEW = DIRECTORY / "cassius-dio-missing-material.json"
 OUTPUT = DIRECTORY / "cassius-dio-ocr-jobs.json"
+LAYOUT = DIRECTORY / "cassius-dio-early-panels.json"
 PROMPT = (
     "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. "
     "Keep book headings, section numbers, summaries, and source attribution headings and credits "
@@ -30,6 +31,11 @@ PROMPT = (
 def build():
     raw = REVIEW.read_bytes()
     review = json.loads(raw)
+    layout_raw = LAYOUT.read_bytes()
+    layout = json.loads(layout_raw)
+    if layout["review_sha256"] != hashlib.sha256(raw).hexdigest():
+        raise ValueError("Dio panel geometry belongs to a different source review")
+    panels = {(p["source_volume"], p["scan_page"]): p for p in layout["pages"]}
     sanity = {(p["volume"], p["pdf_page"]) for p in review["sanity_pages"]}
     first, rest = [], []
     for volume in review["volumes"]:
@@ -39,13 +45,27 @@ def build():
                    "region": volume["reading_region"], "max_side": 2200,
                    "work": review["work"], "source_volume": volume["volume"],
                    "transmission": volume["transmission"], "admission": volume["admission"]}
+            row["printed_page"] = 2 * (number - (28 if volume["volume"] == 1 else 6 if volume["volume"] == 2 else 5))
             if volume["volume"] == 6 and number == 206:
                 row["overlap"] = {"served_through": "55.9.4",
                     "existing_final_words": "βουληθεὶς δὲ δὴ τρόπον",
                     "action": "collate shared prefix before admitting missing continuation"}
-            (first if (volume["volume"], number) in sanity else rest).append(row)
+            destination = first if (volume["volume"], number) in sanity else rest
+            if volume["volume"] in {1, 2}:
+                page = panels[(volume["volume"], number)]
+                for panel in page["panels"]:
+                    primary = panel["role"] == "fragment"
+                    destination.append(dict(row, id=row["id"] + "-" + panel["role"],
+                        region=panel["region"], panel_role=panel["role"],
+                        transmission="fragment-quotation" if primary else "comparative-quotation",
+                        admission="candidate-reading-pending-collation" if primary else "comparative-paratext",
+                        attribution_heading=page["source_heading_text_layer"]
+                            if page["kind"] == "comparison" else None))
+            else:
+                destination.append(row)
     return {"schema_version": 1, "generated_by": "scripts/prepare_dio_ocr.py",
             "review_sha256": hashlib.sha256(raw).hexdigest(),
+            "layout_sha256": hashlib.sha256(layout_raw).hexdigest(),
             "sources": review["sources"], "prompt": PROMPT,
             "sanity_pages": len(first), "pages": first + rest,
             "status": review["status"], "panel_routing": review["panel_routing"]}
