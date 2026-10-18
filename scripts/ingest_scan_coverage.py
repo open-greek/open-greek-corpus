@@ -10,6 +10,7 @@ first volume VI region is trimmed only at the audited shared paragraph anchor.
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 from datetime import datetime, timezone
 import gzip
 import hashlib
@@ -131,9 +132,10 @@ def locus(page):
     return f"cary-v{page['source_volume']}-p{page['printed_page']:04d}{suffix}"
 
 
-def collate(manifest, inputs, allow_partial=False, network_path=None):
+def collate(manifest, inputs, allow_partial=False, network_path=None, digital=None):
     from ocr_consensus import merge_witnesses, compact_corpus_consensus
     network_path = network_path or "data/corpus_changes/scan-coverage-preview/word-networks.json.gz"
+    digital = digital or {"sources": {}, "pages": {}, "originals": {}}
     primary, paratext, audits, networks = {}, [], [], {}
     for page in manifest["pages"]:
         if page["work"] not in WORKS:
@@ -153,6 +155,15 @@ def collate(manifest, inputs, allow_partial=False, network_path=None):
                 cleaned, edit = trim_shared_prefix(cleaned)
                 decisions.append({"witness": value["id"], **edit})
             witnesses.append(dict(value, text=cleaned, original_text=value["text"]))
+        component = None
+        comparison = digital["pages"].get((page.get("source_volume"), page["scan_page"]))
+        if comparison is not None:
+            from bound_comparison_witness import bound_comparison_witness
+            bounded, decision = bound_comparison_witness(witnesses, comparison)
+            decisions.append(decision)
+            if bounded is not None:
+                witnesses.append(bounded)
+                component = digital["sources"][comparison["source_id"]]
         merged = merge_witnesses(witnesses)
         if not merged["text"].strip():
             raise ValueError("A reviewed Greek region has no surviving reading words")
@@ -167,6 +178,9 @@ def collate(manifest, inputs, allow_partial=False, network_path=None):
                 "scan_page": page["scan_page"], "region": page["region"]},
             "printed_page": page["printed_page"],
             "transmission": page.get("transmission", "direct-text")}
+        if component is not None:
+            row["license"] = "CC-BY-SA-4.0"
+            row["component_attribution"] = [component]
         if page.get("attribution_heading"):
             row["attribution_heading"] = page["attribution_heading"]
         # The Greek word-voting layer excludes Latin credits and numeric book
@@ -203,10 +217,11 @@ def collate(manifest, inputs, allow_partial=False, network_path=None):
     return primary, paratext, audits, networks
 
 
-def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks, run_id):
+def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks, run_id, digital=None):
     if not re.fullmatch(r"[a-z0-9][a-z0-9-]{0,70}", run_id):
         raise ValueError("Unsafe scan admission run identifier")
     archive = root / "data/corpus_changes" / run_id
+    digital = digital or {"sources": {}, "pages": {}, "originals": {}}
     if archive.exists():
         raise ValueError("This admission audit already exists; do not replace its evidence")
     from ocr_consensus import compact_corpus_consensus
@@ -240,10 +255,14 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         extensions["works"][work] = {"path": extension_path, "sha256": sha(outputs[extension_path]),
             "audit": str(archive.relative_to(root) / "changes.json"), "edition": EDITION,
             "base_readings_sha256": reading_digest(old)}
+        components = {component["id"]: component for row in rows for component in row.get("component_attribution", [])}
+        if components:
+            extensions["works"][work]["digital_components"] = [components[key] for key in sorted(components)]
         from build_public_corpus import _GK
         editions[work]["n_passages"] = len(old) + len(rows)
         editions[work]["n_tokens"] = sum(len(_GK.findall(r.get("analysis_text", r["text"]))) for r in old + rows)
         editions[work]["scan_extensions"] = [EDITION]
+        editions[work]["scan_extension_licenses"] = sorted({row["license"] for row in rows})
     outputs[EXTENSION_INDEX] = encoded(extensions)
     outputs["data/corpus_editions.json"] = encoded(editions)
     if paratext:
@@ -256,6 +275,8 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     (archive / "manifest.json").write_bytes(manifest_bytes)
     for index, raw in enumerate(raw_inputs, 1):
         (archive / f"witness-{index}.jsonl.gz").write_bytes(gzip.compress(raw, mtime=0))
+    for identifier, raw in digital["originals"].items():
+        (archive / f"digital-{identifier}.json.gz").write_bytes(gzip.compress(raw, mtime=0))
     network_bytes = gzip.compress(encoded(networks), mtime=0)
     (archive / "word-networks.json.gz").write_bytes(network_bytes)
     for path, raw in outputs.items():
@@ -267,6 +288,9 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         "manifest_sha256": sha(manifest_bytes), "witness_sha256": [sha(raw) for raw in raw_inputs],
         "word_networks_sha256": sha(network_bytes),
         "before_archive_sha256": sha(before_bytes),
+        "digital_sources": digital["sources"],
+        "digital_comparison_counts": dict(Counter(decision["status"] for change in audits
+            for decision in change["decisions"] if decision.get("generator") == "scripts/bound_comparison_witness.py")),
         "consensus_generator_sha256": sha(Path(__import__("ocr_consensus").__file__).read_bytes()),
         "changes": audits, "outputs": {path: sha(raw) for path, raw in outputs.items()},
         "reversal": "Use --undo with this audit directory. Every previous file byte and original OCR prediction is archived; the word networks retain all tied alternatives."}))
@@ -299,8 +323,9 @@ def verify(directory, root):
         if sha(raw) != expected:
             raise ValueError("Archived raw OCR witness changed")
         loaded.append(load_predictions(None, raw_manifest, manifest, raw)[0])
+    digital = archived_digital_sources(directory, audit)
     primary, paratext, changes, networks = collate(manifest, loaded,
-        network_path=str((directory / "word-networks.json.gz").relative_to(root)))
+        network_path=str((directory / "word-networks.json.gz").relative_to(root)), digital=digital)
     if changes != audit["changes"] or networks != json.loads(gzip.decompress((directory / "word-networks.json.gz").read_bytes())):
         raise ValueError("Scan consensus differs from its retained original witnesses")
     from scan_coverage_extensions import combine_rows
@@ -324,6 +349,7 @@ def verify_integrity(directory, root):
     """
     directory, root = Path(directory), Path(root)
     audit = json.loads((directory / "changes.json").read_text())
+    archived_digital_sources(directory, audit)
     manifest_bytes = (directory / "manifest.json").read_bytes()
     if sha(manifest_bytes) != audit["manifest_sha256"]:
         raise ValueError("Archived scan selection changed")
@@ -383,10 +409,20 @@ def verify_integrity(directory, root):
     return audit
 
 
+def archived_digital_sources(directory, audit):
+    from dio_comparison_witnesses import load
+    identifiers = sorted(audit.get("digital_sources", {}))
+    result = load([Path(directory) / f"digital-{identifier}.json.gz" for identifier in identifiers])
+    if result["sources"] != audit.get("digital_sources", {}):
+        raise ValueError("Archived digital source rights or identity changed")
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--manifest", type=Path)
     parser.add_argument("--witness", type=Path, action="append", default=[])
+    parser.add_argument("--digital-witness", type=Path, action="append", default=[])
     parser.add_argument("--run-id")
     parser.add_argument("--apply", action="store_true")
     parser.add_argument("--allow-partial", action="store_true")
@@ -405,12 +441,16 @@ def main():
     raw_manifest = args.manifest.read_bytes()
     manifest = json.loads(raw_manifest)
     loaded = [load_predictions(path, raw_manifest, manifest) for path in args.witness]
+    from dio_comparison_witnesses import load as load_digital, PINS
+    digital = load_digital(args.digital_witness)
     if args.apply and len({value["vote_group"] for source, _ in loaded
                            for value in source.values()}) < 2:
         parser.error("--apply requires at least two independent OCR model families")
-    result = collate(manifest, [item[0] for item in loaded], args.allow_partial)
+    if args.apply and any(page["work"] == "cassius-dio.historiae-romanae" for page in manifest["pages"]) and set(digital["sources"]) != set(PINS):
+        parser.error("Dio admission requires all three reviewed Source Library VII–IX comparison exports")
+    result = collate(manifest, [item[0] for item in loaded], args.allow_partial, digital=digital)
     if args.apply:
-        apply(ROOT, raw_manifest, [item[1] for item in loaded], *result, args.run_id)
+        apply(ROOT, raw_manifest, [item[1] for item in loaded], *result, args.run_id, digital=digital)
     print(json.dumps({"primary_passages": {work: len(rows) for work, rows in result[0].items()},
                       "comparative_paratext": len(result[1]), "applied": args.apply}))
 

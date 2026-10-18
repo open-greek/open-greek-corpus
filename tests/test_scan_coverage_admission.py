@@ -124,3 +124,67 @@ def test_public_scope_counts_admissions_without_claiming_intact_works():
     assert "eighty-book" in dio["work_identity"] and "not an intact" in dio["transmission_limit"]
     assert "Books I–IV" in conica["transmission_limit"]
     assert coverage_scope(ROOT, "unrelated.work") is None
+
+
+def test_bounded_digital_comparison_votes_with_attribution_but_footer_does_not(tmp_path):
+    work, manifest, raw, inputs, originals = fixture(tmp_path)
+    body = "Ἄνθρωπος ἀγαθὸς καὶ δίκαιος ἀεί ποτε λέγει λόγους καθαροὺς ἐν ἀγορᾷ παρὰ φίλοις ἀληθινούς."
+    for source in inputs:
+        source["conica-1"]["text"] = body
+    manifest["pages"][0].update(work="cassius-dio.historiae-romanae", source_volume=7)
+    comparison = {"id": "source-library:page20", "source_id": "source-library", "vote_group": "library",
+        "text": body + "\nλόγους] λέξεις Μ. ἀπαράδεκτος ὁ ἀριθμός", "artifact_sha256": "c" * 64}
+    digital = {"pages": {(7, 20): comparison}, "sources": {"source-library": {
+        "id": "source-library", "license": "CC-BY-SA-4.0", "attribution": "Source Library"}}}
+    primary, paratext, audits, networks = ingest.collate(manifest, inputs, digital=digital)
+    row = primary["cassius-dio.historiae-romanae"][0]
+    assert row["license"] == "CC-BY-SA-4.0" and row["component_attribution"][0]["attribution"] == "Source Library"
+    assert "ἀπαράδεκτος" not in row["analysis_text"]
+    assert len(row["ocr_consensus"]["witnesses"]) == 3
+    assert audits[0]["decisions"][-1]["removed_footer"].startswith("\nλόγους]")
+    comparison["text"] = "ἄλλο ἔργον"
+    primary, _, audits, _ = ingest.collate(manifest, inputs, digital=digital)
+    row = primary["cassius-dio.historiae-romanae"][0]
+    assert row["license"] == "public-domain" and "component_attribution" not in row
+    assert len(row["ocr_consensus"]["witnesses"]) == 2
+    assert audits[0]["decisions"][-1]["status"] == "held-comparison-only"
+
+
+def test_digital_source_admission_replays_original_exports_and_body_windows(tmp_path, monkeypatch):
+    import dio_comparison_witnesses as comparison
+    work, manifest, raw, inputs, originals = fixture(tmp_path)
+    work = "cassius-dio.historiae-romanae"
+    manifest["pages"][0].update(work=work, source_volume=7)
+    raw = ingest.encoded(manifest)
+    body = "Ἄνθρωπος ἀγαθὸς καὶ δίκαιος ἀεί ποτε λέγει λόγους καθαροὺς ἐν ἀγορᾷ παρὰ φίλοις ἀληθινούς."
+    raw_inputs, inputs = [], []
+    for original in originals:
+        values = ingest.records(original)
+        values[0]["_meta"]["manifest_sha256"] = ingest.sha(raw)
+        values[1]["raw_prediction"] = body
+        blob = ("\n".join(json.dumps(value, ensure_ascii=False) for value in values) + "\n").encode()
+        raw_inputs.append(blob)
+        inputs.append(ingest.load_predictions(None, raw, manifest, blob)[0])
+    document = {"id": "tlg0385.tlg001.local003", "origin": {"id": "source-library"},
+        "license": {"url": comparison.LICENSE_URL}, "sourceCitation": "Cary VII, book123",
+        "sourceRights": "Public-domain print; CC BY-SA 4.0 transcription", "revisionDate": "2026-10-07",
+        "sections": [{"id": "section20", "label": "Page s20", "children": [],
+                      "blocks": [{"type": "paragraph", "text": body + "\nλόγους] λέξεις Μ."}]}]}
+    source_raw = json.dumps(document, ensure_ascii=False).encode()
+    monkeypatch.setattr(comparison, "PINS", {document["id"]: {"volume": 7, "book": "book123",
+        "json_sha256": ingest.sha(source_raw)}})
+    digital = comparison.load(blobs=[source_raw])
+    result = ingest.collate(manifest, inputs, digital=digital)
+    root = tmp_path / "repo"
+    (root / "data/corpus").mkdir(parents=True)
+    base = (json.dumps({"urn": work, "locus": "36.1.1", "text": "πρῶτον", "source": "perseus", "edition": "grc2"}) + "\n").encode()
+    (root / f"data/corpus/{work}.jsonl").write_bytes(base)
+    (root / "data/corpus_editions.json").write_bytes(ingest.encoded({work: {"n_passages": 1, "n_tokens": 1}}))
+    ingest.apply(root, raw, raw_inputs, *result, "dio-digital-test", digital=digital)
+    archive = root / "data/corpus_changes/dio-digital-test"
+    ingest.verify(archive, root)
+    audit = json.loads((archive / "changes.json").read_text())
+    assert audit["digital_comparison_counts"] == {"bounded-body-voting-witness": 1}
+    assert gzip.decompress((archive / ("digital-" + document["id"] + ".json.gz")).read_bytes()) == source_raw
+    ingest.undo(archive, root)
+    assert (root / f"data/corpus/{work}.jsonl").read_bytes() == base
