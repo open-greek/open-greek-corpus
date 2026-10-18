@@ -1,5 +1,6 @@
 """Registry rebuilds preserve reviewed scope, source credits, and licenses."""
 import hashlib
+import gzip
 import json
 from pathlib import Path
 import sys
@@ -167,6 +168,36 @@ def test_photius_retains_licensed_voting_component_and_pd_body_idempotently(tmp_
     reviewed.register_reviewed_manifestations(restored, tmp_path)
     restored.save(output)
     assert output.read_bytes() == before
+
+
+def test_dio_digital_participation_preserves_licensed_credits_and_raw_source_hash(tmp_path):
+    slug = "cassius-dio.historiae-romanae"
+    scan_fixture(tmp_path, slug)
+    directory = "data/corpus_changes/scan-example"
+    raw = b'{"retained":"licensed digital source"}'
+    component = {"id": "tlg0385.tlg001.local003", "volume": 7,
+        "json_sha256": hashlib.sha256(raw).hexdigest(), "url": "https://example.org/local003",
+        "license": "CC-BY-SA-4.0", "attribution": "Source Library",
+        "source_rights": {"original_print": "public-domain"}, "separate_api_notice": {"tdm_reservation": 1}}
+    path = directory + "/digital-tlg0385.tlg001.local003.json.gz"
+    put(tmp_path, path, gzip.compress(raw, mtime=0))
+    index_path = tmp_path / "data/corpus_extension_index.json"
+    index = json.loads(index_path.read_text())
+    index["works"][slug]["digital_components"] = [component]
+    put(tmp_path, str(index_path.relative_to(tmp_path)), index)
+    audit_path = tmp_path / directory / "changes.json"
+    audit = json.loads(audit_path.read_text())
+    audit["digital_sources"] = {component["id"]: component}
+    put(tmp_path, str(audit_path.relative_to(tmp_path)), audit)
+    reg = registry(slug)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    work = reg.works[slug]
+    assert work.editions[slug + ".scan-consensus-2026-10-18"].license == "CC-BY-SA-4.0"
+    assert work.coverage_composition["digital_components"][0]["separate_api_notice"]["tdm_reservation"] == 1
+    assert work.editions[slug + ".source-library-local003"].storage == "audit"
+    put(tmp_path, path, gzip.compress(b"changed source", mtime=0))
+    with pytest.raises(ValueError, match="digital source changed"):
+        reviewed.register_reviewed_manifestations(reg, tmp_path)
 
 
 def test_cyril_complementary_volume_licenses_and_boundary_counts_survive(tmp_path):

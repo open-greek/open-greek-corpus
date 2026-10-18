@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+import gzip
 import hashlib
 import json
 from pathlib import Path
@@ -56,6 +57,15 @@ def _verify(root, relative, expected):
 def _count(path):
     with path.open("rb") as stream:
         return sum(bool(line.strip()) for line in stream)
+
+
+def _verify_compressed_source(root, relative, expected):
+    digest = hashlib.sha256()
+    with gzip.open(_path(root, relative), "rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    if digest.hexdigest() != expected:
+        raise ValueError("Reviewed digital source changed: " + relative)
 
 
 def musical_identity_metadata(root):
@@ -185,18 +195,32 @@ def _scan_extensions(root):
         if {d["region_id"] for d in decisions} != {p["id"] for p in pages} or _count(extension) != len(pages):
             raise ValueError("Reviewed scan admission lacks its complete primary region set")
         sources = [{"id": key, **manifest["sources"][key]} for key in sorted({p["source"] for p in selected})]
-        licenses = sorted({source["license"] for source in sources})
+        digital = entry.get("digital_components", [])
+        all_digital = audit.get("digital_sources", {})
+        for component in digital:
+            if all_digital.get(component["id"]) != component:
+                raise ValueError("Participating digital-source credits changed outside the admission audit")
+        for identifier, component in all_digital.items():
+            _verify_compressed_source(root, str((audit_path.parent / ("digital-" + identifier + ".json.gz")).relative_to(root)), component["json_sha256"])
+        licenses = sorted({source["license"] for source in sources} | {component["license"] for component in digital})
         editor, base_scope, added_scope = SCAN_WORKS[slug]
         edition = _edition(entry["edition"], f"{editor}, reviewed Greek scan additions ({added_scope})",
             scheme="volume.printed-page" if editor == "Cary" else "book.printed-page",
-            source="; ".join(source["url"] for source in sources), license="; ".join(licenses), editor=editor,
+            source="; ".join(source["url"] for source in sources),
+            license="CC-BY-SA-4.0" if any(c["license"] == "CC-BY-SA-4.0" for c in digital) else "; ".join(licenses), editor=editor,
             note="Complements the existing primary edition; comparison quotations and modern apparatus are separate.")
-        output[slug] = {"editions": [edition], "base_note": "Retained base edition: " + base_scope + ". Reviewed scan additions are complementary primary regions.", "coverage_composition": {
+        witness_editions = [_edition("source-library-" + component["id"].split(".")[-1],
+            f"Source Library, Cary volume {component['volume']}, bounded comparison witness",
+            provider="greek_library", source=component["url"], license=component["license"], storage="audit", servable=False,
+            note="Only independently bounded same-scan Greek body readings participate. Full credits, rights statements, and separate API notices remain in the admission audit.") for component in digital]
+        output[slug] = {"editions": [edition, *witness_editions], "base_note": "Retained base edition: " + base_scope + ". Reviewed scan additions are complementary primary regions.", "coverage_composition": {
             "policy": "reviewed-primary-region-union", "manifest": entry["audit"], "manifest_sha256": _sha(audit_path),
             "scan_manifest": str(manifest_path.relative_to(root)), "scan_manifest_sha256": audit["manifest_sha256"],
             "base_scope": base_scope, "addition_scope": added_scope,
             "base_passages": _count(primary) - len(pages), "added_primary_regions": len(pages),
             "comparative_regions": len(selected) - len(pages), "source_editions": sources,
+            "digital_components": digital, "comparison_sources": all_digital,
+            "digital_comparison_counts": audit.get("digital_comparison_counts", {}),
             "components": [{"edition": entry["edition"], "storage": "primary", "passages": len(pages),
                 "licenses": licenses}],
             "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. " +

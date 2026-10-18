@@ -413,6 +413,10 @@ Run `python3 scripts/reviewed_manifestations.py --write` to refresh an existing
 registry or `--check` to verify it. Photius's new consensus includes Source
 Library CC BY-SA 4.0 readings, alongside retained PD text and separately credited
 fresh OCR witnesses; the complete merged manifestation is not labeled PD.
+Dio additions likewise retain participating Source Library component credits,
+licenses, and separate rights notices. A licensed digital component is included
+only where the admission audit records its participation; other source text
+remains a separately identified comparison witness.
 
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
