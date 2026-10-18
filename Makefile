@@ -62,6 +62,7 @@ COVERAGE_REPORT := data/coverage_report.json
 CROSSWALK_REPORT := data/crosswalk_report.json
 CROSSWALK       := data/tlg_crosswalk.json
 QUALITY_REPORT  := data/ocr_quality_report.json
+SOURCE_COMPONENTS := data/source_component_tokens.json
 WORK_LEMMAS     := data/work_lemma_counts.tsv.gz
 CATALOG         := data/corpus_catalog.tsv
 POLYTONIC_REPORT := data/polytonic_loss_report.json
@@ -182,6 +183,7 @@ $(CROSSWALK_REPORT): $(REGISTRY) $(CORPUS_EDITIONS) data/work_index.json scripts
 #    each drifted from the text they describe.
 reports: $(QUALITY_REPORT) $(WORK_LEMMAS) $(CATALOG) README.md $(GRAVE_RESIDUE) $(PG003_ALT) $(DUP_LEAVES) $(DUP_PAGES) $(PG003_HEADS) $(PG003_GEOM) $(NONFINAL_GRAVES) data/nonfinal_grave_tranche_thirdparty.json $(KNOWN_LIMITATIONS) $(LATIN_IN_GREEK) $(SPACING_MARKS) $(MERGE_SAMPLE) $(MERGE_GUESSES)
 reports: $(POLYTONIC_REPORT) $(POLYTONIC_PAGES) $(COMPLETENESS_REPORT) $(DATE_COMPARISON)
+reports: $(SOURCE_COMPONENTS)
 
 # These reports reuse pinned source evidence. Fresh model inference remains an
 # explicit evaluation run; changing the corpus never re-runs that experiment.
@@ -207,6 +209,11 @@ $(DATE_COMPARISON): $(REGISTRY) $(CROSSWALK) data/oga_dating.json \
 $(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_report.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_ocr_quality_report.py
 
+# A work can combine OCR and digital text. Count each served row's source
+# before assigning quality labels or publishing an OCR denominator.
+$(SOURCE_COMPONENTS): $(CORPUS_FILES) scripts/build_source_components.py $(FREQUENCY_INPUTS)
+	$(PY) scripts/build_source_components.py
+
 # The published per-work catalog. It had no rule at all and drifted nine commits
 # behind, still serving titles that read `Ei)S` and `E)N` after the decoder had
 # been fixed, and one work short of the index. It is a join over these five, so
@@ -216,7 +223,7 @@ $(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_
 # target is deliberately phony (see its comment above) and depending on it would
 # drag the whole ingest chain into `reports`.
 $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
-            $(QUALITY_REPORT) data/work_token_totals.json \
+            $(QUALITY_REPORT) $(SOURCE_COMPONENTS) data/work_token_totals.json \
             scripts/build_corpus_catalog.py
 	$(PY) scripts/build_corpus_catalog.py
 
@@ -282,7 +289,7 @@ data/nonfinal_grave_tranche_thirdparty.json: $(CORPUS_FILES) \
 	$(PY) scripts/measure_nonfinal_graves.py --write
 
 $(KNOWN_LIMITATIONS): $(NONFINAL_GRAVES) $(CATALOG) \
-                data/correction_stamp_gap.json scripts/build_known_limitations.py \
+                data/correction_stamp_gap.json $(SOURCE_COMPONENTS) scripts/build_known_limitations.py \
                 scripts/build_corpus_release.py $(COMPLETENESS_REPORT) scripts/coverage_resolution.py
 	$(PY) scripts/build_known_limitations.py --write
 
@@ -338,7 +345,7 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
 README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
-           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS)
+           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS)
 	$(PY) scripts/build_provenance.py
 	$(PY) scripts/build_readme_figures.py --write
 
@@ -369,6 +376,7 @@ capital-positions:
 
 check:
 	$(PY) scripts/check_ocr_ledgers.py
+	$(PY) scripts/build_source_components.py --check
 	$(PY) scripts/check_capital_positions_fresh.py
 	$(PY) scripts/check_corrections_mirror_fresh.py
 	$(PY) scripts/build_known_limitations.py --check
@@ -377,4 +385,4 @@ check:
 clean:
 	rm -f $(LEXICON) data/coverage.json $(LEMMA_FREQ) $(OVERRIDES) \
 	      $(REGISTRY) $(COVERAGE_REPORT) $(CROSSWALK_REPORT) \
-	      $(QUALITY_REPORT) $(WORK_LEMMAS) $(KNOWN_LIMITATIONS)
+	      $(QUALITY_REPORT) $(SOURCE_COMPONENTS) $(WORK_LEMMAS) $(KNOWN_LIMITATIONS)
