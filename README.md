@@ -299,6 +299,11 @@ inputs are in `data/corpus_changes/lydus-identity-53/`; `--undo` restores them.
 Text readings and previously archived secondary readings are preserved.
 Apply repairs in chronological order and undo them in reverse order; undo
 refuses to overwrite files changed by a later repair.
+Older migration tests use hash-verified historical output snapshots so unrelated
+branch integrations do not change the state being tested. Reproduce these with
+`scripts/archive_migration_outputs.py --audit AUDIT_DIRECTORY --revision COMMIT`;
+each file must match its original audit's output hash. Production undo checks
+still reject later changes.
 
 The reviewed repair for issues [54](https://github.com/open-greek/open-greek-corpus/issues/54)
 and [55](https://github.com/open-greek/open-greek-corpus/issues/55) is reproducible

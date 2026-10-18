@@ -108,12 +108,15 @@ def pg74_assignment(locus):
 
 
 def fresh_inputs(root, paths):
+    return fresh_blobs(root, [Path(path).read_bytes() for path in paths])
+
+
+def fresh_blobs(root, blobs):
     manifest_bytes = (root / JOBS).read_bytes()
     manifest = json.loads(manifest_bytes)
     pages = {page["id"]: page for page in manifest["pages"]}
     checkpoints, readings, archives = set(), {key: [] for key in pages}, []
-    for path in paths:
-        blob = Path(path).read_bytes()
+    for blob in blobs:
         records = [json.loads(line) for line in blob.decode().splitlines()]
         meta = records[0]["_meta"]
         model = meta["model"]
@@ -128,7 +131,7 @@ def fresh_inputs(root, paths):
             if identity not in pages or identity in seen:
                 raise ValueError("Unknown or repeated Cyril page")
             page = pages[identity]
-            if any(row.get(k) != page[k] for k in ("source", "scan_page", "region")) or row.get("error") or row.get("finish_reason") != "stop" or not row["raw_prediction"].strip():
+            if any(row.get(k) != page[k] for k in ("source", "scan_page", "region")) or row.get("error") or row.get("finish_reason") != "stop" or not row["raw_prediction"].strip() or row.get("prompt_sha256") != sha(manifest["prompt"].encode()):
                 raise ValueError("Failed, truncated or changed Cyril page geometry")
             seen.add(identity)
             readings[identity].append({"id": family, "vote_group": family,
@@ -136,7 +139,7 @@ def fresh_inputs(root, paths):
                 "model": model, "revision": meta["revision"], "source_page": page})
         if seen != set(pages):
             raise ValueError("Incomplete Cyril missing-page witness")
-        archives.append({"artifact_sha256": sha(blob), "records": records})
+        archives.append({"artifact_sha256": sha(blob), "raw_jsonl": blob.decode()})
     if checkpoints != {"qwen36", "qwen38"}:
         raise ValueError("Both independent checkpoints are required")
     return {"manifest_sha256": sha(manifest_bytes), "pages": readings, "archives": archives}
@@ -263,6 +266,9 @@ def replay(root):
     fresh = json.loads(gzip.decompress((root / AUDIT / "fresh-witnesses.json.gz").read_bytes()))
     if fresh["manifest_sha256"] != sha((root / JOBS).read_bytes()):
         raise ValueError("Missing-page source request changed")
+    blobs = [entry["raw_jsonl"].encode() for entry in fresh["archives"]]
+    if any(sha(blob) != entry["artifact_sha256"] for blob, entry in zip(blobs, fresh["archives"])) or fresh_blobs(root, blobs) != fresh:
+        raise ValueError("Archived independent Cyril witnesses changed")
     return before, outputs(before, raw, fresh)
 
 

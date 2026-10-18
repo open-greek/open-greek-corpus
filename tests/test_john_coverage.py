@@ -50,7 +50,8 @@ def test_missing_page_witnesses_reject_incomplete_or_failed_outputs(tmp_path):
         rows = [{"_meta": {"model": f"Qwen/Qwen{family}-27B", "revision": revision,
                             "manifest_sha256": repair.sha(jobs)}}]
         rows += [{**{k: p[k] for k in ("id", "source", "scan_page", "region")},
-                  "raw_prediction": "Ἐν ἀρχῇ ἦν ὁ λόγος", "finish_reason": "stop"} for p in pages]
+                  "raw_prediction": "Ἐν ἀρχῇ ἦν ὁ λόγος", "finish_reason": "stop",
+                  "prompt_sha256": repair.sha(json.loads(jobs)["prompt"].encode())} for p in pages]
         path = tmp_path / (family + ".jsonl")
         path.write_text("".join(json.dumps(row) + "\n" for row in rows))
         paths.append(path)
