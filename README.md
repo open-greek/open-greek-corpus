@@ -866,6 +866,9 @@ failed and stop-terminated outcomes, pins raw and individual record hashes,
 labels partial snapshots, and compares output lengths only for the same pinned
 region across checkpoints. Flags require a source review; the report selects
 and edits no reading and does not estimate a benchmark error rate.
+The separate apparatus screen flags editorial terms and numbered note lines as
+source-review candidates; it does not claim to detect every Greek-only note and
+does not change either the frozen mark policy or the pinned repetition policy.
 Photius admission archives this complete screen as `fresh-outcome-quality.json`,
 labels held originals, failed retry strips, reviewed voting parts, and unchanged
 original votes, and links each assembly to its completed source review.

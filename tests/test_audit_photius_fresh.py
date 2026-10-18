@@ -22,6 +22,15 @@ def test_stop_does_not_hide_repetition_or_mark_loss():
     assert audit.screen("ὁ λόγος", "length")["review_flags"][0] == "failed-or-length-terminated-outcome"
 
 
+def test_editorial_notes_are_flagged_without_claiming_all_apparatus_is_detected():
+    result = audit.screen("καὶ ὁ λόγος.\na. 35. καὶ τῶν AC· ὧν add A.\nb. 40. κεχρημένος om pr C.")
+    assert "editorial-apparatus-candidate" in result["review_flags"]
+    assert result["apparatus_candidates"] == {"editorial_term_occurrences": {"add": 1, "om": 1}, "numbered_note_lines": 2}
+    assert "editorial-apparatus-candidate" not in audit.screen("ὁ λόγος σαφής ἐστιν.")["review_flags"]
+    # Adding the separate apparatus screen must not change the pinned stop-loop authority.
+    assert audit.sha(audit.encode(audit.REPETITION_POLICY)) == "5c6cdf1c4f971f5ed7e650ad7f1699e5e437e039e52ec38bfba2427a3ee00c94"
+
+
 def fixture(tmp_path, model, text):
     manifest = build()
     page = manifest["pages"][0]
