@@ -15,6 +15,9 @@ def exclude_leading_fragment(result, previous_witnesses, current_witnesses, *,
     return the unchanged result and no review. Original spellings stay visible.
     """
     from ocr_consensus import alignment_key, compact_corpus_consensus, lexical_eligible, tokenize
+    if (result["ocr_consensus"].get("reviewed_corrections") or
+            result["ocr_consensus"].get("raw_ocr_network")):
+        return result, None, None  # Never replace another correction's audit.
     previous = {value.get("vote_group", value["id"]): value for value in previous_witnesses}
     current = {value.get("vote_group", value["id"]): value for value in current_witnesses}
     if (len(previous) < 2 or len(previous) != len(previous_witnesses) or
