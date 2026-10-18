@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Prepare the checked missing Bekker pages for independent scan transcription."""
+import hashlib
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "data/ocr_requests/photius-bekker-first-volume.json"
 LATER_OUT = ROOT / "data/ocr_requests/photius-bekker-later-gap.json"
+RETRY_OUT = ROOT / "data/ocr_requests/photius-bekker-page13-retry.json"
 SCAN = "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf"
 SHA256 = "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6"
 PROMPT = """Transcribe the large Greek authorial text of this scanned page exactly,
@@ -64,8 +66,42 @@ def build_later_gap():
     return manifest
 
 
+def build_page13_retry():
+    """Pin complete source lines after the first model loops on lacuna dots."""
+    original = build()
+    original_sha = hashlib.sha256((json.dumps(original, ensure_ascii=False, indent=2) + "\n").encode()).hexdigest()
+    strips = [
+        ("upper-preface", [.04, .05, .985, .441], "The heading and the opening full-width prefatory letter. Read complete lines from left to right."),
+        ("lacuna", [.04, .441, .985, .493], "Exactly three full-width printed lines containing dotted lacunae. Represent each separate printed series of omission dots with one ellipsis character (…). Do not expand a dot series or infer missing words."),
+        ("lower-preface", [.04, .493, .985, .678], "The continuation and end of the full-width Greek prefatory letter. Read complete lines from left to right."),
+        ("codex1-left", [.04, .681, .486, .804], "Only the left column of codex 1, including its printed codex number. Read down this column."),
+        ("codex1-right", [.49, .681, .985, .804], "Only the right column continuing codex 1. Read down this column."),
+    ]
+    return {
+        "schema_version": 1, "work": "photius.bibliotheca", "review_date": "2026-10-18",
+        "purpose": "Retry the degenerate whole-page transcription of the prefatory letter and codex 1 as enlarged, source-reviewed strips; never add another model vote.",
+        "retry_of": {"path": "data/ocr_requests/photius-bekker-first-volume.json", "sha256": original_sha,
+                     "page_id": "photius-bekker-0013"},
+        "sources": original["sources"], "prompt": PROMPT,
+        "review": {
+            "checked_scan_pages": [13], "accepted_for_primary_ingest": False,
+            "evidence": "Manual inspection of the pinned scan at enlarged resolution: heading and opening letter precede three lines with printed dotted lacunae; the full-width letter ends before codex 1 begins in two columns. Every authorial line is included once. Vertical boundaries fall between complete lines; the codex crops end above the smaller critical apparatus.",
+            "failure": "The first Qwen3.6 whole-page attempt loops on omission dots and terminates at its token limit before the rest of the letter and codex 1.",
+            "reading_order": [name for name, _, _ in strips],
+            "display_convention": "One ellipsis character represents each printed dotted lacuna in the reviewed lacuna strip; no missing Greek is supplied.",
+            "admission_policy": "Retain every original whole-page attempt and raw retry strip. A separate completed source review must pin exact accepted predictions. Assemble one vote per original model family, with no extra vote for a retry or strip.",
+        },
+        "pages": [{"id": "photius-bekker-0013-" + name, "source": "photius-bekker-combined",
+                   "scan_page": 13, "printed_page": 1, "region": region,
+                   "max_side": 3600, "role": "reviewed-page-retry", "reading_order": order,
+                   "prompt_suffix": suffix}
+                  for order, (name, region, suffix) in enumerate(strips)],
+    }
+
+
 if __name__ == "__main__":
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(build(), ensure_ascii=False, indent=2) + "\n")
     LATER_OUT.write_text(json.dumps(build_later_gap(), ensure_ascii=False, indent=2) + "\n")
+    RETRY_OUT.write_text(json.dumps(build_page13_retry(), ensure_ascii=False, indent=2) + "\n")
     print(f"Prepared {len(build()['pages'])} first-volume and {len(build_later_gap()['pages'])} later-gap scan pages; run a small sanity check first.")
