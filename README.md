@@ -393,6 +393,9 @@ avoids the difficult Meibom ligatures. Its 97 body-page jobs are pinned in
 `data/ingest_reviews/jahn-aristides-fresh-witnesses.json`, with modern apparatus
 and the final index excluded. Regenerate those crops with
 `python3 scripts/prepare_jahn_aristides.py --pdf SOURCE.pdf`.
+The source-reviewed three-strip page 81 retry is reproducible with
+`--prepare-page81-retry`; its manifest preserves the original request hash and
+requires the original predictions to remain available for comparison.
 `--original-dir` retains the original Meibom page OCR as additional source
 evidence. The script requires both fresh model readings for every Jahn page
 and checks the reviewed crops. It rejects failed, truncated, or empty attempts
