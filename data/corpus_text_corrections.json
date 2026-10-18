@@ -57,6 +57,50 @@
    "date": "2026-08-10",
    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
    "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "pappus-mathematics.synagoge",
+   "locus": "3.12",
+   "original": "ὣστε",
+   "correction": "ὥστε",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 140; apply at the First1K source locus before changing book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "pappus-mathematics.synagoge",
+   "locus": "3.17",
+   "original": "ὃτι",
+   "correction": "ὅτι",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 145; apply at the First1K source locus before changing book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "pappus-mathematics.synagoge",
+   "locus": "4.31",
+   "original": "ὃτι",
+   "correction": "ὅτι",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 236; apply at the First1K source locus before changing book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "pappus-mathematics.synagoge",
+   "locus": "3.31",
+   "original": "χρὸνῳ",
+   "correction": "χρόνῳ",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json, row index 158; apply at the First1K source locus before changing book numbers.",
+   "date": "2026-08-11",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
   }
  ]
 }

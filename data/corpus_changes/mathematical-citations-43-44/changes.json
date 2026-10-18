@@ -1,0 +1,3083 @@
+{
+ "schema_version": 1,
+ "recorded_at": "2026-10-18T05:30:05.657592+00:00",
+ "generator": "scripts/repair_mathematical_citations.py",
+ "evidence": {
+  "pappus-mathematics.synagoge": {
+   "books": {
+    "1": "2",
+    "2": "3",
+    "3": "4",
+    "4": "5"
+   },
+   "scheme": "pappus-first1k-book-attributes",
+   "corpus_sha256": "3ca2c31f5ed68da0929451312d3de552e20f9d975a7f06618f8e17f70e61a043",
+   "tei_sha256": "97c19de67ffa6f15ca01bb0f47eae655354d4e1e3bfb7d9fb8837f572d40fe78",
+   "tei_url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/master/data/tlg2032/tlg001/tlg2032.tlg001.1st1K-grc1.xml",
+   "scan_url": "https://archive.org/details/pappialexandrin00hultgoog",
+   "pdf_sha256": "5e665adaedc86e15393dfafd8fbef1c67f8fc1b1bf671bb40e190e4a036414f2",
+   "checked_boundaries": [
+    {
+     "source_book": "1",
+     "printed_book": "2",
+     "pdf_page": 35,
+     "printed_page": 2
+    },
+    {
+     "source_book": "2",
+     "printed_book": "3",
+     "pdf_page": 63,
+     "printed_page": 30
+    },
+    {
+     "source_book": "3",
+     "printed_book": "4",
+     "pdf_page": 211,
+     "printed_page": 178
+    },
+    {
+     "source_book": "4",
+     "printed_book": "5",
+     "pdf_page": 337,
+     "printed_page": 304
+    }
+   ],
+   "evidence": "Manual inspection of Hultsch volume I title (PDF12: Librorum II, III, IV, V reliquiae), the surviving opening at printed2, and the Greek running/book headings at printed30,178,304. The unheaded first division is the surviving part of BookII, not BookI. Chapters retain the source's numbers; no lost text is reconstructed."
+  },
+  "apollonius-geom.conica": {
+   "book": "4",
+   "scheme": "apollonius-first1k-unqualified-sections",
+   "corpus_sha256": "13a58ea70cd050f803334d7d9ca2ee0d89e449030ac1597ade22eb16aabcba6e",
+   "tei_sha256": "6d6d5bb17dea43ec238e777fb413af56137e49dcd76e8e02dbc515ae0a5db0eb",
+   "tei_url": "https://github.com/OpenGreekAndLatin/First1KGreek/blob/master/data/tlg0550/tlg001/tlg0550.tlg001.1st1K-grc1.xml",
+   "scan_url": "https://archive.org/details/apolloniipergaei02apoluoft",
+   "pdf_sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+   "checked_boundaries": [
+    {
+     "printed_book": "4",
+     "pdf_page": 94,
+     "printed_page": 2
+    },
+    {
+     "source_section": "1",
+     "pdf_page": 96,
+     "printed_page": 4
+    },
+    {
+     "source_section": "57",
+     "pdf_page": 186,
+     "printed_page": 94
+    }
+   ],
+   "evidence": "Manual inspection of the Greek BookIV opening and epistle at printed2, proposition1 at printed4 and proposition57 at printed94. The facing Latin headings independently read Conicorum Liber IV. First1K's section headings alpha through nu-zeta are retained under BookIV; missing BooksI–III require volumeI, not an offset within this source."
+  }
+ },
+ "changes": {
+  "pappus-mathematics.synagoge": [
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.1",
+    "corrected_locus": "2.1",
+    "text_sha256": "3bdfe76ae937b2a45893ab3a12c81db6b648368e0d45703d9d58a0dc34966947",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.2",
+    "corrected_locus": "2.2",
+    "text_sha256": "94cba72a80a0e10f7c572bd45f3e4f55f25722c2491bfd21cb1c6e3d0cd4d15b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.3",
+    "corrected_locus": "2.3",
+    "text_sha256": "b09afff910437bfc32a0bf304a0e6df9267515e4dc99e57a09d0ebd71da434b4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.4",
+    "corrected_locus": "2.4",
+    "text_sha256": "a65a5bde2814f781684906e1d646b8757805465d2fdfbe17c844eea15750e5a3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.5",
+    "corrected_locus": "2.5",
+    "text_sha256": "47ad4e85e2934e7b51616fc8f2af80aca51aed92d2c9b704acf5226fa3c27ea8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.6",
+    "corrected_locus": "2.6",
+    "text_sha256": "fe3c93fb090a74b9eb002d1e9e1c2db02a526fa19b46dc09b7043178b46da89d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.7",
+    "corrected_locus": "2.7",
+    "text_sha256": "594622dcc9d75a031f39d8d480de98c355b4627fe006df19a4ba29353e7a627b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.8",
+    "corrected_locus": "2.8",
+    "text_sha256": "e7c5b0c8ed21c17efbe0d41fd31a68bc70a57f7b4600e18ad94f514f5906798a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.9",
+    "corrected_locus": "2.9",
+    "text_sha256": "bf26f3a2f04230500d4249dbbd71bb3c66b5795dd8e4fc8531bfbc9cd9d7f35a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.10",
+    "corrected_locus": "2.10",
+    "text_sha256": "7b87cf784f68f040e25620f9afda2be4a26847fe855b28f458141c122b398c9c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.11",
+    "corrected_locus": "2.11",
+    "text_sha256": "70ffcea1372f0752e6660cf07329377738d823b9f9e338cac468dec5e6c83511",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.12",
+    "corrected_locus": "2.12",
+    "text_sha256": "5be63f0773596ff11c38a10d45be5b2c438c0db11348f309d818d2e41347c2d6",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.13",
+    "corrected_locus": "2.13",
+    "text_sha256": "f8bd4bced2ca685efad825890cb30059379bcc136c1a5fdc8401f7eb4a47aa0c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.14",
+    "corrected_locus": "2.14",
+    "text_sha256": "c43a98bcad398b0284357959c251366136089ec389ee89113888a901c3b7c27f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.15",
+    "corrected_locus": "2.15",
+    "text_sha256": "9dedd9b6df406090c95a1f41eac46af077f08a4c60134418870490b5dc24114c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.16",
+    "corrected_locus": "2.16",
+    "text_sha256": "5a7018ab0d4356161fc5c904a9150191991a12d29f628f69fd6f2f443b5c3524",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.17",
+    "corrected_locus": "2.17",
+    "text_sha256": "ffa4e03ff32d5abf41a0948cb216e3aa416a3059c29ddc38586e6c8c4126b6f8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.18",
+    "corrected_locus": "2.18",
+    "text_sha256": "27691a7a2fdd60d3398a9abba48ffb0a92f032775da3771eb58ad456d3586187",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.19",
+    "corrected_locus": "2.19",
+    "text_sha256": "bab535ff410c6947a623762f85b008e3ec3cd4b832dc01dbf0c6c071d735e4a4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.20",
+    "corrected_locus": "2.20",
+    "text_sha256": "c456ae44fcef2cb0499ac1e4ca0885d9352d8a4ac1922a8feb7adb605757083d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.21",
+    "corrected_locus": "2.21",
+    "text_sha256": "4479539932ab0eebb003b0e48c5f10240e21d5710560d698efebd4b5a1eb7325",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.22",
+    "corrected_locus": "2.22",
+    "text_sha256": "375a6309cf912bfa85a793dad19810fc6bc5ce1681bde726c3f92b6d1197beea",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.23",
+    "corrected_locus": "2.23",
+    "text_sha256": "32ce53c33c19b321f3c32ea26016fcf3922d4dc71d7aa33b0d0f3f4ad4f9b2f0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.24",
+    "corrected_locus": "2.24",
+    "text_sha256": "28bdf3d085b85254ff41f2a2a66e8a40697d94aba882635ecbb79031f551eea6",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.25",
+    "corrected_locus": "2.25",
+    "text_sha256": "51409be15a8792c2485b2c8c80d2ad6f789111d9c4bff88a9b1755dda8f4f49d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.26",
+    "corrected_locus": "2.26",
+    "text_sha256": "91cb3cf45d89db461134f06175be903492e973429c934dca284c10ee627d6111",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "1.27",
+    "corrected_locus": "2.27",
+    "text_sha256": "6c8d976533f9dcb5d0c2da0af59c8cd7c55825d2d764566af26490da206ab4c0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2",
+    "corrected_locus": "3",
+    "text_sha256": "40bef977228866d937f29e1be77d892781518f57555fd3c5a96803d25f4f47b5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.1",
+    "corrected_locus": "3.1",
+    "text_sha256": "35c08afbb96287319021cbe25dbfafc3476aa2698f723de0f29b665cddec6e6d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.2",
+    "corrected_locus": "3.2",
+    "text_sha256": "8a1148fd9c025f567607752275b7b035d8aa10e35002230fec5420c3b8042684",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.3",
+    "corrected_locus": "3.3",
+    "text_sha256": "17eb225372a6fecaa777415a06ac00fbf5e7eab7cd1d08d75052918f044f7388",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.4",
+    "corrected_locus": "3.4",
+    "text_sha256": "ab1cb71427d45db9765769520c40364917065f31fe79030e271d85edaab086fa",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.5",
+    "corrected_locus": "3.5",
+    "text_sha256": "951d9832f2543d3bffe8f7d7721f77ba84738232e274916df074a1709f8ed319",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.6",
+    "corrected_locus": "3.6",
+    "text_sha256": "2231011a7738e4f06aa6a8b2e997c34616e5d164ea6e36dec3c928c0732e5fab",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.7",
+    "corrected_locus": "3.7",
+    "text_sha256": "055dc4b352f6c0a276c642b9e1ba8f4866115ab61dee7d2296cac82c374b4cb3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.8",
+    "corrected_locus": "3.8",
+    "text_sha256": "90b141ed561390b68faf708cb584f0d82bacd34caa942a2cb8bc82adba991924",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.9",
+    "corrected_locus": "3.9",
+    "text_sha256": "7cb87c8112eaa36d7a8debe463f8fa323ff4bb7ca051fe927e3ba6315d06b11b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.10",
+    "corrected_locus": "3.10",
+    "text_sha256": "9812e8bc0e2978facbe5f083730aa066b8f7273dc785efd9a8f93f058d5c1150",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.11",
+    "corrected_locus": "3.11",
+    "text_sha256": "234e5eb9c1e7f4a5dca7f6df9e22a3875956aef61088c951f8e058a8c06ec222",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.12",
+    "corrected_locus": "3.12",
+    "text_sha256": "ad01b8c20d6e42c7b4d73633523607856eb099a6bb8369365543839e86ecb667",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.13",
+    "corrected_locus": "3.13",
+    "text_sha256": "7cd1aa16d41a97323d1b66d27d74d63564a65198886a423b757795a3c8299ffe",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.14",
+    "corrected_locus": "3.14",
+    "text_sha256": "09f2cf30a2a82ab6c136b2aa2fcf08588e55726da5b0e3366737e5918fd0da7d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.15",
+    "corrected_locus": "3.15",
+    "text_sha256": "a19a8094e61cb9ed814471d7cb4f47b6751018275828312d54b701d98c840169",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.16",
+    "corrected_locus": "3.16",
+    "text_sha256": "5ff3504567e5cc467afe76c97b865d15c7d2b748f609e87ca3908c06889029d6",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.17",
+    "corrected_locus": "3.17",
+    "text_sha256": "424c13df707f629c377fa2c32dc08a1b7f0fcc7c9ec08de835d90c2c7cdb69e8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.18",
+    "corrected_locus": "3.18",
+    "text_sha256": "0ee4930c95936c9e4e5e92b0c1a03c13a6395faf4bf8fa0a1ca095f4e0b536d1",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.19",
+    "corrected_locus": "3.19",
+    "text_sha256": "d433aa31768e326ea3fdf699b380dc01218d762933ada7cab806c800fcade1b5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.20",
+    "corrected_locus": "3.20",
+    "text_sha256": "8fb8d1dd5a21ab2091edc89458e231378fd56ffcf53c4515b23f22cb096c5d0f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.21",
+    "corrected_locus": "3.21",
+    "text_sha256": "03dbde65f266290d87de758ff44b6d2b985248559ddddff2bd1a971aef080766",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.22",
+    "corrected_locus": "3.22",
+    "text_sha256": "0f4e1e5617fbdd50b911ec1729b5ffc6d0946807e6b22ef8f918ef95a3ccbfa8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.23",
+    "corrected_locus": "3.23",
+    "text_sha256": "a8d5f19559f87e45e9b5cc3294dfb45bfb6657cbcb658cf3071a0980edbe7ccf",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.24",
+    "corrected_locus": "3.24",
+    "text_sha256": "c56d485e7d91a85a0fb4b5e06563a046befb2a8cde10e2719c5ccf60745afcb3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.25",
+    "corrected_locus": "3.25",
+    "text_sha256": "cbcd19eea338b158555ffa57429481e94150f20f39eb74a6b8872bf1a0308064",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.26",
+    "corrected_locus": "3.26",
+    "text_sha256": "0fea4cc3086ea8e330c0ea1a9a9e08979b864ec21c84974b88da644e8201c966",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.27",
+    "corrected_locus": "3.27",
+    "text_sha256": "3c8ab8b052050dba663b80f487b99a16a7d969037300cdd1e15bfe38b19a7ddf",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.28",
+    "corrected_locus": "3.28",
+    "text_sha256": "9654d6d5bd0b5f7e540dc90f9bb2ef7ab846630b020967d8354ca3a6acd83d90",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.29",
+    "corrected_locus": "3.29",
+    "text_sha256": "2d2d2c20a6140bad1516ffa63138fae11ca1cc4fd388cecdb5f12c692c69a6f5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.30",
+    "corrected_locus": "3.30",
+    "text_sha256": "9d7c629bc1054ed480f507defcb3ac822bc975cbd267003e5df2628930ba8331",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.31",
+    "corrected_locus": "3.31",
+    "text_sha256": "20f0d364c43bff8f47c47cbf3f8357e79e383650381e38075219b32880a467fb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.32",
+    "corrected_locus": "3.32",
+    "text_sha256": "0e0eef0f05002534db5ea6c2936e99634befdeb46a27fe423b8c8c018f2f70b6",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.33",
+    "corrected_locus": "3.33",
+    "text_sha256": "cbeb3067ef1878006054986609c83d45f13e1baaabf8bc6f99e030fc67bb2fcb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.34",
+    "corrected_locus": "3.34",
+    "text_sha256": "1f67f54e8e5418a617fabc6319a4351d26bfa939fd767c7ca5de91c1e2692758",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.35",
+    "corrected_locus": "3.35",
+    "text_sha256": "be6ef1573a7ca04f532011d1f12efa9b2bde42e0d3add91e6e2770f8faf20daa",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.36",
+    "corrected_locus": "3.36",
+    "text_sha256": "564af00d74c3cca2f488a36f17c19a15ddbc45ba168557b50e38855e1d65cf6c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.37",
+    "corrected_locus": "3.37",
+    "text_sha256": "604d2ea5d66e5916ee8291edec34c4f266967e2366c0cb73ad64c735f3ad0259",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.38",
+    "corrected_locus": "3.38",
+    "text_sha256": "0777335f365d32cdd58e3dd613eb7ec62567d5b6f92385afce887440c3e0f9b4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.39",
+    "corrected_locus": "3.39",
+    "text_sha256": "3b127fabc2327fb9f0e6f75f1b8525bb340ce20b7be245f683dfe804919af6cd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.40",
+    "corrected_locus": "3.40",
+    "text_sha256": "79716315ba6c41e6950366e5e3d3f8f9fe46b4118de0181967e1003f7d143c19",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.41",
+    "corrected_locus": "3.41",
+    "text_sha256": "a9e95c30212240f62bd94714d94c2cacebc7c5cf936d1d4d2d16af26a6b938e5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.42",
+    "corrected_locus": "3.42",
+    "text_sha256": "821442c9a72c88652ba9f59fadff3c3536c41cb1f65d67efacce1b0535ff4586",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.43",
+    "corrected_locus": "3.43",
+    "text_sha256": "cf1278c6e47991174c4034833a58b2663bb9f749b92f17121793d9eabfc01521",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.44",
+    "corrected_locus": "3.44",
+    "text_sha256": "75f4d6357bc85cc7ebb4004d167e1a27b89ebb3137f222e4b33e8384c8f1120d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.45",
+    "corrected_locus": "3.45",
+    "text_sha256": "055f1488c7b79072b338372463ac9ebefe20652ce0da7bbc77a0223f4dd8c677",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.46",
+    "corrected_locus": "3.46",
+    "text_sha256": "34c099f26b28daf1787982663a261cdf38c7cfec91a97f5d596cf662a51a3345",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.47",
+    "corrected_locus": "3.47",
+    "text_sha256": "9b1a0c8bbd79dfed8cbaf21139752c2d831eec4be190b458363db799198ec584",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.48",
+    "corrected_locus": "3.48",
+    "text_sha256": "bab13bfea02f6c1edbd803bb66e3dbfb594613efcc9a825a83eddfc7b546faa2",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.49",
+    "corrected_locus": "3.49",
+    "text_sha256": "0374a9b19fc36cbc7384df5d3c08afc5725d12d09e9ce8ef9163a624015dac2f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.50",
+    "corrected_locus": "3.50",
+    "text_sha256": "ebdd17aa8a3076ccfd0dd49482bd691c039b00014e0a4344de7525c2498536cb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.51",
+    "corrected_locus": "3.51",
+    "text_sha256": "a4e2efc058f63369f0c2522cb0849b48c12dcacbc2120407d7fbd776a034f7a9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.52",
+    "corrected_locus": "3.52",
+    "text_sha256": "fac6c22d30a43d743ff7a13eb5a9610dbc2fb8a55b7eb0d715921e7cea91eabf",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.53",
+    "corrected_locus": "3.53",
+    "text_sha256": "1f46ae9cd961534ca22af69cdd80058333452a284b2ddfe2771746e680566b7b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.55",
+    "corrected_locus": "3.55",
+    "text_sha256": "68a21fce69a833ab2e170d8bd8dd11b334bbcb90612d86a73129e37996db3840",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.56",
+    "corrected_locus": "3.56",
+    "text_sha256": "1706a2ce9dcbe43f2e3732ae2a16efe9e3b0e4428e71cad11a4194dc5ccd685d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.57",
+    "corrected_locus": "3.57",
+    "text_sha256": "579abbd166f2d7a954a42b8e0a91fbb29f2800443f59f827d5df161c654d69e5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.58",
+    "corrected_locus": "3.58",
+    "text_sha256": "a170fc7702535a2e847bd8a33ea431a4509e6d3f965eb4d927273cf93a4d01c7",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.59",
+    "corrected_locus": "3.59",
+    "text_sha256": "aa499ec924f3f2ebc2ab67933b38b72b6d79e69981de3389d2c1236f9b390a8c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.60",
+    "corrected_locus": "3.60",
+    "text_sha256": "68f4821a11424fda6f8e82ca2894d2615849a79d5216af8b414e552bbf181a8f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.61",
+    "corrected_locus": "3.61",
+    "text_sha256": "2227eb6b38c41f9ef34fe3c97d292224a2f7eff35a33f555cf1a3627f5550996",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.62",
+    "corrected_locus": "3.62",
+    "text_sha256": "2af15d196cc59aef1a7969da980441a6c9a6814a378a5ba8af1346e052a44513",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.63",
+    "corrected_locus": "3.63",
+    "text_sha256": "684d5e816d086ff24c3c80e945e9a04504c8542fe5649ae419cc79408def9743",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.64",
+    "corrected_locus": "3.64",
+    "text_sha256": "64d61d9e5cb251923e1666c3b8a62ace7a54341589cbf6ff0795bf460f3e9427",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.65",
+    "corrected_locus": "3.65",
+    "text_sha256": "6ffc9c2e30e63f24b83dd71ca095193753f585ad69e6c6dbd597939dc4dea0d8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.66",
+    "corrected_locus": "3.66",
+    "text_sha256": "755cd70d1462601a536b0d970d2e50297cfe9d2bdf398ec7c311bc5c57918754",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.67",
+    "corrected_locus": "3.67",
+    "text_sha256": "b3d1fd430ca48f8f64c2a45e3112b125d011f2264d4742e9dc52b22c81caf8ed",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.68",
+    "corrected_locus": "3.68",
+    "text_sha256": "b339efed00c0f7a4ae65f9ac9b3abd71bdc14b6a4f9436e1f5f745a4bdd0f363",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.69",
+    "corrected_locus": "3.69",
+    "text_sha256": "0d9f39d2b4359191ae074642fb3f563adbbd57565ad722018856bf279d7ede5d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.70",
+    "corrected_locus": "3.70",
+    "text_sha256": "6badd4a8155b7859c240dff1c28f584a009c6ba83e2677407e06eefb4be5f0d1",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.71",
+    "corrected_locus": "3.71",
+    "text_sha256": "26c2f2f84d01bf16a215dcc4305aa69dd53a11f325b97b4a20b24fa59a859ad8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.72",
+    "corrected_locus": "3.72",
+    "text_sha256": "f2b80cc0704db1dab6f197e1716822856bc69bdc0ae78f54d8cb9f26a0a987e5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.73",
+    "corrected_locus": "3.73",
+    "text_sha256": "bf0f3aad04bf657c252b88ab6288d7aa855475030d19508353b7066733f9ac8f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.74",
+    "corrected_locus": "3.74",
+    "text_sha256": "da732ed7d3f01ebda806a6e7e30ba2fd1a4b8b4ea6d061bda1918b33d08cf17c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.75",
+    "corrected_locus": "3.75",
+    "text_sha256": "f22ef6ad49e1fc604060626a4c09762360f6a1048524c7c43860a8e2273f3a96",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.76",
+    "corrected_locus": "3.76",
+    "text_sha256": "3abd4f560d29377e58543f30b23279f14ee7f288eddb9107781b1b725c091224",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.77",
+    "corrected_locus": "3.77",
+    "text_sha256": "7957ee17b24ec4788ef68785e353955ffb17b575e6be8eef22c495a1ef629af8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.78",
+    "corrected_locus": "3.78",
+    "text_sha256": "d6f85a759a51a6db54c5b587ed236229e0d529dba65661ef583b0911271548ef",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.79",
+    "corrected_locus": "3.79",
+    "text_sha256": "17da600dae64339f6eddb1af4e8df13719e8db97e66e0a404cff0a73e1f72189",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.80",
+    "corrected_locus": "3.80",
+    "text_sha256": "67379da9f0376f174adf02e2d1cc060476f7562eb287efba0c4e386ac3b1f761",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.81",
+    "corrected_locus": "3.81",
+    "text_sha256": "ad71e1bfaabafa6082d3fc38e61a5d9210ea9920b6798ddf5a65404f1f56521f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.82",
+    "corrected_locus": "3.82",
+    "text_sha256": "673a508dfd514c65f35dba705cdcfcd91c486e0c95f6a0b7c7ac2536e80de8ab",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.83",
+    "corrected_locus": "3.83",
+    "text_sha256": "a51da473c1cebd907ab9652acef0038df128e0f1a4430d79f97f02d28a219324",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.84",
+    "corrected_locus": "3.84",
+    "text_sha256": "427b74faed0c5f62e54a859dc4398260b19e07a7449bc1fe81faa5a1a9098d72",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.85",
+    "corrected_locus": "3.85",
+    "text_sha256": "908d589a516ea021f0557888fe94aeb42111a4a6e91c950e66b21ac5fdf866bd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.86",
+    "corrected_locus": "3.86",
+    "text_sha256": "02833e0de5b665fd2e6b72f6978e6b05ce9b086f8154acc398562ce9dfe0b445",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.88",
+    "corrected_locus": "3.88",
+    "text_sha256": "c14ff3ef21f097e8ddbc9cf356575fb4fee42ba1e99a3f2c3cb4de778c14d872",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.89",
+    "corrected_locus": "3.89",
+    "text_sha256": "f0e29320be6a33c7f2f75a57074e37a9a5a48d8380b18122c0299a80c25b9aef",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.90",
+    "corrected_locus": "3.90",
+    "text_sha256": "2068aa7b90a1e94c14aeab3f838be9a5937efb11eaca6d675b4fe2eeed5faacb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.91",
+    "corrected_locus": "3.91",
+    "text_sha256": "bceeba7b6810bcdc739df5df8033c4e2510530eec040e4ed1c4c9e15f64ff105",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.92",
+    "corrected_locus": "3.92",
+    "text_sha256": "c65dd6dc96efc6b48ae592e87d65de390df0bfb8c7b359e8e478f7c3a08afb1e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.93",
+    "corrected_locus": "3.93",
+    "text_sha256": "c127ed8b66ca380df9b6ada30715f2019ffa53830f83af8565250f207a51407a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.95",
+    "corrected_locus": "3.95",
+    "text_sha256": "532ee5839a8b67b271e965a480d17160299dc3a07878deeb305e91f5936a64da",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.96",
+    "corrected_locus": "3.96",
+    "text_sha256": "dba0678a7ccfe6112c29ffd8066da64b8f4199f66b77e02840ca74c3b12de837",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.97",
+    "corrected_locus": "3.97",
+    "text_sha256": "e7fa8d2fd205a7da4898a0657751c8bff29e1c9b986f98ad5a76fad6d227439b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.98",
+    "corrected_locus": "3.98",
+    "text_sha256": "f289425eac66ce373d9082859e9f60e4c637e12d32e29fd63d015a545c05eca9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.99",
+    "corrected_locus": "3.99",
+    "text_sha256": "5dc84b882849e9b857ce9d8f38acc924716f4cf188ef8082cb10364bb13fb182",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.100",
+    "corrected_locus": "3.100",
+    "text_sha256": "ca9b0be3e5f67fad3182766aebf5d5cf8c49f3e190777735d4ebf9b4434fc26c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.101",
+    "corrected_locus": "3.101",
+    "text_sha256": "faefdd7637cc6ac819ef336ea865fdd23b5cf9311184082c0c71ef4052568a9f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.102",
+    "corrected_locus": "3.102",
+    "text_sha256": "b102424a2f211fef00fabb493110de4b8e85c41c739bd3a9455cb6a85ba36248",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.103",
+    "corrected_locus": "3.103",
+    "text_sha256": "347b973031a0df4f3ff971d25cf6bfb6a565993e178288647def746ba5c8b3ad",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "2.104",
+    "corrected_locus": "3.104",
+    "text_sha256": "b68e090940a0a645c2b028d8f538bf155ad55f11a99927337e3d2666155284b0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.1",
+    "corrected_locus": "4.1",
+    "text_sha256": "2fc6cc00057e69b3394f8925b46edaa6c585ea382e1bbe809865121269cf85ab",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.2",
+    "corrected_locus": "4.2",
+    "text_sha256": "41bcd15ab2a547df69966ce7483f284852eb9e9a930bb0ba246c7499a134516b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.3",
+    "corrected_locus": "4.3",
+    "text_sha256": "9c86824b2164937288abc22a3f30c171829dc46c07504f360fc57df5e4f869d8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.4",
+    "corrected_locus": "4.4",
+    "text_sha256": "ffc0d964219b296c8358785d499ae2b2f28fe0f65a5b16d52d0f97855fd59599",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.5",
+    "corrected_locus": "4.5",
+    "text_sha256": "7a9ff717e15c11cd8ba7859d7ab5b6fdc6ecc7df7b673ddd5095d876a1c737ff",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.6",
+    "corrected_locus": "4.6",
+    "text_sha256": "82083c4f3cdefa0f6affad4c15b0020aa626b0e166e9dc9098a28aa640316793",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.7",
+    "corrected_locus": "4.7",
+    "text_sha256": "11787ac6a4f6a8eab609be4fec610c98e100e0a7453c4655ddb0a1bfd8edca1e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.8",
+    "corrected_locus": "4.8",
+    "text_sha256": "d4468a4eeb8611ac8c62de02bcbc485fb41a8c2b9b2eba621f20a033c5a05c63",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.9",
+    "corrected_locus": "4.9",
+    "text_sha256": "4c0e804054dc8414aa2a5a810bf148827b8019223aee8cdc419699ee6bc4469a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.10",
+    "corrected_locus": "4.10",
+    "text_sha256": "1da4c95ed8685d7e2301d0f920a0ce1ee8a594aa86d9e7e45b3ebd40c7a9de5b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.11",
+    "corrected_locus": "4.11",
+    "text_sha256": "eeac3477af0c6e61bbbbe04d3e7d551789c16c3958edaf9bf19ba5ae16af55d5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.12",
+    "corrected_locus": "4.12",
+    "text_sha256": "78278cfd2923c45e0fcd8856b2559d3b40f22652128f85c9417b9735b5a12f36",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.13",
+    "corrected_locus": "4.13",
+    "text_sha256": "eb19de44deccf3ffee8f5a564e64fdf6b49fb6bfdc6c65629bc9dd551b36045d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.14",
+    "corrected_locus": "4.14",
+    "text_sha256": "cf20e30742a8ea34b8e59d20539b5246e35a105f6523bb7046b5b6dae05a02cd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.15",
+    "corrected_locus": "4.15",
+    "text_sha256": "8f7396822d4b01a1ff7934c4400f6f18c523fed4a79e12d3191635d67609f4ca",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.16",
+    "corrected_locus": "4.16",
+    "text_sha256": "5367551b497c134bcf8a2a7b86e7b4dc9ef49b023c9321ad0ea5b22358a2e707",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.17",
+    "corrected_locus": "4.17",
+    "text_sha256": "a3569c50a628cca25d5d85dff90db9edba1d82d681faa22e48b4cce3a859801c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.18",
+    "corrected_locus": "4.18",
+    "text_sha256": "81c479bc190828417adc63f7237b817491d711c5ca3aa39637af86062c9950ea",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.19",
+    "corrected_locus": "4.19",
+    "text_sha256": "f4c4b36b766f63fe159b9840bb8f00469a338fa34c5ee2a1649d46838d3ed1f6",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.20",
+    "corrected_locus": "4.20",
+    "text_sha256": "506549caa93abffb0d036be77cdac5d4e7c76d3e2ac2b9636f897bdfe48fc304",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.21",
+    "corrected_locus": "4.21",
+    "text_sha256": "b243f4be75002cf7f6e6bec279cb5895c2291490455fe6674ed8f27c193e6a42",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.22",
+    "corrected_locus": "4.22",
+    "text_sha256": "6090da437b30b7aafb2985875f8302bed0d868f2841c52d81c1b5d2496f79887",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.23",
+    "corrected_locus": "4.23",
+    "text_sha256": "afd2a9be0c8068e1a7d1f754046db51f5926915a342e63b5a54a9ad29afd4caa",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.24",
+    "corrected_locus": "4.24",
+    "text_sha256": "824d7e722e74d430ad8de9d5f38e1e19b365bf635a618ac2b67450e13e9d8971",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.25",
+    "corrected_locus": "4.25",
+    "text_sha256": "62cfb140b79abdc10e9e681edaec574419b485861f819be5e70328a7aac85749",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.26",
+    "corrected_locus": "4.26",
+    "text_sha256": "579e55f7d50f0766d90ab970041791d67ebc3897cf16f36f7c8f6d06e0d070ae",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.28",
+    "corrected_locus": "4.28",
+    "text_sha256": "85213db29433654ad73839272ff26060e95f769492b17fa6d76c12b90f640fa0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.29",
+    "corrected_locus": "4.29",
+    "text_sha256": "bf45c7eb09be4bb03b7d1c659f1d4e162011f33525d3e24e6b3380289de139fd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.30",
+    "corrected_locus": "4.30",
+    "text_sha256": "17b2cef326281dd7cb9a72fc7d942ef813b0da2db1ebd536ee306017de99b479",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.31",
+    "corrected_locus": "4.31",
+    "text_sha256": "c06277dd1266968c96ef6542b8c0b1ec8659f85c9808250052efff11d92f11b3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.32",
+    "corrected_locus": "4.32",
+    "text_sha256": "e3150b5ec354e1bdb039191f04701988094db369f04496aa7314ec29f0889950",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.33",
+    "corrected_locus": "4.33",
+    "text_sha256": "27f9fb6603854cef4bc8cc4e9f9a1782322df71d8de97aa2930679050f40d53d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.34",
+    "corrected_locus": "4.34",
+    "text_sha256": "d1566a4e25f73729a7b31dce19778c60dc27e7f0893d3981335b2f0e02e298f4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.35",
+    "corrected_locus": "4.35",
+    "text_sha256": "9693929fd760ef7910a8254e432d4d3f5df803a584ec46ef9c58c8277e59a392",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.36",
+    "corrected_locus": "4.36",
+    "text_sha256": "3d79884d96f32e1950451ff9e8acc6d8c87e992975312f9e04389092b21c1545",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.37",
+    "corrected_locus": "4.37",
+    "text_sha256": "7914734a7fed548910841d75a3b17ac2e40c26bdc5cd6ca72e537337093a41ee",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.40",
+    "corrected_locus": "4.40",
+    "text_sha256": "b275e1c874d8165fa11ce16dc78923de7ae8551bc9f76b6edf85eba48b209f26",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.41",
+    "corrected_locus": "4.41",
+    "text_sha256": "6d8ae3b7c8ccf6c55ca4eda5db6bc62a3ebabfbf744b594d05600627ae08c140",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.42",
+    "corrected_locus": "4.42",
+    "text_sha256": "1095a479e1d902b6a7721fbf49ccbe2053a24b3386462e2fccd261a3c1697fa4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.43",
+    "corrected_locus": "4.43",
+    "text_sha256": "9eaec4c067c90573fdcdf6fb7e825665b0d702b7f29c500ba4cbc69d5e953be7",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.44",
+    "corrected_locus": "4.44",
+    "text_sha256": "5c75c85715b7c6766db419891365c81e159a68eb91fe24325fe7010d112b1af3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.45",
+    "corrected_locus": "4.45",
+    "text_sha256": "29d306c0275b8cdf48db9322cf17fa3e850819e21f2d0a2dfe12d88dfa2e614e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.46",
+    "corrected_locus": "4.46",
+    "text_sha256": "dd7c7c46b4d428b933503dc9fddd9724c4ae878db5d8f31f17cd96bd917f54b5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.47",
+    "corrected_locus": "4.47",
+    "text_sha256": "9e4580563a59102045b4ad2d255782d1b7c871a9f6c9a56a579d49f714a8e8f0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.48",
+    "corrected_locus": "4.48",
+    "text_sha256": "e3ff3aca05c634a5edda3c873c48f8006c7c43e936963583fc1b5a2ae878dec9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.49",
+    "corrected_locus": "4.49",
+    "text_sha256": "63798605446567711dfda2cd0909e45638454e60849e4afbf5ac8d9f5d60f3b2",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.50",
+    "corrected_locus": "4.50",
+    "text_sha256": "6126e79629ae571d06078a9323949ceebc495be83ed63548de9008199853ea97",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.51",
+    "corrected_locus": "4.51",
+    "text_sha256": "2ae738b0b4d53f1108d89779c5c6b25d6a4928ec350acc3ade13ea177e53b59f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.52",
+    "corrected_locus": "4.52",
+    "text_sha256": "8002c5a6416377a5d01073841938d11ee19206d9639f747421be3320dfcb3e83",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.53",
+    "corrected_locus": "4.53",
+    "text_sha256": "9dff3166b2fc5e3ce841dc0c6fe096d244c04411a4214c058b081e6626480cf2",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.54",
+    "corrected_locus": "4.54",
+    "text_sha256": "7369c84f57e03d465eb6ce0c8c696d2b07f83d9f261e0bfcff45097869b56c4b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.55",
+    "corrected_locus": "4.55",
+    "text_sha256": "a0b06d7939f09536947832435671bb986dfc5bc6ad5fbe13435f3ba31b3de1cc",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.56",
+    "corrected_locus": "4.56",
+    "text_sha256": "7db03666d1f1abdfe1d8dce52c84177fe3bbc715305c7be8c3f5eba2c4309839",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.57",
+    "corrected_locus": "4.57",
+    "text_sha256": "55dcbce133194541e80d6690a08b463e53c6b4b6726462cb251ea125cd56f2ec",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.58",
+    "corrected_locus": "4.58",
+    "text_sha256": "4658d8e8ac6d495c3dbbb2e60e90e01c91038338044d2c8297bfac6f2d35691e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.59",
+    "corrected_locus": "4.59",
+    "text_sha256": "347afdef6a65b3b9deb65f3bf3468f13ab068d75d0f8d9f40d07536dfc3cffac",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.60",
+    "corrected_locus": "4.60",
+    "text_sha256": "dc5a75e759df72284995dbb9e334dfa84ed8dae2ab4201d9bd78748037a224b8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.61",
+    "corrected_locus": "4.61",
+    "text_sha256": "3a9025135029ee1e702a8044572c640e09e98f1d89da68d243a831e45b551606",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.62",
+    "corrected_locus": "4.62",
+    "text_sha256": "fec9f1812e63b0d75f7f406cc920fcd9726f2a4c582e11421e2220b7766145db",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.63",
+    "corrected_locus": "4.63",
+    "text_sha256": "d6966e24bef64b72bb4aae4c43cfce3a326c1fa1a5485d478fced53d0710a38d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.64",
+    "corrected_locus": "4.64",
+    "text_sha256": "ef430dd9f32195baa137a1ea62414517a221a3d206c0e45dc2401f31ccf534fd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.65",
+    "corrected_locus": "4.65",
+    "text_sha256": "b72277f2f8e84df376e5707f73aea8d35b6248850cbc598b4f67a79e16639886",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.66",
+    "corrected_locus": "4.66",
+    "text_sha256": "be7f07369ad34f4103361f82dfb6583bcd3b09fe8c5e91fbbc3b6ccc9bd7c2c1",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.67",
+    "corrected_locus": "4.67",
+    "text_sha256": "db64898a79d3f0cebc0a5bfbd33e3d067fa79535e3865d052108b67808a84adb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.68",
+    "corrected_locus": "4.68",
+    "text_sha256": "2c041ae06ab96c666fed2097343afc512db1026a6dd2fe46014a9846371b92db",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.69",
+    "corrected_locus": "4.69",
+    "text_sha256": "351953e46aabdc57544e56b60990c62a743ae1c7fb0a93d63607d9e812f01d70",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.70",
+    "corrected_locus": "4.70",
+    "text_sha256": "cc24f6a51639c69edf638baff21948cf7d60c9481d8799e62dad8f387bbe6e5a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.71",
+    "corrected_locus": "4.71",
+    "text_sha256": "d0f243568e6e978c9dea861466ba119cd7454315daf589bb9458b4d88ed5b118",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.72",
+    "corrected_locus": "4.72",
+    "text_sha256": "b3d7094b538771073a771f32e7d25c17f2a03ea4f998d62f010bf085ccc38056",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.73",
+    "corrected_locus": "4.73",
+    "text_sha256": "4d2ff807a23e7f3e7572c1efa1dd30949ea3732cbfd182f76fbf80c52090052c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.74",
+    "corrected_locus": "4.74",
+    "text_sha256": "c91c5f71cadd2d539902a0eb9a305d334ce89c9a855714b89d3fc1ffc061c35a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.75",
+    "corrected_locus": "4.75",
+    "text_sha256": "5ec8a4cb661cbc5e2e7218542f611716f608f772636a6c52effbb92dcd8c2857",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.76",
+    "corrected_locus": "4.76",
+    "text_sha256": "89a6090cf11eae5258dc5cf76c877dfba5c8950135a996a1b0a549103e3faa17",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.77",
+    "corrected_locus": "4.77",
+    "text_sha256": "5e246976c99cdbd96b34a25c2ccc7570265f564fd03e9560a6737893bfbcddaa",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.78",
+    "corrected_locus": "4.78",
+    "text_sha256": "23590cfef7dfcea2cd781f5da4381c6cf0cbbe1b86c3efb795eda351ca33e4e0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.79",
+    "corrected_locus": "4.79",
+    "text_sha256": "4654f3f1dc52231e941ff10280088a5c9b279d7cde2a8df366f632aeb5a7bfa1",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "3.80",
+    "corrected_locus": "4.80",
+    "text_sha256": "b4b08bde0d305b41d15d2bdab433b6a279c4d61fc3ebf8d6c0165af21b35a91b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4",
+    "corrected_locus": "5",
+    "text_sha256": "44418bd16d9b4ecfc4237ed415f79b69cd162594b02be19f8a5369a2c4b6e86b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.1",
+    "corrected_locus": "5.1",
+    "text_sha256": "279d391f6a2d953f29388691c97c50d02578b7034c3beaacfb0c1fc8ad43037e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.2",
+    "corrected_locus": "5.2",
+    "text_sha256": "199b5f91d7c6bade538889116baf4933be4e05f430fa936553a7c4aee61a3cc9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.3",
+    "corrected_locus": "5.3",
+    "text_sha256": "20e7892e62b9894670fa7dbbeb5fab7e40a4e27ceaea9b388ba195b0fa7a416c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.4",
+    "corrected_locus": "5.4",
+    "text_sha256": "66f56ed1dea52235d23d3ac3691ba8c9944ba226a45254516c21b31209f7d13c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.5",
+    "corrected_locus": "5.5",
+    "text_sha256": "7cc2c4cb5b361222b2101a7c0cf3ef1543be4f9d11641d577ab76964c340b70d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.6",
+    "corrected_locus": "5.6",
+    "text_sha256": "4542926905e59a6cd4750aa7ee0d9906937f655bb8c9975ad98944a2e8581820",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.7",
+    "corrected_locus": "5.7",
+    "text_sha256": "51e3d68ec4e7ea6f6aafdae73375d6c7b3d25efb3a488497fb39ed2afc0612a7",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.8",
+    "corrected_locus": "5.8",
+    "text_sha256": "0f81ff7a1d6a9a589163cc0ee07782c568dee2eea21641c7a453c87d191e3f62",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.9",
+    "corrected_locus": "5.9",
+    "text_sha256": "ef4ebfcc1ceaea24ffe611f37c867377ec14b087df74544d1ab1f930dd1e3c59",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.10",
+    "corrected_locus": "5.10",
+    "text_sha256": "71f3e89857c21c81a7aae0e5c67de151a7fcf6cd8c3968f5118060fd0a0a756f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.11",
+    "corrected_locus": "5.11",
+    "text_sha256": "799e9bc45bd88b474678c67a0a2118ac6cc870dd45e15ffea728f29453722f14",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.12",
+    "corrected_locus": "5.12",
+    "text_sha256": "e1643608491690163ce2647317ffad853a90e945c7e101d0569dc93d0a93c072",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.13",
+    "corrected_locus": "5.13",
+    "text_sha256": "07a6fe763d6b96d128b041a2fee16c973b1cc654264ae1fb10caf6adb6cf1138",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.14",
+    "corrected_locus": "5.14",
+    "text_sha256": "7257fdbca77a0bb7c48cdf6eddddb1207610623c349e90ec2e21530e83eb439e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.15",
+    "corrected_locus": "5.15",
+    "text_sha256": "fc9f4bd119b119c533ab3fc9e0159f986923aad2d7a1574d399fb4bb4c631c48",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.17",
+    "corrected_locus": "5.17",
+    "text_sha256": "05d299bf607264d99c13269e4b46169c686517d51f7e8b6fc9e4df2e29993aa5",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.18",
+    "corrected_locus": "5.18",
+    "text_sha256": "c9a84344f719b8938d97befb288b9deb74ff836c8e790cbae538418fe1419306",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.19",
+    "corrected_locus": "5.19",
+    "text_sha256": "0d528b39e709b8bb0ecb3980847aaf1e6d40c728d86a7d721388e91e62a00d2b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.20",
+    "corrected_locus": "5.20",
+    "text_sha256": "3a1ed7727e9cdd00a9daa730d16c11faaccb24462b9d402a7b0e27b9fdee42d8",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.21",
+    "corrected_locus": "5.21",
+    "text_sha256": "dbe49de07a8281178c679063007fd472d6b990cc22043905456458f42ebe70df",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.22",
+    "corrected_locus": "5.22",
+    "text_sha256": "74b9dc8a1b0c3b0e54b62dc08f6bf38b1ae5f20fe4d35525da0c388179de3560",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.23",
+    "corrected_locus": "5.23",
+    "text_sha256": "4744b2570a54f7311c02656e9711b84a17bd0994f8ae5761b07e8de79a833260",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.24",
+    "corrected_locus": "5.24",
+    "text_sha256": "fbf4fc16ae7c0aee1cc277a4bb472cf54bb1a46dab224d8695707a038c57d88e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.25",
+    "corrected_locus": "5.25",
+    "text_sha256": "bbab4413777a33d1c6e16962891f25758d93d1cf387e959d6e9fca26d5b1ec71",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.26",
+    "corrected_locus": "5.26",
+    "text_sha256": "db4a39f51733dd68aa5c2a7fb14cfca52d0b1fa4ff2742f01c9998aed8acb686",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.27",
+    "corrected_locus": "5.27",
+    "text_sha256": "a0ab124a5daaca2259aa5992acd295e840d2ccd0feacd6c4f0b9c57f5fb77164",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.28",
+    "corrected_locus": "5.28",
+    "text_sha256": "060769b947b74ef09ca5209961653ef024792eb3d449d2e03f55b98eb39bd5a3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.29",
+    "corrected_locus": "5.29",
+    "text_sha256": "40115695305d53462b453242c8b7edd249e702e3f6240180ff0d07ea15794253",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.30",
+    "corrected_locus": "5.30",
+    "text_sha256": "db5e10871220714d14496297438524aa8497a8bfb307c592ea63f4fcdd031c80",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.31",
+    "corrected_locus": "5.31",
+    "text_sha256": "2bf7a0301f187962533d921412b0d3df7fb391fc43fd550808654e9f1061af78",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.32",
+    "corrected_locus": "5.32",
+    "text_sha256": "8f566d0507abac981ada5ab5fe0c0919c3a6877656cc6a1d5582d7ea55400ae3",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.33",
+    "corrected_locus": "5.33",
+    "text_sha256": "f15652c4c9e7d471e1e61605e5fd9831e9c98ef36aeb7cf2bf2165a4f05affbd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.34",
+    "corrected_locus": "5.34",
+    "text_sha256": "3d413fef5b6a485d674ad03a86c0798b62e8a4f9e786845a9aa6df18deeb9af9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.35",
+    "corrected_locus": "5.35",
+    "text_sha256": "df13543e3348ba062236848330f6387d4c7d333fecda79bb8743993655d937a7",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.36",
+    "corrected_locus": "5.36",
+    "text_sha256": "7b9467678f1231a7c55d9ec68f8fec294aedc9fafd7031b3113bc7244a75c477",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.39",
+    "corrected_locus": "5.39",
+    "text_sha256": "2f1ccaf5278a29381dabb741ebd5b578c4ad651e6a6409a1da0c9f6b763c3c7c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.40",
+    "corrected_locus": "5.40",
+    "text_sha256": "effc515154f4d138f4baf66ee10eb4392ff19d9a1cf5bf69bb14a8cf13ce754e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.41",
+    "corrected_locus": "5.41",
+    "text_sha256": "8d7dfc52b5b526b5e8cb27e74f9958b0b1fe0fe67fdce76f3f1ab095da2f3683",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.42",
+    "corrected_locus": "5.42",
+    "text_sha256": "9955a5016a1419eee8b5d89d307a4c7919217d17a8bfb75565539b5caf081c9b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.45",
+    "corrected_locus": "5.45",
+    "text_sha256": "49cfd58252b95b6ce08f32d3efae86d15aff71bfed77792c132edbe748ad9567",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.46",
+    "corrected_locus": "5.46",
+    "text_sha256": "60f76d878708d96b0dd336ab7eb8afed23b17b8e94c13eb64e5fead67ed19b4a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.47",
+    "corrected_locus": "5.47",
+    "text_sha256": "47eea503df3af5476a8b36de88a161cf6786a062df5e6794a805806329fe6d58",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.48",
+    "corrected_locus": "5.48",
+    "text_sha256": "2bc0e93fbe8cb12f4deb6e4137b2b458d6b7dd901de81b15a0f7d1493b055da9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.49",
+    "corrected_locus": "5.49",
+    "text_sha256": "6ee0717a142c14242c6d10d0deb3a8ed0cbacc54ac95efa4f1bee602595f52a1",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.50",
+    "corrected_locus": "5.50",
+    "text_sha256": "d49d9591fd945319e0b5ae899c9381f7df3b0906c43b6487db60e7f518d4492c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.51",
+    "corrected_locus": "5.51",
+    "text_sha256": "c7870fd5ed2853220aae2985c4acb47ebb2df153b6b7b56988ec1a5f97ea674e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.52",
+    "corrected_locus": "5.52",
+    "text_sha256": "2818eb5277bbcec05c1335645677436390f36fecb4015dfdc79050e0f7764f50",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.53",
+    "corrected_locus": "5.53",
+    "text_sha256": "4e724516d7ccc1d037e789e32c1cdfe12eb2b7f09d537dd5ba61233a47d1d5fb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.54",
+    "corrected_locus": "5.54",
+    "text_sha256": "0c95621cd07420d685246a50540d3ee54e24cd4fd11ee5d1113619c223193824",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.55",
+    "corrected_locus": "5.55",
+    "text_sha256": "1867baefe64078464c7d062a82f5efadc4f49850e906a596d7bb449bb9f51c8b",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.56",
+    "corrected_locus": "5.56",
+    "text_sha256": "ff8e196e8aed226340979e5c27813212d2e84f011cff94295fb7ef2d64afdf64",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.57",
+    "corrected_locus": "5.57",
+    "text_sha256": "941815d0e2b260baabf6106cf40fbc66a7a249cba8291026b2e0f636c8de7f1d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.58",
+    "corrected_locus": "5.58",
+    "text_sha256": "4c8b7bc6bc1aab9b49ae0c16760c049328191bbb4a8777aab845fb879cd336cd",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.59",
+    "corrected_locus": "5.59",
+    "text_sha256": "e0e134fa24d6bd2177082cb8b7bc0273d9755bc130d36418da073ba8061a400c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.60",
+    "corrected_locus": "5.60",
+    "text_sha256": "1edcdee56eaaaf77a8c65a690a2c63898b3bb9cee3b63d58e4d6ae8b5e9cd71a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.61",
+    "corrected_locus": "5.61",
+    "text_sha256": "2e0f93532908e29004e20a2da08c558eacefbba2a3d9995014e1b3ac58a50207",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.62",
+    "corrected_locus": "5.62",
+    "text_sha256": "78bca36107fc5d00042b20932367e9501102ee814a875e9d6bdd49a8dbe90661",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.63",
+    "corrected_locus": "5.63",
+    "text_sha256": "151a15afac6a501c9d0b137fcc832ac1b4e95c3908396f16f71491ef8ec989cf",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.64",
+    "corrected_locus": "5.64",
+    "text_sha256": "d3edad46fc33a1fb662b1a4fba2f099c3ce4614300f2e5ce53028b96ea5dc4e4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.65",
+    "corrected_locus": "5.65",
+    "text_sha256": "94b0166c2ce17f70317facd1c51624dbeac6eb4b5d306120243a462e6b37bcdf",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.66",
+    "corrected_locus": "5.66",
+    "text_sha256": "8e569ac51412df65a586ea74b2d89448f83d3c3ee1ab60ce24d4ff085b70f6ba",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.67",
+    "corrected_locus": "5.67",
+    "text_sha256": "0522029e72c5184864a683630f439e27036d783a1032a1c61492a2eeb378c8d9",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.68",
+    "corrected_locus": "5.68",
+    "text_sha256": "c032df93a7f710ac39122a0683255af82e1f8f12f970b649abf7243309723d11",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.69",
+    "corrected_locus": "5.69",
+    "text_sha256": "66ce391066852da22cd5ed3fec74ec752860974f9a33a8aa1b9c9b1d9ae37fb7",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.70",
+    "corrected_locus": "5.70",
+    "text_sha256": "2486550cabb2fa52b092237bd3abb4432a19a48dfd14984e4e5a8638024b6557",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.72",
+    "corrected_locus": "5.72",
+    "text_sha256": "5666b31050bea6c860655dcbe2432b8f78d76d11e4eb98a7b41b530e9c9d2a37",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.73",
+    "corrected_locus": "5.73",
+    "text_sha256": "6538a5efc1f9b43bc134057cd92d61bbdbb8f184f98a17120abb882d0b597175",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.74",
+    "corrected_locus": "5.74",
+    "text_sha256": "e6cf0da122a58b5e125d8a5fc8d6d860dd0798ae696f39135cb7065743d3dfab",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.75",
+    "corrected_locus": "5.75",
+    "text_sha256": "1847ade482c490511b6e9d81d0e6ade44545669fee102a16d166aff778bbccbf",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.76",
+    "corrected_locus": "5.76",
+    "text_sha256": "5a223c933af70ac321079ddbd6fc45de1a3d200c7f296cf3cccb2e9ccad0fb43",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.77",
+    "corrected_locus": "5.77",
+    "text_sha256": "237837e4e2e7efcaac696850a669aba1079c57a0084b25c40d348458eb6e41e0",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.78",
+    "corrected_locus": "5.78",
+    "text_sha256": "ae1f75291f2db1cc69b55f1ac0ae9a95474853f914351fe73d6b5825a3738d9d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.79",
+    "corrected_locus": "5.79",
+    "text_sha256": "7b7d69fa84829ec10c9b10a5912d036a4c172096e891c2ec40ae7e26d33b565c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.80",
+    "corrected_locus": "5.80",
+    "text_sha256": "e9c22c5ecd3fe15740b876897b8240f3d5b0ddc713647239d6ec6325e14e9d47",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.81",
+    "corrected_locus": "5.81",
+    "text_sha256": "a50dcaf20cc44442d24efa76ee906338f2bf87209d6e6d31db5851283cf9fb3a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.82",
+    "corrected_locus": "5.82",
+    "text_sha256": "b8edc5da43c440ac342a7180e267657219c449f19b45158f9fb10872feefab45",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.83",
+    "corrected_locus": "5.83",
+    "text_sha256": "2b9563346c8c413480752ef1b463f79497f3cac4e7e6086b6416c38b112b790c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.84",
+    "corrected_locus": "5.84",
+    "text_sha256": "68a8d1531879bc886b0064fcbb7de9dce8000e22714d8863dbd02c155ab70b1f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.85",
+    "corrected_locus": "5.85",
+    "text_sha256": "198a75e4a41ed9bc85a8d7a7a759d1c302ee9d1ba4e67ef482712987e51d2c05",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.86",
+    "corrected_locus": "5.86",
+    "text_sha256": "63ea443e841e26d2c8a0d88c6fdbae5eec769457f2d9543a5b448cabc35ca97e",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.89",
+    "corrected_locus": "5.89",
+    "text_sha256": "6254d562491984c34eca59ac351255761423b96efcac03ef2b0b1430cd73f76d",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.90",
+    "corrected_locus": "5.90",
+    "text_sha256": "3f4308d63354e6513e0085dadd9a491b46a5636761970056f56a499ebb696813",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.91",
+    "corrected_locus": "5.91",
+    "text_sha256": "a8530c33fbd686517d26ad21517606d817084ad32a457cc7918aa7afe2688b44",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.92",
+    "corrected_locus": "5.92",
+    "text_sha256": "541ae42cd0098fd523921100dff4934ffabe1496c7c1ef516b624d25961ca637",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.93",
+    "corrected_locus": "5.93",
+    "text_sha256": "3a66dbf18c8349481a6e892985a2b2051d1cf7cfe2c56526c1b3e553baf74558",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.94",
+    "corrected_locus": "5.94",
+    "text_sha256": "53365a2c1497a3e01812f6bde7dd0334473e4028b94a17c04135cc84ddada732",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.95",
+    "corrected_locus": "5.95",
+    "text_sha256": "55b9a795c0602e04f211fb6a043f7ac823844c14c5b02e2d85b9930ed0a8328a",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.96",
+    "corrected_locus": "5.96",
+    "text_sha256": "f598d56e821c0bc4ee6e94bb465cfd28d20174bf38d46a74d48d5d5348b3a055",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.97",
+    "corrected_locus": "5.97",
+    "text_sha256": "180185269b46c0a4164b8d6495bf4f9f7e2b7ab69c35c214725da94ea1ff4fc4",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.98",
+    "corrected_locus": "5.98",
+    "text_sha256": "46c7a8a230c1455cf659075f5e6305969171f49324a7b0f8456b59f13301e439",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.99",
+    "corrected_locus": "5.99",
+    "text_sha256": "c152a8397cbe15a0d50f34601f608ebe570fb55612d2866fb4b24e1fcb02b65c",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.100",
+    "corrected_locus": "5.100",
+    "text_sha256": "c0dad441d67b51b6acab0f0face5e877eb83a0e1edfff9c426a9da967ea3e8cb",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.101",
+    "corrected_locus": "5.101",
+    "text_sha256": "ea87a5ba677d6849dde817ec41d7af4e974317c74f07b744f2d32d6cecc7eb35",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.102",
+    "corrected_locus": "5.102",
+    "text_sha256": "9405ba63ff51ecacc3c7121d7087e49218d91c9b863621d393a07fd2d76196df",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.103",
+    "corrected_locus": "5.103",
+    "text_sha256": "de2f6fb9b5d211f7633f8a49606db0be51094f3cee484730def038fff0571839",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.104",
+    "corrected_locus": "5.104",
+    "text_sha256": "66078efa64506ddeaca287303d583de69acb068ef6d29cce166f4d1fc7612273",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "original_locus": "4.105",
+    "corrected_locus": "5.105",
+    "text_sha256": "9e540380e793e71396b2c29eeaa31c4a5827f1ee3cccb930f043ef3ec962729f",
+    "text_changed": false,
+    "evidence": "pappus-first1k-book-attributes"
+   }
+  ],
+  "apollonius-geom.conica": [
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "1",
+    "corrected_locus": "4.1",
+    "text_sha256": "959a3541fc20d6070083440fb7db197db258c6ab54ea615a97fc1ac588b6287f",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "2",
+    "corrected_locus": "4.2",
+    "text_sha256": "1bd9eed5c1a15c21ccc41f6ec63391bd707762b2c178c98fd75887f108fa0727",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "3",
+    "corrected_locus": "4.3",
+    "text_sha256": "e1c7b08cf6f792a15d6952a0718912ca0326615811f8f2c4e14c487934d48f84",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "4",
+    "corrected_locus": "4.4",
+    "text_sha256": "ac77d878751b62860cef124817f3a5d624fcf76446622c770d76baa4a8502429",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "5",
+    "corrected_locus": "4.5",
+    "text_sha256": "9a415b8f126e83e49083d07983a0286a0b8cbd1d6fc27542dc5d2b906ef46eb7",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "6",
+    "corrected_locus": "4.6",
+    "text_sha256": "56ede44929b758889eba1f0a0e403d6ecda01960f443e52d477cb108b844f408",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "7",
+    "corrected_locus": "4.7",
+    "text_sha256": "56fe205dcdfa9f88025f689baccc3db7fd5a99689b387302c0c52c15a05f5243",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "8",
+    "corrected_locus": "4.8",
+    "text_sha256": "cb6995a13e5b1be1bba948dd103eda199e408edd493e5a425b586fd178e7dbbb",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "9",
+    "corrected_locus": "4.9",
+    "text_sha256": "333ed3a3bdbbfc1b853d86f90676594b0563f5f0e05cab9dfaca964268a8314e",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "10",
+    "corrected_locus": "4.10",
+    "text_sha256": "f38621576d897d13bf1075fd73e918ee4617594d7c5688b58990e5cfffc446ef",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "11",
+    "corrected_locus": "4.11",
+    "text_sha256": "5eb3c27fb7fe6ffa77ecd21078563de2f3232b24c5d3c7ac808cbe128d0d5af9",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "12",
+    "corrected_locus": "4.12",
+    "text_sha256": "720a5d82f73baa0b3e1213239c7bdc39f30a9942b84bec347f8bb50242092c16",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "13",
+    "corrected_locus": "4.13",
+    "text_sha256": "91fe702f33fc7ee260535bc177402c3dabda3c86003dab7d19dd6d90586bdb8e",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "14",
+    "corrected_locus": "4.14",
+    "text_sha256": "ad55e443318c40db6a299bad12c9104040cc470628489af67a5d811df7deca31",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "15",
+    "corrected_locus": "4.15",
+    "text_sha256": "36966c2e049dbe3c1d9d4167e0b1b75b137ec307a981c4aba6c1922982cd6e0a",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "16",
+    "corrected_locus": "4.16",
+    "text_sha256": "2ab0e5cadbcf4bbb101a1e316e8c409aa99e2486c92658220e7212798966ace5",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "17",
+    "corrected_locus": "4.17",
+    "text_sha256": "7e7f6286092dbc19c1d3e39f359e4aa83c6a9dfd8a9054f2593a0fbc2415d2a9",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "18",
+    "corrected_locus": "4.18",
+    "text_sha256": "b2f1c87e9afc10dbe50618c977e55816a363d4fc9226d8c48be9b60e954baec4",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "19",
+    "corrected_locus": "4.19",
+    "text_sha256": "acb3a3b419a39f10e4b69dde0f5a9c9edf7d7cfd6baf26420927a2a58fde8686",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "20",
+    "corrected_locus": "4.20",
+    "text_sha256": "703fd4ac722e881041b885c706566addca4564a2d7685451ae9a3dcfa84fb8d7",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "21",
+    "corrected_locus": "4.21",
+    "text_sha256": "f7430d6aa772fd6c0725ea6146c41e3aec2dc615ab1f4b3153988321d883fb92",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "22",
+    "corrected_locus": "4.22",
+    "text_sha256": "48791c22852c088c29259588e077efcb63eace1cb06d0b0b78a713226c083c3f",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "23",
+    "corrected_locus": "4.23",
+    "text_sha256": "2f1a8f9ed651dc36de174289c462de67c2e7ba4745597326350b67392ca797aa",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "24",
+    "corrected_locus": "4.24",
+    "text_sha256": "a122682300058e8e62d2b9a10477679807d25d2c72ca67b583db5b588f365c00",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "25",
+    "corrected_locus": "4.25",
+    "text_sha256": "eed698431786197ecf37414d53ee70c15bafbf1d42691696b5dfc42da674dc99",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "26",
+    "corrected_locus": "4.26",
+    "text_sha256": "bcde909678981bba1976ed429dbb473ed540bee65a373c121ec4141bc7245560",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "27",
+    "corrected_locus": "4.27",
+    "text_sha256": "9f3ad9db3e15df5b12eac1441b131a8886ddff5e1090700ffe251d74a3578cbf",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "28",
+    "corrected_locus": "4.28",
+    "text_sha256": "a004d107132dd7946746cec3b8ffedefd83687060880ec3de7ac9737831f505b",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "29",
+    "corrected_locus": "4.29",
+    "text_sha256": "42803592d3ad374b68da66c4a7431a35f7c5f5fee5cb009e52e11505739a80a1",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "30",
+    "corrected_locus": "4.30",
+    "text_sha256": "2df6a45b7538deebcb2c66ecdd506a638fbeb3bc198f2796ab206f748a70a64f",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "31",
+    "corrected_locus": "4.31",
+    "text_sha256": "af01f48ef745101b171dc28577cce387792e065d631a0a8b1ef81ce7d46eb966",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "32",
+    "corrected_locus": "4.32",
+    "text_sha256": "bad3b04b98ef6394172b1b6b4c7118e881f3797d812212f8b2e35bed3ca12e37",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "33",
+    "corrected_locus": "4.33",
+    "text_sha256": "4bc89f24635ffcec4407568c31804c553e61500f04de5f7143a28a28d905d52a",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "34",
+    "corrected_locus": "4.34",
+    "text_sha256": "85c5ab0234c2a68138c5de57922d6d636d53cafecf0810fd9a7cb17691e92fd2",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "35",
+    "corrected_locus": "4.35",
+    "text_sha256": "db2e3840578c7020bad5f1509a8fce5f19f749a97b85c9e7cfbae4ee78b9ce03",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "36",
+    "corrected_locus": "4.36",
+    "text_sha256": "23c7842d483308d0d0498359dab22150cfe2bfbaa1013787397a39328421bfe4",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "37",
+    "corrected_locus": "4.37",
+    "text_sha256": "162cff10923ffb40e0af614f057b4e743ddc64d41c2077c2fb83a7d6e0e37737",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "38",
+    "corrected_locus": "4.38",
+    "text_sha256": "26cb620e453b5705fa198f85c518ba9f821fdc3cce4e546891a1812f81e747b5",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "39",
+    "corrected_locus": "4.39",
+    "text_sha256": "288af2f262728ccb7f0999f2252c2e886bc44aaa10d67ab55e17265ce0ee564a",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "40",
+    "corrected_locus": "4.40",
+    "text_sha256": "dd422da8f9faa92a7a0d09c4cbc1f7c7d64207fdf4d584cfa104dd63a2034013",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "41",
+    "corrected_locus": "4.41",
+    "text_sha256": "7bbed7ee6f44e955ab1137871a47687d9aac188744b3f14a22530c1fe40b4076",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "42",
+    "corrected_locus": "4.42",
+    "text_sha256": "47dc33178c6c3a5f1bd1f2b1aefb47a1a9a4ebc0f84e771f9f7b09a214dd51e0",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "43",
+    "corrected_locus": "4.43",
+    "text_sha256": "a927cbf9cae46118c38c2c8c097f01ac4a3edfe758474c7cce9beaa165dba54b",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "44",
+    "corrected_locus": "4.44",
+    "text_sha256": "20eca7f94ea549fdecf211606e42bc4b3c89c7563ae026125eb728274fd112fe",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "45",
+    "corrected_locus": "4.45",
+    "text_sha256": "499aeb3d5a3806f81cbbb1e326d7bb2425e24306de5c76710ab5381257f32c69",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "46",
+    "corrected_locus": "4.46",
+    "text_sha256": "b1f8ab2c9f15d7f911cd225176aa01a0dfb2b59518449a64b47e0160df57917b",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "47",
+    "corrected_locus": "4.47",
+    "text_sha256": "a472a8d725171f1cdac113c133c6da85336b4b70e5bcb3f20694c8685799bf30",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "48",
+    "corrected_locus": "4.48",
+    "text_sha256": "6e342cc74151e4a9983e8226cf367e4e1693ffd4d72c8f67551627cd56a7b3b3",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "49",
+    "corrected_locus": "4.49",
+    "text_sha256": "be2ccec5bebac1d7e113316f0c7c395da965979210ae276a7fbea95f40288897",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "50",
+    "corrected_locus": "4.50",
+    "text_sha256": "b5ed31027a775c3c285dedd8da10082fd366522602ebaa3588a1dc024f754059",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "51",
+    "corrected_locus": "4.51",
+    "text_sha256": "50bdd886ecdb95668690c9f3e650a84ecdac70dfd0feff9f2502565138223c9b",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "52",
+    "corrected_locus": "4.52",
+    "text_sha256": "edefbd5405c06190cde88d716ce3478af250c172c15d43c6db49dc07dc7e0928",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "53",
+    "corrected_locus": "4.53",
+    "text_sha256": "5765182d5ccf04b09f0bbe2b70b809d395d50608044cf998e9858ef667ac5456",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "54",
+    "corrected_locus": "4.54",
+    "text_sha256": "5b75c73d813ad8414382a8503e299e5e777080ae6399e43adcb2f0f6d8cb7c5e",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "55",
+    "corrected_locus": "4.55",
+    "text_sha256": "fc924e0314f1dda469b0381f4e5c8a4f89c24c071a5d5ae5b09629b1dc660492",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "56",
+    "corrected_locus": "4.56",
+    "text_sha256": "398380afa859482e650a2083ef01cb1463dee6a8ac6439d458641af3c8c83443",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   },
+   {
+    "work": "apollonius-geom.conica",
+    "original_locus": "57",
+    "corrected_locus": "4.57",
+    "text_sha256": "70f57bbe88705184b207dc51c5a84be903161e418480a4ec27662c399d9cde77",
+    "text_changed": false,
+    "evidence": "apollonius-first1k-unqualified-sections"
+   }
+  ]
+ },
+ "ingest_rules": {
+  "_meta": {
+   "description": "Auditable, reversible corrections applied to generated corpus passage text. Each rule is scoped to one work and locus, requires an exact occurrence count, and records the original substring, replacement, evidence, and date.",
+   "used_by": "scripts/build_corpus_loci.py"
+  },
+  "corrections": [
+   {
+    "work": "plato-philosophy.apologia-socratis",
+    "locus": "18",
+    "original": ">ἐμοῦ",
+    "correction": "ἐμοῦ",
+    "expected_occurrences": 1,
+    "evidence": "A literal XML-style closing angle bracket was emitted between sentences in the First1K/Perseus passage. It is markup residue, not part of the Greek text.",
+    "date": "2026-09-13",
+    "reversible": "replace the corrected substring with original at this work and locus"
+   },
+   {
+    "work": "manetho-astrology.apotelesmatica",
+    "locus": "3.1.32",
+    "original": "ἂνδρας",
+    "correction": "ἄνδρας",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 535; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "manetho-astrology.apotelesmatica",
+    "locus": "4.1.584",
+    "original": "ἂνδρας",
+    "correction": "ἄνδρας",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 1515; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "manetho-astrology.apotelesmatica",
+    "locus": "5.1.256",
+    "original": "ἂνδρες",
+    "correction": "ἄνδρες",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 1941; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "manetho-astrology.apotelesmatica",
+    "locus": "5.1.428",
+    "original": "ἂνδρας",
+    "correction": "ἄνδρας",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 2113; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "locus": "3.12",
+    "original": "ὣστε",
+    "correction": "ὥστε",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 140; apply at the First1K source locus before changing book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "locus": "3.17",
+    "original": "ὃτι",
+    "correction": "ὅτι",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 145; apply at the First1K source locus before changing book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "locus": "4.31",
+    "original": "ὃτι",
+    "correction": "ὅτι",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 236; apply at the First1K source locus before changing book numbers.",
+    "date": "2026-08-10",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   },
+   {
+    "work": "pappus-mathematics.synagoge",
+    "locus": "3.31",
+    "original": "χρὸνῳ",
+    "correction": "χρόνῳ",
+    "expected_occurrences": 1,
+    "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json, row index 158; apply at the First1K source locus before changing book numbers.",
+    "date": "2026-08-11",
+    "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.completing-2026-08-11.applied.json",
+    "reversible": "restore the original token recorded in the source audit"
+   }
+  ]
+ },
+ "reversal": "python3 scripts/repair_mathematical_citations.py --undo; rebuild derived reports",
+ "outputs": {
+  "data/corpus/pappus-mathematics.synagoge.jsonl": "f230f068e05a8f291dd8299cd2b4421d636f8271c4c8af74d7ea68227cea5b03",
+  "data/corpus/apollonius-geom.conica.jsonl": "3e68aeddb9f752e59f397cbca561ae58800e30c06b0c21bf2b7cd7b185ce2736",
+  "data/citation_aliases.json": "aeb70d9bacf179fbc50b6bd67977a2a687e238573f0b073bc77c0e9cdc7646cf",
+  "data/corpus_text_corrections.json": "2922c31f32290b1111624adb2f281709c39e10856e1e76ecb945d01762d37cb4",
+  "data/work_index.json": "e5f5638af0105ed8f6bc76865c25fa49970f4b22c8b6cf5ba881b25d7d018ae4"
+ }
+}
