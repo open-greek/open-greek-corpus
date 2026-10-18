@@ -510,9 +510,81 @@ accent-folded diagnostic, empty pages, and length outliers. Failed outputs are
 included in aggregates. The separate two-page preflight in
 `data/evaluation/ocr-preflight/comparison.json` measured 4.44% character error
 for Qwen 3.6 and 5.38% for Qwen 3.8 with the same prompt. This small sample
-does not justify replacing the current model; the 100-page set has not yet
-been run in full. The 100-page data-v2 set was released for Calfa training and
+does not justify replacing the current model. The 100-page data-v2 set was
+released for Calfa training and
 cannot independently evaluate Calfa; Qwen pretraining overlap is unknown.
+
+The runner also supports a local vLLM server for concurrent page requests.
+Install `scripts/requirements-ocr-benchmark.txt` in a separate environment;
+this server uses its own pinned PyTorch runtime.
+`scripts/serve_ocr_benchmark.py --model REPOSITORY --revision SHA
+--runtime-manifest runtime.json` downloads the pinned checkpoint and records
+the server packages, GPU, and generation settings. Run the benchmark with
+`--backend http --runtime-manifest runtime.json --split all --workers 4`.
+HTTP failures remain scored as empty pages, and token-limit truncation is
+reported separately. Comparisons use the held-out test pages when present,
+keeping calibration scores separate.
+The reference transcribes Greek, omitting Latin editorial text and numbered
+reference markers. The instruction follows that scope. This was checked on
+the calibration pages before running the held-out comparison; predictions
+remain untrimmed, with no text removed after generation.
+Pass `compare --manifest data/evaluation/ocr-pages.json` to require all 100
+pages and verify each page's calibration/test split and edition against the
+pinned manifest. Resuming a run also rejects pages outside the selected split.
+The comparison retains page-level regressions, edition-level results,
+and paired confidence intervals from resampling pages within each edition.
+
+Four of the 100 PAGE XML files list their text regions or lines out of printed
+order. `scripts/rescore_page_ocr.py` sorts the line polygons in these
+single-column crops from top to bottom and writes a reversible audit to
+`data/evaluation/ocr-100/changes/reference-order.json`. Original XML, raw
+predictions, and original scores remain intact. Derived scores must use the
+same reference audit for both models; this repair changes line order only,
+never the transcribed characters or model output. All four reordered crops
+were also checked against the scans.
+
+The complete comparison is in `data/evaluation/ocr-100/comparison.json`, with
+unaltered predictions under `raw/`, derived scores under `results/`, and the
+pinned inference environment under `runtime/`. Both models completed all 100
+pages without failed, empty, truncated, or length-outlier responses. The 80
+test pages, excluding calibration, give:
+
+| Model (official FP8 checkpoint) | Character error | Word error | Accent-folded character error |
+| --- | ---: | ---: | ---: |
+| Qwen 3.6 27B | 7.37% | 28.80% | 4.44% |
+| Qwen 3.8 27B | 7.38% | 26.76% | 4.87% |
+
+The Qwen 3.8 minus 3.6 character-error difference is +0.0037 percentage
+points; the paired 95% bootstrap interval is -1.11 to +0.92 points. Qwen 3.8
+improves 21 test pages, worsens 58, and ties one. It reduces several severe
+accent-loss failures (PG 145 page 328 falls from 23.14% to 7.54% error), but
+also introduces regressions, including printed reference markers that the
+Greek-only reference excludes. By edition, character error is 7.27% versus
+6.85% for Gregory of Nazianzus and 7.45% versus 7.76% for PG 145, respectively.
+
+Keep Qwen 3.6 as the default: this sample does not establish an overall
+character-error improvement from Qwen 3.8. The newer model is a candidate
+additional witness for difficult pages, especially systematic accent loss.
+Selecting or combining readings still needs scan evidence and validation on
+fresh pages; these two printed editions do not establish corpus-wide accuracy.
+
+To reproduce the reference repair and comparison after generating both raw
+prediction files:
+
+```bash
+for model in qwen36 qwen38; do
+  python3 scripts/rescore_page_ocr.py --root sources/ocr_ground_truth/v2 \
+    --manifest data/evaluation/ocr-pages.json \
+    --audit data/evaluation/ocr-100/changes/reference-order.json \
+    --source "data/evaluation/ocr-100/raw/$model.jsonl" \
+    --out "data/evaluation/ocr-100/results/$model.jsonl"
+done
+python3 scripts/benchmark_page_ocr.py compare \
+  --manifest data/evaluation/ocr-pages.json \
+  --baseline data/evaluation/ocr-100/results/qwen36.jsonl \
+  --candidate data/evaluation/ocr-100/results/qwen38.jsonl \
+  --out data/evaluation/ocr-100/comparison.json
+```
 
 ## Build
 
