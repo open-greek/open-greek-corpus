@@ -24,6 +24,9 @@ def put(path, raw):
 @pytest.fixture(params=["qwen36", "qwen38"])
 def fixture(request, tmp_path, monkeypatch):
     key = request.param
+    # Production authorities are deliberately strict; synthetic fixtures must
+    # use their own absent registry instead of inheriting checkout admissions.
+    monkeypatch.setattr(retry, "AUTHORITY_REGISTRY", tmp_path / "unused-authority-registry.json")
     model, revision, family = retry.CHECKPOINTS[key]
     locations = {"dio-cary-v6-pdf0206": (6,206), "dio-cary-v8-pdf0116": (8,116),
                  "dio-cary-v9-pdf0178": (9,178), "dio-cary-v9-pdf0179": (9,179),
