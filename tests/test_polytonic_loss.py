@@ -63,6 +63,10 @@ def test_previous_physical_ids_normalize_prefixes_paths_and_leading_zeros():
     assert report.physical_key("PG_145-328") == report.physical_key("dir/grc_tlg_mpg0145-0328")
     assert report.physical_key("dir/grc_grna_or_0419") == report.physical_key("grc_grna_or_419")
     assert report.physical_key("PG_145-328") != report.physical_key("PG_144-328")
+    first = {"physical_refs": {"scan_page": 13, "scan_sha256": "volume-one"}}
+    second = {"physical_refs": {"scan_page": 13, "scan_sha256": "volume-two"}}
+    assert report.page_identity(first) != report.page_identity(second)
+    assert report.page_identity({"source_location": {"scan_page": 13, "source": "pg74", "region": [.5, 0, 1, 1]}})[1] == "explicit-source-region"
 
 
 def fixture(tmp_path):
