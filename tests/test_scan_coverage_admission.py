@@ -67,6 +67,18 @@ def test_dio_overlap_requires_one_unambiguous_anchor():
             ingest.trim_shared_prefix(wrong)
 
 
+def test_dio_English_running_title_removal_is_initial_and_source_guarded():
+    page = {"id": "dio-cary-v9-pdf0179", "source_volume": 9}
+    source = {"sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4"}
+    text = "DIO'S ROMAN HISTORY\nZonaras 9, 27.\nἄνθρωπος\nDIO'S ROMAN HISTORY\n"
+    body, decisions = ingest.clean_running_headers(text, "cassius-dio.historiae-romanae", page, source)
+    assert body == "Zonaras 9, 27.\nἄνθρωπος\nDIO'S ROMAN HISTORY\n"
+    assert decisions[0]["offset"] == 0
+    assert decisions[0]["original_text"] + body == text
+    assert ingest.clean_running_headers(text, "cassius-dio.historiae-romanae", page, {"sha256": "changed"}) == (text, [])
+    assert ingest.clean_running_headers(text, "pappus-mathematics.synagoge", page, source) == (text, [])
+
+
 def test_dio_overlap_archives_all_variants_without_replacing_old_readings(tmp_path):
     work = "cassius-dio.historiae-romanae"
     (tmp_path / "data/corpus").mkdir(parents=True)

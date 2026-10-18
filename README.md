@@ -1032,6 +1032,12 @@ The guarded `dio_ocr_retries.py` bundle checks the complete 1,500-region source
 lineage and all exact original record pins before permitting any failed reading
 to be replaced. An unreviewed failed region still prevents admission. The audit
 retains both the full original bundle and the completed strip review.
+`prepare_dio_ocr_supplements.py` pins later source-confirmed cases in separate
+requests, preserving the first request bytes. Its child request refines only
+the first VI402 retry strip that still lost breathings; the successful sibling
+strips remain available unchanged.
+An exact initial English Cary running title is removed through a source-pinned
+offset audit; Greek book headings and transmission credits are preserved.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.

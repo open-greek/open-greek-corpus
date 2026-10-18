@@ -26,6 +26,15 @@ EDITION = "scan-consensus-2026-10-18"
 PAPPUS_HEADER = re.compile(r"^\s*ΠΑΠΠΟΥ\s+ΣΥΝΑΓΩΓΗΣ\s+\S+\s*$", re.I)
 CONICA_CHECKED_HEADER = re.compile(r"^\s*ΚΩΝΙΚΩΝ\s+[αΑ]['ʹ΄᾽’.]*\s*$")
 CONICA_HEADER_SOURCE_SHA256 = "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957"
+DIO_HEADER = re.compile(r"^DIO['’]S ROMAN HISTORY[.]?$")
+DIO_HEADER_SOURCE_SHA256 = {
+    "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+    "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+    "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+    "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+    "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+    "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+}
 OVERLAP_ANCHOR = "βουληθεὶς δὲ δὴ τρόπον"
 
 
@@ -152,6 +161,14 @@ def clean_running_headers(text, work, page=None, source=None):
                 "source_pdf_sha256": CONICA_HEADER_SOURCE_SHA256,
                 "image_sha256": "f654f53f09e6ecbc5118465b7b41129c569e32ac3d9a18d38408379d9d814406",
                 "evidence": "Source inspection of Heiberg Conica I printed page 190 (scan208) identifies the isolated initial ΚΩΝΙΚΩΝ αʹ above the four sparse body lines as the running header. The primary body begins ἡ μὲν ΑΓ. Preserve all other headings and every original prediction."})
+        elif (work == "cassius-dio.historiae-romanae" and page is not None
+                and page.get("source_volume") in {1, 2, 6, 7, 8, 9}
+                and source is not None and source.get("sha256") in DIO_HEADER_SOURCE_SHA256
+                and not "".join(kept).strip() and DIO_HEADER.fullmatch(line.strip())):
+            removed.append({"offset": offset, "original_text": line, "corrected_text": "",
+                "review_id": "cary-dio-initial-English-running-title", "reviewed_at": "2026-10-18",
+                "source_region_id": page["id"], "source_pdf_sha256": source["sha256"],
+                "evidence": "The isolated initial DIO'S ROMAN HISTORY above the selected Cary Greek panel is its English running title, as verified in the pinned source scans, including IX printed348 (PDF179). Greek headings, attribution credits and citation numbers remain unchanged."})
         else:
             kept.append(line)
         offset += len(line)
