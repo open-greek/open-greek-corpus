@@ -14,6 +14,7 @@ from pathlib import Path
 import re
 
 from ocr_consensus import compact_corpus_consensus, merge_witnesses
+from bound_comparison_witness import bound_comparison_witness
 from prepare_photius_coverage import build as scan_manifest, build_later_gap
 from repair_photius_index import ROOT, SLUG, CORPUS, ARCHIVE as INDEX_ARCHIVE, generate as index_split
 
@@ -21,6 +22,19 @@ ARCHIVE = Path("data/corpus_changes/photius-bekker-coverage")
 SOURCE_LIBRARY_SHA256 = "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
 REPORT = ARCHIVE / "coverage.json"
 SOURCE_URL = "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz"
+LEGACY_SOURCE = {
+    "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+    "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+    "edition": "Bekker 1825, second volume", "license": "public-domain", "pdf_pages": 321}
+SOURCE_SCAN_EXCEPTIONS = [
+    {"logical_combined_position": 446, "authorial_printed_page": 434,
+     "combined_scan_printed_page": 334, "retained_legacy_scan_page": 169,
+     "source": LEGACY_SOURCE,
+     "evidence": "Combined scan 446 repeats printed page 334 from scan 346. The retained historical page 169 matches printed page 434 in the separate second-volume scan."},
+    {"logical_combined_position": 447, "authorial_printed_page": 435,
+     "combined_scan_printed_page": 335, "retained_legacy_scan_page": 170,
+     "source": LEGACY_SOURCE,
+     "evidence": "Combined scan 447 repeats printed page 335 from scan 347. The retained historical page 170 matches printed page 435 in the separate second-volume scan."}]
 
 
 def sha(raw):
@@ -112,7 +126,7 @@ def generate(paths, source_library, root=ROOT):
     source_raw, source_document, source_rows = load_source_library(source_library)
     original = gzip.decompress((root / INDEX_ARCHIVE / "before.jsonl.gz").read_bytes())
     body, index, aliases, index_audit = index_split(original)
-    artifacts, added, page_reports, networks = {}, [], [], {}
+    artifacts, added, page_reports, networks, comparisons = {}, [], [], {}, {}
     network_path = ARCHIVE / "full-networks.json.gz"
     for raw, metadata, rows in inputs:
         artifacts[ARCHIVE / "witnesses" / (sha(raw) + ".jsonl")] = raw
@@ -130,7 +144,12 @@ def generate(paths, source_library, root=ROOT):
                               "revision": metadata["revision"], "image_sha256": row["image_sha256"],
                               "raw_file_sha256": sha(raw), "license": "CC-BY-4.0"})
         if page["scan_page"] in source_rows:
-            witnesses.append(source_rows[page["scan_page"]])
+            bounded, decision = bound_comparison_witness(witnesses, source_rows[page["scan_page"]])
+            comparisons[str(page["scan_page"])] = {"scan_page": page["scan_page"],
+                "role": page["role"],
+                "source_file_sha256": SOURCE_LIBRARY_SHA256, "date": "2026-10-18", **decision}
+            if bounded is not None:
+                witnesses.append(bounded)
         consensus = merge_witnesses(witnesses)
         network_key = str(page["scan_page"])
         networks[network_key] = consensus
@@ -164,15 +183,28 @@ def generate(paths, source_library, root=ROOT):
         raise ValueError("The compact Photius corpus exceeds the 100 MB Git object limit")
     network_raw = gzip.compress(encode(networks), mtime=0)
     artifacts[network_path] = network_raw
+    comparison_path = ARCHIVE / "source-library-body-windows.json.gz"
+    comparison_raw = gzip.compress(encode(comparisons), mtime=0)
+    artifacts[comparison_path] = comparison_raw
+    comparison_counts = dict(Counter(value["status"] for value in comparisons.values()))
+    primary_comparison_counts = dict(Counter(value["status"] for value in comparisons.values()
+        if value["role"] == "missing-primary-text"))
     totals = Counter()
     for row in page_reports:
         if row["role"] == "missing-primary-text":
             totals.update(row["counts"])
     report = {"schema_version": 1, "work": SLUG, "date": "2026-10-18",
-              "edition_scope": "Complete Bekker authorial page range, including prefatory letter; physical scan citations are retained without inventing codex-level paragraph mappings.",
+              "edition_scope": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented.",
               "source_scan": manifest["sources"]["photius-bekker-combined"],
+              "legacy_source": LEGACY_SOURCE, "source_scan_exceptions": SOURCE_SCAN_EXCEPTIONS,
+              "retained_page_mapping": {"source": "legacy_source", "physical_page_rule": "Historical OCR page key is the 1-based scan page in legacy_source.",
+                  "printed_page_offset": 265, "logical_combined_position_offset": 277,
+                  "logical_positions_are_physical_citations": False,
+                  "exceptions": SOURCE_SCAN_EXCEPTIONS},
               "added_scan_ranges": [[13, 278], [379, 421]],
               "retained_scan_ranges": [[279, 378], [422, 557]], "covered_authorial_scan_pages": 545,
+              "coverage_position_meaning": "Ranges use logical combined-edition positions to place the authorial printed pages. Physical citations for retained rows use legacy_source, including the two explicit combined-scan exceptions.",
+              "covered_authorial_printed_pages": 545,
               "index_scan_pages": [558, 595], "added_passages": len(added),
               "historical_body_passages": index_audit["body_rows"], "preserved_index_passages": index_audit["index_rows"],
               "original_body_sha256": sha(body), "new_corpus_sha256": sha(output),
@@ -184,7 +216,10 @@ def generate(paths, source_library, root=ROOT):
               "source_library": {"edition": source_document["id"], "url": SOURCE_URL,
                                  "sha256": SOURCE_LIBRARY_SHA256, "license": source_document["license"],
                                  "rights": source_document["sourceRights"],
-                                 "role": "Same-scan comparison witness; retained in each consensus, never used as model input.",
+                                 "role": "Same-scan comparison witness, never used as model input. Only a body window bounded by unique shared beginnings and endings in both independent fresh witnesses may vote; unmatched full pages remain comparison-only.",
+                                 "body_comparison_counts": comparison_counts,
+                                 "primary_body_comparison_counts": primary_comparison_counts,
+                                 "body_comparison_audit": {"path": comparison_path.as_posix(), "sha256": sha(comparison_raw), "entries": len(comparisons)},
                                  "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
                                  "api_notice_checked_date": "2026-10-18",
                                  "separate_api_notice": {"spdx": "CC-BY-SA-4.0",

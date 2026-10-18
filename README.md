@@ -684,6 +684,13 @@ Complete vote networks are stored by physical scan page in the compressed
 The corpus retains every raw witness and lexical slot boundary, with a hash
 and archive reference for restoring the full network. Admission refuses a
 corpus file reaching 100 MB.
+Source Library pages enter the vote only when both fresh body transcriptions
+share unique beginning and ending anchors in that source. All unmatched source
+text and removed headers or apparatus remain in the reversible comparison
+audit. The combined scan repeats printed pages 334-335 in place of 434-435;
+those genuine pages remain in historical keys 169-170 from the separate 1825
+volume. Coverage positions therefore describe the complete printed sequence,
+while physical citations retain their actual scan source and exceptions.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
