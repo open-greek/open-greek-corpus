@@ -575,11 +575,16 @@ SOURCE_DIRECTORY --predictions RUN.jsonl --scan-review
 data/evaluation/polytonic-loss/scan-review.json` for each pinned fresh run.
 Add `--archive-predictions data/evaluation/polytonic-loss/raw/qwen38.jsonl`
 to retain an exact raw input without replacing a different attempt.
-The fresh Qwen3.8 report retains all 60 outcomes, including one truncated
-output. Eight defective references are excluded from loss labels; the truncated
-page is also one of those eight. All 52 assessable pages are negative with no
-false flags, so this run cannot estimate sensitivity, recall, or positive
-predictive precision. Those missing denominators remain null.
+The fresh Qwen3.6 and Qwen3.8 reports each retain all 60 outcomes, including
+one truncated output per checkpoint. Eight defective references are excluded
+from loss labels; each truncated page is also one of those eight. All 52
+assessable pages per checkpoint are negative with no false flags, so these runs
+cannot estimate sensitivity, recall, or positive predictive precision. Those
+missing denominators remain null. Qwen3.6 also flags PG145-254, whose reference
+was already excluded for line order. A scan comparison confirms printed
+polytonic marks missing from that output, but this observation does not change
+the frozen exclusion or count as a measured true positive. The same Qwen3.8
+page is unflagged. No output was replaced or added to the fixed sample.
 
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
