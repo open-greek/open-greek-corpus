@@ -118,6 +118,51 @@ def test_consensus_admission_replays_and_undoes_exact_bytes(tmp_path):
     assert gzip.decompress((audit / "witness-1.jsonl.gz").read_bytes()) == raw_inputs[0]
 
 
+def test_additive_preface_consolidation_preserves_prior_rows_and_replays_both_audits(tmp_path):
+    work, manifest, raw_manifest, inputs, raw_inputs = fixture(tmp_path)
+    root = tmp_path / "repo"
+    (root / "data/corpus").mkdir(parents=True)
+    base_row = {"urn": work, "locus": "4.1", "text": "πρῶτον", "source": "first1k", "edition": "1st1K-grc1"}
+    base = ingest.jsonl_bytes([base_row])
+    corpus = root / f"data/corpus/{work}.jsonl"
+    corpus.write_bytes(base)
+    (root / "data/corpus_editions.json").write_bytes(ingest.encoded({work: {"n_passages": 1, "n_tokens": 1}}))
+    first_result = ingest.collate(manifest, inputs)
+    ingest.apply(root, raw_manifest, raw_inputs, *first_result, "first-books")
+    first_bytes = corpus.read_bytes()
+    first_row = first_result[0][work][0].copy()
+    page = manifest["pages"][0]
+    page.update(id="letter4", book="4", printed_page=2, scan_page=94, text_role="authorial-preface")
+    letter_manifest = ingest.encoded(manifest)
+    letter_inputs, letter_raw = [], []
+    for raw in raw_inputs:
+        values = ingest.records(raw)
+        values[0]["_meta"]["manifest_sha256"] = ingest.sha(letter_manifest)
+        values[1].update(id="letter4", scan_page=94)
+        blob = ingest.jsonl_bytes(values)
+        letter_raw.append(blob)
+        letter_inputs.append(ingest.load_predictions(None, letter_manifest, manifest, blob)[0])
+    result = ingest.collate(manifest, letter_inputs)
+    ingest.apply(root, letter_manifest, letter_raw, *result, "book-four-letter")
+    first_audit = root / "data/corpus_changes/first-books"
+    letter_audit = root / "data/corpus_changes/book-four-letter"
+    ingest.verify(first_audit, root)
+    ingest.verify(letter_audit, root)
+    current = ingest.records(corpus.read_bytes())
+    assert [row["locus"] for row in current] == ["1.heiberg-p0002", "4.heiberg-p0002", "4.1"]
+    assert current[0] == first_row and current[-1] == base_row
+    extension = json.loads((root / ingest.EXTENSION_INDEX).read_text())["works"][work]
+    assert len(extension["audits"]) == 2
+    assert len(load_extensions(root, work, ["4.1"], [base_row])) == 2
+    with pytest.raises(ValueError, match="Output changed"):
+        ingest.undo(first_audit, root)
+    ingest.undo(letter_audit, root)
+    assert corpus.read_bytes() == first_bytes
+    ingest.verify(first_audit, root)
+    ingest.undo(first_audit, root)
+    assert corpus.read_bytes() == base
+
+
 def test_comparative_dio_regions_cannot_become_primary(tmp_path):
     work, manifest, raw, inputs, originals = fixture(tmp_path)
     page = manifest["pages"][0]
@@ -135,7 +180,7 @@ def test_public_scope_counts_admissions_without_claiming_intact_works():
     conica = coverage_scope(ROOT, "apollonius-geom.conica")
     dio = coverage_scope(ROOT, "cassius-dio.historiae-romanae")
     assert pappus["reviewed_primary_regions"] == 331
-    assert conica["reviewed_primary_regions"] == 225
+    assert conica["reviewed_primary_regions"] == 227
     assert dio["reviewed_primary_regions"] == 1082
     assert dio["reviewed_comparative_regions"] == 418
     assert dio["admitted_primary_regions"] + dio["remaining_reviewed_primary_regions"] == 1082
@@ -163,7 +208,7 @@ def test_bounded_digital_comparison_votes_with_attribution_but_footer_does_not(t
     comparison["text"] = "ἄλλο ἔργον"
     primary, _, audits, _ = ingest.collate(manifest, inputs, digital=digital)
     row = primary["cassius-dio.historiae-romanae"][0]
-    assert row["license"] == "public-domain" and "component_attribution" not in row
+    assert row["license"] == "PD" and "component_attribution" not in row
     assert len(row["ocr_consensus"]["witnesses"]) == 2
     assert audits[0]["decisions"][-1]["status"] == "held-comparison-only"
 

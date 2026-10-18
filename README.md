@@ -744,6 +744,12 @@ Source and page manifests for the missing Pappus VI–VIII and Conica I–III ar
 under `data/ingest_reviews/coverage/`. They identify the Greek leaves individually,
 including alternate scan leaves where a scan repeats earlier Pappus pages;
 they are OCR inputs, not assertions that new text has already been served.
+`prepare_mathematical_ocr.py --book4-letter` separately pins two cropped regions
+for Conica IV's omitted letter to Attalus. The original 556-region request stays
+unchanged. Admit the two runs in either order: the importer adds new extension
+rows, preserves every earlier row and network reference, and records each audit
+in the active extension index. The letter precedes proposition 4.1 in reading
+order. Undo later admissions first; each earlier audit remains replayable.
 
 Cyril's John commentary combines the complementary PG 73 and PG 74 witnesses
 through `scripts/repair_john_coverage.py`. Calfa's pinned CC BY 4.0 PG 73 OCR
