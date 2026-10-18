@@ -1,27 +1,31 @@
 {
  "corpus": {
-  "passages": 1970569,
-  "tokens": 65285478,
-  "tokens_lemmatized": 63436146,
-  "works": 3910
+  "passages": 1966851,
+  "tokens": 65798704,
+  "tokens_lemmatized": 63949408,
+  "works": 3911
  },
  "generated_from": {
-  "commit": "3f064e63aed427dc1d6d33463f6309ee8f5f2c17",
+  "commit": "0310d0a41affa336abc4fbc031ac185a4a49960b",
   "commit_date": "2026-10-18",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
  "license": "CC-BY-SA-4.0 (aggregate); see LICENSE and CITATION.cff for the component licenses",
  "licenses": {
+  "CC-BY-3.0": {
+   "tokens": 63,
+   "works": 1
+  },
   "CC-BY-4.0": {
-   "tokens": 4305054,
-   "works": 234
+   "tokens": 4697305,
+   "works": 235
   },
   "CC-BY-SA-4.0": {
-   "tokens": 33786992,
-   "works": 2422
+   "tokens": 34154947,
+   "works": 2421
   },
   "PD": {
-   "tokens": 26682810,
+   "tokens": 26435767,
    "works": 1233
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -59,40 +63,457 @@
  },
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_rows": 3910,
-  "catalog_sha256": "910f5e9ee79ace5641cda3e6908dad15523f7154b035357dd1ed5483923da6de",
-  "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829",
+  "catalog_rows": 3911,
+  "catalog_sha256": "84790262171c3505bfe5878d0e5d6f099f939486d79343f149aa0d506dd24c88",
+  "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20691755,
-    "works": 888
+    "tokens": 20909282,
+    "works": 887
    },
    "manual": {
-    "tokens": 5563764,
-    "works": 130
+    "tokens": 5589174,
+    "works": 131
+   },
+   "mixed-unassessed": {
+    "tokens": 521991,
+    "works": 3
    },
    "not-ocr": {
-    "tokens": 36126603,
-    "works": 2497
+    "tokens": 35874958,
+    "works": 2495
    },
    "raw-ocr": {
-    "tokens": 2903356,
+    "tokens": 2903299,
     "works": 395
    }
   },
   "per_work": "data/corpus_catalog.tsv carries each work's source, correction status, unattested-token rate and sha256; quality is uneven by work and should be read there",
+  "polytonic_loss": {
+   "counts": {
+    "flagged": 612,
+    "readings": 130606,
+    "unassessable": 51272,
+    "unflagged": 78722
+   },
+   "fresh_validation": [
+    {
+     "path": "data/evaluation/polytonic-loss/qwen36-validation.json",
+     "runs": [
+      {
+       "by_split": {
+        "calibration": {
+         "failed_or_truncated": 0,
+         "false_negative": 0,
+         "false_positive": 0,
+         "pages": 20,
+         "precision": null,
+         "recall": null,
+         "specificity": 1.0,
+         "true_negative": 17,
+         "true_positive": 0,
+         "unassessable": 3
+        },
+        "test": {
+         "failed_or_truncated": 1,
+         "false_negative": 0,
+         "false_positive": 0,
+         "pages": 40,
+         "precision": null,
+         "recall": null,
+         "specificity": 1.0,
+         "true_negative": 35,
+         "true_positive": 0,
+         "unassessable": 5
+        }
+       },
+       "false_positives": [],
+       "measurement_limits": [
+        "No assessable systematic-loss case was observed; this run cannot estimate sensitivity or recall.",
+        "No assessable page was flagged; this run cannot estimate positive predictive precision."
+       ],
+       "metadata": {
+        "backend": "http",
+        "inference_runtime": {
+         "cuda": "12.8",
+         "gpu": "NVIDIA RTX 5880 Ada Generation",
+         "model": "Qwen/Qwen3.6-27B-FP8",
+         "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+         "settings": {
+          "gpu_memory_utilization": 0.9,
+          "images_per_prompt": 1,
+          "max_model_len": 16384,
+          "max_num_seqs": 8,
+          "reasoning_parser": "qwen3"
+         },
+         "versions": {
+          "huggingface-hub": "0.36.2",
+          "torch": "2.10.0",
+          "transformers": "4.57.6",
+          "vllm": "0.17.1"
+         }
+        },
+        "manifest_sha256": "7781a2fe5c14231f62c0eed09e5697060740aac63092ac2740e20ee9ea7870d1",
+        "max_tokens": 12000,
+        "model": "Qwen/Qwen3.6-27B-FP8",
+        "prompt": "Transcribe only the printed Greek text in this image, in reading order, one line per printed line. Exclude Latin text, including Latin editorial words embedded in a Greek line, and exclude parenthesized Arabic-number reference markers. Keep Greek text inside editorial brackets and keep Greek headings and section numerals. Preserve Greek accents, breathing marks, punctuation, and printed hyphens. Do not correct, translate, summarize, or add explanations. Return only the Greek transcription.",
+        "revision": "e89b16ebf1988b3d6befa7de50abc2d76f26eb09",
+        "runner": "scripts/benchmark_page_ocr.py",
+        "runner_sha256": "c9452d2d160a0b9efeda8e522e9ae62c4af7b57c82083f1ba617d4490d512309",
+        "runtime_versions": {
+         "python": "3.11.10"
+        },
+        "temperature": 0,
+        "workers": 6
+       },
+       "missed_cases": [],
+       "predictions_path": "data/evaluation/polytonic-loss/raw/qwen36.jsonl",
+       "predictions_sha256": "991558c60ae01954762b4523860a3febebeae557e352750647f67a71fe03a2db",
+       "unassessable_pages": [
+        "grc_grna_or_531",
+        "grc_tlg_mpg145-254",
+        "grc_tlg_mpg145-276",
+        "grc_tlg_mpg145-334",
+        "grc_tlg_mpg17-36",
+        "grc_tlg_mpg99-1704",
+        "grc_tlg_mpg87-4082",
+        "grc_tlg_mpg98-1362"
+       ]
+      }
+     ],
+     "sha256": "95521665cfcab1d9166a4a3bf7c050b8b77083ce372da4de81ca4cca31746536"
+    },
+    {
+     "path": "data/evaluation/polytonic-loss/qwen38-validation.json",
+     "runs": [
+      {
+       "by_split": {
+        "calibration": {
+         "failed_or_truncated": 0,
+         "false_negative": 0,
+         "false_positive": 0,
+         "pages": 20,
+         "precision": null,
+         "recall": null,
+         "specificity": 1.0,
+         "true_negative": 17,
+         "true_positive": 0,
+         "unassessable": 3
+        },
+        "test": {
+         "failed_or_truncated": 1,
+         "false_negative": 0,
+         "false_positive": 0,
+         "pages": 40,
+         "precision": null,
+         "recall": null,
+         "specificity": 1.0,
+         "true_negative": 35,
+         "true_positive": 0,
+         "unassessable": 5
+        }
+       },
+       "false_positives": [],
+       "measurement_limits": [
+        "No assessable systematic-loss case was observed; this run cannot estimate sensitivity or recall.",
+        "No assessable page was flagged; this run cannot estimate positive predictive precision."
+       ],
+       "metadata": {
+        "backend": "http",
+        "inference_runtime": {
+         "cuda": "12.8",
+         "gpu": "NVIDIA RTX 6000 Ada Generation",
+         "model": "Qwen/Qwen3.8-27B-FP8",
+         "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+         "settings": {
+          "gpu_memory_utilization": 0.9,
+          "images_per_prompt": 1,
+          "max_model_len": 16384,
+          "max_num_seqs": 8,
+          "reasoning_parser": "qwen3"
+         },
+         "versions": {
+          "huggingface-hub": "0.36.2",
+          "torch": "2.10.0",
+          "transformers": "4.57.6",
+          "vllm": "0.17.1"
+         }
+        },
+        "manifest_sha256": "7781a2fe5c14231f62c0eed09e5697060740aac63092ac2740e20ee9ea7870d1",
+        "max_tokens": 12000,
+        "model": "Qwen/Qwen3.8-27B-FP8",
+        "prompt": "Transcribe only the printed Greek text in this image, in reading order, one line per printed line. Exclude Latin text, including Latin editorial words embedded in a Greek line, and exclude parenthesized Arabic-number reference markers. Keep Greek text inside editorial brackets and keep Greek headings and section numerals. Preserve Greek accents, breathing marks, punctuation, and printed hyphens. Do not correct, translate, summarize, or add explanations. Return only the Greek transcription.",
+        "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+        "runner": "scripts/benchmark_page_ocr.py",
+        "runner_sha256": "c9452d2d160a0b9efeda8e522e9ae62c4af7b57c82083f1ba617d4490d512309",
+        "runtime_versions": {
+         "python": "3.11.10"
+        },
+        "temperature": 0,
+        "workers": 6
+       },
+       "missed_cases": [],
+       "predictions_path": "data/evaluation/polytonic-loss/raw/qwen38.jsonl",
+       "predictions_sha256": "8d24a06d8f1924d6867b081fb4c782fdd9e042ac10755b32583f939b6df2f7c8",
+       "unassessable_pages": [
+        "grc_grna_or_531",
+        "grc_tlg_mpg145-254",
+        "grc_tlg_mpg145-276",
+        "grc_tlg_mpg145-334",
+        "grc_tlg_mpg17-36",
+        "grc_tlg_mpg99-1704",
+        "grc_tlg_mpg87-4082",
+        "grc_tlg_mpg98-1362"
+       ]
+      }
+     ],
+     "sha256": "69b21f0873c4f3ba93186d082bb2a9132c37f5a818c07bdb5b0225c3dc319e71"
+    }
+   ],
+   "fresh_validation_status": "complete",
+   "operating_limits": [
+    "Counts alone cannot distinguish damaged polytonic text from intentional monotonic or all-capital orthography.",
+    "Sparse pages and pages with too little base-letter alignment need a source review rather than a diacritic-loss label.",
+    "Character-level reference order is checked separately; text-order errors are not diacritic loss.",
+    "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
+   ],
+   "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
+   "page_readings_sha256": "dd897cf120b954e78d8f555d89273b05d57e9e43a9951d0a4c8419f83afeafd6",
+   "report": "data/polytonic_loss_report.json",
+   "report_sha256": "3a055c0bc038f50205bd347c6cd59e05d840c3f0bdad243bc96644d4922a4279",
+   "scope": "Review candidates from OCR sources, grouped by recoverable physical page and witness. A flag is not proof of damaged text. This report never selects a model, changes text, or admits a correction.",
+   "selection_rule": null
+  },
   "raw_ocr": {
-   "ocr_share_of_corpus_tokens": 0.4466,
-   "ocr_tokens": 29158875,
-   "ocr_works": 1413,
-   "raw_share_of_corpus_tokens": 0.0445,
-   "raw_share_of_ocr_tokens": 0.0996,
-   "raw_tokens": 2903356,
-   "raw_works": 395,
-   "what": "works whose served text is OCR that no correction pass has touched; 'not-ocr' works are digital editions, not corrected OCR"
+   "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+   "global_raw_token_bounds": null,
+   "legacy_homogeneous_work_bucket": {
+    "ocr_tokens": 29401755,
+    "ocr_works": 1413,
+    "raw_share_of_corpus_tokens": 0.0441,
+    "raw_tokens": 2903299,
+    "raw_works": 395,
+    "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound."
+   },
+   "mixed_ocr_tokens": 270283,
+   "mixed_works": 3,
+   "ocr_tokens": 29672038,
+   "ocr_works": 1416,
+   "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
+  },
+  "source_components": {
+   "artifact": "data/source_component_tokens.json",
+   "by_source": {
+    "byzantine_vernacular": {
+     "analysis_tokens": 189983,
+     "passages": 23453,
+     "works": 12
+    },
+    "byzantium_gr": {
+     "analysis_tokens": 1648928,
+     "passages": 5857,
+     "works": 19
+    },
+    "cgpg": {
+     "analysis_tokens": 4349729,
+     "passages": 11403,
+     "works": 199
+    },
+    "dcc": {
+     "analysis_tokens": 4341,
+     "passages": 205,
+     "works": 1
+    },
+    "dclp": {
+     "analysis_tokens": 63,
+     "passages": 89,
+     "works": 1
+    },
+    "dfhg": {
+     "analysis_tokens": 692799,
+     "passages": 9215,
+     "works": 528
+    },
+    "first1k": {
+     "analysis_tokens": 21867745,
+     "passages": 269495,
+     "works": 1045
+    },
+    "galenus_verbatim": {
+     "analysis_tokens": 318470,
+     "passages": 1780,
+     "works": 25
+    },
+    "glaux": {
+     "analysis_tokens": 137710,
+     "passages": 2051,
+     "works": 5
+    },
+    "greek_library": {
+     "analysis_tokens": 3502,
+     "passages": 15,
+     "works": 1
+    },
+    "ocr": {
+     "analysis_tokens": 25318807,
+     "passages": 1338105,
+     "works": 1217
+    },
+    "perseus": {
+     "analysis_tokens": 9695795,
+     "passages": 293879,
+     "works": 748
+    },
+    "pta": {
+     "analysis_tokens": 1493681,
+     "passages": 5903,
+     "works": 106
+    },
+    "saws": {
+     "analysis_tokens": 62909,
+     "passages": 4782,
+     "works": 5
+    },
+    "wikisource": {
+     "analysis_tokens": 14242,
+     "passages": 619,
+     "works": 3
+    }
+   },
+   "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0",
+   "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
+   "mixed_works": {
+    "apollonius-geom.conica": {
+     "analysis_tokens": 54229,
+     "components": [
+      {
+       "analysis_tokens": 8696,
+       "edition": "1st1K-grc1",
+       "license": "CC-BY-SA-4.0",
+       "passages": 57,
+       "source": "first1k"
+      },
+      {
+       "analysis_tokens": 45533,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "PD",
+       "passages": 227,
+       "source": "ocr"
+      }
+     ],
+     "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+     "mixed_ocr_digital": true,
+     "non_ocr_analysis_tokens": 8696,
+     "non_ocr_passages": 57,
+     "ocr_analysis_tokens": 45533,
+     "ocr_passages": 227,
+     "passages": 284,
+     "sources": {
+      "first1k": {
+       "analysis_tokens": 8696,
+       "passages": 57
+      },
+      "ocr": {
+       "analysis_tokens": 45533,
+       "passages": 227
+      }
+     }
+    },
+    "cassius-dio.historiae-romanae": {
+     "analysis_tokens": 346435,
+     "components": [
+      {
+       "analysis_tokens": 60713,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "CC-BY-SA-4.0",
+       "passages": 329,
+       "source": "ocr"
+      },
+      {
+       "analysis_tokens": 94369,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "PD",
+       "passages": 753,
+       "source": "ocr"
+      },
+      {
+       "analysis_tokens": 191353,
+       "edition": "perseus-grc2",
+       "license": "CC-BY-SA-4.0",
+       "passages": 4403,
+       "source": "perseus"
+      }
+     ],
+     "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+     "mixed_ocr_digital": true,
+     "non_ocr_analysis_tokens": 191353,
+     "non_ocr_passages": 4403,
+     "ocr_analysis_tokens": 155082,
+     "ocr_passages": 1082,
+     "passages": 5485,
+     "sources": {
+      "ocr": {
+       "analysis_tokens": 155082,
+       "passages": 1082
+      },
+      "perseus": {
+       "analysis_tokens": 191353,
+       "passages": 4403
+      }
+     }
+    },
+    "pappus-mathematics.synagoge": {
+     "analysis_tokens": 121327,
+     "components": [
+      {
+       "analysis_tokens": 51659,
+       "edition": "1st1K-grc1",
+       "license": "CC-BY-SA-4.0",
+       "passages": 304,
+       "source": "first1k"
+      },
+      {
+       "analysis_tokens": 69668,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "PD",
+       "passages": 331,
+       "source": "ocr"
+      }
+     ],
+     "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+     "mixed_ocr_digital": true,
+     "non_ocr_analysis_tokens": 51659,
+     "non_ocr_passages": 304,
+     "ocr_analysis_tokens": 69668,
+     "ocr_passages": 331,
+     "passages": 635,
+     "sources": {
+      "first1k": {
+       "analysis_tokens": 51659,
+       "passages": 304
+      },
+      "ocr": {
+       "analysis_tokens": 69668,
+       "passages": 331
+      }
+     }
+    }
+   },
+   "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+   "sha256": "0fba2f937e6f297ddc54876a5a5873e045f1cb05f71a438bfef1f62afa01f9db",
+   "totals": {
+    "analysis_tokens": 65798704,
+    "mixed_ocr_analysis_tokens": 270283,
+    "mixed_works": 3,
+    "ocr_analysis_tokens": 29672038,
+    "ocr_passages": 1349523,
+    "ocr_works": 1416,
+    "passages": 1966851,
+    "works": 3911
+   }
   },
   "wrong_corrections": {
    "active_records": 228866,
@@ -247,6 +668,37 @@
     },
     "what": "seven bakes after the original 2026-08-12 sample and before the current 2026-09-13 sample. The 2026-08-21 Eustathius bake: 16,570 records against the Iliad commentary said auto or accepted while the rows still held the OCR reading, so nothing had ever been applied. All 16,601 staged proposals were read by two blind raters across two gates, freq/auto (16,081 read) and confusion/accepted (520); 2,651 were rejected and 13,959 written, plus 58 active records elsewhere that had gone unapplied. The 2026-09-11 collation bake: OCR readings a census revert had put back in the text, corrected again by collation against an independent digital text of the same work, which supplies the letters while case, movable nu, rho breathing and final accent follow this edition's own usage. All 2,400 proposals were read by two blind raters who were not told where they came from, and only the 2,072 both called right were written. A 105-record rebake restored census collateral after duplicate-edit cleanup. Four upstream OCR-frequency correction batches then wrote 16,097 independently evidenced corrections"
    },
+   "legacy_homogeneous_work_stamp_gap": {
+    "artifact": "data/correction_stamp_gap.json",
+    "by_method": {
+     "agent": 1154,
+     "confusion": 738,
+     "freq": 9105,
+     "llm": 32106,
+     "prosodia": 516
+    },
+    "correction_population_checked": false,
+    "measured_against": {
+     "active_correction_records": 228866,
+     "catalog": "data/corpus_catalog.tsv",
+     "catalog_sha256": "84790262171c3505bfe5878d0e5d6f099f939486d79343f149aa0d506dd24c88",
+     "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0"
+    },
+    "pairs": 43619,
+    "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
+    "raw_share_lower_bound": 0.0369,
+    "raw_share_tokens_in_doubt": 472361,
+    "raw_share_upper_bound": 0.0441,
+    "raw_tokens_lower_bound": 2430938,
+    "raw_tokens_upper_bound": 2903299,
+    "raw_works_in_doubt": 22,
+    "scope": "Bounds within the homogeneous works classified raw by the catalog; not global raw-OCR bounds. Mixed-component correction coverage is unassessed.",
+    "stale": false,
+    "tool": "scripts/measure_stamp_gap.py",
+    "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
+    "works_affected": 261,
+    "works_under_the_floor_only_because_of_it": 24
+   },
    "measured_on": [
     "2026-09-13"
    ],
@@ -295,36 +747,6 @@
     "seed": 20260913,
     "tool": "scripts/sample_applied_overlay.py in the upstream pipeline"
    },
-   "stamp_gap": {
-    "artifact": "data/correction_stamp_gap.json",
-    "by_method": {
-     "agent": 1154,
-     "confusion": 738,
-     "freq": 9105,
-     "llm": 32106,
-     "prosodia": 516
-    },
-    "correction_population_checked": false,
-    "measured_against": {
-     "active_correction_records": 228866,
-     "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "910f5e9ee79ace5641cda3e6908dad15523f7154b035357dd1ed5483923da6de",
-     "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829"
-    },
-    "pairs": 43619,
-    "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
-    "raw_share_lower_bound": 0.0372,
-    "raw_share_tokens_in_doubt": 472361,
-    "raw_share_upper_bound": 0.0445,
-    "raw_tokens_lower_bound": 2430995,
-    "raw_tokens_upper_bound": 2903356,
-    "raw_works_in_doubt": 22,
-    "stale": false,
-    "tool": "scripts/measure_stamp_gap.py",
-    "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
-    "works_affected": 261,
-    "works_under_the_floor_only_because_of_it": 24
-   },
    "superseded": {
     "measured_on": [
      "2026-08-02",
@@ -342,7 +764,7 @@
   }
  },
  "release_date": "2026-10-18",
- "release_id": "corpus-2026-10-18",
+ "release_id": "corpus-2026-10-18.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -353,11 +775,15 @@
    "works": 19
   },
   "cgpg": {
-   "tokens": 4121491,
-   "works": 198
+   "tokens": 4513742,
+   "works": 199
   },
   "dcc": {
    "tokens": 4341,
+   "works": 1
+  },
+  "dclp": {
+   "tokens": 63,
    "works": 1
   },
   "dfhg": {
@@ -365,8 +791,8 @@
    "works": 528
   },
   "first1k": {
-   "tokens": 21867745,
-   "works": 1045
+   "tokens": 21807390,
+   "works": 1043
   },
   "galenus_verbatim": {
    "tokens": 318470,
@@ -381,11 +807,11 @@
    "works": 1
   },
   "ocr": {
-   "tokens": 25033882,
-   "works": 1214
+   "tokens": 25060067,
+   "works": 1215
   },
   "perseus": {
-   "tokens": 9695795,
+   "tokens": 9850877,
    "works": 748
   },
   "pta": {
