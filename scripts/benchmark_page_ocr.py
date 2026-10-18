@@ -200,6 +200,25 @@ def http_completion(args, image):
             "generation_tokens": result.get("usage", {}).get("completion_tokens")}
 
 
+def validate_page_rows(manifest, rows, *, complete=False):
+    """Bind scores and resumed predictions to the manifest's page identities."""
+    pages = {page["id"]: page for page in manifest["pages"]}
+    if len(pages) != len(manifest["pages"]):
+        raise ValueError("Repeated page identities in manifest")
+    seen = set()
+    for row in rows:
+        identity = row["id"]
+        if identity in seen:
+            raise ValueError(f"Repeated page identity: {identity}")
+        seen.add(identity)
+        if identity not in pages:
+            raise ValueError(f"Page outside selected benchmark: {identity}")
+        if any(row[key] != pages[identity][key] for key in ("split", "volume")):
+            raise ValueError(f"Changed benchmark identity: {identity}")
+    if complete and seen != set(pages):
+        raise ValueError("Comparison does not cover the entire pinned benchmark")
+
+
 def paired_diagnostics(baseline, candidate, split):
     """Compare matched pages, resampling within editions rather than tokens."""
     left = {r["id"]: r for r in baseline if split == "all" or r["split"] == split}
@@ -279,6 +298,7 @@ def run(args):
         if existing[0]["_meta"] != metadata:
             raise ValueError("Resume parameters differ from the existing run")
         rows = existing[1:]
+    validate_page_rows({"pages": pages}, rows)
     done = {row["id"] for row in rows}
     pending = [p for p in pages if p["id"] not in done]
     if pending and backend == "http":
@@ -378,8 +398,10 @@ def main():
             raise ValueError("Comparison page sets differ")
         if args.manifest:
             expected = json.loads(args.manifest.read_text())
-            if sha256(args.manifest) != base_meta["manifest_sha256"] or {p["id"] for p in expected["pages"]} != {r["id"] for r in baseline}:
-                raise ValueError("Comparison does not cover the entire pinned benchmark")
+            if sha256(args.manifest) != base_meta["manifest_sha256"]:
+                raise ValueError("Comparison manifest differs from the pinned benchmark")
+            for rows in (baseline, candidate):
+                validate_page_rows(expected, rows, complete=True)
         if any(len({r["id"] for r in rows}) != len(rows) for rows in (baseline, candidate)):
             raise ValueError("Repeated page identities in comparison")
         if {r["id"]: r["split"] for r in baseline} != {r["id"]: r["split"] for r in candidate}:
