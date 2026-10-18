@@ -131,8 +131,9 @@ def locus(page):
     return f"cary-v{page['source_volume']}-p{page['printed_page']:04d}{suffix}"
 
 
-def collate(manifest, inputs, allow_partial=False):
-    from ocr_consensus import merge_witnesses
+def collate(manifest, inputs, allow_partial=False, network_path=None):
+    from ocr_consensus import merge_witnesses, compact_corpus_consensus
+    network_path = network_path or "data/corpus_changes/scan-coverage-preview/word-networks.json.gz"
     primary, paratext, audits, networks = {}, [], [], {}
     for page in manifest["pages"]:
         if page["work"] not in WORKS:
@@ -156,16 +157,16 @@ def collate(manifest, inputs, allow_partial=False):
         if not merged["text"].strip():
             raise ValueError("A reviewed Greek region has no surviving reading words")
         key = page["id"]
-        networks[key] = {"page": page, **merged["ocr_consensus"]}
+        networks[key] = merged
+        compact = compact_corpus_consensus(merged, {"path": network_path, "key": key})
         source = manifest["sources"][page["source"]]
         row = {"urn": page["work"], "edition": EDITION, "locus": locus(page),
             "source": "ocr", "license": "public-domain", "language": "grc",
-            "text": merged["text"], "analysis_text": merged["analysis_text"],
+            **compact, "scan_region_id": key,
             "source_scan": {"url": source["url"], "sha256": source["sha256"],
                 "scan_page": page["scan_page"], "region": page["region"]},
             "printed_page": page["printed_page"],
-            "transmission": page.get("transmission", "direct-text"),
-            "ocr_consensus": {"region_id": key, "counts": merged["ocr_consensus"]["counts"]}}
+            "transmission": page.get("transmission", "direct-text")}
         if page.get("attribution_heading"):
             row["attribution_heading"] = page["attribution_heading"]
         # The Greek word-voting layer excludes Latin credits and numeric book
@@ -179,6 +180,13 @@ def collate(manifest, inputs, allow_partial=False):
         if page.get("overlap"):
             row["continues"] = "55.9.4"
             row["transmission"] = "excerpt-supplement-after-direct-text-lacuna"
+        if page.get("source_volume") == 6 and page["scan_page"] == 207:
+            row["transmission"] = "excerpt-supplement-after-direct-text-lacuna"
+        if page.get("source_volume") == 6 and page["scan_page"] in {206, 207, 208}:
+            row["transmission_evidence"] = {
+                "source": "Cary volume VI, printed page 402, footnote 4",
+                "scope": "The lost direct-text folios extend from after τρόπον at 55.9.4 through the beginning of 55.10.2. Printed 402–404 continue through epitomes/excerpts; printed 406 has Xiphilinus and index supplements above the return of direct text at 55.10.2.",
+                "review": "Manual inspection of PDF pages 206–208 in the hash-pinned volume VI scan."}
         if page.get("admission") == "comparative-paratext":
             row["kind"] = "comparative-quotation"
             paratext.append(row)
@@ -201,6 +209,11 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     archive = root / "data/corpus_changes" / run_id
     if archive.exists():
         raise ValueError("This admission audit already exists; do not replace its evidence")
+    from ocr_consensus import compact_corpus_consensus
+    network_path = str((archive / "word-networks.json.gz").relative_to(root))
+    for row in [value for rows in primary.values() for value in rows] + paratext:
+        key = row["scan_region_id"]
+        row.update(compact_corpus_consensus(networks[key], {"path": network_path, "key": key}))
     paths = [EXTENSION_INDEX, "data/corpus_editions.json"]
     paths += [f"data/corpus/{work}.jsonl" for work in primary]
     paths += [f"data/corpus_extensions/{work}.jsonl" for work in primary]
@@ -273,6 +286,7 @@ def undo(directory, root):
 
 
 def verify(directory, root):
+    directory, root = Path(directory).resolve(), Path(root).resolve()
     verify_integrity(directory, root)
     audit = json.loads((directory / "changes.json").read_text())
     raw_manifest = (directory / "manifest.json").read_bytes()
@@ -285,7 +299,8 @@ def verify(directory, root):
         if sha(raw) != expected:
             raise ValueError("Archived raw OCR witness changed")
         loaded.append(load_predictions(None, raw_manifest, manifest, raw)[0])
-    primary, paratext, changes, networks = collate(manifest, loaded)
+    primary, paratext, changes, networks = collate(manifest, loaded,
+        network_path=str((directory / "word-networks.json.gz").relative_to(root)))
     if changes != audit["changes"] or networks != json.loads(gzip.decompress((directory / "word-networks.json.gz").read_bytes())):
         raise ValueError("Scan consensus differs from its retained original witnesses")
     from scan_coverage_extensions import combine_rows
@@ -347,7 +362,7 @@ def verify_integrity(directory, root):
         additions = records(raw)
         expected = {page["id"] for page in pages.values() if page["work"] == work
                     and page.get("admission") != "comparative-paratext"}
-        if {row["ocr_consensus"]["region_id"] for row in additions} != expected or len(additions) != len(expected):
+        if {row["scan_region_id"] for row in additions} != expected or len(additions) != len(expected):
             raise ValueError("Scan extension does not cover every reviewed primary region")
         current_rows = records((root / f"data/corpus/{work}.jsonl").read_bytes())
         current = {row["locus"]: row for row in current_rows}

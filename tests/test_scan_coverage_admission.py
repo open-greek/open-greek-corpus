@@ -83,6 +83,11 @@ def test_consensus_admission_replays_and_undoes_exact_bytes(tmp_path):
     ingest.apply(root, raw_manifest, raw_inputs, *result, "scan-coverage-test")
     audit = root / "data/corpus_changes/scan-coverage-test"
     ingest.verify(audit, root)
+    from ocr_consensus import restore_corpus_consensus
+    compact = {key: row[key] for key in ("text", "analysis_text", "ocr_consensus")}
+    network = json.loads(gzip.decompress((audit / "word-networks.json.gz").read_bytes()))[row["scan_region_id"]]
+    assert restore_corpus_consensus(compact, network) == result[3][row["scan_region_id"]]
+    assert row["ocr_consensus"]["full_network"]["path"] == "data/corpus_changes/scan-coverage-test/word-networks.json.gz"
     current = ingest.records((root / f"data/corpus/{work}.jsonl").read_bytes())
     assert current[-1] == before_row and current[0]["locus"] == "1.heiberg-p0002"
     assert load_extensions(root, work, ["4.1"], [before_row]) == [row]
