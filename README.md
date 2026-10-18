@@ -541,14 +541,16 @@ with panel boundaries. The 341 fragment regions and 418 comparison regions in
 volumes I–II retain separate transmission and admission metadata;
 the first volume VI page overlaps the existing end at 55.9.4 and requires
 collation before its missing continuation can be admitted. Source credits and
-genuine losses must remain explicit. The jobs place six reviewed boundary pages
-first for a small OCR sanity check and preserve independent raw witnesses.
+genuine losses must remain explicit. The jobs place seven regions from six
+reviewed boundary pages first for a small OCR sanity check and preserve
+independent raw witnesses.
 
 `scripts/ingest_scan_coverage.py --manifest MANIFEST --witness RAW.jsonl`
 validates checkpoint, geometry and completion metadata before collating scan
 regions with `scripts/ocr_consensus.py`. Repeat `--witness` for independent OCR
 runs. A dry run can inspect a small completed subset with `--allow-partial`;
-`--apply --run-id scan-coverage-NAME` requires every selected region. The
+`--apply --run-id scan-coverage-NAME` requires every selected region from at
+least two independent OCR model families. The
 importer preserves all tied readings, counts only resolved Greek words,
 archives exact raw predictions and removal decisions, and separates comparative
 quotations into paratext. `--check AUDIT_DIRECTORY` replays every vote, while
@@ -556,6 +558,9 @@ quotations into paratext. `--check AUDIT_DIRECTORY` replays every vote, while
 no later change would be overwritten. New scan passages are registered under
 `data/corpus_extensions/`; the TEI ingester retains them and stops for a new
 overlap review if the underlying digital edition changes.
+Primary rows keep compact positional word slots, including exclusions that
+break lexical adjacency; each row links to its full, hash-checked vote network
+in the compressed audit archive.
 `scan_coverage_extensions.coverage_scope()` supplies the public manifestation
 scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.
