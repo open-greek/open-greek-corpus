@@ -1,5 +1,6 @@
 from pathlib import Path
 import sys
+import pytest
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -21,9 +22,10 @@ def test_checkpoint_specific_retries_pin_complete_source_body_in_order():
         assert encode(result) == (ROOT / f"data/ocr_requests/photius-bekker-page{number:04d}-retry.json").read_bytes()
 
 
-def test_smaller_failed_strip_supplement_is_exact_partition():
-    manifest = prepare.build_supplement(50, "left-lower")
-    parent = prepare.build_retry(50)
+@pytest.mark.parametrize("number,name", [(50, "left-lower"), (87, "right-middle")])
+def test_smaller_failed_strip_supplement_is_exact_partition(number, name):
+    manifest = prepare.build_supplement(number, name)
+    parent = prepare.build_retry(number)
     target = next(p for p in parent["pages"] if p["id"] == manifest["supplements"]["replaces_region"])
     strips = manifest["pages"]
     assert len(strips) == 3
@@ -33,7 +35,7 @@ def test_smaller_failed_strip_supplement_is_exact_partition():
     assert all(p["region"][::2] == target["region"][::2] for p in strips)
     assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
     assert not manifest["review"]["accepted_for_primary_ingest"]
-    assert encode(manifest) == (ROOT / prepare.supplement_path(50, "left-lower")).read_bytes()
+    assert encode(manifest) == (ROOT / prepare.supplement_path(number, name)).read_bytes()
 
 
 def test_page87_six_strips_preserve_column_order_and_body_bounds():
