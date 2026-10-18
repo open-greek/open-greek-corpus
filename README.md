@@ -630,6 +630,8 @@ physical page, scores each raw witness separately, and writes
 independent witness; they never select text or apply a correction. Sparse
 pages, mostly uppercase text, unresolved page mappings, and intentional
 monotonic orthography limit what counts alone can establish.
+The report pins every corpus file with the release's sorted slug/checksum
+algorithm, so additions, removals, and text changes require a fresh audit.
 
 The separate 60-page validation sample in
 `data/evaluation/polytonic-loss/` excludes both earlier benchmark samples by

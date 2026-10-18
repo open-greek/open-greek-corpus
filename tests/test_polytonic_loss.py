@@ -154,6 +154,13 @@ def test_corpus_report_scores_separate_raw_witnesses_without_counting_tie_displa
     assert result["counts"] == {"readings": 2, "flagged": 1, "unflagged": 1}
     assert next(r for r in rows if r["witness"] == "damaged")["flag"]
     assert all(r["greek_letters"] > 200 for r in rows)
+    expected = hashlib.sha256(("test.work\t" + report.benchmark.sha256(corpus / "test.work.jsonl") + "\n").encode()).hexdigest()
+    assert result["corpus_sha256"] == expected
+    (corpus / "new.digital.jsonl").write_text('{"locus":"1","source":"perseus","text":"λόγος"}\n')
+    changed = report.corpus_report(corpus, out, summary)
+    assert changed["input_corpus_files"] == result["input_corpus_files"]
+    assert changed["counts"] == result["counts"]
+    assert changed["corpus_sha256"] != result["corpus_sha256"]
 
 
 def test_frozen_scan_review_is_bound_to_all_sixty_images_and_keeps_reference_defects():
