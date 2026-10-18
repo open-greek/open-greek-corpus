@@ -877,7 +877,7 @@ mark-loss screen; accepting that assembly also requires a source mark review.
 Scan87's failed right-middle retry likewise has an exact three-part supplement;
 the other five successful strips remain in its single checkpoint assembly.
 The scan13 Qwen3.8 upper-preface attempt completed but stripped all breathings
-from919 Greek letters. Its separately pinned three-part request records that
+from 919 Greek letters. Its separately pinned three-part request records that
 exact raw file, prediction record, text hash, source evidence, and frozen flag;
 it preserves the capital title's printed orthography and explicitly requests the
 lowercase letter's marks. The other four Qwen3.8 strips and Qwen3.6 stay intact.
@@ -1079,6 +1079,11 @@ A changed crop is held outside the vote only when the effective manifest's
 `--source-review` artifact verifies every old and new boundary. These records
 preserve all superseded readings without inventing a combined runtime or another
 model vote. A bundle reaching 100 MB is refused.
+Successive source reviews can form an exact original-to-late-to-early manifest
+chain. Nested prior bundles stay byte-identical; new-only bundles must retain
+every intermediate manifest, original authority, and completed review. The
+loader validates every transition and preserves each held prediction's original
+runtime and source geometry, including repeated revisions to the same region.
 The exact original manifest must be present even if every part uses the new
 crops; `--authority-manifest ORIGINAL_MANIFEST` retains that authority when no
 original-geometry part already contains it.
