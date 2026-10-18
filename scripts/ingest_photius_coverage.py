@@ -250,7 +250,7 @@ def outcome_quality(paths, models):
         row.update(dispositions[key])
     report["policy"] = "Every original and retry outcome remains screened. Source-reviewed assemblies contribute once per checkpoint; held attempts never add votes. Review flags preserve uncertainty and select no reading."
     if any(row["admission_disposition"] == "source-confirmed-abstention" for row in report["outcomes"]):
-        report["policy"] += " Exact source-confirmed unrelated leaf readings remain retained and explicitly incomplete; their reviewed spans abstain from reading and omission votes."
+        report["policy"] += " Exact source-confirmed degraded leaf readings remain retained and explicitly incomplete; their reviewed spans abstain from reading and omission votes."
     return report
 
 
@@ -414,7 +414,7 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
               "edition_scope": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented.",
               "quality_scope": {"proofread_critical_text": False,
                   "fresh_review_criteria": ["body-line coverage", "column and heading order", "systematic polytonic mark loss", "unprinted repetition", "apparatus boundaries"],
-                  "fresh_limitations": "Word and ligature errors remain, particularly on faint source pages. Source reviews do not certify lexical accuracy. Raw readings, held attempts, bounded comparison witnesses, and merged disagreements remain available.",
+                  "fresh_limitations": "Severe word and ligature errors remain, particularly on faint source pages. Exact source-confirmed unrelated readings and persistent systematic mark loss abstain from voting after finite reviewed remedies. Scan381 right-lower also retains a local displacement of two short first-line phrases to the end. Source reviews establish qualified body coverage and do not certify lexical accuracy or a proofread critical text. Raw readings, held attempts, bounded comparison witnesses, and merged disagreements remain available.",
                   "historical_rows_byte_identical": index_audit["body_rows"],
                   "historical_apparatus_audit": "data/audits/photius-historical-apparatus.json",
                   "historical_apparatus_issue": "https://github.com/open-greek/open-greek-corpus/issues/60",
