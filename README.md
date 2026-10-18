@@ -998,6 +998,15 @@ and 139. Full Greek paragraphs, comparative quotations, numbered sections and
 Latin transmission credits remain body even where their font size changes.
 Final bundles retain both review stages and all original attempts; already
 completed late predictions remain eligible.
+`prepare_dio_ocr_retries.py --original RETAINED_PART --pdf-dir SOURCE_PDFS`
+pins enlarged strips for the exact checkpoint/page combinations with observed
+length termination or scan-confirmed loss of accents and breathings. Repeat
+`--original` for the retained parts from both checkpoints. Each request retains
+the complete original prediction and runtime metadata, verifies its record
+hash, and keeps every finite printed lacuna-dot row in three ordered strips.
+The request alone does not authorize admission: every completed strip must
+pass a separate comparison with the source before replacing that model's
+single input. The other checkpoint and all original attempts remain available.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
