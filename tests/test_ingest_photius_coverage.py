@@ -68,12 +68,21 @@ def test_all_bekker_pages_are_covered_once_with_reversible_raw_readings(tmp_path
     # Test admission mechanics independently of the large real comparison text.
     source_document = {"id": "tlg4040.tlg001.local002", "license": {"text": "CC BY-SA 4.0"},
                        "sourceRights": "Source witness rights retained"}
-    monkeypatch.setattr(ingest, "load_source_library", lambda path: (b"retained source", source_document, {}))
+    comparison_text = "κεφαλὴ προοιμίου " + "ὁ λόγος σαφὴς καὶ καλὸς ἐστίν. " * 7 + "σχόλιον κριτικὸν ἐκ τῶν κωδίκων"
+    source_rows = {13: {"id": "source-library", "text": comparison_text, "artifact_sha256": "f" * 64}}
+    monkeypatch.setattr(ingest, "load_source_library", lambda path: (b"retained source", source_document, source_rows))
     artifacts, report = ingest.generate(paths, tmp_path / "source", tmp_path)
     assert report["added_passages"] == 309
     assert report["historical_body_passages"] == 3846
     assert report["covered_authorial_scan_pages"] == 545
     assert report["added_scan_ranges"] == [[13, 278], [379, 421]]
+    assert report["retained_page_mapping"]["logical_positions_are_physical_citations"] is False
+    assert [(p["retained_legacy_scan_page"], p["authorial_printed_page"])
+            for p in report["source_scan_exceptions"]] == [(169, 434), (170, 435)]
+    assert report["source_library"]["body_comparison_counts"] == {"held-comparison-only": 1}
+    comparison = json.loads(gzip.decompress(artifacts[Path(report["source_library"]["body_comparison_audit"]["path"])]))
+    assert comparison["13"]["original_text"] == comparison_text
+    assert comparison["13"]["status"] == "held-comparison-only"
     rows = [json.loads(line) for line in artifacts[index.CORPUS].decode().splitlines()]
     assert len({row["locus"] for row in rows}) == 309 + 3846
     added = [r for r in rows if r["edition"] == "bekker1824-independent-ocr-consensus"]
