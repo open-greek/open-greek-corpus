@@ -18,6 +18,13 @@ from prepare_photius_retries import build_retry, build_supplement, CHECKPOINT38
 from ocr_consensus import restore_corpus_consensus
 
 
+@pytest.fixture(autouse=True)
+def isolate_source_geometry_authority(monkeypatch):
+    # Synthetic historical retries are independent of subsequently reviewed
+    # production crop boundaries and exact production raw-record pins.
+    monkeypatch.setattr(retries, "known_gutter_manifests", lambda: {})
+
+
 def prediction(tmp_path, manifest, model, *, missing=False, truncated=False):
     metadata = {"model": model, "revision": model * 40,
                 "manifest_sha256": ingest.sha(ingest.encode(manifest)), "prompt": manifest["prompt"]}

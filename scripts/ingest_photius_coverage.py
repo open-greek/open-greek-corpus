@@ -161,6 +161,8 @@ def prepare_report_inputs(root, report, manifests):
         retry_paths.extend(checked(pin) for pin in retry["raw_files"])
         for supplement in retry.get("supplements", []):
             checked(supplement["manifest"])
+            if supplement.get("source_authority"):
+                checked(supplement["source_authority"])
             supplement_paths.extend(checked(pin) for pin in supplement["raw_files"])
     inputs, models, evidence = prepare_fresh_inputs(originals, manifests, retry_paths, reviews,
                                                   supplement_paths=supplement_paths)
@@ -192,8 +194,14 @@ def prepare_report_inputs(root, report, manifests):
         if len(supplied) != len(expected) or {s["manifest"]["sha256"] for s in supplied} != set(expected):
             raise ValueError("Photius supplement report differs from its canonical review")
         for supplement in supplied:
-            if runs(supplement["raw_files"]) != retained(expected[supplement["manifest"]["sha256"]]["raw_files"]):
+            canonical = expected[supplement["manifest"]["sha256"]]
+            if runs(supplement["raw_files"]) != retained(canonical["raw_files"]):
                 raise ValueError("Photius supplement raw metadata differs from its canonical review")
+            authority = canonical.get("source_authority")
+            pin = supplement.get("source_authority")
+            if ((authority is None) != (pin is None) or authority is not None and
+                    (pin.get("sha256") != authority["sha256"] or pin.get("original_path") != authority["path"])):
+                raise ValueError("Photius geometry report differs from its exact source authority")
     if report.get("fresh_outcome_quality") is not None:
         checked(report["fresh_outcome_quality"])
         reproduced = outcome_quality([*originals, *retry_paths, *supplement_paths], models)
@@ -278,8 +286,15 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
                 artifacts[path] = run["raw"]
                 supplemental_runs.append({"path": path.as_posix(), "sha256": run["sha256"],
                                           "model": run["metadata"]["model"], "revision": run["metadata"]["revision"]})
-            supplemental_reports.append({"manifest": {"path": request.as_posix(), "sha256": supplement["manifest_sha256"]},
-                                         "raw_files": supplemental_runs})
+            supplemental_report = {"manifest": {"path": request.as_posix(), "sha256": supplement["manifest_sha256"]},
+                                   "raw_files": supplemental_runs}
+            if supplement.get("source_authority"):
+                authority = supplement["source_authority"]
+                authority_path = directory / "source-boundary-authority.json"
+                artifacts[authority_path] = authority["raw"]
+                supplemental_report["source_authority"] = {"path": authority_path.as_posix(),
+                    "sha256": authority["sha256"], "original_path": authority["path"]}
+            supplemental_reports.append(supplemental_report)
         retry_reports.append({"manifest": {"path": retry_manifest.as_posix(), "sha256": evidence["manifest_sha256"]},
                         "source_review": {"path": retry_source_review.as_posix(), "sha256": evidence["source_review_sha256"]},
                         "raw_files": retained_runs,
