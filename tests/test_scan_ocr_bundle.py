@@ -26,7 +26,8 @@ def part(tmp_path, ids, request=None, name="part", model="checkpoint", gpu="GPU 
     meta = {"model": model, "revision": "revision", "prompt": request["prompt"],
             "manifest_sha256": bundle.sha(raw_manifest), "runtime": {"gpu": gpu}, "runner_sha256": "b" * 64}
     rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"], "region": p["region"],
-             "prompt_sha256": bundle.sha(request["prompt"].encode()), "raw_prediction": "ὁ λόγος", "finish_reason": "stop",
+             "prompt_sha256": bundle.sha((request["prompt"] + (" " + p["prompt_suffix"] if p.get("prompt_suffix") else "")).encode()),
+             "raw_prediction": "ὁ λόγος", "finish_reason": "stop",
              "image_sha256": "c" * 64} for p in request["pages"] if p["id"] in ids]
     # Real raw parts use one JSON object per line, with their exact original metadata.
     raw = ("\n".join(json.dumps(row, ensure_ascii=False) for row in [{"_meta": meta}, *rows]) + "\n").encode()
@@ -97,6 +98,36 @@ def test_new_geometry_only_still_requires_review_and_exact_original_authority(tm
         bundle.write_bundle([corrected], ep, tmp_path / "combined.json", authority_manifests=[authority])
     raw = bundle.write_bundle([corrected], ep, tmp_path / "combined.json", [rp], [authority])
     assert set(bundle.load_bundle(raw, ep.read_bytes(), strict)[0]) == {"2"}
+
+
+@pytest.mark.parametrize("also_geometry", [False, True])
+def test_only_exact_reviewed_page_prompt_changes_can_supersede_originals(tmp_path, also_geometry):
+    old, effective, rp, ep = reviewed(tmp_path)
+    suffix = "Use one ellipsis for each printed omission-dot series."
+    if not also_geometry:
+        effective["pages"][1]["region"] = old["pages"][1]["region"]
+        effective["reviewed_substitutions"]["regions"][0]["region"] = old["pages"][1]["region"]
+    effective["pages"][1]["prompt_suffix"] = suffix
+    entry = effective["reviewed_substitutions"]["regions"][0]
+    entry.update(original_prompt_suffix=None, prompt_suffix=suffix)
+    review = json.loads(rp.read_bytes())
+    review["evidence"]["body-page2"].update({k: v for k, v in entry.items() if k != "evidence_id"})
+    rp.write_bytes(bundle.encode(review))
+    effective["reviewed_substitutions"]["source_review"]["sha256"] = bundle.sha(rp.read_bytes())
+    ep.write_bytes(bundle.encode(effective))
+    original = part(tmp_path, {"1", "2"}, old, name="original")
+    corrected = part(tmp_path, {"2"}, effective, name="corrected")
+    raw = bundle.write_bundle([original, corrected], ep, tmp_path / "combined.json", [rp])
+    eligible, audit = bundle.load_bundle(raw, ep.read_bytes(), strict)
+    assert set(eligible) == {"1", "2"}
+    assert audit["held_predictions"][0]["prompt_suffix"] == suffix
+    assert audit["held_predictions"][0]["original_prompt_suffix"] is None
+    del review["evidence"]["body-page2"]["prompt_suffix"]
+    rp.write_bytes(bundle.encode(review))
+    effective["reviewed_substitutions"]["source_review"]["sha256"] = bundle.sha(rp.read_bytes())
+    ep.write_bytes(bundle.encode(effective))
+    with pytest.raises(ValueError, match="suffix pins"):
+        bundle.write_bundle([original], ep, tmp_path / "unreviewed.json", [rp])
 
 
 @pytest.mark.parametrize("defect", ["duplicate", "checkpoint", "raw-checksum", "manifest-checksum", "missing-review", "evidence", "other-field"])

@@ -984,6 +984,13 @@ model vote. A bundle reaching 100 MB is refused.
 The exact original manifest must be present even if every part uses the new
 crops; `--authority-manifest ORIGINAL_MANIFEST` retains that authority when no
 original-geometry part already contains it.
+The same authority can explicitly review a per-page `prompt_suffix`, such as
+a finite ellipsis convention for printed lacuna dots. Both the substitution
+and its source evidence must pin exact `original_prompt_suffix` and
+`prompt_suffix` values; null records an absent page suffix. Only reviewed
+crop or page-suffix changes are accepted. The base prompt, sources, page IDs,
+order, and other request fields remain fixed, and old-prompt readings stay
+held evidence rather than another vote.
 
 The 100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
 and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.
