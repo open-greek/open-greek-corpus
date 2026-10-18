@@ -337,6 +337,7 @@ def _title_from_desc(desc: str) -> str:
 def build(write: bool = True) -> dict:
     from critical_text import load_critical_editions, index_metadata
     critical = load_critical_editions(DATA)
+    from scan_coverage_extensions import coverage_scope
     ce = load_json(CORPUS_EDITIONS, {})
     tc = load_json(TLG_CROSSWALK, {})
     reg = load_json(SOURCE_REGISTRY, {"works": {}, "authors": {}})
@@ -519,10 +520,16 @@ def build(write: bool = True) -> dict:
                 "license": man.get("license"),
                 "n_passages": man.get("n_passages"),
                 "n_tokens": man.get("n_tokens"),
+                "n_analysis_tokens": man.get("n_analysis_tokens"),
             }),
         }
         if slug in critical:
             works[slug]["critical_edition"] = index_metadata(critical[slug])
+        if rw.get("coverage_composition"):
+            works[slug]["manifestation"]["coverage"] = rw["coverage_composition"]
+        scope = coverage_scope(REPO, slug)
+        if scope:
+            works[slug]["manifestation"]["coverage"] = scope
         if metadata_slug != slug:
             works[slug]["metadata_from"] = metadata_slug
         witness = pseudo_works.get(slug, {}).get("volume_witness")

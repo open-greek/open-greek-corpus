@@ -88,3 +88,11 @@ def test_committed_coverage_replays_and_reverses_exact_bytes(tmp_path):
     for path, original in before.items():
         target = tmp_path / path
         assert (target.read_text() if target.exists() else None) == original
+    repair.apply(tmp_path)
+    repair.check(tmp_path)
+    registry = tmp_path / "data/source_registry.json"
+    values = json.loads(registry.read_text())
+    del values["works"][repair.SLUG]["coverage_composition"]
+    registry.write_text(json.dumps(values))
+    with pytest.raises(ValueError, match="complementary-volume metadata"):
+        repair.check(tmp_path)

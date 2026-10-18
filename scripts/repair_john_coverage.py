@@ -224,6 +224,9 @@ def outputs(before, raw, fresh):
             entry.update(urn=SLUG, kind="complementary-volume", cgpg_chosen=True,
                          edition=EDITION, n_passages=len(additions),
                          coverage_note="PG073 complements the PG074 continuation; whole-work source replacement is invalid.")
+            for component in entry.get("works", []):
+                if component.get("tlg_id") == "tlg4090" and component.get("work_id") == "002":
+                    component["cgpg_chosen"] = True
     result["data/cgpg_works.json"] = dump(ledger)
     return result, changes
 
@@ -232,6 +235,13 @@ def apply(root=ROOT, source=None, fresh_paths=()):
     root = Path(root)
     audit_dir = root / AUDIT
     if (audit_dir / "changes.json").exists():
+        before, (generated, _) = replay(root)
+        current_is_original = all(((root / path).read_text() if (root / path).exists() else None) == text
+                                  for path, text in before.items())
+        if current_is_original:
+            for path, data in generated.items():
+                (root / path).parent.mkdir(parents=True, exist_ok=True)
+                (root / path).write_bytes(data)
         return check(root)
     raw = Path(source).read_bytes() if source else urlopen(URL, timeout=180).read()
     pg73_records(raw)
@@ -283,6 +293,17 @@ def check(root=ROOT):
     actual = json.loads((root / "data/passage_aliases.json").read_text())["aliases"][SLUG]
     if expected != actual or audit["changes"] != changes or audit["evidence"] != EVIDENCE:
         raise ValueError("Cyril audit or historical destinations changed")
+    expected_work = json.loads(generated["data/source_registry.json"])["works"][SLUG]
+    actual_work = json.loads((root / "data/source_registry.json").read_text())["works"][SLUG]
+    if actual_work.get("coverage_composition") != expected_work["coverage_composition"]:
+        raise ValueError("Cyril complementary-volume metadata changed")
+    for key in (f"{SLUG}.{EDITION}", f"{SLUG}.migne-pg74-gap-consensus-2026-10"):
+        if actual_work.get("editions", {}).get(key) != expected_work["editions"][key]:
+            raise ValueError("Cyril source-edition metadata changed")
+    expected_ledger = [entry for entry in json.loads(generated["data/cgpg_works.json"]) if entry.get("volume") == "PG073"]
+    actual_ledger = [entry for entry in json.loads((root / "data/cgpg_works.json").read_text()) if entry.get("volume") == "PG073"]
+    if expected_ledger != actual_ledger:
+        raise ValueError("Cyril complementary-volume source ledger changed")
     return audit
 
 

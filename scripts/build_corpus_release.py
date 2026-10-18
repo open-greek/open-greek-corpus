@@ -500,6 +500,47 @@ def corrections_block(catalog_sha: str, corpus_sha: str, raw: dict,
     return block
 
 
+def polytonic_quality(data=None):
+    """Expose review candidates and fresh validation without selecting text."""
+    data = Path(data) if data is not None else DATA
+    path = data / "polytonic_loss_report.json"
+    if not path.exists():
+        return None
+    report = json.loads(path.read_text())
+    pages = data / "quality/polytonic-loss-pages.jsonl.gz"
+    if report.get("selection_rule") is not None or hashlib.sha256(pages.read_bytes()).hexdigest() != report["page_readings_sha256"]:
+        raise ValueError("Polytonic review report or its page evidence changed")
+    validations = []
+    for name in ("qwen36-validation.json", "qwen38-validation.json"):
+        validation_path = data / "evaluation/polytonic-loss" / name
+        if not validation_path.exists():
+            continue
+        value = json.loads(validation_path.read_text())
+        if value.get("selection_rule") is not None or not value.get("scan_review_complete"):
+            raise ValueError("Fresh polytonic validation requires recorded scan review and no automatic selection")
+        for key, filename in (("manifest_sha256", "manifest.json"), ("policy_sha256", "policy.json"),
+                              ("scan_review_sha256", "scan-review.json")):
+            source = validation_path.parent / filename
+            if hashlib.sha256(source.read_bytes()).hexdigest() != value[key]:
+                raise ValueError("Fresh polytonic validation inputs changed")
+        expected = "Qwen3.6-27B" if name.startswith("qwen36") else "Qwen3.8-27B"
+        if len(value["runs"]) != 1 or expected not in value["runs"][0]["metadata"]["model"]:
+            raise ValueError("Fresh validation filename and checkpoint family differ")
+        run = value["runs"][0]
+        if len(run["pages"]) != 60 or run["by_split"]["calibration"]["pages"] != 20 or run["by_split"]["test"]["pages"] != 40:
+            raise ValueError("Fresh validation must preserve all 60 fixed page outcomes")
+        validations.append({"path": "data/evaluation/polytonic-loss/" + name,
+            "sha256": hashlib.sha256(validation_path.read_bytes()).hexdigest(),
+            "runs": [{key: run[key] for key in ("metadata", "predictions_sha256", "by_split",
+                        "false_positives", "missed_cases", "unassessable_pages")} for run in value["runs"]]})
+    return {"report": "data/polytonic_loss_report.json", "report_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
+        "page_readings_sha256": report["page_readings_sha256"], "counts": report["counts"],
+        "scope": report["scope"], "operating_limits": report["policy"]["operating_limits"],
+        "fresh_validation_status": "complete" if len(validations) == 2 else "pending",
+        "fresh_validation": validations, "selection_rule": None}
+
+
 def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
           commit: str | None, commit_date: str | None,
           uncommitted_corpus: int | None) -> dict:
@@ -591,6 +632,9 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
                          "quality is uneven by work and should be read there"),
         },
     }
+    polytonic = polytonic_quality()
+    if polytonic:
+        release["quality"]["polytonic_loss"] = polytonic
     if uncommitted_corpus:
         # A release generated over a dirty data/corpus names a commit that does
         # not contain the text it just hashed, and the tag would pin the wrong
