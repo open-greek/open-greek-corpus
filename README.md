@@ -536,8 +536,7 @@ numbers, and regions; raw predictions, failures, checkpoint revisions, and
 runtime settings are retained. It supports MLX and a pinned HTTP model server.
 These predictions do not alter corpus text without a separate audited repair.
 
-The
-100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
+The 100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
 and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.
 Its source is the manually transcribed Calfa dataset, not existing OCR output.
 The evaluator reports accent-sensitive character and word errors, a separate
