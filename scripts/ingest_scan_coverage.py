@@ -205,9 +205,14 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
         if not merged["text"].strip():
             raise ValueError("A reviewed Greek region has no surviving reading words")
         key = page["id"]
+        source = manifest["sources"][page["source"]]
+        from scan_title_reviews import reviewed_title
+        merged, raw_review, review = reviewed_title(merged, page, source, witnesses, network_path)
+        if raw_review is not None:
+            networks[raw_review[0]] = raw_review[1]
+            decisions.append(review)
         networks[key] = merged
         compact = compact_corpus_consensus(merged, {"path": network_path, "key": key})
-        source = manifest["sources"][page["source"]]
         row = {"urn": page["work"], "edition": EDITION, "locus": locus(page),
             "source": "ocr", "license": "PD", "language": "grc",
             **compact, "scan_region_id": key,
@@ -217,6 +222,9 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
             "transmission": page.get("transmission", "direct-text")}
         if page.get("text_role"):
             row["text_role"] = page["text_role"]
+        if review is not None:
+            row["corrections"] = ["manual"]
+            row["correction_sources"] = [review["review_id"]]
         if component is not None:
             row["license"] = "CC-BY-SA-4.0"
             row["component_attribution"] = [component]
@@ -267,6 +275,8 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     network_path = str((archive / "word-networks.json.gz").relative_to(root))
     for row in [value for rows in primary.values() for value in rows] + paratext:
         key = row["scan_region_id"]
+        if "raw_ocr_network" in networks[key]["ocr_consensus"]:
+            networks[key]["ocr_consensus"]["raw_ocr_network"]["path"] = network_path
         row.update(compact_corpus_consensus(networks[key], {"path": network_path, "key": key}))
     paths = [EXTENSION_INDEX, "data/corpus_editions.json"]
     paths += [f"data/corpus/{work}.jsonl" for work in primary]
