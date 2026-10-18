@@ -425,6 +425,10 @@ and page counts; compressed word networks are hashed without rerunning OCR
 voting. The registry retains complementary primary editions, historical
 secondary witnesses, source credits, component licenses, and transmission
 qualifications in `coverage_composition`, while Work names remain unqualified.
+Successive scan admissions retain every manifest and audit, with each addition's
+reading digest verified within the consolidated extension. Conica's separately
+reviewed Book IV opening letter therefore retains its evidence when Books I–III
+are admitted in another batch.
 Run `python3 scripts/reviewed_manifestations.py --write` to refresh an existing
 registry or `--check` to verify it. Photius's new consensus includes Source
 Library CC BY-SA 4.0 readings, alongside retained PD text and separately credited

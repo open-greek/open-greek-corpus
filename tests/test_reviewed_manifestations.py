@@ -106,14 +106,15 @@ def scan_fixture(root, slug):
         {"id": "primary", "work": slug, "source": "scan"},
         {"id": "comparison", "work": slug, "source": "scan", "admission": "comparative-paratext"}]})
     extension = f"data/corpus_extensions/{slug}.jsonl"
-    extension_sha = put(root, extension, b'{"text":"opaque retained corpus network"}\n')
+    extension_sha = put(root, extension, b'{"scan_region_id": "primary", "text": "opaque retained corpus network"}\n')
     corpus = f"data/corpus/{slug}.jsonl"
     corpus_sha = put(root, corpus, b'{"text":"base"}\n{"text":"addition"}\n')
     # Only its compressed hash is needed; no decompression or voting is allowed.
     network_sha = put(root, audit_dir + "/word-networks.json.gz", b"opaque compressed network")
     put(root, audit_dir + "/changes.json", {"manifest_sha256": manifest_sha,
         "word_networks_sha256": network_sha,
-        "outputs": {extension: extension_sha, corpus: corpus_sha}, "changes": [
+        "outputs": {extension: extension_sha, corpus: corpus_sha},
+        "admitted_extensions_sha256": {slug: extension_sha}, "changes": [
             {"work": slug, "region_id": "primary", "destination": "primary"}]})
     put(root, "data/corpus_extension_index.json", {"works": {slug: {
         "path": extension, "sha256": extension_sha, "audit": audit_dir + "/changes.json",
@@ -134,8 +135,58 @@ def test_scan_unions_preserve_base_credit_and_exclude_comparison_counts(tmp_path
     assert composition["components"][0]["license"] == "CC-BY-SA-4.0"
     assert composition["components"][1]["licenses"] == ["public-domain"]
     assert composition["source_editions"][0]["citation"] == "Checked printed edition"
+    assert work.editions[slug + ".scan-consensus-2026-10-18"].license == "PD"
     (tmp_path / "data/corpus_changes/scan-example/word-networks.json.gz").write_bytes(b"changed")
     with pytest.raises(ValueError, match="evidence changed"):
+        reviewed.register_reviewed_manifestations(reg, tmp_path)
+
+
+@pytest.mark.parametrize("first", ["main", "letter"])
+def test_additive_scan_admissions_preserve_all_manifests_and_each_reading_digest(tmp_path, first):
+    slug = "apollonius-geom.conica"
+    scan_fixture(tmp_path, slug)
+    extension = f"data/corpus_extensions/{slug}.jsonl"
+    corpus = f"data/corpus/{slug}.jsonl"
+    previous_path = "data/corpus_changes/scan-example/changes.json"
+    previous = json.loads((tmp_path / previous_path).read_text())
+    original = (tmp_path / extension).read_bytes()
+    addition = {"scan_region_id": first + "-region", "text": "second unchanged reading"}
+    added_bytes = (json.dumps(addition, ensure_ascii=False) + "\n").encode()
+    extension_sha = put(tmp_path, extension, original + added_bytes)
+    corpus_sha = put(tmp_path, corpus, b'{"text":"base"}\n' + original + added_bytes)
+    directory = "data/corpus_changes/second-" + first
+    source = {"url": "https://example.org/second.pdf", "sha256": "second-scan",
+              "license": "PD", "citation": "Book IV opening letter"}
+    manifest_sha = put(tmp_path, directory + "/manifest.json", {"sources": {"second": source},
+        "pages": [{"id": addition["scan_region_id"], "work": slug, "source": "second"}]})
+    network_sha = put(tmp_path, directory + "/word-networks.json.gz", b"second immutable network")
+    latest = directory + "/changes.json"
+    audit = {"manifest_sha256": manifest_sha, "word_networks_sha256": network_sha,
+        "outputs": {extension: extension_sha, corpus: corpus_sha},
+        "admitted_extensions_sha256": {slug: hashlib.sha256(added_bytes).hexdigest()},
+        "changes": [{"work": slug, "region_id": addition["scan_region_id"], "destination": "primary"}]}
+    put(tmp_path, latest, audit)
+    entry = {"path": extension, "sha256": extension_sha, "audit": latest,
+        "audits": [previous_path, latest], "edition": "scan-consensus-2026-10-18"}
+    put(tmp_path, "data/corpus_extension_index.json", {"works": {slug: entry}})
+    reg = registry(slug)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    composition = reg.works[slug].coverage_composition
+    assert composition["added_primary_regions"] == 2
+    assert composition["base_passages"] == 1
+    assert composition["comparative_regions"] == 1
+    assert [a["path"] for a in composition["admission_audits"]] == [previous_path, latest]
+    assert len(composition["scan_manifests"]) == len(composition["source_editions"]) == 2
+    assert reg.works[slug].default_edition == slug + ".base"
+    # Old whole-file hashes describe the earlier admission, not consolidation.
+    assert previous["outputs"][extension] != extension_sha
+    # Updating the current index cannot conceal a changed earlier reading.
+    changed = original.replace(b"opaque retained", b"changed retained") + added_bytes
+    entry["sha256"] = put(tmp_path, extension, changed)
+    audit["outputs"][extension] = entry["sha256"]
+    put(tmp_path, latest, audit)
+    put(tmp_path, "data/corpus_extension_index.json", {"works": {slug: entry}})
+    with pytest.raises(ValueError, match="readings changed after consolidation"):
         reviewed.register_reviewed_manifestations(reg, tmp_path)
 
 

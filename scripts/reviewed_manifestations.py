@@ -23,7 +23,7 @@ MUSICAL_IDENTITIES = {
 }
 SCAN_WORKS = {
     "pappus-mathematics.synagoge": ("Hultsch", "Books II–V", "Books VI–VIII"),
-    "apollonius-geom.conica": ("Heiberg", "Book IV", "Books I–III"),
+    "apollonius-geom.conica": ("Heiberg", "Book IV", "Books I–III and the opening letter of Book IV"),
     "cassius-dio.historiae-romanae": ("Cary", "Books 36–55 through 55.9.4", "Early fragments and remaining Greek transmission"),
 }
 
@@ -178,49 +178,102 @@ def _scan_extensions(root):
         if slug not in SCAN_WORKS:
             continue
         extension = _verify(root, entry["path"], entry["sha256"])
-        audit_path = _path(root, entry["audit"])
-        audit = _load(audit_path)
-        if audit.get("word_networks_sha256"):
-            _verify(root, str((audit_path.parent / "word-networks.json.gz").relative_to(root)), audit["word_networks_sha256"])
-        manifest_path = audit_path.parent / "manifest.json"
-        if _sha(manifest_path) != audit["manifest_sha256"]:
-            raise ValueError("Reviewed scan manifest changed")
-        manifest = _load(manifest_path)
+        audit_refs = entry.get("audits", [entry["audit"]])
+        if not audit_refs or len(set(audit_refs)) != len(audit_refs) or audit_refs[-1] != entry["audit"]:
+            raise ValueError("Reviewed scan admission audit sequence changed")
         primary_path = f"data/corpus/{slug}.jsonl"
-        primary = _verify(root, primary_path, audit["outputs"][primary_path])
-        _verify(root, entry["path"], audit["outputs"][entry["path"]])
-        selected = [p for p in manifest["pages"] if p["work"] == slug]
-        pages = [p for p in selected if p.get("admission") != "comparative-paratext"]
-        decisions = [d for d in audit["changes"] if d["work"] == slug and d["destination"] == "primary"]
-        if {d["region_id"] for d in decisions} != {p["id"] for p in pages} or _count(extension) != len(pages):
+        primary = root / primary_path
+        pages, selected, sources_by_id, all_digital = {}, {}, {}, {}
+        audit_records, manifest_records, admission_regions = [], [], []
+        digital_counts = Counter()
+        for relative in audit_refs:
+            audit_path = _path(root, relative)
+            audit = _load(audit_path)
+            if audit.get("word_networks_sha256"):
+                _verify(root, str((audit_path.parent / "word-networks.json.gz").relative_to(root)), audit["word_networks_sha256"])
+            manifest_path = audit_path.parent / "manifest.json"
+            if _sha(manifest_path) != audit["manifest_sha256"]:
+                raise ValueError("Reviewed scan manifest changed")
+            manifest = _load(manifest_path)
+            work_pages = [p for p in manifest["pages"] if p["work"] == slug]
+            admitted = [p for p in work_pages if p.get("admission") != "comparative-paratext"]
+            ids = {p["id"] for p in admitted}
+            decisions = [d for d in audit["changes"] if d["work"] == slug and d["destination"] == "primary"]
+            if len(ids) != len(admitted) or len(decisions) != len(ids) or {d["region_id"] for d in decisions} != ids:
+                raise ValueError("Reviewed scan admission lacks its complete primary region set")
+            if set(pages) & ids:
+                raise ValueError("Reviewed scan admissions repeat a primary region")
+            pages.update((p["id"], p) for p in admitted)
+            for page in work_pages:
+                if page["id"] in selected and selected[page["id"]] != page:
+                    raise ValueError("Reviewed scan region identity changed between admissions")
+                selected[page["id"]] = page
+                source = {"id": page["source"], **manifest["sources"][page["source"]]}
+                if source["id"] in sources_by_id and sources_by_id[source["id"]] != source:
+                    raise ValueError("Reviewed source identity changed between admissions")
+                sources_by_id[source["id"]] = source
+            for identifier, component in audit.get("digital_sources", {}).items():
+                if identifier in all_digital and all_digital[identifier] != component:
+                    raise ValueError("Reviewed digital source identity changed between admissions")
+                all_digital[identifier] = component
+                _verify_compressed_source(root, str((audit_path.parent / ("digital-" + identifier + ".json.gz")).relative_to(root)), component["json_sha256"])
+            digital_counts.update(decision["status"] for change in audit["changes"] if change["work"] == slug
+                for decision in change.get("decisions", []) if decision.get("generator") == "scripts/bound_comparison_witness.py")
+            audit_records.append({"path": relative, "sha256": _sha(audit_path),
+                "primary_regions": len(ids), "comparative_regions": len(work_pages) - len(ids)})
+            manifest_records.append({"path": str(manifest_path.relative_to(root)), "sha256": audit["manifest_sha256"]})
+            admission_regions.append((ids, audit.get("admitted_extensions_sha256", {}).get(slug)))
+            if relative == entry["audit"]:
+                # Earlier audits describe their then-current corpus. Only the
+                # latest audit hashes the complete consolidated primary files.
+                _verify(root, primary_path, audit["outputs"][primary_path])
+                _verify(root, entry["path"], audit["outputs"][entry["path"]])
+        active_ids, admission_digests = set(), [hashlib.sha256() for _ in admission_regions]
+        with extension.open(encoding="utf-8") as stream:
+            for line in stream:
+                if not line.strip():
+                    continue
+                row = json.loads(line)
+                identifier = row.get("scan_region_id")
+                if identifier not in pages or identifier in active_ids:
+                    raise ValueError("Reviewed scan extension region set changed")
+                active_ids.add(identifier)
+                for (ids, _), digest in zip(admission_regions, admission_digests):
+                    if identifier in ids:
+                        digest.update((json.dumps(row, ensure_ascii=False) + "\n").encode())
+        if active_ids != set(pages):
             raise ValueError("Reviewed scan admission lacks its complete primary region set")
-        sources = [{"id": key, **manifest["sources"][key]} for key in sorted({p["source"] for p in selected})]
+        for (_, expected), digest in zip(admission_regions, admission_digests):
+            if expected and expected != digest.hexdigest():
+                raise ValueError("Reviewed scan admission readings changed after consolidation")
+        sources = [sources_by_id[key] for key in sorted(sources_by_id)]
         digital = entry.get("digital_components", [])
-        all_digital = audit.get("digital_sources", {})
         for component in digital:
             if all_digital.get(component["id"]) != component:
                 raise ValueError("Participating digital-source credits changed outside the admission audit")
-        for identifier, component in all_digital.items():
-            _verify_compressed_source(root, str((audit_path.parent / ("digital-" + identifier + ".json.gz")).relative_to(root)), component["json_sha256"])
         licenses = sorted({source["license"] for source in sources} | {component["license"] for component in digital})
+        public_domain = {"PD", "public-domain", "CC0/PD"}
+        edition_license = "PD" if set(licenses) <= public_domain else "; ".join(licenses)
+        if any(c["license"] == "CC-BY-SA-4.0" for c in digital):
+            edition_license = "CC-BY-SA-4.0"
         editor, base_scope, added_scope = SCAN_WORKS[slug]
         edition = _edition(entry["edition"], f"{editor}, reviewed Greek scan additions ({added_scope})",
             scheme="volume.printed-page" if editor == "Cary" else "book.printed-page",
-            source="; ".join(source["url"] for source in sources),
-            license="CC-BY-SA-4.0" if any(c["license"] == "CC-BY-SA-4.0" for c in digital) else "; ".join(licenses), editor=editor,
+            source="; ".join(source["url"] for source in sources), license=edition_license, editor=editor,
             note="Complements the existing primary edition; comparison quotations and modern apparatus are separate.")
         witness_editions = [_edition("source-library-" + component["id"].split(".")[-1],
             f"Source Library, Cary volume {component['volume']}, bounded comparison witness",
             provider="greek_library", source=component["url"], license=component["license"], storage="audit", servable=False,
             note="Only independently bounded same-scan Greek body readings participate. Full credits, rights statements, and separate API notices remain in the admission audit.") for component in digital]
         output[slug] = {"editions": [edition, *witness_editions], "base_note": "Retained base edition: " + base_scope + ". Reviewed scan additions are complementary primary regions.", "coverage_composition": {
-            "policy": "reviewed-primary-region-union", "manifest": entry["audit"], "manifest_sha256": _sha(audit_path),
-            "scan_manifest": str(manifest_path.relative_to(root)), "scan_manifest_sha256": audit["manifest_sha256"],
+            "policy": "reviewed-primary-region-union", "manifest": entry["audit"], "manifest_sha256": audit_records[-1]["sha256"],
+            "scan_manifest": manifest_records[-1]["path"], "scan_manifest_sha256": manifest_records[-1]["sha256"],
+            "scan_manifests": manifest_records, "admission_audits": audit_records,
             "base_scope": base_scope, "addition_scope": added_scope,
             "base_passages": _count(primary) - len(pages), "added_primary_regions": len(pages),
             "comparative_regions": len(selected) - len(pages), "source_editions": sources,
             "digital_components": digital, "comparison_sources": all_digital,
-            "digital_comparison_counts": audit.get("digital_comparison_counts", {}),
+            "digital_comparison_counts": dict(digital_counts),
             "components": [{"edition": entry["edition"], "storage": "primary", "passages": len(pages),
                 "licenses": licenses}],
             "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. " +
