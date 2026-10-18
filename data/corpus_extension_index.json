@@ -1,0 +1,26 @@
+{
+ "schema_version": 1,
+ "works": {
+  "apollonius-geom.conica": {
+   "path": "data/corpus_extensions/apollonius-geom.conica.jsonl",
+   "sha256": "4fe6b3b19cafb2ec5b433a5e7e25068f324d9117fd8fedf6c96d800355d81855",
+   "audit": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+   "audits": [
+    "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+    "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json"
+   ],
+   "edition": "scan-consensus-2026-10-18",
+   "base_readings_sha256": "5a4b8c339fc4ae39bfed8d87d70ea1f5f6ffc893eaf13ee5d1999e32fee000e1"
+  },
+  "pappus-mathematics.synagoge": {
+   "path": "data/corpus_extensions/pappus-mathematics.synagoge.jsonl",
+   "sha256": "26e1d38e4df545fe4d6bff7daf97011e70a5d84c047c671b47186aa56311a741",
+   "audit": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+   "audits": [
+    "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json"
+   ],
+   "edition": "scan-consensus-2026-10-18",
+   "base_readings_sha256": "e8a1b48a03b0c58e990aecec6d75ec49a491b35ead4f098cb21eb8bde34dc625"
+  }
+ }
+}

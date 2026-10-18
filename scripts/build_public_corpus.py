@@ -22,7 +22,8 @@ Outputs (under data/):
                          nonlexical marked forms kept out of the lexicon
   public_elision_stem_candidates.tsv
                          bare/marked form pairs needing lemma-level review
-  coverage.json          per work urn: source, license, tokens, passages
+  coverage.json          per work urn: source, license, inclusive tokens,
+                         analysis_tokens, passages
 
   python build_public_corpus.py      # run AFTER the ingesters populate data/corpus
 """
@@ -36,6 +37,7 @@ import sys
 import unicodedata
 from collections import Counter, defaultdict
 from pathlib import Path
+from frequency_projection import FrequencyProjection
 
 import lxml.etree as ET
 
@@ -315,6 +317,7 @@ def public_elision_stem_candidates(lex: Counter[str]) -> list[tuple[str, int, st
 
 
 def main() -> None:
+    frequency = FrequencyProjection(DATA)
     files = sorted(CORPUS.glob("*.jsonl"))
     if not files:
         sys.exit(f"no ingested corpus in {CORPUS} - run the ingesters first "
@@ -390,7 +393,7 @@ def main() -> None:
 
     lex: Counter[str] = Counter()
     lex_exclusions: Counter[tuple[str, str]] = Counter()
-    coverage: dict[str, dict] = {}      # work urn -> {source, license, tokens, passages}
+    coverage: dict[str, dict] = {}      # inclusive surface and eligible analysis counts
     for i, fp in enumerate(files):
         # An excluded work still contributes its rows that the keeper does NOT
         # carry (unique fragments of a variant edition), just not the shared
@@ -407,7 +410,8 @@ def main() -> None:
                     continue
                 rec = json.loads(line)
                 text = rec.get("text", "")
-                toks, exclusions = public_lexicon_tokenization(text)
+                analysis_text = frequency.text(rec)
+                toks, exclusions = public_lexicon_tokenization(analysis_text)
                 if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
                         and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
                     excluded_shared += 1          # shared with keeper: don't recount
@@ -417,12 +421,16 @@ def main() -> None:
                 key = rec.get("urn") or fp.stem
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
-                          "license": rec.get("license"), "tokens": 0, "passages": 0})
+                          "license": rec.get("license"), "tokens": 0,
+                          "analysis_tokens": 0, "sources": set(), "passages": 0})
+                if rec.get("source"):
+                    cov["sources"].add(rec["source"])
                 # coverage.json is the inclusive corpus-count metric.  The
                 # public lexicon is intentionally stricter about bare marks and
                 # detached elision stems, so its token list is not the coverage
                 # accounting unit.
                 cov["tokens"] += len(_GK.findall(text))
+                cov["analysis_tokens"] += len(_GK.findall(analysis_text))
                 cov["passages"] += 1
         if keeper and fp.stem in coverage:
             coverage[fp.stem]["lexicon_dedup"] = {
@@ -445,11 +453,15 @@ def main() -> None:
         for bare, bare_count, marked, marked_count in public_elision_stem_candidates(lex):
             ratio = marked_count / bare_count
             f.write(f"{bare}\t{bare_count}\t{marked}\t{marked_count}\t{ratio:.2f}\tyes\n")
+    for cov in coverage.values():
+        cov["sources"] = sorted(cov["sources"])
     (DATA / "coverage.json").write_text(
         json.dumps(coverage, ensure_ascii=False, indent=0, sort_keys=True))
 
     total_tokens = sum(v["tokens"] for v in coverage.values())
-    print(f"\nworks: {len(coverage)} | total Greek tokens: {total_tokens:,}",
+    analysis_tokens = sum(v["analysis_tokens"] for v in coverage.values())
+    print(f"\nworks: {len(coverage)} | Greek surface tokens: {total_tokens:,} | "
+          f"eligible Greek tokens: {analysis_tokens:,}",
           file=sys.stderr)
     print(f"distinct forms: {len(lex):,}", file=sys.stderr)
     bysource = defaultdict(int)

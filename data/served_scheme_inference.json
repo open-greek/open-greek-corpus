@@ -1,13 +1,14 @@
 {
  "_meta": {
   "by_class": {
-   "edition-prefixed": 987,
+   "edition-prefixed": 986,
    "logical-numeric": 2614,
-   "mixed": 309
+   "mixed": 310,
+   "physical": 1
   },
   "dominance": 0.9,
   "what": "Classify every served work's loci and infer a citation scheme where the",
-  "works": 3910
+  "works": 3911
  },
  "works": {
   "abas.fragmenta": {
@@ -3007,6 +3008,17 @@
    ],
    "scheme": "ref.sub"
   },
+  "anonymous.p-herc-1026": {
+   "basis": "declared EpiDoc physical textparts and line breaks",
+   "class": "physical",
+   "depth": 2,
+   "sample": [
+    "1.1",
+    "1.2",
+    "1.3"
+   ],
+   "scheme": "column.line"
+  },
   "anonymus-ad-avircium-marcellum-contra-cataphrygas.ad-avircium-marcellum-contra-cataphrygas": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
@@ -3633,13 +3645,13 @@
   "apollonius-geom.conica": {
    "basis": "generic (canon scheme absent or depth mismatch)",
    "class": "logical-numeric",
-   "depth": 1,
+   "depth": 2,
    "sample": [
-    "1",
-    "2",
-    "3"
+    "4.heiberg-p0002",
+    "4.heiberg-p0004",
+    "4.1"
    ],
-   "scheme": "ref"
+   "scheme": "ref.sub"
   },
   "apollonius-philosophy.apollonii-epistulae-dub": {
    "class": "edition-prefixed",
@@ -9625,11 +9637,11 @@
    ]
   },
   "cyrillus-theology.commentarii-in-joannem": {
-   "class": "edition-prefixed",
+   "class": "mixed",
    "sample": [
-    "pg074_0007.1",
-    "pg074_0007.2",
-    "pg074_0007.3"
+    "PG073.10",
+    "PG073.11",
+    "PG073.12"
    ]
   },
   "cyrillus-theology.commentarii-in-lucam-in-catenis": {
@@ -27719,9 +27731,9 @@
    "class": "logical-numeric",
    "depth": 2,
    "sample": [
-    "1.1",
-    "1.2",
-    "1.3"
+    "2.1",
+    "2.2",
+    "2.3"
    ],
    "scheme": "ref.sub"
   },

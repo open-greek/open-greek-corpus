@@ -5,7 +5,7 @@
   "cases": [
     {
       "slug": "photius.bibliotheca",
-      "status": "partial-scan-and-paratext-review",
+      "status": "open-coverage-work",
       "source_scan": "https://archive.org/details/bub_gb_NsiGxvHyQY0C",
       "evidence": [
         "The served incipit matches codex 230 (Eulogius), Bekker printed page 267, in the independently checked combined-volume scan. Earlier codices are absent from the served file.",
@@ -19,16 +19,28 @@
         268
       ],
       "issue": "https://github.com/open-greek/open-greek-corpus/issues/41",
-      "corpus_file_sha256": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68",
+      "historical_status": "partial-scan-and-paratext-review",
+      "resolution": {
+        "complete": false,
+        "status": "open-coverage-work",
+        "reason": "The complete Bekker authorial page-range admission has not been applied.",
+        "publication": {
+          "declared_release": "corpus-2026-10-18",
+          "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+          "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+        }
+      },
+      "corpus_file_sha256": "2682bb8db6d2ca096f4d8fb204ccafe49d1b086b4626ee4f4a7c27abd5c114d8",
       "edition": {
         "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
         "id": "ogc002810",
         "license": "PD",
-        "n_passages": 4347,
-        "n_tokens": 153431,
+        "n_analysis_tokens": 152796,
+        "n_passages": 3846,
+        "n_tokens": 152028,
         "source": "ocr"
       },
-      "passages": 4347,
+      "passages": 3846,
       "opening": [
         {
           "urn": "photius.bibliotheca",
@@ -63,28 +75,28 @@
           "urn": "photius.bibliotheca",
           "cts": "urn:cts:greekLit:tlg4040.tlg001",
           "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-          "locus": "helladius_chrestomathia_photius_bekker_v2_0318.9",
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.26",
           "source": "ocr",
           "license": "PD",
-          "text": "Ζεύς ἀναιρέτης 138 b 22."
+          "text": "ἐνύμνησιν ἤλθεῖν συντηρήθη, χωρὶς ὧν ἡ σποδὴ ἡ μὴς αὐθῆσις ἡμῖν ἀμψύχη ἡ κρίσις λόγων ἀνεφύη μέγιστος, εἰς τοσούτον οἶμαι συναγεῖν πλήθος, τριακο-σιος τριακοσίων κυλινδόμενον. σὺ δ’ ὡ τῶν ἐμοὶ πειπειωτητῆν πρεσβείαν διαποῦντα τὸ ποιητὸν ἡ ἀνθρώπινον κα-αρτῆσαν, φιλίας τε ἄμα ἡ παραμυθίας ὑπόθεσιν καὶ τῶν σῶν κατὰ λογικὴν θεωρίαν αἰτήσεων τὴν ἐκπλήκαὶ φιλάνθρωπον νεῦμα εἰς τὴν ἀλλήλων θέαν καὶ σο-φώδεων ἐκ ἐλαττόνων ἀρχὴ ταῦτα εἴη, παραπλησίω"
         },
         {
           "urn": "photius.bibliotheca",
           "cts": "urn:cts:greekLit:tlg4040.tlg001",
           "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-          "locus": "helladius_chrestomathia_photius_bekker_v2_0318.10",
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.27",
           "source": "ocr",
           "license": "PD",
-          "text": "Ζωῦσαμ ἀρχηγὸς ναύων 63 b 38."
+          "text": "δόξα εἰς αἰῶνας αἰώνων. Ἀμήν."
         },
         {
           "urn": "photius.bibliotheca",
           "cts": "urn:cts:greekLit:tlg4040.tlg001",
           "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-          "locus": "helladius_chrestomathia_photius_bekker_v2_0318.11",
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.28",
           "source": "ocr",
           "license": "PD",
-          "text": "Ὀνυμὸς 144 b 6."
+          "text": "GIL. malim διανίστα."
         }
       ],
       "locus_prefixes": {
@@ -323,51 +335,13 @@
         "helladius_chrestomathia_photius_bekker_v2_0277": 5,
         "helladius_chrestomathia_photius_bekker_v2_0278": 4,
         "helladius_chrestomathia_photius_bekker_v2_0279": 5,
-        "helladius_chrestomathia_photius_bekker_v2_0280": 28,
-        "helladius_chrestomathia_photius_bekker_v2_0281": 10,
-        "helladius_chrestomathia_photius_bekker_v2_0282": 17,
-        "helladius_chrestomathia_photius_bekker_v2_0283": 9,
-        "helladius_chrestomathia_photius_bekker_v2_0284": 4,
-        "helladius_chrestomathia_photius_bekker_v2_0285": 13,
-        "helladius_chrestomathia_photius_bekker_v2_0286": 9,
-        "helladius_chrestomathia_photius_bekker_v2_0287": 5,
-        "helladius_chrestomathia_photius_bekker_v2_0288": 12,
-        "helladius_chrestomathia_photius_bekker_v2_0289": 21,
-        "helladius_chrestomathia_photius_bekker_v2_0290": 9,
-        "helladius_chrestomathia_photius_bekker_v2_0291": 14,
-        "helladius_chrestomathia_photius_bekker_v2_0292": 24,
-        "helladius_chrestomathia_photius_bekker_v2_0293": 24,
-        "helladius_chrestomathia_photius_bekker_v2_0294": 18,
-        "helladius_chrestomathia_photius_bekker_v2_0295": 6,
-        "helladius_chrestomathia_photius_bekker_v2_0296": 13,
-        "helladius_chrestomathia_photius_bekker_v2_0297": 11,
-        "helladius_chrestomathia_photius_bekker_v2_0298": 24,
-        "helladius_chrestomathia_photius_bekker_v2_0299": 11,
-        "helladius_chrestomathia_photius_bekker_v2_0300": 11,
-        "helladius_chrestomathia_photius_bekker_v2_0301": 14,
-        "helladius_chrestomathia_photius_bekker_v2_0302": 9,
-        "helladius_chrestomathia_photius_bekker_v2_0303": 12,
-        "helladius_chrestomathia_photius_bekker_v2_0304": 14,
-        "helladius_chrestomathia_photius_bekker_v2_0305": 16,
-        "helladius_chrestomathia_photius_bekker_v2_0306": 6,
-        "helladius_chrestomathia_photius_bekker_v2_0307": 10,
-        "helladius_chrestomathia_photius_bekker_v2_0308": 12,
-        "helladius_chrestomathia_photius_bekker_v2_0309": 8,
-        "helladius_chrestomathia_photius_bekker_v2_0310": 22,
-        "helladius_chrestomathia_photius_bekker_v2_0311": 14,
-        "helladius_chrestomathia_photius_bekker_v2_0312": 10,
-        "helladius_chrestomathia_photius_bekker_v2_0313": 14,
-        "helladius_chrestomathia_photius_bekker_v2_0314": 10,
-        "helladius_chrestomathia_photius_bekker_v2_0315": 27,
-        "helladius_chrestomathia_photius_bekker_v2_0316": 14,
-        "helladius_chrestomathia_photius_bekker_v2_0317": 13,
-        "helladius_chrestomathia_photius_bekker_v2_0318": 11
+        "helladius_chrestomathia_photius_bekker_v2_0280": 28
       },
       "book_headings": []
     },
     {
       "slug": "cyrillus-theology.commentarii-in-joannem",
-      "status": "partial-volume",
+      "status": "coverage-repaired-with-transmission-qualification",
       "source_scan": "https://archive.org/details/Patrologia_Graeca_vol_073",
       "evidence": [
         "Every served page locus comes from PG 74; PG 73 is absent.",
@@ -375,40 +349,84 @@
         "The first four served rows are volume title-page text. These are paratext and need a reversible upstream repair."
       ],
       "issue": "https://github.com/open-greek/open-greek-corpus/issues/42",
-      "corpus_file_sha256": "b21757e5ce20209046ea548b25f1ffbaf31bb2666835657a4180a831d9e1a10e",
-      "edition": {
-        "edition": "migne-ocr-qwen36",
-        "id": "ogc000940",
-        "license": "PD",
-        "n_passages": 3056,
-        "n_tokens": 178539,
-        "source": "ocr"
+      "historical_status": "partial-volume",
+      "resolution": {
+        "complete": true,
+        "status": "coverage-repaired-with-transmission-qualification",
+        "qualification": "The complementary PG 73 and PG 74 commentary material is represented, including three missing PG 74 leaves. Volume title matter is separate paratext, and Acts/Romans readings retain their distinct work identities. Books VII and VIII survive as fragments in this edition; no lost continuous text is reconstructed. The PG 73 witness remains identified as Calfa OCR rather than corrected text.",
+        "admission_audit": {
+          "path": "data/corpus_changes/cyril-john-coverage/changes.json",
+          "sha256": "eae8819aa1a74751a23e3c263854a2a506ab2d0c53a8b930c114b44f05354ac3"
+        },
+        "counts": {
+          "added_pg73": 528,
+          "retained_pg74_john": 2578,
+          "added_pg74_missing_leaves": 3,
+          "title_paratext": 4,
+          "held_other_works": 474
+        },
+        "publication": {
+          "declared_release": "corpus-2026-10-18",
+          "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+          "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+        }
       },
-      "passages": 3056,
+      "corpus_file_sha256": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
+      "edition": {
+        "edition": "calfa-pg73-5895ab908dd4",
+        "id": "ogc000940",
+        "license": "CC-BY-4.0",
+        "n_analysis_tokens": 392251,
+        "n_passages": 3109,
+        "n_tokens": 392203,
+        "source": "cgpg"
+      },
+      "passages": 3109,
       "opening": [
         {
           "urn": "cyrillus-theology.commentarii-in-joannem",
-          "source": "ocr",
-          "license": "PD",
-          "edition": "migne-ocr-qwen36",
-          "locus": "pg074_0007.1",
-          "text": "ΤΟΥ ΕΝ ΑΓΙΟΙΣ ΠΑΤΡΟΣ ΗΜΩΝ"
+          "cts": "urn:cts:greekLit:tlg4090.tlg002",
+          "edition": "calfa-pg73-5895ab908dd4",
+          "source": "cgpg",
+          "license": "CC-BY-4.0",
+          "locus": "PG073.10",
+          "text": "ΚΥΡΙΛΛΟΥ ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΧΑΝΔΡΕΙΑΣ ΠΡΟΟΙΜΙΟΝ. «Κύριος δώσει ῥῆμα τοῖς εὐαγγελιζομένοις δυνάμει τολλῆ,» καλῶς γε σφόδρα ποιῶν ὁ Μελῳδὸς ἀναφθέγγεται. Χρῆναι δὲ οἷμαι πρὸς τοῦτο βαδίζειν, οὐ τοὺς τυχόντας ἁπλῶς, ἀλλὰ τοὺς διὰ τῆς ἄνωθεν πεφωτισμένους χάριτος· ἐπεὶ καὶ «Πᾶσα σοφία παρὰ Κυρίου,» καθὰ γέγραπται, «καὶ πᾶσα δὲ δόσις ἀγαθὴ, καὶ πᾶν δώρημα τέλειον, ἄνωθέν ἐστι καταβαῖνον παρὰ τοῦ Πατρὸς τῶν φώτων.» Πρᾶγμα μὲν γὰρ σφαλερόν τε, καὶ οὐκ ἀζήμιον τοῖς πολλοῖς, ὁ περὶ τῆς ἀνωτάτω πασῶν οὐσίας καὶ τῶν κατ´ αὐτὴν μυστηρίων ὁρᾶται λόγος· χρῆμα δέ τι κινδύνων ἀπηλλαγμένον, ἡ ἐπὶ τούτοις σιγή· ἀλλ´ ἐξίστησι μὲν ταύτης ἡμᾶς, καίτοι λίαν ἢ προσήκει τιμᾶν οἰομένους, ὁ ἐπὶ πάντων Θεὸς, «Λάλει, καὶ μὴ σιώπα,» πρός τινα τῶν ἁγίων εἰπών. Παῦλος δὲ οὗτος ἦν· καὶ ἡ νομικὴ δὲ οὐδὲν ἦττον διάταξις, ὡς ἐν τύπῳ παχυτέρῳ τὰ πνευματικὰ σημαίνουσα. Τοὺς μὲν γὰρ πρὸς τὴν θείαν κεκλημένους ἱερωσύνην, τοῖς διὰ σαλπίγγων ἀπηχήμασι κατασημαίνειν τῷ λαῷ περὶ ὧν ἂυ δεήση μαθεῖν, ἐπιτάττει· οὐ γὰρ, οἷμαι, δεῖν ἐλογίζετο, νομοθετήσειν τὰ κάλλιστα Θεὸς ἐθελήσας, τοὺς τῶν λαῶν ἡγεμόνας χεῖρα θέντας ἐπὶ στόματι, κατὶ τὸ γεγραμμένον, ὄκνῳ τε τοῦ μὴ δοκεῖν τοῖς ὑψηλοτέροις, ἢ κατὰ νοῦν τὸν ἀνθρώπινον, ῥιψοκινδύνως ἐπιχειρεῖν, τὸν οὕτως ἀναγκαῖον τοῖς εὐλάβειάν τε καὶ θεογνωσίαν παιδαγωγουμένοις παραιτεῖσθαι λόΡΑτΙο. . ΓΧΧΗΙ. ΡΙκΟΩΜΙΙΜ.",
+          "source_location": {
+            "volume": "PG073",
+            "marker_page": "10",
+            "start_line": "1"
+          },
+          "evidence": "data/corpus_changes/cyril-john-coverage/changes.json"
         },
         {
           "urn": "cyrillus-theology.commentarii-in-joannem",
-          "source": "ocr",
-          "license": "PD",
-          "edition": "migne-ocr-qwen36",
-          "locus": "pg074_0007.2",
-          "text": "ΚΥΡΙΛΛΟΥ"
+          "cts": "urn:cts:greekLit:tlg4090.tlg002",
+          "edition": "calfa-pg73-5895ab908dd4",
+          "source": "cgpg",
+          "license": "CC-BY-4.0",
+          "locus": "PG073.11",
+          "text": "γον, καὶ σιωπὴν τοῖς εἰς μαθητείαν ἰοῦσιν ἑλέσθαι τὴν ἐπιζήμιον. Θορυβεῖ δὲ πάλιν ἡμᾶς, τΜὴ πολλοὶ διδάσκαλοι γίνεσθε,» λέγων ὁ Χριστοῦ μαθητής· ἔτι τε πρὸς τούτῳ, καὶ ὁ σοφώτατος Ἐκκλησιαστὴς, αἰνιγματωδῶς τὴν ἐπὶ τῷ τὰ τοιαῦτα διδάσκειν σφαλερότητα δεικνύς· Σχίζων γὰρ ξύλα, φησὶ, κινδυνεύσει ἐν αὐτοῖς, ἐὰν ἐκπέσῃ τὸ σιδήριον, καὶ αὐτὸς πρόσωπα ἐτάραξε, καὶ δυνάμεις δυναμεύσει·» σιδηρίῳ μὲν γὰρ παρεικάζει τοῦ νοῦ τὴν ὀξύτητα, ἅτε δὴ διικνεῖσθαι πεφυκότος, εἰσδύνοντός τε πρὸς τὰ ἐσώτατα, κἂν πυκνότητί πως καὶ τῷ νενασμένῳ της ὕλης διακωλύοιτο· ξύλα δὲ πάλιν τροπικώτερον ἀποκαλεῖ τὰ ἐν τῇ θεοπνεύστῳ Γραφῇ θεωρήματα, παράδεισόν τινα νοητὸν τὰς αἷς ἐντέθεινται βίβλοις κατασκευάζοντα. ἔτι τε πρὸς τούτῳ καὶ τὴν τοῦ ἀνίου Πνεύματος καρποφορίαν ὡδίνοντα. Τὰ τοίνυν ξύλα τὰ νοητὰ, τοῦτ´ ἔστι, τὰ θεῖά τε καὶ μυστικὰ θεωρήματα τῆς θεοπνεύστου Γραφῆς, διὰ τῆς ἐρεύνης καὶ ἀκριβεστάτης τοῦ νοῦ προσβολῆς τε καὶ ὀξύτησπος διαπτύσσειν πειρώμενος, κινδυνεύσει δὲ τότε μάλιστα, φησὶν, ὅτ´ ἂν ἐκπέση τὸ σιδήριον, τοῦτ´ ἔστιν, ὅτ´ ἂν μὴ κατὰ τῆς ἀληθοῦς διανοίας τῶν γεγραμμένων ὁ νοῦς ἐνεχθεὶς γένηται τῆς ὀρθῆς διαλήψεως, καὶ τὴν εὐθεῖαν ὥσπερ ἀφεὶς, ἐφ´ ἑτέραν τινὰ φέρηται θεωρίας ὁδὸν ἐκτετραμμένην τοῦ πρέποντος. Ὃ δὴ καὶ παθὼν ἐν..... μὲν καταστήσει τὸ οἰκεῖον τῆς ψυχῆς, τοῦτ´ ἔστι, τὴν καρδίαν, δυναμώσει δὲ καθ´ ἑαυτοῦ, καὶ τὰς πονηράς τε καὶ ἀντικειμένας δυνάμεις.... ροῖς τε καὶ διεστραμμένοις κατασοφίζονται λόγοις τῶν πλανωμένων τὸν νοῦν...... τὸ τῆς ἀληθείας κάλλος αὐτὸν ἀναβλέπειν οὐκ ἐπιτρέπουσαι, διαστρέφουσαι δὲ ποικίλως, καὶ εἰς ἐκτόπους ἐννοίας ἀποφοιτᾷν ἀναπείθουσαι· «Λέγει γὰρ οὐδεὶς ἀνάθεμα Ἰησοῦ, εἰ μὴ ἐν Βεελζεβούλ. » Καὶ μή τις οἱέσθω πεπλανημένην.... καὶ Ἐλλως ἐκ παραλογισμοῦ ποιεῖσθαι τὴν ἐπὶ τούτοις ἐξήγησιν· ξύλα ὀνομάζειν ἔθος τῇ θείᾳ Γραφῇ, καθάπερ ἤδη προείπομεν, τὰ ἐν ταῖς θεοπνεύστοις Γραφαῖς θεωρήματα. Καὶ γοῦν διὰ τοῦ πανσόφου Μωσέως πρὸς τοὺς κατ´ ἐκεῖνο καιροῦ τοιοῦτόν τί φησιν ὁ ἐπὶ πάντων Θεός· «Ἐὰν δὲ περικαθίσῃς εἰς πόλιν ἡμέρας πλείους ἐκπολεμῆσαι αὐτὴν εἰς κατάληψιν αὐτῆς, οὐκ ἐξολοθρεύσεις τὰ δένδρα αὐτῆς ἐπιβαλεῖν ἐπ´ αὐτὰ σίδηρον, ἀλλ´ ἀπ´ αὐτοῦ φάγῃ, αὐτὸ δὲ οὐκ ἐκκόψεις,· Μὴ ἄνθρωπος τὸ ξύλον τὸ ἐν τῷ δρυμῳ, εἰσελθεῖν ἀπὸ προσώπου σου εἰς τὸν χάρακα; Ἀλλὰ αὸ ἔύλον. ὃ ἐπίστασαι, ὅτι οὐ καρπόβρωτόν ἐστι, τοῦτο ἐξολοθρεύσεις, καὶ ἐκκόψεις.» Ὅτι δὲ ἡμῖν τὰ τοιαῦτα νομοθετεῖν, εἰ περὶ ξύλων τῶν ἀπὸ γῆς νοοῖτο στὸ εἰρημένον, οὐκ ἂν ὁ τῶν ὅλων ἠξίωσε Θεὸς, παντὶ μέν που δῆλον ὑπάρχειν ὑπολαμβάνω· χρῆναι δ´ οὖπ ᾶιως οῃμὶ, καὶ ἐξ ἑτέρας ἐπιδεικνύειν ἐντολῆς, πολ´ τῶν τοιούτων ἀφειδήσαντα, καὶ λόγον οὐδένα πεποιη. μένον. Τί γὰρ δὴ καὶ ἐπιτάττει πάλιν ἐπὶ τοῖς ψευδωνύμοις γενέσθαι θεοῖς; «Τοὺς βωμοὺς αὐτῶν καθελεῖτε, φησί, καὶ τὰς στήλας αὐτῶν συντρίψετε, καὶ τὰ ἄλση αὐτῶν ἐκκόψετε.» Παρὰ δέ γε τὸ οἶ οομοοσ",
+          "source_location": {
+            "volume": "PG073",
+            "marker_page": "11",
+            "start_line": "1"
+          },
+          "evidence": "data/corpus_changes/cyril-john-coverage/changes.json"
         },
         {
           "urn": "cyrillus-theology.commentarii-in-joannem",
-          "source": "ocr",
-          "license": "PD",
-          "edition": "migne-ocr-qwen36",
-          "locus": "pg074_0007.3",
-          "text": "ΑΡΧΙΕΠΙΣΚΟΠΟΥ ΑΛΕΞΑΝΔΡΕΙΑΣ"
+          "cts": "urn:cts:greekLit:tlg4090.tlg002",
+          "edition": "calfa-pg73-5895ab908dd4",
+          "source": "cgpg",
+          "license": "CC-BY-4.0",
+          "locus": "PG073.12",
+          "text": "κεῖον θυσιαστήριον γεωργεῖσθαι ξύλον οὐκ ἐφίησι παντελῶς. «Οὐ φυτεύσεις γὰρσεαυτῷ πᾶν ἄλσος παρὰ τὸ θυσιαστήριον Κυρίου τοῦ Θεοῦ σου,» διαγγέλλει σαφῶς. Καὶ εἰ χρή τι πρὸς τούτοις εἰπεῖν, κατὰ τὸν Παῦλον ἐρῶ τὸν σοφώτατον· «Μὴ περὶ τῶν ξύλων μέλει τῷ Θεῷ;» Δι´ ἡμᾶς πάντως λέγει, διὰ παχυτέρων παραδειγμάτων ἐπὶ τὰς τῶν πνευματικων θεωρίας χειραγωγῶν. Οὐκοῦν ἤδη λέγωμεν, ὅτι τὰ μὲν τῶν ἀνοσίων αἱρετικῶν συγγράμματα,. πόλεις ἂν νοοῖντο, καὶ οὐκ ἀκόμψως τάχα τῇ τοῦ κόσμου σοφίᾳ καὶ πολυπλόκοις νοημάτων ἀπάταις πεπυργωμένα. Ἀφικνεῖταί γε μὴν ἐκπολιορκήσων αὐτὰς, καὶ τρόπον τινὰ κύκλῳ περιιζάνειν, τὸν τῆς πίστεως θυρεὸν ἀναλαβὼν, καὶ τὴν τοῦ πνεύματος μάχαιραν, ὅ ἐστι ῥῆμα Θεοῦ, πᾶς ὁ τοῖς ἱεροῖς τῆς Ἐκκλησίας, ἐ,....ζόμενος δόγμασι, καὶ σθένει παντὶ ταις ἐκείνων ψευδομυθίαις ἀντιταττόμενος· «Λογισαούς τε καθαιρεῖν μελετήσας,» ὡς ὁ Παῦλός φησι, «καὶ πᾶν ὧψωμα ἐπαιρόμενον κατὰ τῆς γνώσεως τοῦ Θεοῦ, καὶ αἰχμαλωτίζοντες πᾶν νόημα εἰς τὴν ὑπακοὴν τοῦ Χριστοῦ.» Ὅταν οὖν ὁ τοιοῦτος, φησί, στρατιώτης Χριστοῦ, καθάπερ τι... ἀλλοφύλων τὰ πικρά των αἰρέσεων περινοήσῃ συγγράμματα, δένδροις τε περιτυγχάνει τοῖς... τόποις, τοῦτ´ ἔστιν, ἂν λόγους εὐρίσκῃ τοὺς ἀπὸ τῆς θεοπνεύστου Γραφῆς, ἢ προΚφητῶν δηλονότι ῥήματα περιειλκυσμένα πρὸς τὸν ἐκείνων σκοπὸν, καὶ μαρτυρίας τὰς ἐκ Διαθήκης τῆς αινῆς, μὴ ἐπαγέτω του νοῦ τὴν ὀξύτητα κατά [Π. καθά] τινα σίδηρον αὐτοῖς εἰς ἀναίρεσιν καὶ ὰποκοπήν. Οὐ γὰρ, ἐπείπερ ἐλήφθη παρὰ τῶν οὐκ εἰδότων ἑρμηνεύειν ὀρθῶς, διὰ τοῦτο δὴ πάντως καὶ ἀπόβλητον ἔσται τὸ διὰ στόματος Θεοῦ· ἀλλ´ ἐπείπερ ἐστὶ καρποφόρον, ἔσται σοι μᾶλλον εἰς βοήθημα καὶ Κτροφήν. Τὸ γὰρ παρ´ ἐκείνων ἀνοήτως ἔσθ´ ὅτε ληφθὲν, εἰς τὸν ὀρθὸν τῆς πίστεως περιτρέποντες λογισμὸν, οὐχ ὅπως ἀτονοῦντες οὐχ ἀλωσόμεθα, νευρούμεθα δὲ μᾶλλον εἰς τοὺς κατὰ τῆς αἱρέσεως λόγους. Ἐπιφέρει δὲ καὶ λογισμὸν ἀναπείθοντά πως τοὺς ἀκροωμένους, ὅτι προσήκει τὰς τοῦ συναγορεύειν ὁρμὰς οὐκ ἐπανατροπῇ [ρἐπ´ ἀνατροπῇ] μᾶλλον ποιεῖσθαι τῶν θείων λογίων, ἀλλ´ εἰς ἀναίρεσιν τῶν οὐκ ὁρθῶς λεγομένων παρὰ τῶν δι´ ἐναντίας· «Μὴ γὰρ, φησὶν, ἄνθρωπος τὸ ξύλον τὸ ἐν τῷ δρυμῷ, εἰσελθεῖν ἀπὸ προσώπου σου εἰς τὸν χάρακα;» Ἀρα γὰρί Κφησὶν, οἰήσῃ ποτέ, καθάπερ τινὰ τῶν αἱρεσιαρχῶν, αὐτόμολόν τε πρὸς μάχην ἐξαναστήσεσθαι τὸ ἐκ τῶν ἰερῶν συγγραμμάτων ῥητὸν, καὶ οὐχὶ μᾶλλον διὰ τῆς ἐνείνων ἀπονοίας πλεονεκτούμενον; «Μὴ οὖν ἀποτέμῃςη φησὶν, ἔστω δέ σοι καὶ τροφός· τὸ δὲ ἔύλον ὅπερ οὐκ οἶσθα καρπόβρωτον, ἐξολοθρεύσεις καὶ ἐκκόψεις. » Ἄβρωτος γὰρ τοῖς ὀρθῶς ἐθέλουσι νοεῖν ὁ τῶν παρ´ ἐκείνοις συγγραμμάτων καρπός· κατ´ ἐκείνων ἡκέτω πάλιν ὁ σίδηρος· ἐκεῖ φαινέσθω τῶν πνευματικῶν ὑλοτόμων ἡ δύναμις, ἐπ´ ἐκείνοις στιλβέτω ἐν τῷ συναγορεύειν εὐτονίας ὁ πέλεκυς· τὸ γὰρ ἄχρηστόν τε καὶ ἀνωφελὲς τῆς τῶν ἑτεροδοξούντων φλυαρίας, καὶ ὁ προφήτης ἡμῖν Ὡσηὲ ἄριστα διηρμήνευσε",
+          "source_location": {
+            "volume": "PG073",
+            "marker_page": "12",
+            "start_line": "1"
+          },
+          "evidence": "data/corpus_changes/cyril-john-coverage/changes.json"
         }
       ],
       "ending": [
@@ -417,29 +435,33 @@
           "source": "ocr",
           "license": "PD",
           "edition": "migne-ocr-qwen36",
-          "locus": "pg074_0440.2",
-          "text": "Ἐρεῖς οὖν μοι· Τί ἐτι μέμφεται; Τῷ γὰρ βουλήματι αὐτοῦ τις ἀνθέστηκεν; τὶς οὖν ἄρα γέγονεν αὐτῷ τῆς ἀπολογίας ὁ τρόπος; Ἀσυμφανὴς μὲν λίαν. καὶ τοὺς παρ᾿ ἐκείνων προβλημασιν τάχα που καὶ ἐπαμείνειν δοκῶν. Πλὴν ἀποχρῶν εἰς πληρωρίαν, ὡς οὐχ ἂν γένοιτο τι τῶν ἔξω λόγου τοῦ πρέποντος· παρὰ Θεοῦ· διανέμει γὰρ ἕκαστῳ τὸ πρέπον αὐτῷ."
+          "locus": "pg074_0398.2",
+          "text": "B Σφαλερὸν γὰρ ἄρα, καὶ πικάνειον ἀληθῶς φευχόνφωνὴν. Οὐ γὰρ ἂν αὐτὸν ἠγάπησεν ἡ ἀλήθεια, παραλύουσα τὴν ἀλήθειαν."
         },
         {
           "urn": "cyrillus-theology.commentarii-in-joannem",
           "source": "ocr",
           "license": "PD",
           "edition": "migne-ocr-qwen36",
-          "locus": "pg074_0441.1",
-          "text": "κατουκτεινεῖν τε καὶ ἐλεεῖν τοὺς οὓς ἂν ἀρμόσῃ τὸ ἐλεεῖσθαι δεῖν, ὑποφέρει δὲ δικαίως τὸν ἀληθῆριον, οὐχ εὐθὺς καὶ κατὰ πόδα τῶν αἰτιαμάτων ἀκολουθοῦσης ὀργῆς, προεισθαλοῦσης δὲ μᾶλλον μακρᾷς ἀνεξικακίας, ὡς οἰκεῖσθαι πού τινας καὶ ἀφεῖσθαι· λοιπὸν τῶν ἐπὶ τῆς γῆς τὸν Θεὸν ἀντεχάγει· δὴ οὖν ὁ Παῦλος, καὶ τοῖς ἐκεῖνα λέγουσιν ἀναντίσταται, τοῦ λόγου τὴν δύναμιν ἐπαφεῖς τῷ προσώπῳ τῶν παρενῃγμενῶν νων, Ἡσαὺ τέ φημι καὶ μέντοι καὶ Φαραώ. Ἐφη τοίνυν ὡς πρὸς ἕκαστερον τῶν ὀνομασμένων· Ὦ ἄνθρωπε, μενούγγε σὺ τις εἶ ὁ ἀνταποκρινόμενος τῷ Θεῷ; Μὴ ἐρεῖ τὸ πλάσμα τῷ πλάσαντι· Τί με ἐποίησας οὕτως; ἡ Ἀποφαίνει μὲν γὰρ ὡς ἐκ παραδείγματος ἐναργῶς, ὅτι παγγάλεπον τὸ θείας κρίσεως ἐπιτιμᾶν. Εἰ γὰρ δὴ τις ἐλοῖτο τὰ εἰκότα φρονεῖν, ἀναθίσει μὲν τῷ πάντα εἰδὼτὶ Θεῷ τὸ κρίνειν ἕκαστα καθ’ ὃν ἂν αὐτὸς εἴδη ττρόπον, ἐνδοιάσει δὲ κατ’ οὐδὲν ὡς ἔστιν ὅσιον ὅπερ ἂν ἐλοῖτο δρᾶν, διαπλάττων ἐπ’ ἐξουσίας τὰ ἑφ’ ἑκάστου τυγχόν. Οὐκοῦν σιτέται λαν τοὺς τοῖς θείοις νεύμασιν ἐνιέντας ὅλως τὸν βασανίζοντα νοῦν πότερον καλῶς ἢ οὐχ οὕτως ἔχει. Ἔδει γὰρ, φησίν, ἀπομιμεῖσθαι μᾶλλον αὐτοὺς τὸ διὰ χειρὸς κεραμεῖας πλάττομενον, καὶ μετὰ σιγῆς ὑπομένειν τὰ παρὰ Θεοῦ. Ὁ γὰρ ἐρεῖ τὸ πλάσμα τῷ πλάσαντι· Τί με ἐποίησας οὕτως; Ἄλλ’ ἴσως καὶ πρὸς γε τοῦτό τινες ἐκεῖνὸ φασιν· Εἰ κεραμεὺς δίχην καθ’ ὃν βούλοιτο τρόπον διαπλάττει Θεός, ὡς τὸ μὲν εἰς τιμὴν ποιήσαι σκεῦος, τὸ δὲ εἰς ἀτιμίαν· πῶς οὐχ ὁπάς τις οὖν ἀναπεῖσαι λόγος, τὸ γεγονὸς οἰεῖσθαι πᾶν τε καὶ πάντως τοῦτον ἔχεν τὸν τρόπον καθ’ ὃν καὶ πεποίηται; ὧστε ὁ μὲν τις ἔστιν εἰς ἀτιμίαν γεγονὼς, καὶ φύσιν τοιαύτην ἀπεκληρώσατο· πεποίηται δὲ τις ἕτερος, ἤγουν ἐξεγήγεται σκληρός, ἕνα, ὡς αὐτὸς φησι, διαγελλᾶ τὸ δνυμα αὐτοῦ ἐν πάσῃ τῇ γῇ. Ποία τοίνυν ἐπὶ τοῖς παιδοῦσιν ἡ γραφή; γεγονάσι γὰρ εἰς τοῦτο."
+          "locus": "pg074_0398.3",
+          "text": "\"Εστι δὲ καὶ ἄλλα πολλά· ἃ ἐποίησεν ὁ Ἰησοῦς· ἃ εἰνα ἂν γράφεται καθ' ἕν, οὐδὲ αὐτὸν ὁμᾶι τὸν κόσμον χωρῆσαι τὰ γεγραμμένα βιβλία. Ἀμήν."
         },
         {
           "urn": "cyrillus-theology.commentarii-in-joannem",
           "source": "ocr",
           "license": "PD",
           "edition": "migne-ocr-qwen36",
-          "locus": "pg074_0441.2",
-          "text": "Πρὸς δὲ τὰ τοιαῦτα φαί τις ἂν, ὅτι μάλιστα μὲν οὐχ ἂν ἔχοιεν εἰπεῖν ὅτι φύσεως διαφορὰς ἐν τούτοις ἡμῖν ἡ τῶν νοημάτων δύναμις ὑπεστήσεν· οὐ γὰρ ἔφη πεποιηθᾶι τινὰς ὡμοὺς καὶ ἀπεισκληρότας, ἤγουν εἰς σκεῦὴ τιμῆς τε καὶ ἀτιμίας, οὐδὲ φύσιν αὐτοῖς τὴν τοιαύτην ἐκνευέθηκεν ὅλως· ἐκεῖνο δὲ μᾶλλον ἀναπεῖθαι φρονεῖν, ὅτι διαπλάττονται τινες οἷάπερ σκεῦὴ κεραμικῇ, ἕ μὲν εἰς τιμήν, ἕ δὲ εἰς ἀτιμίαν. Καὶ τὸν γε τοῦ παραδείγματος τρόπον ἐκ προφητικῶν ἡμῖν πεπαιδεύεται λόγων. Τίνα οὖν ἄρα τρόπον διαπλάττονται τινες, οἷάπερ ἐκ κεραμέως, οἱ μὲν εἰς τιμήν, οἱ δὲ εἰς ἀτιμίαν, καὶ ἐπὶ ποίαις αἰτίαις, εἰδὴ τις ἂν τοῖς Ἱερεμίου λόγοις ἐντυχῶν. Γέγραπται δὲ οὕτως· Ἀνάστηθι, καὶ κατάβηθι εἰς τὸν οἶκον τοῦ κεραμέως, καὶ ἀκούσῃ τοὺς λόγους μου. Καὶ κατέβην εἰς τὸν οἶκον τοῦ κεραμέως, καὶ ἰδοὺ αὐτὸς ἐποίει ἔργον ἐπὶ τῶν λίθων· καὶ ἐπεσεν τὸ ἄγγειον, ὃ αὐτὸ ἐποίει, ἐν ταῖς χερσὶν αὐτοῦ· καὶ πάλιν αὐτὸς ἐποίησεν αὐτὸ ἄγγειον ἕτερον, καθὼς ἤρεσεν ἀνδρὶ αὐτοῦ τοῦ ποιήσαι. Καὶ ἐγένετο, φησὶ, λόγος Κυρίου πρὸς με λέγων· Εἰ ὡς ὁ κερα-"
+          "locus": "pg074_0398.4",
+          "text": "Πολλὴ μὲν ἄγαν, φησίν, ἡ τῶς θεοσημείας πλήθος, καὶ ἀναρίητος παντελῶς ὁ τῶν κατορθωμάτων φανεῖται κατάλογος, καὶ ἐκ μυρίων ὡσὼν ἐλήφθη σαυτὶ, πληρεστάτην ἐμποίησαι τοὺς ἀκροωμένους τὴν ὥρην οὐκ ἀνικάνως ἔχοντα. Τὸν δὲ συγγραφέα τὴν βίβλον μὴ κατατιτάσθω, φησίν, ὁ φιλακροάμεν, καὶ χρηστομαθὴς, εἰ καὶ μὴ τῶν ἑτέρων ἐμνήσθη. Καὶ γὰρ τὸ καθ' ἕν εἰ γέγραπται τῶν τετελεσμένων, παραλειφθέντος οὐδενός, ἐπλήρωσεν ἂν τὴν οἰκουμένην ὁ τῶν βιβλίων ἀχώρητος ὄχλος. Ὑπερβολικῶς C δὲ καὶ νῦν τὴν τοῦ λόγου δύναμιν πεποιήσθαι φαμεν. Myria γὰρ ὅσα ἐνοήσαι τις ἂν διὰ τῆς τοῦ Σωτῆρος ἡμῶν ἰσχύος πεπληρωθῶσαι θαύματα· γεγράφασι γε μὴν τῶν Εὐαγγελίων οἱ κήρυκες τὰ ἐν τοῖς γενοῖσι λαμπρότερα, κατὰ γε τὸ εἰκός, καὶ δι' ὧν ἂν μάλιστα τοὺς ἀκροωμένους δύνασθαι βεβαιωθῆναι πρὸς πίστιν τὴν ἀπαράφορον, καὶ παιδευσιν ἔχειν ἠθικὴν τε καὶ δογματικήν, ἵνα πίστεως μὲν ὀρθῇ διακρίπτοντες, ἔργοις δὲ τοῖς εἰς εὐσέβειαν βλέπουσι πολυτρόπως ἠγλασμένοι, καὶ εἰς αὐτὴν καταντήσαντες τὴν ἄνω πόλιν, καὶ τῇ τῶν πρωτοτόκων Ἐκκλησίᾳ συναπόμενοι, καὶ εἰς αὐτὴν εἰσελθέσαν τὴν τῶν οὐρανῶν βασιλείαν ἐν Χριστῷ, δι' οὗ καὶ μεθ' οὗ τῷ Θεῷ καὶ Πατρὶ ἡ δόξα σὺν ἁγίῳ Πνεύματι, εἰς τοὺς αἰῶνας. Ἀμήν.",
+          "corrections": [
+            "confusion"
+          ]
         }
       ],
       "locus_prefixes": {
-        "pg074_0007": 4,
+        "PG073": 528,
         "pg074_0009": 2,
+        "PG074": 3,
         "pg074_0011": 3,
         "pg074_0012": 3,
         "pg074_0013": 5,
@@ -824,49 +846,7 @@
         "pg074_0395": 1,
         "pg074_0396": 3,
         "pg074_0397": 5,
-        "pg074_0398": 4,
-        "pg074_0399": 4,
-        "pg074_0400": 5,
-        "pg074_0401": 14,
-        "pg074_0402": 14,
-        "pg074_0403": 9,
-        "pg074_0404": 14,
-        "pg074_0405": 55,
-        "pg074_0406": 8,
-        "pg074_0407": 1,
-        "pg074_0408": 10,
-        "pg074_0409": 22,
-        "pg074_0410": 5,
-        "pg074_0411": 6,
-        "pg074_0412": 7,
-        "pg074_0413": 2,
-        "pg074_0414": 5,
-        "pg074_0415": 7,
-        "pg074_0416": 5,
-        "pg074_0417": 3,
-        "pg074_0418": 3,
-        "pg074_0419": 4,
-        "pg074_0420": 3,
-        "pg074_0421": 1,
-        "pg074_0422": 2,
-        "pg074_0423": 53,
-        "pg074_0425": 56,
-        "pg074_0426": 5,
-        "pg074_0427": 2,
-        "pg074_0428": 5,
-        "pg074_0429": 7,
-        "pg074_0430": 5,
-        "pg074_0431": 2,
-        "pg074_0432": 6,
-        "pg074_0433": 6,
-        "pg074_0434": 7,
-        "pg074_0435": 1,
-        "pg074_0436": 53,
-        "pg074_0437": 45,
-        "pg074_0438": 3,
-        "pg074_0439": 5,
-        "pg074_0440": 2,
-        "pg074_0441": 2
+        "pg074_0398": 4
       },
       "book_headings": [
         {
@@ -889,7 +869,7 @@
     },
     {
       "slug": "pappus-mathematics.synagoge",
-      "status": "partial-upstream-edition",
+      "status": "open-coverage-work",
       "source_root": "first1k",
       "source_path": "data/tlg2032/tlg001/tlg2032.tlg001.1st1K-grc1.xml",
       "source_scan": "https://archive.org/details/pappialexandrin00hultgoog",
@@ -899,11 +879,83 @@
       ],
       "source_sha256": "97c19de67ffa6f15ca01bb0f47eae655354d4e1e3bfb7d9fb8837f572d40fe78",
       "issue": "https://github.com/open-greek/open-greek-corpus/issues/43",
-      "corpus_file_sha256": "3ca2c31f5ed68da0929451312d3de552e20f9d975a7f06618f8e17f70e61a043",
+      "historical_status": "partial-upstream-edition",
+      "resolution": {
+        "complete": false,
+        "status": "open-coverage-work",
+        "reason": "Reviewed missing Greek scan regions have not all been admitted.",
+        "scope": {
+          "work_identity": "Pappus, Synagoge (Collection)",
+          "base_scope": "Hultsch volume I, surviving Greek material of Books II–V",
+          "addition_scope": "Hultsch volumes II–III, Books VI–VIII, including the Heron quotation at the end of Book VIII",
+          "transmission_limit": "Book I is lost and only the latter part of Book II survives. Hultsch edits the surviving remains of Books II–VIII; the selected Greek body does not reconstruct those losses or claim an intact eight-book text.",
+          "transmission_reference": {
+            "citation": "The manuscript tradition of the Collectio Mathematica, Scriptorium 11.2 (1957), opening description of the extant text",
+            "url": "https://www.persee.fr/doc/scrip_0036-9772_1957_num_11_2_2937"
+          },
+          "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus, later anonymous supplements, scholia and indexes",
+          "historical_citation_scheme": "pappus-first1k-book-attributes",
+          "scan_citation_scheme": "Book plus Hultsch printed page",
+          "status": "reviewed-scan-additions-pending",
+          "reviewed_primary_regions": 331,
+          "admitted_primary_regions": 0,
+          "remaining_reviewed_primary_regions": 331,
+          "reviewed_comparative_regions": 0,
+          "admitted_transmission_counts": {},
+          "scan_manifest": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+          "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+          "scan_manifests": [
+            {
+              "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+              "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+            }
+          ],
+          "scan_sources": [
+            {
+              "id": "pappialexandrin01hultgoog",
+              "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
+              "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+              "license": "public-domain",
+              "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+              "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+              "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
+            },
+            {
+              "id": "pappialexandrin01pappgoog",
+              "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
+              "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+              "license": "public-domain",
+              "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+              "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+              "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
+            },
+            {
+              "id": "pappialexandrin04pappgoog",
+              "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+              "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+              "license": "public-domain",
+              "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+              "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+              "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
+            }
+          ],
+          "admission_audit": null,
+          "admission_audits": [],
+          "digital_components": [],
+          "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
+        },
+        "publication": {
+          "declared_release": "corpus-2026-10-18",
+          "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+          "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+        }
+      },
+      "corpus_file_sha256": "f230f068e05a8f291dd8299cd2b4421d636f8271c4c8af74d7ea68227cea5b03",
       "edition": {
         "edition": "1st1K-grc1",
         "id": "ogc002676",
         "license": "CC-BY-SA-4.0",
+        "n_analysis_tokens": 51659,
         "n_passages": 304,
         "n_tokens": 51479,
         "source": "first1k"
@@ -913,7 +965,7 @@
         {
           "urn": "pappus-mathematics.synagoge",
           "edition": "1st1K-grc1",
-          "locus": "1.1",
+          "locus": "2.1",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
           "text": "1 γὰρ αὐτοὺς ἐλάσσονας μὲν εἶναι ἑκατοντάδος μετρεῖσθαι δὲ ὑπὸ δεκάδος, καὶ δέον ἔστω τὸν ἐξ αὐτῶν στερεὸν εἰπεῖν μὴ πολλαπλασιάσαντα αὐτούς. Ἔστωσαν οὖν οἱ ἀριθμοὶ ν΄ ν΄ ν΄ μ΄ μ΄ λ΄· ἔσονται ἄρα οἱ πυθμένες ε΄ ε΄ έ δ΄ δ΄ γ΄· ὁ ἄρα ἐξ αὐτῶν στερεὸς γίνεται μονάδων Ϛ. καὶ ἐπεὶ τὸ πλῆθος τῶν δεκάδων ἐστὶν Ϛ΄ καὶ μετρούμενον ὑπὸ τετράδος λείπει δύο, ἔσται ὁ ἐξ αὐτῶν στερεὸς μυριάδων ἁπλῶν ἑκατόν. καὶ ἐπεὶ ὁ ἐκ τῶν δεκάδων στερεὸς ἐπὶ τὸν ἐκ τῶν πυθμένων στερεὸν ποιεῖ τὸν ἐκ τῶν ἐξ ἀρχῆς στερεόν, αἱ ἄρα μυριάδες ρ΄· ἐπὶ τὰς μονάδας Ϛ γενόμεναι ποιοῦσιν μυριάδας ξ΄ διπλᾶς, ὥστε ὁ ἐκ τῶν ν΄ ν΄ ν΄ μ΄ μ΄ λ΄ στερεός ἐστιν μυριάδων ξ΄ διπλῶν.",
@@ -921,12 +973,16 @@
             "1 γὰρ αὐτοὺς ἐλάσσονας μὲν εἶναι ἑκατοντάδος μετρεῖσθαι δὲ ὑπὸ δεκάδος, καὶ δέον ἔστω τὸν ἐξ αὐτῶν στερεὸν εἰπεῖν μὴ πολλαπλασιάσαντα αὐτούς. Ἔστωσαν οὖν οἱ ἀριθμοὶ ν΄ ν΄ ν΄ μ΄ μ΄ λ΄· ἔσονται ἄρα οἱ πυθμένες ε΄ ε΄ έ δ΄ δ΄ γ΄· ὁ ἄρα ἐξ αὐτῶν στερεὸς γίνεται",
             "μονάδων Ϛ. καὶ ἐπεὶ τὸ πλῆθος τῶν δεκάδων ἐστὶν Ϛ΄ καὶ μετρούμενον ὑπὸ τετράδος λείπει δύο, ἔσται ὁ ἐξ αὐτῶν στερεὸς μυριάδων ἁπλῶν ἑκατόν. καὶ ἐπεὶ ὁ ἐκ τῶν δεκάδων στερεὸς ἐπὶ τὸν ἐκ τῶν πυθμένων στερεὸν ποιεῖ τὸν ἐκ τῶν ἐξ ἀρχῆς στερεόν, αἱ ἄρα μυριάδες",
             "ρ΄· ἐπὶ τὰς μονάδας Ϛ γενόμεναι ποιοῦσιν μυριάδας ξ΄ διπλᾶς, ὥστε ὁ ἐκ τῶν ν΄ ν΄ ν΄ μ΄ μ΄ λ΄ στερεός ἐστιν μυριάδων ξ΄ διπλῶν."
-          ]
+          ],
+          "source_citation": {
+            "scheme": "pappus-first1k-book-attributes",
+            "locus": "1.1"
+          }
         },
         {
           "urn": "pappus-mathematics.synagoge",
           "edition": "1st1K-grc1",
-          "locus": "1.2",
+          "locus": "2.2",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
           "text": "2 ιε΄. Ἔστωσαν δὴ πάλιν ὁσοιδηποτοῦν ἀριθμοὶ ἐφʼ ὧν τὰ Β, ὧν ἕκαστος ἐλάσσων μὲν χιλιάδος μετρείσθω δὲ ὑπὸ ἑκατοντάδος, καὶ δέον ἔστω τὸν ἐξ αὐτῶν στερεὸν εἰπεῖν μὴ πολλαπλασιάσαντα τοὺς ἀριθμούς. Γεγονέτω, καὶ ὁ διπλάσιος τοῦ πλήθους αὐτῶν μετρείσθω πρότερον ὑπὸ τετράδος, καὶ ὑποκείσθω ὑπὸ ἕκαστον τῶν Β ἑκατοντάς ἡ α΄, καὶ καθὸ μετρεῖται ἕκαστος τῶν Β ὑπὸ τῆς ἑκατοντάδος ἔστωσαν οἱ ἐξ᾿ ὧν τὰ Γ· πυθμένες ἄρα εἰσὶν οἱ ἐχʼ ὧν τὰ Γ τῶν ἐφʼ ὧν τὰ Β. ὁ δὲ διὰ τῶν πυθμένων στερεὸς ἔστω ὁ Ε . δείκνυται οὖν διὰ τῶν γραμμῶν ὁ διὰ τῶν ἐχʼ ὧν τὰ Β στερεὸς μυριάδων διπλῶν ρκ, ἐπειδὴ καὶ ὁ διὰ τῶν ἐχʼ ὧν τὰ Β στερεὸς ἴσος ἐστὶν τῷ διὰ τῶν ἑκατοντάδων στερεῷ ἐπὶ τὸν ἐκ τῶν πυθμένων στερεόν, τουτέστιν διπλῆ μυριάς α΄ ἐπὶ τάς ρκ΄ μονάδας.",
@@ -935,12 +991,16 @@
             "ἑκατοντάδος, καὶ δέον ἔστω τὸν ἐξ αὐτῶν στερεὸν εἰπεῖν μὴ πολλαπλασιάσαντα τοὺς ἀριθμούς. Γεγονέτω, καὶ ὁ διπλάσιος τοῦ πλήθους αὐτῶν μετρείσθω πρότερον ὑπὸ τετράδος, καὶ ὑποκείσθω ὑπὸ ἕκαστον τῶν Β ἑκατοντάς ἡ α΄, καὶ καθὸ μετρεῖται ἕκαστος τῶν Β",
             "ὑπὸ τῆς ἑκατοντάδος ἔστωσαν οἱ ἐξ᾿ ὧν τὰ Γ· πυθμένες ἄρα εἰσὶν οἱ ἐχʼ ὧν τὰ Γ τῶν ἐφʼ ὧν τὰ Β. ὁ δὲ διὰ τῶν πυθμένων στερεὸς ἔστω ὁ Ε . δείκνυται οὖν διὰ τῶν γραμμῶν ὁ διὰ τῶν ἐχʼ ὧν τὰ Β στερεὸς μυριάδων διπλῶν ρκ, ἐπειδὴ καὶ ὁ διὰ τῶν ἐχʼ ὧν",
             "τὰ Β στερεὸς ἴσος ἐστὶν τῷ διὰ τῶν ἑκατοντάδων στερεῷ ἐπὶ τὸν ἐκ τῶν πυθμένων στερεόν, τουτέστιν διπλῆ μυριάς α΄ ἐπὶ τάς ρκ΄ μονάδας."
-          ]
+          ],
+          "source_citation": {
+            "scheme": "pappus-first1k-book-attributes",
+            "locus": "1.2"
+          }
         },
         {
           "urn": "pappus-mathematics.synagoge",
           "edition": "1st1K-grc1",
-          "locus": "1.3",
+          "locus": "2.3",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
           "text": "3 Ἀλλ᾿ ὁ διπλάσιος τοῦ πλήθους τῶν ἐχʼ ὧν τὰ Β μὴ μετρείσθω ὑπὸ τετράδος· μετρούμενος ἄρα λείψει δυάδα ἐξ ἀνάγκης (τοῦτο γὰρ προδέδεικται), ὥστε καὶ ὁ διπλάσιος τοῦ πλήθους τῶν ἑκατοντάδων μετρούμενος ὑπὸ τετράδος· τὸ ἄρα πλῆθος τῶν ἑκατοντάδων μετρούμενον ὑπὸ δυάδος λείψει μίαν ἑκατοντάδα. ὁ τοίνυν διὰ τῶν ἑκατοντάδων στερεὸς ἔσται μυριάδων ρ΄ ὁμωνύμων τῷ Ζ, τουτέστι διπλῶν, ὥστε δῆλον ὅτι ὁ διὰ τῶν ἐχʼ ὧν τὰ Β μυριάδες εἰσὶν ρ ὁμώνυμοι τῷ Ζ γενόμεναι ἐπὶ τὸν Ε . γίνονται μυριάς μία δισχίλιαι διπλῶν μυριάδων.",
@@ -948,14 +1008,18 @@
             "3 Ἀλλ᾿ ὁ διπλάσιος τοῦ πλήθους τῶν ἐχʼ ὧν τὰ Β μὴ μετρείσθω ὑπὸ τετράδος· μετρούμενος ἄρα λείψει δυάδα ἐξ",
             "ἀνάγκης (τοῦτο γὰρ προδέδεικται), ὥστε καὶ ὁ διπλάσιος τοῦ πλήθους τῶν ἑκατοντάδων μετρούμενος ὑπὸ τετράδος· τὸ ἄρα πλῆθος τῶν ἑκατοντάδων μετρούμενον ὑπὸ δυάδος λείψει μίαν ἑκατοντάδα. ὁ τοίνυν διὰ τῶν ἑκατοντάδων στερεὸς ἔσται μυριάδων ρ΄ ὁμωνύμων τῷ Ζ, τουτέστι διπλῶν,",
             "ὥστε δῆλον ὅτι ὁ διὰ τῶν ἐχʼ ὧν τὰ Β μυριάδες εἰσὶν ρ ὁμώνυμοι τῷ Ζ γενόμεναι ἐπὶ τὸν Ε . γίνονται μυριάς μία δισχίλιαι διπλῶν μυριάδων."
-          ]
+          ],
+          "source_citation": {
+            "scheme": "pappus-first1k-book-attributes",
+            "locus": "1.3"
+          }
         }
       ],
       "ending": [
         {
           "urn": "pappus-mathematics.synagoge",
           "edition": "1st1K-grc1",
-          "locus": "4.103",
+          "locus": "5.103",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
           "text": "103 Ἐκκείσθω δὲ καὶ τὸ ληφθὲν θεώρημα εἰς τὴν σύγκρισιν τοῦ εἰκοσαέδρου καὶ ὀκταέδρου , διʼ οὗ ἐδείχθη δώδεκα τὰ ἀπὸ ΟΝ μείζονα πέντε τῶν ἀπὸ Β∠. ἔστω δὲ καὶ τὸ Α,Β,Γ τρίγωνον εἰκοσαέδρου, καὶ κάθετος ἀπὸ τοῦ ∠ ἡ ∠,Ε, ὡς ἐν τῷ προκειμένῳ θεωρήματι· ὅμοιον ἄρα τὸ ΥΦΩ τῷ τε ∠,Α,Ε τριγώνῳ καὶ τῷ ΟΝΛ ἐπεὶ οὖν διὰ τοῦ ιϚ΄ λημματίου ἐδείχθη ὅτι, ἐὰν ᾗ τρίγωνον ἰσοσκελές ὡς τὸ 𝒢ΩΤ ἔχον τὴν πρὸς τῷ Ω γωνίαν τεσσάρων πέμπτων ὀρθῆς καὶ ἰσόπλευρον ἴσον αὐτῷ ὡς τὸ Μ Μ Μ, τὸ ἀπὸ Μ Μ πρὸς τὸ ἀπὸ 𝒢Ω ἐλάσσονα λόγον ἔχει ἤπερ εὐθείας ἄκρον καὶ μέσον λόγον τεμνομένης τὸ ἀπὸ τῆς ὅλης πρὸς τὸ πεντάκις ἀπὸ τῆς ἐλάσσονος, καὶ ἡ ΕΓ εὐθεῖα ἄκρον καὶ μέσον λόγον τέτμηται κατὰ τὸ Ξ, τὸ ἄρα ἀπὸ τῆς ΕΓ πρὸς τὸ πεντάκις ἀπὸ ΞΓ μείζονα λόγον ἔχει ἤπερ τὸ ἀπὸ Μ Μ πρὸς τὸ ἀπὸ 𝒢Ω2, τουτέστιν τὸ πεντεκαιδεκάκις ἀπὸ Μ Μ πρὸς τὸ πεντεκαιδεκάκις ἀπὸ 𝒢Ω. καὶ ἐπεὶ ἔχομεν η΄ τρίγωνα τὰ ΣΡΠ ἴσα ιβ΄ πενταγώνοις τοῖς Φ𝒢Τ, τουτέστιν ξ΄ τριγώνοις τοῖς 𝒢ΩΤ, ὥστε καὶ δύο τρίγωνα τὰ ΣΡΠ ἔσα ἐστὶν ιε΄ τριγώνοις τοῖς 𝒢ΩΤ, τουτέστιν ιε΄ τοῖς Μ Μ Μ, ὥστε καὶ τὸ δὶς ἀπὸ ΣΠ ἴσον ἐστὶν τῷ πεντεκαιδεκάκις ἀνὸ Μ Μ τὸ ἔρα ἀπὸ τῆς ΕΓ πρὸς τὸ πεντάκις ἀπὸ τῆς ΚΓ μείζονα λόγον ἔχει ἥπερ δύο τὰ ἀπὸ ΣΠ πρὸς τὸ πεντεκαιδεκάκις ἀπὸ ΩΦ ἴση γάρ ἐστιν ἡ Ω𝒢 τῇ ΩΦ). δύο δὲ τὰ ἀπὸ ΣΠ ιβ΄ ἐστιν τὰ ἀπὸ ΚΨ, ὡς ἐδείχθη ἐν τῇ συγκρίσει τοῦ κύβου καὶ ὀκταέδρου· τὸ ἄρα ἀπὸ τῆς ΕΓ πρὸς τὸ πεντάκις ἀπὸ ΞΓ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΚΨ κρὸς ιε΄ τὰ ἀπὸ ΩΦ. καὶ ἔστιν ἴση ἡ ΞΚ τῇ ΚΓ· τὸ ἄρα ἀπὸ τῆς ΕΓ πρὸς τὸ εἰκοσάκις ἀπὸ τῆς ΚΓ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΚΨ πρὸς ιε΄ τὰ ἀπὸ ΩΦ· ὥστε καὶ λϚ΄ τὰ ἀπὸ ΕΓ, τουτέστιν λϚ΄ τὰ ἀπὸ ΓΛ, πρὸς ψκ΄ τὰ ἀπὸ ΓΚ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΚΨ πρὸς ιε΄ τὰ ἀπὸ ΩΦ. ἀλλʼ ὡς κὲν ἡ ΓΛ πρὸς ΓΚ, ἡ ΑΜ πρὸς ΙΜ, ὡς δὲ ἡ ΛΜ πρὸς ΜΙ, ἡ 0Ν πρὸς ΝΙ ὥστε καὶ λϚ΄ τὰ ἀπὸ ΟΝ πρὸς ψκ΄ τὰ ἀπὸ ΝΙ, τουτέστιν π΄ τὰ ἀπὸ ΙΛ (τριπλασία γὰρ ἐν τῷ ζ΄ λήμματι ἐδείχθη ἡ ΙΛ τῆς ΙΝ), τουτέστιν κ΄ τὰ ἀπὸ Κ∠, τουτέστιν ιε΄ τὰ ἀπὸ Β∠ (ἐπίτριτος γὰρ ἡ Β∠ τῆς ΚΛ δυνάμει), μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΚΨ πρὸς ιε΄ τὰ ἀπὸ ΩΦ ὥστε καὶ οβ΄ τὰ ἀπὸ ΟΝ πρὸς ε’ τὰ ἀπὸ ΒΑ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΧΨ πρὸς ιε΄ τὰ ἀπὸ ΩΘ. πέντε δὲ τὰ ἀπὸ Β∠ ιε΄ ἐστιν τὰ ἀπὸ ΝΛ, ὡς ἔστιν ἐν τῷ ιγ΄ τῶν στοιχείων (τὸ γὰρ κέντρον τοῦ περὶ τὸ Β∠Λ τρίγωνον κύκλου τὸ Ν σημεῖόν ἐστιν)· καὶ ιβ΄ ἄρα τὰ ἀπὸ ON πρὸς ιε΄ τὰ ἀπὸ ΛΝ, τουτέστιν ιβ΄ τὰ ἀπὸ ∠κ Ε πρὸς ιε΄ τὰ ἀπὸ ΕΑ, μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΧΨ πρὸς ιε΄ τὰ ἀπὸ ΩΘ. καὶ ἔστιν ὅμοιον τὸ ∠ Α,Ε τρίγωνον τῷ ΥΦΩ τριγώνῳ καὶ ιβ΄ ἄρα τὰ ἀπὸ ΥΩ πρὸς ιε΄ τὰ ἀπὸ ΩΦ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΧΨ πρὸς ιε΄ τὰ ἀπὸ ΩΦ· μείζων ἄρα ἡ ΓΩ κάθετος τῆς ΧΨ καθέτου. καὶ ὑπόκεινται αἱ ἐπιφάνειαι ἴσαι τῶν στερεῶν σχημάτων μεῖζον ἄρα τὸ δωδεκάεδρον τοῦ ὀκταέδρου.",
@@ -970,24 +1034,32 @@
             "ΩΦ ὥστε καὶ οβ΄ τὰ ἀπὸ ΟΝ πρὸς ε’ τὰ ἀπὸ ΒΑ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΧΨ πρὸς ιε΄ τὰ ἀπὸ ΩΘ. πέντε δὲ τὰ ἀπὸ Β∠ ιε΄ ἐστιν τὰ ἀπὸ ΝΛ, ὡς ἔστιν ἐν τῷ ιγ΄ τῶν στοιχείων (τὸ γὰρ κέντρον τοῦ περὶ τὸ Β∠Λ τρίγωνον κύκλου τὸ Ν σημεῖόν ἐστιν)· καὶ ιβ΄ ἄρα τὰ ἀπὸ ON πρὸς ιε΄ τὰ ἀπὸ ΛΝ, τουτέστιν ιβ΄ τὰ ἀπὸ ∠κ Ε πρὸς ιε΄ τὰ ἀπὸ ΕΑ, μείζονα λόγον ἔχει ἤπερ ιβ΄",
             "τὰ ἀπὸ ΧΨ πρὸς ιε΄ τὰ ἀπὸ ΩΘ. καὶ ἔστιν ὅμοιον τὸ ∠ Α,Ε τρίγωνον τῷ ΥΦΩ τριγώνῳ καὶ ιβ΄ ἄρα τὰ ἀπὸ ΥΩ πρὸς ιε΄ τὰ ἀπὸ ΩΦ μείζονα λόγον ἔχει ἤπερ ιβ΄ τὰ ἀπὸ ΧΨ πρὸς ιε΄ τὰ ἀπὸ ΩΦ· μείζων ἄρα ἡ ΓΩ κάθετος τῆς ΧΨ καθέτου. καὶ ὑπόκεινται αἱ ἐπιφάνειαι ἴσαι τῶν στερεῶν",
             "σχημάτων μεῖζον ἄρα τὸ δωδεκάεδρον τοῦ ὀκταέδρου."
-          ]
+          ],
+          "source_citation": {
+            "scheme": "pappus-first1k-book-attributes",
+            "locus": "4.103"
+          }
         },
         {
           "urn": "pappus-mathematics.synagoge",
           "edition": "1st1K-grc1",
-          "locus": "4.104",
+          "locus": "5.104",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
           "text": "104 ξε΄. Ὅτι μὲν οὖν τῶν ε΄ σχημάτων τούτων ἃ δὴ καὶ πολύεδρα καλεῖται τὸ πολυεδρότερον αἰεὶ μεῖζόν ἐστιν φανερὸν ἐκ τῶν ἀποδεδειγμένων, ὅτι δὲ πλείω τῶν πέντε τούτων ἀδύνατόν ἐστιν εὑρεῖν ἄλλα σχήματα ἴσοις καὶ ὁμοίοις ἰσοπλεύροις πολυγώνοις περιεχόμενα μάθοι τις ἂν καὶ οὕτως.",
           "text_lines": [
             "104 ξε΄. Ὅτι μὲν οὖν τῶν ε΄ σχημάτων τούτων ἃ δὴ καὶ πολύεδρα καλεῖται τὸ πολυεδρότερον αἰεὶ μεῖζόν ἐστιν φανερὸν ἐκ τῶν ἀποδεδειγμένων, ὅτι δὲ πλείω τῶν πέντε τούτων ἀδύνατόν ἐστιν εὑρεῖν ἄλλα σχήματα ἴσοις καὶ",
             "ὁμοίοις ἰσοπλεύροις πολυγώνοις περιεχόμενα μάθοι τις ἂν καὶ οὕτως."
-          ]
+          ],
+          "source_citation": {
+            "scheme": "pappus-first1k-book-attributes",
+            "locus": "4.104"
+          }
         },
         {
           "urn": "pappus-mathematics.synagoge",
           "edition": "1st1K-grc1",
-          "locus": "4.105",
+          "locus": "5.105",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
           "text": "105 Πᾶσαν στερεὰν γωνίαν ἐκ τριῶν ἐλαχίστων συνεστάναι γωνιῶν ἐπιπέδων ἀναγκαῖον, καὶ αἱ περιέχουσαι αὐτάς, ἐάν τε τρεῖς ὦσιν δάν τε πλείους, τῶν τεσσάρων ὀρθῶν ἐλάττονές εἰσιν πάντως. ὑπὸ μὲν οὖν ἑξαγώνου γωνιῶν ἤ τινος εὐθυγράμμου πολυγωνοτέρου περισχεθῆναι στερεὰν γωνίαν ἀδύνατον (αἱ γὰρ ἐλάχισται δυνάμεναι περιλαβεῖν αὐτὴν τρεῖς τεσσάρων ὀρθῶν οὐκ εἰσὶν ἐλάττους), ὑπὸ δὲ πενταγώνου τριῶν μόνων δυνατόν, ὡς καὶ συνέστηκεν ἡ τοῦ δωδεκαέδρου. πάλιν δέ τέσσαρες μέν ἢ πλείους τετραγώνου γωνίαι περιέχειν στερεάν γωνίαν οὐ δύνανται (τεσσάρων γὰρ ὀρθῶν οὖκ εἰσὶν ἐλάττους), τρεῖς δὲ περιέχουσιν τὴν τοῦ κύβου. κατὰ τὰ αὐτὰ δὲ καὶ ἰσοπλεύρου τριγώνου ἓξ μὲν ἢ πλείους γωνίαι τεσσάρων ὀρθῶν οὐκ εἰσὶν ἐλάττους, καὶ διὰ τοῦτο στερεὰν γωνίαν οὐ περιέχουσι, πέντε δὲ καὶ τέσσαρες καὶ τρεῖς δύνανται, καὶ περιέχεται ὑπὸ μέν πέντε ἡ τοῦ εἰκοσαέδρου, ὑπὸ δὲ τεσσάρων ἡ τοῦ ὀκταέδρου, ὑπὸ δὲ τριῶν ἡ τῆς πυραμίδος. δῆλον οὖν ἐκ τῶν εἰρημένων ὅτι παρὰ ταύτας οὐκ ἔστιν ἄλλη στερεὰ γωνία ἐξ ἴσων καὶ τοῦ αὐτοῦ πολυγόνου συνεστηκυῖα γωνιῶν, ὥστε οὐδὲ πολύεδρον εὑρεῖν ἄλλο παρὰ τὰ προειρημένα πέντε δυνατόν ἐστιν ὑπὸ ἴσων καὶ ὁμοἰων πολυγώνων περιεχόμενον.",
@@ -996,14 +1068,18 @@
             "τρεῖς τεσσάρων ὀρθῶν οὐκ εἰσὶν ἐλάττους), ὑπὸ δὲ πενταγώνου τριῶν μόνων δυνατόν, ὡς καὶ συνέστηκεν ἡ τοῦ δωδεκαέδρου. πάλιν δέ τέσσαρες μέν ἢ πλείους τετραγώνου γωνίαι περιέχειν στερεάν γωνίαν οὐ δύνανται (τεσσάρων γὰρ ὀρθῶν οὖκ εἰσὶν ἐλάττους), τρεῖς δὲ περιέχουσιν τὴν τοῦ",
             "κύβου. κατὰ τὰ αὐτὰ δὲ καὶ ἰσοπλεύρου τριγώνου ἓξ μὲν ἢ πλείους γωνίαι τεσσάρων ὀρθῶν οὐκ εἰσὶν ἐλάττους, καὶ διὰ τοῦτο στερεὰν γωνίαν οὐ περιέχουσι, πέντε δὲ καὶ τέσσαρες καὶ τρεῖς δύνανται, καὶ περιέχεται ὑπὸ μέν πέντε ἡ τοῦ εἰκοσαέδρου, ὑπὸ δὲ τεσσάρων ἡ τοῦ ὀκταέδρου, ὑπὸ",
             "δὲ τριῶν ἡ τῆς πυραμίδος. δῆλον οὖν ἐκ τῶν εἰρημένων ὅτι παρὰ ταύτας οὐκ ἔστιν ἄλλη στερεὰ γωνία ἐξ ἴσων καὶ τοῦ αὐτοῦ πολυγόνου συνεστηκυῖα γωνιῶν, ὥστε οὐδὲ πολύεδρον εὑρεῖν ἄλλο παρὰ τὰ προειρημένα πέντε δυνατόν ἐστιν ὑπὸ ἴσων καὶ ὁμοἰων πολυγώνων περιεχόμενον."
-          ]
+          ],
+          "source_citation": {
+            "scheme": "pappus-first1k-book-attributes",
+            "locus": "4.105"
+          }
         }
       ],
       "locus_prefixes": {
-        "1": 27,
-        "2": 102,
-        "3": 77,
-        "4": 98
+        "2": 27,
+        "3": 102,
+        "4": 77,
+        "5": 98
       },
       "book_headings": [],
       "tei_source_description": "Pappi Alexandrini collectionis quae supersunt Friedrich Hultsch Pappus Alexandrinus Weidmann Berlin 1876 1 of 3 Internet Archive",
@@ -1034,7 +1110,7 @@
     },
     {
       "slug": "apollonius-geom.conica",
-      "status": "partial-upstream-edition",
+      "status": "open-coverage-work",
       "source_root": "first1k",
       "source_path": "data/tlg0550/tlg001/tlg0550.tlg001.1st1K-grc1.xml",
       "source_scan": "https://archive.org/details/apolloniipergaei02apoluoft",
@@ -1044,126 +1120,2669 @@
       ],
       "source_sha256": "6d6d5bb17dea43ec238e777fb413af56137e49dcd76e8e02dbc515ae0a5db0eb",
       "issue": "https://github.com/open-greek/open-greek-corpus/issues/44",
-      "corpus_file_sha256": "13a58ea70cd050f803334d7d9ca2ee0d89e449030ac1597ade22eb16aabcba6e",
+      "historical_status": "partial-upstream-edition",
+      "resolution": {
+        "complete": false,
+        "status": "open-coverage-work",
+        "reason": "Reviewed missing Greek scan regions have not all been admitted.",
+        "scope": {
+          "work_identity": "Apollonius of Perga, Conica",
+          "base_scope": "Heiberg volume II, Greek Book IV propositions 1–57",
+          "addition_scope": "Heiberg volume I, Greek Books I–III with their printed opening matter, and the omitted Book IV letter to Attalus from volume II",
+          "transmission_limit": "The Greek manifestation covers Books I–IV. Books V–VII survive only in Arabic translation, and Book VIII is lost; none is reconstructed as Greek reading text.",
+          "transmission_reference": {
+            "citation": "Cambridge Library Collection description of Heiberg's Apollonii Pergaei quae Graece exstant cum commentariis antiquis, volume II",
+            "url": "https://www.cambridge.org/core/books/apollonii-pergaei-quae-graece-exstant-cum-commentariis-antiquis/5D8CEEC494A099E165426D0D05022E27"
+          },
+          "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus and indexes",
+          "historical_citation_scheme": "apollonius-first1k-unqualified-sections",
+          "scan_citation_scheme": "Book plus Heiberg printed page",
+          "status": "reviewed-scan-additions-pending",
+          "reviewed_primary_regions": 227,
+          "admitted_primary_regions": 2,
+          "remaining_reviewed_primary_regions": 225,
+          "reviewed_comparative_regions": 0,
+          "admitted_transmission_counts": {
+            "direct-text": 2
+          },
+          "scan_manifest": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+          "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+          "scan_manifests": [
+            {
+              "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+              "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+            },
+            {
+              "path": "data/ingest_reviews/coverage/apollonius-conica-4-letter-jobs.json",
+              "sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832"
+            }
+          ],
+          "scan_sources": [
+            {
+              "id": "apolloniipergaei01apoluoft",
+              "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
+              "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+              "license": "public-domain",
+              "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+              "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+              "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+            },
+            {
+              "id": "apolloniipergaei02apoluoft",
+              "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+              "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+              "license": "public-domain",
+              "citation": "Apollonius, Conica, edited by J. L. Heiberg, volume II, Leipzig: Teubner, 1893",
+              "catalog_url": "https://archive.org/details/apolloniipergaei02apoluoft",
+              "rights_evidence": "Public-domain Greek print, 1893; volume title and Book IV opening inspected."
+            }
+          ],
+          "admission_audit": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+          "admission_audits": [
+            "data/corpus_changes/conica-book-four-letter-2026-10/changes.json"
+          ],
+          "digital_components": [],
+          "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
+        },
+        "publication": {
+          "declared_release": "corpus-2026-10-18",
+          "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+          "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+        }
+      },
+      "corpus_file_sha256": "10a5625e2cb447b77c43a9f01cf9d593db9f88e6ad29212698c1402d5330a8b3",
       "edition": {
         "edition": "1st1K-grc1",
         "id": "ogc000303",
         "license": "CC-BY-SA-4.0",
-        "n_passages": 57,
-        "n_tokens": 8696,
+        "n_analysis_tokens": 8986,
+        "n_passages": 59,
+        "n_tokens": 9041,
         "source": "first1k"
       },
-      "passages": 57,
+      "passages": 59,
       "opening": [
         {
           "urn": "apollonius-geom.conica",
-          "edition": "1st1K-grc1",
-          "locus": "1",
-          "source": "first1k",
-          "license": "CC-BY-SA-4.0",
-          "text": "Ἐὰν κώνου τομῆς ἢ κύκλου περιφερείας ληφθῇ τι σημεῖον ἐκτός, καὶ ἀπ’ αὐτοῦ τῇ τομῇ προσπίπτωσι δύο εὐθεῖαι, ὧν ἡ μὲν ἐφάπτεται, ἡ δὲ τέμνει κατὰ δύο σημεῖα, καὶ ὃν ἔχει λόγον ὅλη ἡ τέμνουσα πρὸς τὴν ἐκτὸς ἀπολαμβανομένην μεταξὺ τοῦ τε σημείου καὶ τῆς γραμμῆς, τοῦτον τμηθῇ ἡ ἐντὸς ἀπολαμβανομένη εὐθεῖα ὥστε τὰς ὁμολόγους εὐθείας πρὸς τῷ αὐτῷ σημείῳ εἶναι, ἡ ἀπὸ τῆς ἁφῆς ἐπὶ τὴν διαίρεσιν ἀγομένη εὐθεῖα συμπεσεῖται τῇ γραμμῇ, καὶ ἡ ἀπὸ τῆς συμπτώσεως ἐπὶ τὸ ἐκτὸς σημεῖον ἀγομένη εὐθεῖα ἐφάπτεται τῆς γραμμῆς. ἔστω γὰρ κώνου τομὴ ἢ κύκλου περιφέρεια ἡ ΑΒΓ, καὶ εἰλήφθω τι σημεῖον ἐκτὸς τὸ Δ, καὶ ἀπ’ αὐτοῦ ἡ μὲν ΔΒ ἐφαπτέσθω κατὰ τὸ Β ἡ δὲ ΔΕΓ τεμνέτω τὴν τομὴν κατὰ τὰ Ε, Γ, καὶ ὃν ἔχει λόγον ἡ ΓΔ πρὸς ΔΕ, τοῦτον ἐχέτω ἡ ΓΖ πρὸς ΖΕ. λέγω, ὅτι ἡ ἀπὸ τοῦ Β ἐπὶ τὸ Ζ ἀγομένη συμπίπτει τῇ τομῇ, καὶ ἡ ἀπὸ τῆς συμπτώσεως ἐπὶ τὸ Δ ἐφάπτεται τῆς τομῆς. [ἐπεὶ οὖν ἡ ΔΓ τέμνει τὴν τομὴν κατὰ δύο σημεῖα, οὐκ ἔσται διάμετρος αὐτῆς. δυνατὸν ἄρα ἐστὶ διὰ τοῦ Δ διάμετρον ἀγαγεῖν· ὥστε καὶ ἐφαπτομένην.] ἤχθω γὰρ ἀπὸ τοῦ Δ ἐφαπτομένη τῆς τομῆς ἡ ΔΑ, καὶ ἐπιζευχθεῖσα ἡ ΒΑ τεμνέτω τὴν ΕΓ, εἰ δυνατόν, μὴ κατὰ τὸ Ζ, ἀλλὰ κατὰ τὸ Η. ἐπεὶ οὖν ἐφάπτονται αἱ ΒΔ, ΔΑ, καὶ ἐπὶ τὰς ἁφάς ἐστιν ἡ ΒΑ, καὶ διῆκται ἡ ΓΔ τέμνουσα τὴν μὲν τομὴν κατὰ τὰ Γ, Ε, τὴν δὲ ΑΒ κατὰ τὸ Η, ἔσται ὡς ἡ ΓΔ πρὸς ΔΕ, ἡ ΓΗ πρὸς ΗΕ· ὅπερ ἄτοπον· ὑπόκειται γάρ, ὡς ἡ ΓΔ πρὸς ΔΕ, ἡ ΓΖ πρὸς ΖΕ. οὐκ ἄρα ἡ ΒΑ καθ’ ἕτερον σημεῖον τέμνει τὴν ΓΕ· κατὰ τὸ Ζ ἄρα."
+          "edition": "scan-consensus-2026-10-18",
+          "locus": "4.heiberg-p0002",
+          "source": "ocr",
+          "license": "PD",
+          "language": "grc",
+          "text": "ΚΩΝΙΚΩΝ δ'. Ἀπολλώνιος ⟦Ἀπτάλῳ ∥ Ἀττάλῳ⟧ χαίρειν. Πρότερον μὲν ἐξέθηκα γράψας πρὸς ⟦Εὐδήμον ∥ Εὔδημον⟧ τὸν Περγαμηνὸν τῶν συντεταγμένων ἡμῖν κωνικῶν ἐν ὀκτὼ βιβλίοις τὰ πρῶτα τρία, μετηλλαχότος δ' ἐκείνου τὰ λοιπὰ διεγνωκότες πρὸς ⟦σε ∥ σὲ⟧ γράψαι διὰ τὸ φιλοτιμεῖσθαί σε ⟦μεταλαμβάνειν, ∥ μεταλαμβάνειν·⟧ τὰ ὑφ' ἡμῶν πραγματευόμενα πεπόμφαμεν ἐπὶ τοῦ παρόντος σοι τὸ τέταρτον. περιέχει δὲ τοῦτο, κατὰ πόσα σημεῖα πλεῖστα δυνατόν ἔστι τὰς τῶν ⟦κώνων ∥ κῶνων⟧ τομὰς ἀλλήλαις τε καὶ τῇ τοῦ κύκλου περιφερείᾳ συμβάλλειν, ἐάνπερ μὴ ὅλαι ἐπὶ ὅλας ἐφαρμόζωσιν, ἔτι ⟦κώνου ∥ κῶνου⟧ ⟦τομὴ ∥ τομῇ⟧ καὶ κύκλου ⟦περιφέρεια ∥ περιφέρειᾳ⟧ ταῖς ἀντικειμέναις κατὰ πόσα σημεῖα πλεῖστα συμβάλλουσι, καὶ ⟦ἔκτος ∥ ἔκτὸς⟧ τούτων ἄλλα οὐκ ὀλίγα ὅμοια τούτοις. τούτων δὲ τὸ μὲν προειρημένον Κόνων ὁ Σάμιος ἐξέθηκε πρὸς ⟦Θρασυδαῖον ∥ Θρασύδαϊον⟧ οὐκ ὀρθῶς ἐν ταῖς ἀποδείξεσιν ⟦ἀναστραφείς ∥ ἀναστραφεῖς⟧ διὸ καὶ μετρίως αὐτοῦ ἀνθήψατο Νικοτέλης ὁ Κυρηναῖος. περὶ δὲ τοῦ δευτέρου μνείαν μόνον πεποίηται ὁ Νικοτέλης σὺν τῇ πρὸς τὸν ⟦Κόνωνα ∥ Κόωνα⟧ ἀντιγραφῇ ὡς ⟦δυναμένον ∥ δυναμένου⟧ δειχθῆναι, ⟦δεικνυμένῳ ∥ δειχνυμένῳ⟧ δὲ οὔτε ὑπ' αὐτοῦ τούτου οὔθ' ὑπ' ἄλλου τινὸς ⟦ἐντετευχάμεν ∥ ἐντετεύχαμεν⟧ τὸ μέντοι τρίτον καὶ τὰ ἄλλα τὰ ὅμο-",
+          "analysis_text": "ΚΩΝΙΚΩΝ δ' Ἀπολλώνιος χαίρειν Πρότερον μὲν ἐξέθηκα γράψας πρὸς τὸν Περγαμηνὸν τῶν συντεταγμένων ἡμῖν κωνικῶν ἐν ὀκτὼ βιβλίοις τὰ πρῶτα τρία μετηλλαχότος δ' ἐκείνου τὰ λοιπὰ διεγνωκότες πρὸς γράψαι διὰ τὸ φιλοτιμεῖσθαί σε μεταλαμβάνειν τὰ ὑφ' ἡμῶν πραγματευόμενα πεπόμφαμεν ἐπὶ τοῦ παρόντος σοι τὸ τέταρτον περιέχει δὲ τοῦτο κατὰ πόσα σημεῖα πλεῖστα δυνατόν ἔστι τὰς τῶν τομὰς ἀλλήλαις τε καὶ τῇ τοῦ κύκλου περιφερείᾳ συμβάλλειν ἐάνπερ μὴ ὅλαι ἐπὶ ὅλας ἐφαρμόζωσιν ἔτι καὶ κύκλου ταῖς ἀντικειμέναις κατὰ πόσα σημεῖα πλεῖστα συμβάλλουσι καὶ τούτων ἄλλα οὐκ ὀλίγα ὅμοια τούτοις τούτων δὲ τὸ μὲν προειρημένον Κόνων ὁ Σάμιος ἐξέθηκε πρὸς οὐκ ὀρθῶς ἐν ταῖς ἀποδείξεσιν διὸ καὶ μετρίως αὐτοῦ ἀνθήψατο Νικοτέλης ὁ Κυρηναῖος περὶ δὲ τοῦ δευτέρου μνείαν μόνον πεποίηται ὁ Νικοτέλης σὺν τῇ πρὸς τὸν ἀντιγραφῇ ὡς δειχθῆναι δὲ οὔτε ὑπ' αὐτοῦ τούτου οὔθ' ὑπ' ἄλλου τινὸς τὸ μέντοι τρίτον καὶ τὰ ἄλλα τὰ",
+          "ocr_consensus": {
+            "schema_version": 1,
+            "policy": "Exact word votes after accent-insensitive positional alignment. Preserve tied readings; omissions vote only inside each witness's observed span. Original raw text remains reversible.",
+            "witnesses": [
+              {
+                "id": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+                "model": "Qwen/Qwen3.6-27B",
+                "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+                "vote_group": "qwen3.6-27b",
+                "text": "ΚΩΝΙΚΩΝ δ'.\nἈπολλώνιος Ἀττάλῳ χαίρειν.\nΠρότερον μὲν ἐξέθηκα γράψας πρὸς Εὔδημον τὸν\nΠεργαμηνὸν τῶν συντεταγμένων ἡμῖν κωνικῶν ἐν\nὀκτὼ βιβλίοις τὰ πρῶτα τρία, μετηλλαχότος δ' ἐκείνου\nτὰ λοιπὰ διεγνωκότες πρὸς σὲ γράψαι διὰ τὸ φιλο-\nτιμεῖσθαί σε μεταλαμβάνειν, τὰ ὑφ' ἡμῶν πραγματευ-\nόμενα πεπόμφαμεν ἐπὶ τοῦ παρόντος σοι τὸ τέταρτον.\nπεριέχει δὲ τοῦτο, κατὰ πόσα σημεῖα πλεῖστα δυνατόν\nἔστι τὰς τῶν κώνων τομὰς ἀλλήλαις τε καὶ τῇ τοῦ\nκύκλου περιφερείᾳ συμβάλλειν, ἐάνπερ μὴ ὅλαι ἐπὶ\nὅλας ἐφαρμόζωσιν, ἔτι κώνου τομὴ καὶ κύκλου περι-\nφέρεια ταῖς ἀντικειμέναις κατὰ πόσα σημεῖα πλεῖστα\nσυμβάλλουσι, καὶ ἔκτὸς τούτων ἄλλα οὐκ ὀλίγα ὅμοια\nτούτοις. τούτων δὲ τὸ μὲν προειρημένον Κόνων ὁ\nΣάμιος ἐξέθηκε πρὸς Θρασύδαϊον οὐκ ὀρθῶς ἐν ταῖς\nἀποδείξεσιν ἀναστραφεῖς· διὸ καὶ μετρίως αὐτοῦ ἀνθ-\nήψατο Νικοτέλης ὁ Κυρηναῖος. περὶ δὲ τοῦ δευτέρου\nμνείαν μόνον πεποίηται ὁ Νικοτέλης σὺν τῇ πρὸς τὸν\nΚόνωνα ἀντιγραφῇ ὡς δυναμένου δειχθῆναι, δεικνυ-\nμένῳ δὲ οὔτε ὑπ' αὐτοῦ τούτου οὔθ' ὑπ' ἄλλου τινὸς\nἐντετευχάμεν. τὸ μέντοι τρίτον καὶ τὰ ἄλλα τὰ ὅμο-",
+                "artifact_sha256": "28fec3866dfa85919d2b3348855e13d0e6cbc5f6b7bd30d3de8c48c748b864c9",
+                "image_sha256": "eaae7ea3a9d52c63252712401a408975d2304fb57d3c6f690284317123452955",
+                "original_text": "ΚΩΝΙΚΩΝ δ'.\nἈπολλώνιος Ἀττάλῳ χαίρειν.\nΠρότερον μὲν ἐξέθηκα γράψας πρὸς Εὔδημον τὸν\nΠεργαμηνὸν τῶν συντεταγμένων ἡμῖν κωνικῶν ἐν\nὀκτὼ βιβλίοις τὰ πρῶτα τρία, μετηλλαχότος δ' ἐκείνου\nτὰ λοιπὰ διεγνωκότες πρὸς σὲ γράψαι διὰ τὸ φιλο-\nτιμεῖσθαί σε μεταλαμβάνειν, τὰ ὑφ' ἡμῶν πραγματευ-\nόμενα πεπόμφαμεν ἐπὶ τοῦ παρόντος σοι τὸ τέταρτον.\nπεριέχει δὲ τοῦτο, κατὰ πόσα σημεῖα πλεῖστα δυνατόν\nἔστι τὰς τῶν κώνων τομὰς ἀλλήλαις τε καὶ τῇ τοῦ\nκύκλου περιφερείᾳ συμβάλλειν, ἐάνπερ μὴ ὅλαι ἐπὶ\nὅλας ἐφαρμόζωσιν, ἔτι κώνου τομὴ καὶ κύκλου περι-\nφέρεια ταῖς ἀντικειμέναις κατὰ πόσα σημεῖα πλεῖστα\nσυμβάλλουσι, καὶ ἔκτὸς τούτων ἄλλα οὐκ ὀλίγα ὅμοια\nτούτοις. τούτων δὲ τὸ μὲν προειρημένον Κόνων ὁ\nΣάμιος ἐξέθηκε πρὸς Θρασύδαϊον οὐκ ὀρθῶς ἐν ταῖς\nἀποδείξεσιν ἀναστραφεῖς· διὸ καὶ μετρίως αὐτοῦ ἀνθ-\nήψατο Νικοτέλης ὁ Κυρηναῖος. περὶ δὲ τοῦ δευτέρου\nμνείαν μόνον πεποίηται ὁ Νικοτέλης σὺν τῇ πρὸς τὸν\nΚόνωνα ἀντιγραφῇ ὡς δυναμένου δειχθῆναι, δεικνυ-\nμένῳ δὲ οὔτε ὑπ' αὐτοῦ τούτου οὔθ' ὑπ' ἄλλου τινὸς\nἐντετευχάμεν. τὸ μέντοι τρίτον καὶ τὰ ἄλλα τὰ ὅμο-",
+                "text_sha256": "38eff089ba9af02887a68d4614327b5e71b3ddbea25687f99f1e1219cdc72aa4"
+              },
+              {
+                "id": "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+                "model": "Qwen/Qwen3.8-27B-FP8",
+                "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+                "vote_group": "qwen3.8-27b",
+                "text": "ΚΩΝΙΚΩΝ δ'.\nἈπολλώνιος Ἀπτάλῳ χαίρειν.\nΠρότερον μὲν ἐξέθηκα γράψας πρὸς Εὐδήμον τὸν\nΠεργαμηνὸν τῶν συντεταγμένων ἡμῖν κωνικῶν ἐν\nὀκτὼ βιβλίοις τὰ πρῶτα τρία, μετηλλαχότος δ' ἐκείνου\nτὰ λοιπὰ διεγνωκότες πρὸς σε γράψαι διὰ τὸ φιλο-\nτιμεῖσθαί σε μεταλαμβάνειν· τὰ ὑφ' ἡμῶν πραγματευ-\nόμενα πεπόμφαμεν ἐπὶ τοῦ παρόντος σοι τὸ τέταρτον.\nπεριέχει δὲ τοῦτο, κατὰ πόσα σημεῖα πλεῖστα δυνατόν\nἔστι τὰς τῶν κῶνων τομὰς ἀλλήλαις τε καὶ τῇ τοῦ\nκύκλου περιφερείᾳ συμβάλλειν, ἐάνπερ μὴ ὅλαι ἐπὶ\nὅλας ἐφαρμόζωσιν, ἔτι κῶνου τομῇ καὶ κύκλου περι-\nφέρειᾳ ταῖς ἀντικειμέναις κατὰ πόσα σημεῖα πλεῖστα\nσυμβάλλουσι, καὶ ἔκτος τούτων ἄλλα οὐκ ὀλίγα ὅμοια\nτούτοις. τούτων δὲ τὸ μὲν προειρημένον Κόνων ὁ\nΣάμιος ἐξέθηκε πρὸς Θρασυδαῖον οὐκ ὀρθῶς ἐν ταῖς\nἀποδείξεσιν ἀναστραφείς· διὸ καὶ μετρίως αὐτοῦ ἀνθ-\nήψατο Νικοτέλης ὁ Κυρηναῖος. περὶ δὲ τοῦ δευτέρου\nμνείαν μόνον πεποίηται ὁ Νικοτέλης σὺν τῇ πρὸς τὸν\nΚόωνα ἀντιγραφῇ ὡς δυναμένον δειχθῆναι, δειχνυ-\nμένῳ δὲ οὔτε ὑπ' αὐτοῦ τούτου οὔθ' ὑπ' ἄλλου τινὸς\nἐντετεύχαμεν. τὸ μέντοι τρίτον καὶ τὰ ἄλλα τὰ ὅμο-",
+                "artifact_sha256": "d2175deeb2dd141a0537d90757352ff495d49b11d25ded018b0c543cac48955c",
+                "image_sha256": "eaae7ea3a9d52c63252712401a408975d2304fb57d3c6f690284317123452955",
+                "original_text": "ΚΩΝΙΚΩΝ δ'.\nἈπολλώνιος Ἀπτάλῳ χαίρειν.\nΠρότερον μὲν ἐξέθηκα γράψας πρὸς Εὐδήμον τὸν\nΠεργαμηνὸν τῶν συντεταγμένων ἡμῖν κωνικῶν ἐν\nὀκτὼ βιβλίοις τὰ πρῶτα τρία, μετηλλαχότος δ' ἐκείνου\nτὰ λοιπὰ διεγνωκότες πρὸς σε γράψαι διὰ τὸ φιλο-\nτιμεῖσθαί σε μεταλαμβάνειν· τὰ ὑφ' ἡμῶν πραγματευ-\nόμενα πεπόμφαμεν ἐπὶ τοῦ παρόντος σοι τὸ τέταρτον.\nπεριέχει δὲ τοῦτο, κατὰ πόσα σημεῖα πλεῖστα δυνατόν\nἔστι τὰς τῶν κῶνων τομὰς ἀλλήλαις τε καὶ τῇ τοῦ\nκύκλου περιφερείᾳ συμβάλλειν, ἐάνπερ μὴ ὅλαι ἐπὶ\nὅλας ἐφαρμόζωσιν, ἔτι κῶνου τομῇ καὶ κύκλου περι-\nφέρειᾳ ταῖς ἀντικειμέναις κατὰ πόσα σημεῖα πλεῖστα\nσυμβάλλουσι, καὶ ἔκτος τούτων ἄλλα οὐκ ὀλίγα ὅμοια\nτούτοις. τούτων δὲ τὸ μὲν προειρημένον Κόνων ὁ\nΣάμιος ἐξέθηκε πρὸς Θρασυδαῖον οὐκ ὀρθῶς ἐν ταῖς\nἀποδείξεσιν ἀναστραφείς· διὸ καὶ μετρίως αὐτοῦ ἀνθ-\nήψατο Νικοτέλης ὁ Κυρηναῖος. περὶ δὲ τοῦ δευτέρου\nμνείαν μόνον πεποίηται ὁ Νικοτέλης σὺν τῇ πρὸς τὸν\nΚόωνα ἀντιγραφῇ ὡς δυναμένον δειχθῆναι, δειχνυ-\nμένῳ δὲ οὔτε ὑπ' αὐτοῦ τούτου οὔθ' ὑπ' ἄλλου τινὸς\nἐντετεύχαμεν. τὸ μέντοι τρίτον καὶ τὰ ἄλλα τὰ ὅμο-",
+                "text_sha256": "4b027bebb29ca56954ee9f105dd1fbc843f0c61ed73354314bab7e706c8fb3e6"
+              }
+            ],
+            "counts": {
+              "agreement": 143,
+              "unresolved": 14,
+              "incomplete-reading": 1
+            },
+            "slots": [
+              {
+                "position": 0,
+                "selected": "ΚΩΝΙΚΩΝ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 1,
+                "selected": "δ'",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 2,
+                "selected": "Ἀπολλώνιος",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 3,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "Ἀπτάλῳ",
+                  "Ἀττάλῳ"
+                ]
+              },
+              {
+                "position": 4,
+                "selected": "χαίρειν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 5,
+                "selected": "Πρότερον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 6,
+                "selected": "μὲν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 7,
+                "selected": "ἐξέθηκα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 8,
+                "selected": "γράψας",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 9,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 10,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "Εὐδήμον",
+                  "Εὔδημον"
+                ]
+              },
+              {
+                "position": 11,
+                "selected": "τὸν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 12,
+                "selected": "Περγαμηνὸν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 13,
+                "selected": "τῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 14,
+                "selected": "συντεταγμένων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 15,
+                "selected": "ἡμῖν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 16,
+                "selected": "κωνικῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 17,
+                "selected": "ἐν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 18,
+                "selected": "ὀκτὼ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 19,
+                "selected": "βιβλίοις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 20,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 21,
+                "selected": "πρῶτα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 22,
+                "selected": "τρία",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 23,
+                "selected": "μετηλλαχότος",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 24,
+                "selected": "δ'",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 25,
+                "selected": "ἐκείνου",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 26,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 27,
+                "selected": "λοιπὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 28,
+                "selected": "διεγνωκότες",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 29,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 30,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "σε",
+                  "σὲ"
+                ]
+              },
+              {
+                "position": 31,
+                "selected": "γράψαι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 32,
+                "selected": "διὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 33,
+                "selected": "τὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 34,
+                "selected": "φιλοτιμεῖσθαί",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 35,
+                "selected": "σε",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 36,
+                "selected": "μεταλαμβάνειν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 37,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 38,
+                "selected": "ὑφ'",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 39,
+                "selected": "ἡμῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 40,
+                "selected": "πραγματευόμενα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 41,
+                "selected": "πεπόμφαμεν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 42,
+                "selected": "ἐπὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 43,
+                "selected": "τοῦ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 44,
+                "selected": "παρόντος",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 45,
+                "selected": "σοι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 46,
+                "selected": "τὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 47,
+                "selected": "τέταρτον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 48,
+                "selected": "περιέχει",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 49,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 50,
+                "selected": "τοῦτο",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 51,
+                "selected": "κατὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 52,
+                "selected": "πόσα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 53,
+                "selected": "σημεῖα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 54,
+                "selected": "πλεῖστα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 55,
+                "selected": "δυνατόν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 56,
+                "selected": "ἔστι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 57,
+                "selected": "τὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 58,
+                "selected": "τῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 59,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "κώνων",
+                  "κῶνων"
+                ]
+              },
+              {
+                "position": 60,
+                "selected": "τομὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 61,
+                "selected": "ἀλλήλαις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 62,
+                "selected": "τε",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 63,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 64,
+                "selected": "τῇ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 65,
+                "selected": "τοῦ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 66,
+                "selected": "κύκλου",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 67,
+                "selected": "περιφερείᾳ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 68,
+                "selected": "συμβάλλειν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 69,
+                "selected": "ἐάνπερ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 70,
+                "selected": "μὴ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 71,
+                "selected": "ὅλαι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 72,
+                "selected": "ἐπὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 73,
+                "selected": "ὅλας",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 74,
+                "selected": "ἐφαρμόζωσιν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 75,
+                "selected": "ἔτι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 76,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "κώνου",
+                  "κῶνου"
+                ]
+              },
+              {
+                "position": 77,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "τομὴ",
+                  "τομῇ"
+                ]
+              },
+              {
+                "position": 78,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 79,
+                "selected": "κύκλου",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 80,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "περιφέρεια",
+                  "περιφέρειᾳ"
+                ]
+              },
+              {
+                "position": 81,
+                "selected": "ταῖς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 82,
+                "selected": "ἀντικειμέναις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 83,
+                "selected": "κατὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 84,
+                "selected": "πόσα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 85,
+                "selected": "σημεῖα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 86,
+                "selected": "πλεῖστα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 87,
+                "selected": "συμβάλλουσι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 88,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 89,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἔκτος",
+                  "ἔκτὸς"
+                ]
+              },
+              {
+                "position": 90,
+                "selected": "τούτων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 91,
+                "selected": "ἄλλα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 92,
+                "selected": "οὐκ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 93,
+                "selected": "ὀλίγα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 94,
+                "selected": "ὅμοια",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 95,
+                "selected": "τούτοις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 96,
+                "selected": "τούτων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 97,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 98,
+                "selected": "τὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 99,
+                "selected": "μὲν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 100,
+                "selected": "προειρημένον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 101,
+                "selected": "Κόνων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 102,
+                "selected": "ὁ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 103,
+                "selected": "Σάμιος",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 104,
+                "selected": "ἐξέθηκε",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 105,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 106,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "Θρασυδαῖον",
+                  "Θρασύδαϊον"
+                ]
+              },
+              {
+                "position": 107,
+                "selected": "οὐκ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 108,
+                "selected": "ὀρθῶς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 109,
+                "selected": "ἐν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 110,
+                "selected": "ταῖς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 111,
+                "selected": "ἀποδείξεσιν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 112,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἀναστραφείς",
+                  "ἀναστραφεῖς"
+                ]
+              },
+              {
+                "position": 113,
+                "selected": "διὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 114,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 115,
+                "selected": "μετρίως",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 116,
+                "selected": "αὐτοῦ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 117,
+                "selected": "ἀνθήψατο",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 118,
+                "selected": "Νικοτέλης",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 119,
+                "selected": "ὁ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 120,
+                "selected": "Κυρηναῖος",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 121,
+                "selected": "περὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 122,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 123,
+                "selected": "τοῦ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 124,
+                "selected": "δευτέρου",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 125,
+                "selected": "μνείαν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 126,
+                "selected": "μόνον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 127,
+                "selected": "πεποίηται",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 128,
+                "selected": "ὁ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 129,
+                "selected": "Νικοτέλης",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 130,
+                "selected": "σὺν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 131,
+                "selected": "τῇ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 132,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 133,
+                "selected": "τὸν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 134,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "Κόνωνα",
+                  "Κόωνα"
+                ]
+              },
+              {
+                "position": 135,
+                "selected": "ἀντιγραφῇ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 136,
+                "selected": "ὡς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 137,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "δυναμένον",
+                  "δυναμένου"
+                ]
+              },
+              {
+                "position": 138,
+                "selected": "δειχθῆναι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 139,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "δεικνυμένῳ",
+                  "δειχνυμένῳ"
+                ]
+              },
+              {
+                "position": 140,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 141,
+                "selected": "οὔτε",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 142,
+                "selected": "ὑπ'",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 143,
+                "selected": "αὐτοῦ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 144,
+                "selected": "τούτου",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 145,
+                "selected": "οὔθ'",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 146,
+                "selected": "ὑπ'",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 147,
+                "selected": "ἄλλου",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 148,
+                "selected": "τινὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 149,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἐντετευχάμεν",
+                  "ἐντετεύχαμεν"
+                ]
+              },
+              {
+                "position": 150,
+                "selected": "τὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 151,
+                "selected": "μέντοι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 152,
+                "selected": "τρίτον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 153,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 154,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 155,
+                "selected": "ἄλλα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 156,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 157,
+                "selected": "ὅμο",
+                "status": "incomplete-reading",
+                "lexical_eligible": false,
+                "tied_readings": []
+              }
+            ],
+            "storage": "compact-slots-v1",
+            "full_network": {
+              "path": "data/corpus_changes/conica-book-four-letter-2026-10/word-networks.json.gz",
+              "key": "apolloniipergaei02apoluoft-pdf0094-letter",
+              "sha256": "75aa4f36c5b4524bea9cfa13c0d3ed3126094ef3cdab57af3cf066d4c04de812"
+            }
+          },
+          "scan_region_id": "apolloniipergaei02apoluoft-pdf0094-letter",
+          "source_scan": {
+            "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+            "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+            "scan_page": 94,
+            "region": [
+              0,
+              0.17,
+              1,
+              0.825
+            ]
+          },
+          "printed_page": 2,
+          "transmission": "direct-text",
+          "text_role": "authorial-preface"
+        },
+        {
+          "urn": "apollonius-geom.conica",
+          "edition": "scan-consensus-2026-10-18",
+          "locus": "4.heiberg-p0004",
+          "source": "ocr",
+          "license": "PD",
+          "language": "grc",
+          "text": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα. πάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν καὶ ποικίλων ⟦προσεδείτο ∥ προσεδεῖτο⟧ ξενιζόντων θεωρημάτων, ὧν τὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις ἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρηθέντα χρείαν ⟦ἰκανὴν ∥ ἱκανὴν⟧ παρέχεται πρὸς τε τὰς τῶν προβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης μὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδεμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς ⟦διορισμούς ∥ διορισμοὺς⟧ φησιν ἔρχεσθαι χρείαν οὐκ ⟦ἀληθῆ ∥ ἀληθῇ⟧ λέγων· καὶ γὰρ εἰ ὅλως ⟦ἀνευ ∥ ἄνευ⟧ τούτων δύναται κατὰ τοὺς διορισμοὺς ⟦ἀποδίδεσθαι ∥ ἀποδίδοςθαι⟧ ἀλλὰ τοί γε ⟦δι᾽ ∥ δι’⟧ αὐτῶν ἔστι κατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ τοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο· ἡ δὲ τοιαύτη πρόγνωσις ⟦ἰκανὴν ∥ ἱκανὴν⟧ ἀφορμὴν συμβάλλεται πρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν διορισμῶν εὐχρηστα τὰ ⟦θεωρήματά ∥ θεωρήματα⟧ ἐστι ταῦτα. χωρὶς δὲ τῆς τοιαύτης εὐχρηστίας καὶ ⟦δι᾽ ∥ δι’⟧ αὐτὰς τὰς ἀποδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα ⟦πολλά ∥ πολλὰ⟧ τῶν ἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ ⟦δι᾽ ∥ δι’⟧ ἄλλο τι ἀποδεχόμεθα.",
+          "analysis_text": "τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα πάντα δὲ τὰ λεχθέντα ὅσοις οὐκ ἐντέτευχα πολλῶν καὶ ποικίλων ξενιζόντων θεωρημάτων ὧν τὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις ἐκτεθεικώς τὰ δὲ λοιπὰ ἐν τούτῳ ταῦτα δὲ θεωρηθέντα χρείαν παρέχεται πρὸς τε τὰς τῶν προβλημάτων συνθέσεις καὶ τοὺς διορισμούς Νικοτέλης μὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδεμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς φησιν ἔρχεσθαι χρείαν οὐκ λέγων καὶ γὰρ εἰ ὅλως τούτων δύναται κατὰ τοὺς διορισμοὺς ἀλλὰ τοί γε αὐτῶν ἔστι κατανοεῖν προχειρότερον ἕνια οἷον ὅτι πλεοναχῶς ἢ τοσαυταχῶς ἂν γένοιτο καὶ πάλιν ὅτι οὐκ ἂν γένοιτο ἡ δὲ τοιαύτη πρόγνωσις ἀφορμὴν συμβάλλεται πρὸς τὰς ζητήσεις καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν διορισμῶν εὐχρηστα τὰ ἐστι ταῦτα χωρὶς δὲ τῆς τοιαύτης εὐχρηστίας καὶ αὐτὰς τὰς ἀποδείξεις ἄξια ἔσται ἀποδοχῆς καὶ γὰρ ἄλλα τῶν ἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ ἄλλο τι ἀποδεχόμεθα",
+          "ocr_consensus": {
+            "schema_version": 1,
+            "policy": "Exact word votes after accent-insensitive positional alignment. Preserve tied readings; omissions vote only inside each witness's observed span. Original raw text remains reversible. A named scan review excludes the unchanged leading continuation from independent word counts; raw votes remain in the separate raw network.",
+            "witnesses": [
+              {
+                "id": "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+                "model": "Qwen/Qwen3.6-27B",
+                "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+                "vote_group": "qwen3.6-27b",
+                "text": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα.\nπάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν\nκαὶ ποικίλων προσεδεῖτο ξενιζόντων θεωρημάτων, ὧν\nτὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις\nἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρη-\nθέντα χρείαν ἰκανὴν παρέχεται πρὸς τε τὰς τῶν προ-\nβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης\nμὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδε-\nμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς\nδιορισμούς φησιν ἔρχεσθαι χρείαν οὐκ ἀληθῇ λέγων·\nκαὶ γὰρ εἰ ὅλως ἄνευ τούτων δύναται κατὰ τοὺς διο-\nρισμοὺς ἀποδίδοςθαι, ἀλλὰ τοί γε δι’ αὐτῶν ἔστι\nκατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ\nτοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο·\nἡ δὲ τοιαύτη πρόγνωσις ἰκανὴν ἀφορμὴν συμβάλλεται\nπρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν\nδιορισμῶν εὐχρηστα τὰ θεωρήματα ἐστι ταῦτα. χωρὶς\nδὲ τῆς τοιαύτης εὐχρηστίας καὶ δι’ αὐτὰς τὰς ἀπο-\nδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα πολλὰ τῶν\nἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ δι’ ἄλλο τι ἀπο-\nδεχόμεθα.",
+                "artifact_sha256": "7a2795c018a011bca5beb08863c71b5cfe8c63da0f6cd6ccac2e189a6c04aacf",
+                "image_sha256": "db2c7668090fff78361d04889eae150c67f7f724ce12bdee2eefe1162b68ec81",
+                "original_text": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα.\nπάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν\nκαὶ ποικίλων προσεδεῖτο ξενιζόντων θεωρημάτων, ὧν\nτὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις\nἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρη-\nθέντα χρείαν ἰκανὴν παρέχεται πρὸς τε τὰς τῶν προ-\nβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης\nμὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδε-\nμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς\nδιορισμούς φησιν ἔρχεσθαι χρείαν οὐκ ἀληθῇ λέγων·\nκαὶ γὰρ εἰ ὅλως ἄνευ τούτων δύναται κατὰ τοὺς διο-\nρισμοὺς ἀποδίδοςθαι, ἀλλὰ τοί γε δι’ αὐτῶν ἔστι\nκατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ\nτοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο·\nἡ δὲ τοιαύτη πρόγνωσις ἰκανὴν ἀφορμὴν συμβάλλεται\nπρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν\nδιορισμῶν εὐχρηστα τὰ θεωρήματα ἐστι ταῦτα. χωρὶς\nδὲ τῆς τοιαύτης εὐχρηστίας καὶ δι’ αὐτὰς τὰς ἀπο-\nδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα πολλὰ τῶν\nἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ δι’ ἄλλο τι ἀπο-\nδεχόμεθα.",
+                "text_sha256": "9faa101a4e2669c64c6b800ccb62fec3e507e0862c8dfeec23aca4c6641c1759"
+              },
+              {
+                "id": "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+                "model": "Qwen/Qwen3.8-27B-FP8",
+                "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+                "vote_group": "qwen3.8-27b",
+                "text": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα.\nπάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν\nκαὶ ποικίλων προσεδείτο ξενιζόντων θεωρημάτων, ὧν\nτὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις\nἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρη-\nθέντα χρείαν ἱκανὴν παρέχεται πρὸς τε τὰς τῶν προ-\nβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης\nμὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδε-\nμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς\nδιορισμοὺς φησιν ἔρχεσθαι χρείαν οὐκ ἀληθῆ λέγων·\nκαὶ γὰρ εἰ ὅλως ἀνευ τούτων δύναται κατὰ τοὺς διο-\nρισμοὺς ἀποδίδεσθαι, ἀλλὰ τοί γε δι᾽ αὐτῶν ἔστι\nκατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ\nτοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο·\nἡ δὲ τοιαύτη πρόγνωσις ἱκανὴν ἀφορμὴν συμβάλλεται\nπρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν\nδιορισμῶν εὐχρηστα τὰ θεωρήματά ἐστι ταῦτα. χωρὶς\nδὲ τῆς τοιαύτης εὐχρηστίας καὶ δι᾽ αὐτὰς τὰς ἀπο-\nδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα πολλά τῶν\nἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ δι᾽ ἄλλο τι ἀπο-\nδεχόμεθα.",
+                "artifact_sha256": "6fb19d51720e2220ff076e88ac7388ea7440cdc7dbb9d50bfeb8187712c09870",
+                "image_sha256": "db2c7668090fff78361d04889eae150c67f7f724ce12bdee2eefe1162b68ec81",
+                "original_text": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα.\nπάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν\nκαὶ ποικίλων προσεδείτο ξενιζόντων θεωρημάτων, ὧν\nτὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις\nἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρη-\nθέντα χρείαν ἱκανὴν παρέχεται πρὸς τε τὰς τῶν προ-\nβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης\nμὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδε-\nμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς\nδιορισμοὺς φησιν ἔρχεσθαι χρείαν οὐκ ἀληθῆ λέγων·\nκαὶ γὰρ εἰ ὅλως ἀνευ τούτων δύναται κατὰ τοὺς διο-\nρισμοὺς ἀποδίδεσθαι, ἀλλὰ τοί γε δι᾽ αὐτῶν ἔστι\nκατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ\nτοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο·\nἡ δὲ τοιαύτη πρόγνωσις ἱκανὴν ἀφορμὴν συμβάλλεται\nπρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν\nδιορισμῶν εὐχρηστα τὰ θεωρήματά ἐστι ταῦτα. χωρὶς\nδὲ τῆς τοιαύτης εὐχρηστίας καὶ δι᾽ αὐτὰς τὰς ἀπο-\nδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα πολλά τῶν\nἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ δι᾽ ἄλλο τι ἀπο-\nδεχόμεθα.",
+                "text_sha256": "97f3547bedf72e5a28902a6d7eb0426631689b796ec8913ec3444b5f2fdbc430"
+              }
+            ],
+            "counts": {
+              "agreement": 147,
+              "unresolved": 12,
+              "scan-reviewed-fragment": 1
+            },
+            "raw_ocr_network": {
+              "path": "data/corpus_changes/conica-book-four-letter-2026-10/word-networks.json.gz",
+              "key": "apolloniipergaei02apoluoft-pdf0096-letter:raw-ocr",
+              "sha256": "a4a8845559df0c94e08b65208438e2483f1a032f1a057d0dbcabc4293f924c8b"
+            },
+            "reviewed_corrections": [
+              {
+                "review_id": "conica-iv-letter-leading-fragment-2026-10-18",
+                "date": "2026-10-18",
+                "source_kind": "manual-scan-review",
+                "change_kind": "lexical-eligibility-only",
+                "original_text": "γενῆ",
+                "corrected_text": "γενῆ",
+                "original_analysis_text": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα πάντα δὲ τὰ λεχθέντα ὅσοις οὐκ ἐντέτευχα πολλῶν καὶ ποικίλων ξενιζόντων θεωρημάτων ὧν τὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις ἐκτεθεικώς τὰ δὲ λοιπὰ ἐν τούτῳ ταῦτα δὲ θεωρηθέντα χρείαν παρέχεται πρὸς τε τὰς τῶν προβλημάτων συνθέσεις καὶ τοὺς διορισμούς Νικοτέλης μὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδεμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς φησιν ἔρχεσθαι χρείαν οὐκ λέγων καὶ γὰρ εἰ ὅλως τούτων δύναται κατὰ τοὺς διορισμοὺς ἀλλὰ τοί γε αὐτῶν ἔστι κατανοεῖν προχειρότερον ἕνια οἷον ὅτι πλεοναχῶς ἢ τοσαυταχῶς ἂν γένοιτο καὶ πάλιν ὅτι οὐκ ἂν γένοιτο ἡ δὲ τοιαύτη πρόγνωσις ἀφορμὴν συμβάλλεται πρὸς τὰς ζητήσεις καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν διορισμῶν εὐχρηστα τὰ ἐστι ταῦτα χωρὶς δὲ τῆς τοιαύτης εὐχρηστίας καὶ αὐτὰς τὰς ἀποδείξεις ἄξια ἔσται ἀποδοχῆς καὶ γὰρ ἄλλα τῶν ἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ ἄλλο τι ἀποδεχόμεθα",
+                "corrected_analysis_text": "τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα πάντα δὲ τὰ λεχθέντα ὅσοις οὐκ ἐντέτευχα πολλῶν καὶ ποικίλων ξενιζόντων θεωρημάτων ὧν τὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις ἐκτεθεικώς τὰ δὲ λοιπὰ ἐν τούτῳ ταῦτα δὲ θεωρηθέντα χρείαν παρέχεται πρὸς τε τὰς τῶν προβλημάτων συνθέσεις καὶ τοὺς διορισμούς Νικοτέλης μὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδεμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς φησιν ἔρχεσθαι χρείαν οὐκ λέγων καὶ γὰρ εἰ ὅλως τούτων δύναται κατὰ τοὺς διορισμοὺς ἀλλὰ τοί γε αὐτῶν ἔστι κατανοεῖν προχειρότερον ἕνια οἷον ὅτι πλεοναχῶς ἢ τοσαυταχῶς ἂν γένοιτο καὶ πάλιν ὅτι οὐκ ἂν γένοιτο ἡ δὲ τοιαύτη πρόγνωσις ἀφορμὴν συμβάλλεται πρὸς τὰς ζητήσεις καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν διορισμῶν εὐχρηστα τὰ ἐστι ταῦτα χωρὶς δὲ τῆς τοιαύτης εὐχρηστίας καὶ αὐτὰς τὰς ἀποδείξεις ἄξια ἔσται ἀποδοχῆς καὶ γὰρ ἄλλα τῶν ἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ ἄλλο τι ἀποδεχόμεθα",
+                "original_predictions": {
+                  "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα.\nπάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν\nκαὶ ποικίλων προσεδεῖτο ξενιζόντων θεωρημάτων, ὧν\nτὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις\nἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρη-\nθέντα χρείαν ἰκανὴν παρέχεται πρὸς τε τὰς τῶν προ-\nβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης\nμὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδε-\nμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς\nδιορισμούς φησιν ἔρχεσθαι χρείαν οὐκ ἀληθῇ λέγων·\nκαὶ γὰρ εἰ ὅλως ἄνευ τούτων δύναται κατὰ τοὺς διο-\nρισμοὺς ἀποδίδοςθαι, ἀλλὰ τοί γε δι’ αὐτῶν ἔστι\nκατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ\nτοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο·\nἡ δὲ τοιαύτη πρόγνωσις ἰκανὴν ἀφορμὴν συμβάλλεται\nπρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν\nδιορισμῶν εὐχρηστα τὰ θεωρήματα ἐστι ταῦτα. χωρὶς\nδὲ τῆς τοιαύτης εὐχρηστίας καὶ δι’ αὐτὰς τὰς ἀπο-\nδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα πολλὰ τῶν\nἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ δι’ ἄλλο τι ἀπο-\nδεχόμεθα.",
+                  "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a": "γενῆ τούτοις ἀπλῶς ὑπὸ οὐδενὸς νενοημένα εὕρηκα.\nπάντα δὲ τὰ λεχθέντα, ὅσοις οὐκ ἐντέτευχα, πολλῶν\nκαὶ ποικίλων προσεδείτο ξενιζόντων θεωρημάτων, ὧν\nτὰ μὲν πλεῖστα τυγχάνω ἐν τοῖς πρώτοις τρισὶ βιβλίοις\nἐκτεθεικώς, τὰ δὲ λοιπὰ ἐν τούτῳ. ταῦτα δὲ θεωρη-\nθέντα χρείαν ἱκανὴν παρέχεται πρὸς τε τὰς τῶν προ-\nβλημάτων συνθέσεις καὶ τοὺς διορισμούς. Νικοτέλης\nμὲν γὰρ ἕνεκα τῆς πρὸς τὸν Κόνωνα διαφορᾶς οὐδε-\nμίαν ὑπὸ τῶν ἐκ τοῦ Κόνωνος εὕρημένων εἰς τοὺς\nδιορισμοὺς φησιν ἔρχεσθαι χρείαν οὐκ ἀληθῆ λέγων·\nκαὶ γὰρ εἰ ὅλως ἀνευ τούτων δύναται κατὰ τοὺς διο-\nρισμοὺς ἀποδίδεσθαι, ἀλλὰ τοί γε δι᾽ αὐτῶν ἔστι\nκατανοεῖν προχειρότερον ἕνια, οἷον ὅτι πλεοναχῶς ἢ\nτοσαυταχῶς ἂν γένοιτο, καὶ πάλιν ὅτι οὐκ ἂν γένοιτο·\nἡ δὲ τοιαύτη πρόγνωσις ἱκανὴν ἀφορμὴν συμβάλλεται\nπρὸς τὰς ζητήσεις, καὶ πρὸς τὰς ἀναλύσεις δὲ τῶν\nδιορισμῶν εὐχρηστα τὰ θεωρήματά ἐστι ταῦτα. χωρὶς\nδὲ τῆς τοιαύτης εὐχρηστίας καὶ δι᾽ αὐτὰς τὰς ἀπο-\nδείξεις ἄξια ἔσται ἀποδοχῆς· καὶ γὰρ ἄλλα πολλά τῶν\nἐν τοῖς μαθήμασι διὰ τοῦτο καὶ οὐ δι᾽ ἄλλο τι ἀπο-\nδεχόμεθα."
+                },
+                "raw_fragment_votes": {
+                  "position": 0,
+                  "readings": [
+                    {
+                      "text": "γενῆ",
+                      "support": [
+                        "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+                        "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+                      ],
+                      "support_groups": [
+                        "qwen3.6-27b",
+                        "qwen3.8-27b"
+                      ],
+                      "surfaces": {
+                        "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9": "γενῆ",
+                        "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a": "γενῆ"
+                      }
+                    }
+                  ],
+                  "omission_support": [],
+                  "abstentions": [],
+                  "omission_groups": [],
+                  "status": "agreement",
+                  "vote_status": "agreement",
+                  "lexical_eligible": true,
+                  "lexical_exclusion": null,
+                  "terminal_fragment_support": [],
+                  "selected": "γενῆ",
+                  "tied_readings": []
+                },
+                "source": {
+                  "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+                  "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+                  "scan_page": 96,
+                  "printed_page": 4,
+                  "region": [
+                    0,
+                    0.07,
+                    1,
+                    0.659
+                  ],
+                  "image_sha256": "db2c7668090fff78361d04889eae150c67f7f724ce12bdee2eefe1162b68ec81"
+                },
+                "preceding_region": {
+                  "id": "apolloniipergaei02apoluoft-pdf0094-letter",
+                  "scan_page": 94,
+                  "printed_page": 2,
+                  "region": [
+                    0,
+                    0.17,
+                    1,
+                    0.825
+                  ],
+                  "image_sha256": "eaae7ea3a9d52c63252712401a408975d2304fb57d3c6f690284317123452955",
+                  "terminal_readings": {
+                    "Qwen/Qwen3.6-27B@6a9e13bd6fc8f0983b9b99948120bc37f49c13e9": "ὅμο-",
+                    "Qwen/Qwen3.8-27B-FP8@017b9c7af6b5689d5dd426a76e0bc077eb5ca20a": "ὅμο-"
+                  }
+                },
+                "evidence": "Manual enlarged inspection of the two Heiberg volume II letter crops: the first leaf ends with a printed hyphen, and the following leaf begins with the continuation γενῆ. Retain both displayed fragments and their raw votes; count neither fragment as an independent word. No joined spelling is supplied.",
+                "reversal": {
+                  "raw_network_key": "apolloniipergaei02apoluoft-pdf0096-letter:raw-ocr",
+                  "function": "scripts.scan_fragment_reviews.unapply_review",
+                  "policy": "Restore the unchanged raw network to remove only this eligibility review; --undo restores the complete pre-admission files."
+                }
+              }
+            ],
+            "slots": [
+              {
+                "position": 0,
+                "selected": "γενῆ",
+                "status": "scan-reviewed-fragment",
+                "lexical_eligible": false,
+                "tied_readings": []
+              },
+              {
+                "position": 1,
+                "selected": "τούτοις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 2,
+                "selected": "ἀπλῶς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 3,
+                "selected": "ὑπὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 4,
+                "selected": "οὐδενὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 5,
+                "selected": "νενοημένα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 6,
+                "selected": "εὕρηκα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 7,
+                "selected": "πάντα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 8,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 9,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 10,
+                "selected": "λεχθέντα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 11,
+                "selected": "ὅσοις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 12,
+                "selected": "οὐκ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 13,
+                "selected": "ἐντέτευχα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 14,
+                "selected": "πολλῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 15,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 16,
+                "selected": "ποικίλων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 17,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "προσεδείτο",
+                  "προσεδεῖτο"
+                ]
+              },
+              {
+                "position": 18,
+                "selected": "ξενιζόντων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 19,
+                "selected": "θεωρημάτων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 20,
+                "selected": "ὧν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 21,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 22,
+                "selected": "μὲν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 23,
+                "selected": "πλεῖστα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 24,
+                "selected": "τυγχάνω",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 25,
+                "selected": "ἐν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 26,
+                "selected": "τοῖς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 27,
+                "selected": "πρώτοις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 28,
+                "selected": "τρισὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 29,
+                "selected": "βιβλίοις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 30,
+                "selected": "ἐκτεθεικώς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 31,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 32,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 33,
+                "selected": "λοιπὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 34,
+                "selected": "ἐν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 35,
+                "selected": "τούτῳ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 36,
+                "selected": "ταῦτα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 37,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 38,
+                "selected": "θεωρηθέντα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 39,
+                "selected": "χρείαν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 40,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἰκανὴν",
+                  "ἱκανὴν"
+                ]
+              },
+              {
+                "position": 41,
+                "selected": "παρέχεται",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 42,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 43,
+                "selected": "τε",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 44,
+                "selected": "τὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 45,
+                "selected": "τῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 46,
+                "selected": "προβλημάτων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 47,
+                "selected": "συνθέσεις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 48,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 49,
+                "selected": "τοὺς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 50,
+                "selected": "διορισμούς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 51,
+                "selected": "Νικοτέλης",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 52,
+                "selected": "μὲν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 53,
+                "selected": "γὰρ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 54,
+                "selected": "ἕνεκα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 55,
+                "selected": "τῆς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 56,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 57,
+                "selected": "τὸν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 58,
+                "selected": "Κόνωνα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 59,
+                "selected": "διαφορᾶς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 60,
+                "selected": "οὐδεμίαν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 61,
+                "selected": "ὑπὸ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 62,
+                "selected": "τῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 63,
+                "selected": "ἐκ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 64,
+                "selected": "τοῦ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 65,
+                "selected": "Κόνωνος",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 66,
+                "selected": "εὕρημένων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 67,
+                "selected": "εἰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 68,
+                "selected": "τοὺς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 69,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "διορισμούς",
+                  "διορισμοὺς"
+                ]
+              },
+              {
+                "position": 70,
+                "selected": "φησιν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 71,
+                "selected": "ἔρχεσθαι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 72,
+                "selected": "χρείαν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 73,
+                "selected": "οὐκ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 74,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἀληθῆ",
+                  "ἀληθῇ"
+                ]
+              },
+              {
+                "position": 75,
+                "selected": "λέγων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 76,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 77,
+                "selected": "γὰρ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 78,
+                "selected": "εἰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 79,
+                "selected": "ὅλως",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 80,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἀνευ",
+                  "ἄνευ"
+                ]
+              },
+              {
+                "position": 81,
+                "selected": "τούτων",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 82,
+                "selected": "δύναται",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 83,
+                "selected": "κατὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 84,
+                "selected": "τοὺς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 85,
+                "selected": "διορισμοὺς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 86,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἀποδίδεσθαι",
+                  "ἀποδίδοςθαι"
+                ]
+              },
+              {
+                "position": 87,
+                "selected": "ἀλλὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 88,
+                "selected": "τοί",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 89,
+                "selected": "γε",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 90,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "δι᾽",
+                  "δι’"
+                ]
+              },
+              {
+                "position": 91,
+                "selected": "αὐτῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 92,
+                "selected": "ἔστι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 93,
+                "selected": "κατανοεῖν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 94,
+                "selected": "προχειρότερον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 95,
+                "selected": "ἕνια",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 96,
+                "selected": "οἷον",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 97,
+                "selected": "ὅτι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 98,
+                "selected": "πλεοναχῶς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 99,
+                "selected": "ἢ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 100,
+                "selected": "τοσαυταχῶς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 101,
+                "selected": "ἂν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 102,
+                "selected": "γένοιτο",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 103,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 104,
+                "selected": "πάλιν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 105,
+                "selected": "ὅτι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 106,
+                "selected": "οὐκ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 107,
+                "selected": "ἂν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 108,
+                "selected": "γένοιτο",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 109,
+                "selected": "ἡ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 110,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 111,
+                "selected": "τοιαύτη",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 112,
+                "selected": "πρόγνωσις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 113,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "ἰκανὴν",
+                  "ἱκανὴν"
+                ]
+              },
+              {
+                "position": 114,
+                "selected": "ἀφορμὴν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 115,
+                "selected": "συμβάλλεται",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 116,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 117,
+                "selected": "τὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 118,
+                "selected": "ζητήσεις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 119,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 120,
+                "selected": "πρὸς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 121,
+                "selected": "τὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 122,
+                "selected": "ἀναλύσεις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 123,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 124,
+                "selected": "τῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 125,
+                "selected": "διορισμῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 126,
+                "selected": "εὐχρηστα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 127,
+                "selected": "τὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 128,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "θεωρήματά",
+                  "θεωρήματα"
+                ]
+              },
+              {
+                "position": 129,
+                "selected": "ἐστι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 130,
+                "selected": "ταῦτα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 131,
+                "selected": "χωρὶς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 132,
+                "selected": "δὲ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 133,
+                "selected": "τῆς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 134,
+                "selected": "τοιαύτης",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 135,
+                "selected": "εὐχρηστίας",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 136,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 137,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "δι᾽",
+                  "δι’"
+                ]
+              },
+              {
+                "position": 138,
+                "selected": "αὐτὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 139,
+                "selected": "τὰς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 140,
+                "selected": "ἀποδείξεις",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 141,
+                "selected": "ἄξια",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 142,
+                "selected": "ἔσται",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 143,
+                "selected": "ἀποδοχῆς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 144,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 145,
+                "selected": "γὰρ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 146,
+                "selected": "ἄλλα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 147,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "πολλά",
+                  "πολλὰ"
+                ]
+              },
+              {
+                "position": 148,
+                "selected": "τῶν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 149,
+                "selected": "ἐν",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 150,
+                "selected": "τοῖς",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 151,
+                "selected": "μαθήμασι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 152,
+                "selected": "διὰ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 153,
+                "selected": "τοῦτο",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 154,
+                "selected": "καὶ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 155,
+                "selected": "οὐ",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 156,
+                "selected": null,
+                "status": "unresolved",
+                "lexical_eligible": false,
+                "tied_readings": [
+                  "δι᾽",
+                  "δι’"
+                ]
+              },
+              {
+                "position": 157,
+                "selected": "ἄλλο",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 158,
+                "selected": "τι",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              },
+              {
+                "position": 159,
+                "selected": "ἀποδεχόμεθα",
+                "status": "agreement",
+                "lexical_eligible": true,
+                "tied_readings": []
+              }
+            ],
+            "storage": "compact-slots-v1",
+            "full_network": {
+              "path": "data/corpus_changes/conica-book-four-letter-2026-10/word-networks.json.gz",
+              "key": "apolloniipergaei02apoluoft-pdf0096-letter",
+              "sha256": "dad6ee9f844f689d1bbd7a6d337c6a722fbd30c78b7a3a4689935bda608f9995"
+            }
+          },
+          "scan_region_id": "apolloniipergaei02apoluoft-pdf0096-letter",
+          "source_scan": {
+            "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+            "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+            "scan_page": 96,
+            "region": [
+              0,
+              0.07,
+              1,
+              0.659
+            ]
+          },
+          "printed_page": 4,
+          "transmission": "direct-text",
+          "text_role": "authorial-preface",
+          "corrections": [
+            "manual"
+          ],
+          "correction_sources": [
+            "conica-iv-letter-leading-fragment-2026-10-18"
+          ]
         },
         {
           "urn": "apollonius-geom.conica",
           "edition": "1st1K-grc1",
-          "locus": "2",
+          "locus": "4.1",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
-          "text": "Ταῦτα μὲν κοινῶς ἐπὶ πασῶν τῶν τομῶν δείκνυται, ἐπὶ δὲ τῆς ὑπερβολῆς μόνης· ἐὰν ἡ μὲν ΔΒ ἐφάπτηται, ἡ δὲ ΔΓ τέμνῃ κατὰ δύο σημεῖα τὰ Ε, Γ, τὰ δὲ Ε, Γ περιέχῃ τὴν κατὰ τὸ Β ἁφήν, καὶ τὸ Δ σημεῖον ἐντὸς ᾖ τῆς ὑπὸ τῶν ἀσυμπτώτων περιεχομένης γωνίας, ὁμοίως ἡ ἀπόδειξις γενήσεται· δυνατὸν γὰρ ἀπὸ τοῦ Δ σημείου ἄλλην ἐφαπτομένην ἀγαγεῖν εὐθεῖαν τὴν ΔΑ καὶ τὰ λοιπὰ τῆς ἀποδείξεως ὁμοίως ποιεῖν."
-        },
-        {
-          "urn": "apollonius-geom.conica",
-          "edition": "1st1K-grc1",
-          "locus": "3",
-          "source": "first1k",
-          "license": "CC-BY-SA-4.0",
-          "text": "Τῶν αὐτῶν ὄντων τὰ Ε, Γ σημεῖα μὴ περιεχέτωσαν τὴν κατὰ τὸ Β ἁφὴν μεταξὺ αὑτῶν, τὸ δὲ Δ σημεῖον ἐντὸς ἔστω τῆς ὑπὸ τῶν ἀσυμπτώτων περιεχομένης γωνίας. δυνατὸν ἄρα ἀπὸ τοῦ Δ ἑτέραν ἐφαπτομένην ἀγαγεῖν τὴν ΔΑ καὶ τὰ λοιπὰ ὁμοίως ἀποδεικνύειν."
+          "text": "Ἐὰν κώνου τομῆς ἢ κύκλου περιφερείας ληφθῇ τι σημεῖον ἐκτός, καὶ ἀπ’ αὐτοῦ τῇ τομῇ προσπίπτωσι δύο εὐθεῖαι, ὧν ἡ μὲν ἐφάπτεται, ἡ δὲ τέμνει κατὰ δύο σημεῖα, καὶ ὃν ἔχει λόγον ὅλη ἡ τέμνουσα πρὸς τὴν ἐκτὸς ἀπολαμβανομένην μεταξὺ τοῦ τε σημείου καὶ τῆς γραμμῆς, τοῦτον τμηθῇ ἡ ἐντὸς ἀπολαμβανομένη εὐθεῖα ὥστε τὰς ὁμολόγους εὐθείας πρὸς τῷ αὐτῷ σημείῳ εἶναι, ἡ ἀπὸ τῆς ἁφῆς ἐπὶ τὴν διαίρεσιν ἀγομένη εὐθεῖα συμπεσεῖται τῇ γραμμῇ, καὶ ἡ ἀπὸ τῆς συμπτώσεως ἐπὶ τὸ ἐκτὸς σημεῖον ἀγομένη εὐθεῖα ἐφάπτεται τῆς γραμμῆς. ἔστω γὰρ κώνου τομὴ ἢ κύκλου περιφέρεια ἡ ΑΒΓ, καὶ εἰλήφθω τι σημεῖον ἐκτὸς τὸ Δ, καὶ ἀπ’ αὐτοῦ ἡ μὲν ΔΒ ἐφαπτέσθω κατὰ τὸ Β ἡ δὲ ΔΕΓ τεμνέτω τὴν τομὴν κατὰ τὰ Ε, Γ, καὶ ὃν ἔχει λόγον ἡ ΓΔ πρὸς ΔΕ, τοῦτον ἐχέτω ἡ ΓΖ πρὸς ΖΕ. λέγω, ὅτι ἡ ἀπὸ τοῦ Β ἐπὶ τὸ Ζ ἀγομένη συμπίπτει τῇ τομῇ, καὶ ἡ ἀπὸ τῆς συμπτώσεως ἐπὶ τὸ Δ ἐφάπτεται τῆς τομῆς. [ἐπεὶ οὖν ἡ ΔΓ τέμνει τὴν τομὴν κατὰ δύο σημεῖα, οὐκ ἔσται διάμετρος αὐτῆς. δυνατὸν ἄρα ἐστὶ διὰ τοῦ Δ διάμετρον ἀγαγεῖν· ὥστε καὶ ἐφαπτομένην.] ἤχθω γὰρ ἀπὸ τοῦ Δ ἐφαπτομένη τῆς τομῆς ἡ ΔΑ, καὶ ἐπιζευχθεῖσα ἡ ΒΑ τεμνέτω τὴν ΕΓ, εἰ δυνατόν, μὴ κατὰ τὸ Ζ, ἀλλὰ κατὰ τὸ Η. ἐπεὶ οὖν ἐφάπτονται αἱ ΒΔ, ΔΑ, καὶ ἐπὶ τὰς ἁφάς ἐστιν ἡ ΒΑ, καὶ διῆκται ἡ ΓΔ τέμνουσα τὴν μὲν τομὴν κατὰ τὰ Γ, Ε, τὴν δὲ ΑΒ κατὰ τὸ Η, ἔσται ὡς ἡ ΓΔ πρὸς ΔΕ, ἡ ΓΗ πρὸς ΗΕ· ὅπερ ἄτοπον· ὑπόκειται γάρ, ὡς ἡ ΓΔ πρὸς ΔΕ, ἡ ΓΖ πρὸς ΖΕ. οὐκ ἄρα ἡ ΒΑ καθ’ ἕτερον σημεῖον τέμνει τὴν ΓΕ· κατὰ τὸ Ζ ἄρα.",
+          "source_citation": {
+            "scheme": "apollonius-first1k-unqualified-sections",
+            "locus": "1"
+          }
         }
       ],
       "ending": [
         {
           "urn": "apollonius-geom.conica",
           "edition": "1st1K-grc1",
-          "locus": "55",
+          "locus": "4.55",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
-          "text": "Ἀντικείμεναι ἀντικειμένας οὐ τέμνουσι κατὰ πλείονα σημεῖα ἢ τέσσαρα. ἔστωσαν γὰρ ἀντικείμεναι αἱ ΑΒ, ΓΔ καὶ ἕτεραι ἀντικείμεναι αἱ ΑΒ ΓΔ, ΕΖ, καὶ τεμνέτω πρότερον ἡ ΑΒΓΔ τομὴ ἑκατέραν τῶν ΑΒ, ΓΔ κατὰ τέσσαρα ση μεῖα τὰ Α, Β, Γ, Δ ἀντεστραμμένα τὰ κυρτὰ ἔχουσα, ὡς ἐπὶ τῆς πρώτης καταγραφῆς. ἡ ἄρα ἀντικειμένη τῇ ΑΒΓΔ, τουτέστιν ἡ ΕΖ, οὐδεμιᾷ τῶν ΑΒ, ΓΔ συμπεσεῖται. ἀλλὰ δὴ ἡ ΑΒΓΔ τὴν μὲν ΑΒ τεμνέτω κατὰ τὰ Α, Β, τὴν δὲ Γ καθ’ ἕν τὸ Γ, ὡς ἔχει ἐπὶ τῆς δευτέρας καταγραφῆς· ἡ ΕΖ ἄρα τῇ Γ οὐ συμπεσεῖται. εἰ δὲ τῇ ΑΒ συμβάλλει ἡ ΕΖ, καθ’ ἓν μόνον συμβάλλει· εἰ γὰρ κατὰ δύο συμβάλλει τῇ ΑΒ, ἡ ἀντικειμένη αὐτῇ ἡ ΑΒΓ τῇ ἑτέρᾳ ἀντικειμένῃ τῇ Γ οὐ συμπεσεῖται· ὑπόκειται δὲ καθ’ ἓν τὸ Γ συμβάλλουσα. εἰ δέ, ὡς ἔχει ἐπὶ τῆς τρίτης καταγραφῆς, ἡ ΑΒΓ τὴν μὲν ΑΒΕ τέμνει κατὰ δύο τὰ Α, Β, τῇ δὲ ΑΒΕ συμβάλλει ἡ ΕΖ, τῇ μὲν Δ οὐ συμπεσεῖται, τῇ δὲ ΑΒΕ συμπίπτουσα οὐ συμπεσεῖται κατὰ πλείονα σημεῖα ἢ δύο. εἰ δέ, ὡς ἔχει ἐπὶ τῆς τετάρτης καταγραφῆς, ἡ ΑΒΓΔ ἑκατέραν τέμνει καθ’ ἓν σημεῖον, ἡ ΕΖ οὐδετέρᾳ συμπεσεῖται κατὰ δύο σημεῖα. ὥστε διὰ τὰ εἰρημένα καὶ τὰ ἀντίστροφα αὐτῶν αἱ ΑΒΓΔ, ΓΖ ἀντικειμέναις ταῖς ΒΕ, ΕΖ τομαῖς οὐ συμπεσοῦνται κατὰ πλείονα σημεῖα ἢ τέσσαρα. ἐαν δὲ αἱ τομαὶ ἐπὶ τὰ αὐτὰ τὰ κοῖλα ἔχωσι, καὶ ἡ ἑτέρα τὴν ἑτέραν τέμνῃ κατὰ τέσσαρα τὰ Α, Β, Γ, Δ, ὡς ἐπὶ τῆς πέμπτης καταγραφῆς, ἡ ΕΖ τῇ ἑτέρᾳ οὐ συμπεσεῖται. οὐδὲ μὴν ἡ ΕΖ οὐ συμπεσεῖται τῇ ΑΒ· πάλιν γὰρ ἔσται ἡ ΑΒ ταῖς ΑΒΓΔ, ΕΖ ἀντικειμέναις συμπίπτουσα κατὰ πλείονα σημεῖα ἢ τέσσαρα [ἀλλ’ οὐδὲ ἡ ΓΑ τῇ ΕΖ συμπεσεῖται]. εἰ δέ, ὡς ἔχει ἐπὶ τῆς ἕκτης καταγραφῆς, ἡ ΑΒΓΔ τῇ ἑτέρα τομῇ συμβάλλει κατὰ τρία σημεῖα, ἡ ΕΖ τῇ ἑτέρα καθ’ ἕν μόνον συμπεσεῖται. καὶ ἐπὶ τῶν λοιπῶν τὰ αὐτὰ τοῖς προτέροις ἐροῦμεν. ἐπεὶ οὖν κατὰ πάσας ἐροῦμεν. ἐπεὶ οὖν κατὰ πάσας τὰς ἐνδεχομένας διαστολὰς δῆλόν ἐστι τὸ προτεθέν, ἀντικείμεναι ἀντικειμέναις οὐ συμβάλλουσι κατὰ πλείονα σημεῖα ἢ τέσσαρα."
+          "text": "Ἀντικείμεναι ἀντικειμένας οὐ τέμνουσι κατὰ πλείονα σημεῖα ἢ τέσσαρα. ἔστωσαν γὰρ ἀντικείμεναι αἱ ΑΒ, ΓΔ καὶ ἕτεραι ἀντικείμεναι αἱ ΑΒ ΓΔ, ΕΖ, καὶ τεμνέτω πρότερον ἡ ΑΒΓΔ τομὴ ἑκατέραν τῶν ΑΒ, ΓΔ κατὰ τέσσαρα ση μεῖα τὰ Α, Β, Γ, Δ ἀντεστραμμένα τὰ κυρτὰ ἔχουσα, ὡς ἐπὶ τῆς πρώτης καταγραφῆς. ἡ ἄρα ἀντικειμένη τῇ ΑΒΓΔ, τουτέστιν ἡ ΕΖ, οὐδεμιᾷ τῶν ΑΒ, ΓΔ συμπεσεῖται. ἀλλὰ δὴ ἡ ΑΒΓΔ τὴν μὲν ΑΒ τεμνέτω κατὰ τὰ Α, Β, τὴν δὲ Γ καθ’ ἕν τὸ Γ, ὡς ἔχει ἐπὶ τῆς δευτέρας καταγραφῆς· ἡ ΕΖ ἄρα τῇ Γ οὐ συμπεσεῖται. εἰ δὲ τῇ ΑΒ συμβάλλει ἡ ΕΖ, καθ’ ἓν μόνον συμβάλλει· εἰ γὰρ κατὰ δύο συμβάλλει τῇ ΑΒ, ἡ ἀντικειμένη αὐτῇ ἡ ΑΒΓ τῇ ἑτέρᾳ ἀντικειμένῃ τῇ Γ οὐ συμπεσεῖται· ὑπόκειται δὲ καθ’ ἓν τὸ Γ συμβάλλουσα. εἰ δέ, ὡς ἔχει ἐπὶ τῆς τρίτης καταγραφῆς, ἡ ΑΒΓ τὴν μὲν ΑΒΕ τέμνει κατὰ δύο τὰ Α, Β, τῇ δὲ ΑΒΕ συμβάλλει ἡ ΕΖ, τῇ μὲν Δ οὐ συμπεσεῖται, τῇ δὲ ΑΒΕ συμπίπτουσα οὐ συμπεσεῖται κατὰ πλείονα σημεῖα ἢ δύο. εἰ δέ, ὡς ἔχει ἐπὶ τῆς τετάρτης καταγραφῆς, ἡ ΑΒΓΔ ἑκατέραν τέμνει καθ’ ἓν σημεῖον, ἡ ΕΖ οὐδετέρᾳ συμπεσεῖται κατὰ δύο σημεῖα. ὥστε διὰ τὰ εἰρημένα καὶ τὰ ἀντίστροφα αὐτῶν αἱ ΑΒΓΔ, ΓΖ ἀντικειμέναις ταῖς ΒΕ, ΕΖ τομαῖς οὐ συμπεσοῦνται κατὰ πλείονα σημεῖα ἢ τέσσαρα. ἐαν δὲ αἱ τομαὶ ἐπὶ τὰ αὐτὰ τὰ κοῖλα ἔχωσι, καὶ ἡ ἑτέρα τὴν ἑτέραν τέμνῃ κατὰ τέσσαρα τὰ Α, Β, Γ, Δ, ὡς ἐπὶ τῆς πέμπτης καταγραφῆς, ἡ ΕΖ τῇ ἑτέρᾳ οὐ συμπεσεῖται. οὐδὲ μὴν ἡ ΕΖ οὐ συμπεσεῖται τῇ ΑΒ· πάλιν γὰρ ἔσται ἡ ΑΒ ταῖς ΑΒΓΔ, ΕΖ ἀντικειμέναις συμπίπτουσα κατὰ πλείονα σημεῖα ἢ τέσσαρα [ἀλλ’ οὐδὲ ἡ ΓΑ τῇ ΕΖ συμπεσεῖται]. εἰ δέ, ὡς ἔχει ἐπὶ τῆς ἕκτης καταγραφῆς, ἡ ΑΒΓΔ τῇ ἑτέρα τομῇ συμβάλλει κατὰ τρία σημεῖα, ἡ ΕΖ τῇ ἑτέρα καθ’ ἕν μόνον συμπεσεῖται. καὶ ἐπὶ τῶν λοιπῶν τὰ αὐτὰ τοῖς προτέροις ἐροῦμεν. ἐπεὶ οὖν κατὰ πάσας ἐροῦμεν. ἐπεὶ οὖν κατὰ πάσας τὰς ἐνδεχομένας διαστολὰς δῆλόν ἐστι τὸ προτεθέν, ἀντικείμεναι ἀντικειμέναις οὐ συμβάλλουσι κατὰ πλείονα σημεῖα ἢ τέσσαρα.",
+          "source_citation": {
+            "scheme": "apollonius-first1k-unqualified-sections",
+            "locus": "55"
+          }
         },
         {
           "urn": "apollonius-geom.conica",
           "edition": "1st1K-grc1",
-          "locus": "56",
+          "locus": "4.56",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
-          "text": "Ἐὰν ἀντικείμεναι ἀντικειμένων καθ’ ἓν σημεῖον ἐπιψαύωσιν, οὐ συμπεσοῦνται καὶ κατ’ ἄλλα σημεῖα πλείονα ἢ δύο. ἔστωσαν ἀντικείμεναι αἱ ΑΒ, ΒΓ καὶ ἕτεραι αἱ Δ, ΕΖ, καὶ ἡ ΒΓΔ τῆς ΑΒ ἐφαπτέσθω κατὰ τὸ Β, καὶ ἐχέτωσαν ἀντεστραμμένα τὰ κυρτά, καὶ συμπιπτέτω πρῶτον ἡ ΒΓΔ τῇ ΓΔ κατὰ δύο σημεῖα τὰ Γ, Δ, ὡς ἐπὶ τοῦ πρώτου σχήματος. ἐπεὶ οὖν ἡ ΒΓΔ κατὰ δύο τέμνει ἀντεστραμμένα ἔχουσα τὰ κυρτά, ἡ ΕΖ τῇ ΑΒ οὐ συμπεσεῖται. πάλιν ἐπεὶ ἡ ΒΓΔ τῆς ΑΒ ἐφάπτεται κατὰ τὸ Β ἀντεστραμμένα ἔχουσα τὰ κυρτά, ἡ ΕΖ τῇ ΓΔ οὐ συμπεσεῖται. ἡ ἄρα ΕΖ οὐδετέρᾳ τῶν ΑΒ, ΓΔ τομῶν συμπεσεῖται· κατὰ δύο μόνον ἄρα τὰ Γ, Δ συμβάλλουσιν. ἀλλὰ δὴ τὴν ΓΔ ἡ ΒΓ τεμνέτω καθ’ ἓν σημεῖον τὸ Γ, ὡς ἐπὶ τοῦ δευτέρου σχήματος. ἡ ἄρα ΕΖ τῇ μὲν ΓΔ οὐ συμπεσεῖται, τῇ δὲ ΑΒ συμπεσεῖται καθ’ ἓν μόνον. εἰ γὰρ κατὰ δύο συμβάλλει η ΕΖ τῇ ΑΒ, η ΒΓ τῇ ΓΔ οὐ συμπεσεῖται· ὑπόκειται δὲ συμβάλλουσα καθ’ ἕν. εἰ δὲ ἡ ΒΓ τῇ Δ τομῇ μὴ συμπίπτῃ, ὡς ἐπὶ τοῦ τρίτου σχήματος, διὰ μὲν τὰ προειρημένα ἡ ΕΖ τῇ Δ οὐ συμπεσεῖται, ἡ δὲ ΕΖ τῇ ΑΒ οὐ συμπεσεῖται κατὰ πλείονα σημεῖα ἢ δύο. ἐὰν δὲ αἱ τομαὶ ἐπὶ τὰ αὐτὰ τὰ κοῖλα ἔχωσιν, αἱ αὐταὶ ἀποδείξεις ἁρμόσουσι. κατὰ πάσας οὖν τὰς ἐνδεχομένας διαστολὰς δῆλόν ἐστιν ἐκ τῶν δεδειγμένων τὸ προτεθέν."
+          "text": "Ἐὰν ἀντικείμεναι ἀντικειμένων καθ’ ἓν σημεῖον ἐπιψαύωσιν, οὐ συμπεσοῦνται καὶ κατ’ ἄλλα σημεῖα πλείονα ἢ δύο. ἔστωσαν ἀντικείμεναι αἱ ΑΒ, ΒΓ καὶ ἕτεραι αἱ Δ, ΕΖ, καὶ ἡ ΒΓΔ τῆς ΑΒ ἐφαπτέσθω κατὰ τὸ Β, καὶ ἐχέτωσαν ἀντεστραμμένα τὰ κυρτά, καὶ συμπιπτέτω πρῶτον ἡ ΒΓΔ τῇ ΓΔ κατὰ δύο σημεῖα τὰ Γ, Δ, ὡς ἐπὶ τοῦ πρώτου σχήματος. ἐπεὶ οὖν ἡ ΒΓΔ κατὰ δύο τέμνει ἀντεστραμμένα ἔχουσα τὰ κυρτά, ἡ ΕΖ τῇ ΑΒ οὐ συμπεσεῖται. πάλιν ἐπεὶ ἡ ΒΓΔ τῆς ΑΒ ἐφάπτεται κατὰ τὸ Β ἀντεστραμμένα ἔχουσα τὰ κυρτά, ἡ ΕΖ τῇ ΓΔ οὐ συμπεσεῖται. ἡ ἄρα ΕΖ οὐδετέρᾳ τῶν ΑΒ, ΓΔ τομῶν συμπεσεῖται· κατὰ δύο μόνον ἄρα τὰ Γ, Δ συμβάλλουσιν. ἀλλὰ δὴ τὴν ΓΔ ἡ ΒΓ τεμνέτω καθ’ ἓν σημεῖον τὸ Γ, ὡς ἐπὶ τοῦ δευτέρου σχήματος. ἡ ἄρα ΕΖ τῇ μὲν ΓΔ οὐ συμπεσεῖται, τῇ δὲ ΑΒ συμπεσεῖται καθ’ ἓν μόνον. εἰ γὰρ κατὰ δύο συμβάλλει η ΕΖ τῇ ΑΒ, η ΒΓ τῇ ΓΔ οὐ συμπεσεῖται· ὑπόκειται δὲ συμβάλλουσα καθ’ ἕν. εἰ δὲ ἡ ΒΓ τῇ Δ τομῇ μὴ συμπίπτῃ, ὡς ἐπὶ τοῦ τρίτου σχήματος, διὰ μὲν τὰ προειρημένα ἡ ΕΖ τῇ Δ οὐ συμπεσεῖται, ἡ δὲ ΕΖ τῇ ΑΒ οὐ συμπεσεῖται κατὰ πλείονα σημεῖα ἢ δύο. ἐὰν δὲ αἱ τομαὶ ἐπὶ τὰ αὐτὰ τὰ κοῖλα ἔχωσιν, αἱ αὐταὶ ἀποδείξεις ἁρμόσουσι. κατὰ πάσας οὖν τὰς ἐνδεχομένας διαστολὰς δῆλόν ἐστιν ἐκ τῶν δεδειγμένων τὸ προτεθέν.",
+          "source_citation": {
+            "scheme": "apollonius-first1k-unqualified-sections",
+            "locus": "56"
+          }
         },
         {
           "urn": "apollonius-geom.conica",
           "edition": "1st1K-grc1",
-          "locus": "57",
+          "locus": "4.57",
           "source": "first1k",
           "license": "CC-BY-SA-4.0",
-          "text": "Ἐὰν ἀντικείμεναι ἀντικειμένων κατὰ δύο ἐπιψαύωσι, καθ’ ἕτερον σημεῖον οὐ συμπεσοῦνται. ἔστωσαν ἀντικείμεναι αἱ ΑΒ, ΓΔ καὶ ἕτεραι αἱ ΑΓ, ΕΖ καὶ ἐφαπτέσθωσαν πρῶτον, ὡς ἐπὶ τοῦ πρώτου σχήματος, κατὰ τὰ Α, Γ. ἐπεὶ οὖν ἡ ΑΓ ἑκατέρας τῶν ΑΒ, ΓΔ ἐφάπτεται κατὰ τὰ Α, Γ σημεῖα, ἡ ΕΖ ἄρα οὐδετέρᾳ τῶν ΑΒ, ΓΔ συμπεσεῖται. ἐφαπτέσθωσαν δή, ὡς ἐπὶ τοῦ δευτέρου. ὁμοίως δὴ δειχθήσεται, ὅτι ἡ ΓΔ τῇ ΕΖ οὐ συμπεσεῖται. ἐφαπτέσθω δή, ὡς ἐπὶ τοῦ τρίτου σχήματος, ἡ μὲν ΓΑ τῆς ΑΒ κατὰ τὸ Α, ἡ δὲ Δ τῆς ΕΖ κατὰ τὸ Ζ. ἐπεὶ οὖν ἡ ΑΓ τῆς ΑΒ ἐφάπτεται ἀντεστραμμένα τὰ κυρτὰ ἔχουσα, ἡ ΕΖ τῇ ΑΒ οὐ συμπεσεῖται. πάλιν ἐπεὶ ἡ ΖΔ τῆς ΕΖ ἐφάπτεται, ἡ ΓΑ τῇ ΔΖ οὐ συμπεσεῖται. εἰ δὲ ἡ μὲν ΑΓ τῆς ΑΒ ἐφάπτεται κατὰ τὸ Α, ἡ δὲ ΕΓ τῆς ΓΔ κατὰ τὸ Γ, καὶ ἔχουσιν ἐπὶ τὰ αὐτα τὰ κοῖλα, ὡς ἐπὶ τοῦ τετάρτου σχήματος, καθ’ ἕτερον οὐ συμπεσοῦνται. οὐδὲ μὴ ἡ ΕΖ τῇ ΑΒ συμπεσεῖται. κατὰ πάσας οὖν τὰς ἐνδεχομένας διαστολὰς δῆλόν ἐστιν ἐκ τῶν δεδειγμένων τὸ προτεθέν."
+          "text": "Ἐὰν ἀντικείμεναι ἀντικειμένων κατὰ δύο ἐπιψαύωσι, καθ’ ἕτερον σημεῖον οὐ συμπεσοῦνται. ἔστωσαν ἀντικείμεναι αἱ ΑΒ, ΓΔ καὶ ἕτεραι αἱ ΑΓ, ΕΖ καὶ ἐφαπτέσθωσαν πρῶτον, ὡς ἐπὶ τοῦ πρώτου σχήματος, κατὰ τὰ Α, Γ. ἐπεὶ οὖν ἡ ΑΓ ἑκατέρας τῶν ΑΒ, ΓΔ ἐφάπτεται κατὰ τὰ Α, Γ σημεῖα, ἡ ΕΖ ἄρα οὐδετέρᾳ τῶν ΑΒ, ΓΔ συμπεσεῖται. ἐφαπτέσθωσαν δή, ὡς ἐπὶ τοῦ δευτέρου. ὁμοίως δὴ δειχθήσεται, ὅτι ἡ ΓΔ τῇ ΕΖ οὐ συμπεσεῖται. ἐφαπτέσθω δή, ὡς ἐπὶ τοῦ τρίτου σχήματος, ἡ μὲν ΓΑ τῆς ΑΒ κατὰ τὸ Α, ἡ δὲ Δ τῆς ΕΖ κατὰ τὸ Ζ. ἐπεὶ οὖν ἡ ΑΓ τῆς ΑΒ ἐφάπτεται ἀντεστραμμένα τὰ κυρτὰ ἔχουσα, ἡ ΕΖ τῇ ΑΒ οὐ συμπεσεῖται. πάλιν ἐπεὶ ἡ ΖΔ τῆς ΕΖ ἐφάπτεται, ἡ ΓΑ τῇ ΔΖ οὐ συμπεσεῖται. εἰ δὲ ἡ μὲν ΑΓ τῆς ΑΒ ἐφάπτεται κατὰ τὸ Α, ἡ δὲ ΕΓ τῆς ΓΔ κατὰ τὸ Γ, καὶ ἔχουσιν ἐπὶ τὰ αὐτα τὰ κοῖλα, ὡς ἐπὶ τοῦ τετάρτου σχήματος, καθ’ ἕτερον οὐ συμπεσοῦνται. οὐδὲ μὴ ἡ ΕΖ τῇ ΑΒ συμπεσεῖται. κατὰ πάσας οὖν τὰς ἐνδεχομένας διαστολὰς δῆλόν ἐστιν ἐκ τῶν δεδειγμένων τὸ προτεθέν.",
+          "source_citation": {
+            "scheme": "apollonius-first1k-unqualified-sections",
+            "locus": "57"
+          }
         }
       ],
       "locus_prefixes": {
-        "1": 1,
-        "2": 1,
-        "3": 1,
-        "4": 1,
-        "5": 1,
-        "6": 1,
-        "7": 1,
-        "8": 1,
-        "9": 1,
-        "10": 1,
-        "11": 1,
-        "12": 1,
-        "13": 1,
-        "14": 1,
-        "15": 1,
-        "16": 1,
-        "17": 1,
-        "18": 1,
-        "19": 1,
-        "20": 1,
-        "21": 1,
-        "22": 1,
-        "23": 1,
-        "24": 1,
-        "25": 1,
-        "26": 1,
-        "27": 1,
-        "28": 1,
-        "29": 1,
-        "30": 1,
-        "31": 1,
-        "32": 1,
-        "33": 1,
-        "34": 1,
-        "35": 1,
-        "36": 1,
-        "37": 1,
-        "38": 1,
-        "39": 1,
-        "40": 1,
-        "41": 1,
-        "42": 1,
-        "43": 1,
-        "44": 1,
-        "45": 1,
-        "46": 1,
-        "47": 1,
-        "48": 1,
-        "49": 1,
-        "50": 1,
-        "51": 1,
-        "52": 1,
-        "53": 1,
-        "54": 1,
-        "55": 1,
-        "56": 1,
-        "57": 1
+        "4": 59
       },
       "book_headings": [],
       "tei_source_description": "Apollonius Pergaeus Apollonii Pergaei quae graece exstant J. L. Heiberg Leipzig Teubner 1893 2 Internet Archive",
@@ -1171,7 +3790,7 @@
     },
     {
       "slug": "cassius-dio.historiae-romanae",
-      "status": "partial-upstream-edition",
+      "status": "open-coverage-work",
       "source_root": "perseus",
       "source_path": "data/tlg0385/tlg001/tlg0385.tlg001.perseus-grc2.xml",
       "source_scan": "https://archive.org/details/diosromanhistory03cassuoft",
@@ -1181,11 +3800,106 @@
       ],
       "source_sha256": "3cb28750f2a5d050ad973fe631952c4e3855ca57e40aa987e121133eed172535",
       "issue": "https://github.com/open-greek/open-greek-corpus/issues/45",
+      "historical_status": "partial-upstream-edition",
+      "resolution": {
+        "complete": false,
+        "status": "open-coverage-work",
+        "reason": "Reviewed missing Greek scan regions have not all been admitted.",
+        "scope": {
+          "work_identity": "Cassius Dio, Historiae Romanae (Roman History), the ancient eighty-book work",
+          "base_scope": "Perseus Cary volumes III–VI, encoded Books 36–55, ending mid-sentence at 55.9.4",
+          "addition_scope": "Cary volumes I–II fragments and volumes VI–IX remaining Greek direct text, excerpts and epitomes",
+          "transmission_limit": "This is mixed ancient transmission, not an intact eighty-book direct text. Fragment quotations, direct text, excerpted lacunae and epitomes retain distinct transmission labels. The ancient direct-text gap after the last words at 55.9.4 is not repaired as newly surviving direct text. Early fragments of uncertain reference remain unassigned to a book.",
+          "direct_text_lacuna_evidence": "Cary volume VI, printed page 402 (PDF 206), footnote 4: two folios are lost in M between τρόπον at 55.9.4 and (Ἄ)ρει at 55.10.2; the printed continuation combines Zonaras, Xiphilinus and Excerpta Valesiana. This qualification applies to that gap, not all later direct text.",
+          "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
+          "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
+          "status": "reviewed-scan-additions-pending",
+          "reviewed_primary_regions": 1082,
+          "admitted_primary_regions": 0,
+          "remaining_reviewed_primary_regions": 1082,
+          "reviewed_comparative_regions": 418,
+          "admitted_transmission_counts": {},
+          "scan_manifest": "data/ingest_reviews/coverage/cassius-dio-ocr-jobs.json",
+          "scan_manifest_sha256": "bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf",
+          "scan_manifests": [
+            {
+              "path": "data/ingest_reviews/coverage/cassius-dio-ocr-jobs.json",
+              "sha256": "bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf"
+            }
+          ],
+          "scan_sources": [
+            {
+              "id": "dios-roman-history.-vol.-1-loeb-32",
+              "url": "https://archive.org/download/dios-roman-history.-vol.-1-loeb-32/Dio%27s%20Roman%20History.%20Vol.1%20%5BLoeb%2032%5D.pdf",
+              "sha256": "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+              "license": "public-domain",
+              "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 1, Loeb 32, first printed 1914.",
+              "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+              "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-1-loeb-32"
+            },
+            {
+              "id": "dios-roman-history.-vol.-2-loeb-37",
+              "url": "https://archive.org/download/dios-roman-history.-vol.-2-loeb-37/Dio%27s%20Roman%20History.%20Vol.2%20%5BLoeb%2037%5D.pdf",
+              "sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+              "license": "public-domain",
+              "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 2, Loeb 37, first printed 1914.",
+              "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+              "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-2-loeb-37"
+            },
+            {
+              "id": "dios-roman-history.-vol.-6-loeb-83",
+              "url": "https://archive.org/download/dios-roman-history.-vol.-6-loeb-83/Dio%27s%20Roman%20History.%20Vol.6%20%5BLoeb%2083%5D.pdf",
+              "sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+              "license": "public-domain",
+              "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 6, Loeb 83, first printed 1917.",
+              "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1917; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+              "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-6-loeb-83"
+            },
+            {
+              "id": "dios-roman-history.-vol.-7-loeb-175",
+              "url": "https://archive.org/download/dios-roman-history.-vol.-7-loeb-175/Dio%27s%20Roman%20History.%20Vol.7%20%5BLoeb%20175%5D.pdf",
+              "sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+              "license": "public-domain",
+              "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 7, Loeb 175, first printed 1924.",
+              "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1924; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+              "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-7-loeb-175"
+            },
+            {
+              "id": "dios-roman-history.-vol.-8-loeb-176",
+              "url": "https://archive.org/download/dios-roman-history.-vol.-8-loeb-176/Dio%27s%20Roman%20History.%20Vol.8%20%5BLoeb%20176%5D.pdf",
+              "sha256": "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+              "license": "public-domain",
+              "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 8, Loeb 176, first printed 1925.",
+              "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1925; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+              "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-8-loeb-176"
+            },
+            {
+              "id": "dios-roman-history.-vol.-9-loeb-177",
+              "url": "https://archive.org/download/dios-roman-history.-vol.-9-loeb-177/Dio%27s%20Roman%20History.%20Vol.9%20%5BLoeb%20177%5D.pdf",
+              "sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+              "license": "public-domain",
+              "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 9, Loeb 177, first printed 1927.",
+              "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1927; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+              "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177"
+            }
+          ],
+          "admission_audit": null,
+          "admission_audits": [],
+          "digital_components": [],
+          "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
+        },
+        "publication": {
+          "declared_release": "corpus-2026-10-18",
+          "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+          "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+        }
+      },
       "corpus_file_sha256": "cd32c06fb75deb60ebffef83d19cf7cf3b80f2352f787f1f6130b6271d3432e8",
       "edition": {
         "edition": "perseus-grc2",
         "id": "ogc000715",
         "license": "CC-BY-SA-4.0",
+        "n_analysis_tokens": 191353,
         "n_passages": 4403,
         "n_tokens": 191347,
         "source": "perseus"

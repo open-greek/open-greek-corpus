@@ -14,7 +14,9 @@ Nothing here is newly measured. Every column is a join:
                                   CTS / TLG / Wikidata anchors
   data/corpus_editions.json       winning edition, source, license, passages
   data/work_token_totals.json     tokens + tokens_lemmatized, counted over the
-                                  served text itself (not the hand-edited ledgers)
+                                  checked lexical projection (shared collated
+                                  attestations once; unresolved readings excluded).
+                                  Inclusive surface counts remain in coverage.json.
   data/ocr_quality_report.json    unattested-token rate, for OCR-source works
   data/corpus/<slug>.jsonl        each row's own `corrections` stamp, read the way
                                   scripts/build_provenance.py reads it, plus the
@@ -26,6 +28,11 @@ The scheme columns are that file's own `class`, `scheme` and `depth`, carried
 through verbatim. A second, catalog-local classification of the same loci would
 be a second answer to a question this repo has already answered, and the two
 would drift the first time a locus convention changed.
+
+Source, edition, and license are the dominant served component's metadata.
+Composite manifestations expose every component's credits and licenses in
+source_registry.json and work_index.json coverage_composition; a dominant
+license column does not replace that complete composition.
 
 Output: data/corpus_catalog.tsv, deterministic (sorted by slug, fixed column
 order, no wall clock anywhere), so a rebuild that changes nothing is a no-op and

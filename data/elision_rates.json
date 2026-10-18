@@ -1,51 +1,52 @@
 {
  "apostrophes": "'’᾿´`ʼ‘՚′",
+ "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "min_occurrences": 200,
  "note": "rate = share of bare-stem occurrences written before an apostrophe; validate_lemma_map.py folds a stem into its particle only above its own threshold",
  "stems": {
   "αλ": {
-   "before_apostrophe": 78,
-   "occurrences": 2381,
+   "before_apostrophe": 74,
+   "occurrences": 2154,
    "particle": "ἀλλά",
-   "rate": 0.0328,
+   "rate": 0.0344,
    "spellings_when_elided": {
     "άλ": 3,
-    "αλ": 7,
-    "ἀλ": 29,
-    "ἄλ": 11,
+    "αλ": 6,
+    "ἀλ": 27,
+    "ἄλ": 10,
     "ἅλ": 22,
     "Ἀλ": 4
    }
   },
   "αλλ": {
-   "before_apostrophe": 169010,
-   "occurrences": 173344,
+   "before_apostrophe": 167048,
+   "occurrences": 171388,
    "particle": "ἀλλά",
-   "rate": 0.975,
+   "rate": 0.9747,
    "spellings_when_elided": {
-    "Αλλ": 634,
-    "αλλ": 388,
-    "ἀλλ": 149835,
-    "ἄλλ": 1391,
-    "Ἀλλ": 7971,
-    "Ἄλλ": 8459
+    "Αλλ": 623,
+    "αλλ": 384,
+    "ἀλλ": 148104,
+    "ἄλλ": 1280,
+    "Ἀλλ": 7989,
+    "Ἄλλ": 8327
    }
   },
   "γ": {
-   "before_apostrophe": 12428,
-   "occurrences": 40157,
+   "before_apostrophe": 12326,
+   "occurrences": 39202,
    "particle": "γάρ",
-   "rate": 0.3095,
+   "rate": 0.3144,
    "spellings_when_elided": {
-    "Γ": 705,
-    "γ": 11723
+    "Γ": 698,
+    "γ": 11628
    }
   },
   "γα": {
    "before_apostrophe": 11,
-   "occurrences": 2328,
+   "occurrences": 2100,
    "particle": "γάρ",
-   "rate": 0.0047,
+   "rate": 0.0052,
    "spellings_when_elided": {
     "γά": 3,
     "γα": 7,
@@ -53,150 +54,150 @@
    }
   },
   "δ": {
-   "before_apostrophe": 228315,
-   "occurrences": 261507,
+   "before_apostrophe": 225172,
+   "occurrences": 257105,
    "particle": "δέ",
-   "rate": 0.8731,
+   "rate": 0.8758,
    "spellings_when_elided": {
-    "Δ": 744,
-    "δ": 227571
+    "Δ": 736,
+    "δ": 224436
    }
   },
   "ει": {
-   "before_apostrophe": 215,
-   "occurrences": 283257,
+   "before_apostrophe": 209,
+   "occurrences": 278161,
    "particle": "εἴτε",
    "rate": 0.0008,
    "spellings_when_elided": {
-    "Εἰ": 10,
-    "ει": 21,
-    "εἰ": 119,
-    "εἴ": 16,
+    "Εἰ": 6,
+    "ει": 20,
+    "εἰ": 116,
+    "εἴ": 15,
     "εἶ": 33,
-    "ἑι": 3
+    "Ἐι": 5
    }
   },
   "ειτ": {
-   "before_apostrophe": 4978,
-   "occurrences": 5096,
+   "before_apostrophe": 4902,
+   "occurrences": 5013,
    "particle": "εἴτε",
-   "rate": 0.9768,
+   "rate": 0.9779,
    "spellings_when_elided": {
-    "Εἰτ": 52,
-    "Εἴτ": 81,
+    "Εἰτ": 51,
+    "Εἴτ": 78,
     "Εἶτ": 106,
-    "εἰτ": 179,
-    "εἴτ": 2168,
-    "εἶτ": 2375
+    "εἰτ": 169,
+    "εἴτ": 2111,
+    "εἶτ": 2371
    }
   },
   "ι": {
-   "before_apostrophe": 1316,
-   "occurrences": 29789,
+   "before_apostrophe": 1301,
+   "occurrences": 28681,
    "particle": "ἵνα",
-   "rate": 0.0442,
+   "rate": 0.0454,
    "spellings_when_elided": {
     "Ι": 49,
-    "ι": 1048,
-    "ἰ": 21,
+    "ι": 1034,
+    "ἰ": 20,
     "ἱ": 33,
     "ἴ": 134,
     "ἵ": 7
    }
   },
   "ιν": {
-   "before_apostrophe": 6555,
-   "occurrences": 9687,
+   "before_apostrophe": 6480,
+   "occurrences": 9400,
    "particle": "ἵνα",
-   "rate": 0.6767,
+   "rate": 0.6894,
    "spellings_when_elided": {
     "ἰν": 46,
-    "ἴν": 138,
-    "ἵν": 5970,
-    "Ἰν": 54,
-    "Ἴν": 158,
-    "Ἵν": 121
+    "ἴν": 134,
+    "ἵν": 5901,
+    "Ἰν": 55,
+    "Ἴν": 159,
+    "Ἵν": 118
    }
   },
   "κ": {
-   "before_apostrophe": 4470,
-   "occurrences": 23049,
+   "before_apostrophe": 4450,
+   "occurrences": 22414,
    "particle": "καί",
-   "rate": 0.1939,
+   "rate": 0.1985,
    "spellings_when_elided": {
     "Κ": 393,
-    "κ": 4077
+    "κ": 4057
    }
   },
   "κα": {
-   "before_apostrophe": 521,
-   "occurrences": 11108,
+   "before_apostrophe": 519,
+   "occurrences": 9823,
    "particle": "καί",
-   "rate": 0.0469,
+   "rate": 0.0528,
    "spellings_when_elided": {
     "ΚΑ": 81,
     "Κα": 2,
-    "κα": 435,
+    "κα": 433,
     "κἀ": 3
    }
   },
   "με": {
-   "before_apostrophe": 232,
-   "occurrences": 44629,
+   "before_apostrophe": 231,
+   "occurrences": 43849,
    "particle": "μέν",
-   "rate": 0.0052,
+   "rate": 0.0053,
    "spellings_when_elided": {
     "ΜΕ": 19,
     "μέ": 7,
-    "με": 201,
+    "με": 200,
     "μὲ": 5
    }
   },
   "μη": {
-   "before_apostrophe": 208,
-   "occurrences": 325762,
+   "before_apostrophe": 206,
+   "occurrences": 320932,
    "particle": "μήτε",
    "rate": 0.0006,
    "spellings_when_elided": {
     "ΜΗ": 14,
     "μή": 21,
-    "μη": 116,
-    "μὴ": 52,
+    "μη": 115,
+    "μὴ": 51,
     "μῃ": 1,
     "μῆ": 3
    }
   },
   "μητ": {
-   "before_apostrophe": 3631,
-   "occurrences": 3692,
+   "before_apostrophe": 3602,
+   "occurrences": 3654,
    "particle": "μήτε",
-   "rate": 0.9835,
+   "rate": 0.9858,
    "spellings_when_elided": {
     "Μήτ": 25,
     "Μὴτ": 11,
-    "μήτ": 3380,
-    "μητ": 26,
-    "μὴτ": 180,
+    "μήτ": 3361,
+    "μητ": 25,
+    "μὴτ": 171,
     "μῆτ": 4
    }
   },
   "οτ": {
-   "before_apostrophe": 2472,
-   "occurrences": 2841,
+   "before_apostrophe": 2412,
+   "occurrences": 2734,
    "particle": "ὅτι",
-   "rate": 0.8701,
+   "rate": 0.8822,
    "spellings_when_elided": {
     "Οτ": 9,
     "οτ": 21,
-    "ὁτ": 36,
-    "ὄτ": 8,
-    "ὅτ": 2357,
+    "ὁτ": 33,
+    "ὄτ": 9,
+    "ὅτ": 2299,
     "Ὅτ": 31
    }
   },
   "ου": {
-   "before_apostrophe": 148,
-   "occurrences": 362843,
+   "before_apostrophe": 143,
+   "occurrences": 357795,
    "particle": "οὔτε",
    "rate": 0.0004,
    "spellings_when_elided": {
@@ -204,42 +205,42 @@
     "ου": 5,
     "οὐ": 76,
     "οὔ": 20,
-    "οὕ": 7,
+    "οὕ": 3,
     "οὗ": 29
    }
   },
   "ουτ": {
-   "before_apostrophe": 8983,
-   "occurrences": 9249,
+   "before_apostrophe": 8851,
+   "occurrences": 9092,
    "particle": "οὔτε",
-   "rate": 0.9712,
+   "rate": 0.9735,
    "spellings_when_elided": {
-    "Οὐτ": 83,
-    "Οὔτ": 34,
-    "οὐτ": 1171,
-    "οὔτ": 7490,
-    "οὕτ": 121,
-    "οὗτ": 39
+    "Οὐτ": 78,
+    "Οὔτ": 33,
+    "οὐτ": 1122,
+    "οὔτ": 7420,
+    "οὕτ": 117,
+    "οὗτ": 38
    }
   },
   "τ": {
-   "before_apostrophe": 19998,
-   "occurrences": 43070,
+   "before_apostrophe": 19767,
+   "occurrences": 41265,
    "particle": "τε",
-   "rate": 0.4643,
+   "rate": 0.479,
    "spellings_when_elided": {
     "Τ": 94,
-    "τ": 19904
+    "τ": 19673
    }
   },
   "ω": {
-   "before_apostrophe": 171,
-   "occurrences": 85542,
+   "before_apostrophe": 175,
+   "occurrences": 83798,
    "particle": "ὡς",
-   "rate": 0.002,
+   "rate": 0.0021,
    "spellings_when_elided": {
-    "ω": 112,
-    "ὡ": 10,
+    "ω": 111,
+    "ὡ": 15,
     "ὦ": 8,
     "ὧ": 17,
     "ᾤ": 4,
