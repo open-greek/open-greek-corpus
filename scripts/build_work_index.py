@@ -521,6 +521,12 @@ def build(write: bool = True) -> dict:
             works[slug]["metadata_from"] = metadata_slug
         witness = pseudo_works.get(slug, {}).get("volume_witness")
         if witness:
+            witness = dict(witness)
+            concordance = REPO / "data/ocr_collations/kaibel-1899.json"
+            if witness.get("volume") == "kaibel-cgf-i-1-1899" and concordance.exists():
+                witness.update(collation_status="reviewed-page-and-token-concordance",
+                    concordance="data/ocr_collations/kaibel-1899.json",
+                    frequency_policy="agreed-attestations-once-with-unresolved-alternative-bounds")
             works[slug]["volume_witness"] = witness
         if slug in deficits:
             # Served, but a fuller text of the same work is held in this repo
