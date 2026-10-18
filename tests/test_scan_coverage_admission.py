@@ -67,6 +67,18 @@ def test_dio_overlap_requires_one_unambiguous_anchor():
             ingest.trim_shared_prefix(wrong)
 
 
+def test_dio_English_running_title_removal_is_initial_and_source_guarded():
+    page = {"id": "dio-cary-v9-pdf0179", "source_volume": 9}
+    source = {"sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4"}
+    text = "DIO'S ROMAN HISTORY\nZonaras 9, 27.\nἄνθρωπος\nDIO'S ROMAN HISTORY\n"
+    body, decisions = ingest.clean_running_headers(text, "cassius-dio.historiae-romanae", page, source)
+    assert body == "Zonaras 9, 27.\nἄνθρωπος\nDIO'S ROMAN HISTORY\n"
+    assert decisions[0]["offset"] == 0
+    assert decisions[0]["original_text"] + body == text
+    assert ingest.clean_running_headers(text, "cassius-dio.historiae-romanae", page, {"sha256": "changed"}) == (text, [])
+    assert ingest.clean_running_headers(text, "pappus-mathematics.synagoge", page, source) == (text, [])
+
+
 def test_dio_overlap_archives_all_variants_without_replacing_old_readings(tmp_path):
     work = "cassius-dio.historiae-romanae"
     (tmp_path / "data/corpus").mkdir(parents=True)
@@ -182,7 +194,7 @@ def test_public_scope_counts_admissions_without_claiming_intact_works():
     assert pappus["reviewed_primary_regions"] == 331
     assert conica["reviewed_primary_regions"] == 227
     assert dio["reviewed_primary_regions"] == 1082
-    assert dio["reviewed_comparative_regions"] == 418
+    assert dio["reviewed_comparative_regions"] == 419
     assert dio["admitted_primary_regions"] + dio["remaining_reviewed_primary_regions"] == 1082
     assert "eighty-book" in dio["work_identity"] and "not an intact" in dio["transmission_limit"]
     assert "Books I–IV" in conica["transmission_limit"]
@@ -251,3 +263,139 @@ def test_digital_source_admission_replays_original_exports_and_body_windows(tmp_
     assert gzip.decompress((archive / ("digital-" + document["id"] + ".json.gz")).read_bytes()) == source_raw
     ingest.undo(archive, root)
     assert (root / f"data/corpus/{work}.jsonl").read_bytes() == base
+
+
+def reviewed_crop_bundle(manifest, original_raw, old_prediction, new_prediction):
+    from copy import deepcopy
+    from scan_ocr_bundle import retained
+    old_rows = ingest.records(old_prediction)
+    old_rows[0]["_meta"].update(runtime={"name": "fixture"}, runner_sha256="d" * 64)
+    old_prediction = ingest.jsonl_bytes(old_rows)
+    effective = deepcopy(manifest)
+    page = effective["pages"][0]
+    page["region"] = [0, 0, 1, .8]
+    decision = {"id": page["id"], "source": page["source"], "scan_page": page["scan_page"],
+        "original_region": [0, 0, 1, 1], "region": page["region"]}
+    review = {"kind": "scan-region-body-review", "reviewed_at": "2026-10-18",
+        "original_manifest_sha256": ingest.sha(original_raw), "sources": manifest["sources"],
+        "evidence": {"body": {**decision, "source_pdf_sha256": "a" * 64,
+            "contact_sheet_sha256": "c" * 64, "reviewed_at": "2026-10-18", "evidence": "Checked body above notes."}}}
+    review_raw = ingest.encoded(review)
+    effective["reviewed_substitutions"] = {"original_manifest_sha256": ingest.sha(original_raw),
+        "source_review": {"path": "review.json", "sha256": ingest.sha(review_raw)},
+        "regions": [{**decision, "evidence_id": "body"}]}
+    effective_raw = ingest.encoded(effective)
+    new_rows = ingest.records(new_prediction)
+    new_rows[0]["_meta"].update(runtime={"name": "fixture"}, runner_sha256="d" * 64)
+    new_rows[0]["_meta"]["manifest_sha256"] = ingest.sha(effective_raw)
+    new_rows[1]["region"] = page["region"]
+    new_raw = ingest.jsonl_bytes(new_rows)
+    bundle = ingest.encoded({"kind": "scan-ocr-bundle", "schema_version": 1,
+        "effective_manifest": retained(effective_raw), "source_reviews": [retained(review_raw)],
+        "parts": [{"prediction": retained(raw), "manifest": retained(request)}
+            for raw, request in [(old_prediction, original_raw), (new_raw, effective_raw)]]})
+    return bundle, effective_raw, effective, new_raw
+
+
+def test_bundle_preserves_failed_superseded_attempt_and_original_artifact_hash(tmp_path):
+    _, manifest, original_raw, _, raws = fixture(tmp_path)
+    rows = ingest.records(raws[0])
+    rows[1].update(finish_reason="length", raw_prediction="")
+    old_raw = ingest.jsonl_bytes(rows)
+    bundle, effective_raw, effective, new_raw = reviewed_crop_bundle(manifest, original_raw, old_raw, raws[0])
+    predictions, retained = ingest.load_predictions(None, effective_raw, effective, bundle)
+    direct, _ = ingest.load_predictions(None, effective_raw, effective, new_raw)
+    assert retained == bundle and predictions == direct
+    audit = ingest.prediction_bundle_audit(bundle, effective_raw)
+    assert len(audit["held_predictions"]) == 1 and len(audit["parts"]) == 2
+    assert audit["held_predictions"][0]["original_region"] == [0, 0, 1, 1]
+
+
+def test_bundle_never_admits_failed_effective_crop_or_forged_review(tmp_path):
+    _, manifest, original_raw, _, raws = fixture(tmp_path)
+    rows = ingest.records(raws[0])
+    rows[1]["finish_reason"] = "length"
+    failed = ingest.jsonl_bytes(rows)
+    bundle, effective_raw, effective, _ = reviewed_crop_bundle(manifest, original_raw, raws[0], failed)
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.load_predictions(None, effective_raw, effective, bundle)
+    bundle, effective_raw, effective, _ = reviewed_crop_bundle(manifest, original_raw, raws[0], raws[0])
+    forged = json.loads(bundle)
+    forged["source_reviews"] = []
+    with pytest.raises(ValueError, match="retained source review"):
+        ingest.load_predictions(None, effective_raw, effective, ingest.encoded(forged))
+
+
+def test_exact_private_failure_scope_reaches_retained_bundle_leaf_without_rewriting(tmp_path):
+    _, manifest, original_raw, _, raws = fixture(tmp_path)
+    rows = ingest.records(raws[0])
+    rows[1]["finish_reason"] = "length"
+    failed = ingest.jsonl_bytes(rows)
+    bundle, effective_raw, effective, new_raw = reviewed_crop_bundle(manifest, original_raw, raws[0], failed)
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.load_predictions(None, effective_raw, effective, bundle)
+    allowed = frozenset({"conica-1"})
+    loaded, retained = ingest.load_predictions(None, effective_raw, effective, bundle, allow_failed_ids=allowed)
+    direct, _ = ingest.load_predictions(None, effective_raw, effective, new_raw, allow_failed_ids=allowed)
+    assert retained == bundle and loaded == direct
+    assert loaded["conica-1"]["text"] == rows[1]["raw_prediction"]
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.load_predictions(None, effective_raw, effective, bundle, allow_failed_ids={"different-id"})
+
+
+def test_conica_running_header_removal_is_source_page_and_initial_position_guarded():
+    manifest = json.loads((ROOT / "data/ingest_reviews/coverage/mathematical-ocr-jobs.json").read_text())
+    page = next(p for p in manifest["pages"] if p["id"] == "apolloniipergaei01apoluoft-pdf0208")
+    source = manifest["sources"][page["source"]]
+    original = "ΚΩΝΙΚΩΝ α'.\nἡ μὲν ΑΓ\nΚΩΝΙΚΩΝ α'.\n"
+    body, edits = ingest.clean_running_headers(original, page["work"], page, source)
+    assert body == "ἡ μὲν ΑΓ\nΚΩΝΙΚΩΝ α'.\n" and len(edits) == 1
+    assert edits[0]["original_text"] + body == original
+    assert edits[0]["source_pdf_sha256"] == source["sha256"]
+    assert edits[0]["image_sha256"] == "f654f53f09e6ecbc5118465b7b41129c569e32ac3d9a18d38408379d9d814406"
+    for changed_page, changed_source in [(dict(page, scan_page=206), source),
+            (page, dict(source, sha256="different")), (dict(page, region=[0, .1, 1, 1]), source)]:
+        assert ingest.clean_running_headers(original, page["work"], changed_page, changed_source)[0] == original
+
+
+def test_comparison_only_admission_registers_paratext_without_primary_rows_and_undoes(tmp_path):
+    _, manifest, _, _, old_raws = fixture(tmp_path)
+    work = "cassius-dio.historiae-romanae"
+    page = manifest["pages"][0]
+    page.update(id="dio-cary-v9-pdf0240-comparison", work=work, source_volume=9,
+        scan_page=240, printed_page=470, region=[.095, .615, .43, .88],
+        panel_role="comparison", transmission="comparative-quotation", admission="comparative-paratext")
+    request_raw = ingest.encoded(manifest)
+    raws, inputs = [], []
+    for raw in old_raws:
+        rows = ingest.records(raw)
+        rows[0]["_meta"]["manifest_sha256"] = ingest.sha(request_raw)
+        rows[1].update(id=page["id"], scan_page=240, region=page["region"])
+        value = ingest.jsonl_bytes(rows)
+        raws.append(value)
+        inputs.append(ingest.load_predictions(None, request_raw, manifest, value)[0])
+    result = ingest.collate(manifest, inputs)
+    assert result[0] == {} and len(result[1]) == 1
+    root = tmp_path / "repo"
+    directory = root / "data/ingest_reviews/coverage"
+    directory.mkdir(parents=True)
+    for name in ["cassius-dio-reviewed-ocr-jobs.json", "cassius-dio-late-comparison-jobs.json"]:
+        (directory / name).write_bytes((ROOT / "data/ingest_reviews/coverage" / name).read_bytes())
+    editions = ingest.encoded({work: {"n_passages": 0, "n_tokens": 0}})
+    (root / "data/corpus_editions.json").write_bytes(editions)
+    ingest.apply(root, request_raw, raws, *result, "separate-comparison")
+    assert (root / "data/corpus_editions.json").read_bytes() == editions
+    audit = root / "data/corpus_changes/separate-comparison"
+    ingest.verify(audit, root)
+    index = json.loads((root / ingest.EXTENSION_INDEX).read_text())
+    assert index["works"] == {}
+    assert index["comparative_admissions"][work][0]["regions"] == [page["id"]]
+    scope = coverage_scope(root, work)
+    assert scope["admitted_primary_regions"] == 0
+    assert scope["admitted_comparative_regions"] == 1
+    assert scope["remaining_reviewed_comparative_regions"] == 418
+    assert scope["comparative_admission_audits"] == ["data/corpus_changes/separate-comparison/changes.json"]
+    assert not (root / f"data/corpus/{work}.jsonl").exists()
+    ingest.undo(audit, root)
+    assert not (root / ingest.EXTENSION_INDEX).exists()
+    assert (root / "data/corpus_editions.json").read_bytes() == editions

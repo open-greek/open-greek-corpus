@@ -390,6 +390,56 @@ Mixed Greek/Latin or Greek/Cyrillic words remain whole opaque readings and
 stay outside lexical counts, including when multiple OCR witnesses agree on
 the same damaged spelling.
 
+The mathematical OCR review uses the frozen polytonic-loss detector without
+choosing a witness. Reproduce its 15 enlarged, source-inspected retry regions
+with `python3 scripts/prepare_mathematical_ocr_retries.py --predictions ORIGINAL36.jsonl --pdf-dir PDF_DIRECTORY`.
+The request pins the original complete 556-page run, the source PDFs, and the
+four pages with severe mark loss plus one page with apparatus leakage. Original
+predictions remain immutable; completed retry strips require a separate source
+review before they can replace the same model's input to a vote.
+`scripts/audit_mathematical_ocr.py --prediction FILE` reproduces the frozen
+mark screen and the separate exploratory apparatus screen. For a growing shard,
+`--prefix FILE_NAME=RECORD_COUNT` pins an exact complete prefix. The report records
+the extent of pixel review and does not estimate corpus-wide accuracy.
+After comparing completed retry strips with the scan, use
+`scripts/mathematical_ocr_retries.py --original ORIGINAL36 --retry RETRY36 --review REVIEW.json --source-evidence EVIDENCE.json --out BUNDLE.json`.
+The evidence file maps all five reviewed page IDs to their completed source
+comparisons. The bundle embeds the original full run, all retry strips, the
+request, and the exact review. Its loader keeps one vote from the same pinned
+model and rejects changed, missing, failed, or unreviewed inputs.
+The later Qwen3.8 printed-page-802 case has its own three-region request,
+reproduced with `scripts/prepare_mathematical_qwen38_retry.py`; it pins the exact
+completed original shard and checkpoint separately from the Qwen3.6 cases.
+After the complete Qwen3.8 run is bundled and the retry is compared with the
+scan, `scripts/mathematical_qwen38_retry.py --original FULL38_BUNDLE --source-part SHARD03 --retry RETRY38 --review REVIEW.json --out BUNDLE.json --source-evidence "Completed scan comparison"`
+retains all original parts and checks that the replaced page is the exact
+artifact from the pinned shard. The same admission loader accepts either
+reviewed model bundle; each family still contributes one page reading.
+
+`scripts/dio_ocr_retries.py` applies the same review contract independently to
+the explicitly pinned Dio Qwen3.6 and Qwen3.8 checkpoint requests. Supply
+`--request REQUEST.json --original FULL_BUNDLE.json --retry STRIPS.jsonl --review REVIEW.json --source-evidence EVIDENCE.json --out REVIEWED_BUNDLE.json`.
+The evidence file maps every requested page to its completed scan comparison.
+Before loading a failed original, the helper verifies the complete 1,500-region
+source lineage and each exact metadata-plus-prediction artifact. Only the
+request's source-confirmed length failures receive a private exception, and
+every such input must be replaced by successful reviewed strips before the
+bundle returns any admitted readings. Other failures remain blocking. The
+bundle retains every original byte, source review, failed outcome, and finite
+gap reference; each checkpoint contributes one reading per physical region.
+The Dio loader also checks the separately approved retry generation policy,
+runner hash, original image-helper hash, and server checkpoint. Changing a
+sampling parameter cannot silently supply a replacement under this policy.
+For disjoint later requests, `--parts PARTS.json` accepts a list of
+`request_path`, `retry_path`, `review_path`, and `source_evidence` objects, with
+optional recursive `children` of the same form. Each child pins its immediate
+parent request and exact original strip artifact; its crops must partition that
+parent crop without gaps. The committed Dio authority registry makes reviewed
+residual mark loss or stopped repetition a blocking condition until those
+children are supplied. The complete original bundle is loaded once with the
+union of explicitly authorized failures, and each model still supplies one
+reading per page. All ancestor attempts and completed reviews remain archived.
+
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
 historical 164-page OCR job list with
@@ -419,6 +469,15 @@ The notation request is reproduced with `--prepare-notation-retry` and reviewed
 with `--manifest data/ingest_reviews/jahn-aristides-notation-retry.json`. It keeps
 the prose on pages 82/87/91 and all six Greek mode captions on page 87, while
 linking their symbol tables as nonlexical source-image regions.
+The two shorter page 112 subcrops (`--prepare-length-supplement`) replace only
+the explicitly failed Qwen3.8 strip. Supply their raw file as `--supplement` when
+recording the length review and `--retry-supplement` at admission; every failed
+attempt remains archived, and successful strips keep their original readings.
+`scripts/jahn_scan_reviews.py` records direct source adjudications for the eight
+short notation headings and mode captions. Pass that record as `--scan-review`
+at admission. The pre-review model networks remain intact; the sixth caption's
+ambiguous stigma/final-sigma encoding keeps both glyph readings, and numeral
+labels are excluded from lexical counts.
 `--original-dir` retains the original Meibom page OCR as additional source
 evidence. The script requires both fresh model readings for every Jahn page
 and checks the reviewed crops. It rejects failed, truncated, or empty attempts
@@ -452,6 +511,10 @@ Successive scan admissions retain every manifest and audit, with each addition's
 reading digest verified within the consolidated extension. Conica's separately
 reviewed Book IV opening letter therefore retains its evidence when Books I–III
 are admitted in another batch.
+Separately served comparison quotations receive their own nonprimary edition
+credit and `comparative_admissions` metadata. Their exact dataset, manifest,
+audit, licenses, and source components are checked even when admitted before
+the primary additions; they do not add primary passages or frequency counts.
 Run `python3 scripts/reviewed_manifestations.py --write` to refresh an existing
 registry or `--check` to verify it. Photius's new consensus includes Source
 Library CC BY-SA 4.0 readings, alongside retained PD text and separately credited
@@ -720,6 +783,15 @@ prediction archives and all 60 distinct page identities, and includes false
 positives, missed cases, and operating limits. It also records that no automatic
 witness-selection rule is active.
 
+Before tagging, `python3 scripts/build_corpus_release.py --check` requires an
+existing release record and compares its complete stable contents with a fresh
+build: release ID and date, corpus and catalog pins, counts by source and
+license, and all quality measurements and evidence hashes. Only the recorded
+commit ID and commit date may differ after committing release metadata. Checks
+default to the version and date declared in `CITATION.cff`, preserving a suffix
+such as `.1`; explicit identity options must agree with those declarations.
+Creation still uses `corpus-<date>` unless `--release-id` is supplied.
+
 `make reports` refreshes the corpus polytonic report, the date comparison, and
 the five-work completeness review when their inputs change. For the latter,
 set `FIRST1K_DIR` and `PERSEUS_DIR` if the pinned source checkouts are outside
@@ -747,10 +819,11 @@ to `resolved_coverage_findings` with transmission qualifications and the tagged
 release closing requirement. Rebuild with `--first1k-dir` and `--perseus-dir`.
 Routine metadata builds check the retained evidence hashes; run each admission
 script's full `--check` after ingest to repeat every word vote.
-Photius completion uses the admission's canonical fresh-input validator. A
+Photius completion uses the admission's canonical archived-report validator. A
 failed original page requires separately reviewed retry strips for every
 checkpoint, with hash-checked source review, manifest and raw prediction files;
-the original attempts remain retained evidence.
+the original attempts remain retained evidence. Checkpoint-specific retries and
+supplemental strips pass through the same authority without adding extra votes.
 
 Bekker's Photius index is preserved in
 `data/paratext/photius-bekker-index.jsonl`, with all 501 former passage
@@ -937,10 +1010,16 @@ records the scan-checked mapping and preserves every original destination in
 an explicitly named historical citation scheme in `data/citation_aliases.json`.
 The TEI ingester applies the same source-hash-guarded mapping; the audit can
 restore all original bytes with `--undo`. No Greek readings changed.
-Source and page manifests for the missing Pappus VI–VIII and Conica I–III are
-under `data/ingest_reviews/coverage/`. They identify the Greek leaves individually,
-including alternate scan leaves where a scan repeats earlier Pappus pages;
-they are OCR inputs, not assertions that new text has already been served.
+The admitted additions cover 331 Pappus VI–VIII regions and 225 Conica I–III
+regions, with independent retained OCR witnesses and explicit unresolved readings.
+Pappus now has 635 passages; Conica has 284, including the separately admitted
+Book IV letter. Source and page manifests are under
+`data/ingest_reviews/coverage/`, and the reversible main admission is under
+`data/corpus_changes/mathematical-greek-coverage-2026-10/`. Alternate scan leaves
+replace repeated Pappus pages. Conica covers the surviving Greek Books I–IV;
+Books V–VII survive in Arabic and VIII is lost. Pappus covers the surviving
+remains of II–VIII; Book I and the opening of II are lost. These OCR additions
+retain disagreements and have not been fully proofread against every scan.
 `prepare_mathematical_ocr.py --book4-letter` separately pins two cropped regions
 for Conica IV's omitted letter to Attalus. The original 556-region request stays
 unchanged. Admit the two runs in either order: the importer adds new extension
@@ -974,6 +1053,86 @@ collation before its missing continuation can be admitted. Source credits and
 genuine losses must remain explicit. The jobs place seven regions from six
 reviewed boundary pages first for a small OCR sanity check and preserve
 independent raw witnesses.
+The complete admitted repair adds 1,082 primary passages and retains 419
+comparative panels separately, including the additional Cary IX panel below
+the rule on printed page 470. All 4,403 historical primary passages remain
+unchanged, giving 5,485 primary passages. The main reversible admission is
+`data/corpus_changes/dio-greek-coverage-2026-10/`; its `--check` replay verifies
+the complete readings and word networks. This represents the surviving mixed
+transmission, with explicit ancient losses, rather than an intact eighty-book
+direct text.
+`prepare_dio_body_regions.py --pdf-dir SOURCE_PDFS` reproduces the subsequent
+source review of all 741 late Greek panels. It writes a separate effective
+1,500-region manifest with body boundaries above editorial notes, preserves the
+original request, and pins each geometry change to the scanned edition and
+completed review. Fifteen pages also receive an exact instruction to copy finite
+printed lacuna-dot series once. Superseded predictions remain held evidence in
+`scan_ocr_bundle`; they cannot enter the replacement body vote. A separate
+one-region request retains the full-size comparative quotations below the rule
+on Cary IX printed page 470, with their Leo/Cedrenus and Petrus Patricius credits.
+That panel is admitted separately as comparative paratext under
+`data/corpus_changes/dio-cary-nine-comparison-2026-10/`, using both independent
+checkpoints and the bounded, attributed Source Library witness. It adds no
+primary Dio passage.
+The admission loader accepts self-contained scan bundles without rewriting any
+part's runtime metadata or artifact hash. The admission audit exposes every part
+and held prediction. Failed superseded attempts remain evidence; every eligible
+replacement still requires a complete successful prediction.
+`prepare_dio_late_shards.py` pins two contiguous selections of 371 and 370
+reviewed late regions for `run_scan_ocr_shard.py`. These selections leave every
+unfinished early region with its original client. Build each checkpoint's final
+bundle from the unchanged early output and both late parts, using the original
+manifest as authority and the completed body review.
+`prepare_dio_early_body_regions.py --pdf-dir SOURCE_PDFS` adds the completed
+review of all 759 earlier panels as a second authority over that unchanged late
+request. It selects 279 source-confirmed apparatus crops in two groups of 140
+and 139. Full Greek paragraphs, comparative quotations, numbered sections and
+Latin transmission credits remain body even where their font size changes.
+Final bundles retain both review stages and all original attempts; already
+completed late predictions remain eligible.
+The two complete original checkpoint bundles are retained as
+`data/evaluation/ocr-fresh/cassius-dio-original-qwen36.bundle.json` and its
+Qwen3.8 counterpart. Each has 1,500 eligible regions and 283 held earlier
+attempts, with both source-boundary reviews and every original part unchanged.
+`prepare_dio_ocr_retries.py --original RETAINED_PART --pdf-dir SOURCE_PDFS`
+pins enlarged strips for the exact checkpoint/page combinations with observed
+length termination or scan-confirmed loss of accents and breathings. Repeat
+`--original` for the retained parts from both checkpoints. Each request retains
+the complete original prediction and runtime metadata, verifies its record
+hash, and keeps every finite printed lacuna-dot row in three ordered strips.
+The request alone does not authorize admission: every completed strip must
+pass a separate comparison with the source before replacing that model's
+single input. The other checkpoint and all original attempts remain available.
+The guarded `dio_ocr_retries.py` bundle checks the complete 1,500-region source
+lineage and all exact original record pins before permitting any failed reading
+to be replaced. An unreviewed failed region still prevents admission. The audit
+retains both the full original bundle and the completed strip review.
+`prepare_dio_ocr_supplements.py` pins later source-confirmed cases in separate
+requests, preserving the first request bytes. Its child request refines only
+the first VI402 retry strip that still lost breathings; the successful sibling
+strips remain available unchanged.
+An exact initial English Cary running title is removed through a source-pinned
+offset audit; Greek book headings and transmission credits are preserved.
+`prepare_dio_finer_children.py` retains later stop-terminated dot loops and
+source-confirmed mark loss as held parent strips. Each new request partitions
+its immediate parent, including a one-line refinement of the short VI402
+child. Dot runs use one explicit ellipsis through a recorded punctuation
+normalization; the source pixels and every earlier reading remain available.
+The authority registry makes all known defective strips require their reviewed
+children, even when the frozen detector abstains on short text.
+One 34-letter comparison line on Cary II printed378 still loses polytonic
+marks after those attempts. `scan_dio_line_reviews.py` applies its named,
+scan-checked correction above the merged network. The audit pins both exact
+checkpoint records and images, keeps every original vote and variant, and can
+restore the uncorrected merge. The initial `τριος` continues the preceding
+page's `μέ-`; it remains visible but is excluded from independent word counts,
+without inventing a joined spelling. This review adds no model vote.
+`prepare_dio_reviewed_inputs.py --raw-dir RETAINED_RETRIES` reproduces the
+completed recursive reviews from exact file hashes, preserving all failed
+ancestors and successful siblings. The admitted transmission labels also
+distinguish Cary VIII's epitome and excerpts from IX's mixed direct manuscript,
+excerpt and epitome material. That qualification is pinned to Cary I's source
+introduction; individual printed credits remain separate reference witnesses.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
@@ -994,6 +1153,11 @@ overlap review if the underlying digital edition changes.
 Primary rows keep compact positional word slots, including exclusions that
 break lexical adjacency; each row links to its full, hash-checked vote network
 in the compressed audit archive.
+Comparison-only runs have their own `comparative_admissions` index with exact
+dataset hashes, source-region identities and reversible audit references. They
+can arrive before or after the primary text without creating primary passages.
+Coverage reports keep primary and comparison counts separately and require all
+reviewed comparison panels before marking the coverage repair complete.
 `scripts/scan_title_reviews.py` records the scan-checked stigma (six) in Pappus
 VI's opening title as a named correction above the unchanged OCR votes. The
 audit pins the source and rendered image, retains both complete predictions
@@ -1013,6 +1177,9 @@ checks consecutive printed pages within one book, removes only audited running
 headers, and holds title-like starts and proposition labels. Every admitted
 exclusion retains both boundary readings and the unchanged original network;
 uncertain boundaries remain untouched.
+The isolated initial Conica running header on Heiberg I printed page 190 has
+its own source and image pins; removal records the original line and offset.
+Book titles and headings on other leaves remain available to the reader.
 `scan_coverage_extensions.coverage_scope()` supplies the public manifestation
 scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.

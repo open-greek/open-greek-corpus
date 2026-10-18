@@ -696,6 +696,52 @@ def sync_citation(release_id: str, release_date: str) -> None:
               f"{release_date}")
 
 
+def release_differences(stored: dict, current: dict) -> list[str]:
+    """Compare every stable field, allowing only metadata commit references.
+
+    A release artifact cannot name the commit that contains it. Committing its
+    metadata changes HEAD and the commit date, but must not change its identity,
+    catalog pin, component counts, licenses, or measured quality statements.
+    """
+    def stable(value):
+        value = dict(value)
+        generated = dict(value.get("generated_from") or {})
+        for key in ("commit", "commit_date"):
+            generated.pop(key, None)
+        value["generated_from"] = generated
+        return value
+
+    differences = []
+    missing = object()
+    def compare(left, right, path):
+        if isinstance(left, dict) and isinstance(right, dict):
+            for key in sorted(left.keys() | right.keys()):
+                compare(left.get(key, missing), right.get(key, missing), f"{path}.{key}" if path else key)
+        elif isinstance(left, list) and isinstance(right, list) and len(left) == len(right):
+            for index, (old, new) in enumerate(zip(left, right)):
+                compare(old, new, f"{path}[{index}]")
+        elif type(left) is not type(right) or left != right:
+            differences.append(path + " changed")
+    compare(stable(stored), stable(current), "")
+    return differences
+
+
+def check_identity(explicit_id: str | None, explicit_date: str | None,
+                   cff: dict, stored: dict, commit_date: str | None) -> tuple[str, str]:
+    """Use declared citation identity during checks, preserving creation defaults.
+
+    A metadata-only commit after the release date must not silently mint a new
+    date or discard a release suffix. Stored identity is a fallback only when
+    the caller supplies neither identity option and CITATION omits that field.
+    """
+    fallback = stored if explicit_id is None and explicit_date is None else {}
+    date = explicit_date or cff.get("date-released") or fallback.get("release_date") or commit_date
+    if not date:
+        raise ValueError("No release date is available for verification")
+    identity = explicit_id or cff.get("version") or fallback.get("release_id") or f"corpus-{date}"
+    return identity, date
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--catalog", type=Path, default=CATALOG)
@@ -708,13 +754,19 @@ def main() -> None:
     ap.add_argument("--sync-citation", action="store_true",
                     help="also write the resolved release id and date back into "
                          "CITATION.cff")
-    ap.add_argument("--print", dest="print_only", action="store_true",
+    mode = ap.add_mutually_exclusive_group()
+    mode.add_argument("--print", dest="print_only", action="store_true",
                     help="print the release to stdout, write nothing")
-    ap.add_argument("--check", action="store_true",
-                    help="compare the stored release against the corpus as it "
-                         "is now and exit non-zero if it no longer describes "
-                         "it; writes nothing")
+    mode.add_argument("--check", action="store_true",
+                    help="verify the existing full release record, including "
+                         "identity, catalog pin, component counts and quality; "
+                         "only commit references may differ; writes nothing")
     args = ap.parse_args()
+    stored = None
+    if args.check:
+        if not args.out.is_file():
+            ap.exit(1, f"Missing release record {shown(args.out)}; build it before tagging.\n")
+        stored = json.loads(args.out.read_text(encoding="utf-8"))
 
     rows = read_catalog(args.catalog)
     # The release is only as current as the catalog it summarizes, and the
@@ -733,8 +785,11 @@ def main() -> None:
     # clock can shift: two people releasing the same commit get the same date.
     commit_date = git("show", "-s", "--format=%cs", "HEAD") if commit else None
     cff = citation_fields()
-    release_date = resolve_date(args.date, cff.get("date-released"), commit_date)
-    release_id = args.release_id or f"corpus-{release_date}"
+    if args.check:
+        release_id, release_date = check_identity(args.release_id, args.date, cff, stored, commit_date)
+    else:
+        release_date = resolve_date(args.date, cff.get("date-released"), commit_date)
+        release_id = args.release_id or f"corpus-{release_date}"
 
     dirty = git("status", "--porcelain", "--", "data/corpus")
     uncommitted = len([ln for ln in dirty.splitlines() if ln.strip()]) if dirty else 0
@@ -761,19 +816,10 @@ def main() -> None:
         # answers is the release-time question, whether the stored record still
         # describes the corpus you are about to tag. It does not regenerate,
         # because minting a release id is a decision, not a build step.
-        if not args.out.exists():
-            print(f"no {shown(args.out)}; nothing to check", file=sys.stderr)
-            raise SystemExit(0)
-        stored = json.loads(args.out.read_text(encoding="utf-8"))
-        drift = []
-        for path in (("pin", "corpus_sha256"), ("corpus", "tokens"),
-                     ("corpus", "works")):
-            was, now = stored, release
-            for k in path:
-                was = (was or {}).get(k)
-                now = (now or {}).get(k)
-            if was != now:
-                drift.append(f"{'.'.join(path)}: record {was}, corpus now {now}")
+        drift = release_differences(stored, release)
+        for field, expected in (("version", release_id), ("date-released", release_date)):
+            if cff.get(field) and cff[field] != expected:
+                drift.append(f"CITATION.cff {field}: declared {cff[field]}, requested {expected}")
         if drift:
             print(f"{shown(args.out)} no longer describes the served corpus:",
                   file=sys.stderr)

@@ -104,7 +104,8 @@ def reviewed_mathematical_boundary(result, page, previous_page, manifest, inputs
         before = values.get(previous_page["id"])
         if before is None:
             return result, None, None
-        before_body, _ = clean_body(before["text"], page["work"])
+        before_body, _ = clean_body(before["text"], page["work"], previous_page,
+                                    manifest["sources"][previous_page["source"]])
         previous.append(dict(before, text=before_body, original_text=before["text"]))
         tokens = tokenize(current["text"])
         if not tokens:

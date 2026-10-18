@@ -56,11 +56,12 @@ def _check_mathematical_citations(root, slug):
 
 def _scan_resolution(root, slug):
     scope = coverage_scope(root, slug)
-    if not scope or scope["status"] != "reviewed-primary-regions-admitted":
+    if (not scope or scope["status"] != "reviewed-primary-regions-admitted"
+            or scope.get("remaining_reviewed_comparative_regions", 0)):
         return _pending(root, "Reviewed missing Greek scan regions have not all been admitted.", scope=scope)
     from ingest_scan_coverage import verify_integrity
     audited = []
-    for relative in scope["admission_audits"]:
+    for relative in dict.fromkeys(scope["admission_audits"] + scope.get("comparative_admission_audits", [])):
         audit = root / relative
         verify_integrity(audit.parent, root)
         audited.append({"path": str(audit.relative_to(root)), "sha256": _sha(audit)})
@@ -70,45 +71,19 @@ def _scan_resolution(root, slug):
         **({"citation_audit": citation} if citation else {}))
 
 
-def _photius_fresh_witnesses(root, report, manifests, prepare):
-    """Use the admission's canonical strict loader, including reviewed retries."""
-    fresh_paths, retained = [], {}
-    for value in report["fresh_ocr_files"]:
-        witness = root / value["path"]
-        if _sha(witness) != value["sha256"]:
-            raise ValueError("Photius raw witness changed")
-        if value["sha256"] in retained:
-            raise ValueError("Repeated Photius raw witness archive")
-        retained[value["sha256"]] = (value["model"], value["revision"])
-        fresh_paths.append(witness)
-    retry = report.get("reviewed_retry")
-    retry_paths, retry_review = [], None
-    if retry is not None:
-        references = [retry["manifest"], retry["source_review"]] + retry["raw_files"]
-        for value in references:
-            if _sha(root / value["path"]) != value["sha256"]:
-                raise ValueError("Photius reviewed retry archive changed")
-        retry_paths = [root / value["path"] for value in retry["raw_files"]]
-        retry_review = root / retry["source_review"]["path"]
-    inputs, models, evidence = prepare(fresh_paths, manifests,
-        retry_paths=retry_paths, retry_review=retry_review)
+def _photius_fresh_witnesses(root, report, manifests, prepare_report):
+    """Delegate all original/retry/supplement pins to the canonical authority."""
+    inputs, models, evidence = prepare_report(root, report, manifests)
+    retained = {value["sha256"]: (value["model"], value["revision"])
+                for value in report["fresh_ocr_files"]}
+    if len(retained) != len(report["fresh_ocr_files"]):
+        raise ValueError("Repeated Photius raw witness archive")
     if {hashlib.sha256(raw).hexdigest(): (metadata["model"], metadata["revision"])
             for raw, metadata, predictions in inputs} != retained:
         raise ValueError("Photius retained witness identity differs from its validated source")
     expected = {page["id"] for request in manifests for page in request["pages"]}
     if len(models) < 2 or any(set(pages) != expected for pages in models.values()):
         raise ValueError("Photius coverage lacks complete independent witnesses")
-    if retry is not None:
-        if (evidence is None or retry["manifest"]["sha256"] != evidence["manifest_sha256"] or
-                retry["source_review"]["sha256"] != evidence["source_review_sha256"] or
-                retry["original_artifacts_sha256"] != evidence["review"]["original_artifacts_sha256"] or
-                retry["page_id"] != "photius-bekker-0013" or retry["scan_page"] != 13 or
-                {value["sha256"]: (value["model"], value["revision"]) for value in retry["raw_files"]} !=
-                {value["sha256"]: (value["metadata"]["model"], value["metadata"]["revision"])
-                 for value in evidence["raw_files"]}):
-            raise ValueError("Photius retry metadata differs from its validated source review")
-    elif evidence is not None:
-        raise ValueError("Photius used an unregistered retry")
     return models
 
 
@@ -125,7 +100,7 @@ def _photius_resolution(root):
         return _pending(root, "Photius admission does not cover all 545 checked authorial scan pages.")
     if _sha(root / full_networks["path"]) != full_networks["sha256"]:
         raise ValueError("Photius archived full word networks changed")
-    from ingest_photius_coverage import prepare_fresh_inputs, load_source_library, LEGACY_SOURCE, SOURCE_SCAN_EXCEPTIONS
+    from ingest_photius_coverage import prepare_report_inputs, load_source_library, LEGACY_SOURCE, SOURCE_SCAN_EXCEPTIONS
     mapping = report.get("retained_page_mapping", {})
     if (report.get("legacy_source") != LEGACY_SOURCE or report.get("source_scan_exceptions") != SOURCE_SCAN_EXCEPTIONS or
             mapping.get("exceptions") != SOURCE_SCAN_EXCEPTIONS or mapping.get("printed_page_offset") != 265 or
@@ -137,7 +112,7 @@ def _photius_resolution(root):
         raise ValueError("Photius comparison body-window evidence changed")
     manifests = [json.loads((path.parent / name).read_text()) for name in
                  ("scan-request.json", "later-gap-request.json")]
-    _photius_fresh_witnesses(root, report, manifests, prepare_fresh_inputs)
+    _photius_fresh_witnesses(root, report, manifests, prepare_report_inputs)
     load_source_library(path.parent / "source-library-local002.json.gz")
     primary = root / "data/corpus/photius.bibliotheca.jsonl"
     if _sha(primary) != report["new_corpus_sha256"]:

@@ -24,6 +24,17 @@ WORKS = {"pappus-mathematics.synagoge", "apollonius-geom.conica", "cassius-dio.h
 EXTENSION_INDEX = "data/corpus_extension_index.json"
 EDITION = "scan-consensus-2026-10-18"
 PAPPUS_HEADER = re.compile(r"^\s*ΠΑΠΠΟΥ\s+ΣΥΝΑΓΩΓΗΣ\s+\S+\s*$", re.I)
+CONICA_CHECKED_HEADER = re.compile(r"^\s*ΚΩΝΙΚΩΝ\s+[αΑ]['ʹ΄᾽’.]*\s*$")
+CONICA_HEADER_SOURCE_SHA256 = "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957"
+DIO_HEADER = re.compile(r"^DIO['’]S ROMAN HISTORY[.]?$")
+DIO_HEADER_SOURCE_SHA256 = {
+    "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+    "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+    "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+    "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+    "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+    "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+}
 OVERLAP_ANCHOR = "βουληθεὶς δὲ δὴ τρόπον"
 
 
@@ -48,8 +59,54 @@ def vote_group(model):
     return f"qwen3.{match[1]}-{match[2]}b" if match else model
 
 
-def load_predictions(path, manifest_bytes, manifest, raw=None):
+def bundle_kind(raw):
+    try:
+        value = json.loads(raw)
+    except (ValueError, UnicodeDecodeError):
+        return None
+    return value.get("kind") if isinstance(value, dict) else None
+
+
+def prediction_bundle_audit(raw, manifest_bytes):
+    if bundle_kind(raw) == "scan-ocr-bundle":
+        from scan_ocr_bundle import load_bundle
+        return load_bundle(raw, manifest_bytes)[1]
+    if bundle_kind(raw) == "source-reviewed-mathematical-retry-bundle":
+        from mathematical_ocr_retries import describe_bundle
+        return describe_bundle(raw)
+    if bundle_kind(raw) == "source-reviewed-dio-retry-bundle":
+        from dio_ocr_retries import describe_bundle
+        return describe_bundle(raw)
+    return None
+
+
+def load_predictions(path, manifest_bytes, manifest, raw=None, *, allow_failed_ids=frozenset()):
     raw = path.read_bytes() if raw is None else raw
+    kind = bundle_kind(raw)
+    if kind == "scan-ocr-bundle":
+        from scan_ocr_bundle import load_bundle
+        effective = {page["id"]: page for page in manifest["pages"]}
+        def load_leaf(original_raw, original_manifest_bytes):
+            original = json.loads(original_manifest_bytes)
+            # The bundle authority independently validates every change before
+            # a superseded prediction is held. Only those exact changed jobs
+            # may retain a failed attempt; eligible predictions remain strict.
+            changed = {page["id"] for page in original["pages"] if page["id"] in effective
+                and (page.get("region", [0, 0, 1, 1]) != effective[page["id"]].get("region", [0, 0, 1, 1])
+                     or page.get("prompt_suffix") != effective[page["id"]].get("prompt_suffix"))}
+            return load_predictions(None, original_manifest_bytes, original, original_raw,
+                                    allow_failed_ids=changed | allow_failed_ids)[0]
+        return load_bundle(raw, manifest_bytes, load_leaf)[0], raw
+    if kind == "source-reviewed-mathematical-retry-bundle":
+        from mathematical_ocr_retries import load_bundle
+        return load_bundle(raw, manifest_bytes, manifest,
+            lambda value, request_raw, request: load_predictions(None, request_raw, request, value))
+    if kind == "source-reviewed-dio-retry-bundle":
+        from dio_ocr_retries import load_bundle
+        def load_dio_leaf(value, request_raw, request, *, allow_failed_ids=frozenset()):
+            return load_predictions(None, request_raw, request, value,
+                                    allow_failed_ids=allow_failed_ids)
+        return load_bundle(raw, manifest_bytes, manifest, load_dio_leaf)
     values = records(raw)
     if not values or set(values[0]) != {"_meta"}:
         raise ValueError("OCR output is missing its retained runtime metadata")
@@ -74,17 +131,17 @@ def load_predictions(path, manifest_bytes, manifest, raw=None):
         if (row.get("source"), row.get("scan_page"), row.get("region")) != (
                 page["source"], page["scan_page"], page.get("region", [0, 0, 1, 1])):
             raise ValueError("OCR prediction geometry differs from the reviewed region")
-        if row.get("error") or row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip():
+        if identifier not in allow_failed_ids and (row.get("error") or row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip()):
             raise ValueError("Failed, empty or truncated OCR region cannot be admitted")
         result[identifier] = {"id": metadata["model"] + "@" + metadata["revision"],
             "model": metadata["model"], "revision": metadata["revision"],
-            "vote_group": vote_group(metadata["model"]), "text": row["raw_prediction"],
+            "vote_group": vote_group(metadata["model"]), "text": row.get("raw_prediction", ""),
             "artifact_sha256": sha(encoded({"metadata": metadata, "prediction": row})),
             "image_sha256": row["image_sha256"]}
     return result, raw
 
 
-def clean_running_headers(text, work):
+def clean_running_headers(text, work, page=None, source=None):
     """Remove only the checked short running heading, retaining real titles."""
     kept, removed = [], []
     offset = 0
@@ -92,6 +149,26 @@ def clean_running_headers(text, work):
         if work == "pappus-mathematics.synagoge" and PAPPUS_HEADER.fullmatch(line.strip()):
             removed.append({"offset": offset, "original_text": line, "corrected_text": "",
                 "evidence": "The short ΠΑΠΠΟΥ ΣΥΝΑΓΩΓΗΣ heading is the edition's repeated running header. The full book title includes ΑΛΕΞΑΝΔΡΕΩΣ and is preserved."})
+        elif (work == "apollonius-geom.conica" and page is not None
+                and (page.get("id"), page.get("source"), page.get("scan_page"), page.get("printed_page")) ==
+                    ("apolloniipergaei01apoluoft-pdf0208", "apolloniipergaei01apoluoft", 208, 190)
+                and source is not None and source.get("sha256") == CONICA_HEADER_SOURCE_SHA256
+                and page.get("region") == [0, 0, 1, 1] and page.get("max_side") == 2200
+                and not "".join(kept).strip() and CONICA_CHECKED_HEADER.fullmatch(line.strip())):
+            removed.append({"offset": offset, "original_text": line, "corrected_text": "",
+                "review_id": "conica-printed190-running-header", "reviewed_at": "2026-10-18",
+                "source_region_id": page["id"],
+                "source_pdf_sha256": CONICA_HEADER_SOURCE_SHA256,
+                "image_sha256": "f654f53f09e6ecbc5118465b7b41129c569e32ac3d9a18d38408379d9d814406",
+                "evidence": "Source inspection of Heiberg Conica I printed page 190 (scan208) identifies the isolated initial ΚΩΝΙΚΩΝ αʹ above the four sparse body lines as the running header. The primary body begins ἡ μὲν ΑΓ. Preserve all other headings and every original prediction."})
+        elif (work == "cassius-dio.historiae-romanae" and page is not None
+                and page.get("source_volume") in {1, 2, 6, 7, 8, 9}
+                and source is not None and source.get("sha256") in DIO_HEADER_SOURCE_SHA256
+                and not "".join(kept).strip() and DIO_HEADER.fullmatch(line.strip())):
+            removed.append({"offset": offset, "original_text": line, "corrected_text": "",
+                "review_id": "cary-dio-initial-English-running-title", "reviewed_at": "2026-10-18",
+                "source_region_id": page["id"], "source_pdf_sha256": source["sha256"],
+                "evidence": "The isolated initial DIO'S ROMAN HISTORY above the selected Cary Greek panel is its English running title, as verified in the pinned source scans, including IX printed348 (PDF179). Greek headings, attribution credits and citation numbers remain unchanged."})
         else:
             kept.append(line)
         offset += len(line)
@@ -188,7 +265,8 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
             raise ValueError("Independent OCR witnesses do not describe the same image")
         witnesses, decisions = [], []
         for value in values:
-            cleaned, removed = clean_running_headers(value["text"], page["work"])
+            cleaned, removed = clean_running_headers(value["text"], page["work"], page,
+                                                       manifest["sources"][page["source"]])
             decisions.extend({"witness": value["id"], **edit} for edit in removed)
             if page.get("overlap"):
                 cleaned, edit = trim_shared_prefix(cleaned)
@@ -210,8 +288,9 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
         source = manifest["sources"][page["source"]]
         from scan_title_reviews import reviewed_title
         from scan_fragment_reviews import reviewed_fragment
+        from scan_dio_line_reviews import reviewed_line
         reviews = []
-        for reviewer in (reviewed_title, reviewed_fragment):
+        for reviewer in (reviewed_title, reviewed_fragment, reviewed_line):
             arguments = (inputs,) if reviewer is reviewed_fragment else ()
             merged, raw_review, review = reviewer(merged, page, source, witnesses, network_path, *arguments)
             if raw_review is not None:
@@ -244,6 +323,11 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
             row["component_attribution"] = [component]
         if page.get("attribution_heading"):
             row["attribution_heading"] = page["attribution_heading"]
+        from dio_transmission_reviews import reviewed_transmission
+        transmission = reviewed_transmission(page, source)
+        if transmission is not None:
+            row["transmission"], row["transmission_evidence"] = transmission
+            decisions.append(transmission[1])
         # The Greek word-voting layer excludes Latin credits and numeric book
         # references. Retain these source lines separately, with every witness's
         # spelling, rather than dropping transmission evidence from the row.
@@ -301,7 +385,7 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     before = {path: (root / path).read_text() if (root / path).exists() else None for path in paths}
     extensions = json.loads(before[EXTENSION_INDEX]) if before[EXTENSION_INDEX] else {"schema_version": 1, "works": {}}
     editions = json.loads(before["data/corpus_editions.json"])
-    outputs, addition_hashes = {}, {}
+    outputs, addition_hashes, comparative_admissions = {}, {}, {}
     for work, rows in primary.items():
         old = records(before[f"data/corpus/{work}.jsonl"].encode())
         seen = {row["locus"] for row in old}
@@ -340,11 +424,23 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         editions[work]["scan_extensions"] = [EDITION]
         editions[work]["scan_extension_licenses"] = sorted({row["license"] for row in combined})
     outputs[EXTENSION_INDEX] = encoded(extensions)
-    outputs["data/corpus_editions.json"] = encoded(editions)
+    outputs["data/corpus_editions.json"] = (encoded(editions) if primary
+        else before["data/corpus_editions.json"].encode())
     if paratext:
         if before[paratext_path] is not None:
             raise ValueError("Refusing to replace an existing comparison dataset")
         outputs[paratext_path] = ("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in paratext)).encode()
+        for work in sorted({row["urn"] for row in paratext}):
+            ids = [row["scan_region_id"] for row in paratext if row["urn"] == work]
+            previous = extensions.setdefault("comparative_admissions", {}).setdefault(work, [])
+            if any(set(ids) & set(entry["regions"]) for entry in previous):
+                raise ValueError("Refusing to duplicate an admitted comparison region")
+            entry = {"audit": str(archive.relative_to(root) / "changes.json"),
+                "path": paratext_path, "sha256": sha(outputs[paratext_path]),
+                "manifest_sha256": sha(manifest_bytes), "regions": ids}
+            previous.append(entry)
+            comparative_admissions[work] = entry
+        outputs[EXTENSION_INDEX] = encoded(extensions)
     archive.mkdir(parents=True)
     before_bytes = gzip.compress(encoded(before), mtime=0)
     (archive / "before.json.gz").write_bytes(before_bytes)
@@ -366,11 +462,15 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     (archive / "changes.json").write_bytes(encoded({"schema_version": 1,
         "recorded_at": datetime.now(timezone.utc).isoformat(), "generator": "scripts/ingest_scan_coverage.py",
         "manifest_sha256": sha(manifest_bytes), "witness_sha256": [sha(raw) for raw in raw_inputs],
+        "input_bundles": [{"input_index": index, "sha256": sha(raw), "audit": value}
+            for index, raw in enumerate(raw_inputs, 1)
+            if (value := prediction_bundle_audit(raw, manifest_bytes)) is not None],
         "word_networks_sha256": sha(network_bytes),
         "before_archive_sha256": sha(before_bytes),
         "overlap_comparisons": {"path": str((archive / "overlap-comparisons.json.gz").relative_to(root)),
             "sha256": sha(overlap_bytes), "regions": len(overlap)},
         "digital_sources": digital["sources"],
+        "comparative_admissions": comparative_admissions,
         "digital_comparison_counts": dict(Counter(decision["status"] for change in audits
             for decision in change["decisions"] if decision.get("generator") == "scripts/bound_comparison_witness.py")),
         "consensus_generator_sha256": sha(Path(__import__("ocr_consensus").__file__).read_bytes()),
@@ -451,12 +551,15 @@ def verify_integrity(directory, root):
     before = json.loads(gzip.decompress(before_bytes))
     manifest = json.loads(manifest_bytes)
     pages = {page["id"]: page for page in manifest["pages"]}
-    groups, images = set(), {}
+    groups, images, bundle_audits = set(), {}, []
     for index, expected in enumerate(audit["witness_sha256"], 1):
         raw = gzip.decompress((directory / f"witness-{index}.jsonl.gz").read_bytes())
         if sha(raw) != expected:
             raise ValueError("Archived raw OCR witness changed")
         source, _ = load_predictions(None, manifest_bytes, manifest, raw)
+        bundle_audit = prediction_bundle_audit(raw, manifest_bytes)
+        if bundle_audit is not None:
+            bundle_audits.append({"input_index": index, "sha256": sha(raw), "audit": bundle_audit})
         if set(source) != set(pages):
             raise ValueError("An admitted OCR witness lacks reviewed scan regions")
         groups.update(value["vote_group"] for value in source.values())
@@ -464,6 +567,8 @@ def verify_integrity(directory, root):
             previous = images.setdefault(identity, value["image_sha256"])
             if previous != value["image_sha256"]:
                 raise ValueError("OCR witnesses describe different scan images")
+    if bundle_audits != audit.get("input_bundles", []):
+        raise ValueError("Archived OCR bundle decisions changed")
     if len(groups) < 2:
         raise ValueError("Two independent OCR model families are required")
     if {change["region_id"] for change in audit["changes"]} != set(pages):
@@ -503,6 +608,12 @@ def verify_integrity(directory, root):
         raw = (root / relative).read_bytes()
         if sha(raw) != audit["outputs"][relative] or len(records(raw)) != len(comparisons):
             raise ValueError("Comparative source panels differ from their admission")
+        registered = json.loads((root / EXTENSION_INDEX).read_text()).get("comparative_admissions", {})
+        for work, entry in audit.get("comparative_admissions", {}).items():
+            if (entry not in registered.get(work, []) or entry["path"] != relative
+                    or entry["sha256"] != sha(raw) or entry["manifest_sha256"] != sha(manifest_bytes)
+                    or entry["regions"] != [row["scan_region_id"] for row in records(raw) if row["urn"] == work]):
+                raise ValueError("Comparative admission registration changed")
     return audit
 
 

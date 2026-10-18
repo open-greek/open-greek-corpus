@@ -149,3 +149,39 @@ def test_multiple_reviewed_requests_replace_length_failures_and_keep_notation_re
     assert all(not r["lexical_eligible"] and r["source"]["scan_page"] == 90 for r in primary[16]["nonlexical_source_regions"])
     assert len(primary[16]["ocr_consensus"]["witnesses"]) == 2
     assert len(primary[13]["nonlexical_source_regions"]) == 6
+
+
+def test_failed_retry_strip_can_receive_reviewed_subcrops_without_another_model_vote(tmp_path, monkeypatch):
+    _, fresh = fixture(tmp_path, monkeypatch, "jahn1882")
+    inputs = repair.prepare_inputs(tmp_path, fresh)
+    paths, old_review, authority = retry_fixture(tmp_path, inputs, "jahn-aristides-length-retry.json")
+    rows = [json.loads(line) for line in paths[1].read_text().splitlines()]
+    failed = next(r for r in rows[1:] if r["scan_page"] == 112)
+    failed["finish_reason"] = "length"
+    failed["raw_prediction"] = "σεως " * 100
+    paths[1].write_bytes(repair.jsonl(rows))
+    supplement_authority = ROOT / "data/ingest_reviews/jahn-aristides-length-supplement-retry.json"
+    manifest = json.loads(supplement_authority.read_text())
+    meta = dict(rows[0]["_meta"], manifest_sha256=hashlib.sha256(supplement_authority.read_bytes()).hexdigest())
+    supplement_rows = [{"_meta": meta}] + [{"id": p["id"], "region": p["region"], "scan_page": 112,
+        "image_sha256": "image-" + p["id"], "raw_prediction": "σεως ἦν" if i == 0 else "λόγος σαφής", "finish_reason": "stop"}
+        for i, p in enumerate(manifest["pages"])]
+    path = tmp_path / "supplement.jsonl"
+    path.write_bytes(repair.jsonl(supplement_rows))
+    review = tmp_path / "supplemented-source-review.json"
+    retries.write_source_review(inputs, paths, authority, review,
+        "Fixture: both subcrops and all remaining strips compared with the source.", "2026-10-18", [path])
+    repair.run_repair(tmp_path, "apply", fresh, retry_paths=paths, retry_review=review, retry_supplements=[path])
+    repair.run_repair(tmp_path, "check")
+    archive = json.loads(gzip.decompress((tmp_path / repair.AUDIT_DIR / "witnesses.json.gz").read_bytes()))
+    assert len(archive["witnesses"]["39"]) == 2
+    selected = next(w for w in archive["witnesses"]["39"] if w["model"] == meta["model"])
+    assert len(selected["preprocessing"][0]["raw_strips"]) == 4
+    assert selected["preprocessing"][0]["held_retry_strips"] == [failed]
+    assert len(archive["retry_evidence"]["raw_files"]) == 3
+    # A complete strip cannot be discarded merely because another output exists.
+    failed["finish_reason"] = "stop"
+    paths[1].write_bytes(repair.jsonl(rows))
+    with pytest.raises(ValueError, match="successful retry strip"):
+        retries.write_source_review(inputs, paths, authority, tmp_path / "rejected.json",
+            "Fixture source review", "2026-10-18", [path])

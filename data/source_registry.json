@@ -31119,6 +31119,31 @@
    "default_edition": "alypius.isagoge-musica.1st1K-grc1",
    "best_source": "open_corpus",
    "tags": [],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 1462,
+    "components": [
+     {
+      "edition": "alypius.isagoge-musica.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 1462,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "alypius.isagoge-musica.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -31131,6 +31156,20 @@
      "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "alypius.isagoge-musica.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -86009,14 +86048,18 @@
    ],
    "coverage_composition": {
     "policy": "reviewed-primary-region-union",
-    "manifest": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
-    "manifest_sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f",
-    "scan_manifest": "data/corpus_changes/conica-book-four-letter-2026-10/manifest.json",
-    "scan_manifest_sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832",
+    "manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+    "manifest_sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+    "scan_manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+    "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
     "scan_manifests": [
      {
       "path": "data/corpus_changes/conica-book-four-letter-2026-10/manifest.json",
       "sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832"
+     },
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+      "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
      }
     ],
     "admission_audits": [
@@ -86025,18 +86068,36 @@
       "sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f",
       "primary_regions": 2,
       "comparative_regions": 0
+     },
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+      "sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+      "primary_regions": 225,
+      "comparative_regions": 0
      }
     ],
     "base_scope": "Book IV",
-    "addition_scope": "Opening letter of Book IV",
+    "addition_scope": "Books I–III and the opening letter of Book IV",
     "planned_addition_scope": "Books I–III and the opening letter of Book IV",
     "admitted_books": [
+     "1",
+     "2",
+     "3",
      "4"
     ],
     "base_passages": 57,
-    "added_primary_regions": 2,
+    "added_primary_regions": 227,
     "comparative_regions": 0,
     "source_editions": [
+     {
+      "id": "apolloniipergaei01apoluoft",
+      "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
+      "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+      "license": "public-domain",
+      "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+      "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+      "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+     },
      {
       "id": "apolloniipergaei02apoluoft",
       "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
@@ -86064,7 +86125,7 @@
      {
       "edition": "scan-consensus-2026-10-18",
       "storage": "primary",
-      "passages": 2,
+      "passages": 227,
       "licenses": [
        "public-domain"
       ]
@@ -86101,12 +86162,12 @@
      "aliases": {}
     },
     "apollonius-geom.conica.scan-consensus-2026-10-18": {
-     "name": "Heiberg, reviewed Greek scan additions (Opening letter of Book IV)",
+     "name": "Heiberg, reviewed Greek scan additions (Books I–III and the opening letter of Book IV)",
      "provider": "ocr",
      "scheme": "book.printed-page",
      "editor": "Heiberg",
      "year": null,
-     "source": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+     "source": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf; https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
      "servable": true,
      "license": "PD",
      "scheme_inferred": false,
@@ -91177,14 +91238,50 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2054.tlg001"
    },
-   "default_edition": "aristides-quintilianus-music.de-musica.qwen36-aristides_quintilianus_meibom",
-   "best_source": "locked",
+   "default_edition": "aristides-quintilianus-music.de-musica.jahn-1882-consensus-2026-10",
+   "best_source": "open_corpus",
    "tags": [
     "century:3",
     "era:imperial",
     "genre:music"
    ],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 1232,
+    "components": [
+     {
+      "edition": "jahn-1882-consensus-2026-10",
+      "storage": "primary",
+      "passages": 97,
+      "source": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+      "source_sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+      "license": "PD (Jahn 1882)"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 1232,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
+    "aristides-quintilianus-music.de-musica.jahn-1882-consensus-2026-10": {
+     "name": "Jahn 1882, merged scan OCR with explicit variants",
+     "provider": "ocr",
+     "scheme": "book.printed-page",
+     "editor": "Jahn, Albert",
+     "year": 1882,
+     "source": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {}
+    },
     "aristides-quintilianus-music.de-musica.qwen36-aristides_quintilianus_meibom": {
      "name": "cog OCR (qwen36-aristides_quintilianus_meibom)",
      "provider": "ocr",
@@ -91192,10 +91289,25 @@
      "editor": "",
      "year": null,
      "source": "",
+     "servable": false,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical whole-anthology assignment; original rows are retained by the issue52 audit and routed secondary witnesses."
+    },
+    "aristides-quintilianus-music.de-musica.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
      "servable": true,
      "license": "PD",
      "scheme_inferred": false,
-     "aliases": {}
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     },
     "aristides-quintilianus-music.de-musica.winnington-ingram-1963": {
      "name": "Aristidis Quintiliani de musica libri tres",
@@ -96024,6 +96136,31 @@
     "genre:music",
     "language:ancient-greek"
    ],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 322,
+    "components": [
+     {
+      "edition": "aristoxenus-music.elementa-harmonica.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 322,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "aristoxenus-music.elementa-harmonica.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -96050,6 +96187,20 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "aristoxenus-music.elementa-harmonica.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -102997,6 +103148,31 @@
    "default_edition": "bacchius-geron.isagoge.1st1K-grc1",
    "best_source": "open_corpus",
    "tags": [],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 417,
+    "components": [
+     {
+      "edition": "bacchius-geron.isagoge.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 417,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "bacchius-geron.isagoge.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -103009,6 +103185,20 @@
      "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "bacchius-geron.isagoge.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -117224,6 +117414,31 @@
     "era:hellenistic",
     "genre:music"
    ],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 169,
+    "components": [
+     {
+      "edition": "cleonides.introductio-harmonica.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 169,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "cleonides.introductio-harmonica.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -117250,6 +117465,20 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "cleonides.introductio-harmonica.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -152115,6 +152344,31 @@
     "era:hellenistic",
     "genre:music"
    ],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 185,
+    "components": [
+     {
+      "edition": "euclides-geom.sectio-canonis-sp.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 185,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "euclides-geom.sectio-canonis-sp.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -152155,6 +152409,20 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "euclides-geom.sectio-canonis-sp.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -169075,6 +169343,31 @@
    "default_edition": "gaudentius.harmonica-introductio.1st1K-grc1",
    "best_source": "open_corpus",
    "tags": [],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 279,
+    "components": [
+     {
+      "edition": "gaudentius.harmonica-introductio.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 279,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "gaudentius.harmonica-introductio.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -169087,6 +169380,20 @@
      "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "gaudentius.harmonica-introductio.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -235220,6 +235527,31 @@
     "era:imperial",
     "genre:music"
    ],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 65,
+    "components": [
+     {
+      "edition": "nicomachus-mathematics.excerpta.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 65,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "nicomachus-mathematics.excerpta.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -235246,6 +235578,20 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "nicomachus-mathematics.excerpta.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -235262,6 +235608,31 @@
     "era:imperial",
     "genre:music"
    ],
+   "coverage_composition": {
+    "policy": "separate-primary-and-historical-secondary",
+    "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
+    "manifest_sha256": "ef111575e2439bd2fb6a372c52276daa025832691b30888ae245c1f673fcd42c",
+    "secondary_passages": 104,
+    "components": [
+     {
+      "edition": "nicomachus-mathematics.harmonicum-enchiridion.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary"
+     },
+     {
+      "edition": "qwen36-meibom-1652-legacy",
+      "storage": "secondary",
+      "passages": 104,
+      "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+      "source_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+      "license": "PD"
+     }
+    ]
+   },
    "editions": {
     "nicomachus-mathematics.harmonicum-enchiridion.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -235288,6 +235659,20 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "nicomachus-mathematics.harmonicum-enchiridion.qwen36-meibom-1652-legacy": {
+     "name": "Meibom 1652, routed historical OCR witness",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Meibom, Marcus",
+     "year": 1652,
+     "source": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Historical source readings; the independent primary edition remains separate.",
+     "storage": "secondary"
     }
    }
   },
@@ -244775,6 +245160,91 @@
     "era:late-antique",
     "genre:mathematics"
    ],
+   "coverage_composition": {
+    "policy": "reviewed-primary-region-union",
+    "manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+    "manifest_sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+    "scan_manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+    "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+    "scan_manifests": [
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+      "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+     }
+    ],
+    "admission_audits": [
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+      "sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+      "primary_regions": 331,
+      "comparative_regions": 0
+     }
+    ],
+    "base_scope": "Books II–V",
+    "addition_scope": "Books VI–VIII",
+    "planned_addition_scope": "Books VI–VIII",
+    "admitted_books": [
+     "6",
+     "7",
+     "8"
+    ],
+    "base_passages": 304,
+    "added_primary_regions": 331,
+    "comparative_regions": 0,
+    "source_editions": [
+     {
+      "id": "pappialexandrin01hultgoog",
+      "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
+      "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+      "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
+     },
+     {
+      "id": "pappialexandrin01pappgoog",
+      "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
+      "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+      "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
+     },
+     {
+      "id": "pappialexandrin04pappgoog",
+      "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+      "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+      "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
+     }
+    ],
+    "digital_components": [],
+    "comparison_sources": {},
+    "digital_comparison_counts": {},
+    "components": [
+     {
+      "edition": "pappus-mathematics.synagoge.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary",
+      "passages": 304
+     },
+     {
+      "edition": "scan-consensus-2026-10-18",
+      "storage": "primary",
+      "passages": 331,
+      "licenses": [
+       "public-domain"
+      ]
+     }
+    ],
+    "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. This edition's surviving book coverage does not redefine the complete ancient Work."
+   },
    "editions": {
     "pappus-mathematics.synagoge.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -244788,7 +245258,8 @@
      "scheme_inferred": false,
      "aliases": {
       "cts": "urn:cts:greekLit:tlg2032.tlg001.1st1K-grc1"
-     }
+     },
+     "note": "Retained base edition: Books II–V. Reviewed scan additions are complementary primary regions."
     },
     "pappus-mathematics.synagoge.hultsch-1876": {
      "name": "Pappi Alexandrini collectionis quae supersunt, `3 vols",
@@ -244801,6 +245272,19 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "pappus-mathematics.synagoge.scan-consensus-2026-10-18": {
+     "name": "Hultsch, reviewed Greek scan additions (Books VI–VIII)",
+     "provider": "ocr",
+     "scheme": "book.printed-page",
+     "editor": "Hultsch",
+     "year": null,
+     "source": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf; https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf; https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Complements the existing primary edition; comparison quotations and modern apparatus are separate."
     }
    }
   },
