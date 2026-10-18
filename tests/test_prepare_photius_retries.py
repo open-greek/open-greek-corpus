@@ -46,3 +46,13 @@ def test_page87_six_strips_preserve_column_order_and_body_bounds():
     assert strips[2]["region"][3] == strips[5]["region"][3] == .840
     assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
     assert encode(manifest) == (ROOT / prepare.manifest_path(87)).read_bytes()
+
+
+def test_new_failed_pages_are_scoped_to_their_actual_checkpoint():
+    for number, checkpoint in [(105, prepare.CHECKPOINT38), (109, prepare.CHECKPOINT36), (112, prepare.CHECKPOINT36)]:
+        manifest = prepare.build_retry(number)
+        assert manifest["checkpoints"] == [checkpoint]
+        assert len(manifest["pages"]) == 6
+        assert {p["scan_page"] for p in manifest["pages"]} == {number}
+        assert [p["reading_order"] for p in manifest["pages"]] == list(range(6))
+        assert encode(manifest) == (ROOT / prepare.manifest_path(number)).read_bytes()
