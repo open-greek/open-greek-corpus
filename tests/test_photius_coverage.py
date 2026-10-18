@@ -38,6 +38,19 @@ def test_missing_scan_manifest_retains_verified_boundaries_and_small_preflight()
     assert {p["scan_page"] for p in later["pages"]} == set(range(379, 422))
 
 
+def test_page13_retry_keeps_source_lines_and_separate_review_requirement():
+    retry = prepare.build_page13_retry()
+    assert len(retry["pages"]) == 5
+    assert retry["sources"] == prepare.build()["sources"]
+    assert retry["retry_of"]["sha256"] == "92bb67209eaa7dcca53800c499c68b4c1a085cbb2d62f2909b27da99c0acdcd6"
+    assert [p["reading_order"] for p in retry["pages"]] == list(range(5))
+    assert {p["scan_page"] for p in retry["pages"]} == {13}
+    assert all(p["max_side"] == 3600 for p in retry["pages"])
+    assert not retry["review"]["accepted_for_primary_ingest"]
+    assert "one vote" in retry["review"]["admission_policy"]
+    assert "one ellipsis" in retry["pages"][1]["prompt_suffix"]
+
+
 def test_index_split_preserves_every_historical_reading_and_roundtrips(tmp_path):
     raw = fixture(tmp_path)
     result = repair.apply(tmp_path)
