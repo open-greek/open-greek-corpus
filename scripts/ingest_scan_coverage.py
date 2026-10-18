@@ -207,10 +207,15 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
         key = page["id"]
         source = manifest["sources"][page["source"]]
         from scan_title_reviews import reviewed_title
-        merged, raw_review, review = reviewed_title(merged, page, source, witnesses, network_path)
-        if raw_review is not None:
-            networks[raw_review[0]] = raw_review[1]
-            decisions.append(review)
+        from scan_fragment_reviews import reviewed_fragment
+        reviews = []
+        for reviewer in (reviewed_title, reviewed_fragment):
+            arguments = (inputs,) if reviewer is reviewed_fragment else ()
+            merged, raw_review, review = reviewer(merged, page, source, witnesses, network_path, *arguments)
+            if raw_review is not None:
+                networks[raw_review[0]] = raw_review[1]
+                decisions.append(review)
+                reviews.append(review)
         networks[key] = merged
         compact = compact_corpus_consensus(merged, {"path": network_path, "key": key})
         row = {"urn": page["work"], "edition": EDITION, "locus": locus(page),
@@ -222,9 +227,9 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
             "transmission": page.get("transmission", "direct-text")}
         if page.get("text_role"):
             row["text_role"] = page["text_role"]
-        if review is not None:
+        if reviews:
             row["corrections"] = ["manual"]
-            row["correction_sources"] = [review["review_id"]]
+            row["correction_sources"] = [review["review_id"] for review in reviews]
         if component is not None:
             row["license"] = "CC-BY-SA-4.0"
             row["component_attribution"] = [component]
