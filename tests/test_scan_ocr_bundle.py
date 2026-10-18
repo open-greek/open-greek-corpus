@@ -100,6 +100,84 @@ def test_new_geometry_only_still_requires_review_and_exact_original_authority(tm
     assert set(bundle.load_bundle(raw, ep.read_bytes(), strict)[0]) == {"2"}
 
 
+def second_review(tmp_path, original, *, identifier="1"):
+    effective = copy.deepcopy(original)
+    page = next(p for p in effective["pages"] if p["id"] == identifier)
+    old_region = page["region"]
+    page["region"] = [0, 0, 1, .7]
+    entry = {"id": identifier, "source": page["source"], "scan_page": page["scan_page"],
+             "original_region": old_region, "region": page["region"], "evidence_id": "second-body-review"}
+    review = {"schema_version": 1, "kind": "scan-region-body-review", "reviewed_at": "2026-10-18",
+              "sources": copy.deepcopy(original["sources"]),
+              "original_manifest_sha256": bundle.sha(bundle.encode(original)),
+              "evidence": {entry["evidence_id"]: {**{k: v for k, v in entry.items() if k != "evidence_id"},
+                  "evidence": "Second source review changes a different early crop without changing the running late request.",
+                  "reviewed_at": "2026-10-18", "source_pdf_sha256": "a" * 64, "contact_sheet_sha256": "e" * 64}}}
+    rp = tmp_path / "second-review.json"; rp.write_bytes(bundle.encode(review))
+    effective["reviewed_substitutions"] = {"original_manifest_sha256": bundle.sha(bundle.encode(original)),
+        "source_review": {"path": "data/second-review.json", "sha256": bundle.sha(rp.read_bytes())}, "regions": [entry]}
+    ep = tmp_path / "second-effective.json"; ep.write_bytes(bundle.encode(effective))
+    return effective, rp, ep
+
+
+def test_two_stage_nested_and_flat_bundles_keep_both_authorities_and_held_attempts(tmp_path):
+    old, late, r1, late_manifest = reviewed(tmp_path)
+    original = part(tmp_path, {"1", "2", "3", "4"}, old, name="original")
+    late_part = part(tmp_path, {"2"}, late, name="late")
+    late_bundle_path = tmp_path / "late-bundle.json"
+    late_bundle = bundle.write_bundle([original, late_part], late_manifest, late_bundle_path, [r1])
+    final, r2, final_manifest = second_review(tmp_path, late)
+    early_part = part(tmp_path, {"1"}, final, name="early")
+    nested = bundle.write_bundle([(late_bundle_path, late_manifest), early_part], final_manifest,
+                                 tmp_path / "nested-final.json", [r2])
+    eligible, audit = bundle.load_bundle(nested, final_manifest.read_bytes(), strict)
+    assert set(eligible) == {"1", "2", "3", "4"}
+    assert {p["id"] for p in audit["held_predictions"]} == {"1", "2"}
+    assert set(audit["source_review_sha256"]) == {bundle.sha(r1.read_bytes()), bundle.sha(r2.read_bytes())}
+    assert eligible["1"]["artifact_sha256"] == strict(early_part[0].read_bytes(), final_manifest.read_bytes())["1"]["artifact_sha256"]
+    assert eligible["2"]["artifact_sha256"] == strict(late_part[0].read_bytes(), late_manifest.read_bytes())["2"]["artifact_sha256"]
+    assert eligible["3"]["artifact_sha256"] == strict(original[0].read_bytes(), original[1].read_bytes())["3"]["artifact_sha256"]
+    assert bundle.unpack(json.loads(nested)["parts"][0]["prediction"]) == late_bundle
+    assert late_bundle_path.read_bytes() == late_bundle
+    flat = bundle.write_bundle([original, late_part, early_part], final_manifest, tmp_path / "flat-final.json", [r1, r2])
+    assert bundle.load_bundle(flat, final_manifest.read_bytes(), strict)[0] == eligible
+
+
+@pytest.mark.parametrize("missing", ["old-authority", "intermediate-authority", "first-review", "second-review"])
+def test_new_only_final_geometry_still_requires_the_entire_review_chain(tmp_path, missing):
+    old, late, r1, late_manifest = reviewed(tmp_path)
+    old_path = tmp_path / "old-authority.json"; old_path.write_bytes(bundle.encode(old))
+    final, r2, final_manifest = second_review(tmp_path, late)
+    final_part = part(tmp_path, {"1", "2", "3", "4"}, final, name="final")
+    reviews = [r1, r2]
+    authorities = [old_path, late_manifest]
+    complete = bundle.write_bundle([final_part], final_manifest, tmp_path / "complete.json", reviews, authorities)
+    assert set(bundle.load_bundle(complete, final_manifest.read_bytes(), strict)[0]) == {"1", "2", "3", "4"}
+    if missing == "old-authority": authorities.remove(old_path)
+    elif missing == "intermediate-authority": authorities.remove(late_manifest)
+    elif missing == "first-review": reviews.remove(r1)
+    else: reviews.remove(r2)
+    with pytest.raises(ValueError, match="authority|source review"):
+        bundle.write_bundle([final_part], final_manifest, tmp_path / "missing.json", reviews, authorities)
+
+
+def test_repeated_geometry_changes_keep_each_exact_transition(tmp_path):
+    old, late, r1, late_manifest = reviewed(tmp_path)
+    original = part(tmp_path, {"1", "2", "3", "4"}, old, name="original")
+    late_part = part(tmp_path, {"2"}, late, name="late")
+    final, r2, final_manifest = second_review(tmp_path, late, identifier="2")
+    final_part = part(tmp_path, {"2"}, final, name="final")
+    raw = bundle.write_bundle([original, late_part, final_part], final_manifest, tmp_path / "final.json", [r1, r2])
+    eligible, audit = bundle.load_bundle(raw, final_manifest.read_bytes(), strict)
+    held = next(p for p in audit["held_predictions"] if p["original_manifest_sha256"] == bundle.sha(original[1].read_bytes()))
+    assert held["original_region"] == [0, 0, 1, 1]
+    assert held["region"] == [0, 0, 1, .7]
+    assert len(held["reviewed_transition_chain"]) == 2
+    assert held["reviewed_transition_chain"][0]["region"] == [0, 0, 1, .8]
+    assert held["reviewed_transition_chain"][1]["original_region"] == [0, 0, 1, .8]
+    assert eligible["2"]["artifact_sha256"] == strict(final_part[0].read_bytes(), final_manifest.read_bytes())["2"]["artifact_sha256"]
+
+
 @pytest.mark.parametrize("also_geometry", [False, True])
 def test_only_exact_reviewed_page_prompt_changes_can_supersede_originals(tmp_path, also_geometry):
     old, effective, rp, ep = reviewed(tmp_path)
