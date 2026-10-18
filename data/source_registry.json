@@ -254449,7 +254449,7 @@
      {
       "role": "retained-primary",
       "license": "PD",
-      "passages": 3846,
+      "passages": 3476,
       "scan_ranges": [
        [
         279,
@@ -254532,6 +254532,94 @@
         "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
        }
       ]
+     },
+     {
+      "edition": "bekker1825-reviewed-editorial-matter",
+      "role": "historical-editorial-paratext",
+      "license": "PD",
+      "passages": 389,
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/source-review.json",
+       "sha256": "3edc076d2cc2151dd9d008228f5b7cd7c8c8ab7570b6aed882895b72bd819280"
+      },
+      "paratext": {
+       "path": "data/paratext/photius-bekker-apparatus.jsonl",
+       "sha256": "4d7a3b352d250b434cb0a9ab1162a7dc53c3ee6af18849b023b8e5b5c4d4fc2c"
+      }
+     },
+     {
+      "edition": "bekker1824-independent-ocr-consensus",
+      "role": "reviewed-historical-body-correction",
+      "license": "CC-BY-SA-4.0",
+      "passages": 2,
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/body-review.json",
+       "sha256": "5ee8ab2972685abd9c823007a9a989d8de3ff1bfe412f00979ed9fb7d0e74b1b"
+      },
+      "network": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/body-word-networks.json.gz",
+       "sha256": "b309ddf08118cae5f129c8227df169eca8f9d8f07ea983e8989a70cca910f0b9"
+      },
+      "source_reviews": [
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-review.json",
+        "sha256": "5ee8ab2972685abd9c823007a9a989d8de3ff1bfe412f00979ed9fb7d0e74b1b"
+       },
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-page0007-review.json",
+        "sha256": "27bf89fc8299866ccdd91a0919486936959d7e292088b0b7a9babee6ac78f09d"
+       }
+      ],
+      "networks": [
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-word-networks.json.gz",
+        "sha256": "b309ddf08118cae5f129c8227df169eca8f9d8f07ea983e8989a70cca910f0b9"
+       },
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-page0007-word-networks.json.gz",
+        "sha256": "c7118b36796ccd5f327ebb3e37f66ee87a023c301fbe460544b13ff107d707d7"
+       }
+      ],
+      "source_library": {
+       "edition": "tlg4040.tlg001.local002",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+       "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+       "license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030.",
+       "attribution": "The Source Library"
+      }
+     },
+     {
+      "edition": "bekker1824-reviewed-fresh-editorial-matter",
+      "role": "fresh-witness-editorial-paratext",
+      "license": "CC-BY-4.0",
+      "passages": 2,
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/fresh-source-review.json",
+       "sha256": "9f415be5bd58728f7f203b9b97cf9dffaa0dbf1217547617c312767273d15e9b"
+      },
+      "paratext": {
+       "path": "data/paratext/photius-bekker-fresh-editorial-spans.jsonl",
+       "sha256": "bb6bfd2f49598d7409785a4a15856b3bc0fa9b7128dd6869ac0d51770a8ebd08",
+       "rows": 2,
+       "license": "CC-BY-4.0"
+      }
      }
     ],
     "source_editions": [
@@ -254581,6 +254669,266 @@
       "evidence": "Combined scan 447 repeats printed page 335 from scan 347. The retained historical page 170 matches printed page 435 in the separate second-volume scan."
      }
     ],
+    "editorial_layer": {
+     "audit": {
+      "path": "data/corpus_changes/photius-bekker-apparatus/changes.json",
+      "sha256": "4cefff07030633a6076aefca7d1527e63cbe98bc4abd6720cf2f4143bfc83532"
+     },
+     "source_review": {
+      "path": "data/corpus_changes/photius-bekker-apparatus/source-review.json",
+      "sha256": "3edc076d2cc2151dd9d008228f5b7cd7c8c8ab7570b6aed882895b72bd819280"
+     },
+     "paratext": {
+      "path": "data/paratext/photius-bekker-apparatus.jsonl",
+      "sha256": "4d7a3b352d250b434cb0a9ab1162a7dc53c3ee6af18849b023b8e5b5c4d4fc2c"
+     },
+     "counts": {
+      "reviewed_pages": 236,
+      "reviewed_historical_rows": 3846,
+      "changed_rows": 389,
+      "moved_rows": 368,
+      "mixed_rows": 21,
+      "paratext_rows": 389,
+      "primary_rows_before": 4155,
+      "primary_rows_after": 3787,
+      "rows_by_classification": {
+       "critical-apparatus": 358,
+       "printer_signature": 9,
+       "ocr_markup": 12,
+       "running_header": 16
+      },
+      "excluded_spans": 440,
+      "excluded_characters": 34436,
+      "body_corrected_rows": 2,
+      "fresh_corrected_rows": 1
+     },
+     "source": {
+      "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+     },
+     "body_correction": {
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/body-review.json",
+       "sha256": "5ee8ab2972685abd9c823007a9a989d8de3ff1bfe412f00979ed9fb7d0e74b1b"
+      },
+      "license": "CC-BY-SA-4.0",
+      "source_library": {
+       "edition": "tlg4040.tlg001.local002",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+       "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+       "license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030.",
+       "attribution": "The Source Library"
+      },
+      "network": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/body-word-networks.json.gz",
+       "sha256": "b309ddf08118cae5f129c8227df169eca8f9d8f07ea983e8989a70cca910f0b9"
+      },
+      "counts": {
+       "corrected_rows": 2,
+       "retained_prefix_characters": 1143,
+       "held_loop_characters": 81,
+       "replacement_agreement_slots": 253,
+       "replacement_unresolved_slots": 19
+      },
+      "source_reviews": [
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-review.json",
+        "sha256": "5ee8ab2972685abd9c823007a9a989d8de3ff1bfe412f00979ed9fb7d0e74b1b"
+       },
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-page0007-review.json",
+        "sha256": "27bf89fc8299866ccdd91a0919486936959d7e292088b0b7a9babee6ac78f09d"
+       }
+      ],
+      "networks": [
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-word-networks.json.gz",
+        "sha256": "b309ddf08118cae5f129c8227df169eca8f9d8f07ea983e8989a70cca910f0b9"
+       },
+       {
+        "path": "data/corpus_changes/photius-bekker-apparatus/body-page0007-word-networks.json.gz",
+        "sha256": "c7118b36796ccd5f327ebb3e37f66ee87a023c301fbe460544b13ff107d707d7"
+       }
+      ],
+      "cases": {
+       "helladius_chrestomathia_photius_bekker_v2_0255.6": {
+        "source_review": {
+         "path": "data/corpus_changes/photius-bekker-apparatus/body-review.json",
+         "sha256": "5ee8ab2972685abd9c823007a9a989d8de3ff1bfe412f00979ed9fb7d0e74b1b"
+        },
+        "license": "CC-BY-SA-4.0",
+        "source_library": {
+         "edition": "tlg4040.tlg001.local002",
+         "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+         "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+         "license": {
+          "text": "CC BY-SA 4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+         },
+         "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+         "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+         "api_notice_checked_date": "2026-10-18",
+         "separate_api_notice": {
+          "spdx": "CC-BY-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Source Library (https://sourcelibrary.org)",
+          "terms": "https://sourcelibrary.org/terms",
+          "original_texts": "public-domain",
+          "tdm_reservation": 1,
+          "tdm_policy": "https://sourcelibrary.org/licensing",
+          "ai_training": "reserved — standard license available, see tdm_policy"
+         },
+         "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030.",
+         "attribution": "The Source Library"
+        },
+        "network": {
+         "path": "data/corpus_changes/photius-bekker-apparatus/body-word-networks.json.gz",
+         "sha256": "b309ddf08118cae5f129c8227df169eca8f9d8f07ea983e8989a70cca910f0b9"
+        },
+        "counts": {
+         "corrected_rows": 1,
+         "retained_prefix_characters": 162,
+         "held_loop_characters": 32,
+         "replacement_agreement_slots": 76,
+         "replacement_unresolved_slots": 12
+        }
+       },
+       "helladius_chrestomathia_photius_bekker_v2_0007.5": {
+        "source_review": {
+         "path": "data/corpus_changes/photius-bekker-apparatus/body-page0007-review.json",
+         "sha256": "27bf89fc8299866ccdd91a0919486936959d7e292088b0b7a9babee6ac78f09d"
+        },
+        "license": "CC-BY-SA-4.0",
+        "source_library": {
+         "edition": "tlg4040.tlg001.local002",
+         "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+         "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+         "license": {
+          "text": "CC BY-SA 4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+         },
+         "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+         "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+         "api_notice_checked_date": "2026-10-18",
+         "separate_api_notice": {
+          "spdx": "CC-BY-SA-4.0",
+          "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Source Library (https://sourcelibrary.org)",
+          "terms": "https://sourcelibrary.org/terms",
+          "original_texts": "public-domain",
+          "tdm_reservation": 1,
+          "tdm_policy": "https://sourcelibrary.org/licensing",
+          "ai_training": "reserved — standard license available, see tdm_policy"
+         },
+         "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030.",
+         "attribution": "The Source Library"
+        },
+        "network": {
+         "path": "data/corpus_changes/photius-bekker-apparatus/body-page0007-word-networks.json.gz",
+         "sha256": "c7118b36796ccd5f327ebb3e37f66ee87a023c301fbe460544b13ff107d707d7"
+        },
+        "counts": {
+         "corrected_rows": 1,
+         "retained_prefix_characters": 981,
+         "held_loop_characters": 49,
+         "replacement_agreement_slots": 177,
+         "replacement_unresolved_slots": 7
+        }
+       }
+      }
+     },
+     "fresh_correction": {
+      "operation": "separate-source-reviewed-fresh-photius-editorial-spans",
+      "work": "photius.bibliotheca",
+      "locus": "photius_bekker1824_0245.1",
+      "reviewed_at": "2026-10-18",
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/fresh-source-review.json",
+       "sha256": "9f415be5bd58728f7f203b9b97cf9dffaa0dbf1217547617c312767273d15e9b"
+      },
+      "source_scan": {
+       "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+       "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6"
+      },
+      "original_networks": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/fresh-before-networks.json.gz",
+       "sha256": "a7f867b2c83cdec5ebd77ad04837cbcf6916289adcf2fb1c40047a69db51abe5"
+      },
+      "full_network": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/fresh-word-networks.json.gz",
+       "key": "245",
+       "sha256": "948d81a395d95253f821711640aa60754ca936807f4375df770d80cb0c4bbf6c"
+      },
+      "network_archive": {
+       "path": "data/corpus_changes/photius-bekker-apparatus/fresh-word-networks.json.gz",
+       "sha256": "4345c0ce8c22351c4400610527ee90ca178366be9d0bc120b2f4201fbd13a86b"
+      },
+      "paratext": {
+       "path": "data/paratext/photius-bekker-fresh-editorial-spans.jsonl",
+       "sha256": "bb6bfd2f49598d7409785a4a15856b3bc0fa9b7128dd6869ac0d51770a8ebd08",
+       "rows": 2,
+       "license": "CC-BY-4.0"
+      },
+      "original_row_sha256": "f249dc424bb81facac04503e7ce6429b944f1a5734aa44f95334839f4e86fc37",
+      "corrected_row_sha256": "3aeeaebf064b1a62ac72fd5af103b1e9f437f33dddacb2a6e1e1173ba79886d2",
+      "counts": {
+       "changed_rows": 1,
+       "excluded_spans": 2,
+       "excluded_characters": 520,
+       "witnesses_before": 2,
+       "witnesses_after": 2,
+       "slots_before": 667,
+       "slots_after": 634
+      },
+      "exclusions": [
+       {
+        "start": 0,
+        "end": 21,
+        "original_text": "ΤΑ ΠΕΡΙ ΗΡΑΚΛΕΙΔΗΝ.\n\n",
+        "classification": "running_header",
+        "source_region": [
+         0.2,
+         0.015,
+         0.7,
+         0.08
+        ],
+        "evidence": "The top centered ΤΑ ΠΕΡΙ ΗΡΑΚΛΕΙΑΝ is a running header above both continuing body columns. The original OCR variant and its blank lines remain archived."
+       },
+       {
+        "start": 3854,
+        "end": 4353,
+        "original_text": "\na. 15. τετρακισχ. δε Α: καὶ τετρακισχ. ζ. 20. et b. 40. σαγγαρίαν libri. 26. βραχὺ ζ. 28. φαμβριανὸν Α:\nφαμβριανὸν ζ. 32. ἡγοσλησιν Α: χιλ. ἡρ ζ. Stephanus πρόσζισιν. ἐπεὶ δὲ Schaeferus: libri ἐπεβλεψεν. cf. p. R. 1181. 5\net 1315, 52. b. 11. διαπραξ. Α: διαπραξ. ζ. 12. στρατὸν Α: στρατὸν ζ. 13. ἀπροσδόκητον ζ. 23. διαμαρτὼν]\nSchaeferus. 25. Κίρκος] Κίρκος Palmerus, cf. Wesseling, ad Itinerar. Vet. p. 694. 28. τριχίλιος Vale.\n1. mend. 2. 2. 32. διὰ τῆς ναυστὸς ζ. 36. γυγνοῦς] γυγνοῦς Stephanus.",
+        "classification": "critical-apparatus",
+        "source_region": [
+         0.035,
+         0.83,
+         0.965,
+         0.92
+        ],
+        "evidence": "The a.15/b.11 numbered readings, witness sigla, Stephanus/Schaeferus/Palmerus references, and Greek variants match the smaller footer below both body columns. Body ends above these notes. Greek-only consensus projection had hidden the Latin operators while retaining Greek apparatus alternatives in served slots."
+       }
+      ],
+      "pin_validation": "Exact compact/full networks, raw text, model, revision, artifact, file and image pins are verified here. The source-review preparer verifies raw-record and request hashes against their retained files.",
+      "reversal": "Restore original_row and the original compact network reference; original coverage archives and all raw readings remain unchanged."
+     }
+    },
     "qualification": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented."
    },
    "editions": {
@@ -254596,6 +254944,34 @@
      "scheme_inferred": false,
      "aliases": {},
      "note": "Retained PD body plus new licensed consensus; bounded Source Library CC-BY-SA body readings participate in the merge."
+    },
+    "photius.bibliotheca.bekker1824-reviewed-fresh-editorial-matter": {
+     "name": "Bekker 1824, reviewed fresh-witness editorial matter",
+     "provider": "ocr",
+     "scheme": "scan-page.witness-editorial-span",
+     "editor": "Bekker, Immanuel",
+     "year": 1824,
+     "source": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+     "servable": false,
+     "license": "CC-BY-4.0",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Exact source-reviewed fresh OCR header and apparatus spans remain readable separately; the original full witness and vote remain archived.",
+     "storage": "paratext"
+    },
+    "photius.bibliotheca.bekker1825-reviewed-editorial-matter": {
+     "name": "Bekker 1825, source-reviewed editorial matter",
+     "provider": "ocr",
+     "scheme": "scan-page.historical-row",
+     "editor": "Bekker, Immanuel",
+     "year": 1825,
+     "source": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+     "servable": false,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Reviewed apparatus, running headers, printer signatures, and OCR markup retain historical citations outside primary reading and lexical counts.",
+     "storage": "paratext"
     },
     "photius.bibliotheca.henry-1959": {
      "name": "Photius. Bibliothe\\que, `8 vols",

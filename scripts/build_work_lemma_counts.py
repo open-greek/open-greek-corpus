@@ -172,6 +172,7 @@ def load_work_forms(files: list[Path], use_cache: bool) -> dict[str, Counter[str
     for i, fp in enumerate(files):
         key = file_key(fp)
         key["frequency_projection"] = frequency.digest
+        key["frequency_recipe"] = frequency.recipe_digest
         cache_fp = WORK_FORMS / (fp.stem + ".tsv.gz")
         if use_cache and manifest.get(fp.name) == key and cache_fp.exists():
             with gzip.open(cache_fp, "rt", encoding="utf-8") as f:

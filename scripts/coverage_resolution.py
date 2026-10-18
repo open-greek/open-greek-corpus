@@ -87,6 +87,19 @@ def _photius_fresh_witnesses(root, report, manifests, prepare_report):
     return models
 
 
+def _photius_coverage_position(row, mapping):
+    from repair_photius_index import PAGE
+    legacy = PAGE.fullmatch(row["locus"])
+    if legacy:
+        # This logical position is distinct from the legacy physical citation,
+        # which a later reviewed correction may now state explicitly.
+        return int(legacy[1]) + mapping["logical_combined_position_offset"]
+    physical = row.get("physical_refs", {}).get("scan_page")
+    if type(physical) is not int:
+        raise ValueError("Photius row lacks a reviewed physical citation")
+    return physical
+
+
 def _photius_resolution(root):
     path = root / "data/corpus_changes/photius-bekker-coverage/coverage.json"
     if not path.exists():
@@ -115,20 +128,12 @@ def _photius_resolution(root):
     _photius_fresh_witnesses(root, report, manifests, prepare_report_inputs)
     load_source_library(path.parent / "source-library-local002.json.gz")
     primary = root / "data/corpus/photius.bibliotheca.jsonl"
-    if _sha(primary) != report["new_corpus_sha256"]:
+    from repair_photius_apparatus import restore_legacy_bytes, active_metadata
+    legacy = restore_legacy_bytes(primary.read_bytes(), root)
+    if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
         raise ValueError("Photius primary text differs from its coverage admission")
     rows = [json.loads(line) for line in primary.read_text().splitlines()]
-    covered = set()
-    for row in rows:
-        physical = row.get("physical_refs", {}).get("scan_page")
-        if physical is None:
-            match = re.search(r"_(\d{4})[.]", row["locus"])
-            if not match:
-                raise ValueError("Photius row lacks a reviewed physical citation")
-            # This is a logical edition position. Retained rows cite the legacy
-            # volume physically; the combined scan repeats two wrong pages.
-            physical = int(match[1]) + mapping["logical_combined_position_offset"]
-        covered.add(physical)
+    covered = {_photius_coverage_position(row, mapping) for row in rows}
     if covered != set(range(13, 558)):
         raise ValueError("Photius authorial scan range is incomplete")
     from repair_photius_index import check as check_index
@@ -138,6 +143,7 @@ def _photius_resolution(root):
     return _resolved(root,
         "The 545 checked Bekker authorial printed pages are represented across the combined and retained legacy scans, including the prefatory letter. Two repeated pages in the combined scan are supplied by the correct retained legacy pages, with explicit source exceptions. Greek index matter remains separate paratext. Physical scan citations do not invent codex-level paragraph mappings, and unresolved OCR readings remain explicit.",
         admission_audit={"path": str(path.relative_to(root)), "sha256": _sha(path)},
+        **({"editorial_layer": active_metadata(root)} if primary.read_bytes() != legacy else {}),
         covered_authorial_scan_pages=report["covered_authorial_scan_pages"],
         covered_authorial_printed_pages=report["covered_authorial_printed_pages"],
         coverage_position_meaning=report["coverage_position_meaning"],

@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "kind": "source-reviewed-missing-body-candidate",
+  "work": "photius.bibliotheca",
+  "locus": "helladius_chrestomathia_photius_bekker_v2_0255.6",
+  "original_row": {
+    "urn": "photius.bibliotheca",
+    "cts": "urn:cts:greekLit:tlg4040.tlg001",
+    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+    "locus": "helladius_chrestomathia_photius_bekker_v2_0255.6",
+    "source": "ocr",
+    "license": "PD",
+    "text": ",,ὁ κύριος” φησίν ,,ἐβασίλευσε.” πῶς ὁ κύριος ἐβασίλευσε; ἀρ’ ὡς πρόσφατον λαβὼν τὸ τῆς βασιλείας ἄξωμα; εἰ μὲν γὰρ εἴπεν ,,ὁ κύριος βασιλεύει,” τὴν αἰδίαν αὐτοῦ ἡμῖν ἡμῖν ἡμῖν ἡμῖν ἡμῖν ἡμῖν ἡμ"
+  },
+  "row_sha256": "a6b2d707fe79fd4c7c5ffcb1657c735ef82e57df956d75fa6bfebc8635c4f823",
+  "replacement_scope": {
+    "start": 162,
+    "end": 194,
+    "original_text": "ἡμῖν ἡμῖν ἡμῖν ἡμῖν ἡμῖν ἡμῖν ἡμ",
+    "policy": "Retain every original prefix codepoint. Replace only the unprinted repeated tail with the explicitly bounded merged independent readings; preserve every disagreement. The historical witness abstains on missing body rather than voting for omission."
+  },
+  "source": {
+    "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+    "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+    "scan_page": 255,
+    "printed_page": 520,
+    "region": [
+      0.58,
+      0.522,
+      0.955,
+      0.729
+    ]
+  },
+  "source_library_window": {
+    "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+    "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+    "section": "tlg4040-tlg001-local002-s532",
+    "section_label": "Page s532",
+    "start": 3640,
+    "end": 4189,
+    "original_text": "ἡρμήνευεν ἐξουσίαν· εἰπὼν δὲ „ἐβασίλευσε“ τὴν διὰ σαρκὸς αὐτοῦ οἰκονομίαν λέγει, δι’ ἧς ἡ φύσις ἡμῶν τὴν ἐπικράτειαν τὰ διαβόλε, τῆς ἁμαρτίας, τῇ θανάτῳ ἀποσεισαμένη, ἐπέγνω πλάστην τὸν ὡς ἀληθῶς βασιλέα, τὸν χορηγὸν τῆς ἀφθαρσίας, τῆς ἀναστάσεως. εὐαγγελίζεται τοίνυν ὁ Δαβὶδ τοῖς ὑπὸ τῆς ἁμαρτίας, ὑπὸ τὲ θανάτῳ, ὑπὸ τὲ διαβόλε πάλαι βασιλευομένοις, „ὅτι ὁ ζυγὸς ἐκεῖνος συντέτριπται, τὸ κράτος λέλυται, ἐ βασιλεύει πάντων ὁ κύριος. ὡς κ’ αὐτὸς μετὰ τὴν ἀνάστασιν ἔφη „ἐδόθη μοι πᾶσα ἐξουσία ἐν ἐρανῷ κ’ ἐπὶ γῆς.“ πρὶν δὲ ἐβασίλευεν ἡμῶν ὁ θάνατος",
+    "page_label_qualification": "Source Library label s532 maps by exact printed text to physical PDF255/printed520; label s520 is a different passage."
+  },
+  "reviewed_at": "2026-10-18T15:12:02+00:00",
+  "source_evidence": "The old row stops after αὐτοῦ and repeats ἡμῖν six times plus final partial ἡμ. The source instead prints ἡρμήνευεν ἐξουσίαν followed by the remainder of the same right-column paragraph to πρὶν δὲ ἐβασίλευεν ἡμῶν ὁ θάνατος at the page bottom. The appended body ends before the apparatus and continues on the following page. Manual reading and Source Library agree on the bounded passage with local spelling/abbreviation/mark differences retained.",
+  "witnesses": [
+    {
+      "id": "manual-scan-review",
+      "vote_group": "manual-scan-review",
+      "text": "ἡρμήνευεν ἐξουσίαν· εἰπὼν δὲ „ἐβασίλευσε“ τὴν διὰ σαρκὸς αὐτοῦ οἰκονομίαν λέγει, δι’ ἧς ἡ φύσις ἡμῶν τὴν ἐπικράτειαν τοῦ διαβόλου, τῆς ἁμαρτίας, τοῦ θανάτου ἀποσεισαμένη, ἐπέγνω πλάστην τὸν ὡς ἀληθῶς βασιλέα, τὸν χορηγὸν τῆς ἀφθαρσίας, τῆς ἀναστάσεως. εὐαγγελίζεται τοίνυν ὁ Δαβὶδ τοῖς ὑπὸ τῆς ἁμαρτίας, ὑπὸ τοῦ θανάτου, ὑπὸ τοῦ διαβόλου πάλαι βασιλευομένοις, „ὅτι ὁ ζυγὸς ἐκεῖνος συντέτριπται, τὸ κράτος λέλυται, καὶ βασιλεύει πάντων ὁ κύριος. ὡς καὶ αὐτὸς μετὰ τὴν ἀνάστασιν ἔφη „ἐδόθη μοι πᾶσα ἐξουσία ἐν οὐρανῷ καὶ ἐπὶ γῆς.“ πρὶν δὲ ἐβασίλευεν ἡμῶν ὁ θάνατος",
+      "artifact_sha256": "45f0148593ccc63f0cd2593c2ea5c0e137f86101351b0387a6f626917f74d755",
+      "evidence": "Direct reading of the high-resolution printed source region, physical PDF255/printed520; this is a bounded transcription, not a full-page proofread."
+    },
+    {
+      "id": "source-library-local002",
+      "vote_group": "source-library-local002",
+      "text": "ἡρμήνευεν ἐξουσίαν· εἰπὼν δὲ „ἐβασίλευσε“ τὴν διὰ σαρκὸς αὐτοῦ οἰκονομίαν λέγει, δι’ ἧς ἡ φύσις ἡμῶν τὴν ἐπικράτειαν τὰ διαβόλε, τῆς ἁμαρτίας, τῇ θανάτῳ ἀποσεισαμένη, ἐπέγνω πλάστην τὸν ὡς ἀληθῶς βασιλέα, τὸν χορηγὸν τῆς ἀφθαρσίας, τῆς ἀναστάσεως. εὐαγγελίζεται τοίνυν ὁ Δαβὶδ τοῖς ὑπὸ τῆς ἁμαρτίας, ὑπὸ τὲ θανάτῳ, ὑπὸ τὲ διαβόλε πάλαι βασιλευομένοις, „ὅτι ὁ ζυγὸς ἐκεῖνος συντέτριπται, τὸ κράτος λέλυται, ἐ βασιλεύει πάντων ὁ κύριος. ὡς κ’ αὐτὸς μετὰ τὴν ἀνάστασιν ἔφη „ἐδόθη μοι πᾶσα ἐξουσία ἐν ἐρανῷ κ’ ἐπὶ γῆς.“ πρὶν δὲ ἐβασίλευεν ἡμῶν ὁ θάνατος",
+      "artifact_sha256": "4391780ff335f3f6faa7fa7ca4decd0a3e79b9e6da4f9542a980c948709028c9",
+      "license": "CC-BY-SA-4.0",
+      "source_url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+      "source_file_sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+      "source_section": "tlg4040-tlg001-local002-s532"
+    }
+  ],
+  "following_body_anchor": {
+    "locus": "helladius_chrestomathia_photius_bekker_v2_0256.1",
+    "row_sha256": "4bf851a221685c28669a0bfb9bd9a50d8808d4ad7e724273edb09d3479f9cec2",
+    "text_prefix": "ἡ ἁμαρτία· ἡ βασιλεύσει· ὁ θάνατος ἀπὸ Ἀδάμ μέχρι Μωϋσέως· ἡ ἔξ· καὶ ὁ σωτὴρ περὶ τοῦ διαβόλου· καὶ εἰ ὁ Σατανᾶς τὸν Σατανᾶν ἐκβάλλει, ἐμερίσθη ἡ βασι",
+    "evidence": "The missing paragraph ends at the physical page255 main-column boundary; page256 resumes the sentence. No text from the following row is included in the correction."
+  },
+  "transcription_convention": "The manually source-read witness expands printed Greek ligatures and abbreviations, including the printed καί sign and τοῦ ligatures, to their full Greek readings. Source Library retains its original independent spelling and abbreviation readings. Every disagreement remains a consensus alternative; the manual transcription does not silently replace the digital reading.",
+  "source_image": {
+    "crop_sha256": "ed8844d5e319ef12d391f85570d5eefcdcf5fb0739f9bdb80ba15a087ff38cd9",
+    "render_sha256": "3b45cbd1b2543c4de67e532c252b36c7d071acca2ad943e3ced9dd272949d191",
+    "pixel_bbox": [
+      2242,
+      2610,
+      3692,
+      3645
+    ],
+    "render_dimensions": [
+      3867,
+      5000
+    ],
+    "render_recipe": "Render only physical PDF page255 with pdftoppm -scale-to 5000 -png -singlefile, then take the exact pixel rectangle."
+  },
+  "source_library_credit": {
+    "edition": "tlg4040.tlg001.local002",
+    "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+    "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+    "license": {
+      "text": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+    "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+    "api_notice_checked_date": "2026-10-18",
+    "separate_api_notice": {
+      "spdx": "CC-BY-SA-4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Source Library (https://sourcelibrary.org)",
+      "terms": "https://sourcelibrary.org/terms",
+      "original_texts": "public-domain",
+      "tdm_reservation": 1,
+      "tdm_policy": "https://sourcelibrary.org/licensing",
+      "ai_training": "reserved — standard license available, see tdm_policy"
+    },
+    "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030.",
+    "attribution": "The Source Library"
+  }
+}

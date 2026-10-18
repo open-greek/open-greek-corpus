@@ -106,3 +106,15 @@ def test_photius_resolution_rejects_forged_original_identity_or_incomplete_model
         return inputs, models, evidence
     with pytest.raises(ValueError, match="complete independent witnesses"):
         coverage._photius_fresh_witnesses(tmp_path, report, manifests, incomplete)
+
+
+def test_legacy_photius_physical_citation_is_not_a_combined_scan_position():
+    mapping = {"logical_combined_position_offset": 277}
+    legacy = {"locus": "helladius_chrestomathia_photius_bekker_v2_0255.6",
+              "physical_refs": {"scan_page": 255, "printed_page": 520}}
+    assert coverage._photius_coverage_position(legacy, mapping) == 532
+    assert legacy["physical_refs"]["scan_page"] == 255
+    fresh = {"locus": "photius_bekker1824_0245.1", "physical_refs": {"scan_page": 245}}
+    assert coverage._photius_coverage_position(fresh, mapping) == 245
+    with pytest.raises(ValueError, match="physical citation"):
+        coverage._photius_coverage_position({"locus": "unreviewed.1"}, mapping)

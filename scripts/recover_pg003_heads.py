@@ -46,6 +46,8 @@ import sys
 import unicodedata
 from pathlib import Path
 
+from fetch_pinned_source import ensure_source
+
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 SRC = DATA / "corpus" / "cogPG.PG003.jsonl"
@@ -183,15 +185,7 @@ def main() -> None:
     ap.add_argument("--max-gap", type=int, default=MAX_ANCHOR_GAP)
     args = ap.parse_args()
 
-    if not WITNESS.exists():
-        # Cache-first, fetch what is missing, the same shape as the
-        # byzantium.gr ingester. data/cache is gitignored, so a clean checkout
-        # has to be able to rebuild this without a manual step.
-        WITNESS.parent.mkdir(parents=True, exist_ok=True)
-        print(f"  fetching {WITNESS_URL}", file=sys.stderr)
-        import urllib.request
-        with urllib.request.urlopen(WITNESS_URL, timeout=300) as r:
-            WITNESS.write_bytes(r.read())
+    ensure_source("pg003-text", REPO)
     wit = WITNESS.read_text(encoding="utf-8", errors="replace")
 
     if SRC.exists():

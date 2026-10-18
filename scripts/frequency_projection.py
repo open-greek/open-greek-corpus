@@ -25,7 +25,20 @@ CONTEXT_COUNT_BASIS = (
 )
 
 
+def projection_recipe_pins():
+    """Pin the code that determines lexical eligibility, including imported layers."""
+    scripts = Path(__file__).resolve().parent
+    names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py")
+    return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
+
+
 def lexical_text(rec: dict) -> str:
+    if rec.get("source_body_correction"):
+        from repair_photius_body import validate_projection
+        validate_projection(rec)
+    if rec.get("editorial_layer"):
+        from repair_photius_apparatus import lexical_segments
+        lexical_segments(rec)
     if "analysis_text" in rec:
         if not isinstance(rec["analysis_text"], str):
             raise ValueError("analysis_text must be an explicit string")
@@ -44,6 +57,8 @@ class FrequencyProjection:
     def __init__(self, data: Path):
         self.rows = {}
         self.digest = "none"
+        self.recipe_digest = hashlib.sha256(json.dumps(
+            projection_recipe_pins(), sort_keys=True, separators=(",", ":")).encode()).hexdigest()
         path = data / "frequency_projection.json"
         if not path.exists():
             return
@@ -83,6 +98,9 @@ class FrequencyProjection:
                     runs.append(source[start:end])
                 previous = end
             return runs
+        if rec.get("editorial_layer"):
+            from repair_photius_apparatus import lexical_segments
+            return lexical_segments(rec)
         if rec.get("ocr_consensus"):
             if "slots" not in rec["ocr_consensus"]:
                 return []  # an older compact projection supplies no adjacency evidence

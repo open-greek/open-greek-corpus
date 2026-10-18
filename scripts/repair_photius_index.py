@@ -110,7 +110,9 @@ def apply(root=ROOT):
 
 def check(root=ROOT):
     body, index, aliases, audit = generate(input_bytes(root))
-    current_rows = {r["locus"]: r for r in map(json.loads, (root / CORPUS).read_text().splitlines())}
+    from repair_photius_apparatus import restore_legacy_bytes
+    current = restore_legacy_bytes((root / CORPUS).read_bytes(), root)
+    current_rows = {r["locus"]: r for r in map(json.loads, current.decode().splitlines())}
     for row in map(json.loads, body.decode().splitlines()):
         if current_rows.get(row["locus"]) != row:
             raise ValueError("A retained historical body passage changed")

@@ -32,7 +32,9 @@ def build(root=ROOT, source_scan=None):
     original = input_bytes(root)
     body, _, _, index_audit = generate(original)
     historical = [json.loads(line) for line in body.splitlines()]
-    served = [json.loads(line) for line in (root / CORPUS).read_bytes().splitlines()]
+    from repair_photius_apparatus import restore_legacy_bytes
+    served_raw = restore_legacy_bytes((root / CORPUS).read_bytes(), root)
+    served = [json.loads(line) for line in served_raw.splitlines()]
     retained_rows = [row for row in served if row["locus"].startswith(PREFIX) and not is_index_locus(row["locus"])]
     retained = {row["locus"]: row for row in retained_rows}
     if (len(retained_rows) != len(retained) or len(retained) != len(historical)

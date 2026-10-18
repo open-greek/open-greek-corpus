@@ -523,7 +523,9 @@ if __name__ == "__main__":
         if args.apply:
             apply(artifacts, report)
         if args.check:
-            drift = [str(path) for path, raw in artifacts.items() if not (ROOT / path).exists() or (ROOT / path).read_bytes() != raw]
+            from repair_photius_apparatus import restore_legacy_bytes
+            drift = [str(path) for path, raw in artifacts.items() if not (ROOT / path).exists() or
+                     (restore_legacy_bytes((ROOT / path).read_bytes(), ROOT) if path == CORPUS else (ROOT / path).read_bytes()) != raw]
             if drift:
                 parser.exit(1, "Photius coverage drift: " + ", ".join(drift) + "\n")
         print(json.dumps({key: report[key] for key in ("work", "added_passages", "historical_body_passages", "new_corpus_sha256", "consensus_counts")}))

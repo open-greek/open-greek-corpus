@@ -348,6 +348,9 @@ projection used by `work_token_totals.json` and the catalog's `tokens` column.
 groups containing Greek; `n_analysis_tokens` uses the checked Greek regex
 count. The public lexicon additionally excludes numeral and elision artifacts
 and the documented shared rows from duplicate editions.
+Per-work form caches include the lexical projection's code and data pins.
+Changes to editorial eligibility or source-body validation therefore force a
+recount even when a corpus file's size and modification time are unchanged.
 The OCR ledgers use these served-work passage and whitespace-token totals;
 complementary-volume contributions remain separate in `coverage_composition`.
 
@@ -657,6 +660,13 @@ explained, one of them because the alignment is right where the record is not
 (locus 89's recorded head is a stray Latin running head at offset 0, while the
 placement matches our own ΚΕΦΑΛΑΙΟΝ Γʹ at 1,552).
 
+The PG003 text and page-geometry witnesses are cached locally. Missing cache
+files have explicit Makefile download rules, and both report scripts verify
+their published SHA-256 pins before reading them. To restore either source
+alone, run `python3 scripts/fetch_pinned_source.py pg003-text` or
+`python3 scripts/fetch_pinned_source.py pg003-geometry`. A changed download or
+independently modified cache fails verification before any report is written.
+
 Sixteen of those heads are the ones that matter most and were the hardest to
 find. The head that marks an author switch is PARAPHRASIS PACHYMERAE, and the
 scanner garbles it a different way almost every time: it reads Latin display
@@ -842,8 +852,9 @@ ends codex 280 on page 557 and starts `INDEX` on page 558.
 `scripts/repair_photius_index.py --apply` reproduces the separation without
 changing any text; `--check` validates the preserved readings and aliases,
 and `--undo` restores the original bytes after later additions are unapplied.
-The current delivery adds 309 missing pages and covers 545 Bekker printed-page
-positions, retaining the 3,846 historical body rows and 501 index rows exactly.
+The coverage admission adds 309 missing pages and covers 545 Bekker printed-page
+positions. Its archive preserves the 3,846 historical body rows and 501 index
+rows exactly; subsequent apparatus separation is a reversible later layer.
 All 957 original and retry outcomes remain archived; 14 source-confirmed
 degraded spans abstain from voting. This restores qualified page coverage,
 with the textual limitations and historical apparatus described below.
@@ -870,15 +881,45 @@ audit. The combined scan repeats printed pages 334-335 in place of 434-435;
 those genuine pages remain in historical keys 169-170 from the separate 1825
 volume. Coverage positions therefore describe the complete printed sequence,
 while physical citations retain their actual scan source and exceptions.
-The unchanged historical OCR can still contain critical apparatus among its
-primary rows. `scripts/audit_photius_apparatus.py --write` reproduces the audit
-in `data/audits/photius-historical-apparatus.json`; `--check` verifies it. Ten
-rows are confirmed against printed page 334, while 189 rows across 96 pages
-are only screening candidates. Coverage of the printed sequence does not
-certify that every historical row is authorial text; all 3,846 historical body
-rows remain byte-identical, and no screening candidates are removed
-automatically. The occurrence-level apparatus separation remains tracked in
-[issue #60](https://github.com/open-greek/open-greek-corpus/issues/60).
+The historical OCR's critical apparatus is separated through an occurrence-level
+review of all 236 retained source pages and all 3,846 historical rows.
+`scripts/prepare_photius_apparatus_review.py` prepares source-page worksheets;
+it does not classify text. The completed authority in
+`data/ingest_reviews/photius-bekker-apparatus.json` records exact Unicode spans,
+full original-row hashes, source regions, evidence, and review dates.
+The review separates 440 spans in 389 rows: 368 complete editorial rows move
+to paratext, while 21 mixed rows retain their body text. The primary file now
+contains 3,787 rows.
+`python3 scripts/repair_photius_apparatus.py --apply` reproduces the separation;
+`--check` validates every output and `--undo` restores the exact corpus and
+passage-alias preimages. Apparatus-only rows, repeated running headers, printer
+signatures, and stray OCR note markup remain in
+`data/paratext/photius-bekker-apparatus.jsonl`. Historical citations to moved
+rows resolve there through `data/passage_aliases.json`. Mixed rows retain their
+exact body spans, original OCR, and links to the separated notes. Lexical and
+bigram exports exclude the editorial spans without creating adjacency across
+them. The structured audit and original snapshots are in
+`data/corpus_changes/photius-bekker-apparatus/`.
+The same reversible layer restores bounded missing body text on printed pages
+272 and 520. The independent scan transcriptions and bounded Source Library
+readings are pinned in `photius-bekker-body-page0007.json` and
+`photius-bekker-body-corrections.json` under `data/ingest_reviews/`. Original
+prefixes remain exact, the unprinted OCR loops remain held evidence, and all
+19 unresolved word slots retain their alternatives outside scalar lexical
+counts. These two corrected rows carry the Source Library attribution and
+CC-BY-SA-4.0 license alongside the public-domain scan component.
+For fresh scan page 245 (printed page 233), the source review in
+`data/ingest_reviews/photius-bekker-fresh-editorial-spans.json` masks one
+retained witness's running header and critical apparatus before repeating the
+same two-model vote. Both exact spans remain readable in
+`data/paratext/photius-bekker-fresh-editorial-spans.jsonl`; the original raw
+witness and full vote remain archived. The other 308 fresh rows are unchanged.
+The initial screen in `data/audits/photius-historical-apparatus.json` remains
+an immutable pre-repair observation: ten confirmed rows and 189 candidates
+across 96 pages. Its checker and the earlier coverage/index checkers verify
+that historical stage by reversing only the fully reproduced later repair.
+Independent edits still fail validation. The boundary review does not certify
+a proofread critical text.
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
 pages; completed source reviews check body-line coverage, marks, repetition,
@@ -1991,7 +2032,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1397 listed works/volumes containing OCR: 126 manually corrected, 880 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 3 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
+1397 listed works/volumes containing OCR: 126 manually corrected, 879 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -3106,7 +3147,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | bekker1824-independent-ocr-consensus | Qwen3.6-27B | 273,228 | auto-corrected |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 270,038 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
@@ -3396,7 +3437,7 @@ not agree with it.
 
 ## Status
 
-- 3,911 works served, 65.8M Greek tokens in the checked lexical projection, 15 source categories.
+- 3,911 works served, 65.8M Greek tokens in the checked lexical projection, 16 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

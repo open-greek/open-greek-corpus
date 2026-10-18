@@ -386,14 +386,18 @@ def _photius(root):
     original_hashes = {report["original_body_sha256"]}
     if index_path.exists():
         original_hashes.add(_load(index_path)["source_sha256"])
-    if _sha(primary) in original_hashes:
+    from repair_photius_apparatus import restore_legacy_bytes, active_metadata
+    legacy = restore_legacy_bytes(primary.read_bytes(), root)
+    if hashlib.sha256(legacy).hexdigest() in original_hashes:
         return {}
-    _verify(root, str(primary.relative_to(root)), report["new_corpus_sha256"])
+    if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
+        raise ValueError("Photius coverage changed outside its exact authorized later layer")
+    editorial = active_metadata(root)
     if (report["covered_authorial_scan_pages"] != 545 or report["added_passages"] != 309 or
             report["historical_body_passages"] != 3846 or report["preserved_index_passages"] != 501 or
             report["added_scan_ranges"] != [[13, 278], [379, 421]] or
             report["retained_scan_ranges"] != [[279, 378], [422, 557]] or
-            _count(primary) != report["historical_body_passages"] + report["added_passages"]):
+            len(legacy.splitlines()) != report["historical_body_passages"] + report["added_passages"]):
         raise ValueError("Photius complete authorial coverage count changed")
     if index_path.exists():
         _verify(root, "data/paratext/photius-bekker-index.jsonl", _load(index_path)["paratext_sha256"])
@@ -417,7 +421,9 @@ def _photius(root):
     library = _edition("source-library-local002", "Source Library local002, same-scan comparison witness",
         provider="greek_library", source=source_library["url"], license="CC-BY-SA-4.0", storage="audit", servable=False,
         note="Retained comparison witness; only bounded matching body text may vote. Attribution, source rights, and the separate API reservation notice are preserved in the admission audit.")
-    components = [{"role": "retained-primary", "license": "PD", "passages": report["historical_body_passages"],
+    components = [{"role": "retained-primary", "license": "PD",
+        "passages": report["historical_body_passages"] - (editorial["counts"]["moved_rows"] if editorial else 0)
+            - (editorial.get("body_correction", {}).get("counts", {}).get("corrected_rows", 0) if editorial else 0),
         "scan_ranges": report["retained_scan_ranges"]},
         {"edition": merged["key"], "role": "new-primary-consensus", "license": "CC-BY-SA-4.0",
             "passages": report["added_passages"], "scan_ranges": report["added_scan_ranges"]},
@@ -426,13 +432,43 @@ def _photius(root):
             "rights": source_library.get("rights"), "separate_api_notice": source_library.get("separate_api_notice")},
         {"role": "fresh-scan-ocr-witnesses", "license": "CC-BY-4.0",
             "checkpoints": [{"model": model, "revision": revision} for model, revision in sorted(models)]}]
-    return {slug: {"editions": [merged, library], "default_edition": merged["key"],
+    editions = [merged, library]
+    if editorial:
+        edition = _edition("bekker1825-reviewed-editorial-matter", "Bekker 1825, source-reviewed editorial matter",
+            scheme="scan-page.historical-row", source=editorial["source"]["url"], license="PD",
+            editor="Bekker, Immanuel", year=1825, storage="paratext", servable=False,
+            note="Reviewed apparatus, running headers, printer signatures, and OCR markup retain historical citations outside primary reading and lexical counts.")
+        editions.append(edition)
+        components.append({"edition": edition["key"], "role": "historical-editorial-paratext", "license": "PD",
+                           "passages": editorial["counts"]["paratext_rows"], "source_review": editorial["source_review"],
+                           "paratext": editorial["paratext"]})
+        if editorial.get("body_correction"):
+            body = editorial["body_correction"]
+            components.append({"edition": merged["key"], "role": "reviewed-historical-body-correction",
+                               "license": body["license"], "passages": body["counts"]["corrected_rows"],
+                               "source_review": body["source_review"], "network": body["network"],
+                               **({"source_reviews": body["source_reviews"], "networks": body["networks"]}
+                                  if body.get("source_reviews") else {}),
+                               "source_library": body["source_library"]})
+        if editorial.get("fresh_correction"):
+            fresh = editorial["fresh_correction"]
+            edition = _edition("bekker1824-reviewed-fresh-editorial-matter", "Bekker 1824, reviewed fresh-witness editorial matter",
+                scheme="scan-page.witness-editorial-span", source=fresh["source_scan"]["url"],
+                license=fresh["paratext"]["license"], editor="Bekker, Immanuel", year=1824,
+                storage="paratext", servable=False,
+                note="Exact source-reviewed fresh OCR header and apparatus spans remain readable separately; the original full witness and vote remain archived.")
+            editions.append(edition)
+            components.append({"edition": edition["key"], "role": "fresh-witness-editorial-paratext",
+                               "license": fresh["paratext"]["license"], "passages": fresh["paratext"]["rows"],
+                               "source_review": fresh["source_review"], "paratext": fresh["paratext"]})
+    return {slug: {"editions": editions, "default_edition": merged["key"],
         "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus.", "coverage_composition": {
         "policy": "complementary-page-union-with-licensed-consensus", "manifest": relative, "manifest_sha256": _sha(path),
         "covered_authorial_scan_pages": 545, "index_passages_in_separate_paratext": report["preserved_index_passages"],
         "components": components,
         "source_editions": [scan] + ([report["legacy_source"]] if report.get("legacy_source") else []),
         "source_scan_exceptions": report.get("source_scan_exceptions", []),
+        **({"editorial_layer": editorial} if editorial else {}),
         "qualification": report["edition_scope"]}}}
 
 

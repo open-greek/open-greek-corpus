@@ -40,6 +40,8 @@ import statistics
 import sys
 from pathlib import Path
 
+from fetch_pinned_source import ensure_source
+
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
 WITNESS = DATA / "cache" / "ia" / "PG003_djvu.xml"
@@ -87,12 +89,7 @@ def main() -> None:
     ap.add_argument("--write", action="store_true")
     args = ap.parse_args()
 
-    if not WITNESS.exists():
-        WITNESS.parent.mkdir(parents=True, exist_ok=True)
-        print(f"  fetching {WITNESS_URL}", file=sys.stderr)
-        import urllib.request
-        with urllib.request.urlopen(WITNESS_URL, timeout=900) as r:
-            WITNESS.write_bytes(r.read())
+    ensure_source("pg003-geometry", REPO)
     xml = WITNESS.read_text(encoding="utf-8", errors="replace")
 
     found: dict[str, list[dict]] = {"numbered_full_form": [], "abbreviated": []}
