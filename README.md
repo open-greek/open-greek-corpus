@@ -401,6 +401,11 @@ and the final index excluded. Regenerate those crops with
 The source-reviewed three-strip page 81 retry is reproducible with
 `--prepare-page81-retry`; its manifest preserves the original request hash and
 requires the original predictions to remain available for comparison.
+After inspecting the retry predictions against the scan, record that review with
+`python3 scripts/jahn_retries.py --fresh ORIGINAL36 --fresh ORIGINAL38 --retry RETRY36 --retry RETRY38 --source-evidence "Completed scan comparison" --out REVIEW.json`.
+Pass the same retry files and `--retry-review REVIEW.json` to the admission
+script. Both earlier whole-page attempts remain in the reversible archive;
+each model family contributes one reviewed strip assembly to the vote.
 `--original-dir` retains the original Meibom page OCR as additional source
 evidence. The script requires both fresh model readings for every Jahn page
 and checks the reviewed crops. It rejects failed, truncated, or empty attempts
