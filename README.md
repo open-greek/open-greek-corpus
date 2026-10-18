@@ -576,6 +576,13 @@ reviewed late regions for `run_scan_ocr_shard.py`. These selections leave every
 unfinished early region with its original client. Build each checkpoint's final
 bundle from the unchanged early output and both late parts, using the original
 manifest as authority and the completed body review.
+`prepare_dio_early_body_regions.py --pdf-dir SOURCE_PDFS` adds the completed
+review of all 759 earlier panels as a second authority over that unchanged late
+request. It selects 279 source-confirmed apparatus crops in two groups of 140
+and 139. Full Greek paragraphs, comparative quotations, numbered sections and
+Latin transmission credits remain body even where their font size changes.
+Final bundles retain both review stages and all original attempts; already
+completed late predictions remain eligible.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
