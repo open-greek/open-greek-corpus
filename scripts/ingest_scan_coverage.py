@@ -51,6 +51,8 @@ def load_predictions(path, manifest_bytes, manifest, raw=None):
     metadata = values[0]["_meta"]
     if metadata.get("manifest_sha256") != sha(manifest_bytes):
         raise ValueError("OCR predictions belong to a different manifest")
+    if metadata.get("prompt") != manifest["prompt"]:
+        raise ValueError("OCR predictions used a different transcription prompt")
     if not metadata.get("model") or not metadata.get("revision"):
         raise ValueError("OCR checkpoint and revision must be pinned")
     selected = {p["id"]: p for p in manifest["pages"]}
@@ -60,10 +62,14 @@ def load_predictions(path, manifest_bytes, manifest, raw=None):
         if identifier not in selected or identifier in result:
             raise ValueError("Repeated or unknown OCR region identity")
         page = selected[identifier]
+        suffix = page.get("prompt_suffix", manifest["sources"][page["source"]].get("prompt_suffix", ""))
+        prompt = manifest["prompt"] + (" " + suffix if suffix else "")
+        if row.get("prompt_sha256") != sha(prompt.encode()):
+            raise ValueError("OCR region prompt differs from the reviewed request")
         if (row.get("source"), row.get("scan_page"), row.get("region")) != (
                 page["source"], page["scan_page"], page.get("region", [0, 0, 1, 1])):
             raise ValueError("OCR prediction geometry differs from the reviewed region")
-        if row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip():
+        if row.get("error") or row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip():
             raise ValueError("Failed, empty or truncated OCR region cannot be admitted")
         result[identifier] = {"id": metadata["model"] + "@" + metadata["revision"],
             "model": metadata["model"], "revision": metadata["revision"],

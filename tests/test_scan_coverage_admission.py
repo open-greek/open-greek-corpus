@@ -13,16 +13,17 @@ from scan_coverage_extensions import load_extensions, coverage_scope
 
 def fixture(tmp_path):
     work = "apollonius-geom.conica"
-    manifest = {"pages": [{"id": "conica-1", "work": work, "book": "1", "printed_page": 2,
+    manifest = {"prompt": "Transcribe Greek body only.", "pages": [{"id": "conica-1", "work": work, "book": "1", "printed_page": 2,
         "source": "scan", "scan_page": 20, "region": [0, 0, 1, 1]}],
         "sources": {"scan": {"url": "https://archive.org/example.pdf", "sha256": "a" * 64}}}
     raw_manifest = ingest.encoded(manifest)
     inputs, raws = [], []
     for number, text in [(6, "λόγος καλός"), (8, "λόγοι καλός")]:
         meta = {"model": f"Qwen/Qwen3.{number}-27B", "revision": f"revision-{number}",
-            "manifest_sha256": ingest.sha(raw_manifest)}
+            "manifest_sha256": ingest.sha(raw_manifest), "prompt": manifest["prompt"]}
         row = {"id": "conica-1", "source": "scan", "scan_page": 20, "region": [0, 0, 1, 1],
-            "finish_reason": "stop", "raw_prediction": text, "image_sha256": "b" * 64}
+            "finish_reason": "stop", "raw_prediction": text, "image_sha256": "b" * 64,
+            "prompt_sha256": ingest.sha(manifest["prompt"].encode())}
         raw = (json.dumps({"_meta": meta}) + "\n" + json.dumps(row, ensure_ascii=False) + "\n").encode()
         path = tmp_path / f"raw-{number}.jsonl"
         path.write_bytes(raw)
@@ -42,6 +43,11 @@ def test_runtime_manifest_and_truncated_regions_fail_closed(tmp_path):
         ingest.load_predictions(None, raw, manifest, bad)
     with pytest.raises(ValueError, match="missing region"):
         ingest.collate(manifest, [inputs[0], {}])
+    rows[1]["finish_reason"] = "stop"
+    rows[1]["prompt_sha256"] = "c" * 64
+    wrong_prompt = ("\n".join(json.dumps(row) for row in rows) + "\n").encode()
+    with pytest.raises(ValueError, match="region prompt"):
+        ingest.load_predictions(None, raw, manifest, wrong_prompt)
 
 
 def test_short_running_headers_are_audited_without_removing_book_titles():
