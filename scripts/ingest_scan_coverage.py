@@ -353,7 +353,7 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     before = {path: (root / path).read_text() if (root / path).exists() else None for path in paths}
     extensions = json.loads(before[EXTENSION_INDEX]) if before[EXTENSION_INDEX] else {"schema_version": 1, "works": {}}
     editions = json.loads(before["data/corpus_editions.json"])
-    outputs, addition_hashes = {}, {}
+    outputs, addition_hashes, comparative_admissions = {}, {}, {}
     for work, rows in primary.items():
         old = records(before[f"data/corpus/{work}.jsonl"].encode())
         seen = {row["locus"] for row in old}
@@ -397,6 +397,17 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         if before[paratext_path] is not None:
             raise ValueError("Refusing to replace an existing comparison dataset")
         outputs[paratext_path] = ("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in paratext)).encode()
+        for work in sorted({row["urn"] for row in paratext}):
+            ids = [row["scan_region_id"] for row in paratext if row["urn"] == work]
+            previous = extensions.setdefault("comparative_admissions", {}).setdefault(work, [])
+            if any(set(ids) & set(entry["regions"]) for entry in previous):
+                raise ValueError("Refusing to duplicate an admitted comparison region")
+            entry = {"audit": str(archive.relative_to(root) / "changes.json"),
+                "path": paratext_path, "sha256": sha(outputs[paratext_path]),
+                "manifest_sha256": sha(manifest_bytes), "regions": ids}
+            previous.append(entry)
+            comparative_admissions[work] = entry
+        outputs[EXTENSION_INDEX] = encoded(extensions)
     archive.mkdir(parents=True)
     before_bytes = gzip.compress(encoded(before), mtime=0)
     (archive / "before.json.gz").write_bytes(before_bytes)
@@ -426,6 +437,7 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         "overlap_comparisons": {"path": str((archive / "overlap-comparisons.json.gz").relative_to(root)),
             "sha256": sha(overlap_bytes), "regions": len(overlap)},
         "digital_sources": digital["sources"],
+        "comparative_admissions": comparative_admissions,
         "digital_comparison_counts": dict(Counter(decision["status"] for change in audits
             for decision in change["decisions"] if decision.get("generator") == "scripts/bound_comparison_witness.py")),
         "consensus_generator_sha256": sha(Path(__import__("ocr_consensus").__file__).read_bytes()),
@@ -563,6 +575,12 @@ def verify_integrity(directory, root):
         raw = (root / relative).read_bytes()
         if sha(raw) != audit["outputs"][relative] or len(records(raw)) != len(comparisons):
             raise ValueError("Comparative source panels differ from their admission")
+        registered = json.loads((root / EXTENSION_INDEX).read_text()).get("comparative_admissions", {})
+        for work, entry in audit.get("comparative_admissions", {}).items():
+            if (entry not in registered.get(work, []) or entry["path"] != relative
+                    or entry["sha256"] != sha(raw) or entry["manifest_sha256"] != sha(manifest_bytes)
+                    or entry["regions"] != [row["scan_region_id"] for row in records(raw) if row["urn"] == work]):
+                raise ValueError("Comparative admission registration changed")
     return audit
 
 

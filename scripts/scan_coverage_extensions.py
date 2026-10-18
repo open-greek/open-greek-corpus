@@ -91,7 +91,8 @@ def coverage_scope(root: Path, work: str):
             "direct_text_lacuna_evidence": "Cary volume VI, printed page 402 (PDF 206), footnote 4: two folios are lost in M between τρόπον at 55.9.4 and (Ἄ)ρει at 55.10.2; the printed continuation combines Zonaras, Xiphilinus and Excerpta Valesiana. This qualification applies to that gap, not all later direct text.",
             "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
             "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
-            "manifest": "cassius-dio-ocr-jobs.json",
+            "manifest": "cassius-dio-body-ocr-jobs.json",
+            "supplement_manifests": ["cassius-dio-late-comparison-jobs.json"],
         },
     }
     if work not in qualifications:
@@ -111,7 +112,8 @@ def coverage_scope(root: Path, work: str):
     primary = [page for page in selected if page.get("admission") != "comparative-paratext"]
     expected = {page["id"] for page in primary}
     index_path = root / "data/corpus_extension_index.json"
-    entry = json.loads(index_path.read_text()).get("works", {}).get(work) if index_path.exists() else None
+    catalog = json.loads(index_path.read_text()) if index_path.exists() else {}
+    entry = catalog.get("works", {}).get(work)
     rows = []
     if entry:
         extension = root / entry["path"]
@@ -122,12 +124,29 @@ def coverage_scope(root: Path, work: str):
     admitted = {row.get("scan_region_id") for row in rows}
     if admitted - expected:
         raise ValueError("Coverage metadata found a scan region outside its reviewed manifestation")
+    comparison_expected = {page["id"] for page in selected if page.get("admission") == "comparative-paratext"}
+    comparison_admitted, comparison_audits = set(), []
+    for admission in catalog.get("comparative_admissions", {}).get(work, []):
+        data = (root / admission["path"]).read_bytes()
+        if hashlib.sha256(data).hexdigest() != admission["sha256"]:
+            raise ValueError("Comparative scan dataset changed outside its reviewed importer")
+        rows_for_work = [json.loads(line) for line in data.splitlines() if line.strip()]
+        identities = [row["scan_region_id"] for row in rows_for_work if row["urn"] == work]
+        if identities != admission["regions"] or comparison_admitted & set(identities):
+            raise ValueError("Comparative region registration repeats or changes its source identities")
+        comparison_admitted.update(identities)
+        comparison_audits.append(admission["audit"])
+    if comparison_admitted - comparison_expected:
+        raise ValueError("Coverage metadata found a comparison outside its reviewed manifestation")
     sources = sorted({page["source"] for page in selected})
     return {**description,
         "status": "reviewed-primary-regions-admitted" if admitted == expected else "reviewed-scan-additions-pending",
         "reviewed_primary_regions": len(expected), "admitted_primary_regions": len(admitted),
         "remaining_reviewed_primary_regions": len(expected - admitted),
         "reviewed_comparative_regions": len(selected) - len(primary),
+        "admitted_comparative_regions": len(comparison_admitted),
+        "remaining_reviewed_comparative_regions": len(comparison_expected - comparison_admitted),
+        "comparative_admission_audits": comparison_audits,
         "admitted_transmission_counts": dict(sorted(Counter(row["transmission"] for row in rows).items())),
         "scan_manifest": str(manifest_path.relative_to(root)),
         "scan_manifest_sha256": hashlib.sha256(raw).hexdigest(),

@@ -182,7 +182,7 @@ def test_public_scope_counts_admissions_without_claiming_intact_works():
     assert pappus["reviewed_primary_regions"] == 331
     assert conica["reviewed_primary_regions"] == 227
     assert dio["reviewed_primary_regions"] == 1082
-    assert dio["reviewed_comparative_regions"] == 418
+    assert dio["reviewed_comparative_regions"] == 419
     assert dio["admitted_primary_regions"] + dio["remaining_reviewed_primary_regions"] == 1082
     assert "eighty-book" in dio["work_identity"] and "not an intact" in dio["transmission_limit"]
     assert "Books I–IV" in conica["transmission_limit"]
@@ -327,3 +327,45 @@ def test_conica_running_header_removal_is_source_page_and_initial_position_guard
     for changed_page, changed_source in [(dict(page, scan_page=206), source),
             (page, dict(source, sha256="different")), (dict(page, region=[0, .1, 1, 1]), source)]:
         assert ingest.clean_running_headers(original, page["work"], changed_page, changed_source)[0] == original
+
+
+def test_comparison_only_admission_registers_paratext_without_primary_rows_and_undoes(tmp_path):
+    _, manifest, _, _, old_raws = fixture(tmp_path)
+    work = "cassius-dio.historiae-romanae"
+    page = manifest["pages"][0]
+    page.update(id="dio-cary-v9-pdf0240-comparison", work=work, source_volume=9,
+        scan_page=240, printed_page=470, region=[.095, .615, .43, .88],
+        panel_role="comparison", transmission="comparative-quotation", admission="comparative-paratext")
+    request_raw = ingest.encoded(manifest)
+    raws, inputs = [], []
+    for raw in old_raws:
+        rows = ingest.records(raw)
+        rows[0]["_meta"]["manifest_sha256"] = ingest.sha(request_raw)
+        rows[1].update(id=page["id"], scan_page=240, region=page["region"])
+        value = ingest.jsonl_bytes(rows)
+        raws.append(value)
+        inputs.append(ingest.load_predictions(None, request_raw, manifest, value)[0])
+    result = ingest.collate(manifest, inputs)
+    assert result[0] == {} and len(result[1]) == 1
+    root = tmp_path / "repo"
+    directory = root / "data/ingest_reviews/coverage"
+    directory.mkdir(parents=True)
+    for name in ["cassius-dio-body-ocr-jobs.json", "cassius-dio-late-comparison-jobs.json"]:
+        (directory / name).write_bytes((ROOT / "data/ingest_reviews/coverage" / name).read_bytes())
+    editions = ingest.encoded({work: {"n_passages": 0, "n_tokens": 0}})
+    (root / "data/corpus_editions.json").write_bytes(editions)
+    ingest.apply(root, request_raw, raws, *result, "separate-comparison")
+    audit = root / "data/corpus_changes/separate-comparison"
+    ingest.verify(audit, root)
+    index = json.loads((root / ingest.EXTENSION_INDEX).read_text())
+    assert index["works"] == {}
+    assert index["comparative_admissions"][work][0]["regions"] == [page["id"]]
+    scope = coverage_scope(root, work)
+    assert scope["admitted_primary_regions"] == 0
+    assert scope["admitted_comparative_regions"] == 1
+    assert scope["remaining_reviewed_comparative_regions"] == 418
+    assert scope["comparative_admission_audits"] == ["data/corpus_changes/separate-comparison/changes.json"]
+    assert not (root / f"data/corpus/{work}.jsonl").exists()
+    ingest.undo(audit, root)
+    assert not (root / ingest.EXTENSION_INDEX).exists()
+    assert (root / "data/corpus_editions.json").read_bytes() == editions
