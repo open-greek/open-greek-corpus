@@ -76,8 +76,17 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--pdf", type=Path, required=True)
     ap.add_argument("--out", type=Path, default=OUTPUT)
+    ap.add_argument("--record-layout-review", action="store_true")
     args = ap.parse_args()
     manifest = prepare(args.pdf, args.out)
+    if args.record_layout_review:
+        review = {"schema_version": 1, "review_date": "2026-10-18",
+            "source_pdf_sha256": SOURCE_SHA256,
+            "manifest_sha256": hashlib.sha256(args.out.read_bytes()).hexdigest(),
+            "checked_scan_pages": list(range(74, 171)),
+            "review_extent": "All97 lower-page crop boundaries inspected against scan renderings, including mathematical diagrams and long editorial apparatus. Full headings and work endings checked on representative pages74,111,141,169,170. This records layout review, not a claim that every printed word has been proofread.",
+            "finding": "Each crop retains the Greek body and stops above the modern apparatus when present. The last page's separate index is excluded. No crop adjustment was required after inspection."}
+        args.out.with_name("jahn-layout-review.json").write_text(json.dumps(review, ensure_ascii=False, indent=1) + "\n")
     print(f"Pinned {len(manifest['pages'])} Greek body pages")
 
 
