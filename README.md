@@ -342,6 +342,9 @@ copies from one OCR run share a vote group. A short witness abstains outside
 its observed text, and unresolved words remain outside scalar counts through
 the row's `analysis_text`. Reader text exposes ties explicitly, and the
 structured `ocr_consensus` field preserves every supplied raw reading.
+Mixed Greek/Latin or Greek/Cyrillic words remain whole opaque readings and
+stay outside lexical counts, including when multiple OCR witnesses agree on
+the same damaged spelling.
 
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the

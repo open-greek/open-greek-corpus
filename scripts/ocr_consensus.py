@@ -14,16 +14,39 @@ import re
 import unicodedata
 
 GREEK = r"Ͱ-Ͽἀ-῿̀-ͯ"
-WORD = re.compile(r"[([«“‘]*(?:[" + GREEK + r"])+(?:['’ʼ᾽])?[)\]»”’.,;··:!?…]*")
-CORE = re.compile(r"[" + GREEK + r"]+(?:['’ʼ᾽])?")
+APOSTROPHES = frozenset("'’ʼ᾽")
+
+
+def greek_letter(char):
+    return unicodedata.category(char).startswith("L") and "GREEK" in unicodedata.name(char, "")
+
+
+def lexical_eligible(word):
+    letters = [char for char in word if unicodedata.category(char).startswith("L")]
+    return bool(letters) and all(greek_letter(char) for char in letters)
 
 
 def tokenize(text):
     text = re.sub(r"([" + GREEK + r"])[-‐]\s*\n\s*([" + GREEK + r"])", r"\1\2", text)
     words = []
-    for match in WORD.finditer(text):
-        key = unicodedata.normalize("NFC", CORE.search(match[0])[0])
-        words.append((key, unicodedata.normalize("NFC", match[0])))
+    index = 0
+    while index < len(text):
+        if not unicodedata.category(text[index]).startswith(("L", "M")):
+            index += 1
+            continue
+        start = index
+        while index < len(text) and (unicodedata.category(text[index]).startswith(("L", "M")) or text[index] in APOSTROPHES):
+            index += 1
+        raw = text[start:index]
+        if not any(greek_letter(char) for char in raw):
+            continue
+        left, right = start, index
+        while left and text[left - 1] in "([«“‘":
+            left -= 1
+        while right < len(text) and text[right] in ")]»”’.,;··:!?…":
+            right += 1
+        words.append((unicodedata.normalize("NFC", raw),
+            unicodedata.normalize("NFC", text[left:right])))
     return words
 
 
@@ -168,6 +191,10 @@ def merge_witnesses(witnesses):
         maximum = max(counts.values())
         winners = sorted(key for key, count in counts.items() if count == maximum)
         status = "unresolved" if len(winners) > 1 else "omission" if winners == [""] else "agreement" if maximum > 1 else "single-witness"
+        vote_status = status
+        eligible = len(winners) == 1 and bool(winners[0]) and lexical_eligible(winners[0])
+        if len(winners) == 1 and winners[0] and not eligible:
+            status = "damaged-reading"
         if status == "unresolved":
             display.append("⟦" + " ∥ ".join(key or "∅" for key in winners) + "⟧")
         elif status != "omission":
@@ -177,12 +204,15 @@ def merge_witnesses(witnesses):
             surface_winners = sorted(s for s, count in surfaces.items() if count == best)
             display.append(surface_winners[0] if len(surface_winners) == 1
                 else "⟦" + " ∥ ".join(surface_winners) + "⟧")
-            lexical.append(key)
+            if eligible:
+                lexical.append(key)
         stats[status] += 1
         records.append({"position": i, "readings": readings,
             "omission_support": gaps, "abstentions": abstentions,
             "omission_groups": omission_groups,
-            "status": status, "selected": winners[0] if len(winners) == 1 else None,
+            "status": status, "vote_status": vote_status, "lexical_eligible": eligible,
+            "lexical_exclusion": "mixed-script-token" if status == "damaged-reading" else None,
+            "selected": winners[0] if len(winners) == 1 else None,
             "tied_readings": winners if len(winners) > 1 else []})
     return {"text": " ".join(display), "analysis_text": " ".join(lexical),
         "ocr_consensus": {"schema_version": 1,

@@ -84,6 +84,24 @@ def test_orthographic_alignment_does_not_flatten_accents_in_votes():
     assert tokenize("λόγος Latin λέ-\nγεται.") == [("λόγος", "λόγος"), ("λέγεται", "λέγεται.")]
 
 
+def test_mixed_script_words_remain_whole_opaque_readings():
+    assert tokenize("ἀνдрῶν εἰρῆkenai.") == [("ἀνдрῶν", "ἀνдрῶν"), ("εἰρῆkenai", "εἰρῆkenai.")]
+    result = merge_witnesses([witness("a", "λόγος ἀνдрῶν εἰρῆkenai."),
+        witness("b", "λόγος ἀνдрῶν εἰρῆkenai.")])
+    assert result["text"] == "λόγος ἀνдрῶν εἰρῆkenai."
+    assert result["analysis_text"] == "λόγος"
+    assert result["ocr_consensus"]["counts"]["damaged-reading"] == 2
+    assert all(not slot["lexical_eligible"] for slot in result["ocr_consensus"]["slots"][1:])
+    assert not any(reading["text"] in {"ἀν", "ῶν", "εἰρῆ"}
+        for slot in result["ocr_consensus"]["slots"] for reading in slot["readings"])
+
+
+def test_mixed_and_pure_greek_readings_tie_without_silent_script_repair():
+    result = merge_witnesses([witness("a", "ἀνдрῶν"), witness("b", "ἀνδρῶν")])
+    assert result["analysis_text"] == ""
+    assert result["ocr_consensus"]["slots"][0]["tied_readings"] == ["ἀνδρῶν", "ἀνдрῶν"]
+
+
 def test_all_aristides_printed_pages_have_one_fresh_job_and_correct_column():
     jobs = fresh_jobs()["pages"]
     assert sorted(page["printed_page"] for page in jobs) == list(range(1, 165))
