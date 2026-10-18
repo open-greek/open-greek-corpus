@@ -12,10 +12,10 @@ from pathlib import Path
 
 
 def lexical_text(rec: dict) -> str:
-    if rec.get("ocr_consensus"):
-        if "analysis_text" not in rec:
-            raise ValueError("OCR consensus record is missing its checked analysis_text")
+    if "analysis_text" in rec:
         return rec["analysis_text"]
+    if rec.get("ocr_consensus"):
+        raise ValueError("OCR consensus record is missing its checked analysis_text")
     if rec.get("critical_markup"):
         from critical_text import lexical_text as critical_lexical_text
         return critical_lexical_text(rec)
