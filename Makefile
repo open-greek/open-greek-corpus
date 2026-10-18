@@ -79,6 +79,7 @@ CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/repair_photius_apparatus.py \
+                    scripts/repair_photius_body.py \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     scripts/repair_photius_apparatus.py \
