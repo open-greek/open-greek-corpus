@@ -22,6 +22,8 @@ def encoded_rows(meta, rows):
 def geometry_fixture(tmp_path, monkeypatch, nested=False, mutate=None, old_failure=False):
     monkeypatch.setattr(retries, "known_gutter_manifests", lambda: {})
     monkeypatch.setattr(retries, "known_geometry_supplement_manifests", lambda: {})
+    monkeypatch.setattr(retries, "known_followup_geometry_manifests", lambda: {})
+    monkeypatch.setattr(retries, "source_authorities", lambda: {})
     if nested:
         paths, bases, reviews, first, second = nested_supplement_fixture(tmp_path, monkeypatch)
         supplements = [first, second]
@@ -228,12 +230,12 @@ def test_every_replaced_leaf_needs_its_parent_completion_marker(tmp_path, monkey
                                    bases, reviews, supplement_paths=supplements)
 
 
-def geometry_child_fixture(tmp_path, monkeypatch):
+def geometry_child_fixture(tmp_path, monkeypatch, non_source=False):
     paths, bases, reviews, supplements, parent, _ = geometry_fixture(tmp_path, monkeypatch)
     old_file = supplements[-1]
     values = [json.loads(line) for line in old_file.read_bytes().splitlines()]
     target = values[1]
-    target.update(raw_prediction="καὶ λέγει " * 20, finish_reason="length")
+    target.update(raw_prediction="καὶ λέγει " * 20, finish_reason="stop" if non_source else "length")
     old_file.write_bytes(encoded_rows(values[0]["_meta"], values[1:]))
     source_line = old_file.read_bytes().splitlines()[1]
     old = parent["pages"][0]
@@ -248,6 +250,10 @@ def geometry_child_fixture(tmp_path, monkeypatch):
                  "raw_prediction_sha256": retries.sha(target["raw_prediction"].encode())},
              "pages": [{**old, "id": old["id"] + f"-part{i}", "region": [x0, low, x1, high], "reading_order": i}
                        for i, (low, high) in enumerate(zip(cuts, cuts[1:]))]}
+    if non_source:
+        child["replacement_condition"].update(kind="source-confirmed-non-source-reading", finish_reason="stop",
+            source_pdf_sha256=parent["sources"][old["source"]]["sha256"],
+            source_evidence="Synthetic scan review: these unrelated repeated words are absent from the printed span.")
     digest = retries.sha(retries.encode(child))
     monkeypatch.setattr(retries, "known_geometry_supplement_manifests",
                         lambda: {digest: ("data/ocr_requests/test-gutter-child.json", child)})
@@ -311,3 +317,90 @@ def test_length_condition_is_exact_and_never_permits_a_successful_replacement(ch
     elif change == "stop": row["finish_reason"] = "stop"
     else: condition["kind"] = "unknown"
     assert not retries.confirmed_length_termination({"replacement_condition": condition}, raw, line, row)
+
+
+def test_followup_authority_changes_only_reviewed_current_leaf(tmp_path, monkeypatch):
+    paths, bases, reviews, supplements, parent, _ = geometry_fixture(tmp_path, monkeypatch)
+    old_file = supplements[-1]
+    old_lines = old_file.read_bytes().splitlines()
+    old_meta, old_row = json.loads(old_lines[0])["_meta"], json.loads(old_lines[1])
+    old = parent["pages"][0]
+    box = old["region"].copy()
+    box[0] -= .002
+    authority_path = "data/ocr_requests/photius-followup-source-review.json"
+    authority_raw = retries.encode({"source_review": "Synthetic reviewed final body glyphs", "box": box})
+    condition = {"kind": "source-confirmed-column-boundary-error",
+        "old_manifest_sha256": retries.sha(retries.encode(parent)),
+        "source_pdf_sha256": parent["sources"][old["source"]]["sha256"],
+        "source_review_sha256": retries.sha(authority_raw), "original_region": old["region"], "new_region": box,
+        "raw_file_sha256": retries.sha(old_file.read_bytes()), "prediction_record_sha256": retries.sha(old_lines[1]),
+        "raw_prediction_sha256": retries.sha(old_row["raw_prediction"].encode()), "finish_reason": "stop"}
+    job = {**old, "id": old["id"] + "-gutter", "replaces_region": old["id"], "region": box}
+    request = {"supplements": {"manifest_path": "data/ocr_requests/test-gutter.json",
+                 "manifest_sha256": retries.sha(retries.encode(parent)), "page_id": "photius-bekker-0050",
+                 "replaces_regions": [old["id"]]}, "sources": parent["sources"], "prompt": parent["prompt"],
+                 "checkpoints": parent["checkpoints"], "pages": [job], "replacement_conditions": {old["id"]: condition},
+                 "review": {"source_authority": {"path": authority_path, "sha256": retries.sha(authority_raw)}}}
+    digest = retries.sha(retries.encode(request))
+    monkeypatch.setattr(retries, "known_followup_geometry_manifests",
+                        lambda: {digest: ("data/ocr_requests/test-gutter-followup.json", request)})
+    monkeypatch.setattr(retries, "source_authorities", lambda: {authority_path: authority_raw})
+    row = {**old_row, "id": job["id"], "region": box, "image_sha256": "f" * 64}
+    raw = tmp_path / "followup.jsonl"
+    raw.write_bytes(encoded_rows({**old_meta, "manifest_sha256": digest}, [row]))
+    supplements.append(raw)
+    review_path = next(p for p in reviews if p.name == "review-50.json")
+    review_path.unlink()
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              allow_unreviewed_retry_preparation=True)
+    base = build_retry(50)
+    retries.write_source_review(models, [p for p in bases if p.name == "retry-50-0.jsonl"], review_path,
+        "Synthetic complete nested crop review", {p["id"]: "Complete source lines" for p in base["pages"]},
+        "2026-10-18T14:00:00Z", base, supplements,
+        {p["id"]: "Complete source lines" for r in [parent, request] for p in r["pages"]})
+    _, models, evidence = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              bases, reviews, supplement_paths=supplements)
+    assembly = models[(CHECKPOINT38["model"], CHECKPOINT38["revision"])]["photius-bekker-0050"][2]["reviewed_retry"]
+    assert len(assembly["strips"]) == 4 and len(assembly["held_retry_strips"]) == 3
+    assert next(p for p in assembly["strips"] if p["id"] == job["id"])["region"] == box
+    retained = next(e for e in evidence if e["manifest"]["retry_of"]["page_id"] == "photius-bekker-0050")
+    assert {s["source_authority"]["path"] for s in retained["supplements"]} == {
+        "data/ocr_requests/photius-gutter-source-review.json", authority_path}
+    # Horizontal authority cannot silently add another source line.
+    altered = copy.deepcopy(request)
+    altered["pages"][0]["region"][3] += .001
+    with pytest.raises(ValueError, match="source-reviewed bounds"):
+        retries.validate_geometry_request(altered, parent, retries.sha(retries.encode(parent)), {})
+
+
+@pytest.mark.parametrize("change", ["file", "record", "text", "finish", "source", "evidence", "kind"])
+def test_non_source_reading_requires_exact_scan_review_and_retained_stop(change):
+    row = {"raw_prediction": "ἀλλότριος ὁ λόγος", "finish_reason": "stop"}
+    line = json.dumps(row, ensure_ascii=False).encode()
+    raw = b'{"_meta":{}}\n' + line + b"\n"
+    job = {"source": "reviewed-source"}
+    request = {"sources": {"reviewed-source": {"sha256": "a" * 64}}}
+    condition = {"kind": "source-confirmed-non-source-reading", "finish_reason": "stop",
+        "source_evidence": "Synthetic source review: the retained unrelated prose is absent from these source lines.",
+        "source_pdf_sha256": "a" * 64, "raw_file_sha256": retries.sha(raw),
+        "prediction_record_sha256": retries.sha(line), "raw_prediction_sha256": retries.sha(row["raw_prediction"].encode())}
+    assert retries.confirmed_non_source_reading({"replacement_condition": condition}, raw, line, row, job, request)
+    if change == "file": raw += b" "
+    elif change == "record": line += b" "
+    elif change == "text": row["raw_prediction"] += " θεός"
+    elif change == "finish": row["finish_reason"] = "length"
+    elif change == "source": condition["source_pdf_sha256"] = "b" * 64
+    elif change == "evidence": condition["source_evidence"] = " "
+    else: condition["kind"] = "unknown"
+    assert not retries.confirmed_non_source_reading({"replacement_condition": condition}, raw, line, row, job, request)
+
+
+def test_source_confirmed_unrelated_stop_reading_uses_only_reviewed_child_vote(tmp_path, monkeypatch):
+    paths, bases, reviews, supplements, child = geometry_child_fixture(tmp_path, monkeypatch, non_source=True)
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              bases, reviews, supplement_paths=supplements)
+    assembly = models[(CHECKPOINT38["model"], CHECKPOINT38["revision"])]["photius-bekker-0050"][2]["reviewed_retry"]
+    held = next(p for p in assembly["held_retry_strips"] if p["id"] == child["supplements"]["replaces_region"])
+    assert held["finish_reason"] == "stop" and held["raw_prediction"] == "καὶ λέγει " * 20
+    assert len(assembly["strips"]) == 6 and len(assembly["held_retry_strips"]) == 3
+    assert all(retries.successful(p) for p in assembly["strips"])

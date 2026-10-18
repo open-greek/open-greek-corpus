@@ -24,6 +24,8 @@ def isolate_source_geometry_authority(monkeypatch):
     # production crop boundaries and exact production raw-record pins.
     monkeypatch.setattr(retries, "known_gutter_manifests", lambda: {})
     monkeypatch.setattr(retries, "known_geometry_supplement_manifests", lambda: {})
+    monkeypatch.setattr(retries, "known_followup_geometry_manifests", lambda: {})
+    monkeypatch.setattr(retries, "source_authorities", lambda: {})
 
 
 def prediction(tmp_path, manifest, model, *, missing=False, truncated=False):
