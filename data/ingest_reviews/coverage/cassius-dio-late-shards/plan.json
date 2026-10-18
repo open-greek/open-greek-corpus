@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/prepare_dio_late_shards.py",
+  "manifest_sha256": "fc32d75bff786ea2eabcea3a67150d959ea3a7b8b1fdd661c0a9e609b49d625d",
+  "source_review_sha256": "23cf8bcbaa60c8b34d927c6afc96ea8375598d70ef054a0dc64631fc545a78c8",
+  "policy": "Contiguous late-only selections preserve effective-manifest order. Existing clients retain all early jobs and superseded late sanity predictions; no unfinished early identity is assigned here.",
+  "shards": [
+    {
+      "path": "shard-00.json",
+      "sha256": "96f54e833788273e3f5c3c3f4039f680046ffc2cbcea0681b2436f5aa418a430",
+      "regions": 371
+    },
+    {
+      "path": "shard-01.json",
+      "sha256": "238f3ad7da33ddb74255fd4aceea3d4b8cee17799365a7431cbcc6274680a703",
+      "regions": 370
+    }
+  ]
+}
