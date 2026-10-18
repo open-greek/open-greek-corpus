@@ -1,0 +1,119 @@
+{
+ "schema_version": 1,
+ "purpose": "Source-reviewed retry for Qwen3.8 systematic mark loss on Pappus printed802; preserve the complete original shard and all other model inputs.",
+ "sources": {
+  "apolloniipergaei01apoluoft": {
+   "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
+   "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+   "license": "public-domain",
+   "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+   "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+   "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+  },
+  "pappialexandrin01hultgoog": {
+   "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
+   "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+   "license": "public-domain",
+   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+   "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+   "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
+  },
+  "pappialexandrin01pappgoog": {
+   "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
+   "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+   "license": "public-domain",
+   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+   "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+   "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
+  },
+  "pappialexandrin04pappgoog": {
+   "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+   "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+   "license": "public-domain",
+   "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+   "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+   "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
+  }
+ },
+ "prompt": "Transcribe only the main Greek reading text in the image, one line per printed line. Keep Greek book headings, epistolary prefaces, proposition labels and editorial brackets. Exclude running headers, page numbers, marginal line numbers, diagrams and diagram labels. Exclude ALL small critical apparatus beneath the horizontal rule, even when it is Greek. Exclude facing Latin translation and Latin words. Preserve accents, breathing marks, punctuation and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+ "retry_of": {
+  "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+  "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+  "source_part": "data/evaluation/ocr-fresh/mathematical-qwen38-shard-03.jsonl",
+  "source_part_sha256": "75883f461b16d281042c444ab4b6f9cda96db89fde78f5addaa6c302063e7daa",
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "region_ids": [
+   "pappialexandrin01pappgoog-pdf0345"
+  ]
+ },
+ "review": {
+  "recorded_at": "2026-10-18",
+  "extent": "Complete PDF345/printed802, both prose blocks, the intervening diagram, apparatus separator and all three crop boundaries inspected.",
+  "finding": "The original prediction has781 Greek letters and no accents or breathings. The scan visibly prints polytonic marks throughout, including μείζων ἐστὶν ἡ ΑΔ, Λέγω δὲ ὅτι καὶ μόνον, and Ἵνα δὲ καὶ ἐπιγνῶμεν. Three enlarged regions retain every body line in order, excluding the running header, diagram labels and small apparatus below the rule.",
+  "original_prediction_sha256": "1fabb9db0070ac92bf3fd4cc6ada445c5819f0f46c1765e955f3ae19be60de52",
+  "original_image_sha256": "8735ce042d596194d77dc82f6dec2582a384f5575279f2aa6ef6269593c1a501",
+  "source_pdf_sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+  "original_text": "μειζων εστιν η ΑΔ της ΕΓ· πολλω αρα της ΖΓ μειζων\nεστιν· το ΔΕΖ αρα ημικυκλιον ποιει το προβλημα.\nΑλεγω δε οτι και μονον. γεγραφω γαρ τι και ετερον\nΔΜΝ, και η χθω εραπτομενη η ΙΜΕ. ει δη και το ΔΜΝ\nποιει το προβλημα, εσται ιση η ΑΔ τη ΜΕ. και ειληφθω ο\nτο κεντρον του ΔΜΝ ημικυκλιου το Ο, και επεξειχθω η\nΟΜ. εσται ακολουθως τη αναλυσει το υπο των ΘΟΚ\nισον τη υπο των Α ΔΟ, οπερ εστιν ατοπον (εν γαρ τη\nδιωρισμενη δεδειχται μειζων)· ουκ αρα το ΔΜΝ ημικυκλιον\nποιει το προβλημα. ομοιως δη δειξομεν οτι ουδε αλλο τι\nπλην του ΔΕΖ· το ΔΕΖ αρα μονον ποιει το προβλημα.\nΙνα δε και επιγνωμεν ποτερον αυτων μειζον αποτεμε-\nνει, δειξομεν ουτως. επει εν τη διωρισμενη δεδειχται\nελασσον το υπο των Α ΔΟ του υπο των ΘΟΚ, αναλογον\nη Α προς ΟΚ ελασσονα λογον εχει ηπερ η ΘΟ προς ΟΔ.\nαλλ' ως μεν η Α προς ΚΟ, ουτως εστιν το απο ΑΔ προς\nτην των απο ΔΟ ΟΓ υπεροχην (δεδειχται γαρ), ως δε η\nΘΟ προς ΟΔ, ουτως εστιν η των απο ΟΑ ΑΔ προς το\nαπο ΟΔ· και το απο ΑΔ αρα προς την των απο ΔΟ ΟΓ\nυπεροχην ελασσονα λογον εχει ηπερ η των απο ΟΑ ΑΔ",
+  "policy": "Retain all original and retry bytes. Require completed scan comparison of the three strips before replacing this Qwen3.8 input once. Never select Qwen3.6 instead or count the same model twice."
+ },
+ "pages": [
+  {
+   "id": "pappialexandrin01pappgoog-pdf0345-reviewed-strip-1",
+   "source": "pappialexandrin01pappgoog",
+   "scan_page": 345,
+   "region": [
+    0.22,
+    0.15,
+    0.83,
+    0.23
+   ],
+   "max_side": 3200,
+   "work": "pappus-mathematics.synagoge",
+   "book": "7",
+   "printed_page": 802,
+   "reading_order": 1,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0345",
+   "text_role": "authorial-prose",
+   "crop_evidence": "Source-inspected complete lines and whitespace; top prose followed by two lower-body strips around the excluded diagram"
+  },
+  {
+   "id": "pappialexandrin01pappgoog-pdf0345-reviewed-strip-2",
+   "source": "pappialexandrin01pappgoog",
+   "scan_page": 345,
+   "region": [
+    0.22,
+    0.425,
+    0.83,
+    0.59
+   ],
+   "max_side": 3200,
+   "work": "pappus-mathematics.synagoge",
+   "book": "7",
+   "printed_page": 802,
+   "reading_order": 2,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0345",
+   "text_role": "authorial-prose",
+   "crop_evidence": "Source-inspected complete lines and whitespace; top prose followed by two lower-body strips around the excluded diagram"
+  },
+  {
+   "id": "pappialexandrin01pappgoog-pdf0345-reviewed-strip-3",
+   "source": "pappialexandrin01pappgoog",
+   "scan_page": 345,
+   "region": [
+    0.22,
+    0.59,
+    0.83,
+    0.723
+   ],
+   "max_side": 3200,
+   "work": "pappus-mathematics.synagoge",
+   "book": "7",
+   "printed_page": 802,
+   "reading_order": 3,
+   "reconstructs": "pappialexandrin01pappgoog-pdf0345",
+   "text_role": "authorial-prose",
+   "crop_evidence": "Source-inspected complete lines and whitespace; top prose followed by two lower-body strips around the excluded diagram"
+  }
+ ]
+}
