@@ -222,7 +222,7 @@ def _remove_inline_editorial_markers(text: str) -> tuple[str, list[str]]:
     return INLINE_EDITORIAL_MARKER_RE.sub(replace_marker, text), markers
 
 
-def _normalise_text(text: str) -> str:
+def _normalize_text(text: str) -> str:
     text = unicodedata.normalize("NFC", text)
     text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\u00a0", " ")
     text = re.sub(r"[\t\f\v]+", " ", text)
@@ -358,7 +358,10 @@ def _witness_evidence(record: dict[str, Any], relation: str) -> dict[str, str]:
 
 def _find_corpus_matches(
     passages: list[dict[str, Any]], corpus_dir: Path
-) -> tuple[set[str], set[str], Counter[str], dict[str, int], dict[str, list[dict[str, str]]]]:
+) -> tuple[set[str], set[str], Counter[str], dict[str, Any], dict[str, list[dict[str, str]]]]:
+    paths = sorted(corpus_dir.glob("*.jsonl")) if corpus_dir.is_dir() else []
+    if not paths:
+        raise ValueError(f"Existing-corpus comparison requires a nonempty corpus directory: {corpus_dir}")
     full_hashes: dict[str, list[str]] = defaultdict(list)
     anchors: dict[bytes, list[str]] = defaultdict(list)
     for passage in passages:
@@ -370,11 +373,14 @@ def _find_corpus_matches(
     near: set[str] = set()
     families: Counter[str] = Counter()
     evidence: dict[str, list[dict[str, str]]] = defaultdict(list)
-    scanned = {"files": 0, "passages": 0}
-    for path in sorted(corpus_dir.glob("*.jsonl")):
+    scanned = {"files": 0, "passages": 0, "completed": True, "file_sha256": {}}
+    for path in paths:
         scanned["files"] += 1
-        with path.open(encoding="utf-8") as handle:
-            for line in handle:
+        digest = hashlib.sha256()
+        with path.open("rb") as handle:
+            for raw_line in handle:
+                digest.update(raw_line)
+                line = raw_line.decode("utf-8")
                 if not line.strip():
                     continue
                 record = json.loads(line)
@@ -399,6 +405,10 @@ def _find_corpus_matches(
                         family = _corpus_family(record)
                         families[family] += 1
                         evidence[passage_id].append(_witness_evidence(record, "near"))
+        scanned["file_sha256"][path.name] = digest.hexdigest()
+    scanned["snapshot_sha256"] = _digest_text(json.dumps(
+        scanned["file_sha256"], sort_keys=True, separators=(",", ":")
+    ))
     near.difference_update(exact)
     return exact, near, families, scanned, {
         passage_id: sorted(
@@ -421,7 +431,7 @@ def _record_summary(
         "subcategory": row.get("ypokatigoria"),
     }
     service_material = "\0".join((metadata[key] or "") for key in sorted(metadata))
-    source_text = _normalise_text(row.get("texts") or "")
+    source_text = _normalize_text(row.get("texts") or "")
     passages, rubric_count, repairs, markers, joins, token_case_joins = _paragraphs(
         source_text, record_id
     )
@@ -478,6 +488,9 @@ def build_report(
         corpus_exact, corpus_near, corpus_families, corpus_scan = set(), set(), Counter(), {
             "files": 0,
             "passages": 0,
+            "completed": False,
+            "file_sha256": {},
+            "snapshot_sha256": None,
         }
         corpus_evidence: dict[str, list[dict[str, str]]] = {}
     else:

@@ -44,6 +44,11 @@ against the existing biblical, patristic, hymnographic, and liturgical corpus
 families.  The Oktoechos tone cycles are therefore counted as witnesses to
 review, not as fresh lexical evidence.
 
+The report pins every compared corpus file by filename and SHA-256, plus a
+deterministic digest of that inventory. A missing or empty corpus directory
+fails the audit. `--skip-existing-corpus-dedup` marks the comparison incomplete
+and records no snapshot digest.
+
 ## Admission boundary
 
 The staging command cannot admit rows.  It does not write `data/corpus`, does
