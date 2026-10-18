@@ -91,7 +91,7 @@ def coverage_scope(root: Path, work: str):
             "direct_text_lacuna_evidence": "Cary volume VI, printed page 402 (PDF 206), footnote 4: two folios are lost in M between τρόπον at 55.9.4 and (Ἄ)ρει at 55.10.2; the printed continuation combines Zonaras, Xiphilinus and Excerpta Valesiana. This qualification applies to that gap, not all later direct text.",
             "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
             "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
-            "manifest": "cassius-dio-body-ocr-jobs.json",
+            "manifest": "cassius-dio-reviewed-ocr-jobs.json",
             "supplement_manifests": ["cassius-dio-late-comparison-jobs.json"],
         },
     }
