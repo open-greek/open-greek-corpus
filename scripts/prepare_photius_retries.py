@@ -5,7 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from prepare_photius_coverage import ROOT, build, build_later_gap
+from prepare_photius_coverage import ROOT, build, build_later_gap, build_page13_retry
 
 CHECKPOINT38 = {"model": "Qwen/Qwen3.8-27B-FP8", "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"}
 CHECKPOINT36 = {"model": "Qwen/Qwen3.6-27B", "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"}
@@ -73,6 +73,17 @@ EXTRA_REVIEWS = {
 }
 
 SUPPLEMENT_REVIEWS = {
+    (13, "upper-preface"): {
+        "cuts": [.05, .235, .310, .441], "checkpoints": [CHECKPOINT38],
+        "evidence": "The completed Qwen3.8 upper-preface retry systematically strips breathings from the lowercase letter on scan13, although they are visible in the source address and in Ἐπειδὴ, Ἀσσυρίας, and ὑποθέσεις. Its919 Greek letters include0 breathing marks; the frozen detector flags low breathing rate. The three shorter crops exactly partition the original upper-preface region: the first includes the deliberately unaccented capital title; the second begins with the letter address; the.310 boundary lies between complete letter lines. Retain the stripped successful attempt, all other good strips, and the unchanged Qwen3.6 reading.",
+        "replacement_condition": {"kind": "source-confirmed-polytonic-mark-stripping",
+            "raw_file_sha256": "522747b6c319016ebb49637e6e2b58677337dff54239bb6a586b0a8a05becfcb",
+            "prediction_record_sha256": "da0c78540950ba3de05acc37a714b6447ec2e5f94b9b4b4c7007a30c182f981e",
+            "raw_prediction_sha256": "9b8677b6a1a08b20b15dcb47b76c031b95ab367690169468456a2d58e8fd6dd1",
+            "finish_reason": "stop", "greek_letters": 919, "breathing_letters": 0,
+            "frozen_policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9"},
+        "prompt_suffix": "Transcribe each complete Greek line exactly once, retaining every printed polytonic breathing and accent on lowercase letters. Preserve the unaccented capital title as printed. Do not strip breathings, normalize orthography, repeat text, or continue beyond this crop.",
+    },
     (50, "left-lower"): {
         "cuts": [.456, .583, .712, .835],
         "evidence": "The lower left body on printed page38 is faint. Its first enlarged retry still repeats text and reaches the output limit. Three shorter strips retain the same complete source lines: the.583 boundary falls after the line ending τὴν, and the.712 boundary follows the line ending ἐκκαίει. The final strip includes the paragraph beginning Δαρεῖος νοσήσας through the left-column foot. The union is exactly the reviewed failed lower-left crop; all other successful retry strips remain unchanged.",
@@ -137,34 +148,41 @@ def supplement_path(page, name):
 
 def build_supplement(page, name):
     review = SUPPLEMENT_REVIEWS[(page, name)]
-    parent = build_retry(page)
+    parent = build_page13_retry() if page == 13 else build_retry(page)
     target = next(p for p in parent["pages"] if p["id"].endswith("-" + name))
     x0, y0, x1, y1 = target["region"]
     cuts = review["cuts"]
     if cuts[0] != y0 or cuts[-1] != y1 or cuts != sorted(set(cuts)):
         raise ValueError("Supplement must partition the exact reviewed parent strip")
-    return {"schema_version": 1, "work": parent["work"], "review_date": parent["review_date"],
+    result = {"schema_version": 1, "work": parent["work"], "review_date": parent["review_date"],
             "purpose": "Replace only a failed retry strip within one model-family assembly; preserve all original and retry attempts and all successful sibling strips.",
             "supplements": {"manifest_path": manifest_path(page).as_posix(),
                             "manifest_sha256": hashlib.sha256(encode(parent)).hexdigest(),
                             "replaces_region": target["id"], "page_id": parent["retry_of"]["page_id"]},
-            "checkpoints": parent["checkpoints"], "sources": parent["sources"], "prompt": parent["prompt"],
+            "checkpoints": review.get("checkpoints", parent.get("checkpoints")), "sources": parent["sources"], "prompt": parent["prompt"],
             "review": {"checked_scan_pages": [page], "accepted_for_primary_ingest": False,
                        "evidence": review["evidence"],
                        "admission_policy": "Require exact failed parent-strip evidence and completed output-to-scan review. Assemble these parts once in place of that strip; retain successful siblings and one vote per model family."},
             "pages": [{**target, "id": target["id"] + f"-part{order+1:02d}",
                        "region": [x0, low, x1, high], "reading_order": order,
                        "role": "reviewed-failed-strip-supplement",
-                       "prompt_suffix": "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop."}
+                       "prompt_suffix": review.get("prompt_suffix", "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop.")}
                       for order, (low, high) in enumerate(zip(cuts, cuts[1:]))]}
+    if "replacement_condition" in review:
+        result["replacement_condition"] = review["replacement_condition"]
+        result["purpose"] = "Replace only an exactly pinned source-confirmed mark-stripped successful retry strip; retain every original and one vote per model family."
+        result["review"]["admission_policy"] = "This explicit source-confirmed mark-stripping exception applies only to the pinned checkpoint, parent strip, raw file, and prediction record. All other successful strips remain protected from replacement. Require a completed source mark review of the shorter parts before admission."
+    return result
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--page", type=int, action="append", choices=sorted(REVIEWS))
+    parser.add_argument("--page", type=int, action="append", choices=sorted(set(REVIEWS) | {p for p, _ in SUPPLEMENT_REVIEWS}))
     parser.add_argument("--variant", action="append", choices=sorted(EXTRA_REVIEWS))
     args = parser.parse_args()
     for page in args.page or ([] if args.variant else sorted(REVIEWS)):
+        if page not in REVIEWS:
+            continue
         path = ROOT / manifest_path(page)
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(encode(build_retry(page)))
