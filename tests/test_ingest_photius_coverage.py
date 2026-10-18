@@ -11,6 +11,8 @@ sys.path.insert(0, str(ROOT / "scripts"))
 import ingest_photius_coverage as ingest
 import repair_photius_index as index
 import photius_retries as retries
+import prepare_photius_retries as retry_requests
+from report_polytonic_loss import detect
 from prepare_photius_coverage import build_page13_retry
 from prepare_photius_retries import build_retry, build_supplement, CHECKPOINT38
 from ocr_consensus import restore_corpus_consensus
@@ -385,3 +387,66 @@ def test_supplement_cannot_bypass_its_reviewed_failure(tmp_path, change, message
     with pytest.raises(ValueError, match=message):
         ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], base_paths, reviews,
                                    supplement_paths=[] if change == "missing" else [supplement])
+
+
+def test_exact_source_confirmed_mark_loss_exception_keeps_other_successful_readings(tmp_path, monkeypatch):
+    paths, base_paths, reviews = multiple_retry_fixture(tmp_path)
+    base = next(p for p in base_paths if p.name == "retry-13-1.jsonl")
+    data = [json.loads(line) for line in base.read_bytes().splitlines()]
+    target = next(r for r in data[1:] if r["id"].endswith("upper-preface"))
+    target["raw_prediction"] = "Ο ΛΟΓΟΣ\nο λογος σαφης και καλος εστιν. " * 20
+    base.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in data) + b"\n")
+    source_line = next(line for line in base.read_bytes().splitlines()
+                       if json.loads(line).get("id") == target["id"])
+    marks = detect(target["raw_prediction"])
+    assert marks["flag"] and marks["breathing_letters"] == 0
+    # The production request pins a real source-confirmed record. This synthetic
+    # authority tests the same closed path without copying a full OCR run here.
+    original_review = retry_requests.SUPPLEMENT_REVIEWS[(13, "upper-preface")]
+    condition = {**original_review["replacement_condition"],
+                 "raw_file_sha256": ingest.sha(base.read_bytes()),
+                 "prediction_record_sha256": ingest.sha(source_line),
+                 "raw_prediction_sha256": ingest.sha(target["raw_prediction"].encode()),
+                 "greek_letters": marks["greek_letters"]}
+    monkeypatch.setitem(retry_requests.SUPPLEMENT_REVIEWS, (13, "upper-preface"),
+                        {**original_review, "replacement_condition": condition})
+    request = build_supplement(13, "upper-preface")
+    meta = {**data[0]["_meta"], "manifest_sha256": ingest.sha(ingest.encode(request))}
+    rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"],
+             "region": p["region"], "image_sha256": "d" * 64,
+             "prompt_sha256": ingest.sha((request["prompt"] + " " + p["prompt_suffix"]).encode()),
+             "raw_prediction": "ὁ λόγος σαφὴς καὶ καλός ἐστιν. " * 20, "finish_reason": "stop"}
+            for p in request["pages"]]
+    supplement = tmp_path / "mark-supplement.jsonl"
+    supplement.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in [{"_meta": meta}, *rows]) + b"\n")
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              allow_unreviewed_retry_preparation=True)
+    review_path = next(p for p in reviews if p.name == "review-13.json")
+    review_path.unlink()
+    parent = build_page13_retry()
+    page_paths = [p for p in base_paths if p.name.startswith("retry-13-")]
+    retries.write_source_review(models, page_paths, review_path, "Synthetic completed source and mark review",
+        {p["id"]: "Synthetic effective source-line review" for p in parent["pages"]},
+        "2026-10-18T07:00:00Z", parent, [supplement],
+        {p["id"]: "Synthetic source marks restored in complete lines" for p in request["pages"]})
+    _, models, evidence = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+        base_paths, reviews, supplement_paths=[supplement])
+    original36 = next(records for checkpoint, records in models.items() if checkpoint[0] == "Qwen/Qwen3.6-27B")
+    retried38 = next(records for checkpoint, records in models.items() if checkpoint[0] == CHECKPOINT38["model"])
+    assert len(original36["photius-bekker-0013"][2]["reviewed_retry"]["strips"]) == 5
+    assembly = retried38["photius-bekker-0013"][2]["reviewed_retry"]
+    assert len(assembly["strips"]) == 7
+    assert len([p for p in assembly["strips"] if "-part" not in p["id"]]) == 4
+    assert assembly["held_retry_strips"][0]["finish_reason"] == "stop"
+    replacement = assembly["supplements"][0]
+    assert retries.confirmed_mark_stripping(replacement, base.read_bytes(), source_line, target)
+    assert not retries.confirmed_mark_stripping(replacement, base.read_bytes() + b"\n", source_line, target)
+    assert not retries.confirmed_mark_stripping(replacement, base.read_bytes(), source_line + b" ", target)
+    rows[1]["raw_prediction"] = "ο λογος σαφης και καλος εστιν. " * 20
+    supplement.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in [{"_meta": meta}, *rows]) + b"\n")
+    review = json.loads(review_path.read_bytes())
+    review["reviewed_supplements"][0]["sha256"] = ingest.sha(supplement.read_bytes())
+    review_path.write_bytes(ingest.encode(review))
+    with pytest.raises(ValueError, match="still strips polytonic"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], base_paths, reviews,
+                                    supplement_paths=[supplement])
