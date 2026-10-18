@@ -72,6 +72,10 @@ def test_committed_coverage_replays_and_reverses_exact_bytes(tmp_path):
         pytest.skip("Coverage admission awaits the independent witnesses")
     audit = json.loads(audit_path.read_text())
     before, (generated, changes) = repair.replay(ROOT)
+    ledger = json.loads(generated["data/cgpg_works.json"])
+    pg73 = next(row for row in ledger if row.get("volume") == "PG073")
+    assert pg73["n_passages"] == 3109
+    assert pg73["n_tokens"] == 392203
     for path in [repair.SOURCE, repair.JOBS, repair.AUDIT + "/before.json.gz",
                  repair.AUDIT + "/fresh-witnesses.json.gz", repair.AUDIT + "/changes.json"]:
         target = tmp_path / path

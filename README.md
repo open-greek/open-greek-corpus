@@ -348,6 +348,8 @@ projection used by `work_token_totals.json` and the catalog's `tokens` column.
 groups containing Greek; `n_analysis_tokens` uses the checked Greek regex
 count. The public lexicon additionally excludes numeral and elision artifacts
 and the documented shared rows from duplicate editions.
+The OCR ledgers use these served-work passage and whitespace-token totals;
+complementary-volume contributions remain separate in `coverage_composition`.
 
 Quality reports and non-final-grave measurements use eligible primary tokens
 and the same eligible attestation base. `nonfinal_graves.json.served_tokens`

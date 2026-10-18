@@ -223,11 +223,14 @@ def outputs(before, raw, fresh):
         "scheme_inferred": False, "aliases": {}}
     result["data/source_registry.json"] = dump(registry)
     ledger = json.loads(before["data/cgpg_works.json"])
+    served_rows = additions + complete_body
+    served_tokens = sum(bool(re.search(r"[\u0370-\u03ff\u1f00-\u1fff]", token))
+                        for row in served_rows for token in row["text"].split())
     for entry in ledger:
         if entry.get("volume") == "PG073":
             entry.pop("superseded_by", None)
             entry.update(urn=SLUG, kind="complementary-volume", cgpg_chosen=True,
-                         edition=EDITION, n_passages=len(additions),
+                         edition=EDITION, n_passages=len(served_rows), n_tokens=served_tokens,
                          coverage_note="PG073 complements the PG074 continuation; whole-work source replacement is invalid.")
             for component in entry.get("works", []):
                 if component.get("tlg_id") == "tlg4090" and component.get("work_id") == "002":
@@ -308,7 +311,12 @@ def check(root=ROOT):
             raise ValueError("Cyril source-edition metadata changed")
     expected_ledger = [entry for entry in json.loads(generated["data/cgpg_works.json"]) if entry.get("volume") == "PG073"]
     actual_ledger = [entry for entry in json.loads((root / "data/cgpg_works.json").read_text()) if entry.get("volume") == "PG073"]
-    if expected_ledger != actual_ledger:
+    # Ledger counts describe the current served work, not this source volume.
+    # check_ocr_ledgers.py independently checks these derived fields; the
+    # complementary source's 528 passages remain in coverage_composition.
+    provenance = lambda entries: [{key: value for key, value in entry.items()
+                                  if key not in {"n_passages", "n_tokens"}} for entry in entries]
+    if provenance(expected_ledger) != provenance(actual_ledger):
         raise ValueError("Cyril complementary-volume source ledger changed")
     return audit
 
