@@ -1,4 +1,5 @@
 import gzip
+from collections import Counter
 import json
 from pathlib import Path
 import sys
@@ -284,7 +285,7 @@ def test_retry_permission_does_not_leak_to_a_successful_other_checkpoint(tmp_pat
     paths, raw_paths, reviews = multiple_retry_fixture(tmp_path)
     path = paths[0]
     data = [json.loads(line) for line in path.read_bytes().splitlines()]
-    next(row for row in data[1:] if row["scan_page"] == 47)["finish_reason"] = "length"
+    next(row for row in data[1:] if row["scan_page"] == 50)["finish_reason"] = "length"
     path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in data) + "\n")
     with pytest.raises(ValueError, match="truncated"):
         ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], raw_paths, reviews)
@@ -340,6 +341,12 @@ def test_failed_retry_supplement_keeps_successful_siblings_and_one_vote(tmp_path
     assert len(retry["supplements"]) == 1
     retained = retry["supplements"][0]["raw_files"][0]
     assert artifacts[Path(retained["path"])] == supplement.read_bytes()
+    quality = json.loads(artifacts[Path(report["fresh_outcome_quality"]["path"])])
+    assert quality["selection_rule"] is None
+    dispositions = [r["admission_disposition"] for r in quality["outcomes"]
+                    if r["scan_page"] == 50 and r["model"] == CHECKPOINT38["model"]]
+    assert Counter(dispositions) == {"held-original-attempt": 1, "held-failed-retry-strip": 1,
+                                     "accepted-source-reviewed-assembly-part": 6}
     ingest.apply(artifacts, report, tmp_path)
     inputs, models, evidence = ingest.prepare_report_inputs(tmp_path, report, [ingest.scan_manifest(), ingest.build_later_gap()])
     assert len(inputs) == 4 and len(evidence) == 3 and all(len(pages) == 310 for pages in models.values())

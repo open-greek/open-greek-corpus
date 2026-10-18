@@ -18,6 +18,7 @@ from bound_comparison_witness import bound_comparison_witness
 from photius_retries import allowed_retry_ids, apply_all_reviewed_retries, review_paths
 from prepare_photius_coverage import build as scan_manifest, build_later_gap
 from repair_photius_index import ROOT, SLUG, CORPUS, ARCHIVE as INDEX_ARCHIVE, generate as index_split
+from audit_photius_fresh import audit as audit_outcomes
 
 ARCHIVE = Path("data/corpus_changes/photius-bekker-coverage")
 SOURCE_LIBRARY_SHA256 = "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
@@ -191,7 +192,42 @@ def prepare_report_inputs(root, report, manifests):
         for supplement in supplied:
             if runs(supplement["raw_files"]) != retained(expected[supplement["manifest"]["sha256"]]["raw_files"]):
                 raise ValueError("Photius supplement raw metadata differs from its canonical review")
+    if report.get("fresh_outcome_quality") is not None:
+        checked(report["fresh_outcome_quality"])
+        reproduced = outcome_quality([*originals, *retry_paths, *supplement_paths], models)
+        if sha(encode(reproduced)) != report["fresh_outcome_quality"]["sha256"]:
+            raise ValueError("Photius outcome quality audit differs from the archived source readings")
     return inputs, models, evidence
+
+
+def outcome_quality(paths, models):
+    """Keep all screened outcomes and distinguish held attempts from voting parts."""
+    report = audit_outcomes(paths)
+    dispositions = {}
+    for checkpoint, records in models.items():
+        for identifier, (_, metadata, row) in records.items():
+            key = (*checkpoint, metadata["manifest_sha256"], identifier)
+            assembly = row.get("reviewed_retry")
+            if assembly is None:
+                dispositions[key] = {"admission_disposition": "retained-original-vote"}
+                continue
+            review = {"completed_source_review_sha256": assembly["source_review_sha256"]}
+            dispositions[key] = {**review, "admission_disposition": "held-original-attempt"}
+            supplemental_ids = {p["id"]: s["manifest_sha256"] for s in assembly.get("supplements", []) for p in s["records"]}
+            for part in assembly["strips"]:
+                request = supplemental_ids.get(part["id"], assembly["manifest_sha256"])
+                dispositions[(*checkpoint, request, part["id"])] = {
+                    **review, "admission_disposition": "accepted-source-reviewed-assembly-part"}
+            for part in assembly.get("held_retry_strips", []):
+                dispositions[(*checkpoint, assembly["manifest_sha256"], part["id"])] = {
+                    **review, "admission_disposition": "held-failed-retry-strip"}
+    for row in report["outcomes"]:
+        key = (row["model"], row["revision"], row["manifest_sha256"], row["id"])
+        if key not in dispositions:
+            raise ValueError("An OCR outcome lacks an explicit admission disposition")
+        row.update(dispositions[key])
+    report["policy"] = "Every original and retry outcome remains screened. Source-reviewed assemblies contribute once per checkpoint; held attempts never add votes. Review flags preserve uncertainty and select no reading."
+    return report
 
 
 def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=None, supplement_paths=()):
@@ -210,6 +246,9 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
     artifacts[ARCHIVE / "source-library-local002.json.gz"] = source_raw
     artifacts[ARCHIVE / "scan-request.json"] = encode(manifest)
     artifacts[ARCHIVE / "later-gap-request.json"] = encode(manifests[1])
+    quality_path = ARCHIVE / "fresh-outcome-quality.json"
+    quality = outcome_quality([*paths, *retry_paths, *supplement_paths], models)
+    artifacts[quality_path] = encode(quality)
     retry_reports = []
     for evidence in retry_evidence:
         retry_directory = ARCHIVE / "retry" / evidence["manifest"]["retry_of"]["page_id"] / evidence["source_review_sha256"]
@@ -332,6 +371,9 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
                                    "sha256": sha(raw), "model": metadata["model"], "revision": metadata["revision"]}
                                   for raw, metadata, rows in inputs],
               "reviewed_retries": retry_reports,
+              "fresh_outcome_quality": {"path": quality_path.as_posix(), "sha256": sha(artifacts[quality_path]),
+                                        "outcomes": quality["outcome_count"], "flagged_outcomes": quality["flagged_outcomes"],
+                                        "selection_rule": None},
               "reviewed_retry": retry_reports[0] if len(retry_reports) == 1 and retry_reports[0]["scan_page"] == 13 else None,
               "full_networks": {"path": network_path.as_posix(), "sha256": sha(network_raw),
                                 "entries": len(networks), "key": "physical scan page as a decimal string"},
