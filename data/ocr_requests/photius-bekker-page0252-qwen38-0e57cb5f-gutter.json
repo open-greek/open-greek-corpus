@@ -1,0 +1,292 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Correct only explicitly reviewed column boundaries; retain every old attempt and successful sibling within one model-family assembly.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0252-retry.json",
+    "manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+    "page_id": "photius-bekker-0252",
+    "replaces_regions": [
+      "photius-bekker-0252-left-upper",
+      "photius-bekker-0252-left-middle",
+      "photius-bekker-0252-left-lower",
+      "photius-bekker-0252-right-upper",
+      "photius-bekker-0252-right-middle",
+      "photius-bekker-0252-right-lower"
+    ]
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "replacement_conditions": {
+    "photius-bekker-0252-left-upper": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0252-left-upper",
+      "original_region": [
+        0.045,
+        0.063,
+        0.495,
+        0.29192
+      ],
+      "new_region": [
+        0.045,
+        0.063,
+        0.515,
+        0.29192
+      ],
+      "raw_file_sha256": "0f35ae7918107322618ef1e86195be2442fb74da6d330e3d66166823d165b72e",
+      "prediction_record_sha256": "79bc9353001500daaa9ba4e1284e7e162dc9df2252923bf20d3ba250d008c27b",
+      "raw_prediction_sha256": "dfbea0d084e639659f9e94ca82eeb3618ce31889a3b51223ecf673a3e1ecbeb6",
+      "finish_reason": "stop"
+    },
+    "photius-bekker-0252-left-middle": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0252-left-middle",
+      "original_region": [
+        0.045,
+        0.29192,
+        0.495,
+        0.58423
+      ],
+      "new_region": [
+        0.045,
+        0.29192,
+        0.515,
+        0.58423
+      ],
+      "raw_file_sha256": "0f35ae7918107322618ef1e86195be2442fb74da6d330e3d66166823d165b72e",
+      "prediction_record_sha256": "72eb1fb756036b6c719c70015325063f52c31fb4e0bd9b3442ff9f268bd95ebc",
+      "raw_prediction_sha256": "dd836f0d8aae1d956e468ec01243e28f990bb9bf8548a25e903c35601944af23",
+      "finish_reason": "stop"
+    },
+    "photius-bekker-0252-left-lower": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0252-left-lower",
+      "original_region": [
+        0.045,
+        0.58423,
+        0.495,
+        0.859
+      ],
+      "new_region": [
+        0.045,
+        0.58423,
+        0.515,
+        0.859
+      ],
+      "raw_file_sha256": "0f35ae7918107322618ef1e86195be2442fb74da6d330e3d66166823d165b72e",
+      "prediction_record_sha256": "b610adb699f64486f4b88c58527c2ffbd833b65b45192d7fd5e243a393bb4dc8",
+      "raw_prediction_sha256": "69d2a5bbee286f6c852a9f99116e67328f3fab03429794904b3a39fc97790db6",
+      "finish_reason": "length"
+    },
+    "photius-bekker-0252-right-upper": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0252-right-upper",
+      "original_region": [
+        0.505,
+        0.063,
+        0.97,
+        0.32537
+      ],
+      "new_region": [
+        0.52,
+        0.063,
+        0.97,
+        0.32537
+      ],
+      "raw_file_sha256": "0f35ae7918107322618ef1e86195be2442fb74da6d330e3d66166823d165b72e",
+      "prediction_record_sha256": "fc1f5075547c129040fb64292fa97c6e740793288b2a7a99651a6ce879a3cd00",
+      "raw_prediction_sha256": "ced7e5b8c4df556e89f9413efb3af7bbf6bd424e0c86df31ce9a3659ea4da4ca",
+      "finish_reason": "stop"
+    },
+    "photius-bekker-0252-right-middle": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0252-right-middle",
+      "original_region": [
+        0.505,
+        0.32537,
+        0.97,
+        0.58383
+      ],
+      "new_region": [
+        0.52,
+        0.32537,
+        0.97,
+        0.58383
+      ],
+      "raw_file_sha256": "0f35ae7918107322618ef1e86195be2442fb74da6d330e3d66166823d165b72e",
+      "prediction_record_sha256": "d1522b60e7b4339fce0c4c37a62bd8ea7455c1c5b2aa850f84c456ebb7caa98c",
+      "raw_prediction_sha256": "559b96a6ecefce399753e282c31734bac2f6487197b8a72620cde01e5ce46f4c",
+      "finish_reason": "stop"
+    },
+    "photius-bekker-0252-right-lower": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0e57cb5fb7d3a13649a80ff1a42c2a104ccb1059fed0154a33eb25c926f35758",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0252-right-lower",
+      "original_region": [
+        0.505,
+        0.58383,
+        0.97,
+        0.859
+      ],
+      "new_region": [
+        0.52,
+        0.58383,
+        0.97,
+        0.859
+      ],
+      "raw_file_sha256": "0f35ae7918107322618ef1e86195be2442fb74da6d330e3d66166823d165b72e",
+      "prediction_record_sha256": "c7d742045462104f970d6d69c65dcb8beeda0aacd162f890aae96b23cc05013a",
+      "raw_prediction_sha256": "b237e2efd1a6e7d1c79540c1bfc646e339ed97b21cb6efe3afabfef5a5589873",
+      "finish_reason": "stop"
+    }
+  },
+  "review": {
+    "accepted_for_primary_ingest": false,
+    "checked_scan_pages": [
+      252
+    ],
+    "source_authority": {
+      "path": "data/ocr_requests/photius-gutter-source-review.json",
+      "sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb"
+    },
+    "evidence": "Full-height printed body edges checked against the source scan. Revised edges preserve Greek glyphs and diacritics while excluding neighboring-column body text. Marginal line numbers are not classified by this review; horizontal body and apparatus boundaries remain unchanged.",
+    "admission_policy": "Require the exact old leaf, its immediate parent request, checkpoint, raw record, source PDF, reviewed old/new boxes, new image hash, and completed output-to-scan review. Preserve all original and retry text; no extra votes."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0252-left-upper-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.045,
+        0.063,
+        0.515,
+        0.29192
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 0,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0252-left-upper"
+    },
+    {
+      "id": "photius-bekker-0252-left-middle-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.045,
+        0.29192,
+        0.515,
+        0.58423
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 1,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0252-left-middle"
+    },
+    {
+      "id": "photius-bekker-0252-left-lower-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.045,
+        0.58423,
+        0.515,
+        0.859
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 2,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0252-left-lower"
+    },
+    {
+      "id": "photius-bekker-0252-right-upper-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.52,
+        0.063,
+        0.97,
+        0.32537
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 3,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0252-right-upper"
+    },
+    {
+      "id": "photius-bekker-0252-right-middle-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.52,
+        0.32537,
+        0.97,
+        0.58383
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 4,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0252-right-middle"
+    },
+    {
+      "id": "photius-bekker-0252-right-lower-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.52,
+        0.58383,
+        0.97,
+        0.859
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 5,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0252-right-lower"
+    }
+  ]
+}
