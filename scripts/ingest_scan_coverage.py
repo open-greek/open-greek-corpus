@@ -24,6 +24,8 @@ WORKS = {"pappus-mathematics.synagoge", "apollonius-geom.conica", "cassius-dio.h
 EXTENSION_INDEX = "data/corpus_extension_index.json"
 EDITION = "scan-consensus-2026-10-18"
 PAPPUS_HEADER = re.compile(r"^\s*ΠΑΠΠΟΥ\s+ΣΥΝΑΓΩΓΗΣ\s+\S+\s*$", re.I)
+CONICA_CHECKED_HEADER = re.compile(r"^\s*ΚΩΝΙΚΩΝ\s+[αΑ]['ʹ΄᾽’.]*\s*$")
+CONICA_HEADER_SOURCE_SHA256 = "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957"
 OVERLAP_ANCHOR = "βουληθεὶς δὲ δὴ τρόπον"
 
 
@@ -86,7 +88,7 @@ def load_predictions(path, manifest_bytes, manifest, raw=None, *, allow_failed_i
     if kind == "source-reviewed-mathematical-retry-bundle":
         from mathematical_ocr_retries import load_bundle
         return load_bundle(raw, manifest_bytes, manifest,
-            lambda value, request_raw, request: load_predictions(None, request_raw, request, value)[0])
+            lambda value, request_raw, request: load_predictions(None, request_raw, request, value))
     values = records(raw)
     if not values or set(values[0]) != {"_meta"}:
         raise ValueError("OCR output is missing its retained runtime metadata")
@@ -121,7 +123,7 @@ def load_predictions(path, manifest_bytes, manifest, raw=None, *, allow_failed_i
     return result, raw
 
 
-def clean_running_headers(text, work):
+def clean_running_headers(text, work, page=None, source=None):
     """Remove only the checked short running heading, retaining real titles."""
     kept, removed = [], []
     offset = 0
@@ -129,6 +131,18 @@ def clean_running_headers(text, work):
         if work == "pappus-mathematics.synagoge" and PAPPUS_HEADER.fullmatch(line.strip()):
             removed.append({"offset": offset, "original_text": line, "corrected_text": "",
                 "evidence": "The short ΠΑΠΠΟΥ ΣΥΝΑΓΩΓΗΣ heading is the edition's repeated running header. The full book title includes ΑΛΕΞΑΝΔΡΕΩΣ and is preserved."})
+        elif (work == "apollonius-geom.conica" and page is not None
+                and (page.get("id"), page.get("source"), page.get("scan_page"), page.get("printed_page")) ==
+                    ("apolloniipergaei01apoluoft-pdf0208", "apolloniipergaei01apoluoft", 208, 190)
+                and source is not None and source.get("sha256") == CONICA_HEADER_SOURCE_SHA256
+                and page.get("region") == [0, 0, 1, 1] and page.get("max_side") == 2200
+                and not "".join(kept).strip() and CONICA_CHECKED_HEADER.fullmatch(line.strip())):
+            removed.append({"offset": offset, "original_text": line, "corrected_text": "",
+                "review_id": "conica-printed190-running-header", "reviewed_at": "2026-10-18",
+                "source_region_id": page["id"],
+                "source_pdf_sha256": CONICA_HEADER_SOURCE_SHA256,
+                "image_sha256": "f654f53f09e6ecbc5118465b7b41129c569e32ac3d9a18d38408379d9d814406",
+                "evidence": "Source inspection of Heiberg Conica I printed page 190 (scan208) identifies the isolated initial ΚΩΝΙΚΩΝ αʹ above the four sparse body lines as the running header. The primary body begins ἡ μὲν ΑΓ. Preserve all other headings and every original prediction."})
         else:
             kept.append(line)
         offset += len(line)
@@ -225,7 +239,8 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
             raise ValueError("Independent OCR witnesses do not describe the same image")
         witnesses, decisions = [], []
         for value in values:
-            cleaned, removed = clean_running_headers(value["text"], page["work"])
+            cleaned, removed = clean_running_headers(value["text"], page["work"], page,
+                                                       manifest["sources"][page["source"]])
             decisions.extend({"witness": value["id"], **edit} for edit in removed)
             if page.get("overlap"):
                 cleaned, edit = trim_shared_prefix(cleaned)

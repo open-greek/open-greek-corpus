@@ -948,6 +948,9 @@ checks consecutive printed pages within one book, removes only audited running
 headers, and holds title-like starts and proposition labels. Every admitted
 exclusion retains both boundary readings and the unchanged original network;
 uncertain boundaries remain untouched.
+The isolated initial Conica running header on Heiberg I printed page 190 has
+its own source and image pins; removal records the original line and offset.
+Book titles and headings on other leaves remain available to the reader.
 `scan_coverage_extensions.coverage_scope()` supplies the public manifestation
 scope, admitted and pending region counts, source licenses and transmission
 limits without reducing the full Work identity to its surviving material.

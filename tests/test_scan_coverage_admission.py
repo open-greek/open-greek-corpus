@@ -312,3 +312,18 @@ def test_bundle_never_admits_failed_effective_crop_or_forged_review(tmp_path):
     forged["source_reviews"] = []
     with pytest.raises(ValueError, match="retained source review"):
         ingest.load_predictions(None, effective_raw, effective, ingest.encoded(forged))
+
+
+def test_conica_running_header_removal_is_source_page_and_initial_position_guarded():
+    manifest = json.loads((ROOT / "data/ingest_reviews/coverage/mathematical-ocr-jobs.json").read_text())
+    page = next(p for p in manifest["pages"] if p["id"] == "apolloniipergaei01apoluoft-pdf0208")
+    source = manifest["sources"][page["source"]]
+    original = "ΚΩΝΙΚΩΝ α'.\nἡ μὲν ΑΓ\nΚΩΝΙΚΩΝ α'.\n"
+    body, edits = ingest.clean_running_headers(original, page["work"], page, source)
+    assert body == "ἡ μὲν ΑΓ\nΚΩΝΙΚΩΝ α'.\n" and len(edits) == 1
+    assert edits[0]["original_text"] + body == original
+    assert edits[0]["source_pdf_sha256"] == source["sha256"]
+    assert edits[0]["image_sha256"] == "f654f53f09e6ecbc5118465b7b41129c569e32ac3d9a18d38408379d9d814406"
+    for changed_page, changed_source in [(dict(page, scan_page=206), source),
+            (page, dict(source, sha256="different")), (dict(page, region=[0, .1, 1, 1]), source)]:
+        assert ingest.clean_running_headers(original, page["work"], changed_page, changed_source)[0] == original
