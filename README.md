@@ -504,6 +504,24 @@ threshold requires an explicit `--min-count` argument.
 
 ## Corpus improvement audits
 
+`scripts/compare_oga_glaux_dates.py` incorporates Mark G. Bilby's
+[OGA/GLAUx date pretransforms](https://doi.org/10.5281/zenodo.14254073)
+(version 0.1, CC BY-SA 4.0). The three original CSVs and a checksum-pinned
+GLAUx metadata file are retained in `data/reference/bilby-oga-glaux-2024/`.
+`data/oga_glaux_date_comparison.json` joins all 2,156 CSV rows to the current
+OGA date values and GLAUx metadata across 2,149 exact CTS keys. Rebuild with
+`python3 scripts/compare_oga_glaux_dates.py`; add `--fetch` to retrieve the
+pinned sources or `--check` to verify the output.
+
+The comparison keeps every source reading and all repeated rows. It provides
+normalized intervals with explicit year-numbering conventions, preserves
+date disagreements, and keeps lettered works such as Aesop `002a` and `002b`
+distinct from `002`. Astronomical year zero is labeled 1 BCE; GLAUx's
+undocumented negative-year convention retains both possible interpretations.
+Bilby's pretransforms derive from OGA and GLAUx and do not count as a third
+independent dating source. The audit does not replace corpus dates or century
+tags. See the source directory's README for the schema and provenance.
+
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
 work identities. Source Library entries remain discovery candidates until
