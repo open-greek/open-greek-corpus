@@ -72,10 +72,14 @@ def _photius_resolution(root):
     if not path.exists():
         return _pending(root, "The complete Bekker authorial page-range admission has not been applied.")
     report = json.loads(path.read_text())
+    full_networks = report.get("full_networks", {})
     if (report.get("covered_authorial_scan_pages") != 545 or report.get("added_passages") != 309 or
             report.get("added_scan_ranges") != [[13, 278], [379, 421]] or
-            report.get("retained_scan_ranges") != [[279, 378], [422, 557]]):
+            report.get("retained_scan_ranges") != [[279, 378], [422, 557]] or
+            full_networks.get("entries") != 310):
         return _pending(root, "Photius admission does not cover all 545 checked authorial scan pages.")
+    if _sha(root / full_networks["path"]) != full_networks["sha256"]:
+        raise ValueError("Photius archived full word networks changed")
     from ingest_photius_coverage import load_prediction, load_source_library
     manifests = [json.loads((path.parent / name).read_text()) for name in
                  ("scan-request.json", "later-gap-request.json")]
