@@ -22,7 +22,7 @@ def test_checkpoint_specific_retries_pin_complete_source_body_in_order():
         assert encode(result) == (ROOT / f"data/ocr_requests/photius-bekker-page{number:04d}-retry.json").read_bytes()
 
 
-@pytest.mark.parametrize("number,name", [(50, "left-lower"), (87, "right-middle")])
+@pytest.mark.parametrize("number,name", [(50, "left-lower"), (87, "right-middle"), (113, "right-first")])
 def test_smaller_failed_strip_supplement_is_exact_partition(number, name):
     manifest = prepare.build_supplement(number, name)
     parent = prepare.build_retry(number)
@@ -96,3 +96,12 @@ def test_page13_mark_stripping_exception_pins_the_exact_successful_attempt():
     assert manifest["pages"][-1]["region"][3] == .441
     assert all("breathing" in p["prompt_suffix"] for p in manifest["pages"])
     assert encode(manifest) == (ROOT / prepare.supplement_path(13, "upper-preface")).read_bytes()
+
+
+def test_page113_stop_loop_exception_pins_the_exact_repeated_attempt():
+    manifest = prepare.build_supplement(113, "right-first")
+    condition = manifest["replacement_condition"]
+    assert condition["kind"] == "source-confirmed-repetition-loop"
+    assert condition["finish_reason"] == "stop"
+    assert condition["most_repeated_phrase_occurrences"] == condition["most_repeated_line_occurrences"] == 241
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
