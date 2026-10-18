@@ -246,3 +246,91 @@ def test_qwen38_request_preserves_original_checkpoint_and_body_blocks(tmp_path):
     fake.write_text("{}")
     with pytest.raises(ValueError, match="completed Qwen3.8 shard03"):
         retry.prepare(fake, fake, tmp_path, tmp_path / "out.json")
+
+
+@pytest.fixture
+def qwen38_fixture(bundle_fixture, tmp_path, monkeypatch):
+    import mathematical_qwen38_retry as helper
+    import prepare_mathematical_qwen38_retry as prepared
+    base, original, retry, review, manifest_path, leaf, calls = bundle_fixture
+    request = json.loads((ROOT / prepared.OUTPUT).read_text())
+    old_rows = [json.loads(line) for line in original.read_bytes().splitlines()]
+    metadata = {**old_rows[0]["_meta"], "model": helper.MODEL, "revision": helper.REVISION}
+    original_rows = old_rows[1:]
+    source_job = {**request["pages"][0], "id": helper.PAGE_ID, "region": [0,0,1,1]}
+    original_rows[0] = {**original_rows[0], "id": helper.PAGE_ID, "source": source_job["source"],
+        "scan_page": source_job["scan_page"], "image_sha256": prepare.sha(helper.PAGE_ID.encode())}
+    manifest = json.loads(manifest_path.read_text())
+    manifest["pages"][0] = source_job
+    manifest_raw = prepare.encode(manifest)
+    metadata["manifest_sha256"] = prepare.sha(manifest_raw)
+    manifest_path.write_bytes(manifest_raw)
+    def jsonl(rows):
+        return b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in rows) + b"\n"
+    original.write_bytes(jsonl([{"_meta": metadata}, *original_rows]))
+    part = tmp_path / "source-part.jsonl"
+    part_raw = jsonl([{"_meta": metadata}, *original_rows[:102]])
+    part.write_bytes(part_raw)
+    request["retry_of"]["sha256"] = prepare.sha(manifest_raw)
+    request["retry_of"]["source_part_sha256"] = prepare.sha(part_raw)
+    request["review"].update(original_prediction_sha256=prepare.sha(prepare.encode(original_rows[0])),
+        original_image_sha256=original_rows[0]["image_sha256"], original_text=original_rows[0]["raw_prediction"])
+    authority = tmp_path / "authority38.json"
+    authority.write_bytes(prepare.encode(request))
+    retry_meta = {**metadata, "manifest_sha256": prepare.sha(authority.read_bytes())}
+    retry_rows = [{"id": job["id"], "source": job["source"], "scan_page": job["scan_page"], "region": job["region"],
+        "finish_reason": "stop", "raw_prediction": "Ἵνα δὲ καὶ ἐπιγνῶμεν", "image_sha256": prepare.sha(job["id"].encode()),
+        "prompt_sha256": prepare.sha(request["prompt"].encode())} for job in request["pages"]]
+    retry.write_bytes(jsonl([{"_meta": retry_meta}, *retry_rows]))
+    monkeypatch.setattr(helper, "AUTHORITY", authority)
+    monkeypatch.setattr(helper, "SOURCE_PART_SHA256", prepare.sha(part_raw))
+    monkeypatch.setattr(helper, "MANIFEST_SHA256", prepare.sha(manifest_raw))
+    def strict(raw, request_raw, request):
+        meta, rows = base.values(raw)
+        mapping = {}
+        for row in rows:
+            mapping[row["id"]] = {"id": meta["model"] + "@" + meta["revision"],
+                "model": meta["model"], "revision": meta["revision"], "vote_group": helper.FAMILY,
+                "text": row["raw_prediction"], "image_sha256": row["image_sha256"],
+                "artifact_sha256": prepare.sha(prepare.encode({"metadata": meta, "prediction": row}))}
+        return mapping, raw
+    return helper, base, original, part, retry, manifest_path, strict
+
+
+def test_qwen38_bundle_retains_source_part_and_exact_one_vote(qwen38_fixture, tmp_path):
+    helper, base, original, part, retry, manifest, leaf = qwen38_fixture
+    out = tmp_path / "reviewed38.bundle.json"
+    review = tmp_path / "completed38-review.json"
+    descriptor = helper.write_reviewed_bundle(original, part, retry, manifest, review, out,
+        "All three completed strips compared against every printed body line; marks and body coverage confirmed, no apparatus or diagram labels. Remaining OCR disagreements are retained.",
+        "2026-10-18T00:00:00Z", leaf)
+    result, retained = base.load_bundle(out.read_bytes(), manifest.read_bytes(), json.loads(manifest.read_text()), leaf)
+    assert len(result) == 556
+    assert descriptor["replaced_page_ids"] == [helper.PAGE_ID]
+    assert result[helper.PAGE_ID]["vote_group"] == helper.FAMILY
+    assert sum("preprocessing" in r for r in result.values()) == 1
+    assert base._decode(json.loads(retained)["original"]) == original.read_bytes()
+    assert base._decode(json.loads(retained)["source_part"]) == part.read_bytes()
+    assert base.describe_bundle(retained)["retry_family"] == helper.FAMILY
+
+
+def test_qwen38_bundle_rejects_different_original_page_artifact(qwen38_fixture, tmp_path):
+    helper, base, original, part, retry, manifest, leaf = qwen38_fixture
+    original_raw = original.read_bytes()
+    def corrupting_loader(raw, request_raw, request):
+        mapping, retained = leaf(raw, request_raw, request)
+        if raw == original_raw:
+            mapping[helper.PAGE_ID]["artifact_sha256"] = "0" * 64
+        return mapping, retained
+    with pytest.raises(ValueError, match="exact original page artifact"):
+        helper.write_reviewed_bundle(original, part, retry, manifest, tmp_path / "bad-review.json", tmp_path / "bad.json",
+            "Reviewed source pixels.", "2026-10-18T00:00:00Z", corrupting_loader)
+    assert not (tmp_path / "bad-review.json").exists()
+    assert not (tmp_path / "bad.json").exists()
+
+
+def test_qwen38_bundle_rejects_missing_source_evidence(qwen38_fixture, tmp_path):
+    helper, base, original, part, retry, manifest, leaf = qwen38_fixture
+    with pytest.raises(ValueError, match="completed source comparison"):
+        helper.write_reviewed_bundle(original, part, retry, manifest, tmp_path / "bad-review.json", tmp_path / "bad.json",
+            "", "2026-10-18T00:00:00Z", leaf)

@@ -410,6 +410,11 @@ model and rejects changed, missing, failed, or unreviewed inputs.
 The later Qwen3.8 printed-page-802 case has its own three-region request,
 reproduced with `scripts/prepare_mathematical_qwen38_retry.py`; it pins the exact
 completed original shard and checkpoint separately from the Qwen3.6 cases.
+After the complete Qwen3.8 run is bundled and the retry is compared with the
+scan, `scripts/mathematical_qwen38_retry.py --original FULL38_BUNDLE --source-part SHARD03 --retry RETRY38 --review REVIEW.json --out BUNDLE.json --source-evidence "Completed scan comparison"`
+retains all original parts and checks that the replaced page is the exact
+artifact from the pinned shard. The same admission loader accepts either
+reviewed model bundle; each family still contributes one page reading.
 
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the

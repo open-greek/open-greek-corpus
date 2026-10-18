@@ -39,9 +39,9 @@ def _pack(raw):
     return {"sha256": sha(raw), "raw_base64": base64.b64encode(raw).decode()}
 
 
-def validate_retry_records(raw, request_raw, request):
+def validate_retry_records(raw, request_raw, request, *, model=MODEL, revision=REVISION):
     metadata, rows = values(raw)
-    if (metadata.get("model"), metadata.get("revision"), metadata.get("prompt"), metadata.get("manifest_sha256")) != (MODEL, REVISION, request["prompt"], sha(request_raw)):
+    if (metadata.get("model"), metadata.get("revision"), metadata.get("prompt"), metadata.get("manifest_sha256")) != (model, revision, request["prompt"], sha(request_raw)):
         raise ValueError("Mathematical retry model, checkpoint, prompt or request changed")
     jobs = {p["id"]: p for p in request["pages"]}
     if len(rows) != len(jobs) or {r["id"] for r in rows} != set(jobs):
@@ -126,6 +126,9 @@ def load_bundle(raw, manifest_bytes, manifest, load_leaf):
     returns (witnesses, raw). Calling it on both embedded files keeps this
     helper independent of the corpus admission module.
     """
+    if json.loads(raw).get("retry_family") == "qwen3.8-27b":
+        from mathematical_qwen38_retry import load_bundle as load_qwen38
+        return load_qwen38(raw, manifest_bytes, manifest, load_leaf)
     bundle, request_raw, request, original_raw, retry_raw, review_raw, review, originals, retries = _checked(raw, manifest_bytes, manifest)
     result, _ = load_leaf(original_raw, manifest_bytes, manifest)
     load_leaf(retry_raw, request_raw, request)
@@ -154,6 +157,9 @@ def load_bundle(raw, manifest_bytes, manifest, load_leaf):
 
 def describe_bundle(raw):
     bundle = json.loads(raw)
+    if bundle.get("retry_family") == "qwen3.8-27b":
+        from mathematical_qwen38_retry import describe_bundle as describe_qwen38
+        return describe_qwen38(raw)
     review = json.loads(_decode(bundle["source_review"]))
     return {"kind": KIND, "bundle_sha256": sha(raw), "model": MODEL, "revision": REVISION,
         "original_sha256": bundle["original"]["sha256"], "retry_sha256": bundle["retry"]["sha256"],
