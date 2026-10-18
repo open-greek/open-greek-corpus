@@ -107,6 +107,39 @@ def report(manifest_path, predictions, prefixes, out):
         "reviewed_at": qwen38["review"]["recorded_at"], "extent": qwen38["review"]["extent"],
         "finding": qwen38["review"]["finding"], "decision": "Request bounded retry; preserve original shard and every model input",
         "retry_request": QWEN38_REQUEST})
+    for filename, identifiers in [("qwen36-completed-review.json", set(REGIONS)),
+                                  ("qwen38-completed-review.json", {PAGE_ID})]:
+        completed_path = ROOT / "data/evaluation/mathematical-source-review" / filename
+        if not completed_path.exists():
+            continue
+        completed_raw = completed_path.read_bytes()
+        completed = json.loads(completed_raw)
+        if (completed.get("manifest_sha256") != MANIFEST_SHA256 or
+                not completed.get("reviewed_at") or not completed.get("retry_sha256")):
+            raise ValueError("Completed mathematical source review lost its original request pin")
+        family = "qwen36" if filename.startswith("qwen36") else "qwen38"
+        retry_path = ROOT / f"data/evaluation/ocr-fresh/mathematical-reviewed-retry-{family}.jsonl"
+        request_path = ROOT / ("data/ingest_reviews/coverage/mathematical-qwen36-reviewed-retry.json" if family == "qwen36" else QWEN38_REQUEST)
+        if (sha(retry_path.read_bytes()) != completed["retry_sha256"] or
+                sha(request_path.read_bytes()) != completed.get("retry_manifest_sha256")):
+            raise ValueError("Completed mathematical review refers to changed retry bytes")
+        if family == "qwen36":
+            from mathematical_ocr_retries import DECISION, ORIGINAL_SHA256
+            if (completed.get("decision") != DECISION or completed.get("original_sha256") != ORIGINAL_SHA256 or
+                    set(completed.get("pages", {})) != set(REGIONS) or
+                    any(not value.get("source_evidence", "").strip() for value in completed["pages"].values())):
+                raise ValueError("Completed Qwen3.6 source decision changed")
+        else:
+            from mathematical_qwen38_retry import DECISION, SOURCE_PART_SHA256
+            if (completed.get("decision") != DECISION or completed.get("source_part_sha256") != SOURCE_PART_SHA256 or
+                    not completed.get("source_evidence", "").strip()):
+                raise ValueError("Completed Qwen3.8 source decision changed")
+        for source_review in reviews:
+            if source_review["id"] in identifiers:
+                source_review["completed_retry_review"] = {"path": str(completed_path.relative_to(ROOT)),
+                    "sha256": sha(completed_raw), "reviewed_at": completed["reviewed_at"],
+                    "retry_sha256": completed["retry_sha256"]}
+                source_review["decision"] = "Completed source-reviewed strips replace this original model input once; all originals and disagreements remain retained."
     result = {"schema_version": 1, "reviewed_at": "2026-10-18",
         "manifest": {"path": MANIFEST, "sha256": sha(manifest_raw)},
         "frozen_polytonic_policy": POLICY, "policy_sha256": sha(dump(POLICY)),
