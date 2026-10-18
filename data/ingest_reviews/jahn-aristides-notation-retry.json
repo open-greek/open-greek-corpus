@@ -1,0 +1,412 @@
+{
+ "schema_version": 1,
+ "purpose": "Preserve complete Greek prose and six mode captions without counting musical-symbol tables as words.",
+ "sources": {
+  "jahn1882": {
+   "url": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+   "sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+   "license": "PD (Jahn 1882)",
+   "citation": "Aristidis Quintiliani De musica libri III, edited by Albert Jahn (Berlin: Calvary, 1882)"
+  }
+ },
+ "retry_of": {
+  "path": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json",
+  "sha256": "0690f8957ba18fae60c0f5936a8fd0be52653ed717be68c2697d088244a67859",
+  "region_ids": [
+   "jahn-1882-0082-greek",
+   "jahn-1882-0087-greek",
+   "jahn-1882-0091-greek"
+  ]
+ },
+ "review": {
+  "recorded_at": "2026-10-18",
+  "checked_scan_pages": [
+   74,
+   75,
+   76,
+   77,
+   78,
+   79,
+   80,
+   81,
+   82,
+   83,
+   84,
+   85,
+   86,
+   87,
+   88,
+   89,
+   90,
+   91,
+   92,
+   93,
+   94,
+   95,
+   96,
+   97,
+   98,
+   99,
+   100,
+   101,
+   102,
+   103,
+   104,
+   105,
+   106,
+   107,
+   108,
+   109,
+   110,
+   111,
+   112,
+   113,
+   114,
+   115,
+   116,
+   117,
+   118,
+   119,
+   120,
+   121,
+   122,
+   123,
+   124,
+   125,
+   126,
+   127,
+   128,
+   129,
+   130,
+   131,
+   132,
+   133,
+   134,
+   135,
+   136,
+   137,
+   138,
+   139,
+   140,
+   141,
+   142,
+   143,
+   144,
+   145,
+   146,
+   147,
+   148,
+   149,
+   150,
+   151,
+   152,
+   153,
+   154,
+   155,
+   156,
+   157,
+   158,
+   159,
+   160,
+   161,
+   162,
+   163,
+   164,
+   165,
+   166,
+   167,
+   168,
+   169,
+   170
+  ],
+  "extent": "All97 body leaves reviewed as contact sheets for large notation tables; pages82,87,90,91 then inspected at enlarged resolution. Every prose/caption crop boundary inspected separately.",
+  "finding": "The only substantial musical-symbol tables occur on scans82,87,90,91. Page90 has its separate length-retry request. Pages82/91 contain prose above tables; page87 contains prose above and below six labeled mode diagrams. All six Greek mode captions are retained as separate textual crops. Letter-like music signs are preserved as explicitly nonlexical source-image regions.",
+  "policy": "Retain the original whole-page OCR attempts, all symbols by source-image reference, and both fresh bounded model readings. Never invent prose readings from music signs or select a tied textual reading arbitrarily."
+ },
+ "nonlexical_source_regions": {
+  "jahn-1882-0082-greek": [
+   {
+    "class": "musical-notation",
+    "region": [
+     0.04,
+     0.48,
+     0.93,
+     0.675
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   }
+  ],
+  "jahn-1882-0087-greek": [
+   {
+    "class": "musical-notation",
+    "region": [
+     0.16,
+     0.273,
+     0.47,
+     0.323
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   },
+   {
+    "class": "musical-notation",
+    "region": [
+     0.58,
+     0.271,
+     0.9,
+     0.322
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   },
+   {
+    "class": "musical-notation",
+    "region": [
+     0.16,
+     0.353,
+     0.48,
+     0.404
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   },
+   {
+    "class": "musical-notation",
+    "region": [
+     0.58,
+     0.355,
+     0.82,
+     0.404
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   },
+   {
+    "class": "musical-notation",
+    "region": [
+     0.16,
+     0.434,
+     0.48,
+     0.483
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   },
+   {
+    "class": "musical-notation",
+    "region": [
+     0.58,
+     0.436,
+     0.82,
+     0.484
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   }
+  ],
+  "jahn-1882-0091-greek": [
+   {
+    "class": "musical-notation",
+    "region": [
+     0.08,
+     0.264,
+     0.94,
+     0.48
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual scan inspection: musical-sign rows and symbol labels; ordinary Greek prose and mode captions are retained in separately reviewed text crops."
+   }
+  ]
+ },
+ "pages": [
+  {
+   "id": "jahn-1882-0082-greek-retry-strip-1",
+   "source": "jahn1882",
+   "scan_page": 82,
+   "printed_page": 9,
+   "book": 1,
+   "region": [
+    0.15,
+    0.145,
+    0.83,
+    0.477
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0082-greek",
+   "text_role": "authorial-prose"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-1",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.2,
+    0.145,
+    0.88,
+    0.229
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "authorial-prose"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-2",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.17,
+    0.244,
+    0.34,
+    0.272
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 2,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "mode-caption"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-3",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.59,
+    0.242,
+    0.73,
+    0.271
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 3,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "mode-caption"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-4",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.17,
+    0.328,
+    0.34,
+    0.352
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 4,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "mode-caption"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-5",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.59,
+    0.33,
+    0.71,
+    0.355
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 5,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "mode-caption"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-6",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.17,
+    0.407,
+    0.34,
+    0.432
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 6,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "mode-caption"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-7",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.59,
+    0.407,
+    0.79,
+    0.435
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 7,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "mode-caption"
+  },
+  {
+   "id": "jahn-1882-0087-greek-retry-strip-8",
+   "source": "jahn1882",
+   "scan_page": 87,
+   "printed_page": 14,
+   "book": 1,
+   "region": [
+    0.2,
+    0.495,
+    0.88,
+    0.753
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 8,
+   "reconstructs": "jahn-1882-0087-greek",
+   "text_role": "authorial-prose"
+  },
+  {
+   "id": "jahn-1882-0091-greek-retry-strip-1",
+   "source": "jahn1882",
+   "scan_page": 91,
+   "printed_page": 18,
+   "book": 1,
+   "region": [
+    0.215,
+    0.145,
+    0.88,
+    0.261
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Complete source-inspected prose or Greek mode caption, separate from musical notation",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0091-greek",
+   "text_role": "authorial-prose"
+  }
+ ]
+}
