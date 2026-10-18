@@ -395,6 +395,7 @@ def write_source_review(models, paths, output, source_evidence, strip_evidence, 
               "source_pdf_sha256": manifest["sources"]["photius-bekker-combined"]["sha256"],
               "decision": "replace-source-reviewed-degraded-page", "reviewed_at": reviewed_at,
               "source_evidence": source_evidence,
+              "review_scope": "Body-line coverage, column and heading order, systematic mark loss, unprinted repetition, and apparatus boundaries; no claim of lexical proofreading. Word and ligature discrepancies remain raw and reversible.",
               "strip_reviews": [{"id": page["id"], "source_evidence": strip_evidence[page["id"]],
                                  "reading_complete": True, "apparatus_excluded": True} for page in manifest["pages"]],
               "original_artifacts_sha256": [records[page_id][2]["artifact_sha256"] for checkpoint, records in models.items()

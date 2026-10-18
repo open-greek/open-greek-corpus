@@ -94,6 +94,9 @@ def test_all_bekker_pages_are_covered_once_with_reversible_raw_readings(tmp_path
     artifacts, report = ingest.generate(paths, tmp_path / "source", tmp_path)
     assert report["added_passages"] == 309
     assert report["historical_body_passages"] == 3846
+    assert report["quality_scope"]["proofread_critical_text"] is False
+    assert report["quality_scope"]["historical_rows_byte_identical"] == 3846
+    assert report["quality_scope"]["historical_apparatus_issue"].endswith("/issues/60")
     assert report["covered_authorial_scan_pages"] == 545
     assert report["added_scan_ranges"] == [[13, 278], [379, 421]]
     assert report["retained_page_mapping"]["logical_positions_are_physical_citations"] is False

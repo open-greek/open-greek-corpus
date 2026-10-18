@@ -359,6 +359,13 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
             totals.update(row["counts"])
     report = {"schema_version": 1, "work": SLUG, "date": "2026-10-18",
               "edition_scope": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented.",
+              "quality_scope": {"proofread_critical_text": False,
+                  "fresh_review_criteria": ["body-line coverage", "column and heading order", "systematic polytonic mark loss", "unprinted repetition", "apparatus boundaries"],
+                  "fresh_limitations": "Word and ligature errors remain, particularly on faint source pages. Source reviews do not certify lexical accuracy. Raw readings, held attempts, bounded comparison witnesses, and merged disagreements remain available.",
+                  "historical_rows_byte_identical": index_audit["body_rows"],
+                  "historical_apparatus_audit": "data/audits/photius-historical-apparatus.json",
+                  "historical_apparatus_issue": "https://github.com/open-greek/open-greek-corpus/issues/60",
+                  "historical_limitations": "Unchanged historical primary rows still include confirmed editorial apparatus. The 545-page coverage claim does not classify every historical row as authorial text."},
               "source_scan": manifest["sources"]["photius-bekker-combined"],
               "legacy_source": LEGACY_SOURCE, "source_scan_exceptions": SOURCE_SCAN_EXCEPTIONS,
               "retained_page_mapping": {"source": "legacy_source", "physical_page_rule": "Historical OCR page key is the 1-based scan page in legacy_source.",
