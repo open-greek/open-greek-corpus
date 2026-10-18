@@ -447,7 +447,20 @@ def _photius(root):
             components.append({"edition": merged["key"], "role": "reviewed-historical-body-correction",
                                "license": body["license"], "passages": body["counts"]["corrected_rows"],
                                "source_review": body["source_review"], "network": body["network"],
+                               **({"source_reviews": body["source_reviews"], "networks": body["networks"]}
+                                  if body.get("source_reviews") else {}),
                                "source_library": body["source_library"]})
+        if editorial.get("fresh_correction"):
+            fresh = editorial["fresh_correction"]
+            edition = _edition("bekker1824-reviewed-fresh-editorial-matter", "Bekker 1824, reviewed fresh-witness editorial matter",
+                scheme="scan-page.witness-editorial-span", source=fresh["source_scan"]["url"],
+                license=fresh["paratext"]["license"], editor="Bekker, Immanuel", year=1824,
+                storage="paratext", servable=False,
+                note="Exact source-reviewed fresh OCR header and apparatus spans remain readable separately; the original full witness and vote remain archived.")
+            editions.append(edition)
+            components.append({"edition": edition["key"], "role": "fresh-witness-editorial-paratext",
+                               "license": fresh["paratext"]["license"], "passages": fresh["paratext"]["rows"],
+                               "source_review": fresh["source_review"], "paratext": fresh["paratext"]})
     return {slug: {"editions": editions, "default_edition": merged["key"],
         "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus.", "coverage_composition": {
         "policy": "complementary-page-union-with-licensed-consensus", "manifest": relative, "manifest_sha256": _sha(path),

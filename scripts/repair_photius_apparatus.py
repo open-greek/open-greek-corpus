@@ -17,6 +17,8 @@ from pathlib import Path
 from repair_photius_index import ROOT, CORPUS, ALIASES, SLUG, PAGE, generate as split_index, input_bytes
 
 REVIEW = Path("data/ingest_reviews/photius-bekker-apparatus.json")
+FRESH_REVIEW = Path("data/ingest_reviews/photius-bekker-fresh-editorial-spans.json")
+ORIGINAL_NETWORK = Path("data/corpus_changes/photius-bekker-coverage/full-networks.json.gz")
 PARATEXT = Path("data/paratext/photius-bekker-apparatus.jsonl")
 ARCHIVE = Path("data/corpus_changes/photius-bekker-apparatus")
 AUDIT = ARCHIVE / "changes.json"
@@ -122,7 +124,8 @@ def _reading(retained):
     return "\n".join(span["text"] for span in retained)
 
 
-def plan(before, aliases_before, review_raw, historical_raw, historical, body_raw=None, library_raw=None):
+def plan(before, aliases_before, review_raw, historical_raw, historical, body_raw=None, library_raw=None,
+         fresh_raw=None, original_network_raw=None, body7_raw=None):
     review, decisions = validate_review(review_raw, historical_raw, historical)
     rows = [json.loads(line) for line in before.splitlines()]
     by_locus = {row["locus"]: row for row in rows}
@@ -175,12 +178,34 @@ def plan(before, aliases_before, review_raw, historical_raw, historical, body_ra
                         "original_row": old, "corrected_row": after, "paratext": target,
                         "exclusions": excluded, "source": source, "source_review": review_pin,
                         "evidence": page["evidence"], "reviewed_at": page["reviewed_at"]})
-    body_report, body_artifacts = None, {}
-    if body_raw is not None:
-        from repair_photius_body import correct, LOCUS
-        corrected, body_report, body_artifacts = correct(body_raw, historical, decisions, library_raw, ARCHIVE)
-        primary = [jsonl([corrected]) if json.loads(line)["locus"] == LOCUS else line for line in primary]
-    outputs = {CORPUS: b"".join(primary), PARATEXT: jsonl(notes), ALIASES: encode(aliases), **body_artifacts}
+    body_report, body_artifacts, body_reports = None, {}, []
+    if body_raw is not None or body7_raw is not None:
+        from repair_photius_body import correct, LOCUS, LOCUS7
+        for expected, raw in ((LOCUS, body_raw), (LOCUS7, body7_raw)):
+            if raw is None:
+                continue
+            if json.loads(raw).get("locus") != expected:
+                raise ValueError("Body correction authority is assigned to a different approved case")
+            corrected, report, artifacts = correct(raw, historical, decisions, library_raw, ARCHIVE)
+            body_reports.append(report)
+            body_artifacts.update(artifacts)
+            primary = [jsonl([corrected]) if json.loads(line)["locus"] == expected else line for line in primary]
+        body_report = copy.deepcopy(body_reports[0])
+        if len(body_reports) > 1:
+            body_report["source_reviews"] = [r["source_review"] for r in body_reports]
+            body_report["networks"] = [r["network"] for r in body_reports]
+            body_report["cases"] = {r["changes"][0]["locus"]: {k: v for k, v in r.items() if k != "changes"}
+                                    for r in body_reports}
+            body_report["counts"] = {key: sum(r["counts"][key] for r in body_reports)
+                                     for key in body_report["counts"]}
+            body_report["changes"] = [change for r in body_reports for change in r["changes"]]
+    fresh_report, fresh_artifacts = None, {}
+    if fresh_raw is not None:
+        from repair_photius_fresh import correct
+        corrected, fresh_report, fresh_artifacts = correct(fresh_raw, by_locus, original_network_raw, ARCHIVE)
+        primary = [jsonl([corrected]) if json.loads(line)["locus"] == corrected["locus"] else line for line in primary]
+    outputs = {CORPUS: b"".join(primary), PARATEXT: jsonl(notes), ALIASES: encode(aliases),
+               **body_artifacts, **fresh_artifacts}
     audit = {"schema_version": 1, "operation": "separate-source-reviewed-photius-editorial-spans", "work": SLUG,
              "reviewed_at": review["reviewed_at"], "source_review": review_pin,
              "source": review["source"], "historical_body_sha256": sha(historical_raw),
@@ -198,6 +223,9 @@ def plan(before, aliases_before, review_raw, historical_raw, historical, body_ra
     if body_report:
         audit["body_correction"] = body_report
         audit["counts"]["body_corrected_rows"] = body_report["counts"]["corrected_rows"]
+    if fresh_report:
+        audit["fresh_correction"] = fresh_report
+        audit["counts"]["fresh_corrected_rows"] = fresh_report["counts"]["changed_rows"]
     return outputs, audit
 
 
@@ -209,22 +237,40 @@ def _preimages(root):
     return (root / CORPUS).read_bytes(), (root / ALIASES).read_bytes()
 
 
+def _validate_fresh_authority(root, raw):
+    from prepare_photius_fresh_editorial_review import build as prepare
+    if encode(prepare(root)) != raw:
+        raise ValueError("Fresh editorial authority does not reproduce from exact retained raw records and requests")
+
+
 def build(root=ROOT):
     root = Path(root)
     before, aliases_before = _preimages(root)
     historical_raw, historical = _historical(root)
     review_raw = (root / REVIEW).read_bytes()
-    from repair_photius_body import REVIEW as BODY_REVIEW, LIBRARY
+    from repair_photius_body import REVIEW as BODY_REVIEW, REVIEW7 as BODY_REVIEW7, LIBRARY
     body_raw = (root / BODY_REVIEW).read_bytes() if (root / BODY_REVIEW).exists() else None
-    if (root / ARCHIVE / "body-review.json").exists() and body_raw is None:
-        raise ValueError("Published body correction authority was removed or invalidated")
-    library_raw = (root / LIBRARY).read_bytes() if body_raw is not None else None
-    outputs, audit = plan(before, aliases_before, review_raw, historical_raw, historical, body_raw, library_raw)
+    body7_raw = (root / BODY_REVIEW7).read_bytes() if (root / BODY_REVIEW7).exists() else None
+    for name, raw in (("body-review.json", body_raw), ("body-page0007-review.json", body7_raw)):
+        if (root / ARCHIVE / name).exists() and raw is None:
+            raise ValueError("Published body correction authority was removed or invalidated")
+    library_raw = (root / LIBRARY).read_bytes() if body_raw is not None or body7_raw is not None else None
+    fresh_raw = (root / FRESH_REVIEW).read_bytes() if (root / FRESH_REVIEW).exists() else None
+    if (root / ARCHIVE / "fresh-source-review.json").exists() and fresh_raw is None:
+        raise ValueError("Published fresh editorial correction authority was removed or invalidated")
+    original_network_raw = (root / ORIGINAL_NETWORK).read_bytes() if fresh_raw is not None else None
+    if fresh_raw is not None:
+        _validate_fresh_authority(root, fresh_raw)
+    outputs, audit = plan(before, aliases_before, review_raw, historical_raw, historical,
+                          body_raw, library_raw, fresh_raw, original_network_raw, body7_raw)
     artifacts = {**outputs, AUDIT: encode(audit), ARCHIVE / "source-review.json": review_raw,
                  ARCHIVE / "before-corpus.jsonl.gz": gzip.compress(before, mtime=0),
                  ARCHIVE / "before-aliases.json.gz": gzip.compress(aliases_before, mtime=0)}
     if body_raw is not None:
         artifacts[ARCHIVE / "body-review.json"] = body_raw
+    if body7_raw is not None:
+        artifacts[ARCHIVE / "body-page0007-review.json"] = body7_raw
+    if library_raw is not None:
         artifacts[ARCHIVE / "body-source-library.json.gz"] = library_raw
     return artifacts, audit
 
@@ -243,16 +289,39 @@ def _validated_archive(root, require_current_review=True):
     if require_current_review and (root / REVIEW).read_bytes() != review_raw:
         raise ValueError("Published apparatus authority changed or was invalidated")
     historical_raw, historical = _historical(root)
-    body_raw, library_raw = None, None
+    body_raw, body7_raw, library_raw = None, None, None
     if audit.get("body_correction"):
-        from repair_photius_body import REVIEW as BODY_REVIEW
-        body_raw = (root / ARCHIVE / "body-review.json").read_bytes()
+        from repair_photius_body import REVIEW as BODY_REVIEW, REVIEW7 as BODY_REVIEW7
+        allowed = {(ARCHIVE / "body-review.json").as_posix(): BODY_REVIEW,
+                   (ARCHIVE / "body-page0007-review.json").as_posix(): BODY_REVIEW7}
+        pins = audit["body_correction"].get("source_reviews", [audit["body_correction"]["source_review"]])
+        if len({pin["path"] for pin in pins}) != len(pins):
+            raise ValueError("Repeated body correction source authority")
+        raw_by_path = {}
+        for pin in pins:
+            if pin["path"] not in allowed:
+                raise ValueError("Unknown body correction source authority")
+            raw = (root / pin["path"]).read_bytes()
+            if sha(raw) != pin["sha256"]:
+                raise ValueError("Archived body correction source review changed")
+            if require_current_review and (root / allowed[pin["path"]]).read_bytes() != raw:
+                raise ValueError("Published body correction authority changed or was invalidated")
+            raw_by_path[pin["path"]] = raw
+        body_raw = raw_by_path.get((ARCHIVE / "body-review.json").as_posix())
+        body7_raw = raw_by_path.get((ARCHIVE / "body-page0007-review.json").as_posix())
         library_raw = (root / ARCHIVE / "body-source-library.json.gz").read_bytes()
-        if sha(body_raw) != audit["body_correction"]["source_review"]["sha256"]:
-            raise ValueError("Archived body correction source review changed")
-        if require_current_review and (root / BODY_REVIEW).read_bytes() != body_raw:
-            raise ValueError("Published body correction authority changed or was invalidated")
-    outputs, reproduced = plan(before, aliases_before, review_raw, historical_raw, historical, body_raw, library_raw)
+    fresh_raw, original_network_raw = None, None
+    if audit.get("fresh_correction"):
+        fresh_raw = (root / ARCHIVE / "fresh-source-review.json").read_bytes()
+        original_network_raw = (root / ARCHIVE / "fresh-before-networks.json.gz").read_bytes()
+        if sha(fresh_raw) != audit["fresh_correction"]["source_review"]["sha256"]:
+            raise ValueError("Archived fresh editorial source review changed")
+        if require_current_review and (root / FRESH_REVIEW).read_bytes() != fresh_raw:
+            raise ValueError("Published fresh editorial correction authority changed or was invalidated")
+        if require_current_review:
+            _validate_fresh_authority(root, fresh_raw)
+    outputs, reproduced = plan(before, aliases_before, review_raw, historical_raw, historical,
+                               body_raw, library_raw, fresh_raw, original_network_raw, body7_raw)
     if encode(reproduced) != audit_raw:
         raise ValueError("Apparatus audit does not reproduce from its exact preimages and source review")
     return before, aliases_before, outputs, audit
@@ -294,8 +363,9 @@ def active_metadata(root=ROOT):
             "source_review": audit["source_review"],
             "paratext": {"path": PARATEXT.as_posix(), "sha256": audit["outputs"][PARATEXT.as_posix()]},
             "counts": audit["counts"], "source": audit["source"],
-            **({"body_correction": {k: v for k, v in audit["body_correction"].items() if k != "changes"}}
-               if audit.get("body_correction") else {})}
+            **{name: {k: v for k, v in audit[name].items()
+                      if k not in {"changes", "original_row", "corrected_row", "original_text", "corrected_text"}}
+               for name in ("body_correction", "fresh_correction") if audit.get(name)}}
 
 
 def lexical_segments(row):
@@ -316,8 +386,9 @@ def apply(root=ROOT):
         raise ValueError("Photius changed outside the reviewed apparatus correction")
     if sha((root / ALIASES).read_bytes()) not in {audit["inputs"][ALIASES.as_posix()], audit["outputs"][ALIASES.as_posix()]}:
         raise ValueError("Historical aliases changed outside the reviewed apparatus correction")
-    if (root / PARATEXT).exists() and (root / PARATEXT).read_bytes() != artifacts[PARATEXT]:
-        raise ValueError("Apparatus paratext was independently edited")
+    for path, raw in artifacts.items():
+        if path.is_relative_to("data/paratext") and (root / path).exists() and (root / path).read_bytes() != raw:
+            raise ValueError("Apparatus paratext was independently edited")
     for path, raw in artifacts.items():
         target = root / path
         if path.is_relative_to(ARCHIVE) and target.exists() and target.read_bytes() != raw:
@@ -336,7 +407,9 @@ def undo(root=ROOT):
         raise ValueError("Unapply later edits before undoing the apparatus layer")
     (root / CORPUS).write_bytes(before)
     (root / ALIASES).write_bytes(aliases_before)
-    (root / PARATEXT).unlink()
+    for path in outputs:
+        if path.is_relative_to("data/paratext"):
+            (root / path).unlink()
     return audit
 
 

@@ -136,3 +136,48 @@ def test_registry_separately_credits_the_one_licensed_body_correction(tmp_path):
     assert correction["passages"] == 1 and correction["license"] == "CC-BY-SA-4.0"
     assert correction["source_library"]["separate_api_notice"]["tdm_reservation"] == 1
     assert path.read_bytes() == frozen_coverage
+
+
+def test_two_explicit_body_cases_keep_separate_sources_networks_and_exact_undo(tmp_path):
+    body_fixture(tmp_path)
+    (tmp_path / body.REVIEW7).write_bytes((ROOT / body.REVIEW7).read_bytes())
+    before = (tmp_path / repair.CORPUS).read_bytes()
+    artifacts, audit = repair.build(tmp_path)
+    report = audit["body_correction"]
+    assert report["counts"] == {"corrected_rows": 2, "retained_prefix_characters": 1143,
+        "held_loop_characters": 81, "replacement_agreement_slots": 253, "replacement_unresolved_slots": 19}
+    assert set(report["cases"]) == {body.LOCUS, body.LOCUS7}
+    assert len(report["source_reviews"]) == len(report["networks"]) == 2
+    assert len({pin["path"] for pin in report["source_reviews"]}) == 2
+    assert len({pin["path"] for pin in report["networks"]}) == 2
+    for change in report["changes"]:
+        locus = change["locus"]
+        case = body.CASES[locus]
+        updated = change["corrected_row"]
+        assert updated["text"].startswith(change["original_text"][:case["start"]])
+        lexical_text(updated)
+        full = json.loads(gzip.decompress(artifacts[repair.ARCHIVE / case["network_file"]]))[locus]
+        restore_corpus_consensus({key: updated[key] for key in ("text", "analysis_text", "ocr_consensus")}, full)
+        assert len([slot for slot in full["ocr_consensus"]["slots"] if slot["status"] == "unresolved"]) == case["counts"]["unresolved"]
+    repair.apply(tmp_path)
+    assert repair.restore_legacy_bytes((tmp_path / repair.CORPUS).read_bytes(), tmp_path) == before
+    (tmp_path / body.REVIEW7).write_bytes(b"source invalidated")
+    with pytest.raises(ValueError, match="invalidated"):
+        repair.check(tmp_path)
+    repair.undo(tmp_path)
+    assert (tmp_path / repair.CORPUS).read_bytes() == before
+
+
+@pytest.mark.parametrize("change", ["scope", "region", "manual", "window", "image", "unapproved-locus"])
+def test_second_case_has_independent_frozen_source_guards(tmp_path, change):
+    body_fixture(tmp_path)
+    authority = json.loads((ROOT / body.REVIEW7).read_bytes())
+    if change == "scope": authority["replacement_scope"]["start"] -= 1
+    elif change == "region": authority["source"]["region"][-1] += .01
+    elif change == "manual": authority["witnesses"][0]["text"] += " ἄλλο"
+    elif change == "window": authority["source_library_window"]["start"] -= 1
+    elif change == "image": authority["source_image"]["crop_sha256"] = "0" * 64
+    else: authority["locus"] = "helladius_chrestomathia_photius_bekker_v2_0007.4"
+    (tmp_path / body.REVIEW7).write_bytes(repair.encode(authority))
+    with pytest.raises(ValueError):
+        repair.build(tmp_path)
