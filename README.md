@@ -650,9 +650,11 @@ limitations. The remaining 52 pages still need complete output and sufficient
 base-letter alignment. Run `scripts/report_polytonic_loss.py validate --root
 SOURCE_DIRECTORY --predictions RUN.jsonl --scan-review
 data/evaluation/polytonic-loss/scan-review.json` for each pinned fresh run.
-The tagged release's quality block pins the page report and both fresh
-validation reports, including their false positives, missed cases, and operating
-limits. It also records that no automatic witness-selection rule is active.
+The tagged release's quality block pins the page report to the complete corpus
+hash, the locked policy, and both fresh validation reports. It verifies the raw
+prediction archives and all 60 distinct page identities, and includes false
+positives, missed cases, and operating limits. It also records that no automatic
+witness-selection rule is active.
 
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current

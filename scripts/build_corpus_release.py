@@ -500,7 +500,7 @@ def corrections_block(catalog_sha: str, corpus_sha: str, raw: dict,
     return block
 
 
-def polytonic_quality(data=None):
+def polytonic_quality(data=None, expected_corpus_sha=None):
     """Expose review candidates and fresh validation without selecting text."""
     data = Path(data) if data is not None else DATA
     path = data / "polytonic_loss_report.json"
@@ -510,6 +510,22 @@ def polytonic_quality(data=None):
     pages = data / "quality/polytonic-loss-pages.jsonl.gz"
     if report.get("selection_rule") is not None or hashlib.sha256(pages.read_bytes()).hexdigest() != report["page_readings_sha256"]:
         raise ValueError("Polytonic review report or its page evidence changed")
+    if expected_corpus_sha is None:
+        pins = [f"{source.stem}\t{hashlib.sha256(source.read_bytes()).hexdigest()}\n"
+                for source in sorted((data / "corpus").glob("*.jsonl"))]
+        expected_corpus_sha = hashlib.sha256("".join(sorted(pins)).encode()).hexdigest()
+    if report.get("corpus_sha256") != expected_corpus_sha:
+        raise ValueError("Polytonic review report describes a different corpus")
+    for name, digest in report["input_corpus_files"].items():
+        source = data / "corpus" / name
+        if Path(name).name != name or not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+            raise ValueError("Polytonic review corpus input changed")
+    from report_polytonic_loss import verify_manifest
+    from benchmark_page_ocr import validate_page_rows
+    evaluation = data / "evaluation/polytonic-loss"
+    manifest, policy = verify_manifest(evaluation / "manifest.json", evaluation / "policy.json")
+    if report.get("policy_sha256") != hashlib.sha256((evaluation / "policy.json").read_bytes()).hexdigest() or report["policy"] != policy:
+        raise ValueError("Polytonic review policy changed")
     validations = []
     for name in ("qwen36-validation.json", "qwen38-validation.json"):
         validation_path = data / "evaluation/polytonic-loss" / name
@@ -527,8 +543,21 @@ def polytonic_quality(data=None):
         if len(value["runs"]) != 1 or expected not in value["runs"][0]["metadata"]["model"]:
             raise ValueError("Fresh validation filename and checkpoint family differ")
         run = value["runs"][0]
+        validate_page_rows(manifest, run["pages"], complete=True)
         if len(run["pages"]) != 60 or run["by_split"]["calibration"]["pages"] != 20 or run["by_split"]["test"]["pages"] != 40:
             raise ValueError("Fresh validation must preserve all 60 fixed page outcomes")
+        raw_path = evaluation / "raw" / (name.split("-", 1)[0] + ".jsonl")
+        if hashlib.sha256(raw_path.read_bytes()).hexdigest() != run["predictions_sha256"]:
+            raise ValueError("Fresh polytonic raw predictions changed")
+        raw = [json.loads(line) for line in raw_path.read_text().splitlines() if line.strip()]
+        if raw[0].get("_meta") != run["metadata"]:
+            raise ValueError("Fresh polytonic prediction metadata changed")
+        validate_page_rows(manifest, raw[1:], complete=True)
+        original_pages = {row["id"]: row for row in raw[1:]}
+        for row in run["pages"]:
+            if any(row.get(key) != original_pages[row["id"]].get(key)
+                   for key in ("raw_prediction", "finish_reason", "generation_tokens", "error")):
+                raise ValueError("Fresh polytonic report differs from raw predictions")
         validations.append({"path": "data/evaluation/polytonic-loss/" + name,
             "sha256": hashlib.sha256(validation_path.read_bytes()).hexdigest(),
             "runs": [{key: run[key] for key in ("metadata", "predictions_sha256", "by_split",
@@ -632,7 +661,7 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
                          "quality is uneven by work and should be read there"),
         },
     }
-    polytonic = polytonic_quality()
+    polytonic = polytonic_quality(expected_corpus_sha=corpus_sha)
     if polytonic:
         release["quality"]["polytonic_loss"] = polytonic
     if uncommitted_corpus:
