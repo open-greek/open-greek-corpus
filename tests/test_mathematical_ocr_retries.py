@@ -229,3 +229,20 @@ def test_bundle_roundtrips_through_corpus_admission_loader(bundle_fixture, tmp_p
     assert len(predictions) == 556
     assert all(w["vote_group"] == "qwen3.6-27b" for w in predictions.values())
     assert sum("preprocessing" in w for w in predictions.values()) == 5
+
+
+def test_qwen38_request_preserves_original_checkpoint_and_body_blocks(tmp_path):
+    import prepare_mathematical_qwen38_retry as retry
+    request = json.loads((ROOT / retry.OUTPUT).read_text())
+    assert request["retry_of"]["source_part_sha256"] == retry.SOURCE_PART_SHA256
+    assert request["retry_of"]["model"] == retry.MODEL
+    assert request["retry_of"]["revision"] == retry.REVISION
+    assert request["retry_of"]["sha256"] == prepare.MANIFEST_SHA256
+    assert [p["region"] for p in request["pages"]] == retry.REGIONS
+    assert {p["reconstructs"] for p in request["pages"]} == {retry.PAGE_ID}
+    assert request["review"]["original_text"]
+    assert request["review"]["source_pdf_sha256"] == request["sources"]["pappialexandrin01pappgoog"]["sha256"]
+    fake = tmp_path / "bad.json"
+    fake.write_text("{}")
+    with pytest.raises(ValueError, match="completed Qwen3.8 shard03"):
+        retry.prepare(fake, fake, tmp_path, tmp_path / "out.json")

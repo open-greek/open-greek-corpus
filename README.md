@@ -407,6 +407,9 @@ The evidence file maps all five reviewed page IDs to their completed source
 comparisons. The bundle embeds the original full run, all retry strips, the
 request, and the exact review. Its loader keeps one vote from the same pinned
 model and rejects changed, missing, failed, or unreviewed inputs.
+The later Qwen3.8 printed-page-802 case has its own three-region request,
+reproduced with `scripts/prepare_mathematical_qwen38_retry.py`; it pins the exact
+completed original shard and checkpoint separately from the Qwen3.6 cases.
 
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
