@@ -1,0 +1,8399 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/prepare_mathematical_ocr.py",
+  "review_sha256": {
+    "apollonius-conica-1-3.json": "e99686618bda0891dc56903214ace55a3653227ff16cea8fcc61b7abd17f98d3",
+    "pappus-6-7.json": "bed8225a1cfb16574688790b47111b3cc935edf14e6ca90898b3b4052ca3e570",
+    "pappus-8.json": "d2c7b34e3955ee846aaeef0a396b2552b7f16316cb20d56d43ef638e2ade917f"
+  },
+  "sources": {
+    "apolloniipergaei01apoluoft": {
+      "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
+      "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+      "license": "public-domain",
+      "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+      "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+      "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+    },
+    "pappialexandrin01hultgoog": {
+      "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
+      "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+      "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
+    },
+    "pappialexandrin01pappgoog": {
+      "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
+      "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+      "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
+    },
+    "pappialexandrin04pappgoog": {
+      "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+      "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+      "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
+    }
+  },
+  "prompt": "Transcribe only the main Greek reading text in the image, one line per printed line. Keep Greek book headings, epistolary prefaces, proposition labels and editorial brackets. Exclude running headers, page numbers, marginal line numbers, diagrams and diagram labels. Exclude ALL small critical apparatus beneath the horizontal rule, even when it is Greek. Exclude facing Latin translation and Latin words. Preserve accents, breathing marks, punctuation and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+  "sanity_pages": 12,
+  "pages": [
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0020",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 20,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 2
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0210",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 210,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 192
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0336",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 336,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 318
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0468",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 468,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 450
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0017",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 17,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 474
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0179",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 179,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 634
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0285",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 285,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 742
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0577",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 577,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1020
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0030",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 30,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1022
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0068",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 68,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1060
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0122",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 122,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1114
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0144",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 144,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1134,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0022",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 22,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 4
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0024",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 24,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 6
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0026",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 26,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 8
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0028",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 28,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 10
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0030",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 30,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 12
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0032",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 32,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 14
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0034",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 34,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 16
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0036",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 36,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 18
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0038",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 38,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 20
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0040",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 40,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 22
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0042",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 42,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 24
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0044",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 44,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 26
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0046",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 46,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 28
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0048",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 48,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 30
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0050",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 50,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 32
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0052",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 52,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 34
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0054",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 54,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 36
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0056",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 56,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 38
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0058",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 58,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 40
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0060",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 60,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 42
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0062",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 62,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 44
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0064",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 64,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 46
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0066",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 66,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 48
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0068",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 68,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 50
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0070",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 70,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 52
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0072",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 72,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 54
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0074",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 74,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 56
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0076",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 76,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 58
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0078",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 78,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 60
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0080",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 80,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 62
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0082",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 82,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 64
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0084",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 84,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 66
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0086",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 86,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 68
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0088",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 88,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 70
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0090",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 90,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 72
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0092",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 92,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 74
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0094",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 94,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 76
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0096",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 96,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 78
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0098",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 98,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 80
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0100",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 100,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 82
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0102",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 102,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 84
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0104",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 104,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 86
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0106",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 106,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 88
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0108",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 108,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 90
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0110",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 110,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 92
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0112",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 112,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 94
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0114",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 114,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 96
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0116",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 116,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 98
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0118",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 118,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 100
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0120",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 120,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 102
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0122",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 122,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 104
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0124",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 124,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 106
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0126",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 126,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 108
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0128",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 128,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 110
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0130",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 130,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 112
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0132",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 132,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 114
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0134",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 134,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 116
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0136",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 136,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 118
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0138",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 138,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 120
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0140",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 140,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 122
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0142",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 142,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 124
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0144",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 144,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 126
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0146",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 146,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 128
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0148",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 148,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 130
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0150",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 150,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 132
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0152",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 152,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 134
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0154",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 154,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 136
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0156",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 156,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 138
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0158",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 158,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 140
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0160",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 160,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 142
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0162",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 162,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 144
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0164",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 164,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 146
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0166",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 166,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 148
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0168",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 168,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 150
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0170",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 170,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 152
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0172",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 172,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 154
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0174",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 174,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 156
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0176",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 176,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 158
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0178",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 178,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 160
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0180",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 180,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 162
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0182",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 182,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 164
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0184",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 184,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 166
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0186",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 186,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 168
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0188",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 188,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 170
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0190",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 190,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 172
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0192",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 192,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 174
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0194",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 194,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 176
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0196",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 196,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 178
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0198",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 198,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 180
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0200",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 200,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 182
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0202",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 202,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 184
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0204",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 204,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 186
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0206",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 206,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 188
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0208",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 208,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "1",
+      "printed_page": 190
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0212",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 212,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 194
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0214",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 214,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 196
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0216",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 216,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 198
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0218",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 218,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 200
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0220",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 220,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 202
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0222",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 222,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 204
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0224",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 224,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 206
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0226",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 226,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 208
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0228",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 228,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 210
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0230",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 230,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 212
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0232",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 232,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 214
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0234",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 234,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 216
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0236",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 236,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 218
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0238",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 238,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 220
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0240",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 240,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 222
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0242",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 242,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 224
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0244",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 244,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 226
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0246",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 246,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 228
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0248",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 248,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 230
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0250",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 250,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 232
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0252",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 252,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 234
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0254",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 254,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 236
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0256",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 256,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 238
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0258",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 258,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 240
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0260",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 260,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 242
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0262",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 262,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 244
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0264",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 264,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 246
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0266",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 266,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 248
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0268",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 268,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 250
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0270",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 270,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 252
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0272",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 272,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 254
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0274",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 274,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 256
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0276",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 276,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 258
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0278",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 278,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 260
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0280",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 280,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 262
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0282",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 282,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 264
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0284",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 284,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 266
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0286",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 286,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 268
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0288",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 288,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 270
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0290",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 290,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 272
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0292",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 292,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 274
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0294",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 294,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 276
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0296",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 296,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 278
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0298",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 298,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 280
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0300",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 300,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 282
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0302",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 302,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 284
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0304",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 304,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 286
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0306",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 306,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 288
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0308",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 308,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 290
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0310",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 310,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 292
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0312",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 312,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 294
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0314",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 314,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 296
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0316",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 316,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 298
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0318",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 318,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 300
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0320",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 320,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 302
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0322",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 322,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 304
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0324",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 324,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 306
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0326",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 326,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 308
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0328",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 328,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 310
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0330",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 330,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 312
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0332",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 332,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 314
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0334",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 334,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "2",
+      "printed_page": 316
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0338",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 338,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 320
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0340",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 340,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 322
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0342",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 342,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 324
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0344",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 344,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 326
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0346",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 346,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 328
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0348",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 348,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 330
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0350",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 350,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 332
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0352",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 352,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 334
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0354",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 354,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 336
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0356",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 356,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 338
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0358",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 358,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 340
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0360",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 360,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 342
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0362",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 362,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 344
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0364",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 364,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 346
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0366",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 366,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 348
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0368",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 368,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 350
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0370",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 370,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 352
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0372",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 372,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 354
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0374",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 374,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 356
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0376",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 376,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 358
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0378",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 378,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 360
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0380",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 380,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 362
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0382",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 382,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 364
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0384",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 384,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 366
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0386",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 386,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 368
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0388",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 388,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 370
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0390",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 390,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 372
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0392",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 392,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 374
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0394",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 394,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 376
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0396",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 396,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 378
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0398",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 398,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 380
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0400",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 400,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 382
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0402",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 402,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 384
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0404",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 404,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 386
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0406",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 406,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 388
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0408",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 408,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 390
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0410",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 410,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 392
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0412",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 412,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 394
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0414",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 414,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 396
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0416",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 416,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 398
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0418",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 418,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 400
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0420",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 420,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 402
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0422",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 422,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 404
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0424",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 424,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 406
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0426",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 426,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 408
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0428",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 428,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 410
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0430",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 430,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 412
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0432",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 432,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 414
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0434",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 434,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 416
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0436",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 436,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 418
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0438",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 438,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 420
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0440",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 440,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 422
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0442",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 442,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 424
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0444",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 444,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 426
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0446",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 446,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 428
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0448",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 448,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 430
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0450",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 450,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 432
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0452",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 452,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 434
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0454",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 454,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 436
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0456",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 456,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 438
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0458",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 458,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 440
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0460",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 460,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 442
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0462",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 462,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 444
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0464",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 464,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 446
+    },
+    {
+      "id": "apolloniipergaei01apoluoft-pdf0466",
+      "source": "apolloniipergaei01apoluoft",
+      "scan_page": 466,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "3",
+      "printed_page": 448
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0019",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 19,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 476
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0021",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 21,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 478
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0023",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 23,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 480
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0025",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 25,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 482
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0027",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 27,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 484
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0029",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 29,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 486
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0031",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 31,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 488
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0033",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 33,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 490
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0035",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 35,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 492
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0037",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 37,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 494
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0039",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 39,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 496
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0041",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 41,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 498
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0043",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 43,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 500
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0045",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 45,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 502
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0047",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 47,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 504
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0049",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 49,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 506
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0051",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 51,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 508
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0053",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 53,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 510
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0055",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 55,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 512
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0057",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 57,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 514
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0059",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 59,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 516
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0061",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 61,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 518
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0063",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 63,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 520
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0065",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 65,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 522
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0067",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 67,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 524
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0069",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 69,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 526
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0071",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 71,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 528
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0073",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 73,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 530
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0075",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 75,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 532
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0077",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 77,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 534
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0079",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 79,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 536
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0081",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 81,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 538
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0083",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 83,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 540
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0085",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 85,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 542
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0087",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 87,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 544
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0089",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 89,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 546
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0091",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 91,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 548
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0093",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 93,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 550
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0095",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 95,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 552
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0097",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 97,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 554
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0099",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 99,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 556
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0101",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 101,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 558
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0103",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 103,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 560
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0105",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 105,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 562
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0107",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 107,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 564
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0109",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 109,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 566
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0111",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 111,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 568
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0113",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 113,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 570
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0115",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 115,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 572
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0117",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 117,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 574
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0119",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 119,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 576
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0121",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 121,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 578
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0123",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 123,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 580
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0125",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 125,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 582
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0127",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 127,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 584
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0129",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 129,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 586
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0131",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 131,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 588
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0133",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 133,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 590
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0135",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 135,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 592
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0137",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 137,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 594
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0139",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 139,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 596
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0141",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 141,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 598
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0143",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 143,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 600
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0145",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 145,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 602
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0147",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 147,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 604
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0149",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 149,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 606
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0151",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 151,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 608
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0153",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 153,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 610
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0155",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 155,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 612
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0157",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 157,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 614
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0159",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 159,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 616
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0161",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 161,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 618
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0163",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 163,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 620
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0165",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 165,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 622
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0167",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 167,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 624
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0169",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 169,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 626
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0171",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 171,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 628
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0173",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 173,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 630
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0175",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 175,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "6",
+      "printed_page": 632
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0181",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 181,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 636
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0183",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 183,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 638
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0183",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 183,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 640
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0185",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 185,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 642
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0187",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 187,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 644
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0189",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 189,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 646
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0191",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 191,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 648
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0193",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 193,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 650
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0195",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 195,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 652
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0197",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 197,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 654
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0199",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 199,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 656
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0201",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 201,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 658
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0203",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 203,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 660
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0205",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 205,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 662
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0207",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 207,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 664
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0209",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 209,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 666
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0211",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 211,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 668
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0213",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 213,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 670
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0215",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 215,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 672
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0217",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 217,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 674
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0219",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 219,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 676
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0221",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 221,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 678
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0223",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 223,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 680
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0225",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 225,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 682
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0227",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 227,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 684
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0229",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 229,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 686
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0231",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 231,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 688
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0233",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 233,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 690
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0235",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 235,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 692
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0237",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 237,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 694
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0239",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 239,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 696
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0241",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 241,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 698
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0243",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 243,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 700
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0245",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 245,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 702
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0247",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 247,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 704
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0249",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 249,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 706
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0251",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 251,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 708
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0253",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 253,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 710
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0255",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 255,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 712
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0257",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 257,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 714
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0259",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 259,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 716
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0261",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 261,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 718
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0263",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 263,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 720
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0265",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 265,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 722
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0267",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 267,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 724
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0269",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 269,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 726
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0271",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 271,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 728
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0273",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 273,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 730
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0275",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 275,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 732
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0277",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 277,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 734
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0279",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 279,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 736
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0281",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 281,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 738
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0283",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 283,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 740
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0287",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 287,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 744
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0289",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 289,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 746
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0291",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 291,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 748
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0293",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 293,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 750
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0295",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 295,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 752
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0297",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 297,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 754
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0299",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 299,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 756
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0301",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 301,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 758
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0303",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 303,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 760
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0305",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 305,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 762
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0307",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 307,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 764
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0309",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 309,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 766
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0311",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 311,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 768
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0313",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 313,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 770
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0315",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 315,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 772
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0317",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 317,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 774
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0319",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 319,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 776
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0321",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 321,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 778
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0323",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 323,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 780
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0325",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 325,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 782
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0327",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 327,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 784
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0329",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 329,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 786
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0331",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 331,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 788
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0333",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 333,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 790
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0335",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 335,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 792
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0337",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 337,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 794
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0339",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 339,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 796
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0341",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 341,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 798
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0343",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 343,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 800
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0345",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 345,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 802
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0347",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 347,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 804
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0349",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 349,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 806
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0351",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 351,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 808
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0353",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 353,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 810
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0355",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 355,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 812
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0357",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 357,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 814
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0359",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 359,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 816
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0361",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 361,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 818
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0363",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 363,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 820
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0365",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 365,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 822
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0367",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 367,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 824
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0369",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 369,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 826
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0371",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 371,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 828
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0373",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 373,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 830
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0375",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 375,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 832
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0377",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 377,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 834
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0379",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 379,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 836
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0381",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 381,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 838
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0383",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 383,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 840
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0385",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 385,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 842
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0387",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 387,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 844
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0389",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 389,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 846
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0391",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 391,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 848
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0393",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 393,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 850
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0395",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 395,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 852
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0397",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 397,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 854
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0399",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 399,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 856
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0404",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 404,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 858
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0403",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 403,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 860
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0408",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 408,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 862
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0410",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 410,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 864
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0412",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 412,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 866
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0401",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 401,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 868
+    },
+    {
+      "id": "pappialexandrin01hultgoog-pdf0416",
+      "source": "pappialexandrin01hultgoog",
+      "scan_page": 416,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 870
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0405",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 405,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 872
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0407",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 407,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 874
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0409",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 409,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 876
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0411",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 411,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 878
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0413",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 413,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 880
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0415",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 415,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 882
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0417",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 417,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 884
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0419",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 419,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 886
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0421",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 421,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 888
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0423",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 423,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 890
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0425",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 425,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 892
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0427",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 427,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 894
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0429",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 429,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 896
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0431",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 431,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 898
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0433",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 433,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 900
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0445",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 445,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 902
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0447",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 447,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 904
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0449",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 449,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 906
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0451",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 451,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 908
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0453",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 453,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 910
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0455",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 455,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 912
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0457",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 457,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 914
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0459",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 459,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 916
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0461",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 461,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 918
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0463",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 463,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 920
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0465",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 465,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 922
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0467",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 467,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 924
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0469",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 469,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 926
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0471",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 471,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 928
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0473",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 473,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 930
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0475",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 475,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 932
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0477",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 477,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 934
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0479",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 479,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 936
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0481",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 481,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 938
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0483",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 483,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 940
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0485",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 485,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 942
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0487",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 487,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 944
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0489",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 489,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 946
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0491",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 491,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 948
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0493",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 493,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 950
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0495",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 495,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 952
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0497",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 497,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 954
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0499",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 499,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 956
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0501",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 501,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 958
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0503",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 503,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 960
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0505",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 505,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 962
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0507",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 507,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 964
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0509",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 509,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 966
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0511",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 511,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 968
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0513",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 513,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 970
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0515",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 515,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 972
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0517",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 517,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 974
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0519",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 519,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 976
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0521",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 521,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 978
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0523",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 523,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 980
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0525",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 525,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 982
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0527",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 527,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 984
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0529",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 529,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 986
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0531",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 531,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 988
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0533",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 533,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 990
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0549",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 549,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 992
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0551",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 551,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 994
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0553",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 553,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 996
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0555",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 555,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 998
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0557",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 557,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1000
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0559",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 559,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1002
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0561",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 561,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1004
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0563",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 563,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1006
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0565",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 565,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1008
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0567",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 567,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1010
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0569",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 569,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1012
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0571",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 571,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1014
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0573",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 573,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1016
+    },
+    {
+      "id": "pappialexandrin01pappgoog-pdf0575",
+      "source": "pappialexandrin01pappgoog",
+      "scan_page": 575,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "7",
+      "printed_page": 1018
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0032",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 32,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1024
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0034",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 34,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1026
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0036",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 36,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1028
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0038",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 38,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1030
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0040",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 40,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1032
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0042",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 42,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1034
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0044",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 44,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1036
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0046",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 46,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1038
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0048",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 48,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1040
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0050",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 50,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1042
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0052",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 52,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1044
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0054",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 54,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1046
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0056",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 56,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1048
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0058",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 58,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1050
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0060",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 60,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1052
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0062",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 62,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1054
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0064",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 64,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1056
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0066",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 66,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1058
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0070",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 70,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1062
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0072",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 72,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1064
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0074",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 74,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1066
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0076",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 76,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1068
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0078",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 78,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1070
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0080",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 80,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1072
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0082",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 82,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1074
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0084",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 84,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1076
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0086",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 86,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1078
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0088",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 88,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1080
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0090",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 90,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1082
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0092",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 92,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1084
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0094",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 94,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1086
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0096",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 96,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1088
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0098",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 98,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1090
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0100",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 100,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1092
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0102",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 102,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1094
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0104",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 104,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1096
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0106",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 106,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1098
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0108",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 108,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1100
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0110",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 110,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1102
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0112",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 112,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1104
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0114",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 114,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1106
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0116",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 116,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1108
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0118",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 118,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1110
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0120",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 120,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1112
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0124",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 124,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1116,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0126",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 126,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1118,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0130",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 130,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1120,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0132",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 132,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1122,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0134",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 134,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1124,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0136",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 136,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1126,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0138",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 138,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1128,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0140",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 140,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1130,
+      "transmission": "excerpt-from-heron"
+    },
+    {
+      "id": "pappialexandrin04pappgoog-pdf0142",
+      "source": "pappialexandrin04pappgoog",
+      "scan_page": 142,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2200,
+      "work": "pappus-mathematics.synagoge",
+      "book": "8",
+      "printed_page": 1132,
+      "transmission": "excerpt-from-heron"
+    }
+  ],
+  "status": "OCR input; not served reading text",
+  "admission": "Retain each model's raw predictions separately. Check sanity pages against the scan before a full run. Collate independent witnesses; preserve disagreements. Validate exclusion of apparatus and figures before serving."
+}
