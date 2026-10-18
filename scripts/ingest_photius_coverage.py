@@ -15,6 +15,7 @@ import re
 
 from ocr_consensus import compact_corpus_consensus, merge_witnesses
 from bound_comparison_witness import bound_comparison_witness
+from photius_retries import apply_reviewed_retries
 from prepare_photius_coverage import build as scan_manifest, build_later_gap
 from repair_photius_index import ROOT, SLUG, CORPUS, ARCHIVE as INDEX_ARCHIVE, generate as index_split
 
@@ -45,7 +46,7 @@ def encode(value):
     return (json.dumps(value, ensure_ascii=False, indent=2) + "\n").encode()
 
 
-def load_prediction(path, manifests):
+def load_prediction(path, manifests, allowed_failed_ids=frozenset()):
     raw = path.read_bytes()
     lines = raw.decode().splitlines()
     if not lines:
@@ -69,10 +70,10 @@ def load_prediction(path, manifests):
         prompt = manifest["prompt"] + (" " + suffix if suffix else "")
         if row.get("prompt_sha256") != sha(prompt.encode()):
             raise ValueError("OCR page prompt differs from the pinned request")
-        if (row.get("error") or row.get("finish_reason") != "stop"
+        if identifier not in allowed_failed_ids and (row.get("error") or row.get("finish_reason") != "stop"
                 or not isinstance(row.get("raw_prediction"), str) or not row["raw_prediction"].strip()):
             raise ValueError("Failed, empty, or truncated Photius prediction")
-        if len(re.findall(r"[Ͱ-Ͽἀ-῿]+", row["raw_prediction"])) < 20:
+        if identifier not in allowed_failed_ids and len(re.findall(r"[Ͱ-Ͽἀ-῿]+", row["raw_prediction"])) < 20:
             raise ValueError("Photius page lacks a substantive Greek transcription")
         rows[identifier] = {**row, "artifact_sha256": sha((sha(raw) + ":" + identifier).encode()),
                             "prediction_record_sha256": sha(line.encode())}
@@ -105,11 +106,14 @@ def load_source_library(path):
     return raw, document, rows
 
 
-def generate(paths, source_library, root=ROOT):
-    manifest = scan_manifest()
-    manifests = [manifest, build_later_gap()]
+def prepare_fresh_inputs(paths, manifests, retry_paths=(), retry_review=None, *,
+                         allow_unreviewed_retry_preparation=False):
+    """Validate complete original runs and any separately reviewed retry."""
+    if bool(retry_paths) != (retry_review is not None):
+        raise ValueError("Retry predictions require a separate completed source review")
     all_pages = {page["id"]: page for request in manifests for page in request["pages"]}
-    inputs = sorted((load_prediction(path, manifests) for path in paths),
+    allowed = {"photius-bekker-0013"} if retry_review is not None or allow_unreviewed_retry_preparation else set()
+    inputs = sorted((load_prediction(path, manifests, allowed) for path in paths),
                     key=lambda item: (item[1]["model"], item[1]["revision"], item[1]["manifest_sha256"], sha(item[0])))
     models = {}
     for raw, metadata, rows in inputs:
@@ -123,6 +127,15 @@ def generate(paths, source_library, root=ROOT):
         raise ValueError("Two independently pinned model checkpoints are required")
     if any(set(rows) != set(all_pages) for rows in models.values()):
         raise ValueError("Each checkpoint must cover both missing-volume requests")
+    retry_evidence = apply_reviewed_retries(models, retry_paths, retry_review) if retry_review is not None else None
+    return inputs, models, retry_evidence
+
+
+def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=None):
+    manifest = scan_manifest()
+    manifests = [manifest, build_later_gap()]
+    all_pages = {page["id"]: page for request in manifests for page in request["pages"]}
+    inputs, models, retry_evidence = prepare_fresh_inputs(paths, manifests, retry_paths, retry_review)
     source_raw, source_document, source_rows = load_source_library(source_library)
     original = gzip.decompress((root / INDEX_ARCHIVE / "before.jsonl.gz").read_bytes())
     body, index, aliases, index_audit = index_split(original)
@@ -133,16 +146,41 @@ def generate(paths, source_library, root=ROOT):
     artifacts[ARCHIVE / "source-library-local002.json.gz"] = source_raw
     artifacts[ARCHIVE / "scan-request.json"] = encode(manifest)
     artifacts[ARCHIVE / "later-gap-request.json"] = encode(manifests[1])
+    retry_report = None
+    if retry_evidence is not None:
+        retry_manifest = ARCHIVE / "retry" / "scan-request.json"
+        retry_source_review = ARCHIVE / "retry" / "source-review.json"
+        artifacts[retry_manifest] = encode(retry_evidence["manifest"])
+        artifacts[retry_source_review] = retry_evidence["review_raw"]
+        retained_runs = []
+        for run in retry_evidence["raw_files"]:
+            path = ARCHIVE / "retry" / (run["sha256"] + ".jsonl")
+            artifacts[path] = run["raw"]
+            retained_runs.append({"path": path.as_posix(), "sha256": run["sha256"],
+                                  "model": run["metadata"]["model"], "revision": run["metadata"]["revision"]})
+        retry_report = {"manifest": {"path": retry_manifest.as_posix(), "sha256": retry_evidence["manifest_sha256"]},
+                        "source_review": {"path": retry_source_review.as_posix(), "sha256": retry_evidence["source_review_sha256"]},
+                        "raw_files": retained_runs,
+                        "original_artifacts_sha256": retry_evidence["review"]["original_artifacts_sha256"],
+                        "page_id": "photius-bekker-0013", "scan_page": 13,
+                        "policy": "Original full-page attempts remain held evidence. One source-reviewed strip assembly votes per original model family."}
     for page in sorted(all_pages.values(), key=lambda p: p["scan_page"]):
         witnesses = []
         for checkpoint, rows in sorted(models.items()):
             raw, metadata, row = rows[page["id"]]
             identity = metadata["model"] + "@" + metadata["revision"]
-            witnesses.append({"id": identity, "text": row["raw_prediction"],
+            witness = {"id": identity, "text": row["raw_prediction"],
                               "artifact_sha256": row["artifact_sha256"],
                               "vote_group": identity, "model": metadata["model"],
                               "revision": metadata["revision"], "image_sha256": row["image_sha256"],
-                              "raw_file_sha256": sha(raw), "license": "CC-BY-4.0"})
+                              "raw_file_sha256": sha(raw), "license": "CC-BY-4.0"}
+            if row.get("reviewed_retry") is not None:
+                assembly = row["reviewed_retry"]
+                witness.update(text=assembly["accepted_text"], artifact_sha256=assembly["artifact_sha256"],
+                               raw_file_sha256=assembly["raw_file_sha256"],
+                               whole_page_image_sha256=witness.pop("image_sha256"),
+                               reviewed_retry=assembly)
+            witnesses.append(witness)
         if page["scan_page"] in source_rows:
             bounded, decision = bound_comparison_witness(witnesses, source_rows[page["scan_page"]])
             comparisons[str(page["scan_page"])] = {"scan_page": page["scan_page"],
@@ -211,6 +249,7 @@ def generate(paths, source_library, root=ROOT):
               "fresh_ocr_files": [{"path": (ARCHIVE / "witnesses" / (sha(raw) + ".jsonl")).as_posix(),
                                    "sha256": sha(raw), "model": metadata["model"], "revision": metadata["revision"]}
                                   for raw, metadata, rows in inputs],
+              "reviewed_retry": retry_report,
               "full_networks": {"path": network_path.as_posix(), "sha256": sha(network_raw),
                                 "entries": len(networks), "key": "physical scan page as a decimal string"},
               "source_library": {"edition": source_document["id"], "url": SOURCE_URL,
@@ -276,6 +315,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--ocr", type=Path, action="append", default=[])
     parser.add_argument("--source-library", type=Path)
+    parser.add_argument("--retry", type=Path, action="append", default=[])
+    parser.add_argument("--retry-review", type=Path)
     action = parser.add_mutually_exclusive_group()
     action.add_argument("--apply", action="store_true")
     action.add_argument("--check", action="store_true")
@@ -286,7 +327,7 @@ if __name__ == "__main__":
     else:
         if len(args.ocr) < 2 or args.source_library is None:
             parser.error("Supply at least two --ocr files and the pinned --source-library witness")
-        artifacts, report = generate(args.ocr, args.source_library)
+        artifacts, report = generate(args.ocr, args.source_library, retry_paths=args.retry, retry_review=args.retry_review)
         if args.apply:
             apply(artifacts, report)
         if args.check:
