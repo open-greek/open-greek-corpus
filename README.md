@@ -876,6 +876,11 @@ retained original both terminated at the length limit and triggered the frozen
 mark-loss screen; accepting that assembly also requires a source mark review.
 Scan87's failed right-middle retry likewise has an exact three-part supplement;
 the other five successful strips remain in its single checkpoint assembly.
+The scan13 Qwen3.8 upper-preface attempt completed but stripped all breathings
+from919 Greek letters. Its separately pinned three-part request records that
+exact raw file, prediction record, text hash, source evidence, and frozen flag;
+it preserves the capital title's printed orthography and explicitly requests the
+lowercase letter's marks. The other four Qwen3.8 strips and Qwen3.6 stay intact.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of

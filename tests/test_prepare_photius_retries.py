@@ -82,3 +82,17 @@ def test_stop_terminated_repetitions_get_separately_pinned_checkpoint_requests()
     assert variant["pages"] == original47["pages"]
     assert original47["checkpoints"] == [prepare.CHECKPOINT38]
     assert encode(variant) == (ROOT / prepare.variant_path("0047-qwen36")).read_bytes()
+
+
+def test_page13_mark_stripping_exception_pins_the_exact_successful_attempt():
+    manifest = prepare.build_supplement(13, "upper-preface")
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+    condition = manifest["replacement_condition"]
+    assert condition["kind"] == "source-confirmed-polytonic-mark-stripping"
+    assert condition["greek_letters"] == 919 and condition["breathing_letters"] == 0
+    assert condition["finish_reason"] == "stop"
+    assert len(condition["raw_file_sha256"]) == len(condition["prediction_record_sha256"]) == 64
+    assert manifest["pages"][0]["region"][1] == .05
+    assert manifest["pages"][-1]["region"][3] == .441
+    assert all("breathing" in p["prompt_suffix"] for p in manifest["pages"])
+    assert encode(manifest) == (ROOT / prepare.supplement_path(13, "upper-preface")).read_bytes()
