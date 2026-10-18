@@ -15,6 +15,8 @@ only, no prebuilt lexicon file):
    _skeleton accent fold is only used when validating proposed fixes, not for
    attestation). A high rate means heavy OCR garble OR genuinely rare
    vocabulary (lexica, dialect glosses), so it is a triage signal, not a CER.
+   Both sides use the checked lexical projection; reader-display alternatives,
+   incomplete fragments, and restorations do not become attestations.
 
 2. Witness agreement, where data/corpus_secondary/<work>.jsonl holds a
    displaced edition of the same work: occurrence-weighted word-bigram
@@ -27,6 +29,8 @@ only, no prebuilt lexicon file):
    coverage mismatch as well as OCR damage. Secondary rows whose
    secondary_reason marks a MIS-INGEST (a different work wrongly filed under
    the slug) are excluded from the witness and recorded in meta.skips.
+   Primary bigrams stay inside contiguous eligible runs. Archived secondary
+   surfaces remain a separate source-quality diagnostic, not corpus counts.
 
 For works whose PRIMARY is a clean (non-OCR) edition and whose secondary is
 OCR, the same agreement stats are computed and summarized in the meta block:
@@ -50,6 +54,7 @@ import sys
 import unicodedata
 from collections import Counter
 from pathlib import Path
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection
 
 REPO = Path(__file__).resolve().parent.parent
 EDITIONS = REPO / "data" / "corpus_editions.json"
@@ -82,41 +87,50 @@ def greek_tokens(text: str) -> list[str]:
     return [_NFC("NFC", t) for t in _GK.findall(text)]
 
 
-def build_attestation(editions: dict) -> tuple[set[str], dict]:
-    """One pass over the non-OCR works in data/corpus -> set of attested NFC
-    forms. Matches reference_from_corpus() upstream (which excludes the
-    NOISY_SOURCES {ocr, cgpg}), but self-contained here."""
+def build_attestation(editions: dict, frequency=None) -> tuple[set[str], dict]:
+    """Eligible non-OCR rows -> attested NFC forms, using each row's source.
+
+    A dominant per-work edition label must not admit an OCR page into a clean
+    attestation base, or discard a clean page in a mostly OCR work.
+    """
     attested: set[str] = set()
     n_works = n_occ = 0
     sources = set()
+    frequency = frequency if frequency is not None else FrequencyProjection(CORPUS.parent)
     for slug in sorted(editions):
         info = editions[slug]
-        if info["source"] in OCR_SOURCES:
-            continue
         fp = CORPUS / f"{slug}.jsonl"
         if not fp.exists():
             continue
-        n_works += 1
-        sources.add(info["source"])
+        included = False
         for rec in iter_records(fp):
-            toks = greek_tokens(rec.get("text") or "")
+            source = rec.get("source", info["source"])
+            if source in OCR_SOURCES or source == "ocr-masked":
+                continue
+            included = True
+            sources.add(source)
+            toks = greek_tokens(frequency.text(rec))
             n_occ += len(toks)
             attested.update(toks)
+        n_works += included
     stats = {
         "n_works": n_works,
         "n_token_occurrences": n_occ,
         "n_unique_forms": len(attested),
         "sources": sorted(sources),
-        "excluded_sources": sorted(OCR_SOURCES),
+        "excluded_sources": sorted(OCR_SOURCES | {"ocr-masked"}),
+        "counting_basis": ANALYSIS_COUNT_BASIS,
     }
     return attested, stats
 
 
-def unattested_stats(records: list[dict], attested: set[str]) -> dict:
+def unattested_stats(records: list[dict], attested: set[str], frequency=None) -> dict:
     """Token counts and the unattested rate for one work's records."""
-    n_tokens = n_checked = n_unattested = 0
+    frequency = frequency if frequency is not None else FrequencyProjection(CORPUS.parent)
+    n_tokens = n_surface_tokens = n_checked = n_unattested = 0
     for rec in records:
-        for t in greek_tokens(rec.get("text") or ""):
+        n_surface_tokens += len(greek_tokens(rec.get("text") or ""))
+        for t in greek_tokens(frequency.text(rec)):
             n_tokens += 1
             if len(t) < MIN_SUSPECT_LEN or t.isupper():
                 continue
@@ -125,6 +139,7 @@ def unattested_stats(records: list[dict], attested: set[str]) -> dict:
                 n_unattested += 1
     return {
         "n_tokens": n_tokens,
+        "n_surface_tokens": n_surface_tokens,
         "n_tokens_checked": n_checked,
         "n_unattested": n_unattested,
         "unattested_rate": round(n_unattested / n_checked, 6) if n_checked else None,
@@ -140,13 +155,16 @@ def witness_norm(tok: str) -> str:
     return d.replace("ς", "σ")
 
 
-def work_bigrams(records: list[dict]) -> Counter:
+def work_bigrams(records: list[dict], frequency=None, *, raw_source=False) -> Counter:
     """Occurrence counts of normalized word bigrams, adjacency taken inside
     each passage record only (no false bigrams across record boundaries)."""
+    frequency = frequency if frequency is not None else FrequencyProjection(CORPUS.parent)
     grams: Counter = Counter()
     for rec in records:
-        t = [w for w in (witness_norm(x) for x in (rec.get("text") or "").split()) if w]
-        grams.update(zip(t, t[1:]))
+        segments = [rec.get("text") or ""] if raw_source else frequency.segments(rec)
+        for segment in segments:
+            t = [w for w in (witness_norm(x) for x in segment.split()) if w]
+            grams.update(zip(t, t[1:]))
     return grams
 
 
@@ -201,7 +219,8 @@ def main() -> None:
     args = ap.parse_args()
 
     editions = json.loads(EDITIONS.read_text(encoding="utf-8"))
-    attested, att_stats = build_attestation(editions)
+    frequency = FrequencyProjection(CORPUS.parent)
+    attested, att_stats = build_attestation(editions, frequency)
     print(f"attestation set: {att_stats['n_unique_forms']} forms from "
           f"{att_stats['n_works']} non-OCR works "
           f"({att_stats['n_token_occurrences']} token occurrences)", file=sys.stderr)
@@ -227,7 +246,7 @@ def main() -> None:
         if not records:
             skips.append({"slug": slug, "reason": "corpus file empty"})
             continue
-        stats = unattested_stats(records, attested)
+        stats = unattested_stats(records, attested, frequency)
 
         witness = None
         sfp = SECONDARY / f"{slug}.jsonl"
@@ -238,8 +257,8 @@ def main() -> None:
                               "reason": f"{n_dropped} mis-ingested secondary rows "
                                         f"(different work) excluded from the witness"})
             if sec_records:
-                p_grams = work_bigrams(records)
-                s_grams = work_bigrams(sec_records)
+                p_grams = work_bigrams(records, frequency)
+                s_grams = work_bigrams(sec_records, frequency, raw_source=True)
                 witness = {
                     "secondary_edition": " + ".join(sec_eds),
                     "agreement_primary_in_secondary": containment(p_grams, s_grams),
@@ -289,8 +308,8 @@ def main() -> None:
         if not pfp.exists():
             skips.append({"slug": slug, "reason": "corpus file missing"})
             continue
-        p_grams = work_bigrams(list(iter_records(pfp)))
-        s_grams = work_bigrams(sec_records)
+        p_grams = work_bigrams(list(iter_records(pfp)), frequency)
+        s_grams = work_bigrams(sec_records, frequency, raw_source=True)
         agree = containment(s_grams, p_grams)
         if agree is None:
             skips.append({"slug": slug, "reason": "no bigrams on the OCR side; not paired"})
@@ -338,6 +357,12 @@ def main() -> None:
                            "occurrence-weighted normalized word-bigram containment "
                            "ESTIMATES between unaligned editions, per "
                            "dedup_fhg_containment.py normalization",
+            "token_counting_basis": ANALYSIS_COUNT_BASIS,
+            "witness_counting_basis": "Primary bigrams use contiguous eligible runs, "
+                "never crossing an unresolved or excluded token. Opaque analysis-only "
+                "projections supply no adjacency evidence. Secondary bigrams measure "
+                "the archived source surface as a separate witness-quality diagnostic; "
+                "they are not ordinary corpus attestations.",
             "attestation": att_stats,
             "counts": {
                 "ocr_works": len(works),

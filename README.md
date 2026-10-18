@@ -338,7 +338,22 @@ token spans, and explicit lower (zero) and upper (all unresolved occurrences)
 form counts remain in the companion concordance. Those bounds preserve
 alternatives without claiming that two conflicting OCR readings are two
 independent attestations. Frequency token totals therefore differ from the
-inclusive reader-text counts in the coverage report.
+inclusive reader-text counts in the coverage report. `coverage.json.tokens`
+retains the inclusive Greek regex count; `analysis_tokens` counts the checked
+projection used by `work_token_totals.json` and the catalog's `tokens` column.
+`corpus_editions.json.n_tokens` retains its historical count of whitespace
+groups containing Greek; `n_analysis_tokens` uses the checked Greek regex
+count. The public lexicon additionally excludes numeral and elision artifacts
+and the documented shared rows from duplicate editions.
+
+Quality reports and non-final-grave measurements use eligible primary tokens
+and the same eligible attestation base. `nonfinal_graves.json.served_tokens`
+is their eligible denominator; `surface_served_tokens` retains the inclusive
+surface count. OCR quality rows expose `n_surface_tokens` beside eligible
+`n_tokens`. Bigram agreement uses contiguous eligible runs without joining
+words across an excluded reading or gap; the archived secondary source text
+remains a separate witness-quality diagnostic. Restored or uncertain papyrus
+fragments and displayed OCR alternatives do not attest ordinary forms.
 
 Merged OCR pages use `scripts/ocr_consensus.py` to retain the original witnesses,
 exact word votes, and all tied readings. Accents and case are ignored only for

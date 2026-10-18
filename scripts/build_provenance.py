@@ -166,11 +166,11 @@ def main() -> None:
     # rescope/rekey/dissolve scripts edit in place, so their counts drift from
     # the text they describe - a sample of 200 found 30 off by more than half.
     # work_token_totals.json is derived from data/corpus by
-    # build_work_lemma_counts.py, so prefer it and keep the ledger only as the
-    # fallback for a work it has not reached.
+    # build_work_lemma_counts.py, so prefer its eligible counts and fall back to
+    # the same projection in reconciled corpus_editions metadata.
     # Stale totals are worse than no totals: a file predating the CGPG carves
     # reports the whole Hesychius lexicon under the slug of its prefatory letter.
-    # Fall back to the ledger rather than publish that.
+    # Fall back to the reconciled projection rather than publish that.
     token_totals: dict[str, int] = {}
     totals_fp = DATA / "work_token_totals.json"
     corpus_mtime = max((fp.stat().st_mtime for fp in (DATA / "corpus").glob("*.jsonl")),
@@ -181,7 +181,7 @@ def main() -> None:
                         if isinstance(v, dict)}
     elif totals_fp.exists():
         print("work_token_totals.json is older than data/corpus; falling back to "
-              "the ledger counts. Run build_work_lemma_counts.py to refresh.",
+              "corpus_editions eligible counts. Run build_work_lemma_counts.py to refresh.",
               file=sys.stderr)
     prov_recs = _load_provenance()
     prov = _load("corrections_log/provenance.json") or {}
@@ -297,7 +297,9 @@ def main() -> None:
             # older campaign model.
             ed = srcs.get(m.get("edition", ""), {})
             model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
-        words = token_totals.get(urn, m.get("n_tokens", 0)) or 0
+        words = token_totals.get(urn, ce.get(urn, {}).get("n_analysis_tokens"))
+        if words is None:
+            raise SystemExit(f"No eligible token total for {urn}; rebuild corpus editions")
         rows.append((name, desc, dl, model, f"{words:,}", status))
 
     n_corr = sum(1 for r in rows if r[5] == "manual")
@@ -306,7 +308,9 @@ def main() -> None:
             f"{n_auto} auto-corrected (deterministic glyph-confusion, frequency "
             f"and collation passes; edited but not hand-reviewed), "
             f"{len(rows) - n_corr - n_auto} still raw OCR. Works are named by "
-            f"their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.\n\n")
+            f"their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. "
+            f"Words counts eligible Greek tokens in the checked frequency projection; "
+            f"inclusive surface counts are in `data/coverage.json`.\n\n")
     table = ["| Work (slug) | Content | Downloaded | OCR model | Words | Correction |",
              "|---|---|---|---|--:|---|"]
     for r in rows:

@@ -22,7 +22,8 @@ Outputs (under data/):
                          nonlexical marked forms kept out of the lexicon
   public_elision_stem_candidates.tsv
                          bare/marked form pairs needing lemma-level review
-  coverage.json          per work urn: source, license, tokens, passages
+  coverage.json          per work urn: source, license, inclusive tokens,
+                         analysis_tokens, passages
 
   python build_public_corpus.py      # run AFTER the ingesters populate data/corpus
 """
@@ -392,7 +393,7 @@ def main() -> None:
 
     lex: Counter[str] = Counter()
     lex_exclusions: Counter[tuple[str, str]] = Counter()
-    coverage: dict[str, dict] = {}      # work urn -> {source, license, tokens, passages}
+    coverage: dict[str, dict] = {}      # inclusive surface and eligible analysis counts
     for i, fp in enumerate(files):
         # An excluded work still contributes its rows that the keeper does NOT
         # carry (unique fragments of a variant edition), just not the shared
@@ -409,7 +410,8 @@ def main() -> None:
                     continue
                 rec = json.loads(line)
                 text = rec.get("text", "")
-                toks, exclusions = public_lexicon_tokenization(frequency.text(rec))
+                analysis_text = frequency.text(rec)
+                toks, exclusions = public_lexicon_tokenization(analysis_text)
                 if keeper_hashes is not None and len(text) >= 40 and _GK.search(text) \
                         and hashlib.md5(text.encode("utf-8")).digest() in keeper_hashes:
                     excluded_shared += 1          # shared with keeper: don't recount
@@ -419,12 +421,14 @@ def main() -> None:
                 key = rec.get("urn") or fp.stem
                 cov = coverage.setdefault(
                     key, {"source": rec.get("source"),
-                          "license": rec.get("license"), "tokens": 0, "passages": 0})
+                          "license": rec.get("license"), "tokens": 0,
+                          "analysis_tokens": 0, "passages": 0})
                 # coverage.json is the inclusive corpus-count metric.  The
                 # public lexicon is intentionally stricter about bare marks and
                 # detached elision stems, so its token list is not the coverage
                 # accounting unit.
                 cov["tokens"] += len(_GK.findall(text))
+                cov["analysis_tokens"] += len(_GK.findall(analysis_text))
                 cov["passages"] += 1
         if keeper and fp.stem in coverage:
             coverage[fp.stem]["lexicon_dedup"] = {

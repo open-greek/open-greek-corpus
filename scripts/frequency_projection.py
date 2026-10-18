@@ -8,7 +8,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+import re
 from pathlib import Path
+
+_GREEK = re.compile(r"[Ͱ-Ͽἀ-῿̀-ͯ]")
+ANALYSIS_COUNT_BASIS = (
+    "Greek regex runs in the checked frequency projection: shared collated "
+    "attestations count once; unresolved, damaged, restored, and incomplete "
+    "readings are excluded where explicit lexical eligibility is supplied"
+)
 
 
 def lexical_text(rec: dict) -> str:
@@ -49,3 +57,51 @@ class FrequencyProjection:
         if spans is None:
             return text
         return " ".join(text[start:end] for start, end in spans)
+
+    def segments(self, rec: dict) -> list[str]:
+        """Eligible runs whose original adjacency is known, for bigram metrics.
+
+        Joining ``analysis_text`` across excluded words would manufacture a
+        bigram. Structured projections retain those boundaries; an opaque
+        analysis-only projection supplies counts but no adjacency evidence.
+        """
+        key = rec.get("urn", "") + ":" + rec.get("locus", "")
+        text = lexical_text(rec)  # validate even when no bigram is possible
+        if key in self.rows:
+            source = rec.get("text", "")
+            runs, previous = [], None
+            for start, end in self.rows[key]:
+                if previous is not None and not _GREEK.search(source[previous:start]):
+                    runs[-1] += source[previous:end]
+                else:
+                    runs.append(source[start:end])
+                previous = end
+            return runs
+        if rec.get("ocr_consensus"):
+            runs, current = [], []
+            for slot in rec["ocr_consensus"]["slots"]:
+                if slot["lexical_eligible"]:
+                    current.append(slot["selected"])
+                elif current:
+                    runs.append(" ".join(current))
+                    current = []
+            if current:
+                runs.append(" ".join(current))
+            return runs
+        if rec.get("critical_markup"):
+            runs, current, previous = [], [], None
+            for token in rec["tokens"]:
+                gap = rec["reading_text"][previous:token["start"]] if previous is not None else ""
+                if not token["lexical_eligible"] or "…" in gap:
+                    if current:
+                        runs.append(" ".join(current))
+                        current = []
+                if token["lexical_eligible"]:
+                    current.append(token["form"])
+                previous = token["end"]
+            if current:
+                runs.append(" ".join(current))
+            return runs
+        if "analysis_text" in rec and text != rec.get("text", ""):
+            return []
+        return [text]
