@@ -430,6 +430,15 @@ gap reference; each checkpoint contributes one reading per physical region.
 The Dio loader also checks the separately approved retry generation policy,
 runner hash, original image-helper hash, and server checkpoint. Changing a
 sampling parameter cannot silently supply a replacement under this policy.
+For disjoint later requests, `--parts PARTS.json` accepts a list of
+`request_path`, `retry_path`, `review_path`, and `source_evidence` objects, with
+optional recursive `children` of the same form. Each child pins its immediate
+parent request and exact original strip artifact; its crops must partition that
+parent crop without gaps. The committed Dio authority registry makes reviewed
+residual mark loss or stopped repetition a blocking condition until those
+children are supplied. The complete original bundle is loaded once with the
+union of explicitly authorized failures, and each model still supplies one
+reading per page. All ancestor attempts and completed reviews remain archived.
 
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
