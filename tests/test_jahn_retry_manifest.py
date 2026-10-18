@@ -55,3 +55,22 @@ def test_length_retry_separates_notation_from_complete_prose_strips(tmp_path, mo
     assert all(not r["lexical_eligible"] and r["retained_as"] == "source-image"
         for r in result["nonlexical_source_regions"]["page90"])
     assert result["retry_of"]["sha256"] == hashlib.sha256(before).hexdigest()
+
+
+def test_notation_retry_keeps_every_mode_caption_and_all_three_prose_pages(tmp_path, monkeypatch):
+    monkeypatch.setattr(jahn, "ROOT", tmp_path)
+    pdf = tmp_path / "source.pdf"
+    pdf.write_bytes(b"pinned scan")
+    monkeypatch.setattr(jahn, "SOURCE_SHA256", hashlib.sha256(pdf.read_bytes()).hexdigest())
+    original = tmp_path / "data/ingest_reviews/original.json"
+    original.parent.mkdir(parents=True)
+    original.write_text(json.dumps({"sources": {"jahn1882": {"license": "PD"}}, "pages": [
+        {"id": f"page{scan}", "scan_page": scan, "printed_page": scan - 73,
+         "book": 1, "source": "jahn1882", "region": [0, 0, 1, 1]}
+        for scan in [82, 87, 91]]}))
+    result = jahn.prepare_notation_retry(pdf, original.with_name("retry.json"), original)
+    assert len(result["pages"]) == 10
+    assert len([p for p in result["pages"] if p["text_role"] == "mode-caption"]) == 6
+    assert {p["scan_page"] for p in result["pages"]} == {82, 87, 91}
+    assert len(result["nonlexical_source_regions"]["page87"]) == 6
+    assert all(not r["lexical_eligible"] for regions in result["nonlexical_source_regions"].values() for r in regions)
