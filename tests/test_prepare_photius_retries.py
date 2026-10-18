@@ -162,6 +162,7 @@ def test_page192_coverage_omission_retries_only_the_affected_checkpoint():
 
 def test_late_first_volume_length_and_apparatus_requests_keep_checkpoint_scope():
     for page, checkpoint, count in [(232, prepare.CHECKPOINT36, 6), (234, prepare.CHECKPOINT36, 6),
+                                     (233, prepare.CHECKPOINT38, 6), (242, prepare.CHECKPOINT36, 6),
                                      (239, prepare.CHECKPOINT38, 2)]:
         manifest = build_retry(page)
         assert manifest["checkpoints"] == [checkpoint]
@@ -172,3 +173,7 @@ def test_late_first_volume_length_and_apparatus_requests_keep_checkpoint_scope()
     assert supplement["replacement_condition"]["breathing_letters"] == 0
     assert len(supplement["pages"]) == 3
     assert encode(supplement) == (ROOT / prepare.supplement_path(381, "right-middle")).read_bytes()
+    for page, name in [(381, "right-middle-part01"), (397, "right-lower")]:
+        supplement = prepare.build_supplement(page, name)
+        assert supplement["replacement_condition"]["breathing_letters"] == 1
+        assert encode(supplement) == (ROOT / prepare.supplement_path(page, name)).read_bytes()

@@ -137,7 +137,7 @@ def confirmed_mark_stripping(replacement, raw, record_line, row):
     marks = detect(row["raw_prediction"])
     return (marks["applicable"] and "low-breathing-letter-rate" in marks["reasons"]
             and marks["greek_letters"] == condition.get("greek_letters")
-            and marks["breathing_letters"] == condition.get("breathing_letters") == 0)
+            and marks["breathing_letters"] == condition.get("breathing_letters"))
 
 
 def confirmed_repetition_loop(replacement, raw, record_line, row):

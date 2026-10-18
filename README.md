@@ -882,6 +882,11 @@ Scans232/234 likewise have Qwen3.6 length-failure requests, and scan239 has a
 Qwen3.8 body-only apparatus request. The completed scan381 Qwen3.8 right-middle
 retry stripped all breathings from576 Greek letters; its exact successful raw
 attempt is retained under a separately pinned three-part mark-loss supplement.
+The new source-reviewed requests also cover length failures on scan233 in
+Qwen3.8 and scan242 in Qwen3.6. Further exact-hash mark-loss requests address
+scan397's right-lower strip and scan381's first right-middle part, each retaining
+only one breathing despite many visible source marks. Their frozen flags and
+measured counts are pinned; unrelated successful readings stay protected.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of

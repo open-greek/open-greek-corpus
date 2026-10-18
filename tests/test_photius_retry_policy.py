@@ -6,7 +6,7 @@ from types import SimpleNamespace
 import pytest
 
 sys.path.insert(0, str(Path(__file__).parents[1] / "scripts"))
-from photius_retries import encode, validate_retry_metadata
+from photius_retries import encode, sha, validate_retry_metadata, confirmed_mark_stripping
 from prepare_photius_retries import CHECKPOINT38, build_supplement
 from prepare_photius_coverage import build
 from run_reviewed_scan_retry import metadata
@@ -38,3 +38,20 @@ def test_provider_retry_requires_its_exact_published_runner_policy_and_runtime()
         validate_retry_metadata(meta, build())
     with pytest.raises(ValueError, match="Unknown retry decoding"):
         validate_retry_metadata({"temperature": .7}, request)
+
+
+def test_exact_mark_exception_can_pin_partial_breathing_loss_without_relaxing_the_frozen_rule():
+    import json
+    from report_polytonic_loss import POLICY, detect
+    row = {"raw_prediction": "ὁ " + "λογος σαφης και καλος εστιν. " * 30, "finish_reason": "stop"}
+    line = json.dumps(row, ensure_ascii=False).encode()
+    raw = b'{"_meta":{}}\n' + line + b"\n"
+    measured = detect(row["raw_prediction"])
+    assert measured["flag"] and measured["breathing_letters"] == 1
+    condition = {"kind": "source-confirmed-polytonic-mark-stripping", "raw_file_sha256": sha(raw),
+        "prediction_record_sha256": sha(line), "raw_prediction_sha256": sha(row["raw_prediction"].encode()),
+        "finish_reason": "stop", "frozen_policy_sha256": sha(encode(POLICY)),
+        "greek_letters": measured["greek_letters"], "breathing_letters": 1}
+    assert confirmed_mark_stripping({"replacement_condition": condition}, raw, line, row)
+    assert not confirmed_mark_stripping({"replacement_condition": {**condition, "breathing_letters": 0}}, raw, line, row)
+    assert not confirmed_mark_stripping({"replacement_condition": condition}, raw + b" ", line, row)
