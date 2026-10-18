@@ -557,6 +557,15 @@ collation before its missing continuation can be admitted. Source credits and
 genuine losses must remain explicit. The jobs place seven regions from six
 reviewed boundary pages first for a small OCR sanity check and preserve
 independent raw witnesses.
+`prepare_dio_body_regions.py --pdf-dir SOURCE_PDFS` reproduces the subsequent
+source review of all 741 late Greek panels. It writes a separate effective
+1,500-region manifest with body boundaries above editorial notes, preserves the
+original request, and pins each geometry change to the scanned edition and
+completed review. Fifteen pages also receive an exact instruction to copy finite
+printed lacuna-dot series once. Superseded predictions remain held evidence in
+`scan_ocr_bundle`; they cannot enter the replacement body vote. A separate
+one-region request retains the full-size comparative quotations below the rule
+on Cary IX printed page 470, with their Leo/Cedrenus and Petrus Patricius credits.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
