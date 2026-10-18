@@ -914,6 +914,8 @@ Later-gap scans381/384/388/397 have six-strip Qwen3.8 requests after confirmed
 repetition loops or length termination. The second part of scan113's right-first
 supplement has its own named two-part request after another confirmed stop loop;
 it pins that immediate parent rather than changing the earlier request bytes.
+Separate six-strip requests cover scan385 in Qwen3.6 and scan396 in Qwen3.8
+after length termination with repeated text and frozen mark-loss flags.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of

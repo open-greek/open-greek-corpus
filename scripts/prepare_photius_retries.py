@@ -99,12 +99,18 @@ REVIEWS = {
     384: {"strips": column_strips(.055, .825, [.41476, .63303], [.26447, .50186]),
           "evidence": "Printed page372 continues the Himerius excerpts in codex243. Six source-checked strips preserve every large Greek line and preface heading. The left upper split precedes τὸ προοίμιον; the right lower split precedes the Cappadocian proconsul heading. Enlarged boundaries preserve descenders and breathings. The bottom at.825 lies between the body foot and smaller apparatus.",
           "failure": "The original Qwen3.8 attempt reaches its output limit. Preserve that attempt; the independent Qwen3.6 whole-page reading remains intact."},
+    385: {"strips": column_strips(.057, .815, [.31552, .58907], [.31473, .60570]), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page373 continues the Himerius excerpts, including the prefaces addressed to Julius, Plotius, and Salvius. Six enlarged strips preserve every large Greek body line and heading in left-then-right column order. Source-checked interline boundaries retain accents, breathings, and descenders. The top excludes the running header; the bottom at.815 lies between the final body lines and smaller apparatus. The original Qwen3.6's repeated function-word run is absent from the scan.",
+          "failure": "The original Qwen3.6 reaches its output limit and triggers the frozen mark-loss screen while repeating text. Retain it as evidence, require completed source and mark review of the retry, and keep the independent Qwen3.8 whole-page reading."},
     388: {"strips": column_strips(.060, .811, [.43767, .72703], [.30271, .56033]),
           "evidence": "Printed page376 continues the Himerius excerpts with a particularly faint left column. Six source-checked strips preserve every large Greek line and heading, including the preface heading below the first left split and the next excerpt below the second. Enlarged interline checks preserve accents, breathings, and descenders. The lower boundary at.811 excludes the small apparatus beneath the body.",
           "failure": "The original Qwen3.8 attempt reaches its output limit. Preserve that attempt and the independent Qwen3.6 whole-page reading."},
     397: {"strips": column_strips(.060, .839, [.32507, .58100], [.32507, .58100]),
           "evidence": "Printed page385 continues the two-column narrative. The original Qwen3.8 ends with repeated τὸν sequences absent from the scan, although it reports stop termination. Six source-checked strips retain the complete large Greek body; enlarged interline checks preserve every line, breathing, and descender in both faint columns. The bottom at.839 lies above the smaller apparatus.",
           "failure": "The stop-terminated Qwen3.8 original contains a source-confirmed repetition loop. Preserve that attempt and retain the independent Qwen3.6 whole-page reading."},
+    396: {"strips": column_strips(.057, .814, [.33413, .58980], [.31621, .58980]),
+          "evidence": "Printed page384 continues codex244 on Diodorus. Six enlarged strips retain the full large Greek body in column order. The second left split precedes the centered Ἐκ τοῦ λδ heading; enlarged interline checks preserve every accent, breathing, and descender. The bottom at.814 lies below the final body lines and above the small apparatus. The original Qwen3.8's repeated function words are absent from the source.",
+          "failure": "The original Qwen3.8 reaches its output limit and triggers the frozen mark-loss screen during a repetition loop. Preserve that attempt; completed source and mark review is required before this assembly can replace its single vote."},
 }
 
 # New checkpoint-specific requests never alter a previously queued manifest.

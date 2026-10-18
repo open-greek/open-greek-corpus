@@ -121,7 +121,7 @@ def test_source_confirmed_apparatus_leaks_use_only_the_original_model_body_colum
 
 
 def test_later_gap_retries_pin_the_later_manifest_and_only_qwen38():
-    for page in [381, 384, 388, 397]:
+    for page in [381, 384, 388, 396, 397]:
         manifest = build_retry(page)
         assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
         assert manifest["retry_of"]["path"].endswith("photius-bekker-later-gap.json")
@@ -129,6 +129,11 @@ def test_later_gap_retries_pin_the_later_manifest_and_only_qwen38():
         assert [p["reading_order"] for p in manifest["pages"]] == list(range(6))
         assert all(p["scan_page"] == page for p in manifest["pages"])
         assert encode(manifest) == (ROOT / prepare.manifest_path(page)).read_bytes()
+    manifest = build_retry(385)
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT36]
+    assert manifest["retry_of"]["path"].endswith("photius-bekker-later-gap.json")
+    assert len(manifest["pages"]) == 6
+    assert encode(manifest) == (ROOT / prepare.manifest_path(385)).read_bytes()
 
 
 def test_child_supplement_names_and_partitions_only_the_exact_looping_parent_part():
