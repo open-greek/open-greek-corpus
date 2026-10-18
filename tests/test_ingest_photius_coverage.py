@@ -11,7 +11,7 @@ import ingest_photius_coverage as ingest
 import repair_photius_index as index
 import photius_retries as retries
 from prepare_photius_coverage import build_page13_retry
-from prepare_photius_retries import build_retry, CHECKPOINT38
+from prepare_photius_retries import build_retry, build_supplement, CHECKPOINT38
 from ocr_consensus import restore_corpus_consensus
 
 
@@ -291,3 +291,90 @@ def test_retry_permission_does_not_leak_to_a_successful_other_checkpoint(tmp_pat
     with pytest.raises(ValueError, match="truncated"):
         ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
             allow_unreviewed_retry_preparation=True)
+
+
+def supplement_fixture(tmp_path):
+    paths, base_paths, reviews = multiple_retry_fixture(tmp_path)
+    base = next(path for path in base_paths if path.name == "retry-50-0.jsonl")
+    records = [json.loads(line) for line in base.read_bytes().splitlines()]
+    next(row for row in records[1:] if row["id"].endswith("left-lower")).update(
+        finish_reason="length", raw_prediction="καὶ " * 100)
+    base.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in records) + "\n")
+    request = build_supplement(50, "left-lower")
+    metadata = {**records[0]["_meta"], "manifest_sha256": ingest.sha(ingest.encode(request))}
+    rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"],
+             "region": p["region"], "image_sha256": "d" * 64,
+             "prompt_sha256": ingest.sha((request["prompt"] + " " + p["prompt_suffix"]).encode()),
+             "raw_prediction": "θεὸς λέγει λόγον σαφῆ.", "finish_reason": "stop"} for p in request["pages"]]
+    supplement = tmp_path / "supplement-50.jsonl"
+    supplement.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in [{"_meta": metadata}, *rows]) + "\n")
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              allow_unreviewed_retry_preparation=True)
+    review = next(path for path in reviews if path.name == "review-50.json")
+    review.unlink()
+    parent = build_retry(50)
+    retries.write_source_review(models, [base], review, "Synthetic completed source comparison",
+        {p["id"]: "Synthetic effective-strip source review" for p in parent["pages"]},
+        "2026-10-18T07:00:00Z", parent, [supplement],
+        {p["id"]: "Synthetic complete nonoverlapping source lines" for p in request["pages"]})
+    return paths, base_paths, reviews, supplement
+
+
+def test_failed_retry_supplement_keeps_successful_siblings_and_one_vote(tmp_path, monkeypatch):
+    paths, base_paths, reviews, supplement = supplement_fixture(tmp_path)
+    document = {"id": "test-source", "license": {"text": "CC BY-SA4.0"}, "sourceRights": "Retained rights"}
+    monkeypatch.setattr(ingest, "load_source_library", lambda p: (b"source", document, {}))
+    artifacts, report = ingest.generate(paths, tmp_path / "source", tmp_path, retry_paths=base_paths,
+                                        retry_review=reviews, supplement_paths=[supplement])
+    networks = json.loads(gzip.decompress(artifacts[Path(report["full_networks"]["path"])]))
+    witnesses = networks["50"]["ocr_consensus"]["witnesses"]
+    assert len(witnesses) == 2 and len({w["vote_group"] for w in witnesses}) == 2
+    assembled = next(w["reviewed_retry"] for w in witnesses if "reviewed_retry" in w)
+    assert len(assembled["strips"]) == 6
+    assert assembled["held_retry_strips"][0]["finish_reason"] == "length"
+    assert assembled["original_record"]["finish_reason"] == "length"
+    assert len(assembled["supplements"]) == 1
+    assert len([p for p in assembled["strips"] if "-part" not in p["id"]]) == 3
+    assert report["added_passages"] == 309 and len(networks) == 310
+    retry = next(r for r in report["reviewed_retries"] if r["scan_page"] == 50)
+    assert len(retry["supplements"]) == 1
+    retained = retry["supplements"][0]["raw_files"][0]
+    assert artifacts[Path(retained["path"])] == supplement.read_bytes()
+    ingest.apply(artifacts, report, tmp_path)
+    inputs, models, evidence = ingest.prepare_report_inputs(tmp_path, report, [ingest.scan_manifest(), ingest.build_later_gap()])
+    assert len(inputs) == 4 and len(evidence) == 3 and all(len(pages) == 310 for pages in models.values())
+    altered = json.loads(json.dumps(report))
+    altered["fresh_ocr_files"][0]["model"] = "unreviewed"
+    with pytest.raises(ValueError, match="original metadata"):
+        ingest.prepare_report_inputs(tmp_path, altered, [ingest.scan_manifest(), ingest.build_later_gap()])
+    ingest.undo(tmp_path)
+    assert (tmp_path / index.CORPUS).read_bytes() == index.generate(index.input_bytes(ROOT))[0]
+
+
+@pytest.mark.parametrize("change,message", [
+    ("missing", "Missing or reused"), ("geometry", "geometry"), ("prompt", "prompt"),
+    ("truncated", "supplement is failed"), ("successful-parent", "successful retry strip"),
+    ("source-review", "Every supplement part"),
+])
+def test_supplement_cannot_bypass_its_reviewed_failure(tmp_path, change, message):
+    paths, base_paths, reviews, supplement = supplement_fixture(tmp_path)
+    review_path = next(path for path in reviews if path.name == "review-50.json")
+    review = json.loads(review_path.read_bytes())
+    if change in {"geometry", "prompt", "truncated"}:
+        data = [json.loads(line) for line in supplement.read_bytes().splitlines()]
+        if change == "geometry": data[1]["region"] = [0, 0, 1, 1]
+        elif change == "prompt": data[1]["prompt_sha256"] = "unreviewed"
+        else: data[1]["finish_reason"] = "length"
+        supplement.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in data) + "\n")
+        review["reviewed_supplements"][0]["sha256"] = ingest.sha(supplement.read_bytes())
+    elif change == "successful-parent":
+        base = next(path for path in base_paths if path.name == "retry-50-0.jsonl")
+        data = [json.loads(line) for line in base.read_bytes().splitlines()]
+        next(row for row in data[1:] if row["id"].endswith("left-lower"))["finish_reason"] = "stop"
+        base.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in data) + "\n")
+        review["reviewed_runs"][0]["sha256"] = ingest.sha(base.read_bytes())
+    elif change == "source-review": review["reviewed_supplements"][0]["strip_reviews"][0]["reading_complete"] = False
+    review_path.write_text(json.dumps(review) + "\n")
+    with pytest.raises(ValueError, match=message):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], base_paths, reviews,
+                                   supplement_paths=[] if change == "missing" else [supplement])

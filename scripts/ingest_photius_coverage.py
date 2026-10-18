@@ -107,11 +107,13 @@ def load_source_library(path):
 
 
 def prepare_fresh_inputs(paths, manifests, retry_paths=(), retry_review=None, *,
-                         allow_unreviewed_retry_preparation=False):
+                         allow_unreviewed_retry_preparation=False, supplement_paths=()):
     """Validate complete original runs and any separately reviewed retry."""
     reviews = review_paths(retry_review)
     if bool(retry_paths) != bool(reviews):
         raise ValueError("Retry predictions require a separate completed source review")
+    if supplement_paths and not reviews:
+        raise ValueError("Retry supplements require a separate completed source review")
     all_pages = {page["id"]: page for request in manifests for page in request["pages"]}
     def load(path):
         meta = json.loads(path.read_bytes().splitlines()[0])["_meta"]
@@ -131,15 +133,73 @@ def prepare_fresh_inputs(paths, manifests, retry_paths=(), retry_review=None, *,
         raise ValueError("Two independently pinned model checkpoints are required")
     if any(set(rows) != set(all_pages) for rows in models.values()):
         raise ValueError("Each checkpoint must cover both missing-volume requests")
-    retry_evidence = apply_all_reviewed_retries(models, retry_paths, reviews) if reviews else []
+    retry_evidence = apply_all_reviewed_retries(models, retry_paths, reviews, supplement_paths) if reviews else []
     return inputs, models, retry_evidence
 
 
-def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=None):
+def prepare_report_inputs(root, report, manifests):
+    """Replay exact archived original, retry, and supplement authority from a report."""
+    def checked(pin):
+        relative = Path(pin["path"])
+        if relative.is_absolute() or ".." in relative.parts:
+            raise ValueError("Archive pins must use repository-relative paths")
+        path = root / relative
+        if sha(path.read_bytes()) != pin["sha256"]:
+            raise ValueError("Archived Photius input differs from its report pin")
+        return path
+    originals = [checked(pin) for pin in report["fresh_ocr_files"]]
+    reported = report.get("reviewed_retries")
+    if reported is None:
+        reported = [report["reviewed_retry"]] if report.get("reviewed_retry") else []
+    retry_paths, reviews, supplement_paths = [], [], []
+    for retry in reported:
+        checked(retry["manifest"])
+        reviews.append(checked(retry["source_review"]))
+        retry_paths.extend(checked(pin) for pin in retry["raw_files"])
+        for supplement in retry.get("supplements", []):
+            checked(supplement["manifest"])
+            supplement_paths.extend(checked(pin) for pin in supplement["raw_files"])
+    inputs, models, evidence = prepare_fresh_inputs(originals, manifests, retry_paths, reviews,
+                                                  supplement_paths=supplement_paths)
+    actual_originals = {sha(raw): (meta["model"], meta["revision"]) for raw, meta, _ in inputs}
+    if (len(actual_originals) != len(report["fresh_ocr_files"])
+            or actual_originals != {p["sha256"]: (p["model"], p["revision"]) for p in report["fresh_ocr_files"]}):
+        raise ValueError("Photius original metadata differs from its validated source")
+    if len(evidence) != len(reported):
+        raise ValueError("Photius report omits a canonical retry review")
+    for retry in reported:
+        matches = [item for item in evidence if item["source_review_sha256"] == retry["source_review"]["sha256"]]
+        if len(matches) != 1:
+            raise ValueError("Repeated or absent Photius review in report")
+        item = matches[0]
+        def runs(values):
+            return sorted((r["sha256"], r["model"], r["revision"]) for r in values)
+        def retained(values):
+            return sorted((r["sha256"], r["metadata"]["model"], r["metadata"]["revision"]) for r in values)
+        if (retry["manifest"]["sha256"] != item["manifest_sha256"]
+                or retry["page_id"] != item["manifest"]["retry_of"]["page_id"]
+                or retry["scan_page"] != item["manifest"]["pages"][0]["scan_page"]
+                or runs(retry["raw_files"]) != retained(item["raw_files"])
+                or sorted((p["model"], p["revision"]) for p in retry["checkpoints"]) !=
+                   sorted((r["metadata"]["model"], r["metadata"]["revision"]) for r in item["raw_files"])
+                or sorted(retry["original_artifacts_sha256"]) != sorted(item["review"]["original_artifacts_sha256"])):
+            raise ValueError("Photius retry report differs from its canonical review")
+        expected = {s["manifest_sha256"]: s for s in item["supplements"]}
+        supplied = retry.get("supplements", [])
+        if len(supplied) != len(expected) or {s["manifest"]["sha256"] for s in supplied} != set(expected):
+            raise ValueError("Photius supplement report differs from its canonical review")
+        for supplement in supplied:
+            if runs(supplement["raw_files"]) != retained(expected[supplement["manifest"]["sha256"]]["raw_files"]):
+                raise ValueError("Photius supplement raw metadata differs from its canonical review")
+    return inputs, models, evidence
+
+
+def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=None, supplement_paths=()):
     manifest = scan_manifest()
     manifests = [manifest, build_later_gap()]
     all_pages = {page["id"]: page for request in manifests for page in request["pages"]}
-    inputs, models, retry_evidence = prepare_fresh_inputs(paths, manifests, retry_paths, retry_review)
+    inputs, models, retry_evidence = prepare_fresh_inputs(paths, manifests, retry_paths, retry_review,
+                                                       supplement_paths=supplement_paths)
     source_raw, source_document, source_rows = load_source_library(source_library)
     original = gzip.decompress((root / INDEX_ARCHIVE / "before.jsonl.gz").read_bytes())
     body, index, aliases, index_audit = index_split(original)
@@ -163,9 +223,23 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
             artifacts[path] = run["raw"]
             retained_runs.append({"path": path.as_posix(), "sha256": run["sha256"],
                                   "model": run["metadata"]["model"], "revision": run["metadata"]["revision"]})
+        supplemental_reports = []
+        for supplement in evidence["supplements"]:
+            directory = retry_directory / "supplement" / supplement["manifest_sha256"]
+            request = directory / "scan-request.json"
+            artifacts[request] = encode(supplement["manifest"])
+            supplemental_runs = []
+            for run in supplement["raw_files"]:
+                path = directory / (run["sha256"] + ".jsonl")
+                artifacts[path] = run["raw"]
+                supplemental_runs.append({"path": path.as_posix(), "sha256": run["sha256"],
+                                          "model": run["metadata"]["model"], "revision": run["metadata"]["revision"]})
+            supplemental_reports.append({"manifest": {"path": request.as_posix(), "sha256": supplement["manifest_sha256"]},
+                                         "raw_files": supplemental_runs})
         retry_reports.append({"manifest": {"path": retry_manifest.as_posix(), "sha256": evidence["manifest_sha256"]},
                         "source_review": {"path": retry_source_review.as_posix(), "sha256": evidence["source_review_sha256"]},
                         "raw_files": retained_runs,
+                        "supplements": supplemental_reports,
                         "original_artifacts_sha256": evidence["review"]["original_artifacts_sha256"],
                         "page_id": evidence["manifest"]["retry_of"]["page_id"],
                         "scan_page": evidence["manifest"]["pages"][0]["scan_page"],
@@ -325,6 +399,7 @@ if __name__ == "__main__":
     parser.add_argument("--ocr", type=Path, action="append", default=[])
     parser.add_argument("--source-library", type=Path)
     parser.add_argument("--retry", type=Path, action="append", default=[])
+    parser.add_argument("--supplement", type=Path, action="append", default=[])
     parser.add_argument("--retry-review", type=Path, action="append", default=[])
     action = parser.add_mutually_exclusive_group()
     action.add_argument("--apply", action="store_true")
@@ -336,7 +411,8 @@ if __name__ == "__main__":
     else:
         if len(args.ocr) < 2 or args.source_library is None:
             parser.error("Supply at least two --ocr files and the pinned --source-library witness")
-        artifacts, report = generate(args.ocr, args.source_library, retry_paths=args.retry, retry_review=args.retry_review)
+        artifacts, report = generate(args.ocr, args.source_library, retry_paths=args.retry, retry_review=args.retry_review,
+                                    supplement_paths=args.supplement)
         if args.apply:
             apply(artifacts, report)
         if args.check:
