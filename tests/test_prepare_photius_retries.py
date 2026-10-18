@@ -108,7 +108,7 @@ def test_page113_stop_loop_exception_pins_the_exact_repeated_attempt():
 
 
 def test_source_confirmed_apparatus_leaks_use_only_the_original_model_body_columns():
-    for page in [49, 83, 119, 147, 181, 188]:
+    for page in [41, 49, 83, 119, 147, 181, 188, 207]:
         manifest = build_retry(page)
         assert manifest["checkpoints"] == [prepare.CHECKPOINT36]
         assert len(manifest["pages"]) == 2
@@ -118,3 +118,28 @@ def test_source_confirmed_apparatus_leaks_use_only_the_original_model_body_colum
         assert all(p["scan_page"] == page for p in manifest["pages"])
         assert "apparatus" in manifest["review"]["evidence"]
         assert encode(manifest) == (ROOT / prepare.manifest_path(page)).read_bytes()
+
+
+def test_later_gap_retries_pin_the_later_manifest_and_only_qwen38():
+    for page in [381, 384, 388, 397]:
+        manifest = build_retry(page)
+        assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+        assert manifest["retry_of"]["path"].endswith("photius-bekker-later-gap.json")
+        assert len(manifest["pages"]) == 6
+        assert [p["reading_order"] for p in manifest["pages"]] == list(range(6))
+        assert all(p["scan_page"] == page for p in manifest["pages"])
+        assert encode(manifest) == (ROOT / prepare.manifest_path(page)).read_bytes()
+
+
+def test_child_supplement_names_and_partitions_only_the_exact_looping_parent_part():
+    import hashlib
+    manifest = prepare.build_supplement(113, "right-first-part02")
+    parent = prepare.build_supplement(113, "right-first")
+    assert manifest["supplements"]["manifest_path"] == prepare.supplement_path(113, "right-first").as_posix()
+    assert manifest["supplements"]["manifest_sha256"] == hashlib.sha256(encode(parent)).hexdigest()
+    assert manifest["supplements"]["replaces_region"] == parent["pages"][1]["id"]
+    assert manifest["pages"][0]["region"] == [.505, .126, .97, .16042]
+    assert manifest["pages"][1]["region"] == [.505, .16042, .97, .195]
+    assert manifest["replacement_condition"]["most_repeated_phrase_occurrences"] == 8
+    assert manifest["replacement_condition"]["most_repeated_line_occurrences"] == 3
+    assert encode(manifest) == (ROOT / prepare.supplement_path(113, "right-first-part02")).read_bytes()
