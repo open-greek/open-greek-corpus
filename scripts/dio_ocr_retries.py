@@ -25,6 +25,21 @@ CHECKPOINTS = {
 KIND = "source-reviewed-dio-retry-bundle"
 DECISION = "replace-only-explicit-source-reviewed-Dio-inputs"
 MANIFEST_PATH = "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json"
+# This approval is separate from the original greedy transcription runner.
+# Preserve the complete policy object and original runner hashes in every raw
+# retry; a future decoder requires a separately reviewed policy version.
+RETRY_RUNNER_SHA256 = "70f0361c5dfcb8a2ec2e91385a4bf881afa93777c088a48a0435a52782334125"
+IMAGE_HELPER_SHA256 = "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4"
+GENERATION_POLICY = {
+    "id": "qwen-provider-instruct-retry-2026-10-18",
+    "temperature": 0.7, "top_p": 0.8, "top_k": 20, "min_p": 0.0,
+    "presence_penalty": 1.5, "repetition_penalty": 1.0, "seed": 20261018,
+    "chat_template_kwargs": {"enable_thinking": False},
+    "source_urls": ["https://huggingface.co/Qwen/Qwen3.6-27B#best-practices",
+                    "https://huggingface.co/Qwen/Qwen3.8-27B-FP8#best-practices"],
+    "scope": "Source-reviewed retry only; no automatic replacement or benchmark change.",
+    "limits": "Provider settings may alter wording or mix scripts; every accepted outcome needs source comparison. A fixed seed does not guarantee identical results across hardware or batch schedules.",
+}
 
 
 def sha(raw):
@@ -136,6 +151,14 @@ def checked_retry(retry_raw, request_raw, request, groups, scope, load_leaf):
     metadata, rows = records(retry_raw)
     if (metadata.get("model"), metadata.get("revision"), metadata.get("manifest_sha256"), metadata.get("prompt")) != (scope["model"], scope["revision"], sha(request_raw), request["prompt"]):
         raise ValueError("Dio retry model, checkpoint, prompt or request changed")
+    if (metadata.get("generation_policy") != GENERATION_POLICY or metadata.get("temperature") != GENERATION_POLICY["temperature"]
+            or metadata.get("max_tokens") != 6000 or metadata.get("backend") != "http"
+            or metadata.get("runner") != "scripts/run_reviewed_scan_retry.py"
+            or metadata.get("runner_sha256") != RETRY_RUNNER_SHA256
+            or metadata.get("image_helper_sha256") != IMAGE_HELPER_SHA256
+            or (metadata.get("runtime", {}).get("model"), metadata.get("runtime", {}).get("revision")) !=
+               (scope["model"], scope["revision"])):
+        raise ValueError("Dio retry decoding policy, original image helper or server checkpoint changed")
     selected = {p["id"]: p for jobs in groups.values() for p in jobs}
     by_id = {p["id"]: p for p in rows}
     if len(rows) != len(selected) or set(by_id) != set(selected) or any(failed(row) for row in rows):

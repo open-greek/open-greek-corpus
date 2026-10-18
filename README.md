@@ -427,6 +427,9 @@ every such input must be replaced by successful reviewed strips before the
 bundle returns any admitted readings. Other failures remain blocking. The
 bundle retains every original byte, source review, failed outcome, and finite
 gap reference; each checkpoint contributes one reading per physical region.
+The Dio loader also checks the separately approved retry generation policy,
+runner hash, original image-helper hash, and server checkpoint. Changing a
+sampling parameter cannot silently supply a replacement under this policy.
 
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the

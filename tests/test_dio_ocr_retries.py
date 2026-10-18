@@ -63,7 +63,12 @@ def fixture(request, tmp_path, monkeypatch):
                      for identifier in sorted(targets)}}}
     authority_path = put(tmp_path / "authority.json", retry.encode(authority))
     monkeypatch.setattr(retry, "AUTHORITIES", {key: authority_path})
-    retry_meta = {**metadata, "manifest_sha256": retry.sha(authority_path.read_bytes())}
+    retry_meta = {**metadata, "manifest_sha256": retry.sha(authority_path.read_bytes()),
+                  "generation_policy": json.loads(json.dumps(retry.GENERATION_POLICY)),
+                  "temperature": retry.GENERATION_POLICY["temperature"], "max_tokens": 6000, "backend": "http",
+                  "runner": "scripts/run_reviewed_scan_retry.py", "runner_sha256": retry.RETRY_RUNNER_SHA256,
+                  "image_helper_sha256": retry.IMAGE_HELPER_SHA256,
+                  "runtime": {**metadata["runtime"], "model": model, "revision": revision}}
     retry_rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"], "region": p["region"],
                    "finish_reason": "stop", "raw_prediction": "Ἐπεὶ γὰρ δέδεικται", "image_sha256": retry.sha(p["id"].encode()),
                    "prompt_sha256": retry.sha(manifest["prompt"].encode())} for p in jobs]
@@ -207,3 +212,31 @@ def test_real_corpus_dispatch_preserves_scoped_failures(fixture):
     result, retained = admission.load_predictions(out, raw, json.loads(raw))
     assert len(result) == 1500
     assert sum("preprocessing" in w for w in result.values()) == len(f["targets"])
+
+
+@pytest.mark.parametrize("field", ["presence_penalty", "seed", "top_k", "chat_template_kwargs"])
+def test_unapproved_decoder_policy_cannot_replace_reviewed_source(fixture, field):
+    f = fixture
+    values = [json.loads(line) for line in f["retry"].read_bytes().splitlines()]
+    values[0]["_meta"]["generation_policy"][field] = "unapproved"
+    f["retry"].write_bytes(jsonl(values))
+    with pytest.raises(ValueError, match="decoding policy"):
+        build(f)
+    assert f["calls"] == []
+
+
+@pytest.mark.parametrize("field", ["runner_sha256", "image_helper_sha256", "max_tokens"])
+def test_original_runner_and_image_helper_authorities_are_pinned(fixture, field):
+    f = fixture
+    values = [json.loads(line) for line in f["retry"].read_bytes().splitlines()]
+    values[0]["_meta"][field] = "changed"
+    f["retry"].write_bytes(jsonl(values))
+    with pytest.raises(ValueError, match="decoding policy"):
+        build(f)
+
+
+def test_frozen_policy_matches_separate_approved_runner():
+    runner = pytest.importorskip("run_reviewed_scan_retry")
+    assert retry.GENERATION_POLICY == runner.POLICY
+    assert retry.sha(Path(runner.__file__).read_bytes()) == retry.RETRY_RUNNER_SHA256
+    assert retry.sha(Path(runner.original.__file__).read_bytes()) == retry.IMAGE_HELPER_SHA256
