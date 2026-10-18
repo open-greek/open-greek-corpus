@@ -157,6 +157,8 @@ def prepare_report_inputs(root, report, manifests):
     retry_paths, reviews, supplement_paths = [], [], []
     for retry in reported:
         checked(retry["manifest"])
+        if retry.get("abstention_authority"):
+            checked(retry["abstention_authority"])
         reviews.append(checked(retry["source_review"]))
         retry_paths.extend(checked(pin) for pin in retry["raw_files"])
         for supplement in retry.get("supplements", []):
@@ -189,6 +191,11 @@ def prepare_report_inputs(root, report, manifests):
                    sorted((r["metadata"]["model"], r["metadata"]["revision"]) for r in item["raw_files"])
                 or sorted(retry["original_artifacts_sha256"]) != sorted(item["review"]["original_artifacts_sha256"])):
             raise ValueError("Photius retry report differs from its canonical review")
+        authority = item.get("abstention_authority")
+        pin = retry.get("abstention_authority")
+        if ((authority is None) != (pin is None) or authority is not None and
+                (pin.get("sha256") != authority["sha256"] or pin.get("original_path") != authority["path"])):
+            raise ValueError("Photius abstention report differs from its exact source authority")
         expected = {s["manifest_sha256"]: s for s in item["supplements"]}
         supplied = retry.get("supplements", [])
         if len(supplied) != len(expected) or {s["manifest"]["sha256"] for s in supplied} != set(expected):
@@ -227,7 +234,9 @@ def outcome_quality(paths, models):
             for part in assembly["strips"]:
                 request = supplemental_ids.get(part["id"], assembly["manifest_sha256"])
                 dispositions[(*checkpoint, request, part["id"])] = {
-                    **review, "admission_disposition": "accepted-source-reviewed-assembly-part"}
+                    **review, "admission_disposition": ("source-confirmed-abstention"
+                        if part["id"] in assembly.get("abstained_part_ids", []) else
+                        "accepted-source-reviewed-assembly-part")}
             for part in assembly.get("held_retry_strips", []):
                 source = next((s for s in assembly.get("held_retry_strip_sources", []) if s["id"] == part["id"]), {})
                 request = source.get("manifest_sha256", assembly["manifest_sha256"])
@@ -240,7 +249,26 @@ def outcome_quality(paths, models):
             raise ValueError("An OCR outcome lacks an explicit admission disposition")
         row.update(dispositions[key])
     report["policy"] = "Every original and retry outcome remains screened. Source-reviewed assemblies contribute once per checkpoint; held attempts never add votes. Review flags preserve uncertainty and select no reading."
+    if any(row["admission_disposition"] == "source-confirmed-abstention" for row in report["outcomes"]):
+        report["policy"] += " Exact source-confirmed unrelated leaf readings remain retained and explicitly incomplete; their reviewed spans abstain from reading and omission votes."
     return report
+
+
+def bound_reviewed_comparison(witnesses, comparison):
+    """Excluded raw text cannot establish an independent digital body anchor."""
+    bounded, decision = bound_comparison_witness(witnesses, comparison)
+    if bounded is not None:
+        from bound_comparison_witness import _spans
+        for witness in witnesses:
+            words = _spans(witness["text"])
+            anchor_words = (words[:decision["start_anchor"]["length"]]
+                            + words[-decision["end_anchor"]["length"]:])
+            excluded = witness.get("abstention_audit", {}).get("excluded_spans", [])
+            if any(span["start"] < end and span["end"] > start
+                   for _, start, end in anchor_words for span in excluded):
+                return None, {**decision, "status": "held-comparison-only", "corrected_text": None,
+                              "reason": "A source-confirmed abstention overlaps a fresh boundary anchor."}
+    return bounded, decision
 
 
 def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=None, supplement_paths=()):
@@ -295,7 +323,7 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
                 supplemental_report["source_authority"] = {"path": authority_path.as_posix(),
                     "sha256": authority["sha256"], "original_path": authority["path"]}
             supplemental_reports.append(supplemental_report)
-        retry_reports.append({"manifest": {"path": retry_manifest.as_posix(), "sha256": evidence["manifest_sha256"]},
+        retry_report = {"manifest": {"path": retry_manifest.as_posix(), "sha256": evidence["manifest_sha256"]},
                         "source_review": {"path": retry_source_review.as_posix(), "sha256": evidence["source_review_sha256"]},
                         "raw_files": retained_runs,
                         "supplements": supplemental_reports,
@@ -304,7 +332,14 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
                         "scan_page": evidence["manifest"]["pages"][0]["scan_page"],
                         "checkpoints": sorted(({"model": run["metadata"]["model"], "revision": run["metadata"]["revision"]}
                                                for run in evidence["raw_files"]), key=lambda value: (value["model"], value["revision"])),
-                        "policy": "Original full-page attempts remain held evidence. Only selected checkpoint/page pairs receive one assembled replacement vote."})
+                        "policy": "Original full-page attempts remain held evidence. Only selected checkpoint/page pairs receive one assembled replacement vote."}
+        if evidence.get("abstention_authority"):
+            authority = evidence["abstention_authority"]
+            authority_path = retry_directory / "source-abstention-authority.json"
+            artifacts[authority_path] = authority["raw"]
+            retry_report["abstention_authority"] = {"path": authority_path.as_posix(),
+                "sha256": authority["sha256"], "original_path": authority["path"]}
+        retry_reports.append(retry_report)
     for page in sorted(all_pages.values(), key=lambda p: p["scan_page"]):
         witnesses = []
         for checkpoint, rows in sorted(models.items()):
@@ -321,9 +356,12 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
                                raw_file_sha256=assembly["raw_file_sha256"],
                                whole_page_image_sha256=witness.pop("image_sha256"),
                                reviewed_retry=assembly)
+                if assembly.get("abstention_audit"):
+                    witness.update(voting_segments=assembly["voting_segments"],
+                                   abstention_audit=assembly["abstention_audit"])
             witnesses.append(witness)
         if page["scan_page"] in source_rows:
-            bounded, decision = bound_comparison_witness(witnesses, source_rows[page["scan_page"]])
+            bounded, decision = bound_reviewed_comparison(witnesses, source_rows[page["scan_page"]])
             comparisons[str(page["scan_page"])] = {"scan_page": page["scan_page"],
                 "role": page["role"],
                 "source_file_sha256": SOURCE_LIBRARY_SHA256, "date": "2026-10-18", **decision}
