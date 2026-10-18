@@ -37,6 +37,8 @@
 PY       ?= python3
 MIN_COUNT ?= 5
 DILEMMA  ?= ../dilemma
+FIRST1K_DIR ?= sources/first1k
+PERSEUS_DIR ?= sources/perseus
 
 CORPUS_EDITIONS := data/corpus_editions.json
 LEXICON         := data/public_lexicon.tsv
@@ -61,6 +63,10 @@ CROSSWALK       := data/tlg_crosswalk.json
 QUALITY_REPORT  := data/ocr_quality_report.json
 WORK_LEMMAS     := data/work_lemma_counts.tsv.gz
 CATALOG         := data/corpus_catalog.tsv
+POLYTONIC_REPORT := data/polytonic_loss_report.json
+POLYTONIC_PAGES  := data/quality/polytonic-loss-pages.jsonl.gz
+COMPLETENESS_REPORT := data/inventory/completeness-batch-report.json
+DATE_COMPARISON := data/oga_glaux_date_comparison.json
 
 # The served text itself. Several artifacts are functions of these files rather
 # than of corpus_editions.json, and taking corpus_editions.json as their stand-in
@@ -171,6 +177,28 @@ $(CROSSWALK_REPORT): $(REGISTRY) $(CORPUS_EDITIONS) data/work_index.json scripts
 #    provenance header, ocr_quality_report.json and the per-work lemma counts had
 #    each drifted from the text they describe.
 reports: $(QUALITY_REPORT) $(WORK_LEMMAS) $(CATALOG) README.md $(GRAVE_RESIDUE) $(PG003_ALT) $(DUP_LEAVES) $(DUP_PAGES) $(PG003_HEADS) $(PG003_GEOM) $(NONFINAL_GRAVES) data/nonfinal_grave_tranche_thirdparty.json $(KNOWN_LIMITATIONS) $(LATIN_IN_GREEK) $(SPACING_MARKS) $(MERGE_SAMPLE) $(MERGE_GUESSES)
+reports: $(POLYTONIC_REPORT) $(POLYTONIC_PAGES) $(COMPLETENESS_REPORT) $(DATE_COMPARISON)
+
+# These reports reuse pinned source evidence. Fresh model inference remains an
+# explicit evaluation run; changing the corpus never re-runs that experiment.
+$(POLYTONIC_REPORT): $(CORPUS_FILES) scripts/report_polytonic_loss.py \
+                    scripts/benchmark_page_ocr.py data/evaluation/polytonic-loss/policy.json
+	$(PY) scripts/report_polytonic_loss.py corpus
+$(POLYTONIC_PAGES): $(POLYTONIC_REPORT)
+	@test -f $@ || $(PY) scripts/report_polytonic_loss.py corpus
+
+$(COMPLETENESS_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) CITATION.cff \
+    data/inventory/completeness-batch.json scripts/audit_completeness_batch.py \
+    scripts/coverage_resolution.py scripts/scan_coverage_extensions.py \
+    scripts/ingest_scan_coverage.py scripts/ingest_photius_coverage.py \
+    scripts/repair_john_coverage.py $(REVIEWED_MANIFESTATIONS) \
+    $(wildcard data/corpus_changes/*/changes.json data/corpus_changes/*/coverage.json \
+               data/ingest_reviews/coverage/*.json data/ocr_requests/photius-*.json)
+	$(PY) scripts/audit_completeness_batch.py --first1k-dir $(FIRST1K_DIR) --perseus-dir $(PERSEUS_DIR)
+
+$(DATE_COMPARISON): $(REGISTRY) $(CROSSWALK) data/oga_dating.json \
+    scripts/compare_oga_glaux_dates.py $(wildcard data/reference/bilby-oga-glaux-2024/*)
+	$(PY) scripts/compare_oga_glaux_dates.py
 
 $(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_report.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_ocr_quality_report.py
@@ -251,7 +279,7 @@ data/nonfinal_grave_tranche_thirdparty.json: $(CORPUS_FILES) \
 
 $(KNOWN_LIMITATIONS): $(NONFINAL_GRAVES) $(CATALOG) \
                 data/correction_stamp_gap.json scripts/build_known_limitations.py \
-                scripts/build_corpus_release.py
+                scripts/build_corpus_release.py $(COMPLETENESS_REPORT) scripts/coverage_resolution.py
 	$(PY) scripts/build_known_limitations.py --write
 
 # Quoted on issue #34, so it rebuilds whenever the text it counts changes.
@@ -338,6 +366,7 @@ check:
 	$(PY) scripts/check_capital_positions_fresh.py
 	$(PY) scripts/check_corrections_mirror_fresh.py
 	$(PY) scripts/build_known_limitations.py --check
+	$(PY) scripts/compare_oga_glaux_dates.py --check
 
 clean:
 	rm -f $(LEXICON) data/coverage.json $(LEMMA_FREQ) $(OVERRIDES) \

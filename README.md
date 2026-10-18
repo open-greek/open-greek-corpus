@@ -661,6 +661,12 @@ prediction archives and all 60 distinct page identities, and includes false
 positives, missed cases, and operating limits. It also records that no automatic
 witness-selection rule is active.
 
+`make reports` refreshes the corpus polytonic report, the date comparison, and
+the five-work completeness review when their inputs change. For the latter,
+set `FIRST1K_DIR` and `PERSEUS_DIR` if the pinned source checkouts are outside
+`sources/first1k` and `sources/perseus`. This rebuild reuses the frozen validation
+evidence; it does not run model inference.
+
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
 work identities. Source Library entries remain discovery candidates until
