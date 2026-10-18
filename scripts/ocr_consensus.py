@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from collections import Counter, defaultdict
 import difflib
+from functools import lru_cache
 import hashlib
 import re
 import unicodedata
@@ -31,27 +32,32 @@ def alignment_key(text):
         if not unicodedata.combining(c)).replace("ς", "σ").rstrip("'’ʼ᾽")
 
 
-def word_cost(slot, word):
-    key = alignment_key(word)
-    keys = [alignment_key(k) for k in slot]
+@lru_cache(maxsize=200000)
+def _word_cost(keys, key):
     if key in keys:
         return 0
-    similarity = max((difflib.SequenceMatcher(None, key, k, autojunk=False).ratio()
-        for k in keys), default=0)
-    return .45 if similarity >= .6 else 1.1
+    for other in keys:
+        if min(len(key), len(other)) / max(1, len(key), len(other)) < .43:
+            continue
+        matcher = difflib.SequenceMatcher(None, key, other, autojunk=False)
+        if matcher.quick_ratio() >= .6 and matcher.ratio() >= .6:
+            return .45
+    return 1.1
 
 
-def align(slots, words):
-    """Minimum-cost word/profile alignment; return profile and input indexes."""
+def _align_dp(slots, words):
+    """Minimum-cost alignment inside one interval between shared anchors."""
     n, m = len(slots), len(words)
+    slot_keys = [tuple(sorted({alignment_key(k) for k in slot})) for slot in slots]
+    word_keys = [alignment_key(k) for k, surface in words]
     previous = list(range(m + 1))
     directions = [bytearray([2] * (m + 1))]
-    for i, slot in enumerate(slots, 1):
+    for i, keys in enumerate(slot_keys, 1):
         row = [float(i)] + [0.] * m
         direction = bytearray(m + 1)
         direction[0] = 1
-        for j, (word, surface) in enumerate(words, 1):
-            choices = (previous[j - 1] + word_cost(slot, word), previous[j] + 1, row[j - 1] + 1)
+        for j, key in enumerate(word_keys, 1):
+            choices = (previous[j - 1] + _word_cost(keys, key), previous[j] + 1, row[j - 1] + 1)
             step = min(range(3), key=choices.__getitem__)
             row[j], direction[j] = choices[step], step
         previous = row
@@ -71,6 +77,31 @@ def align(slots, words):
             j -= 1
             operations.append((None, j))
     return list(reversed(operations))
+
+
+def align(slots, words):
+    """Align exact shared runs first, then vote all readings between them.
+
+    The anchors are positional scaffolding, never a selected reading. A page
+    with 1,500 words ordinarily becomes many small intervals rather than a
+    quadratic profile comparison. Accent/case differences remain exact-vote
+    alternatives after either alignment path.
+    """
+    if len(slots) * len(words) < 4096:
+        return _align_dp(slots, words)
+    profile = [alignment_key(max(slot, key=lambda key: (len(slot[key]), key))) for slot in slots]
+    incoming = [alignment_key(key) for key, surface in words]
+    anchors = [block for block in difflib.SequenceMatcher(None, profile, incoming,
+        autojunk=False).get_matching_blocks() if block.size >= 4]
+    if not anchors:
+        return _align_dp(slots, words)
+    operations, left, right = [], 0, 0
+    for anchor in [*anchors, difflib.Match(len(slots), len(words), 0)]:
+        for i, j in _align_dp(slots[left:anchor.a], words[right:anchor.b]):
+            operations.append((None if i is None else i + left, None if j is None else j + right))
+        operations.extend((anchor.a + offset, anchor.b + offset) for offset in range(anchor.size))
+        left, right = anchor.a + anchor.size, anchor.b + anchor.size
+    return operations
 
 
 def merge_witnesses(witnesses):
