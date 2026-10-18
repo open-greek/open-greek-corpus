@@ -547,6 +547,9 @@ def polytonic_quality(data=None, expected_corpus_sha=None):
         if len(run["pages"]) != 60 or run["by_split"]["calibration"]["pages"] != 20 or run["by_split"]["test"]["pages"] != 40:
             raise ValueError("Fresh validation must preserve all 60 fixed page outcomes")
         raw_path = evaluation / "raw" / (name.split("-", 1)[0] + ".jsonl")
+        expected_raw_path = "data/evaluation/polytonic-loss/raw/" + raw_path.name
+        if run.get("predictions_path", expected_raw_path) != expected_raw_path:
+            raise ValueError("Fresh polytonic prediction archive identity changed")
         if hashlib.sha256(raw_path.read_bytes()).hexdigest() != run["predictions_sha256"]:
             raise ValueError("Fresh polytonic raw predictions changed")
         raw = [json.loads(line) for line in raw_path.read_text().splitlines() if line.strip()]
@@ -561,7 +564,9 @@ def polytonic_quality(data=None, expected_corpus_sha=None):
         validations.append({"path": "data/evaluation/polytonic-loss/" + name,
             "sha256": hashlib.sha256(validation_path.read_bytes()).hexdigest(),
             "runs": [{key: run[key] for key in ("metadata", "predictions_sha256", "by_split",
-                        "false_positives", "missed_cases", "unassessable_pages")} for run in value["runs"]]})
+                        "false_positives", "missed_cases", "unassessable_pages",
+                        "predictions_path", "measurement_limits") if key in run}
+                     for run in value["runs"]]})
     return {"report": "data/polytonic_loss_report.json", "report_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
         "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
         "page_readings_sha256": report["page_readings_sha256"], "counts": report["counts"],

@@ -47,6 +47,8 @@ def fixture(data):
         raw = validation / "raw" / (name + ".jsonl")
         raw.write_text("".join(json.dumps(row) + "\n" for row in [{"_meta": metadata}, *rows]))
         run = {"metadata": metadata, "predictions_sha256": digest(raw),
+               "predictions_path": "data/evaluation/polytonic-loss/raw/" + name + ".jsonl",
+               "measurement_limits": ["No assessable positive case in this run"],
                "by_split": {"calibration": {"pages": 20}, "test": {"pages": 40}},
                "false_positives": [], "missed_cases": [], "unassessable_pages": [], "pages": rows}
         (validation / (name + "-validation.json")).write_text(json.dumps({
@@ -60,6 +62,7 @@ def test_release_pins_review_evidence_and_both_fixed_fresh_runs(tmp_path):
     assert result["fresh_validation_status"] == "complete"
     assert result["selection_rule"] is None
     assert len(result["fresh_validation"]) == 2
+    assert result["fresh_validation"][0]["runs"][0]["measurement_limits"] == ["No assessable positive case in this run"]
     (validation / "qwen38-validation.json").unlink()
     assert polytonic_quality(tmp_path)["fresh_validation_status"] == "pending"
 
