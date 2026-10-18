@@ -110,8 +110,11 @@ scripts/
   lemmatize_forms.py        forms list -> form/lemma TSV (self-contained, for a
                             GPU box; resumable)
   rebuild_matrix_remote.sh  the whole incremental rebuild with the lemmatization
-                            phase on CORSAIRONE (run from the Mac; SHARDS=N for
-                            parallel GPU workers)
+                            phase on fragbox (run from the Mac; SHARDS=N for
+                            parallel GPU workers). Requires a clean, committed
+                            checkout; pushes and verifies the same commit after
+                            a remote pull. MATRIX_HOST/MATRIX_REMOTE_REPO/
+                            MATRIX_PYTHON select another prepared environment.
   build_provenance.py       OCR works -> the provenance table in this README
   build_ocr_quality_report.py  every OCR-source work -> data/ocr_quality_report.json:
                             unattested-token rate (the ocr_llm_correct.py suspect
