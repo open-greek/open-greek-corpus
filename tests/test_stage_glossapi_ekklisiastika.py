@@ -1,5 +1,7 @@
 import json
+import hashlib
 from pathlib import Path
+import pytest
 
 from scripts.stage_glossapi_ekklisiastika import (
     _paragraphs,
@@ -32,6 +34,32 @@ def _corpus(tmp_path):
         json.dumps(record, ensure_ascii=False) + "\n", encoding="utf-8"
     )
     return corpus
+
+
+@pytest.mark.parametrize("exists", [False, True])
+def test_existing_corpus_comparison_rejects_missing_or_empty_directory(tmp_path, exists):
+    corpus = tmp_path / "corpus"
+    if exists:
+        corpus.mkdir()
+    with pytest.raises(ValueError, match="requires a nonempty corpus directory"):
+        build_report(_rows(), _load_source(), corpus)
+
+
+def test_existing_corpus_snapshot_pins_the_bytes_actually_compared(tmp_path):
+    corpus = _corpus(tmp_path)
+    path = corpus / "psalmi.jsonl"
+    first = build_report(_rows(), _load_source(), corpus)["statistics"]["existing_corpus_scan"]
+    assert first["completed"] is True
+    assert first["file_sha256"] == {path.name: hashlib.sha256(path.read_bytes()).hexdigest()}
+    path.write_bytes(path.read_bytes() + b"\n")
+    second = build_report(_rows(), _load_source(), corpus)["statistics"]["existing_corpus_scan"]
+    assert second["snapshot_sha256"] != first["snapshot_sha256"]
+
+
+def test_skipped_comparison_is_explicitly_incomplete():
+    scan = build_report(_rows(), _load_source(), None)["statistics"]["existing_corpus_scan"]
+    assert scan["completed"] is False
+    assert scan["snapshot_sha256"] is None
 
 
 def test_stage_preserves_provenance_and_repairs_only_known_join_boundaries(tmp_path):
