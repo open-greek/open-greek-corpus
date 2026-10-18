@@ -36,6 +36,14 @@ a gap and gets sourced from a public-domain edition instead
 
 ## Source precedence
 
+GlossAPI historical datasets are staged separately under the admission rules
+in [docs/glossapi-source-decisions.md](docs/glossapi-source-decisions.md).
+`python3 scripts/stage_glossapi_ekklisiastika.py` verifies the pinned source,
+audits structural cleanup and duplicate witnesses, and records hashes of every
+corpus file compared. The source remains blocked pending underlying-text
+rights and work identity; the command admits no corpus text or frequencies.
+See [the intake workflow](docs/glossapi-ekklisiastika-intake.md) for details.
+
 When more than one open route covers a work, the served text is chosen by this
 ladder (best first):
 
