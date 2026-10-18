@@ -32,7 +32,10 @@ would drift the first time a locus convention changed.
 Source, edition, and license are the dominant served component's metadata.
 Composite manifestations expose every component's credits and licenses in
 source_registry.json and work_index.json coverage_composition; a dominant
-license column does not replace that complete composition.
+license column does not replace that complete composition. Mixed OCR/digital
+works use mixed-unassessed correction status; a component correction stamp
+does not establish whole-work review. Exact component token totals are in
+source_component_tokens.json.
 
 Output: data/corpus_catalog.tsv, deterministic (sorted by slug, fixed column
 order, no wall clock anywhere), so a rebuild that changes nothing is a no-op and
@@ -50,6 +53,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from build_source_components import MIXED_STATUS, load_verified, validate_catalog
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -221,7 +225,7 @@ def scan_work(fp: Path) -> tuple[str, set[str], float]:
 
 
 def correction_status(slug: str, source: str, tags: set[str], coverage: float,
-                      manual_log: set[str], auto_log: set[str]) -> str:
+                      manual_log: set[str], auto_log: set[str], *, mixed: bool = False) -> str:
     """manual / auto-corrected / raw-ocr / not-ocr, per build_provenance.py.
 
     The row stamps are authoritative: every edit method stamps the row it
@@ -258,7 +262,9 @@ def correction_status(slug: str, source: str, tags: set[str], coverage: float,
     and edit volume does not measure that, and where a per-treatise split that
     re-keyed the rows its stamps sat on is the known case.
     """
-    is_ocr = source in OCR_SOURCES
+    if mixed:
+        return MIXED_STATUS
+    is_ocr = source in OCR_SOURCES or source == "ocr-masked"
     if tags & MANUAL_TAGS or (is_ocr and slug in manual_log):
         return "manual"
     if tags and coverage >= MIN_AUTO_COVERAGE:
@@ -267,6 +273,8 @@ def correction_status(slug: str, source: str, tags: set[str], coverage: float,
 
 
 def build_rows() -> tuple[list[list[str]], dict]:
+    component_report = load_verified(DATA)
+    components = component_report["works"]
     index = load("work_index.json")["works"]
     editions = load("corpus_editions.json")
     totals = load("work_token_totals.json")
@@ -321,7 +329,7 @@ def build_rows() -> tuple[list[list[str]], dict]:
             cell(tot.get("tokens")),
             cell(tot.get("tokens_lemmatized")),
             correction_status(slug, source, tags, coverage, manual_log,
-                              auto_log),
+                              auto_log, mixed=components[slug]["mixed_ocr_digital"]),
             # Fixed 6 decimals, matching the report's own rounding: a bare repr
             # would print 0.07064 and 0.2725320000000001 in the same column.
             "" if rate is None else f"{rate:.6f}",
@@ -335,6 +343,7 @@ def build_rows() -> tuple[list[list[str]], dict]:
         for col, value in zip(COLUMNS, row):
             if value != "":
                 filled[col] += 1
+    validate_catalog(component_report, [dict(zip(COLUMNS, row)) for row in rows])
     stats = {"rows": len(rows), "filled": filled,
              "token_totals_aliases": aliases}
     return rows, stats
