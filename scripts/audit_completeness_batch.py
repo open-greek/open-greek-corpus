@@ -7,6 +7,7 @@ import json
 from pathlib import Path
 import re
 import xml.etree.ElementTree as ET
+from coverage_resolution import resolution
 
 ROOT = Path(__file__).resolve().parents[1]
 NS = {"t": "http://www.tei-c.org/ns/1.0"}
@@ -24,7 +25,10 @@ def audit(config, corpus, roots):
         slug = case["slug"]
         path = corpus / "data/corpus" / (slug + ".jsonl")
         rows = [json.loads(line) for line in path.read_text().splitlines() if line.strip()]
-        evidence = {**case, "corpus_file_sha256": sha(path), "edition": editions[slug],
+        current = resolution(corpus, slug)
+        evidence = {**case, "historical_status": case["status"],
+                    "status": current["status"], "resolution": current,
+                    "corpus_file_sha256": sha(path), "edition": editions[slug],
                     "passages": len(rows), "opening": rows[:3], "ending": rows[-3:],
                     "locus_prefixes": dict(Counter(r["locus"].split(".")[0] for r in rows)),
                     "book_headings": [{"locus": r["locus"], "text": r["text"]} for r in rows
