@@ -23,6 +23,7 @@ def isolate_source_geometry_authority(monkeypatch):
     # Synthetic historical retries are independent of subsequently reviewed
     # production crop boundaries and exact production raw-record pins.
     monkeypatch.setattr(retries, "known_gutter_manifests", lambda: {})
+    monkeypatch.setattr(retries, "known_geometry_supplement_manifests", lambda: {})
 
 
 def prediction(tmp_path, manifest, model, *, missing=False, truncated=False):

@@ -38,6 +38,18 @@ def known_gutter_manifests():
     return known()
 
 
+
+def known_geometry_supplement_manifests():
+    try:
+        import prepare_photius_geometry as geometry
+    except ModuleNotFoundError as error:
+        if error.name != "prepare_photius_geometry":
+            raise
+        return {}
+    known = getattr(geometry, "known_geometry_supplement_manifests", None)
+    return {} if known is None else known()
+
+
 def source_authority():
     try:
         from prepare_photius_geometry import source_authority as authority
@@ -52,7 +64,8 @@ def known_supplement_manifests():
     values = {sha(encode(build_supplement(page, name))):
               (supplement_path(page, name).as_posix(), build_supplement(page, name))
               for page, name in sorted(SUPPLEMENT_REVIEWS)}
-    for digest, authority in known_gutter_manifests().items():
+    geometry = [*known_gutter_manifests().items(), *known_geometry_supplement_manifests().items()]
+    for digest, authority in geometry:
         if digest != sha(encode(authority[1])) or (digest in values and values[digest] != authority):
             raise ValueError("Ambiguous source-reviewed geometry authority")
         values[digest] = authority
@@ -256,6 +269,18 @@ def confirmed_repetition_loop(replacement, raw, record_line, row):
                  or measured["most_repeated_line"]["occurrences"] >= REPETITION_POLICY["minimum_identical_line_occurrences"]))
 
 
+
+def confirmed_length_termination(replacement, raw, record_line, row):
+    """Only a known request's exact retained length failure admits this remedy."""
+    condition = replacement.get("replacement_condition", {})
+    return (condition.get("kind") == "source-confirmed-length-termination"
+            and condition.get("finish_reason") == "length" and row.get("finish_reason") == "length"
+            and condition.get("raw_file_sha256") == sha(raw)
+            and condition.get("prediction_record_sha256") == sha(record_line)
+            and isinstance(row.get("raw_prediction"), str)
+            and condition.get("raw_prediction_sha256") == sha(row["raw_prediction"].encode()))
+
+
 def load_supplements(paths, review, manifest, originals):
     decisions = review.get("reviewed_supplements", [])
     wanted = {run["sha256"]: run for run in decisions}
@@ -362,7 +387,8 @@ def require_geometry_repairs(supplements, manifest, originals):
     """Known source-clipped leaves cannot remain eligible by omitting their remedy."""
     base_sha = sha(encode(manifest))
     authorities = {base_sha: (known_retry_manifests()[base_sha][0], manifest), **known_supplement_manifests()}
-    for digest, (_, request) in known_gutter_manifests().items():
+    geometry = [*known_gutter_manifests().items(), *known_geometry_supplement_manifests().items()]
+    for digest, (_, request) in geometry:
         current, visited = request, set()
         while current.get("supplements", {}).get("manifest_sha256") != base_sha:
             parent_sha = current.get("supplements", {}).get("manifest_sha256")
@@ -452,6 +478,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
                 if replacement.get("replacement_condition"):
                     if not (confirmed_mark_stripping(replacement, source_raw, source_line, row)
                             or confirmed_repetition_loop(replacement, source_raw, source_line, row)
+                            or confirmed_length_termination(replacement, source_raw, source_line, row)
                             or confirmed_geometry(replacement, source_raw, source_line, row, job, request)):
                         raise ValueError("A source-confirmed retry exception differs from its exact retained attempt")
                 elif successful(row):
