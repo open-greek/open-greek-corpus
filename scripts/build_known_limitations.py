@@ -23,6 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_corpus_release import MEASURED
+from coverage_resolution import resolution
 
 
 REPO = Path(__file__).resolve().parent.parent
@@ -37,6 +38,23 @@ OCR_SOURCES = {"ocr", "cgpg", "greek_library"}
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def coverage_findings(cases):
+    """Keep unresolved coverage work distinct from verified transmission limits."""
+    active, resolved = [], []
+    for case in cases:
+        current = case["resolution"]
+        finding = {"slug": case["slug"], "id": case["edition"]["id"],
+            "status": current["status"], "issue": case["issue"],
+            "historical_status": case["historical_status"], "evidence": case["evidence"],
+            "resolution": current, "corpus_file_sha256": case["corpus_file_sha256"]}
+        if current["complete"]:
+            resolved.append(finding)
+        else:
+            finding["finding"] = case["status"]
+            active.append(finding)
+    return active, resolved
 
 
 def build() -> dict:
@@ -70,8 +88,11 @@ def build() -> dict:
     for case in completeness["cases"]:
         if catalog_by_slug.get(case["slug"], {}).get("sha256") != case["corpus_file_sha256"]:
             failures.append(f"completeness review is stale: {case['slug']}")
+        if case.get("resolution") != resolution(REPO, case["slug"]):
+            failures.append(f"completeness resolution is stale: {case['slug']}")
     if failures:
         raise SystemExit("; ".join(failures))
+    active_coverage, resolved_coverage = coverage_findings(completeness["cases"])
 
     estimate_at_sample = MEASURED["wrong_rows_estimate"]
     reverted = MEASURED["reverted_since_measurement"]["records"]
@@ -84,7 +105,8 @@ def build() -> dict:
             "Known quality limitations of the served corpus whose safe automatic "
             "repair classes are exhausted. Closing the linked work item accepts "
             "the measured limitation; it does not assert that the count is zero."
-            " Active coverage findings are recorded separately and remain open work."
+            " Active coverage findings remain open work. Resolved coverage findings "
+            "retain their transmission qualifications and tagged-release close criterion."
         ),
         "decision_date": "2026-09-15",
         "generated_from": {
@@ -106,13 +128,8 @@ def build() -> dict:
                 "sha256": sha256(COMPLETENESS),
             },
         },
-        "active_coverage_findings": [
-            {"slug": case["slug"], "id": case["edition"]["id"],
-             "status": "open-coverage-work", "finding": case["status"],
-             "issue": case["issue"], "evidence": case["evidence"],
-             "corpus_file_sha256": case["corpus_file_sha256"]}
-            for case in completeness["cases"]
-        ],
+        "active_coverage_findings": active_coverage,
+        "resolved_coverage_findings": resolved_coverage,
         "limitations": [
             {
                 "key": "applied-correction-error",

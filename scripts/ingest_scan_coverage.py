@@ -232,11 +232,13 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
             raise ValueError("Refusing to replace an existing comparison dataset")
         outputs[paratext_path] = ("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in paratext)).encode()
     archive.mkdir(parents=True)
-    (archive / "before.json.gz").write_bytes(gzip.compress(encoded(before), mtime=0))
+    before_bytes = gzip.compress(encoded(before), mtime=0)
+    (archive / "before.json.gz").write_bytes(before_bytes)
     (archive / "manifest.json").write_bytes(manifest_bytes)
     for index, raw in enumerate(raw_inputs, 1):
         (archive / f"witness-{index}.jsonl.gz").write_bytes(gzip.compress(raw, mtime=0))
-    (archive / "word-networks.json.gz").write_bytes(gzip.compress(encoded(networks), mtime=0))
+    network_bytes = gzip.compress(encoded(networks), mtime=0)
+    (archive / "word-networks.json.gz").write_bytes(network_bytes)
     for path, raw in outputs.items():
         target = root / path
         target.parent.mkdir(parents=True, exist_ok=True)
@@ -244,6 +246,8 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     (archive / "changes.json").write_bytes(encoded({"schema_version": 1,
         "recorded_at": datetime.now(timezone.utc).isoformat(), "generator": "scripts/ingest_scan_coverage.py",
         "manifest_sha256": sha(manifest_bytes), "witness_sha256": [sha(raw) for raw in raw_inputs],
+        "word_networks_sha256": sha(network_bytes),
+        "before_archive_sha256": sha(before_bytes),
         "consensus_generator_sha256": sha(Path(__import__("ocr_consensus").__file__).read_bytes()),
         "changes": audits, "outputs": {path: sha(raw) for path, raw in outputs.items()},
         "reversal": "Use --undo with this audit directory. Every previous file byte and original OCR prediction is archived; the word networks retain all tied alternatives."}))
@@ -263,6 +267,7 @@ def undo(directory, root):
 
 
 def verify(directory, root):
+    verify_integrity(directory, root)
     audit = json.loads((directory / "changes.json").read_text())
     raw_manifest = (directory / "manifest.json").read_bytes()
     if sha(raw_manifest) != audit["manifest_sha256"]:
@@ -288,6 +293,73 @@ def verify(directory, root):
             raise ValueError("An admitted scan reading is missing or changed")
     if paratext and records((root / f"data/paratext/{directory.name}.jsonl").read_bytes()) != paratext:
         raise ValueError("Comparative source panels differ from their OCR evidence")
+
+
+def verify_integrity(directory, root):
+    """Check complete coverage and immutable evidence without repeating voting.
+
+    Use verify/--check once after admission to recompute all word networks. This
+    check is suitable for repeatedly building release metadata and limitations.
+    """
+    directory, root = Path(directory), Path(root)
+    audit = json.loads((directory / "changes.json").read_text())
+    manifest_bytes = (directory / "manifest.json").read_bytes()
+    if sha(manifest_bytes) != audit["manifest_sha256"]:
+        raise ValueError("Archived scan selection changed")
+    if sha((directory / "word-networks.json.gz").read_bytes()) != audit["word_networks_sha256"]:
+        raise ValueError("Archived word network changed")
+    before_bytes = (directory / "before.json.gz").read_bytes()
+    if sha(before_bytes) != audit["before_archive_sha256"]:
+        raise ValueError("Archived original corpus bytes changed")
+    before = json.loads(gzip.decompress(before_bytes))
+    manifest = json.loads(manifest_bytes)
+    pages = {page["id"]: page for page in manifest["pages"]}
+    groups, images = set(), {}
+    for index, expected in enumerate(audit["witness_sha256"], 1):
+        raw = gzip.decompress((directory / f"witness-{index}.jsonl.gz").read_bytes())
+        if sha(raw) != expected:
+            raise ValueError("Archived raw OCR witness changed")
+        source, _ = load_predictions(None, manifest_bytes, manifest, raw)
+        if set(source) != set(pages):
+            raise ValueError("An admitted OCR witness lacks reviewed scan regions")
+        groups.update(value["vote_group"] for value in source.values())
+        for identity, value in source.items():
+            previous = images.setdefault(identity, value["image_sha256"])
+            if previous != value["image_sha256"]:
+                raise ValueError("OCR witnesses describe different scan images")
+    if len(groups) < 2:
+        raise ValueError("Two independent OCR model families are required")
+    if {change["region_id"] for change in audit["changes"]} != set(pages):
+        raise ValueError("Scan admission audit lacks reviewed region decisions")
+    works = {page["work"] for page in pages.values()
+             if page.get("admission") != "comparative-paratext"}
+    for work in works:
+        relative = f"data/corpus_extensions/{work}.jsonl"
+        raw = (root / relative).read_bytes()
+        if sha(raw) != audit["outputs"][relative]:
+            raise ValueError("Scan extension differs from its admitted word network")
+        additions = records(raw)
+        expected = {page["id"] for page in pages.values() if page["work"] == work
+                    and page.get("admission") != "comparative-paratext"}
+        if {row["ocr_consensus"]["region_id"] for row in additions} != expected or len(additions) != len(expected):
+            raise ValueError("Scan extension does not cover every reviewed primary region")
+        current_rows = records((root / f"data/corpus/{work}.jsonl").read_bytes())
+        current = {row["locus"]: row for row in current_rows}
+        if any(current.get(row["locus"]) != row for row in additions):
+            raise ValueError("An admitted scan reading is missing or changed")
+        from scan_coverage_extensions import reading_digest
+        new_loci = {row["locus"] for row in additions}
+        base = [row for row in current_rows if row["locus"] not in new_loci]
+        original = records(before[f"data/corpus/{work}.jsonl"].encode())
+        if reading_digest(base) != reading_digest(original):
+            raise ValueError("Historical source readings changed after scan admission")
+    comparisons = [page for page in pages.values() if page.get("admission") == "comparative-paratext"]
+    if comparisons:
+        relative = f"data/paratext/{directory.name}.jsonl"
+        raw = (root / relative).read_bytes()
+        if sha(raw) != audit["outputs"][relative] or len(records(raw)) != len(comparisons):
+            raise ValueError("Comparative source panels differ from their admission")
+    return audit
 
 
 def main():

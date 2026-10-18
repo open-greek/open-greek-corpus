@@ -512,9 +512,14 @@ independent edition rights and scans are verified.
 `scripts/audit_completeness_batch.py` records the checked boundaries of Photius,
 Cyril, Pappus, Apollonius, and Cassius Dio. Its source hashes and observations
 are in `data/inventory/completeness-batch.json`; the issues linked there track
-unfinished coverage work. The five findings also appear as open coverage work
-in `data/known_limitations.json`, separate from accepted quality limitations.
-Rebuild with `--first1k-dir` and `--perseus-dir`.
+unfinished coverage work. The original observations remain in the report while
+current resolution is derived from complete admitted page ranges, archived
+witness hashes and preserved citation destinations. Unfinished cases appear in
+`active_coverage_findings` in `data/known_limitations.json`; verified repairs move
+to `resolved_coverage_findings` with transmission qualifications and the tagged
+release closing requirement. Rebuild with `--first1k-dir` and `--perseus-dir`.
+Routine metadata builds check the retained evidence hashes; run each admission
+script's full `--check` after ingest to repeat every word vote.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
