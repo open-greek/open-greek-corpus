@@ -939,6 +939,27 @@ numbers, and regions; raw predictions, failures, checkpoint revisions, and
 runtime settings are retained. It supports MLX and a pinned HTTP model server.
 These predictions do not alter corpus text without a separate audited repair.
 
+`scripts/run_scan_ocr_shard.py` runs an explicit `--ids` JSON list against the
+unchanged full `--manifest`, using a pinned HTTP runtime. Its own runner hash,
+the image/HTTP helper hash, selected IDs, full manifest, and each outcome remain
+retained. Resuming refuses a changed checkpoint, runtime, manifest, or selection.
+Use a separate output for a small `--limit` preflight.
+`scripts/scan_ocr_bundle.py plan --manifest MANIFEST --model MODEL --revision
+REVISION --count 2 --out-dir SHARDS` writes disjoint selections in manifest
+order; `--completed-bundle` excludes already recorded outcomes, including
+failures. It never silently retries them.
+
+The bundle script's `write` command takes `--manifest EFFECTIVE_MANIFEST`,
+repeated `--part RAW_PART ORIGINAL_MANIFEST` pairs, and `--out BUNDLE`.
+Each part retains its exact original bytes and runtime; bundles can contain
+other bundles. The shared loader preserves original prediction artifact hashes,
+requires one checkpoint and revision, and rejects duplicate eligible region IDs.
+A changed crop is held outside the vote only when the effective manifest's
+`reviewed_substitutions` pins its exact original manifest and an embedded
+`--source-review` artifact verifies every old and new boundary. These records
+preserve all superseded readings without inventing a combined runtime or another
+model vote. A bundle reaching 100 MB is refused.
+
 The 100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
 and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.
 Its source is the manually transcribed Calfa dataset, not existing OCR output.
