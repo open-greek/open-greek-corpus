@@ -11,6 +11,7 @@ import ingest_photius_coverage as ingest
 import repair_photius_index as index
 import photius_retries as retries
 from prepare_photius_coverage import build_page13_retry
+from prepare_photius_retries import build_retry, CHECKPOINT38
 from ocr_consensus import restore_corpus_consensus
 
 
@@ -213,3 +214,80 @@ def test_retries_without_a_separate_review_do_not_bypass_failed_page(tmp_path):
     paths, retry_paths, review_path = retry_fixture(tmp_path)
     with pytest.raises(ValueError, match="separate completed source review"):
         ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], retry_paths)
+
+
+def multiple_retry_fixture(tmp_path):
+    root_fixture(tmp_path)
+    manifests = [ingest.scan_manifest(), ingest.build_later_gap()]
+    checkpoints = [("Qwen/Qwen3.6-27B", "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"),
+                   (CHECKPOINT38["model"], CHECKPOINT38["revision"])]
+    paths = []
+    for label, checkpoint in zip(("a", "b"), checkpoints):
+        for manifest in manifests:
+            path = prediction(tmp_path, manifest, label)
+            data = [json.loads(line) for line in path.read_bytes().splitlines()]
+            data[0]["_meta"].update(model=checkpoint[0], revision=checkpoint[1])
+            for row in data[1:]:
+                if row["scan_page"] == 13 or label == "b" and row["scan_page"] in (47, 50):
+                    row.update(finish_reason="length", raw_prediction="καὶ " * 100)
+            path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in data) + "\n")
+            paths.append(path)
+    _, models, _ = ingest.prepare_fresh_inputs(paths, manifests, allow_unreviewed_retry_preparation=True)
+    raw_paths, reviews = [], []
+    for number, request in [(13, build_page13_retry()), (47, build_retry(47)), (50, build_retry(50))]:
+        selected = checkpoints if number == 13 else checkpoints[1:]
+        retries_for_page = []
+        for i, (model, revision) in enumerate(selected):
+            meta = {"model": model, "revision": revision, "prompt": request["prompt"],
+                    "manifest_sha256": ingest.sha(ingest.encode(request))}
+            rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"],
+                     "region": p["region"], "image_sha256": "c" * 64,
+                     "prompt_sha256": ingest.sha((request["prompt"] + " " + p["prompt_suffix"]).encode()),
+                     "raw_prediction": "θεὸς λέγει λόγον σαφῆ.", "finish_reason": "stop"} for p in request["pages"]]
+            path = tmp_path / f"retry-{number}-{i}.jsonl"
+            path.write_text("\n".join(json.dumps(r, ensure_ascii=False) for r in [{"_meta": meta}, *rows]) + "\n")
+            retries_for_page.append(path)
+        review = tmp_path / f"review-{number}.json"
+        retries.write_source_review(models, retries_for_page, review, "Synthetic complete body review",
+            {p["id"]: "Synthetic complete source-line fixture" for p in request["pages"]},
+            "2026-10-18T07:00:00Z", request)
+        reviews.append(review); raw_paths.extend(retries_for_page)
+    return paths, raw_paths, reviews
+
+
+def test_multiple_checkpoint_specific_retries_keep_successful_whole_page_votes(tmp_path, monkeypatch):
+    paths, raw_paths, reviews = multiple_retry_fixture(tmp_path)
+    inputs, models, evidence = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], raw_paths, reviews)
+    assert len(inputs) == 4 and len(models) == 2 and len(evidence) == 3
+    original36 = next(records for checkpoint, records in models.items() if checkpoint[0] == "Qwen/Qwen3.6-27B")
+    retried38 = next(records for checkpoint, records in models.items() if checkpoint[0] == CHECKPOINT38["model"])
+    assert all("reviewed_retry" not in original36[f"photius-bekker-{n:04d}"][2] for n in (47, 50))
+    assert all("reviewed_retry" in retried38[f"photius-bekker-{n:04d}"][2] for n in (47, 50))
+    document = {"id": "test-source", "license": {"text": "CC BY-SA 4.0"}, "sourceRights": "Retained rights"}
+    monkeypatch.setattr(ingest, "load_source_library", lambda p: (b"source", document, {}))
+    artifacts, report = ingest.generate(paths, tmp_path / "source", tmp_path, retry_paths=raw_paths, retry_review=reviews)
+    assert report["reviewed_retry"] is None
+    assert {r["scan_page"] for r in report["reviewed_retries"]} == {13, 47, 50}
+    assert [len(r["raw_files"]) for r in sorted(report["reviewed_retries"], key=lambda r: r["scan_page"])] == [2, 1, 1]
+    networks = json.loads(gzip.decompress(artifacts[Path(report["full_networks"]["path"])]))
+    witnesses = networks["47"]["ocr_consensus"]["witnesses"]
+    assert len(witnesses) == 2 and sum("reviewed_retry" in w for w in witnesses) == 1
+    assert len(networks) == 310 and report["added_passages"] == 309
+    assert ingest.generate(list(reversed(paths)), tmp_path / "source", tmp_path,
+        retry_paths=list(reversed(raw_paths)), retry_review=list(reversed(reviews)))[0] == artifacts
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+            raw_paths, [p for p in reviews if p.name != "review-47.json"])
+
+
+def test_retry_permission_does_not_leak_to_a_successful_other_checkpoint(tmp_path):
+    paths, raw_paths, reviews = multiple_retry_fixture(tmp_path)
+    path = paths[0]
+    data = [json.loads(line) for line in path.read_bytes().splitlines()]
+    next(row for row in data[1:] if row["scan_page"] == 47)["finish_reason"] = "length"
+    path.write_text("\n".join(json.dumps(row, ensure_ascii=False) for row in data) + "\n")
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()], raw_paths, reviews)
+    with pytest.raises(ValueError, match="truncated"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+            allow_unreviewed_retry_preparation=True)
