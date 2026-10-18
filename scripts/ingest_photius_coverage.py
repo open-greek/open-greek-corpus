@@ -132,6 +132,8 @@ def prepare_fresh_inputs(paths, manifests, retry_paths=(), retry_review=None, *,
             destination[key] = (raw, metadata, row)
     if len(models) < 2:
         raise ValueError("Two independently pinned model checkpoints are required")
+    if len({model for model, revision in models}) != len(models):
+        raise ValueError("Multiple revisions cannot add votes for the same model family")
     if any(set(rows) != set(all_pages) for rows in models.values()):
         raise ValueError("Each checkpoint must cover both missing-volume requests")
     retry_evidence = apply_all_reviewed_retries(models, retry_paths, reviews, supplement_paths) if reviews else []
