@@ -7290,20 +7290,20 @@
   },
   "hesychius-lexicography.lexicon-o": {
    "edition": "qwen36-hesychius_schmidt_masked",
-   "n_tokens": 149775,
-   "n_tokens_checked": 108794,
-   "n_unattested": 27643,
+   "n_tokens": 147538,
+   "n_tokens_checked": 106671,
+   "n_unattested": 25848,
    "source": "ocr",
-   "unattested_rate": 0.254086,
+   "unattested_rate": 0.242315,
    "witness": null
   },
   "hesychius-lexicography.lexicon-p-w": {
    "edition": "qwen36-hesychius_schmidt_masked",
-   "n_tokens": 58090,
-   "n_tokens_checked": 41754,
-   "n_unattested": 9857,
+   "n_tokens": 56868,
+   "n_tokens_checked": 40854,
+   "n_unattested": 9535,
    "source": "ocr",
-   "unattested_rate": 0.236073,
+   "unattested_rate": 0.233392,
    "witness": null
   },
   "hexapla-anonymi.lectiones": {
@@ -9402,6 +9402,36 @@
    "source": "cgpg",
    "unattested_rate": 0.055046,
    "witness": null
+  },
+  "kaibel-cgf-1899.volume-witness-r": {
+   "edition": "qwen36-rhinthon_kaibel_cgf_1899",
+   "n_tokens": 36897,
+   "n_tokens_checked": 23439,
+   "n_unattested": 6150,
+   "source": "ocr",
+   "unattested_rate": 0.262383,
+   "witness": {
+    "agreement_primary_in_secondary": 0.012231,
+    "agreement_secondary_in_primary": 0.316832,
+    "n_bigrams_primary": 32131,
+    "n_bigrams_secondary": 202,
+    "secondary_edition": "qwen36-rhinthon_kaibel_cgf_1899"
+   }
+  },
+  "kaibel-cgf-1899.volume-witness-s": {
+   "edition": "qwen36-sopater_kaibel_cgf",
+   "n_tokens": 32361,
+   "n_tokens_checked": 20685,
+   "n_unattested": 5587,
+   "source": "ocr",
+   "unattested_rate": 0.270099,
+   "witness": {
+    "agreement_primary_in_secondary": 0.116545,
+    "agreement_secondary_in_primary": 0.290419,
+    "n_bigrams_primary": 27869,
+    "n_bigrams_secondary": 4707,
+    "secondary_edition": "qwen36-sopater_kaibel_cgf"
+   }
   },
   "laetus.fragmenta": {
    "edition": "qwen36-socrates_hist_fhg4",
@@ -12289,21 +12319,6 @@
    "unattested_rate": 0.346037,
    "witness": null
   },
-  "rhinthon.fragmenta": {
-   "edition": "qwen36-rhinthon_kaibel_cgf_1899",
-   "n_tokens": 36897,
-   "n_tokens_checked": 23439,
-   "n_unattested": 6150,
-   "source": "ocr",
-   "unattested_rate": 0.262383,
-   "witness": {
-    "agreement_primary_in_secondary": 0.012231,
-    "agreement_secondary_in_primary": 0.316832,
-    "n_bigrams_primary": 32131,
-    "n_bigrams_secondary": 202,
-    "secondary_edition": "qwen36-rhinthon_kaibel_cgf_1899"
-   }
-  },
   "rhodon.fragmenta": {
    "edition": "cgpg",
    "n_tokens": 343,
@@ -12660,21 +12675,6 @@
    "source": "ocr",
    "unattested_rate": 0.158669,
    "witness": null
-  },
-  "sopater-comedy.fragmenta": {
-   "edition": "qwen36-sopater_kaibel_cgf",
-   "n_tokens": 32361,
-   "n_tokens_checked": 20685,
-   "n_unattested": 5587,
-   "source": "ocr",
-   "unattested_rate": 0.270099,
-   "witness": {
-    "agreement_primary_in_secondary": 0.116545,
-    "agreement_secondary_in_primary": 0.290419,
-    "n_bigrams_primary": 27869,
-    "n_bigrams_secondary": 4707,
-    "secondary_edition": "qwen36-sopater_kaibel_cgf"
-   }
   },
   "sopater-rhetor.diairesis-zetematon": {
    "edition": "migne-ocr-qwen36",
@@ -14539,14 +14539,14 @@
   "erinna.fragmenta",
   "ocr.mansi_ephesus_t4",
   "philodemus.tlg1595-tlg492",
-  "sopater-comedy.fragmenta",
+  "kaibel-cgf-1899.volume-witness-s",
   "moeris.lexicon-atticum",
   "eustathius-philol.commentarii-ad-homeri-odysseam",
   "philodemus.tlg1595-tlg271",
   "sophron.fragmenta",
   "isidorus-scholasticus-anthol-didot",
   "ocr.walz_rhetores_v9",
-  "rhinthon.fragmenta",
+  "kaibel-cgf-1899.volume-witness-r",
   "archilochus.fragmenta",
   "erotianus.vocum-hippocraticarum-collectio",
   "eutecnius.paraphrasis-in-oppiani-cynegetica-fort-auctore-eutecnio",
@@ -14556,7 +14556,6 @@
   "anacreon.fragmenta-2",
   "orphica.argonautica",
   "timotheus-grammar.timotheus-gaza-haupt-opuscula",
-  "hesychius-lexicography.lexicon-o",
   "geoponica.geoponica",
   "simias.fragmenta",
   "aristophanes-byzantii-nauck",
@@ -14572,18 +14571,19 @@
   "aelius-dionysius.attika-o-no-mata",
   "ocr.oribasius_v3",
   "theages.fragmenta",
+  "hesychius-lexicography.lexicon-o",
   "timaeus-philosophy.fragmenta-et-titulus-sp",
   "zosimus-alchemista.opera",
   "stephanus-grammar.ethnica-epitome",
   "platonius.fragmenta-de-comoedia-graeca",
   "philodemus.tlg1595-tlg003",
   "tlg1595.tlg003",
-  "hesychius-lexicography.lexicon-p-w",
   "anonymi-in-oppiani-opera.in-oppiani-halieutica-exegesis-e-cod-paris-gr-2735",
   "lyrica-adespota-ca.fragmenta-lyrica",
   "aristarchus-ludwich",
   "alexander-medicine.dedicatio-ad-cosman",
   "alexander-lyric.fragmenta",
+  "hesychius-lexicography.lexicon-p-w",
   "carmina-popularia-pmg.fragmenta",
   "joannes-chrysostomus.contra-judaeos-gentiles-et-haereticos-et-in-illud-vocatus-est-jesus",
   "limenius.paean-delphicus-ii-et-prosodium-in-apollinem",

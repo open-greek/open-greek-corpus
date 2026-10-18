@@ -45,7 +45,33 @@ TLG_CROSSWALK = DATA / "tlg_crosswalk.json"
 WORK_INDEX = DATA / "work_index.json"
 SERVING_DEFICITS = DATA / "serving_deficits.json"
 WORK_METADATA_REMAPS = DATA / "work_metadata_remaps.json"
+PASSAGE_ALIASES = DATA / "passage_aliases.json"
 REPO = DATA.parent
+
+
+def load_passage_aliases(path: Path, works: dict) -> dict:
+    """Validate historical passage destinations, including preserved paratext."""
+    aliases = load_json(path, {}).get("aliases", {})
+    destinations = {}
+    for old, passages in aliases.items():
+        if old not in works and not any(old in w.get("former_slugs", []) for w in works.values()):
+            raise ValueError(f"Passage alias source is unknown: {old}")
+        for locus, target in passages.items():
+            relative = Path(target["path"])
+            if relative.is_absolute() or ".." in relative.parts:
+                raise ValueError(f"Invalid passage alias path: {relative}")
+            if target.get("slug"):
+                slug = target["slug"]
+                if slug not in works or relative.as_posix() != f"data/corpus/{slug}.jsonl":
+                    raise ValueError(f"Invalid passage alias work: {slug}")
+            elif not relative.as_posix().startswith("data/paratext/"):
+                raise ValueError(f"Invalid passage alias destination: {relative}")
+            if relative not in destinations:
+                destinations[relative] = {json.loads(line)["locus"]
+                    for line in (REPO / relative).read_text().splitlines() if line.strip()}
+            if target["locus"] not in destinations[relative]:
+                raise ValueError(f"Missing passage alias destination: {old}, {locus}")
+    return aliases
 
 
 def load_serving_deficits(served: set[str]) -> dict[str, dict]:
@@ -461,6 +487,9 @@ def build(write: bool = True) -> dict:
         }
         if metadata_slug != slug:
             works[slug]["metadata_from"] = metadata_slug
+        witness = pseudo_works.get(slug, {}).get("volume_witness")
+        if witness:
+            works[slug]["volume_witness"] = witness
         if slug in deficits:
             # Served, but a fuller text of the same work is held in this repo
             # and the serving is meant to grow into it. Curated intent in
@@ -471,6 +500,7 @@ def build(write: bool = True) -> dict:
             redirects[fs] = slug
 
     out = {
+        "passage_aliases": load_passage_aliases(PASSAGE_ALIASES, works),
         "_meta": {
             "description": "Reader-facing WEMI-leveled index of served cog "
                            "work-units, keyed by current slug. The opaque `id` "

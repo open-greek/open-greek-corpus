@@ -272,6 +272,29 @@ data/
 
 ## Identity and citation
 
+The reviewed repair for issues [54](https://github.com/open-greek/open-greek-corpus/issues/54)
+and [55](https://github.com/open-greek/open-greek-corpus/issues/55) is reproducible
+with `python3 scripts/repair_ocr_work_assignments.py --apply`; use `--check` to
+replay the archived inputs and `--undo` to restore them. The structured audit
+and exact source snapshots are in `data/corpus_changes/ocr-work-assignments-54-55/`.
+No text readings change.
+
+Hesychius rows follow the scan-checked alphabetical ranges, including gloss
+continuations. Schmidt's separately headed ethnic-word index is retained in
+`data/paratext/hesychius-schmidt-ethnica.jsonl`. The supposed Rhinthon and Sopater
+files are labeled as separate OCR witnesses of Kaibel's *Comicorum Graecorum
+Fragmenta* I.1 (1899), under `kaibel-cgf-1899.volume-witness-r` and
+`kaibel-cgf-1899.volume-witness-s`. They retain their opaque expression IDs and
+former-slug redirects, with no Rhinthon or Sopater Work anchor. The witnesses
+overlap and remain uncollated; their metadata exposes a shared volume identity.
+Their contribution to duplicate frequency counts is tracked in
+[issue 56](https://github.com/open-greek/open-greek-corpus/issues/56).
+
+`data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
+maps historical work/locus pairs to their current corpus or paratext destination.
+Resolve these passage aliases before applying whole-work slug redirects. See
+[the citation contract](docs/identity-and-citation.md#historical-passage-assignments).
+
 Every served work-unit and author carries an opaque, immutable, cog-minted id -
 `ogc<NNNNNN>` for a work, `oga<NNNNNN>` for an author (Wikidata's Q-number move,
 in our own namespace). The `author.work` slug (`homerus.ilias`) is demoted from
@@ -1757,8 +1780,8 @@ move.
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
 | hesychius-lexicography.epistula-ad-eulogium | Hesychius - Epistula Ad Eulogium | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 577 | auto-corrected |
-| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 149,775 | auto-corrected |
-| hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 58,090 | auto-corrected |
+| hesychius-lexicography.lexicon-o | Hesychius - Lexicon (Α-Ο) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 147,538 | auto-corrected |
+| hesychius-lexicography.lexicon-p-w | Hesychius - Lexicon (Π-Ω) | [archive.org](https://archive.org/details/hesychiialexand00schmgoog) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 56,868 | auto-corrected |
 | hexapla-anonymi.lectiones |  | [Field, Origenis Hexaplorum quae supersunt](https://archive.org/details/origenishexaplor01orig) | Qwen3.6-27B | 1,837 | raw OCR |
 | hicetas.testimonia | Hicetas - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 34 | raw OCR |
 | hierocles-grammaticus.synecdemus | Hierocles Grammaticus - Synecdemus (PG113 loci 82-89) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 1,600 | raw OCR |
@@ -1982,6 +2005,8 @@ move.
 | josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 237 | auto-corrected |
 | josephus-rhacendyta.synopsis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,967 | auto-corrected |
 | justinus-martyr.fragmenta-operum-deperditorum | Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 338 | auto-corrected |
+| kaibel-cgf-1899.volume-witness-r | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 36,897 | auto-corrected |
+| kaibel-cgf-1899.volume-witness-s | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 32,361 | auto-corrected |
 | laetus.fragmenta | Laetus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 442 | auto-corrected |
 | lamprocles.fragmenta | Lamprocles - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,193 | auto-corrected |
 | laudatio-sancti-demetrii.narratio-de-capta-thessalonica | Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 624 | auto-corrected |
@@ -2251,7 +2276,6 @@ move.
 | pythagoristae-d-k.testimonia-et-fragmenta | Pythagoristae (D-K) - Testimonia Et Fragmenta | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 23,896 | auto-corrected |
 | quadratus-apologeta.fragmentum-apologiae | Quadratus Apologeta - Fragmentum apologiae (apud Eusebium, HE 4.3) (PG005 loci 642-642) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 48 | raw OCR |
 | rhianus.fragmenta | Rhianus - Fragmenta | qwen36-alexander_aetolus_meineke-ocr | Qwen3.6-27B | 2,075 | auto-corrected |
-| rhinthon.fragmenta | Rhinthon - Fragmenta | qwen36-rhinthon_kaibel_cgf_1899 | Qwen3.6-27B | 36,897 | auto-corrected |
 | rhodon.fragmenta | Rhodon - Fragmenta (ex libro adversus Marcionem, apud Eusebium HE 5.13) (PG005 loci 676-678) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 343 | auto-corrected |
 | salmanas.me-qodos-di-h-s-potelei-tai-h-sfairoeidh-s-xa-laza | Salmanas - Μέθοδος δῑ ἧς ἀποτελεῖται ἡ σφαιροειδὴς χάλαζα κατασκευασθεῖσα παρὰ τοῦ ἐν τεχνουργίᾳ περιβοήτου Ἄραβος τοῦ Σαλμανᾶ (E Cod.Paris. B.N. Gr. 2327, Fol. 141R) | qwen36-berthelot_alchimistes_grec | Qwen3.6-27B | 955 | raw OCR |
 | sannyrion.fragmenta | Sannyrion - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 81 | raw OCR |
@@ -2287,11 +2311,10 @@ move.
 | sminthes.titulus | Sminthes - Titulus | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 34 | auto-corrected |
 | socrates-rhodius.socrates-hist-fhg4 |  | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 51,850 | auto-corrected |
 | solon.fragmenta | Solon - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 1,900 | auto-corrected |
-| sopater-comedy.fragmenta | Sopater - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 32,361 | auto-corrected |
 | sopater-rhetor.diairesis-zetematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,079 | auto-corrected |
 | sopater-rhetor.hypomnema-eis-ten-hermogenous-technen |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 54,333 | auto-corrected |
 | sophilus.fragmenta | Sophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
-| sophron.fragmenta | SOPHRON - Fragmenta | qwen36-sopater_kaibel_cgf | Qwen3.6-27B | 5,497 | auto-corrected |
+| sophron.fragmenta | SOPHRON - Fragmenta | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 5,497 | auto-corrected |
 | sosicrates.fragmenta | SOSICRATES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |
 | sosipater.fragmentum | SOSIPATER - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 270 | raw OCR |
 | sosiphanes.fragmenta | Sosiphanes - Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 366 | raw OCR |
