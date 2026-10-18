@@ -40,5 +40,13 @@ coverage, lemma, and frequency rollup.
   Historical destinations are in `data/passage_aliases.json`; the reversible
   assignment audit is in `data/corpus_changes/ocr-work-assignments-54-55/`.
 
+- `photius-bekker-index.jsonl` - the 501 previously served OCR rows from
+  Bekker's edition index after the end of Photius' codex 280. The boundary is
+  checked against combined-volume scan pages 557 (end of text) and 558
+  (`INDEX`). Text and historical loci are unchanged; passage aliases resolve
+  the old references to this file. Rebuild or undo with
+  `scripts/repair_photius_index.py`; its audit and exact original file are in
+  `data/corpus_changes/photius-bekker-index/`.
+
 Records: `{slug, page, lang, license, source, edition, text}` keyed by the OCR
 source volume slug and printed page. All from the Qwen3.6-27B re-OCR.
