@@ -51,8 +51,8 @@
    "works": 1
   },
   "ocr": {
-   "analysis_tokens": 25318807,
-   "passages": 1338105,
+   "analysis_tokens": 25315178,
+   "passages": 1337735,
    "works": 1217
   },
   "perseus": {
@@ -65,6 +65,11 @@
    "passages": 5903,
    "works": 106
   },
+  "reviewed-text-consensus": {
+   "analysis_tokens": 439,
+   "passages": 2,
+   "works": 1
+  },
   "saws": {
    "analysis_tokens": 62909,
    "passages": 4782,
@@ -76,7 +81,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0",
+ "corpus_sha256": "dc35d41f8dc8a2667f5a97cd22eb5d5f99eb06b4ef4af897a70e3c00f2857d02",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3059,7 +3064,7 @@
   "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
   "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
   "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
-  "photius.bibliotheca.jsonl": "7222184c07f7ee7ffbbd35d33c8b645fb8629036804b486cf020936ef8ec4737",
+  "photius.bibliotheca.jsonl": "d5b9470728b2e7e984b0a0e94b2d3f81dd10b7da22a959ae4f84e0e13a419cd3",
   "photius.commentarii-in-joannem-in-catenis.jsonl": "91d600d98ae8083e62d50bbedecbdf043fceee10e979038742ff36ef5d83d087",
   "photius.commentarii-in-matthaeum-in-catenis.jsonl": "ff7fb39786fa88d9cfc94eda028a9367593cb8c1b04ef92bd0587448bc80472d",
   "photius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl": "96a78396ec81a9a51d20cd3378990eb68a1333f214f190beaa5d175cb965a74d",
@@ -3999,20 +4004,22 @@
   "ocr"
  ],
  "recipe_sha256": {
-  "build_source_components.py": "cc6e155a0b406670eb07d3dd731d968007125300515eeb5c6f7f8418fdaf102f",
+  "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
   "critical_text.py": "b3866e6b501600c43e243aa22cb79b5748d4a500c31820de6ea4ef79cba912d5",
-  "frequency_projection.py": "95401689a9545acfde443e65ef8c0836f7801481537fdabd5e1d2e2c97c8c066"
+  "frequency_projection.py": "313b73ddea880fbbf0d36649e43165f88c4ee780e651578e1272e784df61c6ab",
+  "repair_photius_apparatus.py": "d749851e32c126af55889456b2d3a01a5095b2d3de19a8fcb73435f0816ed194",
+  "repair_photius_body.py": "8a1678c274b13a55bc4c722e9a8c600a3857c9439cc3ecd9db08889013b49e49"
  },
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65798704,
-  "mixed_ocr_analysis_tokens": 270283,
-  "mixed_works": 3,
-  "ocr_analysis_tokens": 29672038,
-  "ocr_passages": 1349523,
+  "analysis_tokens": 65795514,
+  "mixed_ocr_analysis_tokens": 539882,
+  "mixed_works": 4,
+  "ocr_analysis_tokens": 29668409,
+  "ocr_passages": 1349153,
   "ocr_works": 1416,
-  "passages": 1966851,
+  "passages": 1966483,
   "works": 3911
  },
  "works": {
@@ -79071,34 +79078,45 @@
    }
   },
   "photius.bibliotheca": {
-   "analysis_tokens": 273228,
+   "analysis_tokens": 270038,
    "components": [
     {
-     "analysis_tokens": 120432,
+     "analysis_tokens": 120439,
      "edition": "bekker1824-independent-ocr-consensus",
      "license": "CC-BY-SA-4.0",
      "passages": 309,
      "source": "ocr"
     },
     {
-     "analysis_tokens": 152796,
+     "analysis_tokens": 149160,
      "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
      "license": "PD",
-     "passages": 3846,
+     "passages": 3476,
      "source": "ocr"
+    },
+    {
+     "analysis_tokens": 439,
+     "edition": "bekker1824-independent-ocr-consensus",
+     "license": "CC-BY-SA-4.0",
+     "passages": 2,
+     "source": "reviewed-text-consensus"
     }
    ],
-   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
-   "mixed_ocr_digital": false,
-   "non_ocr_analysis_tokens": 0,
-   "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 273228,
-   "ocr_passages": 4155,
-   "passages": 4155,
+   "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+   "mixed_ocr_digital": true,
+   "non_ocr_analysis_tokens": 439,
+   "non_ocr_passages": 2,
+   "ocr_analysis_tokens": 269599,
+   "ocr_passages": 3785,
+   "passages": 3787,
    "sources": {
     "ocr": {
-     "analysis_tokens": 273228,
-     "passages": 4155
+     "analysis_tokens": 269599,
+     "passages": 3785
+    },
+    "reviewed-text-consensus": {
+     "analysis_tokens": 439,
+     "passages": 2
     }
    }
   },

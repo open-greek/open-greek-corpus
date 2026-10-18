@@ -11,17 +11,17 @@
   }
  },
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26598,
- "tokens": 42804,
- "served_tokens": 65798704,
- "surface_served_tokens": 66086467,
+ "forms": 26595,
+ "tokens": 42800,
+ "served_tokens": 65795514,
+ "surface_served_tokens": 66083266,
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "share": 0.000651,
  "works_touched": 1642,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 24916,
+   "tokens": 24912,
    "rate": 0.000984
   },
   {
@@ -148,8 +148,8 @@
   },
   {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "tokens": 282,
-   "rate": 0.001846
+   "tokens": 278,
+   "rate": 0.001864
   },
   {
    "edition": "qwen36-bussemaker-daremberg-1851-rover",
@@ -204,8 +204,8 @@
  ],
  "repair_reach": {
   "tokens_with_more_than_one_attested_shape": 15113,
-  "tokens_with_exactly_one": 8949,
-  "tokens_with_none": 18742
+  "tokens_with_exactly_one": 8947,
+  "tokens_with_none": 18740
  },
  "largest_forms": [
   {
@@ -258,11 +258,11 @@
    "shapes": {
     "acute": {
      "form": "ἄρα",
-     "attested": 46027
+     "attested": 46025
     },
     "dropped": {
      "form": "ἀρα",
-     "attested": 369
+     "attested": 368
     },
     "crasis": {
      "form": "ἀ̓ρα",
@@ -306,7 +306,7 @@
     },
     "dropped": {
      "form": "τινα",
-     "attested": 30701
+     "attested": 30700
     },
     "crasis": {
      "form": "τἰνα",
@@ -456,7 +456,7 @@
    "shapes": {
     "acute": {
      "form": "ἵνα",
-     "attested": 68527
+     "attested": 68524
     },
     "dropped": {
      "form": "ἱνα",
@@ -500,7 +500,7 @@
    "shapes": {
     "acute": {
      "form": "ὥσπερ",
-     "attested": 62091
+     "attested": 62092
     },
     "dropped": {
      "form": "ὡσπερ",
@@ -522,7 +522,7 @@
    "shapes": {
     "acute": {
      "form": "ἄμα",
-     "attested": 4273
+     "attested": 4271
     },
     "dropped": {
      "form": "ἀμα",
@@ -588,11 +588,11 @@
    "shapes": {
     "acute": {
      "form": "ἔστιν",
-     "attested": 36236
+     "attested": 36235
     },
     "dropped": {
      "form": "ἐστιν",
-     "attested": 103827
+     "attested": 103829
     },
     "crasis": {
      "form": "ἐ̓στιν",
@@ -640,7 +640,7 @@
     },
     "crasis": {
      "form": "ἀλλὰ",
-     "attested": 185484
+     "attested": 185478
     },
     "circumflex": {
      "form": "ᾶλλὰ",
@@ -654,7 +654,7 @@
    "shapes": {
     "acute": {
      "form": "ἄνθρωπος",
-     "attested": 22055
+     "attested": 22056
     },
     "dropped": {
      "form": "ἀνθρωπος",
@@ -680,7 +680,7 @@
     },
     "dropped": {
      "form": "οὐτε",
-     "attested": 593
+     "attested": 591
     },
     "crasis": {
      "form": "οὐ̓τε",
@@ -702,7 +702,7 @@
     },
     "dropped": {
      "form": "ταῦτα",
-     "attested": 120889
+     "attested": 120887
     },
     "crasis": {
      "form": "τἀῦτα",
@@ -728,7 +728,7 @@
     },
     "crasis": {
      "form": "ἀπὸ",
-     "attested": 180352
+     "attested": 180349
     },
     "circumflex": {
      "form": "ᾶπὸ",
@@ -786,7 +786,7 @@
    "shapes": {
     "acute": {
      "form": "ἥλιον",
-     "attested": 5172
+     "attested": 5170
     },
     "dropped": {
      "form": "ἡλιον",
@@ -852,7 +852,7 @@
    "shapes": {
     "acute": {
      "form": "ἄλλο",
-     "attested": 27294
+     "attested": 27295
     },
     "dropped": {
      "form": "ἀλλο",
@@ -962,7 +962,7 @@
    "shapes": {
     "acute": {
      "form": "ὅτε",
-     "attested": 29361
+     "attested": 29360
     },
     "dropped": {
      "form": "ὁτε",
@@ -1098,7 +1098,7 @@
     },
     "dropped": {
      "form": "τοῦ",
-     "attested": 976621
+     "attested": 976573
     },
     "crasis": {
      "form": "τὀῦ",
@@ -1116,11 +1116,11 @@
    "shapes": {
     "acute": {
      "form": "ἔστι",
-     "attested": 45718
+     "attested": 45717
     },
     "dropped": {
      "form": "ἐστι",
-     "attested": 97556
+     "attested": 97555
     },
     "crasis": {
      "form": "ἐ̓στι",
@@ -1208,7 +1208,7 @@
     },
     "dropped": {
      "form": "ἀτε",
-     "attested": 87
+     "attested": 86
     },
     "crasis": {
      "form": "ἀ̓τε",
@@ -1314,7 +1314,7 @@
    "shapes": {
     "acute": {
      "form": "ἄλλα",
-     "attested": 22455
+     "attested": 22454
     },
     "dropped": {
      "form": "ἀλλα",
@@ -1380,7 +1380,7 @@
    "shapes": {
     "acute": {
      "form": "ἄνθρωπον",
-     "attested": 14544
+     "attested": 14547
     },
     "dropped": {
      "form": "ἀνθρωπον",
@@ -1468,7 +1468,7 @@
    "shapes": {
     "acute": {
      "form": "τούτο",
-     "attested": 1108
+     "attested": 1107
     },
     "dropped": {
      "form": "τουτο",
@@ -1480,7 +1480,7 @@
     },
     "circumflex": {
      "form": "τοῦτο",
-     "attested": 204112
+     "attested": 204102
     }
    }
   },
@@ -1600,7 +1600,7 @@
    "shapes": {
     "acute": {
      "form": "τότε",
-     "attested": 38882
+     "attested": 38880
     },
     "dropped": {
      "form": "τοτε",
@@ -1828,7 +1828,7 @@
     },
     "crasis": {
      "form": "αὐτοῦ",
-     "attested": 192329
+     "attested": 192318
     },
     "circumflex": {
      "form": "αῦτοῦ",
@@ -2044,7 +2044,7 @@
     },
     "dropped": {
      "form": "του",
-     "attested": 10935
+     "attested": 10934
     },
     "crasis": {
      "form": "τὀυ",
@@ -2132,7 +2132,7 @@
     },
     "dropped": {
      "form": "τοι",
-     "attested": 12960
+     "attested": 12958
     },
     "crasis": {
      "form": "τὀι",
@@ -2506,7 +2506,7 @@
     },
     "dropped": {
      "form": "εἰναι",
-     "attested": 986
+     "attested": 984
     },
     "crasis": {
      "form": "εἰ̓ναι",
@@ -2514,7 +2514,7 @@
     },
     "circumflex": {
      "form": "εἶναι",
-     "attested": 181416
+     "attested": 181414
     }
    }
   },
@@ -2590,7 +2590,7 @@
    "shapes": {
     "acute": {
      "form": "ὅλον",
-     "attested": 15041
+     "attested": 15040
     },
     "dropped": {
      "form": "ὁλον",
@@ -2678,7 +2678,7 @@
    "shapes": {
     "acute": {
      "form": "ὄνομα",
-     "attested": 24353
+     "attested": 24352
     },
     "dropped": {
      "form": "ὀνομα",
@@ -2854,7 +2854,7 @@
    "shapes": {
     "acute": {
      "form": "εἴπερ",
-     "attested": 11459
+     "attested": 11458
     },
     "dropped": {
      "form": "εἰπερ",
@@ -2932,7 +2932,7 @@
     },
     "circumflex": {
      "form": "ταῦτα",
-     "attested": 120889
+     "attested": 120887
     }
    }
   },
@@ -3096,7 +3096,7 @@
    "shapes": {
     "acute": {
      "form": "ἕτερος",
-     "attested": 6370
+     "attested": 6369
     },
     "dropped": {
      "form": "ἑτερος",
@@ -3672,7 +3672,7 @@
     },
     "dropped": {
      "form": "ἐπειδὴ",
-     "attested": 32457
+     "attested": 32456
     },
     "crasis": {
      "form": "ἐπεἰδὴ",
@@ -3712,7 +3712,7 @@
    "shapes": {
     "acute": {
      "form": "ἔπειτα",
-     "attested": 11054
+     "attested": 11053
     },
     "dropped": {
      "form": "ἐπειτα",
@@ -3918,7 +3918,7 @@
     },
     "crasis": {
      "form": "οὐτος",
-     "attested": 396
+     "attested": 395
     },
     "circumflex": {
      "form": "οῦτος",
@@ -4306,7 +4306,7 @@
    "shapes": {
     "acute": {
      "form": "ἔμψυχον",
-     "attested": 1063
+     "attested": 1062
     },
     "dropped": {
      "form": "ἐμψυχον",
@@ -4494,7 +4494,7 @@
     },
     "circumflex": {
      "form": "μᾶλλον",
-     "attested": 66572
+     "attested": 66568
     }
    }
   },
@@ -4613,8 +4613,8 @@
   "what": "for each flagged form, which clean Greek word has its letters. Grouped on the letter skeleton with every combining mark stripped, counted over the non-OCR corpus only, with a grave on the last nucleus read as an acute because that alternation is positional.",
   "why_this_and_not_the_four_shapes": "the block above is still true: no mechanical reshaping of the accent is right for a majority. That is a fact about those four shapes, not about the class. Asking which word it is decides half the mass and gets every counterexample above right, including that ἐπεὶδὴ is ἐπειδή, where the grave is dropped rather than moved.",
   "base": {
-   "forms": 1160981,
-   "tokens": 36117111,
+   "forms": 1160993,
+   "tokens": 36117550,
    "excludes": "OCR sources, and every flagged form, so an illegal form cannot vote on the legal one"
   },
   "params": {
@@ -4644,8 +4644,8 @@
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17409,
-    "tokens": 20314
+    "forms": 17406,
+    "tokens": 20310
    }
   ],
   "accent_only_forms": 2702,
@@ -4720,8 +4720,8 @@
     "tokens": 108,
     "ocr_tokens": 0,
     "target": "ἵνα",
-    "clean_class": 30628,
-    "clean_hits": 29227,
+    "clean_class": 30629,
+    "clean_hits": 29228,
     "share": 0.9543,
     "accent_only": true,
     "runner_up": {
@@ -4734,8 +4734,8 @@
     "tokens": 103,
     "ocr_tokens": 0,
     "target": "ὥσπερ",
-    "clean_class": 44975,
-    "clean_hits": 44449,
+    "clean_class": 44976,
+    "clean_hits": 44450,
     "share": 0.9883,
     "accent_only": true,
     "runner_up": {
@@ -4787,8 +4787,8 @@
     "tokens": 81,
     "ocr_tokens": 2,
     "target": "ἄνθρωπος",
-    "clean_class": 13132,
-    "clean_hits": 12295,
+    "clean_class": 13133,
+    "clean_hits": 12296,
     "share": 0.9363,
     "accent_only": true,
     "runner_up": {
@@ -4829,8 +4829,8 @@
     "tokens": 75,
     "ocr_tokens": 0,
     "target": "ἀπό",
-    "clean_class": 99425,
-    "clean_hits": 97163,
+    "clean_class": 99426,
+    "clean_hits": 97164,
     "share": 0.9772,
     "accent_only": false,
     "runner_up": {
@@ -4882,8 +4882,8 @@
     "tokens": 60,
     "ocr_tokens": 0,
     "target": "ἄλλο",
-    "clean_class": 18193,
-    "clean_hits": 17890,
+    "clean_class": 18194,
+    "clean_hits": 17891,
     "share": 0.9833,
     "accent_only": true,
     "runner_up": {
@@ -4963,8 +4963,8 @@
     "tokens": 46,
     "ocr_tokens": 0,
     "target": "τοῦ",
-    "clean_class": 527813,
-    "clean_hits": 515989,
+    "clean_class": 527815,
+    "clean_hits": 515991,
     "share": 0.9776,
     "accent_only": true,
     "runner_up": {
@@ -5041,8 +5041,8 @@
     "tokens": 39,
     "ocr_tokens": 0,
     "target": "ἄνθρωπον",
-    "clean_class": 8457,
-    "clean_hits": 8254,
+    "clean_class": 8460,
+    "clean_hits": 8257,
     "share": 0.976,
     "accent_only": true,
     "runner_up": {
@@ -5080,13 +5080,13 @@
     "tokens": 37,
     "ocr_tokens": 0,
     "target": "τοῦτο",
-    "clean_class": 110140,
-    "clean_hits": 104805,
+    "clean_class": 110146,
+    "clean_hits": 104810,
     "share": 0.9516,
     "accent_only": true,
     "runner_up": {
      "form": "τοῦτό",
-     "clean_tokens": 5087
+     "clean_tokens": 5088
     }
    },
    {
@@ -5175,8 +5175,8 @@
     "tokens": 30,
     "ocr_tokens": 0,
     "target": "αὐτοῦ",
-    "clean_class": 107806,
-    "clean_hits": 101736,
+    "clean_class": 107808,
+    "clean_hits": 101738,
     "share": 0.9437,
     "accent_only": false,
     "runner_up": {
@@ -5217,8 +5217,8 @@
     "tokens": 27,
     "ocr_tokens": 0,
     "target": "τοῦ",
-    "clean_class": 527813,
-    "clean_hits": 515989,
+    "clean_class": 527815,
+    "clean_hits": 515991,
     "share": 0.9776,
     "accent_only": true,
     "runner_up": {
@@ -5396,8 +5396,8 @@
     "tokens": 22,
     "ocr_tokens": 0,
     "target": "εἶναι",
-    "clean_class": 122166,
-    "clean_hits": 114908,
+    "clean_class": 122167,
+    "clean_hits": 114909,
     "share": 0.9406,
     "accent_only": true,
     "runner_up": {
@@ -5603,8 +5603,8 @@
     "tokens": 18,
     "ocr_tokens": 0,
     "target": "δῆλον",
-    "clean_class": 13661,
-    "clean_hits": 13126,
+    "clean_class": 13662,
+    "clean_hits": 13127,
     "share": 0.9608,
     "accent_only": true,
     "runner_up": {
@@ -5922,8 +5922,8 @@
     "tokens": 14,
     "ocr_tokens": 0,
     "target": "μᾶλλον",
-    "clean_class": 39174,
-    "clean_hits": 37960,
+    "clean_class": 39175,
+    "clean_hits": 37961,
     "share": 0.969,
     "accent_only": true,
     "runner_up": {
@@ -6188,8 +6188,8 @@
     "tokens": 12,
     "ocr_tokens": 0,
     "target": "αὐτοῦ",
-    "clean_class": 107806,
-    "clean_hits": 101736,
+    "clean_class": 107808,
+    "clean_hits": 101738,
     "share": 0.9437,
     "accent_only": true,
     "runner_up": {
@@ -6777,8 +6777,8 @@
     "tokens": 9,
     "ocr_tokens": 0,
     "target": "αὐτόν",
-    "clean_class": 79751,
-    "clean_hits": 75474,
+    "clean_class": 79752,
+    "clean_hits": 75475,
     "share": 0.9464,
     "accent_only": false,
     "runner_up": {
@@ -6844,8 +6844,8 @@
     "tokens": 9,
     "ocr_tokens": 0,
     "target": "ὥσπερ",
-    "clean_class": 44975,
-    "clean_hits": 44449,
+    "clean_class": 44976,
+    "clean_hits": 44450,
     "share": 0.9883,
     "accent_only": false,
     "runner_up": {
@@ -6928,8 +6928,8 @@
     "tokens": 9,
     "ocr_tokens": 0,
     "target": "ἡμᾶς",
-    "clean_class": 21419,
-    "clean_hits": 21022,
+    "clean_class": 21420,
+    "clean_hits": 21023,
     "share": 0.9815,
     "accent_only": false,
     "runner_up": {
@@ -7093,8 +7093,8 @@
     "tokens": 9,
     "ocr_tokens": 0,
     "target": "αὐτῷ",
-    "clean_class": 72149,
-    "clean_hits": 68182,
+    "clean_class": 72152,
+    "clean_hits": 68185,
     "share": 0.945,
     "accent_only": false,
     "runner_up": {
@@ -8352,8 +8352,8 @@
     "tokens": 6,
     "ocr_tokens": 0,
     "target": "ἀπό",
-    "clean_class": 99425,
-    "clean_hits": 97163,
+    "clean_class": 99426,
+    "clean_hits": 97164,
     "share": 0.9772,
     "accent_only": true,
     "runner_up": {
@@ -8408,8 +8408,8 @@
     "tokens": 6,
     "ocr_tokens": 0,
     "target": "ἄνθρωπος",
-    "clean_class": 13132,
-    "clean_hits": 12295,
+    "clean_class": 13133,
+    "clean_hits": 12296,
     "share": 0.9363,
     "accent_only": true,
     "runner_up": {
@@ -8801,8 +8801,8 @@
     "tokens": 5,
     "ocr_tokens": 0,
     "target": "εἶναι",
-    "clean_class": 122166,
-    "clean_hits": 114908,
+    "clean_class": 122167,
+    "clean_hits": 114909,
     "share": 0.9406,
     "accent_only": false,
     "runner_up": {
@@ -8815,9 +8815,9 @@
     "tokens": 5,
     "ocr_tokens": 0,
     "target": "εἶπεν",
-    "clean_class": 16801,
+    "clean_class": 16802,
     "clean_hits": 16320,
-    "share": 0.9714,
+    "share": 0.9713,
     "accent_only": true,
     "runner_up": {
      "form": "εἰπεν",
@@ -9273,8 +9273,8 @@
     "tokens": 5,
     "ocr_tokens": 5,
     "target": "μέντοι",
-    "clean_class": 16593,
-    "clean_hits": 16586,
+    "clean_class": 16594,
+    "clean_hits": 16587,
     "share": 0.9996,
     "accent_only": true,
     "runner_up": {
@@ -9413,13 +9413,13 @@
     "tokens": 4,
     "ocr_tokens": 0,
     "target": "τοῦτο",
-    "clean_class": 110140,
-    "clean_hits": 104805,
+    "clean_class": 110146,
+    "clean_hits": 104810,
     "share": 0.9516,
     "accent_only": true,
     "runner_up": {
      "form": "τοῦτό",
-     "clean_tokens": 5087
+     "clean_tokens": 5088
     }
    },
    {
@@ -9477,8 +9477,8 @@
     "tokens": 4,
     "ocr_tokens": 0,
     "target": "σῶμα",
-    "clean_class": 18009,
-    "clean_hits": 17338,
+    "clean_class": 18010,
+    "clean_hits": 17339,
     "share": 0.9627,
     "accent_only": true,
     "runner_up": {
@@ -9491,8 +9491,8 @@
     "tokens": 4,
     "ocr_tokens": 4,
     "target": "ποδήρη",
-    "clean_class": 72,
-    "clean_hits": 72,
+    "clean_class": 73,
+    "clean_hits": 73,
     "share": 1.0,
     "accent_only": true,
     "runner_up": null
