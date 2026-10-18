@@ -1021,6 +1021,10 @@ printed lacuna-dot series once. Superseded predictions remain held evidence in
 `scan_ocr_bundle`; they cannot enter the replacement body vote. A separate
 one-region request retains the full-size comparative quotations below the rule
 on Cary IX printed page 470, with their Leo/Cedrenus and Petrus Patricius credits.
+That panel is admitted separately as comparative paratext under
+`data/corpus_changes/dio-cary-nine-comparison-2026-10/`, using both independent
+checkpoints and the bounded, attributed Source Library witness. It adds no
+primary Dio passage.
 The admission loader accepts self-contained scan bundles without rewriting any
 part's runtime metadata or artifact hash. The admission audit exposes every part
 and held prediction. Failed superseded attempts remain evidence; every eligible
