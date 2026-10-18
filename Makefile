@@ -78,10 +78,14 @@ DATE_COMPARISON := data/oga_glaux_date_comparison.json
 CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
+                    scripts/repair_photius_apparatus.py \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
+    scripts/repair_photius_apparatus.py \
     $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
                data/corpus_changes/photius-bekker-coverage/coverage.json \
+               data/corpus_changes/photius-bekker-apparatus/changes.json \
+               data/ingest_reviews/photius-bekker-apparatus.json \
                data/corpus_changes/cyril-john-coverage/changes.json \
                data/corpus_extension_index.json data/critical_editions/*/manifest.json)
 
@@ -272,8 +276,14 @@ $(GRAVE_RESIDUE): $(WORK_LEMMAS) $(CATALOG) scripts/measure_grave_residue.py \
 # The volume file is gone: its text is in the carved works and its apparatus in
 # data/paratext. Both PG003 measurements read the carve audit's archived rows
 # instead, which is the volume as it stood before any of this.
+data/cache/ia/PG003_djvu.txt: scripts/fetch_pinned_source.py
+	$(PY) scripts/fetch_pinned_source.py pg003-text
+
+data/cache/ia/PG003_djvu.xml: scripts/fetch_pinned_source.py
+	$(PY) scripts/fetch_pinned_source.py pg003-geometry
+
 $(PG003_HEADS): data/corpus_changes/cogPG.PG003.row-split.json data/pg003_blocks.json \
-                data/cache/ia/PG003_djvu.txt scripts/recover_pg003_heads.py
+                data/cache/ia/PG003_djvu.txt scripts/recover_pg003_heads.py scripts/fetch_pinned_source.py
 	$(PY) scripts/recover_pg003_heads.py --write
 
 # The same sweep over the line-level ocr source, where the unit is a scan page
@@ -331,7 +341,7 @@ $(PG003_ALT): data/corpus_changes/cogPG.PG003.row-split.json \
 # the two read different derivatives of the same scan, but if this one ever
 # stops saying display head then the boundaries in $(PG003_HEADS) stop meaning
 # what they say. tests/test_pg003_heads.py asserts the verdict for that reason.
-$(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.py
+$(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.py scripts/fetch_pinned_source.py
 	$(PY) scripts/measure_pg003_head_geometry.py --write
 
 # build_provenance.py rewrites the table between the OCR-PROVENANCE markers, so
@@ -376,6 +386,8 @@ capital-positions:
 
 check:
 	$(PY) scripts/check_ocr_ledgers.py
+	$(PY) scripts/repair_photius_apparatus.py --check
+	$(PY) scripts/audit_photius_apparatus.py --check
 	$(PY) scripts/build_source_components.py --check
 	$(PY) scripts/check_capital_positions_fresh.py
 	$(PY) scripts/check_corrections_mirror_fresh.py
