@@ -59,11 +59,14 @@ def _scan_resolution(root, slug):
     if not scope or scope["status"] != "reviewed-primary-regions-admitted":
         return _pending(root, "Reviewed missing Greek scan regions have not all been admitted.", scope=scope)
     from ingest_scan_coverage import verify_integrity
-    audit = root / scope["admission_audit"]
-    verify_integrity(audit.parent, root)
+    audited = []
+    for relative in scope["admission_audits"]:
+        audit = root / relative
+        verify_integrity(audit.parent, root)
+        audited.append({"path": str(audit.relative_to(root)), "sha256": _sha(audit)})
     citation = _check_mathematical_citations(root, slug) if slug != "cassius-dio.historiae-romanae" else None
     return _resolved(root, scope["transmission_limit"], scope=scope,
-        admission_audit={"path": str(audit.relative_to(root)), "sha256": _sha(audit)},
+        admission_audits=audited,
         **({"citation_audit": citation} if citation else {}))
 
 

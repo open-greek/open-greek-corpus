@@ -534,6 +534,12 @@ Source and page manifests for the missing Pappus VI–VIII and Conica I–III ar
 under `data/ingest_reviews/coverage/`. They identify the Greek leaves individually,
 including alternate scan leaves where a scan repeats earlier Pappus pages;
 they are OCR inputs, not assertions that new text has already been served.
+`prepare_mathematical_ocr.py --book4-letter` separately pins two cropped regions
+for Conica IV's omitted letter to Attalus. The original 556-region request stays
+unchanged. Admit the two runs in either order: the importer adds new extension
+rows, preserves every earlier row and network reference, and records each audit
+in the active extension index. The letter precedes proposition 4.1 in reading
+order. Undo later admissions first; each earlier audit remains replayable.
 
 `scripts/prepare_dio_ocr.py` selects 1,500 Greek regions from 1,217 physical
 spreads in Cary volumes I, II, and VI–IX for the missing transmitted Dio

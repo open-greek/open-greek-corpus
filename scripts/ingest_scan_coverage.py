@@ -39,6 +39,10 @@ def records(raw):
     return [json.loads(line) for line in raw.splitlines() if line.strip()]
 
 
+def jsonl_bytes(rows):
+    return "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows).encode()
+
+
 def vote_group(model):
     match = re.search(r"qwen3[.-](\d+).*?(\d+)b", model.lower())
     return f"qwen3.{match[1]}-{match[2]}b" if match else model
@@ -205,12 +209,14 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
         compact = compact_corpus_consensus(merged, {"path": network_path, "key": key})
         source = manifest["sources"][page["source"]]
         row = {"urn": page["work"], "edition": EDITION, "locus": locus(page),
-            "source": "ocr", "license": "public-domain", "language": "grc",
+            "source": "ocr", "license": "PD", "language": "grc",
             **compact, "scan_region_id": key,
             "source_scan": {"url": source["url"], "sha256": source["sha256"],
                 "scan_page": page["scan_page"], "region": page["region"]},
             "printed_page": page["printed_page"],
             "transmission": page.get("transmission", "direct-text")}
+        if page.get("text_role"):
+            row["text_role"] = page["text_role"]
         if component is not None:
             row["license"] = "CC-BY-SA-4.0"
             row["component_attribution"] = [component]
@@ -271,31 +277,44 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     before = {path: (root / path).read_text() if (root / path).exists() else None for path in paths}
     extensions = json.loads(before[EXTENSION_INDEX]) if before[EXTENSION_INDEX] else {"schema_version": 1, "works": {}}
     editions = json.loads(before["data/corpus_editions.json"])
-    outputs = {}
+    outputs, addition_hashes = {}, {}
     for work, rows in primary.items():
         old = records(before[f"data/corpus/{work}.jsonl"].encode())
         seen = {row["locus"] for row in old}
         if len({row["locus"] for row in rows}) != len(rows) or any(row["locus"] in seen for row in rows):
             raise ValueError("Refusing to replace an existing passage with scan coverage")
         extension_path = f"data/corpus_extensions/{work}.jsonl"
-        if before[extension_path] is not None:
-            raise ValueError("Existing scan extensions need explicit consolidation")
         from scan_coverage_extensions import combine_rows, reading_digest
+        previous = extensions["works"].get(work)
+        previous_rows = records(before[extension_path].encode()) if before[extension_path] is not None else []
+        if previous_rows:
+            if not previous or sha(before[extension_path].encode()) != previous["sha256"]:
+                raise ValueError("Existing scan extension lacks its unchanged audit index")
+            current_rows = {row["locus"]: row for row in old}
+            if any(current_rows.get(row["locus"]) != row for row in previous_rows):
+                raise ValueError("An existing admitted scan reading changed")
+        previous_loci = {row["locus"] for row in previous_rows}
+        base = [row for row in old if row["locus"] not in previous_loci]
+        if previous and reading_digest(base) != previous["base_readings_sha256"]:
+            raise ValueError("The underlying edition changed before extension consolidation")
         rows = combine_rows(work, [], rows)
-        outputs[extension_path] = ("".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows)).encode()
-        outputs[f"data/corpus/{work}.jsonl"] = ("".join(json.dumps(r, ensure_ascii=False) + "\n"
-                                                     for r in combine_rows(work, old, rows))).encode()
+        combined = combine_rows(work, previous_rows, rows)
+        addition_hashes[work] = sha(jsonl_bytes(rows))
+        outputs[extension_path] = jsonl_bytes(combined)
+        outputs[f"data/corpus/{work}.jsonl"] = jsonl_bytes(combine_rows(work, old, rows))
+        audit_reference = str(archive.relative_to(root) / "changes.json")
+        previous_audits = previous.get("audits", [previous["audit"]]) if previous else []
         extensions["works"][work] = {"path": extension_path, "sha256": sha(outputs[extension_path]),
-            "audit": str(archive.relative_to(root) / "changes.json"), "edition": EDITION,
-            "base_readings_sha256": reading_digest(old)}
-        components = {component["id"]: component for row in rows for component in row.get("component_attribution", [])}
+            "audit": audit_reference, "audits": previous_audits + [audit_reference], "edition": EDITION,
+            "base_readings_sha256": reading_digest(base)}
+        components = {component["id"]: component for row in combined for component in row.get("component_attribution", [])}
         if components:
             extensions["works"][work]["digital_components"] = [components[key] for key in sorted(components)]
         from build_public_corpus import _GK
         editions[work]["n_passages"] = len(old) + len(rows)
         editions[work]["n_tokens"] = sum(len(_GK.findall(r.get("analysis_text", r["text"]))) for r in old + rows)
         editions[work]["scan_extensions"] = [EDITION]
-        editions[work]["scan_extension_licenses"] = sorted({row["license"] for row in rows})
+        editions[work]["scan_extension_licenses"] = sorted({row["license"] for row in combined})
     outputs[EXTENSION_INDEX] = encoded(extensions)
     outputs["data/corpus_editions.json"] = encoded(editions)
     if paratext:
@@ -332,6 +351,7 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
             for decision in change["decisions"] if decision.get("generator") == "scripts/bound_comparison_witness.py")),
         "consensus_generator_sha256": sha(Path(__import__("ocr_consensus").__file__).read_bytes()),
         "changes": audits, "outputs": {path: sha(raw) for path, raw in outputs.items()},
+        "admitted_extensions_sha256": addition_hashes,
         "reversal": "Use --undo with this audit directory. Every previous file byte and original OCR prediction is archived; the word networks retain all tied alternatives."}))
 
 
@@ -374,7 +394,9 @@ def verify(directory, root):
     for work, expected in primary.items():
         expected = combine_rows(work, [], expected)
         extension = root / f"data/corpus_extensions/{work}.jsonl"
-        if records(extension.read_bytes()) != expected:
+        identifiers = {row["scan_region_id"] for row in expected}
+        selected = [row for row in records(extension.read_bytes()) if row["scan_region_id"] in identifiers]
+        if selected != expected:
             raise ValueError("Scan extension differs from reproducible consensus")
         current = records((root / f"data/corpus/{work}.jsonl").read_bytes())
         if any(row not in current for row in expected):
@@ -427,11 +449,15 @@ def verify_integrity(directory, root):
     for work in works:
         relative = f"data/corpus_extensions/{work}.jsonl"
         raw = (root / relative).read_bytes()
-        if sha(raw) != audit["outputs"][relative]:
-            raise ValueError("Scan extension differs from its admitted word network")
-        additions = records(raw)
+        active = json.loads((root / EXTENSION_INDEX).read_text())["works"][work]
+        if sha(raw) != active["sha256"]:
+            raise ValueError("Scan extension differs from its active audit index")
+        all_extensions = records(raw)
         expected = {page["id"] for page in pages.values() if page["work"] == work
                     and page.get("admission") != "comparative-paratext"}
+        additions = [row for row in all_extensions if row["scan_region_id"] in expected]
+        if sha(jsonl_bytes(additions)) != audit["admitted_extensions_sha256"][work]:
+            raise ValueError("An admission's scan extension readings changed")
         if {row["scan_region_id"] for row in additions} != expected or len(additions) != len(expected):
             raise ValueError("Scan extension does not cover every reviewed primary region")
         current_rows = records((root / f"data/corpus/{work}.jsonl").read_bytes())
@@ -439,9 +465,12 @@ def verify_integrity(directory, root):
         if any(current.get(row["locus"]) != row for row in additions):
             raise ValueError("An admitted scan reading is missing or changed")
         from scan_coverage_extensions import reading_digest
-        new_loci = {row["locus"] for row in additions}
+        new_loci = {row["locus"] for row in all_extensions}
         base = [row for row in current_rows if row["locus"] not in new_loci]
         original = records(before[f"data/corpus/{work}.jsonl"].encode())
+        old_extensions = records(before[relative].encode()) if before[relative] is not None else []
+        old_loci = {row["locus"] for row in old_extensions}
+        original = [row for row in original if row["locus"] not in old_loci]
         if reading_digest(base) != reading_digest(original):
             raise ValueError("Historical source readings changed after scan admission")
     comparisons = [page for page in pages.values() if page.get("admission") == "comparative-paratext"]
