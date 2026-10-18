@@ -13,6 +13,7 @@
  "run_context": "a low-accent row too short or too marker-poor to confirm on its own is included when its neighbour in the same work is confirmed. Polycarp 10.1 is exactly that case: it is 'in his ergo state et domini exemplar sequimini' and carries four markers where five are asked. Lowering the floor instead would start convicting Greek, so the floor stays and position does the rest.",
  "rows": 0,
  "tokens": 0,
+ "counting_basis": "Inclusive reader-surface source-quality spans, with displayed alternatives retained. Eligible lexical counts are measured separately through the checked frequency projection.",
  "measured_as": "spans, not rows. A span is a run of at least 6 unaccented tokens carrying a Latin marker. Rows are the wrong unit where both languages share one: Polycarp 13.2 is Greek with a Latin tail and Hermas 26.30.4 is the reverse, and a row-level list forces a disposition to keep the Latin or discard the Greek beside it.",
  "work_gate": {
   "min_distinct_markers": 6,

@@ -40,7 +40,9 @@ def corpus_pins(data):
 
 
 def corpus_hash(pins):
-    text = "".join(f"{Path(name).stem}\t{digest}\n" for name, digest in sorted(pins.items()))
+    # Sort the canonical slug lines, as the release does. Filename ordering
+    # differs when one slug prefixes another (work.jsonl versus work-extra.jsonl).
+    text = "".join(sorted(f"{Path(name).stem}\t{digest}\n" for name, digest in pins.items()))
     return sha(text.encode())
 
 
