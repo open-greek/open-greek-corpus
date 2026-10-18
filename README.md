@@ -486,6 +486,9 @@ external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
 `work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,304,
 `wikidata` on 518), so joins against citation and lexicon data still work.
+The crosswalk builder reads bibliographic facts from the committed
+`data/inventory/work_inventory.json`; rebuilding it requires no external
+inventory checkout.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
 source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`

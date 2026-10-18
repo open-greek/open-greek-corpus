@@ -24,7 +24,7 @@ sys.path.insert(0, str(REPO))
 from source_identity import normalize_slug  # noqa: E402
 from build_registry import _BETA_GREEK, decode_betacode_title  # noqa: E402
 
-CANON = Path(os.path.expanduser("~/Documents/tlge-tools/data/tlg_canon.json"))
+CANON = REPO / "data/inventory/work_inventory.json"
 
 
 def load_canon():
