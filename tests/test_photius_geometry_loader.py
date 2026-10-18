@@ -21,6 +21,7 @@ def encoded_rows(meta, rows):
 
 def geometry_fixture(tmp_path, monkeypatch, nested=False, mutate=None, old_failure=False):
     monkeypatch.setattr(retries, "known_gutter_manifests", lambda: {})
+    monkeypatch.setattr(retries, "known_geometry_supplement_manifests", lambda: {})
     if nested:
         paths, bases, reviews, first, second = nested_supplement_fixture(tmp_path, monkeypatch)
         supplements = [first, second]
@@ -225,3 +226,88 @@ def test_every_replaced_leaf_needs_its_parent_completion_marker(tmp_path, monkey
     with pytest.raises(ValueError, match="explicit supplemental completion"):
         ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
                                    bases, reviews, supplement_paths=supplements)
+
+
+def geometry_child_fixture(tmp_path, monkeypatch):
+    paths, bases, reviews, supplements, parent, _ = geometry_fixture(tmp_path, monkeypatch)
+    old_file = supplements[-1]
+    values = [json.loads(line) for line in old_file.read_bytes().splitlines()]
+    target = values[1]
+    target.update(raw_prediction="καὶ λέγει " * 20, finish_reason="length")
+    old_file.write_bytes(encoded_rows(values[0]["_meta"], values[1:]))
+    source_line = old_file.read_bytes().splitlines()[1]
+    old = parent["pages"][0]
+    x0, y0, x1, y1 = old["region"]
+    cuts = [y0, y0 + (y1-y0)/3, y0 + 2*(y1-y0)/3, y1]
+    child = {"supplements": {"manifest_path": "data/ocr_requests/test-gutter.json",
+                 "manifest_sha256": retries.sha(retries.encode(parent)), "page_id": "photius-bekker-0050",
+                 "replaces_region": old["id"]}, "sources": parent["sources"], "prompt": parent["prompt"],
+             "checkpoints": parent["checkpoints"],
+             "replacement_condition": {"kind": "source-confirmed-length-termination", "finish_reason": "length",
+                 "raw_file_sha256": retries.sha(old_file.read_bytes()), "prediction_record_sha256": retries.sha(source_line),
+                 "raw_prediction_sha256": retries.sha(target["raw_prediction"].encode())},
+             "pages": [{**old, "id": old["id"] + f"-part{i}", "region": [x0, low, x1, high], "reading_order": i}
+                       for i, (low, high) in enumerate(zip(cuts, cuts[1:]))]}
+    digest = retries.sha(retries.encode(child))
+    monkeypatch.setattr(retries, "known_geometry_supplement_manifests",
+                        lambda: {digest: ("data/ocr_requests/test-gutter-child.json", child)})
+    child_rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"], "region": p["region"],
+                   "image_sha256": "d" * 64, "finish_reason": "stop", "raw_prediction": "ὁ λόγος ἀκριβής ἐστιν.",
+                   "prompt_sha256": retries.sha((child["prompt"] + " " + p["prompt_suffix"]).encode())}
+                  for p in child["pages"]]
+    raw = tmp_path / "geometry-child.jsonl"
+    raw.write_bytes(encoded_rows({**values[0]["_meta"], "manifest_sha256": digest}, child_rows))
+    supplements.append(raw)
+    review_path = next(p for p in reviews if p.name == "review-50.json")
+    review_path.unlink()
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              allow_unreviewed_retry_preparation=True)
+    base = build_retry(50)
+    retries.write_source_review(models, [p for p in bases if p.name == "retry-50-0.jsonl"], review_path,
+        "Synthetic complete child source comparison", {p["id"]: "Complete source lines" for p in base["pages"]},
+        "2026-10-18T13:00:00Z", base, supplements,
+        {p["id"]: "Complete source lines" for r in [parent, child] for p in r["pages"]})
+    return paths, bases, reviews, supplements, child
+
+
+def test_exact_length_child_retains_geometry_ancestor_and_siblings(tmp_path, monkeypatch):
+    paths, bases, reviews, supplements, child = geometry_child_fixture(tmp_path, monkeypatch)
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              bases, reviews, supplement_paths=supplements)
+    assembly = models[(CHECKPOINT38["model"], CHECKPOINT38["revision"])]["photius-bekker-0050"][2]["reviewed_retry"]
+    assert len(assembly["strips"]) == 6
+    assert len(assembly["held_retry_strips"]) == 3
+    assert next(p for p in assembly["held_retry_strips"] if p["id"] == child["supplements"]["replaces_region"])["finish_reason"] == "length"
+    assert len(assembly["supplements"]) == 3  # Two target mappings and their child.
+    assert all(retries.successful(r) for r in assembly["strips"])
+    assert assembly["original_record"]["finish_reason"] == "length"
+
+
+def test_geometry_child_is_mandatory_even_if_its_parent_is_changed_to_stop(tmp_path, monkeypatch):
+    paths, bases, reviews, supplements, child = geometry_child_fixture(tmp_path, monkeypatch)
+    review_path = next(p for p in reviews if p.name == "review-50.json")
+    review = json.loads(review_path.read_bytes())
+    raw = supplements[-1]
+    review["reviewed_supplements"] = [r for r in review["reviewed_supplements"] if r["sha256"] != retries.sha(raw.read_bytes())]
+    review_path.write_bytes(retries.encode(review))
+    with pytest.raises(ValueError, match="requires its reviewed geometry repair"):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                   bases, reviews, supplement_paths=supplements[:-1])
+
+
+@pytest.mark.parametrize("change", ["file", "record", "text", "finish", "stop", "kind"])
+def test_length_condition_is_exact_and_never_permits_a_successful_replacement(change):
+    row = {"raw_prediction": "καὶ λέγει ὁ λόγος", "finish_reason": "length"}
+    line = json.dumps(row, ensure_ascii=False).encode()
+    raw = b'{"_meta":{}}\n' + line + b"\n"
+    condition = {"kind": "source-confirmed-length-termination", "finish_reason": "length",
+        "raw_file_sha256": retries.sha(raw), "prediction_record_sha256": retries.sha(line),
+        "raw_prediction_sha256": retries.sha(row["raw_prediction"].encode())}
+    assert retries.confirmed_length_termination({"replacement_condition": condition}, raw, line, row)
+    if change == "file": raw += b" "
+    elif change == "record": line += b" "
+    elif change == "text": row["raw_prediction"] += " θεός"
+    elif change == "finish": condition["finish_reason"] = "stop"
+    elif change == "stop": row["finish_reason"] = "stop"
+    else: condition["kind"] = "unknown"
+    assert not retries.confirmed_length_termination({"replacement_condition": condition}, raw, line, row)
