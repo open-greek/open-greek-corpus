@@ -248,7 +248,9 @@ def run(root, mode):
         for path, raw in outputs.items():
             if (root / path).read_bytes() != raw:
                 raise ValueError(f"Repaired corpus differs from replay: {path}")
-        if changes != audit["changes"] or json.loads((root / ALIASES).read_text())["aliases"] != aliases:
+        current_aliases = json.loads((root / ALIASES).read_text())["aliases"]
+        if changes != audit["changes"] or any(current_aliases.get(slug) != targets
+                                               for slug, targets in aliases.items()):
             raise ValueError("Assignment audit or passage aliases differ from replay")
         print(f"Verified {len(changes)} reversible assignments; all text is unchanged.")
         return

@@ -115,12 +115,11 @@ def test_repair_undo_restores_exact_primary_secondary_and_metadata_bytes(tmp_pat
         pytest.skip("repair not applied yet")
     audit = json.loads((audit_dir / "changes.json").read_text())
     snapshots = json.loads(gzip.decompress((audit_dir / "before.json.gz").read_bytes()))
-    for path in audit["outputs"]:
-        source, target = ROOT / path, tmp_path / path
-        target.parent.mkdir(parents=True, exist_ok=True)
-        if source.exists():
-            shutil.copyfile(source, target)
-    shutil.copytree(audit_dir, tmp_path / repair.AUDIT)
+    # Reverse later migrations before checking the original output guards.
+    import repair_lydus_identity as lydus
+    import repair_manetho_citations as manetho
+    from migration_fixtures import copy_repair_state
+    copy_repair_state(ROOT, tmp_path, repair, [manetho, lydus])
     repair.run(tmp_path, "undo")
     for path, expected in snapshots.items():
         target = tmp_path / path

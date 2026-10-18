@@ -94,6 +94,7 @@ from corpus_order_overrides import (  # noqa: E402
     apply_order_override,
     load_order_overrides,
 )
+from repair_manetho_citations import remap_record, validate_source  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "sources"
@@ -995,6 +996,7 @@ def main() -> None:
         covered: set = set()          # 5-gram shingles already taken (tracked only when multi)
         covered_books: set[str] = set()
         for ntok, source, lic, path, edition in eds:
+            validate_source(key, edition, source, path)
             root = ET.parse(str(path)).getroot()
             fb: list[str] = []
             psgs = [(parts, unicodedata.normalize("NFC", text), bekker,
@@ -1219,6 +1221,7 @@ def main() -> None:
             # invariant that keeps it a pure segmentation, never a rewrite).
             if len(lines) >= 2 and " ".join(lines) == text:
                 rec["text_lines"] = lines
+            rec = remap_record(rec)
             out_lines.append(json.dumps(rec, ensure_ascii=False))
         _atomic_write_text(CORPUS / f"{key}.jsonl",
                            "".join(line + "\n" for line in out_lines))

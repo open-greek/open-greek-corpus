@@ -13,6 +13,50 @@
    "evidence": "A literal XML-style closing angle bracket was emitted between sentences in the First1K/Perseus passage. It is markup residue, not part of the Greek text.",
    "date": "2026-09-13",
    "reversible": "replace the corrected substring with original at this work and locus"
+  },
+  {
+   "work": "manetho-astrology.apotelesmatica",
+   "locus": "3.1.32",
+   "original": "ἂνδρας",
+   "correction": "ἄνδρας",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 535; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "manetho-astrology.apotelesmatica",
+   "locus": "4.1.584",
+   "original": "ἂνδρας",
+   "correction": "ἄνδρας",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 1515; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "manetho-astrology.apotelesmatica",
+   "locus": "5.1.256",
+   "original": "ἂνδρες",
+   "correction": "ἄνδρες",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 1941; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
+  },
+  {
+   "work": "manetho-astrology.apotelesmatica",
+   "locus": "5.1.428",
+   "original": "ἂνδρας",
+   "correction": "ἄνδρας",
+   "expected_occurrences": 1,
+   "evidence": "Replay the existing decision in data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json, row index 2113; its after-hash matches the archived input for issue 51. Apply at the original First1K locus before mapping book numbers.",
+   "date": "2026-08-10",
+   "audit_source": "data/corpus_changes/nonfinal_grave_tranche_thirdparty.applied.json",
+   "reversible": "restore the original token recorded in the source audit"
   }
  ]
 }
