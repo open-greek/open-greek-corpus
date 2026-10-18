@@ -20,6 +20,11 @@ def column_strips(top, bottom, left_cuts, right_cuts):
     return result
 
 
+def body_columns(top, bottom):
+    return [("left-body", [.045, top, .495, bottom]),
+            ("right-body", [.505, top, .975, bottom])]
+
+
 REVIEWS = {
     27: {"strips": [("left-upper", [.035, .055, .49, .318]),
                     ("left-middle", [.035, .318, .49, .574]),
@@ -32,6 +37,9 @@ REVIEWS = {
     47: {"cut": .458, "top": .065, "bottom": .848,
          "evidence": "Printed page 35 begins codex 70, continues codex 71 from the left-column foot into the right-column top, then begins codex 72. The four crop boundaries retain complete authorial lines and stop above the smaller apparatus. The horizontal split at .458 lies in a blank interline gap in both columns.",
          "failure": "Qwen3.8 repeats Greek function words and reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
+    49: {"strips": body_columns(.058, .817), "checkpoints": [CHECKPOINT36],
+         "evidence": "Printed page37 continues the Persian narrative. The original Qwen3.6 appends the smaller numbered apparatus, including add and post ἐπτακισχίλιοι cum A omisi δύο. Source inspection places both body-column feet above.817 and the apparatus below.828. The two enlarged columns preserve every large body line and exclude the running header and small notes.",
+         "failure": "The stop-terminated Qwen3.6 original leaks printed critical apparatus into its body reading. Retain it as evidence; the independent Qwen3.8 whole-page reading stays intact."},
     50: {"cut": .456, "top": .062, "bottom": .835,
          "evidence": "Printed page 38 continues codex 72 in two columns. The four crops include every large Greek body line; the last right-column line ends with the opening of Xerxes' campaign against the Greeks. The horizontal split at .456 lies between complete lines; the lower boundary excludes the smaller apparatus.",
          "failure": "Qwen3.8 repeats καὶ and reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
@@ -43,6 +51,9 @@ REVIEWS = {
                     ("right-lower", [.505, .580, .97, .840])],
          "evidence": "Printed page75 continues the dramatic narrative in two columns. The six strips retain every large Greek body line, including the lower right paragraph beginning Ἀλλ’ ὅ γε Τύρος καὶ Εὐφράτης. Both horizontal boundaries lie between complete lines; the bottom at.840 stops above the smaller apparatus beginning at.850. Reading order is the entire left column followed by the entire right column.",
          "failure": "The original Qwen3.8 page attempt reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
+    83: {"strips": body_columns(.067, .838), "checkpoints": [CHECKPOINT36],
+         "evidence": "Printed page71 continues the post-Alexander narrative. Qwen3.6 appends the smaller numbered apparatus, including τὸ add A and malim δορῶν with a Bast palaeography reference. Source inspection confirms the last large body lines above.838 and the small notes below.847. The two enlarged crops include complete body columns while excluding the running header and apparatus.",
+         "failure": "The stop-terminated Qwen3.6 original leaks critical notes. Retain every original reading; the independent Qwen3.8 whole-page reading stays intact."},
     105: {"strips": column_strips(.061, .840, [.340, .601], [.322, .620]),
           "evidence": "Printed page93 contains the continuation of the Origen-related notice, codex119 on Pierius, and the opening of codex120 on Epiphanius. The six strips retain the complete large body in column order. Left boundaries fall before a new paragraph and the119 heading; the lower right boundary falls before the120 heading. Enlarged boundary checks include descenders and exclude the smaller apparatus below.840.",
           "failure": "The original Qwen3.8 page attempt reaches its output limit. The successful Qwen3.6 whole-page reading remains its vote."},
@@ -64,6 +75,18 @@ REVIEWS = {
                      ("right-fourth", [.505, .640, .97, .813])],
           "evidence": "Printed page101 continues codex158 on Phrynichus and opens codex159 on Isocrates. The right column is especially faint. Eight shorter strips preserve each complete large Greek line in column order; the final right split precedes the159 heading. Enlarged boundary checks preserve descenders and the breathing marks above the following lines. The bottom at.813 excludes the smaller critical apparatus. The body contains no long dotted lacuna requiring a special ellipsis instruction.",
           "failure": "The original Qwen3.8 attempt reaches its output limit and triggers the frozen mark-loss screen. The Qwen3.6 whole-page reading remains its independent vote; the retry still requires completed source and mark review."},
+    119: {"strips": body_columns(.068, .853), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page107 contains the rhetorical notices. Qwen3.6 appends small numbered variants including ὧν add A and κεχρημένος om pr C. Source inspection confirms that.853 preserves the full-size body in both columns and excludes the apparatus beginning below.865; the upper boundary excludes the running header without cutting the first body line.",
+          "failure": "The stop-terminated Qwen3.6 original includes critical apparatus. Its raw text remains held evidence; the independent Qwen3.8 whole-page reading stays intact."},
+    147: {"strips": body_columns(.063, .852), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page135 continues the mythographic narrative. Qwen3.6 appends smaller numbered variants and Ruhnken/Velleius references. The full-size left and right body feet remain above.852; apparatus starts below.860. Source-checked full-column crops preserve the body and exclude both running header and critical notes.",
+          "failure": "The stop-terminated Qwen3.6 original leaks small-type critical notes. Preserve that attempt without another vote; the Qwen3.8 whole-page reading stays intact."},
+    181: {"strips": body_columns(.056, .841), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page169 contains the medical discussion. Qwen3.6 appends the smaller apparatus, including διὰ om A and the parenthetical Latin littera o a correctore posita. The two body columns end above.841; notes begin below.848. Source-checked crops preserve the last large Greek line in each column and exclude all smaller notes.",
+          "failure": "The stop-terminated Qwen3.6 original includes apparatus. Preserve the full original as evidence; the Qwen3.8 whole-page reading stays intact."},
+    188: {"strips": body_columns(.056, .843), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page176 continues the scientific notices. Qwen3.6 appends the smaller critical apparatus, including Rothomagensis, libri scripti, and post εὐπόρισα in A vacui. The large body feet end above.843 and notes begin below.851. Source-checked full-column crops preserve all body lines while excluding the running header and apparatus.",
+          "failure": "The stop-terminated Qwen3.6 original includes small-type critical notes. Keep that attempt and every variant; the Qwen3.8 whole-page reading stays intact."},
 }
 
 # New checkpoint-specific requests never alter a previously queued manifest.
