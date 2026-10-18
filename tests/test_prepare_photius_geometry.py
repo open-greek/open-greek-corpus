@@ -115,7 +115,7 @@ def test_actual_pinned_requests_reproduce_without_invented_or_reordered_targets(
 def test_geometry_children_partition_only_exact_degraded_current_leaves():
     parents = geometry.known_gutter_manifests()
     children = geometry.known_geometry_supplement_manifests()
-    assert len(children) == 9
+    assert len(children) == 10
     for path, request in children.values():
         parent = parents[request["supplements"]["manifest_sha256"]][1]
         target = next(p for p in parent["pages"] if p["id"] == request["supplements"]["replaces_region"])
