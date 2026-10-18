@@ -64,74 +64,42 @@ def test_changed_archived_word_network_cannot_count_as_completed_admission(tmp_p
         verify_integrity(directory, tmp_path)
 
 
-def photius_fresh_fixture(tmp_path, retry=False):
+def photius_fresh_fixture(tmp_path):
     manifests = [{"pages": [{"id": "photius-bekker-0013"}, {"id": "photius-bekker-0014"}]}]
-    report = {"fresh_ocr_files": []}
+    report = {"fresh_ocr_files": [], "reviewed_retries": [{"page_id": "photius-bekker-0050", "supplements": []}]}
+    inputs, models = [], {}
     for number in (6, 8):
         raw = json.dumps({"model": f"qwen3.{number}", "revision": "pinned"}).encode()
-        path = tmp_path / f"fresh-{number}.jsonl"
-        path.write_bytes(raw)
-        report["fresh_ocr_files"].append({"path": path.name, "sha256": hashlib.sha256(raw).hexdigest(),
-            **json.loads(raw)})
-    if retry:
-        def retained(name, raw):
-            path = tmp_path / name
-            path.write_bytes(raw)
-            return {"path": name, "sha256": hashlib.sha256(raw).hexdigest()}
-        report["reviewed_retry"] = {
-            "manifest": retained("retry-manifest.json", b'{"retry":"manifest"}'),
-            "source_review": retained("retry-review.json", b'{"source":"verified strips"}'),
-            "raw_files": [{**retained(f"retry-{number}.jsonl", str(number).encode()),
-                "model": f"qwen3.{number}", "revision": "pinned"} for number in (6, 8)],
-            "original_artifacts_sha256": ["original6", "original8"],
-            "page_id": "photius-bekker-0013", "scan_page": 13}
-    def prepare(paths, requests, *, retry_paths, retry_review):
-        assert requests == manifests
-        assert retry_paths == ([tmp_path / value["path"] for value in report["reviewed_retry"]["raw_files"]] if retry else [])
-        assert retry_review == (tmp_path / "retry-review.json" if retry else None)
-        inputs, models = [], {}
-        for path in paths:
-            raw = path.read_bytes()
-            metadata = json.loads(raw)
-            pages = {page["id"]: {} for request in requests for page in request["pages"]}
-            inputs.append((raw, metadata, pages))
-            models[(metadata["model"], metadata["revision"])] = pages
-        evidence = None
-        if retry:
-            value = report["reviewed_retry"]
-            evidence = {"manifest_sha256": value["manifest"]["sha256"],
-                "source_review_sha256": value["source_review"]["sha256"],
-                "review": {"original_artifacts_sha256": value["original_artifacts_sha256"]},
-                "raw_files": [{"sha256": item["sha256"],
-                    "metadata": {key: item[key] for key in ("model", "revision")}}
-                    for item in value["raw_files"]]}
-        return inputs, models, evidence
+        metadata = json.loads(raw)
+        report["fresh_ocr_files"].append({"sha256": hashlib.sha256(raw).hexdigest(), **metadata})
+        pages = {page["id"]: {} for request in manifests for page in request["pages"]}
+        inputs.append((raw, metadata, pages))
+        models[(metadata["model"], metadata["revision"])] = pages
+    def prepare(root, supplied_report, requests):
+        assert root == tmp_path and supplied_report is report and requests == manifests
+        return inputs, models, [{"canonical_review": "source-verified retries and supplements"}]
     return manifests, report, prepare
 
 
-@pytest.mark.parametrize("retry", [False, True])
-def test_photius_resolution_uses_canonical_original_and_retry_validation(tmp_path, retry):
-    manifests, report, prepare = photius_fresh_fixture(tmp_path, retry)
+def test_photius_resolution_delegates_all_report_pins_to_canonical_validator(tmp_path):
+    manifests, report, prepare = photius_fresh_fixture(tmp_path)
     models = coverage._photius_fresh_witnesses(tmp_path, report, manifests, prepare)
     assert len(models) == 2 and all(len(rows) == 2 for rows in models.values())
     def strict_failure(*args, **kwargs):
-        raise ValueError("failed original without a valid reviewed assembly")
-    with pytest.raises(ValueError, match="failed original"):
+        raise ValueError("changed retry supplement archive")
+    with pytest.raises(ValueError, match="changed retry supplement"):
         coverage._photius_fresh_witnesses(tmp_path, report, manifests, strict_failure)
-    if retry:
-        (tmp_path / "retry-manifest.json").write_text("changed")
-        with pytest.raises(ValueError, match="retry archive changed"):
-            coverage._photius_fresh_witnesses(tmp_path, report, manifests, prepare)
 
 
-def test_photius_resolution_rejects_forged_retry_identity_or_incomplete_models(tmp_path):
-    manifests, report, prepare = photius_fresh_fixture(tmp_path, retry=True)
+def test_photius_resolution_rejects_forged_original_identity_or_incomplete_models(tmp_path):
+    manifests, report, prepare = photius_fresh_fixture(tmp_path)
     def forged(*args, **kwargs):
         inputs, models, evidence = prepare(*args, **kwargs)
-        evidence["raw_files"][0]["metadata"]["revision"] = "different checkpoint"
+        inputs[0][1]["revision"] = "different checkpoint"
         return inputs, models, evidence
-    with pytest.raises(ValueError, match="retry metadata differs"):
+    with pytest.raises(ValueError, match="retained witness identity"):
         coverage._photius_fresh_witnesses(tmp_path, report, manifests, forged)
+    manifests, report, prepare = photius_fresh_fixture(tmp_path)
     def incomplete(*args, **kwargs):
         inputs, models, evidence = prepare(*args, **kwargs)
         next(iter(models.values())).pop("photius-bekker-0014")
