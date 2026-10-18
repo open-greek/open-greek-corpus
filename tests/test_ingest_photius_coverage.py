@@ -9,6 +9,7 @@ ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import ingest_photius_coverage as ingest
 import repair_photius_index as index
+from ocr_consensus import restore_corpus_consensus
 
 
 def prediction(tmp_path, manifest, model, *, missing=False, truncated=False):
@@ -77,6 +78,14 @@ def test_all_bekker_pages_are_covered_once_with_reversible_raw_readings(tmp_path
     assert len({row["locus"] for row in rows}) == 309 + 3846
     added = [r for r in rows if r["edition"] == "bekker1824-independent-ocr-consensus"]
     assert all(len(row["ocr_consensus"]["witnesses"]) == 2 for row in added)
+    full_networks = json.loads(gzip.decompress(artifacts[Path(report["full_networks"]["path"])]))
+    assert len(full_networks) == 310  # The overlap survives in the audit, outside primary text.
+    for row in added:
+        reference = row["ocr_consensus"]["full_network"]
+        compact = {key: row[key] for key in ("text", "analysis_text", "ocr_consensus")}
+        full = restore_corpus_consensus(compact, full_networks[reference["key"]])
+        assert all("readings" in slot for slot in full["ocr_consensus"]["slots"])
+        assert all("readings" not in slot for slot in row["ocr_consensus"]["slots"])
     assert not any(row["physical_refs"]["scan_page"] == 279 for row in added)
     historical = "".join(line for line in artifacts[index.CORPUS].decode().splitlines(keepends=True)
                          if json.loads(line)["edition"] != "bekker1824-independent-ocr-consensus").encode()
