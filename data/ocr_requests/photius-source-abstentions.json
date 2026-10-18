@@ -258,6 +258,31 @@
       "classification": "source-confirmed-unrelated-reading"
     },
     {
+      "id": "photius-bekker-0381-right-lower-gutter",
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+      "manifest_sha256": "38374e8abeffce7527564775cfa724b986ddcee5d03a928e88dcfa4f33afc4a8",
+      "scan_page": 381,
+      "region": [
+        0.488,
+        0.6053,
+        0.97,
+        0.818
+      ],
+      "source": "photius-bekker-combined",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "image_sha256": "0482cef5b83e2f8916467b5b20410ba0fe0eb9845526c420212dca373831ae13",
+      "raw_file_sha256": "b5de8160dec9aac1fb162c68f086d454f60adfa8d44225e3e7b03b15d45f8d1b",
+      "prediction_record_sha256": "2ff671825052becb5a924814b16df00337be6035aff62e57b00a109fe0cbdffe",
+      "raw_prediction_sha256": "1fc5abb15c9c45bf0e14b8a109c8ce16a8fca35edaa23a59b79436c97509447e",
+      "finish_reason": "stop",
+      "original_text": "ἀμείβειν ἐδόκει τὴν θύλασσαν.\nΖεύζιδος τέχνην, τὰ Πυρρόμοις σοφίσματα.\nδὲ ἄρα, ἱερὰ πόλις Ἀπόλλωνος, λατρεύεσι μὲν ἀεὶ\nτῷ Θεῷ καὶ περιχορεύει μετὰ παιάνων τὸν τρίποδα.\nκαὶ μήν καὶ Ἥλειοι δακρύεσι, τὸν ποταμὸν τὸν Πι-\nσαῖον ἐπὶ τὴν Σικελικὴν κρήνην προπέμποντες, ὥσπερ\n(οἶμαι) τῶτο φοβέμενοι, μὴ μελετῶν τὴν ἀποδημίαν\nὁ ποταμὸς ἄλλοις ἀνθρώποις χαρίσηται τὰ νάματα.\nτύχα δέ σοι καὶ ἀηδόνες καὶ κύκνοι καὶ πάντα τὰ\nμέλη συνανοπηήσε?. αἳ μὲν γὰρ ἡμέτεραι Ίξοι καὶ\nσκύφη ἤδη τολμῶσι πῆγνυ?, καὶ ἀπειλοῦσι φυγὴν ζ;\nἐκδὺν δότε μοι τὴν\nΔεῖξοι",
+      "voting_text": "",
+      "reason": "The source has two short phrases at the opening of this body span. The current reading displaces them to its end (raw ending: ekdyn dote moi ten / Deixoi), leaving them in incorrect positions. Preserve the full raw alternative and every finite ancestor, but withhold this entire exact current leaf from reading and omission votes. The independent source reading retains its actual single-witness support; no manual word reordering or synthetic replacement is performed.",
+      "reviewed_at": "2026-10-18",
+      "classification": "source-confirmed-line-order-error"
+    },
+    {
       "id": "photius-bekker-0381-right-middle-part01-part01-gutter",
       "model": "Qwen/Qwen3.8-27B-FP8",
       "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",

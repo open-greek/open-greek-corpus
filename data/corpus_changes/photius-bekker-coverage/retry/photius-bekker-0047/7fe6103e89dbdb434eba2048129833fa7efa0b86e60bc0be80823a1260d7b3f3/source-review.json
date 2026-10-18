@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "f751104d23a61cd49f35b9a27dc72fff197a16c2cf053152c27c3b839110c4ad",
+  "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+  "decision": "replace-source-reviewed-degraded-page",
+  "reviewed_at": "2026-10-18",
+  "source_evidence": "Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading.",
+  "review_scope": "Body-line coverage, column and heading order, systematic mark loss, unprinted repetition, and apparatus boundaries; no claim of lexical proofreading. Word and ligature discrepancies remain raw and reversible.",
+  "strip_reviews": [
+    {
+      "id": "photius-bekker-0047-left-upper",
+      "source_evidence": "Pinned source page47, body box[0.045, 0.065, 0.495, 0.458]: Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true
+    },
+    {
+      "id": "photius-bekker-0047-left-lower",
+      "source_evidence": "Pinned source page47, body box[0.045, 0.458, 0.495, 0.848]: Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true
+    },
+    {
+      "id": "photius-bekker-0047-right-upper",
+      "source_evidence": "Pinned source page47, body box[0.505, 0.065, 0.97, 0.458]: Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "8d54c4ee4610aac0fbb680e6b271868e72ab7bec94040dabaeb8700ebc69a9c9"
+      ]
+    },
+    {
+      "id": "photius-bekker-0047-right-lower",
+      "source_evidence": "Pinned source page47, body box[0.505, 0.458, 0.97, 0.848]: Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "8d54c4ee4610aac0fbb680e6b271868e72ab7bec94040dabaeb8700ebc69a9c9"
+      ]
+    }
+  ],
+  "original_artifacts_sha256": [
+    "d30254f478ec7e4919cf9d142e916ec37f0eee18a3071c835233ed236fb06dd3"
+  ],
+  "reviewed_runs": [
+    {
+      "sha256": "fb0a9244748dc844794e1701a824c08723d03ccc9adc6382aaceb22b26f8c0e6",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "reviewed_supplements": [
+    {
+      "sha256": "f80eaa17c3e589b90b71de778e900cd9bb4711c5dd9c3d206cff2e5769added8",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "manifest_sha256": "8d54c4ee4610aac0fbb680e6b271868e72ab7bec94040dabaeb8700ebc69a9c9",
+      "strip_reviews": [
+        {
+          "id": "photius-bekker-0047-right-upper-gutter",
+          "source_evidence": "Exact source page47, body box[0.498, 0.065, 0.97, 0.458]: Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        },
+        {
+          "id": "photius-bekker-0047-right-lower-gutter",
+          "source_evidence": "Exact source page47, body box[0.498, 0.458, 0.97, 0.848]: Both corrected right spans retain continuous prose, codex72/Ctesias heading, and beginning of Persica discussion in source order, with initial and final glyphs present. No apparatus, unprinted repetition, or systematic mark loss; severe word/ligature errors remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page47. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        }
+      ]
+    }
+  ]
+}

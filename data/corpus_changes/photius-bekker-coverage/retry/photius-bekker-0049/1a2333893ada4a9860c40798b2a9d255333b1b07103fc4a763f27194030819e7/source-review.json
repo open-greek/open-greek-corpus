@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "5e121d544af298bcd2d72b29bcb871536072c88df01ee8cf0e11cb7bbb1784e4",
+  "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+  "decision": "replace-source-reviewed-degraded-page",
+  "reviewed_at": "2026-10-18",
+  "source_evidence": "Both corrected columns retain the ordered Cyrus/Cambyses narratives, paragraph transitions and first/last printed body lines. Marked Greek and glyph boundaries remain; no small apparatus, loop or unrelated inserted section. Substantial lexical errors and marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page49. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading.",
+  "review_scope": "Body-line coverage, column and heading order, systematic mark loss, unprinted repetition, and apparatus boundaries; no claim of lexical proofreading. Word and ligature discrepancies remain raw and reversible.",
+  "strip_reviews": [
+    {
+      "id": "photius-bekker-0049-left-body",
+      "source_evidence": "Pinned source page49, body box[0.045, 0.058, 0.495, 0.817]: Both corrected columns retain the ordered Cyrus/Cambyses narratives, paragraph transitions and first/last printed body lines. Marked Greek and glyph boundaries remain; no small apparatus, loop or unrelated inserted section. Substantial lexical errors and marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page49. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "1e330cf284c0ff893088b3bf037df3b82077ee8ec2270cb473f864834cc89a5d"
+      ]
+    },
+    {
+      "id": "photius-bekker-0049-right-body",
+      "source_evidence": "Pinned source page49, body box[0.505, 0.058, 0.975, 0.817]: Both corrected columns retain the ordered Cyrus/Cambyses narratives, paragraph transitions and first/last printed body lines. Marked Greek and glyph boundaries remain; no small apparatus, loop or unrelated inserted section. Substantial lexical errors and marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page49. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "1e330cf284c0ff893088b3bf037df3b82077ee8ec2270cb473f864834cc89a5d"
+      ]
+    }
+  ],
+  "original_artifacts_sha256": [
+    "8ad1fd26bfaa79020c85a4a749ca7f48fa2916bd70d2ee116ef8a9ef26eae023"
+  ],
+  "reviewed_runs": [
+    {
+      "sha256": "5f7754b8b77fcadb4990df11b0c0b5b780a8e400edb91c8ba608a5c58bca1d22",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "reviewed_supplements": [
+    {
+      "sha256": "0e9fb7064c225f22afd39848ace46d105ecce126913f203c5178060a74b72b75",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "manifest_sha256": "1e330cf284c0ff893088b3bf037df3b82077ee8ec2270cb473f864834cc89a5d",
+      "strip_reviews": [
+        {
+          "id": "photius-bekker-0049-left-body-gutter",
+          "source_evidence": "Exact source page49, body box[0.03, 0.058, 0.483, 0.817]: Both corrected columns retain the ordered Cyrus/Cambyses narratives, paragraph transitions and first/last printed body lines. Marked Greek and glyph boundaries remain; no small apparatus, loop or unrelated inserted section. Substantial lexical errors and marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page49. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        },
+        {
+          "id": "photius-bekker-0049-right-body-gutter",
+          "source_evidence": "Exact source page49, body box[0.483, 0.058, 0.975, 0.817]: Both corrected columns retain the ordered Cyrus/Cambyses narratives, paragraph transitions and first/last printed body lines. Marked Greek and glyph boundaries remain; no small apparatus, loop or unrelated inserted section. Substantial lexical errors and marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page49. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        }
+      ]
+    }
+  ]
+}
