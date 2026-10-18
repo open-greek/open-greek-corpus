@@ -543,6 +543,35 @@ threshold requires an explicit `--min-count` argument.
 
 ## Corpus improvement audits
 
+`scripts/report_polytonic_loss.py corpus` reports suspected page-wide loss of
+polytonic accents or breathing marks in OCR readings. It groups records by
+physical page, scores each raw witness separately, and writes
+`data/quality/polytonic-loss-pages.jsonl.gz` with a summary in
+`data/polytonic_loss_report.json`. Flags request source review and an
+independent witness; they never select text or apply a correction. Sparse
+pages, mostly uppercase text, unresolved page mappings, and intentional
+monotonic orthography limit what counts alone can establish.
+
+The separate 60-page validation sample in
+`data/evaluation/polytonic-loss/` excludes both earlier benchmark samples by
+physical page identity and source hashes. Its thresholds were locked before
+inference; 20 pages are calibration and 40 are held out. The `validate`
+command compares mark presence only at matching Greek base-letter positions,
+requires a recorded scan review, and reports false positives, missed cases,
+failed outputs, and pages with insufficient alignment separately. Replacing
+one accent with another remains an orthographic error rather than a claim
+that the mark disappeared. No witness-selection rule is authorized by this
+report.
+
+`scripts/scan_review_polytonic_loss.py` reproduces the recorded review of all
+60 source crops without altering their transcriptions. Five references have
+line-order defects and four omit printed Greek text; eight distinct pages
+are therefore excluded from mark-loss labels and retained as reference
+limitations. The remaining 52 pages still need complete output and sufficient
+base-letter alignment. Run `scripts/report_polytonic_loss.py validate --root
+SOURCE_DIRECTORY --predictions RUN.jsonl --scan-review
+data/evaluation/polytonic-loss/scan-review.json` for each pinned fresh run.
+
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
 work identities. Source Library entries remain discovery candidates until
