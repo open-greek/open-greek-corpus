@@ -35,7 +35,7 @@ def build_retry(page):
             "purpose": "Replace only a failed checkpoint's whole-page attempt with a separately reviewed strip assembly; retain successful checkpoint readings and all failed originals.",
             "retry_of": {"path": "data/ocr_requests/photius-bekker-first-volume.json" if page <= 279 else "data/ocr_requests/photius-bekker-later-gap.json",
                          "sha256": hashlib.sha256(encode(original)).hexdigest(), "page_id": source_page["id"]},
-            "checkpoints": [CHECKPOINT38], "sources": original["sources"], "prompt": original["prompt"],
+            "checkpoints": review.get("checkpoints", [CHECKPOINT38]), "sources": original["sources"], "prompt": original["prompt"],
             "review": {"checked_scan_pages": [page], "accepted_for_primary_ingest": False,
                        "evidence": review["evidence"], "failure": review["failure"],
                        "admission_policy": "Only the listed checkpoint receives an assembled replacement vote after a completed output-to-scan review. Keep every original and retry prediction; no extra votes or arbitrary choice."},
