@@ -911,6 +911,16 @@ labels held originals, failed retry strips, reviewed voting parts, and unchanged
 original votes, and links each assembly to its completed source review.
 The report-integrity helper reproduces the screen from the exact archived inputs.
 
+`scripts/run_reviewed_scan_retry.py` provides a separate decoding policy for
+source-reviewed attempts that repeat output under greedy decoding. It pins the
+Qwen provider's instruct settings (temperature 0.7, top-p 0.8, top-k 20,
+presence penalty 1.5), a fixed seed, the original image helper, the actual server
+runtime, and every request and prediction. The original runner and benchmark
+settings stay fixed. Start with `--limit` for a small source comparison before a
+larger retry batch. These settings can alter wording or mix scripts; they do not
+authorize replacement. A completed source review must still verify all body
+lines, marks, and apparatus boundaries, and retries remain one vote per model.
+
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
 records the scan-checked mapping and preserves every original destination in
