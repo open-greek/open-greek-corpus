@@ -25,6 +25,7 @@ JAHN_EDITION = "jahn-1882-consensus-2026-10"
 AUDIT_DIR = "data/corpus_changes/meibom-musical-anthology"
 PARATEXT = "data/paratext/meibom-1652.jsonl"
 INPUT_SHA256 = "2d3e16932378cd1d0c1ea176eb0d6fbefbebea8303249f72c38c7e7808bd6526"
+HISTORICAL_NOTE = "Historical whole-anthology assignment; original rows are retained by the issue52 audit and routed secondary witnesses."
 SOURCE = {
     "url": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
     "pdf_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
@@ -381,8 +382,7 @@ def repaired_outputs(root, inputs, before):
     work = registry["works"][OLD]
     old_key = work["default_edition"]
     if old_key in work["editions"]:
-        work["editions"][old_key].update(servable=False,
-            note="Historical whole-anthology assignment; original rows are retained by the issue52 audit and routed secondary witnesses.")
+        work["editions"][old_key].update(servable=False, note=HISTORICAL_NOTE)
     new_key = f"{OLD}.{primary_edition}"
     work["editions"][new_key] = {"name": "Jahn 1882, merged scan OCR with explicit variants" if jahn_primary else "Meibom 1652, merged scan OCR with explicit variants",
         "provider": "ocr", "scheme": "book.printed-page", "editor": "Jahn, Albert" if jahn_primary else "Meibom, Marcus",

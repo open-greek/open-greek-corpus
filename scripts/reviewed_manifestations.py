@@ -123,7 +123,7 @@ def _meibom(root):
     if not path.exists():
         return {}
     audit = _load(path)
-    from repair_meibom_work_assignments import OLD, INPUT_SHA256
+    from repair_meibom_work_assignments import OLD, INPUT_SHA256, HISTORICAL_NOTE
     primary = f"data/corpus/{OLD}.jsonl"
     if _sha(root / primary) == INPUT_SHA256:
         return {}  # audit retained after exact unapply
@@ -166,6 +166,7 @@ def _meibom(root):
         "edition": chosen["key"], "storage": "primary", "passages": expected,
         "source": primary_source["url"], "source_sha256": primary_source["sha256"], "license": primary_source["license"]})
     output[OLD]["disable_editions"] = ["qwen36-aristides_quintilianus_meibom"]
+    output[OLD]["disable_note"] = HISTORICAL_NOTE
     return output
 
 
@@ -427,7 +428,7 @@ def register_reviewed_manifestations(registry, root=ROOT):
             record = work.editions.get(slug + "." + edition)
             if record:
                 record.servable = False
-                record.note = "Historical whole-anthology assignment; exact readings survive in the routing audit and secondary witnesses."
+                record.note = value.get("disable_note", "Historical whole-anthology assignment; exact readings survive in the routing audit and secondary witnesses.")
         composition = value["coverage_composition"]
         base_key = previous
         if value.get("default_edition") and previous == work.default_edition:

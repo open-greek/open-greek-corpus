@@ -90,6 +90,12 @@ def test_admission_replay_accepts_derived_registry_credits_without_losing_audite
         work.update(author=author, title="Canonical Work title", tags=[], best_source="open_corpus")
         for key, edition in work["editions"].items():
             edition.update(name="Historical edition")
+    # Use the actual disabled edition key; a generic fixture key cannot expose
+    # drift between admission metadata and its subsequent registry refresh.
+    old_key = meibom.OLD + ".qwen36-aristides_quintilianus_meibom"
+    work = document["works"][meibom.OLD]
+    work["editions"][old_key] = work["editions"].pop("old")
+    work["default_edition"] = old_key
     put(tmp_path, "data/source_registry.json", document)
     meibom.run_repair(tmp_path, "apply", fresh)
     reg = Registry.load(path)
