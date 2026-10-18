@@ -93,6 +93,8 @@ def tokenize(text):
             left -= 1
         while right < len(text) and text[right] in ")]»”’.,;··:!?…":
             right += 1
+        if index < len(text) and text[index] in "-‐" and not text[index + 1:].strip():
+            right = index + 1  # retain a printed word continued on another page
         words.append((unicodedata.normalize("NFC", raw),
             unicodedata.normalize("NFC", text[left:right])))
     return words
@@ -240,8 +242,15 @@ def merge_witnesses(witnesses):
         winners = sorted(key for key, count in counts.items() if count == maximum)
         status = "unresolved" if len(winners) > 1 else "omission" if winners == [""] else "agreement" if maximum > 1 else "single-witness"
         vote_status = status
-        eligible = len(winners) == 1 and bool(winners[0]) and lexical_eligible(winners[0])
-        if len(winners) == 1 and winners[0] and not eligible:
+        fragment_support = sorted(source for sources in slot.values()
+                                  for source, surface in sources.items()
+                                  if surface.endswith(("-", "‐")))
+        incomplete = (len(winners) == 1 and bool(winners[0]) and
+                      any(surface.endswith(("-", "‐")) for surface in slot[winners[0]].values()))
+        eligible = len(winners) == 1 and bool(winners[0]) and lexical_eligible(winners[0]) and not incomplete
+        if incomplete:
+            status = "incomplete-reading"
+        elif len(winners) == 1 and winners[0] and not eligible:
             status = "damaged-reading"
         if status == "unresolved":
             display.append("⟦" + " ∥ ".join(key or "∅" for key in winners) + "⟧")
@@ -259,7 +268,9 @@ def merge_witnesses(witnesses):
             "omission_support": gaps, "abstentions": abstentions,
             "omission_groups": omission_groups,
             "status": status, "vote_status": vote_status, "lexical_eligible": eligible,
-            "lexical_exclusion": "mixed-script-token" if status == "damaged-reading" else None,
+            "lexical_exclusion": ("source-page-end-fragment" if incomplete else
+                                  "mixed-script-token" if status == "damaged-reading" else None),
+            "terminal_fragment_support": fragment_support,
             "selected": winners[0] if len(winners) == 1 else None,
             "tied_readings": winners if len(winners) > 1 else []})
     return {"text": " ".join(display), "analysis_text": " ".join(lexical),

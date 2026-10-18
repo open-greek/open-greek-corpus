@@ -686,6 +686,11 @@ set `FIRST1K_DIR` and `PERSEUS_DIR` if the pinned source checkouts are outside
 `sources/first1k` and `sources/perseus`. This rebuild reuses the frozen validation
 evidence; it does not run model inference.
 
+Word voting preserves a printed terminal hyphen when a page ends within a
+word. Such fragments remain visible with their source support and are excluded
+from scalar lexical counts. A complete word divided across lines within the
+same source region is joined reproducibly before alignment.
+
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
 work identities. Source Library entries remain discovery candidates until
