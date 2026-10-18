@@ -92,6 +92,17 @@ SUPPLEMENT_REVIEWS = {
         "cuts": [.318, .412, .505, .580],
         "evidence": "The first enlarged Qwen3.8 right-middle retry on printed page75 reaches its output limit. Three shorter strips exactly partition that crop. Enlarged source checks put both internal boundaries between complete Greek lines, preserving descenders and following breathing marks. These parts are entirely inside the large authorial body; the other five successful retry strips remain unchanged and the failed base strip remains evidence.",
     },
+    (113, "right-first"): {
+        "cuts": [.065, .126, .195, .253],
+        "evidence": "The completed Qwen3.8 right-first retry on printed page101 contains a stop-terminated loop: a line and its eight-word windows recur241 times. The source crop contains only the short continued lexical notice, with different following lines; it has no corresponding printed repetition. Three shorter crops exactly partition that right-first region. Enlarged source checks place both internal boundaries between complete lines, preserving accents and breathings. Keep the looping attempt and the other seven successful retry strips.",
+        "replacement_condition": {"kind": "source-confirmed-repetition-loop",
+            "raw_file_sha256": "b8341a14012e4fb47a00665f6540544cd5374b88e0912162abb47889e2186788",
+            "prediction_record_sha256": "ce0d67053fec9a4c191e4d996cb1b19aac1887328da6b3f8dd2baeb844e198a0",
+            "raw_prediction_sha256": "2a5a42ee32fd8efecba4aad046d7ce984c7688c8dd0d787269c720b1481084ee",
+            "finish_reason": "stop", "greek_word_runs": 1243,
+            "most_repeated_phrase_occurrences": 241, "most_repeated_line_occurrences": 241,
+            "repetition_policy_sha256": "5c6cdf1c4f971f5ed7e650ad7f1699e5e437e039e52ec38bfba2427a3ee00c94"},
+    },
 }
 
 
@@ -172,6 +183,9 @@ def build_supplement(page, name):
         result["replacement_condition"] = review["replacement_condition"]
         result["purpose"] = "Replace only an exactly pinned source-confirmed mark-stripped successful retry strip; retain every original and one vote per model family."
         result["review"]["admission_policy"] = "This explicit source-confirmed mark-stripping exception applies only to the pinned checkpoint, parent strip, raw file, and prediction record. All other successful strips remain protected from replacement. Require a completed source mark review of the shorter parts before admission."
+        if review["replacement_condition"]["kind"] == "source-confirmed-repetition-loop":
+            result["purpose"] = "Replace only an exactly pinned source-confirmed stop-terminated repetition loop; retain every original and one vote per model family."
+            result["review"]["admission_policy"] = "This explicit source-confirmed repetition exception applies only to the pinned checkpoint, parent strip, raw file, and prediction record. All other successful strips remain protected from replacement. Require a completed source line-coverage review of the shorter parts before admission."
     return result
 
 
