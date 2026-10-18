@@ -23,6 +23,7 @@ AUDIT = "data/corpus_changes/cyril-john-coverage"
 SOURCE = "data/reference/calfa-pg73/PG073_text.txt.gz"
 PARATEXT = "data/paratext/cyril-pg74-title.jsonl"
 WITNESS = "data/ocr_witnesses/cyril-pg74-other-works.jsonl"
+NETWORKS = f"{AUDIT}/full-networks.json.gz"
 RAW_SHA = "353b31b6ca09f0e1639267da976e13171b8426352ea2d8ba648a1d1c43758104"
 ORIGINAL_SHA = "b21757e5ce20209046ea548b25f1ffbaf31bb2666835657a4180a831d9e1a10e"
 JOBS = "data/ocr_requests/cyril-john-missing-pg74.json"
@@ -179,15 +180,17 @@ def outputs(before, raw, fresh):
     if (len(body), len(titles), len(held)) != (2578, 4, 474):
         raise ValueError("The reviewed PG074 partition changed")
     additions = pg73_records(raw)
-    from ocr_consensus import merge_witnesses
-    fresh_rows = {}
+    from ocr_consensus import merge_witnesses, compact_corpus_consensus
+    fresh_rows, networks = {}, {}
     for identity, witnesses in fresh["pages"].items():
         source_page = witnesses[0]["source_page"]
         old_page = int(source_page["historical_missing_key"].split("_")[-1])
         merged = merge_witnesses(witnesses)
+        networks[identity] = merged
+        compact = compact_corpus_consensus(merged, {"path": NETWORKS, "key": identity})
         fresh_rows[old_page] = {"urn": SLUG, "cts": "urn:cts:greekLit:tlg4090.tlg002",
             "edition": "migne-pg74-gap-consensus-2026-10", "source": "ocr", "license": "PD",
-            "locus": f"PG074.reference-scan{source_page['scan_page']}", **merged,
+            "locus": f"PG074.reference-scan{source_page['scan_page']}", **compact,
             "source_location": source_page, "corrections": ["collation"], "evidence": f"{AUDIT}/changes.json"}
         changes.append({"original_text": [{"witness": w["id"], "text": w["text"]} for w in witnesses],
             "corrected_text": merged["text"], "analysis_text": merged["analysis_text"],
@@ -201,6 +204,7 @@ def outputs(before, raw, fresh):
             complete_body.append(fresh_rows[page])
         complete_body.extend(row for row in body if int(OLD_LOCUS.fullmatch(row["locus"])[1]) == page)
     result = {CORPUS: jsonl(additions + complete_body), PARATEXT: jsonl(titles), WITNESS: jsonl(held),
+              NETWORKS: gzip.compress(dump(networks), mtime=0),
               "data/passage_aliases.json": dump(aliases)}
     registry = json.loads(before["data/source_registry.json"])
     work = registry["works"][SLUG]
@@ -236,7 +240,7 @@ def apply(root=ROOT, source=None, fresh_paths=()):
     audit_dir = root / AUDIT
     if (audit_dir / "changes.json").exists():
         before, (generated, _) = replay(root)
-        current_is_original = all(((root / path).read_text() if (root / path).exists() else None) == text
+        current_is_original = all(((root / path).read_bytes() if (root / path).exists() else None) == (text.encode() if text is not None else None)
                                   for path, text in before.items())
         if current_is_original:
             for path, data in generated.items():
@@ -245,7 +249,7 @@ def apply(root=ROOT, source=None, fresh_paths=()):
         return check(root)
     raw = Path(source).read_bytes() if source else urlopen(URL, timeout=180).read()
     pg73_records(raw)
-    paths = [CORPUS, PARATEXT, WITNESS, "data/passage_aliases.json", "data/source_registry.json", "data/cgpg_works.json"]
+    paths = [CORPUS, PARATEXT, WITNESS, NETWORKS, "data/passage_aliases.json", "data/source_registry.json", "data/cgpg_works.json"]
     before = {p: (root / p).read_text() if (root / p).exists() else None for p in paths}
     if before[PARATEXT] is not None or before[WITNESS] is not None:
         raise ValueError("Cyril destinations already exist without this audit")
@@ -286,7 +290,7 @@ def check(root=ROOT):
     root = Path(root)
     before, (generated, changes) = replay(root)
     audit = json.loads((root / AUDIT / "changes.json").read_text())
-    for path in (CORPUS, PARATEXT, WITNESS):
+    for path in (CORPUS, PARATEXT, WITNESS, NETWORKS):
         if (root / path).read_bytes() != generated[path]:
             raise ValueError(f"Cyril reading differs from its reproducible source: {path}")
     expected = json.loads(generated["data/passage_aliases.json"])["aliases"][SLUG]
