@@ -110,3 +110,27 @@ def test_actual_pinned_requests_reproduce_without_invented_or_reordered_targets(
         assert (geometry.ROOT / filename).read_bytes() == geometry.encode(request)
         assert len(request["checkpoints"]) == 1
         assert len({p["replaces_region"] for p in request["pages"]}) == len(request["pages"])
+
+
+def test_geometry_children_partition_only_exact_degraded_current_leaves():
+    parents = geometry.known_gutter_manifests()
+    children = geometry.known_geometry_supplement_manifests()
+    assert len(children) == 2
+    for path, request in children.values():
+        parent = parents[request["supplements"]["manifest_sha256"]][1]
+        target = next(p for p in parent["pages"] if p["id"] == request["supplements"]["replaces_region"])
+        pieces = request["pages"]
+        assert len(pieces) == 3 and request["checkpoints"] == parent["checkpoints"]
+        assert pieces[0]["region"][1] == target["region"][1]
+        assert pieces[-1]["region"][3] == target["region"][3]
+        assert all(a["region"][3] == b["region"][1] for a, b in zip(pieces, pieces[1:]))
+        assert all(p["region"][::2] == target["region"][::2] for p in pieces)
+        condition = request["replacement_condition"]
+        assert all(len(condition[key]) == 64 for key in ("raw_file_sha256", "prediction_record_sha256", "raw_prediction_sha256"))
+        assert request["review"]["source_pdf_sha256"] == geometry.SOURCE_SHA
+        assert request["review"]["accepted_for_primary_ingest"] is False
+        assert (geometry.ROOT / path).read_bytes() == geometry.encode(request)
+    conditions = {r["pages"][0]["scan_page"]: r["replacement_condition"] for _, r in children.values()}
+    assert conditions[233]["finish_reason"] == "length"
+    assert conditions[252]["finish_reason"] == "stop"
+    assert conditions[252]["greek_letters"] == 700 and conditions[252]["breathing_letters"] == 0

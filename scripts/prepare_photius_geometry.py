@@ -264,6 +264,62 @@ def known_gutter_manifests():
     return result
 
 
+GEOMETRY_CHILD_REVIEWS = {
+    233: {"parent": "photius-bekker-page0233-qwen38-67012263-gutter.json",
+          "target": "photius-bekker-0233-right-lower-gutter",
+          "cuts": [.59105, .6848, .7748, .849],
+          "condition": {"kind": "source-confirmed-length-termination", "finish_reason": "length",
+              "raw_file_sha256": "73673d3655583176f79e5d75891f60148970662ff4eef22794ce5f88254ee611",
+              "prediction_record_sha256": "448ee1ff7228707b529fe3e6d399f719ef928fb1bdc8936be25c8700ac8636fb",
+              "raw_prediction_sha256": "c39f5740dcb796a8bdf1f559be447e3e0d0f2bb5a29086df8f950a4831bfc6bd"},
+          "evidence": "The source contains fourteen faint continuous authorial lines, with visible polytonic marks and no apparatus. The retained attempt repeats an unprinted phrase until its length limit. Cuts in the white spaces after the fifth and tenth lines preserve five, five, and four complete source lines; the reviewed horizontal glyph boundaries remain unchanged."},
+    252: {"parent": "photius-bekker-page0252-qwen38-0e57cb5f-gutter.json",
+          "target": "photius-bekker-0252-left-lower-gutter",
+          "cuts": [.58423, .679, .7706, .859],
+          "condition": {"kind": "source-confirmed-polytonic-mark-stripping", "finish_reason": "stop",
+              "raw_file_sha256": "58ffeb9a9765bf6d20d01f427cca495967aa30414a6e939a768310f54c239c80",
+              "prediction_record_sha256": "86d60c7a6ce1f70079db6b25c8759b341d22d78c8aca5710ea298b4b0ba61d5c",
+              "raw_prediction_sha256": "e94cebdd8fc25bbb9e97c2175fc77c08f6198c0370a85e92023de7340a9dd0ee",
+              "frozen_policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
+              "greek_letters": 700, "breathing_letters": 0},
+          "evidence": "The source contains fifteen faint continuous authorial lines with visible polytonic marks, including the Sophronius passage; it contains no decree heading or numbered resolutions. The retained attempt instead invents a monotonic modern decree with placeholders and loses every breathing. Cuts in white spaces after the fifth and tenth source lines preserve three five-line spans, without changing the reviewed horizontal glyph boundaries."},
+}
+
+
+def known_geometry_supplement_manifests():
+    """Retain exact degraded geometry leaves and split only their source lines."""
+    parents = {Path(path).name: (digest, path, request)
+               for digest, (path, request) in known_gutter_manifests().items()}
+    result = {}
+    for page, review in sorted(GEOMETRY_CHILD_REVIEWS.items()):
+        if review["parent"] not in parents:
+            continue
+        digest, path, parent = parents[review["parent"]]
+        job = next(p for p in parent["pages"] if p["id"] == review["target"])
+        cuts = review["cuts"]
+        if (job["scan_page"] != page or cuts[0] != job["region"][1]
+                or cuts[-1] != job["region"][3] or cuts != sorted(set(cuts))):
+            raise ValueError("Geometry child must partition its exact retained source span")
+        pages = [{**job, "id": job["id"] + f"-part{number:02d}",
+                  "region": [job["region"][0], low, job["region"][2], high],
+                  "reading_order": number - 1, "role": "source-reviewed-failed-geometry-supplement",
+                  "prompt_suffix": "Transcribe only these complete faint printed Greek body lines, exactly once. Preserve every visible accent, breathing, initial and final glyph. Do not invent a heading, decree, placeholders, numbered resolutions, or material outside the crop. Do not expand text or repeat lines."}
+                 for number, (low, high) in enumerate(zip(cuts, cuts[1:]), 1)]
+        request = {"schema_version": 1, "work": parent["work"], "review_date": "2026-10-18",
+                   "purpose": "Complete one exactly pinned degraded geometry leaf; preserve every ancestor and successful sibling, with one assembled vote per model family.",
+                   "supplements": {"manifest_path": path, "manifest_sha256": digest,
+                       "page_id": parent["supplements"]["page_id"], "replaces_region": job["id"]},
+                   "checkpoints": parent["checkpoints"], "sources": parent["sources"], "prompt": parent["prompt"],
+                   "replacement_condition": copy.deepcopy(review["condition"]),
+                   "review": {"accepted_for_primary_ingest": False, "checked_scan_pages": [page],
+                       "source_pdf_sha256": SOURCE_SHA, "evidence": review["evidence"],
+                       "admission_policy": "Require the exact retained parent outcome and a completed output-to-source review. Keep all original readings and failures; no additional vote or lexical proofreading claim."},
+                   "pages": pages}
+        output = f"data/ocr_requests/photius-bekker-page{page:04d}-gutter-supplement.json"
+        result[sha(encode(request))] = (output, request)
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--raw-dir", type=Path, required=True, help="Retained original/retry JSONL directory")
@@ -275,6 +331,8 @@ def main():
     artifacts[AUTHORITY] = raw
     for group in authority["groups"]:
         path, request = request_for_group(authority, raw, group)
+        artifacts[Path(path)] = encode(request)
+    for path, request in known_geometry_supplement_manifests().values():
         artifacts[Path(path)] = encode(request)
     if args.write:
         for path, content in artifacts.items():
