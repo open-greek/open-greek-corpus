@@ -67,3 +67,16 @@ def test_page113_faint_source_uses_eight_parts_without_a_second_vote():
         assert group[0]["region"][1] == .065 and group[-1]["region"][3] == .813
         assert all(a["region"][3] == b["region"][1] for a, b in zip(group, group[1:]))
     assert encode(manifest) == (ROOT / prepare.manifest_path(113)).read_bytes()
+
+
+def test_stop_terminated_repetitions_get_separately_pinned_checkpoint_requests():
+    page27 = build_retry(27)
+    assert page27["checkpoints"] == [prepare.CHECKPOINT38]
+    assert len(page27["pages"]) == 6
+    assert encode(page27) == (ROOT / prepare.manifest_path(27)).read_bytes()
+    original47 = build_retry(47)
+    variant = prepare.build_variant("0047-qwen36")
+    assert variant["checkpoints"] == [prepare.CHECKPOINT36]
+    assert variant["pages"] == original47["pages"]
+    assert original47["checkpoints"] == [prepare.CHECKPOINT38]
+    assert encode(variant) == (ROOT / prepare.variant_path("0047-qwen36")).read_bytes()

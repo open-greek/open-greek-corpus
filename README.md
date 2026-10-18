@@ -834,6 +834,10 @@ model's successful whole-page reading stays in the consensus.
 The especially faint scan113 uses eight shorter strips for Qwen3.8 after its
 retained original both terminated at the length limit and triggered the frozen
 mark-loss screen; accepting that assembly also requires a source mark review.
+Stop termination alone does not establish source coverage: the reviewed request
+for scan27 replaces a repeated sentence in Qwen3.8, and the separate
+`--variant 0047-qwen36` request addresses an unprinted repetition at the end of
+Qwen3.6's scan47. Earlier queued request bytes remain unchanged.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`

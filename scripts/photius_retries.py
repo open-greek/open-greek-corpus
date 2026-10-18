@@ -7,8 +7,8 @@ from pathlib import Path
 import tempfile
 
 from prepare_photius_coverage import build_page13_retry
-from prepare_photius_retries import (REVIEWS, SUPPLEMENT_REVIEWS, build_retry,
-                                     build_supplement, manifest_path, supplement_path)
+from prepare_photius_retries import (REVIEWS, EXTRA_REVIEWS, SUPPLEMENT_REVIEWS, build_retry,
+                                     build_supplement, build_variant, manifest_path, supplement_path, variant_path)
 
 
 def sha(raw):
@@ -22,6 +22,7 @@ def encode(value):
 def known_retry_manifests():
     values = [("data/ocr_requests/photius-bekker-page13-retry.json", build_page13_retry())]
     values.extend((manifest_path(page).as_posix(), build_retry(page)) for page in sorted(REVIEWS))
+    values.extend((variant_path(name).as_posix(), build_variant(name)) for name in sorted(EXTRA_REVIEWS))
     return {sha(encode(manifest)): (path, manifest) for path, manifest in values}
 
 
