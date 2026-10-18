@@ -1264,6 +1264,7 @@ def main() -> None:
             editions[key]["merged_editions"] = merged_eds
         if extensions:
             editions[key]["scan_extensions"] = sorted({row["edition"] for row in extensions})
+            editions[key]["scan_extension_licenses"] = sorted({row["license"] for row in extensions})
         # Report the ways a work's citation structure can fail us. Both dup fields
         # describe a RESOLVED condition - the written file always has one row per
         # served locus - and are mutually exclusive per collision (exact vs

@@ -757,6 +757,13 @@ each OCR witness; these references are excluded from Greek word counts.
 by unique beginning and ending phrases shared by two independent body witnesses.
 Unmatched source pages and all removed prefixes/footers remain comparison
 evidence; they cannot enter word votes through missing-witness abstention.
+For Dio, repeat `--digital-witness EXPORT.json.gz` for the three pinned Source
+Library Cary VII–IX exports when admitting the full scan run. The importer
+archives every original export and licenses participating rows as CC-BY-SA-4.0
+with component attribution. Unmatched pages remain comparison-only; the queued
+scan manifests and independent model runs do not change.
+`python3 scripts/dio_comparison_witnesses.py --download OUTPUT_DIRECTORY`
+retrieves the three exports and validates their pinned identity and license.
 
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
