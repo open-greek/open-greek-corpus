@@ -514,10 +514,10 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 569 of the 3,910 served works have no
+distinct `ogc` ids sharing one TLG anchor. 569 of the 3,911 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,304,
+`work_index.json` under `work_anchors` (`cts` on 3,342 works, `tlg` on 3,304,
 `wikidata` on 518), so joins against citation and lexicon data still work.
 The crosswalk builder reads bibliographic facts from the committed
 `data/inventory/work_inventory.json`; rebuilding it requires no external
@@ -956,7 +956,9 @@ Install `scripts/requirements-ocr-benchmark.txt` in a separate environment;
 this server uses its own pinned PyTorch runtime.
 `scripts/serve_ocr_benchmark.py --model REPOSITORY --revision SHA
 --runtime-manifest runtime.json` downloads the pinned checkpoint and records
-the server packages, GPU, and generation settings. Run the benchmark with
+the server packages, GPU, and generation settings. The default concurrent
+sequence limit is eight; `--max-num-seqs` changes it for a suitably sized GPU
+and records the chosen value in the runtime manifest. Run the benchmark with
 `--backend http --runtime-manifest runtime.json --split all --workers 4`.
 HTTP failures remain scored as empty pages, and token-limit truncation is
 reported separately. Comparisons use the held-out test pages when present,
@@ -3007,7 +3009,7 @@ move.
 
 ## Status
 
-- 3,910 works served, 65.3M Greek tokens, fourteen sources.
+- 3,911 works served, 65.4M Greek tokens in the checked lexical projection, 15 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not
