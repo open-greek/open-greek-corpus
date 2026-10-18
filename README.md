@@ -364,6 +364,13 @@ copies from one OCR run share a vote group. A short witness abstains outside
 its observed text, and unresolved words remain outside scalar counts through
 the row's `analysis_text`. Reader text exposes ties explicitly, and the
 structured `ocr_consensus` field preserves every supplied raw reading.
+Large admissions use `compact_corpus_consensus` to keep raw witnesses, counts,
+and every lexical slot boundary in the corpus while storing the complete vote
+network in a compressed audit archive. `ocr_consensus.full_network` names its
+relative path, entry key, and content hash. `restore_corpus_consensus` checks
+that hash and the corpus projection before restoring all support, surfaces,
+losing readings, omissions, and abstentions. Compaction never removes excluded
+slots or changes the selected text and analysis text.
 Mixed Greek/Latin or Greek/Cyrillic words remain whole opaque readings and
 stay outside lexical counts, including when multiple OCR witnesses agree on
 the same damaged spelling.

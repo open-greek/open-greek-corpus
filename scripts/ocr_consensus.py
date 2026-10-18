@@ -7,14 +7,62 @@ surface punctuation, support, omissions, and abstentions remain inspectable.
 from __future__ import annotations
 
 from collections import Counter, defaultdict
+from copy import deepcopy
 import difflib
 from functools import lru_cache
 import hashlib
+import json
+from pathlib import PurePosixPath
 import re
 import unicodedata
 
 GREEK = r"Ͱ-Ͽἀ-῿̀-ͯ"
 APOSTROPHES = frozenset("'’ʼ᾽")
+
+
+def _network_sha256(result):
+    raw = json.dumps(result, ensure_ascii=False, sort_keys=True,
+                     separators=(",", ":")).encode()
+    return hashlib.sha256(raw).hexdigest()
+
+
+def compact_corpus_consensus(result, network_reference):
+    """Keep countable slot boundaries and link the complete archived vote network.
+
+    Archive the original merge result under the supplied key before publishing
+    the compact projection. Every raw witness remains directly available in the
+    corpus, while losing readings, support, surfaces and abstentions remain in
+    the hash-checked compressed archive. No slot is removed, including omissions,
+    damaged words and unresolved readings that must break lexical adjacency.
+    """
+    path, key = network_reference["path"], network_reference["key"]
+    if (not isinstance(path, str) or not path or "\\" in path or ":" in path
+            or PurePosixPath(path).is_absolute() or ".." in PurePosixPath(path).parts
+            or not isinstance(key, str) or not key):
+        raise ValueError("A full vote network needs a relative archive path and nonempty string key")
+    network = result["ocr_consensus"]
+    if "full_network" in network:
+        raise ValueError("Archive the complete vote network before compacting it")
+    fields = ("position", "selected", "status", "lexical_eligible", "tied_readings")
+    slots = []
+    for position, slot in enumerate(network["slots"]):
+        if slot["position"] != position or not all(field in slot for field in fields):
+            raise ValueError("The complete vote network has missing or unordered slots")
+        slots.append({field: deepcopy(slot[field]) for field in fields})
+    return {**deepcopy({k: v for k, v in result.items() if k != "ocr_consensus"}),
+        "ocr_consensus": {**deepcopy({k: v for k, v in network.items() if k != "slots"}),
+            "slots": slots, "storage": "compact-slots-v1",
+            "full_network": {"path": path, "key": key, "sha256": _network_sha256(result)}}}
+
+
+def restore_corpus_consensus(compact, archived_result):
+    """Verify an archive entry and reconstruct the exact original merge result."""
+    reference = compact["ocr_consensus"]["full_network"]
+    if _network_sha256(archived_result) != reference["sha256"]:
+        raise ValueError("The archived full vote network changed")
+    if compact_corpus_consensus(archived_result, reference) != compact:
+        raise ValueError("The corpus projection differs from its full vote network")
+    return deepcopy(archived_result)
 
 
 def greek_letter(char):
