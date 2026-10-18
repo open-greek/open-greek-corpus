@@ -143,6 +143,12 @@ def source_evidence(identifier, row):
         return ("Cary VIII printed222 is polytonic throughout. The original Qwen3.8 "
             "output has973 Greek letters with no accents or breathing marks. The "
             "three strips retain the Xiphilinus and Zonaras reference line and all body.")
+    if identifier == "dio-cary-v9-pdf0231":
+        return ("Cary IX printed452 contains ordinary continuous Greek prose, with "
+            "no printed lacuna-dot band. The pinned Qwen3.6 attempt repeats prose "
+            "until its length limit. All body paragraphs and section numbers remain "
+            "in three strips, whose two internal boundaries lie between complete "
+            "printed lines. The reviewed bottom edge excludes editorial apparatus.")
     return ("Source inspection of the complete Cary IX Greek page confirms finite "
         "printed lacuna-dot series interspersed with Greek body, not an indefinitely "
         "repeated passage. The original pinned checkpoint reached its length limit "
