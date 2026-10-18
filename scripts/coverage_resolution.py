@@ -56,11 +56,12 @@ def _check_mathematical_citations(root, slug):
 
 def _scan_resolution(root, slug):
     scope = coverage_scope(root, slug)
-    if not scope or scope["status"] != "reviewed-primary-regions-admitted":
+    if (not scope or scope["status"] != "reviewed-primary-regions-admitted"
+            or scope.get("remaining_reviewed_comparative_regions", 0)):
         return _pending(root, "Reviewed missing Greek scan regions have not all been admitted.", scope=scope)
     from ingest_scan_coverage import verify_integrity
     audited = []
-    for relative in scope["admission_audits"]:
+    for relative in dict.fromkeys(scope["admission_audits"] + scope.get("comparative_admission_audits", [])):
         audit = root / relative
         verify_integrity(audit.parent, root)
         audited.append({"path": str(audit.relative_to(root)), "sha256": _sha(audit)})

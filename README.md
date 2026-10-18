@@ -596,6 +596,11 @@ overlap review if the underlying digital edition changes.
 Primary rows keep compact positional word slots, including exclusions that
 break lexical adjacency; each row links to its full, hash-checked vote network
 in the compressed audit archive.
+Comparison-only runs have their own `comparative_admissions` index with exact
+dataset hashes, source-region identities and reversible audit references. They
+can arrive before or after the primary text without creating primary passages.
+Coverage reports keep primary and comparison counts separately and require all
+reviewed comparison panels before marking the coverage repair complete.
 `scripts/scan_title_reviews.py` records the scan-checked stigma (six) in Pappus
 VI's opening title as a named correction above the unchanged OCR votes. The
 audit pins the source and rendered image, retains both complete predictions
