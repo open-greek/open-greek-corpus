@@ -91,7 +91,7 @@ def _relation(original_raw, effective_raw, reviews):
     if (review.get("kind") != "scan-region-body-review" or not review.get("reviewed_at")
             or review.get("original_manifest_sha256") != sha(original_raw)):
         raise ValueError("Invalid completed region source review")
-    original_base = {k: v for k, v in original.items() if k != "pages"}
+    original_base = {k: v for k, v in original.items() if k not in {"pages", "reviewed_substitutions"}}
     effective_base = {k: v for k, v in effective.items() if k not in {"pages", "reviewed_substitutions"}}
     if original_base != effective_base:
         raise ValueError("Reviewed crop substitution changed other manifest fields")
@@ -142,17 +142,58 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
     returns its prediction dictionary. Failed outcomes remain archiveable with
     no callback; an admission callback must apply its usual success checks.
     """
-    def authorities(value, depth=0):
+    authority_bytes, review_bytes = {}, {}
+
+    def collect(value, depth=0):
         if depth > 16:
             raise ValueError("OCR bundle nesting is too deep")
+        if not isinstance(value, dict) or value.get("kind") != KIND or value.get("schema_version") != 1:
+            raise ValueError("Unknown OCR bundle format")
         found = [unpack(value["effective_manifest"])]
         found.extend(unpack(pin) for pin in value.get("authority_manifests", []))
+        local_reviews = set()
+        for pin in value.get("source_reviews", []):
+            review_raw = unpack(pin)
+            if pin["sha256"] in local_reviews:
+                raise ValueError("Repeated source-review artifact")
+            local_reviews.add(pin["sha256"])
+            review_bytes[sha(review_raw)] = review_raw
         for part in value.get("parts", []):
             found.append(unpack(part["manifest"]))
             prediction = unpack(part["prediction"])
             if is_bundle(prediction):
-                found.extend(authorities(json.loads(prediction), depth + 1))
-        return found
+                collect(json.loads(prediction), depth + 1)
+        for authority in found:
+            authority_bytes[sha(authority)] = authority
+
+    collect(json.loads(raw))
+    lineage_cache, changed_cache = {}, {}
+
+    def lineage(value, trail=()):
+        digest = sha(value)
+        if digest in lineage_cache:
+            return lineage_cache[digest]
+        if digest in trail or len(trail) > 16:
+            raise ValueError("Reviewed manifest authority chain is cyclic or too deep")
+        request = json.loads(value)
+        substitutions = request.get("reviewed_substitutions")
+        if substitutions is None:
+            result = [value]
+        else:
+            original = authority_bytes.get(substitutions.get("original_manifest_sha256"))
+            if original is None:
+                raise ValueError("Reviewed crop manifest lacks its exact original authority bytes")
+            result = [*lineage(original, (*trail, digest)), value]
+            changed_cache[digest] = _relation(original, value, review_bytes)
+        lineage_cache[digest] = result
+        return result
+
+    def transitions(original, effective):
+        chain = lineage(effective)
+        start = next((i for i, value in enumerate(chain) if value == original), None)
+        if start is None:
+            raise ValueError("OCR part manifest is not an exact reviewed ancestor of the effective request")
+        return [(chain[i-1], chain[i], changed_cache[sha(chain[i])]) for i in range(start + 1, len(chain))]
 
     def walk(value, effective_raw, depth):
         if depth > 16:
@@ -162,30 +203,22 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
             raise ValueError("Unknown OCR bundle format")
         if unpack(bundle["effective_manifest"]) != effective_raw:
             raise ValueError("OCR bundle belongs to a different effective manifest")
-        reviews = {}
-        for pin in bundle.get("source_reviews", []):
-            review_raw = unpack(pin)
-            if pin["sha256"] in reviews:
-                raise ValueError("Repeated source-review artifact")
-            reviews[pin["sha256"]] = review_raw
+        chain = lineage(effective_raw)
+        used_reviews = {json.loads(value)["reviewed_substitutions"]["source_review"]["sha256"]
+                        for value in chain if "reviewed_substitutions" in json.loads(value)}
         eligible, checkpoints, held, provenance = {}, set(), [], []
         effective = json.loads(effective_raw)
-        substitutions = effective.get("reviewed_substitutions", {})
-        if "reviewed_substitutions" in effective:
-            original_raw = next((authority for authority in authorities(bundle)
-                if sha(authority) == substitutions.get("original_manifest_sha256")), None)
-            if original_raw is None:
-                raise ValueError("Reviewed crop manifest lacks its exact original authority bytes")
-            _relation(original_raw, effective_raw, reviews)
-        substitution_by_id = {entry["id"]: entry for entry in substitutions.get("regions", [])}
+        effective_pages = {page["id"]: page for page in effective["pages"]}
         for part in bundle.get("parts", []):
             part_raw, original_raw = unpack(part["prediction"]), unpack(part["manifest"])
             original = json.loads(original_raw)
             pages = {page["id"]: page for page in original["pages"]}
-            changed = _relation(original_raw, effective_raw, reviews)
+            stages = transitions(original_raw, effective_raw)
+            changed = set().union(*(stage[2] for stage in stages))
             if is_bundle(part_raw):
                 predictions, audit = walk(part_raw, original_raw, depth + 1)
                 checkpoints.update(tuple(checkpoint) for checkpoint in audit["checkpoints"])
+                used_reviews.update(audit["source_review_sha256"])
                 held.extend(audit["held_predictions"])
                 provenance.extend(audit["parts"])
             else:
@@ -200,17 +233,29 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
                 if identifier not in pages:
                     raise ValueError("Nested bundle yielded an unknown source identity")
                 if identifier in changed:
+                    applicable = []
+                    for parent, child, changed_ids in stages:
+                        if identifier not in changed_ids:
+                            continue
+                        substitutions = json.loads(child)["reviewed_substitutions"]
+                        entry = next(e for e in substitutions["regions"] if e["id"] == identifier)
+                        applicable.append({"original_manifest_sha256": sha(parent),
+                                           "effective_manifest_sha256": sha(child),
+                                           "source_review_sha256": substitutions["source_review"]["sha256"], **entry})
+                    latest = applicable[-1]
                     decision = {"id": identifier, "raw_part_sha256": sha(part_raw),
                                  "original_manifest_sha256": sha(original_raw),
-                                 "source_review_sha256": substitutions["source_review"]["sha256"],
+                                 "source_review_sha256": latest["source_review_sha256"],
                                  "source": pages[identifier]["source"], "scan_page": pages[identifier]["scan_page"],
-                                 "original_region": substitution_by_id[identifier]["original_region"],
-                                 "region": substitution_by_id[identifier]["region"],
-                                 "evidence_id": substitution_by_id[identifier]["evidence_id"],
+                                 "original_region": pages[identifier].get("region", [0, 0, 1, 1]),
+                                 "region": effective_pages[identifier].get("region", [0, 0, 1, 1]),
+                                 "evidence_id": latest["evidence_id"],
                                  "reason": "Source-reviewed geometry or page prompt superseded; original remains held evidence."}
-                    for field in ("original_prompt_suffix", "prompt_suffix"):
-                        if field in substitution_by_id[identifier]:
-                            decision[field] = substitution_by_id[identifier][field]
+                    if any("prompt_suffix" in transition for transition in applicable):
+                        decision["original_prompt_suffix"] = pages[identifier].get("prompt_suffix")
+                        decision["prompt_suffix"] = effective_pages[identifier].get("prompt_suffix")
+                    if len(stages) > 1:
+                        decision["reviewed_transition_chain"] = applicable
                     held.append(decision)
                     continue
                 if identifier in eligible:
@@ -218,7 +263,7 @@ def load_bundle(raw, effective_manifest_bytes, leaf_loader=None):
                 eligible[identifier] = prediction
         if not bundle.get("parts") or len(checkpoints) != 1:
             raise ValueError("A bundle must contain exactly one model and revision")
-        return eligible, {"effective_manifest_sha256": sha(effective_raw), "source_review_sha256": sorted(reviews),
+        return eligible, {"effective_manifest_sha256": sha(effective_raw), "source_review_sha256": sorted(used_reviews),
                           "checkpoints": [list(checkpoint) for checkpoint in sorted(checkpoints)],
                           "parts": provenance, "held_predictions": held}
     return walk(raw, effective_manifest_bytes, 0)
