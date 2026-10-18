@@ -170,3 +170,14 @@ def test_frozen_scan_review_is_bound_to_all_sixty_images_and_keeps_reference_def
     assert result["fresh_model_outputs_seen"] is False
     assert result["source_text_changed"] is False
     assert len(result["excluded_reference_pages"]) == 8
+
+
+def test_raw_run_archival_is_byte_exact_and_cannot_replace_another_attempt(tmp_path):
+    source = tmp_path / "source.jsonl";source.write_bytes(b'{"raw_prediction":"retained"}\n')
+    destination = tmp_path / "raw" / "qwen38.jsonl"
+    assert report.archive_prediction(source, destination) == destination
+    assert destination.read_bytes() == source.read_bytes()
+    assert report.archive_prediction(source, destination) == destination
+    source.write_bytes(b'{"raw_prediction":"different attempt"}\n')
+    with pytest.raises(ValueError, match="already exists"):
+        report.archive_prediction(source, destination)
