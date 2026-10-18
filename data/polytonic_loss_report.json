@@ -31,6 +31,8 @@
     ]
   },
   "policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
+  "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829",
+  "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
   "input_corpus_files": {
     "achaeus.fragmenta.jsonl": "54cea6e5c60658709f2eae7c98507c63a91b4e76bb1a7cd1942b3724950179e9",
     "acta-justini-et-septem-sodalium.acta-justini-et-septem-sodalium-recensio-b.jsonl": "53bd1f0abd49f5f0571669b4edee40d7211a364da406feb8d5d2925ed75be368",

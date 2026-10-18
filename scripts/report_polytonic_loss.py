@@ -330,7 +330,7 @@ def page_identity(row):
 def corpus_report(corpus, out, summary_path):
     """Measure each physical OCR reading; never count consensus alternatives twice."""
     out.parent.mkdir(parents=True, exist_ok=True)
-    counts, by_source, input_hashes = Counter(), defaultdict(Counter), {}
+    counts, by_source, input_hashes, corpus_pin_lines = Counter(), defaultdict(Counter), {}, []
     flags = []
     stream = (io.TextIOWrapper(gzip.GzipFile(filename="", fileobj=out.open("wb"), mode="wb", mtime=0), encoding="utf-8")
               if out.suffix == ".gz" else out.open("w"))
@@ -338,6 +338,8 @@ def corpus_report(corpus, out, summary_path):
         for path in sorted(corpus.glob("*.jsonl")):
             groups = defaultdict(lambda: {"parts": [], "loci": []})
             raw = path.read_bytes()
+            digest = hashlib.sha256(raw).hexdigest()
+            corpus_pin_lines.append(f"{path.stem}\t{digest}\n")
             for line in raw.decode().splitlines():
                 if not line.strip():
                     continue
@@ -355,7 +357,7 @@ def corpus_report(corpus, out, summary_path):
                     groups[key]["source"] = row["source"]
             if not groups:
                 continue
-            input_hashes[path.name] = hashlib.sha256(raw).hexdigest()
+            input_hashes[path.name] = digest
             for (page, witness, basis), value in sorted(groups.items()):
                 result = detect("\n".join(value["parts"]))
                 if basis == "unresolved-physical-page":
@@ -371,6 +373,8 @@ def corpus_report(corpus, out, summary_path):
                 if result["flag"]:
                     flags.append({k: record[k] for k in ("work", "page", "witness", "accented_letter_rate", "breathing_letter_rate", "reasons")})
     summary = {"schema_version": 1, "policy": POLICY, "policy_sha256": hashlib.sha256(dump(POLICY)).hexdigest(),
+               "corpus_sha256": hashlib.sha256("".join(sorted(corpus_pin_lines)).encode()).hexdigest(),
+               "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
                "input_corpus_files": input_hashes, "page_readings_sha256": benchmark.sha256(out),
                "counts": dict(counts), "by_source": {name: dict(c) for name, c in sorted(by_source.items())},
                "flagged_pages": flags, "selection_rule": None,
