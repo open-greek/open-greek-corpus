@@ -1,0 +1,33 @@
+{
+ "manifest_sha256": "f5a69076fc85ec240ffc8031d101e3e56f02c36a5525d276b746e2e5f7c00454",
+ "source_pdf_sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+ "decision": "replace-source-reviewed-degraded-page",
+ "reviewed_at": "2026-10-18T07:33:21.905106+00:00",
+ "source_evidence": "Every completed base prediction and both shorter replacement predictions compared with source scans90/112. Page90 contains two complete Greek headings plus musical-sign tables retained by nonlexical source-image reference. Page112 prose is complete in source order; Qwen3.8 first base strip is explicitly truncated and retained, while the two source-reviewed subcrops exactly partition that strip into six and seven complete lines. The other successful strips and complete Qwen3.6 first strip remain. Word and mark disagreements remain variants; the two short page90 headings have a separately recorded source adjudication. The leading σεως on scan112 continues the preceding printed φρονή- and is not supplied as an invented joined word.",
+ "original_artifacts_sha256": [
+  "544e191cd6fe32d6d438c02209e26cb37f59bea7eb59b08cedc5ca920c75cc6c",
+  "dd7901418dc041216d5fe20c92f3ee110900544d395b66b75a090e881936cbac",
+  "67373c738f83ae6db4229c7040239fc7ce1db36d81415e71c9f6e3f039b4070d",
+  "8f8e4197cc18ae89ce10c79933d819e219241d02a1a621efd391ef7f2035971b"
+ ],
+ "reviewed_runs": [
+  {
+   "sha256": "39d03341a2cb05629bd43286f1aa3c0db03b8c9880e6d4eb7cbc74271c1aad83",
+   "model": "Qwen/Qwen3.6-27B",
+   "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+  },
+  {
+   "sha256": "93735c6a0df35ec83bfa5455bbf8d3ed3f9b90be437c8cad92ab692d285f53ea",
+   "model": "Qwen/Qwen3.8-27B-FP8",
+   "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  }
+ ],
+ "supplement_manifest_sha256": "22ce5b474c6652e36593e7d5c33c00cf0502fbf0703e3f4f0b23c46bb82db07a",
+ "reviewed_supplements": [
+  {
+   "sha256": "9af14effacc521578c38c5db2b72935e139c27894c6401615b394d224daf8a92",
+   "model": "Qwen/Qwen3.8-27B-FP8",
+   "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+  }
+ ]
+}
