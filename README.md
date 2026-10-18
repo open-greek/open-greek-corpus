@@ -680,6 +680,11 @@ quotations into paratext. `--check AUDIT_DIRECTORY` replays every vote, while
 no later change would be overwritten. New scan passages are registered under
 `data/corpus_extensions/`; the TEI ingester retains them and stops for a new
 overlap review if the underlying digital edition changes.
+`scan_coverage_extensions.coverage_scope()` supplies the public manifestation
+scope, admitted and pending region counts, source licenses and transmission
+limits without reducing the full Work identity to its surviving material.
+Dio rows retain Latin attribution and numbered reference lines separately for
+each OCR witness; these references are excluded from Greek word counts.
 
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the

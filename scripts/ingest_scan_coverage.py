@@ -162,6 +162,14 @@ def collate(manifest, inputs, allow_partial=False):
             "ocr_consensus": {"region_id": key, "counts": merged["ocr_consensus"]["counts"]}}
         if page.get("attribution_heading"):
             row["attribution_heading"] = page["attribution_heading"]
+        # The Greek word-voting layer excludes Latin credits and numeric book
+        # references. Retain these source lines separately, with every witness's
+        # spelling, rather than dropping transmission evidence from the row.
+        if page["work"] == "cassius-dio.historiae-romanae":
+            reference_lines = {value["id"]: [{"line_number": number, "text": line}
+                for number, line in enumerate(value["text"].splitlines(), 1)
+                if re.search(r"[A-Za-z0-9]", line)] for value in values}
+            row["reference_line_witnesses"] = {key: lines for key, lines in reference_lines.items() if lines}
         if page.get("overlap"):
             row["continues"] = "55.9.4"
             row["transmission"] = "excerpt-supplement-after-direct-text-lacuna"
