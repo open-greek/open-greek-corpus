@@ -911,10 +911,16 @@ records the scan-checked mapping and preserves every original destination in
 an explicitly named historical citation scheme in `data/citation_aliases.json`.
 The TEI ingester applies the same source-hash-guarded mapping; the audit can
 restore all original bytes with `--undo`. No Greek readings changed.
-Source and page manifests for the missing Pappus VI–VIII and Conica I–III are
-under `data/ingest_reviews/coverage/`. They identify the Greek leaves individually,
-including alternate scan leaves where a scan repeats earlier Pappus pages;
-they are OCR inputs, not assertions that new text has already been served.
+The admitted additions cover 331 Pappus VI–VIII regions and 225 Conica I–III
+regions, with independent retained OCR witnesses and explicit unresolved readings.
+Pappus now has 635 passages; Conica has 284, including the separately admitted
+Book IV letter. Source and page manifests are under
+`data/ingest_reviews/coverage/`, and the reversible main admission is under
+`data/corpus_changes/mathematical-greek-coverage-2026-10/`. Alternate scan leaves
+replace repeated Pappus pages. Conica covers the surviving Greek Books I–IV;
+Books V–VII survive in Arabic and VIII is lost. Pappus covers the surviving
+remains of II–VIII; Book I and the opening of II are lost. These OCR additions
+retain disagreements and have not been fully proofread against every scan.
 `prepare_mathematical_ocr.py --book4-letter` separately pins two cropped regions
 for Conica IV's omitted letter to Attalus. The original 556-region request stays
 unchanged. Admit the two runs in either order: the importer adds new extension

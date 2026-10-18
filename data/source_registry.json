@@ -86048,14 +86048,18 @@
    ],
    "coverage_composition": {
     "policy": "reviewed-primary-region-union",
-    "manifest": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
-    "manifest_sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f",
-    "scan_manifest": "data/corpus_changes/conica-book-four-letter-2026-10/manifest.json",
-    "scan_manifest_sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832",
+    "manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+    "manifest_sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+    "scan_manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+    "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
     "scan_manifests": [
      {
       "path": "data/corpus_changes/conica-book-four-letter-2026-10/manifest.json",
       "sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832"
+     },
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+      "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
      }
     ],
     "admission_audits": [
@@ -86064,18 +86068,36 @@
       "sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f",
       "primary_regions": 2,
       "comparative_regions": 0
+     },
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+      "sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+      "primary_regions": 225,
+      "comparative_regions": 0
      }
     ],
     "base_scope": "Book IV",
-    "addition_scope": "Opening letter of Book IV",
+    "addition_scope": "Books I–III and the opening letter of Book IV",
     "planned_addition_scope": "Books I–III and the opening letter of Book IV",
     "admitted_books": [
+     "1",
+     "2",
+     "3",
      "4"
     ],
     "base_passages": 57,
-    "added_primary_regions": 2,
+    "added_primary_regions": 227,
     "comparative_regions": 0,
     "source_editions": [
+     {
+      "id": "apolloniipergaei01apoluoft",
+      "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
+      "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+      "license": "public-domain",
+      "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+      "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+      "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+     },
      {
       "id": "apolloniipergaei02apoluoft",
       "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
@@ -86103,7 +86125,7 @@
      {
       "edition": "scan-consensus-2026-10-18",
       "storage": "primary",
-      "passages": 2,
+      "passages": 227,
       "licenses": [
        "public-domain"
       ]
@@ -86140,12 +86162,12 @@
      "aliases": {}
     },
     "apollonius-geom.conica.scan-consensus-2026-10-18": {
-     "name": "Heiberg, reviewed Greek scan additions (Opening letter of Book IV)",
+     "name": "Heiberg, reviewed Greek scan additions (Books I–III and the opening letter of Book IV)",
      "provider": "ocr",
      "scheme": "book.printed-page",
      "editor": "Heiberg",
      "year": null,
-     "source": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+     "source": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf; https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
      "servable": true,
      "license": "PD",
      "scheme_inferred": false,
@@ -245138,6 +245160,91 @@
     "era:late-antique",
     "genre:mathematics"
    ],
+   "coverage_composition": {
+    "policy": "reviewed-primary-region-union",
+    "manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+    "manifest_sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+    "scan_manifest": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+    "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+    "scan_manifests": [
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/manifest.json",
+      "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+     }
+    ],
+    "admission_audits": [
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+      "sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a",
+      "primary_regions": 331,
+      "comparative_regions": 0
+     }
+    ],
+    "base_scope": "Books II–V",
+    "addition_scope": "Books VI–VIII",
+    "planned_addition_scope": "Books VI–VIII",
+    "admitted_books": [
+     "6",
+     "7",
+     "8"
+    ],
+    "base_passages": 304,
+    "added_primary_regions": 331,
+    "comparative_regions": 0,
+    "source_editions": [
+     {
+      "id": "pappialexandrin01hultgoog",
+      "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
+      "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+      "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
+     },
+     {
+      "id": "pappialexandrin01pappgoog",
+      "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
+      "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+      "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
+     },
+     {
+      "id": "pappialexandrin04pappgoog",
+      "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+      "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+      "license": "public-domain",
+      "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+      "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+      "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
+     }
+    ],
+    "digital_components": [],
+    "comparison_sources": {},
+    "digital_comparison_counts": {},
+    "components": [
+     {
+      "edition": "pappus-mathematics.synagoge.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary",
+      "passages": 304
+     },
+     {
+      "edition": "scan-consensus-2026-10-18",
+      "storage": "primary",
+      "passages": 331,
+      "licenses": [
+       "public-domain"
+      ]
+     }
+    ],
+    "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. This edition's surviving book coverage does not redefine the complete ancient Work."
+   },
    "editions": {
     "pappus-mathematics.synagoge.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -245151,7 +245258,8 @@
      "scheme_inferred": false,
      "aliases": {
       "cts": "urn:cts:greekLit:tlg2032.tlg001.1st1K-grc1"
-     }
+     },
+     "note": "Retained base edition: Books II–V. Reviewed scan additions are complementary primary regions."
     },
     "pappus-mathematics.synagoge.hultsch-1876": {
      "name": "Pappi Alexandrini collectionis quae supersunt, `3 vols",
@@ -245164,6 +245272,19 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "pappus-mathematics.synagoge.scan-consensus-2026-10-18": {
+     "name": "Hultsch, reviewed Greek scan additions (Books VI–VIII)",
+     "provider": "ocr",
+     "scheme": "book.printed-page",
+     "editor": "Hultsch",
+     "year": null,
+     "source": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf; https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf; https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Complements the existing primary edition; comparison quotations and modern apparatus are separate."
     }
    }
   },
