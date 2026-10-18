@@ -67,7 +67,9 @@ def validate_passage_aliases(aliases: dict, works: dict) -> dict:
                 raise ValueError(f"Invalid passage alias path: {relative}")
             if target.get("slug"):
                 slug = target["slug"]
-                if slug not in works or relative.as_posix() != f"data/corpus/{slug}.jsonl":
+                storage = target.get("storage", "primary")
+                directory = "corpus_secondary" if storage == "secondary" else "corpus"
+                if storage not in {"primary", "secondary"} or slug not in works or relative.as_posix() != f"data/{directory}/{slug}.jsonl":
                     raise ValueError(f"Invalid passage alias work: {slug}")
             elif not relative.as_posix().startswith("data/paratext/"):
                 raise ValueError(f"Invalid passage alias destination: {relative}")

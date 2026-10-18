@@ -343,6 +343,20 @@ its observed text, and unresolved words remain outside scalar counts through
 the row's `analysis_text`. Reader text exposes ties explicitly, and the
 structured `ocr_consensus` field preserves every supplied raw reading.
 
+Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
+`data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
+164-page independent OCR job list with
+`python3 scripts/repair_meibom_work_assignments.py --write-manifest`. Apply its
+multi-author repair with `--apply --fresh WITNESS36.jsonl --fresh WITNESS38.jsonl`;
+`--original-dir` can add the original page OCR as another retained witness.
+The script requires both fresh model readings for every unique Aristides page,
+checks the Greek-column crops and preserves repeated scan readings in one vote
+group. Use `--check` to replay the archived witnesses and `--undo` to restore
+the exact original files. Originals and per-change evidence are retained in
+`data/corpus_changes/meibom-musical-anthology/`. Other constituent works receive
+separate secondary edition files under their existing canonical identities.
+The page-level historical concordance retains each old reading's exact path.
+
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
 Resolve these passage aliases before applying whole-work slug redirects. See

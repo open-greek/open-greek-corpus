@@ -1,18 +1,28 @@
 #!/usr/bin/env python3
 """Checked page routing for Meibom's 1652 musical anthology (issue 52).
 
-The scan includes eight Greek works, Latin translations, modern commentary,
+The scan includes several Greek works, Latin translations, modern commentary,
 and repeated scan leaves. This authority is also the OCR crop manifest; page
 parity refers to the printed page, not an unchecked arithmetic scan offset.
 """
 from __future__ import annotations
 
 import argparse
+from collections import Counter, defaultdict
+import gzip
+import hashlib
 import json
 from pathlib import Path
+import re
+
+from ocr_consensus import merge_witnesses
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD = "aristides-quintilianus-music.de-musica"
+EDITION = "meibom-1652-consensus-2026-10"
+AUDIT_DIR = "data/corpus_changes/meibom-musical-anthology"
+PARATEXT = "data/paratext/meibom-1652.jsonl"
+INPUT_SHA256 = "2d3e16932378cd1d0c1ea176eb0d6fbefbebea8303249f72c38c7e7808bd6526"
 SOURCE = {
     "url": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
     "pdf_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
@@ -80,9 +90,265 @@ def fresh_jobs():
             "max_side": 2600} for p in manifest()["fresh_aristides_pages"]]}
 
 
+def sha(raw):
+    return hashlib.sha256(raw).hexdigest()
+
+
+def dump(value):
+    return (json.dumps(value, ensure_ascii=False, indent=1) + "\n").encode()
+
+
+def jsonl(rows):
+    return "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows).encode()
+
+
+def scan_from_locus(locus):
+    match = re.fullmatch(r"aristides_quintilianus_meibom_(\d+)\.(\d+)", locus)
+    if not match:
+        raise ValueError(f"Unreviewed Meibom locus: {locus}")
+    return int(match[1])
+
+
+def prepare_inputs(root, fresh_paths, original_dir=None):
+    primary = root / f"data/corpus/{OLD}.jsonl"
+    raw = primary.read_bytes()
+    if sha(raw) != INPUT_SHA256:
+        raise ValueError("The original Meibom file changed; review its assignment again")
+    records = [json.loads(line) for line in raw.splitlines()]
+    by_scan = defaultdict(list)
+    for row in sorted(records, key=lambda r: (scan_from_locus(r["locus"]), int(r["locus"].rsplit(".", 1)[1]))):
+        by_scan[scan_from_locus(row["locus"])].append(row)
+    page_witnesses = defaultdict(list)
+    for scan, rows in sorted(by_scan.items()):
+        assignment = page_assignment(scan)
+        if assignment["work"] != OLD:
+            continue
+        text = "\n".join(row["text"] for row in rows)
+        record_sha = sha(jsonl(rows))
+        witness = {"id": f"legacy-served-{scan:04d}", "vote_group": "legacy-served",
+            "text": text, "artifact_sha256": record_sha, "model": "Qwen3.6-27B",
+            "source": "Previously served OCR, with its recorded deterministic corrections",
+            "scan_page": scan, "original_rows": rows}
+        page_witnesses[assignment["printed_page"]].append(witness)
+    if original_dir:
+        for scan in range(525, 701):
+            path = original_dir / f"aristides_quintilianus_meibom_{scan:04d}.grc.txt"
+            if not path.exists():
+                continue
+            raw_original = path.read_bytes()
+            assignment = page_assignment(scan)
+            witness = {"id": f"legacy-original-{scan:04d}", "vote_group": "legacy-original",
+                "text": raw_original.decode(), "artifact_sha256": sha(raw_original),
+                "model": "Qwen3.6-27B", "source": "Original uncorrected page OCR",
+                "scan_page": scan}
+            page_witnesses[assignment["printed_page"]].append(witness)
+    expected = {p["scan_page"]: p for p in fresh_jobs()["pages"]}
+    models_by_page = defaultdict(set)
+    for path in fresh_paths:
+        meta = None
+        artifact = path.read_bytes()
+        for line in artifact.splitlines():
+            record = json.loads(line)
+            if "_meta" in record:
+                meta = record["_meta"]
+                continue
+            scan = record["scan_page"]
+            if scan not in expected:
+                continue
+            if meta is None:
+                raise ValueError("Fresh OCR has no model and prompt metadata")
+            if record["region"] != expected[scan]["region"]:
+                raise ValueError(f"Fresh OCR used an unchecked crop on page {scan}")
+            if record.get("finish_reason") in {"length", "max_tokens"}:
+                raise ValueError(f"Fresh OCR is truncated on page {scan}")
+            identifier = f"fresh-{meta['model'].rsplit('/', 1)[-1]}-{scan:04d}"
+            prediction = record["raw_prediction"]
+            identity = {k: meta.get(k) for k in ["model", "revision", "prompt", "backend"]}
+            identity.update(image_sha256=record["image_sha256"], raw_prediction=prediction)
+            witness = {"id": identifier, "vote_group": meta["model"], "text": prediction,
+                "artifact_sha256": sha(dump(identity)), "model": meta["model"],
+                "revision": meta.get("revision"), "backend": meta.get("backend"),
+                "source_artifact_sha256": sha(artifact), "scan_page": scan,
+                "source": "Fresh source-scan Greek-column OCR", "image_sha256": record["image_sha256"],
+                "region": record["region"], "prompt": meta["prompt"]}
+            page_witnesses[expected[scan]["printed_page"]].append(witness)
+            models_by_page[expected[scan]["printed_page"]].add(meta["model"])
+    missing = [p for p in range(1, 165) if len(models_by_page[p]) < 2]
+    if missing:
+        raise ValueError(f"Two fresh model witnesses are required for all printed pages; missing: {missing}")
+    return {"schema_version": 1, "source": SOURCE,
+        "original_corpus_sha256": sha(raw), "witnesses": {str(page): readings
+            for page, readings in sorted(page_witnesses.items())}}
+
+
+def repaired_outputs(root, inputs, before):
+    original_rows = [json.loads(line) for line in before[f"data/corpus/{OLD}.jsonl"].splitlines()]
+    registry = json.loads(before["data/source_registry.json"])
+    aliases = json.loads(before["data/passage_aliases.json"])
+    outputs, changes = defaultdict(list), []
+    for row in original_rows:
+        scan = scan_from_locus(row["locus"])
+        assignment = page_assignment(scan)
+        corrected = dict(row)
+        target = assignment["work"]
+        corrected.update(source_page=assignment, evidence="data/source_layouts/meibom-1652.json")
+        if target == "paratext":
+            path = PARATEXT
+            corrected.update(urn="meibom-1652.edition-paratext", lang="grc", **{"class": assignment["class"]})
+            corrected.pop("cts", None)
+            destination = {"path": path, "locus": row["locus"]}
+        else:
+            corrected.update(urn=target, edition="qwen36-meibom-1652-legacy",
+                cts=registry["works"][target]["aliases"]["cts"])
+            path = f"data/corpus_secondary/{target}.jsonl"
+            destination = {"path": path, "locus": row["locus"], "slug": target, "storage": "secondary"}
+            if target == OLD:
+                printed = assignment["printed_page"]
+                destination = {"path": f"data/corpus/{OLD}.jsonl", "slug": OLD,
+                    "locus": f"{assignment['book']}.{printed}", "scope": "printed-page",
+                    "preserved_original": {"path": path, "locus": row["locus"]}}
+        outputs[path].append(corrected)
+        aliases.setdefault("aliases", {}).setdefault(OLD, {})[row["locus"]] = destination
+        changes.append({"original_row": row, "corrected_row": corrected,
+            "destination": destination, "text_changed": False,
+            "evidence": "data/source_layouts/meibom-1652.json"})
+    summaries = []
+    primary = []
+    for page in range(1, 165):
+        result = merge_witnesses(inputs["witnesses"][str(page)])
+        book = 1 if page <= 58 else 2 if page <= 111 else 3
+        row = {"urn": OLD, "edition": EDITION, "locus": f"{book}.{page}",
+            "cts": registry["works"][OLD]["aliases"]["cts"], "source": "ocr", "license": "PD",
+            **result, "corrections": ["collation"], "source_printed_page": page,
+            "evidence": "data/source_layouts/meibom-1652.json"}
+        primary.append(row)
+        summaries.append({"printed_page": page, "locus": row["locus"],
+            "original_text": [{"witness": w["id"], "text": w["text"],
+                "artifact_sha256": w["artifact_sha256"]} for w in inputs["witnesses"][str(page)]],
+            "corrected_text": result["text"], "analysis_text": result["analysis_text"],
+            "counts": result["ocr_consensus"]["counts"],
+            "evidence": "ROVER word vote over the retained original and independent fresh scan readings"})
+    output_bytes = {}
+    for path, rows in outputs.items():
+        existing = before.get(path)
+        prefix = [json.loads(line) for line in existing.splitlines()] if existing else []
+        identities = {(r["edition"], r["locus"]) for r in prefix}
+        if any((r["edition"], r["locus"]) in identities for r in rows):
+            raise ValueError(f"Meibom secondary destination already contains a routed reading: {path}")
+        output_bytes[path] = jsonl(prefix + rows)
+    output_bytes[f"data/corpus/{OLD}.jsonl"] = jsonl(primary)
+    output_bytes["data/passage_aliases.json"] = dump(aliases)
+    work = registry["works"][OLD]
+    old_key = work["default_edition"]
+    if old_key in work["editions"]:
+        work["editions"][old_key].update(servable=False,
+            note="Historical whole-anthology assignment; original rows are retained by the issue52 audit and routed secondary witnesses.")
+    new_key = f"{OLD}.{EDITION}"
+    work["editions"][new_key] = {"name": "Meibom 1652, merged scan OCR with explicit variants",
+        "provider": "ocr", "scheme": "book.printed-page", "editor": "Meibom, Marcus",
+        "year": 1652, "source": SOURCE["url"], "servable": True, "license": "PD",
+        "scheme_inferred": False, "aliases": {}}
+    work.update(default_edition=new_key, best_source="open_corpus")
+    for start, end, target, base in RANGES:
+        if target == OLD:
+            continue
+        registry["works"][target]["editions"][f"{target}.qwen36-meibom-1652-legacy"] = {
+            "name": "Meibom 1652, routed historical OCR witness", "provider": "ocr",
+            "scheme": "scan-page.line", "editor": "Meibom, Marcus", "year": 1652,
+            "source": SOURCE["url"], "servable": True, "storage": "secondary",
+            "license": "PD", "scheme_inferred": False, "aliases": {}}
+    output_bytes["data/source_registry.json"] = dump(registry)
+    sources = json.loads(before["data/inventory/ocr_edition_sources.json"])
+    sources[EDITION] = {"label": "Aristides Quintilianus, De musica (Meibom1652); original and independent fresh OCR word vote, with unresolved readings preserved",
+        "url": SOURCE["url"], "model": "Qwen3.6-27B and Qwen3.8-27B"}
+    sources["qwen36-meibom-1652-legacy"] = {"label": "Meibom1652, routed historical OCR witnesses",
+        "url": SOURCE["url"], "model": "Qwen3.6-27B"}
+    output_bytes["data/inventory/ocr_edition_sources.json"] = dump(sources)
+    output_bytes[AUDIT_DIR + "/changes.json"] = dump({"schema_version": 1,
+        "timestamp": "2026-10-18", "source": SOURCE,
+        "issue": "https://github.com/open-greek/open-greek-corpus/issues/52",
+        "assignments": changes, "text_changes": summaries,
+        "outputs_sha256": {name: sha(raw) for name, raw in output_bytes.items()},
+        "undo": "python3 scripts/repair_meibom_work_assignments.py --undo; rebuild derived outputs"})
+    return output_bytes
+
+
+def run_repair(root, mode, fresh_paths=(), original_dir=None):
+    audit = root / AUDIT_DIR
+    before_path, inputs_path = audit / "before.json.gz", audit / "witnesses.json.gz"
+    if mode == "undo":
+        record = json.loads((audit / "changes.json").read_text())
+        for name, expected in record["outputs_sha256"].items():
+            if sha((root / name).read_bytes()) != expected:
+                raise ValueError(f"Refusing to overwrite a later change: {name}")
+        before = json.loads(gzip.decompress(before_path.read_bytes()))
+        for name, text in before.items():
+            path = root / name
+            if text is None:
+                path.unlink(missing_ok=True)
+            else:
+                path.write_text(text)
+        return
+    if before_path.exists():
+        before = json.loads(gzip.decompress(before_path.read_bytes()))
+        inputs = json.loads(gzip.decompress(inputs_path.read_bytes()))
+        if mode == "apply":
+            mode = "check"
+    else:
+        if mode == "check":
+            raise ValueError("The Meibom repair has not been applied")
+        inputs = prepare_inputs(root, fresh_paths, original_dir)
+        names = [f"data/corpus/{OLD}.jsonl", "data/source_registry.json", "data/passage_aliases.json",
+            "data/inventory/ocr_edition_sources.json", PARATEXT]
+        names += [f"data/corpus_secondary/{slug}.jsonl" for slug in {p[2] for p in RANGES}]
+        before = {name: (root / name).read_text() if (root / name).exists() else None for name in names}
+    outputs = repaired_outputs(root, inputs, before)
+    if mode == "check":
+        for name, expected in outputs.items():
+            path = root / name
+            if not path.exists():
+                raise ValueError(f"Meibom repair output is missing: {name}")
+            if name in {"data/source_registry.json", "data/passage_aliases.json", "data/inventory/ocr_edition_sources.json"}:
+                check_changed_fields(json.loads(before[name]), json.loads(expected), json.loads(path.read_text()), name)
+            elif path.read_bytes() != expected:
+                raise ValueError(f"Meibom repair differs from its archived inputs: {name}")
+    elif mode == "apply":
+        audit.mkdir(parents=True, exist_ok=True)
+        before_path.write_bytes(gzip.compress(dump(before), mtime=0))
+        inputs_path.write_bytes(gzip.compress(dump(inputs), mtime=0))
+        for name, raw in outputs.items():
+            path = root / name
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_bytes(raw)
+    print(f"{len(outputs)} reproducible outputs; 164 merged Aristides pages; all original rows preserved")
+
+
+def check_changed_fields(original, expected, current, path):
+    """Check this repair's metadata changes while allowing unrelated additions."""
+    if isinstance(expected, dict):
+        original = original if isinstance(original, dict) else {}
+        if not isinstance(current, dict):
+            raise ValueError(f"Changed Meibom metadata: {path}")
+        for key, value in expected.items():
+            if key not in original or original[key] != value:
+                if key not in current:
+                    raise ValueError(f"Missing Meibom metadata: {path}.{key}")
+                check_changed_fields(original.get(key), value, current[key], path + "." + key)
+        for key in original.keys() - expected.keys():
+            if key in current:
+                raise ValueError(f"Removed Meibom metadata was restored: {path}.{key}")
+    elif current != expected:
+        raise ValueError(f"Changed Meibom metadata: {path}")
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--write-manifest", action="store_true")
+    modes = ap.add_mutually_exclusive_group()
+    for name in ["apply", "check", "undo"]:
+        modes.add_argument("--" + name, action="store_true")
+    ap.add_argument("--fresh", type=Path, action="append", default=[])
+    ap.add_argument("--original-dir", type=Path)
     args = ap.parse_args()
     if args.write_manifest:
         path = ROOT / "data/source_layouts/meibom-1652.json"
@@ -91,6 +357,8 @@ def main():
         jobs = ROOT / "data/ingest_reviews/meibom-aristides-fresh-witnesses.json"
         jobs.parent.mkdir(parents=True, exist_ok=True)
         jobs.write_text(json.dumps(fresh_jobs(), ensure_ascii=False, indent=1) + "\n")
+    if args.apply or args.check or args.undo:
+        run_repair(ROOT, "apply" if args.apply else "check" if args.check else "undo", args.fresh, args.original_dir)
     print(f"{len(manifest()['fresh_aristides_pages'])} unique Aristides leaves")
 
 
