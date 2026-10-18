@@ -26,6 +26,9 @@ def body_columns(top, bottom):
 
 
 REVIEWS = {
+    41: {"strips": body_columns(.060, .839), "checkpoints": [CHECKPOINT36],
+         "evidence": "Printed page29 continues the Procopius narrative. The original Qwen3.6 includes small numbered variants, including στρατείας mg and στρατείας s, after the large body. Enlarged source inspection places the last body lines above.839 and the apparatus below.850. The two column crops retain every large body line and exclude the running header and smaller notes.",
+         "failure": "The stop-terminated Qwen3.6 original includes critical apparatus. Preserve that original as evidence and retain the independent Qwen3.8 whole-page reading."},
     27: {"strips": [("left-upper", [.035, .055, .49, .318]),
                     ("left-middle", [.035, .318, .49, .574]),
                     ("left-lower", [.035, .574, .49, .848]),
@@ -87,6 +90,21 @@ REVIEWS = {
     188: {"strips": body_columns(.056, .843), "checkpoints": [CHECKPOINT36],
           "evidence": "Printed page176 continues the scientific notices. Qwen3.6 appends the smaller critical apparatus, including Rothomagensis, libri scripti, and post εὐπόρισα in A vacui. The large body feet end above.843 and notes begin below.851. Source-checked full-column crops preserve all body lines while excluding the running header and apparatus.",
           "failure": "The stop-terminated Qwen3.6 original includes small-type critical notes. Keep that attempt and every variant; the Qwen3.8 whole-page reading stays intact."},
+    207: {"strips": body_columns(.058, .794), "checkpoints": [CHECKPOINT36],
+          "evidence": "Printed page195 contains large Greek body above a substantial small-type apparatus with Greek quotations and Latin citations. The original Qwen3.6 includes the apparatus, including post and malim readings. Enlarged source inspection places the full-size body foot above.794 and the first smaller note below.805. The two column crops preserve all large body lines while excluding the notes and running header.",
+          "failure": "The stop-terminated Qwen3.6 original includes critical apparatus. Preserve that attempt and all source readings; the independent Qwen3.8 whole-page reading remains intact."},
+    381: {"strips": column_strips(.057, .818, [.31504, .58945], [.33096, .60530]),
+          "evidence": "Printed page369 contains Himerius excerpts and their preface headings in two columns. The original Qwen3.8 repeats ὅτι in a stop-terminated loop absent from the scan. Enlarged interline checks preserve all large Greek lines and headings in six consecutive column strips. The lower boundary at.818 lies above the smaller apparatus; the first left split follows a preface heading and the right splits lie between complete lines.",
+          "failure": "The stop-terminated Qwen3.8 original contains a source-confirmed repetition loop. Retain that original and the independent Qwen3.6 whole-page reading."},
+    384: {"strips": column_strips(.055, .825, [.41476, .63303], [.26447, .50186]),
+          "evidence": "Printed page372 continues the Himerius excerpts in codex243. Six source-checked strips preserve every large Greek line and preface heading. The left upper split precedes τὸ προοίμιον; the right lower split precedes the Cappadocian proconsul heading. Enlarged boundaries preserve descenders and breathings. The bottom at.825 lies between the body foot and smaller apparatus.",
+          "failure": "The original Qwen3.8 attempt reaches its output limit. Preserve that attempt; the independent Qwen3.6 whole-page reading remains intact."},
+    388: {"strips": column_strips(.060, .811, [.43767, .72703], [.30271, .56033]),
+          "evidence": "Printed page376 continues the Himerius excerpts with a particularly faint left column. Six source-checked strips preserve every large Greek line and heading, including the preface heading below the first left split and the next excerpt below the second. Enlarged interline checks preserve accents, breathings, and descenders. The lower boundary at.811 excludes the small apparatus beneath the body.",
+          "failure": "The original Qwen3.8 attempt reaches its output limit. Preserve that attempt and the independent Qwen3.6 whole-page reading."},
+    397: {"strips": column_strips(.060, .839, [.32507, .58100], [.32507, .58100]),
+          "evidence": "Printed page385 continues the two-column narrative. The original Qwen3.8 ends with repeated τὸν sequences absent from the scan, although it reports stop termination. Six source-checked strips retain the complete large Greek body; enlarged interline checks preserve every line, breathing, and descender in both faint columns. The bottom at.839 lies above the smaller apparatus.",
+          "failure": "The stop-terminated Qwen3.8 original contains a source-confirmed repetition loop. Preserve that attempt and retain the independent Qwen3.6 whole-page reading."},
 }
 
 # New checkpoint-specific requests never alter a previously queued manifest.
@@ -124,6 +142,17 @@ SUPPLEMENT_REVIEWS = {
             "raw_prediction_sha256": "2a5a42ee32fd8efecba4aad046d7ce984c7688c8dd0d787269c720b1481084ee",
             "finish_reason": "stop", "greek_word_runs": 1243,
             "most_repeated_phrase_occurrences": 241, "most_repeated_line_occurrences": 241,
+            "repetition_policy_sha256": "5c6cdf1c4f971f5ed7e650ad7f1699e5e437e039e52ec38bfba2427a3ee00c94"},
+    },
+    (113, "right-first-part02"): {
+        "parent_supplement": "right-first", "cuts": [.126, .16042, .195],
+        "evidence": "The Qwen3.8 second part of the right-first supplement on printed page101 still repeats ἡ δὲ ἡδὺς καὶ ἡδύποτος in an unprinted stop-terminated loop. Its eight-word window repeats8 times. The printed crop instead has distinct faint lexical lines. Two shorter crops exactly partition only that second part; the.16042 boundary falls in a source-checked blank interline gap. Preserve the failed original, both looping retry attempts, the two successful sibling supplement parts, and all other successful base strips; assemble one model-family vote.",
+        "replacement_condition": {"kind": "source-confirmed-repetition-loop",
+            "raw_file_sha256": "1e36e19d1360b9ac0040993520e33e0f93f075e4f20a5f0dccc7f2af5d8066d2",
+            "prediction_record_sha256": "3b1dcd5f8a3fe3e60f35069fe9feb816d64dfcc004bcb0581e3775bb88b3f72d",
+            "raw_prediction_sha256": "1920868a60de5eeead0af96734f3021d0061995e72d2ad8e954df259301a303c",
+            "finish_reason": "stop", "greek_word_runs": 43,
+            "most_repeated_phrase_occurrences": 8, "most_repeated_line_occurrences": 3,
             "repetition_policy_sha256": "5c6cdf1c4f971f5ed7e650ad7f1699e5e437e039e52ec38bfba2427a3ee00c94"},
     },
 }
@@ -182,7 +211,9 @@ def supplement_path(page, name):
 
 def build_supplement(page, name):
     review = SUPPLEMENT_REVIEWS[(page, name)]
-    parent = build_page13_retry() if page == 13 else build_retry(page)
+    parent_name = review.get("parent_supplement")
+    parent = (build_supplement(page, parent_name) if parent_name else
+              build_page13_retry() if page == 13 else build_retry(page))
     target = next(p for p in parent["pages"] if p["id"].endswith("-" + name))
     x0, y0, x1, y1 = target["region"]
     cuts = review["cuts"]
@@ -190,9 +221,9 @@ def build_supplement(page, name):
         raise ValueError("Supplement must partition the exact reviewed parent strip")
     result = {"schema_version": 1, "work": parent["work"], "review_date": parent["review_date"],
             "purpose": "Replace only a failed retry strip within one model-family assembly; preserve all original and retry attempts and all successful sibling strips.",
-            "supplements": {"manifest_path": manifest_path(page).as_posix(),
+            "supplements": {"manifest_path": (supplement_path(page, parent_name) if parent_name else manifest_path(page)).as_posix(),
                             "manifest_sha256": hashlib.sha256(encode(parent)).hexdigest(),
-                            "replaces_region": target["id"], "page_id": parent["retry_of"]["page_id"]},
+                            "replaces_region": target["id"], "page_id": parent.get("retry_of", parent.get("supplements"))["page_id"]},
             "checkpoints": review.get("checkpoints", parent.get("checkpoints")), "sources": parent["sources"], "prompt": parent["prompt"],
             "review": {"checked_scan_pages": [page], "accepted_for_primary_ingest": False,
                        "evidence": review["evidence"],
