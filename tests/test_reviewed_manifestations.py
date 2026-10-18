@@ -134,9 +134,12 @@ def photius_fixture(root):
         "historical_body_passages": 3846, "preserved_index_passages": 501,
         "added_scan_ranges": [[13, 278], [379, 421]], "retained_scan_ranges": [[279, 378], [422, 557]],
         "fresh_ocr_files": fresh, "source_scan": {"url": "https://example.org/bekker", "license": "PD"},
+        "legacy_source": {"url": "https://example.org/bekker1825", "sha256": "legacy-scan"},
+        "source_scan_exceptions": [{"logical_combined_position": 446, "authorial_printed_page": 434}],
         "source_library": {"license": {"url": "https://creativecommons.org/licenses/by-sa/4.0/", "attribution": "Source Library"},
             "url": "https://example.org/local002", "sha256": library_sha, "rights": {"credit": "Source Library"},
-            "separate_api_notice": {"tdm_reservation": 1, "ai_training": "reserved"}},
+            "separate_api_notice": {"tdm_reservation": 1, "ai_training": "reserved"},
+            "primary_body_comparison_counts": {"bounded": 200, "held": 84}},
         "edition_scope": "545 source pages; physical citations preserve the edition's transmission."})
     return slug
 
@@ -154,6 +157,9 @@ def test_photius_retains_licensed_voting_component_and_pd_body_idempotently(tmp_
     assert components[2]["license"]["attribution"] == "Source Library"
     assert components[2]["separate_api_notice"]["tdm_reservation"] == 1
     assert components[3]["license"] == "CC-BY-4.0"
+    assert components[2]["primary_body_comparison_counts"] == {"bounded": 200, "held": 84}
+    assert reg.works[slug].coverage_composition["source_editions"][1]["sha256"] == "legacy-scan"
+    assert reg.works[slug].coverage_composition["source_scan_exceptions"][0]["authorial_printed_page"] == 434
     output = tmp_path / "registry.json"
     reg.save(output)
     before = output.read_bytes()

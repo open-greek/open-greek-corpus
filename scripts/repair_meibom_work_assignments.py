@@ -14,8 +14,9 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import unicodedata
 
-from ocr_consensus import merge_witnesses
+from ocr_consensus import compact_corpus_consensus, merge_witnesses
 
 ROOT = Path(__file__).resolve().parents[1]
 OLD = "aristides-quintilianus-music.de-musica"
@@ -110,6 +111,46 @@ def scan_from_locus(locus):
     return int(match[1])
 
 
+def clean_jahn_running_headers(text, page):
+    """Remove only isolated initial running heads on reviewed interior pages.
+
+    Offsets address Unicode code points in the unchanged raw prediction.
+    Actual book openings retain their printed title and author headings.
+    """
+    if page["scan_page"] in {74, 111, 141}:
+        return text, []
+    removals, offset, nonblank = [], 0, 0
+    for line in text.splitlines(keepends=True):
+        stripped = line.strip()
+        if not stripped:
+            offset += len(line)
+            continue
+        nonblank += 1
+        if nonblank > 3:
+            break
+        if stripped == str(page["printed_page"]):
+            offset += len(line)
+            continue
+        folded = "".join(char for char in unicodedata.normalize("NFD", stripped)
+                         if char.isalpha()).upper()
+        is_title = re.fullmatch(r"ΠΕΡΙΜΟΥΣΙΚΗΣ[ΑΒΓABG]?", folded) is not None
+        is_author = folded == "ΑΡΙΣΤΕΙΔΟΥΤΟΥΚΟΙΝΤΙΛΙΑΝΟΥ"
+        if not (is_title or is_author):
+            break  # never search through the authored body for a similar phrase
+        removals.append({"kind": "initial-running-header", "start": offset, "end": offset + len(line),
+            "original_text": line, "corrected_text": "", "timestamp": "2026-10-18",
+            "source": "Manual inspection of Jahn 1882 page layout; data/ingest_reviews/jahn-layout-review.json",
+            "scan_page": page["scan_page"], "printed_page": page["printed_page"], "authority_book": page["book"],
+            "policy": "Remove the isolated initial running head only on an interior page. Retain the raw OCR book label without correcting it."})
+        offset += len(line)
+    cleaned, cursor = [], 0
+    for change in removals:
+        cleaned.append(text[cursor:change["start"]])
+        cursor = change["end"]
+    cleaned.append(text[cursor:])
+    return "".join(cleaned), removals
+
+
 def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn1882"):
     primary = root / f"data/corpus/{OLD}.jsonl"
     raw = primary.read_bytes()
@@ -182,7 +223,9 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
                 raise ValueError(f"Fresh OCR has no Greek reading on page {scan}")
             identity = {k: meta.get(k) for k in ["model", "revision", "prompt", "backend"]}
             identity.update(image_sha256=record["image_sha256"], raw_prediction=prediction)
-            witness = {"id": identifier, "vote_group": meta["model"], "text": prediction,
+            cleaned, preprocessing = clean_jahn_running_headers(prediction, expected[scan]) if primary_source == "jahn1882" else (prediction, [])
+            witness = {"id": identifier, "vote_group": meta["model"], "text": cleaned,
+                "original_text": prediction, "preprocessing": preprocessing,
                 "artifact_sha256": sha(dump(identity)), "model": meta["model"],
                 "revision": meta.get("revision"), "backend": meta.get("backend"),
                 "source_artifact_sha256": sha(artifact), "scan_page": scan,
@@ -237,19 +280,22 @@ def repaired_outputs(root, inputs, before):
         changes.append({"original_row": row, "corrected_row": corrected,
             "destination": destination, "text_changed": False,
             "evidence": "data/source_layouts/meibom-1652.json"})
-    summaries = []
+    summaries, full_networks = [], {}
     primary = []
     page_limit = 97 if jahn_primary else 164
     for page in range(1, page_limit + 1):
         result = merge_witnesses(inputs["witnesses"][str(page)])
+        full_networks[str(page)] = result
+        compact = compact_corpus_consensus(result, {"path": AUDIT_DIR + "/word-networks.json.gz", "key": str(page)})
         book = (1 if page <= 37 else 2 if page <= 67 else 3) if jahn_primary else (1 if page <= 58 else 2 if page <= 111 else 3)
         row = {"urn": OLD, "edition": primary_edition, "locus": f"{book}.{page}",
             "cts": registry["works"][OLD]["aliases"]["cts"], "source": "ocr", "license": "PD",
-            **result, "corrections": ["collation"], "source_printed_page": page,
+            **compact, "corrections": ["collation"], "source_printed_page": page,
             "evidence": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json" if jahn_primary else "data/source_layouts/meibom-1652.json"}
         primary.append(row)
         summaries.append({"printed_page": page, "locus": row["locus"],
-            "original_text": [{"witness": w["id"], "text": w["text"],
+            "original_text": [{"witness": w["id"], "text": w.get("original_text", w["text"]),
+                "collation_input_text": w["text"], "preprocessing": w.get("preprocessing", []),
                 "artifact_sha256": w["artifact_sha256"]} for w in inputs["witnesses"][str(page)]],
             "corrected_text": result["text"], "analysis_text": result["analysis_text"],
             "counts": result["ocr_consensus"]["counts"],
@@ -263,6 +309,7 @@ def repaired_outputs(root, inputs, before):
             raise ValueError(f"Meibom secondary destination already contains a routed reading: {path}")
         output_bytes[path] = jsonl(prefix + rows)
     output_bytes[f"data/corpus/{OLD}.jsonl"] = jsonl(primary)
+    output_bytes[AUDIT_DIR + "/word-networks.json.gz"] = gzip.compress(dump(full_networks), mtime=0)
     output_bytes["data/passage_aliases.json"] = dump(aliases)
     work = registry["works"][OLD]
     old_key = work["default_edition"]

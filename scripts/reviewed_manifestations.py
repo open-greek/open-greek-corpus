@@ -118,6 +118,9 @@ def _meibom(root):
     if _sha(root / primary) == INPUT_SHA256:
         return {}  # audit retained after exact unapply
     _verify(root, primary, audit["outputs_sha256"][primary])
+    network = "data/corpus_changes/meibom-musical-anthology/word-networks.json.gz"
+    if network in audit["outputs_sha256"]:
+        _verify(root, network, audit["outputs_sha256"][network])
     primary_source = audit["primary_source"]
     jahn = audit["primary_edition"].startswith("jahn-")
     expected = 97 if jahn else 164
@@ -235,18 +238,21 @@ def _photius(root):
         raise ValueError("Photius needs independently pinned OCR components")
     for witness in report["fresh_ocr_files"]:
         _verify(root, witness["path"], witness["sha256"])
+    bounds = source_library.get("body_comparison_audit")
+    if bounds:
+        _verify(root, bounds["path"], bounds["sha256"])
     scan = report["source_scan"]
     merged = _edition("bekker1824-independent-ocr-consensus", "Bekker 1824–1825, combined Greek body with retained variants",
         scheme="scan-page.line", source=scan["url"], license="CC-BY-SA-4.0", editor="Bekker, Immanuel", year=1824,
-        note="Retained PD body plus new licensed consensus; Source Library CC-BY-SA readings participate in the merge.")
+        note="Retained PD body plus new licensed consensus; bounded Source Library CC-BY-SA body readings participate in the merge.")
     library = _edition("source-library-local002", "Source Library local002, same-scan comparison witness",
         provider="greek_library", source=source_library["url"], license="CC-BY-SA-4.0", storage="audit", servable=False,
-        note="Retained voting witness; attribution, source rights, and separate API reservation notice are preserved in the admission audit.")
+        note="Retained comparison witness; only bounded matching body text may vote. Attribution, source rights, and the separate API reservation notice are preserved in the admission audit.")
     components = [{"role": "retained-primary", "license": "PD", "passages": report["historical_body_passages"],
         "scan_ranges": report["retained_scan_ranges"]},
         {"edition": merged["key"], "role": "new-primary-consensus", "license": "CC-BY-SA-4.0",
             "passages": report["added_passages"], "scan_ranges": report["added_scan_ranges"]},
-        {"edition": library["key"], "role": "voting-witness", "license": source_library["license"],
+        {**source_library, "edition": library["key"], "role": "bounded-voting-or-comparison-witness", "license": source_library["license"],
             "source": source_library["url"], "sha256": source_library["sha256"],
             "rights": source_library.get("rights"), "separate_api_notice": source_library.get("separate_api_notice")},
         {"role": "fresh-scan-ocr-witnesses", "license": "CC-BY-4.0",
@@ -255,7 +261,10 @@ def _photius(root):
         "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus.", "coverage_composition": {
         "policy": "complementary-page-union-with-licensed-consensus", "manifest": relative, "manifest_sha256": _sha(path),
         "covered_authorial_scan_pages": 545, "index_passages_in_separate_paratext": report["preserved_index_passages"],
-        "components": components, "source_editions": [scan], "qualification": report["edition_scope"]}}}
+        "components": components,
+        "source_editions": [scan] + ([report["legacy_source"]] if report.get("legacy_source") else []),
+        "source_scan_exceptions": report.get("source_scan_exceptions", []),
+        "qualification": report["edition_scope"]}}}
 
 
 def _cyril(root):

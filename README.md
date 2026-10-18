@@ -389,6 +389,12 @@ and the final index excluded. Regenerate those crops with
 evidence. The script requires both fresh model readings for every Jahn page
 and checks the reviewed crops. It rejects failed, truncated, or empty attempts
 before admitting any changes.
+On interior Jahn pages, isolated initial running headers are removed before
+voting; the real book titles at scan pages 74, 111, and 141 remain. Raw headers,
+Unicode offsets, the page authority's book number, and source evidence survive
+in the witness archive and change audit. Full word networks are retained in
+`word-networks.json.gz`; corpus rows contain checked compact projections and
+their archive references.
 Meibom's original readings remain separate secondary witnesses; historical
 citations keep their exact source loci.
 Use `--check` to replay the archived witnesses and `--undo` to restore
