@@ -59,6 +59,7 @@ WORK_LEMMAS = DATA / "work_lemma_counts.tsv.gz"
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
 from validate_lemma_map import VARIA, lower_initial, to_acute  # noqa: E402
+from frequency_projection import CONTEXT_COUNT_BASIS, FrequencyProjection  # noqa: E402
 
 MID_MAX = 0.25
 MIN_OCCURRENCES = 10
@@ -135,12 +136,15 @@ def count_positions() -> tuple[Counter[str], Counter[str]]:
     """(sentence-initial, mid-sentence) counts per capitalized surface form."""
     initial: Counter[str] = Counter()
     mid: Counter[str] = Counter()
+    frequency = FrequencyProjection(CORPUS.parent)
     for fp in sorted(CORPUS.glob("*.jsonl")):
         with fp.open(encoding="utf-8") as f:
             for line in f:
                 if not line.strip():
                     continue
-                text = json.loads(line).get("text") or ""
+                text = frequency.contextual_text(json.loads(line))
+                if text is None:
+                    continue
                 spans = list(_GK.finditer(text))
                 if len(spans) >= ALLCAPS_MIN and sum(
                         1 for m in spans if m.group().isupper()
@@ -224,6 +228,8 @@ def main() -> None:
     kept_before.update(folds)
     OUT.write_text(json.dumps(
         {"mid_sentence_max": MID_MAX, "min_occurrences": MIN_OCCURRENCES,
+         "counting_basis": CONTEXT_COUNT_BASIS,
+         "historical_folds_policy": "Earlier recorded folds and their measurement counters remain retained; the current contextual basis governs new measurements.",
          "folds": dict(sorted(kept_before.items()))},
         ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"{len(new)} new, {len(kept_before)} folds recorded in total")
