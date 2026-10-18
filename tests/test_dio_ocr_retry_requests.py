@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import prepare_dio_ocr_retries as retry
 import prepare_dio_ocr_supplements as supplement
+import prepare_dio_finer_children as finer
 
 
 def test_committed_retry_scope_preserves_every_pinned_original():
@@ -80,3 +81,27 @@ def test_supplements_keep_first_request_bytes_and_exact_parent_strip():
         for identifier, pin in request["review"]["original_predictions"].items():
             assert retry.sha(retry.encode({"metadata": pin["original_metadata"],
                 "prediction": pin["original_prediction"]})) == pins[identifier]
+
+
+def test_known_stop_failures_have_exact_recursive_child_authorities():
+    registry = json.loads((ROOT / retry.DIRECTORY / "cassius-dio-retry-authorities.json").read_bytes())
+    assert len(registry["page_requests"]) == 4
+    assert len(registry["child_requests"]) == 5
+    count = 0
+    for key, profile in finer.PROFILES.items():
+        parent_raw = (ROOT / profile["parent"]).read_bytes()
+        assert retry.sha(parent_raw) == profile["parent_sha256"]
+        parents = {p["id"]: p for p in json.loads(parent_raw)["pages"]}
+        request = json.loads((ROOT / retry.DIRECTORY / finer.OUTPUTS[key]).read_bytes())
+        assert request["retry_of"]["sha256"] == profile["parent_sha256"]
+        assert set(request["review"]["original_predictions"]) == set(profile["pins"])
+        for identifier, pin in request["review"]["original_predictions"].items():
+            count += 1
+            assert pin["original_prediction"]["finish_reason"] == "stop"
+            assert retry.sha(retry.encode({"metadata": pin["original_metadata"],
+                "prediction": pin["original_prediction"]})) == profile["pins"][identifier]
+            regions = profile["regions"][identifier]
+            assert regions[0][:3] == parents[identifier]["region"][:3]
+            assert regions[-1][3] == parents[identifier]["region"][3]
+            assert all(a[3] == b[1] for a,b in zip(regions, regions[1:]))
+    assert count == 11
