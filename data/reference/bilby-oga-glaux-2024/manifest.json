@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "title": "OGA v0.2.0 (2024-11-24) and GLAUx v1.0 (2024-04-09) Compared",
+  "version": "0.1",
+  "version_doi": "10.5281/zenodo.14254073",
+  "creator": "Mark G. Bilby",
+  "creator_orcid": "0000-0003-0100-6634",
+  "publication_date": "2024-12-01",
+  "license": "CC-BY-SA-4.0",
+  "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "citation": "Bilby, Mark G. (2024). OGA v0.2.0 (2024-11-24) and GLAUx v1.0 (2024-04-09) Compared (0.1). Zenodo. https://doi.org/10.5281/zenodo.14254073",
+  "upstream_corpora": {
+    "oga": "10.5281/zenodo.14206061",
+    "glaux": "10.5281/zenodo.10948375"
+  },
+  "derivation": "The three CSVs derive from OGA and GLAUx metadata. They are a finding aid and normalized comparison, not an independent third dating source. Matched rows contain one date field, not separate OGA and GLAUx dates.",
+  "files": {
+    "glaux-metadata.txt": {
+      "bytes": 200187,
+      "sha256": "40ed4a63fb57520ce6bc11823cf805472017495c1e3ad933174bc0291be7345b",
+      "url": "https://raw.githubusercontent.com/alekkeersmaekers/glaux/b077d8f6ff429a5c7245954bc16bb7d1d7948823/metadata.txt"
+    },
+    "glaux_oga_matches.csv": {
+      "bytes": 99189,
+      "md5": "3fb090e76a76599914a19530034d8af1",
+      "sha256": "974c5394c019588ab078695e998faacdfe66ed0e5c85388c8c108379f26af995",
+      "url": "https://zenodo.org/api/records/14254073/files/glaux_oga_matches.csv/content"
+    },
+    "glaux_unique.csv": {
+      "bytes": 19060,
+      "md5": "96e235ea720ced2eaaf1e1863490f5b6",
+      "sha256": "f71e707c41a3c05133a1f17491fdd2a43b467c570fc354884c7eb971cffdf38f",
+      "url": "https://zenodo.org/api/records/14254073/files/glaux_unique.csv/content"
+    },
+    "oga_unique.csv": {
+      "bytes": 68757,
+      "md5": "90806197c039c9149fc37e01e7dff459",
+      "sha256": "004cfdb1363ff4e4209452437de30eeae3253db927c1f98a8dcc470970997eb4",
+      "url": "https://zenodo.org/api/records/14254073/files/oga_unique.csv/content"
+    }
+  },
+  "current_source_inputs": {
+    "oga": {
+      "path": "data/oga_dating.json",
+      "sha256": "3bcb940a43b24117a0dd0565e48dfc7ad86a004c11c2dc3d33c847dbf694c614",
+      "version_doi": "10.5281/zenodo.14206061"
+    },
+    "glaux": {
+      "commit": "b077d8f6ff429a5c7245954bc16bb7d1d7948823",
+      "path": "data/reference/bilby-oga-glaux-2024/glaux-metadata.txt"
+    }
+  },
+  "identity_inputs": {
+    "data/source_registry.json": "b26d7ab11fc159afd880c583ddacece7953191fbf1b986986641be449a6f6367",
+    "data/tlg_crosswalk.json": "2504b2dfd1f36a12b226aef6d47f7600a2d2411ec52eda0db595966bfe8944b5"
+  },
+  "output": "data/oga_glaux_date_comparison.json",
+  "counts": {
+    "exact_cts_keys": 2149,
+    "bilby_rows": 2156,
+    "bilby_rows_by_file": {
+      "glaux_oga_matches.csv": 1182,
+      "glaux_unique.csv": 239,
+      "oga_unique.csv": 735
+    },
+    "oga_readings": 1911,
+    "glaux_readings": 1421,
+    "works_with_multiple_available_intervals": 1316,
+    "bilby_source_comparisons": {
+      "convention-dependent": 227,
+      "different": 1088,
+      "equal": 2024
+    },
+    "bilby_source_comparisons_by_source": {
+      "glaux": {
+        "convention-dependent": 227,
+        "different": 1087,
+        "equal": 107
+      },
+      "oga": {
+        "different": 1,
+        "equal": 1917
+      }
+    }
+  },
+  "generated_by": "scripts/compare_oga_glaux_dates.py"
+}
