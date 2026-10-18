@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Prepare a reversible, unserved EpiDoc pilot with line loci and all readings.
+"""Prepare a reversible EpiDoc source archive with line loci and all readings.
 
 The source XML is copied byte-for-byte. Every line retains structured spans,
 including branches not selected by the edition's explicit lem/corr reading.
@@ -22,8 +22,19 @@ def tag(node):
     return node.tag.rsplit("}", 1)[-1]
 
 
-def element(node):
-    return {"tag": tag(node), "attributes": dict(node.attrib)}
+def element(node, ids=None):
+    return {"tag": tag(node), "attributes": dict(node.attrib),
+            **({"id": ids[node]} if ids else {})}
+
+
+def brackets(annotation):
+    """Keep text known only from an apograph distinct from restored letters."""
+    if annotation["tag"] == "del":
+        return "⟦", "⟧"
+    attributes = annotation["attributes"]
+    if attributes.get("evidence") == "apograph":
+        return "⸢", "⸣"
+    return ("<", ">") if attributes.get("reason") == "omitted" else ("[", "]")
 
 
 def display(spans):
@@ -37,9 +48,9 @@ def display(spans):
         while common < min(len(previous), len(annotations)) and previous[common] == annotations[common]:
             common += 1
         for a in reversed(previous[common:]):
-            output.append(">" if a["tag"] == "supplied" and a["attributes"].get("reason") == "omitted" else "]")
+            output.append(brackets(a)[1])
         for a in annotations[common:]:
-            output.append("<" if a["tag"] == "supplied" and a["attributes"].get("reason") == "omitted" else "[")
+            output.append(brackets(a)[0])
         previous = annotations
         text = span.get("text", "")
         if span.get("kind") == "gap":
@@ -48,7 +59,7 @@ def display(spans):
             text = "".join(c + "\u0323" if c.isalpha() else c for c in text)
         output.append(text)
     for a in reversed(previous):
-        output.append(">" if a["tag"] == "supplied" and a["attributes"].get("reason") == "omitted" else "]")
+        output.append(brackets(a)[1])
     return re.sub(r"\s+", " ", "".join(output)).strip()
 
 
@@ -58,6 +69,7 @@ def prepare(source, out, *, source_url, revision):
     edition = root.find(".//t:div[@type='edition']", NS)
     if edition is None:
         raise ValueError("No edition div")
+    ids = {node: f"e{index}" for index, node in enumerate(edition.iter(), 1)}
     license_urls = [e.get("target") for e in root.findall(".//t:availability//t:ref[@type='license']", NS)]
     if not any(u and re.search(r"creativecommons.org/licenses/by/3[.]0/?$", u) for u in license_urls):
         raise ValueError("Pilot currently accepts only the verified CC BY 3.0 source license")
@@ -94,12 +106,20 @@ def prepare(source, out, *, source_url, revision):
             if not node.get("n"):
                 raise ValueError("Unnumbered line break")
             current = {"locus": ".".join((*prefix, node.get("n"))),
-                       "line_attributes": dict(node.attrib), "spans": []}
+                       "line_attributes": dict(node.attrib),
+                       "textparts": [copy.deepcopy(a) for a in ancestors
+                                     if a["tag"] == "div" and a["attributes"].get("type") == "textpart"],
+                       "spans": []}
             return
-        path = (*ancestors, element(node))
+        path = (*ancestors, element(node, ids))
         if name == "gap":
             add("", path, selected, "gap", dict(node.attrib))
             return
+        if name == "milestone":
+            add("", path, selected, "milestone", dict(node.attrib))
+            return
+        if name in ("note", "del"):
+            selected = False
         choice = None
         if name in ("choice", "app"):
             preferred = ("lem",) if name == "app" else ("corr", "reg", "expan")
@@ -128,14 +148,14 @@ def prepare(source, out, *, source_url, revision):
     with (out / "passages.jsonl").open("w") as stream:
         for row in rows:
             stream.write(json.dumps(row, ensure_ascii=False) + "\n")
-    manifest = {"schema_version": 1, "status": "unserved-editorial-pilot",
+    manifest = {"schema_version": 2, "status": "editorial-source-archive",
                 "source_url": source_url, "revision": revision,
                 "source_sha256": hashlib.sha256(raw).hexdigest(),
                 "source_license": "CC-BY-3.0", "source_license_urls": license_urls,
                 "attribution": "Digital Corpus of Literary Papyri and LDAB (Trismegistos)",
                 "title": root.findtext(".//t:titleStmt/t:title", namespaces=NS),
                 "lines": len(rows), "markup_counts": dict(Counter(tag(e) for e in edition.iter())),
-                "policy": "Explicit edition lem/corr readings drive display; all alternative spans and the unchanged source XML are retained. Unclear letters carry underdots; supplied text is bracketed; gaps stay explicit. Line break=no remains metadata. No normalization or text correction is applied to the source.",
+                "policy": "Explicit edition lem/corr readings drive display; all alternative spans and the unchanged source XML are retained. Unclear letters carry underdots; restorations have square brackets, omissions have angle brackets, and apograph-only readings have upper half brackets. Gaps, milestones, and physical textpart references stay explicit. Line break=no remains metadata. No normalization or text correction is applied to the source.",
                 "generated_by": "scripts/prepare_epidoc_pilot.py"}
     (out / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n")
     return manifest

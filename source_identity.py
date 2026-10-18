@@ -191,6 +191,8 @@ class Edition:
                                      # (data/served_scheme_inference.json), not a
                                      # catalog declaration
     aliases: dict = field(default_factory=dict)
+    note: str = ""
+    storage: str = "primary"
 
 
 @dataclass
@@ -205,6 +207,7 @@ class Work:
                                      # publishable route, independent of default_edition
     tags: list = field(default_factory=list)      # sorted "dimension:value" facets
     editions: dict = field(default_factory=dict)  # edition-slug -> Edition
+    coverage_composition: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -387,8 +390,11 @@ class Registry:
                     "default_edition": w.default_edition,
                     "best_source": w.best_source,
                     "tags": w.tags,
+                    **({"coverage_composition": w.coverage_composition} if w.coverage_composition else {}),
                     "editions": {
-                        es: {k: v for k, v in vars(e).items() if k != "slug"}
+                        es: {k: v for k, v in vars(e).items() if k != "slug"
+                             and not (k == "note" and not v)
+                             and not (k == "storage" and v == "primary")}
                         for es, e in sorted(w.editions.items())
                     },
                 }

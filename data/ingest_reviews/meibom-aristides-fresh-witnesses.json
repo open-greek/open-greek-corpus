@@ -1,0 +1,2525 @@
+{
+ "schema_version": 1,
+ "purpose": "Independent Greek-column witnesses for all 164 unique printed pages of Aristides Quintilianus in Meibom 1652; repeated source images are not independent pages.",
+ "sources": {
+  "meibom": {
+   "url": "https://archive.org/download/bub_gb_JgtAAAAAcAAJ/bub_gb_JgtAAAAAcAAJ.pdf",
+   "sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+   "license": "PD (Meibom 1652)",
+   "citation": "Marcus Meibom, Antiquae musicae auctores septem (Amsterdam, 1652)"
+  }
+ },
+ "layout_evidence": {
+  "url": "https://archive.org/details/bub_gb_JgtAAAAAcAAJ",
+  "pdf_sha256": "6e812c8c0647882881ff4f172eed9d92ba2248822d0481815f34b2e0f03754e8",
+  "title": "Antiquae musicae auctores septem, Graece et Latine (Meibom 1652)",
+  "checked_scan_pages": [
+   5,
+   53,
+   60,
+   65,
+   138,
+   139,
+   197,
+   201,
+   222,
+   223,
+   246,
+   247,
+   279,
+   306,
+   307,
+   319,
+   320,
+   339,
+   347,
+   411,
+   412,
+   427,
+   431,
+   451,
+   457,
+   458,
+   463,
+   465,
+   466,
+   477,
+   481,
+   505,
+   506,
+   517,
+   525,
+   583,
+   608,
+   614,
+   642,
+   644,
+   650,
+   700,
+   701
+  ],
+  "evidence": "Manual inspection of the volume title, Greek work headings and explicit endings. Printed odd pages put Greek in the left column, even pages in the right. Scan 60 is blank with show-through; its repeated ἡμῖν OCR has no printed source. Gaudentius scan leaves 458-463 repeat 452-457. Aristides leaves 614-619 repeat 608-613 and 650-655 repeat 644-649. The Greek text ends at scan 700 (printed164); scan701 begins Martianus Capella's Latin text. Modern prefatory matter and Meibom's notes are not the ancient authors' text."
+ },
+ "pages": [
+  {
+   "id": "meibom-0525-greek",
+   "source": "meibom",
+   "scan_page": 525,
+   "printed_page": 1,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0526-greek",
+   "source": "meibom",
+   "scan_page": 526,
+   "printed_page": 2,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0527-greek",
+   "source": "meibom",
+   "scan_page": 527,
+   "printed_page": 3,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0528-greek",
+   "source": "meibom",
+   "scan_page": 528,
+   "printed_page": 4,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0529-greek",
+   "source": "meibom",
+   "scan_page": 529,
+   "printed_page": 5,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0530-greek",
+   "source": "meibom",
+   "scan_page": 530,
+   "printed_page": 6,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0531-greek",
+   "source": "meibom",
+   "scan_page": 531,
+   "printed_page": 7,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0532-greek",
+   "source": "meibom",
+   "scan_page": 532,
+   "printed_page": 8,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0533-greek",
+   "source": "meibom",
+   "scan_page": 533,
+   "printed_page": 9,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0534-greek",
+   "source": "meibom",
+   "scan_page": 534,
+   "printed_page": 10,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0535-greek",
+   "source": "meibom",
+   "scan_page": 535,
+   "printed_page": 11,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0536-greek",
+   "source": "meibom",
+   "scan_page": 536,
+   "printed_page": 12,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0537-greek",
+   "source": "meibom",
+   "scan_page": 537,
+   "printed_page": 13,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0538-greek",
+   "source": "meibom",
+   "scan_page": 538,
+   "printed_page": 14,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0539-greek",
+   "source": "meibom",
+   "scan_page": 539,
+   "printed_page": 15,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0540-greek",
+   "source": "meibom",
+   "scan_page": 540,
+   "printed_page": 16,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0541-greek",
+   "source": "meibom",
+   "scan_page": 541,
+   "printed_page": 17,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0542-greek",
+   "source": "meibom",
+   "scan_page": 542,
+   "printed_page": 18,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0543-greek",
+   "source": "meibom",
+   "scan_page": 543,
+   "printed_page": 19,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0544-greek",
+   "source": "meibom",
+   "scan_page": 544,
+   "printed_page": 20,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0545-greek",
+   "source": "meibom",
+   "scan_page": 545,
+   "printed_page": 21,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0546-greek",
+   "source": "meibom",
+   "scan_page": 546,
+   "printed_page": 22,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0547-greek",
+   "source": "meibom",
+   "scan_page": 547,
+   "printed_page": 23,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0548-greek",
+   "source": "meibom",
+   "scan_page": 548,
+   "printed_page": 24,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0549-greek",
+   "source": "meibom",
+   "scan_page": 549,
+   "printed_page": 25,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0550-greek",
+   "source": "meibom",
+   "scan_page": 550,
+   "printed_page": 26,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0551-greek",
+   "source": "meibom",
+   "scan_page": 551,
+   "printed_page": 27,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0552-greek",
+   "source": "meibom",
+   "scan_page": 552,
+   "printed_page": 28,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0553-greek",
+   "source": "meibom",
+   "scan_page": 553,
+   "printed_page": 29,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0554-greek",
+   "source": "meibom",
+   "scan_page": 554,
+   "printed_page": 30,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0555-greek",
+   "source": "meibom",
+   "scan_page": 555,
+   "printed_page": 31,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0556-greek",
+   "source": "meibom",
+   "scan_page": 556,
+   "printed_page": 32,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0557-greek",
+   "source": "meibom",
+   "scan_page": 557,
+   "printed_page": 33,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0558-greek",
+   "source": "meibom",
+   "scan_page": 558,
+   "printed_page": 34,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0559-greek",
+   "source": "meibom",
+   "scan_page": 559,
+   "printed_page": 35,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0560-greek",
+   "source": "meibom",
+   "scan_page": 560,
+   "printed_page": 36,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0561-greek",
+   "source": "meibom",
+   "scan_page": 561,
+   "printed_page": 37,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0562-greek",
+   "source": "meibom",
+   "scan_page": 562,
+   "printed_page": 38,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0563-greek",
+   "source": "meibom",
+   "scan_page": 563,
+   "printed_page": 39,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0564-greek",
+   "source": "meibom",
+   "scan_page": 564,
+   "printed_page": 40,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0565-greek",
+   "source": "meibom",
+   "scan_page": 565,
+   "printed_page": 41,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0566-greek",
+   "source": "meibom",
+   "scan_page": 566,
+   "printed_page": 42,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0567-greek",
+   "source": "meibom",
+   "scan_page": 567,
+   "printed_page": 43,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0568-greek",
+   "source": "meibom",
+   "scan_page": 568,
+   "printed_page": 44,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0569-greek",
+   "source": "meibom",
+   "scan_page": 569,
+   "printed_page": 45,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0570-greek",
+   "source": "meibom",
+   "scan_page": 570,
+   "printed_page": 46,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0571-greek",
+   "source": "meibom",
+   "scan_page": 571,
+   "printed_page": 47,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0572-greek",
+   "source": "meibom",
+   "scan_page": 572,
+   "printed_page": 48,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0573-greek",
+   "source": "meibom",
+   "scan_page": 573,
+   "printed_page": 49,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0574-greek",
+   "source": "meibom",
+   "scan_page": 574,
+   "printed_page": 50,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0575-greek",
+   "source": "meibom",
+   "scan_page": 575,
+   "printed_page": 51,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0576-greek",
+   "source": "meibom",
+   "scan_page": 576,
+   "printed_page": 52,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0577-greek",
+   "source": "meibom",
+   "scan_page": 577,
+   "printed_page": 53,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0578-greek",
+   "source": "meibom",
+   "scan_page": 578,
+   "printed_page": 54,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0579-greek",
+   "source": "meibom",
+   "scan_page": 579,
+   "printed_page": 55,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0580-greek",
+   "source": "meibom",
+   "scan_page": 580,
+   "printed_page": 56,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0581-greek",
+   "source": "meibom",
+   "scan_page": 581,
+   "printed_page": 57,
+   "book": 1,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0582-greek",
+   "source": "meibom",
+   "scan_page": 582,
+   "printed_page": 58,
+   "book": 1,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0583-greek",
+   "source": "meibom",
+   "scan_page": 583,
+   "printed_page": 59,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0584-greek",
+   "source": "meibom",
+   "scan_page": 584,
+   "printed_page": 60,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0585-greek",
+   "source": "meibom",
+   "scan_page": 585,
+   "printed_page": 61,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0586-greek",
+   "source": "meibom",
+   "scan_page": 586,
+   "printed_page": 62,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0587-greek",
+   "source": "meibom",
+   "scan_page": 587,
+   "printed_page": 63,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0588-greek",
+   "source": "meibom",
+   "scan_page": 588,
+   "printed_page": 64,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0589-greek",
+   "source": "meibom",
+   "scan_page": 589,
+   "printed_page": 65,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0590-greek",
+   "source": "meibom",
+   "scan_page": 590,
+   "printed_page": 66,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0591-greek",
+   "source": "meibom",
+   "scan_page": 591,
+   "printed_page": 67,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0592-greek",
+   "source": "meibom",
+   "scan_page": 592,
+   "printed_page": 68,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0593-greek",
+   "source": "meibom",
+   "scan_page": 593,
+   "printed_page": 69,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0594-greek",
+   "source": "meibom",
+   "scan_page": 594,
+   "printed_page": 70,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0595-greek",
+   "source": "meibom",
+   "scan_page": 595,
+   "printed_page": 71,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0596-greek",
+   "source": "meibom",
+   "scan_page": 596,
+   "printed_page": 72,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0597-greek",
+   "source": "meibom",
+   "scan_page": 597,
+   "printed_page": 73,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0598-greek",
+   "source": "meibom",
+   "scan_page": 598,
+   "printed_page": 74,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0599-greek",
+   "source": "meibom",
+   "scan_page": 599,
+   "printed_page": 75,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0600-greek",
+   "source": "meibom",
+   "scan_page": 600,
+   "printed_page": 76,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0601-greek",
+   "source": "meibom",
+   "scan_page": 601,
+   "printed_page": 77,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0602-greek",
+   "source": "meibom",
+   "scan_page": 602,
+   "printed_page": 78,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0603-greek",
+   "source": "meibom",
+   "scan_page": 603,
+   "printed_page": 79,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0604-greek",
+   "source": "meibom",
+   "scan_page": 604,
+   "printed_page": 80,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0605-greek",
+   "source": "meibom",
+   "scan_page": 605,
+   "printed_page": 81,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0606-greek",
+   "source": "meibom",
+   "scan_page": 606,
+   "printed_page": 82,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0607-greek",
+   "source": "meibom",
+   "scan_page": 607,
+   "printed_page": 83,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0608-greek",
+   "source": "meibom",
+   "scan_page": 608,
+   "printed_page": 84,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0609-greek",
+   "source": "meibom",
+   "scan_page": 609,
+   "printed_page": 85,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0610-greek",
+   "source": "meibom",
+   "scan_page": 610,
+   "printed_page": 86,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0611-greek",
+   "source": "meibom",
+   "scan_page": 611,
+   "printed_page": 87,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0612-greek",
+   "source": "meibom",
+   "scan_page": 612,
+   "printed_page": 88,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0613-greek",
+   "source": "meibom",
+   "scan_page": 613,
+   "printed_page": 89,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0620-greek",
+   "source": "meibom",
+   "scan_page": 620,
+   "printed_page": 90,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0621-greek",
+   "source": "meibom",
+   "scan_page": 621,
+   "printed_page": 91,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0622-greek",
+   "source": "meibom",
+   "scan_page": 622,
+   "printed_page": 92,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0623-greek",
+   "source": "meibom",
+   "scan_page": 623,
+   "printed_page": 93,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0624-greek",
+   "source": "meibom",
+   "scan_page": 624,
+   "printed_page": 94,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0625-greek",
+   "source": "meibom",
+   "scan_page": 625,
+   "printed_page": 95,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0626-greek",
+   "source": "meibom",
+   "scan_page": 626,
+   "printed_page": 96,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0627-greek",
+   "source": "meibom",
+   "scan_page": 627,
+   "printed_page": 97,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0628-greek",
+   "source": "meibom",
+   "scan_page": 628,
+   "printed_page": 98,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0629-greek",
+   "source": "meibom",
+   "scan_page": 629,
+   "printed_page": 99,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0630-greek",
+   "source": "meibom",
+   "scan_page": 630,
+   "printed_page": 100,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0631-greek",
+   "source": "meibom",
+   "scan_page": 631,
+   "printed_page": 101,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0632-greek",
+   "source": "meibom",
+   "scan_page": 632,
+   "printed_page": 102,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0633-greek",
+   "source": "meibom",
+   "scan_page": 633,
+   "printed_page": 103,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0634-greek",
+   "source": "meibom",
+   "scan_page": 634,
+   "printed_page": 104,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0635-greek",
+   "source": "meibom",
+   "scan_page": 635,
+   "printed_page": 105,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0636-greek",
+   "source": "meibom",
+   "scan_page": 636,
+   "printed_page": 106,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0637-greek",
+   "source": "meibom",
+   "scan_page": 637,
+   "printed_page": 107,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0638-greek",
+   "source": "meibom",
+   "scan_page": 638,
+   "printed_page": 108,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0639-greek",
+   "source": "meibom",
+   "scan_page": 639,
+   "printed_page": 109,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0640-greek",
+   "source": "meibom",
+   "scan_page": 640,
+   "printed_page": 110,
+   "book": 2,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0641-greek",
+   "source": "meibom",
+   "scan_page": 641,
+   "printed_page": 111,
+   "book": 2,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0642-greek",
+   "source": "meibom",
+   "scan_page": 642,
+   "printed_page": 112,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0643-greek",
+   "source": "meibom",
+   "scan_page": 643,
+   "printed_page": 113,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0644-greek",
+   "source": "meibom",
+   "scan_page": 644,
+   "printed_page": 114,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0645-greek",
+   "source": "meibom",
+   "scan_page": 645,
+   "printed_page": 115,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0646-greek",
+   "source": "meibom",
+   "scan_page": 646,
+   "printed_page": 116,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0647-greek",
+   "source": "meibom",
+   "scan_page": 647,
+   "printed_page": 117,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0648-greek",
+   "source": "meibom",
+   "scan_page": 648,
+   "printed_page": 118,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0649-greek",
+   "source": "meibom",
+   "scan_page": 649,
+   "printed_page": 119,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0656-greek",
+   "source": "meibom",
+   "scan_page": 656,
+   "printed_page": 120,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0657-greek",
+   "source": "meibom",
+   "scan_page": 657,
+   "printed_page": 121,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0658-greek",
+   "source": "meibom",
+   "scan_page": 658,
+   "printed_page": 122,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0659-greek",
+   "source": "meibom",
+   "scan_page": 659,
+   "printed_page": 123,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0660-greek",
+   "source": "meibom",
+   "scan_page": 660,
+   "printed_page": 124,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0661-greek",
+   "source": "meibom",
+   "scan_page": 661,
+   "printed_page": 125,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0662-greek",
+   "source": "meibom",
+   "scan_page": 662,
+   "printed_page": 126,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0663-greek",
+   "source": "meibom",
+   "scan_page": 663,
+   "printed_page": 127,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0664-greek",
+   "source": "meibom",
+   "scan_page": 664,
+   "printed_page": 128,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0665-greek",
+   "source": "meibom",
+   "scan_page": 665,
+   "printed_page": 129,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0666-greek",
+   "source": "meibom",
+   "scan_page": 666,
+   "printed_page": 130,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0667-greek",
+   "source": "meibom",
+   "scan_page": 667,
+   "printed_page": 131,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0668-greek",
+   "source": "meibom",
+   "scan_page": 668,
+   "printed_page": 132,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0669-greek",
+   "source": "meibom",
+   "scan_page": 669,
+   "printed_page": 133,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0670-greek",
+   "source": "meibom",
+   "scan_page": 670,
+   "printed_page": 134,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0671-greek",
+   "source": "meibom",
+   "scan_page": 671,
+   "printed_page": 135,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0672-greek",
+   "source": "meibom",
+   "scan_page": 672,
+   "printed_page": 136,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0673-greek",
+   "source": "meibom",
+   "scan_page": 673,
+   "printed_page": 137,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0674-greek",
+   "source": "meibom",
+   "scan_page": 674,
+   "printed_page": 138,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0675-greek",
+   "source": "meibom",
+   "scan_page": 675,
+   "printed_page": 139,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0676-greek",
+   "source": "meibom",
+   "scan_page": 676,
+   "printed_page": 140,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0677-greek",
+   "source": "meibom",
+   "scan_page": 677,
+   "printed_page": 141,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0678-greek",
+   "source": "meibom",
+   "scan_page": 678,
+   "printed_page": 142,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0679-greek",
+   "source": "meibom",
+   "scan_page": 679,
+   "printed_page": 143,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0680-greek",
+   "source": "meibom",
+   "scan_page": 680,
+   "printed_page": 144,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0681-greek",
+   "source": "meibom",
+   "scan_page": 681,
+   "printed_page": 145,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0682-greek",
+   "source": "meibom",
+   "scan_page": 682,
+   "printed_page": 146,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0683-greek",
+   "source": "meibom",
+   "scan_page": 683,
+   "printed_page": 147,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0684-greek",
+   "source": "meibom",
+   "scan_page": 684,
+   "printed_page": 148,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0685-greek",
+   "source": "meibom",
+   "scan_page": 685,
+   "printed_page": 149,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0686-greek",
+   "source": "meibom",
+   "scan_page": 686,
+   "printed_page": 150,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0687-greek",
+   "source": "meibom",
+   "scan_page": 687,
+   "printed_page": 151,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0688-greek",
+   "source": "meibom",
+   "scan_page": 688,
+   "printed_page": 152,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0689-greek",
+   "source": "meibom",
+   "scan_page": 689,
+   "printed_page": 153,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0690-greek",
+   "source": "meibom",
+   "scan_page": 690,
+   "printed_page": 154,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0691-greek",
+   "source": "meibom",
+   "scan_page": 691,
+   "printed_page": 155,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0692-greek",
+   "source": "meibom",
+   "scan_page": 692,
+   "printed_page": 156,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0693-greek",
+   "source": "meibom",
+   "scan_page": 693,
+   "printed_page": 157,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0694-greek",
+   "source": "meibom",
+   "scan_page": 694,
+   "printed_page": 158,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0695-greek",
+   "source": "meibom",
+   "scan_page": 695,
+   "printed_page": 159,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0696-greek",
+   "source": "meibom",
+   "scan_page": 696,
+   "printed_page": 160,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0697-greek",
+   "source": "meibom",
+   "scan_page": 697,
+   "printed_page": 161,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0698-greek",
+   "source": "meibom",
+   "scan_page": 698,
+   "printed_page": 162,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0699-greek",
+   "source": "meibom",
+   "scan_page": 699,
+   "printed_page": 163,
+   "book": 3,
+   "greek_column": "left",
+   "region": [
+    0.02,
+    0.03,
+    0.59,
+    0.97
+   ],
+   "max_side": 2600
+  },
+  {
+   "id": "meibom-0700-greek",
+   "source": "meibom",
+   "scan_page": 700,
+   "printed_page": 164,
+   "book": 3,
+   "greek_column": "right",
+   "region": [
+    0.42,
+    0.03,
+    0.99,
+    0.97
+   ],
+   "max_side": 2600
+  }
+ ]
+}

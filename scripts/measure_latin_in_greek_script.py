@@ -230,6 +230,7 @@ def main() -> None:
             "where five are asked. Lowering the floor instead would start "
             "convicting Greek, so the floor stays and position does the rest.",
         "rows": len(rows), "tokens": total,
+        "counting_basis": "Inclusive reader-surface source-quality spans, with displayed alternatives retained. Eligible lexical counts are measured separately through the checked frequency projection.",
         "measured_as": "spans, not rows. A span is a run of at least "
                        f"{SPAN_MIN} unaccented tokens carrying a Latin marker. "
                        "Rows are the wrong unit where both languages share one: "
