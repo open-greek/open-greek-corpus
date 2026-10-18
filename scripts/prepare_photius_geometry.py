@@ -249,14 +249,14 @@ def known_gutter_manifests():
             or authority.get("source_pdf") != {"url": SOURCE_URL, "sha256": SOURCE_SHA}
             or {int(p): r["bounds"] for p, r in authority.get("pages", {}).items()} != SOURCE_BOUNDS):
         raise ValueError("Unknown Photius geometry authority")
-    result, targets = {}, set()
+    result, targets, catalog = {}, set(), legacy_catalog()
     for group in authority["groups"]:
         keys = {(group["model"], group["revision"], group["parent_sha256"], target["id"])
                 for target in group["targets"]}
         if len(keys) != len(group["targets"]) or keys & targets:
             raise ValueError("Repeated source-reviewed geometry target")
         targets.update(keys)
-        path, request = request_for_group(authority, raw, group)
+        path, request = request_for_group(authority, raw, group, catalog=catalog)
         digest = sha(encode(request))
         if digest in result:
             raise ValueError("Repeated geometry request")
