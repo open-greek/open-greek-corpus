@@ -409,6 +409,14 @@ After inspecting the retry predictions against the scan, record that review with
 Pass the same retry files and `--retry-review REVIEW.json` to the admission
 script. Both earlier whole-page attempts remain in the reversible archive;
 each model family contributes one reviewed strip assembly to the vote.
+For the pages 90/112 review, add
+`--manifest data/ingest_reviews/jahn-aristides-length-retry.json`. Admission accepts
+repeated `--retry-review` arguments and retains failed original attempts; an
+unreplaced failed or truncated page cannot be admitted.
+The notation request is reproduced with `--prepare-notation-retry` and reviewed
+with `--manifest data/ingest_reviews/jahn-aristides-notation-retry.json`. It keeps
+the prose on pages 82/87/91 and all six Greek mode captions on page 87, while
+linking their symbol tables as nonlexical source-image regions.
 `--original-dir` retains the original Meibom page OCR as additional source
 evidence. The script requires both fresh model readings for every Jahn page
 and checks the reviewed crops. It rejects failed, truncated, or empty attempts
@@ -419,6 +427,11 @@ Unicode offsets, the page authority's book number, and source evidence survive
 in the witness archive and change audit. Full word networks are retained in
 `word-networks.json.gz`; corpus rows contain checked compact projections and
 their archive references.
+Consecutive leaves within the same Jahn book also receive a bounded eligibility
+check: both independent readings must show the preceding terminal hyphen and
+the same lowercase continuation at the verified next body opening. The visible
+fragments remain unchanged and excluded as separate words; the audit preserves
+the original network without supplying a joined spelling.
 Meibom's original readings remain separate secondary witnesses; historical
 citations keep their exact source loci.
 Use `--check` to replay the archived witnesses and `--undo` to restore

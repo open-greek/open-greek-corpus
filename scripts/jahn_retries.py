@@ -20,6 +20,10 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
     if inputs["primary_source"] != "jahn1882":
         raise ValueError("These reviewed retry strips apply only to Jahn 1882")
     authority_raw = authority_path.read_bytes()
+    known = Path(__file__).resolve().parent.parent / "data/ingest_reviews"
+    if sha(authority_raw) not in {sha((known / name).read_bytes()) for name in
+            ["jahn-aristides-page81-retry.json", "jahn-aristides-length-retry.json", "jahn-aristides-notation-retry.json"]}:
+        raise ValueError("Retry authority must be an explicitly pinned source-reviewed request")
     manifest = json.loads(authority_raw)
     review = json.loads(review_path.read_text())
     if (review.get("manifest_sha256") != sha(authority_raw) or
@@ -30,19 +34,22 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
     expected = {page["id"]: page for page in manifest["pages"]}
     if inputs.get("primary_manifest_sha256") != manifest["retry_of"]["sha256"] or inputs["primary_manifest"]["sources"] != manifest["sources"]:
         raise ValueError("Retry no longer identifies the original source request")
-    if len(expected) != 3 or {p["scan_page"] for p in expected.values()} != {81}:
+    scans = {p["scan_page"] for p in expected.values()}
+    if (scans, len(expected)) not in [({81}, 3), ({90, 112}, 5), ({82, 87, 91}, 10)]:
         raise ValueError("Unreviewed Jahn retry geometry")
-    page = "8"
-    originals = inputs["witnesses"][page]
-    if set(review.get("original_artifacts_sha256", [])) != {w["artifact_sha256"] for w in originals}:
+    pages = sorted({str(p["printed_page"]) for p in expected.values()}, key=int)
+    originals = {page: inputs["witnesses"][page] for page in pages}
+    if any(page in inputs.get("held_primary_witnesses", {}) for page in pages):
+        raise ValueError("The same original page cannot be replaced twice")
+    if set(review.get("original_artifacts_sha256", [])) != {w["artifact_sha256"] for ws in originals.values() for w in ws}:
         raise ValueError("Retry source review does not identify every original attempt")
-    original_models = {w["model"]: w for w in originals}
-    if len(original_models) != len(originals):
-        raise ValueError("Retry requires one archived original attempt per model")
+    original_models = {w["model"]: w for w in originals[pages[0]]}
+    if any(len(ws) != len(original_models) or {w["model"] for w in ws} != set(original_models) for ws in originals.values()):
+        raise ValueError("Retry requires one archived original attempt per model and page")
     reviewed_runs = {r["sha256"]: r for r in review.get("reviewed_runs", [])}
     if len(reviewed_runs) != len(paths) or set(reviewed_runs) != {sha(path.read_bytes()) for path in paths}:
         raise ValueError("Retry source review does not identify the exact prediction files")
-    witnesses, retained, images, used_models = [], [], {}, set()
+    witnesses, retained, images, used_models = {page: [] for page in pages}, [], {}, set()
     for path in paths:
         raw = path.read_bytes()
         records = [json.loads(line) for line in raw.splitlines() if line.strip()]
@@ -60,41 +67,58 @@ def apply_reviewed_retries(inputs, paths, review_path, authority_path):
         if len(rows) != len(expected) or {r.get("id") for r in rows} != set(expected):
             raise ValueError("Retry lacks every reviewed strip exactly once")
         by_id = {row["id"]: row for row in rows}
-        ordered = []
-        for job in sorted(expected.values(), key=lambda p: p["reading_order"]):
-            record = by_id[job["id"]]
-            if record.get("scan_page") != job["scan_page"] or record.get("region") != job["region"]:
-                raise ValueError("Retry used unchecked source crop geometry")
-            if record.get("finish_reason") != "stop" or record.get("error"):
-                raise ValueError("Retry strip did not complete successfully")
-            prediction = record.get("raw_prediction")
-            if not isinstance(prediction, str) or not any("\u0370" <= c <= "\u03ff" or "\u1f00" <= c <= "\u1fff" for c in prediction):
-                raise ValueError("Retry strip has no Greek reading")
-            image = record.get("image_sha256")
-            if not image or images.setdefault(job["id"], image) != image:
-                raise ValueError("Retry models describe different source images")
-            ordered.append(record)
-        prediction = "\n".join(row["raw_prediction"].strip() for row in ordered)
-        identity = {"model": model, "revision": meta["revision"], "prompt": meta["prompt"],
-            "strips": ordered, "manifest_sha256": sha(authority_raw)}
-        witnesses.append({"id": original["id"] + "-reviewed-strips", "vote_group": original["vote_group"],
-            "text": prediction, "original_text": prediction,
-            "artifact_sha256": sha(json.dumps(identity, ensure_ascii=False, sort_keys=True).encode()),
-            "model": model, "revision": meta["revision"], "backend": meta.get("backend"),
-            "source_artifact_sha256": sha(raw), "scan_page": 81, "prompt": meta["prompt"],
-            "source": "Source-reviewed enlarged body strips from the same printed page",
-            "preprocessing": [{"kind": "reviewed-strip-assembly", "reading_order": [r["id"] for r in ordered],
-                "raw_strips": ordered, "source_evidence": review["source_evidence"],
-                "timestamp": review["reviewed_at"], "policy": "Concatenate complete nonoverlapping source lines; retain original whole-page attempt without another vote."}]})
+        for page in pages:
+            jobs = sorted((p for p in expected.values() if str(p["printed_page"]) == page), key=lambda p: p["reading_order"])
+            ordered = []
+            for job in jobs:
+                record = by_id[job["id"]]
+                if record.get("scan_page") != job["scan_page"] or record.get("region") != job["region"]:
+                    raise ValueError("Retry used unchecked source crop geometry")
+                if record.get("finish_reason") != "stop" or record.get("error"):
+                    raise ValueError("Retry strip did not complete successfully")
+                prediction = record.get("raw_prediction")
+                if not isinstance(prediction, str) or not any("\u0370" <= c <= "\u03ff" or "\u1f00" <= c <= "\u1fff" for c in prediction):
+                    raise ValueError("Retry strip has no Greek reading")
+                image = record.get("image_sha256")
+                if not image or images.setdefault(job["id"], image) != image:
+                    raise ValueError("Retry models describe different source images")
+                ordered.append(record)
+            original = next(w for w in originals[page] if w["model"] == model)
+            prediction = "\n".join(row["raw_prediction"].strip() for row in ordered)
+            identity = {"model": model, "revision": meta["revision"], "prompt": meta["prompt"],
+                "strips": ordered, "manifest_sha256": sha(authority_raw)}
+            witnesses[page].append({"id": original["id"] + "-reviewed-strips", "vote_group": original["vote_group"],
+                "text": prediction, "original_text": prediction,
+                "artifact_sha256": sha(json.dumps(identity, ensure_ascii=False, sort_keys=True).encode()),
+                "model": model, "revision": meta["revision"], "backend": meta.get("backend"),
+                "source_artifact_sha256": sha(raw), "scan_page": jobs[0]["scan_page"], "prompt": meta["prompt"],
+                "source_image_sha256s": [r["image_sha256"] for r in ordered], "attempt_status": "successful",
+                "source": "Source-reviewed enlarged body strips from the same printed page",
+                "preprocessing": [{"kind": "reviewed-strip-assembly", "reading_order": [r["id"] for r in ordered],
+                    "raw_strips": ordered, "source_evidence": review["source_evidence"],
+                    "timestamp": review["reviewed_at"], "policy": "Concatenate complete nonoverlapping source lines; retain original whole-page attempt without another vote."}]})
         retained.append({"sha256": sha(raw), "metadata": meta, "records": rows})
         used_models.add(model)
-    if used_models != set(original_models) or len({w["vote_group"] for w in witnesses}) < 2:
+    if used_models != set(original_models) or len({w["vote_group"] for w in witnesses[pages[0]]}) < 2:
         raise ValueError("Reviewed retries must retain both independent model families")
-    inputs["held_primary_witnesses"] = {page: originals}
-    inputs["witnesses"][page] = witnesses
-    inputs["retry_evidence"] = {"manifest": manifest, "manifest_sha256": sha(authority_raw),
-        "source_review": review, "source_review_sha256": sha(review_path.read_bytes()),
-        "raw_files": retained, "policy": "Only the scan-reviewed strip assembly votes for each model; original attempts remain reversible evidence."}
+    inputs.setdefault("held_primary_witnesses", {}).update(originals)
+    inputs["witnesses"].update(witnesses)
+    for page in pages:
+        inputs.setdefault("page_text_roles", {})[page] = [p.get("text_role", "authorial-prose") for p in
+            sorted((p for p in expected.values() if str(p["printed_page"]) == page), key=lambda p: p["reading_order"])]
+    evidence = inputs.setdefault("retry_evidence", {"requests": [], "source_reviews": [], "raw_files": [],
+        "policy": "Only the scan-reviewed strip assembly votes for each model; original attempts remain reversible evidence."})
+    evidence["requests"].append({"manifest": manifest, "manifest_sha256": sha(authority_raw),
+        "source_review_sha256": sha(review_path.read_bytes())})
+    evidence["source_reviews"].append(review)
+    evidence["raw_files"].extend(retained)
+    for region_id, regions in manifest.get("nonlexical_source_regions", {}).items():
+        job = next(p for p in expected.values() if p["reconstructs"] == region_id)
+        source = manifest["sources"][job["source"]]
+        inputs.setdefault("nonlexical_source_regions", {})[str(job["printed_page"])] = [
+            {**region, "source": {**source, "scan_page": job["scan_page"], "printed_page": job["printed_page"]},
+             "original_page_image_sha256": sorted({w["image_sha256"] for w in originals[str(job["printed_page"])]})}
+            for region in regions]
     return inputs
 
 
@@ -117,7 +141,7 @@ def write_source_review(inputs, paths, authority_path, output, source_evidence, 
         "source_pdf_sha256": manifest["sources"]["jahn1882"]["sha256"],
         "decision": "replace-source-reviewed-degraded-page", "reviewed_at": reviewed_at,
         "source_evidence": source_evidence,
-        "original_artifacts_sha256": [w["artifact_sha256"] for w in inputs["witnesses"]["8"]],
+        "original_artifacts_sha256": [w["artifact_sha256"] for page in sorted({str(p["printed_page"]) for p in manifest["pages"]}, key=int) for w in inputs["witnesses"][page]],
         "reviewed_runs": runs}
     raw = (json.dumps(review, ensure_ascii=False, indent=1) + "\n").encode()
     with tempfile.TemporaryDirectory() as temporary:
@@ -140,11 +164,11 @@ def main():
     parser.add_argument("--source-evidence", required=True,
         help="Describe the completed comparison of every retry strip with the source scan")
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--manifest", type=Path, default=Path(__file__).resolve().parents[1] / "data/ingest_reviews/jahn-aristides-page81-retry.json")
     args = parser.parse_args()
-    inputs = prepare_inputs(args.root, args.fresh)
+    inputs = prepare_inputs(args.root, args.fresh, allow_pending_retries=True)
     write_source_review(inputs, args.retry,
-        Path(__file__).resolve().parents[1] / "data/ingest_reviews/jahn-aristides-page81-retry.json",
-        args.out, args.source_evidence, datetime.now(timezone.utc).isoformat())
+        args.manifest, args.out, args.source_evidence, datetime.now(timezone.utc).isoformat())
     print("Pinned completed source review; original attempts remain archived at admission")
 
 

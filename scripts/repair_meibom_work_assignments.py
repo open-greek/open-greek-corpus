@@ -156,7 +156,8 @@ def clean_jahn_running_headers(text, page):
     return "".join(cleaned), removals
 
 
-def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn1882", retry_paths=(), retry_review=None):
+def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn1882", retry_paths=(), retry_review=None,
+                   allow_pending_retries=False):
     primary = root / f"data/corpus/{OLD}.jsonl"
     raw = primary.read_bytes()
     if sha(raw) != INPUT_SHA256:
@@ -218,9 +219,11 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
                 raise ValueError("Fresh OCR has no pinned model and prompt metadata")
             if record["region"] != expected[scan]["region"]:
                 raise ValueError(f"Fresh OCR used an unchecked crop on page {scan}")
-            if record.get("finish_reason") in {"length", "max_tokens"}:
+            pending_allowed = (primary_source == "jahn1882" and scan in {81, 90, 112}
+                               and (allow_pending_retries or bool(retry_paths)))
+            if record.get("finish_reason") in {"length", "max_tokens"} and not pending_allowed:
                 raise ValueError(f"Fresh OCR is truncated on page {scan}")
-            if record.get("error") or record.get("finish_reason") != "stop":
+            if (record.get("error") or record.get("finish_reason") != "stop") and not pending_allowed:
                 raise ValueError(f"Fresh OCR did not complete successfully on page {scan}")
             identifier = f"fresh-{meta['model'].rsplit('/', 1)[-1]}-{scan:04d}"
             prediction = record["raw_prediction"]
@@ -234,6 +237,8 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
                 "original_text": prediction, "preprocessing": preprocessing,
                 "artifact_sha256": sha(dump(identity)), "model": meta["model"],
                 "revision": meta.get("revision"), "backend": meta.get("backend"),
+                "attempt_status": "successful" if record.get("finish_reason") == "stop" and not record.get("error") else "failed-or-truncated",
+                "finish_reason": record.get("finish_reason"), "error": record.get("error"),
                 "source_artifact_sha256": sha(artifact), "scan_page": scan,
                 "source": "Fresh source-scan Greek-column OCR", "image_sha256": record["image_sha256"],
                 "region": record["region"], "prompt": meta["prompt"]}
@@ -250,8 +255,25 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
         "meibom_source_witnesses": {str(page): readings for page, readings in sorted(meibom_witnesses.items())}}
     if retry_paths or retry_review:
         from jahn_retries import apply_reviewed_retries
-        apply_reviewed_retries(inputs, retry_paths, retry_review,
-            ROOT / "data/ingest_reviews/jahn-aristides-page81-retry.json")
+        reviews = [retry_review] if isinstance(retry_review, Path) else list(retry_review or [])
+        review_by_manifest = {json.loads(p.read_text())["manifest_sha256"]: p for p in reviews}
+        if len(review_by_manifest) != len(reviews):
+            raise ValueError("Each reviewed retry request needs one unambiguous source review")
+        authorities = {sha(path.read_bytes()): path for path in [
+            ROOT / "data/ingest_reviews/jahn-aristides-page81-retry.json",
+            ROOT / "data/ingest_reviews/jahn-aristides-length-retry.json",
+            ROOT / "data/ingest_reviews/jahn-aristides-notation-retry.json"]}
+        grouped = defaultdict(list)
+        for path in retry_paths:
+            meta = json.loads(path.read_bytes().splitlines()[0])["_meta"]
+            grouped[meta.get("manifest_sha256")].append(path)
+        if set(grouped) != set(review_by_manifest) or not set(grouped) <= set(authorities):
+            raise ValueError("Every retry run needs its exact pinned manifest and source review")
+        for digest in sorted(grouped):
+            apply_reviewed_retries(inputs, grouped[digest], review_by_manifest[digest], authorities[digest])
+    pending = [w["id"] for ws in inputs["witnesses"].values() for w in ws if w.get("attempt_status", "successful") != "successful"]
+    if pending and not allow_pending_retries:
+        raise ValueError("Fresh OCR has failed or truncated attempts without reviewed replacements: " + ", ".join(pending))
     return inputs
 
 
@@ -297,6 +319,12 @@ def repaired_outputs(root, inputs, before):
     page_limit = 97 if jahn_primary else 164
     for page in range(1, page_limit + 1):
         result = merge_witnesses(inputs["witnesses"][str(page)])
+        boundary_review = None
+        if jahn_primary:
+            from jahn_boundaries import review_boundary
+            result, raw_network, boundary_review = review_boundary(result, page, inputs, AUDIT_DIR + "/word-networks.json.gz")
+            if raw_network:
+                full_networks[raw_network[0]] = raw_network[1]
         full_networks[str(page)] = result
         compact = compact_corpus_consensus(result, {"path": AUDIT_DIR + "/word-networks.json.gz", "key": str(page)})
         book = (1 if page <= 37 else 2 if page <= 67 else 3) if jahn_primary else (1 if page <= 58 else 2 if page <= 111 else 3)
@@ -304,9 +332,16 @@ def repaired_outputs(root, inputs, before):
             "cts": registry["works"][OLD]["aliases"]["cts"], "source": "ocr", "license": "PD",
             **compact, "corrections": ["collation"], "source_printed_page": page,
             "evidence": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json" if jahn_primary else "data/source_layouts/meibom-1652.json"}
+        if str(page) in inputs.get("nonlexical_source_regions", {}):
+            row["nonlexical_source_regions"] = inputs["nonlexical_source_regions"][str(page)]
+        if boundary_review:
+            row["corrections"].append("structural")
+            row["correction_sources"] = [boundary_review["review_id"]]
         primary.append(row)
         summaries.append({"printed_page": page, "locus": row["locus"],
             "held_original_attempts": inputs.get("held_primary_witnesses", {}).get(str(page), []),
+            "boundary_review": boundary_review,
+            "nonlexical_source_regions": inputs.get("nonlexical_source_regions", {}).get(str(page), []),
             "original_text": [{"witness": w["id"], "text": w.get("original_text", w["text"]),
                 "collation_input_text": w["text"], "preprocessing": w.get("preprocessing", []),
                 "artifact_sha256": w["artifact_sha256"]} for w in inputs["witnesses"][str(page)]],
@@ -353,7 +388,7 @@ def repaired_outputs(root, inputs, before):
     output_bytes[AUDIT_DIR + "/changes.json"] = dump({"schema_version": 1,
         "timestamp": "2026-10-18", "source": SOURCE, "primary_source": primary_source,
         "primary_edition": primary_edition,
-        "retry_review": inputs.get("retry_evidence", {}).get("source_review"),
+        "retry_review": inputs.get("retry_evidence", {}).get("source_reviews"),
         "issue": "https://github.com/open-greek/open-greek-corpus/issues/52",
         "assignments": changes, "text_changes": summaries,
         "outputs_sha256": {name: sha(raw) for name, raw in output_bytes.items()},
@@ -438,7 +473,7 @@ def main():
     ap.add_argument("--fresh", type=Path, action="append", default=[])
     ap.add_argument("--original-dir", type=Path)
     ap.add_argument("--retry", type=Path, action="append", default=[])
-    ap.add_argument("--retry-review", type=Path)
+    ap.add_argument("--retry-review", type=Path, action="append", default=[])
     ap.add_argument("--primary-source", choices=["jahn1882", "meibom1652"], default="jahn1882")
     args = ap.parse_args()
     if args.write_manifest:

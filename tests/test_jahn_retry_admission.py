@@ -15,8 +15,8 @@ import repair_meibom_work_assignments as repair
 from test_meibom_repair import fixture
 
 
-def retry_fixture(root, inputs):
-    authority = ROOT / "data/ingest_reviews/jahn-aristides-page81-retry.json"
+def retry_fixture(root, inputs, authority_name="jahn-aristides-page81-retry.json"):
+    authority = ROOT / "data/ingest_reviews" / authority_name
     raw = authority.read_bytes()
     manifest = json.loads(raw)
     paths, runs = [], []
@@ -24,10 +24,10 @@ def retry_fixture(root, inputs):
         meta = {k: original[k] for k in ("model", "revision", "prompt", "backend")}
         meta["manifest_sha256"] = hashlib.sha256(raw).hexdigest()
         rows = [{"_meta": meta}] + [{"id": p["id"], "region": p["region"],
-            "scan_page": 81, "image_sha256": "image-" + p["id"],
+            "scan_page": p["scan_page"], "image_sha256": "image-" + p["id"],
             "raw_prediction": text, "finish_reason": "stop"}
-            for p, text in zip(manifest["pages"], ["οἱ μὲν", "εἰσι λόγοι", "καὶ σαφεῖς"])]
-        path = root / (original["model"] + "-retry.jsonl")
+            for p, text in zip(manifest["pages"], ["οἱ μὲν", "εἰσι λόγοι", "καὶ σαφεῖς"] * 4)]
+        path = root / (original["model"] + "-" + authority.stem + ".jsonl")
         path.write_bytes(repair.jsonl(rows))
         paths.append(path)
         runs.append({"model": original["model"], "revision": original["revision"],
@@ -36,9 +36,10 @@ def retry_fixture(root, inputs):
         "source_pdf_sha256": manifest["sources"]["jahn1882"]["sha256"],
         "reviewed_at": "2026-10-18", "decision": "replace-source-reviewed-degraded-page",
         "source_evidence": "Fixture: complete retry strips checked against the printed polytonic source.",
-        "original_artifacts_sha256": [w["artifact_sha256"] for w in inputs["witnesses"]["8"]],
+        "original_artifacts_sha256": [w["artifact_sha256"] for page in sorted({str(p["printed_page"]) for p in manifest["pages"]}, key=int)
+            for w in inputs["witnesses"][page]],
         "reviewed_runs": runs}
-    review_path = root / "retry-review.json"
+    review_path = root / (authority.stem + "-review.json")
     review_path.write_bytes(repair.dump(review))
     return paths, review_path, authority
 
@@ -118,3 +119,33 @@ def test_review_writer_requires_complete_evidence_before_creating_record(tmp_pat
     with pytest.raises(ValueError, match="every reviewed strip"):
         retries.write_source_review(inputs, paths, authority, failed, "Review", "2026-10-18")
     assert not failed.exists()
+
+
+def test_multiple_reviewed_requests_replace_length_failures_and_keep_notation_references(tmp_path, monkeypatch):
+    _, fresh = fixture(tmp_path, monkeypatch, "jahn1882")
+    rows = [json.loads(line) for line in fresh[1].read_text().splitlines()]
+    for row in rows:
+        if row.get("scan_page") in {90, 112}:
+            row["finish_reason"] = "length"
+    fresh[1].write_bytes(repair.jsonl(rows))
+    inputs = repair.prepare_inputs(tmp_path, fresh, allow_pending_retries=True)
+    first, review1, _ = retry_fixture(tmp_path, inputs)
+    second, review2, _ = retry_fixture(tmp_path, inputs, "jahn-aristides-length-retry.json")
+    third, review3, _ = retry_fixture(tmp_path, inputs, "jahn-aristides-notation-retry.json")
+    with pytest.raises(ValueError, match="without reviewed replacements"):
+        repair.prepare_inputs(tmp_path, fresh, retry_paths=first, retry_review=review1)
+    assert not (tmp_path / repair.AUDIT_DIR).exists()
+    repair.run_repair(tmp_path, "apply", fresh, retry_paths=first + second + third, retry_review=[review1, review2, review3])
+    repair.run_repair(tmp_path, "check")
+    archive = json.loads(gzip.decompress((tmp_path / repair.AUDIT_DIR / "witnesses.json.gz").read_bytes()))
+    assert set(archive["held_primary_witnesses"]) == {"8", "9", "14", "17", "18", "39"}
+    assert len(archive["retry_evidence"]["requests"]) == len(archive["retry_evidence"]["source_reviews"]) == 3
+    assert len(archive["retry_evidence"]["raw_files"]) == 6
+    assert any(w["finish_reason"] == "length" for w in archive["held_primary_witnesses"]["17"])
+    assert all(w["attempt_status"] == "successful" for ws in archive["witnesses"].values() for w in ws)
+    primary = [json.loads(line) for line in (tmp_path / f"data/corpus/{repair.OLD}.jsonl").read_text().splitlines()]
+    assert len(primary) == 97
+    assert len(primary[16]["nonlexical_source_regions"]) == 2
+    assert all(not r["lexical_eligible"] and r["source"]["scan_page"] == 90 for r in primary[16]["nonlexical_source_regions"])
+    assert len(primary[16]["ocr_consensus"]["witnesses"]) == 2
+    assert len(primary[13]["nonlexical_source_regions"]) == 6
