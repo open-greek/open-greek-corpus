@@ -1,6 +1,6 @@
 {
-  "schema_version": 1,
-  "status": "unserved-editorial-pilot",
+  "schema_version": 2,
+  "status": "editorial-source-archive",
   "source_url": "https://raw.githubusercontent.com/papyri/idp.data/35b5e2279ad29c44824f6dc60d9fc748dc109305/DCLP/63/63141.xml",
   "revision": "35b5e2279ad29c44824f6dc60d9fc748dc109305",
   "source_sha256": "cd7cc2f997569f9469b7e99b52d1481cc8607ad7fcd2c791a2e3af3b0e8fcc25",
@@ -27,6 +27,6 @@
     "lem": 1,
     "rdg": 1
   },
-  "policy": "Explicit edition lem/corr readings drive display; all alternative spans and the unchanged source XML are retained. Unclear letters carry underdots; supplied text is bracketed; gaps stay explicit. Line break=no remains metadata. No normalization or text correction is applied to the source.",
+  "policy": "Explicit edition lem/corr readings drive display; all alternative spans and the unchanged source XML are retained. Unclear letters carry underdots; restorations have square brackets, omissions have angle brackets, and apograph-only readings have upper half brackets. Gaps, milestones, and physical textpart references stay explicit. Line break=no remains metadata. No normalization or text correction is applied to the source.",
   "generated_by": "scripts/prepare_epidoc_pilot.py"
 }
