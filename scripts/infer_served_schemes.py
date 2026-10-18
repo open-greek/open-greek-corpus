@@ -16,6 +16,8 @@ script scans every work's actual loci and writes a deterministic inference:
   edition-prefixed  loci carry an edition/page key ("pg074_0007.1",
                     "walz_rhetores_v5_0006.1"): physical, no inference.
   mixed             neither pattern dominates; no inference.
+  physical          a critical-edition manifest declares physical columns/lines,
+                    even when their numeric spelling resembles logical loci.
 
 Consumed by build_registry.py (fills an EMPTY default-edition scheme, never
 overrides a declared one, and marks it "scheme_inferred") and by
@@ -29,6 +31,8 @@ import csv
 import json
 import re
 from pathlib import Path
+
+from critical_text import load_critical_editions
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -59,6 +63,7 @@ def canon_schemes() -> dict[str, list[str]]:
 def main() -> None:
     editions = json.loads((DATA / "corpus_editions.json").read_text("utf-8"))
     canon = canon_schemes()
+    critical = load_critical_editions(DATA)
 
     result: dict[str, dict] = {}
     for slug in sorted(editions):
@@ -72,6 +77,12 @@ def main() -> None:
                 if line:
                     loci.append(str(json.loads(line).get("locus", "")))
         if not loci:
+            continue
+        if slug in critical:
+            scheme = critical[slug]["physical_citation_scheme"]
+            result[slug] = {"class": "physical", "depth": len(scheme.split(".")),
+                            "scheme": scheme, "basis": "declared EpiDoc physical textparts and line breaks",
+                            "sample": loci[:3]}
             continue
         n = len(loci)
         n_log = sum(1 for x in loci if _LOGICAL.fullmatch(x))

@@ -37,9 +37,12 @@
 PY       ?= python3
 MIN_COUNT ?= 5
 DILEMMA  ?= ../dilemma
+FIRST1K_DIR ?= sources/first1k
+PERSEUS_DIR ?= sources/perseus
 
 CORPUS_EDITIONS := data/corpus_editions.json
 LEXICON         := data/public_lexicon.tsv
+ELISION_RATES   := data/elision_rates.json
 GRAVE_RESIDUE   := data/grave_residue.json
 DUP_LEAVES      = data/duplicate_leaf_candidates.json
 DUP_PAGES       = data/duplicate_page_candidates.json
@@ -59,8 +62,13 @@ COVERAGE_REPORT := data/coverage_report.json
 CROSSWALK_REPORT := data/crosswalk_report.json
 CROSSWALK       := data/tlg_crosswalk.json
 QUALITY_REPORT  := data/ocr_quality_report.json
+SOURCE_COMPONENTS := data/source_component_tokens.json
 WORK_LEMMAS     := data/work_lemma_counts.tsv.gz
 CATALOG         := data/corpus_catalog.tsv
+POLYTONIC_REPORT := data/polytonic_loss_report.json
+POLYTONIC_PAGES  := data/quality/polytonic-loss-pages.jsonl.gz
+COMPLETENESS_REPORT := data/inventory/completeness-batch-report.json
+DATE_COMPARISON := data/oga_glaux_date_comparison.json
 
 # The served text itself. Several artifacts are functions of these files rather
 # than of corpus_editions.json, and taking corpus_editions.json as their stand-in
@@ -68,6 +76,14 @@ CATALOG         := data/corpus_catalog.tsv
 # data/corpus without touching it. ocr_quality_report.json sat 524 corpus-file
 # changes behind, while the OCR pipeline gates on it.
 CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
+# Count eligibility can change while every served surface byte stays identical.
+FREQUENCY_INPUTS := scripts/frequency_projection.py \
+                    $(wildcard scripts/critical_text.py data/frequency_projection.json)
+REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
+    $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
+               data/corpus_changes/photius-bekker-coverage/coverage.json \
+               data/corpus_changes/cyril-john-coverage/changes.json \
+               data/corpus_extension_index.json data/critical_editions/*/manifest.json)
 
 # Only this repo's own (non-OCR) ingesters. The OCR text - calfa-co Patrologia
 # Graeca and our own Migne/edition OCR - is produced, cleaned, and DELIVERED
@@ -109,7 +125,7 @@ ids:
 #    an upstream OCR delivery) can't drop each other's rows, because the per-work
 #    jsonl files never collide.
 ingest: $(CORPUS_EDITIONS)
-$(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/corpus_order_overrides.json data/corpus_text_corrections.json data/work_id_aliases.json data/serving_deficits.json
+$(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/reconcile_corpus_editions.py scripts/build_id_registry.py scripts/build_work_index.py data/corpus_order_overrides.json data/corpus_text_corrections.json data/work_id_aliases.json data/serving_deficits.json $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_corpus_loci.py
 	$(PY) scripts/build_byzantine_vernacular_corpus.py
 	$(PY) scripts/build_byzantium_gr_corpus.py   # cache-first; fetches missing pages
@@ -122,10 +138,13 @@ $(CORPUS_EDITIONS): $(INGESTERS) scripts/corpus_order_overrides.py scripts/recon
 #    up into the lexicon + coverage, then per-lemma frequency. The OCR text arrives
 #    clean from the upstream OCR pipeline, so there is no correction step here.
 yardstick: $(LEMMA_FREQ)
-$(LEXICON): $(CORPUS_EDITIONS) scripts/build_public_corpus.py
+$(LEXICON): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_public_corpus.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_public_corpus.py
+$(ELISION_RATES): $(CORPUS_FILES) scripts/measure_elision_rates.py \
+                  scripts/validate_lemma_map.py $(FREQUENCY_INPUTS)
+	$(PY) scripts/measure_elision_rates.py
 $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
-               scripts/validate_lemma_map.py
+               scripts/validate_lemma_map.py $(ELISION_RATES)
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_lemma_frequency.py --min-count $(MIN_COUNT)
 
 # The whole OCR pipeline - ingesting the OCR output, cleaning it, and
@@ -148,6 +167,7 @@ data/served_scheme_inference.json: $(CORPUS_EDITIONS) scripts/infer_served_schem
 	$(PY) scripts/infer_served_schemes.py
 
 $(REGISTRY): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json data/author_authority.json data/work_authority.json data/pseudo_author_attributions.json data/served_scheme_inference.json source_identity.py
+$(REGISTRY): $(REVIEWED_MANIFESTATIONS) $(CORPUS_FILES)
 	$(PY) scripts/build_registry.py
 $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_report.py scripts/source_precedence.py
 	$(PY) scripts/build_coverage_report.py
@@ -162,9 +182,37 @@ $(CROSSWALK_REPORT): $(REGISTRY) $(CORPUS_EDITIONS) data/work_index.json scripts
 #    provenance header, ocr_quality_report.json and the per-work lemma counts had
 #    each drifted from the text they describe.
 reports: $(QUALITY_REPORT) $(WORK_LEMMAS) $(CATALOG) README.md $(GRAVE_RESIDUE) $(PG003_ALT) $(DUP_LEAVES) $(DUP_PAGES) $(PG003_HEADS) $(PG003_GEOM) $(NONFINAL_GRAVES) data/nonfinal_grave_tranche_thirdparty.json $(KNOWN_LIMITATIONS) $(LATIN_IN_GREEK) $(SPACING_MARKS) $(MERGE_SAMPLE) $(MERGE_GUESSES)
+reports: $(POLYTONIC_REPORT) $(POLYTONIC_PAGES) $(COMPLETENESS_REPORT) $(DATE_COMPARISON)
+reports: $(SOURCE_COMPONENTS)
 
-$(QUALITY_REPORT): $(CORPUS_FILES) scripts/build_ocr_quality_report.py
+# These reports reuse pinned source evidence. Fresh model inference remains an
+# explicit evaluation run; changing the corpus never re-runs that experiment.
+$(POLYTONIC_REPORT): $(CORPUS_FILES) scripts/report_polytonic_loss.py \
+                    scripts/benchmark_page_ocr.py data/evaluation/polytonic-loss/policy.json
+	$(PY) scripts/report_polytonic_loss.py corpus
+$(POLYTONIC_PAGES): $(POLYTONIC_REPORT)
+	@test -f $@ || $(PY) scripts/report_polytonic_loss.py corpus
+
+$(COMPLETENESS_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) CITATION.cff \
+    data/inventory/completeness-batch.json scripts/audit_completeness_batch.py \
+    scripts/coverage_resolution.py scripts/scan_coverage_extensions.py \
+    scripts/ingest_scan_coverage.py scripts/ingest_photius_coverage.py \
+    scripts/repair_john_coverage.py $(REVIEWED_MANIFESTATIONS) \
+    $(wildcard data/corpus_changes/*/changes.json data/corpus_changes/*/coverage.json \
+               data/ingest_reviews/coverage/*.json data/ocr_requests/photius-*.json)
+	$(PY) scripts/audit_completeness_batch.py --first1k-dir $(FIRST1K_DIR) --perseus-dir $(PERSEUS_DIR)
+
+$(DATE_COMPARISON): $(REGISTRY) $(CROSSWALK) data/oga_dating.json \
+    scripts/compare_oga_glaux_dates.py $(wildcard data/reference/bilby-oga-glaux-2024/*)
+	$(PY) scripts/compare_oga_glaux_dates.py
+
+$(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_report.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/build_ocr_quality_report.py
+
+# A work can combine OCR and digital text. Count each served row's source
+# before assigning quality labels or publishing an OCR denominator.
+$(SOURCE_COMPONENTS): $(CORPUS_FILES) scripts/build_source_components.py $(FREQUENCY_INPUTS)
+	$(PY) scripts/build_source_components.py
 
 # The published per-work catalog. It had no rule at all and drifted nine commits
 # behind, still serving titles that read `Ei)S` and `E)N` after the decoder had
@@ -175,7 +223,7 @@ $(QUALITY_REPORT): $(CORPUS_FILES) scripts/build_ocr_quality_report.py
 # target is deliberately phony (see its comment above) and depending on it would
 # drag the whole ingest chain into `reports`.
 $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
-            $(QUALITY_REPORT) data/work_token_totals.json \
+            $(QUALITY_REPORT) $(SOURCE_COMPONENTS) data/work_token_totals.json \
             scripts/build_corpus_catalog.py
 	$(PY) scripts/build_corpus_catalog.py
 
@@ -196,7 +244,7 @@ $(CATALOG): $(CORPUS_FILES) data/work_index.json $(CORPUS_EDITIONS) \
 # 18, Ἐγχειρίδιον 10).
 $(WORK_LEMMAS): $(CORPUS_FILES) scripts/build_work_lemma_counts.py \
                 scripts/validate_lemma_map.py $(LEMMA_FREQ) \
-                data/capital_positions.json
+                data/capital_positions.json $(FREQUENCY_INPUTS)
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_work_lemma_counts.py
 
 # The grave-residue partition published on issue #4. It had no rule, so it went
@@ -237,12 +285,12 @@ $(PG003_HEADS): data/corpus_changes/cogPG.PG003.row-split.json data/pg003_blocks
 $(NONFINAL_GRAVES) data/nonfinal_grave_tranche.json \
 data/nonfinal_grave_tranche_marks.json \
 data/nonfinal_grave_tranche_thirdparty.json: $(CORPUS_FILES) \
-                scripts/measure_nonfinal_graves.py
+                scripts/measure_nonfinal_graves.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/measure_nonfinal_graves.py --write
 
 $(KNOWN_LIMITATIONS): $(NONFINAL_GRAVES) $(CATALOG) \
-                data/correction_stamp_gap.json scripts/build_known_limitations.py \
-                scripts/build_corpus_release.py
+                data/correction_stamp_gap.json $(SOURCE_COMPONENTS) scripts/build_known_limitations.py \
+                scripts/build_corpus_release.py $(COMPLETENESS_REPORT) scripts/coverage_resolution.py
 	$(PY) scripts/build_known_limitations.py --write
 
 # Quoted on issue #34, so it rebuilds whenever the text it counts changes.
@@ -254,7 +302,7 @@ $(LATIN_IN_GREEK): $(CORPUS_FILES) scripts/measure_latin_in_greek_script.py
 # grave residue, the README figures). data/spacing_mark_classes.json was worse
 # than unruled: it was produced from a shell heredoc and so could not be
 # rebuilt at all.
-$(SPACING_MARKS): $(CORPUS_FILES) scripts/measure_spacing_marks.py
+$(SPACING_MARKS): $(CORPUS_FILES) scripts/measure_spacing_marks.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/measure_spacing_marks.py --write
 
 # Depends on the candidates too: the merge is only attempted inside a leaf-run,
@@ -296,8 +344,10 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # would report the whole Hesychius lexicon under the slug of its prefatory
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
-README.md: $(CORPUS_FILES) scripts/build_provenance.py $(CORPUS_EDITIONS) $(WORK_LEMMAS)
+README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
+           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS)
 	$(PY) scripts/build_provenance.py
+	$(PY) scripts/build_readme_figures.py --write
 
 # The crosswalk's titles come from the vendored CTS metadata in a second pass.
 # Keep the two together: build_id_crosswalk.py rewrites the file from the
@@ -326,11 +376,13 @@ capital-positions:
 
 check:
 	$(PY) scripts/check_ocr_ledgers.py
+	$(PY) scripts/build_source_components.py --check
 	$(PY) scripts/check_capital_positions_fresh.py
 	$(PY) scripts/check_corrections_mirror_fresh.py
 	$(PY) scripts/build_known_limitations.py --check
+	$(PY) scripts/compare_oga_glaux_dates.py --check
 
 clean:
 	rm -f $(LEXICON) data/coverage.json $(LEMMA_FREQ) $(OVERRIDES) \
 	      $(REGISTRY) $(COVERAGE_REPORT) $(CROSSWALK_REPORT) \
-	      $(QUALITY_REPORT) $(WORK_LEMMAS) $(KNOWN_LIMITATIONS)
+	      $(QUALITY_REPORT) $(SOURCE_COMPONENTS) $(WORK_LEMMAS) $(KNOWN_LIMITATIONS)

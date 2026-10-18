@@ -23,6 +23,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_corpus_release import MEASURED
+from coverage_resolution import resolution
+from build_source_components import load_verified, summary as component_summary, validate_catalog
 
 
 REPO = Path(__file__).resolve().parent.parent
@@ -39,6 +41,23 @@ def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def coverage_findings(cases):
+    """Keep unresolved coverage work distinct from verified transmission limits."""
+    active, resolved = [], []
+    for case in cases:
+        current = case["resolution"]
+        finding = {"slug": case["slug"], "id": case["edition"]["id"],
+            "status": current["status"], "issue": case["issue"],
+            "historical_status": case["historical_status"], "evidence": case["evidence"],
+            "resolution": current, "corpus_file_sha256": case["corpus_file_sha256"]}
+        if current["complete"]:
+            resolved.append(finding)
+        else:
+            finding["finding"] = case["status"]
+            active.append(finding)
+    return active, resolved
+
+
 def build() -> dict:
     stamp_gap = json.loads(STAMP_GAP.read_text(encoding="utf-8"))
     nonfinal = json.loads(NONFINAL_GRAVES.read_text(encoding="utf-8"))
@@ -46,6 +65,8 @@ def build() -> dict:
     measured = stamp_gap["measured_against"]
     with CATALOG.open(encoding="utf-8", newline="") as handle:
         catalog = list(csv.DictReader(handle, delimiter="\t"))
+    components = load_verified(DATA)
+    validate_catalog(components, catalog)
 
     catalog_sha = sha256(CATALOG)
     pin_lines = [f"{row['slug']}\t{row['sha256']}\n" for row in catalog]
@@ -55,6 +76,8 @@ def build() -> dict:
                 if row["source"] in OCR_SOURCES and row["correction"] == "raw-ocr"]
     raw_tokens = sum(int(row["tokens"]) for row in raw_rows)
     failures = []
+    if components["corpus_sha256"] != corpus_sha:
+        failures.append("source-component corpus hash differs from catalog")
     if measured["catalog_sha256"] != catalog_sha:
         failures.append("correction-stamp catalog hash is stale")
     if measured["corpus_sha256"] != corpus_sha:
@@ -70,8 +93,11 @@ def build() -> dict:
     for case in completeness["cases"]:
         if catalog_by_slug.get(case["slug"], {}).get("sha256") != case["corpus_file_sha256"]:
             failures.append(f"completeness review is stale: {case['slug']}")
+        if case.get("resolution") != resolution(REPO, case["slug"]):
+            failures.append(f"completeness resolution is stale: {case['slug']}")
     if failures:
         raise SystemExit("; ".join(failures))
+    active_coverage, resolved_coverage = coverage_findings(completeness["cases"])
 
     estimate_at_sample = MEASURED["wrong_rows_estimate"]
     reverted = MEASURED["reverted_since_measurement"]["records"]
@@ -84,11 +110,13 @@ def build() -> dict:
             "Known quality limitations of the served corpus whose safe automatic "
             "repair classes are exhausted. Closing the linked work item accepts "
             "the measured limitation; it does not assert that the count is zero."
-            " Active coverage findings are recorded separately and remain open work."
+            " Active coverage findings remain open work. Resolved coverage findings "
+            "retain their transmission qualifications and tagged-release close criterion."
         ),
         "decision_date": "2026-09-15",
         "generated_from": {
             "corpus_sha256": corpus_sha,
+            "source_components": component_summary(components, DATA),
             "corpus_catalog": {
                 "path": measured["catalog"],
                 "sha256": catalog_sha,
@@ -106,13 +134,8 @@ def build() -> dict:
                 "sha256": sha256(COMPLETENESS),
             },
         },
-        "active_coverage_findings": [
-            {"slug": case["slug"], "id": case["edition"]["id"],
-             "status": "open-coverage-work", "finding": case["status"],
-             "issue": case["issue"], "evidence": case["evidence"],
-             "corpus_file_sha256": case["corpus_file_sha256"]}
-            for case in completeness["cases"]
-        ],
+        "active_coverage_findings": active_coverage,
+        "resolved_coverage_findings": resolved_coverage,
         "limitations": [
             {
                 "key": "applied-correction-error",
@@ -145,14 +168,22 @@ def build() -> dict:
                 "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
                 "status": "accepted-measured-limitation",
                 "current_measurement": {
-                    "lower_bound_works": raw["lower_bound_works"],
-                    "lower_bound_tokens": raw["lower_bound_tokens"],
-                    "lower_bound_share": raw["lower_bound_share_of_corpus_tokens"],
-                    "upper_bound_works": raw["upper_bound_works"],
-                    "upper_bound_tokens": raw["upper_bound_tokens"],
-                    "upper_bound_share": raw["upper_bound_share_of_corpus_tokens"],
-                    "works_in_stamp_gap": raw["works_in_doubt"],
-                    "tokens_in_stamp_gap": raw["tokens_in_doubt"],
+                    "ocr_component_tokens": components["totals"]["ocr_analysis_tokens"],
+                    "mixed_works": components["totals"]["mixed_works"],
+                    "mixed_ocr_tokens": components["totals"]["mixed_ocr_analysis_tokens"],
+                    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+                    "global_raw_token_bounds": None,
+                    "legacy_homogeneous_work_bucket": {
+                        "scope": "Stamp-gap bounds within homogeneous works classified raw by the catalog; not global raw-OCR bounds.",
+                        "lower_bound_works": raw["lower_bound_works"],
+                        "lower_bound_tokens": raw["lower_bound_tokens"],
+                        "lower_bound_share": raw["lower_bound_share_of_corpus_tokens"],
+                        "upper_bound_works": raw["upper_bound_works"],
+                        "upper_bound_tokens": raw["upper_bound_tokens"],
+                        "upper_bound_share": raw["upper_bound_share_of_corpus_tokens"],
+                        "works_in_stamp_gap": raw["works_in_doubt"],
+                        "tokens_in_stamp_gap": raw["tokens_in_doubt"],
+                    },
                 },
                 "why_no_bulk_action_remains": (
                     "The upstream correction workflow and boundary-safe page "

@@ -1,88 +1,787 @@
 {
  "schema_version": 1,
- "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings are recorded separately and remain open work.",
+ "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829",
+  "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0",
+  "source_components": {
+   "artifact": "data/source_component_tokens.json",
+   "sha256": "0fba2f937e6f297ddc54876a5a5873e045f1cb05f71a438bfef1f62afa01f9db",
+   "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0",
+   "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
+   "totals": {
+    "analysis_tokens": 65798704,
+    "mixed_ocr_analysis_tokens": 270283,
+    "mixed_works": 3,
+    "ocr_analysis_tokens": 29672038,
+    "ocr_passages": 1349523,
+    "ocr_works": 1416,
+    "passages": 1966851,
+    "works": 3911
+   },
+   "by_source": {
+    "byzantine_vernacular": {
+     "analysis_tokens": 189983,
+     "passages": 23453,
+     "works": 12
+    },
+    "byzantium_gr": {
+     "analysis_tokens": 1648928,
+     "passages": 5857,
+     "works": 19
+    },
+    "cgpg": {
+     "analysis_tokens": 4349729,
+     "passages": 11403,
+     "works": 199
+    },
+    "dcc": {
+     "analysis_tokens": 4341,
+     "passages": 205,
+     "works": 1
+    },
+    "dclp": {
+     "analysis_tokens": 63,
+     "passages": 89,
+     "works": 1
+    },
+    "dfhg": {
+     "analysis_tokens": 692799,
+     "passages": 9215,
+     "works": 528
+    },
+    "first1k": {
+     "analysis_tokens": 21867745,
+     "passages": 269495,
+     "works": 1045
+    },
+    "galenus_verbatim": {
+     "analysis_tokens": 318470,
+     "passages": 1780,
+     "works": 25
+    },
+    "glaux": {
+     "analysis_tokens": 137710,
+     "passages": 2051,
+     "works": 5
+    },
+    "greek_library": {
+     "analysis_tokens": 3502,
+     "passages": 15,
+     "works": 1
+    },
+    "ocr": {
+     "analysis_tokens": 25318807,
+     "passages": 1338105,
+     "works": 1217
+    },
+    "perseus": {
+     "analysis_tokens": 9695795,
+     "passages": 293879,
+     "works": 748
+    },
+    "pta": {
+     "analysis_tokens": 1493681,
+     "passages": 5903,
+     "works": 106
+    },
+    "saws": {
+     "analysis_tokens": 62909,
+     "passages": 4782,
+     "works": 5
+    },
+    "wikisource": {
+     "analysis_tokens": 14242,
+     "passages": 619,
+     "works": 3
+    }
+   },
+   "mixed_works": {
+    "apollonius-geom.conica": {
+     "analysis_tokens": 54229,
+     "components": [
+      {
+       "analysis_tokens": 8696,
+       "edition": "1st1K-grc1",
+       "license": "CC-BY-SA-4.0",
+       "passages": 57,
+       "source": "first1k"
+      },
+      {
+       "analysis_tokens": 45533,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "PD",
+       "passages": 227,
+       "source": "ocr"
+      }
+     ],
+     "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+     "mixed_ocr_digital": true,
+     "non_ocr_analysis_tokens": 8696,
+     "non_ocr_passages": 57,
+     "ocr_analysis_tokens": 45533,
+     "ocr_passages": 227,
+     "passages": 284,
+     "sources": {
+      "first1k": {
+       "analysis_tokens": 8696,
+       "passages": 57
+      },
+      "ocr": {
+       "analysis_tokens": 45533,
+       "passages": 227
+      }
+     }
+    },
+    "cassius-dio.historiae-romanae": {
+     "analysis_tokens": 346435,
+     "components": [
+      {
+       "analysis_tokens": 60713,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "CC-BY-SA-4.0",
+       "passages": 329,
+       "source": "ocr"
+      },
+      {
+       "analysis_tokens": 94369,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "PD",
+       "passages": 753,
+       "source": "ocr"
+      },
+      {
+       "analysis_tokens": 191353,
+       "edition": "perseus-grc2",
+       "license": "CC-BY-SA-4.0",
+       "passages": 4403,
+       "source": "perseus"
+      }
+     ],
+     "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+     "mixed_ocr_digital": true,
+     "non_ocr_analysis_tokens": 191353,
+     "non_ocr_passages": 4403,
+     "ocr_analysis_tokens": 155082,
+     "ocr_passages": 1082,
+     "passages": 5485,
+     "sources": {
+      "ocr": {
+       "analysis_tokens": 155082,
+       "passages": 1082
+      },
+      "perseus": {
+       "analysis_tokens": 191353,
+       "passages": 4403
+      }
+     }
+    },
+    "pappus-mathematics.synagoge": {
+     "analysis_tokens": 121327,
+     "components": [
+      {
+       "analysis_tokens": 51659,
+       "edition": "1st1K-grc1",
+       "license": "CC-BY-SA-4.0",
+       "passages": 304,
+       "source": "first1k"
+      },
+      {
+       "analysis_tokens": 69668,
+       "edition": "scan-consensus-2026-10-18",
+       "license": "PD",
+       "passages": 331,
+       "source": "ocr"
+      }
+     ],
+     "correction_scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
+     "mixed_ocr_digital": true,
+     "non_ocr_analysis_tokens": 51659,
+     "non_ocr_passages": 304,
+     "ocr_analysis_tokens": 69668,
+     "ocr_passages": 331,
+     "passages": 635,
+     "sources": {
+      "first1k": {
+       "analysis_tokens": 51659,
+       "passages": 304
+      },
+      "ocr": {
+       "analysis_tokens": 69668,
+       "passages": 331
+      }
+     }
+    }
+   },
+   "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status."
+  },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "910f5e9ee79ace5641cda3e6908dad15523f7154b035357dd1ed5483923da6de"
+   "sha256": "84790262171c3505bfe5878d0e5d6f099f939486d79343f149aa0d506dd24c88"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "c3a8a96781ead987b5296d858dc318543ccd20f44d1ffe548d7ab55080dd0a76"
+   "sha256": "ab8d618c3fb0aad87b39d9a2d062b3cc2abe25be4503d4dfea20ab8251a094d3"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "40f53834a8144db309e83e32db516987222925599939f709ef975f90fbcb6929"
+   "sha256": "cccf95f61bc2482a5bb4f5211a1f4c166a212f1f6ca66c0425b97503331c67fb"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "21361ce79e42bebaff02a26869df9b24522b73e567ab964a9a76101fde22262c"
+   "sha256": "f56e02912a4f0e03e2705b37186bae3235c69615389d421ea01a104fc7cbf4ad"
   }
  },
- "active_coverage_findings": [
+ "active_coverage_findings": [],
+ "resolved_coverage_findings": [
   {
    "slug": "photius.bibliotheca",
    "id": "ogc002810",
-   "status": "open-coverage-work",
-   "finding": "partial-scan-and-paratext-review",
+   "status": "coverage-repaired-with-transmission-qualification",
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/41",
+   "historical_status": "partial-scan-and-paratext-review",
    "evidence": [
     "The served incipit matches codex 230 (Eulogius), Bekker printed page 267, in the independently checked combined-volume scan. Earlier codices are absent from the served file.",
     "The served ending contains Greek index entries and page references. It must be separated from authorial text before adding the earlier material.",
     "The delivery source pin must be checked against the actual second-volume scan; a different combined-volume scan is only a bibliographic reference."
    ],
-   "corpus_file_sha256": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68"
+   "resolution": {
+    "complete": true,
+    "status": "coverage-repaired-with-transmission-qualification",
+    "qualification": "The 545 checked Bekker authorial printed pages are represented across the combined and retained legacy scans, including the prefatory letter. Two repeated pages in the combined scan are supplied by the correct retained legacy pages, with explicit source exceptions. Greek index matter remains separate paratext. Physical scan citations do not invent codex-level paragraph mappings, and unresolved OCR readings remain explicit.",
+    "admission_audit": {
+     "path": "data/corpus_changes/photius-bekker-coverage/coverage.json",
+     "sha256": "3b6e098bdbdfd25e8b10713c3e7602d207a797ce9d86695fb3860156adddab7e"
+    },
+    "covered_authorial_scan_pages": 545,
+    "covered_authorial_printed_pages": 545,
+    "coverage_position_meaning": "Ranges use logical combined-edition positions to place the authorial printed pages. Physical citations for retained rows use legacy_source, including the two explicit combined-scan exceptions.",
+    "source_scan_exceptions": [
+     {
+      "logical_combined_position": 446,
+      "authorial_printed_page": 434,
+      "combined_scan_printed_page": 334,
+      "retained_legacy_scan_page": 169,
+      "source": {
+       "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+       "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+       "edition": "Bekker 1825, second volume",
+       "license": "public-domain",
+       "pdf_pages": 321
+      },
+      "evidence": "Combined scan 446 repeats printed page 334 from scan 346. The retained historical page 169 matches printed page 434 in the separate second-volume scan."
+     },
+     {
+      "logical_combined_position": 447,
+      "authorial_printed_page": 435,
+      "combined_scan_printed_page": 335,
+      "retained_legacy_scan_page": 170,
+      "source": {
+       "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+       "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+       "edition": "Bekker 1825, second volume",
+       "license": "public-domain",
+       "pdf_pages": 321
+      },
+      "evidence": "Combined scan 447 repeats printed page 335 from scan 347. The retained historical page 170 matches printed page 435 in the separate second-volume scan."
+     }
+    ],
+    "added_passages": 309,
+    "preserved_index_passages": 501,
+    "publication": {
+     "declared_release": "corpus-2026-10-18.1",
+     "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+     "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+    }
+   },
+   "corpus_file_sha256": "7222184c07f7ee7ffbbd35d33c8b645fb8629036804b486cf020936ef8ec4737"
   },
   {
    "slug": "cyrillus-theology.commentarii-in-joannem",
    "id": "ogc000940",
-   "status": "open-coverage-work",
-   "finding": "partial-volume",
+   "status": "coverage-repaired-with-transmission-qualification",
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/42",
+   "historical_status": "partial-volume",
    "evidence": [
     "Every served page locus comes from PG 74; PG 73 is absent.",
     "The first substantive passage comments on John 10, not John 1. Later headings identify Books IX, X, XI, and XII.",
     "The first four served rows are volume title-page text. These are paratext and need a reversible upstream repair."
    ],
-   "corpus_file_sha256": "b21757e5ce20209046ea548b25f1ffbaf31bb2666835657a4180a831d9e1a10e"
+   "resolution": {
+    "complete": true,
+    "status": "coverage-repaired-with-transmission-qualification",
+    "qualification": "The complementary PG 73 and PG 74 commentary material is represented, including three missing PG 74 leaves. Volume title matter is separate paratext, and Acts/Romans readings retain their distinct work identities. Books VII and VIII survive as fragments in this edition; no lost continuous text is reconstructed. The PG 73 witness remains identified as Calfa OCR rather than corrected text.",
+    "admission_audit": {
+     "path": "data/corpus_changes/cyril-john-coverage/changes.json",
+     "sha256": "eae8819aa1a74751a23e3c263854a2a506ab2d0c53a8b930c114b44f05354ac3"
+    },
+    "counts": {
+     "added_pg73": 528,
+     "retained_pg74_john": 2578,
+     "added_pg74_missing_leaves": 3,
+     "title_paratext": 4,
+     "held_other_works": 474
+    },
+    "publication": {
+     "declared_release": "corpus-2026-10-18.1",
+     "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+     "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+    }
+   },
+   "corpus_file_sha256": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd"
   },
   {
    "slug": "pappus-mathematics.synagoge",
    "id": "ogc002676",
-   "status": "open-coverage-work",
-   "finding": "partial-upstream-edition",
+   "status": "coverage-repaired-with-transmission-qualification",
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/43",
+   "historical_status": "partial-upstream-edition",
    "evidence": [
     "The TEI source describes Hultsch 1876 volume 1 of 3 and explicitly says volumes 2 and 3 still need to be added.",
     "Encoded books 1-4 are not reliable historical book labels: the second division is headed Book III and the fourth Book V. Preserve old loci until a reviewed citation mapping exists."
    ],
-   "corpus_file_sha256": "3ca2c31f5ed68da0929451312d3de552e20f9d975a7f06618f8e17f70e61a043"
+   "resolution": {
+    "complete": true,
+    "status": "coverage-repaired-with-transmission-qualification",
+    "qualification": "Book I is lost and only the latter part of Book II survives. Hultsch edits the surviving remains of Books II–VIII; the selected Greek body does not reconstruct those losses or claim an intact eight-book text.",
+    "scope": {
+     "work_identity": "Pappus, Synagoge (Collection)",
+     "base_scope": "Hultsch volume I, surviving Greek material of Books II–V",
+     "addition_scope": "Hultsch volumes II–III, Books VI–VIII, including the Heron quotation at the end of Book VIII",
+     "transmission_limit": "Book I is lost and only the latter part of Book II survives. Hultsch edits the surviving remains of Books II–VIII; the selected Greek body does not reconstruct those losses or claim an intact eight-book text.",
+     "transmission_reference": {
+      "citation": "The manuscript tradition of the Collectio Mathematica, Scriptorium 11.2 (1957), opening description of the extant text",
+      "url": "https://www.persee.fr/doc/scrip_0036-9772_1957_num_11_2_2937"
+     },
+     "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus, later anonymous supplements, scholia and indexes",
+     "historical_citation_scheme": "pappus-first1k-book-attributes",
+     "scan_citation_scheme": "Book plus Hultsch printed page",
+     "status": "reviewed-primary-regions-admitted",
+     "reviewed_primary_regions": 331,
+     "admitted_primary_regions": 331,
+     "remaining_reviewed_primary_regions": 0,
+     "reviewed_comparative_regions": 0,
+     "admitted_comparative_regions": 0,
+     "remaining_reviewed_comparative_regions": 0,
+     "comparative_admission_audits": [],
+     "admitted_transmission_counts": {
+      "direct-text": 321,
+      "excerpt-from-heron": 10
+     },
+     "scan_manifest": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+     "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+     "scan_manifests": [
+      {
+       "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+       "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+      }
+     ],
+     "scan_sources": [
+      {
+       "id": "pappialexandrin01hultgoog",
+       "url": "https://archive.org/download/pappialexandrin01hultgoog/pappialexandrin01hultgoog.pdf",
+       "sha256": "156324d143b2c2484f1036be711c7fea795f5fdc8646a1000bb6c294cacd5d13",
+       "license": "public-domain",
+       "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+       "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+       "catalog_url": "https://archive.org/details/pappialexandrin01hultgoog"
+      },
+      {
+       "id": "pappialexandrin01pappgoog",
+       "url": "https://archive.org/download/pappialexandrin01pappgoog/pappialexandrin01pappgoog.pdf",
+       "sha256": "2ce354ebd49cfa7bfe3cd02b2870cea3c0997630f23bc527f1a1e7d8b3c02c95",
+       "license": "public-domain",
+       "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume II, Berlin: Weidmann, 1877",
+       "rights_evidence": "Public-domain print, 1877; volume title inspected.",
+       "catalog_url": "https://archive.org/details/pappialexandrin01pappgoog"
+      },
+      {
+       "id": "pappialexandrin04pappgoog",
+       "url": "https://archive.org/download/pappialexandrin04pappgoog/pappialexandrin04pappgoog.pdf",
+       "sha256": "c30b2b4e74a2736d577aeda9d8eb4bcb851a1c4ee586dccb0822729cecf15bea",
+       "license": "public-domain",
+       "citation": "Friedrich Hultsch, Pappi Alexandrini Collectionis quae supersunt, volume III, Berlin: Weidmann, 1878",
+       "rights_evidence": "Public-domain print,1878; volume title and Book VIII opening inspected.",
+       "catalog_url": "https://archive.org/details/pappialexandrin04pappgoog"
+      }
+     ],
+     "admission_audit": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+     "admission_audits": [
+      "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json"
+     ],
+     "digital_components": [],
+     "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
+    },
+    "admission_audits": [
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+      "sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a"
+     }
+    ],
+    "citation_audit": {
+     "path": "data/corpus_changes/mathematical-citations-43-44/changes.json",
+     "sha256": "bc2c17a06a4e5aaf979946feda6cf4de02e6b5d119ed85df5087a84c1124ad86",
+     "preserved_historical_citations": 304
+    },
+    "publication": {
+     "declared_release": "corpus-2026-10-18.1",
+     "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+     "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+    }
+   },
+   "corpus_file_sha256": "13b1b4317b5b0bfbe13f10f47e20ad5aa32fb460d697180cd89aeedf9822d2cb"
   },
   {
    "slug": "apollonius-geom.conica",
    "id": "ogc000303",
-   "status": "open-coverage-work",
-   "finding": "partial-upstream-edition",
+   "status": "coverage-repaired-with-transmission-qualification",
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/44",
+   "historical_status": "partial-upstream-edition",
    "evidence": [
     "The TEI describes Heiberg 1893 volume 2 and contains 57 sections without a book-level citation.",
     "The linked scan identifies the text as Conicorum Liber IV. Books I-III are not represented by this file."
    ],
-   "corpus_file_sha256": "13a58ea70cd050f803334d7d9ca2ee0d89e449030ac1597ade22eb16aabcba6e"
+   "resolution": {
+    "complete": true,
+    "status": "coverage-repaired-with-transmission-qualification",
+    "qualification": "The Greek manifestation covers Books I–IV. Books V–VII survive only in Arabic translation, and Book VIII is lost; none is reconstructed as Greek reading text.",
+    "scope": {
+     "work_identity": "Apollonius of Perga, Conica",
+     "base_scope": "Heiberg volume II, Greek Book IV propositions 1–57",
+     "addition_scope": "Heiberg volume I, Greek Books I–III with their printed opening matter, and the omitted Book IV letter to Attalus from volume II",
+     "transmission_limit": "The Greek manifestation covers Books I–IV. Books V–VII survive only in Arabic translation, and Book VIII is lost; none is reconstructed as Greek reading text.",
+     "transmission_reference": {
+      "citation": "Cambridge Library Collection description of Heiberg's Apollonii Pergaei quae Graece exstant cum commentariis antiquis, volume II",
+      "url": "https://www.cambridge.org/core/books/apollonii-pergaei-quae-graece-exstant-cum-commentariis-antiquis/5D8CEEC494A099E165426D0D05022E27"
+     },
+     "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus and indexes",
+     "historical_citation_scheme": "apollonius-first1k-unqualified-sections",
+     "scan_citation_scheme": "Book plus Heiberg printed page",
+     "status": "reviewed-primary-regions-admitted",
+     "reviewed_primary_regions": 227,
+     "admitted_primary_regions": 227,
+     "remaining_reviewed_primary_regions": 0,
+     "reviewed_comparative_regions": 0,
+     "admitted_comparative_regions": 0,
+     "remaining_reviewed_comparative_regions": 0,
+     "comparative_admission_audits": [],
+     "admitted_transmission_counts": {
+      "direct-text": 227
+     },
+     "scan_manifest": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+     "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+     "scan_manifests": [
+      {
+       "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+       "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+      },
+      {
+       "path": "data/ingest_reviews/coverage/apollonius-conica-4-letter-jobs.json",
+       "sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832"
+      }
+     ],
+     "scan_sources": [
+      {
+       "id": "apolloniipergaei01apoluoft",
+       "url": "https://archive.org/download/apolloniipergaei01apoluoft/apolloniipergaei01apoluoft.pdf",
+       "sha256": "6f1c4151be3f220dbead1521aaa3e1e597e5b20b2599669cf48629aa046dc957",
+       "license": "public-domain",
+       "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
+       "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
+       "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+      },
+      {
+       "id": "apolloniipergaei02apoluoft",
+       "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+       "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+       "license": "public-domain",
+       "citation": "Apollonius, Conica, edited by J. L. Heiberg, volume II, Leipzig: Teubner, 1893",
+       "catalog_url": "https://archive.org/details/apolloniipergaei02apoluoft",
+       "rights_evidence": "Public-domain Greek print, 1893; volume title and Book IV opening inspected."
+      }
+     ],
+     "admission_audit": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+     "admission_audits": [
+      "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+      "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json"
+     ],
+     "digital_components": [],
+     "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
+    },
+    "admission_audits": [
+     {
+      "path": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+      "sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f"
+     },
+     {
+      "path": "data/corpus_changes/mathematical-greek-coverage-2026-10/changes.json",
+      "sha256": "ad9e7485bdf61ad39ffc8357dcf0a63a8dd67803d008f55ad5022bdecdab9d0a"
+     }
+    ],
+    "citation_audit": {
+     "path": "data/corpus_changes/mathematical-citations-43-44/changes.json",
+     "sha256": "bc2c17a06a4e5aaf979946feda6cf4de02e6b5d119ed85df5087a84c1124ad86",
+     "preserved_historical_citations": 57
+    },
+    "publication": {
+     "declared_release": "corpus-2026-10-18.1",
+     "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+     "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+    }
+   },
+   "corpus_file_sha256": "5959ef18792b99a08989086e963c11eaf3126ff0a6896969cd6bc2f9e0a23cae"
   },
   {
    "slug": "cassius-dio.historiae-romanae",
    "id": "ogc000715",
-   "status": "open-coverage-work",
-   "finding": "partial-upstream-edition",
+   "status": "coverage-repaired-with-transmission-qualification",
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/45",
+   "historical_status": "partial-upstream-edition",
    "evidence": [
     "The source identifies Cary 1914-1917 volumes 3-6. The encoded books run from 36 through 55, ending at 55.9.4.",
     "This is coverage of those transmitted books, not a complete representation of the surviving Roman History. Missing later books and epitomes require separately identified editions; ancient losses must not be fabricated."
    ],
-   "corpus_file_sha256": "cd32c06fb75deb60ebffef83d19cf7cf3b80f2352f787f1f6130b6271d3432e8"
+   "resolution": {
+    "complete": true,
+    "status": "coverage-repaired-with-transmission-qualification",
+    "qualification": "This is mixed ancient transmission, not an intact eighty-book direct text. Fragment quotations, direct text, excerpted lacunae and epitomes retain distinct transmission labels. The ancient direct-text gap after the last words at 55.9.4 is not repaired as newly surviving direct text. Early fragments of uncertain reference remain unassigned to a book.",
+    "scope": {
+     "work_identity": "Cassius Dio, Historiae Romanae (Roman History), the ancient eighty-book work",
+     "base_scope": "Perseus Cary volumes III–VI, encoded Books 36–55, ending mid-sentence at 55.9.4",
+     "addition_scope": "Cary volumes I–II fragments and volumes VI–IX remaining Greek direct text, excerpts and epitomes",
+     "transmission_limit": "This is mixed ancient transmission, not an intact eighty-book direct text. Fragment quotations, direct text, excerpted lacunae and epitomes retain distinct transmission labels. The ancient direct-text gap after the last words at 55.9.4 is not repaired as newly surviving direct text. Early fragments of uncertain reference remain unassigned to a book.",
+     "direct_text_lacuna_evidence": "Cary volume VI, printed page 402 (PDF 206), footnote 4: two folios are lost in M between τρόπον at 55.9.4 and (Ἄ)ρει at 55.10.2; the printed continuation combines Zonaras, Xiphilinus and Excerpta Valesiana. This qualification applies to that gap, not all later direct text.",
+     "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
+     "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
+     "status": "reviewed-primary-regions-admitted",
+     "reviewed_primary_regions": 1082,
+     "admitted_primary_regions": 1082,
+     "remaining_reviewed_primary_regions": 0,
+     "reviewed_comparative_regions": 419,
+     "admitted_comparative_regions": 419,
+     "remaining_reviewed_comparative_regions": 0,
+     "comparative_admission_audits": [
+      "data/corpus_changes/dio-cary-nine-comparison-2026-10/changes.json",
+      "data/corpus_changes/dio-greek-coverage-2026-10/changes.json"
+     ],
+     "admitted_transmission_counts": {
+      "direct-text-with-excerpted-lacunae": 39,
+      "direct-text-with-excerpts-and-summaries": 220,
+      "epitome-and-excerpts": 236,
+      "excerpt-supplement-after-direct-text-lacuna": 2,
+      "fragment-quotation": 341,
+      "mixed-direct-manuscript-excerpts-and-epitomes": 244
+     },
+     "scan_manifest": "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json",
+     "scan_manifest_sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0",
+     "scan_manifests": [
+      {
+       "path": "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json",
+       "sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0"
+      },
+      {
+       "path": "data/ingest_reviews/coverage/cassius-dio-late-comparison-jobs.json",
+       "sha256": "0d094ff1c3285af3569a91419224eb2e3a6bbc8156c17c22dfc1ca6209e9bcb1"
+      }
+     ],
+     "scan_sources": [
+      {
+       "id": "dios-roman-history.-vol.-1-loeb-32",
+       "url": "https://archive.org/download/dios-roman-history.-vol.-1-loeb-32/Dio%27s%20Roman%20History.%20Vol.1%20%5BLoeb%2032%5D.pdf",
+       "sha256": "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+       "license": "public-domain",
+       "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 1, Loeb 32, first printed 1914.",
+       "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+       "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-1-loeb-32"
+      },
+      {
+       "id": "dios-roman-history.-vol.-2-loeb-37",
+       "url": "https://archive.org/download/dios-roman-history.-vol.-2-loeb-37/Dio%27s%20Roman%20History.%20Vol.2%20%5BLoeb%2037%5D.pdf",
+       "sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+       "license": "public-domain",
+       "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 2, Loeb 37, first printed 1914.",
+       "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+       "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-2-loeb-37"
+      },
+      {
+       "id": "dios-roman-history.-vol.-6-loeb-83",
+       "url": "https://archive.org/download/dios-roman-history.-vol.-6-loeb-83/Dio%27s%20Roman%20History.%20Vol.6%20%5BLoeb%2083%5D.pdf",
+       "sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+       "license": "public-domain",
+       "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 6, Loeb 83, first printed 1917.",
+       "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1917; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+       "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-6-loeb-83"
+      },
+      {
+       "id": "dios-roman-history.-vol.-7-loeb-175",
+       "url": "https://archive.org/download/dios-roman-history.-vol.-7-loeb-175/Dio%27s%20Roman%20History.%20Vol.7%20%5BLoeb%20175%5D.pdf",
+       "sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+       "license": "public-domain",
+       "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 7, Loeb 175, first printed 1924.",
+       "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1924; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+       "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-7-loeb-175"
+      },
+      {
+       "id": "dios-roman-history.-vol.-8-loeb-176",
+       "url": "https://archive.org/download/dios-roman-history.-vol.-8-loeb-176/Dio%27s%20Roman%20History.%20Vol.8%20%5BLoeb%20176%5D.pdf",
+       "sha256": "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+       "license": "public-domain",
+       "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 8, Loeb 176, first printed 1925.",
+       "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1925; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+       "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-8-loeb-176"
+      },
+      {
+       "id": "dios-roman-history.-vol.-9-loeb-177",
+       "url": "https://archive.org/download/dios-roman-history.-vol.-9-loeb-177/Dio%27s%20Roman%20History.%20Vol.9%20%5BLoeb%20177%5D.pdf",
+       "sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+       "license": "public-domain",
+       "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 9, Loeb 177, first printed 1927.",
+       "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1927; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+       "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177"
+      }
+     ],
+     "admission_audit": "data/corpus_changes/dio-greek-coverage-2026-10/changes.json",
+     "admission_audits": [
+      "data/corpus_changes/dio-greek-coverage-2026-10/changes.json"
+     ],
+     "digital_components": [
+      {
+       "id": "tlg0385.tlg001.local003",
+       "volume": 7,
+       "json_sha256": "a44808f87dd70e7f7c6bdf57284b4d9deb249b7b45579320b32db9455d83c216",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg0385/tlg001/local003.json.gz",
+       "license": "CC-BY-SA-4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "attribution": "Source Library (https://sourcelibrary.org)",
+       "source_citation": "Dio Cassius; trans. Earnest Cary, Dio's Roman History, Vol. VII (Loeb 175), 1924. Imprimé numérisé et transcrit par The Source Library, livre 6a089bbe2b703903f58e7814.",
+       "source_rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "upstream_license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "source_revision_date": "2026-10-07",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6a089bbe2b703903f58e7814/quote?page=6",
+       "book_metadata_url": "https://sourcelibrary.org/api/books/6a089bbe2b703903f58e7814",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "rights_receipts": {
+        "book_metadata_receipt_sha256": "6e873c915630ca1dad96b270ef49b0023b4225f1959b2c966387f1ca5abc81e5",
+        "api_quote_receipt_sha256": "e606d24c2b9611a2ef381f73dff526ae05fc43e219cc4e8e3bda15cf249da2ff"
+       },
+       "same_scan_evidence": {
+        "internet_archive_identifier": "dios-roman-history.-vol.-7-loeb-175",
+        "api_image_source_license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "review": "Source Library book metadata names the same Internet Archive item as the hash-pinned Cary scan. Greek Library Page sN is that item's physical PDF page N; the body-window anchors independently confirm page identity."
+       },
+       "rights_review": "The selected Greek is from the original Cary edition (1924, 1925 or 1927), verified on each scan's impression page. Volume IX's export retains an earlier rights warning based on its 1969 reprint date; the original 1927 Greek print and the current API public-domain image-source statement are separately retained, without deleting that warning."
+      },
+      {
+       "id": "tlg0385.tlg001.local004",
+       "volume": 8,
+       "json_sha256": "10ff6a03a62adec5ec9b2a78a564b5c649978226bd5df9acaf01ed609a31906c",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg0385/tlg001/local004.json.gz",
+       "license": "CC-BY-SA-4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "attribution": "Source Library (https://sourcelibrary.org)",
+       "source_citation": "Dio Cassius; trans. Earnest Cary, Dio's Roman History, Vol. VIII (Loeb 176), 1925. Imprimé numérisé et transcrit par The Source Library, livre 6a089bc42b703903f58e7908.",
+       "source_rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "upstream_license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "source_revision_date": "2026-10-07",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6a089bc42b703903f58e7908/quote?page=6",
+       "book_metadata_url": "https://sourcelibrary.org/api/books/6a089bc42b703903f58e7908",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "rights_receipts": {
+        "book_metadata_receipt_sha256": "038a6b13694d59f6ac9c765ebd71c32f4b0f1fbad3af5a5f05948d6c2ae868cd",
+        "api_quote_receipt_sha256": "51b29d1320cfa781a720ee7f213ccf84229cbe8afbd7d6a5fc872494691eab1d"
+       },
+       "same_scan_evidence": {
+        "internet_archive_identifier": "dios-roman-history.-vol.-8-loeb-176",
+        "api_image_source_license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "review": "Source Library book metadata names the same Internet Archive item as the hash-pinned Cary scan. Greek Library Page sN is that item's physical PDF page N; the body-window anchors independently confirm page identity."
+       },
+       "rights_review": "The selected Greek is from the original Cary edition (1924, 1925 or 1927), verified on each scan's impression page. Volume IX's export retains an earlier rights warning based on its 1969 reprint date; the original 1927 Greek print and the current API public-domain image-source statement are separately retained, without deleting that warning."
+      },
+      {
+       "id": "tlg0385.tlg001.local005",
+       "volume": 9,
+       "json_sha256": "6acf54dde2b3df539384d3cfad8925d3e0657d299cf64cfb05e57fbec998da67",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg0385/tlg001/local005.json.gz",
+       "license": "CC-BY-SA-4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "attribution": "Source Library (https://sourcelibrary.org)",
+       "source_citation": "Dio Cassius; trans. Earnest Cary, Dio's Roman History, Vol. IX (Loeb 177), 1927. Imprimé numérisé et transcrit par The Source Library, livre 6a089bcb2b703903f58e7a0c.",
+       "source_rights": "Statut de droits du volume à vérifier : la fiche du livre porte aussi la date 1969 (volume récent ou réimpression), moins de 70 ans ; transcription CC BY-SA 4.0, © Source Library.",
+       "upstream_license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "source_revision_date": "2026-10-07",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6a089bcb2b703903f58e7a0c/quote?page=6",
+       "book_metadata_url": "https://sourcelibrary.org/api/books/6a089bcb2b703903f58e7a0c",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "rights_receipts": {
+        "book_metadata_receipt_sha256": "83ab3e1549ac9d14bb49d6f310e3ff8d77b56be2f5e49981d7c370d55455a2ee",
+        "api_quote_receipt_sha256": "e50616d86262e8ed128223c9d8a14ad183f269b4cf84de623ca963a52d1d1e90"
+       },
+       "same_scan_evidence": {
+        "internet_archive_identifier": "dios-roman-history.-vol.-9-loeb-177",
+        "api_image_source_license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "review": "Source Library book metadata names the same Internet Archive item as the hash-pinned Cary scan. Greek Library Page sN is that item's physical PDF page N; the body-window anchors independently confirm page identity."
+       },
+       "rights_review": "The selected Greek is from the original Cary edition (1924, 1925 or 1927), verified on each scan's impression page. Volume IX's export retains an earlier rights warning based on its 1969 reprint date; the original 1927 Greek print and the current API public-domain image-source statement are separately retained, without deleting that warning."
+      }
+     ],
+     "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
+    },
+    "admission_audits": [
+     {
+      "path": "data/corpus_changes/dio-greek-coverage-2026-10/changes.json",
+      "sha256": "ff95bed519999aa3acde1be5d8a0133b77d8e5507f2dadf275034be562795e82"
+     },
+     {
+      "path": "data/corpus_changes/dio-cary-nine-comparison-2026-10/changes.json",
+      "sha256": "4b597a07945f992a81035e2f0f48aa8f613eddb930291dea3352daae424cac01"
+     }
+    ],
+    "publication": {
+     "declared_release": "corpus-2026-10-18.1",
+     "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
+     "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
+    }
+   },
+   "corpus_file_sha256": "0a626d96438fd40891e37d7c86b34d17d650df076b7f72612b67c7e9349245fa"
   }
  ],
  "limitations": [
@@ -105,14 +804,22 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "lower_bound_works": 373,
-    "lower_bound_tokens": 2430995,
-    "lower_bound_share": 0.0372,
-    "upper_bound_works": 395,
-    "upper_bound_tokens": 2903356,
-    "upper_bound_share": 0.0445,
-    "works_in_stamp_gap": 22,
-    "tokens_in_stamp_gap": 472361
+    "ocr_component_tokens": 29672038,
+    "mixed_works": 3,
+    "mixed_ocr_tokens": 270283,
+    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+    "global_raw_token_bounds": null,
+    "legacy_homogeneous_work_bucket": {
+     "scope": "Stamp-gap bounds within homogeneous works classified raw by the catalog; not global raw-OCR bounds.",
+     "lower_bound_works": 373,
+     "lower_bound_tokens": 2430938,
+     "lower_bound_share": 0.0369,
+     "upper_bound_works": 395,
+     "upper_bound_tokens": 2903299,
+     "upper_bound_share": 0.0441,
+     "works_in_stamp_gap": 22,
+     "tokens_in_stamp_gap": 472361
+    }
    },
    "why_no_bulk_action_remains": "The upstream correction workflow and boundary-safe page re-ingest path now exist, but untouched OCR cannot honestly be relabelled as corrected. Finishing the remainder means reading the source pages, not changing a confidence threshold.",
    "reopen_when": "A funded or otherwise staffed source-page correction campaign is ready to ingest reviewed pages, or a newly validated correction method is approved for a defined tranche."
@@ -122,9 +829,9 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/31",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "forms": 26399,
-    "tokens": 42462,
-    "share": 0.00065,
+    "forms": 26598,
+    "tokens": 42804,
+    "share": 0.000651,
     "works": 1642
    },
    "why_no_bulk_action_remains": "All forms clearing the approved corpus-skeleton gates were repaired, and four scan-backed review rounds applied only exact readings. The residue is distributed over thousands of source pages; changing grave to acute blindly is known to choose the wrong word in common cases.",

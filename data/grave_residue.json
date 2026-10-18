@@ -9,25 +9,31 @@
    "auto-corrected": {
     "grave_tokens": 0,
     "grave_lemmas": 0,
-    "lemmatized_tokens_in_this_class": 19696253,
+    "lemmatized_tokens_in_this_class": 19911241,
     "rate": 0.0
    },
    "manual": {
     "grave_tokens": 0,
     "grave_lemmas": 0,
-    "lemmatized_tokens_in_this_class": 5351999,
+    "lemmatized_tokens_in_this_class": 5380872,
+    "rate": 0.0
+   },
+   "mixed-unassessed": {
+    "grave_tokens": 0,
+    "grave_lemmas": 0,
+    "lemmatized_tokens_in_this_class": 516385,
     "rate": 0.0
    },
    "not-ocr": {
     "grave_tokens": 32,
     "grave_lemmas": 4,
-    "lemmatized_tokens_in_this_class": 35614767,
+    "lemmatized_tokens_in_this_class": 35365907,
     "rate": 1e-06
    },
    "raw-ocr": {
     "grave_tokens": 0,
     "grave_lemmas": 0,
-    "lemmatized_tokens_in_this_class": 2775234,
+    "lemmatized_tokens_in_this_class": 2775003,
     "rate": 0.0
    }
   },
@@ -43,7 +49,7 @@
  },
  "cache_route_attribution": {
   "what": "exclusive attribution of grave residue, with nonlexical lemmas decided directly and lexical mappings traced through the form-to-lemma cache",
-  "current_dilemma_version": "1.2.3",
+  "current_dilemma_version": "1.3.6",
   "per_work_residue_tokens": 32,
   "lexical_residue_lemmas": 0,
   "lexical_residue_tokens": 0,
@@ -164,14 +170,14 @@
   "share_of_residue": 0.0,
   "control": {
    "what": "the same test on lemmas that carry no grave, at the same rarity, because rare lemmas are rare in dictionaries too",
-   "non_grave_lemmas_le_10_tokens_backed": 0.3313,
+   "non_grave_lemmas_le_10_tokens_backed": 0.3314,
    "grave_lemmas_le_10_tokens_backed": 0.0
   },
   "largest": []
  },
  "lemmas": 4,
  "tokens": 32,
- "share_of_lemmatized_corpus": 5.044e-07,
+ "share_of_lemmatized_corpus": 5.004e-07,
  "reachable": {
   "lemmas": 0,
   "tokens": 0,

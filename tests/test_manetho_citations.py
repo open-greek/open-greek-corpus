@@ -8,6 +8,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
 import repair_manetho_citations as repair
+import repair_mathematical_citations as mathematical
 from build_work_index import resolve_citation, load_citation_aliases
 from migration_fixtures import copy_repair_state
 
@@ -83,7 +84,7 @@ def test_prior_accent_decisions_apply_before_book_numbers_are_changed():
 def test_undo_restores_every_input_byte_and_checks_output_guards(tmp_path):
     audit_dir = ROOT / repair.AUDIT
     snapshots = json.loads(gzip.decompress((audit_dir / "before.json.gz").read_bytes()))
-    copy_repair_state(ROOT, tmp_path, repair)
+    copy_repair_state(ROOT, tmp_path, repair, [mathematical])
     target = tmp_path / repair.CORPUS_PATH
     original = target.read_bytes()
     target.write_bytes(original + b"\n")

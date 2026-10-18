@@ -35,6 +35,7 @@ be, and which to act on is not a measurement.
   python3 scripts/measure_spacing_marks.py [--write]
 """
 from __future__ import annotations
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection
 import argparse, collections, json, sys, unicodedata
 from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
@@ -76,13 +77,14 @@ def main() -> None:
     forms: dict = collections.defaultdict(collections.Counter)
     works: dict = collections.defaultdict(set)
     src: dict = collections.defaultdict(collections.Counter)
+    frequency = FrequencyProjection(DATA)
     for fp in sorted((DATA / "corpus").glob("*.jsonl")):
         slug = fp.name[:-len(".jsonl")]
         for line in fp.read_text(encoding="utf-8").splitlines():
             if not line.strip():
                 continue
             r = json.loads(line)
-            for w in _GK.findall(r.get("text") or ""):
+            for w in _GK.findall(frequency.text(r)):
                 if not w or w[0] not in (PSILI, DASIA):
                     continue
                 k = classify(w)
@@ -111,6 +113,7 @@ def main() -> None:
                              "fourth, aphaeresis, must not be touched. Which to "
                              "act on is not a measurement.",
         "total": total,
+        "counting_basis": ANALYSIS_COUNT_BASIS,
         "by_class": {k: {"tokens": n, "share": round(n / total, 4),
                          "forms": len(forms[k]), "works": len(works[k]),
                          "by_source": dict(src[k].most_common()),

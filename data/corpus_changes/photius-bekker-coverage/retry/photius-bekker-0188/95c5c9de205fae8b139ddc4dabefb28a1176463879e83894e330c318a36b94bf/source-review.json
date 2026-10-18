@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "addc83f2f920e25d95c2f599b819b4e6e9dbd0145b8e9ac78f5ca70d897182ba",
+  "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+  "decision": "replace-source-reviewed-degraded-page",
+  "reviewed_at": "2026-10-18",
+  "source_evidence": "The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page188. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading.",
+  "review_scope": "Body-line coverage, column and heading order, systematic mark loss, unprinted repetition, and apparatus boundaries; no claim of lexical proofreading. Word and ligature discrepancies remain raw and reversible.",
+  "strip_reviews": [
+    {
+      "id": "photius-bekker-0188-left-body",
+      "source_evidence": "Pinned source page188, body box[0.045, 0.056, 0.495, 0.843]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page188. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "71d927ea93d0871bd1b15d2589c00eb02bef4b4dcc10dd4a7ec2439de85c4ebb"
+      ]
+    },
+    {
+      "id": "photius-bekker-0188-right-body",
+      "source_evidence": "Pinned source page188, body box[0.505, 0.056, 0.975, 0.843]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page188. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true
+    }
+  ],
+  "original_artifacts_sha256": [
+    "e0ece41374bb9e2ead23c5affc8c3451bffad3c4344908d5a6e60b6dc0e9f151"
+  ],
+  "reviewed_runs": [
+    {
+      "sha256": "98ae0c0ce9c9a24cc487a1c4fa85f1353066bac4ceed7bd1ea43023172b6e993",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "reviewed_supplements": [
+    {
+      "sha256": "ec8c2fae51b61ffd59e7177e2eafd8bd8483c7a67f2ae5092ff15c294dba1f93",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "manifest_sha256": "71d927ea93d0871bd1b15d2589c00eb02bef4b4dcc10dd4a7ec2439de85c4ebb",
+      "strip_reviews": [
+        {
+          "id": "photius-bekker-0188-left-body-gutter",
+          "source_evidence": "Exact source page188, body box[0.045, 0.056, 0.503, 0.843]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page188. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        }
+      ]
+    }
+  ]
+}

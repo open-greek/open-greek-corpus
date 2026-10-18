@@ -63,6 +63,7 @@ THIRDPARTY_SHARE, THIRDPARTY_CLASS = 0.99, 100
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_public_corpus import _GK  # noqa: E402
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection  # noqa: E402
 
 ACUTE, GRAVE, CIRCUMFLEX = "́", "̀", "͂"
 DIAERESIS = "̈"
@@ -179,7 +180,8 @@ def main() -> None:
     ocr_tokens: collections.Counter = collections.Counter()
     pages: collections.Counter = collections.Counter()
     works = set()
-    total = 0
+    total = surface_total = 0
+    frequency = FrequencyProjection(DATA)
 
     for fp in sorted((DATA / "corpus").glob("*.jsonl")):
         for line in fp.read_text(encoding="utf-8").splitlines():
@@ -187,7 +189,8 @@ def main() -> None:
                 continue
             r = json.loads(line)
             src, ed = r.get("source", "?"), r.get("edition", "?")
-            for w in _GK.findall(r.get("text") or ""):
+            surface_total += len(_GK.findall(r.get("text") or ""))
+            for w in _GK.findall(frequency.text(r)):
                 total += 1
                 all_forms[w] += 1
                 src_total[src] += 1
@@ -343,6 +346,8 @@ def main() -> None:
                          "the two agree",
         "forms": len(forms), "tokens": flagged,
         "served_tokens": total,
+        "surface_served_tokens": surface_total,
+        "counting_basis": ANALYSIS_COUNT_BASIS,
         "share": round(flagged / total, 6),
         "works_touched": len(works),
         "by_source": [{"source": s, "tokens": n,

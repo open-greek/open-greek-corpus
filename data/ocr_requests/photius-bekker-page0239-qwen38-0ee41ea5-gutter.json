@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Correct only explicitly reviewed column boundaries; retain every old attempt and successful sibling within one model-family assembly.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0239-retry.json",
+    "manifest_sha256": "0ee41ea5d40dec4b48f243913c7ec45ccb8c6fe01cf45a756713d003ba286577",
+    "page_id": "photius-bekker-0239",
+    "replaces_regions": [
+      "photius-bekker-0239-left-body",
+      "photius-bekker-0239-right-body"
+    ]
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "replacement_conditions": {
+    "photius-bekker-0239-left-body": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0ee41ea5d40dec4b48f243913c7ec45ccb8c6fe01cf45a756713d003ba286577",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0239-left-body",
+      "original_region": [
+        0.045,
+        0.054,
+        0.495,
+        0.838
+      ],
+      "new_region": [
+        0.045,
+        0.054,
+        0.488,
+        0.838
+      ],
+      "raw_file_sha256": "552c010a9e41055972bfcff3d0d9b430533216c402a746e96583699da452d969",
+      "prediction_record_sha256": "25d3c40cabc2f32bf11a16e7c0600ca5a593d17b6b73c9b6c8ffdf57f73fbee4",
+      "raw_prediction_sha256": "aa599cd0c5c1c09ecc60828b003384b919741af31db18ddf00f8b7b4c133c706",
+      "finish_reason": "stop"
+    },
+    "photius-bekker-0239-right-body": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "0ee41ea5d40dec4b48f243913c7ec45ccb8c6fe01cf45a756713d003ba286577",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb",
+      "id": "photius-bekker-0239-right-body",
+      "original_region": [
+        0.505,
+        0.054,
+        0.975,
+        0.838
+      ],
+      "new_region": [
+        0.49,
+        0.054,
+        0.975,
+        0.838
+      ],
+      "raw_file_sha256": "552c010a9e41055972bfcff3d0d9b430533216c402a746e96583699da452d969",
+      "prediction_record_sha256": "e1bb893f99f3262b48709886fe406a6b72f7dae26096d7e4e4618be7861191fa",
+      "raw_prediction_sha256": "b34009cffde4dce6174bf9903080ba63c512c0fedbcc3bfbafaf3f7e2e2ad374",
+      "finish_reason": "stop"
+    }
+  },
+  "review": {
+    "accepted_for_primary_ingest": false,
+    "checked_scan_pages": [
+      239
+    ],
+    "source_authority": {
+      "path": "data/ocr_requests/photius-gutter-source-review.json",
+      "sha256": "5e4d79b57d6027139239acfee5f0d08936020a473c0b61a4c5d967c9539640cb"
+    },
+    "evidence": "Full-height printed body edges checked against the source scan. Revised edges preserve Greek glyphs and diacritics while excluding neighboring-column body text. Marginal line numbers are not classified by this review; horizontal body and apparatus boundaries remain unchanged.",
+    "admission_policy": "Require the exact old leaf, its immediate parent request, checkpoint, raw record, source PDF, reviewed old/new boxes, new image hash, and completed output-to-scan review. Preserve all original and retry text; no extra votes."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0239-left-body-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 239,
+      "printed_page": 227,
+      "region": [
+        0.045,
+        0.054,
+        0.488,
+        0.838
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 0,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0239-left-body"
+    },
+    {
+      "id": "photius-bekker-0239-right-body-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 239,
+      "printed_page": 227,
+      "region": [
+        0.49,
+        0.054,
+        0.975,
+        0.838
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 1,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0239-right-body"
+    }
+  ]
+}

@@ -1,0 +1,1540 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "scope": "Unchanged historical edition rows after index separation; fresh additions are outside this screen.",
+  "source_snapshot_sha256": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68",
+  "historical_body_sha256": "2682bb8db6d2ca096f4d8fb204ccafe49d1b086b4626ee4f4a7c27abd5c114d8",
+  "historical_rows": 3846,
+  "historical_pages": 236,
+  "preserved_index_rows_outside_scope": 501,
+  "source_scan": {
+    "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+    "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+    "pdf_page": 69,
+    "printed_page": 334
+  },
+  "confirmed_apparatus": {
+    "reviewed_at": "2026-10-18T06:56:27Z",
+    "rows": 10,
+    "text_characters": 505,
+    "greek_letter_runs_including_sigla": 57,
+    "evidence": "Visual comparison against the smaller critical apparatus below both main Greek columns on the pinned PDF page. The preceding body ends at row 39; rows 40-49 contain line references, variant readings, witness sigla, and Latin editorial operators.",
+    "original_rows": [
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.40",
+        "source": "ocr",
+        "license": "PD",
+        "text": "5, 11. ἔμψυχον ε. 3. ψυχῆς τε Λ: ψυχῆς δὲ ε. 4. ἢς]",
+        "corrections": [
+          "freq"
+        ]
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.41",
+        "source": "ocr",
+        "license": "PD",
+        "text": "Β: ἡμῶν ε. 10. ἀλλὰ] p. 248. 11. ἀπόλλυσθαι corr Λ.",
+        "corrections": [
+          "freq"
+        ]
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.42",
+        "source": "ocr",
+        "license": "PD",
+        "text": "σεπᾶν Λ. λ(γεται) 6, 14. 18. πρὸς ἑραμὶ γένουσι] ὡς"
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.43",
+        "source": "ocr",
+        "license": "PD",
+        "text": "γὰρ — 21. ἀναρ. (6, 20. p. 260) et 21. ἰσχύσω (6, 27. p. 268)"
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.44",
+        "source": "ocr",
+        "license": "PD",
+        "text": "σε Λ. 24. ἔρχεσθαι ε. 26. ταῦς] 6, 56. 29. δεῖν] 6, 39.",
+        "corrections": [
+          "freq"
+        ]
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.45",
+        "source": "ocr",
+        "license": "PD",
+        "text": ") om B. 6. 5. ἑγν.] 7, 11. 7. ἑπ.] 7, 13. 12. δ' ε)"
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.46",
+        "source": "ocr",
+        "license": "PD",
+        "text": "πράττεσθαι ε. 17. ἐλέγ] 7, 21. μασώμενος ε. 21. δι-",
+        "corrections": [
+          "freq"
+        ]
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.47",
+        "source": "ocr",
+        "license": "PD",
+        "text": "ε μεζῶν ε. 23. τε add Λ. ἀρμίζουσι ε. 24. ἑ-"
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.48",
+        "source": "ocr",
+        "license": "PD",
+        "text": "27. ὑπὲρ] 7, 34. 28. δεδοίμεν] 7, 56. 32. ἐγένετο] 7, 57."
+      },
+      {
+        "urn": "photius.bibliotheca",
+        "cts": "urn:cts:greekLit:tlg4040.tlg001",
+        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.49",
+        "source": "ocr",
+        "license": "PD",
+        "text": "p. 332. προσήκειν Λ: προσήκειν ε."
+      }
+    ],
+    "qualification": "Confirmed lower bound, not the total apparatus in this edition."
+  },
+  "candidate_screen": {
+    "patterns": {
+      "latin_editorial_operator": "(?<![A-Za-z])(?:om|add|corr|cf|del)\\b\\.?",
+      "latin_page_reference": "(?<![A-Za-z])p\\.\\s*\\d+",
+      "numbered_lemma_bracket": "(?<!\\d)\\d{1,3}[.,]\\s*\\d{1,3}\\.\\s*[^\\n]{0,80}\\]",
+      "literal_note_markup": "</?note(?:\\s|>)"
+    },
+    "by_pattern": {
+      "latin_editorial_operator": {
+        "rows": 152,
+        "pages": 89
+      },
+      "latin_page_reference": {
+        "rows": 40,
+        "pages": 24
+      },
+      "numbered_lemma_bracket": {
+        "rows": 29,
+        "pages": 24
+      },
+      "literal_note_markup": {
+        "rows": 24,
+        "pages": 14
+      }
+    },
+    "rows": 189,
+    "pages": 96,
+    "qualification": "Candidates only, not a measured apparatus total. False positives and mixed body/apparatus rows require occurrence-level scan review. Apparatus without these signals is not counted. Do not delete candidates by pattern.",
+    "candidates": [
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0002.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "35. Θοῖν et 39. kai add A. 39. διαμερίζεσθαι s. 40."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0003.4",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 9. οἱ] οἱ corr. A. 10. πεισὶ C: fortasse legendu 17. Χριστῷ] Gal. 3. 13. 31. χρήσων ACs χρήσων c. b. 9. γε add. A. 13. συνήγορος c. 16. ἀμαρτία"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0003.48",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "38. ἔνωσιν add C."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0003.49",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ἄντως Α. 30. τὴν om Α. 37. εἴρη Α: ἐκτεθῇ C."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0004.48",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "11. προσφωρόμενος c. 13. τε add A. 25. γὰρ οὐ A. 39. καὶ τὸ ἐπιπλησιν c. 40. πρώτον A: αὐτοῦ c. 1. ἡμῖν A. 29 et 35. Θεοσεβέστατον c. 36. προσοκείων c. libri προσκομισθεῖσαν. 40. ἀνακηρύττει c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0006.42",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>ο. 2. ἔς A: ἐπὶ ε. 3. ἑνώσεως ἔς δηλωτικῶς ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0006.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "φρόν. 30. Θεοῦ add A. 33. τὸν αὐτὸν συνεχῶς ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0006.45",
+        "signals": [
+          "latin_editorial_operator",
+          "literal_note_markup"
+        ],
+        "original_text": "τίθῃ ε. 35. ταῦ add A. 37. οὐδὲ] οὐ οὕτως? 39.</note>"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0011.5",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "αὐ δὲ μοι σκέψαι πάλιν νταπευομένην τὴν αἵρεσιν. ὁ Κύριλλος, φησὶ, τὸ δύο λέγων φύσεις ἀδιαιρέτους ἐξεπλήρουν, ἀντίπαλον εἶναι νομίζων τῇ λεγομένῃ δόξῃ μίαν εἶναι φύσιν τῷ λόγῳ σισαρχωμένῃ. ὅσον δὲ ἀπὸ 20 τῆς τοῦ φράγματος καταβάλλει. διττὸν γὰρ τὸ ἀδιαίρετον πάνταῖδα, ὡς ἡ ἐν τοῖς ἄλλοις αὐτοῦ „λόγοις, ὁ συγγραφεὺς ἐπιδεικνύμενος φαίνει, „καὶ τὸ μὲν Νεστωρίῳ  φίλον, τὸ δὲ τῇ εὐσεβείᾳ τιμιώμενον, καὶ διὰ τοῦτο 25 ἀλλήλοις ἀντιπείρεται. τὸ γὰρ κατὰ χεῖρα ἀδιαίρετον ὡς ὅπλον Νεστωρία ἀποβάλλει, τὸ δὲ κατ’ ὑπόστασιν ἀδιαίρετον ἦτοι ἡ κατ’ ὑπόστασιν ἕνωσις περιφαναῖς ἡ χρηφύσσει καὶ περιττεύσει. ὥσπερ ἄν εἰ τις ἔγνωσιν ἐπὶ Χριστῷ λέγων μὴ συμπάτοι τῇ ἑνώσει τὸ κατ’ ὑπόστα- 30 σιν, ἐποιοῦν τὸ ῥῆμα ποιεῖ, ὅπως εἰ τις δύο φύσεις ἀδιαίρετος λέγοι μὴ συναπτήσων τὸ κατ’ ὑπόστασιν, εἰς τὴν αὐτὴν ὑποψίαν περιτρέψει. ὁσαύτως δὲ καὶ ὁ λέγων ἄνθρωπον ἀναλαβεῖν τὸν θεὸν λόγον, εἰ μὴ τὴν φωνὴν ἄλλοθεν ἐρμηνεύοιμε (ὁτανὸν γὰρ αὐτὴν 35 καὶ κατὰ Νεστωρίων καὶ κατὰ τὸν ὀρθὸν εἶπεῖν λόγον λαβὴν παραχεῖν τοῖς ἀκροαταῖς), ὅκ ἔχει ἀναίσιος. διὸ ἡ ὁ διατιτὴν σοφὸς Κύριλλος ἐν μὲν τῷ θρησκυρῷ τὸν θεὸν λόγον ὡσπερ τινὰ ποδήρη τὸν ἐκ Μαρίας ἄνθρωπον ἡ νανὸν ἀναλαβεῖν λέγει, ἐν δὲ ταῖς πρὸς Σοκένσον ἐπιστολαῖς „ἄποιν ἄνθρωπος” φησὶ 40 „γέγονεν, οὐκ ἄνθρωπον ἀνέλαβεν, ὡς Νεστωρίῳ δοκεῖ.” καὶ ὅρα τῆς διαίτης τὸ ἀρχικὸν καὶ νηφάλιον. ὁ μὲν ἄνθρωπον καὶ νανὸν ἀναλαβεῖν ἱερολόγει, Νεμὲν τὸν ε. 28. ἐν) τὸ ἐν Α. 29. βούλετο τὸ ε. 31. μαε ε. φύσει Β. cf. ed p. 17 a 7. 30. λέγει Β: λέγῃ ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0014.6",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "14. A. ἡμ ζ. 9. τῆς] ποσότης τῆς; 15. τῇ add A. 20. Ἀνό-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0016.46",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "κευοοοο. οὐδὲν οὐδὲν ciam B et corr C: οὐ c. 9. οὐ A: οὐ c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0016.47",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τὰ τ. c. 24 et 36. χαλ. B. 30. αὐτοῦ B et corr A: αὐτὸν c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0020.3",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "a. 4. ἰδὲ A. 23. διελθὼν A: δὲ περιελθὼν c. b. 4. ἐπ’ ἑαυτὰς A. 8. τε add A. 13. Μωσαϊκοῖς] 39. τοῦ δὲ] rectius τὸ μὴ δὲ. cf. p. 235 a 7. 41. ἡδὲ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0021.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 9. δυσωπεῖς om B. 11. σαβὰτ B. 24. εὐσεβῶς B. 38. τούτων τὴν φύσιν B, τοῦτο φύσιν C et pr. b. 1. προσοθὲς c. 8. ὑποβαλλόμενος] fortasse lege 25. ὁ ὄπις ἐπιζήδεις om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0032.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ελλᾶντες ε. 33. ἡμῶν om B. 37. αἱ φυγαὶ] ἀναρχεῖ S"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0032.46",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "σασθαι ἀποθρυπνῶν. cf. 2 Cor. 5, 2."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0033.1",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "σαβί, ἡ ἀθανασία ἐστίν. ἦν ἄν ἐπενδυσώμεθα, κατα-ποθήσω) πᾶν τὸ ἐν αὐτῇ ὀλοχερῶς ἀνενεῖς ὑπὸ τῆςἀχρόνου ζωῆς καταναλωθῆν καὶ θνητὸν.„διὰ πείσεις γὰ περιπατῶμεν, ἢ διὰ εἴδος,” ταῦτέςδιὰ πείσεις γὰ ἐπιβαίνωμεν ἢτι ἀτρανοτάτω λογισμῷτὰ ἐκεῖ πράγματα καταπτεύοντες, καὶ ἡ σαφῶς, ὡςκαὶ ὁρῶν καὶ ἀπολαύων καὶ ἐν αὐτοῖς εἶναι.„τὸτο δὲ φημ, ἀδελφοὶ, ὅτι σάρξ καὶ αἷμα κλη-ρονομήσουσι βασιλείαν θεοῦ οὐ δύναντ), ὅδὲ ἡ φθορὰ τὴνἀφθαρσίαν κληρονομεῖ.” σάρκα, φησίν, οὐ τὴν σάρκααὐτὴν ἐδήλωσεν, ἀλλὰ τὴν ἄλογον πρὸς τὰς μαχλώ-σας τῆς ψυχῆς ὀρμὴν ἡδονάς. εἰπὼν ἦν ὅτι „σάρξ καἷμα βασιλείαν θεοῦ κληρονομήσει οὐ δύνανται” ἐπα-φεῖνται „ὅδὲ ἡ φθορὰ τὴν ἀφθαρσίαν κληρονομεῖ.”φθορὰ δὲ ἐκ αὐτοῦ ἐς τὸ φθιρόμενον, ἀλλὰ τὸ φθι-ρορ. ἐπικρατήσαντος μὲν γὰ τῷ θανάτῳ κλίνεται τὸ458 Π.σάρκα “εἰς φθορὰν” ἐπιμενέσθης δὲ ἔμπαλιν τῆς ζωῆςἐν αὐτῷ ἔστηκε μὴ καθαιρόμενον. διὸ ἐπειδὴ μεθόριοντῆς ἀφθαρσίας ἐγενήθη καὶ τῆς φθορᾶς ἡ αὐτῆς, ἐκἧσα ὅδὲ φθορὰ τὴν ἀφθαρσίαν, ἐφανήθη τε διὰ τὴνἡδονὴν ὑπὸ τῆς φθορᾶς, ποίημα τῆς ἀφθαρσίας καὶκτῆμα ἐπάρχουσα, διὰ τίπο γεγένηθ) εἰς φθορὰν. καὶἐπεὶ συνεκροτήθη ὑπὸ τῆς φθορᾶς καὶ θανάτῳ διὰ παιδιῶν παρεδόθη, εἰς νίκος αὐτὴν τὴν φθορὰν καθ’ ἑαυτὴν κληρονομίαν ἡ κατέλειψεν, ἀλλὰ πάλιν διὰ τῆς ἀναστά-σεως νικήσας τὸν θάνατον ἀπέδωκε τῇ ἀφθαρσίᾳ, ἵναμὴ κληρονομήσῃ ἡ φθορὰ τὴν ἀφθαρσίαν, ἀλλ’ ἡἀφθαρσία τὸ φθαρτόν. ἐπαποκρίνει) γοῦν „ὅδὲ γὰ τὸ φθαρτὸν τῷτο ἐνδύσαθ) τὴν ἀφθαρσίαν, κ) τὸ θνη-τὸν τὴν ἀθανασίαν.” φθαρτὸν δὲ καὶ θνητὸν ἐνδυ-μενον ἀδυνασίαν κ) ἀφθαρσίαν τί ἄν ἕτερον εἴη παρὰ τὸ σπειρόμενον ἐν φθορᾷ κ) ἀνεύμενον ἐν ἀφθαρσίᾳ,ἵνα „καθὼς ἐφορέσαμεν τὴν εἰκόνα τοῦ χοϊκοῦ, φορέ-σωμεν καὶ τὴν εἰκόνα τῷ ἐπουρανίῳ;” ἢ γὰ εἰκὼν τῷχοϊκῷ, ἣν ἐφορέσαμεν, τὸ „γὴ εἶ καὶ εἰς γὴν ἀπελεύσῃ”ἐστίν, ἡ δὲ εἰκὼν τῷ ἐπουρανίῳ ἢ ἐκ νεκρῶν ἀνάστασιςκαὶ ἡ ἀφθαρσία. Ἰωσῆτος δὲ ὁ Νεαπολίτης, ἀνὴρ ἐπετῶ χρόνῳ πρῶτος ὧν τῶν ἀποστόλων οὔτε τῇ ἀρετῇ,κληρονομεῖδ) μὲν τὸ ἀποθνῆσκον, κληρονομεῖν δὲ τὸ ζῶν λέγει, καὶ ἀποθνήσκωμεν μὲν σάρκα, ζῶν δὲ τὴν βασιλείαν τῶν οὐρανῶν. ὁπόταν δὲ σάρκα ὁ Πωλὸςa. 8. τοῦτο] 1 Cor. 15, 50. 11. τὰς om A. 12. δom A. 35. γῇ] Gen. 3, 19.41. δ Παῦλος] 1 Cor. 15, 50.b. 14. καὶ οἱ] 1 Thess. 4, 16.ἀγρος B et re A: αἰγιαρος c.39. κληρονομεῖν — ἀνα15. ἡμεῖς] καὶ ἡμεῖς Aἐκ φυτὸν B: 29. δον"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0035.4",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "“ὅτι τὸ παρὰ τῷ προφήτῃ Ἰερεμίᾳ περὶ τῆς ἀνα- 929 B   <note>92"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0036.1",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "καὶ τὸ πλάσμα ἀπορρίψ διὰνᾷ, τῶν μὲν ἀπλῶς ὁμοιῶν ταῦτα λελέχθαι, ὡς ἀμφοτέρων μετὰ τῶν σωμάτων λαμβανόντων τὰ ἴδια τῶν τῇ βίᾳ πεπραγμένων, τῶν δὲ ἀκριβέστερον, ὅτι μετὰ τὴν ἀνάστασιν ἴδια ἐν βίῳ καταλείψει, ὅν ἐν τῇ ἀναστάσει ὁμοιῶν ταῦτα γεγονέναι (λέγει γὰ ὁ πλῆστος ὅτι πάντες ἀδελφοὶ ἔχοι, καὶ ἵνα μὴ ἔλθωσιν εἰς τὸν τόπον τοῦτον τῆς βαρύτητος, πρὸν Λάζαρον ἀναγείλοντα αὐτοὺς τὸ ἐνταῦθα), καὶ διὰ τούτων ζητῶν τὴν γλῶσσαν καὶ τὸν δύνατον καὶ τὸς κόλπους Ἀβραὰμ καὶ τὴν ἀνάπαυσιν. ἡ τάχα τοῦ τῆς ψυχῆς ἄρα τῇ ἀπαλλαγῇ σχῆμα, ὁμοιοειδὲς ὅν τῷ παχεῖ ἢ τῷ γνήνῳ σώματι, διὰνᾷ ἵτως λαμβάνεται. εἰ ποτὲ γοῦν ἰσορρεῖται τις τῶν κειομενῶν φαινομένων, ὁμοῖος εἶναι τῷ ὅτε τὴν ἄωρα εἶχε σχήματι. εἰτα, ἀλλὰ ὁ Σιμωνὶς φαινομένως, ὡς διότι ἐστίν, ὁρατὸς ὡν παρέχειν ὅτι σῶμα περιέχεται, μάλιστα ἂν ἀναγκαδιώμεν ὑπὸ τῶν ἀποδείξεων τὴν οὐσίαν τῆς ψυχῆς ἀσώματον εἶναι καθ᾽ ἑαυτὴν ἀποφήνωμεν. ἀλλὰ ὁ κολαβιανὸς πλησίος ἢ ἐν κόλπῳς Ἀβραὰμ πέντε ἀναπαύεσθαι, 493 Π. πρὸ τῆς παρούσης τῷ σωτῆρι καὶ πρὸ τῆς συντελείας τῷ αἰῶνος καὶ διὰ τοῦτο πρὸ τῆς ἀναστάσεως λεγόμενοι ὁ μὲν ἐν ἄβω κολάζεθ ὁ δὲ ἐν κόλποις Ἀβραὰμ ἀναπαύεται, διδάσκον ὅτι κεν τῇ ἀπαλλαγῇ σώματι χρή ἢ ψυχή. Πρὸς ταῦτα ὁ ἄγιος τάδε φησι. σχῆμα ἄλλο ὁμοιοειδὲς τῷ αἰσθητῷ σώματι μετὰ τὴν ἐντεῦθεν ἐκδημίαν ἔχειν ἐκτιθέμενος τὴν ψυχὴν ἀσώματον ὑπὸ τι Πλατωνικῶς ἀποφαίνειν αὐτήν. τὸ γὰ καὶ μετὰ τὴν ἀπὸ τοῦ κόσμου ἀποφοίτησιν σχήματος αὐτὴν δεῖξαι καὶ περιβολῆς λέγειν, ὡς δυναμένην καταχεῖσθαι γενομένη, πῶς ἂν ἂν καθ᾽ 932 Π. ἑαυτὴν ἀσώματον εἴη; ἀσώματος δὲ οὐδα πῶς ἂν ἔσαι καὶ ἀνεπίδεκτος παθῶν; ἀκολούθει γὰ τῷ ἀσώματον αὐτὴν ὑπάρχειν καὶ τὸ ἀπαθὲς εἶναι ἢ ἀπερίσπαστον. εἰ μὲν οὖν ὑπὸ ἀλόγου ἢ παρείληπτο ὅλως ἐπιθυμίας, οὐδὲ συμμετεβάλλετο ἀλγύντι καὶ πάχοντι τῷ σώματι (ἀσώματον γὰ σώματι τὸ σῶμα εἰσωματῶν ἂν ἂν ποτὲ συμπαθῆ), ἂν ἂν ἀσώματον δόξαι αὐτὴν ἀκολούθως τοῖς εἰρημένοις. εἰ δὲ συμπαθῆ τῷ σώματι, καθάπερ καὶ διὰ τῆς ἐπιμαρτυρήσεως τῶν α. 1. ἀπλῶν εἰ 4. ἀκριβέστερον ΑΒ. 9. τοῦτον] Π. ante γνήνῳ add ΑΒ. 13. 14. ἰσορρεῖται — ὁμοῖος ΑΒ; ἰσορρεῖται καὶ ταύτης. cf. v. 5. 24. καὶ εἰς] immo καὶ ἐν vel καὶ. τοῦ Β et codd Α 33. ἵνα] ἵνα ΑΒ. 38. ἂν ΑΒ; ἵνα c. καὶ αὐτῶν c. 13. διὰ τοῦτο] Rom. 14, 9. 19. ἀναπαύεσθαι] πῶς ψυχῆς — σχῆμα c. 25. μεταβολὴν καὶ ἐπιπολὴν ΑΒ; καὶ διαίθ. 7, 6. 30. τοῦ ξανθὸς delet Α, om Β; legi possit"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0036.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "malim τοῦτο. 11. ἀνύλησον B: ἀνύλησον c. 12. τῷ ὀργῶ — ὁμοίως c. 14. ὁράτω B. 19. παρ’ ἰουτήν libri 25. ἀμοιούδης B: ἀμοιούδης c. 29. ἀν τῷ; 32. ἀσώμα- 6. 2. ἀγέννητος A. 4. ὑπὸ libri ὅπο. 11. αὐταὶ A: αὐ τῆς ψυχῆς — ὀχήματος B et corr A: τιμιώτερον τῆς λογικῆς ἐπισκόπου Μεθοδίου c. 25. γεννητῶν c. 28. μὴ βαλ- 31. ἐκλαμβάνοντος AB: ἐκλαμβάνοντος c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0038.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "omisi τὰρ τὸ γενέσεως. 26. διαλεγόμεθα corr B: διαλεγ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0040.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "11. ἰζή A: ἰζι c. 16. ἰσα] ἄσ AB. περιγραφομε- 6. ἰαντοῦ c. 27. ὑπάρχει] libei ὑπάρχειν. 34. εἰ[ους] γίγονεν A. 12. ἢ B et corr A: εἰ c. 14. αὐτοὺς B:"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0044.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "και ἅγια ἐρεῖ. add AB. 9. libri εωωωωωω. 13. ως"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0044.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "12, 36. 26. αναλλυγ ε. 27. τη om A. 28. εκει-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0045.7",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "17. ἐξήκοντα] Cani, 6, 7. 19. ἐπὶ post λατεῖν om. A. 24. Θεοφῶν Hoerschelius. 28. δ’ A: δὲ c. 29. ἀστωθ’ om. AB. 20. ἐργησοῦσθαι Scaliger. 21. αὐθ, 24."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0047.88",
+        "signals": [
+          "numbered_lemma_bracket",
+          "literal_note_markup"
+        ],
+        "original_text": "<note>ἑνιλόγως AB. Κεντάς] 9, 8. 14. ἰαντῶς] libri ἰαντῶ."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0050.7",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>a. 5. ὑπ’ αὐτὴν c. 7. ἀρχῶν c. 12. μετὰ βασι-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0050.8",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>συντα A. 26. μεναιῶν A: Ἡρκανίου c. apud Iosephum"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0050.9",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>b. 6. ἀποδιδόντων] αὐτῷ δώσουσιν A. 19. πλήν —"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0053.4",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "34. τοῖς post οʹ add C. 36. ζωοραία c. b. 7. τῇ ἀδελφῷ Hoeschelinus. 22. Ἀντιγόνου ὄνομα — [ἑλόντες] ἀπεργάσθη ἐλλείπων 3572 p. 251.) cf. Heyo. ap. Gaisford. Hephaest. p. 23. ἐκ τοῦ ἀρχιερατεύειν B, παλινῳδίας mg A. 23. ἐκ δὲ — τὸν μὲν τῷ πρώτῳ λέγει] λέγει μὲν ἐν τῷ πρώτῳ Ah. 24. οὐκ ἔστιν 16. C. XIII). 26. ἰσχύον — 27. τὸ μὲν om A. 29. 32. ἐφαρμόζει Ah: ἐφαρμόζει c. 34. συνειργάσατο del. 36. ἢ Ah: καὶ c. 37. ἰδῶν A el mg k: ἰδὼν c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0053.8",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "13. παρ[ί] παρ[ί] C. 22. ἡ C; αὐτὴ C. 23. τὴν add C. ἀδελφῇ C; ἡ ἀδελφῇ C. 15. ἡς C. [λω] Τύπος addit ἐκ τοῦ ἐπιγραφόμενου βιβλίου περὶ τῆς γραμμ. Ἀ et h (i. e. Har- l. p. 461. — Πρωτότυπ.) vid. Henr. Vales. de critica 1, 30. — λόγους Ah; τὸ παρὸν βιβλίον διαιρεῖται εἰς δ C. 24. καὶ αἱ αὐταὶ Ah; αὐταὶ C. 25. τοῦ οὐτ r (i. e. Gaisfordi) He- δ. ἐπαρμότουν Ah; ἐπαρμότουν C. 31. συνεχτέτι C. τοὺς add A. delect h, qui quae inferuntur, καὶ συμμέμικτα, in mg ponit."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0054.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2. καὶ περὶ κρείττονος ποιήματος om r, in mg ponit h. ἐλεγείας c. 8. ἵππος Ah: μῦθος c. 10. καὶ om A. 13. τὴν add A. ὠνομάζοντο om Ah. 18. κράτιστοι Ah: κράτιστοι A: ἐκ γένος τε καὶ c. καὶ πατρίδας om r et mg h. 23. post παῖδας cum Ah omisit γεννῶσι. 24. γεννῶσι ὡς περὶ θεῶν Ah: διελέχθαι δὲ περὶ θεῶν τὰ τε ἄλλα c. mit c. 28. τῆς ἀποβάσεως Ὀδυσσέως τῆς εἰς Ἰθάκην Ah: τῆς ἀποβάσεως ἀγνοοῦντος Ah: Τηλέγονος ἀγνοοῦντος ὡς πατὴρ c. μῦθον om r et mg h. D) add B. 36. ἡγοῦντο Ah, Ἑγύσιον om r et mg h."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0054.4",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "b. 1. [δὲ τὰ] γεγύμνα A, γεγύμνα δὲ τὰ B. 3. Κύπρια A 8. λέγει mg h. 10. γε add A. τοῖς ἐλεγείοις] ἐλεγεία A 14. μύθων A. δ’ οὖτος] οὖτος δ’ A. 17. ἰαμβῆς A. 20. ἐπειδὴ c. 29. Ἰάκωβος δὲ Ah: ὁ δ’ Ἰάκωβος c. 32. φαίν-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0054.5",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "Σαλαμίνιον αὐτοὺς ἐπιγράψαν, οἱ δὲ Ὀμηρον δόξαι δὲ ὑπὲρ τῆς θυγατρὸς Στασίαν· καὶ διὰ τὴν αὐτοῦ πατρίδα Κύπρια τὸν πόνον ἐπικληθήναι. ἀλλ’ ὁ εἰδὼς [ὁ συγγραφεὺς] ταύτῃ τῇ αἰτίᾳ· μηδέ γὰρ Κύπρια προ-5 παροῦντόνους ἐπιγράψαι τὰ ποιήματα. Τὴν δὲ ἱλειείαν συνηκώθῃ μὲν ἐξ ἡρώων ἢ πενταμέτρος εἶχε, ἁρμόζων δὲ τοῖς κατοικούμενοις. οὐδὲν ἢ τῷ ὀνόματις ἔτυχε· τὸ γὰρ ὄρθρος ἤλουν ἐκάλουν οἱ παλαιοί, καὶ τὰς τετελευτηκότας δὲ αὐτῷ εἰλῶν. οἱ οὖν μέντοι γε μεταγενέστεροι τοὺς ἱλειείους πρὸς διαφόρους ὑποθέσεις ἀπεχρήσαντο. λέγει δὲ ἢ ἀρχιεῖσα τῷ μέτρῳ Καλλῖνόν τε τὸν Ἐφέσιον ἢ Μινημεμαχὸν Κολοφώνιον, ἀλλὰ ἢ τὸν [τῷ] Τηλέφῃ Φιλτάων τὸν Κῖον ἢ Καλλίμαχον τὸν Βάκτριον· Κερκηνάιος δ’, ἔφασ ἦν. 5 Ἀλλὰ γὰρ καὶ τὸν ἴαμβον τάττει μὲν ἐπὶ λουδοφίας τὰ παλαιῶν· καὶ γὰρ καὶ τὸ λαμβίζεσθαι κατά τινα γλῶσσαν λουδορεῖν ἤλεγον. οἱ δὲ ἀπὸ τινος Ἰάμβης Θεραπαινίδος, Θρᾴττης τὸ γένος· ταύτην φασί, τῆς Ἀσίμπερος ἀνιουμένης ἐπὶ τῇ τῆς Θυγατρὸς ἁρπαγῇ, οὐ προσελθεῖν περὶ τὸν Ἑλενοῦν ἐπὶ τῇ νῷν Ἀγλαΐῃ καλυμμένῃ πέτρᾳ καθημένην ἢ διὰ τινων χλευασμάτων εἰς γέλονται προσαγαγὼν τὴν θεόν. τοῦτο δὲ ὁ ἴαμβος τὸ μὲν παλαιῶν ἐπὶ τῶν εἰς ψόγον καὶ ἔπαινον γραφομένων ὁμοίως λέγεσθ, ἐπεὶ δὲ τινες ἐπλεόνασαν ἐν 5 ταῖς κακολογίαις τὸ μέτρον, ἐκεῖθεν τὸ λαμβίζεσθαι εἰς τὸ ὑβρίζειν ὑπὸ τῆς συνηθείας ἐκπεσεῖν, ὥσπερ ἀπὸ τῶν κυμικῶν τὸ κυμωδεῖν. ἰάμβων δὲ ποηταὶ Ἀρχίλοχός τε ὁ Πάριος ἄριστος, ἢ Σιμωνίδης ὁ Ἀμύργιος ἢ ὡς ἔνιοι Σάμιος, ἢ Ἰππώναξ ὁ Ἐφέσιος· ὡν ὁ μὲν οὐ πρότερον ἐπὶ Γύγῃ, ὁ δὲ ἐπ’ Ἀριανίου τῷ Μακεδόνος, Ἰππώναξ δὲ κατὰ Λαρείων ἤκμαζεν. Περὶ δὲ μελικῆς ποιήσεως φησιν ὡς πολυμερεστάτη τε ἢ διαφόρους ἔχει τομὰς. ἢ μὲν γὰρ αὐτῆς μεμέρισται θεοῖς, ἢ δὲ ἀνθρώποις, ἢ δὲ εἰς τὰς προσιππούσας 5 περιζάσεις. ἢ εἰς θεοὺς μὲν ἀναφέρεσθαι ὕμνον, προσὠδιον, παιᾶνα, διθύραμβον, νόμον, Ἀδώνιδα, ἰόμαχον, 3. τῆς add A. διαφοράς c. 5. ἱλειείου hr c 3. τὴν ante ἐν om A. 15. δ om A. 16. τὸν ante παρηράτωσιν c. Παλαμάρδος om r et mg h. 20. καὶ γένος ἐπιμέτρους r. 22. ὡς A: ὡς c. καὶ γῆς om B. ἰσθ Ah: ἐνθόρως ἀπετίμουντο c. διαπορεῖται δὲ τὰ τε ὀλ- 27. νῶλος Ah: λόγος c. συμπληρωμένος αὐτὲ ἐν προτῆς εἰς Ἰθάκην·ἠπόρησιν Ὀδυσοῦς c. 29. καὶ om A. ρ εἰς c. 30. τοῦ A: ἐν τοῦ c. 33. λέγει — 35. ποιηἰγκλαὸν Sylbaricia ex Athenaeo (15 p. 682 E), Ἰππώναξ c. A et mg h. 4. ὁ συγγραφεὺς om A. τῷ αἰτίᾳ ταύτῃ c. A A. 13. τοῦ om B. φιλήσαν A, φιλήσαν B, φίλησα c. 20. περὶ Ah: περὶ c. 21. nonne κατημένη; 24. ἐκεῖθεν A: εἰν c. 33. προσιππούσιν c. 35. Ἀδώνιδα A: ὀδωνίδα c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0055.37",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "σφάλιον (p. 521 π 4). 2. αἴλλες A, 5. ἱκαλούς ante ἀνθρώ-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0055.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "add Ah. 12. οὖν Ah: οὶ c. 14. τῷ θεῷ Ah: τοῦ θεοῦ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0055.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "νομητοῦ A. 18. διπλοῖος Ah. 19. ἱσάντος: B et corr"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0057.41",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 6. διαχρ] διαχρ ἐξιοῦν ΑΒΗ. 8. δὲ add A. 10."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0057.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "φυλὰς c. 14. δὲ om A. 15. κλήματα — μερῶν c. 16."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0059.10",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "13. ἡγεται c. 17. δι Δι· τα c. 20. εἰσαφρες c. 33. αὐτῶν] αὐτῶν ΔΒ. 40. εἰδα εἰσαφρέρας ΔΒ· οἱ φαντος ΔΒ· παραμείνας c. 20. libri φασιν. 22. εἰσὶ] om ΔΒ. οἱ om c. 33. εἰσὶ] 2, 20. 39. τῇ om ΔΒ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0060.7",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "οὐ A. 16. πεπρίδες AB: πεπρίδας ε. 19. τὲ add A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0061.3",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 6. καταβ] 3, 6. 10. τριακοντάπηχυ B et corr A: τριακονταπηχους corr: libri ἑκατοντα. 15. ἑλῆ c. δι] πυρόντους γίνονται AB: πυροῦται καὶ πυρόντους γίνονται c et corr A. 20. μεγάλων A: μεγίστων c. 21. δι] 3, 6. μείωνος. 26. λαμπάδος πλέον AB: λαμπάδων πλέον c. b. 4. προσοιοῦσι c. 8. χρυσῶν Scaligeri libri χρυσῶν AB. 22. οὐ] ὡς AB. φασι AB. 24. τὰ δ] 3, 19. ὑπὸ AB. 29. παραπληρώσε c. 34. στο] 3, 46. φροί"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0064.7",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "την 5. 15. πλημμελεῖ 6. 22. οὐν add AB. 23. δτι] ] αὐτοὺς A. 36. ὁμη νη AB. 40. τ[ς] 5, 17. 5 νη AB. 7. Αἰθιοπία] 6, 1. 8. Ἰνδοὶ A: τοῦς 5. — ἡγώμεθα AB: ἐμβάλλομεν — ἡγώμεθα 6. 18. ξη- 21. καλοῦσι Schottus. 22. τε AB: δὲ 6. 24. πι- AB."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0065.5",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 3. [τινὸς] 6, 3. 4. γυμνοὺς B et corr A: τὸν 19. συνδιατρεχὼς ] 6, 25. 23. τὸ Λυδῷ B: et corr A: τῷ 23. [ποιοῦν c. 39. σήρην B, σήρην A: σήρην c. b. 1. τῷ] malim νο. 4. [ἐνταῦθα] 6, 27. 4. ἀπεπύδα 19. χωροῦντες c. 24. ἀκούειν A: ἀκούειν c. 25."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0066.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "16. μᾶλλον et προσέτιον om AB. 19. ὁ τε] 1, 8 ἐστι,"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0066.44",
+        "signals": [
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "1, 15. 23. ὅτι] 1, 14. 26. ἐσώπησα AB: ἔσωσα σ."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0066.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "μὲν AB. ὅτι] 1, 17. ὁ add A. 32. ὀτιτικίζουσα σ."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.40",
+        "signals": [
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "5, 11. ἔμψυχον ε. 3. ψυχῆς τε Λ: ψυχῆς δὲ ε. 4. ἢς]"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.41",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "Β: ἡμῶν ε. 10. ἀλλὰ] p. 248. 11. ἀπόλλυσθαι corr Λ."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.42",
+        "signals": [
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "σεπᾶν Λ. λ(γεται) 6, 14. 18. πρὸς ἑραμὶ γένουσι] ὡς"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.43",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "γὰρ — 21. ἀναρ. (6, 20. p. 260) et 21. ἰσχύσω (6, 27. p. 268)"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.44",
+        "signals": [
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "σε Λ. 24. ἔρχεσθαι ε. 26. ταῦς] 6, 56. 29. δεῖν] 6, 39."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.45",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": ") om B. 6. 5. ἑγν.] 7, 11. 7. ἑπ.] 7, 13. 12. δ' ε)"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.47",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ε μεζῶν ε. 23. τε add Λ. ἀρμίζουσι ε. 24. ἑ-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.48",
+        "signals": [
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "27. ὑπὲρ] 7, 34. 28. δεδοίμεν] 7, 56. 32. ἐγένετο] 7, 57."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0069.49",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "p. 332. προσήκειν Λ: προσήκειν ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0075.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 1. αὐτῆς A: αὐτοῖς c. 3. σπινθῆρας om A. 4. Rom. 515, 3; cuius errorem notavit Leichius p. XV. 1. τὸν c. Βαλμέριον c. 18. ἀνασῶς c. 22. ὁ οὐα A. 36. πᾶν om B. (θυσιαῖον) θυσιαῖον B et corr A. 38. b. 1. αὐ A: αὐτῶν c. 2. βραχμῖνους B. 10. libr. δρᾷς c. 22. ἡύματο c. 24. ἰσως add A. 27. ὑποστ."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0076.39",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "20.] τὸ B. 24. φρ add A. ἀλλὰ καὶ πολλ. ζ. 26."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0076.40",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "31. κλοπῆμαλιν A. οὐδ’ ζ. 33. ὁ om A. 35. [πρὸ]"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0076.41",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ηκότων Suidas. idem μοι om τοῖς λογισμοῖς."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0076.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "cf. Suidas v. Ὁρμησάθης et Σουφραμυρος."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0076.47",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "12. οὔτι — οὐδὶ Α· οὐτε — οἴτε ζ. 18. φιλοσοφία ζ. 19. ἄμα Α cum Suida v. Ἑρμαῖον· ὅτι ζ. 28. nonne teiōn? 20. ἐπὶ τε Suidas (v. Γρηγόριος ἀδελφός), qui hoc fragmentum ἀνακρίσεως Β. ὑστέρον δὲ] ἐπεὶ δὲ Ἀθηναῖον ᾗσιν εἰς Ἀλεξάνδρειαν· Β. 14. βαβαίας Α. 15. ἄμα om Suidas v. Ἄνθρωπον Β· διακομιζόμενος ζ. 26. ἐξεργον ζ. 29. εἰω om Β. 30. αὐτῷ τὸν νεανικὸν Suidas v. Ἄλαστος. 35. τῶν] ὤν Α."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0077.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "a. 1. Λαχίρως] vid. ad Marin. vit. Procli p. 89. καὶ χόρον B. cf. Suidas v. Μητροφάνης Ἱγνορος. 7. φησιν αὐτηγμένης A: ἐπανηγμένης c. 16. ἐπιφαινοῦς c. 17. et corr. A. 32. σανδάλια B: σανδάλια A cum Suida v. 'Ι- 39. de Marcellino cf. Suidas h. v."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0077.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "b. 5. διλάμων A. 6. τῆς] τε B. 8. βλασ] βλασφσης A: ἅπαντας c. 17. λέγει] φησιν B. 21. ἐν τῷ c. 24. καὶ et 27. τῆς add A. 29. βασιλεύων c. 33. ἡ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0078.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 5. γεννήμασι τοῖς οἰκείοις ε. 7. καὶ ante δ’ om. Fabricius proleg. ad Marini vit. Procli p. Boissonad. XLV. μισον ἐποιεῖτο τὴς ἀφρότιστος Suidas l. l. 29. Ὀσίριδος ἢ θεογραφία, ἐπιδεικνύντων τὴν ψυχὴν τραγῆς, πάλος ἄρα θροῖμω] τῷ ὄντι Suidas. δ] γαρ idem, omissis max eis τὸ b. 1. φαυροῦν A: φαυροῦς ε, ἀπὸ φαυροῦν Suidas. 8. τὸ om pr B. 10. χειροτομοῖ ε. 12. λέγετε, τὸ τεμοῦν B et corr A, εἰς Leichius p. XVI. ὑμεῖον om A. βολαδὴ C: βολαδὴ ε. Θολαδὴ Ilamaker. Monument. Fun"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0078.54",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "24. ὁ Ἀσκληπιόδοτος om C."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0079.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τὴν ἰατρικὴν Αι τῆς ἰατρικῆς ε, additis τὴν τέχνην post ἰδι- 23. ηοδη ε. 32. ὁ om C. 33. ἀθρύμωσι Β: ἀθρυσιώσι οι lamblich. de vita Pythagorae p. Knister. 91. et prout-ri. 9. τὰ om A. 24. προσκαλῶσι οὐ ἀγνυθῶσι ἀφὸς αὐτὸ lepindeus cf. Squid. b. v. 24. ὑπερεβάλλετο Αι ὑπερεβάλλετο c. Suida v. Σωφρονος Ἰάκωβος. 32. παραλόγου] fortasse legen-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0080.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "10. τε om B. 16. λυμανευὸς ἄφρο καὶ διαφθορεῖνος B. 23. καταβύσης c. 27. cf. Suidas τ. Χωρίς τὰ Μυσά. ο οὐσῶν C, ἔπειτα κλάσων B et corr A. ἢ ἀλλὰ καὶ c. 7. φησίν add A. 27. θρησκείας A: θυἡ πολλῶν et τῶν. 33. τε add A. 39. ὑπομνήματα κλήματα καταλείπων c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0083.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2 αἰα — συμπηγνύμενον om A. 11. ἐπισχῆσαι<br/>ὁρίας c. 37. καθόλησαντα c.<br/>b. 8. τοῦ ergo addidi. 9. ἐπίκονει c. 11. τὸν<br/>19. ἄφρο — ἰσμήνυσον c. 23. χειρόμα c. 27. τὸν δ)<br/>περὶ τοιούτων δαιμονίου ἔμυσσα λόγῳ ἐν Ἑλλάδι περὶ τῶν ἄγ-<br/>καὶ ἰσραγ τινα παραδοξότερα εἰρηγ, σωσθῆς αὐτῶ μᾶλλον ἢ ἀφ-<br/>των B. 33. φησίν B: φασίν c. 37 ἀνατέλλει c. 39."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0083.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τὸν λίθον B et corr. A: τὸν λίθους c. 15. ἀνέδειξεν A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0083.8",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "καρρητήσιως. 31. ἄρτιος om. C. ἀνέβλεπεν c. 32. ὁφω-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0085.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "α. 11. ὁ om A. 13. εἰς A. 14. ἐπιθυμίαν D."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0085.6",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "om A. 15. τῶν Θείων A. 17. αἰδοῖο — δυνάτ] ε"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0086.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "11. cf. Suidas v. Ἱλάριος Ἀντιοχεύς. 23. ἐγένετο A. 25."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0086.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "33. [ἐνθῶν] ἐν ὁδῶν B et corr A. 35. [θεοράσειν] cf. Suid."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0086.46",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ἱκανότατος A: ἱκανότατος c. 23. οἱ δὲ — ἰλάριον om B. 29."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0092.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2. καινῶν c. 4. φορὰ τα καὶ B. 11. ὁ om B. βελτίον; καὶ c. 33. ἡμῶν c. 36. αἱρετή] ἀρετή AC. αἱρετή, delectat etiam Leucius p. XXV. 38. τοῦ om B. b. 1. μήτι τῷ ἤπ. c. 2. τοσοῦτο c. 4. τῷ B: τὸ c. περιηγητῆρος Scaliger, παραγωγοῦντος Relandus. non reius fue σνηφορος c. 41. θοῦλον B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0092.4",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "B. 14. εὖ] εἰς A. 24. καὶ om A. 26. φιλόσοφος A: τοῦ A, vv εἰ om B. post σώματος cum A omisi ἀπὸ] ὑπὸ A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0092.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "c. 10. ὑφ᾽ ἑαυτῶν B. τὸ libri om. 18. παριεργόντος] fuerit γεωργοντος. 23. ἀδύνατος A: ἀδύνατος c. 33. τὰς"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0093.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2. ἰθόους c. συνίδησαι c. 10. πρότερος AC. νιπται c. 21. τῷ] τῷ corr L. 24. malim ἐπιβάλλων, 40. οἱς] ὡς A. 41. πειρώ A. b. 1. εἰ[δ] κατὰ μηδὲ Reiskiu. 5. pro εἰς lacuna est in Jh. c. οἱ ἔχου AC: ἔχου c. 18. ἀδίκων A. 27. ἡμῶς A. ἁδροὺς B. ἐξ ἐργοῦς Scaliger; libri ἐργοῦς."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0094.7",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 9. ἀπάντων A: ὁ πάντων c. 11. πρὸς B: ὡς c. 1 μαι A. 33. μοι AB. 39. με Reiskius: libri μου. 39. b. 4. περί — δυστιχη ABC: τῶν — δυστυχί c. 17. 30. ταῦμα post σοι ponit c, om B. 32. γνωρί] libri γν ληρώτων. 41. χάρα A: κρίσις c,"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0094.9",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "16. ἐπιδύζα A et corr B: ἐπιδύζας c. 31. ἀναγορεύω- 30. φιλοτρείας A. 19. καὶ ante λέγε om A. 26. γλῶσσα c. 1. ἐμὴ add A. 35. πλευσίς A: πλευσίς c. 36. libii ποιήσ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0097.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "μὲν δὲ παρ’ ἕτερο μὲν ἦν τὸ ἀδίκημα, παρ’ ἕτερο δὲ ἡ χάρις, τῷ μὲν ἔχοντι ὡς πολέμῳ χρή·ζῃ, τῷ δὲ ὡς εὐεργέτῃ ἀμείβῃ. εἰ δὲ ὁ αὐτὸς ἀμφότερα, τί μᾶλλον εἰδέναι χάριν ἀνθ’ ὧν ὑπῆρχε; προσήκει γὰρ τὴν μωρίαν ἀπαντεῖν ἢφ’ οἷς ἀδίκων ἐλήφθες; τίνι δὲ καὶ τὰ λελυμμένα καλεῖ; ἀφοσιῶ γὰρ καὶ διὰ τῶν γραμμάτων τὴν χάριν. τὰς Ἀθήνας πάντως ἀνοικεῖν ἐπαγγέλλε· τὸτο γὰρ ἐπανιέναι δέπαι, καὶ μὴ τοῖς φανερῶς δημαίεσιν τῷ ψήφισμα. Ἀθήνας ἀνοικεῖν φράσαι τὴν τῆς Ἀθηνᾶς πόλιν· οὐ τὴν Θρᾴκην καὶ Κίκροπος· εἰτα σωσθησονται Ἐριχθόνιοι καὶ Κέκροπες, ἐτι δὲ Θρᾷες κὲ Κύθριοι· πᾶσαι δὲ ἔσται Σέρης τῇ πόλει, οἰκίσεις, ἀρχηγέτης, τῶν ἐπαίνων, τῶν ἔχουμένων ἐπιδόσεις· οἴμοι τῶν κακῶν· ὅτι μένους μου Σέρης λαμβάνει τὴν πόλιν. τί δ’, ἂν καὶ ἡμᾶς αὐτὸς κατὰ τῶν Ἑλλήνων συσφραγίδη κληθῇ; ὁ γὰρ εἶναι δικαίων τῷ τοσαύτῃ ἐνδεικνυμένῳ περὶ τὴν πόλιν μεγαλοφρονεῖν μὴ πάντῳ τρόπῳ συναγωνίζεσθαι. καλῶς γε (ἀγρίῳ;) τῦτι καὶ τῶν τροπαίων ἀξίας τῶν ἐγγεγραμμένων τὰς παρατάξεις παραταζόμεθα, ὑπὸ Σέρης στρατηγῷ τῆς κατὰ τῶν δημοφίλων πολέμου ἐκφροντες. δι’ ὧς ὤφθη Πύρρος ἀντὶ κυνηφόρου χήμα δραπέτης καὶ φυγάδος περιεμένητος, τοῦτο πόλιν οἰκίζειν, τοῦτο εὐεργέτην ἀφείει; εἰ μὴν γὰρ εὐθύς ἀναμείχθης τοῖς ὅπλοις τὴν ἧτταν ἐπίσεων, ἑρωτεσιν ἂν, ἂν ἐπροεθέτῃτο· ἐπεὶ δὲ ἀπογινώσκει τῶν δινάμεων, τὴν ἀπάτην τέως ἀντὶ τῶν ὁπλῶν προσβέβληκεν, ἐτι τοῦτον καὶ διαβάλλειν τὰς Ἑλλήνας πρὸς τὴν πόλιν ἐσπουδάσκει, ἵνα ἐρήμους τῆς παρ’ ἐκείνων συμμαχίας ἐχουμένους πρὸς μόνους ἡμᾶς ὑστεροῦν ἐννέχῃ τὸν πόλεμον. ἡ μὴν δὲ αὐτῶν τῶν ὀφθαλμῶν ὅρλος ἔχει πρὸς τὴν Δωρίαν ἀφοσίωσιν. τοῦτο μὲν γὰρ ἀνοικεῖν τὴν πόλιν τῷ ἡμετέρῳ θέλοντος ἔργον ἦν αὐτὸ τὸτο σαφῶς ἐγγράφω τοῖς γράμμασιν· ὁ δὲ τοῦτο μὲν οὐκ εἰπών, ἀλλὰς δὲ ἀντικατασχῶσαι φήσας οἷς ἐλαμύνετο κατὰ τῶν πολέμων, τῇ τῷ προσφήματος ἀμφιβολία κακῶς δὲ κακουργεῖ διὰ τῶν γραμμάτων διδύλλειν. τί δὲ ἦν τῆς πολέμου τῆς ἡμετέρας τὸ ἐπίσημον; σεμνότης οἰκοδομημάτων, πανταχῇ τῆς ἀρχαίας ἀρετῆς ὑπομνήματα, ὁ παρὰ τῆς φύσεως κόσμος μείζων τῷ παρὰ τῆς τέχνης προσθεῖκεις τῇ πόλει τὸ κάλλος, οἷα μὲν ἰδεῖν ἀσφόπολεις, οἷον ἄλλο ἴσι ἤρκοσθεν. 18, προσφυρόμενον C. 29. μοι add. A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0099.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τῆς ποίης ἐχούσης] παραδίδωσι H et rc A: pr enim om."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0100.6",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "legendam κατ' ἄλλους. 19. νῆας om C et pr A. 25. πάντες"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0145.40",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 11. φύσει c. 12. ὁρῶ B. 15. νῦν om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0145.41",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "Κρότωπος: γ. καὶ Φορωνεύς: om A. 19. καὶ Λευκαλίων"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0145.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "προσέσεθ] om A. b. 3. παρὰ πολλὰς om D. 4. εἰ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0145.47",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "32. [ἐπανθό] p. 35. [ἐπιστ] ἐκίν A. 34. οὐ] οὐ A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0145.49",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "16. ἄν om A. γε et 17. περὶ λόγους om A. 17. καὶ ὁ λόγος om. ββ. om A. pro ἀπὸν apud Aristidem est ἄντι τοῦ κατὰ A. ζητῶμεν c. 24. ὁλίγων c. 25. προαίτιος c. ἀλλὰ — 33. διαφέρει om A. 33. μὴ om A. 36. ὅτι — δ 2. εἰσί c. 6. δοκῆ Bc δοκεῖ c. 7. ἀφροάσθαι A. μήπω A; 17. τε] γε A. 21. ταύτ’ c. 22. ἄν πρότερος corr B, add B. ἐν τοῖς] ἐν τούτοις B. 30. ἐκ’ αὐτῆς add A, A. τὴν om A, post ἱδρὼς ponit B. διαφέρετος B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0149.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "1. εὐθὺς om A. 2. μήτε τοὺς — σκοπεῖν] μὴθ’ 7. εἰ δὲ] p. 74. αὐτοὺς] τοὺς ῥήτορας A. 10. δομε- 1) — 21. ταύτους om A. 22. ἑαυτοῖς om A. 24. 31. πάντα] p. 76. 32. ἑαυτῆς s. 34. αὐτ] το A. 010 A. b. 3. ταῖς — 4. πασι δὲ om A. 6. δημο- 16. ἄνων] αὐτῶν λόγων A. 17. οὐδὶ μὴθ’ (p. 81.) — παρ] p 81. ἀν] τὰς ἀνθρώπους A. 21. ἄντι] 28. γενναῖοι om A. 28. εἰνα] τῷ A. 29. ἀνθρώπου"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0150.4",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket",
+          "literal_note_markup"
+        ],
+        "original_text": "<note>a. 3. ἢ om A. 9. μηδὲ τῷ — μεγέθει om A. om A. 14. φαίνεται] p. 85. τῇ om A. 13. εἴπερ 23. γε om A. πρὸς αὐτὸ τοῦτο πνευσοῦς] τὴν ἐπισάνταυθὼ om A. 29. τὴν νομοθ. καὶ δίκας. om A. 35. ἰδῆσθ A. 37. πότερος] p. 91. b. 1. ἔμοι A: ἐμὶν 33. 35. ἰδῆσθ A. 37. πότερος] p. 91. b. 1."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0150.8",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "10 τῶν ἀρίστων μηδενὶ] τινὶ τῶν ἀρίστων A. 11 ἐν τῷ — 16. θεωρεῖν om A. 19 εἰ γὰρ — 23. ἡδὴ om A. 24 ἄνθρωποι] ἄνθρωποις A. 27 φαίνεται] p. 87. 32 αὐτὴ om A. 33 πρῶτον ῥητορικῆς A. 33 καὶ τὸν τὸν ε. 4 ἀπέλαβον. ῥητορικῆς A. 7 τὸ εἴδωλον τῇ ὑπερ- 8 A: οὐδέτερον μήτ’ ἀδικεῖν ε. 9 φησὶ] φησ. A. 10 καὶ τὰ 11 τὸ ἀδικεῖσθαι] δ’ ὅμως τοῦ δ’ ἀδικεῖν A. 14 ἴσως ἂν om A. 15 ὅπερ — 17. ἡδ- 26 ἡδίκησεν καὶ ἡδίκησεν ὁ ἕτερος] ἡδίκησεν καὶ ἡδίκησεν 33 γε om A. 34 τοῦ] τε A, καὶ ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0151.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "a. 3. εἰ δὲ] p. 105. δὴ — 4. εὑρεθεῖσα om A. 4. τῷ] αὐτῷ A. 11. τῆς ῥητορικῆς A. εὑρεθεῖσα] immsu εὑρεθεῖσα c. fortasse leq. παρασκευασθαι. 15. οὐ μὴν (p. 106) ἀρχεῖν A. 18. αὐτὸν] αὐτῶν A. 20. ἀλλ’ (p. 107) — 25. fort om A. 26. μηδὲν — 29 σκιᾶς om A. 33. παρασκευάσαι om A. 35. δὴ add A. 36. χρή δὴ κατ’ παιδίων c. b. 3. πέρα — 6. αἰονεῖσθαι] καὶ ἰερὰ πάντα 9. μὴ τοιοῦτον τι A. 10. οὐδὲ πρεσβύτερον om A. 15. ταῦτα πραγματεύειν] νόμους εἰσφέρειν A. 17. που] οὐτος — 29. προσθήσομαι om A. 30. γὰρ om A. 36."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0151.3",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "ἐπελθεῖν καὶ λαβεῖν τὴν πόλιν, καὶ ἡ Λία τὸς μὲν ἐν ἡλικίᾳ πάντας κατακτοῦν, ἑ ταῦτα πρὸς τοὺς βωμοὺς, παῖδας δὲ καὶ γυναῖκας ἐξανθραποδίσαι. Ἡγ πέρα, εἰ βέλει, Γαδείρων, τὰ δὲ ἱερὰ σνλίζαντας κατασκάψαι πάντα, μὴ λῆψιν δὲ μηδὲ τὰς τῶν ἀνδρῶν τῆς ἐώντων πλεονείας, τὸ ἀδικήσαντες τὰ μέγιστα ἐν τοῖς μεγίστοις δὴ κακοῖς ὡς, μὴ δόντες δίκην. ἀλλὰ τοσούτον ἀπέχεις τὸ ταῦτα συμπαρτεῖν, ὡς κωλύειν καὶ βίον ἐν τοῖς ὅλοις εὑρῆσαι, ἵνα μήτε τοῦτον γένοιτο· κἂν τις ἐγγενῆ προδότης, τούτον δὲ σεφανὺν κελεύεις ὡδὲ κηρύττειν, ἀλλὰ ταῦτὰ τοῖς ἄλλοις νομοθέταις παρέδωθ. τούτων νομίζεις, εἰπέ, πρὸς Λιδὸς τερασία, τί χρή περὶ τούτων ἡμᾶς νομίζειν; εἰν, ὦ γενναῖε· νόμους δὲ δὴ τὸ χάριν ἡμῖν ἐποίησε. εἰ γάρ, ὦ τάν, τὸ δίκην λαμβάνων καὶ τὸ μὴ ἐξν ἀδικεῖν ὧς ἐν τι τῶν σπαδαίων ἦν, τὸ χάριν ταῦτα πραγματεύσῃ, καὶ σπουδὲς ὅπως μηδεὶς [πα τῶν ἐν τῇ πόλει] ἀδικήσῃ; μὴν ἐν μὲν οἷς ἐμοὶ λέγωσι, καὶ τοὺς ἄλλους συνδοκῶν ἐσὶ κ τῷ Πλάτωνι πρόσσειν· ἄ δ' ἕτος ἐπαιθασὶ εἴρηκεν, ὁ μόνον τοῖς τῶν πραγμάτων λόγοις ἀλλὰ τοῖς αὐτῷ Πλάτωνος ἐξελέγχει καὶ λόγους καὶ βαλβμασιν. ἐκεῖνον μὲν ὁρθῶς ἔχειν συγχωρομένων, ἑ ἡ παρὰ τῶν ἄλλων μαρτυρεῖ δόξα καὶ ψῆφος ὁρθή· ταῦτα δὲ εἰ δοξῆσιν κρατεῖ, ἄνεσι τὸ σινὲν συνδοσχειν τῶν ἄλλων. ἰχνώτερον δὲ τὸ ἑ ἄπασα ἑ Πλάτωσι τὸ μηδενὶ ἑ μηδὶ Πλάτωνι συνδοκεῖν, ὡς ἕτος ἀλλαζῶ. οὐκοῦν οὐ τὴν παρὰ τούτου μαρτυρίαν διὰ τὴν παρὰ τῶν ἄλλων ἀνεξόμεθα, ἀλλὰ τὴν τῶν ἄλλων τὴν παρὰ τούτου προτιμήσομαι. ἡγῶμαι μὲν τοίνυν κἂν τοῖς τὴν ἔργῳ μαρτυρίαν παρέχειν· τὸ γ' δὴ λόγους πρὸς λόγους ἀγωνιζόμενον λόγους ἑτέρους σπουδαίους μαρτυροῦντι ἀποφαίνειν τὸν ἀντίπαλον τὴν ἔργῳ παρχεῖν μαρτυρίαν ἐστίν. ὁ μὴν ἀλλ' ἕτι καὶ προσωτέρως προελθεῖν βέλομαι, ἵνα, ἐπειδὴ τιμὴ τὸ ἕνα ἐκφυγσχειν ἑ αὐτὸν πρὸς ὃν ἂν οἱ λόγοι γίγνοντ', ἑ λόγῳ ἑ ἔργῳ σύμφηρον ὄντα αὐτὸν μοι δείξω. σὺ μὲν ξένι χάριν Συρακουσίῳ, κοινῷ τῆς πατρίδος ἐχθροῦ, ἔπλεις ὧς ἄπας ἀλλὰ καὶ δίς καὶ τρίς, ἐν γήρᾳ, πέλ- 4. αὐτὴν καθορῶς τούτων ἔχουσι] ταῦν ἡ ἑπαρμὴ Λ. 7. οὐ ἐνέχοδα. 13. γε om Λ. παροικεῖντο Λ· παροικεῖν- 106] om Λ. διαχρηζεται Λ. 16. τινὰ — χρεῖαν] τὴν — 21. ἐπιαθήσεσιν om Λ. 23. συνειληφώς — ἕτος om Λ. 33. μηδ' ἐκὼ τινων ἀδικηθ' om Λ. ἑφρακ Λ. 34. αὐτὰ] χρήματα Λ. αὐτὸν ἑαυτοῦ] αὐτοῦ Λ. 37. παίδων Λιντι καὶ τάφους συλήσει καὶ κατασκάψει Λ. 8. τοῦ om Λ. 12. αἰν] p. 109. 13. νομίζεις — 14. ἐποίησε om Λ. 17] σοι Λ. καὶ μήν] p. 110. 20. τῶν om Λ. 26. ὡς 36. οὐ] p. 111."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0152.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 1. συντεῖναι A: τὸ συντεῖναι c. 2. Λίωνα c. 3. τῆ om A. 13. ἐγώ] p. 118. 14. δήπου om A. 18. τ[ μῆν] p. 122. 22. ὅσφ A: ὅσα c. καλλίων A. 29. τοῦ om A. ὁρῶσι A. 32. ἀδύς] p. οὐν A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0152.3",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "b. 1. τῆς] p. 125. 7. ἐ] δ’ A. 2. ἀλλὰ — 4. αἰσχαἰ τῷ. ἀπ. τοῦ.] μάρτυρ τοσαύτου ἀπάρχοντο οἱ τῶντοσο A. οὐδ’ — 12. δουλεύειν om A. 14. μὴ om A. 15. αὐτὶ ὁστίου] p. 127. 18. γάρ] δ’ A. 19. φανήσεσθαι (p. 128. μᾶς A. 20. ἐγγενόμενος A. μέχρις — 21. λόγου om 23. τὸ τε — 25. πράγματα om A. 27. ἢ om A. 36. μηδ’ addidi ex Aristide. 37. ὅν οὐδὲν om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.40",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "α. 1. καὶ — 3. μὴ om A. 3. εἰ] οἱ A. παύσων"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.41",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "4. καὶ ὁ μὴν] p. 161. 6. καὶ τελευτῶν — 7. βούλεται om"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τὸς A. καὶ προσέτι — 10. αὐτῶν om A. 11. ἀτε]"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "om A. 17. οὐδ’ ἀφαινεῖ om A. 22. εἰς A: ὡς ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τῷ om A. 29. τὴν δι. πολ. φαυλίζεω] ὡς τὴν πολ. φαυλίζεω"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "32. γὰρ ποο om A. χωρὶς εἰνὸς προσάσεως om A. 33."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.46",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "— ἔξων A: τῆς — ἔξει ε. b. 1. οὐ γὰρ ε[ p. 14)] ἡμῖν"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.47",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "μὲν om A. 10. τοῦτο om A. 12. οὐδ’ A: οὐδὲ ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.48",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ἡτῖχος om A. 19. γε om A. 20. πειθόμε A. 27."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.49",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "τοὶ om A. 34. γε om A. 36. ἀλλ’ ἔνε] p. 157."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.40",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "12. τὸν χρ. A: τὸ χρ. c. 13. δ δ’ οὐδ’] p.188. αὐτὸς"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.41",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ἐκ δ’ αὐ] καὶ A. 19. ἀφθὴν — ταυτὴν om A. καὶ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "αὐτὰ αὐτὴν c. 22. καὶ διέχεται — 25. ἀροσθαι om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.43",
+        "signals": [
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "A. 28. παρατιθέμενος A. εἰ γὰρ] p. 189. 30. μὴ]"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.44",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "παρτεχῆ] p. 191. δι καὶ διὰ αὐτῶν] δι καὶ ἀκάτωρ A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.45",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "ζατα c. 6. νῦν σε] p. 525. 7. ἂν τιμῶν om A. 8. τοῦ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.46",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "om A. 17. φαοὶ — 18. οὐτὸς om A. 20. καὶ add A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0156.48",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ἔργου om A. 33. σε ἔχην ἐγώ] γε A. 35. τοῦ] τοὺς A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0159.1",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "καὶ δειλὸς ἡ φιλάργυρος, εἰς μὲν ὀφροφὺν καταξίςας. περὶ μὲν δή λάλων, ὦ Πλάτων, ἡ ἀργὺν ἡ δειλῶν’ αὐτόθιν κατέβαλε, μὴ πῶ τις ἡ Τρωὺς ἐγείρηται θεὸς ἄλλος. κατὰβαλε κἀγαθὸν, ἀπένους, σῦμα. οὐ δὲ Μαντινίην μὲν ξένον καὶ Μιλησίαν ἐπίσασαι 5 κοσμεῖν, καὶ ἑστινας ἄν σοι δοκῇ, πᾶν ῥαδίως μεγάλων ἠξίωσας· τῶν δὲ Ἑλλήνων τὸς ἄκρας ἡ παρὰ 689 H. πᾶσι βεβλημένης “ἐν φαύλῳ καθεῖραις. αἰτίων δ’ ἄ τὸ ἀγνοεῖν τὴν ἀξίαν, ἀλλὰ πῶς ἄν εἴποιμι εὐπρεπῶς; ἀ σφόδρα τῶν λόγων γίνη. ἄντὶ τῷ λόγῳ γένη καὶ οὐ τῆς τῶν πραγμάτων ἀληθείας, πῶς ἄν εἴη διαφθαρκὼς Ἀθηναίως ἡ πῶς λάλως πεποιηκώς, ὃς γε κἄν τοῖς λόγοις αὐτοῖς τὸ μηδὲν φαύλως μηδ’ εὐχὴ τιμώσας φαίνει; τὸν ἀντίον γὰρ ἡμοῦγε πῶν αὐτὸς ἐδίδου δοκεῖ, μήτε λέγων ὅπως ἔτυχε μηδὲν μήτε ποιεῖν ἀπὸ τοῦ πρώτου παραξάντος. ἐπὶ δ’ ἄλλως μὲν τινος πράγματος σκέπτεσθι μάρτυρι κωμωδίας διδασκάλῳ αἴχα ἄν ἄν ἴχνοὺν ἦν· εἰς δὲ λόγων κρίσιν μὴ ποτε ἴτω αἰῶνος γενόμεν ὡσθ’ ὑπεριδεῖν τῶν ἀνθρώπων τάτων ὡς ἀθενὲς ἀξίων. ὁ μὲν τῶν Ἑλληνίδων με-2 γίστην ὁ Κρατῖνος τὴν ἐκείνη γλῶτταν εἴρηκε, λέγων μὲν ἴσον τι καὶ φωνήν, ἀναμίζας δὲ τι τῆς πυρὰ τῆς τέχνης πυκρίας τοῖς ἀπὸ τῆς ἀληθείας. ὅμως δ’ οὐκ ἐξήρτυχε τὸ μὴ ὁ τὸ πρῶτον δῦναι τῷ ἀνδρὶ μηδ’ ἐνδιαλέχει τὴν μεγαλοπρέπειαν τὴν περὶ τὰς λόγους αὐτῷ. ὁ δὲ Ἀριστοφάνης ἀξιοπάθως καὶ προατὶς αὐτὸν ἀ μνᾶν φησὶ δημηγοροῦντα. μὴ γάρ μοι τοῦτο, εἰ τι μίμησιν αὐτοῦ· ἀλλ’ ὅσον εἰς τὸν παρόντα προσήκει λόγον τῆς μαρτυρίας λάβωμεν. ἀλλ’ ὁ πολλῇ τιτλ τῇ περιποιία χρώμενος ὅτι διεγύνητο, πόρρω μὲν ἀπ-3 τὸς ὤν τῷ ληρεῖν, πλεῖστον δὲ τῶς ἄλλας ἐθίζων ἀλέχων. πῶς ἄν ὁ τοσούτων ὑπερέχων ἡ μόνος πᾶσι τοῖς κριταῖς νικών τὴν τῷ φιλαρεῖν εἰκῇ ἡ παρὰ καιρὸν Ἀθηναίως ἀνεῖναι φέροιτ’ ἄν δόξαν; ἐγὼ μὲν γὰ τὸν ἀντίον ἡγοῦμαι, σωπῆς αἰτίων αὐτὸν πλείους ἢ 3 προπενείας καταξίνα. ἴσων γὰρ ὅτι κἄν ταῖς ἄλλας διὰ πυ δυναμίσιν, ὁ μὲν πολλοὶ παραπλήσιοι ἡ ἐφάμιλλοι πρὸς ἀλλήλους, πολλὰ τὰ πράγματα ἡ πλείων ἡ ἴρις, ἐπειδὰν δὲ τις εἰς ὑπερχὴ λαμπρῶς, ἀπαντες a. 3. ἀγείρῃσι c. 4. κατάβα A. 5. οἱ δι] p. 212. μ διαφθ. — πιαστησῶς] λάλους πεποιηκώς ἀδημοῦνς ἀφικλή [κατολῶ] κωμωδιδασκάλῳ A. 20). ὁ μὲν — 21. εἴρηκε] μ 25. Ἀριστοφάνης om A. 29. ἀλλ’ (p. 216)] ἀφ’ A. ὑπερβολὴ c. b. 1. ἐπειδὰν δὲ τις εἰς c. 6. ἀλλὰ] p. 24 μην om A. 26. εἰς om A. εἰς οὐν om A. οὐν(ντς) πειωτοῦς, παύται διὰκως καὶ ἀρῶς ἦν, ἴση δημωρόθ Suid. v. ὁ Κρητ. 36. τὸ om A. 38. ὁ add A. 39."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "ἤδη συγχωρήσασιν. ἔτι δὲ καὶ λέγειν ἐπειδὰν τις ἀρχὸς ἐγγείη, ἔφερον ἀνάγκη τὸς πλείους ἢ μὴ πολυ-πραγμονεῖν, ἀλλ’ ὡς οἷόν τε μάλιστα νῦλαβεῖς ἢ κο-σμίως εἶναι περὶ τὰς λόγους. ἂν δ’ ἂν ἤ τις ἔχει βελ-τίους, τότεν χεῖρας ἀπεργάζου, ἄλλως τε ἢ πρὸς αὐτὰ ταῦτα ἂ βελτίους ἔσιν. <note>ἀλλὰ μὴν ὡς αὐτὸ ἂν ἀν1276R. ἄμμον τὸ δύνα.ἦ λέγειν, ἀδ’ εἰς ὄνειδος φέρου, οὐδὲ κατηγορίας ἀξίων οὐδὲ γε αὐγγυώμης ἀλλὰ τινος χρητί-τονος, αἰχνοῦσιν ἂν τὰς λογίας θεὰς εἰ ζητοίη ἀπο-δεικνύναι. πλὴν γε τοσῶθ’ ἂν εἴποιμεν ἐμοὶ γ’ εἴη, εἰ τις ἄλλος δεχραίνει, καὶ τρέχει τὸ ἄπαν εἰς ἐμέ· ἢ ἂ μέρωμαι τῷ δαίμονι· ὡς ἐγὼ δεχάμην ἂν δύνα.ἦ λέγειν μετὰ χρηστοῦ βίου καὶ σώφρονος, εἰς ὅσον οἷόν τε, κάλλισα ἀνθρώπων μᾶλλον ἢ μυριάκις Δαρεῖος ὁ ἄν’ Ὑσμάω γενέ.ἦ· ἢ μικρὰ μοι πάντ’ ἢς ἀληθῆ πρὸς τῶν ἤδη φαίνετ’. οἶδα δὲ ἢ τὰ Πλάτωνος πράγματα, εἰ μὴ τετιμώμεθα, οὐδὲν ἄλλο σχεδὸν ὄντα τῇ λόγῳς, ἢ συγχάρω τῆς λέξεως αὐτῶ· κἂν μὴ προσοπαίζων ὑπὸ πειδὴ, μὴ πάνυ τέτοιν φροντίζων, οὐ πάνυ πείσομαι, <note>ἀλλ’ εἰσθω· “σφόδρα σπουδάζοντα, ἢ τὴν αὐτία μά-690 Π. λίζα, εἰδικὰ ἂν ὡς παίζων λέγη. ὡς τὸν οἶκον Ὡσαν-φὸν διασβόλλομεν ἂν, εἰ ταῦτα διασφύρομεν. <note>παρομία. τῦνεται δὲ ἰπὶ τῶν τὰ οἶκον διαβαλλόντων. ἀλλ’ ὑπὲρ μὴν τέτοιν οὐδὲ λέγειν ἄξιον, ἀλλὰ τοσῶ-τω ἔστιν, ὅσω περ ἂν ἢ χρητίων τὸ δύνα.θαι λέ-γειν. εἰεν. <note>εἰτα τὸν ἔτους ὀξὺν καὶ ἄγρυπνον καὶ ἕδισα ἂν εἶπον ἐπὸπέρου, τοῦτον ἢ ἀργεῖν αὐτὸν ἢ ἐτέρως ἐδίζειν ἐγὼ πειδῶ· ἔα ἄρα ἐπίσκα.ἦ δόξης τῶν πραγμάτων ἄδεν· ὅσις γε μὴ ὅτι Ἀθηναῖος ἀλλ’ οὐδὲ τοῖς πολίμοις ἀρχεῖν ἐπίτρεπεν· ἀλλὰ κἄκινθος ἐποίησε μεταβαλεῖν τοὺς τρόπους· τοσαύτας ἀνάγκας αὐτοῖς περιεῖν τῷ κινεῖ.ἦ. καὶ τὸ δικαίως ὅς ἐποιοῦ προσήρ, ἤτη Δημοσθένης. ἀλλ’ ὅμως Πλάτων ᾐτιάσατο αὐτὸν ἀργὸς καὶ δειλοὺς πεποιημέναι. ὁ Κρὴς δὲ τὸν πόντον, φήσω τις. <note>παρομία ἰπὶ τῶν προσωποποιῶν τὸ ἄργον· οἱ γὰρ Κρῆ-τες ἰπτεροδύλασσοι. λέγεται δὲ καὶ ὁ σπουδὴς ἄργον τὴν θάλασσαν, καὶ ὁ Σικελὸς τὴν θάλασσαν. <note>ἀδ’ οἱ μὲν ἄλλοι τοῖς παρβαὶ τούτοις τῆμέσιν, ὁ δὲ ἢ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0159.3",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "μὴν A: καὶ ε. 10. λόγων A: λογίων ε. 12. αὐτ’ ἂν] p. 213. κλῆς A. 16. ἔτι δ’ (p. 214) om A. 17. σωφρόνως δε-μεγίστην ἂ μὴν τὴν αὐτοῦ γλῶτταν εἶπεν A. 23. δ’ add A. 32. αὐτ’] p. 218. 33. εἰκ’] εἰ μὴ A. 39. εἰς om A. p. 236. 8. γε om A. 10. τοσοῦτον ε. ἰμεῖ — 16 φαλ-νείτα] p. 226. 28. ἰγὼ om A. 32. ἀργίς — 33. Δημο-σθένης A. 34. ὁ Κρὴς] p. 229. δὴ om A. 36. cf. 39. ωσθ’] p. 230."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0161.7",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 5. [εἰ γὰρ] p. 254. 15. καὶ οὐτὸ πλεόνεσιν om A. nit A. 20. τοιαύτης] p. 261. 27. τῇ Δία (p. 265) om A. ψηφίσαντο εἰ· λέγεις] λαδορῆς εἰ. 34. μεγάλην A. 40. b. 4. λογισάσθω εἰ. 6. τοιαῦτο om A. 9. παραίτησιν] om A. 17. ὑπὸ Μελιτώων] μελιτώων A. 18. Ἡφρη- 30. αἰσχρῶς — 31. αὐτῶν om A. 32. οὐν] p. 272."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0161.16",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "40. καὶ μὴν] p. 266."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0161.19",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "21. Μιλτιάδης] p. 270."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0161.21",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "38. μὴ ἐκεῖνος] p. 280."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0166.6",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "A. 6. μεγίστης. 7. τῶν om A. μέχρις c. 12. καὶ μήν] περιγραφεῖνσαθαι A. δίκαια — 25. προσοίας om A. 26. ἰαν ὑπὲρ τῆς κοινῆς ἀπολογίας. τὸν ὅμοιον διὰ τῆς ἰλαρῆς κα- A. εἰσὸς ἢν εἰκτίο A. 30. τῷ A: πα c. δοκοῦν A. σὶς om A. 37. βελτίων A. εὐρά A. 11. ἐφ’ A: ἀφ’ c. εἰ δὲ] p. 371. 13. ἡδονπροτιγὸρα A. καὶ om A. 29. τὶ δὲ] p. 373. 34. ἄνην Χάρων om A. 39. καθαιρεῖν A: καθαιρεῖν c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0169.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 7. ἄν γὰρ A: γὰρ ἐν c.   11. ἡδ. c. 12. μένου om A. 1  27. ἀν’ A: ἐξ c. 30.  γτ om A. 34. καθεῖν] p. 411. 39. b. 5. το om A. 6. σοι om A. 7. ἡμῖς φ. 8. γ om A. 14. αἰωλώμενοι] ἀμείπτον cugr A, αἰωλώμενος φων A. τοῦτ’ A. εἶχεν A: ἔχω c. 25. Ἀλλὰ 35. αὐ om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0172.8",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket",
+          "literal_note_markup"
+        ],
+        "original_text": "<note>ορ] οὐ pr A, ἡ corr. 7. εἰς add A. 11. οὐδὲ] p. 477. 25. οἶκοι] p. 485. τοι φιλοθρυλοῦν A: τοι φιλοθρυλοῦν σ. . οὐ δὲ] p. 486. τὸς om A. 35. τὰ A: τὸ σ. 37. καὶ ἡσ om A. 4. ἀναλ. π. τ. φασιν om A. 5. οὐδ’/το A. 1. πᾶν om A. 14. ἀφορμὴν] πρὸς A. 16. τούτων] τοῦ A. 26. ὀξὺς οὐδενὸς σ. 32. σοι τὸς — 23 κτῶν : : : : : : : : : : : : : : : : : : : : : : : : : : : : :"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0174.1",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<pg>1316R</pg>γενέσθ· ἡ δὲ ὑπερβολὴ ἢ ἑλληνικὴ ἐπειδὴ ἐπ’ ἀπειρον προχωρεῖ, διὰ τοῦτο ἀόρισον αὐτὴν ἔλεγον δύναδα. ἡ ἐπειδὴ πάντα εἰς τὸς ἀριθμοὺς ἀνῆγον ἐν τε τῆς μουσικῆς ἢ τῆς διὰδος, καὶ τὰ ὄντα πάντα ἀριθμοὺς προσηγόρευον, δι’ ὃ ἀριθμοὺς συμπληροῦντ’ τοὺς δέκα, ὅ δὲ δέκα σύνθεσις τῶν τρισάμων κατὰ τὰ ἕξῃ ἀριθμούντων ἡμῶν, καὶ διὰ τοῦτο τὸν ἀριθμὸν πάντα τετρακτὶν ἔλεγον. ἔλεγον δὲ τὸν ἄνθρωπον αὐτὸν ἑαυτὸ βελτίω κατὰ τρεῖς τρόπους γίνεσθ, πρῶτον μὲν τῇ ὁμιλίᾳ τῇ πρὸς τὸς θεοὺς (ἀνάγκῃ γὰρ προσόντας εἶναι αὐτοὺς κατ’ ἐκεῖνο καιροῦ χωρισθεὶς αὐτὸς πάσης κακίας, εἰς δύναμιν ὁμοιοῦντας ἑαυτὸς τῷ θεῷ), δεύτερον ἐν τῷ ἐδ ποιεῖν (θεοὺς γὰρ τοῦτο ἢ θεοὶ μιμεῖσθαι), τρίτον ἐν τῷ ἀποθνήσκειν· εἰ γὰρ κατὰ ποσόν <note>1316R. τι ἢ ψυχὴ τὸ σῶματος ἐν τῷ ζῆν τὸ ζῶον “χωριμένη βελτίων γίνεσθ’ ἑαυτῆς, ἐν τε τοῖς ὑπνοῖς κατὰ τὰς ὄνειρας ἢ ἐν τοῖς ἐκπτώσει τῶν νόσων μαντική 713H.γίνεσθ, πολλῷ μᾶλλον βελτίεται, ὅταν τελῶν χωρισθῇ ἀπὸ τοῦ σώματος. ὅτι τῇ μονάδι πάντων ἀρχὴν ἔλεγον Πυθαγόρειοι, ἵνα τὸ μὲν σημεῖον ἀρχὴν ἔλεγον γραμμῆς, τὴν δὲ ἐπιπέδου, τὸ δὲ τῷ τριχῇ διασταθῇ πτοὶ σώματος. τὸ δὲ σημεῖον προϋπνοῖται ἢ μονάς, ὥς ἀρχὴ τῶν σωμάτων ἢ μονάς· ὥς τὰ σώματα πάντα ἐκ τῆς μονάδος γεγένεσθ. ὅτι οἱ Πυθαγόρειοι τῶν ἱερῶν χων ἀπεῖχοντο, τὴν μαγειρικήχασιν ἀφόρως ὡς ἀληθῆ ἐπιλαμβάνοντες, καὶ ὅτι τὰ τοιαῦτα τῶν βρωμάτων παγόντε τὸν νῦν, τροφιμώτερα ὄντα καὶ πολλὴν ἀνάδοσιν ποιῶντα. διὰ τοῦτο ἢ τὸ κνῆμὸ ἀπεῖχοντο, ἵτι φυσώθης ἢ τροφιμώτατος. καὶ ἄλλας δὲ τινὰς αἰτίας πλείους ἀποδιδοῦσιν, ὅτι αὐτὰς ἐνῆγον ἀπείχονθ τῶν κνῶμων. ὅτι τὸν Πυθαγόραν πολλὰ φασιν προειπεῖν, καὶ πάντα ἐκβῆναι, ὅτι τῇ μὲν θεωρητικῇ ἢ φυσικῇ Πλάτωνά φασιν παρὰ τῶν ἐν Ἰταλίᾳ Πυθαγορείων ἐκμαθεῖν, τὴν δὲ ἠθικὴν μάλιστα παρὰ Σωκράτους. τῆς δὲ λογικῆς σπέρματα καταβαλεῖν αὐτῷ Ζήνωντα ἢ Παρμενίδην τὸς Ἐλεάτας· ἢ ἐτοι δὲ τῆς Πυθαγορείας ἦσαν διατριβῆς. ὅτι ἢ ὕφει, κατὰ Πυθαγόραν ἢ Πλάτωνα ἢ Ἀριστοτέλην, τῶν δώδεκα χρωμάτων ἐξὶ προ-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0174.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 4. ἀριθμῶν Suidas v. ’Αριθμός, ἀριθμῶν τετρακτὶν idem ’Αριθμός: αὐτοῦ. 10. προσόντας — 12. ὁμοιοῦντας corr. 23. ἀπὶ — μονάς om B. 32. φησι A. 36. προκειμένην b. 2. ὁφείλει Suidas v. ’Οφείλει. 5. in B et corr A: ἐξ et πάντα om Suidas. 9. σοφός] εὐφής σοφός Suidas. 10. μὲν γε καὶ φυσικῶν καὶ τῶν μετὰ. 11. τριχῇ] καὶ 1. καὶ τ om Suidas. 14. ἀρχῇ.] καὶ ἀρχῇ. Suidas. 15. ὅλον om Suidas. 16. ἐκ τῆς μονάδος γεγένεσθ. 18. ἐκμαθεῖν c. 22. ἀληθῆ cum Suida v. Ἐπιγραφή τὰ: τέσσαρα c. Suidas v. 35. legisse"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0175.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 1. ἐν:γένοθαι κατὰ τύχην Suidas. C. ἐκ τοῦ παρὰ leg. εἰς ἀλλήλας. 16. αἱ add A. 21. δὲ) ὡς B et codd. 22. ο: τοε εἰ] ἐν γὰρ A. 23. καὶ γὰρ add A. 25. μεκορμώθαι H. 29. τοῖς ante καλοὺς om A. καὶ post 33. οὐχ ὅτι A: οὐχ ἄρα c: apud Eudocianum οὐχ εἰ αὐτ. 40. φραπτικὴν c. b. 3. τῶν ἀληθῶν post ἐπιτηδεύ 25. τὴν om A. 34. τὸ δὲ μὲν λόγου om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0179.3",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "ροντα καὶ τὸν Λῖδον τόπον. ἐπὶ τὴν μὲν Ἀφροδίτην <note>τιτραχομένην ὑπὸ Ὁρῆτῆς δυνάμεως, τὸν δὲ Ἄρη δεσμιόμενον ὑπ’ Ἵδω καὶ Ἑρμῆτι, τὸν δὲ Λῖδην, ἐν ᾧ τόπω τὴν βασιλείαν εἶχεν, ἐκεῖσε νῦφ’ Ἡρακλῆς τοῦ ξενίζοντα ταύς μεγάλας ἀληθόσια περιποιεῖ· τὸν δὲ Ἡρακῶνα, ὑπὸ τῶ κατὰ τὸν ὁρατὸν ἀπορρήσιντα ὕψος, εἰς Λίμνον ἐνεχθῆναι διακειμένου ἐχάτω· τῆς δ’ Ἥρας ὑπὸ τῷ Λίδι χρηματίζοντος ἐκ τῶν ποδῶν ἐκδαζόμενον πυρμαχίαν ἄκοντος. καὶ ὅλον δὲ θεὸς μοισοχεύοντας, κιραννυμένους, κυλλοδότους, χλεπτάς εἰδωρύντας, ἀνθρώπων ἀνευρέτους, προχείρους λουδομένους, ἀδικήντας, μεμφωμοιρούτας, πέραν ἀνενὸς πάθος ἐκτὸς καθεζόμενος, ὑφ’ ὧν ἡμεῖς ὀλέγμενοι τὸς θεὸς ἐπικαλούμεθα. οἱ δὲ τὰ τοιαῦτα τερατίζομενοι, πόρρω τῆς ἀληθείας ἡγούμενοι, οὐκ ἂν ἐτὶ τοῦ ταύτην ἰσχυρίζεσθαι χρῆσθαι ἂν ἀξιολογοῦν. Διὰ τοῦτο ἡ τοιαύτην Ἀγαθαρχίδης τὰ περὶ τὸν Περσῶν εἰς ὁμοίως ἀνάγων μέθον, οὐδὲ τὴν ἐρυθρὰν ἐκ τοῦ παιδὸς αὐτοῦ κληθῆναι δίδωσι."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0179.4",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "δι’ αὐτὸς, φησίν, ταύτῳ αἴτιος καθέζω ἐλέγχων <note>ὁ τὴν τῶν μυθολογῶν ἐξουσίαν εἰς πραγματικὴν “με-722 H. τύπων ἐνάγαγεν· ἢς ἂν τις ἀφέλῃ τὸν ἔλεγχον, οὐδὲν εὐτελέστερον καταλείψει γένος τῆς πίστεως ἠρμένης. ἐπεὶ διὰ τινὰ αἰτίαν Ὀμηρον ἐκ τούτων, Λίδος καὶ Ποσειδῶνος φράζοντα διαφοράν, “ἀδύνατον ἀνθρώπων πίστεων παραδίδωσι· ὅδ’ Ἡσίοδος μέμφομαι δηλῶν τολμῶντα θεῶν γένεσιν· ὅδ’ Αἰσχύλον ἐπιπλήττω πολλοῖς διεψευσμένον καὶ πολλὰ συγγράφοντα τῶν ἀσυγχωρήτων· ὅδ’ Εὐριπίδου κατηγορῶ τῷ μὲν Ἀρχελάῳ περιτεδεικνύς τὰς Τρημύνας προάξεις, τὸν δὲ Τειρεσίαν βεβιωκότα παριστάμενος πέντε γενεῶν πλῆθος· οὐδὲ τὸς ἄλλος εἰς ἐπιτήδευσις ἄγαν διασκευαῖς ἐν τοῖς δράμασι χρωμένους ἀδυνάτους· διὰ πᾶς ποιητὴς ψυχαγωγίας ἢ ἀληθείας ἐστὶ ζαχαζέτης."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0182.11",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "27. πηλὸν om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0184.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "25. εὐχόρου] σπουδὴς B cum Diodoro 5. 15. 29. τε om"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0184.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "B. 2. χώρου] πάντων B et corr A. 8. γίνεται B. 10. δ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0184.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "om pr A. 13. ὅσους δὴ καὶ ἄν c. 14. τὰς καμμένας ο"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0184.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "23. μαρμῶ] σφορὸν B et corr A. 24. σκολιὰς] libri t"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0184.47",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "οἰοῦν] διαμανοῦν. 27. διαπλάττονται] ποιήσοντες B et corr A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0184.50",
+        "signals": [
+          "latin_editorial_operator",
+          "numbered_lemma_bracket",
+          "literal_note_markup"
+        ],
+        "original_text": "<note>. δὲ πίωσι A: δ' ἐμπλέωσι C. 11. μίγνυσι B. 12. καὶ C om A. πρὸς] πρὸ B. 15. δὲ πρὸ ταύτης om B. 16. κολλῶσι εἰς. cf. Diodor. 5, 16. vocabulum idem infra 17. ἰδοῦσι] εἰσι] εἰσι] εἰσι] εἰσι] εἰσι] εἰ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0187.43",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>a. 7. διελύμενος D. 16. ἅπτεται c. τὴν — 17. γ-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0187.44",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>ταὶ δὲ c. 38. ἀλλήλους D. 5. 6. ἐκ’) εἰς D. 13"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0187.45",
+        "signals": [
+          "latin_editorial_operator",
+          "literal_note_markup"
+        ],
+        "original_text": "<note>τοῦ add A. 26. δι καὶ πλείους c. 27. ἐξῆς A"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0188.8",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "11. πρῶσιπται c. 12. ἐπισθίους B. 17. ἀποχεύσθαι c. 14 c. 35. libri λέγουσι. vid. Diodor. 3, 29: qui mox pa- rrat articulus. 7. βραχίων c. 15. τὰς om A. οὐν 27. ἀπελαφθῆναι c. 28. τοῖς] τοὺς A. 30. περὶ] περ B. οὐχ c."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0190.9",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "31. (σινελίς) εἰνελίς δὲ Β et corr A. καὶ om B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0190.11",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "εἶδον καὶ add A. 6. πάχος] an τάχος? 19. ἀτιμάσευ-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0190.12",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "23. παραπλήσιον add A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0191.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 3. ὅς δ — ὀνομαζόμενος κροκόττας ἐστὶ μὲν A: ὅταλων] ἀκροτάδων τοῦ A: θαυμασὸν τῶν ἄλλων corr A. μίνης A. 26. μηδὲν ε. 39. ἀλυμριδὸς A. 40. συμβ- b. 16. [ἐλῶ] γαῖα A. 24. εὐθύνει B. 36. [σῆρος] τῆς A, τῇ πέτρᾳ B: τῇ πέτρᾳ ε."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0193.46",
+        "signals": [
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "Diodor. 3, 45. θῆρας B. 12. ἄλλως] immo ἐπὶ θρόνου"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0195.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "b. 5. νῆ om A. 8. μὲν add A 13. ἐτυπχωμένῳ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0207.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 1. ἀνόντος B et corr. A1 ἀνόντος b infra (b 7) λόγος B. 12. ἱερέων A1 ἀρχιερέων c. 5. 5. σὺν σὺν 21 τὸν Ἄρμεν ἀνέθησαν c. ἀδελφὴ c. 23. ἐπεύλῃπος"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0208.3",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 4. αὐτοῦ A. 6. καὶ τὸν δροκον c. 23. τε καὶ 32. ἐπανασύλον περιποιεῖσθαι A. 37. δήποτε] μηδὲν, idque d b. 13. Ἄρειον om A. 18. αὐτὴ B· αὐτὸν c. 28. συνβαλόμενος corr B· μεταβαλλόμενος c. 35. συμφώνους B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0210.4",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "[3. Ὀρμῆς] Ἐρμογένοος B et corr A. φθορᾶς] φθορᾶς B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0210.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "A: Λιμίας c. ὁ ἀπὸ Σύρος add A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0211.46",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "b. 19. καὶ ἰσάφρας add A. 25. ἀνθρωπότητι B: ἀνθρωπότητι"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0215.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 12. ἐφοδιάζων B. 21. αὐτὴ B. 29. τοῦ om"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0217.43",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>a. 11. ἐποκηρύττοντο — 12. ἀνακηρύττοντο. AB: ἀνακη-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0217.44",
+        "signals": [
+          "latin_editorial_operator",
+          "literal_note_markup"
+        ],
+        "original_text": "<note>τοντο. c. 13. τῆς add A. 17. καὶ τοῖς περὶ αὐτοῦς om"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0217.45",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>αὐτοῦ A, σωτοῦ B. 33. ἐπαγωγὸν] αὐτὸ B. 39. δὲ] δὲ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0219.4",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 3. κατεκρύπτετο B. 8. προχειρίζονται τ. 9. μὲ 12. γήρως c. 15. ἐκθραπενεύειν] ἀν θραπενεύειν B. om M. 23. τῷ — ἔφασαν om A. 33. ὁπὶδεν A. b. 1. εἰ om A. 13. δ’ οὖν A. γένος τ. 16. καὶ τὸ γένος τῆς ὀρθ. τ. 32. ἐπερωτῶσιν] καταφράσσει A, καταφρα"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0221.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "b. 6. εἰ καὶ π' ε. 7. καὶ ante τέχνη add A. 13"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0223.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 3. Ἐλευσῖνι Cotaes p. m. 4. σῖτεσιν] ἐστίς P χῶρος Pseudo-Plutarchus. 7. Ὀλυμπίῳ Corsae. 8. σικὰς P. 33. ἀνέστηλες c. 36. ναυκληρίαν Taylorus Le. b. 5. ἢ om A. 15. διακόσιος c. 19. praestat dum 37. σε πολλοῖ add A. 41. οὐθ'] οὐ B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0225.47",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>ld A. 28. ὑποστέω A. 33. ἀνεγνώσθη A. 38. libri"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0225.50",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "41. ἀνεγνώσθη A.</note>"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0227.47",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "συμβολίσων Α. 19. διββλε τ. 27. Ἰη om pr A, ante"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0227.48",
+        "signals": [
+          "latin_page_reference"
+        ],
+        "original_text": "διαφωμὴν B, μὴ' ἐφωμὴν Tour. Longin. p. 421."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0232.8",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ν B: ἐπικὸν ε. 27. τοῖς om A. [ἕνδεκα] ἐν δεσποτη-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0232.9",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "γνώσθησαν — 41. συνεισάγετε om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0233.3",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "a. 1. ἀνεγνώσθη ἡ ἑσπέρια Ἡ. 2. Ἀνδρέας Ἡ: Ὀμωῦν Thes. 2. p. 712. 6. ἡ Λ: ὁ ζ. ὥχη Λ: ἀπαρχή ζ. 13. πῶς γὰρ γὰρ. ζ. 21. ἀναστάσεως ζ. 27. ἐμωλύν B: ἐμωλύν ζ. 30. προστγ. πρὸς τῷ ζ. 14. τῷ ἀδελφῷ postea Ἡ: τῷ. 30. τῷ om B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0240.6",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 4. τοῦ αὐτοῦ — δ 25. ἀφύττουσα om B. 13. γὰρ ἀδ"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0241.43",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "την A: ταῦτα c. 27. ἑμω om A. 34. ἁπαλότητι B: ἀπαλ-"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0253.4",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "<note>a. 5. [ἐπεῖδεν] ἐπεῖδεν λέγεται A. 12. ὑμῶν A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0253.5",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "c. 30. καὶ λέγοντα om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0253.7",
+        "signals": [
+          "literal_note_markup"
+        ],
+        "original_text": "e. 1. ἀναθάλωσιν Kuesch. el Genen., ἀναπαλαιώσω</note>"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0253.9",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "14. Ὁ om A. 18. εἰδωλοτρείας c. 25. πυροσιωσωσιν ἀρθιταγῶ A. 34. δωρηθόντω A. 12. κτίσεως A. 36. αὐτῆς] αὐτοῖς pg A. 41. ἀνα- 19 Koth."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0258.8",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 4. τῇ A: καὶ τ. 8. τοῦτο τ. 15. ὁ, om A. 24. τ[σούτοις] ἀντεγράφη ἐν τῷ περὶ μετανοίας τοῦ αὐτοῦ Χρυσοστόμου b. 6. παρήκοιν Ἰππινος A. 12. Ὀρσαμ[ς] τοῦ Χρυσοστόμου τ. 29. τοῦς ποτε τ. 32. ἐθύνωτο καὶ τὸν Ἄρρων τοὺς om A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0260.41",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "17. ἐπὶσθ. ἡ’ οἱς σ. 19. ὅτι — 29. ἐπολιμῆσατο om"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0260.42",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "αὐτῶν gr: αὐτοῖς σ. 31. περὶ τῶν add A."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0260.44",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "δυτον — περυστόν σ. 17. χαμαιλέων) σαλίσους B et corr."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0260.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "αὐτοῦ περὶ παγαλίσους σ. 27. ποιοῦν σ. 29. (ε om B"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0262.6",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ὅτι τῶν ἀδρόνων φαινομένων ζώων οὐχ ἡ αὐτὴ πάντων αἰτία, ἀλλὰ τῶν μὲν ἡ ἡ γένεσις εἴδοὺς φα- 15 νερά, ὥσπερ τῶν μενῶν, αἱ ἐν τοῖς σφατοπέδους ἡ ἐν ταῖς πανηγύρεσι· κ μετὰ τὸ παρεῖναι αὐτὰ ἐπὶ μέλον γίνοντ· τίνων γὰρ ἡ τε κόπρος αἰτία ἡ ἡ τῶν ἄλλων σῆψις. ἄλλα δὲ προϋπάρχει μὲν, ἐκφαίνεται δὲ διὰ τὰς ἑτέρας, ὥσπερ οἱ τε κοχλίας ἡ οἱ μικροὶ βρά- 20 τραχοι· ἡ γὰρ ὄντα, ὡς τινες ὠήθησαν, ἀλλὰ προφαίνονται μόνον, κατὰ γῆς ὄντα πρότερον, διὰ τὸ εἰσρεῖν τὸ ὕδωρ εἰς τὰς διαλάμας αὐτῶν. ἄλλο δὲ γένος ἐστὶ τῶν διατράχων παρὰ τὸ ἐν ταῖς λίμναις ἡ τοῖς τέλμασι. τὸ δὲ πλῆθος καὶ τῶτο ἡ τῶν ἄλλων, 25 ὅταν ἐξὸτρυβῶσι. ὅτι μᾶλλον μετὰ τὰς διαλύσεις καὶ τῶν πανηγύρεων καὶ τῶν σφατοπέδων, ἢ ἐπὶ συνεχῶν, αἱ μυῖαι γίνονται. συμβαίνει γὰρ παρόντων μὲν διὰ τὰς καθυμιοινὰς χρείας καὶ κινήσεις “φθείρειν τὰς γενεσὰς αὐτῶν, κινήσεως δὲ καὶ με-1573R. ταβολῆς γινομένης, ὡς ἐν τοῖς ἄλλοις, καὶ ἐν αὐτοῖς 30 τοῖς καθύμμασιν ἐκβυλλοιούσιν αὐτῶν· ὅταν δὲ διαλυθῶσιν, ἑσυχίας γινομένης ταχὺ συντελεῖτ διὰ τὸ μὴ ὑπ’ οὐδενὸς κωλύεσθ, μέχρις ἂν ἂν ἐφραγῇ τὸ ἐν τοῖς καθύμμασιν ὕδρόν. ἡ μὲν ἐν τῶν μενῶν γένεσις τυχεῖον ἡ πολλήν, ὡς εἴρητ, τὴν γένεσιν λαμβάνει· οἱ 35 δὲ ἀντέλειθοι ἡ αἱ ἀκρίδες πανταχό μὲν εἰσιν ὡς εἰπεῖν, πλήθει δὲ ταῦτα τῷ τε τόπῳ οἰκείας λαμβάνειν καὶ τῷ μὴ διαφθείρειν αὐτῶν τὰ ὄν, ὁ συμβαίνει διὰ τὴν ἀρχίαν τῆς χώρας· ἐν γὰρ τῇ γεωργομένῃ ἀπόλλυντ. διὰ καὶ ἐκ τῆς ἱρήμῳ καὶ ἀργούσης ο καὶαφέροντ πρὸς τὴν οἰκουμένην ἡ ἱργάσιμον. ἐχρωσυνεσται A. 15. γίνεσθαι apud Theophrastum est: hic Theophrastam. 24. τοῦ αὐτοῦ om A. 33. ἀνθρα- 39. ὁμολοῖς B, ἀνθίστα B, ἀνθρακώδεστα εἰ A quid habeat, non liquet. 17. ἰαρ. δι A: καὶ ἰαρ. ε. 24. ὅτι μᾶλλον — A. 32. μέχρι C. 33. ταχὺαν] hac voce"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0266.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2. παῦσαι] μαῦσαι C. ζητεῖν] immo ζητῶ. c. v. μῳδοῦ) μῳδοῦ malis quam μῶ. 4. Εἰφορίωνι Scc Oed. Coton. p. CXVIII, 9. ματιδὴς C. 13. Ἐκάλη S quos c. 20. ποιεῖ] lacuna in C. 22. Ἀκτνλος] Ἄνιος μήματος C: τελήματος c. b. 2. πανέλιον C: πανέλιων φωτισωτέρων C: ἰρμωτισωτέρων c. 11. καὶ τῷ C: τῷ καὶ c. 21. φησί] an Διγνάλων; 32. φωνὰ add C."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0267.1",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "ἐγκλίνεται μόνος, ἴσως διότι τοῖς παραληρωματι-χοῖς κατὰ φωνὴν [συ]νμεμπίπτει. οἱ δὲ Αἰολεῖς ἄν μὲν ὡς συμπλεκτικὸν αὐτὸν παραλάβωσιν, ὁμοίως ἡμῖν ἐκφωνοῦσι τὸν τ᾽· ἂν δὲ παραληρωματικῶς, εἰς ὁ τρέψαντες τὴν συλλαβήν, καὶ τὸ λέγουσι ἀντὶ τῷ. ὅτι τὸ γλυκοσοχομεῖον κυρίως μὲν ἐς τὸ ἀγχείον ὁ τὰς αὐλητικὰς ἐποδείχει γλώσσας· οἱ δὲ νῦν κατα-χρώμενοι καὶ ἐπὶ τῶν ἄτερ τινα δεχομένων τιθᾶσι τὴν λέξιν. καὶ τοῦτο μὲν ἀνέχοντο, οἱ δὲ προσδιασρέ-869Περσὶ καὶ τὸν τόνον ἐκ τῶν χρόνων· δέον γὰρ προπερὶ-10 σπᾶν τὴν παραλήψαν μακρὰν, ὅτοι καὶ συγελδοσι καὶ προσαποξύνναι. ὅτι μύλης μὲν εἶδος οἱ πα-λαῖοι Θριδακίνην καλοῦσι, τὴν δὲ βοτύνην θρίδακα. οἱ δὲ ἰατροὶ Θρίδακα μὲν τὸ ἥμερον λέγουσι, Θριδακίνην δὲ τὸ ἄγριον καλῶσι. ὅτι ὥσπερ τὰ ῥαμεῖν ἐκ τὰ μὴ, πληθυντικῶς ἐκφωνεῖν ἐθέλοντες τὰ κοινέα, ὅτω καὶ τὰ σῖγμα δεῖ λέγειν, ἀλλ᾽ οὐ τὰ σήματα· ἐκ γὰρ ἀκλῖτα τῶν κοινείων τὰ ὀνόματα. διὸ ἐκ τὸ παρὰ τῷ Ξενοφῶντι ἐν τοῖς Ἑλληνικοῖς εἰρημένον ἐχ᾽ οὕτως, τὰ σήματα τῶν ἀσπίδων ἀναγνώσθω, ἀλλὰ δυσυλλάβως μὲν ,,τὰ σῖγμα\" ἐκ ἀπ᾽ ἄλλης ἀρχῆς ,,τὰ τῶν ἀσπίδων\" κατὰ διάσασιν. ὅτι τὸ ἀρχέππου, φασίν, ἑνὶ τῶν ἀρχαίων συγγραφέων ὑπὲ ῥητόρου ἁδὲ τῶν Μούσαις κάτοχον εἰρη?, ὡς Λιονίδης ὁ Ἀλκαῖνα-στές ἰσορεῖ. ὅτι χρήζον τὸ ἀληθὲς εἰρη?, καρύγνόν τι ἔν· οἱ γὰρ ἀληθῶς τι πράττοντες μᾶλλον ἐγγνῶν? τὸτο τῇ κεφαλῇ κατανεύοντες. οἱ δὲ χρήζον ἄν τὸ ἀληθὲς ἀλλὰ τὸ ἀγαθὸν ἠμαίνεν φασί, καρύγνον ἐτυμολογοῦντες, ὅσον ἡδῦνον τὸ κῆρ, τοτέες τὴν ψυχὴν ἡδύνειν γὰρ πέφυκε τὴν ψυχὴν τὸ ἀγαθόν. διεδργιζομένα ἐςὶ τὸ τὰ αὐτὰ πολλάκις λέγειν· ἐκ γὰρ τὸ τῆς ὀργῆς πυρὸς ἄγονον. διὸ ἐκ ὁ Ἀγαμέμνων ὀργιζόμενος τῷ Κάλχαντι ἐν τοῖς αὐτοῖς ῥήμασι τὴν βλασφημίαν περιφέρει, μάντι λέγων κακόν, καὶ ἀεὶ σοι φίλον τὰ κακὰ μαντεύεσθ?, καὶ ἐχθλὸν ἁδὲ πώποτε εὐπες. ὅτε τὸ ἐπιστάς παρὰ Καλλιμάχῳ καὶ Ἀράτῳ κείμενον ἀπὸ τῷ ὀρεικῶ μέλλοντος γέγονε κατὰ ἀπο-βολὴν τῆς ἐπὶ τέλει μακρᾶς συλλαβῆς, ὥσπερ ἐκ τὸ χωρὶς τὸ χωρίσω καὶ τὸ πλάας τὸ πελάσσω· ἐκ τὸ μὴ ἀπὸ τὸ μήσω, ἔσεν καὶ τὸ ἐπιμὲς παρ᾽ Ὀμήρῳ, ἐκ τὸ δάς ἀπὸ τὸ δάσσω· καὶ γὰρ οἱ Ἴωνες ἀπὸ τὸ δάκνω τὸ 32 ἄλογον Wassenberghus a. 3. αὐτὸς libri αὐτῷ. b. 10. παραλόγως — 12. [ἀλαζονεύεται] lacuna in C versus p. 63, 31. addunt Horsch. et Gener. ὁτο . . . συβὴ . . . . καὶ καὶ τὰ ἐξῆς. 11. ἡγῶ — 12. Θεῦθ. δ] ὅτο χλιδῇ μὴ ἡ τῶν Etym. M. p. 212, 51. 15. βάπταρος C, βαπτάρος s. συρίσσιος Μί[ταλος] apud plures scriptores Μιγαλέωρ — Μιγέλος. 18. 22. φρουροῦντα C: φοροῦντα s. 37. τὰ add C."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0267.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference"
+        ],
+        "original_text": "δάζω ἐκφέρωσιν· ἐκ δὲ τῷ δάζ· τὸ ὀδάζ. καὶ ἀπὸ τῷ πιτζῶν δὲ πιτζ, καὶ ἀποβολὴ τῷ τ· πιζ. ἔτως οὖν ἡ ἀπὸ τῷ ὀδίαω ὠδὶς καὶ ἀμφωδὶς· ἀμίζω ἀμίζ· παρὰ Νικάνδρῳ, καὶ πλίζω πλίζ· ἡ ἀμφιπλίζ,· ἡ ἀγκάσω δ· ἀγκάς, ἡ· τίνῳ τίν· ἡ προτιν. ὡσαύτως δὲ διλάσω διλάς καὶ διλάζ, πρόσω πρὸς πρὸς· ἡ ἀπρίζ. ἔτως ἄν ἡ· ἐκ τῷ ἐπειτάζω ἐπειτάζ, ὁ κατ· ἐπίταγμα ἡ· κίλευσιν πρύττει?· ὅτι τὸ κίρθεὶς οἱ μὲν Ἀττικοὶ ἀθρεικῶς ἐκφωνοῦσι, Καλλίμαχος δὲ ἑδεταιρως. καὶ τὸ φοιτάζειν δὲ Καλλίμαχος παρολολῶγος εἶπε φοιτάζειν, φάμενος ἀγαθοὶ πολλάκις πῖθεσι. ὅνῳα δὲ σημαίνει. φροντίεται δὲ “τὸ ἀλαζονεύεται. γέγονε δὲ  ἀπὸ τοῦ φροντίσω, ὅ ἐστι μίφρον· οἱ γὰρ ἀλαζονεύμενοι· ἡ φροντιζόμενοι μίφρον χρήσθ· εἰώθασι. ὅτι μίφρων δ· εἴδη, φφοῖ, βακχάριος, ναρκίντανος, εὐκτή, πλαγγρόνιον, ὅπερ εἶρε γυνὴ Ἥλεια καλουμένη Πλαγγὼν, μεταλείων, ὅπερ εἶρε Μέταλος Συρακούσιος. “ὅτι  παρὰ Εὐφορίωνι τῷ φῖναὶ μέν Καλκιδεῖ, ᾗσιν δὲ Ἀθηναῖος, κακόσχημον ἐκιν εἴρειν λέγει. καὶ γὰ τὸν οἰᾶσανα ναυαγὸν ἐπετ, ὅπερ ἡ νεναυαγηκότα μᾶλλον, τὸν δὲ ναῦν ἄγοντα δηλοῖ· καὶ τὸν τὰ χρυσῷ μῆλα τῶν Ἑσπερίδων φρουροῦντα ὅριν κιφασφὸν ὠνόμασε. παρεξέλινα δὲ τὸν πρῶτον Λιοντίσιον τὸν Σικελίας τύραννον, ὅς ὑπὸ τῆς ἑαυτοῦ καὶ τῶν πολιτῶν καὶ τῆς τρυφῆς διαφθερόμενος ἐπιχείρησε ἡ τραγῳδίας γράφειν, ἐν αἷς καὶ τοιαῦτα συνεφόρησε ῥήματα, τὸ μὲν ἀκόντιον καλῶν βαλάντιον, τὸν δὲ κῦδον ἑλκύδριον, σκέπαρον δὲ τὸ ἔριον, τὴν δὲ χλαῖναν ἐριώλην ὅσον ἐλεφρον ἔσαν τῶν ἐρίων, ἡ πολλὰ τοιαῦτα καταγέλασα. ὅτι ὁ τῆς Ὀνίας τριθείς δοιδὺς μέν παρὰ τοῖς Ἀττικοῖς ὀνομάζε?δ, ἀλετροβανος δὲ παρὰ τῇ συνήθεια, καὶ οὐδὲν ἦτον παρὰ Ἀθηναίοις· Λιοντίσιος δὲ ὁ προειρημένος τύραννος Ὀνίζην τὸν δοϊδνχα ἐκάλε. εἰκότως ἄρα τῆς τῶν τοιούτων ἀκροάσεως τὰς λατομίας μᾶλλον ἠρεῖτο Φιλόξενο?. ὅτι οἱ κωμικοὶ τὰς οἰκίας τὸ μὲν πλεῖον ἀπὸ τῷ γένους ἐκάλουν, ὅσον Σίφον Καρίωνα Μίδαν Γέταν καὶ τὰ ὁμοια, ἐκάλουν δὲ καὶ τὰ ἑξ ἰπθίτων, ὡς ἀπὸ τοῦ χρυσώματος μέν Πυρβίαν καὶ Ξανθίαν, ἀπὸ τῷ τρόπου δὲ Παρμίνωνα ἡ Πισῶν ἡ Ἀρώμανα. ἐκάλουν δὲ καὶ ἀπὸ τῆς ἡμέρας ἐν ἡ ἀνήσαντο τὸν οἰκίαν, ἑξ ἡ ἡ us ad Homer. Schol. p. 162, taepete. ~ ὁ ὁδὸ Λ. vus 151. φοιτάζειν bis posteaendum esse liquet ex Etym. M. si τὰ . . ., Koith. vero, quae ὅτι τῇ δ’ ante ἀγαθοὶ ponit, τρυφῇ, καὶ φροντ. δὲ σφραγίζει μέν ms. Neutr. 14. χρυσώματος Neopistus. 15. Πλαγγὼν] πλάτων C. μινελίους — 18. Φέσει] cf. Meierck. de Euphorionis vita et scriptis p. 5."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0268.1",
+        "signals": [
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "τὸς Νεμηνίας ὠνόμαζον. ὅτι τρεῖς ἰσορῶν? φθι- | μίαις τε θνήσκον· ἐς δὲ τὸ νόσημα μὲν τῶν σπανίων, | γίνεται δὲ ὅταν εἰς φθεῖρας ἀναλθῇ ἅπαν τὸ σῶμα. | ἀλλὰ τῶν ἐκ τῆς νόσου ταύτης τε θνητῶν τῶν μὲν | ἡρώων Ἄκακὸς ἦν ὁ Πηλιὰς, δεύτερος ὁ Σῦρος Φι- | ρεκύδης, ὁ τὴν γενεαλογίαν συγγράψας, ὃν ἡ λέξις | γενικῶς τὴν συμφορὰν ἐνεγκεῖν· τρίτος ὁ Ῥωμαίων | πολλάκις ὑπατεύσας Σύλλας, ἤδη σφόδρα γηραιὸς | ὢν, ὃς ἡ Ἐπαφρόδιτος διὰ τὴν τύχην ἐπωνομάζετο. | ὅτι ἀναλογώτερον ἀντὶ μὲν τῆς εἰς προθέσεως τὸ | ες λέγουν, ἀντὶ δὲ τῆς ἐς τὸ ἐκ· πᾶσα γὰρ πρόθεσις | βραχυκαταληκτεῖν ὤφειλε. ἀλλ’ ἕτερος πάλιν λόγος | τὴν ἐκ ξενίας διώκει· ἀδείμα γὰρ παρὰ Ἀττικοῖς λέξιν | εἰς ἕ καταλήγει. ὅτι τὸ Κυθνώλης διὰ τὸ λ γρά- | 871 Π. φουσιν, ἀλλὰ διὰ τὸ λ. Ἄργους γὰρ τὴν “χωρίον τὴν | καλούμενον Κύθνην, ἡ τὸς ἄνθρωπος ποτὲ Ἀμφερίων | ἀνέλαβεν πάντα, πλὴν ὀλίγων πάνυ. ὅτι ὁ παρ’ Ἀλ- | λοῖς μιμθὴ δυσλέων θὴς καλεῖται, ἡ παρὰ τῷ Σείναι, | ὁ δηλοῖ τὸ χειροῖν ἐργαλεύειν· κ ποιεῖν (ἡ γὰρ τοῖς πα- | λαιοῖς λέγουν ἔθος τὸ ἰδῆναι ἐπὶ τῷ τὲ δράν, καὶ ὡς | δρασιωτάτου ἔργου διὰ τὸτο κέλη? Θησεύς), ἡ κατὰ | μετάθεσιν τὸ τ εἰς τὸ Φ· τὸ γὰρ πένηθι καὶ τιτρώθι | βία, οἷον εἴρειθι, ἀναχάμει πολλὰς τὰ θέλων πράτ- | τειν. ὅτι παρὰ γράμματα, φησίν, μυρία ἐστί· ἡμαρ- | τημένα, ὥσπερ ἀντὶ τῷ ὁ οἶκος ἀμορτάνοντες λέ- | γουσιν ὁ οἶκος, καὶ ἀντὶ τῷ ἀνδράχλη διὰ τὸ λ (ὅτι | γὰρ φασιν οἱ Ἀττικοὶ) λέγουσιν ἀνδράχνη. καὶ τὸ | εἶδον δὲ ἀναλογώτερον τῷ ἔδων. ἡ τὸν ὠλε.... προ- | φήρουν· ἡ δὲ συνήθεια διὰ τὸ ᾶ. ὅτι ὁ Εὐβο- | ρίσις, φησίν, ἰσορῶν τινὰ ἐνίπνιον μηδέποτε ἐώρακέ- | ναι. ὅτι τὴν ἡμόνον, ἢφ’ ἧς ὀχόμθω, φησίν, ἀξόγω | ὤσης, Ἀθηναῖοι καλοῦσιν ἀφράβην· ἐνθὲν λέγε? ὁ ὁ ἀφρα- | 1589 βηλάτης. “λέγε? μέντοι ἀφράβη τὸ κοτσοκεῦασμα, | ὡς Ἀριστοτέλης ἐν τῷ κατὰ Μενδίαν λόγῳ, “ἐπ’ ἀφράβης | ὀχόμενος ἀργυρῶς.” ὅτι ἄρτος ἐκ τῷ σῖρων εἴρη?, | φησίν, ὁ δηλοῖ τὸ προσωφείρειν· ἡ γὰρ καὶ’ ἰκάσνη τῶ- | τον προσοφειρόμεθω. ἡ’ ἁρμὸς δὲ ἡ τροφή παρὰ Ἱππο- | κράτει ἡ πολλοῖς ἄλλοις. ὅτι τὸ τάριχος ὡς ἐπὶ | τὸ πολὺ μὲν λέγουσιν ἀδετέρας οἱ Ἀττικοί, ἐπ’ ἰλστον | δὲ καὶ ἀρσενικῶς· οἱ δὲ γραμματικοὶ τεχνολογοῦντες | ἀναλογώτερόν φασιν τὸν τάριχον λέγεσθαι. ὅτι τὸ | 4. 5. Σῦρος — 7. γενικῶς] itampo Σῦρος — γενρικῶς. | τοῦ βίου ε. οἶον] malim ὁ ἐς. 27. οὐν ἀνδράχνη καὶ | ἄλα Roth. τὴν ὠμύλλαν. 30. ὁ τινὶ] lacuna in C. μη | b. 20. ποδωνύτερα C: ποδωνύσια ε. 30. παλὶς C : | p. 221. 39. Ἀριστοτ.] Plut."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0269.2",
+        "signals": [
+          "latin_editorial_operator",
+          "latin_page_reference",
+          "numbered_lemma_bracket"
+        ],
+        "original_text": "a. 3. Ἰθὸς — Ἰθὸς] nota trimetrum (cf. p. 535 b 42). λοιμικὴν, et 11 καὶ — 13 φαρμακοῖς, et 14 τὴν — 15 Ἀθην — 6. τοῦ δὲ] lacuna in C. 6. συβάκχοι C: συμβακχοί libri. 5. 4. δὲ C: τε c. 7. ῥῶν] εἰ C. 13. libi- malim ἄκρας. post ἐβόας in C lacuna est septem aut octo syllabarum. 34. ἡ] ἡν καὶ C. 35. p. 535 a 1. τιμωρίαν — 2. τιμωριῶν: et v. 8. καὶ τῇ — τοῦτο: et 40. διότι — 41. ὀργάνε: 49. τὰ δὲ — 20. ο"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0273.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2. αὐτὸν add B. 3. οὐκ ἀπαξιώσεως αὐτὸ βαπτισθδῆλον ἔστι ζ. 6. γενόμενος B: γενόμενος ζ. τοὺς τῆς Χριστὸν γνώσεως: οἱ βαπτιζόμενοι B: οἱ τότε βαπτιζόμενοι τῆς Ἰωάννου διὰ τοῦ σαφοῦς ζ. 19. ἀνελίδασαν B: ἀνελίδασαν 24. παρασκευάσων B: διδάσκων ζ. 28. καὶ ἀλλαχόθι add B. 34. τὸ αὐτὸ τέλειον add B. 36. νήμαθι μνησθίων ζ. 38. ὡς) δ videtur esse in B. b. 1. ὅτι οὐ δέεται δυνζε τὰ ἰωάννου ἐν καιρῷ β. β. B: ἐτι δ τὸ τοῦ Ἰωάννου ἐν καιρῷ τοῦ β. αὐτὸ B: τοῖς β. αὐτὸ ἀποκρίνεται καθαροὺς ζ. 25. ἀποκρίνεται B: ἀποκρίνεται ζ. 30. γράφω — 38. τι B: δι ζ."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0274.2",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "a. 2. καλὸν — ὁῆμα B: καλῶν — ὁημάτων c. 3. 26. ἡ A: εἰ c. 33. τῷ om. B. 38. βαπτισμῶν διαφορὰς 8. διδάξαμεν B. 9. ἀρίστης vulgo post λόγον ponunt B. 22. οὖν add B. 24. ταύτην τῆς B: τὴν τοιαύτην"
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0275.45",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "23 κατεργασθῶσι B: κατεργασθῶσι σ. 25. ὁ add B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0275.46",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "τρίων Ἰησοῦ σ. 27. τοῦ et ὁ δ. ταύτης add B."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0276.7",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "11. οὐ om C. 23. φασι C. 28. φίλτρον om C."
+      },
+      {
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0278.4",
+        "signals": [
+          "latin_editorial_operator"
+        ],
+        "original_text": "ὅτι „ἄλαλα γεννηθήτω τὰ χείλη τὰ δόλια, τὰ λαλάντα κατὰ τὸ δικαίῳ,” ᾔδει ὁ Δανιδ· [ταὐτὸν] πρώττιν φησι καὶ τὸς ἐν τῇ Ἀλεξανδρείᾳ Ναυτιανούς, ὅτι κατὰ τὸν μαρτύρων τῷ Χριστῷ κενολογῶντας παριζῶν φησιν ὅτι κατὰ τὴν “μέλλυσαν ἡμέραν ἄκ ἄν ἐξσυνθῃ Π. ἀπολογίαν, ἀλλ’ διὰρμι σώμα ἡ κινήσαι χείλη δυνήσον”, ὅτι ἐν τῷ παρόντι κατὰ τῶν Χριστῷ μαρτύρων τὴν γλώσσαν ἠκόνησαν. ὅτι τὸ περὶ Ἀλεξάνδρου τῷ χαλκέως εἰρημένον παρὰ τῷ ἀποστόλῳ „Ἀλέξανδρος χαλκεὺς πολλὰ μοι κακὰ ἐνειλέξατο· ἀποδώσει αὐτῷ κύριος ἐν ἐκείνη τῇ ἡμέρᾳ” οἱ μὲν ἄλλοι τῶν πατέρων ἄκ ἀρῶν εἶναι φασιν τὸν λόγον, ἄλλα μόνον ἀπόφασιν διαφρίσμεν ε. 22. τῷ om C. 29. τῆς C: ἀπό. νῆς ε. s vocis syllaba desinit C: cui reliqua adscripsit nescio quis."
+      }
+    ]
+  },
+  "changes_made": [],
+  "generated_by": "scripts/audit_photius_apparatus.py"
+}

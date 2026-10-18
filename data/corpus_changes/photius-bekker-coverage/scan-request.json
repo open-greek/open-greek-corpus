@@ -1,0 +1,3774 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Recover the prefatory letter and codices 1-229; scan 279 is an overlap check for codex 230, not additional primary text.",
+  "review": {
+    "checked_scan_pages": [
+      13,
+      278,
+      279,
+      557,
+      558
+    ],
+    "evidence": [
+      "Scan 13 begins the Greek prefatory letter and codex 1, including a transition from full-width text to two columns.",
+      "Scan 278 is printed page 266 and ends codex 229. Scan 279 is printed page 267 and begins codex 230 (Eulogius), matching the current served incipit.",
+      "Scan 557 is printed page 545 and ends codex 280. Scan 558 starts the edition INDEX.",
+      "Current OCR page 0002 matches combined scan 279; current page 0280 matches scan 557; current page 0281 begins index material. Preserve these old passage identities when moving index rows."
+    ],
+    "geometry": "Full page retained because scan 13 mixes a full-width prefatory letter with two-column authorial text. The prompt excludes the smaller apparatus; predictions remain raw witnesses pending source comparison and review.",
+    "accepted_for_primary_ingest": false
+  },
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "pages": [
+    {
+      "id": "photius-bekker-0013",
+      "source": "photius-bekker-combined",
+      "scan_page": 13,
+      "printed_page": 1,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0033",
+      "source": "photius-bekker-combined",
+      "scan_page": 33,
+      "printed_page": 21,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0278",
+      "source": "photius-bekker-combined",
+      "scan_page": 278,
+      "printed_page": 266,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0279",
+      "source": "photius-bekker-combined",
+      "scan_page": 279,
+      "printed_page": 267,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "overlap-check"
+    },
+    {
+      "id": "photius-bekker-0014",
+      "source": "photius-bekker-combined",
+      "scan_page": 14,
+      "printed_page": 2,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0015",
+      "source": "photius-bekker-combined",
+      "scan_page": 15,
+      "printed_page": 3,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0016",
+      "source": "photius-bekker-combined",
+      "scan_page": 16,
+      "printed_page": 4,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0017",
+      "source": "photius-bekker-combined",
+      "scan_page": 17,
+      "printed_page": 5,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0018",
+      "source": "photius-bekker-combined",
+      "scan_page": 18,
+      "printed_page": 6,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0019",
+      "source": "photius-bekker-combined",
+      "scan_page": 19,
+      "printed_page": 7,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0020",
+      "source": "photius-bekker-combined",
+      "scan_page": 20,
+      "printed_page": 8,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0021",
+      "source": "photius-bekker-combined",
+      "scan_page": 21,
+      "printed_page": 9,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0022",
+      "source": "photius-bekker-combined",
+      "scan_page": 22,
+      "printed_page": 10,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0023",
+      "source": "photius-bekker-combined",
+      "scan_page": 23,
+      "printed_page": 11,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0024",
+      "source": "photius-bekker-combined",
+      "scan_page": 24,
+      "printed_page": 12,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0025",
+      "source": "photius-bekker-combined",
+      "scan_page": 25,
+      "printed_page": 13,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0026",
+      "source": "photius-bekker-combined",
+      "scan_page": 26,
+      "printed_page": 14,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0027",
+      "source": "photius-bekker-combined",
+      "scan_page": 27,
+      "printed_page": 15,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0028",
+      "source": "photius-bekker-combined",
+      "scan_page": 28,
+      "printed_page": 16,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0029",
+      "source": "photius-bekker-combined",
+      "scan_page": 29,
+      "printed_page": 17,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0030",
+      "source": "photius-bekker-combined",
+      "scan_page": 30,
+      "printed_page": 18,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0031",
+      "source": "photius-bekker-combined",
+      "scan_page": 31,
+      "printed_page": 19,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0032",
+      "source": "photius-bekker-combined",
+      "scan_page": 32,
+      "printed_page": 20,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0034",
+      "source": "photius-bekker-combined",
+      "scan_page": 34,
+      "printed_page": 22,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0035",
+      "source": "photius-bekker-combined",
+      "scan_page": 35,
+      "printed_page": 23,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0036",
+      "source": "photius-bekker-combined",
+      "scan_page": 36,
+      "printed_page": 24,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0037",
+      "source": "photius-bekker-combined",
+      "scan_page": 37,
+      "printed_page": 25,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0038",
+      "source": "photius-bekker-combined",
+      "scan_page": 38,
+      "printed_page": 26,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0039",
+      "source": "photius-bekker-combined",
+      "scan_page": 39,
+      "printed_page": 27,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0040",
+      "source": "photius-bekker-combined",
+      "scan_page": 40,
+      "printed_page": 28,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0041",
+      "source": "photius-bekker-combined",
+      "scan_page": 41,
+      "printed_page": 29,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0042",
+      "source": "photius-bekker-combined",
+      "scan_page": 42,
+      "printed_page": 30,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0043",
+      "source": "photius-bekker-combined",
+      "scan_page": 43,
+      "printed_page": 31,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0044",
+      "source": "photius-bekker-combined",
+      "scan_page": 44,
+      "printed_page": 32,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0045",
+      "source": "photius-bekker-combined",
+      "scan_page": 45,
+      "printed_page": 33,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0046",
+      "source": "photius-bekker-combined",
+      "scan_page": 46,
+      "printed_page": 34,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0047",
+      "source": "photius-bekker-combined",
+      "scan_page": 47,
+      "printed_page": 35,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0048",
+      "source": "photius-bekker-combined",
+      "scan_page": 48,
+      "printed_page": 36,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0049",
+      "source": "photius-bekker-combined",
+      "scan_page": 49,
+      "printed_page": 37,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0050",
+      "source": "photius-bekker-combined",
+      "scan_page": 50,
+      "printed_page": 38,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0051",
+      "source": "photius-bekker-combined",
+      "scan_page": 51,
+      "printed_page": 39,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0052",
+      "source": "photius-bekker-combined",
+      "scan_page": 52,
+      "printed_page": 40,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0053",
+      "source": "photius-bekker-combined",
+      "scan_page": 53,
+      "printed_page": 41,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0054",
+      "source": "photius-bekker-combined",
+      "scan_page": 54,
+      "printed_page": 42,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0055",
+      "source": "photius-bekker-combined",
+      "scan_page": 55,
+      "printed_page": 43,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0056",
+      "source": "photius-bekker-combined",
+      "scan_page": 56,
+      "printed_page": 44,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0057",
+      "source": "photius-bekker-combined",
+      "scan_page": 57,
+      "printed_page": 45,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0058",
+      "source": "photius-bekker-combined",
+      "scan_page": 58,
+      "printed_page": 46,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0059",
+      "source": "photius-bekker-combined",
+      "scan_page": 59,
+      "printed_page": 47,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0060",
+      "source": "photius-bekker-combined",
+      "scan_page": 60,
+      "printed_page": 48,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0061",
+      "source": "photius-bekker-combined",
+      "scan_page": 61,
+      "printed_page": 49,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0062",
+      "source": "photius-bekker-combined",
+      "scan_page": 62,
+      "printed_page": 50,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0063",
+      "source": "photius-bekker-combined",
+      "scan_page": 63,
+      "printed_page": 51,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0064",
+      "source": "photius-bekker-combined",
+      "scan_page": 64,
+      "printed_page": 52,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0065",
+      "source": "photius-bekker-combined",
+      "scan_page": 65,
+      "printed_page": 53,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0066",
+      "source": "photius-bekker-combined",
+      "scan_page": 66,
+      "printed_page": 54,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0067",
+      "source": "photius-bekker-combined",
+      "scan_page": 67,
+      "printed_page": 55,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0068",
+      "source": "photius-bekker-combined",
+      "scan_page": 68,
+      "printed_page": 56,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0069",
+      "source": "photius-bekker-combined",
+      "scan_page": 69,
+      "printed_page": 57,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0070",
+      "source": "photius-bekker-combined",
+      "scan_page": 70,
+      "printed_page": 58,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0071",
+      "source": "photius-bekker-combined",
+      "scan_page": 71,
+      "printed_page": 59,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0072",
+      "source": "photius-bekker-combined",
+      "scan_page": 72,
+      "printed_page": 60,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0073",
+      "source": "photius-bekker-combined",
+      "scan_page": 73,
+      "printed_page": 61,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0074",
+      "source": "photius-bekker-combined",
+      "scan_page": 74,
+      "printed_page": 62,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0075",
+      "source": "photius-bekker-combined",
+      "scan_page": 75,
+      "printed_page": 63,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0076",
+      "source": "photius-bekker-combined",
+      "scan_page": 76,
+      "printed_page": 64,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0077",
+      "source": "photius-bekker-combined",
+      "scan_page": 77,
+      "printed_page": 65,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0078",
+      "source": "photius-bekker-combined",
+      "scan_page": 78,
+      "printed_page": 66,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0079",
+      "source": "photius-bekker-combined",
+      "scan_page": 79,
+      "printed_page": 67,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0080",
+      "source": "photius-bekker-combined",
+      "scan_page": 80,
+      "printed_page": 68,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0081",
+      "source": "photius-bekker-combined",
+      "scan_page": 81,
+      "printed_page": 69,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0082",
+      "source": "photius-bekker-combined",
+      "scan_page": 82,
+      "printed_page": 70,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0083",
+      "source": "photius-bekker-combined",
+      "scan_page": 83,
+      "printed_page": 71,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0084",
+      "source": "photius-bekker-combined",
+      "scan_page": 84,
+      "printed_page": 72,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0085",
+      "source": "photius-bekker-combined",
+      "scan_page": 85,
+      "printed_page": 73,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0086",
+      "source": "photius-bekker-combined",
+      "scan_page": 86,
+      "printed_page": 74,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0087",
+      "source": "photius-bekker-combined",
+      "scan_page": 87,
+      "printed_page": 75,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0088",
+      "source": "photius-bekker-combined",
+      "scan_page": 88,
+      "printed_page": 76,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0089",
+      "source": "photius-bekker-combined",
+      "scan_page": 89,
+      "printed_page": 77,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0090",
+      "source": "photius-bekker-combined",
+      "scan_page": 90,
+      "printed_page": 78,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0091",
+      "source": "photius-bekker-combined",
+      "scan_page": 91,
+      "printed_page": 79,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0092",
+      "source": "photius-bekker-combined",
+      "scan_page": 92,
+      "printed_page": 80,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0093",
+      "source": "photius-bekker-combined",
+      "scan_page": 93,
+      "printed_page": 81,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0094",
+      "source": "photius-bekker-combined",
+      "scan_page": 94,
+      "printed_page": 82,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0095",
+      "source": "photius-bekker-combined",
+      "scan_page": 95,
+      "printed_page": 83,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0096",
+      "source": "photius-bekker-combined",
+      "scan_page": 96,
+      "printed_page": 84,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0097",
+      "source": "photius-bekker-combined",
+      "scan_page": 97,
+      "printed_page": 85,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0098",
+      "source": "photius-bekker-combined",
+      "scan_page": 98,
+      "printed_page": 86,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0099",
+      "source": "photius-bekker-combined",
+      "scan_page": 99,
+      "printed_page": 87,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0100",
+      "source": "photius-bekker-combined",
+      "scan_page": 100,
+      "printed_page": 88,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0101",
+      "source": "photius-bekker-combined",
+      "scan_page": 101,
+      "printed_page": 89,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0102",
+      "source": "photius-bekker-combined",
+      "scan_page": 102,
+      "printed_page": 90,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0103",
+      "source": "photius-bekker-combined",
+      "scan_page": 103,
+      "printed_page": 91,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0104",
+      "source": "photius-bekker-combined",
+      "scan_page": 104,
+      "printed_page": 92,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0105",
+      "source": "photius-bekker-combined",
+      "scan_page": 105,
+      "printed_page": 93,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0106",
+      "source": "photius-bekker-combined",
+      "scan_page": 106,
+      "printed_page": 94,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0107",
+      "source": "photius-bekker-combined",
+      "scan_page": 107,
+      "printed_page": 95,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0108",
+      "source": "photius-bekker-combined",
+      "scan_page": 108,
+      "printed_page": 96,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0109",
+      "source": "photius-bekker-combined",
+      "scan_page": 109,
+      "printed_page": 97,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0110",
+      "source": "photius-bekker-combined",
+      "scan_page": 110,
+      "printed_page": 98,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0111",
+      "source": "photius-bekker-combined",
+      "scan_page": 111,
+      "printed_page": 99,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0112",
+      "source": "photius-bekker-combined",
+      "scan_page": 112,
+      "printed_page": 100,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0113",
+      "source": "photius-bekker-combined",
+      "scan_page": 113,
+      "printed_page": 101,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0114",
+      "source": "photius-bekker-combined",
+      "scan_page": 114,
+      "printed_page": 102,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0115",
+      "source": "photius-bekker-combined",
+      "scan_page": 115,
+      "printed_page": 103,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0116",
+      "source": "photius-bekker-combined",
+      "scan_page": 116,
+      "printed_page": 104,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0117",
+      "source": "photius-bekker-combined",
+      "scan_page": 117,
+      "printed_page": 105,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0118",
+      "source": "photius-bekker-combined",
+      "scan_page": 118,
+      "printed_page": 106,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0119",
+      "source": "photius-bekker-combined",
+      "scan_page": 119,
+      "printed_page": 107,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0120",
+      "source": "photius-bekker-combined",
+      "scan_page": 120,
+      "printed_page": 108,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0121",
+      "source": "photius-bekker-combined",
+      "scan_page": 121,
+      "printed_page": 109,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0122",
+      "source": "photius-bekker-combined",
+      "scan_page": 122,
+      "printed_page": 110,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0123",
+      "source": "photius-bekker-combined",
+      "scan_page": 123,
+      "printed_page": 111,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0124",
+      "source": "photius-bekker-combined",
+      "scan_page": 124,
+      "printed_page": 112,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0125",
+      "source": "photius-bekker-combined",
+      "scan_page": 125,
+      "printed_page": 113,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0126",
+      "source": "photius-bekker-combined",
+      "scan_page": 126,
+      "printed_page": 114,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0127",
+      "source": "photius-bekker-combined",
+      "scan_page": 127,
+      "printed_page": 115,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0128",
+      "source": "photius-bekker-combined",
+      "scan_page": 128,
+      "printed_page": 116,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0129",
+      "source": "photius-bekker-combined",
+      "scan_page": 129,
+      "printed_page": 117,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0130",
+      "source": "photius-bekker-combined",
+      "scan_page": 130,
+      "printed_page": 118,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0131",
+      "source": "photius-bekker-combined",
+      "scan_page": 131,
+      "printed_page": 119,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0132",
+      "source": "photius-bekker-combined",
+      "scan_page": 132,
+      "printed_page": 120,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0133",
+      "source": "photius-bekker-combined",
+      "scan_page": 133,
+      "printed_page": 121,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0134",
+      "source": "photius-bekker-combined",
+      "scan_page": 134,
+      "printed_page": 122,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0135",
+      "source": "photius-bekker-combined",
+      "scan_page": 135,
+      "printed_page": 123,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0136",
+      "source": "photius-bekker-combined",
+      "scan_page": 136,
+      "printed_page": 124,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0137",
+      "source": "photius-bekker-combined",
+      "scan_page": 137,
+      "printed_page": 125,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0138",
+      "source": "photius-bekker-combined",
+      "scan_page": 138,
+      "printed_page": 126,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0139",
+      "source": "photius-bekker-combined",
+      "scan_page": 139,
+      "printed_page": 127,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0140",
+      "source": "photius-bekker-combined",
+      "scan_page": 140,
+      "printed_page": 128,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0141",
+      "source": "photius-bekker-combined",
+      "scan_page": 141,
+      "printed_page": 129,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0142",
+      "source": "photius-bekker-combined",
+      "scan_page": 142,
+      "printed_page": 130,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0143",
+      "source": "photius-bekker-combined",
+      "scan_page": 143,
+      "printed_page": 131,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0144",
+      "source": "photius-bekker-combined",
+      "scan_page": 144,
+      "printed_page": 132,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0145",
+      "source": "photius-bekker-combined",
+      "scan_page": 145,
+      "printed_page": 133,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0146",
+      "source": "photius-bekker-combined",
+      "scan_page": 146,
+      "printed_page": 134,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0147",
+      "source": "photius-bekker-combined",
+      "scan_page": 147,
+      "printed_page": 135,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0148",
+      "source": "photius-bekker-combined",
+      "scan_page": 148,
+      "printed_page": 136,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0149",
+      "source": "photius-bekker-combined",
+      "scan_page": 149,
+      "printed_page": 137,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0150",
+      "source": "photius-bekker-combined",
+      "scan_page": 150,
+      "printed_page": 138,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0151",
+      "source": "photius-bekker-combined",
+      "scan_page": 151,
+      "printed_page": 139,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0152",
+      "source": "photius-bekker-combined",
+      "scan_page": 152,
+      "printed_page": 140,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0153",
+      "source": "photius-bekker-combined",
+      "scan_page": 153,
+      "printed_page": 141,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0154",
+      "source": "photius-bekker-combined",
+      "scan_page": 154,
+      "printed_page": 142,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0155",
+      "source": "photius-bekker-combined",
+      "scan_page": 155,
+      "printed_page": 143,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0156",
+      "source": "photius-bekker-combined",
+      "scan_page": 156,
+      "printed_page": 144,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0157",
+      "source": "photius-bekker-combined",
+      "scan_page": 157,
+      "printed_page": 145,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0158",
+      "source": "photius-bekker-combined",
+      "scan_page": 158,
+      "printed_page": 146,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0159",
+      "source": "photius-bekker-combined",
+      "scan_page": 159,
+      "printed_page": 147,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0160",
+      "source": "photius-bekker-combined",
+      "scan_page": 160,
+      "printed_page": 148,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0161",
+      "source": "photius-bekker-combined",
+      "scan_page": 161,
+      "printed_page": 149,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0162",
+      "source": "photius-bekker-combined",
+      "scan_page": 162,
+      "printed_page": 150,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0163",
+      "source": "photius-bekker-combined",
+      "scan_page": 163,
+      "printed_page": 151,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0164",
+      "source": "photius-bekker-combined",
+      "scan_page": 164,
+      "printed_page": 152,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0165",
+      "source": "photius-bekker-combined",
+      "scan_page": 165,
+      "printed_page": 153,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0166",
+      "source": "photius-bekker-combined",
+      "scan_page": 166,
+      "printed_page": 154,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0167",
+      "source": "photius-bekker-combined",
+      "scan_page": 167,
+      "printed_page": 155,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0168",
+      "source": "photius-bekker-combined",
+      "scan_page": 168,
+      "printed_page": 156,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0169",
+      "source": "photius-bekker-combined",
+      "scan_page": 169,
+      "printed_page": 157,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0170",
+      "source": "photius-bekker-combined",
+      "scan_page": 170,
+      "printed_page": 158,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0171",
+      "source": "photius-bekker-combined",
+      "scan_page": 171,
+      "printed_page": 159,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0172",
+      "source": "photius-bekker-combined",
+      "scan_page": 172,
+      "printed_page": 160,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0173",
+      "source": "photius-bekker-combined",
+      "scan_page": 173,
+      "printed_page": 161,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0174",
+      "source": "photius-bekker-combined",
+      "scan_page": 174,
+      "printed_page": 162,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0175",
+      "source": "photius-bekker-combined",
+      "scan_page": 175,
+      "printed_page": 163,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0176",
+      "source": "photius-bekker-combined",
+      "scan_page": 176,
+      "printed_page": 164,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0177",
+      "source": "photius-bekker-combined",
+      "scan_page": 177,
+      "printed_page": 165,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0178",
+      "source": "photius-bekker-combined",
+      "scan_page": 178,
+      "printed_page": 166,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0179",
+      "source": "photius-bekker-combined",
+      "scan_page": 179,
+      "printed_page": 167,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0180",
+      "source": "photius-bekker-combined",
+      "scan_page": 180,
+      "printed_page": 168,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0181",
+      "source": "photius-bekker-combined",
+      "scan_page": 181,
+      "printed_page": 169,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0182",
+      "source": "photius-bekker-combined",
+      "scan_page": 182,
+      "printed_page": 170,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0183",
+      "source": "photius-bekker-combined",
+      "scan_page": 183,
+      "printed_page": 171,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0184",
+      "source": "photius-bekker-combined",
+      "scan_page": 184,
+      "printed_page": 172,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0185",
+      "source": "photius-bekker-combined",
+      "scan_page": 185,
+      "printed_page": 173,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0186",
+      "source": "photius-bekker-combined",
+      "scan_page": 186,
+      "printed_page": 174,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0187",
+      "source": "photius-bekker-combined",
+      "scan_page": 187,
+      "printed_page": 175,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0188",
+      "source": "photius-bekker-combined",
+      "scan_page": 188,
+      "printed_page": 176,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0189",
+      "source": "photius-bekker-combined",
+      "scan_page": 189,
+      "printed_page": 177,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0190",
+      "source": "photius-bekker-combined",
+      "scan_page": 190,
+      "printed_page": 178,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0191",
+      "source": "photius-bekker-combined",
+      "scan_page": 191,
+      "printed_page": 179,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0192",
+      "source": "photius-bekker-combined",
+      "scan_page": 192,
+      "printed_page": 180,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0193",
+      "source": "photius-bekker-combined",
+      "scan_page": 193,
+      "printed_page": 181,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0194",
+      "source": "photius-bekker-combined",
+      "scan_page": 194,
+      "printed_page": 182,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0195",
+      "source": "photius-bekker-combined",
+      "scan_page": 195,
+      "printed_page": 183,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0196",
+      "source": "photius-bekker-combined",
+      "scan_page": 196,
+      "printed_page": 184,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0197",
+      "source": "photius-bekker-combined",
+      "scan_page": 197,
+      "printed_page": 185,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0198",
+      "source": "photius-bekker-combined",
+      "scan_page": 198,
+      "printed_page": 186,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0199",
+      "source": "photius-bekker-combined",
+      "scan_page": 199,
+      "printed_page": 187,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0200",
+      "source": "photius-bekker-combined",
+      "scan_page": 200,
+      "printed_page": 188,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0201",
+      "source": "photius-bekker-combined",
+      "scan_page": 201,
+      "printed_page": 189,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0202",
+      "source": "photius-bekker-combined",
+      "scan_page": 202,
+      "printed_page": 190,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0203",
+      "source": "photius-bekker-combined",
+      "scan_page": 203,
+      "printed_page": 191,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0204",
+      "source": "photius-bekker-combined",
+      "scan_page": 204,
+      "printed_page": 192,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0205",
+      "source": "photius-bekker-combined",
+      "scan_page": 205,
+      "printed_page": 193,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0206",
+      "source": "photius-bekker-combined",
+      "scan_page": 206,
+      "printed_page": 194,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0207",
+      "source": "photius-bekker-combined",
+      "scan_page": 207,
+      "printed_page": 195,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0208",
+      "source": "photius-bekker-combined",
+      "scan_page": 208,
+      "printed_page": 196,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0209",
+      "source": "photius-bekker-combined",
+      "scan_page": 209,
+      "printed_page": 197,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0210",
+      "source": "photius-bekker-combined",
+      "scan_page": 210,
+      "printed_page": 198,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0211",
+      "source": "photius-bekker-combined",
+      "scan_page": 211,
+      "printed_page": 199,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0212",
+      "source": "photius-bekker-combined",
+      "scan_page": 212,
+      "printed_page": 200,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0213",
+      "source": "photius-bekker-combined",
+      "scan_page": 213,
+      "printed_page": 201,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0214",
+      "source": "photius-bekker-combined",
+      "scan_page": 214,
+      "printed_page": 202,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0215",
+      "source": "photius-bekker-combined",
+      "scan_page": 215,
+      "printed_page": 203,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0216",
+      "source": "photius-bekker-combined",
+      "scan_page": 216,
+      "printed_page": 204,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0217",
+      "source": "photius-bekker-combined",
+      "scan_page": 217,
+      "printed_page": 205,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0218",
+      "source": "photius-bekker-combined",
+      "scan_page": 218,
+      "printed_page": 206,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0219",
+      "source": "photius-bekker-combined",
+      "scan_page": 219,
+      "printed_page": 207,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0220",
+      "source": "photius-bekker-combined",
+      "scan_page": 220,
+      "printed_page": 208,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0221",
+      "source": "photius-bekker-combined",
+      "scan_page": 221,
+      "printed_page": 209,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0222",
+      "source": "photius-bekker-combined",
+      "scan_page": 222,
+      "printed_page": 210,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0223",
+      "source": "photius-bekker-combined",
+      "scan_page": 223,
+      "printed_page": 211,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0224",
+      "source": "photius-bekker-combined",
+      "scan_page": 224,
+      "printed_page": 212,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0225",
+      "source": "photius-bekker-combined",
+      "scan_page": 225,
+      "printed_page": 213,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0226",
+      "source": "photius-bekker-combined",
+      "scan_page": 226,
+      "printed_page": 214,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0227",
+      "source": "photius-bekker-combined",
+      "scan_page": 227,
+      "printed_page": 215,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0228",
+      "source": "photius-bekker-combined",
+      "scan_page": 228,
+      "printed_page": 216,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0229",
+      "source": "photius-bekker-combined",
+      "scan_page": 229,
+      "printed_page": 217,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0230",
+      "source": "photius-bekker-combined",
+      "scan_page": 230,
+      "printed_page": 218,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0231",
+      "source": "photius-bekker-combined",
+      "scan_page": 231,
+      "printed_page": 219,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0232",
+      "source": "photius-bekker-combined",
+      "scan_page": 232,
+      "printed_page": 220,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0233",
+      "source": "photius-bekker-combined",
+      "scan_page": 233,
+      "printed_page": 221,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0234",
+      "source": "photius-bekker-combined",
+      "scan_page": 234,
+      "printed_page": 222,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0235",
+      "source": "photius-bekker-combined",
+      "scan_page": 235,
+      "printed_page": 223,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0236",
+      "source": "photius-bekker-combined",
+      "scan_page": 236,
+      "printed_page": 224,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0237",
+      "source": "photius-bekker-combined",
+      "scan_page": 237,
+      "printed_page": 225,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0238",
+      "source": "photius-bekker-combined",
+      "scan_page": 238,
+      "printed_page": 226,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0239",
+      "source": "photius-bekker-combined",
+      "scan_page": 239,
+      "printed_page": 227,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0240",
+      "source": "photius-bekker-combined",
+      "scan_page": 240,
+      "printed_page": 228,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0241",
+      "source": "photius-bekker-combined",
+      "scan_page": 241,
+      "printed_page": 229,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0242",
+      "source": "photius-bekker-combined",
+      "scan_page": 242,
+      "printed_page": 230,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0243",
+      "source": "photius-bekker-combined",
+      "scan_page": 243,
+      "printed_page": 231,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0244",
+      "source": "photius-bekker-combined",
+      "scan_page": 244,
+      "printed_page": 232,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0245",
+      "source": "photius-bekker-combined",
+      "scan_page": 245,
+      "printed_page": 233,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0246",
+      "source": "photius-bekker-combined",
+      "scan_page": 246,
+      "printed_page": 234,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0247",
+      "source": "photius-bekker-combined",
+      "scan_page": 247,
+      "printed_page": 235,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0248",
+      "source": "photius-bekker-combined",
+      "scan_page": 248,
+      "printed_page": 236,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0249",
+      "source": "photius-bekker-combined",
+      "scan_page": 249,
+      "printed_page": 237,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0250",
+      "source": "photius-bekker-combined",
+      "scan_page": 250,
+      "printed_page": 238,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0251",
+      "source": "photius-bekker-combined",
+      "scan_page": 251,
+      "printed_page": 239,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0252",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0253",
+      "source": "photius-bekker-combined",
+      "scan_page": 253,
+      "printed_page": 241,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0254",
+      "source": "photius-bekker-combined",
+      "scan_page": 254,
+      "printed_page": 242,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0255",
+      "source": "photius-bekker-combined",
+      "scan_page": 255,
+      "printed_page": 243,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0256",
+      "source": "photius-bekker-combined",
+      "scan_page": 256,
+      "printed_page": 244,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0257",
+      "source": "photius-bekker-combined",
+      "scan_page": 257,
+      "printed_page": 245,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0258",
+      "source": "photius-bekker-combined",
+      "scan_page": 258,
+      "printed_page": 246,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0259",
+      "source": "photius-bekker-combined",
+      "scan_page": 259,
+      "printed_page": 247,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0260",
+      "source": "photius-bekker-combined",
+      "scan_page": 260,
+      "printed_page": 248,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0261",
+      "source": "photius-bekker-combined",
+      "scan_page": 261,
+      "printed_page": 249,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0262",
+      "source": "photius-bekker-combined",
+      "scan_page": 262,
+      "printed_page": 250,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0263",
+      "source": "photius-bekker-combined",
+      "scan_page": 263,
+      "printed_page": 251,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0264",
+      "source": "photius-bekker-combined",
+      "scan_page": 264,
+      "printed_page": 252,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0265",
+      "source": "photius-bekker-combined",
+      "scan_page": 265,
+      "printed_page": 253,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0266",
+      "source": "photius-bekker-combined",
+      "scan_page": 266,
+      "printed_page": 254,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0267",
+      "source": "photius-bekker-combined",
+      "scan_page": 267,
+      "printed_page": 255,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0268",
+      "source": "photius-bekker-combined",
+      "scan_page": 268,
+      "printed_page": 256,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0269",
+      "source": "photius-bekker-combined",
+      "scan_page": 269,
+      "printed_page": 257,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0270",
+      "source": "photius-bekker-combined",
+      "scan_page": 270,
+      "printed_page": 258,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0271",
+      "source": "photius-bekker-combined",
+      "scan_page": 271,
+      "printed_page": 259,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0272",
+      "source": "photius-bekker-combined",
+      "scan_page": 272,
+      "printed_page": 260,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0273",
+      "source": "photius-bekker-combined",
+      "scan_page": 273,
+      "printed_page": 261,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0274",
+      "source": "photius-bekker-combined",
+      "scan_page": 274,
+      "printed_page": 262,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0275",
+      "source": "photius-bekker-combined",
+      "scan_page": 275,
+      "printed_page": 263,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0276",
+      "source": "photius-bekker-combined",
+      "scan_page": 276,
+      "printed_page": 264,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    },
+    {
+      "id": "photius-bekker-0277",
+      "source": "photius-bekker-combined",
+      "scan_page": 277,
+      "printed_page": 265,
+      "region": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "max_side": 2800,
+      "role": "missing-primary-text"
+    }
+  ]
+}

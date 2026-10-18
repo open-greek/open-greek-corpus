@@ -32,13 +32,19 @@ def test_metrics_come_from_the_current_source_artifacts():
         (REPO / "data" / "nonfinal_graves.json").read_text(encoding="utf-8"))
 
     assert limitations["raw-ocr-coverage"]["current_measurement"][
-        "upper_bound_tokens"] == stamp["raw_ocr"]["upper_bound_tokens"]
+        "legacy_homogeneous_work_bucket"]["upper_bound_tokens"] == stamp["raw_ocr"]["upper_bound_tokens"]
+    assert limitations["raw-ocr-coverage"]["current_measurement"]["global_raw_token_bounds"] is None
     assert limitations["nonfinal-grave-source-errors"]["current_measurement"][
         "tokens"] == graves["tokens"]
 
 
-def test_coverage_findings_remain_open_and_distinct_from_accepted_limitations():
-    findings = KNOWN.build()["active_coverage_findings"]
+def test_coverage_findings_keep_open_work_distinct_from_verified_repairs():
+    data = KNOWN.build()
+    active = data["active_coverage_findings"]
+    resolved = data["resolved_coverage_findings"]
+    findings = active + resolved
     assert len(findings) == 5
-    assert all(row["status"] == "open-coverage-work" for row in findings)
+    assert all(row["status"] == "open-coverage-work" and not row["resolution"]["complete"] for row in active)
+    assert all(row["resolution"]["complete"] and row["resolution"]["qualification"] for row in resolved)
+    assert all(row["resolution"]["publication"]["tracker_close_criterion"] for row in resolved)
     assert all(row["evidence"] and row["corpus_file_sha256"] for row in findings)

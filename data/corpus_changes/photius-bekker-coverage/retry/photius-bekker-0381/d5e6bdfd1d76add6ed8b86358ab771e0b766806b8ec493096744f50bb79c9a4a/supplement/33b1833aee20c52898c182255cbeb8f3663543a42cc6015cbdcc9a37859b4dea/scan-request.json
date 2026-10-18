@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Replace only an exactly pinned source-confirmed mark-stripped successful retry strip; retain every original and one vote per model family.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0381-right-middle-supplement.json",
+    "manifest_sha256": "b923e4fa29277068e1813f8e443d2fd6362484590e8c144078f4f7ed3a2890bf",
+    "replaces_region": "photius-bekker-0381-right-middle-part01",
+    "page_id": "photius-bekker-0381"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "review": {
+    "checked_scan_pages": [
+      381
+    ],
+    "accepted_for_primary_ingest": false,
+    "evidence": "The first shorter Qwen3.8 right-middle part on printed page369 still has only1 breathing among235 Greek letters despite multiple source-visible breathings. Its two sibling parts retain marks and stay selected. Two yet shorter crops exactly partition only this first part at a source-checked blank interline gap, preserving all six complete printed lines. Keep both degraded attempts, every successful sibling, and one assembled vote for this model family.",
+    "admission_policy": "This explicit source-confirmed mark-stripping exception applies only to the pinned checkpoint, parent strip, raw file, and prediction record. All other successful strips remain protected from replacement. Require a completed source mark review of the shorter parts before admission."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0381-right-middle-part01-part01",
+      "source": "photius-bekker-combined",
+      "scan_page": 381,
+      "printed_page": 369,
+      "region": [
+        0.505,
+        0.33096,
+        0.97,
+        0.38638
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 0,
+      "prompt_suffix": "Transcribe each of the three complete Greek lines exactly once. Retain every printed polytonic breathing and accent, especially on initial vowels. Do not strip breathings, normalize orthography, repeat text, or continue beyond this crop."
+    },
+    {
+      "id": "photius-bekker-0381-right-middle-part01-part02",
+      "source": "photius-bekker-combined",
+      "scan_page": 381,
+      "printed_page": 369,
+      "region": [
+        0.505,
+        0.38638,
+        0.97,
+        0.44141
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 1,
+      "prompt_suffix": "Transcribe each of the three complete Greek lines exactly once. Retain every printed polytonic breathing and accent, especially on initial vowels. Do not strip breathings, normalize orthography, repeat text, or continue beyond this crop."
+    }
+  ],
+  "replacement_condition": {
+    "kind": "source-confirmed-polytonic-mark-stripping",
+    "raw_file_sha256": "0af4e35f1b5e867dd909f5e937bea9d45e9fe1530b7ed9d7d1f7abc2aaf5558a",
+    "prediction_record_sha256": "4fc7c0a49a5573536f6d134e5540ad42bb529cd687a054d1c65800a8f11238e7",
+    "raw_prediction_sha256": "d84d5926406b9f5c11960a530f29e64441f6c16f2316e09405130cf8f0e62f11",
+    "finish_reason": "stop",
+    "greek_letters": 235,
+    "breathing_letters": 1,
+    "frozen_policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9"
+  }
+}

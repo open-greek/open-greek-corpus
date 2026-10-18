@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "bc423b5d0df8faaf35d5971591e63c948a7f3f1c075618acc3c45e2110b4af60",
+  "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+  "decision": "replace-source-reviewed-degraded-page",
+  "reviewed_at": "2026-10-18",
+  "source_evidence": "The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading.",
+  "review_scope": "Body-line coverage, column and heading order, systematic mark loss, unprinted repetition, and apparatus boundaries; no claim of lexical proofreading. Word and ligature discrepancies remain raw and reversible.",
+  "strip_reviews": [
+    {
+      "id": "photius-bekker-0147-left-body",
+      "source_evidence": "Pinned source page147, body box[0.045, 0.063, 0.495, 0.852]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "7da58e99466a233ae4363b298810d173326fe02d8454ad50c29435aacf1d0835"
+      ]
+    },
+    {
+      "id": "photius-bekker-0147-right-body",
+      "source_evidence": "Pinned source page147, body box[0.505, 0.063, 0.975, 0.852]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "7da58e99466a233ae4363b298810d173326fe02d8454ad50c29435aacf1d0835"
+      ]
+    }
+  ],
+  "original_artifacts_sha256": [
+    "fd2aa3529df9207ae8cd80f75f1009ee062bc3d7e72a826769c8b0e802f07181"
+  ],
+  "reviewed_runs": [
+    {
+      "sha256": "2a0186512669210b90f67e0eeaaf427cda466794be17075448a3d724e8150a3b",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "reviewed_supplements": [
+    {
+      "sha256": "b8973df06436b24b49b6418b2f24d76e6c954ceab3c153bf83517ca372acf0da",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "manifest_sha256": "7da58e99466a233ae4363b298810d173326fe02d8454ad50c29435aacf1d0835",
+      "strip_reviews": [
+        {
+          "id": "photius-bekker-0147-left-body-gutter",
+          "source_evidence": "Exact source page147, body box[0.017, 0.063, 0.476, 0.852]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true,
+          "reading_basis": "reviewed-supplement-parts",
+          "completed_by_supplements": [
+            "a39fbcd25f005a5234ae5da0e0addbe0a4424d1d25c666ce032b1de5a9f1dba0"
+          ]
+        },
+        {
+          "id": "photius-bekker-0147-right-body-gutter",
+          "source_evidence": "Exact source page147, body box[0.48, 0.063, 0.975, 0.852]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true,
+          "reading_basis": "reviewed-supplement-parts",
+          "completed_by_supplements": [
+            "a39fbcd25f005a5234ae5da0e0addbe0a4424d1d25c666ce032b1de5a9f1dba0"
+          ]
+        }
+      ]
+    },
+    {
+      "sha256": "fc2325c39049ca631680f61d55a63d54dd7bb2fffccc35fcab6e30585b341c4e",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "manifest_sha256": "a39fbcd25f005a5234ae5da0e0addbe0a4424d1d25c666ce032b1de5a9f1dba0",
+      "strip_reviews": [
+        {
+          "id": "photius-bekker-0147-left-body-gutter-gutter",
+          "source_evidence": "Exact source page147, body box[0.017, 0.063, 0.462, 0.852]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        },
+        {
+          "id": "photius-bekker-0147-right-body-gutter-gutter",
+          "source_evidence": "Exact source page147, body box[0.467, 0.063, 0.975, 0.852]: The selected current source spans retain the printed body, paragraph and heading sequence and complete glyph boundaries; source comparison found no small-apparatus intrusion or unprinted output loop. Severe word and ligature errors remain raw, especially on faint pages. The final source-reviewed remedy restores the omitted first Eunomius line on109 and corrects both remaining gutter boundaries on147; no Greek from the neighboring column is admitted. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page147. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        }
+      ]
+    }
+  ]
+}

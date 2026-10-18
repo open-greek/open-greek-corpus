@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/prepare_mathematical_ocr.py --book4-letter",
+  "sources": {
+    "apolloniipergaei02apoluoft": {
+      "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+      "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+      "license": "public-domain",
+      "citation": "Apollonius, Conica, edited by J. L. Heiberg, volume II, Leipzig: Teubner, 1893",
+      "catalog_url": "https://archive.org/details/apolloniipergaei02apoluoft",
+      "rights_evidence": "Public-domain Greek print, 1893; volume title and Book IV opening inspected."
+    }
+  },
+  "prompt": "Transcribe only the main Greek reading text in the image, one line per printed line. Keep Greek book headings, epistolary prefaces, proposition labels and editorial brackets. Exclude running headers, page numbers, marginal line numbers, diagrams and diagram labels. Exclude ALL small critical apparatus beneath the horizontal rule, even when it is Greek. Exclude facing Latin translation and Latin words. Preserve accents, breathing marks, punctuation and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+  "sanity_pages": 2,
+  "pages": [
+    {
+      "id": "apolloniipergaei02apoluoft-pdf0094-letter",
+      "source": "apolloniipergaei02apoluoft",
+      "scan_page": 94,
+      "region": [
+        0,
+        0.17,
+        1,
+        0.825
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "4",
+      "printed_page": 2,
+      "text_role": "authorial-preface"
+    },
+    {
+      "id": "apolloniipergaei02apoluoft-pdf0096-letter",
+      "source": "apolloniipergaei02apoluoft",
+      "scan_page": 96,
+      "region": [
+        0,
+        0.07,
+        1,
+        0.659
+      ],
+      "max_side": 2200,
+      "work": "apollonius-geom.conica",
+      "book": "4",
+      "printed_page": 4,
+      "text_role": "authorial-preface"
+    }
+  ],
+  "boundary_review": {
+    "date": "2026-10-18",
+    "method": "Manual inspection of both cropped Greek leaves at enlarged resolution",
+    "evidence": "PDF94 contains the opening Ἀπολλώνιος Ἀττάλῳ χαίρειν and ends with ὁμο-. PDF96 continues γενῆ and the letter ends δεχόμεθα. The crop ends at normalized y=0.659, in the blank space before proposition label α′, whose text is already served at 4.1. PDF94 stops above the short apparatus rule. No proposition text is selected.",
+    "tei_source_sha256": "6d6d5bb17dea43ec238e777fb413af56137e49dcd76e8e02dbc515ae0a5db0eb",
+    "analogous_openings": "Books I–III use all consecutive Greek leaves of Heiberg volume I (PDF20–208,210–334,336–468, step2). Their book-opening letters and continuation leaves are included in full, with no gap at a preface/proposition transition. Book IV propositions1–57 already include the closing continuation on printed96 (PDF188)."
+  },
+  "status": "Reviewed authorial preface supplement; queued 556-region jobs remain unchanged"
+}

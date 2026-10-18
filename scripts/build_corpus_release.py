@@ -19,14 +19,18 @@ corrections applied to the rest have a measured error rate of their own. Both
 numbers ship with the release, in the same file, so a consumer cannot pick up
 the counts without meeting the caveats.
 
-Everything except the measured-precision block below is derived at run time from
-data/corpus_catalog.tsv (build it first), so the release and the catalog cannot
-disagree about a count. Deterministic and byte-stable: sorted keys, and the only
+Work descriptions are derived from data/corpus_catalog.tsv. Exact source-component
+counts come from data/source_component_tokens.json, pinned to every primary file
+and the lexical eligibility recipe. Their per-work counts must agree. Global
+raw-OCR bounds are withheld while mixed-component correction coverage is unassessed.
+The older homogeneous-work classification and stamp-gap bounds remain qualified
+legacy measurements. Deterministic and byte-stable: sorted keys, and the only
 date in the file is the release date, which comes from CITATION.cff, from the
 commit, or from --date. No wall clock, ever - the same snapshot rebuilt tomorrow
 must produce the same bytes.
 
-  python3 scripts/build_corpus_catalog.py          # first: the per-work table
+  python3 scripts/build_source_components.py       # first: every row's source
+  python3 scripts/build_corpus_catalog.py          # then: the per-work table
   python3 scripts/build_corpus_release.py          # then: the release identity
   python3 scripts/build_corpus_release.py --date 2026-08-04 --sync-citation
   python3 scripts/build_corpus_release.py --check   # before tagging: does the
@@ -43,6 +47,8 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from build_source_components import (load_verified as load_components,
+    summary as component_summary, validate_catalog)
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -495,9 +501,87 @@ def corrections_block(catalog_sha: str, corpus_sha: str, raw: dict,
                   f"published precision was measured over "
                   f"{MEASURED['active_records']:,}. The estimate is republished with "
                   f"stale=true; remeasure and update MEASURED.", file=sys.stderr)
-    block["stamp_gap"] = stamp_gap_block(
+    block["legacy_homogeneous_work_stamp_gap"] = stamp_gap_block(
         catalog_sha, corpus_sha, raw, total_tokens, records)
+    block["legacy_homogeneous_work_stamp_gap"]["scope"] = (
+        "Bounds within the homogeneous works classified raw by the catalog; "
+        "not global raw-OCR bounds. Mixed-component correction coverage is unassessed.")
     return block
+
+
+def polytonic_quality(data=None, expected_corpus_sha=None):
+    """Expose review candidates and fresh validation without selecting text."""
+    data = Path(data) if data is not None else DATA
+    path = data / "polytonic_loss_report.json"
+    if not path.exists():
+        return None
+    report = json.loads(path.read_text())
+    pages = data / "quality/polytonic-loss-pages.jsonl.gz"
+    if report.get("selection_rule") is not None or hashlib.sha256(pages.read_bytes()).hexdigest() != report["page_readings_sha256"]:
+        raise ValueError("Polytonic review report or its page evidence changed")
+    if expected_corpus_sha is None:
+        pins = [f"{source.stem}\t{hashlib.sha256(source.read_bytes()).hexdigest()}\n"
+                for source in sorted((data / "corpus").glob("*.jsonl"))]
+        expected_corpus_sha = hashlib.sha256("".join(sorted(pins)).encode()).hexdigest()
+    if report.get("corpus_sha256") != expected_corpus_sha:
+        raise ValueError("Polytonic review report describes a different corpus")
+    for name, digest in report["input_corpus_files"].items():
+        source = data / "corpus" / name
+        if Path(name).name != name or not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+            raise ValueError("Polytonic review corpus input changed")
+    from report_polytonic_loss import verify_manifest
+    from benchmark_page_ocr import validate_page_rows
+    evaluation = data / "evaluation/polytonic-loss"
+    manifest, policy = verify_manifest(evaluation / "manifest.json", evaluation / "policy.json")
+    if report.get("policy_sha256") != hashlib.sha256((evaluation / "policy.json").read_bytes()).hexdigest() or report["policy"] != policy:
+        raise ValueError("Polytonic review policy changed")
+    validations = []
+    for name in ("qwen36-validation.json", "qwen38-validation.json"):
+        validation_path = data / "evaluation/polytonic-loss" / name
+        if not validation_path.exists():
+            continue
+        value = json.loads(validation_path.read_text())
+        if value.get("selection_rule") is not None or not value.get("scan_review_complete"):
+            raise ValueError("Fresh polytonic validation requires recorded scan review and no automatic selection")
+        for key, filename in (("manifest_sha256", "manifest.json"), ("policy_sha256", "policy.json"),
+                              ("scan_review_sha256", "scan-review.json")):
+            source = validation_path.parent / filename
+            if hashlib.sha256(source.read_bytes()).hexdigest() != value[key]:
+                raise ValueError("Fresh polytonic validation inputs changed")
+        expected = "Qwen3.6-27B" if name.startswith("qwen36") else "Qwen3.8-27B"
+        if len(value["runs"]) != 1 or expected not in value["runs"][0]["metadata"]["model"]:
+            raise ValueError("Fresh validation filename and checkpoint family differ")
+        run = value["runs"][0]
+        validate_page_rows(manifest, run["pages"], complete=True)
+        if len(run["pages"]) != 60 or run["by_split"]["calibration"]["pages"] != 20 or run["by_split"]["test"]["pages"] != 40:
+            raise ValueError("Fresh validation must preserve all 60 fixed page outcomes")
+        raw_path = evaluation / "raw" / (name.split("-", 1)[0] + ".jsonl")
+        expected_raw_path = "data/evaluation/polytonic-loss/raw/" + raw_path.name
+        if run.get("predictions_path", expected_raw_path) != expected_raw_path:
+            raise ValueError("Fresh polytonic prediction archive identity changed")
+        if hashlib.sha256(raw_path.read_bytes()).hexdigest() != run["predictions_sha256"]:
+            raise ValueError("Fresh polytonic raw predictions changed")
+        raw = [json.loads(line) for line in raw_path.read_text().splitlines() if line.strip()]
+        if raw[0].get("_meta") != run["metadata"]:
+            raise ValueError("Fresh polytonic prediction metadata changed")
+        validate_page_rows(manifest, raw[1:], complete=True)
+        original_pages = {row["id"]: row for row in raw[1:]}
+        for row in run["pages"]:
+            if any(row.get(key) != original_pages[row["id"]].get(key)
+                   for key in ("raw_prediction", "finish_reason", "generation_tokens", "error")):
+                raise ValueError("Fresh polytonic report differs from raw predictions")
+        validations.append({"path": "data/evaluation/polytonic-loss/" + name,
+            "sha256": hashlib.sha256(validation_path.read_bytes()).hexdigest(),
+            "runs": [{key: run[key] for key in ("metadata", "predictions_sha256", "by_split",
+                        "false_positives", "missed_cases", "unassessable_pages",
+                        "predictions_path", "measurement_limits") if key in run}
+                     for run in value["runs"]]})
+    return {"report": "data/polytonic_loss_report.json", "report_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
+        "page_readings_sha256": report["page_readings_sha256"], "counts": report["counts"],
+        "scope": report["scope"], "operating_limits": report["policy"]["operating_limits"],
+        "fresh_validation_status": "complete" if len(validations) == 2 else "pending",
+        "fresh_validation": validations, "selection_rule": None}
 
 
 def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
@@ -523,7 +607,7 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
             bucket = table.setdefault(key, {"works": 0, "tokens": 0})
             bucket["works"] += 1
             bucket["tokens"] += tokens
-        if row["source"] in OCR_SOURCES:
+        if row["source"] in OCR_SOURCES and row["correction"] != "mixed-unassessed":
             ocr["works"] += 1
             ocr["tokens"] += tokens
             if row["correction"] == "raw-ocr":
@@ -543,6 +627,11 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
         return round(part / whole, 4) if whole else 0.0
 
     catalog_sha = hashlib.sha256(catalog.read_bytes()).hexdigest()
+    components = load_components(DATA)
+    validate_catalog(components, rows)
+    if components["corpus_sha256"] != corpus_sha or components["totals"]["analysis_tokens"] != totals["tokens"]:
+        raise ValueError("Catalog and source component report describe different corpus counts")
+    component_quality = component_summary(components, DATA)
     release = {
         "release_id": release_id,
         "release_date": release_date,
@@ -570,19 +659,21 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
         "licenses": dict(sorted(per_license.items())),
         "quality": {
             "correction_status": dict(sorted(per_status.items())),
+            "source_components": component_quality,
             "raw_ocr": {
-                "what": ("works whose served text is OCR that no correction "
-                         "pass has touched; 'not-ocr' works are digital "
-                         "editions, not corrected OCR"),
-                "ocr_works": ocr["works"],
-                "ocr_tokens": ocr["tokens"],
-                "raw_works": raw["works"],
-                "raw_tokens": raw["tokens"],
-                "raw_share_of_ocr_tokens": share(raw["tokens"], ocr["tokens"]),
-                "raw_share_of_corpus_tokens": share(raw["tokens"],
-                                                    totals["tokens"]),
-                "ocr_share_of_corpus_tokens": share(ocr["tokens"],
-                                                    totals["tokens"]),
+                "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp.",
+                "ocr_works": components["totals"]["ocr_works"],
+                "ocr_tokens": components["totals"]["ocr_analysis_tokens"],
+                "mixed_works": components["totals"]["mixed_works"],
+                "mixed_ocr_tokens": components["totals"]["mixed_ocr_analysis_tokens"],
+                "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+                "global_raw_token_bounds": None,
+                "legacy_homogeneous_work_bucket": {
+                    "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound.",
+                    "ocr_works": ocr["works"], "ocr_tokens": ocr["tokens"],
+                    "raw_works": raw["works"], "raw_tokens": raw["tokens"],
+                    "raw_share_of_corpus_tokens": share(raw["tokens"], totals["tokens"]),
+                },
             },
             "wrong_corrections": corrections_block(
                 catalog_sha, corpus_sha, raw, totals["tokens"]),
@@ -591,6 +682,9 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
                          "quality is uneven by work and should be read there"),
         },
     }
+    polytonic = polytonic_quality(expected_corpus_sha=corpus_sha)
+    if polytonic:
+        release["quality"]["polytonic_loss"] = polytonic
     if uncommitted_corpus:
         # A release generated over a dirty data/corpus names a commit that does
         # not contain the text it just hashed, and the tag would pin the wrong
@@ -618,6 +712,52 @@ def sync_citation(release_id: str, release_date: str) -> None:
               f"{release_date}")
 
 
+def release_differences(stored: dict, current: dict) -> list[str]:
+    """Compare every stable field, allowing only metadata commit references.
+
+    A release artifact cannot name the commit that contains it. Committing its
+    metadata changes HEAD and the commit date, but must not change its identity,
+    catalog pin, component counts, licenses, or measured quality statements.
+    """
+    def stable(value):
+        value = dict(value)
+        generated = dict(value.get("generated_from") or {})
+        for key in ("commit", "commit_date"):
+            generated.pop(key, None)
+        value["generated_from"] = generated
+        return value
+
+    differences = []
+    missing = object()
+    def compare(left, right, path):
+        if isinstance(left, dict) and isinstance(right, dict):
+            for key in sorted(left.keys() | right.keys()):
+                compare(left.get(key, missing), right.get(key, missing), f"{path}.{key}" if path else key)
+        elif isinstance(left, list) and isinstance(right, list) and len(left) == len(right):
+            for index, (old, new) in enumerate(zip(left, right)):
+                compare(old, new, f"{path}[{index}]")
+        elif type(left) is not type(right) or left != right:
+            differences.append(path + " changed")
+    compare(stable(stored), stable(current), "")
+    return differences
+
+
+def check_identity(explicit_id: str | None, explicit_date: str | None,
+                   cff: dict, stored: dict, commit_date: str | None) -> tuple[str, str]:
+    """Use declared citation identity during checks, preserving creation defaults.
+
+    A metadata-only commit after the release date must not silently mint a new
+    date or discard a release suffix. Stored identity is a fallback only when
+    the caller supplies neither identity option and CITATION omits that field.
+    """
+    fallback = stored if explicit_id is None and explicit_date is None else {}
+    date = explicit_date or cff.get("date-released") or fallback.get("release_date") or commit_date
+    if not date:
+        raise ValueError("No release date is available for verification")
+    identity = explicit_id or cff.get("version") or fallback.get("release_id") or f"corpus-{date}"
+    return identity, date
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--catalog", type=Path, default=CATALOG)
@@ -630,13 +770,19 @@ def main() -> None:
     ap.add_argument("--sync-citation", action="store_true",
                     help="also write the resolved release id and date back into "
                          "CITATION.cff")
-    ap.add_argument("--print", dest="print_only", action="store_true",
+    mode = ap.add_mutually_exclusive_group()
+    mode.add_argument("--print", dest="print_only", action="store_true",
                     help="print the release to stdout, write nothing")
-    ap.add_argument("--check", action="store_true",
-                    help="compare the stored release against the corpus as it "
-                         "is now and exit non-zero if it no longer describes "
-                         "it; writes nothing")
+    mode.add_argument("--check", action="store_true",
+                    help="verify the existing full release record, including "
+                         "identity, catalog pin, component counts and quality; "
+                         "only commit references may differ; writes nothing")
     args = ap.parse_args()
+    stored = None
+    if args.check:
+        if not args.out.is_file():
+            ap.exit(1, f"Missing release record {shown(args.out)}; build it before tagging.\n")
+        stored = json.loads(args.out.read_text(encoding="utf-8"))
 
     rows = read_catalog(args.catalog)
     # The release is only as current as the catalog it summarizes, and the
@@ -655,8 +801,11 @@ def main() -> None:
     # clock can shift: two people releasing the same commit get the same date.
     commit_date = git("show", "-s", "--format=%cs", "HEAD") if commit else None
     cff = citation_fields()
-    release_date = resolve_date(args.date, cff.get("date-released"), commit_date)
-    release_id = args.release_id or f"corpus-{release_date}"
+    if args.check:
+        release_id, release_date = check_identity(args.release_id, args.date, cff, stored, commit_date)
+    else:
+        release_date = resolve_date(args.date, cff.get("date-released"), commit_date)
+        release_id = args.release_id or f"corpus-{release_date}"
 
     dirty = git("status", "--porcelain", "--", "data/corpus")
     uncommitted = len([ln for ln in dirty.splitlines() if ln.strip()]) if dirty else 0
@@ -683,19 +832,10 @@ def main() -> None:
         # answers is the release-time question, whether the stored record still
         # describes the corpus you are about to tag. It does not regenerate,
         # because minting a release id is a decision, not a build step.
-        if not args.out.exists():
-            print(f"no {shown(args.out)}; nothing to check", file=sys.stderr)
-            raise SystemExit(0)
-        stored = json.loads(args.out.read_text(encoding="utf-8"))
-        drift = []
-        for path in (("pin", "corpus_sha256"), ("corpus", "tokens"),
-                     ("corpus", "works")):
-            was, now = stored, release
-            for k in path:
-                was = (was or {}).get(k)
-                now = (now or {}).get(k)
-            if was != now:
-                drift.append(f"{'.'.join(path)}: record {was}, corpus now {now}")
+        drift = release_differences(stored, release)
+        for field, expected in (("version", release_id), ("date-released", release_date)):
+            if cff.get(field) and cff[field] != expected:
+                drift.append(f"CITATION.cff {field}: declared {cff[field]}, requested {expected}")
         if drift:
             print(f"{shown(args.out)} no longer describes the served corpus:",
                   file=sys.stderr)
@@ -727,9 +867,8 @@ def main() -> None:
     print(f"{release_id}: {release['corpus']['works']:,} works, "
           f"{release['corpus']['tokens']:,} tokens, "
           f"{len(release['sources'])} sources -> {shown(args.out)}")
-    print(f"  raw OCR: {q['raw_works']:,} works, {q['raw_tokens']:,} tokens "
-          f"({q['raw_share_of_corpus_tokens']:.1%} of the corpus, "
-          f"{q['raw_share_of_ocr_tokens']:.1%} of its OCR)", file=sys.stderr)
+    print(f"  OCR components: {q['ocr_tokens']:,} tokens across {q['ocr_works']:,} works; "
+          f"global raw bounds withheld ({q['mixed_works']} mixed works)", file=sys.stderr)
     print(f"  corpus sha256 {release['pin']['corpus_sha256'][:16]}...",
           file=sys.stderr)
 

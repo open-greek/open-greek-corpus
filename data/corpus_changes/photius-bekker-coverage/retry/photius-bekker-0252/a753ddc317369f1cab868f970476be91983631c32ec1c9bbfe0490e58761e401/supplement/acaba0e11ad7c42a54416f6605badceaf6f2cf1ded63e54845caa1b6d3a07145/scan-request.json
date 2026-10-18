@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Complete one exactly pinned degraded geometry leaf; preserve every ancestor and successful sibling, with one assembled vote per model family.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0252-qwen38-0e57cb5f-gutter.json",
+    "manifest_sha256": "106265ecdc6dd31a9b905e3c9e7387fb8e66542298745384ae7d6ccb4768bdb0",
+    "page_id": "photius-bekker-0252",
+    "replaces_region": "photius-bekker-0252-left-lower-gutter"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "replacement_condition": {
+    "kind": "source-confirmed-polytonic-mark-stripping",
+    "finish_reason": "stop",
+    "raw_file_sha256": "58ffeb9a9765bf6d20d01f427cca495967aa30414a6e939a768310f54c239c80",
+    "prediction_record_sha256": "86d60c7a6ce1f70079db6b25c8759b341d22d78c8aca5710ea298b4b0ba61d5c",
+    "raw_prediction_sha256": "e94cebdd8fc25bbb9e97c2175fc77c08f6198c0370a85e92023de7340a9dd0ee",
+    "frozen_policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
+    "greek_letters": 700,
+    "breathing_letters": 0
+  },
+  "review": {
+    "accepted_for_primary_ingest": false,
+    "checked_scan_pages": [
+      252
+    ],
+    "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+    "evidence": "The source contains fifteen faint continuous authorial lines with visible polytonic marks, including the Sophronius passage; it contains no decree heading or numbered resolutions. The retained attempt instead invents a monotonic modern decree with placeholders and loses every breathing. Cuts in white spaces after the fifth and tenth source lines preserve three five-line spans, without changing the reviewed horizontal glyph boundaries.",
+    "admission_policy": "Require the exact retained parent outcome and a completed output-to-source review. Keep all original readings and failures; no additional vote or lexical proofreading claim."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0252-left-lower-gutter-part01",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.045,
+        0.58423,
+        0.515,
+        0.679
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-failed-geometry-supplement",
+      "reading_order": 0,
+      "prompt_suffix": "Transcribe only these complete faint printed Greek body lines, exactly once. Preserve every visible accent, breathing, initial and final glyph. Do not invent a heading, decree, placeholders, numbered resolutions, or material outside the crop. Do not expand text or repeat lines.",
+      "replaces_region": "photius-bekker-0252-left-lower"
+    },
+    {
+      "id": "photius-bekker-0252-left-lower-gutter-part02",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.045,
+        0.679,
+        0.515,
+        0.7706
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-failed-geometry-supplement",
+      "reading_order": 1,
+      "prompt_suffix": "Transcribe only these complete faint printed Greek body lines, exactly once. Preserve every visible accent, breathing, initial and final glyph. Do not invent a heading, decree, placeholders, numbered resolutions, or material outside the crop. Do not expand text or repeat lines.",
+      "replaces_region": "photius-bekker-0252-left-lower"
+    },
+    {
+      "id": "photius-bekker-0252-left-lower-gutter-part03",
+      "source": "photius-bekker-combined",
+      "scan_page": 252,
+      "printed_page": 240,
+      "region": [
+        0.045,
+        0.7706,
+        0.515,
+        0.859
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-failed-geometry-supplement",
+      "reading_order": 2,
+      "prompt_suffix": "Transcribe only these complete faint printed Greek body lines, exactly once. Preserve every visible accent, breathing, initial and final glyph. Do not invent a heading, decree, placeholders, numbered resolutions, or material outside the crop. Do not expand text or repeat lines.",
+      "replaces_region": "photius-bekker-0252-left-lower"
+    }
+  ]
+}

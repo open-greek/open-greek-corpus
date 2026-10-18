@@ -1,0 +1,150 @@
+{
+ "schema_version": 1,
+ "purpose": "Source-reviewed retries for whole-page length failures on scans90/112; preserve every original prediction.",
+ "sources": {
+  "jahn1882": {
+   "url": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+   "sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+   "license": "PD (Jahn 1882)",
+   "citation": "Aristidis Quintiliani De musica libri III, edited by Albert Jahn (Berlin: Calvary, 1882)"
+  }
+ },
+ "retry_of": {
+  "path": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json",
+  "sha256": "0690f8957ba18fae60c0f5936a8fd0be52653ed717be68c2697d088244a67859",
+  "region_ids": [
+   "jahn-1882-0090-greek",
+   "jahn-1882-0112-greek"
+  ]
+ },
+ "review": {
+  "recorded_at": "2026-10-18",
+  "checked_scan_pages": [
+   90,
+   112
+  ],
+  "extent": "Complete source pages and every retry crop boundary inspected at fourfold PDF rendering.",
+  "finding": "Printed17/scan90 contains two Greek headings and extensive musical-symbol tables above modern apparatus. The symbols are preserved by source-image references rather than interpreted as Greek word strings. Printed39/scan112 is ordinary Greek prose; three consecutive crops retain all body lines, excluding the initial running header and marginal reference labels.",
+  "policy": "Retain all original attempts, notation source references and retry predictions. Require an exact completed source review before replacing a model input; never supply a joined cross-page word."
+ },
+ "nonlexical_source_regions": {
+  "jahn-1882-0090-greek": [
+   {
+    "class": "musical-notation",
+    "region": [
+     0.04,
+     0.17,
+     0.9,
+     0.359
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual source inspection: paired musical signs, including rotated and reversed letter-like shapes, are not ordinary Greek word attestations."
+   },
+   {
+    "class": "musical-notation",
+    "region": [
+     0.04,
+     0.389,
+     0.9,
+     0.652
+    ],
+    "lexical_eligible": false,
+    "retained_as": "source-image",
+    "evidence": "Manual source inspection: paired musical signs, including rotated and reversed letter-like shapes, are not ordinary Greek word attestations."
+   }
+  ]
+ },
+ "pages": [
+  {
+   "id": "jahn-1882-0090-greek-retry-strip-1",
+   "source": "jahn1882",
+   "scan_page": 90,
+   "printed_page": 17,
+   "book": 1,
+   "region": [
+    0.3,
+    0.145,
+    0.61,
+    0.17
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Source-inspected complete Greek heading; musical notation remains a nonlexical source-image region",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0090-greek",
+   "text_role": "authorial-notation-heading"
+  },
+  {
+   "id": "jahn-1882-0090-greek-retry-strip-2",
+   "source": "jahn1882",
+   "scan_page": 90,
+   "printed_page": 17,
+   "book": 1,
+   "region": [
+    0.275,
+    0.36,
+    0.7,
+    0.389
+   ],
+   "max_side": 2200,
+   "crop_evidence": "Source-inspected complete Greek heading; musical notation remains a nonlexical source-image region",
+   "reading_order": 2,
+   "reconstructs": "jahn-1882-0090-greek",
+   "text_role": "authorial-notation-heading"
+  },
+  {
+   "id": "jahn-1882-0112-greek-retry-strip-1",
+   "source": "jahn1882",
+   "scan_page": 112,
+   "printed_page": 39,
+   "book": 2,
+   "region": [
+    0.13,
+    0.145,
+    0.8,
+    0.386
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0112-greek",
+   "text_role": "authorial-prose"
+  },
+  {
+   "id": "jahn-1882-0112-greek-retry-strip-2",
+   "source": "jahn1882",
+   "scan_page": 112,
+   "printed_page": 39,
+   "book": 2,
+   "region": [
+    0.13,
+    0.386,
+    0.8,
+    0.6428
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry",
+   "reading_order": 2,
+   "reconstructs": "jahn-1882-0112-greek",
+   "text_role": "authorial-prose"
+  },
+  {
+   "id": "jahn-1882-0112-greek-retry-strip-3",
+   "source": "jahn1882",
+   "scan_page": 112,
+   "printed_page": 39,
+   "book": 2,
+   "region": [
+    0.13,
+    0.6428,
+    0.8,
+    0.85
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry",
+   "reading_order": 3,
+   "reconstructs": "jahn-1882-0112-greek",
+   "text_role": "authorial-prose"
+  }
+ ]
+}

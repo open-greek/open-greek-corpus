@@ -110,8 +110,11 @@ scripts/
   lemmatize_forms.py        forms list -> form/lemma TSV (self-contained, for a
                             GPU box; resumable)
   rebuild_matrix_remote.sh  the whole incremental rebuild with the lemmatization
-                            phase on CORSAIRONE (run from the Mac; SHARDS=N for
-                            parallel GPU workers)
+                            phase on fragbox (run from the Mac; SHARDS=N for
+                            parallel GPU workers). Requires a clean, committed
+                            checkout; pushes and verifies the same commit after
+                            a remote pull. MATRIX_HOST/MATRIX_REMOTE_REPO/
+                            MATRIX_PYTHON select another prepared environment.
   build_provenance.py       OCR works -> the provenance table in this README
   build_ocr_quality_report.py  every OCR-source work -> data/ocr_quality_report.json:
                             unattested-token rate (the ocr_llm_correct.py suspect
@@ -299,6 +302,11 @@ inputs are in `data/corpus_changes/lydus-identity-53/`; `--undo` restores them.
 Text readings and previously archived secondary readings are preserved.
 Apply repairs in chronological order and undo them in reverse order; undo
 refuses to overwrite files changed by a later repair.
+Older migration tests use hash-verified historical output snapshots so unrelated
+branch integrations do not change the state being tested. Reproduce these with
+`scripts/archive_migration_outputs.py --audit AUDIT_DIRECTORY --revision COMMIT`;
+each file must match its original audit's output hash. Production undo checks
+still reject later changes.
 
 The reviewed repair for issues [54](https://github.com/open-greek/open-greek-corpus/issues/54)
 and [55](https://github.com/open-greek/open-greek-corpus/issues/55) is reproducible
@@ -314,9 +322,210 @@ files are labeled as separate OCR witnesses of Kaibel's *Comicorum Graecorum
 Fragmenta* I.1 (1899), under `kaibel-cgf-1899.volume-witness-r` and
 `kaibel-cgf-1899.volume-witness-s`. They retain their opaque expression IDs and
 former-slug redirects, with no Rhinthon or Sopater Work anchor. The witnesses
-overlap and remain uncollated; their metadata exposes a shared volume identity.
-Their contribution to duplicate frequency counts is tracked in
-[issue 56](https://github.com/open-greek/open-greek-corpus/issues/56).
+overlap; their metadata exposes a shared volume identity. Reproduce their
+page/passage and token concordance with
+`python3 scripts/collate_kaibel_witnesses.py --write` (`--check` verifies it,
+`--unapply` removes the projection). Reader text remains unchanged and every
+reading is retained in `data/ocr_collations/kaibel-1899.json`. The concordance
+handles column-order and paragraph/line differences; OCR leaf keys are not
+assumed to be scan page numbers. It also links the separately carved Sophron,
+Dinolochus, and Blaesus rows from this volume. Carved fragments whose scan
+position remains uncertain retain their readings and explicit bounds, rather
+than being counted as additional independent text.
+
+Both the form lexicon and per-work lemma matrix use
+`data/frequency_projection.json`: an aligned agreed token occurrence counts
+once, and single-witness leaves count normally. Unresolved readings on aligned
+leaves stay outside scalar frequency tables. Their complete source rows,
+token spans, and explicit lower (zero) and upper (all unresolved occurrences)
+form counts remain in the companion concordance. Those bounds preserve
+alternatives without claiming that two conflicting OCR readings are two
+independent attestations. Frequency token totals therefore differ from the
+inclusive reader-text counts in the coverage report. `coverage.json.tokens`
+retains the inclusive Greek regex count; `analysis_tokens` counts the checked
+projection used by `work_token_totals.json` and the catalog's `tokens` column.
+`corpus_editions.json.n_tokens` retains its historical count of whitespace
+groups containing Greek; `n_analysis_tokens` uses the checked Greek regex
+count. The public lexicon additionally excludes numeral and elision artifacts
+and the documented shared rows from duplicate editions.
+The OCR ledgers use these served-work passage and whitespace-token totals;
+complementary-volume contributions remain separate in `coverage_composition`.
+
+Quality reports and non-final-grave measurements use eligible primary tokens
+and the same eligible attestation base. `nonfinal_graves.json.served_tokens`
+is their eligible denominator; `surface_served_tokens` retains the inclusive
+surface count. OCR quality rows expose `n_surface_tokens` beside eligible
+`n_tokens`. Bigram agreement uses contiguous eligible runs without joining
+words across an excluded reading or gap; the archived secondary source text
+remains a separate witness-quality diagnostic. Restored or uncertain papyrus
+fragments and displayed OCR alternatives do not attest ordinary forms.
+Elision rates and spacing-mark form counts also use eligible text. Capital-case
+folds require reliable original context: projected or variant-bearing rows cast
+no positional vote, so removed words and uncertain punctuation cannot imply a
+sentence boundary. Latin-in-Greek-script spans remain an explicitly inclusive
+reader-surface diagnostic.
+The build graph tracks the shared projection and critical-text helper as count
+inputs, so changing eligibility also rebuilds the affected measurements.
+Refresh the README's status and identity figures with
+`python3 scripts/build_readme_figures.py --write` after rebuilding the public
+coverage report and Work index (`--check` verifies them). Status counts use
+eligible tokens and distinct row source categories recorded in `coverage.sources`;
+licensed digital components retain their separate credits in the Work composition.
+
+Merged OCR pages use `scripts/ocr_consensus.py` to retain the original witnesses,
+exact word votes, and all tied readings. Accents and case are ignored only for
+positional alignment; they remain distinct readings in the vote. Repeated scan
+copies from one OCR run share a vote group. A short witness abstains outside
+its observed text, and unresolved words remain outside scalar counts through
+the row's `analysis_text`. Reader text exposes ties explicitly, and the
+structured `ocr_consensus` field preserves every supplied raw reading.
+Large admissions use `compact_corpus_consensus` to keep raw witnesses, counts,
+and every lexical slot boundary in the corpus while storing the complete vote
+network in a compressed audit archive. `ocr_consensus.full_network` names its
+relative path, entry key, and content hash. `restore_corpus_consensus` checks
+that hash and the corpus projection before restoring all support, surfaces,
+losing readings, omissions, and abstentions. Compaction never removes excluded
+slots or changes the selected text and analysis text.
+Mixed Greek/Latin or Greek/Cyrillic words remain whole opaque readings and
+stay outside lexical counts, including when multiple OCR witnesses agree on
+the same damaged spelling.
+
+The mathematical OCR review uses the frozen polytonic-loss detector without
+choosing a witness. Reproduce its 15 enlarged, source-inspected retry regions
+with `python3 scripts/prepare_mathematical_ocr_retries.py --predictions ORIGINAL36.jsonl --pdf-dir PDF_DIRECTORY`.
+The request pins the original complete 556-page run, the source PDFs, and the
+four pages with severe mark loss plus one page with apparatus leakage. Original
+predictions remain immutable; completed retry strips require a separate source
+review before they can replace the same model's input to a vote.
+`scripts/audit_mathematical_ocr.py --prediction FILE` reproduces the frozen
+mark screen and the separate exploratory apparatus screen. For a growing shard,
+`--prefix FILE_NAME=RECORD_COUNT` pins an exact complete prefix. The report records
+the extent of pixel review and does not estimate corpus-wide accuracy.
+After comparing completed retry strips with the scan, use
+`scripts/mathematical_ocr_retries.py --original ORIGINAL36 --retry RETRY36 --review REVIEW.json --source-evidence EVIDENCE.json --out BUNDLE.json`.
+The evidence file maps all five reviewed page IDs to their completed source
+comparisons. The bundle embeds the original full run, all retry strips, the
+request, and the exact review. Its loader keeps one vote from the same pinned
+model and rejects changed, missing, failed, or unreviewed inputs.
+The later Qwen3.8 printed-page-802 case has its own three-region request,
+reproduced with `scripts/prepare_mathematical_qwen38_retry.py`; it pins the exact
+completed original shard and checkpoint separately from the Qwen3.6 cases.
+After the complete Qwen3.8 run is bundled and the retry is compared with the
+scan, `scripts/mathematical_qwen38_retry.py --original FULL38_BUNDLE --source-part SHARD03 --retry RETRY38 --review REVIEW.json --out BUNDLE.json --source-evidence "Completed scan comparison"`
+retains all original parts and checks that the replaced page is the exact
+artifact from the pinned shard. The same admission loader accepts either
+reviewed model bundle; each family still contributes one page reading.
+
+`scripts/dio_ocr_retries.py` applies the same review contract independently to
+the explicitly pinned Dio Qwen3.6 and Qwen3.8 checkpoint requests. Supply
+`--request REQUEST.json --original FULL_BUNDLE.json --retry STRIPS.jsonl --review REVIEW.json --source-evidence EVIDENCE.json --out REVIEWED_BUNDLE.json`.
+The evidence file maps every requested page to its completed scan comparison.
+Before loading a failed original, the helper verifies the complete 1,500-region
+source lineage and each exact metadata-plus-prediction artifact. Only the
+request's source-confirmed length failures receive a private exception, and
+every such input must be replaced by successful reviewed strips before the
+bundle returns any admitted readings. Other failures remain blocking. The
+bundle retains every original byte, source review, failed outcome, and finite
+gap reference; each checkpoint contributes one reading per physical region.
+The Dio loader also checks the separately approved retry generation policy,
+runner hash, original image-helper hash, and server checkpoint. Changing a
+sampling parameter cannot silently supply a replacement under this policy.
+For disjoint later requests, `--parts PARTS.json` accepts a list of
+`request_path`, `retry_path`, `review_path`, and `source_evidence` objects, with
+optional recursive `children` of the same form. Each child pins its immediate
+parent request and exact original strip artifact; its crops must partition that
+parent crop without gaps. The committed Dio authority registry makes reviewed
+residual mark loss or stopped repetition a blocking condition until those
+children are supplied. The complete original bundle is loaded once with the
+union of explicitly authorized failures, and each model still supplies one
+reading per page. All ancestor attempts and completed reviews remain archived.
+
+Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
+`data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
+historical 164-page OCR job list with
+`python3 scripts/repair_meibom_work_assignments.py --write-manifest`. Apply its
+multi-author repair with `--apply --fresh WITNESS36.jsonl --fresh WITNESS38.jsonl`;
+the default primary source is Jahn's 1882 edition, whose clearer Greek type
+avoids the difficult Meibom ligatures. Its 97 body-page jobs are pinned in
+`data/ingest_reviews/jahn-aristides-fresh-witnesses.json`, with modern apparatus
+and the final index excluded. Regenerate those crops with
+`python3 scripts/prepare_jahn_aristides.py --pdf SOURCE.pdf`.
+The source-reviewed three-strip page 81 retry is reproducible with
+`--prepare-page81-retry`; its manifest preserves the original request hash and
+requires the original predictions to remain available for comparison.
+`--prepare-failed-pages-retry` pins the separate pages 90/112 request. Page 90's
+musical notation remains explicitly linked to the source image; its two Greek
+headings are transcribed separately so symbol tables cannot become word counts.
+After inspecting the retry predictions against the scan, record that review with
+`python3 scripts/jahn_retries.py --fresh ORIGINAL36 --fresh ORIGINAL38 --retry RETRY36 --retry RETRY38 --source-evidence "Completed scan comparison" --out REVIEW.json`.
+Pass the same retry files and `--retry-review REVIEW.json` to the admission
+script. Both earlier whole-page attempts remain in the reversible archive;
+each model family contributes one reviewed strip assembly to the vote.
+For the pages 90/112 review, add
+`--manifest data/ingest_reviews/jahn-aristides-length-retry.json`. Admission accepts
+repeated `--retry-review` arguments and retains failed original attempts; an
+unreplaced failed or truncated page cannot be admitted.
+The notation request is reproduced with `--prepare-notation-retry` and reviewed
+with `--manifest data/ingest_reviews/jahn-aristides-notation-retry.json`. It keeps
+the prose on pages 82/87/91 and all six Greek mode captions on page 87, while
+linking their symbol tables as nonlexical source-image regions.
+The two shorter page 112 subcrops (`--prepare-length-supplement`) replace only
+the explicitly failed Qwen3.8 strip. Supply their raw file as `--supplement` when
+recording the length review and `--retry-supplement` at admission; every failed
+attempt remains archived, and successful strips keep their original readings.
+`scripts/jahn_scan_reviews.py` records direct source adjudications for the eight
+short notation headings and mode captions. Pass that record as `--scan-review`
+at admission. The pre-review model networks remain intact; the sixth caption's
+ambiguous stigma/final-sigma encoding keeps both glyph readings, and numeral
+labels are excluded from lexical counts.
+`--original-dir` retains the original Meibom page OCR as additional source
+evidence. The script requires both fresh model readings for every Jahn page
+and checks the reviewed crops. It rejects failed, truncated, or empty attempts
+before admitting any changes.
+On interior Jahn pages, isolated initial running headers are removed before
+voting; the real book titles at scan pages 74, 111, and 141 remain. Raw headers,
+Unicode offsets, the page authority's book number, and source evidence survive
+in the witness archive and change audit. Full word networks are retained in
+`word-networks.json.gz`; corpus rows contain checked compact projections and
+their archive references.
+Consecutive leaves within the same Jahn book also receive a bounded eligibility
+check: both independent readings must show the preceding terminal hyphen and
+the same lowercase continuation at the verified next body opening. The visible
+fragments remain unchanged and excluded as separate words; the audit preserves
+the original network without supplying a joined spelling.
+Meibom's original readings remain separate secondary witnesses; historical
+citations keep their exact source loci.
+Use `--check` to replay the archived witnesses and `--undo` to restore
+the exact original files. Originals and per-change evidence are retained in
+`data/corpus_changes/meibom-musical-anthology/`. Other constituent works receive
+separate secondary edition files under their existing canonical identities.
+The historical concordance retains each old reading's exact path.
+
+`scripts/reviewed_manifestations.py` restores reviewed edition metadata during
+every `build_registry.py` rebuild. Active admission audits pin the source bytes
+and page counts; compressed word networks are hashed without rerunning OCR
+voting. The registry retains complementary primary editions, historical
+secondary witnesses, source credits, component licenses, and transmission
+qualifications in `coverage_composition`, while Work names remain unqualified.
+Successive scan admissions retain every manifest and audit, with each addition's
+reading digest verified within the consolidated extension. Conica's separately
+reviewed Book IV opening letter therefore retains its evidence when Books I–III
+are admitted in another batch.
+Separately served comparison quotations receive their own nonprimary edition
+credit and `comparative_admissions` metadata. Their exact dataset, manifest,
+audit, licenses, and source components are checked even when admitted before
+the primary additions; they do not add primary passages or frequency counts.
+Run `python3 scripts/reviewed_manifestations.py --write` to refresh an existing
+registry or `--check` to verify it. Photius's new consensus includes Source
+Library CC BY-SA 4.0 readings, alongside retained PD text and separately credited
+fresh OCR witnesses; the complete merged manifestation is not labeled PD.
+Dio additions likewise retain participating Source Library component credits,
+licenses, and separate rights notices. A licensed digital component is included
+only where the admission audit records its participation; other source text
+remains a separately identified comparison witness.
+Per-work source, edition, and license columns retain their dominant-component
+rollup. For a composite manifestation, use `coverage_composition` in the source
+registry or Work index for every component's license, source, and qualification.
 
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
@@ -370,11 +579,14 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 569 of the 3,910 served works have no
+distinct `ogc` ids sharing one TLG anchor. 569 of the 3,911 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,341 works, `tlg` on 3,304,
+`work_index.json` under `work_anchors` (`cts` on 3,342 works, `tlg` on 3,304,
 `wikidata` on 518), so joins against citation and lexicon data still work.
+The crosswalk builder reads bibliographic facts from the committed
+`data/inventory/work_inventory.json`; rebuilding it requires no external
+inventory checkout.
 `corpus_editions.json` is not where to look for it: that file is derived from
 `data/corpus` on every build and carries only the manifestation (edition,
 source, license, counts) plus the `ogc` `id`. `build_crosswalk_report.py`
@@ -504,6 +716,103 @@ threshold requires an explicit `--min-count` argument.
 
 ## Corpus improvement audits
 
+`scripts/compare_oga_glaux_dates.py` incorporates Mark G. Bilby's
+[OGA/GLAUx date pretransforms](https://doi.org/10.5281/zenodo.14254073)
+(version 0.1, CC BY-SA 4.0). The three original CSVs and a checksum-pinned
+GLAUx metadata file are retained in `data/reference/bilby-oga-glaux-2024/`.
+`data/oga_glaux_date_comparison.json` joins all 2,156 CSV rows to the current
+OGA date values and GLAUx metadata across 2,149 exact CTS keys. Rebuild with
+`python3 scripts/compare_oga_glaux_dates.py`; add `--fetch` to retrieve the
+pinned sources or `--check` to verify the output.
+
+The comparison keeps every source reading and all repeated rows. It provides
+normalized intervals with explicit year-numbering conventions, preserves
+date disagreements, and keeps lettered works such as Aesop `002a` and `002b`
+distinct from `002`. Astronomical year zero is labeled 1 BCE; GLAUx's
+undocumented negative-year convention retains both possible interpretations.
+Bilby's pretransforms derive from OGA and GLAUx and do not count as a third
+independent dating source. The audit does not replace corpus dates or century
+tags. See the source directory's README for the schema and provenance.
+
+`scripts/report_polytonic_loss.py corpus` reports suspected page-wide loss of
+polytonic accents or breathing marks in OCR readings. It groups records by
+physical page, scores each raw witness separately, and writes
+`data/quality/polytonic-loss-pages.jsonl.gz` with a summary in
+`data/polytonic_loss_report.json`. Flags request source review and an
+independent witness; they never select text or apply a correction. Sparse
+pages, mostly uppercase text, unresolved page mappings, and intentional
+monotonic orthography limit what counts alone can establish.
+The report pins every corpus file with the release's sorted slug/checksum
+algorithm, so additions, removals, and text changes require a fresh audit.
+
+The separate 60-page validation sample in
+`data/evaluation/polytonic-loss/` excludes both earlier benchmark samples by
+physical page identity and source hashes. Its thresholds were locked before
+inference; 20 pages are calibration and 40 are held out. The `validate`
+command compares mark presence only at matching Greek base-letter positions,
+requires a recorded scan review, and reports false positives, missed cases,
+failed outputs, and pages with insufficient alignment separately. Replacing
+one accent with another remains an orthographic error rather than a claim
+that the mark disappeared. No witness-selection rule is authorized by this
+report.
+
+`scripts/scan_review_polytonic_loss.py` reproduces the recorded review of all
+60 source crops without altering their transcriptions. Five references have
+line-order defects and four omit printed Greek text; eight distinct pages
+are therefore excluded from mark-loss labels and retained as reference
+limitations. The remaining 52 pages still need complete output and sufficient
+base-letter alignment. Run `scripts/report_polytonic_loss.py validate --root
+SOURCE_DIRECTORY --predictions RUN.jsonl --scan-review
+data/evaluation/polytonic-loss/scan-review.json` for each pinned fresh run.
+Add `--archive-predictions data/evaluation/polytonic-loss/raw/qwen38.jsonl`
+to retain an exact raw input without replacing a different attempt.
+The fresh Qwen3.6 and Qwen3.8 reports each retain all 60 outcomes, including
+one truncated output per checkpoint. Eight defective references are excluded
+from loss labels; each truncated page is also one of those eight. All 52
+assessable pages per checkpoint are negative with no false flags, so these runs
+cannot estimate sensitivity, recall, or positive predictive precision. Those
+missing denominators remain null. Qwen3.6 also flags PG145-254, whose reference
+was already excluded for line order. A scan comparison confirms printed
+polytonic marks missing from that output, but this observation does not change
+the frozen exclusion or count as a measured true positive. The same Qwen3.8
+page is unflagged. No output was replaced or added to the fixed sample.
+
+The tagged release's quality block pins the page report to the complete corpus
+hash, the locked policy, and both fresh validation reports. It verifies the raw
+prediction archives and all 60 distinct page identities, and includes false
+positives, missed cases, and operating limits. It also records that no automatic
+witness-selection rule is active.
+
+Before tagging, `python3 scripts/build_corpus_release.py --check` requires an
+existing release record and compares its complete stable contents with a fresh
+build: release ID and date, corpus and catalog pins, counts by source and
+license, and all quality measurements and evidence hashes. Only the recorded
+commit ID and commit date may differ after committing release metadata. Checks
+default to the version and date declared in `CITATION.cff`, preserving a suffix
+such as `.1`; explicit identity options must agree with those declarations.
+Creation still uses `corpus-<date>` unless `--release-id` is supplied.
+
+`make reports` refreshes the corpus polytonic report, the date comparison, and
+the five-work completeness review when their inputs change. For the latter,
+set `FIRST1K_DIR` and `PERSEUS_DIR` if the pinned source checkouts are outside
+`sources/first1k` and `sources/perseus`. This rebuild reuses the frozen validation
+evidence; it does not run model inference.
+
+Word voting preserves a printed terminal hyphen when a page ends within a
+word. Such fragments remain visible with their source support and are excluded
+from scalar lexical counts. A complete word divided across lines within the
+same source region is joined reproducibly before alignment.
+
+Source-reviewed invented output can abstain from voting through explicit
+`voting_segments` on a witness. These contain exact Unicode offsets and raw
+text slices; a hash-pinned `abstention_audit` records every excluded span and
+its source-review reference. The importer verifies that review artifact.
+The complete raw witness remains in the vote network. Retained fragments
+share one model vote group, and coverage outside each fragment abstains
+instead of voting for an omission. The remaining model's reading is labeled
+`single-witness` under the existing eligibility policy. Ordinary witnesses
+keep the same voting behavior and serialized output.
+
 The current discovery lists are in `data/inventory/greek_library/`. They are
 rebuilt by `scripts/audit_greek_library.py` from a pinned catalog and current
 work identities. Source Library entries remain discovery candidates until
@@ -512,9 +821,419 @@ independent edition rights and scans are verified.
 `scripts/audit_completeness_batch.py` records the checked boundaries of Photius,
 Cyril, Pappus, Apollonius, and Cassius Dio. Its source hashes and observations
 are in `data/inventory/completeness-batch.json`; the issues linked there track
-unfinished coverage work. The five findings also appear as open coverage work
-in `data/known_limitations.json`, separate from accepted quality limitations.
-Rebuild with `--first1k-dir` and `--perseus-dir`.
+unfinished coverage work. The original observations remain in the report while
+current resolution is derived from complete admitted page ranges, archived
+witness hashes and preserved citation destinations. Unfinished cases appear in
+`active_coverage_findings` in `data/known_limitations.json`; verified repairs move
+to `resolved_coverage_findings` with transmission qualifications and the tagged
+release closing requirement. Rebuild with `--first1k-dir` and `--perseus-dir`.
+Routine metadata builds check the retained evidence hashes; run each admission
+script's full `--check` after ingest to repeat every word vote.
+Photius completion uses the admission's canonical archived-report validator. A
+failed original page requires separately reviewed retry strips for every
+checkpoint, with hash-checked source review, manifest and raw prediction files;
+the original attempts remain retained evidence. Checkpoint-specific retries and
+supplemental strips pass through the same authority without adding extra votes.
+
+Bekker's Photius index is preserved in
+`data/paratext/photius-bekker-index.jsonl`, with all 501 former passage
+identities redirected through `data/passage_aliases.json`. The source scan
+ends codex 280 on page 557 and starts `INDEX` on page 558.
+`scripts/repair_photius_index.py --apply` reproduces the separation without
+changing any text; `--check` validates the preserved readings and aliases,
+and `--undo` restores the original bytes after later additions are unapplied.
+The current delivery adds 309 missing pages and covers 545 Bekker printed-page
+positions, retaining the 3,846 historical body rows and 501 index rows exactly.
+All 957 original and retry outcomes remain archived; 14 source-confirmed
+degraded spans abstain from voting. This restores qualified page coverage,
+with the textual limitations and historical apparatus described below.
+The missing earlier Bekker pages are pinned in
+`data/ocr_requests/photius-bekker-first-volume.json`, generated by
+`scripts/prepare_photius_coverage.py` for independently retained scan OCR.
+The same command also pins the 43 absent later-volume pages (printed 367-409)
+in `data/ocr_requests/photius-bekker-later-gap.json`.
+`scripts/ingest_photius_coverage.py` requires two pinned model checkpoints
+covering both requests, merges their readings with the same-scan Source
+Library witness, preserves all disagreements, and refuses failed or truncated
+pages. The overlap at codex 230 is retained for review and never counted twice.
+Its admission audit retains the source files, page coverage, all raw readings,
+and the exact previous body hash; `--undo` removes an unchanged addition.
+Complete vote networks are stored by physical scan page in the compressed
+`data/corpus_changes/photius-bekker-coverage/full-networks.json.gz` archive.
+The corpus retains every raw witness and lexical slot boundary, with a hash
+and archive reference for restoring the full network. Admission refuses a
+corpus file reaching 100 MB.
+Source Library pages enter the vote only when both fresh body transcriptions
+share unique beginning and ending anchors in that source. All unmatched source
+text and removed headers or apparatus remain in the reversible comparison
+audit. The combined scan repeats printed pages 334-335 in place of 434-435;
+those genuine pages remain in historical keys 169-170 from the separate 1825
+volume. Coverage positions therefore describe the complete printed sequence,
+while physical citations retain their actual scan source and exceptions.
+The unchanged historical OCR can still contain critical apparatus among its
+primary rows. `scripts/audit_photius_apparatus.py --write` reproduces the audit
+in `data/audits/photius-historical-apparatus.json`; `--check` verifies it. Ten
+rows are confirmed against printed page 334, while 189 rows across 96 pages
+are only screening candidates. Coverage of the printed sequence does not
+certify that every historical row is authorial text; all 3,846 historical body
+rows remain byte-identical, and no screening candidates are removed
+automatically. The occurrence-level apparatus separation remains tracked in
+[issue #60](https://github.com/open-greek/open-greek-corpus/issues/60).
+The restored 545-page sequence qualifies coverage, not transcription accuracy.
+Fresh scan OCR still contains word and ligature errors, especially on faint
+pages; completed source reviews check body-line coverage, marks, repetition,
+and apparatus boundaries without certifying a proofread critical text. Raw
+readings, held attempts, bounded comparison witnesses, and merged disagreements
+remain available for inspection.
+The first full-page Qwen3.6 attempt on scan 13 loops on the printed omission
+dots and is not eligible for admission. Enlarged strips are pinned in
+`data/ocr_requests/photius-bekker-page13-retry.json`, generated by the same
+preparation script. Their reading order covers the heading, prefatory letter,
+and both columns of codex 1; a single ellipsis represents each printed dotted
+lacuna. Original attempts remain evidence, and accepting the retry requires a
+separate source review and one assembled vote per model family.
+After comparing every retry strip with the scan, `scripts/photius_retries.py`
+records that completed review from the original `--fresh` runs, both `--retry`
+runs, `--source-evidence`, and a `--strip-evidence` JSON object keyed by strip
+ID. It refuses to overwrite an existing review. The coverage importer accepts
+the retained retries with `--retry` and `--retry-review`; it validates every
+original run, crop, prompt, image, checkpoint, prediction hash, and review pin.
+The audit archives the failed original page, all retry readings, the request,
+and the completed source review. Retrying a model never creates another vote.
+Additional failed pages can have checkpoint-specific source-reviewed requests.
+`scripts/prepare_photius_retries.py` pins four enlarged body strips for scans
+47 and 50, where Qwen3.8 loops. These requests list only that checkpoint;
+the successful Qwen3.6 whole-page readings remain its votes. The original
+attempts and all retry outputs stay retained for a completed source review.
+Use `scripts/photius_retries.py --manifest PINNED_RETRY_REQUEST` to record
+each completed strip review, then give the importer every `--retry` file and
+repeat `--retry-review` for its separate reviews. Retry permission is scoped
+to the listed checkpoint and original page, and overlapping review decisions
+are rejected. The coverage report's `reviewed_retries` lists each archive and
+checkpoint; all 310 original regions remain required from every checkpoint.
+Multiple revisions of one model family cannot supply extra independent votes.
+Full-height source checks found that fixed column edges in some retry crops
+cut Greek glyphs or admitted part of the neighboring column. Run
+`python3 scripts/prepare_photius_geometry.py --raw-dir RETAINED_JSONL_DIRECTORY --scan-pdf BEKKER_PDF --write`
+to reproduce the separately pinned corrections from all completed old attempts.
+The source authority records page-specific inner and outer edges, source
+contacts, exact old request and prediction hashes, and the unchanged horizontal
+body windows. New requests replace only the affected current leaf strips;
+every failed or degraded ancestor and successful sibling remains retained,
+and each model family still contributes one assembled vote. These requests
+require another completed output-to-scan review before admission.
+The same generator pins three-part completions for the exact failed geometry
+leaf on scan233 and the source-confirmed breathing loss on scan252. Their
+requests preserve the corrected column edges, partition only complete source
+lines, and identify the retained raw file, record, text, and termination hashes.
+Every earlier outcome remains evidence within the same model-family vote.
+`--followup` reproduces the separate second source authority for scan147,
+whose first corrected gutter still clipped initials. The first authority and
+all its outcomes remain unchanged. Exact source-confirmed omissions or
+unrelated passages on scans109,232,234,385 also have shorter completion
+requests. Matching line counts or polytonic marks alone do not establish
+that an output transcribes the printed body.
+When a finite shorter remedy still invents unrelated material,
+`scripts/photius_source_abstentions.py` pins the exact source-confirmed
+outcome, original text, image, source, reason, and review date. That span
+abstains from voting; its full raw reading remains available. The remaining
+independent reading carries its actual support, without an invented majority
+or an omission vote from the ungrounded output.
+This also preserves a tiny scan381 reading with persistent breathing loss as
+a distinct degraded abstention. The raw scan381 right-lower alternative,
+which displaces two short opening phrases to its end, also abstains from
+voting without manually reordering words. Severe word and ligature
+errors remain elsewhere, especially on faint pages; restored coverage does
+not make this a proofread critical text.
+Scan87 uses six shorter source-reviewed column strips. Scan50's failed
+lower-left retry has a separate three-part supplement request generated by
+the same script. Its geometry partitions that exact failed strip; successful
+sibling strips and every failed attempt remain evidence. These request files
+authorize inference only; admission still requires a completed scan review.
+When a retry strip also fails, pass its shorter raw parts to the review command
+with `--supplement FILE` and describe each part in `--supplement-evidence JSON`.
+The importer takes the same `--supplement` files. It validates the exact parent
+request, failed strip, source geometry, prompts, checkpoint, raw hashes, and
+completed review, rejects replacement of a successful strip, and retains the
+failed retry alongside the successful siblings. The report archives each
+supplement request and raw file. `prepare_report_inputs` replays these archive
+pins through the same strict admission checks used for the original import.
+The same preparation table pins six-strip requests for scan105 in Qwen3.8 and
+scans109/112 in Qwen3.6. Each request lists its own failed checkpoint; the other
+model's successful whole-page reading stays in the consensus.
+The especially faint scan113 uses eight shorter strips for Qwen3.8 after its
+retained original both terminated at the length limit and triggered the frozen
+mark-loss screen; accepting that assembly also requires a source mark review.
+Scan87's failed right-middle retry likewise has an exact three-part supplement;
+the other five successful strips remain in its single checkpoint assembly.
+The scan13 Qwen3.8 upper-preface attempt completed but stripped all breathings
+from 919 Greek letters. Its separately pinned three-part request records that
+exact raw file, prediction record, text hash, source evidence, and frozen flag;
+it preserves the capital title's printed orthography and explicitly requests the
+lowercase letter's marks. The other four Qwen3.8 strips and Qwen3.6 stay intact.
+This successful-strip exception checks the exact retained raw and record bytes,
+text hash, checkpoint, source geometry, frozen policy, and measured absence of
+breathings. It rejects any unrelated successful replacement and any applicable
+supplement part that still triggers the frozen mark-loss detector. Failed-strip
+supplements retain their existing rule.
+The scan113 right-first retry also stopped with an unprinted repetition loop.
+Its separate three-part request pins the exact successful file and record plus
+the measured 241 repeated lines; the other seven strips remain unchanged.
+That stop-loop exception requires its exact source-confirmed raw, record, text,
+checkpoint, and repetition measurements, and rejects new parts that still loop.
+Supplement assemblies can retain a reviewed child retry of one named parent
+part. Each level requires its exact immediate-parent request, retained raw
+attempt, and completed source review. Successful siblings remain selected;
+every replaced level remains held evidence. The outcome audit distinguishes
+held parent parts from selected leaf parts without adding model-family votes.
+Source checks also found small-type critical notes appended to Qwen3.6's
+otherwise completed scans41,49,83,119,147,181,188,207. Their separately pinned two-column
+body requests exclude those notes and running headers with reviewed boundaries;
+the original notes remain evidence and the other checkpoint stays intact.
+Scan192 has a separate Qwen3.8 two-column request after source-confirmed omitted
+and reordered body passages together with appended apparatus; its Qwen3.6
+reading remains an independent witness.
+Later-gap scans381/384/388/397 have six-strip Qwen3.8 requests after confirmed
+repetition loops or length termination. The second part of scan113's right-first
+supplement has its own named two-part request after another confirmed stop loop;
+it pins that immediate parent rather than changing the earlier request bytes.
+Separate six-strip requests cover scan385 in Qwen3.6 and scan396 in Qwen3.8
+after length termination with repeated text and frozen mark-loss flags.
+Scans232/234 likewise have Qwen3.6 length-failure requests, and scan239 has a
+Qwen3.8 body-only apparatus request. The completed scan381 Qwen3.8 right-middle
+retry stripped all breathings from576 Greek letters; its exact successful raw
+attempt is retained under a separately pinned three-part mark-loss supplement.
+The new source-reviewed requests also cover length failures on scan233 in
+Qwen3.8 and scan242 in Qwen3.6. Further exact-hash mark-loss requests address
+scan397's right-lower strip and scan381's first right-middle part, each retaining
+only one breathing despite many visible source marks. Their frozen flags and
+measured counts are pinned; unrelated successful readings stay protected.
+Scans245/250/252/255 have Qwen3.8 length-failure requests with reviewed body
+boundaries. Scan250 retains the tightly spaced right column as one enlarged
+crop, while three strips cover its left column, to avoid cutting printed marks.
+Stop termination alone does not establish source coverage: the reviewed request
+for scan27 replaces a repeated sentence in Qwen3.8, and the separate
+`--variant 0047-qwen36` request addresses an unprinted repetition at the end of
+Qwen3.6's scan47. Earlier queued request bytes remain unchanged.
+`python3 scripts/audit_photius_fresh.py --ocr RAW36 --ocr RAW38 --out REPORT.json`
+screens every supplied original or retry outcome using the unchanged frozen
+mark-loss detector plus explicit repetition and length review rules. It retains
+failed and stop-terminated outcomes, pins raw and individual record hashes,
+labels partial snapshots, and compares output lengths only for the same pinned
+region across checkpoints. Flags require a source review; the report selects
+and edits no reading and does not estimate a benchmark error rate.
+The separate apparatus screen flags editorial terms and numbered note lines as
+source-review candidates; it does not claim to detect every Greek-only note and
+does not change either the frozen mark policy or the pinned repetition policy.
+Photius admission archives this complete screen as `fresh-outcome-quality.json`,
+labels held originals, failed retry strips, reviewed voting parts, and unchanged
+original votes, and links each assembly to its completed source review.
+The report-integrity helper reproduces the screen from the exact archived inputs.
+
+`scripts/run_reviewed_scan_retry.py` provides a separate decoding policy for
+source-reviewed attempts that repeat output under greedy decoding. It pins the
+Qwen provider's instruct settings (temperature 0.7, top-p 0.8, top-k 20,
+presence penalty 1.5), a fixed seed, the original image helper, the actual server
+runtime, and every request and prediction. The original runner and benchmark
+settings stay fixed. Start with `--limit` for a small source comparison before a
+larger retry batch. These settings can alter wording or mix scripts; they do not
+authorize replacement. A completed source review must still verify all body
+lines, marks, and apparatus boundaries, and retries remain one vote per model.
+Photius admission also verifies the exact published retry policy, runner and
+image-helper hashes, runtime checkpoint, request archive, and output limit.
+
+Pappus's surviving First1K divisions now use printed Books II–V, and the
+First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
+records the scan-checked mapping and preserves every original destination in
+an explicitly named historical citation scheme in `data/citation_aliases.json`.
+The TEI ingester applies the same source-hash-guarded mapping; the audit can
+restore all original bytes with `--undo`. No Greek readings changed.
+The admitted additions cover 331 Pappus VI–VIII regions and 225 Conica I–III
+regions, with independent retained OCR witnesses and explicit unresolved readings.
+Pappus now has 635 passages; Conica has 284, including the separately admitted
+Book IV letter. Source and page manifests are under
+`data/ingest_reviews/coverage/`, and the reversible main admission is under
+`data/corpus_changes/mathematical-greek-coverage-2026-10/`. Alternate scan leaves
+replace repeated Pappus pages. Conica covers the surviving Greek Books I–IV;
+Books V–VII survive in Arabic and VIII is lost. Pappus covers the surviving
+remains of II–VIII; Book I and the opening of II are lost. These OCR additions
+retain disagreements and have not been fully proofread against every scan.
+`prepare_mathematical_ocr.py --book4-letter` separately pins two cropped regions
+for Conica IV's omitted letter to Attalus. The original 556-region request stays
+unchanged. Admit the two runs in either order: the importer adds new extension
+rows, preserves every earlier row and network reference, and records each audit
+in the active extension index. The letter precedes proposition 4.1 in reading
+order. Undo later admissions first; each earlier audit remains replayable.
+
+Cyril's John commentary combines the complementary PG 73 and PG 74 witnesses
+through `scripts/repair_john_coverage.py`. Calfa's pinned CC BY 4.0 PG 73 OCR
+retains its original marker positions and spelling; raw bytes are archived under
+`data/reference/calfa-pg73/`. Three missing PG 74 leaves receive independent OCR
+witnesses with explicit unresolved readings. The four volume-title rows are
+paratext. The 474 Acts and Romans rows formerly appended to John remain in
+`data/ocr_witnesses/cyril-pg74-other-works.jsonl`, with historical passage
+redirects and a reversible audit. The edition's Books VII and VIII are transmitted
+as fragments; this import does not reconstruct their lost continuous text.
+`--refresh-consensus` replays a reviewed collation-code change from the archived
+inputs, records previous and corrected readings, and refuses intervening edits
+to the owned text. It preserves later registry changes. `--undo` restores the
+original pre-admission files after subsequent changes are unapplied.
+
+`scripts/prepare_dio_ocr.py` selects 1,500 Greek regions from 1,217 physical
+spreads in Cary volumes I, II, and VI–IX for the missing transmitted Dio
+material. English facing panels, modern front matter and indexes are excluded.
+`scripts/prepare_dio_panels.py` finds the full-width rules separating earlier
+fragments from comparative quotations, without confusing small apparatus rules
+with panel boundaries. The 341 fragment regions and 418 comparison regions in
+volumes I–II retain separate transmission and admission metadata;
+the first volume VI page overlaps the existing end at 55.9.4 and requires
+collation before its missing continuation can be admitted. Source credits and
+genuine losses must remain explicit. The jobs place seven regions from six
+reviewed boundary pages first for a small OCR sanity check and preserve
+independent raw witnesses.
+The complete admitted repair adds 1,082 primary passages and retains 419
+comparative panels separately, including the additional Cary IX panel below
+the rule on printed page 470. All 4,403 historical primary passages remain
+unchanged, giving 5,485 primary passages. The main reversible admission is
+`data/corpus_changes/dio-greek-coverage-2026-10/`; its `--check` replay verifies
+the complete readings and word networks. This represents the surviving mixed
+transmission, with explicit ancient losses, rather than an intact eighty-book
+direct text.
+`prepare_dio_body_regions.py --pdf-dir SOURCE_PDFS` reproduces the subsequent
+source review of all 741 late Greek panels. It writes a separate effective
+1,500-region manifest with body boundaries above editorial notes, preserves the
+original request, and pins each geometry change to the scanned edition and
+completed review. Fifteen pages also receive an exact instruction to copy finite
+printed lacuna-dot series once. Superseded predictions remain held evidence in
+`scan_ocr_bundle`; they cannot enter the replacement body vote. A separate
+one-region request retains the full-size comparative quotations below the rule
+on Cary IX printed page 470, with their Leo/Cedrenus and Petrus Patricius credits.
+That panel is admitted separately as comparative paratext under
+`data/corpus_changes/dio-cary-nine-comparison-2026-10/`, using both independent
+checkpoints and the bounded, attributed Source Library witness. It adds no
+primary Dio passage.
+The admission loader accepts self-contained scan bundles without rewriting any
+part's runtime metadata or artifact hash. The admission audit exposes every part
+and held prediction. Failed superseded attempts remain evidence; every eligible
+replacement still requires a complete successful prediction.
+`prepare_dio_late_shards.py` pins two contiguous selections of 371 and 370
+reviewed late regions for `run_scan_ocr_shard.py`. These selections leave every
+unfinished early region with its original client. Build each checkpoint's final
+bundle from the unchanged early output and both late parts, using the original
+manifest as authority and the completed body review.
+`prepare_dio_early_body_regions.py --pdf-dir SOURCE_PDFS` adds the completed
+review of all 759 earlier panels as a second authority over that unchanged late
+request. It selects 279 source-confirmed apparatus crops in two groups of 140
+and 139. Full Greek paragraphs, comparative quotations, numbered sections and
+Latin transmission credits remain body even where their font size changes.
+Final bundles retain both review stages and all original attempts; already
+completed late predictions remain eligible.
+The two complete original checkpoint bundles are retained as
+`data/evaluation/ocr-fresh/cassius-dio-original-qwen36.bundle.json` and its
+Qwen3.8 counterpart. Each has 1,500 eligible regions and 283 held earlier
+attempts, with both source-boundary reviews and every original part unchanged.
+`prepare_dio_ocr_retries.py --original RETAINED_PART --pdf-dir SOURCE_PDFS`
+pins enlarged strips for the exact checkpoint/page combinations with observed
+length termination or scan-confirmed loss of accents and breathings. Repeat
+`--original` for the retained parts from both checkpoints. Each request retains
+the complete original prediction and runtime metadata, verifies its record
+hash, and keeps every finite printed lacuna-dot row in three ordered strips.
+The request alone does not authorize admission: every completed strip must
+pass a separate comparison with the source before replacing that model's
+single input. The other checkpoint and all original attempts remain available.
+The guarded `dio_ocr_retries.py` bundle checks the complete 1,500-region source
+lineage and all exact original record pins before permitting any failed reading
+to be replaced. An unreviewed failed region still prevents admission. The audit
+retains both the full original bundle and the completed strip review.
+`prepare_dio_ocr_supplements.py` pins later source-confirmed cases in separate
+requests, preserving the first request bytes. Its child request refines only
+the first VI402 retry strip that still lost breathings; the successful sibling
+strips remain available unchanged.
+An exact initial English Cary running title is removed through a source-pinned
+offset audit; Greek book headings and transmission credits are preserved.
+`prepare_dio_finer_children.py` retains later stop-terminated dot loops and
+source-confirmed mark loss as held parent strips. Each new request partitions
+its immediate parent, including a one-line refinement of the short VI402
+child. Dot runs use one explicit ellipsis through a recorded punctuation
+normalization; the source pixels and every earlier reading remain available.
+The authority registry makes all known defective strips require their reviewed
+children, even when the frozen detector abstains on short text.
+One 34-letter comparison line on Cary II printed378 still loses polytonic
+marks after those attempts. `scan_dio_line_reviews.py` applies its named,
+scan-checked correction above the merged network. The audit pins both exact
+checkpoint records and images, keeps every original vote and variant, and can
+restore the uncorrected merge. The initial `τριος` continues the preceding
+page's `μέ-`; it remains visible but is excluded from independent word counts,
+without inventing a joined spelling. This review adds no model vote.
+`prepare_dio_reviewed_inputs.py --raw-dir RETAINED_RETRIES` reproduces the
+completed recursive reviews from exact file hashes, preserving all failed
+ancestors and successful siblings. The admitted transmission labels also
+distinguish Cary VIII's epitome and excerpts from IX's mixed direct manuscript,
+excerpt and epitome material. That qualification is pinned to Cary I's source
+introduction; individual printed credits remain separate reference witnesses.
+The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
+separate overlap audit; its original passages and references stay unchanged,
+and only the uniquely anchored missing continuation adds new corpus text.
+
+`scripts/ingest_scan_coverage.py --manifest MANIFEST --witness RAW.jsonl`
+validates checkpoint, geometry and completion metadata before collating scan
+regions with `scripts/ocr_consensus.py`. Repeat `--witness` for independent OCR
+runs. A dry run can inspect a small completed subset with `--allow-partial`;
+`--apply --run-id scan-coverage-NAME` requires every selected region from at
+least two independent OCR model families. The
+importer preserves all tied readings, counts only resolved Greek words,
+archives exact raw predictions and removal decisions, and separates comparative
+quotations into paratext. `--check AUDIT_DIRECTORY` replays every vote, while
+`--undo AUDIT_DIRECTORY` restores every prior file byte after checking that
+no later change would be overwritten. New scan passages are registered under
+`data/corpus_extensions/`; the TEI ingester retains them and stops for a new
+overlap review if the underlying digital edition changes.
+Primary rows keep compact positional word slots, including exclusions that
+break lexical adjacency; each row links to its full, hash-checked vote network
+in the compressed audit archive.
+Comparison-only runs have their own `comparative_admissions` index with exact
+dataset hashes, source-region identities and reversible audit references. They
+can arrive before or after the primary text without creating primary passages.
+Coverage reports keep primary and comparison counts separately and require all
+reviewed comparison panels before marking the coverage repair complete.
+`scripts/scan_title_reviews.py` records the scan-checked stigma (six) in Pappus
+VI's opening title as a named correction above the unchanged OCR votes. The
+audit pins the source and rendered image, retains both complete predictions
+and the original numeral votes, and links the corrected row to its raw network.
+`unapply_review()` reconstructs that raw consensus; the admission's `--undo`
+restores all pre-admission files.
+`scripts/scan_fragment_reviews.py` likewise retains the leading `γενῆ` in
+Conica IV's letter as a visible continuation of the preceding leaf's `ὅμο-`,
+while excluding it from independent word counts. Its named eligibility review
+pins both cropped images, preserves the raw consensus, and supplies the same
+separate reversal operation without inventing a joined reading.
+The reusable `scripts/ocr_boundary_fragments.py` applies the same eligibility
+principle only after a caller verifies consecutive leaves in one reading stream
+and the current body start. At least two independent runs must agree on the
+preceding hyphenated token and following initial token. The mathematical importer
+checks consecutive printed pages within one book, removes only audited running
+headers, and holds title-like starts and proposition labels. Every admitted
+exclusion retains both boundary readings and the unchanged original network;
+uncertain boundaries remain untouched.
+The isolated initial Conica running header on Heiberg I printed page 190 has
+its own source and image pins; removal records the original line and offset.
+Book titles and headings on other leaves remain available to the reader.
+`scan_coverage_extensions.coverage_scope()` supplies the public manifestation
+scope, admitted and pending region counts, source licenses and transmission
+limits without reducing the full Work identity to its surviving material.
+Dio rows retain Latin attribution and numbered reference lines separately for
+each OCR witness; these references are excluded from Greek word counts.
+`scripts/bound_comparison_witness.py` can bound an unsegmented third OCR witness
+by unique beginning and ending phrases shared by two independent body witnesses.
+Unmatched source pages and all removed prefixes/footers remain comparison
+evidence; they cannot enter word votes through missing-witness abstention.
+For Dio, repeat `--digital-witness EXPORT.json.gz` for the three pinned Source
+Library Cary VII–IX exports when admitting the full scan run. The importer
+archives every original export and licenses participating rows as CC-BY-SA-4.0
+with component attribution. Unmatched pages remain comparison-only; the queued
+scan manifests and independent model runs do not change.
+`python3 scripts/dio_comparison_witnesses.py --download OUTPUT_DIRECTORY`
+retrieves the three exports and validates their pinned identity and license.
 
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
@@ -523,14 +1242,73 @@ markers from reading text. Original text, folio locations, evidence, and source
 checksums remain in `data/corpus_changes/alexius-ficker-1911/`; the importer can
 reconstruct the uncorrected text with `--uncorrected --out FILE`.
 
-The DCLP 63141 pilot under `data/pilots/dclp63141/` is not served text.
-`scripts/prepare_epidoc_pilot.py` retains the original EpiDoc byte-for-byte,
-all alternative readings, and 89 column/line loci. Damage and restorations
-remain explicit; neither alternatives nor editorial notes become ordinary
-reading words.
+P.Herc. 1026 (DCLP 63141) is served as `anonymous.p-herc-1026`. Its 89
+column/line records keep the complete critical spans, including 219 unclear
+spans, 140 gaps, 86 supplied spans, both apparatus readings, the correction and
+its original reading, and physical fragment/image references. The original
+EpiDoc is retained byte-for-byte in `data/pilots/dclp63141/source.xml` with its
+pinned revision, source hash, editor credits, and CC BY 3.0 provenance.
+`scripts/ingest_dclp63141.py --apply` rebuilds the served records and the
+standalone reader at `data/critical_editions/dclp63141/reader.html`; `--check`
+verifies their exact bytes, and `--undo` removes the unchanged admission.
+
+The reader distinguishes unclear letters, restored text, omitted text,
+apograph-only readings, gaps, and editorial alternatives. Each surface token
+has validated Unicode offsets into `reading_text`, source span identifiers,
+and editorial status. Lemma and linguistic analysis remain explicitly null.
+Only the 63 complete, certain, extant tokens enter `analysis_text` and the
+lexical frequency builders; the 312 surface tokens include fragments and
+editorial readings and must not be treated as 312 attested words. Physical
+column/line references remain labeled physical even though they use numeric
+loci. Export with `python3 scripts/ingest_dclp63141.py --format html --out
+reader.html`, or select `jsonl` for the structured records and `tei` for the
+unchanged source. Damage and alternative branches survive the structured
+export; the plain display string is only a reading aid.
 
 `scripts/benchmark_page_ocr.py` prepares and runs a pinned OCR comparison. The
-100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
+separate `scripts/run_scan_ocr.py` runner retains independent witnesses for
+reviewed scan pages and crops. Its manifest pins PDF bytes, one-based page
+numbers, and regions; raw predictions, failures, checkpoint revisions, and
+runtime settings are retained. It supports MLX and a pinned HTTP model server.
+These predictions do not alter corpus text without a separate audited repair.
+
+`scripts/run_scan_ocr_shard.py` runs an explicit `--ids` JSON list against the
+unchanged full `--manifest`, using a pinned HTTP runtime. Its own runner hash,
+the image/HTTP helper hash, selected IDs, full manifest, and each outcome remain
+retained. Resuming refuses a changed checkpoint, runtime, manifest, or selection.
+Use a separate output for a small `--limit` preflight.
+`scripts/scan_ocr_bundle.py plan --manifest MANIFEST --model MODEL --revision
+REVISION --count 2 --out-dir SHARDS` writes disjoint selections in manifest
+order; `--completed-bundle` excludes already recorded outcomes, including
+failures. It never silently retries them.
+
+The bundle script's `write` command takes `--manifest EFFECTIVE_MANIFEST`,
+repeated `--part RAW_PART ORIGINAL_MANIFEST` pairs, and `--out BUNDLE`.
+Each part retains its exact original bytes and runtime; bundles can contain
+other bundles. The shared loader preserves original prediction artifact hashes,
+requires one checkpoint and revision, and rejects duplicate eligible region IDs.
+A changed crop is held outside the vote only when the effective manifest's
+`reviewed_substitutions` pins its exact original manifest and an embedded
+`--source-review` artifact verifies every old and new boundary. These records
+preserve all superseded readings without inventing a combined runtime or another
+model vote. A bundle reaching 100 MB is refused.
+Successive source reviews can form an exact original-to-late-to-early manifest
+chain. Nested prior bundles stay byte-identical; new-only bundles must retain
+every intermediate manifest, original authority, and completed review. The
+loader validates every transition and preserves each held prediction's original
+runtime and source geometry, including repeated revisions to the same region.
+The exact original manifest must be present even if every part uses the new
+crops; `--authority-manifest ORIGINAL_MANIFEST` retains that authority when no
+original-geometry part already contains it.
+The same authority can explicitly review a per-page `prompt_suffix`, such as
+a finite ellipsis convention for printed lacuna dots. Both the substitution
+and its source evidence must pin exact `original_prompt_suffix` and
+`prompt_suffix` values; null records an absent page suffix. Only reviewed
+crop or page-suffix changes are accepted. The base prompt, sources, page IDs,
+order, and other request fields remain fixed, and old-prompt readings stay
+held evidence rather than another vote.
+
+The 100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
 and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.
 Its source is the manually transcribed Calfa dataset, not existing OCR output.
 The evaluator reports accent-sensitive character and word errors, a separate
@@ -547,7 +1325,9 @@ Install `scripts/requirements-ocr-benchmark.txt` in a separate environment;
 this server uses its own pinned PyTorch runtime.
 `scripts/serve_ocr_benchmark.py --model REPOSITORY --revision SHA
 --runtime-manifest runtime.json` downloads the pinned checkpoint and records
-the server packages, GPU, and generation settings. Run the benchmark with
+the server packages, GPU, and generation settings. The default concurrent
+sequence limit is eight; `--max-num-seqs` changes it for a suitably sized GPU
+and records the chosen value in the runtime manifest. Run the benchmark with
 `--backend http --runtime-manifest runtime.json --split all --workers 4`.
 HTTP failures remain scored as empty pages, and token-limit truncation is
 reported separately. Comparisons use the held-out test pages when present,
@@ -1175,28 +1955,43 @@ dated `data/corpus_changes/issue-{1,2,31,33}-reviewed.*` records.
 Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
-Read the raw-OCR count in that table as an upper bound. A work counts as
-corrected from its rows' own `corrections` stamps, and the stamps are
-incomplete in one direction: a correction stamps the row it edits, a carve
-then moves that row into a per-work file, and nothing re-stamps it there.
-43,619 row-and-method pairs across 261 works have a correction standing in the
-served row with no stamp for the method that made it, and 24 works sit under
-the 1% floor only because of that. `pseudo-zonaras.lexicon` reads 0.45% of its
-rows stamped where the standing corrections put it at 2.64%, and 22 works read
-zero although they hold at least as many standing corrections as rows. The
-stamps are not repaired to match, because they cannot be: a corrected form
-standing in a row is equally consistent with the corrector having written it
-and with the scan having read it correctly all along, so stamping on presence
-would invent provenance rather than record it. Taking the 22 of those works
-the catalog still calls raw at their word puts the raw-OCR share between 3.73%
-and 4.45% of the corpus, 472,361 tokens apart, and the published figure is the
-top of that range. `data/correction_stamp_gap.json` carries the generated
-measurement with the catalog hash, corpus hash and correction-population count
-that it was measured against; the release builder marks it stale if those pins
-move.
+The table keeps the dominant source, edition, and license as descriptive
+metadata. A work containing both OCR and digital text is `mixed-unassessed`:
+a correction stamp on one component does not establish whole-work review, and
+a dominant digital edition does not make its OCR additions digital text.
+`data/source_component_tokens.json` counts every primary row by source,
+edition, and license using the checked lexical projection. It includes the
+exact OCR component denominator, the mixed works, all corpus file hashes, and
+the eligibility recipe hashes. `ocr-masked` folds into `ocr`, matching the
+edition reconciler. Component credits and licenses remain in the source
+registry and coverage composition.
 
+The release withholds global raw-OCR bounds while correction coverage of
+mixed components is unassessed. Its `legacy_homogeneous_work_bucket` and
+`legacy_homogeneous_work_stamp_gap` retain the older work classification and
+stamp-gap measurement with that restricted scope. They do not bound all raw
+OCR in the corpus. Stamps also remain incomplete within those homogeneous
+works: an edit can survive a carve without its method stamp. Standing text
+alone cannot distinguish an applied correction from an original correct scan
+reading, so stamps are not inferred from word presence.
+`data/correction_stamp_gap.json` pins the legacy measurement to its catalog,
+corpus, and correction population; the release flags stale measurements.
+
+Generate the component report before its consumers, and verify its counts
+before tagging:
+
+```sh
+python3 scripts/build_source_components.py
+python3 scripts/build_source_components.py --check
+python3 scripts/build_corpus_catalog.py
+python3 scripts/build_provenance.py
+```
+
+The release and known-limitations builders require the current component
+report and reject catalog token totals or mixed correction statuses that do
+not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1397 listed works/volumes containing OCR: 126 manually corrected, 880 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 3 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -1299,6 +2094,7 @@ move.
 | apollodorus-philosophy.fragmenta | Apollodorus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 712 | auto-corrected |
 | apollodorus.fragmenta | APOLLODORUS - Fragmenta | kock-caf3-ocr | Qwen3.6-27B | 252 | raw OCR |
 | apollodorus.fragmenta-2 | APOLLODORUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 68 | raw OCR |
+| apollonius-geom.conica | Apollonius - Conica | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 54,229 | mixed-unassessed |
 | apollonius-philosophy.apollonii-epistulae-dub | Apollonius - Apollonii Epistulae [Dub.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,393 | auto-corrected |
 | apollonius-philosophy.apotelesmata-sp | Apollonius - Apotelesmata [Sp.] | qwen36-apollonius_parad_keller_v1 | Qwen3.6-27B | 21,760 | auto-corrected |
 | apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas | Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 557 | auto-corrected |
@@ -1326,7 +2122,7 @@ move.
 | aristarchus-ludwich |  | qwen36-aristarchus_ludwich | Qwen3.6-27B | 52,613 | auto-corrected |
 | aristarchus.fragmenta | Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 246 | raw OCR |
 | aristias.fragmenta | Aristias - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 243 | raw OCR |
-| aristides-quintilianus-music.de-musica | Aristides Quintilianus - De Musica | qwen36-aristides_quintilianus_meibom | Qwen3.6-27B | 64,826 | auto-corrected |
+| aristides-quintilianus-music.de-musica | Aristides Quintilianus - De Musica | [Aristides Quintilianus, De musica (Jahn1882); independent fresh OCR word vote, with unresolved readings preserved](https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf) | Qwen3.6-27B and Qwen3.8-27B | 25,410 | manual |
 | aristippus-cyrenaicus.sententiae-et-apophthegmata |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 6,866 | auto-corrected |
 | aristobulus.fhg3 |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 39,530 | auto-corrected |
 | aristocles-messanius.fragmenta | Aristocles - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 684 | auto-corrected |
@@ -1476,7 +2272,7 @@ move.
 | bion-history.fragmenta | Bion - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 55 | raw OCR |
 | bion-mathematics.testimonia | Bion - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 94 | raw OCR |
 | bion-philosophy.fragmenta | Bion - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,673 | auto-corrected |
-| blaesus.fragmentum | BLAESUS - Fragmentum | qwen36-sopater_kaibel_cgf-ocr | Qwen3.6-27B | 113 | raw OCR |
+| blaesus.fragmentum | BLAESUS - Fragmentum | qwen36-sopater_kaibel_cgf-ocr | Qwen3.6-27B | 56 | raw OCR |
 | boethus.fragmenta | Fragmenta | qwen36-apollodorus_seleuc_svf3-ocr | Qwen3.6-27B | 588 | auto-corrected |
 | boidas.testimonium | Boïdas - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 84 | raw OCR |
 | bolus.testimonium | Bolus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 28 | raw OCR |
@@ -1493,6 +2289,7 @@ move.
 | carcinus-junior.fragmenta | Carcinus Junior - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 665 | raw OCR |
 | carmina-convivialia-pmg.fragmenta | Carmina Convivialia (Pmg) - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,946 | raw OCR |
 | carmina-popularia-pmg.fragmenta | CARMINA POPULARIA (PMG) - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,141 | auto-corrected |
+| cassius-dio.historiae-romanae | Cassius Dio - Historiae Romanae | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 346,435 | mixed-unassessed |
 | castor-rhetor.peri-metron-rhetorikon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,421 | auto-corrected |
 | cephisodorus.fragmenta | Cephisodorus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 288 | raw OCR |
 | cercidas.fragmenta | Cercidas - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 351 | auto-corrected |
@@ -1550,7 +2347,7 @@ move.
 | cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum | Cyrillus - Apologia Xii Anathematismorum Contra Theodoretum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,192 | auto-corrected |
 | cyrillus-theology.apologia-xii-capitulorum-contra-orientales | Cyrillus - Apologia Xii Capitulorum Contra Orientales | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,271 | auto-corrected |
 | cyrillus-theology.collectio-dictorum-veteris-testamenti-sp | Cyrillus - Collectio Dictorum Veteris Testamenti [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,510 | raw OCR |
-| cyrillus-theology.commentarii-in-joannem | Cyrillus - Commentarii In Joannem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 179,007 | auto-corrected |
+| cyrillus-theology.commentarii-in-joannem | Cyril of Alexandria v6 (Commentary on John) | calfa-pg73-5895ab908dd4 | calfa-co | 392,251 | auto-corrected |
 | cyrillus-theology.commentarii-in-lucam-in-catenis | Cyrillus - Commentarii In Lucam (In Catenis) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 86,969 | auto-corrected |
 | cyrillus-theology.commentarius-in-isaiam-prophetam | Cyrillus - Commentarius In Isaiam Prophetam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 293,813 | auto-corrected |
 | cyrillus-theology.contra-julianum-lib-1-2 | Cyrillus - Contra Julianum (Lib. 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,002 | auto-corrected |
@@ -1603,7 +2400,7 @@ move.
 | diels-ppf-1901.paratexta |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,403 | auto-corrected |
 | dindorf-hgm1.paratexta |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 8,535 | auto-corrected |
 | dindorf-hgm2.paratexta |  | qwen36-menander_protector_dindorf_hgm | Qwen3.6-27B | 302 | auto-corrected |
-| dinolochus.fragmentum | DINOLOCHUS - Fragmentum | qwen36-rhinthon_kaibel_cgf_1899-ocr | Qwen3.6-27B | 391 | auto-corrected |
+| dinolochus.fragmentum | DINOLOCHUS - Fragmentum | qwen36-rhinthon_kaibel_cgf_1899-ocr | Qwen3.6-27B | 257 | auto-corrected |
 | diocles-echecrates-polymnastus-phanton-arion.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 62 | raw OCR |
 | diocles.fragmenta | Diocles - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 213 | auto-corrected |
 | diodorus-aspendius.fragmentum | Diodorus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 16 | raw OCR |
@@ -2105,8 +2902,8 @@ move.
 | josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 237 | auto-corrected |
 | josephus-rhacendyta.synopsis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,967 | auto-corrected |
 | justinus-martyr.fragmenta-operum-deperditorum | Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 338 | auto-corrected |
-| kaibel-cgf-1899.volume-witness-r | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 36,897 | auto-corrected |
-| kaibel-cgf-1899.volume-witness-s | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 32,361 | auto-corrected |
+| kaibel-cgf-1899.volume-witness-r | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 21,744 | auto-corrected |
+| kaibel-cgf-1899.volume-witness-s | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 53 | auto-corrected |
 | laetus.fragmenta | Laetus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 442 | auto-corrected |
 | lamprocles.fragmenta | Lamprocles - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,193 | auto-corrected |
 | laudatio-sancti-demetrii.narratio-de-capta-thessalonica | Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 624 | auto-corrected |
@@ -2242,6 +3039,7 @@ move.
 | pantaenus.fragmenta | Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 225 | raw OCR |
 | panyassis.fragmenta-epica | Panyassis - Fragmenta Epica | qwen36-panyassis_kinkel_egf | Qwen3.6-27B | 33,197 | auto-corrected |
 | papias.fragmenta | Papias Hierapolitanus - Fragmenta (PG005 loci 637-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 708 | manual |
+| pappus-mathematics.synagoge | Pappus - Synagoge | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 121,327 | mixed-unassessed |
 | parmenides.testimonia | Parmenides - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,475 | auto-corrected |
 | parmiscus.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 133 | raw OCR |
 | paron.testimonium | Paron - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 123 | raw OCR |
@@ -2308,7 +3106,7 @@ move.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,204 | auto-corrected |
+| photius.bibliotheca | Photius - Bibliotheca | bekker1824-independent-ocr-consensus | Qwen3.6-27B | 273,228 | auto-corrected |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
@@ -2414,7 +3212,7 @@ move.
 | sopater-rhetor.diairesis-zetematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,079 | auto-corrected |
 | sopater-rhetor.hypomnema-eis-ten-hermogenous-technen |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 54,333 | auto-corrected |
 | sophilus.fragmenta | Sophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
-| sophron.fragmenta | SOPHRON - Fragmenta | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 5,497 | auto-corrected |
+| sophron.fragmenta | SOPHRON - Fragmenta | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 3,177 | auto-corrected |
 | sosicrates.fragmenta | SOSICRATES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |
 | sosipater.fragmentum | SOSIPATER - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 270 | raw OCR |
 | sosiphanes.fragmenta | Sosiphanes - Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 366 | raw OCR |
@@ -2598,7 +3396,7 @@ move.
 
 ## Status
 
-- 3,910 works served, 65.3M Greek tokens, fourteen sources.
+- 3,911 works served, 65.8M Greek tokens in the checked lexical projection, 15 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "manifest_sha256": "01ae81606895cdf752bf8ea28477b16ae429d9e863fdd64de37f0c3c8be4cafb",
+  "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+  "decision": "replace-source-reviewed-degraded-page",
+  "reviewed_at": "2026-10-18",
+  "source_evidence": "Both corrected columns retain the continuing Persica narratives and the fourth-book transition, through the final body lines; complete glyph edges and marked Greek, no small apparatus or unprinted loop. Word and ligature errors and printed marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page41. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading.",
+  "review_scope": "Body-line coverage, column and heading order, systematic mark loss, unprinted repetition, and apparatus boundaries; no claim of lexical proofreading. Word and ligature discrepancies remain raw and reversible.",
+  "strip_reviews": [
+    {
+      "id": "photius-bekker-0041-left-body",
+      "source_evidence": "Pinned source page41, body box[0.045, 0.06, 0.495, 0.839]: Both corrected columns retain the continuing Persica narratives and the fourth-book transition, through the final body lines; complete glyph edges and marked Greek, no small apparatus or unprinted loop. Word and ligature errors and printed marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page41. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "e3c1dc4aed2c251ccdbbb11835277d1ad82a9fc9225142c975793c2689452a7f"
+      ]
+    },
+    {
+      "id": "photius-bekker-0041-right-body",
+      "source_evidence": "Pinned source page41, body box[0.505, 0.06, 0.975, 0.839]: Both corrected columns retain the continuing Persica narratives and the fourth-book transition, through the final body lines; complete glyph edges and marked Greek, no small apparatus or unprinted loop. Word and ligature errors and printed marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page41. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. Earlier outcomes superseded by named descendants are held evidence, not additional votes.",
+      "reading_complete": true,
+      "apparatus_excluded": true,
+      "reading_basis": "reviewed-supplement-parts",
+      "completed_by_supplements": [
+        "e3c1dc4aed2c251ccdbbb11835277d1ad82a9fc9225142c975793c2689452a7f"
+      ]
+    }
+  ],
+  "original_artifacts_sha256": [
+    "9a54da20c4378e983ccf70b2badf8af5f359a038af79a80873a972f87d00ef49"
+  ],
+  "reviewed_runs": [
+    {
+      "sha256": "22b56990cac6ca8873982fc4fa7cfd56354ba6a38f47c054e741959f23bfcd1d",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "reviewed_supplements": [
+    {
+      "sha256": "cf0436c9aed3bd8b3a1a1ddbac6ff60dc44df0c90b69957a70b5cd0bb2a4232c",
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9",
+      "manifest_sha256": "e3c1dc4aed2c251ccdbbb11835277d1ad82a9fc9225142c975793c2689452a7f",
+      "strip_reviews": [
+        {
+          "id": "photius-bekker-0041-left-body-gutter",
+          "source_evidence": "Exact source page41, body box[0.035, 0.06, 0.485, 0.839]: Both corrected columns retain the continuing Persica narratives and the fourth-book transition, through the final body lines; complete glyph edges and marked Greek, no small apparatus or unprinted loop. Word and ligature errors and printed marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page41. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        },
+        {
+          "id": "photius-bekker-0041-right-body-gutter",
+          "source_evidence": "Exact source page41, body box[0.485, 0.06, 0.975, 0.839]: Both corrected columns retain the continuing Persica narratives and the fourth-book transition, through the final body lines; complete glyph edges and marked Greek, no small apparatus or unprinted loop. Word and ligature errors and printed marginal references remain. Compared the selected final outcomes to the pinned Bekker source PDF, 1-based scan page41. Source-confirmed abstentions and every discarded failed/degraded ancestor remain retained; only the reviewed eligible slices vote once per model family. This review establishes qualified body coverage and never lexical proofreading. This current or superseded source span remains identified by its request and raw hashes.",
+          "reading_complete": true,
+          "apparatus_excluded": true
+        }
+      ]
+    }
+  ]
+}

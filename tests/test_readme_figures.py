@@ -1,19 +1,16 @@
 """Figures the README states in prose have to match the data it describes.
 
-Most of the README's numbers sit inside generated blocks or are rewritten by the
-round that changes them. These two are neither: they are hand-written sentences
-that nothing rebuilds, so they drift silently. Both were wrong when this test was
-added. The Status line still said ~3,820 works and ~66.7M tokens against 3,908
-and 65.6M, and the anchor sentence said `tlg` on 3,322 works when the true count
-had FALLEN to 3,300, because works carrying a cog-native id stopped publishing a
-TLG number they never had.
+scripts/build_readme_figures.py rewrites these sentences. Tests independently
+recompute eligible tokens and source categories from the served rows, so a
+display alternative or restored fragment cannot silently inflate the headline.
 
 A wrong count in the README is not cosmetic: it is the first number a reader
 takes, and the corpus total is the one figure a consumer checks a download
 against.
 """
 
-import glob
+from collections import Counter, defaultdict
+from functools import lru_cache
 import json
 import re
 import sys
@@ -22,6 +19,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "scripts"))
 from build_public_corpus import _GK  # noqa: E402
 from build_work_index import _raw_identifier_title  # noqa: E402
+from frequency_projection import FrequencyProjection  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 README = (REPO / "README.md").read_text(encoding="utf-8")
@@ -50,17 +48,46 @@ def test_served_work_titles_do_not_publish_raw_tlg_identifiers():
     assert raw == []
 
 
+def test_no_external_anchor_sentence_matches_work_index():
+    match = re.search(r"([\d,]+) of the ([\d,]+) served works have no\s+external id at all", README)
+    assert match, "the no-anchor sentence moved; update this test with it"
+    without = sum(not any((work.get("work_anchors") or {}).values()) for work in WORKS.values())
+    assert tuple(_n(match[i]) for i in [1, 2]) == (without, len(WORKS))
+
+
+@lru_cache(maxsize=1)
+def independent_corpus_totals():
+    frequency = FrequencyProjection(REPO / "data")
+    totals, sources = Counter(), defaultdict(set)
+    for path in sorted((REPO / "data/corpus").glob("*.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if not line.strip():
+                continue
+            row = json.loads(line)
+            slug = row.get("urn") or path.stem
+            totals[slug] += len(_GK.findall(frequency.text(row)))
+            if row.get("source"):
+                sources[slug].add(row["source"])
+    return totals, sources
+
+
 def test_status_line_matches_the_served_corpus():
-    m = re.search(r"- ([\d,]+) works served, ([\d.]+)M Greek tokens", README)
+    m = re.search(r"- ([\d,]+) works served, ([\d.]+)M Greek tokens in the checked lexical projection, ([\d,]+) source categories\.", README)
     assert m, "the Status line moved; update this test with it"
     assert _n(m.group(1)) == len(WORKS)
 
-    total = 0
-    for fp in glob.glob(str(REPO / "data" / "corpus" / "*.jsonl")):
-        with open(fp, encoding="utf-8") as f:
-            for line in f:
-                if line.strip():
-                    total += len(_GK.findall(json.loads(line).get("text") or ""))
+    totals, sources = independent_corpus_totals()
+    total = sum(totals.values())
+    assert set(totals) == set(WORKS)
+    assert _n(m[3]) == len(set().union(*sources.values()))
     # One decimal place, so the assertion is as tight as the claim itself.
     assert f"{total / 1e6:.1f}" == m.group(2), \
         f"README says {m.group(2)}M, corpus holds {total:,}"
+
+
+def test_coverage_analysis_and_source_totals_match_independent_projection():
+    totals, sources = independent_corpus_totals()
+    coverage = json.loads((REPO / "data/coverage.json").read_text())
+    assert set(coverage) == set(totals)
+    assert {slug: row.get("analysis_tokens") for slug, row in coverage.items()} == dict(totals)
+    assert {slug: set(row.get("sources", [])) for slug, row in coverage.items()} == dict(sources)

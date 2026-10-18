@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Replace only a failed checkpoint's whole-page attempt with a separately reviewed strip assembly; retain successful checkpoint readings and all failed originals.",
+  "retry_of": {
+    "path": "data/ocr_requests/photius-bekker-later-gap.json",
+    "sha256": "736306a5893ac1ac8f00d3f46c3bd26c3812751b1dfbf1104036f3d63103d0b4",
+    "page_id": "photius-bekker-0397"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "review": {
+    "checked_scan_pages": [
+      397
+    ],
+    "accepted_for_primary_ingest": false,
+    "evidence": "Printed page385 continues the two-column narrative. The original Qwen3.8 ends with repeated τὸν sequences absent from the scan, although it reports stop termination. Six source-checked strips retain the complete large Greek body; enlarged interline checks preserve every line, breathing, and descender in both faint columns. The bottom at.839 lies above the smaller apparatus.",
+    "failure": "The stop-terminated Qwen3.8 original contains a source-confirmed repetition loop. Preserve that attempt and retain the independent Qwen3.6 whole-page reading.",
+    "admission_policy": "Only the listed checkpoint receives an assembled replacement vote after a completed output-to-scan review. Keep every original and retry prediction; no extra votes or arbitrary choice."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0397-left-upper",
+      "source": "photius-bekker-combined",
+      "scan_page": 397,
+      "printed_page": 385,
+      "region": [
+        0.045,
+        0.06,
+        0.495,
+        0.32507
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 0,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0397-left-middle",
+      "source": "photius-bekker-combined",
+      "scan_page": 397,
+      "printed_page": 385,
+      "region": [
+        0.045,
+        0.32507,
+        0.495,
+        0.581
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 1,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0397-left-lower",
+      "source": "photius-bekker-combined",
+      "scan_page": 397,
+      "printed_page": 385,
+      "region": [
+        0.045,
+        0.581,
+        0.495,
+        0.839
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 2,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0397-right-upper",
+      "source": "photius-bekker-combined",
+      "scan_page": 397,
+      "printed_page": 385,
+      "region": [
+        0.505,
+        0.06,
+        0.97,
+        0.32507
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 3,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0397-right-middle",
+      "source": "photius-bekker-combined",
+      "scan_page": 397,
+      "printed_page": 385,
+      "region": [
+        0.505,
+        0.32507,
+        0.97,
+        0.581
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 4,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0397-right-lower",
+      "source": "photius-bekker-combined",
+      "scan_page": 397,
+      "printed_page": 385,
+      "region": [
+        0.505,
+        0.581,
+        0.97,
+        0.839
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 5,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    }
+  ]
+}

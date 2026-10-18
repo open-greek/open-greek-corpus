@@ -94,7 +94,24 @@ from corpus_order_overrides import (  # noqa: E402
     apply_order_override,
     load_order_overrides,
 )
-from repair_manetho_citations import remap_record, validate_source  # noqa: E402
+from repair_manetho_citations import (  # noqa: E402
+    remap_record as remap_manetho_record,
+    validate_source as validate_manetho_source,
+)
+from repair_mathematical_citations import (  # noqa: E402
+    remap_record as remap_mathematical_record,
+    validate_source as validate_mathematical_source,
+)
+from scan_coverage_extensions import load_extensions, combine_rows  # noqa: E402
+
+
+def validate_source(work, edition, source, path):
+    validate_manetho_source(work, edition, source, path)
+    validate_mathematical_source(work, edition, source, path)
+
+
+def remap_record(row):
+    return remap_mathematical_record(remap_manetho_record(row))
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "sources"
@@ -1223,20 +1240,31 @@ def main() -> None:
                 rec["text_lines"] = lines
             rec = remap_record(rec)
             out_lines.append(json.dumps(rec, ensure_ascii=False))
+        base_rows = [json.loads(line) for line in out_lines]
+        extensions = load_extensions(REPO, key,
+            {row["locus"] for row in base_rows}, base_rows)
+        if extensions:
+            out_lines = [json.dumps(row, ensure_ascii=False)
+                         for row in combine_rows(key, base_rows, extensions)]
+        extension_tokens = sum(len(_GK.findall(row.get("analysis_text", row["text"])))
+                               for row in extensions)
         _atomic_write_text(CORPUS / f"{key}.jsonl",
                            "".join(line + "\n" for line in out_lines))
         if disamb_map:
             disambiguations[key] = disamb_map
-        total_passages += len(records)
+        total_passages += len(out_lines)
         editions[key] = {
             "edition": primary_edition,
             "source": primary_source,
             "license": primary_lic,
-            "n_passages": len(records),
-            "n_tokens": n_tokens,
+            "n_passages": len(out_lines),
+            "n_tokens": n_tokens + extension_tokens,
         }
         if len(merged_eds) > 1:
             editions[key]["merged_editions"] = merged_eds
+        if extensions:
+            editions[key]["scan_extensions"] = sorted({row["edition"] for row in extensions})
+            editions[key]["scan_extension_licenses"] = sorted({row["license"] for row in extensions})
         # Report the ways a work's citation structure can fail us. Both dup fields
         # describe a RESOLVED condition - the written file always has one row per
         # served locus - and are mutually exclusive per collision (exact vs
