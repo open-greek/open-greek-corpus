@@ -246,6 +246,16 @@ def confusion(rows):
             "specificity": tn / (tn + fp) if tn + fp else None}
 
 
+def archive_prediction(source, destination):
+    """Retain the exact raw run, refusing to replace another recorded attempt."""
+    raw = source.read_bytes()
+    if destination.exists() and destination.read_bytes() != raw:
+        raise ValueError("A different raw prediction archive already exists")
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    destination.write_bytes(raw)
+    return destination
+
+
 def validate_fresh(source_root, manifest_path, policy_path, predictions, review_path=None):
     manifest, policy = verify_manifest(manifest_path, policy_path)
     gold = {}
@@ -296,7 +306,19 @@ def validate_fresh(source_root, manifest_path, policy_path, predictions, review_
                          "generation_tokens": page.get("generation_tokens"), "error": page.get("error"),
                          "detector": detect(text, policy), "truth": truth,
                          "metrics": benchmark.score(gold[page["id"]], text)})
+        try:
+            archive_path = path.resolve().relative_to(ROOT).as_posix()
+        except ValueError:
+            archive_path = None
+        all_outcomes = confusion(rows)
+        measurement_limits = []
+        if all_outcomes["true_positive"] + all_outcomes["false_negative"] == 0:
+            measurement_limits.append("No assessable systematic-loss case was observed; this run cannot estimate sensitivity or recall.")
+        if all_outcomes["true_positive"] + all_outcomes["false_positive"] == 0:
+            measurement_limits.append("No assessable page was flagged; this run cannot estimate positive predictive precision.")
         runs.append({"metadata": metadata, "predictions_sha256": benchmark.sha256(path),
+                     "predictions_path": archive_path,
+                     "measurement_limits": measurement_limits,
                      "by_split": {split: confusion([r for r in rows if r["split"] == split]) for split in ("calibration", "test")},
                      "false_positives": [r["id"] for r in rows if r["truth"]["assessable"] and not r["truth"]["systematic_loss"] and r["detector"]["flag"]],
                      "missed_cases": [r["id"] for r in rows if r["truth"]["assessable"] and r["truth"]["systematic_loss"] and not r["detector"]["flag"]],
@@ -396,6 +418,8 @@ def main():
     p.add_argument("--manifest", type=Path, default=DEFAULT_OUT / "manifest.json")
     p.add_argument("--policy", type=Path, default=DEFAULT_OUT / "policy.json")
     p.add_argument("--predictions", type=Path, action="append", required=True)
+    p.add_argument("--archive-predictions", type=Path,
+                   help="Archive the exact single raw input before validating; refuses replacement")
     p.add_argument("--scan-review", type=Path, required=True)
     p.add_argument("--out", type=Path, default=DEFAULT_OUT / "validation.json")
     p = commands.add_parser("corpus")
@@ -407,7 +431,12 @@ def main():
         result = prepare(args.root, args.out)
         print(json.dumps({"pages": len(result["pages"]), "by_edition": result["edition_counts"]}))
     elif args.command == "validate":
-        result = validate_fresh(args.root, args.manifest, args.policy, args.predictions, args.scan_review)
+        predictions = args.predictions
+        if args.archive_predictions:
+            if len(predictions) != 1:
+                ap.error("--archive-predictions requires exactly one raw run")
+            predictions = [archive_prediction(predictions[0], args.archive_predictions)]
+        result = validate_fresh(args.root, args.manifest, args.policy, predictions, args.scan_review)
         args.out.parent.mkdir(parents=True, exist_ok=True)
         args.out.write_bytes(dump(result))
         print(json.dumps({run["metadata"]["model"]: run["by_split"] for run in result["runs"]}))

@@ -655,6 +655,14 @@ limitations. The remaining 52 pages still need complete output and sufficient
 base-letter alignment. Run `scripts/report_polytonic_loss.py validate --root
 SOURCE_DIRECTORY --predictions RUN.jsonl --scan-review
 data/evaluation/polytonic-loss/scan-review.json` for each pinned fresh run.
+Add `--archive-predictions data/evaluation/polytonic-loss/raw/qwen38.jsonl`
+to retain an exact raw input without replacing a different attempt.
+The fresh Qwen3.8 report retains all 60 outcomes, including one truncated
+output. Eight defective references are excluded from loss labels; the truncated
+page is also one of those eight. All 52 assessable pages are negative with no
+false flags, so this run cannot estimate sensitivity, recall, or positive
+predictive precision. Those missing denominators remain null.
+
 The tagged release's quality block pins the page report to the complete corpus
 hash, the locked policy, and both fresh validation reports. It verifies the raw
 prediction archives and all 60 distinct page identities, and includes false
