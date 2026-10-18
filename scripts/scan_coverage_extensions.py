@@ -21,7 +21,8 @@ def combine_rows(work, base, extensions):
                 return (0 if volume < 3 else 2, volume, row["printed_page"], position)
             return (1, 0, 0, position)
         book = int(row["locus"].split(".")[0])
-        return (book, 0, row.get("printed_page", 0), position)
+        return (book, -1 if row.get("text_role") == "authorial-preface" else 0,
+                row.get("printed_page", 0), position)
     return [row for position, row in sorted(enumerate(base + extensions), key=key)]
 
 
@@ -72,14 +73,15 @@ def coverage_scope(root: Path, work: str):
         },
         "apollonius-geom.conica": {
             "work_identity": "Apollonius of Perga, Conica",
-            "base_scope": "Heiberg volume II, Greek Book IV",
-            "addition_scope": "Heiberg volume I, Greek Books I–III, including epistolary prefaces",
+            "base_scope": "Heiberg volume II, Greek Book IV propositions 1–57",
+            "addition_scope": "Heiberg volume I, Greek Books I–III with their printed opening matter, and the omitted Book IV letter to Attalus from volume II",
             "transmission_limit": "The Greek manifestation covers Books I–IV. Books V–VII survive only in Arabic translation, and Book VIII is lost; none is reconstructed as Greek reading text.",
             "transmission_reference": {"citation": "Cambridge Library Collection description of Heiberg's Apollonii Pergaei quae Graece exstant cum commentariis antiquis, volume II", "url": "https://www.cambridge.org/core/books/apollonii-pergaei-quae-graece-exstant-cum-commentariis-antiquis/5D8CEEC494A099E165426D0D05022E27"},
             "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus and indexes",
             "historical_citation_scheme": "apollonius-first1k-unqualified-sections",
             "scan_citation_scheme": "Book plus Heiberg printed page",
             "manifest": "mathematical-ocr-jobs.json",
+            "supplement_manifests": ["apollonius-conica-4-letter-jobs.json"],
         },
         "cassius-dio.historiae-romanae": {
             "work_identity": "Cassius Dio, Historiae Romanae (Roman History), the ancient eighty-book work",
@@ -96,11 +98,15 @@ def coverage_scope(root: Path, work: str):
         return None
     description = dict(qualifications[work])
     filename = description.pop("manifest")
+    filenames = [filename] + description.pop("supplement_manifests", [])
     manifest_path = directory / filename
     if not manifest_path.exists():
         return None
     raw = manifest_path.read_bytes()
-    manifest = json.loads(raw)
+    requests = [(directory / name, (directory / name).read_bytes()) for name in filenames]
+    manifests = [json.loads(value) for path, value in requests]
+    manifest = {"pages": [page for request in manifests for page in request["pages"]],
+                "sources": {key: value for request in manifests for key, value in request["sources"].items()}}
     selected = [page for page in manifest["pages"] if page["work"] == work]
     primary = [page for page in selected if page.get("admission") != "comparative-paratext"]
     expected = {page["id"] for page in primary}
@@ -125,7 +131,10 @@ def coverage_scope(root: Path, work: str):
         "admitted_transmission_counts": dict(sorted(Counter(row["transmission"] for row in rows).items())),
         "scan_manifest": str(manifest_path.relative_to(root)),
         "scan_manifest_sha256": hashlib.sha256(raw).hexdigest(),
+        "scan_manifests": [{"path": str(path.relative_to(root)), "sha256": hashlib.sha256(value).hexdigest()}
+                           for path, value in requests],
         "scan_sources": [{"id": source, **manifest["sources"][source]} for source in sources],
         "admission_audit": entry.get("audit") if entry else None,
+        "admission_audits": entry.get("audits", [entry["audit"]]) if entry else [],
         "digital_components": entry.get("digital_components", []) if entry else [],
         "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"}
