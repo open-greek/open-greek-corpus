@@ -841,6 +841,11 @@ from 919 Greek letters. Its separately pinned three-part request records that
 exact raw file, prediction record, text hash, source evidence, and frozen flag;
 it preserves the capital title's printed orthography and explicitly requests the
 lowercase letter's marks. The other four Qwen3.8 strips and Qwen3.6 stay intact.
+This successful-strip exception checks the exact retained raw and record bytes,
+text hash, checkpoint, source geometry, frozen policy, and measured absence of
+breathings. It rejects any unrelated successful replacement and any applicable
+supplement part that still triggers the frozen mark-loss detector. Failed-strip
+supplements retain their existing rule.
 Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of

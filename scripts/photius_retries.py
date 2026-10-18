@@ -102,6 +102,24 @@ def successful(row):
             and any("\u0370" <= c <= "\u03ff" or "\u1f00" <= c <= "\u1fff" for c in row["raw_prediction"]))
 
 
+def confirmed_mark_stripping(replacement, raw, record_line, row):
+    """Narrow exception for an exactly pinned, source-reviewed successful strip."""
+    from report_polytonic_loss import POLICY, detect
+    condition = replacement.get("replacement_condition", {})
+    policy_raw = (Path(__file__).resolve().parents[1] / "data/evaluation/polytonic-loss/policy.json").read_bytes()
+    if (condition.get("kind") != "source-confirmed-polytonic-mark-stripping"
+            or condition.get("raw_file_sha256") != sha(raw)
+            or condition.get("prediction_record_sha256") != sha(record_line)
+            or condition.get("raw_prediction_sha256") != sha(row.get("raw_prediction", "").encode())
+            or condition.get("finish_reason") != "stop" or row.get("finish_reason") != "stop" or row.get("error")
+            or condition.get("frozen_policy_sha256") != sha(policy_raw) or json.loads(policy_raw) != POLICY):
+        return False
+    marks = detect(row["raw_prediction"])
+    return (marks["applicable"] and "low-breathing-letter-rate" in marks["reasons"]
+            and marks["greek_letters"] == condition.get("greek_letters")
+            and marks["breathing_letters"] == condition.get("breathing_letters") == 0)
+
+
 def load_supplements(paths, review, manifest, originals):
     decisions = review.get("reviewed_supplements", [])
     wanted = {run["sha256"]: run for run in decisions}
@@ -150,12 +168,18 @@ def load_supplements(paths, review, manifest, originals):
             validate_record(row, job, request)
             if not successful(row):
                 raise ValueError("Retry supplement is failed, truncated, or lacks Greek text")
+            if request.get("replacement_condition", {}).get("kind") == "source-confirmed-polytonic-mark-stripping":
+                from report_polytonic_loss import detect
+                if detect(row["raw_prediction"])["flag"]:
+                    raise ValueError("Mark-loss supplement still strips polytonic marks")
             ordered.append(row)
         key = (model, request["supplements"]["replaces_region"])
         if key in supplements:
             raise ValueError("A retry strip cannot receive duplicate supplement votes")
         supplements[key] = {"records": ordered, "manifest_sha256": sha(encode(request)),
                             "raw_file_sha256": sha(raw), "review_decision_sha256": sha(encode(decision))}
+        if request.get("replacement_condition"):
+            supplements[key]["replacement_condition"] = request["replacement_condition"]
         group = retained.setdefault(sha(encode(request)), {"manifest": request, "manifest_path": authority_path,
                                                          "manifest_sha256": sha(encode(request)), "raw_files": []})
         group["raw_files"].append({"raw": raw, "sha256": sha(raw), "metadata": meta})
@@ -204,7 +228,8 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
     images, used, used_supplements, retained = {}, set(), set(), []
     for path in sorted(paths, key=lambda value: sha(value.read_bytes())):
         raw = path.read_bytes()
-        rows = [json.loads(line) for line in raw.splitlines() if line.strip()]
+        record_lines = [line for line in raw.splitlines() if line.strip()]
+        rows = [json.loads(line) for line in record_lines]
         if not rows or "_meta" not in rows[0] or any("_meta" in row for row in rows[1:]):
             raise ValueError("Ambiguous retry prediction metadata")
         meta, records = rows[0]["_meta"], rows[1:]
@@ -218,13 +243,16 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
         if len(records) != len(expected) or {r.get("id") for r in records} != set(expected):
             raise ValueError("Retry must contain every reviewed strip exactly once")
         by_id = {row["id"]: row for row in records}
+        lines_by_id = {row["id"]: line for row, line in zip(records, record_lines[1:])}
         ordered, held_strips, used_for_model = [], [], []
         for job in sorted(expected.values(), key=lambda page: page["reading_order"]):
             row = by_id[job["id"]]
             validate_record(row, job, manifest)
             key = (model, job["id"])
-            if not successful(row):
-                replacement = supplements.get(key)
+            replacement = supplements.get(key)
+            if successful(row) and replacement is not None and not confirmed_mark_stripping(replacement, raw, lines_by_id[job["id"]], row):
+                raise ValueError("A successful retry strip cannot be silently replaced")
+            if not successful(row) or replacement is not None:
                 if replacement is None:
                     raise ValueError("Retry strip is failed, truncated, or lacks Greek text")
                 held_strips.append(row)
@@ -232,8 +260,6 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
                 used_for_model.append(replacement)
                 used_supplements.add(key)
                 continue
-            if key in supplements:
-                raise ValueError("A successful retry strip cannot be silently replaced")
             image = row.get("image_sha256")
             if not isinstance(image, str) or len(image) != 64 or images.setdefault(job["id"], image) != image:
                 raise ValueError("Retry checkpoints used different source images")

@@ -220,7 +220,8 @@ def outcome_quality(paths, models):
                     **review, "admission_disposition": "accepted-source-reviewed-assembly-part"}
             for part in assembly.get("held_retry_strips", []):
                 dispositions[(*checkpoint, assembly["manifest_sha256"], part["id"])] = {
-                    **review, "admission_disposition": "held-failed-retry-strip"}
+                    **review, "admission_disposition": ("held-source-confirmed-degraded-retry-strip"
+                        if part.get("finish_reason") == "stop" and not part.get("error") else "held-failed-retry-strip")}
     for row in report["outcomes"]:
         key = (row["model"], row["revision"], row["manifest_sha256"], row["id"])
         if key not in dispositions:
