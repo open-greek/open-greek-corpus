@@ -132,6 +132,39 @@ def locus(page):
     return f"cary-v{page['source_volume']}-p{page['printed_page']:04d}{suffix}"
 
 
+def collate_overlaps(manifest, inputs, root):
+    """Retain a three-way shared-prefix comparison without changing old rows."""
+    from ocr_consensus import merge_witnesses
+    comparisons = {}
+    for page in manifest["pages"]:
+        if not page.get("overlap"):
+            continue
+        work = page["work"]
+        rows = records((Path(root) / f"data/corpus/{work}.jsonl").read_bytes())
+        selected = [row for row in rows if row["locus"] in {"55.9.2", "55.9.3", "55.9.4"}]
+        if [row["locus"] for row in selected] != ["55.9.2", "55.9.3", "55.9.4"]:
+            raise ValueError("The checked Dio overlap passages are missing or reordered")
+        baseline = " ".join(row["text"] for row in selected)
+        if not baseline.endswith(OVERLAP_ANCHOR):
+            raise ValueError("The existing Dio ending no longer matches the checked overlap")
+        witnesses = [{"id": "perseus-cary-existing-55.9.2-4", "vote_group": "perseus-cary",
+            "text": baseline, "artifact_sha256": sha(encoded(selected)),
+            "source_passages": [row["locus"] for row in selected]}]
+        decisions = []
+        for source in inputs:
+            value = source.get(page["id"])
+            if value is None:
+                raise ValueError("A fresh Dio overlap witness is missing")
+            continuation, decision = trim_shared_prefix(value["text"])
+            decisions.append({"witness": value["id"], **decision})
+            witnesses.append({**value, "text": decision["original_text"], "original_text": value["text"]})
+        comparisons[page["id"]] = {"page": page, "existing_passages": selected,
+            "prefix_decisions": decisions, "consensus": merge_witnesses(witnesses),
+            "policy": "Comparison evidence only. Preserve existing 55.9.2–55.9.4 readings and references; count only the separately trimmed missing continuation as new text.",
+            "coverage_note": "Existing 55.9.2 begins on the previous printed page. Fresh page witnesses abstain before their observed span rather than voting to remove that existing prefix."}
+    return comparisons
+
+
 def collate(manifest, inputs, allow_partial=False, network_path=None, digital=None):
     from ocr_consensus import merge_witnesses, compact_corpus_consensus
     network_path = network_path or "data/corpus_changes/scan-coverage-preview/word-networks.json.gz"
@@ -277,6 +310,10 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         (archive / f"witness-{index}.jsonl.gz").write_bytes(gzip.compress(raw, mtime=0))
     for identifier, raw in digital["originals"].items():
         (archive / f"digital-{identifier}.json.gz").write_bytes(gzip.compress(raw, mtime=0))
+    overlap = collate_overlaps(json.loads(manifest_bytes),
+        [load_predictions(None, manifest_bytes, json.loads(manifest_bytes), raw)[0] for raw in raw_inputs], root)
+    overlap_bytes = gzip.compress(encoded(overlap), mtime=0)
+    (archive / "overlap-comparisons.json.gz").write_bytes(overlap_bytes)
     network_bytes = gzip.compress(encoded(networks), mtime=0)
     (archive / "word-networks.json.gz").write_bytes(network_bytes)
     for path, raw in outputs.items():
@@ -288,6 +325,8 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
         "manifest_sha256": sha(manifest_bytes), "witness_sha256": [sha(raw) for raw in raw_inputs],
         "word_networks_sha256": sha(network_bytes),
         "before_archive_sha256": sha(before_bytes),
+        "overlap_comparisons": {"path": str((archive / "overlap-comparisons.json.gz").relative_to(root)),
+            "sha256": sha(overlap_bytes), "regions": len(overlap)},
         "digital_sources": digital["sources"],
         "digital_comparison_counts": dict(Counter(decision["status"] for change in audits
             for decision in change["decisions"] if decision.get("generator") == "scripts/bound_comparison_witness.py")),
@@ -328,6 +367,9 @@ def verify(directory, root):
         network_path=str((directory / "word-networks.json.gz").relative_to(root)), digital=digital)
     if changes != audit["changes"] or networks != json.loads(gzip.decompress((directory / "word-networks.json.gz").read_bytes())):
         raise ValueError("Scan consensus differs from its retained original witnesses")
+    overlap = collate_overlaps(manifest, loaded, root)
+    if overlap != json.loads(gzip.decompress((directory / "overlap-comparisons.json.gz").read_bytes())):
+        raise ValueError("Dio overlap comparison differs from its original readings")
     from scan_coverage_extensions import combine_rows
     for work, expected in primary.items():
         expected = combine_rows(work, [], expected)
@@ -355,6 +397,8 @@ def verify_integrity(directory, root):
         raise ValueError("Archived scan selection changed")
     if sha((directory / "word-networks.json.gz").read_bytes()) != audit["word_networks_sha256"]:
         raise ValueError("Archived word network changed")
+    if sha((root / audit["overlap_comparisons"]["path"]).read_bytes()) != audit["overlap_comparisons"]["sha256"]:
+        raise ValueError("Archived overlap comparison changed")
     before_bytes = (directory / "before.json.gz").read_bytes()
     if sha(before_bytes) != audit["before_archive_sha256"]:
         raise ValueError("Archived original corpus bytes changed")
