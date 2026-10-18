@@ -84,6 +84,7 @@ def coverage_scope(root: Path, work: str):
             "base_scope": "Perseus Cary volumes III–VI, encoded Books 36–55, ending mid-sentence at 55.9.4",
             "addition_scope": "Cary volumes I–II fragments and volumes VI–IX remaining Greek direct text, excerpts and epitomes",
             "transmission_limit": "This is mixed ancient transmission, not an intact eighty-book direct text. Fragment quotations, direct text, excerpted lacunae and epitomes retain distinct transmission labels. The ancient direct-text gap after the last words at 55.9.4 is not repaired as newly surviving direct text. Early fragments of uncertain reference remain unassigned to a book.",
+            "direct_text_lacuna_evidence": "Cary volume VI, printed page 402 (PDF 206), footnote 4: two folios are lost in M between τρόπον at 55.9.4 and (Ἄ)ρει at 55.10.2; the printed continuation combines Zonaras, Xiphilinus and Excerpta Valesiana. This qualification applies to that gap, not all later direct text.",
             "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
             "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
             "manifest": "cassius-dio-ocr-jobs.json",
