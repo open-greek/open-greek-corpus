@@ -323,6 +323,11 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
             row["component_attribution"] = [component]
         if page.get("attribution_heading"):
             row["attribution_heading"] = page["attribution_heading"]
+        from dio_transmission_reviews import reviewed_transmission
+        transmission = reviewed_transmission(page, source)
+        if transmission is not None:
+            row["transmission"], row["transmission_evidence"] = transmission
+            decisions.append(transmission[1])
         # The Greek word-voting layer excludes Latin credits and numeric book
         # references. Retain these source lines separately, with every witness's
         # spelling, rather than dropping transmission evidence from the row.
