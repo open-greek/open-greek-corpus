@@ -906,6 +906,11 @@ Its separate three-part request pins the exact successful file and record plus
 the measured 241 repeated lines; the other seven strips remain unchanged.
 That stop-loop exception requires its exact source-confirmed raw, record, text,
 checkpoint, and repetition measurements, and rejects new parts that still loop.
+Supplement assemblies can retain a reviewed child retry of one named parent
+part. Each level requires its exact immediate-parent request, retained raw
+attempt, and completed source review. Successful siblings remain selected;
+every replaced level remains held evidence. The outcome audit distinguishes
+held parent parts from selected leaf parts without adding model-family votes.
 Source checks also found small-type critical notes appended to Qwen3.6's
 otherwise completed scans41,49,83,119,147,181,188,207. Their separately pinned two-column
 body requests exclude those notes and running headers with reviewed boundaries;
@@ -944,6 +949,8 @@ settings stay fixed. Start with `--limit` for a small source comparison before a
 larger retry batch. These settings can alter wording or mix scripts; they do not
 authorize replacement. A completed source review must still verify all body
 lines, marks, and apparatus boundaries, and retries remain one vote per model.
+Photius admission also verifies the exact published retry policy, runner and
+image-helper hashes, runtime checkpoint, request archive, and output limit.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`

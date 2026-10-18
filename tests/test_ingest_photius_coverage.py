@@ -389,6 +389,106 @@ def test_supplement_cannot_bypass_its_reviewed_failure(tmp_path, change, message
                                    supplement_paths=[] if change == "missing" else [supplement])
 
 
+def nested_supplement_fixture(tmp_path, monkeypatch):
+    paths, bases, reviews, parent_raw = supplement_fixture(tmp_path)
+    values = [json.loads(line) for line in parent_raw.read_bytes().splitlines()]
+    target = values[2]
+    target["raw_prediction"] = "ἡ δὲ ἡδὺς καὶ ἡδύποτος " * 9
+    parent_raw.write_bytes(b"\n".join(json.dumps(v, ensure_ascii=False).encode() for v in values) + b"\n")
+    target_line = parent_raw.read_bytes().splitlines()[2]
+    from audit_photius_fresh import REPETITION_POLICY, repetition
+    measured = repetition(target["raw_prediction"])
+    condition = {"kind": "source-confirmed-repetition-loop", "raw_file_sha256": ingest.sha(parent_raw.read_bytes()),
+        "prediction_record_sha256": ingest.sha(target_line), "raw_prediction_sha256": ingest.sha(target["raw_prediction"].encode()),
+        "finish_reason": "stop", "greek_word_runs": measured["greek_word_runs"],
+        "most_repeated_phrase_occurrences": measured["most_repeated_phrase"]["occurrences"],
+        "most_repeated_line_occurrences": measured["most_repeated_line"]["occurrences"],
+        "repetition_policy_sha256": ingest.sha(ingest.encode(REPETITION_POLICY))}
+    assert condition["most_repeated_phrase_occurrences"] >= 4 and condition["most_repeated_line_occurrences"] < 4
+    monkeypatch.setitem(retry_requests.SUPPLEMENT_REVIEWS, (50, "left-lower-part02"), {
+        "parent_supplement": "left-lower", "cuts": [.583, .645, .712],
+        "evidence": "Synthetic exact source-confirmed child loop", "replacement_condition": condition})
+    request = build_supplement(50, "left-lower-part02")
+    metadata = {**values[0]["_meta"], "manifest_sha256": ingest.sha(ingest.encode(request))}
+    rows = [{"id": p["id"], "source": p["source"], "scan_page": p["scan_page"],
+             "region": p["region"], "image_sha256": "e" * 64,
+             "prompt_sha256": ingest.sha((request["prompt"] + " " + p["prompt_suffix"]).encode()),
+             "raw_prediction": "σαφὴς ὁ λόγος. θεὸς λέγει ἀλήθειαν.", "finish_reason": "stop"} for p in request["pages"]]
+    child_raw = tmp_path / "child-50.jsonl"
+    child_raw.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in [{"_meta": metadata}, *rows]) + b"\n")
+    _, models, _ = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+                                              allow_unreviewed_retry_preparation=True)
+    review_path = next(p for p in reviews if p.name == "review-50.json")
+    review_path.unlink()
+    base_request = build_retry(50)
+    evidence = {p["id"]: "Synthetic complete effective source lines" for r in
+                [build_supplement(50, "left-lower"), request] for p in r["pages"]}
+    retries.write_source_review(models, [p for p in bases if p.name == "retry-50-0.jsonl"], review_path,
+        "Synthetic completed nested source comparison", {p["id"]: "Synthetic full source body" for p in base_request["pages"]},
+        "2026-10-18T07:00:00Z", base_request, [child_raw, parent_raw], evidence)
+    return paths, bases, reviews, parent_raw, child_raw
+
+
+def test_nested_retry_keeps_both_loop_attempts_and_all_successful_siblings(tmp_path, monkeypatch):
+    paths, bases, reviews, parent_raw, child_raw = nested_supplement_fixture(tmp_path, monkeypatch)
+    _, models, evidence = ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+        bases, reviews, supplement_paths=[child_raw, parent_raw])
+    assembly = models[(CHECKPOINT38["model"], CHECKPOINT38["revision"])]["photius-bekker-0050"][2]["reviewed_retry"]
+    assert len(assembly["strips"]) == 7
+    assert len(assembly["held_retry_strips"]) == len(assembly["held_retry_strip_sources"]) == 2
+    assert {r["finish_reason"] for r in assembly["held_retry_strips"]} == {"length", "stop"}
+    assert len(assembly["supplements"]) == 2
+    assert len([r for r in assembly["strips"] if "-part" not in r["id"]]) == 3
+    assert len([r for r in assembly["strips"] if r["id"].count("-part") == 1]) == 2
+    report = ingest.outcome_quality([*paths, *bases, parent_raw, child_raw], models)
+    counts = Counter(r["admission_disposition"] for r in report["outcomes"]
+                     if r["model"] == CHECKPOINT38["model"] and r["scan_page"] == 50)
+    assert counts == {"held-original-attempt": 1, "held-failed-retry-strip": 1,
+                      "held-source-confirmed-degraded-retry-strip": 1, "accepted-source-reviewed-assembly-part": 7}
+    page_evidence = next(e for e in evidence if e["manifest"]["retry_of"]["page_id"].endswith("0050"))
+    assert {r["raw"] for s in page_evidence["supplements"] for r in s["raw_files"]} == {
+        parent_raw.read_bytes(), child_raw.read_bytes()}
+    document = {"id": "test-source", "license": {"text": "CC BY-SA4.0"}, "sourceRights": "Retained rights"}
+    monkeypatch.setattr(ingest, "load_source_library", lambda p: (b"source", document, {}))
+    artifacts, admission = ingest.generate(paths, tmp_path / "source", tmp_path, retry_paths=bases,
+        retry_review=reviews, supplement_paths=[parent_raw, child_raw])
+    ingest.apply(artifacts, admission, tmp_path)
+    _, replay_models, replay_evidence = ingest.prepare_report_inputs(tmp_path, admission,
+        [ingest.scan_manifest(), ingest.build_later_gap()])
+    assert replay_models == models
+    assert len(replay_evidence) == 3 and admission["covered_authorial_scan_pages"] == 545
+    assert len(json.loads(gzip.decompress(artifacts[Path(admission["full_networks"]["path"])]))) == 310
+    ingest.undo(tmp_path)
+
+
+@pytest.mark.parametrize("change,message", [("missing-parent", "Missing or reused"),
+    ("parent-finish", "exact retained attempt"), ("child-loop", "still repeats"),
+    ("parent-review", "explicit supplemental completion")])
+def test_nested_retry_cannot_bypass_exact_parent_or_leaf_review(tmp_path, monkeypatch, change, message):
+    paths, bases, reviews, parent_raw, child_raw = nested_supplement_fixture(tmp_path, monkeypatch)
+    review_path = next(p for p in reviews if p.name == "review-50.json")
+    review = json.loads(review_path.read_bytes())
+    supplements = [parent_raw, child_raw]
+    if change == "missing-parent":
+        supplements = [child_raw]
+    elif change in {"parent-finish", "child-loop"}:
+        path = parent_raw if change == "parent-finish" else child_raw
+        old_sha = ingest.sha(path.read_bytes())
+        rows = [json.loads(line) for line in path.read_bytes().splitlines()]
+        if change == "parent-finish": rows[2]["finish_reason"] = "length"
+        else: rows[1]["raw_prediction"] = "θεὸς λέγει λόγον σαφῆ καὶ καλὸν εἰς τὴν ἀλήθειαν.\n" * 5
+        path.write_bytes(b"\n".join(json.dumps(r, ensure_ascii=False).encode() for r in rows) + b"\n")
+        next(d for d in review["reviewed_supplements"] if d["sha256"] == old_sha)["sha256"] = ingest.sha(path.read_bytes())
+    else:
+        parent_sha = ingest.sha(ingest.encode(build_supplement(50, "left-lower")))
+        parent = next(d for d in review["reviewed_supplements"] if d["manifest_sha256"] == parent_sha)
+        parent["strip_reviews"][1].pop("completed_by_supplements")
+    review_path.write_bytes(ingest.encode(review))
+    with pytest.raises(ValueError, match=message):
+        ingest.prepare_fresh_inputs(paths, [ingest.scan_manifest(), ingest.build_later_gap()],
+            bases, reviews, supplement_paths=supplements)
+
+
 @pytest.mark.parametrize("kind", ["mark-stripping", "repetition-loop"])
 def test_exact_source_confirmed_exception_keeps_other_successful_readings(tmp_path, monkeypatch, kind):
     paths, base_paths, reviews = multiple_retry_fixture(tmp_path)

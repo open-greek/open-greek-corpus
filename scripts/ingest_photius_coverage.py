@@ -219,7 +219,9 @@ def outcome_quality(paths, models):
                 dispositions[(*checkpoint, request, part["id"])] = {
                     **review, "admission_disposition": "accepted-source-reviewed-assembly-part"}
             for part in assembly.get("held_retry_strips", []):
-                dispositions[(*checkpoint, assembly["manifest_sha256"], part["id"])] = {
+                source = next((s for s in assembly.get("held_retry_strip_sources", []) if s["id"] == part["id"]), {})
+                request = source.get("manifest_sha256", assembly["manifest_sha256"])
+                dispositions[(*checkpoint, request, part["id"])] = {
                     **review, "admission_disposition": ("held-source-confirmed-degraded-retry-strip"
                         if part.get("finish_reason") == "stop" and not part.get("error") else "held-failed-retry-strip")}
     for row in report["outcomes"]:
