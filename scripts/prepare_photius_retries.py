@@ -134,7 +134,7 @@ EXTRA_REVIEWS = {
 SUPPLEMENT_REVIEWS = {
     (381, "right-middle"): {
         "cuts": [.33096, .44141, .53246, .60530], "checkpoints": [CHECKPOINT38],
-        "evidence": "The completed provider-policy Qwen3.8 right-middle retry on printed page369 strips every breathing from576 Greek letters despite clearly printed breathings, including ἡ, ὑπ’, and Ἀγαῖος. Its accent rate remains.0972, so the frozen breathing rule identifies this specific loss. Three shorter source-checked crops exactly partition that strip at blank interline gaps, preserving all full Greek lines and marks. Retain the stripped attempt and the other five successful retry strips, with one assembled vote for this checkpoint.",
+        "evidence": "The completed provider-policy Qwen3.8 right-middle retry on printed page369 strips every breathing from576 Greek letters despite clearly printed breathings, including ἡ and ὑπ’. Its accent rate remains.0972, so the frozen breathing rule identifies this specific loss. Three shorter source-checked crops exactly partition that strip at blank interline gaps, preserving all full Greek lines and marks. Retain the stripped attempt and the other five successful retry strips, with one assembled vote for this checkpoint.",
         "replacement_condition": {"kind": "source-confirmed-polytonic-mark-stripping",
             "raw_file_sha256": "5683e79ee59c21dea26865045cd5096691c85eafd6db164c4a04d50ccc16833d",
             "prediction_record_sha256": "6ce30962a50d35844682cd261df919fd4ab61741ac0dc1fbe19dfa3217e5c2d0",
