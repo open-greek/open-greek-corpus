@@ -13,7 +13,7 @@ import json
 from pathlib import Path
 import re
 
-from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection
+from frequency_projection import ANALYSIS_COUNT_BASIS, FrequencyProjection, projection_recipe_pins
 
 ROOT = Path(__file__).resolve().parents[1]
 NAME = "source_component_tokens.json"
@@ -47,9 +47,8 @@ def corpus_hash(pins):
 
 
 def recipe_pins():
-    scripts = Path(__file__).resolve().parent
-    paths = [Path(__file__), scripts / "frequency_projection.py", scripts / "critical_text.py"]
-    return {p.name: sha(p.read_bytes()) for p in paths}
+    path = Path(__file__)
+    return {path.name: sha(path.read_bytes()), **projection_recipe_pins()}
 
 
 def build(data):
