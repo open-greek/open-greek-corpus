@@ -2,6 +2,7 @@
 import hashlib
 import json
 from pathlib import Path
+from collections import Counter
 
 
 def reading_digest(rows):
@@ -47,3 +48,80 @@ def load_extensions(root: Path, work: str, existing_loci=(), base_rows=None):
             raise ValueError("Scan extension has a wrong work or repeated citation")
         loci.add(row["locus"])
     return rows
+
+
+def coverage_scope(root: Path, work: str):
+    """Describe the served manifestation without shrinking the Work identity.
+
+    Planned scan pages never count as admitted. Callers can attach this block to
+    both the public Work index and the source registry's manifestation metadata.
+    The exact OCR word networks and the comparison panels remain separate data.
+    """
+    directory = root / "data/ingest_reviews/coverage"
+    qualifications = {
+        "pappus-mathematics.synagoge": {
+            "work_identity": "Pappus, Synagoge (Collection)",
+            "base_scope": "Hultsch volume I, surviving Greek material of Books II–V",
+            "addition_scope": "Hultsch volumes II–III, Books VI–VIII, including the Heron quotation at the end of Book VIII",
+            "transmission_limit": "Hultsch edits the surviving remains. Selection of the edition's Greek body does not reconstruct ancient losses or claim an intact eight-book text.",
+            "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus, later anonymous supplements, scholia and indexes",
+            "historical_citation_scheme": "pappus-first1k-book-attributes",
+            "scan_citation_scheme": "Book plus Hultsch printed page",
+            "manifest": "mathematical-ocr-jobs.json",
+        },
+        "apollonius-geom.conica": {
+            "work_identity": "Apollonius of Perga, Conica",
+            "base_scope": "Heiberg volume II, Greek Book IV",
+            "addition_scope": "Heiberg volume I, Greek Books I–III, including epistolary prefaces",
+            "transmission_limit": "The Greek manifestation covers Books I–IV. Later books are not reconstructed from translations into Greek, and this manifestation does not claim the full ancient work survives in Greek.",
+            "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus and indexes",
+            "historical_citation_scheme": "apollonius-first1k-unqualified-sections",
+            "scan_citation_scheme": "Book plus Heiberg printed page",
+            "manifest": "mathematical-ocr-jobs.json",
+        },
+        "cassius-dio.historiae-romanae": {
+            "work_identity": "Cassius Dio, Historiae Romanae (Roman History), the ancient eighty-book work",
+            "base_scope": "Perseus Cary volumes III–VI, encoded Books 36–55, ending mid-sentence at 55.9.4",
+            "addition_scope": "Cary volumes I–II fragments and volumes VI–IX remaining Greek direct text, excerpts and epitomes",
+            "transmission_limit": "This is mixed ancient transmission, not an intact eighty-book direct text. Fragment quotations, direct text, excerpted lacunae and epitomes retain distinct transmission labels. The ancient direct-text gap after the last words at 55.9.4 is not repaired as newly surviving direct text. Early fragments of uncertain reference remain unassigned to a book.",
+            "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
+            "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
+            "manifest": "cassius-dio-ocr-jobs.json",
+        },
+    }
+    if work not in qualifications:
+        return None
+    description = dict(qualifications[work])
+    filename = description.pop("manifest")
+    manifest_path = directory / filename
+    if not manifest_path.exists():
+        return None
+    raw = manifest_path.read_bytes()
+    manifest = json.loads(raw)
+    selected = [page for page in manifest["pages"] if page["work"] == work]
+    primary = [page for page in selected if page.get("admission") != "comparative-paratext"]
+    expected = {page["id"] for page in primary}
+    index_path = root / "data/corpus_extension_index.json"
+    entry = json.loads(index_path.read_text()).get("works", {}).get(work) if index_path.exists() else None
+    rows = []
+    if entry:
+        extension = root / entry["path"]
+        data = extension.read_bytes()
+        if hashlib.sha256(data).hexdigest() != entry["sha256"]:
+            raise ValueError("Scan extension changed outside its reviewed importer")
+        rows = [json.loads(line) for line in data.splitlines() if line.strip()]
+    admitted = {row.get("ocr_consensus", {}).get("region_id") for row in rows}
+    if admitted - expected:
+        raise ValueError("Coverage metadata found a scan region outside its reviewed manifestation")
+    sources = sorted({page["source"] for page in selected})
+    return {**description,
+        "status": "reviewed-primary-regions-admitted" if admitted == expected else "reviewed-scan-additions-pending",
+        "reviewed_primary_regions": len(expected), "admitted_primary_regions": len(admitted),
+        "remaining_reviewed_primary_regions": len(expected - admitted),
+        "reviewed_comparative_regions": len(selected) - len(primary),
+        "admitted_transmission_counts": dict(sorted(Counter(row["transmission"] for row in rows).items())),
+        "scan_manifest": str(manifest_path.relative_to(root)),
+        "scan_manifest_sha256": hashlib.sha256(raw).hexdigest(),
+        "scan_sources": [{"id": source, **manifest["sources"][source]} for source in sources],
+        "admission_audit": entry.get("audit") if entry else None,
+        "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"}
