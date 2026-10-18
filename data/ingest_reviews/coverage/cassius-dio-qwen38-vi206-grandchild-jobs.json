@@ -1,0 +1,277 @@
+{
+ "schema_version": 1,
+ "generated_by": "scripts/prepare_dio_finer_children.py",
+ "purpose": "Source-reviewed child attempts for exact stop-terminated omissions or mark loss; every immediate parent remains held evidence.",
+ "sources": {
+  "dios-roman-history.-vol.-1-loeb-32": {
+   "url": "https://archive.org/download/dios-roman-history.-vol.-1-loeb-32/Dio%27s%20Roman%20History.%20Vol.1%20%5BLoeb%2032%5D.pdf",
+   "sha256": "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+   "license": "public-domain",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 1, Loeb 32, first printed 1914.",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-1-loeb-32"
+  },
+  "dios-roman-history.-vol.-2-loeb-37": {
+   "url": "https://archive.org/download/dios-roman-history.-vol.-2-loeb-37/Dio%27s%20Roman%20History.%20Vol.2%20%5BLoeb%2037%5D.pdf",
+   "sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+   "license": "public-domain",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 2, Loeb 37, first printed 1914.",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-2-loeb-37"
+  },
+  "dios-roman-history.-vol.-6-loeb-83": {
+   "url": "https://archive.org/download/dios-roman-history.-vol.-6-loeb-83/Dio%27s%20Roman%20History.%20Vol.6%20%5BLoeb%2083%5D.pdf",
+   "sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+   "license": "public-domain",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 6, Loeb 83, first printed 1917.",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1917; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-6-loeb-83"
+  },
+  "dios-roman-history.-vol.-7-loeb-175": {
+   "url": "https://archive.org/download/dios-roman-history.-vol.-7-loeb-175/Dio%27s%20Roman%20History.%20Vol.7%20%5BLoeb%20175%5D.pdf",
+   "sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+   "license": "public-domain",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 7, Loeb 175, first printed 1924.",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1924; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-7-loeb-175"
+  },
+  "dios-roman-history.-vol.-8-loeb-176": {
+   "url": "https://archive.org/download/dios-roman-history.-vol.-8-loeb-176/Dio%27s%20Roman%20History.%20Vol.8%20%5BLoeb%20176%5D.pdf",
+   "sha256": "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+   "license": "public-domain",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 8, Loeb 176, first printed 1925.",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1925; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-8-loeb-176"
+  },
+  "dios-roman-history.-vol.-9-loeb-177": {
+   "url": "https://archive.org/download/dios-roman-history.-vol.-9-loeb-177/Dio%27s%20Roman%20History.%20Vol.9%20%5BLoeb%20177%5D.pdf",
+   "sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+   "license": "public-domain",
+   "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 9, Loeb 177, first printed 1927.",
+   "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1927; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+   "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177"
+  }
+ },
+ "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+ "retry_of": {
+  "path": "data/ingest_reviews/coverage/cassius-dio-qwen38-child-strip-retry-jobs.json",
+  "sha256": "7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218",
+  "model": "Qwen/Qwen3.8-27B-FP8",
+  "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+  "region_ids": [
+   "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1"
+  ]
+ },
+ "review": {
+  "reviewed_at": "2026-10-18",
+  "original_predictions": {
+   "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1": {
+    "artifact_sha256": "07e00dfacf8e27894efd823c77d598cbf47e9b7fb8995f097f72211d7cd8a714",
+    "original_metadata": {
+     "model": "Qwen/Qwen3.8-27B-FP8",
+     "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+     "prompt": "Transcribe the main Greek reading text in the image, in reading order, one line per printed line. Keep book headings, section numbers, summaries, and source attribution headings and credits such as Zonaras, Xiph., Suid., and Tzetzes, including their reference numbers. When a full-width horizontal rule separates a large lower Zonaras comparison panel from an upper Dio fragment panel, preserve BOTH panels and their attribution heading. Exclude the small critical apparatus beneath its SHORT horizontal rule, even if it is Greek. Exclude running headers, page numbers and English translation. Preserve accents, breathing marks, punctuation, editorial brackets and printed hyphens. Do not correct, expand, translate, summarize or explain. Return only the transcription.",
+     "temperature": 0.7,
+     "max_tokens": 6000,
+     "backend": "http",
+     "manifest_sha256": "7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218",
+     "manifest_archive": "manifests/7a1abf750af835b01493ffa849e1fa07bfb75eccbc951fc2a0df3ef7c0383218.json",
+     "runner": "scripts/run_reviewed_scan_retry.py",
+     "runner_sha256": "70f0361c5dfcb8a2ec2e91385a4bf881afa93777c088a48a0435a52782334125",
+     "image_helper_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+     "runtime": {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a",
+      "versions": {
+       "vllm": "0.17.1",
+       "torch": "2.10.0",
+       "transformers": "4.57.6",
+       "huggingface-hub": "0.36.2"
+      },
+      "cuda": "12.8",
+      "gpu": "NVIDIA A100-SXM4-80GB",
+      "settings": {
+       "max_model_len": 16384,
+       "max_num_seqs": 16,
+       "gpu_memory_utilization": 0.9,
+       "reasoning_parser": "qwen3",
+       "images_per_prompt": 1
+      }
+     },
+     "generation_policy": {
+      "id": "qwen-provider-instruct-retry-2026-10-18",
+      "temperature": 0.7,
+      "top_p": 0.8,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1.5,
+      "repetition_penalty": 1.0,
+      "seed": 20261018,
+      "chat_template_kwargs": {
+       "enable_thinking": false
+      },
+      "source_urls": [
+       "https://huggingface.co/Qwen/Qwen3.6-27B#best-practices",
+       "https://huggingface.co/Qwen/Qwen3.8-27B-FP8#best-practices"
+      ],
+      "scope": "Source-reviewed retry only; no automatic replacement or benchmark change.",
+      "limits": "Provider settings may alter wording or mix scripts; every accepted outcome needs source comparison. A fixed seed does not guarantee identical results across hardware or batch schedules."
+     },
+     "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix"
+    },
+    "original_prediction": {
+     "id": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1",
+     "source": "dios-roman-history.-vol.-6-loeb-83",
+     "scan_page": 206,
+     "region": [
+      0.04,
+      0.065,
+      0.47,
+      0.1558
+     ],
+     "image_sha256": "7f8168d9d467dbbfa3be015d01542fda57259e8442b1813178b310ca4a1e40f2",
+     "prompt_sha256": "e63212e6bedd53803728d7b3e8aac20ad97dc44a09886ac6891ccfd8f176f4e9",
+     "raw_prediction": "πολει, τα μεν γνώμη τα δε θεραπεία, κολακευο-\nμένους¹ κακ τούτου έτι και μάλλον θρυπτομένους¹\n(τά τε γὰρ άλλα και ύπατον τον Γάιον μηδέ",
+     "finish_reason": "stop",
+     "generation_tokens": 60,
+     "seconds": 3.142
+    },
+    "source_evidence": "The first child of Cary VI402 still loses printed breathings (106 Greek letters, zero breathings). Its three source rows print πόλει, κἀκ, ἄλλα and ὕπατον. This review is based on source pixels, even though the frozen detector abstains below200 letters. Three one-line children preserve all body and parent boundaries.",
+    "source_pdf_sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+    "original_region": [
+     0.04,
+     0.065,
+     0.47,
+     0.1558
+    ],
+    "retry_regions": [
+     [
+      0.04,
+      0.065,
+      0.47,
+      0.11
+     ],
+     [
+      0.04,
+      0.11,
+      0.47,
+      0.13335
+     ],
+     [
+      0.04,
+      0.13335,
+      0.47,
+      0.1558
+     ]
+    ]
+   }
+  },
+  "source_rendered_evidence": [
+   {
+    "description": "finer-seams-01.png; source-rendered internal whitespace boundaries, inspected against the complete parent crop.",
+    "sha256": "44fc53faf6eaaf79abae3a094077c563e419cb47246d77e28d0ddca47a85e6b2"
+   },
+   {
+    "description": "finer-seams-02.png; source-rendered internal whitespace boundaries, inspected against the complete parent crop.",
+    "sha256": "bdbf0f9d9f9313a2083cc165e89af3470eb18ea5deb41d83cc3e18bd21e30f71"
+   },
+   {
+    "description": "finer-seams-03.png; source-rendered internal whitespace boundaries, inspected against the complete parent crop.",
+    "sha256": "a1a5a973ca0786567d200c846abba8df0ebdb1469dd650f0a4ce4f4dc0c896f0"
+   },
+   {
+    "description": "Final VI206 one-line grandchild boundaries .11 and .13335, replacing preliminary empty-margin proposal.",
+    "sha256": "5efbc37e6bf5ac07410c80b8c837d0b1310fb1661c147511668195384e7c5c52"
+   }
+  ],
+  "policy": "Replace only these exact parent strips after every completed child passes source comparison. Preserve successful siblings, every held attempt, source references and independent checkpoints. These children add no voting family.",
+  "punctuation_normalization": {
+   "original": "Each finite printed lacuna-dot run in the pinned image",
+   "corrected": "One U+2026 ellipsis per run",
+   "source": "Manual inspection of the hash-pinned Cary source crops",
+   "reviewed_at": "2026-10-18",
+   "reversal": "Recover original finite dots from the retained image; all original and parent OCR text remains archived unchanged."
+  }
+ },
+ "nonlexical_source_regions": {},
+ "pages": [
+  {
+   "id": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1-finer-child-1",
+   "source": "dios-roman-history.-vol.-6-loeb-83",
+   "scan_page": 206,
+   "region": [
+    0.04,
+    0.065,
+    0.47,
+    0.11
+   ],
+   "max_side": 3200,
+   "work": "cassius-dio.historiae-romanae",
+   "source_volume": 6,
+   "transmission": "direct-text-with-excerpted-lacunae",
+   "admission": "candidate-reading-pending-collation",
+   "printed_page": 402,
+   "overlap": {
+    "served_through": "55.9.4",
+    "existing_final_words": "βουληθεὶς δὲ δὴ τρόπον",
+    "action": "collate shared prefix before admitting missing continuation"
+   },
+   "reading_order": 1,
+   "reconstructs": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1",
+   "prompt_suffix": "Transcribe this narrow Greek body strip exactly, preserving EVERY printed accent and breathing mark, including on short fragments. For each printed lacuna-dot run output exactly ONE ellipsis character … instead of repeated full stops. Keep every visible Greek fragment before and after each gap. This is an explicit punctuation normalization; the original finite dot runs remain in the source image. Never expand a gap, guess missing text, or repeat a word or line. Preserve source credits, reference numbers and printed hyphens. Do not join a word across the image boundary. Return only this transcription.",
+   "crop_evidence": "Source-inspected gap between complete printed lines; no lacuna-dot row omitted."
+  },
+  {
+   "id": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1-finer-child-2",
+   "source": "dios-roman-history.-vol.-6-loeb-83",
+   "scan_page": 206,
+   "region": [
+    0.04,
+    0.11,
+    0.47,
+    0.13335
+   ],
+   "max_side": 3200,
+   "work": "cassius-dio.historiae-romanae",
+   "source_volume": 6,
+   "transmission": "direct-text-with-excerpted-lacunae",
+   "admission": "candidate-reading-pending-collation",
+   "printed_page": 402,
+   "overlap": {
+    "served_through": "55.9.4",
+    "existing_final_words": "βουληθεὶς δὲ δὴ τρόπον",
+    "action": "collate shared prefix before admitting missing continuation"
+   },
+   "reading_order": 2,
+   "reconstructs": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1",
+   "prompt_suffix": "Transcribe this narrow Greek body strip exactly, preserving EVERY printed accent and breathing mark, including on short fragments. For each printed lacuna-dot run output exactly ONE ellipsis character … instead of repeated full stops. Keep every visible Greek fragment before and after each gap. This is an explicit punctuation normalization; the original finite dot runs remain in the source image. Never expand a gap, guess missing text, or repeat a word or line. Preserve source credits, reference numbers and printed hyphens. Do not join a word across the image boundary. Return only this transcription.",
+   "crop_evidence": "Source-inspected gap between complete printed lines; no lacuna-dot row omitted."
+  },
+  {
+   "id": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1-finer-child-3",
+   "source": "dios-roman-history.-vol.-6-loeb-83",
+   "scan_page": 206,
+   "region": [
+    0.04,
+    0.13335,
+    0.47,
+    0.1558
+   ],
+   "max_side": 3200,
+   "work": "cassius-dio.historiae-romanae",
+   "source_volume": 6,
+   "transmission": "direct-text-with-excerpted-lacunae",
+   "admission": "candidate-reading-pending-collation",
+   "printed_page": 402,
+   "overlap": {
+    "served_through": "55.9.4",
+    "existing_final_words": "βουληθεὶς δὲ δὴ τρόπον",
+    "action": "collate shared prefix before admitting missing continuation"
+   },
+   "reading_order": 3,
+   "reconstructs": "dio-cary-v6-pdf0206-reviewed-strip-1-supplement-strip-1",
+   "prompt_suffix": "Transcribe this narrow Greek body strip exactly, preserving EVERY printed accent and breathing mark, including on short fragments. For each printed lacuna-dot run output exactly ONE ellipsis character … instead of repeated full stops. Keep every visible Greek fragment before and after each gap. This is an explicit punctuation normalization; the original finite dot runs remain in the source image. Never expand a gap, guess missing text, or repeat a word or line. Preserve source credits, reference numbers and printed hyphens. Do not join a word across the image boundary. Return only this transcription.",
+   "crop_evidence": "Source-inspected gap between complete printed lines; no lacuna-dot row omitted."
+  }
+ ]
+}
