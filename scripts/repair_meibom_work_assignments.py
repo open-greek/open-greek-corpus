@@ -203,6 +203,8 @@ def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn188
 def repaired_outputs(root, inputs, before):
     original_rows = [json.loads(line) for line in before[f"data/corpus/{OLD}.jsonl"].splitlines()]
     registry = json.loads(before["data/source_registry.json"])
+    from reviewed_manifestations import ensure_musical_work_records
+    ensure_musical_work_records(registry, root)
     aliases = json.loads(before["data/passage_aliases.json"])
     outputs, changes = defaultdict(list), []
     jahn_primary = inputs.get("primary_source") == "jahn1882"

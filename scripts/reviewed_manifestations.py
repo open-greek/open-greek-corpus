@@ -1,0 +1,387 @@
+#!/usr/bin/env python3
+"""Rebuild reviewed edition credits from active, hash-checked admission audits.
+
+This reads metadata and hashes corpus bytes. It never recomputes OCR votes or
+deserializes compressed word networks. Work titles and canonical identities
+remain independent of the coverage of an individual manifestation.
+"""
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+import hashlib
+import json
+from pathlib import Path
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+MUSICAL_IDENTITIES = {
+    "alypius.isagoge-musica": ("Alypius", "Isagoge musica"),
+    "gaudentius.harmonica-introductio": ("Gaudentius", "Harmonica introductio"),
+    "bacchius-geron.isagoge": ("Bacchius Geron", "Isagoge artis musicae"),
+}
+SCAN_WORKS = {
+    "pappus-mathematics.synagoge": ("Hultsch", "Books II–V", "Books VI–VIII"),
+    "apollonius-geom.conica": ("Heiberg", "Book IV", "Books I–III"),
+    "cassius-dio.historiae-romanae": ("Cary", "Books 36–55 through 55.9.4", "Early fragments and remaining Greek transmission"),
+}
+
+
+def _load(path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _path(root, relative):
+    path = Path(relative)
+    if path.is_absolute() or ".." in path.parts or not path.parts or path.parts[0] != "data":
+        raise ValueError("Reviewed edition evidence must use a repository-relative data path")
+    return root / path
+
+
+def _sha(path):
+    digest = hashlib.sha256()
+    with path.open("rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def _verify(root, relative, expected):
+    path = _path(root, relative)
+    if not path.exists() or _sha(path) != expected:
+        raise ValueError("Reviewed edition evidence changed: " + str(relative))
+    return path
+
+
+def _count(path):
+    with path.open("rb") as stream:
+        return sum(bool(line.strip()) for line in stream)
+
+
+def musical_identity_metadata(root):
+    """Recover three already-served identities omitted by the Canon rebuild.
+
+    The committed crosswalk supplies CTS identity; existing First1K rows supply
+    their edition and license. No new bibliographic identity is inferred.
+    """
+    root = Path(root)
+    crosswalk = _load(root / "data/tlg_crosswalk.json") if (root / "data/tlg_crosswalk.json").exists() else {}
+    output = {}
+    for slug, (author, title) in MUSICAL_IDENTITIES.items():
+        path = root / "data/corpus" / (slug + ".jsonl")
+        if not path.exists():
+            continue
+        entry = crosswalk.get(slug)
+        if not entry or not entry.get("cts"):
+            raise ValueError("Missing checked musical-work crosswalk: " + slug)
+        with path.open(encoding="utf-8") as stream:
+            row = next((json.loads(line) for line in stream if line.strip()), None)
+        if not row or row.get("urn") != slug or row.get("source") != "first1k":
+            raise ValueError("Musical identity no longer has its checked First1K primary: " + slug)
+        output[slug] = {"author": slug.split(".")[0], "author_name": author,
+            "title": title, "aliases": {"cts": entry["cts"]},
+            "edition": row["edition"], "provider": row["source"], "license": row["license"]}
+    return output
+
+
+def ensure_musical_work_records(document, root):
+    """The admission importer also needs these identities before its first run."""
+    for slug, value in musical_identity_metadata(root).items():
+        if slug in document["works"]:
+            continue
+        document.setdefault("authors", {}).setdefault(value["author"], {
+            "name": value["author_name"], "aliases": {}})
+        key = slug + "." + value["edition"]
+        document["works"][slug] = {"author": value["author"], "title": value["title"],
+            "aliases": value["aliases"], "default_edition": key, "best_source": "open_corpus", "tags": [],
+            "editions": {key: {"name": "First1KGreek (" + value["edition"] + ")",
+                "provider": value["provider"], "scheme": "", "editor": "", "year": None,
+                "source": "", "servable": True, "license": value["license"],
+                "scheme_inferred": False, "aliases": {}}}}
+
+
+def _edition(key, name, *, provider="ocr", scheme="", source="", license="PD",
+             editor="", year=None, storage="primary", servable=True, note=""):
+    return {"key": key, "name": name, "provider": provider, "scheme": scheme,
+        "source": source, "license": license, "editor": editor, "year": year,
+        "storage": storage, "servable": servable, "note": note}
+
+
+def _meibom(root):
+    relative = "data/corpus_changes/meibom-musical-anthology/changes.json"
+    path = root / relative
+    if not path.exists():
+        return {}
+    audit = _load(path)
+    from repair_meibom_work_assignments import OLD, INPUT_SHA256
+    primary = f"data/corpus/{OLD}.jsonl"
+    if _sha(root / primary) == INPUT_SHA256:
+        return {}  # audit retained after exact unapply
+    _verify(root, primary, audit["outputs_sha256"][primary])
+    primary_source = audit["primary_source"]
+    jahn = audit["primary_edition"].startswith("jahn-")
+    expected = 97 if jahn else 164
+    if len(audit["text_changes"]) != expected or _count(root / primary) != expected:
+        raise ValueError("Aristides reviewed page count changed")
+    counts = Counter()
+    for change in audit["assignments"]:
+        target = change["destination"].get("slug")
+        if target:
+            counts[target] += 1
+    output = {}
+    for slug, count in sorted(counts.items()):
+        secondary = f"data/corpus_secondary/{slug}.jsonl"
+        _verify(root, secondary, audit["outputs_sha256"][secondary])
+        source = audit["source"]
+        edition = _edition("qwen36-meibom-1652-legacy", "Meibom 1652, routed historical OCR witness",
+            scheme="scan-page.line", source=source["url"], editor="Meibom, Marcus", year=1652,
+            storage="secondary", note="Historical source readings; the independent primary edition remains separate.")
+        output[slug] = {"editions": [edition], "coverage_composition": {
+            "policy": "separate-primary-and-historical-secondary", "manifest": relative,
+            "manifest_sha256": _sha(path), "secondary_passages": count,
+            "components": [{"edition": edition["key"], "storage": "secondary", "passages": count,
+                "source": source["url"], "source_sha256": source["pdf_sha256"], "license": "PD"}]}}
+    if len(output) != 9:
+        raise ValueError("The Meibom routing audit must credit all nine constituent works")
+    chosen = _edition(audit["primary_edition"],
+        "Jahn 1882, merged scan OCR with explicit variants" if jahn else "Meibom 1652, merged scan OCR with explicit variants",
+        scheme="book.printed-page", source=primary_source["url"],
+        editor="Jahn, Albert" if jahn else "Meibom, Marcus", year=1882 if jahn else 1652)
+    output[OLD]["editions"].append(chosen)
+    output[OLD]["default_edition"] = chosen["key"]
+    output[OLD]["coverage_composition"]["components"].insert(0, {
+        "edition": chosen["key"], "storage": "primary", "passages": expected,
+        "source": primary_source["url"], "source_sha256": primary_source["sha256"], "license": primary_source["license"]})
+    output[OLD]["disable_editions"] = ["qwen36-aristides_quintilianus_meibom"]
+    return output
+
+
+def _scan_extensions(root):
+    index_path = root / "data/corpus_extension_index.json"
+    if not index_path.exists():
+        return {}
+    output = {}
+    for slug, entry in sorted(_load(index_path).get("works", {}).items()):
+        if slug not in SCAN_WORKS:
+            continue
+        extension = _verify(root, entry["path"], entry["sha256"])
+        audit_path = _path(root, entry["audit"])
+        audit = _load(audit_path)
+        if audit.get("word_networks_sha256"):
+            _verify(root, str((audit_path.parent / "word-networks.json.gz").relative_to(root)), audit["word_networks_sha256"])
+        manifest_path = audit_path.parent / "manifest.json"
+        if _sha(manifest_path) != audit["manifest_sha256"]:
+            raise ValueError("Reviewed scan manifest changed")
+        manifest = _load(manifest_path)
+        primary_path = f"data/corpus/{slug}.jsonl"
+        primary = _verify(root, primary_path, audit["outputs"][primary_path])
+        _verify(root, entry["path"], audit["outputs"][entry["path"]])
+        selected = [p for p in manifest["pages"] if p["work"] == slug]
+        pages = [p for p in selected if p.get("admission") != "comparative-paratext"]
+        decisions = [d for d in audit["changes"] if d["work"] == slug and d["destination"] == "primary"]
+        if {d["region_id"] for d in decisions} != {p["id"] for p in pages} or _count(extension) != len(pages):
+            raise ValueError("Reviewed scan admission lacks its complete primary region set")
+        sources = [{"id": key, **manifest["sources"][key]} for key in sorted({p["source"] for p in selected})]
+        licenses = sorted({source["license"] for source in sources})
+        editor, base_scope, added_scope = SCAN_WORKS[slug]
+        edition = _edition(entry["edition"], f"{editor}, reviewed Greek scan additions ({added_scope})",
+            scheme="volume.printed-page" if editor == "Cary" else "book.printed-page",
+            source="; ".join(source["url"] for source in sources), license="; ".join(licenses), editor=editor,
+            note="Complements the existing primary edition; comparison quotations and modern apparatus are separate.")
+        output[slug] = {"editions": [edition], "base_note": "Retained base edition: " + base_scope + ". Reviewed scan additions are complementary primary regions.", "coverage_composition": {
+            "policy": "reviewed-primary-region-union", "manifest": entry["audit"], "manifest_sha256": _sha(audit_path),
+            "scan_manifest": str(manifest_path.relative_to(root)), "scan_manifest_sha256": audit["manifest_sha256"],
+            "base_scope": base_scope, "addition_scope": added_scope,
+            "base_passages": _count(primary) - len(pages), "added_primary_regions": len(pages),
+            "comparative_regions": len(selected) - len(pages), "source_editions": sources,
+            "components": [{"edition": entry["edition"], "storage": "primary", "passages": len(pages),
+                "licenses": licenses}],
+            "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. " +
+                ("Dio's direct text, excerpt supplements, epitomes, and unassigned early fragments remain distinct; the direct-text lacuna after 55.9.4 remains qualified." if editor == "Cary" else
+                 "This edition's surviving book coverage does not redefine the complete ancient Work.")}}
+    return output
+
+
+def _photius(root):
+    relative = "data/corpus_changes/photius-bekker-coverage/coverage.json"
+    path = root / relative
+    if not path.exists():
+        return {}
+    report = _load(path)
+    slug = report["work"]
+    primary = root / "data/corpus" / (slug + ".jsonl")
+    index_path = root / "data/corpus_changes/photius-bekker-index/changes.json"
+    original_hashes = {report["original_body_sha256"]}
+    if index_path.exists():
+        original_hashes.add(_load(index_path)["source_sha256"])
+    if _sha(primary) in original_hashes:
+        return {}
+    _verify(root, str(primary.relative_to(root)), report["new_corpus_sha256"])
+    if (report["covered_authorial_scan_pages"] != 545 or report["added_passages"] != 309 or
+            report["historical_body_passages"] != 3846 or report["preserved_index_passages"] != 501 or
+            report["added_scan_ranges"] != [[13, 278], [379, 421]] or
+            report["retained_scan_ranges"] != [[279, 378], [422, 557]] or
+            _count(primary) != report["historical_body_passages"] + report["added_passages"]):
+        raise ValueError("Photius complete authorial coverage count changed")
+    if index_path.exists():
+        _verify(root, "data/paratext/photius-bekker-index.jsonl", _load(index_path)["paratext_sha256"])
+    source_library = report["source_library"]
+    license_url = source_library["license"].get("url")
+    if license_url != "https://creativecommons.org/licenses/by-sa/4.0/":
+        raise ValueError("Photius Source Library license changed")
+    _verify(root, "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz", source_library["sha256"])
+    models = {(f["model"], f["revision"]) for f in report["fresh_ocr_files"]}
+    if len(models) < 2:
+        raise ValueError("Photius needs independently pinned OCR components")
+    for witness in report["fresh_ocr_files"]:
+        _verify(root, witness["path"], witness["sha256"])
+    scan = report["source_scan"]
+    merged = _edition("bekker1824-independent-ocr-consensus", "Bekker 1824–1825, combined Greek body with retained variants",
+        scheme="scan-page.line", source=scan["url"], license="CC-BY-SA-4.0", editor="Bekker, Immanuel", year=1824,
+        note="Retained PD body plus new licensed consensus; Source Library CC-BY-SA readings participate in the merge.")
+    library = _edition("source-library-local002", "Source Library local002, same-scan comparison witness",
+        provider="greek_library", source=source_library["url"], license="CC-BY-SA-4.0", storage="audit", servable=False,
+        note="Retained voting witness; attribution, source rights, and separate API reservation notice are preserved in the admission audit.")
+    components = [{"role": "retained-primary", "license": "PD", "passages": report["historical_body_passages"],
+        "scan_ranges": report["retained_scan_ranges"]},
+        {"edition": merged["key"], "role": "new-primary-consensus", "license": "CC-BY-SA-4.0",
+            "passages": report["added_passages"], "scan_ranges": report["added_scan_ranges"]},
+        {"edition": library["key"], "role": "voting-witness", "license": source_library["license"],
+            "source": source_library["url"], "sha256": source_library["sha256"],
+            "rights": source_library.get("rights"), "separate_api_notice": source_library.get("separate_api_notice")},
+        {"role": "fresh-scan-ocr-witnesses", "license": "CC-BY-4.0",
+            "checkpoints": [{"model": model, "revision": revision} for model, revision in sorted(models)]}]
+    return {slug: {"editions": [merged, library], "default_edition": merged["key"],
+        "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus.", "coverage_composition": {
+        "policy": "complementary-page-union-with-licensed-consensus", "manifest": relative, "manifest_sha256": _sha(path),
+        "covered_authorial_scan_pages": 545, "index_passages_in_separate_paratext": report["preserved_index_passages"],
+        "components": components, "source_editions": [scan], "qualification": report["edition_scope"]}}}
+
+
+def _cyril(root):
+    relative = "data/corpus_changes/cyril-john-coverage/changes.json"
+    path = root / relative
+    if not path.exists():
+        return {}
+    audit = _load(path)
+    slug = "cyrillus-theology.commentarii-in-joannem"
+    primary = f"data/corpus/{slug}.jsonl"
+    if _sha(root / primary) == audit["inputs"][primary]:
+        return {}
+    _verify(root, primary, audit["outputs"][primary])
+    for relative_output, digest in audit["outputs"].items():
+        if relative_output.startswith(("data/paratext/", "data/ocr_witnesses/")):
+            _verify(root, relative_output, digest)
+    expected = {"added_pg73": 528, "retained_pg74_john": 2578, "added_pg74_missing_leaves": 3,
+                "title_paratext": 4, "held_other_works": 474}
+    if audit["counts"] != expected or _count(root / primary) != 3109:
+        raise ValueError("Cyril complementary-volume count changed")
+    evidence = audit["evidence"]
+    editions = [_edition("calfa-pg73-5895ab908dd4", "Calfa PG073 OCR, complementary first volume", provider="cgpg",
+        scheme="volume.marker-page", source=evidence["source_url"], license=evidence["source_license"],
+        editor="Migne, Jacques-Paul", year=1859),
+        _edition("migne-pg74-gap-consensus-2026-10", "PG074 missing leaves, independent scan OCR consensus",
+            scheme="volume.reference-scan", source=evidence["reference_scans"][1]["url"], editor="Migne, Jacques-Paul", year=1859)]
+    return {slug: {"editions": editions,
+        "base_note": "PG074 continuation beginning John 10:18; Books VII and VIII are fragmentary. Acts and Romans are separate works.",
+        "coverage_composition": {
+        "manifest": relative, "manifest_sha256": _sha(path), "volumes": ["PG073", "PG074"],
+        "policy": "complementary-volume-union", "counts": expected,
+        "components": [{"edition": editions[0]["key"], "volume": "PG073", "passages": 528,
+                "license": evidence["source_license"], "source": evidence["source_url"],
+                "source_sha256": evidence["source_sha256"], "attribution": evidence["attribution"]},
+            {"edition": "migne-ocr-qwen36", "volume": "PG074", "passages": 2578, "license": "PD"},
+            {"edition": editions[1]["key"], "volume": "PG074", "passages": 3, "license": "PD"}],
+        "source_editions": evidence["reference_scans"],
+        "qualification": "PG074 Books VII and VIII survive as fragments in this edition; this does not reconstruct lost continuous books."}}}
+
+
+def reviewed_manifestation_metadata(root=ROOT):
+    root = Path(root)
+    return {**_meibom(root), **_scan_extensions(root), **_photius(root), **_cyril(root)}
+
+
+def register_reviewed_manifestations(registry, root=ROOT):
+    """Idempotently add active reviewed components after ordinary identities."""
+    root = Path(root)
+    for slug, value in musical_identity_metadata(root).items():
+        registry.mint_author(value["author_name"], slug=value["author"])
+        registry.mint_work(value["author"], value["title"], slug=slug, aliases=value["aliases"])
+        registry.works[slug].best_source = "open_corpus"
+        registry.mint_edition(slug, value["edition"], "First1KGreek (" + value["edition"] + ")",
+            provider=value["provider"], license=value["license"])
+    metadata = reviewed_manifestation_metadata(root)
+    for slug, value in metadata.items():
+        if slug not in registry.works:
+            raise ValueError("Reviewed admission has no canonical registry Work: " + slug)
+        work = registry.works[slug]
+        if "coverage_composition" not in work.__dataclass_fields__:
+            raise ValueError("Registry Work must support reviewed coverage_composition")
+        previous = work.default_edition
+        previous_composition = work.coverage_composition
+        for edition in value["editions"]:
+            key = registry.mint_edition(slug, edition["key"], edition["name"])
+            record = work.editions[key]
+            for field, content in edition.items():
+                if field != "key":
+                    setattr(record, field, content)
+        work.default_edition = slug + "." + value["default_edition"] if value.get("default_edition") else previous
+        for edition in value.get("disable_editions", []):
+            record = work.editions.get(slug + "." + edition)
+            if record:
+                record.servable = False
+                record.note = "Historical whole-anthology assignment; exact readings survive in the routing audit and secondary witnesses."
+        composition = value["coverage_composition"]
+        base_key = previous
+        if value.get("default_edition") and previous == work.default_edition:
+            base_key = next((c.get("edition") for c in previous_composition.get("components", [])
+                             if c.get("role") == "retained-primary"), None)
+        if base_key and base_key in work.editions:
+            base = work.editions[base_key]
+            if value.get("base_note"):
+                base.note = value["base_note"]
+            component = {"edition": base_key, "storage": base.storage, "license": base.license,
+                "source": base.source, "provider": base.provider, "name": base.name}
+            retained = next((c for c in composition["components"] if c.get("role") == "retained-primary" or
+                c.get("edition") in {base_key, base_key.removeprefix(slug + ".")}), None)
+            if retained is not None:
+                retained.update(component)
+            elif not value.get("default_edition"):
+                component["role"] = "retained-primary"
+                if "base_passages" in composition:
+                    component["passages"] = composition["base_passages"]
+                composition["components"].insert(0, component)
+        work.coverage_composition = composition
+        work.best_source = "open_corpus"
+    return metadata
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--root", type=Path, default=ROOT)
+    parser.add_argument("--registry", type=Path)
+    action = parser.add_mutually_exclusive_group()
+    action.add_argument("--write", action="store_true")
+    action.add_argument("--check", action="store_true")
+    args = parser.parse_args()
+    sys.path.insert(0, str(ROOT))
+    from source_identity import Registry
+    path = args.registry or args.root / "data/source_registry.json"
+    registry = Registry.load(path)
+    before = {slug: {"default": work.default_edition, "coverage": getattr(work, "coverage_composition", {}),
+        "editions": {key: dict(vars(value)) for key, value in work.editions.items()}} for slug, work in registry.works.items()}
+    metadata = register_reviewed_manifestations(registry, args.root)
+    if args.check:
+        drift = [slug for slug in set(metadata) | set(musical_identity_metadata(args.root))
+            if before.get(slug) != {"default": registry.works[slug].default_edition,
+                "coverage": getattr(registry.works[slug], "coverage_composition", {}),
+                "editions": {key: dict(vars(value)) for key, value in registry.works[slug].editions.items()}}]
+        if drift:
+            parser.exit(1, "Reviewed manifestation metadata differs: " + ", ".join(sorted(drift)) + "\n")
+    elif args.write:
+        registry.save(path)
+    print(json.dumps({"active_reviewed_works": sorted(metadata), "musical_identities": sorted(musical_identity_metadata(args.root))}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

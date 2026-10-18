@@ -397,6 +397,17 @@ the exact original files. Originals and per-change evidence are retained in
 separate secondary edition files under their existing canonical identities.
 The historical concordance retains each old reading's exact path.
 
+`scripts/reviewed_manifestations.py` restores reviewed edition metadata during
+every `build_registry.py` rebuild. Active admission audits pin the source bytes
+and page counts; compressed word networks are hashed without rerunning OCR
+voting. The registry retains complementary primary editions, historical
+secondary witnesses, source credits, component licenses, and transmission
+qualifications in `coverage_composition`, while Work names remain unqualified.
+Run `python3 scripts/reviewed_manifestations.py --write` to refresh an existing
+registry or `--check` to verify it. Photius's new consensus includes Source
+Library CC BY-SA 4.0 readings, alongside retained PD text and separately credited
+fresh OCR witnesses; the complete merged manifestation is not labeled PD.
+
 `data/passage_aliases.json`, also exported as `work_index.json.passage_aliases`,
 maps historical work/locus pairs to their current corpus or paratext destination.
 Resolve these passage aliases before applying whole-work slug redirects. See

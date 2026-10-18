@@ -54,6 +54,7 @@ from source_identity import (  # noqa: E402
     Registry, IdentityError, normalize_slug, ALWAYS_QUALIFY, era_for_century)
 from source_precedence import load_overrides, resolve  # noqa: E402
 from critical_text import load_critical_editions, register_critical_editions  # noqa: E402
+from reviewed_manifestations import MUSICAL_IDENTITIES, register_reviewed_manifestations  # noqa: E402
 
 
 # Full names for the TLG Canon's genre abbreviations (a leading "2" = a second
@@ -1022,6 +1023,8 @@ def build() -> Registry:
                 author_slug = reg.mint_author(group or a_base, slug=a_base)
             except IdentityError:
                 author_slug = reg.mint_author(group or a_base, slug=f"{a_base}-{tg}")
+        if work_cts in MUSICAL_IDENTITIES:
+            continue  # explicit served identity is registered below
         # curated whole-volume works are keyed by their SERVED corpus key: the
         # reader resolves works[<corpus_editions slug>] directly (registry ->
         # crosswalk -> slug-prefix fallback), so a pretty re-slug would land the
@@ -1101,6 +1104,9 @@ def build() -> Registry:
     # Physical critical editions have an explicit identity and column/line
     # scheme. Register them before the generic served-defaults inference.
     register_critical_editions(reg, critical_editions)
+    # Reviewed components survive a complete registry rebuild. Their metadata
+    # comes from active admission audits, independently of the dominant edition.
+    register_reviewed_manifestations(reg, REPO)
 
     # --- servable defaults for the rest of the served set ----------------
     # The passes above mint servable editions only for First1K / Perseus /

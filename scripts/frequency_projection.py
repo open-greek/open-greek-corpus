@@ -78,6 +78,8 @@ class FrequencyProjection:
                 previous = end
             return runs
         if rec.get("ocr_consensus"):
+            if "slots" not in rec["ocr_consensus"]:
+                return []  # an older compact projection supplies no adjacency evidence
             runs, current = [], []
             for slot in rec["ocr_consensus"]["slots"]:
                 if slot["lexical_eligible"]:

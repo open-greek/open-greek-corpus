@@ -71,6 +71,11 @@ CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
+REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
+    $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
+               data/corpus_changes/photius-bekker-coverage/coverage.json \
+               data/corpus_changes/cyril-john-coverage/changes.json \
+               data/corpus_extension_index.json)
 
 # Only this repo's own (non-OCR) ingesters. The OCR text - calfa-co Patrologia
 # Graeca and our own Migne/edition OCR - is produced, cleaned, and DELIVERED
@@ -151,6 +156,7 @@ data/served_scheme_inference.json: $(CORPUS_EDITIONS) scripts/infer_served_schem
 	$(PY) scripts/infer_served_schemes.py
 
 $(REGISTRY): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json data/author_authority.json data/work_authority.json data/pseudo_author_attributions.json data/served_scheme_inference.json source_identity.py
+$(REGISTRY): $(REVIEWED_MANIFESTATIONS) $(CORPUS_FILES)
 	$(PY) scripts/build_registry.py
 $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_report.py scripts/source_precedence.py
 	$(PY) scripts/build_coverage_report.py
