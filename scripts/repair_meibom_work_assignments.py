@@ -20,6 +20,7 @@ from ocr_consensus import merge_witnesses
 ROOT = Path(__file__).resolve().parents[1]
 OLD = "aristides-quintilianus-music.de-musica"
 EDITION = "meibom-1652-consensus-2026-10"
+JAHN_EDITION = "jahn-1882-consensus-2026-10"
 AUDIT_DIR = "data/corpus_changes/meibom-musical-anthology"
 PARATEXT = "data/paratext/meibom-1652.jsonl"
 INPUT_SHA256 = "2d3e16932378cd1d0c1ea176eb0d6fbefbebea8303249f72c38c7e7808bd6526"
@@ -109,7 +110,7 @@ def scan_from_locus(locus):
     return int(match[1])
 
 
-def prepare_inputs(root, fresh_paths, original_dir=None):
+def prepare_inputs(root, fresh_paths, original_dir=None, primary_source="jahn1882"):
     primary = root / f"data/corpus/{OLD}.jsonl"
     raw = primary.read_bytes()
     if sha(raw) != INPUT_SHA256:
@@ -142,7 +143,18 @@ def prepare_inputs(root, fresh_paths, original_dir=None):
                 "model": "Qwen3.6-27B", "source": "Original uncorrected page OCR",
                 "scan_page": scan}
             page_witnesses[assignment["printed_page"]].append(witness)
-    expected = {p["scan_page"]: p for p in fresh_jobs()["pages"]}
+    meibom_witnesses = dict(page_witnesses)
+    if primary_source == "jahn1882":
+        primary_manifest = json.loads((ROOT / "data/ingest_reviews/jahn-aristides-fresh-witnesses.json").read_text())
+        expected = {p["scan_page"]: p for p in primary_manifest["pages"]}
+        page_witnesses = defaultdict(list)
+        primary_pages = 97
+    elif primary_source == "meibom1652":
+        primary_manifest = fresh_jobs()
+        expected = {p["scan_page"]: p for p in primary_manifest["pages"]}
+        primary_pages = 164
+    else:
+        raise ValueError(f"Unknown Aristides source edition: {primary_source}")
     models_by_page = defaultdict(set)
     for path in fresh_paths:
         meta = None
@@ -173,12 +185,14 @@ def prepare_inputs(root, fresh_paths, original_dir=None):
                 "region": record["region"], "prompt": meta["prompt"]}
             page_witnesses[expected[scan]["printed_page"]].append(witness)
             models_by_page[expected[scan]["printed_page"]].add(meta["model"])
-    missing = [p for p in range(1, 165) if len(models_by_page[p]) < 2]
+    missing = [p for p in range(1, primary_pages + 1) if len(models_by_page[p]) < 2]
     if missing:
         raise ValueError(f"Two fresh model witnesses are required for all printed pages; missing: {missing}")
-    return {"schema_version": 1, "source": SOURCE,
+    return {"schema_version": 1, "source": SOURCE, "primary_source": primary_source,
+        "primary_manifest": primary_manifest,
         "original_corpus_sha256": sha(raw), "witnesses": {str(page): readings
-            for page, readings in sorted(page_witnesses.items())}}
+            for page, readings in sorted(page_witnesses.items())},
+        "meibom_source_witnesses": {str(page): readings for page, readings in sorted(meibom_witnesses.items())}}
 
 
 def repaired_outputs(root, inputs, before):
@@ -186,6 +200,10 @@ def repaired_outputs(root, inputs, before):
     registry = json.loads(before["data/source_registry.json"])
     aliases = json.loads(before["data/passage_aliases.json"])
     outputs, changes = defaultdict(list), []
+    jahn_primary = inputs.get("primary_source") == "jahn1882"
+    primary_edition = JAHN_EDITION if jahn_primary else EDITION
+    primary_source = inputs["primary_manifest"]["sources"]["jahn1882"] if jahn_primary else {
+        "url": SOURCE["url"], "citation": SOURCE["title"], "license": "PD", "sha256": SOURCE["pdf_sha256"]}
     for row in original_rows:
         scan = scan_from_locus(row["locus"])
         assignment = page_assignment(scan)
@@ -202,7 +220,7 @@ def repaired_outputs(root, inputs, before):
                 cts=registry["works"][target]["aliases"]["cts"])
             path = f"data/corpus_secondary/{target}.jsonl"
             destination = {"path": path, "locus": row["locus"], "slug": target, "storage": "secondary"}
-            if target == OLD:
+            if target == OLD and not jahn_primary:
                 printed = assignment["printed_page"]
                 destination = {"path": f"data/corpus/{OLD}.jsonl", "slug": OLD,
                     "locus": f"{assignment['book']}.{printed}", "scope": "printed-page",
@@ -214,13 +232,14 @@ def repaired_outputs(root, inputs, before):
             "evidence": "data/source_layouts/meibom-1652.json"})
     summaries = []
     primary = []
-    for page in range(1, 165):
+    page_limit = 97 if jahn_primary else 164
+    for page in range(1, page_limit + 1):
         result = merge_witnesses(inputs["witnesses"][str(page)])
-        book = 1 if page <= 58 else 2 if page <= 111 else 3
-        row = {"urn": OLD, "edition": EDITION, "locus": f"{book}.{page}",
+        book = (1 if page <= 37 else 2 if page <= 67 else 3) if jahn_primary else (1 if page <= 58 else 2 if page <= 111 else 3)
+        row = {"urn": OLD, "edition": primary_edition, "locus": f"{book}.{page}",
             "cts": registry["works"][OLD]["aliases"]["cts"], "source": "ocr", "license": "PD",
             **result, "corrections": ["collation"], "source_printed_page": page,
-            "evidence": "data/source_layouts/meibom-1652.json"}
+            "evidence": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json" if jahn_primary else "data/source_layouts/meibom-1652.json"}
         primary.append(row)
         summaries.append({"printed_page": page, "locus": row["locus"],
             "original_text": [{"witness": w["id"], "text": w["text"],
@@ -243,14 +262,14 @@ def repaired_outputs(root, inputs, before):
     if old_key in work["editions"]:
         work["editions"][old_key].update(servable=False,
             note="Historical whole-anthology assignment; original rows are retained by the issue52 audit and routed secondary witnesses.")
-    new_key = f"{OLD}.{EDITION}"
-    work["editions"][new_key] = {"name": "Meibom 1652, merged scan OCR with explicit variants",
-        "provider": "ocr", "scheme": "book.printed-page", "editor": "Meibom, Marcus",
-        "year": 1652, "source": SOURCE["url"], "servable": True, "license": "PD",
+    new_key = f"{OLD}.{primary_edition}"
+    work["editions"][new_key] = {"name": "Jahn 1882, merged scan OCR with explicit variants" if jahn_primary else "Meibom 1652, merged scan OCR with explicit variants",
+        "provider": "ocr", "scheme": "book.printed-page", "editor": "Jahn, Albert" if jahn_primary else "Meibom, Marcus",
+        "year": 1882 if jahn_primary else 1652, "source": primary_source["url"], "servable": True, "license": "PD",
         "scheme_inferred": False, "aliases": {}}
     work.update(default_edition=new_key, best_source="open_corpus")
     for start, end, target, base in RANGES:
-        if target == OLD:
+        if target == OLD and not jahn_primary:
             continue
         registry["works"][target]["editions"][f"{target}.qwen36-meibom-1652-legacy"] = {
             "name": "Meibom 1652, routed historical OCR witness", "provider": "ocr",
@@ -259,13 +278,14 @@ def repaired_outputs(root, inputs, before):
             "license": "PD", "scheme_inferred": False, "aliases": {}}
     output_bytes["data/source_registry.json"] = dump(registry)
     sources = json.loads(before["data/inventory/ocr_edition_sources.json"])
-    sources[EDITION] = {"label": "Aristides Quintilianus, De musica (Meibom1652); original and independent fresh OCR word vote, with unresolved readings preserved",
-        "url": SOURCE["url"], "model": "Qwen3.6-27B and Qwen3.8-27B"}
+    sources[primary_edition] = {"label": f"Aristides Quintilianus, De musica ({'Jahn1882' if jahn_primary else 'Meibom1652'}); independent fresh OCR word vote, with unresolved readings preserved",
+        "url": primary_source["url"], "model": "Qwen3.6-27B and Qwen3.8-27B"}
     sources["qwen36-meibom-1652-legacy"] = {"label": "Meibom1652, routed historical OCR witnesses",
         "url": SOURCE["url"], "model": "Qwen3.6-27B"}
     output_bytes["data/inventory/ocr_edition_sources.json"] = dump(sources)
     output_bytes[AUDIT_DIR + "/changes.json"] = dump({"schema_version": 1,
-        "timestamp": "2026-10-18", "source": SOURCE,
+        "timestamp": "2026-10-18", "source": SOURCE, "primary_source": primary_source,
+        "primary_edition": primary_edition,
         "issue": "https://github.com/open-greek/open-greek-corpus/issues/52",
         "assignments": changes, "text_changes": summaries,
         "outputs_sha256": {name: sha(raw) for name, raw in output_bytes.items()},
@@ -273,7 +293,7 @@ def repaired_outputs(root, inputs, before):
     return output_bytes
 
 
-def run_repair(root, mode, fresh_paths=(), original_dir=None):
+def run_repair(root, mode, fresh_paths=(), original_dir=None, primary_source="jahn1882"):
     audit = root / AUDIT_DIR
     before_path, inputs_path = audit / "before.json.gz", audit / "witnesses.json.gz"
     if mode == "undo":
@@ -297,7 +317,7 @@ def run_repair(root, mode, fresh_paths=(), original_dir=None):
     else:
         if mode == "check":
             raise ValueError("The Meibom repair has not been applied")
-        inputs = prepare_inputs(root, fresh_paths, original_dir)
+        inputs = prepare_inputs(root, fresh_paths, original_dir, primary_source)
         names = [f"data/corpus/{OLD}.jsonl", "data/source_registry.json", "data/passage_aliases.json",
             "data/inventory/ocr_edition_sources.json", PARATEXT]
         names += [f"data/corpus_secondary/{slug}.jsonl" for slug in {p[2] for p in RANGES}]
@@ -320,7 +340,7 @@ def run_repair(root, mode, fresh_paths=(), original_dir=None):
             path = root / name
             path.parent.mkdir(parents=True, exist_ok=True)
             path.write_bytes(raw)
-    print(f"{len(outputs)} reproducible outputs; 164 merged Aristides pages; all original rows preserved")
+    print(f"{len(outputs)} reproducible outputs; {len(inputs['witnesses'])} merged Aristides pages; all original rows preserved")
 
 
 def check_changed_fields(original, expected, current, path):
@@ -349,6 +369,7 @@ def main():
         modes.add_argument("--" + name, action="store_true")
     ap.add_argument("--fresh", type=Path, action="append", default=[])
     ap.add_argument("--original-dir", type=Path)
+    ap.add_argument("--primary-source", choices=["jahn1882", "meibom1652"], default="jahn1882")
     args = ap.parse_args()
     if args.write_manifest:
         path = ROOT / "data/source_layouts/meibom-1652.json"
@@ -358,7 +379,7 @@ def main():
         jobs.parent.mkdir(parents=True, exist_ok=True)
         jobs.write_text(json.dumps(fresh_jobs(), ensure_ascii=False, indent=1) + "\n")
     if args.apply or args.check or args.undo:
-        run_repair(ROOT, "apply" if args.apply else "check" if args.check else "undo", args.fresh, args.original_dir)
+        run_repair(ROOT, "apply" if args.apply else "check" if args.check else "undo", args.fresh, args.original_dir, args.primary_source)
     print(f"{len(manifest()['fresh_aristides_pages'])} unique Aristides leaves")
 
 
