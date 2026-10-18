@@ -118408,25 +118408,41 @@
     "edition": "1st1K-grc1",
     "source": "first1k",
     "license": "CC-BY-SA-4.0",
-    "n_passages": 57,
-    "n_tokens": 8696,
-    "n_analysis_tokens": 8696,
+    "n_passages": 59,
+    "n_tokens": 9041,
+    "n_analysis_tokens": 8986,
     "coverage": {
      "work_identity": "Apollonius of Perga, Conica",
-     "base_scope": "Heiberg volume II, Greek Book IV",
-     "addition_scope": "Heiberg volume I, Greek Books I–III, including epistolary prefaces",
-     "transmission_limit": "The Greek manifestation covers Books I–IV. Later books are not reconstructed from translations into Greek, and this manifestation does not claim the full ancient work survives in Greek.",
+     "base_scope": "Heiberg volume II, Greek Book IV propositions 1–57",
+     "addition_scope": "Heiberg volume I, Greek Books I–III with their printed opening matter, and the omitted Book IV letter to Attalus from volume II",
+     "transmission_limit": "The Greek manifestation covers Books I–IV. Books V–VII survive only in Arabic translation, and Book VIII is lost; none is reconstructed as Greek reading text.",
+     "transmission_reference": {
+      "citation": "Cambridge Library Collection description of Heiberg's Apollonii Pergaei quae Graece exstant cum commentariis antiquis, volume II",
+      "url": "https://www.cambridge.org/core/books/apollonii-pergaei-quae-graece-exstant-cum-commentariis-antiquis/5D8CEEC494A099E165426D0D05022E27"
+     },
      "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus and indexes",
      "historical_citation_scheme": "apollonius-first1k-unqualified-sections",
      "scan_citation_scheme": "Book plus Heiberg printed page",
      "status": "reviewed-scan-additions-pending",
-     "reviewed_primary_regions": 225,
-     "admitted_primary_regions": 0,
+     "reviewed_primary_regions": 227,
+     "admitted_primary_regions": 2,
      "remaining_reviewed_primary_regions": 225,
      "reviewed_comparative_regions": 0,
-     "admitted_transmission_counts": {},
+     "admitted_transmission_counts": {
+      "direct-text": 2
+     },
      "scan_manifest": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
      "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+     "scan_manifests": [
+      {
+       "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+       "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+      },
+      {
+       "path": "data/ingest_reviews/coverage/apollonius-conica-4-letter-jobs.json",
+       "sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832"
+      }
+     ],
      "scan_sources": [
       {
        "id": "apolloniipergaei01apoluoft",
@@ -118436,9 +118452,21 @@
        "citation": "J. L. Heiberg, Apollonii Pergaei quae graece exstant, volume I, Leipzig: Teubner, 1891",
        "rights_evidence": "Public-domain print, 1891; title page inspected at PDF page 7.",
        "catalog_url": "https://archive.org/details/apolloniipergaei01apoluoft"
+      },
+      {
+       "id": "apolloniipergaei02apoluoft",
+       "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+       "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+       "license": "public-domain",
+       "citation": "Apollonius, Conica, edited by J. L. Heiberg, volume II, Leipzig: Teubner, 1893",
+       "catalog_url": "https://archive.org/details/apolloniipergaei02apoluoft",
+       "rights_evidence": "Public-domain Greek print, 1893; volume title and Book IV opening inspected."
       }
      ],
-     "admission_audit": null,
+     "admission_audit": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+     "admission_audits": [
+      "data/corpus_changes/conica-book-four-letter-2026-10/changes.json"
+     ],
      "digital_components": [],
      "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
     }
@@ -129819,6 +129847,12 @@
      "admitted_transmission_counts": {},
      "scan_manifest": "data/ingest_reviews/coverage/cassius-dio-ocr-jobs.json",
      "scan_manifest_sha256": "bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf",
+     "scan_manifests": [
+      {
+       "path": "data/ingest_reviews/coverage/cassius-dio-ocr-jobs.json",
+       "sha256": "bc64fe343fce8392a950a1f5124b5d684b3eeba9f499e962bd0296ccdb6208bf"
+      }
+     ],
      "scan_sources": [
       {
        "id": "dios-roman-history.-vol.-1-loeb-32",
@@ -129876,6 +129910,7 @@
       }
      ],
      "admission_audit": null,
+     "admission_audits": [],
      "digital_components": [],
      "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
     }
@@ -135028,10 +135063,10 @@
     "license": "CC-BY-4.0",
     "n_passages": 3109,
     "n_tokens": 392203,
-    "n_analysis_tokens": 392253,
+    "n_analysis_tokens": 392251,
     "coverage": {
      "manifest": "data/corpus_changes/cyril-john-coverage/changes.json",
-     "manifest_sha256": "1d6e718a150d49ebc07e195e84f1e5da4d3769423dba21c47d6eb5f588cf94bf",
+     "manifest_sha256": "eae8819aa1a74751a23e3c263854a2a506ab2d0c53a8b930c114b44f05354ac3",
      "volumes": [
       "PG073",
       "PG074"
@@ -183215,7 +183250,11 @@
      "work_identity": "Pappus, Synagoge (Collection)",
      "base_scope": "Hultsch volume I, surviving Greek material of Books II–V",
      "addition_scope": "Hultsch volumes II–III, Books VI–VIII, including the Heron quotation at the end of Book VIII",
-     "transmission_limit": "Hultsch edits the surviving remains. Selection of the edition's Greek body does not reconstruct ancient losses or claim an intact eight-book text.",
+     "transmission_limit": "Book I is lost and only the latter part of Book II survives. Hultsch edits the surviving remains of Books II–VIII; the selected Greek body does not reconstruct those losses or claim an intact eight-book text.",
+     "transmission_reference": {
+      "citation": "The manuscript tradition of the Collectio Mathematica, Scriptorium 11.2 (1957), opening description of the extant text",
+      "url": "https://www.persee.fr/doc/scrip_0036-9772_1957_num_11_2_2937"
+     },
      "excluded_material": "Facing Latin translation, diagrams and their labels, critical apparatus, later anonymous supplements, scholia and indexes",
      "historical_citation_scheme": "pappus-first1k-book-attributes",
      "scan_citation_scheme": "Book plus Hultsch printed page",
@@ -183227,6 +183266,12 @@
      "admitted_transmission_counts": {},
      "scan_manifest": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
      "scan_manifest_sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3",
+     "scan_manifests": [
+      {
+       "path": "data/ingest_reviews/coverage/mathematical-ocr-jobs.json",
+       "sha256": "5aae2940256591d8b0368c136e8b885eb6a294be48e877cded762f2aa40f7bf3"
+      }
+     ],
      "scan_sources": [
       {
        "id": "pappialexandrin01hultgoog",
@@ -183257,6 +183302,7 @@
       }
      ],
      "admission_audit": null,
+     "admission_audits": [],
      "digital_components": [],
      "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
     }

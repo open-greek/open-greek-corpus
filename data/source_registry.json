@@ -86007,6 +86007,71 @@
     "genre:mathematics",
     "language:ancient-greek"
    ],
+   "coverage_composition": {
+    "policy": "reviewed-primary-region-union",
+    "manifest": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+    "manifest_sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f",
+    "scan_manifest": "data/corpus_changes/conica-book-four-letter-2026-10/manifest.json",
+    "scan_manifest_sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832",
+    "scan_manifests": [
+     {
+      "path": "data/corpus_changes/conica-book-four-letter-2026-10/manifest.json",
+      "sha256": "7c846b1d1c4b40d3da636f1efddf74f03808a1148b030273e18849b8eddb9832"
+     }
+    ],
+    "admission_audits": [
+     {
+      "path": "data/corpus_changes/conica-book-four-letter-2026-10/changes.json",
+      "sha256": "21ac93817516d01d4e8f84b93896098a6b113ead66465d8bba83f8f70aa6137f",
+      "primary_regions": 2,
+      "comparative_regions": 0
+     }
+    ],
+    "base_scope": "Book IV",
+    "addition_scope": "Opening letter of Book IV",
+    "planned_addition_scope": "Books I–III and the opening letter of Book IV",
+    "admitted_books": [
+     "4"
+    ],
+    "base_passages": 57,
+    "added_primary_regions": 2,
+    "comparative_regions": 0,
+    "source_editions": [
+     {
+      "id": "apolloniipergaei02apoluoft",
+      "url": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+      "sha256": "ab8f0c2dd0f4a13f16ba7415e66f571161c08a5004477b0305a6d2016779a9c0",
+      "license": "public-domain",
+      "citation": "Apollonius, Conica, edited by J. L. Heiberg, volume II, Leipzig: Teubner, 1893",
+      "catalog_url": "https://archive.org/details/apolloniipergaei02apoluoft",
+      "rights_evidence": "Public-domain Greek print, 1893; volume title and Book IV opening inspected."
+     }
+    ],
+    "digital_components": [],
+    "comparison_sources": {},
+    "digital_comparison_counts": {},
+    "components": [
+     {
+      "edition": "apollonius-geom.conica.1st1K-grc1",
+      "storage": "primary",
+      "license": "CC-BY-SA-4.0",
+      "source": "",
+      "provider": "first1k",
+      "name": "First1KGreek (1st1K-grc1)",
+      "role": "retained-primary",
+      "passages": 57
+     },
+     {
+      "edition": "scan-consensus-2026-10-18",
+      "storage": "primary",
+      "passages": 2,
+      "licenses": [
+       "public-domain"
+      ]
+     }
+    ],
+    "qualification": "Surviving Greek transmission only; ancient losses are not reconstructed. This edition's surviving book coverage does not redefine the complete ancient Work."
+   },
    "editions": {
     "apollonius-geom.conica.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
@@ -86020,7 +86085,8 @@
      "scheme_inferred": false,
      "aliases": {
       "cts": "urn:cts:greekLit:tlg0550.tlg001.1st1K-grc1"
-     }
+     },
+     "note": "Retained base edition: Book IV. Reviewed scan additions are complementary primary regions."
     },
     "apollonius-geom.conica.heiberg-1891": {
      "name": "Apollonii Pergaei quae Graece exstant, vols. 1%19`2",
@@ -86033,6 +86099,19 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "apollonius-geom.conica.scan-consensus-2026-10-18": {
+     "name": "Heiberg, reviewed Greek scan additions (Opening letter of Book IV)",
+     "provider": "ocr",
+     "scheme": "book.printed-page",
+     "editor": "Heiberg",
+     "year": null,
+     "source": "https://archive.org/download/apolloniipergaei02apoluoft/apolloniipergaei02apoluoft.pdf",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Complements the existing primary edition; comparison quotations and modern apparatus are separate."
     }
    }
   },
@@ -124799,7 +124878,7 @@
    ],
    "coverage_composition": {
     "manifest": "data/corpus_changes/cyril-john-coverage/changes.json",
-    "manifest_sha256": "1d6e718a150d49ebc07e195e84f1e5da4d3769423dba21c47d6eb5f588cf94bf",
+    "manifest_sha256": "eae8819aa1a74751a23e3c263854a2a506ab2d0c53a8b930c114b44f05354ac3",
     "volumes": [
      "PG073",
      "PG074"
