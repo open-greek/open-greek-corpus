@@ -19,14 +19,18 @@ corrections applied to the rest have a measured error rate of their own. Both
 numbers ship with the release, in the same file, so a consumer cannot pick up
 the counts without meeting the caveats.
 
-Everything except the measured-precision block below is derived at run time from
-data/corpus_catalog.tsv (build it first), so the release and the catalog cannot
-disagree about a count. Deterministic and byte-stable: sorted keys, and the only
+Work descriptions are derived from data/corpus_catalog.tsv. Exact source-component
+counts come from data/source_component_tokens.json, pinned to every primary file
+and the lexical eligibility recipe. Their per-work counts must agree. Global
+raw-OCR bounds are withheld while mixed-component correction coverage is unassessed.
+The older homogeneous-work classification and stamp-gap bounds remain qualified
+legacy measurements. Deterministic and byte-stable: sorted keys, and the only
 date in the file is the release date, which comes from CITATION.cff, from the
 commit, or from --date. No wall clock, ever - the same snapshot rebuilt tomorrow
 must produce the same bytes.
 
-  python3 scripts/build_corpus_catalog.py          # first: the per-work table
+  python3 scripts/build_source_components.py       # first: every row's source
+  python3 scripts/build_corpus_catalog.py          # then: the per-work table
   python3 scripts/build_corpus_release.py          # then: the release identity
   python3 scripts/build_corpus_release.py --date 2026-08-04 --sync-citation
   python3 scripts/build_corpus_release.py --check   # before tagging: does the
@@ -43,6 +47,8 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from build_source_components import (load_verified as load_components,
+    summary as component_summary, validate_catalog)
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -495,8 +501,11 @@ def corrections_block(catalog_sha: str, corpus_sha: str, raw: dict,
                   f"published precision was measured over "
                   f"{MEASURED['active_records']:,}. The estimate is republished with "
                   f"stale=true; remeasure and update MEASURED.", file=sys.stderr)
-    block["stamp_gap"] = stamp_gap_block(
+    block["legacy_homogeneous_work_stamp_gap"] = stamp_gap_block(
         catalog_sha, corpus_sha, raw, total_tokens, records)
+    block["legacy_homogeneous_work_stamp_gap"]["scope"] = (
+        "Bounds within the homogeneous works classified raw by the catalog; "
+        "not global raw-OCR bounds. Mixed-component correction coverage is unassessed.")
     return block
 
 
@@ -598,7 +607,7 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
             bucket = table.setdefault(key, {"works": 0, "tokens": 0})
             bucket["works"] += 1
             bucket["tokens"] += tokens
-        if row["source"] in OCR_SOURCES:
+        if row["source"] in OCR_SOURCES and row["correction"] != "mixed-unassessed":
             ocr["works"] += 1
             ocr["tokens"] += tokens
             if row["correction"] == "raw-ocr":
@@ -618,6 +627,11 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
         return round(part / whole, 4) if whole else 0.0
 
     catalog_sha = hashlib.sha256(catalog.read_bytes()).hexdigest()
+    components = load_components(DATA)
+    validate_catalog(components, rows)
+    if components["corpus_sha256"] != corpus_sha or components["totals"]["analysis_tokens"] != totals["tokens"]:
+        raise ValueError("Catalog and source component report describe different corpus counts")
+    component_quality = component_summary(components, DATA)
     release = {
         "release_id": release_id,
         "release_date": release_date,
@@ -645,19 +659,21 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
         "licenses": dict(sorted(per_license.items())),
         "quality": {
             "correction_status": dict(sorted(per_status.items())),
+            "source_components": component_quality,
             "raw_ocr": {
-                "what": ("works whose served text is OCR that no correction "
-                         "pass has touched; 'not-ocr' works are digital "
-                         "editions, not corrected OCR"),
-                "ocr_works": ocr["works"],
-                "ocr_tokens": ocr["tokens"],
-                "raw_works": raw["works"],
-                "raw_tokens": raw["tokens"],
-                "raw_share_of_ocr_tokens": share(raw["tokens"], ocr["tokens"]),
-                "raw_share_of_corpus_tokens": share(raw["tokens"],
-                                                    totals["tokens"]),
-                "ocr_share_of_corpus_tokens": share(ocr["tokens"],
-                                                    totals["tokens"]),
+                "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp.",
+                "ocr_works": components["totals"]["ocr_works"],
+                "ocr_tokens": components["totals"]["ocr_analysis_tokens"],
+                "mixed_works": components["totals"]["mixed_works"],
+                "mixed_ocr_tokens": components["totals"]["mixed_ocr_analysis_tokens"],
+                "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+                "global_raw_token_bounds": None,
+                "legacy_homogeneous_work_bucket": {
+                    "scope": "Catalog work-level classification for homogeneous OCR/digital works only; not a global raw-OCR upper bound.",
+                    "ocr_works": ocr["works"], "ocr_tokens": ocr["tokens"],
+                    "raw_works": raw["works"], "raw_tokens": raw["tokens"],
+                    "raw_share_of_corpus_tokens": share(raw["tokens"], totals["tokens"]),
+                },
             },
             "wrong_corrections": corrections_block(
                 catalog_sha, corpus_sha, raw, totals["tokens"]),
@@ -851,9 +867,8 @@ def main() -> None:
     print(f"{release_id}: {release['corpus']['works']:,} works, "
           f"{release['corpus']['tokens']:,} tokens, "
           f"{len(release['sources'])} sources -> {shown(args.out)}")
-    print(f"  raw OCR: {q['raw_works']:,} works, {q['raw_tokens']:,} tokens "
-          f"({q['raw_share_of_corpus_tokens']:.1%} of the corpus, "
-          f"{q['raw_share_of_ocr_tokens']:.1%} of its OCR)", file=sys.stderr)
+    print(f"  OCR components: {q['ocr_tokens']:,} tokens across {q['ocr_works']:,} works; "
+          f"global raw bounds withheld ({q['mixed_works']} mixed works)", file=sys.stderr)
     print(f"  corpus sha256 {release['pin']['corpus_sha256'][:16]}...",
           file=sys.stderr)
 

@@ -10,6 +10,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 import build_corpus_release as release
+import build_source_components as components
 
 
 @pytest.fixture
@@ -18,7 +19,8 @@ def record(tmp_path, monkeypatch):
     corpus = data / 'corpus'
     corpus.mkdir(parents=True)
     source = corpus / 'test.work.jsonl'
-    source.write_text('{"text":"λόγος ἀληθής"}\n')
+    source.write_text('{"text":"λόγος ἀληθής","source":"ocr","edition":"test","license":"PD"}\n')
+    (data / components.NAME).write_bytes(components.encode(components.build(data)))
     catalog = data / 'corpus_catalog.tsv'
     row = {'slug':'test.work','source':'ocr','license':'PD','correction':'raw-ocr',
            'tokens':'2','passages':'1','tokens_lemmatized':'2',
@@ -81,7 +83,10 @@ def test_missing_release_is_blocking_before_build(record, monkeypatch, capsys):
     (('corpus','tokens_lemmatized'),0),
     (('sources','ocr','tokens'),100),
     (('licenses','PD','works'),8),
-    (('quality','raw_ocr','raw_share_of_corpus_tokens'),0),
+    (('quality','raw_ocr','legacy_homogeneous_work_bucket','raw_share_of_corpus_tokens'),0),
+    (('quality','raw_ocr','ocr_tokens'),99),
+    (('quality','raw_ocr','global_raw_token_bounds'),[0,2]),
+    (('quality','source_components','sha256'),'0'*64),
     (('quality','wrong_corrections','wrong_rows_estimate'),0),
     (('quality','polytonic_loss','counts','flagged'),0),
     (('quality','polytonic_loss','report_sha256'),'0'*64),

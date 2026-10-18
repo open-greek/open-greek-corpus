@@ -24,6 +24,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from build_corpus_release import MEASURED
 from coverage_resolution import resolution
+from build_source_components import load_verified, summary as component_summary, validate_catalog
 
 
 REPO = Path(__file__).resolve().parent.parent
@@ -64,6 +65,8 @@ def build() -> dict:
     measured = stamp_gap["measured_against"]
     with CATALOG.open(encoding="utf-8", newline="") as handle:
         catalog = list(csv.DictReader(handle, delimiter="\t"))
+    components = load_verified(DATA)
+    validate_catalog(components, catalog)
 
     catalog_sha = sha256(CATALOG)
     pin_lines = [f"{row['slug']}\t{row['sha256']}\n" for row in catalog]
@@ -73,6 +76,8 @@ def build() -> dict:
                 if row["source"] in OCR_SOURCES and row["correction"] == "raw-ocr"]
     raw_tokens = sum(int(row["tokens"]) for row in raw_rows)
     failures = []
+    if components["corpus_sha256"] != corpus_sha:
+        failures.append("source-component corpus hash differs from catalog")
     if measured["catalog_sha256"] != catalog_sha:
         failures.append("correction-stamp catalog hash is stale")
     if measured["corpus_sha256"] != corpus_sha:
@@ -111,6 +116,7 @@ def build() -> dict:
         "decision_date": "2026-09-15",
         "generated_from": {
             "corpus_sha256": corpus_sha,
+            "source_components": component_summary(components, DATA),
             "corpus_catalog": {
                 "path": measured["catalog"],
                 "sha256": catalog_sha,
@@ -162,14 +168,22 @@ def build() -> dict:
                 "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
                 "status": "accepted-measured-limitation",
                 "current_measurement": {
-                    "lower_bound_works": raw["lower_bound_works"],
-                    "lower_bound_tokens": raw["lower_bound_tokens"],
-                    "lower_bound_share": raw["lower_bound_share_of_corpus_tokens"],
-                    "upper_bound_works": raw["upper_bound_works"],
-                    "upper_bound_tokens": raw["upper_bound_tokens"],
-                    "upper_bound_share": raw["upper_bound_share_of_corpus_tokens"],
-                    "works_in_stamp_gap": raw["works_in_doubt"],
-                    "tokens_in_stamp_gap": raw["tokens_in_doubt"],
+                    "ocr_component_tokens": components["totals"]["ocr_analysis_tokens"],
+                    "mixed_works": components["totals"]["mixed_works"],
+                    "mixed_ocr_tokens": components["totals"]["mixed_ocr_analysis_tokens"],
+                    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
+                    "global_raw_token_bounds": None,
+                    "legacy_homogeneous_work_bucket": {
+                        "scope": "Stamp-gap bounds within homogeneous works classified raw by the catalog; not global raw-OCR bounds.",
+                        "lower_bound_works": raw["lower_bound_works"],
+                        "lower_bound_tokens": raw["lower_bound_tokens"],
+                        "lower_bound_share": raw["lower_bound_share_of_corpus_tokens"],
+                        "upper_bound_works": raw["upper_bound_works"],
+                        "upper_bound_tokens": raw["upper_bound_tokens"],
+                        "upper_bound_share": raw["upper_bound_share_of_corpus_tokens"],
+                        "works_in_stamp_gap": raw["works_in_doubt"],
+                        "tokens_in_stamp_gap": raw["tokens_in_doubt"],
+                    },
                 },
                 "why_no_bulk_action_remains": (
                     "The upstream correction workflow and boundary-safe page "

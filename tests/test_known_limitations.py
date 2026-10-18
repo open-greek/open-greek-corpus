@@ -32,7 +32,8 @@ def test_metrics_come_from_the_current_source_artifacts():
         (REPO / "data" / "nonfinal_graves.json").read_text(encoding="utf-8"))
 
     assert limitations["raw-ocr-coverage"]["current_measurement"][
-        "upper_bound_tokens"] == stamp["raw_ocr"]["upper_bound_tokens"]
+        "legacy_homogeneous_work_bucket"]["upper_bound_tokens"] == stamp["raw_ocr"]["upper_bound_tokens"]
+    assert limitations["raw-ocr-coverage"]["current_measurement"]["global_raw_token_bounds"] is None
     assert limitations["nonfinal-grave-source-errors"]["current_measurement"][
         "tokens"] == graves["tokens"]
 

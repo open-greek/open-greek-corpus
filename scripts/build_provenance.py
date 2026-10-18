@@ -2,7 +2,8 @@
 """Generate the OCR provenance table in the README: for each OCR'd work / volume,
 its source, the model that OCR'd it, and whether it has been manually corrected yet.
 
-Reads corpus_editions.json (which works are OCR), cgpg_works.json / ocr_works.json
+Reads source_component_tokens.json (every row's source and eligible tokens),
+corpus_editions.json (dominant descriptive edition), cgpg_works.json / ocr_works.json
 (human descriptions), work_index.json (the served title, for the many OCR works whose
 ledger description is blank or is a scan's running head), and
 data/corrections_log/provenance.json (the list of works that have had a correction
@@ -20,6 +21,7 @@ import re
 import sys
 from pathlib import Path
 from build_readme_figures import sync_identity_counts as sync_anchor_counts
+from build_source_components import MIXED_STATUS, load_verified
 
 REPO = Path(__file__).resolve().parent.parent
 DATA = REPO / "data"
@@ -144,6 +146,7 @@ def is_masked(edition: str, urn: str, prov_recs: dict) -> bool:
 
 def main() -> None:
     ce = _load("corpus_editions.json") or {}
+    components = load_verified(DATA)["works"]
     # kind "secondary-witness" entries (a displaced CGPG copy of a slug whose
     # primary is another volume's carve) must not shadow the primary's desc
     cgpg = {w["urn"]: w for w in (_load("cgpg_works.json") or [])
@@ -151,28 +154,10 @@ def main() -> None:
     ocr = {w["urn"]: w for w in (_load("ocr_works.json") or [])}
     index = (_load("work_index.json") or {}).get("works") or {}
     srcs = _load("inventory/ocr_edition_sources.json") or {}
-    # The Words column used to print ocr_works.json's / cgpg_works.json's own
-    # n_tokens. Neither file is generated: both are ledgers that a dozen one-off
-    # rescope/rekey/dissolve scripts edit in place, so their counts drift from
-    # the text they describe - a sample of 200 found 30 off by more than half.
-    # work_token_totals.json is derived from data/corpus by
-    # build_work_lemma_counts.py, so prefer its eligible counts and fall back to
-    # the same projection in reconciled corpus_editions metadata.
-    # Stale totals are worse than no totals: a file predating the CGPG carves
-    # reports the whole Hesychius lexicon under the slug of its prefatory letter.
-    # Fall back to the reconciled projection rather than publish that.
-    token_totals: dict[str, int] = {}
-    totals_fp = DATA / "work_token_totals.json"
-    corpus_mtime = max((fp.stat().st_mtime for fp in (DATA / "corpus").glob("*.jsonl")),
-                       default=0)
-    if totals_fp.exists() and totals_fp.stat().st_mtime >= corpus_mtime:
-        token_totals = {urn: v.get("tokens") for urn, v in
-                        (_load("work_token_totals.json") or {}).items()
-                        if isinstance(v, dict)}
-    elif totals_fp.exists():
-        print("work_token_totals.json is older than data/corpus; falling back to "
-              "corpus_editions eligible counts. Run build_work_lemma_counts.py to refresh.",
-              file=sys.stderr)
+    if set(ce) != set(components):
+        raise ValueError("Corpus editions and source components describe different works")
+    # The component report pins every corpus file and the eligibility recipe;
+    # its whole-work totals avoid stale delivery-ledger or modification-time counts.
     prov_recs = _load_provenance()
     prov = _load("corrections_log/provenance.json") or {}
     corrected = set(prov.get("corrected_works", []))
@@ -241,7 +226,10 @@ def main() -> None:
     rows = []
     for urn, m in sorted(ce.items()):
         src = m.get("source")
-        if src not in OCR_MODEL:
+        src = "ocr" if src == "ocr-masked" else src
+        component = components.get(urn, {})
+        mixed = component.get("mixed_ocr_digital", False)
+        if src not in OCR_MODEL and not mixed:
             continue
         masked = is_masked(m.get("edition", ""), urn, prov_recs)
         if src == "ocr" and urn.startswith("ocr.") and not masked:
@@ -266,7 +254,7 @@ def main() -> None:
         # would flatten 316 good rows into a bare title.
         if not desc.strip() or looks_like_page_header(desc):
             desc = indexed_desc(urn, index) or desc
-        status = ("manual" if urn in corrected
+        status = (MIXED_STATUS if mixed else "manual" if urn in corrected
                   else "auto-corrected" if urn in auto_corrected
                   else "raw OCR")
         # Masked-column re-OCR works carry their own provenance record (model,
@@ -274,7 +262,10 @@ def main() -> None:
         # per-source defaults so the table shows the FP8 masked-pipeline run. A masked
         # work lacking a provenance record still gets the FP8 masked-model label.
         rec = prov_recs.get(urn) if masked else None
-        if rec:
+        if mixed:
+            dl = "Component credits in `data/source_registry.json`"
+            model = "OCR and digital components; see coverage composition"
+        elif rec:
             dl = masked_source(rec) or downloaded_from(urn, m.get("edition", ""), src)
             model = masked_model(rec)
         elif masked:
@@ -287,20 +278,23 @@ def main() -> None:
             # older campaign model.
             ed = srcs.get(m.get("edition", ""), {})
             model = (ed.get("model") if isinstance(ed, dict) else None) or OCR_MODEL[src]
-        words = token_totals.get(urn, ce.get(urn, {}).get("n_analysis_tokens"))
-        if words is None:
-            raise SystemExit(f"No eligible token total for {urn}; rebuild corpus editions")
+        words = component["analysis_tokens"]
         rows.append((name, desc, dl, model, f"{words:,}", status))
 
     n_corr = sum(1 for r in rows if r[5] == "manual")
     n_auto = sum(1 for r in rows if r[5] == "auto-corrected")
-    head = (f"{len(rows)} OCR'd works/volumes: {n_corr} manually corrected, "
+    n_mixed = sum(1 for r in rows if r[5] == MIXED_STATUS)
+    n_raw = sum(1 for r in rows if r[5] == "raw OCR")
+    head = (f"{len(rows)} works/volumes containing OCR: {n_corr} manually corrected, "
             f"{n_auto} auto-corrected (deterministic glyph-confusion, frequency "
             f"and collation passes; edited but not hand-reviewed), "
-            f"{len(rows) - n_corr - n_auto} still raw OCR. Works are named by "
+            f"{n_raw} classified raw OCR, {n_mixed} mixed/unassessed. "
+            f"Correction labels apply to homogeneous works; mixed works have no "
+            f"assessed whole-work correction status. Works are named by "
             f"their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. "
-            f"Words counts eligible Greek tokens in the checked frequency projection; "
-            f"inclusive surface counts are in `data/coverage.json`.\n\n")
+            f"Words counts whole-work eligible Greek tokens in the checked frequency projection; "
+            f"exact OCR component counts are in `data/source_component_tokens.json`, "
+            f"and inclusive surface counts are in `data/coverage.json`.\n\n")
     table = ["| Work (slug) | Content | Downloaded | OCR model | Words | Correction |",
              "|---|---|---|---|--:|---|"]
     for r in rows:

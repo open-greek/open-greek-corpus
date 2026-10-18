@@ -1917,26 +1917,41 @@ dated `data/corpus_changes/issue-{1,2,31,33}-reviewed.*` records.
 Per-work provenance (source scan, OCR model, correction status) is in the table
 below; regenerate it with `python scripts/build_provenance.py`.
 
-Read the raw-OCR count in that table as an upper bound. A work counts as
-corrected from its rows' own `corrections` stamps, and the stamps are
-incomplete in one direction: a correction stamps the row it edits, a carve
-then moves that row into a per-work file, and nothing re-stamps it there.
-43,619 row-and-method pairs across 261 works have a correction standing in the
-served row with no stamp for the method that made it, and 24 works sit under
-the 1% floor only because of that. `pseudo-zonaras.lexicon` reads 0.45% of its
-rows stamped where the standing corrections put it at 2.64%, and 22 works read
-zero although they hold at least as many standing corrections as rows. The
-stamps are not repaired to match, because they cannot be: a corrected form
-standing in a row is equally consistent with the corrector having written it
-and with the scan having read it correctly all along, so stamping on presence
-would invent provenance rather than record it. Taking the 22 of those works
-the catalog still calls raw at their word puts the raw-OCR share between 3.73%
-and 4.45% of the corpus, 472,361 tokens apart, and the published figure is the
-top of that range. `data/correction_stamp_gap.json` carries the generated
-measurement with the catalog hash, corpus hash and correction-population count
-that it was measured against; the release builder marks it stale if those pins
-move.
+The table keeps the dominant source, edition, and license as descriptive
+metadata. A work containing both OCR and digital text is `mixed-unassessed`:
+a correction stamp on one component does not establish whole-work review, and
+a dominant digital edition does not make its OCR additions digital text.
+`data/source_component_tokens.json` counts every primary row by source,
+edition, and license using the checked lexical projection. It includes the
+exact OCR component denominator, the mixed works, all corpus file hashes, and
+the eligibility recipe hashes. `ocr-masked` folds into `ocr`, matching the
+edition reconciler. Component credits and licenses remain in the source
+registry and coverage composition.
 
+The release withholds global raw-OCR bounds while correction coverage of
+mixed components is unassessed. Its `legacy_homogeneous_work_bucket` and
+`legacy_homogeneous_work_stamp_gap` retain the older work classification and
+stamp-gap measurement with that restricted scope. They do not bound all raw
+OCR in the corpus. Stamps also remain incomplete within those homogeneous
+works: an edit can survive a carve without its method stamp. Standing text
+alone cannot distinguish an applied correction from an original correct scan
+reading, so stamps are not inferred from word presence.
+`data/correction_stamp_gap.json` pins the legacy measurement to its catalog,
+corpus, and correction population; the release flags stale measurements.
+
+Generate the component report before its consumers, and verify its counts
+before tagging:
+
+```sh
+python3 scripts/build_source_components.py
+python3 scripts/build_source_components.py --check
+python3 scripts/build_corpus_catalog.py
+python3 scripts/build_provenance.py
+```
+
+The release and known-limitations builders require the current component
+report and reject catalog token totals or mixed correction statuses that do
+not agree with it.
 <!-- OCR-PROVENANCE:START -->
 1394 OCR'd works/volumes: 125 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
 
