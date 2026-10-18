@@ -1074,6 +1074,13 @@ the first VI402 retry strip that still lost breathings; the successful sibling
 strips remain available unchanged.
 An exact initial English Cary running title is removed through a source-pinned
 offset audit; Greek book headings and transmission credits are preserved.
+`prepare_dio_finer_children.py` retains later stop-terminated dot loops and
+source-confirmed mark loss as held parent strips. Each new request partitions
+its immediate parent, including a one-line refinement of the short VI402
+child. Dot runs use one explicit ellipsis through a recorded punctuation
+normalization; the source pixels and every earlier reading remain available.
+The authority registry makes all known defective strips require their reviewed
+children, even when the frozen detector abstains on short text.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
