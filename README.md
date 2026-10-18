@@ -838,6 +838,17 @@ Stop termination alone does not establish source coverage: the reviewed request
 for scan27 replaces a repeated sentence in Qwen3.8, and the separate
 `--variant 0047-qwen36` request addresses an unprinted repetition at the end of
 Qwen3.6's scan47. Earlier queued request bytes remain unchanged.
+`python3 scripts/audit_photius_fresh.py --ocr RAW36 --ocr RAW38 --out REPORT.json`
+screens every supplied original or retry outcome using the unchanged frozen
+mark-loss detector plus explicit repetition and length review rules. It retains
+failed and stop-terminated outcomes, pins raw and individual record hashes,
+labels partial snapshots, and compares output lengths only for the same pinned
+region across checkpoints. Flags require a source review; the report selects
+and edits no reading and does not estimate a benchmark error rate.
+Photius admission archives this complete screen as `fresh-outcome-quality.json`,
+labels held originals, failed retry strips, reviewed voting parts, and unchanged
+original votes, and links each assembly to its completed source review.
+The report-integrity helper reproduces the screen from the exact archived inputs.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
