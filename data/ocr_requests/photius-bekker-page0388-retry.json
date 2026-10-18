@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Replace only a failed checkpoint's whole-page attempt with a separately reviewed strip assembly; retain successful checkpoint readings and all failed originals.",
+  "retry_of": {
+    "path": "data/ocr_requests/photius-bekker-later-gap.json",
+    "sha256": "736306a5893ac1ac8f00d3f46c3bd26c3812751b1dfbf1104036f3d63103d0b4",
+    "page_id": "photius-bekker-0388"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "review": {
+    "checked_scan_pages": [
+      388
+    ],
+    "accepted_for_primary_ingest": false,
+    "evidence": "Printed page376 continues the Himerius excerpts with a particularly faint left column. Six source-checked strips preserve every large Greek line and heading, including the preface heading below the first left split and the next excerpt below the second. Enlarged interline checks preserve accents, breathings, and descenders. The lower boundary at.811 excludes the small apparatus beneath the body.",
+    "failure": "The original Qwen3.8 attempt reaches its output limit. Preserve that attempt and the independent Qwen3.6 whole-page reading.",
+    "admission_policy": "Only the listed checkpoint receives an assembled replacement vote after a completed output-to-scan review. Keep every original and retry prediction; no extra votes or arbitrary choice."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0388-left-upper",
+      "source": "photius-bekker-combined",
+      "scan_page": 388,
+      "printed_page": 376,
+      "region": [
+        0.045,
+        0.06,
+        0.495,
+        0.43767
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 0,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0388-left-middle",
+      "source": "photius-bekker-combined",
+      "scan_page": 388,
+      "printed_page": 376,
+      "region": [
+        0.045,
+        0.43767,
+        0.495,
+        0.72703
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 1,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0388-left-lower",
+      "source": "photius-bekker-combined",
+      "scan_page": 388,
+      "printed_page": 376,
+      "region": [
+        0.045,
+        0.72703,
+        0.495,
+        0.811
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 2,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0388-right-upper",
+      "source": "photius-bekker-combined",
+      "scan_page": 388,
+      "printed_page": 376,
+      "region": [
+        0.505,
+        0.06,
+        0.97,
+        0.30271
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 3,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0388-right-middle",
+      "source": "photius-bekker-combined",
+      "scan_page": 388,
+      "printed_page": 376,
+      "region": [
+        0.505,
+        0.30271,
+        0.97,
+        0.56033
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 4,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0388-right-lower",
+      "source": "photius-bekker-combined",
+      "scan_page": 388,
+      "printed_page": 376,
+      "region": [
+        0.505,
+        0.56033,
+        0.97,
+        0.811
+      ],
+      "max_side": 3600,
+      "role": "reviewed-page-retry",
+      "reading_order": 5,
+      "prompt_suffix": "This crop contains one complete part of a single Greek body column. Read every complete line from left to right, then down. Preserve any codex heading; do not repeat words or complete text beyond the crop."
+    }
+  ]
+}

@@ -180,6 +180,13 @@ authorial text. The index builder validates every destination against the
 actual rows and rejects missing works, missing loci, and paths outside the
 allowed corpus and paratext directories.
 
+A historical row may instead resolve to `data/corpus_secondary/<slug>.jsonl`,
+with the current work `slug` and explicit `storage: "secondary"`. This preserves
+an original edition reading without counting it as another primary attestation.
+When a full OCR page is replaced by a merged page, `scope: "printed-page"`
+identifies the precision of the concordance; it does not claim line-level
+equivalence. The `preserved_original` path and locus retain the exact old text.
+
 The Kaibel witnesses expose `volume_witness` metadata with a shared `volume`
 value, a witness label, and `collation_status`. These are overlapping OCR
 readings of one printed anthology, without a single ancient author or an

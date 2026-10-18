@@ -62,6 +62,7 @@ import tempfile
 import unicodedata
 from collections import Counter
 from pathlib import Path
+from frequency_projection import FrequencyProjection, lexical_text
 
 
 def gzip_write_text(path: Path):
@@ -140,7 +141,7 @@ def file_key(fp: Path) -> dict:
     return {"size": st.st_size, "mtime": int(st.st_mtime)}
 
 
-def tokenize_file(fp: Path) -> dict[str, Counter[str]]:
+def tokenize_file(fp: Path, frequency=None) -> dict[str, Counter[str]]:
     """Per-URN form counters for one corpus file (a file may carry several
     URNs in principle; in practice one)."""
     counters: dict[str, Counter[str]] = {}
@@ -153,7 +154,7 @@ def tokenize_file(fp: Path) -> dict[str, Counter[str]]:
             # sys.intern: the same form recurs across thousands of works, and
             # every per-work counter stays in memory at once.
             toks = [sys.intern(unicodedata.normalize("NFC", t))
-                    for t in _GK.findall(rec.get("text", ""))]
+                    for t in _GK.findall(frequency.text(rec) if frequency else lexical_text(rec))]
             counters.setdefault(rec.get("urn") or fp.stem, Counter()).update(toks)
     return counters
 
@@ -161,6 +162,7 @@ def tokenize_file(fp: Path) -> dict[str, Counter[str]]:
 def load_work_forms(files: list[Path], use_cache: bool) -> dict[str, Counter[str]]:
     """Per-URN form counters for every corpus file, re-tokenizing only files
     absent from or stale in the work_forms cache."""
+    frequency = FrequencyProjection(DATA)
     manifest = json.loads(MANIFEST.read_text()) if (use_cache and MANIFEST.exists()) else {}
     if use_cache:
         WORK_FORMS.mkdir(parents=True, exist_ok=True)
@@ -169,6 +171,7 @@ def load_work_forms(files: list[Path], use_cache: bool) -> dict[str, Counter[str
     fresh = 0
     for i, fp in enumerate(files):
         key = file_key(fp)
+        key["frequency_projection"] = frequency.digest
         cache_fp = WORK_FORMS / (fp.stem + ".tsv.gz")
         if use_cache and manifest.get(fp.name) == key and cache_fp.exists():
             with gzip.open(cache_fp, "rt", encoding="utf-8") as f:
@@ -176,7 +179,7 @@ def load_work_forms(files: list[Path], use_cache: bool) -> dict[str, Counter[str
                     urn, form, n = line.rstrip("\n").split("\t")
                     out.setdefault(urn, Counter())[sys.intern(form)] = int(n)
         else:
-            counters = tokenize_file(fp)
+            counters = tokenize_file(fp, frequency)
             fresh += 1
             if use_cache:
                 with gzip_write_text(cache_fp) as f:

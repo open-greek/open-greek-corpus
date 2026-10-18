@@ -500,6 +500,81 @@ def corrections_block(catalog_sha: str, corpus_sha: str, raw: dict,
     return block
 
 
+def polytonic_quality(data=None, expected_corpus_sha=None):
+    """Expose review candidates and fresh validation without selecting text."""
+    data = Path(data) if data is not None else DATA
+    path = data / "polytonic_loss_report.json"
+    if not path.exists():
+        return None
+    report = json.loads(path.read_text())
+    pages = data / "quality/polytonic-loss-pages.jsonl.gz"
+    if report.get("selection_rule") is not None or hashlib.sha256(pages.read_bytes()).hexdigest() != report["page_readings_sha256"]:
+        raise ValueError("Polytonic review report or its page evidence changed")
+    if expected_corpus_sha is None:
+        pins = [f"{source.stem}\t{hashlib.sha256(source.read_bytes()).hexdigest()}\n"
+                for source in sorted((data / "corpus").glob("*.jsonl"))]
+        expected_corpus_sha = hashlib.sha256("".join(sorted(pins)).encode()).hexdigest()
+    if report.get("corpus_sha256") != expected_corpus_sha:
+        raise ValueError("Polytonic review report describes a different corpus")
+    for name, digest in report["input_corpus_files"].items():
+        source = data / "corpus" / name
+        if Path(name).name != name or not source.is_file() or hashlib.sha256(source.read_bytes()).hexdigest() != digest:
+            raise ValueError("Polytonic review corpus input changed")
+    from report_polytonic_loss import verify_manifest
+    from benchmark_page_ocr import validate_page_rows
+    evaluation = data / "evaluation/polytonic-loss"
+    manifest, policy = verify_manifest(evaluation / "manifest.json", evaluation / "policy.json")
+    if report.get("policy_sha256") != hashlib.sha256((evaluation / "policy.json").read_bytes()).hexdigest() or report["policy"] != policy:
+        raise ValueError("Polytonic review policy changed")
+    validations = []
+    for name in ("qwen36-validation.json", "qwen38-validation.json"):
+        validation_path = data / "evaluation/polytonic-loss" / name
+        if not validation_path.exists():
+            continue
+        value = json.loads(validation_path.read_text())
+        if value.get("selection_rule") is not None or not value.get("scan_review_complete"):
+            raise ValueError("Fresh polytonic validation requires recorded scan review and no automatic selection")
+        for key, filename in (("manifest_sha256", "manifest.json"), ("policy_sha256", "policy.json"),
+                              ("scan_review_sha256", "scan-review.json")):
+            source = validation_path.parent / filename
+            if hashlib.sha256(source.read_bytes()).hexdigest() != value[key]:
+                raise ValueError("Fresh polytonic validation inputs changed")
+        expected = "Qwen3.6-27B" if name.startswith("qwen36") else "Qwen3.8-27B"
+        if len(value["runs"]) != 1 or expected not in value["runs"][0]["metadata"]["model"]:
+            raise ValueError("Fresh validation filename and checkpoint family differ")
+        run = value["runs"][0]
+        validate_page_rows(manifest, run["pages"], complete=True)
+        if len(run["pages"]) != 60 or run["by_split"]["calibration"]["pages"] != 20 or run["by_split"]["test"]["pages"] != 40:
+            raise ValueError("Fresh validation must preserve all 60 fixed page outcomes")
+        raw_path = evaluation / "raw" / (name.split("-", 1)[0] + ".jsonl")
+        expected_raw_path = "data/evaluation/polytonic-loss/raw/" + raw_path.name
+        if run.get("predictions_path", expected_raw_path) != expected_raw_path:
+            raise ValueError("Fresh polytonic prediction archive identity changed")
+        if hashlib.sha256(raw_path.read_bytes()).hexdigest() != run["predictions_sha256"]:
+            raise ValueError("Fresh polytonic raw predictions changed")
+        raw = [json.loads(line) for line in raw_path.read_text().splitlines() if line.strip()]
+        if raw[0].get("_meta") != run["metadata"]:
+            raise ValueError("Fresh polytonic prediction metadata changed")
+        validate_page_rows(manifest, raw[1:], complete=True)
+        original_pages = {row["id"]: row for row in raw[1:]}
+        for row in run["pages"]:
+            if any(row.get(key) != original_pages[row["id"]].get(key)
+                   for key in ("raw_prediction", "finish_reason", "generation_tokens", "error")):
+                raise ValueError("Fresh polytonic report differs from raw predictions")
+        validations.append({"path": "data/evaluation/polytonic-loss/" + name,
+            "sha256": hashlib.sha256(validation_path.read_bytes()).hexdigest(),
+            "runs": [{key: run[key] for key in ("metadata", "predictions_sha256", "by_split",
+                        "false_positives", "missed_cases", "unassessable_pages",
+                        "predictions_path", "measurement_limits") if key in run}
+                     for run in value["runs"]]})
+    return {"report": "data/polytonic_loss_report.json", "report_sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
+        "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
+        "page_readings_sha256": report["page_readings_sha256"], "counts": report["counts"],
+        "scope": report["scope"], "operating_limits": report["policy"]["operating_limits"],
+        "fresh_validation_status": "complete" if len(validations) == 2 else "pending",
+        "fresh_validation": validations, "selection_rule": None}
+
+
 def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
           commit: str | None, commit_date: str | None,
           uncommitted_corpus: int | None) -> dict:
@@ -591,6 +666,9 @@ def build(rows: list[dict], catalog: Path, release_id: str, release_date: str,
                          "quality is uneven by work and should be read there"),
         },
     }
+    polytonic = polytonic_quality(expected_corpus_sha=corpus_sha)
+    if polytonic:
+        release["quality"]["polytonic_loss"] = polytonic
     if uncommitted_corpus:
         # A release generated over a dirty data/corpus names a commit that does
         # not contain the text it just hashed, and the tag would pin the wrong

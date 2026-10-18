@@ -1,0 +1,74 @@
+{
+  "schema_version": 2,
+  "status": "served-critical-edition",
+  "source_url": "https://raw.githubusercontent.com/papyri/idp.data/35b5e2279ad29c44824f6dc60d9fc748dc109305/DCLP/63/63141.xml",
+  "revision": "35b5e2279ad29c44824f6dc60d9fc748dc109305",
+  "source_sha256": "cd7cc2f997569f9469b7e99b52d1481cc8607ad7fcd2c791a2e3af3b0e8fcc25",
+  "source_license": "CC-BY-3.0",
+  "source_license_urls": [
+    "http://creativecommons.org/licenses/by/3.0/"
+  ],
+  "attribution": "Digital Corpus of Literary Papyri and LDAB (Trismegistos)",
+  "title": "Ethical/epistemological fragment from an Epicurean treatise",
+  "lines": 89,
+  "markup_counts": {
+    "div": 3,
+    "head": 2,
+    "ab": 2,
+    "lb": 89,
+    "gap": 140,
+    "supplied": 86,
+    "unclear": 219,
+    "milestone": 2,
+    "choice": 1,
+    "corr": 1,
+    "sic": 1,
+    "app": 1,
+    "lem": 1,
+    "rdg": 1
+  },
+  "policy": "Explicit edition lem/corr readings drive display; all alternative spans and the unchanged source XML are retained. Unclear letters carry underdots; restorations have square brackets, omissions have angle brackets, and apograph-only readings have upper half brackets. Gaps, milestones, and physical textpart references stay explicit. Line break=no remains metadata. No normalization or text correction is applied to the source.",
+  "generated_by": "scripts/ingest_dclp63141.py",
+  "work": "anonymous.p-herc-1026",
+  "edition": "dclp63141-35b5e227",
+  "author": "anonymous",
+  "author_name": "Anonymous",
+  "edition_name": "Digital Corpus of Literary Papyri 63141",
+  "provider": "dclp",
+  "edition_identifiers": {
+    "trismegistos": "63141",
+    "ldab": "4345"
+  },
+  "physical_citation_scheme": "column.line",
+  "language": "grc",
+  "document_url": "https://papyri.info/dclp/63141",
+  "inventory_identifiers": [
+    "P.Herc. 1026 cr. 7 col. 3",
+    "P.Herc. 1026 cr. 5 col. 5",
+    "P.Herc. 1026 cr. 6 col. 1",
+    "P.Herc. 1026 cr. 6 col. 2",
+    "P.Herc. 1026 cr. 7 col. 2",
+    "P.Herc. 1026 cr. 7 col. 4",
+    "P.Herc. 1026 cr. 9 col. 2",
+    "P.Herc. 1026 cr. 9 col. 3",
+    "P.Herc. 1026 cr. 9 col. 4"
+  ],
+  "critical_markup_schema": "epidoc-spans-v1",
+  "source_path": "data/pilots/dclp63141/source.xml",
+  "corpus_path": "data/corpus/anonymous.p-herc-1026.jsonl",
+  "reader_path": "data/critical_editions/dclp63141/reader.html",
+  "source_editors": [
+    "Vincenzo Damiani",
+    "Holger Essler",
+    "Antonia Di Tuccio",
+    "Marzia D'Angelo"
+  ],
+  "counts": {
+    "lines": 89,
+    "surface_tokens": 312,
+    "lexical_tokens": 63,
+    "unselected_spans": 2
+  },
+  "corpus_sha256": "936d1f9b7ed535a1f8ec58c72d6f1904a3819f7a4730248a4339e4600f800879",
+  "token_policy": "Offsets are Unicode code points in reading_text. Surface tokens retain editorial status and source span IDs. Gaps produce no tokens. Unclear, supplied, apograph, corrected, variant, gap-adjacent, and line-fragment tokens do not contribute to analysis_text or lexical frequencies. Null lemma/analysis means unattested, not automatic annotation."
+}

@@ -1,0 +1,40 @@
+{
+ "schema_version": 1,
+ "issue": "https://github.com/open-greek/open-greek-corpus/issues/56",
+ "timestamp": "2026-10-18",
+ "source_sha256": {
+  "kaibel-cgf-1899.volume-witness-r.jsonl": "c6f1dfa05739b357ec876bdda254fe76dd1a17dee2a160153b24ddd794994aa7",
+  "kaibel-cgf-1899.volume-witness-s.jsonl": "63f5447cc96e3657766613f5b981dca513caf8bf31d257ab5fd0d87c4ee87600",
+  "dinolochus.fragmentum.jsonl": "0ed67ccf9ccda3e8d41393dbfe3fa367955dc175e708f943be420fe35bc356f9",
+  "blaesus.fragmentum.jsonl": "1754812fa366f92ce728e4cf5150b2cfe48372b237c656d1756419887945074a",
+  "sophron.fragmenta.jsonl": "51be5d7070d3de03e1b0e55bfe69919f610588b222581654d226f1841f94ce98"
+ },
+ "original_text": "Unchanged in the primary and secondary witness files named by source_sha256.",
+ "corrected_text": "No reader-text changes; frequency projection described by the token concordance.",
+ "evidence": {
+  "source_url": "https://archive.org/details/comicorvmgraeco00kaibgoog",
+  "pdf_sha256": "59f1e3751f1eb18c25789ccbec3a2e491a2be171198ef87d3480f9789a2a31e5",
+  "checked_scan_pages": [
+   27,
+   29,
+   65,
+   164,
+   220,
+   277
+  ],
+  "method": "Compare page contents, including distinctive incipits, fragment numbers and neighboring leaves. OCR page keys drift and are not source scan page numbers. Match exact runs across arbitrary row pairs to tolerate interleaved columns and paragraph/line segmentation. No OCR witness wins a disagreement.",
+  "reviewed_pair_evidence": {
+   "r138:s132": "Shared Epicharmus Tria(k)ades and Troes fragments 115/129; damaged segmentation.",
+   "r156:s150": "Scan 156, printed page 133, begins [Epicharmus] Poemata and includes the separately headed Pseudepicharmeia; S retains only those headings.",
+   "r227:s221": "Shared Tarentine glosses beginning Hesychius 56, ἀλανέως; intervening glosses differ in OCR coverage.",
+   "r271:s265": "Same omicron index leaf from ἄμνε through ὀφθαλμούς; S has systematic breathing/accent loss.",
+   "r274:s268": "Same pi index leaf beginning ἔπρισεν, προδιδόμεν, προῆχε; interleaved columns.",
+   "r274:s274": "A further reading of that pi index leaf, with the same fragment references and interleaved columns."
+  }
+ },
+ "outputs_sha256": {
+  "data/frequency_projection.json": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
+  "data/ocr_collations/kaibel-1899.json": "fad3bd4e4c51c06bfba4fd8f948b8334913bc30f4616bd38813e5c4c9a93375c"
+ },
+ "undo": "Run scripts/collate_kaibel_witnesses.py --unapply; all reader text is already the original text."
+}

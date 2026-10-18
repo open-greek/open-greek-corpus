@@ -53,6 +53,8 @@ sys.path.insert(0, str(REPO / "scripts"))
 from source_identity import (  # noqa: E402
     Registry, IdentityError, normalize_slug, ALWAYS_QUALIFY, era_for_century)
 from source_precedence import load_overrides, resolve  # noqa: E402
+from critical_text import load_critical_editions, register_critical_editions  # noqa: E402
+from reviewed_manifestations import MUSICAL_IDENTITIES, register_reviewed_manifestations  # noqa: E402
 
 
 # Full names for the TLG Canon's genre abbreviations (a leading "2" = a second
@@ -827,6 +829,7 @@ def build() -> Registry:
     served_src = {}          # work key -> corpus source actually serving it
     corpus_records = {}      # served slug -> full corpus record (defaults pass)
     ce = REPO / "data" / "corpus_editions.json"
+    critical_editions = load_critical_editions(REPO / "data")
     if ce.exists():
         # corpus_editions is now keyed by slug; recover the tlg-stem keying this
         # function's downstream logic expects from each work's cts alias (non-tlg
@@ -994,7 +997,7 @@ def build() -> Registry:
     n_added = 0
     n_attributed = 0
     for work_cts, win in sorted(ingested.items()):
-        if work_cts in by_key or work_cts.startswith("cogByz."):
+        if work_cts in by_key or work_cts.startswith("cogByz.") or work_cts in critical_editions:
             continue  # cogByz.* are minted by the Byzantine pass below
         tg = work_cts.split(".")[0]
         group, title = names.get(work_cts, ("", ""))
@@ -1020,6 +1023,8 @@ def build() -> Registry:
                 author_slug = reg.mint_author(group or a_base, slug=a_base)
             except IdentityError:
                 author_slug = reg.mint_author(group or a_base, slug=f"{a_base}-{tg}")
+        if work_cts in MUSICAL_IDENTITIES:
+            continue  # explicit served identity is registered below
         # curated whole-volume works are keyed by their SERVED corpus key: the
         # reader resolves works[<corpus_editions slug>] directly (registry ->
         # crosswalk -> slug-prefix fallback), so a pretty re-slug would land the
@@ -1095,6 +1100,13 @@ def build() -> Registry:
                         era_for_century(cents[0]) if cents else "byzantine")
             n_byz += 1
     print(f"  + {n_byz} Byzantine vernacular works (byzantine_vernacular)", file=sys.stderr)
+
+    # Physical critical editions have an explicit identity and column/line
+    # scheme. Register them before the generic served-defaults inference.
+    register_critical_editions(reg, critical_editions)
+    # Reviewed components survive a complete registry rebuild. Their metadata
+    # comes from active admission audits, independently of the dominant edition.
+    register_reviewed_manifestations(reg, REPO)
 
     # --- servable defaults for the rest of the served set ----------------
     # The passes above mint servable editions only for First1K / Perseus /

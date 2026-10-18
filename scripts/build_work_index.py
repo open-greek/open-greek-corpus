@@ -67,9 +67,11 @@ def validate_passage_aliases(aliases: dict, works: dict) -> dict:
                 raise ValueError(f"Invalid passage alias path: {relative}")
             if target.get("slug"):
                 slug = target["slug"]
-                if slug not in works or relative.as_posix() != f"data/corpus/{slug}.jsonl":
+                storage = target.get("storage", "primary")
+                directory = "corpus_secondary" if storage == "secondary" else "corpus"
+                if storage not in {"primary", "secondary"} or slug not in works or relative.as_posix() != f"data/{directory}/{slug}.jsonl":
                     raise ValueError(f"Invalid passage alias work: {slug}")
-            elif not relative.as_posix().startswith("data/paratext/"):
+            elif not relative.as_posix().startswith(("data/paratext/", "data/ocr_witnesses/")):
                 raise ValueError(f"Invalid passage alias destination: {relative}")
             if relative not in destinations:
                 destinations[relative] = {json.loads(line)["locus"]
@@ -333,6 +335,9 @@ def _title_from_desc(desc: str) -> str:
 
 
 def build(write: bool = True) -> dict:
+    from critical_text import load_critical_editions, index_metadata
+    critical = load_critical_editions(DATA)
+    from scan_coverage_extensions import coverage_scope
     ce = load_json(CORPUS_EDITIONS, {})
     tc = load_json(TLG_CROSSWALK, {})
     reg = load_json(SOURCE_REGISTRY, {"works": {}, "authors": {}})
@@ -515,12 +520,26 @@ def build(write: bool = True) -> dict:
                 "license": man.get("license"),
                 "n_passages": man.get("n_passages"),
                 "n_tokens": man.get("n_tokens"),
+                "n_analysis_tokens": man.get("n_analysis_tokens"),
             }),
         }
+        if slug in critical:
+            works[slug]["critical_edition"] = index_metadata(critical[slug])
+        if rw.get("coverage_composition"):
+            works[slug]["manifestation"]["coverage"] = rw["coverage_composition"]
+        scope = coverage_scope(REPO, slug)
+        if scope:
+            works[slug]["manifestation"]["coverage"] = scope
         if metadata_slug != slug:
             works[slug]["metadata_from"] = metadata_slug
         witness = pseudo_works.get(slug, {}).get("volume_witness")
         if witness:
+            witness = dict(witness)
+            concordance = REPO / "data/ocr_collations/kaibel-1899.json"
+            if witness.get("volume") == "kaibel-cgf-i-1-1899" and concordance.exists():
+                witness.update(collation_status="reviewed-page-and-token-concordance",
+                    concordance="data/ocr_collations/kaibel-1899.json",
+                    frequency_policy="agreed-attestations-once-with-unresolved-alternative-bounds")
             works[slug]["volume_witness"] = witness
         if slug in deficits:
             # Served, but a fuller text of the same work is held in this repo
