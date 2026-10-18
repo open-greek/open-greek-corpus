@@ -523,10 +523,11 @@ to `resolved_coverage_findings` with transmission qualifications and the tagged
 release closing requirement. Rebuild with `--first1k-dir` and `--perseus-dir`.
 Routine metadata builds check the retained evidence hashes; run each admission
 script's full `--check` after ingest to repeat every word vote.
-Photius completion uses the admission's canonical fresh-input validator. A
+Photius completion uses the admission's canonical archived-report validator. A
 failed original page requires separately reviewed retry strips for every
 checkpoint, with hash-checked source review, manifest and raw prediction files;
-the original attempts remain retained evidence.
+the original attempts remain retained evidence. Checkpoint-specific retries and
+supplemental strips pass through the same authority without adding extra votes.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
