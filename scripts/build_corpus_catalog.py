@@ -29,6 +29,11 @@ through verbatim. A second, catalog-local classification of the same loci would
 be a second answer to a question this repo has already answered, and the two
 would drift the first time a locus convention changed.
 
+Source, edition, and license are the dominant served component's metadata.
+Composite manifestations expose every component's credits and licenses in
+source_registry.json and work_index.json coverage_composition; a dominant
+license column does not replace that complete composition.
+
 Output: data/corpus_catalog.tsv, deterministic (sorted by slug, fixed column
 order, no wall clock anywhere), so a rebuild that changes nothing is a no-op and
 re-committing it is churn-free.
