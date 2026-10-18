@@ -1,6 +1,8 @@
 {
  "mid_sentence_max": 0.25,
  "min_occurrences": 10,
+ "counting_basis": "New positional evidence uses unprojected primary rows with complete contextual text. Rows with explicit lexical projections or collated spans supply no position vote because omitted readings or unresolved punctuation can change the preceding context.",
+ "historical_folds_policy": "Earlier recorded folds and their measurement counters remain retained; the current contextual basis governs new measurements.",
  "folds": {
   "Αθ": {
    "folds_to": "αθ",
@@ -691,6 +693,12 @@
    "mid_sentence_rate": 0.1357,
    "occurrences": 221,
    "tokens": 221
+  },
+  "Μύλλος": {
+   "folds_to": "μύλλος",
+   "mid_sentence_rate": 0.2353,
+   "occurrences": 17,
+   "tokens": 21
   },
   "Μύρον": {
    "folds_to": "μύρον",
