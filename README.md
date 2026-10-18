@@ -904,6 +904,11 @@ The admission loader accepts self-contained scan bundles without rewriting any
 part's runtime metadata or artifact hash. The admission audit exposes every part
 and held prediction. Failed superseded attempts remain evidence; every eligible
 replacement still requires a complete successful prediction.
+`prepare_dio_late_shards.py` pins two contiguous selections of 371 and 370
+reviewed late regions for `run_scan_ocr_shard.py`. These selections leave every
+unfinished early region with its original client. Build each checkpoint's final
+bundle from the unchanged early output and both late parts, using the original
+manifest as authority and the completed body review.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
