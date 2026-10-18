@@ -523,11 +523,28 @@ markers from reading text. Original text, folio locations, evidence, and source
 checksums remain in `data/corpus_changes/alexius-ficker-1911/`; the importer can
 reconstruct the uncorrected text with `--uncorrected --out FILE`.
 
-The DCLP 63141 pilot under `data/pilots/dclp63141/` is not served text.
-`scripts/prepare_epidoc_pilot.py` retains the original EpiDoc byte-for-byte,
-all alternative readings, and 89 column/line loci. Damage and restorations
-remain explicit; neither alternatives nor editorial notes become ordinary
-reading words.
+P.Herc. 1026 (DCLP 63141) is served as `anonymous.p-herc-1026`. Its 89
+column/line records keep the complete critical spans, including 219 unclear
+spans, 140 gaps, 86 supplied spans, both apparatus readings, the correction and
+its original reading, and physical fragment/image references. The original
+EpiDoc is retained byte-for-byte in `data/pilots/dclp63141/source.xml` with its
+pinned revision, source hash, editor credits, and CC BY 3.0 provenance.
+`scripts/ingest_dclp63141.py --apply` rebuilds the served records and the
+standalone reader at `data/critical_editions/dclp63141/reader.html`; `--check`
+verifies their exact bytes, and `--undo` removes the unchanged admission.
+
+The reader distinguishes unclear letters, restored text, omitted text,
+apograph-only readings, gaps, and editorial alternatives. Each surface token
+has validated Unicode offsets into `reading_text`, source span identifiers,
+and editorial status. Lemma and linguistic analysis remain explicitly null.
+Only the 63 complete, certain, extant tokens enter `analysis_text` and the
+lexical frequency builders; the 312 surface tokens include fragments and
+editorial readings and must not be treated as 312 attested words. Physical
+column/line references remain labeled physical even though they use numeric
+loci. Export with `python3 scripts/ingest_dclp63141.py --format html --out
+reader.html`, or select `jsonl` for the structured records and `tei` for the
+unchanged source. Damage and alternative branches survive the structured
+export; the plain display string is only a reading aid.
 
 `scripts/benchmark_page_ocr.py` prepares and runs a pinned OCR comparison. The
 separate `scripts/run_scan_ocr.py` runner retains independent witnesses for
