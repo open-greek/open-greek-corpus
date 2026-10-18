@@ -33,6 +33,9 @@ def test_missing_scan_manifest_retains_verified_boundaries_and_small_preflight()
     assert repair.is_index_locus("helladius_chrestomathia_photius_bekker_v2_0281.1")
     assert repair.is_index_locus("helladius_chrestomathia_photius_bekker_v2_0321.1")
     assert not repair.is_index_locus("unrelated_0281.1")
+    later = prepare.build_later_gap()
+    assert len(later["pages"]) == 43
+    assert {p["scan_page"] for p in later["pages"]} == set(range(379, 422))
 
 
 def test_index_split_preserves_every_historical_reading_and_roundtrips(tmp_path):
