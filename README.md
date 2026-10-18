@@ -809,6 +809,12 @@ Additional failed pages can have checkpoint-specific source-reviewed requests.
 47 and 50, where Qwen3.8 loops. These requests list only that checkpoint;
 the successful Qwen3.6 whole-page readings remain its votes. The original
 attempts and all retry outputs stay retained for a completed source review.
+Use `scripts/photius_retries.py --manifest PINNED_RETRY_REQUEST` to record
+each completed strip review, then give the importer every `--retry` file and
+repeat `--retry-review` for its separate reviews. Retry permission is scoped
+to the listed checkpoint and original page, and overlapping review decisions
+are rejected. The coverage report's `reviewed_retries` lists each archive and
+checkpoint; all 310 original regions remain required from every checkpoint.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
