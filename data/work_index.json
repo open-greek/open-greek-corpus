@@ -160023,9 +160023,9 @@
     "edition": "perseus-grc2",
     "source": "perseus",
     "license": "CC-BY-SA-4.0",
-    "n_passages": 4403,
-    "n_tokens": 191347,
-    "n_analysis_tokens": 191353,
+    "n_passages": 5485,
+    "n_tokens": 378127,
+    "n_analysis_tokens": 346435,
     "coverage": {
      "work_identity": "Cassius Dio, Historiae Romanae (Roman History), the ancient eighty-book work",
      "base_scope": "Perseus Cary volumes III–VI, encoded Books 36–55, ending mid-sentence at 55.9.4",
@@ -160034,21 +160034,31 @@
      "direct_text_lacuna_evidence": "Cary volume VI, printed page 402 (PDF 206), footnote 4: two folios are lost in M between τρόπον at 55.9.4 and (Ἄ)ρει at 55.10.2; the printed continuation combines Zonaras, Xiphilinus and Excerpta Valesiana. This qualification applies to that gap, not all later direct text.",
      "excluded_material": "English translation, critical apparatus and indexes; comparative quotations from Zonaras and other authors are retained as separate paratext rather than counted as direct Dio text",
      "scan_citation_scheme": "Cary volume plus printed page and fragment/comparison panel when needed; conflicting display and marginal book numbers are retained as source references without a blanket offset",
-     "status": "reviewed-scan-additions-pending",
+     "status": "reviewed-primary-regions-admitted",
      "reviewed_primary_regions": 1082,
-     "admitted_primary_regions": 0,
-     "remaining_reviewed_primary_regions": 1082,
+     "admitted_primary_regions": 1082,
+     "remaining_reviewed_primary_regions": 0,
      "reviewed_comparative_regions": 419,
-     "admitted_comparative_regions": 0,
-     "remaining_reviewed_comparative_regions": 419,
-     "comparative_admission_audits": [],
-     "admitted_transmission_counts": {},
-     "scan_manifest": "data/ingest_reviews/coverage/cassius-dio-body-ocr-jobs.json",
-     "scan_manifest_sha256": "fc32d75bff786ea2eabcea3a67150d959ea3a7b8b1fdd661c0a9e609b49d625d",
+     "admitted_comparative_regions": 419,
+     "remaining_reviewed_comparative_regions": 0,
+     "comparative_admission_audits": [
+      "data/corpus_changes/dio-cary-nine-comparison-2026-10/changes.json",
+      "data/corpus_changes/dio-greek-coverage-2026-10/changes.json"
+     ],
+     "admitted_transmission_counts": {
+      "direct-text-with-excerpted-lacunae": 39,
+      "direct-text-with-excerpts-and-summaries": 220,
+      "epitome-and-excerpts": 236,
+      "excerpt-supplement-after-direct-text-lacuna": 2,
+      "fragment-quotation": 341,
+      "mixed-direct-manuscript-excerpts-and-epitomes": 244
+     },
+     "scan_manifest": "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json",
+     "scan_manifest_sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0",
      "scan_manifests": [
       {
-       "path": "data/ingest_reviews/coverage/cassius-dio-body-ocr-jobs.json",
-       "sha256": "fc32d75bff786ea2eabcea3a67150d959ea3a7b8b1fdd661c0a9e609b49d625d"
+       "path": "data/ingest_reviews/coverage/cassius-dio-reviewed-ocr-jobs.json",
+       "sha256": "e3ffc58c93811a2f7dd851a76f216caa504a31b23e63be6d7c19b9b072dd41e0"
       },
       {
        "path": "data/ingest_reviews/coverage/cassius-dio-late-comparison-jobs.json",
@@ -160111,9 +160121,129 @@
        "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177"
       }
      ],
-     "admission_audit": null,
-     "admission_audits": [],
-     "digital_components": [],
+     "admission_audit": "data/corpus_changes/dio-greek-coverage-2026-10/changes.json",
+     "admission_audits": [
+      "data/corpus_changes/dio-greek-coverage-2026-10/changes.json"
+     ],
+     "digital_components": [
+      {
+       "id": "tlg0385.tlg001.local003",
+       "volume": 7,
+       "json_sha256": "a44808f87dd70e7f7c6bdf57284b4d9deb249b7b45579320b32db9455d83c216",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg0385/tlg001/local003.json.gz",
+       "license": "CC-BY-SA-4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "attribution": "Source Library (https://sourcelibrary.org)",
+       "source_citation": "Dio Cassius; trans. Earnest Cary, Dio's Roman History, Vol. VII (Loeb 175), 1924. Imprimé numérisé et transcrit par The Source Library, livre 6a089bbe2b703903f58e7814.",
+       "source_rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "upstream_license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "source_revision_date": "2026-10-07",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6a089bbe2b703903f58e7814/quote?page=6",
+       "book_metadata_url": "https://sourcelibrary.org/api/books/6a089bbe2b703903f58e7814",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "rights_receipts": {
+        "book_metadata_receipt_sha256": "6e873c915630ca1dad96b270ef49b0023b4225f1959b2c966387f1ca5abc81e5",
+        "api_quote_receipt_sha256": "e606d24c2b9611a2ef381f73dff526ae05fc43e219cc4e8e3bda15cf249da2ff"
+       },
+       "same_scan_evidence": {
+        "internet_archive_identifier": "dios-roman-history.-vol.-7-loeb-175",
+        "api_image_source_license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "review": "Source Library book metadata names the same Internet Archive item as the hash-pinned Cary scan. Greek Library Page sN is that item's physical PDF page N; the body-window anchors independently confirm page identity."
+       },
+       "rights_review": "The selected Greek is from the original Cary edition (1924, 1925 or 1927), verified on each scan's impression page. Volume IX's export retains an earlier rights warning based on its 1969 reprint date; the original 1927 Greek print and the current API public-domain image-source statement are separately retained, without deleting that warning."
+      },
+      {
+       "id": "tlg0385.tlg001.local004",
+       "volume": 8,
+       "json_sha256": "10ff6a03a62adec5ec9b2a78a564b5c649978226bd5df9acaf01ed609a31906c",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg0385/tlg001/local004.json.gz",
+       "license": "CC-BY-SA-4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "attribution": "Source Library (https://sourcelibrary.org)",
+       "source_citation": "Dio Cassius; trans. Earnest Cary, Dio's Roman History, Vol. VIII (Loeb 176), 1925. Imprimé numérisé et transcrit par The Source Library, livre 6a089bc42b703903f58e7908.",
+       "source_rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "upstream_license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "source_revision_date": "2026-10-07",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6a089bc42b703903f58e7908/quote?page=6",
+       "book_metadata_url": "https://sourcelibrary.org/api/books/6a089bc42b703903f58e7908",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "rights_receipts": {
+        "book_metadata_receipt_sha256": "038a6b13694d59f6ac9c765ebd71c32f4b0f1fbad3af5a5f05948d6c2ae868cd",
+        "api_quote_receipt_sha256": "51b29d1320cfa781a720ee7f213ccf84229cbe8afbd7d6a5fc872494691eab1d"
+       },
+       "same_scan_evidence": {
+        "internet_archive_identifier": "dios-roman-history.-vol.-8-loeb-176",
+        "api_image_source_license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "review": "Source Library book metadata names the same Internet Archive item as the hash-pinned Cary scan. Greek Library Page sN is that item's physical PDF page N; the body-window anchors independently confirm page identity."
+       },
+       "rights_review": "The selected Greek is from the original Cary edition (1924, 1925 or 1927), verified on each scan's impression page. Volume IX's export retains an earlier rights warning based on its 1969 reprint date; the original 1927 Greek print and the current API public-domain image-source statement are separately retained, without deleting that warning."
+      },
+      {
+       "id": "tlg0385.tlg001.local005",
+       "volume": 9,
+       "json_sha256": "6acf54dde2b3df539384d3cfad8925d3e0657d299cf64cfb05e57fbec998da67",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg0385/tlg001/local005.json.gz",
+       "license": "CC-BY-SA-4.0",
+       "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+       "attribution": "Source Library (https://sourcelibrary.org)",
+       "source_citation": "Dio Cassius; trans. Earnest Cary, Dio's Roman History, Vol. IX (Loeb 177), 1927. Imprimé numérisé et transcrit par The Source Library, livre 6a089bcb2b703903f58e7a0c.",
+       "source_rights": "Statut de droits du volume à vérifier : la fiche du livre porte aussi la date 1969 (volume récent ou réimpression), moins de 70 ans ; transcription CC BY-SA 4.0, © Source Library.",
+       "upstream_license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "source_revision_date": "2026-10-07",
+       "api_notice_url": "https://sourcelibrary.org/api/books/6a089bcb2b703903f58e7a0c/quote?page=6",
+       "book_metadata_url": "https://sourcelibrary.org/api/books/6a089bcb2b703903f58e7a0c",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "rights_receipts": {
+        "book_metadata_receipt_sha256": "83ab3e1549ac9d14bb49d6f310e3ff8d77b56be2f5e49981d7c370d55455a2ee",
+        "api_quote_receipt_sha256": "e50616d86262e8ed128223c9d8a14ad183f269b4cf84de623ca963a52d1d1e90"
+       },
+       "same_scan_evidence": {
+        "internet_archive_identifier": "dios-roman-history.-vol.-9-loeb-177",
+        "api_image_source_license": "http://creativecommons.org/publicdomain/mark/1.0/",
+        "review": "Source Library book metadata names the same Internet Archive item as the hash-pinned Cary scan. Greek Library Page sN is that item's physical PDF page N; the body-window anchors independently confirm page identity."
+       },
+       "rights_review": "The selected Greek is from the original Cary edition (1924, 1925 or 1927), verified on each scan's impression page. Volume IX's export retains an earlier rights warning based on its 1969 reprint date; the original 1927 Greek print and the current API public-domain image-source statement are separately retained, without deleting that warning."
+      }
+     ],
      "frequency_policy": "Resolved Greek word votes only; all unresolved and mixed-script readings remain visible with original witnesses in the audit"
     }
    }
@@ -217106,12 +217236,156 @@
     "wikidata": "Q2593363"
    },
    "manifestation": {
-    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+    "edition": "bekker1824-independent-ocr-consensus",
     "source": "ocr",
-    "license": "PD",
-    "n_passages": 3846,
-    "n_tokens": 152028,
-    "n_analysis_tokens": 152796
+    "license": "CC-BY-SA-4.0",
+    "n_passages": 4155,
+    "n_tokens": 430393,
+    "n_analysis_tokens": 273228,
+    "coverage": {
+     "policy": "complementary-page-union-with-licensed-consensus",
+     "manifest": "data/corpus_changes/photius-bekker-coverage/coverage.json",
+     "manifest_sha256": "3b6e098bdbdfd25e8b10713c3e7602d207a797ce9d86695fb3860156adddab7e",
+     "covered_authorial_scan_pages": 545,
+     "index_passages_in_separate_paratext": 501,
+     "components": [
+      {
+       "role": "retained-primary",
+       "license": "PD",
+       "passages": 3846,
+       "scan_ranges": [
+        [
+         279,
+         378
+        ],
+        [
+         422,
+         557
+        ]
+       ],
+       "edition": "photius.bibliotheca.qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+       "storage": "primary",
+       "source": "",
+       "provider": "ocr",
+       "name": "cog OCR (qwen36-helladius_chrestomathia_photius_bekker_v2-masked)"
+      },
+      {
+       "edition": "bekker1824-independent-ocr-consensus",
+       "role": "new-primary-consensus",
+       "license": "CC-BY-SA-4.0",
+       "passages": 309,
+       "scan_ranges": [
+        [
+         13,
+         278
+        ],
+        [
+         379,
+         421
+        ]
+       ]
+      },
+      {
+       "edition": "source-library-local002",
+       "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+       "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+       "license": {
+        "text": "CC BY-SA 4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+       },
+       "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+       "role": "bounded-voting-or-comparison-witness",
+       "body_comparison_counts": {
+        "held-comparison-only": 281,
+        "bounded-body-voting-witness": 4
+       },
+       "primary_body_comparison_counts": {
+        "held-comparison-only": 280,
+        "bounded-body-voting-witness": 4
+       },
+       "body_comparison_audit": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-body-windows.json.gz",
+        "sha256": "beff5b3cb0d0ab18c56722237d95f63f5ee9a1b71c055919f84a8d7793beef22",
+        "entries": 285
+       },
+       "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+       "api_notice_checked_date": "2026-10-18",
+       "separate_api_notice": {
+        "spdx": "CC-BY-SA-4.0",
+        "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+        "attribution": "Source Library (https://sourcelibrary.org)",
+        "terms": "https://sourcelibrary.org/terms",
+        "original_texts": "public-domain",
+        "tdm_reservation": 1,
+        "tdm_policy": "https://sourcelibrary.org/licensing",
+        "ai_training": "reserved — standard license available, see tdm_policy"
+       },
+       "source": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz"
+      },
+      {
+       "role": "fresh-scan-ocr-witnesses",
+       "license": "CC-BY-4.0",
+       "checkpoints": [
+        {
+         "model": "Qwen/Qwen3.6-27B",
+         "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+        },
+        {
+         "model": "Qwen/Qwen3.8-27B-FP8",
+         "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+        }
+       ]
+      }
+     ],
+     "source_editions": [
+      {
+       "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+       "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+       "edition": "Bekker 1824-1825, combined volumes",
+       "license": "public-domain",
+       "pdf_pages": 600,
+       "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+      },
+      {
+       "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+       "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+       "edition": "Bekker 1825, second volume",
+       "license": "public-domain",
+       "pdf_pages": 321
+      }
+     ],
+     "source_scan_exceptions": [
+      {
+       "logical_combined_position": 446,
+       "authorial_printed_page": 434,
+       "combined_scan_printed_page": 334,
+       "retained_legacy_scan_page": 169,
+       "source": {
+        "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "edition": "Bekker 1825, second volume",
+        "license": "public-domain",
+        "pdf_pages": 321
+       },
+       "evidence": "Combined scan 446 repeats printed page 334 from scan 346. The retained historical page 169 matches printed page 434 in the separate second-volume scan."
+      },
+      {
+       "logical_combined_position": 447,
+       "authorial_printed_page": 435,
+       "combined_scan_printed_page": 335,
+       "retained_legacy_scan_page": 170,
+       "source": {
+        "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "edition": "Bekker 1825, second volume",
+        "license": "public-domain",
+        "pdf_pages": 321
+       },
+       "evidence": "Combined scan 447 repeats printed page 335 from scan 347. The retained historical page 170 matches printed page 435 in the separate second-volume scan."
+      }
+     ],
+     "qualification": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented."
+    }
    }
   },
   "photius.fragmenta": {

@@ -31,7 +31,7 @@
     ]
   },
   "policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
-  "corpus_sha256": "6d4fb159f4b7e5300dcaa72a004beb9b0812253c72d1de44798f7620bad3d829",
+  "corpus_sha256": "425c54d02b2d6431af021d8d051f5a1bf64614f16b7f79d16ebabb51ee3b03d0",
   "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
   "input_corpus_files": {
     "achaeus.fragmenta.jsonl": "54cea6e5c60658709f2eae7c98507c63a91b4e76bb1a7cd1942b3724950179e9",
@@ -133,6 +133,7 @@
     "apollodorus-philosophy.fragmenta.jsonl": "22d7bbd7211cc2e8bc948e83e6cce2eea8d54971e38e471e35410d275daa5d9e",
     "apollodorus.fragmenta-2.jsonl": "c19d4864303ef15165b41507644aded0b7ab18ed23c9b720e37dc7455236f49b",
     "apollodorus.fragmenta.jsonl": "db039e688e3e232c9d050900683eb776d33d802e394e8513ef988b5f7aa0a8e3",
+    "apollonius-geom.conica.jsonl": "5959ef18792b99a08989086e963c11eaf3126ff0a6896969cd6bc2f9e0a23cae",
     "apollonius-philosophy.apollonii-epistulae-dub.jsonl": "0b8889faa594349b2207c2add4652965c5fe75fddd9223532151486a24525ba7",
     "apollonius-philosophy.apotelesmata-sp.jsonl": "dd3dbe844ae05dd167d2d12bf67da1826386d0e9260c1af256d6c0b42339ffe8",
     "apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas.jsonl": "04af0843fb1f4771adc2dfb7284dec6bae7e53977ace406a4b6352af8280cea0",
@@ -160,7 +161,7 @@
     "aristarchus-ludwich.jsonl": "b361bc2a018c1099f4cc13cee2e1220c76f7790879bd59b30b0aa978fbd303ea",
     "aristarchus.fragmenta.jsonl": "c51e29e37f6144f448417207dd1f3b58fa45ea83b100d434401d4fa394762875",
     "aristias.fragmenta.jsonl": "7878c639bc26139ecb7ddafdedb0ddcc1085cc61332d0a8238ff92e81e17d1bc",
-    "aristides-quintilianus-music.de-musica.jsonl": "2d3e16932378cd1d0c1ea176eb0d6fbefbebea8303249f72c38c7e7808bd6526",
+    "aristides-quintilianus-music.de-musica.jsonl": "9eb1d0bafa2504362e9364a1e7fb32b9b55ca3e09883a3270a7e420ce3f1be21",
     "aristippus-cyrenaicus.sententiae-et-apophthegmata.jsonl": "27e16a85e2f5f5854d2e876bb387558c2b75efeaf7c0922878ae9673f2e354c8",
     "aristobulus.fhg3.jsonl": "b392a992708eee69bee45857e1ea36914e457530419242765e3cdb2e8c8f7726",
     "aristocles-messanius.fragmenta.jsonl": "05d90e666fd3e4bced1515d911629ebad03625df7a510e88c50d8950868e3325",
@@ -327,6 +328,7 @@
     "carcinus-junior.fragmenta.jsonl": "c21f9eaed0dc41e1b805674bf5de0355f63b0ee07d672142ad49d43bd544144e",
     "carmina-convivialia-pmg.fragmenta.jsonl": "46befedeb849be8c6e1c61fd748a1539de154cc309d190d7f28b31f595e34317",
     "carmina-popularia-pmg.fragmenta.jsonl": "28fd490843556578d03e74cd5813cc718aa34e3250f2703bf0714843d9d0203d",
+    "cassius-dio.historiae-romanae.jsonl": "0a626d96438fd40891e37d7c86b34d17d650df076b7f72612b67c7e9349245fa",
     "castor-rhetor.peri-metron-rhetorikon.jsonl": "e6e369959858a70ded2fd49358ea2d48b682a3bc513a493e77f7621a892a2675",
     "cephisodorus.fragmenta.jsonl": "222d6a5429bc10f569c75147ea2c094b44b9d45c4a0d1c41d3ff0fd64c40b076",
     "cercidas.fragmenta.jsonl": "93f7f297e0d6f0fa1f40cd02b3db8dc291330c71ae79e2052549f11d9f31a136",
@@ -384,7 +386,7 @@
     "cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum.jsonl": "f045f76d2c00335ea1105a9b4dfad1d01046ce559df02685c4f9e639deecbe71",
     "cyrillus-theology.apologia-xii-capitulorum-contra-orientales.jsonl": "9977c397ad9e63f8aee790f123428fbaead1c00c51344897201dcc3cb2229b58",
     "cyrillus-theology.collectio-dictorum-veteris-testamenti-sp.jsonl": "d3e93d09d735f247a15aafd3d38012d4ecd109a60977a32f42d9f5313f30151d",
-    "cyrillus-theology.commentarii-in-joannem.jsonl": "b21757e5ce20209046ea548b25f1ffbaf31bb2666835657a4180a831d9e1a10e",
+    "cyrillus-theology.commentarii-in-joannem.jsonl": "5b09b93a6f6753b35f5c2e230088b2e5e13174e853bf3b5845e1f316db4109cd",
     "cyrillus-theology.commentarii-in-lucam-in-catenis.jsonl": "64b179ba421013af730b5f5e4fdb764411d29f3c5799498755fd98e0a306e6d1",
     "cyrillus-theology.commentarius-in-isaiam-prophetam.jsonl": "47e3472491fca05f2046243f5e8fd318ac12c7eb719b4605ab645e0e20264ebb",
     "cyrillus-theology.contra-julianum-lib-1-2.jsonl": "2ffae6d9bf6f61aa11a643487f74db30a0a558d59a8701ba876ee70fc68384e6",
@@ -1095,6 +1097,7 @@
     "pantaenus.fragmenta.jsonl": "16d6d2908a953acb4e23962cdc8eebf9b0e04cf4d3e1903d11109bc475f87de9",
     "panyassis.fragmenta-epica.jsonl": "fca2a3cdf695c96f0b753ac5cb2647e88c71fbcbfea853503e1c74762685e9b1",
     "papias.fragmenta.jsonl": "42917aab33daa316ddacded7c5cee857ddaa808d18b22bd3a783296447b37031",
+    "pappus-mathematics.synagoge.jsonl": "13b1b4317b5b0bfbe13f10f47e20ad5aa32fb460d697180cd89aeedf9822d2cb",
     "parmenides.testimonia.jsonl": "622a5e1792d722176bb66c2d166e2378eaa80966637c1ff8d5ffba30ba62357a",
     "parmiscus.testimonia-et-fragmenta.jsonl": "ea5b19571fea6047421f8089268625009d03301e6232861e9898b99241263700",
     "paron.testimonium.jsonl": "a1f47437b9f4f5546af3af972529b92e6e7189e24e609fd4aa2c89eb3661b0e1",
@@ -1161,7 +1164,7 @@
     "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
     "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
     "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
-    "photius.bibliotheca.jsonl": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68",
+    "photius.bibliotheca.jsonl": "7222184c07f7ee7ffbbd35d33c8b645fb8629036804b486cf020936ef8ec4737",
     "photius.commentarii-in-joannem-in-catenis.jsonl": "91d600d98ae8083e62d50bbedecbdf043fceee10e979038742ff36ef5d83d087",
     "photius.commentarii-in-matthaeum-in-catenis.jsonl": "ff7fb39786fa88d9cfc94eda028a9367593cb8c1b04ef92bd0587448bc80472d",
     "photius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl": "96a78396ec81a9a51d20cd3378990eb68a1333f214f190beaa5d175cb965a74d",
@@ -1448,16 +1451,16 @@
     "zonaeus.peri-schematon-ton-kata-logon.jsonl": "11bfa2251238929d54c2afb31347c9807d1a6c6d7e68916c4a78a7f4c813b898",
     "zosimus-alchemista.opera.jsonl": "9a86a7651e2857f579a48e1c1e96d3e89b67133bd3aa0351d9764a13c1ba2c94"
   },
-  "page_readings_sha256": "92f6005a7fd58e33d5de9eeaada035e1ddeb2a25c8d6e5fc03ed8cc38806f5fe",
+  "page_readings_sha256": "dd897cf120b954e78d8f555d89273b05d57e9e43a9951d0a4c8419f83afeafd6",
   "counts": {
-    "readings": 126270,
-    "unassessable": 47290,
-    "unflagged": 78353,
-    "flagged": 627
+    "readings": 130606,
+    "unassessable": 51272,
+    "unflagged": 78722,
+    "flagged": 612
   },
   "by_source": {
     "cgpg": {
-      "readings": 10168,
+      "readings": 10696,
       "flagged": 0
     },
     "greek_library": {
@@ -1465,8 +1468,8 @@
       "flagged": 0
     },
     "ocr": {
-      "readings": 116087,
-      "flagged": 627
+      "readings": 119895,
+      "flagged": 612
     }
   },
   "flagged_pages": [
@@ -2331,169 +2334,6 @@
       "accented_letter_rate": 0.1367713004484305,
       "breathing_letter_rate": 0.005605381165919282,
       "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0099",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.011494252873563218,
-      "breathing_letter_rate": 0.0019157088122605363,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0243",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.009554140127388535,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0347",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.00404040404040404,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0357",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0362",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0364",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.14457831325301204,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0379",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0385",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.13978494623655913,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0390",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0402",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0017064846416382253,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0431",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0019455252918287938,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0525",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.014571948998178506,
-      "breathing_letter_rate": 0.0036429872495446266,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0567",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0677",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.02702702702702703,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
-        "low-breathing-letter-rate"
-      ]
-    },
-    {
-      "work": "aristides-quintilianus-music.de-musica",
-      "page": "aristides_quintilianus_meibom_0699",
-      "witness": "qwen36-aristides_quintilianus_meibom",
-      "accented_letter_rate": 0.0,
-      "breathing_letter_rate": 0.0,
-      "reasons": [
-        "low-accented-letter-rate",
         "low-breathing-letter-rate"
       ]
     },

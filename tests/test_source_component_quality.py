@@ -1,5 +1,6 @@
 """Mixed works cannot disappear from OCR denominators or inherit manual review."""
 import csv
+import hashlib
 import json
 from pathlib import Path
 import sys
@@ -17,6 +18,18 @@ import build_known_limitations as limitations
 def write_json(path, value):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(value, ensure_ascii=False))
+
+
+def test_corpus_pin_uses_release_slug_order_for_prefix_collisions():
+    pins = {'sample.work-extra.jsonl': 'b' * 64,
+            'sample.work.jsonl': 'a' * 64,
+            'sample.work.part.jsonl': 'c' * 64}
+    canonical = ('sample.work\t' + 'a' * 64 + '\n'
+                 'sample.work-extra\t' + 'b' * 64 + '\n'
+                 'sample.work.part\t' + 'c' * 64 + '\n')
+    expected = hashlib.sha256(canonical.encode()).hexdigest()
+    assert components.corpus_hash(pins) == expected
+    assert components.corpus_hash(dict(reversed(list(pins.items())))) == expected
 
 
 @pytest.fixture

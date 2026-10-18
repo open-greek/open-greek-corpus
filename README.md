@@ -1991,7 +1991,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1394 OCR'd works/volumes: 125 manually corrected, 881 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 still raw OCR. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`.
+1397 listed works/volumes containing OCR: 126 manually corrected, 880 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 3 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -2094,6 +2094,7 @@ not agree with it.
 | apollodorus-philosophy.fragmenta | Apollodorus - Fragmenta | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 712 | auto-corrected |
 | apollodorus.fragmenta | APOLLODORUS - Fragmenta | kock-caf3-ocr | Qwen3.6-27B | 252 | raw OCR |
 | apollodorus.fragmenta-2 | APOLLODORUS - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 68 | raw OCR |
+| apollonius-geom.conica | Apollonius - Conica | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 54,229 | mixed-unassessed |
 | apollonius-philosophy.apollonii-epistulae-dub | Apollonius - Apollonii Epistulae [Dub.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 5,393 | auto-corrected |
 | apollonius-philosophy.apotelesmata-sp | Apollonius - Apotelesmata [Sp.] | qwen36-apollonius_parad_keller_v1 | Qwen3.6-27B | 21,760 | auto-corrected |
 | apollonius-scr-eccl.fragmenta-ex-libro-adversus-cataphrygas-seu-montanistas | Apollonius - Fragmenta ex libro adversus Cataphrygas seu Montanistas (PG005 loci 700-703) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 557 | auto-corrected |
@@ -2121,7 +2122,7 @@ not agree with it.
 | aristarchus-ludwich |  | qwen36-aristarchus_ludwich | Qwen3.6-27B | 52,613 | auto-corrected |
 | aristarchus.fragmenta | Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 246 | raw OCR |
 | aristias.fragmenta | Aristias - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 243 | raw OCR |
-| aristides-quintilianus-music.de-musica | Aristides Quintilianus - De Musica | qwen36-aristides_quintilianus_meibom | Qwen3.6-27B | 64,826 | auto-corrected |
+| aristides-quintilianus-music.de-musica | Aristides Quintilianus - De Musica | [Aristides Quintilianus, De musica (Jahn1882); independent fresh OCR word vote, with unresolved readings preserved](https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf) | Qwen3.6-27B and Qwen3.8-27B | 25,410 | manual |
 | aristippus-cyrenaicus.sententiae-et-apophthegmata |  | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 6,866 | auto-corrected |
 | aristobulus.fhg3 |  | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 39,530 | auto-corrected |
 | aristocles-messanius.fragmenta | Aristocles - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 684 | auto-corrected |
@@ -2271,7 +2272,7 @@ not agree with it.
 | bion-history.fragmenta | Bion - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 55 | raw OCR |
 | bion-mathematics.testimonia | Bion - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 94 | raw OCR |
 | bion-philosophy.fragmenta | Bion - Fragmenta | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 2,673 | auto-corrected |
-| blaesus.fragmentum | BLAESUS - Fragmentum | qwen36-sopater_kaibel_cgf-ocr | Qwen3.6-27B | 113 | raw OCR |
+| blaesus.fragmentum | BLAESUS - Fragmentum | qwen36-sopater_kaibel_cgf-ocr | Qwen3.6-27B | 56 | raw OCR |
 | boethus.fragmenta | Fragmenta | qwen36-apollodorus_seleuc_svf3-ocr | Qwen3.6-27B | 588 | auto-corrected |
 | boidas.testimonium | Boïdas - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 84 | raw OCR |
 | bolus.testimonium | Bolus - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 28 | raw OCR |
@@ -2288,6 +2289,7 @@ not agree with it.
 | carcinus-junior.fragmenta | Carcinus Junior - Fragmenta | [Nauck, Tragicorum Graecorum Fragmenta 2nd ed.](https://archive.org/search?query=Tragicorum+Graecorum+Fragmenta+Nauck) | Qwen3.6-27B | 665 | raw OCR |
 | carmina-convivialia-pmg.fragmenta | Carmina Convivialia (Pmg) - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 4,946 | raw OCR |
 | carmina-popularia-pmg.fragmenta | CARMINA POPULARIA (PMG) - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,141 | auto-corrected |
+| cassius-dio.historiae-romanae | Cassius Dio - Historiae Romanae | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 346,435 | mixed-unassessed |
 | castor-rhetor.peri-metron-rhetorikon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,421 | auto-corrected |
 | cephisodorus.fragmenta | Cephisodorus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 288 | raw OCR |
 | cercidas.fragmenta | Cercidas - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 351 | auto-corrected |
@@ -2345,7 +2347,7 @@ not agree with it.
 | cyrillus-theology.apologia-xii-anathematismorum-contra-theodoretum | Cyrillus - Apologia Xii Anathematismorum Contra Theodoretum | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 11,192 | auto-corrected |
 | cyrillus-theology.apologia-xii-capitulorum-contra-orientales | Cyrillus - Apologia Xii Capitulorum Contra Orientales | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 12,271 | auto-corrected |
 | cyrillus-theology.collectio-dictorum-veteris-testamenti-sp | Cyrillus - Collectio Dictorum Veteris Testamenti [Sp.] | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 2,510 | raw OCR |
-| cyrillus-theology.commentarii-in-joannem | Cyrillus - Commentarii In Joannem | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 179,007 | auto-corrected |
+| cyrillus-theology.commentarii-in-joannem | Cyril of Alexandria v6 (Commentary on John) | calfa-pg73-5895ab908dd4 | calfa-co | 392,251 | auto-corrected |
 | cyrillus-theology.commentarii-in-lucam-in-catenis | Cyrillus - Commentarii In Lucam (In Catenis) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 86,969 | auto-corrected |
 | cyrillus-theology.commentarius-in-isaiam-prophetam | Cyrillus - Commentarius In Isaiam Prophetam | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 293,813 | auto-corrected |
 | cyrillus-theology.contra-julianum-lib-1-2 | Cyrillus - Contra Julianum (Lib. 1-2) | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 121,002 | auto-corrected |
@@ -2398,7 +2400,7 @@ not agree with it.
 | diels-ppf-1901.paratexta |  | qwen36-empedocles_diels_ppf | Qwen3.6-27B | 6,403 | auto-corrected |
 | dindorf-hgm1.paratexta |  | qwen36-priscus_dindorf_hgm1 | Qwen3.6-27B | 8,535 | auto-corrected |
 | dindorf-hgm2.paratexta |  | qwen36-menander_protector_dindorf_hgm | Qwen3.6-27B | 302 | auto-corrected |
-| dinolochus.fragmentum | DINOLOCHUS - Fragmentum | qwen36-rhinthon_kaibel_cgf_1899-ocr | Qwen3.6-27B | 391 | auto-corrected |
+| dinolochus.fragmentum | DINOLOCHUS - Fragmentum | qwen36-rhinthon_kaibel_cgf_1899-ocr | Qwen3.6-27B | 257 | auto-corrected |
 | diocles-echecrates-polymnastus-phanton-arion.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 62 | raw OCR |
 | diocles.fragmenta | Diocles - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 213 | auto-corrected |
 | diodorus-aspendius.fragmentum | Diodorus - Fragmentum | qwen36-archytas_mullach_fpg2 | Qwen3.6-27B | 16 | raw OCR |
@@ -2900,8 +2902,8 @@ not agree with it.
 | josephus-ii-patriarcha.confessio-fidei | Josephus II patriarcha Constantinopolitanus - Confessio fidei ('He teleutaia gnome tou patriarchou', Florence, 9 June 1439) (PG158 loci 561-561) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 237 | auto-corrected |
 | josephus-rhacendyta.synopsis-rhetorikes |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 23,967 | auto-corrected |
 | justinus-martyr.fragmenta-operum-deperditorum | Justinus Martyr - Fragmenta operum deperditorum (ex Irenaeo et Methodio) (PG006 loci 803-804) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 338 | auto-corrected |
-| kaibel-cgf-1899.volume-witness-r | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 36,897 | auto-corrected |
-| kaibel-cgf-1899.volume-witness-s | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 32,361 | auto-corrected |
+| kaibel-cgf-1899.volume-witness-r | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness R](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 21,744 | auto-corrected |
+| kaibel-cgf-1899.volume-witness-s | Comicorum Graecorum Fragmenta I.1 (Kaibel 1899) - Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 53 | auto-corrected |
 | laetus.fragmenta | Laetus - Fragmenta | qwen36-socrates_hist_fhg4 | Qwen3.6-27B | 442 | auto-corrected |
 | lamprocles.fragmenta | Lamprocles - Fragmenta | bergk-plg3-ocr-frag | Qwen3.6-27B | 2,193 | auto-corrected |
 | laudatio-sancti-demetrii.narratio-de-capta-thessalonica | Anonymus (laudatio S. Demetrii) - Ex laudatione martyris Demetrii narratio (on the 904 capture of Thessalonica) (PG109 loci 266-267) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 624 | auto-corrected |
@@ -3037,6 +3039,7 @@ not agree with it.
 | pantaenus.fragmenta | Pantaenus Alexandrinus - Fragmenta (PG005 loci 674-675) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 225 | raw OCR |
 | panyassis.fragmenta-epica | Panyassis - Fragmenta Epica | qwen36-panyassis_kinkel_egf | Qwen3.6-27B | 33,197 | auto-corrected |
 | papias.fragmenta | Papias Hierapolitanus - Fragmenta (PG005 loci 637-640) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 708 | manual |
+| pappus-mathematics.synagoge | Pappus - Synagoge | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 121,327 | mixed-unassessed |
 | parmenides.testimonia | Parmenides - Testimonia | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 18,475 | auto-corrected |
 | parmiscus.testimonia-et-fragmenta |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 133 | raw OCR |
 | paron.testimonium | Paron - Testimonium | qwen36-nausiphanes_diels_fvs2 | Qwen3.6-27B | 123 | raw OCR |
@@ -3103,7 +3106,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | [archive.org](https://archive.org/details/bub_gb_NsiGxvHyQY0C) | Qwen3.6-27B-FP8 (masked 2-col pipeline, 430 dpi) | 154,204 | auto-corrected |
+| photius.bibliotheca | Photius - Bibliotheca | bekker1824-independent-ocr-consensus | Qwen3.6-27B | 273,228 | auto-corrected |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
@@ -3209,7 +3212,7 @@ not agree with it.
 | sopater-rhetor.diairesis-zetematon |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 90,079 | auto-corrected |
 | sopater-rhetor.hypomnema-eis-ten-hermogenous-technen |  | qwen36-walz_rhetores_v5 | Qwen3.6-27B | 54,333 | auto-corrected |
 | sophilus.fragmenta | Sophilus - Fragmenta | kock-caf2-ocr-frag | Qwen3.6-27B | 183 | auto-corrected |
-| sophron.fragmenta | SOPHRON - Fragmenta | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 5,497 | auto-corrected |
+| sophron.fragmenta | SOPHRON - Fragmenta | [Comicorum Graecorum Fragmenta I.1 (Kaibel 1899), OCR witness S](https://archive.org/details/comicorvmgraeco00kaibgoog) | Qwen3.6-27B | 3,177 | auto-corrected |
 | sosicrates.fragmenta | SOSICRATES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 81 | auto-corrected |
 | sosipater.fragmentum | SOSIPATER - Fragmentum | kock-caf3-ocr-frag | Qwen3.6-27B | 270 | raw OCR |
 | sosiphanes.fragmenta | Sosiphanes - Fragmenta | qwen36-nauck_tgf_1889-ocr | Qwen3.6-27B | 366 | raw OCR |
@@ -3393,7 +3396,7 @@ not agree with it.
 
 ## Status
 
-- 3,911 works served, 65.4M Greek tokens in the checked lexical projection, 15 source categories.
+- 3,911 works served, 65.8M Greek tokens in the checked lexical projection, 15 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

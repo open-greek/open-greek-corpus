@@ -285,7 +285,7 @@ def main() -> None:
     n_auto = sum(1 for r in rows if r[5] == "auto-corrected")
     n_mixed = sum(1 for r in rows if r[5] == MIXED_STATUS)
     n_raw = sum(1 for r in rows if r[5] == "raw OCR")
-    head = (f"{len(rows)} works/volumes containing OCR: {n_corr} manually corrected, "
+    head = (f"{len(rows)} listed works/volumes containing OCR: {n_corr} manually corrected, "
             f"{n_auto} auto-corrected (deterministic glyph-confusion, frequency "
             f"and collation passes; edited but not hand-reviewed), "
             f"{n_raw} classified raw OCR, {n_mixed} mixed/unassessed. "
@@ -294,7 +294,9 @@ def main() -> None:
             f"their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. "
             f"Words counts whole-work eligible Greek tokens in the checked frequency projection; "
             f"exact OCR component counts are in `data/source_component_tokens.json`, "
-            f"and inclusive surface counts are in `data/coverage.json`.\n\n")
+            f"and inclusive surface counts are in `data/coverage.json`. "
+            f"This table omits OCR volumes that have not been divided into "
+            f"works; the component report includes every primary corpus file.\n\n")
     table = ["| Work (slug) | Content | Downloaded | OCR model | Words | Correction |",
              "|---|---|---|---|--:|---|"]
     for r in rows:

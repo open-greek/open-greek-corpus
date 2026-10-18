@@ -27,12 +27,12 @@
    ]
   },
   "counts": {
-   "ocr_works": 1413,
-   "ocr_works_ranked": 821,
-   "ocr_works_with_witness": 196,
-   "secondary_files": 533,
+   "ocr_works": 1415,
+   "ocr_works_ranked": 823,
+   "ocr_works_with_witness": 197,
+   "secondary_files": 542,
    "skipped": 133,
-   "tei_primary_ocr_secondary_pairs": 204
+   "tei_primary_ocr_secondary_pairs": 212
   },
   "generated_by": "scripts/build_ocr_quality_report.py",
   "inputs": [
@@ -579,32 +579,32 @@
   "tei_primary_ocr_error_estimate": {
    "agreement_ocr_in_tei_quartiles": {
     "max": 0.9205,
-    "median": 0.7815,
+    "median": 0.7758,
     "min": 0.1076,
-    "n": 95,
-    "q1": 0.6946,
-    "q3": 0.8371
+    "n": 101,
+    "q1": 0.6795,
+    "q3": 0.8353
    },
    "agreement_ocr_in_tei_quartiles_all_pairs": {
     "max": 0.9205,
-    "median": 0.7307,
+    "median": 0.7102,
     "min": 0.0192,
-    "n": 204,
-    "q1": 0.5741,
-    "q3": 0.8025
+    "n": 212,
+    "q1": 0.5429,
+    "q3": 0.7996
    },
-   "n_pairs": 204,
-   "n_pairs_summarized": 95,
+   "n_pairs": 212,
+   "n_pairs_summarized": 101,
    "note": "containment of the displaced OCR edition's word bigrams in the served clean edition of the same work; 1 - median is a rough corpus-level OCR error ESTIMATE, inflated by span/recension mismatch between editions. Summarized pairs have >= 2000 OCR-side bigrams."
   },
   "token_counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
   "unattested_rate_quartiles": {
    "max": 0.4788,
-   "median": 0.1324,
-   "min": 0.0112,
-   "n": 821,
-   "q1": 0.0943,
-   "q3": 0.1674
+   "median": 0.1322,
+   "min": 0.0105,
+   "n": 823,
+   "q1": 0.0938,
+   "q3": 0.1663
   },
   "witness_counting_basis": "Primary bigrams use contiguous eligible runs, never crossing an unresolved or excluded token. Opaque analysis-only projections supply no adjacency evidence. Secondary bigrams measure the archived source surface as a separate witness-quality diagnostic; they are not ordinary corpus attestations."
  },
@@ -1743,6 +1743,16 @@
    "unattested_rate": 0.142857,
    "witness": null
   },
+  "apollonius-geom.conica": {
+   "edition": "scan-consensus-2026-10-18",
+   "n_surface_tokens": 66102,
+   "n_tokens": 54229,
+   "n_tokens_checked": 19216,
+   "n_unattested": 243,
+   "source": "ocr",
+   "unattested_rate": 0.012646,
+   "witness": null
+  },
   "apollonius-philosophy.apollonii-epistulae-dub": {
    "edition": "migne-ocr-qwen36",
    "n_surface_tokens": 5393,
@@ -2050,14 +2060,20 @@
    "witness": null
   },
   "aristides-quintilianus-music.de-musica": {
-   "edition": "qwen36-aristides_quintilianus_meibom",
-   "n_surface_tokens": 64826,
-   "n_tokens": 64826,
-   "n_tokens_checked": 32810,
-   "n_unattested": 11817,
+   "edition": "jahn-1882-consensus-2026-10",
+   "n_surface_tokens": 34291,
+   "n_tokens": 25410,
+   "n_tokens_checked": 14010,
+   "n_unattested": 602,
    "source": "ocr",
-   "unattested_rate": 0.360165,
-   "witness": null
+   "unattested_rate": 0.042969,
+   "witness": {
+    "agreement_primary_in_secondary": 0.369306,
+    "agreement_secondary_in_primary": 0.316957,
+    "n_bigrams_primary": 21757,
+    "n_bigrams_secondary": 17892,
+    "secondary_edition": "qwen36-meibom-1652-legacy"
+   }
   },
   "aristippus-cyrenaicus.sententiae-et-apophthegmata": {
    "edition": "qwen36-archytas_mullach_fpg2",
@@ -12035,6 +12051,16 @@
    "unattested_rate": 0.022727,
    "witness": null
   },
+  "pappus-mathematics.synagoge": {
+   "edition": "scan-consensus-2026-10-18",
+   "n_surface_tokens": 147577,
+   "n_tokens": 121327,
+   "n_tokens_checked": 44489,
+   "n_unattested": 466,
+   "source": "ocr",
+   "unattested_rate": 0.010474,
+   "witness": null
+  },
   "parmenides.testimonia": {
    "edition": "qwen36-nausiphanes_diels_fvs2",
    "n_surface_tokens": 18475,
@@ -12774,13 +12800,13 @@
    "witness": null
   },
   "photius.bibliotheca": {
-   "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "n_surface_tokens": 152796,
-   "n_tokens": 152796,
-   "n_tokens_checked": 88497,
-   "n_unattested": 16518,
+   "edition": "bekker1824-independent-ocr-consensus",
+   "n_surface_tokens": 431250,
+   "n_tokens": 273228,
+   "n_tokens_checked": 147953,
+   "n_unattested": 20385,
    "source": "ocr",
-   "unattested_rate": 0.18665,
+   "unattested_rate": 0.13778,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {
@@ -15922,7 +15948,6 @@
   "diels-ppf-1901.paratexta",
   "phanocles.fragmenta",
   "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",
-  "aristides-quintilianus-music.de-musica",
   "anthemius.dupuy-1777",
   "aeschines-socraticus.fragmenta",
   "arcadius.de-accentibus-sp",
@@ -16067,7 +16092,6 @@
   "damascius.vita-isidori-ap-sudam-hesychium-photium-et-e-cod-vat",
   "etymologicum-gudianum.etymologicum-gudianum-lion-zeiai",
   "scholia-in-lycophronem.scholia-in-lycophronem-scholia-vetera-et-recentiora-partim-isaac-et",
-  "photius.bibliotheca",
   "cyrillus-theology.apologeticus-ad-theodosium-imperatorem",
   "theognis-elegy.elegiae",
   "timon.fragmenta-et-tituli",
@@ -16293,6 +16317,7 @@
   "gregorius-nyssenus.apologia-in-hexaemeron",
   "basilius-theology.quod-rebus-mundanis-adhaerendum-non-sit",
   "theophylactus-achridensis.expositio-in-epistolam-ad-hebraeos",
+  "photius.bibliotheca",
   "joannes-chrysostomus.de-virginitate",
   "basilius-theology.enarratio-in-prophetam-isaiam-dub",
   "cyrillus-theology.expositio-in-psalmos",
@@ -16719,6 +16744,7 @@
   "constantinus-vii-porphyrogenitus-imperator.narratio-de-imagine-edessena",
   "oecumenius.fragmenta-in-epistulam-ad-philippenses-in-catenis",
   "oecumenius.fragmenta-in-epistulam-i-ad-corinthios-in-catenis",
+  "aristides-quintilianus-music.de-musica",
   "philotheus-constantinopolitanus.antirrhetici-contra-gregoram",
   "athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp",
   "nicetas-maroniensis.dialogi-de-processione-spiritus-sancti",
@@ -16737,6 +16763,8 @@
   "epistula-ecclesiarum-apud-lugdunum-et-viennam.epistula-ecclesiarum-apud-lugdunum-et-viennam",
   "pseudo-justinus-martyr.de-resurrectione",
   "pseudo-justinus-martyr.confutatio-dogmatum-quorundam-aristotelicorum",
-  "maximus-theology.fragmentum-ex-libro-de-materia"
+  "apollonius-geom.conica",
+  "maximus-theology.fragmentum-ex-libro-de-materia",
+  "pappus-mathematics.synagoge"
  ]
 }
