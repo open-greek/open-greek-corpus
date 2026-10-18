@@ -1039,6 +1039,10 @@ and 139. Full Greek paragraphs, comparative quotations, numbered sections and
 Latin transmission credits remain body even where their font size changes.
 Final bundles retain both review stages and all original attempts; already
 completed late predictions remain eligible.
+The two complete original checkpoint bundles are retained as
+`data/evaluation/ocr-fresh/cassius-dio-original-qwen36.bundle.json` and its
+Qwen3.8 counterpart. Each has 1,500 eligible regions and 283 held earlier
+attempts, with both source-boundary reviews and every original part unchanged.
 `prepare_dio_ocr_retries.py --original RETAINED_PART --pdf-dir SOURCE_PDFS`
 pins enlarged strips for the exact checkpoint/page combinations with observed
 length termination or scan-confirmed loss of accents and breathings. Repeat
