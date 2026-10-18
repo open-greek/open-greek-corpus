@@ -74,3 +74,27 @@ def test_notation_retry_keeps_every_mode_caption_and_all_three_prose_pages(tmp_p
     assert {p["scan_page"] for p in result["pages"]} == {82, 87, 91}
     assert len(result["nonlexical_source_regions"]["page87"]) == 6
     assert all(not r["lexical_eligible"] for regions in result["nonlexical_source_regions"].values() for r in regions)
+
+
+def test_length_supplement_exactly_partitions_only_failed_first_strip(tmp_path, monkeypatch):
+    monkeypatch.setattr(jahn, "ROOT", tmp_path)
+    pdf = tmp_path / "source.pdf"
+    pdf.write_bytes(b"pinned scan")
+    monkeypatch.setattr(jahn, "SOURCE_SHA256", hashlib.sha256(pdf.read_bytes()).hexdigest())
+    original = tmp_path / "data/ingest_reviews/original.json"
+    original.parent.mkdir(parents=True)
+    original.write_text(json.dumps({"sources": {"jahn1882": {"license": "PD"}}, "pages": [
+        {"id": f"page{scan}", "scan_page": scan, "printed_page": scan - 73,
+         "book": 1 if scan == 90 else 2, "source": "jahn1882", "region": [0, 0, 1, 1]}
+        for scan in [90, 112]]}))
+    base_path = original.with_name("jahn-aristides-length-retry.json")
+    base = jahn.prepare_failed_pages_retry(pdf, base_path, original)
+    before = base_path.read_bytes()
+    result = jahn.prepare_length_supplement(pdf, original.with_name("supplement.json"), original)
+    assert base_path.read_bytes() == before
+    assert result["supplements"]["manifest_sha256"] == hashlib.sha256(before).hexdigest()
+    first = next(p for p in base["pages"] if p["scan_page"] == 112)
+    assert all(p["replaces"] == first["id"] for p in result["pages"])
+    a, b = [p["region"] for p in result["pages"]]
+    assert a[:3] == first["region"][:3] and b[3] == first["region"][3]
+    assert a[3] == b[1] and a[0] == b[0] and a[2] == b[2]

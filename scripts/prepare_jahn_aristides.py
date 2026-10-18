@@ -122,6 +122,38 @@ def prepare_notation_retry(pdf_path, output, original=OUTPUT):
     return manifest
 
 
+def prepare_length_supplement(pdf_path, output, original=OUTPUT):
+    """Subdivide the single retry strip whose prediction remained truncated."""
+    if hashlib.sha256(pdf_path.read_bytes()).hexdigest() != SOURCE_SHA256:
+        raise ValueError("Jahn source PDF differs from the reviewed edition")
+    prior = json.loads(original.read_text())
+    page = next(p for p in prior["pages"] if p["scan_page"] == 112)
+    base_path = original.with_name("jahn-aristides-length-retry.json")
+    base = json.loads(base_path.read_text())
+    replaced = next(p for p in base["pages"] if p["scan_page"] == 112 and p["reading_order"] == 1)
+    regions = [[.13, .145, .80, .2586], [.13, .2586, .80, .386]]
+    manifest = {"schema_version": 1,
+        "purpose": "Two shorter source-reviewed subcrops replacing the still-truncated Qwen3.8 first strip of page112; all earlier attempts remain archived.",
+        "sources": prior["sources"], "retry_of": {"path": str(original.relative_to(ROOT)),
+            "sha256": hashlib.sha256(original.read_bytes()).hexdigest(), "region_ids": [page["id"]]},
+        "supplements": {"manifest": str(base_path.relative_to(ROOT)),
+            "manifest_sha256": hashlib.sha256(base_path.read_bytes()).hexdigest(),
+            "replaces_region": replaced["id"], "original_region": replaced["region"],
+            "model_family": "qwen3.8-27b"},
+        "review": {"recorded_at": "2026-10-18", "checked_scan_pages": [112],
+            "extent": "The additional split inspected in the whitespace between complete printed lines6/7 of the first body strip.",
+            "finding": "The two adjacent subcrops exactly cover the earlier first strip with no overlap or gap. The remaining complete page112 strips and Qwen3.6 prediction remain available; this request does not replace them.",
+            "policy": "Require source review of the complete assembled page; replace only the explicitly identified failed model strip. Keep every original and failed retry prediction, and retain one model-family vote."},
+        "pages": [{**page, "id": replaced["id"] + f"-sub-{order}", "region": region,
+            "max_side": 3200, "reading_order": order, "reconstructs": page["id"],
+            "replaces": replaced["id"], "text_role": "authorial-prose",
+            "crop_evidence": "Source-reviewed whitespace between complete lines; exact partition of the earlier failed strip"}
+            for order, region in enumerate(regions, 1)]}
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+    return manifest
+
+
 def body_bottom(page):
     import numpy as np
     import pymupdf
@@ -185,6 +217,7 @@ def main():
     ap.add_argument("--prepare-page81-retry", action="store_true")
     ap.add_argument("--prepare-failed-pages-retry", action="store_true")
     ap.add_argument("--prepare-notation-retry", action="store_true")
+    ap.add_argument("--prepare-length-supplement", action="store_true")
     args = ap.parse_args()
     if args.prepare_page81_retry:
         output = args.out if args.out != OUTPUT else OUTPUT.with_name("jahn-aristides-page81-retry.json")
@@ -200,6 +233,11 @@ def main():
         output = args.out if args.out != OUTPUT else OUTPUT.with_name("jahn-aristides-notation-retry.json")
         manifest = prepare_notation_retry(args.pdf, output)
         print(f"Pinned {len(manifest['pages'])} reviewed prose/caption regions on pages82/87/91")
+        return
+    if args.prepare_length_supplement:
+        output = args.out if args.out != OUTPUT else OUTPUT.with_name("jahn-aristides-length-supplement-retry.json")
+        manifest = prepare_length_supplement(args.pdf, output)
+        print(f"Pinned {len(manifest['pages'])} reviewed page112 subcrops")
         return
     manifest = prepare(args.pdf, args.out)
     if args.record_layout_review:
