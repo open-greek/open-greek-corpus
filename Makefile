@@ -75,7 +75,7 @@ REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
                data/corpus_changes/photius-bekker-coverage/coverage.json \
                data/corpus_changes/cyril-john-coverage/changes.json \
-               data/corpus_extension_index.json)
+               data/corpus_extension_index.json data/critical_editions/*/manifest.json)
 
 # Only this repo's own (non-OCR) ingesters. The OCR text - calfa-co Patrologia
 # Graeca and our own Migne/edition OCR - is produced, cleaned, and DELIVERED

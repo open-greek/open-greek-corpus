@@ -304,6 +304,8 @@ def reviewed_manifestation_metadata(root=ROOT):
 def register_reviewed_manifestations(registry, root=ROOT):
     """Idempotently add active reviewed components after ordinary identities."""
     root = Path(root)
+    from critical_text import load_critical_editions, register_critical_editions
+    register_critical_editions(registry, load_critical_editions(root / "data"))
     for slug, value in musical_identity_metadata(root).items():
         registry.mint_author(value["author_name"], slug=value["author"])
         registry.mint_work(value["author"], value["title"], slug=slug, aliases=value["aliases"])
@@ -372,7 +374,9 @@ def main():
         "editions": {key: dict(vars(value)) for key, value in work.editions.items()}} for slug, work in registry.works.items()}
     metadata = register_reviewed_manifestations(registry, args.root)
     if args.check:
-        drift = [slug for slug in set(metadata) | set(musical_identity_metadata(args.root))
+        from critical_text import load_critical_editions
+        critical = load_critical_editions(args.root / "data")
+        drift = [slug for slug in set(metadata) | set(musical_identity_metadata(args.root)) | set(critical)
             if before.get(slug) != {"default": registry.works[slug].default_edition,
                 "coverage": getattr(registry.works[slug], "coverage_composition", {}),
                 "editions": {key: dict(vars(value)) for key, value in registry.works[slug].editions.items()}}]
@@ -380,7 +384,10 @@ def main():
             parser.exit(1, "Reviewed manifestation metadata differs: " + ", ".join(sorted(drift)) + "\n")
     elif args.write:
         registry.save(path)
-    print(json.dumps({"active_reviewed_works": sorted(metadata), "musical_identities": sorted(musical_identity_metadata(args.root))}, indent=2))
+    from critical_text import load_critical_editions
+    print(json.dumps({"active_reviewed_works": sorted(metadata),
+        "musical_identities": sorted(musical_identity_metadata(args.root)),
+        "critical_editions": sorted(load_critical_editions(args.root / "data"))}, indent=2))
 
 
 if __name__ == "__main__":
