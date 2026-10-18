@@ -33,3 +33,25 @@ def test_page81_retry_pins_original_and_preserves_nonoverlapping_body_strips(tmp
     pdf.write_bytes(b"different scan")
     with pytest.raises(ValueError, match="differs"):
         jahn.prepare_page81_retry(pdf, original.with_name("retry.json"), original)
+
+
+def test_length_retry_separates_notation_from_complete_prose_strips(tmp_path, monkeypatch):
+    monkeypatch.setattr(jahn, "ROOT", tmp_path)
+    pdf = tmp_path / "source.pdf"
+    pdf.write_bytes(b"pinned scan")
+    monkeypatch.setattr(jahn, "SOURCE_SHA256", hashlib.sha256(pdf.read_bytes()).hexdigest())
+    original = tmp_path / "data/ingest_reviews/original.json"
+    original.parent.mkdir(parents=True)
+    original.write_text(json.dumps({"sources": {"jahn1882": {"license": "PD"}}, "pages": [
+        {"id": f"page{scan}", "scan_page": scan, "printed_page": scan - 73,
+         "book": 1 if scan < 111 else 2, "source": "jahn1882", "region": [0, 0, 1, 1]}
+        for scan in [90, 112]]}))
+    before = original.read_bytes()
+    result = jahn.prepare_failed_pages_retry(pdf, original.with_name("retry.json"), original)
+    assert original.read_bytes() == before
+    assert len(result["pages"]) == 5
+    assert [p["scan_page"] for p in result["pages"]] == [90, 90, 112, 112, 112]
+    assert all(p["text_role"] == "authorial-notation-heading" for p in result["pages"][:2])
+    assert all(not r["lexical_eligible"] and r["retained_as"] == "source-image"
+        for r in result["nonlexical_source_regions"]["page90"])
+    assert result["retry_of"]["sha256"] == hashlib.sha256(before).hexdigest()

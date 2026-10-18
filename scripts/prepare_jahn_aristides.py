@@ -43,6 +43,43 @@ def prepare_page81_retry(pdf_path, output, original=OUTPUT):
     return manifest
 
 
+def prepare_failed_pages_retry(pdf_path, output, original=OUTPUT):
+    """Pin complete prose strips and notation headings for two length failures."""
+    if hashlib.sha256(pdf_path.read_bytes()).hexdigest() != SOURCE_SHA256:
+        raise ValueError("Jahn source PDF differs from the reviewed edition")
+    prior = json.loads(original.read_text())
+    source_pages = {p["scan_page"]: p for p in prior["pages"]}
+    regions = {90: [[.30, .145, .61, .17], [.275, .36, .70, .389]],
+        112: [[.13, .145, .80, .386], [.13, .386, .80, .6428], [.13, .6428, .80, .85]]}
+    pages = []
+    for scan, strips in regions.items():
+        page = source_pages[scan]
+        for order, region in enumerate(strips, 1):
+            pages.append({**page, "id": page["id"] + f"-retry-strip-{order}", "region": region,
+                "max_side": 2200 if scan == 90 else 3200, "reading_order": order,
+                "reconstructs": page["id"],
+                "text_role": "authorial-notation-heading" if scan == 90 else "authorial-prose",
+                "crop_evidence": "Source-inspected complete Greek heading; musical notation remains a nonlexical source-image region" if scan == 90 else "Reviewed whitespace between complete printed lines; body-only enlarged retry"})
+    manifest = {"schema_version": 1,
+        "purpose": "Source-reviewed retries for whole-page length failures on scans90/112; preserve every original prediction.",
+        "sources": prior["sources"],
+        "retry_of": {"path": str(original.relative_to(ROOT)),
+            "sha256": hashlib.sha256(original.read_bytes()).hexdigest(),
+            "region_ids": [source_pages[p]["id"] for p in regions]},
+        "review": {"recorded_at": "2026-10-18", "checked_scan_pages": [90, 112],
+            "extent": "Complete source pages and every retry crop boundary inspected at fourfold PDF rendering.",
+            "finding": "Printed17/scan90 contains two Greek headings and extensive musical-symbol tables above modern apparatus. The symbols are preserved by source-image references rather than interpreted as Greek word strings. Printed39/scan112 is ordinary Greek prose; three consecutive crops retain all body lines, excluding the initial running header and marginal reference labels.",
+            "policy": "Retain all original attempts, notation source references and retry predictions. Require an exact completed source review before replacing a model input; never supply a joined cross-page word."},
+        "nonlexical_source_regions": {source_pages[90]["id"]: [
+            {"class": "musical-notation", "region": region, "lexical_eligible": False,
+                "retained_as": "source-image", "evidence": "Manual source inspection: paired musical signs, including rotated and reversed letter-like shapes, are not ordinary Greek word attestations."}
+            for region in [[.04, .17, .90, .359], [.04, .389, .90, .652]]]},
+        "pages": pages}
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(manifest, ensure_ascii=False, indent=1) + "\n")
+    return manifest
+
+
 def body_bottom(page):
     import numpy as np
     import pymupdf
@@ -104,11 +141,17 @@ def main():
     ap.add_argument("--out", type=Path, default=OUTPUT)
     ap.add_argument("--record-layout-review", action="store_true")
     ap.add_argument("--prepare-page81-retry", action="store_true")
+    ap.add_argument("--prepare-failed-pages-retry", action="store_true")
     args = ap.parse_args()
     if args.prepare_page81_retry:
         output = args.out if args.out != OUTPUT else OUTPUT.with_name("jahn-aristides-page81-retry.json")
         manifest = prepare_page81_retry(args.pdf, output)
         print(f"Pinned {len(manifest['pages'])} reviewed page81 retry strips")
+        return
+    if args.prepare_failed_pages_retry:
+        output = args.out if args.out != OUTPUT else OUTPUT.with_name("jahn-aristides-length-retry.json")
+        manifest = prepare_failed_pages_retry(args.pdf, output)
+        print(f"Pinned {len(manifest['pages'])} reviewed retry regions on pages90/112")
         return
     manifest = prepare(args.pdf, args.out)
     if args.record_layout_review:

@@ -401,6 +401,9 @@ and the final index excluded. Regenerate those crops with
 The source-reviewed three-strip page 81 retry is reproducible with
 `--prepare-page81-retry`; its manifest preserves the original request hash and
 requires the original predictions to remain available for comparison.
+`--prepare-failed-pages-retry` pins the separate pages 90/112 request. Page 90's
+musical notation remains explicitly linked to the source image; its two Greek
+headings are transcribed separately so symbol tables cannot become word counts.
 After inspecting the retry predictions against the scan, record that review with
 `python3 scripts/jahn_retries.py --fresh ORIGINAL36 --fresh ORIGINAL38 --retry RETRY36 --retry RETRY38 --source-evidence "Completed scan comparison" --out REVIEW.json`.
 Pass the same retry files and `--retry-review REVIEW.json` to the admission
