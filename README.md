@@ -539,6 +539,19 @@ collation before its missing continuation can be admitted. Source credits and
 genuine losses must remain explicit. The jobs place six reviewed boundary pages
 first for a small OCR sanity check and preserve independent raw witnesses.
 
+`scripts/ingest_scan_coverage.py --manifest MANIFEST --witness RAW.jsonl`
+validates checkpoint, geometry and completion metadata before collating scan
+regions with `scripts/ocr_consensus.py`. Repeat `--witness` for independent OCR
+runs. A dry run can inspect a small completed subset with `--allow-partial`;
+`--apply --run-id scan-coverage-NAME` requires every selected region. The
+importer preserves all tied readings, counts only resolved Greek words,
+archives exact raw predictions and removal decisions, and separates comparative
+quotations into paratext. `--check AUDIT_DIRECTORY` replays every vote, while
+`--undo AUDIT_DIRECTORY` restores every prior file byte after checking that
+no later change would be overwritten. New scan passages are registered under
+`data/corpus_extensions/`; the TEI ingester retains them and stops for a new
+overlap review if the underlying digital edition changes.
+
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
 recorded letter correction, two page-boundary word joins, and removal of folio
