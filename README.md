@@ -961,6 +961,9 @@ A changed crop is held outside the vote only when the effective manifest's
 `--source-review` artifact verifies every old and new boundary. These records
 preserve all superseded readings without inventing a combined runtime or another
 model vote. A bundle reaching 100 MB is refused.
+The exact original manifest must be present even if every part uses the new
+crops; `--authority-manifest ORIGINAL_MANIFEST` retains that authority when no
+original-geometry part already contains it.
 
 The 100-page set in `data/evaluation/ocr-pages.json` has 50 pages each from PG 145
 and the Gregory of Nazianzus orations, with 20 calibration and 80 test pages.

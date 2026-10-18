@@ -62,6 +62,7 @@ def reviewed(tmp_path):
     entry = {"id": "2", "source": "scan", "scan_page": 2, "original_region": [0, 0, 1, 1],
              "region": [0, 0, 1, .8], "evidence_id": "body-page2"}
     review = {"schema_version": 1, "kind": "scan-region-body-review", "reviewed_at": "2026-10-18",
+              "sources": copy.deepcopy(old["sources"]),
               "original_manifest_sha256": bundle.sha(bundle.encode(old)),
               "evidence": {"body-page2": {**{k: v for k, v in entry.items() if k != "evidence_id"},
                   "evidence": "Source-reviewed body ends above the apparatus.", "reviewed_at": "2026-10-18",
@@ -84,6 +85,18 @@ def test_only_exact_reviewed_old_geometry_is_held_without_an_extra_vote(tmp_path
     assert audit["held_predictions"][0]["id"] == "2"
     assert eligible["2"]["artifact_sha256"] == strict(corrected[0].read_bytes(), ep.read_bytes())["2"]["artifact_sha256"]
     assert len(audit["parts"]) == 2
+
+
+def test_new_geometry_only_still_requires_review_and_exact_original_authority(tmp_path):
+    old, effective, rp, ep = reviewed(tmp_path)
+    corrected = part(tmp_path, {"2"}, effective, name="body")
+    with pytest.raises(ValueError, match="original authority"):
+        bundle.write_bundle([corrected], ep, tmp_path / "combined.json", [rp])
+    authority = tmp_path / "original.json"; authority.write_bytes(bundle.encode(old))
+    with pytest.raises(ValueError, match="retained source review"):
+        bundle.write_bundle([corrected], ep, tmp_path / "combined.json", authority_manifests=[authority])
+    raw = bundle.write_bundle([corrected], ep, tmp_path / "combined.json", [rp], [authority])
+    assert set(bundle.load_bundle(raw, ep.read_bytes(), strict)[0]) == {"2"}
 
 
 @pytest.mark.parametrize("defect", ["duplicate", "checkpoint", "raw-checksum", "manifest-checksum", "missing-review", "evidence", "other-field"])
