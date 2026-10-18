@@ -169,6 +169,101 @@ def confirmed_geometry(replacement, raw, record_line, row, job, request):
             and condition.get("finish_reason") == row.get("finish_reason"))
 
 
+def abstention_authority():
+    try:
+        from photius_source_abstentions import source_authority as authority
+    except ModuleNotFoundError as error:
+        if error.name != "photius_source_abstentions":
+            raise
+        return None, None
+    return authority()
+
+
+def known_abstentions():
+    try:
+        from photius_source_abstentions import known_abstentions as known
+    except ModuleNotFoundError as error:
+        if error.name != "photius_source_abstentions":
+            raise
+        return {}
+    return known()
+
+
+def completed_part_review(value):
+    return (bool(value.get("source_evidence")) and value.get("apparatus_excluded") is True
+            and (value.get("reading_complete") is True or
+                 value.get("reading_complete") is False and
+                 value.get("reading_basis") == "source-confirmed-abstention" and
+                 bool(value.get("source_authority"))))
+
+
+def validated_abstention(model, revision, row, job, request, raw, record_line, review):
+    entry = known_abstentions().get((model, revision, sha(encode(request)), row["id"]))
+    if entry is None:
+        if review.get("reading_complete") is not True or review.get("reading_basis") == "source-confirmed-abstention":
+            raise ValueError("An unreviewed part cannot claim a source-confirmed abstention")
+        return None
+    path, authority_raw = abstention_authority()
+    if (not path or not isinstance(authority_raw, bytes) or Path(path).is_absolute() or ".." in Path(path).parts
+            or review.get("reading_complete") is not False
+            or review.get("reading_basis") != "source-confirmed-abstention"
+            or review.get("source_authority") != {"path": path, "sha256": sha(authority_raw)}
+            or entry.get("raw_file_sha256") != sha(raw)
+            or entry.get("prediction_record_sha256") != sha(record_line)
+            or entry.get("raw_prediction_sha256") != sha(row.get("raw_prediction", "").encode())
+            or entry.get("original_text") != row.get("raw_prediction") or entry.get("voting_text") != ""
+            or entry.get("image_sha256") != row.get("image_sha256")
+            or entry.get("model") != model or entry.get("revision") != revision
+            or entry.get("manifest_sha256") != sha(encode(request)) or entry.get("id") != row["id"]
+            or entry.get("source") != job["source"] or entry.get("scan_page") != job["scan_page"]
+            or entry.get("region") != job["region"] or entry.get("finish_reason") != "stop"
+            or not entry.get("reviewed_at")
+            or entry.get("source_pdf_sha256") != request["sources"][job["source"]]["sha256"]
+            or not isinstance(entry.get("reason"), str) or not entry["reason"].strip()
+            or not successful(row)):
+        raise ValueError("Source-confirmed abstention differs from its exact current leaf or authority")
+    return entry
+
+
+def mark_abstention_reviews(review, paths):
+    entries = known_abstentions()
+    for path in paths:
+        values = [json.loads(line) for line in path.read_bytes().splitlines() if line.strip()]
+        metadata = values[0]["_meta"]
+        selected = (review if metadata["manifest_sha256"] == review["manifest_sha256"] else next(
+            d for d in review.get("reviewed_supplements", []) if d["manifest_sha256"] == metadata["manifest_sha256"]
+            and d["model"] == metadata["model"]))
+        for row in values[1:]:
+            key = (metadata["model"], metadata["revision"], metadata["manifest_sha256"], row["id"])
+            if key in entries:
+                authority_path, authority_raw = abstention_authority()
+                part = next(r for r in selected["strip_reviews"] if r["id"] == row["id"])
+                part.update(source_evidence=entries[key]["reason"], reading_complete=False,
+                            reading_basis="source-confirmed-abstention",
+                            source_authority={"path": authority_path, "sha256": sha(authority_raw)})
+
+
+def voting_mask(ordered, abstained, source_review):
+    text = "\n\n".join(row["raw_prediction"].strip() for row in ordered)
+    excluded, position = [], 0
+    for row in ordered:
+        value = row["raw_prediction"].strip()
+        if row["id"] in abstained:
+            excluded.append({"start": position, "end": position + len(value), "text": value,
+                             "reason": abstained[row["id"]]["reason"]})
+        position += len(value) + 2
+    segments, position = [], 0
+    for span in excluded:
+        if span["start"] > position:
+            segments.append({"start": position, "end": span["start"], "text": text[position:span["start"]]})
+        position = span["end"]
+    if position < len(text):
+        segments.append({"start": position, "end": len(text), "text": text[position:]})
+    return {"voting_segments": segments, "abstention_audit": {
+        "reviewed_text_sha256": sha(text.encode()), "source_review": source_review,
+        "excluded_spans": excluded}, "abstained_part_ids": list(abstained)}
+
+
 def review_paths(value):
     return [] if value is None else [value] if isinstance(value, Path) else list(value)
 
@@ -379,8 +474,7 @@ def load_supplements(paths, review, manifest, originals):
             raise ValueError("Retry supplement must contain every reviewed part exactly once")
         evidence = decision.get("strip_reviews", [])
         if (len(evidence) != len(expected) or {r.get("id") for r in evidence} != set(expected)
-                or any(not r.get("source_evidence") or r.get("reading_complete") is not True
-                       or r.get("apparatus_excluded") is not True for r in evidence)):
+                or any(not completed_part_review(r) for r in evidence)):
             raise ValueError("Every supplement part needs a completed source review")
         by_id = {row["id"]: row for row in records}
         ordered = []
@@ -463,8 +557,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
         raise ValueError("Retry admission lacks an exact completed source review")
     strip_reviews = review.get("strip_reviews", [])
     if (len(strip_reviews) != len(expected) or {r.get("id") for r in strip_reviews} != set(expected)
-            or any(not r.get("source_evidence") or r.get("reading_complete") is not True
-                   or r.get("apparatus_excluded") is not True for r in strip_reviews)):
+            or any(not completed_part_review(r) for r in strip_reviews)):
         raise ValueError("Every retry strip needs a completed source review")
     originals = {}
     for (model, revision), records in models.items():
@@ -488,6 +581,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
     supplements, retained_supplements = load_supplements(supplement_paths, review, manifest, originals)
     require_geometry_repairs(supplements, manifest, originals)
     images, used, used_supplements, retained = {}, set(), set(), []
+    used_abstention_authority = None
     for path in sorted(paths, key=lambda value: sha(value.read_bytes())):
         raw = path.read_bytes()
         record_lines = [line for line in raw.splitlines() if line.strip()]
@@ -508,6 +602,7 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
         by_id = {row["id"]: row for row in records}
         lines_by_id = {row["id"]: line for row, line in zip(records, record_lines[1:])}
         ordered, held_strips, held_sources, used_for_model = [], [], [], []
+        abstained = {}
 
         def append_part(row, job, request, source_raw, source_line, conditions=()):
             validate_record(row, job, request)
@@ -540,11 +635,20 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
             if not successful(row):
                 label = "Retry supplement" if request.get("supplements") else "Retry strip"
                 raise ValueError(label + " is failed, truncated, or lacks Greek text")
-            if "source-confirmed-polytonic-mark-stripping" in conditions:
+            request_sha = sha(encode(request))
+            source_review = review if request_sha == sha(manifest_raw) else next(d
+                for d in review.get("reviewed_supplements", []) if d["manifest_sha256"] == request_sha
+                and d["model"] == model)
+            part_review = next(r for r in source_review["strip_reviews"] if r["id"] == row["id"])
+            abstention = validated_abstention(model, meta["revision"], row, job, request,
+                                              source_raw, source_line, part_review)
+            if abstention is not None:
+                abstained[row["id"]] = abstention
+            if abstention is None and "source-confirmed-polytonic-mark-stripping" in conditions:
                 from report_polytonic_loss import detect
                 if detect(row["raw_prediction"])["flag"]:
                     raise ValueError("Mark-loss supplement still strips polytonic marks")
-            if "source-confirmed-repetition-loop" in conditions:
+            if abstention is None and "source-confirmed-repetition-loop" in conditions:
                 from audit_photius_fresh import screen
                 if set(screen(row["raw_prediction"])["review_flags"]) & {
                         "identical-word-run", "repeated-eight-word-phrase", "repeated-output-line"}:
@@ -559,6 +663,12 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
         text = "\n\n".join(row["raw_prediction"].strip() for row in ordered)
         identity = {"model": model, "revision": meta["revision"], "manifest_sha256": sha(manifest_raw),
                     "source_review_sha256": sha(review_raw), "raw_file_sha256": sha(raw), "strips": ordered}
+        if abstained:
+            path, authority_raw = abstention_authority()
+            used_abstention_authority = {"path": path, "raw": authority_raw, "sha256": sha(authority_raw)}
+            archived_path = (Path("data/corpus_changes/photius-bekker-coverage") / "retry" /
+                             page_id / sha(review_raw) / "source-abstention-authority.json")
+            identity.update(voting_mask(ordered, abstained, {"path": archived_path.as_posix(), "sha256": sha(authority_raw)}))
         if held_strips:
             identity.update(held_retry_strips=held_strips, held_retry_strip_sources=held_sources,
                             supplements=used_for_model)
@@ -567,6 +677,8 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
                     "original_record": original[2], "original_raw_file_sha256": sha(original[0]),
                     "source_evidence": review["source_evidence"], "reviewed_at": review["reviewed_at"],
                     "policy": "Only this strip assembly votes for its model family. The original whole-page attempt remains held evidence with no additional vote."}
+        if abstained:
+            assembly["policy"] += " Exact source-confirmed unrelated spans remain raw evidence and abstain from reading and omission votes."
         key = (model, meta["revision"])
         models[key][page_id] = (original[0], original[1], {**original[2], "reviewed_retry": assembly})
         retained.append({"raw": raw, "sha256": sha(raw), "metadata": meta})
@@ -575,9 +687,12 @@ def apply_reviewed_retries(models, paths, review_path, supplement_paths=()):
         raise ValueError("Every selected model family needs a reviewed retry assembly")
     if used_supplements != set(supplements):
         raise ValueError("Unused retry supplement")
-    return {"manifest": manifest, "manifest_path": authority_path, "manifest_sha256": sha(manifest_raw),
-            "review": review, "review_raw": review_raw, "source_review_sha256": sha(review_raw),
-            "raw_files": retained, "supplements": retained_supplements}
+    result = {"manifest": manifest, "manifest_path": authority_path, "manifest_sha256": sha(manifest_raw),
+              "review": review, "review_raw": review_raw, "source_review_sha256": sha(review_raw),
+              "raw_files": retained, "supplements": retained_supplements}
+    if used_abstention_authority is not None:
+        result["abstention_authority"] = used_abstention_authority
+    return result
 
 
 def write_source_review(models, paths, output, source_evidence, strip_evidence, reviewed_at, manifest=None,
@@ -631,6 +746,7 @@ def write_source_review(models, paths, output, source_evidence, strip_evidence, 
                 parent_review = next(r for r in parent["strip_reviews"] if r["id"] == target)
                 parent_review["reading_basis"] = "reviewed-supplement-parts"
                 parent_review.setdefault("completed_by_supplements", []).append(decision["manifest_sha256"])
+    mark_abstention_reviews(review, [*paths, *supplement_paths])
     raw = encode(review)
     with tempfile.TemporaryDirectory() as temporary:
         path = Path(temporary) / "source-review.json"
