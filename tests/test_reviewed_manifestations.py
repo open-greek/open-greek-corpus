@@ -190,6 +190,27 @@ def test_additive_scan_admissions_preserve_all_manifests_and_each_reading_digest
         reviewed.register_reviewed_manifestations(reg, tmp_path)
 
 
+def test_letter_only_admission_does_not_claim_unadmitted_conica_books(tmp_path):
+    slug = "apollonius-geom.conica"
+    scan_fixture(tmp_path, slug)
+    directory = "data/corpus_changes/scan-example"
+    manifest = json.loads((tmp_path / directory / "manifest.json").read_text())
+    for page in manifest["pages"]:
+        page["book"] = "4"
+        page["text_role"] = "authorial-preface"
+    manifest_sha = put(tmp_path, directory + "/manifest.json", manifest)
+    audit = json.loads((tmp_path / directory / "changes.json").read_text())
+    audit["manifest_sha256"] = manifest_sha
+    put(tmp_path, directory + "/changes.json", audit)
+    reg = registry(slug)
+    reviewed.register_reviewed_manifestations(reg, tmp_path)
+    work = reg.works[slug]
+    assert work.coverage_composition["addition_scope"] == "Opening letter of Book IV"
+    assert work.coverage_composition["planned_addition_scope"].startswith("Books I–III")
+    assert work.coverage_composition["admitted_books"] == ["4"]
+    assert "Books I–III" not in work.editions[slug + ".scan-consensus-2026-10-18"].name
+
+
 def photius_fixture(root):
     slug = "photius.bibliotheca"
     directory = "data/corpus_changes/photius-bekker-coverage"

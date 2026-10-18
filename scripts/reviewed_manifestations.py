@@ -257,6 +257,14 @@ def _scan_extensions(root):
         if any(c["license"] == "CC-BY-SA-4.0" for c in digital):
             edition_license = "CC-BY-SA-4.0"
         editor, base_scope, added_scope = SCAN_WORKS[slug]
+        planned_scope = added_scope
+        admitted_books = sorted({str(p["book"]) for p in pages.values() if p.get("book")},
+            key=lambda value: (int(value) if value.isdigit() else 999, value))
+        if slug == "apollonius-geom.conica":
+            if set(admitted_books) == {"4"}:
+                added_scope = "Opening letter of Book IV"
+            elif set(admitted_books) == {"1", "2", "3"}:
+                added_scope = "Books I–III"
         edition = _edition(entry["edition"], f"{editor}, reviewed Greek scan additions ({added_scope})",
             scheme="volume.printed-page" if editor == "Cary" else "book.printed-page",
             source="; ".join(source["url"] for source in sources), license=edition_license, editor=editor,
@@ -270,6 +278,7 @@ def _scan_extensions(root):
             "scan_manifest": manifest_records[-1]["path"], "scan_manifest_sha256": manifest_records[-1]["sha256"],
             "scan_manifests": manifest_records, "admission_audits": audit_records,
             "base_scope": base_scope, "addition_scope": added_scope,
+            "planned_addition_scope": planned_scope, "admitted_books": admitted_books,
             "base_passages": _count(primary) - len(pages), "added_primary_regions": len(pages),
             "comparative_regions": len(selected) - len(pages), "source_editions": sources,
             "digital_components": digital, "comparison_sources": all_digital,
