@@ -177,6 +177,73 @@ def align(slots, words):
     return operations
 
 
+def _reviewed_voting_parts(witness):
+    """Validate an exact partition of raw text into retained and reviewed spans.
+
+    The caller verifies the source-review artifact itself. Here its public
+    reference and text hash are mandatory, and no character may silently vanish
+    between retained slices. Offsets address the original Unicode code points.
+    """
+    if "voting_segments" not in witness:
+        if "abstention_audit" in witness:
+            raise ValueError("An abstention audit requires explicit voting_segments")
+        return None
+    text = witness["text"]
+    audit = witness.get("abstention_audit")
+    if not isinstance(audit, dict) or audit.get("reviewed_text_sha256") != hashlib.sha256(text.encode()).hexdigest():
+        raise ValueError("Segmented voting requires an audit pinned to the full raw text")
+    reference = audit.get("source_review")
+    if not isinstance(reference, dict):
+        raise ValueError("Segmented voting requires a source review reference")
+    path, digest = reference.get("path"), reference.get("sha256")
+    if (not isinstance(path, str) or not path or "\\" in path or ":" in path or
+            PurePosixPath(path).is_absolute() or ".." in PurePosixPath(path).parts or
+            not isinstance(digest, str) or not re.fullmatch(r"[0-9a-f]{64}", digest)):
+        raise ValueError("Segmented voting requires a relative public source review and SHA256")
+    parts = []
+    def word_character(char):
+        return unicodedata.category(char).startswith(("L", "M")) or char in APOSTROPHES
+    for field, retained in (("voting_segments", True), ("excluded_spans", False)):
+        spans = witness[field] if retained else audit.get(field)
+        if not isinstance(spans, list):
+            raise ValueError("Retained and excluded voting spans must be explicit lists")
+        previous = -1
+        for index, span in enumerate(spans):
+            if not isinstance(span, dict):
+                raise ValueError("Each voting span requires exact offsets and raw text")
+            start, end = span.get("start"), span.get("end")
+            if (type(start) is not int or type(end) is not int or
+                    not 0 <= start < end <= len(text) or start < previous or
+                    span.get("text") != text[start:end]):
+                raise ValueError("Voting spans must be ordered, nonoverlapping exact raw slices")
+            if not retained and (not isinstance(span.get("reason"), str) or not span["reason"].strip()):
+                raise ValueError("Every excluded voting span requires a source-review reason")
+            for boundary in (start, end):
+                if 0 < boundary < len(text) and word_character(text[boundary - 1]) and word_character(text[boundary]):
+                    raise ValueError("Voting spans cannot cut inside a word or combining mark")
+            parts.append((start, end, retained, index, span["text"]))
+            previous = end
+    parts.sort()
+    previous = 0
+    for start, end, retained, index, raw in parts:
+        if start != previous:
+            raise ValueError("Retained and reviewed excluded spans must partition the full raw text")
+        previous = end
+    if previous != len(text):
+        raise ValueError("Retained and reviewed excluded spans must partition the full raw text")
+    # Merely splitting one observed span into adjacent records must not turn
+    # an ordinary internal omission into an abstention at that artificial seam.
+    combined = []
+    for part in parts:
+        start, end, retained, index, raw = part
+        if combined and combined[-1][2] == retained:
+            left, _, _, first_index, _ = combined[-1]
+            combined[-1] = (left, end, retained, first_index, text[left:end])
+        else:
+            combined.append(part)
+    return combined
+
+
 def merge_witnesses(witnesses):
     """Merge one physical page; duplicate raw artifacts contribute one vote."""
     unique = {}
@@ -185,6 +252,9 @@ def merge_witnesses(witnesses):
         if identity in unique:
             if unique[identity]["text"] != witness["text"]:
                 raise ValueError("One raw OCR artifact was supplied with conflicting text")
+            if any(unique[identity].get(field) != witness.get(field)
+                   for field in ("voting_segments", "abstention_audit")):
+                raise ValueError("One raw OCR artifact was supplied with conflicting voting projections")
             continue
         unique[identity] = witness
     witnesses = sorted(unique.values(), key=lambda w: w["id"])
@@ -192,8 +262,34 @@ def merge_witnesses(witnesses):
         raise ValueError("A consensus needs at least one original OCR witness")
     if len({w["id"] for w in witnesses}) != len(witnesses):
         raise ValueError("OCR witness identifiers must be unique")
-    tokens = {w["id"]: tokenize(w["text"]) for w in witnesses}
-    vote_group = {w["id"]: w.get("vote_group", w["id"]) for w in witnesses}
+    tokens, owners, fragments = {}, {}, []
+    identifiers = {w["id"] for w in witnesses}
+    voters = []
+    for witness in witnesses:
+        identifier = witness["id"]
+        parts = _reviewed_voting_parts(witness)
+        if parts is None:
+            tokens[identifier] = tokenize(witness["text"])
+            voters.append({"id": identifier, "vote_group": witness.get("vote_group", identifier)})
+            continue
+        tokens[identifier], owners[identifier] = [], []
+        for start, end, retained, index, raw in parts:
+            fragment = f"{identifier}#voting-segment-{index:04d}" if retained else None
+            if fragment:
+                if fragment in identifiers:
+                    raise ValueError("A voting fragment conflicts with an original witness identifier")
+                identifiers.add(fragment)
+                group = witness.get("vote_group", identifier)
+                voters.append({"id": fragment, "vote_group": group})
+                fragments.append({"id": fragment, "witness_id": identifier,
+                    "vote_group": group, "start": start, "end": end,
+                    "text_sha256": hashlib.sha256(raw.encode()).hexdigest()})
+            words = tokenize(raw)
+            tokens[identifier].extend(words)
+            owners[identifier].extend([fragment] * len(words))
+        if not witness["voting_segments"]:
+            voters.append({"id": identifier, "vote_group": witness.get("vote_group", identifier)})
+    vote_group = {w["id"]: w["vote_group"] for w in voters}
     # Centrality chooses an alignment scaffold, never a winning reading. The
     # final vote still considers every original artifact and retains ties.
     centrality = {}
@@ -218,8 +314,26 @@ def merge_witnesses(witnesses):
                 slot.setdefault(key, {})[identifier] = surface
             merged.append(slot)
         slots = merged
+    if owners:
+        # Keep full raw ordering as alignment scaffolding, then remove reviewed
+        # support. Unlike independently aligning short fragments, this cannot
+        # map two repeated retained spans onto the same observed position.
+        for identifier, token_owners in owners.items():
+            position = 0
+            for slot in slots:
+                for sources in slot.values():
+                    if identifier in sources:
+                        surface = sources.pop(identifier)
+                        owner = token_owners[position]
+                        position += 1
+                        if owner is not None:
+                            sources[owner] = surface
+            if position != len(token_owners):
+                raise ValueError("Segmented witness alignment lost its original token positions")
+        slots = [{key: sources for key, sources in slot.items() if sources} for slot in slots]
+        slots = [slot for slot in slots if slot]
     coverage = {}
-    for witness in witnesses:
+    for witness in voters:
         identifier = witness["id"]
         positions = [i for i, slot in enumerate(slots)
             if any(identifier in sources for sources in slot.values())]
@@ -230,7 +344,7 @@ def merge_witnesses(witnesses):
         present = {source for sources in slot.values() for source in sources}
         gaps = [identifier for identifier, bounds in coverage.items()
             if identifier not in present and bounds is not None and bounds[0] < i < bounds[1]]
-        abstentions = [w["id"] for w in witnesses if w["id"] not in present and w["id"] not in gaps]
+        abstentions = [w["id"] for w in voters if w["id"] not in present and w["id"] not in gaps]
         readings = [{"text": key, "support": sorted(sources),
             "support_groups": sorted({vote_group[source] for source in sources}),
             "surfaces": dict(sorted(sources.items()))} for key, sources in sorted(slot.items())]
@@ -273,8 +387,16 @@ def merge_witnesses(witnesses):
             "terminal_fragment_support": fragment_support,
             "selected": winners[0] if len(winners) == 1 else None,
             "tied_readings": winners if len(winners) > 1 else []})
-    return {"text": " ".join(display), "analysis_text": " ".join(lexical),
+    result = {"text": " ".join(display), "analysis_text": " ".join(lexical),
         "ocr_consensus": {"schema_version": 1,
             "policy": "Exact word votes after accent-insensitive positional alignment. Preserve tied readings; omissions vote only inside each witness's observed span. Original raw text remains reversible.",
             "witnesses": [{**w, "text_sha256": hashlib.sha256(w["text"].encode()).hexdigest()}
                 for w in witnesses], "slots": records, "counts": dict(stats)}}
+    if owners:
+        result["ocr_consensus"]["voting_fragments"] = fragments
+        result["ocr_consensus"]["policy"] += (
+            " Source-reviewed excluded spans retain their raw text but cast no "
+            "reading or omission vote. Retained fragments share their original "
+            "vote group; their prefix and suffix gaps abstain."
+        )
+    return result
