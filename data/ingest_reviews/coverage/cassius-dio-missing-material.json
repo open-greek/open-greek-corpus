@@ -1,0 +1,177 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-10-18",
+  "issue": "https://github.com/open-greek/open-greek-corpus/issues/45",
+  "work": "cassius-dio.historiae-romanae",
+  "sources": {
+    "dios-roman-history.-vol.-1-loeb-32": {
+      "url": "https://archive.org/download/dios-roman-history.-vol.-1-loeb-32/Dio%27s%20Roman%20History.%20Vol.1%20%5BLoeb%2032%5D.pdf",
+      "sha256": "e7c88e1f1cbd7be0a7d8b3ea4d3e2583733e0101b284dae00940c6e2073a6576",
+      "license": "public-domain",
+      "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 1, Loeb 32, first printed 1914.",
+      "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+      "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-1-loeb-32"
+    },
+    "dios-roman-history.-vol.-2-loeb-37": {
+      "url": "https://archive.org/download/dios-roman-history.-vol.-2-loeb-37/Dio%27s%20Roman%20History.%20Vol.2%20%5BLoeb%2037%5D.pdf",
+      "sha256": "57ebb19f9880de06c18d67676f15b59b987944de1bcf1c3023b11ea1a618901c",
+      "license": "public-domain",
+      "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 2, Loeb 37, first printed 1914.",
+      "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1914; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+      "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-2-loeb-37"
+    },
+    "dios-roman-history.-vol.-6-loeb-83": {
+      "url": "https://archive.org/download/dios-roman-history.-vol.-6-loeb-83/Dio%27s%20Roman%20History.%20Vol.6%20%5BLoeb%2083%5D.pdf",
+      "sha256": "03f95405104f50ae3d29dedc5238242fbdb2be62e3750c42be9a9eef4dd4efda",
+      "license": "public-domain",
+      "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 6, Loeb 83, first printed 1917.",
+      "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1917; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+      "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-6-loeb-83"
+    },
+    "dios-roman-history.-vol.-7-loeb-175": {
+      "url": "https://archive.org/download/dios-roman-history.-vol.-7-loeb-175/Dio%27s%20Roman%20History.%20Vol.7%20%5BLoeb%20175%5D.pdf",
+      "sha256": "e194721ecc7a6b24752424b427e9330d410d5dd8cfdbfd3f868d17bf2418a31e",
+      "license": "public-domain",
+      "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 7, Loeb 175, first printed 1924.",
+      "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1924; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+      "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-7-loeb-175"
+    },
+    "dios-roman-history.-vol.-8-loeb-176": {
+      "url": "https://archive.org/download/dios-roman-history.-vol.-8-loeb-176/Dio%27s%20Roman%20History.%20Vol.8%20%5BLoeb%20176%5D.pdf",
+      "sha256": "c9ad3d5aed55f35259c30d16583880041d25a67b737294fe8d6711adc6f988e3",
+      "license": "public-domain",
+      "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 8, Loeb 176, first printed 1925.",
+      "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1925; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+      "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-8-loeb-176"
+    },
+    "dios-roman-history.-vol.-9-loeb-177": {
+      "url": "https://archive.org/download/dios-roman-history.-vol.-9-loeb-177/Dio%27s%20Roman%20History.%20Vol.9%20%5BLoeb%20177%5D.pdf",
+      "sha256": "f71fb53d3b4fa4894947148f7fdf018739c746b3d413c9ba179176b17cb70db4",
+      "license": "public-domain",
+      "citation": "Cassius Dio, Roman History, edited and translated by Earnest Cary, volume 9, Loeb 177, first printed 1927.",
+      "rights_evidence": "The scanned copyright/impression page (PDF 3) states first printed 1927; later impression dates are retained in the scan. Only the unchanged Greek text of that public-domain edition is selected; modern front matter and indexes are excluded.",
+      "catalog_url": "https://archive.org/details/dios-roman-history.-vol.-9-loeb-177"
+    }
+  },
+  "volumes": [
+    {
+      "volume": 1,
+      "source": "dios-roman-history.-vol.-1-loeb-32",
+      "first_pdf_page": 29,
+      "last_pdf_page": 252,
+      "transmission": "fragments-and-zonaras-comparison",
+      "reading_region": [
+        0,
+        0,
+        0.5,
+        1
+      ],
+      "admission": "comparison-witness-pending-panel-routing"
+    },
+    {
+      "volume": 2,
+      "source": "dios-roman-history.-vol.-2-loeb-37",
+      "first_pdf_page": 7,
+      "last_pdf_page": 258,
+      "transmission": "fragments-and-zonaras-comparison",
+      "reading_region": [
+        0,
+        0,
+        0.5,
+        1
+      ],
+      "admission": "comparison-witness-pending-panel-routing"
+    },
+    {
+      "volume": 6,
+      "source": "dios-roman-history.-vol.-6-loeb-83",
+      "first_pdf_page": 206,
+      "last_pdf_page": 246,
+      "transmission": "direct-text-with-excerpted-lacunae",
+      "reading_region": [
+        0,
+        0,
+        0.5,
+        1
+      ],
+      "admission": "candidate-reading-pending-collation"
+    },
+    {
+      "volume": 7,
+      "source": "dios-roman-history.-vol.-7-loeb-175",
+      "first_pdf_page": 6,
+      "last_pdf_page": 225,
+      "transmission": "direct-text-with-excerpts-and-summaries",
+      "reading_region": [
+        0,
+        0,
+        0.5,
+        1
+      ],
+      "admission": "candidate-reading-pending-collation"
+    },
+    {
+      "volume": 8,
+      "source": "dios-roman-history.-vol.-8-loeb-176",
+      "first_pdf_page": 6,
+      "last_pdf_page": 241,
+      "transmission": "mixed-excerpts-and-epitomes",
+      "reading_region": [
+        0,
+        0,
+        0.5,
+        1
+      ],
+      "admission": "candidate-reading-pending-collation"
+    },
+    {
+      "volume": 9,
+      "source": "dios-roman-history.-vol.-9-loeb-177",
+      "first_pdf_page": 6,
+      "last_pdf_page": 249,
+      "transmission": "mixed-excerpts-and-epitomes",
+      "reading_region": [
+        0,
+        0,
+        0.5,
+        1
+      ],
+      "admission": "candidate-reading-pending-collation"
+    }
+  ],
+  "sanity_pages": [
+    {
+      "volume": 1,
+      "pdf_page": 29
+    },
+    {
+      "volume": 2,
+      "pdf_page": 258
+    },
+    {
+      "volume": 6,
+      "pdf_page": 206
+    },
+    {
+      "volume": 7,
+      "pdf_page": 6
+    },
+    {
+      "volume": 8,
+      "pdf_page": 6
+    },
+    {
+      "volume": 9,
+      "pdf_page": 249
+    }
+  ],
+  "evidence": [
+    "Manual inspection of each first-publication and impression page, the opening and ending Greek panels for each selected range, and the transitions into indexes/advertisements. Each PDF image contains a Greek left panel and English right panel; only the left half is selected.",
+    "Volume VI PDF206 (printed 402) overlaps already served55.9.2–55.9.4; the existing text ends at βουληθεὶς δὲ δὴ τρόπον in the middle of that page. Retain this full prediction as a comparison witness and collate the common prefix before adding the missing continuation. Do not count the shared text twice.",
+    "Cary uses different display and marginal book numbering in later volumes. For example Volume VIII opens under Epitome of Book LXI while its margin reads LX 29, and IX has the same conflict. Preserve page-native edition references and displayed/marginal alternatives; do not force a blanket book offset.",
+    "Volumes I and II explicitly interleave Dio fragments with separately labeled Zonaras parallels. Those parallels are a comparison witness of Zonaras, not newly surviving direct Dio text. Preserve the original source labels and distinct transmission. The final volume II fragments of uncertain reference stay unassigned to a book.",
+    "Source Library OCR was examined as an alternate digital witness, not admitted blindly: its Greek Library pages retain some Greek apparatus and variants (VII s6,s107). Its Pappus Synagoge local002 is actually Lemmata in Conica; the Conica local002 repeats volumeII BookIV. These do not supply the missing Pappus/Conica books."
+  ],
+  "panel_routing": "Keep main Greek text and embedded attribution headings/credits; omit only the small apparatus below its short horizontal rule. On early volumes, a full-width rule separates Dio from the long Zonaras comparison panel: preserve both panels separately, do not discard the latter as a footnote.",
+  "status": "Reviewed OCR source selection; not a claim of served completion."
+}
