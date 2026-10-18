@@ -868,6 +868,9 @@ Source checks also found small-type critical notes appended to Qwen3.6's
 otherwise completed scans41,49,83,119,147,181,188,207. Their separately pinned two-column
 body requests exclude those notes and running headers with reviewed boundaries;
 the original notes remain evidence and the other checkpoint stays intact.
+Scan192 has a separate Qwen3.8 two-column request after source-confirmed omitted
+and reordered body passages together with appended apparatus; its Qwen3.6
+reading remains an independent witness.
 Later-gap scans381/384/388/397 have six-strip Qwen3.8 requests after confirmed
 repetition loops or length termination. The second part of scan113's right-first
 supplement has its own named two-part request after another confirmed stop loop;

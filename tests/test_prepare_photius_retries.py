@@ -148,3 +148,13 @@ def test_child_supplement_names_and_partitions_only_the_exact_looping_parent_par
     assert manifest["replacement_condition"]["most_repeated_phrase_occurrences"] == 8
     assert manifest["replacement_condition"]["most_repeated_line_occurrences"] == 3
     assert encode(manifest) == (ROOT / prepare.supplement_path(113, "right-first-part02")).read_bytes()
+
+
+def test_page192_coverage_omission_retries_only_the_affected_checkpoint():
+    manifest = build_retry(192)
+    assert manifest["checkpoints"] == [prepare.CHECKPOINT38]
+    assert [p["reading_order"] for p in manifest["pages"]] == [0, 1]
+    assert manifest["pages"][0]["region"] == [.045, .062, .495, .864]
+    assert manifest["pages"][1]["region"] == [.505, .062, .975, .864]
+    assert "omits and reorders" in manifest["review"]["failure"]
+    assert encode(manifest) == (ROOT / prepare.manifest_path(192)).read_bytes()
