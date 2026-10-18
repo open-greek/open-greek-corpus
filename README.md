@@ -1109,6 +1109,12 @@ checkpoint records and images, keeps every original vote and variant, and can
 restore the uncorrected merge. The initial `τριος` continues the preceding
 page's `μέ-`; it remains visible but is excluded from independent word counts,
 without inventing a joined spelling. This review adds no model vote.
+`prepare_dio_reviewed_inputs.py --raw-dir RETAINED_RETRIES` reproduces the
+completed recursive reviews from exact file hashes, preserving all failed
+ancestors and successful siblings. The admitted transmission labels also
+distinguish Cary VIII's epitome and excerpts from IX's mixed direct manuscript,
+excerpt and epitome material. That qualification is pinned to Cary I's source
+introduction; individual printed credits remain separate reference witnesses.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.

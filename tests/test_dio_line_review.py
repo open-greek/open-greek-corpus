@@ -55,3 +55,14 @@ def test_unrelated_line_remains_unchanged():
     raw, page, source, witnesses = fixture()
     assert review.reviewed_line(raw, {**page, "id": "another-page"}, source, witnesses,
         "data/changes/networks.gz") == (raw, None, None)
+
+
+def test_late_transmission_keeps_epitomes_distinct_from_direct_text():
+    from dio_transmission_reviews import reviewed_transmission, PINS
+    page = {"work": "cassius-dio.historiae-romanae", "source_volume": 8,
+        "transmission": "direct-text-with-excerpts-and-summaries"}
+    assert reviewed_transmission(page, {"sha256": PINS[8]})[0] == "epitome-and-excerpts"
+    assert reviewed_transmission({**page, "source_volume": 9}, {"sha256": PINS[9]})[0] == "mixed-direct-manuscript-excerpts-and-epitomes"
+    assert reviewed_transmission({**page, "admission": "comparative-paratext"}, {"sha256": PINS[8]}) is None
+    with pytest.raises(ValueError, match="transmission source changed"):
+        reviewed_transmission(page, {"sha256": "changed"})
