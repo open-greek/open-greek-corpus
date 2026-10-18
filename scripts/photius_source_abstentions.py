@@ -95,6 +95,19 @@ REVIEWED.update({'photius-bekker-0381-right-middle-part01-part01-gutter': {'clas
                                                                      'certify it as mark-complete.',
                                                            'text_sha256': '6895e2d3691d7307e73f08c608fc4109b5d8bb539b7f2e97121a83fdb57bba0e'}})
 
+REVIEWED.update({'photius-bekker-0381-right-lower-gutter': {'classification': 'source-confirmed-line-order-error',
+                                            'reason': 'The source has two short phrases at the opening of '
+                                                      'this body span. The current reading displaces them to '
+                                                      'its end (raw ending: ekdyn dote moi ten / Deixoi), '
+                                                      'leaving them in incorrect positions. Preserve the '
+                                                      'full raw alternative and every finite ancestor, but '
+                                                      'withhold this entire exact current leaf from reading '
+                                                      'and omission votes. The independent source reading '
+                                                      'retains its actual single-witness support; no manual '
+                                                      'word reordering or synthetic replacement is '
+                                                      'performed.',
+                                            'text_sha256': '1fc5abb15c9c45bf0e14b8a109c8ce16a8fca35edaa23a59b79436c97509447e'}})
+
 def sha(raw):
     return hashlib.sha256(raw).hexdigest()
 

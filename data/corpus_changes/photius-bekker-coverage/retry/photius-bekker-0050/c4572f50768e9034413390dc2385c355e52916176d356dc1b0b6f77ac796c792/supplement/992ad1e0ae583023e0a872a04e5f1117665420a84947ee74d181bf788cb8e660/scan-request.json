@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Replace only a failed retry strip within one model-family assembly; preserve all original and retry attempts and all successful sibling strips.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0050-retry.json",
+    "manifest_sha256": "619dc60561fe3a3664e06c698cc1a1e6825f71e04bc0f9edb29a38525b17f2eb",
+    "replaces_region": "photius-bekker-0050-left-lower",
+    "page_id": "photius-bekker-0050"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "review": {
+    "checked_scan_pages": [
+      50
+    ],
+    "accepted_for_primary_ingest": false,
+    "evidence": "The lower left body on printed page38 is faint. Its first enlarged retry still repeats text and reaches the output limit. Three shorter strips retain the same complete source lines: the.583 boundary falls after the line ending τὴν, and the.712 boundary follows the line ending ἐκκαίει. The final strip includes the paragraph beginning Δαρεῖος νοσήσας through the left-column foot. The union is exactly the reviewed failed lower-left crop; all other successful retry strips remain unchanged.",
+    "admission_policy": "Require exact failed parent-strip evidence and completed output-to-scan review. Assemble these parts once in place of that strip; retain successful siblings and one vote per model family."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0050-left-lower-part01",
+      "source": "photius-bekker-combined",
+      "scan_page": 50,
+      "printed_page": 38,
+      "region": [
+        0.045,
+        0.456,
+        0.495,
+        0.583
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 0,
+      "prompt_suffix": "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0050-left-lower-part02",
+      "source": "photius-bekker-combined",
+      "scan_page": 50,
+      "printed_page": 38,
+      "region": [
+        0.045,
+        0.583,
+        0.495,
+        0.712
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 1,
+      "prompt_suffix": "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0050-left-lower-part03",
+      "source": "photius-bekker-combined",
+      "scan_page": 50,
+      "printed_page": 38,
+      "region": [
+        0.045,
+        0.712,
+        0.495,
+        0.835
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 2,
+      "prompt_suffix": "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop."
+    }
+  ]
+}

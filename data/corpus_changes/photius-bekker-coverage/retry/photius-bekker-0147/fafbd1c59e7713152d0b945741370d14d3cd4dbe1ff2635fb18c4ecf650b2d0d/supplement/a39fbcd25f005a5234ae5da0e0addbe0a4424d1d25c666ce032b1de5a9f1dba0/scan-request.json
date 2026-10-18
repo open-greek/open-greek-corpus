@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Correct only explicitly reviewed column boundaries; retain every old attempt and successful sibling within one model-family assembly.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0147-qwen36-bc423b5d-gutter.json",
+    "manifest_sha256": "7da58e99466a233ae4363b298810d173326fe02d8454ad50c29435aacf1d0835",
+    "page_id": "photius-bekker-0147",
+    "replaces_regions": [
+      "photius-bekker-0147-left-body-gutter",
+      "photius-bekker-0147-right-body-gutter"
+    ]
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.6-27B",
+      "revision": "6a9e13bd6fc8f0983b9b99948120bc37f49c13e9"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "replacement_conditions": {
+    "photius-bekker-0147-left-body-gutter": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "7da58e99466a233ae4363b298810d173326fe02d8454ad50c29435aacf1d0835",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "48ddbd5cb66cf126a4be0bb1905506b6631838a2784c1f4a716cb7bd69c9980b",
+      "id": "photius-bekker-0147-left-body-gutter",
+      "original_region": [
+        0.017,
+        0.063,
+        0.476,
+        0.852
+      ],
+      "new_region": [
+        0.017,
+        0.063,
+        0.462,
+        0.852
+      ],
+      "raw_file_sha256": "b8973df06436b24b49b6418b2f24d76e6c954ceab3c153bf83517ca372acf0da",
+      "prediction_record_sha256": "3b4554936671c91011c0a495a0054fb2ab4cf472d3285a9e790c4b0cfbf703fb",
+      "raw_prediction_sha256": "ae73ba6d7bb5270942239aba21ca0ef38e5ce432bbc0d0629208e9119a9ae525",
+      "finish_reason": "stop"
+    },
+    "photius-bekker-0147-right-body-gutter": {
+      "kind": "source-confirmed-column-boundary-error",
+      "old_manifest_sha256": "7da58e99466a233ae4363b298810d173326fe02d8454ad50c29435aacf1d0835",
+      "source_pdf_sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "source_review_sha256": "48ddbd5cb66cf126a4be0bb1905506b6631838a2784c1f4a716cb7bd69c9980b",
+      "id": "photius-bekker-0147-right-body-gutter",
+      "original_region": [
+        0.48,
+        0.063,
+        0.975,
+        0.852
+      ],
+      "new_region": [
+        0.467,
+        0.063,
+        0.975,
+        0.852
+      ],
+      "raw_file_sha256": "b8973df06436b24b49b6418b2f24d76e6c954ceab3c153bf83517ca372acf0da",
+      "prediction_record_sha256": "d17f2113f76f7a89eb4d28347dc4cc58e56f2e210cd595530ea00c08e4347531",
+      "raw_prediction_sha256": "fce0c33969523c51121fc202325b8c42a05ed9d06a06f627483a02e92d0aba86",
+      "finish_reason": "stop"
+    }
+  },
+  "review": {
+    "accepted_for_primary_ingest": false,
+    "checked_scan_pages": [
+      147
+    ],
+    "source_authority": {
+      "path": "data/ocr_requests/photius-followup-gutter-source-review.json",
+      "sha256": "48ddbd5cb66cf126a4be0bb1905506b6631838a2784c1f4a716cb7bd69c9980b"
+    },
+    "evidence": "Independent full-height enlarged source review found remaining right initial-glyph clipping at .480 and neighboring-column initials inside the left crop ending .476. The revised .462/.467 gutter pair preserves every Greek ending and initial, including the lower Theisantes line. Marginal line numerals may occupy the gap; body and apparatus y boundaries remain unchanged.",
+    "admission_policy": "Require the exact old leaf, its immediate parent request, checkpoint, raw record, source PDF, reviewed old/new boxes, new image hash, and completed output-to-scan review. Preserve all original and retry text; no extra votes."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0147-left-body-gutter-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 147,
+      "printed_page": 135,
+      "region": [
+        0.017,
+        0.063,
+        0.462,
+        0.852
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 0,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0147-left-body-gutter"
+    },
+    {
+      "id": "photius-bekker-0147-right-body-gutter-gutter",
+      "source": "photius-bekker-combined",
+      "scan_page": 147,
+      "printed_page": 135,
+      "region": [
+        0.467,
+        0.063,
+        0.975,
+        0.852
+      ],
+      "max_side": 3600,
+      "role": "source-reviewed-column-boundary-retry",
+      "reading_order": 1,
+      "prompt_suffix": "Transcribe this complete source-reviewed Greek body span exactly once. Preserve all initial and final glyphs, polytonic accents, breathings, and headings. Omit marginal line numbers; do not repeat words, reconstruct text, or continue outside this crop.",
+      "replaces_region": "photius-bekker-0147-right-body-gutter"
+    }
+  ]
+}

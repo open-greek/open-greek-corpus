@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Replace only an exactly pinned source-confirmed stop-terminated repetition loop; retain every original and one vote per model family.",
+  "supplements": {
+    "manifest_path": "data/ocr_requests/photius-bekker-page0113-right-first-supplement.json",
+    "manifest_sha256": "06660d03a776238a496cd2c8278833d4f8243d41a8f06bb42c89a04ed6384122",
+    "replaces_region": "photius-bekker-0113-right-first-part02",
+    "page_id": "photius-bekker-0113"
+  },
+  "checkpoints": [
+    {
+      "model": "Qwen/Qwen3.8-27B-FP8",
+      "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
+    }
+  ],
+  "sources": {
+    "photius-bekker-combined": {
+      "url": "https://archive.org/download/bibliothecaexrec00photuoft/bibliothecaexrec00photuoft.pdf",
+      "sha256": "d7f4e5e1d2b9772a2cb5237c11ca53c91419e5a47ce92496cc8bd57f2340c4c6",
+      "edition": "Bekker 1824-1825, combined volumes",
+      "license": "public-domain",
+      "pdf_pages": 600,
+      "bibliographic_url": "https://archive.org/details/bibliothecaexrec00photuoft"
+    }
+  },
+  "prompt": "Transcribe the large Greek authorial text of this scanned page exactly,\npreserving its polytonic accents, breathings, punctuation, headings, and codex\nnumbers. Read a full-width paragraph before moving to two-column text; read\ntwo-column text down the left column and then down the right column. Omit the\nrunning page header, page number, marginal reference numbers, printer signatures,\nand the smaller critical apparatus at the foot of the page. Keep the Greek\nprefatory letter when present. Do not complete broken words, modernize spelling,\ncorrect the printed text, translate, or add explanations. Output only the\ntranscription, with paragraph and column boundaries as blank lines.",
+  "review": {
+    "checked_scan_pages": [
+      113
+    ],
+    "accepted_for_primary_ingest": false,
+    "evidence": "The Qwen3.8 second part of the right-first supplement on printed page101 still repeats ἡ δὲ ἡδὺς καὶ ἡδύποτος in an unprinted stop-terminated loop. Its eight-word window repeats8 times. The printed crop instead has distinct faint lexical lines. Two shorter crops exactly partition only that second part; the.16042 boundary falls in a source-checked blank interline gap. Preserve the failed original, both looping retry attempts, the two successful sibling supplement parts, and all other successful base strips; assemble one model-family vote.",
+    "admission_policy": "This explicit source-confirmed repetition exception applies only to the pinned checkpoint, parent strip, raw file, and prediction record. All other successful strips remain protected from replacement. Require a completed source line-coverage review of the shorter parts before admission."
+  },
+  "pages": [
+    {
+      "id": "photius-bekker-0113-right-first-part02-part01",
+      "source": "photius-bekker-combined",
+      "scan_page": 113,
+      "printed_page": 101,
+      "region": [
+        0.505,
+        0.126,
+        0.97,
+        0.16042
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 0,
+      "prompt_suffix": "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop."
+    },
+    {
+      "id": "photius-bekker-0113-right-first-part02-part02",
+      "source": "photius-bekker-combined",
+      "scan_page": 113,
+      "printed_page": 101,
+      "region": [
+        0.505,
+        0.16042,
+        0.97,
+        0.195
+      ],
+      "max_side": 3600,
+      "role": "reviewed-failed-strip-supplement",
+      "reading_order": 1,
+      "prompt_suffix": "This crop contains a short consecutive part of one Greek body column. Transcribe each complete line exactly once from left to right, then down. Do not repeat words, reconstruct missing text, or continue beyond the crop."
+    }
+  ],
+  "replacement_condition": {
+    "kind": "source-confirmed-repetition-loop",
+    "raw_file_sha256": "1e36e19d1360b9ac0040993520e33e0f93f075e4f20a5f0dccc7f2af5d8066d2",
+    "prediction_record_sha256": "3b1dcd5f8a3fe3e60f35069fe9feb816d64dfcc004bcb0581e3775bb88b3f72d",
+    "raw_prediction_sha256": "1920868a60de5eeead0af96734f3021d0061995e72d2ad8e954df259301a303c",
+    "finish_reason": "stop",
+    "greek_word_runs": 43,
+    "most_repeated_phrase_occurrences": 8,
+    "most_repeated_line_occurrences": 3,
+    "repetition_policy_sha256": "5c6cdf1c4f971f5ed7e650ad7f1699e5e437e039e52ec38bfba2427a3ee00c94"
+  }
+}
