@@ -288,8 +288,9 @@ def collate(manifest, inputs, allow_partial=False, network_path=None, digital=No
         source = manifest["sources"][page["source"]]
         from scan_title_reviews import reviewed_title
         from scan_fragment_reviews import reviewed_fragment
+        from scan_dio_line_reviews import reviewed_line
         reviews = []
-        for reviewer in (reviewed_title, reviewed_fragment):
+        for reviewer in (reviewed_title, reviewed_fragment, reviewed_line):
             arguments = (inputs,) if reviewer is reviewed_fragment else ()
             merged, raw_review, review = reviewer(merged, page, source, witnesses, network_path, *arguments)
             if raw_review is not None:
