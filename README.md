@@ -516,6 +516,17 @@ unfinished coverage work. The five findings also appear as open coverage work
 in `data/known_limitations.json`, separate from accepted quality limitations.
 Rebuild with `--first1k-dir` and `--perseus-dir`.
 
+Pappus's surviving First1K divisions now use printed Books II–V, and the
+First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
+records the scan-checked mapping and preserves every original destination in
+an explicitly named historical citation scheme in `data/citation_aliases.json`.
+The TEI ingester applies the same source-hash-guarded mapping; the audit can
+restore all original bytes with `--undo`. No Greek readings changed.
+Source and page manifests for the missing Pappus VI–VIII and Conica I–III are
+under `data/ingest_reviews/coverage/`. They identify the Greek leaves individually,
+including alternate scan leaves where a scan repeats earlier Pappus pages;
+they are OCR inputs, not assertions that new text has already been served.
+
 The Alexius Studites pilot compares the Greek text on all 15 printed pages
 28-42 of Ficker 1911. `scripts/ingest_greek_library_alexius.py` applies only the
 recorded letter correction, two page-boundary word joins, and removal of folio

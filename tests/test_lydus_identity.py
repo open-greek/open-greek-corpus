@@ -53,7 +53,8 @@ def test_undo_restores_every_original_byte_and_rejects_later_edits(tmp_path):
     snapshots = json.loads(gzip.decompress((audit_dir / "before.json.gz").read_bytes()))
     import repair_manetho_citations as manetho
     from migration_fixtures import copy_repair_state
-    copy_repair_state(ROOT, tmp_path, repair, [manetho])
+    import repair_mathematical_citations as mathematical
+    copy_repair_state(ROOT, tmp_path, repair, [mathematical, manetho])
     target = tmp_path / ("data/corpus/" + repair.NEW + ".jsonl")
     original = target.read_bytes()
     target.write_bytes(original + b"\n")
