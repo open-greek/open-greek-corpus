@@ -48,8 +48,45 @@ def vote_group(model):
     return f"qwen3.{match[1]}-{match[2]}b" if match else model
 
 
-def load_predictions(path, manifest_bytes, manifest, raw=None):
+def bundle_kind(raw):
+    try:
+        value = json.loads(raw)
+    except (ValueError, UnicodeDecodeError):
+        return None
+    return value.get("kind") if isinstance(value, dict) else None
+
+
+def prediction_bundle_audit(raw, manifest_bytes):
+    if bundle_kind(raw) == "scan-ocr-bundle":
+        from scan_ocr_bundle import load_bundle
+        return load_bundle(raw, manifest_bytes)[1]
+    if bundle_kind(raw) == "source-reviewed-mathematical-retry-bundle":
+        from mathematical_ocr_retries import describe_bundle
+        return describe_bundle(raw)
+    return None
+
+
+def load_predictions(path, manifest_bytes, manifest, raw=None, *, allow_failed_ids=frozenset()):
     raw = path.read_bytes() if raw is None else raw
+    kind = bundle_kind(raw)
+    if kind == "scan-ocr-bundle":
+        from scan_ocr_bundle import load_bundle
+        effective = {page["id"]: page for page in manifest["pages"]}
+        def load_leaf(original_raw, original_manifest_bytes):
+            original = json.loads(original_manifest_bytes)
+            # The bundle authority independently validates every change before
+            # a superseded prediction is held. Only those exact changed jobs
+            # may retain a failed attempt; eligible predictions remain strict.
+            changed = {page["id"] for page in original["pages"] if page["id"] in effective
+                and (page.get("region", [0, 0, 1, 1]) != effective[page["id"]].get("region", [0, 0, 1, 1])
+                     or page.get("prompt_suffix") != effective[page["id"]].get("prompt_suffix"))}
+            return load_predictions(None, original_manifest_bytes, original, original_raw,
+                                    allow_failed_ids=changed)[0]
+        return load_bundle(raw, manifest_bytes, load_leaf)[0], raw
+    if kind == "source-reviewed-mathematical-retry-bundle":
+        from mathematical_ocr_retries import load_bundle
+        return load_bundle(raw, manifest_bytes, manifest,
+            lambda value, request_raw, request: load_predictions(None, request_raw, request, value)[0])
     values = records(raw)
     if not values or set(values[0]) != {"_meta"}:
         raise ValueError("OCR output is missing its retained runtime metadata")
@@ -74,11 +111,11 @@ def load_predictions(path, manifest_bytes, manifest, raw=None):
         if (row.get("source"), row.get("scan_page"), row.get("region")) != (
                 page["source"], page["scan_page"], page.get("region", [0, 0, 1, 1])):
             raise ValueError("OCR prediction geometry differs from the reviewed region")
-        if row.get("error") or row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip():
+        if identifier not in allow_failed_ids and (row.get("error") or row.get("finish_reason") != "stop" or not row.get("raw_prediction", "").strip()):
             raise ValueError("Failed, empty or truncated OCR region cannot be admitted")
         result[identifier] = {"id": metadata["model"] + "@" + metadata["revision"],
             "model": metadata["model"], "revision": metadata["revision"],
-            "vote_group": vote_group(metadata["model"]), "text": row["raw_prediction"],
+            "vote_group": vote_group(metadata["model"]), "text": row.get("raw_prediction", ""),
             "artifact_sha256": sha(encoded({"metadata": metadata, "prediction": row})),
             "image_sha256": row["image_sha256"]}
     return result, raw
@@ -366,6 +403,9 @@ def apply(root, manifest_bytes, raw_inputs, primary, paratext, audits, networks,
     (archive / "changes.json").write_bytes(encoded({"schema_version": 1,
         "recorded_at": datetime.now(timezone.utc).isoformat(), "generator": "scripts/ingest_scan_coverage.py",
         "manifest_sha256": sha(manifest_bytes), "witness_sha256": [sha(raw) for raw in raw_inputs],
+        "input_bundles": [{"input_index": index, "sha256": sha(raw), "audit": value}
+            for index, raw in enumerate(raw_inputs, 1)
+            if (value := prediction_bundle_audit(raw, manifest_bytes)) is not None],
         "word_networks_sha256": sha(network_bytes),
         "before_archive_sha256": sha(before_bytes),
         "overlap_comparisons": {"path": str((archive / "overlap-comparisons.json.gz").relative_to(root)),
@@ -451,12 +491,15 @@ def verify_integrity(directory, root):
     before = json.loads(gzip.decompress(before_bytes))
     manifest = json.loads(manifest_bytes)
     pages = {page["id"]: page for page in manifest["pages"]}
-    groups, images = set(), {}
+    groups, images, bundle_audits = set(), {}, []
     for index, expected in enumerate(audit["witness_sha256"], 1):
         raw = gzip.decompress((directory / f"witness-{index}.jsonl.gz").read_bytes())
         if sha(raw) != expected:
             raise ValueError("Archived raw OCR witness changed")
         source, _ = load_predictions(None, manifest_bytes, manifest, raw)
+        bundle_audit = prediction_bundle_audit(raw, manifest_bytes)
+        if bundle_audit is not None:
+            bundle_audits.append({"input_index": index, "sha256": sha(raw), "audit": bundle_audit})
         if set(source) != set(pages):
             raise ValueError("An admitted OCR witness lacks reviewed scan regions")
         groups.update(value["vote_group"] for value in source.values())
@@ -464,6 +507,8 @@ def verify_integrity(directory, root):
             previous = images.setdefault(identity, value["image_sha256"])
             if previous != value["image_sha256"]:
                 raise ValueError("OCR witnesses describe different scan images")
+    if bundle_audits != audit.get("input_bundles", []):
+        raise ValueError("Archived OCR bundle decisions changed")
     if len(groups) < 2:
         raise ValueError("Two independent OCR model families are required")
     if {change["region_id"] for change in audit["changes"]} != set(pages):

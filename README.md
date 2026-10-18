@@ -900,6 +900,10 @@ printed lacuna-dot series once. Superseded predictions remain held evidence in
 `scan_ocr_bundle`; they cannot enter the replacement body vote. A separate
 one-region request retains the full-size comparative quotations below the rule
 on Cary IX printed page 470, with their Leo/Cedrenus and Petrus Patricius credits.
+The admission loader accepts self-contained scan bundles without rewriting any
+part's runtime metadata or artifact hash. The admission audit exposes every part
+and held prediction. Failed superseded attempts remain evidence; every eligible
+replacement still requires a complete successful prediction.
 The shared volume VI prefix is collated against existing 55.9.2–55.9.4 in a
 separate overlap audit; its original passages and references stay unchanged,
 and only the uniquely anchored missing continuation adds new corpus text.
