@@ -390,6 +390,14 @@ Mixed Greek/Latin or Greek/Cyrillic words remain whole opaque readings and
 stay outside lexical counts, including when multiple OCR witnesses agree on
 the same damaged spelling.
 
+The mathematical OCR review uses the frozen polytonic-loss detector without
+choosing a witness. Reproduce its 15 enlarged, source-inspected retry regions
+with `python3 scripts/prepare_mathematical_ocr_retries.py --predictions ORIGINAL36.jsonl --pdf-dir PDF_DIRECTORY`.
+The request pins the original complete 556-page run, the source PDFs, and the
+four pages with severe mark loss plus one page with apparatus leakage. Original
+predictions remain immutable; completed retry strips require a separate source
+review before they can replace the same model's input to a vote.
+
 Meibom's *Antiquae musicae auctores septem* (1652) is routed by the checked
 `data/source_layouts/meibom-1652.json` authority. Regenerate the layout and the
 historical 164-page OCR job list with
