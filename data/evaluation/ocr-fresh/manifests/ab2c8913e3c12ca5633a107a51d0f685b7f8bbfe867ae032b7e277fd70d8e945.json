@@ -1,0 +1,78 @@
+{
+ "schema_version": 1,
+ "purpose": "Independent retry after both original page81 witnesses lost printed polytonic marks; original attempts remain archived.",
+ "sources": {
+  "jahn1882": {
+   "url": "https://archive.org/download/demusicanuncpri00quingoog/demusicanuncpri00quingoog.pdf",
+   "sha256": "8ccfbe7e5c43dd4210235296fae29d2b8ffdce2f910e50a80c822e7eee5539c6",
+   "license": "PD (Jahn 1882)",
+   "citation": "Aristidis Quintiliani De musica libri III, edited by Albert Jahn (Berlin: Calvary, 1882)"
+  }
+ },
+ "retry_of": {
+  "path": "data/ingest_reviews/jahn-aristides-fresh-witnesses.json",
+  "sha256": "0690f8957ba18fae60c0f5936a8fd0be52653ed717be68c2697d088244a67859",
+  "region_id": "jahn-1882-0081-greek"
+ },
+ "review": {
+  "recorded_at": "2026-10-18",
+  "scan_page": 81,
+  "printed_page": 8,
+  "extent": "The complete Greek body and all three crop boundaries inspected against the source scan at fourfold PDF rendering.",
+  "finding": "Accents and breathings are visibly printed throughout, including the opening οἱ μὲν εἰσι. The original two whole-page predictions lose these marks. Three nonoverlapping strips retain every body line in reading order, exclude the running header and most marginal labels, and increase rendered letter size.",
+  "policy": "Retain original whole-page predictions and compare retry witnesses against the scan before admission; model retries do not create independent additional votes for the same model."
+ },
+ "pages": [
+  {
+   "id": "jahn-1882-0081-greek-retry-strip-1",
+   "source": "jahn1882",
+   "scan_page": 81,
+   "printed_page": 8,
+   "book": 1,
+   "region": [
+    0.19,
+    0.135,
+    0.86,
+    0.3965
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry",
+   "reading_order": 1,
+   "reconstructs": "jahn-1882-0081-greek"
+  },
+  {
+   "id": "jahn-1882-0081-greek-retry-strip-2",
+   "source": "jahn1882",
+   "scan_page": 81,
+   "printed_page": 8,
+   "book": 1,
+   "region": [
+    0.19,
+    0.3965,
+    0.86,
+    0.6333
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry",
+   "reading_order": 2,
+   "reconstructs": "jahn-1882-0081-greek"
+  },
+  {
+   "id": "jahn-1882-0081-greek-retry-strip-3",
+   "source": "jahn1882",
+   "scan_page": 81,
+   "printed_page": 8,
+   "book": 1,
+   "region": [
+    0.19,
+    0.6333,
+    0.86,
+    0.84
+   ],
+   "max_side": 3200,
+   "crop_evidence": "Reviewed whitespace between complete printed lines; body-only enlarged retry",
+   "reading_order": 3,
+   "reconstructs": "jahn-1882-0081-greek"
+  }
+ ]
+}
