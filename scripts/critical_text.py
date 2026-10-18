@@ -62,12 +62,14 @@ def index_metadata(manifest):
 
 def lexical_text(record):
     """Critical editions contribute only validated complete, certain tokens."""
+    if "analysis_text" in record:
+        if not isinstance(record["analysis_text"], str):
+            raise ValueError("Lexical projection must be a string")
+        return record["analysis_text"]
     if "critical_markup" in record:
         if record["critical_markup"].get("schema") != SCHEMA:
             raise ValueError("Unsupported critical-markup schema")
-        if "analysis_text" not in record:
-            raise ValueError("Critical text needs an explicit lexical projection")
-        return record["analysis_text"]
+        raise ValueError("Critical text needs an explicit lexical projection")
     return record.get("text", "")
 
 
