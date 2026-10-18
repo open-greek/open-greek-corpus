@@ -750,6 +750,8 @@ audit. The combined scan repeats printed pages 334-335 in place of 434-435;
 those genuine pages remain in historical keys 169-170 from the separate 1825
 volume. Coverage positions therefore describe the complete printed sequence,
 while physical citations retain their actual scan source and exceptions.
+The unchanged historical OCR can still contain Greek critical apparatus;
+complete edition-page coverage does not establish an apparatus-free text.
 
 Pappus's surviving First1K divisions now use printed Books II–V, and the
 First1K Conica sections use Book IV. `scripts/repair_mathematical_citations.py`
@@ -777,6 +779,10 @@ paratext. The 474 Acts and Romans rows formerly appended to John remain in
 `data/ocr_witnesses/cyril-pg74-other-works.jsonl`, with historical passage
 redirects and a reversible audit. The edition's Books VII and VIII are transmitted
 as fragments; this import does not reconstruct their lost continuous text.
+`--refresh-consensus` replays a reviewed collation-code change from the archived
+inputs, records previous and corrected readings, and refuses intervening edits
+to the owned text. It preserves later registry changes. `--undo` restores the
+original pre-admission files after subsequent changes are unapplied.
 
 `scripts/prepare_dio_ocr.py` selects 1,500 Greek regions from 1,217 physical
 spreads in Cary volumes I, II, and VI–IX for the missing transmitted Dio

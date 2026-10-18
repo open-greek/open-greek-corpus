@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from datetime import datetime, timezone
 import gzip
 import hashlib
 import json
@@ -325,14 +326,51 @@ def undo(root=ROOT):
             (root / path).write_text(text)
 
 
+def refresh_consensus(root=ROOT):
+    """Replay an unreleased collation change without overwriting later metadata."""
+    root = Path(root)
+    path = root / AUDIT / "changes.json"
+    audit = json.loads(path.read_text())
+    _, (generated, changes) = replay(root)
+    owned = (CORPUS, PARATEXT, WITNESS, NETWORKS)
+    for name in owned:
+        if sha((root / name).read_bytes()) != audit["outputs"][name]:
+            raise ValueError(f"Unreviewed Cyril output changed before consensus refresh: {name}")
+    if all((root / name).read_bytes() == generated[name] for name in owned):
+        return check(root)
+    previous = {item["destination"]["locus"]: item for item in audit["changes"]
+                if isinstance(item.get("original_text"), list)}
+    revisions = []
+    for item in changes:
+        old = previous.get(item["destination"]["locus"])
+        if old and any(old.get(key) != item.get(key) for key in ("corrected_text", "analysis_text")):
+            revisions.append({"locus": item["destination"]["locus"],
+                "original_text": old["corrected_text"], "corrected_text": item["corrected_text"],
+                "original_analysis_text": old.get("analysis_text"), "analysis_text": item.get("analysis_text")})
+    audit.setdefault("consensus_revisions", []).append({
+        "recorded_at": datetime.now(timezone.utc).isoformat(),
+        "source": "Printed terminal hyphens retained in the archived raw independent witnesses",
+        "evidence": "scripts/ocr_consensus.py preserves terminal hyphens and excludes source-page-end fragments from lexical counts; every earlier source reading remains archived.",
+        "previous_output_sha256": {name: audit["outputs"][name] for name in owned},
+        "changes": revisions,
+        "reversal": "The original pre-admission files remain in before.json.gz; --undo removes the entire collation. Previous unreleased consensus bytes are pinned in commit 1821e484."})
+    audit["changes"] = changes
+    audit["outputs"].update({name: sha(raw) for name, raw in generated.items()})
+    for name in owned:
+        (root / name).write_bytes(generated[name])
+    path.write_bytes(dump(audit))
+    return check(root)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     action = parser.add_mutually_exclusive_group(required=True)
-    for mode in ("apply", "check", "undo"):
+    for mode in ("apply", "check", "undo", "refresh-consensus"):
         action.add_argument("--" + mode, action="store_true")
     parser.add_argument("--source", type=Path)
     parser.add_argument("--fresh", type=Path, action="append", default=[])
     args = parser.parse_args()
-    result = apply(source=args.source, fresh_paths=args.fresh) if args.apply else check() if args.check else undo()
+    result = (apply(source=args.source, fresh_paths=args.fresh) if args.apply else check() if args.check
+              else refresh_consensus() if args.refresh_consensus else undo())
     if result:
         print(json.dumps(result["counts"]))

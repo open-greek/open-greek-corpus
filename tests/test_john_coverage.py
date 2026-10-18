@@ -90,6 +90,12 @@ def test_committed_coverage_replays_and_reverses_exact_bytes(tmp_path):
         assert (target.read_text() if target.exists() else None) == original
     repair.apply(tmp_path)
     repair.check(tmp_path)
+    repair.refresh_consensus(tmp_path)
+    assert (tmp_path / repair.CORPUS).read_bytes() == generated[repair.CORPUS]
+    (tmp_path / repair.CORPUS).write_bytes(generated[repair.CORPUS] + b"\n")
+    with pytest.raises(ValueError, match="Unreviewed Cyril output"):
+        repair.refresh_consensus(tmp_path)
+    (tmp_path / repair.CORPUS).write_bytes(generated[repair.CORPUS])
     registry = tmp_path / "data/source_registry.json"
     values = json.loads(registry.read_text())
     del values["works"][repair.SLUG]["coverage_composition"]
