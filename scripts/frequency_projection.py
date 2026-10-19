@@ -29,11 +29,15 @@ def projection_recipe_pins():
     """Pin the code that determines lexical eligibility, including imported layers."""
     scripts = Path(__file__).resolve().parent
     names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py",
-             "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py")
+             "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py",
+             "repair_photius_historical_readings.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("historical_reading_repair") or rec.get("historical_source_reconstruction"):
+        from repair_photius_historical_readings import validate_projection
+        validate_projection(rec)
     if rec.get("reading_repair") and rec.get("urn") == "photius.bibliotheca":
         from repair_photius_readings import validate_projection
         validate_projection(rec)

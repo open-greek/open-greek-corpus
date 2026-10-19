@@ -341,8 +341,15 @@ def build(root=ROOT, *, require_current=True):
 def check(root=ROOT):
     root = Path(root)
     artifacts, audit = build(root)
-    if any(not (root / p).exists() or (root / p).read_bytes() != raw for p, raw in artifacts.items()):
-        raise ValueError("A reading repair output differs from exact archived replay")
+    from repair_photius_historical_readings import restore_before_bytes as restore_historical
+    for path, expected in artifacts.items():
+        if not (root / path).exists():
+            raise ValueError("A reading repair output differs from exact archived replay")
+        current = (root / path).read_bytes()
+        if path == CORPUS:
+            current = restore_historical(current, root)
+        if current != expected:
+            raise ValueError("A reading repair output differs from exact archived replay")
     return audit
 
 
@@ -365,6 +372,8 @@ def validate_projection(row, root=ROOT):
 
 def restore_before_bytes(raw, root=ROOT):
     root = Path(root)
+    from repair_photius_historical_readings import restore_before_bytes as restore_historical
+    raw = restore_historical(raw, root)
     if not (root / AUDIT).exists():
         return raw
     audit = json.loads((root / AUDIT).read_bytes())

@@ -395,6 +395,8 @@ def _photius(root):
     editorial = active_metadata(root)
     from repair_photius_readings import active_metadata as reading_metadata
     readings = reading_metadata(root)
+    from repair_photius_historical_readings import active_metadata as historical_metadata
+    historical = historical_metadata(root)
     if (report["covered_authorial_scan_pages"] != 545 or report["added_passages"] != 309 or
             report["historical_body_passages"] != 3846 or report["preserved_index_passages"] != 501 or
             report["added_scan_ranges"] != [[13, 278], [379, 421]] or
@@ -436,6 +438,16 @@ def _photius(root):
         {"role": "fresh-scan-ocr-witnesses", "license": "CC-BY-4.0",
             "checkpoints": [{"model": model, "revision": revision} for model, revision in sorted(models)]}]
     editions = [merged, library]
+    if historical:
+        components[0]['passages'] -= historical['counts']['corrected_rows'] + historical['counts']['replaced_fragment_rows']
+        edition = _edition('bekker1825-reviewed-historical-readings', 'Bekker 1825, reviewed historical reading occurrences',
+            scheme='scan-page.historical-row', source=report['legacy_source']['url'], license='CC-BY-SA-4.0',
+            editor='Bekker, Immanuel', year=1825,
+            note='Exact scan-confirmed occurrences and a reconstructed physical epilogue with bounded Source Library corroboration. Other words in partially corrected historical passages remain unassessed; original rows and citations are reversible.')
+        editions.append(edition)
+        components.append({'edition': edition['key'], 'role': 'reviewed-historical-reading-occurrences',
+            'license': 'CC-BY-SA-4.0', 'passages': historical['counts']['corrected_rows'] + historical['counts']['reconstructed_regions'],
+            'source_library': source_library, **historical})
     if editorial:
         edition = _edition("bekker1825-reviewed-editorial-matter", "Bekker 1825, source-reviewed editorial matter",
             scheme="scan-page.historical-row", source=editorial["source"]["url"], license="PD",
@@ -499,6 +511,7 @@ def _photius(root):
         "source_scan_exceptions": report.get("source_scan_exceptions", []),
         **({"editorial_layer": editorial} if editorial else {}),
         **({"reading_layer": readings} if readings else {}),
+        **({"historical_reading_layer": historical} if historical else {}),
         "qualification": report["edition_scope"]}}}
 
 
