@@ -12862,9 +12862,15 @@
    "consensus": {
     "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
     "historical_occurrence_review": {
-     "corrected_occurrences": 469,
-     "partially_corrected_rows": 169,
-     "qualification": "Only the recorded occurrences are source reviewed. These rows remain outside the full word-consensus diagnostic."
+     "corrected_occurrences": 1212,
+     "fragment_occurrences": 28,
+     "later_batch_occurrences": 788,
+     "lexical_excluded_fragments": 28,
+     "partially_corrected_rows": 372,
+     "projection_only_occurrences": 18,
+     "qualification": "Only the recorded occurrences are source reviewed. These rows remain outside the full word-consensus diagnostic.",
+     "reviewed_occurrences": 1257,
+     "unresolved_occurrences": 27
     },
     "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
     "rows_with_counted_consensus": 320,
@@ -12879,12 +12885,12 @@
     }
    },
    "edition": "bekker1824-independent-ocr-consensus",
-   "n_surface_tokens": 432569,
-   "n_tokens": 302135,
-   "n_tokens_checked": 169520,
-   "n_unattested": 20273,
+   "n_surface_tokens": 432600,
+   "n_tokens": 302084,
+   "n_tokens_checked": 169542,
+   "n_unattested": 19896,
    "source": "ocr",
-   "unattested_rate": 0.119591,
+   "unattested_rate": 0.117351,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {
@@ -16510,7 +16516,6 @@
   "joannes-damascenus.de-sacris-jejuniis",
   "xenophanes.fragmenta-silli-et-de-natura",
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
-  "photius.bibliotheca",
   "theodoretus.interpretatio-in-ezechielem",
   "josephus-rhacendyta.synopsis-rhetorikes",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos",
@@ -16522,6 +16527,7 @@
   "athanasius-theology.homilia-de-semente-sp",
   "joannes-stobaeus-anthologus.anthologium",
   "gregorius-nyssenus.oratio-catechetica-magna",
+  "photius.bibliotheca",
   "theophylactus-achridensis.expositio-in-epistolam-ad-philemonem",
   "gregorius-corinthius.exegesis-in-peri-methodou-deinotetos",
   "basilius-theology.de-spiritu-sancto",

@@ -1002,6 +1002,24 @@ admission checks reverse only this verified layer in memory.
 `scripts/prepare_photius_historical_diagnostics.py --check` reproduces the
 diagnostic requests. Successful generation alone does not admit their output.
 
+Later occurrence reviews use append-only batches through
+`python3 scripts/repair_photius_historical_batches.py --apply`. Each batch
+freezes its source table, exact preceding corpus, original and corrected rows,
+scan regions and image hashes, bounded digital readings, and unresolved
+alternatives under `data/corpus_changes/photius-bekker-historical-batches/`.
+`--check` verifies the complete chain; `--undo` reverses the latest batch.
+Repeated undo restores the exact preceding release, and `--apply --batch ID`
+replays a saved batch in its original position. The earlier released review
+remains immutable. On printed pages 434–435, whose digital counterparts repeat
+unrelated pages, explicitly
+qualified direct scan observations retain contrary OCR readings in the audit.
+Source disagreement remains visible as alternatives. These reviews also
+restore the source-confirmed omitted line on printed page 271; they qualify
+recorded occurrences without certifying the surrounding rows as proofread.
+Reviewed source words divided across retained passage boundaries keep their visible
+fragments, with explicit qualification and lexical exclusions; matching a
+substring inside a digital word does not certify a complete word.
+
 `python3 scripts/assess_photius_historical.py --write` generates a separate
 diagnostic comparison of the retained historical rows with the matching digital
 sections; `--check` verifies it. It preserves exact Unicode offsets, all tied
@@ -3237,7 +3255,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 302,135 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 302,084 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |

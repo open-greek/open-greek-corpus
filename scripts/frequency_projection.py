@@ -30,11 +30,14 @@ def projection_recipe_pins():
     scripts = Path(__file__).resolve().parent
     names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py",
              "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py",
-             "repair_photius_historical_readings.py")
+             "repair_photius_historical_readings.py", "repair_photius_historical_batches.py", "ocr_consensus.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("historical_reading_batches"):
+        from repair_photius_historical_batches import validate_projection
+        validate_projection(rec)
     if rec.get("historical_reading_repair") or rec.get("historical_source_reconstruction"):
         from repair_photius_historical_readings import validate_projection
         validate_projection(rec)
@@ -108,6 +111,9 @@ class FrequencyProjection:
             return runs
         if rec.get("editorial_layer"):
             from repair_photius_apparatus import lexical_segments
+            return lexical_segments(rec)
+        if rec.get("historical_reading_batches"):
+            from repair_photius_historical_batches import lexical_segments
             return lexical_segments(rec)
         if rec.get("ocr_consensus"):
             if "slots" not in rec["ocr_consensus"]:

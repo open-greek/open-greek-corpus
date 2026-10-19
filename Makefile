@@ -83,12 +83,16 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/repair_photius_readings.py scripts/photius_reading_vote.py \
                     scripts/photius_body_vote.py \
                     scripts/repair_photius_historical_readings.py \
+                    scripts/repair_photius_historical_batches.py scripts/ocr_consensus.py \
+                    $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     scripts/repair_photius_apparatus.py \
     scripts/repair_photius_readings.py scripts/photius_reading_vote.py \
     scripts/photius_body_vote.py \
     scripts/repair_photius_historical_readings.py \
+    scripts/repair_photius_historical_batches.py \
+    $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
     $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
                data/corpus_changes/photius-bekker-coverage/coverage.json \
                data/corpus_changes/photius-bekker-apparatus/changes.json \
@@ -400,6 +404,7 @@ check:
 	$(PY) scripts/repair_photius_apparatus.py --check
 	$(PY) scripts/repair_photius_readings.py --check
 	$(PY) scripts/repair_photius_historical_readings.py --check
+	$(PY) scripts/repair_photius_historical_batches.py --check
 	$(PY) scripts/assess_photius_historical.py --check
 	$(PY) scripts/audit_photius_apparatus.py --check
 	$(PY) scripts/build_source_components.py --check

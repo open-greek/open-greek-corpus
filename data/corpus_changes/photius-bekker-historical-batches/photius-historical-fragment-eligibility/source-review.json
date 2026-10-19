@@ -1,0 +1,998 @@
+{
+  "schema_version": 1,
+  "schema": "photius-historical-batch-v1",
+  "work": "photius.bibliotheca",
+  "batch_id": "photius-historical-fragment-eligibility",
+  "reviewed_at": "2026-10-19T03:23:50Z",
+  "input_corpus_sha256": "8707f328036c358acb9af6a50fc13ea65fa68a3756a819467978c953d57ab51e",
+  "source_table": {
+    "path": "scripts/photius_historical_observations_fragments.py",
+    "sha256": "41e368629d1abb3f14c135b9fb773b1d255bdc9382e748aa10bf3e694d20f18a"
+  },
+  "sources": [
+    {
+      "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+    },
+    {
+      "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+      "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+    }
+  ],
+  "source_library_credit": {
+    "edition": "tlg4040.tlg001.local002",
+    "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+    "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+    "license": {
+      "text": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+    "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+    "api_notice_checked_date": "2026-10-18",
+    "separate_api_notice": {
+      "spdx": "CC-BY-SA-4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Source Library (https://sourcelibrary.org)",
+      "terms": "https://sourcelibrary.org/terms",
+      "original_texts": "public-domain",
+      "tdm_reservation": 1,
+      "tdm_policy": "https://sourcelibrary.org/licensing",
+      "ai_training": "reserved — standard license available, see tdm_policy"
+    }
+  },
+  "records": [
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.22",
+      "original_row_sha256": "9a45b7b6ecabdaf147644009621d727bf9a4c6eba8c44f232fe467132902265c",
+      "start": 48,
+      "end": 53,
+      "original_text": "παρα-",
+      "corrected_text": "παρα-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.05,
+          0.108,
+          0.415,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "6f39d431fc79fd24dd1017c1affc5b7c3c64044669a6810eefd5f0b15eb8ce00",
+        "observed_text": "παρα-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 5,
+          "text": "παρα-",
+          "qualification": "Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 1099,
+        "end": 1109,
+        "original_text": "παραφυάδας",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.23",
+      "original_row_sha256": "79ce61e7c89437bc72a31f6eaa3de98d7f0e8fff91350de323e553f962ee72ce",
+      "start": 0,
+      "end": 6,
+      "original_text": "φυάδας",
+      "corrected_text": "φυάδας",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.05,
+          0.108,
+          0.415,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "6f39d431fc79fd24dd1017c1affc5b7c3c64044669a6810eefd5f0b15eb8ce00",
+        "observed_text": "φυάδας",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 6,
+          "text": "φυάδας",
+          "qualification": "Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division παρα-/φυάδας across retained rows 0002.22–23. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 1099,
+        "end": 1109,
+        "original_text": "παραφυάδας",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.25",
+      "original_row_sha256": "80c803e9aec8db88eb3919a2c128420e77727c070468299284e437057c616b72",
+      "start": 43,
+      "end": 46,
+      "original_text": "κε-",
+      "corrected_text": "κε-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.05,
+          0.108,
+          0.415,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "6f39d431fc79fd24dd1017c1affc5b7c3c64044669a6810eefd5f0b15eb8ce00",
+        "observed_text": "κε-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 3,
+          "text": "κε-",
+          "qualification": "Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 1245,
+        "end": 1254,
+        "original_text": "κεχρῆσθαι",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.26",
+      "original_row_sha256": "1c2ca3615228ff70270b79ff6cc4702e5edf0aaec1883f5187da215bde9087bf",
+      "start": 0,
+      "end": 7,
+      "original_text": "χρῆσθαι",
+      "corrected_text": "χρῆσθαι",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.05,
+          0.108,
+          0.415,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "6f39d431fc79fd24dd1017c1affc5b7c3c64044669a6810eefd5f0b15eb8ce00",
+        "observed_text": "χρῆσθαι",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 7,
+          "text": "χρῆσθαι",
+          "qualification": "Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division κε-/χρῆσθαι across retained rows 0002.25–26. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 1245,
+        "end": 1254,
+        "original_text": "κεχρῆσθαι",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.50",
+      "original_row_sha256": "2c7587a244e60ec8e6137748bf71ad7845ac4484164e0f14816b90db02f0984b",
+      "start": 43,
+      "end": 47,
+      "original_text": "δια-",
+      "corrected_text": "δια-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.408,
+          0.108,
+          0.77,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "07f79b7b0a5cfe638abc928cd55797a9ffc3a9748304010786aa402eb38f08f9",
+        "observed_text": "δια-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 4,
+          "text": "δια-",
+          "qualification": "Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 2321,
+        "end": 2331,
+        "original_text": "διασώζουσα",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.51",
+      "original_row_sha256": "e7c2e812f96ae858864a4c62cc0291af3587a4b381b4f2c3b21bb3e67e72dadd",
+      "start": 0,
+      "end": 7,
+      "original_text": "σώζουσα",
+      "corrected_text": "σώζουσα",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.408,
+          0.108,
+          0.77,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "07f79b7b0a5cfe638abc928cd55797a9ffc3a9748304010786aa402eb38f08f9",
+        "observed_text": "σώζουσα",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 7,
+          "text": "σώζουσα",
+          "qualification": "Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δια-/σώζουσα across retained rows 0002.50–51. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 2321,
+        "end": 2331,
+        "original_text": "διασώζουσα",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.58",
+      "original_row_sha256": "739d8218acda94cbc8f4fe5233bee1ed41f5fa93b3a56e1b820f8dab8b7826ff",
+      "start": 45,
+      "end": 50,
+      "original_text": "δοξά-",
+      "corrected_text": "δοξά-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.408,
+          0.108,
+          0.77,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "07f79b7b0a5cfe638abc928cd55797a9ffc3a9748304010786aa402eb38f08f9",
+        "observed_text": "δοξά-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 5,
+          "text": "δοξά-",
+          "qualification": "Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 2716,
+        "end": 2726,
+        "original_text": "δοξάζουσιν",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0002.59",
+      "original_row_sha256": "95e1f46dc1aff0173a7f32e4ab33c8180511ff1bf4816a3124b960b62397cb45",
+      "start": 3,
+      "end": 9,
+      "original_text": "ζουσιν",
+      "corrected_text": "ζουσιν",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 2,
+        "printed_page": 267,
+        "region": [
+          0.408,
+          0.108,
+          0.77,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "07f79b7b0a5cfe638abc928cd55797a9ffc3a9748304010786aa402eb38f08f9",
+        "observed_text": "ζουσιν",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 6,
+          "text": "ζουσιν",
+          "qualification": "Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 2, printed page 267. Manual inspection confirms the printed division δοξά-/ζουσιν across retained rows 0002.58–59. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s279",
+        "start": 2716,
+        "end": 2726,
+        "original_text": "δοξάζουσιν",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0003.24",
+      "original_row_sha256": "aa625c3a13eca5b84b33f91ebf7a96c2a29864dd91e5c1f4346b528a7202a90c",
+      "start": 50,
+      "end": 54,
+      "original_text": "ταυ-",
+      "corrected_text": "ταυ-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 3,
+        "printed_page": 268,
+        "region": [
+          0.578,
+          0.108,
+          0.93,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "1f79b22268c2485d3f8d418415244aab692b790e044ff6c06f741830fa529d91",
+        "observed_text": "ταυ-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 4,
+          "text": "ταυ-",
+          "qualification": "Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s280",
+        "start": 3099,
+        "end": 3110,
+        "original_text": "ταυτοβουλίᾳ",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0003.25",
+      "original_row_sha256": "1e89bf518a765204985e9eda923b00ecaf5db1bb08bcc1c04657b414e3dd7cbc",
+      "start": 0,
+      "end": 8,
+      "original_text": "τοβουλίᾳ",
+      "corrected_text": "τοβουλίᾳ",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 3,
+        "printed_page": 268,
+        "region": [
+          0.578,
+          0.108,
+          0.93,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "1f79b22268c2485d3f8d418415244aab692b790e044ff6c06f741830fa529d91",
+        "observed_text": "τοβουλίᾳ",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 8,
+          "text": "τοβουλίᾳ",
+          "qualification": "Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division ταυ-/τοβουλίᾳ across retained rows 0003.24–25. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s280",
+        "start": 3099,
+        "end": 3110,
+        "original_text": "ταυτοβουλίᾳ",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0003.45",
+      "original_row_sha256": "2c083de64f6893a1f066becb31ab410308dbe9a9d7fe0653bd6885173ffc1ad7",
+      "start": 45,
+      "end": 48,
+      "original_text": "σο-",
+      "corrected_text": "σο-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 3,
+        "printed_page": 268,
+        "region": [
+          0.578,
+          0.108,
+          0.93,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "1f79b22268c2485d3f8d418415244aab692b790e044ff6c06f741830fa529d91",
+        "observed_text": "σο-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 3,
+          "text": "σο-",
+          "qualification": "Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s280",
+        "start": 4165,
+        "end": 4175,
+        "original_text": "σοφιστικῶς",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0003.46",
+      "original_row_sha256": "101048ec4ade8322520c1195b30869b3f2e6baa3e755047f9300696718f50064",
+      "start": 0,
+      "end": 8,
+      "original_text": "φιστικῶς",
+      "corrected_text": "φιστικῶς",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 3,
+        "printed_page": 268,
+        "region": [
+          0.578,
+          0.108,
+          0.93,
+          0.708
+        ],
+        "max_side": 3600,
+        "image_sha256": "1f79b22268c2485d3f8d418415244aab692b790e044ff6c06f741830fa529d91",
+        "observed_text": "φιστικῶς",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 8,
+          "text": "φιστικῶς",
+          "qualification": "Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 3, printed page 268. Manual inspection confirms the printed division σο-/φιστικῶς across retained rows 0003.45–46. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s280",
+        "start": 4165,
+        "end": 4175,
+        "original_text": "σοφιστικῶς",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0170.16",
+      "original_row_sha256": "8554d72aeb4fb2df7bf426fbed20ee883ffa7c8a7d5f9f8321c4b280da8acd9d",
+      "start": 0,
+      "end": 3,
+      "original_text": "τας",
+      "corrected_text": "τας",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 170,
+        "printed_page": 435,
+        "region": [
+          0.07,
+          0.108,
+          0.415,
+          0.685
+        ],
+        "max_side": 3600,
+        "image_sha256": "1e6d13da6c579b6955ec7ba714135e3e40fdbe3d60804f4c50bb2a429f8b5848",
+        "observed_text": "τας",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division τιμήσαν-/τας across retained rows 0170.15–16. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": true,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division τιμήσαν-/τας across retained rows 0170.15–16. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 3,
+          "text": "τας",
+          "qualification": "Manual inspection confirms the printed division τιμήσαν-/τας across retained rows 0170.15–16. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division τιμήσαν-/τας across retained rows 0170.15–16. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": null,
+      "qualification": "The mapped digital page repeats unrelated printed material. The source scan confirms this word division; no digital replacement or completion is selected.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0170.22",
+      "original_row_sha256": "a4c63e029a1f15f2e43e4e048e655217a744d22512e6d23f5435a4464417f9df",
+      "start": 0,
+      "end": 5,
+      "original_text": "τέρων",
+      "corrected_text": "τέρων",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 170,
+        "printed_page": 435,
+        "region": [
+          0.07,
+          0.108,
+          0.415,
+          0.685
+        ],
+        "max_side": 3600,
+        "image_sha256": "1e6d13da6c579b6955ec7ba714135e3e40fdbe3d60804f4c50bb2a429f8b5848",
+        "observed_text": "τέρων",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division ἀμφο-/τέρων across retained rows 0170.21–22. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": true,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division ἀμφο-/τέρων across retained rows 0170.21–22. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 5,
+          "text": "τέρων",
+          "qualification": "Manual inspection confirms the printed division ἀμφο-/τέρων across retained rows 0170.21–22. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division ἀμφο-/τέρων across retained rows 0170.21–22. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": null,
+      "qualification": "The mapped digital page repeats unrelated printed material. The source scan confirms this word division; no digital replacement or completion is selected.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0170.41",
+      "original_row_sha256": "c53b010161d46b40ad3ba2879d964fb2c06f774213c7990f4d286c6448365eda",
+      "start": 0,
+      "end": 5,
+      "original_text": "μηλος",
+      "corrected_text": "μηλος",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 170,
+        "printed_page": 435,
+        "region": [
+          0.42,
+          0.108,
+          0.77,
+          0.685
+        ],
+        "max_side": 3600,
+        "image_sha256": "5ba8c6cf8a4a1d537112bbd735bbd43bc74ff09b8997bcc36c24f27f042b4b7b",
+        "observed_text": "μηλος",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division Εὔ-/μηλος across retained rows 0170.40–41. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": true,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division Εὔ-/μηλος across retained rows 0170.40–41. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 5,
+          "text": "μηλος",
+          "qualification": "Manual inspection confirms the printed division Εὔ-/μηλος across retained rows 0170.40–41. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division Εὔ-/μηλος across retained rows 0170.40–41. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": null,
+      "qualification": "The mapped digital page repeats unrelated printed material. The source scan confirms this word division; no digital replacement or completion is selected.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0170.5",
+      "original_row_sha256": "c5228924f6f92c1b168913e234fb13d82d2e1c57b339ca28db772f7a9a9dd501",
+      "start": 0,
+      "end": 4,
+      "original_text": "λεῖν",
+      "corrected_text": "λεῖν",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 170,
+        "printed_page": 435,
+        "region": [
+          0.07,
+          0.108,
+          0.415,
+          0.685
+        ],
+        "max_side": 3600,
+        "image_sha256": "1e6d13da6c579b6955ec7ba714135e3e40fdbe3d60804f4c50bb2a429f8b5848",
+        "observed_text": "λεῖν",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division ἐγκα-/λεῖν across retained rows 0170.4–5. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": true,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division ἐγκα-/λεῖν across retained rows 0170.4–5. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 4,
+          "text": "λεῖν",
+          "qualification": "Manual inspection confirms the printed division ἐγκα-/λεῖν across retained rows 0170.4–5. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division ἐγκα-/λεῖν across retained rows 0170.4–5. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": null,
+      "qualification": "The mapped digital page repeats unrelated printed material. The source scan confirms this word division; no digital replacement or completion is selected.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0170.6",
+      "original_row_sha256": "a18ea028555a643684d04474ef5bccf9e86627efd2a978cb4ef88fba791d45df",
+      "start": 0,
+      "end": 3,
+      "original_text": "τὸς",
+      "corrected_text": "τὸς",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 170,
+        "printed_page": 435,
+        "region": [
+          0.07,
+          0.108,
+          0.415,
+          0.685
+        ],
+        "max_side": 3600,
+        "image_sha256": "1e6d13da6c579b6955ec7ba714135e3e40fdbe3d60804f4c50bb2a429f8b5848",
+        "observed_text": "τὸς",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division αὐ-/τὸς across retained rows 0170.5–6. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": true,
+      "source_fragment": {
+        "leading": true,
+        "qualification": "Manual inspection confirms the printed division αὐ-/τὸς across retained rows 0170.5–6. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "leading",
+          "start": 0,
+          "end": 3,
+          "text": "τὸς",
+          "qualification": "Manual inspection confirms the printed division αὐ-/τὸς across retained rows 0170.5–6. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 170, printed page 435. Manual inspection confirms the printed division αὐ-/τὸς across retained rows 0170.5–6. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": null,
+      "qualification": "The mapped digital page repeats unrelated printed material. The source scan confirms this word division; no digital replacement or completion is selected.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    },
+    {
+      "locus": "helladius_chrestomathia_photius_bekker_v2_0231.2",
+      "original_row_sha256": "f7f335157b8023967d14c23e2b0d8936859a60db95b9f03923efba648adff7d3",
+      "start": 92,
+      "end": 96,
+      "original_text": "γνη-",
+      "corrected_text": "γνη-",
+      "source": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "scan_page": 231,
+        "printed_page": 496,
+        "region": [
+          0.23,
+          0.6,
+          0.585,
+          0.7
+        ],
+        "max_side": 3600,
+        "image_sha256": "a2454975008ac43e4721af96ed2e8a56ab954073bd3b50fefe207a43f9e44853",
+        "observed_text": "γνη-",
+        "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 231, printed page 496. Manual inspection confirms the printed division γνη-/σίους across retained rows 0231.2–3. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "digital_counterpart": null,
+      "scan_only": false,
+      "source_fragment": {
+        "trailing": true,
+        "qualification": "Manual inspection confirms the printed division γνη-/σίους across retained rows 0231.2–3. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes."
+      },
+      "source_fragments": [
+        {
+          "side": "trailing",
+          "start": 0,
+          "end": 4,
+          "text": "γνη-",
+          "qualification": "Manual inspection confirms the printed division γνη-/σίους across retained rows 0231.2–3. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "evidence": "Manual inspection of the pinned Bekker volume II scan, physical page 231, printed page 496. Manual inspection confirms the printed division γνη-/σίους across retained rows 0231.2–3. This exact visible fragment is an incomplete word and remains unchanged; only its lexical eligibility changes.",
+          "classification": "source-confirmed-word-fragment",
+          "basis": "explicit-source-qualification"
+        }
+      ],
+      "projection_only": true,
+      "digital_context": {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s508",
+        "start": 1986,
+        "end": 1994,
+        "original_text": "γνησίους",
+        "role": "nonvoting-source-context"
+      },
+      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed.",
+      "raw_witnesses": [],
+      "reviewed_at": "2026-10-19T03:23:50Z"
+    }
+  ],
+  "held_source_observations": [],
+  "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed."
+}

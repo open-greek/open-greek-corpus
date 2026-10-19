@@ -224,13 +224,18 @@ def build(root=ROOT, *, require_current=True):
 
 def check(root=ROOT):
     root = Path(root); artifacts, audit = build(root)
-    if any(not (root / p).exists() or (root / p).read_bytes() != raw for p, raw in artifacts.items()):
+    from repair_photius_historical_batches import restore_before_bytes as restore_batches
+    if any(not (root / p).exists() or
+           (restore_batches((root / p).read_bytes(), root) if p == CORPUS else (root / p).read_bytes()) != raw
+           for p, raw in artifacts.items()):
         raise ValueError('Historical occurrence outputs differ from exact replay')
     return audit
 
 
 def restore_before_bytes(raw, root=ROOT):
     root = Path(root)
+    from repair_photius_historical_batches import restore_before_bytes as restore_batches
+    raw = restore_batches(raw, root)
     if not (root / AUDIT).exists() or sha(raw) == BASE_SHA:
         return raw
     artifacts, _ = build(root)
@@ -260,6 +265,9 @@ def _projection_pins(raw):
 
 
 def validate_projection(row, root=ROOT):
+    if row.get('historical_reading_batches'):
+        from repair_photius_historical_batches import restore_before_row
+        row = restore_before_row(row, root)
     root = Path(root); audit = json.loads((root / AUDIT).read_bytes()); raw = (root / RECORDS).read_bytes()
     if (audit.get('schema') != SCHEMA or sha(raw) != audit['outputs'][RECORDS.as_posix()]
             or _projection_pins(raw).get(row.get('locus')) != row_sha(row)):
