@@ -267,6 +267,27 @@ def test_photius_retains_licensed_voting_component_and_pd_body_idempotently(tmp_
     assert output.read_bytes() == before
 
 
+def test_photius_reading_repairs_keep_recovery_and_editorial_credits(tmp_path, monkeypatch):
+    import repair_photius_readings
+    slug = photius_fixture(tmp_path)
+    metadata = {"source_review": {"path": "data/review.json", "sha256": "review"},
+        "counts": {"editorial_spans": 3}, "networks": {"path": "data/network.json.gz"},
+        "paratext": {"path": "data/notes.jsonl"}, "body_recovery": {
+            "counts": {"added_rows": 7, "replaced_rows": 1},
+            "logical_coverage_positions": {"photius_bekker1825_recovery_0066.left": 343},
+            "source_library_credit": {"license": "CC-BY-SA-4.0", "separate_api_notice": {"tdm_reservation": 1}}}}
+    monkeypatch.setattr(repair_photius_readings, "active_metadata", lambda root: metadata)
+    value = reviewed._photius(tmp_path)[slug]
+    components = value["coverage_composition"]["components"]
+    assert components[0]["passages"] == 3845
+    recovered = next(c for c in components if c["role"] == "recovered-historical-body-regions")
+    assert recovered["passages"] == 8 and recovered["license"] == "CC-BY-SA-4.0"
+    assert recovered["source_library_credit"]["separate_api_notice"]["tdm_reservation"] == 1
+    notes = next(c for c in components if c["role"] == "fresh-witness-editorial-paratext")
+    assert notes["passages"] == 3
+    assert value["coverage_composition"]["reading_layer"] == metadata
+
+
 def test_dio_digital_participation_preserves_licensed_credits_and_raw_source_hash(tmp_path):
     slug = "cassius-dio.historiae-romanae"
     scan_fixture(tmp_path, slug)

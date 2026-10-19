@@ -1,0 +1,729 @@
+{
+  "schema_version": 1,
+  "kind": "source-reviewed-missing-photius-body",
+  "work": "photius.bibliotheca",
+  "reviewed_at": "2026-10-18",
+  "source_scan": {
+    "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+    "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+    "edition": "Bekker1825, original second volume",
+    "license": "PD"
+  },
+  "scope": "Six additional source-confirmed omissions on legacy physical pages79,90,100,148,154,189. These requests are independent of the frozen physical66/73 pilot and full request; no corpus text is changed.",
+  "geometry_policy": "Each reviewed rectangle is partitioned once into contiguous nonoverlapping strips. Every crop edge has been checked against complete source lines. Page148 deliberately includes two complete contextual lines, explicitly held as overlap until a later audited admission. Running headers and smaller apparatus remain outside all regions.",
+  "transcription_convention": "Printed Greek ligatures may be rendered as constituent Greek letters. Abbreviations and split words must remain literal; no unprinted completion or spelling modernization is authorized.",
+  "source_library_credit": {
+    "edition": "tlg4040.tlg001.local002",
+    "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+    "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+    "license": {
+      "text": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+    "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+    "api_notice_checked_date": "2026-10-18",
+    "separate_api_notice": {
+      "spdx": "CC-BY-SA-4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Source Library (https://sourcelibrary.org)",
+      "terms": "https://sourcelibrary.org/terms",
+      "original_texts": "public-domain",
+      "tdm_reservation": 1,
+      "tdm_policy": "https://sourcelibrary.org/licensing",
+      "ai_training": "reserved — standard license available, see tdm_policy"
+    },
+    "attribution": "The Source Library",
+    "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030."
+  },
+  "regions": [
+    {
+      "id": "photius-bekker-legacy-0079-left",
+      "scan_page": 79,
+      "printed_page": 344,
+      "source": "photius-bekker-legacy",
+      "column": "left",
+      "region": [
+        0.21,
+        0.105,
+        0.57,
+        0.674
+      ],
+      "strip_regions": [
+        [
+          0.21,
+          0.105,
+          0.57,
+          0.34775
+        ],
+        [
+          0.21,
+          0.34775,
+          0.57,
+          0.488
+        ],
+        [
+          0.21,
+          0.488,
+          0.57,
+          0.6285
+        ],
+        [
+          0.21,
+          0.6285,
+          0.57,
+          0.674
+        ]
+      ],
+      "start_evidence": "The complete missing left column starts καίτοι and continues the preceding physical page78 paragraph.",
+      "end_evidence": "The left column ends ὅσα ἀφανῆ, before the existing right column's καὶ νοητὰ. The crop ends above the smaller apparatus.",
+      "evidence": "The immutable page79 body contains only the right column. All complete left-column lines must be recovered; the marginal reference numbers are not authorial words.",
+      "legacy_action": {
+        "kind": "insert-before",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0079.1"
+      },
+      "legacy_anchors": [
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0078.40",
+          "row_sha256": "dbe3c4b214f0928de76b15fde741aa9078edd00b6062b8624d017a3471b6b9ca",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0078.40",
+            "source": "ocr",
+            "license": "PD",
+            "text": "τέλλουσαν ἐθώμαστο τὴν σελήνην· ὅτι πανεληγον ὅσον."
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0079.1",
+          "row_sha256": "09807c8fc6c104d1b80fda32bb41d1e637eb97850f3ce7dd29aad0d86a29d5d1",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0079.1",
+            "source": "ocr",
+            "license": "PD",
+            "text": "καὶ νοῦτὶ ἡ τῆς Πλάτωνος ἐξαίρετα διανοίας. πρὸς δὲ τὴν Ὀρφικὴν τε καὶ Χαλδαϊκὴν τὴν ὑψηλοτέραν σοφίαν, ἡ τὸν κοινὸν φιλοσοφίας νοῦν ἐπερωτῆσαν, ἵτι μᾶλλον ἐλείπετο. πρὸς δὲ φυσιολογίας τὸν καθ’ ἑαυτὸν πάντων ἦν ἐφθονευτέατος ὡσαύτως ἡ τοῖς μαθήμασιν, ἀφ’ ὧν ἡ ἐπὶ τὰ ἄλλα τὸ μέγε τῆς φέσεως ἀπεργάσατο κιλός. ἐν τοῖς περὶ ἑαυτὸν δὲ ἡ ἀρετῶν αὐτὶ τι καινουργεῖν ἐπεχείρει, καὶ πρὸς τὰ κάτω ἡ τὰ φαινόμενα ἀσκήσας τὴν θεωρίαν, οὐδὲν μὲν (ὡς ἔπος εἰπεῖν) τῶν ἀρχαίων νοημάτων ἀποσκοπούμενος, πάντα δὲ συνωθῶν ἡ κατευγὼν εἰς τήνδε τὴν θέσιν τὴν περιεσάμιον. ὅτι εὐχέστατος ὁ Ἀσκληπιόδοτος περὶ μουσικὴν γεγονώς, τὸ ἐναρμόνιον γένος ἀπολυλὸς ἔχ οἷατε ἐγένετο ἀναλυσαώς, καίτοι τὰλλα δύο γένε κατατεμὼν καὶ ἀνακερασάμενος, τὸ τε χρωματικὸν ὀνομαζόμενον καὶ τὸ διατονικόν. τὸ δὲ ἐναρμόνιον οὐχ εἶρε, καίτοι μεγάλως, ὡς ἔλεγον, ὑπαλλάξας ἡ μεταθεὶς οὐκ ἥλαττε εἰκοῦ ἡ διανοοῦν.  δὲ τῆς μὴ εὑρίσκους τὸ ἐλάχιστον μέρος τῶν ἐναρμόνιον διαστημάτων, ὅπερ δίεσιν ὀνομάζουσι. τοῦτο δὴ ἀπολυλὸς ἐκ τῆς ἑρμείας αὐτῆς τῆς ἡ τὸ ἄλλο γένος τὸ ἐναρμόνιον προσαυξίλευσεν. ὅτι Ἰακώβῳ ἡ κατὰ τὴν Ἰατρικὴν μαθητευθεὶς ὁ Ἀσκληπιόδοτος, ἡ κατ’ ἴχνη βαίνων ἐκεῖνα, ἔσιν ὡς ἡ ὑπερεβάλλετο. ἡ καὶ τοῦ λεκτοῦ Ἀλλιβίου πλάσι τὴν χρείαν ἀπολυλῶν καὶ μεθ’ Ἰακώβῳ ἀνασχοῦσιν αὐτὸς ἀνεκαίνισε, ἡ δὲ αὐτοῦ ἀνῆλθε νέους παραδόξως ἐξαισατο. ὅτι ὁ Ἀσκληπιόδοτος τῶν μὲν νεωτέρων ἰατρῶν τῶν Ἰακώβων μόνον ἀπεδέχετο, τῶν δὲ προαβτέρων μετὰ τὸν Ἱπποκράτην Σωφρονὸν τὸν Κιλίκιον τὸν Μαλεώτην. τοιγάρτοι καὶ ἀπετέλεσεν ὁ Ἀσκληπιόδοτος τὴν Δαμιανὴν αἰδημονεύτην ἡ παρίλογον οἴαν, τὴν ἑαυτοῦ γαμετὴν, ὑψηλόφρονα καὶ ἀνδρόβολον εἰς οἰκοτροφίαν, ὥσπερ σώφρονα καὶ ἄθρυπτον εἰς ἀσμβίωσιν. ὅτι ἐν Ἱεραπόλει τῆς Φρυγίας ἱερὸν ἦν Ἀπόλλωνος, ἵπὸ δὲ τῶν ναῶν καταμύων ἐλκευτο Θαλασσίμς ἀναπνοὰς παρεχόμενον. τοῦτον τῶν βιῶθων οὐδ’ ἄνθρωπὸν ἦν “ἀκίνδυνον οὐδὲ τοῖς πτηνοῖς τῶν ζῴων διελθεῖν, ἀλλ’ ὅου κατ’ αὐτὸν γίνετ, ἀνῴλλυνται. τοῖς δὲ τετελεσμένοις, ὅσοι, δυνατὸν ἦν",
+            "corrections": [
+              "collation",
+              "freq"
+            ]
+          }
+        }
+      ],
+      "leading_source_fragment": null,
+      "trailing_source_fragment": null,
+      "source_library_window": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s356",
+        "section_sha256": "3ab167810d46ef7f34f2c0486d27b8694fc0eff89a38d9057b662eb518f65070",
+        "start": 0,
+        "end": 1932,
+        "original_text": "καίτοι ἐκ ἦν ἐν τῷ διαμετροῦντι ζῳδίῳ τὸν ἥλιον. ἀλλὰ δὴ κἀ τοῦτο τὸ ἄγαλμα καθεῖλεν ἡ πάντα τὰ ἀρχαῖα καθελοῦσα ἀνάγκη. Ἀλεξανδρεὺς ἦν τὸ γένος, ἐκ ἐπιφανῶν γονέων τὰ ἀπὸ τῆς τύχης, ἐπιεικῶν δὲ ἄλλως καὶ ἱερῶν. ὅτι περὶ Ἰακώβου τοῦ ἰατροῦ, ὃς ἐγγὺς μὲν τὸ γένος Ἀλεξανδρεὺς ἦν, ποῤῥώτερον δ’ ἐκ Δαμασκοῦ, υἱὸς δ’ ἰατροῦ μ’ ἔτη τῇ πείρᾳ χολάσαντος καὶ μικροῦ τὴν οἰκουμένην ἐπὶ γυμνασίᾳ καὶ κρίσει τῆς τέχνης ἐπελθόντος, ὃς κ’ Ἰάκωβον τὴν ἰατρικὴν τὸν παῖδα ἐπὶ ἔτη τὰ ἴσα ἐδιδάξατο. περὶ τοίνυν τοῦδε τοῦ Ἰακώβ, ὥσπερ κ’ ἄλλοι, πολλὰ παράδοξα λέγει, καὶ ὡς ἀκούσας γυναῖκα πταρεῖσαν ἀθροώτερον πάντας ἀποβαλεῖν τὲς ὀδόντας, ἐκ τούτου μόνου τοῦ συμβεβηκότος ἀνειπεῖν τὰ περὶ τῆς γυναικὸς ἅπαντα, εἶδός τε κ’ χρῶμα σώματος καὶ μέγεθος κ’ τῆς ψυχῆς ὅσα φυσικώτερα τῶν ἠθῶν. ὅτι ὁ τὲ Ἰακώβῳ πατὴρ μετὰ τὴν πολλὴν τῆς οἰκουμένης πλάνην ἦλθε καὶ εἰς τὸ Βυζάντιον, φησί, καὶ τὲς ἐνταῦθα κατέλαβεν ἰατροὺς οὐδὲν ἄρα τῆς τέχνης ἐπισαμένως ἀκριβὲς ἐδὲ αὐτόπειρον, ἀλλὰ ἀπὸ τῶν ἀλλοτρίων δοξασμάτων ϑεραπεύοντας ἀλλὰ φλυαροῦντας. (ἄμφω δέ, κ’ ὁ παῖς καὶ ὁ φύς, ἀσεβεῖ ἤστην.) ὅτι ἐχρῶντο κατὰ τῶν νόσων ἔτοι καθαρσίοις πολλοῖς καὶ βαλανείοις, χειροργεῖν δὲ σιδήρῳ κ’ πυρὶ οὐ λίαν ἦσαν ἕτοιμοι, ἀλλὰ κ’ τὰ μοχϑηρότερα τῶν ἑλκῶν διαίτῃ κατηγωνίζοντο· φλεβοτομίαν δ’ ἐ προσίετο. ἔπειθεν ὁ Ἰάκωβος τὲς πλεσίας ἰατρεύων βοηϑεῖν τῇ νόσῳ “πενίᾳ,” κ’ αὐτὸς προῖκα ἰάτρευε, τῷ δημοσίῳ μόνῳ ἀρκέμενος σιτηρεσίῳ. ὅτι φησὶν ὁ συγγραφεύς, Εἶδον εἰκόνα τὲ Ἰακώβῳ Ἀϑήνησι, καί μοι ἔδοξεν ὁ ἀνὴρ εὐφυὴς μὲν ἐ πάνυ εἶναι, σεμνὸς δὲ κ’ ἐμβριϑής. οὗτος δὲ ὁ Ἰάκωβος Πρόκλῳ νοσοῦντι, ἐν Ἀϑήναις διατρίβων καὶ ϑαυμαζόμενος, προσέταξεν ἀπέχεσϑαι μὲν κράμβης, ἐμφορεῖσϑαι δὲ τῶν λαχάνων· ὁ δὲ κατὰ τὸν Πυϑαγόρειον νόμον ἐκ ἠνέχετο μαλάχην ἐσϑίειν. ἦν δὲ ὁ Ἀσκληπιόδοτος οὐχ ὁλόκληρος τὴν εὐφυΐαν, ὡς τοῖς πλείστοις ἔδοξε τῶν ἀνϑρώπων, ἀλλ’ ἀπορεῖν μὲν ὀξύτατος, συνείναι δὲ οὐ λίαν ἀγχίνες οὐδὲ αὐτὸς ἑαυτῷ ὅμοιος, ἄλλως τε καὶ τὰ ϑειότερα τῶν πραγμάτων, ὅσα ἀφανῆ ",
+        "held_spans": [],
+        "role": "Comparison witness only pending completed independent scan readings and exact source review.",
+        "page_label_qualification": "Source Library s356 matches legacy physical PDF79/printed344; its label is not the legacy PDF page number."
+      }
+    },
+    {
+      "id": "photius-bekker-legacy-0090-right",
+      "scan_page": 90,
+      "printed_page": 355,
+      "source": "photius-bekker-legacy",
+      "column": "right",
+      "region": [
+        0.425,
+        0.11,
+        0.785,
+        0.695
+      ],
+      "strip_regions": [
+        [
+          0.425,
+          0.11,
+          0.785,
+          0.233
+        ],
+        [
+          0.425,
+          0.233,
+          0.785,
+          0.3481
+        ],
+        [
+          0.425,
+          0.3481,
+          0.785,
+          0.477
+        ],
+        [
+          0.425,
+          0.477,
+          0.785,
+          0.605
+        ],
+        [
+          0.425,
+          0.605,
+          0.785,
+          0.695
+        ]
+      ],
+      "start_evidence": "The first source token continues the divided κινδυ- at the end of the existing left-column row. Preserve only the visible continuation; comparison begins with the following complete ἐδαπάνων.",
+      "end_evidence": "The last large body line ends εἰκῇ φερο-. Preserve that printed fragment, omit every smaller apparatus line below, and do not complete the word from the following page or the digital edition.",
+      "evidence": "The single immutable page90 body row covers only the left column. Keep the authorial subsection title, ἐκ τῆς θεωρίας, ἐξ αὐτῆς τῆς μελέτης and τὸ προοίμιον within the missing right column.",
+      "legacy_action": {
+        "kind": "insert-after",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0090.1"
+      },
+      "legacy_anchors": [
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0090.1",
+          "row_sha256": "8bef8d0adb7f9fdb7224697a6023a4c1d389f09946b9cd8ff2c2512a8192633d",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0090.1",
+            "source": "ocr",
+            "license": "PD",
+            "text": "ἀνταῖλες. παρεχωρήσαμεν τῷ πατρὶ ῥήματος· ἂν ἠγανάκτησας. ἐκ εἴσε μετὰ Σικελῶν Λακεδαιμονίοις ἡ πόλις· ἀλλ’ ἡ μὲν τῆσος τὴν ἡλικίαν ἤδη ἐχώρησεν, ἡ πόλις δὲ ἔμεινε τῷ φρονήματι καὶ μετὰ τὴν ἐσπέραν ἀνύλοςτος. ἀλλὰ πονηρὸς Αἰγίνης, προὼν, εἰ βούλει, καὶ Φωκίων ἄλεφρον καὶ προδοσίαν Θράκης καὶ ἀναίρεσιν Κιρσοβλέπτον καὶ πάνθ’ ὅσα πολλάκις Αἰγίνης ἀδικῶν τὸν δῆμον ἐγκέλασεν. νόσημα γάρ, ὦ Ἀθηναῖοι, κατὰ τῶν Ἑλλήνων τῇ φορᾷ τῶν Ἀθηναίων συνήχισται. πονηρὸς μὲν γ’ ἡ πόλις ἦδε, πα πολλάκις ἔσωσεν, ἂν ἐπανθῆσα τὴν γνώμην, ἀλλὰ τὴν τέχνην οἰκτείρουσα· ἐπίκρεσι δὲ οὐδενὶ κατὰ τῶν νόμων, τρίτα ἐστὶν τὸ φρόνημα. τί δὲ ἐκ ἰδὴ προαγγέλλω; τί δὲ ἂν ἐξω τῷ βίῳ, πρὶν ἰδεῖν τὴν πόλιν δελεάζουσαν; ἐγὼ γὰν κ’ αὐτὸς ἠξίουν τὴν γῆμην ἔχειν, οὐχ ὅτω δ’ ἔχων ὡς τετραυματοῖ τινες, σκοπῶν πρῶτον μὲν ὡς Ἀθηναῖοι τὸν Ἀλεξάνδρον τρόπων. τίς δὲ οὗτος ἐστιν; ὅμω τε ἔχω καὶ πεπραχὶ, μᾶλλον δὲ φθάνει τὰς μὲν λογομαχίας ταῖς πράξεσιν, οὗς δὲ ἔχωσι, τὰς διαγγελίας· “ἐπὶ τῷ πολλὰ δὴ ταῦτα καὶ μεγάλα τῶν ἔργων, ὦ λογοποιοῦν οἱ κόλακες, τύχει μᾶλλον ἢ φόνου κρατῶν τῶνες οὗς ἐπέμεν κατώρθωσαι, πρὶν ἀγγελθῆναι παρόν, πρὶν ἀκουθῆναι φανούμενος, κατὰ τὰς σκηπιδὸς ἢ τὰς βροντάς, αἱ πολλάκις φθάνουσι τὰς προσδοκίας ἡγσαθ’, οὕτω Σύρος εἶλεν, οὕτω Καρίαν ἐπόθησαν, ὅτω Αἴγιναν παρέσταν, οὕτω Παμφυλίαν ἐπέδραμεν, οὕτως ὤφθη Κιλίκιον, ἔτως ἐπέστη Πέρσαις, ὅτω Δορπίων ἐξέλαχεν· οἴμοι τῶν ἔργων κακῶν, ὅτω καὶ Θήρας ἀνέπασιν. ἐπιστὶ πόλις ἐπὶ τῆς Ἑλλάδος μέσης, τῷ θάνατον τὴν γῆμην τοῦ πτώματος. καὶ γὰρ μὲν ἠγνόει τὴν συμφορὰν, τὴν δὲ πόλιν ἔχει τὸ πολευόριον. τοῦτο μὲν δὴ πρῶτον ἂν ἐγὼ μὲ προσέχειν διέτρετον· δὲ δὲ οὐδὲν Ἀλέξανδρος, καὶ εἰ σφόδρα τις αὐτὸν μεθεῖν ὑπὸ τῆς εὐτυχίας ἐπιλήθη, καὶ ἐξῆς. τί δὲ κ’ αὐθαίρω τὰ τρόπαια; τί δὲ ἂν ἀνατρέψω τὰς σήλας; τί δὲ ἂν ἐξαλείψω τὰ ἐπιγράμματα; πάντα γ’ οἶμαι τὰ τῆς ἀρετῆς ὑπομνήματα, ὥσπερ τοῖς ἀγαθοῖς κόσμος ἐστίν, οὕτως ἔλεγχος τοῖς καταχέτοισιν. κυλῶς ἰδυνάμενον τὴν ποικίλην οἱ Σαλαμῖνε κινδυν-",
+            "corrections": [
+              "freq"
+            ]
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0091.1",
+          "row_sha256": "d031f1f365fcfbc7f686d3caa2b5fe0b4d7033591ed507148f22950c237967cb",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0091.1",
+            "source": "ocr",
+            "license": "PD",
+            "text": "μῆντς καὶ μάτην φύσεως, ἀλλὰ θεσμῷ καὶ νόμῳ καὶ πολιτείας καὶ (τὸ μέγιστον) αὐτῆς τῆς προνοίας λαμπρὸν ὑπάρχει τεκμήριον. ἡδὴ μὲν ἐν προόρῳ τῆς γραφῆς, ἄνδρες Ἀθηναῖοι, γεγένηθ'. συγνώμην ἔχειν ἔχει τὴν κρίσιν Ἐπίκουρος, καὶ τὸ τῆς ἡδονῆς δόγμα τῇ κατηχίᾳ διέρρεῖ. δι' ἀμφοτέρα δὲ μισοειδῆ δίκαιος, καὶ ἂν ἴδιᾳ παιδεύῃ καὶ ἂν δημοσίᾳ πλάττεται. ἐκεῖ μὲν γὰρ τὴν ἡδονὴν ζηλοῦν, ἵνα τὴν ὥραν τὴν τῶν χρημένων καρπώσηται· ἐνταῦθα δὲ τὴν ἀσμένότητα καθυποκρίνεται, ἵν' ἐφαρμόσῃ τῷ δικαστηρίῳ. ἡ μὲν κρίσις παράδοξος· ἄνθρωπος πρὸς τὴν φύσιν τῶν ὄντων κρίνει, ἢ πονηρὰς σοφίας πρὸς τὴν πρόνοιαν δικάζεται. οὐχὶ μὲν ἀρετὴ πᾶσα τοῖς Ἐπικουρείοις",
+            "corrections": [
+              "freq"
+            ]
+          }
+        }
+      ],
+      "leading_source_fragment": "νεύσαντες.",
+      "trailing_source_fragment": "φερο-",
+      "source_library_window": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s367",
+        "section_sha256": "9abe9def94bfd9d2ccfd0074580a703ba6df2a92993996b6974aa32437290259",
+        "start": 1957,
+        "end": 3796,
+        "original_text": "ἐδαπάνων γδ’ ἐπὶ τῆς θαλάττης τὸ τῆς ἠπείρδ λείψανον. Παρνασσὸς δὲ ἐς τὴν θάλασσαν ἐσφενδόνα τὰς ϰορυφάς, ϰαὶ τοῖς ἑαυτᾶ μέρεσιν ἀντιβελῶν ὑπὲρ τᾶ γένες ὁπλίζεθ’. μερίζονται δὲ τὰς μάϰας Ἕλληνες, ϰαὶ νέμονθ’ πρὸς ἀλλήλες μετὰ τῶν σοιϰείων τὰ ϰατορθώματα, Λαϰεδαιμόνιοι τὴν ἤπειρον, ἡμεῖς τὴν θάλατταν. ἐϰεῖνοι τριαϰοσίους τὰς Πύλας σώμασιν, ἡμεῖς τοσαύταις τριήρεσι τὰς τῆς Ἑλλάδος παρόδδς ϰλείωμεν. νεανίσϰε δὲ Μαϰεδόνos ϰαθ’ ὅλης τῆς ὑφ’ ἡλίῳ ϰωμάζοντος, ϰαὶ λυποῦντος μιϰρὰ ϰὲ αὐτὴν τὴν τύϰην οἷς ἐνυβρίζει τοῖς εὐτυϰήμασιν, ἐϰ ἔξιν ὃς διανίσαθ’. ὅτε βασιλεῖ τὰς ὑποϰέσεις διαϰονέμενος ὃ πείσας ἀπῆλθεν, ἀλλὰ ϰερδάνας ὅτι μὴ πείσας ἐσώζετο. ὑμᾶς δὲ ϰειροήθεις ἀεὶ τοῖς τυραννᾶσι παρασϰευάζεσιν, ἵνα αὐτοῖς μὲν ὑπάρχῃ πλατεῖν, τῇ πόλει δὲ τὸ τῶν οἰϰείων σερεσθαι. ἀναγϰαῖος μὲν ὁ φόβος, ὀψὲ δὲ ϰαὶ λίαν βραδέως ἄρτι τὸν τρόπον τὸν Αἰσϰίνου φυλάττεσθε. τὰς τριήρεις ἐμπρήσει τῆς πόλεως ἐϰέτι δι’ Ἀντιφῶντος οὐδὲ δι’ ἀπορρήτων, ὡς πρότερον, ἀλλ’ αὐτοπροσώπως τὴν ἀδιϰίαν ὑποϰρινόμενος. ὁ δῆμος ὁ τῶν Ἀθηναίων Αἰσϰίνῃ γράφει τὴν ϰάθοδον, ὁ τὰς ἀπ’ Ἰνδῶν φήμας ὡς ὅπλα ϰαὶ μάϰας φοβέμενος. ὤϰνεν Ἀρισείδην ϰατάγειν, ϰαὶ ταῦτα ἐ ϰαϰίαν ἀλλ’ ἀρετὴν τῆς φυγῆς ἔϰοντα πρόφασιν. ἵνα γδ’ πειθῶσι τῷ Σόλωνι, οὐδ’ αὐτὸν ἔφευγον ἀδιϰεῖν δόξαι τὸ δίϰαιον. ϰαθ’ Βαβυλῶν, Δαρεῖος οἴϰεθ’, Ἰνδὸς ἀνῄρηϰε, Πέρσαι δουλεύεσι· μόναι λείπεσιν Ἀθῆναι τοῖς ϰατορθώμασιν, ὧν Πέρσαι τοσαυτάϰις ᾔσθοντο τῆς ἀρετῆς, ὁσάϰις ἔδει μάϰεσθαι. Ἐϰ τῆς μελέτης ἧς ἡ ἐπιγραφή „Ἐπίϰουρος, πρόνοιαν ἐϰ εἶναι λέγων, ἀσεβείας φεύγει γραφήν“. ἐϰ τῆς θεωρίας. οἶδε ῥητοριϰὴ ϰαὶ φιλοσοφίαν ἑαυτῆς ὕλην ποιήσαθαι· τύραννος γδ’ ἡ τᾶ λέγειν ἄνωθεν δύναμις. ἐξ αὐτῆς τῆς μελέτης. τὸ προοίμιον. νῦν μέν, εἰ ϰαὶ μὴ πρότερον, εἴσεθ’ σαφῶς Ἐπίϰουρος ὅτι πρόνοια διοιϰεῖ τὴν τῶν ὅλων φύσιν, οὐ δογματίζων, ἀλλὰ ϰρινόμενος· τὸ γδ’ τὰς πονηρὰς ϰρίνεθαι ϰαὶ ϰολάζεθαι ϰαὶ διδόναι δίϰην ἐϰ εἰϰῇ ",
+        "held_spans": [
+          {
+            "section": "tlg4040-tlg001-local002-s367",
+            "section_sha256": "9abe9def94bfd9d2ccfd0074580a703ba6df2a92993996b6974aa32437290259",
+            "start": 1941,
+            "end": 1957,
+            "original_text": "ϰινδυνεύσαντες. ",
+            "reason": "The complete digital word crosses the printed left/right column seam; the new right-column continuation may not receive this whole-word vote."
+          },
+          {
+            "section": "tlg4040-tlg001-local002-s367",
+            "section_sha256": "9abe9def94bfd9d2ccfd0074580a703ba6df2a92993996b6974aa32437290259",
+            "start": 3796,
+            "end": 3805,
+            "original_text": "φερομένης",
+            "reason": "The digital word completes the printed terminal φερο- fragment with letters from beyond this source page."
+          }
+        ],
+        "role": "Comparison witness only pending completed independent scan readings and exact source review.",
+        "page_label_qualification": "Source Library s367 matches legacy physical PDF90/printed355; its label is not the legacy PDF page number."
+      }
+    },
+    {
+      "id": "photius-bekker-legacy-0100-left",
+      "scan_page": 100,
+      "printed_page": 365,
+      "source": "photius-bekker-legacy",
+      "column": "left",
+      "region": [
+        0.06,
+        0.105,
+        0.422,
+        0.715
+      ],
+      "strip_regions": [
+        [
+          0.06,
+          0.105,
+          0.422,
+          0.2265
+        ],
+        [
+          0.06,
+          0.2265,
+          0.422,
+          0.35415
+        ],
+        [
+          0.06,
+          0.35415,
+          0.422,
+          0.4844
+        ],
+        [
+          0.06,
+          0.4844,
+          0.422,
+          0.5254
+        ],
+        [
+          0.06,
+          0.5254,
+          0.422,
+          0.715
+        ]
+      ],
+      "start_evidence": "The first source token is literal ποις, continuing page99 ἀνθρώ-. The digital section begins at the next complete ἅπασιν and is not evidence to supply the missing prefix.",
+      "end_evidence": "The last left-column line ends φωνῆς πολ-. The existing right column starts λὰς πολλάκις; retain this printed split independently of the digital omission at that boundary. Smaller apparatus is below the crop.",
+      "evidence": "The immutable page100 body covers the right column only. Keep the complete authorial Ἐκ τοῦ Ἀρεοπαγιτικοῦ heading and τὸ προοίμιον in their source order.",
+      "legacy_action": {
+        "kind": "insert-before",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0100.1"
+      },
+      "legacy_anchors": [
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0099.46",
+          "row_sha256": "a6497b7254fa9395cc94df84d3cef388c7a51455fa9b69f34445056d8df508d8",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0099.46",
+            "source": "ocr",
+            "license": "PD",
+            "text": "κτησάμενοι! ὦ τὸ Μαραθῶνος ὄνομα τοῖς ἡλίῳ δρόμοις συναποτεινόντες! Μαραθῶν μὲν ἔχει τὰ σώματα, τὰς δὲ ψυχὰς οἱ συναριθμοῦν θεοί, γῇ δὲ τὸ χλεὸς κὲ θάλαττα. Σμυρίνην δὲ τὴν Σέξρα κατὰ τῆς πόλεως οὐδὲν τῶν πάντων ἠσχύχειν, ἀλλὰ πᾶν αὐτῷ συνεκινεῖτο κὲ συνεσείετο, καθάπερ Ποσειδῶνος αὐτὴ τινάσσοντος γῆν δμὰ πᾶσαν κὲ θάλατταν. γῇ “οὐ κὲ θάλαττα τὴν ἄλλήλων φθόνον ἠλλείκοντο. τοῖς μὲν πορθμοῖς ἐπεῖδεν τὴν ἡφίρεσιν, τὰς δὲ Φοινίσσας διὰ τῶν ἰδμῶν ἐπεῖπεν. ὡς θῆ τότε πάσης ἐλπίδος κρείττονα σώματα, ἵππος καὶ’ Ἑλλησπόντου Μηδική, καὶ δὲ ’Αθῶ μέσος ὅλος τριήρων πεπλημένος, ἀπέχετο δ’ ὁ Σέξρης ὁδὲ ὁρανὴ τοῖς τολμήμασι, ἀλλὰ μετὰ κωλ μετεῖχε τοῖς Σαέμασιν ἄνδ’ Θαλάσσης ἐπ’ ἡμέραν, ἀπὸ γῆς ἐπ’ ὁρανὸν ἄκειδεν καὶ λέγων τὸ μὲν γὰ τοξίων τὸ ὅπως ἀπέῤῥυπτεν, τῆς δὲ πλέων τὴν φύσιν ἡμίμεν, τῆς δὲ πεζέων τὴν χρείαν ἠλεγχαν. κὲ σωπᾶ πειλῶν μὲν ὑπὸ τριήρων κρυπτόμενα, ὁρατόπεδα τῆς ἀορίθμ’ φθόνας κρείττονα, ἵδη δὲ δείπνων δαπάνης ἦττον, βασιλέα δὲ πανταχοῦ μὲν ὄντα τῷ φόβῳ, ὅ δὲ γῆς ἐπὶ διὰ τὸ πλήθος λανθάνοντα. τοσούτοις τοίνυν Θορίβῳ γῆς ἀπάτης ἠχθῆσαντος, κὲ κρενομένων ἐπὶ τῆς’ Ἑλλάδος τῶν ὅλων, οἱ μὲν ὅλοι σύμπαντες τοσούτων ἐν τοῖς δεινοῖς καρδιαιῶν φύσον δσον ὑπεῖναι Πέρσας τῶν πόλων, ὅ μὲν καὶ ἡ πόλις εἶχε βουλεύει τὰ πάντα σέινον, ὁδὲ φόβῳ τῆς σήμης αἰχρύτι καὶ πρὸ τῆς πείρας ἐξβλέπειν, ἀλλ’ ἀπὸ τῆς προσθείας πρώτης κρείττων βασιλέως ἐγίνετο. ὅ μὲν τὰ τῆς ὀδλίας ὑπὲρ σύμβολα, οἱ δὲ τὰ τῆς Ἀλευθερίας ἀντέπεμπον ἢν γὰ δύνατος ἢ τῆς πρεσβείας ἀντίδοσις. ἐφρόδι δὲ αὐτὰς ὁδὲν τῶν ἀπάντων, ὁδὲ ἐποίει τῆς ἀρετῆς ἐπιλανθάνεσθ, ὅ Λυκιδιμόνιος πίπτοντες καὶ τοσούτον συντελέστες τοῖς Ἕλλησι δσον ἀνδρεῖος ὑπὲρ θανατᾷ βουλεύεσθ, ὅ μασιώμενα κὲματα καὶ κολαζόμενα πνεύματα κὲ τρυγῶν βάρβαρος κατὰ τῆς φύσεως. ὦ μείζονα Σέξξα τολμήσαντες! ὦ ψυχὰς ζοιχείων βεβαιοτέρας ἐπιδειξάμενοι! “ὦ τοῖς Περσῶν τοξέμασι οὐ καλυφθέντες τὸ φρόνημα! ὦ δύο τροπαίους δεκαετῆ σάλον ἐλέγχαντες! ὑμεῖς τὸν ἐπὶ ὁπᾶσαν ἰόντα γῆν κὲ θάλατταν ἀγαστηλῶς κλέψαι τὴν σωτηρίαν καταχράσασθε. ὦ μόνοι δείξαντες ἀνθρώ-",
+            "corrections": [
+              "freq"
+            ]
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0100.1",
+          "row_sha256": "d2125161ecbdc70c29cad9afd885d9207dbd628a6f5b7bedff93906e52d4312d",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0100.1",
+            "source": "ocr",
+            "license": "PD",
+            "text": "λὲς πολλάκις ἐλευθερώσαντος, τὸν ἐκ Νικαγόρου προσήγαγον ὑμῖν, τὸν ἐξ ἑμαντῦ, σοφισῶν ὑμῖν καὶ φιλοσόφων λέγω κατάλογον, Ἀττικὴν ὄντως εὐγένειαν. ἀφῆκα πολλάκις τὰς τῆ σοφιστῆ φωνάς, τῶν 5 τῶν τῷ πατρὶ ἀφήμα. ἰδωσατέ μοι παῖδα δι' Ἀττικοῦ γένους· λάβετε τῦτον καὶ διὰ τῆς ψυχῆς τῆς ἑμετέρας ἐλεύθερον. ἄνδρ ἄφετέ μοι τῇ ψυχῇ τὸν παῖδα, ἢ φωνὴν ἐλευθέραν σπεπτήσασθε, ἵνα ὡς Ἀθηναῖος (ἴσον γὰρ εἰπεῖν ἐλεύθερος) καὶ λέγῃ 10 καὶ γράφῃ παρ' ὑμῖν, κἂν οἱ θεοὶ βούλωνται, ἢ πολυτεύηται.",
+            "corrections": [
+              "freq"
+            ]
+          }
+        }
+      ],
+      "leading_source_fragment": "ποις",
+      "trailing_source_fragment": "πολ-",
+      "source_library_window": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s377",
+        "section_sha256": "3ed8aa0cb0a5960582f5d8c2188407af33357fed78a80fdede992d121df475cd",
+        "start": 0,
+        "end": 1967,
+        "original_text": "ἅπασιν ὅτι πᾶσα χεὶρ ὑπ’ ἀρετῆς ἐλέγχεται. ἀλλὰ κἂν ταῦτα σιγῇ παρέλθωμεν, κἂν τῆς εἰρήνης πρὸς βασιλέα γεγενημένης μνημονεύσωμεν, ἣ παντὸς τροπαίου σεμνοτέραν ἔτι τὴν πόλιν ἐργάζεται. καὶ μάλα εἰκότως. ἃ μὲν γὰρ καὶ τύχης ἔργον πολλάκις· τὸ δὲ ἑκόντα συγχωρῆσαι βασιλέα τῇ πόλει ἵππῳ μὲν δρόμον ἡμέρας θαλάττης ἀφέξειν ἄνω, εἴσω δὲ Χελιδονέων καὶ Κυανέων μὴ πέμπειν ὁλκάδα, πῶς οὐ καθαρὰν πανταχόθεν τῇ πόλει προξενεῖ τὴν εὔκλειαν; ἀλλὰ γὰρ Ἀθηναίων τὰ μυρία τρόπαια καὶ ναυμαχίας καὶ πεζομαχίας, ἃς πρὸς ἅπασαν μὲν τυραννίδα πρὸς ἅπασαν δὲ δυναστείαν ἀντέστησαν, ἄλλοτε κατ’ ἄλλους χρόνους ὑπὲρ τοῦ γένους μυρίους ἀγῶνας ἀναδεξάμενοι, οὔτε ἐμοὶ διεξελθεῖν ῥᾴδιον εἴτε εἴ τις πρότερον ἐπεχείρηκε. διόπερ οἶμαι δεῖν, ὡς οἱ τὰς ἐν τοῖς σταδίοις νικηφόρους ἀνακηρύττοντες, ἓν καὶ ταὐτὸν συνθεῖναι γνώρισμα, εἶθ’ οὕτω ταύτῃ καὶ πρὸς τὸν νόμον ἀφοσιώσασθαι. ὦ πᾶσαν γῆν καὶ θάλασσαν, ὅση μὲν βατή, νίκης καὶ τροπαίων, ὅση δ’ ἄβατος, δόξης καὶ κλέους πληρώσαντες. ὦ μόνοι ταῖς μεγάλαις πράξεσι χρόνον καὶ φθόνον νικήσαντες. ὦ τὴν οἰκουμένην ἅπασαν οὐ ζήλοις ἀλλὰ τροπαίοις μετρήσαντες. εἰρήσθω κἀμοὶ τῆς μὲν ὑποθέσεως ἴσως ἔλαττον, τῶν δὲ πολλῶν οὐκ ἐλάττονα. λείπεται δὲ εὐφήμῳ βοῇ προσηκήσαντας πανδημεί πάντας τῷ μνήματι, οὕτω τῆς τιμῆς ἀπαλλάττεσθαι. Ἐκ τοῦ Ἀρεοπαγιτικοῦ ἢ ἐλευθερωτικοῦ τοῦ υἱοῦ αὐτοῦ τοῦ Ῥουφίνου. τὸ προοίμιον. Ἄνδρες οἱ καὶ θεοῖς ὑπὲρ νίκης πάλαι καὶ νῦν Ἀθηναίοις ὑπὲρ ἐλευθερίας δικάζοντες. ἐκεῖνῳ τῷ νόμῳ πειθόμενος τὰ τῆς χρείας μόνης φθέγξομαι ῥήματα. ἐγὼ καὶ σοφιστὴς ἐγενόμην παρ’ ὑμῖν καὶ πατήρ. εἰ σοφιστὴς δεξιός, ὑμεῖς ἐπίστασθε· λέγω γὰρ ἀεί, καὶ τὴν ἐμὴν πολιτείαν ἔχει τὰ θέατρα· εἰ πατὴρ Ἀττικός, ἡ παροῦσα δείκνυσι πρόφασις· οὐ γὰρ ἀνέχομαι τὸν Ἀθηναίων παῖδα μὴ προσαγορεύειν ἐλεύθερον. πιστεύω καὶ πρὸ ἥβης τὴν ἐλευθερίαν τῷ παιδί. ἐμός ἐστιν, Ἀθηναῖός ἐστι, πόλεως καὶ πλέον τιμώσης τὸ κοινὸν γῆρας ἢ τὸ τῶν πατέρων ἕτεροι. ἐκτός ἐστιν ἐκ Πλουτάρχου, δι’ οὗ πάντας ὑμεῖς παιδεύετε· ἔστιν ἐκ Μινουκιανοῦ τοῦ διὰ τῆς ἑαυτοῦ φωνῆς ",
+        "held_spans": [
+          {
+            "section": "tlg4040-tlg001-local002-s376",
+            "section_sha256": "c11f5f1212d1238867610b34eb3f19c64858db6d7a83e27bef9a82872a5e8e7f",
+            "start": 4082,
+            "end": 4091,
+            "original_text": "ἀνθρώποις",
+            "reason": "The previous digital section completes ἀνθρώποις, divided on the scan between page99 ἀνθρώ- and page100 ποις. Preserve the literal leading fragment without importing this completed word."
+          },
+          {
+            "section": "tlg4040-tlg001-local002-s377",
+            "section_sha256": "3ed8aa0cb0a5960582f5d8c2188407af33357fed78a80fdede992d121df475cd",
+            "start": 1967,
+            "end": 1976,
+            "original_text": "πολλάκις ",
+            "reason": "This complete digital token lies beyond the reviewed left-column φωνῆς boundary; it must not complete the terminal πολ-. The scan additionally prints λὰς at the start of the right column, absent from this digital boundary."
+          }
+        ],
+        "role": "Comparison witness only pending completed independent scan readings and exact source review.",
+        "page_label_qualification": "Source Library s377 matches legacy physical PDF100/printed365; its label is not the legacy PDF page number."
+      }
+    },
+    {
+      "id": "photius-bekker-legacy-0148-left",
+      "scan_page": 148,
+      "printed_page": 413,
+      "source": "photius-bekker-legacy",
+      "column": "left",
+      "region": [
+        0.055,
+        0.3025,
+        0.419,
+        0.65
+      ],
+      "strip_regions": [
+        [
+          0.055,
+          0.3025,
+          0.419,
+          0.3886
+        ],
+        [
+          0.055,
+          0.3886,
+          0.419,
+          0.53125
+        ],
+        [
+          0.055,
+          0.53125,
+          0.419,
+          0.65
+        ]
+      ],
+      "start_evidence": "Start above both complete source lines beginning ἐκ μικρῶν and τελειώτερον. Their prefix belongs to existing148.2; the missing body begins at αὐταῖς τοίνυν on the same second physical line.",
+      "end_evidence": "The left-column body ends ἔχοι τις ἂν λέγειν ὑπὲρ, immediately before existing right-column αὐτῆς. The crop stops above the smaller footer apparatus.",
+      "evidence": "Old148.4 is a short corrupted remnant in place of the lower left-column passage. Preserve its original reading and all later apparatus-layer exclusions; do not treat it as an independent omission vote. Old148.3 is a marginal citation, not missing body.",
+      "legacy_action": {
+        "kind": "replace-incomplete-row",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+        "after": "helladius_chrestomathia_photius_bekker_v2_0148.2",
+        "before": "helladius_chrestomathia_photius_bekker_v2_0148.5"
+      },
+      "legacy_anchors": [
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.2",
+          "row_sha256": "ef2bdff6915fa6825bf8639b728907c9e56e630f3946cd378f0347b7d129ba88",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0148.2",
+            "source": "ocr",
+            "license": "PD",
+            "text": "εἶναι χειρῶν, τόνον ἀμείνους καλεῖν, καὶ ταῦτα δὲ αὐτὸ τῶν ἐπαινέμενον, δι’ ὡμολόγηκεν ὡς ἐξήττησε μαθεῖν χειρῶν εἶναι. ἄτοπον δὲ ἂ μὴ ἐκεῖνο δρᾶν, ὅτι ὁ μόνος ἐξ ἀρχῆς αἱ φύσεις τὰς τέχνας στυγνάζεσθαι, ἀλλὰ ἡ περὶ αὐτὰς τὴν τύχας οἱ τῇ φύσει νικᾶσθαι τις διεντυχόσασιν. ἔνεκα μὲν γὰρ τῆς τέχνης πάντας ἴδιον παραπλησίους εἶναι τὸς αὐτὰ μαθόντας, οἶμαι δὲ καὶ χειρὸς τὸς δευτέρας αἱ τῶν προτέρων, ὥς εἰς τὸ λεθῆραι τὴν τέχνην ἀφίστατο· ὁ γὰρ ἂν ἡν πάντα λαβεῖν ἐκφυβὼς παρ’ ἑτέρου λαμβάνοντα, ἀλλ’ ἴδει διαφεροῦν δι’ τι, ὁμῶς δὲ, οἶμαι, φτίνους ἡ περιουσία τὴν δύναμιν οἱ κρατήσαντες ἀλλήλους· ἡ ὁδὲ τὰν Σαϊδαλον ὁδὲ τὸς ἄνω δυναμίζω παρὰ τὸν Φιδιαλ, ἀλλὰ τὸν ἄντων ἐκ μικρῶν καὶ φαύλων τὸ κατ’ ἀρχὰς εἰς τὸ μείζον ἢ τελειώτερον, αἱ τέχναι κατέστησεν.",
+            "corrections": [
+              "confusion",
+              "freq"
+            ]
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.3",
+          "row_sha256": "39f2424869b8e6733912112c861b51d95a3308afbe546b054732b4e16b6a802f",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0148.3",
+            "source": "ocr",
+            "license": "PD",
+            "text": "673Π."
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "row_sha256": "7b658ccfaedb399a5c0864ed01e1b03301bb83f95aba99c12a02ea74c773fd9c",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+            "source": "ocr",
+            "license": "PD",
+            "text": "καὶ ταῦτα εἰσενος δὲ καὶ ο διαφεροῦν τ. αὐτὰς τοίνυν τῶν πραγμάτων δυνάμια φύσεως ἐν αὐταῖς καὶ κατὰ τὸν ἔχει ε. δ. δε] ὁν οὐς τὴν οὐδὲ τὸ οὐ ε. σὺν ψ] οὐ τὸ μᾶλλον γὰρ] δ’"
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.5",
+          "row_sha256": "9fbfef1f7f91e89c6fd98b9b8b80ca35947f18052cd81705db9caf4b572e854f",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0148.5",
+            "source": "ocr",
+            "license": "PD",
+            "text": "αὐτῆς, πολλὰ ἀφελόντι τῶν ἐπιόντων τοσαῦτα καὶ τοιαῦτα ἔστω. ὅσως δὲ τις οἴησθ’, τούτων ἕτως ἀποδειδειγμένων, τὸ φαυλότερον ἀπεῦθεν ἡμᾶς λοιπόν, ἐὰν δτι καὶ τέχνη διδάσκειν πειρώμεθ᾿α. ἐγὼ δὲ ἕτε τῶν εἰρημένων οὐδὲν μετατίθεμαι, ἕτε Πλάτωνι συγχωρῶ τὸ μηδὲν μετεῖναι ῥητορικῇ τέχνης, ἀλλ’ ὅσον αὐτῇ τέχνης (χρήσομαι γὰ τοῖς τῷ Πλάτωνος αὐτῇ ῥήμασιν), τὸν’ ἐπίζεσθαι. καίτοι πῶς οὐχὶ ὑπερακτίον φάσκειν μὲν ἐοχάλεῖν τὴν ῥητορικὴν, λέγειν δὲ ὡς ὁ χρῆται λόγῳ δι’ αὐτὸ τῦτο; πάντες γὰ οἱ ἐοχάζομενοι δι’ πα τῷ λόγῳ προσάγοντες ἑαυτοὺς, ὅτως ἐοχάζουσιν. ἄ γὰ ἕτι μὴ λόγῳ χρώμενοι ἐοχάζεσθ’, ἀλλ’ ὁ τῷ πράγματος λόγος οὗτός ἕστιν ὁ ποιῶν ἐοχάζεσθ’. ἕστι δὲ ἐοχάλεῖν τὸ τυχεῖν τῷ πράγματος, ὡς οἱ γε ἀποτετυχάνοντες ἀοχὴν ἄλλ’ ἐοχάζουσιν. ὅκιν ἄχ ἄχ ἐοχάζει; ἁμαρτάνει τις, ἀλλ’ ὁ διήμαρτεν ἄν ἐοχάσατο. πικρότης ὁδοὺς γὰ ἁμαρτάνει λόγῳ χρώμενος, ἀλλ’ ἄμα ἐοχάλησ τὸν λόγον ἄ διεσώσατο. [τὸ μὲλλοιν ἐκάστη συγκόσμιν ἐκλέγοντες]. καὶ ταῦτα, ὦ Πλάτων, ταῖς σαῖς ἀδομαντίναις ἀνάγκαις ἀποδείκνυσιν. “τί δὲ περίῥητορικῆς, εἰ ἐοχάζει; θαυμαδὸς γὰ ἢ ἄν τορικῇ ὁμοίως διακειμένη τῇ μαντικῇ, πλὴν ὅσον μαντικῇ μὲν ἀλήθειν ἐοχασαμένη, ῥητορικῇ δὲ ὁ ἐοχάζεται μόρον τῶν πραγμάτων, ἀλλὰ καὶ πράττει διὰ τῶν ὑπηρετῶν ἄττα ἄν εἴησι βέλτιστα. ὥστε ἄ τὸν τῆς μαντικῆς ἐλέχει λόγον καὶ τὸν τῆς ἐραστηγικῆς, ἄν μηδὲν προσέχων τῇ πολιτικῇ Πλάτων οὐκ ἄρα. πῶς ἄν ῥητορικῇ πολιτικῆς μόρια εἴδωλον, εἰ μὴ ἕτως; ἀλλὰ μὴν ἕτως γε ἄν “εἴδωλον. εἰεν. 674H. καὶ εἴπωμεν τὸ οὕτως, οἷον εἰ μὴ κατὰ τὸ ἰσούμεν τῇ τεχνικῇ, καὶ λοιπὸν εἰ ἐπιφάσωμεν, ὅτι οὐτε κατὰ τοῦτο δύναι’ ἄν εἴδωλον εἶναι. ὅτι τοίνυν ὅλως ἕστι σύστημα τὸ φάσκειν τὰ δοκῶντα τοῖς πλείοσι, ταῦτα συμβαλεῖν τὸς ῥήτορας καὶ ταῦτα μόνον ἐοχάζεσθ’, εἰ καὶ μὴ πᾶς ἐξελέχθαι, ἀλλ’ ὅσις γε εὖ φρανεῖ. ἐμοὶ μὲν γὰ τὸναντίον πᾶν φαλνεται, μήτε ἐν τῇ τῆς ῥητορικῆς φύσει πλεῖστον εἶναι",
+            "corrections": [
+              "collation",
+              "freq"
+            ]
+          }
+        }
+      ],
+      "leading_source_fragment": null,
+      "trailing_source_fragment": null,
+      "source_library_window": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s425",
+        "section_sha256": "e7a451c83b8847a4842ac28b4f12b935993e461ccb55f03a1ecf42f7d03bff49",
+        "start": 749,
+        "end": 1879,
+        "original_text": "αὐταῖς τοίνυν, ὡς ἔοικε, ταῖς τέχναις ἃ λυσιτελῶν φαίνεται τὴν τέχνην πρὸ τῆς φύσεως τετιμῆσθαι. ἐκείνῃ προελθεῖν γ’ ἂν αὐταῖς ἦν οὐδὲ τυχεῖν τῶ νῦν σχήματος οὐδὲ σεμνύνεσθαι. ἀλλ’ οἶμαι, οὐχ αἱ τέχναι τὰς ἄνδρας ἦραν μεγάλους, ἀλλ’ οἱ τῇ δυνάμει πρωτεύσαντες ἐντίμους τὰς τέχνας ἐποίησαν, ἃ μείναντες ἐφ’ ὧν παρέλαβον. εἰ δὲ τῶδ’ ἅπασιν εὔδηλον, εἰ καὶ μὴ πρότερον, ἀλλὰ νῦν γε εἰρημένον, οἱ μέγιστοι τῶν ἐν ταῖς τέχναις ἀφ’ ὧν μετεσχήκασι τῆς τέχνης μέγιστοι γεγόνασιν, ἀλλ’ ᾧ τὴν τέχνην παρεληλύθασιν. ἀλλ’ ἐνδιδόντες τῇ φύσει τῶν λόγων, οἱ δὲ τῶν πραγμάτων, παῖδας τοὺς πρὸ αὐτῶν [δυνάμει φύσεως] ἀπέδειξαν. ἀλλὰ πάσας τὰς τέχνας, ὅπερ εἶπον, ἡ φύσις εὗρεν. εἰ γὰρ αἱ τέχναι τὰς τέχνας ἔμελλον εὑρήσειν, οὐκ ἂν ἦν λαβεῖν τὴν ἀρχήν. εἰ γὰρ πω τεχνῶν οὐσῶν οὐκ ἂν ἦν τέχνην εὑρεῖν· τῇ γὰρ μὴ ὄσῃ πῶς ἐνῆν εὑρεῖν; οὐκῶν καὶ κατὰ τὰς εὑρόντας τὰς τέχνας ἐξ ἀρχῆς καὶ κατὰ τὰς ὑπερέχοντας ἐν αὐταῖς ἡ φύσις νικᾷ. φαίνεται τοίνυν καὶ κατὰ τῶτον τὸν λόγον ἡ μὲν φύσις ἄρχοντος χώραν ἔχουσα, ἡ δὲ ἐκ τῶ μαθεῖν τέχνη διακόνου καὶ πειθομένη τῷ κρείττονι. ἃ μὲν οὖν, εἰ καὶ μὴ τέχνην εἶναι δοίημεν τὴν ῥητορικήν, ἔχοι τις ἂν λέγειν ὑπὲρ ",
+        "held_spans": [
+          {
+            "section": "tlg4040-tlg001-local002-s425",
+            "section_sha256": "e7a451c83b8847a4842ac28b4f12b935993e461ccb55f03a1ecf42f7d03bff49",
+            "start": 664,
+            "end": 749,
+            "original_text": "ἐκ μικρῶν καὶ φαύλων τὸ κατ’ ἀρχὰς εἰς τὸ μεῖζον καὶ τελεώτερον αἱ τέχναι κατέσησαν. ",
+            "reason": "The first crop includes two complete contextual lines already represented in old148.2; missing αὐταῖς τοίνυν begins midway through their final printed line. The existing prefix stays held overlap, not a duplicate addition."
+          }
+        ],
+        "role": "Comparison witness only pending completed independent scan readings and exact source review.",
+        "page_label_qualification": "Source Library s425 matches legacy physical PDF148/printed413; its label is not the legacy PDF page number."
+      },
+      "context_overlap": {
+        "existing_locus": "helladius_chrestomathia_photius_bekker_v2_0148.2",
+        "source_lines": 2,
+        "source_end_anchor": "αἱ τέχναι κατέστησαν.",
+        "missing_start_anchor": "αὐταῖς τοίνυν",
+        "policy": "Preserve raw source context and the old row. Exclude the reviewed contextual prefix only after completed scan readings have been aligned to this exact source boundary; no inferred character offsets are authorized now."
+      }
+    },
+    {
+      "id": "photius-bekker-legacy-0154-right",
+      "scan_page": 154,
+      "printed_page": 419,
+      "source": "photius-bekker-legacy",
+      "column": "right",
+      "region": [
+        0.425,
+        0.13522,
+        0.79,
+        0.658
+      ],
+      "strip_regions": [
+        [
+          0.425,
+          0.13522,
+          0.79,
+          0.276
+        ],
+        [
+          0.425,
+          0.276,
+          0.79,
+          0.3888
+        ],
+        [
+          0.425,
+          0.3888,
+          0.79,
+          0.5146
+        ],
+        [
+          0.425,
+          0.5146,
+          0.79,
+          0.658
+        ]
+      ],
+      "start_evidence": "The existing154.50 is the first full right-column line and ends προ-. Start below it, retaining the complete following line's literal κειτο continuation. The one-pixel source whitespace separates these skewed printed lines.",
+      "end_evidence": "The last right-column body line ends τὴν ὑπὲρ τούτου before the smaller notes. The existing first right-column line is outside the new crop and must not be duplicated.",
+      "evidence": "All body after the first right-column line is absent from the immutable historical page154. Existing left-column body rows and154.50 remain unchanged.",
+      "legacy_action": {
+        "kind": "insert-after",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0154.50"
+      },
+      "legacy_anchors": [
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0154.39",
+          "row_sha256": "4dae8131c3f9ae0272cc2266cebdd2ece8e056914946045797f153574c39970f",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0154.39",
+            "source": "ocr",
+            "license": "PD",
+            "text": "ἐν ἀρχῇ τοῖς ἀγεξὲς ἂν ἔμελλεν ἔχειν οὐμὶ χρήσθ.",
+            "corrections": [
+              "freq"
+            ]
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0154.50",
+          "row_sha256": "5cdd520c5c9d0edb2540f853aedd757a6b3d819e4de2f652f13799e499e7df6b",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0154.50",
+            "source": "ocr",
+            "license": "PD",
+            "text": "οὐ γὰρ εἰ φάδιον ἢ μὴ τῷ ὄντι γενέσθαι ῥήτορα προ-"
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0155.1",
+          "row_sha256": "edada29649eec2a6b5ec921833e95f2a197421a6c0300474c370a17cffce359a",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0155.1",
+            "source": "ocr",
+            "license": "PD",
+            "text": "685 Ἡ διαφοράν. ὅτι ἡ ῥητορικὴ διὰ πάντων τῶν τῆς ἀρετῆς μορίων δύνει, φρονήσει μὲν εὑρεθεῖσα, εὐρε-θεῖσα δὲ ὑπὲρ δικαιοσύνης, σωφροσύνη δὲ ἡ ἀνδρεία φυλαττομένη, τοῦτο δὲ ἡ κατὰ τούτας τὰς λόγους [ὃς μῆλον εἶναι αὐτῆς] ἰδεῖν εἰν. ἔχει μὲν γὰρ ἡ πρὸ ῥητορεύειν τὰ δέοντα ἔχειν ἢ ταῦτα ἢ τὰ πρά-ποντα ἀποδοῦναι μετὰ κόσμου καὶ δυνάμεως. φαίνει δὲ ἡ μὲν εὕρεσις κατὰ τὴν φρόνησιν ἔχουσα, εἴπερ ἀμείχανον φρονήσεως ἀπολειπόμενον τῶν χρησίμων ὑφεῖν ὁτιῶν, ἡ δὲ σωφροσύνη κατὰ τὴν διαχείρισιν ὅσα ἡ τὴν τῶν ἡχημάτων τε καὶ εἰκόνων συμφωνίαν· ἀντὶ δ’ αὐτῆς δικαιοσύνης τὸ πρέπον τιθεῖ. τοῦτο δὲ εἰν ὁποία ἄττα ἢ ὁπόσα προσήκει ἐκάστῳ σῶσαι τῷ πράγματι, ἀλλὰ μὴν ἀνδρείας ἐκ τοῦ εὐθέος οὐδὲ ἕως μετέχειν ὡς ὁ λόγος μέλει· τὸ γὰρ ταπεινὸν καὶ ἀγεννὲς οὐδὲν ἔτως, ὡς ὁ λόγος, ἐθορίζει ἢ ὑπερφο-νεῖ, εἰεν. οὕτως δὲ νυθετῶν ἀνίτε, οὕτως δὲ κατη-γορῶν πεισέτω. ἡ μὲν δρῆς γὰρ προσήκει λέγειν οὐδεν, οὐδεν δὲ πράττειν προσήκει· ὁδὲς γὰρ εἰν ὅς, ἢ προσήκει πράττειν εἰπεῖν εἰδώς, ἢ προσήκει πράτ-τειν ἀγνοεῖ, ὁδ’ ὅστις ἀγνοεῖν ἢ προσήκει πράττειν, εἰπεῖν ἔχει. ὅσω γὰρ ἄρχεσθαι βέλτιον ἢ διακονεῖν, τοσοῦτον λέγειν τὰ δέοντα βέλτιον ἢ πράττειν. ὁ μὲν γὰρ, οἶμαι, πολλοῖς σύμβολος γίνεται, ὁ δὲ ἀνθ’ ἑνὸς ἄλλα τινὸς γίνεται. ὡσπερ οὖν τὸς ἀρχιτέκτονες τῶν τεκτόνων ἀνάγκη προέχειν, ὅντας ὅμως περὶ ταὐτὰ ἢ ἡ τῆς τῶν τεκτόνων εἶν ἐμπειρίας, ἕτω ἡ τοὺς ἐν ταῖς ἀγοραῖς ἢ τοῖς λόγοις προέχοντας τῶν τούτοις ὑπηρετούντων βελτίως ὁ ποιητὴς ἔθηκεν ἢ προσεῖπεν ἀριπρεπεῖς, μᾶλα ὁρθῶς προσωπιῶν. εἰ δὲ δεῖ ἡς μῦθον λέγειν, δέδοικα μὲν ἐγὼ μὴ ἡ ταῖς γραφαῖς ἡμῶν ἡβλῆς δηλεῖν ἐπισκοπῶν τιν ἢ τις ἀνθρ κοσμι-κός, ἴσως δὲ ὁ μῦθον ἄλλως αὐτὸν εἰς ἑαυτὸν τελει-τῶντα, ἀλλὰ καὶ ἄνταῖδα ἢ πυρὰ τῶν πραγμάτων προσέζω πίσεις. ὁ μὲν ἄν Προμηθεὺς καὶ Ἐπασον ἐπ’ ἴσης ἔπασι τὰς τε αἰθήσεις ἢ τὰ μέλη τῷ σώ-ματος συμπεπλακὼς ἢν πρότερον· τὸν δὲ Ἑρμῆν ἔχ ἕτως ἐκλέυσεν ὁ Ζεὺς ὡσπερ θεωρικῷ διάδοσον διε-",
+            "corrections": [
+              "freq"
+            ]
+          }
+        }
+      ],
+      "leading_source_fragment": "κειτο",
+      "trailing_source_fragment": null,
+      "source_library_window": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s431",
+        "section_sha256": "ce9dfbf84daef996f6e101a981d920d55e5dc5f108a8c241137a1b5368ffeaff",
+        "start": 2015,
+        "end": 3865,
+        "original_text": "σκοπεῖν, ἐπεὶ ταῦτά γε καὶ ἡμεῖς, εἰ βούλει, μαρτυροῦμεν, κἂν εἰ τὴν Στέντορος φωνὴν κτησαίμεθα, φθεγξαίμεθ' ἄν, ὡς οὐ ῥᾴδιον, κἂν ὁ Νεῖλος, ὦ μακάριε, τοῖς ἑπτὰ στόμασιν εἰ λάβοι φωνήν, ὥσπερ ὁ Σκάμανδρος καθ' Ὅμηρον. ἀλλ' εἰ δυνατὸν ἢ μή, καὶ φύσιν ἔστ' ἔχον συμβῆναι, τοῦτ' ἦν ἐκ τοῦ λόγου. φανήσεται γὰρ οὐχ ἁπλῶς, οὐδ' ὡς νῦν μόνον δείκνυμεν, εἰς τοὺς ἐναντίους ἐληλυθὼς αὑτῷ, ἀλλὰ καὶ ἐξ ὧν ἐκεῖνος ᾐτιᾶτο [τοῦτον] Ἀριστείδην ὃν ἐπῄνεσεν ἐπαινεῖν οὐκ ἔχων, ἢ εἴπερ ὀρθῶς ἐπαινεῖ τοῦτον, διὰ τὸ αὐτὸ τοῦτο οὐδ' ἐκείνους ἔχων αἰτιάσασθαι. πῶς; ὅτι σύμβολον οἶμαι ποιεῖται τοῦ κακῶς Ἀθηναίων ἐκείνους προσστῆναι τὸ παθεῖν αὐτοὺς ὑπ' Ἀθηναίων κακῶς, ὡς οὐκ ἄν τις γε βελτίους ὑπ' αὐτῶν γενομένους ἁμαρτόντας εἰς τούτους, ὑφ' ὧν μηδ' εἰς τοὺς ἄλλους ἁμαρτάνειν ἐπαιδεύθησαν. ταῦτα δὲ ἔτω θεὶς, καὶ ἡνιόχους καὶ τὰ τοιαῦτα ἐπεισαγαγὼν ἐνταυθοῖ, τόν γε Ἀριστείδην οὐ μόνον οὐδὲν φαῦλον εἴρηκεν, ἀλλὰ σαφῶς ἐξαίρετον τῶν ἄλλων πεποίηκε. καίτοι εἰ τὸ παθεῖν κακῶς ὑπ' Ἀθηναίων ἦν τι δεῖγμα τοῦ μὴ καλῶς Ἀθηναίων προσστῆναι, οὐδ' Ἀριστείδης προὔστη καλῶς· οὐδὲ γὰρ οὗτος ἀθῷος δή που διέφυγεν, ἀλλ' ἐξέπεσε. προσθήσω δὲ ὅτι ἐτὸς γε οὐδὲν δικαστηρίῳ δυστυχήσας ὥσπερ Μιλτιάδης καὶ Περικλῆς, οὐδ' ὑπὸ τούτων οἷς προσέκρουσεν ὑπὲρ τῶν πολλῶν, ἀλλ' ἐξοστρακισθεὶς ὑπ' αὐτοῦ τοῦ δήμου. ἔτι δὲ καὶ κυβερνήτῃ καὶ παντὶ συνιδεῖν ὅτι κυβερνήτης μὲν ὄψις πλείους ἀθρόως ἔσωσεν ὑπὲρ χιλίας, τὸ δὲ τοῦ ῥήτορος πλήρωμα ὃ σώζει οὐ κατὰ ναῦν ἐστιν Αἰγυπτίων, οὐδέ γε ὅλως μετρεῖται σόλῳ, ἀλλὰ καὶ λιμένες αὐτοὶ καὶ πόλεις καὶ μυρίανδροι μόνον ἀντὶ τῶν μυριοφόρων, ἀλλὰ καὶ μετρῆσαι χαλεπαί, τῇ τῆς ῥητορικῆς ὑποπίπτουσι τύχῃ τε καὶ προστασίᾳ. καὶ ὁ μὲν κυβερνήτης κατάρας οὐκέτι ἔχει τί χρήσεται τῇ τέχνῃ· τῷ δὲ ῥήτορος οὐδέν ἐστι χωρίον ἐξαίρετον. ἀλλ' ἵνα μὴ λόγος ἡμῖν λόγον ἐκδέξηται, ἀγαπητὸν ὃν εἰ καὶ τοῖς ἐπικαίροις ἐξαρκέσαιμεν, ἐῶ τὰ νῦν εἶναι τὴν ὑπὲρ τούτου",
+        "held_spans": [
+          {
+            "section": "tlg4040-tlg001-local002-s431",
+            "section_sha256": "ce9dfbf84daef996f6e101a981d920d55e5dc5f108a8c241137a1b5368ffeaff",
+            "start": 2005,
+            "end": 2015,
+            "original_text": "προὔκειτο ",
+            "reason": "The completed digital word crosses the boundary between preserved old154.50 προ- and the first newly recovered printed continuation κειτο. No whole-word completion is authorized."
+          }
+        ],
+        "role": "Comparison witness only pending completed independent scan readings and exact source review.",
+        "page_label_qualification": "Source Library s431 matches legacy physical PDF154/printed419; its label is not the legacy PDF page number."
+      }
+    },
+    {
+      "id": "photius-bekker-legacy-0189-left",
+      "scan_page": 189,
+      "printed_page": 454,
+      "source": "photius-bekker-legacy",
+      "column": "left",
+      "region": [
+        0.235,
+        0.2449,
+        0.594,
+        0.7
+      ],
+      "strip_regions": [
+        [
+          0.235,
+          0.2449,
+          0.594,
+          0.3712
+        ],
+        [
+          0.235,
+          0.3712,
+          0.594,
+          0.498
+        ],
+        [
+          0.235,
+          0.498,
+          0.594,
+          0.6095
+        ],
+        [
+          0.235,
+          0.6095,
+          0.594,
+          0.7
+        ]
+      ],
+      "start_evidence": "Start with the complete printed line χειμῶνα, immediately below the preserved old189.2 ending τὸν μὲν παρ’ αὐτοῖς. The initial crop edge lies in the narrow source interline gap.",
+      "end_evidence": "Retain all remaining left-column body through οὕτω φησίν, immediately before the existing right-column ταῖς κηδείαις. The crop ends in the broad whitespace above apparatus.",
+      "evidence": "The lower left column is missing between old189.2 and189.4. Old189.3 is a displaced running header already retained separately by the apparatus layer; its removal did not remove this missing body.",
+      "legacy_action": {
+        "kind": "insert-after",
+        "locus": "helladius_chrestomathia_photius_bekker_v2_0189.2",
+        "before": "helladius_chrestomathia_photius_bekker_v2_0189.4"
+      },
+      "legacy_anchors": [
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0189.2",
+          "row_sha256": "fa5848efa19569f9263776e79b6744e4fe954148dc0927df6741fbcdcc976682",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0189.2",
+            "source": "ocr",
+            "license": "PD",
+            "text": "τὰ δὲ κατὰ τὰς τρωγλοδύτας τοιαῦτα. τὸ μὲν γένος τῆς συσάσους τυραννίς, αἱ δὲ γυναῖκες κοιναι· οἱ παῖδες· μόνη δ' ἡ ἔχεις πλησιάζον τῇ τῇ τυραννῇ· τῶ δὲ τολμήσαντι πρόβατον καταθῆναι τὸ ἐπιτίμιον θάνατος. ἡ δὲ ἀναστροφὴ αὐτῶν· τὸν μὲν παρ' αὐτοῖς",
+            "corrections": [
+              "freq"
+            ]
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0189.3",
+          "row_sha256": "de44cbbeea4b904c26f2003d8d0ba9253dcc79e90d933b82311f2fc4b19bd4a2",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0189.3",
+            "source": "ocr",
+            "license": "PD",
+            "text": "ἈΡΧΙΔΟΣ"
+          }
+        },
+        {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0189.4",
+          "row_sha256": "566f12b44ce7d3ad149a1be6461e1baacec8995054a692736b2b12868712aa37",
+          "original_row": {
+            "urn": "photius.bibliotheca",
+            "cts": "urn:cts:greekLit:tlg4040.tlg001",
+            "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
+            "locus": "helladius_chrestomathia_photius_bekker_v2_0189.4",
+            "source": "ocr",
+            "license": "PD",
+            "text": "ταῖς κηδείαις καταχρωμένῳ νυμφίους, εἰπερ μὴ λυπεῖν ἑαυτὰς ἐπὶ τοῖς ἀλυπήτοις συνάιους σημείων. τὰς δ' ἐπὶ τῆς ἀναφερομένης ἀφριδιώδους νομῆς ἔχθρας τε ἡ μάχας ἢ πολέμους αὐτῶν πρὸς ἀλλήλους (οὐδὲ γὰρ ὑπὲρ ἄλλου τινὸς μάχων) ἀλλ' ἐν ταύταις αἱ προσηκόντως γυναῖκες προσηδήσωσι διαλύσωσι, κατὰ τὸ μέσον ἵλθωσαι, καὶ τοὺς πραύντας λόγους τὰς δημίας ἀγκραδισμένας καταστέλλωσαι. ἔπειτα δέ, φησίν, ἂ κατὰ τοὺς ἄλλους τῶν ἀνθρώπων χρωμένῳ, ἀλλὰ προμηθῶσαι μὲν πλήθους ἱκανοῦ ἔχουσι συνεπιόντων, κώδυνας δὲ ἐξέδωσαν ἐκ τῶν καμάτων τῶν ἀφρόνων πάντων, ὥπως δ' ἀπ' αὐτῶν ψόφος διώκῃ τὰ θηρία· ἐπὰν δὲ νὺς ἔπη, εἰς μάνθρας μὲν συνάγῃσι τὴν λείαν, ἀκωθὲν δὲ ἐπβάλλουσι πῦρ ἐκ φοινίκων. καὶ οἱ μὲν γυναῖκες μετὰ τῶν νηπίων τοὺς τοὺς ἐπιβαίνουσι· οἱ δὲ ἄνδρες πυρὰ κύκλῳ καίουσι, ἄδοντες πατρίας τινας μέλῳς, ἢ τὸν ἔννον ἔτι παραφθην, \"ἐν πολλοῖς τῆς μελέτης διώταναγκαία τὴν φύσιν νικώσης. ἐπὰν δὲ τινες τὰ πάσιν ὀρελομένα γῆρας βαρύνοντος μηκτέι δονωτὰ ταῖς ποίμναις ἐπακολουθεῖν, περιθέμενοι βόας ὀρῶν περὶ τὸν αὐχένα τὸν αὐτῶν, ἢ τὸν ὀπίσω τῷ τραχήλῳ δεσμοῦ ἐὐ μύλα περισηφίζαντες, ἀπολύουσι τῷ βίῳ. εἰ δὲ τις αὐτῶν τὴν τελευταίην ὑπερβάλλοι, παραχρῆς ὁ θάλας ἄρνη, ὡς ἐπ' ἐνόσῳ τὸν ἕκτον ἀφαιρούμενος, νοθεύων ἀξίωμα τῷ λόγῳ τῆς ἀναφερομένης, διὰ τῆς αὐτῆς ὁδοῦ παρολίσαν. ὁ τὸς γραφάκοντας δὲ μόνον ἔτι τῷ ξερ ἐπιζῶσιν, ἀλλὰ καὶ ὡς ἡ νόσος ἐπιμένουσα ἢ μελῶν τινὸς πρήγματος ἀχρήστους εἰς τὸ ταῖς ὀχλαῖς παρασκευάσαι συνέπει.",
+            "corrections": [
+              "confusion",
+              "freq"
+            ]
+          }
+        }
+      ],
+      "leading_source_fragment": null,
+      "trailing_source_fragment": null,
+      "source_library_window": {
+        "path": "data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "section": "tlg4040-tlg001-local002-s466",
+        "section_sha256": "606223207dab2df94397b146058113b5605988128e07643c7ba3508458806f97",
+        "start": 434,
+        "end": 1969,
+        "original_text": "χειμῶνα (ἔστι δ’ ἔτος ὑπὸ τὰς ἐτησίας) πᾶσαν αὐτῶν τῶ θεῶ τὴν χώραν ὕδασι λάβροις ἐπέχοντος, ἀφ’ αἵματος καὶ γάλακτος ζῶσιν, εἰς ταὐτὸ μίξαντες καὶ κυλίσαντες ἐν ἀγγείοις εἰκῇ πεπυρωμένοις. ἐπὰν δὲ ἐπιστῇ τὸ θέρος, ἐν τοῖς τελματώδεσιν ἀναστρέφονται χωρίοις, μαχόμενοι πρὸς ἀλλήλους περὶ τῶ χιλώματος. καὶ τὰ πρεσβύτερα τῶν βοσκημάτων κὶ νοσῶντα δαπανῶσι, διὰ τῶν μαγείρων ταῦτα κτείνοντες, ὃς καλοῦσιν ἀκαθάρτας. ἤτοι ἀνθρώπων μὲν οὐδενὶ περιτιθέασι τὴν τῶν γονέων κλῆσιν, ταύρῳ δὲ καὶ βοΐ, τὸν πατέρα καλοῦντες, τὴν δὲ μητέρα, ὡσαύτως κριῷ τε καὶ προβάτῳ, διὰ τὸ λαμβάνειν τὴν τροφὴν τὴν καθ’ ἡμέραν ἐ παρὰ τῶν τοκέων ἀλλὰ παρ’ ἐκείνων. ἤτοι καὶ ποτῷ, ὁ μὲν πολὺς ὄχλος ἀποβρέγματι παλιόρ’ χρῶνθ’· οἱ δὲ τύραννοι ἀπό τινος ἄνθ’ς σκευασθέντος πίνωσι, παραπλησίῳ μοχθηρῷ γλυκεῖ. γυμνοὶ δὲ τὸ ἄλλο σῶμα τυγχάνοντες τὰ ἰχία δέρμασίν εἰσι διεζωσμένοι. τὰ δὲ αἰδοῖα τοῖς μὲν ἄλλοις τρωγλοδύταις ἐστὶν εἰθισμένον περιτέμνεθαι, καθάπερ Αἰγυπτίοις πάντας· τὰς δ’ ὑπὸ τῶν Ἑλλήνων καλεμένας κολοβὰς πᾶν τὸ τοῖς λοιποῖς μέρος περιτομῆς τυγχάνον ξυροῖς ἀφαιρεῖν ἔστιν ἔθος νηπίων ὄντων, ἐξ ὧ κὶ τὴν εἰρημένην κλῆσιν ἑαυτοῖς πεποίηνται. ὅτι κέχρηθ’ ὁ συγγραφεύς, ἀττικισὴς καίτοι ὤν, τῇ τῆς καμάρας λέξει. ὅτι οἱ τρωγλοδῦθ’ περὶ τὰς μετηλλαχότας, φησίν, ὕτω πράττωσι. ταῖς ἐκ τῶν παλιόρων λύγοις τὸν αὐχένα πρὸς τὰ σκέλη συνέδησαν, εἶτα ἐπ’ ὄχθον ἐπιθέντες βάλλωσι χειροπληθέσι λίθοις, τωθασμῷ χρώμενοι καὶ γέλωτι, ἕως ἀποκρύψωσι τῶ τετελευτηκότος τὴν μορφήν· κἄπειτα ἄνωθεν ἐπιθέντες κέρας αἰγὸς ἀπαθεῖς ἀπολύονθ’ καὶ παντελῶς ἱλαροί. ὕτω, φησί, ",
+        "held_spans": [],
+        "role": "Comparison witness only pending completed independent scan readings and exact source review.",
+        "page_label_qualification": "Source Library s466 matches legacy physical PDF189/printed454; its label is not the legacy PDF page number."
+      }
+    }
+  ],
+  "admission_policy": "Requests and comparison windows are not accepted text. Preserve every raw attempt, use at most one assembled vote per independent checkpoint, retain disagreements, exclude source fragments from lexical counts, and preserve historical passage identities. Diagnostic pilot attempts must never add an extra vote.",
+  "legacy_policy": "Preserve every old row and later editorial correction. Legacy actions describe a proposed source boundary only. A later reversible admission must audit exact accepted text, contextual trimming, lexical exclusions for printed fragments, and every disagreement; no digital completion is authorized.",
+  "generated_by": "scripts/prepare_photius_body_recovery.py --remaining"
+}

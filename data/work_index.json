@@ -218711,9 +218711,9 @@
     "edition": "bekker1824-independent-ocr-consensus",
     "source": "ocr",
     "license": "CC-BY-SA-4.0",
-    "n_passages": 3787,
-    "n_tokens": 427256,
-    "n_analysis_tokens": 270038,
+    "n_passages": 3794,
+    "n_tokens": 431801,
+    "n_analysis_tokens": 302194,
     "coverage": {
      "policy": "complementary-page-union-with-licensed-consensus",
      "manifest": "data/corpus_changes/photius-bekker-coverage/coverage.json",
@@ -218724,7 +218724,7 @@
       {
        "role": "retained-primary",
        "license": "PD",
-       "passages": 3476,
+       "passages": 3475,
        "scan_ranges": [
         [
          279,
@@ -218895,6 +218895,961 @@
         "rows": 2,
         "license": "CC-BY-4.0"
        }
+      },
+      {
+       "edition": "bekker1824-independent-ocr-consensus",
+       "role": "source-reviewed-consensus-readings",
+       "license": "CC-BY-SA-4.0",
+       "source_review": {
+        "path": "data/corpus_changes/photius-bekker-readings/reading-windows.json",
+        "sha256": "c9cd81b49c1c5e90de070da57e224d3d85045690e7243141e1fe162a3a51e00b"
+       },
+       "counts": {
+        "primary_rows_before": 3787,
+        "primary_rows_after": 3794,
+        "reviewed_rows": 293,
+        "editorial_spans": 50,
+        "source_window_rows": 285,
+        "digital_voting_rows": 292,
+        "before_consensus": {
+         "unresolved": 78424,
+         "agreement": 109550,
+         "single-witness": 1501,
+         "incomplete-reading": 48,
+         "omission": 84,
+         "damaged-reading": 4
+        },
+        "after_consensus": {
+         "unresolved": 41411,
+         "agreement": 143083,
+         "omission": 7522,
+         "incomplete-reading": 92,
+         "single-witness": 218,
+         "damaged-reading": 6
+        },
+        "window_before_consensus": {
+         "unresolved": 78424,
+         "agreement": 109550,
+         "single-witness": 1501,
+         "incomplete-reading": 48,
+         "omission": 84,
+         "damaged-reading": 4
+        },
+        "window_after_consensus": {
+         "unresolved": 40689,
+         "agreement": 141630,
+         "omission": 7491,
+         "incomplete-reading": 86,
+         "single-witness": 143,
+         "damaged-reading": 6
+        }
+       },
+       "networks": {
+        "path": "data/corpus_changes/photius-bekker-readings/networks.json.gz",
+        "sha256": "d4827c2cd7c029a61c3b06ace6b130bf53dbe3245c881f007e56a5a45d430bcb"
+       }
+      },
+      {
+       "edition": "bekker1824-reviewed-fresh-editorial-matter",
+       "role": "fresh-witness-editorial-paratext",
+       "license": "CC-BY-4.0",
+       "passages": 50,
+       "source_review": {
+        "path": "data/corpus_changes/photius-bekker-readings/reading-windows.json",
+        "sha256": "c9cd81b49c1c5e90de070da57e224d3d85045690e7243141e1fe162a3a51e00b"
+       },
+       "paratext": {
+        "path": "data/paratext/photius-bekker-reading-editorial-spans.jsonl",
+        "sha256": "28c799d7986aad7139de39b11984d639ebe1a0d0e0d50292b39fb12fcf3c385f"
+       }
+      },
+      {
+       "edition": "bekker1825-reviewed-body-consensus",
+       "role": "recovered-historical-body-regions",
+       "license": "CC-BY-SA-4.0",
+       "passages": 8,
+       "counts": {
+        "added_rows": 7,
+        "replaced_rows": 1,
+        "regions": 8,
+        "model_witnesses": 16,
+        "source_library_witnesses": 8,
+        "raw_strips": 68,
+        "unresolved_slots": 722,
+        "source_fragment_slots": 6,
+        "source_observation_slots": 23,
+        "internal_source_fragment_slots": 3
+       },
+       "logical_coverage_positions": {
+        "photius_bekker1825_recovery_0066.left": 343,
+        "photius_bekker1825_recovery_0073.right": 350,
+        "photius_bekker1825_recovery_0079.left": 356,
+        "photius_bekker1825_recovery_0090.right": 367,
+        "photius_bekker1825_recovery_0100.left": 377,
+        "photius_bekker1825_recovery_0154.right": 431,
+        "photius_bekker1825_recovery_0189.left": 466,
+        "helladius_chrestomathia_photius_bekker_v2_0148.4": 425
+       },
+       "source_library_credit": {
+        "edition": "tlg4040.tlg001.local002",
+        "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "license": {
+         "text": "CC BY-SA 4.0",
+         "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+        "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+        "api_notice_checked_date": "2026-10-18",
+        "separate_api_notice": {
+         "spdx": "CC-BY-SA-4.0",
+         "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+         "attribution": "Source Library (https://sourcelibrary.org)",
+         "terms": "https://sourcelibrary.org/terms",
+         "original_texts": "public-domain",
+         "tdm_reservation": 1,
+         "tdm_policy": "https://sourcelibrary.org/licensing",
+         "ai_training": "reserved — standard license available, see tdm_policy"
+        },
+        "attribution": "The Source Library",
+        "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030."
+       },
+       "input_pins": {
+        "before_rows_sha256": "94ffc55bf62980254ba8a7713def3ab2681cbf966bf447ad0fec32323ab6b5b4",
+        "source_pdf_sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "source_library_sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "requests": [
+         {
+          "request": {
+           "path": "data/ocr_requests/photius-bekker-body-recovery.json",
+           "sha256": "d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d"
+          },
+          "source_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-recovery.json",
+           "sha256": "30d95520f05f2b8d397ab8ccd05d6e4f4f09ada6f58cd156ebd492c213d2cad4"
+          },
+          "raw_files": [
+           {
+            "sha256": "ea3c1df07adee5dc77eadeb46673b6dafdc8944b60c25f0817a3c7e3120dfae4",
+            "metadata": {
+             "model": "mlx-community/Qwen3.6-27B-8bit",
+             "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 9
+           },
+           {
+            "sha256": "7252bb04bdf2e99ef65f3d3750124f2afadc743bfaf65635e4d55814e39f652c",
+            "metadata": {
+             "model": "mlx-community/Qwen3.8-27B-8bit",
+             "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 9
+           }
+          ],
+          "outcome_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+           "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+          }
+         },
+         {
+          "request": {
+           "path": "data/ocr_requests/photius-bekker-body-recovery-remaining.json",
+           "sha256": "388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af"
+          },
+          "source_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-recovery-remaining.json",
+           "sha256": "a345e6ca96c5f20a5d48eee84c94989740c0e5ba4a3a0f3c44d3749e183a2dc0"
+          },
+          "raw_files": [
+           {
+            "sha256": "708a244c83e8d472d13d6396f6180e3a47b0796b4d82691614de0b0a9780bde1",
+            "metadata": {
+             "model": "mlx-community/Qwen3.6-27B-8bit",
+             "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 25
+           },
+           {
+            "sha256": "407ffe5f9520666baf7dd7e0e3cc0455b08a48691ce2bc3f20fdbf8cfc7ca550",
+            "metadata": {
+             "model": "mlx-community/Qwen3.8-27B-8bit",
+             "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 25
+           }
+          ],
+          "outcome_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+           "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+          }
+         }
+        ]
+       },
+       "source_reviews": [
+        {
+         "path": "data/ingest_reviews/photius-bekker-body-recovery.json",
+         "sha256": "30d95520f05f2b8d397ab8ccd05d6e4f4f09ada6f58cd156ebd492c213d2cad4"
+        },
+        {
+         "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+         "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+        },
+        {
+         "path": "data/ingest_reviews/photius-bekker-body-recovery-remaining.json",
+         "sha256": "a345e6ca96c5f20a5d48eee84c94989740c0e5ba4a3a0f3c44d3749e183a2dc0"
+        }
+       ],
+       "quality_review": {
+        "requires_completed_review": false,
+        "completed_outcome_reviews": [
+         {
+          "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+          "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+         }
+        ],
+        "component_outcomes": [
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part01",
+          "artifact_sha256": "154a004041a7e3026cd9e03b6762d3349f87e723b639ad812c12252a0ead7bf4",
+          "image_sha256": "57d7e0479a853d2b447cccf6bb510070c47c6c59491fbf788a87431cb47fb7be",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part02",
+          "artifact_sha256": "56f78bb1d9b10cef462ff0ab6849eb7e40238c27e91149775ecd2b2a83162809",
+          "image_sha256": "dd3ab70ed2cf254dcf63d5a405f08a9dd3606a524440fb80a458780e5992304c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part03",
+          "artifact_sha256": "61a05e1b9bb7ddf4349d01d9d197880d9fbdde062c247683519c3245a9670dd3",
+          "image_sha256": "aea87ffcc5137307f7cc3c13a8bb47a3239ae973b560a95cf12a5bbcb2a00a0d",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part04",
+          "artifact_sha256": "de9f97373f54b1c677620e01bd55b802a68673045baaae05f018a5ab61fa7184",
+          "image_sha256": "aa04a4b7dab113a707fcb389cc699187eb2f05f3674df81e450c79bece060019",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part01",
+          "artifact_sha256": "a4a733655d1523e7a6b598e8e908932bda426610eb5fc1a8189879a8a0833179",
+          "image_sha256": "57d7e0479a853d2b447cccf6bb510070c47c6c59491fbf788a87431cb47fb7be",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part02",
+          "artifact_sha256": "d2164efa34ffba8bfdc308f836a97bab0c2b9f3ab9502a822c77226431da874a",
+          "image_sha256": "dd3ab70ed2cf254dcf63d5a405f08a9dd3606a524440fb80a458780e5992304c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part03",
+          "artifact_sha256": "e17d50126641028bcb11d9064fd8acf14241ce3912622a2fd61453daaeedc286",
+          "image_sha256": "aea87ffcc5137307f7cc3c13a8bb47a3239ae973b560a95cf12a5bbcb2a00a0d",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part04",
+          "artifact_sha256": "adcabf4ca40c7a4dd0495c96ef316b4c0e6c9ce8c501843625ab5726e6eb6616",
+          "image_sha256": "aa04a4b7dab113a707fcb389cc699187eb2f05f3674df81e450c79bece060019",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part01",
+          "artifact_sha256": "3283390fde734544c2fb441b32f54b7acd70ad91392836111f8d9c0a183e3136",
+          "image_sha256": "3d021af7aac7048634e17177bb4609f63c23280ce9169cf963d031359363aa37",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part02",
+          "artifact_sha256": "73328023fe294ba42939a42d2959f71f3d9a34d9f0d8f7326f43844984812893",
+          "image_sha256": "89931b59756f1e4b8c4560049cab1525423255a1e1b966d401c35e80273a1e59",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part03",
+          "artifact_sha256": "bca266d62968e613ad0c79c8a7adade417fbe8f87f9172300e1068786b1dda93",
+          "image_sha256": "d281bef04324e5c00316adaebd91f46f6545656356c7be3ab5c0d3d9e102034e",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part04",
+          "artifact_sha256": "98a13f9220cd7e8b0dc2358ba0e4cc4fcdea91f4438875110c296290776c9e03",
+          "image_sha256": "82f675b3d52e92753639eed56f14a92122c3b4c091acafcd864891ed3d05bc14",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part05",
+          "artifact_sha256": "963f6f5527a4b34a47079d888d7efb6ee08bc35b230b59b795cbd906810a9802",
+          "image_sha256": "d12e7e58483c1e078dc63a087073766444a93e05149ba1800b005ee1d1518ef1",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part01",
+          "artifact_sha256": "413b59bd65a2b98cadb3703f973bdf06dabdaa64c23ee27af3c3650760d6e4b2",
+          "image_sha256": "3d021af7aac7048634e17177bb4609f63c23280ce9169cf963d031359363aa37",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part02",
+          "artifact_sha256": "75c0612ff66490db90e706f0bca4262e8f44d8b028ad5ef3d0a0ce7e809b8204",
+          "image_sha256": "89931b59756f1e4b8c4560049cab1525423255a1e1b966d401c35e80273a1e59",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part03",
+          "artifact_sha256": "610847815472700c2d0f696000f2488afd4719a1c7d255abc70106fdac5e257a",
+          "image_sha256": "d281bef04324e5c00316adaebd91f46f6545656356c7be3ab5c0d3d9e102034e",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part04",
+          "artifact_sha256": "9be8bbaa91dce06192ad0b11f5532d90d04100f93ca3e398f34ae252cee5cc91",
+          "image_sha256": "82f675b3d52e92753639eed56f14a92122c3b4c091acafcd864891ed3d05bc14",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part05",
+          "artifact_sha256": "b72b5d1e878730f6d52d86e6025d976a6c145f1672f154ca30744f85b52b2f41",
+          "image_sha256": "d12e7e58483c1e078dc63a087073766444a93e05149ba1800b005ee1d1518ef1",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part01",
+          "artifact_sha256": "bcd92e37bd73a43a7f9407285cbf788fc612d6132f95c7f35ee9ce7cb91e81f7",
+          "image_sha256": "bd104677716dfcaad501d406d0efba35b504cd0dcb6c3bc7494eeb61be0f0b7b",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part02",
+          "artifact_sha256": "5c8f3432e089ccb8651ccf4aef1561df9bf72981381471a522190ba452ba5238",
+          "image_sha256": "033aa132c30bf6f5885c38bcd7e211aa8d55d5c2de403b7f43778be968707c56",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part03",
+          "artifact_sha256": "30ffd428e8fdb103d0d5d87090a2b338d248c40011676a5f5ec6219f8ffe8a80",
+          "image_sha256": "986a2d9e4139a7bef302f59a5be61ab65dd665ad9da53dfa92efd8fe52fa1685",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part04",
+          "artifact_sha256": "6a4c122a6ea19dafaf0d0963778414cf4d61e3d9c448ed97eb9c0e38973e61d9",
+          "image_sha256": "5a42fe783c8331e754da35181aae640326b892aba9aa5f41e7a4dd29d20f5b30",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part01",
+          "artifact_sha256": "d4c25e131f5a2acdec692e4c90c86707e72a0ce8479f1c55de759e1af4664eb3",
+          "image_sha256": "bd104677716dfcaad501d406d0efba35b504cd0dcb6c3bc7494eeb61be0f0b7b",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part02",
+          "artifact_sha256": "f6d09d9152f0501b0a491918432ddcfe72dd9aeb4c52ecf32a036d3fdbbfb3f2",
+          "image_sha256": "033aa132c30bf6f5885c38bcd7e211aa8d55d5c2de403b7f43778be968707c56",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part03",
+          "artifact_sha256": "1f69381304c2b2a74f3729795ac19fd8ba0da58038ee3194384847786e5e802b",
+          "image_sha256": "986a2d9e4139a7bef302f59a5be61ab65dd665ad9da53dfa92efd8fe52fa1685",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part04",
+          "artifact_sha256": "c95d739a298ddcc606c5e9baf403f53c903475dfacfd1c4054b6ff4661254ef7",
+          "image_sha256": "5a42fe783c8331e754da35181aae640326b892aba9aa5f41e7a4dd29d20f5b30",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part01",
+          "artifact_sha256": "006abba65fe9487ea04d0994431dc5ce257220b031e18831e66d03d35f77e005",
+          "image_sha256": "89d22c9b0505e10d21db2e520fd95e0d5b3cd0076124e3614ec2c7fd19a7f4ad",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part02",
+          "artifact_sha256": "16a4946e3bc082679868015fa8c52d843b74ffb7e9465a4a07b62559e624f866",
+          "image_sha256": "a6c108597fbe8e7705729e95374c3e51b6328ad1f87aea26093288b46ff0d248",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part03",
+          "artifact_sha256": "3713fb4412ea18746bef0d6d4097588b45f1116b08c74409ca0b788109e32c40",
+          "image_sha256": "0baf26289106191f33732b9f386b59062204bbe9fc1dbb86c8f44d0357495a50",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part04",
+          "artifact_sha256": "ffd2e4adb023bf464794935c460dbb1ce4a8ae8fe1293180c7718a940799292f",
+          "image_sha256": "5040a6eb250c29b76652d920ea8fdf9a76106164eaa2329d1681d2ad42f4bb77",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part05",
+          "artifact_sha256": "954d561c3e0bb98573ed9fe87e1c2b00453b805e1003604125a385d643897f73",
+          "image_sha256": "c77b978603797c2507ecac351f0b853ec9f210584a28d69a767aae5ab00b54cb",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part01",
+          "artifact_sha256": "481453836b4f89e7c2926a74e00e764d235f4825893885dbc6b8032a3ff2734c",
+          "image_sha256": "89d22c9b0505e10d21db2e520fd95e0d5b3cd0076124e3614ec2c7fd19a7f4ad",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part02",
+          "artifact_sha256": "6ef14fdd47396ea1d0f03e5a71b5537c0e415848d7ce81d1cad21ce818af8ddc",
+          "image_sha256": "a6c108597fbe8e7705729e95374c3e51b6328ad1f87aea26093288b46ff0d248",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part03",
+          "artifact_sha256": "9f91158804e6a6a093a3dfdbf25c5026ba9362195c8e5e543193b17713158f76",
+          "image_sha256": "0baf26289106191f33732b9f386b59062204bbe9fc1dbb86c8f44d0357495a50",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part04",
+          "artifact_sha256": "f2b65c77a73fb0c47c6bf3c53e0e238c90ff6650f34ce26ff2aa3a3776e4e159",
+          "image_sha256": "5040a6eb250c29b76652d920ea8fdf9a76106164eaa2329d1681d2ad42f4bb77",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part05",
+          "artifact_sha256": "107a0f18978c73385506191e4dc2be0aaf938f7b209fe50ee13808a3c3e3bce4",
+          "image_sha256": "c77b978603797c2507ecac351f0b853ec9f210584a28d69a767aae5ab00b54cb",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part01",
+          "artifact_sha256": "feb22f090cdbbe97b3f8961d2190d973c93885394aae09982851ce71d4b30673",
+          "image_sha256": "22b6e6d33e3542feeff7c60e4a1464d8e1beda7a4dd2d5274b36ebbb524e9b98",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part02",
+          "artifact_sha256": "f0466b3ceaca3b48087bdb1bd4d7b402a37447f5aa66b9938f6fa7665653de3e",
+          "image_sha256": "6d04d2de3cdb09e54996d53b4cfb2b5bc43c23bbce2117e90380da6c6fe6c48c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part03",
+          "artifact_sha256": "557da13393c921ed9952fe57fd41735635e8f2edccc3868786c2b60d376d2a2b",
+          "image_sha256": "7cc52ce0be9655e7a8ff987eb25d7bc2d2309bb6c65220665632f84b9e8ce9ee",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part04",
+          "artifact_sha256": "36edd2778d8a5fdee2381d1dcfced5116028bb628040573b680ce34eabef33a3",
+          "image_sha256": "4872e8085469a02b44950ff2ebc7651f951da680e1c3ec17f7feff8df4f9c337",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part05",
+          "artifact_sha256": "182423abdc22b109334e6e3cb4c16d120004c12a9804740c88e29ae159e7684e",
+          "image_sha256": "8c350719f938ae0469684e7422c48159fd91c9a6d5c331cc7c26c6ba7f71d8f9",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part01",
+          "artifact_sha256": "2a13131086e4eb5fe2a0b30b8149fdcf2ddc18410f5eb5f4adcf123224f529f5",
+          "image_sha256": "22b6e6d33e3542feeff7c60e4a1464d8e1beda7a4dd2d5274b36ebbb524e9b98",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part02",
+          "artifact_sha256": "595fa707c0061a13005bc31514ab8c9f3885075581a74ee7f5713e8e4db1df0b",
+          "image_sha256": "6d04d2de3cdb09e54996d53b4cfb2b5bc43c23bbce2117e90380da6c6fe6c48c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part03",
+          "artifact_sha256": "654c58e7220c8f314aa98023b90ec6f5018b2c8fc75dd12d3a2a6a19100992a2",
+          "image_sha256": "7cc52ce0be9655e7a8ff987eb25d7bc2d2309bb6c65220665632f84b9e8ce9ee",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part04",
+          "artifact_sha256": "6cea5ac9f79fb0ea7bea368c6e7b44f96db588a034cdc383fe3f8e10cb404dc6",
+          "image_sha256": "4872e8085469a02b44950ff2ebc7651f951da680e1c3ec17f7feff8df4f9c337",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part05",
+          "artifact_sha256": "f067e7aaf63184ee3ca38a73589ac1aecccc4c5d635eb818e505f6fbb044036b",
+          "image_sha256": "8c350719f938ae0469684e7422c48159fd91c9a6d5c331cc7c26c6ba7f71d8f9",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0148-left-part01",
+          "artifact_sha256": "cb2a81b1e78da42262c6deec92af7a28ad01f5c7315a2ee1fee8d8e963969ba9",
+          "image_sha256": "d5f12344c79827086cb265ba56d3b43609c15bc3c6f2f76388f0255edde7bc8a",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0148-left-part02",
+          "artifact_sha256": "67651e9833d968fe7b5dc37cb104b7ddc67129fd079d19d50ab17d23e36bad0b",
+          "image_sha256": "c81a7cc3df2927f0553d3ab0bcd72ad9a2ecac1a7aed722442300e9c0e77a207",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0148-left-part03",
+          "artifact_sha256": "2ab08c233bae598d8047af5ae8adf5d9751454d69e26de7d1ff86d7657123fb3",
+          "image_sha256": "010b31d3509ad9980be2bd383c0bdd672b2d151b6dcd8fccdd46887286c4e594",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0148-left-part01",
+          "artifact_sha256": "75fbb6df3567f86aff78742b5e8efaa650299d940c0fd02ed5582decc0137d14",
+          "image_sha256": "d5f12344c79827086cb265ba56d3b43609c15bc3c6f2f76388f0255edde7bc8a",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0148-left-part02",
+          "artifact_sha256": "dc6f8ef324a171fb441657c331df0e076e6134b61820c8b2e1fb28863f27dcb8",
+          "image_sha256": "c81a7cc3df2927f0553d3ab0bcd72ad9a2ecac1a7aed722442300e9c0e77a207",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0148-left-part03",
+          "artifact_sha256": "2e8c2c66b9a7de2b293c59db66ff3716d35f0483a6ebad7431196560472c87a7",
+          "image_sha256": "010b31d3509ad9980be2bd383c0bdd672b2d151b6dcd8fccdd46887286c4e594",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part01",
+          "artifact_sha256": "74073df0fd5205f22532a2d9a3c3ae946818f42160269aa2076d08afff942c23",
+          "image_sha256": "6702374ede356b5583263d85cd8a77b71484672433f7c88df155119ca50c6f5f",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part02",
+          "artifact_sha256": "523bd8438973190c06a330d8e878fc63486a4569670a190c160e16c09148f734",
+          "image_sha256": "df8b3b48a7ac9e7137f32f13b0da571877f1a79e2eafbea7674f6b0dc1077b05",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part03",
+          "artifact_sha256": "b9c26c78ef8408db25c636edee5f17c60ecb5698c1cf47c91573c984e8eb749e",
+          "image_sha256": "ecfdf2dadedfedc482392a75fa954bb6753ecfb1b4f5db1387e0286ed6fd8cac",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part04",
+          "artifact_sha256": "26a78ad4132c58e0c72eb2ddd6ee8a045fcb677ce88c6fe061a99fb62acf4c3b",
+          "image_sha256": "8599d54fb82c40f01e9b8f089100eb67acdde705d60e20ebf313eee0f2662aa2",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part01",
+          "artifact_sha256": "dace230ff6fbf13755fb6fb3e792140479c1a39598e1d2aa66397d2fbaa35ec1",
+          "image_sha256": "6702374ede356b5583263d85cd8a77b71484672433f7c88df155119ca50c6f5f",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part02",
+          "artifact_sha256": "8439f6849a98b0f945553bea273cc1872b95d5a88af6fbdba897ef8cce64407b",
+          "image_sha256": "df8b3b48a7ac9e7137f32f13b0da571877f1a79e2eafbea7674f6b0dc1077b05",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part03",
+          "artifact_sha256": "a762ebaf00b8becb019ced189a74ddbf53f449955eca7ab1a5f67b2ed412eef5",
+          "image_sha256": "ecfdf2dadedfedc482392a75fa954bb6753ecfb1b4f5db1387e0286ed6fd8cac",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part04",
+          "artifact_sha256": "97dd98db83cbfa528a8f40bf9edf764b263d4b68909b5f83ab017783ba938f2d",
+          "image_sha256": "8599d54fb82c40f01e9b8f089100eb67acdde705d60e20ebf313eee0f2662aa2",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part01",
+          "artifact_sha256": "d17aef3cc7c39564f728d9dfe14f947f785a2aeee654182057c1a354607404d0",
+          "image_sha256": "5eea5060a12576452ed4899584e66da473e79e5cae75610fc43373a6193b054c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part02",
+          "artifact_sha256": "4d9e025916e5572317cc3704473982604cd78f202af162a10cadbda615755539",
+          "image_sha256": "233527a681dc8c01269b7338891830820214f13168ba587a24930bfc48e52f42",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part03",
+          "artifact_sha256": "9ebbb256e4ed65e9f9b0e79d11af0eec04ebefac20f6c4e2ff0dc84eb2737923",
+          "image_sha256": "9865d89e2e06f1da4eeed9e019719ec503c8ed7a7dfa9e08772cb042863aaf02",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part04",
+          "artifact_sha256": "0d23fb144b35afd6d457ab4355047cfcd5390db489c8dc286df78e031b0834e1",
+          "image_sha256": "2ae07c7de4ee4f6531c89b270fce78bf2c05e6bc53186c71bb9815443f007963",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part01",
+          "artifact_sha256": "3e84b2db779ac67442751464917ffd3a5b16c9c79ccc309f430c3d7d94a7cd38",
+          "image_sha256": "5eea5060a12576452ed4899584e66da473e79e5cae75610fc43373a6193b054c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part02",
+          "artifact_sha256": "9bc19be656f6c24cb4fc57518bfc35ef4c999aa310fa85c0105901f9b48f4aa2",
+          "image_sha256": "233527a681dc8c01269b7338891830820214f13168ba587a24930bfc48e52f42",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part03",
+          "artifact_sha256": "c16b997a4bea194c3f67dfe62789a47d4611d8b808d4446bd7059c0205231ff1",
+          "image_sha256": "9865d89e2e06f1da4eeed9e019719ec503c8ed7a7dfa9e08772cb042863aaf02",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part04",
+          "artifact_sha256": "a63b002cbc79f516b6b0783a9c9810c2c993534a04de5d0f93d93f367671ece9",
+          "image_sha256": "2ae07c7de4ee4f6531c89b270fce78bf2c05e6bc53186c71bb9815443f007963",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         }
+        ],
+        "policy": "A reproducible consensus plan is not a claim that every source word is correct."
+       },
+       "source_scan": {
+        "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "edition": "Bekker1825, original second volume",
+        "license": "PD"
+       },
+       "ocr_witness_license": "CC-BY-4.0"
       }
      ],
      "source_editions": [
@@ -219202,6 +220157,948 @@
        ],
        "pin_validation": "Exact compact/full networks, raw text, model, revision, artifact, file and image pins are verified here. The source-review preparer verifies raw-record and request hashes against their retained files.",
        "reversal": "Restore original_row and the original compact network reference; original coverage archives and all raw readings remain unchanged."
+      }
+     },
+     "reading_layer": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-readings/changes.json",
+       "sha256": "072a768a4070c27efaf03b721f866cfa61f3dbd62fb2d927eff4caad98c80058"
+      },
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-readings/reading-windows.json",
+       "sha256": "c9cd81b49c1c5e90de070da57e224d3d85045690e7243141e1fe162a3a51e00b"
+      },
+      "counts": {
+       "primary_rows_before": 3787,
+       "primary_rows_after": 3794,
+       "reviewed_rows": 293,
+       "editorial_spans": 50,
+       "source_window_rows": 285,
+       "digital_voting_rows": 292,
+       "before_consensus": {
+        "unresolved": 78424,
+        "agreement": 109550,
+        "single-witness": 1501,
+        "incomplete-reading": 48,
+        "omission": 84,
+        "damaged-reading": 4
+       },
+       "after_consensus": {
+        "unresolved": 41411,
+        "agreement": 143083,
+        "omission": 7522,
+        "incomplete-reading": 92,
+        "single-witness": 218,
+        "damaged-reading": 6
+       },
+       "window_before_consensus": {
+        "unresolved": 78424,
+        "agreement": 109550,
+        "single-witness": 1501,
+        "incomplete-reading": 48,
+        "omission": 84,
+        "damaged-reading": 4
+       },
+       "window_after_consensus": {
+        "unresolved": 40689,
+        "agreement": 141630,
+        "omission": 7491,
+        "incomplete-reading": 86,
+        "single-witness": 143,
+        "damaged-reading": 6
+       }
+      },
+      "networks": {
+       "path": "data/corpus_changes/photius-bekker-readings/networks.json.gz",
+       "sha256": "d4827c2cd7c029a61c3b06ace6b130bf53dbe3245c881f007e56a5a45d430bcb"
+      },
+      "paratext": {
+       "path": "data/paratext/photius-bekker-reading-editorial-spans.jsonl",
+       "sha256": "28c799d7986aad7139de39b11984d639ebe1a0d0e0d50292b39fb12fcf3c385f"
+      },
+      "body_recovery": {
+       "counts": {
+        "added_rows": 7,
+        "replaced_rows": 1,
+        "regions": 8,
+        "model_witnesses": 16,
+        "source_library_witnesses": 8,
+        "raw_strips": 68,
+        "unresolved_slots": 722,
+        "source_fragment_slots": 6,
+        "source_observation_slots": 23,
+        "internal_source_fragment_slots": 3
+       },
+       "logical_coverage_positions": {
+        "photius_bekker1825_recovery_0066.left": 343,
+        "photius_bekker1825_recovery_0073.right": 350,
+        "photius_bekker1825_recovery_0079.left": 356,
+        "photius_bekker1825_recovery_0090.right": 367,
+        "photius_bekker1825_recovery_0100.left": 377,
+        "photius_bekker1825_recovery_0154.right": 431,
+        "photius_bekker1825_recovery_0189.left": 466,
+        "helladius_chrestomathia_photius_bekker_v2_0148.4": 425
+       },
+       "source_library_credit": {
+        "edition": "tlg4040.tlg001.local002",
+        "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "license": {
+         "text": "CC BY-SA 4.0",
+         "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+        "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+        "api_notice_checked_date": "2026-10-18",
+        "separate_api_notice": {
+         "spdx": "CC-BY-SA-4.0",
+         "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+         "attribution": "Source Library (https://sourcelibrary.org)",
+         "terms": "https://sourcelibrary.org/terms",
+         "original_texts": "public-domain",
+         "tdm_reservation": 1,
+         "tdm_policy": "https://sourcelibrary.org/licensing",
+         "ai_training": "reserved — standard license available, see tdm_policy"
+        },
+        "attribution": "The Source Library",
+        "source_citation": "Photius I, Patriarch of Constantinople, Bibliotheca (Myriobiblon), Berlin : GE. REIMERI, 1824. Imprimé numérisé et transcrit par The Source Library, livre 6955801057e3b773024f5030."
+       },
+       "input_pins": {
+        "before_rows_sha256": "94ffc55bf62980254ba8a7713def3ab2681cbf966bf447ad0fec32323ab6b5b4",
+        "source_pdf_sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "source_library_sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "requests": [
+         {
+          "request": {
+           "path": "data/ocr_requests/photius-bekker-body-recovery.json",
+           "sha256": "d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d"
+          },
+          "source_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-recovery.json",
+           "sha256": "30d95520f05f2b8d397ab8ccd05d6e4f4f09ada6f58cd156ebd492c213d2cad4"
+          },
+          "raw_files": [
+           {
+            "sha256": "ea3c1df07adee5dc77eadeb46673b6dafdc8944b60c25f0817a3c7e3120dfae4",
+            "metadata": {
+             "model": "mlx-community/Qwen3.6-27B-8bit",
+             "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 9
+           },
+           {
+            "sha256": "7252bb04bdf2e99ef65f3d3750124f2afadc743bfaf65635e4d55814e39f652c",
+            "metadata": {
+             "model": "mlx-community/Qwen3.8-27B-8bit",
+             "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/d6bc981eca155c51d7a4aa74d2f0c28e1adf71b4bebedee3297f4f7749e03d4d.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 9
+           }
+          ],
+          "outcome_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+           "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+          }
+         },
+         {
+          "request": {
+           "path": "data/ocr_requests/photius-bekker-body-recovery-remaining.json",
+           "sha256": "388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af"
+          },
+          "source_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-recovery-remaining.json",
+           "sha256": "a345e6ca96c5f20a5d48eee84c94989740c0e5ba4a3a0f3c44d3749e183a2dc0"
+          },
+          "raw_files": [
+           {
+            "sha256": "708a244c83e8d472d13d6396f6180e3a47b0796b4d82691614de0b0a9780bde1",
+            "metadata": {
+             "model": "mlx-community/Qwen3.6-27B-8bit",
+             "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 25
+           },
+           {
+            "sha256": "407ffe5f9520666baf7dd7e0e3cc0455b08a48691ce2bc3f20fdbf8cfc7ca550",
+            "metadata": {
+             "model": "mlx-community/Qwen3.8-27B-8bit",
+             "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+             "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+             "temperature": 0,
+             "max_tokens": 2000,
+             "backend": "mlx",
+             "manifest_sha256": "388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af",
+             "runner_sha256": "061455bce85cb1b770bbb68a2819b06e4da9e637856a05d402559c861154c5e4",
+             "manifest_archive": "manifests/388c6ce0fd537126cd4fc818cd60b87af742445272705401165a761dc55e49af.json",
+             "prompt_policy": "base prompt plus page prompt_suffix, falling back to the source prompt_suffix",
+             "runtime": {
+              "mlx": "0.31.2",
+              "mlx-vlm": "0.6.3",
+              "transformers": "5.12.1"
+             }
+            },
+            "records": 25
+           }
+          ],
+          "outcome_review": {
+           "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+           "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+          }
+         }
+        ]
+       },
+       "source_reviews": [
+        {
+         "path": "data/ingest_reviews/photius-bekker-body-recovery.json",
+         "sha256": "30d95520f05f2b8d397ab8ccd05d6e4f4f09ada6f58cd156ebd492c213d2cad4"
+        },
+        {
+         "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+         "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+        },
+        {
+         "path": "data/ingest_reviews/photius-bekker-body-recovery-remaining.json",
+         "sha256": "a345e6ca96c5f20a5d48eee84c94989740c0e5ba4a3a0f3c44d3749e183a2dc0"
+        }
+       ],
+       "quality_review": {
+        "requires_completed_review": false,
+        "completed_outcome_reviews": [
+         {
+          "path": "data/ingest_reviews/photius-bekker-body-outcomes.json",
+          "sha256": "5b3d912f7c108ed05f98d0078e7adb0c74be1a836a95b31903da65606d0b6aa0"
+         }
+        ],
+        "component_outcomes": [
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part01",
+          "artifact_sha256": "154a004041a7e3026cd9e03b6762d3349f87e723b639ad812c12252a0ead7bf4",
+          "image_sha256": "57d7e0479a853d2b447cccf6bb510070c47c6c59491fbf788a87431cb47fb7be",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part02",
+          "artifact_sha256": "56f78bb1d9b10cef462ff0ab6849eb7e40238c27e91149775ecd2b2a83162809",
+          "image_sha256": "dd3ab70ed2cf254dcf63d5a405f08a9dd3606a524440fb80a458780e5992304c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part03",
+          "artifact_sha256": "61a05e1b9bb7ddf4349d01d9d197880d9fbdde062c247683519c3245a9670dd3",
+          "image_sha256": "aea87ffcc5137307f7cc3c13a8bb47a3239ae973b560a95cf12a5bbcb2a00a0d",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0066-left-part04",
+          "artifact_sha256": "de9f97373f54b1c677620e01bd55b802a68673045baaae05f018a5ab61fa7184",
+          "image_sha256": "aa04a4b7dab113a707fcb389cc699187eb2f05f3674df81e450c79bece060019",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part01",
+          "artifact_sha256": "a4a733655d1523e7a6b598e8e908932bda426610eb5fc1a8189879a8a0833179",
+          "image_sha256": "57d7e0479a853d2b447cccf6bb510070c47c6c59491fbf788a87431cb47fb7be",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part02",
+          "artifact_sha256": "d2164efa34ffba8bfdc308f836a97bab0c2b9f3ab9502a822c77226431da874a",
+          "image_sha256": "dd3ab70ed2cf254dcf63d5a405f08a9dd3606a524440fb80a458780e5992304c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part03",
+          "artifact_sha256": "e17d50126641028bcb11d9064fd8acf14241ce3912622a2fd61453daaeedc286",
+          "image_sha256": "aea87ffcc5137307f7cc3c13a8bb47a3239ae973b560a95cf12a5bbcb2a00a0d",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0066.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0066-left-part04",
+          "artifact_sha256": "adcabf4ca40c7a4dd0495c96ef316b4c0e6c9ce8c501843625ab5726e6eb6616",
+          "image_sha256": "aa04a4b7dab113a707fcb389cc699187eb2f05f3674df81e450c79bece060019",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part01",
+          "artifact_sha256": "3283390fde734544c2fb441b32f54b7acd70ad91392836111f8d9c0a183e3136",
+          "image_sha256": "3d021af7aac7048634e17177bb4609f63c23280ce9169cf963d031359363aa37",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part02",
+          "artifact_sha256": "73328023fe294ba42939a42d2959f71f3d9a34d9f0d8f7326f43844984812893",
+          "image_sha256": "89931b59756f1e4b8c4560049cab1525423255a1e1b966d401c35e80273a1e59",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part03",
+          "artifact_sha256": "bca266d62968e613ad0c79c8a7adade417fbe8f87f9172300e1068786b1dda93",
+          "image_sha256": "d281bef04324e5c00316adaebd91f46f6545656356c7be3ab5c0d3d9e102034e",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part04",
+          "artifact_sha256": "98a13f9220cd7e8b0dc2358ba0e4cc4fcdea91f4438875110c296290776c9e03",
+          "image_sha256": "82f675b3d52e92753639eed56f14a92122c3b4c091acafcd864891ed3d05bc14",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0073-right-part05",
+          "artifact_sha256": "963f6f5527a4b34a47079d888d7efb6ee08bc35b230b59b795cbd906810a9802",
+          "image_sha256": "d12e7e58483c1e078dc63a087073766444a93e05149ba1800b005ee1d1518ef1",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part01",
+          "artifact_sha256": "413b59bd65a2b98cadb3703f973bdf06dabdaa64c23ee27af3c3650760d6e4b2",
+          "image_sha256": "3d021af7aac7048634e17177bb4609f63c23280ce9169cf963d031359363aa37",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part02",
+          "artifact_sha256": "75c0612ff66490db90e706f0bca4262e8f44d8b028ad5ef3d0a0ce7e809b8204",
+          "image_sha256": "89931b59756f1e4b8c4560049cab1525423255a1e1b966d401c35e80273a1e59",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part03",
+          "artifact_sha256": "610847815472700c2d0f696000f2488afd4719a1c7d255abc70106fdac5e257a",
+          "image_sha256": "d281bef04324e5c00316adaebd91f46f6545656356c7be3ab5c0d3d9e102034e",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part04",
+          "artifact_sha256": "9be8bbaa91dce06192ad0b11f5532d90d04100f93ca3e398f34ae252cee5cc91",
+          "image_sha256": "82f675b3d52e92753639eed56f14a92122c3b4c091acafcd864891ed3d05bc14",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0073.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0073-right-part05",
+          "artifact_sha256": "b72b5d1e878730f6d52d86e6025d976a6c145f1672f154ca30744f85b52b2f41",
+          "image_sha256": "d12e7e58483c1e078dc63a087073766444a93e05149ba1800b005ee1d1518ef1",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part01",
+          "artifact_sha256": "bcd92e37bd73a43a7f9407285cbf788fc612d6132f95c7f35ee9ce7cb91e81f7",
+          "image_sha256": "bd104677716dfcaad501d406d0efba35b504cd0dcb6c3bc7494eeb61be0f0b7b",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part02",
+          "artifact_sha256": "5c8f3432e089ccb8651ccf4aef1561df9bf72981381471a522190ba452ba5238",
+          "image_sha256": "033aa132c30bf6f5885c38bcd7e211aa8d55d5c2de403b7f43778be968707c56",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part03",
+          "artifact_sha256": "30ffd428e8fdb103d0d5d87090a2b338d248c40011676a5f5ec6219f8ffe8a80",
+          "image_sha256": "986a2d9e4139a7bef302f59a5be61ab65dd665ad9da53dfa92efd8fe52fa1685",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0079-left-part04",
+          "artifact_sha256": "6a4c122a6ea19dafaf0d0963778414cf4d61e3d9c448ed97eb9c0e38973e61d9",
+          "image_sha256": "5a42fe783c8331e754da35181aae640326b892aba9aa5f41e7a4dd29d20f5b30",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part01",
+          "artifact_sha256": "d4c25e131f5a2acdec692e4c90c86707e72a0ce8479f1c55de759e1af4664eb3",
+          "image_sha256": "bd104677716dfcaad501d406d0efba35b504cd0dcb6c3bc7494eeb61be0f0b7b",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part02",
+          "artifact_sha256": "f6d09d9152f0501b0a491918432ddcfe72dd9aeb4c52ecf32a036d3fdbbfb3f2",
+          "image_sha256": "033aa132c30bf6f5885c38bcd7e211aa8d55d5c2de403b7f43778be968707c56",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part03",
+          "artifact_sha256": "1f69381304c2b2a74f3729795ac19fd8ba0da58038ee3194384847786e5e802b",
+          "image_sha256": "986a2d9e4139a7bef302f59a5be61ab65dd665ad9da53dfa92efd8fe52fa1685",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0079.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0079-left-part04",
+          "artifact_sha256": "c95d739a298ddcc606c5e9baf403f53c903475dfacfd1c4054b6ff4661254ef7",
+          "image_sha256": "5a42fe783c8331e754da35181aae640326b892aba9aa5f41e7a4dd29d20f5b30",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part01",
+          "artifact_sha256": "006abba65fe9487ea04d0994431dc5ce257220b031e18831e66d03d35f77e005",
+          "image_sha256": "89d22c9b0505e10d21db2e520fd95e0d5b3cd0076124e3614ec2c7fd19a7f4ad",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part02",
+          "artifact_sha256": "16a4946e3bc082679868015fa8c52d843b74ffb7e9465a4a07b62559e624f866",
+          "image_sha256": "a6c108597fbe8e7705729e95374c3e51b6328ad1f87aea26093288b46ff0d248",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part03",
+          "artifact_sha256": "3713fb4412ea18746bef0d6d4097588b45f1116b08c74409ca0b788109e32c40",
+          "image_sha256": "0baf26289106191f33732b9f386b59062204bbe9fc1dbb86c8f44d0357495a50",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part04",
+          "artifact_sha256": "ffd2e4adb023bf464794935c460dbb1ce4a8ae8fe1293180c7718a940799292f",
+          "image_sha256": "5040a6eb250c29b76652d920ea8fdf9a76106164eaa2329d1681d2ad42f4bb77",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0090-right-part05",
+          "artifact_sha256": "954d561c3e0bb98573ed9fe87e1c2b00453b805e1003604125a385d643897f73",
+          "image_sha256": "c77b978603797c2507ecac351f0b853ec9f210584a28d69a767aae5ab00b54cb",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part01",
+          "artifact_sha256": "481453836b4f89e7c2926a74e00e764d235f4825893885dbc6b8032a3ff2734c",
+          "image_sha256": "89d22c9b0505e10d21db2e520fd95e0d5b3cd0076124e3614ec2c7fd19a7f4ad",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part02",
+          "artifact_sha256": "6ef14fdd47396ea1d0f03e5a71b5537c0e415848d7ce81d1cad21ce818af8ddc",
+          "image_sha256": "a6c108597fbe8e7705729e95374c3e51b6328ad1f87aea26093288b46ff0d248",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part03",
+          "artifact_sha256": "9f91158804e6a6a093a3dfdbf25c5026ba9362195c8e5e543193b17713158f76",
+          "image_sha256": "0baf26289106191f33732b9f386b59062204bbe9fc1dbb86c8f44d0357495a50",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part04",
+          "artifact_sha256": "f2b65c77a73fb0c47c6bf3c53e0e238c90ff6650f34ce26ff2aa3a3776e4e159",
+          "image_sha256": "5040a6eb250c29b76652d920ea8fdf9a76106164eaa2329d1681d2ad42f4bb77",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0090.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0090-right-part05",
+          "artifact_sha256": "107a0f18978c73385506191e4dc2be0aaf938f7b209fe50ee13808a3c3e3bce4",
+          "image_sha256": "c77b978603797c2507ecac351f0b853ec9f210584a28d69a767aae5ab00b54cb",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part01",
+          "artifact_sha256": "feb22f090cdbbe97b3f8961d2190d973c93885394aae09982851ce71d4b30673",
+          "image_sha256": "22b6e6d33e3542feeff7c60e4a1464d8e1beda7a4dd2d5274b36ebbb524e9b98",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part02",
+          "artifact_sha256": "f0466b3ceaca3b48087bdb1bd4d7b402a37447f5aa66b9938f6fa7665653de3e",
+          "image_sha256": "6d04d2de3cdb09e54996d53b4cfb2b5bc43c23bbce2117e90380da6c6fe6c48c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part03",
+          "artifact_sha256": "557da13393c921ed9952fe57fd41735635e8f2edccc3868786c2b60d376d2a2b",
+          "image_sha256": "7cc52ce0be9655e7a8ff987eb25d7bc2d2309bb6c65220665632f84b9e8ce9ee",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part04",
+          "artifact_sha256": "36edd2778d8a5fdee2381d1dcfced5116028bb628040573b680ce34eabef33a3",
+          "image_sha256": "4872e8085469a02b44950ff2ebc7651f951da680e1c3ec17f7feff8df4f9c337",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0100-left-part05",
+          "artifact_sha256": "182423abdc22b109334e6e3cb4c16d120004c12a9804740c88e29ae159e7684e",
+          "image_sha256": "8c350719f938ae0469684e7422c48159fd91c9a6d5c331cc7c26c6ba7f71d8f9",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part01",
+          "artifact_sha256": "2a13131086e4eb5fe2a0b30b8149fdcf2ddc18410f5eb5f4adcf123224f529f5",
+          "image_sha256": "22b6e6d33e3542feeff7c60e4a1464d8e1beda7a4dd2d5274b36ebbb524e9b98",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part02",
+          "artifact_sha256": "595fa707c0061a13005bc31514ab8c9f3885075581a74ee7f5713e8e4db1df0b",
+          "image_sha256": "6d04d2de3cdb09e54996d53b4cfb2b5bc43c23bbce2117e90380da6c6fe6c48c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part03",
+          "artifact_sha256": "654c58e7220c8f314aa98023b90ec6f5018b2c8fc75dd12d3a2a6a19100992a2",
+          "image_sha256": "7cc52ce0be9655e7a8ff987eb25d7bc2d2309bb6c65220665632f84b9e8ce9ee",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part04",
+          "artifact_sha256": "6cea5ac9f79fb0ea7bea368c6e7b44f96db588a034cdc383fe3f8e10cb404dc6",
+          "image_sha256": "4872e8085469a02b44950ff2ebc7651f951da680e1c3ec17f7feff8df4f9c337",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0100.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0100-left-part05",
+          "artifact_sha256": "f067e7aaf63184ee3ca38a73589ac1aecccc4c5d635eb818e505f6fbb044036b",
+          "image_sha256": "8c350719f938ae0469684e7422c48159fd91c9a6d5c331cc7c26c6ba7f71d8f9",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0148-left-part01",
+          "artifact_sha256": "cb2a81b1e78da42262c6deec92af7a28ad01f5c7315a2ee1fee8d8e963969ba9",
+          "image_sha256": "d5f12344c79827086cb265ba56d3b43609c15bc3c6f2f76388f0255edde7bc8a",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0148-left-part02",
+          "artifact_sha256": "67651e9833d968fe7b5dc37cb104b7ddc67129fd079d19d50ab17d23e36bad0b",
+          "image_sha256": "c81a7cc3df2927f0553d3ab0bcd72ad9a2ecac1a7aed722442300e9c0e77a207",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0148-left-part03",
+          "artifact_sha256": "2ab08c233bae598d8047af5ae8adf5d9751454d69e26de7d1ff86d7657123fb3",
+          "image_sha256": "010b31d3509ad9980be2bd383c0bdd672b2d151b6dcd8fccdd46887286c4e594",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0148-left-part01",
+          "artifact_sha256": "75fbb6df3567f86aff78742b5e8efaa650299d940c0fd02ed5582decc0137d14",
+          "image_sha256": "d5f12344c79827086cb265ba56d3b43609c15bc3c6f2f76388f0255edde7bc8a",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0148-left-part02",
+          "artifact_sha256": "dc6f8ef324a171fb441657c331df0e076e6134b61820c8b2e1fb28863f27dcb8",
+          "image_sha256": "c81a7cc3df2927f0553d3ab0bcd72ad9a2ecac1a7aed722442300e9c0e77a207",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0148.4",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0148-left-part03",
+          "artifact_sha256": "2e8c2c66b9a7de2b293c59db66ff3716d35f0483a6ebad7431196560472c87a7",
+          "image_sha256": "010b31d3509ad9980be2bd383c0bdd672b2d151b6dcd8fccdd46887286c4e594",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part01",
+          "artifact_sha256": "74073df0fd5205f22532a2d9a3c3ae946818f42160269aa2076d08afff942c23",
+          "image_sha256": "6702374ede356b5583263d85cd8a77b71484672433f7c88df155119ca50c6f5f",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part02",
+          "artifact_sha256": "523bd8438973190c06a330d8e878fc63486a4569670a190c160e16c09148f734",
+          "image_sha256": "df8b3b48a7ac9e7137f32f13b0da571877f1a79e2eafbea7674f6b0dc1077b05",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part03",
+          "artifact_sha256": "b9c26c78ef8408db25c636edee5f17c60ecb5698c1cf47c91573c984e8eb749e",
+          "image_sha256": "ecfdf2dadedfedc482392a75fa954bb6753ecfb1b4f5db1387e0286ed6fd8cac",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0154-right-part04",
+          "artifact_sha256": "26a78ad4132c58e0c72eb2ddd6ee8a045fcb677ce88c6fe061a99fb62acf4c3b",
+          "image_sha256": "8599d54fb82c40f01e9b8f089100eb67acdde705d60e20ebf313eee0f2662aa2",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part01",
+          "artifact_sha256": "dace230ff6fbf13755fb6fb3e792140479c1a39598e1d2aa66397d2fbaa35ec1",
+          "image_sha256": "6702374ede356b5583263d85cd8a77b71484672433f7c88df155119ca50c6f5f",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part02",
+          "artifact_sha256": "8439f6849a98b0f945553bea273cc1872b95d5a88af6fbdba897ef8cce64407b",
+          "image_sha256": "df8b3b48a7ac9e7137f32f13b0da571877f1a79e2eafbea7674f6b0dc1077b05",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part03",
+          "artifact_sha256": "a762ebaf00b8becb019ced189a74ddbf53f449955eca7ab1a5f67b2ed412eef5",
+          "image_sha256": "ecfdf2dadedfedc482392a75fa954bb6753ecfb1b4f5db1387e0286ed6fd8cac",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0154.right",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0154-right-part04",
+          "artifact_sha256": "97dd98db83cbfa528a8f40bf9edf764b263d4b68909b5f83ab017783ba938f2d",
+          "image_sha256": "8599d54fb82c40f01e9b8f089100eb67acdde705d60e20ebf313eee0f2662aa2",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part01",
+          "artifact_sha256": "d17aef3cc7c39564f728d9dfe14f947f785a2aeee654182057c1a354607404d0",
+          "image_sha256": "5eea5060a12576452ed4899584e66da473e79e5cae75610fc43373a6193b054c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part02",
+          "artifact_sha256": "4d9e025916e5572317cc3704473982604cd78f202af162a10cadbda615755539",
+          "image_sha256": "233527a681dc8c01269b7338891830820214f13168ba587a24930bfc48e52f42",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part03",
+          "artifact_sha256": "9ebbb256e4ed65e9f9b0e79d11af0eec04ebefac20f6c4e2ff0dc84eb2737923",
+          "image_sha256": "9865d89e2e06f1da4eeed9e019719ec503c8ed7a7dfa9e08772cb042863aaf02",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.6-27B-8bit",
+          "revision": "c5a593c1475a746e43a543b0a02bd2b357e5745f",
+          "id": "photius-bekker-legacy-0189-left-part04",
+          "artifact_sha256": "0d23fb144b35afd6d457ab4355047cfcd5390db489c8dc286df78e031b0834e1",
+          "image_sha256": "2ae07c7de4ee4f6531c89b270fce78bf2c05e6bc53186c71bb9815443f007963",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part01",
+          "artifact_sha256": "3e84b2db779ac67442751464917ffd3a5b16c9c79ccc309f430c3d7d94a7cd38",
+          "image_sha256": "5eea5060a12576452ed4899584e66da473e79e5cae75610fc43373a6193b054c",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part02",
+          "artifact_sha256": "9bc19be656f6c24cb4fc57518bfc35ef4c999aa310fa85c0105901f9b48f4aa2",
+          "image_sha256": "233527a681dc8c01269b7338891830820214f13168ba587a24930bfc48e52f42",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part03",
+          "artifact_sha256": "c16b997a4bea194c3f67dfe62789a47d4611d8b808d4446bd7059c0205231ff1",
+          "image_sha256": "9865d89e2e06f1da4eeed9e019719ec503c8ed7a7dfa9e08772cb042863aaf02",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         },
+         {
+          "locus": "photius_bekker1825_recovery_0189.left",
+          "model": "mlx-community/Qwen3.8-27B-8bit",
+          "revision": "815b83c0df8ffd1d1b5244cf75fd6ef14fca9ef9",
+          "id": "photius-bekker-legacy-0189-left-part04",
+          "artifact_sha256": "a63b002cbc79f516b6b0783a9c9810c2c993534a04de5d0f93d93f367671ece9",
+          "image_sha256": "2ae07c7de4ee4f6531c89b270fce78bf2c05e6bc53186c71bb9815443f007963",
+          "finish_reason": "stop",
+          "requires_completed_paired_source_review": false
+         }
+        ],
+        "policy": "A reproducible consensus plan is not a claim that every source word is correct."
+       },
+       "source_scan": {
+        "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+        "edition": "Bekker1825, original second volume",
+        "license": "PD"
+       },
+       "ocr_witness_license": "CC-BY-4.0"
       }
      },
      "qualification": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented."

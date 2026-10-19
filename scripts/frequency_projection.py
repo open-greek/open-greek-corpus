@@ -28,11 +28,15 @@ CONTEXT_COUNT_BASIS = (
 def projection_recipe_pins():
     """Pin the code that determines lexical eligibility, including imported layers."""
     scripts = Path(__file__).resolve().parent
-    names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py")
+    names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py",
+             "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("reading_repair") and rec.get("urn") == "photius.bibliotheca":
+        from repair_photius_readings import validate_projection
+        validate_projection(rec)
     if rec.get("source_body_correction"):
         from repair_photius_body import validate_projection
         validate_projection(rec)

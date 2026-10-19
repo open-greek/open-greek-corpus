@@ -51,8 +51,8 @@
    "works": 1
   },
   "ocr": {
-   "analysis_tokens": 25315178,
-   "passages": 1337735,
+   "analysis_tokens": 25347334,
+   "passages": 1337742,
    "works": 1217
   },
   "perseus": {
@@ -81,7 +81,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "dc35d41f8dc8a2667f5a97cd22eb5d5f99eb06b4ef4af897a70e3c00f2857d02",
+ "corpus_sha256": "9f848c6c4214d4ba15675ae3df359f45c46cf6f58eb3ffc0bb12b39927c86c0f",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3064,7 +3064,7 @@
   "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
   "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
   "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
-  "photius.bibliotheca.jsonl": "d5b9470728b2e7e984b0a0e94b2d3f81dd10b7da22a959ae4f84e0e13a419cd3",
+  "photius.bibliotheca.jsonl": "35573755011c78c4d4b050fe3998008783c392a787316ce1a4aab8016c3776d3",
   "photius.commentarii-in-joannem-in-catenis.jsonl": "91d600d98ae8083e62d50bbedecbdf043fceee10e979038742ff36ef5d83d087",
   "photius.commentarii-in-matthaeum-in-catenis.jsonl": "ff7fb39786fa88d9cfc94eda028a9367593cb8c1b04ef92bd0587448bc80472d",
   "photius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl": "96a78396ec81a9a51d20cd3378990eb68a1333f214f190beaa5d175cb965a74d",
@@ -4006,20 +4006,23 @@
  "recipe_sha256": {
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
   "critical_text.py": "b3866e6b501600c43e243aa22cb79b5748d4a500c31820de6ea4ef79cba912d5",
-  "frequency_projection.py": "313b73ddea880fbbf0d36649e43165f88c4ee780e651578e1272e784df61c6ab",
-  "repair_photius_apparatus.py": "d749851e32c126af55889456b2d3a01a5095b2d3de19a8fcb73435f0816ed194",
-  "repair_photius_body.py": "8a1678c274b13a55bc4c722e9a8c600a3857c9439cc3ecd9db08889013b49e49"
+  "frequency_projection.py": "98bf2c70571dc60d3617897c83de5aef2540ea9a8198c4cf8388b1a982ac9e97",
+  "photius_body_vote.py": "0931e65946540f97ffeee3c8c7f975af21c80294d8b74a87adc686bff1818b24",
+  "photius_reading_vote.py": "12dcf44df4381bec2cf8339651513e0e388c32b710e2743ded46ad61565dbce9",
+  "repair_photius_apparatus.py": "087a078c1c600c1a7db7059c1075c2c4aa59d0d6ea1394a4d96d08cfdfb3fc92",
+  "repair_photius_body.py": "8a1678c274b13a55bc4c722e9a8c600a3857c9439cc3ecd9db08889013b49e49",
+  "repair_photius_readings.py": "fe893a29224972dc5a64cb5738bc9a513c1f797b3d7e6295404b151feadcfc80"
  },
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65795514,
-  "mixed_ocr_analysis_tokens": 539882,
+  "analysis_tokens": 65827670,
+  "mixed_ocr_analysis_tokens": 572038,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29668409,
-  "ocr_passages": 1349153,
+  "ocr_analysis_tokens": 29700565,
+  "ocr_passages": 1349160,
   "ocr_works": 1416,
-  "passages": 1966483,
+  "passages": 1966490,
   "works": 3911
  },
  "works": {
@@ -79078,20 +79081,27 @@
    }
   },
   "photius.bibliotheca": {
-   "analysis_tokens": 270038,
+   "analysis_tokens": 302194,
    "components": [
     {
-     "analysis_tokens": 120439,
+     "analysis_tokens": 151161,
      "edition": "bekker1824-independent-ocr-consensus",
      "license": "CC-BY-SA-4.0",
      "passages": 309,
      "source": "ocr"
     },
     {
-     "analysis_tokens": 149160,
+     "analysis_tokens": 1454,
+     "edition": "bekker1825-reviewed-body-consensus",
+     "license": "CC-BY-SA-4.0",
+     "passages": 8,
+     "source": "ocr"
+    },
+    {
+     "analysis_tokens": 149140,
      "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
      "license": "PD",
-     "passages": 3476,
+     "passages": 3475,
      "source": "ocr"
     },
     {
@@ -79106,13 +79116,13 @@
    "mixed_ocr_digital": true,
    "non_ocr_analysis_tokens": 439,
    "non_ocr_passages": 2,
-   "ocr_analysis_tokens": 269599,
-   "ocr_passages": 3785,
-   "passages": 3787,
+   "ocr_analysis_tokens": 301755,
+   "ocr_passages": 3792,
+   "passages": 3794,
    "sources": {
     "ocr": {
-     "analysis_tokens": 269599,
-     "passages": 3785
+     "analysis_tokens": 301755,
+     "passages": 3792
     },
     "reviewed-text-consensus": {
      "analysis_tokens": 439,

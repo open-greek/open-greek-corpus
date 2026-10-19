@@ -210,6 +210,26 @@ def quartile_summary(values: list[float]) -> dict | None:
             "q3": pct(0.75), "max": pct(1.0), "n": len(vals)}
 
 
+def consensus_qualification(records: list[dict]) -> dict | None:
+    """Expose remaining variants without treating OCR agreement as accuracy."""
+    counts, measured = Counter(), 0
+    for row in records:
+        current = (row.get('ocr_consensus') or {}).get('counts')
+        if not current:
+            continue
+        if not isinstance(current, dict) or any(type(n) is not int or n < 0 for n in current.values()):
+            raise ValueError('Consensus quality requires nonnegative integer slot counts')
+        counts.update(current)
+        measured += 1
+    if not measured:
+        return None
+    return {'rows_with_counted_consensus': measured,
+        'rows_without_counted_consensus': len(records) - measured,
+        'slot_counts': dict(sorted(counts.items())),
+        'counting_basis': 'Merged word slots, not a count of recognition errors or proofread words.',
+        'qualification': 'Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.'}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -274,6 +294,9 @@ def main() -> None:
             "witness": witness,
             **stats,
         }
+        consensus = consensus_qualification(records)
+        if consensus is not None:
+            works[slug]['consensus'] = consensus
 
     # TEI-primary works whose displaced secondary is OCR: the OCR containment
     # in the trusted primary is a corpus-level OCR quality estimate.
