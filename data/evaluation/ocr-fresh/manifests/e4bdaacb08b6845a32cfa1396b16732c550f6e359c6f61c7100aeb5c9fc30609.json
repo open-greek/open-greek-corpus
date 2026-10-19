@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "review_date": "2026-10-18",
+  "purpose": "Diagnostic pilot for historical body reading assessment; never a primary corpus admission.",
+  "sources": {
+    "photius-bekker-legacy": {
+      "url": "https://archive.org/download/bub_gb_NsiGxvHyQY0C/bub_gb_NsiGxvHyQY0C.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+      "license": "PD",
+      "citation": "Photius, Bibliotheca, Immanuel Bekker, volume2 (Berlin1825), physical scans66/73, printed331/338."
+    }
+  },
+  "prompt": "Transcribe only the large Greek authorial text in this scanned column strip.\nPreserve polytonic accents, breathings, punctuation, headings and literal printed\nword fragments. Standard Greek typographic ligatures may be written as their\nconstituent Greek letters; record no invented letters. Do not complete a word\ncut at a column or strip boundary, expand an abbreviation, modernize spelling,\ncorrect the printed text, translate or explain. Omit marginal reference numbers,\nrunning headers, page numbers and smaller critical apparatus. Read down this\nsingle column, preserving complete source lines as separate lines. Output only\nthe transcription.",
+  "review": {
+    "accepted_for_primary_ingest": false,
+    "source_review_required": true,
+    "pilot_policy": "Run the first page66 and page73 strips as a small sanity check before the full request; archive pilots separately and never count them as extra votes."
+  },
+  "pages": [
+    {
+      "id": "photius-historical-0002-left-pilot",
+      "source": "photius-bekker-legacy",
+      "scan_page": 2,
+      "printed_page": 267,
+      "region": [
+        0.06,
+        0.139,
+        0.413,
+        0.727
+      ],
+      "max_side": 3600,
+      "role": "diagnostic-historical-body",
+      "prompt_suffix": "This is a single body column. Preserve the original complete line sequence."
+    }
+  ]
+}
