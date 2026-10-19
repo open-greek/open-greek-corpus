@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "schema": "photius-historical-batch-v1",
+  "work": "photius.bibliotheca",
+  "batch_id": "photius-historical-unpaired-0169-0170",
+  "recorded_at": "2026-10-19T03:22:25Z",
+  "input_corpus_sha256": "d7ba127a54e18726edd960db8a25ca85a91aae51735d67b7917f9d8cdd0aa748",
+  "output_corpus_sha256": "397b407cd9b24beefdba7fd7ddaa93b2d80a2ae6784d787ec2fa422e15844ea4",
+  "predecessor": null,
+  "source_review": {
+    "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-unpaired-0169-0170/source-review.json",
+    "sha256": "615e586656fa1e5c231ffdd3b0491704c803fefb59e91da0c718458999cdf41c"
+  },
+  "source_table": {
+    "path": "scripts/photius_historical_observations_unpaired.py",
+    "sha256": "191dfd6cb12ba6f484e03b5a507230e9a6cb1ee9018c1361557c4c1f02f4ba6d"
+  },
+  "sources": [
+    {
+      "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+    },
+    {
+      "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+      "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+    }
+  ],
+  "source_library_credit": {
+    "edition": "tlg4040.tlg001.local002",
+    "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+    "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+    "license": {
+      "text": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+    "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+    "api_notice_checked_date": "2026-10-18",
+    "separate_api_notice": {
+      "spdx": "CC-BY-SA-4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Source Library (https://sourcelibrary.org)",
+      "terms": "https://sourcelibrary.org/terms",
+      "original_texts": "public-domain",
+      "tdm_reservation": 1,
+      "tdm_policy": "https://sourcelibrary.org/licensing",
+      "ai_training": "reserved — standard license available, see tdm_policy"
+    }
+  },
+  "counts": {
+    "corrected_rows": 49,
+    "reviewed_occurrences": 254,
+    "unresolved_occurrences": 0,
+    "scan_only_occurrences": 254,
+    "fully_assessed_rows": 0,
+    "primary_rows_before": 3782,
+    "primary_rows_after": 3782,
+    "held_source_observations": 14,
+    "scalar_corrections": 254,
+    "fragment_occurrences": 9,
+    "lexical_excluded_fragments": 9
+  },
+  "outputs": {
+    "data/corpus_changes/photius-bekker-historical-batches/photius-historical-unpaired-0169-0170/records.jsonl.gz": "ac3792dfb8f6c04353673741f2e073dbbe379e518f666264ff8831ed54586fb7",
+    "data/corpus_changes/photius-bekker-historical-batches/photius-historical-unpaired-0169-0170/word-networks.json.gz": "8b0b8749aba12de93f3cf5d86f9fac9d6de7cac400a17473718f182a34ebb7e9"
+  },
+  "frozen_inputs": {
+    "data/corpus_changes/photius-bekker-historical-batches/photius-historical-unpaired-0169-0170/before-corpus.jsonl.gz": "1f156a4be1385730d3014b41efba1b70461f173977572b09f5d816285793eaae",
+    "data/corpus_changes/photius-bekker-historical-batches/photius-historical-unpaired-0169-0170/source-review.json": "615e586656fa1e5c231ffdd3b0491704c803fefb59e91da0c718458999cdf41c",
+    "data/corpus_changes/photius-bekker-historical-batches/photius-historical-unpaired-0169-0170/source-table.py": "191dfd6cb12ba6f484e03b5a507230e9a6cb1ee9018c1361557c4c1f02f4ba6d"
+  },
+  "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed."
+}

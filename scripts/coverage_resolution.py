@@ -143,6 +143,8 @@ def _photius_resolution(root):
     body_positions = dict(readings.get("body_recovery", {}).get("logical_coverage_positions", {}) if readings else {})
     from repair_photius_historical_readings import active_metadata as historical_metadata
     historical = historical_metadata(root)
+    from repair_photius_historical_batches import active_metadata as batch_metadata
+    historical_batches = batch_metadata(root)
     if historical:
         body_positions.update(historical['logical_coverage_positions'])
     covered = {_photius_coverage_position(row, mapping, body_positions) for row in rows}
@@ -158,6 +160,7 @@ def _photius_resolution(root):
         **({"editorial_layer": active_metadata(root)} if primary.read_bytes() != legacy else {}),
         **({"reading_layer": readings} if readings else {}),
         **({'historical_reading_layer': historical} if historical else {}),
+        **({'historical_reading_batches': historical_batches} if historical_batches else {}),
         covered_authorial_scan_pages=report["covered_authorial_scan_pages"],
         covered_authorial_printed_pages=report["covered_authorial_printed_pages"],
         coverage_position_meaning=report["coverage_position_meaning"],

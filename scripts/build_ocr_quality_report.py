@@ -221,16 +221,34 @@ def consensus_qualification(records: list[dict]) -> dict | None:
             raise ValueError('Consensus quality requires nonnegative integer slot counts')
         counts.update(current)
         measured += 1
-    partial = [row['historical_reading_repair'] for row in records if row.get('historical_reading_repair')]
+    partial_rows = [row for row in records if row.get('historical_reading_repair') or row.get('historical_reading_batches')]
+    partial = [layer for row in partial_rows
+               for layer in ([row['historical_reading_repair']] if row.get('historical_reading_repair') else [])
+               + row.get('historical_reading_batches', [])]
     if not measured and not partial:
         return None
     for layer in partial:
         if type(layer.get('reviewed_occurrences')) is not int or layer['reviewed_occurrences'] <= 0:
             raise ValueError('Historical occurrence quality requires positive integer correction counts')
+    later = [layer for row in records for layer in row.get('historical_reading_batches', [])]
+    for layer in later:
+        if (any(type(layer.get(key)) is not int or layer[key] < 0 for key in
+                ('scalar_corrections', 'unresolved_occurrences')) or
+                layer['scalar_corrections'] + layer['unresolved_occurrences'] +
+                layer.get('projection_only_occurrences', 0) != layer['reviewed_occurrences']):
+            raise ValueError('Historical batch scalar and unresolved occurrence counts do not partition its review')
     return {'rows_with_counted_consensus': measured,
         'rows_without_counted_consensus': len(records) - measured,
-        **({'historical_occurrence_review': {'partially_corrected_rows': len(partial),
-            'corrected_occurrences': sum(layer['reviewed_occurrences'] for layer in partial),
+        **({'historical_occurrence_review': {'partially_corrected_rows': len(partial_rows),
+            'corrected_occurrences': sum(layer['reviewed_occurrences'] for layer in partial)
+                - sum(layer['unresolved_occurrences'] + layer.get('projection_only_occurrences', 0) for layer in later),
+            **({'reviewed_occurrences': sum(layer['reviewed_occurrences'] for layer in partial),
+                'unresolved_occurrences': sum(layer['unresolved_occurrences'] for layer in later),
+                'fragment_occurrences': sum(layer.get('fragment_occurrences', 0) for layer in later),
+                'lexical_excluded_fragments': sum(layer.get('lexical_excluded_fragments', 0) for layer in later),
+                **({'projection_only_occurrences': sum(layer.get('projection_only_occurrences', 0) for layer in later)}
+                   if any(layer.get('projection_only_occurrences') for layer in later) else {}),
+                'later_batch_occurrences': sum(layer['reviewed_occurrences'] for layer in later)} if later else {}),
             'qualification': 'Only the recorded occurrences are source reviewed. These rows remain outside the full word-consensus diagnostic.'}} if partial else {}),
         'slot_counts': dict(sorted(counts.items())),
         'counting_basis': 'Merged word slots, not a count of recognition errors or proofread words.',

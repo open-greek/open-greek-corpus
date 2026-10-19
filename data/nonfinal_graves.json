@@ -11,17 +11,17 @@
   }
  },
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26593,
- "tokens": 42797,
- "served_tokens": 65827611,
- "surface_served_tokens": 66087786,
+ "forms": 26591,
+ "tokens": 42793,
+ "served_tokens": 65827560,
+ "surface_served_tokens": 66087817,
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "share": 0.00065,
  "works_touched": 1642,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 24909,
+   "tokens": 24905,
    "rate": 0.000983
   },
   {
@@ -148,8 +148,8 @@
   },
   {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "tokens": 274,
-   "rate": 0.001877
+   "tokens": 270,
+   "rate": 0.001901
   },
   {
    "edition": "qwen36-bussemaker-daremberg-1851-rover",
@@ -203,9 +203,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 15113,
+  "tokens_with_more_than_one_attested_shape": 15111,
   "tokens_with_exactly_one": 8947,
-  "tokens_with_none": 18737
+  "tokens_with_none": 18735
  },
  "largest_forms": [
   {
@@ -306,7 +306,7 @@
     },
     "dropped": {
      "form": "τινα",
-     "attested": 30726
+     "attested": 30727
     },
     "crasis": {
      "form": "τἰνα",
@@ -456,7 +456,7 @@
    "shapes": {
     "acute": {
      "form": "ἵνα",
-     "attested": 68541
+     "attested": 68539
     },
     "dropped": {
      "form": "ἱνα",
@@ -478,7 +478,7 @@
    "shapes": {
     "acute": {
      "form": "ἕνα",
-     "attested": 12222
+     "attested": 12225
     },
     "dropped": {
      "form": "ἑνα",
@@ -500,11 +500,11 @@
    "shapes": {
     "acute": {
      "form": "ὥσπερ",
-     "attested": 62189
+     "attested": 62190
     },
     "dropped": {
      "form": "ὡσπερ",
-     "attested": 5443
+     "attested": 5441
     },
     "crasis": {
      "form": "ὡ̓σπερ",
@@ -588,11 +588,11 @@
    "shapes": {
     "acute": {
      "form": "ἔστιν",
-     "attested": 36242
+     "attested": 36240
     },
     "dropped": {
      "form": "ἐστιν",
-     "attested": 103851
+     "attested": 103854
     },
     "crasis": {
      "form": "ἐ̓στιν",
@@ -702,7 +702,7 @@
     },
     "dropped": {
      "form": "ταῦτα",
-     "attested": 120922
+     "attested": 120923
     },
     "crasis": {
      "form": "τἀῦτα",
@@ -808,7 +808,7 @@
    "shapes": {
     "acute": {
      "form": "ἕτερον",
-     "attested": 22795
+     "attested": 22794
     },
     "dropped": {
      "form": "ἑτερον",
@@ -896,7 +896,7 @@
    "shapes": {
     "acute": {
      "form": "ἅμα",
-     "attested": 28327
+     "attested": 28329
     },
     "dropped": {
      "form": "ἁμα",
@@ -962,7 +962,7 @@
    "shapes": {
     "acute": {
      "form": "ὅτε",
-     "attested": 29382
+     "attested": 29381
     },
     "dropped": {
      "form": "ὁτε",
@@ -1098,7 +1098,7 @@
     },
     "dropped": {
      "form": "τοῦ",
-     "attested": 976774
+     "attested": 976813
     },
     "crasis": {
      "form": "τὀῦ",
@@ -1116,7 +1116,7 @@
    "shapes": {
     "acute": {
      "form": "ἔστι",
-     "attested": 45740
+     "attested": 45739
     },
     "dropped": {
      "form": "ἐστι",
@@ -1336,7 +1336,7 @@
    "shapes": {
     "acute": {
      "form": "αὕτη",
-     "attested": 18811
+     "attested": 18812
     },
     "dropped": {
      "form": "αὑτη",
@@ -1480,7 +1480,7 @@
     },
     "circumflex": {
      "form": "τοῦτο",
-     "attested": 204155
+     "attested": 204159
     }
    }
   },
@@ -1512,7 +1512,7 @@
    "shapes": {
     "acute": {
      "form": "εἴτε",
-     "attested": 17863
+     "attested": 17866
     },
     "dropped": {
      "form": "εἰτε",
@@ -1600,7 +1600,7 @@
    "shapes": {
     "acute": {
      "form": "τότε",
-     "attested": 38900
+     "attested": 38901
     },
     "dropped": {
      "form": "τοτε",
@@ -1828,7 +1828,7 @@
     },
     "crasis": {
      "form": "αὐτοῦ",
-     "attested": 192360
+     "attested": 192370
     },
     "circumflex": {
      "form": "αῦτοῦ",
@@ -1908,7 +1908,7 @@
    "shapes": {
     "acute": {
      "form": "εἴρηται",
-     "attested": 20618
+     "attested": 20620
     },
     "dropped": {
      "form": "εἰρηται",
@@ -2044,7 +2044,7 @@
     },
     "dropped": {
      "form": "του",
-     "attested": 10934
+     "attested": 10935
     },
     "crasis": {
      "form": "τὀυ",
@@ -2304,7 +2304,7 @@
    "shapes": {
     "acute": {
      "form": "ἔξω",
-     "attested": 12191
+     "attested": 12192
     },
     "dropped": {
      "form": "ἐξω",
@@ -2414,7 +2414,7 @@
    "shapes": {
     "acute": {
      "form": "ὕστερον",
-     "attested": 14323
+     "attested": 14325
     },
     "dropped": {
      "form": "ὑστερον",
@@ -2502,7 +2502,7 @@
    "shapes": {
     "acute": {
      "form": "εἴναι",
-     "attested": 203
+     "attested": 202
     },
     "dropped": {
      "form": "εἰναι",
@@ -2514,7 +2514,7 @@
     },
     "circumflex": {
      "form": "εἶναι",
-     "attested": 181445
+     "attested": 181446
     }
    }
   },
@@ -2624,7 +2624,7 @@
     },
     "circumflex": {
      "form": "ἦσαν",
-     "attested": 17136
+     "attested": 17135
     }
    }
   },
@@ -2932,7 +2932,7 @@
     },
     "circumflex": {
      "form": "ταῦτα",
-     "attested": 120922
+     "attested": 120923
     }
    }
   },
@@ -3078,7 +3078,7 @@
     },
     "dropped": {
      "form": "μενος",
-     "attested": 1338
+     "attested": 1337
     },
     "crasis": {
      "form": "μἐνος",
@@ -3096,7 +3096,7 @@
    "shapes": {
     "acute": {
      "form": "ἕτερος",
-     "attested": 6369
+     "attested": 6370
     },
     "dropped": {
      "form": "ἑτερος",
@@ -3140,7 +3140,7 @@
    "shapes": {
     "acute": {
      "form": "ἕκαστος",
-     "attested": 7701
+     "attested": 7700
     },
     "dropped": {
      "form": "ἑκαστος",
@@ -3672,7 +3672,7 @@
     },
     "dropped": {
      "form": "ἐπειδὴ",
-     "attested": 32459
+     "attested": 32458
     },
     "crasis": {
      "form": "ἐπεἰδὴ",
@@ -4416,7 +4416,7 @@
    "shapes": {
     "acute": {
      "form": "ἄτι",
-     "attested": 127
+     "attested": 126
     },
     "dropped": {
      "form": "ἀτι",
@@ -4460,7 +4460,7 @@
    "shapes": {
     "acute": {
      "form": "ὅσον",
-     "attested": 20124
+     "attested": 20123
     },
     "dropped": {
      "form": "ὁσον",
@@ -4494,7 +4494,7 @@
     },
     "circumflex": {
      "form": "μᾶλλον",
-     "attested": 66579
+     "attested": 66578
     }
    }
   },
@@ -4630,12 +4630,12 @@
    {
     "bucket": "below 0.70",
     "forms": 696,
-    "tokens": 3217
+    "tokens": 3216
    },
    {
     "bucket": "class thinner than 20",
     "forms": 4070,
-    "tokens": 6467
+    "tokens": 6466
    },
    {
     "bucket": "dominant >= 0.9",
@@ -4644,15 +4644,15 @@
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17404,
-    "tokens": 20308
+    "forms": 17402,
+    "tokens": 20306
    }
   ],
   "accent_only_forms": 2702,
   "accent_only_tokens": 8087,
   "marks_moved_tokens": 1944,
   "page_diffusion": {
-   "distinct_scan_pages": 15885,
+   "distinct_scan_pages": 15882,
    "tokens_on_the_densest_500_pages": 3776,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
