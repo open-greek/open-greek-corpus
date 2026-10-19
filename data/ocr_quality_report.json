@@ -12861,25 +12861,30 @@
   "photius.bibliotheca": {
    "consensus": {
     "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "historical_occurrence_review": {
+     "corrected_occurrences": 469,
+     "partially_corrected_rows": 169,
+     "qualification": "Only the recorded occurrences are source reviewed. These rows remain outside the full word-consensus diagnostic."
+    },
     "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
-    "rows_with_counted_consensus": 319,
-    "rows_without_counted_consensus": 3475,
+    "rows_with_counted_consensus": 320,
+    "rows_without_counted_consensus": 3462,
     "slot_counts": {
-     "agreement": 152518,
+     "agreement": 152640,
      "damaged-reading": 7,
      "incomplete-reading": 98,
      "omission": 7522,
      "single-witness": 610,
-     "unresolved": 46973
+     "unresolved": 47003
     }
    },
    "edition": "bekker1824-independent-ocr-consensus",
-   "n_surface_tokens": 432568,
-   "n_tokens": 302194,
-   "n_tokens_checked": 169526,
-   "n_unattested": 20535,
+   "n_surface_tokens": 432569,
+   "n_tokens": 302135,
+   "n_tokens_checked": 169520,
+   "n_unattested": 20273,
    "source": "ocr",
-   "unattested_rate": 0.121132,
+   "unattested_rate": 0.119591,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {
@@ -16499,13 +16504,13 @@
   "gregorius-nyssenus.in-inscriptiones-psalmorum",
   "joannes-chrysostomus.in-epistulam-ii-ad-thessalonicenses-homiliae-1-5",
   "gorgias-rhetoric.testimonia",
-  "photius.bibliotheca",
   "joannes-chrysostomus.de-laudibus-sancti-pauli-apostoli-homiliae-1-7",
   "gregorius-nyssenus.de-professione-christiana-ad-harmonium",
   "apollonius-philosophy.apollonii-epistulae-dub",
   "joannes-damascenus.de-sacris-jejuniis",
   "xenophanes.fragmenta-silli-et-de-natura",
   "joannes-chrysostomus.fragmenta-in-proverbia-in-catenis",
+  "photius.bibliotheca",
   "theodoretus.interpretatio-in-ezechielem",
   "josephus-rhacendyta.synopsis-rhetorikes",
   "cyrillus-theology.fragmenta-in-sancti-pauli-epistulam-ad-romanos",

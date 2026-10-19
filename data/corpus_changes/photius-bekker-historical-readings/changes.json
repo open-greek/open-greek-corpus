@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "work": "photius.bibliotheca",
+  "schema": "photius-historical-occurrence-v1",
+  "recorded_at": "2026-10-19T00:36:00Z",
+  "input_corpus_sha256": "35573755011c78c4d4b050fe3998008783c392a787316ce1a4aab8016c3776d3",
+  "source_review": {
+    "path": "data/corpus_changes/photius-bekker-historical-readings/source-review.json",
+    "sha256": "d56902cdcf9f34d569e9d75032212afd7adbb5c74b4d60d0638a50b51c767437"
+  },
+  "sources": [
+    {
+      "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+    },
+    {
+      "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+      "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+    },
+    {
+      "path": "data/evaluation/ocr-fresh/photius-historical-reading-diagnostics-qwen38-mlx.jsonl",
+      "sha256": "94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6"
+    }
+  ],
+  "diagnostic_inputs": [
+    {
+      "path": "data/evaluation/ocr-fresh/manifests/b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22.json",
+      "sha256": "b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22",
+      "frozen_path": "data/corpus_changes/photius-bekker-historical-readings/diagnostics/b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22.json"
+    },
+    {
+      "path": "data/evaluation/ocr-fresh/manifests/e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609.json",
+      "sha256": "e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609",
+      "frozen_path": "data/corpus_changes/photius-bekker-historical-readings/diagnostics/e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609.json"
+    },
+    {
+      "path": "data/evaluation/ocr-fresh/photius-historical-pilot-qwen38-mlx.jsonl",
+      "sha256": "fa98dd1d81a201ed43f7ef1de85052ded1a520cc8a7f9dce0ab338e07aa5f168",
+      "frozen_path": "data/corpus_changes/photius-bekker-historical-readings/diagnostics/fa98dd1d81a201ed43f7ef1de85052ded1a520cc8a7f9dce0ab338e07aa5f168.jsonl"
+    },
+    {
+      "path": "data/evaluation/ocr-fresh/photius-historical-reading-diagnostics-qwen38-mlx.jsonl",
+      "sha256": "94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6",
+      "frozen_path": "data/corpus_changes/photius-bekker-historical-readings/diagnostics/94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6.jsonl"
+    },
+    {
+      "path": "data/ocr_requests/photius-historical-pilot.json",
+      "sha256": "e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609",
+      "frozen_path": "data/corpus_changes/photius-bekker-historical-readings/diagnostics/e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609.json"
+    },
+    {
+      "path": "data/ocr_requests/photius-historical-reading-diagnostics.json",
+      "sha256": "b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22",
+      "frozen_path": "data/corpus_changes/photius-bekker-historical-readings/diagnostics/b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22.json"
+    }
+  ],
+  "counts": {
+    "corrected_rows": 169,
+    "corrected_occurrences": 469,
+    "reconstructed_regions": 1,
+    "replaced_fragment_rows": 13,
+    "primary_rows_before": 3794,
+    "primary_rows_after": 3782,
+    "scan_pages": [
+      2,
+      3,
+      16,
+      169,
+      230,
+      280
+    ],
+    "fully_assessed_rows": 0,
+    "source_family": "source-library-local002",
+    "source_scan_sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+  },
+  "outputs": {
+    "data/corpus/photius.bibliotheca.jsonl": "d7ba127a54e18726edd960db8a25ca85a91aae51735d67b7917f9d8cdd0aa748",
+    "data/corpus_changes/photius-bekker-historical-readings/records.jsonl.gz": "473b4e04b3d53d39586e1b53cf95809090c1c54ff154acfc2ea87d4fe1fdb578",
+    "data/passage_aliases.json": "a82ef1a91b4820e6366ac0ba859ffef8537961a7212da73ac73e4c80b7d0619f",
+    "data/corpus_changes/photius-bekker-historical-readings/networks.json.gz": "174da5bb484f1aac4bfe95c58a85079c4b65061096985f86d89515fa9e4f8fb0"
+  },
+  "frozen_inputs": {
+    "data/corpus_changes/photius-bekker-historical-readings/before-corpus.jsonl.gz": "c6957e3cb0269db12d4b02909a24cc37d86f68b985b58fdcca21375294306a34",
+    "data/corpus_changes/photius-bekker-historical-readings/source-review.json": "d56902cdcf9f34d569e9d75032212afd7adbb5c74b4d60d0638a50b51c767437",
+    "data/corpus_changes/photius-bekker-historical-readings/diagnostics/b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22.json": "b7d357c7c7747a6662cfb384727c52a289167e149e07f669d357903e5449fc22",
+    "data/corpus_changes/photius-bekker-historical-readings/diagnostics/e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609.json": "e4bdaacb08b6845a32cfa1396b16732c550f6e359c6f61c7100aeb5c9fc30609",
+    "data/corpus_changes/photius-bekker-historical-readings/diagnostics/fa98dd1d81a201ed43f7ef1de85052ded1a520cc8a7f9dce0ab338e07aa5f168.jsonl": "fa98dd1d81a201ed43f7ef1de85052ded1a520cc8a7f9dce0ab338e07aa5f168",
+    "data/corpus_changes/photius-bekker-historical-readings/diagnostics/94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6.jsonl": "94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6",
+    "data/corpus_changes/photius-bekker-historical-readings/before-passage-aliases.json.gz": "a872c82b463c5d91914215350986991ddb157ebb020e25af59dc70b7769f4336"
+  },
+  "qualification": "Exact occurrence corrections, not a full historical word vote or accuracy estimate."
+}

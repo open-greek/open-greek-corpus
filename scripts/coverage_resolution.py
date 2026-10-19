@@ -97,7 +97,7 @@ def _photius_coverage_position(row, mapping, body_positions=None):
     physical = row.get("physical_refs", {}).get("scan_page")
     if type(physical) is not int:
         raise ValueError("Photius row lacks a reviewed physical citation")
-    if row["locus"].startswith("photius_bekker1825_recovery_"):
+    if row["locus"].startswith("photius_bekker1825_recovery_") or row.get('historical_source_reconstruction'):
         position = (body_positions or {}).get(row["locus"])
         if position != physical + mapping["logical_combined_position_offset"]:
             raise ValueError("Recovered Photius body lacks an exactly replayed logical position")
@@ -140,7 +140,11 @@ def _photius_resolution(root):
     rows = [json.loads(line) for line in primary.read_text().splitlines()]
     from repair_photius_readings import active_metadata as reading_metadata
     readings = reading_metadata(root)
-    body_positions = readings.get("body_recovery", {}).get("logical_coverage_positions", {}) if readings else {}
+    body_positions = dict(readings.get("body_recovery", {}).get("logical_coverage_positions", {}) if readings else {})
+    from repair_photius_historical_readings import active_metadata as historical_metadata
+    historical = historical_metadata(root)
+    if historical:
+        body_positions.update(historical['logical_coverage_positions'])
     covered = {_photius_coverage_position(row, mapping, body_positions) for row in rows}
     if covered != set(range(13, 558)):
         raise ValueError("Photius authorial scan range is incomplete")
@@ -153,6 +157,7 @@ def _photius_resolution(root):
         admission_audit={"path": str(path.relative_to(root)), "sha256": _sha(path)},
         **({"editorial_layer": active_metadata(root)} if primary.read_bytes() != legacy else {}),
         **({"reading_layer": readings} if readings else {}),
+        **({'historical_reading_layer': historical} if historical else {}),
         covered_authorial_scan_pages=report["covered_authorial_scan_pages"],
         covered_authorial_printed_pages=report["covered_authorial_printed_pages"],
         coverage_position_meaning=report["coverage_position_meaning"],

@@ -92963,6 +92963,71 @@
    "helladius_chrestomathia_photius_bekker_v2_0280.28": {
     "path": "data/paratext/photius-bekker-apparatus.jsonl",
     "locus": "helladius_chrestomathia_photius_bekker_v2_0280.28"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.13": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.14": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.15": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.16": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.17": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.18": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.19": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.20": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.21": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.22": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.23": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.26": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
+   },
+   "helladius_chrestomathia_photius_bekker_v2_0280.27": {
+    "path": "data/corpus/photius.bibliotheca.jsonl",
+    "slug": "photius.bibliotheca",
+    "locus": "photius_bekker1825_0280.epilogue"
    }
   },
   "cyrillus-theology.commentarii-in-joannem": {
@@ -218711,9 +218776,9 @@
     "edition": "bekker1824-independent-ocr-consensus",
     "source": "ocr",
     "license": "CC-BY-SA-4.0",
-    "n_passages": 3794,
-    "n_tokens": 431801,
-    "n_analysis_tokens": 302194,
+    "n_passages": 3782,
+    "n_tokens": 431815,
+    "n_analysis_tokens": 302135,
     "coverage": {
      "policy": "complementary-page-union-with-licensed-consensus",
      "manifest": "data/corpus_changes/photius-bekker-coverage/coverage.json",
@@ -218724,7 +218789,7 @@
       {
        "role": "retained-primary",
        "license": "PD",
-       "passages": 3475,
+       "passages": 3293,
        "scan_ranges": [
         [
          279,
@@ -218807,6 +218872,96 @@
          "revision": "017b9c7af6b5689d5dd426a76e0bc077eb5ca20a"
         }
        ]
+      },
+      {
+       "edition": "bekker1825-reviewed-historical-readings",
+       "role": "reviewed-historical-reading-occurrences",
+       "license": "CC-BY-SA-4.0",
+       "passages": 170,
+       "source_library": {
+        "edition": "tlg4040.tlg001.local002",
+        "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+        "license": {
+         "text": "CC BY-SA 4.0",
+         "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+        },
+        "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+        "role": "Same-scan comparison witness, never used as model input. Only a body window bounded by unique shared beginnings and endings in both independent fresh witnesses may vote; unmatched full pages remain comparison-only.",
+        "body_comparison_counts": {
+         "held-comparison-only": 281,
+         "bounded-body-voting-witness": 4
+        },
+        "primary_body_comparison_counts": {
+         "held-comparison-only": 280,
+         "bounded-body-voting-witness": 4
+        },
+        "body_comparison_audit": {
+         "path": "data/corpus_changes/photius-bekker-coverage/source-library-body-windows.json.gz",
+         "sha256": "beff5b3cb0d0ab18c56722237d95f63f5ee9a1b71c055919f84a8d7793beef22",
+         "entries": 285
+        },
+        "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+        "api_notice_checked_date": "2026-10-18",
+        "separate_api_notice": {
+         "spdx": "CC-BY-SA-4.0",
+         "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+         "attribution": "Source Library (https://sourcelibrary.org)",
+         "terms": "https://sourcelibrary.org/terms",
+         "original_texts": "public-domain",
+         "tdm_reservation": 1,
+         "tdm_policy": "https://sourcelibrary.org/licensing",
+         "ai_training": "reserved — standard license available, see tdm_policy"
+        }
+       },
+       "audit": {
+        "path": "data/corpus_changes/photius-bekker-historical-readings/changes.json",
+        "sha256": "81a66cad4a2c7fdc2e2c397f623b4f4f5082be6c4234d0d8d842a257e6e62144"
+       },
+       "source_review": {
+        "path": "data/corpus_changes/photius-bekker-historical-readings/source-review.json",
+        "sha256": "d56902cdcf9f34d569e9d75032212afd7adbb5c74b4d60d0638a50b51c767437"
+       },
+       "counts": {
+        "corrected_rows": 169,
+        "corrected_occurrences": 469,
+        "reconstructed_regions": 1,
+        "replaced_fragment_rows": 13,
+        "primary_rows_before": 3794,
+        "primary_rows_after": 3782,
+        "scan_pages": [
+         2,
+         3,
+         16,
+         169,
+         230,
+         280
+        ],
+        "fully_assessed_rows": 0,
+        "source_family": "source-library-local002",
+        "source_scan_sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+       },
+       "sources": [
+        {
+         "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+         "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+        },
+        {
+         "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+         "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+        },
+        {
+         "path": "data/evaluation/ocr-fresh/photius-historical-reading-diagnostics-qwen38-mlx.jsonl",
+         "sha256": "94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6"
+        }
+       ],
+       "logical_coverage_positions": {
+        "photius_bekker1825_0280.epilogue": 557
+       },
+       "networks": {
+        "path": "data/corpus_changes/photius-bekker-historical-readings/networks.json.gz",
+        "sha256": "174da5bb484f1aac4bfe95c58a85079c4b65061096985f86d89515fa9e4f8fb0"
+       }
       },
       {
        "edition": "bekker1825-reviewed-editorial-matter",
@@ -221099,6 +221254,56 @@
         "license": "PD"
        },
        "ocr_witness_license": "CC-BY-4.0"
+      }
+     },
+     "historical_reading_layer": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-historical-readings/changes.json",
+       "sha256": "81a66cad4a2c7fdc2e2c397f623b4f4f5082be6c4234d0d8d842a257e6e62144"
+      },
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-historical-readings/source-review.json",
+       "sha256": "d56902cdcf9f34d569e9d75032212afd7adbb5c74b4d60d0638a50b51c767437"
+      },
+      "counts": {
+       "corrected_rows": 169,
+       "corrected_occurrences": 469,
+       "reconstructed_regions": 1,
+       "replaced_fragment_rows": 13,
+       "primary_rows_before": 3794,
+       "primary_rows_after": 3782,
+       "scan_pages": [
+        2,
+        3,
+        16,
+        169,
+        230,
+        280
+       ],
+       "fully_assessed_rows": 0,
+       "source_family": "source-library-local002",
+       "source_scan_sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+      },
+      "sources": [
+       {
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+       },
+       {
+        "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+        "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+       },
+       {
+        "path": "data/evaluation/ocr-fresh/photius-historical-reading-diagnostics-qwen38-mlx.jsonl",
+        "sha256": "94e786f11798760bab01af7ab71dfa7c0c913017064a866da8f0139f161318b6"
+       }
+      ],
+      "logical_coverage_positions": {
+       "photius_bekker1825_0280.epilogue": 557
+      },
+      "networks": {
+       "path": "data/corpus_changes/photius-bekker-historical-readings/networks.json.gz",
+       "sha256": "174da5bb484f1aac4bfe95c58a85079c4b65061096985f86d89515fa9e4f8fb0"
       }
      },
      "qualification": "Complete Bekker authorial printed-page range, including prefatory letter, across the combined scan and retained second-volume source. Combined scans 446/447 repeat pages 334/335; genuine printed pages 434/435 remain in the unchanged legacy witness. No codex-level paragraph mapping is invented."

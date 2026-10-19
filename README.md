@@ -971,6 +971,45 @@ The quality report also publishes the current consensus slot counts and the
 number of rows outside that measurement. Agreement is not an error-rate
 estimate, and historical rows without consensus remain explicitly unassessed.
 
+Historical word corrections have a separate occurrence-level authority.
+`scripts/prepare_photius_historical_readings.py --check` reproduces exact
+original-row spans, printed scan regions and image hashes, bounded digital
+counterparts, and completed source observations. Only the observed occurrences
+change; surrounding historical words retain their earlier assessment status.
+Internal printed line-end hyphens are joined only when the direct reading and
+the exact digital counterpart corroborate the complete word. The literal
+divided source reading remains in the audit. The genuine printed pages 434–435
+are source exceptions: the digital sections repeat earlier pages and cannot
+corroborate their text. Two separately checked occurrences on page 434 instead
+retain exact corroborating spans from a pinned scan-only prediction, including
+its checkpoint, runtime, request, image, and complete raw output.
+
+The final page's full-width epilogue is reconstructed as a physical region from
+two independent readings. Its former detached halves remain exact original
+rows in the audit, and their historical citations resolve to the reconstructed
+region through `data/passage_aliases.json`. The preceding right-column body
+now appears before the epilogue. All scan/digital differences, including marks
+and compact ligatures, remain unresolved alternatives outside scalar lexical
+counts. No critical paragraph numbering is invented.
+
+`python3 scripts/repair_photius_historical_readings.py --apply` reproduces this
+layer; `--check` validates the source observations and every output, and
+`--undo` restores the exact preceding corpus and passage aliases even if a
+current correction source has been invalidated. Original and corrected rows,
+occurrence evidence, full epilogue vote, and diagnostic attempts are retained
+under `data/corpus_changes/photius-bekker-historical-readings/`. Earlier
+admission checks reverse only this verified layer in memory.
+`scripts/prepare_photius_historical_diagnostics.py --check` reproduces the
+diagnostic requests. Successful generation alone does not admit their output.
+
+`python3 scripts/assess_photius_historical.py --write` generates a separate
+diagnostic comparison of the retained historical rows with the matching digital
+sections; `--check` verifies it. It preserves exact Unicode offsets, all tied
+local counterparts, unaligned text, and the two source-mapping exceptions.
+Textual differences are review candidates, not automatically accepted OCR
+corrections or a recognition-error rate. The quality report distinguishes
+partially corrected historical occurrences from rows with full consensus slots.
+
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
 pages; completed source reviews check body-line coverage, marks, repetition,
@@ -3198,7 +3237,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 302,194 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 302,135 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |

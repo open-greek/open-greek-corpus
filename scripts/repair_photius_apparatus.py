@@ -331,12 +331,15 @@ def check(root=ROOT):
     root = Path(root)
     _, _, outputs, audit = _validated_archive(root)
     from repair_photius_readings import restore_before_bytes
+    from repair_photius_historical_readings import restore_before_alias_bytes
     for path, raw in outputs.items():
         if not (root / path).exists():
             raise ValueError("A source-reviewed apparatus output is missing")
         current = (root / path).read_bytes()
         if path == CORPUS:
             current = restore_before_bytes(current, root)
+        elif path == ALIASES:
+            current = restore_before_alias_bytes(current, root)
         if current != raw:
             raise ValueError("A source-reviewed apparatus output changed independently")
     return audit
@@ -355,8 +358,15 @@ def restore_legacy_bytes(raw, root=ROOT):
     before, _, outputs, _ = _validated_archive(root)
     if raw != outputs[CORPUS]:
         raise ValueError("Photius changed outside the exact authorized apparatus layer")
-    if any((root / path).read_bytes() != value for path, value in outputs.items() if path != CORPUS):
-        raise ValueError("Apparatus paratext or historical aliases changed independently")
+    from repair_photius_historical_readings import restore_before_alias_bytes
+    for path, expected in outputs.items():
+        if path == CORPUS:
+            continue
+        current = (root / path).read_bytes()
+        if path == ALIASES:
+            current = restore_before_alias_bytes(current, root)
+        if current != expected:
+            raise ValueError("Apparatus paratext or historical aliases changed independently")
     return before
 
 

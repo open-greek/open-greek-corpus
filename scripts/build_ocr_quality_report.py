@@ -221,10 +221,17 @@ def consensus_qualification(records: list[dict]) -> dict | None:
             raise ValueError('Consensus quality requires nonnegative integer slot counts')
         counts.update(current)
         measured += 1
-    if not measured:
+    partial = [row['historical_reading_repair'] for row in records if row.get('historical_reading_repair')]
+    if not measured and not partial:
         return None
+    for layer in partial:
+        if type(layer.get('reviewed_occurrences')) is not int or layer['reviewed_occurrences'] <= 0:
+            raise ValueError('Historical occurrence quality requires positive integer correction counts')
     return {'rows_with_counted_consensus': measured,
         'rows_without_counted_consensus': len(records) - measured,
+        **({'historical_occurrence_review': {'partially_corrected_rows': len(partial),
+            'corrected_occurrences': sum(layer['reviewed_occurrences'] for layer in partial),
+            'qualification': 'Only the recorded occurrences are source reviewed. These rows remain outside the full word-consensus diagnostic.'}} if partial else {}),
         'slot_counts': dict(sorted(counts.items())),
         'counting_basis': 'Merged word slots, not a count of recognition errors or proofread words.',
         'qualification': 'Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.'}

@@ -24,6 +24,16 @@ def test_no_consensus_measurement_is_not_reported_as_zero_errors():
     assert consensus_qualification([{'text': 'raw OCR'}]) is None
 
 
+def test_partial_historical_correction_never_becomes_full_consensus():
+    value = consensus_qualification([{'historical_reading_repair': {'reviewed_occurrences': 3}},
+                                     {'text': 'still unassessed'}])
+    assert value['rows_with_counted_consensus'] == 0
+    assert value['rows_without_counted_consensus'] == 2
+    assert value['historical_occurrence_review']['partially_corrected_rows'] == 1
+    assert value['historical_occurrence_review']['corrected_occurrences'] == 3
+    assert value['slot_counts'] == {}
+
+
 @pytest.mark.parametrize('count', [-1, 2.5, True, '3'])
 def test_invalid_slot_counts_cannot_enter_quality_measurement(count):
     with pytest.raises(ValueError, match='integer slot counts'):
