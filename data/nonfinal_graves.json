@@ -11,18 +11,18 @@
   }
  },
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
- "forms": 26591,
- "tokens": 42793,
- "served_tokens": 65827560,
- "surface_served_tokens": 66087817,
+ "forms": 26589,
+ "tokens": 42790,
+ "served_tokens": 65827547,
+ "surface_served_tokens": 66087824,
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "share": 0.00065,
  "works_touched": 1642,
  "by_source": [
   {
    "source": "ocr",
-   "tokens": 24905,
-   "rate": 0.000983
+   "tokens": 24902,
+   "rate": 0.000982
   },
   {
    "source": "first1k",
@@ -148,8 +148,8 @@
   },
   {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-   "tokens": 270,
-   "rate": 0.001901
+   "tokens": 267,
+   "rate": 0.001894
   },
   {
    "edition": "qwen36-bussemaker-daremberg-1851-rover",
@@ -203,9 +203,9 @@
   }
  ],
  "repair_reach": {
-  "tokens_with_more_than_one_attested_shape": 15111,
-  "tokens_with_exactly_one": 8947,
-  "tokens_with_none": 18735
+  "tokens_with_more_than_one_attested_shape": 15110,
+  "tokens_with_exactly_one": 8948,
+  "tokens_with_none": 18732
  },
  "largest_forms": [
   {
@@ -456,7 +456,7 @@
    "shapes": {
     "acute": {
      "form": "ἵνα",
-     "attested": 68539
+     "attested": 68538
     },
     "dropped": {
      "form": "ἱνα",
@@ -478,7 +478,7 @@
    "shapes": {
     "acute": {
      "form": "ἕνα",
-     "attested": 12225
+     "attested": 12226
     },
     "dropped": {
      "form": "ἑνα",
@@ -500,11 +500,11 @@
    "shapes": {
     "acute": {
      "form": "ὥσπερ",
-     "attested": 62190
+     "attested": 62191
     },
     "dropped": {
      "form": "ὡσπερ",
-     "attested": 5441
+     "attested": 5440
     },
     "crasis": {
      "form": "ὡ̓σπερ",
@@ -592,7 +592,7 @@
     },
     "dropped": {
      "form": "ἐστιν",
-     "attested": 103854
+     "attested": 103853
     },
     "crasis": {
      "form": "ἐ̓στιν",
@@ -1098,7 +1098,7 @@
     },
     "dropped": {
      "form": "τοῦ",
-     "attested": 976813
+     "attested": 976823
     },
     "crasis": {
      "form": "τὀῦ",
@@ -1116,7 +1116,7 @@
    "shapes": {
     "acute": {
      "form": "ἔστι",
-     "attested": 45739
+     "attested": 45740
     },
     "dropped": {
      "form": "ἐστι",
@@ -1828,7 +1828,7 @@
     },
     "crasis": {
      "form": "αὐτοῦ",
-     "attested": 192370
+     "attested": 192373
     },
     "circumflex": {
      "form": "αῦτοῦ",
@@ -2256,7 +2256,7 @@
   },
   {
    "form": "τὸναντίον",
-   "tokens": 25,
+   "tokens": 24,
    "shapes": {
     "acute": {
      "form": "τόναντίον",
@@ -2514,7 +2514,7 @@
     },
     "circumflex": {
      "form": "εἶναι",
-     "attested": 181446
+     "attested": 181445
     }
    }
   },
@@ -3056,7 +3056,7 @@
     },
     "dropped": {
      "form": "κἀνταῦθα",
-     "attested": 1884
+     "attested": 1885
     },
     "crasis": {
      "form": "κἀ̓νταῦθα",
@@ -4639,24 +4639,24 @@
    },
    {
     "bucket": "dominant >= 0.9",
-    "forms": 3619,
-    "tokens": 10031
+    "forms": 3618,
+    "tokens": 10030
    },
    {
     "bucket": "no clean sibling",
-    "forms": 17402,
-    "tokens": 20306
+    "forms": 17401,
+    "tokens": 20304
    }
   ],
-  "accent_only_forms": 2702,
-  "accent_only_tokens": 8087,
+  "accent_only_forms": 2701,
+  "accent_only_tokens": 8086,
   "marks_moved_tokens": 1944,
   "page_diffusion": {
-   "distinct_scan_pages": 15882,
+   "distinct_scan_pages": 15880,
    "tokens_on_the_densest_500_pages": 3776,
    "reading": "a re-OCR reaches a few percent of this class; it is spread thin, not concentrated on bad pages"
   },
-  "decided_forms_total": 3619,
+  "decided_forms_total": 3618,
   "decided_is_a_sample": "the 400 largest by flagged tokens, of decided_forms_total. The tranche sheets are emitted from the full list; a sheet built from this sample truncates the pass, which is how the 2026-08-10 third-party apply missed 418 eligible forms.",
   "decided": [
    {

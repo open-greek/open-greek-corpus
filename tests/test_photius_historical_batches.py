@@ -402,6 +402,7 @@ def released_inputs():
 @pytest.mark.parametrize('module_name,expected', [
     ('photius_historical_observations_continued', (319, 142, 19)),
     ('photius_historical_observations_orators', (197, 12, 8)),
+    ('photius_historical_observations_pages0007_0008', (157, 7, 10)),
 ])
 def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundaries(released_inputs, module_name, expected):
     root, before, library, scan = released_inputs
@@ -429,7 +430,7 @@ def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundar
     if module_name.endswith('continued'):
         assert by_locus[PREFIX.replace('0004', '0006')+'29']['text'].startswith(
             'Χριστόν, ἕνα υἱόν, ἕνα κύριον ὁμολογοῦμεν. εἶτα καὶ μίαν μὲν φύσιν')
-    else:
+    elif module_name.endswith('orators'):
         contrary = [c for change in changes for c in change['corrections']
                     if c['disposition'] == 'unresolved-source-variants']
         assert len(contrary) == 8
@@ -450,6 +451,27 @@ def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundar
         ordinary = layer.restore_fragment_network(full)
         assert ordinary['text'] == full['text'] == 'σίους τιθέασιν'
         assert ordinary['analysis_text'] == 'σίους τιθέασιν'
+    else:
+        # A later occurrence review cannot replace the independently merged
+        # ending of 7.5 or silently include its unreviewed historical prefix.
+        prefix = PREFIX.replace('0004', '0007')
+        original_rows = {r['locus']: r for r in map(json.loads, before.splitlines())}
+        assert by_locus[prefix+'5'] == original_rows[prefix+'5']
+        assert by_locus[prefix+'1']['text'].startswith('εὐσεβῶν μὴ λίαν τὴν φωνὴν ἀσπαζόμενος')
+        assert 'Διονύσιον' in by_locus[prefix+'3']['text']
+        assert '⟦οὐχ ∥ ἐκ⟧ ἵνα' in by_locus[prefix+'4']['text']
+        last = by_locus[PREFIX.replace('0004', '0008')+'3']
+        # Preserve the actual witnesses even where their grammar is unusual.
+        assert 'τὰς ἱερὰς ἡμῶν πατέρας' in last['text']
+        assert '⟦ἕρπεσαν ∥ ἕρπουσαν⟧' in last['text']
+        fragment = next(c for change in changes for c in change['corrections']
+                        if c['original_text'] == 'ἄνθρω-')
+        assert fragment['source_fragments'][0]['text'] == 'ἀνθω-'
+        assert counts['fragment_occurrences'] == counts['lexical_excluded_fragments'] == 1
+        full = networks[fragment['network_key']]
+        assert not full['analysis_text']
+        assert all(not s['lexical_eligible'] for s in full['ocr_consensus']['slots'])
+        assert not last['analysis_text'].endswith(('ἀνθω', 'ἀνθω-'))
 
 
 def test_actual_scan_only_mapping_exception_is_qualified(released_inputs):
@@ -479,7 +501,7 @@ def test_actual_scan_only_mapping_exception_is_qualified(released_inputs):
     assert changed['helladius_chrestomathia_photius_bekker_v2_0170.17']['text'].startswith('σεν')
 
 
-def test_all_four_actual_batches_keep_projection_only_display_and_qualify_every_reviewed_fragment(released_inputs):
+def test_all_actual_batches_keep_projection_only_display_and_qualify_every_reviewed_fragment(released_inputs):
     root, before, library, scan = released_inputs
     raw = before; totals = Counter(); fourth_before = None
     all_changes = []
@@ -508,15 +530,15 @@ def test_all_four_actual_batches_keep_projection_only_display_and_qualify_every_
             assert sum(r['scan_only'] for r in review['records']) == 5
             assert all(c['original_text'] == c['corrected_text'] for c in changes)
     assert fourth_before is not None
-    assert totals == {'reviewed_occurrences': 788, 'scalar_corrections': 743,
-        'unresolved_occurrences': 27, 'fragment_occurrences': 28,
-        'lexical_excluded_fragments': 28, 'projection_only_occurrences': 18}
+    assert totals == {'reviewed_occurrences': 945, 'scalar_corrections': 890,
+        'unresolved_occurrences': 37, 'fragment_occurrences': 29,
+        'lexical_excluded_fragments': 29, 'projection_only_occurrences': 18}
     # Counting is based on the final union of row masks, not batch event totals.
     final = {r['locus']: r for r in map(json.loads, raw.splitlines())}
     fragment_spans = [span for row in final.values()
         for span in row.get('historical_reading_batch_projection', {}).get('excluded_spans', [])
         if span['reason'] == 'source-confirmed-word-fragment']
-    assert len(fragment_spans) == 28
+    assert len(fragment_spans) == 29
     assert all(row.get('ocr_consensus') is None for row in final.values() if row.get('historical_reading_batches'))
 
 
