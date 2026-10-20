@@ -254449,7 +254449,7 @@
      {
       "role": "retained-primary",
       "license": "PD",
-      "passages": 3090,
+      "passages": 3083,
       "scan_ranges": [
        [
         279,
@@ -254627,7 +254627,7 @@
       "edition": "bekker1825-reviewed-historical-readings",
       "role": "later-reviewed-historical-occurrences",
       "license": "CC-BY-SA-4.0",
-      "passages": 203,
+      "passages": 210,
       "source_library": {
        "edition": "tlg4040.tlg001.local002",
        "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
@@ -254759,19 +254759,42 @@
          "fragment_occurrences": 18,
          "lexical_excluded_fragments": 18
         }
+       },
+       {
+        "audit": {
+         "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0007-0008-2026-10-20/changes.json",
+         "sha256": "3522b1b6b2734fe48cb65b56ef1e64a3b74779849e5d77839185acfa0f2eb090"
+        },
+        "source_review": {
+         "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0007-0008-2026-10-20/source-review.json",
+         "sha256": "af0ca9a9e63907cedb0b706c9490f26e641adccd3fa0128c3f0e0634459060de"
+        },
+        "counts": {
+         "corrected_rows": 7,
+         "reviewed_occurrences": 157,
+         "unresolved_occurrences": 10,
+         "scan_only_occurrences": 0,
+         "fully_assessed_rows": 0,
+         "primary_rows_before": 3782,
+         "primary_rows_after": 3782,
+         "held_source_observations": 1,
+         "scalar_corrections": 147,
+         "fragment_occurrences": 1,
+         "lexical_excluded_fragments": 1
+        }
        }
       ],
       "counts": {
-       "batches": 4,
-       "unique_corrected_rows": 216,
-       "newly_corrected_rows": 203,
+       "batches": 5,
+       "unique_corrected_rows": 223,
+       "newly_corrected_rows": 210,
        "previously_corrected_rows": 13,
-       "reviewed_occurrences": 788,
-       "scalar_corrections": 743,
+       "reviewed_occurrences": 945,
+       "scalar_corrections": 890,
        "projection_only_occurrences": 18,
-       "fragment_occurrences": 28,
-       "lexical_excluded_fragments": 28,
-       "unresolved_occurrences": 27,
+       "fragment_occurrences": 29,
+       "lexical_excluded_fragments": 29,
+       "unresolved_occurrences": 37,
        "fully_assessed_rows": 0
       },
       "corrected_loci": [
@@ -254929,6 +254952,13 @@
        "helladius_chrestomathia_photius_bekker_v2_0006.85",
        "helladius_chrestomathia_photius_bekker_v2_0006.86",
        "helladius_chrestomathia_photius_bekker_v2_0006.9",
+       "helladius_chrestomathia_photius_bekker_v2_0007.1",
+       "helladius_chrestomathia_photius_bekker_v2_0007.2",
+       "helladius_chrestomathia_photius_bekker_v2_0007.3",
+       "helladius_chrestomathia_photius_bekker_v2_0007.4",
+       "helladius_chrestomathia_photius_bekker_v2_0008.1",
+       "helladius_chrestomathia_photius_bekker_v2_0008.2",
+       "helladius_chrestomathia_photius_bekker_v2_0008.3",
        "helladius_chrestomathia_photius_bekker_v2_0169.1",
        "helladius_chrestomathia_photius_bekker_v2_0169.3",
        "helladius_chrestomathia_photius_bekker_v2_0170.10",
@@ -255135,6 +255165,13 @@
        "helladius_chrestomathia_photius_bekker_v2_0006.85",
        "helladius_chrestomathia_photius_bekker_v2_0006.86",
        "helladius_chrestomathia_photius_bekker_v2_0006.9",
+       "helladius_chrestomathia_photius_bekker_v2_0007.1",
+       "helladius_chrestomathia_photius_bekker_v2_0007.2",
+       "helladius_chrestomathia_photius_bekker_v2_0007.3",
+       "helladius_chrestomathia_photius_bekker_v2_0007.4",
+       "helladius_chrestomathia_photius_bekker_v2_0008.1",
+       "helladius_chrestomathia_photius_bekker_v2_0008.2",
+       "helladius_chrestomathia_photius_bekker_v2_0008.3",
        "helladius_chrestomathia_photius_bekker_v2_0169.3",
        "helladius_chrestomathia_photius_bekker_v2_0170.10",
        "helladius_chrestomathia_photius_bekker_v2_0170.11",
@@ -257638,19 +257675,42 @@
         "fragment_occurrences": 18,
         "lexical_excluded_fragments": 18
        }
+      },
+      {
+       "audit": {
+        "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0007-0008-2026-10-20/changes.json",
+        "sha256": "3522b1b6b2734fe48cb65b56ef1e64a3b74779849e5d77839185acfa0f2eb090"
+       },
+       "source_review": {
+        "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0007-0008-2026-10-20/source-review.json",
+        "sha256": "af0ca9a9e63907cedb0b706c9490f26e641adccd3fa0128c3f0e0634459060de"
+       },
+       "counts": {
+        "corrected_rows": 7,
+        "reviewed_occurrences": 157,
+        "unresolved_occurrences": 10,
+        "scan_only_occurrences": 0,
+        "fully_assessed_rows": 0,
+        "primary_rows_before": 3782,
+        "primary_rows_after": 3782,
+        "held_source_observations": 1,
+        "scalar_corrections": 147,
+        "fragment_occurrences": 1,
+        "lexical_excluded_fragments": 1
+       }
       }
      ],
      "counts": {
-      "batches": 4,
-      "unique_corrected_rows": 216,
-      "newly_corrected_rows": 203,
+      "batches": 5,
+      "unique_corrected_rows": 223,
+      "newly_corrected_rows": 210,
       "previously_corrected_rows": 13,
-      "reviewed_occurrences": 788,
-      "scalar_corrections": 743,
+      "reviewed_occurrences": 945,
+      "scalar_corrections": 890,
       "projection_only_occurrences": 18,
-      "fragment_occurrences": 28,
-      "lexical_excluded_fragments": 28,
-      "unresolved_occurrences": 27,
+      "fragment_occurrences": 29,
+      "lexical_excluded_fragments": 29,
+      "unresolved_occurrences": 37,
       "fully_assessed_rows": 0
      },
      "corrected_loci": [
@@ -257808,6 +257868,13 @@
       "helladius_chrestomathia_photius_bekker_v2_0006.85",
       "helladius_chrestomathia_photius_bekker_v2_0006.86",
       "helladius_chrestomathia_photius_bekker_v2_0006.9",
+      "helladius_chrestomathia_photius_bekker_v2_0007.1",
+      "helladius_chrestomathia_photius_bekker_v2_0007.2",
+      "helladius_chrestomathia_photius_bekker_v2_0007.3",
+      "helladius_chrestomathia_photius_bekker_v2_0007.4",
+      "helladius_chrestomathia_photius_bekker_v2_0008.1",
+      "helladius_chrestomathia_photius_bekker_v2_0008.2",
+      "helladius_chrestomathia_photius_bekker_v2_0008.3",
       "helladius_chrestomathia_photius_bekker_v2_0169.1",
       "helladius_chrestomathia_photius_bekker_v2_0169.3",
       "helladius_chrestomathia_photius_bekker_v2_0170.10",
@@ -258014,6 +258081,13 @@
       "helladius_chrestomathia_photius_bekker_v2_0006.85",
       "helladius_chrestomathia_photius_bekker_v2_0006.86",
       "helladius_chrestomathia_photius_bekker_v2_0006.9",
+      "helladius_chrestomathia_photius_bekker_v2_0007.1",
+      "helladius_chrestomathia_photius_bekker_v2_0007.2",
+      "helladius_chrestomathia_photius_bekker_v2_0007.3",
+      "helladius_chrestomathia_photius_bekker_v2_0007.4",
+      "helladius_chrestomathia_photius_bekker_v2_0008.1",
+      "helladius_chrestomathia_photius_bekker_v2_0008.2",
+      "helladius_chrestomathia_photius_bekker_v2_0008.3",
       "helladius_chrestomathia_photius_bekker_v2_0169.3",
       "helladius_chrestomathia_photius_bekker_v2_0170.10",
       "helladius_chrestomathia_photius_bekker_v2_0170.11",

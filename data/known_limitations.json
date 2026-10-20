@@ -3,17 +3,17 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "8e8a912d2e7ece2e0dc5ebdbad4074861334bfd19161441ebe88e3cef7caa776",
+  "corpus_sha256": "edda4377646df25a1c2cd5970bcf005cc0ff217b01bcee78ea6c7b274c61ca70",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "7a1a379cd7b3b9b80982f013e51210e0e76824c9e91d77240fd350f07c521cc9",
-   "corpus_sha256": "8e8a912d2e7ece2e0dc5ebdbad4074861334bfd19161441ebe88e3cef7caa776",
+   "sha256": "3580968f39c9a66e6cd37a5fe11a1e3cc2f84bde7e3c70dea82ec4409406bc5e",
+   "corpus_sha256": "edda4377646df25a1c2cd5970bcf005cc0ff217b01bcee78ea6c7b274c61ca70",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65827560,
-    "mixed_ocr_analysis_tokens": 571928,
+    "analysis_tokens": 65827547,
+    "mixed_ocr_analysis_tokens": 571915,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29700455,
+    "ocr_analysis_tokens": 29700442,
     "ocr_passages": 1349148,
     "ocr_works": 1416,
     "passages": 1966478,
@@ -71,7 +71,7 @@
      "works": 1
     },
     "ocr": {
-     "analysis_tokens": 25347224,
+     "analysis_tokens": 25347211,
      "passages": 1337730,
      "works": 1217
     },
@@ -218,7 +218,7 @@
      }
     },
     "photius.bibliotheca": {
-     "analysis_tokens": 302084,
+     "analysis_tokens": 302071,
      "components": [
       {
        "analysis_tokens": 151161,
@@ -235,17 +235,17 @@
        "source": "ocr"
       },
       {
-       "analysis_tokens": 6993,
+       "analysis_tokens": 8016,
        "edition": "bekker1825-reviewed-historical-readings",
        "license": "CC-BY-SA-4.0",
-       "passages": 373,
+       "passages": 380,
        "source": "ocr"
       },
       {
-       "analysis_tokens": 142037,
+       "analysis_tokens": 141001,
        "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
        "license": "PD",
-       "passages": 3090,
+       "passages": 3083,
        "source": "ocr"
       },
       {
@@ -260,12 +260,12 @@
      "mixed_ocr_digital": true,
      "non_ocr_analysis_tokens": 439,
      "non_ocr_passages": 2,
-     "ocr_analysis_tokens": 301645,
+     "ocr_analysis_tokens": 301632,
      "ocr_passages": 3780,
      "passages": 3782,
      "sources": {
       "ocr": {
-       "analysis_tokens": 301645,
+       "analysis_tokens": 301632,
        "passages": 3780
       },
       "reviewed-text-consensus": {
@@ -279,19 +279,19 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "32202f4d5d024856f9e51ad5920e840b0a52a23f744ced489ac0bf66f3a87524"
+   "sha256": "304453f1fc2b74d1a3df035c47ac10147138bf06a725cf605036459754e263d2"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "34df646199b56fce2133021b2dd87c3635c116af317fcd07993219b87a215468"
+   "sha256": "ec192cc05bddd696a43fb73dee200b8724a3d772b137fb71e0902b0adbfcc566"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "662e1d6e7f99b8fecf3709813b8a51cbdf4dfb679ef6e951bd5521b8f5b45124"
+   "sha256": "ece292842a565feaf0ba2a2865ef7204de0cb08278014fb599499efd1de4a931"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "cd029b4c80b13d1f5f35486524008b6b4a905a51cc871feb91d8284e82f77d28"
+   "sha256": "e305018cf0e92f8f0d3fffa80d3d9a8ed3ad5424fb00bb5e768d529a9fbd39af"
   }
  },
  "active_coverage_findings": [],
@@ -1663,19 +1663,42 @@
         "fragment_occurrences": 18,
         "lexical_excluded_fragments": 18
        }
+      },
+      {
+       "audit": {
+        "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0007-0008-2026-10-20/changes.json",
+        "sha256": "3522b1b6b2734fe48cb65b56ef1e64a3b74779849e5d77839185acfa0f2eb090"
+       },
+       "source_review": {
+        "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0007-0008-2026-10-20/source-review.json",
+        "sha256": "af0ca9a9e63907cedb0b706c9490f26e641adccd3fa0128c3f0e0634459060de"
+       },
+       "counts": {
+        "corrected_rows": 7,
+        "reviewed_occurrences": 157,
+        "unresolved_occurrences": 10,
+        "scan_only_occurrences": 0,
+        "fully_assessed_rows": 0,
+        "primary_rows_before": 3782,
+        "primary_rows_after": 3782,
+        "held_source_observations": 1,
+        "scalar_corrections": 147,
+        "fragment_occurrences": 1,
+        "lexical_excluded_fragments": 1
+       }
       }
      ],
      "counts": {
-      "batches": 4,
-      "unique_corrected_rows": 216,
-      "newly_corrected_rows": 203,
+      "batches": 5,
+      "unique_corrected_rows": 223,
+      "newly_corrected_rows": 210,
       "previously_corrected_rows": 13,
-      "reviewed_occurrences": 788,
-      "scalar_corrections": 743,
+      "reviewed_occurrences": 945,
+      "scalar_corrections": 890,
       "projection_only_occurrences": 18,
-      "fragment_occurrences": 28,
-      "lexical_excluded_fragments": 28,
-      "unresolved_occurrences": 27,
+      "fragment_occurrences": 29,
+      "lexical_excluded_fragments": 29,
+      "unresolved_occurrences": 37,
       "fully_assessed_rows": 0
      },
      "corrected_loci": [
@@ -1833,6 +1856,13 @@
       "helladius_chrestomathia_photius_bekker_v2_0006.85",
       "helladius_chrestomathia_photius_bekker_v2_0006.86",
       "helladius_chrestomathia_photius_bekker_v2_0006.9",
+      "helladius_chrestomathia_photius_bekker_v2_0007.1",
+      "helladius_chrestomathia_photius_bekker_v2_0007.2",
+      "helladius_chrestomathia_photius_bekker_v2_0007.3",
+      "helladius_chrestomathia_photius_bekker_v2_0007.4",
+      "helladius_chrestomathia_photius_bekker_v2_0008.1",
+      "helladius_chrestomathia_photius_bekker_v2_0008.2",
+      "helladius_chrestomathia_photius_bekker_v2_0008.3",
       "helladius_chrestomathia_photius_bekker_v2_0169.1",
       "helladius_chrestomathia_photius_bekker_v2_0169.3",
       "helladius_chrestomathia_photius_bekker_v2_0170.10",
@@ -2039,6 +2069,13 @@
       "helladius_chrestomathia_photius_bekker_v2_0006.85",
       "helladius_chrestomathia_photius_bekker_v2_0006.86",
       "helladius_chrestomathia_photius_bekker_v2_0006.9",
+      "helladius_chrestomathia_photius_bekker_v2_0007.1",
+      "helladius_chrestomathia_photius_bekker_v2_0007.2",
+      "helladius_chrestomathia_photius_bekker_v2_0007.3",
+      "helladius_chrestomathia_photius_bekker_v2_0007.4",
+      "helladius_chrestomathia_photius_bekker_v2_0008.1",
+      "helladius_chrestomathia_photius_bekker_v2_0008.2",
+      "helladius_chrestomathia_photius_bekker_v2_0008.3",
       "helladius_chrestomathia_photius_bekker_v2_0169.3",
       "helladius_chrestomathia_photius_bekker_v2_0170.10",
       "helladius_chrestomathia_photius_bekker_v2_0170.11",
@@ -2139,12 +2176,12 @@
     "added_passages": 309,
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-18.5",
+     "declared_release": "corpus-2026-10-20",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
    },
-   "corpus_file_sha256": "4101baa3e9a523cc0f52ba8790667548ea0499b530653eed5531d2ea71e21b9e"
+   "corpus_file_sha256": "ac245dd47444e867487b5dc28eff077d4b80d8d2c930073c1022fe8702bd27d9"
   },
   {
    "slug": "cyrillus-theology.commentarii-in-joannem",
@@ -2173,7 +2210,7 @@
      "held_other_works": 474
     },
     "publication": {
-     "declared_release": "corpus-2026-10-18.5",
+     "declared_release": "corpus-2026-10-20",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2274,7 +2311,7 @@
      "preserved_historical_citations": 304
     },
     "publication": {
-     "declared_release": "corpus-2026-10-18.5",
+     "declared_release": "corpus-2026-10-20",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2374,7 +2411,7 @@
      "preserved_historical_citations": 57
     },
     "publication": {
-     "declared_release": "corpus-2026-10-18.5",
+     "declared_release": "corpus-2026-10-20",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2626,7 +2663,7 @@
      }
     ],
     "publication": {
-     "declared_release": "corpus-2026-10-18.5",
+     "declared_release": "corpus-2026-10-20",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2654,9 +2691,9 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29700455,
+    "ocr_component_tokens": 29700442,
     "mixed_works": 4,
-    "mixed_ocr_tokens": 571928,
+    "mixed_ocr_tokens": 571915,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
     "global_raw_token_bounds": null,
     "legacy_homogeneous_work_bucket": {
@@ -2679,8 +2716,8 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/31",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "forms": 26591,
-    "tokens": 42793,
+    "forms": 26589,
+    "tokens": 42790,
     "share": 0.00065,
     "works": 1642
    },

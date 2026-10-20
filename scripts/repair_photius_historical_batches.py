@@ -32,6 +32,7 @@ TABLES = (
     'photius_historical_observations_continued',
     'photius_historical_observations_orators',
     'photius_historical_observations_fragments',
+    'photius_historical_observations_pages0007_0008',
 )
 QUALIFICATION = 'Only the recorded occurrences are source reviewed; other historical text remains unassessed.'
 _CROP_HASHES = {}
