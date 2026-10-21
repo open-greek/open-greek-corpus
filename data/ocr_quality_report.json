@@ -13131,7 +13131,148 @@
      "unreviewed_rows": 0,
      "verified_rows": 2378
     },
-    "current_corpus_sha256": "a263df857a26dcbd2c2e58bd3012fdd4dc03ffe860e800c0e25d67fe7d0e0623",
+    "current_corpus_sha256": "d4193edddda4ba27e673dcaabdae26c4711399d3c514be505a2850c6d3ccbe2b",
+    "later_source_reviews": {
+     "context_review": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-context/changes.json",
+       "sha256": "440278070d34471e516a6bcc986162e62a6e1d8e2ed001fa9e759a726c3082a3"
+      },
+      "counts": {
+       "changed_display_rows": 0,
+       "changed_lexical_rows": 567,
+       "context_status": {
+        "aligned-context": 2721,
+        "ambiguous-context": 531,
+        "insufficient-context": 154,
+        "no-comparable-tokens": 4,
+        "source-mapping-exception": 52
+       },
+       "recompiled_pointer_segments": 9320,
+       "rows": 3462
+      },
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-context/source-review.json.gz",
+       "sha256": "0fd53207d99beb240439a39cf4679f4c220a02b8a96c4964991e2af2e5ee3fea"
+      },
+      "text_correction_authorized": false
+     },
+     "uncertainty_review": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-uncertainties/changes.json",
+       "sha256": "af121815be1d95624e999daec6c59493044b0f7aa523c49775485bc9e0b7d408"
+      },
+      "counts": {
+       "baseline_uncertainty_spans": 3069,
+       "current_uncertainty_spans": 3047,
+       "decisions": 33,
+       "inherited_remaining_uncertainties": 11,
+       "primary_rows_after": 3782,
+       "primary_rows_before": 3782,
+       "remaining_exclusion_causes": 25,
+       "resolved_changed": 17,
+       "resolved_unchanged": 5,
+       "retained_uncertain": 11,
+       "rows": 17
+      },
+      "qualification": "Later occurrence-scoped source resolutions; original complete-review statuses and all old audits remain frozen.",
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-uncertainties/source-review.json",
+       "sha256": "b25d2ec1e7e91f64b2f3926271489c7d588a0466b239550e8e64023411982bf3"
+      },
+      "sources": {
+       "bekker": {
+        "kind": "pdf",
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+       },
+       "hoeschel1601-704": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2456,
+         4092
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page704.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 704,
+        "sha256": "8621075e1bbedc4c9657dd19497a16a57d7d4dd4084b5ee6a92ed174082945ff",
+        "url": "https://www.e-rara.ch/i3f/v20/13223228/full/full/0/default.jpg",
+        "year": 1601
+       },
+       "hoeschel1601-705": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2453,
+         4096
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page705.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 705,
+        "sha256": "49ad50616721425bb00bdd22c984cb3c3e39a4a606d4314386aa0fa40caa5109",
+        "url": "https://www.e-rara.ch/i3f/v20/13223229/full/full/0/default.jpg",
+        "year": 1601
+       },
+       "hoeschel1601-706": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2456,
+         4092
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page706.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 706,
+        "sha256": "01b2e15bf4087db44ed4671f22868c84c12d0cb7ae468d48772f06ba500ae003",
+        "url": "https://www.e-rara.ch/i3f/v20/13223230/full/full/0/default.jpg",
+        "year": 1601
+       },
+       "hoeschel1601-707": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2453,
+         4096
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page707.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 707,
+        "sha256": "5fc3175a758072dac1b61222f71fd9a90f0c3f8522c1b04f778b23a33a12ef47",
+        "url": "https://www.e-rara.ch/i3f/v20/13223231/full/full/0/default.jpg",
+        "year": 1601
+       }
+      }
+     }
+    },
     "qualification": "Full direct scan inspection of the named passages, including unchanged text, is separate from word consensus and lexical admission. Unlisted passages remain unreviewed. A partial campaign cannot satisfy the issue close criterion.",
     "scope_complete": true,
     "source_review": {
@@ -13165,12 +13306,12 @@
     }
    },
    "edition": "bekker1824-independent-ocr-consensus",
-   "n_surface_tokens": 431827,
-   "n_tokens": 282630,
-   "n_tokens_checked": 159314,
-   "n_unattested": 6002,
+   "n_surface_tokens": 431823,
+   "n_tokens": 279017,
+   "n_tokens_checked": 157163,
+   "n_unattested": 5972,
    "source": "ocr",
-   "unattested_rate": 0.037674,
+   "unattested_rate": 0.037999,
    "witness": null
   },
   "photius.commentarii-in-joannem-in-catenis": {

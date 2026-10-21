@@ -450,8 +450,11 @@ def _photius(root):
     historical = historical_metadata(root)
     from repair_photius_historical_batches import active_metadata as batch_metadata
     historical_batches = batch_metadata(root)
-    from repair_photius_complete_review import active_metadata as complete_metadata
+    from repair_photius_complete_review import active_metadata as complete_metadata, later_metadata
     complete = complete_metadata(root)
+    later_reviews = later_metadata(root)
+    if complete and later_reviews:
+        complete = {**complete, 'later_reviews': later_reviews}
     if (report["covered_authorial_scan_pages"] != 545 or report["added_passages"] != 309 or
             report["historical_body_passages"] != 3846 or report["preserved_index_passages"] != 501 or
             report["added_scan_ranges"] != [[13, 278], [379, 421]] or

@@ -3,17 +3,17 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "2251583ec6dfaa5d9acf4dd6115562df34d476cfb32329238a637456f7621e58",
+  "corpus_sha256": "08756b60aa3fc5ddb99350f2eef1c098f3047c5ecd195f8dc33c09f2fc0cff23",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "b285355074a8542d56d802c27f300a8eda530a328e0ec2a4f5bfafcbb44fe346",
-   "corpus_sha256": "2251583ec6dfaa5d9acf4dd6115562df34d476cfb32329238a637456f7621e58",
+   "sha256": "5436077d27a23e0a9c4ab0be11e2864e8d6865139d7debb7317921243522c4cc",
+   "corpus_sha256": "08756b60aa3fc5ddb99350f2eef1c098f3047c5ecd195f8dc33c09f2fc0cff23",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65813222,
-    "mixed_ocr_analysis_tokens": 552484,
+    "analysis_tokens": 65809609,
+    "mixed_ocr_analysis_tokens": 548871,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29681011,
+    "ocr_analysis_tokens": 29677398,
     "ocr_passages": 1349148,
     "ocr_works": 1416,
     "passages": 1966924,
@@ -76,7 +76,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 25327780,
+     "analysis_tokens": 25324167,
      "passages": 1337730,
      "works": 1217
     },
@@ -223,7 +223,7 @@
      }
     },
     "photius.bibliotheca": {
-     "analysis_tokens": 282630,
+     "analysis_tokens": 279017,
      "components": [
       {
        "analysis_tokens": 151161,
@@ -233,7 +233,7 @@
        "source": "ocr"
       },
       {
-       "analysis_tokens": 129464,
+       "analysis_tokens": 125851,
        "edition": "bekker1825-complete-source-reviewed",
        "license": "CC-BY-SA-4.0",
        "passages": 3462,
@@ -272,12 +272,12 @@
      "mixed_ocr_digital": true,
      "non_ocr_analysis_tokens": 429,
      "non_ocr_passages": 2,
-     "ocr_analysis_tokens": 282201,
+     "ocr_analysis_tokens": 278588,
      "ocr_passages": 3780,
      "passages": 3782,
      "sources": {
       "ocr": {
-       "analysis_tokens": 282201,
+       "analysis_tokens": 278588,
        "passages": 3780
       },
       "reviewed-text-consensus": {
@@ -291,19 +291,19 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "823939a77e300eee866440ce3cb4604ed7b55161ee998345c68f832be404f569"
+   "sha256": "8b5383d83370cb2395bda59eb990eaa81a33857ba63711df7d865ce13d8d36c7"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "2052ae4b513888a86a40103782cd404d6adf4f4c182b6aa654d98ef01c598996"
+   "sha256": "80e7c8e25780c2f1db93ce2fd80b0ac86541159ad8324c24e357cd00a0948e15"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "2b3942bc084a54bec915e21fba5aabff201e9883b8a4c0299ac1044a2d770088"
+   "sha256": "b74f8807b079ee14c48d23f6ed8ae0622c82a67de8a37aea51e56b12d5b60486"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "a84973d528e685f497be6dcfea4720c7d22a8e8c3397ce5214b6ec565d3ceb64"
+   "sha256": "421cb267fc9274615c98c6e7a965a4685c6f13db4338696f6c57e381295f6285"
   }
  },
  "active_coverage_findings": [],
@@ -2308,6 +2308,147 @@
      ],
      "qualification": "Only the recorded occurrences are source reviewed; other historical text remains unassessed."
     },
+    "later_source_reviews": {
+     "context_review": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-context/changes.json",
+       "sha256": "440278070d34471e516a6bcc986162e62a6e1d8e2ed001fa9e759a726c3082a3"
+      },
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-context/source-review.json.gz",
+       "sha256": "0fd53207d99beb240439a39cf4679f4c220a02b8a96c4964991e2af2e5ee3fea"
+      },
+      "counts": {
+       "rows": 3462,
+       "context_status": {
+        "aligned-context": 2721,
+        "ambiguous-context": 531,
+        "insufficient-context": 154,
+        "no-comparable-tokens": 4,
+        "source-mapping-exception": 52
+       },
+       "changed_display_rows": 0,
+       "changed_lexical_rows": 567,
+       "recompiled_pointer_segments": 9320
+      },
+      "text_correction_authorized": false
+     },
+     "uncertainty_review": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-uncertainties/changes.json",
+       "sha256": "af121815be1d95624e999daec6c59493044b0f7aa523c49775485bc9e0b7d408"
+      },
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-uncertainties/source-review.json",
+       "sha256": "b25d2ec1e7e91f64b2f3926271489c7d588a0466b239550e8e64023411982bf3"
+      },
+      "counts": {
+       "baseline_uncertainty_spans": 3069,
+       "current_uncertainty_spans": 3047,
+       "decisions": 33,
+       "inherited_remaining_uncertainties": 11,
+       "primary_rows_after": 3782,
+       "primary_rows_before": 3782,
+       "remaining_exclusion_causes": 25,
+       "resolved_changed": 17,
+       "resolved_unchanged": 5,
+       "retained_uncertain": 11,
+       "rows": 17
+      },
+      "sources": {
+       "bekker": {
+        "kind": "pdf",
+        "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+        "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+       },
+       "hoeschel1601-704": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2456,
+         4092
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page704.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 704,
+        "sha256": "8621075e1bbedc4c9657dd19497a16a57d7d4dd4084b5ee6a92ed174082945ff",
+        "url": "https://www.e-rara.ch/i3f/v20/13223228/full/full/0/default.jpg",
+        "year": 1601
+       },
+       "hoeschel1601-705": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2453,
+         4096
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page705.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 705,
+        "sha256": "49ad50616721425bb00bdd22c984cb3c3e39a4a606d4314386aa0fa40caa5109",
+        "url": "https://www.e-rara.ch/i3f/v20/13223229/full/full/0/default.jpg",
+        "year": 1601
+       },
+       "hoeschel1601-706": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2456,
+         4092
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page706.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 706,
+        "sha256": "01b2e15bf4087db44ed4671f22868c84c12d0cb7ae468d48772f06ba500ae003",
+        "url": "https://www.e-rara.ch/i3f/v20/13223230/full/full/0/default.jpg",
+        "year": 1601
+       },
+       "hoeschel1601-707": {
+        "catalog_url": "https://www.e-rara.ch/zut/content/titleinfo/13222527",
+        "dimensions": [
+         2453,
+         4096
+        ],
+        "edition": "hoeschel1601",
+        "editor": "David Hoeschel",
+        "holding": "ETH-Bibliothek Zürich, Rar 9426",
+        "kind": "image",
+        "license": {
+         "id": "PDM-1.0",
+         "url": "https://creativecommons.org/publicdomain/mark/1.0/"
+        },
+        "path": "data/corpus_changes/photius-bekker-uncertainties/sources/hoeschel1601-page707.jpg",
+        "persistent_identifier": "https://doi.org/10.3931/e-rara-47637",
+        "printed_page": 707,
+        "sha256": "5fc3175a758072dac1b61222f71fd9a90f0c3f8522c1b04f778b23a33a12ef47",
+        "url": "https://www.e-rara.ch/i3f/v20/13223231/full/full/0/default.jpg",
+        "year": 1601
+       }
+      },
+      "qualification": "Later occurrence-scoped source resolutions; original complete-review statuses and all old audits remain frozen."
+     }
+    },
     "covered_authorial_scan_pages": 545,
     "covered_authorial_printed_pages": 545,
     "coverage_position_meaning": "Ranges use logical combined-edition positions to place the authorial printed pages. Physical citations for retained rows use legacy_source, including the two explicit combined-scan exceptions.",
@@ -2344,12 +2485,12 @@
     "added_passages": 309,
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-21.4",
+     "declared_release": "corpus-2026-10-21.5",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
    },
-   "corpus_file_sha256": "a263df857a26dcbd2c2e58bd3012fdd4dc03ffe860e800c0e25d67fe7d0e0623"
+   "corpus_file_sha256": "d4193edddda4ba27e673dcaabdae26c4711399d3c514be505a2850c6d3ccbe2b"
   },
   {
    "slug": "cyrillus-theology.commentarii-in-joannem",
@@ -2378,7 +2519,7 @@
      "held_other_works": 474
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.4",
+     "declared_release": "corpus-2026-10-21.5",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2479,7 +2620,7 @@
      "preserved_historical_citations": 304
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.4",
+     "declared_release": "corpus-2026-10-21.5",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2579,7 +2720,7 @@
      "preserved_historical_citations": 57
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.4",
+     "declared_release": "corpus-2026-10-21.5",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2831,7 +2972,7 @@
      }
     ],
     "publication": {
-     "declared_release": "corpus-2026-10-21.4",
+     "declared_release": "corpus-2026-10-21.5",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -2859,9 +3000,9 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29681011,
+    "ocr_component_tokens": 29677398,
     "mixed_works": 4,
-    "mixed_ocr_tokens": 552484,
+    "mixed_ocr_tokens": 548871,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
     "global_raw_token_bounds": null,
     "legacy_homogeneous_work_bucket": {
