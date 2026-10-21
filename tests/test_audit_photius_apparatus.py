@@ -12,7 +12,9 @@ import repair_photius_index as index
 
 
 def test_confirmed_lower_bound_is_distinct_from_heuristic_candidates():
-    report = audit.build()
+    from photius_current_state import predecessor_view
+    with predecessor_view(ROOT) as previous:
+        report = audit.build(previous)
     assert report["historical_rows"] == 3846
     assert report["historical_pages"] == 236
     assert report["preserved_index_rows_outside_scope"] == 501
