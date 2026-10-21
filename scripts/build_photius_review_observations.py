@@ -264,14 +264,11 @@ def build(root=ROOT):
         (root / path).read_bytes() for path in
         (campaign.SCAN, campaign.LIBRARY, campaign.ORIGINAL, campaign.COVERAGE)
     )
-    campaign.validate_scope(manifest, before, scan, library, original, coverage,
-                            frozen_corpus_raw=frozen_raw)
     rows = {row["locus"]: row for row in map(json.loads, before.splitlines())}
     sections = {section["id"]: "\n".join(block["text"] for block in section["blocks"])
                 for section in json.loads(gzip.decompress(library))["sections"]}
-    import pymupdf
-    observations, pins, evidence = [], [], {}
-    with pymupdf.open(stream=scan, filetype="pdf") as document:
+    def author(document, crop_png):
+        observations, pins, evidence = [], [], {}
         for name in (*HELPERS, *TABLES):
             path = Path("scripts") / (name + ".py")
             raw = (root / path).read_bytes()
@@ -281,14 +278,13 @@ def build(root=ROOT):
             # bytes, rather than an earlier import or a cached Python module.
             sys.modules[name] = table
             if name in TABLES:
-                observations.extend(table.records(rows, document, campaign.crop_png, sections))
+                observations.extend(table.records(rows, document, crop_png, sections))
             pins.append({"path": path.as_posix(), "sha256": campaign.sha(raw)})
             evidence[path.as_posix()] = raw
-    reviews = {"schema": campaign.REVIEW_SCHEMA, "campaign_id": manifest["campaign_id"],
-               "source_tables": pins, "records": observations}
-    compiled = campaign.compile_campaign(manifest, reviews, before, scan, library,
-                                         original, coverage, evidence_files=evidence,
-                                         frozen_corpus_raw=frozen_raw)
+        return {"schema": campaign.REVIEW_SCHEMA, "campaign_id": manifest["campaign_id"],
+                "source_tables": pins, "records": observations}, evidence
+    reviews, compiled = campaign.compile_authored_campaign(manifest, author, before, scan, library,
+        original, coverage, frozen_corpus_raw=frozen_raw)
     review_raw = campaign.artifact_bytes(campaign.REVIEWS, reviews)
     compiled_raw = campaign.artifact_bytes(campaign.OUT, compiled)
     summary = {key: value for key, value in compiled.items() if key != "rows"}

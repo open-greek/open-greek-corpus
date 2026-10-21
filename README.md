@@ -1098,6 +1098,16 @@ Release validation reuses deterministic gzip output within one process, with a
 archives, authored tables, corpus text, and aliases are still read and checked
 on every validation. The cache does not persist or establish review status.
 
+Source observation generation and compilation share one compiler-owned rendering
+pass over the pinned PDF bytes. Authored tables receive an opaque source token
+and a crop callback; only PNGs actually rendered in that call establish image
+digests. The pass retains at most 2,048 digests and 128 PNGs within 32 MiB, and
+discards them on success or failure. Every later build, including standalone
+validation of saved observations, starts a fresh pass. Renderer settings cannot
+cause reuse of images from an earlier validation. Frozen scope and campaign
+identity are checked before and after table authoring, and recorded image hashes
+are still compared with actual source images.
+
 To compare validation performance, run each revision in a fresh process against
 the same frozen inputs:
 
@@ -1108,9 +1118,9 @@ python3 scripts/benchmark_photius_validation.py --scope observations --repeat 2
 
 Each command prints elapsed time, process peak memory, gzip work, and output
 hashes. The first iteration starts with empty process caches. The observations
-benchmark also requires byte-identical reproduction of the frozen artifacts;
-neither command writes corpus data. See the
-[measured coverage comparison](docs/photius-validation-performance.md) for
+benchmark also counts actual crop renders and requires byte-identical
+reproduction of the frozen artifacts; neither command writes corpus data. See the
+[measured validation comparisons](docs/photius-validation-performance.md) for
 timings, output pins, and the memory tradeoff.
 
 `python3 scripts/repair_photius_complete_review.py --apply` admits the campaign

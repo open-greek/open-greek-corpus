@@ -15,7 +15,7 @@ source reviewer making the direct-scan-inspection attestation.
 from __future__ import annotations
 
 import argparse
-from collections import Counter
+from collections import Counter, OrderedDict
 from copy import deepcopy
 from functools import lru_cache
 from datetime import datetime, timezone
@@ -234,11 +234,104 @@ def _box(value):
 
 _CROP_CACHE_DOCUMENT = None
 _CROP_CACHE = {}
+_MAX_CROP_PNG_BYTES = 32 * 1024 * 1024
+_MAX_CROP_PNGS = 128
+_MAX_CROP_DIGESTS = 2048
+
+
+def _render_crop_png(document, page, box, max_side):
+    """Render the existing pixel recipe without consulting any image cache."""
+    import pymupdf
+    sheet = document[page - 1]
+    rect = pymupdf.Rect(box[0] * sheet.rect.width, box[1] * sheet.rect.height,
+                       box[2] * sheet.rect.width, box[3] * sheet.rect.height)
+    scale = max_side / max(rect.width, rect.height)
+    return sheet.get_pixmap(matrix=pymupdf.Matrix(scale, scale), clip=rect, alpha=False).tobytes('png')
+
+
+class _ReviewCrops:
+    """Source images captured during one compiler-owned validation call.
+
+    Tables receive an opaque token, never the mutable rendering document. Only
+    actual rendered PNGs establish digests. No caller can supply a digest map,
+    and nothing survives the call to mask later source or renderer changes.
+    """
+    def __init__(self, scan_raw):
+        import pymupdf
+        if not isinstance(scan_raw, bytes):
+            raise ValueError('Source crops require an immutable PDF byte snapshot')
+        self.__document = pymupdf.open(stream=scan_raw, filetype='pdf')
+        self.__token = object()
+        self.__max_side = MAX_SIDE
+        self.__pngs, self.__digests = OrderedDict(), OrderedDict()
+        self.__png_bytes = 0
+        self.__authored = False
+
+    def __enter__(self):
+        self._key(1, [0, 0, 1, 1])
+        return self
+
+    def __exit__(self, *exc):
+        self.__document.close()
+        self.__document = None
+        self.__pngs.clear()
+        self.__digests.clear()
+        self.__png_bytes = 0
+
+    def _key(self, page, region):
+        if self.__document is None:
+            raise ValueError('Source crop validation is closed')
+        if MAX_SIDE != self.__max_side:
+            raise ValueError('The crop dimension changed during source validation')
+        if type(page) is not int or not 1 <= page <= len(self.__document):
+            raise ValueError('A scan review requires an existing physical PDF page')
+        return page, tuple(_box(region))
+
+    def _remember_digest(self, key, value):
+        if key in self.__digests and self.__digests[key] != value:
+            raise ValueError('Source crop rendering changed during one validation call')
+        self.__digests[key] = value
+        self.__digests.move_to_end(key)
+        while len(self.__digests) > _MAX_CROP_DIGESTS:
+            self.__digests.popitem(last=False)
+
+    def crop_png(self, token, page, region):
+        if token is not self.__token:
+            raise ValueError('Source crop belongs to another validation call')
+        key = self._key(page, region)
+        if key in self.__pngs:
+            self.__pngs.move_to_end(key)
+            return self.__pngs[key]
+        raw = _render_crop_png(self.__document, page, list(key[1]), self.__max_side)
+        self._remember_digest(key, sha(raw))
+        if len(raw) <= _MAX_CROP_PNG_BYTES and _MAX_CROP_PNGS:
+            self.__pngs[key] = raw
+            self.__png_bytes += len(raw)
+            while (len(self.__pngs) > _MAX_CROP_PNGS or
+                   self.__png_bytes > _MAX_CROP_PNG_BYTES):
+                _, removed = self.__pngs.popitem(last=False)
+                self.__png_bytes -= len(removed)
+        return raw
+
+    def author(self, producer):
+        self._key(1, [0, 0, 1, 1])
+        if self.__authored:
+            raise ValueError('Source observations have already been authored for this call')
+        self.__authored = True
+        return producer(self.__token, self.crop_png)
+
+    def digest(self, page, region):
+        key = self._key(page, region)
+        if key in self.__digests:
+            self.__digests.move_to_end(key)
+            return self.__digests[key]
+        value = sha(self.crop_png(self.__token, page, region))
+        self._remember_digest(key, value)
+        return value
 
 
 def crop_png(document, page, region):
     """Use the existing historical batch crop convention, with one-based pages."""
-    import pymupdf
     if type(page) is not int or not 1 <= page <= len(document):
         raise ValueError('A scan review requires an existing physical PDF page')
     box = _box(region)
@@ -253,11 +346,7 @@ def crop_png(document, page, region):
     key = (page, tuple(box), MAX_SIDE)
     if key in cache:
         return cache[key]
-    sheet = document[page - 1]
-    rect = pymupdf.Rect(box[0] * sheet.rect.width, box[1] * sheet.rect.height,
-                       box[2] * sheet.rect.width, box[3] * sheet.rect.height)
-    scale = MAX_SIDE / max(rect.width, rect.height)
-    raw = sheet.get_pixmap(matrix=pymupdf.Matrix(scale, scale), clip=rect, alpha=False).tobytes('png')
+    raw = _render_crop_png(document, page, box, MAX_SIDE)
     if len(cache) >= 128:
         cache.pop(next(iter(cache)))
     cache[key] = raw
@@ -408,7 +497,7 @@ def _fragments(value, corrected, *, require_terminal=True):
     return result
 
 
-def _compile_segment(value, frozen, sections, document, images, evidence_files):
+def _compile_segment(value, frozen, sections, crops, evidence_files):
     _keys(value, {'start', 'end', 'original_text', 'corrected_text', 'verification',
         'review_basis', 'reviewed_at', 'evidence', 'scan', 'readings', 'fragments',
         'uncertainty', 'transcription_convention', 'digital_alignment', 'text_role'}, 'Source review segment')
@@ -433,10 +522,8 @@ def _compile_segment(value, frozen, sections, document, images, evidence_files):
         raise ValueError('A source crop must belong to the passage physical page')
     region = _box(scan.get('region'))
     observed = _text(scan.get('observed_text'), 'Literal scan observation', empty=True)
-    key = scan['physical_page'], tuple(region)
-    if key not in images:
-        images[key] = sha(crop_png(document, key[0], region))
-    if scan.get('image_sha256') != images[key]:
+    image_sha = crops.digest(scan['physical_page'], region)
+    if scan.get('image_sha256') != image_sha:
         raise ValueError('A reviewed source crop image changed')
     if verification == 'verified':
         if segment.get('uncertainty'):
@@ -450,7 +537,7 @@ def _compile_segment(value, frozen, sections, document, images, evidence_files):
     readings = [
         {'kind': 'original', 'text': segment['original_text'], 'source_row_sha256': frozen['original_row_sha256']},
         {'kind': 'direct-scan', 'text': observed, 'source': {'path': SCAN.as_posix(), 'sha256': SCAN_SHA},
-         'physical_page': frozen['physical_page'], 'region': region, 'image_sha256': images[key]},
+         'physical_page': frozen['physical_page'], 'region': region, 'image_sha256': image_sha},
     ]
     supplied_readings = segment.get('readings', [])
     if not isinstance(supplied_readings, list):
@@ -482,7 +569,7 @@ def _compile_segment(value, frozen, sections, document, images, evidence_files):
     return segment
 
 
-def _compile_row(value, frozen, sections, document, images, evidence_files):
+def _compile_row(value, frozen, sections, crops, evidence_files):
     _keys(value, {'locus', 'original_row_sha256', 'status', 'segments', 'duplicate_of'}, 'Passage source review')
     if value.get('original_row_sha256') != frozen['original_row_sha256']:
         raise ValueError('Reviewed passage differs from its frozen original row')
@@ -491,7 +578,7 @@ def _compile_row(value, frozen, sections, document, images, evidence_files):
     original = frozen['original_row']['text']
     segments, cursor, corrected_cursor, pieces, exclusions, uncertainties, nonbody = [], 0, 0, [], [], [], []
     for raw_segment in value['segments']:
-        segment = _compile_segment(raw_segment, frozen, sections, document, images, evidence_files)
+        segment = _compile_segment(raw_segment, frozen, sections, crops, evidence_files)
         if segment['start'] < cursor:
             raise ValueError('Reviewed source segments overlap, repeat, or are not in original source order')
         gap = original[cursor:segment['start']]
@@ -614,6 +701,38 @@ def compile_campaign(manifest, reviews, corpus_raw, scan_raw, library_raw, origi
     """
     validate_scope(manifest, corpus_raw, scan_raw, library_raw, original_raw, coverage_raw,
                    frozen_corpus_raw=frozen_corpus_raw)
+    with _ReviewCrops(scan_raw) as crops:
+        return _compile_reviews(manifest, reviews, scan_raw, library_raw, original_raw,
+                                coverage_raw, crops, evidence_files or {})
+
+
+def compile_authored_campaign(manifest, producer, corpus_raw, scan_raw, library_raw,
+                              original_raw, coverage_raw, *, frozen_corpus_raw=None):
+    """Author and verify observations against images captured in this one call.
+
+    The producer receives an opaque source token and crop_png(token, page, box),
+    and returns (reviews, evidence_files). The compiler owns actual image
+    digests; recorded hashes and caller-provided mappings cannot seed them.
+    Images are immutable evidence snapshots, discarded on success or failure.
+    """
+    validate_scope(manifest, corpus_raw, scan_raw, library_raw, original_raw, coverage_raw,
+                   frozen_corpus_raw=frozen_corpus_raw)
+    manifest_sha = sha(canonical(manifest))
+    with _ReviewCrops(scan_raw) as crops:
+        reviews, evidence_files = crops.author(producer)
+        # Preserve the independent post-authoring scope check. The producer
+        # cannot change a mutable manifest after the first validation.
+        if sha(canonical(manifest)) != manifest_sha:
+            raise ValueError('Frozen campaign scope or identity changed during authoring')
+        validate_scope(manifest, corpus_raw, scan_raw, library_raw, original_raw, coverage_raw,
+                       frozen_corpus_raw=frozen_corpus_raw)
+        compiled = _compile_reviews(manifest, reviews, scan_raw, library_raw, original_raw,
+                                    coverage_raw, crops, evidence_files or {})
+    return reviews, compiled
+
+
+def _compile_reviews(manifest, reviews, scan_raw, library_raw, original_raw,
+                     coverage_raw, crops, evidence_files):
     _keys(reviews, {'schema', 'campaign_id', 'records', 'source_tables'}, 'Campaign source reviews')
     if reviews.get('schema') != REVIEW_SCHEMA or reviews.get('campaign_id') != manifest['campaign_id']:
         raise ValueError('Source reviews belong to a different campaign schema or identity')
@@ -632,13 +751,11 @@ def compile_campaign(manifest, reviews, corpus_raw, scan_raw, library_raw, origi
     if len({p['path'] for p in source_tables}) != len(source_tables):
         raise ValueError('Campaign source table pins repeat an artifact')
     _, sections, _ = _sources(scan_raw, library_raw, original_raw, coverage_raw)
-    import pymupdf
-    rows, images = [], {}
-    with pymupdf.open(stream=scan_raw, filetype='pdf') as document:
-        for frozen in manifest['rows']:
-            review = by_locus.get(frozen['locus'], {
-                'original_row_sha256': frozen['original_row_sha256'], 'status': 'unreviewed', 'segments': []})
-            rows.append(_compile_row(review, frozen, sections, document, images, evidence_files or {}))
+    rows = []
+    for frozen in manifest['rows']:
+        review = by_locus.get(frozen['locus'], {
+            'original_row_sha256': frozen['original_row_sha256'], 'status': 'unreviewed', 'segments': []})
+        rows.append(_compile_row(review, frozen, sections, crops, evidence_files))
     reviewed_rows = {r['locus']: r for r in rows}
     for row in rows:
         if 'duplicate_of' in row:
