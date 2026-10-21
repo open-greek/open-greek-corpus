@@ -1468,19 +1468,44 @@
                 "fragment_occurrences": 0,
                 "lexical_excluded_fragments": 0
               }
+            },
+            {
+              "audit": {
+                "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0011-0015-2026-10-21/changes.json",
+                "sha256": "a607cd56b5322755f0014628c1e1d2ab1dc2e830caf6f22468ca99a037bf994b"
+              },
+              "source_review": {
+                "path": "data/corpus_changes/photius-bekker-historical-batches/photius-historical-pages0011-0015-2026-10-21/source-review.json",
+                "sha256": "e236332f92e684dc96862dd230643ca7bfabfb8898c45db6520d2a6a8ed5de2a"
+              },
+              "counts": {
+                "corrected_rows": 21,
+                "reviewed_occurrences": 432,
+                "unresolved_occurrences": 77,
+                "scan_only_occurrences": 1,
+                "fully_assessed_rows": 0,
+                "primary_rows_before": 3782,
+                "primary_rows_after": 3782,
+                "held_source_observations": 0,
+                "scalar_corrections": 354,
+                "projection_only_occurrences": 1,
+                "text_changed_rows": 21,
+                "fragment_occurrences": 10,
+                "lexical_excluded_fragments": 10
+              }
             }
           ],
           "counts": {
-            "batches": 8,
-            "unique_corrected_rows": 233,
-            "newly_corrected_rows": 220,
+            "batches": 9,
+            "unique_corrected_rows": 254,
+            "newly_corrected_rows": 241,
             "previously_corrected_rows": 13,
-            "reviewed_occurrences": 1150,
-            "scalar_corrections": 1078,
-            "projection_only_occurrences": 18,
-            "fragment_occurrences": 30,
-            "lexical_excluded_fragments": 30,
-            "unresolved_occurrences": 54,
+            "reviewed_occurrences": 1582,
+            "scalar_corrections": 1432,
+            "projection_only_occurrences": 19,
+            "fragment_occurrences": 40,
+            "lexical_excluded_fragments": 40,
+            "unresolved_occurrences": 131,
             "fully_assessed_rows": 0
           },
           "corrected_loci": [
@@ -1655,6 +1680,27 @@
             "helladius_chrestomathia_photius_bekker_v2_0010.2",
             "helladius_chrestomathia_photius_bekker_v2_0010.3",
             "helladius_chrestomathia_photius_bekker_v2_0010.4",
+            "helladius_chrestomathia_photius_bekker_v2_0011.1",
+            "helladius_chrestomathia_photius_bekker_v2_0011.2",
+            "helladius_chrestomathia_photius_bekker_v2_0011.3",
+            "helladius_chrestomathia_photius_bekker_v2_0011.4",
+            "helladius_chrestomathia_photius_bekker_v2_0011.5",
+            "helladius_chrestomathia_photius_bekker_v2_0012.1",
+            "helladius_chrestomathia_photius_bekker_v2_0012.2",
+            "helladius_chrestomathia_photius_bekker_v2_0012.3",
+            "helladius_chrestomathia_photius_bekker_v2_0012.4",
+            "helladius_chrestomathia_photius_bekker_v2_0013.1",
+            "helladius_chrestomathia_photius_bekker_v2_0013.2",
+            "helladius_chrestomathia_photius_bekker_v2_0013.3",
+            "helladius_chrestomathia_photius_bekker_v2_0014.1",
+            "helladius_chrestomathia_photius_bekker_v2_0014.2",
+            "helladius_chrestomathia_photius_bekker_v2_0014.3",
+            "helladius_chrestomathia_photius_bekker_v2_0014.4",
+            "helladius_chrestomathia_photius_bekker_v2_0015.1",
+            "helladius_chrestomathia_photius_bekker_v2_0015.2",
+            "helladius_chrestomathia_photius_bekker_v2_0015.3",
+            "helladius_chrestomathia_photius_bekker_v2_0015.4",
+            "helladius_chrestomathia_photius_bekker_v2_0015.5",
             "helladius_chrestomathia_photius_bekker_v2_0169.1",
             "helladius_chrestomathia_photius_bekker_v2_0169.3",
             "helladius_chrestomathia_photius_bekker_v2_0170.10",
@@ -1878,6 +1924,27 @@
             "helladius_chrestomathia_photius_bekker_v2_0010.2",
             "helladius_chrestomathia_photius_bekker_v2_0010.3",
             "helladius_chrestomathia_photius_bekker_v2_0010.4",
+            "helladius_chrestomathia_photius_bekker_v2_0011.1",
+            "helladius_chrestomathia_photius_bekker_v2_0011.2",
+            "helladius_chrestomathia_photius_bekker_v2_0011.3",
+            "helladius_chrestomathia_photius_bekker_v2_0011.4",
+            "helladius_chrestomathia_photius_bekker_v2_0011.5",
+            "helladius_chrestomathia_photius_bekker_v2_0012.1",
+            "helladius_chrestomathia_photius_bekker_v2_0012.2",
+            "helladius_chrestomathia_photius_bekker_v2_0012.3",
+            "helladius_chrestomathia_photius_bekker_v2_0012.4",
+            "helladius_chrestomathia_photius_bekker_v2_0013.1",
+            "helladius_chrestomathia_photius_bekker_v2_0013.2",
+            "helladius_chrestomathia_photius_bekker_v2_0013.3",
+            "helladius_chrestomathia_photius_bekker_v2_0014.1",
+            "helladius_chrestomathia_photius_bekker_v2_0014.2",
+            "helladius_chrestomathia_photius_bekker_v2_0014.3",
+            "helladius_chrestomathia_photius_bekker_v2_0014.4",
+            "helladius_chrestomathia_photius_bekker_v2_0015.1",
+            "helladius_chrestomathia_photius_bekker_v2_0015.2",
+            "helladius_chrestomathia_photius_bekker_v2_0015.3",
+            "helladius_chrestomathia_photius_bekker_v2_0015.4",
+            "helladius_chrestomathia_photius_bekker_v2_0015.5",
             "helladius_chrestomathia_photius_bekker_v2_0169.3",
             "helladius_chrestomathia_photius_bekker_v2_0170.10",
             "helladius_chrestomathia_photius_bekker_v2_0170.11",
@@ -1978,19 +2045,19 @@
         "added_passages": 309,
         "preserved_index_passages": 501,
         "publication": {
-          "declared_release": "corpus-2026-10-21",
+          "declared_release": "corpus-2026-10-21.1",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
       },
-      "corpus_file_sha256": "479208714e704615cd0b69ed889803c35604c5d803798c4eb0ec802dfb2f5ec8",
+      "corpus_file_sha256": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5",
       "edition": {
         "edition": "bekker1824-independent-ocr-consensus",
         "id": "ogc002810",
         "license": "CC-BY-SA-4.0",
-        "n_analysis_tokens": 302034,
+        "n_analysis_tokens": 301908,
         "n_passages": 3782,
-        "n_tokens": 431872,
+        "n_tokens": 431951,
         "source": "ocr"
       },
       "passages": 3782,
@@ -18266,7 +18333,7 @@
           "held_other_works": 474
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21",
+          "declared_release": "corpus-2026-10-21.1",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -18864,7 +18931,7 @@
           "preserved_historical_citations": 304
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21",
+          "declared_release": "corpus-2026-10-21.1",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -22804,7 +22871,7 @@
           "preserved_historical_citations": 57
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21",
+          "declared_release": "corpus-2026-10-21.1",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -27639,7 +27706,7 @@
           }
         ],
         "publication": {
-          "declared_release": "corpus-2026-10-21",
+          "declared_release": "corpus-2026-10-21.1",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }

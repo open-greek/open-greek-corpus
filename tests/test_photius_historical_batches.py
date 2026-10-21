@@ -139,6 +139,42 @@ def test_partial_release_metadata_is_retained_and_not_double_counted(fixture, mo
     assert counts['newly_corrected_rows'] == 0
 
 
+def test_editorial_body_review_preserves_apparatus_and_excludes_source_ties(fixture, monkeypatch):
+    from repair_photius_apparatus import lexical_segments
+    rows = deepcopy(fixture['rows'])
+    body = rows[0]['text']
+    rows[0].update(analysis_text=body, editorial_layer={
+        'schema': 'scan-reviewed-editorial-spans-v1', 'original_text': body+' apparatus',
+        'body_spans': [{'start': 0, 'end': len(body), 'text': body}],
+        'excluded_spans': [{'start': len(body), 'end': len(body)+10,
+                            'original_text': ' apparatus', 'classification': 'critical-apparatus'}],
+        'source_review': {'sha256': 'a'*64}, 'paratext': {'path': 'paratext.jsonl'},
+    })
+    fixture['before'] = stream(rows)
+    (fixture['root']/layer.CORPUS).write_bytes(fixture['before'])
+    monkeypatch.setattr(layer, 'BASE_SHA', layer.sha(fixture['before']))
+    # An ordinary review still cannot replace an editorial projection.
+    with pytest.raises(ValueError, match='lexical projection'):
+        authority(fixture, [observation()])
+    item = observation(digital_text='καλῶς', review_scope='retained-editorial-body')
+    table(fixture, 'fixture_batch_one', 'batch-one', [item])
+    layer.apply(fixture['root'], batch_id='batch-one')
+    current = json.loads((fixture['root']/layer.CORPUS).read_bytes().splitlines()[0])
+    assert current['editorial_layer'] == rows[0]['editorial_layer']
+    assert lexical_segments(current, fixture['root']) == ['πρὸ ', ' καὶ κακῶς τέλος']
+    assert 'apparatus' not in current['text'] and 'καλόν' not in current['analysis_text']
+    assert layer.restore_before_row(current, fixture['root']) == rows[0]
+    broken = deepcopy(current); broken['editorial_layer']['excluded_spans'] = []
+    with pytest.raises(ValueError, match='postimage'):
+        lexical_segments(broken, fixture['root'])
+    layer.undo(fixture['root'])
+    assert (fixture['root']/layer.CORPUS).read_bytes() == fixture['before']
+    rows[0]['analysis_text'] = 'apparatus'
+    fixture['before'] = stream(rows)
+    with pytest.raises(ValueError, match='retained body spans'):
+        authority(fixture, [item])
+
+
 def test_contrary_word_ties_keep_agreement_and_all_raw_witnesses(fixture):
     review = authority(fixture, [observation('πρὸ κακόν καὶ κακῶς τέλος',
         'πρὸ καλόν καὶ καλῶς τέλος', digital_text='πρὸ καλόν καὶ καλῶς τέλος')])
@@ -405,6 +441,7 @@ def released_inputs():
     ('photius_historical_observations_pages0007_0008', (157, 7, 10)),
     ('photius_historical_observations_page0009', (105, 5, 11)),
     ('photius_historical_observations_page0010', (99, 4, 5)),
+    ('photius_historical_observations_pages0011_0015', (432, 21, 77)),
 ])
 def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundaries(released_inputs, module_name, expected):
     root, before, library, scan = released_inputs
@@ -480,6 +517,31 @@ def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundar
             assert change['corrected_row'].get('ocr_consensus') is None
         assert all(not r['scan_only'] and r['digital_counterpart']['section'].endswith('-s287')
                    for r in review['records'])
+    elif module_name.endswith('pages0011_0015'):
+        assert counts['fragment_occurrences'] == counts['lexical_excluded_fragments'] == 10
+        assert counts['projection_only_occurrences'] == counts['scan_only_occurrences'] == 1
+        assert {r['source']['scan_page'] for r in review['records']} == {11, 12, 13, 14, 15}
+        assert {r['source']['printed_page'] for r in review['records']} == {276, 277, 278, 279, 280}
+        original_rows = {r['locus']: r for r in map(json.loads, before.splitlines())}
+        editorial_locus = PREFIX.replace('0004', '0011')+'5'
+        assert by_locus[editorial_locus]['editorial_layer'] == original_rows[editorial_locus]['editorial_layer']
+        assert all(r.get('review_scope') == 'retained-editorial-body'
+                   for r in review['records'] if r['locus'] == editorial_locus)
+        leading = next(r for r in review['records'] if r['original_text'] == 'φόριον')
+        assert leading['scan_only'] and leading['digital_counterpart'] is None
+        assert leading['source_fragments'][0]['text'] == 'στόριον'
+        assert 'στόριον' not in by_locus[leading['locus']]['analysis_text']
+        eligibility = next(r for r in review['records'] if r.get('projection_only'))
+        assert eligibility['digital_context']['original_text'] == 'αἱρετικῶν'
+        assert eligibility['digital_counterpart'] is None
+        assert 'τικῶν' not in by_locus[eligibility['locus']]['analysis_text'].split()
+        p13 = by_locus[PREFIX.replace('0004', '0013')+'2']
+        assert '⟦τέμνεσα ∥ τέμνουσα⟧' in p13['text']
+        assert '⟦ἐφ᾽ ∥ ἐφ’⟧' not in p13['text']
+        p15 = by_locus[PREFIX.replace('0004', '0015')+'5']
+        assert '⟦∅ ∥ διὰ⟧' in p15['text']
+        assert '⟦παριστῶν ∥ παρισῶν⟧' in p15['text']
+        assert p15['text'].endswith('καὶ')
     else:
         # A later occurrence review cannot replace the independently merged
         # ending of 7.5 or silently include its unreviewed historical prefix.

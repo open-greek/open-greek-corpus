@@ -387,7 +387,11 @@ def active_metadata(root=ROOT):
                for name in ("body_correction", "fresh_correction") if audit.get(name)}}
 
 
-def lexical_segments(row):
+def lexical_segments(row, root=ROOT):
+    if row.get("historical_reading_batches"):
+        from repair_photius_historical_batches import restore_before_row, lexical_segments as reviewed_segments
+        lexical_segments(restore_before_row(row, root), root)
+        return reviewed_segments(row, root)
     layer = row.get("editorial_layer", {})
     if layer.get("schema") != SCHEMA or not isinstance(layer.get("original_text"), str):
         raise ValueError("Unsupported source-reviewed editorial layer")
