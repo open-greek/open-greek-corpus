@@ -4,7 +4,7 @@
   "work": "photius.bibliotheca",
   "campaign_id": "photius-historical-complete-review-2026-10-21",
   "manifest_sha256": "a589a831aef7ad46cdb1e3abed79306fe7f98b8c1af53c603382f8364f75493a",
-  "source_reviews_sha256": "6c97d4e33cb307959a6a508d596df39daf97ca1b8985f2d0375ed431644275a5",
+  "source_reviews_sha256": "57ed5b6c0e44f4ca187fe8dcce4659bbef4632eba94bb5de89cb2e1a848eccd0",
   "input_pins": {
     "corpus": {
       "path": "data/corpus/photius.bibliotheca.jsonl",
@@ -199,6 +199,26 @@
       "sha256": "7a2e00cd89edb6cc8a448dcce2c2094d0831b979e13b7f5ee12f2f25a53b0a49"
     },
     {
+      "path": "scripts/photius_complete_observations_page0033.py",
+      "sha256": "77afdd0f89228ae0da0ec03f3be9e7fe68d0576cf972b9f3054c7eacd9e549ab"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0034.py",
+      "sha256": "2f59b80d599d96941760dbdacc559b2937174285d4651bc70cc8755dddd8c6c2"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0035.py",
+      "sha256": "0f5b024c9fb3a1ad0b808417cf3563a7975e19daf6dee4f78488520423775ccd"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0036.py",
+      "sha256": "a949d102f82f0b1000ae25e5fea981c3e016c62c92ca395c0a679ed8f59c2532"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0037.py",
+      "sha256": "5a80f10d2609335c6b143a50a54a040ef2064f209afdfdd7f622a09793b07ed1"
+    },
+    {
       "path": "scripts/photius_complete_observations_page0060.py",
       "sha256": "4c6ee36d5f2ff99fc9665513e9cfc2f08c48c6c11a1190b92bb73ca90892640c"
     },
@@ -325,6 +345,46 @@
     {
       "path": "scripts/photius_complete_observations_page0091.py",
       "sha256": "08b7cc854a02191dfb7b97aba5b9ad0d2af473fda54ab769858845de38e3a329"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0092.py",
+      "sha256": "ddd54146f6be21b3144633edb9da66fd8b7e39292be919375ef8d696b2d2f879"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0093.py",
+      "sha256": "5db597315d88f394068e5560be43d93fddf1139c98a9fe240a6a05fde4a211d7"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0094.py",
+      "sha256": "8da31b944e0ac53ff6d3cef76bca9ddf9d22bcc7c5c72add99d4ddd7fb7348ef"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0095.py",
+      "sha256": "bf61d296b5630d887cf23380f57d475638de65d0cfdfa18e3796c030a8fc04ee"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0096.py",
+      "sha256": "81be48000acc424ee2f5a5c2e586efc3809592296240e7ab3633ef53db747d98"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0097.py",
+      "sha256": "b96eccd7edaeb0a86ba73bfd70db88894db5570e413a9aa9aac0900d86e1e1e5"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0098.py",
+      "sha256": "5e7e84685f2dcf38cb0c5f3f57c03d0876b20581fac2a52d38aa77c711d75bfa"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0099.py",
+      "sha256": "d7d7d60094bb35647bddc0d50dd65e3a43734559c280d45612c2225cfa29e1e3"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0100.py",
+      "sha256": "6ecac3b451c71f131e720beb357fbb26fc31950ce5e354b1c4cdc478561f4dd2"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0101.py",
+      "sha256": "611b801a0ac54d53dd3cdc6e4e1ed3f8d27f3c323636155899b37ba5e1d1f62a"
     },
     {
       "path": "scripts/photius_complete_observations_pages0145_0149.py",
@@ -463,6 +523,38 @@
       "sha256": "c2600451f8f3b40c56bde41f754ffefdbe0270e766c1576aa38493e324ef99d0"
     },
     {
+      "path": "scripts/photius_complete_observations_page0183.py",
+      "sha256": "7c8355f981e5b47e622d32c6cd1c12c36f8723cf6b2aad295e539c41360b6fbd"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0184.py",
+      "sha256": "d54f32c2d4a95b535c484c2ee6538a807eebaeb8d99f216b1b82173405076a50"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0185.py",
+      "sha256": "408977a377ec7e99991da528f0629045fe94a3eb78d016498629186ba4679828"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0186.py",
+      "sha256": "c5992f5b731a90d01a8f5f0484683adcdd7dc57235e68e242baca7b618be6859"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0187.py",
+      "sha256": "472ef7a2447a765e8cf6bcbdabc3862727c5e173d14625c9c569ccb80ac9730a"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0188.py",
+      "sha256": "06468276a12ba4ae6fd8506ac1b2943fb872a7726e3335be93754133ab9b753f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0189.py",
+      "sha256": "e6c01a2d2a76940022c0653f53507c49f34eac4391003c1482ef7a2aa923a295"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0207.py",
+      "sha256": "d2821b816d31b3632921ef8b62aa8d0f119795971c650718a48854f72a6634e2"
+    },
+    {
       "path": "scripts/photius_complete_observations_page0231.py",
       "sha256": "ac1438255957a8179c678331ba58562ffac6611ad19ab37713edba98464a983d"
     },
@@ -585,6 +677,30 @@
     {
       "path": "scripts/photius_complete_observations_page0261.py",
       "sha256": "ae0386da570f2ad712c1ea828698d62590426e665b4fe0e717d517e64779f230"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0262.py",
+      "sha256": "1f4ae5af42051d60f67e0c76b70cb256c54bcf287f407c9b4f5e146c13f417d8"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0263.py",
+      "sha256": "fc1e9d7fb2fb1f9a5d5055406f34da66109d7855694f1db7dfb8ab014ddc6e61"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0264.py",
+      "sha256": "9985c5e11dc322a9501b9ac19c80477798899c1829aee0c1ec236399fe14c039"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0265.py",
+      "sha256": "124b34409058ce7ce94cb8f6b3af808ad3e16927eb531c1c60180ac109b7f37b"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0266.py",
+      "sha256": "caf0aac4a2de373e90eaa482665072d8e1f1f32112c3a0ac1458b083534905b4"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0267.py",
+      "sha256": "2c2016691aee6935de8042362c8b3d701aeedbe846fd4de0c6599b3dec0c8a6d"
     }
   ],
   "admission_authorized": false,
@@ -594,26 +710,26 @@
     "passages": 3462,
     "pages": 236,
     "status": {
-      "reviewed-verified": 1326,
-      "reviewed-with-uncertainty": 537,
-      "unreviewed": 1599
+      "reviewed-verified": 1548,
+      "reviewed-with-uncertainty": 681,
+      "unreviewed": 1233
     },
-    "fully_assessed_rows": 1863,
-    "verified_rows": 1326,
-    "complete_scan_review_rows": 1863,
-    "rows_with_source_uncertainty": 537,
+    "fully_assessed_rows": 2229,
+    "verified_rows": 1548,
+    "complete_scan_review_rows": 2229,
+    "rows_with_source_uncertainty": 681,
     "partially_assessed_rows": 0,
-    "unreviewed_rows": 1599,
+    "unreviewed_rows": 1233,
     "characters": 913203,
-    "reviewed_characters": 507381,
+    "reviewed_characters": 618349,
     "lexical_tokens": 149067,
-    "reviewed_lexical_tokens": 83307,
-    "corrected_segments": 2860,
-    "unchanged_segments": 1887,
-    "source_fragment_exclusions": 1026,
-    "uncertainty_exclusion_candidates": 1417,
-    "nonbody_exclusion_candidates": 156,
-    "complete_pages": 133
+    "reviewed_lexical_tokens": 101475,
+    "corrected_segments": 3611,
+    "unchanged_segments": 2436,
+    "source_fragment_exclusions": 1197,
+    "uncertainty_exclusion_candidates": 1883,
+    "nonbody_exclusion_candidates": 179,
+    "complete_pages": 162
   },
   "complete_physical_pages": [
     2,
@@ -647,6 +763,11 @@
     30,
     31,
     32,
+    33,
+    34,
+    35,
+    36,
+    37,
     60,
     61,
     62,
@@ -679,6 +800,16 @@
     89,
     90,
     91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
     145,
     146,
     147,
@@ -717,6 +848,14 @@
     180,
     181,
     182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    207,
     231,
     232,
     233,
@@ -748,14 +887,20 @@
     259,
     260,
     261,
+    262,
+    263,
+    264,
+    265,
+    266,
+    267,
     280
   ],
   "compiled_records": {
     "path": "data/corpus_changes/photius-bekker-complete-review/review-status.json.gz",
-    "sha256": "9e310b1312d2d87267a7ff2b3cc3194f0fb49af27db0dcd3ff3f9b976d6caf1a"
+    "sha256": "89b3d3540140b35187949410ef1d71c8155868cec9ae90eee10698af1bf32d38"
   },
   "authored_observations": {
     "path": "data/corpus_changes/photius-bekker-complete-review/source-review.json.gz",
-    "sha256": "bbc53316fdf3c4e6ee4d0351083d6674a2aa259c980410f6632921b0ee272765"
+    "sha256": "a6d9400bf5b484320261516a0281c03ffef9dfa0aec02d2972627058e4b174c2"
   }
 }
