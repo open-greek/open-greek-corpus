@@ -1184,11 +1184,23 @@ correction source. The quality, coverage, and source-component reports publish
 the later reviews separately from the original campaign totals.
 
 A subsequent [100-span uncertainty pilot](docs/photius-uncertainty-pilot.md)
-records 65 proposed corrections, five confirmed readings, and 30 retained
-uncertainties on 26 shared scan crops. Its source-pinned candidate corpus and
-exact replay/undo are isolated from served text; the published total remains
-3,047 uncertain spans. Run
-`python3 scripts/prepare_photius_uncertainty_pilot.py --check` to reproduce it.
+records 65 corrections, five confirmed readings, and 30 retained uncertainties
+on 26 shared scan crops. A later served admission applies those 70 resolutions,
+reducing the current source-uncertainty count from 3,047 to 2,977. The original
+pilot remains a frozen experiment; all prior corpus audits and citation aliases
+are unchanged. Current quality and coverage measurements distinguish the latest
+count from the historical campaign's 3,069 uncertainties.
+
+Run `python3 scripts/repair_photius_uncertainty_admission.py --check` to verify
+the served admission, including fresh source crops and exact reconstruction of
+the pilot with its archived recipes. The standalone historical check is
+`python3 scripts/check_photius_pilot_predecessor.py --check`. New admission
+records live in `data/corpus_changes/photius-bekker-uncertainty-admission/`;
+`--undo` restores the exact preceding corpus without requiring live correction
+sources. Reverse this layer before the older uncertainty, context, and complete
+review layers. Independent fragment, nonbody, and contrary-reading exclusions
+remain effective after each source resolution.
+
 The optional `scripts/compare_photius_local_edition.py` accepts a user-supplied
 comparison HTML file for private location diagnostics. Licensed comparison text
 is not bundled in the public review; differing editions cannot authorize a

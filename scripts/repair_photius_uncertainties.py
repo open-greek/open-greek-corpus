@@ -364,7 +364,22 @@ def _saved(root):
     return before,after,audit
 
 
+def _later_bytes(raw, root):
+    if b'"photius_uncertainty_admission"' in raw:
+        from repair_photius_uncertainty_admission import restore_before_bytes as restore
+        return restore(raw, root)
+    return raw
+
+
+def _later_row(row, root):
+    if row.get('photius_uncertainty_admission'):
+        from repair_photius_uncertainty_admission import restore_before_row as restore
+        return restore(row, root)
+    return row
+
+
 def restore_before_bytes(raw,root=ROOT):
+    raw = _later_bytes(raw, root)
     if b'"photius_uncertainty_review"' not in raw:
         return raw
     before,after,_=_saved(root)
@@ -374,6 +389,7 @@ def restore_before_bytes(raw,root=ROOT):
 
 
 def restore_before_row(row,root=ROOT):
+    row = _later_row(row, root)
     if not row.get(TAG):
         return deepcopy(row)
     audit,records=_row_archive(root);change=records.get(row.get('locus'))
@@ -386,6 +402,7 @@ def restore_before_row(row,root=ROOT):
 
 
 def lexical_segments(row,root=ROOT):
+    row = _later_row(row, root)
     if not row.get(TAG):
         raise ValueError('Uncertainty projection has no source authority')
     restore_before_row(row,root)
@@ -401,7 +418,7 @@ def check(root=ROOT):
         if b'"photius_uncertainty_review"' in (root/CORPUS).read_bytes():
             raise ValueError('Uncertainty metadata has no admission audit')
         return None
-    outputs,audit=build(root);current=(root/CORPUS).read_bytes()
+    outputs,audit=build(root);current=_later_bytes((root/CORPUS).read_bytes(), root)
     before=gzip.decompress(outputs[BEFORE])
     for path,raw in outputs.items():
         if path==CORPUS and current==before:
@@ -415,7 +432,7 @@ def active_metadata(root=ROOT):
     root=Path(root)
     if not (root/AUDIT).exists():
         return None
-    before,after,audit=_saved(root);current=(root/CORPUS).read_bytes()
+    before,after,audit=_saved(root);current=_later_bytes((root/CORPUS).read_bytes(), root)
     if current==before:
         return None
     if current!=after:

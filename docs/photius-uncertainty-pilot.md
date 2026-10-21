@@ -2,19 +2,19 @@
 
 The October 21, 2026 experiment visually assessed 100 of the 3,047 remaining
 source uncertainties, grouped into 26 pinned Bekker crops on 26 physical pages.
-It proposes 65 text corrections and confirms five existing readings; 30 spans
-remain uncertain. These are isolated candidates, not served admissions. The
-published corpus still has 3,047 uncertainties. Admitting these decisions would
-leave 2,977 source uncertainties, while independent fragment, nonbody, and
-contrary-reading exclusions would still apply.
+It recorded 65 text corrections and five confirmed readings; 30 spans remained
+uncertain. The original experiment is still an isolated candidate archive, with
+an explicit nonadmitting identity. A later served admission applies its 70
+resolved decisions and publishes the resulting count of **2,977** uncertainties.
+Independent fragment, nonbody, and contrary-reading exclusions still apply.
 
 The original complete campaign, occurrence-context layer, 33-span source review,
-and every served corpus file remain unchanged. The structured experiment is in
-`data/corpus_changes/photius-bekker-uncertainty-pilot/`. Its audit pins exact
-preimages, source PDF and rendered images, authored decisions, code recipes,
-and candidate postimages. It includes literal replay and undo without live
-correction sources. The frozen preimage permits later checking even after a
-subsequent corpus admission.
+and experimental artifacts remain unchanged. The experiment is in
+`data/corpus_changes/photius-bekker-uncertainty-pilot/`; the later admission is in
+`data/corpus_changes/photius-bekker-uncertainty-admission/`. Both pin exact
+preimages, source evidence, authored decisions, and postimages, with exact undo
+without live correction sources. Historical counts remain frozen and are
+reported separately from the current measurement.
 
 ## Selection and results
 
@@ -76,11 +76,14 @@ of the newer edition. No additional OCR run or GPU was needed for this pilot.
 
 ## Reproduction and timing
 
-Run `python3 scripts/prepare_photius_uncertainty_pilot.py --check`, or
-`make check-photius-uncertainty-pilot`, to rebuild and compare the public
-experiment. `--write` creates its immutable archive from the authored
-`scripts/photius_uncertainty_pilot_observations.py` table. The check is also
-required by `make check`. Neither action modifies the served corpus.
+Run `python3 scripts/check_photius_pilot_predecessor.py --check`, or
+`make check-photius-uncertainty-pilot`, to rebuild the historical experiment.
+The adapter executes the archived original recipes and their complete local
+import closure in an isolated directory, validates fresh public source crops,
+and compares every output byte. Later restoration hooks therefore cannot
+change the frozen experiment's code identity or results. The authored
+`scripts/photius_uncertainty_pilot_observations.py` table remains unchanged.
+This historical check does not modify the served corpus.
 
 Optional retrieval requires the user's own comparison HTML. Keep excerpts
 outside a public checkout:
@@ -105,8 +108,22 @@ They are not a controlled throughput comparison or an estimate of human
 proofreading speed. Grouping reduced 100 per-span crop visits to 26 distinct
 crop inputs; narrow reinspection still added work.
 
-Production admission remains a separate operation: it must add a later authority
-without rewriting the frozen prior layers, preserve all independent exclusions,
-rebuild the public lexical and quality exports, and pass the release checks.
-The candidate archive does not satisfy those production gates by itself.
-Production admission is tracked in [issue #87](https://github.com/open-greek/open-greek-corpus/issues/87).
+## Served admission
+
+`python3 scripts/repair_photius_uncertainty_admission.py --apply --admitted-at UTC_TIMESTAMP`
+creates the later authority from the freshly checked source review. Subsequent
+runs reuse the recorded timestamp. `--check` reproduces the served text and
+admission records, including the historical source check; it is required by
+`make check`. `--undo` restores the exact previous corpus and verifies unchanged
+citation aliases without reading the live sources or the experimental archive.
+
+The admission changes 65 spans in 28 display rows, confirms five unchanged
+spans, and adds 86 eligible Greek tokens after preserving independent exclusions.
+All 3,782 passage rows remain present. Its current uncertainty count is 2,977;
+the frozen full campaign still records 3,069 and the preceding source review
+still records 3,047. Quality, coverage, source-component, known-limitation, and
+current historical-diagnostic outputs publish the effective measurement
+separately from those historical counts.
+
+The admission and tested release are tracked in
+[issue #87](https://github.com/open-greek/open-greek-corpus/issues/87).

@@ -73,11 +73,14 @@ PHOTIUS_REVIEW_INPUTS := scripts/build_photius_review_observations.py \
     data/corpus_changes/photius-bekker-complete-review/before-corpus.jsonl.gz
 PHOTIUS_LATER_INPUTS := scripts/repair_photius_context.py \
     scripts/repair_photius_uncertainties.py scripts/photius_uncertainty_observations.py \
+    scripts/repair_photius_uncertainty_admission.py scripts/check_photius_pilot_predecessor.py \
+    scripts/prepare_photius_uncertainty_pilot.py scripts/photius_uncertainty_pilot_observations.py \
     scripts/fetch_photius_uncertainty_sources.py \
     $(wildcard data/corpus_changes/photius-bekker-context/* \
                data/corpus_changes/photius-bekker-uncertainties/* \
                data/corpus_changes/photius-bekker-uncertainties/sources/* \
-               data/corpus_changes/photius-bekker-uncertainties/source-images/*)
+               data/corpus_changes/photius-bekker-uncertainties/source-images/* \
+               data/corpus_changes/photius-bekker-uncertainty-admission/*)
 SOURCE_COMPONENTS := data/source_component_tokens.json
 WORK_LEMMAS     := data/work_lemma_counts.tsv.gz
 CATALOG         := data/corpus_catalog.tsv
@@ -449,6 +452,7 @@ capital-positions:
         check-photius-complete-review \
         check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
         check-photius-historical-assessment check-photius-uncertainty-pilot \
+        check-photius-uncertainty-admission \
         check-photius-apparatus-audit \
         check-source-components \
         check-capital-positions \
@@ -467,7 +471,7 @@ check: check-photius-complete-review \
        check-photius-readings \
        check-photius-historical-readings \
        check-photius-historical-batches \
-       check-photius-historical-assessment check-photius-uncertainty-pilot \
+       check-photius-historical-assessment check-photius-uncertainty-admission \
        check-photius-apparatus-audit \
        check-source-components \
        check-capital-positions \
@@ -508,7 +512,10 @@ check-photius-historical-assessment:
 	$(PY) scripts/build_photius_historical_assessment.py --check
 
 check-photius-uncertainty-pilot:
-	$(PY) scripts/prepare_photius_uncertainty_pilot.py --check
+	$(PY) scripts/check_photius_pilot_predecessor.py --check
+
+check-photius-uncertainty-admission:
+	$(PY) scripts/repair_photius_uncertainty_admission.py --check
 
 check-photius-apparatus-audit:
 	$(PY) scripts/audit_photius_apparatus.py --check

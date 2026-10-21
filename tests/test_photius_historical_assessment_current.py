@@ -39,7 +39,8 @@ def fixture(tmp_path, monkeypatch):
              current.uncertainties.AUDIT: b'{}'}
     for name in ('build_photius_historical_assessment.py', 'assess_photius_historical.py',
                  'audit_compression.py', 'repair_photius_context.py',
-                 'repair_photius_uncertainties.py'):
+                 'repair_photius_uncertainties.py', 'repair_photius_uncertainty_admission.py',
+                 'check_photius_pilot_predecessor.py'):
         files[Path('scripts') / name] = name.encode()
     for path, raw in files.items():
         write(path, raw)
@@ -52,7 +53,9 @@ def fixture(tmp_path, monkeypatch):
               'counts': {'rows': 1, 'pages': 1}}
     monkeypatch.setattr(current.assess, 'build', lambda root: deepcopy(report))
     monkeypatch.setattr(current.context, 'active_metadata', lambda root: {'audit': 'context'})
-    monkeypatch.setattr(current.uncertainties, 'active_metadata', lambda root: {'audit': 'uncertainties'})
+    monkeypatch.setattr(current.uncertainties, 'active_metadata', lambda root: {
+        'audit': 'uncertainties', 'source_review': {'path': 'old-review', 'sha256': 'a'*64},
+        'counts': {'baseline_uncertainty_spans': 3069, 'current_uncertainty_spans': 3047}})
     return tmp_path, report, files, write
 
 
@@ -69,7 +72,8 @@ def test_write_and_check_reproduce_only_new_gzip_and_keep_predecessor(fixture):
     assert report['predecessor_diagnostic']['frozen'] is True
     assert report['predecessor_diagnostic']['sha256'] == current.PREDECESSOR_SHA256
     assert report['current_context_authority']['context'] == {'audit': 'context'}
-    assert report['current_context_authority']['uncertainties'] == {'audit': 'uncertainties'}
+    assert report['current_context_authority']['uncertainties']['audit'] == 'uncertainties'
+    assert report['current_source_measurement']['current_uncertainty_spans'] == 3047
     assert 'comparison candidates only' in report['current_context_authority']['qualification']
     assert not report['admission_authorized'] and not report['scan_reviewed']
     assert not any(key in report for key in ('generated_at', 'timestamp', 'recorded_at'))

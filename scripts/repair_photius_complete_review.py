@@ -347,6 +347,9 @@ def build(root=ROOT):
 
 def _later_bytes(raw, root):
     """Verify and reverse later authorities before checking this frozen stage."""
+    if b'"photius_uncertainty_admission"' in raw:
+        from repair_photius_uncertainty_admission import restore_before_bytes as restore
+        raw = restore(raw, root)
     if b'"photius_uncertainty_review"' in raw:
         from repair_photius_uncertainties import restore_before_bytes as restore
         raw = restore(raw, root)
@@ -357,6 +360,9 @@ def _later_bytes(raw, root):
 
 
 def _later_row(row, root):
+    if row.get('photius_uncertainty_admission'):
+        from repair_photius_uncertainty_admission import restore_before_row as restore
+        row = restore(row, root)
     if row.get('photius_uncertainty_review'):
         from repair_photius_uncertainties import restore_before_row as restore
         row = restore(row, root)
@@ -380,7 +386,37 @@ def later_metadata(root=ROOT):
         current = metadata(root)
         if current:
             result['uncertainty_review'] = current
+    if (root / 'data/corpus_changes/photius-bekker-uncertainty-admission/changes.json').exists():
+        from repair_photius_uncertainty_admission import active_metadata as metadata
+        current = metadata(root)
+        if current:
+            result['uncertainty_admission'] = current
     return result
+
+
+def current_uncertainty_measurement(later):
+    """Expose current occurrence accounting beside immutable historical counts."""
+    previous = later.get('uncertainty_review')
+    latest = later.get('uncertainty_admission')
+    if latest and not previous:
+        raise ValueError('The latest uncertainty admission has no active predecessor')
+    if not previous:
+        return None
+    old = previous['counts']
+    baseline, current = old['baseline_uncertainty_spans'], old['current_uncertainty_spans']
+    authority = previous['source_review']
+    if latest:
+        new = latest['counts']
+        resolved = new['resolved_changed'] + new['resolved_unchanged']
+        identities = [(x['locus'], x['segment_index']) for x in new['resolved_identities']]
+        if (new['baseline_uncertainty_spans'] != current or new['resolved'] != resolved
+                or len(identities) != len(set(identities)) or len(identities) != resolved
+                or new['current_uncertainty_spans'] != current - resolved):
+            raise ValueError('Current uncertainty counts do not extend their exact predecessor')
+        current, authority = new['current_uncertainty_spans'], latest['source_review']
+    return {'baseline_uncertainty_spans': baseline, 'current_uncertainty_spans': current,
+            'resolved_uncertainty_spans': baseline-current, 'source_review': authority,
+            'qualification': 'Current occurrence count after checked source admissions. Original campaign and earlier admission counts remain frozen historical measurements; other lexical exclusion causes remain independent.'}
 
 
 def check(root=ROOT):
@@ -469,6 +505,9 @@ def restore_before_row(row, root=ROOT):
 
 
 def lexical_segments(row, root=ROOT):
+    if row.get('photius_uncertainty_admission'):
+        from repair_photius_uncertainty_admission import lexical_segments as latest
+        return latest(row, root)
     if row.get('photius_uncertainty_review'):
         from repair_photius_uncertainties import lexical_segments as latest
         return latest(row, root)
