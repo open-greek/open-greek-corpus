@@ -122,7 +122,8 @@ citation aliases without reading the live sources or the experimental archive.
 
 The admission changes 65 spans in 28 display rows, confirms five unchanged
 spans, and adds 86 eligible Greek tokens after preserving independent exclusions.
-All 3,782 passage rows remain present. Its current uncertainty count is 2,977;
+All 3,782 passage rows remain present. This source-admission stage leaves 2,977
+scan uncertainties before the subsequent editorial substitutions;
 the frozen full campaign still records 3,069 and the preceding source review
 still records 3,047. Quality, coverage, source-component, known-limitation, and
 current historical-diagnostic outputs publish the effective measurement
