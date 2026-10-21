@@ -359,6 +359,9 @@ def build(root=ROOT, *, recorded_at=None):
 
 
 def _later_bytes(raw, root):
+    if b'"photius_editorial_substitution"' in raw:
+        from repair_photius_editorial_substitutions import restore_before_bytes as restore
+        raw = restore(raw, root)
     if b'"photius_uncertainty_admission"' in raw:
         from repair_photius_uncertainty_admission import restore_before_bytes as restore
         raw = restore(raw, root)
@@ -369,6 +372,9 @@ def _later_bytes(raw, root):
 
 
 def _later_row(row, root):
+    if row.get('photius_editorial_substitution'):
+        from repair_photius_editorial_substitutions import restore_before_row as restore
+        row = restore(row, root)
     if row.get('photius_uncertainty_admission'):
         from repair_photius_uncertainty_admission import restore_before_row as restore
         row = restore(row, root)

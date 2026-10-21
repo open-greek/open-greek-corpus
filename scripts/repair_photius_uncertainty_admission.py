@@ -239,7 +239,22 @@ def _record_map(raw):
     return mapping
 
 
+def _later_bytes(raw, root):
+    if b'"photius_editorial_substitution"' in raw:
+        from repair_photius_editorial_substitutions import restore_before_bytes as restore
+        return restore(raw, root)
+    return raw
+
+
+def _later_row(row, root):
+    if row.get('photius_editorial_substitution'):
+        from repair_photius_editorial_substitutions import restore_before_row as restore
+        return restore(row, root)
+    return row
+
+
 def restore_before_bytes(raw, root=ROOT):
+    raw = _later_bytes(raw, root)
     root = Path(root)
     if not (root / AUDIT).exists():
         if b'"' + TAG.encode() + b'"' in raw:
@@ -254,6 +269,7 @@ def restore_before_bytes(raw, root=ROOT):
 
 
 def restore_before_row(row, root=ROOT):
+    row = _later_row(row, root)
     if not row.get(TAG):
         return deepcopy(row)
     root = Path(root)
@@ -275,6 +291,7 @@ def restore_before_row(row, root=ROOT):
 
 
 def lexical_segments(row, root=ROOT):
+    row = _later_row(row, root)
     if not row.get(TAG):
         raise ValueError('Admitted lexical projection has no source authority')
     restore_before_row(row, root)
@@ -292,7 +309,7 @@ def check(root=ROOT):
         return None
     outputs, audit = build(root)
     before, after, aliases, _, _ = _saved(root)
-    current = (root / CORPUS).read_bytes()
+    current = _later_bytes((root / CORPUS).read_bytes(), root)
     if current not in {before, after} or (root / ALIASES).read_bytes() != aliases:
         raise ValueError('Current corpus or aliases changed outside uncertainty admission')
     if any((root / path).read_bytes() != raw for path, raw in outputs.items() if path != CORPUS):
@@ -307,7 +324,7 @@ def active_metadata(root=ROOT):
             raise ValueError('Admitted source metadata has no frozen admission audit')
         return None
     before, after, aliases, audit, _ = _saved(root)
-    current = (root / CORPUS).read_bytes()
+    current = _later_bytes((root / CORPUS).read_bytes(), root)
     if current not in {before, after} or (root / ALIASES).read_bytes() != aliases:
         raise ValueError('Current corpus or aliases differs from its exact uncertainty admission')
     if current == before:

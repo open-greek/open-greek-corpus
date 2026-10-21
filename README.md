@@ -1186,7 +1186,7 @@ the later reviews separately from the original campaign totals.
 A subsequent [100-span uncertainty pilot](docs/photius-uncertainty-pilot.md)
 records 65 corrections, five confirmed readings, and 30 retained uncertainties
 on 26 shared scan crops. A later served admission applies those 70 resolutions,
-reducing the current source-uncertainty count from 3,047 to 2,977. The original
+reducing that stage's source-uncertainty count from 3,047 to 2,977. The original
 pilot remains a frozen experiment; all prior corpus audits and citation aliases
 are unchanged. Current quality and coverage measurements distinguish the latest
 count from the historical campaign's 3,069 uncertainties.
@@ -1201,10 +1201,27 @@ sources. Reverse this layer before the older uncertainty, context, and complete
 review layers. Independent fragment, nonbody, and contrary-reading exclusions
 remain effective after each source resolution.
 
+A subsequent [editorial substitution layer](docs/photius-editorial-substitutions.md)
+uses the TLG Greek reading from Henry's edition at 2,602 unambiguous occurrences.
+The current served unresolved count is **375**: 330 unmapped spans, six tied
+matches, and 39 nonbody spans. These editorial choices do not certify Bekker's
+printing. The scan measurement remains 2,977, with the original reading,
+alternative source readings, exact HTML references, and reversible changes
+preserved separately. The base edition label remains Bekker; the per-span
+`photius_editorial_substitution` authority identifies the adopted Henry readings.
+
+`make check-photius-editorial-substitutions` checks the public recorded Greek
+witnesses, artifact pins, projections, and exact replay without a private source
+file. With the supplied comparison HTML available through
+`PHOTIUS_COMPARISON_HTML`, `make check-photius-editorial-source` freshly repeats
+the context search and verifies every selected reading. Undo this editorial
+layer before the 70-span source admission and all earlier review layers.
+
 The optional `scripts/compare_photius_local_edition.py` accepts a user-supplied
-comparison HTML file for private location diagnostics. Licensed comparison text
-is not bundled in the public review; differing editions cannot authorize a
-Bekker correction. Exact occurrence windows prevent confusing repeated words.
+comparison HTML file for location diagnostics. The raw comparison HTML is not
+bundled; selected Greek readings are preserved in the editorial substitution
+audit. Different editions remain explicitly attributed. Exact occurrence
+windows prevent confusing repeated words.
 
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint

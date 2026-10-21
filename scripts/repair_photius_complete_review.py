@@ -347,6 +347,9 @@ def build(root=ROOT):
 
 def _later_bytes(raw, root):
     """Verify and reverse later authorities before checking this frozen stage."""
+    if b'"photius_editorial_substitution"' in raw:
+        from repair_photius_editorial_substitutions import restore_before_bytes as restore
+        raw = restore(raw, root)
     if b'"photius_uncertainty_admission"' in raw:
         from repair_photius_uncertainty_admission import restore_before_bytes as restore
         raw = restore(raw, root)
@@ -360,6 +363,9 @@ def _later_bytes(raw, root):
 
 
 def _later_row(row, root):
+    if row.get('photius_editorial_substitution'):
+        from repair_photius_editorial_substitutions import restore_before_row as restore
+        row = restore(row, root)
     if row.get('photius_uncertainty_admission'):
         from repair_photius_uncertainty_admission import restore_before_row as restore
         row = restore(row, root)
@@ -391,6 +397,11 @@ def later_metadata(root=ROOT):
         current = metadata(root)
         if current:
             result['uncertainty_admission'] = current
+    if (root / 'data/corpus_changes/photius-bekker-editorial-substitutions/changes.json').exists():
+        from repair_photius_editorial_substitutions import active_metadata as metadata
+        current = metadata(root)
+        if current:
+            result['editorial_substitutions'] = current
     return result
 
 
@@ -398,7 +409,8 @@ def current_uncertainty_measurement(later):
     """Expose current occurrence accounting beside immutable historical counts."""
     previous = later.get('uncertainty_review')
     latest = later.get('uncertainty_admission')
-    if latest and not previous:
+    editorial = later.get('editorial_substitutions')
+    if (latest or editorial) and not previous:
         raise ValueError('The latest uncertainty admission has no active predecessor')
     if not previous:
         return None
@@ -414,9 +426,28 @@ def current_uncertainty_measurement(later):
                 or new['current_uncertainty_spans'] != current - resolved):
             raise ValueError('Current uncertainty counts do not extend their exact predecessor')
         current, authority = new['current_uncertainty_spans'], latest['source_review']
-    return {'baseline_uncertainty_spans': baseline, 'current_uncertainty_spans': current,
+    result = {'baseline_uncertainty_spans': baseline, 'current_uncertainty_spans': current,
             'resolved_uncertainty_spans': baseline-current, 'source_review': authority,
             'qualification': 'Current occurrence count after checked source admissions. Original campaign and earlier admission counts remain frozen historical measurements; other lexical exclusion causes remain independent.'}
+    if editorial:
+        counts = editorial['counts']
+        count = counts['editorially_substituted_spans']
+        identities = [(x['locus'], x['segment_index']) for x in counts['substituted_identities']]
+        remaining = counts['unsubstituted_source_uncertainty_spans']
+        if (type(count) is not int or not 0 <= count <= current
+                or counts['scan_uncertainty_spans'] != current
+                or remaining != current-count or len(identities) != len(set(identities))
+                or len(identities) != count
+                or latest and set(identities).intersection(
+                    (x['locus'], x['segment_index']) for x in latest['counts']['resolved_identities'])):
+            raise ValueError('Editorial substitution counts do not extend their exact scan predecessor')
+        result.update(scan_uncertainty_spans=current, scan_resolved_uncertainty_spans=baseline-current,
+            editorially_substituted_spans=count, unsubstituted_source_uncertainty_spans=remaining,
+            current_uncertainty_spans=remaining, addressed_uncertainty_spans=baseline-remaining,
+            scan_source_review=authority, source_review=editorial['source_review'],
+            editorial_source_review=editorial['source_review'],
+            qualification='Current served unresolved count after scan resolutions and explicit editorial source substitutions. Editorial choices do not verify ambiguous Bekker ink: the separate scan uncertainty count and original source readings remain historical evidence. Independent lexical exclusion causes survive.')
+    return result
 
 
 def check(root=ROOT):
@@ -505,6 +536,9 @@ def restore_before_row(row, root=ROOT):
 
 
 def lexical_segments(row, root=ROOT):
+    if row.get('photius_editorial_substitution'):
+        from repair_photius_editorial_substitutions import lexical_segments as latest
+        return latest(row, root)
     if row.get('photius_uncertainty_admission'):
         from repair_photius_uncertainty_admission import lexical_segments as latest
         return latest(row, root)

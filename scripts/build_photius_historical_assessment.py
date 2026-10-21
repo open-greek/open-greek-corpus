@@ -35,13 +35,15 @@ def _snapshot(root):
     paths = {assess.CORPUS, assess.LIBRARY, assess.ORIGINAL, assess.COVERAGE,
              PREDECESSOR, Path('data/passage_aliases.json')}
     paths.update(path.relative_to(root) for directory in (context.ARCHIVE, uncertainties.ARCHIVE,
-                                                        uncertainty_admission.ARCHIVE)
+                                                        uncertainty_admission.ARCHIVE,
+                    Path('data/corpus_changes/photius-bekker-editorial-substitutions'))
                  for path in (root / directory).rglob('*') if path.is_file())
     scripts = {Path('scripts') / name for name in
                ('build_photius_historical_assessment.py', 'assess_photius_historical.py',
                 'audit_compression.py', 'repair_photius_context.py',
                 'repair_photius_uncertainties.py', 'repair_photius_uncertainty_admission.py',
-                'check_photius_pilot_predecessor.py')}
+                'check_photius_pilot_predecessor.py', 'repair_photius_editorial_substitutions.py',
+                'prepare_photius_editorial_substitutions.py')}
     paths.update(scripts)
     return {path.as_posix(): sha((root / path).read_bytes()) for path in sorted(paths)}
 
@@ -77,6 +79,11 @@ def _authority(root):
     latest = uncertainty_admission.active_metadata(root)
     if latest:
         metadata['uncertainty_admission'] = latest
+    if (Path(root)/'data/corpus_changes/photius-bekker-editorial-substitutions/changes.json').exists():
+        from repair_photius_editorial_substitutions import active_metadata
+        editorial = active_metadata(root)
+        if editorial:
+            metadata['editorial_substitutions'] = editorial
     return metadata
 
 
@@ -103,7 +110,9 @@ def build(root=ROOT):
     report['current_source_measurement'] = current_uncertainty_measurement({
         'uncertainty_review': authority['uncertainties'],
         **({'uncertainty_admission': authority['uncertainty_admission']}
-           if authority.get('uncertainty_admission') else {})})
+           if authority.get('uncertainty_admission') else {}),
+        **({'editorial_substitutions': authority['editorial_substitutions']}
+           if authority.get('editorial_substitutions') else {})})
     report['current_diagnostic_recipe'] = {
         'path': 'scripts/build_photius_historical_assessment.py',
         'sha256': before['scripts/build_photius_historical_assessment.py']}

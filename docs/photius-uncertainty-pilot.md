@@ -5,7 +5,10 @@ source uncertainties, grouped into 26 pinned Bekker crops on 26 physical pages.
 It recorded 65 text corrections and five confirmed readings; 30 spans remained
 uncertain. The original experiment is still an isolated candidate archive, with
 an explicit nonadmitting identity. A later served admission applies its 70
-resolved decisions and publishes the resulting count of **2,977** uncertainties.
+resolved decisions and records that stage's count of **2,977** uncertainties.
+The later [editorial substitutions](photius-editorial-substitutions.md) adopt
+Henry's Greek readings at unambiguous occurrences without reclassifying those
+decisions as scan verification.
 Independent fragment, nonbody, and contrary-reading exclusions still apply.
 
 The original complete campaign, occurrence-context layer, 33-span source review,
