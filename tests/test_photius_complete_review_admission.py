@@ -37,7 +37,7 @@ def test_exact_replay_and_undo_need_no_live_source_files(fixture, tmp_path):
     row = json.loads(after)
     assert layer.restore_before_row(row, tmp_path) == fixture['rows'][0]
     assert row['prior_audit'] == fixture['rows'][0]['prior_audit']
-    assert layer.lexical_segments(row, tmp_path) == [fixture['rows'][0]['text']]
+    assert not campaign.tokens(' '.join(layer.lexical_segments(row, tmp_path)))
     assert audit['counts']['fully_source_reviewed_rows'] == 1
     layer.undo(tmp_path)
     assert (tmp_path / campaign.CORPUS).read_bytes() == before
@@ -62,11 +62,18 @@ def test_source_uncertainty_breaks_adjacency_without_changing_original_display(f
                            slice_segment(fixture, 7, len(fixture['rows'][0]['text'])))
     middle.update(verification='uncertain', uncertainty='The source word is damaged.')
     middle['scan']['observed_text'] = '[λόγος?]'
+    for item in (first, last):
+        item['readings'] = [{'kind':'digital',
+            'section':fixture['manifest']['rows'][0]['digital_section'],
+            'start':0,'end':len(fixture['digital']),'text':fixture['digital']}]
     fixture['reviews']['records'][0].update(status='reviewed-with-uncertainty', segments=[first, middle, last])
     outputs, _ = save(tmp_path, fixture['inputs'][0], compile_fixture(fixture))
     row = json.loads(outputs[campaign.CORPUS])
     assert row['text'] == fixture['rows'][0]['text']
-    assert layer.lexical_segments(row, tmp_path) == ['ὁ ', ' ἀληθές.\n']
+    runs = layer.lexical_segments(row, tmp_path)
+    assert 'λόγος' not in ''.join(runs)
+    assert 'ἀληθές' not in ''.join(runs)
+    assert not any('ὁ ἀληθές' in run for run in runs)
     assert row['complete_source_review']['status'] == 'reviewed-with-uncertainty'
 
 
@@ -143,3 +150,15 @@ def test_quality_report_refuses_stale_review_accounting(fixture, tmp_path, monke
 
 def test_missing_review_scope_is_unavailable_rather_than_zero_coverage(tmp_path):
     assert quality.complete_review_qualification(tmp_path) is None
+
+
+def test_unpaired_available_witness_cannot_silently_supply_scalar_lexical_evidence(fixture):
+    record = compile_fixture(fixture)['rows'][0]
+    assert record['digital_counterparts_usable']
+    masks = layer._digital_exclusions(record)
+    assert masks and all(m['classification']=='unpaired-available-digital-witness' for m in masks)
+    assert not campaign.tokens(' '.join(layer._projection(record['corrected_text'], masks)[1]))
+    # Known mismapped digital sections are explicitly unavailable. Complete
+    # source review remains usable without pretending those sections agree.
+    record['digital_counterparts_usable'] = False
+    assert layer._digital_exclusions(record) == []

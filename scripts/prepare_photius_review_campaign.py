@@ -511,6 +511,7 @@ def _compile_row(value, frozen, sections, document, images, evidence_files):
     record = {
         'locus': frozen['locus'], 'original_row_sha256': frozen['original_row_sha256'],
         'physical_page': frozen['physical_page'], 'printed_page': frozen['printed_page'],
+        'digital_counterparts_usable': frozen['digital_counterparts_usable'],
         'status': status, 'complete': complete, 'complete_scan_review': complete,
         'original_text': original, 'corrected_text': corrected,
         'original_text_sha256': sha(original.encode()), 'corrected_text_sha256': sha(corrected.encode()),

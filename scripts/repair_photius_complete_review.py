@@ -74,6 +74,12 @@ def _digital_exclusions(record):
         source_tokens = tokens(text)
         offset = segment["corrected_start"]
         edges = [r for r in segment["readings"] if r["kind"] == "digital"]
+        if not edges and record["digital_counterparts_usable"]:
+            # A completed scan review does not silently turn an unpaired span
+            # into agreement with an available independent digital witness.
+            exclusions.extend(_mask(t, offset, "unpaired-available-digital-witness")
+                              for t in source_tokens)
+            continue
         alignment = segment.get("digital_alignment")
         if alignment:
             # Token edge coordinates address the literal observation. A changed

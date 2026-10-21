@@ -162,6 +162,13 @@ def records(rows, document, crop_png, sections):
                     "start": low, "end": low + len(alternative), "text": alternative}]
             whole["fragments"] = _fragments(number, corrected)
             segments, status = [whole], "reviewed-verified"
+        for item in segments:
+            if item['verification'] == 'verified' and not item.get('readings'):
+                # Retain the full independent page when a shorter exact window
+                # is unavailable. Admission compares all optimal counterparts;
+                # an absent exact phrase must not imply source agreement.
+                item['readings'] = [{'kind': 'digital', 'section': 'tlg4040-tlg001-local002-s293',
+                    'start': 0, 'end': len(digital), 'text': digital}]
         records.append({"locus": row["locus"], "original_row_sha256": _sha_row(row),
                         "status": status, "segments": segments})
     return records

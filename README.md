@@ -1092,7 +1092,9 @@ the close criterion for issue #68.
 only after every frozen passage has a complete source review. It preserves each
 exact original row and earlier audit layer, retains contrary digital readings,
 and excludes source uncertainties, printed fragments, earlier unresolved
-readings, and nonbody material from lexical counts. `--check` reproduces the
+readings, nonbody material, and unpaired spans with an available digital witness
+from lexical counts. The known mismapped digital sections remain explicitly
+unavailable. `--check` reproduces the
 admission and `--undo` restores the exact preceding corpus without requiring
 the live correction sources. The quality report publishes source-review
 coverage separately from admission and word-consensus counts.
