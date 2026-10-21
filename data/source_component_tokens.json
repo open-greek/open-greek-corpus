@@ -56,7 +56,7 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 25347058,
+   "analysis_tokens": 25327780,
    "passages": 1337730,
    "works": 1217
   },
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "be1ec4bcab2204d6c1b8860d140f9af48070d5117ad23f7797232af671be1562",
+ "corpus_sha256": "2251583ec6dfaa5d9acf4dd6115562df34d476cfb32329238a637456f7621e58",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3072,7 +3072,7 @@
   "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
   "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
   "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
-  "photius.bibliotheca.jsonl": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5",
+  "photius.bibliotheca.jsonl": "a263df857a26dcbd2c2e58bd3012fdd4dc03ffe860e800c0e25d67fe7d0e0623",
   "photius.commentarii-in-joannem-in-catenis.jsonl": "91d600d98ae8083e62d50bbedecbdf043fceee10e979038742ff36ef5d83d087",
   "photius.commentarii-in-matthaeum-in-catenis.jsonl": "ff7fb39786fa88d9cfc94eda028a9367593cb8c1b04ef92bd0587448bc80472d",
   "photius.fragmenta-in-epistulam-ad-romanos-in-catenis.jsonl": "96a78396ec81a9a51d20cd3378990eb68a1333f214f190beaa5d175cb965a74d",
@@ -4012,25 +4012,27 @@
   "ocr"
  ],
  "recipe_sha256": {
+  "assess_photius_historical.py": "afd191d3c022f57e859bfa79d329e83db5237ad55db3906624e8eba088b67463",
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
-  "frequency_projection.py": "98fa971bf1c7822332fbcf9b0b1b05ab2fa80e60084f6150035ded9e6ec6d789",
+  "frequency_projection.py": "6aeb3189ee2fb48db75d9ea39b3b910ca81706681346bb3ea9b0e0915fdfdb1c",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "photius_body_vote.py": "0931e65946540f97ffeee3c8c7f975af21c80294d8b74a87adc686bff1818b24",
   "photius_reading_vote.py": "12dcf44df4381bec2cf8339651513e0e388c32b710e2743ded46ad61565dbce9",
-  "repair_photius_apparatus.py": "8aa56b0fb22412b281915a1ba7d4654aa3fd8ffd38be114b041a752ab021cd23",
+  "repair_photius_apparatus.py": "1cd74f8f9edda4e47bfe726e5f67d89cf7ea13bf48bc6a0353a354c81e59502e",
   "repair_photius_body.py": "eba5f223f244dd29138c655649d76c9bd28e754189e3813ad455396969936a4a",
-  "repair_photius_historical_batches.py": "99255125030f8aa748da646dd98016dad65243fd82924b71bea707cbe0e505d0",
-  "repair_photius_historical_readings.py": "9598090ae5b04a39d10175bd36b2f853a6adb17d4c0e76f9e3fd4de4b4963882",
+  "repair_photius_complete_review.py": "7f433ef3cb0635f4e3d374c15decc2ca9c1dc34122b99a8b4318738593407d3b",
+  "repair_photius_historical_batches.py": "75e2ea173bbc648218f4ca3dd6c2f6f078f43c80325db86c41de887bf78bf6ed",
+  "repair_photius_historical_readings.py": "d5cf1f5dc5649e4629ace1e0eed0f2385d12dbbcfda12f2b1670ed37398ad5f0",
   "repair_photius_readings.py": "0674410852378b3ec905d6fe769403388ee932a4152c550a6ecf1cdf3f41b607"
  },
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65832500,
-  "mixed_ocr_analysis_tokens": 571762,
+  "analysis_tokens": 65813222,
+  "mixed_ocr_analysis_tokens": 552484,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29700289,
+  "ocr_analysis_tokens": 29681011,
   "ocr_passages": 1349148,
   "ocr_works": 1416,
   "passages": 1966924,
@@ -79167,13 +79169,20 @@
    }
   },
   "photius.bibliotheca": {
-   "analysis_tokens": 301908,
+   "analysis_tokens": 282630,
    "components": [
     {
      "analysis_tokens": 151161,
      "edition": "bekker1824-independent-ocr-consensus",
      "license": "CC-BY-SA-4.0",
      "passages": 309,
+     "source": "ocr"
+    },
+    {
+     "analysis_tokens": 129464,
+     "edition": "bekker1825-complete-source-reviewed",
+     "license": "CC-BY-SA-4.0",
+     "passages": 3462,
      "source": "ocr"
     },
     {
@@ -79184,17 +79193,10 @@
      "source": "ocr"
     },
     {
-     "analysis_tokens": 12611,
+     "analysis_tokens": 122,
      "edition": "bekker1825-reviewed-historical-readings",
      "license": "CC-BY-SA-4.0",
-     "passages": 410,
-     "source": "ocr"
-    },
-    {
-     "analysis_tokens": 136253,
-     "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-     "license": "PD",
-     "passages": 3053,
+     "passages": 1,
      "source": "ocr"
     },
     {
@@ -79216,12 +79218,12 @@
    "mixed_ocr_digital": true,
    "non_ocr_analysis_tokens": 429,
    "non_ocr_passages": 2,
-   "ocr_analysis_tokens": 301479,
+   "ocr_analysis_tokens": 282201,
    "ocr_passages": 3780,
    "passages": 3782,
    "sources": {
     "ocr": {
-     "analysis_tokens": 301479,
+     "analysis_tokens": 282201,
      "passages": 3780
     },
     "reviewed-text-consensus": {
