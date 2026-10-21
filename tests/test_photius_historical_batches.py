@@ -477,7 +477,9 @@ def released_inputs():
     root = Path(__file__).parents[1]
     if not (root/layer.SCAN).exists() or not (root/layer.LIBRARY).exists():
         pytest.skip('Frozen public source files are not available in this checkout')
-    raw = layer.restore_before_bytes((root/layer.CORPUS).read_bytes(), root)
+    from photius_current_state import predecessor_view
+    with predecessor_view(root) as previous:
+        raw = layer.restore_before_bytes((previous/layer.CORPUS).read_bytes(), previous)
     assert layer.sha(raw) == layer.BASE_SHA
     return root, raw, (root/layer.LIBRARY).read_bytes(), (root/layer.SCAN).read_bytes()
 
