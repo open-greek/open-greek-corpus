@@ -1077,7 +1077,8 @@ of unchanged text as well as corrections. Exact character spans must cover a
 passage without gaps or overlaps before it counts as completely reviewed.
 Source uncertainty remains explicit, and printed word fragments have separate
 lexical exclusions. A completed OCR request or a digital match cannot confer
-review status.
+review status. Unresolved authoring placeholders are rejected before corrected
+text can enter a review artifact.
 
 `python3 scripts/build_photius_review_observations.py --write` reproduces the
 source observations and complete-passage accounting; `--check` checks both

@@ -52,6 +52,8 @@ def compile_table(rows, document, crop_png, sections, *, page, reviewed_at,
                 'preserve boundary fragments. Distinguish marginal references '
                 'and line numbers from body text. Keep declared quotation delimiters.')}
         def segment(start, end, corrected, **extra):
+            if re.search(r'\{u\d+\}', corrected):
+                raise ValueError('An authored uncertainty placeholder has no explicit source record')
             return {**deepcopy(base), 'start': start, 'end': end,
                 'original_text': original[start:end], 'corrected_text': corrected,
                 'verification': 'verified', 'scan': {'physical_page': page,
@@ -108,6 +110,6 @@ def compile_table(rows, document, crop_png, sections, *, page, reviewed_at,
                     'separate and exclude it from lexical counts.'})
         result.append({'locus': row['locus'], 'original_row_sha256': hashlib.sha256(
             json.dumps(row, ensure_ascii=False, sort_keys=True, separators=(',', ':')).encode()).hexdigest(),
-            'status': 'reviewed-with-uncertainty' if number in uncertainties else 'reviewed-verified',
+            'status': 'reviewed-with-uncertainty' if uncertainties.get(number) else 'reviewed-verified',
             'segments': segments})
     return result

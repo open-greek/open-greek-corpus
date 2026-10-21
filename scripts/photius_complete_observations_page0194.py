@@ -4,7 +4,7 @@ Original displays remain in localized unresolved spans; digital disagreements pe
 """
 from copy import deepcopy
 import hashlib,json,re
-REVIEWED_AT='2026-10-21T14:17:26.762550Z'
+REVIEWED_AT='2026-10-21T14:39:27.625623Z'
 PASSAGES={1: ('κατὰ τὴν Ἀραβίαν,',
      'ἕως τὰ καθ’ ἡμᾶς',
      [('καλεῖται', '{u0}'),
@@ -24,7 +24,7 @@ PASSAGES={1: ('κατὰ τὴν Ἀραβίαν,',
  2: ('παρ’ αὐτοῖς ἐπαγγέλλεται',
      'τῷ σχήματος τὸν τύπον καὶ',
      [('ἐπαγγέλλεται βίῳ', '{u0} βίον'),
-      ('φαίνεται', '{u1}'),
+      ('θάλαττα λευκὴ φαίνεται', 'θάλαττα λευκὴ {u1}'),
       ('παραπλήττεσθαι', '{u2}'),
       ('παράκεινται', '{u3}'),
       ('ἐπιφύεται', '{u4}'),
@@ -32,56 +32,82 @@ PASSAGES={1: ('κατὰ τὴν Ἀραβίαν,',
       ('τὸ δὲ ἡλίου', 'τοῦ δὲ ἡλίου'),
       ('ἀπέλαμψεν', 'ἀνέλαμψεν'),
       ('γίνεται', '{u5}'),
-      ('τοῦ φωτίζοντος', 'τοῦ φωτίζοντος')])}
+      ('τοῦ φωτίζοντος', 'τοῦ φωτίζοντος'),
+      ('οὐδεὶς ἀστὴρ τῶν ἑπτὰ φαίνεται', '{u6}'),
+      ('ἀναφερόμενος φαίνεται', 'ἀναφερόμενος {u7}')])}
 UNCERTAINTIES={(194, 1): [('καλεῖδ',
              'καλεῖται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('ὁ βασιλεὺς πρῶτος',
              'ὃ βούλεται πράττων',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('δύναιδ',
              'δύναται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('γένει)',
              'γίνεται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('ἰσχύουσι)',
              'ἐργάζονται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('ἀναγκάζουσι',
              'ἀναγκάζονται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('χωρὶς)',
              'χρῶνται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('κατισκινᾶσθαιχράτας',
              'κατεσκευάσθαι ἐπιχρύσους',
-             'The compact sigma/theta or sigma/chi group remains unresolved independently of the digital witness.'),
+             'The compact sigma/theta or sigma/chi group remains unresolved '
+             'independently of the digital witness.'),
             ('ἐξειλῆφθαι',
              'ἐξειλῆφθαι',
-             'The compact sigma/theta or sigma/chi group remains unresolved independently of the digital witness.'),
+             'The compact sigma/theta or sigma/chi group remains unresolved '
+             'independently of the digital witness.'),
             ('ἐκπελῦθ',
              'ἐκκεῖσθαι',
-             'The compact sigma/theta or sigma/chi group remains unresolved independently of the digital witness.')],
+             'The compact sigma/theta or sigma/chi group remains unresolved '
+             'independently of the digital witness.')],
  (194, 2): [('ἐπαγγέλλεσθαι',
              'ἐπαγγέλλεται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('φαίνει',
              'φαίνεται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('παραπλήσιος ἂν',
              'παραπλήττεσθαι',
-             'The compact sigma/theta or sigma/chi group remains unresolved independently of the digital witness.'),
+             'The compact sigma/theta or sigma/chi group remains unresolved '
+             'independently of the digital witness.'),
             ('παρακείμεναι',
              'παράκεινται',
-             'The compact final consonants remain unresolved independently of the digital witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
             ('ἐπιγίνεται',
              'ἐπιγίνεται / ἐπιφύεται',
-             'The compact final consonants remain unresolved independently of the digital witness. The source verb '
-             'differs from the independent witness.'),
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness. The source verb differs from the '
+             'independent witness.'),
             ('γινόμεν',
              'γίνεται',
-             'The compact final consonants remain unresolved independently of the digital witness.')]}
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
+            ('ὅδεως ἀφ’ ἧς ἡμῖν φαίνει',
+             'οὐδεὶς ἀστὴρ τῶν ἑπτὰ φαίνεται',
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.'),
+            ('φαί- 30 νεται',
+             'φαίνεται',
+             'The compact final consonants remain unresolved independently of '
+             'the digital witness.')]}
 LEADING_FRAGMENTS={}
 CHUNKS={}
 def records(rows,document,crop_png,sections):

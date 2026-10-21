@@ -59,6 +59,18 @@ def test_unrecorded_uncertainty_cannot_become_verified_text():
         build(text={1:'κεφαλή',2:'λέξις {u0}',3:'τέλος'})
 
 
+def test_unrecorded_placeholder_before_recorded_uncertainty_is_rejected():
+    with pytest.raises(ValueError, match='placeholder'):
+        build(text={1:'κεφαλή',2:'{u9} {u0}',3:'τέλος'},
+            uncertainties={2:[({'start':6,'text':'λέξις'},'λέξις?',
+                {'start':6,'text':'λέξις'},'Indistinct ending.')]})
+
+
+def test_empty_uncertainty_list_does_not_mark_verified_words_uncertain():
+    assert all(record['status']=='reviewed-verified'
+               for record in build(uncertainties={1:[],2:[],3:[]}))
+
+
 @pytest.mark.parametrize('field', ['uncertainties','fragments','roles'])
 def test_qualification_for_missing_passage_fails(field):
     with pytest.raises(ValueError, match='unenumerated passage'):

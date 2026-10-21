@@ -110,6 +110,13 @@ def test_empty_review_keeps_scope_visible_and_completely_unreviewed(fixture):
     assert campaign.replay_text(result['rows'][0], fixture['rows'][0]['text']) == fixture['rows'][0]['text']
 
 
+def test_authoring_placeholder_cannot_bypass_table_helper(fixture):
+    segment(fixture)['corrected_text'] = '{u9}'
+    segment(fixture)['scan']['observed_text'] = '{u9}'
+    with pytest.raises(ValueError, match='placeholder'):
+        compile_fixture(fixture)
+
+
 def test_build_reproduces_from_immutable_archive_after_later_corpus_admission(fixture, tmp_path):
     frozen_raw = gzip.compress(fixture['inputs'][0], mtime=0)
     files = [(campaign.MANIFEST, campaign.encode(fixture['manifest'])),

@@ -394,6 +394,8 @@ def _compile_segment(value, frozen, sections, document, images, evidence_files):
     original = frozen['original_row']['text']
     _span(original, segment.get('start'), segment.get('end'), segment.get('original_text'), 'Review segment')
     _text(segment.get('corrected_text'), 'Corrected text', empty=True)
+    if re.search(r'\{u\d+\}', segment['corrected_text']):
+        raise ValueError('An unresolved authoring placeholder cannot enter corrected text')
     _timestamp(segment.get('reviewed_at'))
     _text(segment.get('evidence'), 'Direct scan evidence')
     if segment.get('review_basis') != 'direct-scan-inspection':
