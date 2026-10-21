@@ -62,6 +62,7 @@ COVERAGE_REPORT := data/coverage_report.json
 CROSSWALK_REPORT := data/crosswalk_report.json
 CROSSWALK       := data/tlg_crosswalk.json
 QUALITY_REPORT  := data/ocr_quality_report.json
+PHOTIUS_CURRENT_ASSESSMENT := data/audits/photius-historical-readings-current.json.gz
 PHOTIUS_REVIEW_STATUS := data/corpus_changes/photius-bekker-complete-review/review-status.json.gz
 PHOTIUS_REVIEW_INPUTS := scripts/build_photius_review_observations.py \
     scripts/photius_complete_review_table.py \
@@ -226,7 +227,18 @@ $(CROSSWALK_REPORT): $(REGISTRY) $(CORPUS_EDITIONS) data/work_index.json scripts
 #    each drifted from the text they describe.
 reports: $(QUALITY_REPORT) $(WORK_LEMMAS) $(CATALOG) README.md $(GRAVE_RESIDUE) $(PG003_ALT) $(DUP_LEAVES) $(DUP_PAGES) $(PG003_HEADS) $(PG003_GEOM) $(NONFINAL_GRAVES) data/nonfinal_grave_tranche_thirdparty.json $(KNOWN_LIMITATIONS) $(LATIN_IN_GREEK) $(SPACING_MARKS) $(MERGE_SAMPLE) $(MERGE_GUESSES)
 reports: $(POLYTONIC_REPORT) $(POLYTONIC_PAGES) $(COMPLETENESS_REPORT) $(DATE_COMPARISON)
-reports: $(SOURCE_COMPONENTS)
+reports: $(SOURCE_COMPONENTS) $(PHOTIUS_CURRENT_ASSESSMENT)
+
+# Keep the earlier diagnostic frozen; the current diagnostic includes the later
+# occurrence annotations and is compressed separately from its predecessor.
+$(PHOTIUS_CURRENT_ASSESSMENT): scripts/build_photius_historical_assessment.py \
+    scripts/assess_photius_historical.py scripts/audit_compression.py $(PHOTIUS_LATER_INPUTS) \
+    data/corpus/photius.bibliotheca.jsonl data/audits/photius-historical-readings.json \
+    data/passage_aliases.json \
+    data/corpus_changes/photius-bekker-coverage/source-library-local002.json.gz \
+    data/corpus_changes/photius-bekker-coverage/coverage.json \
+    data/corpus_changes/photius-bekker-index/before.jsonl.gz
+	$(PY) scripts/build_photius_historical_assessment.py --write
 
 # These reports reuse pinned source evidence. Fresh model inference remains an
 # explicit evaluation run; changing the corpus never re-runs that experiment.
@@ -493,7 +505,7 @@ check-photius-uncertainty-sources:
 	$(PY) scripts/fetch_photius_uncertainty_sources.py --check
 
 check-photius-historical-assessment:
-	$(PY) scripts/assess_photius_historical.py --check
+	$(PY) scripts/build_photius_historical_assessment.py --check
 
 check-photius-apparatus-audit:
 	$(PY) scripts/audit_photius_apparatus.py --check

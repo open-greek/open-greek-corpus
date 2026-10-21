@@ -1060,9 +1060,16 @@ validating its contiguous apparatus projection; its earlier editorial audit
 and separate apparatus text remain unchanged. Later lexical access validates
 both layers and preserves boundaries around unresolved readings.
 
-`python3 scripts/assess_photius_historical.py --write` generates a separate
-diagnostic comparison of the retained historical rows with the matching digital
-sections; `--check` verifies it. It preserves exact Unicode offsets, all tied
+`python3 scripts/build_photius_historical_assessment.py --write` generates a
+compressed current diagnostic comparison in
+`data/audits/photius-historical-readings-current.json.gz`; `--check` verifies it.
+The original `data/audits/photius-historical-readings.json` remains a frozen
+predecessor pinned to the corpus before the later occurrence-context review.
+The current report retains exact live rows and their hashes and links both the
+predecessor and the later annotation authorities. Neither diagnostic supplies
+correction or occurrence-association authority. Use the current builder for writes
+and checks; `assess_photius_historical.py` retains the comparison algorithm.
+It preserves exact Unicode offsets, all tied
 local counterparts, unaligned text, and the two source-mapping exceptions.
 Textual differences are review candidates, not automatically accepted OCR
 corrections or a recognition-error rate. The quality report distinguishes
@@ -1143,6 +1150,38 @@ tombstones and checked passage aliases to their reviewed retained occurrences;
 undo restores both the exact preceding corpus and passage-alias bytes.
 Successive reviews transfer each passage from its preceding source component;
 reviewing a recovered body prefix does not count its earlier body twice.
+
+A later occurrence-context layer corrects digital associations independently of
+those frozen review records. Run
+`python3 scripts/repair_photius_context.py --apply --recorded-at UTC_TIMESTAMP`
+for the first admission, or `--check` to reproduce it. It aligns the entire
+ordered observed passage, uses verified surrounding words as anchors, and gives
+uncertain spellings no preference in locating an occurrence. All optimal
+counterparts and deletion/insertion paths survive. Short contexts stay unmatched;
+the two unusable digital pages remain scan-only. Display text and every earlier
+review annotation are preserved under
+`data/corpus_changes/photius-bekker-context/`.
+
+The next source review covers all 33 uncertain segments on physical pages
+169–170 (Bekker 434–435). Direct Bekker inspection, compared with separately
+typeset Hoeschel 1601 pages 704–707, resolves 22: 17 display corrections and
+five confirmed unchanged readings. Eleven ambiguous endings or fragments remain
+uncertain. The historical baseline still records 3,069 uncertain segments; the
+later review leaves 3,047. Different edition readings remain attributed variants
+and do not determine what Bekker printed. Nonbody material and every independent
+fragment or earlier uncertainty mask remain excluded after a spelling decision.
+
+`scripts/photius_uncertainty_observations.py` contains the occurrence decisions.
+`python3 scripts/fetch_photius_uncertainty_sources.py --write` obtains four
+checksum-pinned public-domain comparison images; `--check` verifies them offline.
+`python3 scripts/repair_photius_uncertainties.py --apply` compiles and admits the
+decisions above the context layer; `--check` freshly renders and verifies their
+source crops. Exact original/corrected rows, rejected candidates, source image
+hashes, and timestamps are retained in structured records under
+`data/corpus_changes/photius-bekker-uncertainties/`. Undo runs in reverse order:
+uncertainties, context, then the complete campaign. Frozen undo requires no live
+correction source. The quality, coverage, and source-component reports publish
+the later reviews separately from the original campaign totals.
 
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
@@ -3390,7 +3429,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 282,630 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 279,017 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
