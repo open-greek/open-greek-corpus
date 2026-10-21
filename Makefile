@@ -507,7 +507,7 @@ check-photius-context:
 	$(PY) scripts/repair_photius_context.py --check
 
 check-photius-uncertainties:
-	$(PY) scripts/repair_photius_uncertainties.py --check
+	$(PY) scripts/check_photius_uncertainties.py
 
 check-photius-uncertainty-sources:
 	$(PY) scripts/fetch_photius_uncertainty_sources.py --check

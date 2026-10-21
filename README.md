@@ -1175,8 +1175,10 @@ fragment or earlier uncertainty mask remain excluded after a spelling decision.
 `python3 scripts/fetch_photius_uncertainty_sources.py --write` obtains four
 checksum-pinned public-domain comparison images; `--check` verifies them offline.
 `python3 scripts/repair_photius_uncertainties.py --apply` compiles and admits the
-decisions above the context layer; `--check` freshly renders and verifies their
-source crops. Exact original/corrected rows, rejected candidates, source image
+decisions above the context layer. `make check-photius-uncertainties` freshly
+renders and verifies the source crops and checks the exact historical corpus
+under any later admissions. Its adapter preserves the frozen original recipe.
+Exact original/corrected rows, rejected candidates, source image
 hashes, and timestamps are retained in structured records under
 `data/corpus_changes/photius-bekker-uncertainties/`. Undo runs in reverse order:
 uncertainties, context, then the complete campaign. Frozen undo requires no live
