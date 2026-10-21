@@ -30,11 +30,16 @@ def projection_recipe_pins():
     scripts = Path(__file__).resolve().parent
     names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py",
              "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py",
-             "repair_photius_historical_readings.py", "repair_photius_historical_batches.py", "ocr_consensus.py")
+             "repair_photius_historical_readings.py", "repair_photius_historical_batches.py",
+             "repair_photius_complete_review.py", "assess_photius_historical.py", "ocr_consensus.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("complete_source_review"):
+        from repair_photius_complete_review import lexical_segments
+        lexical_segments(rec)
+        return rec["analysis_text"]
     if rec.get("historical_reading_batches"):
         from repair_photius_historical_batches import validate_projection
         validate_projection(rec)
@@ -99,6 +104,9 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if rec.get("complete_source_review"):
+            from repair_photius_complete_review import lexical_segments
+            return lexical_segments(rec)
         if key in self.rows:
             source = rec.get("text", "")
             runs, previous = [], None

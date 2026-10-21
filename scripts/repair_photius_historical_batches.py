@@ -721,6 +721,8 @@ def _validate_saved(root, audit, *, require_current=False):
 def build(root=ROOT, *, batch_id=None):
     """Plan a new batch, or replay an existing immutable batch, without writing."""
     root = Path(root); before = (root/CORPUS).read_bytes(); chain = _chain(root)
+    if b'"complete_source_review"' in before:
+        raise ValueError('Undo the complete-passage admission before appending an earlier occurrence layer')
     active = _active_chain(before, chain)
     for audit, _ in active:
         _validate_saved(root, audit, require_current=True)
@@ -749,6 +751,8 @@ def build(root=ROOT, *, batch_id=None):
 
 def check(root=ROOT, *, require_current=True):
     root = Path(root); raw = (root/CORPUS).read_bytes(); chain = _chain(root)
+    from repair_photius_complete_review import restore_before_bytes as restore_complete
+    raw = restore_complete(raw, root)
     if require_current and chain and sha(raw) not in {BASE_SHA, *(a['output_corpus_sha256'] for a, _ in chain)}:
         raise ValueError('Current historical corpus is not an exact known batch stage')
     active = _active_chain(raw, chain)
@@ -759,6 +763,8 @@ def check(root=ROOT, *, require_current=True):
 
 def restore_before_bytes(raw, root=ROOT):
     """Verify later batches in memory, then expose the unchanged .4 postimage."""
+    from repair_photius_complete_review import restore_before_bytes as restore_complete
+    raw = restore_complete(raw, root)
     root = Path(root); active = _active_chain(raw, _chain(root))
     for audit, _ in reversed(active):
         artifacts = _validate_saved(root, audit)
@@ -775,6 +781,8 @@ def _record_map(raw):
 
 def restore_before_row(row, root=ROOT):
     """Check every exact row postimage before exposing its preceding .4 row."""
+    from repair_photius_complete_review import restore_before_row as restore_complete
+    row = restore_complete(row, root)
     current = deepcopy(row)
     for tag in reversed(row.get('historical_reading_batches', [])):
         p = paths(tag['batch_id']); audit_raw = (Path(root)/p['audit']).read_bytes()
@@ -797,6 +805,10 @@ def restore_before_row(row, root=ROOT):
 
 
 def validate_projection(row, root=ROOT):
+    if row.get('complete_source_review'):
+        from repair_photius_complete_review import lexical_segments as complete_segments, restore_before_row as restore_complete_row
+        complete_segments(row, root)
+        row = restore_complete_row(row, root)
     if not row.get('historical_reading_batches'):
         raise ValueError('Historical projection lacks its batch references')
     restore_before_row(row, root)
@@ -811,6 +823,9 @@ def validate_projection(row, root=ROOT):
 
 
 def lexical_segments(row, root=ROOT):
+    if row.get('complete_source_review'):
+        from repair_photius_complete_review import lexical_segments as complete_segments
+        return complete_segments(row, root)
     validate_projection(row, root)
     if row.get('historical_prefix_review'):
         return _slot_segments(row)
@@ -818,7 +833,9 @@ def lexical_segments(row, root=ROOT):
 
 
 def active_metadata(root=ROOT):
-    root = Path(root); raw = (root/CORPUS).read_bytes(); active = _active_chain(raw, _chain(root))
+    from repair_photius_complete_review import restore_before_bytes as restore_complete
+    root = Path(root); raw = restore_complete((root/CORPUS).read_bytes(), root)
+    active = _active_chain(raw, _chain(root))
     if not active:
         return None
     audits = check(root)

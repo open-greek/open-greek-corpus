@@ -47,6 +47,7 @@ rates, no wall-clock anywhere), plus a human summary on stderr.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import math
 import re
@@ -255,6 +256,34 @@ def consensus_qualification(records: list[dict]) -> dict | None:
         'qualification': 'Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.'}
 
 
+def complete_review_qualification(root: Path) -> dict | None:
+    """Publish checked scan-review accounting without claiming corpus admission."""
+    import prepare_photius_review_campaign as campaign
+    from build_photius_review_observations import build
+    from repair_photius_complete_review import AUDIT, active_metadata
+    root = Path(root)
+    if not (root / campaign.MANIFEST).exists():
+        return None
+    outputs, result = build(root)
+    if any((root / path).read_bytes() != raw for path, raw in outputs.items()):
+        raise ValueError('Photius complete-passage review accounting is stale')
+    admitted = active_metadata(root)
+    if admitted and admitted['source_review']['sha256'] != hashlib.sha256(outputs[campaign.OUT]).hexdigest():
+        raise ValueError('Admitted Photius review differs from its current source observations')
+    return {'campaign_id': result['campaign_id'], 'scope_complete': result['scope_complete'],
+        'counts': result['counts'],
+        'complete_physical_pages': result['complete_physical_pages'],
+        'source_review': {'path': campaign.OUT.as_posix(),
+                          'sha256': hashlib.sha256(outputs[campaign.OUT]).hexdigest()},
+        'baseline_corpus_sha256': result['input_pins']['corpus']['sha256'],
+        'current_corpus_sha256': hashlib.sha256((root / campaign.CORPUS).read_bytes()).hexdigest(),
+        'corpus_admission_complete': admitted is not None,
+        **({'admission_audit': {'path': AUDIT.as_posix(),
+                                'sha256': hashlib.sha256((root / AUDIT).read_bytes()).hexdigest()}}
+           if admitted else {}),
+        'qualification': 'Full direct scan inspection of the named passages, including unchanged text, is separate from word consensus and lexical admission. Unlisted passages remain unreviewed. A partial campaign cannot satisfy the issue close criterion.'}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -322,6 +351,10 @@ def main() -> None:
         consensus = consensus_qualification(records)
         if consensus is not None:
             works[slug]['consensus'] = consensus
+        if slug == 'photius.bibliotheca':
+            reviewed = complete_review_qualification(REPO)
+            if reviewed is not None:
+                works[slug]['complete_source_review_campaign'] = reviewed
 
     # TEI-primary works whose displaced secondary is OCR: the OCR containment
     # in the trusted primary is a corpus-level OCR quality estimate.

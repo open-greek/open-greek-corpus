@@ -1068,6 +1068,52 @@ Textual differences are review candidates, not automatically accepted OCR
 corrections or a recognition-error rate. The quality report distinguishes
 partially corrected historical occurrences from rows with full consensus slots.
 
+Complete-passage review has a separate frozen scope under
+`data/corpus_changes/photius-bekker-complete-review/`: 3,462 historical passages
+on 236 physical source pages, pinned to the exact preceding corpus, original
+rows, scan, digital archive, and source-mapping exceptions. The authored
+`scripts/photius_complete_observations_*.py` tables record direct scan inspection
+of unchanged text as well as corrections. Exact character spans must cover a
+passage without gaps or overlaps before it counts as completely reviewed.
+Source uncertainty remains explicit, and printed word fragments have separate
+lexical exclusions. A completed OCR request or a digital match cannot confer
+review status. Unresolved authoring placeholders are rejected before corrected
+text can enter a review artifact.
+
+All 3,462 frozen passages now have complete scan reviews: 2,378 are verified
+and 1,084 retain explicit source uncertainty. These are passage review statuses,
+not recognition-error measurements or a claim that the edition is error-free.
+
+`python3 scripts/build_photius_review_observations.py --write` reproduces the
+source observations and complete-passage accounting; `--check` checks both
+artifacts without changing the corpus. Add `--require-complete-scope` to require
+every frozen passage to have been reviewed. The immutable original rows and
+exact span replacements support replay and undo without the live sources.
+Review accounting is distinct from corpus admission, word consensus, lexical
+eligibility, and a tested tagged release. A partial campaign does not satisfy
+the close criterion for issue #68.
+
+`python3 scripts/repair_photius_complete_review.py --apply` admits the campaign
+only after every frozen passage has a complete source review. It preserves each
+exact original row and earlier audit layer, retains contrary digital readings,
+and excludes source uncertainties, printed fragments, earlier unresolved
+readings, nonbody material, and unpaired spans with an available digital witness
+from lexical counts. The known mismapped digital sections remain explicitly
+unavailable. An unresolved OCR span retains its original display, including any
+uncertified hyphen, and remains excluded in full; that hyphen is not labeled a
+confirmed printed fragment. `--check` reproduces the
+admission and `--undo` restores the exact preceding corpus without requiring
+the live correction sources. The quality report publishes source-review
+coverage separately from admission and word-consensus counts.
+Digital insertion candidates break lexical adjacency in both bounded-passage
+and token-edge comparisons; every optimal neighboring reading remains retained.
+Clipped digital words and punctuation-only comparison windows cannot supply
+complete lexical counterparts. Duplicate extractions retain empty citation
+tombstones and checked passage aliases to their reviewed retained occurrences;
+undo restores both the exact preceding corpus and passage-alias bytes.
+Successive reviews transfer each passage from its preceding source component;
+reviewing a recovered body prefix does not count its earlier body twice.
+
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
 pages; completed source reviews check body-line coverage, marks, repetition,
@@ -1604,7 +1650,25 @@ make reports               # quality report, per-work lemma counts, this README'
                            # chain can go to the network)
 PY=.venv/bin/python DILEMMA=/path/to/dilemma make   # override interpreter / lemmatizer path
 python -m pytest tests/ -q                         # external OCR checks skip without OCR_PIPELINE
+make -j4 check                                    # all artifact validators, up to four at once
 ```
+
+The `check` prerequisites are independent and read-only. Plain `make check`
+runs the same validators serially; `-j4` uses available CPU cores without
+skipping checks. For parallel tests, install the optional `pytest-xdist`
+development tool and run:
+
+```bash
+python -m pytest tests/ -q -n 6 --dist loadfile --durations=20
+```
+
+Tests in each file stay together, and the timing report identifies the slowest
+cases. Adjust worker counts to available memory.
+
+After changing lexical eligibility, refresh positional capitalization with
+`make capital-positions` before freezing a release. Both lemma tables depend
+on that measurement; rebuild them in fresh processes so the updated folds
+are loaded, then run the capitalization freshness check.
 
 Nothing here needs the upstream OCR pipeline, which is where the raw OCR and the
 reversible correction overlay live. Eleven tests cross-check a figure or a vendored
@@ -3295,7 +3359,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 301,908 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 282,630 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |

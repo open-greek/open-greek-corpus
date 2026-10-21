@@ -388,6 +388,9 @@ def active_metadata(root=ROOT):
 
 
 def lexical_segments(row, root=ROOT):
+    if row.get('complete_source_review'):
+        from repair_photius_complete_review import lexical_segments as complete_segments
+        return complete_segments(row, root)
     if row.get("historical_reading_batches"):
         from repair_photius_historical_batches import restore_before_row, lexical_segments as reviewed_segments
         lexical_segments(restore_before_row(row, root), root)

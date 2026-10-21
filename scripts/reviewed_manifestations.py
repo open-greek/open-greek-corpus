@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import argparse
 from collections import Counter
+from copy import deepcopy
 import gzip
 import hashlib
 import json
@@ -374,6 +375,55 @@ def _attach_scan_comparisons(root, catalog, output, comparative_ids):
         composition["components"].append({"edition": edition["key"], "storage": "paratext", "passages": len(seen), "license": license})
 
 
+def _batch_photius_components(components, batches, rows):
+    """Transfer a newly reviewed prefix from its existing body component once."""
+    loci = batches['newly_corrected_loci']
+    if len(set(loci)) != len(loci) or len(loci) != batches['counts']['newly_corrected_rows']:
+        raise ValueError('Historical batch ownership does not partition its new passages')
+    moved = Counter()
+    for locus in loci:
+        row = rows.get(locus)
+        if row is None:
+            raise ValueError('Historical batch ownership names an absent retained passage')
+        if row.get('source_body_correction'):
+            moved['reviewed-historical-body-correction'] += 1
+        elif row.get('ocr_consensus'):
+            raise ValueError('A historical batch needs explicit ownership for its earlier consensus component')
+    result = deepcopy(components)
+    for role, count in moved.items():
+        owners = [c for c in result if c['role'] == role]
+        retained = [c for c in result if c['role'] == 'retained-primary']
+        if len(owners) != 1 or len(retained) != 1 or owners[0].get('passages', 0) < count:
+            raise ValueError('Historical batch ownership exceeds its earlier source component')
+        # The batch total already moved these rows out of retained-primary.
+        # Their actual preceding owner was the independently reviewed body.
+        retained[0]['passages'] += count
+        owners[0]['passages'] -= count
+    return result
+
+
+def _complete_photius_components(components, complete):
+    """Move served passage ownership once; earlier audit events stay visible."""
+    result = deepcopy(components)
+    expected = complete['replaced_component_passages']
+    consumed = set()
+    for component in result:
+        role = component['role']
+        if role in expected:
+            if role in consumed or component.get('passages', 0) < expected[role]:
+                raise ValueError('Complete Photius review does not partition earlier source components')
+            component['passages'] -= expected[role]
+            consumed.add(role)
+    if consumed != set(expected):
+        raise ValueError('Complete Photius review names an absent earlier source component')
+    if sum(expected.values()) != complete['counts']['fully_source_reviewed_rows']:
+        raise ValueError('Complete Photius source component has inconsistent passage accounting')
+    result.append({'edition': 'bekker1825-complete-source-reviewed',
+        'role': 'complete-reviewed-historical-passages',
+        'passages': complete['counts']['fully_source_reviewed_rows'], **complete})
+    return result
+
+
 def _photius(root):
     relative = "data/corpus_changes/photius-bekker-coverage/coverage.json"
     path = root / relative
@@ -387,7 +437,8 @@ def _photius(root):
     if index_path.exists():
         original_hashes.add(_load(index_path)["source_sha256"])
     from repair_photius_apparatus import restore_legacy_bytes, active_metadata
-    legacy = restore_legacy_bytes(primary.read_bytes(), root)
+    primary_raw = primary.read_bytes()
+    legacy = restore_legacy_bytes(primary_raw, root)
     if hashlib.sha256(legacy).hexdigest() in original_hashes:
         return {}
     if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
@@ -399,6 +450,8 @@ def _photius(root):
     historical = historical_metadata(root)
     from repair_photius_historical_batches import active_metadata as batch_metadata
     historical_batches = batch_metadata(root)
+    from repair_photius_complete_review import active_metadata as complete_metadata
+    complete = complete_metadata(root)
     if (report["covered_authorial_scan_pages"] != 545 or report["added_passages"] != 309 or
             report["historical_body_passages"] != 3846 or report["preserved_index_passages"] != 501 or
             report["added_scan_ranges"] != [[13, 278], [379, 421]] or
@@ -516,6 +569,16 @@ def _photius(root):
                                "license": "CC-BY-SA-4.0",
                                "passages": body["counts"]["added_rows"] + body["counts"]["replaced_rows"],
                                **body})
+    if historical_batches:
+        rows = {row['locus']: row for row in map(json.loads, primary_raw.splitlines())}
+        components = _batch_photius_components(components, historical_batches, rows)
+    if complete:
+        components = _complete_photius_components(components, complete)
+        editions.append(_edition('bekker1825-complete-source-reviewed',
+            'Bekker 1825, complete source-reviewed historical passages',
+            scheme='scan-page.historical-row', source=report['legacy_source']['url'],
+            license='CC-BY-SA-4.0', editor='Bekker, Immanuel', year=1825,
+            note='Complete direct scan review of the frozen retained historical scope. All original readings and earlier audit layers remain reversible; source disagreements, uncertain characters, printed fragments, and nonbody material remain explicit and outside scalar lexical counts.'))
     return {slug: {"editions": editions, "default_edition": merged["key"],
         "base_note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus."
             + (" Reviewed recoveries within the retained ranges have their own licensed body component." if readings and readings.get("body_recovery") else ""), "coverage_composition": {
@@ -528,6 +591,7 @@ def _photius(root):
         **({"reading_layer": readings} if readings else {}),
         **({"historical_reading_layer": historical} if historical else {}),
         **({"historical_reading_batches": historical_batches} if historical_batches else {}),
+        **({"complete_source_review": complete} if complete else {}),
         "qualification": report["edition_scope"]}}}
 
 

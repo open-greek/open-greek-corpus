@@ -2045,19 +2045,19 @@
         "added_passages": 309,
         "preserved_index_passages": 501,
         "publication": {
-          "declared_release": "corpus-2026-10-21.1",
+          "declared_release": "corpus-2026-10-21.2",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
       },
-      "corpus_file_sha256": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5",
+      "corpus_file_sha256": "a263df857a26dcbd2c2e58bd3012fdd4dc03ffe860e800c0e25d67fe7d0e0623",
       "edition": {
         "edition": "bekker1824-independent-ocr-consensus",
         "id": "ogc002810",
         "license": "CC-BY-SA-4.0",
-        "n_analysis_tokens": 301908,
+        "n_analysis_tokens": 282630,
         "n_passages": 3782,
-        "n_tokens": 431951,
+        "n_tokens": 431651,
         "source": "ocr"
       },
       "passages": 3782,
@@ -16442,47 +16442,392 @@
       ],
       "ending": [
         {
-          "urn": "photius.bibliotheca",
-          "cts": "urn:cts:greekLit:tlg4040.tlg001",
-          "edition": "bekker1825-reviewed-historical-readings",
-          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.24",
-          "source": "ocr",
-          "license": "CC-BY-SA-4.0",
-          "text": "νὸς δὲ τὰς τὴν αὐτὴ βδελυξαμένους φιλαρχίαν καὶ κατὰ τῶν μετανοοῦντων ἀπόνοιαν. Κορνήλιον μέντοι τὸν τῆς Ῥώμης ἐπίσκοπον μετὰ ταῦτα ἡ καλλινίκῳ μαρτυρίᾳ τέλει τὸν βίον ἀναλῦσαι ὁ ἀρχιερεὺς Ἀλεξανδρείας Εὐλόγιος ἀναγράφει.",
+          "analysis_text": "  δὲ   τὴν   βδελυξαμένους φιλαρχίαν καὶ κατὰ τῶν μετανοοῦντων ἀπόνοιαν. Κορνήλιον μέντοι τὸν τῆς Ῥώμης ἐπίσκοπον μετὰ ταῦτα καὶ καλλινίκῳ   τέλει τὸν βίον ἀναλῦσαι ὁ ἀρχιερεὺς Ἀλεξανδρείας Εὐλόγιος ἀναγράφει.",
+          "complete_source_review": {
+            "excluded_spans": [
+              {
+                "end": 4,
+                "evidence": [
+                  {
+                    "classification": "source-confirmed-word-fragment",
+                    "end": 4,
+                    "lexical_eligible": false,
+                    "qualification": "Incomplete printed word across independently retained corpus rows; this fragment is not a complete lexical token.",
+                    "side": "leading",
+                    "start": 0,
+                    "text": "νοὺς"
+                  },
+                  {
+                    "alternatives": [
+                      {
+                        "end": 595,
+                        "kind": "digital",
+                        "may_be_unaligned": true,
+                        "review_span": {
+                          "end": 4,
+                          "start": 0,
+                          "text": "νοὺς"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 584,
+                        "text": "Κορνηλιανὸς"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 4,
+                    "may_be_unaligned": true,
+                    "start": 0,
+                    "text": "νοὺς"
+                  }
+                ],
+                "start": 0,
+                "text": "νοὺς"
+              },
+              {
+                "end": 12,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 602,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 12,
+                          "start": 8,
+                          "text": "τοὺς"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 599,
+                        "text": "τὰς"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 12,
+                    "may_be_unaligned": false,
+                    "start": 8,
+                    "text": "τοὺς"
+                  }
+                ],
+                "start": 8,
+                "text": "τοὺς"
+              },
+              {
+                "end": 22,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 611,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 22,
+                          "start": 17,
+                          "text": "αὐτοῦ"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 607,
+                        "text": "αὐτὴ"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 22,
+                    "may_be_unaligned": false,
+                    "start": 17,
+                    "text": "αὐτοῦ"
+                  }
+                ],
+                "start": 17,
+                "text": "αὐτοῦ"
+              },
+              {
+                "end": 157,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 746,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 157,
+                          "start": 149,
+                          "text": "μαρτυρίῳ"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 738,
+                        "text": "μαρτυρίᾳ"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 157,
+                    "may_be_unaligned": false,
+                    "start": 149,
+                    "text": "μαρτυρίῳ"
+                  }
+                ],
+                "start": 149,
+                "text": "μαρτυρίῳ"
+              }
+            ],
+            "original_row_sha256": "b9e8c93383e417e5f13000daf17bfd3941c8b40ae3b1df8ded6df24cc38f7126",
+            "qualification": "Complete direct scan review, separate from a recognition-error estimate. Every prior row and audit layer remains frozen. Diagnostic disagreements, source uncertainties, nonbody material, and printed fragments remain outside scalar lexical counts.",
+            "record_sha256": "b345096d367eaf4d0d62e475a42a824bc144afc9023c5f012804f287aeb72734",
+            "schema": "photius-complete-source-review-admission-v1",
+            "source_review": {
+              "campaign_id": "photius-historical-complete-review-2026-10-21",
+              "path": "data/corpus_changes/photius-bekker-complete-review/admission/source-review.json.gz",
+              "sha256": "58fa74b6e2abdf8303ea3b1739f636c32edb6eb6ac63c2596f120b53e2c6eb99"
+            },
+            "status": "reviewed-verified"
+          },
           "corrections": [
             "freq"
           ],
-          "language": "grc",
+          "cts": "urn:cts:greekLit:tlg4040.tlg001",
+          "edition": "bekker1825-complete-source-reviewed",
           "historical_reading_repair": {
+            "original_text_sha256": "8b071b4bb6a646e38aee823e28eea14176449532876b64b64f5f5fa776702672",
+            "qualification": "Partial source-reviewed occurrences; other historical text remains unassessed.",
+            "reviewed_occurrences": 3,
             "schema": "photius-historical-occurrence-v1",
             "source_review": {
               "path": "data/corpus_changes/photius-bekker-historical-readings/source-review.json",
               "sha256": "d56902cdcf9f34d569e9d75032212afd7adbb5c74b4d60d0638a50b51c767437"
-            },
-            "original_text_sha256": "8b071b4bb6a646e38aee823e28eea14176449532876b64b64f5f5fa776702672",
-            "reviewed_occurrences": 3,
-            "qualification": "Partial source-reviewed occurrences; other historical text remains unassessed."
-          }
+            }
+          },
+          "language": "grc",
+          "license": "CC-BY-SA-4.0",
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.24",
+          "source": "ocr",
+          "text": "νοὺς δὲ τοὺς τὴν αὐτοῦ βδελυξαμένους φιλαρχίαν καὶ κατὰ τῶν μετανοοῦντων ἀπόνοιαν. Κορνήλιον μέντοι τὸν τῆς Ῥώμης ἐπίσκοπον μετὰ ταῦτα καὶ καλλινίκῳ μαρτυρίῳ τέλει τὸν βίον ἀναλῦσαι ὁ ἀρχιερεὺς Ἀλεξανδρείας Εὐλόγιος ἀναγράφει.",
+          "urn": "photius.bibliotheca"
         },
         {
-          "urn": "photius.bibliotheca",
+          "analysis_text": "  δὲ τὴν φράσιν ὁ ἀνὴρ   τῶν ἐπὶ παιδείᾳ δυναμένων ἢ συγγραφῇ ὄνομα ἔχειν· ὅς γε   αὐτὸ τὸ σόλοικα καὶ ὑποβάρβαρα γράφειν ἐνίοτε παραιτεῖται. ἐν μέντοι τοῖς γραφικοῖς νοήμασι πολλαχοῦ   τῶν   ἀπολείπεται. τὸ πιθανὸν δὲ καὶ ἡδύ, ὡς τοιαύτῃ φράσει, οὐκ ἀδύνατός ἐστιν ἐνεργάσασθαι.",
+          "complete_source_review": {
+            "excluded_spans": [
+              {
+                "end": 4,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 819,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 4,
+                          "start": 0,
+                          "text": "Ἔστι"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 816,
+                        "text": "Ἔξι"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 4,
+                    "may_be_unaligned": false,
+                    "start": 0,
+                    "text": "Ἔστι"
+                  }
+                ],
+                "start": 0,
+                "text": "Ἔστι"
+              },
+              {
+                "end": 28,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 842,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 28,
+                          "start": 26,
+                          "text": "οὐ"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 841,
+                        "text": "ἐ"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 28,
+                    "may_be_unaligned": false,
+                    "start": 26,
+                    "text": "οὐ"
+                  }
+                ],
+                "start": 26,
+                "text": "οὐ"
+              },
+              {
+                "end": 89,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 903,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 89,
+                          "start": 85,
+                          "text": "οὐδ’"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 899,
+                        "text": "οὐδ᾽"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 89,
+                    "may_be_unaligned": false,
+                    "start": 85,
+                    "text": "οὐδ’"
+                  }
+                ],
+                "start": 85,
+                "text": "οὐδ’"
+              },
+              {
+                "end": 195,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 1008,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 195,
+                          "start": 191,
+                          "text": "οὐδὲ"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 1005,
+                        "text": "ὁδῷ"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 195,
+                    "may_be_unaligned": false,
+                    "start": 191,
+                    "text": "οὐδὲ"
+                  }
+                ],
+                "start": 191,
+                "text": "οὐδὲ"
+              },
+              {
+                "end": 207,
+                "evidence": [
+                  {
+                    "alternatives": [
+                      {
+                        "end": 1019,
+                        "kind": "digital",
+                        "may_be_unaligned": false,
+                        "review_span": {
+                          "end": 207,
+                          "start": 200,
+                          "text": "ἀρίστων"
+                        },
+                        "role": "recorded-source-reading",
+                        "section": "tlg4040-tlg001-local002-s557",
+                        "source": {
+                          "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+                          "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+                        },
+                        "start": 1013,
+                        "text": "ἀρίσων"
+                      }
+                    ],
+                    "classification": "digital-reading-disagreement",
+                    "end": 207,
+                    "may_be_unaligned": false,
+                    "start": 200,
+                    "text": "ἀρίστων"
+                  }
+                ],
+                "start": 200,
+                "text": "ἀρίστων"
+              }
+            ],
+            "original_row_sha256": "2048e558b7b8c48cf6d7418b7eb5cd6cc00a93f5388bac45997493cda5613c1c",
+            "qualification": "Complete direct scan review, separate from a recognition-error estimate. Every prior row and audit layer remains frozen. Diagnostic disagreements, source uncertainties, nonbody material, and printed fragments remain outside scalar lexical counts.",
+            "record_sha256": "12dad2bbc1dd117a2aa547fe6b4d800e719af9ba0936fe1fc22884f638049a2d",
+            "schema": "photius-complete-source-review-admission-v1",
+            "source_review": {
+              "campaign_id": "photius-historical-complete-review-2026-10-21",
+              "path": "data/corpus_changes/photius-bekker-complete-review/admission/source-review.json.gz",
+              "sha256": "58fa74b6e2abdf8303ea3b1739f636c32edb6eb6ac63c2596f120b53e2c6eb99"
+            },
+            "status": "reviewed-verified"
+          },
           "cts": "urn:cts:greekLit:tlg4040.tlg001",
-          "edition": "bekker1825-reviewed-historical-readings",
-          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.25",
-          "source": "ocr",
-          "license": "CC-BY-SA-4.0",
-          "text": "Ἔς δὲ τὴν φράσιν ὁ ἀνὴρ ὁ τῶν ἐπὶ παιδείᾳ δυναμένων ἢ συγγραφῇ ὄνομα ἔχειν· ὅς γε οὐδ’ αὐτὸ τὸ σόλοικα καὶ ὑποβάρβαρα γράφειν ἐνίοτε παραιτεῖται. ἐν μέντοι τοῖς γραφικοῖς νοήμασι πολλαχοῦ οὐδὲ τῶν ἀρίστων ἀπολείπεται. τὸ πιθανὸν δὲ καὶ ἡδύ, ὡς τοιαύτῃ φράσει, οὐκ ἀδύνατός ἐστιν ἐνεργάσασθαι.",
-          "language": "grc",
+          "edition": "bekker1825-complete-source-reviewed",
           "historical_reading_repair": {
+            "original_text_sha256": "d3fa7bf3b86e814186cf849d5fbd64d7c88dd4e92cf028e4921bfecfe3530baa",
+            "qualification": "Partial source-reviewed occurrences; other historical text remains unassessed.",
+            "reviewed_occurrences": 7,
             "schema": "photius-historical-occurrence-v1",
             "source_review": {
               "path": "data/corpus_changes/photius-bekker-historical-readings/source-review.json",
               "sha256": "d56902cdcf9f34d569e9d75032212afd7adbb5c74b4d60d0638a50b51c767437"
-            },
-            "original_text_sha256": "d3fa7bf3b86e814186cf849d5fbd64d7c88dd4e92cf028e4921bfecfe3530baa",
-            "reviewed_occurrences": 7,
-            "qualification": "Partial source-reviewed occurrences; other historical text remains unassessed."
-          }
+            }
+          },
+          "language": "grc",
+          "license": "CC-BY-SA-4.0",
+          "locus": "helladius_chrestomathia_photius_bekker_v2_0280.25",
+          "source": "ocr",
+          "text": "Ἔστι δὲ τὴν φράσιν ὁ ἀνὴρ οὐ τῶν ἐπὶ παιδείᾳ δυναμένων ἢ συγγραφῇ ὄνομα ἔχειν· ὅς γε οὐδ’ αὐτὸ τὸ σόλοικα καὶ ὑποβάρβαρα γράφειν ἐνίοτε παραιτεῖται. ἐν μέντοι τοῖς γραφικοῖς νοήμασι πολλαχοῦ οὐδὲ τῶν ἀρίστων ἀπολείπεται. τὸ πιθανὸν δὲ καὶ ἡδύ, ὡς τοιαύτῃ φράσει, οὐκ ἀδύνατός ἐστιν ἐνεργάσασθαι.",
+          "urn": "photius.bibliotheca"
         },
         {
           "urn": "photius.bibliotheca",
@@ -18333,7 +18678,7 @@
           "held_other_works": 474
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21.1",
+          "declared_release": "corpus-2026-10-21.2",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -18931,7 +19276,7 @@
           "preserved_historical_citations": 304
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21.1",
+          "declared_release": "corpus-2026-10-21.2",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -22871,7 +23216,7 @@
           "preserved_historical_citations": 57
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21.1",
+          "declared_release": "corpus-2026-10-21.2",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -27706,7 +28051,7 @@
           }
         ],
         "publication": {
-          "declared_release": "corpus-2026-10-21.1",
+          "declared_release": "corpus-2026-10-21.2",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }

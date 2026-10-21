@@ -10,11 +10,14 @@ import frequency_projection as projection
 
 @pytest.mark.parametrize('changed', ['repair_photius_body.py', 'photius_body_vote.py', 'repair_photius_readings.py',
                                     'repair_photius_historical_readings.py',
-                                    'repair_photius_historical_batches.py', 'ocr_consensus.py'])
+                                    'repair_photius_historical_batches.py',
+                                    'repair_photius_complete_review.py',
+                                    'assess_photius_historical.py', 'ocr_consensus.py'])
 def test_imported_eligibility_code_changes_the_recipe_pin(tmp_path, monkeypatch, changed):
     names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py",
              "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py",
-             "repair_photius_historical_readings.py", "repair_photius_historical_batches.py", "ocr_consensus.py")
+             "repair_photius_historical_readings.py", "repair_photius_historical_batches.py",
+             "repair_photius_complete_review.py", "assess_photius_historical.py", "ocr_consensus.py")
     for name in names:
         (tmp_path / name).write_text(name)
     monkeypatch.setattr(projection, "__file__", str(tmp_path / names[0]))

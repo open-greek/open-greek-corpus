@@ -62,6 +62,13 @@ COVERAGE_REPORT := data/coverage_report.json
 CROSSWALK_REPORT := data/crosswalk_report.json
 CROSSWALK       := data/tlg_crosswalk.json
 QUALITY_REPORT  := data/ocr_quality_report.json
+PHOTIUS_REVIEW_STATUS := data/corpus_changes/photius-bekker-complete-review/review-status.json.gz
+PHOTIUS_REVIEW_INPUTS := scripts/build_photius_review_observations.py \
+    scripts/photius_complete_review_table.py \
+    scripts/prepare_photius_review_campaign.py scripts/assess_photius_historical.py \
+    $(wildcard scripts/photius_complete_observations_*.py) \
+    data/corpus_changes/photius-bekker-complete-review/scope.json \
+    data/corpus_changes/photius-bekker-complete-review/before-corpus.jsonl.gz
 SOURCE_COMPONENTS := data/source_component_tokens.json
 WORK_LEMMAS     := data/work_lemma_counts.tsv.gz
 CATALOG         := data/corpus_catalog.tsv
@@ -83,7 +90,9 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/repair_photius_readings.py scripts/photius_reading_vote.py \
                     scripts/photius_body_vote.py \
                     scripts/repair_photius_historical_readings.py \
-                    scripts/repair_photius_historical_batches.py scripts/ocr_consensus.py \
+                    scripts/repair_photius_historical_batches.py \
+                    scripts/repair_photius_complete_review.py scripts/assess_photius_historical.py \
+                    scripts/ocr_consensus.py \
                     $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
@@ -92,6 +101,7 @@ REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     scripts/photius_body_vote.py \
     scripts/repair_photius_historical_readings.py \
     scripts/repair_photius_historical_batches.py \
+    scripts/repair_photius_complete_review.py \
     $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
     $(wildcard data/corpus_changes/meibom-musical-anthology/changes.json \
                data/corpus_changes/photius-bekker-coverage/coverage.json \
@@ -163,7 +173,7 @@ $(ELISION_RATES): $(CORPUS_FILES) scripts/measure_elision_rates.py \
                   scripts/validate_lemma_map.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/measure_elision_rates.py
 $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
-               scripts/validate_lemma_map.py $(ELISION_RATES)
+               scripts/validate_lemma_map.py data/capital_positions.json $(ELISION_RATES)
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_lemma_frequency.py --min-count $(MIN_COUNT)
 
 # The whole OCR pipeline - ingesting the OCR output, cleaning it, and
@@ -228,7 +238,10 @@ $(DATE_COMPARISON): $(REGISTRY) $(CROSSWALK) data/oga_dating.json \
     scripts/compare_oga_glaux_dates.py $(wildcard data/reference/bilby-oga-glaux-2024/*)
 	$(PY) scripts/compare_oga_glaux_dates.py
 
-$(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_report.py $(FREQUENCY_INPUTS)
+$(PHOTIUS_REVIEW_STATUS): $(PHOTIUS_REVIEW_INPUTS)
+	$(PY) scripts/build_photius_review_observations.py --write
+
+$(QUALITY_REPORT): $(CORPUS_FILES) $(CORPUS_EDITIONS) scripts/build_ocr_quality_report.py $(FREQUENCY_INPUTS) $(PHOTIUS_REVIEW_STATUS)
 	$(PY) scripts/build_ocr_quality_report.py
 
 # A work can combine OCR and digital text. Count each served row's source
@@ -402,18 +415,78 @@ $(CROSSWALK): $(REGISTRY) scripts/build_id_crosswalk.py scripts/backfill_crosswa
 capital-positions:
 	$(PY) scripts/measure_capital_positions.py --write
 
-check:
+# These validators read the frozen artifacts independently; use make -j4 check
+# to check them concurrently. Every command remains a required prerequisite.
+.PHONY: check-ocr-ledgers \
+        check-photius-apparatus-repair \
+        check-photius-readings \
+        check-photius-historical-readings \
+        check-photius-historical-batches \
+        check-photius-review-observations \
+        check-photius-complete-review \
+        check-photius-historical-assessment \
+        check-photius-apparatus-audit \
+        check-source-components \
+        check-capital-positions \
+        check-corrections-mirror \
+        check-known-limitations \
+        check-oga-glaux-dates
+
+check: check-ocr-ledgers \
+       check-photius-apparatus-repair \
+       check-photius-readings \
+       check-photius-historical-readings \
+       check-photius-historical-batches \
+       check-photius-review-observations \
+       check-photius-complete-review \
+       check-photius-historical-assessment \
+       check-photius-apparatus-audit \
+       check-source-components \
+       check-capital-positions \
+       check-corrections-mirror \
+       check-known-limitations \
+       check-oga-glaux-dates
+
+check-ocr-ledgers:
 	$(PY) scripts/check_ocr_ledgers.py
+
+check-photius-apparatus-repair:
 	$(PY) scripts/repair_photius_apparatus.py --check
+
+check-photius-readings:
 	$(PY) scripts/repair_photius_readings.py --check
+
+check-photius-historical-readings:
 	$(PY) scripts/repair_photius_historical_readings.py --check
+
+check-photius-historical-batches:
 	$(PY) scripts/repair_photius_historical_batches.py --check
+
+check-photius-review-observations:
+	$(PY) scripts/build_photius_review_observations.py --check
+
+check-photius-complete-review:
+	$(PY) scripts/repair_photius_complete_review.py --check
+
+check-photius-historical-assessment:
 	$(PY) scripts/assess_photius_historical.py --check
+
+check-photius-apparatus-audit:
 	$(PY) scripts/audit_photius_apparatus.py --check
+
+check-source-components:
 	$(PY) scripts/build_source_components.py --check
+
+check-capital-positions:
 	$(PY) scripts/check_capital_positions_fresh.py
+
+check-corrections-mirror:
 	$(PY) scripts/check_corrections_mirror_fresh.py
+
+check-known-limitations:
 	$(PY) scripts/build_known_limitations.py --check
+
+check-oga-glaux-dates:
 	$(PY) scripts/compare_oga_glaux_dates.py --check
 
 clean:
