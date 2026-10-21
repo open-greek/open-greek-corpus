@@ -1068,6 +1068,35 @@ Textual differences are review candidates, not automatically accepted OCR
 corrections or a recognition-error rate. The quality report distinguishes
 partially corrected historical occurrences from rows with full consensus slots.
 
+Complete-passage review has a separate frozen scope under
+`data/corpus_changes/photius-bekker-complete-review/`: 3,462 historical passages
+on 236 physical source pages, pinned to the exact preceding corpus, original
+rows, scan, digital archive, and source-mapping exceptions. The authored
+`scripts/photius_complete_observations_*.py` tables record direct scan inspection
+of unchanged text as well as corrections. Exact character spans must cover a
+passage without gaps or overlaps before it counts as completely reviewed.
+Source uncertainty remains explicit, and printed word fragments have separate
+lexical exclusions. A completed OCR request or a digital match cannot confer
+review status.
+
+`python3 scripts/build_photius_review_observations.py --write` reproduces the
+source observations and complete-passage accounting; `--check` checks both
+artifacts without changing the corpus. Add `--require-complete-scope` to require
+every frozen passage to have been reviewed. The immutable original rows and
+exact span replacements support replay and undo without the live sources.
+Review accounting is distinct from corpus admission, word consensus, lexical
+eligibility, and a tested tagged release. A partial campaign does not satisfy
+the close criterion for issue #68.
+
+`python3 scripts/repair_photius_complete_review.py --apply` admits the campaign
+only after every frozen passage has a complete source review. It preserves each
+exact original row and earlier audit layer, retains contrary digital readings,
+and excludes source uncertainties, printed fragments, earlier unresolved
+readings, and nonbody material from lexical counts. `--check` reproduces the
+admission and `--undo` restores the exact preceding corpus without requiring
+the live correction sources. The quality report publishes source-review
+coverage separately from admission and word-consensus counts.
+
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
 pages; completed source reviews check body-line coverage, marks, repetition,

@@ -1,0 +1,301 @@
+{
+  "schema_version": 1,
+  "schema": "photius-complete-passage-review-compiled-v1",
+  "work": "photius.bibliotheca",
+  "campaign_id": "photius-historical-complete-review-2026-10-21",
+  "manifest_sha256": "a589a831aef7ad46cdb1e3abed79306fe7f98b8c1af53c603382f8364f75493a",
+  "source_reviews_sha256": "887d9f356cbefc4a8443f7e3c5548393ab0ececa58c592da40aaa9608f6ebca7",
+  "input_pins": {
+    "corpus": {
+      "path": "data/corpus/photius.bibliotheca.jsonl",
+      "sha256": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5"
+    },
+    "scan": {
+      "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+    },
+    "frozen_corpus": {
+      "path": "data/corpus_changes/photius-bekker-complete-review/before-corpus.jsonl.gz",
+      "sha256": "28f8ba984e9c9f87ce95f57fec417a196ce78297bc5d67c8dc054639e083d366",
+      "uncompressed_sha256": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5"
+    },
+    "digital_archive": {
+      "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+      "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+    },
+    "original_corpus": {
+      "path": "data/corpus_changes/photius-bekker-index/before.jsonl.gz",
+      "sha256": "15e47ffae0cabc5312e87e5fdcb11f6e952797eb3ee1b5312d6948d4142b1f04",
+      "uncompressed_sha256": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68"
+    },
+    "source_mapping_review": {
+      "path": "data/corpus_changes/photius-bekker-coverage/coverage.json",
+      "sha256": "3b6e098bdbdfd25e8b10713c3e7602d207a797ce9d86695fb3860156adddab7e"
+    }
+  },
+  "source_library_credit": {
+    "edition": "tlg4040.tlg001.local002",
+    "url": "https://gitlab.lisn.upsaclay.fr/api/v4/projects/1918/packages/generic/corpus/1/works/tlg4040/tlg001/local002.json.gz",
+    "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291",
+    "license": {
+      "text": "CC BY-SA 4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "rights": "Texte imprimé dans le domaine public ; transcription CC BY-SA 4.0, © Source Library.",
+    "role": "Same-scan comparison witness, never used as model input. Only a body window bounded by unique shared beginnings and endings in both independent fresh witnesses may vote; unmatched full pages remain comparison-only.",
+    "body_comparison_counts": {
+      "held-comparison-only": 281,
+      "bounded-body-voting-witness": 4
+    },
+    "primary_body_comparison_counts": {
+      "held-comparison-only": 280,
+      "bounded-body-voting-witness": 4
+    },
+    "body_comparison_audit": {
+      "path": "data/corpus_changes/photius-bekker-coverage/source-library-body-windows.json.gz",
+      "sha256": "beff5b3cb0d0ab18c56722237d95f63f5ee9a1b71c055919f84a8d7793beef22",
+      "entries": 285
+    },
+    "api_notice_url": "https://sourcelibrary.org/api/books/6955801057e3b773024f5030/quote?page=13",
+    "api_notice_checked_date": "2026-10-18",
+    "separate_api_notice": {
+      "spdx": "CC-BY-SA-4.0",
+      "url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Source Library (https://sourcelibrary.org)",
+      "terms": "https://sourcelibrary.org/terms",
+      "original_texts": "public-domain",
+      "tdm_reservation": 1,
+      "tdm_policy": "https://sourcelibrary.org/licensing",
+      "ai_training": "reserved — standard license available, see tdm_policy"
+    }
+  },
+  "source_tables": [
+    {
+      "path": "scripts/photius_complete_review_table.py",
+      "sha256": "724572af36a20c12a99b5124f8c9db3b317b2f7f53707641ba9d286cb2150bac"
+    },
+    {
+      "path": "scripts/photius_complete_observations_boundaries.py",
+      "sha256": "7b03da8d563bc6f3257cb42c542a88129074b6896e62ba5731f5d407bce91c2f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0003.py",
+      "sha256": "506ec1fc0a50b18f48ce02b912c7e87db11ba4975c7d15ca0d21c39ec1e56234"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0004.py",
+      "sha256": "37a4c965f3a80fef09f2a839c5249b45008fc6d6a9100db2b8c5116d4232a80c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0005.py",
+      "sha256": "dda8c26f6d6d8c91cec6e0ee05dbabc112048fb1e8ec6d0fd2b8bc4a4c3db49c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0006.py",
+      "sha256": "506f00c828c1c218e97e86216b216d09c17bc81ba59ecd3569219ff3f8d2347e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0007.py",
+      "sha256": "a2e31cf24387f47e0ef32d4f9f1ea1b881ab83116fb9a7ad4c6442bd9bd114a9"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0008.py",
+      "sha256": "dc0f0c552dd3f98bf76103ce88bb1fadeaa465fb4d7f92e77564e7a5fe5f248d"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0009.py",
+      "sha256": "8a278f72bdf4ae2cccb7d503850dc6bd889e2fd14f78f51bde12b8a5fbf21441"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0010.py",
+      "sha256": "765c23ce533bbd54a58bfb52f6cac4eeed8dbab58690779df8abc5a4e162fcf7"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0011.py",
+      "sha256": "5e8f0f4224bfbfcd0a51de57106fc59aa8afca647a86c6bb9c7028ff5086b106"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0012.py",
+      "sha256": "6b01e62e69d85d6d828cd09ae67c982536040ac900c471752899aa61d9c5881a"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0013.py",
+      "sha256": "521545f2265fddc789c2b9595819b04b937023536aac80f6396cbf4b03f737cf"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0014.py",
+      "sha256": "655f064f6e9226a8aa0fc677b0c89fd5bb8f9c64d22eb2a52c4c98354f3b053f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0015.py",
+      "sha256": "a186f7fdb466d31d063accacef582f03eb6cf2b0107ee372886e39444d0bf817"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0016.py",
+      "sha256": "38d0a2131011ec89b98c18327a7867730b6119ed13de8daa016be391c8c79d1d"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0060.py",
+      "sha256": "4c6ee36d5f2ff99fc9665513e9cfc2f08c48c6c11a1190b92bb73ca90892640c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0061.py",
+      "sha256": "94511e81213962c1de949b5b02f086dfdc56f5700c546699a7345fdc3f42b0eb"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0062.py",
+      "sha256": "752beda02281cd1a9367970e413337199fbc8d754c0c1e6dbec0efe783880c49"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0063.py",
+      "sha256": "4afffff38846c0c0ae0ed1bc3679a6e5fb1e9a7c2f4b547e4587cd4244ad853c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_pages0145_0149.py",
+      "sha256": "1771508735186571db5efa4c762fdd5ebc699b8256ca0add1222a5b82c2725a4"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0150.py",
+      "sha256": "2632d5d92d3cc88f5fbaf9c2f96c5cb115a10e076ef00f5ed1abfd54a03bc56f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0151.py",
+      "sha256": "51b2e3684effecd153706193b39c25b2020ac5e991e19d6ee026e88fb05a5dcd"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0152.py",
+      "sha256": "d324db423e4e4d2724d623c9fdcef9ff1f4779a6f7a596e46e9ae20f02aa8543"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0153.py",
+      "sha256": "586e964d0d1d81e33c9e1f21b134f13959817bf8981f32f059494cb78aff2a35"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0154.py",
+      "sha256": "fe6d869625f7811e00e40e4443a01e406e6f369f8dc1eeef4f3031195f9db4f6"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0155.py",
+      "sha256": "fd182fba3b874d4772d9656dcfe9a5cae2be2c5a955d54776a95f90029743a3e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0231.py",
+      "sha256": "ac1438255957a8179c678331ba58562ffac6611ad19ab37713edba98464a983d"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0232.py",
+      "sha256": "47d740ede1238b711379e02fd16bda11cb2597e4e00c06ce196039bf8cff331d"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0233.py",
+      "sha256": "50f7d9af069f7d6a636116f3d89cd34009fd44673852380c23a4ed59bfd906fe"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0234.py",
+      "sha256": "28d64728b0f87afa8d4ba890459ea5d79518e2953f9b4b31ec7b15fb4b14fa70"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0235.py",
+      "sha256": "e761fdb3a8b22948b6ca18d7b07919a17ffe4d848eb7fed67ff31c5b59f3f76b"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0236.py",
+      "sha256": "9a8ddae2551961feecbe99fd885831491a4ce572e4d45d548e583cd27d3232ed"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0237.py",
+      "sha256": "88f5e154af2045c90f40cb7c1ba9e5b0f081cf70881140f1caa8368564128613"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0238.py",
+      "sha256": "c3d019731d2fa81cee13d187ed61b9c0498df8550a3e41b3755aa570f3a10cc2"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0239.py",
+      "sha256": "36e2c18a20c83eab3177fc339d2d1d6fa291e90f1a2497737579f32092c022b7"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0240.py",
+      "sha256": "38603cf0bce97805b24ae654e724624b7e5cfbbde26f8a1ceced8554299dab7f"
+    }
+  ],
+  "admission_authorized": false,
+  "scope_complete": false,
+  "qualification": "Complete source review accounts for the recorded scope; it is separate from consensus, corpus admission, lexical eligibility, and a tested tagged release. Reviewed-verified means an exact scan reading under declared transcription conventions, not unambiguous edition correctness. Uncertain source readings remain explicit.",
+  "counts": {
+    "passages": 3462,
+    "pages": 236,
+    "status": {
+      "reviewed-verified": 518,
+      "reviewed-with-uncertainty": 136,
+      "unreviewed": 2808
+    },
+    "fully_assessed_rows": 654,
+    "verified_rows": 518,
+    "complete_scan_review_rows": 654,
+    "rows_with_source_uncertainty": 136,
+    "partially_assessed_rows": 0,
+    "unreviewed_rows": 2808,
+    "characters": 913203,
+    "reviewed_characters": 156940,
+    "lexical_tokens": 149067,
+    "reviewed_lexical_tokens": 25591,
+    "corrected_segments": 697,
+    "unchanged_segments": 534,
+    "source_fragment_exclusions": 342,
+    "uncertainty_exclusion_candidates": 275,
+    "nonbody_exclusion_candidates": 16,
+    "complete_pages": 41
+  },
+  "complete_physical_pages": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    60,
+    61,
+    62,
+    63,
+    145,
+    146,
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240,
+    280
+  ],
+  "compiled_records": {
+    "path": "data/corpus_changes/photius-bekker-complete-review/review-status.json.gz",
+    "sha256": "b4e8f1dae25b402b426b732c07dad7e9ff04c042f3f32c6b75b083bf68365e49"
+  },
+  "authored_observations": {
+    "path": "data/corpus_changes/photius-bekker-complete-review/source-review.json.gz",
+    "sha256": "f79e8e1f25c32d0053eede5f0a6003f1f249713b30e629909743e2626776f6b5"
+  }
+}

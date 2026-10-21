@@ -265,6 +265,9 @@ def _projection_pins(raw):
 
 
 def validate_projection(row, root=ROOT):
+    if row.get('complete_source_review'):
+        from repair_photius_complete_review import restore_before_row
+        row = restore_before_row(row, root)
     if row.get('historical_reading_batches'):
         from repair_photius_historical_batches import restore_before_row
         row = restore_before_row(row, root)
