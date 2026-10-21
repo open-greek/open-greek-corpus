@@ -4,7 +4,7 @@
   "work": "photius.bibliotheca",
   "campaign_id": "photius-historical-complete-review-2026-10-21",
   "manifest_sha256": "a589a831aef7ad46cdb1e3abed79306fe7f98b8c1af53c603382f8364f75493a",
-  "source_reviews_sha256": "57ed5b6c0e44f4ca187fe8dcce4659bbef4632eba94bb5de89cb2e1a848eccd0",
+  "source_reviews_sha256": "37cb43d075f1ac4f1ab3631ad314c698329e3c599ac5c4663ab7a3a26de4c886",
   "input_pins": {
     "corpus": {
       "path": "data/corpus/photius.bibliotheca.jsonl",
@@ -217,6 +217,14 @@
     {
       "path": "scripts/photius_complete_observations_page0037.py",
       "sha256": "5a80f10d2609335c6b143a50a54a040ef2064f209afdfdd7f622a09793b07ed1"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0038.py",
+      "sha256": "2407a2de8fa3dc18418935cb807fae504295f72e63e58fa627291a8fe9aaf139"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0039.py",
+      "sha256": "a1fbfb7cfc6d2720074daedee2970f3abb35c2cac30b26d0cecd3244905ad871"
     },
     {
       "path": "scripts/photius_complete_observations_page0060.py",
@@ -551,8 +559,44 @@
       "sha256": "e6c01a2d2a76940022c0653f53507c49f34eac4391003c1482ef7a2aa923a295"
     },
     {
+      "path": "scripts/photius_complete_observations_page0190.py",
+      "sha256": "1b07aa3f2d83f44d9ecfeb72f4b00e8aae0bdb70ae05a7781ab1ccbcd6b44793"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0191.py",
+      "sha256": "16e893835a70babc850f97a371b25c7eda0907a4d1346889fe4d91bbe94a3ea0"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0192.py",
+      "sha256": "12f151d7a1fcff12402bfdb133a97f31d1a453c679e81c6967cde9778cf368df"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0193.py",
+      "sha256": "292819856280659890690306b8f355179fe271695231b1beec8bf98eaafe2bb8"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0194.py",
+      "sha256": "64c4f600f54061772d6f8a7251dce7aed56461d2184d454baf38de85e0ebe26a"
+    },
+    {
       "path": "scripts/photius_complete_observations_page0207.py",
       "sha256": "d2821b816d31b3632921ef8b62aa8d0f119795971c650718a48854f72a6634e2"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0208.py",
+      "sha256": "21a2d9401462e55f2d9083807d60773ea922d23428e08dc1a46aa21359728293"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0209.py",
+      "sha256": "617f83a909f7e7d9f7bef3cb61fe2fff075a627a1ee55f29ae589e57123e4552"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0210.py",
+      "sha256": "99328aa6e5b55fdf511e455bf3dddaa63b9da858bd088e1e4ba59b8c01436806"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0211.py",
+      "sha256": "e021b8623027eae5617c8c27100e87fa4982f1ccd9fe0e72bd207a52e0c32a2a"
     },
     {
       "path": "scripts/photius_complete_observations_page0231.py",
@@ -701,6 +745,22 @@
     {
       "path": "scripts/photius_complete_observations_page0267.py",
       "sha256": "2c2016691aee6935de8042362c8b3d701aeedbe846fd4de0c6599b3dec0c8a6d"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0268.py",
+      "sha256": "f5551f45c8db6eff2270d4cc3a1da19cbe11c1042ba4157bc1d575f16beb49e6"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0269.py",
+      "sha256": "e83c65a1db4c0ecb996a973e2819d4b59108b3b13593e19c03402a3123cdfabc"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0270.py",
+      "sha256": "d67cc7f664f269de7670a005b09cb83a91049e3004491dcf037703bd7eaa6fcb"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0271.py",
+      "sha256": "f5de042651bc3e7f6fed866e2cb5f34e909e6f8d733545e78b6b39375565efb7"
     }
   ],
   "admission_authorized": false,
@@ -710,26 +770,26 @@
     "passages": 3462,
     "pages": 236,
     "status": {
-      "reviewed-verified": 1548,
-      "reviewed-with-uncertainty": 681,
-      "unreviewed": 1233
+      "reviewed-verified": 1696,
+      "reviewed-with-uncertainty": 765,
+      "unreviewed": 1001
     },
-    "fully_assessed_rows": 2229,
-    "verified_rows": 1548,
-    "complete_scan_review_rows": 2229,
-    "rows_with_source_uncertainty": 681,
+    "fully_assessed_rows": 2461,
+    "verified_rows": 1696,
+    "complete_scan_review_rows": 2461,
+    "rows_with_source_uncertainty": 765,
     "partially_assessed_rows": 0,
-    "unreviewed_rows": 1233,
+    "unreviewed_rows": 1001,
     "characters": 913203,
-    "reviewed_characters": 618349,
+    "reviewed_characters": 678335,
     "lexical_tokens": 149067,
-    "reviewed_lexical_tokens": 101475,
-    "corrected_segments": 3611,
-    "unchanged_segments": 2436,
-    "source_fragment_exclusions": 1197,
-    "uncertainty_exclusion_candidates": 1883,
-    "nonbody_exclusion_candidates": 179,
-    "complete_pages": 162
+    "reviewed_lexical_tokens": 111181,
+    "corrected_segments": 4018,
+    "unchanged_segments": 2707,
+    "source_fragment_exclusions": 1322,
+    "uncertainty_exclusion_candidates": 2110,
+    "nonbody_exclusion_candidates": 189,
+    "complete_pages": 177
   },
   "complete_physical_pages": [
     2,
@@ -768,6 +828,8 @@
     35,
     36,
     37,
+    38,
+    39,
     60,
     61,
     62,
@@ -855,7 +917,16 @@
     187,
     188,
     189,
+    190,
+    191,
+    192,
+    193,
+    194,
     207,
+    208,
+    209,
+    210,
+    211,
     231,
     232,
     233,
@@ -893,14 +964,18 @@
     265,
     266,
     267,
+    268,
+    269,
+    270,
+    271,
     280
   ],
   "compiled_records": {
     "path": "data/corpus_changes/photius-bekker-complete-review/review-status.json.gz",
-    "sha256": "89b3d3540140b35187949410ef1d71c8155868cec9ae90eee10698af1bf32d38"
+    "sha256": "77474db34c1d9f1c58c7370cde4227e8800f745c8d08e74c572781cb38897d26"
   },
   "authored_observations": {
     "path": "data/corpus_changes/photius-bekker-complete-review/source-review.json.gz",
-    "sha256": "a6d9400bf5b484320261516a0281c03ffef9dfa0aec02d2972627058e4b174c2"
+    "sha256": "8b148392a50bb8f708320bc0a90a481db7a2d31a3c063d554c480b007eb9bfc3"
   }
 }
