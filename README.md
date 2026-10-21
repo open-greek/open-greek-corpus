@@ -1080,6 +1080,10 @@ lexical exclusions. A completed OCR request or a digital match cannot confer
 review status. Unresolved authoring placeholders are rejected before corrected
 text can enter a review artifact.
 
+All 3,462 frozen passages now have complete scan reviews: 2,378 are verified
+and 1,084 retain explicit source uncertainty. These are passage review statuses,
+not recognition-error measurements or a claim that the edition is error-free.
+
 `python3 scripts/build_photius_review_observations.py --write` reproduces the
 source observations and complete-passage accounting; `--check` checks both
 artifacts without changing the corpus. Add `--require-complete-scope` to require
@@ -1646,7 +1650,20 @@ make reports               # quality report, per-work lemma counts, this README'
                            # chain can go to the network)
 PY=.venv/bin/python DILEMMA=/path/to/dilemma make   # override interpreter / lemmatizer path
 python -m pytest tests/ -q                         # external OCR checks skip without OCR_PIPELINE
+make -j4 check                                    # all artifact validators, up to four at once
 ```
+
+The `check` prerequisites are independent and read-only. Plain `make check`
+runs the same validators serially; `-j4` uses available CPU cores without
+skipping checks. For parallel tests, install the optional `pytest-xdist`
+development tool and run:
+
+```bash
+python -m pytest tests/ -q -n 6 --dist loadfile --durations=20
+```
+
+Tests in each file stay together, and the timing report identifies the slowest
+cases. Adjust worker counts to available memory.
 
 Nothing here needs the upstream OCR pipeline, which is where the raw OCR and the
 reversible correction overlay live. Eleven tests cross-check a figure or a vendored
