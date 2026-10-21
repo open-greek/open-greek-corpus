@@ -359,6 +359,12 @@ def build(root=ROOT, *, recorded_at=None):
 
 
 def _later_bytes(raw, root):
+    if b'"photius_editorial_substitution"' in raw:
+        from repair_photius_editorial_substitutions import restore_before_bytes as restore
+        raw = restore(raw, root)
+    if b'"photius_uncertainty_admission"' in raw:
+        from repair_photius_uncertainty_admission import restore_before_bytes as restore
+        raw = restore(raw, root)
     if b'"photius_uncertainty_review"' in raw:
         from repair_photius_uncertainties import restore_before_bytes as restore
         return restore(raw,root)
@@ -366,6 +372,12 @@ def _later_bytes(raw, root):
 
 
 def _later_row(row, root):
+    if row.get('photius_editorial_substitution'):
+        from repair_photius_editorial_substitutions import restore_before_row as restore
+        row = restore(row, root)
+    if row.get('photius_uncertainty_admission'):
+        from repair_photius_uncertainty_admission import restore_before_row as restore
+        row = restore(row, root)
     if row.get('photius_uncertainty_review'):
         from repair_photius_uncertainties import restore_before_row as restore
         return restore(row,root)
@@ -503,12 +515,18 @@ def check(root=ROOT):
         if b'"'+TAG.encode()+b'"' in (root/CORPUS).read_bytes():
             raise ValueError('Context annotations have no frozen audit')
         return None
-    outputs,audit = build(root)
+    from check_photius_pilot_predecessor import CONTEXT_RECIPES, check_context_sources
+    saved = json.loads((root/AUDIT).read_bytes())
+    if saved.get('recipe_sha256') == CONTEXT_RECIPES:
+        audit = check_context_sources(root)
+        outputs = None
+    else:
+        outputs,audit = build(root)
     before,after,aliases,_,_ = _saved(root)
     current = _later_bytes((root/CORPUS).read_bytes(),root)
     if current not in {before,after} or (root/ALIASES).read_bytes()!=aliases:
         raise ValueError('Context corpus or aliases changed outside its annotation audit')
-    if any((root/p).read_bytes()!=raw for p,raw in outputs.items() if p!=CORPUS):
+    if outputs is not None and any((root/p).read_bytes()!=raw for p,raw in outputs.items() if p!=CORPUS):
         raise ValueError('Context annotations no longer reproduce from current source evidence')
     return None if current==before else audit
 

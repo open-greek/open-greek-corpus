@@ -260,7 +260,8 @@ def complete_review_qualification(root: Path) -> dict | None:
     """Publish checked scan-review accounting without claiming corpus admission."""
     import prepare_photius_review_campaign as campaign
     from build_photius_review_observations import build
-    from repair_photius_complete_review import AUDIT, active_metadata, later_metadata
+    from repair_photius_complete_review import (AUDIT, active_metadata, later_metadata,
+                                               current_uncertainty_measurement)
     root = Path(root)
     if not (root / campaign.MANIFEST).exists():
         return None
@@ -269,6 +270,7 @@ def complete_review_qualification(root: Path) -> dict | None:
         raise ValueError('Photius complete-passage review accounting is stale')
     admitted = active_metadata(root)
     later_reviews = later_metadata(root)
+    current_measurement = current_uncertainty_measurement(later_reviews)
     if admitted and admitted['source_review']['sha256'] != hashlib.sha256(outputs[campaign.OUT]).hexdigest():
         raise ValueError('Admitted Photius review differs from its current source observations')
     return {'campaign_id': result['campaign_id'], 'scope_complete': result['scope_complete'],
@@ -280,6 +282,7 @@ def complete_review_qualification(root: Path) -> dict | None:
         'current_corpus_sha256': hashlib.sha256((root / campaign.CORPUS).read_bytes()).hexdigest(),
         'corpus_admission_complete': admitted is not None,
         **({'later_source_reviews': later_reviews} if later_reviews else {}),
+        **({'current_measurement': current_measurement} if current_measurement else {}),
         **({'admission_audit': {'path': AUDIT.as_posix(),
                                 'sha256': hashlib.sha256((root / AUDIT).read_bytes()).hexdigest()}}
            if admitted else {}),
