@@ -1,0 +1,37 @@
+{
+  "apparatus_path": "data/paratext/gutenberg/66595.jsonl",
+  "attribution": "William Fairley, Monumentum Ancyranum (Philadelphia, 1898); Project Gutenberg 66595 (2021).",
+  "author": "augustus",
+  "author_name": "Augustus",
+  "corpus_path": "data/corpus/augustus.res-gestae-divi-augusti.jsonl",
+  "corpus_sha256": "e3188b1874da94fcb3bf657a9b6ac5846bbf4cf5bc2e32eef6d8a27637b98bbc",
+  "counts": {
+    "lexical_tokens": 1899,
+    "lines": 436,
+    "surface_tokens": 2857
+  },
+  "critical_markup_schema": "epidoc-spans-v1",
+  "edition": "gutenberg-fairley-1898-grc",
+  "edition_identifiers": {
+    "gutenberg": "66595"
+  },
+  "edition_name": "William Fairley, Monumentum Ancyranum (Philadelphia, 1898), Greek inscription",
+  "generated_by": "scripts/ingest_gutenberg_historical.py",
+  "language": "grc",
+  "physical_citation_scheme": "column.line",
+  "policy": "Fairley's title page explicitly identifies the 1898 Philadelphia edition. Only the ancient Greek inscription under H2GREEK is admitted; Latin, modern English, commentary, and apparatus are retained outside lexical text. Augustus is the author of the underlying statement; the ancient Greek translator is unnamed.",
+  "provider": "gutenberg",
+  "reader_path": "data/critical_editions/gutenberg-66595/reader.html",
+  "schema_version": 2,
+  "source_editors": [
+    "William Fairley"
+  ],
+  "source_license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+  "source_path": "data/reference/gutenberg/66595/source.html",
+  "source_sha256": "33762f8e07002c8f3c4195eeb3a33e2dcbf1144cbbf766861727845c1b204da2",
+  "source_url": "https://www.gutenberg.org/cache/epub/66595/pg66595-images.html",
+  "status": "served-critical-edition",
+  "title": "Res gestae divi Augusti (Greek version)",
+  "token_policy": "Printed restored letters and line fragments remain visible and uncounted. Every alternative note is retained separately. No restoration is promoted to an attested word, and no source reading is corrected.",
+  "work": "augustus.res-gestae-divi-augusti"
+}

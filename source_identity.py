@@ -45,7 +45,7 @@ from pathlib import Path
 # --------------------------------------------------------------------------
 AUTHOR_ALIAS_NS = ("wikidata", "viaf", "gnd", "isni", "tlg", "cts")
 WORK_ALIAS_NS = ("wikidata", "viaf", "tlg", "cts", "perseus")
-EDITION_ALIAS_NS = ("cts", "hathitrust", "trismegistos", "ldab", "doi", "isbn")
+EDITION_ALIAS_NS = ("cts", "hathitrust", "trismegistos", "ldab", "doi", "isbn", "gutenberg")
 
 # An edition's ``provider`` is either "print" or one of the digital corpora we
 # ingest a per-work text/annotation from. Naming matches the attestation

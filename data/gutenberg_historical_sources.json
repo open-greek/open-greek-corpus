@@ -1,0 +1,171 @@
+{
+  "discovery": "Official Greek catalog, outside the GlossAPI 214-row artifact",
+  "reviewed_on": "2026-10-20",
+  "schema_version": 1,
+  "sources": [
+    {
+      "attribution_readings": [
+        {
+          "author": "Athanasius",
+          "evidence": "Gutenberg 32549 catalog and Greek heading",
+          "status": "traditional_source_attribution"
+        },
+        {
+          "author": "Marcellus of Ancyra",
+          "evidence": "CPG 2804, Pinakes and BiblIndex; OGC's existing tlg2041.tlg004 entry",
+          "status": "catalog_attribution_not_adjudicated"
+        }
+      ],
+      "attribution_status": "disputed",
+      "author": "marcellus-theology",
+      "author_name": "Marcellus",
+      "catalog_path": "data/reference/gutenberg/32549/catalog.html",
+      "catalog_sha256": "1e0247eb08c09b7452ec8793c38154bd114e624cc807d63bb200da10447f81b8",
+      "citation_scheme": "section",
+      "cts": "urn:cts:greekLit:tlg2041.tlg004",
+      "disposition": "approved_subject_to_gates",
+      "ebook_id": 32549,
+      "edition": "gutenberg-32549-2010",
+      "edition_name": "Project Gutenberg 32549 (2010), Greek text; attribution disputed",
+      "edition_qualification": "The Greek work is CPG 2804. OGC's existing Marcellian work key is retained while both its catalog attribution and Gutenberg's traditional Athanasian attribution remain explicit and disputed. The text source is Gutenberg's 2010 digital edition; the Nordberg 1962 bibliographic record identifies the work, not the transcribed edition.",
+      "identity_evidence": [
+        "https://pinakes.irht.cnrs.fr/notices/oeuvre/id/6423",
+        "https://dapytains.biblindex.org/en/work-edition/7967"
+      ],
+      "language": "grc",
+      "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+      "license_url": "https://www.gutenberg.org/policy/license.html",
+      "metadata": {
+        "Alternate Title": [
+          "Έκθεσις Πίστεως"
+        ],
+        "Author": [
+          "Athanasius, Saint, Patriarch of Alexandria, -373"
+        ],
+        "Copyright": [
+          "Public domain in the USA."
+        ],
+        "Language": [
+          "Latin",
+          "Greek"
+        ],
+        "Release Date": [
+          "May 27, 2010"
+        ],
+        "Title": [
+          "Declaration of Faith, in Latin and the Original Greek"
+        ],
+        "eBook-No.": [
+          "32549"
+        ]
+      },
+      "source_editors": [
+        "Michael Gray (digital transcription)"
+      ],
+      "source_path": "data/reference/gutenberg/32549/source.html",
+      "source_sha256": "d56472d28bd96f867f2c8b100722ef4bfd37fa91821ae91826070dafc94829da",
+      "source_url": "https://www.gutenberg.org/cache/epub/32549/pg32549-images.html",
+      "title": "Expositio fidei",
+      "url": "https://www.gutenberg.org/ebooks/32549",
+      "work": "marcellus-theology.expositio-fidei"
+    },
+    {
+      "author": "athanasius-theology",
+      "author_name": "Athanasius",
+      "catalog_path": "data/reference/gutenberg/37641/catalog.html",
+      "catalog_sha256": "7812c78e947537e4afa08fc6abe28c37835f4522930d12533bf5ec7f0c3f06a6",
+      "citation_scheme": "section",
+      "cts": "urn:cts:greekLit:tlg2035.tlg039",
+      "disposition": "approved_subject_to_gates",
+      "ebook_id": 37641,
+      "edition": "gutenberg-37641-2011",
+      "edition_name": "Project Gutenberg 37641 (2011), Greek text",
+      "edition_qualification": "The citable edition is the pinned Gutenberg digital transcription, with six native numbered Greek sections. The underlying printed exemplar is not identified by Gutenberg; no claim to a particular Migne impression, page, or column is made.",
+      "language": "grc",
+      "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+      "license_url": "https://www.gutenberg.org/policy/license.html",
+      "metadata": {
+        "Alternate Title": [
+          "Εισ το, Πάντα μοι παρεδόθη ὑπὸ τοῦ Πατρός μου"
+        ],
+        "Author": [
+          "Athanasius, Saint, Patriarch of Alexandria, -373"
+        ],
+        "Copyright": [
+          "Public domain in the USA."
+        ],
+        "Language": [
+          "Latin",
+          "Greek"
+        ],
+        "Release Date": [
+          "Oct 6, 2011"
+        ],
+        "Title": [
+          "In Illud: Omnia mihi tradita sunt a Patre A Homily on Matthew 11:27, In Latin and the Original Greek"
+        ],
+        "eBook-No.": [
+          "37641"
+        ]
+      },
+      "source_editors": [
+        "Michael Gray (digital transcription)"
+      ],
+      "source_path": "data/reference/gutenberg/37641/source.html",
+      "source_sha256": "b032f2833062d947b374e592a62100be482c805b14a40df0ba125c490d2fb069",
+      "source_url": "https://www.gutenberg.org/cache/epub/37641/pg37641-images.html",
+      "title": "In illud: Omnia mihi tradita sunt",
+      "url": "https://www.gutenberg.org/ebooks/37641",
+      "work": "athanasius-theology.in-illud-omnia-mihi-tradita-sunt"
+    },
+    {
+      "author": "augustus",
+      "author_name": "Augustus",
+      "catalog_path": "data/reference/gutenberg/66595/catalog.html",
+      "catalog_sha256": "9961c415f9d39e5735bc17e5902c8bf9a2c41dfe571fbc29df60bdd43b189fc2",
+      "citation_scheme": "column.line",
+      "disposition": "approved_subject_to_gates",
+      "ebook_id": 66595,
+      "edition": "gutenberg-fairley-1898-grc",
+      "edition_name": "William Fairley, Monumentum Ancyranum (Philadelphia, 1898), Greek inscription",
+      "edition_qualification": "Fairley's title page explicitly identifies the 1898 Philadelphia edition. Only the ancient Greek inscription under H2GREEK is admitted; Latin, modern English, commentary, and apparatus are retained outside lexical text. Augustus is the author of the underlying statement; the ancient Greek translator is unnamed.",
+      "language": "grc",
+      "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+      "license_url": "https://www.gutenberg.org/policy/license.html",
+      "metadata": {
+        "Author": [
+          "Augustus, Emperor of Rome, 64 BCE-14"
+        ],
+        "Copyright": [
+          "Public domain in the USA."
+        ],
+        "Editor": [
+          "Fairley, William, 1857-1918"
+        ],
+        "Language": [
+          "English",
+          "Latin",
+          "Greek"
+        ],
+        "Release Date": [
+          "Oct 22, 2021"
+        ],
+        "Title": [
+          "Monumentum Ancyranum: The Deeds of Augustus"
+        ],
+        "eBook-No.": [
+          "66595"
+        ]
+      },
+      "source_editors": [
+        "William Fairley"
+      ],
+      "source_path": "data/reference/gutenberg/66595/source.html",
+      "source_sha256": "33762f8e07002c8f3c4195eeb3a33e2dcbf1144cbbf766861727845c1b204da2",
+      "source_url": "https://www.gutenberg.org/cache/epub/66595/pg66595-images.html",
+      "title": "Res gestae divi Augusti (Greek version)",
+      "url": "https://www.gutenberg.org/ebooks/66595",
+      "work": "augustus.res-gestae-divi-augusti"
+    }
+  ]
+}

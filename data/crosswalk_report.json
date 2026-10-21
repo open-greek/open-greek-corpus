@@ -1,23 +1,23 @@
 {
   "headline": {
-    "works": 11082,
-    "authors": 3320,
+    "works": 11078,
+    "authors": 3319,
     "editions": 10232,
-    "pct_works_with_canonical_locus": 36.5,
+    "pct_works_with_canonical_locus": 36.6,
     "pct_works_with_logical_served_locus": 12.5,
     "pct_works_with_work_qid": 5.2,
     "pct_works_with_author_qid": 54.3,
     "pct_authors_with_wikidata": 42.2,
-    "served_works": 3911,
-    "pct_served_in_registry": 74.4,
+    "served_works": 3914,
+    "pct_served_in_registry": 74.5,
     "pct_served_with_work_qid": 13.2,
     "pct_served_with_author_qid": 73.6,
     "pct_served_with_any_anchor": 85.5,
-    "pct_served_with_logical_served_locus": 53.8
+    "pct_served_with_logical_served_locus": 53.9
   },
   "work_aliases": {
     "cts": {
-      "count": 11082,
+      "count": 11078,
       "pct": 100.0
     },
     "wikidata": {
@@ -40,12 +40,12 @@
   "work_cts_by_namespace": {
     "greekLit": {
       "count": 7197,
-      "pct": 64.9,
+      "pct": 65.0,
       "external": true
     },
     "cogGreek": {
-      "count": 3885,
-      "pct": 35.1,
+      "count": 3881,
+      "pct": 35.0,
       "external": false
     }
   },
@@ -95,14 +95,19 @@
     "isbn": {
       "count": 0,
       "pct": 0.0
+    },
+    "gutenberg": {
+      "count": 3,
+      "pct": 0.0,
+      "note": "present in data, not a target namespace"
     }
   },
   "canonical_locus": {
-    "works_with_logical_locus": 4048,
-    "pct": 36.5,
-    "works_only_physical_or_none": 3177,
+    "works_with_logical_locus": 4052,
+    "pct": 36.6,
+    "works_only_physical_or_none": 3174,
     "by_scheme": {
-      "(none)": 1573,
+      "(none)": 1567,
       "fragment.line": 1445,
       "volume.page.line": 1236,
       "section.line": 1212,
@@ -110,8 +115,8 @@
       "line": 774,
       "chapter.section.line": 570,
       "stephanus page.section.line": 233,
-      "ref": 162,
-      "ref.sub": 154,
+      "ref": 164,
+      "ref.sub": 155,
       "book.chapter.section.line": 151,
       "play.fragment.line": 141,
       "jebb page.line": 108,
@@ -124,8 +129,8 @@
       "volume.jacoby.t.fragment.line": 60,
       "epistle.line": 46,
       "epistle.section.line": 40,
+      "column.line": 34,
       "chapter.line": 33,
-      "column.line": 33,
       "harduin page.section.line": 32,
       "fgrh fragment.line": 30,
       "fragment.section.line": 30,
@@ -162,6 +167,7 @@
       "fragment.subfragment.line": 5,
       "hymn.line": 5,
       "oration.line": 5,
+      "section": 5,
       "bekker page.line.line of scholion": 4,
       "book.chapter.section.subsection.line": 4,
       "chapter": 4,
@@ -191,7 +197,6 @@
       "hypothesis.scholion.line": 3,
       "oration.fragment.line": 3,
       "poem.line": 3,
-      "section": 3,
       "section.fable.line": 3,
       "tome.volume.part.page.line": 3,
       "vita.section.line": 3,
@@ -371,11 +376,11 @@
   },
   "served_canonical_locus": {
     "what": "logical locus of the default_edition (what cog renders bare citations against): the Phase-2 'one canonical logical locus per work' measure, stricter than any-edition canonical_locus",
-    "works_with_logical_served_locus": 1380,
+    "works_with_logical_served_locus": 1385,
     "pct": 12.5,
     "served_logical_depth_distribution": {
-      "1": 301,
-      "2": 694,
+      "1": 305,
+      "2": 695,
       "3": 315,
       "4": 65,
       "5": 4,
@@ -383,7 +388,7 @@
     },
     "default_edition_physical_only": {
       "what": "default edition cites only by page/volume; promote a logical locus",
-      "count": 576,
+      "count": 578,
       "examples": [
         "adrianus.declamatio",
         "aelius-aristides.ai-gu-ptios",
@@ -438,7 +443,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9126,
+      "count": 9115,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
@@ -496,8 +501,8 @@
   },
   "served_set": {
     "what": "the registry-wide measures recomputed over the works cog actually serves (corpus_editions x work_index); the honest denominators for prioritizing enrichment",
-    "served_works": 3911,
-    "in_registry": 2911,
+    "served_works": 3914,
+    "in_registry": 2914,
     "absent_from_registry": {
       "what": "served works that are not registry keys (DFHG fragment collections, per-part OCR files); invisible to registry enrichment and carrying no edition scheme info",
       "count": 1000,
@@ -555,12 +560,12 @@
       ]
     },
     "with_work_qid": 518,
-    "with_author_qid": 2880,
-    "with_any_external_anchor": 3342,
-    "with_logical_served_locus": 2106,
+    "with_author_qid": 2882,
+    "with_any_external_anchor": 3345,
+    "with_logical_served_locus": 2111,
     "work_qid_via_author": {
       "what": "served work with no QID whose author has one (the actionable subset of the registry-wide list)",
-      "count": 2362,
+      "count": 2364,
       "examples": [
         "abydenus.fragmenta",
         "acesander.fragmenta",
@@ -923,7 +928,7 @@
       ]
     },
     "authors_missing_wikidata": {
-      "count": 1918,
+      "count": 1917,
       "examples": [
         "acta-et-martyrium-apollonii",
         "acta-eupli",
@@ -979,7 +984,7 @@
     },
     "works_without_canonical_locus": {
       "what": "work's editions cite only by page/volume; needs a logical locus",
-      "count": 3177,
+      "count": 3174,
       "examples": [
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",
         "achilles-tatius-astronomy.peri-e-chgh-sews-olim-sub-auctore-achille-tatio",

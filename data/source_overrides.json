@@ -1,17 +1,19 @@
 {
  "_meta": {
-  "description": "Per-work source-precedence overrides applied on top of sourcing_map.csv best_source. Ladder: open_corpus > byzantium_gr (clean PD Bonn transcription) > migne_cgpg (CC-BY Migne OCR) > pd_edition (own OCR). TLG text is never a served source. open_corpus overrides record works served from the Galenus Verbatim CC BY-SA TEI editions, which the sourcing map predates. See README 'Source precedence'.",
+  "description": "Per-work source-precedence overrides applied on top of sourcing_map.csv best_source. Ladder: open_corpus > byzantium_gr (clean PD Bonn transcription) > migne_cgpg (CC-BY Migne OCR) > pd_edition (own OCR). TLG text is never a served source. open_corpus overrides record works served from the Galenus Verbatim CC BY-SA TEI editions, which the sourcing map predates, and checked Gutenberg historical admissions. See README 'Source precedence'.",
   "generated_by": "scripts/build_source_overrides.py",
   "generated_from": [
    "data/pd_research/byzantium_sweep.json",
    "data/pd_research/cgpg_coverage.json",
    "data/inventory/sourcing_map.csv",
-   "data/corpus_editions.json (galenus_verbatim works)"
+   "data/corpus_editions.json (galenus_verbatim works)",
+   "data/corpus_changes/gutenberg-historical/changes.json"
   ],
-  "as_of": "2026-06-28",
-  "count": 106,
+  "as_of": "2026-10-20",
+  "baseline_sweeps_as_of": "2026-06-28",
+  "count": 108,
   "by_source": {
-   "open_corpus": 23,
+   "open_corpus": 25,
    "migne_cgpg": 61,
    "byzantium_gr": 19,
    "migne_pd": 3
@@ -594,6 +596,40 @@
    "reason": "CC-BY CGPG OCR of PD Migne (PG005); unlocks a work otherwise behind an in-copyright edition",
    "evidence": [
     "cgpg_coverage.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2035",
+   "work_id": "039",
+   "source": "open_corpus",
+   "over": "migne_pd",
+   "title": "In illud: Omnia mihi tradita sunt",
+   "slug": "athanasius-theology.in-illud-omnia-mihi-tradita-sunt",
+   "edition": "gutenberg-37641-2011",
+   "provider": "gutenberg",
+   "urls": [
+    "https://www.gutenberg.org/cache/epub/37641/pg37641-images.html"
+   ],
+   "reason": "Identified public-domain Greek digital edition, admitted with pinned source bytes, whole-corpus duplicate evidence, native section references, and a reversible audit.",
+   "evidence": [
+    "data/corpus_changes/gutenberg-historical/changes.json"
+   ]
+  },
+  {
+   "tlg_id": "tlg2041",
+   "work_id": "004",
+   "source": "open_corpus",
+   "over": "locked",
+   "title": "Expositio fidei",
+   "slug": "marcellus-theology.expositio-fidei",
+   "edition": "gutenberg-32549-2010",
+   "provider": "gutenberg",
+   "urls": [
+    "https://www.gutenberg.org/cache/epub/32549/pg32549-images.html"
+   ],
+   "reason": "Identified public-domain Greek digital edition, admitted with pinned source bytes, whole-corpus duplicate evidence, native section references, and a reversible audit.",
+   "evidence": [
+    "data/corpus_changes/gutenberg-historical/changes.json"
    ]
   },
   {
