@@ -36,6 +36,7 @@ TABLES = (
     'photius_historical_observations_prefix0007',
     'photius_historical_observations_page0009',
     'photius_historical_observations_page0010',
+    'photius_historical_observations_pages0011_0015',
 )
 QUALIFICATION = 'Only the recorded occurrences are source reviewed; other historical text remains unassessed.'
 _CROP_HASHES = {}
@@ -48,7 +49,7 @@ def _prefix_scope(row, item):
     network is a disjoint source range and must survive without a new vote.
     """
     scope = item.get('review_scope')
-    if scope is None:
+    if scope in (None, 'retained-editorial-body'):
         return False
     if scope != 'retained-historical-prefix':
         raise ValueError('Unknown historical review scope')
@@ -63,6 +64,20 @@ def _prefix_scope(row, item):
     if (not prefix or prefix == prefix.rstrip() or item['original_text'] != prefix.rstrip()
             or not tail or tail['text'] != row['source_body_correction']['replacement_text']):
         raise ValueError('Prefix review must preserve the exact independent tail boundary')
+    return True
+
+
+def _editorial_body_scope(row, item):
+    """Review a validated contiguous body without changing its apparatus audit."""
+    if item.get('review_scope') != 'retained-editorial-body':
+        return False
+    from repair_photius_apparatus import lexical_segments
+    if (not row.get('editorial_layer') or row.get('ocr_consensus') or
+            row.get('historical_reading_batches')):
+        raise ValueError('Editorial body review requires an unchanged apparatus projection')
+    segments = lexical_segments(row)
+    if len(segments) != 1 or segments[0] != row['text']:
+        raise ValueError('Editorial body review requires one contiguous retained source span')
     return True
 
 
@@ -247,7 +262,8 @@ def compile_review(before, library_raw, scan_raw, observations, *, batch_id,
                 raise ValueError('Observation requires an existing retained historical passage')
             old = rows[locus]
             prefix_scope = _prefix_scope(old, item)
-            if not prefix_scope and (old.get('ocr_consensus') or old.get('editorial_layer') or (
+            editorial_scope = _editorial_body_scope(old, item)
+            if not (prefix_scope or editorial_scope) and (old.get('ocr_consensus') or old.get('editorial_layer') or (
                     'analysis_text' in old and not old.get('historical_reading_batch_projection'))):
                 raise ValueError('Occurrence batches cannot replace another full lexical projection')
             if item.get('original_row_sha256', row_sha(old)) != row_sha(old):
@@ -342,7 +358,7 @@ def compile_review(before, library_raw, scan_raw, observations, *, batch_id,
                 'source_fragments': fragments,
                 **({'projection_only': True, 'digital_context': context} if projection_only else {}),
                 'qualification': item.get('qualification', QUALIFICATION),
-                **({'review_scope': item['review_scope']} if prefix_scope else {}),
+                **({'review_scope': item['review_scope']} if prefix_scope or editorial_scope else {}),
                 'raw_witnesses': item.get('raw_witnesses', []), 'reviewed_at': reviewed_at})
     if not records:
         raise ValueError('A batch needs completed source observations')
@@ -467,10 +483,13 @@ def plan(before, review_raw):
         old = json.loads(line); locus = old['locus']
         if locus not in grouped:
             output.append(line); continue
-        prefix_scope = any(item.get('review_scope') for item in grouped[locus])
+        prefix_scope = any(item.get('review_scope') == 'retained-historical-prefix' for item in grouped[locus])
+        editorial_scope = any(item.get('review_scope') == 'retained-editorial-body' for item in grouped[locus])
         if prefix_scope and (len(grouped[locus]) != 1 or not _prefix_scope(old, grouped[locus][0])):
             raise ValueError('A prefix review requires one complete bounded source range')
-        if not prefix_scope and (old.get('ocr_consensus') or old.get('editorial_layer') or
+        if editorial_scope and not all(_editorial_body_scope(old, item) for item in grouped[locus]):
+            raise ValueError('Every editorial body occurrence requires its explicit retained scope')
+        if not (prefix_scope or editorial_scope) and (old.get('ocr_consensus') or old.get('editorial_layer') or
                 ('analysis_text' in old and not old.get('historical_reading_batch_projection'))):
             raise ValueError('A batch cannot overwrite an unrelated lexical projection')
         previous = old.get('historical_reading_batches', [])
@@ -583,6 +602,8 @@ def plan(before, review_raw):
         new = deepcopy(old)
         new.update(text=corrected, edition='bekker1825-reviewed-historical-readings',
                    license='CC-BY-SA-4.0', language='grc')
+        if editorial_scope:
+            new['analysis_text'] = corrected
         new['historical_reading_batches'] = previous + [{'schema': SCHEMA, 'batch_id': review['batch_id'],
             'source_review': reference, 'original_row_sha256': row_sha(old),
             'reviewed_occurrences': len(items),

@@ -1050,6 +1050,15 @@ include a damaged negative and missing letters in the digital transcription;
 neither source's conflicting form enters scalar lexical counts. Intrusive
 marginal numbers are removed only within the recorded correction spans.
 The surrounding passages remain outside complete word-vote assessment.
+Printed pages 276–280 add 432 reviewed decisions across 21 retained passages:
+354 source-reviewed occurrence corrections, 77 differing source observations,
+and one unchanged fragment reviewed only for lexical eligibility. Ten printed
+word fragments remain excluded from lexical counts. The opening suffix on
+page 277 has qualified scan-only evidence because the mapped digital section
+omits it. The batch also reviews the retained body of passage 11.5 after
+validating its contiguous apparatus projection; its earlier editorial audit
+and separate apparatus text remain unchanged. Later lexical access validates
+both layers and preserves boundaries around unresolved readings.
 
 `python3 scripts/assess_photius_historical.py --write` generates a separate
 diagnostic comparison of the retained historical rows with the matching digital
@@ -3286,7 +3295,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 302,034 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 301,908 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |
