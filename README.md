@@ -1093,6 +1093,26 @@ Review accounting is distinct from corpus admission, word consensus, lexical
 eligibility, and a tested tagged release. A partial campaign does not satisfy
 the close criterion for issue #68.
 
+Release validation reuses deterministic gzip output within one process, with a
+128 MiB compressed-byte budget and 128-entry limit. Current source files, frozen
+archives, authored tables, corpus text, and aliases are still read and checked
+on every validation. The cache does not persist or establish review status.
+
+To compare validation performance, run each revision in a fresh process against
+the same frozen inputs:
+
+```sh
+python3 scripts/benchmark_photius_validation.py --scope coverage --repeat 2
+python3 scripts/benchmark_photius_validation.py --scope observations --repeat 2
+```
+
+Each command prints elapsed time, process peak memory, gzip work, and output
+hashes. The first iteration starts with empty process caches. The observations
+benchmark also requires byte-identical reproduction of the frozen artifacts;
+neither command writes corpus data. See the
+[measured coverage comparison](docs/photius-validation-performance.md) for
+timings, output pins, and the memory tradeoff.
+
 `python3 scripts/repair_photius_complete_review.py --apply` admits the campaign
 only after every frozen passage has a complete source review. It preserves each
 exact original row and earlier audit layer, retains contrary digital readings,
@@ -1655,7 +1675,8 @@ make -j4 check                                    # all artifact validators, up 
 
 The `check` prerequisites are independent and read-only. Plain `make check`
 runs the same validators serially; `-j4` uses available CPU cores without
-skipping checks. For parallel tests, install the optional `pytest-xdist`
+skipping checks. The longest measured checks start first so they do not wait
+behind shorter checks. For parallel tests, install the optional `pytest-xdist`
 development tool and run:
 
 ```bash

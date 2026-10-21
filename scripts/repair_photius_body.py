@@ -6,6 +6,8 @@ reviewed tail readings retain every disagreement in the ordinary vote network.
 """
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 import copy
 import gzip
 import hashlib
@@ -161,11 +163,11 @@ def correct(raw, historical, decisions, library_raw, archive):
         "evidence": authority["source_evidence"], "following_body_anchor": following,
         "held_original_reading": historical_witness, "transcription_convention": authority["transcription_convention"]}
     return updated, {"source_review": pin, "license": "CC-BY-SA-4.0", "source_library": credit,
-        "network": {"path": network_path.as_posix(), "sha256": sha(gzip.compress(encode({locus: full}), mtime=0))},
+        "network": {"path": network_path.as_posix(), "sha256": sha(compress_gzip(encode({locus: full})))},
         "counts": {"corrected_rows": 1, "retained_prefix_characters": start, "held_loop_characters": end - start,
                    "replacement_agreement_slots": tail["ocr_consensus"]["counts"].get("agreement", 0),
                    "replacement_unresolved_slots": tail["ocr_consensus"]["counts"].get("unresolved", 0)},
-        "changes": [change]}, {network_path: gzip.compress(encode({locus: full}), mtime=0)}
+        "changes": [change]}, {network_path: compress_gzip(encode({locus: full}))}
 
 
 def validate_projection(row):

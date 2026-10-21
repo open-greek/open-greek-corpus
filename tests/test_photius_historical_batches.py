@@ -3,6 +3,7 @@ from copy import deepcopy
 from collections import Counter
 import gzip
 import json
+import os
 from pathlib import Path
 import sys
 
@@ -11,6 +12,7 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).parents[1] / 'scripts'))
 import repair_photius_historical_batches as layer
+from audit_compression import _CACHE as compression_cache
 
 
 PREFIX = 'helladius_chrestomathia_photius_bekker_v2_0004.'
@@ -74,6 +76,51 @@ def test_compile_pins_exact_raw_offsets_digital_and_crop(fixture):
     assert item['digital_counterpart']['section'].endswith('-s281')
     assert len(item['source']['image_sha256']) == 64
     assert review['input_corpus_sha256'] == layer.sha(fixture['before'])
+
+
+@pytest.mark.parametrize('target', ['table', 'scan', 'library', 'records', 'before', 'corpus'])
+def test_warm_compression_still_rejects_same_size_tampering_with_preserved_timestamps(fixture, target):
+    compression_cache.cache_clear()
+    table(fixture, 'fixture_batch_one', 'batch-one', [observation()])
+    root = fixture['root']
+    layer.apply(root)
+    layer.check(root)
+    hits = compression_cache.cache_info().hits
+    layer.check(root)
+    assert compression_cache.cache_info().hits > hits
+    paths = layer.paths('batch-one')
+    relative = {'table': paths['table'], 'scan': layer.SCAN, 'library': layer.LIBRARY,
+                'records': paths['records'], 'before': paths['before'], 'corpus': layer.CORPUS}[target]
+    path = root / relative
+    stamp, raw = path.stat(), path.read_bytes()
+    if target in {'library', 'records', 'before'}:
+        # A valid gzip archive with identical payload but a different OS byte.
+        changed = raw[:9] + bytes([raw[9] ^ 1]) + raw[10:]
+        assert gzip.decompress(changed) == gzip.decompress(raw)
+    elif target == 'table':
+        changed = raw.replace(b'batch-one', b'batch-two')
+    elif target == 'scan':
+        changed = raw.replace(b'%PDF-1.', b'%PDF-2.', 1)
+    else:
+        changed = raw.replace('καλόν'.encode(), 'κακόν'.encode(), 1)
+    assert changed != raw and len(changed) == len(raw)
+    path.write_bytes(changed)
+    os.utime(path, ns=(stamp.st_atime_ns, stamp.st_mtime_ns))
+    with pytest.raises(ValueError):
+        layer.check(root)
+
+
+def test_mutating_a_replay_result_cannot_change_a_later_cached_replay(fixture):
+    table(fixture, 'fixture_batch_one', 'batch-one', [observation()])
+    root = fixture['root']
+    layer.apply(root)
+    outputs, audit = layer.build(root, batch_id='batch-one')
+    expected = deepcopy(audit)
+    outputs[layer.CORPUS] = b'independent mutation'
+    audit['counts'].clear()
+    replay, restored = layer.build(root, batch_id='batch-one')
+    assert restored == expected
+    assert replay[layer.CORPUS] == (root / layer.CORPUS).read_bytes()
 
 
 def test_two_batches_exact_undo_reapply_and_memory_restore(fixture, monkeypatch):
