@@ -12,6 +12,8 @@ import frequency_projection as projection
                                     'repair_photius_historical_readings.py',
                                     'repair_photius_historical_batches.py',
                                     'repair_photius_complete_review.py',
+                                    'repair_photius_context.py', 'repair_photius_uncertainties.py',
+                                    'photius_uncertainty_observations.py',
                                     'assess_photius_historical.py', 'ocr_consensus.py', 'audit_compression.py',
                                     'prepare_photius_review_campaign.py'])
 def test_imported_eligibility_code_changes_the_recipe_pin(tmp_path, monkeypatch, changed):

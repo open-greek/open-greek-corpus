@@ -1,0 +1,77 @@
+{
+  "schema": "photius-contextual-digital-review-v1",
+  "work": "photius.bibliotheca",
+  "recorded_at": "2026-10-21T18:19:58.798721+00:00",
+  "text_correction_authorized": false,
+  "input_corpus_sha256": "a263df857a26dcbd2c2e58bd3012fdd4dc03ffe860e800c0e25d67fe7d0e0623",
+  "output_corpus_sha256": "2ad6fdde36fd2bef6f47ee377c36551e939cc2d5004196750e12236891cea1db",
+  "aliases_sha256": "691bc8a6d9199cb59b68f888f724a3afb3390932c00bf6501e5057eacea9c5fd",
+  "source_pins": {
+    "corpus": {
+      "path": "data/corpus/photius.bibliotheca.jsonl",
+      "sha256": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5"
+    },
+    "scan": {
+      "path": "data/corpus_changes/photius-bekker-readings/source-scan.pdf",
+      "sha256": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb"
+    },
+    "frozen_corpus": {
+      "path": "data/corpus_changes/photius-bekker-complete-review/before-corpus.jsonl.gz",
+      "sha256": "28f8ba984e9c9f87ce95f57fec417a196ce78297bc5d67c8dc054639e083d366",
+      "uncompressed_sha256": "8c9e60aa83dd3765fe9893e9c1ef239046c035a9936f8613cd05ad42bfafddc5"
+    },
+    "digital_archive": {
+      "path": "data/corpus_changes/photius-bekker-readings/source-library.json.gz",
+      "sha256": "114949cd26dc366ed6d0a084ad1978b197175ced3e79b05301ac03e75643b291"
+    },
+    "original_corpus": {
+      "path": "data/corpus_changes/photius-bekker-index/before.jsonl.gz",
+      "sha256": "15e47ffae0cabc5312e87e5fdcb11f6e952797eb3ee1b5312d6948d4142b1f04",
+      "uncompressed_sha256": "95f5814a95ac9c0b26010c624dc605248f1937868d9fe1e15178ab6cd9f0ee68"
+    },
+    "source_mapping_review": {
+      "path": "data/corpus_changes/photius-bekker-coverage/coverage.json",
+      "sha256": "3b6e098bdbdfd25e8b10713c3e7602d207a797ce9d86695fb3860156adddab7e"
+    },
+    "data/corpus_changes/photius-bekker-complete-review/admission/changes.json": {
+      "path": "data/corpus_changes/photius-bekker-complete-review/admission/changes.json",
+      "sha256": "c5f0d6d95569feb16a4f789f903108697a25f1ad98ebf53e59b25f1d040c0ded"
+    },
+    "data/corpus_changes/photius-bekker-complete-review/admission/source-review.json.gz": {
+      "path": "data/corpus_changes/photius-bekker-complete-review/admission/source-review.json.gz",
+      "sha256": "58fa74b6e2abdf8303ea3b1739f636c32edb6eb6ac63c2596f120b53e2c6eb99"
+    },
+    "data/corpus_changes/photius-bekker-complete-review/admission/records.jsonl.gz": {
+      "path": "data/corpus_changes/photius-bekker-complete-review/admission/records.jsonl.gz",
+      "sha256": "3f532969dfa5226e83dca21a792b79cf5b74db4d841494f9e223d7031090aeba"
+    }
+  },
+  "recipe_sha256": {
+    "repair_photius_context.py": "f19d398ea9976b954d8db57e8f31200776e3a23f175c4ff247b187a909f3af86",
+    "assess_photius_historical.py": "afd191d3c022f57e859bfa79d329e83db5237ad55db3906624e8eba088b67463",
+    "repair_photius_complete_review.py": "c48e2b98409eeea0f55edf123152f27aab4e0ee19dfd7dc2cfdd51fbc8c55b17",
+    "prepare_photius_review_campaign.py": "4ef586e6bb30bcb07a7e0222b851bb3b13c8cc7f6b99301f5c0698f7e5b6e516",
+    "audit_compression.py": "d2504998f18d7d69fb009312eede80ffc83667e07e5450134eceb2361d101d21"
+  },
+  "counts": {
+    "rows": 3462,
+    "context_status": {
+      "aligned-context": 2721,
+      "ambiguous-context": 531,
+      "insufficient-context": 154,
+      "no-comparable-tokens": 4,
+      "source-mapping-exception": 52
+    },
+    "changed_display_rows": 0,
+    "changed_lexical_rows": 567,
+    "recompiled_pointer_segments": 9320
+  },
+  "outputs": {
+    "data/corpus/photius.bibliotheca.jsonl": "2ad6fdde36fd2bef6f47ee377c36551e939cc2d5004196750e12236891cea1db",
+    "data/corpus_changes/photius-bekker-context/before-corpus.jsonl.gz": "b8ea9cd7f5ae1ca7575820908e178738bf25c48d7f0ae6457a6c4ae2006eeb79",
+    "data/corpus_changes/photius-bekker-context/before-aliases.json.gz": "913c347b545b5fed38adaf6b7d66678a098a3b9a41403b5287b2590a14d55015",
+    "data/corpus_changes/photius-bekker-context/prior-source-review.json.gz": "58fa74b6e2abdf8303ea3b1739f636c32edb6eb6ac63c2596f120b53e2c6eb99",
+    "data/corpus_changes/photius-bekker-context/source-review.json.gz": "0fd53207d99beb240439a39cf4679f4c220a02b8a96c4964991e2af2e5ee3fea",
+    "data/corpus_changes/photius-bekker-context/records.jsonl.gz": "eb74c51d000290e137d4da8ff8cc56eace12febbf35154592cd3c681f7e5ce90"
+  }
+}

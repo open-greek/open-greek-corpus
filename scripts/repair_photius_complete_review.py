@@ -345,6 +345,44 @@ def build(root=ROOT):
     return artifacts(before, review_raw, aliases_before)
 
 
+def _later_bytes(raw, root):
+    """Verify and reverse later authorities before checking this frozen stage."""
+    if b'"photius_uncertainty_review"' in raw:
+        from repair_photius_uncertainties import restore_before_bytes as restore
+        raw = restore(raw, root)
+    if b'"photius_context_review"' in raw:
+        from repair_photius_context import restore_before_bytes as restore
+        raw = restore(raw, root)
+    return raw
+
+
+def _later_row(row, root):
+    if row.get('photius_uncertainty_review'):
+        from repair_photius_uncertainties import restore_before_row as restore
+        row = restore(row, root)
+    if row.get('photius_context_review'):
+        from repair_photius_context import restore_before_row as restore
+        row = restore(row, root)
+    return row
+
+
+def later_metadata(root=ROOT):
+    """Publish later checked authorities separately from frozen review counts."""
+    root = Path(root)
+    result = {}
+    if (root / 'data/corpus_changes/photius-bekker-context/changes.json').exists():
+        from repair_photius_context import active_metadata as metadata
+        current = metadata(root)
+        if current:
+            result['context_review'] = current
+    if (root / 'data/corpus_changes/photius-bekker-uncertainties/changes.json').exists():
+        from repair_photius_uncertainties import active_metadata as metadata
+        current = metadata(root)
+        if current:
+            result['uncertainty_review'] = current
+    return result
+
+
 def check(root=ROOT):
     root = Path(root)
     if not (root / AUDIT).exists():
@@ -352,9 +390,10 @@ def check(root=ROOT):
             raise ValueError("Complete-review corpus metadata has no frozen admission audit")
         return None
     expected, audit = build(root)
-    inactive = ((root / CORPUS).read_bytes() == gzip.decompress((root / campaign.BASELINE).read_bytes())
+    current = _later_bytes((root / CORPUS).read_bytes(), root)
+    inactive = (current == gzip.decompress((root / campaign.BASELINE).read_bytes())
         and (root / ALIASES).read_bytes() == gzip.decompress(expected[BEFORE_ALIASES]))
-    if any((root / p).read_bytes() != raw for p, raw in expected.items()
+    if any((current if p == CORPUS else (root / p).read_bytes()) != raw for p, raw in expected.items()
            if not inactive or p not in {CORPUS, ALIASES}):
         raise ValueError("Complete-review corpus admission no longer reproduces")
     return None if inactive else audit
@@ -366,7 +405,8 @@ def active_metadata(root=ROOT):
     if not (root / AUDIT).exists():
         return None
     expected, audit, before = _saved(root)
-    current, aliases = (root / CORPUS).read_bytes(), (root / ALIASES).read_bytes()
+    current = _later_bytes((root / CORPUS).read_bytes(), root)
+    aliases = (root / ALIASES).read_bytes()
     if current == before and aliases == gzip.decompress(expected[BEFORE_ALIASES]):
         return None
     if current != expected[CORPUS] or aliases != expected[ALIASES]:
@@ -381,6 +421,7 @@ def active_metadata(root=ROOT):
 
 
 def restore_before_bytes(raw, root=ROOT):
+    raw = _later_bytes(raw, root)
     if b'"complete_source_review"' not in raw:
         return raw
     expected, _, before = _saved(root)
@@ -410,6 +451,7 @@ def _record_map(raw):
 
 
 def restore_before_row(row, root=ROOT):
+    row = _later_row(row, root)
     if not row.get("complete_source_review"):
         return deepcopy(row)
     root = Path(root)
@@ -427,6 +469,12 @@ def restore_before_row(row, root=ROOT):
 
 
 def lexical_segments(row, root=ROOT):
+    if row.get('photius_uncertainty_review'):
+        from repair_photius_uncertainties import lexical_segments as latest
+        return latest(row, root)
+    if row.get('photius_context_review'):
+        from repair_photius_context import lexical_segments as latest
+        return latest(row, root)
     if not row.get("complete_source_review"):
         raise ValueError("Complete-review lexical projection has no admission authority")
     restore_before_row(row, root)

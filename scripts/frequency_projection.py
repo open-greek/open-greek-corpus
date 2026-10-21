@@ -33,10 +33,20 @@ def projection_recipe_pins():
              "repair_photius_historical_readings.py", "repair_photius_historical_batches.py",
              "repair_photius_complete_review.py", "assess_photius_historical.py", "ocr_consensus.py",
              "audit_compression.py", "prepare_photius_review_campaign.py")
+    names += ("repair_photius_context.py", "repair_photius_uncertainties.py",
+              "photius_uncertainty_observations.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("photius_uncertainty_review"):
+        from repair_photius_uncertainties import lexical_segments
+        lexical_segments(rec)
+        return rec["analysis_text"]
+    if rec.get("photius_context_review"):
+        from repair_photius_context import lexical_segments
+        lexical_segments(rec)
+        return rec["analysis_text"]
     if rec.get("complete_source_review"):
         from repair_photius_complete_review import lexical_segments
         lexical_segments(rec)
@@ -105,6 +115,12 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if rec.get("photius_uncertainty_review"):
+            from repair_photius_uncertainties import lexical_segments
+            return lexical_segments(rec)
+        if rec.get("photius_context_review"):
+            from repair_photius_context import lexical_segments
+            return lexical_segments(rec)
         if rec.get("complete_source_review"):
             from repair_photius_complete_review import lexical_segments
             return lexical_segments(rec)
