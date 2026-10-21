@@ -90,6 +90,16 @@ def _statuses(span):
     return sorted(set(result))
 
 
+def _gap_fragment(row, reading, start, end):
+    before, after = reading[:start], reading[end:]
+    policy = row.get("gap_boundary_policy", "adjacent")
+    if policy == "conservative-across-whitespace":
+        before, after = before.rstrip(), after.lstrip()
+    elif policy != "adjacent":
+        raise ValueError("Unsupported gap-boundary policy")
+    return before.endswith("…") or after.startswith("…")
+
+
 def annotate(row):
     """Retain every branch and annotate selected surface fragments without guesses."""
     spans = row["spans"]
@@ -125,7 +135,7 @@ def annotate(row):
         if start is None:
             continue
         state = sorted({s for group in statuses[start:index] for s in group})
-        if (start and reading[start - 1] == "…") or (index < len(reading) and reading[index] == "…"):
+        if _gap_fragment(row, reading, start, index):
             state.append("fragment")
         tokens.append({"id": f"{row['locus']}.t{len(tokens) + 1}",
                        "form": reading[start:index], "start": start, "end": index,
@@ -138,7 +148,7 @@ def annotate(row):
     return row
 
 
-def finalize_tokens(rows):
+def finalize_tokens(rows, *, allow_cross_column_continuations=False):
     """A break=no continuation is retained, never promoted as two complete words."""
     for index, row in enumerate(rows):
         row["word_continuations"] = {
@@ -148,7 +158,8 @@ def finalize_tokens(rows):
         if row["line_attributes"].get("break") == "no":
             targets = [row["tokens"][:1]]
             if index:
-                if rows[index - 1]["locus"].rsplit(".", 1)[0] != row["locus"].rsplit(".", 1)[0]:
+                if (not allow_cross_column_continuations and
+                        rows[index - 1]["locus"].rsplit(".", 1)[0] != row["locus"].rsplit(".", 1)[0]):
                     raise ValueError("Word continuation crosses a column boundary")
                 targets.append(rows[index - 1]["tokens"][-1:])
             for group in targets:
@@ -181,7 +192,7 @@ def validate(row):
             raise ValueError("Token refers to a gap or an unselected reading")
         expected_status = {state for s in token["span_ids"] for state in _statuses(by_id[s])}
         reading = row["reading_text"]
-        if (a and reading[a - 1] == "…") or (b < len(reading) and reading[b] == "…"):
+        if _gap_fragment(row, reading, a, b):
             expected_status.add("fragment")
         continuation = row["word_continuations"]
         if ((index == 0 and continuation["from_previous_line"]) or
@@ -238,9 +249,19 @@ def render_html(rows, manifest):
     attribution = html.escape(manifest["attribution"])
     title = html.escape(manifest["title"])
     source_url = html.escape(manifest["source_url"], quote=True)
+    refs = rows[0]["physical_refs"] if rows else {}
+    identifiers = [value for value in (refs.get("document"),
+                   "DCLP " + refs["dclp"] if refs.get("dclp") else None) if value]
+    identity = html.escape(" · ".join(identifiers)) + " · " if identifiers else ""
+    license_label = html.escape(manifest["source_license"].replace("CC-BY-", "CC BY "))
+    license_urls = manifest.get("source_license_urls", [])
+    if license_urls:
+        license_url = html.escape(license_urls[0].replace("http://creativecommons.org/", "https://creativecommons.org/"), quote=True)
+        license_label = f'<a href="{license_url}">{license_label}</a>'
+    source_format = "EpiDoc" if manifest["source_path"].endswith(".xml") else "HTML"
     return f'''<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>{title}</title>
 <style>body{{font:18px/1.6 Georgia,serif;max-width:64rem;margin:2rem auto;padding:0 1rem;color:#24231f;background:#fbf9f2}}h1{{font-size:1.6rem}}a{{color:#754421}}article{{border-top:1px solid #c9c2af;padding:1rem 0}}.locus,summary{{font-size:.85rem}}.reading{{font-size:1.4rem;white-space:pre-wrap;margin:.5rem 0}}.unclear{{text-decoration:underline dotted;text-underline-offset:.2em}}.supplied{{color:#71452e}}.apograph{{color:#286353}}.corrected,.variant{{border-bottom:1px solid #8a6030}}.gap{{color:#635c50;letter-spacing:.1em}}pre{{white-space:pre-wrap;font-size:.75rem;overflow-wrap:anywhere}}details{{margin:.4rem 0}}label{{margin-right:1.2rem}}.hide-uncertain .unclear{{color:#68645b}}.hide-restored .supplied,.hide-restored .apograph{{opacity:.4}}</style>
-<h1>{title}</h1><p>P.Herc. 1026 · DCLP 63141 · {attribution} · <a href="https://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>. <a href="{source_url}">Pinned source EpiDoc</a>.</p>
+<h1>{title}</h1><p>{identity}{attribution} · {license_label}. <a href="{source_url}">Pinned source {source_format}</a>.</p>
 <p>Unclear letters have dotted underlining; [restored letters], &lt;omitted letters&gt;, ⸢letters surviving only in apographs⸣, and gaps retain their editorial status. Select any marked span for its source attributes. Alternatives and original corrections are available at each line. Tokens with damage or editorial intervention are excluded from the lexical projection; no lemma or morphology is inferred.</p>
 <label><input type="checkbox" id="restorations" checked>Emphasize supplied text</label><label><input type="checkbox" id="uncertainty" checked>Emphasize unclear text</label>
 {''.join(body)}<script>document.getElementById('restorations').addEventListener('change',e=>document.body.classList.toggle('hide-restored',!e.target.checked));document.getElementById('uncertainty').addEventListener('change',e=>document.body.classList.toggle('hide-uncertain',!e.target.checked));</script></html>'''

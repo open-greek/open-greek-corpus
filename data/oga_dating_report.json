@@ -8,7 +8,7 @@
   "adjudication": "data/oga_dating_adjudication.json",
   "policy": "fill gaps, never clobber; adjudicate genuine divergences, flag the rest (Multi-Source Data)",
   "counts": {
-   "filled": 122,
+   "filled": 125,
    "agreed": 996,
    "conflicts": 466,
    "adjudicated": 39,
@@ -17,7 +17,7 @@
     "b": 10,
     "c": 19
    },
-   "resolved_no_registry_home": 288,
+   "resolved_no_registry_home": 285,
    "conflict_delta_century_histogram": {
     "1": 466
    }
@@ -563,6 +563,24 @@
    "slug": "vitae-homeri.sudae-vita",
    "century": 4,
    "era": "late-antique"
+  },
+  {
+   "urn": "tlg2135.tlg001",
+   "slug": "alypius.isagoge-musica",
+   "century": 3,
+   "era": "imperial"
+  },
+  {
+   "urn": "tlg2136.tlg001",
+   "slug": "bacchius-geron.isagoge",
+   "century": 9,
+   "era": "byzantine"
+  },
+  {
+   "urn": "tlg2137.tlg001",
+   "slug": "gaudentius.harmonica-introductio",
+   "century": 3,
+   "era": "imperial"
   },
   {
    "urn": "tlg2655.tlg002",
@@ -7531,9 +7549,6 @@
   "tlg2035.tlg131",
   "tlg2035.tlg132",
   "tlg2057.tlg002",
-  "tlg2135.tlg001",
-  "tlg2136.tlg001",
-  "tlg2137.tlg001",
   "tlg2138.tlg001",
   "tlg2139.tlg001",
   "tlg2189.tlg003",
