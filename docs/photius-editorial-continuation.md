@@ -37,7 +37,9 @@ the decoded source context, the chosen token interval, and the reason that the
 context identifies this occurrence. Public replay reconstructs every field from
 the authored decision and its hashed source context. A longer tied interval
 cannot silently repeat already retained neighboring text. Different word orders
-between editions require a separate passage-level decision.
+between editions cannot authorize a positional replacement. A separately reviewed
+term-level correspondence can preserve the base edition's order while recording
+the comparison edition's contrary order explicitly.
 
 ## Source roles and fresh corrections
 
@@ -70,7 +72,11 @@ python3 scripts/repair_photius_editorial_continuation.py --undo
 
 Fresh application repeats preparation, validates source identities and exact
 witnesses, and recreates the inspected role crops. Public literal checking needs
-only the recorded witnesses and immutable archives. Undo needs no live correction
+only the recorded witnesses and immutable archives. The complete source-backed
+decision packet also has a fingerprint frozen in the admission recipe; coordinated
+changes to readings, punctuation, source positions, or decisions fail public replay.
+Individual manual choices separately pin their source surface and token positions.
+Undo needs no live correction
 source and restores the exact original bytes. Reverse this layer before the
 first editorial substitution, the 70-span source admission, the 33-span review,
 the occurrence-context layer, and the complete historical campaign.

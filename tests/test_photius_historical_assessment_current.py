@@ -43,7 +43,7 @@ def fixture(tmp_path, monkeypatch):
                  'check_photius_pilot_predecessor.py', 'repair_photius_editorial_substitutions.py',
                  'prepare_photius_editorial_substitutions.py', 'photius_current_state.py',
                  'repair_photius_editorial_continuation.py', 'prepare_photius_editorial_continuation.py',
-                 'photius_remaining_context.py', 'photius_remaining_roles.py'):
+                 'photius_remaining_context.py', 'photius_remaining_roles.py', 'photius_remaining_words.py'):
         files[Path('scripts') / name] = name.encode()
     for path, raw in files.items():
         write(path, raw)

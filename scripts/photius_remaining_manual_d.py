@@ -1,4 +1,4 @@
-"""Four individually located readings whose broad automatic intervals tied.
+"""Five individually located readings whose broad automatic intervals tied.
 
 These choices replace only the held occurrence. The surrounding verified text
 and every previously recorded contrary reading remain unchanged.
@@ -8,7 +8,7 @@ import hashlib
 import json
 import compare_photius_local_edition as edition
 
-REVIEWED_AT = '2026-10-21T23:10:13Z'
+REVIEWED_AT = '2026-10-21T23:15:58.351556+00:00'
 SOURCE_SHA256 = '8ffaad0d30bdd87e87b9e24f55495a6b56d64e91591c1e393e4d2e82dd5b6daa'
 SOURCE_PINS = {}
 SPECS = [{'locus': 'helladius_chrestomathia_photius_bekker_v2_0094.8',
@@ -23,7 +23,9 @@ SPECS = [{'locus': 'helladius_chrestomathia_photius_bekker_v2_0094.8',
   'evidence': 'The sentence places this verb after μητὴρ εἰς μῖξιν ἀθέμιτον παιδὸς and before the '
               'new address Ἀλλ’ ὦ. The longer tied interval incorrectly includes the following '
               'sentence. Select only the verb, retaining the unresolved Bekker ending as contrary '
-              'evidence.'},
+              'evidence.',
+  'surface_sha256': '8e9b5e2153b5be4c55ea97b59866134529fdd97dd1b39190fac448c020125697',
+  'source_indices': [227458]},
  {'locus': 'helladius_chrestomathia_photius_bekker_v2_0246.40',
   'segment_index': 1,
   'start': 14,
@@ -36,7 +38,9 @@ SPECS = [{'locus': 'helladius_chrestomathia_photius_bekker_v2_0094.8',
   'evidence': 'The preceding retained passage ends within ἀνέδειξε; the current passage continues '
               'δειξε· σὺ τὸν and then names the calf before ἐπὶ τῆς φάτνης ἔθρεψας. The longer '
               'tied interval repeats text already present before this occurrence. Select only '
-              'μόσχον.'},
+              'μόσχον.',
+  'surface_sha256': '3c4ede13b2239a7efef740a0a8f557c64d81488a97e334743753bd27bc7283b6',
+  'source_indices': [322285]},
  {'locus': 'helladius_chrestomathia_photius_bekker_v2_0265.3',
   'segment_index': 9,
   'start': 1031,
@@ -48,7 +52,9 @@ SPECS = [{'locus': 'helladius_chrestomathia_photius_bekker_v2_0094.8',
   'context_sha256': '552cad6b9160df89dfa93505d1e9ba9162efb3671583be61a174a045f1bbe164',
   'evidence': 'The contrast is καὶ τὰ μὲν ὀξύνεται, τὸ δὲ περισπᾶται before the separate quantity '
               'contrast. The longer tied interval includes verified intervening text and another '
-              'held verb. Select only the accentuation verb.'},
+              'held verb. Select only the accentuation verb.',
+  'surface_sha256': '29b02c7b67c53caa32a892acc09692ca149435c4c530090dcff49c73b372d0d1',
+  'source_indices': [335096]},
  {'locus': 'helladius_chrestomathia_photius_bekker_v2_0265.3',
   'segment_index': 13,
   'start': 1068,
@@ -60,7 +66,28 @@ SPECS = [{'locus': 'helladius_chrestomathia_photius_bekker_v2_0094.8',
   'context_sha256': '552cad6b9160df89dfa93505d1e9ba9162efb3671583be61a174a045f1bbe164',
   'evidence': 'The separate quantity contrast is καὶ τὰ μὲν βραχύνεται, τὸ δὲ μακρόν ἐστι φύσει '
               'after the accentuation contrast. The longer tied interval repeats the other held '
-              'verb and verified intervening text. Select only the quantity verb.'}]
+              'verb and verified intervening text. Select only the quantity verb.',
+  'surface_sha256': '360d9144ccd20128ed46c56ca5b116e350332dfbe9fe222a5670b8f08d4cebdc',
+  'source_indices': [335103]},
+ {'locus': 'helladius_chrestomathia_photius_bekker_v2_0053.7',
+  'segment_index': 2,
+  'start': 250,
+  'end': 255,
+  'original_text': 'ἰχνόν',
+  'row_sha256': '77710b5ecf8f784b2bcf384a4eee4b9d9e8bfdda6b986a7993a70561ade0b786',
+  'inherited_record_sha256': '7f816738264d3eec429aead68c23cb371de244fa9adfeaaa4c66a4a9410c10be',
+  'selection': (8184, 8187, 'ἰσχνόν'),
+  'context_sha256': '7c2dc30c6a53d88693f2070d682843d43afb0f1a3cc8c8ffb8f2cae6c6f55ae3',
+  'boundaries': {'right': 'τὸ δὲ μέσον'},
+  'evidence': 'Both editions enumerate the same three styles and then explain each style. Bekker '
+              'places the thin style first, before the verified ἁδρόν; Henry reverses their '
+              'enumeration. Select Henry’s corresponding term ἰσχνόν before τὸ δὲ μέσον, '
+              'corroborating the inherited tentative Bekker ἰ[σ?]χνόν and earlier digital ἰσχνόν. '
+              'Preserve Bekker’s existing clause order. This is an explicitly reviewed term-level '
+              'correspondence, not positional alignment or adoption of Henry’s word order; the '
+              'contrary enumeration remains in the pinned source context.',
+  'surface_sha256': 'd8029a2ffe6ce11e6b455b0eda366439f26931348a08a4c356eee0f1d9f4b6c3',
+  'source_indices': [202615]}]
 
 
 def _digest(value):
@@ -75,6 +102,11 @@ def _record(spec, units):
     wanted = [edition.normalize(m.group()) for m in edition.WORD.finditer(spec['selection'][2])]
     positions = [i for i in range(len(tokens)-len(wanted)+1)
                  if [t['key'] for t in tokens[i:i+len(wanted)]] == wanted]
+    right=[edition.normalize(m.group()) for m in edition.WORD.finditer(
+        spec.get('boundaries',{}).get('right',''))]
+    if right:
+        positions=[i for i in positions if
+            [t['key'] for t in tokens[i+len(wanted):i+len(wanted)+len(right)]]==right]
     if len(positions) != 1 or not wanted:
         raise ValueError('The reviewed reading must occur exactly once in its source context')
     selected = tokens[positions[0]:positions[0]+len(wanted)]
@@ -87,6 +119,7 @@ def _record(spec, units):
         'original_row_sha256': spec['row_sha256'],
         'inherited_record_sha256': spec['inherited_record_sha256'],
         'evidence': spec['evidence'], 'readings': [reading], 'rendering': {},
+        'surface_sha256': spec['surface_sha256'], 'source_indices': deepcopy(spec['source_indices']),
         'manual_context': {'source_id': 'tlg-photius-henry', 'sha256': SOURCE_SHA256,
             'units': deepcopy(units), 'qualification': 'Editorial preference; no claim of Bekker scan certification.'}}
 

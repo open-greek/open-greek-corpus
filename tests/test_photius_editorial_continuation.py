@@ -223,3 +223,23 @@ def test_individual_source_choice_must_match_adopted_interval(monkeypatch):
     authored['records'][0]['manual_review']={'module':module.__name__,'review':expected}
     with pytest.raises(ValueError,match='Individual adoption differs'):
         continuation.compile_review(before,scopes,authored,source_raw=raw)
+
+
+@pytest.mark.parametrize('defect',['source-index','punctuation','decision','source-identity'])
+def test_frozen_complete_witness_packet_rejects_coordinated_public_mutations(monkeypatch,defect):
+    case=fixture(source='σαφές,ῥῆμα')
+    monkeypatch.setattr(prepare,'BASELINE_SHA256',continuation.sha(case['before']))
+    monkeypatch.setattr(continuation,'SOURCE_WITNESS_SHA256',continuation.witness_fingerprint(case['authored']))
+    assert compile_case(case)==compile_case(case,literal=True)
+    decision=case['authored']['records'][0];reading=decision['readings'][0]
+    if defect=='source-index':reading['tokens'][0]['source_index']+=25
+    elif defect=='punctuation':
+        witness=reading['separators'][0]
+        witness['pieces'][0]['text']=';';witness['rendered']=';'
+        reading['surface']=reading['surface'].replace(',',';')
+        decision['corrected_text']=decision['corrected_text'].replace(',',';')
+    elif defect=='decision':
+        decision.update(decision='retained',corrected_text=decision['original_text'])
+    else:case['authored']['source']['sha256']='0'*64
+    with pytest.raises(ValueError,match='complete source witness fingerprint changed'):
+        compile_case(case,literal=True)

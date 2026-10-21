@@ -1224,14 +1224,15 @@ and all earlier review layers. Historical check targets use an exact predecessor
 view so the frozen source recipes and archives remain unchanged.
 
 The [editorial continuation](docs/photius-editorial-continuation.md) reviews all
-385 held identities through a new reversible authority. It retains complete
+385 held identities through a new reversible authority. It resolves **358**,
+leaving **27** explicitly held occurrences. It retains complete
 Greek spans and internal punctuation, including quotation marks stored in
 separate HTML nodes, while excluding source line numbers and reference labels.
 Ordered context can locate longer uncertain phrases without using their
 tentative spellings or token counts to select a match. Independently inspected
 reading announcements and transmitted commentary receive explicit source-role
-decisions; modern marginal references stay excluded. New scan-supported fixes
-to previously verified text are recorded and counted separately.
+decisions; modern marginal references stay excluded. Four new scan-supported
+fixes to previously verified text are recorded and counted separately.
 
 Run `make check-photius-editorial-continuation` for public witness, pin, replay,
 and projection validation. With `PHOTIUS_COMPARISON_HTML` set, run

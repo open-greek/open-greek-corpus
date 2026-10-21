@@ -4,6 +4,7 @@ import gzip
 import json
 from pathlib import Path
 import sys
+from types import SimpleNamespace
 
 import pytest
 
@@ -168,3 +169,68 @@ def test_warmed_lexical_projection_rejects_changed_authority_bytes(tmp_path, mon
     path.write_bytes(path.read_bytes() + b'changed after first projection')
     with pytest.raises(ValueError, match='compiled authority'):
         layer.lexical_segments(row, tmp_path)
+
+
+def with_manual_authority(inputs, monkeypatch):
+    """Add an independently pinned surface to an otherwise coherent reading."""
+    authored = inputs[2]
+    reading = authored['records'][0]['readings'][0]
+    expected = {'original_text': authored['records'][0]['original_text'],
+                'readings': [{'tokens': deepcopy(reading['tokens'])}], 'rendering': {},
+                'surface_sha256': layer.sha(layer.canonical({key: reading[key]
+                    for key in ('surface', 'separators', 'boundary_suffix')}))}
+    module = SimpleNamespace(__name__='photius_remaining_manual_independent',
+                             validate_record=lambda key, record: deepcopy(expected))
+    monkeypatch.setattr(prepare, 'manual_modules', lambda root=prepare.ROOT: [module])
+    authored['records'][0]['manual_review'] = {'module': module.__name__, 'review': expected}
+
+
+@pytest.mark.parametrize('defect', ['all-indices', 'coherent-punctuation'])
+def test_manual_pins_reject_coherent_literal_source_mutations(monkeypatch, defect):
+    inputs = case()
+    with_manual_authority(inputs, monkeypatch)
+    assert compile_case(inputs) == compile_case(inputs, literal=True)
+    decision = inputs[2]['records'][0]
+    reading = decision['readings'][0]
+    if defect == 'all-indices':
+        # Consecutiveness and the self-recorded source map still agree, but the
+        # independently authored occurrence indices must reject this shift.
+        for token in reading['tokens']:
+            token['source_index'] += 100
+        message = 'Individual source-token indices changed'
+    else:
+        # Keep lengths, reference bounds, Greek words, and rendering coherent.
+        # Only an independent whole-surface pin detects these altered glyphs.
+        for piece in reading['separators'][0]['pieces']:
+            piece['text'] = piece['text'].replace('«', '(')
+        reading['separators'][0]['rendered'] = reading['separators'][0]['rendered'].replace('«', '(')
+        reading['boundary_suffix']['pieces'][0]['text'] = ')'
+        reading['boundary_suffix']['rendered'] = ')'
+        reading['surface'] = reading['surface'].replace('«', '(').replace('»', ')')
+        decision.update(prepare.render(decision['original_text'], inputs[1][
+            (decision['locus'], decision['segment_index'])]['row']['text'],
+            next(iter(inputs[1].values()))['start'], next(iter(inputs[1].values()))['end'], reading))
+        message = 'Individual source punctuation or surface changed'
+    with pytest.raises(ValueError, match=message):
+        compile_case(inputs, literal=True)
+
+
+@pytest.mark.parametrize('literal', [False, True])
+def test_frozen_campaign_fingerprint_rejects_changed_witnesses(monkeypatch, literal):
+    inputs = case()
+    monkeypatch.setattr(prepare, 'BASELINE_SHA256', layer.sha(inputs[0]))
+    monkeypatch.setattr(layer, 'SOURCE_WITNESS_SHA256', layer.witness_fingerprint(inputs[2]))
+    compile_case(inputs, literal=literal)
+    # A changed attribution is a changed campaign even with coherent rows.
+    inputs[2]['records'][0]['evidence'] = 'Another attribution of this same Greek string.'
+    with pytest.raises(ValueError, match='complete source witness fingerprint changed'):
+        compile_case(inputs, literal=literal)
+
+
+def test_unfrozen_campaign_cannot_claim_source_free_verification(monkeypatch):
+    inputs = case()
+    monkeypatch.setattr(prepare, 'BASELINE_SHA256', layer.sha(inputs[0]))
+    monkeypatch.setattr(layer, 'SOURCE_WITNESS_SHA256', None)
+    compile_case(inputs)  # Initial fresh compilation can establish the pin.
+    with pytest.raises(ValueError, match='fingerprint is not frozen'):
+        compile_case(inputs, literal=True)

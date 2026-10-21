@@ -28,9 +28,17 @@ TAG='photius_editorial_continuation'
 SCHEMA='photius-editorial-continuation-admission-v1'
 BASELINE_SHA256=preparer.BASELINE_SHA256
 ALIASES_SHA256=previous.ALIASES_SHA256
+# Freeze only after the complete source-backed campaign has passed compilation.
+# Recipe pins make this authority independent of the editable audit payload.
+SOURCE_WITNESS_SHA256='e5e8317be0ed09e0c6587311856182fc5de233bf5a74fd252eed33dd7db08d97'
 sha,encode=previous.sha,previous.encode
 canonical=previous.campaign.canonical
 prior=previous.prior
+
+
+def witness_fingerprint(authored):
+    return sha(canonical({key:authored.get(key,[]) for key in
+        ('source','records','extra_source_corrections')}))
 
 
 def input_pins(root):
@@ -124,6 +132,12 @@ def compile_review(before,scopes,authored,*,source_raw=None):
     if authored.get('schema')!=preparer.SCHEMA or authored.get('input_corpus_sha256')!=sha(before):
         raise ValueError('Continuation decisions have an unknown exact predecessor')
     previous.campaign._timestamp(authored['reviewed_at'])
+    if sha(before)==preparer.BASELINE_SHA256:
+        if SOURCE_WITNESS_SHA256 is None:
+            if source_raw is None:
+                raise ValueError('The complete source witness fingerprint is not frozen')
+        elif witness_fingerprint(authored)!=SOURCE_WITNESS_SHA256:
+            raise ValueError('The complete source witness fingerprint changed')
     known=_source_index(authored,source_raw)
     manual_modules={module.__name__:module for module in preparer.manual_modules()}
     units=preparer.source_document(source_raw) if source_raw is not None else None
@@ -152,8 +166,9 @@ def compile_review(before,scopes,authored,*,source_raw=None):
             if expected_word!=word_review:raise ValueError('Complete-word review changed')
         manual=item.get('manual_review')
         manual_review=None
-        if manual:
-            if set(manual)!={'module','review'} or manual.get('module') not in manual_modules:
+        if 'manual_review' in item:
+            if (not isinstance(manual,dict) or set(manual)!={'module','review'}
+                    or manual.get('module') not in manual_modules):
                 raise ValueError('An individual review has an unknown source authority')
             manual_review=manual_modules[manual['module']].validate_record(key,manual['review'])
             if manual_review['original_text']!=item['original_text']:
@@ -181,8 +196,20 @@ def compile_review(before,scopes,authored,*,source_raw=None):
                     raise ValueError('Complete-word adoption differs from its independently reviewed source interval')
             if manual_review:
                 observed=[{'text':t['text'],'refs':t['refs']} for t in reading['tokens']]
-                if len(manual_review['readings'])!=1 or observed!=manual_review['readings'][0]['tokens']:
+                expected_tokens=(manual_review['readings'][0]['tokens'] if len(manual_review['readings'])==1 else [])
+                if observed!=[{'text':t['text'],'refs':t['refs']} for t in expected_tokens]:
                     raise ValueError('Individual adoption differs from its reviewed source interval')
+                indices=manual_review.get('source_indices',
+                    [t.get('source_index') for t in expected_tokens])
+                if (not isinstance(indices,list) or len(indices)!=len(expected_tokens)
+                        or any(type(index) is not int or index<0 for index in indices)
+                        or indices!=[t['source_index'] for t in reading['tokens']]):
+                    raise ValueError('Individual source-token indices changed')
+                surface={k:reading[k] for k in ('surface','separators','boundary_suffix')}
+                if (not isinstance(manual_review.get('surface_sha256'),str)
+                        or not re.fullmatch('[0-9a-f]{64}',manual_review['surface_sha256'])
+                        or sha(canonical(surface))!=manual_review['surface_sha256']):
+                    raise ValueError('Individual source punctuation or surface changed')
             rendered=preparer.render(item['original_text'],row['text'],a,b,reading,
                 rendering=word_review.get('rendering') if word_review else role_review.get('rendering') if role_review
                           else manual_review.get('rendering') if manual_review else None)
@@ -368,6 +395,9 @@ def build(root=ROOT,*,source_html=None):
             if (root/'scripts/photius_remaining_words.py').exists():
                 import photius_remaining_words
                 photius_remaining_words.validate_scan(document,previous.campaign.crop_png)
+            for module in preparer.manual_modules(root):
+                if hasattr(module,'validate_scan'):
+                    module.validate_scan(document,previous.campaign.crop_png)
     files,audit=artifacts(before,aliases,encode(review),pins=pins,recipes=recipes)
     if (input_pins(root)!={k:v for k,v in pins.items() if k!=SOURCE_REVIEW.as_posix()}
         or (root/SOURCE_REVIEW).read_bytes()!=authored_raw or (root/ALIASES).read_bytes()!=aliases
