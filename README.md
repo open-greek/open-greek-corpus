@@ -1665,6 +1665,11 @@ python -m pytest tests/ -q -n 6 --dist loadfile --durations=20
 Tests in each file stay together, and the timing report identifies the slowest
 cases. Adjust worker counts to available memory.
 
+After changing lexical eligibility, refresh positional capitalization with
+`make capital-positions` before freezing a release. Both lemma tables depend
+on that measurement; rebuild them in fresh processes so the updated folds
+are loaded, then run the capitalization freshness check.
+
 Nothing here needs the upstream OCR pipeline, which is where the raw OCR and the
 reversible correction overlay live. Eleven tests cross-check a figure or a vendored
 rule against it and skip when it is absent; set `OCR_PIPELINE` to that checkout to

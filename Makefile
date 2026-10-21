@@ -173,7 +173,7 @@ $(ELISION_RATES): $(CORPUS_FILES) scripts/measure_elision_rates.py \
                   scripts/validate_lemma_map.py $(FREQUENCY_INPUTS)
 	$(PY) scripts/measure_elision_rates.py
 $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
-               scripts/validate_lemma_map.py $(ELISION_RATES)
+               scripts/validate_lemma_map.py data/capital_positions.json $(ELISION_RATES)
 	PYTHONPATH=$(DILEMMA) $(PY) scripts/build_lemma_frequency.py --min-count $(MIN_COUNT)
 
 # The whole OCR pipeline - ingesting the OCR output, cleaning it, and
