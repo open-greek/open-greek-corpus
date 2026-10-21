@@ -29,6 +29,7 @@ Byzantine literary Greek.
 | our OCR of PD editions | PD | Migne PG and classical editions OCR'd from public-domain scans (`ocr`); per-work download links in the OCR provenance table below |
 | [The Greek Library](https://thegreeklibrary.pages.lisn.upsaclay.fr/) | CC BY-SA 4.0 transcription; PD printed edition | Alexius Studites, Ficker 1911 additamentum (`greek_library`), reviewed against all 15 printed pages with a reversible correction record; the provider's undocumented OCR model is not identified as our own |
 | [Opera Graeca Adnotata](https://doi.org/10.5281/zenodo.14206061) | CC BY-SA 4.0 | metadata only, no text (the OGA texts are the Perseus / First1KGreek / PTA editions above): per-work composition dating and the PTA/TLG duplicate map, ingested by `scripts/ingest_oga_metadata.py`; pinned by version DOI in `sources/oga/manifest.json` |
+| [Project Gutenberg](https://www.gutenberg.org/) | PD Greek text and editions | *Expositio fidei* (CPG 2804), four Greek sections with disputed Athanasian/Marcellian attribution retained; Athanasius, *In illud: Omnia mihi tradita sunt*, six sections; and the Greek *Res gestae divi Augusti*, Fairley 1898, with native inscription columns/lines and conservative critical-text counts |
 
 No non-commercial (CC BY-NC-SA) texts. A work only available under NC counts as
 a gap and gets sourced from a public-domain edition instead
@@ -44,12 +45,21 @@ corpus file compared. The source remains blocked pending underlying-text
 rights and work identity; the command admits no corpus text or frequencies.
 See [the intake workflow](docs/glossapi-ekklisiastika-intake.md) for details.
 
+The [Gutenberg identity and intake audit](docs/glossapi-gutenberg-intake.md)
+recovers all 214 GlossAPI source identities: 213 Modern Greek documents and
+Rouse's 1909 Lucian adaptation, with no eligible whole historical text. Three
+originals discovered separately in Gutenberg's catalog are admitted through
+`scripts/ingest_gutenberg_historical.py`; their unchanged source snapshots,
+corpus-wide duplicate checks, apparatus, and reversible admission audit are
+retained. Restored inscription letters and line fragments remain visible but
+do not enter lexical frequencies. Dilemma consumes the normal OGC public export.
+
 When more than one open route covers a work, the served text is chosen by this
 ladder (best first):
 
 | rank | best_source | what it is |
 |---|---|---|
-| 1 | `open_corpus` | open TEI edition (First1KGreek / Perseus / Galenus Verbatim, CC BY-SA) |
+| 1 | `open_corpus` | open digital edition: TEI, reviewed transcription, or preserved critical text |
 | 2 | `byzantium_gr` | clean manual transcription of a PD edition (byzantium.gr, Bonn/CSHB) |
 | 3 | `migne_cgpg` | CC-BY OCR of a PD edition (calfa-co Patrologia Graeca) |
 | 4 | `pd_edition` | a PD edition we would OCR ourselves |
@@ -582,10 +592,10 @@ kept as crosswalk aliases at their FRBR level, so nothing is anchored to the
 proprietary TLG Canon: the bare TLG author.work number is a Work-level anchor
 (the only external id with ~100% work coverage), and the opaque `ogc` id sits
 one level finer at the Expression, so the 4 TLG variant-edition pairs are two
-distinct `ogc` ids sharing one TLG anchor. 569 of the 3,911 served works have no
+distinct `ogc` ids sharing one TLG anchor. 569 of the 3,914 served works have no
 external id at all (the exceed-TLG material) and rely on the `ogc` id alone. The
 TLG/CTS crosswalk lives in `data/tlg_crosswalk.tsv` and, per work, in
-`work_index.json` under `work_anchors` (`cts` on 3,342 works, `tlg` on 3,304,
+`work_index.json` under `work_anchors` (`cts` on 3,345 works, `tlg` on 3,306,
 `wikidata` on 518), so joins against citation and lexicon data still work.
 The crosswalk builder reads bibliographic facts from the committed
 `data/inventory/work_inventory.json`; rebuilding it requires no external
@@ -1567,7 +1577,7 @@ make reports               # quality report, per-work lemma counts, this README'
                            # re-runs the ingest chain when it is stale, and that
                            # chain can go to the network)
 PY=.venv/bin/python DILEMMA=/path/to/dilemma make   # override interpreter / lemmatizer path
-python -m pytest tests/ -q                         # 258 tests; 11 skip without OCR_PIPELINE
+python -m pytest tests/ -q                         # external OCR checks skip without OCR_PIPELINE
 ```
 
 Nothing here needs the upstream OCR pipeline, which is where the raw OCR and the
@@ -3549,7 +3559,7 @@ not agree with it.
 
 ## Status
 
-- 3,911 works served, 65.8M Greek tokens in the checked lexical projection, 16 source categories.
+- 3,914 works served, 65.8M Greek tokens in the checked lexical projection, 17 source categories.
 - ~66% of the TLG inventory's words actually ingested (49.5M of 75M;
   `data/coverage_report.json` has the per-bucket breakdown).
 - Per-lemma frequency is built from the whole corpus. Counts are facts, not

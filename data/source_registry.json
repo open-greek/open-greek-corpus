@@ -5891,10 +5891,6 @@
    "name": "anon-rhianus",
    "aliases": {}
   },
-  "anon-rhinthon": {
-   "name": "anon-rhinthon",
-   "aliases": {}
-  },
   "anon-rhodon": {
    "name": "anon-rhodon",
    "aliases": {}
@@ -6193,10 +6189,6 @@
   },
   "anon-solonis-epistulae": {
    "name": "anon-solonis-epistulae",
-   "aliases": {}
-  },
-  "anon-sopater-comedy": {
-   "name": "anon-sopater-comedy",
    "aliases": {}
   },
   "anon-sopater-rhetor": {
@@ -8540,6 +8532,10 @@
     "viaf": "49613779",
     "gnd": "102382654"
    }
+  },
+  "augustus": {
+   "name": "Augustus",
+   "aliases": {}
   },
   "aulus-licinius-archias": {
    "name": "Aulus Licinius Archias",
@@ -31118,7 +31114,10 @@
    },
    "default_edition": "alypius.isagoge-musica.1st1K-grc1",
    "best_source": "open_corpus",
-   "tags": [],
+   "tags": [
+    "century:3",
+    "era:imperial"
+   ],
    "coverage_composition": {
     "policy": "separate-primary-and-historical-secondary",
     "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
@@ -31148,13 +31147,13 @@
     "alypius.isagoge-musica.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
      "provider": "first1k",
-     "scheme": "",
+     "scheme": "ref.sub",
      "editor": "",
      "year": null,
      "source": "",
      "servable": true,
      "license": "CC-BY-SA-4.0",
-     "scheme_inferred": false,
+     "scheme_inferred": true,
      "aliases": {}
     },
     "alypius.isagoge-musica.qwen36-meibom-1652-legacy": {
@@ -36665,17 +36664,6 @@
    "tags": [],
    "editions": {}
   },
-  "anon-alypius.alypius-isagoge-musica": {
-   "author": "anon-alypius",
-   "title": "alypius.isagoge-musica",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:alypius.isagoge-musica"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
   "anon-ameinias.ameinias-testimonia-et-fragmenta": {
    "author": "anon-ameinias",
    "title": "ameinias.testimonia-et-fragmenta",
@@ -41719,17 +41707,6 @@
    "title": "axionicus.fragmenta",
    "aliases": {
     "cts": "urn:cts:cogGreek:axionicus.fragmenta"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
-  "anon-bacchius-geron.bacchius-geron-isagoge": {
-   "author": "anon-bacchius-geron",
-   "title": "bacchius-geron.isagoge",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:bacchius-geron.isagoge"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -51922,17 +51899,6 @@
    "tags": [],
    "editions": {}
   },
-  "anon-gaudentius.gaudentius-harmonica-introductio": {
-   "author": "anon-gaudentius",
-   "title": "gaudentius.harmonica-introductio",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:gaudentius.harmonica-introductio"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
   "anon-gelasius.gelasius-historia-ecclesiastica": {
    "author": "anon-gelasius",
    "title": "gelasius.historia-ecclesiastica",
@@ -58621,11 +58587,11 @@
    "tags": [],
    "editions": {}
   },
-  "anon-joannes-laurentius-lydus.joannes-laurentius-lydus-de-magistratibus-populi-romani": {
+  "anon-joannes-laurentius-lydus.joannes-laurentius-lydus-de-mensibus": {
    "author": "anon-joannes-laurentius-lydus",
-   "title": "joannes-laurentius-lydus.de-magistratibus-populi-romani",
+   "title": "joannes-laurentius-lydus.de-mensibus",
    "aliases": {
-    "cts": "urn:cts:cogGreek:joannes-laurentius-lydus.de-magistratibus-populi-romani"
+    "cts": "urn:cts:cogGreek:joannes-laurentius-lydus.de-mensibus"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -70919,17 +70885,6 @@
    "tags": [],
    "editions": {}
   },
-  "anon-rhinthon.rhinthon-fragmenta": {
-   "author": "anon-rhinthon",
-   "title": "rhinthon.fragmenta",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:rhinthon.fragmenta"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
   "anon-rhodon.rhodon-fragmenta": {
    "author": "anon-rhodon",
    "title": "rhodon.fragmenta",
@@ -73256,17 +73211,6 @@
    "title": "solonis-epistulae.epistulae",
    "aliases": {
     "cts": "urn:cts:cogGreek:solonis-epistulae.epistulae"
-   },
-   "default_edition": null,
-   "best_source": "open_corpus",
-   "tags": [],
-   "editions": {}
-  },
-  "anon-sopater-comedy.sopater-comedy-fragmenta": {
-   "author": "anon-sopater-comedy",
-   "title": "sopater-comedy.fragmenta",
-   "aliases": {
-    "cts": "urn:cts:cogGreek:sopater-comedy.fragmenta"
    },
    "default_edition": null,
    "best_source": "open_corpus",
@@ -91282,19 +91226,6 @@
      "scheme_inferred": false,
      "aliases": {}
     },
-    "aristides-quintilianus-music.de-musica.qwen36-aristides_quintilianus_meibom": {
-     "name": "cog OCR (qwen36-aristides_quintilianus_meibom)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": false,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {},
-     "note": "Historical whole-anthology assignment; original rows are retained by the issue52 audit and routed secondary witnesses."
-    },
     "aristides-quintilianus-music.de-musica.qwen36-meibom-1652-legacy": {
      "name": "Meibom 1652, routed historical OCR witness",
      "provider": "ocr",
@@ -100373,13 +100304,14 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2035.tlg039"
    },
-   "default_edition": null,
-   "best_source": "migne_pd",
+   "default_edition": "athanasius-theology.in-illud-omnia-mihi-tradita-sunt.gutenberg-37641-2011",
+   "best_source": "open_corpus",
    "tags": [
     "century:4",
     "era:late-antique",
     "genre:exegesis",
-    "genre:homiletics"
+    "genre:homiletics",
+    "language:grc"
    ],
    "editions": {
     "athanasius-theology.in-illud-omnia-mihi-tradita-sunt.ed": {
@@ -100393,6 +100325,20 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
+    },
+    "athanasius-theology.in-illud-omnia-mihi-tradita-sunt.gutenberg-37641-2011": {
+     "name": "Project Gutenberg 37641 (2011), Greek text",
+     "provider": "gutenberg",
+     "scheme": "section",
+     "editor": "Michael Gray (digital transcription)",
+     "year": null,
+     "source": "https://www.gutenberg.org/cache/epub/37641/pg37641-images.html",
+     "servable": true,
+     "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+     "scheme_inferred": false,
+     "aliases": {
+      "gutenberg": "37641"
+     }
     }
    }
   },
@@ -102701,6 +102647,34 @@
     }
    }
   },
+  "augustus.res-gestae-divi-augusti": {
+   "author": "augustus",
+   "title": "Res gestae divi Augusti (Greek version)",
+   "aliases": {
+    "cts": "urn:cts:cogGreek:augustus.res-gestae-divi-augusti"
+   },
+   "default_edition": "augustus.res-gestae-divi-augusti.gutenberg-fairley-1898-grc",
+   "best_source": "open_corpus",
+   "tags": [
+    "language:grc"
+   ],
+   "editions": {
+    "augustus.res-gestae-divi-augusti.gutenberg-fairley-1898-grc": {
+     "name": "William Fairley, Monumentum Ancyranum (Philadelphia, 1898), Greek inscription",
+     "provider": "gutenberg",
+     "scheme": "column.line",
+     "editor": "William Fairley",
+     "year": null,
+     "source": "https://www.gutenberg.org/cache/epub/66595/pg66595-images.html",
+     "servable": true,
+     "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+     "scheme_inferred": false,
+     "aliases": {
+      "gutenberg": "66595"
+     }
+    }
+   }
+  },
   "aulus-licinius-archias.epigramma": {
    "author": "aulus-licinius-archias",
    "title": "Epigramma",
@@ -103147,7 +103121,10 @@
    },
    "default_edition": "bacchius-geron.isagoge.1st1K-grc1",
    "best_source": "open_corpus",
-   "tags": [],
+   "tags": [
+    "century:9",
+    "era:byzantine"
+   ],
    "coverage_composition": {
     "policy": "separate-primary-and-historical-secondary",
     "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
@@ -103177,13 +103154,13 @@
     "bacchius-geron.isagoge.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
      "provider": "first1k",
-     "scheme": "",
+     "scheme": "ref",
      "editor": "",
      "year": null,
      "source": "",
      "servable": true,
      "license": "CC-BY-SA-4.0",
-     "scheme_inferred": false,
+     "scheme_inferred": true,
      "aliases": {}
     },
     "bacchius-geron.isagoge.qwen36-meibom-1652-legacy": {
@@ -126034,7 +126011,7 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg4090.tlg002"
    },
-   "default_edition": "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36",
+   "default_edition": "cyrillus-theology.commentarii-in-joannem.calfa-pg73-5895ab908dd4",
    "best_source": "open_corpus",
    "tags": [
     "century:5",
@@ -126067,14 +126044,10 @@
       "attribution": "Calfa, Patrologia Graeca OCR, PG073"
      },
      {
-      "edition": "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36",
+      "edition": "migne-ocr-qwen36",
       "volume": "PG074",
       "passages": 2578,
-      "license": "PD",
-      "storage": "primary",
-      "source": "",
-      "provider": "ocr",
-      "name": "cog OCR (migne-ocr-qwen36)"
+      "license": "PD"
      },
      {
       "edition": "migne-pg74-gap-consensus-2026-10",
@@ -126109,19 +126082,6 @@
      "license": "CC-BY-4.0",
      "scheme_inferred": false,
      "aliases": {}
-    },
-    "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36": {
-     "name": "cog OCR (migne-ocr-qwen36)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {},
-     "note": "PG074 continuation beginning John 10:18; Books VII and VIII are fragmentary. Acts and Romans are separate works."
     },
     "cyrillus-theology.commentarii-in-joannem.migne-pg74-gap-consensus-2026-10": {
      "name": "PG074 missing leaves, independent scan OCR consensus",
@@ -170278,7 +170238,10 @@
    },
    "default_edition": "gaudentius.harmonica-introductio.1st1K-grc1",
    "best_source": "open_corpus",
-   "tags": [],
+   "tags": [
+    "century:3",
+    "era:imperial"
+   ],
    "coverage_composition": {
     "policy": "separate-primary-and-historical-secondary",
     "manifest": "data/corpus_changes/meibom-musical-anthology/changes.json",
@@ -170308,13 +170271,13 @@
     "gaudentius.harmonica-introductio.1st1K-grc1": {
      "name": "First1KGreek (1st1K-grc1)",
      "provider": "first1k",
-     "scheme": "",
+     "scheme": "ref",
      "editor": "",
      "year": null,
      "source": "",
      "servable": true,
      "license": "CC-BY-SA-4.0",
-     "scheme_inferred": false,
+     "scheme_inferred": true,
      "aliases": {}
     },
     "gaudentius.harmonica-introductio.qwen36-meibom-1652-legacy": {
@@ -214055,7 +214018,7 @@
     "wikidata": "Q123477897"
    },
    "default_edition": "joannes-laurentius-lydus.de-mensibus.qwen36-lydus_mensibus_wuensch",
-   "best_source": "open_corpus",
+   "best_source": "pd_edition",
    "tags": [
     "century:6",
     "era:late-antique",
@@ -226668,14 +226631,29 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg2041.tlg004"
    },
-   "default_edition": null,
-   "best_source": "locked",
+   "default_edition": "marcellus-theology.expositio-fidei.gutenberg-32549-2010",
+   "best_source": "open_corpus",
    "tags": [
     "century:4",
     "era:late-antique",
-    "genre:theology"
+    "genre:theology",
+    "language:grc"
    ],
    "editions": {
+    "marcellus-theology.expositio-fidei.gutenberg-32549-2010": {
+     "name": "Project Gutenberg 32549 (2010), Greek text; attribution disputed",
+     "provider": "gutenberg",
+     "scheme": "section",
+     "editor": "Michael Gray (digital transcription)",
+     "year": null,
+     "source": "https://www.gutenberg.org/cache/epub/32549/pg32549-images.html",
+     "servable": true,
+     "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+     "scheme_inferred": false,
+     "aliases": {
+      "gutenberg": "32549"
+     }
+    },
     "marcellus-theology.expositio-fidei.nordberg-1962": {
      "name": "Athanasiana I",
      "provider": "tlg-e-reference",
@@ -254459,12 +254437,7 @@
         422,
         557
        ]
-      ],
-      "edition": "photius.bibliotheca.qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-      "storage": "primary",
-      "source": "",
-      "provider": "ocr",
-      "name": "cog OCR (qwen36-helladius_chrestomathia_photius_bekker_v2-masked)"
+      ]
      },
      {
       "edition": "bekker1824-independent-ocr-consensus",
@@ -258233,19 +258206,6 @@
      "license": "",
      "scheme_inferred": false,
      "aliases": {}
-    },
-    "photius.bibliotheca.qwen36-helladius_chrestomathia_photius_bekker_v2-masked": {
-     "name": "cog OCR (qwen36-helladius_chrestomathia_photius_bekker_v2-masked)",
-     "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
-     "license": "PD",
-     "scheme_inferred": false,
-     "aliases": {},
-     "note": "Retained PD body on source scan pages 279–378 and 422–557; earlier pages and the later gap come from a separately licensed consensus. Reviewed recoveries within the retained ranges have their own licensed body component."
     },
     "photius.bibliotheca.source-library-local002": {
      "name": "Source Library local002, same-scan comparison witness",

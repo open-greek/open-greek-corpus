@@ -454,6 +454,7 @@ PROVIDER_LABELS = {"first1k": "First1KGreek",
                    "saws": "Sharing Ancient Wisdoms",
                    "dcc": "Dickinson College Commentaries",
                    "wikisource": "Wikisource",
+                   "gutenberg": "Project Gutenberg",
                    "greek_library": "The Greek Library"}
 
 
@@ -830,6 +831,8 @@ def build() -> Registry:
     corpus_records = {}      # served slug -> full corpus record (defaults pass)
     ce = REPO / "data" / "corpus_editions.json"
     critical_editions = load_critical_editions(REPO / "data")
+    from gutenberg_source_metadata import admitted_sources, register_gutenberg_editions
+    gutenberg_slugs = {source["work"] for source in admitted_sources(REPO)}
     if ce.exists():
         # corpus_editions is now keyed by slug; recover the tlg-stem keying this
         # function's downstream logic expects from each work's cts alias (non-tlg
@@ -997,7 +1000,8 @@ def build() -> Registry:
     n_added = 0
     n_attributed = 0
     for work_cts, win in sorted(ingested.items()):
-        if work_cts in by_key or work_cts.startswith("cogByz.") or work_cts in critical_editions:
+        if (work_cts in by_key or work_cts.startswith("cogByz.")
+                or work_cts in critical_editions or work_cts in gutenberg_slugs):
             continue  # cogByz.* are minted by the Byzantine pass below
         tg = work_cts.split(".")[0]
         group, title = names.get(work_cts, ("", ""))
@@ -1104,6 +1108,7 @@ def build() -> Registry:
     # Physical critical editions have an explicit identity and column/line
     # scheme. Register them before the generic served-defaults inference.
     register_critical_editions(reg, critical_editions)
+    register_gutenberg_editions(reg, REPO)
     # Reviewed components survive a complete registry rebuild. Their metadata
     # comes from active admission audits, independently of the dominant edition.
     register_reviewed_manifestations(reg, REPO)

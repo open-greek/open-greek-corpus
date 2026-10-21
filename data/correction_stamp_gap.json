@@ -1,10 +1,10 @@
 {
  "what": "row-and-method pairs where an active correction is standing in the served row and the row carries no stamp for that method, because a carve moved the row after apply_corrections.py stamped it",
  "tool": "scripts/measure_stamp_gap.py",
- "pairs": 43619,
+ "pairs": 43618,
  "by_method": {
   "llm": 32106,
-  "freq": 9105,
+  "freq": 9104,
   "agent": 1154,
   "confusion": 738,
   "prosodia": 516
@@ -186,8 +186,8 @@
  "schema_version": 1,
  "measured_against": {
   "catalog": "data/corpus_catalog.tsv",
-  "catalog_sha256": "304453f1fc2b74d1a3df035c47ac10147138bf06a725cf605036459754e263d2",
-  "corpus_sha256": "edda4377646df25a1c2cd5970bcf005cc0ff217b01bcee78ea6c7b274c61ca70",
+  "catalog_sha256": "d5247f54e3cc4817f4e3b8aae9734f4ced09ed57b3d56ecddebc7b67e6aa136f",
+  "corpus_sha256": "64d5b66ff0dbfac705f61d1c424b670004c8cb2fd021f6ce9f9c1d3ea65f8330",
   "active_correction_records": 228866
  },
  "raw_ocr": {

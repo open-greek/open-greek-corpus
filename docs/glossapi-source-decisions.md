@@ -14,11 +14,16 @@ full commit and the selected artifact to its size and SHA-256, following
 
 | source | decision | why |
 |---|---|---|
-| Project Gutenberg Greek | hold for identity recovery | The collection mixes four varieties, lacks per-document source URLs, and uses an automatically generated variety label.  Recover a stable Gutenberg identity and edition/translation status before using any row. |
+| Project Gutenberg Greek | reviewed; no eligible whole texts in GlossAPI | All 214 source identities are recovered. The collection contains 213 Modern Greek whole documents and Rouse's adapted Lucian. Separate originals discovered in the wider Gutenberg catalog have their own checked OGC intake. |
 | Ekklisiastika Keimena | blocked pending GOARCH rights and identity | The material is in scope, but it includes structural rubrics, run-together boundaries, and heavily repeated service books, biblical readings, and hymn cycles.  More importantly, GlossAPI's dataset declaration does not establish rights for the GOARCH source text; obtain written permission or an independently licensed edition before any admission. |
 | Archetai | OCR quarantine | Each row is volume-level OCR from publications spanning 1837-present.  Separate historical primary text from Modern commentary, apparatus, bibliography, and foreign-language material, then apply OGC's OCR quality and dedup gates per segment. |
 
 ## Dilemma boundary
+
+The [Gutenberg audit](glossapi-gutenberg-intake.md) records source fingerprints,
+contributor evidence, typography and extraction differences, and every
+whole-document disposition. The additional historical catalog discoveries are
+not counted as GlossAPI rows and do not revise the nine-corpus frequency sample.
 
 These datasets do not flow directly into Dilemma.  OGC owns their upstream
 pins, identity resolution, provenance, deduplication, and quality decisions.

@@ -132,6 +132,18 @@ def test_alias_conflict_is_immutable():
         r.mint_author("Homer", slug="homer", aliases={"wikidata": "Q9999"})
 
 
+def test_gutenberg_edition_identifier_is_preserved_and_immutable():
+    r = Registry()
+    author = r.mint_author("Augustus")
+    work = r.mint_work(author, "Res gestae", slug="augustus.res-gestae")
+    edition = r.mint_edition(work, "fairley-1898", "Fairley 1898", provider="gutenberg",
+                             aliases={"gutenberg": "66595"})
+    assert r.works[work].editions[edition].aliases["gutenberg"] == "66595"
+    with pytest.raises(IdentityError):
+        r.mint_edition(work, "fairley-1898", "Fairley 1898", provider="gutenberg",
+                       aliases={"gutenberg": "37641"})
+
+
 def test_unknown_alias_namespace_rejected():
     r = Registry()
     with pytest.raises(IdentityError):
