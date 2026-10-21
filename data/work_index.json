@@ -141783,8 +141783,8 @@
    "manifestation": "edition + source + license"
   },
   "counts": {
-   "works": 3911,
-   "with_external_anchor": 3342,
+   "works": 3914,
+   "with_external_anchor": 3345,
    "no_external_anchor": 569,
    "redirects": 9
   }
@@ -166984,14 +166984,10 @@
        "attribution": "Calfa, Patrologia Graeca OCR, PG073"
       },
       {
-       "edition": "cyrillus-theology.commentarii-in-joannem.migne-ocr-qwen36",
+       "edition": "migne-ocr-qwen36",
        "volume": "PG074",
        "passages": 2578,
-       "license": "PD",
-       "storage": "primary",
-       "source": "",
-       "provider": "ocr",
-       "name": "cog OCR (migne-ocr-qwen36)"
+       "license": "PD"
       },
       {
        "edition": "migne-pg74-gap-consensus-2026-10",
@@ -218799,12 +218795,7 @@
          422,
          557
         ]
-       ],
-       "edition": "photius.bibliotheca.qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
-       "storage": "primary",
-       "source": "",
-       "provider": "ocr",
-       "name": "cog OCR (qwen36-helladius_chrestomathia_photius_bekker_v2-masked)"
+       ]
       },
       {
        "edition": "bekker1824-independent-ocr-consensus",
@@ -251518,6 +251509,126 @@
     },
     "token_policy": "Offsets are Unicode code points in reading_text. Surface tokens retain editorial status and source span IDs. Gaps produce no tokens. Unclear, supplied, apograph, corrected, variant, gap-adjacent, and line-fragment tokens do not contribute to analysis_text or lexical frequencies. Null lemma/analysis means unattested, not automatic annotation."
    }
+  },
+  "athanasius-theology.in-illud-omnia-mihi-tradita-sunt": {
+   "id": "ogc003947",
+   "slug": "athanasius-theology.in-illud-omnia-mihi-tradita-sunt",
+   "former_slugs": [],
+   "title": "In Illud: Omnia Mihi Tradita Sunt",
+   "author": {
+    "id": "oga000258",
+    "slug": "athanasius-theology",
+    "name": "Athanasius",
+    "authorities": {
+     "wikidata": "Q44024",
+     "viaf": "105155222",
+     "gnd": "118504843",
+     "isni": "0000000121035972"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2035.tlg039",
+    "tlg": "tlg2035.tlg039"
+   },
+   "manifestation": {
+    "edition": "gutenberg-37641-2011",
+    "source": "gutenberg",
+    "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+    "n_passages": 6,
+    "n_tokens": 2157,
+    "n_analysis_tokens": 2157
+   },
+   "source_edition_qualification": "The citable edition is the pinned Gutenberg digital transcription, with six native numbered Greek sections. The underlying printed exemplar is not identified by Gutenberg; no claim to a particular Migne impression, page, or column is made."
+  },
+  "augustus.res-gestae-divi-augusti": {
+   "id": "ogc003948",
+   "slug": "augustus.res-gestae-divi-augusti",
+   "former_slugs": [],
+   "title": "Res gestae divi Augusti (Greek version)",
+   "author": {
+    "id": "oga001519",
+    "slug": "augustus",
+    "name": "Augustus"
+   },
+   "work_anchors": {
+    "cts": "urn:cts:cogGreek:augustus.res-gestae-divi-augusti"
+   },
+   "manifestation": {
+    "edition": "gutenberg-fairley-1898-grc",
+    "source": "gutenberg",
+    "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+    "n_passages": 436,
+    "n_tokens": 2857,
+    "n_analysis_tokens": 1899
+   },
+   "critical_edition": {
+    "critical_markup_schema": "epidoc-spans-v1",
+    "physical_citation_scheme": "column.line",
+    "manifest_path": "data/critical_editions/gutenberg-66595/manifest.json",
+    "reader_path": "data/critical_editions/gutenberg-66595/reader.html",
+    "source_path": "data/reference/gutenberg/66595/source.html",
+    "source_url": "https://www.gutenberg.org/cache/epub/66595/pg66595-images.html",
+    "source_sha256": "33762f8e07002c8f3c4195eeb3a33e2dcbf1144cbbf766861727845c1b204da2",
+    "source_license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+    "attribution": "William Fairley, Monumentum Ancyranum (Philadelphia, 1898); Project Gutenberg 66595 (2021).",
+    "source_editors": [
+     "William Fairley"
+    ],
+    "counts": {
+     "lexical_tokens": 1899,
+     "lines": 436,
+     "surface_tokens": 2857
+    },
+    "token_policy": "Printed restored letters and line fragments remain visible and uncounted. Every alternative note is retained separately. No restoration is promoted to an attested word, and no source reading is corrected."
+   },
+   "source_edition_qualification": "Fairley's title page explicitly identifies the 1898 Philadelphia edition. Only the ancient Greek inscription under H2GREEK is admitted; Latin, modern English, commentary, and apparatus are retained outside lexical text. Augustus is the author of the underlying statement; the ancient Greek translator is unnamed."
+  },
+  "marcellus-theology.expositio-fidei": {
+   "id": "ogc003949",
+   "slug": "marcellus-theology.expositio-fidei",
+   "former_slugs": [],
+   "title": "Expositio Fidei",
+   "author": {
+    "id": "oga000844",
+    "slug": "marcellus-theology",
+    "name": "Marcellus",
+    "authorities": {
+     "wikidata": "Q519513",
+     "viaf": "459159233916503370226",
+     "gnd": "118730827",
+     "isni": "0000000066288909"
+    }
+   },
+   "work_anchors": {
+    "cts": "urn:cts:greekLit:tlg2041.tlg004",
+    "tlg": "tlg2041.tlg004"
+   },
+   "manifestation": {
+    "edition": "gutenberg-32549-2010",
+    "source": "gutenberg",
+    "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+    "n_passages": 4,
+    "n_tokens": 1060,
+    "n_analysis_tokens": 1060
+   },
+   "source_edition_qualification": "The Greek work is CPG 2804. OGC's existing Marcellian work key is retained while both its catalog attribution and Gutenberg's traditional Athanasian attribution remain explicit and disputed. The text source is Gutenberg's 2010 digital edition; the Nordberg 1962 bibliographic record identifies the work, not the transcribed edition.",
+   "attribution_status": "disputed",
+   "attribution_readings": [
+    {
+     "author": "Athanasius",
+     "evidence": "Gutenberg 32549 catalog and Greek heading",
+     "status": "traditional_source_attribution"
+    },
+    {
+     "author": "Marcellus of Ancyra",
+     "evidence": "CPG 2804, Pinakes and BiblIndex; OGC's existing tlg2041.tlg004 entry",
+     "status": "catalog_attribution_not_adjudicated"
+    }
+   ],
+   "identity_evidence": [
+    "https://pinakes.irht.cnrs.fr/notices/oeuvre/id/6423",
+    "https://dapytains.biblindex.org/en/work-edition/7967"
+   ]
   }
  },
  "redirects": {

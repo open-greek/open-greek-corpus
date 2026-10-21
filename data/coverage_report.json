@@ -2,13 +2,13 @@
   "headline": {
     "total_works": 7209,
     "total_words": 74975998,
-    "source_overrides_applied": 106,
+    "source_overrides_applied": 108,
     "ingested_via_cgpg_volume": 0,
     "ingested_via_served_parts": 2,
-    "pct_ingested": 72.88,
+    "pct_ingested": 72.89,
     "pct_ingested_actual": 67.5,
-    "ingested_words_actual": 50606365,
-    "ingested_complete_works": 2924,
+    "ingested_words_actual": 50609582,
+    "ingested_complete_works": 2926,
     "ingested_partial_works": 115,
     "pct_reachable_not_ingested": 13.88,
     "pct_locked": 11.68,
@@ -25,24 +25,24 @@
   },
   "buckets": {
     "ingested": {
-      "works": 3039,
-      "word_count": 54645201
+      "works": 3041,
+      "word_count": 54648565
     },
     "reachable_not_ingested": {
-      "works": 1592,
-      "word_count": 10408299
+      "works": 1591,
+      "word_count": 10406042
     },
     "locked": {
-      "works": 2174,
-      "word_count": 8758192
+      "works": 2173,
+      "word_count": 8757085
     },
     "duplicate": {
       "works": 404,
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2924,
-      "word_count": 53114378
+      "works": 2926,
+      "word_count": 53117742
     },
     "ingested_partial": {
       "works": 115,
@@ -55,8 +55,8 @@
       "word_count": 8815017
     },
     "migne_pd": {
-      "works": 407,
-      "word_count": 1137662
+      "works": 406,
+      "word_count": 1135405
     },
     "migne_cgpg": {
       "works": 26,
@@ -4250,14 +4250,6 @@
       "author": "Joannes Chrysostomus",
       "title": "In Decollationem Sancti Joannis Sp.",
       "word_count": 2264,
-      "best_source": "migne_pd"
-    },
-    {
-      "tlg_id": "tlg2035",
-      "work_id": "039",
-      "author": "Athanasius",
-      "title": "In Illud: Omnia Mihi Tradita Sunt",
-      "word_count": 2257,
       "best_source": "migne_pd"
     },
     {
@@ -19401,8 +19393,8 @@
     }
   ],
   "ingested_not_in_sourcing_map": {
-    "works": 773,
-    "n_tokens": 8036124,
+    "works": 774,
+    "n_tokens": 8038981,
     "items": [
       {
         "key": "nicephorus-callistus-xanthopulus.historia-ecclesiastica-lib-8-14",
@@ -21795,6 +21787,14 @@
         "license": "PD",
         "n_passages": 171,
         "n_tokens": 2864
+      },
+      {
+        "key": "augustus.res-gestae-divi-augusti",
+        "edition": "gutenberg-fairley-1898-grc",
+        "source": "gutenberg",
+        "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+        "n_passages": 436,
+        "n_tokens": 2857
       },
       {
         "key": "aristodemus.fragmenta-fhg5",

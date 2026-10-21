@@ -40,7 +40,7 @@ def test_glossapi_decisions_preserve_the_ogc_consumer_boundary():
 
     by_key = {item["key"]: item for item in data["sources"]}
     assert by_key["glossapi_gutenberg_greek"]["decision"] == (
-        "hold_for_identity_recovery"
+        "reviewed_no_eligible_whole_texts"
     )
     assert by_key["glossapi_ekklisiastika"]["decision"] == (
         "blocked_pending_underlying_rights_and_identity"

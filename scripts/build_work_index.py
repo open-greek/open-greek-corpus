@@ -337,6 +337,8 @@ def _title_from_desc(desc: str) -> str:
 def build(write: bool = True) -> dict:
     from critical_text import load_critical_editions, index_metadata
     critical = load_critical_editions(DATA)
+    from gutenberg_source_metadata import admitted_sources
+    gutenberg_admissions = {s["work"]: s for s in admitted_sources(REPO)}
     from scan_coverage_extensions import coverage_scope
     ce = load_json(CORPUS_EDITIONS, {})
     tc = load_json(TLG_CROSSWALK, {})
@@ -525,6 +527,13 @@ def build(write: bool = True) -> dict:
         }
         if slug in critical:
             works[slug]["critical_edition"] = index_metadata(critical[slug])
+        if slug in gutenberg_admissions:
+            source = gutenberg_admissions[slug]
+            works[slug]["source_edition_qualification"] = source["edition_qualification"]
+            if source.get("attribution_readings"):
+                works[slug]["attribution_status"] = source["attribution_status"]
+                works[slug]["attribution_readings"] = source["attribution_readings"]
+                works[slug]["identity_evidence"] = source["identity_evidence"]
         if rw.get("coverage_composition"):
             works[slug]["manifestation"]["coverage"] = rw["coverage_composition"]
         scope = coverage_scope(REPO, slug)

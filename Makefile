@@ -173,6 +173,7 @@ $(LEMMA_FREQ): $(LEXICON) scripts/build_lemma_frequency.py \
 
 # 3. Source-precedence overrides, regenerated from the coverage sweeps.
 $(OVERRIDES): scripts/build_source_overrides.py $(SWEEPS) data/inventory/sourcing_map.csv
+$(OVERRIDES): scripts/gutenberg_source_metadata.py data/corpus_changes/gutenberg-historical/changes.json
 	$(PY) scripts/build_source_overrides.py
 
 # 4. Sourcing verdict + gap: registry and coverage report both apply the
@@ -187,6 +188,8 @@ data/served_scheme_inference.json: $(CORPUS_EDITIONS) scripts/infer_served_schem
 
 $(REGISTRY): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_registry.py scripts/source_precedence.py data/oga_dating.json data/oga_dating_adjudication.json data/author_authority.json data/work_authority.json data/pseudo_author_attributions.json data/served_scheme_inference.json source_identity.py
 $(REGISTRY): $(REVIEWED_MANIFESTATIONS) $(CORPUS_FILES)
+$(REGISTRY): scripts/gutenberg_source_metadata.py data/gutenberg_historical_sources.json \
+             data/corpus_changes/gutenberg-historical/changes.json
 	$(PY) scripts/build_registry.py
 $(COVERAGE_REPORT): $(OVERRIDES) $(CORPUS_EDITIONS) scripts/build_coverage_report.py scripts/source_precedence.py
 	$(PY) scripts/build_coverage_report.py

@@ -50,6 +50,11 @@
    "passages": 15,
    "works": 1
   },
+  "gutenberg": {
+   "analysis_tokens": 5116,
+   "passages": 446,
+   "works": 3
+  },
   "ocr": {
    "analysis_tokens": 25347211,
    "passages": 1337730,
@@ -81,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "edda4377646df25a1c2cd5970bcf005cc0ff217b01bcee78ea6c7b274c61ca70",
+ "corpus_sha256": "64d5b66ff0dbfac705f61d1c424b670004c8cb2fd021f6ce9f9c1d3ea65f8330",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -681,6 +686,7 @@
   "athanasius-theology.homilia-in-sanctum-pascha-et-in-recens-illuminatos-sp.jsonl": "5cdd100641559722e3bba70f30b6d5773126aad5fca95016ebec8708dca98160",
   "athanasius-theology.homilia-in-sanctum-pascha-sp.jsonl": "c5562576979912c70868145f251d25ef4b2616941ea728439c7b7f17a9f18703",
   "athanasius-theology.in-caecum-nativitate-sp.jsonl": "cf11033b0127e412bada0416e87280da546357b2e01355afb86a689bfd4eb492",
+  "athanasius-theology.in-illud-omnia-mihi-tradita-sunt.jsonl": "20cad650e3c1ef05b75fc44188613bc37a1111286a507f79ac69e526dd2b1471",
   "athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp.jsonl": "73821d067fa11a134291473e9cd267a5865493fcb94455df3e16e283d3887299",
   "athanasius-theology.in-nativitatem-praecursoris-sp.jsonl": "b9f8e45e7f07142af7420f835d437993f7d42ef7e63716324da99e37f47b97c3",
   "athanasius-theology.interpretatio-in-symbolum-sp.jsonl": "6d4d3ad161733877ea26a677df9dc53e4bb29bc90aa2cd25de2b28351531be29",
@@ -725,6 +731,7 @@
   "athenodorus-philosophy.fragmenta.jsonl": "b5fdf425d295952025f245e73dae895af60e16cf85d5e3584bebe99866ca3951",
   "atridarum-reditus.fragmenta.jsonl": "5171379963429fcee0084107581d69203754c1b00f2f00228c0c437526471090",
   "atridarum-reditus.fragmentum.jsonl": "fe7c07866f1cbf558b0d4e48b5e61c6ef48659ea72767bf60ed289d9032fa7e6",
+  "augustus.res-gestae-divi-augusti.jsonl": "e3188b1874da94fcb3bf657a9b6ac5846bbf4cf5bc2e32eef6d8a27637b98bbc",
   "autesion.fragmenta.jsonl": "44d6b2184d05097690fd0e70c54a972e70bfe4b153a7abadea677c72d524872f",
   "autocharis.fragmenta.jsonl": "cba6825f705ef4db4d6164812fdb339f5ae62f1001fcf8a37e8df76a98eaf3db",
   "autocharis.fragmentum.jsonl": "78d5b1fbb150f8b3b1cdcecedba369b87e2bc6830f98607b7681bb0b97340ba2",
@@ -2590,6 +2597,7 @@
   "manetho.fragmenta.jsonl": "2e6399dcccb9407cbab66af022db4f19780048e8d4c2d62dde61aaca1ece2439",
   "mantissa-proverbiorum.mantissa-proverbiorum.jsonl": "c4bb88311d5b8ee7aa9276cc623e4263f8744138412061a8119e68ad488c007e",
   "marcellinus.vita-thucydidis.jsonl": "f981d2caff071cb9e88ffdf3784de725ff56a3b7a49de11a58d6b1d9180e2dd7",
+  "marcellus-theology.expositio-fidei.jsonl": "d76e350b1feb7469505406535454aae371c460e10b0664e5392099e4af178385",
   "marcellus-theology.fragmenta.jsonl": "4efc78e535bcd8f84942dbac6ea4a2bbbd1e59596538d02cad842ba1271555f8",
   "marcellus.fragmenta.jsonl": "6c55a789f7215eba8cfb7996de3e0644f29770d4e61230e98706cdf87db05661",
   "marcianus.artemidori-geographia-epitome-marciani.jsonl": "43320879b2bda230d46393d75c3883d6fba79a8e03ae9ffd0756b8e35f022f7e",
@@ -4005,7 +4013,7 @@
  ],
  "recipe_sha256": {
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
-  "critical_text.py": "b3866e6b501600c43e243aa22cb79b5748d4a500c31820de6ea4ef79cba912d5",
+  "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
   "frequency_projection.py": "98fa971bf1c7822332fbcf9b0b1b05ab2fa80e60084f6150035ded9e6ec6d789",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
   "photius_body_vote.py": "0931e65946540f97ffeee3c8c7f975af21c80294d8b74a87adc686bff1818b24",
@@ -4019,14 +4027,14 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65827547,
+  "analysis_tokens": 65832663,
   "mixed_ocr_analysis_tokens": 571915,
   "mixed_works": 4,
   "ocr_analysis_tokens": 29700442,
   "ocr_passages": 1349148,
   "ocr_works": 1416,
-  "passages": 1966478,
-  "works": 3911
+  "passages": 1966924,
+  "works": 3914
  },
  "works": {
   "abas.fragmenta": {
@@ -19034,6 +19042,31 @@
     }
    }
   },
+  "athanasius-theology.in-illud-omnia-mihi-tradita-sunt": {
+   "analysis_tokens": 2157,
+   "components": [
+    {
+     "analysis_tokens": 2157,
+     "edition": "gutenberg-37641-2011",
+     "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+     "passages": 6,
+     "source": "gutenberg"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 2157,
+   "non_ocr_passages": 6,
+   "ocr_analysis_tokens": 0,
+   "ocr_passages": 0,
+   "passages": 6,
+   "sources": {
+    "gutenberg": {
+     "analysis_tokens": 2157,
+     "passages": 6
+    }
+   }
+  },
   "athanasius-theology.in-illud-profecti-in-pagum-invenietis-pullum-alligatum-sp": {
    "analysis_tokens": 2691,
    "components": [
@@ -20131,6 +20164,31 @@
     "ocr": {
      "analysis_tokens": 5,
      "passages": 3
+    }
+   }
+  },
+  "augustus.res-gestae-divi-augusti": {
+   "analysis_tokens": 1899,
+   "components": [
+    {
+     "analysis_tokens": 1899,
+     "edition": "gutenberg-fairley-1898-grc",
+     "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+     "passages": 436,
+     "source": "gutenberg"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 1899,
+   "non_ocr_passages": 436,
+   "ocr_analysis_tokens": 0,
+   "ocr_passages": 0,
+   "passages": 436,
+   "sources": {
+    "gutenberg": {
+     "analysis_tokens": 1899,
+     "passages": 436
     }
    }
   },
@@ -67051,6 +67109,31 @@
     "ocr": {
      "analysis_tokens": 97683,
      "passages": 7013
+    }
+   }
+  },
+  "marcellus-theology.expositio-fidei": {
+   "analysis_tokens": 1060,
+   "components": [
+    {
+     "analysis_tokens": 1060,
+     "edition": "gutenberg-32549-2010",
+     "license": "PD (ancient Greek text; public-domain Gutenberg edition)",
+     "passages": 4,
+     "source": "gutenberg"
+    }
+   ],
+   "correction_scope": "Homogeneous OCR/digital source category; existing work-level correction classification applies.",
+   "mixed_ocr_digital": false,
+   "non_ocr_analysis_tokens": 1060,
+   "non_ocr_passages": 4,
+   "ocr_analysis_tokens": 0,
+   "ocr_passages": 0,
+   "passages": 4,
+   "sources": {
+    "gutenberg": {
+     "analysis_tokens": 1060,
+     "passages": 4
     }
    }
   },

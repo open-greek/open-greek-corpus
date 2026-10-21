@@ -2,6 +2,8 @@ import importlib.util
 import json
 from pathlib import Path
 
+import pytest
+
 
 REPO = Path(__file__).resolve().parent.parent
 SPEC = importlib.util.spec_from_file_location(
@@ -11,21 +13,28 @@ assert SPEC.loader is not None
 SPEC.loader.exec_module(KNOWN)
 
 
-def test_published_known_limitations_are_current():
+@pytest.fixture(scope="module")
+def rebuilt():
+    # The immutable test snapshot needs one full source-audit replay, shared
+    # across the assertions rather than rebuilding every OCR witness four times.
+    return KNOWN.build()
+
+
+def test_published_known_limitations_are_current(rebuilt):
     published = json.loads(
         (REPO / "data" / "known_limitations.json").read_text(encoding="utf-8"))
-    assert published == KNOWN.build()
+    assert published == rebuilt
 
 
-def test_every_accepted_limitation_has_a_reopen_condition():
-    limitations = KNOWN.build()["limitations"]
+def test_every_accepted_limitation_has_a_reopen_condition(rebuilt):
+    limitations = rebuilt["limitations"]
     assert [row["issue"].rsplit("/", 1)[-1] for row in limitations] == ["1", "2", "31"]
     assert all(row["status"] == "accepted-measured-limitation" for row in limitations)
     assert all(row["reopen_when"] for row in limitations)
 
 
-def test_metrics_come_from_the_current_source_artifacts():
-    limitations = {row["key"]: row for row in KNOWN.build()["limitations"]}
+def test_metrics_come_from_the_current_source_artifacts(rebuilt):
+    limitations = {row["key"]: row for row in rebuilt["limitations"]}
     stamp = json.loads(
         (REPO / "data" / "correction_stamp_gap.json").read_text(encoding="utf-8"))
     graves = json.loads(
@@ -38,8 +47,8 @@ def test_metrics_come_from_the_current_source_artifacts():
         "tokens"] == graves["tokens"]
 
 
-def test_coverage_findings_keep_open_work_distinct_from_verified_repairs():
-    data = KNOWN.build()
+def test_coverage_findings_keep_open_work_distinct_from_verified_repairs(rebuilt):
+    data = rebuilt
     active = data["active_coverage_findings"]
     resolved = data["resolved_coverage_findings"]
     findings = active + resolved
