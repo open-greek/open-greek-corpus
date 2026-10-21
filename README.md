@@ -1094,7 +1094,9 @@ exact original row and earlier audit layer, retains contrary digital readings,
 and excludes source uncertainties, printed fragments, earlier unresolved
 readings, nonbody material, and unpaired spans with an available digital witness
 from lexical counts. The known mismapped digital sections remain explicitly
-unavailable. `--check` reproduces the
+unavailable. An unresolved OCR span retains its original display, including any
+uncertified hyphen, and remains excluded in full; that hyphen is not labeled a
+confirmed printed fragment. `--check` reproduces the
 admission and `--undo` restores the exact preceding corpus without requiring
 the live correction sources. The quality report publishes source-review
 coverage separately from admission and word-consensus counts.

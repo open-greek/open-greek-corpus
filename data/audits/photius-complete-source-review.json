@@ -4,7 +4,7 @@
   "work": "photius.bibliotheca",
   "campaign_id": "photius-historical-complete-review-2026-10-21",
   "manifest_sha256": "a589a831aef7ad46cdb1e3abed79306fe7f98b8c1af53c603382f8364f75493a",
-  "source_reviews_sha256": "918e33355172ddfb9294979c911d078a3be0aab0de17c266411ebd492b73dda3",
+  "source_reviews_sha256": "6c97d4e33cb307959a6a508d596df39daf97ca1b8985f2d0375ed431644275a5",
   "input_pins": {
     "corpus": {
       "path": "data/corpus/photius.bibliotheca.jsonl",
@@ -159,6 +159,46 @@
       "sha256": "7d0182b70945c2a289b2b943906f6a2ee935340f29188c52d515f7285ac49c8e"
     },
     {
+      "path": "scripts/photius_complete_observations_page0023.py",
+      "sha256": "46c4fb22ff8028086a4c77617314bc2c78e13d31713de70025308c2a5e21f7a7"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0024.py",
+      "sha256": "0149ae53bcf043c330ccb9be4673fe3ee6e897f89a9109d311eba8fd1bc21559"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0025.py",
+      "sha256": "313926bc7b6714384fd7ae3af0bf20c447046d63cba2a70d9ec50a28411dd9b4"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0026.py",
+      "sha256": "7d50ca1973ff299e36c004f6e64a3f1a2df8efe3c61a1640c2d4abb489b728b7"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0027.py",
+      "sha256": "80827e3a3d7a2fb3399a17890ae83db3c2e2754fb81fbda012a3d7f3571b9e4e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0028.py",
+      "sha256": "13e530ee133f6ff59a82d4fb0408b0a65f229ea5738b36ec5bf174087b914899"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0029.py",
+      "sha256": "3850e7be98cdabbad6516de05152337b72df85025d73091157b9268ebce8e91d"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0030.py",
+      "sha256": "01896da06ef00f930c8f2cc0332d07810c65f06bd4eb1c5aab35ea9cdff2d839"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0031.py",
+      "sha256": "48648c05c801c9e282baafc8c5588803ea8d75c931d4b122d90d31a91d17e580"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0032.py",
+      "sha256": "7a2e00cd89edb6cc8a448dcce2c2094d0831b979e13b7f5ee12f2f25a53b0a49"
+    },
+    {
       "path": "scripts/photius_complete_observations_page0060.py",
       "sha256": "4c6ee36d5f2ff99fc9665513e9cfc2f08c48c6c11a1190b92bb73ca90892640c"
     },
@@ -215,80 +255,212 @@
       "sha256": "8b2e882b81dd438e5b8b9f10e1baf04ec10e76903897e3c3c22ed15500796329"
     },
     {
+      "path": "scripts/photius_complete_observations_page0074.py",
+      "sha256": "f2bec2011e13a937e2ee9330e5a6a529856ab4edb428a9527af6a41aab7fb4a1"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0075.py",
+      "sha256": "c12a363eed70b4ae5aa27eb05c6e25a08b359bd5480b4e18e47703c553e3bbfb"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0076.py",
+      "sha256": "a6b2b3594f42e68037c99c99fc1980825bd5b58835c59ec8196c6a77ea9b977f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0077.py",
+      "sha256": "f7fd506e986f47c75baa04df5cd2c3334f6abfde2e2dc9cb20aca424d8999085"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0078.py",
+      "sha256": "b7157fa7347d40d2f1e8ed2fccf3621505c8f3d5784d959797bc0be552106d84"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0079.py",
+      "sha256": "63f47fc1649ac52f08515da6f778867c515b47e20aa7cb2b8312d844d9282b6a"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0080.py",
+      "sha256": "3c78955c41e1d86ff656b24c2e47b679afd8725db36757d6db22e2c8d1ce2936"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0081.py",
+      "sha256": "4d43da586c2ed91dd5c53bb705e3690b68ef70c7e2283665a2b44f08cca7615e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0082.py",
+      "sha256": "f4c477e40a0aa1d66d56b47c72471f75b3b1d7beccea6017234502160672f3b1"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0083.py",
+      "sha256": "b87e4a131a58e863f24f7ae1e77f2ba6963dad852eb3b8eba302f41166ee8a2c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0084.py",
+      "sha256": "861323beea05ffda204ce20f047c7e9f418591ddd2d5e26d2c318131eab516ee"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0085.py",
+      "sha256": "ec1b501ac77e9d3346434af60eef4b4e217881c4896e232635550898b5a4041e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0086.py",
+      "sha256": "b1c72ed982269ed14d02ed33367c2decd2069ed3d8455268c0b36210368b7827"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0087.py",
+      "sha256": "3abc301d3bf5c1483445c61d197cf1b4967b1ce973cac7a625d7024e720d1727"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0088.py",
+      "sha256": "ae98f528c0c7df1a195bb95945861d0981e3f05f0ab2d798c8b0144b7e24a73e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0089.py",
+      "sha256": "5b7b9cdd373adb59e1486efeba32f7541b220ebf337408d11b3fa0e29bb96bc1"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0090.py",
+      "sha256": "e095e7c3215164e9b12db5e1a9bbdf78485f933e985da952a813c47422b0ce9a"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0091.py",
+      "sha256": "08b7cc854a02191dfb7b97aba5b9ad0d2af473fda54ab769858845de38e3a329"
+    },
+    {
       "path": "scripts/photius_complete_observations_pages0145_0149.py",
       "sha256": "1771508735186571db5efa4c762fdd5ebc699b8256ca0add1222a5b82c2725a4"
     },
     {
       "path": "scripts/photius_complete_observations_page0150.py",
-      "sha256": "2632d5d92d3cc88f5fbaf9c2f96c5cb115a10e076ef00f5ed1abfd54a03bc56f"
+      "sha256": "7eb893a8750788d9b9edbecf10111468d20b33da1bcec777cce4d58ec68d33a9"
     },
     {
       "path": "scripts/photius_complete_observations_page0151.py",
-      "sha256": "51b2e3684effecd153706193b39c25b2020ac5e991e19d6ee026e88fb05a5dcd"
+      "sha256": "d239bc8b946a8fdf9602bdb0360b36a4107a320d378b3c3a87b711ad139f2ea1"
     },
     {
       "path": "scripts/photius_complete_observations_page0152.py",
-      "sha256": "d324db423e4e4d2724d623c9fdcef9ff1f4779a6f7a596e46e9ae20f02aa8543"
+      "sha256": "3ea394f65ffa0893ee4a3729b46a3be0c8cc7f9eb5438674f08ba9c1d3e4687e"
     },
     {
       "path": "scripts/photius_complete_observations_page0153.py",
-      "sha256": "586e964d0d1d81e33c9e1f21b134f13959817bf8981f32f059494cb78aff2a35"
+      "sha256": "9562a9e41f34f864683f410bd3e91a2ea23378cdfb1c405123671896bd035c7b"
     },
     {
       "path": "scripts/photius_complete_observations_page0154.py",
-      "sha256": "fe6d869625f7811e00e40e4443a01e406e6f369f8dc1eeef4f3031195f9db4f6"
+      "sha256": "9be2922e5f8dafe7959461d7025c2c54e28e1cf840e869254bb4cd197f410a5b"
     },
     {
       "path": "scripts/photius_complete_observations_page0155.py",
-      "sha256": "fd182fba3b874d4772d9656dcfe9a5cae2be2c5a955d54776a95f90029743a3e"
+      "sha256": "8b2fabf79defb0aca4f621eb6f2ebab4835568293ce9f31cbf7ced923926985b"
     },
     {
       "path": "scripts/photius_complete_observations_page0156.py",
-      "sha256": "a26ed16ed9be1f42c2965447b66a864e333d4bc6363e203ba59e870cad5dcb71"
+      "sha256": "c2b7b983fad8b90c74c5fe39b4ada2fbafeb0f479c7cd3c8da54e3a9a2e00049"
     },
     {
       "path": "scripts/photius_complete_observations_page0157.py",
-      "sha256": "e63eef69550434b7862de6b97272780bd9eb8ea5a845c44dd2240d0d3e316ce3"
+      "sha256": "eeaf3a8961545b62f5a00d0160725e473dbdd660392bda355d8483f4e570b1d4"
     },
     {
       "path": "scripts/photius_complete_observations_page0158.py",
-      "sha256": "ebb445e8497092380a506ddc5eb5760b7863644584274753fda4138103b5cf79"
+      "sha256": "afe290a3c6e1f297d69fe36456ddf97df4414604cd3f6d8be02291948ac94d79"
     },
     {
       "path": "scripts/photius_complete_observations_page0159.py",
-      "sha256": "15ef5d5daf5d8a751c9868dab161e9ceba8fb2a5ec2da7a043340956d30814d6"
+      "sha256": "77a7985a5d2d8b147e8e6acd69e1b7206889f0f365ba6ad58d7b29c295802dc8"
     },
     {
       "path": "scripts/photius_complete_observations_page0160.py",
-      "sha256": "10e030ca279a593d55b568b2888562352b9e5e0eefb56088da9f1530d97a731e"
+      "sha256": "dcbf4c19bd88d13d915234575636d6d5b6aef03d6000816ffe715287c3b8f59c"
     },
     {
       "path": "scripts/photius_complete_observations_page0161.py",
-      "sha256": "bd349d064d1bb5d6ed8dc8d2ccff77032115d9fe8b0fb8876d0953aa43755032"
+      "sha256": "91fd3365e6b937fbfa1699b895046269fa464a154862b774dbf268a04cf36e58"
     },
     {
       "path": "scripts/photius_complete_observations_page0162.py",
-      "sha256": "37897f968fa77fbc410e436518f79b00de0ae3f72279c755299b335a3ca9e3f2"
+      "sha256": "b148e3dbe70b77dbf7872fbae15bc2af9481fafccd844388708cd8f89091828d"
     },
     {
       "path": "scripts/photius_complete_observations_page0163.py",
-      "sha256": "3d0fe826b64fd8d148e4b8a3ce1855ccce8abc3b132f06792a649e2939fd753e"
+      "sha256": "445c7a4126c110074f4ba8c21c75c3eb263cd59a3d77e2c415e3ec3bd2f418c9"
     },
     {
       "path": "scripts/photius_complete_observations_page0164.py",
-      "sha256": "6a1474b6e24aac7c38c41ddb556e9ddd8bd61dd5d653c98270e836acff3441e3"
+      "sha256": "3f3a9ac43724db86ebc31762bc94b6f7d9825c74b1a3b960ad6db149050e67a6"
     },
     {
       "path": "scripts/photius_complete_observations_page0165.py",
-      "sha256": "dd54d3516441db7aea5862cf548521a3bd630eef1053c101ce230b86a3bf7fd2"
+      "sha256": "ee12a6e61598a5af188cdd726f74f4cd6ad06d3599b2f525ca57862bebc1b0fe"
     },
     {
       "path": "scripts/photius_complete_observations_page0166.py",
-      "sha256": "0c5d533b6f1a915c5d4b511fd057fa5173969fa2c6b11ed9f72187fa3f17f99b"
+      "sha256": "faa301a020971729fa9ecd2c0919f76d30dca14d68f00825cce52bc365b94f81"
     },
     {
       "path": "scripts/photius_complete_observations_page0167.py",
-      "sha256": "bde75c3f63473d9741abc3babf1dcf12c92070b067107be9c8a1192e3bfe895e"
+      "sha256": "89e5a118e02c6c0505bfdc43190b8421cb6f4c6210044281b303b265eaea3b7b"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0168.py",
+      "sha256": "92b9c6a90aaca7c50fd48ae55f3560d6ba3f87e17e68b48284880b83eb568262"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0169.py",
+      "sha256": "a1e3c7644b99ff73515f69b85fcc40208e13d08b5106f581b45d485e6c6b2c68"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0170.py",
+      "sha256": "a3bd30e4f360ffb7097dce2e32371d07f3647b06c4dd8e8e0bc04e6fac031bfc"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0171.py",
+      "sha256": "97a76b44ce1a59505688e8a438be42d5ca8d5408aa113f35642dbaf618d5ee8e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0172.py",
+      "sha256": "9a17c7a8d7cdb6041f31b323c3964287091a052ec8f9d9e94f8ba87fe465ee5e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0173.py",
+      "sha256": "c6c04afc64d65bfa4a176021ffb668ab15267187abd53f9f9de3f025629bba20"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0174.py",
+      "sha256": "34fb87839d248d122150e94e2dbd5db4298f61b813591fc41eeb5ca420ceacfe"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0175.py",
+      "sha256": "3b50a0470bb78dd4ddd5e5483d80c1d286358ebac35cacbc3b4f4fb70f5108df"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0176.py",
+      "sha256": "a39180ea1758d5055ddb0a246bd2a0489ed0edd152a055cca001c3d77695bc0f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0177.py",
+      "sha256": "4312d4c000cd44a21969c9bfdc05c8499cab3825c103a5c29ae12bbce978da4c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0178.py",
+      "sha256": "8fdc88381814bf196d11768d5f77cf0c39f0971ced91aa15343e2e576ae668ba"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0179.py",
+      "sha256": "10b7cd9dbaf471bbe5c37063fefbeb9c46c93ca56fbdc3e278e5ad86f3688bea"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0180.py",
+      "sha256": "3e678a82a7ba6ee85393a36a4252d3151116352bf800a6906fde42cef4a78830"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0181.py",
+      "sha256": "bb5e0b30141549cfe3f3f3e06a5b390d8e639e39881178dd5424f9ed4268571c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0182.py",
+      "sha256": "c2600451f8f3b40c56bde41f754ffefdbe0270e766c1576aa38493e324ef99d0"
     },
     {
       "path": "scripts/photius_complete_observations_page0231.py",
@@ -357,6 +529,62 @@
     {
       "path": "scripts/photius_complete_observations_page0247.py",
       "sha256": "1494e45b746a0c0f6a6c07390baa26fa9354c9451eb90b78882835453869d2ec"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0248.py",
+      "sha256": "228a53333d50203ad6cc34eb0f57e1159910313d3afb91d41da38a9e529de9ee"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0249.py",
+      "sha256": "dcca2b6dafc65b7e245f58f35cc4866526a37f6ea4e3aa9747e1f5a6edd4816e"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0250.py",
+      "sha256": "a40cb3ed704e33e42baaafbb0d40bbeccfdd55f309fd728aa4c4366d22c0cc4c"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0251.py",
+      "sha256": "1ce7782194c6b3c115c49d5e8cf4b8434d29f14150f7d3c81292989e6bcc9bfd"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0252.py",
+      "sha256": "14de26ddd26a1f0be352eda2fe07b80182a2d4b4417bc188c258a98ad84adb26"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0253.py",
+      "sha256": "2e8e0f777001458d2d853ff9506d3b24a2f795af029b97edc4bac30f8fead558"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0254.py",
+      "sha256": "8a06d5d3281c63d306366e8622cd9ff515cc58ecd5011172331713d1dddd05e7"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0255.py",
+      "sha256": "ec3c3bd2e45d83b475ad0ac4f02e64810346cfb343c3ba9314dbf406792bd851"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0256.py",
+      "sha256": "3f9aaef041e94a8296cc0e410573ad64fa7f74b41f226f77c1df8cca40357d3f"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0257.py",
+      "sha256": "e646619ba4923f4d117cdd8abf756363421130e07711a136a44c555de8392637"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0258.py",
+      "sha256": "408e6b3ef41ad72eb439de1051927f21a2afff10e73a2dc70e27f170ffdc1018"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0259.py",
+      "sha256": "65a417e4e1a0a33f9725440a68c5dc5303d89441a90bae63dbb1e3e809300b87"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0260.py",
+      "sha256": "4da7828ba0d0a28c2ce9d8de40d515ad764981c8b34e69620a719475357a2c09"
+    },
+    {
+      "path": "scripts/photius_complete_observations_page0261.py",
+      "sha256": "ae0386da570f2ad712c1ea828698d62590426e665b4fe0e717d517e64779f230"
     }
   ],
   "admission_authorized": false,
@@ -366,26 +594,26 @@
     "passages": 3462,
     "pages": 236,
     "status": {
-      "reviewed-verified": 880,
-      "reviewed-with-uncertainty": 292,
-      "unreviewed": 2290
+      "reviewed-verified": 1326,
+      "reviewed-with-uncertainty": 537,
+      "unreviewed": 1599
     },
-    "fully_assessed_rows": 1172,
-    "verified_rows": 880,
-    "complete_scan_review_rows": 1172,
-    "rows_with_source_uncertainty": 292,
+    "fully_assessed_rows": 1863,
+    "verified_rows": 1326,
+    "complete_scan_review_rows": 1863,
+    "rows_with_source_uncertainty": 537,
     "partially_assessed_rows": 0,
-    "unreviewed_rows": 2290,
+    "unreviewed_rows": 1599,
     "characters": 913203,
-    "reviewed_characters": 287464,
+    "reviewed_characters": 507381,
     "lexical_tokens": 149067,
-    "reviewed_lexical_tokens": 47123,
-    "corrected_segments": 1606,
-    "unchanged_segments": 1059,
-    "source_fragment_exclusions": 645,
-    "uncertainty_exclusion_candidates": 721,
-    "nonbody_exclusion_candidates": 102,
-    "complete_pages": 76
+    "reviewed_lexical_tokens": 83307,
+    "corrected_segments": 2860,
+    "unchanged_segments": 1887,
+    "source_fragment_exclusions": 1026,
+    "uncertainty_exclusion_candidates": 1417,
+    "nonbody_exclusion_candidates": 156,
+    "complete_pages": 133
   },
   "complete_physical_pages": [
     2,
@@ -409,6 +637,16 @@
     20,
     21,
     22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
     60,
     61,
     62,
@@ -423,6 +661,24 @@
     71,
     72,
     73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
     145,
     146,
     147,
@@ -446,6 +702,21 @@
     165,
     166,
     167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
     231,
     232,
     233,
@@ -463,14 +734,28 @@
     245,
     246,
     247,
+    248,
+    249,
+    250,
+    251,
+    252,
+    253,
+    254,
+    255,
+    256,
+    257,
+    258,
+    259,
+    260,
+    261,
     280
   ],
   "compiled_records": {
     "path": "data/corpus_changes/photius-bekker-complete-review/review-status.json.gz",
-    "sha256": "012a057a554fa58dec19811f194bd53870b520489071bd98052cb910df2005e1"
+    "sha256": "9e310b1312d2d87267a7ff2b3cc3194f0fb49af27db0dcd3ff3f9b976d6caf1a"
   },
   "authored_observations": {
     "path": "data/corpus_changes/photius-bekker-complete-review/source-review.json.gz",
-    "sha256": "90abb8301cb2c80be237322d1097a50235c0cce3cfea58bf451949797fdb8611"
+    "sha256": "bbc53316fdf3c4e6ee4d0351083d6674a2aa259c980410f6632921b0ee272765"
   }
 }

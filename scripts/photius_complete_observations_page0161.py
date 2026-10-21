@@ -70,7 +70,7 @@ def records(rows,document,crop_png,sections):
                 leading=LEADING_FRAGMENTS.get((page,number))
                 if a==0 and leading:
                     if not text.startswith(leading):raise ValueError('Changed printed leading fragment')
-                    fragments.append({'start':0,'end':len(leading),'text':leading,'side':'leading','qualification':'Printed continuation of a word begun on the preceding source page. Preserve the suffix without supplying missing letters or counting it as a standalone lexical form.'})
+                    fragments.append({'start':0,'end':len(leading),'text':leading,'side':'leading','qualification':'Printed continuation of a word begun on the preceding source line or page. Preserve the suffix without supplying missing letters or counting it as a standalone lexical form.'})
                 if (page,number)==(161,1) and text.startswith('τέροις'):
                     fragments.append({'start':0,'end':6,'text':'τέροις','side':'leading','qualification':'Printed continuation after an intervening marginal reference of the divided word ἀμφο-τέροις; retain this suffix without counting it as a standalone word.'})
                 if (page,number)==(161,4) and text.startswith('σχετο'):

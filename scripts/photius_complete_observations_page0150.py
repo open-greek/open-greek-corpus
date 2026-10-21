@@ -85,7 +85,7 @@ def records(rows,document,crop_png,sections):
                 leading=LEADING_FRAGMENTS.get((page,number))
                 if a==0 and leading:
                     if not text.startswith(leading):raise ValueError('Changed printed leading fragment')
-                    fragments.append({'start':0,'end':len(leading),'text':leading,'side':'leading','qualification':'Printed continuation of a word begun on the preceding source page. Preserve the suffix without supplying missing letters or counting it as a standalone lexical form.'})
+                    fragments.append({'start':0,'end':len(leading),'text':leading,'side':'leading','qualification':'Printed continuation of a word begun on the preceding source line or page. Preserve the suffix without supplying missing letters or counting it as a standalone lexical form.'})
                 if text.endswith('-'):
                     m=re.search(r'[^\W\d_]+-$',text)
                     fragments.append({'start':m.start(),'end':m.end(),'text':m.group(),'side':'trailing','qualification':'This retained passage ends within a visibly divided printed word; preserve the source fragment and exclude it from lexical counts.'})

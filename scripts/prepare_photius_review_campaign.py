@@ -352,7 +352,7 @@ def _ocr_reading(value, evidence_files):
     return {**deepcopy(value), 'role': 'recorded-source-reading'}
 
 
-def _fragments(value, corrected):
+def _fragments(value, corrected, *, require_terminal=True):
     if not isinstance(value, list):
         raise ValueError('Source fragments must be explicit span records')
     result, cursor = [], 0
@@ -379,7 +379,7 @@ def _fragments(value, corrected):
             'classification': 'source-confirmed-word-fragment'})
         cursor = b
     # A terminal printed hyphen cannot silently become a complete lexical form.
-    if words and words[-1].get('following_hyphen') and not corrected[words[-1]['end'] + 1:].strip():
+    if require_terminal and words and words[-1].get('following_hyphen') and not corrected[words[-1]['end'] + 1:].strip():
         start, end = words[-1]['start'], words[-1]['end'] + 1
         if not any(f['start'] <= start and f['end'] >= end for f in result):
             raise ValueError('A terminal printed Greek word fragment needs an explicit lexical exclusion')
@@ -451,7 +451,10 @@ def _compile_segment(value, frozen, sections, document, images, evidence_files):
     segment['text_role'] = role
     segment['scan'] = {**scan, 'source': {'path': SCAN.as_posix(), 'sha256': SCAN_SHA},
                        'printed_page': frozen['printed_page'], 'max_side': MAX_SIDE}
-    segment['fragments'] = _fragments(segment.get('fragments', []), segment['corrected_text'])
+    # An unresolved span retains the original OCR display. Its terminal hyphen
+    # is not a certified printed fragment; the whole span is excluded below.
+    segment['fragments'] = _fragments(segment.get('fragments', []), segment['corrected_text'],
+                                      require_terminal=verification == 'verified')
     return segment
 
 

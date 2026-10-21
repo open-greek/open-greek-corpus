@@ -513,3 +513,27 @@ def test_full_source_review_does_not_implicitly_admit_nonbody_material(fixture, 
     excluded = compiled['rows'][0]['nonbody_exclusion_candidates'][0]
     assert excluded['text'] == fixture['rows'][0]['text']
     assert not excluded['lexical_eligible']
+
+
+def test_unresolved_ocr_hyphen_is_not_certified_as_printed_fragment(fixture, monkeypatch):
+    original = 'ὁ λόγος κα-'
+    fixture['rows'][0]['text'] = original
+    corpus = campaign.canonical(fixture['rows'][0]) + b'\n'
+    inputs = list(fixture['inputs'])
+    inputs[0], inputs[3] = corpus, gzip.compress(corpus, mtime=0)
+    fixture['inputs'] = tuple(inputs)
+    monkeypatch.setattr(campaign, 'ORIGINAL_SHA', campaign.sha(corpus))
+    fixture['manifest'] = campaign.freeze_scope(*inputs, campaign_id='historical-review-test',
+        created_at='2026-10-21T10:00:00Z', baseline_commit='0' * 40)
+    review = fixture['reviews']['records'][0]
+    review.update(original_row_sha256=campaign.row_sha(fixture['rows'][0]),
+                  status='reviewed-with-uncertainty')
+    item = segment(fixture)
+    item.update(end=len(original), original_text=original, corrected_text=original,
+                verification='uncertain', uncertainty='The OCR hyphen has no certified scan counterpart.')
+    item['scan']['observed_text'] = 'ὁ λόγος κα[?]'
+    compiled = compile_fixture(fixture)['rows'][0]
+    assert compiled['segments'][0]['fragments'] == []
+    assert compiled['additional_lexical_exclusions'] == []
+    assert compiled['uncertainty_exclusion_candidates'][0]['text'] == original
+    assert campaign.restore_text(compiled, original) == original

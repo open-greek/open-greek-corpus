@@ -79,7 +79,7 @@ def records(rows,document,crop_png,sections):
                 leading=LEADING_FRAGMENTS.get((page,number))
                 if a==0 and leading:
                     if not text.startswith(leading):raise ValueError('Changed printed leading fragment')
-                    fragments.append({'start':0,'end':len(leading),'text':leading,'side':'leading','qualification':'Printed continuation of a word begun on the preceding source page. Preserve the suffix without supplying missing letters or counting it as a standalone lexical form.'})
+                    fragments.append({'start':0,'end':len(leading),'text':leading,'side':'leading','qualification':'Printed continuation of a word begun on the preceding source line or page. Preserve the suffix without supplying missing letters or counting it as a standalone lexical form.'})
                 if page == 153 and number == 1 and a == len('680Π.') and text.startswith('νος'):
                     fragments.append({'start':0,'end':3,'text':'νος','side':'leading','qualification':'Printed continuation of the word begun on the preceding page; the preceding marginal label is not part of this word. Exclude the suffix from lexical counts.'})
                 if text.endswith('-'):
