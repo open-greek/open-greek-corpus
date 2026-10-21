@@ -13,6 +13,7 @@ import json
 from pathlib import Path
 import re
 
+from audit_compression import compress_gzip
 from ocr_consensus import compact_corpus_consensus, merge_witnesses
 from bound_comparison_witness import bound_comparison_witness
 from photius_retries import allowed_retry_ids, apply_all_reviewed_retries, review_paths
@@ -398,10 +399,10 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
     output = "".join(line for page, line in sorted(existing + new, key=lambda pair: pair[0])).encode()
     if len(output) >= 100_000_000:
         raise ValueError("The compact Photius corpus exceeds the 100 MB Git object limit")
-    network_raw = gzip.compress(encode(networks), mtime=0)
+    network_raw = compress_gzip(encode(networks))
     artifacts[network_path] = network_raw
     comparison_path = ARCHIVE / "source-library-body-windows.json.gz"
-    comparison_raw = gzip.compress(encode(comparisons), mtime=0)
+    comparison_raw = compress_gzip(encode(comparisons))
     artifacts[comparison_path] = comparison_raw
     comparison_counts = dict(Counter(value["status"] for value in comparisons.values()))
     primary_comparison_counts = dict(Counter(value["status"] for value in comparisons.values()
@@ -463,7 +464,7 @@ def generate(paths, source_library, root=ROOT, *, retry_paths=(), retry_review=N
               "reversal": "Run scripts/ingest_photius_coverage.py --undo to remove the unchanged addition, then scripts/repair_photius_index.py --undo to recover the original full delivery.",
               "generated_by": "scripts/ingest_photius_coverage.py"}
     artifacts[REPORT] = encode(report)
-    artifacts[ARCHIVE / "added-passages.jsonl.gz"] = gzip.compress(prefix, mtime=0)
+    artifacts[ARCHIVE / "added-passages.jsonl.gz"] = compress_gzip(prefix)
     artifacts[CORPUS] = output
     return artifacts, report
 

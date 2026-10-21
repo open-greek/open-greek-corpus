@@ -7,6 +7,8 @@ not a full row consensus or an estimate of recognition accuracy.
 """
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 import argparse
 from collections import Counter
 from copy import deepcopy
@@ -650,8 +652,8 @@ def _artifacts(before, review_raw, table_raw, predecessor=None):
         raise ValueError('The batch source identity or timestamp changed')
     after, changes, networks, counts = plan(before, review_raw)
     records = b''.join((json.dumps(c, ensure_ascii=False)+'\n').encode() for c in changes)
-    frozen = {p['before']: gzip.compress(before, mtime=0), p['review']: review_raw, p['table']: table_raw}
-    outputs = {p['records']: gzip.compress(records, mtime=0), p['networks']: gzip.compress(encode(networks), mtime=0)}
+    frozen = {p['before']: compress_gzip(before), p['review']: review_raw, p['table']: table_raw}
+    outputs = {p['records']: compress_gzip(records), p['networks']: compress_gzip(encode(networks))}
     audit = {'schema_version': 1, 'schema': SCHEMA, 'work': 'photius.bibliotheca',
         'batch_id': review['batch_id'], 'recorded_at': review['reviewed_at'],
         'input_corpus_sha256': sha(before), 'output_corpus_sha256': sha(after),

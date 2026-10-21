@@ -65,7 +65,8 @@ QUALITY_REPORT  := data/ocr_quality_report.json
 PHOTIUS_REVIEW_STATUS := data/corpus_changes/photius-bekker-complete-review/review-status.json.gz
 PHOTIUS_REVIEW_INPUTS := scripts/build_photius_review_observations.py \
     scripts/photius_complete_review_table.py \
-    scripts/prepare_photius_review_campaign.py scripts/assess_photius_historical.py \
+    scripts/prepare_photius_review_campaign.py scripts/audit_compression.py \
+    scripts/assess_photius_historical.py \
     $(wildcard scripts/photius_complete_observations_*.py) \
     data/corpus_changes/photius-bekker-complete-review/scope.json \
     data/corpus_changes/photius-bekker-complete-review/before-corpus.jsonl.gz
@@ -92,7 +93,8 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/repair_photius_historical_readings.py \
                     scripts/repair_photius_historical_batches.py \
                     scripts/repair_photius_complete_review.py scripts/assess_photius_historical.py \
-                    scripts/ocr_consensus.py \
+                    scripts/ocr_consensus.py scripts/audit_compression.py \
+                    scripts/prepare_photius_review_campaign.py \
                     $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
@@ -432,19 +434,21 @@ capital-positions:
         check-known-limitations \
         check-oga-glaux-dates
 
-check: check-ocr-ledgers \
+# Start the longest measured checks first so they do not wait behind short ones
+# when the independent prerequisites run concurrently.
+check: check-photius-complete-review \
+       check-photius-review-observations \
+       check-known-limitations \
+       check-ocr-ledgers \
        check-photius-apparatus-repair \
        check-photius-readings \
        check-photius-historical-readings \
        check-photius-historical-batches \
-       check-photius-review-observations \
-       check-photius-complete-review \
        check-photius-historical-assessment \
        check-photius-apparatus-audit \
        check-source-components \
        check-capital-positions \
        check-corrections-mirror \
-       check-known-limitations \
        check-oga-glaux-dates
 
 check-ocr-ledgers:

@@ -6,6 +6,8 @@ plan. Whole raw witnesses remain present; reviewed header/footer spans abstain.
 """
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 from copy import deepcopy
 import gzip
 import hashlib
@@ -142,7 +144,7 @@ def correct(authority_raw, original_rows_by_locus, original_network_bytes, archi
     before_path = archive / 'fresh-before-networks.json.gz'
     artifacts = {archive / 'fresh-source-review.json': authority_raw,
                  before_path: original_network_bytes,
-                 network_path: gzip.compress(encode({'245': corrected}), mtime=0)}
+                 network_path: compress_gzip(encode({'245': corrected}))}
     paratext = [{'urn': 'photius.bibliotheca', 'language': 'grc',
                  'locus': f'{LOCUS}.witness-editorial-{index + 1}',
                  'class': 'edition_editorial_matter', 'classification': span['classification'],

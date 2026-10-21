@@ -8,6 +8,8 @@ lexical counts. No historical witness or earlier correction audit is discarded.
 """
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 import argparse
 from copy import deepcopy
 from functools import lru_cache
@@ -167,7 +169,7 @@ def plan(before, review_raw):
             or review["input_pins"]["corpus"]["sha256"] != campaign.sha(before)
             or review["counts"]["complete_scan_review_rows"] != review["counts"]["passages"]):
         raise ValueError("Admission requires the exact completely source-reviewed campaign")
-    authority = {"path": REVIEW.as_posix(), "sha256": campaign.sha(gzip.compress(review_raw, mtime=0)),
+    authority = {"path": REVIEW.as_posix(), "sha256": campaign.sha(compress_gzip(review_raw)),
                  "campaign_id": review["campaign_id"]}
     by_locus = {r["locus"]: r for r in review["rows"]}
     if len(by_locus) != len(review["rows"]):
@@ -253,10 +255,10 @@ def artifacts(before, review_raw, aliases_before=None):
         # The production builder always supplies its exact current preimage.
         aliases_before = campaign.encode({"schema_version": 1, "aliases": {}})
     aliases_after, dispositions = _alias_postimage(aliases_before, changes)
-    records = gzip.compress(b"".join(campaign.canonical(r) + b"\n" for r in changes), mtime=0)
-    review_archive = gzip.compress(review_raw, mtime=0)
+    records = compress_gzip(b"".join(campaign.canonical(r) + b"\n" for r in changes))
+    review_archive = compress_gzip(review_raw)
     outputs = {CORPUS: after, RECORDS: records, REVIEW: review_archive,
-        ALIASES: aliases_after, BEFORE_ALIASES: gzip.compress(aliases_before, mtime=0)}
+        ALIASES: aliases_after, BEFORE_ALIASES: compress_gzip(aliases_before)}
     origins = Counter("reviewed-historical-reading-occurrences" if c["original_row"].get("historical_reading_repair")
         else "later-reviewed-historical-occurrences" if c["original_row"].get("historical_reading_batches")
         else "retained-primary" for c in changes)

@@ -7,6 +7,8 @@ fully reproduced layer in memory. No reading is selected merely for fluency.
 """
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 import argparse
 from copy import deepcopy
 from functools import lru_cache
@@ -177,8 +179,8 @@ def _plan(before, review_raw, library_raw, network_inputs, body_inputs=(), sourc
     primary = b"".join(primary_parts)
     for change in changes:
         change["recorded_at"] = RECORDED_AT
-    outputs = {CORPUS: primary, NETWORKS: gzip.compress(encode(full_networks), mtime=0),
-               RECORDS: gzip.compress(jsonl(changes), mtime=0), PARATEXT: jsonl(notes)}
+    outputs = {CORPUS: primary, NETWORKS: compress_gzip(encode(full_networks)),
+               RECORDS: compress_gzip(jsonl(changes)), PARATEXT: jsonl(notes)}
     counts = {"primary_rows_before": len(rows), "primary_rows_after": len(rows) + len(additions),
               "reviewed_rows": len(replacements) + len(additions), "editorial_spans": len(notes),
               "source_window_rows": len(review["records"]),
@@ -219,7 +221,7 @@ def plan(before, review_raw, library_raw, network_inputs, body_inputs=(), source
 
 
 def _freeze(before, review_raw, library_raw, networks):
-    frozen = {BEFORE: gzip.compress(before, mtime=0), ARCHIVE / "reading-windows.json": review_raw,
+    frozen = {BEFORE: compress_gzip(before), ARCHIVE / "reading-windows.json": review_raw,
               ARCHIVE / "source-library.json.gz": library_raw}
     sources = []
     for path, raw in sorted(networks.items()):

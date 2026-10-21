@@ -31,6 +31,7 @@ from assess_photius_historical import MAPPING_EXCEPTIONS, PAGE, SECTION_PREFIX, 
 from prepare_photius_historical_readings import (
     CORPUS, LIBRARY, LIBRARY_SHA, ROOT, SCAN, SCAN_SHA, row_sha,
 )
+from audit_compression import compress_gzip
 
 SCHEMA = 'photius-complete-passage-campaign-v1'
 REVIEW_SCHEMA = 'photius-complete-passage-review-v1'
@@ -64,7 +65,7 @@ def encode(value):
 
 def artifact_bytes(path, value):
     raw = encode(value)
-    return gzip.compress(raw, mtime=0) if Path(path).suffix == '.gz' else raw
+    return compress_gzip(raw) if Path(path).suffix == '.gz' else raw
 
 
 def decoded_bytes(path, raw):

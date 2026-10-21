@@ -31,7 +31,8 @@ def projection_recipe_pins():
     names = ("frequency_projection.py", "critical_text.py", "repair_photius_apparatus.py", "repair_photius_body.py",
              "repair_photius_readings.py", "photius_reading_vote.py", "photius_body_vote.py",
              "repair_photius_historical_readings.py", "repair_photius_historical_batches.py",
-             "repair_photius_complete_review.py", "assess_photius_historical.py", "ocr_consensus.py")
+             "repair_photius_complete_review.py", "assess_photius_historical.py", "ocr_consensus.py",
+             "audit_compression.py", "prepare_photius_review_campaign.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 

@@ -2,6 +2,8 @@
 """Replay and reverse exact source-confirmed historical OCR occurrences."""
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 import argparse
 from copy import deepcopy
 from functools import lru_cache
@@ -154,8 +156,8 @@ def build(root=ROOT, *, require_current=True):
         raise ValueError('Historical corrections require the exact preceding release')
     after, changes, counts = plan(before, review_raw)
     records = b''.join((json.dumps(c, ensure_ascii=False) + '\n').encode() for c in changes)
-    outputs = {CORPUS: after, RECORDS: gzip.compress(records, mtime=0)}
-    frozen = {BEFORE: gzip.compress(before, mtime=0), FROZEN_REVIEW: review_raw}
+    outputs = {CORPUS: after, RECORDS: compress_gzip(records)}
+    frozen = {BEFORE: compress_gzip(before), FROZEN_REVIEW: review_raw}
     diagnostic_pins = []
     # Fixture authorities and ordinary occurrence-only consumers do not need
     # unrelated diagnostic attempts. The published authority includes the two
@@ -202,8 +204,8 @@ def build(root=ROOT, *, require_current=True):
                     raise ValueError('Historical source citation already points elsewhere')
                 own[old['locus']] = target
         outputs[ALIASES] = encode(aliases)
-        outputs[NETWORKS] = gzip.compress(encode({c['locus']: c['full_network'] for c in reconstructed}), mtime=0)
-        frozen[BEFORE_ALIASES] = gzip.compress(alias_raw, mtime=0)
+        outputs[NETWORKS] = compress_gzip(encode({c['locus']: c['full_network'] for c in reconstructed}))
+        frozen[BEFORE_ALIASES] = compress_gzip(alias_raw)
     # The scan and digital source already have immutable public copies from the
     # preceding layer. Reference their exact bytes without duplicating the PDF.
     for path, expected in ((SCAN, SCAN_SHA), (LIBRARY, LIBRARY_SHA)):

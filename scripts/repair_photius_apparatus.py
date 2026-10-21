@@ -6,6 +6,8 @@ verified later layer in memory; independent corpus edits still fail closed.
 """
 from __future__ import annotations
 
+from audit_compression import compress_gzip
+
 import argparse
 import copy
 import gzip
@@ -264,8 +266,8 @@ def build(root=ROOT):
     outputs, audit = plan(before, aliases_before, review_raw, historical_raw, historical,
                           body_raw, library_raw, fresh_raw, original_network_raw, body7_raw)
     artifacts = {**outputs, AUDIT: encode(audit), ARCHIVE / "source-review.json": review_raw,
-                 ARCHIVE / "before-corpus.jsonl.gz": gzip.compress(before, mtime=0),
-                 ARCHIVE / "before-aliases.json.gz": gzip.compress(aliases_before, mtime=0)}
+                 ARCHIVE / "before-corpus.jsonl.gz": compress_gzip(before),
+                 ARCHIVE / "before-aliases.json.gz": compress_gzip(aliases_before)}
     if body_raw is not None:
         artifacts[ARCHIVE / "body-review.json"] = body_raw
     if body7_raw is not None:
