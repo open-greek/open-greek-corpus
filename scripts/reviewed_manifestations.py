@@ -375,6 +375,33 @@ def _attach_scan_comparisons(root, catalog, output, comparative_ids):
         composition["components"].append({"edition": edition["key"], "storage": "paratext", "passages": len(seen), "license": license})
 
 
+def _batch_photius_components(components, batches, rows):
+    """Transfer a newly reviewed prefix from its existing body component once."""
+    loci = batches['newly_corrected_loci']
+    if len(set(loci)) != len(loci) or len(loci) != batches['counts']['newly_corrected_rows']:
+        raise ValueError('Historical batch ownership does not partition its new passages')
+    moved = Counter()
+    for locus in loci:
+        row = rows.get(locus)
+        if row is None:
+            raise ValueError('Historical batch ownership names an absent retained passage')
+        if row.get('source_body_correction'):
+            moved['reviewed-historical-body-correction'] += 1
+        elif row.get('ocr_consensus'):
+            raise ValueError('A historical batch needs explicit ownership for its earlier consensus component')
+    result = deepcopy(components)
+    for role, count in moved.items():
+        owners = [c for c in result if c['role'] == role]
+        retained = [c for c in result if c['role'] == 'retained-primary']
+        if len(owners) != 1 or len(retained) != 1 or owners[0].get('passages', 0) < count:
+            raise ValueError('Historical batch ownership exceeds its earlier source component')
+        # The batch total already moved these rows out of retained-primary.
+        # Their actual preceding owner was the independently reviewed body.
+        retained[0]['passages'] += count
+        owners[0]['passages'] -= count
+    return result
+
+
 def _complete_photius_components(components, complete):
     """Move served passage ownership once; earlier audit events stay visible."""
     result = deepcopy(components)
@@ -410,7 +437,8 @@ def _photius(root):
     if index_path.exists():
         original_hashes.add(_load(index_path)["source_sha256"])
     from repair_photius_apparatus import restore_legacy_bytes, active_metadata
-    legacy = restore_legacy_bytes(primary.read_bytes(), root)
+    primary_raw = primary.read_bytes()
+    legacy = restore_legacy_bytes(primary_raw, root)
     if hashlib.sha256(legacy).hexdigest() in original_hashes:
         return {}
     if hashlib.sha256(legacy).hexdigest() != report["new_corpus_sha256"]:
@@ -541,6 +569,9 @@ def _photius(root):
                                "license": "CC-BY-SA-4.0",
                                "passages": body["counts"]["added_rows"] + body["counts"]["replaced_rows"],
                                **body})
+    if historical_batches:
+        rows = {row['locus']: row for row in map(json.loads, primary_raw.splitlines())}
+        components = _batch_photius_components(components, historical_batches, rows)
     if complete:
         components = _complete_photius_components(components, complete)
         editions.append(_edition('bekker1825-complete-source-reviewed',

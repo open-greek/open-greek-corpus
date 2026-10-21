@@ -1107,6 +1107,8 @@ Clipped digital words and punctuation-only comparison windows cannot supply
 complete lexical counterparts. Duplicate extractions retain empty citation
 tombstones and checked passage aliases to their reviewed retained occurrences;
 undo restores both the exact preceding corpus and passage-alias bytes.
+Successive reviews transfer each passage from its preceding source component;
+reviewing a recovered body prefix does not count its earlier body twice.
 
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint

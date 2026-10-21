@@ -249,3 +249,43 @@ def test_clipped_previous_apostrophe_does_not_mask_a_complete_following_word():
         {'corrected_text':'καὶ','corrected_start':0,'verification':'verified',
          'scan':{'observed_text':'καὶ'},'readings':[reading]}]}
     assert layer._digital_exclusions(record) == []
+
+
+def test_reviewing_an_existing_body_prefix_transfers_its_original_component_once():
+    components = [{'role':'retained-primary','passages':3},
+        {'role':'reviewed-historical-body-correction','passages':2},
+        {'role':'later-reviewed-historical-occurrences','passages':2}]
+    batches = {'newly_corrected_loci':['retained','body'], 'counts':{'newly_corrected_rows':2}}
+    rows = {'retained':{'text':'λόγος'}, 'body':{'text':'λόγος','source_body_correction':{'schema':'reviewed'}}}
+    fixed = reviewed_manifestations._batch_photius_components(components,batches,rows)
+    assert [c['passages'] for c in fixed] == [4,1,2]
+    assert sum(c['passages'] for c in fixed) == sum(c['passages'] for c in components)
+    assert components[0]['passages']==3 and components[1]['passages']==2
+
+
+def test_frozen_production_scope_partitions_after_the_earlier_body_prefix_review():
+    from pathlib import Path
+    root = Path(__file__).resolve().parents[1]
+    rows = {r['locus']:r for r in map(json.loads,gzip.decompress((root/campaign.BASELINE).read_bytes()).splitlines())}
+    newly = [r['locus'] for r in rows.values()
+             if r.get('historical_reading_batches') and not r.get('historical_reading_repair')]
+    components = [{'role':role,'passages':n} for role,n in [
+        ('retained-primary',3052),('new-primary-consensus',309),
+        ('reviewed-historical-reading-occurrences',170),('later-reviewed-historical-occurrences',241),
+        ('reviewed-historical-body-correction',2),('recovered-historical-body-regions',8)]]
+    batch = {'newly_corrected_loci':newly,'counts':{'newly_corrected_rows':len(newly)}}
+    assert len(newly)==241
+    fixed = reviewed_manifestations._batch_photius_components(components,batch,rows)
+    assert next(c['passages'] for c in fixed if c['role']=='retained-primary')==3053
+    scoped = json.loads((root/campaign.MANIFEST).read_bytes())
+    selected = [r['original_row'] for r in scoped['rows']]
+    from collections import Counter
+    counts = Counter('reviewed-historical-reading-occurrences' if r.get('historical_reading_repair')
+        else 'later-reviewed-historical-occurrences' if r.get('historical_reading_batches')
+        else 'retained-primary' for r in selected)
+    complete = {'replaced_component_passages':dict(counts),'counts':{'fully_source_reviewed_rows':len(selected)}}
+    final = reviewed_manifestations._complete_photius_components(fixed,complete)
+    assert sum(c['passages'] for c in final)==len(rows)==3782
+    assert next(c['passages'] for c in final if c['role']=='retained-primary')==0
+    assert next(c['passages'] for c in final if c['role']=='reviewed-historical-body-correction')==1
+    assert next(c['passages'] for c in final if c['role']=='complete-reviewed-historical-passages')==3462
