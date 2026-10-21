@@ -33,9 +33,36 @@ TABLES = (
     'photius_historical_observations_orators',
     'photius_historical_observations_fragments',
     'photius_historical_observations_pages0007_0008',
+    'photius_historical_observations_prefix0007',
+    'photius_historical_observations_page0009',
 )
 QUALIFICATION = 'Only the recorded occurrences are source reviewed; other historical text remains unassessed.'
 _CROP_HASHES = {}
+
+
+def _prefix_scope(row, item):
+    """Permit only the complete retained prefix of the separately merged 7.5.
+
+    This does not authorize general edits to consensus rows. The earlier tail
+    network is a disjoint source range and must survive without a new vote.
+    """
+    scope = item.get('review_scope')
+    if scope is None:
+        return False
+    if scope != 'retained-historical-prefix':
+        raise ValueError('Unknown historical review scope')
+    from repair_photius_body import LOCUS7, validate_projection
+    if (row.get('locus') != LOCUS7 or not row.get('source_body_correction')
+            or row.get('historical_reading_batches') or row.get('editorial_layer')
+            or item.get('scan_only') or item.get('projection_only') or item.get('source_fragment')):
+        raise ValueError('Prefix review requires the original separately merged 7.5')
+    validate_projection(row)
+    prefix = row['source_body_correction']['retained_prefix']
+    tail = row['ocr_consensus'].get('span_networks', {}).get('replacement_tail')
+    if (not prefix or prefix == prefix.rstrip() or item['original_text'] != prefix.rstrip()
+            or not tail or tail['text'] != row['source_body_correction']['replacement_text']):
+        raise ValueError('Prefix review must preserve the exact independent tail boundary')
+    return True
 
 
 def paths(batch_id):
@@ -218,8 +245,9 @@ def compile_review(before, library_raw, scan_raw, observations, *, batch_id,
                     or locus not in rows):
                 raise ValueError('Observation requires an existing retained historical passage')
             old = rows[locus]
-            if old.get('ocr_consensus') or old.get('editorial_layer') or (
-                    'analysis_text' in old and not old.get('historical_reading_batch_projection')):
+            prefix_scope = _prefix_scope(old, item)
+            if not prefix_scope and (old.get('ocr_consensus') or old.get('editorial_layer') or (
+                    'analysis_text' in old and not old.get('historical_reading_batch_projection'))):
                 raise ValueError('Occurrence batches cannot replace another full lexical projection')
             if item.get('original_row_sha256', row_sha(old)) != row_sha(old):
                 raise ValueError('The reviewed historical row changed')
@@ -233,6 +261,8 @@ def compile_review(before, library_raw, scan_raw, observations, *, batch_id,
             if any(start < b and a < end for a, b in occupied.setdefault(locus, [])):
                 raise ValueError('Reviewed occurrences overlap')
             occupied[locus].append((start, end))
+            if prefix_scope and len(occupied[locus]) != 1:
+                raise ValueError('A prefix review is one complete bounded source range')
             scan_text = item.get('scan_text', corrected)
             if scan_text != corrected and not item.get('transcription_convention'):
                 raise ValueError('A differing literal scan transcription requires an explicit convention')
@@ -311,6 +341,7 @@ def compile_review(before, library_raw, scan_raw, observations, *, batch_id,
                 'source_fragments': fragments,
                 **({'projection_only': True, 'digital_context': context} if projection_only else {}),
                 'qualification': item.get('qualification', QUALIFICATION),
+                **({'review_scope': item['review_scope']} if prefix_scope else {}),
                 'raw_witnesses': item.get('raw_witnesses', []), 'reviewed_at': reviewed_at})
     if not records:
         raise ValueError('A batch needs completed source observations')
@@ -366,6 +397,59 @@ def _whole_word_exclusions(text, spans):
     return result
 
 
+def _preserve_tail(old, new, decisions, networks, archive, reference):
+    """Combine a reviewed prefix with the byte-identical earlier tail vote."""
+    from ocr_consensus import compact_corpus_consensus
+    if len(decisions) != 1 or not _prefix_scope(old, decisions[0]):
+        raise ValueError('A prefix review cannot include another source range')
+    item = decisions[0]
+    prefix = networks[item['network_key']]
+    tail = deepcopy(old['ocr_consensus']['span_networks']['replacement_tail'])
+    boundary = len(old['source_body_correction']['retained_prefix'])
+    separator = old['text'][item['end']:boundary]
+    if (item['start'] != 0 or not separator.isspace()
+            or new['text'] != prefix['text'] + separator + tail['text']):
+        raise ValueError('Prefix review changed the independently merged ending')
+    witnesses = prefix['ocr_consensus']['witnesses'] + tail['ocr_consensus']['witnesses']
+    prefix_ids = {w['id'] for w in prefix['ocr_consensus']['witnesses']}
+    tail_ids = {w['id'] for w in tail['ocr_consensus']['witnesses']}
+    if prefix_ids & tail_ids:
+        raise ValueError('Disjoint prefix and tail witnesses need distinct identities')
+    slots = []
+    for region, outside in ((prefix, tail_ids), (tail, prefix_ids)):
+        for original in region['ocr_consensus']['slots']:
+            slot = deepcopy(original)
+            slot['position'] = len(slots)
+            slot['abstentions'] = sorted(set(slot.get('abstentions', [])) | outside)
+            slots.append(slot)
+    full = {'text': new['text'],
+        'analysis_text': ' '.join(s['selected'] for s in slots if s['lexical_eligible']),
+        'ocr_consensus': {'schema_version': 1,
+            'policy': 'Independently reviewed historical prefix followed by the unchanged earlier tail consensus. Disjoint source ranges align separately; superseded historical words cast no vote. Preserve every source disagreement.',
+            'witnesses': witnesses, 'slots': slots,
+            'counts': dict(Counter(s['status'] for s in slots)),
+            'span_networks': {'reviewed_historical_prefix': deepcopy(prefix), 'replacement_tail': tail}}}
+    key = old['locus'] + ':prefix-and-tail'
+    networks[key] = full
+    new.update(compact_corpus_consensus(full, {'path': archive.as_posix(), 'key': key}))
+    new['historical_prefix_review'] = {'source_review': reference,
+        'original_prefix_characters': boundary, 'retained_tail_sha256': sha(encode(tail)),
+        'original_consensus': deepcopy(old['ocr_consensus']['full_network']),
+        'qualification': 'Only the prefix is newly reviewed. The earlier tail network and all of its alternatives are unchanged.'}
+
+
+def _slot_segments(row):
+    runs, current = [], []
+    for slot in row['ocr_consensus']['slots']:
+        if slot['lexical_eligible']:
+            current.append(slot['selected'])
+        elif current:
+            runs.append(' '.join(current)); current = []
+    if current:
+        runs.append(' '.join(current))
+    return runs
+
+
 def plan(before, review_raw):
     """Pure exact-span replay, including all prior partial-review metadata."""
     review = json.loads(review_raw)
@@ -382,7 +466,10 @@ def plan(before, review_raw):
         old = json.loads(line); locus = old['locus']
         if locus not in grouped:
             output.append(line); continue
-        if (old.get('ocr_consensus') or old.get('editorial_layer') or
+        prefix_scope = any(item.get('review_scope') for item in grouped[locus])
+        if prefix_scope and (len(grouped[locus]) != 1 or not _prefix_scope(old, grouped[locus][0])):
+            raise ValueError('A prefix review requires one complete bounded source range')
+        if not prefix_scope and (old.get('ocr_consensus') or old.get('editorial_layer') or
                 ('analysis_text' in old and not old.get('historical_reading_batch_projection'))):
             raise ValueError('A batch cannot overwrite an unrelated lexical projection')
         previous = old.get('historical_reading_batches', [])
@@ -426,11 +513,13 @@ def plan(before, review_raw):
             occurrence_exclusions = []
             if digital:
                 from ocr_consensus import merge_witnesses
+                scan_id = 'historical-prefix-scan' if prefix_scope else 'direct-scan-reading'
+                digital_id = 'historical-prefix-digital' if prefix_scope else 'source-library-local002'
                 full = merge_witnesses([
-                    {'id': 'direct-scan-reading', 'vote_group': 'direct-scan-reading',
+                    {'id': scan_id, 'vote_group': scan_id,
                      'text': replacement, 'artifact_sha256': sha(encode(source)),
                      'source': source, 'source_review': reference, 'license': 'CC-BY-4.0'},
-                    {'id': 'source-library-local002', 'vote_group': 'source-library-local002',
+                    {'id': digital_id, 'vote_group': digital_id,
                      'text': digital['original_text'], 'artifact_sha256': sha(encode(digital)),
                      'source_window': digital, 'license': 'CC-BY-SA-4.0'}])
                 networks[f'{locus}:{index}'] = full
@@ -506,6 +595,8 @@ def plan(before, review_raw):
         if mapped:
             new['historical_reading_batch_projection'] = {'schema': SCHEMA, 'excluded_spans': mapped}
             new['analysis_text'] = ' '.join(_segments(corrected, mapped))
+        if prefix_scope:
+            _preserve_tail(old, new, decisions, networks, p['networks'], reference)
         changes.append({'locus': locus, 'original_row': old, 'corrected_row': new,
             'original_row_sha256': row_sha(old), 'corrected_row_sha256': row_sha(new),
             'original_text': old['text'], 'corrected_text': corrected,
@@ -688,12 +779,19 @@ def validate_projection(row, root=ROOT):
         raise ValueError('Historical projection lacks its batch references')
     restore_before_row(row, root)
     spans = _excluded(row)
+    if row.get('historical_prefix_review'):
+        expected = ' '.join(s['selected'] for s in row['ocr_consensus']['slots'] if s['lexical_eligible'])
+        if row.get('analysis_text') != expected:
+            raise ValueError('Historical prefix lexical projection changed')
+        return
     if spans and row.get('analysis_text') != ' '.join(_segments(row['text'], spans)):
         raise ValueError('Historical batch lexical text changed')
 
 
 def lexical_segments(row, root=ROOT):
     validate_projection(row, root)
+    if row.get('historical_prefix_review'):
+        return _slot_segments(row)
     return _segments(row['text'], _excluded(row))
 
 

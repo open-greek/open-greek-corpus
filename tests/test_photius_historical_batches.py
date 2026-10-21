@@ -403,6 +403,7 @@ def released_inputs():
     ('photius_historical_observations_continued', (319, 142, 19)),
     ('photius_historical_observations_orators', (197, 12, 8)),
     ('photius_historical_observations_pages0007_0008', (157, 7, 10)),
+    ('photius_historical_observations_page0009', (105, 5, 11)),
 ])
 def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundaries(released_inputs, module_name, expected):
     root, before, library, scan = released_inputs
@@ -451,6 +452,16 @@ def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundar
         ordinary = layer.restore_fragment_network(full)
         assert ordinary['text'] == full['text'] == 'σίους τιθέασιν'
         assert ordinary['analysis_text'] == 'σίους τιθέασιν'
+    elif module_name.endswith('page0009'):
+        first = by_locus[PREFIX.replace('0004', '0009')+'1']
+        assert first['text'].startswith('πλίσατο, οὐκ αὐτὴ πρώτη τὰς τῆς εὐσεβείας')
+        assert 'πλίσατο' not in first['analysis_text']
+        assert counts['fragment_occurrences'] == counts['lexical_excluded_fragments'] == 1
+        assert '⟦τέτων ∥ τούτων⟧' in first['text']
+        last = by_locus[PREFIX.replace('0004', '0009')+'5']
+        assert '⟦Βασίλειοί ∥ Βασιλείου⟧' in last['text']
+        assert 'Βασιλείου' not in last['analysis_text']
+        assert last['text'].endswith('κατάδηλον')
     else:
         # A later occurrence review cannot replace the independently merged
         # ending of 7.5 or silently include its unreviewed historical prefix.
@@ -505,7 +516,8 @@ def test_all_actual_batches_keep_projection_only_display_and_qualify_every_revie
     root, before, library, scan = released_inputs
     raw = before; totals = Counter(); fourth_before = None
     all_changes = []
-    for name in layer.TABLES:
+    # Freeze the five earlier batch results independently of later reviews.
+    for name in layer.TABLES[:5]:
         path = Path('scripts')/(name+'.py')
         if not (root/path).exists():
             pytest.skip('The full reviewed source-table set is not yet available')
@@ -540,6 +552,70 @@ def test_all_actual_batches_keep_projection_only_display_and_qualify_every_revie
         if span['reason'] == 'source-confirmed-word-fragment']
     assert len(fragment_spans) == 29
     assert all(row.get('ocr_consensus') is None for row in final.values() if row.get('historical_reading_batches'))
+
+
+def test_reviewed_prefix_preserves_exact_tail_and_is_reversible(released_inputs, tmp_path, monkeypatch):
+    root, before, library, scan = released_inputs
+    name = 'photius_historical_observations_prefix0007'
+    relative = Path('scripts') / (name+'.py')
+    table_raw = (root/relative).read_bytes()
+    module, _ = layer._table(table_raw, relative.as_posix())
+    original = next(r for r in map(json.loads, before.splitlines())
+                    if r['locus'].endswith('_0007.5'))
+    for path, raw in ((layer.CORPUS, before), (layer.SCAN, scan),
+                      (layer.LIBRARY, library), (relative, table_raw)):
+        (tmp_path/path).parent.mkdir(parents=True, exist_ok=True)
+        (tmp_path/path).write_bytes(raw)
+    credit = layer._source_credit(root)
+    monkeypatch.setattr(layer, 'TABLES', (name,))
+    monkeypatch.setattr(layer, '_source_credit', lambda root: credit)
+    audit = layer.apply(tmp_path)
+    after = (tmp_path/layer.CORPUS).read_bytes()
+    changed = next(r for r in map(json.loads, after.splitlines()) if r['locus'] == original['locus'])
+    old_tail = original['ocr_consensus']['span_networks']['replacement_tail']
+    assert changed['ocr_consensus']['span_networks']['replacement_tail'] == old_tail
+    assert changed['text'].endswith(original['source_body_correction']['replacement_text'])
+    assert changed['ocr_consensus']['counts'] == {'agreement': 327, 'unresolved': 15}
+    assert '⟦φάμενος ∥ φύμενος⟧' in changed['text']
+    assert 'ἀδίστακτος' not in changed['analysis_text']
+    assert 'ἀδίζακτος' not in changed['analysis_text']
+    assert 'συγκρίματος' in changed['analysis_text']
+    assert layer.restore_before_row(changed, tmp_path) == original
+    runs = layer.lexical_segments(changed, tmp_path)
+    assert not any('συγκρίματος ἑτεροειδῆ τὸ σῶμα' in run for run in runs)
+    assert any('συγκρίματος ἑτεροειδῆ' in run for run in runs)
+    archive = {p: (tmp_path/p).read_bytes() for p in layer.paths(module.BATCH_ID).values()}
+    layer.undo(tmp_path)
+    assert (tmp_path/layer.CORPUS).read_bytes() == before
+    layer.apply(tmp_path, batch_id=module.BATCH_ID)
+    assert (tmp_path/layer.CORPUS).read_bytes() == after
+    assert all((tmp_path/p).read_bytes() == raw for p, raw in archive.items())
+    broken = deepcopy(changed)
+    broken['ocr_consensus']['span_networks']['replacement_tail']['text'] += ' changed'
+    with pytest.raises(ValueError, match='postimage'):
+        layer.validate_projection(broken, tmp_path)
+    assert audit['counts']['fully_assessed_rows'] == 0
+
+
+@pytest.mark.parametrize('change', ['partial-prefix', 'tail', 'scan-only', 'wrong-scope'])
+def test_prefix_scope_cannot_expand_into_other_consensus_text(released_inputs, change):
+    root, before, library, scan = released_inputs
+    path = Path('scripts/photius_historical_observations_prefix0007.py')
+    raw = (root/path).read_bytes(); module, _ = layer._table(raw, path.as_posix())
+    observations = module.observations()
+    item = observations[0]
+    if change == 'partial-prefix':
+        item['original_text'] = item['original_text'][1:]
+    elif change == 'tail':
+        item['original_text'] += ' συνεκφωνεῖσθαί'
+    elif change == 'scan-only':
+        item['scan_only'] = True
+    else:
+        item['review_scope'] = 'whole-page'
+    with pytest.raises(ValueError, match='prefix|Prefix|scope'):
+        layer.compile_review(before, library, scan, observations,
+            batch_id=module.BATCH_ID, reviewed_at=module.REVIEWED_AT,
+            table_pin={'path': path.as_posix(), 'sha256': layer.sha(raw)})
 
 
 def test_frozen_release_checker_unapplies_later_batches_in_memory(fixture, monkeypatch):

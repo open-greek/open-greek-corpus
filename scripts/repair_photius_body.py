@@ -169,6 +169,9 @@ def correct(raw, historical, decisions, library_raw, archive):
 
 
 def validate_projection(row):
+    if row.get("historical_reading_batches"):
+        from repair_photius_historical_batches import restore_before_row
+        row = restore_before_row(row)
     layer = row["source_body_correction"]
     slots = row["ocr_consensus"]["slots"]
     case = CASES.get(row.get("locus"))
