@@ -1,0 +1,95 @@
+{
+  "admission_authorized": false,
+  "before_corpus_sha256": "d4193edddda4ba27e673dcaabdae26c4711399d3c514be505a2850c6d3ccbe2b",
+  "candidate_corpus_sha256": "f4dcd1a92b87439c0c184a406b7b031d1b4f66cf5a5da66702bc6a2760e65fe7",
+  "counts": {
+    "baseline_remaining_uncertain_spans": 3047,
+    "blind_resolutions_withheld": 7,
+    "blind_resolved": 76,
+    "by_stratum": {
+      "nonbody": {
+        "resolved": 1
+      },
+      "tied": {
+        "resolved": 2
+      },
+      "unique": {
+        "resolved": 39,
+        "retained-uncertain": 19
+      },
+      "unmatched": {
+        "resolved": 28,
+        "retained-uncertain": 11
+      }
+    },
+    "candidate_remaining_uncertain_spans": 2977,
+    "candidate_rows": 37,
+    "comparison_guided_resolutions": 1,
+    "resolved_changed": 65,
+    "resolved_comparison_relationship": {
+      "different": 1,
+      "matching": 38,
+      "mixed": 2,
+      "unavailable": 29
+    },
+    "resolved_unchanged": 5,
+    "retained_uncertain": 30,
+    "sampled_spans": 100,
+    "served_corpus_changes": 0
+  },
+  "input_pins": {
+    "data/corpus/photius.bibliotheca.jsonl": "d4193edddda4ba27e673dcaabdae26c4711399d3c514be505a2850c6d3ccbe2b",
+    "data/corpus_changes/photius-bekker-complete-review/review-status.json.gz": "58fa74b6e2abdf8303ea3b1739f636c32edb6eb6ac63c2596f120b53e2c6eb99",
+    "data/corpus_changes/photius-bekker-context/changes.json": "440278070d34471e516a6bcc986162e62a6e1d8e2ed001fa9e759a726c3082a3",
+    "data/corpus_changes/photius-bekker-context/source-review.json.gz": "0fd53207d99beb240439a39cf4679f4c220a02b8a96c4964991e2af2e5ee3fea",
+    "data/corpus_changes/photius-bekker-readings/source-scan.pdf": "fd9c6881b568d80e00997a3bb859b19e4a2833ec12b7956eb09f083934927feb",
+    "data/corpus_changes/photius-bekker-uncertainties/changes.json": "af121815be1d95624e999daec6c59493044b0f7aa523c49775485bc9e0b7d408",
+    "data/corpus_changes/photius-bekker-uncertainties/source-review.json": "b25d2ec1e7e91f64b2f3926271489c7d588a0466b239550e8e64023411982bf3"
+  },
+  "outputs": {
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/before-corpus.jsonl.gz": "ded949d01e7ba65975831bea205229e151c3f4b3b0246810116c3c41c5a130a5",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/candidate-corpus.jsonl.gz": "0090ce2316f5ab9f99ad2598b81400fca7193ca616bb95cac4425bfd76b0ae6a",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/population-diagnostics.json": "672751852677721b86883a9d5b2a783b3432b63d1a2f3750bf7d43a689c198f7",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/records.jsonl.gz": "7fa3d8105c1f76bad008406f9bf134aa33e318d388eeb3a65edcd1ce6285830f",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/sample.json": "780c9f719cb1ef23b59600a3df0dd788e585e7c6b121c7fdbf914137acca3254",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/0020498720816e869c7cb762afc3554d8f00d692bc69d8196584bb2c747c26f2.png": "0020498720816e869c7cb762afc3554d8f00d692bc69d8196584bb2c747c26f2",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/03a7bc72f711a13044c4d7a2895b355aed63b5ea85b71b8208db1cd316ce0a77.png": "03a7bc72f711a13044c4d7a2895b355aed63b5ea85b71b8208db1cd316ce0a77",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/22851290a376955394cfb375787ca1714d039ee00caf4fdc6ec7364561f1525f.png": "22851290a376955394cfb375787ca1714d039ee00caf4fdc6ec7364561f1525f",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/23339a5077376530d1a776afa624d267ff70566682b3a8f93554c3c7c3459b63.png": "23339a5077376530d1a776afa624d267ff70566682b3a8f93554c3c7c3459b63",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/32eed5d5fb9a73a837ed1e02fb68864562914cb2471199aea98800308f200897.png": "32eed5d5fb9a73a837ed1e02fb68864562914cb2471199aea98800308f200897",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/34768c366c544c5e2e11716e51a887f090a849ca2b9a8ffa5ff8f58b91cdf56e.png": "34768c366c544c5e2e11716e51a887f090a849ca2b9a8ffa5ff8f58b91cdf56e",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/382f48c944cbf4a360cd037fd910928b8351f478da8082173d4641b216966fe7.png": "382f48c944cbf4a360cd037fd910928b8351f478da8082173d4641b216966fe7",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/3b22ec3102070111288a563ce32aa5bd6c521c35c7c1bc5919c25966b49c4b94.png": "3b22ec3102070111288a563ce32aa5bd6c521c35c7c1bc5919c25966b49c4b94",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/3b58570a50c136d0661f9d9436169e524c2cd22f446b0d5e65e058fa28645023.png": "3b58570a50c136d0661f9d9436169e524c2cd22f446b0d5e65e058fa28645023",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/3b8f0a4cddfadd568c9d378e34d85b223af972dcb95051c5e000ed33a6577b5f.png": "3b8f0a4cddfadd568c9d378e34d85b223af972dcb95051c5e000ed33a6577b5f",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/3bf3950b498b274afe44d26b67e34a13227c1d919f6dff03db15ee79f7593879.png": "3bf3950b498b274afe44d26b67e34a13227c1d919f6dff03db15ee79f7593879",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/4f4be8cbc4dc9597eec06574276af14a2511e70784ce77f0da95b047a1dd35b8.png": "4f4be8cbc4dc9597eec06574276af14a2511e70784ce77f0da95b047a1dd35b8",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/64c2320374349c75177d8d9f03cdb62153ecfddbc677cd0e6149782f570954dd.png": "64c2320374349c75177d8d9f03cdb62153ecfddbc677cd0e6149782f570954dd",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/6e68f28fbc5b8f2f74b5738b9cdf40e03a9f8acfaef96db6e466f8922fc3d9ec.png": "6e68f28fbc5b8f2f74b5738b9cdf40e03a9f8acfaef96db6e466f8922fc3d9ec",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/73a68afd3074f06e6cab28c3acd49300956ffdcebec9f99c681757f677d7864a.png": "73a68afd3074f06e6cab28c3acd49300956ffdcebec9f99c681757f677d7864a",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/7c8c03e22e682d743aa3442a01988fb747978f7b9a81663fa493b0a869b77eee.png": "7c8c03e22e682d743aa3442a01988fb747978f7b9a81663fa493b0a869b77eee",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/7f7e11fa2f8feba2cb7d409bfa0d4b67732d6c5bf991fa7297fb1064e61b2e50.png": "7f7e11fa2f8feba2cb7d409bfa0d4b67732d6c5bf991fa7297fb1064e61b2e50",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/80e2e001b97056621b78fd7a6c89bb3df142f3cb63f055f2f3b7980fb10355e3.png": "80e2e001b97056621b78fd7a6c89bb3df142f3cb63f055f2f3b7980fb10355e3",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/81411a1914077407939421c3a086aa2b885f2d1430122cd1ac3bfd8d1a53df80.png": "81411a1914077407939421c3a086aa2b885f2d1430122cd1ac3bfd8d1a53df80",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/ae412e2785e86b522e4c94cf83aeab30612b85bd4510c13a9f4b8cd16bfb2153.png": "ae412e2785e86b522e4c94cf83aeab30612b85bd4510c13a9f4b8cd16bfb2153",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/b34b56130bfce9a9250d2a9715a6958abb0ace413b2624a55b85531c2fe9c07e.png": "b34b56130bfce9a9250d2a9715a6958abb0ace413b2624a55b85531c2fe9c07e",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/b698779484dd627a9e9d32713c7c0563f609c82520eb036c8800f6841caa149f.png": "b698779484dd627a9e9d32713c7c0563f609c82520eb036c8800f6841caa149f",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/bbcf20752ad225bd216fa03b0cf573dd4b12c553baf06db756a097a92e4a13cd.png": "bbcf20752ad225bd216fa03b0cf573dd4b12c553baf06db756a097a92e4a13cd",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/cfc13b9f947f9562a2b32e8812a76d2cd49b7a91b6e774fa9b2cb315f8bc85d2.png": "cfc13b9f947f9562a2b32e8812a76d2cd49b7a91b6e774fa9b2cb315f8bc85d2",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/d48f916f9d0d765b39f2ae71ffc4618b5370d2bb4cdb99884900d8644117b18a.png": "d48f916f9d0d765b39f2ae71ffc4618b5370d2bb4cdb99884900d8644117b18a",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-images/d7b1f8f878318a6b33c784b788cecaf45fced38935944a47bcc6a078cad4e6ad.png": "d7b1f8f878318a6b33c784b788cecaf45fced38935944a47bcc6a078cad4e6ad",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-review.json": "fc546c18a9be63a09b697b6c8cd5dffba1dc8e99600067d58d555ceaddab9177",
+    "data/corpus_changes/photius-bekker-uncertainty-pilot/source-table.py": "efc7fcaf2d35f06f44016fe8222d7db883c339336d5cf14c7c8dce9f39b2d26a"
+  },
+  "qualification": "Exploratory source review only. Candidate reductions are planned, not served or population estimates. Existing corpus and all prior audits remain unchanged.",
+  "recipe_sha256": {
+    "assess_photius_historical.py": "afd191d3c022f57e859bfa79d329e83db5237ad55db3906624e8eba088b67463",
+    "audit_compression.py": "d2504998f18d7d69fb009312eede80ffc83667e07e5450134eceb2361d101d21",
+    "compare_photius_local_edition.py": "731878fda72dcab04d167ffb9ed8f453e129f62e315ce556e79155fc52ca92bf",
+    "prepare_photius_review_campaign.py": "4ef586e6bb30bcb07a7e0222b851bb3b13c8cc7f6b99301f5c0698f7e5b6e516",
+    "prepare_photius_uncertainty_pilot.py": "55f59e5e2ccd3125e435804fbcbecfc55c50c584b491125ba611f527438c8ed4",
+    "repair_photius_uncertainties.py": "e607f6df69a5c3a215916bb9038f0bd6a1c1f741b8e60ae277671d9fb7ef92c1"
+  },
+  "reviewed_at": "2026-10-21T20:25:23.936681+00:00",
+  "schema": "photius-uncertainty-pilot-v1"
+}
