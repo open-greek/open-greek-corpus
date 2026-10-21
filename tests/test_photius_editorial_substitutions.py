@@ -140,6 +140,24 @@ def test_nonbody_cannot_be_substituted(case):
         compile_case(case)
 
 
+def test_printed_fragments_cannot_each_adopt_the_same_complete_source_word(case):
+    # A digital whole word can legitimately face two printed fragments. Adopting
+    # it independently for each fragment would duplicate a word across rows.
+    segment=case['complete']['rows'][0]['segments'][0]
+    segment['fragments']=[{'start':0,'end':len(segment['corrected_text']),
+                           'classification':'source-confirmed-word-fragment'}]
+    with pytest.raises(ValueError,match='separate jointly reviewed source group'):
+        compile_case(case)
+    decision=case['authored']['records'][0]
+    decision.update(decision='retained-unmapped',corrected_text=decision['original_text'],readings=[])
+    review=compile_case(case)
+    after,records,counts=editorial.plan(case['before'],editorial.encode(review))
+    assert json.loads(after)['text']==case['old']['text']
+    assert any(c['text']==decision['original_text'] and c['classification']=='unresolved-source-reading'
+               for c in records[0]['remaining_exclusion_causes'])
+    assert counts['editorially_substituted_spans']==1
+
+
 def test_independent_fragment_and_nonbody_exclusions_survive(case):
     old=case['old']; masks=old['photius_uncertainty_admission']['excluded_spans']
     a,b=masks[0]['start'],masks[0]['end']

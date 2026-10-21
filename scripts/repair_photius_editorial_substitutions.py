@@ -209,6 +209,8 @@ def compile_review(before, complete, prior_review, admitted_review, authored, so
                 or not item['original_text'].endswith(suffix)):
             raise ValueError('Display wrappers must preserve exact original nonlexical characters')
         if item['decision'] == 'substitute':
+            if segment.get('fragments'):
+                raise ValueError('Printed fragments need a separate jointly reviewed source group before substitution')
             if (segment['text_role'] != 'authorial-body' or not values or len(set(values)) != 1
                     or not any(reading['role'] == 'chosen' for reading in readings)
                     or item['corrected_text'] != prefix + values[0] + suffix):

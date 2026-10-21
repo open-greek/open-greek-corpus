@@ -164,6 +164,9 @@ def prepare(html_raw, root=ROOT, *, reviewed_at):
             if segment['text_role'] != 'authorial-body':
                 item.update(decision='retained-nonbody',evidence='Nonbody material keeps its independent exclusion.')
                 records.append(item); continue
+            if segment.get('fragments'):
+                item['evidence']='This source word crosses a retained passage boundary; a whole comparison word cannot replace each fragment independently.'
+                records.append(item); continue
             left,right = local.verified_flanks(tokens,reliable,a,b)
             result = matcher.match(page,left,right,min_side=3)
             if result['match_status']=='unmatched':

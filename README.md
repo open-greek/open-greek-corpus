@@ -1202,8 +1202,8 @@ review layers. Independent fragment, nonbody, and contrary-reading exclusions
 remain effective after each source resolution.
 
 A subsequent [editorial substitution layer](docs/photius-editorial-substitutions.md)
-uses the TLG Greek reading from Henry's edition at 2,602 unambiguous occurrences.
-The current served unresolved count is **375**: 330 unmapped spans, six tied
+uses the TLG Greek reading from Henry's edition at 2,592 unambiguous occurrences.
+The current served unresolved count is **385**: 340 unmapped spans, six tied
 matches, and 39 nonbody spans. These editorial choices do not certify Bekker's
 printing. The scan measurement remains 2,977, with the original reading,
 alternative source readings, exact HTML references, and reversible changes

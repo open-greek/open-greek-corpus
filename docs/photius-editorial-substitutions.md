@@ -7,9 +7,9 @@ not a new claim about what the Bekker scan prints. TLG is the comparison text
 provider; modern commentary and apparatus are not imported.
 
 The preparation accounts for every one of the 2,977 remaining segment identities.
-It selects 2,602 substitutions and holds 375: 330 unmapped spans, six tied
+It selects 2,592 substitutions and holds 385: 340 unmapped spans, six tied
 occurrences, and 39 spans outside the authorial body. The served unresolved count
-therefore becomes 375. The separate scan measurement remains 2,977; the 92
+therefore becomes 385. The separate scan measurement remains 2,977; the 92
 earlier scan-supported resolutions remain distinct from editorial choices.
 
 ## Locating readings
