@@ -41,3 +41,37 @@ Use fresh processes, the same Python and compression libraries, identical input
 bytes, and similar machine load. Compare output hashes before comparing times.
 These measurements cover Photius coverage resolution, not the entire release
 pipeline or model inference.
+
+## Complete-passage crop rendering
+
+The complete-passage observation build was measured separately in fresh,
+otherwise idle processes on the same machine. The baseline was commit
+`5f49d60b6a6b0a30f93e0712c33462002860c0de`. Both implementations used Python
+3.14.6, PyMuPDF/MuPDF 1.28.2, zlib 1.2.12, the same pinned PDF, and unchanged
+authored tables. Each build reproduced all three frozen outputs exactly.
+
+| Observation generation and compilation | Baseline | Single rendering pass | Reduction |
+| --- | ---: | ---: | ---: |
+| Elapsed time | 465.145 s | 263.109 s | 43.4% |
+| Actual crop renders | 1,504 | 752 | 50.0% |
+| Process peak memory | 2.001 GB | 1.621 GB | 19.0% |
+
+The 9,594 segments share 752 geometries. Authoring and compilation now share
+images captured during one compiler-owned call, with bounded PNG and digest
+storage. A later call starts over, including after changes to global renderer
+settings. Regression tests reject changed source bytes, authored tables,
+recorded image hashes, and campaign identity. The comparison covers observation
+generation and compilation; admission additionally replays corpus changes.
+
+The output SHA-256 values were identical before and after the change:
+
+| Artifact | SHA-256 |
+| --- | --- |
+| `photius-bekker-complete-review/source-review.json.gz` | `955349dbe1b9c4cce74116947033de3afe40114f59748031daa87eaec8728f26` |
+| `photius-bekker-complete-review/review-status.json.gz` | `58fa74b6e2abdf8303ea3b1739f636c32edb6eb6ac63c2596f120b53e2c6eb99` |
+| `data/audits/photius-complete-source-review.json` | `a43a14a55589c18ac69de0380ed4d227def0e2fc40d300e49c997d0423c9c2a9` |
+
+The first two artifact paths are relative to `data/corpus_changes/`. To repeat
+the measurement, use the observations benchmark above with `--repeat 1` in
+each revision, using the changed runner for both. Compare render counts and
+output hashes as well as elapsed time and memory.

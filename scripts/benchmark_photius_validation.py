@@ -45,6 +45,16 @@ def main():
             return {path.as_posix(): hashlib.sha256(raw).hexdigest()
                     for path, raw in outputs.items()}
 
+    renderer, render_count = None, 0
+    if args.scope == "observations":
+        import pymupdf
+        renderer = pymupdf.Page.get_pixmap
+        def measured_render(page, *positional, **keywords):
+            nonlocal render_count
+            render_count += 1
+            return renderer(page, *positional, **keywords)
+        pymupdf.Page.get_pixmap = measured_render
+
     codec = gzip.compress
     totals = {"calls": 0, "input_bytes": 0, "seconds": 0.0}
     def measured(raw, *positional, **keywords):
@@ -60,6 +70,7 @@ def main():
     try:
         for iteration in range(1, args.repeat + 1):
             before, start = dict(totals), time.perf_counter()
+            renders_before = render_count
             pins = run()
             elapsed = time.perf_counter() - start
             if expected is not None and pins != expected:
@@ -72,12 +83,15 @@ def main():
                 "seconds": round(elapsed, 3),
                 "peak_rss_bytes": peak * (1 if sys.platform == "darwin" else 1024),
                 "output_sha256": pins,
+                "render_calls": render_count - renders_before,
                 "gzip_calls": totals["calls"] - before["calls"],
                 "gzip_input_bytes": totals["input_bytes"] - before["input_bytes"],
                 "gzip_seconds": round(totals["seconds"] - before["seconds"], 3),
             }, sort_keys=True), flush=True)
     finally:
         gzip.compress = codec
+        if renderer is not None:
+            pymupdf.Page.get_pixmap = renderer
 
 
 if __name__ == "__main__":
