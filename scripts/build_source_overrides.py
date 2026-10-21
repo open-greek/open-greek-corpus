@@ -223,9 +223,30 @@ def main() -> None:
                              f"{PD_WALL_YEAR - 96} out of copyright"],
             }
 
+    # Actual checked Gutenberg admissions supersede an inventory-only Migne
+    # pointer. Share the registry's source/corpus verification rather than
+    # making the availability report maintain a separate intake list.
+    from gutenberg_source_metadata import admitted_sources
+    gutenberg_admissions = admitted_sources(REPO)
+    for admitted in gutenberg_admissions:
+        cts = admitted.get("cts", "")
+        match = re.fullmatch(r"urn:cts:greekLit:(tlg\d+)\.tlg(\d+)", cts)
+        if not match:
+            continue
+        k = _key(match[1], match[2])
+        if over_of(k) == "open_corpus":
+            continue
+        records[k] = {"tlg_id": k[0], "work_id": k[1], "source": "open_corpus",
+                      "over": over_of(k), "provider": "gutenberg", "slug": admitted["work"],
+                      "title": admitted["title"], "edition": admitted["edition"],
+                      "urls": [admitted["source_url"]],
+                      "evidence": ["data/corpus_changes/gutenberg-historical/changes.json"]}
+
     # human-readable reason from the (source, over, overlap) shape
     def reason_for(r):
         src, over = r["source"], r.get("over", "")
+        if r.get("provider") == "gutenberg":
+            return "Identified public-domain Greek digital edition, admitted with pinned source bytes, whole-corpus duplicate evidence, native section references, and a reversible audit."
         if src == "byzantium_gr":
             base = "clean PD Bonn transcription on byzantium.gr"
             if "also_in_cgpg" in r:
@@ -261,7 +282,7 @@ def main() -> None:
         # stable field order
         ordered = {f: r[f] for f in ("tlg_id", "work_id", "source", "over",
                                      "author", "title", "word_count") if f in r}
-        for f in ("slug", "edition", "pg_volume", "mpg_vols", "also_in_cgpg", "pub_year", "urls",
+        for f in ("slug", "edition", "provider", "pg_volume", "mpg_vols", "also_in_cgpg", "pub_year", "urls",
                   "pages", "reason", "evidence"):
             if f in r:
                 ordered[f] = r[f]
@@ -278,13 +299,15 @@ def main() -> None:
             "Bonn transcription) > migne_cgpg (CC-BY Migne OCR) > pd_edition (own OCR). "
             "TLG text is never a served source. open_corpus overrides record works "
             "served from the Galenus Verbatim CC BY-SA TEI editions, which the "
-            "sourcing map predates. See README 'Source precedence'.",
+            "sourcing map predates, and checked Gutenberg historical admissions. See README 'Source precedence'.",
             "generated_by": "scripts/build_source_overrides.py",
             "generated_from": ["data/pd_research/byzantium_sweep.json",
                                "data/pd_research/cgpg_coverage.json",
                                "data/inventory/sourcing_map.csv",
-                               "data/corpus_editions.json (galenus_verbatim works)"],
-            "as_of": AS_OF,
+                               "data/corpus_editions.json (galenus_verbatim works)",
+                               "data/corpus_changes/gutenberg-historical/changes.json"],
+            "as_of": max(AS_OF, json.loads((DATA / "corpus_changes/gutenberg-historical/changes.json").read_text())["date"]) if gutenberg_admissions else AS_OF,
+            "baseline_sweeps_as_of": AS_OF,
             "count": len(out),
             "by_source": by_source,
         },
