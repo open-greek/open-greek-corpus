@@ -448,7 +448,7 @@ capital-positions:
         check-photius-review-observations \
         check-photius-complete-review \
         check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
-        check-photius-historical-assessment \
+        check-photius-historical-assessment check-photius-uncertainty-pilot \
         check-photius-apparatus-audit \
         check-source-components \
         check-capital-positions \
@@ -467,7 +467,7 @@ check: check-photius-complete-review \
        check-photius-readings \
        check-photius-historical-readings \
        check-photius-historical-batches \
-       check-photius-historical-assessment \
+       check-photius-historical-assessment check-photius-uncertainty-pilot \
        check-photius-apparatus-audit \
        check-source-components \
        check-capital-positions \
@@ -506,6 +506,9 @@ check-photius-uncertainty-sources:
 
 check-photius-historical-assessment:
 	$(PY) scripts/build_photius_historical_assessment.py --check
+
+check-photius-uncertainty-pilot:
+	$(PY) scripts/prepare_photius_uncertainty_pilot.py --check
 
 check-photius-apparatus-audit:
 	$(PY) scripts/audit_photius_apparatus.py --check

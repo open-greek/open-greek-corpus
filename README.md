@@ -1183,6 +1183,17 @@ uncertainties, context, then the complete campaign. Frozen undo requires no live
 correction source. The quality, coverage, and source-component reports publish
 the later reviews separately from the original campaign totals.
 
+A subsequent [100-span uncertainty pilot](docs/photius-uncertainty-pilot.md)
+records 65 proposed corrections, five confirmed readings, and 30 retained
+uncertainties on 26 shared scan crops. Its source-pinned candidate corpus and
+exact replay/undo are isolated from served text; the published total remains
+3,047 uncertain spans. Run
+`python3 scripts/prepare_photius_uncertainty_pilot.py --check` to reproduce it.
+The optional `scripts/compare_photius_local_edition.py` accepts a user-supplied
+comparison HTML file for private location diagnostics. Licensed comparison text
+is not bundled in the public review; differing editions cannot authorize a
+Bekker correction. Exact occurrence windows prevent confusing repeated words.
+
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint
 pages; completed source reviews check body-line coverage, marks, repetition,
