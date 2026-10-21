@@ -425,6 +425,12 @@ def _complete_photius_components(components, complete):
 
 
 def _photius(root):
+    from photius_current_state import predecessor_view
+    with predecessor_view(root) as previous:
+        return _photius_predecessor(previous, current_root=root)
+
+
+def _photius_predecessor(root, *, current_root):
     relative = "data/corpus_changes/photius-bekker-coverage/coverage.json"
     path = root / relative
     if not path.exists():
@@ -450,10 +456,10 @@ def _photius(root):
     historical = historical_metadata(root)
     from repair_photius_historical_batches import active_metadata as batch_metadata
     historical_batches = batch_metadata(root)
-    from repair_photius_complete_review import (active_metadata as complete_metadata, later_metadata,
-                                               current_uncertainty_measurement)
+    from repair_photius_complete_review import active_metadata as complete_metadata
+    from photius_current_state import later_metadata, current_uncertainty_measurement
     complete = complete_metadata(root)
-    later_reviews = later_metadata(root)
+    later_reviews = later_metadata(root, current_root=current_root)
     if complete and later_reviews:
         complete = {**complete, 'later_reviews': later_reviews,
                     'current_measurement': current_uncertainty_measurement(later_reviews)}

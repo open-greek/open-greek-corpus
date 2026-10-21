@@ -106,6 +106,12 @@ def _photius_coverage_position(row, mapping, body_positions=None):
 
 
 def _photius_resolution(root):
+    from photius_current_state import predecessor_view
+    with predecessor_view(root) as previous:
+        return _photius_predecessor_resolution(previous, current_root=root)
+
+
+def _photius_predecessor_resolution(root, *, current_root):
     path = root / "data/corpus_changes/photius-bekker-coverage/coverage.json"
     if not path.exists():
         return _pending(root, "The complete Bekker authorial page-range admission has not been applied.")
@@ -145,8 +151,8 @@ def _photius_resolution(root):
     historical = historical_metadata(root)
     from repair_photius_historical_batches import active_metadata as batch_metadata
     historical_batches = batch_metadata(root)
-    from repair_photius_complete_review import later_metadata, current_uncertainty_measurement
-    later_reviews = later_metadata(root)
+    from photius_current_state import later_metadata, current_uncertainty_measurement
+    later_reviews = later_metadata(root, current_root=current_root)
     if historical:
         body_positions.update(historical['logical_coverage_positions'])
     covered = {_photius_coverage_position(row, mapping, body_positions) for row in rows}

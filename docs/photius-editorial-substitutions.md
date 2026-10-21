@@ -8,8 +8,9 @@ provider; modern commentary and apparatus are not imported.
 
 The preparation accounts for every one of the 2,977 remaining segment identities.
 It selects 2,592 substitutions and holds 385: 340 unmapped spans, six tied
-occurrences, and 39 spans outside the authorial body. The served unresolved count
-therefore becomes 385. The separate scan measurement remains 2,977; the 92
+occurrences, and 39 spans withheld by their source-role classification. This
+stage's unresolved count is 385. The later [continuation](photius-editorial-continuation.md)
+reviews those identities and publishes the current count. The separate scan measurement remains 2,977; the 92
 earlier scan-supported resolutions remain distinct from editorial choices.
 
 ## Locating readings
@@ -62,6 +63,7 @@ python3 scripts/repair_photius_editorial_substitutions.py --undo
 
 The first check validates the public recorded witnesses and exact replay. The
 second freshly verifies the full supplied source and contextual selection.
-Literal undo requires no live correction source. Reverse this layer before the
+Literal undo requires no live correction source. First undo any continuation,
+then reverse this layer before the
 70-span admission, the prior 33-span review, the occurrence-context layer, and
 the complete source campaign. Passage aliases and other works are unchanged.
