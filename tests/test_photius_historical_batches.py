@@ -404,6 +404,7 @@ def released_inputs():
     ('photius_historical_observations_orators', (197, 12, 8)),
     ('photius_historical_observations_pages0007_0008', (157, 7, 10)),
     ('photius_historical_observations_page0009', (105, 5, 11)),
+    ('photius_historical_observations_page0010', (99, 4, 5)),
 ])
 def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundaries(released_inputs, module_name, expected):
     root, before, library, scan = released_inputs
@@ -462,6 +463,23 @@ def test_actual_paired_source_tables_replay_exactly_without_changing_row_boundar
         assert '⟦Βασίλειοί ∥ Βασιλείου⟧' in last['text']
         assert 'Βασιλείου' not in last['analysis_text']
         assert last['text'].endswith('κατάδηλον')
+    elif module_name.endswith('page0010'):
+        prefix = PREFIX.replace('0004', '0010')
+        first = by_locus[prefix+'1']
+        assert first['text'].startswith('οὖν ὡς πολλὴ καὶ ἄπειρος')
+        assert 'Ἀλεξάνδρειαν, ἐπὶ τῆς οἰκουμενικῆς συγκροτηθείσης' in first['text']
+        assert '⟦διώρισαι ∥ διώρισται⟧' in first['text']
+        assert '⟦ὀστρακίζουσα ∥ ὑβρακίζουσα⟧' in first['text']
+        second = by_locus[prefix+'2']
+        assert 'φύσεις ⟦οὐκ ∥ ἐκ⟧ ἀνεχόμενον δέξασθαι' in second['text']
+        assert '⟦εἰ ∥ οὐ⟧ τοίνυν' in second['text']
+        third = by_locus[prefix+'3']
+        assert '⟦ὥσε ∥ ὥστε⟧' in third['text']
+        assert 'ὥσε' not in third['analysis_text'] and 'ὥστε' not in third['analysis_text']
+        for change in changes:
+            assert change['corrected_row'].get('ocr_consensus') is None
+        assert all(not r['scan_only'] and r['digital_counterpart']['section'].endswith('-s287')
+                   for r in review['records'])
     else:
         # A later occurrence review cannot replace the independently merged
         # ending of 7.5 or silently include its unreviewed historical prefix.
