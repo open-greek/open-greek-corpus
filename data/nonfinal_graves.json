@@ -13,8 +13,8 @@
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
  "forms": 26588,
  "tokens": 42787,
- "served_tokens": 65832633,
- "surface_served_tokens": 66094565,
+ "served_tokens": 65832626,
+ "surface_served_tokens": 66094568,
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "share": 0.00065,
  "works_touched": 1642,
@@ -154,7 +154,7 @@
   {
    "edition": "qwen36-helladius_chrestomathia_photius_bekker_v2-masked",
    "tokens": 264,
-   "rate": 0.001881
+   "rate": 0.00189
   },
   {
    "edition": "qwen36-timotheus_defluviis_ggm2",
@@ -592,7 +592,7 @@
     },
     "dropped": {
      "form": "ἐστιν",
-     "attested": 103877
+     "attested": 103878
     },
     "crasis": {
      "form": "ἐ̓στιν",
@@ -808,7 +808,7 @@
    "shapes": {
     "acute": {
      "form": "ἕτερον",
-     "attested": 22794
+     "attested": 22795
     },
     "dropped": {
      "form": "ἑτερον",
@@ -1054,7 +1054,7 @@
     },
     "dropped": {
      "form": "μενον",
-     "attested": 1158
+     "attested": 1157
     },
     "crasis": {
      "form": "μἐνον",
@@ -1098,7 +1098,7 @@
     },
     "dropped": {
      "form": "τοῦ",
-     "attested": 976946
+     "attested": 976949
     },
     "crasis": {
      "form": "τὀῦ",
@@ -1336,7 +1336,7 @@
    "shapes": {
     "acute": {
      "form": "αὕτη",
-     "attested": 18812
+     "attested": 18813
     },
     "dropped": {
      "form": "αὑτη",
@@ -1380,7 +1380,7 @@
    "shapes": {
     "acute": {
      "form": "ἄνθρωπον",
-     "attested": 14553
+     "attested": 14554
     },
     "dropped": {
      "form": "ἀνθρωπον",
@@ -1480,7 +1480,7 @@
     },
     "circumflex": {
      "form": "τοῦτο",
-     "attested": 204171
+     "attested": 204172
     }
    }
   },
@@ -3056,7 +3056,7 @@
     },
     "dropped": {
      "form": "κἀνταῦθα",
-     "attested": 1885
+     "attested": 1886
     },
     "crasis": {
      "form": "κἀ̓νταῦθα",
