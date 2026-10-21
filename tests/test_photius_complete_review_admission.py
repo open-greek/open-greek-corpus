@@ -162,3 +162,90 @@ def test_unpaired_available_witness_cannot_silently_supply_scalar_lexical_eviden
     # source review remains usable without pretending those sections agree.
     record['digital_counterparts_usable'] = False
     assert layer._digital_exclusions(record) == []
+
+
+def insertion_record(source, digital, offset=0):
+    """Construct real all-optimal token edges and validate their gap accounting."""
+    a, b = campaign.tokens(source), campaign.tokens(digital)
+    compared = campaign._local_alignment([campaign._key(t['text']) for t in a],
+                                         [campaign._key(t['text']) for t in b])
+    edges = [{'kind':'digital','section':'test',
+        **{k:b[j][k] for k in ('start','end','text')},
+        'review_span':{k:a[i][k] for k in ('start','end','text')},
+        'may_be_unaligned':compared['may_be_unaligned'][i]}
+        for i, candidates in enumerate(compared['counterparts']) for j in candidates]
+    value = {'section':'test','tokens':[
+        {k:t[k] for k in ('start','end','text')} |
+        {'may_be_unaligned':compared['may_be_unaligned'][i],
+         'counterpart_count':len(compared['counterparts'][i])} for i,t in enumerate(a)],
+        **{k:compared[k] for k in ('ambiguous','aligned','cost')}}
+    aligned = campaign._digital_alignment(value, source, edges,
+        {'digital_counterparts_usable':True,'digital_section':'test'}, {'test':digital})
+    return {'digital_counterparts_usable':True,'segments':[
+        {'corrected_text':source,'corrected_start':offset,'verification':'verified',
+         'scan':{'observed_text':source},'readings':edges,'digital_alignment':aligned}]}
+
+
+@pytest.mark.parametrize('offset', [0,7])
+def test_token_edge_insertions_break_the_same_adjacency_as_bounded_readings(offset):
+    source, digital = 'ὁ λόγος καλός ἐστιν τέλος', 'ὁ λόγος δὲ καλός ἐστιν τέλος'
+    record = insertion_record(source, digital, offset)
+    gaps = record['segments'][0]['digital_alignment']['digital_insertions']
+    assert [g['digital_span']['text'] for g in gaps] == ['δὲ']
+    assert [t['text'] for t in gaps[0]['review_spans']] == ['λόγος','καλός']
+    masks = layer._digital_exclusions(record)
+    assert {m['text'] for m in masks} == {'λόγος','καλός'}
+    assert all(m['classification']=='digital-insertion-boundary' for m in masks)
+    assert layer._projection(' '*offset+source,masks)[1] == [' '*offset+'ὁ ', ' ', ' ἐστιν τέλος']
+    record['segments'][0].pop('digital_alignment')
+    record['segments'][0]['readings'] = [{'kind':'digital','section':'test',
+        'start':0,'end':len(digital),'text':digital}]
+    bounded = layer._digital_exclusions(record)
+    assert [(m['start'],m['end']) for m in masks] == [(m['start'],m['end']) for m in bounded]
+
+
+def test_unobserved_digital_prefix_and_suffix_do_not_invent_insertion_boundaries():
+    record = insertion_record('λόγος καλός', 'ὁ λόγος καλός τέλος')
+    assert record['segments'][0]['digital_alignment']['digital_insertions'] == []
+    assert layer._digital_exclusions(record) == []
+
+
+@pytest.mark.parametrize('digital', ['.', '" ', ' . '])
+def test_punctuation_only_available_digital_window_is_unpaired(digital):
+    source = 'λόγος ἀληθές'
+    record = {'digital_counterparts_usable':True, 'segments':[
+        {'corrected_text':source,'corrected_start':0,'verification':'verified',
+         'scan':{'observed_text':source},'readings':[{'kind':'digital','section':'test',
+          'start':0,'end':len(digital),'text':digital}]}]}
+    masks = layer._digital_exclusions(record)
+    assert {m['text'] for m in masks} == {'λόγος','ἀληθές'}
+    assert all(m['classification']=='unpaired-available-digital-witness' for m in masks)
+    assert not ''.join(layer._projection(source,masks)[1]).strip()
+
+
+@pytest.mark.parametrize('full,low,high,source', [
+    ('λόγοςτις',0,5,'λόγος'),
+    ('κυπαρίττετι',8,10,'τι'),
+])
+def test_clipped_digital_word_cannot_become_a_complete_lexical_counterpart(full,low,high,source):
+    reading = campaign._digital_reading({'kind':'digital','section':'test',
+        'start':low,'end':high,'text':full[low:high]},
+        {'digital_counterparts_usable':True,'digital_section':'test'}, {'test':full}, source)
+    assert reading['boundary_fragments'][0]['full_token']['text'] == full
+    record = {'digital_counterparts_usable':True,'segments':[
+        {'corrected_text':source,'corrected_start':0,'verification':'verified',
+         'scan':{'observed_text':source},'readings':[reading]}]}
+    masks = layer._digital_exclusions(record)
+    assert [m['text'] for m in masks] == [source]
+    assert not ''.join(layer._projection(source,masks)[1]).strip()
+
+
+def test_clipped_previous_apostrophe_does_not_mask_a_complete_following_word():
+    full = 'ἀλλ’ καὶ'
+    reading = campaign._digital_reading({'kind':'digital','section':'test',
+        'start':3,'end':len(full),'text':full[3:]},
+        {'digital_counterparts_usable':True,'digital_section':'test'}, {'test':full}, 'καὶ')
+    record = {'digital_counterparts_usable':True,'segments':[
+        {'corrected_text':'καὶ','corrected_start':0,'verification':'verified',
+         'scan':{'observed_text':'καὶ'},'readings':[reading]}]}
+    assert layer._digital_exclusions(record) == []

@@ -544,3 +544,23 @@ def test_unresolved_ocr_hyphen_is_not_certified_as_printed_fragment(fixture, mon
     assert compiled['additional_lexical_exclusions'] == []
     assert compiled['uncertainty_exclusion_candidates'][0]['text'] == original
     assert campaign.restore_text(compiled, original) == original
+
+
+@pytest.mark.parametrize('ending', ['”', '.”', '); ', ' '])
+def test_closing_punctuation_cannot_hide_a_terminal_printed_fragment(ending):
+    text = 'λέγει ἀπο-'+ending
+    with pytest.raises(ValueError, match='terminal printed Greek word fragment'):
+        campaign._fragments([],text)
+    fragment = {'start':6,'end':10,'text':'ἀπο-','side':'trailing',
+                'qualification':'The printed word continues on the next page.'}
+    assert campaign._fragments([fragment],text)[0]['lexical_eligible'] is False
+
+
+@pytest.mark.parametrize('target', ['helladius_chrestomathia_photius_bekker_v2_0002.1',
+                                   'helladius_chrestomathia_photius_bekker_v2_0002.99'])
+def test_duplicate_citation_requires_a_different_reviewed_nonempty_target(fixture,target):
+    segment(fixture)['corrected_text'] = ''
+    segment(fixture)['scan']['observed_text'] = ''
+    fixture['reviews']['records'][0]['duplicate_of'] = target
+    with pytest.raises(ValueError, match='duplicate citation|Duplicate citation'):
+        compile_fixture(fixture)

@@ -1101,6 +1101,12 @@ confirmed printed fragment. `--check` reproduces the
 admission and `--undo` restores the exact preceding corpus without requiring
 the live correction sources. The quality report publishes source-review
 coverage separately from admission and word-consensus counts.
+Digital insertion candidates break lexical adjacency in both bounded-passage
+and token-edge comparisons; every optimal neighboring reading remains retained.
+Clipped digital words and punctuation-only comparison windows cannot supply
+complete lexical counterparts. Duplicate extractions retain empty citation
+tombstones and checked passage aliases to their reviewed retained occurrences;
+undo restores both the exact preceding corpus and passage-alias bytes.
 
 The restored 545-page sequence qualifies coverage, not transcription accuracy.
 Fresh scan OCR still contains word and ligature errors, especially on faint

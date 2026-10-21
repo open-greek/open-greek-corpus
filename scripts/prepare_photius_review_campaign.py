@@ -17,6 +17,7 @@ from __future__ import annotations
 import argparse
 from collections import Counter
 from copy import deepcopy
+from functools import lru_cache
 from datetime import datetime, timezone
 import gzip
 import hashlib
@@ -285,8 +286,20 @@ def _digital_reading(value, frozen, sections, observed):
             raise ValueError('A token counterpart must retain its unmatched-path status')
     elif 'may_be_unaligned' in value:
         raise ValueError('An unmatched-path flag requires its exact reviewed token span')
+    clipped = []
+    if 'review_span' not in value:
+        for token in _digital_tokens(full):
+            a, b = max(token['start'], value['start']), min(token['end'], value['end'])
+            if a < b and (a != token['start'] or b != token['end']):
+                clipped.append({'start': a - value['start'], 'end': b - value['start'],
+                    'text': full[a:b], 'full_token': {key: token[key] for key in ('start', 'end', 'text')}})
     return {**deepcopy(value), 'source': {'path': LIBRARY.as_posix(), 'sha256': LIBRARY_SHA},
-            'role': 'recorded-source-reading'}
+            'role': 'recorded-source-reading', **({'boundary_fragments': clipped} if clipped else {})}
+
+
+@lru_cache(maxsize=32)
+def _digital_tokens(text):
+    return tokens(text)
 
 
 def _digital_alignment(value, observed, readings, frozen, sections):
@@ -327,7 +340,13 @@ def _digital_alignment(value, observed, readings, frozen, sections):
                              reading['end'], reading['text'], reading['may_be_unaligned']))
     if sorted(actual_edges) != sorted(expected_edges):
         raise ValueError('Digital token readings dropped, repeated, or changed optimal counterpart edges')
-    return {**deepcopy(value), 'admission_authorized': False,
+    insertions = [{
+        'digital_span': {key: digital[j][key] for key in ('start', 'end', 'text')},
+        'review_spans': [{key: old[i][key] for key in ('start', 'end', 'text')}
+                         for i, candidates in enumerate(alignment['counterparts'])
+                         if j - 1 in candidates or j + 1 in candidates],
+    } for j in alignment['digital_only']]
+    return {**deepcopy(value), 'digital_insertions': insertions, 'admission_authorized': False,
             'qualification': 'All optimal diagnostic token counterparts are retained; character similarity does not certify a source reading.'}
 
 
@@ -379,7 +398,9 @@ def _fragments(value, corrected, *, require_terminal=True):
             'classification': 'source-confirmed-word-fragment'})
         cursor = b
     # A terminal printed hyphen cannot silently become a complete lexical form.
-    if require_terminal and words and words[-1].get('following_hyphen') and not corrected[words[-1]['end'] + 1:].strip():
+    if (require_terminal and words and words[-1].get('following_hyphen')
+            and all(unicodedata.category(char)[0] in {'P', 'Z'} or char.isspace()
+                    for char in corrected[words[-1]['end'] + 1:])):
         start, end = words[-1]['start'], words[-1]['end'] + 1
         if not any(f['start'] <= start and f['end'] >= end for f in result):
             raise ValueError('A terminal printed Greek word fragment needs an explicit lexical exclusion')
@@ -461,7 +482,7 @@ def _compile_segment(value, frozen, sections, document, images, evidence_files):
 
 
 def _compile_row(value, frozen, sections, document, images, evidence_files):
-    _keys(value, {'locus', 'original_row_sha256', 'status', 'segments'}, 'Passage source review')
+    _keys(value, {'locus', 'original_row_sha256', 'status', 'segments', 'duplicate_of'}, 'Passage source review')
     if value.get('original_row_sha256') != frozen['original_row_sha256']:
         raise ValueError('Reviewed passage differs from its frozen original row')
     if value.get('status') not in STATUSES or not isinstance(value.get('segments'), list):
@@ -526,6 +547,11 @@ def _compile_row(value, frozen, sections, document, images, evidence_files):
         'uncertainty_exclusion_candidates': uncertainties,
         'nonbody_exclusion_candidates': nonbody,
     }
+    if 'duplicate_of' in value:
+        target = _text(value['duplicate_of'], 'Duplicate citation target')
+        if corrected or target == frozen['locus']:
+            raise ValueError('A duplicate citation tombstone must be empty and name a different retained passage')
+        record['duplicate_of'] = target
     if restore_text(record, corrected) != original:
         raise ValueError('Reviewed passage does not reverse to its exact original text')
     return record
@@ -612,6 +638,12 @@ def compile_campaign(manifest, reviews, corpus_raw, scan_raw, library_raw, origi
             review = by_locus.get(frozen['locus'], {
                 'original_row_sha256': frozen['original_row_sha256'], 'status': 'unreviewed', 'segments': []})
             rows.append(_compile_row(review, frozen, sections, document, images, evidence_files or {}))
+    reviewed_rows = {r['locus']: r for r in rows}
+    for row in rows:
+        if 'duplicate_of' in row:
+            target = reviewed_rows.get(row['duplicate_of'])
+            if target is None or not target['complete'] or not target['corrected_text'] or 'duplicate_of' in target:
+                raise ValueError('A duplicate citation requires its completely reviewed nonempty retained target')
     statuses = Counter(r['status'] for r in rows)
     complete = sum(r['complete'] for r in rows)
     pages_complete = [page for page in manifest['scope']['physical_pages']

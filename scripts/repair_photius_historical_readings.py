@@ -226,10 +226,20 @@ def check(root=ROOT):
     root = Path(root); artifacts, audit = build(root)
     from repair_photius_historical_batches import restore_before_bytes as restore_batches
     if any(not (root / p).exists() or
-           (restore_batches((root / p).read_bytes(), root) if p == CORPUS else (root / p).read_bytes()) != raw
+           (restore_batches((root / p).read_bytes(), root) if p == CORPUS
+            else _current_artifact(root, p)) != raw
            for p, raw in artifacts.items()):
         raise ValueError('Historical occurrence outputs differ from exact replay')
     return audit
+
+
+def _current_artifact(root, path):
+    """Validate earlier alias outputs through the later complete review layer."""
+    raw = (Path(root) / path).read_bytes()
+    if path == ALIASES:
+        from repair_photius_complete_review import restore_before_alias_bytes
+        raw = restore_before_alias_bytes(raw, root)
+    return raw
 
 
 def restore_before_bytes(raw, root=ROOT):
@@ -239,7 +249,7 @@ def restore_before_bytes(raw, root=ROOT):
     if not (root / AUDIT).exists() or sha(raw) == BASE_SHA:
         return raw
     artifacts, _ = build(root)
-    if raw != artifacts[CORPUS] or any((root / p).read_bytes() != value
+    if raw != artifacts[CORPUS] or any(_current_artifact(root, p) != value
             for p, value in artifacts.items() if p != CORPUS):
         raise ValueError('Photius changed outside its historical occurrence audit')
     return gzip.decompress(artifacts[BEFORE])
@@ -247,13 +257,15 @@ def restore_before_bytes(raw, root=ROOT):
 
 def restore_before_alias_bytes(raw, root=ROOT):
     root = Path(root)
+    from repair_photius_complete_review import restore_before_alias_bytes as restore_complete_aliases
+    raw = restore_complete_aliases(raw, root)
     if not (root / AUDIT).exists() or not (root / BEFORE_ALIASES).exists():
         return raw
     before = gzip.decompress((root / BEFORE_ALIASES).read_bytes())
     if raw == before:
         return raw
     artifacts, _ = build(root)
-    if raw != artifacts.get(ALIASES) or any((root / p).read_bytes() != value
+    if raw != artifacts.get(ALIASES) or any(_current_artifact(root, p) != value
             for p, value in artifacts.items() if p != CORPUS):
         raise ValueError('Historical passage aliases changed outside their source reconstruction')
     return before

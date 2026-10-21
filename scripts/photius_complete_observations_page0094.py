@@ -154,6 +154,7 @@ def records(rows, document, crop_png, sections):
         fragments={1:[('μος','leading')],8:[('τραγι-','trailing')]})
     for record in result:
         if record['locus'].endswith('.2'):
+            record['duplicate_of'] = 'helladius_chrestomathia_photius_bekker_v2_0094.1'
             item = record['segments'][0]
             item['scan']['observed_text'] = 'τὰς σεαυτῷ πρεπούσας ἐπωνυμίας ἐδίδαξας.'
             item['evidence'] = ('Direct inspection of the complete left column shows this printed '

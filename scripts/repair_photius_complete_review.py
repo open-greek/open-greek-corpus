@@ -26,6 +26,8 @@ ARCHIVE = campaign.ARCHIVE / "admission"
 AUDIT = ARCHIVE / "changes.json"
 RECORDS = ARCHIVE / "records.jsonl.gz"
 REVIEW = ARCHIVE / "source-review.json.gz"
+ALIASES = Path("data/passage_aliases.json")
+BEFORE_ALIASES = ARCHIVE / "before-passage-aliases.json.gz"
 SCHEMA = "photius-complete-source-review-admission-v1"
 EDITION = "bekker1825-complete-source-reviewed"
 
@@ -95,18 +97,32 @@ def _digital_exclusions(record):
                     exclusions.append(_mask(token, offset, "digital-reading-disagreement",
                         alternatives=[deepcopy(r) for r in counterparts],
                         may_be_unaligned=token["may_be_unaligned"]))
+            # Token-edge observations must break the same disputed adjacency
+            # as bounded passage observations. Keep every optimal insertion
+            # candidate and both possible neighboring source words.
+            for insertion in alignment["digital_insertions"]:
+                for token in insertion["review_spans"]:
+                    exclusions.append(_mask(token, offset, "digital-insertion-boundary",
+                        source_pointer={"kind": "digital", "section": alignment["section"],
+                                        **deepcopy(insertion["digital_span"])}))
             continue
         for reading in edges:
             # Full bounded passage readings, rather than isolated token edges.
             digital = tokens(reading["text"])
-            if not source_tokens or not digital:
+            if not source_tokens:
+                continue
+            if not digital:
+                exclusions.extend(_mask(t, offset, "unpaired-available-digital-witness",
+                    source_pointer=deepcopy(reading)) for t in source_tokens)
                 continue
             compared = _local_alignment([_key(t["text"]) for t in source_tokens],
                                          [_key(t["text"]) for t in digital])
             for i, token in enumerate(source_tokens):
                 candidates = compared["counterparts"][i]
                 if (compared["may_be_unaligned"][i] or not candidates or
-                        any(not _exact(token["text"], digital[j]["text"]) for j in candidates)):
+                        any(not _exact(token["text"], digital[j]["text"]) or
+                            any(fragment['start'] < digital[j]['end'] and digital[j]['start'] < fragment['end']
+                                for fragment in reading.get('boundary_fragments', [])) for j in candidates)):
                     exclusions.append(_mask(token, offset, "digital-reading-disagreement",
                         alternatives=[deepcopy(digital[j]) for j in candidates],
                         source_pointer=deepcopy(reading)))
@@ -182,6 +198,17 @@ def plan(before, review_raw):
             "original_row_sha256": campaign.row_sha(old),
             "excluded_spans": exclusions,
             "qualification": "Complete direct scan review, separate from a recognition-error estimate. Every prior row and audit layer remains frozen. Diagnostic disagreements, source uncertainties, nonbody material, and printed fragments remain outside scalar lexical counts."}
+        if record.get("duplicate_of"):
+            if text or record["duplicate_of"] == old["locus"]:
+                raise ValueError("A duplicate citation requires an empty reviewed tombstone")
+            new["complete_source_review"]["duplicate_of"] = record["duplicate_of"]
+            new["complete_source_review"]["disposition"] = "duplicate-citation-tombstone"
+        elif not text:
+            if not record["segments"] or any(segment.get("text_role") not in {
+                    "editorial-note", "marginal-reference", "unclassified-small-type", "unclassified-heading"}
+                    for segment in record["segments"]):
+                raise ValueError("An empty reviewed passage requires an explicit duplicate citation or nonbody disposition")
+            new["complete_source_review"]["disposition"] = "nonbody-citation-tombstone"
         changes.append({"locus": old["locus"], "original_row": old, "corrected_row": new,
             "original_row_sha256": campaign.row_sha(old), "corrected_row_sha256": campaign.row_sha(new)})
         output.append(campaign.canonical(new) + b"\n")
@@ -190,11 +217,46 @@ def plan(before, review_raw):
     return b"".join(output), changes
 
 
-def artifacts(before, review_raw):
+def _alias_postimage(aliases_before, changes):
+    """Route only explicitly reviewed duplicates; preserve every unrelated alias."""
+    aliases = json.loads(aliases_before)
+    own = aliases.setdefault("aliases", {}).setdefault("photius.bibliotheca", {})
+    by_locus = {change["locus"]: change for change in changes}
+    dispositions = []
+    for change in changes:
+        row = change["corrected_row"]
+        target = row["complete_source_review"].get("duplicate_of")
+        if not target:
+            continue
+        destination = by_locus.get(target)
+        if (row["text"] or target == row["locus"] or not destination
+                or not destination["corrected_row"]["text"]
+                or destination["corrected_row"]["complete_source_review"].get("duplicate_of")):
+            raise ValueError("A duplicate citation lacks its complete retained canonical passage")
+        pointer = {"path": CORPUS.as_posix(), "slug": "photius.bibliotheca", "locus": target}
+        if row["locus"] in own and own[row["locus"]] != pointer:
+            raise ValueError("A duplicate historical citation already points elsewhere")
+        own[row["locus"]] = pointer
+        dispositions.append({"locus": row["locus"], "duplicate_of": target,
+            "disposition": "duplicate-citation-tombstone", "alias": pointer,
+            "original_row_sha256": change["original_row_sha256"],
+            "tombstone_row_sha256": change["corrected_row_sha256"],
+            "canonical_row_sha256": destination["corrected_row_sha256"]})
+    # Exact unchanged alias bytes matter to undo even when no duplicate occurs.
+    return (campaign.encode(aliases) if dispositions else aliases_before), dispositions
+
+
+def artifacts(before, review_raw, aliases_before=None):
     after, changes = plan(before, review_raw)
+    if aliases_before is None:
+        # Miniature independent authorities can omit an existing alias catalog.
+        # The production builder always supplies its exact current preimage.
+        aliases_before = campaign.encode({"schema_version": 1, "aliases": {}})
+    aliases_after, dispositions = _alias_postimage(aliases_before, changes)
     records = gzip.compress(b"".join(campaign.canonical(r) + b"\n" for r in changes), mtime=0)
     review_archive = gzip.compress(review_raw, mtime=0)
-    outputs = {CORPUS: after, RECORDS: records, REVIEW: review_archive}
+    outputs = {CORPUS: after, RECORDS: records, REVIEW: review_archive,
+        ALIASES: aliases_after, BEFORE_ALIASES: gzip.compress(aliases_before, mtime=0)}
     origins = Counter("reviewed-historical-reading-occurrences" if c["original_row"].get("historical_reading_repair")
         else "later-reviewed-historical-occurrences" if c["original_row"].get("historical_reading_batches")
         else "retained-primary" for c in changes)
@@ -204,6 +266,12 @@ def artifacts(before, review_raw):
         "source_pins": deepcopy(json.loads(review_raw)["input_pins"]),
         "campaign_id": json.loads(review_raw)["campaign_id"],
         "input_corpus_sha256": campaign.sha(before), "output_corpus_sha256": campaign.sha(after),
+        "input_aliases_sha256": campaign.sha(aliases_before),
+        "output_aliases_sha256": campaign.sha(aliases_after),
+        "before_aliases": {"path": BEFORE_ALIASES.as_posix(),
+            "sha256": campaign.sha(outputs[BEFORE_ALIASES]),
+            "uncompressed_sha256": campaign.sha(aliases_before)},
+        "duplicate_dispositions": dispositions,
         "before_corpus": {"path": campaign.BASELINE.as_posix(),
                           "uncompressed_sha256": campaign.sha(before)},
         "source_review": {"path": REVIEW.as_posix(), "sha256": campaign.sha(review_archive)},
@@ -216,15 +284,21 @@ def artifacts(before, review_raw):
 
 
 @lru_cache(maxsize=2)
-def _saved_artifacts(audit_raw, baseline_raw, review_raw, records_raw):
+def _saved_artifacts(audit_raw, baseline_raw, review_raw, records_raw, aliases_before_raw):
     """Restore literal frozen rows without re-adjudicating invalidated sources."""
     audit = json.loads(audit_raw)
     before = gzip.decompress(baseline_raw)
+    aliases_before = gzip.decompress(aliases_before_raw)
     if (audit.get("schema") != SCHEMA or campaign.sha(before) != audit["input_corpus_sha256"]
             or audit["outputs"][CORPUS.as_posix()] != audit["output_corpus_sha256"]
             or audit["source_review"] != {"path": REVIEW.as_posix(), "sha256": campaign.sha(review_raw)}
             or campaign.sha(review_raw) != audit["outputs"][REVIEW.as_posix()]
-            or campaign.sha(records_raw) != audit["outputs"][RECORDS.as_posix()]):
+            or campaign.sha(records_raw) != audit["outputs"][RECORDS.as_posix()]
+            or audit["before_aliases"] != {"path": BEFORE_ALIASES.as_posix(),
+                "sha256": campaign.sha(aliases_before_raw),
+                "uncompressed_sha256": campaign.sha(aliases_before)}
+            or campaign.sha(aliases_before_raw) != audit["outputs"][BEFORE_ALIASES.as_posix()]
+            or campaign.sha(aliases_before) != audit["input_aliases_sha256"]):
         raise ValueError("Complete-review frozen artifacts changed")
     changes = _record_map(records_raw)
     output, seen = [], set()
@@ -243,13 +317,19 @@ def _saved_artifacts(audit_raw, baseline_raw, review_raw, records_raw):
     after = b"".join(output)
     if seen != set(changes) or campaign.sha(after) != audit["output_corpus_sha256"]:
         raise ValueError("Complete-review literal postimage no longer restores exactly")
-    return {CORPUS: after, AUDIT: audit_raw, REVIEW: review_raw, RECORDS: records_raw}, audit, before
+    aliases_after, dispositions = _alias_postimage(aliases_before, list(changes.values()))
+    if (campaign.sha(aliases_after) != audit["output_aliases_sha256"]
+            or campaign.sha(aliases_after) != audit["outputs"][ALIASES.as_posix()]
+            or dispositions != audit["duplicate_dispositions"]):
+        raise ValueError("Complete-review duplicate citation aliases changed")
+    return {CORPUS: after, AUDIT: audit_raw, REVIEW: review_raw, RECORDS: records_raw,
+            ALIASES: aliases_after, BEFORE_ALIASES: aliases_before_raw}, audit, before
 
 
 def _saved(root):
     root = Path(root)
     return _saved_artifacts(*((root / path).read_bytes()
-        for path in (AUDIT, campaign.BASELINE, REVIEW, RECORDS)))
+        for path in (AUDIT, campaign.BASELINE, REVIEW, RECORDS, BEFORE_ALIASES)))
 
 
 def build(root=ROOT):
@@ -258,7 +338,9 @@ def build(root=ROOT):
     outputs, review = compile_observations(root)
     review_raw = campaign.decoded_bytes(campaign.OUT, outputs[campaign.OUT])
     before = gzip.decompress((root / campaign.BASELINE).read_bytes())
-    return artifacts(before, review_raw)
+    aliases_before = (gzip.decompress((root / BEFORE_ALIASES).read_bytes())
+        if (root / AUDIT).exists() else (root / ALIASES).read_bytes())
+    return artifacts(before, review_raw, aliases_before)
 
 
 def check(root=ROOT):
@@ -268,9 +350,12 @@ def check(root=ROOT):
             raise ValueError("Complete-review corpus metadata has no frozen admission audit")
         return None
     expected, audit = build(root)
-    if any((root / p).read_bytes() != raw for p, raw in expected.items()):
+    inactive = ((root / CORPUS).read_bytes() == gzip.decompress((root / campaign.BASELINE).read_bytes())
+        and (root / ALIASES).read_bytes() == gzip.decompress(expected[BEFORE_ALIASES]))
+    if any((root / p).read_bytes() != raw for p, raw in expected.items()
+           if not inactive or p not in {CORPUS, ALIASES}):
         raise ValueError("Complete-review corpus admission no longer reproduces")
-    return audit
+    return None if inactive else audit
 
 
 def active_metadata(root=ROOT):
@@ -278,14 +363,18 @@ def active_metadata(root=ROOT):
     root = Path(root)
     if not (root / AUDIT).exists():
         return None
-    expected, audit, _ = _saved(root)
-    if (root / CORPUS).read_bytes() != expected[CORPUS]:
+    expected, audit, before = _saved(root)
+    current, aliases = (root / CORPUS).read_bytes(), (root / ALIASES).read_bytes()
+    if current == before and aliases == gzip.decompress(expected[BEFORE_ALIASES]):
+        return None
+    if current != expected[CORPUS] or aliases != expected[ALIASES]:
         raise ValueError("Complete-review corpus differs from its frozen admission")
     return {"audit": {"path": AUDIT.as_posix(), "sha256": campaign.sha((root / AUDIT).read_bytes())},
         "source_review": audit["source_review"], "campaign_id": audit["campaign_id"],
         "counts": audit["counts"], "license": audit["license"],
         "source_library": audit["source_library"], "source_pins": audit["source_pins"],
         "replaced_component_passages": audit["replaced_component_passages"],
+        "duplicate_dispositions": audit["duplicate_dispositions"],
         "qualification": "All retained historical passages have complete direct scan review. Explicit source uncertainties, fragments, and nonbody material remain outside scalar lexical counts; prior witnesses and correction layers remain reversible."}
 
 
@@ -295,6 +384,17 @@ def restore_before_bytes(raw, root=ROOT):
     expected, _, before = _saved(root)
     if raw != expected[CORPUS]:
         raise ValueError("Complete-review corpus differs from its exact postimage")
+    return before
+
+
+def restore_before_alias_bytes(raw, root=ROOT):
+    """Expose exact preceding aliases to immutable legacy audit validators."""
+    if not (Path(root) / AUDIT).exists():
+        return raw
+    expected, _, _ = _saved(root)
+    before = gzip.decompress(expected[BEFORE_ALIASES])
+    if raw not in {before, expected[ALIASES]}:
+        raise ValueError("Complete-review passage aliases differ from their exact postimage")
     return before
 
 
@@ -338,23 +438,34 @@ def apply(root=ROOT):
     root = Path(root)
     outputs, audit = build(root)
     current = (root / CORPUS).read_bytes()
-    if campaign.sha(current) not in {audit["input_corpus_sha256"], audit["output_corpus_sha256"]}:
+    aliases = (root / ALIASES).read_bytes()
+    before_aliases = gzip.decompress(outputs[BEFORE_ALIASES])
+    if (current, aliases) not in {
+            (gzip.decompress((root / campaign.BASELINE).read_bytes()), before_aliases),
+            (outputs[CORPUS], outputs[ALIASES])}:
         raise ValueError("Complete review requires its exact preceding corpus stage")
     for path, raw in outputs.items():
-        if path != CORPUS and (root / path).exists() and (root / path).read_bytes() != raw:
+        if path not in {CORPUS, ALIASES} and (root / path).exists() and (root / path).read_bytes() != raw:
             raise ValueError("An immutable complete-review admission artifact already differs")
     for path, raw in outputs.items():
-        if path != CORPUS:
+        if path not in {CORPUS, ALIASES}:
             (root / path).parent.mkdir(parents=True, exist_ok=True)
             (root / path).write_bytes(raw)
     (root / CORPUS).write_bytes(outputs[CORPUS])
+    (root / ALIASES).write_bytes(outputs[ALIASES])
     return audit
 
 
 def undo(root=ROOT):
     root = Path(root)
+    expected, _, before = _saved(root)
+    current, aliases = (root / CORPUS).read_bytes(), (root / ALIASES).read_bytes()
+    alias_before = gzip.decompress(expected[BEFORE_ALIASES])
+    if (current, aliases) not in {(expected[CORPUS], expected[ALIASES]), (before, alias_before)}:
+        raise ValueError("Complete-review corpus and aliases are not one exact reversible stage")
     restored = restore_before_bytes((root / CORPUS).read_bytes(), root)
     (root / CORPUS).write_bytes(restored)
+    (root / ALIASES).write_bytes(alias_before)
 
 
 def main():

@@ -133,5 +133,6 @@ def records(rows, document, crop_png, sections):
             segments[0]['readings'] = [{'kind': 'digital', 'text': digital_text[low:high],
                 'section': 'tlg4040-tlg001-local002-s508', 'start': low, 'end': high}]
         result.append({'locus': row['locus'], 'original_row_sha256': _sha_row(row),
-                       'status': status, 'segments': segments})
+                       'status': status, 'segments': segments,
+                       **({'duplicate_of': PREFIX + '7'} if number == 6 else {})})
     return result
