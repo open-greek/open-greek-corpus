@@ -147,6 +147,34 @@ def unattested_stats(records: list[dict], attested: set[str], frequency=None) ->
     }
 
 
+def phoenix_review_qualification(root, records, attested, frequency):
+    """Separate work-boundary cleanup from changes to the same 21 verse readings."""
+    from repair_phoenix_crusius import AUDIT, PRIMARY, PRIMARY_LOCI, verify
+    if not (root / AUDIT / "changes.json").exists():
+        return None
+    audit, before, _ = verify(root)
+    original = [json.loads(line) for line in before[PRIMARY].splitlines()]
+    scope = [row for row in original if row["locus"] in PRIMARY_LOCI]
+    unknown = Counter(token for row in records for token in greek_tokens(frequency.text(row))
+        if len(token) >= MIN_SUSPECT_LEN and not token.isupper() and token not in attested)
+    return {"audit": {"path": f"{AUDIT}/changes.json",
+                "sha256": hashlib.sha256((root / AUDIT / "changes.json").read_bytes()).hexdigest()},
+        "scope": "Phoenix Coronistae, 21 verses", "counts": audit["counts"],
+        "review_token_counting_basis": "Structured critical-text tokens in reading_text; "
+            "the partially supplied <τού>τῳ is one displayed token. n_surface_tokens "
+            "uses the report's Greek regex runs and therefore splits that marked token.",
+        "legacy_whole_volume": unattested_stats(original, attested, frequency),
+        "same_verses_before_review": unattested_stats(scope, attested, frequency),
+        "served_after_review": unattested_stats(records, attested, frequency),
+        "top_unattested_forms": [{"form": form, "occurrences": count}
+            for form, count in sorted(unknown.items(), key=lambda pair: (-pair[1], pair[0]))[:20]],
+        "qualification": "The whole-volume rate and the corrected poem have different scopes. "
+            "The same-verses comparison includes the legacy lost/misread editorial supplies; "
+            "the new lexical projection excludes supplied tokens. Unattested forms are a "
+            "triage signal, not measured recognition errors or automatic correction candidates. "
+            "The edition supplies Coronistae only, not all surviving Phoenix fragments."}
+
+
 def witness_norm(tok: str) -> str:
     """dedup_fhg_containment.py norm(): NFD, strip diacritics, lowercase,
     Greek letters only, final sigma folded."""
@@ -361,6 +389,10 @@ def main() -> None:
             reviewed = complete_review_qualification(REPO)
             if reviewed is not None:
                 works[slug]['complete_source_review_campaign'] = reviewed
+        if slug == 'phoenix.fragmenta':
+            reviewed = phoenix_review_qualification(REPO, records, attested, frequency)
+            if reviewed is not None:
+                works[slug]['source_review'] = reviewed
 
     # TEI-primary works whose displaced secondary is OCR: the OCR containment
     # in the trusted primary is a corpus-level OCR quality estimate.

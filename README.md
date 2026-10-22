@@ -325,6 +325,28 @@ replay the archived inputs and `--undo` to restore them. The structured audit
 and exact source snapshots are in `data/corpus_changes/ocr-work-assignments-54-55/`.
 No text readings change.
 
+Phoenix's `phoenix.fragmenta` serves the 21 verses of *Coronistae* on printed
+pages 83–84 of Crusius's 1894 edition. The historical file also contained
+Herodas, editorial quotations, apparatus, and indices. Those 2,728 other rows
+remain individually citable in `data/paratext/crusius-1894-legacy.jsonl`, with
+unchanged readings and historical passage aliases. They are unseparated edition
+material, outside the primary corpus and its frequency exports. This edition
+does not supply every surviving Phoenix fragment.
+
+`python3 scripts/repair_phoenix_crusius.py --apply --source-pdf SOURCE.pdf
+--witness-root OCR_ROOT` reproduces the boundary repair and the 18 scan-backed
+verse corrections. `--check` replays the bundled source observations, original
+rows, and two historical OCR predictions; `--undo` restores the exact primary
+and passage aliases before rebuilding derived metadata. The structured audit,
+scan, and historical predictions are in
+`data/corpus_changes/phoenix-crusius-review/`. Printed editorial supplies stay
+visible and outside lexical counts, including the partially supplied word in
+verse 17. The quality report distinguishes the old whole-volume measurement
+from the same 21 verses before and after review.
+The OCR ledger retains the historical 107-image volume run, separately from the
+two scan images that supply the served poem; `check_ocr_ledgers.py --write`
+recovers that provenance from the checked source authority.
+
 Hesychius rows follow the scan-checked alphabetical ranges, including gloss
 continuations. Schmidt's separately headed ethnic-word index is retained in
 `data/paratext/hesychius-schmidt-ethnica.jsonl`. The supposed Rhinthon and Sopater
