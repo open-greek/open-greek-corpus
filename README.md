@@ -325,6 +325,32 @@ replay the archived inputs and `--undo` to restore them. The structured audit
 and exact source snapshots are in `data/corpus_changes/ocr-work-assignments-54-55/`.
 No text readings change.
 
+Phoenix's `phoenix.fragmenta` serves the 21 verses of *Coronistae* on printed
+pages 83–84 of Crusius's 1894 edition. The historical file also contained
+Herodas, editorial quotations, apparatus, and indices. Those 2,728 other rows
+remain individually citable in `data/paratext/crusius-1894-legacy.jsonl`, with
+unchanged readings and historical passage aliases. They are unseparated edition
+material, outside the primary corpus and its frequency exports. This edition
+does not supply every surviving Phoenix fragment.
+
+`python3 scripts/repair_phoenix_crusius.py --apply --source-pdf SOURCE.pdf
+--witness-root OCR_ROOT` reproduces the boundary repair and the 18 scan-backed
+verse corrections. `--check` replays the bundled source observations, original
+rows, and two historical OCR predictions; `--undo` restores the exact primary
+and passage aliases before rebuilding derived metadata. The structured audit,
+scan, and historical predictions are in
+`data/corpus_changes/phoenix-crusius-review/`. Printed editorial supplies stay
+visible and outside lexical counts, including the partially supplied word in
+verse 17. The quality report distinguishes the old whole-volume measurement
+from the same 21 verses before and after review.
+The OCR ledger retains the historical 107-image volume run, separately from the
+two scan images that supply the served poem; `check_ocr_ledgers.py --write`
+recovers that provenance from the checked source authority.
+Frozen Photius validators run through `check_photius_predecessor.py`, which
+verifies the later Phoenix alias extension before exposing the exact historical
+alias bytes. Photius text, prior alias entries, and published audit files remain
+unchanged.
+
 Hesychius rows follow the scan-checked alphabetical ranges, including gloss
 continuations. Schmidt's separately headed ethnic-word index is retained in
 `data/paratext/hesychius-schmidt-ethnica.jsonl`. The supposed Rhinthon and Sopater
@@ -2396,7 +2422,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1397 listed works/volumes containing OCR: 126 manually corrected, 879 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
+1397 listed works/volumes containing OCR: 127 manually corrected, 878 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -3508,7 +3534,7 @@ not agree with it.
 | phocylides.sententiae | PHOCYLIDES - Sententiae | [Bergk, Poetae Lyrici Graeci II (elegiac+iambic)](https://archive.org/search?query=Poetae+Lyrici+Graeci+Bergk) | Qwen3.6-27B | 909 | auto-corrected |
 | phoebammon.scholia-peri-schematon-rhetorikon-walz-viii |  | [Migne PG scans](https://www.roger-pearse.com/weblog/patrologia-graeca-pg-pdfs/) | Qwen3.6-27B | 3,587 | auto-corrected |
 | phoenicides.fragmenta | PHOENICIDES - Fragmenta | kock-caf3-ocr-frag | Qwen3.6-27B | 285 | raw OCR |
-| phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
+| phoenix.fragmenta | Phoenix - Fragmenta | [crusius-1894-source-reviewed](https://archive.org/details/herondaemimiamb01hero) | Qwen3.6-27B | 129 | manual |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
 | photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 283,145 | mixed-unassessed |

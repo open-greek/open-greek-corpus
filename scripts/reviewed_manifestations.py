@@ -425,6 +425,13 @@ def _complete_photius_components(components, complete):
 
 
 def _photius(root):
+    # An independent work's admission can be validated without a Photius
+    # installation. Existing Photius text or authority must still be checked.
+    if (not (root / "data/corpus/photius.bibliotheca.jsonl").exists()
+            and not (root / "data/corpus_changes/photius-bekker-coverage/coverage.json").exists()
+            and not (root / "data/corpus_changes/photius-bekker-final-review/changes.json").exists()
+            and not (root / "data/corpus_changes/photius-bekker-editorial-continuation/changes.json").exists()):
+        return {}
     from photius_current_state import predecessor_view
     with predecessor_view(root) as previous:
         return _photius_predecessor(previous, current_root=root)
@@ -645,9 +652,101 @@ def _cyril(root):
         "qualification": "PG074 Books VII and VIII survive as fragments in this edition; this does not reconstruct lost continuous books."}}}
 
 
+def _phoenix(root):
+    """Credit only the 21 reviewed Coronistae verses, not the anthology."""
+    relative = "data/corpus_changes/phoenix-crusius-review/changes.json"
+    path = root / relative
+    if not path.exists():
+        return {}
+    slug = "phoenix.fragmenta"
+    primary = f"data/corpus/{slug}.jsonl"
+    retained = "data/paratext/crusius-1894-legacy.jsonl"
+    original_sha = "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9"
+    source_url = "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf"
+    source_sha = "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1"
+    edition = "crusius-1894-source-reviewed"
+    historical = "qwen36-phoenix_choliambi_crusius"
+    approved = [f"phoenix_choliambi_crusius_0068.{n}" for n in range(3, 18)]
+    approved += [f"phoenix_choliambi_crusius_0069.{n}" for n in range(1, 7)]
+    scope = "Phoenix Coronistae, 21 verses"
+    audit = _load(path)
+    if audit.get("schema_version") != 1 or audit.get("inputs", {}).get(primary) != original_sha:
+        raise ValueError("Phoenix admission original corpus pin changed")
+    if _sha(root / primary) == original_sha:
+        return {}  # exact unapply retains the audit without activating its credits
+    if audit.get("evidence", {}).get("original_corpus_sha256") != original_sha:
+        raise ValueError("Phoenix admission original corpus evidence changed")
+    for output in (primary, retained):
+        _verify(root, output, audit["outputs"][output])
+    counts = audit["counts"]
+    if (counts.get("primary_rows") != 21 or counts.get("retained_outside_primary") != 2728
+            or counts.get("original_rows") != 2749
+            or not isinstance(counts.get("changed_text_rows"), int)
+            or not 0 <= counts["changed_text_rows"] <= 21):
+        raise ValueError("Phoenix reviewed assignment counts changed")
+    source = audit["evidence"]["source"]
+    if source.get("url") != source_url or source.get("sha256") != source_sha or source.get("year") != 1894:
+        raise ValueError("Phoenix reviewed source identity changed")
+    review = audit["evidence"]["source_review"]
+    if review.get("path") != "data/corpus_changes/phoenix-crusius-review/source-review.json":
+        raise ValueError("Phoenix source review path changed")
+    packet = _load(_verify(root, review["path"], review["sha256"]))
+    if (packet.get("source", {}).get("url") != source_url
+            or packet.get("source", {}).get("sha256") != source_sha
+            or packet.get("approved_primary_loci") != approved or packet.get("scope") != scope):
+        raise ValueError("Phoenix source review scope changed")
+    scan = "data/corpus_changes/phoenix-crusius-review/source-scan.pdf"
+    if (root / scan).exists():
+        _verify(root, scan, source_sha)
+    rows = [json.loads(line) for line in (root / primary).read_text().splitlines() if line.strip()]
+    if ([row.get("locus") for row in rows] != approved or any(
+            (row.get("urn"), row.get("edition"), row.get("source"), row.get("license"))
+            != (slug, edition, "ocr", "PD") for row in rows)):
+        raise ValueError("Phoenix reviewed primary row identity changed")
+    outside = [json.loads(line) for line in (root / retained).read_text().splitlines() if line.strip()]
+    outside_loci = [row.get("locus") for row in outside]
+    if (len(outside) != 2728 or len(set(outside_loci)) != 2728
+            or set(outside_loci) & set(approved)
+            or any(row.get("urn") != slug or row.get("class") != "outside-work-edition-material"
+                   for row in outside)):
+        raise ValueError("Phoenix retained outside-work rows changed")
+    qualification = (
+        "The primary contains only the 21 Coronistae verses on scan pages 68–69. "
+        "It does not represent all surviving Phoenix fragments. Other volume rows "
+        "are retained outside the primary as unseparated Herodas body, apparatus, "
+        "indices, and other edition material; their individual source roles and "
+        "readings have not been fully reviewed."
+    )
+    historical_note = (
+        "Historical whole-volume OCR was misassigned to Phoenix. The reviewed "
+        "Coronistae verses now have their own primary edition; all other original "
+        "rows remain outside the primary without a claim of full role review."
+    )
+    chosen = _edition(edition, "Phoenix, Coronistae: 21 scan-reviewed verses (Crusius 1894)",
+        scheme="scan-page.line", source=source_url, editor="Crusius, Otto", year=1894,
+        note=qualification)
+    old = _edition(historical, "Crusius 1894, historical whole-volume OCR assignment",
+        scheme="scan-page.line", source=source_url, editor="Crusius, Otto", year=1894,
+        storage="paratext", servable=False, note=historical_note)
+    return {slug: {"editions": [chosen, old], "default_edition": edition,
+        "disable_editions": [historical], "disable_note": historical_note,
+        "coverage_composition": {"policy": "source-reviewed-work-scope-with-outside-material-retained",
+            "manifest": relative, "manifest_sha256": _sha(path), "scope": scope,
+            "source_review": review, "counts": counts, "qualification": qualification,
+            "primary_quality": {"status": "source-reviewed", "scope": scope, "passages": 21},
+            "components": [{"edition": edition, "storage": "primary", "passages": 21,
+                "source": source_url, "source_sha256": source_sha, "license": "PD",
+                "role": "reviewed-Coronistae-verses"},
+                {"edition": slug + "." + historical, "provider": "ocr", "name": old["name"],
+                    "storage": "paratext", "path": retained,
+                    "passages": 2728, "source": source_url, "source_sha256": source_sha,
+                    "license": "PD", "role": "unseparated-outside-work-edition-material",
+                    "qualification": qualification}]}}}
+
+
 def reviewed_manifestation_metadata(root=ROOT):
     root = Path(root)
-    return {**_meibom(root), **_scan_extensions(root), **_photius(root), **_cyril(root)}
+    return {**_meibom(root), **_scan_extensions(root), **_photius(root), **_cyril(root), **_phoenix(root)}
 
 
 def register_reviewed_manifestations(registry, root=ROOT):

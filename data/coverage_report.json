@@ -7,15 +7,15 @@
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.89,
     "pct_ingested_actual": 67.5,
-    "ingested_words_actual": 50609582,
-    "ingested_complete_works": 2926,
-    "ingested_partial_works": 115,
+    "ingested_words_actual": 50609244,
+    "ingested_complete_works": 2925,
+    "ingested_partial_works": 116,
     "pct_reachable_not_ingested": 13.88,
     "pct_locked": 11.68,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
       "actionable": 605754,
-      "structural": 569032
+      "structural": 569370
     },
     "underfilled_50_90_works": 450,
     "underfilled_50_90_missing_words": {
@@ -41,12 +41,12 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2926,
-      "word_count": 53117742
+      "works": 2925,
+      "word_count": 53117271
     },
     "ingested_partial": {
-      "works": 115,
-      "word_count": 1530823
+      "works": 116,
+      "word_count": 1531294
     }
   },
   "reachable_not_ingested_by_source": {
@@ -13851,6 +13851,18 @@
       "coverage_ratio": 0.473,
       "source": "cgpg",
       "missing_words": 377,
+      "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
+    },
+    {
+      "tlg_id": "tlg1606",
+      "work_id": "001",
+      "author": "Phoenix",
+      "title": "Fragmenta",
+      "word_count": 471,
+      "ingested_tokens": 133,
+      "coverage_ratio": 0.282,
+      "source": "ocr",
+      "missing_words": 338,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {

@@ -7,8 +7,11 @@ repository file. No historical recipe or artifact is rewritten.
 from __future__ import annotations
 
 from contextlib import contextmanager
+from contextvars import ContextVar
 from copy import deepcopy
 import hashlib
+import gzip
+import json
 from pathlib import Path
 import tempfile
 
@@ -21,6 +24,7 @@ TAG = 'photius_editorial_continuation'
 FINAL_ARCHIVE = Path('data/corpus_changes/photius-bekker-final-review')
 FINAL_AUDIT = FINAL_ARCHIVE/'changes.json'
 FINAL_TAG = 'photius_final_review'
+_VALIDATED_ALIAS_FILES = ContextVar('validated_photius_alias_files', default={})
 
 
 def _pins(directory):
@@ -41,6 +45,76 @@ def _overlay(source, destination, overrides):
             if not child.is_dir():
                 raise ValueError('Predecessor corpus has a non-directory ancestor')
             target.mkdir(); _overlay(child, target, matched)
+
+
+@contextmanager
+def prior_alias_view(root=ROOT):
+    """Expose exact earlier aliases after checking a later unrelated extension.
+
+    Frozen Photius recipes own their historical whole-file alias pin. The
+    Phoenix authority proves that its new aliases leave every old entry
+    unchanged; only those later additions are hidden from the old validators.
+    """
+    root = Path(root).absolute()
+    phoenix = root/'data/corpus_changes/phoenix-crusius-review'
+    if not (phoenix/'changes.json').exists():
+        primary = root/'data/corpus/phoenix.fragmenta.jsonl'
+        if ((root/ALIASES).resolve() in _VALIDATED_ALIAS_FILES.get()
+                or primary.exists() and (b'"crusius_source_review"' in primary.read_bytes()
+                    or b'crusius-1894-source-reviewed' in primary.read_bytes())):
+            raise ValueError('Reviewed Phoenix aliases require their frozen authority')
+        yield root
+        return
+    from repair_phoenix_crusius import verify, sha, ORIGINAL_SHA256, PRIMARY, RETAINED
+    def snapshot():
+        return (_pins(phoenix), (root/ALIASES).read_bytes(),
+            tuple((p, sha((root/p).read_bytes()) if (root/p).is_file() else None)
+                  for p in (PRIMARY, RETAINED)))
+    initial = snapshot()
+    before_raw = (phoenix/'before.json.gz').read_bytes()
+    before = json.loads(gzip.decompress(before_raw))
+    previous = before[ALIASES.as_posix()].encode()
+    current = initial[1]
+    aliases_file = (root/ALIASES).resolve()
+    authorized = aliases_file in _VALIDATED_ALIAS_FILES.get()
+    if authorized and (initial[0], initial[2], current) != _VALIDATED_ALIAS_FILES.get()[aliases_file]:
+        raise ValueError('An authorized historical alias view changed its source authority')
+    restored = False
+    if current == previous and not authorized:
+        audit = json.loads((phoenix/'changes.json').read_bytes())
+        core = {PRIMARY, RETAINED, ALIASES.as_posix()}
+        original = audit.get('inputs', {})
+        actual = dict(initial[2], **{ALIASES.as_posix():sha(current)})
+        restored = (set(original) == core and original.get(PRIMARY) == ORIGINAL_SHA256
+            and original.get(RETAINED) is None and actual == original
+            and sha(before_raw) == audit['outputs']['data/corpus_changes/phoenix-crusius-review/before.json.gz']
+            and set(before) == core and all((sha(value.encode()) if value is not None else None)
+                == original[path] for path,value in before.items()))
+    if authorized or restored:
+        if current != previous:
+            raise ValueError('An authorized historical alias view changed its literal bytes')
+    else:
+        verify(root)
+    if snapshot() != initial:
+        raise ValueError('Later citation authority changed during predecessor validation')
+    try:
+        if authorized or restored:
+            yield root
+        else:
+            with tempfile.TemporaryDirectory(prefix='photius-alias-predecessor-') as directory:
+                view = Path(directory)
+                _overlay(root, view, {ALIASES.parts: previous})
+                token = _VALIDATED_ALIAS_FILES.set({**_VALIDATED_ALIAS_FILES.get(),
+                    (view/ALIASES).resolve(): (initial[0], initial[2], previous)})
+                try:
+                    yield view
+                    if (view/ALIASES).read_bytes() != previous:
+                        raise ValueError('Historical alias bytes changed during predecessor validation')
+                finally:
+                    _VALIDATED_ALIAS_FILES.reset(token)
+    finally:
+        if snapshot() != initial:
+            raise ValueError('Later citation authority changed during predecessor validation')
 
 
 @contextmanager
@@ -78,10 +152,11 @@ def _stage_view(root, *, module_name, archive, audit, tag, label):
 @contextmanager
 def continuation_view(root=ROOT):
     """Expose the exact continuation postimage to its frozen validators."""
-    with _stage_view(root, module_name='repair_photius_final_review',
-                     archive=FINAL_ARCHIVE, audit=FINAL_AUDIT,
-                     tag=FINAL_TAG, label='Final review') as previous:
-        yield previous
+    with prior_alias_view(root) as alias_root:
+        with _stage_view(alias_root, module_name='repair_photius_final_review',
+                         archive=FINAL_ARCHIVE, audit=FINAL_AUDIT,
+                         tag=FINAL_TAG, label='Final review') as previous:
+            yield previous
 
 
 @contextmanager
@@ -112,7 +187,8 @@ def final_metadata(root=ROOT):
             raise ValueError('Final review metadata has no frozen authority')
         return None
     from repair_photius_final_review import active_metadata
-    return active_metadata(root)
+    with prior_alias_view(root) as previous:
+        return active_metadata(previous)
 
 
 def later_metadata(root=ROOT, *, current_root=None):

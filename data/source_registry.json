@@ -254277,14 +254277,80 @@
    "aliases": {
     "cts": "urn:cts:greekLit:tlg1606.tlg001"
    },
-   "default_edition": "phoenix.fragmenta.qwen36-phoenix_choliambi_crusius",
-   "best_source": "pd_edition",
+   "default_edition": "phoenix.fragmenta.crusius-1894-source-reviewed",
+   "best_source": "open_corpus",
    "tags": [
     "century:-3",
     "era:hellenistic",
     "genre:iambic"
    ],
+   "coverage_composition": {
+    "policy": "source-reviewed-work-scope-with-outside-material-retained",
+    "manifest": "data/corpus_changes/phoenix-crusius-review/changes.json",
+    "manifest_sha256": "6ceb575a1c671f4cd35fb9cdd0674d14175c15223e2bd781830dcbfec3499bc7",
+    "scope": "Phoenix Coronistae, 21 verses",
+    "source_review": {
+     "path": "data/corpus_changes/phoenix-crusius-review/source-review.json",
+     "sha256": "0f9c20b61ed4a082dbd394da3c0737f1ae9bcedb3e180d0c11841bfd053399fa"
+    },
+    "counts": {
+     "original_rows": 2749,
+     "primary_rows": 21,
+     "retained_outside_primary": 2728,
+     "changed_text_rows": 18,
+     "surface_tokens": 133,
+     "lexical_tokens": 129,
+     "excluded_supplied_tokens": 4,
+     "source_scan_pages": [
+      68,
+      69
+     ]
+    },
+    "qualification": "The primary contains only the 21 Coronistae verses on scan pages 68–69. It does not represent all surviving Phoenix fragments. Other volume rows are retained outside the primary as unseparated Herodas body, apparatus, indices, and other edition material; their individual source roles and readings have not been fully reviewed.",
+    "primary_quality": {
+     "status": "source-reviewed",
+     "scope": "Phoenix Coronistae, 21 verses",
+     "passages": 21
+    },
+    "components": [
+     {
+      "edition": "crusius-1894-source-reviewed",
+      "storage": "primary",
+      "passages": 21,
+      "source": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
+      "source_sha256": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
+      "license": "PD",
+      "role": "reviewed-Coronistae-verses"
+     },
+     {
+      "edition": "phoenix.fragmenta.qwen36-phoenix_choliambi_crusius",
+      "provider": "ocr",
+      "name": "Crusius 1894, historical whole-volume OCR assignment",
+      "storage": "paratext",
+      "path": "data/paratext/crusius-1894-legacy.jsonl",
+      "passages": 2728,
+      "source": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
+      "source_sha256": "999122f204d54ec0071749c354598adef4203ea6fc61b53e4a6b0f5df92aade1",
+      "license": "PD",
+      "role": "unseparated-outside-work-edition-material",
+      "qualification": "The primary contains only the 21 Coronistae verses on scan pages 68–69. It does not represent all surviving Phoenix fragments. Other volume rows are retained outside the primary as unseparated Herodas body, apparatus, indices, and other edition material; their individual source roles and readings have not been fully reviewed."
+     }
+    ]
+   },
    "editions": {
+    "phoenix.fragmenta.crusius-1894-source-reviewed": {
+     "name": "Phoenix, Coronistae: 21 scan-reviewed verses (Crusius 1894)",
+     "provider": "ocr",
+     "scheme": "scan-page.line",
+     "editor": "Crusius, Otto",
+     "year": 1894,
+     "source": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
+     "servable": true,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "The primary contains only the 21 Coronistae verses on scan pages 68–69. It does not represent all surviving Phoenix fragments. Other volume rows are retained outside the primary as unseparated Herodas body, apparatus, indices, and other edition material; their individual source roles and readings have not been fully reviewed."
+    },
     "phoenix.fragmenta.powell-1925": {
      "name": "Collectanea Alexandrina",
      "provider": "tlg-e-reference",
@@ -254298,16 +254364,18 @@
      "aliases": {}
     },
     "phoenix.fragmenta.qwen36-phoenix_choliambi_crusius": {
-     "name": "cog OCR (qwen36-phoenix_choliambi_crusius)",
+     "name": "Crusius 1894, historical whole-volume OCR assignment",
      "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
-     "servable": true,
+     "scheme": "scan-page.line",
+     "editor": "Crusius, Otto",
+     "year": 1894,
+     "source": "https://archive.org/download/herondaemimiamb01hero/herondaemimiamb01hero.pdf",
+     "servable": false,
      "license": "PD",
      "scheme_inferred": false,
-     "aliases": {}
+     "aliases": {},
+     "note": "Historical whole-volume OCR was misassigned to Phoenix. The reviewed Coronistae verses now have their own primary edition; all other original rows remain outside the primary without a claim of full role review.",
+     "storage": "paratext"
     }
    }
   },

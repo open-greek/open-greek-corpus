@@ -107,6 +107,9 @@ DATE_COMPARISON := data/oga_glaux_date_comparison.json
 CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
+                    scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
+                    scripts/phoenix_crusius_witnesses.py \
+                    $(wildcard data/corpus_changes/phoenix-crusius-review/*) \
                     $(PHOTIUS_LATER_INPUTS) \
                     scripts/repair_photius_apparatus.py \
                     scripts/repair_photius_body.py \
@@ -120,6 +123,8 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
+    scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
+    $(wildcard data/corpus_changes/phoenix-crusius-review/*) \
     $(PHOTIUS_LATER_INPUTS) \
     scripts/repair_photius_apparatus.py \
     scripts/repair_photius_readings.py scripts/photius_reading_vote.py \
@@ -422,7 +427,8 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
 README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
-           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS)
+           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS) \
+           data/ocr_works.json data/inventory/ocr_edition_sources.json
 	$(PY) scripts/build_provenance.py
 	$(PY) scripts/build_readme_figures.py --write
 
@@ -454,6 +460,7 @@ capital-positions:
 # These validators read the frozen artifacts independently; use make -j4 check
 # to check them concurrently. Every command remains a required prerequisite.
 .PHONY: check-ocr-ledgers \
+        check-phoenix-crusius \
         check-photius-apparatus-repair \
         check-photius-readings \
         check-photius-historical-readings \
@@ -475,6 +482,7 @@ capital-positions:
 # Start the longest measured checks first so they do not wait behind short ones
 # when the independent prerequisites run concurrently.
 check: check-photius-complete-review \
+       check-phoenix-crusius \
        check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
        check-photius-review-observations \
        check-known-limitations \
@@ -493,6 +501,9 @@ check: check-photius-complete-review \
 
 check-ocr-ledgers:
 	$(PY) scripts/check_ocr_ledgers.py
+
+check-phoenix-crusius:
+	$(PY) scripts/repair_phoenix_crusius.py --check
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus
@@ -543,10 +554,10 @@ check-photius-editorial-continuation-source:
 	$(PY) scripts/check_photius_predecessor.py --stage editorial-continuation-source
 
 check-photius-final-review:
-	$(PY) scripts/repair_photius_final_review.py --check-literal
+	$(PY) scripts/check_photius_predecessor.py --stage final-review
 
 check-photius-final-review-source:
-	$(PY) scripts/repair_photius_final_review.py --check
+	$(PY) scripts/check_photius_predecessor.py --stage final-review-source
 
 check-photius-apparatus-audit:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus-audit

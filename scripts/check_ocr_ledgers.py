@@ -54,6 +54,27 @@ DERIVED = ("n_passages", "n_tokens")
 REPORTED = ("source", "edition", "license")
 
 
+def reviewed_run_metadata(row, root):
+    """Recover the historical run's page provenance from its reviewed witnesses.
+
+    This is deliberately separate from served counts: the Phoenix run covered
+    the whole 107-image volume, while the admitted poem uses two scan images.
+    """
+    if (row.get("urn") != "phoenix.fragmenta"
+            or row.get("edition") != "qwen36-phoenix_choliambi_crusius"
+            or not (root / "data/corpus_changes/phoenix-crusius-review/changes.json").exists()):
+        return {}
+    from repair_phoenix_crusius import ORIGINAL_SHA256, PRIMARY, sha, verify
+    if sha((root / PRIMARY).read_bytes()) == ORIGINAL_SHA256:
+        return {}  # exact undo restores the old serving; historical evidence remains
+    audit, _, _ = verify(root)
+    source = audit["evidence"]["source"]
+    return {"pages": source["physical_pages"], "source_url": source["catalog_url"],
+        "scope_note": "Historical whole-volume OCR, not 107 pages of Phoenix. "
+            "The reviewed Coronistae primary uses scan images 68–69; "
+            "data/corpus_changes/phoenix-crusius-review/changes.json records the boundary."}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -80,6 +101,12 @@ def main() -> None:
                 # something the corpus no longer serves separately.
                 missing.append(urn)
                 continue
+            for field, value in reviewed_run_metadata(row, REPO).items():
+                if row.get(field) != value:
+                    why[field] += 1
+                    bad += 1
+                    if args.write:
+                        row[field] = value
             for field in DERIVED + REPORTED:
                 if field not in row or field not in served:
                     continue

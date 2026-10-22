@@ -3,20 +3,20 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "7d11cf31468c9deabb0a9d5a1054b1a33724050b399c2cec9d54da22ccb37954",
+  "corpus_sha256": "6cb22ea7933fcf3f7d3b13d62c6ed1647aac4b48cdbc87842e5016e837ef33a3",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "e06070d33b7ce275a6fe6721532bfcf789e2db9eae447fe8ffce5c061ad94327",
-   "corpus_sha256": "7d11cf31468c9deabb0a9d5a1054b1a33724050b399c2cec9d54da22ccb37954",
+   "sha256": "115da974efbfa03c7c6f4b96aab6a1b4b6c250706f3f11712204858bc41d4de7",
+   "corpus_sha256": "6cb22ea7933fcf3f7d3b13d62c6ed1647aac4b48cdbc87842e5016e837ef33a3",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65813737,
+    "analysis_tokens": 65783868,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29681526,
-    "ocr_passages": 1349148,
+    "ocr_analysis_tokens": 29651657,
+    "ocr_passages": 1346420,
     "ocr_works": 1416,
-    "passages": 1966924,
+    "passages": 1964196,
     "works": 3914
    },
    "by_source": {
@@ -76,8 +76,8 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 25328295,
-     "passages": 1337730,
+     "analysis_tokens": 25298426,
+     "passages": 1335002,
      "works": 1217
     },
     "perseus": {
@@ -291,19 +291,19 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "82600cc9ee5a5d25dc67922f15b14462a11e03c347c5ae1b4804b11565a46a6c"
+   "sha256": "edc56d66023ed0e7918e41a27d91fbe41fd6650bc794bc4ba0135451ce77fc3f"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "c10f6e3bc6a3d4f7fe9187edc13aa6bd6d19a4d4cdf9a73e5e44ddae26b12d73"
+   "sha256": "d5b256168d7251b5fcf0f964f2fcd20f5621448397a8421e7fd365d105d78b8f"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "240e80b7f1e7b8b08a522e7c2d89f44135051468eaceb37b078c6b6750b9ffe2"
+   "sha256": "8fb567ed1054d368bcda1def3057808e6d1cc22d94e1988d26802f37be611d04"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "7b9e6a8456d02ce2597505eb67fae2b73e21ae149d1499e929736f992033f8a2"
+   "sha256": "bd240760af660967c2240731af7f288ab2c1c39c451fc5170291c42d8c961474"
   }
  },
  "active_coverage_findings": [],
@@ -15893,7 +15893,7 @@
     "added_passages": 309,
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-21.8",
+     "declared_release": "corpus-2026-10-21.9",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -15927,7 +15927,7 @@
      "held_other_works": 474
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.8",
+     "declared_release": "corpus-2026-10-21.9",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16028,7 +16028,7 @@
      "preserved_historical_citations": 304
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.8",
+     "declared_release": "corpus-2026-10-21.9",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16128,7 +16128,7 @@
      "preserved_historical_citations": 57
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.8",
+     "declared_release": "corpus-2026-10-21.9",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16380,7 +16380,7 @@
      }
     ],
     "publication": {
-     "declared_release": "corpus-2026-10-21.8",
+     "declared_release": "corpus-2026-10-21.9",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -16408,7 +16408,7 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29681526,
+    "ocr_component_tokens": 29651657,
     "mixed_works": 4,
     "mixed_ocr_tokens": 552999,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
@@ -16417,7 +16417,7 @@
      "scope": "Stamp-gap bounds within homogeneous works classified raw by the catalog; not global raw-OCR bounds.",
      "lower_bound_works": 373,
      "lower_bound_tokens": 2430938,
-     "lower_bound_share": 0.0369,
+     "lower_bound_share": 0.037,
      "upper_bound_works": 395,
      "upper_bound_tokens": 2903299,
      "upper_bound_share": 0.0441,
@@ -16433,10 +16433,10 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/31",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "forms": 26435,
-    "tokens": 42522,
-    "share": 0.000646,
-    "works": 1642
+    "forms": 26373,
+    "tokens": 42450,
+    "share": 0.000645,
+    "works": 1641
    },
    "why_no_bulk_action_remains": "All forms clearing the approved corpus-skeleton gates were repaired, and four scan-backed review rounds applied only exact readings. The residue is distributed over thousands of source pages; changing grave to acute blindly is known to choose the wrong word in common cases.",
    "reopen_when": "Page images, an aligned independent edition, or another approved evidence type makes a bounded set of occurrences deterministically repairable."
