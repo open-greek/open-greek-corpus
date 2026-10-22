@@ -425,6 +425,13 @@ def _complete_photius_components(components, complete):
 
 
 def _photius(root):
+    # An independent work's admission can be validated without a Photius
+    # installation. Existing Photius text or authority must still be checked.
+    if (not (root / "data/corpus/photius.bibliotheca.jsonl").exists()
+            and not (root / "data/corpus_changes/photius-bekker-coverage/coverage.json").exists()
+            and not (root / "data/corpus_changes/photius-bekker-final-review/changes.json").exists()
+            and not (root / "data/corpus_changes/photius-bekker-editorial-continuation/changes.json").exists()):
+        return {}
     from photius_current_state import predecessor_view
     with predecessor_view(root) as previous:
         return _photius_predecessor(previous, current_root=root)
