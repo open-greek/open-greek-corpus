@@ -49,6 +49,15 @@ def _overlay(source, destination, overrides):
 
 @contextmanager
 def prior_alias_view(root=ROOT):
+    """Peel later independent alias layers before the Phoenix predecessor."""
+    from citation_alias_state import phoenix_alias_view
+    with phoenix_alias_view(root) as current:
+        with _phoenix_alias_view(current) as previous:
+            yield previous
+
+
+@contextmanager
+def _phoenix_alias_view(root=ROOT):
     """Expose exact earlier aliases after checking a later unrelated extension.
 
     Frozen Photius recipes own their historical whole-file alias pin. The
@@ -104,14 +113,16 @@ def prior_alias_view(root=ROOT):
             with tempfile.TemporaryDirectory(prefix='photius-alias-predecessor-') as directory:
                 view = Path(directory)
                 _overlay(root, view, {ALIASES.parts: previous})
-                token = _VALIDATED_ALIAS_FILES.set({**_VALIDATED_ALIAS_FILES.get(),
-                    (view/ALIASES).resolve(): (initial[0], initial[2], previous)})
-                try:
-                    yield view
-                    if (view/ALIASES).read_bytes() != previous:
-                        raise ValueError('Historical alias bytes changed during predecessor validation')
-                finally:
-                    _VALIDATED_ALIAS_FILES.reset(token)
+                from citation_alias_state import inherit_alias_authority
+                with inherit_alias_authority(root, view, previous):
+                    token = _VALIDATED_ALIAS_FILES.set({**_VALIDATED_ALIAS_FILES.get(),
+                        (view/ALIASES).resolve(): (initial[0], initial[2], previous)})
+                    try:
+                        yield view
+                        if (view/ALIASES).read_bytes() != previous:
+                            raise ValueError('Historical alias bytes changed during predecessor validation')
+                    finally:
+                        _VALIDATED_ALIAS_FILES.reset(token)
     finally:
         if snapshot() != initial:
             raise ValueError('Later citation authority changed during predecessor validation')

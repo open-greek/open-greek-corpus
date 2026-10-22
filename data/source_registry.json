@@ -182633,13 +182633,63 @@
     "wikidata": "Q111608261"
    },
    "default_edition": "herodas.mimiambi.herodas-hk-ocr",
-   "best_source": "locked",
+   "best_source": "open_corpus",
    "tags": [
     "century:-3",
     "era:hellenistic",
     "genre:mime",
     "language:ancient-greek"
    ],
+   "coverage_composition": {
+    "policy": "source-reviewed-editorial-role-partition",
+    "manifest": "data/corpus_changes/editorial-role-review/changes.json",
+    "manifest_sha256": "d82592b79a9b9aa89fe0fc5e5ea6e9eb3ed57078d40e9554bacfd273b9747bed",
+    "qualification": "This review separates the source roles of the existing 136 Herodas rows and five Hipponax rows. It does not supply missing Herodas pages, certify every OCR spelling, resolve editorial restorations, or claim a complete corpus of either author's surviving fragments. Excluded material remains citable with its literal source text and attribution.",
+    "counts": {
+     "original_rows": 136,
+     "primary_rows": 62,
+     "retained_spans": 84,
+     "original_surface_tokens": 2850,
+     "primary_surface_tokens": 2036,
+     "retained_surface_tokens": 814,
+     "original_analysis_tokens": 2846,
+     "primary_analysis_tokens": 2036,
+     "retained_analysis_tokens": 810
+    },
+    "primary_quality": {
+     "status": "source-role-reviewed",
+     "passages": 62,
+     "note": "Partial historical OCR, with headings, speaker labels, apparatus, and commentary separated by source role. Missing pages and OCR spellings have not been restored or comprehensively reviewed."
+    },
+    "components": [
+     {
+      "edition": "herodas-hk-ocr",
+      "storage": "primary",
+      "path": "data/corpus/herodas.mimiambi.jsonl",
+      "passages": 62,
+      "role": "authorial-verse",
+      "license": "PD",
+      "source": "https://archive.org/details/mimesfragments00hero"
+     },
+     {
+      "edition": "headlam-knox-editorial",
+      "storage": "paratext",
+      "path": "data/paratext/herodas-headlam-knox.jsonl",
+      "passages": 84,
+      "role": "editorial-material",
+      "roles": {
+       "apparatus": 24,
+       "commentary": 5,
+       "editorial-source-note": 1,
+       "running-header": 2,
+       "speaker": 45,
+       "title": 7
+      },
+      "license": "PD",
+      "source": "https://archive.org/details/mimesfragments00hero"
+     }
+    ]
+   },
    "editions": {
     "herodas.mimiambi.cunningham-1971": {
      "name": "Herodas. Mimiambi",
@@ -182653,17 +182703,32 @@
      "scheme_inferred": false,
      "aliases": {}
     },
-    "herodas.mimiambi.herodas-hk-ocr": {
-     "name": "cog OCR (herodas-hk-ocr)",
+    "herodas.mimiambi.headlam-knox-editorial": {
+     "name": "Headlam–Knox 1922, retained Herodas verse passages, excluded edition material",
      "provider": "ocr",
-     "scheme": "",
-     "editor": "",
-     "year": null,
-     "source": "",
+     "scheme": "scan-page.row",
+     "editor": "Headlam, Walter; Knox, Alfred",
+     "year": 1922,
+     "source": "https://archive.org/details/mimesfragments00hero",
+     "servable": false,
+     "license": "PD",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Partial historical OCR, with headings, speaker labels, apparatus, and commentary separated by source role. Missing pages and OCR spellings have not been restored or comprehensively reviewed.",
+     "storage": "paratext"
+    },
+    "herodas.mimiambi.herodas-hk-ocr": {
+     "name": "Headlam–Knox 1922, retained Herodas verse passages",
+     "provider": "ocr",
+     "scheme": "scan-page.row",
+     "editor": "Headlam, Walter; Knox, Alfred",
+     "year": 1922,
+     "source": "https://archive.org/details/mimesfragments00hero",
      "servable": true,
      "license": "PD",
      "scheme_inferred": false,
-     "aliases": {}
+     "aliases": {},
+     "note": "Partial historical OCR, with headings, speaker labels, apparatus, and commentary separated by source role. Missing pages and OCR spellings have not been restored or comprehensively reviewed."
     }
    }
   },
@@ -190650,20 +190715,83 @@
     "genre:hexameter",
     "genre:iambic"
    ],
+   "coverage_composition": {
+    "policy": "source-reviewed-editorial-role-partition",
+    "manifest": "data/corpus_changes/editorial-role-review/changes.json",
+    "manifest_sha256": "d82592b79a9b9aa89fe0fc5e5ea6e9eb3ed57078d40e9554bacfd273b9747bed",
+    "qualification": "This review separates the source roles of the existing 136 Herodas rows and five Hipponax rows. It does not supply missing Herodas pages, certify every OCR spelling, resolve editorial restorations, or claim a complete corpus of either author's surviving fragments. Excluded material remains citable with its literal source text and attribution.",
+    "counts": {
+     "original_rows": 5,
+     "primary_rows": 1,
+     "retained_spans": 4,
+     "original_surface_tokens": 154,
+     "primary_surface_tokens": 25,
+     "retained_surface_tokens": 129,
+     "original_analysis_tokens": 154,
+     "primary_analysis_tokens": 25,
+     "retained_analysis_tokens": 129
+    },
+    "primary_quality": {
+     "status": "source-role-reviewed",
+     "passages": 1,
+     "note": "Only the verse in TEI section frag128 is authorial primary text. Homeric parallels, external testimony, variants, and commentary remain separately citable. This is not a complete edition of all Hipponax fragments."
+    },
+    "components": [
+     {
+      "edition": "1st1K-grc1",
+      "storage": "primary",
+      "path": "data/corpus/hipponax.fragmenta.jsonl",
+      "passages": 1,
+      "role": "authorial-verse",
+      "license": "CC-BY-SA-4.0",
+      "source": "https://archive.org/details/corpusculumpoesi01lipsuoft"
+     },
+     {
+      "edition": "brandt1888-editorial",
+      "storage": "paratext",
+      "path": "data/paratext/hipponax-brandt1888.jsonl",
+      "passages": 4,
+      "role": "editorial-material",
+      "roles": {
+       "critical-apparatus": 1,
+       "editorial-commentary": 1,
+       "external-testimonium": 1,
+       "homeric-comparanda": 1
+      },
+      "license": "CC-BY-SA-4.0",
+      "source": "https://archive.org/details/corpusculumpoesi01lipsuoft"
+     }
+    ]
+   },
    "editions": {
     "hipponax.fragmenta.1st1K-grc1": {
-     "name": "First1KGreek (1st1K-grc1)",
+     "name": "First1KGreek, Hipponax fragment 128 (Brandt 1888)",
      "provider": "first1k",
-     "scheme": "fragment.line",
-     "editor": "",
-     "year": null,
-     "source": "",
+     "scheme": "section",
+     "editor": "Brandt, Paul",
+     "year": 1888,
+     "source": "https://archive.org/details/corpusculumpoesi01lipsuoft",
      "servable": true,
      "license": "CC-BY-SA-4.0",
      "scheme_inferred": false,
      "aliases": {
       "cts": "urn:cts:greekLit:tlg0233.tlg001.1st1K-grc1"
-     }
+     },
+     "note": "Only the verse in TEI section frag128 is authorial primary text. Homeric parallels, external testimony, variants, and commentary remain separately citable. This is not a complete edition of all Hipponax fragments."
+    },
+    "hipponax.fragmenta.brandt1888-editorial": {
+     "name": "First1KGreek, Hipponax fragment 128 (Brandt 1888), excluded edition material",
+     "provider": "first1k",
+     "scheme": "section",
+     "editor": "Brandt, Paul",
+     "year": 1888,
+     "source": "https://archive.org/details/corpusculumpoesi01lipsuoft",
+     "servable": false,
+     "license": "CC-BY-SA-4.0",
+     "scheme_inferred": false,
+     "aliases": {},
+     "note": "Only the verse in TEI section frag128 is authorial primary text. Homeric parallels, external testimony, variants, and commentary remain separately citable. This is not a complete edition of all Hipponax fragments.",
+     "storage": "paratext"
     },
     "hipponax.fragmenta.west-1971": {
      "name": "Iambi et elegi Graeci, vol. 1",

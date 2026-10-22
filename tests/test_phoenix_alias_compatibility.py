@@ -79,9 +79,24 @@ def test_exact_undo_is_recognized_without_requiring_an_invalidated_new_source(tm
     before = json.loads(gzip.decompress((ROOT / phoenix.AUDIT / "before.json.gz").read_bytes()))
     retained = Path(phoenix.RETAINED)
     scan = Path(phoenix.AUDIT) / "source-scan.pdf"
-    state._overlay(ROOT, tmp_path, {state.ALIASES.parts: before[phoenix.ALIASES].encode(),
+    overrides = {state.ALIASES.parts: before[phoenix.ALIASES].encode(),
         Path(phoenix.PRIMARY).parts: before[phoenix.PRIMARY].encode(), retained.parts: b"",
-        scan.parts: b""})
+        scan.parts: b""}
+    # Preserve the later audit while undoing its complete role partition first;
+    # chronological undo must then recognize the earlier Phoenix alias epoch.
+    import repair_editorial_roles as roles
+    role_before = ROOT / roles.AUDIT / "before.json.gz"
+    missing = []
+    if role_before.exists():
+        original = json.loads(gzip.decompress(role_before.read_bytes()))
+        for path, text in original.items():
+            if path != roles.ALIASES:
+                overrides[Path(path).parts] = text.encode() if text is not None else b""
+                if text is None:
+                    missing.append(Path(path))
+    state._overlay(ROOT, tmp_path, overrides)
+    for path in missing:
+        (tmp_path / path).unlink()
     (tmp_path / retained).unlink()
     (tmp_path / scan).unlink()
     with state.prior_alias_view(tmp_path) as previous:
@@ -105,7 +120,7 @@ def test_active_or_nested_review_cannot_lose_its_authority(tmp_path, nested):
     def removed(root):
         state._overlay(root, tmp_path, {authority.parts: (root / authority).read_bytes()})
         (tmp_path / authority).unlink()
-        with pytest.raises(ValueError, match="frozen authority"):
+        with pytest.raises(ValueError, match="frozen authority|source authority"):
             with state.prior_alias_view(tmp_path):
                 pytest.fail("A reviewed state cannot discard its source authority")
     if nested:

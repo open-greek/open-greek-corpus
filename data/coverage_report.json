@@ -7,19 +7,19 @@
     "ingested_via_served_parts": 2,
     "pct_ingested": 72.89,
     "pct_ingested_actual": 67.5,
-    "ingested_words_actual": 50609244,
-    "ingested_complete_works": 2925,
-    "ingested_partial_works": 116,
+    "ingested_words_actual": 50608357,
+    "ingested_complete_works": 2924,
+    "ingested_partial_works": 117,
     "pct_reachable_not_ingested": 13.88,
     "pct_locked": 11.68,
     "pct_duplicate": 1.55,
     "partial_missing_words": {
-      "actionable": 605754,
-      "structural": 569370
+      "actionable": 608736,
+      "structural": 569499
     },
-    "underfilled_50_90_works": 450,
+    "underfilled_50_90_works": 449,
     "underfilled_50_90_missing_words": {
-      "actionable": 1510126,
+      "actionable": 1507902,
       "structural": 179837
     }
   },
@@ -41,12 +41,12 @@
       "word_count": 1164306
     },
     "ingested_complete": {
-      "works": 2925,
-      "word_count": 53117271
+      "works": 2924,
+      "word_count": 53112262
     },
     "ingested_partial": {
-      "works": 116,
-      "word_count": 1531294
+      "works": 117,
+      "word_count": 1536303
     }
   },
   "reachable_not_ingested_by_source": {
@@ -13468,6 +13468,17 @@
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
+      "tlg_id": "tlg0650",
+      "work_id": "001",
+      "author": "Herodas",
+      "title": "Mimiambi",
+      "word_count": 5009,
+      "ingested_tokens": 2027,
+      "coverage_ratio": 0.405,
+      "source": "ocr",
+      "missing_words": 2982
+    },
+    {
       "tlg_id": "tlg1578",
       "work_id": "001",
       "author": "Phaenias",
@@ -13530,10 +13541,10 @@
       "author": "Hipponax",
       "title": "Fragmenta",
       "word_count": 2256,
-      "ingested_tokens": 154,
-      "coverage_ratio": 0.068,
+      "ingested_tokens": 25,
+      "coverage_ratio": 0.011,
       "source": "first1k",
-      "missing_words": 2102,
+      "missing_words": 2231,
       "structural_ceiling": "fragment collection: expected count follows a modern locked collection; the served PD collection is a different, smaller corpus"
     },
     {
@@ -15098,17 +15109,6 @@
       "coverage_ratio": 0.753,
       "source": "ocr",
       "missing_words": 2225
-    },
-    {
-      "tlg_id": "tlg0650",
-      "work_id": "001",
-      "author": "Herodas",
-      "title": "Mimiambi",
-      "word_count": 5009,
-      "ingested_tokens": 2785,
-      "coverage_ratio": 0.556,
-      "source": "ocr",
-      "missing_words": 2224
     },
     {
       "tlg_id": "tlg1193",

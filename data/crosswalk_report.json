@@ -2,7 +2,7 @@
   "headline": {
     "works": 11078,
     "authors": 3319,
-    "editions": 10234,
+    "editions": 10236,
     "pct_works_with_canonical_locus": 36.6,
     "pct_works_with_logical_served_locus": 12.5,
     "pct_works_with_work_qid": 5.2,
@@ -107,8 +107,8 @@
     "pct": 36.6,
     "works_only_physical_or_none": 3174,
     "by_scheme": {
-      "(none)": 1566,
-      "fragment.line": 1445,
+      "(none)": 1565,
+      "fragment.line": 1444,
       "volume.page.line": 1236,
       "section.line": 1212,
       "page.line": 976,
@@ -157,6 +157,7 @@
       "argumentum.dramatis personae.scholion.verse.line": 7,
       "oration.section.line": 7,
       "page.column.line": 7,
+      "section": 7,
       "olearius page.line": 6,
       "part.volume.fascicle.page.line": 6,
       "play.verse.line": 6,
@@ -167,7 +168,6 @@
       "fragment.subfragment.line": 5,
       "hymn.line": 5,
       "oration.line": 5,
-      "section": 5,
       "bekker page.line.line of scholion": 4,
       "book.chapter.section.subsection.line": 4,
       "chapter": 4,
@@ -241,6 +241,7 @@
       "psalm.verse.line": 2,
       "question.answer.line": 2,
       "ref.sub.sub": 2,
+      "scan-page.row": 2,
       "section.epistle or discourse.line": 2,
       "section.extract.excerpt.line": 2,
       "section.scholion.line": 2,
@@ -379,8 +380,8 @@
     "works_with_logical_served_locus": 1385,
     "pct": 12.5,
     "served_logical_depth_distribution": {
-      "1": 305,
-      "2": 695,
+      "1": 306,
+      "2": 694,
       "3": 315,
       "4": 65,
       "5": 4,
@@ -388,7 +389,7 @@
     },
     "default_edition_physical_only": {
       "what": "default edition cites only by page/volume; promote a logical locus",
-      "count": 579,
+      "count": 580,
       "examples": [
         "adrianus.declamatio",
         "aelius-aristides.ai-gu-ptios",
@@ -443,7 +444,7 @@
       ]
     },
     "no_default_or_scheme": {
-      "count": 9114,
+      "count": 9113,
       "examples": [
         "abydenus.fragmenta",
         "acacius.fragmenta-in-epistulam-ad-romanos-in-catenis",

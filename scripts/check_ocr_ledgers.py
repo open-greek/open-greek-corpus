@@ -60,11 +60,15 @@ def reviewed_run_metadata(row, root):
     This is deliberately separate from served counts: the Phoenix run covered
     the whole 107-image volume, while the admitted poem uses two scan images.
     """
+    if row.get("urn") == "herodas.mimiambi":
+        from editorial_role_manifestations import reviewed_run_metadata as role_metadata
+        return role_metadata(row, root)
     if (row.get("urn") != "phoenix.fragmenta"
             or row.get("edition") != "qwen36-phoenix_choliambi_crusius"
             or not (root / "data/corpus_changes/phoenix-crusius-review/changes.json").exists()):
         return {}
-    from repair_phoenix_crusius import ORIGINAL_SHA256, PRIMARY, sha, verify
+    from repair_phoenix_crusius import ORIGINAL_SHA256, PRIMARY, sha
+    from phoenix_current_state import verify
     if sha((root / PRIMARY).read_bytes()) == ORIGINAL_SHA256:
         return {}  # exact undo restores the old serving; historical evidence remains
     audit, _, _ = verify(root)

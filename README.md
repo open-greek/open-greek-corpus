@@ -346,10 +346,34 @@ from the same 21 verses before and after review.
 The OCR ledger retains the historical 107-image volume run, separately from the
 two scan images that supply the served poem; `check_ocr_ledgers.py --write`
 recovers that provenance from the checked source authority.
-Frozen Photius validators run through `check_photius_predecessor.py`, which
-verifies the later Phoenix alias extension before exposing the exact historical
-alias bytes. Photius text, prior alias entries, and published audit files remain
-unchanged.
+Frozen Photius validators run through `check_photius_predecessor.py`, and frozen
+Phoenix checks run through `phoenix_current_state.py`. These verify later
+source-role and citation changes before exposing the exact historical alias
+bytes. Photius and Phoenix text and their published audit files remain unchanged.
+Use `python3 scripts/phoenix_current_state.py --check` on the current checkout;
+the original migration commands require their historical input state.
+
+The Herodas and Hipponax source-role review separates editorial material from
+authorial reading text and lexical exports. Herodas retains 62 verse passages;
+84 excluded spans include headings, speaker labels, apparatus, and commentary.
+The Headlam–Knox scan also establishes boundaries inside nine mixed rows.
+Hipponax retains the 25-word fragment in First1K section `frag128`; Homeric
+parallels, testimony, variants, and commentary remain separately attributed.
+Historical citations still resolve, and every original character and reading
+is recoverable. This does not complete the partial Herodas text or settle its
+OCR spellings and editorial restorations.
+
+`python3 scripts/repair_editorial_roles.py --apply --source-pdf HERODAS.pdf
+--source-tei HIPPONAX.xml` builds the role partition from the exact pinned
+sources. Subsequent `--apply` and `--check` replay the bundled inputs;
+`--undo` restores their literal preimages. The source scans, TEI, observations,
+and reversible records are in `data/corpus_changes/editorial-role-review/`.
+`python3 scripts/editorial_role_manifestations.py --write` regenerates the
+Herodas scan-copy binding, and `build_corpus_loci.py` reproduces the Hipponax
+partition during TEI ingestion. Excluded material is retained in
+`data/paratext/herodas-headlam-knox.jsonl` and
+`data/paratext/hipponax-brandt1888.jsonl`. See the
+[source review](docs/editorial-role-review.md) for scope and evidence.
 
 Hesychius rows follow the scan-checked alphabetical ranges, including gloss
 continuations. Schmidt's separately headed ethnic-word index is retained in
@@ -2422,7 +2446,7 @@ The release and known-limitations builders require the current component
 report and reject catalog token totals or mixed correction statuses that do
 not agree with it.
 <!-- OCR-PROVENANCE:START -->
-1397 listed works/volumes containing OCR: 127 manually corrected, 878 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 388 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
+1397 listed works/volumes containing OCR: 127 manually corrected, 879 auto-corrected (deterministic glyph-confusion, frequency and collation passes; edited but not hand-reviewed), 387 classified raw OCR, 4 mixed/unassessed. Correction labels apply to homogeneous works; mixed works have no assessed whole-work correction status. Works are named by their author.work slug; the TLG/CTS mapping is in `data/tlg_crosswalk.tsv`. Words counts whole-work eligible Greek tokens in the checked frequency projection; exact OCR component counts are in `data/source_component_tokens.json`, and inclusive surface counts are in `data/coverage.json`. This table omits OCR volumes that have not been divided into works; the component report includes every primary corpus file.
 
 | Work (slug) | Content | Downloaded | OCR model | Words | Correction |
 |---|---|---|---|--:|---|
@@ -3103,7 +3127,7 @@ not agree with it.
 | hermias-history.fragmenta | Hermias - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 515 | auto-corrected |
 | hermippus-comedy.fragmenta | Hermippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,960 | auto-corrected |
 | hermippus-comedy.fragmenta-4 | Hermippus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
-| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam-Knox](https://archive.org/details/herodasmimesfrag00hero) | Qwen3.6-27B | 2,846 | raw OCR |
+| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam–Knox 1922 (reviewed scan copy)](https://archive.org/details/mimesfragments00hero) | Qwen3.6-27B | 2,036 | auto-corrected |
 | heron.definitiones | Heron - Definitiones | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,192 | auto-corrected |
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |

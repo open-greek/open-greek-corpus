@@ -103,11 +103,17 @@ from repair_mathematical_citations import (  # noqa: E402
     validate_source as validate_mathematical_source,
 )
 from scan_coverage_extensions import load_extensions, combine_rows  # noqa: E402
+from editorial_roles import (  # noqa: E402
+    paratext_path as editorial_paratext_path,
+    partition_editorial_rows,
+    validate_source as validate_editorial_role_source,
+)
 
 
 def validate_source(work, edition, source, path):
     validate_manetho_source(work, edition, source, path)
     validate_mathematical_source(work, edition, source, path)
+    validate_editorial_role_source(work, edition, source, path)
 
 
 def remap_record(row):
@@ -345,6 +351,21 @@ def _atomic_write_text(path: Path, text: str) -> None:
     tmp = path.with_name(path.name + ".tmp")
     tmp.write_text(text, encoding="utf-8")
     os.replace(tmp, path)
+
+
+def write_editorial_paratext(root: Path, work: str, rows: list[dict]) -> None:
+    """Reproduce the reviewed sidecar without replacing unrelated retained data."""
+    if not rows:
+        return
+    relative = editorial_paratext_path(work)
+    if relative is None:
+        raise ValueError("No reviewed destination for editorial paratext")
+    path = root / relative
+    text = "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows)
+    if path.exists() and path.read_text(encoding="utf-8") != text:
+        raise ValueError("Reviewed editorial paratext differs from the reproducible source partition")
+    path.parent.mkdir(parents=True, exist_ok=True)
+    _atomic_write_text(path, text)
 
 
 def load_text_corrections(path: Path = TEXT_CORRECTIONS) -> dict[tuple[str, str], list[dict]]:
@@ -1241,6 +1262,13 @@ def main() -> None:
             rec = remap_record(rec)
             out_lines.append(json.dumps(rec, ensure_ascii=False))
         base_rows = [json.loads(line) for line in out_lines]
+        base_rows, retained_editorial = partition_editorial_rows(key, base_rows)
+        if retained_editorial:
+            # Only the reviewed Hipponax manifestation takes this branch.
+            # Iteration still exposes every cited source section, while the
+            # corpus and its counts contain the authorial fragment alone.
+            out_lines = [json.dumps(row, ensure_ascii=False) for row in base_rows]
+            n_tokens = sum(len(_GK.findall(row["text"])) for row in base_rows)
         extensions = load_extensions(REPO, key,
             {row["locus"] for row in base_rows}, base_rows)
         if extensions:
@@ -1248,6 +1276,7 @@ def main() -> None:
                          for row in combine_rows(key, base_rows, extensions)]
         extension_tokens = sum(len(_GK.findall(row.get("analysis_text", row["text"])))
                                for row in extensions)
+        write_editorial_paratext(REPO, key, retained_editorial)
         _atomic_write_text(CORPUS / f"{key}.jsonl",
                            "".join(line + "\n" for line in out_lines))
         if disamb_map:
@@ -1290,6 +1319,19 @@ def main() -> None:
         #                           the change is auditable and invertible from the
         #                           report alone.
         bad: dict[str, object] = {}
+        if retained_editorial:
+            bad["retained_editorial_sections"] = len(retained_editorial)
+            bad["retained_editorial_path"] = editorial_paratext_path(key)
+            bad["retained_editorial_tokens"] = sum(
+                len(_GK.findall(row["text"])) for row in retained_editorial)
+            bad["retained_editorial_chars"] = sum(
+                len(token) for row in retained_editorial for token in _GK.findall(row["text"]))
+            bad["primary_corpus_chars"] = sum(
+                len(token) for row in base_rows for token in _GK.findall(row["text"]))
+            # Keep the existing dropped_chars diagnostic about source text that
+            # had no citable extraction. Deliberately retained editorial text
+            # was extracted successfully; it was routed, rather than dropped.
+            bad["extracted_source_chars"] = emitted_chars
         if emitted_chars < body_chars_total:
             bad["dropped_chars"] = body_chars_total - emitted_chars
         if n_collapsed:

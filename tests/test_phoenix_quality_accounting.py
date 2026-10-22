@@ -8,7 +8,8 @@ from build_ocr_quality_report import (greek_tokens, iter_records,
                                       phoenix_review_qualification)
 from check_ocr_ledgers import reviewed_run_metadata
 from frequency_projection import FrequencyProjection
-from repair_phoenix_crusius import PRIMARY, verify
+from repair_phoenix_crusius import PRIMARY
+from phoenix_current_state import verify
 
 
 def test_scope_and_same_verse_comparisons_are_separate():
