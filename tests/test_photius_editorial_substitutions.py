@@ -260,6 +260,7 @@ def test_fresh_build_and_public_literal_check_have_distinct_source_contracts(cas
     files,audit=editorial.build(tmp_path,source_html=case['source_raw']); save(tmp_path,files)
     assert editorial.check_literal(tmp_path)==audit
     assert editorial.check(tmp_path,source_html=case['source_raw'])==audit
+    monkeypatch.delenv('PHOTIUS_COMPARISON_HTML',raising=False)
     with pytest.raises(ValueError,match='requires --source-html'):
         editorial.check(tmp_path)
     source=tmp_path/'edition.html'; source.write_bytes(case['source_raw']+b'changed')

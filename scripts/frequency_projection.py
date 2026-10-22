@@ -37,11 +37,18 @@ def projection_recipe_pins():
               "photius_uncertainty_observations.py", "repair_photius_uncertainty_admission.py",
               "check_photius_pilot_predecessor.py", "prepare_photius_uncertainty_pilot.py",
               "photius_uncertainty_pilot_observations.py", "repair_photius_editorial_substitutions.py",
-              "prepare_photius_editorial_substitutions.py")
+              "prepare_photius_editorial_substitutions.py", "repair_photius_editorial_continuation.py",
+              "prepare_photius_editorial_continuation.py", "photius_remaining_context.py",
+              "photius_remaining_roles.py", "photius_remaining_words.py", "photius_current_state.py")
+    names += tuple(path.name for path in sorted(scripts.glob('photius_remaining_manual_*.py')))
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("photius_editorial_continuation"):
+        from repair_photius_editorial_continuation import lexical_segments
+        lexical_segments(rec)
+        return rec["analysis_text"]
     if rec.get("photius_editorial_substitution"):
         from repair_photius_editorial_substitutions import lexical_segments
         lexical_segments(rec)
@@ -126,6 +133,9 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if rec.get("photius_editorial_continuation"):
+            from repair_photius_editorial_continuation import lexical_segments
+            return lexical_segments(rec)
         if rec.get("photius_editorial_substitution"):
             from repair_photius_editorial_substitutions import lexical_segments
             return lexical_segments(rec)

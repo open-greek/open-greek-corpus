@@ -260,16 +260,17 @@ def complete_review_qualification(root: Path) -> dict | None:
     """Publish checked scan-review accounting without claiming corpus admission."""
     import prepare_photius_review_campaign as campaign
     from build_photius_review_observations import build
-    from repair_photius_complete_review import (AUDIT, active_metadata, later_metadata,
-                                               current_uncertainty_measurement)
+    from repair_photius_complete_review import AUDIT, active_metadata
+    from photius_current_state import predecessor_view, later_metadata, current_uncertainty_measurement
     root = Path(root)
     if not (root / campaign.MANIFEST).exists():
         return None
     outputs, result = build(root)
     if any((root / path).read_bytes() != raw for path, raw in outputs.items()):
         raise ValueError('Photius complete-passage review accounting is stale')
-    admitted = active_metadata(root)
-    later_reviews = later_metadata(root)
+    with predecessor_view(root) as previous:
+        admitted = active_metadata(previous)
+        later_reviews = later_metadata(previous, current_root=root)
     current_measurement = current_uncertainty_measurement(later_reviews)
     if admitted and admitted['source_review']['sha256'] != hashlib.sha256(outputs[campaign.OUT]).hexdigest():
         raise ValueError('Admitted Photius review differs from its current source observations')

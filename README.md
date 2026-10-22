@@ -1193,10 +1193,10 @@ pilot remains a frozen experiment; all prior corpus audits and citation aliases
 are unchanged. Current quality and coverage measurements distinguish the latest
 count from the historical campaign's 3,069 uncertainties.
 
-Run `python3 scripts/repair_photius_uncertainty_admission.py --check` to verify
+Run `make check-photius-uncertainty-admission` to verify
 the served admission, including fresh source crops and exact reconstruction of
 the pilot with its archived recipes. The standalone historical check is
-`python3 scripts/check_photius_pilot_predecessor.py --check`. New admission
+`make check-photius-uncertainty-pilot`. New admission
 records live in `data/corpus_changes/photius-bekker-uncertainty-admission/`;
 `--undo` restores the exact preceding corpus without requiring live correction
 sources. Reverse this layer before the older uncertainty, context, and complete
@@ -1205,8 +1205,10 @@ remain effective after each source resolution.
 
 A subsequent [editorial substitution layer](docs/photius-editorial-substitutions.md)
 uses the TLG Greek reading from Henry's edition at 2,592 unambiguous occurrences.
-The current served unresolved count is **385**: 340 unmapped spans, six tied
-matches, and 39 nonbody spans. These editorial choices do not certify Bekker's
+That stage left **385** unresolved spans. Its broad categories included 192
+already located readings blocked by rendering, 133 without a located reading,
+ten split words, six ties, five empty gaps, and 39 source-role cases. The later
+continuation below publishes the current count. These editorial choices do not certify Bekker's
 printing. The scan measurement remains 2,977, with the original reading,
 alternative source readings, exact HTML references, and reversible changes
 preserved separately. The base edition label remains Bekker; the per-span
@@ -1217,7 +1219,28 @@ witnesses, artifact pins, projections, and exact replay without a private source
 file. With the supplied comparison HTML available through
 `PHOTIUS_COMPARISON_HTML`, `make check-photius-editorial-source` freshly repeats
 the context search and verifies every selected reading. Undo this editorial
-layer before the 70-span source admission and all earlier review layers.
+layer after undoing its continuation, then before the 70-span source admission
+and all earlier review layers. Historical check targets use an exact predecessor
+view so the frozen source recipes and archives remain unchanged.
+
+The [editorial continuation](docs/photius-editorial-continuation.md) reviews all
+385 held identities through a new reversible authority. It resolves **358**,
+leaving **27** explicitly held occurrences. It retains complete
+Greek spans and internal punctuation, including quotation marks stored in
+separate HTML nodes, while excluding source line numbers and reference labels.
+Ordered context can locate longer uncertain phrases without using their
+tentative spellings or token counts to select a match. Independently inspected
+reading announcements and transmitted commentary receive explicit source-role
+decisions; modern marginal references stay excluded. Four new scan-supported
+fixes to previously verified text are recorded and counted separately.
+
+Run `make check-photius-editorial-continuation` for public witness, pin, replay,
+and projection validation. With `PHOTIUS_COMPARISON_HTML` set, run
+`make check-photius-editorial-continuation-source` to reconstruct the complete
+selection from the supplied source and validate the scan crops. The generated
+audit is under `data/corpus_changes/photius-bekker-editorial-continuation/`;
+its counts and current quality reports retain every held case and its reason.
+Undo the continuation before all preceding layers.
 
 The optional `scripts/compare_photius_local_edition.py` accepts a user-supplied
 comparison HTML file for location diagnostics. The raw comparison HTML is not
@@ -3471,7 +3494,7 @@ not agree with it.
 | phoenix.fragmenta | Phoenix - Fragmenta | qwen36-phoenix_choliambi_crusius | Qwen3.6-27B | 29,998 | auto-corrected |
 | photius.amphilochia | Photius - Amphilochia (Migne main series: prooemium + quaestiones I-CCCXXI+, truncated) (PG101 loci 44-611) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 214,141 | manual |
 | photius.amphilochia-supplementum | Photius - Amphilochia, supplementum: fuller recensions of selected quaestiones (PG101 loci 664-673) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,884 | auto-corrected |
-| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 282,315 | mixed-unassessed |
+| photius.bibliotheca | Photius - Bibliotheca | Component credits in `data/source_registry.json` | OCR and digital components; see coverage composition | 283,125 | mixed-unassessed |
 | photius.commentarii-in-joannem-in-catenis | Photius - Commentarii in Joannem (in catenis) - Migne/Mai fragment series (PG101 loci 641-641) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 336 | auto-corrected |
 | photius.commentarii-in-matthaeum-in-catenis | Photius - Commentarii in Matthaeum (in catenis) - Migne/Mai fragment series (PG101 loci 620-630) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 3,601 | manual |
 | photius.fragmenta-in-epistulam-ad-romanos-in-catenis | Photius - Fragmenta in epistulam ad Romanos (in catenis) - Migne/Mai fragment series (PG101 loci 642-651) | [calfa-co Patrologia Graeca](https://github.com/calfa-co/Patrologia-Graeca) | calfa-co | 4,207 | auto-corrected |

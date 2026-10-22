@@ -43,8 +43,13 @@ def _snapshot(root):
                 'audit_compression.py', 'repair_photius_context.py',
                 'repair_photius_uncertainties.py', 'repair_photius_uncertainty_admission.py',
                 'check_photius_pilot_predecessor.py', 'repair_photius_editorial_substitutions.py',
-                'prepare_photius_editorial_substitutions.py')}
+                'prepare_photius_editorial_substitutions.py', 'photius_current_state.py',
+                'repair_photius_editorial_continuation.py', 'prepare_photius_editorial_continuation.py',
+                'photius_remaining_context.py', 'photius_remaining_roles.py', 'photius_remaining_words.py')}
+    paths.update(path.relative_to(root) for path in
+        (root/'data/corpus_changes/photius-bekker-editorial-continuation').rglob('*') if path.is_file())
     paths.update(scripts)
+    paths.update(path.relative_to(root) for path in (root/'scripts').glob('photius_remaining_manual_*.py'))
     return {path.as_posix(): sha((root / path).read_bytes()) for path in sorted(paths)}
 
 
@@ -72,8 +77,17 @@ def _predecessor(root):
 
 
 def _authority(root):
-    metadata = {'context': context.active_metadata(root),
-                'uncertainties': uncertainties.active_metadata(root)}
+    from photius_current_state import predecessor_view, continuation_metadata
+    with predecessor_view(root) as previous:
+        metadata = _predecessor_authority(previous)
+    latest = continuation_metadata(root)
+    if latest:
+        metadata['editorial_continuation'] = latest
+    return metadata
+
+
+def _predecessor_authority(root):
+    metadata = {'context': context.active_metadata(root), 'uncertainties': uncertainties.active_metadata(root)}
     if any(value is None for value in metadata.values()):
         raise ValueError('Current diagnostic requires both active later review layers')
     latest = uncertainty_admission.active_metadata(root)
@@ -106,13 +120,15 @@ def build(root=ROOT):
     report['current_context_authority'] = {
         **authority,
         'qualification': 'Use these later reviews for effective counterpart associations and lexical exclusions. Fragment-local edges in this diagnostic are comparison candidates only.'}
-    from repair_photius_complete_review import current_uncertainty_measurement
+    from photius_current_state import current_uncertainty_measurement
     report['current_source_measurement'] = current_uncertainty_measurement({
         'uncertainty_review': authority['uncertainties'],
         **({'uncertainty_admission': authority['uncertainty_admission']}
            if authority.get('uncertainty_admission') else {}),
         **({'editorial_substitutions': authority['editorial_substitutions']}
-           if authority.get('editorial_substitutions') else {})})
+           if authority.get('editorial_substitutions') else {}),
+        **({'editorial_continuation': authority['editorial_continuation']}
+           if authority.get('editorial_continuation') else {})})
     report['current_diagnostic_recipe'] = {
         'path': 'scripts/build_photius_historical_assessment.py',
         'sha256': before['scripts/build_photius_historical_assessment.py']}

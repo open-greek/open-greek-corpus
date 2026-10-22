@@ -3,17 +3,17 @@
  "what": "Known quality limitations of the served corpus whose safe automatic repair classes are exhausted. Closing the linked work item accepts the measured limitation; it does not assert that the count is zero. Active coverage findings remain open work. Resolved coverage findings retain their transmission qualifications and tagged-release close criterion.",
  "decision_date": "2026-09-15",
  "generated_from": {
-  "corpus_sha256": "eaca433ef6260ac1b78b0bfaeee4b8bd33828aa167b034b001ae619b64580ba8",
+  "corpus_sha256": "022cf16617436bde3a3a8b02d682f41b38031fb2f7137044545d9bd14905601f",
   "source_components": {
    "artifact": "data/source_component_tokens.json",
-   "sha256": "2a07b314908daad2e962612dc52a1d48c9b087ddfa14490f876a095ff09e3811",
-   "corpus_sha256": "eaca433ef6260ac1b78b0bfaeee4b8bd33828aa167b034b001ae619b64580ba8",
+   "sha256": "778da1a9ec201aa1c2f278fae3c74ebc304ac75aa6dfa7e7ccc00681ebc06fc1",
+   "corpus_sha256": "022cf16617436bde3a3a8b02d682f41b38031fb2f7137044545d9bd14905601f",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "totals": {
-    "analysis_tokens": 65812907,
-    "mixed_ocr_analysis_tokens": 552169,
+    "analysis_tokens": 65813717,
+    "mixed_ocr_analysis_tokens": 552979,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29680696,
+    "ocr_analysis_tokens": 29681506,
     "ocr_passages": 1349148,
     "ocr_works": 1416,
     "passages": 1966924,
@@ -76,7 +76,7 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 25327465,
+     "analysis_tokens": 25328275,
      "passages": 1337730,
      "works": 1217
     },
@@ -223,7 +223,7 @@
      }
     },
     "photius.bibliotheca": {
-     "analysis_tokens": 282315,
+     "analysis_tokens": 283125,
      "components": [
       {
        "analysis_tokens": 151161,
@@ -233,7 +233,7 @@
        "source": "ocr"
       },
       {
-       "analysis_tokens": 129149,
+       "analysis_tokens": 129959,
        "edition": "bekker1825-complete-source-reviewed",
        "license": "CC-BY-SA-4.0",
        "passages": 3462,
@@ -272,12 +272,12 @@
      "mixed_ocr_digital": true,
      "non_ocr_analysis_tokens": 429,
      "non_ocr_passages": 2,
-     "ocr_analysis_tokens": 281886,
+     "ocr_analysis_tokens": 282696,
      "ocr_passages": 3780,
      "passages": 3782,
      "sources": {
       "ocr": {
-       "analysis_tokens": 281886,
+       "analysis_tokens": 282696,
        "passages": 3780
       },
       "reviewed-text-consensus": {
@@ -291,19 +291,19 @@
   },
   "corpus_catalog": {
    "path": "data/corpus_catalog.tsv",
-   "sha256": "369f5694acd33a164da942df7f66a932f0065596421f53b7339d130f5e23e7c5"
+   "sha256": "8ae50153315925547e9e80ada04749bea9fb907da8d82999c76109b6229b1844"
   },
   "correction_stamp_gap": {
    "path": "data/correction_stamp_gap.json",
-   "sha256": "e8f4e6d355e71fbd967f838e815e9e60ad80a914f03764e45f45048a859a4a08"
+   "sha256": "db3aef5b227231a15e09ae4d042f89d3312fc6c5b0c0f99e2f20138ac3a0c1d3"
   },
   "nonfinal_graves": {
    "path": "data/nonfinal_graves.json",
-   "sha256": "db0f4d82b3a94a3d670988a0239ac4f4c8b2189893c47f962a7b45d4f0b3dbee"
+   "sha256": "7fecfdf5dc6e27401b06afc509197e7607d7cb95ce65b8f97942b50a39428848"
   },
   "completeness": {
    "path": "data/inventory/completeness-batch-report.json",
-   "sha256": "7cdbb6445706328b9354a7243fc9f4e8c4ef678a415cc2301ac4796f1b860a1a"
+   "sha256": "131e37f4870630aa0596ae5b463ccf2274e5f6b7fcdb8bf942557acb6a4916b8"
   }
  },
  "active_coverage_findings": [],
@@ -13177,28 +13177,1511 @@
        "unsubstituted_source_uncertainty_spans": 385
       },
       "qualification": "Editorial substitutions are distinct from scan verification. Original scan uncertainties remain in the frozen source review."
+     },
+     "editorial_continuation": {
+      "audit": {
+       "path": "data/corpus_changes/photius-bekker-editorial-continuation/changes.json",
+       "sha256": "e88d641346490fbb23ae42d79dd773d68095095284617076f5634b820d3504ee"
+      },
+      "source_review": {
+       "path": "data/corpus_changes/photius-bekker-editorial-continuation/compiled-review.json.gz",
+       "sha256": "92e1bda2d83523cb07f8611c429bd869d819dea9a9decd71da5809f0e0d99d4a",
+       "uncompressed_sha256": "2ecfd678185abfaaf3b5f69a813c761da05aee90db440cc9c12e16d6baa1cbf5"
+      },
+      "source": {
+       "citation": "Thesaurus Linguae Graecae, Photius, Bibliotheca, 4040.001; Henry edition",
+       "edition": "René Henry, Photius. Bibliothèque, volumes 1–8 (1959–1977)",
+       "id": "tlg-photius-henry",
+       "qualification": "Greek base text only; editorial substitution, not Bekker scan verification. TLG is acknowledged as the comparison text provider.",
+       "sha256": "8ffaad0d30bdd87e87b9e24f55495a6b56d64e91591c1e393e4d2e82dd5b6daa",
+       "url": "https://stephanus.tlg.uci.edu/Iris/indiv/browser.jsp#doc=tlg&aid=4040&wid=001"
+      },
+      "counts": {
+       "changed_display_rows": 249,
+       "changed_spans": 346,
+       "current_uncertainty_spans": 27,
+       "decisions": 385,
+       "editorially_substituted_spans": 2950,
+       "fresh_source_corrections": 4,
+       "newly_editorially_substituted_spans": 358,
+       "previous_current_uncertainty_spans": 385,
+       "primary_rows_after": 3782,
+       "primary_rows_before": 3782,
+       "remaining_by_reason": {
+        "empty-gap": 5,
+        "individually-held-reading": 9,
+        "marginal-reference": 3,
+        "split-word": 10
+       },
+       "rows": 282,
+       "scan_uncertainty_spans": 2977,
+       "source_reviewed_role_spans": 36,
+       "substituted_identities": [
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0006.85",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0008.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0008.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0008.3",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0009.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0009.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0011.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0011.3",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0011.4",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0011.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0012.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0012.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0012.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0013.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0013.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0014.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0014.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0014.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0015.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0015.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0015.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0018.19",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0018.36",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0019.10",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0019.43",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0019.43",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0020.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0020.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0022.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0022.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0022.4",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0024.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0025.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0025.3",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0025.3",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0025.3",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0025.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0026.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0028.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0029.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0029.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0029.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0029.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0031.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0032.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0032.7",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0032.11",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0032.22",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0032.25",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0032.47",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0033.1",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0033.20",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0033.22",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0034.3",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0035.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0035.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0035.2",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0037.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0037.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0038.30",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0038.38",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0039.2",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0039.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0039.4",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0039.4",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0040.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0040.2",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0040.2",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0040.2",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0041.1",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0041.1",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0041.1",
+         "segment_index": 4
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0041.1",
+         "segment_index": 6
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0042.1",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0042.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0042.3",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0042.6",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0043.11",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0044.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0044.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0044.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0044.2",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0044.17",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0044.22",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0046.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0047.35",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0047.35",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0047.47",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0048.8",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0049.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0049.4",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0050.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0050.4",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0050.4",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0050.10",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0050.10",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0051.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0051.5",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0051.5",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0052.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0052.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0052.6",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0052.6",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0052.6",
+         "segment_index": 19
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0053.5",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0053.7",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0053.7",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0056.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0056.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0057.44",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0058.8",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0058.8",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0058.8",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0058.9",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0061.7",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0062.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0064.5",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0068.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0069.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0069.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0069.14",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0069.31",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0071.4",
+         "segment_index": 6
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0077.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0077.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0078.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0078.21",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0078.25",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0078.29",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0080.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0080.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0082.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0082.32",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0083.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0084.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0086.26",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0088.2",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0088.7",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0089.31",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0089.47",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0091.35",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0092.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0094.8",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0095.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0095.3",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0095.3",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0097.44",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0101.1",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0145.16",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0145.19",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0145.20",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0145.30",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0145.30",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0147.2",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0151.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0152.1",
+         "segment_index": 8
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0153.1",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0153.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0153.5",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0154.32",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0156.2",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0156.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0157.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0157.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0158.1",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0158.5",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.1",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 6
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 10
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 12
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 16
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 19
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 21
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 24
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0159.2",
+         "segment_index": 26
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.2",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.2",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.3",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0160.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0161.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0161.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0161.5",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0161.5",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0161.5",
+         "segment_index": 4
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0162.6",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0162.7",
+         "segment_index": 6
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0163.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0164.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0164.5",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0164.6",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0164.8",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0164.8",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0165.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0168.2",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0171.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0172.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0172.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0172.7",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0173.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0173.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0173.2",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0173.3",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0174.1",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0176.3",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0177.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0180.4",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0180.25",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0180.28",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0182.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0187.18",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0187.46",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0188.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0188.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0188.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0190.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0192.7",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0193.11",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0194.2",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0194.2",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.3",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.12",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.12",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.17",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.26",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.38",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.39",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.52",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0195.52",
+         "segment_index": 6
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0196.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0197.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0197.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0197.3",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0197.3",
+         "segment_index": 19
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0198.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0198.1",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0198.1",
+         "segment_index": 23
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0198.1",
+         "segment_index": 27
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0199.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0201.3",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0201.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0202.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0202.17",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0202.23",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0203.4",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0204.2",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0204.4",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0204.4",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0206.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0207.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0207.5",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0208.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0208.4",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0209.23",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0209.28",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0210.2",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0210.2",
+         "segment_index": 19
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0211.48",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0211.48",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0212.17",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0212.22",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0212.23",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0213.2",
+         "segment_index": 19
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0214.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0214.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0214.4",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0215.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0215.47",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0217.6",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0217.6",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0217.14",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0217.23",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0220.6",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0221.2",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0221.2",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0221.7",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0223.18",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0223.18",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0224.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0225.45",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0225.46",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0226.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0226.3",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0227.18",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0229.9",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0229.48",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0230.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0233.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0233.30",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0234.2",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0235.14",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0235.20",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0236.6",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0237.1",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0238.6",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0240.5",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0241.1",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0241.19",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0244.2",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0244.2",
+         "segment_index": 23
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0246.9",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0246.25",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0246.40",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0247.4",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0248.4",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0248.4",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0250.48",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0250.48",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0250.48",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0251.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0259.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0259.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0259.3",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0260.5",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0260.18",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.1",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 19
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 21
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0261.4",
+         "segment_index": 23
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0262.4",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0263.7",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0263.24",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0263.39",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0264.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0264.7",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0265.3",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0265.3",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0266.3",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0267.2",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0267.2",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0268.1",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0268.1",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0270.1",
+         "segment_index": 1
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0270.2",
+         "segment_index": 9
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0270.2",
+         "segment_index": 11
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0271.3",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0271.5",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0271.5",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0272.1",
+         "segment_index": 15
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0273.3",
+         "segment_index": 5
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0275.31",
+         "segment_index": 0
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0275.31",
+         "segment_index": 2
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0278.1",
+         "segment_index": 3
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0278.1",
+         "segment_index": 7
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0278.1",
+         "segment_index": 13
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0278.1",
+         "segment_index": 17
+        },
+        {
+         "locus": "helladius_chrestomathia_photius_bekker_v2_0279.3",
+         "segment_index": 3
+        }
+       ],
+       "unsubstituted_source_uncertainty_spans": 27
+      },
+      "qualification": "Editorial preferences remain distinct from the immutable scan-review measurements."
      }
     },
     "current_measurement": {
      "baseline_uncertainty_spans": 3069,
-     "current_uncertainty_spans": 385,
+     "current_uncertainty_spans": 27,
      "resolved_uncertainty_spans": 92,
      "source_review": {
-      "path": "data/corpus_changes/photius-bekker-editorial-substitutions/compiled-review.json.gz",
-      "sha256": "76abb40a4759da8659bf8646fc80a9310c1c519adc6fb4a7ef3fe5b767fed633",
-      "uncompressed_sha256": "c908b6635fd1974b5ab8e1a004f33bbaa5290f5b8fe03f3943b85438087a0e4e"
+      "path": "data/corpus_changes/photius-bekker-editorial-continuation/compiled-review.json.gz",
+      "sha256": "92e1bda2d83523cb07f8611c429bd869d819dea9a9decd71da5809f0e0d99d4a",
+      "uncompressed_sha256": "2ecfd678185abfaaf3b5f69a813c761da05aee90db440cc9c12e16d6baa1cbf5"
      },
-     "qualification": "Current served unresolved count after scan resolutions and explicit editorial source substitutions. Editorial choices do not verify ambiguous Bekker ink: the separate scan uncertainty count and original source readings remain historical evidence. Independent lexical exclusion causes survive.",
+     "qualification": "Current served unresolved count after successive attributed editorial substitutions. Original scan uncertainties and scan-resolution counts remain historical measurements; editorial source choices are not scan verification. Independent fragment and nonbody exclusions survive unless separately source reviewed.",
      "scan_uncertainty_spans": 2977,
      "scan_resolved_uncertainty_spans": 92,
-     "editorially_substituted_spans": 2592,
-     "unsubstituted_source_uncertainty_spans": 385,
-     "addressed_uncertainty_spans": 2684,
+     "editorially_substituted_spans": 2950,
+     "unsubstituted_source_uncertainty_spans": 27,
+     "addressed_uncertainty_spans": 3042,
      "scan_source_review": {
       "path": "data/corpus_changes/photius-bekker-uncertainty-admission/source-review.json",
       "sha256": "675e9b0a86ceb2356966771914d66308cfd3d81e2cef851d7ecacd5670ca45ac"
      },
      "editorial_source_review": {
+      "path": "data/corpus_changes/photius-bekker-editorial-continuation/compiled-review.json.gz",
+      "sha256": "92e1bda2d83523cb07f8611c429bd869d819dea9a9decd71da5809f0e0d99d4a",
+      "uncompressed_sha256": "2ecfd678185abfaaf3b5f69a813c761da05aee90db440cc9c12e16d6baa1cbf5"
+     },
+     "newly_editorially_substituted_spans": 358,
+     "fresh_source_corrections": 4,
+     "previous_editorial_source_review": {
       "path": "data/corpus_changes/photius-bekker-editorial-substitutions/compiled-review.json.gz",
       "sha256": "76abb40a4759da8659bf8646fc80a9310c1c519adc6fb4a7ef3fe5b767fed633",
       "uncompressed_sha256": "c908b6635fd1974b5ab8e1a004f33bbaa5290f5b8fe03f3943b85438087a0e4e"
@@ -13240,12 +14723,12 @@
     "added_passages": 309,
     "preserved_index_passages": 501,
     "publication": {
-     "declared_release": "corpus-2026-10-21.6",
+     "declared_release": "corpus-2026-10-21.7",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
    },
-   "corpus_file_sha256": "ca9b4f853cf048a798b614e6d6ecd4a6650bf2a2c6d1536dd080d5bb3f604348"
+   "corpus_file_sha256": "aa39e3465387f5f192a509acbb7b8107c4641e3bf2a92bdf774d3253b2c7a1a0"
   },
   {
    "slug": "cyrillus-theology.commentarii-in-joannem",
@@ -13274,7 +14757,7 @@
      "held_other_works": 474
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.6",
+     "declared_release": "corpus-2026-10-21.7",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -13375,7 +14858,7 @@
      "preserved_historical_citations": 304
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.6",
+     "declared_release": "corpus-2026-10-21.7",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -13475,7 +14958,7 @@
      "preserved_historical_citations": 57
     },
     "publication": {
-     "declared_release": "corpus-2026-10-21.6",
+     "declared_release": "corpus-2026-10-21.7",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -13727,7 +15210,7 @@
      }
     ],
     "publication": {
-     "declared_release": "corpus-2026-10-21.6",
+     "declared_release": "corpus-2026-10-21.7",
      "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
      "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
     }
@@ -13755,9 +15238,9 @@
    "issue": "https://github.com/open-greek/open-greek-corpus/issues/2",
    "status": "accepted-measured-limitation",
    "current_measurement": {
-    "ocr_component_tokens": 29680696,
+    "ocr_component_tokens": 29681506,
     "mixed_works": 4,
-    "mixed_ocr_tokens": 552169,
+    "mixed_ocr_tokens": 552979,
     "global_raw_bounds_status": "withheld-component-provenance-unassessed",
     "global_raw_token_bounds": null,
     "legacy_homogeneous_work_bucket": {

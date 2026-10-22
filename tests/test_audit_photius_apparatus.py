@@ -11,8 +11,15 @@ import audit_photius_apparatus as audit
 import repair_photius_index as index
 
 
-def test_confirmed_lower_bound_is_distinct_from_heuristic_candidates():
-    report = audit.build()
+@pytest.fixture(scope='module')
+def historical_root():
+    from photius_current_state import predecessor_view
+    with predecessor_view(ROOT) as previous:
+        yield previous
+
+
+def test_confirmed_lower_bound_is_distinct_from_heuristic_candidates(historical_root):
+    report = audit.build(historical_root)
     assert report["historical_rows"] == 3846
     assert report["historical_pages"] == 236
     assert report["preserved_index_rows_outside_scope"] == 501
@@ -42,8 +49,8 @@ def test_new_edition_rows_do_not_change_historical_audit_but_changed_old_rows_fa
         audit.build(tmp_path)
 
 
-def test_optional_scan_verification_rejects_an_unpinned_pdf(tmp_path):
+def test_optional_scan_verification_rejects_an_unpinned_pdf(tmp_path, historical_root):
     path = tmp_path / "source.pdf"
     path.write_bytes(b"another scan")
     with pytest.raises(ValueError, match="Unexpected source scan"):
-        audit.build(source_scan=path)
+        audit.build(historical_root, source_scan=path)
