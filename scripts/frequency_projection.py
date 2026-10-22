@@ -46,12 +46,18 @@ def projection_recipe_pins():
         if (scripts / name).exists())
     names += ("repair_phoenix_crusius.py", "phoenix_crusius_source_observations.py",
               "phoenix_crusius_witnesses.py")
+    names += ("citation_alias_state.py", "phoenix_current_state.py", "repair_editorial_roles.py",
+              "herodas_source_observations.py", "editorial_roles.py")
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("editorial_role_review"):
+        from repair_editorial_roles import lexical_segments
+        lexical_segments(rec)
+        return rec.get("analysis_text", rec["text"])
     if rec.get("crusius_source_review"):
-        from repair_phoenix_crusius import lexical_segments
+        from phoenix_current_state import lexical_segments
         lexical_segments(rec)
         return rec["analysis_text"]
     if rec.get("photius_final_review"):
@@ -146,8 +152,11 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if rec.get("editorial_role_review"):
+            from repair_editorial_roles import lexical_segments
+            return lexical_segments(rec)
         if rec.get("crusius_source_review"):
-            from repair_phoenix_crusius import lexical_segments
+            from phoenix_current_state import lexical_segments
             return lexical_segments(rec)
         if rec.get("photius_final_review"):
             from repair_photius_final_review import lexical_segments
@@ -221,6 +230,7 @@ class FrequencyProjection:
         """Conservative context for measurements that infer lexical case folds."""
         text = lexical_text(rec)
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
-        if key in self.rows or "analysis_text" in rec or rec.get("critical_markup") or rec.get("ocr_consensus"):
+        if (key in self.rows or "analysis_text" in rec or rec.get("critical_markup")
+                or rec.get("ocr_consensus") or rec.get("editorial_role_review")):
             return None
         return text

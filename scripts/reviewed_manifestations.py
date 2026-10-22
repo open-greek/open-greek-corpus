@@ -746,7 +746,9 @@ def _phoenix(root):
 
 def reviewed_manifestation_metadata(root=ROOT):
     root = Path(root)
-    return {**_meibom(root), **_scan_extensions(root), **_photius(root), **_cyril(root), **_phoenix(root)}
+    from editorial_role_manifestations import metadata as editorial_roles
+    return {**_meibom(root), **_scan_extensions(root), **_photius(root), **_cyril(root), **_phoenix(root),
+            **editorial_roles(root)}
 
 
 def register_reviewed_manifestations(registry, root=ROOT):

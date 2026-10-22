@@ -79,9 +79,27 @@ def test_exact_undo_is_recognized_without_requiring_an_invalidated_new_source(tm
     before = json.loads(gzip.decompress((ROOT / phoenix.AUDIT / "before.json.gz").read_bytes()))
     retained = Path(phoenix.RETAINED)
     scan = Path(phoenix.AUDIT) / "source-scan.pdf"
-    state._overlay(ROOT, tmp_path, {state.ALIASES.parts: before[phoenix.ALIASES].encode(),
+    overrides = {state.ALIASES.parts: before[phoenix.ALIASES].encode(),
         Path(phoenix.PRIMARY).parts: before[phoenix.PRIMARY].encode(), retained.parts: b"",
-        scan.parts: b""})
+        scan.parts: b""}
+    # This tests the historical Phoenix undo, before later independent role
+    # admissions. Mixing that undo with newer active role aliases is invalid.
+    import repair_editorial_roles as roles
+    role_before = ROOT / roles.AUDIT / "before.json.gz"
+    missing = []
+    if role_before.exists():
+        original = json.loads(gzip.decompress(role_before.read_bytes()))
+        for path, text in original.items():
+            if path != roles.ALIASES:
+                overrides[Path(path).parts] = text.encode() if text is not None else b""
+                if text is None:
+                    missing.append(Path(path))
+        authority = Path(roles.AUDIT) / "changes.json"
+        overrides[authority.parts] = b""
+        missing.append(authority)
+    state._overlay(ROOT, tmp_path, overrides)
+    for path in missing:
+        (tmp_path / path).unlink()
     (tmp_path / retained).unlink()
     (tmp_path / scan).unlink()
     with state.prior_alias_view(tmp_path) as previous:

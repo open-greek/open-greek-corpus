@@ -109,6 +109,9 @@ CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
                     scripts/phoenix_crusius_witnesses.py \
+                    scripts/citation_alias_state.py scripts/phoenix_current_state.py \
+                    scripts/repair_editorial_roles.py scripts/herodas_source_observations.py scripts/editorial_roles.py \
+                    $(wildcard data/corpus_changes/editorial-role-review/*) \
                     $(wildcard data/corpus_changes/phoenix-crusius-review/*) \
                     $(PHOTIUS_LATER_INPUTS) \
                     scripts/repair_photius_apparatus.py \
@@ -124,6 +127,10 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
+    scripts/citation_alias_state.py scripts/phoenix_current_state.py \
+    scripts/repair_editorial_roles.py scripts/herodas_source_observations.py scripts/editorial_roles.py \
+    scripts/editorial_role_manifestations.py \
+    $(wildcard data/corpus_changes/editorial-role-review/*) \
     $(wildcard data/corpus_changes/phoenix-crusius-review/*) \
     $(PHOTIUS_LATER_INPUTS) \
     scripts/repair_photius_apparatus.py \
@@ -461,6 +468,7 @@ capital-positions:
 # to check them concurrently. Every command remains a required prerequisite.
 .PHONY: check-ocr-ledgers \
         check-phoenix-crusius \
+        check-editorial-roles \
         check-photius-apparatus-repair \
         check-photius-readings \
         check-photius-historical-readings \
@@ -483,6 +491,7 @@ capital-positions:
 # when the independent prerequisites run concurrently.
 check: check-photius-complete-review \
        check-phoenix-crusius \
+       check-editorial-roles \
        check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
        check-photius-review-observations \
        check-known-limitations \
@@ -503,7 +512,11 @@ check-ocr-ledgers:
 	$(PY) scripts/check_ocr_ledgers.py
 
 check-phoenix-crusius:
-	$(PY) scripts/repair_phoenix_crusius.py --check
+	$(PY) scripts/phoenix_current_state.py --check
+
+check-editorial-roles:
+	$(PY) scripts/repair_editorial_roles.py --check
+	$(PY) scripts/editorial_role_manifestations.py --check
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

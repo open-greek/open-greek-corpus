@@ -346,10 +346,32 @@ from the same 21 verses before and after review.
 The OCR ledger retains the historical 107-image volume run, separately from the
 two scan images that supply the served poem; `check_ocr_ledgers.py --write`
 recovers that provenance from the checked source authority.
-Frozen Photius validators run through `check_photius_predecessor.py`, which
-verifies the later Phoenix alias extension before exposing the exact historical
-alias bytes. Photius text, prior alias entries, and published audit files remain
-unchanged.
+Frozen Photius validators run through `check_photius_predecessor.py`, and frozen
+Phoenix checks run through `phoenix_current_state.py`. These verify later
+source-role and citation changes before exposing the exact historical alias
+bytes. Photius and Phoenix text and their published audit files remain unchanged.
+
+The Herodas and Hipponax source-role review separates editorial material from
+authorial reading text and lexical exports. Herodas retains 62 verse passages;
+84 excluded spans include headings, speaker labels, apparatus, and commentary.
+The Headlam–Knox scan also establishes boundaries inside nine mixed rows.
+Hipponax retains the 25-word fragment in First1K section `frag128`; Homeric
+parallels, testimony, variants, and commentary remain separately attributed.
+Historical citations still resolve, and every original character and reading
+is recoverable. This does not complete the partial Herodas text or settle its
+OCR spellings and editorial restorations.
+
+`python3 scripts/repair_editorial_roles.py --apply --source-pdf HERODAS.pdf
+--source-tei HIPPONAX.xml` builds the role partition from the exact pinned
+sources. Subsequent `--apply` and `--check` replay the bundled inputs;
+`--undo` restores their literal preimages. The source scans, TEI, observations,
+and reversible records are in `data/corpus_changes/editorial-role-review/`.
+`python3 scripts/editorial_role_manifestations.py --write` regenerates the
+Herodas scan-copy binding, and `build_corpus_loci.py` reproduces the Hipponax
+partition during TEI ingestion. Excluded material is retained in
+`data/paratext/herodas-headlam-knox.jsonl` and
+`data/paratext/hipponax-brandt1888.jsonl`. See the
+[source review](docs/editorial-role-review.md) for scope and evidence.
 
 Hesychius rows follow the scan-checked alphabetical ranges, including gloss
 continuations. Schmidt's separately headed ethnic-word index is retained in

@@ -149,7 +149,8 @@ def unattested_stats(records: list[dict], attested: set[str], frequency=None) ->
 
 def phoenix_review_qualification(root, records, attested, frequency):
     """Separate work-boundary cleanup from changes to the same 21 verse readings."""
-    from repair_phoenix_crusius import AUDIT, PRIMARY, PRIMARY_LOCI, verify
+    from repair_phoenix_crusius import AUDIT, PRIMARY, PRIMARY_LOCI
+    from phoenix_current_state import verify
     if not (root / AUDIT / "changes.json").exists():
         return None
     audit, before, _ = verify(root)
@@ -173,6 +174,26 @@ def phoenix_review_qualification(root, records, attested, frequency):
             "the new lexical projection excludes supplied tokens. Unattested forms are a "
             "triage signal, not measured recognition errors or automatic correction candidates. "
             "The edition supplies Coronistae only, not all surviving Phoenix fragments."}
+
+
+def herodas_role_qualification(root):
+    """Describe the scope change separately from recognition-error measurements."""
+    from repair_editorial_roles import AUDIT
+    from editorial_role_manifestations import metadata
+    path = root / AUDIT / "changes.json"
+    if not path.exists():
+        return None
+    current = metadata(root)
+    if "herodas.mimiambi" not in current:
+        return None
+    return {"audit": {"path": f"{AUDIT}/changes.json",
+                "sha256": hashlib.sha256(path.read_bytes()).hexdigest()},
+        "scope": "Source-role review of the 136 previously served Headlam–Knox rows",
+        "counts": current["herodas.mimiambi"]["coverage_composition"]["counts"],
+        "qualification": "The review separates authorial verse from speaker labels, headings, "
+            "apparatus, and commentary without correcting Greek spellings. The token change "
+            "measures source boundaries, not character error rate or recognition accuracy. "
+            "It does not certify every retained OCR reading or complete the missing Herodas pages."}
 
 
 def witness_norm(tok: str) -> str:
@@ -393,6 +414,10 @@ def main() -> None:
             reviewed = phoenix_review_qualification(REPO, records, attested, frequency)
             if reviewed is not None:
                 works[slug]['source_review'] = reviewed
+        if slug == 'herodas.mimiambi':
+            reviewed = herodas_role_qualification(REPO)
+            if reviewed is not None:
+                works[slug]['source_role_review'] = reviewed
 
     # TEI-primary works whose displaced secondary is OCR: the OCR containment
     # in the trusted primary is a corpus-level OCR quality estimate.
