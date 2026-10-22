@@ -553,10 +553,10 @@ check-photius-editorial-continuation-source:
 	$(PY) scripts/check_photius_predecessor.py --stage editorial-continuation-source
 
 check-photius-final-review:
-	$(PY) scripts/repair_photius_final_review.py --check-literal
+	$(PY) scripts/check_photius_predecessor.py --stage final-review
 
 check-photius-final-review-source:
-	$(PY) scripts/repair_photius_final_review.py --check
+	$(PY) scripts/check_photius_predecessor.py --stage final-review-source
 
 check-photius-apparatus-audit:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus-audit

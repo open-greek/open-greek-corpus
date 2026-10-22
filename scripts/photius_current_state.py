@@ -9,6 +9,8 @@ from __future__ import annotations
 from contextlib import contextmanager
 from copy import deepcopy
 import hashlib
+import gzip
+import json
 from pathlib import Path
 import tempfile
 
@@ -41,6 +43,38 @@ def _overlay(source, destination, overrides):
             if not child.is_dir():
                 raise ValueError('Predecessor corpus has a non-directory ancestor')
             target.mkdir(); _overlay(child, target, matched)
+
+
+@contextmanager
+def prior_alias_view(root=ROOT):
+    """Expose exact earlier aliases after checking a later unrelated extension.
+
+    Frozen Photius recipes own their historical whole-file alias pin. The
+    Phoenix authority proves that its new aliases leave every old entry
+    unchanged; only those later additions are hidden from the old validators.
+    """
+    root = Path(root).absolute()
+    phoenix = root/'data/corpus_changes/phoenix-crusius-review'
+    if not (phoenix/'changes.json').exists():
+        yield root
+        return
+    from repair_phoenix_crusius import verify
+    before = json.loads(gzip.decompress((phoenix/'before.json.gz').read_bytes()))
+    previous = before[ALIASES.as_posix()].encode()
+    current = (root/ALIASES).read_bytes()
+    if current == previous:
+        yield root  # an already materialized historical view, or exact undo
+        return
+    verify(root)
+    pins = _pins(phoenix)
+    try:
+        with tempfile.TemporaryDirectory(prefix='photius-alias-predecessor-') as directory:
+            view = Path(directory)
+            _overlay(root, view, {ALIASES.parts: previous})
+            yield view
+    finally:
+        if (root/ALIASES).read_bytes() != current or _pins(phoenix) != pins:
+            raise ValueError('Later citation authority changed during predecessor validation')
 
 
 @contextmanager
@@ -78,10 +112,11 @@ def _stage_view(root, *, module_name, archive, audit, tag, label):
 @contextmanager
 def continuation_view(root=ROOT):
     """Expose the exact continuation postimage to its frozen validators."""
-    with _stage_view(root, module_name='repair_photius_final_review',
-                     archive=FINAL_ARCHIVE, audit=FINAL_AUDIT,
-                     tag=FINAL_TAG, label='Final review') as previous:
-        yield previous
+    with prior_alias_view(root) as alias_root:
+        with _stage_view(alias_root, module_name='repair_photius_final_review',
+                         archive=FINAL_ARCHIVE, audit=FINAL_AUDIT,
+                         tag=FINAL_TAG, label='Final review') as previous:
+            yield previous
 
 
 @contextmanager
@@ -112,7 +147,8 @@ def final_metadata(root=ROOT):
             raise ValueError('Final review metadata has no frozen authority')
         return None
     from repair_photius_final_review import active_metadata
-    return active_metadata(root)
+    with prior_alias_view(root) as previous:
+        return active_metadata(previous)
 
 
 def later_metadata(root=ROOT, *, current_root=None):

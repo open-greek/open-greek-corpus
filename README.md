@@ -346,6 +346,10 @@ from the same 21 verses before and after review.
 The OCR ledger retains the historical 107-image volume run, separately from the
 two scan images that supply the served poem; `check_ocr_ledgers.py --write`
 recovers that provenance from the checked source authority.
+Frozen Photius validators run through `check_photius_predecessor.py`, which
+verifies the later Phoenix alias extension before exposing the exact historical
+alias bytes. Photius text, prior alias entries, and published audit files remain
+unchanged.
 
 Hesychius rows follow the scan-checked alphabetical ranges, including gloss
 continuations. Schmidt's separately headed ethnic-word index is retained in
