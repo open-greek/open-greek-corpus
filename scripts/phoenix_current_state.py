@@ -61,8 +61,8 @@ def main():
     parser.add_argument("--root", type=Path, default=frozen.ROOT)
     parser.add_argument("--check", action="store_true", required=True)
     args = parser.parse_args()
-    audit, _, _ = verify(args.root)
-    print(json.dumps(audit["counts"], sort_keys=True))
+    with phoenix_alias_view(args.root) as previous:
+        frozen.run(previous, "check")
 
 
 if __name__ == "__main__":

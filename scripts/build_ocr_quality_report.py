@@ -149,9 +149,11 @@ def unattested_stats(records: list[dict], attested: set[str], frequency=None) ->
 
 def phoenix_review_qualification(root, records, attested, frequency):
     """Separate work-boundary cleanup from changes to the same 21 verse readings."""
-    from repair_phoenix_crusius import AUDIT, PRIMARY, PRIMARY_LOCI
+    from repair_phoenix_crusius import AUDIT, ORIGINAL_SHA256, PRIMARY, PRIMARY_LOCI
     from phoenix_current_state import verify
     if not (root / AUDIT / "changes.json").exists():
+        return None
+    if hashlib.sha256((root / PRIMARY).read_bytes()).hexdigest() == ORIGINAL_SHA256:
         return None
     audit, before, _ = verify(root)
     original = [json.loads(line) for line in before[PRIMARY].splitlines()]

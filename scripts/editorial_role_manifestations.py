@@ -4,7 +4,7 @@ import argparse
 import json
 from pathlib import Path
 
-from repair_editorial_roles import AUDIT, CORE, PRIMARY, RETAINED, WORKS, _before, sha, verify
+from repair_editorial_roles import AUDIT, PRIMARY, RETAINED, WORKS, _before, sha, verify
 
 HERODAS_SOURCE = "https://archive.org/details/mimesfragments00hero"
 
@@ -27,8 +27,8 @@ def metadata(root):
         return {}
     audit = json.loads(path.read_bytes())
     _before(root, audit)
-    current = {name: sha((root / name).read_bytes()) if (root / name).is_file() else None for name in CORE}
-    if current == audit["inputs"]:
+    from citation_alias_state import role_is_unapplied
+    if role_is_unapplied(root):
         return {}
     verify(root)
     sources = {

@@ -82,8 +82,8 @@ def test_exact_undo_is_recognized_without_requiring_an_invalidated_new_source(tm
     overrides = {state.ALIASES.parts: before[phoenix.ALIASES].encode(),
         Path(phoenix.PRIMARY).parts: before[phoenix.PRIMARY].encode(), retained.parts: b"",
         scan.parts: b""}
-    # This tests the historical Phoenix undo, before later independent role
-    # admissions. Mixing that undo with newer active role aliases is invalid.
+    # Preserve the later audit while undoing its complete role partition first;
+    # chronological undo must then recognize the earlier Phoenix alias epoch.
     import repair_editorial_roles as roles
     role_before = ROOT / roles.AUDIT / "before.json.gz"
     missing = []
@@ -94,9 +94,6 @@ def test_exact_undo_is_recognized_without_requiring_an_invalidated_new_source(tm
                 overrides[Path(path).parts] = text.encode() if text is not None else b""
                 if text is None:
                     missing.append(Path(path))
-        authority = Path(roles.AUDIT) / "changes.json"
-        overrides[authority.parts] = b""
-        missing.append(authority)
     state._overlay(ROOT, tmp_path, overrides)
     for path in missing:
         (tmp_path / path).unlink()

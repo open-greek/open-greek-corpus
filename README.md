@@ -350,6 +350,8 @@ Frozen Photius validators run through `check_photius_predecessor.py`, and frozen
 Phoenix checks run through `phoenix_current_state.py`. These verify later
 source-role and citation changes before exposing the exact historical alias
 bytes. Photius and Phoenix text and their published audit files remain unchanged.
+Use `python3 scripts/phoenix_current_state.py --check` on the current checkout;
+the original migration commands require their historical input state.
 
 The Herodas and Hipponax source-role review separates editorial material from
 authorial reading text and lexical exports. Herodas retains 62 verse passages;
