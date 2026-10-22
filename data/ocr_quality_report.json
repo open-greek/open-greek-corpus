@@ -30,7 +30,7 @@
   },
   "counts": {
    "ocr_works": 1415,
-   "ocr_works_ranked": 823,
+   "ocr_works_ranked": 822,
    "ocr_works_with_witness": 197,
    "secondary_files": 542,
    "skipped": 133,
@@ -604,9 +604,9 @@
    "max": 0.4788,
    "median": 0.1322,
    "min": 0.0105,
-   "n": 823,
-   "q1": 0.0936,
-   "q3": 0.1662
+   "n": 822,
+   "q1": 0.0935,
+   "q3": 0.1661
   },
   "witness_counting_basis": "Primary bigrams use contiguous eligible runs, never crossing an unresolved or excluded token. Opaque analysis-only projections supply no adjacency evidence. Secondary bigrams measure the archived source surface as a separate witness-quality diagnostic; they are not ordinary corpus attestations."
  },
@@ -12830,13 +12830,62 @@
    "witness": null
   },
   "phoenix.fragmenta": {
-   "edition": "qwen36-phoenix_choliambi_crusius",
-   "n_surface_tokens": 29998,
-   "n_tokens": 29998,
-   "n_tokens_checked": 17001,
-   "n_unattested": 7082,
+   "edition": "crusius-1894-source-reviewed",
+   "n_surface_tokens": 134,
+   "n_tokens": 129,
+   "n_tokens_checked": 87,
+   "n_unattested": 1,
    "source": "ocr",
-   "unattested_rate": 0.416564,
+   "source_review": {
+    "audit": {
+     "path": "data/corpus_changes/phoenix-crusius-review/changes.json",
+     "sha256": "6ceb575a1c671f4cd35fb9cdd0674d14175c15223e2bd781830dcbfec3499bc7"
+    },
+    "counts": {
+     "changed_text_rows": 18,
+     "excluded_supplied_tokens": 4,
+     "lexical_tokens": 129,
+     "original_rows": 2749,
+     "primary_rows": 21,
+     "retained_outside_primary": 2728,
+     "source_scan_pages": [
+      68,
+      69
+     ],
+     "surface_tokens": 133
+    },
+    "legacy_whole_volume": {
+     "n_surface_tokens": 29998,
+     "n_tokens": 29998,
+     "n_tokens_checked": 17001,
+     "n_unattested": 7082,
+     "unattested_rate": 0.416564
+    },
+    "qualification": "The whole-volume rate and the corrected poem have different scopes. The same-verses comparison includes the legacy lost/misread editorial supplies; the new lexical projection excludes supplied tokens. Unattested forms are a triage signal, not measured recognition errors or automatic correction candidates. The edition supplies Coronistae only, not all surviving Phoenix fragments.",
+    "review_token_counting_basis": "Structured critical-text tokens in reading_text; the partially supplied <τού>τῳ is one displayed token. n_surface_tokens uses the report's Greek regex runs and therefore splits that marked token.",
+    "same_verses_before_review": {
+     "n_surface_tokens": 132,
+     "n_tokens": 132,
+     "n_tokens_checked": 87,
+     "n_unattested": 16,
+     "unattested_rate": 0.183908
+    },
+    "scope": "Phoenix Coronistae, 21 verses",
+    "served_after_review": {
+     "n_surface_tokens": 134,
+     "n_tokens": 129,
+     "n_tokens_checked": 87,
+     "n_unattested": 1,
+     "unattested_rate": 0.011494
+    },
+    "top_unattested_forms": [
+     {
+      "form": "Ἐσθλοί",
+      "occurrences": 1
+     }
+    ]
+   },
+   "unattested_rate": 0.011494,
    "witness": null
   },
   "photius.amphilochia": {
@@ -29288,7 +29337,6 @@
  },
  "worst_first": [
   "ocr.walz_rhetores_v4",
-  "phoenix.fragmenta",
   "diels-ppf-1901.paratexta",
   "phanocles.fragmenta",
   "scholia-in-oppianum.scholia-et-glossae-in-cynegetica-scholia-vetera-et-recentiora",

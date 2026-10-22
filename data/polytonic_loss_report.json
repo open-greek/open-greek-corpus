@@ -31,7 +31,7 @@
     ]
   },
   "policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
-  "corpus_sha256": "7d11cf31468c9deabb0a9d5a1054b1a33724050b399c2cec9d54da22ccb37954",
+  "corpus_sha256": "6cb22ea7933fcf3f7d3b13d62c6ed1647aac4b48cdbc87842e5016e837ef33a3",
   "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
   "input_corpus_files": {
     "achaeus.fragmenta.jsonl": "54cea6e5c60658709f2eae7c98507c63a91b4e76bb1a7cd1942b3724950179e9",
@@ -1161,7 +1161,7 @@
     "phocylides.sententiae.jsonl": "851a8a8b24ba1ab2ceeb70f8fd84652576f05529f44b0ed0883561df33bae37d",
     "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii.jsonl": "6fac22b43039ca7248c33d0ee9e6f20dbd3501aade26c28bcaf06eb8ac3e3878",
     "phoenicides.fragmenta.jsonl": "96cbe42378e55720d0a431e230e6078d2de615d1e8769cb9431846432a2f2dfb",
-    "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
+    "phoenix.fragmenta.jsonl": "d4dd6350d6bd5ca6391d0bf4c67ab1f849d351d42e0ff994b59d2cff527bb66b",
     "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
     "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
     "photius.bibliotheca.jsonl": "64f37b6731e5d2429b865e499bb7919e3830f4ec7dfe31b192ce2552a27e6b58",
@@ -1451,11 +1451,11 @@
     "zonaeus.peri-schematon-ton-kata-logon.jsonl": "11bfa2251238929d54c2afb31347c9807d1a6c6d7e68916c4a78a7f4c813b898",
     "zosimus-alchemista.opera.jsonl": "9a86a7651e2857f579a48e1c1e96d3e89b67133bd3aa0351d9764a13c1ba2c94"
   },
-  "page_readings_sha256": "87903df1a4ca9271d858fc7ce151161d0c07ba03afc8ee663ac1f53e7555612a",
+  "page_readings_sha256": "e08370cfb0e7d55b019e2d793129ce501f8db59cd47eca9fa8c0e9185aba3b84",
   "counts": {
-    "readings": 130912,
-    "unassessable": 51272,
-    "unflagged": 79028,
+    "readings": 130853,
+    "unassessable": 51288,
+    "unflagged": 78953,
     "flagged": 612
   },
   "by_source": {
@@ -1468,7 +1468,7 @@
       "flagged": 0
     },
     "ocr": {
-      "readings": 120201,
+      "readings": 120142,
       "flagged": 612
     }
   },

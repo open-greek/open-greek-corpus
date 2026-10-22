@@ -56,8 +56,8 @@
    "works": 3
   },
   "ocr": {
-   "analysis_tokens": 25328295,
-   "passages": 1337730,
+   "analysis_tokens": 25298426,
+   "passages": 1335002,
    "works": 1217
   },
   "perseus": {
@@ -86,7 +86,7 @@
    "works": 3
   }
  },
- "corpus_sha256": "7d11cf31468c9deabb0a9d5a1054b1a33724050b399c2cec9d54da22ccb37954",
+ "corpus_sha256": "6cb22ea7933fcf3f7d3b13d62c6ed1647aac4b48cdbc87842e5016e837ef33a3",
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "frequency_projection_sha256": "d4fc93c201c33195f135d8760cc3b8eddae0946c69bab803a62435387438a391",
  "generated_by": "scripts/build_source_components.py",
@@ -3069,7 +3069,7 @@
   "phocylides.sententiae.jsonl": "851a8a8b24ba1ab2ceeb70f8fd84652576f05529f44b0ed0883561df33bae37d",
   "phoebammon.scholia-peri-schematon-rhetorikon-walz-viii.jsonl": "6fac22b43039ca7248c33d0ee9e6f20dbd3501aade26c28bcaf06eb8ac3e3878",
   "phoenicides.fragmenta.jsonl": "96cbe42378e55720d0a431e230e6078d2de615d1e8769cb9431846432a2f2dfb",
-  "phoenix.fragmenta.jsonl": "9015e9406b4c768489e014c1874c064c3913738aa4954433b7932ea3ee914ce9",
+  "phoenix.fragmenta.jsonl": "d4dd6350d6bd5ca6391d0bf4c67ab1f849d351d42e0ff994b59d2cff527bb66b",
   "photius.amphilochia-supplementum.jsonl": "7cebcc67f86a1aaae2f2a52d2d7e338853dbd6fb2baf431f7ca4667c827db3c3",
   "photius.amphilochia.jsonl": "120fb8067100dbdd43191fcae7b5ff6f20eea42dc34ea458b64ddd41a7a3f234",
   "photius.bibliotheca.jsonl": "64f37b6731e5d2429b865e499bb7919e3830f4ec7dfe31b192ce2552a27e6b58",
@@ -4017,10 +4017,12 @@
   "build_source_components.py": "a7347ceced938378e6276c4c005c3fe233c2b5253a24d49aa40370af0882b667",
   "check_photius_pilot_predecessor.py": "b9d82cbb59215e91dd873d3c8fb5e44ca52813650a6ed56730fd77a428cffd54",
   "critical_text.py": "4af5578de9078ff494c3673f4b58062b8b443fffb390eae3c6401cc1177881ae",
-  "frequency_projection.py": "1708e75ecde77b205ab14d2e47e836f6c561c0b3348dcb7418a137db382e2455",
+  "frequency_projection.py": "81d172243fb37ff5606a1667e4e587a17b4f069ee1107b86b6482af368c5cddd",
   "ocr_consensus.py": "1dec791ff948371617dbdfe5f82f8a901c20172fbfb190325026dc7325dc8f99",
+  "phoenix_crusius_source_observations.py": "fa7dfd70c15bda7080d8686fae8f2cdbb7297a83559e182354121bf48e876305",
+  "phoenix_crusius_witnesses.py": "5775fc228959f22edf239f171179ef4198f6ba6168e297a4ed69a8b5f8a084d1",
   "photius_body_vote.py": "0931e65946540f97ffeee3c8c7f975af21c80294d8b74a87adc686bff1818b24",
-  "photius_current_state.py": "0f78089c04674a69a68fb903d3172751b29551ad90ccb043d4e0e7807274a486",
+  "photius_current_state.py": "473f593ebce9177ea0c38bbdabdd7a964ef6c7502c9aef2af15b84f47cf03b2c",
   "photius_final_boundary_observations.py": "0d5ef55a53c03f4b92c1fd3a10f8f683fa32ead7cbcd497de31b1b568d64d009",
   "photius_final_source_observations.py": "d6da9366bb1aba305d3c12a28d57994f9e853cbdbfdffdd26ed31a0ffa40cdd3",
   "photius_reading_vote.py": "12dcf44df4381bec2cf8339651513e0e388c32b710e2743ded46ad61565dbce9",
@@ -4037,6 +4039,7 @@
   "prepare_photius_editorial_substitutions.py": "79d070b5d8f4460dfa92f8b48c2e780ac700395fce1264a0948ee22a16ea8b8c",
   "prepare_photius_review_campaign.py": "4ef586e6bb30bcb07a7e0222b851bb3b13c8cc7f6b99301f5c0698f7e5b6e516",
   "prepare_photius_uncertainty_pilot.py": "55f59e5e2ccd3125e435804fbcbecfc55c50c584b491125ba611f527438c8ed4",
+  "repair_phoenix_crusius.py": "26c177960e3654cd55a21b7419bb651287ce4d7ba44ffafd8175fd69223e0096",
   "repair_photius_apparatus.py": "81167bb6febfc1a8433190c57a5efa3d9a128b5a09b3cad826eb10b4c4654583",
   "repair_photius_body.py": "cdec501910a0eed9aed96318b56fb4df87145f2bcdf07666818579e636970075",
   "repair_photius_complete_review.py": "de119efdfb8ab2d84c46e617ca5117aa5fee4c437fe5020aa0967ca2a814ee71",
@@ -4053,13 +4056,13 @@
  "schema_version": 1,
  "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
  "totals": {
-  "analysis_tokens": 65813737,
+  "analysis_tokens": 65783868,
   "mixed_ocr_analysis_tokens": 552999,
   "mixed_works": 4,
-  "ocr_analysis_tokens": 29681526,
-  "ocr_passages": 1349148,
+  "ocr_analysis_tokens": 29651657,
+  "ocr_passages": 1346420,
   "ocr_works": 1416,
-  "passages": 1966924,
+  "passages": 1964196,
   "works": 3914
  },
  "works": {
@@ -79118,13 +79121,13 @@
    }
   },
   "phoenix.fragmenta": {
-   "analysis_tokens": 29998,
+   "analysis_tokens": 129,
    "components": [
     {
-     "analysis_tokens": 29998,
-     "edition": "qwen36-phoenix_choliambi_crusius",
+     "analysis_tokens": 129,
+     "edition": "crusius-1894-source-reviewed",
      "license": "PD",
-     "passages": 2749,
+     "passages": 21,
      "source": "ocr"
     }
    ],
@@ -79132,13 +79135,13 @@
    "mixed_ocr_digital": false,
    "non_ocr_analysis_tokens": 0,
    "non_ocr_passages": 0,
-   "ocr_analysis_tokens": 29998,
-   "ocr_passages": 2749,
-   "passages": 2749,
+   "ocr_analysis_tokens": 129,
+   "ocr_passages": 21,
+   "passages": 21,
    "sources": {
     "ocr": {
-     "analysis_tokens": 29998,
-     "passages": 2749
+     "analysis_tokens": 129,
+     "passages": 21
     }
    }
   },

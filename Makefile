@@ -427,7 +427,8 @@ $(PG003_GEOM): data/cache/ia/PG003_djvu.xml scripts/measure_pg003_head_geometry.
 # letter. Build the totals first and the column is right; trust them stale and
 # it is worse than the ledger it replaces.
 README.md: $(CORPUS_FILES) scripts/build_provenance.py scripts/build_readme_figures.py \
-           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS)
+           data/work_index.json $(CORPUS_EDITIONS) $(WORK_LEMMAS) $(SOURCE_COMPONENTS) \
+           data/ocr_works.json data/inventory/ocr_edition_sources.json
 	$(PY) scripts/build_provenance.py
 	$(PY) scripts/build_readme_figures.py --write
 
