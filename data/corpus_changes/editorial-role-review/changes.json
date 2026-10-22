@@ -1,0 +1,55 @@
+{
+ "schema_version": 1,
+ "recorded_at": "2026-10-22T13:03:53.978556+00:00",
+ "recipe_sha256": {
+  "repair_editorial_roles.py": "60a8b55bde4b054653a2d09f69095ae25ccc0bb0d1f4a6c2f97bcd422e926cda",
+  "herodas_source_observations.py": "406885c8e3e73d9e127f2d05ac1c436ac95c2d2284ef8d8717434c1614503c33",
+  "editorial_roles.py": "12bbfda4cc2afc989ff04de5a3f82579aff07e4411da20f1aac6769b451cfeed"
+ },
+ "generator": "scripts/repair_editorial_roles.py",
+ "qualification": "This review separates the source roles of the existing 136 Herodas rows and five Hipponax rows. It does not supply missing Herodas pages, certify every OCR spelling, resolve editorial restorations, or claim a complete corpus of either author's surviving fragments. Excluded material remains citable with its literal source text and attribution.",
+ "inputs": {
+  "data/corpus/hipponax.fragmenta.jsonl": "6177c705abade229dbfcaa8f01bd555b46393d8f62c6f3853c6f5fc5dc89bf68",
+  "data/corpus/herodas.mimiambi.jsonl": "266915ced62896c3503c2ae0bb59bfc202a7e25dfe6c8ff1035313cdfaa00274",
+  "data/paratext/hipponax-brandt1888.jsonl": null,
+  "data/paratext/herodas-headlam-knox.jsonl": null,
+  "data/passage_aliases.json": "4fe8acad64c0922a71d72a5434b34dd58ca044731d6ad6451b1a54edf891d74e"
+ },
+ "counts": {
+  "herodas.mimiambi": {
+   "original_rows": 136,
+   "primary_rows": 62,
+   "retained_spans": 84,
+   "original_surface_tokens": 2850,
+   "primary_surface_tokens": 2036,
+   "retained_surface_tokens": 814,
+   "original_analysis_tokens": 2846,
+   "primary_analysis_tokens": 2036,
+   "retained_analysis_tokens": 810
+  },
+  "hipponax.fragmenta": {
+   "original_rows": 5,
+   "primary_rows": 1,
+   "retained_spans": 4,
+   "original_surface_tokens": 154,
+   "primary_surface_tokens": 25,
+   "retained_surface_tokens": 129,
+   "original_analysis_tokens": 154,
+   "primary_analysis_tokens": 25,
+   "retained_analysis_tokens": 129
+  }
+ },
+ "outputs": {
+  "data/corpus/herodas.mimiambi.jsonl": "b50c5d810cac0a8a44a2acdd567aa1c7f7e7266e83698325122501b0656e68ef",
+  "data/paratext/herodas-headlam-knox.jsonl": "662532a4662396e080be5f5376abc5419dca9f8762291aba45467b99f184b392",
+  "data/corpus/hipponax.fragmenta.jsonl": "42afc388823708deaabe0a868a127a48be89ea5b5f919280669c5370f94171b9",
+  "data/paratext/hipponax-brandt1888.jsonl": "35b7381839548e2babd0a0059ca1bad98f7d03676effedae11fbc5eb292f697a",
+  "data/passage_aliases.json": "ec5cc674b960e7fee8c191e8c4ba407d143b920e8e9c12aa3375c366d2ae38a6",
+  "data/corpus_changes/editorial-role-review/before.json.gz": "d95ed9f3fe00b7f22a81436d99db4f52c32b61fc43981e54bc11bafe6b94221b",
+  "data/corpus_changes/editorial-role-review/source-review.json": "2fe9b049a6ac1f0ac7ae124ea42f91b484cf284fdd89484e8a8a096b3d35b95d",
+  "data/corpus_changes/editorial-role-review/records.jsonl.gz": "045ec280d00ea0b751309b77a24c79c28221420e66f579d26b973d45e91d4380",
+  "data/corpus_changes/editorial-role-review/source-herodas.pdf": "6568f0c8efb9f8efce1ea9917da2b30dbe16cf8a1147ea2503a6dd0280a8fa1a",
+  "data/corpus_changes/editorial-role-review/source-hipponax.xml": "82415a5b06330fc223aa5d15080b078637ff6eb354efeef2ec7b85019be090b7"
+ },
+ "reversal": "python3 scripts/repair_editorial_roles.py --undo; rebuild derived metadata"
+}
