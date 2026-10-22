@@ -3144,7 +3144,7 @@ not agree with it.
 | hermias-history.fragmenta | Hermias - Fragmenta | qwen36-aristobulus_fhg3 | Qwen3.6-27B | 515 | auto-corrected |
 | hermippus-comedy.fragmenta | Hermippus - Fragmenta | kock-caf1-ocr-frag | Qwen3.6-27B | 1,960 | auto-corrected |
 | hermippus-comedy.fragmenta-4 | Hermippus - Fragmenta | bergk-plg2-ocr-frag | Qwen3.6-27B | 310 | raw OCR |
-| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam–Knox 1922 (reviewed scan copy)](https://archive.org/details/mimesfragments00hero) | Qwen3.6-27B | 2,036 | auto-corrected |
+| herodas.mimiambi | Herodas - Mimiambi | [Herodas, ed. Headlam–Knox 1922 (reviewed scan copy)](https://archive.org/details/mimesfragments00hero) | Qwen3.6-27B | 4,954 | auto-corrected |
 | heron.definitiones | Heron - Definitiones | qwen36-heron_definitiones_teubner4 | Qwen3.6-27B | 56,192 | auto-corrected |
 | heron.geometrica | HERO ALEXANDRINUS - Geometrica | qwen36-heron-heiberg-v4 | Qwen3.6-27B | 47,029 | raw OCR |
 | hesiodus.fragmenta | Hesiodus - Fragmenta | qwen36-hesiod_rzach-ocr | Qwen3.6-27B | 16,011 | auto-corrected |
