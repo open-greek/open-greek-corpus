@@ -603,6 +603,7 @@ def _photius_predecessor(root, *, current_root):
         **({"historical_reading_layer": historical} if historical else {}),
         **({"historical_reading_batches": historical_batches} if historical_batches else {}),
         **({"complete_source_review": complete} if complete else {}),
+        **({"final_review": later_reviews['final_review']} if later_reviews.get('final_review') else {}),
         "qualification": report["edition_scope"]}}}
 
 

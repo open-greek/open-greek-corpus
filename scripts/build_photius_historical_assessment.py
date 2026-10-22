@@ -45,9 +45,13 @@ def _snapshot(root):
                 'check_photius_pilot_predecessor.py', 'repair_photius_editorial_substitutions.py',
                 'prepare_photius_editorial_substitutions.py', 'photius_current_state.py',
                 'repair_photius_editorial_continuation.py', 'prepare_photius_editorial_continuation.py',
-                'photius_remaining_context.py', 'photius_remaining_roles.py', 'photius_remaining_words.py')}
+                'photius_remaining_context.py', 'photius_remaining_roles.py', 'photius_remaining_words.py',
+                'repair_photius_final_review.py', 'photius_final_boundary_observations.py',
+                'photius_final_source_observations.py')}
     paths.update(path.relative_to(root) for path in
         (root/'data/corpus_changes/photius-bekker-editorial-continuation').rglob('*') if path.is_file())
+    paths.update(path.relative_to(root) for path in
+        (root/'data/corpus_changes/photius-bekker-final-review').rglob('*') if path.is_file())
     paths.update(scripts)
     paths.update(path.relative_to(root) for path in (root/'scripts').glob('photius_remaining_manual_*.py'))
     return {path.as_posix(): sha((root / path).read_bytes()) for path in sorted(paths)}
@@ -77,12 +81,15 @@ def _predecessor(root):
 
 
 def _authority(root):
-    from photius_current_state import predecessor_view, continuation_metadata
+    from photius_current_state import predecessor_view, continuation_metadata, final_metadata
     with predecessor_view(root) as previous:
         metadata = _predecessor_authority(previous)
     latest = continuation_metadata(root)
     if latest:
         metadata['editorial_continuation'] = latest
+    final = final_metadata(root)
+    if final:
+        metadata['final_review'] = final
     return metadata
 
 
@@ -128,7 +135,8 @@ def build(root=ROOT):
         **({'editorial_substitutions': authority['editorial_substitutions']}
            if authority.get('editorial_substitutions') else {}),
         **({'editorial_continuation': authority['editorial_continuation']}
-           if authority.get('editorial_continuation') else {})})
+           if authority.get('editorial_continuation') else {}),
+        **({'final_review': authority['final_review']} if authority.get('final_review') else {})})
     report['current_diagnostic_recipe'] = {
         'path': 'scripts/build_photius_historical_assessment.py',
         'sha256': before['scripts/build_photius_historical_assessment.py']}

@@ -6,7 +6,7 @@ import argparse
 import importlib
 import json
 
-from photius_current_state import ROOT, predecessor_view
+from photius_current_state import ROOT, predecessor_view, continuation_view
 
 STAGES = {
     'apparatus': ('repair_photius_apparatus','check'),
@@ -24,6 +24,11 @@ STAGES = {
 
 
 def check(stage, root=ROOT, *, source_html=None):
+    if stage in {'editorial-continuation', 'editorial-continuation-source'}:
+        from repair_photius_editorial_continuation import check as fresh, check_literal
+        with continuation_view(root) as previous:
+            return (fresh(previous, source_html=source_html)
+                    if stage.endswith('-source') else check_literal(previous))
     with predecessor_view(root) as previous:
         if stage == 'apparatus-audit':
             module = importlib.import_module('audit_photius_apparatus')
@@ -45,7 +50,8 @@ def check(stage, root=ROOT, *, source_html=None):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--stage',required=True,choices=(*STAGES,'apparatus-audit','review-observations'))
+    parser.add_argument('--stage',required=True,choices=(*STAGES,'apparatus-audit','review-observations',
+                                                       'editorial-continuation','editorial-continuation-source'))
     parser.add_argument('--source-html')
     args = parser.parse_args()
     result = check(args.stage,source_html=args.source_html)
