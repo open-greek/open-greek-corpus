@@ -42,6 +42,26 @@ def test_published_recovery_replays_and_undo_survives_source_removal(tmp_path):
     assert primary.read_bytes() == before[recovery.PRIMARY].encode()
 
 
+@pytest.mark.skipif(not (ROOT / recovery.AUDIT / "networks.json.gz").exists(),
+                    reason="Production recovery networks have not been admitted")
+def test_every_published_vote_key_resolves_both_reviewed_and_raw_networks():
+    from ocr_consensus import compact_corpus_consensus, restore_corpus_consensus
+    rows = [json.loads(line) for line in (ROOT / recovery.PRIMARY).read_text().splitlines()]
+    rows = [row for row in rows if row.get("herodas_body_recovery")]
+    assert len(rows) == 22
+    for row in rows:
+        reference = row["ocr_consensus"]["full_network"]
+        networks = json.loads(gzip.decompress((ROOT / reference["path"]).read_bytes()))
+        full = networks[reference["key"]]
+        projection = compact_corpus_consensus(full, reference)
+        assert all(row[key] == value for key, value in projection.items())
+        assert restore_corpus_consensus(projection, full) == full
+        raw_reference = full["ocr_consensus"]["raw_ocr_network"]
+        assert raw_reference["path"] == reference["path"]
+        raw = networks[raw_reference["key"]]
+        assert recovery.unapply_scan_review(full, raw) == raw
+
+
 def review(text, **extra):
     return {"text": text, "reviewed_at": "2026-10-22T17:00:00Z",
         "evidence": "Pinned scan, page 76, source-confirmed printed reading.",

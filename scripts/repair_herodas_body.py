@@ -348,7 +348,7 @@ def apply_scan_review(raw_vote, review, number, spec):
                 "source_pdf_sha256": SCAN_SHA256, "scan_page": number, "region": spec["region"],
                 "source_review": f"{AUDIT}/source-readings.json", "reviewed_at": review["reviewed_at"]}})
     key = f"herodas_hk_{number:04d}.1:raw"
-    reference = compact_corpus_consensus(raw_vote, {"path": f"{AUDIT}/records.json.gz", "key": key})["ocr_consensus"]["full_network"]
+    reference = compact_corpus_consensus(raw_vote, {"path": f"{AUDIT}/networks.json.gz", "key": key})["ocr_consensus"]["full_network"]
     correction = {"generator": "scripts/repair_herodas_body.py", "source_kind": "manual-scan-review",
         "original_text": raw_vote["text"], "corrected_text": text,
         "original_analysis_text": raw_vote["analysis_text"],
@@ -417,7 +417,7 @@ def build_outputs(before, packet, request_raw, predictions_raw, reviewed_at):
         raw_vote, projections = merge_page(number, packet["pages"][str(number)], fresh[f"herodas-hk-body-{number:04d}"], spec, readings[number])
         vote, correction = apply_scan_review(raw_vote, readings[number], number, spec)
         locus = f"herodas_hk_{number:04d}.1"
-        compact = compact_corpus_consensus(vote, {"path": f"{AUDIT}/records.json.gz", "key": locus})
+        compact = compact_corpus_consensus(vote, {"path": f"{AUDIT}/networks.json.gz", "key": locus})
         row = {"urn": WORK, "edition": "herodas-hk-ocr", "source": "ocr", "license": "PD",
             "locus": locus, **compact, "herodas_body_recovery": {"schema_version": 1,
                 "authority": f"{AUDIT}/changes.json", "scan_sha256": SCAN_SHA256,
@@ -479,6 +479,18 @@ def _replayed_outputs(before_raw, packet_raw, request_raw, prediction_raw, revie
     return tuple(sorted(outputs.items())), encoded(records), encoded(counts)
 
 
+def network_archive(records):
+    """Publish both full layers under their literal compact-reference keys."""
+    networks = {}
+    for record in records:
+        for key, result in ((record["locus"], record["full_vote"]),
+                            (record["locus"] + ":raw", record["raw_vote"])):
+            if key in networks:
+                raise ValueError("Herodas full vote archive repeats a published key")
+            networks[key] = result
+    return encoded(networks)
+
+
 def _before(root, audit):
     path = f"{AUDIT}/before.json.gz"
     raw = (Path(root) / path).read_bytes()
@@ -500,7 +512,7 @@ def verify(root, *, active=True):
     before = _before(root, audit)
     required = {*CORE, *(f"{AUDIT}/{name}" for name in (
         "before.json.gz", "historical-witnesses.json.gz", "request.json", "fresh-predictions.jsonl",
-        "source-readings.json", "source-inventory.json", "records.json.gz"))}
+        "source-readings.json", "source-inventory.json", "records.json.gz", "networks.json.gz"))}
     if set(audit["outputs"]) != required:
         raise ValueError("Herodas recovery output authority changed")
     for relative, digest in {**SOURCE_FILES, **audit["outputs"]}.items():
@@ -521,6 +533,8 @@ def verify(root, *, active=True):
     outputs = dict(replay)
     if records_raw != gzip.decompress((root / AUDIT / "records.json.gz").read_bytes()) or counts_raw != encoded(audit["counts"]):
         raise ValueError("Herodas body records do not replay their source decisions")
+    if network_archive(json.loads(records_raw)) != gzip.decompress((root / AUDIT / "networks.json.gz").read_bytes()):
+        raise ValueError("Herodas full vote references do not resolve their archived layers")
     if any(sha(raw) != audit["outputs"][path] or active and (root / path).read_bytes() != raw for path, raw in outputs.items()):
         raise ValueError("Herodas body literal output differs from its source replay")
     return audit, before, outputs
@@ -621,7 +635,8 @@ def run(root, mode, *, witnesses=None, request=None, predictions=None, reviewed_
         f"{AUDIT}/request.json": request_raw, f"{AUDIT}/fresh-predictions.jsonl": prediction_raw,
         f"{AUDIT}/source-readings.json": encoded(source_readings()),
         f"{AUDIT}/source-inventory.json": encoded(build_inventory()),
-        f"{AUDIT}/records.json.gz": gzip.compress(records_raw, mtime=0), **outputs}
+        f"{AUDIT}/records.json.gz": gzip.compress(records_raw, mtime=0),
+        f"{AUDIT}/networks.json.gz": gzip.compress(network_archive(json.loads(records_raw)), mtime=0), **outputs}
     audit = {"schema_version": 1, "recorded_at": reviewed_at, "qualification": QUALIFICATION,
         "inputs": {PRIMARY: INPUT_SHA256}, "sources": SOURCE_FILES, "recipe_sha256": pins,
         "outputs": {path: sha(raw) for path, raw in payloads.items()}, "counts": counts}

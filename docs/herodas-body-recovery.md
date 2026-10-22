@@ -92,7 +92,9 @@ source review resolves most of those disagreements without discarding them.
 `data/corpus_changes/herodas-headlam-knox-body/` contains `changes.json`, the
 literal `before.json.gz`, historical witnesses, the recognition request and raw
 fresh predictions, generated source inventory and source readings, and
-reversible occurrence records. The audit pins these files and the replay
+reversible occurrence records. `networks.json.gz` maps each published vote key
+directly to its full result; the `:raw` key retrieves the vote before source
+review. The audit pins these files and the replay
 recipes. Verification also rerenders the pinned scan crops and checks the
 recognition image hashes.
 Initial admission installs the complete audit authority before atomically
