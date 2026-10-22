@@ -3,12 +3,12 @@
  "issue": "open-greek/open-greek-corpus#35",
  "discriminator": "only vowels and rho take a breathing, so a dasia before a consonant is not one; and a mark before a word that already carries its own breathing is not one either. A breathing sits on the second vowel of a diphthong, so ῾εἰ is already breathed: testing only the letter after the mark misses that and mis-files 267 tokens.",
  "NOT_A_DISPOSITION": "three of the four are mechanically fixable and the fourth, aphaeresis, must not be touched. Which to act on is not a measurement.",
- "total": 5259,
+ "total": 5257,
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "by_class": {
   "punctuation_only": {
    "tokens": 2412,
-   "share": 0.4586,
+   "share": 0.4588,
    "forms": 5,
    "works": 196,
    "by_source": {
@@ -25,13 +25,13 @@
    ]
   },
   "quotation_mark": {
-   "tokens": 1820,
-   "share": 0.3461,
-   "forms": 828,
-   "works": 194,
+   "tokens": 1819,
+   "share": 0.346,
+   "forms": 827,
+   "works": 193,
    "by_source": {
     "first1k": 1385,
-    "ocr": 421,
+    "ocr": 420,
     "byzantine_vernacular": 9,
     "perseus": 5
    },
@@ -45,12 +45,12 @@
    ]
   },
   "aphaeresis": {
-   "tokens": 701,
-   "share": 0.1333,
-   "forms": 414,
-   "works": 136,
+   "tokens": 700,
+   "share": 0.1332,
+   "forms": 413,
+   "works": 135,
    "by_source": {
-    "ocr": 503,
+    "ocr": 502,
     "byzantine_vernacular": 111,
     "first1k": 87
    },
