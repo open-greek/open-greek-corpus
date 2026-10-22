@@ -1,5 +1,6 @@
 """Describe the active Herodas and Hipponax source-role partition."""
 from collections import Counter
+from copy import deepcopy
 import argparse
 import json
 from pathlib import Path
@@ -21,6 +22,41 @@ def reviewed_run_metadata(row, root):
 
 
 def metadata(root):
+    """Combine current body coverage with the independently frozen role review."""
+    from herodas_current_state import AUDIT as BODY_AUDIT, body_is_unapplied, role_predecessor_view
+    root = Path(root)
+    with role_predecessor_view(root) as previous:
+        result = _role_metadata(previous)
+        if not (root / BODY_AUDIT / "changes.json").is_file() or body_is_unapplied(root):
+            return result
+        from repair_herodas_body import manifestation_metadata
+        recovered = manifestation_metadata(root)
+        if set(recovered) - {WORKS[0]} or (recovered and WORKS[0] not in result):
+            raise ValueError("Herodas body metadata cannot replace another source-role authority")
+        if recovered:
+            result[WORKS[0]] = _merge_body_metadata(result[WORKS[0]], recovered[WORKS[0]])
+        return result
+
+
+def _merge_body_metadata(previous, current):
+    """Keep historical partition counts separate from expanded primary coverage."""
+    result = {**deepcopy(previous), **deepcopy(current)}
+    editions = {edition["key"]: deepcopy(edition) for edition in previous["editions"]}
+    editions.update({edition["key"]: deepcopy(edition) for edition in current["editions"]})
+    result["editions"] = list(editions.values())
+    old = previous["coverage_composition"]
+    coverage = {**deepcopy(old), **deepcopy(current["coverage_composition"])}
+    components = {(item["edition"], item["storage"], item["path"]): deepcopy(item)
+                  for item in old["components"]}
+    components.update({(item["edition"], item["storage"], item["path"]): deepcopy(item)
+                       for item in current["coverage_composition"]["components"]})
+    coverage["components"] = list(components.values())
+    coverage["source_role_review"] = deepcopy(old)
+    result["coverage_composition"] = coverage
+    return result
+
+
+def _role_metadata(root):
     root = Path(root)
     path = root / AUDIT / "changes.json"
     if not path.exists():

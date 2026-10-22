@@ -348,25 +348,42 @@ two scan images that supply the served poem; `check_ocr_ledgers.py --write`
 recovers that provenance from the checked source authority.
 Frozen Photius validators run through `check_photius_predecessor.py`, and frozen
 Phoenix checks run through `phoenix_current_state.py`. These verify later
-source-role and citation changes before exposing the exact historical alias
-bytes. Photius and Phoenix text and their published audit files remain unchanged.
+source-role, Herodas body, and citation changes before exposing the exact
+historical inputs. Photius and Phoenix text and their published audit files
+remain unchanged.
 Use `python3 scripts/phoenix_current_state.py --check` on the current checkout;
 the original migration commands require their historical input state.
 
 The Herodas and Hipponax source-role review separates editorial material from
-authorial reading text and lexical exports. Herodas retains 62 verse passages;
-84 excluded spans include headings, speaker labels, apparatus, and commentary.
+authorial reading text and lexical exports. Its historical Herodas partition
+retains 62 verse passages; 84 excluded spans include headings, speaker labels,
+apparatus, and commentary.
 The Headlam–Knox scan also establishes boundaries inside nine mixed rows.
 Hipponax retains the 25-word fragment in First1K section `frag128`; Homeric
 parallels, testimony, variants, and commentary remain separately attributed.
 Historical citations still resolve, and every original character and reading
-is recoverable. This does not complete the partial Herodas text or settle its
-OCR spellings and editorial restorations.
+is recoverable. That role partition does not supply missing pages or certify
+the retained OCR spellings and editorial restorations.
+
+The later [Herodas body recovery](docs/herodas-body-recovery.md) adds 22 missing
+source pages to those 62 unchanged passages, yielding 84 passages across the
+edition's 35 inventoried body pages. It retains the merged recognition witnesses
+and records separate scan-backed reading corrections, including explicit
+uncertainties and printed losses. Supplies, doubtful readings, and incomplete
+words remain visible and outside the new scalar lexical counts. Doubtfully
+attributed quotations and modern Greek renderings remain excluded. The recovery
+preserves existing passage identities, aliases, and editorial sidecars; it does
+not claim every surviving Herodas fragment or comprehensively proofread the old
+excerpt. Use `python3 scripts/repair_herodas_body.py --check` to replay the
+retained evidence and `--undo` to restore the exact 62-passage predecessor.
 
 `python3 scripts/repair_editorial_roles.py --apply --source-pdf HERODAS.pdf
 --source-tei HIPPONAX.xml` builds the role partition from the exact pinned
-sources. Subsequent `--apply` and `--check` replay the bundled inputs;
-`--undo` restores their literal preimages. The source scans, TEI, observations,
+sources in its historical input state. On the current checkout, use
+`python3 scripts/herodas_current_state.py --check` to validate the frozen role
+repair through the checked Herodas predecessor. Unapply the later body recovery
+before using the role repair's `--undo` to restore its literal preimages. The
+source scans, TEI, observations,
 and reversible records are in `data/corpus_changes/editorial-role-review/`.
 `python3 scripts/editorial_role_manifestations.py --write` regenerates the
 Herodas scan-copy binding, and `build_corpus_loci.py` reproduces the Hipponax

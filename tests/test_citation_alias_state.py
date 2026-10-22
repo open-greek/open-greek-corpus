@@ -12,6 +12,7 @@ import pytest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT)]
 import citation_alias_state as state
+import herodas_current_state as herodas
 import photius_current_state as photius
 import phoenix_current_state as phoenix
 import repair_editorial_roles as role
@@ -54,7 +55,13 @@ def admitted(tmp_path, monkeypatch):
     # Materialize every ancestor of the archive, even when the production tree
     # already carries a later admission. Never write through an evidence link.
     overrides[(state.AUDIT / "unused-placeholder").parts] = b""
+    # These fixtures isolate the frozen role/alias layer. Body recovery has its
+    # own full-chain admission and chronological undo fixtures.
+    body_authority = Path(herodas.AUDIT) / "changes.json"
+    overrides[body_authority.parts] = b""
     state._overlay(ROOT, tmp_path, overrides)
+    if (tmp_path / body_authority).is_file():
+        (tmp_path / body_authority).unlink()
     directory = tmp_path / state.AUDIT
     assert not directory.is_symlink()
     if directory.exists():
@@ -69,6 +76,7 @@ def admitted(tmp_path, monkeypatch):
                    for path, value in before.items()},
         "outputs": {path: sha(body) for path, body in outputs.items()}}
     (directory / "changes.json").write_text(json.dumps(audit))
+    monkeypatch.setattr(herodas, "PREDECESSOR_SHA256", sha(outputs[herodas.PRIMARY]))
     calls = []
     def checked(candidate):
         calls.append(candidate)
@@ -334,7 +342,8 @@ def test_removed_editorial_spans_supply_no_manufactured_positional_context(tmp_p
     def segments(candidate):
         checked.append(candidate)
         return ["λόγος", "μένει"]
-    monkeypatch.setattr(role, "lexical_segments", segments)
+    import herodas_current_state
+    monkeypatch.setattr(herodas_current_state, "role_lexical_segments", segments)
     frequency = FrequencyProjection(tmp_path)
     assert frequency.text(row) == "λόγος μένει"
     assert frequency.segments(row) == ["λόγος", "μένει"]

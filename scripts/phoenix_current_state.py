@@ -31,7 +31,8 @@ def _projection_signature(root):
     recipes = {**frozen.recipe_pins(), **roles.recipe_pins(),
         **{name: hashlib.sha256((scripts / name).read_bytes()).hexdigest()
            for name in ("phoenix_current_state.py", "citation_alias_state.py")}}
-    return files, tuple(sorted(recipes.items()))
+    from herodas_current_state import projection_signature as herodas_signature
+    return files, tuple(sorted(recipes.items())), herodas_signature(root)
 
 
 @lru_cache(maxsize=4)
