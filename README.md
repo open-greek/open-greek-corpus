@@ -348,7 +348,7 @@ two scan images that supply the served poem; `check_ocr_ledgers.py --write`
 recovers that provenance from the checked source authority.
 Frozen Photius validators run through `check_photius_predecessor.py`, and frozen
 Phoenix checks run through `phoenix_current_state.py`. These verify later
-source-role, Herodas body, and citation changes before exposing the exact
+source-role, Herodas body, later reading reviews, and citation changes before exposing the exact
 historical inputs. Photius and Phoenix text and their published audit files
 remain unchanged.
 Use `python3 scripts/phoenix_current_state.py --check` on the current checkout;
@@ -374,15 +374,40 @@ words remain visible and outside the new scalar lexical counts. Doubtfully
 attributed quotations and modern Greek renderings remain excluded. The recovery
 preserves existing passage identities, aliases, and editorial sidecars; it does
 not claim every surviving Herodas fragment or comprehensively proofread the old
-excerpt. Use `python3 scripts/repair_herodas_body.py --check` to replay the
-retained evidence and `--undo` to restore the exact 62-passage predecessor.
+excerpt. That frozen recovery remains independently replayable through
+`python3 scripts/herodas_current_state.py --check-body` or
+`make check-herodas-body`; its historical source observations and counts are
+not rewritten by later proofreading.
+
+The subsequent [Herodas reading review](docs/herodas-reading-review.md)
+proofreads all 62 older passages and revisits the recovered pages' 43 archived
+source-uncertainty spans, which represented 45 excluded lexical slots. It
+preserves all 84 passage identities across the 35 inventoried body pages and
+records literal reversible edits above the released body recovery. The retained
+original color page captures clarify small glyphs; they are the same scan as
+the pinned PDF, not an independent textual witness. Printed dialect, critical
+brackets, cruces, and loss rows remain visible. Unresolved glyphs retain exact
+offsets and alternatives and stay outside scalar lexical counts.
+
+Use `make check-herodas-readings check-herodas-body check-editorial-roles` on the
+current checkout. `python3 scripts/fetch_herodas_reading_sources.py --check`
+checks the retained color captures and scan metadata. The quality report keeps
+the historical role partition, historical body recovery, and current reading
+review in separate scopes; the old 45-slot uncertainty count is not relabeled
+as a current measurement. The reading audit is in
+`data/corpus_changes/herodas-reading-review/`, with source capture pins in
+`data/corpus_changes/herodas-reading-sources/`.
 
 `python3 scripts/repair_editorial_roles.py --apply --source-pdf HERODAS.pdf
 --source-tei HIPPONAX.xml` builds the role partition from the exact pinned
 sources in its historical input state. On the current checkout, use
 `python3 scripts/herodas_current_state.py --check` to validate the frozen role
-repair through the checked Herodas predecessor. Unapply the later body recovery
-before using the role repair's `--undo` to restore its literal preimages. The
+repair through the checked Herodas predecessors. For chronological undo, first
+run `python3 scripts/repair_herodas_readings.py --undo`, then the body recovery's
+`--undo`, then the role repair's `--undo`. Reapply those layers in the reverse
+order, finishing with `python3 scripts/repair_herodas_readings.py --apply`, and
+rebuild derived artifacts before publishing. Literal undo remains available
+when a later correction source is removed or invalidated. The
 source scans, TEI, observations,
 and reversible records are in `data/corpus_changes/editorial-role-review/`.
 `python3 scripts/editorial_role_manifestations.py --write` regenerates the

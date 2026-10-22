@@ -52,12 +52,19 @@ def projection_recipe_pins():
               "herodas_body_witnesses.py", "herodas_body_witness_observations.py", "prepare_herodas_body.py",
               "scan_ocr_bundle.py", "run_scan_ocr.py")
     names += tuple(path.name for path in sorted(scripts.glob("herodas_body_readings*.py")))
+    names += ("herodas_review_state.py", "repair_herodas_readings.py", "fetch_herodas_reading_sources.py",
+              "herodas_uncertainty_readings.py")
+    names += tuple(path.name for path in sorted(scripts.glob("herodas_excerpt_readings*.py")))
     return {name: hashlib.sha256((scripts / name).read_bytes()).hexdigest() for name in names}
 
 
 def lexical_text(rec: dict) -> str:
+    if rec.get("herodas_reading_review"):
+        from repair_herodas_readings import lexical_segments
+        lexical_segments(rec)
+        return rec["analysis_text"]
     if rec.get("herodas_body_recovery"):
-        from repair_herodas_body import lexical_segments
+        from herodas_current_state import body_lexical_segments as lexical_segments
         lexical_segments(rec)
         return rec["analysis_text"]
     if rec.get("editorial_role_review"):
@@ -160,8 +167,11 @@ class FrequencyProjection:
         """
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         text = lexical_text(rec)  # validate even when no bigram is possible
+        if rec.get("herodas_reading_review"):
+            from repair_herodas_readings import lexical_segments
+            return lexical_segments(rec)
         if rec.get("herodas_body_recovery"):
-            from repair_herodas_body import lexical_segments
+            from herodas_current_state import body_lexical_segments as lexical_segments
             return lexical_segments(rec)
         if rec.get("editorial_role_review"):
             from herodas_current_state import role_lexical_segments as lexical_segments
@@ -243,6 +253,6 @@ class FrequencyProjection:
         key = rec.get("urn", "") + ":" + rec.get("locus", "")
         if (key in self.rows or "analysis_text" in rec or rec.get("critical_markup")
                 or rec.get("ocr_consensus") or rec.get("editorial_role_review")
-                or rec.get("herodas_body_recovery")):
+                or rec.get("herodas_body_recovery") or rec.get("herodas_reading_review")):
             return None
         return text

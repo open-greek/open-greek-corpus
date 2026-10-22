@@ -33,6 +33,8 @@ def transaction(tmp_path, monkeypatch):
         "analysis_text": "λόγος μένει", "herodas_body_recovery": {
             "authority": recovery.AUDIT + "/changes.json"}})
     after = recovery.jsonl(rows)
+    import herodas_review_state as latest_state
+    monkeypatch.setattr(latest_state, "PREDECESSOR_SHA256", recovery.sha(after))
     primary = tmp_path / recovery.PRIMARY
     primary.parent.mkdir(parents=True)
     primary.write_bytes(before)
