@@ -7,6 +7,7 @@ repository file. No historical recipe or artifact is rewritten.
 from __future__ import annotations
 
 from contextlib import contextmanager
+from contextvars import ContextVar
 from copy import deepcopy
 import hashlib
 import gzip
@@ -23,6 +24,7 @@ TAG = 'photius_editorial_continuation'
 FINAL_ARCHIVE = Path('data/corpus_changes/photius-bekker-final-review')
 FINAL_AUDIT = FINAL_ARCHIVE/'changes.json'
 FINAL_TAG = 'photius_final_review'
+_VALIDATED_ALIAS_FILES = ContextVar('validated_photius_alias_files', default={})
 
 
 def _pins(directory):
@@ -58,22 +60,55 @@ def prior_alias_view(root=ROOT):
     if not (phoenix/'changes.json').exists():
         yield root
         return
-    from repair_phoenix_crusius import verify
-    before = json.loads(gzip.decompress((phoenix/'before.json.gz').read_bytes()))
+    from repair_phoenix_crusius import verify, sha, ORIGINAL_SHA256, PRIMARY, RETAINED
+    def snapshot():
+        return (_pins(phoenix), (root/ALIASES).read_bytes(),
+            tuple((p, sha((root/p).read_bytes()) if (root/p).is_file() else None)
+                  for p in (PRIMARY, RETAINED)))
+    initial = snapshot()
+    before_raw = (phoenix/'before.json.gz').read_bytes()
+    before = json.loads(gzip.decompress(before_raw))
     previous = before[ALIASES.as_posix()].encode()
-    current = (root/ALIASES).read_bytes()
-    if current == previous:
-        yield root  # an already materialized historical view, or exact undo
-        return
-    verify(root)
-    pins = _pins(phoenix)
+    current = initial[1]
+    aliases_file = (root/ALIASES).resolve()
+    authorized = aliases_file in _VALIDATED_ALIAS_FILES.get()
+    if authorized and (initial[0], initial[2], current) != _VALIDATED_ALIAS_FILES.get()[aliases_file]:
+        raise ValueError('An authorized historical alias view changed its source authority')
+    restored = False
+    if current == previous and not authorized:
+        audit = json.loads((phoenix/'changes.json').read_bytes())
+        core = {PRIMARY, RETAINED, ALIASES.as_posix()}
+        original = audit.get('inputs', {})
+        actual = dict(initial[2], **{ALIASES.as_posix():sha(current)})
+        restored = (set(original) == core and original.get(PRIMARY) == ORIGINAL_SHA256
+            and original.get(RETAINED) is None and actual == original
+            and sha(before_raw) == audit['outputs']['data/corpus_changes/phoenix-crusius-review/before.json.gz']
+            and set(before) == core and all((sha(value.encode()) if value is not None else None)
+                == original[path] for path,value in before.items()))
+    if authorized or restored:
+        if current != previous:
+            raise ValueError('An authorized historical alias view changed its literal bytes')
+    else:
+        verify(root)
+    if snapshot() != initial:
+        raise ValueError('Later citation authority changed during predecessor validation')
     try:
-        with tempfile.TemporaryDirectory(prefix='photius-alias-predecessor-') as directory:
-            view = Path(directory)
-            _overlay(root, view, {ALIASES.parts: previous})
-            yield view
+        if authorized or restored:
+            yield root
+        else:
+            with tempfile.TemporaryDirectory(prefix='photius-alias-predecessor-') as directory:
+                view = Path(directory)
+                _overlay(root, view, {ALIASES.parts: previous})
+                token = _VALIDATED_ALIAS_FILES.set({**_VALIDATED_ALIAS_FILES.get(),
+                    (view/ALIASES).resolve(): (initial[0], initial[2], previous)})
+                try:
+                    yield view
+                    if (view/ALIASES).read_bytes() != previous:
+                        raise ValueError('Historical alias bytes changed during predecessor validation')
+                finally:
+                    _VALIDATED_ALIAS_FILES.reset(token)
     finally:
-        if (root/ALIASES).read_bytes() != current or _pins(phoenix) != pins:
+        if snapshot() != initial:
             raise ValueError('Later citation authority changed during predecessor validation')
 
 
