@@ -198,10 +198,14 @@ def herodas_role_qualification(root):
             "apparatus, and commentary without correcting Greek spellings. The token change "
             "measures source boundaries, not character error rate or recognition accuracy. "
             "It does not certify every retained OCR reading or complete the missing Herodas pages."}
-    if coverage.get("policy") == "source-reviewed-body-recovery":
-        result["later_body_recovery"] = {"counts": coverage["counts"],
-            "manifest": coverage["manifest"], "manifest_sha256": coverage["manifest_sha256"],
-            "qualification": coverage["qualification"]}
+    body_scope = (coverage if coverage.get("policy") == "source-reviewed-body-recovery"
+                  else coverage.get("body_recovery"))
+    if body_scope:
+        result["later_body_recovery"] = {key: body_scope[key]
+            for key in ("counts", "manifest", "manifest_sha256", "qualification")}
+    if coverage.get("policy") == "source-reviewed-reading-corrections":
+        result["later_reading_review"] = {key: coverage[key]
+            for key in ("counts", "manifest", "manifest_sha256", "qualification")}
     return result
 
 

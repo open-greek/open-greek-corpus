@@ -13,6 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path[:0] = [str(ROOT / "scripts"), str(ROOT)]
 import citation_alias_state as state
 import herodas_current_state as herodas
+import herodas_review_state as readings
 import photius_current_state as photius
 import phoenix_current_state as phoenix
 import repair_editorial_roles as role
@@ -55,13 +56,15 @@ def admitted(tmp_path, monkeypatch):
     # Materialize every ancestor of the archive, even when the production tree
     # already carries a later admission. Never write through an evidence link.
     overrides[(state.AUDIT / "unused-placeholder").parts] = b""
-    # These fixtures isolate the frozen role/alias layer. Body recovery has its
-    # own full-chain admission and chronological undo fixtures.
-    body_authority = Path(herodas.AUDIT) / "changes.json"
-    overrides[body_authority.parts] = b""
+    # The literal role preimages above define the historical core. Neither
+    # later Herodas authority belongs to this synthetic role/alias epoch.
+    later_authorities = [Path(directory) / "changes.json"
+                         for directory in (herodas.AUDIT, readings.AUDIT)]
+    for authority in later_authorities:
+        overrides[authority.parts] = b""
     state._overlay(ROOT, tmp_path, overrides)
-    if (tmp_path / body_authority).is_file():
-        (tmp_path / body_authority).unlink()
+    for authority in later_authorities:
+        (tmp_path / authority).unlink(missing_ok=True)
     directory = tmp_path / state.AUDIT
     assert not directory.is_symlink()
     if directory.exists():

@@ -102,7 +102,7 @@ def _is_unapplied(root, before):
     return role_is_unapplied(root)
 
 
-def body_is_unapplied(root):
+def _body_is_unapplied(root):
     """Recognize literal body undo and the separately proved earlier undo epochs."""
     root = Path(root).absolute()
     if not (root / AUDIT / "changes.json").is_file():
@@ -115,8 +115,23 @@ def body_is_unapplied(root):
     return result
 
 
+def body_is_unapplied(root):
+    from herodas_review_state import predecessor_view
+    with predecessor_view(root) as previous:
+        return _body_is_unapplied(previous)
+
+
 @contextmanager
 def role_predecessor_view(root=ROOT):
+    """Descend the current reading review before the frozen body/role layer."""
+    from herodas_review_state import predecessor_view
+    with predecessor_view(root) as previous:
+        with _role_predecessor_view(previous) as role_previous:
+            yield role_previous
+
+
+@contextmanager
+def _role_predecessor_view(root=ROOT):
     """Expose exactly the 62-row role postimage while its later proof is live."""
     root = Path(root).absolute()
     path = root / AUDIT / "changes.json"
@@ -206,6 +221,30 @@ def check_roles(root):
         return frozen.run(previous, "check")
 
 
+def verify_body(root, *, active=True):
+    from herodas_review_state import predecessor_view
+    with predecessor_view(root) as previous:
+        return _body_module().verify(previous, active=active)
+
+
+def check_body(root):
+    from herodas_review_state import predecessor_view
+    with predecessor_view(root) as previous:
+        return _body_module().run(previous, "check")
+
+
+def body_metadata(root):
+    from herodas_review_state import predecessor_view
+    with predecessor_view(root) as previous:
+        return _body_module().manifestation_metadata(previous)
+
+
+def body_lexical_segments(row, root=None):
+    from herodas_review_state import predecessor_view
+    with predecessor_view(ROOT if root is None else root) as previous:
+        return deepcopy(_body_module().lexical_segments(row, previous))
+
+
 def projection_signature(root):
     """Content pins also invalidate projections cached by earlier adapters."""
     root = Path(root).absolute()
@@ -216,7 +255,8 @@ def projection_signature(root):
         body = _body_module()
         paths.update(body.authority_paths(root))
         recipes.update(body.recipe_pins())
-    return _file_pins(root, paths), tuple(sorted(recipes.items()))
+    from herodas_review_state import projection_signature as latest_signature
+    return _file_pins(root, paths), tuple(sorted(recipes.items())), latest_signature(root)
 
 
 def _role_projection_signature(root):
@@ -250,9 +290,11 @@ def role_lexical_segments(row, root=None):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=ROOT)
-    parser.add_argument("--check", action="store_true", required=True)
+    modes = parser.add_mutually_exclusive_group(required=True)
+    modes.add_argument("--check", action="store_true")
+    modes.add_argument("--check-body", action="store_true")
     args = parser.parse_args()
-    check_roles(args.root)
+    (check_body if args.check_body else check_roles)(args.root)
 
 
 if __name__ == "__main__":

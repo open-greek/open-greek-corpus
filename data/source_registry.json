@@ -182641,27 +182641,46 @@
     "language:ancient-greek"
    ],
    "coverage_composition": {
-    "policy": "source-reviewed-body-recovery",
-    "manifest": "data/corpus_changes/herodas-headlam-knox-body/changes.json",
-    "manifest_sha256": "c25da47315010632a261861ce056f5ab7328180fd36357d67018730f8deef438",
-    "qualification": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment.",
+    "policy": "source-reviewed-reading-corrections",
+    "manifest": "data/corpus_changes/herodas-reading-review/changes.json",
+    "manifest_sha256": "aeb6268293e14dc6268c0069d2f16ed3a01dcd0e3814787880ed93ffca4714a7",
+    "qualification": "Source proofreading of all 62 older Herodas passages and occurrence-level review of the 43 archived uncertainty spans in the recovered pages. Original color captures and the pinned Headlam–Knox 1922 PDF establish the printed reading; the color captures are the same scan, not an independent edition. Earlier recognition witnesses, review decisions, and publication bytes remain recoverable. Printed supplies, cruces, incomplete words, and unresolved source glyphs stay outside scalar lexical counts. The review preserves the edition's dialect, all 84 passage identities, and the source-attribution holds.",
     "counts": {
+     "additional_source_edits": 1,
+     "analysis_tokens": 4916,
+     "analysis_tokens_by_origin": {
+      "older_excerpt": {
+       "current": 1966,
+       "previous": 2036
+      },
+      "recovered_pages": {
+       "current": 2950,
+       "previous": 2918
+      }
+     },
+     "archived_decisions": {
+      "printed-damage": 11,
+      "resolved": 32
+     },
+     "archived_uncertainty_slots": 45,
+     "archived_uncertainty_spans_remaining": 0,
+     "archived_uncertainty_spans_reviewed": 43,
      "body_pages": 35,
-     "new_noncountable_slots": 155,
-     "original_analysis_tokens": 2036,
-     "original_body_pages": 13,
-     "original_passages": 62,
-     "primary_analysis_tokens": 4954,
-     "primary_passages": 84,
-     "raw_ocr_unresolved_slots": 856,
-     "recovered_analysis_tokens": 2918,
-     "recovered_passages": 22,
-     "unresolved_slots": 45
+     "changed_passages": 49,
+     "literal_edits": 202,
+     "noncountable_slots": 193,
+     "older_changed_passages": 41,
+     "older_passages_reviewed": 62,
+     "older_uncertainty_spans_remaining": 0,
+     "passages": 84,
+     "previous_analysis_tokens": 4954,
+     "remaining_uncertainty_slots": 0,
+     "remaining_uncertainty_spans": 0
     },
     "primary_quality": {
-     "status": "source-role-reviewed-with-unresolved-recognition",
+     "status": "source-reviewed-with-critical-exclusions",
      "passages": 84,
-     "note": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment."
+     "note": "Source proofreading of all 62 older Herodas passages and occurrence-level review of the 43 archived uncertainty spans in the recovered pages. Original color captures and the pinned Headlam–Knox 1922 PDF establish the printed reading; the color captures are the same scan, not an independent edition. Earlier recognition witnesses, review decisions, and publication bytes remain recoverable. Printed supplies, cruces, incomplete words, and unresolved source glyphs stay outside scalar lexical counts. The review preserves the edition's dialect, all 84 passage identities, and the source-attribution holds."
     },
     "components": [
      {
@@ -182740,6 +182759,108 @@
        "source": "https://archive.org/details/mimesfragments00hero"
       }
      ]
+    },
+    "body_recovery": {
+     "policy": "source-reviewed-body-recovery",
+     "manifest": "data/corpus_changes/herodas-headlam-knox-body/changes.json",
+     "manifest_sha256": "c25da47315010632a261861ce056f5ab7328180fd36357d67018730f8deef438",
+     "qualification": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment.",
+     "counts": {
+      "body_pages": 35,
+      "new_noncountable_slots": 155,
+      "original_analysis_tokens": 2036,
+      "original_body_pages": 13,
+      "original_passages": 62,
+      "primary_analysis_tokens": 4954,
+      "primary_passages": 84,
+      "raw_ocr_unresolved_slots": 856,
+      "recovered_analysis_tokens": 2918,
+      "recovered_passages": 22,
+      "unresolved_slots": 45
+     },
+     "primary_quality": {
+      "status": "source-role-reviewed-with-unresolved-recognition",
+      "passages": 84,
+      "note": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment."
+     },
+     "components": [
+      {
+       "edition": "herodas-hk-ocr",
+       "storage": "primary",
+       "path": "data/corpus/herodas.mimiambi.jsonl",
+       "passages": 84,
+       "role": "authorial-verse",
+       "license": "PD",
+       "source": "https://archive.org/details/mimesfragments00hero"
+      },
+      {
+       "edition": "headlam-knox-editorial",
+       "storage": "paratext",
+       "path": "data/paratext/herodas-headlam-knox.jsonl",
+       "passages": 84,
+       "role": "editorial-material",
+       "roles": {
+        "apparatus": 24,
+        "commentary": 5,
+        "editorial-source-note": 1,
+        "running-header": 2,
+        "speaker": 45,
+        "title": 7
+       },
+       "license": "PD",
+       "source": "https://archive.org/details/mimesfragments00hero"
+      }
+     ],
+     "source_role_review": {
+      "policy": "source-reviewed-editorial-role-partition",
+      "manifest": "data/corpus_changes/editorial-role-review/changes.json",
+      "manifest_sha256": "d82592b79a9b9aa89fe0fc5e5ea6e9eb3ed57078d40e9554bacfd273b9747bed",
+      "qualification": "This review separates the source roles of the existing 136 Herodas rows and five Hipponax rows. It does not supply missing Herodas pages, certify every OCR spelling, resolve editorial restorations, or claim a complete corpus of either author's surviving fragments. Excluded material remains citable with its literal source text and attribution.",
+      "counts": {
+       "original_rows": 136,
+       "primary_rows": 62,
+       "retained_spans": 84,
+       "original_surface_tokens": 2850,
+       "primary_surface_tokens": 2036,
+       "retained_surface_tokens": 814,
+       "original_analysis_tokens": 2846,
+       "primary_analysis_tokens": 2036,
+       "retained_analysis_tokens": 810
+      },
+      "primary_quality": {
+       "status": "source-role-reviewed",
+       "passages": 62,
+       "note": "Partial historical OCR, with headings, speaker labels, apparatus, and commentary separated by source role. Missing pages and OCR spellings have not been restored or comprehensively reviewed."
+      },
+      "components": [
+       {
+        "edition": "herodas-hk-ocr",
+        "storage": "primary",
+        "path": "data/corpus/herodas.mimiambi.jsonl",
+        "passages": 62,
+        "role": "authorial-verse",
+        "license": "PD",
+        "source": "https://archive.org/details/mimesfragments00hero"
+       },
+       {
+        "edition": "headlam-knox-editorial",
+        "storage": "paratext",
+        "path": "data/paratext/herodas-headlam-knox.jsonl",
+        "passages": 84,
+        "role": "editorial-material",
+        "roles": {
+         "apparatus": 24,
+         "commentary": 5,
+         "editorial-source-note": 1,
+         "running-header": 2,
+         "speaker": 45,
+         "title": 7
+        },
+        "license": "PD",
+        "source": "https://archive.org/details/mimesfragments00hero"
+       }
+      ]
+     }
     }
    },
    "editions": {
@@ -182770,7 +182891,7 @@
      "storage": "paratext"
     },
     "herodas.mimiambi.herodas-hk-ocr": {
-     "name": "Headlam–Knox 1922, inventoried Herodas body with retained recognition alternatives",
+     "name": "Headlam–Knox 1922, source-proofread Herodas body",
      "provider": "ocr",
      "scheme": "scan-page.row",
      "editor": "Headlam, Walter; Knox, Alfred",
@@ -182780,7 +182901,7 @@
      "license": "PD",
      "scheme_inferred": false,
      "aliases": {},
-     "note": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment."
+     "note": "Source proofreading of all 62 older Herodas passages and occurrence-level review of the 43 archived uncertainty spans in the recovered pages. Original color captures and the pinned Headlam–Knox 1922 PDF establish the printed reading; the color captures are the same scan, not an independent edition. Earlier recognition witnesses, review decisions, and publication bytes remain recoverable. Printed supplies, cruces, incomplete words, and unresolved source glyphs stay outside scalar lexical counts. The review preserves the edition's dialect, all 84 passage identities, and the source-attribution holds."
     }
    }
   },

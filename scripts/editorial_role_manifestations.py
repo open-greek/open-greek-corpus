@@ -23,18 +23,27 @@ def reviewed_run_metadata(row, root):
 
 def metadata(root):
     """Combine current body coverage with the independently frozen role review."""
-    from herodas_current_state import AUDIT as BODY_AUDIT, body_is_unapplied, role_predecessor_view
+    from herodas_current_state import AUDIT as BODY_AUDIT, body_is_unapplied, role_predecessor_view, body_metadata
+    from herodas_review_state import manifestation_metadata as latest_metadata
     root = Path(root)
     with role_predecessor_view(root) as previous:
         result = _role_metadata(previous)
-        if not (root / BODY_AUDIT / "changes.json").is_file() or body_is_unapplied(root):
-            return result
-        from repair_herodas_body import manifestation_metadata
-        recovered = manifestation_metadata(root)
+        recovered = (body_metadata(root) if (root / BODY_AUDIT / "changes.json").is_file()
+                     and not body_is_unapplied(root) else {})
         if set(recovered) - {WORKS[0]} or (recovered and WORKS[0] not in result):
             raise ValueError("Herodas body metadata cannot replace another source-role authority")
         if recovered:
             result[WORKS[0]] = _merge_body_metadata(result[WORKS[0]], recovered[WORKS[0]])
+        latest = latest_metadata(root)
+        if set(latest) - {WORKS[0]} or (latest and WORKS[0] not in result):
+            raise ValueError("Herodas reading metadata cannot replace another source-role authority")
+        if latest:
+            previous = deepcopy(result[WORKS[0]]["coverage_composition"])
+            merged = _merge_body_metadata(result[WORKS[0]], latest[WORKS[0]])
+            coverage = merged["coverage_composition"]
+            coverage["source_role_review"] = deepcopy(previous.get("source_role_review", previous))
+            coverage["body_recovery"] = previous
+            result[WORKS[0]] = merged
         return result
 
 

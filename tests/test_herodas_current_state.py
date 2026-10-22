@@ -35,6 +35,9 @@ def recovered(tmp_path, monkeypatch):
         text="λόγος μένει", analysis_text="λόγος μένει",
         herodas_body_recovery={"authority": state.AUDIT + "/changes.json"})
     current = previous + (json.dumps(row, ensure_ascii=False) + "\n").encode()
+    import herodas_review_state as latest_state
+    monkeypatch.setattr(latest_state, "PREDECESSOR_SHA256", sha(current))
+    monkeypatch.setattr(state, "ROOT", tmp_path)
     before = {state.PRIMARY: previous.decode()}
     archive = gzip.compress(json.dumps(before, ensure_ascii=False).encode(), mtime=0)
     evidence = state.AUDIT + "/source-review.json"
@@ -49,6 +52,12 @@ def recovered(tmp_path, monkeypatch):
         # writing through a symlink into a production source packet.
         roles.AUDIT + "/source-review.json": (ROOT / roles.AUDIT / "source-review.json").read_bytes()}
     aliases._overlay(ROOT, tmp_path, {Path(path).parts: raw for path, raw in materialized.items()})
+    # This fixture models the earlier body epoch, even after the production
+    # tree has acquired a separate later proofreading authority.
+    from herodas_review_state import AUDIT as READING_AUDIT
+    latest = tmp_path / READING_AUDIT
+    if latest.is_symlink():
+        latest.unlink()
     for path, raw in materialized.items():
         if path.startswith(state.AUDIT + "/"):
             target = tmp_path / path

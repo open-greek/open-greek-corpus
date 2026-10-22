@@ -105,8 +105,14 @@ DATE_COMPARISON := data/oga_glaux_date_comparison.json
 # data/corpus without touching it. ocr_quality_report.json sat 524 corpus-file
 # changes behind, while the OCR pipeline gates on it.
 CORPUS_FILES := $(wildcard data/corpus/*.jsonl)
+HERODAS_READING_INPUTS := scripts/herodas_review_state.py scripts/repair_herodas_readings.py \
+                         scripts/fetch_herodas_reading_sources.py scripts/herodas_uncertainty_readings.py \
+                         $(wildcard scripts/herodas_excerpt_readings*.py) \
+                         $(wildcard data/corpus_changes/herodas-reading-review/*) \
+                         $(wildcard data/corpus_changes/herodas-reading-sources/*)
 # Count eligibility can change while every served surface byte stays identical.
 FREQUENCY_INPUTS := scripts/frequency_projection.py \
+                    $(HERODAS_READING_INPUTS) \
                     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
                     scripts/phoenix_crusius_witnesses.py \
                     scripts/citation_alias_state.py scripts/phoenix_current_state.py \
@@ -131,6 +137,7 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     $(wildcard data/corpus_changes/photius-bekker-historical-batches/*/changes.json) \
                     $(wildcard scripts/critical_text.py data/frequency_projection.json)
 REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
+    $(HERODAS_READING_INPUTS) \
     scripts/repair_phoenix_crusius.py scripts/phoenix_crusius_source_observations.py \
     scripts/citation_alias_state.py scripts/phoenix_current_state.py \
     scripts/repair_editorial_roles.py scripts/herodas_source_observations.py scripts/editorial_roles.py \
@@ -480,6 +487,7 @@ capital-positions:
         check-phoenix-crusius \
         check-editorial-roles \
         check-herodas-body \
+        check-herodas-readings \
         check-photius-apparatus-repair \
         check-photius-readings \
         check-photius-historical-readings \
@@ -504,6 +512,7 @@ check: check-photius-complete-review \
        check-phoenix-crusius \
        check-editorial-roles \
        check-herodas-body \
+       check-herodas-readings \
        check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
        check-photius-review-observations \
        check-known-limitations \
@@ -531,7 +540,10 @@ check-editorial-roles:
 	$(PY) scripts/editorial_role_manifestations.py --check
 
 check-herodas-body:
-	$(PY) scripts/repair_herodas_body.py --check
+	$(PY) scripts/herodas_current_state.py --check-body
+
+check-herodas-readings:
+	$(PY) scripts/herodas_review_state.py --check
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

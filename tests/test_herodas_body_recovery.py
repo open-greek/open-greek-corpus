@@ -25,7 +25,9 @@ def test_published_recovery_replays_and_undo_survives_source_removal(tmp_path):
     shutil.copytree(ROOT / recovery.AUDIT, tmp_path / recovery.AUDIT)
     primary = tmp_path / recovery.PRIMARY
     primary.parent.mkdir(parents=True)
-    primary.write_bytes((ROOT / recovery.PRIMARY).read_bytes())
+    from herodas_review_state import predecessor_view
+    with predecessor_view(ROOT) as previous:
+        primary.write_bytes((previous / recovery.PRIMARY).read_bytes())
     source = tmp_path / next(iter(recovery.SOURCE_FILES))
     source.parent.mkdir(parents=True, exist_ok=True)
     source.hardlink_to(ROOT / next(iter(recovery.SOURCE_FILES)))
@@ -46,7 +48,9 @@ def test_published_recovery_replays_and_undo_survives_source_removal(tmp_path):
                     reason="Production recovery networks have not been admitted")
 def test_every_published_vote_key_resolves_both_reviewed_and_raw_networks():
     from ocr_consensus import compact_corpus_consensus, restore_corpus_consensus
-    rows = [json.loads(line) for line in (ROOT / recovery.PRIMARY).read_text().splitlines()]
+    from herodas_review_state import predecessor_view
+    with predecessor_view(ROOT) as previous:
+        rows = [json.loads(line) for line in (previous / recovery.PRIMARY).read_text().splitlines()]
     rows = [row for row in rows if row.get("herodas_body_recovery")]
     assert len(rows) == 22
     for row in rows:
