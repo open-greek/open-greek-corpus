@@ -7985,11 +7985,21 @@
    "witness": null
   },
   "herodas.mimiambi": {
+   "consensus": {
+    "counting_basis": "Merged word slots, not a count of recognition errors or proofread words.",
+    "qualification": "Agreement can preserve a shared recognition error. Unresolved readings retain alternatives; explicit lexical exclusions control counting. Rows without consensus counts remain unassessed by this diagnostic.",
+    "rows_with_counted_consensus": 22,
+    "rows_without_counted_consensus": 62,
+    "slot_counts": {
+     "scan-reviewed": 2918,
+     "source-marked-reading": 155
+    }
+   },
    "edition": "herodas-hk-ocr",
-   "n_surface_tokens": 2036,
-   "n_tokens": 2036,
-   "n_tokens_checked": 1261,
-   "n_unattested": 251,
+   "n_surface_tokens": 5109,
+   "n_tokens": 4954,
+   "n_tokens_checked": 3077,
+   "n_unattested": 611,
    "source": "ocr",
    "source_role_review": {
     "audit": {
@@ -8007,10 +8017,28 @@
      "retained_spans": 84,
      "retained_surface_tokens": 814
     },
+    "later_body_recovery": {
+     "counts": {
+      "body_pages": 35,
+      "new_noncountable_slots": 155,
+      "original_analysis_tokens": 2036,
+      "original_body_pages": 13,
+      "original_passages": 62,
+      "primary_analysis_tokens": 4954,
+      "primary_passages": 84,
+      "raw_ocr_unresolved_slots": 856,
+      "recovered_analysis_tokens": 2918,
+      "recovered_passages": 22,
+      "unresolved_slots": 45
+     },
+     "manifest": "data/corpus_changes/herodas-headlam-knox-body/changes.json",
+     "manifest_sha256": "c25da47315010632a261861ce056f5ab7328180fd36357d67018730f8deef438",
+     "qualification": "Source-page recovery of the admitted Headlam–Knox 1922 Herodas body. The 62 published excerpt passages retain their exact readings and identities. New pages retain the merged usable Qwen3.6 and Qwen3.8 recognition witnesses and layer named scan-backed reading decisions above them. Unresolved source readings remain explicit. Only source-confirmed complete, unmarked readings enter new scalar lexical counts. This is not comprehensive proofreading of the old excerpt, a critical edition, or a claim to every surviving Herodas fragment."
+    },
     "qualification": "The review separates authorial verse from speaker labels, headings, apparatus, and commentary without correcting Greek spellings. The token change measures source boundaries, not character error rate or recognition accuracy. It does not certify every retained OCR reading or complete the missing Herodas pages.",
     "scope": "Source-role review of the 136 previously served Headlam–Knox rows"
    },
-   "unattested_rate": 0.199048,
+   "unattested_rate": 0.19857,
    "witness": null
   },
   "heron.definitiones": {

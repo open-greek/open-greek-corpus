@@ -31,7 +31,7 @@
     ]
   },
   "policy_sha256": "36b6a22f5889bf6e92e2e821f4e9a1e82826192b623e20e92efd6af7638ad0b9",
-  "corpus_sha256": "82cf8f432747b768fa4a54946eb26eb05ad78ce82a28353ca1b28ae3c56bc5f5",
+  "corpus_sha256": "7509fd066dce68d6850b8f12b480ac2fb028489fc225d1cb5c1c0a5607b7e578",
   "corpus_pin_policy": "SHA256 over sorted '<slug>\\t<per-work file SHA256>\\n' lines for every corpus JSONL file, including sources outside the detector scope; matches the release corpus pin.",
   "input_corpus_files": {
     "achaeus.fragmenta.jsonl": "54cea6e5c60658709f2eae7c98507c63a91b4e76bb1a7cd1942b3724950179e9",
@@ -711,7 +711,7 @@
     "hermias-history.fragmenta.jsonl": "b3efe58bf1bfd8597b0ae9a72d095b1a9c5d52ce0efdb5aa7dbf484a6dcc4d29",
     "hermippus-comedy.fragmenta-4.jsonl": "0332cd19ab6fccd245870b4d17281d84b3503772d187940547c4548e1aa86e45",
     "hermippus-comedy.fragmenta.jsonl": "1250e938d7a7fc0db21d94193a9011d2220970b2cddb9c4dffa2798545546830",
-    "herodas.mimiambi.jsonl": "b50c5d810cac0a8a44a2acdd567aa1c7f7e7266e83698325122501b0656e68ef",
+    "herodas.mimiambi.jsonl": "4f604f16151fdc8748dabdd973feacf040a8a6f49170870173df5c3c07fac939",
     "heron.definitiones.jsonl": "9e20a3c3dccade55146a217b874239c491a1f1684a49a6df93352e6f8629c292",
     "heron.geometrica.jsonl": "1f139d1efbc66d47e83a155bd83e10e0e1e81bdc218c50885641171e1132a397",
     "hesiodus.fragmenta.jsonl": "f8f05d3ac0a91714c38969bf4374429c4f6f635c27afd7d2f5862a9638570230",
@@ -1451,10 +1451,10 @@
     "zonaeus.peri-schematon-ton-kata-logon.jsonl": "11bfa2251238929d54c2afb31347c9807d1a6c6d7e68916c4a78a7f4c813b898",
     "zosimus-alchemista.opera.jsonl": "9a86a7651e2857f579a48e1c1e96d3e89b67133bd3aa0351d9764a13c1ba2c94"
   },
-  "page_readings_sha256": "197995c1efecb60b9d30c067fd0742173b8deead5e9c5952b7a8cd59eaa83426",
+  "page_readings_sha256": "3d22a5f2abbae82273f3553a77ea0743e9315d71af48c0356a423d641e959b9d",
   "counts": {
-    "readings": 130845,
-    "unassessable": 51285,
+    "readings": 130888,
+    "unassessable": 51328,
     "unflagged": 78950,
     "flagged": 610
   },
@@ -1468,7 +1468,7 @@
       "flagged": 0
     },
     "ocr": {
-      "readings": 120134,
+      "readings": 120177,
       "flagged": 610
     }
   },

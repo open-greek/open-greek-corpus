@@ -5,6 +5,14 @@ speaker labels, apparatus, external testimony, and commentary. It changes no
 Greek spelling and supplies no missing text. Every original row is preserved in
 the reversible archive under `data/corpus_changes/editorial-role-review/`.
 
+These are the historical role partition's counts and source decisions. The
+later [Herodas body recovery](herodas-body-recovery.md) preserves its 62 primary
+passages and adds 22 missing source pages, producing 84 primary passages across
+35 inventoried body pages. The editorial sidecars and existing aliases remain
+unchanged. That separate recovery retains its recognition witnesses, source
+readings, and correction audit; it does not retroactively turn this role review
+into an OCR spelling review or change the accounting below.
+
 ## Sources and scope
 
 Herodas uses Walter Headlam's notes, edited by A. D. Knox, *The Mimes and
@@ -100,13 +108,27 @@ original loci. Excluded spans from mixed Herodas rows carry derived
 Passage aliases preserve all 141 original row identities. Retained material
 does not enter primary coverage, lemma, or frequency exports.
 
-Validate the archived review and served outputs with:
+On the current checkout, validate the archived role review through the checked
+Herodas predecessor with:
 
 ```sh
-python3 scripts/repair_editorial_roles.py --check
+python3 scripts/herodas_current_state.py --check
 ```
 
-Restore the exact original primary files and passage aliases with:
+The wrapper verifies the later body recovery and exposes this review's exact
+62-passage Herodas postimage for the frozen validator. The original
+`repair_editorial_roles.py --check` command remains appropriate in the
+historical state before body recovery. The frozen recipes and audit bytes are
+unchanged.
+
+If the later body recovery is active, unapply it first:
+
+```sh
+python3 scripts/repair_herodas_body.py --undo
+```
+
+Then restore this role review's exact original primary files and passage
+aliases with:
 
 ```sh
 python3 scripts/repair_editorial_roles.py --undo

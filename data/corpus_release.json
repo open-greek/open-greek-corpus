@@ -1,12 +1,12 @@
 {
  "corpus": {
-  "passages": 1964118,
-  "tokens": 65782929,
-  "tokens_lemmatized": 63950773,
+  "passages": 1964140,
+  "tokens": 65785847,
+  "tokens_lemmatized": 63953526,
   "works": 3914
  },
  "generated_from": {
-  "commit": "e1c57ef4c4fc6c6a8e981e6d874cdb71427e784d",
+  "commit": "bf4ae3f8c125b3c2ee10036d5a5637ecc4a2cfbf",
   "commit_date": "2026-10-22",
   "note": "the commit the catalog was built over. An artifact cannot name the commit that carries it, so the tag names that commit and corpus_sha256 is the byte pin"
  },
@@ -25,7 +25,7 @@
    "works": 2421
   },
   "PD": {
-   "tokens": 26405088,
+   "tokens": 26408006,
    "works": 1233
   },
   "PD (Teubner 1912); Wikisource transcription CC BY-SA 4.0": {
@@ -68,14 +68,14 @@
  "pin": {
   "catalog": "data/corpus_catalog.tsv",
   "catalog_rows": 3914,
-  "catalog_sha256": "b286ae835075a0041a1fa677a69ec941ff9f260fec9effbca07e6f535c18df24",
-  "corpus_sha256": "82cf8f432747b768fa4a54946eb26eb05ad78ce82a28353ca1b28ae3c56bc5f5",
+  "catalog_sha256": "4b60af9f8db383683bcaf04ae4580bfe158d2774074a7ac478b13e9c49b051b6",
+  "corpus_sha256": "7509fd066dce68d6850b8f12b480ac2fb028489fc225d1cb5c1c0a5607b7e578",
   "how": "sha256 over the sorted '<slug>\\t<per-work sha256>\\n' lines of data/corpus/*.jsonl; independent of the catalog's columns and of where the bytes are hosted"
  },
  "quality": {
   "correction_status": {
    "auto-corrected": {
-    "tokens": 20608092,
+    "tokens": 20611010,
     "works": 886
    },
    "manual": {
@@ -99,8 +99,8 @@
   "polytonic_loss": {
    "counts": {
     "flagged": 610,
-    "readings": 130845,
-    "unassessable": 51285,
+    "readings": 130888,
+    "unassessable": 51328,
     "unflagged": 78950
    },
    "fresh_validation": [
@@ -285,9 +285,9 @@
     "This fixed sample is bounded by the available editions and does not establish corpus-wide error rates."
    ],
    "page_readings": "data/quality/polytonic-loss-pages.jsonl.gz",
-   "page_readings_sha256": "197995c1efecb60b9d30c067fd0742173b8deead5e9c5952b7a8cd59eaa83426",
+   "page_readings_sha256": "3d22a5f2abbae82273f3553a77ea0743e9315d71af48c0356a423d641e959b9d",
    "report": "data/polytonic_loss_report.json",
-   "report_sha256": "6ce210038887afb15af8fa8f06e3176634a7b5f95d82b8a81b6864a3c122860a",
+   "report_sha256": "09e0af451aefa74d3fbe95ba4fb9ad41e0364eb6271aa2d735a33e325dde6910",
    "scope": "Review candidates from OCR sources, grouped by recoverable physical page and witness. A flag is not proof of damaged text. This report never selects a model, changes text, or admits a correction.",
    "selection_rule": null
   },
@@ -295,7 +295,7 @@
    "global_raw_bounds_status": "withheld-component-provenance-unassessed",
    "global_raw_token_bounds": null,
    "legacy_homogeneous_work_bucket": {
-    "ocr_tokens": 29097848,
+    "ocr_tokens": 29100766,
     "ocr_works": 1412,
     "raw_share_of_corpus_tokens": 0.0441,
     "raw_tokens": 2900453,
@@ -304,7 +304,7 @@
    },
    "mixed_ocr_tokens": 552999,
    "mixed_works": 4,
-   "ocr_tokens": 29650847,
+   "ocr_tokens": 29653765,
    "ocr_works": 1416,
    "what": "Exact OCR component denominator, with legacy work classification retained separately. Component correction coverage is not inferred from a dominant edition or a local correction stamp."
   },
@@ -367,8 +367,8 @@
      "works": 3
     },
     "ocr": {
-     "analysis_tokens": 25297616,
-     "passages": 1334928,
+     "analysis_tokens": 25300534,
+     "passages": 1334950,
      "works": 1217
     },
     "perseus": {
@@ -397,7 +397,7 @@
      "works": 3
     }
    },
-   "corpus_sha256": "82cf8f432747b768fa4a54946eb26eb05ad78ce82a28353ca1b28ae3c56bc5f5",
+   "corpus_sha256": "7509fd066dce68d6850b8f12b480ac2fb028489fc225d1cb5c1c0a5607b7e578",
    "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
    "mixed_works": {
     "apollonius-geom.conica": {
@@ -581,15 +581,15 @@
     }
    },
    "scope": "Source, edition and license describe components. Correction stamps do not establish correction coverage of another component; mixed OCR/digital works have no assessed whole-work correction status.",
-   "sha256": "594e77f142000b6d4c3cd437ade7e55c02da00a92400e92814b7a8911c7bb5a2",
+   "sha256": "c70ada9652a55a9379124de333aecd822880133b4035a2b3aa8aa6ae1d56c3b2",
    "totals": {
-    "analysis_tokens": 65782929,
+    "analysis_tokens": 65785847,
     "mixed_ocr_analysis_tokens": 552999,
     "mixed_works": 4,
-    "ocr_analysis_tokens": 29650847,
-    "ocr_passages": 1346346,
+    "ocr_analysis_tokens": 29653765,
+    "ocr_passages": 1346368,
     "ocr_works": 1416,
-    "passages": 1964118,
+    "passages": 1964140,
     "works": 3914
    }
   },
@@ -759,8 +759,8 @@
     "measured_against": {
      "active_correction_records": 228866,
      "catalog": "data/corpus_catalog.tsv",
-     "catalog_sha256": "b286ae835075a0041a1fa677a69ec941ff9f260fec9effbca07e6f535c18df24",
-     "corpus_sha256": "82cf8f432747b768fa4a54946eb26eb05ad78ce82a28353ca1b28ae3c56bc5f5"
+     "catalog_sha256": "4b60af9f8db383683bcaf04ae4580bfe158d2774074a7ac478b13e9c49b051b6",
+     "corpus_sha256": "7509fd066dce68d6850b8f12b480ac2fb028489fc225d1cb5c1c0a5607b7e578"
     },
     "pairs": 43618,
     "population_check_note": "data/corrections_log/ is not present in this checkout; catalog and corpus pins were checked, but the private correction population was not",
@@ -842,7 +842,7 @@
   }
  },
  "release_date": "2026-10-22",
- "release_id": "corpus-2026-10-22",
+ "release_id": "corpus-2026-10-22.1",
  "sources": {
   "byzantine_vernacular": {
    "tokens": 189983,
@@ -889,7 +889,7 @@
    "works": 3
   },
   "ocr": {
-   "tokens": 25039305,
+   "tokens": 25042223,
    "works": 1215
   },
   "perseus": {

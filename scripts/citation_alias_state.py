@@ -177,6 +177,15 @@ def role_is_unapplied(root):
 
 @contextmanager
 def phoenix_alias_view(root=ROOT):
+    """Keep the later Herodas source proof live throughout earlier alias views."""
+    from herodas_current_state import role_predecessor_view
+    with role_predecessor_view(root) as previous:
+        with _phoenix_alias_view(previous) as aliases:
+            yield aliases
+
+
+@contextmanager
+def _phoenix_alias_view(root=ROOT):
     """Expose the exact Phoenix-era aliases after checking the later role review."""
     root = Path(root).absolute()
     if not (root / AUDIT / "changes.json").exists():

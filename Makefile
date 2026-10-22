@@ -111,6 +111,11 @@ FREQUENCY_INPUTS := scripts/frequency_projection.py \
                     scripts/phoenix_crusius_witnesses.py \
                     scripts/citation_alias_state.py scripts/phoenix_current_state.py \
                     scripts/repair_editorial_roles.py scripts/herodas_source_observations.py scripts/editorial_roles.py \
+                    scripts/herodas_current_state.py scripts/repair_herodas_body.py \
+                    scripts/herodas_body_source_observations.py scripts/herodas_body_witnesses.py \
+                    scripts/herodas_body_witness_observations.py scripts/prepare_herodas_body.py scripts/scan_ocr_bundle.py scripts/run_scan_ocr.py \
+                    $(wildcard scripts/herodas_body_readings*.py) \
+                    $(wildcard data/corpus_changes/herodas-headlam-knox-body/*) \
                     $(wildcard data/corpus_changes/editorial-role-review/*) \
                     $(wildcard data/corpus_changes/phoenix-crusius-review/*) \
                     $(PHOTIUS_LATER_INPUTS) \
@@ -130,6 +135,11 @@ REVIEWED_MANIFESTATIONS := scripts/reviewed_manifestations.py \
     scripts/citation_alias_state.py scripts/phoenix_current_state.py \
     scripts/repair_editorial_roles.py scripts/herodas_source_observations.py scripts/editorial_roles.py \
     scripts/editorial_role_manifestations.py \
+    scripts/herodas_current_state.py scripts/repair_herodas_body.py \
+    scripts/herodas_body_source_observations.py scripts/herodas_body_witnesses.py \
+    scripts/herodas_body_witness_observations.py scripts/prepare_herodas_body.py scripts/scan_ocr_bundle.py scripts/run_scan_ocr.py \
+    $(wildcard scripts/herodas_body_readings*.py) \
+    $(wildcard data/corpus_changes/herodas-headlam-knox-body/*) \
     $(wildcard data/corpus_changes/editorial-role-review/*) \
     $(wildcard data/corpus_changes/phoenix-crusius-review/*) \
     $(PHOTIUS_LATER_INPUTS) \
@@ -469,6 +479,7 @@ capital-positions:
 .PHONY: check-ocr-ledgers \
         check-phoenix-crusius \
         check-editorial-roles \
+        check-herodas-body \
         check-photius-apparatus-repair \
         check-photius-readings \
         check-photius-historical-readings \
@@ -492,6 +503,7 @@ capital-positions:
 check: check-photius-complete-review \
        check-phoenix-crusius \
        check-editorial-roles \
+       check-herodas-body \
        check-photius-context check-photius-uncertainties check-photius-uncertainty-sources \
        check-photius-review-observations \
        check-known-limitations \
@@ -515,8 +527,11 @@ check-phoenix-crusius:
 	$(PY) scripts/phoenix_current_state.py --check
 
 check-editorial-roles:
-	$(PY) scripts/repair_editorial_roles.py --check
+	$(PY) scripts/herodas_current_state.py --check
 	$(PY) scripts/editorial_role_manifestations.py --check
+
+check-herodas-body:
+	$(PY) scripts/repair_herodas_body.py --check
 
 check-photius-apparatus-repair:
 	$(PY) scripts/check_photius_predecessor.py --stage apparatus

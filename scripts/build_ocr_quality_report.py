@@ -188,14 +188,21 @@ def herodas_role_qualification(root):
     current = metadata(root)
     if "herodas.mimiambi" not in current:
         return None
-    return {"audit": {"path": f"{AUDIT}/changes.json",
+    coverage = current["herodas.mimiambi"]["coverage_composition"]
+    role_review = coverage.get("source_role_review", coverage)
+    result = {"audit": {"path": f"{AUDIT}/changes.json",
                 "sha256": hashlib.sha256(path.read_bytes()).hexdigest()},
         "scope": "Source-role review of the 136 previously served Headlam–Knox rows",
-        "counts": current["herodas.mimiambi"]["coverage_composition"]["counts"],
+        "counts": role_review["counts"],
         "qualification": "The review separates authorial verse from speaker labels, headings, "
             "apparatus, and commentary without correcting Greek spellings. The token change "
             "measures source boundaries, not character error rate or recognition accuracy. "
             "It does not certify every retained OCR reading or complete the missing Herodas pages."}
+    if coverage.get("policy") == "source-reviewed-body-recovery":
+        result["later_body_recovery"] = {"counts": coverage["counts"],
+            "manifest": coverage["manifest"], "manifest_sha256": coverage["manifest_sha256"],
+            "qualification": coverage["qualification"]}
+    return result
 
 
 def witness_norm(tok: str) -> str:
