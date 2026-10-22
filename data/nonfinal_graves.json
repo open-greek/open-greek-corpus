@@ -13,8 +13,8 @@
  "syllable_test": "vendored here rather than imported from the upstream OCR pipeline, so the count cannot change with whether a sibling checkout exists; tests/test_nonfinal_grave.py asserts the two agree",
  "forms": 26435,
  "tokens": 42522,
- "served_tokens": 65813717,
- "surface_served_tokens": 66093640,
+ "served_tokens": 65813737,
+ "surface_served_tokens": 66093623,
  "counting_basis": "Greek regex runs in the checked frequency projection: shared collated attestations count once; unresolved, damaged, restored, and incomplete readings are excluded where explicit lexical eligibility is supplied",
  "share": 0.000646,
  "works_touched": 1642,
@@ -4472,7 +4472,7 @@
     },
     "circumflex": {
      "form": "μᾶλλον",
-     "attested": 66566
+     "attested": 66567
     }
    }
   },

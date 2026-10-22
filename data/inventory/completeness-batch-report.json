@@ -14354,38 +14354,1208 @@
               "unsubstituted_source_uncertainty_spans": 27
             },
             "qualification": "Editorial preferences remain distinct from the immutable scan-review measurements."
+          },
+          "final_review": {
+            "audit": {
+              "path": "data/corpus_changes/photius-bekker-final-review/changes.json",
+              "sha256": "9a0b9d1b1a34e5817e1154288e396d01811f370f2aa54aa11a1b2d67d67f0cba"
+            },
+            "source_review": {
+              "path": "data/corpus_changes/photius-bekker-final-review/compiled-review.json.gz",
+              "sha256": "eea3eb470c7a02008aa6e3b6c6e98e49d68a4e87c4017d609fef93cc73d409a5",
+              "uncompressed_sha256": "7adbeab76a44a126db7ccd09c4a6af7de6f359db4ec7827b1743b0fdf5119b9b"
+            },
+            "source": {
+              "citation": "Photius, Bibliotheca, TLG 4040.001",
+              "edition": "Henry, Photius Bibliothèque, volumes 1–8 (1959–1977)",
+              "id": "tlg-photius-henry",
+              "sha256": "8ffaad0d30bdd87e87b9e24f55495a6b56d64e91591c1e393e4d2e82dd5b6daa"
+            },
+            "counts": {
+              "changed_display_rows": 35,
+              "current_uncertainty_spans": 0,
+              "decisions": 25,
+              "dispositions": {
+                "classify-nonlexical-mark": 1,
+                "correct-scan-reading": 3,
+                "editorial-word-choice": 2,
+                "editorial-word-choice-omission": 1,
+                "exclude-marginal-reference": 3,
+                "joint-editorial-word-choice": 15,
+                "retain-edition-variant": 1,
+                "spurious-ocr-insertion": 1
+              },
+              "editorial_omissions": 1,
+              "editorially_substituted_spans": 2967,
+              "identities": 27,
+              "lexical_admitted_identities": [
+                {
+                  "end": 5,
+                  "inherited_record_sha256": "3b878eb72d7e6204ac3989faf05852c7a684ade62e9e818aabb8781172d655dc",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0038.17",
+                  "original_segment_sha256": "55e37e2e149e5be20534f4b8ed91917de986189678c30c584d8d8bf9faa5f680",
+                  "original_text": "δῶσιν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "15de8a9f85ff7dc86d1f630762b1abe572e3e118c033e79adefec82cedc01494",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0044.26",
+                  "original_segment_sha256": "58923065350717b9feb3a97479cb8e5aa7388b357ad6e2b2f7205630bff2a1b2",
+                  "original_text": "μελλαν εξφο-",
+                  "segment_index": 1,
+                  "start": 37
+                },
+                {
+                  "end": 36,
+                  "inherited_record_sha256": "293d6b65795a9c8ffafd84a9b9c4eb3e5fd852f4b1ebe131f21b0ca5082414b9",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0069.21",
+                  "original_segment_sha256": "fb7aafd3cda4d8210f17f745d1a01df911bf914fd10bf8e2f5265d2107791e2d",
+                  "original_text": "ἀλλ' ὅμως, οὕτω μὲν χαρακώσαντες τὸν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "704d3f18030196427ad4ec12df9860171a609bf9d47ad356f65dbfb0e02faa10",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0154.30",
+                  "original_segment_sha256": "0b4e4541fef3a807e23e1edbff369a7899da18d715cd2859edbd9cc81fe830c9",
+                  "original_text": "πειθόν-",
+                  "segment_index": 1,
+                  "start": 42
+                },
+                {
+                  "end": 50,
+                  "inherited_record_sha256": "f6095d1f4854be80cfc94802976bd2ccf26ddbcea1301f2b261a89b765e232de",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.1",
+                  "original_segment_sha256": "71b758d6759702bec5a39516473fdc65e806e98ddc36fbb5d1ef58d3eaed3b1a",
+                  "original_text": "ἀδικηθή-",
+                  "segment_index": 1,
+                  "start": 42
+                },
+                {
+                  "end": 48,
+                  "inherited_record_sha256": "d666de07eea817d3a6ea96c284f54395bed9233714fe7faab4b1e41487ee66bc",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.7",
+                  "original_segment_sha256": "d1f57feb87797ff344af344cd07e5b23d00cae5debf06904fd28e5b20b135e12",
+                  "original_text": "νικη-",
+                  "segment_index": 1,
+                  "start": 43
+                },
+                {
+                  "end": 4,
+                  "inherited_record_sha256": "12ca0918f6f296c755eabc0caa22e989ffd6911c792517a393a7404cd0788ffa",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.8",
+                  "original_segment_sha256": "703448b0824d67a6b71959d851e329ab6f27f18d7b3554c78c703b8391cb19ce",
+                  "original_text": "ντὸν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 8,
+                  "inherited_record_sha256": "929b20c7a8281667f58dc8f16f0479c31412f9f4d6260715dd571308070b59cb",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.25",
+                  "original_segment_sha256": "743cd5b4a989fcf425c8e963cb0e647d91c6493ee5aeb1f1583af7d3a9756a24",
+                  "original_text": "μιζομένη",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 12,
+                  "inherited_record_sha256": "6ad3e2993a97431768e27abb3f26b291763d62c8854cfc9d6e0e59ef32925537",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0184.4",
+                  "original_segment_sha256": "c6ba257ea3d265f678e3857c2bef62a283e9658689119e7b980abb522d13ffca",
+                  "original_text": "σκευασθεῖσαι",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 7,
+                  "inherited_record_sha256": "1c5945da99bcbe32eb7af8962202301c2e64d9fca8a30a4f05fe908a3f145cf1",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.5",
+                  "original_segment_sha256": "207a90b81545f0cc1f17bdfa58fa2cd6bd47906ce4fe2ad6cb0f8c0e78d988f9",
+                  "original_text": "πέρποδῃ",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "ebfbf4120abd3f74c7c3f70f45c9df0b2801fd9456d9ae5c61d470e08cdb4847",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.8",
+                  "original_segment_sha256": "9a1e53b4e96255022aea7c86bfc541dd8caae053da8b1fbf2f190eaa765467be",
+                  "original_text": "ἀντι-",
+                  "segment_index": 1,
+                  "start": 44
+                },
+                {
+                  "end": 7,
+                  "inherited_record_sha256": "e23d2aa5b34b4359d16c57e76874800b0810bebfd624d288474dada6eecf221f",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+                  "original_segment_sha256": "c04dfd2aaf1823b18a06590c63c565c961cfb75b56564714568659b63e8d0ee4",
+                  "original_text": "δροῖζε?",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 8,
+                  "inherited_record_sha256": "2cbd9a100e3295e637b7c270218e94fa523367b2bd3d5b939d40e48a1128fb27",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0247.43",
+                  "original_segment_sha256": "e73321a243a3507bb9b6646179a347817b22994904fdbb6a186bbe2a0c022267",
+                  "original_text": "δείκνυσι",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 5,
+                  "inherited_record_sha256": "88af1c0d5fec4e559549cebb1d88042c1a1e66f4ea9e72dd440b8ee2978e293f",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0250.3",
+                  "original_segment_sha256": "6116434a5c733b8a452a64b9f22b9eed2ba2a5672944a05100f42671543959d5",
+                  "original_text": "γάγεῖ",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0152.4",
+                  "segment_index": 9
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0158.8",
+                  "segment_index": 2
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0274.3",
+                  "segment_index": 23
+                }
+              ],
+              "lexical_resolution_identities": [
+                {
+                  "end": 5,
+                  "inherited_record_sha256": "3b878eb72d7e6204ac3989faf05852c7a684ade62e9e818aabb8781172d655dc",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0038.17",
+                  "original_segment_sha256": "55e37e2e149e5be20534f4b8ed91917de986189678c30c584d8d8bf9faa5f680",
+                  "original_text": "δῶσιν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "15de8a9f85ff7dc86d1f630762b1abe572e3e118c033e79adefec82cedc01494",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0044.26",
+                  "original_segment_sha256": "58923065350717b9feb3a97479cb8e5aa7388b357ad6e2b2f7205630bff2a1b2",
+                  "original_text": "μελλαν εξφο-",
+                  "segment_index": 1,
+                  "start": 37
+                },
+                {
+                  "end": 36,
+                  "inherited_record_sha256": "293d6b65795a9c8ffafd84a9b9c4eb3e5fd852f4b1ebe131f21b0ca5082414b9",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0069.21",
+                  "original_segment_sha256": "fb7aafd3cda4d8210f17f745d1a01df911bf914fd10bf8e2f5265d2107791e2d",
+                  "original_text": "ἀλλ' ὅμως, οὕτω μὲν χαρακώσαντες τὸν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "704d3f18030196427ad4ec12df9860171a609bf9d47ad356f65dbfb0e02faa10",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0154.30",
+                  "original_segment_sha256": "0b4e4541fef3a807e23e1edbff369a7899da18d715cd2859edbd9cc81fe830c9",
+                  "original_text": "πειθόν-",
+                  "segment_index": 1,
+                  "start": 42
+                },
+                {
+                  "end": 50,
+                  "inherited_record_sha256": "f6095d1f4854be80cfc94802976bd2ccf26ddbcea1301f2b261a89b765e232de",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.1",
+                  "original_segment_sha256": "71b758d6759702bec5a39516473fdc65e806e98ddc36fbb5d1ef58d3eaed3b1a",
+                  "original_text": "ἀδικηθή-",
+                  "segment_index": 1,
+                  "start": 42
+                },
+                {
+                  "end": 48,
+                  "inherited_record_sha256": "d666de07eea817d3a6ea96c284f54395bed9233714fe7faab4b1e41487ee66bc",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.7",
+                  "original_segment_sha256": "d1f57feb87797ff344af344cd07e5b23d00cae5debf06904fd28e5b20b135e12",
+                  "original_text": "νικη-",
+                  "segment_index": 1,
+                  "start": 43
+                },
+                {
+                  "end": 4,
+                  "inherited_record_sha256": "12ca0918f6f296c755eabc0caa22e989ffd6911c792517a393a7404cd0788ffa",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.8",
+                  "original_segment_sha256": "703448b0824d67a6b71959d851e329ab6f27f18d7b3554c78c703b8391cb19ce",
+                  "original_text": "ντὸν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 8,
+                  "inherited_record_sha256": "929b20c7a8281667f58dc8f16f0479c31412f9f4d6260715dd571308070b59cb",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.25",
+                  "original_segment_sha256": "743cd5b4a989fcf425c8e963cb0e647d91c6493ee5aeb1f1583af7d3a9756a24",
+                  "original_text": "μιζομένη",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 12,
+                  "inherited_record_sha256": "6ad3e2993a97431768e27abb3f26b291763d62c8854cfc9d6e0e59ef32925537",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0184.4",
+                  "original_segment_sha256": "c6ba257ea3d265f678e3857c2bef62a283e9658689119e7b980abb522d13ffca",
+                  "original_text": "σκευασθεῖσαι",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 7,
+                  "inherited_record_sha256": "1c5945da99bcbe32eb7af8962202301c2e64d9fca8a30a4f05fe908a3f145cf1",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.5",
+                  "original_segment_sha256": "207a90b81545f0cc1f17bdfa58fa2cd6bd47906ce4fe2ad6cb0f8c0e78d988f9",
+                  "original_text": "πέρποδῃ",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "ebfbf4120abd3f74c7c3f70f45c9df0b2801fd9456d9ae5c61d470e08cdb4847",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.8",
+                  "original_segment_sha256": "9a1e53b4e96255022aea7c86bfc541dd8caae053da8b1fbf2f190eaa765467be",
+                  "original_text": "ἀντι-",
+                  "segment_index": 1,
+                  "start": 44
+                },
+                {
+                  "end": 7,
+                  "inherited_record_sha256": "e23d2aa5b34b4359d16c57e76874800b0810bebfd624d288474dada6eecf221f",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+                  "original_segment_sha256": "c04dfd2aaf1823b18a06590c63c565c961cfb75b56564714568659b63e8d0ee4",
+                  "original_text": "δροῖζε?",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 8,
+                  "inherited_record_sha256": "2cbd9a100e3295e637b7c270218e94fa523367b2bd3d5b939d40e48a1128fb27",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0247.43",
+                  "original_segment_sha256": "e73321a243a3507bb9b6646179a347817b22994904fdbb6a186bbe2a0c022267",
+                  "original_text": "δείκνυσι",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 5,
+                  "inherited_record_sha256": "88af1c0d5fec4e559549cebb1d88042c1a1e66f4ea9e72dd440b8ee2978e293f",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0250.3",
+                  "original_segment_sha256": "6116434a5c733b8a452a64b9f22b9eed2ba2a5672944a05100f42671543959d5",
+                  "original_text": "γάγεῖ",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0037.4",
+                  "segment_index": 5
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0038.11",
+                  "segment_index": 1
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0152.4",
+                  "segment_index": 9
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0154.4",
+                  "segment_index": 1
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0158.8",
+                  "segment_index": 2
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0172.7",
+                  "segment_index": 3
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0274.3",
+                  "segment_index": 23
+                }
+              ],
+              "new_scan_backed_dispositions": 3,
+              "newly_editorially_substituted_spans": 17,
+              "nonlexical_resolution_identities": [
+                {
+                  "end": 1,
+                  "inherited_record_sha256": "8482ff25b58c1db4d4175e9644e8b28958d394855f4fd98570f40c7f21af3e74",
+                  "lexical_eligible": false,
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.9",
+                  "original_segment_sha256": "0d5bc521eb6e3a1aa09caa87be132413bdb6e282c8d9eebc48adb61fe8c77ea2",
+                  "original_text": "δ",
+                  "segment_index": 0,
+                  "start": 0,
+                  "text_role": "line-number"
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0018.36",
+                  "segment_index": 3
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0155.1",
+                  "segment_index": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0158.5",
+                  "segment_index": 12
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0179.2",
+                  "segment_index": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0184.1",
+                  "segment_index": 4
+                }
+              ],
+              "nonlexically_classified_spans": 6,
+              "previous_current_uncertainty_spans": 27,
+              "primary_rows_after": 3782,
+              "primary_rows_before": 3782,
+              "resolved_by_text_role": {
+                "authorial-body": 17,
+                "line-number": 1,
+                "marginal-reference": 3,
+                "nonlexical-mark": 1,
+                "ocr-insertion": 1,
+                "printed-bracketed-reading": 4
+              },
+              "resolved_identities": [
+                {
+                  "end": 5,
+                  "inherited_record_sha256": "3b878eb72d7e6204ac3989faf05852c7a684ade62e9e818aabb8781172d655dc",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0038.17",
+                  "original_segment_sha256": "55e37e2e149e5be20534f4b8ed91917de986189678c30c584d8d8bf9faa5f680",
+                  "original_text": "δῶσιν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "15de8a9f85ff7dc86d1f630762b1abe572e3e118c033e79adefec82cedc01494",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0044.26",
+                  "original_segment_sha256": "58923065350717b9feb3a97479cb8e5aa7388b357ad6e2b2f7205630bff2a1b2",
+                  "original_text": "μελλαν εξφο-",
+                  "segment_index": 1,
+                  "start": 37
+                },
+                {
+                  "end": 36,
+                  "inherited_record_sha256": "293d6b65795a9c8ffafd84a9b9c4eb3e5fd852f4b1ebe131f21b0ca5082414b9",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0069.21",
+                  "original_segment_sha256": "fb7aafd3cda4d8210f17f745d1a01df911bf914fd10bf8e2f5265d2107791e2d",
+                  "original_text": "ἀλλ' ὅμως, οὕτω μὲν χαρακώσαντες τὸν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "704d3f18030196427ad4ec12df9860171a609bf9d47ad356f65dbfb0e02faa10",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0154.30",
+                  "original_segment_sha256": "0b4e4541fef3a807e23e1edbff369a7899da18d715cd2859edbd9cc81fe830c9",
+                  "original_text": "πειθόν-",
+                  "segment_index": 1,
+                  "start": 42
+                },
+                {
+                  "end": 50,
+                  "inherited_record_sha256": "f6095d1f4854be80cfc94802976bd2ccf26ddbcea1301f2b261a89b765e232de",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.1",
+                  "original_segment_sha256": "71b758d6759702bec5a39516473fdc65e806e98ddc36fbb5d1ef58d3eaed3b1a",
+                  "original_text": "ἀδικηθή-",
+                  "segment_index": 1,
+                  "start": 42
+                },
+                {
+                  "end": 48,
+                  "inherited_record_sha256": "d666de07eea817d3a6ea96c284f54395bed9233714fe7faab4b1e41487ee66bc",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.7",
+                  "original_segment_sha256": "d1f57feb87797ff344af344cd07e5b23d00cae5debf06904fd28e5b20b135e12",
+                  "original_text": "νικη-",
+                  "segment_index": 1,
+                  "start": 43
+                },
+                {
+                  "end": 4,
+                  "inherited_record_sha256": "12ca0918f6f296c755eabc0caa22e989ffd6911c792517a393a7404cd0788ffa",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.8",
+                  "original_segment_sha256": "703448b0824d67a6b71959d851e329ab6f27f18d7b3554c78c703b8391cb19ce",
+                  "original_text": "ντὸν",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 8,
+                  "inherited_record_sha256": "929b20c7a8281667f58dc8f16f0479c31412f9f4d6260715dd571308070b59cb",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0170.25",
+                  "original_segment_sha256": "743cd5b4a989fcf425c8e963cb0e647d91c6493ee5aeb1f1583af7d3a9756a24",
+                  "original_text": "μιζομένη",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 12,
+                  "inherited_record_sha256": "6ad3e2993a97431768e27abb3f26b291763d62c8854cfc9d6e0e59ef32925537",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0184.4",
+                  "original_segment_sha256": "c6ba257ea3d265f678e3857c2bef62a283e9658689119e7b980abb522d13ffca",
+                  "original_text": "σκευασθεῖσαι",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 7,
+                  "inherited_record_sha256": "1c5945da99bcbe32eb7af8962202301c2e64d9fca8a30a4f05fe908a3f145cf1",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.5",
+                  "original_segment_sha256": "207a90b81545f0cc1f17bdfa58fa2cd6bd47906ce4fe2ad6cb0f8c0e78d988f9",
+                  "original_text": "πέρποδῃ",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 49,
+                  "inherited_record_sha256": "ebfbf4120abd3f74c7c3f70f45c9df0b2801fd9456d9ae5c61d470e08cdb4847",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.8",
+                  "original_segment_sha256": "9a1e53b4e96255022aea7c86bfc541dd8caae053da8b1fbf2f190eaa765467be",
+                  "original_text": "ἀντι-",
+                  "segment_index": 1,
+                  "start": 44
+                },
+                {
+                  "end": 1,
+                  "inherited_record_sha256": "8482ff25b58c1db4d4175e9644e8b28958d394855f4fd98570f40c7f21af3e74",
+                  "lexical_eligible": false,
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0193.9",
+                  "original_segment_sha256": "0d5bc521eb6e3a1aa09caa87be132413bdb6e282c8d9eebc48adb61fe8c77ea2",
+                  "original_text": "δ",
+                  "segment_index": 0,
+                  "start": 0,
+                  "text_role": "line-number"
+                },
+                {
+                  "end": 7,
+                  "inherited_record_sha256": "e23d2aa5b34b4359d16c57e76874800b0810bebfd624d288474dada6eecf221f",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+                  "original_segment_sha256": "c04dfd2aaf1823b18a06590c63c565c961cfb75b56564714568659b63e8d0ee4",
+                  "original_text": "δροῖζε?",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 8,
+                  "inherited_record_sha256": "2cbd9a100e3295e637b7c270218e94fa523367b2bd3d5b939d40e48a1128fb27",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0247.43",
+                  "original_segment_sha256": "e73321a243a3507bb9b6646179a347817b22994904fdbb6a186bbe2a0c022267",
+                  "original_text": "δείκνυσι",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "end": 5,
+                  "inherited_record_sha256": "88af1c0d5fec4e559549cebb1d88042c1a1e66f4ea9e72dd440b8ee2978e293f",
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0250.3",
+                  "original_segment_sha256": "6116434a5c733b8a452a64b9f22b9eed2ba2a5672944a05100f42671543959d5",
+                  "original_text": "γάγεῖ",
+                  "segment_index": 0,
+                  "start": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0018.36",
+                  "segment_index": 3
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0037.4",
+                  "segment_index": 5
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0038.11",
+                  "segment_index": 1
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0152.4",
+                  "segment_index": 9
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0154.4",
+                  "segment_index": 1
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0155.1",
+                  "segment_index": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0158.5",
+                  "segment_index": 12
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0158.8",
+                  "segment_index": 2
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0172.7",
+                  "segment_index": 3
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0179.2",
+                  "segment_index": 0
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0184.1",
+                  "segment_index": 4
+                },
+                {
+                  "locus": "helladius_chrestomathia_photius_bekker_v2_0274.3",
+                  "segment_index": 23
+                }
+              ],
+              "resolved_uncertainty_spans": 27,
+              "rows": 37,
+              "scan_uncertainty_spans": 2977
+            },
+            "qualification": "Joint editorial word choices and nonlexical classifications are distinct from historical scan verification."
           }
+        },
+        "final_review": {
+          "audit": {
+            "path": "data/corpus_changes/photius-bekker-final-review/changes.json",
+            "sha256": "9a0b9d1b1a34e5817e1154288e396d01811f370f2aa54aa11a1b2d67d67f0cba"
+          },
+          "source_review": {
+            "path": "data/corpus_changes/photius-bekker-final-review/compiled-review.json.gz",
+            "sha256": "eea3eb470c7a02008aa6e3b6c6e98e49d68a4e87c4017d609fef93cc73d409a5",
+            "uncompressed_sha256": "7adbeab76a44a126db7ccd09c4a6af7de6f359db4ec7827b1743b0fdf5119b9b"
+          },
+          "source": {
+            "citation": "Photius, Bibliotheca, TLG 4040.001",
+            "edition": "Henry, Photius Bibliothèque, volumes 1–8 (1959–1977)",
+            "id": "tlg-photius-henry",
+            "sha256": "8ffaad0d30bdd87e87b9e24f55495a6b56d64e91591c1e393e4d2e82dd5b6daa"
+          },
+          "counts": {
+            "changed_display_rows": 35,
+            "current_uncertainty_spans": 0,
+            "decisions": 25,
+            "dispositions": {
+              "classify-nonlexical-mark": 1,
+              "correct-scan-reading": 3,
+              "editorial-word-choice": 2,
+              "editorial-word-choice-omission": 1,
+              "exclude-marginal-reference": 3,
+              "joint-editorial-word-choice": 15,
+              "retain-edition-variant": 1,
+              "spurious-ocr-insertion": 1
+            },
+            "editorial_omissions": 1,
+            "editorially_substituted_spans": 2967,
+            "identities": 27,
+            "lexical_admitted_identities": [
+              {
+                "end": 5,
+                "inherited_record_sha256": "3b878eb72d7e6204ac3989faf05852c7a684ade62e9e818aabb8781172d655dc",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0038.17",
+                "original_segment_sha256": "55e37e2e149e5be20534f4b8ed91917de986189678c30c584d8d8bf9faa5f680",
+                "original_text": "δῶσιν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "15de8a9f85ff7dc86d1f630762b1abe572e3e118c033e79adefec82cedc01494",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0044.26",
+                "original_segment_sha256": "58923065350717b9feb3a97479cb8e5aa7388b357ad6e2b2f7205630bff2a1b2",
+                "original_text": "μελλαν εξφο-",
+                "segment_index": 1,
+                "start": 37
+              },
+              {
+                "end": 36,
+                "inherited_record_sha256": "293d6b65795a9c8ffafd84a9b9c4eb3e5fd852f4b1ebe131f21b0ca5082414b9",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0069.21",
+                "original_segment_sha256": "fb7aafd3cda4d8210f17f745d1a01df911bf914fd10bf8e2f5265d2107791e2d",
+                "original_text": "ἀλλ' ὅμως, οὕτω μὲν χαρακώσαντες τὸν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "704d3f18030196427ad4ec12df9860171a609bf9d47ad356f65dbfb0e02faa10",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0154.30",
+                "original_segment_sha256": "0b4e4541fef3a807e23e1edbff369a7899da18d715cd2859edbd9cc81fe830c9",
+                "original_text": "πειθόν-",
+                "segment_index": 1,
+                "start": 42
+              },
+              {
+                "end": 50,
+                "inherited_record_sha256": "f6095d1f4854be80cfc94802976bd2ccf26ddbcea1301f2b261a89b765e232de",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.1",
+                "original_segment_sha256": "71b758d6759702bec5a39516473fdc65e806e98ddc36fbb5d1ef58d3eaed3b1a",
+                "original_text": "ἀδικηθή-",
+                "segment_index": 1,
+                "start": 42
+              },
+              {
+                "end": 48,
+                "inherited_record_sha256": "d666de07eea817d3a6ea96c284f54395bed9233714fe7faab4b1e41487ee66bc",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.7",
+                "original_segment_sha256": "d1f57feb87797ff344af344cd07e5b23d00cae5debf06904fd28e5b20b135e12",
+                "original_text": "νικη-",
+                "segment_index": 1,
+                "start": 43
+              },
+              {
+                "end": 4,
+                "inherited_record_sha256": "12ca0918f6f296c755eabc0caa22e989ffd6911c792517a393a7404cd0788ffa",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.8",
+                "original_segment_sha256": "703448b0824d67a6b71959d851e329ab6f27f18d7b3554c78c703b8391cb19ce",
+                "original_text": "ντὸν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 8,
+                "inherited_record_sha256": "929b20c7a8281667f58dc8f16f0479c31412f9f4d6260715dd571308070b59cb",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.25",
+                "original_segment_sha256": "743cd5b4a989fcf425c8e963cb0e647d91c6493ee5aeb1f1583af7d3a9756a24",
+                "original_text": "μιζομένη",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 12,
+                "inherited_record_sha256": "6ad3e2993a97431768e27abb3f26b291763d62c8854cfc9d6e0e59ef32925537",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0184.4",
+                "original_segment_sha256": "c6ba257ea3d265f678e3857c2bef62a283e9658689119e7b980abb522d13ffca",
+                "original_text": "σκευασθεῖσαι",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 7,
+                "inherited_record_sha256": "1c5945da99bcbe32eb7af8962202301c2e64d9fca8a30a4f05fe908a3f145cf1",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.5",
+                "original_segment_sha256": "207a90b81545f0cc1f17bdfa58fa2cd6bd47906ce4fe2ad6cb0f8c0e78d988f9",
+                "original_text": "πέρποδῃ",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "ebfbf4120abd3f74c7c3f70f45c9df0b2801fd9456d9ae5c61d470e08cdb4847",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.8",
+                "original_segment_sha256": "9a1e53b4e96255022aea7c86bfc541dd8caae053da8b1fbf2f190eaa765467be",
+                "original_text": "ἀντι-",
+                "segment_index": 1,
+                "start": 44
+              },
+              {
+                "end": 7,
+                "inherited_record_sha256": "e23d2aa5b34b4359d16c57e76874800b0810bebfd624d288474dada6eecf221f",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+                "original_segment_sha256": "c04dfd2aaf1823b18a06590c63c565c961cfb75b56564714568659b63e8d0ee4",
+                "original_text": "δροῖζε?",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 8,
+                "inherited_record_sha256": "2cbd9a100e3295e637b7c270218e94fa523367b2bd3d5b939d40e48a1128fb27",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0247.43",
+                "original_segment_sha256": "e73321a243a3507bb9b6646179a347817b22994904fdbb6a186bbe2a0c022267",
+                "original_text": "δείκνυσι",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 5,
+                "inherited_record_sha256": "88af1c0d5fec4e559549cebb1d88042c1a1e66f4ea9e72dd440b8ee2978e293f",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0250.3",
+                "original_segment_sha256": "6116434a5c733b8a452a64b9f22b9eed2ba2a5672944a05100f42671543959d5",
+                "original_text": "γάγεῖ",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0152.4",
+                "segment_index": 9
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0158.8",
+                "segment_index": 2
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0274.3",
+                "segment_index": 23
+              }
+            ],
+            "lexical_resolution_identities": [
+              {
+                "end": 5,
+                "inherited_record_sha256": "3b878eb72d7e6204ac3989faf05852c7a684ade62e9e818aabb8781172d655dc",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0038.17",
+                "original_segment_sha256": "55e37e2e149e5be20534f4b8ed91917de986189678c30c584d8d8bf9faa5f680",
+                "original_text": "δῶσιν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "15de8a9f85ff7dc86d1f630762b1abe572e3e118c033e79adefec82cedc01494",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0044.26",
+                "original_segment_sha256": "58923065350717b9feb3a97479cb8e5aa7388b357ad6e2b2f7205630bff2a1b2",
+                "original_text": "μελλαν εξφο-",
+                "segment_index": 1,
+                "start": 37
+              },
+              {
+                "end": 36,
+                "inherited_record_sha256": "293d6b65795a9c8ffafd84a9b9c4eb3e5fd852f4b1ebe131f21b0ca5082414b9",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0069.21",
+                "original_segment_sha256": "fb7aafd3cda4d8210f17f745d1a01df911bf914fd10bf8e2f5265d2107791e2d",
+                "original_text": "ἀλλ' ὅμως, οὕτω μὲν χαρακώσαντες τὸν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "704d3f18030196427ad4ec12df9860171a609bf9d47ad356f65dbfb0e02faa10",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0154.30",
+                "original_segment_sha256": "0b4e4541fef3a807e23e1edbff369a7899da18d715cd2859edbd9cc81fe830c9",
+                "original_text": "πειθόν-",
+                "segment_index": 1,
+                "start": 42
+              },
+              {
+                "end": 50,
+                "inherited_record_sha256": "f6095d1f4854be80cfc94802976bd2ccf26ddbcea1301f2b261a89b765e232de",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.1",
+                "original_segment_sha256": "71b758d6759702bec5a39516473fdc65e806e98ddc36fbb5d1ef58d3eaed3b1a",
+                "original_text": "ἀδικηθή-",
+                "segment_index": 1,
+                "start": 42
+              },
+              {
+                "end": 48,
+                "inherited_record_sha256": "d666de07eea817d3a6ea96c284f54395bed9233714fe7faab4b1e41487ee66bc",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.7",
+                "original_segment_sha256": "d1f57feb87797ff344af344cd07e5b23d00cae5debf06904fd28e5b20b135e12",
+                "original_text": "νικη-",
+                "segment_index": 1,
+                "start": 43
+              },
+              {
+                "end": 4,
+                "inherited_record_sha256": "12ca0918f6f296c755eabc0caa22e989ffd6911c792517a393a7404cd0788ffa",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.8",
+                "original_segment_sha256": "703448b0824d67a6b71959d851e329ab6f27f18d7b3554c78c703b8391cb19ce",
+                "original_text": "ντὸν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 8,
+                "inherited_record_sha256": "929b20c7a8281667f58dc8f16f0479c31412f9f4d6260715dd571308070b59cb",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.25",
+                "original_segment_sha256": "743cd5b4a989fcf425c8e963cb0e647d91c6493ee5aeb1f1583af7d3a9756a24",
+                "original_text": "μιζομένη",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 12,
+                "inherited_record_sha256": "6ad3e2993a97431768e27abb3f26b291763d62c8854cfc9d6e0e59ef32925537",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0184.4",
+                "original_segment_sha256": "c6ba257ea3d265f678e3857c2bef62a283e9658689119e7b980abb522d13ffca",
+                "original_text": "σκευασθεῖσαι",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 7,
+                "inherited_record_sha256": "1c5945da99bcbe32eb7af8962202301c2e64d9fca8a30a4f05fe908a3f145cf1",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.5",
+                "original_segment_sha256": "207a90b81545f0cc1f17bdfa58fa2cd6bd47906ce4fe2ad6cb0f8c0e78d988f9",
+                "original_text": "πέρποδῃ",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "ebfbf4120abd3f74c7c3f70f45c9df0b2801fd9456d9ae5c61d470e08cdb4847",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.8",
+                "original_segment_sha256": "9a1e53b4e96255022aea7c86bfc541dd8caae053da8b1fbf2f190eaa765467be",
+                "original_text": "ἀντι-",
+                "segment_index": 1,
+                "start": 44
+              },
+              {
+                "end": 7,
+                "inherited_record_sha256": "e23d2aa5b34b4359d16c57e76874800b0810bebfd624d288474dada6eecf221f",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+                "original_segment_sha256": "c04dfd2aaf1823b18a06590c63c565c961cfb75b56564714568659b63e8d0ee4",
+                "original_text": "δροῖζε?",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 8,
+                "inherited_record_sha256": "2cbd9a100e3295e637b7c270218e94fa523367b2bd3d5b939d40e48a1128fb27",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0247.43",
+                "original_segment_sha256": "e73321a243a3507bb9b6646179a347817b22994904fdbb6a186bbe2a0c022267",
+                "original_text": "δείκνυσι",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 5,
+                "inherited_record_sha256": "88af1c0d5fec4e559549cebb1d88042c1a1e66f4ea9e72dd440b8ee2978e293f",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0250.3",
+                "original_segment_sha256": "6116434a5c733b8a452a64b9f22b9eed2ba2a5672944a05100f42671543959d5",
+                "original_text": "γάγεῖ",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0037.4",
+                "segment_index": 5
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0038.11",
+                "segment_index": 1
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0152.4",
+                "segment_index": 9
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0154.4",
+                "segment_index": 1
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0158.8",
+                "segment_index": 2
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0172.7",
+                "segment_index": 3
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0274.3",
+                "segment_index": 23
+              }
+            ],
+            "new_scan_backed_dispositions": 3,
+            "newly_editorially_substituted_spans": 17,
+            "nonlexical_resolution_identities": [
+              {
+                "end": 1,
+                "inherited_record_sha256": "8482ff25b58c1db4d4175e9644e8b28958d394855f4fd98570f40c7f21af3e74",
+                "lexical_eligible": false,
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.9",
+                "original_segment_sha256": "0d5bc521eb6e3a1aa09caa87be132413bdb6e282c8d9eebc48adb61fe8c77ea2",
+                "original_text": "δ",
+                "segment_index": 0,
+                "start": 0,
+                "text_role": "line-number"
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0018.36",
+                "segment_index": 3
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0155.1",
+                "segment_index": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0158.5",
+                "segment_index": 12
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0179.2",
+                "segment_index": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0184.1",
+                "segment_index": 4
+              }
+            ],
+            "nonlexically_classified_spans": 6,
+            "previous_current_uncertainty_spans": 27,
+            "primary_rows_after": 3782,
+            "primary_rows_before": 3782,
+            "resolved_by_text_role": {
+              "authorial-body": 17,
+              "line-number": 1,
+              "marginal-reference": 3,
+              "nonlexical-mark": 1,
+              "ocr-insertion": 1,
+              "printed-bracketed-reading": 4
+            },
+            "resolved_identities": [
+              {
+                "end": 5,
+                "inherited_record_sha256": "3b878eb72d7e6204ac3989faf05852c7a684ade62e9e818aabb8781172d655dc",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0038.17",
+                "original_segment_sha256": "55e37e2e149e5be20534f4b8ed91917de986189678c30c584d8d8bf9faa5f680",
+                "original_text": "δῶσιν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "15de8a9f85ff7dc86d1f630762b1abe572e3e118c033e79adefec82cedc01494",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0044.26",
+                "original_segment_sha256": "58923065350717b9feb3a97479cb8e5aa7388b357ad6e2b2f7205630bff2a1b2",
+                "original_text": "μελλαν εξφο-",
+                "segment_index": 1,
+                "start": 37
+              },
+              {
+                "end": 36,
+                "inherited_record_sha256": "293d6b65795a9c8ffafd84a9b9c4eb3e5fd852f4b1ebe131f21b0ca5082414b9",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0069.21",
+                "original_segment_sha256": "fb7aafd3cda4d8210f17f745d1a01df911bf914fd10bf8e2f5265d2107791e2d",
+                "original_text": "ἀλλ' ὅμως, οὕτω μὲν χαρακώσαντες τὸν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "704d3f18030196427ad4ec12df9860171a609bf9d47ad356f65dbfb0e02faa10",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0154.30",
+                "original_segment_sha256": "0b4e4541fef3a807e23e1edbff369a7899da18d715cd2859edbd9cc81fe830c9",
+                "original_text": "πειθόν-",
+                "segment_index": 1,
+                "start": 42
+              },
+              {
+                "end": 50,
+                "inherited_record_sha256": "f6095d1f4854be80cfc94802976bd2ccf26ddbcea1301f2b261a89b765e232de",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.1",
+                "original_segment_sha256": "71b758d6759702bec5a39516473fdc65e806e98ddc36fbb5d1ef58d3eaed3b1a",
+                "original_text": "ἀδικηθή-",
+                "segment_index": 1,
+                "start": 42
+              },
+              {
+                "end": 48,
+                "inherited_record_sha256": "d666de07eea817d3a6ea96c284f54395bed9233714fe7faab4b1e41487ee66bc",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.7",
+                "original_segment_sha256": "d1f57feb87797ff344af344cd07e5b23d00cae5debf06904fd28e5b20b135e12",
+                "original_text": "νικη-",
+                "segment_index": 1,
+                "start": 43
+              },
+              {
+                "end": 4,
+                "inherited_record_sha256": "12ca0918f6f296c755eabc0caa22e989ffd6911c792517a393a7404cd0788ffa",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.8",
+                "original_segment_sha256": "703448b0824d67a6b71959d851e329ab6f27f18d7b3554c78c703b8391cb19ce",
+                "original_text": "ντὸν",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 8,
+                "inherited_record_sha256": "929b20c7a8281667f58dc8f16f0479c31412f9f4d6260715dd571308070b59cb",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0170.25",
+                "original_segment_sha256": "743cd5b4a989fcf425c8e963cb0e647d91c6493ee5aeb1f1583af7d3a9756a24",
+                "original_text": "μιζομένη",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 12,
+                "inherited_record_sha256": "6ad3e2993a97431768e27abb3f26b291763d62c8854cfc9d6e0e59ef32925537",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0184.4",
+                "original_segment_sha256": "c6ba257ea3d265f678e3857c2bef62a283e9658689119e7b980abb522d13ffca",
+                "original_text": "σκευασθεῖσαι",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 7,
+                "inherited_record_sha256": "1c5945da99bcbe32eb7af8962202301c2e64d9fca8a30a4f05fe908a3f145cf1",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.5",
+                "original_segment_sha256": "207a90b81545f0cc1f17bdfa58fa2cd6bd47906ce4fe2ad6cb0f8c0e78d988f9",
+                "original_text": "πέρποδῃ",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 49,
+                "inherited_record_sha256": "ebfbf4120abd3f74c7c3f70f45c9df0b2801fd9456d9ae5c61d470e08cdb4847",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.8",
+                "original_segment_sha256": "9a1e53b4e96255022aea7c86bfc541dd8caae053da8b1fbf2f190eaa765467be",
+                "original_text": "ἀντι-",
+                "segment_index": 1,
+                "start": 44
+              },
+              {
+                "end": 1,
+                "inherited_record_sha256": "8482ff25b58c1db4d4175e9644e8b28958d394855f4fd98570f40c7f21af3e74",
+                "lexical_eligible": false,
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0193.9",
+                "original_segment_sha256": "0d5bc521eb6e3a1aa09caa87be132413bdb6e282c8d9eebc48adb61fe8c77ea2",
+                "original_text": "δ",
+                "segment_index": 0,
+                "start": 0,
+                "text_role": "line-number"
+              },
+              {
+                "end": 7,
+                "inherited_record_sha256": "e23d2aa5b34b4359d16c57e76874800b0810bebfd624d288474dada6eecf221f",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0215.26",
+                "original_segment_sha256": "c04dfd2aaf1823b18a06590c63c565c961cfb75b56564714568659b63e8d0ee4",
+                "original_text": "δροῖζε?",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 8,
+                "inherited_record_sha256": "2cbd9a100e3295e637b7c270218e94fa523367b2bd3d5b939d40e48a1128fb27",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0247.43",
+                "original_segment_sha256": "e73321a243a3507bb9b6646179a347817b22994904fdbb6a186bbe2a0c022267",
+                "original_text": "δείκνυσι",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "end": 5,
+                "inherited_record_sha256": "88af1c0d5fec4e559549cebb1d88042c1a1e66f4ea9e72dd440b8ee2978e293f",
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0250.3",
+                "original_segment_sha256": "6116434a5c733b8a452a64b9f22b9eed2ba2a5672944a05100f42671543959d5",
+                "original_text": "γάγεῖ",
+                "segment_index": 0,
+                "start": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0018.36",
+                "segment_index": 3
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0037.4",
+                "segment_index": 5
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0038.11",
+                "segment_index": 1
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0152.4",
+                "segment_index": 9
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0154.4",
+                "segment_index": 1
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0155.1",
+                "segment_index": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0158.5",
+                "segment_index": 12
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0158.8",
+                "segment_index": 2
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0172.7",
+                "segment_index": 3
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0179.2",
+                "segment_index": 0
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0184.1",
+                "segment_index": 4
+              },
+              {
+                "locus": "helladius_chrestomathia_photius_bekker_v2_0274.3",
+                "segment_index": 23
+              }
+            ],
+            "resolved_uncertainty_spans": 27,
+            "rows": 37,
+            "scan_uncertainty_spans": 2977
+          },
+          "qualification": "Joint editorial word choices and nonlexical classifications are distinct from historical scan verification."
         },
         "current_measurement": {
           "baseline_uncertainty_spans": 3069,
-          "current_uncertainty_spans": 27,
-          "resolved_uncertainty_spans": 92,
+          "current_uncertainty_spans": 0,
+          "resolved_uncertainty_spans": 27,
           "source_review": {
-            "path": "data/corpus_changes/photius-bekker-editorial-continuation/compiled-review.json.gz",
-            "sha256": "92e1bda2d83523cb07f8611c429bd869d819dea9a9decd71da5809f0e0d99d4a",
-            "uncompressed_sha256": "2ecfd678185abfaaf3b5f69a813c761da05aee90db440cc9c12e16d6baa1cbf5"
+            "path": "data/corpus_changes/photius-bekker-final-review/compiled-review.json.gz",
+            "sha256": "eea3eb470c7a02008aa6e3b6c6e98e49d68a4e87c4017d609fef93cc73d409a5",
+            "uncompressed_sha256": "7adbeab76a44a126db7ccd09c4a6af7de6f359db4ec7827b1743b0fdf5119b9b"
           },
-          "qualification": "Current served unresolved count after successive attributed editorial substitutions. Original scan uncertainties and scan-resolution counts remain historical measurements; editorial source choices are not scan verification. Independent fragment and nonbody exclusions survive unless separately source reviewed.",
+          "qualification": "Current served uncertainty count after exact final source decisions. Greek reading resolutions and lexical admission are counted separately from classified references or other nonlexical material. Historical scan uncertainties and earlier scan resolutions remain unchanged; only explicitly attributed editorial word choices increase the editorial substitution count. Original readings, exclusions, and earlier authorities remain reversible.",
           "scan_uncertainty_spans": 2977,
           "scan_resolved_uncertainty_spans": 92,
-          "editorially_substituted_spans": 2950,
-          "unsubstituted_source_uncertainty_spans": 27,
-          "addressed_uncertainty_spans": 3042,
+          "editorially_substituted_spans": 2967,
+          "unsubstituted_source_uncertainty_spans": 0,
+          "addressed_uncertainty_spans": 3069,
           "scan_source_review": {
             "path": "data/corpus_changes/photius-bekker-uncertainty-admission/source-review.json",
             "sha256": "675e9b0a86ceb2356966771914d66308cfd3d81e2cef851d7ecacd5670ca45ac"
           },
           "editorial_source_review": {
+            "path": "data/corpus_changes/photius-bekker-final-review/compiled-review.json.gz",
+            "sha256": "eea3eb470c7a02008aa6e3b6c6e98e49d68a4e87c4017d609fef93cc73d409a5",
+            "uncompressed_sha256": "7adbeab76a44a126db7ccd09c4a6af7de6f359db4ec7827b1743b0fdf5119b9b"
+          },
+          "newly_editorially_substituted_spans": 17,
+          "fresh_source_corrections": 4,
+          "previous_editorial_source_review": {
             "path": "data/corpus_changes/photius-bekker-editorial-continuation/compiled-review.json.gz",
             "sha256": "92e1bda2d83523cb07f8611c429bd869d819dea9a9decd71da5809f0e0d99d4a",
             "uncompressed_sha256": "2ecfd678185abfaaf3b5f69a813c761da05aee90db440cc9c12e16d6baa1cbf5"
           },
-          "newly_editorially_substituted_spans": 358,
-          "fresh_source_corrections": 4,
-          "previous_editorial_source_review": {
-            "path": "data/corpus_changes/photius-bekker-editorial-substitutions/compiled-review.json.gz",
-            "sha256": "76abb40a4759da8659bf8646fc80a9310c1c519adc6fb4a7ef3fe5b767fed633",
-            "uncompressed_sha256": "c908b6635fd1974b5ab8e1a004f33bbaa5290f5b8fe03f3943b85438087a0e4e"
+          "final_review_lexical_resolution_spans": 21,
+          "final_review_lexically_admitted_spans": 17,
+          "final_review_scan_backed_dispositions": 3,
+          "nonlexically_classified_spans": 6,
+          "resolved_by_text_role": {
+            "authorial-body": 17,
+            "line-number": 1,
+            "marginal-reference": 3,
+            "nonlexical-mark": 1,
+            "ocr-insertion": 1,
+            "printed-bracketed-reading": 4
+          },
+          "previous_source_review": {
+            "path": "data/corpus_changes/photius-bekker-editorial-continuation/compiled-review.json.gz",
+            "sha256": "92e1bda2d83523cb07f8611c429bd869d819dea9a9decd71da5809f0e0d99d4a",
+            "uncompressed_sha256": "2ecfd678185abfaaf3b5f69a813c761da05aee90db440cc9c12e16d6baa1cbf5"
+          },
+          "final_source_review": {
+            "path": "data/corpus_changes/photius-bekker-final-review/compiled-review.json.gz",
+            "sha256": "eea3eb470c7a02008aa6e3b6c6e98e49d68a4e87c4017d609fef93cc73d409a5",
+            "uncompressed_sha256": "7adbeab76a44a126db7ccd09c4a6af7de6f359db4ec7827b1743b0fdf5119b9b"
+          },
+          "final_review_dispositions": {
+            "classify-nonlexical-mark": 1,
+            "correct-scan-reading": 3,
+            "editorial-word-choice": 2,
+            "editorial-word-choice-omission": 1,
+            "exclude-marginal-reference": 3,
+            "joint-editorial-word-choice": 15,
+            "retain-edition-variant": 1,
+            "spurious-ocr-insertion": 1
           }
         },
         "covered_authorial_scan_pages": 545,
@@ -14424,19 +15594,19 @@
         "added_passages": 309,
         "preserved_index_passages": 501,
         "publication": {
-          "declared_release": "corpus-2026-10-21.7",
+          "declared_release": "corpus-2026-10-21.8",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
       },
-      "corpus_file_sha256": "aa39e3465387f5f192a509acbb7b8107c4641e3bf2a92bdf774d3253b2c7a1a0",
+      "corpus_file_sha256": "64f37b6731e5d2429b865e499bb7919e3830f4ec7dfe31b192ce2552a27e6b58",
       "edition": {
         "edition": "bekker1824-independent-ocr-consensus",
         "id": "ogc002810",
         "license": "CC-BY-SA-4.0",
-        "n_analysis_tokens": 283125,
+        "n_analysis_tokens": 283145,
         "n_passages": 3782,
-        "n_tokens": 431614,
+        "n_tokens": 431599,
         "source": "ocr"
       },
       "passages": 3782,
@@ -31394,7 +32564,7 @@
           "held_other_works": 474
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21.7",
+          "declared_release": "corpus-2026-10-21.8",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -31992,7 +33162,7 @@
           "preserved_historical_citations": 304
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21.7",
+          "declared_release": "corpus-2026-10-21.8",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -35932,7 +37102,7 @@
           "preserved_historical_citations": 57
         },
         "publication": {
-          "declared_release": "corpus-2026-10-21.7",
+          "declared_release": "corpus-2026-10-21.8",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
@@ -40767,7 +41937,7 @@
           }
         ],
         "publication": {
-          "declared_release": "corpus-2026-10-21.7",
+          "declared_release": "corpus-2026-10-21.8",
           "tracker_close_criterion": "Close only after these audited corpus bytes are in a tagged release; name that tag in the closing comment.",
           "reopen_when": "A newly identified surviving Greek source, missing edition page, incorrect work boundary, or invalidated source/reading audit changes this coverage evidence."
         }
