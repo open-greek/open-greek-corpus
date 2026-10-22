@@ -21,6 +21,10 @@ def test_retained_body_images_have_pinned_capture_identity():
     manifest = sources.check(ROOT)
     assert len(manifest["pages"]) == 35
     assert manifest["pages"]["72"]["printed_page"] == 2
+
+
+def test_optional_native_image_rendering_preserves_capture_resolution():
+    pytest.importorskip("PIL")
     assert sources.image(72).size == (1996, 3395)
 
 

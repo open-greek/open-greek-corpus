@@ -60,6 +60,9 @@ The source helper reconstructs the retained image bundle from the pinned
 [original capture archive](https://archive.org/download/mimesfragments00hero/mimesfragments00hero_orig_jp2.tar)
 and scan metadata. It verifies the complete archive before selecting the body
 images; the large download may remain in an ignored local cache.
+Reconstruction and integrity checks use the Python standard library. The
+helper's optional Python `image()` inspection function uses Pillow to rotate
+and crop a native capture without resizing it.
 
 ```sh
 python3 scripts/fetch_herodas_reading_sources.py \
